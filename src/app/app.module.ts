@@ -3,6 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavbarModule } from './shell/navbar/navbar.module';
+import { HeaderModule } from './shell/header/header.module';
+import { MainModule } from './shell/main/main.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +14,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HeaderModule,
+    NavbarModule,
+    MainModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,27 @@
+.navbar {
+  position: fixed;
+  height: 100%;
+  width: 25%;
+  margin: 0;
+  padding: 0;
+  border-right: 1px solid #cacaca;
+  list-style-type: none;
+  background-color: #fff;
+  overflow: auto;
+
+  &-item {
+    list-style-type: none;
+    a {
+      color: #000;
+      display: block;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+    a.active {
+      background-color: #4caf50;
+    }
+    a:hover:not(.active) {
+      background-color: #eee;
+    }
+  }
+}

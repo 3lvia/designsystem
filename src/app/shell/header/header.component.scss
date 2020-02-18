@@ -1,0 +1,18 @@
+.header {
+  height: 70px;
+  border-bottom: 1px solid #cacaca;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff;
+  display: flex;
+
+  .logo {
+    display: flex;
+    width: 25%;
+    justify-content: center;
+    align-items: center;
+    color: #29D305;
+    text-decoration: none;
+  }
+}
