@@ -2,9 +2,76 @@
 
 $font-family: "Red Hat Display", sans-serif;
 
+@function font-size($name) {
+  $typography-map: null;
+
+  @if map-has-key($typography, $name) {
+    $typography-map: map-get($typography, $name);
+  } @else {
+    @each $label, $map in $typography {
+      @if map-has-key($typography, alt-labels) {
+        @if contains(map-get($map, alt-labels), $name) {
+          $typography-map: $map;
+        }
+      }
+    }
+  }
+
+  @if not $typography-map {
+    @warn 'the typography variable "#{$name}" was not found';
+    @return null;
+  }
+
+  @return map-get($typography-map, size);
+}
+
 body {
   font-family: $font-family;
   color: color('font');
 }
+
+// Klassene som legges på .is- i typography i utilities
+$typography: (
+  h1: (
+    family: $font-family,
+    size: 1.25rem,
+    spacing: .21px,
+    weight: 500,
+    color: color('font'),
+    elements: (h1)
+  ),
+  h2: (
+    family: $font-family,
+    size: 1rem,
+    spacing: .21px,
+    weight: 400,
+    color: color('font'),
+    elements: (h2)
+  ),
+  h3: (
+    family: $font-family,
+    size: .875rem,
+    spacing: .21px,
+    weight: 500,
+    color: color('font'),
+    elements: (h3)
+  ),
+  p: (
+    family: $font-family,
+    size: .875rem,
+    spacing: .21px,
+    weight: 400,
+    color: color('font'),
+    elements: (p)
+  ),
+  p-small: (
+    family: $font-family,
+    size: .675rem,
+    spacing: .21px,
+    weight: 400,
+    color: color('font')
+  ),
+);
+
 
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap");
