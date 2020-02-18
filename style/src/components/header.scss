@@ -1,0 +1,79 @@
+$header-height: 66px;
+$header-z-index: 99;
+$header-img-size: 40px;
+
+.elvis-header {
+  position: sticky;
+  top: 0;
+  height: $header-height;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+
+  background: white;
+//   box-shadow: ....
+  z-index: $header-z-index;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+
+  &_logo {
+    flex: 1 1 0%;
+    display: flex;
+    align-items: center;
+  }
+  &_title {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 0px 1rem;
+  }
+  &-user {
+    flex: 1 1 0%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    &_icon-image {
+      width: $header-img-size;
+      height: $header-img-size;
+      margin-right: 8px;
+      border-radius: 100%;
+
+      background: grey;
+      background-position: center;
+    }
+
+    &_icon-no-image {
+      background-color: blue;
+      width: $header-img-size;
+      height: $header-img-size;
+      margin-right: 8px;
+      border-radius: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+      text-transform: uppercase;
+    }
+
+    &_name {
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      color: black;
+
+      // give space for next if exist
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+
+      // hide when small screen
+      display: none;
+    }
+  }
+}

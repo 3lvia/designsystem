@@ -1,0 +1,81 @@
+$feedback-padding: 20px 30px;
+$feedback-border-radius: 4px;
+$feedback-min-width: 260px;
+$feedback-icon-size: 24px;
+$feedback-icon-gap: 20px;
+$feedback-close-button-size: 16px;
+$feedback-message-gap: 10px;
+
+.elvis-feedback-message {
+  // Variable containing '&' to jump to current parent inside a child class.
+  $this: &;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: $feedback-min-width;
+  padding: $feedback-padding;
+  border: none;
+  border-radius: $feedback-border-radius;
+  box-sizing: border-box;
+  
+  // .is-info is the default for any feedback-container
+  @extend .is-info;
+//   @extend .is-p;
+
+  &.is-success {
+    background: lightgreen;
+    
+    #{$this}_icon, #{$this}_message, #{$this}_close-button {
+      color: lightgreen;
+    }
+  }
+
+  &.is-info {
+    background-color: lightblue;
+
+    #{$this}_icon, #{$this}_message, #{$this}_close-button {
+      color: lightblue;
+    }
+  }
+
+  &.is-warn {
+    background-color: yellow;
+
+    #{$this}_icon, #{$this}_message, #{$this}_close-button {
+      color: white;
+    }
+  }
+
+  &.is-error {
+    background-color: red;
+
+    #{$this}_icon, #{$this}_message, #{$this}_close-button {
+      color: white;
+    }
+  }
+
+  &_icon {
+    flex: none;
+    margin-right: $feedback-icon-gap;
+    font-size: $feedback-icon-size;
+  }
+
+  &_message {
+    flex: auto;
+    margin-right: $feedback-message-gap;
+    font-size: font-size('p');
+    line-height: 1.125rem;
+  }
+
+  &_close-button {
+    flex: none;
+    width: $feedback-icon-size;
+    height: $feedback-icon-size;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: $feedback-close-button-size;
+    cursor: pointer;
+  }
+}

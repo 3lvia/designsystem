@@ -1,0 +1,57 @@
+$dropdown-border: 1px solid blue;
+$dropdown-margin: 20px;
+$dropdown-item-padding: 0.625rem 0.75rem;
+
+.elvis-dropdown {
+  position: relative;
+  box-sizing: border-box;
+
+  &_content {
+    @extend .is-aligned-bottom;
+    display: none;    
+    position: absolute;
+    z-index: 90;
+    min-width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+
+    /*
+    Left and min-width calculation is to correct pixel error where dropdown is 1 px
+    to the left of relative search field;
+    */
+    left: -1px;
+    min-width: calc(100% + 1px);
+    border: $dropdown-border;
+    border-radius: 4px;
+    background: white;
+
+    &.is-aligned-top {
+      top: initial;
+      bottom: 100%;
+      margin-bottom: 0;
+    }
+
+    &.is-aligned-bottom {
+      top:100%;
+      margin-bottom: $dropdown-margin;
+    }
+
+    &.is-active {
+      display: block;
+    }
+
+    &_item {
+      padding: $dropdown-item-padding;
+      cursor: pointer;
+
+      &:hover:not(.no-hover) {
+        @extend .is-active;
+      }
+
+      &.is-active {
+        background: blue;
+        color: white;
+      }
+    }
+  }
+}
