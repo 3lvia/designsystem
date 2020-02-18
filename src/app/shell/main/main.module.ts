@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
 import { RouterModule } from '@angular/router';
@@ -12,7 +12,10 @@ import { NavbarModule } from '../navbar/navbar.module';
     HeaderModule,
     NavbarModule
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   declarations: [MainComponent],
-  exports: [MainComponent]
+  exports: [MainComponent],
 })
 export class MainModule { }
