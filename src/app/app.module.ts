@@ -1,14 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TestComponent } from './test/test.component';
+import { ButtonPreviewComponent } from './button-preview/button-preview.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TestComponent
+    ButtonPreviewComponent
   ],
   imports: [
     BrowserModule,
