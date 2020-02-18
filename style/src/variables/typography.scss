@@ -1,7 +1,10 @@
+@import './colors.scss';
+
 $font-family: "Red Hat Display", sans-serif;
 
 body {
   font-family: $font-family;
+  color: color('font');
 }
 
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap");
