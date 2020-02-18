@@ -23,7 +23,7 @@ class Button extends LitElement {
   }
   
   render() {
-    return html`<button><slot></slot> ${this.myString[0]}</button>`;
+    return html`<button><slot></slot></button>`;
   }
 }
 
