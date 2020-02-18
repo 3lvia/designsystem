@@ -1,4 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: 'Red Hat Display', sans-serif;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+/**
+ * Reset box-sizing to get the expected layout of elements
+ */
+
+html {
+  box-sizing: border-box;
+}
+
+/**
+ * Reset box-sizing to get the expected layout of elements
+ */
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/**
+ * Remove color and text decoration of a tags
+ */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap');

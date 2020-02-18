@@ -6,13 +6,21 @@
   overflow: hidden;
   background-color: #fff;
   display: flex;
+  flex-direction: row;
 
-  .logo {
+  &_logo {
     display: flex;
     width: 18%;
     justify-content: center;
     align-items: center;
-    color: #29D305;
-    text-decoration: none;
+    cursor: pointer;
+  }
+  &_title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 82%;
+    padding: 20px;
   }
 }
