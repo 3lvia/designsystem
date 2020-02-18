@@ -1,0 +1,17 @@
+.elvis-link {
+  text-decoration: none;
+  color: blue;
+  box-sizing: border-box;
+
+  &:hover:not(.no-hover),
+  &.is-hovering,
+  &:focus:not(.no-focus),
+  &.is-focusing {
+    text-decoration: underline;
+  }
+  &:active:not(.no-active),
+  &.is-active {
+    color: darkblue;
+    text-decoration: underline;
+  }
+}

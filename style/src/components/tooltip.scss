@@ -1,0 +1,127 @@
+$tooltip-border-style: 5px solid;
+$tooltip-margin-offset: -5px;
+$tooltip-calculate-height: auto;
+$tooltip-vertical-transform: translate(-50%, 0);
+$tooltip-horizontal-transform: translate(0, -50%);
+
+.elvis-tooltip {
+  // Variable containing '&' to jump to current parent inside a child class.
+  $this: &;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+
+  &:hover {
+    #{$this}_content {
+      @extend .elvis-tooltip_content, .is-active;
+    }
+  }
+  &:focus {
+    #{$this}_content {
+      @extend .elvis-tooltip_content, .is-active;
+    }
+  }
+
+  &_content {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    width: max-content;
+    max-width: 25ch;
+    pointer-events: none;
+    background-color: grey;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 4px;
+    transition: 200ms;
+
+    // Defaults to is-bottom tooltip if no direction class is applied.
+    &:not(.is-right):not(.is-left):not(.is-top) {
+      @extend .is-bottom;
+    }
+
+    &.is-right {
+      top: 50%;
+      left: 110%;
+      transform: $tooltip-horizontal-transform;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: $tooltip-margin-offset;
+        border: $tooltip-border-style;
+        border-color: transparent grey transparent transparent;
+      }
+    }
+    &.is-left {
+      top: 50%;
+      right: 110%;
+      transform: $tooltip-horizontal-transform;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: $tooltip-margin-offset;
+        border: $tooltip-border-style;
+        border-color: transparent transparent transparent grey;
+      }
+    }
+    &.is-bottom {
+      top: 150%;
+      left: 50%;
+      transform: $tooltip-vertical-transform;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: $tooltip-margin-offset;
+        border: $tooltip-border-style;
+        border-color: transparent transparent grey transparent;
+      }
+    }
+
+    &.is-top {
+      bottom: 150%;
+      left: 50%;
+      transform: $tooltip-vertical-transform;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: $tooltip-margin-offset;
+        border: $tooltip-border-style;
+        border-color: grey transparent transparent transparent;
+      }
+    }
+    &.is-active {
+      opacity: 1;
+      z-index: 90;
+    }
+  }
+  &.is-light {
+    #{$this}_content {
+      background-color: white !important;
+      color: black !important;
+    }
+    #{$this}_content.is-right::after {
+      border-color: transparent white transparent transparent !important;
+    }
+    #{$this}_content.is-left::after {
+      border-color: transparent transparent transparent white !important;
+    }
+    #{$this}_content.is-top::after {
+      border-color: white transparent transparent transparent !important;
+    }
+    #{$this}_content.is-bottom::after {
+      border-color: transparent transparent white transparent !important;
+    }
+  }
+}

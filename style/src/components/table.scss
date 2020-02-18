@@ -1,0 +1,128 @@
+$table-header-padding: 1.2rem 1rem;
+$table-row-padding: 0.7rem 1rem;
+$table-first-column-padding: 1.5rem;
+$table-last-column-padding: 1.5rem;
+
+.elvis-table {
+  //Creating variable containing '&' to jump to parent inside a child class.
+  $this: &;
+
+  min-width: 100%;
+  overflow: scroll;
+  border-spacing: 0;
+  border-collapse: collapse;
+  background: white;
+  box-sizing: border-box;
+
+  th,
+  td {
+    margin: 0;
+    padding: $table-row-padding;
+    text-align: left;
+
+    &#{$this}_action {
+      display: flex;
+      float: right;
+      font-size: 24px;
+      text-align: right;
+
+      > * {
+        margin: 0 0.5rem;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+
+  &.no-wrap {
+    th,
+    td {
+      white-space: nowrap;
+    }
+  }
+
+  &:not(.no-row-padding) {
+    &#{$this}_row,
+    tr {
+      > *:first-child {
+        padding-left: $table-first-column-padding;
+      }
+
+      > *:last-child {
+        padding-right: $table-last-column-padding;
+      }
+    }
+  }
+
+  &_row,
+  tr {
+    &.is-stripe {
+      background: blue;
+    }
+
+    &.is-selected {
+      background: blue;
+    }
+  }
+
+  td {
+    // .is-p is font-properties, defined in typography.
+    // TODO: Typography of Elvia
+  }
+
+  &_header {
+    // .is-h3 is font-properties, defined in typography.
+    // @extend .is-h3;
+    font-size: large;
+
+    border-bottom: 2px solid grey;
+    text-align: left;
+
+    th,
+    td {
+      padding: $table-header-padding;
+
+      > i {
+        margin-left: 0.3rem;
+      }
+    }
+  }
+
+  &.is-striped {
+    tr:nth-of-type(even) {
+      @extend .elvis-table_row, .is-stripe;
+    }
+  }
+
+  &.is-aligned-top {
+    td {
+      vertical-align: top;
+    }
+  }
+
+  &.is-aligned-bottom {
+    td {
+      vertical-align: bottom;
+    }
+  }
+
+  &.has-shadow {
+ 
+    border-radius: 5px;
+  }
+
+  &.is-sticky-header {
+    th {
+      position: sticky;
+      top: 0; // set this higher if it overlaps with another sticky
+      background: white;
+      z-index: 1;
+    }
+  }
+}

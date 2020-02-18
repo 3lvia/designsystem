@@ -1,3 +1,408 @@
-.elvis-btn {
-  background-color: blue;
+.elvis-badge {
+  background: red; }
+
+body {
+  background-color: #f3f4f6; }
+
+*::selection {
+  background: lightblue;
   color: white; }
+
+*:focus {
+  outline-color: lightblue; }
+
+.elvis-btn {
+  color: white;
+  padding: 1rem;
+  border: 1px solid black;
+  background-color: #2196F3;
+  border-radius: 4px;
+  text-transform: uppercase; }
+
+.elvis-card {
+  border-radius: 4px;
+  display: inline-flex;
+  width: 100%;
+  flex-direction: column;
+  background: white;
+  box-sizing: border-box; }
+  .elvis-card.is-full-height {
+    height: 100%; }
+  .elvis-card_header {
+    display: flex;
+    padding: 1.375rem 1.375rem; }
+    .elvis-card_header_icon {
+      display: inline-flex;
+      align-self: center;
+      margin-right: 8px;
+      color: blue;
+      line-height: 28px;
+      vertical-align: top; }
+    .elvis-card_header_text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: center;
+      width: 100%; }
+    .elvis-card_header .is-center {
+      display: flex;
+      justify-content: center; }
+  .elvis-card_title {
+    display: flex;
+    height: 100%;
+    font-weight: bold; }
+  .elvis-card_subtitle {
+    display: block;
+    color: black; }
+  .elvis-card_scroll-wrapper {
+    overflow-x: auto; }
+  .elvis-card_content {
+    display: block;
+    margin-bottom: 1.375rem;
+    padding: 0 1.375rem; }
+  .elvis-card_actions {
+    display: flex;
+    margin-top: auto;
+    /* Align buttons always to the bottom of the card */
+    padding: 1.375rem 1.375rem; }
+    .elvis-card_actions .elvis-button {
+      flex: auto; }
+      .elvis-card_actions .elvis-button:not(:last-child) {
+        margin-right: 25px; }
+    .elvis-card_actions_action {
+      flex-grow: 1;
+      margin: calc(1.375rem * -1) calc(1.375rem * -1);
+      padding: 13px 0;
+      border: 0;
+      border-top: 1px solid lightgrey;
+      border-radius: 0;
+      background: transparent;
+      color: blue;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer; }
+      .elvis-card_actions_action:hover:not(.no-hover), .elvis-card_actions_action.is-hovering {
+        background-color: lightblue; }
+
+.elvis-divider {
+  border: 1px solid grey; }
+  .elvis-divider.is-light {
+    border-color: lightgrey; }
+
+.elvis-dropdown {
+  position: relative;
+  box-sizing: border-box; }
+  .elvis-dropdown_content {
+    display: none;
+    position: absolute;
+    z-index: 90;
+    min-width: 100%;
+    max-height: 150px;
+    overflow-y: auto;
+    /*
+    Left and min-width calculation is to correct pixel error where dropdown is 1 px
+    to the left of relative search field;
+    */
+    left: -1px;
+    min-width: calc(100% + 1px);
+    border: 1px solid blue;
+    border-radius: 4px;
+    background: white; }
+    .elvis-dropdown_content.is-aligned-top {
+      top: initial;
+      bottom: 100%;
+      margin-bottom: 0; }
+    .elvis-dropdown_content.is-aligned-bottom, .elvis-dropdown_content {
+      top: 100%;
+      margin-bottom: 20px; }
+    .elvis-dropdown_content.is-active, .elvis-dropdown_content.elvis-dropdown_content_item:hover:not(.no-hover), .elvis-tooltip:hover .elvis-dropdown_content.elvis-tooltip_content, .elvis-tooltip:focus .elvis-dropdown_content.elvis-tooltip_content {
+      display: block; }
+    .elvis-dropdown_content_item {
+      padding: 0.625rem 0.75rem;
+      cursor: pointer; }
+      .elvis-dropdown_content_item.is-active, .elvis-dropdown_content_item:hover:not(.no-hover), .elvis-tooltip:hover .elvis-dropdown_content_item.elvis-tooltip_content, .elvis-tooltip:focus .elvis-dropdown_content_item.elvis-tooltip_content {
+        background: blue;
+        color: white; }
+
+.elvis-feedback-message {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 260px;
+  padding: 20px 30px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box; }
+  .elvis-feedback-message.is-success {
+    background: lightgreen; }
+    .elvis-feedback-message.is-success .elvis-feedback-message_icon, .elvis-feedback-message.is-success .elvis-feedback-message_message, .elvis-feedback-message.is-success .elvis-feedback-message_close-button {
+      color: lightgreen; }
+  .elvis-feedback-message.is-info, .elvis-feedback-message {
+    background-color: lightblue; }
+    .elvis-feedback-message.is-info .elvis-feedback-message_icon, .elvis-feedback-message .elvis-feedback-message_icon, .elvis-feedback-message.is-info .elvis-feedback-message_message, .elvis-feedback-message .elvis-feedback-message_message, .elvis-feedback-message.is-info .elvis-feedback-message_close-button, .elvis-feedback-message .elvis-feedback-message_close-button {
+      color: lightblue; }
+  .elvis-feedback-message.is-warn {
+    background-color: yellow; }
+    .elvis-feedback-message.is-warn .elvis-feedback-message_icon, .elvis-feedback-message.is-warn .elvis-feedback-message_message, .elvis-feedback-message.is-warn .elvis-feedback-message_close-button {
+      color: white; }
+  .elvis-feedback-message.is-error {
+    background-color: red; }
+    .elvis-feedback-message.is-error .elvis-feedback-message_icon, .elvis-feedback-message.is-error .elvis-feedback-message_message, .elvis-feedback-message.is-error .elvis-feedback-message_close-button {
+      color: white; }
+  .elvis-feedback-message_icon {
+    flex: none;
+    margin-right: 20px;
+    font-size: 24px; }
+  .elvis-feedback-message_message {
+    flex: auto;
+    margin-right: 10px;
+    font-size: font-size("p");
+    line-height: 1.125rem; }
+  .elvis-feedback-message_close-button {
+    flex: none;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    font-size: 16px;
+    cursor: pointer; }
+
+.elvis-header {
+  position: sticky;
+  top: 0;
+  height: 66px;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  background: white;
+  z-index: 99;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap; }
+  .elvis-header_logo {
+    flex: 1 1 0%;
+    display: flex;
+    align-items: center; }
+  .elvis-header_title {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: 0px 1rem; }
+  .elvis-header-user {
+    flex: 1 1 0%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; }
+    .elvis-header-user_icon-image {
+      width: 40px;
+      height: 40px;
+      margin-right: 8px;
+      border-radius: 100%;
+      background: grey;
+      background-position: center; }
+    .elvis-header-user_icon-no-image {
+      background-color: blue;
+      width: 40px;
+      height: 40px;
+      margin-right: 8px;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-transform: uppercase; }
+    .elvis-header-user_name {
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      color: black;
+      display: none; }
+      .elvis-header-user_name:not(:last-child) {
+        margin-right: 8px; }
+
+.elvis-link {
+  text-decoration: none;
+  color: blue;
+  box-sizing: border-box; }
+  .elvis-link:hover:not(.no-hover), .elvis-link.is-hovering, .elvis-link:focus:not(.no-focus), .elvis-link.is-focusing {
+    text-decoration: underline; }
+  .elvis-link:active:not(.no-active), .elvis-link.is-active, .elvis-link.elvis-dropdown_content_item:hover:not(.no-hover), .elvis-tooltip:hover .elvis-link.elvis-tooltip_content, .elvis-tooltip:focus .elvis-link.elvis-tooltip_content {
+    color: darkblue;
+    text-decoration: underline; }
+
+.elvis-table {
+  min-width: 100%;
+  overflow: scroll;
+  border-spacing: 0;
+  border-collapse: collapse;
+  background: white;
+  box-sizing: border-box; }
+  .elvis-table th,
+  .elvis-table td {
+    margin: 0;
+    padding: 0.7rem 1rem;
+    text-align: left; }
+    .elvis-table th.elvis-table_action,
+    .elvis-table td.elvis-table_action {
+      display: flex;
+      float: right;
+      font-size: 24px;
+      text-align: right; }
+      .elvis-table th.elvis-table_action > *,
+      .elvis-table td.elvis-table_action > * {
+        margin: 0 0.5rem; }
+        .elvis-table th.elvis-table_action > *:first-child,
+        .elvis-table td.elvis-table_action > *:first-child {
+          margin-left: 0; }
+        .elvis-table th.elvis-table_action > *:last-child,
+        .elvis-table td.elvis-table_action > *:last-child {
+          margin-right: 0; }
+  .elvis-table.no-wrap th,
+  .elvis-table.no-wrap td {
+    white-space: nowrap; }
+  .elvis-table:not(.no-row-padding).elvis-table_row > *:first-child, .elvis-table.is-striped tr.elvis-table:not(.no-row-padding):nth-of-type(even) > *:first-child,
+  .elvis-table:not(.no-row-padding) tr > *:first-child {
+    padding-left: 1.5rem; }
+  .elvis-table:not(.no-row-padding).elvis-table_row > *:last-child, .elvis-table.is-striped tr.elvis-table:not(.no-row-padding):nth-of-type(even) > *:last-child,
+  .elvis-table:not(.no-row-padding) tr > *:last-child {
+    padding-right: 1.5rem; }
+  .elvis-table_row.is-stripe, .elvis-table.is-striped tr:nth-of-type(even),
+  .elvis-table tr.is-stripe,
+  .elvis-table.is-striped tr:nth-of-type(even) {
+    background: blue; }
+  .elvis-table_row.is-selected, .elvis-table.is-striped tr.is-selected:nth-of-type(even),
+  .elvis-table tr.is-selected {
+    background: blue; }
+  .elvis-table_header {
+    font-size: large;
+    border-bottom: 2px solid grey;
+    text-align: left; }
+    .elvis-table_header th,
+    .elvis-table_header td {
+      padding: 1.2rem 1rem; }
+      .elvis-table_header th > i,
+      .elvis-table_header td > i {
+        margin-left: 0.3rem; }
+  .elvis-table.is-aligned-top td {
+    vertical-align: top; }
+  .elvis-table.is-aligned-bottom td, .elvis-table.elvis-dropdown_content td {
+    vertical-align: bottom; }
+  .elvis-table.has-shadow {
+    border-radius: 5px; }
+  .elvis-table.is-sticky-header th {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1; }
+
+.elvis-tags {
+  position: relative;
+  margin-top: 0.5rem;
+  box-sizing: border-box; }
+  .elvis-tags_icon,
+  .elvis-tags svg,
+  .elvis-tags i {
+    font-size: 1rem;
+    display: inline-block;
+    margin: 0;
+    margin-left: 0.5rem;
+    padding: 0;
+    border: none;
+    background: none;
+    color: black;
+    cursor: pointer; }
+  .elvis-tags_item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 45px;
+    margin-left: 16px;
+    padding: 10px;
+    border-radius: 4px;
+    background: blue;
+    color: black;
+    letter-spacing: 0.15px; }
+    .elvis-tags_item:first-child {
+      margin-left: 0; }
+
+.elvis-tooltip {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box; }
+  .elvis-tooltip_content, .elvis-tooltip:hover .elvis-tooltip_content, .elvis-tooltip:focus .elvis-tooltip_content {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    width: max-content;
+    max-width: 25ch;
+    pointer-events: none;
+    background-color: grey;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 4px;
+    transition: 200ms; }
+    .elvis-tooltip_content.is-right, .elvis-tooltip:hover .is-right.elvis-tooltip_content, .elvis-tooltip:focus .is-right.elvis-tooltip_content {
+      top: 50%;
+      left: 110%;
+      transform: translate(0, -50%); }
+      .elvis-tooltip_content.is-right::after, .elvis-tooltip:hover .is-right.elvis-tooltip_content::after, .elvis-tooltip:focus .is-right.elvis-tooltip_content::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: -5px;
+        border: 5px solid;
+        border-color: transparent grey transparent transparent; }
+    .elvis-tooltip_content.is-left, .elvis-tooltip:hover .is-left.elvis-tooltip_content, .elvis-tooltip:focus .is-left.elvis-tooltip_content {
+      top: 50%;
+      right: 110%;
+      transform: translate(0, -50%); }
+      .elvis-tooltip_content.is-left::after, .elvis-tooltip:hover .is-left.elvis-tooltip_content::after, .elvis-tooltip:focus .is-left.elvis-tooltip_content::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: -5px;
+        border: 5px solid;
+        border-color: transparent transparent transparent grey; }
+    .elvis-tooltip_content.is-bottom, .elvis-tooltip:hover .is-bottom.elvis-tooltip_content, .elvis-tooltip:focus .is-bottom.elvis-tooltip_content, .elvis-tooltip_content:not(.is-right):not(.is-left):not(.is-top) {
+      top: 150%;
+      left: 50%;
+      transform: translate(-50%, 0); }
+      .elvis-tooltip_content.is-bottom::after, .elvis-tooltip:hover .is-bottom.elvis-tooltip_content::after, .elvis-tooltip:focus .is-bottom.elvis-tooltip_content::after, .elvis-tooltip_content:not(.is-top):not(.is-left):not(.is-right)::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border: 5px solid;
+        border-color: transparent transparent grey transparent; }
+    .elvis-tooltip_content.is-top, .elvis-tooltip:hover .is-top.elvis-tooltip_content, .elvis-tooltip:focus .is-top.elvis-tooltip_content {
+      bottom: 150%;
+      left: 50%;
+      transform: translate(-50%, 0); }
+      .elvis-tooltip_content.is-top::after, .elvis-tooltip:hover .is-top.elvis-tooltip_content::after, .elvis-tooltip:focus .is-top.elvis-tooltip_content::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border: 5px solid;
+        border-color: grey transparent transparent transparent; }
+    .elvis-tooltip_content.is-active, .elvis-tooltip_content.elvis-dropdown_content_item:hover:not(.no-hover), .elvis-tooltip:hover .elvis-tooltip_content, .elvis-tooltip:focus .elvis-tooltip_content {
+      opacity: 1;
+      z-index: 90; }
+  .elvis-tooltip.is-light .elvis-tooltip_content {
+    background-color: white !important;
+    color: black !important; }
+  .elvis-tooltip.is-light .elvis-tooltip_content.is-right::after {
+    border-color: transparent white transparent transparent !important; }
+  .elvis-tooltip.is-light .elvis-tooltip_content.is-left::after {
+    border-color: transparent transparent transparent white !important; }
+  .elvis-tooltip.is-light .elvis-tooltip_content.is-top::after {
+    border-color: white transparent transparent transparent !important; }
+  .elvis-tooltip.is-light .elvis-tooltip_content.is-bottom::after, .elvis-tooltip.is-light .elvis-tooltip_content:not(.is-top):not(.is-left):not(.is-right)::after {
+    border-color: transparent transparent white transparent !important; }

@@ -1,0 +1,7 @@
+.elvis-divider {
+    border: 1px solid grey;
+
+    &.is-light {
+        border-color: lightgrey;
+    }
+}
