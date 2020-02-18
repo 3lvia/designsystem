@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'lit-element';
 
 class Button extends LitElement {
   static get properties() {
-    return { small: { type: Function } };
+    return { myString: { type: Array } };
   }
 
   static get styles() {
@@ -20,12 +20,10 @@ class Button extends LitElement {
 
   constructor() {
     super();
-    this.myString = this.innerHTML;
-
   }
   
   render() {
-    return html`<button><slot></slot></button>`;
+    return html`<button><slot></slot> ${this.myString[0]}</button>`;
   }
 }
 

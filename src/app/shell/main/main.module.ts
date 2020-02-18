@@ -1,16 +1,17 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
-import { ButtonPreviewComponent } from '../../button-preview/button-preview.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
-  declarations: [MainComponent, ButtonPreviewComponent],
-  exports: [MainComponent],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
+  declarations: [MainComponent],
+  exports: [MainComponent],
 })
 export class MainModule { }
