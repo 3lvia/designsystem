@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarModule } from './shell/navbar/navbar.module';
 import { HeaderModule } from './shell/header/header.module';
 import { MainModule } from './shell/main/main.module';
+import { ButtonDocModule } from './doc-pages/button-doc/button-doc.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MainModule } from './shell/main/main.module';
     BrowserAnimationsModule,
     HeaderModule,
     NavbarModule,
-    MainModule
+    MainModule,
+    ButtonDocModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
