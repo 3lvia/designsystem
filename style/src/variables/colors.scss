@@ -1,0 +1,97 @@
+@function color-map($name, $color-set: $colors) {
+  $color-map: null;
+
+  @if map-has-key($color-set, $name) {
+    $color-map: map-get($color-set, $name);
+  } @else {
+    @each $label, $map in $color-set {
+      @if index(map-get($map, alt-labels), $name) {
+        $color-map: $map;
+      }
+    }
+  }
+
+  @if global-variable-exists(override-colors) {
+    @if map-has-key($override-colors, $name) {
+      $color-map: map-get($override-colors, $name);
+    } @else {
+      @each $label, $map in $override-colors {
+        @if index(map-get($map, alt-labels), $name) {
+          $color-map: $map;
+        }
+      }
+    }
+  }
+
+  @if not $color-map {
+    @warn 'the color "#{$name}" was not found';
+    @return null;
+  }
+
+  @return $color-map;
+}
+
+@function color($name, $color-set: $colors) {
+  $map: color-map($name, $color-set);
+  @return map-get($map, color);
+}
+
+@function color-contrast($name, $color-set: $colors) {
+  $map: color-map($name, $color-set);
+  @return map-get($map, contrast);
+}
+
+
+
+// All colors as a list
+$colors: (
+  'white': (
+    color: #FFF,
+    contrast: #000,
+    alt-labels: (primary),
+  ),  
+  'black': (
+    color: #000,
+    contrast: #FFF
+  ),  
+  'grey': (
+    color: #262626,
+    contrast: #FFF,
+    alt-labels: (font),
+  ),  
+  'grey-2': (
+    color: #cacaca,
+    alt-labels: (border),
+  ),
+  'green': (
+    color: #29D305,
+  ),   
+  'yellow': (
+    color: #FFFF00,
+  ),  
+  'yellow-lazer-lemon': (
+    color: rgba(255, 255, 0, 0.5),
+  ),  
+  'yellow-cream': (
+    color: rgba(255, 255, 0, 0.2),
+  ),  
+  'orange-peel': (
+    color: #FFA000,
+  ),  
+  'orange-chardonnay': (
+    color: rgba(255, 160, 0, 0.5),
+  ),  
+  'orange-sandy-beach': (
+    color: rgba(255, 160, 0, 0.2),
+  ),  
+  'red': (
+    color: #FF0000,
+  ),  
+  'red-vivid-tangerine': (
+    color: rgba(255, 0, 0, 0.5),
+  ),  
+  'red-cinderella': (
+    color: rgba(255, 0, 0, 0.2),
+  ),  
+);  
+

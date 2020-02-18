@@ -1,0 +1,111 @@
+@mixin linear-gradient($angle, $gradient1, $gradient2) {
+  background-color: $gradient2;
+  /* Fallback Color */
+  background-image: -webkit-gradient(linear, $angle, from($gradient1), to($gradient2));
+  /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient($angle, $gradient1, $gradient2);
+  /* Chrome 10+, Saf5.1+, iOS 5+ */
+  background-image: -moz-linear-gradient($angle, $gradient1, $gradient2);
+  /* FF3.6 */
+  background-image: -ms-linear-gradient($angle, $gradient1, $gradient2);
+}
+
+@mixin transform($value) {
+  transform: $value;
+  -o-transform: $value;
+  -ms-transform: $value;
+  -webkit-transform: $value;
+}
+
+@mixin transform-origin ($value) {
+  transform-origin: $value;
+  -o-transform-origin: $value;
+  -ms-transform-origin: $value;
+  -webkit-transform-origin: $value;
+}
+
+@mixin animation($name, $duration, $timing, $type) {
+  animation: $name $duration $timing $type;
+  -o-animation: $name $duration $timing $type;
+  -moz-animation: $name $duration $timing $type;
+  -webkit-animation: $name $duration $timing $type;
+}
+
+@mixin animation-delay($value) {
+  animation: $value;
+  -o-animation: $value;
+  -moz-animation: $value;
+  -webkit-animation: $value;
+}
+
+@mixin keyframes($value) {
+  @-webkit-keyframes #{$value} {
+    @content;
+  }
+  @-moz-keyframes #{$value} {
+    @content;
+  }
+  @-o-keyframes #{$value} {
+    @content;
+  }
+  @keyframes #{$value} {
+    @content;
+  }
+}
+
+@mixin placeholder() {
+  &::-moz-placeholder { /* Mozilla Firefox 19+ */
+    @content;
+    opacity: 1;
+  }
+
+  &:-ms-input-placeholder { /* Microsoft Edge */
+    @content;
+  }
+
+  &::placeholder { /* Most modern browsers support this now. */
+    @content;
+  }
+}
+
+@mixin top-arrow($size: 5px, $color: #FFFFFF) {
+  content: '';
+
+  display: block;
+  
+  position: absolute;
+  
+  top: -$size;
+  right: 0;
+  left: 0;
+  
+  width: 0;
+  height: 0;
+  
+  margin: auto;
+  
+  border-right: $size solid transparent;
+  border-bottom: $size solid var(--hdd-color-white);
+  border-left: $size solid transparent;
+
+  color: $color;
+}
+
+@mixin custom-scroll() {
+  ::-webkit-scrollbar {
+    width: $scroll-bar-width;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: var(--hdd-color-grey-light);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    width: $scroll-bar-width;
+    border-radius: 5px;
+    background: var(--hdd-color-grey);
+    border-left: 2px solid var(--hdd-color-grey-light);
+    border-right: 2px solid var(--hdd-color-grey-light);
+  }
+}
+  
