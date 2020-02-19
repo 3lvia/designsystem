@@ -110,20 +110,20 @@ $tooltip-horizontal-transform: translate(0, -50%);
   }
   &.is-light {
     #{$this}_content {
-      background-color: color('white') !important;
+      background-color: color('grey-silver') !important;
       color: color('black') !important;
     }
     #{$this}_content.is-right::after {
-      border-color: transparent color('white') transparent transparent !important;
+      border-color: transparent color('grey-silver') transparent transparent !important;
     }
     #{$this}_content.is-left::after {
-      border-color: transparent transparent transparent color('white') !important;
+      border-color: transparent transparent transparent color('grey-silver') !important;
     }
     #{$this}_content.is-top::after {
-      border-color: color('white') transparent transparent transparent !important;
+      border-color: color('grey-silver') transparent transparent transparent !important;
     }
     #{$this}_content.is-bottom::after {
-      border-color: transparent transparent color('white') transparent !important;
+      border-color: transparent transparent color('grey-silver') transparent !important;
     }
   }
 }
