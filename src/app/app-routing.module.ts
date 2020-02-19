@@ -4,6 +4,7 @@ import { DividerDocComponent } from './doc-pages/divider-doc/divider-doc.compone
 import { ButtonDocComponent } from './doc-pages/button-doc/button-doc.component';
 import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
+import { ColorDocComponent } from './doc-pages/color-doc/color-doc.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'divider-doc',
         component: DividerDocComponent
+      },
+      {
+        path: 'color-doc',
+        component: ColorDocComponent
       }
     ]
   }
