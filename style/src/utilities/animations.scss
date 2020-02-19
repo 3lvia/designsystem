@@ -1,0 +1,6 @@
+@import 'helpers';
+
+@include keyframes(spinner) {
+  from { @include transform(rotate(0deg)); }
+  to { @include transform(rotate(360deg)); }
+}

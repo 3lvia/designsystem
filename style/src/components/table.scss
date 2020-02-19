@@ -11,7 +11,7 @@ $table-last-column-padding: 1.5rem;
   overflow: scroll;
   border-spacing: 0;
   border-collapse: collapse;
-  background: white;
+  background: color('white');
   box-sizing: border-box;
 
   th,
@@ -63,11 +63,11 @@ $table-last-column-padding: 1.5rem;
   &_row,
   tr {
     &.is-stripe {
-      background: blue;
+      background: color('orange-peel-02');
     }
 
     &.is-selected {
-      background: blue;
+      background: color('orange-peel-05');
     }
   }
 
@@ -81,7 +81,7 @@ $table-last-column-padding: 1.5rem;
     // @extend .is-h3;
     font-size: large;
 
-    border-bottom: 2px solid grey;
+    border-bottom: 2px solid color('grey-silver');
     text-align: left;
 
     th,
@@ -121,7 +121,7 @@ $table-last-column-padding: 1.5rem;
     th {
       position: sticky;
       top: 0; // set this higher if it overlaps with another sticky
-      background: white;
+      background: color('white');
       z-index: 1;
     }
   }

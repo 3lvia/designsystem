@@ -1,8 +1,220 @@
-.elvis-btn {
-    color: white;
-    padding:1rem;
-    border:1px solid black;
-    background-color:#2196F3;
-    border-radius:4px;
-    text-transform:uppercase;
+@import '../variables/colors.scss';
+@import "../variables/shadows.scss";
+@import "../variables/shared-sizes.scss";
+@import "../utilities/animations.scss";
+
+$button-radius: $border-radius;
+$button-border-width: 1px;
+$extra-border-hover: 1px;
+$button-padding-top-bottom: 10px;
+$button-padding-left-right: 16px;
+$button-padding: $button-padding-top-bottom $button-padding-left-right;
+$button-with-icon-font-size: 1.5rem;
+$icon-button-height: 36px;
+$icon-button-font-size: 22px;
+$icon-button-height-with-border: $icon-button-height - $button-border-width; // Subtract width of border to match size of buttons without border 
+$button-font-size: 1rem;
+
+// Subtract width of border to match size of buttons without border 
+@function calculate-padding($border-width){
+  @return (10px - $border-width) (16px - $border-width);
 }
+
+%transparent-properties {
+  border: none;
+  background: transparent;
+  color: color('font');
+
+  // Changes button-text on hover/active/focus
+  &:not([disabled]) {
+    &:focus {
+      color: color('green-lime');
+      outline: none;
+      background: transparent;
+    }
+
+    &:active,
+    &:hover {
+      background: transparent;
+      color: color('green-lime');
+      outline: none;
+      box-shadow: none;
+      border: none;
+    }
+
+    &:hover:not(:active) {
+      text-shadow: $shadow-strong;
+    }
+
+    &:active {
+      transform: scale(0.9, 0.9); // Click-effect
+    }
+  }
+}
+
+%secondary-disabled {
+  &[disabled] {
+    border-color: color('grey-silver');
+    color: color('grey-silver');
+    cursor: not-allowed;
+  }
+}
+
+.elvis-button {
+  // .is-primary is the default for any elvis-button
+  @extend .is-primary;
+
+  &.is-primary {
+    display: inline-block;
+    border: none;
+    border-radius: $button-radius;
+    padding: $button-padding;
+    font-size: $button-font-size;
+    letter-spacing: 0.5px;
+    background: color('green-lime');
+    color: color('white');
+    min-width: 90px;
+    position: relative;
+    cursor: pointer;
+    outline-offset: -1px;
+    box-sizing: border-box;
+
+    &[disabled] {
+      background: color('grey-silver');
+      color: color('white');
+      cursor: not-allowed;
+    }
+
+    // Changes button-text on hover/active/focus
+    &:not([disabled]) {
+      &:hover:not(:focus) {
+        box-shadow: $shadow-strong;
+      }
+
+      &:active {
+        background: green;
+        outline: none;
+      }
+    }
+  }
+
+  &.is-secondary {
+    border: $button-border-width solid color('green-lime');
+    padding: calculate-padding($button-border-width);
+    background: transparent;
+    color: color('green-lime');
+
+    @extend %secondary-disabled;
+
+    // Changes button-text on hover/active/focus
+    &:not([disabled]) {
+      &:hover {
+        box-shadow: $shadow-medium;
+        border: $button-border-width + $extra-border-hover solid color('green-lime'); // 
+        padding: calculate-padding($button-border-width + $extra-border-hover);
+      }
+
+      &:active {
+        background: green;
+        color: color('white');
+      }
+    }
+  }
+
+  // When button with text has icon
+  &.has-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: calc(1rem + #{$button-with-icon-font-size} + 8px); // 1rem padding, 1.5rem width of icon, spacing between icon and text
+    
+    .some-icon {
+      position: absolute;
+      left: $button-padding-left-right;
+      font-size: $button-with-icon-font-size;
+    }
+
+    &:not([disabled]) {
+      &:hover {
+        &.is-secondary {
+          padding-left: calc(1rem + #{$button-with-icon-font-size} + 8px - #{$extra-border-hover}); // Subtract size of extra hover-border
+
+          .some-icon {
+            left: $button-padding-left-right - $extra-border-hover; // Subtract size of extra hover-border
+          }
+        }
+      }
+    }
+
+    &.is-transparent {
+      @extend %transparent-properties;
+      @extend %secondary-disabled;
+    }
+
+    &.is-danger {
+      &:not([disabled]) {
+        background: color('red-08');
+        &:active {
+          background: color('red');
+        }
+      }
+    }
+  }
+
+  // Buttons with icons only
+  &-icon {
+    border: $button-border-width solid color('green-lime');
+    color: color('green-lime');
+    border-radius: $button-radius;
+    background: transparent;
+    height: $icon-button-height-with-border; 
+    width: $icon-button-height-with-border; 
+    font-size: $icon-button-font-size;
+    cursor: pointer;
+    padding: 0;
+    outline-offset: -1px;
+
+    @extend %secondary-disabled;
+
+    // Changes button-text on hover/active/focus
+    &:not([disabled]) {
+      &:active {
+        background: green;
+        color: color('white');
+        outline: none;
+      }
+      
+      &:hover {
+        box-shadow: $shadow-medium;
+        border: $button-border-width + $extra-border-hover solid color('green-lime'); 
+      }
+    }
+
+    &.is-transparent {
+      @extend %transparent-properties;
+
+      height: $icon-button-height; 
+    }
+
+    &.is-danger {
+      &:not([disabled]) {
+        border: $button-border-width solid color('red-08');
+        color: color('red-08');
+        &:active {
+          background: color('red');
+          color: color('white');
+        }
+        &:hover {
+          box-shadow: $shadow-medium;
+          border: $button-border-width + $extra-border-hover solid color('red-08'); 
+        }
+      }
+    }
+
+    &.is-no-padding {
+      height: unset;
+      width: unset;
+    }
+  }
+}
+
