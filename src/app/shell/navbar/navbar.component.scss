@@ -7,10 +7,11 @@
   top: 80px;
   margin: 0;
   padding: 0;
+
   border-right: 1px solid color('border');
+  overflow: auto;
   list-style-type: none;
   background-color: color('white');
-  overflow: auto;
 
   &-item {
     list-style-type: none;
