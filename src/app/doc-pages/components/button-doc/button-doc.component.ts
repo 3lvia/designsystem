@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 
 // @ts-ignore
-require('../../../../web-components/button/button.js');
+require('../../../../../web-components/button/button.js');
 
 @Component({
   selector: 'app-button-doc',
