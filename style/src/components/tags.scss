@@ -1,3 +1,4 @@
+@import '../variables/colors.scss';
 $tag-padding: 10px;
 $tag-border-radius: 4px;
 
@@ -5,20 +6,6 @@ $tag-border-radius: 4px;
   position: relative;
   margin-top: 0.5rem;
   box-sizing: border-box;
-
-  &_icon,
-  svg,
-  i {
-    font-size: 1rem;
-    display: inline-block;
-    margin: 0;
-    margin-left: 0.5rem;
-    padding: 0;
-    border: none;
-    background: none;
-    color: black;
-    cursor: pointer;
-  }
 
   &_item {
     display: inline-flex;
@@ -28,7 +15,7 @@ $tag-border-radius: 4px;
     margin-left: 16px;
     padding: $tag-padding;
     border-radius: $tag-border-radius;
-    background: blue;
+    background: color('green-lime');
     color: black;
     letter-spacing: 0.15px;
     &:first-child {

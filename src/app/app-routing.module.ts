@@ -13,7 +13,8 @@ import { LinkDocComponent } from './doc-pages/components/link-doc/link-doc.compo
 import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.component';
 import { TagsDocComponent } from './doc-pages/components/tags-doc/tags-doc.component';
 import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
-import { ColorDocComponent } from './doc-pages/color-doc/color-doc.component';
+import { ColorDocComponent } from './doc-pages/utilities/color-doc/color-doc.component';
+import { TypographyDocComponent } from './doc-pages/utilities/typography-doc/typography-doc.component';
 
 
 const routes: Routes = [
@@ -76,6 +77,10 @@ const routes: Routes = [
       {
         path: 'color-doc',
         component: ColorDocComponent
+      },
+      {
+        path: 'typography-doc',
+        component: TypographyDocComponent
       },
     ]
   }

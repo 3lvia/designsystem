@@ -1,10 +1,15 @@
 @import '../../../../style/src/variables/colors.scss';
 
 .header {
-  height: 70px;
-  border-bottom: 1px solid color('border');
+  position: fixed;
+  height: 80px;
+  width: 100%;
+  top: 0;
   margin: 0;
   padding: 0;
+  z-index: 10;
+
+  border-bottom: 1px solid color('border');
   overflow: hidden;
   background-color: #fff;
   display: flex;
@@ -12,7 +17,7 @@
 
   &_logo {
     display: flex;
-    width: 18%;
+    width: 250px;
     justify-content: center;
     align-items: center;
     cursor: pointer;

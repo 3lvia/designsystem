@@ -1,17 +1,19 @@
+@import '../variables/colors.scss';
+
 .elvis-link {
   text-decoration: none;
-  color: blue;
+  color: color('green-lime');
   box-sizing: border-box;
 
-  &:hover:not(.no-hover),
+  &:hover,
   &.is-hovering,
-  &:focus:not(.no-focus),
+  &:focus,
   &.is-focusing {
     text-decoration: underline;
   }
-  &:active:not(.no-active),
+  &:active,
   &.is-active {
-    color: darkblue;
+    color: green;
     text-decoration: underline;
   }
 }

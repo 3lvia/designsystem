@@ -1,3 +1,5 @@
+@import '../variables/colors.scss';
+
 $tooltip-border-style: 5px solid;
 $tooltip-margin-offset: -5px;
 $tooltip-calculate-height: auto;
@@ -29,8 +31,8 @@ $tooltip-horizontal-transform: translate(0, -50%);
     width: max-content;
     max-width: 25ch;
     pointer-events: none;
-    background-color: grey;
-    color: white;
+    background-color: color('grey-mine-shaft');
+    color: color('white');
     padding: 10px 16px;
     border-radius: 4px;
     transition: 200ms;
@@ -52,7 +54,7 @@ $tooltip-horizontal-transform: translate(0, -50%);
         right: 100%;
         margin-top: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: transparent grey transparent transparent;
+        border-color: transparent color('grey-mine-shaft') transparent transparent;
       }
     }
     &.is-left {
@@ -67,7 +69,7 @@ $tooltip-horizontal-transform: translate(0, -50%);
         left: 100%;
         margin-top: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: transparent transparent transparent grey;
+        border-color: transparent transparent transparent color('grey-mine-shaft');
       }
     }
     &.is-bottom {
@@ -82,7 +84,7 @@ $tooltip-horizontal-transform: translate(0, -50%);
         left: 50%;
         margin-left: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: transparent transparent grey transparent;
+        border-color: transparent transparent color('grey-mine-shaft') transparent;
       }
     }
 
@@ -98,7 +100,7 @@ $tooltip-horizontal-transform: translate(0, -50%);
         left: 50%;
         margin-left: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: grey transparent transparent transparent;
+        border-color: color('grey-mine-shaft') transparent transparent transparent;
       }
     }
     &.is-active {
@@ -108,20 +110,20 @@ $tooltip-horizontal-transform: translate(0, -50%);
   }
   &.is-light {
     #{$this}_content {
-      background-color: white !important;
-      color: black !important;
+      background-color: color('grey-silver') !important;
+      color: color('black') !important;
     }
     #{$this}_content.is-right::after {
-      border-color: transparent white transparent transparent !important;
+      border-color: transparent color('grey-silver') transparent transparent !important;
     }
     #{$this}_content.is-left::after {
-      border-color: transparent transparent transparent white !important;
+      border-color: transparent transparent transparent color('grey-silver') !important;
     }
     #{$this}_content.is-top::after {
-      border-color: white transparent transparent transparent !important;
+      border-color: color('grey-silver') transparent transparent transparent !important;
     }
     #{$this}_content.is-bottom::after {
-      border-color: transparent transparent white transparent !important;
+      border-color: transparent transparent color('grey-silver') transparent !important;
     }
   }
 }
