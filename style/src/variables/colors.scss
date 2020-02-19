@@ -36,27 +36,18 @@
   @return map-get($map, color);
 }
 
-@function color-contrast($name, $color-set: $colors) {
-  $map: color-map($name, $color-set);
-  @return map-get($map, contrast);
-}
-
-
 
 // All colors as a list
 $colors: (
   'white': (
     color: #FFF,
-    contrast: #000,
     alt-labels: (primary),
   ),  
   'black': (
     color: #000,
-    contrast: #FFF
   ),  
   'grey-mine-shaft': (
     color: #262626,
-    contrast: #FFF,
     alt-labels: (font),
   ),  
   'grey-silver': (
@@ -69,29 +60,56 @@ $colors: (
   'yellow': (
     color: #FFFF00,
   ),  
-  'yellow-lazer-lemon': (
+  'yellow-05': (
     color: rgba(255, 255, 0, 0.5),
   ),  
-  'yellow-cream': (
+  'yellow-02': (
     color: rgba(255, 255, 0, 0.2),
   ),  
   'orange-peel': (
     color: #FFA000,
   ),  
-  'orange-chardonnay': (
+  'orange-peel-05': (
     color: rgba(255, 160, 0, 0.5),
   ),  
-  'orange-sandy-beach': (
+  'orange-peel-02': (
     color: rgba(255, 160, 0, 0.2),
   ),  
   'red': (
     color: #FF0000,
   ),  
-  'red-vivid-tangerine': (
+  'red-05': (
     color: rgba(255, 0, 0, 0.5),
   ),  
-  'red-cinderella': (
+  'red-02': (
     color: rgba(255, 0, 0, 0.2),
   ),  
 );  
 
+
+
+
+// Making background and color classes for all colors
+.elvis {
+  @each $label, $map in $colors {
+    $color: color($label);
+
+    $alt-labels: map-get($map, alt-labels);
+    $labels: ($label);
+
+    @if $alt-labels {
+      @each $label in $alt-labels {
+        $labels: append($labels, $label);
+      }
+    }
+
+    @each $label in $labels {
+      &-color-#{$label} {
+        color: $color;
+      }
+      &-background-#{$label} {
+        background: $color;
+      }
+    }
+  }
+}

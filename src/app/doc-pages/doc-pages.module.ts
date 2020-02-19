@@ -10,7 +10,7 @@ import { LinkDocModule } from './components/link-doc/link-doc.module';
 import { TableDocModule } from './components/table-doc/table-doc.module';
 import { TagsDocModule } from './components/tags-doc/tags-doc.module';
 import { TooltipDocModule } from './components/tooltip-doc/tooltip-doc.module';
-import { ColorsDocModule } from './colors/colors-doc/colors-doc.module';
+import { ColorDocModule } from './color-doc/color-doc.module';
 
 @NgModule({
   imports: [
@@ -25,7 +25,7 @@ import { ColorsDocModule } from './colors/colors-doc/colors-doc.module';
     TableDocModule,
     TagsDocModule,
     TooltipDocModule,
-    ColorsDocModule
+    ColorDocModule
   ],
 })
 export class DocPagesModule { }
