@@ -1,21 +1,36 @@
 @import "../../../../style/src/variables/colors.scss";
 @import "../../../../style/src/variables/shadows.scss";
 
-.example-container {
-  padding: 15px 15px 0 15px;
-  background: color('white');
-}
-.color-example-big {
-  height: 100px;
-  width: 100px;
-}
 .color-example {
-  height: 50px;
-  width: 50px;
-}
-.color-example, .color-example-big {
-  display: inline-block;
-  border-radius: 100%;
-  margin: 14px;
-  box-shadow: $shadow-strong;
+
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+
+	&-container {
+		display: flex;
+		align-items: center;
+
+		.example {
+			height: 50px;
+			width: 50px;
+		}
+		.example-big {
+			height: 100px;
+			width: 100px;
+		}
+		.example-extra-big {
+			height: 200px;
+			width: 200px;
+		}
+		
+		.example,
+		.example-big,
+		.example-extra-big {
+			display: inline-block;
+			border-radius: 100%;
+			margin: 14px;
+			box-shadow: $shadow-strong;
+		}
+	}
 }
