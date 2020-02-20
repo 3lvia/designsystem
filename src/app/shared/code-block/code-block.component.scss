@@ -1,9 +1,12 @@
 .code-block {
-    border:1px solid #aaa;
+    border:1px solid rgb(202, 202, 202);
     border-radius: 4px;
     padding:1rem;
-
-
-    div {
+    max-width:1000px;
+    width:100%;
+    
+    .actions {
+        margin-bottom:1rem;
+        margin-right:auto;
     }
 }

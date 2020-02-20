@@ -1,32 +1,25 @@
-import { Component, OnInit, Input, AfterViewChecked } from '@angular/core';
+import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'elvis-code-block',
   templateUrl: './code-block.component.html',
   styleUrls: ['./code-block.component.scss']
 })
-export class CodeBlockComponent implements OnInit {
 
-  @Input() 'isTS' = false;
+
+export class CodeBlockComponent implements AfterViewInit {
+  @ViewChild('preview') preview;
+  @Input() isTS = false;
   @Input() isHTML = false;
   @Input() isSCSS = false;
 
   @Input() code = '';
 
-  /* code = `
-  <button class="elvis-button">Standard</button>
-  <button class="elvis-button" disabled>Disabled</button>
-  `;*/
+  showCode = false;
 
-  codepen = '';
+  constructor() {}
 
-
-  constructor() { }
-
-  ngOnInit() {
-    this.codepen = JSON.stringify({
-      title: "Preview",
-      html: this.code
-    })
+  ngAfterViewInit() {
+    this.preview.nativeElement.innerHTML = this.code;
   }
 }

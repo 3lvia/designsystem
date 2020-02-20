@@ -1,14 +1,12 @@
 <div class="code-block">
-    <ng-content></ng-content>
-    <div>
-        <div class="actions">
-            <button class="elvis-button is-secondary">Se kode</button>
-            <form *ngIf="isHTML" action="https://codepen.io/pen/define" method="POST" target="_blank">
-                <input type="hidden" name="data" [value]="codepen">
-                <input type="submit" value="Codepen" class="elvis-button is-secondary"/>
-            </form>
-            {{code}}
+    <div class="actions">
+        <div class="elvis-tooltip">
+            <button class="elvis-button is-secondary"
+                (click)="showCode = !showCode">{{showCode ? 'Skjul kode' : 'Vis kode'}}</button>
+            <span class="elvis-tooltip_content is-right">Vis kildekode</span>
         </div>
-        <elvis-code-highlighter [isHTML]="isHTML" [isTS]="isTS" [isSCSS]="isSCSS" [code]="code"></elvis-code-highlighter>
     </div>
+    <elvis-code-highlighter *ngIf="showCode" [isHTML]="isHTML" [isTS]="isTS" [isSCSS]="isSCSS" [code]="code">
+    </elvis-code-highlighter>
+    <div #preview></div>
 </div>
