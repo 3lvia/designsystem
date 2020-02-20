@@ -70,12 +70,7 @@ $table-last-column-padding: 1.5rem;
       background: color('orange-peel-05');
     }
   }
-
-  td {
-    // .is-p is font-properties, defined in typography.
-    // TODO: Typography of Elvia
-  }
-
+  
   &_header {
     // .is-h3 is font-properties, defined in typography.
     // @extend .is-h3;

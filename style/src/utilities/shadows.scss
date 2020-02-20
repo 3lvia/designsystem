@@ -1,0 +1,13 @@
+@import "../variables/shadows";
+
+.elvis-shadow {
+  &-light {
+    box-shadow: $shadow-light;
+  }
+  &-medium {
+    box-shadow: $shadow-medium;
+  }
+  &-strong {
+    box-shadow: $shadow-strong;
+  }
+}

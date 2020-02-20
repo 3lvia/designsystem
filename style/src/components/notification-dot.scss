@@ -1,0 +1,19 @@
+@import './../variables/colors';
+
+$notification-dot-size: 0.625rem;
+$notification-dot-border: 2px solid color('white');
+
+.elvis-notification-dot {
+  position: absolute;
+  top: calc(#{$notification-dot-size}/ -2);
+  right: calc(#{$notification-dot-size}/ -2);
+
+  width: $notification-dot-size;
+  height: $notification-dot-size;
+
+  border: $notification-dot-border;
+  border-radius: 100%;
+
+  // Default colors
+  background: color('red');
+}

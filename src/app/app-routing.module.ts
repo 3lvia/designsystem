@@ -20,6 +20,8 @@ import { CheckboxToggleDocComponent } from './doc-pages/components/forms/checkbo
 import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-doc.component';
 import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
+import { ShadowDocComponent } from './doc-pages/utilities/shadow-doc/shadow-doc.component';
+import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
 
 
 const routes: Routes = [
@@ -106,6 +108,14 @@ const routes: Routes = [
       {
         path: 'select-doc',
         component: SelectDocComponent
+      },
+      {
+        path: 'shadow-doc',
+        component: ShadowDocComponent
+      },
+      {
+        path: 'notification-dot-doc',
+        component: NotificationDotDocComponent
       },
     ]
   }

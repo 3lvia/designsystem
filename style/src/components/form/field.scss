@@ -14,18 +14,12 @@
   }
 
   &_label {
-    // .is-p is font-properties, defined in typography.
-    @extend .is-p;
-
     display: block;
     margin-bottom: 0.2rem;
     font-weight: bold;
   }
 
   &_title {
-    // .is-p is font-properties, defined in typography.
-    @extend .is-p;
-
     display: block;
     margin-bottom: 1rem;
     font-weight: bold;
