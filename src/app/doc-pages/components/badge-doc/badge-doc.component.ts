@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getComponent } from 'src/app/shared/elvis-items';
 
 @Component({
   selector: 'app-badge-doc',
@@ -7,12 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BadgeDocComponent implements OnInit {
 
-  componentStatus = 'New';
-  className = '.elvis-badge';
+  componentStatus = getComponent('badge-doc').status;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

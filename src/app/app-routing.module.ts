@@ -23,6 +23,7 @@ import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutto
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
 import { ShadowDocComponent } from './doc-pages/utilities/shadow-doc/shadow-doc.component';
 import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
+import { OverviewComponent } from './doc-pages/overview/overview.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
       {
         path: Pages.Home,
         component: HomeComponent
+      },
+      {
+        path: Pages.Overview,
+        component: OverviewComponent
       },
       {
         path: Pages.Badge,

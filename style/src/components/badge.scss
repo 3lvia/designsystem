@@ -24,4 +24,8 @@ $badge-font-size: 0.75rem;
     background: color('orange-peel');
     color: color('black');
   }
+  &.is-yellow {
+    background: color('yellow');
+    color: color('black');
+  }
 }

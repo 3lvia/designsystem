@@ -1,5 +1,5 @@
-@import "../../../../../style/src/variables/colors.scss";
-@import "../../../../../style/src/utilities/shadows.scss";
+@import "../../../../style/src/variables/colors.scss";
+@import "../../../../style/src/utilities/shadows.scss";
 
 .component {
   &-header {
@@ -32,10 +32,7 @@
 
   &-body {
     background: #fff;
-    padding: 16px 32px;
-
-    &__description {
-
-    }
+    margin: 40px auto;
+    width: 70%;
   }
 }

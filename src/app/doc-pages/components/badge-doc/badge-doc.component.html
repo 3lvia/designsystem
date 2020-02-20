@@ -1,4 +1,4 @@
-<app-component-container [componentStatus]="componentStatus" [numberOfExamples]="2">
+<app-component-header [componentStatus]="componentStatus">
   <ng-container ngProjectAs="headerTitle">
     Badge
   </ng-container>
@@ -18,20 +18,31 @@
   <ng-container ngProjectAs="descriptionDonts">
     Donts donts donts donts donts donts donts donts 
   </ng-container>
-</app-component-container>
+</app-component-header>
 
-<div class="component-body__example">
-  <div class="component-body__example-title">
-    <h2>
-      Badge
-    </h2>
-  </div>
-  <div class="component-body__example-body">
-    <div class="element">
-      <span class="elvis-badge">101001</span>
-    </div>
-    <div class="code">
-      Code code code
-    </div>
-  </div>
-</div>
+<app-component-example>
+  <ng-container ngProjectAs="exampleTitle">
+    Badge
+  </ng-container>
+  <ng-container ngProjectAs="exampleVisualization">
+    <span class="elvis-badge">101001</span>
+  </ng-container>
+  <ng-container ngProjectAs="exampleCode">
+    Code code code
+  </ng-container>
+</app-component-example>
+
+<app-component-example>
+  <ng-container ngProjectAs="exampleTitle">
+    Badge colors
+  </ng-container>
+  <ng-container ngProjectAs="exampleVisualization">
+    <span class="elvis-badge">101001</span>
+    <span class="elvis-badge is-green">101001</span>
+    <span class="elvis-badge is-orange">101001</span>
+    <span class="elvis-badge is-yellow">101001</span>
+  </ng-container>
+  <ng-container ngProjectAs="exampleCode">
+    Code code code
+  </ng-container>
+</app-component-example>

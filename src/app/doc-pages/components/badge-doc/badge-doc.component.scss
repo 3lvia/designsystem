@@ -1,25 +1,6 @@
+@import "../../../../../style/src/variables/colors.scss";
+@import "../../../../../style/src/utilities/shadows.scss";
+
 .elvis-badge:not(:first-of-type) {
   margin-left: 8px;
-}
-
-.component-body__example {
-  margin: 16px auto;
-  width: 70%;
-  
-  &-title {
-
-  }
-
-  &-body {
-    border: 1px solid color("grey-silver");
-
-    .element {
-      padding: 32px 16px;
-    }
-    .code {
-      padding: 32px 16px;
-      background: color('grey-mine-shaft');
-      color: color('white');
-    }
-  }
 }

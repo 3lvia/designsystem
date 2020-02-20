@@ -1,18 +1,21 @@
 <ul class="navbar">
   <section>
     <ul class="navbar-list">
-      <h2 class="navbar-list-header">Components</h2>
+      <h2
+        class="navbar-list-header"
+        [routerLink]="['', 'overview-doc']"
+      >Components</h2>
     
       <li
         class="navbar-item"
-        *ngFor="let navbarItem of components"
+        *ngFor="let navbarItem of elvisComponents"
       >
         <a
-          [routerLink]="['', navbarItem.navbarUrl]"
+          [routerLink]="['', navbarItem.docUrl]"
           routerLinkActive="active"
         > 
           {{navbarItem.title}}
-          <span class="elvis-badge is-orange" *ngIf="navbarItem.status">{{ navbarItem.status }}</span>
+          <span class="elvis-badge is-orange" *ngIf="navbarItem.status && navbarItem.status==='New'">{{ navbarItem.status }}</span>
         </a>
       </li>
     </ul>
@@ -22,10 +25,10 @@
       <h2 class="navbar-list-header">Utilities</h2>
       <li
         class="navbar-item"
-        *ngFor="let navbarItem of utilities"
+        *ngFor="let navbarItem of elvisUtilities"
       >
         <a
-          [routerLink]="['', navbarItem.navbarUrl]"
+          [routerLink]="['', navbarItem.docUrl]"
           routerLinkActive="active"
         > {{navbarItem.title}}</a>
       </li>

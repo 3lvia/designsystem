@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BadgeDocComponent } from './badge-doc.component';
-import { ComponentContainerModule } from '../component-container/component-container.module';
+import { ComponentHeaderModule } from 'src/app/shared/component-header/component-header.module';
+import { ComponentExampleModule } from 'src/app/shared/component-example/component-example.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    ComponentContainerModule
+    ComponentHeaderModule,
+    ComponentExampleModule
   ],
   declarations: [BadgeDocComponent]
 })
