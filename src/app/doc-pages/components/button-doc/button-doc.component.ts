@@ -13,6 +13,7 @@ export class ButtonDocComponent implements OnInit {
 
   componentStatus = getComponent('button-doc').status;
   public clicked = false;
+
   constructor() { }
 
   ngOnInit() {

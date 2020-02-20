@@ -117,6 +117,5 @@ export const elvisUtilities: ElvisItems[] = [
 ];
 
 export function getComponent(docUrl: string): ElvisItems {
-    console.log('calling');
     return elvisComponents.find(component => component.docUrl === docUrl);
 }

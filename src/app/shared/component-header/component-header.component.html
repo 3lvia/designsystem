@@ -6,25 +6,22 @@
       </h1>
       <span class="elvis-badge is-orange" *ngIf="componentStatus!=''">{{ componentStatus }}</span>
     </div>
+    <p class="component-header__class">
+      <code>
+        <ng-content select="headerClass"></ng-content>
+      </code>
+    </p>
     <div class="component-header__body">
-      <p class="component-header__body-class">
-        <code>
-          <ng-content select="headerClass"></ng-content>
-        </code>
-      </p>
       <p class="component-header__body-description">
         <ng-content select="headerDescription"></ng-content>
       </p>
-    </div>
-  </div>
-
-  <div class="component-body">
-    <div class="component-body__body-description">
-      <h2>✅ When to use:</h2>
-      <ng-content select="descriptionDoes"></ng-content>
-
-      <h2>⛔ When not to use:</h2>
-      <ng-content select="descriptionDonts"></ng-content>
+      <div class="component-header__body-does">
+        <h2>✅ When to use:</h2>
+        <ng-content select="descriptionDoes"></ng-content>
+  
+        <h2>⛔ When not to use:</h2>
+        <ng-content select="descriptionDonts"></ng-content>
+      </div>
     </div>
   </div>
 </div>
