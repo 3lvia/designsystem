@@ -4,12 +4,17 @@
 .component {
   &-header {
     background: #eee;
-    padding: 16px 32px;
+    padding: 16px 48px;
 
     &__title {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
+
+      h1 {
+        margin-right: 16px;
+      }
 
       h1,
       .elvis-badge {
@@ -29,6 +34,34 @@
 
     &__body {
       padding: 32px 0;
+
+      &-does {
+        &::before {
+          background-color: color('green-lime');
+        }
+      }
+      &-donts {
+        &::before {
+          background-color: color('red');
+        }
+      }
+
+      &-does, &-donts {
+        margin: 8px 0;
+
+        &::before {
+          content: '';
+          display: inline-flex;
+          margin-right: 11px;
+          height: 11px;
+          width: 11px;
+          border-radius: 50%;
+        }
+
+        b {
+          font-size: 18px;
+        }
+      }
     }
   }
 }

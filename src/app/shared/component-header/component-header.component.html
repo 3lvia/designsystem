@@ -20,11 +20,10 @@
         <ng-content select="headerDescription"></ng-content>
       </p>
       <div class="component-header__body-does">
-        <h2>✅ When to use:</h2>
-        <ng-content select="descriptionDoes"></ng-content>
-  
-        <h2>⛔ When not to use:</h2>
-        <ng-content select="descriptionDonts"></ng-content>
+        <b>Do's: </b><ng-content select="descriptionDoes"></ng-content>
+      </div>
+      <div class="component-header__body-donts">
+        <b>Don'ts: </b><ng-content select="descriptionDonts"></ng-content>
       </div>
     </div>
   </div>
