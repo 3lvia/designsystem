@@ -1,35 +1,31 @@
 <ul class="navbar">
   <section>
-    <h3>Components</h3>
     <ul class="navbar-list">
-      <li class="navbar-item"><a [routerLink]="['', 'badge-doc']" routerLinkActive="active">Badge</a></li>
-      <li class="navbar-item"><a [routerLink]="['', 'button-doc']" routerLinkActive="active">Button</a></li>
-
-      <li class="navbar-item"><a [routerLink]="['', 'card-doc']" routerLinkActive="active">Card</a></li>        
-      <li class="navbar-item"><a [routerLink]="['', 'divider-doc']" routerLinkActive="active">Divider</a></li>
-
-      <li class="navbar-item"><a [routerLink]="['', 'dropdown-doc']" routerLinkActive="active">Dropdown</a></li>
-      <li class="navbar-item"><a [routerLink]="['', 'feedback-doc']" routerLinkActive="active">Feedback-message</a></li>
-      <li class="navbar-item"><a [routerLink]="['', 'header-doc']" routerLinkActive="active">Header</a></li>
-      
-      <li class="navbar-item"><a [routerLink]="['', 'link-doc']" routerLinkActive="active">Link</a></li>
-      <li class="navbar-item"><a [routerLink]="['', 'table-doc']" routerLinkActive="active">Table</a></li>
+      <h2 class="navbar-list-header">Components</h2>
     
-      <li class="navbar-item"><a [routerLink]="['', 'tags-doc']" routerLinkActive="active">Tags</a></li>
-      <li class="navbar-item"><a [routerLink]="['', 'tooltip-doc']" routerLinkActive="active">Tooltip</a></li>
-
-      <li class="navbar-item"><a [routerLink]="['', 'checkbox-doc']" routerLinkActive="active">Checkbox</a></li>
-      <li class="navbar-item"><a [routerLink]="['', 'checkbox-toggle-doc']" routerLinkActive="active">Checkbox-toggle</a></li>
-      <li class="navbar-item"><a [routerLink]="['', 'input-doc']" routerLinkActive="active">Input</a></li>
-      <li class="navbar-item"><a [routerLink]="['', 'radiobutton-doc']" routerLinkActive="active">Radiobutton</a></li>
-      <li class="navbar-item"><a [routerLink]="['', 'select-doc']" routerLinkActive="active">Select</a></li>
+      <li
+        class="navbar-item"
+        *ngFor="let navbarItem of components"
+      >
+        <a
+          [routerLink]="['', navbarItem.navbarUrl]"
+          routerLinkActive="active"
+        > {{navbarItem.title}}</a>
+      </li>
     </ul>
   </section>
   <section>
-    <h3>Utilities</h3>
     <ul class="navbar-list">
-      <li class="navbar-item"><a [routerLink]="['', 'color-doc']" routerLinkActive="active" >Colors</a></li>
-      <li class="navbar-item"><a [routerLink]="['', 'typography-doc']" routerLinkActive="active" >Typography</a></li>
+      <h2 class="navbar-list-header">Utilities</h2>
+      <li
+        class="navbar-item"
+        *ngFor="let navbarItem of utilities"
+      >
+        <a
+          [routerLink]="['', navbarItem.navbarUrl]"
+          routerLinkActive="active"
+        > {{navbarItem.title}}</a>
+      </li>
     </ul>
   </section>
 </ul>

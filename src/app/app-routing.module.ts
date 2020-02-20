@@ -1,5 +1,6 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { Pages } from './shared/pages.enum';
 import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
@@ -32,79 +33,79 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: 'home',
+        path: Pages.Home,
         component: HomeComponent
       },
       {
-        path: 'badge-doc',
+        path: Pages.Badge,
         component: BadgeDocComponent
       },
       {
-        path: 'button-doc',
+        path: Pages.Button,
         component: ButtonDocComponent
       },
       {
-        path: 'card-doc',
+        path: Pages.Card,
         component: CardDocComponent
       },
       {
-        path: 'divider-doc',
+        path: Pages.Divider,
         component: DividerDocComponent
       },
       {
-        path: 'dropdown-doc',
+        path: Pages.Dropdown,
         component: DropdownDocComponent
       },
       {
-        path: 'feedback-doc',
+        path: Pages.Feedback,
         component: FeedbackDocComponent
       },
       {
-        path: 'header-doc',
+        path: Pages.Header,
         component: HeaderDocComponent
       },
       {
-        path: 'link-doc',
+        path: Pages.Link,
         component: LinkDocComponent
       },
       {
-        path: 'table-doc',
+        path: Pages.Table,
         component: TableDocComponent
       },
       {
-        path: 'tags-doc',
+        path: Pages.Tags,
         component: TagsDocComponent
       },
       {
-        path: 'tooltip-doc',
+        path: Pages.Tooltip,
         component: TooltipDocComponent
       },
       {
-        path: 'color-doc',
+        path: Pages.Color,
         component: ColorDocComponent
       },
       {
-        path: 'typography-doc',
+        path: Pages.Typography,
         component: TypographyDocComponent
       },
       {
-        path: 'checkbox-doc',
+        path: Pages.Checkbox,
         component: CheckboxDocComponent
       },
       {
-        path: 'checkbox-toggle-doc',
+        path: Pages.CheckboxToggle,
         component: CheckboxToggleDocComponent
       },
       {
-        path: 'input-doc',
+        path: Pages.Input,
         component: InputDocComponent
       },
       {
-        path: 'radiobutton-doc',
+        path: Pages.Radiobutton,
         component: RadiobuttonDocComponent
       },
       {
-        path: 'select-doc',
+        path: Pages.Select,
         component: SelectDocComponent
       },
     ]
