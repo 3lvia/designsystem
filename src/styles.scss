@@ -1,8 +1,12 @@
 /* Elvia Styleguide */
 @import "../style/src/main.scss";
 
+/* Code highlighter */
+@import "~prismjs/plugins/toolbar/prism-toolbar.css";
+@import "~prismjs/themes/prism-okaidia";
+
+
 html,
 body {
   height: 100%;
 }
-

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getComponent } from 'src/app/shared/elvis-items';
 
 @Component({
   selector: 'app-divider-doc',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./divider-doc.component.scss']
 })
 export class DividerDocComponent implements OnInit {
+
+  componentStatus = getComponent('divider-doc').status;
 
   constructor() { }
 

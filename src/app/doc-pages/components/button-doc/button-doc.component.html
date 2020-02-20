@@ -32,7 +32,7 @@
     <button class="elvis-button" disabled>Disabled</button>
   </ng-container>
   <ng-container ngProjectAs="exampleCode">
-    Code code code
+    <app-code-highlighter [isHTML]="true" [code]="example1"></app-code-highlighter>
   </ng-container>
 </app-component-example>
 
@@ -45,7 +45,7 @@
     <button class="elvis-button is-secondary" disabled>Disabled</button>
   </ng-container>
   <ng-container ngProjectAs="exampleCode">
-    Code code code
+    <app-code-highlighter [isHTML]="true" [code]="example2"></app-code-highlighter>
   </ng-container>
 </app-component-example>
 
@@ -88,43 +88,8 @@
     </div>
   </ng-container>
   <ng-container ngProjectAs="exampleCode">
-    Kode kode kode kode
+    <app-code-highlighter [isHTML]="true" [code]="example3"></app-code-highlighter>
   </ng-container>
 </app-component-example>
-
-
-    <!-- <h2>Icon-button</h2>
-    <div>
-      <button class="elvis-button-icon">
-        <span class="some-icon"></span>
-      </button>
-      <button class="elvis-button-icon" disabled>
-        <span class="some-icon"></span>
-      </button>
-    </div>
-    <div style="margin-top:8px;">
-      <button class="elvis-button-icon is-danger">
-        <span class="some-icon"></span>
-      </button>
-      <button class="elvis-button-icon is-danger" disabled>
-        <span class="some-icon"></span>
-      </button>
-    </div>
-    <div style="margin-top:8px;">
-      <button class="elvis-button-icon is-transparent">
-        <span class="some-icon"></span>
-      </button>
-      <button class="elvis-button-icon is-transparent" disabled>
-        <span class="some-icon"></span>
-      </button>
-    </div>
-    <div style="margin-top:8px;">
-      <button class="elvis-button-icon is-transparent is-no-padding">
-        <span class="some-icon"></span>
-      </button>
-      <button class="elvis-button-icon is-transparent is-no-padding" disabled>
-        <span class="some-icon"></span>
-      </button>
-    </div> -->
-
     
+
