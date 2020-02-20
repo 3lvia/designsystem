@@ -1,0 +1,12 @@
+<div class="code-block">
+    <div class="actions">
+        <div class="elvis-tooltip">
+            <button class="elvis-button is-secondary"
+                (click)="showCode = !showCode">{{showCode ? 'Skjul kode' : 'Vis kode'}}</button>
+            <span class="elvis-tooltip_content is-right">Vis kildekode</span>
+        </div>
+    </div>
+    <elvis-code-highlighter *ngIf="showCode" [isHTML]="isHTML" [isTS]="isTS" [isSCSS]="isSCSS" [code]="code">
+    </elvis-code-highlighter>
+    <div #preview></div>
+</div>
