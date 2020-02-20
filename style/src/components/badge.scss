@@ -20,4 +20,8 @@ $badge-font-size: 0.75rem;
     background: color('green-lime');
     color: color('black');
   }
+  &.is-orange {
+    background: color('orange-peel');
+    color: color('black');
+  }
 }

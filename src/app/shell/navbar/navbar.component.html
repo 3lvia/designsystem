@@ -10,7 +10,10 @@
         <a
           [routerLink]="['', navbarItem.navbarUrl]"
           routerLinkActive="active"
-        > {{navbarItem.title}}</a>
+        > 
+          {{navbarItem.title}}
+          <span class="elvis-badge is-orange" *ngIf="navbarItem.status">{{ navbarItem.status }}</span>
+        </a>
       </li>
     </ul>
   </section>

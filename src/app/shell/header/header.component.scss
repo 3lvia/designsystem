@@ -1,8 +1,9 @@
 @import '../../../../style/src/variables/colors.scss';
+@import '../../shared/shared-sizes.scss';
 
 .header {
   position: fixed;
-  height: 80px;
+  height: $header-height;
   width: 100%;
   top: 0;
   margin: 0;
@@ -17,7 +18,7 @@
 
   &_logo {
     display: flex;
-    width: 250px;
+    width: $navbar-width;
     justify-content: center;
     align-items: center;
     cursor: pointer;

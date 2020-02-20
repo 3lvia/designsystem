@@ -12,7 +12,8 @@ export class NavbarComponent implements OnInit {
   components: NavBarItem[] = [
     {
       title: 'Badge',
-      navbarUrl: Pages.Badge
+      navbarUrl: Pages.Badge,
+      status: 'New'
     },
     {
       title: 'Button',
