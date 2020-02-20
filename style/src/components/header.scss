@@ -1,3 +1,6 @@
+@import './../variables/colors';
+@import './../variables/shadows';
+
 $header-height: 66px;
 $header-z-index: 99;
 $header-img-size: 40px;
@@ -10,8 +13,8 @@ $header-img-size: 40px;
   padding: 0 16px;
   box-sizing: border-box;
 
-  background: white;
-//   box-shadow: ....
+  background: color('white');
+  box-shadow: $shadow-medium;
   z-index: $header-z-index;
 
   display: flex;
@@ -43,12 +46,12 @@ $header-img-size: 40px;
       margin-right: 8px;
       border-radius: 100%;
 
-      background: grey;
+      background: color('grey-silver');
       background-position: center;
     }
 
     &_icon-no-image {
-      background-color: blue;
+      background-color: color('green-lime');
       width: $header-img-size;
       height: $header-img-size;
       margin-right: 8px;
@@ -58,14 +61,14 @@ $header-img-size: 40px;
       align-items: center;
       justify-content: center;
 
-      color: white;
+      color: color('white');
       text-transform: uppercase;
     }
 
     &_name {
       font-size: 1rem;
       letter-spacing: 0.5px;
-      color: black;
+      color: color('black');
 
       // give space for next if exist
       &:not(:last-child) {
