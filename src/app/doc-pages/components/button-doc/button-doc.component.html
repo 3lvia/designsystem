@@ -2,15 +2,19 @@
   <h2>Button</h2>
   <h3>Intro</h3>
   <p>Info</p>
-  <button class="elvis-button">Only Style</button>
 
-  <div class="example">
-    <h2>Primary</h2>
-    <div>
+  <h2>Primary</h2>
+  <div>
+    <button class="elvis-button">Primary</button>
+    <button class="elvis-button" disabled>Disabled</button>
+  </div>
+  <elvis-code-block [isHTML]="true" [code]="htmlCode">
       <button class="elvis-button">Primary</button>
       <button class="elvis-button" disabled>Disabled</button>
-    </div>
-
+  </elvis-code-block>
+  <!--<elvis-code-highlighter [isHTML]="true" [code]="htmlCode"></elvis-code-highlighter>
+  -->
+  <div class="example">
     <h2>Secondary</h2>
     <div>
       <button class="elvis-button is-secondary">Secondary</button>

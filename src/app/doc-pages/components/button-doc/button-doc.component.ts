@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
-// @ts-ignore
-require('../../../../../web-components/button/button.js');
-
 @Component({
   selector: 'app-button-doc',
   templateUrl: './button-doc.component.html',
@@ -11,7 +7,11 @@ require('../../../../../web-components/button/button.js');
 })
 export class ButtonDocComponent implements OnInit {
 
-  public clicked = false;
+  htmlCode = `
+  <button class="elvis-button">Standard</button>
+  <button class="elvis-button" disabled>Disabled</button>
+  `;
+
   constructor() { }
 
   ngOnInit() {
