@@ -4,7 +4,11 @@
       <h1>
         <ng-content select="headerTitle"></ng-content>
       </h1>
-      <span class="elvis-badge is-orange" *ngIf="componentStatus!=''">{{ componentStatus }}</span>
+      <div *ngIf="componentStatus!=''">
+        <span class="elvis-badge is-orange" *ngIf="componentStatus==='New'">{{ componentStatus }}</span>
+        <span class="elvis-badge is-red" *ngIf="componentStatus==='In progress'">{{ componentStatus }}</span>
+        <span class="elvis-badge is-green" *ngIf="componentStatus==='Done'">{{ componentStatus }}</span>
+      </div>
     </div>
     <p class="component-header__class">
       <code>

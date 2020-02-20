@@ -4,6 +4,11 @@
 .component-body__example {
   margin: 16px auto;
   width: 70%;
+
+  &-title {
+    margin-top: 40px;
+    margin-bottom: 8px; 
+  }
   
   &-body {
     border: 1px solid color("grey-silver");

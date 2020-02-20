@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getComponent } from 'src/app/shared/elvis-items';
 
 @Component({
   selector: 'app-card-doc',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-doc.component.scss']
 })
 export class CardDocComponent implements OnInit {
+
+  componentStatus = getComponent('card-doc').status;
 
   constructor() { }
 

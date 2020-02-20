@@ -1,10 +1,32 @@
-<div>
-  <h2>Card</h2>
-  <h3>Intro</h3>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore unde saepe, in dolores nam? Iusto
-    corporis odit dolore deleniti maiores distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?</p>
+<!--HEADER-->
+<app-component-header [componentStatus]="componentStatus">
+  <ng-container ngProjectAs="headerTitle">
+    Card
+  </ng-container>
+  <ng-container ngProjectAs="headerClass">
+    .elvis-card
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Quisquam inventore unde saepe, in dolores nam? 
+    Iusto corporis odit dolore deleniti maiores distinctio, 
+    quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>
 
-  <div class="example">
+  <ng-container ngProjectAs="descriptionDoes">
+    Does does does does does does does does does 
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDonts">
+    Donts donts donts donts donts donts donts donts 
+  </ng-container>
+</app-component-header>
+
+<!--EXAMPLES-->
+<app-component-example>
+  <ng-container ngProjectAs="exampleTitle">
+    Card 1
+  </ng-container>
+  <ng-container ngProjectAs="exampleVisualization">
     <div class="elvis-card">
       <div class="elvis-card_header">
         <div class="elvis-card_header_text">
@@ -27,7 +49,17 @@
         <p>And more content.</p>
       </div>
     </div>
-    
+  </ng-container>
+  <ng-container ngProjectAs="exampleCode">
+    Code code code
+  </ng-container>
+</app-component-example>
+
+<app-component-example>
+  <ng-container ngProjectAs="exampleTitle">
+    Card 2
+  </ng-container>
+  <ng-container ngProjectAs="exampleVisualization">
     <div class="elvis-card">
       <div class="elvis-card_header">
         <div class="elvis-card_header_icon">
@@ -44,7 +76,17 @@
         <button class="elvis-button">Full width button</button>
       </div>
     </div>
+  </ng-container>
+  <ng-container ngProjectAs="exampleCode">
+    Code code code
+  </ng-container>
+</app-component-example>
 
+<app-component-example>
+  <ng-container ngProjectAs="exampleTitle">
+    Card 3
+  </ng-container>
+  <ng-container ngProjectAs="exampleVisualization">
     <div class="elvis-card">
       <div class="elvis-card_header">
         <div class="elvis-card_header_icon">
@@ -66,7 +108,17 @@
         <button class="elvis-button">Complete action</button>
       </div>
     </div>
-    
+  </ng-container>
+  <ng-container ngProjectAs="exampleCode">
+    Code code code
+  </ng-container>
+</app-component-example>
+
+<app-component-example>
+  <ng-container ngProjectAs="exampleTitle">
+    Card 4
+  </ng-container>
+  <ng-container ngProjectAs="exampleVisualization">
     <div class="elvis-card">
       <div class="elvis-card_header">
         <div class="elvis-card_header_text">
@@ -81,5 +133,8 @@
         <button class="elvis-card_actions_action">View more</button>
       </div>
     </div>
-  </div>
-</div>
+  </ng-container>
+  <ng-container ngProjectAs="exampleCode">
+    Code code code
+  </ng-container>
+</app-component-example>
