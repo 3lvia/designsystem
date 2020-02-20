@@ -1,0 +1,41 @@
+@import "../../../../../style/src/variables/colors.scss";
+@import "../../../../../style/src/utilities/shadows.scss";
+
+.component {
+  &-header {
+    background: #eee;
+    padding: 16px 32px;
+
+    &__title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      h1,
+      .elvis-badge {
+        display: flex;
+        align-self: center;
+      }
+    }
+
+    &__body {
+      &-class {
+        margin: 0;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 14px;
+        background: color("grey-silver");
+        width: fit-content;
+      }
+    }
+  }
+
+  &-body {
+    background: #fff;
+    padding: 16px 32px;
+
+    &__description {
+
+    }
+  }
+}

@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BadgeDocComponent implements OnInit {
 
+  componentStatus = 'New';
+  className = '.elvis-badge';
+
   constructor() { }
 
   ngOnInit() {

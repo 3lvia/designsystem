@@ -1,53 +1,25 @@
-@import "../../../../../style/src/variables/colors.scss";
-@import "../../../../../style/src/utilities/shadows.scss";
+.elvis-badge:not(:first-of-type) {
+  margin-left: 8px;
+}
 
-.component {
-  &-header {
-    background: #eee;
-    padding: 16px 32px;
+.component-body__example {
+  margin: 16px auto;
+  width: 70%;
+  
+  &-title {
 
-    &__title {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      h1,
-      .elvis-badge {
-        display: flex;
-        align-self: center;
-      }
-    }
-
-    &__import {
-      padding: 8px 14px;
-      border-radius: 14px;
-      background: color("grey-stone");
-      color: color("white");
-      width: fit-content;
-    }
   }
 
   &-body {
-    background: #fff;
-    padding: 16px 32px;
-    &__example {
-      margin: 16px auto;
-      width: 70%;
-      border: 1px solid color("grey-silver");
+    border: 1px solid color("grey-silver");
 
-      .element {
-        padding: 32px 16px;
-
-        .elvis-badge {
-          margin: 8px;
-        }
-      }
-
-      .code {
-        padding: 32px 16px;
-        background: color('grey-mine-shaft');
-        color: color('white');
-      }
+    .element {
+      padding: 32px 16px;
+    }
+    .code {
+      padding: 32px 16px;
+      background: color('grey-mine-shaft');
+      color: color('white');
     }
   }
 }

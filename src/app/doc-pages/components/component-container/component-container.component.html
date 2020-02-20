@@ -1,0 +1,30 @@
+<div class="component">
+  <div class="component-header">
+    <div class="component-header__title">
+      <h1>
+        <ng-content select="headerTitle"></ng-content>
+      </h1>
+      <span class="elvis-badge" *ngIf="componentStatus!=''">{{ componentStatus }}</span>
+    </div>
+    <div class="component-header__body">
+      <p class="component-header__body-class">
+        <code>
+          <ng-content select="headerClass"></ng-content>
+        </code>
+      </p>
+      <p class="component-header__body-description">
+        <ng-content select="headerDescription"></ng-content>
+      </p>
+    </div>
+  </div>
+
+  <div class="component-body">
+    <div class="component-body__body-description">
+      <h2>✅ When to use:</h2>
+      <ng-content select="descriptionDoes"></ng-content>
+
+      <h2>⛔ When not to use:</h2>
+      <ng-content select="descriptionDonts"></ng-content>
+    </div>
+  </div>
+</div>

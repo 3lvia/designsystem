@@ -1,32 +1,37 @@
-<div class="component">
-  <div class="component-header">
-    <div class="component-header__title">
-      <h1>Badge</h1>
-      <span class="elvis-badge">Comming</span>
-    </div>
-    <p class="component-header__import">@import '@hafslundnett/style';</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?</p>
+<app-component-container [componentStatus]="componentStatus" [numberOfExamples]="2">
+  <ng-container ngProjectAs="headerTitle">
+    Badge
+  </ng-container>
+  <ng-container ngProjectAs="headerClass">
+    .elvis-badge
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Quisquam inventore unde saepe, in dolores nam? 
+    Iusto corporis odit dolore deleniti maiores distinctio, 
+    quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>
+
+  <ng-container ngProjectAs="descriptionDoes">
+    Does does does does does does does does does 
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDonts">
+    Donts donts donts donts donts donts donts donts 
+  </ng-container>
+</app-component-container>
+
+<div class="component-body__example">
+  <div class="component-body__example-title">
+    <h2>
+      Badge
+    </h2>
   </div>
-
-  <div class="component-body">
-    <div class="component-body__example">
-      <div class="element">
-        <span class="elvis-badge">592</span>
-        <span class="elvis-badge is-green">592</span>
-      </div>
-      <div class="code">
-        kode kode
-      </div>
+  <div class="component-body__example-body">
+    <div class="element">
+      <span class="elvis-badge">101001</span>
     </div>
-
-    <div class="component-body__example">
-      <div class="element">
-        <span class="elvis-badge">592</span>
-        <span class="elvis-badge is-green">592</span>
-      </div>
-      <div class="code">
-        kode kode
-      </div>
+    <div class="code">
+      Code code code
     </div>
   </div>
 </div>
