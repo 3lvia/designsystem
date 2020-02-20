@@ -18,6 +18,14 @@
     padding: 0;
   }
 
+  &-list-header {
+    font-size: 24px;
+    font-weight: 800;
+    width: 100%;
+    text-align: center;
+    text-decoration: underline color('green-lime');
+  }
+
   &-item {
     list-style-type: none;
     cursor: pointer;
@@ -28,7 +36,18 @@
       padding: 8px 16px;
     }
     a.active {
-      background-color: color('orange-peel-05');
+      color: color('white');
+      background-color: color('grey-mine-shaft');
+      
+    &::after {
+      content: '';
+      display: inline-flex;
+      margin-left: 4px;
+      height: 6px;
+      width: 6px;
+      border-radius: 50%;
+      background-color: color('green-lime');
+    }
     }
     a:hover:not(.active) {
       background-color: #eee;
