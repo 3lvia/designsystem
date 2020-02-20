@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { elvisComponents, elvisUtilities } from 'src/app/shared/elvis-items';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
+  elvisComponents = elvisComponents;
+
+  elvisUtilities = elvisUtilities;
 
   constructor() { }
 

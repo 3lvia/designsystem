@@ -1,3 +1,5 @@
+@import './../variables/colors';
+
 $feedback-padding: 20px 30px;
 $feedback-border-radius: 4px;
 $feedback-min-width: 260px;
@@ -20,37 +22,36 @@ $feedback-message-gap: 10px;
   
   // .is-info is the default for any feedback-container
   @extend .is-info;
-//   @extend .is-p;
 
   &.is-success {
-    background: lightgreen;
+    background: color('green-lime');
     
     #{$this}_icon, #{$this}_message, #{$this}_close-button {
-      color: lightgreen;
+      color: color('black');
     }
   }
 
   &.is-info {
-    background-color: lightblue;
+    background-color: color('yellow-05');
 
     #{$this}_icon, #{$this}_message, #{$this}_close-button {
-      color: lightblue;
+      color: color('black');
     }
   }
 
   &.is-warn {
-    background-color: yellow;
+    background-color: color('orange-peel');
 
     #{$this}_icon, #{$this}_message, #{$this}_close-button {
-      color: white;
+      color: color('black');
     }
   }
 
   &.is-error {
-    background-color: red;
+    background-color: color('red');
 
     #{$this}_icon, #{$this}_message, #{$this}_close-button {
-      color: white;
+      color: color('white');
     }
   }
 
