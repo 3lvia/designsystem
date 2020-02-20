@@ -1,0 +1,69 @@
+@import '../../variables/colors.scss';
+
+.elvis-form_field {
+  // Variable containing '&' to jump to current parent inside a child class.
+  $this: &;
+
+  display: block;
+  position: relative;
+  text-align: left;
+  box-sizing: border-box;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &_label {
+    // .is-p is font-properties, defined in typography.
+    @extend .is-p;
+
+    display: block;
+    margin-bottom: 0.2rem;
+    font-weight: bold;
+  }
+
+  &_title {
+    // .is-p is font-properties, defined in typography.
+    @extend .is-p;
+
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+
+  &_error,
+  &_info {
+    display: none;
+    position: absolute;
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  &_error {
+    > i {
+      margin-right: 5px;
+      color: color('red');
+    }
+  }
+
+  &_info {
+    color: color('font');
+  }
+
+  &.is-line {
+    > * {
+      &:not(#{$this}_title):not(#{$this}_error) {
+        margin-right: 1rem;
+        float: left;
+      }
+    }
+  }
+
+  &.is-inline {
+    display: inline-block;
+  }
+}

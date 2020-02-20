@@ -1,0 +1,83 @@
+@import '../../variables/colors.scss';
+
+$form-checkbox-mark-size: 1rem;
+$form-checkbox-mark-border-radius: $border-radius;
+$form-checkbox-mark-border: 1px solid color('green-lime');
+
+.elvis-form_checkbox {
+  // Variable containing '&' to jump to current parent inside a child class.
+  $this: &;
+
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-bottom: 0.75rem;
+  }
+
+  // Creating placeholder to inject style into checkbox mutations.
+  // We have to seperate the checkbox marked styling because of the checked state
+  %checkbox-mark {
+    position: relative;
+    background-color: color('green-lime');
+    &::before {
+      @extend .fal, .fa-check, :before;
+      
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      color: color('white');
+      font-size: 0.75rem;
+    }
+  }
+
+  &.is-checked {
+    #{$this}_mark {
+      @extend %checkbox-mark;
+    }
+  }
+
+  &.is-invalid {
+    input:checked ~ #{$this}_mark,
+    #{$this}_mark {
+      border-color: color('red');
+
+      &::before {
+        color: color('red');
+      }
+    }
+  }
+
+  // Need to hide the original checkbox
+  input {
+    display: none;
+
+    &:checked ~ #{$this}_mark {
+      @extend %checkbox-mark;
+    }
+  }
+
+  .elvis-badge {
+    margin-left: 0.5rem;
+    float: right;
+  }
+
+  &_mark {
+    display: inline-block;
+
+    min-width: $form-checkbox-mark-size;
+    min-height: $form-checkbox-mark-size;
+    max-width: $form-checkbox-mark-size;
+    max-height: $form-checkbox-mark-size;
+    transition: background 0.3s $transition-cubic;
+    border: $form-checkbox-mark-border;
+    border-radius: $form-checkbox-mark-border-radius;
+    background: color('white');
+  }
+
+  &_label {
+    flex-grow: 1;
+    margin-left: 1rem;
+  }
+}

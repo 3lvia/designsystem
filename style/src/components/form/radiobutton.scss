@@ -1,0 +1,60 @@
+@import '../../variables/colors.scss';
+
+$form-radiobutton-mark-size: 1rem;
+$form-radiobutton-mark-border-radius: 14px;
+$form-radiobutton-mark-border: 1px solid color('green-lime');
+
+.elvis-form_radiobutton {
+  // Variable containing '&' to jump to current parent inside a child class.
+  $this: &;
+
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  &:not(:last-child) {
+    margin-bottom: 0.75rem;
+  }
+
+  // Creating placeholder to inject style into radiobutton mutations.
+  %radiobutton-mark {
+    position: relative;
+    background-color: color('green-lime');
+    &:before {
+      content: "";
+      display: inline-block;
+      padding: 0.3rem;
+      border: 2px solid color('white');
+      border-radius: 14px;
+    }
+  }
+
+  &.is-checked {
+    #{$this}_mark {
+      @extend %radiobutton-mark;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked ~ #{$this}_mark {
+      @extend %radiobutton-mark;
+    }
+  }
+
+  &_mark {
+    display: inline-block;
+
+    width: $form-radiobutton-mark-size;
+    height: $form-radiobutton-mark-size;
+    transition: background 0.3s $transition-cubic;
+    border: $form-radiobutton-mark-border;
+    border-radius: $form-radiobutton-mark-border-radius;
+    background: color('white');
+  }
+
+  &_label {
+    flex-grow: 1;
+    margin-left: 1rem;
+  }
+}

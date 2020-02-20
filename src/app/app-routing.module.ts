@@ -15,6 +15,11 @@ import { TagsDocComponent } from './doc-pages/components/tags-doc/tags-doc.compo
 import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
 import { ColorDocComponent } from './doc-pages/utilities/color-doc/color-doc.component';
 import { TypographyDocComponent } from './doc-pages/utilities/typography-doc/typography-doc.component';
+import { CheckboxDocComponent } from './doc-pages/components/forms/checkbox-doc/checkbox-doc.component';
+import { CheckboxToggleDocComponent } from './doc-pages/components/forms/checkbox-toggle-doc/checkbox-toggle-doc.component';
+import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-doc.component';
+import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
+import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
 
 
 const routes: Routes = [
@@ -81,6 +86,26 @@ const routes: Routes = [
       {
         path: 'typography-doc',
         component: TypographyDocComponent
+      },
+      {
+        path: 'checkbox-doc',
+        component: CheckboxDocComponent
+      },
+      {
+        path: 'checkbox-toggle-doc',
+        component: CheckboxToggleDocComponent
+      },
+      {
+        path: 'input-doc',
+        component: InputDocComponent
+      },
+      {
+        path: 'radiobutton-doc',
+        component: RadiobuttonDocComponent
+      },
+      {
+        path: 'select-doc',
+        component: SelectDocComponent
       },
     ]
   }

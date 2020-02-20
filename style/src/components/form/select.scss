@@ -1,0 +1,100 @@
+@import '../../variables/colors.scss';
+
+$form-select-padding: $form-input-padding;
+$form-select-border-radius: $border-radius;
+$form-select-border: $form-input-border;
+$form-select-icon-margin: 0.9rem;
+
+.elvis-form_select {
+  // Variable containing '&' to jump to current parent inside a child class.
+  $this: &;
+
+  display: flex;
+  position: relative;
+  align-items: center;
+
+  width: 100%;
+
+  transition: border-color $medium-transition $transition-cubic;
+  border: $form-select-border;
+  border-radius: $form-select-border-radius;
+  box-sizing: border-box;
+
+  background: color('white');
+
+  select {
+    flex-grow: 1;
+    padding: $form-select-padding;
+
+    border: 0;
+    background: none;
+
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  &:focus-within {
+    @extend .elvis-form_select, .is-focus;
+  }
+
+  &.is-focus {
+    border-color: color('green-lime');
+
+    select {
+      color: color('green-lime');
+    }
+
+    #{$this}_icon,
+    > svg,
+    > i {
+      opacity: 1;
+      color: color('green-lime');
+    }
+  }
+
+  &.is-invalid {
+    border-color: color('red');
+
+    select {
+      color: color('red');
+    }
+
+    i {
+      opacity: 1;
+      color: color('red');
+    }
+  }
+
+  &.is-disabled {
+    background: color('grey-silver');
+    cursor: default;
+  }
+
+  &.has-icon {
+    select {
+      padding-left: calc(#{$form-input-icon-margin} + #{font-size(h2)} + #{$form-input-padding-left});
+    }
+  }
+
+  &_icon,
+  > svg,
+  > i {
+    position: absolute;
+    transition: color $medium-transition $transition-cubic, opacity $medium-transition $transition-cubic;
+    opacity: 0.44;
+    color: color('black');
+    font-size: font-size(h2);
+
+    &:first-child {
+      left: $form-select-icon-margin;
+    }
+
+    &:last-child {
+      right: $form-select-icon-margin;
+    }
+  }
+}
