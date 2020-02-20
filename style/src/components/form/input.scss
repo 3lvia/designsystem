@@ -1,4 +1,5 @@
 @import '../../variables/colors.scss';
+@import '../../variables/animation.scss';
 
 $form-input-padding: $form-input-padding-left 0.9rem;
 $form-input-border-radius: $border-radius;
@@ -48,9 +49,6 @@ $form-input-border: 1px solid color('grey-mine-shaft');
   &_field,
   > input,
   > textarea {
-    // .is-p is font-properties, defined in typography
-    @extend .is-p;
-
     width: 100%;
     padding: 0;
     border: none;

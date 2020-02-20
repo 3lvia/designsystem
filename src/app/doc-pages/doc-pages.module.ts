@@ -17,6 +17,7 @@ import { CheckboxToggleDocModule } from './components/forms/checkbox-toggle-doc/
 import { InputDocModule } from './components/forms/input-doc/input-doc.module';
 import { RadiobuttonDocModule } from './components/forms/radiobutton-doc/radiobutton-doc.module';
 import { SelectDocModule } from './components/forms/select-doc/select-doc.module';
+import { ShadowDocModule } from './utilities/shadow-doc/shadow-doc.module';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { SelectDocModule } from './components/forms/select-doc/select-doc.module
     CheckboxToggleDocModule,
     InputDocModule,
     RadiobuttonDocModule,
-    SelectDocModule
+    SelectDocModule,
+    ShadowDocModule
   ],
 })
 export class DocPagesModule { }

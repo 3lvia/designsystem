@@ -1,4 +1,7 @@
-$dropdown-border: 1px solid blue;
+@import './../variables/colors';
+@import './../variables/shadows';
+
+$dropdown-border: 1px solid color('green-lime');
 $dropdown-margin: 20px;
 $dropdown-item-padding: 0.625rem 0.75rem;
 
@@ -23,7 +26,7 @@ $dropdown-item-padding: 0.625rem 0.75rem;
     min-width: calc(100% + 1px);
     border: $dropdown-border;
     border-radius: 4px;
-    background: white;
+    background: color('white');
 
     &.is-aligned-top {
       top: initial;
@@ -49,8 +52,8 @@ $dropdown-item-padding: 0.625rem 0.75rem;
       }
 
       &.is-active {
-        background: blue;
-        color: white;
+        background: color('green-lime');
+        color: color('white');
       }
     }
   }
