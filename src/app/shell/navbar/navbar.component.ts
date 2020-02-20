@@ -55,6 +55,10 @@ export class NavbarComponent implements OnInit {
       navbarUrl: Pages.Link
     },
     {
+      title: 'Notification-Dot',
+      navbarUrl: Pages.Notification
+    },
+    {
       title: 'Radiobutton',
       navbarUrl: Pages.Radiobutton
     },
@@ -80,6 +84,10 @@ export class NavbarComponent implements OnInit {
     {
       title: 'Colors',
       navbarUrl: Pages.Color
+    },
+    {
+      title: 'Shadows',
+      navbarUrl: Pages.Shadow
     },
     {
       title: 'Typography',

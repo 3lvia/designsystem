@@ -111,11 +111,11 @@ const routes: Routes = [
         component: SelectDocComponent
       },
       {
-        path: 'shadow-doc',
+        path: Pages.Shadow,
         component: ShadowDocComponent
       },
       {
-        path: 'notification-dot-doc',
+        path: Pages.Notification,
         component: NotificationDotDocComponent
       },
     ]

@@ -17,5 +17,7 @@ export enum Pages {
     CheckboxToggle = 'checkbox-toggle-doc',
     Input = 'input-doc',
     Radiobutton = 'radiobutton-doc',
-    Select = 'select-doc'
+    Select = 'select-doc',
+    Shadow = 'shadow-doc',
+    Notification = 'notification-dot-doc'
 }
