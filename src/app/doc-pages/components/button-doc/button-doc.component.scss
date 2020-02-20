@@ -1,10 +1,65 @@
-.elvis-button {
-  margin: 4px;
+@import "../../../../../style/src/variables/colors.scss";
+@import "../../../../../style/src/utilities/shadows.scss";
 
-  .some-icon {
-    height: 16px;
-    width: 16px;
-    border-radius: 25px;
-    border: 1px solid black;
+.component {
+  &-header {
+    background: #eee;
+    padding: 16px 32px;
+
+    &__title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      h1,
+      .elvis-badge {
+        display: flex;
+        align-self: center;
+      }
+    }
+
+    &__import {
+      padding: 8px 14px;
+      border-radius: 14px;
+      background: color("grey-stone");
+      color: color("white");
+      width: fit-content;
+    }
+
+    &__description {
+      padding: 8px 14px;
+    }
+  }
+
+  &-body {
+    background: #fff;
+    padding: 16px 32px;
+
+    &__example {
+      margin: 16px auto;
+      width: 70%;
+      border: 1px solid color("grey-silver");
+
+      .element {
+        padding: 32px 16px;
+
+        .elvis-button {
+          margin: 4px;
+        
+          .some-icon {
+            height: 16px;
+            width: 16px;
+            border-radius: 25px;
+            border: 1px solid black;
+          }
+        }
+      }
+
+      .code {
+        padding: 32px 16px;
+        background: color('grey-mine-shaft');
+        color: color('white');
+      }
+    }
   }
 }
