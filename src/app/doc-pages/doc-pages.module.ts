@@ -18,6 +18,7 @@ import { InputDocModule } from './components/forms/input-doc/input-doc.module';
 import { RadiobuttonDocModule } from './components/forms/radiobutton-doc/radiobutton-doc.module';
 import { SelectDocModule } from './components/forms/select-doc/select-doc.module';
 import { ShadowDocModule } from './utilities/shadow-doc/shadow-doc.module';
+import { OverviewModule } from './overview/overview.module';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { ShadowDocModule } from './utilities/shadow-doc/shadow-doc.module';
     InputDocModule,
     RadiobuttonDocModule,
     SelectDocModule,
-    ShadowDocModule
+    ShadowDocModule,
+    OverviewModule
   ],
 })
 export class DocPagesModule { }

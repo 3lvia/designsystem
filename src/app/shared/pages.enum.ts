@@ -19,5 +19,6 @@ export enum Pages {
     Radiobutton = 'radiobutton-doc',
     Select = 'select-doc',
     Shadow = 'shadow-doc',
-    Notification = 'notification-dot-doc'
+    Notification = 'notification-dot-doc',
+    Overview = 'overview-doc'
 }
