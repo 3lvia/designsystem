@@ -23,73 +23,8 @@
 
 <!--EXAMPLES-->
 
-<app-component-example>
-  <ng-container ngProjectAs="exampleTitle">
-    Button primary
-  </ng-container>
-  <ng-container ngProjectAs="exampleVisualization">
-    <button class="elvis-button">Primary</button>
-    <button class="elvis-button" disabled>Disabled</button>
-  </ng-container>
-  <ng-container ngProjectAs="exampleCode">
-    <app-code-highlighter [isHTML]="true" [code]="example1"></app-code-highlighter>
-  </ng-container>
-</app-component-example>
-
-<app-component-example>
-  <ng-container ngProjectAs="exampleTitle">
-    Button secondary
-  </ng-container>
-  <ng-container ngProjectAs="exampleVisualization">
-    <button class="elvis-button is-secondary">Secondary</button>
-    <button class="elvis-button is-secondary" disabled>Disabled</button>
-  </ng-container>
-  <ng-container ngProjectAs="exampleCode">
-    <app-code-highlighter [isHTML]="true" [code]="example2"></app-code-highlighter>
-  </ng-container>
-</app-component-example>
-
-<app-component-example>
-  <ng-container ngProjectAs="exampleTitle">
-    Button with icon
-  </ng-container>
-  <ng-container ngProjectAs="exampleVisualization">
-    <div>
-      <button class="elvis-button has-icon">
-        <span class="some-icon"></span>Icon button
-      </button>
-      <button class="elvis-button has-icon" disabled>
-        <span class="some-icon"></span>Icon button
-      </button>
-    </div>
-    <div style="margin-top:8px;">
-      <button class="elvis-button has-icon is-danger">
-        <span class="some-icon"></span>Slett button
-      </button>
-      <button class="elvis-button has-icon is-danger" disabled>
-        <span class="some-icon"></span>Slett button
-      </button>
-    </div>
-    <div style="margin-top:8px;">
-      <button class="elvis-button has-icon is-secondary">
-        <span class="some-icon"></span>Icon button
-      </button>
-      <button class="elvis-button has-icon is-secondary" disabled>
-        <span class="some-icon"></span>Icon button
-      </button>
-    </div>
-    <div style="margin-top:8px;">
-      <button class="elvis-button has-icon is-transparent">
-        <span class="some-icon"></span>Icon button
-      </button>
-      <button class="elvis-button has-icon is-transparent" disabled>
-        <span class="some-icon"></span>Icon button
-      </button>
-    </div>
-  </ng-container>
-  <ng-container ngProjectAs="exampleCode">
-    <app-code-highlighter [isHTML]="true" [code]="example3"></app-code-highlighter>
-  </ng-container>
-</app-component-example>
+<elvis-code-block [isHTML]="true" [code]="example1" [title]='"Button primary"'></elvis-code-block>
+<elvis-code-block [isHTML]="true" [code]="example2" [title]='"Button secondary"'></elvis-code-block>
+<elvis-code-block [isHTML]="true" [code]="example3" [title]='"Button with icon"'></elvis-code-block>
     
 

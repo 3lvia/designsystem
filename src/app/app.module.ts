@@ -16,7 +16,7 @@ import { DocPagesModule } from './doc-pages/doc-pages.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     ShellModule,
-    DocPagesModule
+    DocPagesModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
