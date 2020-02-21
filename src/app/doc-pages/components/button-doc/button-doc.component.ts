@@ -1,9 +1,6 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { getComponent } from 'src/app/shared/elvis-items';
 
-// @ts-ignore
-require('../../../../../web-components/button/button.js');
-
 @Component({
   selector: 'app-button-doc',
   templateUrl: './button-doc.component.html',

@@ -16,8 +16,6 @@ export class CodeBlockComponent implements AfterViewInit {
 
   @Input() code = '';
 
-  showCode = true;
-
   constructor() {}
 
   ngAfterViewInit() {
