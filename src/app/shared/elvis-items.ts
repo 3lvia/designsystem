@@ -17,97 +17,97 @@ export const elvisComponents: ElvisItems[] = [
         title: 'Button',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Button,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Card',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Card,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Checkbox',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Checkbox,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Checkbox-Toggle',
         description: 'Some useful component with amazing features',
         docUrl: Pages.CheckboxToggle,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Divider',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Divider,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Dropdown',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Dropdown,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Feedback-Message',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Feedback,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Header',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Header,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Input',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Input,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Link',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Link,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Notification-Dot',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Notification,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Radiobutton',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Radiobutton,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Select',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Select,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Table',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Table,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Tags',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Tags,
-        status: 'In progress'
+        status: 'Coming'
     },
     {
         title: 'Tooltip',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Tooltip,
-        status: 'In progress'
+        status: 'Coming'
     }
 ];
 

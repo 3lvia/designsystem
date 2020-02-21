@@ -1,7 +1,7 @@
 import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'elvis-code-block',
+  selector: 'app-code-block',
   templateUrl: './code-block.component.html',
   styleUrls: ['./code-block.component.scss']
 })

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getComponent } from 'src/app/shared/elvis-items';
 
 @Component({
   selector: 'app-dropdown-doc',
@@ -6,6 +7,48 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dropdown-doc.component.scss']
 })
 export class DropdownDocComponent implements OnInit {
+
+  componentStatus = getComponent('dropdown-doc').status;
+
+  example1 = `<div class="elvis-form_input elvis-dropdown is-focus">
+  <i class="fal fa-search elvis-form_input_icon"></i>
+  <input value="Jer" />
+  <i class="fal fa-times" aria-label="Clear text"></i>
+
+  <div class="elvis-dropdown_content is-active">
+    <div class="elvis-dropdown_content_item is-active"><b>Jer</b>oen</div>
+    <div class="elvis-dropdown_content_item">Stian</div>
+    <div class="elvis-dropdown_content_item">Erik</div>
+  </div>
+</div>
+<div class="example-fill">
+  <p>Some content behind</p>
+  <p>Some content behind</p>
+  <p>Some content behind</p>
+  <p>Some content behind</p>
+</div>
+`;
+
+  example2 = `<div class="example-fill">
+  <p>Some content behind</p>
+  <p>Some content behind</p>
+  <p>Some content behind</p>
+  <p>Some content behind</p>
+  <p>Some content behind</p>
+</div>
+<div class="elvis-form_input elvis-dropdown is-focus">
+    <i class="fal fa-search elvis-form_input_icon"></i>
+    <input value="Jer" />
+    <i class="fal fa-times" aria-label="Clear text"></i>
+ 
+  <div class="elvis-dropdown_content is-active is-aligned-top">
+    <div class="elvis-dropdown_content_item is-active"><b>Jer</b>oen</div>
+    <div class="elvis-dropdown_content_item">Stian</div>
+    <div class="elvis-dropdown_content_item">Rune</div>
+    <div class="elvis-dropdown_content_item">Erik</div>
+  </div>
+</div>
+`;
 
   constructor() { }
 

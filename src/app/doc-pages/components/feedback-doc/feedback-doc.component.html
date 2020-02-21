@@ -1,44 +1,28 @@
-<div>
-  <h2>Feedback Messages</h2>
-  <h3>Intro</h3>
-  <p>Info</p>
+<!--HEADER-->
+<app-component-header [componentStatus]="componentStatus">
+  <ng-container ngProjectAs="headerTitle">
+    Feedback message
+  </ng-container>
+  <ng-container ngProjectAs="headerClass">
+    .elvis-feedback-message
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Quisquam inventore unde saepe, in dolores nam? 
+    Iusto corporis odit dolore deleniti maiores distinctio, 
+    quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>
 
-  <div class="example">
-    <div class="elvis-feedback-message">
-      <i class="fal fa-info-circle elvis-feedback-message_icon"></i>
-      <p class="elvis-feedback-message_message">
-        This is just for info! Usage of icons should be kept to an absolute minimum. Long messages are also supported, the text will wrap to a new line. However, long feedbacks are not recommended.
-      </p>
-      <button class="elvis-feedback-message_close-button">
-        <i class="fal fa-times-circle"></i>
-      </button>
-    </div>
-  
-    <div class="elvis-feedback-message is-success">
-      <p class="elvis-feedback-message_message">
-        Something was a success!
-      </p>
-      <button class="elvis-feedback-message_close-button">
-      <i class="fal fa-times-circle"></i>
-      </button>
-    </div>
-  
-    <div class="elvis-feedback-message is-warn">
-      <p class="elvis-feedback-message_message">
-        There is something you might want to check out.
-      </p>
-      <button class="elvis-feedback-message_close-button">
-        <i class="fal fa-times-circle"></i>
-      </button>
-    </div>
-  
-    <div class="elvis-feedback-message is-error">
-      <p class="elvis-feedback-message_message">
-        There is something seriously wrong going on!
-      </p>
-      <button class="elvis-feedback-message_close-button">
-        <i class="fal fa-times-circle"></i>
-      </button>
-    </div>
-  </div>
-</div>
+  <ng-container ngProjectAs="descriptionDoes">
+    Does does does does does does does does does 
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDonts">
+    Donts donts donts donts donts donts donts donts 
+  </ng-container>
+</app-component-header>
+
+<!--EXAMPLES-->
+<app-code-block [isHTML]="true" [code]="example1" [title]='"Feedback"'></app-code-block>
+<app-code-block [isHTML]="true" [code]="example2" [title]='"Feedback"'></app-code-block>
+<app-code-block [isHTML]="true" [code]="example3" [title]='"Feedback"'></app-code-block>
+<app-code-block [isHTML]="true" [code]="example4" [title]='"Feedback"'></app-code-block>

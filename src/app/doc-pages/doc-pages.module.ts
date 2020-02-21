@@ -19,6 +19,7 @@ import { RadiobuttonDocModule } from './components/forms/radiobutton-doc/radiobu
 import { SelectDocModule } from './components/forms/select-doc/select-doc.module';
 import { ShadowDocModule } from './utilities/shadow-doc/shadow-doc.module';
 import { OverviewModule } from './overview/overview.module';
+import { NotificationDotDocModule } from './components/notification-dot-doc/notification-dot-doc.module';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { OverviewModule } from './overview/overview.module';
     TooltipDocModule,
     ColorDocModule,
     TypographyDocModule,
+    NotificationDotDocModule,
     CheckboxDocModule,
     CheckboxToggleDocModule,
     InputDocModule,

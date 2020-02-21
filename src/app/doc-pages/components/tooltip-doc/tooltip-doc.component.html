@@ -1,47 +1,27 @@
-<div>
-  <h2>Tooltip</h2>
-  <h3>Intro</h3>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
-  </p>
+<!--HEADER-->
+<app-component-header [componentStatus]="componentStatus">
+  <ng-container ngProjectAs="headerTitle">
+    Tooltip
+  </ng-container>
+  <ng-container ngProjectAs="headerClass">
+    .elvis-tooltip
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Quisquam inventore unde saepe, in dolores nam? 
+    Iusto corporis odit dolore deleniti maiores distinctio, 
+    quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>
 
-  <div class="example-container">
-    <span class="elvis-tooltip">
-      Hover Right
-      <span class="elvis-tooltip_content is-right">Right tooltip </span>
-    </span>
-    <span class="elvis-tooltip">
-      Hover Left
-      <span class="elvis-tooltip_content is-left">Left tooltip</span>
-    </span>
-    <span class="elvis-tooltip">
-      Hover bottom
-      <span class="elvis-tooltip_content is-bottom">Bottom tooltip</span>
-    </span>
-    <span class="elvis-tooltip">
-      Hover on top
-      <span class="elvis-tooltip_content is-top">Top tooltip</span>
-    </span>
-  </div>
+  <ng-container ngProjectAs="descriptionDoes">
+    Does does does does does does does does does 
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDonts">
+    Donts donts donts donts donts donts donts donts 
+  </ng-container>
+</app-component-header>
 
-  <div class="example-container">
-    <span class="elvis-tooltip is-light">
-      Hover Right
-      <span class="elvis-tooltip_content is-right">Right tooltip</span>
-    </span>
-    <span class="elvis-tooltip is-light">
-      Hover Left
-      <span class="elvis-tooltip_content is-left">Left tooltip</span>
-    </span>
-    <span class="elvis-tooltip is-light">
-      Hover bottom
-      <span class="elvis-tooltip_content is-bottom">Bottom tooltip</span>
-    </span>
-    <span class="elvis-tooltip is-light">
-      Hover on top
-      <span class="elvis-tooltip_content is-top">Top tooltip</span>
-    </span>
-  </div>
-</div>
+<!--EXAMPLES-->
+<app-code-block [isHTML]="true" [code]="example1" [title]='"Tooltip dark"'></app-code-block>
+<app-code-block [isHTML]="true" [code]="example2" [title]='"Tooltip light"'></app-code-block>
+  
