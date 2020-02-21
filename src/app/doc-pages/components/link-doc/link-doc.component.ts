@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class LinkDocComponent implements OnInit {
 
   componentStatus = getComponent('link-doc').status;
+  componentClasses = ['.elvis-link'];
 
   example1 = `<a href="https://hafslundnett.no" class="elvis-link">Normal</a> <br>
 <a href="https://hafslundnett.no" class="elvis-link is-active">Active</a><br>

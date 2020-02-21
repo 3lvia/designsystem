@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class CheckboxToggleDocComponent implements OnInit {
 
   componentStatus = getComponent('checkbox-toggle-doc').status;
+  componentClasses = ['.elvis-form_field', '.elvis-form_toggle'];
 
   example1 = `<div class="elvis-form_field">
   <span class="elvis-form_field_title">Toggle Checkbox</span>

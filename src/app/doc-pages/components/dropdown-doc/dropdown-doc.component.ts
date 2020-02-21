@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class DropdownDocComponent implements OnInit {
 
   componentStatus = getComponent('dropdown-doc').status;
+  componentClasses = ['.elvis-form_input', '.elvis-dropdown'];
 
   example1 = `<div class="elvis-form_input elvis-dropdown is-focus">
   <i class="fal fa-search elvis-form_input_icon"></i>

@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class NotificationDotDocComponent implements OnInit {
 
   componentStatus = getComponent('notification-dot-doc').status;
+  componentClasses = ['.elvis-notification-dot'];
 
   example1 = `<div class="example-margin">
   <i class="fal fa-cog"><span class="elvis-notification-dot"></span></i>

@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class DividerDocComponent implements OnInit {
 
   componentStatus = getComponent('divider-doc').status;
+  componentClasses = ['.elvis-divider'];
 
   example1 = `<p>Some content</p>
 <hr class="elvis-divider">

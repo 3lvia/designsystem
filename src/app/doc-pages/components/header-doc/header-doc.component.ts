@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class HeaderDocComponent implements OnInit {
 
   componentStatus = getComponent('header-doc').status;
+  componentClasses = ['.elvis-header'];
 
   example1 = `<header class="elvis-header">
   <a class="elvis-header_logo" href="#">

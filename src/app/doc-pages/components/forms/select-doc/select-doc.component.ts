@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class SelectDocComponent implements OnInit {
 
   componentStatus = getComponent('select-doc').status;
+  componentClasses = ['.elvis-form_field', '.elvis-form_select'];
 
   example1 = `<div class="elvis-form_field">
   <label class="elvis-form_field_label" for="select-alt1">Select Option</label>

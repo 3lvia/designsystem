@@ -10,6 +10,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class ButtonDocComponent {
 
   componentStatus = getComponent('button-doc').status;
+  componentClasses = ['.elvis-button'];
   public clicked = false;
 
   example1 = `<button class="elvis-button">Standard</button>

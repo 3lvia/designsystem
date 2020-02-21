@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ComponentHeaderComponent implements OnInit {
 
   @Input() componentStatus = '';
+  @Input() componentClasses: string[];
 
   constructor() { }
 

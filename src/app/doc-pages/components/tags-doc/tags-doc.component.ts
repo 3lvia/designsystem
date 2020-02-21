@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class TagsDocComponent implements OnInit {
 
   componentStatus = getComponent('tags-doc').status;
+  componentClasses = ['.elvis-tags', '.elvis-tags_item'];
 
   example1 = `<div class="elvis-tags">
   <span class="elvis-tags_item">707057500051628391</span>

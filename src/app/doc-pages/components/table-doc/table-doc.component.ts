@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class TableDocComponent implements OnInit {
 
   componentStatus = getComponent('table-doc').status;
+  componentClasses = ['.elvis-table'];
 
   example1 = `<table class="elvis-table is-striped has-shadow">
   <tr class="elvis-table_header">

@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class InputDocComponent implements OnInit {
 
   componentStatus = getComponent('input-doc').status;
+  componentClasses = ['.elvis-form_field', '.elvis-form_input'];
 
   example1 = `<div class="elvis-form_field">
   <label class="elvis-form_field_label" for="title">Normal input field </label>

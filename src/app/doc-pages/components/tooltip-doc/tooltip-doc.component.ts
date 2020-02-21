@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class TooltipDocComponent implements OnInit {
 
   componentStatus = getComponent('tooltip-doc').status;
+  componentClasses = ['.elvis-tooltip'];
 
   example1 = `<span class="elvis-tooltip">
   Hover Right

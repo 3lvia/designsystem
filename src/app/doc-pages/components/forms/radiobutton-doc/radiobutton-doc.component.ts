@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class RadiobuttonDocComponent implements OnInit {
 
   componentStatus = getComponent('radiobutton-doc').status;
+  componentClasses = ['.elvis-form_field', '.elvis-form_radiobutton'];
 
   example1 = `<form class="elvis-form_field">
   <span class="elvis-form_field_title">Radio buttons</span>

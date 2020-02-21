@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class BadgeDocComponent implements OnInit {
 
   componentStatus = getComponent('badge-doc').status;
+  componentClasses = ['.elvis-badge'];
 
   constructor() { }
 

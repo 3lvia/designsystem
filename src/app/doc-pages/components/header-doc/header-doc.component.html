@@ -1,10 +1,10 @@
 <!--HEADER-->
-<app-component-header [componentStatus]="componentStatus">
+<app-component-header 
+ [componentStatus]="componentStatus"
+ [componentClasses]="componentClasses"
+>
   <ng-container ngProjectAs="headerTitle">
     Header
-  </ng-container>
-  <ng-container ngProjectAs="headerClass">
-    .elvis-header
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. 

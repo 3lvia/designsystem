@@ -1,10 +1,10 @@
 <!--HEADER-->
-<app-component-header [componentStatus]="componentStatus">
+<app-component-header 
+ [componentStatus]="componentStatus"
+ [componentClasses]="componentClasses"
+>
   <ng-container ngProjectAs="headerTitle">
     Badge
-  </ng-container>
-  <ng-container ngProjectAs="headerClass">
-    .elvis-badge
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. 
@@ -12,7 +12,6 @@
     Iusto corporis odit dolore deleniti maiores distinctio, 
     quas facilis ratione laudantium quae consectetur, fugiat qui?
   </ng-container>
-
   <ng-container ngProjectAs="descriptionDoes">
     Does does does does does does does does does 
   </ng-container>

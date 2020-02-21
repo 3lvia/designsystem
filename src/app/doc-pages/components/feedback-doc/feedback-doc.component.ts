@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class FeedbackDocComponent implements OnInit {
 
   componentStatus = getComponent('feedback-doc').status;
+  componentClasses = ['.elvis-feedback-message'];
 
   example1 = `<div class="elvis-feedback-message">
   <i class="fal fa-info-circle elvis-feedback-message_icon"></i>

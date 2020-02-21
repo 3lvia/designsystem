@@ -10,9 +10,9 @@
         <span class="elvis-badge is-green" *ngIf="componentStatus==='Done'">{{ componentStatus }}</span>
       </div>
     </div>
-    <p class="component-header__class">
+    <p class="component-header__class" *ngFor="let class of componentClasses">
       <code>
-        <ng-content select="headerClass"></ng-content>
+        {{ class }}
       </code>
     </p>
     <div class="component-header__body">

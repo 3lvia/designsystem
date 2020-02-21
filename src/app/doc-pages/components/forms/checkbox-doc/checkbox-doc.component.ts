@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class CheckboxDocComponent implements OnInit {
 
   componentStatus = getComponent('checkbox-doc').status;
+  componentClasses = ['.elvis-form_field', '.elvis-form_checkbox'];
 
   example1 = `<div class="elvis-form_field">
   <span class="elvis-form_field_title">Checkboxes</span>

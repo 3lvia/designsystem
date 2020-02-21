@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class CardDocComponent implements OnInit {
 
   componentStatus = getComponent('card-doc').status;
+  componentClasses = ['.elvis-card'];
 
   constructor() { }
 
