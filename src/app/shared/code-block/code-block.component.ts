@@ -1,0 +1,25 @@
+import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'elvis-code-block',
+  templateUrl: './code-block.component.html',
+  styleUrls: ['./code-block.component.scss']
+})
+
+
+export class CodeBlockComponent implements AfterViewInit {
+  @ViewChild('preview') preview;
+  @Input() isTS = false;
+  @Input() isHTML = false;
+  @Input() isSCSS = false;
+
+  @Input() code = '';
+
+  showCode = false;
+
+  constructor() {}
+
+  ngAfterViewInit() {
+    this.preview.nativeElement.innerHTML = this.code;
+  }
+}
