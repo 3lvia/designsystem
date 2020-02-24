@@ -19,6 +19,7 @@ import { RadiobuttonDocModule } from './components/forms/radiobutton-doc/radiobu
 import { SelectDocModule } from './components/forms/select-doc/select-doc.module';
 import { ShadowDocModule } from './utilities/shadow-doc/shadow-doc.module';
 import { OverviewModule } from './overview/overview.module';
+import { OverviewUtilModule } from './overview-util/overview-util.module';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { OverviewModule } from './overview/overview.module';
     RadiobuttonDocModule,
     SelectDocModule,
     ShadowDocModule,
-    OverviewModule
+    OverviewModule,
+    OverviewUtilModule
   ],
 })
 export class DocPagesModule { }

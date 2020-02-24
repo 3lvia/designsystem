@@ -20,5 +20,6 @@ export enum Pages {
     Select = 'select-doc',
     Shadow = 'shadow-doc',
     Notification = 'notification-dot-doc',
-    Overview = 'overview-doc'
+    Overview = 'overview-doc',
+    OverviewUtil = 'overview-util-doc'
 }
