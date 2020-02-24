@@ -20,6 +20,7 @@ import { SelectDocModule } from './components/forms/select-doc/select-doc.module
 import { ShadowDocModule } from './utilities/shadow-doc/shadow-doc.module';
 import { OverviewModule } from './overview/overview.module';
 import { NotificationDotDocModule } from './components/notification-dot-doc/notification-dot-doc.module';
+import { OverviewUtilModule } from './overview-util/overview-util.module';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { NotificationDotDocModule } from './components/notification-dot-doc/noti
     RadiobuttonDocModule,
     SelectDocModule,
     ShadowDocModule,
-    OverviewModule
+    OverviewModule,
+    OverviewUtilModule
   ],
 })
 export class DocPagesModule { }

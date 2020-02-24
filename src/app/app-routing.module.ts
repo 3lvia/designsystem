@@ -24,6 +24,7 @@ import { SelectDocComponent } from './doc-pages/components/forms/select-doc/sele
 import { ShadowDocComponent } from './doc-pages/utilities/shadow-doc/shadow-doc.component';
 import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
 import { OverviewComponent } from './doc-pages/overview/overview.component';
+import { OverviewUtilComponent } from './doc-pages/overview-util/overview-util.component';
 
 
 const routes: Routes = [
@@ -42,6 +43,10 @@ const routes: Routes = [
       {
         path: Pages.Overview,
         component: OverviewComponent
+      },
+      {
+        path: Pages.OverviewUtil,
+        component: OverviewUtilComponent
       },
       {
         path: Pages.Badge,

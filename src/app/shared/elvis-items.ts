@@ -113,6 +113,11 @@ export const elvisComponents: ElvisItems[] = [
 
 export const elvisUtilities: ElvisItems[] = [
     {
+        title: 'Overview',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.OverviewUtil
+    },
+    {
         title: 'Colors',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Color
