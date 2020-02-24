@@ -1,4 +1,4 @@
-export interface eItems {
+export interface EItems {
     title: string;
     description: string;
     docUrl: string;

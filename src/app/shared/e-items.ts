@@ -1,7 +1,7 @@
-import { eItems } from './e-items.interface';
+import { EItems } from './e-items.interface';
 import { Pages } from './pages.enum';
 
-export const eComponents: eItems[] = [
+export const eComponents: EItems[] = [
     {
         title: 'Overview',
         description: 'Some useful component with amazing features',
@@ -111,7 +111,7 @@ export const eComponents: eItems[] = [
     }
 ];
 
-export const eUtilities: eItems[] = [
+export const eUtilities: EItems[] = [
     {
         title: 'Overview',
         description: 'Some useful component with amazing features',
@@ -134,6 +134,6 @@ export const eUtilities: eItems[] = [
     }
 ];
 
-export function getComponent(docUrl: string): eItems {
+export function getComponent(docUrl: string): EItems {
     return eComponents.find(component => component.docUrl === docUrl);
 }
