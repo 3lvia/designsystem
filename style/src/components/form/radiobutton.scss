@@ -5,7 +5,7 @@ $form-radiobutton-mark-size: 1rem;
 $form-radiobutton-mark-border-radius: 14px;
 $form-radiobutton-mark-border: 1px solid color('green-lime');
 
-.elvis-form_radiobutton {
+.e-form_radiobutton {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
 

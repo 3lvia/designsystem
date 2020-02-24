@@ -27,4 +27,4 @@ class Button extends LitElement {
   }
 }
 
-customElements.define('elvis-button', Button);
+customElements.define('e-button', Button);

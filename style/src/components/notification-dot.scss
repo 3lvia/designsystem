@@ -3,7 +3,7 @@
 $notification-dot-size: 0.625rem;
 $notification-dot-border: 2px solid color('white');
 
-.elvis-notification-dot {
+.e-notification-dot {
   position: absolute;
   top: calc(#{$notification-dot-size}/ -2);
   right: calc(#{$notification-dot-size}/ -2);

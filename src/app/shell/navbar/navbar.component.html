@@ -8,14 +8,14 @@
     
       <li
         class="navbar-item"
-        *ngFor="let navbarItem of elvisComponents"
+        *ngFor="let navbarItem of eComponents"
       >
         <a
           [routerLink]="['', navbarItem.docUrl]"
           routerLinkActive="active"
         > 
           {{navbarItem.title}}
-          <span class="elvis-badge is-orange" *ngIf="navbarItem.status && navbarItem.status==='New'">{{ navbarItem.status }}</span>
+          <span class="e-badge is-orange" *ngIf="navbarItem.status && navbarItem.status==='New'">{{ navbarItem.status }}</span>
         </a>
       </li>
     </ul>
@@ -25,7 +25,7 @@
       <h2 class="navbar-list-header">Utilities</h2>
       <li
         class="navbar-item"
-        *ngFor="let navbarItem of elvisUtilities"
+        *ngFor="let navbarItem of eUtilities"
       >
         <a
           [routerLink]="['', navbarItem.docUrl]"

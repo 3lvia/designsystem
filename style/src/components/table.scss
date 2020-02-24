@@ -3,7 +3,7 @@ $table-row-padding: 0.7rem 1rem;
 $table-first-column-padding: 1.5rem;
 $table-last-column-padding: 1.5rem;
 
-.elvis-table {
+.e-table {
   //Creating variable containing '&' to jump to parent inside a child class.
   $this: &;
 
@@ -91,7 +91,7 @@ $table-last-column-padding: 1.5rem;
 
   &.is-striped {
     tr:nth-of-type(even) {
-      @extend .elvis-table_row, .is-stripe;
+      @extend .e-table_row, .is-stripe;
     }
   }
 

@@ -60,8 +60,8 @@ $button-font-size: 1rem;
   }
 }
 
-.elvis-button {
-  // .is-primary is the default for any elvis-button
+.e-button {
+  // .is-primary is the default for any e-button
   @extend .is-primary;
 
   &.is-primary {

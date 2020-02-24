@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getComponent } from 'src/app/shared/elvis-items';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-tags-doc',
@@ -9,11 +9,11 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class TagsDocComponent implements OnInit {
 
   componentStatus = getComponent('tags-doc').status;
-  componentClasses = ['.elvis-tags', '.elvis-tags_item'];
+  componentClasses = ['.e-tags', '.e-tags_item'];
 
-  example1 = `<div class="elvis-tags">
-  <span class="elvis-tags_item">707057500051628391</span>
-  <span class="elvis-tags_item">707057500051628391</span>
+  example1 = `<div class="e-tags">
+  <span class="e-tags_item">707057500051628391</span>
+  <span class="e-tags_item">707057500051628391</span>
 </div>
 `;
 

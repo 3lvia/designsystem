@@ -1,7 +1,7 @@
-import { ElvisItems } from './elvis-items.interface';
+import { eItems } from './e-items.interface';
 import { Pages } from './pages.enum';
 
-export const elvisComponents: ElvisItems[] = [
+export const eComponents: eItems[] = [
     {
         title: 'Overview',
         description: 'Some useful component with amazing features',
@@ -111,7 +111,7 @@ export const elvisComponents: ElvisItems[] = [
     }
 ];
 
-export const elvisUtilities: ElvisItems[] = [
+export const eUtilities: eItems[] = [
     {
         title: 'Overview',
         description: 'Some useful component with amazing features',
@@ -134,6 +134,6 @@ export const elvisUtilities: ElvisItems[] = [
     }
 ];
 
-export function getComponent(docUrl: string): ElvisItems {
-    return elvisComponents.find(component => component.docUrl === docUrl);
+export function getComponent(docUrl: string): eItems {
+    return eComponents.find(component => component.docUrl === docUrl);
 }

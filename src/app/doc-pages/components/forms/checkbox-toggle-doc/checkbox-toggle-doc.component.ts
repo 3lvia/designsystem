@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getComponent } from 'src/app/shared/elvis-items';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-checkbox-toggle-doc',
@@ -9,17 +9,17 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class CheckboxToggleDocComponent implements OnInit {
 
   componentStatus = getComponent('checkbox-toggle-doc').status;
-  componentClasses = ['.elvis-form_field', '.elvis-form_toggle'];
+  componentClasses = ['.e-form_field', '.e-form_toggle'];
 
-  example1 = `<div class="elvis-form_field">
-  <span class="elvis-form_field_title">Toggle Checkbox</span>
-  <label class="elvis-form_toggle">
+  example1 = `<div class="e-form_field">
+  <span class="e-form_field_title">Toggle Checkbox</span>
+  <label class="e-form_toggle">
     <input type="checkbox">
-    <span class="elvis-form_toggle slider"></span>
+    <span class="e-form_toggle slider"></span>
   </label>
-  <label class="elvis-form_toggle">
+  <label class="e-form_toggle">
     <input type="checkbox" checked>
-    <span class="elvis-form_toggle slider"></span>
+    <span class="e-form_toggle slider"></span>
   </label>
 </div>
 `;

@@ -5,7 +5,7 @@ $form-checkbox-mark-size: 1rem;
 $form-checkbox-mark-border-radius: $border-radius;
 $form-checkbox-mark-border: 1px solid color('green-lime');
 
-.elvis-form_checkbox {
+.e-form_checkbox {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
 
@@ -59,7 +59,7 @@ $form-checkbox-mark-border: 1px solid color('green-lime');
     }
   }
 
-  .elvis-badge {
+  .e-badge {
     margin-left: 0.5rem;
     float: right;
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getComponent } from 'src/app/shared/elvis-items';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-divider-doc',
@@ -9,13 +9,13 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class DividerDocComponent implements OnInit {
 
   componentStatus = getComponent('divider-doc').status;
-  componentClasses = ['.elvis-divider'];
+  componentClasses = ['.e-divider'];
 
   example1 = `<p>Some content</p>
-<hr class="elvis-divider">
+<hr class="e-divider">
 <p>Other content</p>
 <p>Divider below in light theme</p>
-<hr class="elvis-divider is-light">
+<hr class="e-divider is-light">
 <p>Other content</p>
 `;
 

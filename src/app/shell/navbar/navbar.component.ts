@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { elvisComponents, elvisUtilities } from 'src/app/shared/elvis-items';
+import { eComponents, eUtilities } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-navbar',
@@ -8,8 +8,8 @@ import { elvisComponents, elvisUtilities } from 'src/app/shared/elvis-items';
 })
 export class NavbarComponent implements OnInit {
 
-  elvisComponents = elvisComponents;
-  elvisUtilities = elvisUtilities;
+  eComponents = eComponents;
+  eUtilities = eUtilities;
 
   constructor() { }
 

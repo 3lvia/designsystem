@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getComponent } from 'src/app/shared/elvis-items';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-select-doc',
@@ -9,11 +9,11 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class SelectDocComponent implements OnInit {
 
   componentStatus = getComponent('select-doc').status;
-  componentClasses = ['.elvis-form_field', '.elvis-form_select'];
+  componentClasses = ['.e-form_field', '.e-form_select'];
 
-  example1 = `<div class="elvis-form_field">
-  <label class="elvis-form_field_label" for="select-alt1">Select Option</label>
-  <div class="elvis-form_select">
+  example1 = `<div class="e-form_field">
+  <label class="e-form_field_label" for="select-alt1">Select Option</label>
+  <div class="e-form_select">
     <select id="select-alt1" placeholder="Placeholder text">
       <option>Alternative 1</option>
       <option>Alternative 2</option>
@@ -23,10 +23,10 @@ export class SelectDocComponent implements OnInit {
 </div>
 `;
 
-  example2 = `<div class="elvis-form_field">
-  <label class="elvis-form_field_label" for="select-alt1">Select Option with icon</label>
-  <div class="elvis-form_select has-icon">
-    <i class="fal fa-info-circle elvis-form_select_icon"></i>
+  example2 = `<div class="e-form_field">
+  <label class="e-form_field_label" for="select-alt1">Select Option with icon</label>
+  <div class="e-form_select has-icon">
+    <i class="fal fa-info-circle e-form_select_icon"></i>
     <select id="select-alt1" placeholder="Placeholder text">
       <option>Alternative 1</option>
       <option>Alternative 2</option>
@@ -36,9 +36,9 @@ export class SelectDocComponent implements OnInit {
 </div>
 `;
 
-  example3 = `<div class="elvis-form_field">
-  <label class="elvis-form_field_label" for="select-alt2">Select Option (Disabled)</label>
-  <div class="elvis-form_select is-disabled">
+  example3 = `<div class="e-form_field">
+  <label class="e-form_field_label" for="select-alt2">Select Option (Disabled)</label>
+  <div class="e-form_select is-disabled">
     <select id="select-alt2" placeholder="Placeholder text" disabled>
       <option>Alternative 1</option>
       <option>Alternative 2</option>
@@ -48,9 +48,9 @@ export class SelectDocComponent implements OnInit {
 </div>
 `;
 
-  example4 = `<div class="elvis-form_field">
-  <label class="elvis-form_field_label" for="select-alt2">Select Option (Invalid)</label>
-  <div class="elvis-form_select is-invalid">
+  example4 = `<div class="e-form_field">
+  <label class="e-form_field_label" for="select-alt2">Select Option (Invalid)</label>
+  <div class="e-form_select is-invalid">
     <select id="select-alt2" placeholder="Placeholder text">
       <option>Alternative 1</option>
       <option>Alternative 2</option>

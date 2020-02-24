@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getComponent } from 'src/app/shared/elvis-items';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-table-doc',
@@ -9,10 +9,10 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class TableDocComponent implements OnInit {
 
   componentStatus = getComponent('table-doc').status;
-  componentClasses = ['.elvis-table'];
+  componentClasses = ['.e-table'];
 
-  example1 = `<table class="elvis-table is-striped has-shadow">
-  <tr class="elvis-table_header">
+  example1 = `<table class="e-table is-striped has-shadow">
+  <tr class="e-table_header">
     <th>ID<i class="far fa-arrow-up"></i></th>
     <th>Kundenr.<i class="far fa-arrow-up"></i></th>
     <th>Personnr.</th>
@@ -24,10 +24,10 @@ export class TableDocComponent implements OnInit {
     <td>338472</td>
     <td>123419384</td>
     <td>14</td>
-    <td class="elvis-table_action">
+    <td class="e-table_action">
       <i class="far fa-angle-down"></i>
       <i class="far fa-ellipsis-v"></i>
-      <button class="elvis-button">Submit</button>
+      <button class="e-button">Submit</button>
     </td>
   </tr>
   <tr>
@@ -35,10 +35,10 @@ export class TableDocComponent implements OnInit {
     <td>338472</td>
     <td>123419384</td>
     <td>14</td>
-    <td class="elvis-table_action">
+    <td class="e-table_action">
       <i class="far fa-angle-down"></i>
       <i class="far fa-ellipsis-v"></i>
-      <button class="elvis-button">Submit</button>
+      <button class="e-button">Submit</button>
     </td>
   </tr>
   <tr>
@@ -46,18 +46,18 @@ export class TableDocComponent implements OnInit {
     <td>338472</td>
     <td>123419384</td>
     <td>14</td>
-    <td class="elvis-table_action">
+    <td class="e-table_action">
       <i class="far fa-angle-down"></i>
       <i class="far fa-ellipsis-v"></i>
-      <button class="elvis-button">Submit</button>
+      <button class="e-button">Submit</button>
     </td>
   </tr>
 </table>
 `;
 
   example2 = `<div class="example-container-to-force-scroll">
-  <table class="elvis-table is-striped has-shadow is-sticky-header">
-    <tr class="elvis-table_header">
+  <table class="e-table is-striped has-shadow is-sticky-header">
+    <tr class="e-table_header">
       <th>ID<i class="far fa-arrow-up"></i></th>
       <th>Kundenr.<i class="far fa-arrow-up"></i></th>
       <th>Personnr.</th>
@@ -69,10 +69,10 @@ export class TableDocComponent implements OnInit {
       <td>338472</td>
       <td>123419384</td>
       <td>14</td>
-      <td class="elvis-table_action">
+      <td class="e-table_action">
         <i class="far fa-angle-down"></i>
         <i class="far fa-ellipsis-v"></i>
-        <button class="elvis-button">Submit</button>
+        <button class="e-button">Submit</button>
       </td>
     </tr>
     <tr>
@@ -80,10 +80,10 @@ export class TableDocComponent implements OnInit {
       <td>338472</td>
       <td>123419384</td>
       <td>14</td>
-      <td class="elvis-table_action">
+      <td class="e-table_action">
         <i class="far fa-angle-down"></i>
         <i class="far fa-ellipsis-v"></i>
-        <button class="elvis-button">Submit</button>
+        <button class="e-button">Submit</button>
       </td>
     </tr>
     <tr>
@@ -91,10 +91,10 @@ export class TableDocComponent implements OnInit {
       <td>338472</td>
       <td>123419384</td>
       <td>14</td>
-      <td class="elvis-table_action">
+      <td class="e-table_action">
         <i class="far fa-angle-down"></i>
         <i class="far fa-ellipsis-v"></i>
-        <button class="elvis-button">Submit</button>
+        <button class="e-button">Submit</button>
       </td>
     </tr>
     <tr>
@@ -102,10 +102,10 @@ export class TableDocComponent implements OnInit {
       <td>338472</td>
       <td>123419384</td>
       <td>14</td>
-      <td class="elvis-table_action">
+      <td class="e-table_action">
         <i class="far fa-angle-down"></i>
         <i class="far fa-ellipsis-v"></i>
-        <button class="elvis-button">Submit</button>
+        <button class="e-button">Submit</button>
       </td>
     </tr>
     <tr>
@@ -113,10 +113,10 @@ export class TableDocComponent implements OnInit {
       <td>338472</td>
       <td>123419384</td>
       <td>14</td>
-      <td class="elvis-table_action">
+      <td class="e-table_action">
         <i class="far fa-angle-down"></i>
         <i class="far fa-ellipsis-v"></i>
-        <button class="elvis-button">Submit</button>
+        <button class="e-button">Submit</button>
       </td>
     </tr>
   </table>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getComponent } from 'src/app/shared/elvis-items';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-tooltip-doc',
@@ -9,40 +9,40 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class TooltipDocComponent implements OnInit {
 
   componentStatus = getComponent('tooltip-doc').status;
-  componentClasses = ['.elvis-tooltip'];
+  componentClasses = ['.e-tooltip'];
 
-  example1 = `<span class="elvis-tooltip">
+  example1 = `<span class="e-tooltip">
   Hover Right
-  <span class="elvis-tooltip_content is-right">Right tooltip </span>
+  <span class="e-tooltip_content is-right">Right tooltip </span>
 </span>
-<span class="elvis-tooltip">
+<span class="e-tooltip">
   Hover Left
-  <span class="elvis-tooltip_content is-left">Left tooltip</span>
+  <span class="e-tooltip_content is-left">Left tooltip</span>
 </span>
-<span class="elvis-tooltip">
+<span class="e-tooltip">
   Hover bottom
-  <span class="elvis-tooltip_content is-bottom">Bottom tooltip</span>
+  <span class="e-tooltip_content is-bottom">Bottom tooltip</span>
 </span>
-<span class="elvis-tooltip">
+<span class="e-tooltip">
   Hover on top
-  <span class="elvis-tooltip_content is-top">Top tooltip</span>
+  <span class="e-tooltip_content is-top">Top tooltip</span>
 </span>
 `;
-  example2 = `<span class="elvis-tooltip is-light">
+  example2 = `<span class="e-tooltip is-light">
   Hover Right
-  <span class="elvis-tooltip_content is-right">Right tooltip</span>
+  <span class="e-tooltip_content is-right">Right tooltip</span>
 </span>
-<span class="elvis-tooltip is-light">
+<span class="e-tooltip is-light">
   Hover Left
-  <span class="elvis-tooltip_content is-left">Left tooltip</span>
+  <span class="e-tooltip_content is-left">Left tooltip</span>
 </span>
-<span class="elvis-tooltip is-light">
+<span class="e-tooltip is-light">
   Hover bottom
-  <span class="elvis-tooltip_content is-bottom">Bottom tooltip</span>
+  <span class="e-tooltip_content is-bottom">Bottom tooltip</span>
 </span>
-<span class="elvis-tooltip is-light">
+<span class="e-tooltip is-light">
   Hover on top
-  <span class="elvis-tooltip_content is-top">Top tooltip</span>
+  <span class="e-tooltip_content is-top">Top tooltip</span>
 </span>
 `;
 

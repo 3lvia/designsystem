@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getComponent } from 'src/app/shared/elvis-items';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-radiobutton-doc',
@@ -9,19 +9,19 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class RadiobuttonDocComponent implements OnInit {
 
   componentStatus = getComponent('radiobutton-doc').status;
-  componentClasses = ['.elvis-form_field', '.elvis-form_radiobutton'];
+  componentClasses = ['.e-form_field', '.e-form_radiobutton'];
 
-  example1 = `<form class="elvis-form_field">
-  <span class="elvis-form_field_title">Radio buttons</span>
-  <label class="elvis-form_radiobutton">
+  example1 = `<form class="e-form_field">
+  <span class="e-form_field_title">Radio buttons</span>
+  <label class="e-form_radiobutton">
       <input type="radio" name="formname" checked />
-      <span class="elvis-form_radiobutton_mark"></span>
-      <span class="elvis-form_radiobutton_label">Picked</span>
+      <span class="e-form_radiobutton_mark"></span>
+      <span class="e-form_radiobutton_label">Picked</span>
   </label>
-  <label class="elvis-form_radiobutton">
+  <label class="e-form_radiobutton">
       <input type="radio" name="formname" />
-      <span class="elvis-form_radiobutton_mark"></span>
-      <span class="elvis-form_radiobutton_label">Unpicked</span>
+      <span class="e-form_radiobutton_mark"></span>
+      <span class="e-form_radiobutton_label">Unpicked</span>
   </label>
 </form>
 `;

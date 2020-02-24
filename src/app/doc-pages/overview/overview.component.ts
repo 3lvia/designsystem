@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { elvisComponents } from 'src/app/shared/elvis-items';
+import { eComponents } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-overview',
@@ -8,7 +8,7 @@ import { elvisComponents } from 'src/app/shared/elvis-items';
 })
 export class OverviewComponent implements OnInit {
 
-  components = elvisComponents;
+  components = eComponents;
 
   constructor() { }
 

@@ -5,7 +5,7 @@ $form-input-padding: $form-input-padding-left 0.9rem;
 $form-input-border-radius: $border-radius;
 $form-input-border: 1px solid color('grey-mine-shaft');
 
-.elvis-form_input {
+.e-form_input {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
 
@@ -19,7 +19,7 @@ $form-input-border: 1px solid color('grey-mine-shaft');
   background: color('white');
 
   &:not(.is-invalid):focus-within {
-    @extend .elvis-form_input, .is-focus;
+    @extend .e-form_input, .is-focus;
   }
 
   &.is-focus {

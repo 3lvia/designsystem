@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getComponent } from 'src/app/shared/elvis-items';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-notification-dot-doc',
@@ -9,20 +9,20 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class NotificationDotDocComponent implements OnInit {
 
   componentStatus = getComponent('notification-dot-doc').status;
-  componentClasses = ['.elvis-notification-dot'];
+  componentClasses = ['.e-notification-dot'];
 
   example1 = `<div class="example-margin">
-  <i class="fal fa-cog"><span class="elvis-notification-dot"></span></i>
+  <i class="fal fa-cog"><span class="e-notification-dot"></span></i>
 </div>
 `;
   example2 = `<div class="example-margin">
-  <i class="fal fa-cog"><span class="elvis-notification-dot"></span></i>
+  <i class="fal fa-cog"><span class="e-notification-dot"></span></i>
 </div>
 <div class="example-margin">
-  <i class="fal fa-user"><span class="elvis-notification-dot"></span></i>
+  <i class="fal fa-user"><span class="e-notification-dot"></span></i>
 </div>
 <div class="example-margin">
-  <i class="fal fa-bars"><span class="elvis-notification-dot"></span></i>
+  <i class="fal fa-bars"><span class="e-notification-dot"></span></i>
 </div>
 `;
 

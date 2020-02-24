@@ -6,18 +6,18 @@
 <section class="component-overview">
   <div *ngFor="let document of components | slice:1">
     <div class="component-card">
-      <div class="elvis-card">
-        <div class="elvis-card_header">
-          <div class="elvis-card_header_text">
-            <div class="elvis-card_title">{{document.title}}</div>
+      <div class="e-card">
+        <div class="e-card_header">
+          <div class="e-card_header_text">
+            <div class="e-card_title">{{document.title}}</div>
           </div>
         </div>
-        <div class="elvis-card_content">
+        <div class="e-card_content">
           <p>{{document.description}}</p>
         </div>
-        <div class="elvis-card_actions">
+        <div class="e-card_actions">
           <a
-            class="elvis-card_actions_action"
+            class="e-card_actions_action"
             [routerLink]="['', document.docUrl]"
             routerLinkActive="active"
           > View More</a>

@@ -10,7 +10,7 @@ $card-header-action-icon-size: 24px;
 $card-actions-action-padding: 13px 0;
 $card-actions-button-spacing: 25px;
 
-.elvis-card {
+.e-card {
   border-radius: $card-radius;
   box-shadow: $shadow-light;
   display: inline-flex;
@@ -51,7 +51,7 @@ $card-actions-button-spacing: 25px;
       // .is-icon-small is icon-properties, defined in typography.
     //   @extend .is-icon-small;
       // .is-button-icon and .is-transparent is icon-properties, defined in button.
-    //   @extend .elvis-button-icon, .is-transparent
+    //   @extend .e-button-icon, .is-transparent
     }
 
     .is-center {
@@ -89,7 +89,7 @@ $card-actions-button-spacing: 25px;
     margin-top: auto; /* Align buttons always to the bottom of the card */
     padding: $card-padding-y $card-padding-x;
 
-    .elvis-button {
+    .e-button {
       flex: auto;
       
       &:not(:last-child) {

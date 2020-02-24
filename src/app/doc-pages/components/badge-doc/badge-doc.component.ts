@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { getComponent } from 'src/app/shared/elvis-items';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-badge-doc',
@@ -9,19 +9,19 @@ import { getComponent } from 'src/app/shared/elvis-items';
 export class BadgeDocComponent implements OnInit {
 
   componentStatus = getComponent('badge-doc').status;
-  componentClasses = ['.elvis-badge'];
+  componentClasses = ['.e-badge'];
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  example1 = `<span class="elvis-badge">101001</span>
+  example1 = `<span class="e-badge">101001</span>
 `;
 
-  example2 = `<span class="elvis-badge">101001</span>
-<span class="elvis-badge is-green">101001</span>
-<span class="elvis-badge is-orange">101001</span>
-<span class="elvis-badge is-yellow">101001</span>
+  example2 = `<span class="e-badge">101001</span>
+<span class="e-badge is-green">101001</span>
+<span class="e-badge is-orange">101001</span>
+<span class="e-badge is-yellow">101001</span>
 `;
 }

@@ -8,7 +8,7 @@ $feedback-icon-gap: 20px;
 $feedback-close-button-size: 16px;
 $feedback-message-gap: 10px;
 
-.elvis-feedback-message {
+.e-feedback-message {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
   display: flex;
