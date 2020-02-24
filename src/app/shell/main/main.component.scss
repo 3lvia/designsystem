@@ -1,6 +1,7 @@
+@import '../../shared/shared-sizes.scss';
+
 .main-content {
   position: relative;
-  top: 80px;
-  margin-left: 250px;
-  padding: 16px 32px;
+  top: $header-height;
+  margin-left: $navbar-width;
 }

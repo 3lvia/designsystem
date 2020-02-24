@@ -1,0 +1,30 @@
+<div class="component">
+  <div class="component-header">
+    <div class="component-header__title">
+      <h1>
+        <ng-content select="headerTitle"></ng-content>
+      </h1>
+      <div *ngIf="componentStatus!=''">
+        <span class="elvis-badge is-orange" *ngIf="componentStatus==='New'">{{ componentStatus }}</span>
+        <span class="elvis-badge is-red" *ngIf="componentStatus==='Coming'">{{ componentStatus }}</span>
+        <span class="elvis-badge is-green" *ngIf="componentStatus==='Done'">{{ componentStatus }}</span>
+      </div>
+    </div>
+    <p class="component-header__class" *ngFor="let class of componentClasses">
+      <code>
+        {{ class }}
+      </code>
+    </p>
+    <div class="component-header__body">
+      <p class="component-header__body-description">
+        <ng-content select="headerDescription"></ng-content>
+      </p>
+      <div class="component-header__body-does">
+        <b>Do's: </b><ng-content select="descriptionDoes"></ng-content>
+      </div>
+      <div class="component-header__body-donts">
+        <b>Don'ts: </b><ng-content select="descriptionDonts"></ng-content>
+      </div>
+    </div>
+  </div>
+</div>

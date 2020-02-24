@@ -1,12 +1,23 @@
-.code-block {
-    border:1px solid rgb(202, 202, 202);
-    border-radius: 4px;
-    padding:1rem;
-    max-width:1000px;
-    width:100%;
-    
-    .actions {
-        margin-bottom:1rem;
-        margin-right:auto;
+@import "../../../../style/src/variables/colors.scss";
+@import "../../../../style/src/utilities/shadows.scss";
+
+.component-body__example {
+  margin: 16px auto;
+  width: 70%;
+
+  &-title {
+    margin-top: 40px;
+    margin-bottom: 8px; 
+  }
+  
+  &-body {
+    border: 1px solid color("grey-silver");
+
+    .element {
+      padding: 32px 16px;
     }
+    .code {
+      background: color('grey-mine-shaft');
+    }
+  }
 }

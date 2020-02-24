@@ -1,53 +1,33 @@
-<div>
-  <h2>Input</h2>
-  <h3>Intro</h3>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore unde saepe, in dolores nam? Iusto
-    corporis odit dolore deleniti maiores distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?</p>
+<!--HEADER-->
+<app-component-header 
+ [componentStatus]="componentStatus"
+ [componentClasses]="componentClasses"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Input
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Quisquam inventore unde saepe, in dolores nam? 
+    Iusto corporis odit dolore deleniti maiores distinctio, 
+    quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>
 
-  <div class="example">
-    <div class="elvis-form_field">
-      <label class="elvis-form_field_label" for="title">Normal input field </label>
-      <div class="elvis-form_input">
-        <input id="title" placeholder="Placeholdertext">
-      </div>
-    </div>
+  <ng-container ngProjectAs="descriptionDoes">
+    Does does does does does does does does does 
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDonts">
+    Donts donts donts donts donts donts donts donts 
+  </ng-container>
+</app-component-header>
 
-    <div class="elvis-form_field">
-      <label class="elvis-form_field_label" for="title">Normal input field with icon</label>
-      <div class="elvis-form_input">
-        <i class="fal fa-info-circle elvis-form_input_icon"></i>
-        <input id="title" placeholder="Placeholdertext">
-      </div>
-    </div>
-    
-    <div class="elvis-form_field">
-      <label class="elvis-form_field_label" for="title">Active input field </label>
-      <div class="elvis-form_input is-focus">
-        <input id="title" placeholder="Placeholdertext" value="Kari Nordmenn">
-      </div>
-    </div>
-    
-    <div class="elvis-form_field">
-      <label class="elvis-form_field_label" for="title">Disabled input field</label>
-      <div class="elvis-form_input is-disabled">
-        <input id="title" placeholder="Placeholdertext" disabled>
-      </div>
-    </div>
-    
-    <div class="elvis-form_field">
-      <label class="elvis-form_field_label" for="title">Invalid input field with field errormessage</label>
-      <div class="elvis-form_input is-invalid">
-        <input id="title" value="ola.hafslund.no">
-      </div>
-      <span class="elvis-form_field_error is-active"><i class="fal fa-info-circle"></i>The email must contain @</span>
-    </div>
-    
-    <div class="elvis-form_field">
-      <label class="elvis-form_field_label" for="title">Textarea</label>
-      <div class="elvis-form_input">
-        <textarea placeholder="Placeholdertext"></textarea>
-      </div>
-    </div>
-  </div>
-</div>
+<!--EXAMPLES-->
+<app-code-block [isHTML]="true" [code]="example1" [title]='"Normal input field"'></app-code-block>
+<app-code-block [isHTML]="true" [code]="example2" [title]='"Normal input field with icon"'></app-code-block>
+<app-code-block [isHTML]="true" [code]="example3" [title]='"Active input field"'></app-code-block>
+<app-code-block [isHTML]="true" [code]="example4" [title]='"Normal input field"'></app-code-block> 
+<app-code-block [isHTML]="true" [code]="example5" [title]='"Invalid input field with field errormessage"'></app-code-block> 
+<app-code-block [isHTML]="true" [code]="example6" [title]='"Textarea"'></app-code-block> 
 
+  
+  

@@ -13,7 +13,10 @@
         <a
           [routerLink]="['', navbarItem.docUrl]"
           routerLinkActive="active"
-        > {{navbarItem.title}}</a>
+        > 
+          {{navbarItem.title}}
+          <span class="elvis-badge is-orange" *ngIf="navbarItem.status && navbarItem.status==='New'">{{ navbarItem.status }}</span>
+        </a>
       </li>
     </ul>
   </section>

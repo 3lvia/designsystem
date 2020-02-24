@@ -2,7 +2,7 @@ import { Component, Input, AfterViewChecked } from '@angular/core';
 import { HighlightService } from 'src/app/core/services/highlight.service';
 
 @Component({
-  selector: 'elvis-code-highlighter',
+  selector: 'app-code-highlighter',
   templateUrl: './code-highlighter.component.html',
   styleUrls: ['./code-highlighter.component.scss']
 })

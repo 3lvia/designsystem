@@ -1,22 +1,26 @@
-<div>
-  <h2>Radiobuttons</h2>
-  <h3>Intro</h3>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore unde saepe, in dolores nam? Iusto
-    corporis odit dolore deleniti maiores distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?</p>
+<!--HEADER-->
+<app-component-header 
+ [componentStatus]="componentStatus"
+ [componentClasses]="componentClasses"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Radiobutton
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Quisquam inventore unde saepe, in dolores nam? 
+    Iusto corporis odit dolore deleniti maiores distinctio, 
+    quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>
 
-  <div class="example">
-    <form class="elvis-form_field">
-      <span class="elvis-form_field_title">Radio buttons</span>
-      <label class="elvis-form_radiobutton">
-          <input type="radio" name="formname" checked />
-          <span class="elvis-form_radiobutton_mark"></span>
-          <span class="elvis-form_radiobutton_label">Picked</span>
-      </label>
-      <label class="elvis-form_radiobutton">
-          <input type="radio" name="formname" />
-          <span class="elvis-form_radiobutton_mark"></span>
-          <span class="elvis-form_radiobutton_label">Unpicked</span>
-      </label>
-    </form>
-  </div>
-</div>
+  <ng-container ngProjectAs="descriptionDoes">
+    Does does does does does does does does does 
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDonts">
+    Donts donts donts donts donts donts donts donts 
+  </ng-container>
+</app-component-header>
+
+<!--EXAMPLES-->
+<app-code-block [isHTML]="true" [code]="example1" [title]='"Radiobutton"'></app-code-block>
+

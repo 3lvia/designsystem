@@ -1,53 +1,28 @@
-<div>
-  <h2>Radiobuttons</h2>
-  <h3>Intro</h3>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore unde saepe, in dolores nam? Iusto
-    corporis odit dolore deleniti maiores distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?</p>
+<!--HEADER-->
+<app-component-header 
+ [componentStatus]="componentStatus"
+ [componentClasses]="componentClasses"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Select
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Quisquam inventore unde saepe, in dolores nam? 
+    Iusto corporis odit dolore deleniti maiores distinctio, 
+    quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>
 
-  <div class="example">
-    <div class="elvis-form_field">
-      <label class="elvis-form_field_label" for="select-alt1">Select Option</label>
-      <div class="elvis-form_select">
-        <select id="select-alt1" placeholder="Placeholder text">
-          <option>Alternative 1</option>
-          <option>Alternative 2</option>
-        </select>
-        <i class="fal fa-angle-down"></i>
-      </div>
-    </div>
-    
-    <div class="elvis-form_field">
-      <label class="elvis-form_field_label" for="select-alt1">Select Option with icon</label>
-      <div class="elvis-form_select has-icon">
-        <i class="fal fa-info-circle elvis-form_select_icon"></i>
-        <select id="select-alt1" placeholder="Placeholder text">
-          <option>Alternative 1</option>
-          <option>Alternative 2</option>
-        </select>
-        <i class="fal fa-angle-down"></i>
-      </div>
-    </div>
-    
-    <div class="elvis-form_field">
-      <label class="elvis-form_field_label" for="select-alt2">Select Option (Disabled)</label>
-      <div class="elvis-form_select is-disabled">
-        <select id="select-alt2" placeholder="Placeholder text" disabled>
-          <option>Alternative 1</option>
-          <option>Alternative 2</option>
-        </select>
-        <i class="fal fa-angle-down"></i>
-      </div>
-    </div>
-    
-    <div class="elvis-form_field">
-      <label class="elvis-form_field_label" for="select-alt2">Select Option (Invalid)</label>
-      <div class="elvis-form_select is-invalid">
-        <select id="select-alt2" placeholder="Placeholder text">
-          <option>Alternative 1</option>
-          <option>Alternative 2</option>
-        </select>
-        <i class="fal fa-angle-down"></i>
-      </div>
-    </div>
-  </div>
-</div>
+  <ng-container ngProjectAs="descriptionDoes">
+    Does does does does does does does does does 
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDonts">
+    Donts donts donts donts donts donts donts donts 
+  </ng-container>
+</app-component-header>
+
+<!--EXAMPLES-->
+<app-code-block [isHTML]="true" [code]="example1" [title]='"Select Option"'></app-code-block>
+<app-code-block [isHTML]="true" [code]="example2" [title]='"Select Option with icon"'></app-code-block>
+<app-code-block [isHTML]="true" [code]="example3" [title]='"Select Option (Disabled)"'></app-code-block>
+<app-code-block [isHTML]="true" [code]="example4" [title]='"Select Option (Invalid)"'></app-code-block>

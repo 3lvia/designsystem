@@ -1,0 +1,67 @@
+@import "../../../../style/src/variables/colors.scss";
+@import "../../../../style/src/utilities/shadows.scss";
+
+.component {
+  &-header {
+    background: #eee;
+    padding: 16px 40px;
+
+    &__title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      h1 {
+        margin-right: 16px;
+      }
+
+      h1,
+      .elvis-badge {
+        display: flex;
+        align-self: center;
+      }
+    }
+
+    &__class {
+      margin: 4px 0;
+      padding: 8px 16px;
+      font-size: 14px;
+      border-radius: 14px;
+      background: color("grey-silver");
+      width: fit-content;
+    }
+
+    &__body {
+      padding: 32px 0;
+
+      &-does {
+        &::before {
+          background-color: color('green-lime');
+        }
+      }
+      &-donts {
+        &::before {
+          background-color: color('red');
+        }
+      }
+
+      &-does, &-donts {
+        margin: 8px 0;
+
+        &::before {
+          content: '';
+          display: inline-flex;
+          margin-right: 11px;
+          height: 11px;
+          width: 11px;
+          border-radius: 50%;
+        }
+
+        b {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

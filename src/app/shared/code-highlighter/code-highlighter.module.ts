@@ -4,7 +4,7 @@ import { CodeHighlighterComponent } from './code-highlighter.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   declarations: [CodeHighlighterComponent],
   exports: [CodeHighlighterComponent]

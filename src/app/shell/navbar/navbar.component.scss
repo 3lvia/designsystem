@@ -1,16 +1,17 @@
 @import '../../../../style/src/variables/colors.scss';
+@import '../../shared/shared-sizes.scss';
 
 .navbar {
   position: fixed;
-  height: 100%;
-  width: 250px;
-  top: 80px;
+  height: calc(100% - #{$header-height});
+  width: $navbar-width;
+  top: $header-height;
   margin: 0;
   padding: 0;
-  z-index: 10;
+  padding-bottom: 32px;
 
   border-right: 1px solid color('border');
-  overflow: auto;
+  overflow-y: auto;
   list-style-type: none;
   background-color: color('white');
 
@@ -19,10 +20,10 @@
   }
 
   &-list-header {
-    font-size: 24px;
+    font-size: 25px;
     font-weight: 800;
     width: 100%;
-    text-align: center;
+    padding: 0 16px;
     text-decoration: underline color('green-lime');
     outline: none;
   }
@@ -30,11 +31,14 @@
   &-item {
     list-style-type: none;
     cursor: pointer;
-    font-size: 22px;
+    font-size: 19px;
 
     a {
+      padding: 10px 16px;
       display: block;
-      padding: 8px 16px;
+      .elvis-badge {
+        float: right;
+      }
     }
     a.active {
       color: color('white');
@@ -43,9 +47,9 @@
     &::after {
       content: '';
       display: inline-flex;
-      margin-left: 4px;
-      height: 6px;
-      width: 6px;
+      margin-left: 11px;
+      height: 11px;
+      width: 11px;
       border-radius: 50%;
       background-color: color('green-lime');
     }

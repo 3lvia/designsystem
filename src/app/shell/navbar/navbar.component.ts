@@ -9,7 +9,6 @@ import { elvisComponents, elvisUtilities } from 'src/app/shared/elvis-items';
 export class NavbarComponent implements OnInit {
 
   elvisComponents = elvisComponents;
-
   elvisUtilities = elvisUtilities;
 
   constructor() { }

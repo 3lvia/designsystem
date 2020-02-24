@@ -1,38 +1,26 @@
-<div>
-  <h2>Header</h2>
-  <h3>Intro</h3>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore unde saepe, in dolores nam? Iusto
-    corporis odit dolore deleniti maiores distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?</p>
+<!--HEADER-->
+<app-component-header 
+ [componentStatus]="componentStatus"
+ [componentClasses]="componentClasses"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Header
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+    Quisquam inventore unde saepe, in dolores nam? 
+    Iusto corporis odit dolore deleniti maiores distinctio, 
+    quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>
 
-  <div class="example">
-    <header class="elvis-header">
-      <a class="elvis-header_logo" href="#">
-        <img src="styleguide/lib/logo.svg" alt="Hafslund logo">
-      </a>
-      <h1 class="elvis-header_title">Overview</h1>
-      <div class="elvis-header-user">
-        <img class="elvis-header-user_icon-image" src="http://placekitten.com/150/150"/>
-        <div class="elvis-header-user_name">
-          Kevin Martin Haugen
-        </div>
-        <button class="elvis-button has-icon is-transparent"><i class="fal fa-sign-out"></i>Sign out</button>
-      </div>
-    </header>
+  <ng-container ngProjectAs="descriptionDoes">
+    Does does does does does does does does does 
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDonts">
+    Donts donts donts donts donts donts donts donts 
+  </ng-container>
+</app-component-header>
 
-    <header class="elvis-header">
-      <a class="elvis-header_logo" href="#">
-        <img src="styleguide/lib/logo.svg" alt="Hafslund logo">
-      </a>
-      <h1 class="elvis-header_title">Overview</h1>
-      <div class="elvis-header-user">
-        <div class="elvis-header-user_icon-no-image">
-          TT
-        </div>
-        <div class="elvis-header-user_name">
-          Tim Tom
-        </div>
-        <button class="elvis-button has-icon is-transparent"><i class="fal fa-sign-out"></i>Sign out</button>
-      </div>
-    </header>
-  </div>
-</div>
+<!--EXAMPLES-->
+<app-code-block [isHTML]="true" [code]="example1" [title]='"Header with image"'></app-code-block>
+<app-code-block [isHTML]="true" [code]="example2" [title]='"Header with initials"'></app-code-block>

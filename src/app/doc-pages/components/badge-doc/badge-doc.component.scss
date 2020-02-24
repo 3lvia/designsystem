@@ -1,5 +1,6 @@
-.example {
-    .elvis-badge {
-        margin: 8px;
-    }
+@import "../../../../../style/src/variables/colors.scss";
+@import "../../../../../style/src/utilities/shadows.scss";
+
+.elvis-badge:not(:first-of-type) {
+  margin-left: 8px;
 }
