@@ -58,7 +58,7 @@ export class SelectDocComponent implements OnInit {
     <i class="fal fa-angle-down"></i>
   </div>
 </div>
-`; 
+`;
 
   constructor() { }
 

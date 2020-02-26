@@ -14,7 +14,8 @@ export class FeedbackDocComponent implements OnInit {
   example1 = `<div class="e-feedback-message">
   <i class="fal fa-info-circle e-feedback-message_icon"></i>
   <p class="e-feedback-message_message">
-    This is just for info! Usage of icons should be kept to an absolute minimum. Long messages are also supported, the text will wrap to a new line. However, long feedbacks are not recommended.
+    This is just for info! Usage of icons should be kept to an absolute minimum.
+    Long messages are also supported, the text will wrap to a new line. However, long feedbacks are not recommended.
   </p>
   <button class="e-feedback-message_close-button">
     <i class="fal fa-times-circle"></i>

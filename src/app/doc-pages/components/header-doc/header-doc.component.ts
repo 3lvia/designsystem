@@ -25,7 +25,7 @@ export class HeaderDocComponent implements OnInit {
   </div>
 </header>
 `;
-  
+
   example2 = `<header class="e-header">
   <a class="e-header_logo" href="#">
     <img src="styleguide/lib/logo.svg" alt="Hafslund logo">

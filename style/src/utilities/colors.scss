@@ -1,0 +1,28 @@
+@import '../variables/colors';
+
+// Making background and color classes for all colors
+.e {
+  @each $label, $map in $colors {
+    $color: color($label);
+    $contrast-text: map-get($map, contrast-text);
+
+    $alt-labels: map-get($map, alt-labels);
+    $labels: ($label);
+
+    @if $alt-labels {
+      @each $label in $alt-labels {
+        $labels: append($labels, $label);
+      }
+    }
+
+    @each $label in $labels {
+      &-text-#{$label} {
+        color: $color;
+      }
+      &-bg-#{$label} {
+        background: $color;
+        color: $contrast-text;
+      }
+    }
+  }
+}

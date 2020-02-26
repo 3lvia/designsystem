@@ -1,0 +1,35 @@
+@import "../variables/borders";
+
+// Making border classes for all border-sizes
+.e {
+  &-b {
+    border: $border-medium;
+  }
+  &-bt {
+    border-top: $border-medium;
+  }
+  &-bb {
+    border-bottom: $border-medium;
+  }
+  &-bl {
+    border-left: $border-medium;
+  }
+  &-br {
+    border-right: $border-medium;
+  }
+  &-b-strong {
+    border: $border-strong;
+  }
+  &-bt-strong {
+    border-top: $border-strong;
+  }
+  &-bb-strong {
+    border-bottom: $border-strong;
+  }
+  &-bl-strong {
+    border-left: $border-strong;
+  }
+  &-br-strong {
+    border-right: $border-strong;
+  }
+}

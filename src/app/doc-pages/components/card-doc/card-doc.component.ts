@@ -11,11 +11,6 @@ export class CardDocComponent implements OnInit {
   componentStatus = getComponent('card-doc').status;
   componentClasses = ['.e-card'];
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-  
   example1 = `<div class="e-card">
   <div class="e-card_header">
     <div class="e-card_header_text">
@@ -96,4 +91,10 @@ export class CardDocComponent implements OnInit {
   </div>
 </div>
 `;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }

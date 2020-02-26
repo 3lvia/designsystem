@@ -1,6 +1,3 @@
-@import "../../../../../style/src/variables/colors.scss";
-@import "../../../../../style/src/variables/shadows.scss";
-
 $card-radius: 4px;
 $card-padding-y: 1.375rem;
 $card-padding-x: 1.375rem;
@@ -52,7 +49,6 @@ $card-actions-button-spacing: 25px;
 
 .color-card {
   border-radius: 10px;
-  box-shadow: $shadow-strong;
   display: inline-flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -67,7 +63,6 @@ $card-actions-button-spacing: 25px;
     width: 85%;
     border-radius: 50%;
     border: 2px solid transparent;
-    box-shadow: $shadow-strong;
   }
 
   &-hex {
@@ -87,38 +82,5 @@ $card-actions-button-spacing: 25px;
     height: 15%;
     width: 100%;
     margin: 5px 0;
-  }
-}
-
-.color-example {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-
-  &-container {
-    display: flex;
-    align-items: center;
-
-    .example {
-      height: 50px;
-      width: 50px;
-    }
-    .example-big {
-      height: 100px;
-      width: 100px;
-    }
-    .example-extra-big {
-      height: 200px;
-      width: 200px;
-    }
-
-    .example,
-    .example-big,
-    .example-extra-big {
-      display: inline-block;
-      border-radius: 100%;
-      margin: 14px;
-      box-shadow: $shadow-strong;
-    }
   }
 }

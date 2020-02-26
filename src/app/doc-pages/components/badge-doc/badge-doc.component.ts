@@ -11,11 +11,6 @@ export class BadgeDocComponent implements OnInit {
   componentStatus = getComponent('badge-doc').status;
   componentClasses = ['.e-badge'];
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
   example1 = `<span class="e-badge">101001</span>
 `;
 
@@ -24,4 +19,10 @@ export class BadgeDocComponent implements OnInit {
 <span class="e-badge is-orange">101001</span>
 <span class="e-badge is-yellow">101001</span>
 `;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
 }

@@ -41,7 +41,7 @@ export class DropdownDocComponent implements OnInit {
     <i class="fal fa-search e-form_input_icon"></i>
     <input value="Jer" />
     <i class="fal fa-times" aria-label="Clear text"></i>
- 
+
   <div class="e-dropdown_content is-active is-aligned-top">
     <div class="e-dropdown_content_item is-active"><b>Jer</b>oen</div>
     <div class="e-dropdown_content_item">Stian</div>
