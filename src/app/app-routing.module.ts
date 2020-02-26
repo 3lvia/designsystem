@@ -23,8 +23,11 @@ import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutto
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
 import { ShadowDocComponent } from './doc-pages/utilities/shadow-doc/shadow-doc.component';
 import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
-import { OverviewComponent } from './doc-pages/overview/overview.component';
+import { OverviewComponent } from './doc-pages/overview-comp/overview-comp.component';
 import { OverviewUtilComponent } from './doc-pages/overview-util/overview-util.component';
+import { AccessibilityComponent } from './doc-pages/accessibility/accessibility/accessibility.component';
+import { AltTextComponent } from './doc-pages/accessibility/alt-text/alt-text.component';
+import { UuToolsComponent } from './doc-pages/accessibility/uu-tools/uu-tools.component';
 
 
 const routes: Routes = [
@@ -127,6 +130,18 @@ const routes: Routes = [
       {
         path: Pages.Notification,
         component: NotificationDotDocComponent
+      },
+      {
+        path: Pages.Accessibility,
+        component: AccessibilityComponent
+      },
+      {
+        path: Pages.AltText,
+        component: AltTextComponent
+      },
+      {
+        path: Pages.UUTools,
+        component: UuToolsComponent
       },
     ]
   }

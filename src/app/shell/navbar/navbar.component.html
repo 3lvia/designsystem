@@ -34,4 +34,18 @@
       </li>
     </ul>
   </section>
+  <section>
+    <ul class="navbar-list">
+      <h2 class="navbar-list-header">Accessibility</h2>
+      <li
+        class="navbar-item"
+        *ngFor="let navbarItem of eAccessibility"
+      >
+        <a
+          [routerLink]="['', navbarItem.docUrl]"
+          routerLinkActive="active"
+        > {{navbarItem.title}}</a>
+      </li>
+    </ul>
+  </section>
 </ul>

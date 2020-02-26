@@ -135,6 +135,24 @@ export const eUtilities: EItems[] = [
     }
 ];
 
+export const eAccessibility: EItems[] = [
+    {
+        title: 'Accessibility',
+        description: 'Accessibility in Elvia Designsystem',
+        docUrl: Pages.Accessibility
+    },
+    {
+        title: 'AltText',
+        description: 'Meaningfull text',
+        docUrl: Pages.AltText
+    },
+    {
+        title: 'UU-Tools',
+        description: 'Usefull UU tools',
+        docUrl: Pages.UUTools
+    },
+];
+
 export function getComponent(docUrl: string): EItems {
     return eComponents.find(component => component.docUrl === docUrl);
 }
