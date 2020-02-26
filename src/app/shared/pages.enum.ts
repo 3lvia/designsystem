@@ -12,6 +12,7 @@ export enum Pages {
     Tags = 'tags-doc',
     Tooltip = 'tooltip-doc',
     Color = 'color-doc',
+    Icon = 'icon-doc',
     Typography = 'typography-doc',
     Checkbox = 'checkbox-doc',
     CheckboxToggle = 'checkbox-toggle-doc',

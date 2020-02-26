@@ -15,6 +15,7 @@ import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.co
 import { TagsDocComponent } from './doc-pages/components/tags-doc/tags-doc.component';
 import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
 import { ColorDocComponent } from './doc-pages/utilities/color-doc/color-doc.component';
+import { IconDocComponent } from './doc-pages/utilities/icon-doc/icon-doc.component';
 import { TypographyDocComponent } from './doc-pages/utilities/typography-doc/typography-doc.component';
 import { CheckboxDocComponent } from './doc-pages/components/forms/checkbox-doc/checkbox-doc.component';
 import { CheckboxToggleDocComponent } from './doc-pages/components/forms/checkbox-toggle-doc/checkbox-toggle-doc.component';
@@ -98,6 +99,10 @@ const routes: Routes = [
       {
         path: Pages.Color,
         component: ColorDocComponent
+      },
+      {
+        path: Pages.Icon,
+        component: IconDocComponent
       },
       {
         path: Pages.Typography,
