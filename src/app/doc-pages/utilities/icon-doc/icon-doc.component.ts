@@ -1,14 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-icon-doc',
   templateUrl: './icon-doc.component.html',
 })
-export class IconDocComponent implements OnInit {
-
-
-  componentStatus = '';
-  componentClasses = ['.e-icon'];
+export class IconDocComponent {
 
   example = `<i class="e-icon-clock e-icon-xl"></i>
 <i class="e-icon-clock e-icon-lg"></i>
@@ -24,9 +20,4 @@ example2 = `<i class="e-icon-custom e-icon-xl">
   <img src="assets/icons/example-custom-icon.svg"></img>
 </i>`;
   constructor() { }
-
-  ngOnInit() {
-  }
-
-
 }

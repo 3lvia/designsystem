@@ -8,6 +8,13 @@ $icons: (
 
 
 $defaultSize: 32px;
+$sizes: (
+    'xs': 16px,
+    'sm': 24px,
+    'md': 32px,
+    'lg': 48px,
+    'xl': 64px,
+);
 
 @each $label, $icon in $icons {
     .e-icon-#{$label} {
@@ -17,8 +24,6 @@ $defaultSize: 32px;
         height:32px;
         display:inline-block;
         background-repeat: no-repeat;
-        padding:0;
-        margin:0;
     }
 }
 
@@ -27,31 +32,17 @@ $defaultSize: 32px;
     width:$defaultSize;
     height:$defaultSize;
     display:inline-block;
-    padding:0;
-    margin:0;
-    position:relative;
-
     img {
-        position:absolute;
         width: $defaultSize;
         height:$defaultSize;
     }
 }
-
-$sizes: (
-    'xs': 16px,
-    'sm': 24px,
-    'md': 32px,
-    'lg': 48px,
-    'xl': 64px,
-);
 
 @each $label, $size in $sizes {
     .e-icon-#{$label} {
         background-size: $size $size;
         width: $size;
         height: $size;
-
         img {
             width:$size;
             height:$size;
