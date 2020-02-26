@@ -10,6 +10,30 @@
   background-image: -ms-linear-gradient($angle, $gradient1, $gradient2);
 }
 
+@mixin box-shadow($value) {
+  box-shadow: $value;
+  -webkit-box-shadow: $value;
+  -moz-box-shadow: $value;
+}
+
+@mixin border-radius($value) {
+  border-radius: $value;
+  -moz-border-radius: $value;
+  -webkit-radius: $value;
+}
+
+@mixin background-size($value) {
+  background-size: $value;
+  -o-background-size: $value;
+  -webkit-background-size: $value;
+  -moz-background-size: $value;
+}
+
+@mixin transition($value) {
+  transition: $value;
+  -webkit-transition: $value;
+}
+
 @mixin transform($value) {
   transform: $value;
   -o-transform: $value;
@@ -52,6 +76,30 @@
     @content;
   }
 }
+
+@mixin filter($value) {
+  -o-filter: $value;
+  -ms-filter: $value;
+  -webkit-filter: $value;
+  -moz-filter: $value;
+  filter: $value;
+}
+
+@mixin appearance($value) {
+  -moz-appearance: $value;
+  -webkit-appearance: $value;
+  appearance: $value;
+}
+
+@mixin user-select($value) {
+  user-select: $value;
+  -webkit-touch-callout: $value;
+  -webkit-user-select: $value;
+  -khtml-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+}
+
 
 @mixin placeholder() {
   &::-moz-placeholder { /* Mozilla Firefox 19+ */

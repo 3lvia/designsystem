@@ -11,6 +11,7 @@ import { TableDocModule } from './components/table-doc/table-doc.module';
 import { TagsDocModule } from './components/tags-doc/tags-doc.module';
 import { TooltipDocModule } from './components/tooltip-doc/tooltip-doc.module';
 import { ColorDocModule } from './utilities/color-doc/color-doc.module';
+import { IconDocModule } from './utilities/icon-doc/icon-doc.module';
 import { TypographyDocModule } from './utilities/typography-doc/typography-doc.module';
 import { CheckboxDocModule } from './components/forms/checkbox-doc/checkbox-doc.module';
 import { CheckboxToggleDocModule } from './components/forms/checkbox-toggle-doc/checkbox-toggle-doc.module';
@@ -18,9 +19,13 @@ import { InputDocModule } from './components/forms/input-doc/input-doc.module';
 import { RadiobuttonDocModule } from './components/forms/radiobutton-doc/radiobutton-doc.module';
 import { SelectDocModule } from './components/forms/select-doc/select-doc.module';
 import { ShadowDocModule } from './utilities/shadow-doc/shadow-doc.module';
-import { OverviewModule } from './overview/overview.module';
+import { OverviewModule } from './overview-comp/overview-comp.module';
 import { NotificationDotDocModule } from './components/notification-dot-doc/notification-dot-doc.module';
 import { OverviewUtilModule } from './overview-util/overview-util.module';
+import { AccessibilityModule } from './accessibility/accessibility/accessibility.module';
+import { AltTextModule } from './accessibility/alt-text/alt-text.module';
+import { UuToolsModule } from './accessibility/uu-tools/uu-tools.module';
+
 
 @NgModule({
   imports: [
@@ -36,6 +41,7 @@ import { OverviewUtilModule } from './overview-util/overview-util.module';
     TagsDocModule,
     TooltipDocModule,
     ColorDocModule,
+    IconDocModule,
     TypographyDocModule,
     NotificationDotDocModule,
     CheckboxDocModule,
@@ -45,7 +51,11 @@ import { OverviewUtilModule } from './overview-util/overview-util.module';
     SelectDocModule,
     ShadowDocModule,
     OverviewModule,
-    OverviewUtilModule
+    OverviewUtilModule,
+    AccessibilityModule,
+    AltTextModule,
+    UuToolsModule
+
   ],
 })
 export class DocPagesModule { }

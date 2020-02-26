@@ -6,7 +6,7 @@ export const eComponents: EItems[] = [
     {
         title: 'Overview',
         description: 'Some useful component with amazing features',
-        docUrl: Pages.Overview
+        docUrl: Pages.OverviewComp
     },
     {
         title: 'Badge',
@@ -124,6 +124,11 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Color
     },
     {
+        title: 'Icons',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Icon
+    },
+    {
         title: 'Shadows',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Shadow
@@ -133,6 +138,24 @@ export const eUtilities: EItems[] = [
         description: 'Some useful component with amazing features',
         docUrl: Pages.Typography
     }
+];
+
+export const eAccessibility: EItems[] = [
+    {
+        title: 'Accessibility',
+        description: 'Accessibility in Elvia Designsystem',
+        docUrl: Pages.Accessibility
+    },
+    {
+        title: 'AltText',
+        description: 'Meaningfull text',
+        docUrl: Pages.AltText
+    },
+    {
+        title: 'UU-Tools',
+        description: 'Usefull UU tools',
+        docUrl: Pages.UUTools
+    },
 ];
 
 export function getComponent(docUrl: string): EItems {

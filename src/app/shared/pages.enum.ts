@@ -12,6 +12,7 @@ export enum Pages {
     Tags = 'tags-doc',
     Tooltip = 'tooltip-doc',
     Color = 'color-doc',
+    Icon = 'icon-doc',
     Typography = 'typography-doc',
     Checkbox = 'checkbox-doc',
     CheckboxToggle = 'checkbox-toggle-doc',
@@ -20,6 +21,11 @@ export enum Pages {
     Select = 'select-doc',
     Shadow = 'shadow-doc',
     Notification = 'notification-dot-doc',
-    Overview = 'overview-doc',
-    OverviewUtil = 'overview-util-doc'
+    OverviewComp = 'overview-comp-doc',
+    OverviewUtil = 'overview-util-doc',
+    OverviewAccess = 'overview-accessibility-doc',
+    GetStarted = 'get-started-doc',
+    Accessibility = 'accessibility-doc',
+    AltText = 'alttext-doc',
+    UUTools = 'uutools-doc'
 }

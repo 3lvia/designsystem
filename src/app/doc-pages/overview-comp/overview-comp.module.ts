@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OverviewComponent } from './overview.component';
+import { OverviewComponent } from './overview-comp.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({

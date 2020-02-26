@@ -15,6 +15,7 @@ import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.co
 import { TagsDocComponent } from './doc-pages/components/tags-doc/tags-doc.component';
 import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
 import { ColorDocComponent } from './doc-pages/utilities/color-doc/color-doc.component';
+import { IconDocComponent } from './doc-pages/utilities/icon-doc/icon-doc.component';
 import { TypographyDocComponent } from './doc-pages/utilities/typography-doc/typography-doc.component';
 import { CheckboxDocComponent } from './doc-pages/components/forms/checkbox-doc/checkbox-doc.component';
 import { CheckboxToggleDocComponent } from './doc-pages/components/forms/checkbox-toggle-doc/checkbox-toggle-doc.component';
@@ -23,8 +24,11 @@ import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutto
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
 import { ShadowDocComponent } from './doc-pages/utilities/shadow-doc/shadow-doc.component';
 import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
-import { OverviewComponent } from './doc-pages/overview/overview.component';
+import { OverviewComponent } from './doc-pages/overview-comp/overview-comp.component';
 import { OverviewUtilComponent } from './doc-pages/overview-util/overview-util.component';
+import { AccessibilityComponent } from './doc-pages/accessibility/accessibility/accessibility.component';
+import { AltTextComponent } from './doc-pages/accessibility/alt-text/alt-text.component';
+import { UuToolsComponent } from './doc-pages/accessibility/uu-tools/uu-tools.component';
 
 
 const routes: Routes = [
@@ -41,7 +45,7 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: Pages.Overview,
+        path: Pages.OverviewComp,
         component: OverviewComponent
       },
       {
@@ -97,6 +101,10 @@ const routes: Routes = [
         component: ColorDocComponent
       },
       {
+        path: Pages.Icon,
+        component: IconDocComponent
+      },
+      {
         path: Pages.Typography,
         component: TypographyDocComponent
       },
@@ -127,6 +135,18 @@ const routes: Routes = [
       {
         path: Pages.Notification,
         component: NotificationDotDocComponent
+      },
+      {
+        path: Pages.Accessibility,
+        component: AccessibilityComponent
+      },
+      {
+        path: Pages.AltText,
+        component: AltTextComponent
+      },
+      {
+        path: Pages.UUTools,
+        component: UuToolsComponent
       },
     ]
   }
