@@ -3,7 +3,7 @@
     <ul class="navbar-list">
       <h2
         class="navbar-list-header"
-        [routerLink]="['', 'overview-doc']"
+        [routerLink]="['', 'overview-comp-doc']"
       >Components</h2>
     
       <li
@@ -22,7 +22,10 @@
   </section>
   <section>
     <ul class="navbar-list">
-      <h2 class="navbar-list-header">Utilities</h2>
+      <h2 
+      class="navbar-list-header"
+      [routerLink]="['', 'overview-util-doc']"
+      >Utilities</h2>
       <li
         class="navbar-item"
         *ngFor="let navbarItem of eUtilities"
@@ -36,7 +39,10 @@
   </section>
   <section>
     <ul class="navbar-list">
-      <h2 class="navbar-list-header">Accessibility</h2>
+      <h2 
+      class="navbar-list-header"
+      [routerLink]="['', 'accessibility-doc']"
+      >Accessibility</h2>
       <li
         class="navbar-item"
         *ngFor="let navbarItem of eAccessibility"

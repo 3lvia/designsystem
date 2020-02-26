@@ -44,7 +44,7 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
-        path: Pages.Overview,
+        path: Pages.OverviewComp,
         component: OverviewComponent
       },
       {

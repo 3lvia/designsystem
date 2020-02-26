@@ -20,7 +20,7 @@ export enum Pages {
     Select = 'select-doc',
     Shadow = 'shadow-doc',
     Notification = 'notification-dot-doc',
-    Overview = 'overview-doc',
+    OverviewComp = 'overview-comp-doc',
     OverviewUtil = 'overview-util-doc',
     OverviewAccess = 'overview-accessibility-doc',
     GetStarted = 'get-started-doc',

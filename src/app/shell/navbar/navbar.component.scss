@@ -23,9 +23,14 @@
     font-size: 25px;
     font-weight: 800;
     width: 100%;
-    padding: 0 16px;
+    padding: 20px 16px;
+    margin: 0;
     text-decoration: underline color('green-lime');
     outline: none;
+
+    &:hover {
+      background-color: #eee;
+    } 
   }
 
   &-item {

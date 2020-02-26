@@ -6,7 +6,7 @@ export const eComponents: EItems[] = [
     {
         title: 'Overview',
         description: 'Some useful component with amazing features',
-        docUrl: Pages.Overview
+        docUrl: Pages.OverviewComp
     },
     {
         title: 'Badge',
