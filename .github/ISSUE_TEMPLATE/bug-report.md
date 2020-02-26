@@ -1,6 +1,10 @@
 ---
-name: "🐞 Bug report"
+name: "\U0001F41E Bug report"
 about: Report a bug in Elvia Designsystem
+title: ''
+labels: ''
+assignees: ''
+
 ---
 
 # 🐞 Bug Report
