@@ -1,13 +1,13 @@
 @import "../variables/shadows";
 
-.e-s {
-  &-light {
+.e-shadow {
+  &-1 {
     box-shadow: $shadow-light;
   }
-  &-medium {
+  &-2 {
     box-shadow: $shadow-medium;
   }
-  &-strong {
+  &-3 {
     box-shadow: $shadow-strong;
   }
 }
