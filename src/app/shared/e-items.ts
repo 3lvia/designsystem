@@ -123,6 +123,11 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Color
     },
     {
+        title: 'Icons',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Icon
+    },
+    {
         title: 'Shadows',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Shadow
