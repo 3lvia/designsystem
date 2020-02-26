@@ -11,6 +11,7 @@ import { TableDocModule } from './components/table-doc/table-doc.module';
 import { TagsDocModule } from './components/tags-doc/tags-doc.module';
 import { TooltipDocModule } from './components/tooltip-doc/tooltip-doc.module';
 import { ColorDocModule } from './utilities/color-doc/color-doc.module';
+import { IconDocModule } from './utilities/icon-doc/icon-doc.module';
 import { TypographyDocModule } from './utilities/typography-doc/typography-doc.module';
 import { CheckboxDocModule } from './components/forms/checkbox-doc/checkbox-doc.module';
 import { CheckboxToggleDocModule } from './components/forms/checkbox-toggle-doc/checkbox-toggle-doc.module';
@@ -40,6 +41,7 @@ import { UuToolsModule } from './accessibility/uu-tools/uu-tools.module';
     TagsDocModule,
     TooltipDocModule,
     ColorDocModule,
+    IconDocModule,
     TypographyDocModule,
     NotificationDotDocModule,
     CheckboxDocModule,

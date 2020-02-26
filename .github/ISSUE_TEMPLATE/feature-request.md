@@ -1,6 +1,9 @@
 ---
-name: "🚀 Feature request"
-about: Suggest a feature for Elvia Desingsystem
+name: "\U0001F680 Feature request"
+about: Suggest a feature for Elvia Designsystem
+title: ''
+labels: ''
+assignees: ''
 
 ---
 
@@ -16,4 +19,4 @@ about: Suggest a feature for Elvia Desingsystem
 
 
 ### Describe alternatives you've considered
-<!-- Have you considered any alternative solutions or workarounds?--> 
+<!-- Have you considered any alternative solutions or workarounds?-->
