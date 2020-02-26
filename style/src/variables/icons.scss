@@ -1,20 +1,40 @@
 // Lazily just used b64.io for converting SVGs
-// Consider using: https://www.npmjs.com/package/mini-svg-data-uri instead 
-
-
+// Consider using: https://www.npmjs.com/package/mini-svg-data-uri combined with some SVG optimizer instead 
+// TODO: Add support for custom SVG classes
 $icons: (
     'clock': url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDIzLjI1QzUuNzk3IDIzLjI1Ljc1IDE4LjIwMy43NSAxMlM1Ljc5Ny43NSAxMiAuNzUgMjMuMjUgNS43OTcgMjMuMjUgMTIgMTguMjAzIDIzLjI1IDEyIDIzLjI1em0wLTIxYy01LjM3NiAwLTkuNzUgNC4zNzQtOS43NSA5Ljc1czQuMzc0IDkuNzUgOS43NSA5Ljc1IDkuNzUtNC4zNzQgOS43NS05Ljc1UzE3LjM3NiAyLjI1IDEyIDIuMjV6IiBmaWxsPSIjMUIzMTRCIi8+PHBhdGggZD0iTTE2LjY4NyAxNy40MzhhLjc0My43NDMgMCAwMS0uNTMtLjIyTDExLjQ3IDEyLjUzYS43NC43NCAwIDAxLS4xNjMtLjI0NWwtLjAwOS0uMDI1YS43MzcuNzM3IDAgMDEtLjA0Ny0uMjZWOC4yNWEuNzUuNzUgMCAwMTEuNSAwdjMuNDM5bDQuNDY3IDQuNDY4YS43NDQuNzQ0IDAgMDEwIDEuMDYuNzUyLjc1MiAwIDAxLS41MzEuMjIxeiIgZmlsbD0iIzFCMzE0QiIvPjwvc3ZnPg==),
     'add-circle': 	url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDE3LjQxYS43NS43NSAwIDAxLS43NS0uNzUydi0zLjc1NEg3LjVhLjc1Ljc1IDAgMDEwLTEuNTAyaDMuNzVWNy42NDhhLjc1Ljc1IDAgMTExLjUgMHYzLjc1NGgzLjc1YS43NS43NSAwIDAxMCAxLjUwMmgtMy43NXYzLjc1NGEuNzUuNzUgMCAwMS0uNzUuNzUxeiIgZmlsbD0iIzFCMzE0QiIvPjxwYXRoIGQ9Ik0xMiAyNC4xNjdjLTYuNjE3IDAtMTItNS4zOS0xMi0xMi4wMTRTNS4zODMuMTQgMTIgLjE0czEyIDUuMzkgMTIgMTIuMDE0YzAgNi42MjUtNS4zODMgMTIuMDE0LTEyIDEyLjAxNHpNMTIgMS42NGMtNS43OSAwLTEwLjUgNC43MTYtMTAuNSAxMC41MTIgMCA1Ljc5NyA0LjcxIDEwLjUxMiAxMC41IDEwLjUxMnMxMC41LTQuNzE1IDEwLjUtMTAuNTEyQzIyLjUgNi4zNTYgMTcuNzkgMS42NCAxMiAxLjY0eiIgZmlsbD0iIzFCMzE0QiIvPjwvc3ZnPg==),
 );
 
+
+$defaultSize: 32px;
+
 @each $label, $icon in $icons {
     .e-icon-#{$label} {
         background-image: $icon;
-        background-size:32px 32px;
+        background-size: $defaultSize $defaultSize;
+        width:$defaultSize;
+        height:32px;
         display:inline-block;
         background-repeat: no-repeat;
         padding:0;
         margin:0;
+    }
+}
+
+// Class used for custom SVGs 
+.e-icon-custom {
+    width:$defaultSize;
+    height:$defaultSize;
+    display:inline-block;
+    padding:0;
+    margin:0;
+    position:relative;
+
+    img {
+        position:absolute;
+        width: $defaultSize;
+        height:$defaultSize;
     }
 }
 
@@ -31,7 +51,10 @@ $sizes: (
         background-size: $size $size;
         width: $size;
         height: $size;
+
+        img {
+            width:$size;
+            height:$size;
+        }
     }
 }
-
-// Lag støtte for custom ikoner med css klasser
