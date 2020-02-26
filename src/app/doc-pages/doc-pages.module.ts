@@ -19,9 +19,13 @@ import { InputDocModule } from './components/forms/input-doc/input-doc.module';
 import { RadiobuttonDocModule } from './components/forms/radiobutton-doc/radiobutton-doc.module';
 import { SelectDocModule } from './components/forms/select-doc/select-doc.module';
 import { ShadowDocModule } from './utilities/shadow-doc/shadow-doc.module';
-import { OverviewModule } from './overview/overview.module';
+import { OverviewModule } from './overview-comp/overview-comp.module';
 import { NotificationDotDocModule } from './components/notification-dot-doc/notification-dot-doc.module';
 import { OverviewUtilModule } from './overview-util/overview-util.module';
+import { AccessibilityModule } from './accessibility/accessibility/accessibility.module';
+import { AltTextModule } from './accessibility/alt-text/alt-text.module';
+import { UuToolsModule } from './accessibility/uu-tools/uu-tools.module';
+
 
 @NgModule({
   imports: [
@@ -47,7 +51,11 @@ import { OverviewUtilModule } from './overview-util/overview-util.module';
     SelectDocModule,
     ShadowDocModule,
     OverviewModule,
-    OverviewUtilModule
+    OverviewUtilModule,
+    AccessibilityModule,
+    AltTextModule,
+    UuToolsModule
+
   ],
 })
 export class DocPagesModule { }

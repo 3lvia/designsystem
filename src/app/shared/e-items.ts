@@ -1,5 +1,6 @@
 import { EItems } from './e-items.interface';
 import { Pages } from './pages.enum';
+import { ItemStatus } from './item-status.enum';
 
 export const eComponents: EItems[] = [
     {
@@ -11,103 +12,103 @@ export const eComponents: EItems[] = [
         title: 'Badge',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Badge,
-        status: 'New'
+        status: ItemStatus.New,
     },
     {
         title: 'Button',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Button,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Card',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Card,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Checkbox',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Checkbox,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Checkbox-Toggle',
         description: 'Some useful component with amazing features',
         docUrl: Pages.CheckboxToggle,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Divider',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Divider,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Dropdown',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Dropdown,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Feedback-Message',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Feedback,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Header',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Header,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Input',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Input,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Link',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Link,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Notification-Dot',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Notification,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Radiobutton',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Radiobutton,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Select',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Select,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Table',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Table,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Tags',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Tags,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     },
     {
         title: 'Tooltip',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Tooltip,
-        status: 'Coming'
+        status: ItemStatus.Coming,
     }
 ];
 
@@ -137,6 +138,24 @@ export const eUtilities: EItems[] = [
         description: 'Some useful component with amazing features',
         docUrl: Pages.Typography
     }
+];
+
+export const eAccessibility: EItems[] = [
+    {
+        title: 'Accessibility',
+        description: 'Accessibility in Elvia Designsystem',
+        docUrl: Pages.Accessibility
+    },
+    {
+        title: 'AltText',
+        description: 'Meaningfull text',
+        docUrl: Pages.AltText
+    },
+    {
+        title: 'UU-Tools',
+        description: 'Usefull UU tools',
+        docUrl: Pages.UUTools
+    },
 ];
 
 export function getComponent(docUrl: string): EItems {

@@ -3,8 +3,8 @@ import { eComponents } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+  templateUrl: './overview-comp.component.html',
+  styleUrls: ['./overview-comp.component.scss']
 })
 export class OverviewComponent implements OnInit {
 
