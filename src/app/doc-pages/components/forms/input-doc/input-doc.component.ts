@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class InputDocComponent implements OnInit {
 
   componentStatus = getComponent('input-doc').status;
-  componentClasses = ['.e-form_field', '.e-form_input'];
+  componentClasses = ['e-form_field', 'e-form_input'];
 
   example1 = `<div class="e-form_field">
   <label class="e-form_field_label" for="title">Normal input field </label>

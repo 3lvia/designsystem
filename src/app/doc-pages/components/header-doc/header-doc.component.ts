@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class HeaderDocComponent implements OnInit {
 
   componentStatus = getComponent('header-doc').status;
-  componentClasses = ['.e-header'];
+  componentClasses = ['e-header'];
 
   example1 = `<header class="e-header">
   <a class="e-header_logo" href="#">

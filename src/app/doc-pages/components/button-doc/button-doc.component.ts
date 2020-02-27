@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class ButtonDocComponent {
 
   componentStatus = getComponent('button-doc').status;
-  componentClasses = ['.e-button'];
+  componentClasses = ['e-button'];
   public clicked = false;
 
   example1 = `<button class="e-button">Standard</button>

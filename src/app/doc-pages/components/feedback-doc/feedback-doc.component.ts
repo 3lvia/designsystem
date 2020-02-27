@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class FeedbackDocComponent implements OnInit {
 
   componentStatus = getComponent('feedback-doc').status;
-  componentClasses = ['.e-feedback-message'];
+  componentClasses = ['e-feedback-message'];
 
   example1 = `<div class="e-feedback-message">
   <i class="fal fa-info-circle e-feedback-message_icon"></i>

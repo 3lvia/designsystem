@@ -26,6 +26,8 @@ import { UuToolsModule } from './accessibility/uu-tools/uu-tools.module';
 import { OverviewAccessibilityModule } from './accessibility/overview-accessibility/overview-accessibility.module';
 import { OverviewUtilModule } from './utilities/overview-util/overview-util.module';
 import { OverviewModule } from './components/overview-comp/overview-comp.module';
+import { SpacingDocModule } from './utilities/spacing-doc/spacing-doc.module';
+import { BorderDocModule } from './utilities/border-doc/border-doc.module';
 
 
 @NgModule({
@@ -56,7 +58,10 @@ import { OverviewModule } from './components/overview-comp/overview-comp.module'
     AccessibilityModule,
     AltTextModule,
     UuToolsModule,
-    OverviewAccessibilityModule
+    OverviewAccessibilityModule,
+    SpacingDocModule,
+    BorderDocModule,
+    TypographyDocModule
   ],
 })
 export class DocPagesModule { }

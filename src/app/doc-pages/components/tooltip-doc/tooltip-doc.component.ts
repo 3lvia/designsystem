@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class TooltipDocComponent implements OnInit {
 
   componentStatus = getComponent('tooltip-doc').status;
-  componentClasses = ['.e-tooltip'];
+  componentClasses = ['e-tooltip'];
 
   example1 = `<span class="e-tooltip">
   Hover Right
