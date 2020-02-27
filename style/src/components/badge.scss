@@ -1,4 +1,5 @@
 @import '../variables/colors.scss';
+@import '../variables/borders.scss';
 
 $badge-padding: 5px 10px;
 $badge-radius: 20px;
@@ -6,7 +7,6 @@ $badge-font-size: 0.75rem;
 
 .e-badge {
   padding: $badge-padding;
-  border-width: 0;
   border-radius: $badge-radius;
   font-size: $badge-font-size;
   font-weight: bold;
@@ -16,17 +16,4 @@ $badge-font-size: 0.75rem;
   // Default colors
   background: color('red');
   color: color('white');
-
-  &.is-green {
-    background: color('green-lime');
-    color: color('black');
-  }
-  &.is-orange {
-    background: color('orange-peel');
-    color: color('black');
-  }
-  &.is-yellow {
-    background: color('yellow');
-    color: color('black');
-  }
 }

@@ -41,12 +41,11 @@
 $colors: (
   'white': (
     color: #FFF,
-    alt-labels: (primary, bg),
+    alt-labels: (primary),
     contrast-text: #000,
   ),  
   'black': (
     color: #000,
-    alt-labels: (text),
     contrast-text: #fff,
   ),  
   'grey-mine-shaft': (
@@ -92,7 +91,7 @@ $colors: (
   ),  
   'red': (
     color: #FF0000,
-    contrast-text: #000,
+    contrast-text: #fff,
   ),  
   'red-08': (
     color: rgba(255, 0, 0, 0.8),

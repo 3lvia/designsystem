@@ -27,7 +27,7 @@ $font-family: "Red Hat Display", sans-serif;
 
 body {
   font-family: $font-family;
-  color: color('text');
+  color: color('black');
 }
 
 // List of typography-variables
@@ -37,7 +37,7 @@ $typography: (
     size: 2.75rem,
     height: 120%,
     weight: 900,
-    color: color('text'),
+    color: color('black'),
     element: h1
   ),
   title-medium: (
@@ -45,7 +45,7 @@ $typography: (
     size: 1.625rem,
     height: 120%,
     weight: bold,
-    color: color('text'),
+    color: color('black'),
     element: h2
   ),
   title-small: (
@@ -53,7 +53,7 @@ $typography: (
     size: 1.25rem,
     height: 120%,
     weight: bold,
-    color: color('text'),
+    color: color('black'),
     element: h3
   ),
   text-lead: (
@@ -61,7 +61,7 @@ $typography: (
     size: 1.625rem,
     height: 160%,
     weight: normal,
-    color: color('text')
+    color: color('black')
   ),
   text-quote: (
     family: $font-family,
@@ -69,7 +69,7 @@ $typography: (
     height: 160%,
     weight: normal,
     style: italic,
-    color: color('text')
+    color: color('black')
   ),
   text-caps: (
     family: $font-family,
@@ -77,42 +77,42 @@ $typography: (
     height: 120%,
     weight: 500,
     transform: uppercase,
-    color: color('text')
+    color: color('black')
   ),
   text-body: (
     family: $font-family,
     size: 1.125rem,
     height: 160%,
     weight: normal,
-    color: color('text')
+    color: color('black')
   ),
   text-description: (
     family: $font-family,
     size: 1rem,
     height: 175%,
     weight: normal,
-    color: color('text')
+    color: color('black')
   ),
   text-info: (
     family: $font-family,
     size: 0.875rem,
     height: 160%,
     weight: normal,
-    color: color('text')
+    color: color('black')
   ),
   label-input: (
     family: $font-family,
     size: 1rem,
     height: 140%,
     weight: 500,
-    color: color('text')
+    color: color('black')
   ),
   label-option: (
     family: $font-family,
     size: 1rem,
     height: 140%,
     weight: normal,
-    color: color('text')
+    color: color('black')
   ),
 );
 

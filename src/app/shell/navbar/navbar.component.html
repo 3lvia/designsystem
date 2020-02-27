@@ -11,10 +11,13 @@
         <a [routerLink]="['', navbarItem.docUrl]" routerLinkActive="active">
           {{ navbarItem.title }}
           <span
-            class="e-badge is-orange"
-            *ngIf="navbarItem.status && navbarItem.status === 'New'"
-            >{{ navbarItem.status }}</span
-          >
+            class="e-badge e-bg-orange-peel"
+            *ngIf="navbarItem.status && (navbarItem.status === 'New')"
+          >{{ navbarItem.status }}</span>
+          <span
+            class="e-badge e-bg-red"
+            *ngIf="navbarItem.status && (navbarItem.status === 'Coming')"
+          >{{ navbarItem.status }}</span>
         </a>
       </li>
     </ul>

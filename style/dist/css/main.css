@@ -7,17 +7,7 @@
   font-size: 0.75rem;
   font-weight: bold;
   box-sizing: border-box;
-  background: #FF0000;
-  color: #FFF; }
-  .e-badge.is-green {
-    background: #29D305;
-    color: #000; }
-  .e-badge.is-orange {
-    background: #FFA000;
-    color: #000; }
-  .e-badge.is-yellow {
-    background: #FFFF00;
-    color: #000; }
+  line-height: normal; }
 
 *::selection {
   background: lightblue;
@@ -870,6 +860,22 @@ body {
   display: inline-block;
   background-repeat: no-repeat; }
 
+.e-icon-info-circle {
+  background-image: url(data:image/svg+xml;base64,CjxzdmcgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDI0IDI0Ij48c3R5bGU+LnN0MHtmaWxsOiMyYzJlMzJ9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTMuNSAxNy4yNUEyLjI1MiAyLjI1MiAwIDAgMSAxMS4yNSAxNXYtMy43NWgtLjc1YS43NS43NSAwIDAgMSAwLTEuNWguNzVjLjgyNyAwIDEuNS42NzMgMS41IDEuNVYxNWMwIC40MTQuMzM2Ljc1Ljc1Ljc1aC43NWEuNzUuNzUgMCAwIDEgMCAxLjVoLS43NXpNMTEuNjI1IDguMjVhMS4xMjUgMS4xMjUgMCAxIDAgMC0yLjI1IDEuMTI1IDEuMTI1IDAgMCAwIDAgMi4yNXoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTIgMjRDNS4zODMgMjQgMCAxOC42MTcgMCAxMlM1LjM4MyAwIDEyIDBzMTIgNS4zODMgMTIgMTItNS4zODMgMTItMTIgMTJ6bTAtMjIuNUM2LjIxIDEuNSAxLjUgNi4yMSAxLjUgMTJTNi4yMSAyMi41IDEyIDIyLjUgMjIuNSAxNy43OSAyMi41IDEyIDE3Ljc5IDEuNSAxMiAxLjV6Ii8+PC9zdmc+);
+  background-size: 32px 32px;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-repeat: no-repeat; }
+
+.e-icon-warn-circle {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxzdHlsZT4uc3Qwe2ZpbGw6IzJjMmUzMn08L3N0eWxlPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMiAxOGExLjEyNSAxLjEyNSAwIDEgMCAwLTIuMjVBMS4xMjUgMS4xMjUgMCAwIDAgMTIgMTh6TTEyIDE0LjI1YS43NS43NSAwIDAgMS0uNzUtLjc1VjUuMjVhLjc1Ljc1IDAgMCAxIDEuNSAwdjguMjVhLjc1Ljc1IDAgMCAxLS43NS43NXoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTIgMjRDNS4zODMgMjQgMCAxOC42MTcgMCAxMlM1LjM4MyAwIDEyIDBzMTIgNS4zODMgMTIgMTItNS4zODMgMTItMTIgMTJ6bTAtMjIuNUM2LjIxIDEuNSAxLjUgNi4yMSAxLjUgMTJTNi4yMSAyMi41IDEyIDIyLjUgMjIuNSAxNy43OSAyMi41IDEyIDE3Ljc5IDEuNSAxMiAxLjV6Ii8+PC9zdmc+);
+  background-size: 32px 32px;
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-repeat: no-repeat; }
+
 .e-icon-custom {
   width: 32px;
   height: 32px;
@@ -1004,24 +1010,10 @@ body {
   background: #FFF;
   color: #000; }
 
-.e-text-bg {
-  color: #FFF; }
-
-.e-bg-bg {
-  background: #FFF;
-  color: #000; }
-
 .e-text-black {
   color: #000; }
 
 .e-bg-black {
-  background: #000;
-  color: #fff; }
-
-.e-text-text {
-  color: #000; }
-
-.e-bg-text {
   background: #000;
   color: #fff; }
 
@@ -1105,9 +1097,9 @@ body {
 .e-text-red {
   color: #FF0000; }
 
-.e-bg-red {
+.e-bg-red, .e-badge {
   background: #FF0000;
-  color: #000; }
+  color: #fff; }
 
 .e-text-red-08 {
   color: rgba(255, 0, 0, 0.8); }

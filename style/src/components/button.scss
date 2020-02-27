@@ -23,7 +23,7 @@ $button-font-size: 1rem;
 %transparent-properties {
   border: none;
   background: transparent;
-  color: color('text');
+  color: color('black');
 
   // Changes button-text on hover/active/focus
   &:not([disabled]) {

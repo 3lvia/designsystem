@@ -15,9 +15,9 @@ export class BadgeDocComponent implements OnInit {
 `;
 
   example2 = `<span class="e-badge">101001</span>
-<span class="e-badge is-green">101001</span>
-<span class="e-badge is-orange">101001</span>
-<span class="e-badge is-yellow">101001</span>
+<span class="e-badge e-bg-green-lime">101001</span>
+<span class="e-badge e-bg-orange-peel">101001</span>
+<span class="e-badge e-bg-yellow">101001</span>
 `;
 
   constructor() { }

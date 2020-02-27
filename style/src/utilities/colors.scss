@@ -3,10 +3,10 @@
 // Making background and color classes for all colors
 .e {
   &-text {
-    color: color('text');
+    color: color('black');
   }
   &-bg {
-    background: color('bg');
+    background: color('white');
   }
 
   @each $label, $map in $colors {

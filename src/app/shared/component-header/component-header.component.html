@@ -5,9 +5,9 @@
         <ng-content select="headerTitle"></ng-content>
       </h1>
       <div *ngIf="componentStatus!=''">
-        <span class="e-badge is-orange" *ngIf="componentStatus===itemStatus.New">{{ componentStatus }}</span>
-        <span class="e-badge is-red" *ngIf="componentStatus===itemStatus.Coming">{{ componentStatus }}</span>
-        <span class="e-badge is-green" *ngIf="componentStatus===itemStatus.Done">{{ componentStatus }}</span>
+        <span class="e-badge e-bg-orange-peel" *ngIf="componentStatus===itemStatus.New">{{ componentStatus }}</span>
+        <span class="e-badge e-bg-red" *ngIf="componentStatus===itemStatus.Coming">{{ componentStatus }}</span>
+        <span class="e-badge e-bg-green-lime" *ngIf="componentStatus===itemStatus.Done">{{ componentStatus }}</span>
       </div>
     </div>
     <p class="component-header__class e-bg-grey-silver e-text-info" *ngFor="let class of componentClasses">
