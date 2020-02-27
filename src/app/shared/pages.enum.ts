@@ -27,5 +27,7 @@ export enum Pages {
     GetStarted = 'get-started-doc',
     Accessibility = 'accessibility-doc',
     AltText = 'alttext-doc',
-    UUTools = 'uutools-doc'
+    UUTools = 'uutools-doc',
+    Spacing = 'spacing-doc',
+    Border = 'border-doc',
 }

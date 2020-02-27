@@ -29,6 +29,8 @@ import { OverviewUtilComponent } from './doc-pages/overview-util/overview-util.c
 import { AccessibilityComponent } from './doc-pages/accessibility/accessibility/accessibility.component';
 import { AltTextComponent } from './doc-pages/accessibility/alt-text/alt-text.component';
 import { UuToolsComponent } from './doc-pages/accessibility/uu-tools/uu-tools.component';
+import { SpacingDocComponent } from './doc-pages/utilities/spacing-doc/spacing-doc.component';
+import { BorderDocComponent } from './doc-pages/utilities/border-doc/border-doc.component';
 
 
 const routes: Routes = [
@@ -147,6 +149,14 @@ const routes: Routes = [
       {
         path: Pages.UUTools,
         component: UuToolsComponent
+      },
+      {
+        path: Pages.Spacing,
+        component: SpacingDocComponent
+      },
+      {
+        path: Pages.Border,
+        component: BorderDocComponent
       },
     ]
   }

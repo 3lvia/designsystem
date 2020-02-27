@@ -1,6 +1,9 @@
 @import "../variables/shadows";
 
 .e-shadow {
+  &-none {
+    box-shadow: none;
+  }
   &-1 {
     box-shadow: $shadow-light;
   }

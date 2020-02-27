@@ -2,6 +2,13 @@
 
 // Making background and color classes for all colors
 .e {
+  &-text {
+    color: color('text');
+  }
+  &-bg {
+    background: color('bg');
+  }
+
   @each $label, $map in $colors {
     $color: color($label);
     $contrast-text: map-get($map, contrast-text);

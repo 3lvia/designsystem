@@ -2,6 +2,9 @@
 
 // Making border classes for all border-sizes
 .e-border {
+  &-none {
+    border: none;
+  }
   & {
     border: $border-medium;
   }

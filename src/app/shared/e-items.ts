@@ -129,14 +129,24 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Icon
     },
     {
+        title: 'Typography',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Typography
+    },
+    {
+        title: 'Spacing',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Spacing
+    },
+    {
         title: 'Shadows',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Shadow
     },
     {
-        title: 'Typography',
+        title: 'Border',
         description: 'Some useful component with amazing features',
-        docUrl: Pages.Typography
+        docUrl: Pages.Border
     }
 ];
 

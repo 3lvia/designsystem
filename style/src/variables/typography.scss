@@ -27,7 +27,7 @@ $font-family: "Red Hat Display", sans-serif;
 
 body {
   font-family: $font-family;
-  color: color('font');
+  color: color('text');
 }
 
 // Klassene som legges på .is- i typography i utilities
@@ -37,7 +37,7 @@ $typography: (
     size: 1.25rem,
     spacing: .21px,
     weight: 500,
-    color: color('font'),
+    color: color('text'),
     elements: (h1)
   ),
   h2: (
@@ -45,7 +45,7 @@ $typography: (
     size: 1rem,
     spacing: .21px,
     weight: 400,
-    color: color('font'),
+    color: color('text'),
     elements: (h2)
   ),
   h3: (
@@ -53,7 +53,7 @@ $typography: (
     size: .875rem,
     spacing: .21px,
     weight: 500,
-    color: color('font'),
+    color: color('text'),
     elements: (h3)
   ),
   p: (
@@ -61,7 +61,7 @@ $typography: (
     size: .875rem,
     spacing: .21px,
     weight: 400,
-    color: color('font'),
+    color: color('text'),
     elements: (p)
   ),
   p-small: (
@@ -69,7 +69,7 @@ $typography: (
     size: .675rem,
     spacing: .21px,
     weight: 400,
-    color: color('font')
+    color: color('text')
   ),
 );
 

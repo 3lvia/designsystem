@@ -41,7 +41,7 @@
 $colors: (
   'white': (
     color: #FFF,
-    alt-labels: (primary),
+    alt-labels: (primary, bg),
     contrast-text: #000,
   ),  
   'black': (
@@ -50,7 +50,7 @@ $colors: (
   ),  
   'grey-mine-shaft': (
     color: #262626,
-    alt-labels: (font),
+    alt-labels: (text),
     contrast-text: #fff,
   ),  
   'grey-stone': (
