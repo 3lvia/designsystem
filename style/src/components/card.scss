@@ -11,6 +11,7 @@ $card-actions-action-padding: 13px 0;
 $card-actions-button-spacing: 25px;
 
 .e-card {
+  border: 1px solid color('grey-silver');
   border-radius: $card-radius;
   box-shadow: $shadow-light;
   display: inline-flex;
