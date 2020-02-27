@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { OverviewUtilComponent } from './overview-util.component';
+import { OverviewPageComponent } from './overview-page.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule
   ],
-  declarations: [OverviewUtilComponent]
+  declarations: [OverviewPageComponent],
+  exports: [OverviewPageComponent]
 })
-export class OverviewUtilModule { }
+export class OverviewPageModule { }

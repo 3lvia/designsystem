@@ -1,0 +1,20 @@
+<div class="main-container">
+  <h2>{{ overviewTitle }}</h2>
+  <div class="page-card-container">
+    <div class="e-card" *ngFor="let page of pages">
+      <div class="e-card_header">
+        <div class="e-card_header_text">
+          <div class="e-card_title">{{ page.title }}</div>
+        </div>
+      </div>
+      <div class="e-card_content">
+        <p>{{ page.description }}</p>
+      </div>
+      <div class="e-card_actions">
+        <a class="e-card_actions_action" [routerLink]="['', page.docUrl]">
+          View more
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

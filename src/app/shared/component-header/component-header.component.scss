@@ -1,7 +1,9 @@
+@import '../../shared/shared-sizes.scss';
+
 .component {
   &-header {
     background: #eee;
-    padding: 16px 40px;
+    padding: $page-padding;
 
     &__title {
       display: flex;

@@ -2,12 +2,30 @@ import { EItems } from './e-items.interface';
 import { Pages } from './pages.enum';
 import { ItemStatus } from './item-status.enum';
 
-export const eComponents: EItems[] = [
+export const eHomes: EItems[] = [
     {
-        title: 'Overview',
-        description: 'Some useful component with amazing features',
+        title: 'New project',
+        description: 'Guidance how to use, and implementation of Elvia Designsystem.',
+        docUrl: Pages.Home
+    },
+    {
+        title: 'Components',
+        description: 'Explore components that are available in Elvia Designsystem.',
         docUrl: Pages.OverviewComp
     },
+    {
+        title: 'Contribute',
+        description: 'Guidance to how to contribute to Elvia Designsystem.',
+        docUrl: Pages.Home
+    },
+    {
+        title: 'Discussion',
+        description: 'Report a bug? Request a new feauture?',
+        docUrl: '//github.com/hafslundnett/elvia-designsystem/issues/new/choose'
+    },
+];
+
+export const eComponents: EItems[] = [
     {
         title: 'Badge',
         description: 'Some useful component with amazing features',
@@ -113,11 +131,6 @@ export const eComponents: EItems[] = [
 ];
 
 export const eUtilities: EItems[] = [
-    {
-        title: 'Overview',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.OverviewUtil
-    },
     {
         title: 'Colors',
         description: 'Some useful component with amazing features',

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { eHomes } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  overviewTitle = 'Get started!';
+  pages = eHomes;
 
   constructor() { }
 

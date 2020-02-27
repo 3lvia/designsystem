@@ -12,9 +12,6 @@ import { NavbarModule } from '../navbar/navbar.module';
     HeaderModule,
     NavbarModule
   ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
   declarations: [MainComponent],
   exports: [MainComponent],
 })

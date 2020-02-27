@@ -24,13 +24,14 @@ import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutto
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
 import { ShadowDocComponent } from './doc-pages/utilities/shadow-doc/shadow-doc.component';
 import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
-import { OverviewComponent } from './doc-pages/overview-comp/overview-comp.component';
-import { OverviewUtilComponent } from './doc-pages/overview-util/overview-util.component';
 import { AccessibilityComponent } from './doc-pages/accessibility/accessibility/accessibility.component';
 import { AltTextComponent } from './doc-pages/accessibility/alt-text/alt-text.component';
 import { UuToolsComponent } from './doc-pages/accessibility/uu-tools/uu-tools.component';
 import { SpacingDocComponent } from './doc-pages/utilities/spacing-doc/spacing-doc.component';
 import { BorderDocComponent } from './doc-pages/utilities/border-doc/border-doc.component';
+import { OverviewAccessibilityComponent } from './doc-pages/accessibility/overview-accessibility/overview-accessibility.component';
+import { OverviewUtilComponent } from './doc-pages/utilities/overview-util/overview-util.component';
+import { OverviewComponent } from './doc-pages/components/overview-comp/overview-comp.component';
 
 
 const routes: Routes = [
@@ -53,6 +54,10 @@ const routes: Routes = [
       {
         path: Pages.OverviewUtil,
         component: OverviewUtilComponent
+      },
+      {
+        path: Pages.OverviewAccess,
+        component: OverviewAccessibilityComponent
       },
       {
         path: Pages.Badge,

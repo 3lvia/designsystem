@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './home.component';
+import { OverviewAccessibilityComponent } from './overview-accessibility.component';
 import { OverviewPageModule } from 'src/app/shared/overview-page/overview-page.module';
 
 @NgModule({
@@ -8,6 +8,6 @@ import { OverviewPageModule } from 'src/app/shared/overview-page/overview-page.m
     CommonModule,
     OverviewPageModule
   ],
-  declarations: [HomeComponent],
+  declarations: [OverviewAccessibilityComponent]
 })
-export class HomeModule { }
+export class OverviewAccessibilityModule { }

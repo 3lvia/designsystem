@@ -8,7 +8,8 @@ import { eComponents } from 'src/app/shared/e-items';
 })
 export class OverviewComponent implements OnInit {
 
-  components = eComponents;
+  overviewTitle = 'Components';
+  pages = eComponents;
 
   constructor() { }
 

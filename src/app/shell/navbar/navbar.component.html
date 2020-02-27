@@ -1,56 +1,51 @@
 <ul class="navbar e-border-r e-pb-4">
   <section>
     <ul class="navbar-list">
-      <h2
-        class="navbar-list-header e-pl-2"
-        [routerLink]="['', 'overview-comp-doc']"
-      >Components</h2>
-    
+      <a [routerLink]="['', 'overview-comp-doc']">
+        <h2 class="navbar-list-header e-pl-2">Components</h2>
+      </a>
       <li
         class="navbar-item e-title-small"
         *ngFor="let navbarItem of eComponents"
       >
-        <a
-          [routerLink]="['', navbarItem.docUrl]"
-          routerLinkActive="active"
-        > 
-          {{navbarItem.title}}
-          <span class="e-badge is-orange" *ngIf="navbarItem.status && navbarItem.status==='New'">{{ navbarItem.status }}</span>
+        <a [routerLink]="['', navbarItem.docUrl]" routerLinkActive="active">
+          {{ navbarItem.title }}
+          <span
+            class="e-badge is-orange"
+            *ngIf="navbarItem.status && navbarItem.status === 'New'"
+            >{{ navbarItem.status }}</span
+          >
         </a>
       </li>
     </ul>
   </section>
   <section>
     <ul class="navbar-list">
-      <h2 
-        class="navbar-list-header e-pl-2"
-        [routerLink]="['', 'overview-util-doc']"
-      >Utilities</h2>
+      <a [routerLink]="['', 'overview-util-doc']">
+        <h2 class="navbar-list-header e-pl-2">Utilities</h2>
+      </a>
       <li
         class="navbar-item e-title-small"
         *ngFor="let navbarItem of eUtilities"
       >
-        <a
-          [routerLink]="['', navbarItem.docUrl]"
-          routerLinkActive="active"
-        > {{navbarItem.title}}</a>
+        <a [routerLink]="['', navbarItem.docUrl]" routerLinkActive="active">
+          {{ navbarItem.title }}</a
+        >
       </li>
     </ul>
   </section>
   <section>
     <ul class="navbar-list">
-      <h2 
-      class="navbar-list-header"
-      [routerLink]="['', 'accessibility-doc']"
-      >Accessibility</h2>
+      <a [routerLink]="['', 'overview-accessibility-doc']">
+        <h2 class="navbar-list-header e-pl-2">Accessibility</h2>
+      </a>
       <li
         class="navbar-item e-title-small"
         *ngFor="let navbarItem of eAccessibility"
       >
-        <a
-          [routerLink]="['', navbarItem.docUrl]"
-          routerLinkActive="active"
-        > {{navbarItem.title}}</a>
+        <a [routerLink]="['', navbarItem.docUrl]" routerLinkActive="active">
+          {{ navbarItem.title }}</a
+        >
       </li>
     </ul>
   </section>
