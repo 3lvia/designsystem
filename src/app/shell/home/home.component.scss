@@ -3,16 +3,15 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
+    justify-content: center;
     margin: auto;
-    width: 80%;
     height: 100%;
     margin-top: 75px;
 }
 
 .landingcard {
     display: flex;
-    margin: auto;
-    width: 45%;
-    height: 100%;
+    width: 400px;
+    min-height: 200px;
     margin: 20px;
 }
