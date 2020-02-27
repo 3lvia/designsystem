@@ -30,45 +30,88 @@ body {
   color: color('text');
 }
 
-// Klassene som legges på .is- i typography i utilities
+// List of typography-variables
 $typography: (
-  h1: (
+  title-large: (
+    family: $font-family,
+    size: 2.75rem,
+    height: 120%,
+    weight: 900,
+    color: color('text'),
+    element: h1
+  ),
+  title-medium: (
+    family: $font-family,
+    size: 1.625rem,
+    height: 120%,
+    weight: bold,
+    color: color('text'),
+    element: h2
+  ),
+  title-small: (
     family: $font-family,
     size: 1.25rem,
-    spacing: .21px,
-    weight: 500,
+    height: 120%,
+    weight: bold,
     color: color('text'),
-    elements: (h1)
+    element: h3
   ),
-  h2: (
+  text-lead: (
+    family: $font-family,
+    size: 1.625rem,
+    height: 160%,
+    weight: normal,
+    color: color('text')
+  ),
+  text-quote: (
+    family: $font-family,
+    size: 1.5rem,
+    height: 160%,
+    weight: normal,
+    style: italic,
+    color: color('text')
+  ),
+  text-caps: (
+    family: $font-family,
+    size: 0.875rem,
+    height: 120%,
+    weight: 500,
+    transform: uppercase,
+    color: color('text')
+  ),
+  text-body: (
+    family: $font-family,
+    size: 1.125rem,
+    height: 160%,
+    weight: normal,
+    color: color('text')
+  ),
+  text-description: (
     family: $font-family,
     size: 1rem,
-    spacing: .21px,
-    weight: 400,
-    color: color('text'),
-    elements: (h2)
+    height: 175%,
+    weight: normal,
+    color: color('text')
   ),
-  h3: (
+  text-info: (
     family: $font-family,
-    size: .875rem,
-    spacing: .21px,
+    size: 0.875rem,
+    height: 160%,
+    weight: normal,
+    color: color('text')
+  ),
+  label-input: (
+    family: $font-family,
+    size: 1rem,
+    height: 140%,
     weight: 500,
-    color: color('text'),
-    elements: (h3)
+    color: color('text')
   ),
-  p: (
+  label-option: (
     family: $font-family,
-    size: .875rem,
-    spacing: .21px,
-    weight: 400,
-    color: color('text'),
-    elements: (p)
-  ),
-  p-small: (
-    family: $font-family,
-    size: .675rem,
-    spacing: .21px,
-    weight: 400,
+    size: 1rem,
+    height: 140%,
+    weight: normal,
     color: color('text')
   ),
 );

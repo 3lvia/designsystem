@@ -10,7 +10,7 @@
         <span class="e-badge is-green" *ngIf="componentStatus===itemStatus.Done">{{ componentStatus }}</span>
       </div>
     </div>
-    <p class="component-header__class e-bg-grey-silver" *ngFor="let class of componentClasses">
+    <p class="component-header__class e-bg-grey-silver e-text-info" *ngFor="let class of componentClasses">
       <code>
         {{ class }}
       </code>
@@ -21,11 +21,11 @@
       </p>
       <div class="component-header__body-does">
         <span class="marker e-bg-green-lime"></span>
-        <b>Do's: </b><ng-content select="descriptionDoes"></ng-content>
+        <span class="e-title-small">Do's: </span><ng-content select="descriptionDoes"></ng-content>
       </div>
       <div class="component-header__body-donts">
         <span class="marker e-bg-red"></span>
-        <b>Don'ts: </b><ng-content select="descriptionDonts"></ng-content>
+        <span class="e-title-small">Don'ts: </span><ng-content select="descriptionDonts"></ng-content>
       </div>
     </div>
   </div>

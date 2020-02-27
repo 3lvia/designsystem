@@ -1,0 +1,37 @@
+@import "../variables/typography";
+
+@each $label, $map in $typography {
+  $family: map-get($map, family);
+  $size: map-get($map, size);
+  $height: map-get($map, height);
+  $weight: map-get($map, weight);
+  $color: map-get($map, color);
+  $style: map-get($map, style);
+  $transform: map-get($map, transform);
+  $element: map-get($map, element);
+
+  $labels: ($label);
+  @if $element {
+    #{$element} {
+      font-family: $family;
+      font-size: $size;
+      line-height: $height;
+      font-weight: $weight;
+      color: $color;
+      font-style: $style;
+      text-transform: $transform;
+    }
+  }
+
+  @each $label in $labels {
+    .e-#{$label} {
+      font-family: $family;
+      font-size: $size;
+      line-height: $height;
+      font-weight: $weight;
+      color: $color;
+      font-style: $style;
+      text-transform: $transform;
+    }
+  }
+}
