@@ -1,0 +1,100 @@
+@import "../../../../../style/src/variables/colors.scss";
+
+.accessibility-container {
+    padding: 16px 40px;
+    padding-bottom: 80px;
+}
+
+.header {
+    &-main{
+        padding: 8px 0px;
+    }
+    
+    &-secondary {
+        padding: 8px 0px;
+    }
+}
+
+.info {
+  width: 70%;
+}
+
+.elvis-example {
+    padding: 10px 40px;
+    max-width: 50%;
+    margin-left: 40px;
+    background: #eee;
+
+    &-header {
+        font-size: 1.15rem;
+        margin: 15px 0px;
+    }
+
+    &-content {
+        font-size: 1rem;
+
+        li {
+            margin: 10px 0px;
+        }
+    }
+}
+
+.elvis-table-container {
+    padding: 10px 40px;
+    max-width: 70%;
+    margin-left: 40px;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+     padding: 10px 40px;
+    max-width: 50%;
+}
+
+.e-card {
+    border: 1px solid color('grey-silver');
+    margin: 10px 0px;
+}
+
+.elvia-factbox {
+
+    display: flex;
+    padding: 10px 10px;
+    border: 2px solid color('grey-silver');
+    border-radius: 4px;
+    margin: 10px 0;
+
+    &.is-info {
+        background-color: color('yellow-05');
+    }
+
+    &.is-warn {
+        background: color('orange-peel-05');
+    }
+
+    &_icon {
+
+      display: inline-flex;
+      align-self: center;
+      margin-right: 10px;
+      line-height: 24px;
+      vertical-align: top;
+    }
+
+    &-content {
+        display: flex;
+        margin-left: 20px;
+    }
+
+}
+
+.elvia-tips-list {
+    li {
+        margin-bottom: 8px;
+        list-style-position: inside;
+        margin-left: 5px;
+    }
+}
+
+
