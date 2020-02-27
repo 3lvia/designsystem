@@ -11,6 +11,7 @@ $badge-font-size: 0.75rem;
   font-size: $badge-font-size;
   font-weight: bold;
   box-sizing: border-box;
+  line-height: normal;
 
   // Default colors
   background: color('red');
