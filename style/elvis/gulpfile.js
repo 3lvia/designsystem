@@ -9,24 +9,24 @@ let del = require('del');
 sass.compiler = require('node-sass');
 
 function clean() {
-  return del(['dist/']);
+  return del(['css/']);
 };
 
 function styles () {
   return gulp.src('./src/main.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(rename('elvis.css'))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./css/'));
 };
 
 function minify() {
-  return gulp.src('./dist/*.css')
+  return gulp.src('./css/*.css')
   .pipe(cleanCSS({debug: true}, (details) => {
     console.log(`${details.name}: ${details.stats.originalSize}`);
     console.log(`${details.name}: ${details.stats.minifiedSize}`);
   }))
   .pipe(rename('elvis.min.css'))
-  .pipe(gulp.dest('./dist/min'));
+  .pipe(gulp.dest('./css/'));
 }
 
 gulp.task('default', gulp.series (clean, styles, minify,

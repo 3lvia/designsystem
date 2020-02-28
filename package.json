@@ -21,6 +21,7 @@
     "@angular/platform-browser": "~9.0.1",
     "@angular/platform-browser-dynamic": "~9.0.1",
     "@angular/router": "~9.0.1",
+    "@hafslundnett/elvis": "0.0.2",
     "lit-element": "^2.2.1",
     "ng2-search-filter": "^0.5.1",
     "prismjs": "^1.19.0",
