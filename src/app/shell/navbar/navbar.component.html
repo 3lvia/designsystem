@@ -9,9 +9,23 @@
         *ngFor="let page of eHomes"
       >
         <a 
+          *ngIf="page.docUrl && page.title != 'Components'"
           [routerLink]="['', page.docUrl]" 
           routerLinkActive="active"
-          *ngIf="page.title != 'Components'"
+        >
+          {{ page.title }}
+          <span
+            class="e-badge e-bg-orange-peel"
+            *ngIf="page.status && (page.status === 'New')"
+          >{{ page.status }}</span>
+          <span
+            class="e-badge e-bg-red"
+            *ngIf="page.status && (page.status === 'Coming')"
+          >{{ page.status }}</span>
+        </a>
+        <a 
+          *ngIf="page.externalUrl && page.title != 'Components'" 
+          href={{page.externalUrl}}
         >
           {{ page.title }}
           <span
