@@ -1,4 +1,32 @@
 <app-code-block [isHTML]="true" [code]="example" [title]='"Example"'></app-code-block>
 <app-code-block [isHTML]="true" [code]="example2" [title]='"Custom icon"'></app-code-block>
 
+<div class="page-container">
+    <h2>Overview of Icons</h2>
+
+    <div class="search-container">
+        <div class="e-form_field">
+            <div class="e-form_input">
+                <input
+                    type="text"
+                    placeholder="Search for Icons"
+                    [(ngModel)]="term"
+                >
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="icons-overview">
+            <div
+                class="icons-container" 
+                *ngFor="let icon of IconClassList | filter:term" @fadeIn>
+                <div class="icon-card">
+                    <i class="{{icon.class}} e-icon-lg"></i>
+                    <p>{{ icon.title }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
