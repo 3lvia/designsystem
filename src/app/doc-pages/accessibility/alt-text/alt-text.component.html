@@ -1,132 +1,154 @@
-<div class="page-container">
-    <h2>Alt-Text</h2>
-    <h3 class="header-secondary">Utkast er basert på NAV sin side om tilgjengelighet :
-        https://design.nav.no/accessibility/alt-text</h3>
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">
+    Alt-Text
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
+    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
+    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDoes">
+    Does does does does does does does does does
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDonts">
+    Donts donts donts donts donts donts donts donts
+  </ng-container>
+</app-component-header>
 
-    <p>Alle meningsbærende bilder skal ha en beskrivende alt-tekst.</p>
+<!--BODY-->
+<div class="page-body">
+  <h3 class="header-secondary">
+    Utkast er basert på NAV sin side om tilgjengelighet :
+    https://design.nav.no/accessibility/alt-text
+  </h3>
 
-    <h3>Hva er en alt-tekst?</h3>
-    <p>En alt-tekst (kort for alternativ tekst) er en tekst som vises eller leses opp når bildet ikke vises for
-        brukeren. Dette
-        kan være fordi:</p>
+  <p>Alle meningsbærende bilder skal ha en beskrivende alt-tekst.</p>
 
-    <ul>
-        <li>Bildet ble ikke funnet</li>
-        <li>Brukeren har skrudd av bildenedlasting</li>
-        <li>Brukeren har dårlig internettoppkobling</li>
-        <li>Brukeren bruker en skjermleser (for eksempel bilde)</li>
-        <li>Brukeren bruker en rent tekstbasert nettleser (f.eks. Lynx)</li>
-    </ul>
+  <h3>Hva er en alt-tekst?</h3>
+  <p>
+    En alt-tekst (kort for alternativ tekst) er en tekst som vises eller leses
+    opp når bildet ikke vises for brukeren. Dette kan være fordi:
+  </p>
 
-    <div class="elvia-factbox is-info ">
-        <div class="elvia-factbox-icon">
-            <i class="e-icon-info-circle e-icon-sm"></i>
+  <ul>
+    <li>Bildet ble ikke funnet</li>
+    <li>Brukeren har skrudd av bildenedlasting</li>
+    <li>Brukeren har dårlig internettoppkobling</li>
+    <li>Brukeren bruker en skjermleser (for eksempel bilde)</li>
+    <li>Brukeren bruker en rent tekstbasert nettleser (f.eks. Lynx)</li>
+  </ul>
+
+  <div class="elvia-factbox is-info ">
+    <div class="elvia-factbox-icon">
+      <i class="e-icon-info-circle e-icon-sm"></i>
+    </div>
+    <div class="elvia-factbox-content">
+      Begrepet «bilde» favner i denne konteksten både fotografier,
+      illustrasjoner, logoer, ikoner, grafer, infografikk og annen type grafikk.
+    </div>
+  </div>
+
+  <h3>Bilder uten tekst</h3>
+  <p>
+    Bilder som ikke er meningsbærende (for eksempel bare til pynt eller
+    overflødig) skal ikke ha noe alt-text, men husk å gi dem et tomt
+    alt-attributt:
+  </p>
+
+  <app-do-dont [do]="true" [example]="example1"></app-do-dont>
+  <app-do-dont [do]="false" [example]="example2"></app-do-dont>
+
+  <div class="elvia-factbox is-warn">
+    <div class="elvia-factbox-icon">
+      <i class="e-icon-alert-circle e-icon-sm"></i>
+    </div>
+    <div class="elvia-factbox-content">
+      Skjermlesere trenger et tomt alt-attributt for å vite at de skal ignorere
+      bildet. For bilder uten alt-attributt er det fare for at skjermlesere
+      leser opp kilde-attributtet i stedet.
+    </div>
+  </div>
+
+  <h3>Er bildet meningsbærende</h3>
+  <p>
+    Det er ikke alltid enkelt å vite om bildet er meningsbærende eller rent
+    dekorativt.
+  </p>
+  <p>
+    En god start kan være å «leke skjermleser»: prøv å les opp siden som den
+    skulle blitt lest for en bruker med skjermleser. Går brukeren glipp av
+    relevant informasjon hvis du hopper over bildene?
+  </p>
+  <p>
+    Hvis bildene bare gjentar informasjon som er tilgjengelig i nærheten som ren
+    tekst er alt-tekster på disse overfødig.
+  </p>
+
+  <div class="links-container">
+    <div class="e-card">
+      <div class="e-card_header">
+        <div class="e-card_header_text">
+          <div class="e-card_title">Alt-text decision tree(W3C)</div>
         </div>
-        <div class="elvia-factbox-content">
-            Begrepet «bilde» favner i denne konteksten både fotografier, illustrasjoner, logoer, ikoner, grafer,
-            infografikk og
-            annen type grafikk.
+      </div>
+      <div class="e-card_content">
+        <p>
+          Hvis du er i tvil anbefaler vi å bruke W3C sitt beslutningstre for å
+          finne ut om man trenger alt-tekster eller ikke.
+        </p>
+      </div>
+      <div class="e-card_actions">
+        <a
+          class="e-card_actions_action"
+          href="https://www.w3.org/WAI/tutorials/images/decision-tree/"
+          >View more</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <h3>How to write alt-text</h3>
+  <div class="links-container">
+    <div class="e-card">
+      <div class="e-card_header">
+        <div class="e-card_header_text">
+          <div class="e-card_title">Tips and Tricks</div>
         </div>
+      </div>
+      <div class="e-card_content">
+        <p>W3.org offers some tips when writing alt-text</p>
+      </div>
+      <div class="e-card_actions">
+        <a
+          class="e-card_actions_action"
+          href="https://www.w3.org/WAI/tutorials/images/tips/"
+        >
+          View more</a
+        >
+      </div>
     </div>
 
-    <h3>Bilder uten tekst</h3>
-    <p>
-        Bilder som ikke er meningsbærende (for eksempel bare til pynt eller overflødig) skal ikke ha noe alt-text, men
-        husk å gi
-        dem et tomt alt-attributt:
-    </p>
-
-    <app-do-dont
-        [do]="true"
-        [example]="example1"
-    ></app-do-dont>
-    <app-do-dont
-        [do]="false"
-        [example]="example2"
-    ></app-do-dont>
-
-    <div class="elvia-factbox is-warn">
-        <div class="elvia-factbox-icon">
-            <i class="e-icon-alert-circle e-icon-sm"></i>
+    <div class="e-card">
+      <div class="e-card_header">
+        <div class="e-card_header_text">
+          <div class="e-card_title">Elæringskurs</div>
         </div>
-        <div class="elvia-factbox-content">
-            Skjermlesere trenger et tomt alt-attributt for å vite at de skal ignorere bildet. For bilder uten
-            alt-attributt er det
-            fare for at skjermlesere leser opp kilde-attributtet i stedet.
-        </div>
+      </div>
+      <div class="e-card_content">
+        <p>
+          Difi tilbyr elæringskurs for redaktører, skribenter og
+          innholdsprodusenter.
+        </p>
+      </div>
+      <div class="e-card_actions">
+        <a
+          class="e-card_actions_action"
+          href="https://uu.difi.no/krav-og-regelverk/kom-i-gang/e-laeringskurs-om-universell-utforming-av-nettinnhold"
+        >
+          View more</a
+        >
+      </div>
     </div>
-
-    <h3>Er bildet meningsbærende</h3>
-    <p>
-        Det er ikke alltid enkelt å vite om bildet er meningsbærende eller rent dekorativt.
-    </p>
-    <p>
-        En god start kan være å «leke skjermleser»: prøv å les opp siden som den skulle blitt lest for en bruker med
-        skjermleser. Går brukeren glipp av relevant informasjon hvis du hopper over bildene?
-    </p>
-    <p>
-        Hvis bildene bare gjentar informasjon som er tilgjengelig i nærheten som ren tekst er alt-tekster på disse
-        overfødig.
-    </p>
-
-    <div class="links-container">
-        <div class="e-card">
-            <div class="e-card_header">
-                <div class="e-card_header_text">
-                    <div class="e-card_title">Alt-text decision tree(W3C)</div>
-                </div>
-            </div>
-            <div class="e-card_content">
-                <p>Hvis du er i tvil anbefaler vi å bruke W3C sitt beslutningstre for å finne ut om man trenger
-                    alt-tekster
-                    eller ikke.</p>
-            </div>
-            <div class="e-card_actions">
-                <a
-                    class="e-card_actions_action"
-                    href="https://www.w3.org/WAI/tutorials/images/decision-tree/"
-                >View more</a>
-            </div>
-        </div>
-    </div>
-
-    <h3>How to write alt-text</h3>
-    <div class="links-container">
-        <div class="e-card">
-            <div class="e-card_header">
-                <div class="e-card_header_text">
-                    <div class="e-card_title">Tips and Tricks</div>
-                </div>
-            </div>
-            <div class="e-card_content">
-                <p>W3.org offers some tips when writing alt-text</p>
-            </div>
-            <div class="e-card_actions">
-                <a
-                    class="e-card_actions_action"
-                    href="https://www.w3.org/WAI/tutorials/images/tips/"
-                >
-                    View more</a>
-            </div>
-        </div>
-
-        <div class="e-card">
-            <div class="e-card_header">
-                <div class="e-card_header_text">
-                    <div class="e-card_title">Elæringskurs</div>
-                </div>
-            </div>
-            <div class="e-card_content">
-                <p>Difi tilbyr elæringskurs for redaktører, skribenter og innholdsprodusenter.</p>
-            </div>
-            <div class="e-card_actions">
-                <a
-                    class="e-card_actions_action"
-                    href="https://uu.difi.no/krav-og-regelverk/kom-i-gang/e-laeringskurs-om-universell-utforming-av-nettinnhold"
-                >
-                    View more</a>
-            </div>
-        </div>
-    </div>
-
+  </div>
 </div>
