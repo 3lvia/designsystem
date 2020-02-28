@@ -21,20 +21,6 @@
 </app-component-header>
 
 <div class="page-body">
-  <!--EXAMPLES-->
-  <div *ngIf="selected == 'Examples'">
-    <app-code-block
-      [isHTML]="true"
-      [code]="example"
-      [title]="'Icon sizes'"
-    ></app-code-block>
-    <app-code-block
-      [isHTML]="true"
-      [code]="example2"
-      [title]="'Custom icon'"
-    ></app-code-block>
-  </div>
-
   <!--OVERVIEW-->
   <div class="overview" *ngIf="selected == 'Overview'">
     <div class="overview-search-container">
@@ -58,5 +44,24 @@
         <p>{{ icon.title }}</p>
       </div>
     </div>
+  </div>
+
+   <!--EXAMPLES-->
+   <div *ngIf="selected == 'Examples'">
+    <app-code-block
+      [isHTML]="true"
+      [code]="example"
+      [title]="'Icon sizes'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example2"
+      [title]="'Custom icon'"
+    ></app-code-block>
+  </div>
+
+  <!--GUIDELINES-->
+  <div *ngIf="selected == 'Guidelines'">
+    Some guideline-page
   </div>
 </div>

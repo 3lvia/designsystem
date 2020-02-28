@@ -13,8 +13,8 @@ export class IconDocComponent {
 
   @Input() selected = TabNames.Overview;
 
-  componentClasses = ['e-icon'];
   tabs = [TabNames.Overview, TabNames.Examples, TabNames.Guidelines];
+  componentClasses = ['e-icon'];
 
   example = `<i class="e-icon-clock e-icon-xl"></i>
 <i class="e-icon-clock e-icon-lg"></i>
