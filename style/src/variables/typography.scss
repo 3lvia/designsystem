@@ -35,86 +35,86 @@ $typography: (
   title-large: (
     family: $font-family,
     size: 2.75rem,
-    height: 120%,
     weight: 900,
+    height: 120%,
     color: color('black'),
     element: h1
   ),
   title-medium: (
     family: $font-family,
     size: 1.625rem,
+    weight: 700,
     height: 120%,
-    weight: bold,
     color: color('black'),
     element: h2
   ),
   title-small: (
     family: $font-family,
     size: 1.25rem,
+    weight: 700,
     height: 120%,
-    weight: bold,
     color: color('black'),
     element: h3
   ),
   text-lead: (
     family: $font-family,
     size: 1.625rem,
+    weight: 400,
     height: 160%,
-    weight: normal,
     color: color('black')
   ),
   text-quote: (
     family: $font-family,
     size: 1.5rem,
+    weight: 400,
     height: 160%,
-    weight: normal,
     style: italic,
     color: color('black')
   ),
   text-caps: (
     family: $font-family,
     size: 0.875rem,
-    height: 120%,
     weight: 500,
+    height: 120%,
     transform: uppercase,
     color: color('black')
   ),
   text-body: (
     family: $font-family,
     size: 1.125rem,
+    weight: 400,
     height: 160%,
-    weight: normal,
     color: color('black')
   ),
   text-description: (
     family: $font-family,
     size: 1rem,
+    weight: 400,
     height: 175%,
-    weight: normal,
     color: color('black')
   ),
   text-info: (
     family: $font-family,
     size: 0.875rem,
+    weight: 400,
     height: 160%,
-    weight: normal,
     color: color('black')
   ),
   label-input: (
     family: $font-family,
     size: 1rem,
-    height: 140%,
     weight: 500,
+    height: 140%,
     color: color('black')
   ),
   label-option: (
     family: $font-family,
     size: 1rem,
+    weight: 400,
     height: 140%,
-    weight: normal,
     color: color('black')
   ),
 );
 
 
-@import url("https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap');

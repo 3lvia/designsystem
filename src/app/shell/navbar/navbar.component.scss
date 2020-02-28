@@ -21,7 +21,6 @@
     a.active h2 {
       color: #fff !important;
       background-color: #262626;
-      text-decoration: underline white;
 
       &::after {
         content: '';
@@ -42,7 +41,6 @@
     width: 100%;
     padding: 20px 16px;
     margin: 0;
-    text-decoration: underline black;
     outline: none;
 
     &:hover {

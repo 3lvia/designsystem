@@ -5,7 +5,7 @@
         <h2 class="navbar-list-header e-pl-2">Components</h2>
       </a>
       <li
-        class="navbar-item e-title-small"
+        class="navbar-item e-text-body"
         *ngFor="let navbarItem of eComponents"
       >
         <a [routerLink]="['', navbarItem.docUrl]" routerLinkActive="active">
@@ -28,7 +28,7 @@
         <h2 class="navbar-list-header e-pl-2">Utilities</h2>
       </a>
       <li
-        class="navbar-item e-title-small"
+        class="navbar-item e-text-body"
         *ngFor="let navbarItem of eUtilities"
       >
         <a [routerLink]="['', navbarItem.docUrl]" routerLinkActive="active">
@@ -43,7 +43,7 @@
         <h2 class="navbar-list-header e-pl-2">Accessibility</h2>
       </a>
       <li
-        class="navbar-item e-title-small"
+        class="navbar-item e-text-body"
         *ngFor="let navbarItem of eAccessibility"
       >
         <a [routerLink]="['', navbarItem.docUrl]" routerLinkActive="active">
