@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColorDocComponent implements OnInit {
 
+  componentClasses = ['e-text', 'e-bg'];
   colors: string[] = ['red', 'green'];
 
   constructor() { }

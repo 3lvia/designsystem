@@ -10,6 +10,7 @@ import { fadeIn } from 'src/app/shared/animations';
 })
 export class IconDocComponent {
 
+  componentClasses = ['e-icon'];
 
   example = `<i class="e-icon-clock e-icon-xl"></i>
 <i class="e-icon-clock e-icon-lg"></i>
