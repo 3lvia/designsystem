@@ -21,7 +21,7 @@ export const eHomes: EItems[] = [
     {
         title: 'Discussion',
         description: 'Report a bug? Request a new feauture?',
-        docUrl: '//github.com/hafslundnett/elvia-designsystem/issues/new/choose'
+        externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose'
     },
 ];
 

@@ -25,6 +25,7 @@
     "gulp": "^4.0.2",
     "gulp-sass": "^4.0.2",
     "lit-element": "^2.2.1",
+    "ng2-search-filter": "^0.5.1",
     "prismjs": "^1.19.0",
     "rxjs": "~6.5.4",
     "stylelint-config-sass-guidelines": "^7.0.0",
