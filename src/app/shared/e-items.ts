@@ -152,7 +152,7 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Spacing
     },
     {
-        title: 'Shadows',
+        title: 'Shadow',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Shadow
     },

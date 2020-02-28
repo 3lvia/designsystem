@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpacingDocComponent implements OnInit {
 
+  componentClasses = ['e-p', 'e-m'];
+
   constructor() { }
 
   ngOnInit() {

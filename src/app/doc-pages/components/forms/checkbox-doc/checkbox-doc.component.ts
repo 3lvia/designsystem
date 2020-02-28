@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class CheckboxDocComponent implements OnInit {
 
   componentStatus = getComponent('checkbox-doc').status;
-  componentClasses = ['.e-form_field', '.e-form_checkbox'];
+  componentClasses = ['e-form_field', 'e-form_checkbox'];
 
   example1 = `<div class="e-form_field">
   <span class="e-form_field_title">Checkboxes</span>

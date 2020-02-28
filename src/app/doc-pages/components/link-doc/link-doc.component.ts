@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class LinkDocComponent implements OnInit {
 
   componentStatus = getComponent('link-doc').status;
-  componentClasses = ['.e-link'];
+  componentClasses = ['e-link'];
 
   example1 = `<a href="https://hafslundnett.no" class="e-link">Normal</a> <br>
 <a href="https://hafslundnett.no" class="e-link is-active">Active</a><br>

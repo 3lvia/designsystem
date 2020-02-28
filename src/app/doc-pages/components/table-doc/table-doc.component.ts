@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class TableDocComponent implements OnInit {
 
   componentStatus = getComponent('table-doc').status;
-  componentClasses = ['.e-table'];
+  componentClasses = ['e-table'];
 
   example1 = `<table class="e-table is-striped has-shadow">
   <tr class="e-table_header">

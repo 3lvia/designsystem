@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class DividerDocComponent implements OnInit {
 
   componentStatus = getComponent('divider-doc').status;
-  componentClasses = ['.e-divider'];
+  componentClasses = ['e-divider'];
 
   example1 = `<p>Some content</p>
 <hr class="e-divider">

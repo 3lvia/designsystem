@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShellModule } from './shell/shell.module';
 import { DocPagesModule } from './doc-pages/doc-pages.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { DocPagesModule } from './doc-pages/doc-pages.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    RouterModule,
     BrowserAnimationsModule,
     ShellModule,
     DocPagesModule,

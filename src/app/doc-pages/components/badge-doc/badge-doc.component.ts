@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class BadgeDocComponent implements OnInit {
 
   componentStatus = getComponent('badge-doc').status;
-  componentClasses = ['.e-badge'];
+  componentClasses = ['e-badge'];
 
   example1 = `<span class="e-badge">101001</span>
 `;
