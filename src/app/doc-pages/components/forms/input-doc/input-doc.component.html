@@ -1,33 +1,55 @@
 <!--HEADER-->
-<app-component-header 
- [componentStatus]="componentStatus"
- [componentClasses]="componentClasses"
+<app-component-header
+  [componentStatus]="componentStatus"
+  [componentClasses]="componentClasses"
 >
   <ng-container ngProjectAs="headerTitle">
     Input
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Quisquam inventore unde saepe, in dolores nam? 
-    Iusto corporis odit dolore deleniti maiores distinctio, 
-    quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
+    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
+    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
   </ng-container>
 
   <ng-container ngProjectAs="descriptionDoes">
-    Does does does does does does does does does 
+    Does does does does does does does does does
   </ng-container>
   <ng-container ngProjectAs="descriptionDonts">
-    Donts donts donts donts donts donts donts donts 
+    Donts donts donts donts donts donts donts donts
   </ng-container>
 </app-component-header>
 
-<!--EXAMPLES-->
-<app-code-block [isHTML]="true" [code]="example1" [title]='"Normal input field"'></app-code-block>
-<app-code-block [isHTML]="true" [code]="example2" [title]='"Normal input field with icon"'></app-code-block>
-<app-code-block [isHTML]="true" [code]="example3" [title]='"Active input field"'></app-code-block>
-<app-code-block [isHTML]="true" [code]="example4" [title]='"Normal input field"'></app-code-block> 
-<app-code-block [isHTML]="true" [code]="example5" [title]='"Invalid input field with field errormessage"'></app-code-block> 
-<app-code-block [isHTML]="true" [code]="example6" [title]='"Textarea"'></app-code-block> 
-
-  
-  
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'Normal input field'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example2"
+    [title]="'Normal input field with icon'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example3"
+    [title]="'Active input field'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example4"
+    [title]="'Normal input field'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example5"
+    [title]="'Invalid input field with field errormessage'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example6"
+    [title]="'Textarea'"
+  ></app-code-block>
+</div>
