@@ -11,7 +11,7 @@ export class BadgeDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
-  tabs = [TabNames.Overview, TabNames.Examples];
+  tabs = [TabNames.Overview, TabNames.Examples, TabNames.Modifiers];
   componentStatus = getComponent('badge-doc').status;
   componentClasses = ['e-badge'];
 
