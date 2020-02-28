@@ -34,6 +34,7 @@ import { OverviewUtilComponent } from './doc-pages/utilities/overview-util/overv
 import { OverviewComponent } from './doc-pages/components/overview-comp/overview-comp.component';
 import { ContributeComponent } from './doc-pages/get-started/contribute/contribute.component';
 import { NewProjectComponent } from './doc-pages/get-started/new-project/new-project.component';
+import { TemplatesComponent } from './doc-pages/get-started/templates/templates.component';
 
 
 const routes: Routes = [
@@ -172,6 +173,10 @@ const routes: Routes = [
       {
         path: Pages.NewProject,
         component: NewProjectComponent
+      },
+      {
+        path: Pages.Template,
+        component: TemplatesComponent
       },
     ]
   }

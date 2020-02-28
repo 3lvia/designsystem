@@ -20,6 +20,7 @@ export class IconDocComponent {
 <i class="e-icon-clock e-icon-lg"></i>
 <i class="e-icon-clock e-icon-md"></i>
 <i class="e-icon-clock e-icon-sm"></i>
+<i class="e-icon-github e-icon-sm"></i>
 <i class="e-icon-clock e-icon-xs"></i>`;
 
   example2 = `<i class="e-icon-custom e-icon-xl">

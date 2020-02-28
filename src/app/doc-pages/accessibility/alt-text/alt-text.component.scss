@@ -1,3 +1,46 @@
+@import "../../../../../style/elvis/src/variables/colors.scss";
+
+.elvia-factbox {
+    display: flex;
+    padding: 10px 10px;
+    border: 2px solid color('grey-silver');
+    border-radius: 4px;
+    margin: 10px 0;
+    max-width: 40%;
+
+    &.is-info {
+        background-color: color('yellow-05');
+    }
+
+    &.is-warn {
+        background: color('orange-peel-05');
+    }
+
+    &_icon {
+
+      display: inline-flex;
+      align-self: center;
+      margin-right: 10px;
+      line-height: 24px;
+      vertical-align: top;
+    }
+
+    &-content {
+        display: flex;
+        margin-left: 20px;
+    }
+}
+
+.e-card {
+    margin: 10px 0px;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+}
+
 .page-container {
     padding: 16px 40px;
     padding-bottom: 80px;

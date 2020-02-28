@@ -30,6 +30,7 @@ import { SpacingDocModule } from './utilities/spacing-doc/spacing-doc.module';
 import { BorderDocModule } from './utilities/border-doc/border-doc.module';
 import { ContributeModule } from './get-started/contribute/contribute.module';
 import { NewProjectModule } from './get-started/new-project/new-project.module';
+import { TemplatesModule } from './get-started/templates/templates.module';
 
 
 @NgModule({
@@ -65,7 +66,8 @@ import { NewProjectModule } from './get-started/new-project/new-project.module';
     BorderDocModule,
     TypographyDocModule,
     ContributeModule,
-    NewProjectModule
+    NewProjectModule,
+    TemplatesModule
   ],
 })
 export class DocPagesModule { }

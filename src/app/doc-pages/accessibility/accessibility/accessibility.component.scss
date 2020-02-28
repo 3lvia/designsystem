@@ -1,4 +1,4 @@
-@import "../../../../../style/src/variables/colors.scss";
+@import "../../../../../style/elvis/src/variables/colors.scss";
 
 .page-container {
     padding: 16px 40px;
@@ -47,12 +47,11 @@
 .links-container {
     display: flex;
     flex-direction: column;
-     padding: 10px 40px;
+    padding: 10px 40px;
     max-width: 50%;
 }
 
 .e-card {
-    border: 1px solid color('grey-silver');
     margin: 10px 0px;
 }
 

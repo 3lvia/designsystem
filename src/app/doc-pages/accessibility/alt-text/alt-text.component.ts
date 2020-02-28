@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AltTextComponent implements OnInit {
 
+  do = true;
+  dont = false;
+
+  example1 = `<img src="pynt.jpg" alt="" />`;
+  example2 = `<img src="pynt.jpg" />`;
+
   constructor() { }
 
   ngOnInit() {
