@@ -4,13 +4,28 @@
       <h1>
         <ng-content select="headerTitle"></ng-content>
       </h1>
-      <div *ngIf="componentStatus!=''">
-        <span class="e-badge e-bg-orange-peel" *ngIf="componentStatus===itemStatus.New">{{ componentStatus }}</span>
-        <span class="e-badge e-bg-red" *ngIf="componentStatus===itemStatus.Coming">{{ componentStatus }}</span>
-        <span class="e-badge e-bg-green-lime" *ngIf="componentStatus===itemStatus.Done">{{ componentStatus }}</span>
+      <div *ngIf="componentStatus != ''">
+        <span
+          class="e-badge e-bg-orange-peel"
+          *ngIf="componentStatus === itemStatus.New"
+          >{{ componentStatus }}</span
+        >
+        <span
+          class="e-badge e-bg-red"
+          *ngIf="componentStatus === itemStatus.Coming"
+          >{{ componentStatus }}</span
+        >
+        <span
+          class="e-badge e-bg-green-lime"
+          *ngIf="componentStatus === itemStatus.Done"
+          >{{ componentStatus }}</span
+        >
       </div>
     </div>
-    <p class="component-header__class e-bg-grey-silver e-text-info" *ngFor="let class of componentClasses">
+    <p
+      class="component-header__class e-bg-grey-silver e-text-info"
+      *ngFor="let class of componentClasses"
+    >
       <code>
         {{ class }}
       </code>
@@ -21,12 +36,24 @@
       </p>
       <div class="component-header__body-does">
         <span class="marker e-bg-green-lime"></span>
-        <span class="e-title-small">Do's: </span><ng-content select="descriptionDoes"></ng-content>
+        <span class="e-title-small">Do's: </span
+        ><ng-content select="descriptionDoes"></ng-content>
       </div>
       <div class="component-header__body-donts">
         <span class="marker e-bg-red"></span>
-        <span class="e-title-small">Don'ts: </span><ng-content select="descriptionDonts"></ng-content>
+        <span class="e-title-small">Don'ts: </span
+        ><ng-content select="descriptionDonts"></ng-content>
       </div>
+    </div>
+  </div>
+  <div class="component-tabs">
+    <div
+      *ngFor="let tab of tabs"
+      [ngClass]="{ active: selected == tab }"
+      class="component-tabs__title e-title-small e-border"
+      (click)="chooseTab(tab)"
+    >
+      {{ tab }}
     </div>
   </div>
 </div>

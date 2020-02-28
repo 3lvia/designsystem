@@ -2,3 +2,9 @@
 $header-height: 80px;
 $navbar-width: 310px;
 $page-padding: 16px 40px;
+
+// Shared classes
+%page-margin {
+  margin: 16px auto;
+  width: 70%;
+}

@@ -10,6 +10,7 @@ import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
 export class CodeBlockComponent implements AfterViewInit {
   @ViewChild('preview') preview;
   @Input() title = '';
+  @Input() description = '';
   @Input() isTS = false;
   @Input() isHTML = false;
   @Input() isSCSS = false;
