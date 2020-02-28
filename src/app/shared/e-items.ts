@@ -23,6 +23,11 @@ export const eHomes: EItems[] = [
         description: 'Report a bug? Request a new feauture?',
         externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose'
     },
+    {
+        title: 'Templates',
+        description: 'Page template and starte templates for new projects?',
+        docUrl: Pages.Template
+    },
 ];
 
 export const eComponents: EItems[] = [

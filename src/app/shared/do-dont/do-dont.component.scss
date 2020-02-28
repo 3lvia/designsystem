@@ -1,0 +1,26 @@
+@import "../../../../style/src/variables/colors.scss";
+
+.doDont-container {
+    display: inline-block;
+    width: fit-content, available;
+    max-width: 25%;
+    min-width: 25%;
+    margin: 10px;
+}
+
+.instructions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   
+    i {
+        margin: 0 5px;
+    }
+
+    &.do {
+        border-top: 5px solid color('green-lime');
+    }
+    &.dont {
+        border-top: 5px solid color('red');
+    }
+}

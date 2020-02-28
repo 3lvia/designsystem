@@ -31,4 +31,5 @@ export enum Pages {
     UUTools = 'uutools-doc',
     Spacing = 'spacing-doc',
     Border = 'border-doc',
+    Template = 'template-doc',
 }

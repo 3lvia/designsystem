@@ -29,4 +29,11 @@
     width: 82%;
     padding: 20px;
   }
+  &_links {
+    display: flex;
+    width: $navbar-width;
+    justify-content: right;
+    align-items: center;
+    cursor: pointer;
+  }
 }
