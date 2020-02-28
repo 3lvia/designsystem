@@ -28,6 +28,8 @@ import { OverviewUtilModule } from './utilities/overview-util/overview-util.modu
 import { OverviewModule } from './components/overview-comp/overview-comp.module';
 import { SpacingDocModule } from './utilities/spacing-doc/spacing-doc.module';
 import { BorderDocModule } from './utilities/border-doc/border-doc.module';
+import { ContributeModule } from './get-started/contribute/contribute.module';
+import { NewProjectModule } from './get-started/new-project/new-project.module';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import { BorderDocModule } from './utilities/border-doc/border-doc.module';
     OverviewAccessibilityModule,
     SpacingDocModule,
     BorderDocModule,
-    TypographyDocModule
+    TypographyDocModule,
+    ContributeModule,
+    NewProjectModule
   ],
 })
 export class DocPagesModule { }

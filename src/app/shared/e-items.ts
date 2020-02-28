@@ -6,7 +6,7 @@ export const eHomes: EItems[] = [
     {
         title: 'New project',
         description: 'Guidance how to use, and implementation of Elvia Designsystem.',
-        docUrl: Pages.Home
+        docUrl: Pages.NewProject
     },
     {
         title: 'Components',
@@ -16,7 +16,7 @@ export const eHomes: EItems[] = [
     {
         title: 'Contribute',
         description: 'Guidance to how to contribute to Elvia Designsystem.',
-        docUrl: Pages.Home
+        docUrl: Pages.Contribute
     },
     {
         title: 'Discussion',

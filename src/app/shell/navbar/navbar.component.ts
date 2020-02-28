@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { eComponents, eUtilities, eAccessibility } from 'src/app/shared/e-items';
+import { eHomes, eComponents, eUtilities, eAccessibility } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +8,7 @@ import { eComponents, eUtilities, eAccessibility } from 'src/app/shared/e-items'
 })
 export class NavbarComponent implements OnInit {
 
+  eHomes = eHomes;
   eComponents = eComponents;
   eUtilities = eUtilities;
   eAccessibility = eAccessibility;

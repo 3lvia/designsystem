@@ -1,6 +1,33 @@
 <ul class="navbar e-border-r e-pb-4">
   <section>
     <ul class="navbar-list">
+      <a [routerLink]="['', 'home']" routerLinkActive="active">
+        <h2 class="navbar-list-header e-pl-2">Get started</h2>
+      </a>
+      <li
+        class="navbar-item e-text-body"
+        *ngFor="let page of eHomes"
+      >
+        <a 
+          [routerLink]="['', page.docUrl]" 
+          routerLinkActive="active"
+          *ngIf="page.title != 'Components'"
+        >
+          {{ page.title }}
+          <span
+            class="e-badge e-bg-orange-peel"
+            *ngIf="page.status && (page.status === 'New')"
+          >{{ page.status }}</span>
+          <span
+            class="e-badge e-bg-red"
+            *ngIf="page.status && (page.status === 'Coming')"
+          >{{ page.status }}</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <ul class="navbar-list">
       <a [routerLink]="['', 'overview-comp-doc']" routerLinkActive="active">
         <h2 class="navbar-list-header e-pl-2">Components</h2>
       </a>

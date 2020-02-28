@@ -32,6 +32,8 @@ import { BorderDocComponent } from './doc-pages/utilities/border-doc/border-doc.
 import { OverviewAccessibilityComponent } from './doc-pages/accessibility/overview-accessibility/overview-accessibility.component';
 import { OverviewUtilComponent } from './doc-pages/utilities/overview-util/overview-util.component';
 import { OverviewComponent } from './doc-pages/components/overview-comp/overview-comp.component';
+import { ContributeComponent } from './doc-pages/get-started/contribute/contribute.component';
+import { NewProjectComponent } from './doc-pages/get-started/new-project/new-project.component';
 
 
 const routes: Routes = [
@@ -162,6 +164,14 @@ const routes: Routes = [
       {
         path: Pages.Border,
         component: BorderDocComponent
+      },
+      {
+        path: Pages.Contribute,
+        component: ContributeComponent
+      },
+      {
+        path: Pages.NewProject,
+        component: NewProjectComponent
       },
     ]
   }
