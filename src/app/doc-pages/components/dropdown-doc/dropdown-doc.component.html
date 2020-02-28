@@ -1,26 +1,35 @@
 <!--HEADER-->
-<app-component-header 
- [componentStatus]="componentStatus"
- [componentClasses]="componentClasses"
+<app-component-header
+  [componentStatus]="componentStatus"
+  [componentClasses]="componentClasses"
 >
   <ng-container ngProjectAs="headerTitle">
     Dropdown
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Quisquam inventore unde saepe, in dolores nam? 
-    Iusto corporis odit dolore deleniti maiores distinctio, 
-    quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
+    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
+    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
   </ng-container>
 
   <ng-container ngProjectAs="descriptionDoes">
-    Does does does does does does does does does 
+    Does does does does does does does does does
   </ng-container>
   <ng-container ngProjectAs="descriptionDonts">
-    Donts donts donts donts donts donts donts donts 
+    Donts donts donts donts donts donts donts donts
   </ng-container>
 </app-component-header>
 
-<!--EXAMPLES-->
-<app-code-block [isHTML]="true" [code]="example1" [title]='"Dropdown bottom"'></app-code-block>
-<app-code-block [isHTML]="true" [code]="example2" [title]='"Dropdown top"'></app-code-block>
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'Dropdown bottom'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example2"
+    [title]="'Dropdown top'"
+  ></app-code-block>
+</div>

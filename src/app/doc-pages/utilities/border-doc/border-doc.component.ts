@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
   selector: 'app-border-doc',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BorderDocComponent implements OnInit {
 
+  @Input() selected = TabNames.Overview;
+
+  tabs = [TabNames.Overview, TabNames.Examples, TabNames.Guidelines];
   componentClasses = ['e-border'];
 
   example1 = `<span class="e-border example-box"></span>

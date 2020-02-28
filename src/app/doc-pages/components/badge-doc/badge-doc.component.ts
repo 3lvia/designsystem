@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
+import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
   selector: 'app-badge-doc',
@@ -8,6 +9,9 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class BadgeDocComponent implements OnInit {
 
+  @Input() selected = TabNames.Overview;
+
+  tabs = [TabNames.Overview, TabNames.Examples, TabNames.Modifiers];
   componentStatus = getComponent('badge-doc').status;
   componentClasses = ['e-badge'];
 

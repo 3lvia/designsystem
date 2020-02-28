@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
   selector: 'app-typography-doc',
@@ -7,6 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TypographyDocComponent implements OnInit {
 
+  @Input() selected = TabNames.Overview;
+
+  tabs = [TabNames.Overview, TabNames.Examples, TabNames.Guidelines];
   componentClasses = ['e-title', 'e-text', 'e-label'];
 
   example1 = `<h1 class="e-title-large">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { EItems } from '../e-items.interface';
 
 @Component({
   selector: 'app-overview-page',
@@ -9,7 +8,7 @@ import { EItems } from '../e-items.interface';
 export class OverviewPageComponent implements OnInit {
 
   @Input() overviewTitle: string;
-  @Input() pages: EItems[];
+  @Input() pages: string[];
 
   constructor() { }
 

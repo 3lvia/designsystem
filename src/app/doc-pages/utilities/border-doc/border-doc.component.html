@@ -1,23 +1,44 @@
 <!--HEADER-->
-<app-component-header 
- [componentClasses]="componentClasses"
+<app-component-header
+  [componentClasses]="componentClasses"
+  [tabs]="tabs"
+  [(selected)]="selected"
 >
   <ng-container ngProjectAs="headerTitle">
     Border
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-    Quisquam inventore unde saepe, in dolores nam? 
-    Iusto corporis odit dolore deleniti maiores distinctio, 
-    quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
+    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
+    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
   </ng-container>
   <ng-container ngProjectAs="descriptionDoes">
-    Does does does does does does does does does 
+    Does does does does does does does does does
   </ng-container>
   <ng-container ngProjectAs="descriptionDonts">
-    Donts donts donts donts donts donts donts donts 
+    Donts donts donts donts donts donts donts donts
   </ng-container>
 </app-component-header>
 
-<!--EXAMPLES-->
-<app-code-block [isHTML]="true" [code]="example1" [title]="'Border'"></app-code-block>
+<!--BODY-->
+<div class="page-body">
+  <!--Overview-->
+  <div *ngIf="selected == 'Overview'">
+    Overview
+  </div>
+
+  <!--Examples-->
+  <div *ngIf="selected == 'Examples'">
+    <app-code-block
+      [isHTML]="true"
+      [code]="example1"
+      [title]="'Border'"
+    ></app-code-block>
+  </div>
+
+   <!--GUIDELINES-->
+   <div *ngIf="selected == 'Guidelines'">
+    Some guideline-page
+  </div>
+
+</div>

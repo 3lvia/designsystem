@@ -11,9 +11,15 @@ body {
   height: 100%;
 }
 
+// Shared classes
 .example-box {
   display: inline-block;
   width: 100px;
   height: 100px;
   margin: 10px;
+}
+
+.page-body {
+  margin: 16px auto;
+  width: 70%;
 }
