@@ -1,213 +1,272 @@
-<div class="page-container">
-    <h2 class="header-main">Accessibility</h2>
-    <h3 class="header-secondary">Utkast er basert på NAV sin side om tilgjengelighet :
-        https://design.nav.no/accessibility/overview</h3>
-    <p class="info">
-        Å leve med nedsatt funksjonsevne fører ofte med seg utfordringer i dagliglivet, deriblant bruk av teknologi.
-        Defor
-        skal
-        alle digitale løsninger vi bygger i Elvia være universelt utformet slik at de aller fleste kan klare seg selv.
-    </p>
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">
+    Accessibility
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
+    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
+    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDoes">
+    Does does does does does does does does does
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDonts">
+    Donts donts donts donts donts donts donts donts
+  </ng-container>
+</app-component-header>
 
-    <h3 class="header-secondary">
-        Nødvendig for noen, bra for alle
-    </h3>
+<!--BODY-->
+<div class="page-body">
+  <h3 class="header-secondary">
+    Utkast er basert på NAV sin side om tilgjengelighet :
+    https://design.nav.no/accessibility/overview
+  </h3>
+  <p class="info">
+    Å leve med nedsatt funksjonsevne fører ofte med seg utfordringer i
+    dagliglivet, deriblant bruk av teknologi. Defor skal alle digitale løsninger
+    vi bygger i Elvia være universelt utformet slik at de aller fleste kan klare
+    seg selv.
+  </p>
 
-    <p class="info">
-        I følge Verdens helseorganisasjon lever omtrent 15 prosent av verdens befolkning med en eller annen form for
-        permanent
-        nedsatt funksjonsevne. Samtidig kan vi alle oppleve å få midlertidig nedsatt funksjonsevne som følge av f.eks.
-        uhell
-        eller sykdom. Det betyr at tilpasninger som er nødvendig for noen, kan være bra for alle i blant.
-    </p>
+  <h3 class="header-secondary">
+    Nødvendig for noen, bra for alle
+  </h3>
 
-    <div class="elvis-example">
-        <div class="elvis-example-header">Eksempler</div>
-        <div class="elvis-example-content">
-            <ul>
-                <li>Tekstede videoer er bra for hørselshemmede og bra for en pendler på toget.</li>
-                <li>God lesbarhet er ikke bare nødvendig for sterkt synshemmede, det er også fint for de som «bare» har
-                    glemt lesebrillene
-                    hjemme.</li>
-                <li>At nettsidene kan brukes med tastaturet er bra både for en med nedsatt motorikk og en med
-                    senebetennelse.</li>
-            </ul>
+  <p class="info">
+    I følge Verdens helseorganisasjon lever omtrent 15 prosent av verdens
+    befolkning med en eller annen form for permanent nedsatt funksjonsevne.
+    Samtidig kan vi alle oppleve å få midlertidig nedsatt funksjonsevne som
+    følge av f.eks. uhell eller sykdom. Det betyr at tilpasninger som er
+    nødvendig for noen, kan være bra for alle i blant.
+  </p>
+
+  <div class="elvis-example">
+    <div class="elvis-example-header">Eksempler</div>
+    <div class="elvis-example-content">
+      <ul>
+        <li>
+          Tekstede videoer er bra for hørselshemmede og bra for en pendler på
+          toget.
+        </li>
+        <li>
+          God lesbarhet er ikke bare nødvendig for sterkt synshemmede, det er
+          også fint for de som «bare» har glemt lesebrillene hjemme.
+        </li>
+        <li>
+          At nettsidene kan brukes med tastaturet er bra både for en med nedsatt
+          motorikk og en med senebetennelse.
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="header-secondary">Eksempler på funksjonshemninger</h3>
+
+  <div class="elvis-table-container">
+    <table class="e-table is-striped">
+      <tr class="e-table_header">
+        <th></th>
+        <th>Permanent</th>
+        <th>Midlertidig</th>
+        <th>Situasjonsbetinget</th>
+      </tr>
+      <tr>
+        <td>Bevegelse</td>
+        <td>Én arm</td>
+        <td>Brukket arm</td>
+        <td>Nybakt forelder</td>
+      </tr>
+      <tr>
+        <td>Syn</td>
+        <td>Blind</td>
+        <td>Glemt briller</td>
+        <td>Uoppmerksom sjåfør</td>
+      </tr>
+      <tr>
+        <td>Hørsel</td>
+        <td>Døv</td>
+        <td>Øreinfeksjon</td>
+        <td>Bartender</td>
+      </tr>
+      <tr>
+        <td>Tale</td>
+        <td>Ikke-verbal</td>
+        <td>Laryngitt</td>
+        <td>Sterk aksent</td>
+      </tr>
+    </table>
+  </div>
+
+  <h3 class="header-secondary">Lovkrav</h3>
+  <p class="info">
+    Elvia, i likhet med alle andre offentlige og private virksomheter, er pålagt
+    å etterleve hovedregelen om at alle IKT-løsninger skal være universelt
+    utformet.*
+  </p>
+  <p class="info">
+    Vi oppfordrer alle til å gjøre seg kjent med og bruke følgende ressurser
+    aktivt:
+  </p>
+
+  <div class="links-container">
+    <div class="e-card">
+      <div class="e-card_header">
+        <div class="e-card_header_text">
+          <div class="e-card_title">Universel Utforming, Difi</div>
         </div>
+      </div>
+      <div class="e-card_content">
+        <p>
+          Tilsynsmyndighetenes offentlige ressursportal for universel utforming
+          av digitale tjenester.
+        </p>
+      </div>
+      <div class="e-card_actions">
+        <button class="e-card_actions_action">View more</button>
+      </div>
     </div>
 
-    <h3 class="header-secondary">Eksempler på funksjonshemninger </h3>
-
-    <div class="elvis-table-container">
-        <table class="e-table is-striped">
-            <tr class="e-table_header">
-                <th></th>
-                <th>Permanent</th>
-                <th>Midlertidig</th>
-                <th>Situasjonsbetinget</th>
-            </tr>
-            <tr>
-                <td>Bevegelse</td>
-                <td>Én arm</td>
-                <td>Brukket arm</td>
-                <td>Nybakt forelder</td>
-            </tr>
-            <tr>
-                <td>Syn</td>
-                <td>Blind</td>
-                <td>Glemt briller</td>
-                <td>Uoppmerksom sjåfør</td>
-            </tr>
-            <tr>
-                <td>Hørsel</td>
-                <td>Døv</td>
-                <td>Øreinfeksjon</td>
-                <td>Bartender</td>
-            </tr>
-            <tr>
-                <td>Tale</td>
-                <td>Ikke-verbal</td>
-                <td>Laryngitt</td>
-                <td>Sterk aksent</td>
-            </tr>
-        </table>
+    <div class="e-card">
+      <div class="e-card_header">
+        <div class="e-card_header_text">
+          <div class="e-card_title">
+            Web Content Accessibility Guidelines(WCAG) 2.1
+          </div>
+        </div>
+      </div>
+      <div class="e-card_content">
+        <p>
+          Neste versjon av W3s internasjonale standard med tekniske
+          spesifikasjon for minimumskrav (nivå A og AA) all digitale løsninger
+          må oppfylle
+        </p>
+      </div>
+      <div class="e-card_actions">
+        <button class="e-card_actions_action">View more</button>
+      </div>
     </div>
 
-    <h3 class="header-secondary">Lovkrav</h3>
-    <p class="info">
-        Elvia, i likhet med alle andre offentlige og private virksomheter, er pålagt å etterleve hovedregelen om at alle
-        IKT-løsninger skal være universelt utformet.*
-    </p>
-    <p class="info">
-        Vi oppfordrer alle til å gjøre seg kjent med og bruke følgende ressurser aktivt:
-    </p>
-
-    <div class="links-container">
-
-        <div class="e-card">
-            <div class="e-card_header">
-                <div class="e-card_header_text">
-                    <div class="e-card_title">Universel Utforming, Difi</div>
-                </div>
-            </div>
-            <div class="e-card_content">
-                <p>Tilsynsmyndighetenes offentlige ressursportal for universel utforming av digitale tjenester.</p>
-            </div>
-            <div class="e-card_actions">
-                <button class="e-card_actions_action">View more</button>
-            </div>
-        </div>
-
-        <div class="e-card">
-            <div class="e-card_header">
-                <div class="e-card_header_text">
-                    <div class="e-card_title">Web Content Accessibility Guidelines(WCAG) 2.1
-                    </div>
-                </div>
-            </div>
-            <div class="e-card_content">
-                <p>Neste versjon av W3s internasjonale standard med tekniske spesifikasjon for minimumskrav (nivå A og
-                    AA)
-                    all digitale løsninger må oppfylle</p>
-            </div>
-            <div class="e-card_actions">
-                <button class="e-card_actions_action">View more</button>
-            </div>
-        </div>
-
-        <div class="elvia-factbox is-info ">
-            <div class="elvia-factbox-icon">
-                <i class="e-icon-info-circle e-icon-sm"></i>
-            </div>
-            <div class="elvia-factbox-content">
-                * Per nå gir forskriften egentlig unntak for noen typer systemer (som f.eks. interne
-                saksbehandlingsystemer). Vi har
-                uansett bestemt at våre internsystemer likevel skal oppfylle kravene på samme måte som systemer vi lager
-                mot
-                allmennheten - i tråd med Elvias ønske om å ikke ekskludere noen og støtte alle våre ansatte gjennom hele
-                arbeidslivet.
-            </div>
-        </div>
-
-        <div class="elvia-factbox is-warn">
-            <div class="elvia-factbox-icon">
-                <i class="e-icon-alert-circle e-icon-sm"></i>
-            </div>
-            <div class="elvia-factbox-content">
-                Merk at nivå A og AA i WCAG kun spesifiserer de kravene som er absolutt minimum av det vi må oppfylle.
-                Det
-                bør være et
-                mål i seg selv å gjøre mer enn bare det som er minimum.
-            </div>
-        </div>
-
+    <div class="elvia-factbox is-info ">
+      <div class="elvia-factbox-icon">
+        <i class="e-icon-info-circle e-icon-sm"></i>
+      </div>
+      <div class="elvia-factbox-content">
+        * Per nå gir forskriften egentlig unntak for noen typer systemer (som
+        f.eks. interne saksbehandlingsystemer). Vi har uansett bestemt at våre
+        internsystemer likevel skal oppfylle kravene på samme måte som systemer
+        vi lager mot allmennheten - i tråd med Elvias ønske om å ikke ekskludere
+        noen og støtte alle våre ansatte gjennom hele arbeidslivet.
+      </div>
     </div>
 
-    <h3 class="header-secondary">Use the design system!</h3>
-    <p class="info">
-        Ved å bruke Designsystemet får du mye gratis hjelp, og en bra start i både design- og utviklingsprosessen. Vi
-        har
-        lagt
-        ned mye tid og arbeid for å sikre at komponentene og retningslinjene i Designsystemet er utformet i henhold til
-        offentlige krav til universell utforming. Besøk tilgjengelighets-fanen på de forskjellige komponent-sidene for å
-        lese
-        mer om hvilke hensyn du bør være klar over for den enkelte komponent.
-    </p>
+    <div class="elvia-factbox is-warn">
+      <div class="elvia-factbox-icon">
+        <i class="e-icon-alert-circle e-icon-sm"></i>
+      </div>
+      <div class="elvia-factbox-content">
+        Merk at nivå A og AA i WCAG kun spesifiserer de kravene som er absolutt
+        minimum av det vi må oppfylle. Det bør være et mål i seg selv å gjøre
+        mer enn bare det som er minimum.
+      </div>
+    </div>
+  </div>
 
-    <h3 class="header-secondary">
-        Tips and tricks
-    </h3>
-    <p class="info">
-        Dette er noen av de viktigste tingene du bør huske på for å unngå de vanligste feilene. Vær likevel bevisst på
-        at
-        disse
-        punktene ikke er komplett.
-    </p>
+  <h3 class="header-secondary">Use the design system!</h3>
+  <p class="info">
+    Ved å bruke Designsystemet får du mye gratis hjelp, og en bra start i både
+    design- og utviklingsprosessen. Vi har lagt ned mye tid og arbeid for å
+    sikre at komponentene og retningslinjene i Designsystemet er utformet i
+    henhold til offentlige krav til universell utforming. Besøk
+    tilgjengelighets-fanen på de forskjellige komponent-sidene for å lese mer om
+    hvilke hensyn du bør være klar over for den enkelte komponent.
+  </p>
 
-    <h4 class="header-secondary">
-        For designers
-    </h4>
-    <ol class="elvia-tips-list">
-        <li>Bruk aktuell versjon av Elvias komponent- og illustrasjonsbibliotek i Sketch når du designer.</li>
-        <li>Design for grupper med spesielle behov («ytterkantene»). Spør deg selv: Hadde bestemoren min klart å bruke
-            tjenesten? Om inklusiv design (University of Cambridge) </li>
-        <li>Husk god kontrast, både på tekst, interaktive elementer, grafer og illustrasjoner. </li>
-        <li>Husk beskrivende alt-tekster på bilder, illustrasjoner og grafer.</li>
-        <li>Husk beskrivende alt-tekster på bilder, illustrasjoner og grafer.</li>
-        <li>Video: Husk å ha en tekstversjon som har samme innhold som videoen på siden, samt tekste video og bruk
-            nyeste
-            versjon av
-            QBrick. Snart kommer en lovendring om at videoer også må være synstolket. Det betyr at man skal tilby en
-            audiobeskrivelse av det som vises i videoen som ikke blir tydelig av selve lydsporet.
-        </li>
-        <li>Språk og begreper: Skriv så forståelig som molig og test teksten på reelle brukere. Bruk beskrivende
-            overskrifter, deloverskrifter og punktlister der det er hensiktsmessig. Husk å ha en hovedoverskrift som
-            beskriver
-            hovedinnholdet på siden. Les mer om tekst og struktur (Difi) og våre retningslinjer for språk
-        </li>
-        <li>Lenker: Skriv lenketekster slik at det er tydelig hvor lenken går. Ikke åpne lenker i ny fane/vindu. Se
-            retningslinjer for gode lenker. </li>
-        <li>Lag gode og beskrivende feilmeldinger (Difi) og pass på at meldingene er i tråd med Designsystemet. </li>
-        <li>Test med reelle brukere, også med personer som bruker hjelpemidler. Bruk Sanselaben i Sannergata (rom 5006).
-        </li>
-    </ol>
-    <h4 class="header-secondary">
-        For utviklere
-    </h4>
-    <ol class="elvia-tips-list">
-        <li>Bruk komponentene våre.</li>
-        <li>Sjekk at koderekkefølgen gjenspeiler den visuelle rekkefølgen.</li>
-        <li>Test at alt kan betjenes med tastatur og at fokusmarkering flyttes i forventet rekkefølge. </li>
-        <li>Bruk de semantiske egenskapene i HTML (MDN).</li>
-        <li>Sjekk at du har med hopp-lenkene (W3) og at de fungerer.</li>
-        <li>Sjekk at du har med riktig "title" (W3). Formen skal være [hovedinnhold/overskrift på siden] - www.Elvia.no
-        </li>
-        <li>Pass på riktig overskriftshierarki (Difi)</li>
-        <li>Sjekk at HTMLen din validerer (W3).</li>
-        <li>Bruk WAI-Aria (W3) der standard HTML ikke er tilstrekkelig, for eksempel på feilmeldinger</li>
-        <li>Bruk automatiserte testverktøy (som f.eks. WAVE eller Sortsite) aktivt og ofte.</li>
-        <li>Test med skjermleser på egen hånd. Med for eksempel ChromeVox, VoiceOver på Mac, eller TalkBack på Android
-            er dette
-            enklere enn du tror.</li>
-        <li>Hvis molig, bruk Elvia-ally i utviklingsprosessen.</li>
-    </ol>
+  <h3 class="header-secondary">
+    Tips and tricks
+  </h3>
+  <p class="info">
+    Dette er noen av de viktigste tingene du bør huske på for å unngå de
+    vanligste feilene. Vær likevel bevisst på at disse punktene ikke er
+    komplett.
+  </p>
+
+  <h4 class="header-secondary">
+    For designers
+  </h4>
+  <ol class="elvia-tips-list">
+    <li>
+      Bruk aktuell versjon av Elvias komponent- og illustrasjonsbibliotek i
+      Sketch når du designer.
+    </li>
+    <li>
+      Design for grupper med spesielle behov («ytterkantene»). Spør deg selv:
+      Hadde bestemoren min klart å bruke tjenesten? Om inklusiv design
+      (University of Cambridge)
+    </li>
+    <li>
+      Husk god kontrast, både på tekst, interaktive elementer, grafer og
+      illustrasjoner.
+    </li>
+    <li>Husk beskrivende alt-tekster på bilder, illustrasjoner og grafer.</li>
+    <li>Husk beskrivende alt-tekster på bilder, illustrasjoner og grafer.</li>
+    <li>
+      Video: Husk å ha en tekstversjon som har samme innhold som videoen på
+      siden, samt tekste video og bruk nyeste versjon av QBrick. Snart kommer en
+      lovendring om at videoer også må være synstolket. Det betyr at man skal
+      tilby en audiobeskrivelse av det som vises i videoen som ikke blir tydelig
+      av selve lydsporet.
+    </li>
+    <li>
+      Språk og begreper: Skriv så forståelig som molig og test teksten på reelle
+      brukere. Bruk beskrivende overskrifter, deloverskrifter og punktlister der
+      det er hensiktsmessig. Husk å ha en hovedoverskrift som beskriver
+      hovedinnholdet på siden. Les mer om tekst og struktur (Difi) og våre
+      retningslinjer for språk
+    </li>
+    <li>
+      Lenker: Skriv lenketekster slik at det er tydelig hvor lenken går. Ikke
+      åpne lenker i ny fane/vindu. Se retningslinjer for gode lenker.
+    </li>
+    <li>
+      Lag gode og beskrivende feilmeldinger (Difi) og pass på at meldingene er i
+      tråd med Designsystemet.
+    </li>
+    <li>
+      Test med reelle brukere, også med personer som bruker hjelpemidler. Bruk
+      Sanselaben i Sannergata (rom 5006).
+    </li>
+  </ol>
+  <h4 class="header-secondary">
+    For utviklere
+  </h4>
+  <ol class="elvia-tips-list">
+    <li>Bruk komponentene våre.</li>
+    <li>Sjekk at koderekkefølgen gjenspeiler den visuelle rekkefølgen.</li>
+    <li>
+      Test at alt kan betjenes med tastatur og at fokusmarkering flyttes i
+      forventet rekkefølge.
+    </li>
+    <li>Bruk de semantiske egenskapene i HTML (MDN).</li>
+    <li>Sjekk at du har med hopp-lenkene (W3) og at de fungerer.</li>
+    <li>
+      Sjekk at du har med riktig "title" (W3). Formen skal være
+      [hovedinnhold/overskrift på siden] - www.Elvia.no
+    </li>
+    <li>Pass på riktig overskriftshierarki (Difi)</li>
+    <li>Sjekk at HTMLen din validerer (W3).</li>
+    <li>
+      Bruk WAI-Aria (W3) der standard HTML ikke er tilstrekkelig, for eksempel
+      på feilmeldinger
+    </li>
+    <li>
+      Bruk automatiserte testverktøy (som f.eks. WAVE eller Sortsite) aktivt og
+      ofte.
+    </li>
+    <li>
+      Test med skjermleser på egen hånd. Med for eksempel ChromeVox, VoiceOver
+      på Mac, eller TalkBack på Android er dette enklere enn du tror.
+    </li>
+    <li>Hvis molig, bruk Elvia-ally i utviklingsprosessen.</li>
+  </ol>
 </div>
