@@ -20,26 +20,24 @@
   </ng-container>
 </app-component-header>
 
-<!--EXAMPLES-->
-<div *ngIf="selected == 'Examples'">
-  <app-code-block
-    [isHTML]="true"
-    [code]="example"
-    [title]="'Example'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example2"
-    [title]="'Custom icon'"
-  ></app-code-block>
-</div>
+<div class="page-body">
+  <!--EXAMPLES-->
+  <div *ngIf="selected == 'Examples'">
+    <app-code-block
+      [isHTML]="true"
+      [code]="example"
+      [title]="'Icon sizes'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example2"
+      [title]="'Custom icon'"
+    ></app-code-block>
+  </div>
 
-<!--OVERVIEW-->
-<div *ngIf="selected == 'Overview'">
-  <div class="page-container">
-    <h2>Overview of Icons</h2>
-
-    <div class="search-container">
+  <!--OVERVIEW-->
+  <div class="overview" *ngIf="selected == 'Overview'">
+    <div class="overview-search-container">
       <div class="e-form_field">
         <div class="e-form_input">
           <input
@@ -50,19 +48,14 @@
         </div>
       </div>
     </div>
-
-    <div>
-      <div class="icons-overview">
-        <div
-          class="icons-container"
-          *ngFor="let icon of IconClassList | filter: term"
-          @fadeIn
-        >
-          <div class="icon-card">
-            <i class="{{ icon.class }} e-icon-lg"></i>
-            <p>{{ icon.title }}</p>
-          </div>
-        </div>
+    <div
+      class="overview-icons-container"
+      *ngFor="let icon of IconClassList | filter: term"
+      @fadeIn
+    >
+      <div class="icon-card">
+        <i class="{{ icon.class }} e-icon-lg"></i>
+        <p>{{ icon.title }}</p>
       </div>
     </div>
   </div>

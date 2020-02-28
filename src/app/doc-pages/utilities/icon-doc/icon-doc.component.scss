@@ -1,28 +1,19 @@
-.page-container {
-  padding: 16px 40px;
-  padding-bottom: 80px;
-}
 
-.search-container {
-  max-width: 50%;
-  justify-content: center;
-  margin: 16px 0;
-}
-
-.icons-overview {
-  min-width: 80%;
-  min-height: 850px;
-}
-
-.icons-container {
+.overview {
+  &-search-container {
+    margin: 24px 0;
+  }
+  
+  &-icons-container {
     display: inline;
     margin: 15px;
-}
-
-.icon-card {
-    display: inline-block;
-    max-width: 10%;
-    min-width: 10%;
-    margin:15px;
-    text-align: center;
+  
+    .icon-card {
+      display: inline-block;
+      max-width: 10%;
+      min-width: 10%;
+      margin: 15px;
+      text-align: center;
+    }  
+  }
 }
