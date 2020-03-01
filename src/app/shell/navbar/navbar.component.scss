@@ -1,5 +1,9 @@
 @import '../../shared/shared-sizes.scss';
 
+:root {
+  --color-flamingo: #fe4fe4;
+}
+
 .navbar {
   position: fixed;
   height: calc(100% - #{$header-height});
@@ -7,17 +11,19 @@
   top: $header-height;
   margin: 0;
   padding: 0;
-
   overflow-y: auto;
   list-style-type: none;
+  --color-flamingo: #fe4fe4;
+  background: var(--color-flamingo);
 
   &-list {
     padding: 0;
 
-    a h2{
+    a h2 {
       padding: 10px 16px;
       display: block;
     }
+
     a.active h2 {
       color: #fff !important;
       background-color: #262626;
@@ -32,6 +38,7 @@
         background-color: #29D305;
       }
     }
+
     a:hover:not(.active) {
       background-color: #eee;
     }
@@ -45,7 +52,7 @@
 
     &:hover {
       background-color: #eee;
-    } 
+    }
   }
 
   &-item {
@@ -55,14 +62,16 @@
     a {
       padding: 10px 16px;
       display: block;
+
       .e-badge {
         float: right;
       }
     }
+
     a.active {
       color: #fff;
       background-color: #262626;
-      
+
       &::after {
         content: '';
         display: inline-flex;
@@ -73,6 +82,7 @@
         background-color: #29D305;
       }
     }
+
     a:hover:not(.active) {
       background-color: #eee;
     }
