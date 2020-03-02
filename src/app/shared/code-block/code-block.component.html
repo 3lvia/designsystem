@@ -1,17 +1,32 @@
 <div class="component-body__example">
-    <h2 class="component-body__example-title">{{ title }}</h2>
-    <div class="component-body__example-description e-text-description">{{ description }}</div>
-    <div class="component-body__example-body e-border">
-        <div class="element">
-            <div #preview></div>
-        </div>
-        <div class="code">
-            <app-code-highlighter 
-                [isHTML]="isHTML" 
-                [isTS]="isTS" 
-                [isSCSS]="isSCSS" 
-                [code]="code">
-            </app-code-highlighter>
-        </div>
+  <h2 class="component-body__example-title">{{ title }}</h2>
+  <div class="component-body__example-description e-text-description">
+    {{ description }}
+  </div>
+  <div class="component-body__example-does" *ngIf="does || donts">
+    <div class="component-body__example-does-does" *ngIf="does">
+      <span class="marker e-bg-green-lime"></span>
+      <span class="e-title-small">Do's:</span>
+      {{ does }}
     </div>
+    <div class="component-body__example-does-donts" *ngIf="donts">
+      <span class="marker e-bg-red"></span>
+      <span class="e-title-small">Don'ts:</span>
+      {{ donts }}
+    </div>
+  </div>
+  <div class="component-body__example-body e-border">
+    <div class="element">
+      <div #preview></div>
+    </div>
+    <div class="code">
+      <app-code-highlighter
+        [isHTML]="isHTML"
+        [isTS]="isTS"
+        [isSCSS]="isSCSS"
+        [code]="code"
+      >
+      </app-code-highlighter>
+    </div>
+  </div>
 </div>

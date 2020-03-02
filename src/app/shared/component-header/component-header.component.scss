@@ -46,7 +46,12 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    margin-bottom: 48px;
+    background: #fff;
 
+    &__title {
+      border-left: none;
+    }
     &__title {
       display: flex;
       padding: 18px;
