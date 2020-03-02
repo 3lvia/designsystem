@@ -7,6 +7,10 @@ $card-header-action-icon-size: 24px;
 $card-actions-action-padding: 13px 0;
 $card-actions-button-spacing: 25px;
 
+.color-section {
+  margin-bottom: 64px;
+}
+
 // Alternative
 .color-palette-container {
   display: flex;
@@ -35,7 +39,6 @@ $card-actions-button-spacing: 25px;
   align-content: center;
   flex-direction: row;
   flex-wrap: nowrap;
-  flex-grow: 3;
   justify-content: space-between;
   margin: 16px 0;
 }
@@ -46,20 +49,23 @@ $card-actions-button-spacing: 25px;
   flex-direction: column;
   box-sizing: border-box;
   padding: 16px;
+  width: 30%;
+  min-width: 140px;
+  max-width: 250px;
 
-  &-display-color-primary {
-    margin: auto;
-    margin-top: 10px;
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
-    border: 2px solid transparent;
+  &.primary {
+    width: 48%;
+    min-width: 250px;
+    max-width: 400px;
   }
+
   &-display-color {
     margin: auto;
     margin-top: 10px;
-    height: 160px;
-    width: 160px;
+    min-width: 140px;
+    max-width: 250px;
+    min-height: 140px;
+    max-height: 250px;
     border-radius: 50%;
     border: 2px solid transparent;
   }
