@@ -3,5 +3,11 @@ export enum TabNames {
     Examples = 'Examples',
     Guidelines = 'Guidelines',
     Modifiers = 'Modifiers',
-    Tips = 'Tips & Tricks'
+    Tips = 'Tips & Tricks',
+
+    // For templates
+    Article = 'Article',
+    Footer = 'Footer',
+    Header = 'Header'
+
 }

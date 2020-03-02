@@ -1,13 +1,42 @@
-<p>
-  templates works!
-</p>
-<p>
-  TODO: Put in templates how a elvia site should look, external and internal. 
-</p>
-<p>
-  pictures
-</p>
+<!--HEADER-->
+<app-component-header
+  [tabs]="tabs"
+  [(selected)]="selected"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Templates
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+  At the start of a new project we advice that you take a look at the existing templates. This will give you a good
+  insight in how
+  components are used, style and tone. Feel free to use an existing template as an origin to quickly get started on
+  development.
+  This will contribute a consistent experience for our users. Remember that components can be adapted to your need, but
+  this needs
+  to be clarified with the designer in charge of the Elvis design system.
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDoes">
+    Follow standards for external and internal sites.
+  </ng-container>
+  <ng-container ngProjectAs="descriptionDonts">
+    Create new layouts for existing structures such as articles, factboxes etc.
+  </ng-container>
+</app-component-header>
 
-<p>
-  starter template , external and internal
-</p>
+<!--BODY-->
+<div class="page-body">
+  <!--GUIDELINES-->
+  <div *ngIf="selected == 'Article'">
+    <h3>Article</h3>
+    ToDO : Create tabs to switch between desktop and mobile templates. 
+  </div>
+  <!--GUIDELINES-->
+  <div *ngIf="selected == 'Header'">
+    <h3>Header</h3>
+  </div>
+  <!--GUIDELINES-->
+  <div *ngIf="selected == 'Footer'">
+    <h3>Footer</h3>
+  </div>
+
+</div>
