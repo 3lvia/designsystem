@@ -91,7 +91,8 @@ $typography: (
     size: 1rem,
     weight: 400,
     height: 175%,
-    color: color('black')
+    color: color('black'),
+    element: p
   ),
   text-info: (
     family: $font-family,
