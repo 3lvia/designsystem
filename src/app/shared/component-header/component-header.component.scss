@@ -1,37 +1,33 @@
 @import '../shared-sizes';
 
 .component {
+  background: #efeeee;
+
   &-header {
-    background: #efeeee;
-    padding: $page-padding;
-
     &__title {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-
-      h1 {
-        margin-right: 16px;
-      }
-
-      h1,
-      .e-badge {
+      .title-text {
         display: flex;
-        align-self: center;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        h1 {
+          margin-right: 16px;
+        }
+        h1,
+        .e-badge {
+          display: flex;
+          align-self: center;
+        }
       }
-    }
-
-    &__class {
-      margin: 4px 0;
-      padding: 4px 16px;
-      border-radius: 14px;
-      width: fit-content;
+      .class {
+        margin: 4px 0;
+        padding: 4px 16px;
+        border-radius: 14px;
+        width: fit-content;
+      }
     }
 
     &__body {
-      padding: 32px 0;
-
       &-does, &-donts {
         margin: 8px 0;
 
@@ -45,6 +41,7 @@
       }
     }
   }
+
   &-tabs {
     display: flex;
     flex-direction: row;
@@ -52,7 +49,7 @@
 
     &__title {
       display: flex;
-      padding: 8px;
+      padding: 18px;
       width: 100%;
       height: 100%;
       justify-content: center;

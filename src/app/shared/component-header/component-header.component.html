@@ -1,35 +1,37 @@
 <div class="component">
-  <div class="component-header">
+  <div class="component-header page-body">
     <div class="component-header__title">
-      <h1>
-        <ng-content select="headerTitle"></ng-content>
-      </h1>
-      <div *ngIf="componentStatus != ''">
-        <span
-          class="e-badge e-bg-orange-peel"
-          *ngIf="componentStatus === itemStatus.New"
-          >{{ componentStatus }}</span
-        >
-        <span
-          class="e-badge e-bg-red"
-          *ngIf="componentStatus === itemStatus.Coming"
-          >{{ componentStatus }}</span
-        >
-        <span
-          class="e-badge e-bg-green-lime"
-          *ngIf="componentStatus === itemStatus.Done"
-          >{{ componentStatus }}</span
-        >
+      <div class="title-text">
+        <h1>
+          <ng-content select="headerTitle"></ng-content>
+        </h1>
+        <div *ngIf="componentStatus != ''">
+          <span
+            class="e-badge e-bg-orange-peel"
+            *ngIf="componentStatus === itemStatus.New"
+            >{{ componentStatus }}</span
+          >
+          <span
+            class="e-badge e-bg-red"
+            *ngIf="componentStatus === itemStatus.Coming"
+            >{{ componentStatus }}</span
+          >
+          <span
+            class="e-badge e-bg-green-lime"
+            *ngIf="componentStatus === itemStatus.Done"
+            >{{ componentStatus }}</span
+          >
+        </div>
       </div>
+      <p
+        class="class e-bg-grey-silver e-text-info"
+        *ngFor="let class of componentClasses"
+      >
+        <code>
+          {{ class }}
+        </code>
+      </p>
     </div>
-    <p
-      class="component-header__class e-bg-grey-silver e-text-info"
-      *ngFor="let class of componentClasses"
-    >
-      <code>
-        {{ class }}
-      </code>
-    </p>
     <div class="component-header__body">
       <p class="component-header__body-description">
         <ng-content select="headerDescription"></ng-content>
