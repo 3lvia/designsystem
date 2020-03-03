@@ -25,18 +25,89 @@
 
 <!--BODY-->
 <div class="page-body">
+<!-- Toggle Desktop or Mobile display -->
+      <div class="template-choice-container">
+        <div class="template-radio-switch">
+          <input
+            type="radio"
+            id="desktop-display"
+            name="template-choice"
+            value="Desktop"
+            (click)="displayDesktop()"
+            [checked]="isDesktop"
+          />
+          <label for="desktop-display">Desktop</label>
+          <input
+            type="radio"
+            id="mobile-display"
+            name="template-choice"
+            value="Mobile"
+            (click)="displayMobile()"
+            [checked]="!isDesktop"
+          />
+          <label for="mobile-display">Mobile</label>
+        </div>
+      </div>
   <!--GUIDELINES-->
   <div *ngIf="selected == 'Article'">
-    <h3>Article</h3>
-    ToDO : Create tabs to switch between desktop and mobile templates. 
+    <div *ngIf="isDesktop">
+      <div class="template-img-container">
+        <img
+          src="../../../../assets/img/desktop-placeholder.png"
+          alt="Desktop Example"
+        >
+      </div>
+    </div>
+    <div *ngIf="!isDesktop">
+      <div class="template-img-container">
+        <img
+          src="../../../../assets/img/mobile-placeholder.png"
+          alt="Mobile Example"
+        >
+      </div>
+    </div>
+    
+    
+  
+
   </div>
   <!--GUIDELINES-->
   <div *ngIf="selected == 'Header'">
-    <h3>Header</h3>
+        <div *ngIf="isDesktop">
+          <div class="template-img-container">
+            <img
+              src="../../../../assets/img/desktop-placeholder.png"
+              alt="Desktop Example"
+            >
+          </div>
+        </div>
+        <div *ngIf="!isDesktop">
+          <div class="template-img-container">
+            <img
+              src="../../../../assets/img/mobile-placeholder.png"
+              alt="Mobile Example"
+            >
+          </div>
+        </div>
   </div>
   <!--GUIDELINES-->
   <div *ngIf="selected == 'Footer'">
-    <h3>Footer</h3>
+        <div *ngIf="isDesktop" @imgFade>
+          <div class="template-img-container">
+            <img
+              src="../../../../assets/img/desktop-placeholder.png"
+              alt="Desktop Example"
+            >
+          </div>
+        </div>
+        <div *ngIf="!isDesktop" @imgFade>
+          <div class="template-img-container">
+            <img
+              src="../../../../assets/img/mobile-placeholder.png"
+              alt="Mobile Example"
+            >
+          </div>
+        </div>
   </div>
 
 </div>
