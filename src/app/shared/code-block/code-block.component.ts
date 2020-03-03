@@ -16,12 +16,17 @@ export class CodeBlockComponent implements AfterViewInit {
   @Input() isTS = false;
   @Input() isHTML = false;
   @Input() isSCSS = false;
-
   @Input() code = '';
+
+  showCode = false;
 
   constructor() {}
 
   ngAfterViewInit() {
     this.preview.nativeElement.innerHTML = this.code;
+  }
+
+  changeShowCodeStatus() {
+    this.showCode = !this.showCode;
   }
 }
