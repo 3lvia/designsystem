@@ -1,9 +1,5 @@
 @import '../../shared/shared-sizes.scss';
 
-:root {
-  --color-flamingo: #fe4fe4;
-}
-
 .navbar {
   position: fixed;
   height: calc(100% - #{$header-height});
@@ -13,8 +9,6 @@
   padding: 0;
   overflow-y: auto;
   list-style-type: none;
-  --color-flamingo: #fe4fe4;
-  background: var(--color-flamingo);
 
   &-list {
     padding: 0;
@@ -35,12 +29,12 @@
         height: 12px;
         width: 12px;
         border-radius: 50%;
-        background-color: #29D305;
+        background-color: var(--e-green-lime);
       }
     }
 
     a:hover:not(.active) {
-      background-color: #eee;
+      background-color: var(--e-grey-silver);
     }
   }
 
@@ -51,7 +45,7 @@
     outline: none;
 
     &:hover {
-      background-color: #eee;
+      background-color: var(--e-grey-silver);
     }
   }
 
@@ -70,7 +64,7 @@
 
     a.active {
       color: #fff;
-      background-color: #262626;
+      background-color: var(--e-grey-mine-shaft);
 
       &::after {
         content: '';
@@ -79,12 +73,12 @@
         height: 11px;
         width: 11px;
         border-radius: 50%;
-        background-color: #29D305;
+        background-color: var(--e-green-lime);
       }
     }
 
     a:hover:not(.active) {
-      background-color: #eee;
+      background-color: var(--e-grey-silver);
     }
   }
 }

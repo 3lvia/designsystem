@@ -20,7 +20,7 @@
 
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
 import 'classlist.js';  // Run `npm install --save classlist.js`.
-import 'core-js/es6/reflect';
+import 'core-js/es/reflect';
 import 'core-js/es/symbol';
 import 'core-js/es/object';
 import 'core-js/es/function';
