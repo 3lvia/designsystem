@@ -8,6 +8,10 @@ export enum TabNames {
     // For templates
     Article = 'Article',
     Footer = 'Footer',
-    Header = 'Header'
+    Header = 'Header',
+
+    // For DocTabs
+    Desktop = 'Desktop',
+    Mobile = 'Mobile',
 
 }
