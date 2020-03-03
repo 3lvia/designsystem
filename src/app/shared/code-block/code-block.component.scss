@@ -1,5 +1,3 @@
-@import "~@hafslundnett/elvis/src/variables/colors.scss";
-
 .component-body__example {
   &-title {
     margin-bottom: 8px;
@@ -28,8 +26,7 @@
     margin-bottom: 64px;
 
     .show-code, .hide-code {
-      background: color('grey-stone');
-      color: white;
+      background: var(--e-grey-silver);
       display: flex;
       justify-content: center;
       cursor: pointer;

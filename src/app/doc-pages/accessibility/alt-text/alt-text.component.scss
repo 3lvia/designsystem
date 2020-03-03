@@ -1,17 +1,17 @@
 .elvia-factbox {
     display: flex;
     padding: 10px 10px;
-    border: 2px solid color('grey-silver');
+    border: 2px solid var(--e-grey-silver);
     border-radius: 4px;
     margin: 10px 0;
     max-width: 40%;
 
     &.is-info {
-        background-color: color('yellow-05');
+        background-color: var(--e-yellow-05);
     }
 
     &.is-warn {
-        background: color('orange-peel-05');
+        background: var(--e-orange-peel-05);
     }
 
     &_icon {
