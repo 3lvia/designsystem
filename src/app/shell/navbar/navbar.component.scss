@@ -20,7 +20,7 @@
 
     a.active h2 {
       color: #fff !important;
-      background-color: #262626;
+      background-color: var(--e-grey-mine-shaft);
 
       &::after {
         content: '';
@@ -72,7 +72,7 @@
     }
 
     a.active {
-      color: #fff;
+      color: var(--e-white);
       background-color: var(--e-grey-mine-shaft);
 
       &::after {
