@@ -59,7 +59,7 @@ export const eComponents: EItems[] = [
         title: 'Checkbox-Toggle',
         description: 'Some useful component with amazing features',
         docUrl: Pages.CheckboxToggle,
-        status: ItemStatus.Ignore,
+        status: ItemStatus.Coming,
     },
     {
         title: 'Divider',
@@ -74,7 +74,7 @@ export const eComponents: EItems[] = [
         status: ItemStatus.Ignore,
     },
     {
-        title: 'Feedback-Message',
+        title: 'Alerts',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Feedback,
         status: ItemStatus.Ignore,
@@ -101,7 +101,7 @@ export const eComponents: EItems[] = [
         title: 'Notification-Dot',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Notification,
-        status: ItemStatus.Ignore,
+        status: ItemStatus.New,
     },
     {
         title: 'Radiobutton',

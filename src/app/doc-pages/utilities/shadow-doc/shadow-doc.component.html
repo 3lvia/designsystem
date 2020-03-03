@@ -12,19 +12,20 @@
     unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
     distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
   </ng-container>
-  <ng-container ngProjectAs="descriptionDoes">
-    Does does does does does does does does does
-  </ng-container>
-  <ng-container ngProjectAs="descriptionDonts">
-    Donts donts donts donts donts donts donts donts
-  </ng-container>
+  
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
   <!--Overview-->
   <div *ngIf="selected == 'Overview'">
-    Overview
+    <h2>Shadows</h2>
+    <p>There are 3 shadows available in the style-library.</p>
+    <div class="centered-content">
+      <span class="e-shadow-1 example-box"></span>
+      <span class="e-shadow-2 example-box"></span>
+      <span class="e-shadow-3 example-box"></span>
+    </div>
   </div>
 
   <!--Examples-->

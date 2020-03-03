@@ -1,49 +1,39 @@
 <div class="component">
-  <div class="component-header">
+  <div class="component-header page-body">
     <div class="component-header__title">
-      <h1>
-        <ng-content select="headerTitle"></ng-content>
-      </h1>
-      <div *ngIf="componentStatus != ''">
-        <span
-          class="e-badge e-bg-orange-peel"
-          *ngIf="componentStatus === itemStatus.New"
-          >{{ componentStatus }}</span
-        >
-        <span
-          class="e-badge e-bg-red"
-          *ngIf="componentStatus === itemStatus.Coming"
-          >{{ componentStatus }}</span
-        >
-        <span
-          class="e-badge e-bg-green-lime"
-          *ngIf="componentStatus === itemStatus.Done"
-          >{{ componentStatus }}</span
-        >
+      <div class="title-text">
+        <h1>
+          <ng-content select="headerTitle"></ng-content>
+        </h1>
+        <div *ngIf="componentStatus != ''">
+          <span
+            class="e-badge e-bg-orange-peel"
+            *ngIf="componentStatus === itemStatus.New"
+            >{{ componentStatus }}</span
+          >
+          <span
+            class="e-badge e-bg-red"
+            *ngIf="componentStatus === itemStatus.Coming"
+            >{{ componentStatus }}</span
+          >
+          <span
+            class="e-badge e-bg-green-lime"
+            *ngIf="componentStatus === itemStatus.Done"
+            >{{ componentStatus }}</span
+          >
+        </div>
       </div>
-    </div>
-    <p
-      class="component-header__class e-bg-grey-silver e-text-info"
-      *ngFor="let class of componentClasses"
-    >
-      <code>
-        {{ class }}
-      </code>
-    </p>
-    <div class="component-header__body">
-      <p class="component-header__body-description">
+      <p
+        class="class e-bg-grey-silver e-text-info"
+        *ngFor="let class of componentClasses"
+      >
+        <code>
+          {{ class }}
+        </code>
+      </p>
+      <p class="component-header__description">
         <ng-content select="headerDescription"></ng-content>
       </p>
-      <div class="component-header__body-does">
-        <span class="marker e-bg-green-lime"></span>
-        <span class="e-title-small">Do's: </span
-        ><ng-content select="descriptionDoes"></ng-content>
-      </div>
-      <div class="component-header__body-donts">
-        <span class="marker e-bg-red"></span>
-        <span class="e-title-small">Don'ts: </span
-        ><ng-content select="descriptionDonts"></ng-content>
-      </div>
     </div>
   </div>
   <div class="component-tabs">

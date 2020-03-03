@@ -14,6 +14,9 @@ export class ColorDocComponent implements OnInit {
   componentClasses = ['e-text', 'e-bg'];
   colors: string[] = ['red', 'green'];
 
+  doCode = `<div class="e-bg-green-lime"></div>`;
+  dontCode = `<div class="e-bg-green-lime e-text-grey-mine-shaft"></div>`;
+
   constructor() { }
 
   ngOnInit() {

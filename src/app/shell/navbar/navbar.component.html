@@ -13,7 +13,9 @@
           [routerLink]="['', page.docUrl]" 
           routerLinkActive="active"
         >
-          {{ page.title }}
+          <div class="navbar-item-title">
+            {{ page.title }}
+          </div>
           <span
             class="e-badge e-bg-orange-peel"
             *ngIf="page.status && (page.status === 'New')"
@@ -27,7 +29,9 @@
           *ngIf="page.externalUrl && page.title != 'Components'" 
           href={{page.externalUrl}}
         >
-          {{ page.title }}
+          <div class="navbar-item-title">
+            {{ page.title }}
+          </div>
           <span
             class="e-badge e-bg-orange-peel"
             *ngIf="page.status && (page.status === 'New')"
@@ -50,7 +54,9 @@
         *ngFor="let navbarItem of eComponents"
       >
         <a [routerLink]="['', navbarItem.docUrl]" routerLinkActive="active">
-          {{ navbarItem.title }}
+          <span class="navbar-item-title">
+            {{ navbarItem.title }}
+          </span>
           <span
             class="e-badge e-bg-orange-peel"
             *ngIf="navbarItem.status && (navbarItem.status === 'New')"
@@ -73,8 +79,10 @@
         *ngFor="let navbarItem of eUtilities"
       >
         <a [routerLink]="['', navbarItem.docUrl]" routerLinkActive="active">
-          {{ navbarItem.title }}</a
-        >
+          <div class="navbar-item-title">
+            {{ navbarItem.title }}
+          </div>
+        </a>
       </li>
     </ul>
   </section>
@@ -88,8 +96,10 @@
         *ngFor="let navbarItem of eAccessibility"
       >
         <a [routerLink]="['', navbarItem.docUrl]" routerLinkActive="active">
-          {{ navbarItem.title }}</a
-        >
+          <div class="navbar-item-title">
+            {{ navbarItem.title }}
+          </div>
+        </a>
       </li>
     </ul>
   </section>

@@ -1,9 +1,20 @@
+@import "~@hafslundnett/elvis/src/variables/colors.scss";
+
 .doDont-container {
     display: inline-block;
-    width: fit-content, available;
-    max-width: 25%;
-    min-width: 25%;
-    margin: 10px;
+    width: 50%;
+    margin: 26px 0;
+    
+    .doDont, .doDo {
+        margin: 0 8px;
+    }
+
+    .doDo {
+        margin-left: 0;
+    }
+    .doDont {
+        margin-right: 0;
+    }
 }
 
 .instructions {

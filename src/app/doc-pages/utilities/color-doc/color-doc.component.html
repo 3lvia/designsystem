@@ -12,233 +12,148 @@
     unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
     distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
   </ng-container>
-  <ng-container ngProjectAs="descriptionDoes">
-    Does does does does does does does does does
-  </ng-container>
-  <ng-container ngProjectAs="descriptionDonts">
-    Donts donts donts donts donts donts donts donts
-  </ng-container>
+  
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
   <!--GUIDELINES-->
   <div *ngIf="selected == 'Guidelines'">
-    Some guideline-page
+    <div>
+      <h2>Using Classes</h2>
+      <p>
+        All colors can be used through a set of classes. The <code class="code-text">e-text</code> sets the text-color of the element, while the <code class="code-text">e-bg</code> sets the
+        background as well as the text.
+      </p>
+      <ul>
+        <li><code class="code-text">e-bg-color</code></li>
+        <li><code class="code-text">e-text-color</code></li>
+      </ul>
+      <h3>Do's and Don'ts</h3>
+      <p>
+        All bg-classes sets the text-color to the contrast-color of the background.
+        It is therefore not necessary to use both the <code class="code-text">bg</code> and the <code class="code-text">text</code> class on the same element,
+        exceptions can of course occur and then the <code class="code-text">text</code> class is available.
+        <app-do-dont [do]="true" [example]="doCode"></app-do-dont>
+        <app-do-dont [do]="false" [example]="dontCode"></app-do-dont>
+      </p>
+    </div>
+
+    <div>
+      <h2>Using CSS-variables</h2>
+      <p>
+        All colors can be used through their CSS-variable as well. 
+      </p>
+      <ul>
+        <li><code class="code-text">var(--e-color)</code></li>
+      </ul>
+    </div>
   </div>
 
   <!--OVERVIEW-->
   <div class="overview" *ngIf="selected == 'Overview'">
-    <section>
-      <h3>Primary Colors</h3>
+    <section class="color-section">
+      <h2>Primary Colors</h2>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
         voluptates saepe, quos commodi eaque repellat fuga nihil, officiis
         magnam quibusdam eveniet eius quidem animi excepturi facilis. Tenetur
         quos magnam recusandae.
       </p>
-      <div class="color-container">
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FFF; border-color: #FFF;"
-          ></div>
+      <div class="color-container centered-content">
+        <div class="color-card primary e-shadow-3">
+          <div class="color-card-display-color e-shadow-3 e-bg-white"></div>
           <div class="color-card-hex">#FFF</div>
           <div class="color-card-name">white</div>
         </div>
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FFF; border-color: #FFF; opacity: 50%;"
-          ></div>
-          <div class="color-card-hex">#FFF</div>
-          <div class="color-card-name">white</div>
-        </div>
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FFF; border-color: #FFF; opacity: 20%"
-          ></div>
-          <div class="color-card-hex">#FFF</div>
-          <div class="color-card-name">white</div>
-        </div>
-      </div>
-
-      <div class="color-container">
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #29D305; border-color: #29D305;"
-          ></div>
-          <div class="color-card-hex">#29D305</div>
-          <div class="color-card-name">green-lime</div>
-        </div>
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #29D305; border-color: #29D305; opacity: 50%"
-          ></div>
-          <div class="color-card-hex">#29D305</div>
-          <div class="color-card-name">green-lime</div>
-        </div>
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #29D305; border-color: #29D305; opacity: 20%"
-          ></div>
-          <div class="color-card-hex">#29D305</div>
-          <div class="color-card-name">green-lime</div>
-        </div>
-      </div>
-      <div class="color-container">
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #000; border-color: #000;"
-          ></div>
-          <div class="color-card-hex">#000</div>
-          <div class="color-card-name">black</div>
-        </div>
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #000; border-color: #000; opacity: 50%"
-          ></div>
-          <div class="color-card-hex">#000</div>
-          <div class="color-card-name">black</div>
-        </div>
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #000; border-color: #000; opacity: 20%"
-          ></div>
+        <div class="color-card primary e-shadow-3">
+          <div class="color-card-display-color e-shadow-3 e-bg-black"></div>
           <div class="color-card-hex">#000</div>
           <div class="color-card-name">black</div>
         </div>
       </div>
-      <div class="color-container">
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #262626; border-color: #262626;"
-          ></div>
-          <div class="color-card-hex">#262626</div>
-          <div class="color-card-name">grey-mine-shaft</div>
+      <div class="color-container centered-content">
+        <div class="color-card primary e-shadow-3">
+          <div class="color-card-display-color e-shadow-3 e-bg-green-lime"></div>
+          <div class="color-card-hex">#29D305</div>
+          <div class="color-card-name">green-lime</div>
         </div>
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #262626; border-color: #262626; opacity: 50%"
-          ></div>
-          <div class="color-card-hex">#262626</div>
-          <div class="color-card-name">grey-mine-shaft</div>
-        </div>
-        <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #262626; border-color: #262626; opacity: 20%"
-          ></div>
+        <div class="color-card primary e-shadow-3">
+          <div class="color-card-display-color e-shadow-3 e-bg-grey-mine-shaft"></div>
           <div class="color-card-hex">#262626</div>
           <div class="color-card-name">grey-mine-shaft</div>
         </div>
       </div>
     </section>
-    <section>
-      <h3>Secondary Colors</h3>
+    <section class="color-section">
+      <h2>Secondary Colors</h2>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
         adipisci odit, repellendus animi officiis eum obcaecati, at accusamus,
         debitis quisquam unde magni magnam dolores illo voluptatum officia
         laboriosam laborum similique?
       </p>
-      <div class="color-container">
+      <div class="color-container centered-content">
         <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FFFF00; border-color: #FFFF00;"
-          ></div>
+          <div class="color-card-display-color e-shadow-3 e-bg-yellow"></div>
           <div class="color-card-hex">#FFFF00</div>
           <div class="color-card-name">yellow</div>
         </div>
         <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FFFF00; border-color: #FFFF00; opacity: 50%;"
-          ></div>
+          <div class="color-card-display-color e-shadow-3 e-bg-yellow-05"></div>
           <div class="color-card-hex">#FFFF00</div>
-          <div class="color-card-name">yellow</div>
+          <div class="color-card-name">yellow-05</div>
         </div>
         <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FFFF00; border-color: #FFFF00; opacity: 20%;"
-          ></div>
+          <div class="color-card-display-color e-shadow-3 e-bg-yellow-02"></div>
           <div class="color-card-hex">#FFFF00</div>
-          <div class="color-card-name">yellow</div>
+          <div class="color-card-name">yellow-02</div>
         </div>
       </div>
-      <div class="color-container">
+      <div class="color-container centered-content">
         <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FFA000; border-color: #FFA000;"
-          ></div>
+          <div class="color-card-display-color e-shadow-3 e-bg-orange-peel"></div>
           <div class="color-card-hex">#FFA000</div>
           <div class="color-card-name">orange-peel</div>
         </div>
         <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FFA000; border-color: #FFA000; opacity: 50%;"
-          ></div>
+          <div class="color-card-display-color e-shadow-3 e-bg-orange-peel-05"></div>
           <div class="color-card-hex">#FFA000</div>
-          <div class="color-card-name">orange-peel</div>
+          <div class="color-card-name">orange-peel-05</div>
         </div>
         <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FFA000; border-color: #FFA000; opacity: 20%;"
-          ></div>
+          <div class="color-card-display-color e-shadow-3 e-bg-orange-peel-02"></div>
           <div class="color-card-hex">#FFA000</div>
-          <div class="color-card-name">orange-peel</div>
+          <div class="color-card-name">orange-peel-02</div>
         </div>
       </div>
-      <div class="color-container">
+      <div class="color-container centered-content">
         <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FF0000; border-color: #FF0000;"
-          ></div>
+          <div class="color-card-display-color e-shadow-3 e-bg-red"></div>
           <div class="color-card-hex">#FF0000</div>
           <div class="color-card-name">red</div>
         </div>
         <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FF0000; border-color: #FF0000; opacity: 50%;"
-          ></div>
+          <div class="color-card-display-color e-shadow-3 e-bg-red-05"></div>
           <div class="color-card-hex">#FF0000</div>
-          <div class="color-card-name">red</div>
+          <div class="color-card-name">red-05</div>
         </div>
         <div class="color-card e-shadow-3">
-          <div
-            class="color-card-display-color e-shadow-3"
-            style="background-color: #FF0000; border-color: #FF0000; opacity: 20%;"
-          ></div>
+          <div class="color-card-display-color e-shadow-3 e-bg-red-02"></div>
           <div class="color-card-hex">#FF0000</div>
-          <div class="color-card-name">red</div>
+          <div class="color-card-name">red-02</div>
         </div>
       </div>
     </section>
     <section>
-      <h3>ALternative Primary</h3>
+      <h2>ALternative Primary</h2>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sapiente
         culpa, corrupti dignissimos, ut quaerat sit odit quia omnis eos commodi
         labore error ipsam! Dolores voluptas distinctio, provident fugit quas
         libero.
       </p>
-      <div class="color-container-2">
+      <div class="color-container centered-content-2">
         <div class="color-palette-container">
           <div
             class="color-palette"
@@ -312,13 +227,13 @@
       </div>
     </section>
     <section>
-      <h3>ALternative Secondary</h3>
+      <h2>ALternative Secondary</h2>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsa numquam
         ut quisquam deleniti ipsam quaerat impedit, incidunt tenetur nobis? Quas
         vitae sed tempore est porro vero soluta maxime velit hic.
       </p>
-      <div class="color-container-2">
+      <div class="color-container centered-content-2">
         <div class="color-palette-container">
           <div class="color-palette" style="background-color: #FFFF00;">
             Color-Name

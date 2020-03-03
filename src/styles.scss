@@ -21,6 +21,14 @@ body {
 }
 
 .page-body {
-  margin: 40px auto;
-  width: 70%;
+  margin: auto;
+  margin-bottom: 40px;
+  width: 66%;
+  min-width: 20em;
+  max-width: 50em;
+}
+
+.code-text {
+  background: #e6e6e6;
+  padding: 1px 4px;
 }

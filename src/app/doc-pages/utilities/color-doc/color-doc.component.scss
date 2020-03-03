@@ -7,24 +7,11 @@ $card-header-action-icon-size: 24px;
 $card-actions-action-padding: 13px 0;
 $card-actions-button-spacing: 25px;
 
-.color-container {
-  display: flex;
-  align-content: center;
-  justify-content: flex-start;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  flex-grow: 3;
+.color-section {
+  margin-bottom: 64px;
 }
 
-.color-container-2 {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  flex-grow: 3;
-}
-
+// Alternative
 .color-palette-container {
   display: flex;
   align-content: center;
@@ -46,21 +33,39 @@ $card-actions-button-spacing: 25px;
 }
 
 
+// Alternative
+.color-container {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 16px 0;
+}
 
 .color-card {
   border-radius: 10px;
   display: inline-flex;
   flex-direction: column;
   box-sizing: border-box;
-  height: 220px;
-  width: 150px;
-  margin: 15px;
+  padding: 16px;
+  width: 30%;
+  min-width: 140px;
+  max-width: 250px;
+
+  &.primary {
+    width: 48%;
+    min-width: 250px;
+    max-width: 400px;
+  }
 
   &-display-color {
     margin: auto;
     margin-top: 10px;
-    height: 60%;
-    width: 85%;
+    min-width: 140px;
+    max-width: 250px;
+    min-height: 140px;
+    max-height: 250px;
     border-radius: 50%;
     border: 2px solid transparent;
   }
@@ -69,9 +74,8 @@ $card-actions-button-spacing: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15%;
     width: 100%;
-    margin: 5px 0;
+    margin: 8px 0;
     border-bottom: 1px solid black;
   }
 

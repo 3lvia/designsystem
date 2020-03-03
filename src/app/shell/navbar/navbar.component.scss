@@ -52,11 +52,20 @@
   &-item {
     list-style-type: none;
     cursor: pointer;
+    display: flex;
 
     a {
       padding: 10px 16px;
-      display: block;
+      display: inline-block;
+      width: 100%;
 
+      .navbar-item-title {
+        float: left;
+        max-width: 140px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
       .e-badge {
         float: right;
       }

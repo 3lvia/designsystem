@@ -1,12 +1,13 @@
 <div class="doDont-container">
-  <app-code-highlighter [isHTML]="isHTML" [code]="example"></app-code-highlighter>
-  <div *ngIf="do">
+  <div class="doDo" *ngIf="do">
+    <app-code-highlighter [isHTML]="isHTML" [code]="example"></app-code-highlighter>
     <div class="instructions do">
       <i class="e-icon-check-circle"></i>
-      <p>Do this</p>
+      <p>Do this!</p>
     </div>
   </div>
-  <div *ngIf="!do">
+  <div class="doDont" *ngIf="!do">
+    <app-code-highlighter [isHTML]="isHTML" [code]="example"></app-code-highlighter>
     <div class="instructions dont">
       <i class="e-icon-remove-circle"></i>
       <p>Don´t do this!</p>
