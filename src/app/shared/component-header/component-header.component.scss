@@ -4,6 +4,8 @@
   background: #efeeee;
 
   &-header {
+    padding: 16px 0;
+
     &__title {
       .title-text {
         display: flex;
@@ -26,19 +28,8 @@
         width: fit-content;
       }
     }
-
-    &__body {
-      &-does, &-donts {
-        margin: 8px 0;
-
-        .marker {
-          display: inline-flex;
-          margin-right: 11px;
-          height: 11px;
-          width: 11px;
-          border-radius: 50%;
-        }
-      }
+    &__description {
+      padding-top: 24px;
     }
   }
 
