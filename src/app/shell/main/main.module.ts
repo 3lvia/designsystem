@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
 import { RouterModule } from '@angular/router';
 import { HeaderModule } from '../header/header.module';
+import { HeaderTabsModule } from '../header-tabs/header-tabs.module';
 import { NavbarModule } from '../navbar/navbar.module';
 
 @NgModule({
@@ -10,6 +11,7 @@ import { NavbarModule } from '../navbar/navbar.module';
     CommonModule,
     RouterModule,
     HeaderModule,
+    HeaderTabsModule,
     NavbarModule
   ],
   declarations: [MainComponent],

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { eHomes, eComponents, eUtilities, eAccessibility } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,16 +6,17 @@ import { eHomes, eComponents, eUtilities, eAccessibility } from 'src/app/shared/
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit  {
 
   eHomes = eHomes;
   eComponents = eComponents;
   eUtilities = eUtilities;
   eAccessibility = eAccessibility;
 
+  @Input() Section: string;
+
   constructor() { }
 
   ngOnInit() {
   }
-
 }

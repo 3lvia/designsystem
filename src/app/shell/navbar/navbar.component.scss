@@ -2,10 +2,11 @@
 
 .navbar {
   position: fixed;
-  height: calc(100% - #{$header-height});
+  height: calc(100% - #{$header-height} - #{$header-tabs-height});
   width: $navbar-width;
-  top: $header-height;
+  top: $header-height + $header-tabs-height;
   margin: 0;
+  margin-top: 16px;
   padding: 0;
 
   overflow-y: auto;

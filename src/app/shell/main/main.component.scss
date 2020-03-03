@@ -2,6 +2,6 @@
 
 .main-content {
   position: relative;
-  top: $header-height;
+  top: $header-height + $header-tabs-height;
   margin-left: $navbar-width;
 }
