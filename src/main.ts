@@ -10,9 +10,6 @@ cssVars({
   include: 'style',
   onlyLegacy: true,
   watch: true,
-  onComplete(cssText, styleNode, cssVariables) {
-    console.log(cssText);
-  },
 });
 
 if (environment.production) {
