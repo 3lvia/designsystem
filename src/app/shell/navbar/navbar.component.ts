@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { eHomes, eComponents, eUtilities, eAccessibility } from 'src/app/shared/e-items';
 
 @Component({
@@ -12,8 +12,6 @@ export class NavbarComponent implements OnInit  {
   eComponents = eComponents;
   eUtilities = eUtilities;
   eAccessibility = eAccessibility;
-
-  @Input() Section: string;
 
   constructor() { }
 

@@ -1,25 +1,37 @@
 <div class="tabs e-border-b">
     <a 
       class="tab"
-      [routerLink]="['', 'home']" 
+      [routerLink]="['/home']" 
       routerLinkActive="active" >
       Get Started
     </a>
+
+    <!-- Check routerLinkOption, = "{exact: true}" for eksempel  -->
+
+
+    <!-- Programmatisk navigasjon: Load router. så kall this.router.navigate(['PATH']) -->
+
+
+
+
+    <!-- Vurder å pass data via /:section for eksempel. Og deretter dynamisk endre innhold i navbar? -->
+    <!-- Få tak i data i urlen, route: ActivatedRoute. this.route.snapshot.params['data'] -->
+    <!--  Evt gjør om navbar til å bli injectable, så passer vi inn alle rutene baser på dataene vi få inn via routen? -->
     <a 
       class="tab"
-      [routerLink]="['', 'overview-comp-doc']" 
+      [routerLink]="['/overview-comp-doc']" 
       routerLinkActive="active" >
       Components
     </a>
     <a 
       class="tab"
-      [routerLink]="['', 'overview-util-doc']" 
+      [routerLink]="['/overview-util-doc']" 
       routerLinkActive="active" >
       Utilites
     </a>
     <a 
       class="tab"
-      [routerLink]="['', 'overview-accessibility-doc']" 
+      [routerLink]="['/accessibility']" 
       routerLinkActive="active" >
       Accessibities
     </a>

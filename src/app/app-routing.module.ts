@@ -35,6 +35,7 @@ import { OverviewComponent } from './doc-pages/components/overview-comp/overview
 import { ContributeComponent } from './doc-pages/get-started/contribute/contribute.component';
 import { NewProjectComponent } from './doc-pages/get-started/new-project/new-project.component';
 import { TemplatesComponent } from './doc-pages/get-started/templates/templates.component';
+import { AccessibilityStartComponent } from './doc-pages/accessibility/accessibility-start/accessibility-start.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,31 @@ const routes: Routes = [
         path: Pages.Home,
         component: HomeComponent
       },
+      { path: Pages.AccessibilityStart,
+        component: AccessibilityStartComponent,
+        children: [
+          {
+            path: '',
+            component: OverviewAccessibilityComponent
+          },
+          {
+            path: Pages.OverviewAccess,
+            component: OverviewAccessibilityComponent
+          },
+          {
+            path: Pages.Accessibility,
+            component: AccessibilityComponent
+          },
+          {
+            path: Pages.AltText,
+            component: AltTextComponent
+          },
+          {
+            path: Pages.UUTools,
+            component: UuToolsComponent
+          },
+        ]
+      },
       {
         path: Pages.OverviewComp,
         component: OverviewComponent
@@ -57,10 +83,6 @@ const routes: Routes = [
       {
         path: Pages.OverviewUtil,
         component: OverviewUtilComponent
-      },
-      {
-        path: Pages.OverviewAccess,
-        component: OverviewAccessibilityComponent
       },
       {
         path: Pages.Badge,
@@ -145,18 +167,6 @@ const routes: Routes = [
       {
         path: Pages.Notification,
         component: NotificationDotDocComponent
-      },
-      {
-        path: Pages.Accessibility,
-        component: AccessibilityComponent
-      },
-      {
-        path: Pages.AltText,
-        component: AltTextComponent
-      },
-      {
-        path: Pages.UUTools,
-        component: UuToolsComponent
       },
       {
         path: Pages.Spacing,

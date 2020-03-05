@@ -4,6 +4,7 @@ import { HomeModule } from './home/home.module';
 import { MainModule } from './main/main.module';
 import { NavbarModule } from './navbar/navbar.module';
 import { HeaderTabsModule } from './header-tabs/header-tabs.module';
+import { NavbarAccessibilityModule } from './navbar-accessibility/navbar-accessibility.module';
 
 @NgModule({
   imports: [
@@ -11,7 +12,8 @@ import { HeaderTabsModule } from './header-tabs/header-tabs.module';
     HeaderTabsModule,
     HomeModule,
     MainModule,
-    NavbarModule
+    NavbarModule,
+    NavbarAccessibilityModule
   ],
 })
 export class ShellModule { }

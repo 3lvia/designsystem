@@ -23,13 +23,18 @@ export enum Pages {
     Notification = 'notification-dot-doc',
     OverviewComp = 'overview-comp-doc',
     OverviewUtil = 'overview-util-doc',
-    OverviewAccess = 'overview-accessibility-doc',
     NewProject = 'new-project-doc',
     Contribute = 'contribute-doc',
-    Accessibility = 'accessibility-doc',
-    AltText = 'alttext-doc',
-    UUTools = 'uutools-doc',
+
     Spacing = 'spacing-doc',
     Border = 'border-doc',
     Template = 'template-doc',
+
+    // Accessibility Pages
+    AccessibilityStart = 'accessibility',
+    // children
+    OverviewAccess = 'overview-accessibility-doc',
+    Accessibility = 'accessibility-doc',
+    AltText = 'alttext-doc',
+    UUTools = 'uutools-doc',
 }
