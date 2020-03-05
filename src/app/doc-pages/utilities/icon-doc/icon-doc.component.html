@@ -30,12 +30,12 @@
         </div>
       </div>
     </div>
-    <div class="overview-icons-container">
+    <div class="overview-icons-container" @fadeIn>
       <div 
         class="icon-card"
         *ngFor="let icon of IconClassList | filter: term"
       >
-        <i  @fadeIn class="{{ icon.class }} e-icon-lg"></i>
+        <i class="{{ icon.class }} e-icon-lg"></i>
         <p>{{ icon.title }}</p>
       </div>
     </div>

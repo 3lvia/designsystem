@@ -5,7 +5,7 @@ export const fadeIn: AnimationTriggerMetadata = trigger('fadeIn', [
     state(
         'void',
         style({
-            transform: 'scale(0.5)',
+            transform: 'scale(0.8)',
             height: 0,
             opacity: 0
         })
