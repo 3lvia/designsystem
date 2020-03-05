@@ -1,0 +1,124 @@
+<ul class="navbar e-border-r e-pb-4">
+  <!-- <section>
+    <ul class="navbar-list">
+      <a [routerLink]="['', 'home']" routerLinkActive="active">
+        <h2 class="navbar-list-header e-pl-2">Get started</h2>
+      </a>
+      <li
+        class="navbar-item e-text-body"
+        *ngFor="let page of eHomes"
+      >
+        <a 
+          *ngIf="page.docUrl && page.title != 'Components'"
+          [routerLink]="['', page.docUrl]" 
+          routerLinkActive="active"
+        >
+          <div class="navbar-item-title">
+            {{ page.title }}
+          </div>
+          <span
+            class="e-badge e-bg-orange-peel"
+            *ngIf="page.status && (page.status === 'New')"
+          >{{ page.status }}</span>
+          <span
+            class="e-badge e-bg-red"
+            *ngIf="page.status && (page.status === 'Coming')"
+          >{{ page.status }}</span>
+        </a>
+        <a 
+          *ngIf="page.externalUrl && page.title != 'Components'" 
+          href={{page.externalUrl}}
+        >
+          <div class="navbar-item-title">
+            {{ page.title }}
+          </div>
+          <span
+            class="e-badge e-bg-orange-peel"
+            *ngIf="page.status && (page.status === 'New')"
+          >{{ page.status }}</span>
+          <span
+            class="e-badge e-bg-red"
+            *ngIf="page.status && (page.status === 'Coming')"
+          >{{ page.status }}</span>
+        </a>
+      </li>
+    </ul>
+  </section> -->
+  <section>
+    <ul class="navbar-list">
+      <a
+        [routerLink]="['', 'overview-comp-doc']"
+        routerLinkActive="active"
+      >
+        <h2 class="navbar-list-header e-pl-2">Components</h2>
+      </a>
+      <li
+        class="navbar-item e-text-body"
+        *ngFor="let navbarItem of eComponents"
+      >
+        <a
+          [routerLink]="['', navbarItem.docUrl]"
+          routerLinkActive="active"
+        >
+          <span class="navbar-item-title">
+            {{ navbarItem.title }}
+          </span>
+          <span
+            class="e-badge e-bg-orange-peel"
+            *ngIf="navbarItem.status && (navbarItem.status === 'New')"
+          >{{ navbarItem.status }}</span>
+          <span
+            class="e-badge e-bg-red"
+            *ngIf="navbarItem.status && (navbarItem.status === 'Coming')"
+          >{{ navbarItem.status }}</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <ul class="navbar-list">
+      <a
+        [routerLink]="['', 'overview-util-doc']"
+        routerLinkActive="active"
+      >
+        <h2 class="navbar-list-header e-pl-2">Utilities</h2>
+      </a>
+      <li
+        class="navbar-item e-text-body"
+        *ngFor="let navbarItem of eUtilities"
+      >
+        <a
+          [routerLink]="['', navbarItem.docUrl]"
+          routerLinkActive="active"
+        >
+          <div class="navbar-item-title">
+            {{ navbarItem.title }}
+          </div>
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <ul class="navbar-list">
+      <a
+        [routerLink]="['', 'overview-accessibility-doc']"
+        routerLinkActive="active"
+      >
+        <h2 class="navbar-list-header e-pl-2">Accessibility</h2>
+      </a>
+      <li
+        class="navbar-item e-text-body"
+        *ngFor="let navbarItem of eAccessibility"
+      >
+        <a
+          [routerLink]="['', navbarItem.docUrl]"
+          routerLinkActive="active"
+        >
+          <div class="navbar-item-title">
+            {{ navbarItem.title }}
+          </div>
+        </a>
+      </li>
+    </ul>
+  </section>
+</ul>
