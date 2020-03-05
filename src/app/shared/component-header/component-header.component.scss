@@ -29,7 +29,9 @@
       }
     }
     &__description {
-      padding-top: 24px;
+      &.class-margin {
+        padding-top: 24px;
+      }
     }
   }
 

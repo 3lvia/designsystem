@@ -204,8 +204,8 @@ export const eAccessibility: EItems[] = [
         actionText: 'View requirements',
     },
     {
-        title: 'Alternative texts (alt)',
-        description: 'Meaningful text',
+        title: 'Alt-texts',
+        description: 'All meaningful images should have an alt-text (alternative text)',
         docUrl: Pages.AltText,
         actionText: 'View requirements',
     },

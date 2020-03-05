@@ -31,7 +31,7 @@
           {{ class }}
         </code>
       </p>
-      <p class="component-header__description">
+      <p class="component-header__description" [ngClass]="{ 'class-margin': componentClasses && componentClasses.length>0}">
         <ng-content select="headerDescription"></ng-content>
       </p>
     </div>

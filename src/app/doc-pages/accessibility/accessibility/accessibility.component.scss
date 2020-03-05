@@ -26,39 +26,13 @@
 
 .links-container {
   display: flex;
-  flex-direction: column;
-  padding: 10px 0;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
   .e-card {
     margin: 10px 0px;
+    width: 48%;
   }
 }
 
-.elvia-factbox {
-  display: flex;
-  padding: 10px 10px;
-  border: 2px solid var(--e-grey-silver);
-  border-radius: 4px;
-  margin: 10px 0;
-
-  &.is-info {
-    background-color: var(--e-yellow-05);
-  }
-
-  &.is-warn {
-    background: var(--e-orange-peel-05);
-  }
-
-  &_icon {
-    display: inline-flex;
-    align-self: center;
-    margin-right: 10px;
-    line-height: 24px;
-    vertical-align: top;
-  }
-
-  &-content {
-    display: flex;
-    margin-left: 20px;
-  }
-}
