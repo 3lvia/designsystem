@@ -5,5 +5,4 @@ export interface EItems {
     docUrl?: string;
     externalUrl?: string;
     status?: string;
-    previewCode?: string;
 }

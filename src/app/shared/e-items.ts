@@ -42,7 +42,6 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Feedback,
         status: ItemStatus.Ignore,
         actionText: 'View component',
-        previewCode: `<button class="e-button">Standard</button>`,
     },
     {
         title: 'Badge',
@@ -50,14 +49,6 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Badge,
         status: ItemStatus.New,
         actionText: 'View component',
-        previewCode: `<div class="e-feedback-message is-success">
-        <p class="e-feedback-message_message">
-          Something was a success!
-        </p>
-        <button class="e-feedback-message_close-button">
-        <i class="fal fa-times-circle"></i>
-        </button>
-      </div>`
     },
     {
         title: 'Button',
@@ -65,7 +56,6 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Button,
         status: ItemStatus.Ignore,
         actionText: 'View component',
-        previewCode: `<button class="e-button">Standard</button>`,
     },
     {
         title: 'Card',
@@ -73,16 +63,6 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Card,
         status: ItemStatus.Ignore,
         actionText: 'View component',
-        previewCode: `<div class="e-card">
-        <div class="e-card_header">
-          <div class="e-card_header_text">
-            <div class="e-card_title">Title</div>
-          </div>
-        </div>
-        <div class="e-card_content">
-          <p>The different pieces of a card can be combined as desired.</p>
-        </div>
-      </div>`,
     },
     {
         title: 'Checkbox',
