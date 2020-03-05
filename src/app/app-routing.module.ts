@@ -36,6 +36,7 @@ import { ContributeComponent } from './doc-pages/get-started/contribute/contribu
 import { NewProjectComponent } from './doc-pages/get-started/new-project/new-project.component';
 import { TemplatesComponent } from './doc-pages/get-started/templates/templates.component';
 import { AccessibilityStartComponent } from './doc-pages/accessibility/accessibility-start/accessibility-start.component';
+import { ComponentsStartComponent } from './doc-pages/components/components-start/components-start.component';
 
 
 const routes: Routes = [
@@ -77,56 +78,90 @@ const routes: Routes = [
         ]
       },
       {
-        path: Pages.OverviewComp,
-        component: OverviewComponent
+        path: Pages.ComponentsStart,
+        component: ComponentsStartComponent,
+        children: [
+          {
+            path: '',
+            component: OverviewComponent
+          },
+          {
+            path: Pages.OverviewComp,
+            component: OverviewComponent
+          },
+          {
+            path: Pages.Badge,
+            component: BadgeDocComponent
+          },
+          {
+            path: Pages.Button,
+            component: ButtonDocComponent
+          },
+          {
+            path: Pages.Card,
+            component: CardDocComponent
+          },
+          {
+            path: Pages.Checkbox,
+            component: CheckboxDocComponent
+          },
+          {
+            path: Pages.CheckboxToggle,
+            component: CheckboxToggleDocComponent
+          },
+          {
+            path: Pages.Divider,
+            component: DividerDocComponent
+          },
+          {
+            path: Pages.Dropdown,
+            component: DropdownDocComponent
+          },
+          {
+            path: Pages.Feedback,
+            component: FeedbackDocComponent
+          },
+          {
+            path: Pages.Header,
+            component: HeaderDocComponent
+          },
+          {
+            path: Pages.Input,
+            component: InputDocComponent
+          },
+          {
+            path: Pages.Link,
+            component: LinkDocComponent
+          },
+          {
+            path: Pages.Notification,
+            component: NotificationDotDocComponent
+          },
+          {
+            path: Pages.Radiobutton,
+            component: RadiobuttonDocComponent
+          },
+          {
+            path: Pages.Select,
+            component: SelectDocComponent
+          },
+          {
+            path: Pages.Table,
+            component: TableDocComponent
+          },
+          {
+            path: Pages.Tags,
+            component: TagsDocComponent
+          },
+          {
+            path: Pages.Tooltip,
+            component: TooltipDocComponent
+          },
+        ]
       },
       {
         path: Pages.OverviewUtil,
         component: OverviewUtilComponent
-      },
-      {
-        path: Pages.Badge,
-        component: BadgeDocComponent
-      },
-      {
-        path: Pages.Button,
-        component: ButtonDocComponent
-      },
-      {
-        path: Pages.Card,
-        component: CardDocComponent
-      },
-      {
-        path: Pages.Divider,
-        component: DividerDocComponent
-      },
-      {
-        path: Pages.Dropdown,
-        component: DropdownDocComponent
-      },
-      {
-        path: Pages.Feedback,
-        component: FeedbackDocComponent
-      },
-      {
-        path: Pages.Header,
-        component: HeaderDocComponent
-      },
-      {
-        path: Pages.Link,
-        component: LinkDocComponent
-      },
-      {
-        path: Pages.Table,
-        component: TableDocComponent
-      },
-      {
-        path: Pages.Tags,
-        component: TagsDocComponent
-      },
-      {
-        path: Pages.Tooltip,
-        component: TooltipDocComponent
       },
       {
         path: Pages.Color,
@@ -141,33 +176,10 @@ const routes: Routes = [
         component: TypographyDocComponent
       },
       {
-        path: Pages.Checkbox,
-        component: CheckboxDocComponent
-      },
-      {
-        path: Pages.CheckboxToggle,
-        component: CheckboxToggleDocComponent
-      },
-      {
-        path: Pages.Input,
-        component: InputDocComponent
-      },
-      {
-        path: Pages.Radiobutton,
-        component: RadiobuttonDocComponent
-      },
-      {
-        path: Pages.Select,
-        component: SelectDocComponent
-      },
-      {
         path: Pages.Shadow,
         component: ShadowDocComponent
       },
-      {
-        path: Pages.Notification,
-        component: NotificationDotDocComponent
-      },
+
       {
         path: Pages.Spacing,
         component: SpacingDocComponent

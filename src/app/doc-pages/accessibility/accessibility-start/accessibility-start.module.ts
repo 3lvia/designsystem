@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccessibilityStartComponent } from './accessibility-start.component';
-import { NavbarAccessibilityModule } from 'src/app/shell/navbar-accessibility/navbar-accessibility.module';
 import { RouterModule } from '@angular/router';
+import { NavbarAccessibilityModule } from 'src/app/shell/navbar-accessibility/navbar-accessibility.module';
 
 
 @NgModule({

@@ -1,3 +1,34 @@
-<p>
-  navbar-components works!
-</p>
+<ul class="navbar e-border-r e-pb-4">
+
+  <section>
+    <ul class="navbar-list">
+      <a
+        [routerLink]="['overview-comp-doc']"
+        routerLinkActive="active"
+      >
+        <h2 class="navbar-list-header e-pl-2">Components</h2>
+      </a>
+      <li
+        class="navbar-item e-text-body"
+        *ngFor="let navbarItem of eComponents"
+      >
+        <a
+          [routerLink]="[navbarItem.docUrl]"
+          routerLinkActive="active"
+        >
+          <span class="navbar-item-title">
+            {{ navbarItem.title }}
+          </span>
+          <span
+            class="e-badge e-bg-orange-peel"
+            *ngIf="navbarItem.status && (navbarItem.status === 'New')"
+          >{{ navbarItem.status }}</span>
+          <span
+            class="e-badge e-bg-red"
+            *ngIf="navbarItem.status && (navbarItem.status === 'Coming')"
+          >{{ navbarItem.status }}</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+</ul>

@@ -32,6 +32,7 @@ import { ContributeModule } from './get-started/contribute/contribute.module';
 import { NewProjectModule } from './get-started/new-project/new-project.module';
 import { TemplatesModule } from './get-started/templates/templates.module';
 import { AccessibilityStartModule } from './accessibility/accessibility-start/accessibility-start.module';
+import { ComponentsStartModule } from './components/components-start/components-start.module';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { AccessibilityStartModule } from './accessibility/accessibility-start/ac
     ContributeModule,
     NewProjectModule,
     TemplatesModule,
-    AccessibilityStartModule
+    AccessibilityStartModule,
+    ComponentsStartModule
   ],
 })
 export class DocPagesModule { }

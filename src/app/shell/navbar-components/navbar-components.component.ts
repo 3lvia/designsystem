@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { eComponents } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-navbar-components',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar-components.component.scss']
 })
 export class NavbarComponentsComponent implements OnInit {
+
+  eComponents = eComponents;
+
 
   constructor() { }
 
