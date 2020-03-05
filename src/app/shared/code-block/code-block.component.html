@@ -19,8 +19,8 @@
     <div class="element">
       <div #preview></div>
     </div>
-    <div class="show-code" *ngIf="!showCode" (click)="changeShowCodeStatus()">View code</div>
-    <div class="hide-code" *ngIf="showCode" (click)="changeShowCodeStatus()">Hide code</div>
+    <div class="show-code e-border" *ngIf="!showCode" (click)="changeShowCodeStatus()">View code</div>
+    <div class="hide-code e-border" *ngIf="showCode" (click)="changeShowCodeStatus()">Hide code</div>
     <div class="code" *ngIf="showCode">
       <app-code-highlighter
         [isHTML]="isHTML"

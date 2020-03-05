@@ -11,27 +11,6 @@ $card-actions-button-spacing: 25px;
   margin-bottom: 64px;
 }
 
-// Alternative
-.color-palette-container {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-direction: column;
-  width: 18%;
-  margin: 0px 15px;
-}
-
-
-.color-palette {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  width: fit-content, available;
-  min-height: 35px;
-  height: fit-content, available;
-}
-
 
 // Alternative
 .color-container {
@@ -44,30 +23,31 @@ $card-actions-button-spacing: 25px;
 }
 
 .color-card {
-  border-radius: 10px;
   display: inline-flex;
   flex-direction: column;
   box-sizing: border-box;
   padding: 16px;
-  width: 30%;
-  min-width: 140px;
-  max-width: 250px;
+  width: 31%;
+  height: 100%;
 
   &.primary {
     width: 48%;
-    min-width: 250px;
-    max-width: 400px;
   }
 
   &-display-color {
     margin: auto;
     margin-top: 10px;
-    min-width: 140px;
-    max-width: 250px;
-    min-height: 140px;
-    max-height: 250px;
+    min-width: 110px;
+    min-height: 110px;
+    max-width: 170px;
+    max-height: 170px;
     border-radius: 50%;
     border: 2px solid transparent;
+
+    &.primary {
+      width: 170px;
+      height: 170px;
+    }
   }
 
   &-hex {
@@ -75,7 +55,7 @@ $card-actions-button-spacing: 25px;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 8px 0;
+    margin-top: 16px;
     border-bottom: 1px solid var(--e-black);
   }
 
