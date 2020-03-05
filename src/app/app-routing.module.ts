@@ -37,7 +37,6 @@ import { NewProjectComponent } from './doc-pages/get-started/new-project/new-pro
 import { TemplatesComponent } from './doc-pages/get-started/templates/templates.component';
 import { AccessibilityStartComponent } from './doc-pages/accessibility/accessibility-start/accessibility-start.component';
 import { ComponentsStartComponent } from './doc-pages/components/components-start/components-start.component';
-import { UtilitiesStartComponent } from './doc-pages/utilities/utilities-start/utilities-start.component';
 
 
 const routes: Routes = [
@@ -53,12 +52,6 @@ const routes: Routes = [
         path: Pages.Home,
         component: HomeComponent
       },
-      // Might remove, if no content. Currently only redirects to github repo
-      {
-        path: Pages.Contribute,
-        component: ContributeComponent
-      },
-      // Accessibility section
       { path: Pages.AccessibilityStart,
         component: AccessibilityStartComponent,
         children: [
@@ -84,7 +77,6 @@ const routes: Routes = [
           },
         ]
       },
-      // Components section
       {
         path: Pages.ComponentsStart,
         component: ComponentsStartComponent,
@@ -167,53 +159,47 @@ const routes: Routes = [
           },
         ]
       },
-      // Utilities section
       {
-        path: Pages.UtilitiesStart,
-        component: UtilitiesStartComponent,
-        children: [
-          {
-            path: '',
-            component: OverviewUtilComponent
-          },
-          {
-            path: Pages.OverviewComp,
-            component: OverviewUtilComponent
-          },
-          {
-            path: Pages.Border,
-            component: BorderDocComponent
-          },
-          {
-            path: Pages.Color,
-            component: ColorDocComponent
-          },
-          {
-            path: Pages.Icon,
-            component: IconDocComponent
-          },
-          {
-            path: Pages.NewProject,
-            component: NewProjectComponent
-          },
-          {
-            path: Pages.Template,
-            component: TemplatesComponent
-          },
-          {
-            path: Pages.Typography,
-            component: TypographyDocComponent
-          },
-          {
-            path: Pages.Shadow,
-            component: ShadowDocComponent
-          },
-          {
-            path: Pages.Spacing,
-            component: SpacingDocComponent
-          },
-        ]
-      }
+        path: Pages.OverviewUtil,
+        component: OverviewUtilComponent
+      },
+      {
+        path: Pages.Color,
+        component: ColorDocComponent
+      },
+      {
+        path: Pages.Icon,
+        component: IconDocComponent
+      },
+      {
+        path: Pages.Typography,
+        component: TypographyDocComponent
+      },
+      {
+        path: Pages.Shadow,
+        component: ShadowDocComponent
+      },
+
+      {
+        path: Pages.Spacing,
+        component: SpacingDocComponent
+      },
+      {
+        path: Pages.Border,
+        component: BorderDocComponent
+      },
+      {
+        path: Pages.Contribute,
+        component: ContributeComponent
+      },
+      {
+        path: Pages.NewProject,
+        component: NewProjectComponent
+      },
+      {
+        path: Pages.Template,
+        component: TemplatesComponent
+      },
     ]
   }
 ];

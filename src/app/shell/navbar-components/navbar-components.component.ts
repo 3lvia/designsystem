@@ -4,7 +4,7 @@ import { eComponents } from 'src/app/shared/e-items';
 @Component({
   selector: 'app-navbar-components',
   templateUrl: './navbar-components.component.html',
-  styleUrls: ['../navbar-style.scss']
+  styleUrls: ['./navbar-components.component.scss']
 })
 export class NavbarComponentsComponent implements OnInit {
 

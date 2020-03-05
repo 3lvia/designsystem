@@ -1,34 +1,42 @@
 @import '../../shared/shared-sizes';
 
+p {
+  position: fixed;
+  top: 80px;
+  height: $header-tabs-height;
+  margin-left: 2px;
+  z-index: 99;
+  margin-bottom: 24px;
+}
+
 .tabs {
+  /**
+   * Setting display to flex makes this container lay
+   * out its children using flexbox, the exact same
+   * as in the above "Stepper input" example.
+   */
 position: fixed;
 background-color: #fff;
 box-sizing: border-box;
 
-display: flex;
-padding-top: 8px;
-height: $header-tabs-height;
-width: 100%;
-top: 80px;
-overflow: hidden;
-z-index: 11;
+  display: flex;
+  padding-top: 8px;
+  height: 32px;
+  width: 100%;
+  top: 80px;
+  overflow: hidden;
+  z-index: 11;
 }
 
 .tab {
 cursor: pointer;
-width: 10%;
-min-width: 20px;
+margin: 0px 10px;
+width: 8%;
 text-align: center;
 font-size: 20px;
-border-bottom: 0px solid transparent;
-transition: border-width 150ms linear;
+border-bottom: 4px solid transparent;
 
 &.active {
-  font-weight: bold;
-  border-bottom:4px solid #29D305;
-}
-&:hover {
-  font-weight: bold;
-  border-bottom:4px solid #29D305;
+    border-bottom-color: #29D305;
 }
 }
