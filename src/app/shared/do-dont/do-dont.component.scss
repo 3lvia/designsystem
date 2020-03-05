@@ -1,9 +1,7 @@
-@import "~@hafslundnett/elvis/src/variables/colors.scss";
-
 .doDont-container {
     display: inline-block;
     width: 50%;
-    margin: 26px 0;
+    margin: 8px 0;
     
     .doDont, .doDo {
         margin: 0 8px;
@@ -27,9 +25,9 @@
     }
 
     &.do {
-        border-top: 5px solid color('green-lime');
+        border-top: 5px solid var(--e-green-lime);
     }
     &.dont {
-        border-top: 5px solid color('red');
+        border-top: 5px solid var(--e-red);
     }
 }

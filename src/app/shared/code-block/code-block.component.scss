@@ -24,8 +24,17 @@
 
   &-body {
     margin-bottom: 64px;
+
+    .show-code, .hide-code {
+      background: #ddd;
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      padding: 12px;
+    }
+
     .element {
-      padding: 32px 16px;
+      padding: 32px;
     }
   }
 }

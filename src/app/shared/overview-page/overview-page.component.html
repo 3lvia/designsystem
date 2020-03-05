@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="main-container page-body">
   <h1>{{ overviewTitle }}</h1>
   <div class="page-card-container">
     <div class="e-card" *ngFor="let page of pages">
@@ -8,16 +8,19 @@
         </div>
       </div>
       <div class="e-card_content">
+        <p *ngIf="page.imageUrl">
+          <img [src]="page.imageUrl" width="100%" alt="Logo">
+        </p>
         <p>{{ page.description }}</p>
       </div>
       <div class="e-card_actions" *ngIf="page.docUrl">
         <a class="e-card_actions_action" [routerLink]="[page.docUrl]">
-          View more
+          {{ page.actionText }}
         </a>
       </div>
       <div class="e-card_actions" *ngIf="page.externalUrl">
         <a class="e-card_actions_action" href={{page.externalUrl}}>
-          View more
+          {{ page.actionText }}
         </a>
       </div>
     </div>

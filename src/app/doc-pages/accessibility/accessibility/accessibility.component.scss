@@ -1,5 +1,3 @@
-@import "~@hafslundnett/elvis/src/variables/colors.scss";
-
 .header {
   &-main {
     padding: 8px 0px;
@@ -12,17 +10,13 @@
 
 .elvis-example {
   padding: 10px 40px;
-  max-width: 50%;
-  margin-left: 40px;
-  background: #eee;
+  background: var(--e-grey-mine-shaft-02);
 
   &-header {
-    font-size: 1.15rem;
     margin: 15px 0px;
   }
 
   &-content {
-    font-size: 1rem;
 
     li {
       margin: 10px 0px;
@@ -30,55 +24,15 @@
   }
 }
 
-.elvis-table-container {
-  padding: 10px 0;
-  max-width: 70%;
-}
-
 .links-container {
   display: flex;
-  flex-direction: column;
-  padding: 10px 40px;
-  max-width: 50%;
-}
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
-.e-card {
-  margin: 10px 0px;
-}
-
-.elvia-factbox {
-  display: flex;
-  padding: 10px 10px;
-  border: 2px solid color("grey-silver");
-  border-radius: 4px;
-  margin: 10px 0;
-
-  &.is-info {
-    background-color: color("yellow-05");
-  }
-
-  &.is-warn {
-    background: color("orange-peel-05");
-  }
-
-  &_icon {
-    display: inline-flex;
-    align-self: center;
-    margin-right: 10px;
-    line-height: 24px;
-    vertical-align: top;
-  }
-
-  &-content {
-    display: flex;
-    margin-left: 20px;
+  .e-card {
+    margin: 10px 0px;
+    width: 48%;
   }
 }
 
-.elvia-tips-list {
-  li {
-    margin-bottom: 8px;
-    list-style-position: inside;
-    margin-left: 5px;
-  }
-}

@@ -5,6 +5,9 @@ let sass = require('gulp-sass');
 let cleanCSS = require('gulp-clean-css');
 let rename = require("gulp-rename");
 let del = require('del');
+let postcss = require('gulp-postcss');
+let cssvariables = require('postcss-css-variables');
+
  
 sass.compiler = require('node-sass');
 
@@ -14,6 +17,7 @@ function clean() {
 
 function styles () {
   return gulp.src('./src/main.scss')
+    .pipe(postcss([cssvariables()]))
     .pipe(sass().on('error', sass.logError))
     .pipe(rename('elvis.css'))
     .pipe(gulp.dest('./css/'));
@@ -21,12 +25,12 @@ function styles () {
 
 function minify() {
   return gulp.src('./css/*.css')
-  .pipe(cleanCSS({debug: true}, (details) => {
-    console.log(`${details.name}: ${details.stats.originalSize}`);
-    console.log(`${details.name}: ${details.stats.minifiedSize}`);
-  }))
-  .pipe(rename('elvis.min.css'))
-  .pipe(gulp.dest('./css/'));
+    .pipe(cleanCSS({debug: true}, (details) => {
+      console.log(`${details.name}: ${details.stats.originalSize}`);
+      console.log(`${details.name}: ${details.stats.minifiedSize}`);
+    }))
+    .pipe(rename('elvis.min.css'))
+    .pipe(gulp.dest('./css/'));
 }
 
 gulp.task('default', gulp.series (clean, styles, minify,

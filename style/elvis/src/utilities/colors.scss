@@ -1,4 +1,5 @@
 // Making background and color classes for all colors
+
 .e {
   &-text {
     color: color('black');
@@ -6,21 +7,26 @@
   &-bg {
     background: color('white');
   }
+}
+  
+@each $label, $map in $colors {
+  $color: color($label);
+  $contrast-text: map-get($map, contrast-text);
 
-  @each $label, $map in $colors {
-    $color: color($label);
-    $contrast-text: map-get($map, contrast-text);
+  $alt-labels: map-get($map, alt-labels);
+  $labels: ($label);
 
-    $alt-labels: map-get($map, alt-labels);
-    $labels: ($label);
-
-    @if $alt-labels {
-      @each $label in $alt-labels {
-        $labels: append($labels, $label);
-      }
+  @if $alt-labels {
+    @each $label in $alt-labels {
+      $labels: append($labels, $label);
     }
+  }
 
-    @each $label in $labels {
+  @each $label in $labels {
+    :root {
+      --e-#{$label}: #{$color};
+    }
+    .e {
       &-text-#{$label} {
         color: $color;
       }

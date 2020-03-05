@@ -1,7 +1,7 @@
 @import '../shared-sizes';
 
 .component {
-  background: #efeeee;
+  background: #efefef;
 
   &-header {
     padding: 16px 0;
@@ -29,7 +29,9 @@
       }
     }
     &__description {
-      padding-top: 24px;
+      &.class-margin {
+        padding-top: 24px;
+      }
     }
   }
 
@@ -38,7 +40,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     margin-bottom: 48px;
-    background: #fff;
+    background: var(--e-white);
 
     &__title {
       border-left: none;
@@ -49,12 +51,12 @@
       width: 100%;
       height: 100%;
       justify-content: center;
-      background: #e9e9e9;
+      background: #dddddd;
       cursor: pointer;
       
       &.active {
         border-bottom: none;
-        background: #fff;
+        background: var(--e-white);
       }
     }
   }
