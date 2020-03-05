@@ -33,7 +33,6 @@ import { NewProjectModule } from './get-started/new-project/new-project.module';
 import { TemplatesModule } from './get-started/templates/templates.module';
 import { AccessibilityStartModule } from './accessibility/accessibility-start/accessibility-start.module';
 import { ComponentsStartModule } from './components/components-start/components-start.module';
-import { UtilitiesStartModule } from './utilities/utilities-start/utilities-start.module';
 
 
 @NgModule({
@@ -72,8 +71,7 @@ import { UtilitiesStartModule } from './utilities/utilities-start/utilities-star
     NewProjectModule,
     TemplatesModule,
     AccessibilityStartModule,
-    ComponentsStartModule,
-    UtilitiesStartModule
+    ComponentsStartModule
   ],
 })
 export class DocPagesModule { }

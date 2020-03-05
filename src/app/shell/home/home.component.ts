@@ -8,6 +8,7 @@ import { eHomes } from 'src/app/shared/e-items';
 })
 export class HomeComponent implements OnInit {
 
+  overviewTitle = 'Get started!';
   pages = eHomes;
 
   constructor() { }

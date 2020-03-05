@@ -6,14 +6,12 @@ export const eHomes: EItems[] = [
     {
         title: 'New project',
         description: 'Guidance how to use, and implementation of Elvia Designsystem.',
-        docUrl: Pages.NewProject,
-        absolutePath: '/utilities/new-project-doc'
+        docUrl: Pages.NewProject
     },
     {
         title: 'Components',
         description: 'Explore components that are available in Elvia Designsystem.',
-        docUrl: Pages.OverviewComp,
-        absolutePath: '/components/overview-comp-doc'
+        docUrl: Pages.OverviewComp
     },
     {
         title: 'Contribute',
@@ -28,8 +26,7 @@ export const eHomes: EItems[] = [
     {
         title: 'Templates',
         description: 'Page template and starte templates for new projects?',
-        docUrl: Pages.Template,
-        absolutePath: '/utilities/template-doc'
+        docUrl: Pages.Template
     },
 ];
 
@@ -140,11 +137,6 @@ export const eComponents: EItems[] = [
 
 export const eUtilities: EItems[] = [
     {
-        title: 'Border',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Border
-    },
-    {
         title: 'Colors',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Color
@@ -153,21 +145,6 @@ export const eUtilities: EItems[] = [
         title: 'Icons',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Icon
-    },
-    {
-        title: 'New project',
-        description: 'Guidance how to use, and implementation of Elvia Designsystem.',
-        docUrl: Pages.NewProject
-    },
-    {
-        title: 'Icons',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Icon
-    },
-    {
-        title: 'Templates',
-        description: 'Page template and starte templates for new projects?',
-        docUrl: Pages.Template
     },
     {
         title: 'Typography',
@@ -184,6 +161,11 @@ export const eUtilities: EItems[] = [
         description: 'Some useful component with amazing features',
         docUrl: Pages.Shadow
     },
+    {
+        title: 'Border',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Border
+    }
 ];
 
 export const eAccessibility: EItems[] = [
