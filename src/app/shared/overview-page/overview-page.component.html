@@ -8,16 +8,22 @@
         </div>
       </div>
       <div class="e-card_content">
+        <div class="preview-code">
+          <p class="preview-code-example" [innerHTML]="page.previewCode"></p>
+        </div>
+        <p *ngIf="page.imageUrl">
+          <img [src]="page.imageUrl" width="100%" alt="Logo">
+        </p>
         <p>{{ page.description }}</p>
       </div>
       <div class="e-card_actions" *ngIf="page.docUrl">
         <a class="e-card_actions_action" [routerLink]="['', page.docUrl]">
-          View more
+          {{ page.actionText }}
         </a>
       </div>
       <div class="e-card_actions" *ngIf="page.externalUrl">
         <a class="e-card_actions_action" href={{page.externalUrl}}>
-          View more
+          {{ page.actionText }}
         </a>
       </div>
     </div>

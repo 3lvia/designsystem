@@ -6,132 +6,174 @@ export const eHomes: EItems[] = [
     {
         title: 'New project',
         description: 'Guidance how to use, and implementation of Elvia Designsystem.',
-        docUrl: Pages.NewProject
+        docUrl: Pages.NewProject,
+        actionText: 'Get started',
     },
     {
         title: 'Components',
         description: 'Explore components that are available in Elvia Designsystem.',
-        docUrl: Pages.OverviewComp
+        docUrl: Pages.OverviewComp,
+        actionText: 'View components',
     },
     {
         title: 'Contribute',
         description: 'Guidance to how to contribute to Elvia Designsystem.',
-        docUrl: Pages.Contribute
+        docUrl: Pages.Contribute,
+        actionText: 'Start contributing',
     },
     {
         title: 'Discussion',
         description: 'Report a bug? Request a new feauture?',
-        externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose'
+        externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose',
+        actionText: 'Give feedback',
     },
     {
         title: 'Templates',
         description: 'Page template and starte templates for new projects?',
-        docUrl: Pages.Template
+        docUrl: Pages.Template,
+        actionText: 'View templates',
     },
 ];
 
 export const eComponents: EItems[] = [
     {
+        title: 'Alerts',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Feedback,
+        status: ItemStatus.Ignore,
+        actionText: 'View component',
+        previewCode: `<button class="e-button">Standard</button>`,
+    },
+    {
         title: 'Badge',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Badge,
         status: ItemStatus.New,
+        actionText: 'View component',
+        previewCode: `<div class="e-feedback-message is-success">
+        <p class="e-feedback-message_message">
+          Something was a success!
+        </p>
+        <button class="e-feedback-message_close-button">
+        <i class="fal fa-times-circle"></i>
+        </button>
+      </div>`
     },
     {
         title: 'Button',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Button,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
+        previewCode: `<button class="e-button">Standard</button>`,
     },
     {
         title: 'Card',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Card,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
+        previewCode: `<div class="e-card">
+        <div class="e-card_header">
+          <div class="e-card_header_text">
+            <div class="e-card_title">Title</div>
+          </div>
+        </div>
+        <div class="e-card_content">
+          <p>The different pieces of a card can be combined as desired.</p>
+        </div>
+      </div>`,
     },
     {
         title: 'Checkbox',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Checkbox,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
     },
     {
         title: 'Checkbox-Toggle',
         description: 'Some useful component with amazing features',
         docUrl: Pages.CheckboxToggle,
         status: ItemStatus.Coming,
+        actionText: 'View component',
     },
     {
         title: 'Divider',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Divider,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
     },
     {
         title: 'Dropdown',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Dropdown,
         status: ItemStatus.Ignore,
-    },
-    {
-        title: 'Alerts',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Feedback,
-        status: ItemStatus.Ignore,
+        actionText: 'View component',
     },
     {
         title: 'Header',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Header,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
     },
     {
         title: 'Input',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Input,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
     },
     {
         title: 'Link',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Link,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
     },
     {
         title: 'Notification-Dot',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Notification,
         status: ItemStatus.New,
+        actionText: 'View component',
     },
     {
         title: 'Radiobutton',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Radiobutton,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
     },
     {
         title: 'Select',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Select,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
     },
     {
         title: 'Table',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Table,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
     },
     {
         title: 'Tags',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Tags,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
     },
     {
         title: 'Tooltip',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Tooltip,
         status: ItemStatus.Ignore,
+        actionText: 'View component',
     }
 ];
 
@@ -139,32 +181,38 @@ export const eUtilities: EItems[] = [
     {
         title: 'Colors',
         description: 'Some useful component with amazing features',
-        docUrl: Pages.Color
+        docUrl: Pages.Color,
+        actionText: 'View utility',
     },
     {
         title: 'Icons',
         description: 'Some useful component with amazing features',
-        docUrl: Pages.Icon
+        docUrl: Pages.Icon,
+        actionText: 'View utility',
     },
     {
         title: 'Typography',
         description: 'Some useful component with amazing features',
-        docUrl: Pages.Typography
+        docUrl: Pages.Typography,
+        actionText: 'View utility',
     },
     {
         title: 'Spacing',
         description: 'Some useful component with amazing features',
-        docUrl: Pages.Spacing
+        docUrl: Pages.Spacing,
+        actionText: 'View utility',
     },
     {
         title: 'Shadow',
         description: 'Some useful component with amazing features',
-        docUrl: Pages.Shadow
+        docUrl: Pages.Shadow,
+        actionText: 'View utility',
     },
     {
         title: 'Border',
         description: 'Some useful component with amazing features',
-        docUrl: Pages.Border
+        docUrl: Pages.Border,
+        actionText: 'View utility',
     }
 ];
 
@@ -172,17 +220,20 @@ export const eAccessibility: EItems[] = [
     {
         title: 'Accessibility',
         description: 'Accessibility in Elvia Designsystem',
-        docUrl: Pages.Accessibility
+        docUrl: Pages.Accessibility,
+        actionText: 'View requirements',
     },
     {
-        title: 'AltText',
-        description: 'Meaningfull text',
-        docUrl: Pages.AltText
+        title: 'Alternative texts (alt)',
+        description: 'Meaningful text',
+        docUrl: Pages.AltText,
+        actionText: 'View requirements',
     },
     {
-        title: 'UU-Tools',
-        description: 'Usefull UU tools',
-        docUrl: Pages.UUTools
+        title: 'UU Tools',
+        description: 'Useful UU tools',
+        docUrl: Pages.UUTools,
+        actionText: 'View tools',
     },
 ];
 

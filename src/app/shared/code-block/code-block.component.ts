@@ -1,9 +1,11 @@
 import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { heightDown } from 'src/app/shared/animations';
 
 @Component({
   selector: 'app-code-block',
   templateUrl: './code-block.component.html',
-  styleUrls: ['./code-block.component.scss']
+  styleUrls: ['./code-block.component.scss'],
+  animations: [heightDown]
 })
 
 

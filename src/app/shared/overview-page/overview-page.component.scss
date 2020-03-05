@@ -16,6 +16,16 @@
       max-width: 600px;
       min-height: 200px;
       margin: 20px 0;
+
+      .preview-code {
+        width: 160%;
+        margin-left: -30%;
+        margin-top: -30px;
+
+        &-example {
+          transform: scale(0.6);
+        }
+      }
     }
   }
 }
