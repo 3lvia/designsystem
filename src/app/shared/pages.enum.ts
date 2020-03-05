@@ -1,15 +1,8 @@
 export enum Pages {
+    // Home Pages
     Home = 'home',
-
-    Color = 'color-doc',
-    Icon = 'icon-doc',
-    Typography = 'typography-doc',
-    OverviewComp = 'overview-comp-doc',
-    OverviewUtil = 'overview-util-doc',
     NewProject = 'new-project-doc',
     Contribute = 'contribute-doc',
-    Spacing = 'spacing-doc',
-    Border = 'border-doc',
     Template = 'template-doc',
 
     // Accessibility Pages
@@ -23,6 +16,7 @@ export enum Pages {
     // Component Pages
     ComponentsStart = 'components',
     // Children
+    OverviewComp = 'overview-comp-doc',
     Badge = 'badge-doc',
     Button = 'button-doc',
     Card = 'card-doc',
@@ -37,10 +31,20 @@ export enum Pages {
     Notification = 'notification-dot-doc',
     Radiobutton = 'radiobutton-doc',
     Select = 'select-doc',
-    Shadow = 'shadow-doc',
     Table = 'table-doc',
     Tags = 'tags-doc',
     Tooltip = 'tooltip-doc',
+
+    // Utilities Pages
+    UtilitiesStart = 'utilities',
+    // Children
+    OverviewUtil = 'overview-util-doc',
+    Border = 'border-doc',
+    Color = 'color-doc',
+    Icon = 'icon-doc',
+    Typography = 'typography-doc',
+    Shadow = 'shadow-doc',
+    Spacing = 'spacing-doc',
 
 
 }
