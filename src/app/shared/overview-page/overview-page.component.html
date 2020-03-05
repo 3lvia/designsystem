@@ -11,7 +11,7 @@
         <p>{{ page.description }}</p>
       </div>
       <div class="e-card_actions" *ngIf="page.docUrl">
-        <a class="e-card_actions_action" [routerLink]="['', page.docUrl]">
+        <a class="e-card_actions_action" [routerLink]="[page.docUrl]">
           View more
         </a>
       </div>
