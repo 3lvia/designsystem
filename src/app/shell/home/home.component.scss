@@ -1,17 +1,22 @@
-.container {
+@import '../../shared/shared-sizes.scss';
+
+.main-container {
+  padding: $page-padding;
+
+  .page-card-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-start;
     margin: auto;
     height: 100%;
-    margin-top: 75px;
-}
 
-.landingcard {
-    display: flex;
-    width: 400px;
-    min-height: 200px;
-    margin: 20px;
+    .e-card {
+      display: flex;
+      width: 400px;
+      min-height: 200px;
+      margin: 20px;
+    }
+  }
 }

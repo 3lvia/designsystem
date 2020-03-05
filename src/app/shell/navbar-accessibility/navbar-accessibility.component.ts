@@ -4,7 +4,7 @@ import { eAccessibility } from 'src/app/shared/e-items';
 @Component({
   selector: 'app-navbar-accessibility',
   templateUrl: './navbar-accessibility.component.html',
-  styleUrls: ['./navbar-accessibility.component.scss']
+  styleUrls: ['../navbar-style.scss']
 })
 export class NavbarAccessibilityComponent implements OnInit {
 
