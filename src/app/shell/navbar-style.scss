@@ -2,9 +2,9 @@
 
 .navbar {
   position: fixed;
-  height: calc(100% - #{$header-height} - #{$header-tabs-height});
+  height: calc(100% - #{$header-height});
   width: $navbar-width;
-  top: $header-height + $header-tabs-height;
+  top: $header-height;
   left:0;
   margin: 0;
   padding: 0;
