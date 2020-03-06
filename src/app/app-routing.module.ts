@@ -47,13 +47,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent,
-        pathMatch: 'full'
+        component: HomeComponent
       },
       {
         path: Pages.Home,
-        component: HomeComponent,
-        pathMatch: 'full'
+        component: HomeComponent
       },
       // Might remove, if no content. Currently only redirects to github repo
       {
