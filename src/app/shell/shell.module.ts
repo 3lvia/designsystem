@@ -12,10 +12,7 @@ import { NavbarUtilitiesModule } from './navbar-utilities/navbar-utilities.modul
     HeaderModule,
     HomeModule,
     MainModule,
-    NavbarModule,
-    NavbarAccessibilityModule,
-    NavbarComponentsModule,
-    NavbarUtilitiesModule
+    NavbarModule
   ],
 })
 export class ShellModule { }

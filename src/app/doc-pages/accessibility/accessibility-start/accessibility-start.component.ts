@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { eAccessibility } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-accessibility-start',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accessibility-start.component.scss']
 })
 export class AccessibilityStartComponent implements OnInit {
+
+  pages = eAccessibility;
 
   constructor() { }
 
