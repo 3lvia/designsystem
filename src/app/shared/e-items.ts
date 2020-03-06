@@ -164,12 +164,14 @@ export const eUtilities: EItems[] = [
     {
         title: 'New project',
         description: 'Guidance how to use, and implementation of Elvia Designsystem.',
-        docUrl: Pages.NewProject
+        docUrl: Pages.NewProject,
+        actionText: 'Get started',
     },
     {
         title: 'Templates',
         description: 'Page template and starte templates for new projects?',
-        docUrl: Pages.Template
+        docUrl: Pages.Template,
+        actionText: 'View templates',
     },
     {
         title: 'Border',

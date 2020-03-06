@@ -21,7 +21,7 @@
                     class="e-card_actions_action"
                     [routerLink]="[page.docUrl]"
                 >
-                    View more
+                    {{ page.actionText }}
                 </a>
             </div>
             <div
@@ -32,7 +32,7 @@
                     class="e-card_actions_action"
                     [routerLink]="[page.absolutePath]"
                 >
-                    View more
+                    {{ page.actionText }}
                 </a>
             </div>
             <div
@@ -43,7 +43,7 @@
                     class="e-card_actions_action"
                     href={{page.externalUrl}}
                 >
-                    View more
+                    {{ page.actionText }}
                 </a>
             </div>
         </div>
