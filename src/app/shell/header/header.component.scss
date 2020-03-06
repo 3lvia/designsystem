@@ -17,7 +17,7 @@
   justify-content: center;
 
   .header-top {
-    height: 80px;
+    height: $header-top-height;
     display: flex;
     flex-direction: row;
 
@@ -46,6 +46,7 @@
   }
 
   .header-tabs {
+    height: $header-tabs-height;
     display: flex;
     padding-top: 8px;
     width: 100%;
