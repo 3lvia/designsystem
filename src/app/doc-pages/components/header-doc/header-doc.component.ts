@@ -13,7 +13,7 @@ export class HeaderDocComponent implements OnInit {
 
   example1 = `<header class="e-header">
   <a class="e-header_logo" href="#">
-    <img src="styleguide/lib/logo.svg" alt="Hafslund logo">
+    <img src="" alt="Hafslund logo">
   </a>
   <h1 class="e-header_title">Overview</h1>
   <div class="e-header-user">
@@ -28,7 +28,7 @@ export class HeaderDocComponent implements OnInit {
 
   example2 = `<header class="e-header">
   <a class="e-header_logo" href="#">
-    <img src="styleguide/lib/logo.svg" alt="Hafslund logo">
+    <img src="" alt="Hafslund logo">
   </a>
   <h1 class="e-header_title">Overview</h1>
   <div class="e-header-user">

@@ -17,7 +17,8 @@ z-index: 11;
 .tab {
 cursor: pointer;
 width: 10%;
-min-width: 20px;
+// To not break text in tabs
+min-width: 114px;
 text-align: center;
 font-size: 20px;
 border-bottom: 0px solid transparent;
