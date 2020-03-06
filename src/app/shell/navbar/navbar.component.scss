@@ -5,7 +5,7 @@
   height: calc(100% - #{$header-height});
   width: $navbar-width;
   top: $header-height;
-  left:0;
+  left: 0;
   margin: 0;
   padding: 0;
   
@@ -15,6 +15,10 @@
 
   &-list {
     padding: 0;
+
+    &-header {
+      padding: 5px 16px;
+    }
 
     a h2{
       padding: 10px 16px;
@@ -37,13 +41,6 @@
     a:hover:not(.active) {
       background-color: var(--e-grey-mine-shaft-05);
     }
-  }
-
-  &-list-header {
-    width: 100%;
-    padding: 20px 16px;
-    padding-top: 25px;
-    outline: none;
   }
 
   &-item {

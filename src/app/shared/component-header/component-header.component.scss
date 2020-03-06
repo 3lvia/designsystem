@@ -33,6 +33,21 @@
         padding-top: 24px;
       }
     }
+
+    &__example-does {
+      &-does,
+      &-donts {
+        margin: 8px 0;
+  
+        .marker {
+          display: inline-flex;
+          margin-right: 11px;
+          height: 11px;
+          width: 11px;
+          border-radius: 50%;
+        }
+      }
+    }
   }
 
   &-tabs {

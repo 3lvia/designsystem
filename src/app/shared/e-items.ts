@@ -21,6 +21,7 @@ export const eHomes: EItems[] = [
         title: 'Contribute',
         description: 'Guidance to how to contribute to Elvia Designsystem.',
         docUrl: Pages.Contribute,
+        absolutePath: '/utilities/contribute',
         actionText: 'Start contributing',
     },
     {
@@ -172,6 +173,12 @@ export const eUtilities: EItems[] = [
         description: 'Page template and starte templates for new projects?',
         docUrl: Pages.Template,
         actionText: 'View templates',
+    },
+    {
+        title: 'Contribute',
+        description: 'Guidance to how to contribute to Elvia Designsystem.',
+        docUrl: Pages.Contribute,
+        actionText: 'Start contributing',
     },
     {
         title: 'Border',

@@ -2,6 +2,8 @@
 <app-component-header
   [tabs]="tabs"
   [(selected)]="selected"
+  [does]="does"
+  [donts]="donts"
 >
   <ng-container ngProjectAs="headerTitle">
     Templates
@@ -14,12 +16,6 @@
   This will contribute a consistent experience for our users. Remember that components can be adapted to your need, but
   this needs
   to be clarified with the designer in charge of the Elvis design system.
-  </ng-container>
-  <ng-container ngProjectAs="descriptionDoes">
-    Follow standards for external and internal sites.
-  </ng-container>
-  <ng-container ngProjectAs="descriptionDonts">
-    Create new layouts for existing structures such as articles, factboxes etc.
   </ng-container>
 </app-component-header>
 

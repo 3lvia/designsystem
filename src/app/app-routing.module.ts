@@ -53,11 +53,6 @@ const routes: Routes = [
         path: Pages.Home,
         component: HomeComponent
       },
-      // Might remove, if no content. Currently only redirects to github repo
-      {
-        path: Pages.Contribute,
-        component: ContributeComponent
-      },
       // Accessibility section
       { path: Pages.AccessibilityStart,
         component: AccessibilityStartComponent,
@@ -199,6 +194,10 @@ const routes: Routes = [
           {
             path: Pages.Template,
             component: TemplatesComponent
+          },
+          {
+            path: Pages.Contribute,
+            component: ContributeComponent
           },
           {
             path: Pages.Typography,

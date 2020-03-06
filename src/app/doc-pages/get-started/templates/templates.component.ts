@@ -11,6 +11,8 @@ export class TemplatesComponent implements OnInit {
   @Input() selected = TabNames.Article;
 
   isDesktop = true;
+  does = 'Follow standards for external and internal sites.';
+  donts = 'Create new layouts for existing structures such as articles, factboxes etc.';
 
   tabs = [TabNames.Article, TabNames.Header, TabNames.Footer];
 
