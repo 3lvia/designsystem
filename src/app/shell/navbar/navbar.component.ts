@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { eHomes, eComponents, eUtilities, eAccessibility } from 'src/app/shared/e-items';
 import { EItems } from 'src/app/shared/e-items.interface';
 
 @Component({
