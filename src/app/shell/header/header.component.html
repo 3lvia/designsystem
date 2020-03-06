@@ -1,13 +1,32 @@
-<div class="header">
-  <a class="header_logo" [routerLink]="['', 'home']">
-    <img src="./../../../assets/elvia-logo.jpg" width="150px" alt="Logo">
-  </a>
-  <a class="header_title e-title-large" [routerLink]="['', 'home']">
-    <h2>Elvia designsystem</h2>
-  </a>
+<div class="header e-border-b">
+  <div class="header-top">
+    <a class="header-top_logo" [routerLink]="['', 'home']">
+      <img src="./../../../assets/elvia-logo.jpg" width="150px" alt="Logo" />
+    </a>
+    <a class="header-top_title e-title-large" [routerLink]="['', 'home']">
+      <h2>Elvia designsystem</h2>
+    </a>
 
-  <a class="header_links" 
-    href="https://github.com/hafslundnett/elvia-designsystem">
-  <i class="e-icon-github"></i>
-  </a>
+    <a
+      class="header-top_links"
+      href="https://github.com/hafslundnett/elvia-designsystem"
+    >
+      <i class="e-icon-github"></i>
+    </a>
+  </div>
+
+  <div class="header-tabs">
+    <a class="tab" [routerLink]="['/home']" routerLinkActive="active">
+      Get Started
+    </a>
+    <a class="tab" [routerLink]="['/components']" routerLinkActive="active">
+      Components
+    </a>
+    <a class="tab" [routerLink]="['/utilities']" routerLinkActive="active">
+      Utilites
+    </a>
+    <a class="tab" [routerLink]="['/accessibility']" routerLinkActive="active">
+      Accessibities
+    </a>
+  </div>
 </div>
