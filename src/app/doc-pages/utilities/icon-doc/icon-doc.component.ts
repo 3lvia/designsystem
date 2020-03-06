@@ -13,6 +13,7 @@ export class IconDocComponent {
 
   @Input() selected = TabNames.Overview;
 
+  tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Examples, TabNames.Guidelines];
   componentClasses = ['e-icon'];
 

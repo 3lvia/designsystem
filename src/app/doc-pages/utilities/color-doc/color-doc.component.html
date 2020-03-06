@@ -18,7 +18,7 @@
 <!--BODY-->
 <div class="page-body">
   <!--GUIDELINES-->
-  <div *ngIf="selected == 'Guidelines'">
+  <div *ngIf="selected == tabNames.Guidelines">
     <div>
       <h2>Using Classes</h2>
       <p>
@@ -53,7 +53,7 @@
   </div>
 
   <!--OVERVIEW-->
-  <div class="overview" *ngIf="selected == 'Overview'">
+  <div class="overview" *ngIf="selected == tabNames.Overview">
     <section class="color-section">
       <h2>Primary Colors</h2>
       <p>

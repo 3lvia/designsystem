@@ -10,6 +10,7 @@ export class BorderDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
+  tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Examples, TabNames.Guidelines];
   componentClasses = ['e-border'];
 

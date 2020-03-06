@@ -10,6 +10,7 @@ export class ColorDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
+  tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Guidelines];
   componentClasses = ['e-text', 'e-bg'];
   colors: string[] = ['red', 'green'];

@@ -10,6 +10,7 @@ export class AccessibilityComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
+  tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Tips];
 
   constructor() { }

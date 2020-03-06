@@ -18,7 +18,7 @@
 <!--BODY-->
 <div class="page-body">
   <!--Overview-->
-  <div *ngIf="selected == 'Overview'">
+  <div *ngIf="selected == tabNames.Overview">
     <app-code-block
       [isHTML]="true"
       [code]="example1"
@@ -35,7 +35,7 @@
   </div>
 
   <!--Modifiers-->
-  <div *ngIf="selected == 'Modifiers'">
+  <div *ngIf="selected == tabNames.Modifiers">
     Modifiers
   </div>
 </div>

@@ -10,6 +10,7 @@ export class SpacingDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
+  tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Guidelines];
   componentClasses = ['e-p', 'e-m'];
 

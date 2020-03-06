@@ -10,6 +10,7 @@ export class TypographyDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
+  tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Examples, TabNames.Guidelines];
   componentClasses = ['e-title', 'e-text', 'e-label'];
 
