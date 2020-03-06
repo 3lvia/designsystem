@@ -8,18 +8,20 @@
         </div>
       </div>
       <div class="e-card_content">
-        <p *ngIf="page.imageUrl">
-          <img [src]="page.imageUrl" width="100%" alt="Logo">
-        </p>
         <p>{{ page.description }}</p>
       </div>
-      <div class="e-card_actions" *ngIf="page.docUrl">
+      <div class="e-card_actions" *ngIf="page.docUrl && !page.absolutePath">
         <a class="e-card_actions_action" [routerLink]="[page.docUrl]">
           {{ page.actionText }}
         </a>
       </div>
+      <div class="e-card_actions" *ngIf="page.absolutePath">
+        <a class="e-card_actions_action" [routerLink]="[page.absolutePath]">
+          {{ page.actionText }}
+        </a>
+      </div>
       <div class="e-card_actions" *ngIf="page.externalUrl">
-        <a class="e-card_actions_action" href={{page.externalUrl}}>
+        <a class="e-card_actions_action" href="{{ page.externalUrl }}">
           {{ page.actionText }}
         </a>
       </div>
