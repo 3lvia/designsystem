@@ -1,3 +1,5 @@
 // Shared sized
-$header-height: 80px;
+$header-top-height: 80px;
+$header-tabs-height: 55px;
+$header-height: $header-top-height + $header-tabs-height;
 $navbar-width: 270px;

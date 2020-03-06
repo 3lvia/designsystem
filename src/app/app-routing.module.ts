@@ -35,6 +35,9 @@ import { OverviewComponent } from './doc-pages/components/overview-comp/overview
 import { ContributeComponent } from './doc-pages/get-started/contribute/contribute.component';
 import { NewProjectComponent } from './doc-pages/get-started/new-project/new-project.component';
 import { TemplatesComponent } from './doc-pages/get-started/templates/templates.component';
+import { AccessibilityStartComponent } from './doc-pages/accessibility/accessibility-start/accessibility-start.component';
+import { ComponentsStartComponent } from './doc-pages/components/components-start/components-start.component';
+import { UtilitiesStartComponent } from './doc-pages/utilities/utilities-start/utilities-start.component';
 
 
 const routes: Routes = [
@@ -50,140 +53,173 @@ const routes: Routes = [
         path: Pages.Home,
         component: HomeComponent
       },
-      {
-        path: Pages.OverviewComp,
-        component: OverviewComponent
-      },
-      {
-        path: Pages.OverviewUtil,
-        component: OverviewUtilComponent
-      },
-      {
-        path: Pages.OverviewAccess,
-        component: OverviewAccessibilityComponent
-      },
-      {
-        path: Pages.Badge,
-        component: BadgeDocComponent
-      },
-      {
-        path: Pages.Button,
-        component: ButtonDocComponent
-      },
-      {
-        path: Pages.Card,
-        component: CardDocComponent
-      },
-      {
-        path: Pages.Divider,
-        component: DividerDocComponent
-      },
-      {
-        path: Pages.Dropdown,
-        component: DropdownDocComponent
-      },
-      {
-        path: Pages.Feedback,
-        component: FeedbackDocComponent
-      },
-      {
-        path: Pages.Header,
-        component: HeaderDocComponent
-      },
-      {
-        path: Pages.Link,
-        component: LinkDocComponent
-      },
-      {
-        path: Pages.Table,
-        component: TableDocComponent
-      },
-      {
-        path: Pages.Tags,
-        component: TagsDocComponent
-      },
-      {
-        path: Pages.Tooltip,
-        component: TooltipDocComponent
-      },
-      {
-        path: Pages.Color,
-        component: ColorDocComponent
-      },
-      {
-        path: Pages.Icon,
-        component: IconDocComponent
-      },
-      {
-        path: Pages.Typography,
-        component: TypographyDocComponent
-      },
-      {
-        path: Pages.Checkbox,
-        component: CheckboxDocComponent
-      },
-      {
-        path: Pages.CheckboxToggle,
-        component: CheckboxToggleDocComponent
-      },
-      {
-        path: Pages.Input,
-        component: InputDocComponent
-      },
-      {
-        path: Pages.Radiobutton,
-        component: RadiobuttonDocComponent
-      },
-      {
-        path: Pages.Select,
-        component: SelectDocComponent
-      },
-      {
-        path: Pages.Shadow,
-        component: ShadowDocComponent
-      },
-      {
-        path: Pages.Notification,
-        component: NotificationDotDocComponent
-      },
-      {
-        path: Pages.Accessibility,
-        component: AccessibilityComponent
-      },
-      {
-        path: Pages.AltText,
-        component: AltTextComponent
-      },
-      {
-        path: Pages.UUTools,
-        component: UuToolsComponent
-      },
-      {
-        path: Pages.Spacing,
-        component: SpacingDocComponent
-      },
-      {
-        path: Pages.Border,
-        component: BorderDocComponent
-      },
+      // Might remove, if no content. Currently only redirects to github repo
       {
         path: Pages.Contribute,
         component: ContributeComponent
       },
-      {
-        path: Pages.NewProject,
-        component: NewProjectComponent
+      // Accessibility section
+      { path: Pages.AccessibilityStart,
+        component: AccessibilityStartComponent,
+        children: [
+          {
+            path: '',
+            component: OverviewAccessibilityComponent
+          },
+          {
+            path: Pages.OverviewAccess,
+            component: OverviewAccessibilityComponent
+          },
+          {
+            path: Pages.Accessibility,
+            component: AccessibilityComponent
+          },
+          {
+            path: Pages.AltText,
+            component: AltTextComponent
+          },
+          {
+            path: Pages.UUTools,
+            component: UuToolsComponent
+          },
+        ]
       },
+      // Components section
       {
-        path: Pages.Template,
-        component: TemplatesComponent
+        path: Pages.ComponentsStart,
+        component: ComponentsStartComponent,
+        children: [
+          {
+            path: '',
+            component: OverviewComponent
+          },
+          {
+            path: Pages.OverviewComp,
+            component: OverviewComponent
+          },
+          {
+            path: Pages.Badge,
+            component: BadgeDocComponent
+          },
+          {
+            path: Pages.Button,
+            component: ButtonDocComponent
+          },
+          {
+            path: Pages.Card,
+            component: CardDocComponent
+          },
+          {
+            path: Pages.Checkbox,
+            component: CheckboxDocComponent
+          },
+          {
+            path: Pages.CheckboxToggle,
+            component: CheckboxToggleDocComponent
+          },
+          {
+            path: Pages.Divider,
+            component: DividerDocComponent
+          },
+          {
+            path: Pages.Dropdown,
+            component: DropdownDocComponent
+          },
+          {
+            path: Pages.Feedback,
+            component: FeedbackDocComponent
+          },
+          {
+            path: Pages.Header,
+            component: HeaderDocComponent
+          },
+          {
+            path: Pages.Input,
+            component: InputDocComponent
+          },
+          {
+            path: Pages.Link,
+            component: LinkDocComponent
+          },
+          {
+            path: Pages.Notification,
+            component: NotificationDotDocComponent
+          },
+          {
+            path: Pages.Radiobutton,
+            component: RadiobuttonDocComponent
+          },
+          {
+            path: Pages.Select,
+            component: SelectDocComponent
+          },
+          {
+            path: Pages.Table,
+            component: TableDocComponent
+          },
+          {
+            path: Pages.Tags,
+            component: TagsDocComponent
+          },
+          {
+            path: Pages.Tooltip,
+            component: TooltipDocComponent
+          },
+        ]
       },
+      // Utilities section
+      {
+        path: Pages.UtilitiesStart,
+        component: UtilitiesStartComponent,
+        children: [
+          {
+            path: '',
+            component: OverviewUtilComponent
+          },
+          {
+            path: Pages.OverviewComp,
+            component: OverviewUtilComponent
+          },
+          {
+            path: Pages.Border,
+            component: BorderDocComponent
+          },
+          {
+            path: Pages.Color,
+            component: ColorDocComponent
+          },
+          {
+            path: Pages.Icon,
+            component: IconDocComponent
+          },
+          {
+            path: Pages.NewProject,
+            component: NewProjectComponent
+          },
+          {
+            path: Pages.Template,
+            component: TemplatesComponent
+          },
+          {
+            path: Pages.Typography,
+            component: TypographyDocComponent
+          },
+          {
+            path: Pages.Shadow,
+            component: ShadowDocComponent
+          },
+          {
+            path: Pages.Spacing,
+            component: SpacingDocComponent
+          },
+        ]
+      }
     ]
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

@@ -66,10 +66,6 @@
         >
       </div>
     </div>
-    
-    
-  
-
   </div>
   <!--GUIDELINES-->
   <div *ngIf="selected == 'Header'">
@@ -92,7 +88,7 @@
   </div>
   <!--GUIDELINES-->
   <div *ngIf="selected == 'Footer'">
-        <div *ngIf="isDesktop" @imgFade>
+        <div *ngIf="isDesktop">
           <div class="template-img-container">
             <img
               src="../../../../assets/img/desktop-placeholder.png"
@@ -100,7 +96,7 @@
             >
           </div>
         </div>
-        <div *ngIf="!isDesktop" @imgFade>
+        <div *ngIf="!isDesktop">
           <div class="template-img-container">
             <img
               src="../../../../assets/img/mobile-placeholder.png"

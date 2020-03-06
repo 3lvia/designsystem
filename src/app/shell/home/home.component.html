@@ -1,1 +1,51 @@
-<app-overview-page [overviewTitle]="overviewTitle" [pages]="pages"></app-overview-page>
+<div class="main-container">
+    <h1>Get Started!</h1>
+    <div class="page-card-container">
+        <div
+            class="e-card"
+            *ngFor="let page of pages"
+        >
+            <div class="e-card_header">
+                <div class="e-card_header_text">
+                    <div class="e-card_title">{{ page.title }}</div>
+                </div>
+            </div>
+            <div class="e-card_content">
+                <p>{{ page.description }}</p>
+            </div>
+            <div
+                class="e-card_actions"
+                *ngIf="page.docUrl && !page.absolutePath"
+            >
+                <a
+                    class="e-card_actions_action"
+                    [routerLink]="[page.docUrl]"
+                >
+                    {{ page.actionText }}
+                </a>
+            </div>
+            <div
+                class="e-card_actions"
+                *ngIf="page.absolutePath"
+            >
+                <a
+                    class="e-card_actions_action"
+                    [routerLink]="[page.absolutePath]"
+                >
+                    {{ page.actionText }}
+                </a>
+            </div>
+            <div
+                class="e-card_actions"
+                *ngIf="page.externalUrl"
+            >
+                <a
+                    class="e-card_actions_action"
+                    href={{page.externalUrl}}
+                >
+                    {{ page.actionText }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -7,12 +7,14 @@ export const eHomes: EItems[] = [
         title: 'New project',
         description: 'Guidance how to use, and implementation of Elvia Designsystem.',
         docUrl: Pages.NewProject,
+        absolutePath: '/utilities/new-project-doc',
         actionText: 'Get started',
     },
     {
         title: 'Components',
         description: 'Explore components that are available in Elvia Designsystem.',
         docUrl: Pages.OverviewComp,
+        absolutePath: '/components/overview-comp-doc',
         actionText: 'View components',
     },
     {
@@ -31,6 +33,7 @@ export const eHomes: EItems[] = [
         title: 'Templates',
         description: 'Page template and starte templates for new projects?',
         docUrl: Pages.Template,
+        absolutePath: '/utilities/template-doc',
         actionText: 'View templates',
     },
 ];
@@ -159,6 +162,24 @@ export const eComponents: EItems[] = [
 
 export const eUtilities: EItems[] = [
     {
+        title: 'New project',
+        description: 'Guidance how to use, and implementation of Elvia Designsystem.',
+        docUrl: Pages.NewProject,
+        actionText: 'Get started',
+    },
+    {
+        title: 'Templates',
+        description: 'Page template and starte templates for new projects?',
+        docUrl: Pages.Template,
+        actionText: 'View templates',
+    },
+    {
+        title: 'Border',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Border,
+        actionText: 'View utility',
+    },
+    {
         title: 'Colors',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Color,
@@ -188,12 +209,6 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Shadow,
         actionText: 'View utility',
     },
-    {
-        title: 'Border',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Border,
-        actionText: 'View utility',
-    }
 ];
 
 export const eAccessibility: EItems[] = [

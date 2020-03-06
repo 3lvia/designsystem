@@ -1,4 +1,4 @@
-@import '../../shared/shared-sizes.scss';
+@import '../shared/shared-sizes.scss';
 
 .navbar {
   position: fixed;
@@ -20,9 +20,9 @@
       padding: 10px 16px;
       display: block;
     }
-    a.active {
-      color: var(--e-white);
-      background-color: var(--e-black);
+    a.active h2 {
+      color: #fff !important;
+      background-color: #262626;
 
       &::after {
         content: '';
@@ -31,11 +31,11 @@
         height: 12px;
         width: 12px;
         border-radius: 50%;
-        background-color: var(--e-green-lime);
+        background-color: #29D305;
       }
     }
     a:hover:not(.active) {
-      background-color: var(--e-grey-mine-shaft-05);
+      background-color: #eee;
     }
   }
 
@@ -68,8 +68,8 @@
       }
     }
     a.active {
-      color: var(--e-white);
-      background-color: var(--e-grey-mine-shaft);
+      color: #fff;
+      background-color: #262626;
       
       &::after {
         content: '';
@@ -78,11 +78,11 @@
         height: 11px;
         width: 11px;
         border-radius: 50%;
-        background-color: var(--e-green-lime);
+        background-color: #29D305;
       }
     }
     a:hover:not(.active) {
-      background-color: var(--e-grey-silver);
+      background-color: #eee;
     }
   }
 }

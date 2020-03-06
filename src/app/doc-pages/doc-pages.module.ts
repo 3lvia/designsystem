@@ -31,6 +31,9 @@ import { BorderDocModule } from './utilities/border-doc/border-doc.module';
 import { ContributeModule } from './get-started/contribute/contribute.module';
 import { NewProjectModule } from './get-started/new-project/new-project.module';
 import { TemplatesModule } from './get-started/templates/templates.module';
+import { AccessibilityStartModule } from './accessibility/accessibility-start/accessibility-start.module';
+import { ComponentsStartModule } from './components/components-start/components-start.module';
+import { UtilitiesStartModule } from './utilities/utilities-start/utilities-start.module';
 
 
 @NgModule({
@@ -67,7 +70,10 @@ import { TemplatesModule } from './get-started/templates/templates.module';
     TypographyDocModule,
     ContributeModule,
     NewProjectModule,
-    TemplatesModule
+    TemplatesModule,
+    AccessibilityStartModule,
+    ComponentsStartModule,
+    UtilitiesStartModule
   ],
 })
 export class DocPagesModule { }
