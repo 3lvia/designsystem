@@ -7,7 +7,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "cypress": "cypress open"
   },
   "private": true,
   "dependencies": {
@@ -42,6 +43,7 @@
     "@types/node": "^12.11.1",
     "codelyzer": "^5.1.2",
     "concurrently": "^5.1.0",
+    "cypress": "^4.1.0",
     "del": "^5.1.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-rename": "^2.0.0",
