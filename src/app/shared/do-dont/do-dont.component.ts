@@ -7,8 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DoDontComponent implements OnInit {
 
-  isHTML = true;
-
+  @Input() isHTML = false;
+  @Input() isTS = false;
+  @Input() isSCSS = false;
   @Input() example = '';
   @Input() do = false;
 

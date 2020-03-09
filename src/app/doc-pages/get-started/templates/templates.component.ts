@@ -8,11 +8,14 @@ import { TabNames } from 'src/app/shared/tab-names.enums';
 })
 export class TemplatesComponent implements OnInit {
 
-  @Input() selected = TabNames.Article;
+  @Input() selected = TabNames.Overview;
 
   isDesktop = true;
+  does = 'Follow standards for external and internal sites.';
+  donts = 'Create new layouts for existing structures such as articles, factboxes etc.';
 
-  tabs = [TabNames.Article, TabNames.Header, TabNames.Footer];
+  tabNames = TabNames;
+  tabs = [TabNames.Overview, TabNames.Article, TabNames.Header, TabNames.Footer];
 
   constructor() { }
 

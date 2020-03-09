@@ -18,18 +18,30 @@
 <!--BODY-->
 <div class="page-body">
   <!--Overview-->
-  <div *ngIf="selected == 'Overview'">
+  <div *ngIf="selected == tabNames.Overview">
     <h2>Shadows</h2>
     <p>There are 3 shadows available in the style-library.</p>
-    <div class="centered-content">
-      <span class="e-shadow-1 example-box"></span>
-      <span class="e-shadow-2 example-box"></span>
-      <span class="e-shadow-3 example-box"></span>
+    <div class="display-container centered-content">
+      <div class="display-card">
+        <div class="display-card-circle e-shadow-1"></div>
+        <div class="display-card-title e-text-caps">shadow-1</div>
+        <div class="display-card-variable">#c2c2c2-0.5</div>
+      </div>
+      <div class="display-card">
+        <div class="display-card-circle e-shadow-2"></div>
+        <div class="display-card-title e-text-caps">shadow-2</div>
+        <div class="display-card-variable">#b3b3b3-0.5</div>
+      </div>
+      <div class="display-card">
+        <div class="display-card-circle e-shadow-3"></div>
+        <div class="display-card-title e-text-caps">shadow-3</div>
+        <div class="display-card-variable">#000000-0.5</div>
+      </div>
     </div>
   </div>
 
-  <!--Examples-->
-  <div *ngIf="selected == 'Examples'">
+  <!--CODE-->
+  <div *ngIf="selected == tabNames.Code">
     <app-code-block
       [isHTML]="true"
       [code]="example1"
@@ -38,7 +50,21 @@
   </div>
 
   <!--GUIDELINES-->
-  <div *ngIf="selected == 'Guidelines'">
-    Some guideline-page
+  <div *ngIf="selected == tabNames.Guidelines">
+    <div>
+      <h2>Using Classes</h2>
+      <p>
+        All shadows can be used through a set of classes. The <code class="code-text">e-shadow-1</code> sets box-shadow to colors from lightest
+        to darkest depending on the last number. This means, the code <code class="code-text">e-shadow-3</code> equals 
+        <code class="code-text">box-shadow: 0 2px 4px rgba(0, 0, 0, .5)</code>.
+      </p>
+      <h3>Classes</h3>
+      <ul>
+        <li><code class="code-text">e-shadow-none</code></li>
+        <li><code class="code-text">e-shadow-1</code></li>
+        <li><code class="code-text">e-shadow-2</code></li>
+        <li><code class="code-text">e-shadow-3</code></li>
+      </ul>
+    </div>
   </div>
 </div>

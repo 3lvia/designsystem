@@ -21,6 +21,7 @@ export const eHomes: EItems[] = [
         title: 'Contribute',
         description: 'Guidance to how to contribute to Elvia Designsystem.',
         docUrl: Pages.Contribute,
+        absolutePath: '/utilities/contribute',
         actionText: 'Start contributing',
     },
     {
@@ -174,15 +175,33 @@ export const eUtilities: EItems[] = [
         actionText: 'View templates',
     },
     {
-        title: 'Border',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Border,
-        actionText: 'View utility',
+        title: 'Contribute',
+        description: 'Guidance to how to contribute to Elvia Designsystem.',
+        docUrl: Pages.Contribute,
+        actionText: 'Start contributing',
     },
+    // {
+    //     title: 'Border',
+    //     description: 'Some useful component with amazing features',
+    //     docUrl: Pages.Border,
+    //     actionText: 'View utility',
+    // },
     {
         title: 'Colors',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Color,
+        actionText: 'View utility',
+    },
+    {
+        title: 'Shadow',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Shadow,
+        actionText: 'View utility',
+    },
+    {
+        title: 'Spacing',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Spacing,
         actionText: 'View utility',
     },
     {
@@ -195,18 +214,6 @@ export const eUtilities: EItems[] = [
         title: 'Typography',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Typography,
-        actionText: 'View utility',
-    },
-    {
-        title: 'Spacing',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Spacing,
-        actionText: 'View utility',
-    },
-    {
-        title: 'Shadow',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Shadow,
         actionText: 'View utility',
     },
 ];

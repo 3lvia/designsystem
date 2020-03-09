@@ -18,7 +18,7 @@
 <!--BODY-->
 <div class="page-body">
   <!--Overview-->
-  <div *ngIf="selected == 'Overview'">
+  <div *ngIf="selected == tabNames.Overview">
     <h2>Border</h2>
     <p>1 border should be used...</p>
     <div class="centered-content">
@@ -27,8 +27,8 @@
     </div>
   </div>
 
-  <!--Examples-->
-  <div *ngIf="selected == 'Examples'">
+  <!--CODE-->
+  <div *ngIf="selected == tabNames.Code">
     <app-code-block
       [isHTML]="true"
       [code]="example1"
@@ -37,8 +37,7 @@
   </div>
 
    <!--GUIDELINES-->
-   <div *ngIf="selected == 'Guidelines'">
+   <div *ngIf="selected == tabNames.Guidelines">
     Some guideline-page
   </div>
-
 </div>

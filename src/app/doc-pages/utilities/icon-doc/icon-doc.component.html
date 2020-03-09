@@ -18,7 +18,7 @@
 <!--BODY-->
 <div class="page-body">
   <!--OVERVIEW-->
-  <div class="overview" *ngIf="selected == 'Overview'">
+  <div class="overview" *ngIf="selected == tabNames.Overview">
     <div class="overview-search-container">
       <div class="e-form_field">
         <div class="e-form_input">
@@ -41,8 +41,8 @@
     </div>
   </div>
 
-   <!--EXAMPLES-->
-   <div *ngIf="selected == 'Examples'">
+   <!--CODE-->
+   <div *ngIf="selected == tabNames.Code">
     <app-code-block
       [isHTML]="true"
       [code]="example"
@@ -56,7 +56,7 @@
   </div>
 
   <!--GUIDELINES-->
-  <div *ngIf="selected == 'Guidelines'">
+  <div *ngIf="selected == tabNames.Guidelines">
     Some guideline-page
   </div>
 </div>

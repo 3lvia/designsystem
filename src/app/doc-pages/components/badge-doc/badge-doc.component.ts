@@ -11,9 +11,12 @@ export class BadgeDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
+  tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Modifiers];
   componentStatus = getComponent('badge-doc').status;
   componentClasses = ['e-badge'];
+  headerDoes = 'A badge should be used...';
+  headerDonts = 'A badge should not be used...';
 
   example1 = `<span class="e-badge">101001</span>
 `;

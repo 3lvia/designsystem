@@ -31,12 +31,29 @@
           {{ class }}
         </code>
       </p>
-      <p class="component-header__description" [ngClass]="{ 'class-margin': componentClasses && componentClasses.length>0}">
+      <p
+        class="component-header__description"
+        [ngClass]="{
+          'class-margin': componentClasses && componentClasses.length > 0
+        }"
+      >
         <ng-content select="headerDescription"></ng-content>
       </p>
+      <div class="component-header__example-does" *ngIf="does || donts">
+        <div class="component-header__example-does-does" *ngIf="does">
+          <span class="marker e-bg-green-lime"></span>
+          <span class="e-title-small">Do's:</span>
+          {{ does }}
+        </div>
+        <div class="component-header__example-does-donts" *ngIf="donts">
+          <span class="marker e-bg-red"></span>
+          <span class="e-title-small">Don'ts:</span>
+          {{ donts }}
+        </div>
+      </div>
     </div>
   </div>
-  <div class="component-tabs">
+  <div class="component-tabs e-border-t">
     <div
       *ngFor="let tab of tabs"
       [ngClass]="{ active: selected == tab }"

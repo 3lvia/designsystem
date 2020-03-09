@@ -1,19 +1,6 @@
-.main-container {
- 
-  .page-card-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-start;
-    margin: auto;
-    height: 100%;
+@import '../../shared/shared-sizes';
 
-    .e-card {
-      display: flex;
-      width: 400px;
-      min-height: 200px;
-      margin: 20px;
-    }
-  }
+.main-container {
+  width: calc(100% + #{$navbar-width});
+  margin-left: -$navbar-width;
 }

@@ -24,7 +24,7 @@
     &_logo {
       display: flex;
       width: $navbar-width;
-      justify-content: left;
+      justify-content: flex-start;
       align-items: center;
       cursor: pointer;
     }
@@ -38,8 +38,9 @@
     }
     &_links {
       display: flex;
-      margin-right: 16px;
-      justify-content: right;
+      width: $navbar-width;
+      padding-right: 16px;
+      justify-content: flex-end;
       align-items: center;
       cursor: pointer;
     }
@@ -58,6 +59,7 @@
       cursor: pointer;
       width: 10%;
       padding-top: 10px;
+      margin: 0 10px;
       // To not break text in tabs
       min-width: 114px;
       height: 100%;

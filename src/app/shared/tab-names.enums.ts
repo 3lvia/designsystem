@@ -1,6 +1,6 @@
 export enum TabNames {
     Overview = 'Overview',
-    Examples = 'Examples',
+    Code = 'Code',
     Guidelines = 'Guidelines',
     Modifiers = 'Modifiers',
     Tips = 'Tips & Tricks',
