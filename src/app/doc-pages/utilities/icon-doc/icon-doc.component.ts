@@ -1,13 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Icon } from 'src/app/shared/icon.interface';
-import { fadeIn } from 'src/app/shared/animations';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
   selector: 'app-icon-doc',
   templateUrl: './icon-doc.component.html',
   styleUrls: ['./icon-doc.component.scss'],
-  animations: [fadeIn]
 })
 export class IconDocComponent {
 
