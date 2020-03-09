@@ -6,6 +6,9 @@
 @import "~prismjs/plugins/toolbar/prism-toolbar.css";
 @import "~prismjs/themes/prism-okaidia";
 
+@import './app/shared/shared-sizes';
+@import './app/shared/shared-animations';
+
 html {
   overflow: -moz-scrollbars-vertical; 
   overflow-y: scroll;
@@ -19,9 +22,11 @@ body {
 // Shared classes
 .example-box {
   display: inline-block;
-  width: 100px;
-  height: 100px;
+  width: 170px;
+  height: 170px;
   margin: 10px;
+  border-radius: 50%;
+  @extend %flip-diagonal-2-br;
 }
 
 .page-body {
@@ -64,4 +69,75 @@ body {
     display: flex;
     margin-left: 20px;
   }
+}
+
+
+// Display examples
+.display-container {
+  display: flex;
+  align-content: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 16px 0;
+
+  .display-card {
+    display: inline-flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 16px;
+    width: 31%;
+    height: 100%;
+    -webkit-perspective: 1000;
+  
+    &.primary {
+      width: 48%;
+    }
+  
+    &-circle {
+      margin: auto;
+      margin-top: 10px;
+      min-width: 100px;
+      min-height: 100px;
+      max-width: 140px;
+      max-height: 140px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      @extend %slide-fwd-center;
+      &:hover, &.dark-animation:hover {
+        @extend %flip-diagonal-2-br;
+      }
+  
+      &.primary {
+        width: 145px;
+        height: 145px;
+      }
+    }
+
+    &-square {
+      margin: auto;
+      margin-top: 10px;
+      border: 2px solid transparent;
+      @extend %slide-fwd-center;
+      &:hover, &.dark-animation:hover {
+        @extend %flip-diagonal-2-br;
+      }
+    }
+  
+    &-variable, &-title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+  
+    &-title {
+      margin-top: 26px;
+      border-bottom: 1px solid var(--e-black);
+    }
+    &-variable {
+      height: 15%;
+      margin: 5px 0;
+    }
+  }  
 }

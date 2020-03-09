@@ -180,16 +180,28 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Contribute,
         actionText: 'Start contributing',
     },
-    {
-        title: 'Border',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Border,
-        actionText: 'View utility',
-    },
+    // {
+    //     title: 'Border',
+    //     description: 'Some useful component with amazing features',
+    //     docUrl: Pages.Border,
+    //     actionText: 'View utility',
+    // },
     {
         title: 'Colors',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Color,
+        actionText: 'View utility',
+    },
+    {
+        title: 'Shadow',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Shadow,
+        actionText: 'View utility',
+    },
+    {
+        title: 'Spacing',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Spacing,
         actionText: 'View utility',
     },
     {
@@ -202,18 +214,6 @@ export const eUtilities: EItems[] = [
         title: 'Typography',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Typography,
-        actionText: 'View utility',
-    },
-    {
-        title: 'Spacing',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Spacing,
-        actionText: 'View utility',
-    },
-    {
-        title: 'Shadow',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Shadow,
         actionText: 'View utility',
     },
 ];
