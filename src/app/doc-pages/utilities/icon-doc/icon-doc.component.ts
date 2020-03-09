@@ -14,7 +14,7 @@ export class IconDocComponent {
   @Input() selected = TabNames.Overview;
 
   tabNames = TabNames;
-  tabs = [TabNames.Overview, TabNames.Examples, TabNames.Guidelines];
+  tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentClasses = ['e-icon'];
 
   example = `<i class="e-icon-clock e-icon-xl"></i>

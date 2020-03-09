@@ -11,7 +11,7 @@ export class BorderDocComponent implements OnInit {
   @Input() selected = TabNames.Overview;
 
   tabNames = TabNames;
-  tabs = [TabNames.Overview, TabNames.Examples, TabNames.Guidelines];
+  tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentClasses = ['e-border'];
 
   example1 = `<span class="e-border example-box"></span>

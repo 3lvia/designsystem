@@ -17,6 +17,15 @@
 
 <!--BODY-->
 <div class="page-body">
+  <!--CODE-->
+  <div *ngIf="selected == tabNames.Code">
+    <app-code-block
+      [isHTML]="true"
+      [code]="example1"
+      [title]="'Colors'"
+    ></app-code-block>
+  </div>
+
   <!--GUIDELINES-->
   <div *ngIf="selected == tabNames.Guidelines">
     <div>
@@ -25,9 +34,10 @@
         All colors can be used through a set of classes. The <code class="code-text">e-text</code> sets the text-color of the element, while the <code class="code-text">e-bg</code> sets the
         background as well as the text.
       </p>
+      <h3>Classes</h3>
       <ul>
-        <li><code class="code-text">e-bg-color</code></li>
-        <li><code class="code-text">e-text-color</code></li>
+        <li><code class="code-text">e-bg-name</code></li>
+        <li><code class="code-text">e-text-name</code></li>
       </ul>
       <h3>Do's and Don'ts</h3>
       <p>
@@ -36,8 +46,8 @@
         exceptions can of course occur and then the <code class="code-text">text</code> class is available.
       </p>
       <p>
-        <app-do-dont [do]="true" [example]="doCode"></app-do-dont>
-        <app-do-dont [do]="false" [example]="dontCode"></app-do-dont>
+        <app-do-dont [isHTML]="true" [do]="true" [example]="doCode"></app-do-dont>
+        <app-do-dont [isHTML]="true" [do]="false" [example]="dontCode"></app-do-dont>
       </p>
     </div>
 
@@ -46,9 +56,18 @@
       <p>
         All colors can be used through their CSS-variable as well. 
       </p>
+      <h3>Variables</h3>
       <ul>
-        <li><code class="code-text">var(--e-color)</code></li>
+        <li><code class="code-text">var(--e-name)</code></li>
       </ul>
+      <h3>Do's and Don'ts</h3>
+      <p>
+        All CSS-variables can be used.
+      </p>
+      <p>
+        <app-do-dont [isSCSS]="true" [do]="true" [example]="doCodeCSS"></app-do-dont>
+        <app-do-dont [isSCSS]="true" [do]="false" [example]="dontCodeCSS"></app-do-dont>
+      </p>
     </div>
   </div>
 

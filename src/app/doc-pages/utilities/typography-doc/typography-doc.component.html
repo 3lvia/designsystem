@@ -18,22 +18,22 @@
 <!--BODY-->
 <div class="page-body">
   <!--Overview-->
-  <div *ngIf="selected == tabNames.Overview">
-    <h1 class="e-title-large">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>
-    <h2 class="e-title-medium">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h2>
-    <h3 class="e-title-small">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h3>
-    <p class="e-text-lead">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-    <p class="e-text-quote">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-    <p class="e-text-caps">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-    <p class="e-text-body">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-    <p class="e-text-description">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-    <p class="e-text-info">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-    <p class="e-label-input">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-    <p class="e-label-option">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
+  <div class="examples" *ngIf="selected == tabNames.Overview">
+    <h1 class="examples-text e-title-large">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>
+    <h2 class="examples-text e-title-medium">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h2>
+    <h3 class="examples-text e-title-small">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h3>
+    <p class="examples-text e-text-lead">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
+    <p class="examples-text e-text-quote">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
+    <p class="examples-text e-text-caps">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
+    <p class="examples-text e-text-body">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
+    <p class="examples-text e-text-description">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
+    <p class="examples-text e-text-info">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
+    <p class="examples-text e-label-input">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
+    <p class="examples-text e-label-option">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
   </div>
 
   <!--Examples-->
-  <div *ngIf="selected == tabNames.Examples">
+  <div *ngIf="selected == tabNames.Code">
     <app-code-block
       [isHTML]="true"
       [code]="example1"
