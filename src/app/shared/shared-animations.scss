@@ -1,32 +1,37 @@
-@keyframes flip-diagonal-2-br {
+@keyframes flip-diagonal-br {
   0% {
-    transform: rotate3d(-1, 1, 0, 0deg);
+    transform: rotate3d(-1, 1, 0, 0deg) scale(0.1);
   }
   100% {
-    transform: rotate3d(-1, 1, 0, 180deg);
+    transform: rotate3d(-1, 1, 0, 10deg) scale(0.7);
   }
 }
-%flip-diagonal-2-br {
-  animation: flip-diagonal-2-br 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+%flip-diagonal-br {
+  animation: flip-diagonal-br 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
 }
 
-@-webkit-keyframes slide-fwd-center {
+@keyframes scale-up {
   0% {
-    transform: translateZ(0);
+    transform: scale(0.7);
   }
   100% {
-    transform: translateZ(160px);
-  }
-}
-@keyframes slide-fwd-center {
-  0% {
-    transform: translateZ(0);
-  }
-  100% {
-    transform: translateZ(160px);
+    transform: scale(1);
   }
 }
 
-%slide-fwd-center {
-  animation: slide-fwd-center 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+%scale-up {
+  animation: scale-up 0.6s cubic-bezier(0.25, 0.86, 0.95, 0.94) both;
+}
+
+@keyframes scale-down {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.7);
+  }
+}
+
+%scale-down {
+  animation: scale-down 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }

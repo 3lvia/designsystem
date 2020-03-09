@@ -106,9 +106,9 @@ body {
       max-height: 140px;
       border-radius: 50%;
       border: 2px solid transparent;
-      @extend %slide-fwd-center;
+      @extend %scale-up;
       &:hover, &.dark-animation:hover {
-        @extend %flip-diagonal-2-br;
+        @extend %scale-down;
       }
   
       &.primary {
@@ -121,9 +121,9 @@ body {
       margin: auto;
       margin-top: 10px;
       border: 2px solid transparent;
-      @extend %slide-fwd-center;
+      @extend %scale-up;
       &:hover, &.dark-animation:hover {
-        @extend %flip-diagonal-2-br;
+        @extend %scale-down;
       }
     }
   
