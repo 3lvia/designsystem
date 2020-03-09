@@ -20,16 +20,6 @@ body {
 }
 
 // Shared classes
-.example-box {
-  display: block;
-  width: 100%;
-  height: 50px;
-
-  &.unset {
-    height: unset;
-  }
-}
-
 .page-body {
   margin: auto;
   margin-bottom: 40px;
@@ -73,6 +63,17 @@ body {
   }
 }
 
+
+// Code examples
+.example-box {
+  display: block;
+  width: 100%;
+  height: 50px;
+
+  &.unset {
+    height: unset;
+  }
+}
 
 // Display examples
 .display-container {
