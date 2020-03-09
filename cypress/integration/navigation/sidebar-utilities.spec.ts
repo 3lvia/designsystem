@@ -18,11 +18,6 @@ describe('Utilities sidebar Test', () => {
         cy.url().should('eq', 'http://localhost:4200/utilities/template-doc');
     });
 
-    it('Visits the Border doc page on clicking on Border in the sidebar', () => {
-        cy.get('.navbar-item').contains('Border').click();
-        cy.url().should('eq', 'http://localhost:4200/utilities/border-doc');
-    });
-
     it('Visits the Colors doc page on clicking on Colors in the sidebar', () => {
         cy.get('.navbar-item').contains('Colors').click();
         cy.url().should('eq', 'http://localhost:4200/utilities/color-doc');
