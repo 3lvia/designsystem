@@ -21,3 +21,8 @@
     border-right: $border-medium;
   }
 }
+
+// Making CSS-variables for shadow-variables
+:root {
+  --e-border-medium: #{$border-medium};
+}
