@@ -1,6 +1,9 @@
 describe('Elvis Header Test', () => {
 
-    // TODO, put in before each to reset every test.
+    beforeEach(() => {
+        cy.visit('http://localhost:4200/home');
+    });
+
     it('Visits the home page of Elvis', () => {
         cy.visit('http://localhost:4200/home');
         cy.url().should('eq', 'http://localhost:4200/home');
@@ -21,6 +24,7 @@ describe('Elvis Header Test', () => {
         cy.url().should('eq', 'http://localhost:4200/accessibility');
     });
     it('should navigate to home page when clicking on logo or title in header', () => {
+        cy.visit('http://localhost:4200/accessibility');
         cy.get('.header-top').click();
         cy.url().should('eq', 'http://localhost:4200/home');
     });
