@@ -1401,7 +1401,7 @@ body {
   border-right: 1px solid #cacaca; }
 
 :root {
-  --e-border-medium: $border-medium; }
+  --e-border-medium: 1px solid #cacaca; }
 
 .e-text {
   color: #000; }
@@ -1988,6 +1988,9 @@ template {
 .e-mr-1 {
   margin-right: 8px; }
 
+:root {
+  --e-spacing-1: 8px; }
+
 .e-p-0 {
   padding: 0; }
 
@@ -2023,6 +2026,9 @@ template {
 
 .e-mr-2 {
   margin-right: 16px; }
+
+:root {
+  --e-spacing-2: 16px; }
 
 .e-p-0 {
   padding: 0; }
@@ -2060,6 +2066,9 @@ template {
 .e-mr-3 {
   margin-right: 24px; }
 
+:root {
+  --e-spacing-3: 24px; }
+
 .e-p-0 {
   padding: 0; }
 
@@ -2095,6 +2104,9 @@ template {
 
 .e-mr-4 {
   margin-right: 32px; }
+
+:root {
+  --e-spacing-4: 32px; }
 
 .e-p-0 {
   padding: 0; }
@@ -2132,6 +2144,9 @@ template {
 .e-mr-5 {
   margin-right: 40px; }
 
+:root {
+  --e-spacing-5: 40px; }
+
 .e-p-0 {
   padding: 0; }
 
@@ -2167,6 +2182,9 @@ template {
 
 .e-mr-6 {
   margin-right: 48px; }
+
+:root {
+  --e-spacing-6: 48px; }
 
 .e-p-0 {
   padding: 0; }
@@ -2204,6 +2222,9 @@ template {
 .e-mr-7 {
   margin-right: 56px; }
 
+:root {
+  --e-spacing-7: 56px; }
+
 .e-p-0 {
   padding: 0; }
 
@@ -2240,6 +2261,9 @@ template {
 .e-mr-8 {
   margin-right: 64px; }
 
+:root {
+  --e-spacing-8: 64px; }
+
 .e-p-0 {
   padding: 0; }
 
@@ -2275,6 +2299,9 @@ template {
 
 .e-mr-9 {
   margin-right: 72px; }
+
+:root {
+  --e-spacing-9: 72px; }
 
 body {
   font-family: "Red Hat Display", sans-serif;

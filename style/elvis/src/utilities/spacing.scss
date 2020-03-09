@@ -1,19 +1,19 @@
 @import "../variables/spacing";
 
 // Making margin and padding classes for all spacing
-.e {
-  @each $label, $map in $spacing {
-    $value: map-get($map, value);
-    $alt-labels: map-get($map, labels);
-    $labels: ($label);
+@each $label, $map in $spacing {
+  $value: map-get($map, value);
+  $alt-labels: map-get($map, labels);
+  $labels: ($label);
 
-    @if $alt-labels {
-      @each $label in $alt-labels {
-        $labels: append($labels, $label);
-      }
+  @if $alt-labels {
+    @each $label in $alt-labels {
+      $labels: append($labels, $label);
     }
+  }
 
-    @each $label in $labels {
+  @each $label in $labels {
+    .e {
       &-p-0 {
         padding: 0;
       }
@@ -51,5 +51,10 @@
         margin-right: $value;
       }
     }
+    // Making CSS-variables for shadow-variables
+    :root {
+      --e-spacing-#{$label}: #{$value};
+    }
   }
 }
+

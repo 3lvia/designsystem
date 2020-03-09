@@ -82,7 +82,7 @@ body {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-between;
-  margin: 16px 0;
+  margin: var(--e-spacing-3) 0;
 
   .display-card {
     display: inline-flex;
