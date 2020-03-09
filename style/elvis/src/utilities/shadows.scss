@@ -14,3 +14,10 @@
     box-shadow: $shadow-strong;
   }
 }
+
+// Making CSS-variables for shadow-variables
+:root {
+  --e-shadow-1: #{$shadow-light};
+  --e-shadow-2: #{$shadow-medium};
+  --e-shadow-3: #{$shadow-strong};
+}

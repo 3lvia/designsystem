@@ -1952,6 +1952,11 @@ template {
 .e-shadow-3 {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
 
+:root {
+  --e-shadow-1: 0 2px 4px rgba(194, 194, 194, 0.5);
+  --e-shadow-2: 0 2px 4px rgba(179, 179, 179, 0.5);
+  --e-shadow-3: 0 2px 4px rgba(0, 0, 0, 0.5); }
+
 .e-p-0 {
   padding: 0; }
 
