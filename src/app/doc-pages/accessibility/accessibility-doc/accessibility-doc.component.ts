@@ -2,11 +2,11 @@ import { Component, OnInit, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
-  selector: 'app-accessibility',
-  templateUrl: './accessibility.component.html',
-  styleUrls: ['./accessibility.component.scss']
+  selector: 'app-accessibility-doc',
+  templateUrl: './accessibility-doc.component.html',
+  styleUrls: ['./accessibility-doc.component.scss']
 })
-export class AccessibilityComponent implements OnInit {
+export class AccessibilityDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
