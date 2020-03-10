@@ -37,13 +37,13 @@
         <div>
           Elvis links:
           <div>
-            <a class="e-link" href="https://www.npmjs.com/package/@hafslundnett/elvis">The Elvis npm package</a>
+            <a class="e-link" href="https://www.npmjs.com/package/@hafslundnett/elvis">Elvis npm package</a>
           </div>
           <div>
-            <a class="e-link" href="https://github.com/hafslundnett/elvia-designsystem/">The Elvis repository</a>
+            <a class="e-link" href="https://github.com/hafslundnett/elvia-designsystem/">Elvis repository</a>
           </div>
           <div>
-            <a class="e-link" href="https://github.com/hafslundnett/elvia-designsystem/issues/new/choose">The Elvis report-page</a>
+            <a class="e-link" href="https://github.com/hafslundnett/elvia-designsystem/issues/new/choose">Elvis report-page</a>
           </div>
         </div>
       </div>
@@ -68,12 +68,18 @@
           The syntax for CSS-variables: <code class="code-text">var(--e-name-of-class)</code>
         </div>
       </div>
-      <h3>Support</h3>
+      <h3>IE Support</h3>
       <div class="e-text-body">
-        The CSS-variables are not supported by IE11 and a ponyfill therefore needs to be installed for it to work.
         <div>
-          The ponyfill recommended: <a class="e-link" href="https://jhildenbiddle.github.io/css-vars-ponyfill/#/">css-vars-ponyfill</a>
+          <a class="e-link" href="https://jhildenbiddle.github.io/css-vars-ponyfill/#/">Ponyfill documentation</a>
         </div>
+        The CSS-variables are not supported by IE11 and a ponyfill is therefore added as a dependency.
+        But this library is offered as a ponyfill, not a polyfill, 
+        meaning that the code below needs to be added to your project, in your main.js/ts file, for processing to take place:
+        <app-code-highlighter
+          [isTS]="true"
+          [code]="cssVarsCode"
+        ></app-code-highlighter>
       </div>
     </div>
   </div>

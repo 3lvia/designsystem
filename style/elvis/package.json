@@ -17,6 +17,7 @@
     "gulp-sass": "^4.0.2",
     "node-sass": "^4.13.1",
     "gulp-postcss": "^8.0.0",
-    "postcss-css-variables": "^0.14.0"
+    "postcss-css-variables": "^0.14.0",
+    "css-vars-ponyfill": "^2.2.1"
   }
 }
