@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import { PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-
 import 'clipboard';
 
 import 'prismjs';
