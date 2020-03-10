@@ -5,8 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShellModule } from './shell/shell.module';
-import { DocPagesModule } from './doc-pages/doc-pages.module';
 import { RouterModule } from '@angular/router';
+import { AccessibilityModule } from './doc-pages/accessibility/accessibility.module';
+import { ComponentsModule } from './doc-pages/components/components.module';
+import { UtilitiesModule } from './doc-pages/utilities/utilities.module';
 
 @NgModule({
   declarations: [
@@ -17,9 +19,10 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     AppRoutingModule,
     RouterModule,
-    BrowserAnimationsModule,
     ShellModule,
-    DocPagesModule,
+    AccessibilityModule,
+    ComponentsModule,
+    UtilitiesModule
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
