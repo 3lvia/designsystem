@@ -75,6 +75,13 @@ body {
   }
 }
 
+.hover-scale {
+  @extend %scale-up;
+  &:hover {
+    @extend %scale-down;
+  }
+}
+
 // Display examples
 .display-container {
   display: flex;
