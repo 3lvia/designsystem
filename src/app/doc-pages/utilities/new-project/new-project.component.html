@@ -22,9 +22,17 @@
         <div>
           To get started with Elvis: 
           <h3>Install the package:</h3>
-          <code class="code-block">npm i @hafslundnett/elvis</code>
+          <app-copy [message]="'npm i @hafslundnett/elvis'" [tooltipPosition]="'left'">
+            <ng-container ngProjectAs="copyContent">
+              <code class="code-block">npm i @hafslundnett/elvis</code>
+            </ng-container>
+          </app-copy>
           <h3>Import main.sass in your stylesheet:</h3>
-          <code class="code-block">@import '~@hafslundnett/elvis/src/main.scss';</code>
+          <app-copy [message]="'@import \'~@hafslundnett/elvis/src/main.scss\';'" [tooltipPosition]="'left'">
+            <ng-container ngProjectAs="copyContent">
+              <code class="code-block">@import '~@hafslundnett/elvis/src/main.scss';</code>
+            </ng-container>
+          </app-copy>
         </div>
         <div>
           Elvis links:
