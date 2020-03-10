@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
-import { CopyService } from 'src/app/shared/copy.service';
 
 @Component({
   selector: 'app-color-doc',
@@ -17,7 +16,6 @@ export class ColorDocComponent implements OnInit {
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentClasses = ['e-text', 'e-bg'];
   colors: string[] = ['red', 'green'];
-  copyTooltip = 'Copy class';
 
   doCode = `<div class="e-bg-green-lime"></div>`;
   dontCode = `<div class="e-bg-green-lime e-text-grey-mine-shaft"></div>`;
@@ -31,17 +29,9 @@ color: var(--e-text-red);`;
 <span class="e-bg-red e-mb-2 e-mt-2 e-p-2 example-box">Text</span>
 <span class="e-bg-black e-mb-2 e-mt-2 e-p-2 example-box">Text</span>`;
 
-  constructor(private copyService: CopyService) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  copyMessage(copyMessage) {
-    this.copyService.copyMessage(copyMessage);
-    this.copyTooltip = 'Copied!';
-    setTimeout(() => {
-      this.copyTooltip = 'Copy class';
-    }, 2000);
   }
 
 }
