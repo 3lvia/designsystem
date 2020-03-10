@@ -1,4 +1,4 @@
-describe('Elvis Homep page navigation Test', () => {
+describe('Elvis Home page navigation Test', () => {
 
     beforeEach(() => {
         cy.visit('http://localhost:4200/home');
