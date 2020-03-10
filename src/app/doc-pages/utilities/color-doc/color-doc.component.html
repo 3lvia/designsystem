@@ -81,33 +81,41 @@
         quos magnam recusandae.
       </p>
       <div class="display-container centered-content">
-        <div class="display-card primary" (click)="copyMessage('e-bg-white')">
-          <div class="display-card-circle primary e-shadow-2 e-bg-white e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card primary">
+          <app-copy [message]="'e-bg-white'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle primary e-shadow-2 e-bg-white"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">white</div>
           <div class="display-card-variable">#FFF</div>
         </div>
-        <div class="display-card primary" (click)="copyMessage('e-bg-black')">
-          <div class="display-card-circle primary e-shadow-2 e-bg-black e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card primary">
+          <app-copy [message]="'e-bg-black'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle primary e-shadow-2 e-bg-black"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">black</div>
           <div class="display-card-variable">#000</div>
         </div>
       </div>
       <div class="display-container centered-content">
-        <div class="display-card primary" (click)="copyMessage('e-bg-green-lime')">
-          <div class="display-card-circle primary e-shadow-2 e-bg-green-lime e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card primary">
+          <app-copy [message]="'e-bg-green-lime'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle primary e-shadow-2 e-bg-green-lime"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">green-lime</div>
           <div class="display-card-variable">#29D305</div>
         </div>
-        <div class="display-card primary" (click)="copyMessage('e-bg-grey-mine-shaft')">
-          <div class="display-card-circle primary e-shadow-2 e-bg-grey-mine-shaft e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card primary">
+          <app-copy [message]="'e-bg-grey-mine-shaft'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle primary e-shadow-2 e-bg-grey-mine-shaft"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">grey-mine-shaft</div>
           <div class="display-card-variable">#262626</div>
         </div>
@@ -122,93 +130,117 @@
         laboriosam laborum similique?
       </p>
       <div class="display-container centered-content">
-        <div class="display-card" (click)="copyMessage('e-bg-green-lime')">
-          <div class="display-card-circle e-shadow-2 e-bg-green-lime e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-green-lime'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-green-lime"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">green-lime</div>
           <div class="display-card-variable">#29D305</div>
         </div>
-        <div class="display-card" (click)="copyMessage('e-bg-green-lime-05')">
-          <div class="display-card-circle e-shadow-2 e-bg-green-lime-05 e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-green-lime-05'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-green-lime-05"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">green-lime-05</div>
           <div class="display-card-variable">#29D305</div>
         </div>
-        <div class="display-card" (click)="copyMessage('e-bg-green-lime-02')">
-          <div class="display-card-circle e-shadow-2 e-bg-green-lime-02 e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-green-lime-02'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-green-lime-02"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">green-lime-02</div>
           <div class="display-card-variable">#29D305</div>
         </div>
       </div>
       <div class="display-container centered-content">
-        <div class="display-card" (click)="copyMessage('e-bg-yellow')">
-          <div class="display-card-circle e-shadow-2 e-bg-yellow e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-yellow'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-yellow"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">yellow</div>
           <div class="display-card-variable">#FFFF00</div>
         </div>
-        <div class="display-card" (click)="copyMessage('e-bg-yellow-05')">
-          <div class="display-card-circle e-shadow-2 e-bg-yellow-05 e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-yellow-05'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-yellow-05"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">yellow-05</div>
           <div class="display-card-variable">#FFFF00</div>
         </div>
-        <div class="display-card" (click)="copyMessage('e-bg-yellow-02')">
-          <div class="display-card-circle e-shadow-2 e-bg-yellow-02 e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-yellow-02'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-yellow-02"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">yellow-02</div>
           <div class="display-card-variable">#FFFF00</div>
         </div>
       </div>
       <div class="display-container centered-content">
-        <div class="display-card" (click)="copyMessage('e-bg-orange-peel')">
-          <div class="display-card-circle e-shadow-2 e-bg-orange-peel e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-orange-peel'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-orange-peel"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">orange-peel</div>
           <div class="display-card-variable">#FFA000</div>
         </div>
-        <div class="display-card" (click)="copyMessage('e-bg-orange-peel-05')">
-          <div class="display-card-circle e-shadow-2 e-bg-orange-peel-05 e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-orange-peel-05'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-orange-peel-05"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">orange-peel-05</div>
           <div class="display-card-variable">#FFA000</div>
         </div>
-        <div class="display-card" (click)="copyMessage('e-bg-orange-peel-02')">
-          <div class="display-card-circle e-shadow-2 e-bg-orange-peel-02 e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-orange-peel-02'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-orange-peel-02"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">orange-peel-02</div>
           <div class="display-card-variable">#FFA000</div>
         </div>
       </div>
       <div class="display-container centered-content">
-        <div class="display-card" (click)="copyMessage('e-bg-red')">
-          <div class="display-card-circle e-shadow-2 e-bg-red e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-red'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-red"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">red</div>
           <div class="display-card-variable">#FF0000</div>
         </div>
-        <div class="display-card" (click)="copyMessage('e-bg-red-05')">
-          <div class="display-card-circle e-shadow-2 e-bg-red-05 e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-red-05'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-red-05"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">red-05</div>
           <div class="display-card-variable">#FF0000</div>
         </div>
-        <div class="display-card" (click)="copyMessage('e-bg-red-02')">
-          <div class="display-card-circle e-shadow-2 e-bg-red-02 e-tooltip">
-            <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
-          </div>
+        <div class="display-card">
+          <app-copy [message]="'e-bg-red-02'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-2 e-bg-red-02"></div>
+            </ng-container>
+          </app-copy>
           <div class="display-card-title e-text-caps">red-02</div>
           <div class="display-card-variable">#FF0000</div>
         </div>

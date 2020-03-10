@@ -87,12 +87,12 @@ body {
   .display-card {
     display: inline-flex;
     flex-direction: column;
+    align-items: center;
     box-sizing: border-box;
     padding: 16px;
     width: 31%;
     height: 100%;
     perspective: 1000;
-    cursor: pointer;
   
     &.primary {
       width: 48%;
@@ -101,10 +101,10 @@ body {
     &-circle {
       margin: auto;
       margin-top: 10px;
-      min-width: 100px;
-      min-height: 100px;
-      max-width: 140px;
-      max-height: 140px;
+      min-width: 80px;
+      min-height: 80px;
+      max-width: 130px;
+      max-height: 130px;
       border-radius: 50%;
       border: 2px solid transparent;
       @extend %scale-up;
@@ -113,8 +113,8 @@ body {
       }
   
       &.primary {
-        width: 145px;
-        height: 145px;
+        width: 130px;
+        height: 130px;
       }
     }
 
