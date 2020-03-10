@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CopyComponent implements OnInit {
 
   @Input() message = '';
-  @Input() tooltipPosition = 'right';
+  @Input() tooltipPosition = 'left';
 
   copyTooltip = 'Copy class';
 

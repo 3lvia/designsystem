@@ -1,6 +1,11 @@
 .e-tooltip {
     display: block;
     
+    &_content {
+        line-height: 120% !important;
+        font-size: 16px !important;
+    }
+    
     .copy-content {
         cursor: pointer;
         width: 100%;
