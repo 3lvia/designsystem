@@ -1,6 +1,7 @@
 <!--HEADER-->
 <app-component-header
   [componentClasses]="componentClasses"
+  [componentStatus]="componentStatus"
   [tabs]="tabs"
   [(selected)]="selected"
 >
@@ -8,9 +9,7 @@
     Icons
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Here are all the available icons in Elvis design system. 
   </ng-container>
   
 </app-component-header>
@@ -19,6 +18,8 @@
 <div class="page-body">
   <!--OVERVIEW-->
   <div class="overview" *ngIf="selected == tabNames.Overview">
+    <h2>Icons</h2>
+    <p>Search through all the available icons here.</p>
     <div class="overview-search-container">
       <div class="e-form_field">
         <div class="e-form_input">
@@ -30,7 +31,7 @@
         </div>
       </div>
     </div>
-    <div class="overview-icons-container" @fadeIn>
+    <div class="overview-icons-container">
       <div 
         class="icon-card"
         *ngFor="let icon of IconClassList | filter: term"
@@ -57,6 +58,26 @@
 
   <!--GUIDELINES-->
   <div *ngIf="selected == tabNames.Guidelines">
-    Some guideline-page
+    <div>
+      <h2>Using Classes</h2>
+      <p>
+        All icons can be used through a set of classes. The <code class="code-text">e-icon-name</code>, where 'name' is the name of the icon, 
+        which are all listed in the overview, can be used in an <code class="code-text">i</code> element to display icons.
+        The code <code class="code-text">e-icon-clock</code> will show a clock. All icons can be sized by using the five sizing classes from
+        extra large to extra small. 
+      </p>
+      <h3>Icon classes</h3>
+      <ul>
+        <li><code class="code-text">e-icon-name</code></li>
+      </ul>
+      <h3>Size classes</h3>
+      <ul>
+        <li><code class="code-text">e-icon-xl</code></li>
+        <li><code class="code-text">e-icon-lg</code></li>
+        <li><code class="code-text">e-icon-md</code></li>
+        <li><code class="code-text">e-icon-sm</code></li>
+        <li><code class="code-text">e-icon-xs</code></li>
+      </ul>
+    </div>
   </div>
 </div>

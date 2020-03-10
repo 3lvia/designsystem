@@ -1,6 +1,7 @@
 <!--HEADER-->
 <app-component-header 
   [componentClasses]="componentClasses"
+  [componentStatus]="componentStatus"
   [tabs]="tabs"
   [(selected)]="selected"
 >
@@ -8,9 +9,7 @@
     Colors
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Here are all the available colors in Elvis design system.
   </ng-container>
   
 </app-component-header>
@@ -114,6 +113,23 @@
         debitis quisquam unde magni magnam dolores illo voluptatum officia
         laboriosam laborum similique?
       </p>
+      <div class="display-container centered-content">
+        <div class="display-card">
+          <div class="display-card-circle e-shadow-2 e-bg-green-lime"></div>
+          <div class="display-card-title e-text-caps">green-lime</div>
+          <div class="display-card-variable">#29D305</div>
+        </div>
+        <div class="display-card">
+          <div class="display-card-circle e-shadow-2 e-bg-green-lime-05"></div>
+          <div class="display-card-title e-text-caps">green-lime-05</div>
+          <div class="display-card-variable">#29D305</div>
+        </div>
+        <div class="display-card">
+          <div class="display-card-circle e-shadow-2 e-bg-green-lime-02"></div>
+          <div class="display-card-title e-text-caps">green-lime-02</div>
+          <div class="display-card-variable">#29D305</div>
+        </div>
+      </div>
       <div class="display-container centered-content">
         <div class="display-card">
           <div class="display-card-circle e-shadow-2 e-bg-yellow"></div>

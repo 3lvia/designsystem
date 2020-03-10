@@ -80,7 +80,7 @@
     box-shadow: none;
     border: none; }
   .e-button.has-icon.is-transparent:not([disabled]):hover:not(:active), .e-button-icon.is-transparent:not([disabled]):hover:not(:active) {
-    text-shadow: 0 2px 7px rgba(127, 127, 127, 0.5); }
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
   .e-button.has-icon.is-transparent:not([disabled]):active, .e-button-icon.is-transparent:not([disabled]):active {
     transform: scale(0.9, 0.9); }
 
@@ -108,7 +108,7 @@
     color: #FFF;
     cursor: not-allowed; }
   .e-button.is-primary:not([disabled]):hover:not(:focus), .e-button:not([disabled]):hover:not(:focus) {
-    box-shadow: 0 2px 7px rgba(127, 127, 127, 0.5); }
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
   .e-button.is-primary:not([disabled]):active, .e-button:not([disabled]):active {
     background: green;
     outline: none; }
@@ -1400,6 +1400,9 @@ body {
 .e-border-r {
   border-right: 1px solid #cacaca; }
 
+:root {
+  --e-border-medium: 1px solid #cacaca; }
+
 .e-text {
   color: #000; }
 
@@ -1447,6 +1450,26 @@ body {
   color: #fff; }
 
 :root {
+  --e-grey-mine-shaft-05: rgba(38, 38, 38, 0.5); }
+
+.e-text-grey-mine-shaft-05 {
+  color: rgba(38, 38, 38, 0.5); }
+
+.e-bg-grey-mine-shaft-05 {
+  background: rgba(38, 38, 38, 0.5);
+  color: #fff; }
+
+:root {
+  --e-grey-mine-shaft-02: rgba(38, 38, 38, 0.2); }
+
+.e-text-grey-mine-shaft-02 {
+  color: rgba(38, 38, 38, 0.2); }
+
+.e-bg-grey-mine-shaft-02 {
+  background: rgba(38, 38, 38, 0.2);
+  color: #fff; }
+
+:root {
   --e-grey-stone: #707070; }
 
 .e-text-grey-stone {
@@ -1454,7 +1477,7 @@ body {
 
 .e-bg-grey-stone {
   background: #707070;
-  color: #000; }
+  color: #fff; }
 
 :root {
   --e-grey-silver: #cacaca; }
@@ -1484,6 +1507,26 @@ body {
 
 .e-bg-green-lime {
   background: #29D305;
+  color: #000; }
+
+:root {
+  --e-green-lime-05: rgba(41, 211, 5, 0.5); }
+
+.e-text-green-lime-05 {
+  color: rgba(41, 211, 5, 0.5); }
+
+.e-bg-green-lime-05 {
+  background: rgba(41, 211, 5, 0.5);
+  color: #000; }
+
+:root {
+  --e-green-lime-02: rgba(41, 211, 5, 0.2); }
+
+.e-text-green-lime-02 {
+  color: rgba(41, 211, 5, 0.2); }
+
+.e-bg-green-lime-02 {
+  background: rgba(41, 211, 5, 0.2);
   color: #000; }
 
 :root {
@@ -1907,7 +1950,12 @@ template {
   box-shadow: 0 2px 4px rgba(179, 179, 179, 0.5); }
 
 .e-shadow-3 {
-  box-shadow: 0 2px 7px rgba(127, 127, 127, 0.5); }
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
+
+:root {
+  --e-shadow-1: 0 2px 4px rgba(194, 194, 194, 0.5);
+  --e-shadow-2: 0 2px 4px rgba(179, 179, 179, 0.5);
+  --e-shadow-3: 0 2px 4px rgba(0, 0, 0, 0.5); }
 
 .e-p-0 {
   padding: 0; }
@@ -1945,6 +1993,9 @@ template {
 .e-mr-1 {
   margin-right: 8px; }
 
+:root {
+  --e-spacing-1: 8px; }
+
 .e-p-0 {
   padding: 0; }
 
@@ -1980,6 +2031,9 @@ template {
 
 .e-mr-2 {
   margin-right: 16px; }
+
+:root {
+  --e-spacing-2: 16px; }
 
 .e-p-0 {
   padding: 0; }
@@ -2017,6 +2071,9 @@ template {
 .e-mr-3 {
   margin-right: 24px; }
 
+:root {
+  --e-spacing-3: 24px; }
+
 .e-p-0 {
   padding: 0; }
 
@@ -2052,6 +2109,9 @@ template {
 
 .e-mr-4 {
   margin-right: 32px; }
+
+:root {
+  --e-spacing-4: 32px; }
 
 .e-p-0 {
   padding: 0; }
@@ -2089,6 +2149,9 @@ template {
 .e-mr-5 {
   margin-right: 40px; }
 
+:root {
+  --e-spacing-5: 40px; }
+
 .e-p-0 {
   padding: 0; }
 
@@ -2124,6 +2187,9 @@ template {
 
 .e-mr-6 {
   margin-right: 48px; }
+
+:root {
+  --e-spacing-6: 48px; }
 
 .e-p-0 {
   padding: 0; }
@@ -2161,6 +2227,9 @@ template {
 .e-mr-7 {
   margin-right: 56px; }
 
+:root {
+  --e-spacing-7: 56px; }
+
 .e-p-0 {
   padding: 0; }
 
@@ -2196,6 +2265,48 @@ template {
 
 .e-mr-8 {
   margin-right: 64px; }
+
+:root {
+  --e-spacing-8: 64px; }
+
+.e-p-0 {
+  padding: 0; }
+
+.e-p-9 {
+  padding: 72px; }
+
+.e-pt-9 {
+  padding-top: 72px; }
+
+.e-pb-9 {
+  padding-bottom: 72px; }
+
+.e-pl-9 {
+  padding-left: 72px; }
+
+.e-pr-9 {
+  padding-right: 72px; }
+
+.e-m-0 {
+  margin: 0; }
+
+.e-m-9 {
+  margin: 72px; }
+
+.e-mt-9 {
+  margin-top: 72px; }
+
+.e-mb-9 {
+  margin-bottom: 72px; }
+
+.e-ml-9 {
+  margin-left: 72px; }
+
+.e-mr-9 {
+  margin-right: 72px; }
+
+:root {
+  --e-spacing-9: 72px; }
 
 body {
   font-family: "Red Hat Display", sans-serif;
@@ -2270,6 +2381,13 @@ h3 {
   font-family: "Red Hat Display", sans-serif;
   font-size: 1.125rem;
   line-height: 160%;
+  font-weight: 400;
+  color: #000; }
+
+p {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1rem;
+  line-height: 175%;
   font-weight: 400;
   color: #000; }
 

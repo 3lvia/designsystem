@@ -1,6 +1,7 @@
 <!--HEADER-->
 <app-component-header
   [componentClasses]="componentClasses"
+  [componentStatus]="componentStatus"
   [tabs]="tabs"
   [(selected)]="selected"
 >
@@ -8,9 +9,7 @@
     Shadow
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    There are 3 shadows available in the style-library.
   </ng-container>
   
 </app-component-header>
@@ -23,17 +22,17 @@
     <p>There are 3 shadows available in the style-library.</p>
     <div class="display-container centered-content">
       <div class="display-card">
-        <div class="display-card-circle e-shadow-1"></div>
+        <div class="display-card-circle e-shadow-1 e-bg-green-lime-05"></div>
         <div class="display-card-title e-text-caps">shadow-1</div>
         <div class="display-card-variable">#c2c2c2-0.5</div>
       </div>
       <div class="display-card">
-        <div class="display-card-circle e-shadow-2"></div>
+        <div class="display-card-circle e-shadow-2 e-bg-green-lime-05"></div>
         <div class="display-card-title e-text-caps">shadow-2</div>
         <div class="display-card-variable">#b3b3b3-0.5</div>
       </div>
       <div class="display-card">
-        <div class="display-card-circle e-shadow-3"></div>
+        <div class="display-card-circle e-shadow-3 e-bg-green-lime-05"></div>
         <div class="display-card-title e-text-caps">shadow-3</div>
         <div class="display-card-variable">#000000-0.5</div>
       </div>
@@ -65,6 +64,24 @@
         <li><code class="code-text">e-shadow-2</code></li>
         <li><code class="code-text">e-shadow-3</code></li>
       </ul>
+    </div>
+    <div>
+      <h2>Using CSS-variables</h2>
+      <p>
+        All shadows can be used through their CSS-variable as well. 
+      </p>
+      <h3>Variables</h3>
+      <ul>
+        <li><code class="code-text">var(--e-shadow-number)</code></li>
+      </ul>
+      <h3>Do's and Don'ts</h3>
+      <p>
+        All CSS-variables can be used except if you want remove shadow.
+      </p>
+      <p>
+        <app-do-dont [isSCSS]="true" [do]="true" [example]="doCodeCSS"></app-do-dont>
+        <app-do-dont [isSCSS]="true" [do]="false" [example]="dontCodeCSS"></app-do-dont>
+      </p>
     </div>
   </div>
 </div>

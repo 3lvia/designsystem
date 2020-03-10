@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
+import { getUtilities } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-new-project',
@@ -10,6 +11,7 @@ export class NewProjectComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
+  componentStatus = getUtilities('new-project-doc').status;
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Guidelines];
 
