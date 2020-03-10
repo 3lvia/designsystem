@@ -31,12 +31,13 @@ describe('Elvis Home page navigation Test', () => {
             .should('have.attr', 'href', 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose');
     });
 
-    it('Navigates to Templae page when clicking card link', () => {
-        cy.get('.e-card_title').contains('Templates')
-            .parent('.e-card_header_text')
-            .parent('.e-card_header')
-            .siblings('.e-card_actions').children().contains('View templates').click();
-        cy.url().should('eq', 'http://localhost:4200/utilities/template-doc');
-    });
+    // TODO: Implement when page is ready
+    // it('Navigates to Template page when clicking card link', () => {
+    //     cy.get('.e-card_title').contains('Templates')
+    //         .parent('.e-card_header_text')
+    //         .parent('.e-card_header')
+    //         .siblings('.e-card_actions').children().contains('View templates').click();
+    //     cy.url().should('eq', 'http://localhost:4200/utilities/template-doc');
+    // });
 
 });

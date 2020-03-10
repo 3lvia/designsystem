@@ -34,7 +34,7 @@ describe('Components sidebar Test', () => {
     });
 
     it('Visits the Checkbox-Toggle doc page on clicking on Checkbox-Toggle in the sidebar', () => {
-        cy.get('.navbar-item').contains('Checkbox-Toggle').click();
+        cy.get('.navbar-item').contains('Toggle').click();
         cy.url().should('eq', 'http://localhost:4200/components/checkbox-toggle-doc');
     });
 
@@ -61,11 +61,6 @@ describe('Components sidebar Test', () => {
     it('Visits the Link doc page on clicking on Link in the sidebar', () => {
         cy.get('.navbar-item').contains('Link').click();
         cy.url().should('eq', 'http://localhost:4200/components/link-doc');
-    });
-
-    it('Visits the Notification-Dot doc page on clicking on Notification-Dot in the sidebar', () => {
-        cy.get('.navbar-item').contains('Notification-Dot').click();
-        cy.url().should('eq', 'http://localhost:4200/components/notification-dot-doc');
     });
 
     it('Visits the Radiobutton doc page on clicking on Radiobutton in the sidebar', () => {

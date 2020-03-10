@@ -19,10 +19,11 @@ describe('Elvis Header Test', () => {
         cy.url().should('eq', 'http://localhost:4200/utilities');
     });
 
-    it('should navigate to Accessibility overview page when clicking on Accessibility in header', () => {
-        cy.get('.header-tabs').contains('Accessibility').click();
-        cy.url().should('eq', 'http://localhost:4200/accessibility');
-    });
+    // TODO: Test when section is ready
+    // it('should navigate to Accessibility overview page when clicking on Accessibility in header', () => {
+    //     cy.get('.header-tabs').contains('Accessibility').click();
+    //     cy.url().should('eq', 'http://localhost:4200/accessibility');
+    // });
     it('should navigate to home page when clicking on logo or title in header', () => {
         cy.visit('http://localhost:4200/accessibility');
         cy.get('.header-top').click();
