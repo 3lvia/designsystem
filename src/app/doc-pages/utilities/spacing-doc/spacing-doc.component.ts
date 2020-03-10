@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
+import { CopyService } from 'src/app/shared/copy.service';
 
 @Component({
   selector: 'app-spacing-doc',
@@ -15,6 +16,7 @@ export class SpacingDocComponent implements OnInit {
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentClasses = ['e-p', 'e-m'];
   componentStatus = getUtilities('spacing-doc').status;
+  copyTooltip = 'Copy class';
 
   doCodeCSS = `padding: var(--e-spacing-2);
 margin: var(--e-spacing-6);`;
@@ -27,9 +29,17 @@ margin:  var(--e-m-6);`;
 <span class="e-p-5 e-mt-2 e-mb-2 e-bg-orange-peel-05 example-box unset"></span>
 <span class="e-p-6 e-mt-2 e-mb-2 e-bg-orange-peel-02 example-box unset"></span>`;
 
-  constructor() { }
+  constructor(private copyService: CopyService) { }
 
   ngOnInit() {
+  }
+
+  copyMessage(copyMessage) {
+    this.copyService.copyMessage(copyMessage);
+    this.copyTooltip = 'Copied!';
+    setTimeout(() => {
+      this.copyTooltip = 'Copy class';
+    }, 2000);
   }
 
 }

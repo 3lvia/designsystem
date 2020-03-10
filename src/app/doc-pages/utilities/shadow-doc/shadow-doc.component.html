@@ -21,19 +21,25 @@
     <h2>Shadows</h2>
     <p>There are 3 shadows available in the style-library.</p>
     <div class="display-container centered-content">
-      <div class="display-card">
-        <div class="display-card-circle e-shadow-1 e-bg-green-lime-05"></div>
+      <div class="display-card" (click)="copyMessage('e-shadow-1')">
+        <div class="display-card-circle e-shadow-1 e-bg-green-lime-05 e-tooltip">
+          <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
+        </div>
         <div class="display-card-title e-text-caps">shadow-1</div>
         <div class="display-card-variable">#c2c2c2-0.5</div>
       </div>
-      <div class="display-card">
-        <div class="display-card-circle e-shadow-2 e-bg-green-lime-05"></div>
-        <div class="display-card-title e-text-caps">shadow-2</div>
+      <div class="display-card" (click)="copyMessage('e-shadow-2')">
+        <div class="display-card-circle e-shadow-2 e-bg-green-lime-05 e-tooltip">
+          <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
+        </div>
+        <div class="display-card-title e-text-caps">shadow-1</div>
         <div class="display-card-variable">#b3b3b3-0.5</div>
       </div>
-      <div class="display-card">
-        <div class="display-card-circle e-shadow-3 e-bg-green-lime-05"></div>
-        <div class="display-card-title e-text-caps">shadow-3</div>
+      <div class="display-card" (click)="copyMessage('e-shadow-3')">
+        <div class="display-card-circle e-shadow-3 e-bg-green-lime-05 e-tooltip">
+          <span class="e-tooltip_content is-right">{{ copyTooltip }}</span>
+        </div>
+        <div class="display-card-title e-text-caps">shadow-1</div>
         <div class="display-card-variable">#000000-0.5</div>
       </div>
     </div>

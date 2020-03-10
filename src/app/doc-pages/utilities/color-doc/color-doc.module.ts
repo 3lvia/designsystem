@@ -10,7 +10,7 @@ import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
     CommonModule,
     ComponentHeaderModule,
     DoDontModule,
-    CodeBlockModule
+    CodeBlockModule,
   ],
   declarations: [ColorDocComponent]
 })
