@@ -24,7 +24,7 @@ import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutto
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
 import { ShadowDocComponent } from './doc-pages/utilities/shadow-doc/shadow-doc.component';
 import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
-import { AccessibilityComponent } from './doc-pages/accessibility/accessibility/accessibility.component';
+import { AccessibilityDocComponent } from './doc-pages/accessibility/accessibility-doc/accessibility-doc.component';
 import { AltTextComponent } from './doc-pages/accessibility/alt-text/alt-text.component';
 import { UuToolsComponent } from './doc-pages/accessibility/uu-tools/uu-tools.component';
 import { SpacingDocComponent } from './doc-pages/utilities/spacing-doc/spacing-doc.component';
@@ -32,9 +32,8 @@ import { BorderDocComponent } from './doc-pages/utilities/border-doc/border-doc.
 import { OverviewAccessibilityComponent } from './doc-pages/accessibility/overview-accessibility/overview-accessibility.component';
 import { OverviewUtilComponent } from './doc-pages/utilities/overview-util/overview-util.component';
 import { OverviewComponent } from './doc-pages/components/overview-comp/overview-comp.component';
-import { ContributeComponent } from './doc-pages/get-started/contribute/contribute.component';
-import { NewProjectComponent } from './doc-pages/get-started/new-project/new-project.component';
-import { TemplatesComponent } from './doc-pages/get-started/templates/templates.component';
+import { NewProjectComponent } from './doc-pages/utilities/new-project/new-project.component';
+import { TemplatesComponent } from './doc-pages/utilities/templates/templates.component';
 import { AccessibilityStartComponent } from './doc-pages/accessibility/accessibility-start/accessibility-start.component';
 import { ComponentsStartComponent } from './doc-pages/components/components-start/components-start.component';
 import { UtilitiesStartComponent } from './doc-pages/utilities/utilities-start/utilities-start.component';
@@ -67,7 +66,7 @@ const routes: Routes = [
           },
           {
             path: Pages.Accessibility,
-            component: AccessibilityComponent
+            component: AccessibilityDocComponent
           },
           {
             path: Pages.AltText,
@@ -194,10 +193,6 @@ const routes: Routes = [
           {
             path: Pages.Template,
             component: TemplatesComponent
-          },
-          {
-            path: Pages.Contribute,
-            component: ContributeComponent
           },
           {
             path: Pages.Typography,
