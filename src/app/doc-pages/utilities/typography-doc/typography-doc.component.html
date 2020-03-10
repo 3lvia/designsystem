@@ -1,6 +1,7 @@
 <!--HEADER-->
 <app-component-header
   [componentClasses]="componentClasses"
+  [componentStatus]="componentStatus"
   [tabs]="tabs"
   [(selected)]="selected"
 >
@@ -8,9 +9,8 @@
     Typography
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    This is the available typography that should be used with all application. 
+    All typography can be used through a set of classes. The e-title-large sets multiple attributes, like font-size, line-height and font-weight.
   </ng-container>
   
 </app-component-header>
@@ -19,6 +19,11 @@
 <div class="page-body">
   <!--Overview-->
   <div class="examples" *ngIf="selected == tabNames.Overview">
+    <h2>Typography</h2>
+    <p>
+      The font is Red Hat Display and should be used for all text. Here are all the different typography 
+      classes represented.
+    </p>
     <h1 class="examples-text e-title-large">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>
     <h2 class="examples-text e-title-medium">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h2>
     <h3 class="examples-text e-title-small">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h3>
@@ -53,6 +58,32 @@
 
   <!--GUIDELINES-->
   <div *ngIf="selected == tabNames.Guidelines">
-    Some guideline-page
+    <div>
+      <h2>Using Classes</h2>
+      <p>
+        All typography can be used through a set of classes. The <code class="code-text">e-title-large</code> sets multiple attributes,
+        like font-size, line-height and font-weight. 
+      </p>
+      <h3>Title classes</h3>
+      <ul>
+        <li><code class="code-text">e-title-large</code></li>
+        <li><code class="code-text">e-title-medium</code></li>
+        <li><code class="code-text">e-title-small</code></li>
+      </ul>
+      <h3>Text classes</h3>
+      <ul>
+        <li><code class="code-text">e-text-lead</code></li>
+        <li><code class="code-text">e-text-quote</code></li>
+        <li><code class="code-text">e-text-caps</code></li>
+        <li><code class="code-text">e-text-body</code></li>
+        <li><code class="code-text">e-text-description</code></li>
+        <li><code class="code-text">e-text-info</code></li>
+      </ul>
+      <h3>Label classes</h3>
+      <ul>
+        <li><code class="code-text">e-label-input</code></li>
+        <li><code class="code-text">e-label-option</code></li>
+      </ul>
+    </div>
   </div>
 </div>

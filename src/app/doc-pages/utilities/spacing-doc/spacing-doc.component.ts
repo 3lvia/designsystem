@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
+import { getUtilities } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-spacing-doc',
@@ -13,6 +14,7 @@ export class SpacingDocComponent implements OnInit {
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentClasses = ['e-p', 'e-m'];
+  componentStatus = getUtilities('spacing-doc').status;
 
   doCodeCSS = `padding: var(--e-spacing-2);
 margin: var(--e-spacing-6);`;

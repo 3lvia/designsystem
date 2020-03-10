@@ -166,6 +166,7 @@ export const eUtilities: EItems[] = [
         title: 'New project',
         description: 'Guidance how to use, and implementation of Elvia Designsystem.',
         docUrl: Pages.NewProject,
+        status: ItemStatus.Coming,
         actionText: 'Get started',
     },
     // {
@@ -190,30 +191,35 @@ export const eUtilities: EItems[] = [
         title: 'Colors',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Color,
+        status: ItemStatus.Coming,
         actionText: 'View utility',
     },
     {
         title: 'Shadow',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Shadow,
+        status: ItemStatus.Coming,
         actionText: 'View utility',
     },
     {
         title: 'Spacing',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Spacing,
+        status: ItemStatus.Coming,
         actionText: 'View utility',
     },
     {
         title: 'Icons',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Icon,
+        status: ItemStatus.Coming,
         actionText: 'View utility',
     },
     {
         title: 'Typography',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Typography,
+        status: ItemStatus.Coming,
         actionText: 'View utility',
     },
 ];
@@ -241,4 +247,7 @@ export const eAccessibility: EItems[] = [
 
 export function getComponent(docUrl: string): EItems {
     return eComponents.find(component => component.docUrl === docUrl);
+}
+export function getUtilities(docUrl: string): EItems {
+    return eUtilities.find(component => component.docUrl === docUrl);
 }

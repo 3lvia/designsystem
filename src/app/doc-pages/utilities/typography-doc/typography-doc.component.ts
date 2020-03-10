@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
+import { getUtilities } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-typography-doc',
@@ -13,6 +14,7 @@ export class TypographyDocComponent implements OnInit {
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentClasses = ['e-title', 'e-text', 'e-label'];
+  componentStatus = getUtilities('typography-doc').status;
 
   example1 = `<h1 class="e-title-large">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>
 <h2 class="e-title-medium">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h2>

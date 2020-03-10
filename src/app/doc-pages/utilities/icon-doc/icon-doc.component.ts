@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Icon } from 'src/app/shared/icon.interface';
 import { TabNames } from 'src/app/shared/tab-names.enums';
+import { getUtilities } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-icon-doc',
@@ -11,6 +12,7 @@ export class IconDocComponent {
 
   @Input() selected = TabNames.Overview;
 
+  componentStatus = getUtilities('icon-doc').status;
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentClasses = ['e-icon'];
