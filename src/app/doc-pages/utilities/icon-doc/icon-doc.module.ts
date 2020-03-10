@@ -5,6 +5,7 @@ import { IconDocComponent } from './icon-doc.component';
 import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ComponentHeaderModule } from 'src/app/shared/component-header/component-header.module';
+import { CopyModule } from 'src/app/shared/copy/copy.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ComponentHeaderModule } from 'src/app/shared/component-header/component
     CodeBlockModule,
     FormsModule,
     Ng2SearchPipeModule,
-    ComponentHeaderModule
+    ComponentHeaderModule,
+    CopyModule
   ],
   declarations: [IconDocComponent]
 })
