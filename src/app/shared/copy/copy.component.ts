@@ -21,7 +21,7 @@ export class CopyComponent implements OnInit {
     this.copyTooltip = 'Copied!';
     setTimeout(() => {
       this.copyTooltip = 'Copy class';
-    }, 2500);
+    }, 3000);
   }
 
   copyToClipBoard(val: string) {
