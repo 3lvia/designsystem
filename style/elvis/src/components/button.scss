@@ -3,11 +3,11 @@
 @import "../variables/shared-sizes.scss";
 @import "../utilities/animations.scss";
 
-$button-radius: $border-radius;
+$button-radius: 24px;
 $button-border-width: 1px;
 $extra-border-hover: 1px;
-$button-padding-top-bottom: 10px;
-$button-padding-left-right: 16px;
+$button-padding-top-bottom: 12px;
+$button-padding-left-right: 32px;
 $button-padding: $button-padding-top-bottom $button-padding-left-right;
 $button-with-icon-font-size: 1.5rem;
 $icon-button-height: 36px;
@@ -66,15 +66,15 @@ $button-font-size: 1rem;
 
   &.is-primary {
     display: inline-block;
+    box-sizing: border-box;
     border: none;
     border-radius: $button-radius;
     padding: $button-padding;
     font-size: $button-font-size;
-    letter-spacing: 0.5px;
-    background: color('green-lime');
+    background: color('black');
     color: color('white');
-    min-width: 90px;
-    position: relative;
+    outline: none;
+    
     cursor: pointer;
     outline-offset: -1px;
     box-sizing: border-box;
@@ -85,15 +85,19 @@ $button-font-size: 1rem;
       cursor: not-allowed;
     }
 
+    &:focus {
+      border: 2px solid #1AD6FF;
+    }
+
     // Changes button-text on hover/active/focus
-    &:not([disabled]) {
+    &:enabled {
       &:hover:not(:focus) {
-        box-shadow: $shadow-strong;
+        color: color('green-lime')
       }
 
       &:active {
         background: green;
-        outline: none;
+        outline: thick;
       }
     }
   }
