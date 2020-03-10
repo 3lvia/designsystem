@@ -17,10 +17,10 @@ export class ColorDocComponent implements OnInit {
 
   doCode = `<div class="e-bg-green-lime"></div>`;
   dontCode = `<div class="e-bg-green-lime e-text-grey-mine-shaft"></div>`;
-  doCodeCSS = `background: var(--e-green-lime)
-color: var(--e-red)`;
-  dontCodeCSS = `background: var(--e-bg-green-lime)
-color: var(--e-text-red)`;
+  doCodeCSS = `background: var(--e-green-lime);
+color: var(--e-red);`;
+  dontCodeCSS = `background: var(--e-bg-green-lime);
+color: var(--e-text-red);`;
   example1 = `<span class="e-bg-green-lime e-mb-2 e-mt-2 e-p-2 example-box">Text</span>
 <span class="e-bg-yellow e-mb-2 e-mt-2 e-p-2 example-box">Text</span>
 <span class="e-bg-orange-peel e-mb-2 e-mt-2 e-p-2 example-box">Text</span>

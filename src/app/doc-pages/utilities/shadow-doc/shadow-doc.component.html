@@ -64,5 +64,23 @@
         <li><code class="code-text">e-shadow-3</code></li>
       </ul>
     </div>
+    <div>
+      <h2>Using CSS-variables</h2>
+      <p>
+        All shadows can be used through their CSS-variable as well. 
+      </p>
+      <h3>Variables</h3>
+      <ul>
+        <li><code class="code-text">var(--e-shadow-number)</code></li>
+      </ul>
+      <h3>Do's and Don'ts</h3>
+      <p>
+        All CSS-variables can be used except if you want remove shadow.
+      </p>
+      <p>
+        <app-do-dont [isSCSS]="true" [do]="true" [example]="doCodeCSS"></app-do-dont>
+        <app-do-dont [isSCSS]="true" [do]="false" [example]="dontCodeCSS"></app-do-dont>
+      </p>
+    </div>
   </div>
 </div>
