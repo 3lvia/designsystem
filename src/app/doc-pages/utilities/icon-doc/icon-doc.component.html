@@ -32,13 +32,17 @@
       </div>
     </div>
     <div class="overview-icons-container">
-      <div 
-        class="icon-card"
-        *ngFor="let icon of IconClassList | filter: term"
-      >
-        <i class="{{ icon.class }} e-icon-lg"></i>
-        <p>{{ icon.title }}</p>
-      </div>
+        <div 
+          class="icon-card"
+          *ngFor="let icon of IconClassList | filter: term"
+        >
+          <app-copy [message]="icon.class">
+            <ng-container ngProjectAs="copyContent">
+              <i class="{{ icon.class }} e-icon-lg"></i>
+            </ng-container>
+          </app-copy>
+          <p>{{ icon.title }}</p>
+        </div>
     </div>
   </div>
 

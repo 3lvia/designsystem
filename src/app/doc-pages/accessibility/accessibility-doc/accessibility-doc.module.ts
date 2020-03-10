@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AccessibilityComponent } from './accessibility.component';
+import { AccessibilityDocComponent } from './accessibility-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-header/component-header.module';
 
 @NgModule({
@@ -8,6 +8,6 @@ import { ComponentHeaderModule } from 'src/app/shared/component-header/component
     CommonModule,
     ComponentHeaderModule
   ],
-  declarations: [AccessibilityComponent]
+  declarations: [AccessibilityDocComponent]
 })
-export class AccessibilityModule { }
+export class AccessibilityDocModule { }
