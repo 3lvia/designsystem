@@ -1,32 +1,72 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"  
-  [tabs]="tabs"
-  [(selected)]="selected"
 >
   <ng-container ngProjectAs="headerTitle">
-    New project
+    New project with Elvis
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    At the start of a new project we advice that you take a look at the existing
-    templates to get a good insight into how components are used, styled and
-    toned.
+    Elvis is the design library for Elvia extern and intern systems. Elvis provides classes and variables for styling components,
+    as well as templates, accessibility rules and design principles for all developers and designers at Elvia to follow. 
+    This guide provides you how to install the project and how to use the classes and variables provided.
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
   <!--OVERVIEW-->
-  <div *ngIf="selected == tabNames.Overview">
-    <h2 class="e-title-medium">How to get started</h2>
-    <div class="e-text-body">
-      At the start of a new project we advice that you take a look at the existing
-      templates. This will give you a good insight into how components are used,
-      styled and toned. Feel free to use an existing template as an origin to
-      quickly get started on development. This will contribute a consistent
-      experience for our users. Remember that components can be adapted to your
-      need, but this needs to be clarified with the designer in charge of the
-      Elvis design system.
+  <div>
+    <div>
+      <h2 class="e-title-medium">Getting started with Elvis</h2>
+      <div class="e-text-body">
+        <div>
+          To get started with Elvis: 
+          <h3>Install the package:</h3>
+          <code class="code-block">npm i @hafslundnett/elvis</code>
+          <h3>Import main.sass in your stylesheet:</h3>
+          <code class="code-block">@import '~@hafslundnett/elvis/src/main.scss';</code>
+        </div>
+        <div>
+          Elvis links:
+          <div>
+            <a class="e-link" href="https://www.npmjs.com/package/@hafslundnett/elvis">The Elvis npm package</a>
+          </div>
+          <div>
+            <a class="e-link" href="https://github.com/hafslundnett/elvia-designsystem/">The Elvis repository</a>
+          </div>
+          <div>
+            <a class="e-link" href="https://github.com/hafslundnett/elvia-designsystem/issues/new/choose">The Elvis report-page</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2 class="e-title-medium e-mt-5">Using the classes</h2>
+      <div class="e-text-body">
+        All components consists of classes that are available through the Elvis style library. Which classes 
+        to use is documented for each component.
+        <div>
+          The syntax for classes: <code class="code-text">e-name-of-class</code>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h2 class="e-title-medium e-mt-5">Using the CSS-variables</h2>
+      <div class="e-text-body">
+        For most of the utilities like colors, shadows and spacing CSS-variables are also provided. 
+        All these variables are available when importing the main.scss file in your stylesheet, meaning you
+        don't need to import any specific files to use them.
+        <div>
+          The syntax for CSS-variables: <code class="code-text">var(--e-name-of-class)</code>
+        </div>
+      </div>
+      <h3>Support</h3>
+      <div class="e-text-body">
+        The CSS-variables are not supported by IE11 and a ponyfill therefore needs to be installed for it to work.
+        <div>
+          The ponyfill recommended: <a class="e-link" href="https://jhildenbiddle.github.io/css-vars-ponyfill/#/">css-vars-ponyfill</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -22,7 +22,7 @@ body {
 // Shared classes
 .page-body {
   margin: auto;
-  margin-bottom: 40px;
+  margin-bottom: var(--e-spacing-8);
   width: 57%;
   min-width: 20em;
   max-width: 50em;
@@ -32,6 +32,14 @@ body {
   background: var(--e-green-lime-02);
   padding: 0 4px;
   line-height: 140%;
+}
+.code-block {
+  display: block;
+  width: 100%;
+  background: var(--e-green-lime-02);
+  padding: 4px 8px;
+  margin: 16px 0;
+  line-height: 180%;
 }
 
 .factbox {
