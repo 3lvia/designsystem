@@ -9,8 +9,8 @@ export class CopyComponent implements OnInit {
 
   @Input() message = '';
   @Input() tooltipPosition = 'left';
-
-  copyTooltip = 'Copy class';
+  
+  copyTooltip = 'Copy';
 
   constructor() { }
 
@@ -21,7 +21,7 @@ export class CopyComponent implements OnInit {
     this.copyToClipBoard(copyMessage);
     this.copyTooltip = 'Copied!';
     setTimeout(() => {
-      this.copyTooltip = 'Copy class';
+      this.copyTooltip = 'Copy';
     }, 3000);
   }
 
