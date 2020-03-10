@@ -34,5 +34,4 @@ color: var(--e-text-red);`;
   ngOnInit() {
   }
 
-
 }
