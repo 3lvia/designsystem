@@ -37,38 +37,115 @@ $typography: (
     size: 2.75rem,
     weight: 900,
     height: 120%,
-    color: color('black'),
-    element: h1
+    color: color('black')
+  ),
+  title-large-m: (
+    family: $font-family,
+    size: 1.75rem,
+    weight: 900,
+    height: 120%,
+    color: color('black')
   ),
   title-medium: (
     family: $font-family,
     size: 1.625rem,
     weight: 700,
     height: 120%,
-    color: color('black'),
-    element: h2
+    color: color('black')
+  ),
+  title-medium-m: (
+    family: $font-family,
+    size: 1.5rem,
+    weight: 700,
+    height: 120%,
+    color: color('black')
   ),
   title-small: (
     family: $font-family,
     size: 1.25rem,
     weight: 700,
     height: 120%,
-    color: color('black'),
-    element: h3
+    color: color('black')
+  ),
+  title-small-m: (
+    family: $font-family,
+    size: 1.25rem,
+    weight: 700,
+    height: 120%,
+    color: color('black')
   ),
   text-lead: (
     family: $font-family,
-    size: 1.625rem,
+    size: 1.5rem,
+    weight: 400,
+    height: 190%,
+    color: color('black')
+  ),
+  text-lead-m: (
+    family: $font-family,
+    size: 1.25rem,
     weight: 400,
     height: 160%,
     color: color('black')
   ),
   text-quote: (
     family: $font-family,
-    size: 1.5rem,
+    size: 1.625rem,
     weight: 400,
     height: 160%,
     style: italic,
+    color: color('black')
+  ),
+  text-quote-m: (
+    family: $font-family,
+    size: 1.25rem,
+    weight: 400,
+    height: 160%,
+    style: italic,
+    color: color('black')
+  ),
+  text-body: (
+    family: $font-family,
+    size: 1.25rem,
+    weight: 400,
+    height: 190%,
+    color: color('black')
+  ),
+  text-body-m: (
+    family: $font-family,
+    size: 1.125rem,
+    weight: 400,
+    height: 160%,
+    color: color('black')
+  ),
+  text-img: (
+    family: $font-family,
+    size: 1.125rem,
+    weight: 400,
+    height: 160%,
+    style: italic,
+    color: color('black')
+  ),
+  text-img-m: (
+    family: $font-family,
+    size: 1rem,
+    weight: 400,
+    height: 160%,
+    style: italic,
+    color: color('black')
+  ),
+  text-description: (
+    family: $font-family,
+    size: 1rem,
+    weight: 400,
+    height: 175%,
+    color: color('black')
+  ),
+  text-description-m: (
+    family: $font-family,
+    size: 1rem,
+    weight: 400,
+    height: 175%,
     color: color('black')
   ),
   text-caps: (
@@ -79,22 +156,23 @@ $typography: (
     transform: uppercase,
     color: color('black')
   ),
-  text-body: (
+  text-caps-m: (
     family: $font-family,
-    size: 1.125rem,
-    weight: 400,
-    height: 160%,
+    size: 0.875rem,
+    weight: 500,
+    height: 120%,
+    transform: uppercase,
     color: color('black')
   ),
-  text-description: (
-    family: $font-family,
-    size: 1rem,
-    weight: 400,
-    height: 175%,
-    color: color('black'),
-    element: p
-  ),
   text-info: (
+    family: $font-family,
+    size: 0.875rem,
+    weight: 400,
+    height: 160%,
+    letter-spacing: 0.2px,
+    color: color('black')
+  ),
+  text-info-m: (
     family: $font-family,
     size: 0.875rem,
     weight: 400,
@@ -108,7 +186,21 @@ $typography: (
     height: 140%,
     color: color('black')
   ),
+  label-input-m: (
+    family: $font-family,
+    size: 1rem,
+    weight: 500,
+    height: 140%,
+    color: color('black')
+  ),
   label-option: (
+    family: $font-family,
+    size: 1rem,
+    weight: 400,
+    height: 140%,
+    color: color('black')
+  ),
+  label-option-m: (
     family: $font-family,
     size: 1rem,
     weight: 400,

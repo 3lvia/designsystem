@@ -7,21 +7,10 @@
   $weight: map-get($map, weight);
   $color: map-get($map, color);
   $style: map-get($map, style);
+  $letter-spacing: map-get($map, letter-spacing);
   $transform: map-get($map, transform);
-  $element: map-get($map, element);
 
   $labels: ($label);
-  @if $element {
-    #{$element} {
-      font-family: $family;
-      font-size: $size;
-      line-height: $height;
-      font-weight: $weight;
-      color: $color;
-      font-style: $style;
-      text-transform: $transform;
-    }
-  }
 
   @each $label in $labels {
     .e-#{$label} {
@@ -31,6 +20,7 @@
       font-weight: $weight;
       color: $color;
       font-style: $style;
+      letter-spacing: $letter-spacing;
       text-transform: $transform;
     }
   }
