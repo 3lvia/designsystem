@@ -8,6 +8,9 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class InputDocComponent implements OnInit {
 
+  headerDoes = 'A input should be used';
+  headerDonts = 'A badge should not be used';
+
   componentStatus = getComponent('input-doc').status;
   componentClasses = ['e-form_field', 'e-form_input'];
 
