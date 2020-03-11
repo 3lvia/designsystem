@@ -8,8 +8,9 @@ import { Component, OnInit, Input } from '@angular/core';
 export class CopyComponent implements OnInit {
 
   @Input() message = '';
-
-  copyTooltip = 'Copy class';
+  @Input() tooltipPosition = 'left';
+  
+  copyTooltip = 'Copy';
 
   constructor() { }
 
@@ -20,7 +21,7 @@ export class CopyComponent implements OnInit {
     this.copyToClipBoard(copyMessage);
     this.copyTooltip = 'Copied!';
     setTimeout(() => {
-      this.copyTooltip = 'Copy class';
+      this.copyTooltip = 'Copy';
     }, 3000);
   }
 
