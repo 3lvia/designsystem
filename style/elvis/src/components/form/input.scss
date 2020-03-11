@@ -3,7 +3,7 @@
 
 $form-input-padding: $form-input-padding-left 0.9rem;
 $form-input-border-radius: $border-radius;
-$form-input-border: 1px solid color('grey-mine-shaft');
+$form-input-border: 1px solid color('grey');
 
 .e-form_input {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -42,7 +42,7 @@ $form-input-border: 1px solid color('grey-mine-shaft');
   }
 
   &.is-disabled {
-    background: color('grey-silver');
+    background: color('grey-03');
     cursor: default;
   }
 
@@ -55,7 +55,7 @@ $form-input-border: 1px solid color('grey-mine-shaft');
     background: transparent;
 
     @include placeholder() {
-      color: color('grey-mine-shaft');
+      color: color('grey');
     }
   }
 

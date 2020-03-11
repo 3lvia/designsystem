@@ -1,9 +1,9 @@
 @import '../variables/colors.scss';
 
 .e-divider {
-  border: 1px solid color('grey-mine-shaft');
+  border: 1px solid color('grey');
 
   &.is-light {
-    border-color: color('grey-silver');
+    border-color: color('grey-03');
   }
 }

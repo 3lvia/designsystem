@@ -54,8 +54,8 @@ $button-font-size: 1rem;
 
 %secondary-disabled {
   &[disabled] {
-    border-color: color('grey-silver');
-    color: color('grey-silver');
+    border-color: color('grey-03');
+    color: color('grey-03');
     cursor: not-allowed;
   }
 }
@@ -80,7 +80,7 @@ $button-font-size: 1rem;
     box-sizing: border-box;
 
     &[disabled] {
-      background: color('grey-silver');
+      background: color('grey-03');
       color: color('white');
       cursor: not-allowed;
     }
