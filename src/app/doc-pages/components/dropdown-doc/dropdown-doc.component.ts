@@ -23,19 +23,19 @@ export class DropdownDocComponent implements OnInit {
   </div>
 </div>
 <div class="example-fill">
-  <p>Some content behind</p>
-  <p>Some content behind</p>
-  <p>Some content behind</p>
-  <p>Some content behind</p>
+  <p class="e-text-body">Some content behind</p>
+  <p class="e-text-body">Some content behind</p>
+  <p class="e-text-body">Some content behind</p>
+  <p class="e-text-body">Some content behind</p>
 </div>
 `;
 
   example2 = `<div class="example-fill">
-  <p>Some content behind</p>
-  <p>Some content behind</p>
-  <p>Some content behind</p>
-  <p>Some content behind</p>
-  <p>Some content behind</p>
+  <p class="e-text-body">Some content behind</p>
+  <p class="e-text-body">Some content behind</p>
+  <p class="e-text-body">Some content behind</p>
+  <p class="e-text-body">Some content behind</p>
+  <p class="e-text-body">Some content behind</p>
 </div>
 <div class="e-form_input e-dropdown is-focus">
     <i class="fal fa-search e-form_input_icon"></i>
