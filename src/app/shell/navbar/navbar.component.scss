@@ -39,7 +39,7 @@
       }
     }
     a:hover:not(.active) {
-      background-color: var(--e-grey-mine-shaft-05);
+      background-color: var(--e-grey-05);
     }
   }
 
@@ -66,7 +66,7 @@
     }
     a.active {
       color: var(--e-white);
-      background-color: var(--e-grey-mine-shaft);
+      background-color: var(--e-grey);
       
       &::after {
         content: '';
@@ -79,7 +79,7 @@
       }
     }
     a:hover:not(.active) {
-      background-color: var(--e-grey-silver);
+      background-color: var(--e-grey-03);
     }
   }
 }
