@@ -11,12 +11,12 @@ export class DividerDocComponent implements OnInit {
   componentStatus = getComponent('divider-doc').status;
   componentClasses = ['e-divider'];
 
-  example1 = `<p class="e-text-body">Some content</p>
+  example1 = `<p class="e-text-description">Some content</p>
 <hr class="e-divider">
-<p class="e-text-body">Other content</p>
-<p class="e-text-body">Divider below in light theme</p>
+<p class="e-text-description">Other content</p>
+<p class="e-text-description">Divider below in light theme</p>
 <hr class="e-divider is-light">
-<p class="e-text-body">Other content</p>
+<p class="e-text-description">Other content</p>
 `;
 
   constructor() { }

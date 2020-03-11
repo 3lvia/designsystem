@@ -19,9 +19,9 @@ export class CardDocComponent implements OnInit {
     </div>
   </div>
   <div class="e-card_content">
-    <p class="e-text-body">A card consist of some content.</p>
-    <p class="e-text-body">The card can have multiple lines of content.</p>
-    <p class="e-text-body">Cards are useful for displaying some kind of information</p>
+    <p class="e-text-description">A card consist of some content.</p>
+    <p class="e-text-description">The card can have multiple lines of content.</p>
+    <p class="e-text-description">Cards are useful for displaying some kind of information</p>
   </div>
   <div class="e-card_header">
     <div class="e-card_header_text">
@@ -30,7 +30,7 @@ export class CardDocComponent implements OnInit {
     </div>
   </div>
   <div class="e-card_content">
-    <p class="e-text-body">And more content.</p>
+    <p class="e-text-description">And more content.</p>
   </div>
 </div>
 `;
@@ -45,7 +45,7 @@ export class CardDocComponent implements OnInit {
     </div>
   </div>
   <div class="e-card_content">
-    <p class="e-text-body">The different pieces of a card can be combined as desired.</p>
+    <p class="e-text-description">The different pieces of a card can be combined as desired.</p>
   </div>
   <div class="e-card_actions">
     <button class="e-button">Full width button</button>
@@ -67,7 +67,7 @@ export class CardDocComponent implements OnInit {
     </button>
   </div>
   <div class="e-card_content">
-    <p class="e-text-body">Example-content</p>
+    <p class="e-text-description">Example-content</p>
   </div>
   <div class="e-card_actions">
     <button class="e-button">Cancel action</button>
@@ -84,7 +84,7 @@ export class CardDocComponent implements OnInit {
     </div>
   </div>
   <div class="e-card_content">
-    <p class="e-text-body">Any content can be placed within the card body.</p>
+    <p class="e-text-description">Any content can be placed within the card body.</p>
   </div>
   <div class="e-card_actions">
     <button class="e-card_actions_action">View more</button>
