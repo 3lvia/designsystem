@@ -1,8 +1,9 @@
 @import "../../../shared/shared-animations";
 
 .example {
-  margin: var(--e-spacing-7) 0;
+  margin: var(--e-spacing-5) 0;
   cursor: pointer;
+
   @extend %scale-up-09;
   &:hover {
     @extend %scale-down-09;
@@ -13,3 +14,4 @@
     justify-content: center;
   }
 }
+
