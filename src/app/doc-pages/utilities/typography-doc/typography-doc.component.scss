@@ -1,8 +1,15 @@
 @import "../../../shared/shared-animations";
 
-.examples-text {
-    @extend %scale-up-09;
-    &:hover {
-      @extend %scale-down-09;
-    }
+.example {
+  margin: var(--e-spacing-7) 0;
+  cursor: pointer;
+  @extend %scale-up-09;
+  &:hover {
+    @extend %scale-down-09;
+  }
+
+  &-title {
+    display: flex;
+    justify-content: center;
+  }
 }
