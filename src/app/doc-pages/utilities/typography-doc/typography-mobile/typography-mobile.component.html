@@ -1,4 +1,4 @@
-<div class="typography-mobile" *ngFor="let typography of typographyItems">
+<div class="typography-mobile" *ngFor="let typography of typographyItems; let i = index">
   <div class="example">
     <app-copy [message]="'e-'+typography.title" [tooltipPosition]="'right'">
       <ng-container ngProjectAs="copyContent">
@@ -11,5 +11,5 @@
       </ng-container>
     </app-copy>
   </div>
-  <hr class="e-divider is-light" />
+  <hr class="e-divider is-light" *ngIf="i != typographyItems.length-1" />
 </div>

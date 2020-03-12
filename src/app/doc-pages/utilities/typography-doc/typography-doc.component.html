@@ -28,7 +28,7 @@
     <div class="example-container">
       <div class="example-container_column">
         <h2 class="e-title-md">Desktop & Tablet</h2>
-        <div *ngFor="let typography of typographyItems">
+        <div *ngFor="let typography of typographyItems; let i = index">
           <div class="example">
             <app-copy [message]="'e-'+typography.title">
               <ng-container ngProjectAs="copyContent">
@@ -39,7 +39,7 @@
               </ng-container>
             </app-copy>
           </div>
-          <hr class="e-divider is-light"/>
+          <hr class="e-divider is-light" *ngIf="i != typographyItems.length-1"/>
         </div>
       </div>
       <div class="example-container_column">
