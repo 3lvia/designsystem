@@ -9,6 +9,7 @@ import { typographyItems } from './../typography';
 export class TypographyMobileComponent implements OnInit {
 
   typographyItems = typographyItems;
+  currentStyles;
 
   constructor() { }
 

@@ -2,10 +2,12 @@
 
 .typography-mobile {
   width: 67%;
+  padding: 5px 0;
 
   .example {
     margin: var(--e-spacing-5) 0;
     cursor: pointer;
+    justify-content: center;
   
     @extend %scale-up-09;
     &:hover {
@@ -16,5 +18,15 @@
       color: var(--e-grey-mine-shaft-05);
     }
   }
+
+  .hide-true-size {
+    visibility: hidden;
+  }
+
+  .actual-content {
+    position: absolute;
+    top: -14px;
+  }
 }
+
 

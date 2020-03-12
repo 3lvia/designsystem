@@ -23,18 +23,20 @@ export const typographyItems: Typography[] = [
         example: 'En tørr sommer i tillegg til en kald vinter, gjør at mange vil få høyere strømregning.',
         size: '24px',
         sizeMobile: '20px',
+        height: '45px',
     },
     {
         title: 'text-quote',
         example: 'En hjemmeladestasjon for elbilen er smart! Ladingen går raskere og den blir tryggere.',
         size: '26px',
-        sizeMobile: '24px',
+        sizeMobile: '45px',
     },
     {
         title: 'text-body',
         example: 'Du åt ca fire wienerpølser og tok taxi hjem fra byen. Du åt ca fire wienerpølser og tok taxi hjem fra byen.',
         size: '20px',
         sizeMobile: '18px',
+        height: '38px',
     },
     {
         title: 'text-img',

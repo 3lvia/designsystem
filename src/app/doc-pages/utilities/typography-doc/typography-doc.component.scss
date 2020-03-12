@@ -14,18 +14,21 @@
     h2 {
       margin-bottom: 0;
     }
-    
-    .example {
-      margin: var(--e-spacing-5) 0;
-      cursor: pointer;
-    
-      @extend %scale-up-09;
-      &:hover {
-        @extend %scale-down-09;
-      }
-    
-      &-title {
-        color: var(--e-grey-mine-shaft-05);
+    .typography-desktop {
+      padding: 5px 0;
+
+      .example {
+        margin: var(--e-spacing-5) 0;
+        cursor: pointer;
+      
+        @extend %scale-up-09;
+        &:hover {
+          @extend %scale-down-09;
+        }
+      
+        &-title {
+          color: var(--e-grey-mine-shaft-05);
+        }
       }
     }
 
