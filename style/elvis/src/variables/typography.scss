@@ -35,13 +35,7 @@ $typography: (
   title-lg: (
     family: $font-family,
     size: 2.75rem,
-    weight: 900,
-    height: 120%,
-    color: color('font-color')
-  ),
-  title-lg-m: (
-    family: $font-family,
-    size: 1.75rem,
+    size-m: 1.75rem,
     weight: 900,
     height: 120%,
     color: color('font-color')
@@ -49,13 +43,7 @@ $typography: (
   title-md: (
     family: $font-family,
     size: 1.625rem,
-    weight: 700,
-    height: 120%,
-    color: color('font-color')
-  ),
-  title-md-m: (
-    family: $font-family,
-    size: 1.5rem,
+    size-m: 1.5rem,
     weight: 700,
     height: 120%,
     color: color('font-color')
@@ -67,38 +55,19 @@ $typography: (
     height: 120%,
     color: color('font-color')
   ),
-  title-sm-m: (
-    family: $font-family,
-    size: 1.25rem,
-    weight: 700,
-    height: 120%,
-    color: color('font-color')
-  ),
   text-lead: (
     family: $font-family,
     size: 1.5rem,
+    size-m: 1.25rem,
     weight: 400,
     height: 190%,
-    color: color('font-color')
-  ),
-  text-lead-m: (
-    family: $font-family,
-    size: 1.25rem,
-    weight: 400,
-    height: 160%,
+    height-m: 160%,
     color: color('font-color')
   ),
   text-quote: (
     family: $font-family,
     size: 1.625rem,
-    weight: 400,
-    height: 160%,
-    style: italic,
-    color: color('font-color')
-  ),
-  text-quote-m: (
-    family: $font-family,
-    size: 1.25rem,
+    size-m: 1.25rem,
     weight: 400,
     height: 160%,
     style: italic,
@@ -107,28 +76,16 @@ $typography: (
   text-body: (
     family: $font-family,
     size: 1.25rem,
+    size-m: 1.125rem,
     weight: 400,
     height: 190%,
-    color: color('font-color')
-  ),
-  text-body-m: (
-    family: $font-family,
-    size: 1.125rem,
-    weight: 400,
-    height: 160%,
+    height-m: 160%,
     color: color('font-color')
   ),
   text-img: (
     family: $font-family,
     size: 1.125rem,
-    weight: 400,
-    height: 160%,
-    style: italic,
-    color: color('font-color')
-  ),
-  text-img-m: (
-    family: $font-family,
-    size: 1rem,
+    size-m: 1rem,
     weight: 400,
     height: 160%,
     style: italic,
@@ -141,22 +98,7 @@ $typography: (
     height: 175%,
     color: color('font-color')
   ),
-  text-description-m: (
-    family: $font-family,
-    size: 1rem,
-    weight: 400,
-    height: 175%,
-    color: color('font-color')
-  ),
   text-caps: (
-    family: $font-family,
-    size: 0.875rem,
-    weight: 500,
-    height: 120%,
-    transform: uppercase,
-    color: color('font-color')
-  ),
-  text-caps-m: (
     family: $font-family,
     size: 0.875rem,
     weight: 500,
@@ -172,13 +114,6 @@ $typography: (
     letter-spacing: 0.2px,
     color: color('font-color')
   ),
-  text-info-m: (
-    family: $font-family,
-    size: 0.875rem,
-    weight: 400,
-    height: 160%,
-    color: color('font-color')
-  ),
   label-input: (
     family: $font-family,
     size: 1rem,
@@ -186,21 +121,7 @@ $typography: (
     height: 140%,
     color: color('font-color')
   ),
-  label-input-m: (
-    family: $font-family,
-    size: 1rem,
-    weight: 500,
-    height: 140%,
-    color: color('font-color')
-  ),
   label-option: (
-    family: $font-family,
-    size: 1rem,
-    weight: 400,
-    height: 140%,
-    color: color('font-color')
-  ),
-  label-option-m: (
     family: $font-family,
     size: 1rem,
     weight: 400,

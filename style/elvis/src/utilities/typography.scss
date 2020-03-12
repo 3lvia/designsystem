@@ -3,7 +3,9 @@
 @each $label, $map in $typography {
   $family: map-get($map, family);
   $size: map-get($map, size);
+  $size-m: map-get($map, size-m);
   $height: map-get($map, height);
+  $height-m: map-get($map, height-m);
   $weight: map-get($map, weight);
   $color: map-get($map, color);
   $style: map-get($map, style);
@@ -22,6 +24,10 @@
       font-style: $style;
       letter-spacing: $letter-spacing;
       text-transform: $transform;
+      @media screen and (max-width: 767px) {
+        font-size: $size-m;
+        line-height: $height-m;
+      }
     }
   }
 }
