@@ -21,8 +21,8 @@ export class TypographyDocComponent implements OnInit {
 <h3 class="e-title-small">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h3>`;
   example2 = `<p class="e-text-lead">En tørr sommer i tillegg til en kald vinter, gjør at mange vil få høyere strømregning.</p>
 <p class="e-text-quote">En hjemmeladestasjon for elbilen er smart! Ladingen går raskere og den blir tryggere.</p>
-<p class="e-text-body">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-<p class="e-text-img">Jordfeil er en samlebetegnelse på situasjoner der du har feil 
+<p class="e-text-body">Du åt ca fire wienerpølser og tok taxi hjem fra byen. Du åt ca fire wienerpølser og tok taxi hjem fra byen.</p>
+<p class="e-text-img">Jordfeil er en samlebetegnelse på situasjoner der du har feil
 eller isolasjonssvikt i det elektriske anlegget eller tilknyttet utstyr. </p>
 <p class="e-text-description">Ved å legge til e-post på din bruker</p>
 <p class="e-text-caps">AV PETTER JENSEN</p>
