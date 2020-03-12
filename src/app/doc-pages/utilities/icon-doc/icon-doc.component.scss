@@ -20,9 +20,9 @@
       text-align: center;
       perspective: 3000;
       .e-icon-lg {
-        @extend %scale-up;
+        @extend %scale-up-08;
         &:hover {
-          @extend %scale-down;
+          @extend %scale-down-08;
         }
       }
     }  
