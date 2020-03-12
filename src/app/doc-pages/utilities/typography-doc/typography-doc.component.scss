@@ -8,5 +8,9 @@
   &:hover {
     @extend %scale-down-09;
   }
+
+  &-title {
+    color: grey;
+  }
 }
 
