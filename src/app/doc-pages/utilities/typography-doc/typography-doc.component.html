@@ -24,18 +24,28 @@
       The font is Red Hat Display and should be used for all text. Here are all the different typography 
       classes represented.
     </p>
-    <div *ngFor="let typography of typographyItems">
-      <div class="example">
-        <app-copy [message]="'e-'+typography.title" [tooltipPosition]="'left'">
-          <ng-container ngProjectAs="copyContent">
-            <h1 class="example-text" [ngClass]="'e-'+typography.title">
-              {{ typography.example }}
-            </h1>
-            <p class="e-text-caps example-title">{{ typography.title }} | {{ typography.size }}</p>
-          </ng-container>
-        </app-copy>
+
+    <div class="example-container">
+      <div class="example-container_column">
+        <h2 class="e-title-md">Desktop & Tablet</h2>
+        <div *ngFor="let typography of typographyItems">
+          <div class="example">
+            <app-copy [message]="'e-'+typography.title">
+              <ng-container ngProjectAs="copyContent">
+                <h1 class="example-text" [ngClass]="'e-'+typography.title">
+                  {{ typography.example }}
+                </h1>
+                <p class="e-text-caps example-title">{{ typography.title }} | {{ typography.size }}</p>
+              </ng-container>
+            </app-copy>
+          </div>
+          <hr class="e-divider is-light"/>
+        </div>
       </div>
-      <hr class="e-divider is-light"/>
+      <div class="example-container_column">
+        <h2 class="e-title-md">Mobile</h2>
+        <iframe height="100%" src="./typography-mobile" scrolling="no" frameborder="0"></iframe>
+      </div>
     </div>
   </div>
 

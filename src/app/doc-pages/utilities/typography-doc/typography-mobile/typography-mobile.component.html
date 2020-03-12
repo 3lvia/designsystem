@@ -1,0 +1,15 @@
+<div class="typography-mobile" *ngFor="let typography of typographyItems">
+  <div class="example">
+    <app-copy [message]="'e-'+typography.title" [tooltipPosition]="'right'">
+      <ng-container ngProjectAs="copyContent">
+        <h1 class="example-text" [ngClass]="'e-'+typography.title">
+          {{ typography.example }}
+        </h1>
+        <p class="e-text-caps example-title">
+          {{ typography.title }} | {{ typography.size }}
+        </p>
+      </ng-container>
+    </app-copy>
+  </div>
+  <hr class="e-divider is-light" />
+</div>

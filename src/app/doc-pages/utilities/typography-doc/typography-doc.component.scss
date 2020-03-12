@@ -1,16 +1,37 @@
 @import "../../../shared/shared-animations";
 
-.example {
-  margin: var(--e-spacing-5) 0;
-  cursor: pointer;
+.example-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 
-  @extend %scale-up-09;
-  &:hover {
-    @extend %scale-down-09;
-  }
+  &_column {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
 
-  &-title {
-    color: grey;
+    h2 {
+      margin-bottom: 0;
+    }
+    
+    .example {
+      margin: var(--e-spacing-5) 0;
+      cursor: pointer;
+    
+      @extend %scale-up-09;
+      &:hover {
+        @extend %scale-down-09;
+      }
+    
+      &-title {
+        color: var(--e-grey-mine-shaft-05);
+      }
+    }
+
+    iframe {
+      width: 150%;
+    }
   }
 }
 
