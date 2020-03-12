@@ -6,7 +6,9 @@
           {{ typography.example }}
         </h1>
         <p class="e-text-caps example-title">
-          {{ typography.title }} | {{ typography.size }}
+          {{ typography.title }} | 
+          <span *ngIf="typography.sizeMobile">{{ typography.sizeMobile }}</span>
+          <span *ngIf="!typography.sizeMobile">{{ typography.size }}</span>
         </p>
       </ng-container>
     </app-copy>
