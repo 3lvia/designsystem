@@ -16,9 +16,9 @@ export class TypographyDocComponent implements OnInit {
   componentClasses = ['e-title', 'e-text', 'e-label'];
   componentStatus = getUtilities('typography-doc').status;
 
-  example1 = `<h1 class="e-title-large">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>
-<h2 class="e-title-medium">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h2>
-<h3 class="e-title-small">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h3>`;
+  example1 = `<h1 class="e-title-lg">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>
+<h2 class="e-title-md">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h2>
+<h3 class="e-title-sm">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h3>`;
   example2 = `<p class="e-text-lead">En tørr sommer i tillegg til en kald vinter, gjør at mange vil få høyere strømregning.</p>
 <p class="e-text-quote">En hjemmeladestasjon for elbilen er smart! Ladingen går raskere og den blir tryggere.</p>
 <p class="e-text-body">Du åt ca fire wienerpølser og tok taxi hjem fra byen. Du åt ca fire wienerpølser og tok taxi hjem fra byen.</p>

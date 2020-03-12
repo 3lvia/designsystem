@@ -18,7 +18,7 @@
 <div class="page-body">
   <!--Overview-->
   <div *ngIf="selected == tabNames.Overview">
-    <h2 class="e-title-medium">Shadows</h2>
+    <h2 class="e-title-md">Shadows</h2>
     <p class="e-text-body">There are 3 shadows available in the style-library.</p>
     <div class="display-container centered-content">
       <div class="display-card">
@@ -63,13 +63,13 @@
   <!--GUIDELINES-->
   <div *ngIf="selected == tabNames.Guidelines">
     <div>
-      <h2 class="e-title-medium">Using Classes</h2>
+      <h2 class="e-title-md">Using Classes</h2>
       <p class="e-text-body">
         All shadows can be used through a set of classes. The <code class="code-text">e-shadow-1</code> sets box-shadow to colors from lightest
         to darkest depending on the last number. This means, the code <code class="code-text">e-shadow-3</code> equals 
         <code class="code-text">box-shadow: 0 2px 4px rgba(0, 0, 0, .5)</code>.
       </p>
-      <h3 class="e-title-small">Classes</h3>
+      <h3 class="e-title-sm">Classes</h3>
       <ul>
         <li><code class="code-text">e-shadow-none</code></li>
         <li><code class="code-text">e-shadow-1</code></li>
@@ -78,15 +78,15 @@
       </ul>
     </div>
     <div>
-      <h2 class="e-title-medium">Using CSS-variables</h2>
+      <h2 class="e-title-md">Using CSS-variables</h2>
       <p class="e-text-body">
         All shadows can be used through their CSS-variable as well. 
       </p>
-      <h3 class="e-title-small">Variables</h3>
+      <h3 class="e-title-sm">Variables</h3>
       <ul>
         <li><code class="code-text">var(--e-shadow-number)</code></li>
       </ul>
-      <h3 class="e-title-small">Do's and Don'ts</h3>
+      <h3 class="e-title-sm">Do's and Don'ts</h3>
       <p class="e-text-body">
         All CSS-variables can be used except if you want remove shadow.
       </p>
