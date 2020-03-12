@@ -1,4 +1,4 @@
-@import '../variables/colors.scss';
+@import "../variables/colors.scss";
 @import "../variables/shadows.scss";
 @import "../variables/shared-sizes.scss";
 @import "../utilities/animations.scss";
@@ -9,56 +9,21 @@ $extra-border-hover: 1px;
 $button-padding-top-bottom: 12px;
 $button-padding-left-right: 32px;
 $button-padding: $button-padding-top-bottom $button-padding-left-right;
+$secondary-button-active-padding: 11px 31px;
 $button-with-icon-font-size: 1.5rem;
-$icon-button-height: 36px;
-$icon-button-font-size: 22px;
-$icon-button-height-with-border: $icon-button-height - $button-border-width; // Subtract width of border to match size of buttons without border 
+$icon-button-height: 24px;
+$icon-button-font-size: 24px;
+$icon-button-height-with-border: $icon-button-height - $button-border-width; // Subtract width of border to match size of buttons without border
 $button-font-size: 1rem;
 
-// Subtract width of border to match size of buttons without border 
-@function calculate-padding($border-width){
+// Subtract width of border to match size of buttons without border
+@function calculate-padding($border-width) {
   @return (10px - $border-width) (16px - $border-width);
 }
 
-%transparent-properties {
-  border: none;
-  background: transparent;
-  color: color('black');
+// @keyframes dots {
 
-  // Changes button-text on hover/active/focus
-  &:not([disabled]) {
-    &:focus {
-      color: color('green-lime');
-      outline: none;
-      background: transparent;
-    }
-
-    &:active,
-    &:hover {
-      background: transparent;
-      color: color('green-lime');
-      outline: none;
-      box-shadow: none;
-      border: none;
-    }
-
-    &:hover:not(:active) {
-      text-shadow: $shadow-strong;
-    }
-
-    &:active {
-      transform: scale(0.9, 0.9); // Click-effect
-    }
-  }
-}
-
-%secondary-disabled {
-  &[disabled] {
-    border-color: color('grey-silver');
-    color: color('grey-silver');
-    cursor: not-allowed;
-  }
-}
+// }
 
 .e-button {
   // .is-primary is the default for any e-button
@@ -66,61 +31,82 @@ $button-font-size: 1rem;
 
   &.is-primary {
     display: inline-block;
-    box-sizing: border-box;
     border: none;
+    border: 2px solid transparent;
     border-radius: $button-radius;
     padding: $button-padding;
     font-size: $button-font-size;
-    background: color('black');
-    color: color('white');
+    background: color("black");
+    color: color("white");
     outline: none;
-    
     cursor: pointer;
-    outline-offset: -1px;
     box-sizing: border-box;
+    max-height: 56px;
 
-    &[disabled] {
-      background: color('grey-silver');
-      color: color('white');
+    &:disabled {
+      background: color("grey-silver");
+      color: color("white"); // Fallback
+      color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
     }
 
     &:focus {
-      border: 2px solid #1AD6FF;
+      border-color: #1ad6ff;
     }
 
     // Changes button-text on hover/active/focus
     &:enabled {
       &:hover:not(:focus) {
-        color: color('green-lime')
+        color: color("green-lime");
       }
 
       &:active {
-        background: green;
-        outline: thick;
+        color: color("green-lime");
+        border-color: color("green-lime");
       }
     }
   }
 
   &.is-secondary {
-    border: $button-border-width solid color('green-lime');
-    padding: calculate-padding($button-border-width);
-    background: transparent;
-    color: color('green-lime');
+    $this: &;
+    display: inline-block;
+    border: none;
+    border: 1px solid color("black");
+    border-radius: $button-radius;
+    padding: $button-padding + 1px;
+    font-size: $button-font-size;
+    background: color("white");
+    color: color("black");
+    outline: none;
+    cursor: pointer;
+    box-sizing: border-box;
 
-    @extend %secondary-disabled;
+    &:disabled {
+      background: color("grey-silver");
+      color: rgba(255, 255, 255, 0.75);
+      border: 1px inset transparent;
+      cursor: not-allowed;
+    }
+
+    &:focus:not(:active) {
+      box-shadow: 0px 0px 0px 2px rgba(26, 214, 255, 1);
+    }
 
     // Changes button-text on hover/active/focus
     &:not([disabled]) {
-      &:hover {
-        box-shadow: $shadow-medium;
-        border: $button-border-width + $extra-border-hover solid color('green-lime'); // 
-        padding: calculate-padding($button-border-width + $extra-border-hover);
+      &:hover:not(:focus) {
+        color: color("green-lime");
+        border: 1px solid color("green-lime");
       }
 
       &:active {
-        background: green;
-        color: color('white');
+        color: color("green-lime");
+        border: 2px solid color("green-lime");
+        outline: none;
+
+        &#{$this}.is-secondary {
+          padding: $secondary-button-active-padding;
+        }
       }
     }
   }
@@ -130,95 +116,162 @@ $button-font-size: 1rem;
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: calc(1rem + #{$button-with-icon-font-size} + 8px); // 1rem padding, 1.5rem width of icon, spacing between icon and text
-    
-    .some-icon {
-      position: absolute;
-      left: $button-padding-left-right;
-      font-size: $button-with-icon-font-size;
+    border-radius: $button-radius;
+    padding-left: 24px;
+    padding-right: 24px;
+
+    span {
+      // standard size for buttons in large buttons
+      background-size: 24px 24px;
+      background-position: center;
+      // negative margin on icons to get same height properties as font size
+      margin-top: -8px;
+      margin-bottom: -8px;
     }
 
     &:not([disabled]) {
       &:hover {
         &.is-secondary {
-          padding-left: calc(1rem + #{$button-with-icon-font-size} + 8px - #{$extra-border-hover}); // Subtract size of extra hover-border
-
-          .some-icon {
-            left: $button-padding-left-right - $extra-border-hover; // Subtract size of extra hover-border
-          }
-        }
-      }
-    }
-
-    &.is-transparent {
-      @extend %transparent-properties;
-      @extend %secondary-disabled;
-    }
-
-    &.is-danger {
-      &:not([disabled]) {
-        background: color('red-08');
-        &:active {
-          background: color('red');
+          padding-left: calc(
+            1rem + #{$button-with-icon-font-size} + 8px - #{$extra-border-hover}
+          ); // Subtract size of extra hover-border
         }
       }
     }
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Todo: Might remove
+
   // Buttons with icons only
   &-icon {
-    border: $button-border-width solid color('green-lime');
-    color: color('green-lime');
+    border: $button-border-width solid color("green-lime");
+    color: color("green-lime");
     border-radius: $button-radius;
     background: transparent;
-    height: $icon-button-height-with-border; 
-    width: $icon-button-height-with-border; 
+    height: $icon-button-height-with-border;
+    width: $icon-button-height-with-border;
     font-size: $icon-button-font-size;
     cursor: pointer;
     padding: 0;
     outline-offset: -1px;
 
-    @extend %secondary-disabled;
-
     // Changes button-text on hover/active/focus
     &:not([disabled]) {
       &:active {
         background: green;
-        color: color('white');
+        color: color("white");
         outline: none;
       }
-      
+
       &:hover {
         box-shadow: $shadow-medium;
-        border: $button-border-width + $extra-border-hover solid color('green-lime'); 
+        border: $button-border-width + $extra-border-hover solid color("green-lime");
       }
-    }
-
-    &.is-transparent {
-      @extend %transparent-properties;
-
-      height: $icon-button-height; 
-    }
-
-    &.is-danger {
-      &:not([disabled]) {
-        border: $button-border-width solid color('red-08');
-        color: color('red-08');
-        &:active {
-          background: color('red');
-          color: color('white');
-        }
-        &:hover {
-          box-shadow: $shadow-medium;
-          border: $button-border-width + $extra-border-hover solid color('red-08'); 
-        }
-      }
-    }
-
-    &.is-no-padding {
-      height: unset;
-      width: unset;
     }
   }
 }
+
+
+
+
+
+// Todo: Loader button
+
+// .e-loader,  .e-loader:before, .e-loader:after {
+//   $this: &;
+//   border-radius: 50%;
+//   width: 2.5em;
+//   height: 2.5em;
+//   -webkit-animation-fill-mode: both;
+//   animation-fill-mode: both;
+//   -webkit-animation: load7 1.8s infinite ease-in-out;
+//   animation: load7 1.8s infinite ease-in-out;
+
+//   &#{$this}.e-loader {
+//     color: color('white');
+//     font-size: 4px;
+//     // position: relative;
+//     // text-indent: -9999em;
+//     -webkit-transform: translateZ(0);
+//     -ms-transform: translateZ(0);
+//     transform: translateZ(0);
+//     -webkit-animation-delay: -0.16s;
+//     animation-delay: -0.16s;
+//   }
+  
+// }
+// .loader,
+// .loader:before,
+// .loader:after {
+//   border-radius: 50%;
+//   width: 2.5em;
+//   height: 2.5em;
+//   -webkit-animation-fill-mode: both;
+//   animation-fill-mode: both;
+//   -webkit-animation: load7 1.8s infinite ease-in-out;
+//   animation: load7 1.8s infinite ease-in-out;
+// }
+// .loader {
+//   color: color('white');
+//   font-size: 4px;
+//   position: relative;
+//   // text-indent: -9999em;
+//   -webkit-transform: translateZ(0);
+//   -ms-transform: translateZ(0);
+//   transform: translateZ(0);
+//   -webkit-animation-delay: -0.16s;
+//   animation-delay: -0.16s;
+// }
+// .loader:before,
+// .loader:after {
+//   content: '';
+//   position: absolute;
+//   top: 0;
+// }
+// .loader:before {
+//   left: -3.5em;
+//   -webkit-animation-delay: -0.32s;
+//   animation-delay: -0.32s;
+// }
+// .loader:after {
+//   left: 3.5em;
+// }
+// @-webkit-keyframes load7 {
+//   0%,
+//   80%,
+//   100% {
+//     box-shadow: 0 2.5em 0 -1.3em;
+//   }
+//   40% {
+//     box-shadow: 0 2.5em 0 0;
+//   }
+// }
+// @keyframes load7 {
+//   0%,
+//   80%,
+//   100% {
+//     box-shadow: 0 2.5em 0 -1.3em;
+//   }
+//   40% {
+//     box-shadow: 0 2.5em 0 0;
+//   }
+// }
+
+
 
