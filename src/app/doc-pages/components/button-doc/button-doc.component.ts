@@ -9,29 +9,52 @@ import { getComponent } from 'src/app/shared/e-items';
 export class ButtonDocComponent {
 
   componentStatus = getComponent('button-doc').status;
-  componentClasses = ['e-button', 'e-button is-secondary', 'e-button has-icon', 'e-button is-loading'];
+  componentClasses = ['e-button', 'e-button is-secondary', 'e-button has-icon', 'e-button loading'];
   public clicked = false;
 
-  example1 = `<button class="e-button">Standard</button>
-<button class="e-button" disabled>Disabled</button>
+  example1 = `<!-- Style tags are only for examples -->
+  <button class="e-button" style="margin: 10px">
+    Standard
+  </button>
+<button class="e-button" disabled style="margin: 10px">
+  Disabled
+</button>
 `;
 
-  example2 = `<button class="e-button is-secondary">Standard</button>
-<button class="e-button is-secondary" disabled>Disabled</button>
+  example2 = `<!-- Style tags are only for examples -->
+  <button class="e-button is-secondary" style="margin: 10px">
+    Standard
+  </button>
+<button class="e-button is-secondary" disabled style="margin: 10px">
+  Disabled
+</button>
 `;
+
   example3 = `<div>
-  <button class="e-button has-icon">
+  <!-- Style tags are only for examples -->
+  <button class="e-button has-icon" style="margin: 10px">
     <span class="e-icon-user-white-bg"></span>Icon button
   </button>
-  <button class="e-button has-icon" disabled>
+  <button class="e-button has-icon" disabled style="margin: 10px">
     <span class="e-icon-user-white-bg"></span>Icon button
+  </button>
+  <button class="e-button is-secondary has-icon" style="margin: 10px">
+    <span class="e-icon-search"></span>Icon button
+  </button>
+  <button class="e-button is-secondary has-icon" disabled style="margin: 10px">
+    <span class="e-icon-search"></span>Icon button
   </button>
 </div>
 `;
 
-  example4 = `<div class="e-button">
-    <div class="loader"></div>
-  </div>`;
+  example4 = `
+  <button class="e-button loading">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  `
+  ;
 
   constructor() { }
 

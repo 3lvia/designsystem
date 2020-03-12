@@ -2,6 +2,7 @@
 @import "../variables/shadows.scss";
 @import "../variables/shared-sizes.scss";
 @import "../utilities/animations.scss";
+@import "../utilities/helpers.scss";
 
 $button-radius: 24px;
 $button-border-width: 1px;
@@ -9,21 +10,10 @@ $extra-border-hover: 1px;
 $button-padding-top-bottom: 12px;
 $button-padding-left-right: 32px;
 $button-padding: $button-padding-top-bottom $button-padding-left-right;
-$secondary-button-active-padding: 11px 31px;
-$button-with-icon-font-size: 1.5rem;
 $icon-button-height: 24px;
 $icon-button-font-size: 24px;
 $icon-button-height-with-border: $icon-button-height - $button-border-width; // Subtract width of border to match size of buttons without border
 $button-font-size: 1rem;
-
-// Subtract width of border to match size of buttons without border
-@function calculate-padding($border-width) {
-  @return (10px - $border-width) (16px - $border-width);
-}
-
-// @keyframes dots {
-
-// }
 
 .e-button {
   // .is-primary is the default for any e-button
@@ -31,7 +21,6 @@ $button-font-size: 1rem;
 
   &.is-primary {
     display: inline-block;
-    border: none;
     border: 2px solid transparent;
     border-radius: $button-radius;
     padding: $button-padding;
@@ -41,16 +30,15 @@ $button-font-size: 1rem;
     outline: none;
     cursor: pointer;
     box-sizing: border-box;
-    max-height: 56px;
 
     &:disabled {
       background: color("grey-silver");
-      color: color("white"); // Fallback
       color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
     }
 
     &:focus {
+      // Not in colors variables yet due to possibly update in future.
       border-color: #1ad6ff;
     }
 
@@ -68,10 +56,9 @@ $button-font-size: 1rem;
   }
 
   &.is-secondary {
-    $this: &;
     display: inline-block;
     border: none;
-    border: 1px solid color("black");
+    box-shadow: 0px 0px 0px 1px color('black');
     border-radius: $button-radius;
     padding: $button-padding + 1px;
     font-size: $button-font-size;
@@ -84,29 +71,24 @@ $button-font-size: 1rem;
     &:disabled {
       background: color("grey-silver");
       color: rgba(255, 255, 255, 0.75);
-      border: 1px inset transparent;
       cursor: not-allowed;
+      box-shadow: none;
     }
 
     &:focus:not(:active) {
-      box-shadow: 0px 0px 0px 2px rgba(26, 214, 255, 1);
+      box-shadow: 0px 0px 0px 2px #1ad6ff;
     }
 
     // Changes button-text on hover/active/focus
-    &:not([disabled]) {
+    &:enabled {
       &:hover:not(:focus) {
         color: color("green-lime");
-        border: 1px solid color("green-lime");
+        box-shadow: 0px 0px 0px 1px color("green-lime");
       }
 
       &:active {
         color: color("green-lime");
-        border: 2px solid color("green-lime");
-        outline: none;
-
-        &#{$this}.is-secondary {
-          padding: $secondary-button-active-padding;
-        }
+        box-shadow: 0px 0px 0px 2px color("green-lime");
       }
     }
   }
@@ -124,154 +106,82 @@ $button-font-size: 1rem;
       // standard size for buttons in large buttons
       background-size: 24px 24px;
       background-position: center;
-      // negative margin on icons to get same height properties as font size
+      // negative margin on icons to not expand the button height
       margin-top: -8px;
       margin-bottom: -8px;
     }
-
-    &:not([disabled]) {
-      &:hover {
-        &.is-secondary {
-          padding-left: calc(
-            1rem + #{$button-with-icon-font-size} + 8px - #{$extra-border-hover}
-          ); // Subtract size of extra hover-border
-        }
-      }
-    }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // Todo: Might remove
+  // Todo: Might remove, not in Figa at moment
 
   // Buttons with icons only
-  &-icon {
-    border: $button-border-width solid color("green-lime");
-    color: color("green-lime");
-    border-radius: $button-radius;
-    background: transparent;
-    height: $icon-button-height-with-border;
-    width: $icon-button-height-with-border;
-    font-size: $icon-button-font-size;
-    cursor: pointer;
-    padding: 0;
-    outline-offset: -1px;
+  // &-icon {
+  //   border: $button-border-width solid color("green-lime");
+  //   color: color("green-lime");
+  //   border-radius: $button-radius;
+  //   background: transparent;
+  //   height: $icon-button-height-with-border;
+  //   width: $icon-button-height-with-border;
+  //   font-size: $icon-button-font-size;
+  //   cursor: pointer;
+  //   padding: 0;
+  //   outline-offset: -1px;
 
-    // Changes button-text on hover/active/focus
-    &:not([disabled]) {
-      &:active {
-        background: green;
-        color: color("white");
-        outline: none;
-      }
+  //   // Changes button-text on hover/active/focus
+  //   &:not([disabled]) {
+  //     &:active {
+  //       background: green;
+  //       color: color("white");
+  //       outline: none;
+  //     }
 
-      &:hover {
-        box-shadow: $shadow-medium;
-        border: $button-border-width + $extra-border-hover solid color("green-lime");
-      }
+  //     &:hover {
+  //       box-shadow: $shadow-medium;
+  //       border: $button-border-width + $extra-border-hover solid color("green-lime");
+  //     }
+  //   }
+  // }
+
+  &.loading {
+    span {
+      background: transparent;
+      border-radius: 50%;
+      display: inline-block;
+      height: 0.6rem;
+      width: 0.6rem;
+      animation: dots 1000ms linear infinite;
+    }
+
+    span:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    span:nth-child(1) {
+      animation-delay: 0.8s;
+    }
+    span:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    span:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+    span:nth-child(5) {
+      animation-delay: 0.2s;
+    }
+    span:nth-child(1) {
+      animation-delay: 0s;
     }
   }
 }
 
-
-
-
-
-// Todo: Loader button
-
-// .e-loader,  .e-loader:before, .e-loader:after {
-//   $this: &;
-//   border-radius: 50%;
-//   width: 2.5em;
-//   height: 2.5em;
-//   -webkit-animation-fill-mode: both;
-//   animation-fill-mode: both;
-//   -webkit-animation: load7 1.8s infinite ease-in-out;
-//   animation: load7 1.8s infinite ease-in-out;
-
-//   &#{$this}.e-loader {
-//     color: color('white');
-//     font-size: 4px;
-//     // position: relative;
-//     // text-indent: -9999em;
-//     -webkit-transform: translateZ(0);
-//     -ms-transform: translateZ(0);
-//     transform: translateZ(0);
-//     -webkit-animation-delay: -0.16s;
-//     animation-delay: -0.16s;
-//   }
-  
-// }
-// .loader,
-// .loader:before,
-// .loader:after {
-//   border-radius: 50%;
-//   width: 2.5em;
-//   height: 2.5em;
-//   -webkit-animation-fill-mode: both;
-//   animation-fill-mode: both;
-//   -webkit-animation: load7 1.8s infinite ease-in-out;
-//   animation: load7 1.8s infinite ease-in-out;
-// }
-// .loader {
-//   color: color('white');
-//   font-size: 4px;
-//   position: relative;
-//   // text-indent: -9999em;
-//   -webkit-transform: translateZ(0);
-//   -ms-transform: translateZ(0);
-//   transform: translateZ(0);
-//   -webkit-animation-delay: -0.16s;
-//   animation-delay: -0.16s;
-// }
-// .loader:before,
-// .loader:after {
-//   content: '';
-//   position: absolute;
-//   top: 0;
-// }
-// .loader:before {
-//   left: -3.5em;
-//   -webkit-animation-delay: -0.32s;
-//   animation-delay: -0.32s;
-// }
-// .loader:after {
-//   left: 3.5em;
-// }
-// @-webkit-keyframes load7 {
-//   0%,
-//   80%,
-//   100% {
-//     box-shadow: 0 2.5em 0 -1.3em;
-//   }
-//   40% {
-//     box-shadow: 0 2.5em 0 0;
-//   }
-// }
-// @keyframes load7 {
-//   0%,
-//   80%,
-//   100% {
-//     box-shadow: 0 2.5em 0 -1.3em;
-//   }
-//   40% {
-//     box-shadow: 0 2.5em 0 0;
-//   }
-// }
-
-
-
+// Animation for loading button
+@include keyframes(dots) {
+  0% {
+    background: transparent;
+  }
+  50% {
+    background: white;
+  }
+  100% {
+    background: transparent;
+  }
+}
