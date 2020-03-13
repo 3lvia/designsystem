@@ -13,6 +13,8 @@ $button-padding: $button-padding-top-bottom $button-padding-left-right;
 $icon-button-height: 24px;
 $icon-button-font-size: 24px;
 $icon-button-height-with-border: $icon-button-height - $button-border-width; // Subtract width of border to match size of buttons without border
+$icon-button-padding: 24px;
+$icon-size: 24px;
 $button-font-size: 1rem;
 
 .e-btn {
@@ -57,7 +59,7 @@ $button-font-size: 1rem;
 
   &.btn-secondary {
     display: inline-block;
-    border: none;
+    border: 2px solid transparent;
     box-shadow: 0px 0px 0px 1px color('black');
     border-radius: $button-radius;
     padding: $button-padding + 1px;
@@ -99,12 +101,12 @@ $button-font-size: 1rem;
     align-items: center;
     justify-content: space-between;
     border-radius: $button-radius;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-left: $icon-button-padding;
+    padding-right: $icon-button-padding;
 
     span {
       // standard size for buttons in large buttons
-      background-size: 24px 24px;
+      background-size: $icon-size;
       background-position: center;
       // negative margin on icons to not expand the button height
       margin-top: -8px;
@@ -112,7 +114,7 @@ $button-font-size: 1rem;
     }
   }
 
-  // Todo: Might remove, not in Figa at moment
+  // Todo: Implement when "Close button" is ready, or we have more use cases for internal systems. 
 
   // Buttons with icons only
   // &-icon {
