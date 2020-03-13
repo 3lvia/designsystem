@@ -17,13 +17,15 @@ $form-input-border: 1px solid color('grey-mine-shaft');
   border-radius: $form-input-border-radius;
   box-sizing: border-box;
   background: color('white');
+  outline:0 !important;
 
   &:not(.is-invalid):focus-within {
     @extend .e-form_input, .is-focus;
   }
 
   &.is-focus {
-    border-color: green;
+    border-color: var(--e-green-lime);
+    box-shadow: 0 0 2px var(--e-green-lime);
 
     #{$this}_icon,
     svg,
