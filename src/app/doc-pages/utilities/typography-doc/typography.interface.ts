@@ -3,5 +3,4 @@ export interface Typography {
     example: string;
     size: string;
     sizeMobile?: string;
-    height?: string;
 }

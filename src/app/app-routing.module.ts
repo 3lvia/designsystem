@@ -37,7 +37,6 @@ import { TemplatesComponent } from './doc-pages/utilities/templates/templates.co
 import { AccessibilityStartComponent } from './doc-pages/accessibility/accessibility-start/accessibility-start.component';
 import { ComponentsStartComponent } from './doc-pages/components/components-start/components-start.component';
 import { UtilitiesStartComponent } from './doc-pages/utilities/utilities-start/utilities-start.component';
-import { TypographyMobileComponent } from './doc-pages/utilities/typography-doc/typography-mobile/typography-mobile.component';
 
 
 const routes: Routes = [
@@ -210,11 +209,6 @@ const routes: Routes = [
         ]
       }
     ],
-  },
-  // Iframes
-  {
-    path: Pages.TypographyMobile,
-    component: TypographyMobileComponent
   },
 ];
 

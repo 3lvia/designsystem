@@ -10,7 +10,6 @@ import { ShadowDocModule } from './shadow-doc/shadow-doc.module';
 import { SpacingDocModule } from './spacing-doc/spacing-doc.module';
 import { TypographyDocModule } from './typography-doc/typography-doc.module';
 import { TemplatesModule } from './templates/templates.module';
-import { TypographyMobileModule } from './typography-doc/typography-mobile/typography-mobile.module';
 
 @NgModule({
     imports: [
@@ -23,7 +22,6 @@ import { TypographyMobileModule } from './typography-doc/typography-mobile/typog
         ShadowDocModule,
         SpacingDocModule,
         TypographyDocModule,
-        TypographyMobileModule,
         TemplatesModule
     ]
 })

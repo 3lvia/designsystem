@@ -6,9 +6,6 @@ export enum Pages {
     // TODO: Add contribution card and url to Github Repo Contribution MD.
     // Contribute = 'contribute',
 
-    // Iframes
-    TypographyMobile = 'typography-mobile',
-
     // Accessibility Pages
     AccessibilityStart = 'accessibility',
     // Children
