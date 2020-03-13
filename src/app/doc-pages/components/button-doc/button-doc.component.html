@@ -7,14 +7,6 @@
     Button
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <p>
-      Primary buttons are task oriented buttons, that normally is used for task like "save", "done", or "next" actions.
-      It is often the primary positive action of a use case. Can be used alone, or combined with a secondary og link style button.
-    </p>
-    <p>
-      Secondary buttons are similar to primary buttons but is used as a supportive action, or for less important actions. 
-      Can be used alone, or combined with a primary og link styled button. 
-    </p>
   </ng-container>
 </app-component-header>
 
@@ -24,13 +16,15 @@
     [isHTML]="true"
     [code]="example1"
     [title]="'Button primary'"
-    [description]="'Button primary for most usecases'"
+    [description]="' Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions.
+      It is often the primary positive action of a use case. Can be used alone, or combined with a secondary og link style button.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
     [title]="'Button secondary'"
-    [description]="'Button secondary are for the other usecases'"
+    [description]="'Secondary buttons are similar to primary buttons but is used as a supportive action, or for less important actions. 
+      Can be used alone, or combined with a primary og link styled button.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
