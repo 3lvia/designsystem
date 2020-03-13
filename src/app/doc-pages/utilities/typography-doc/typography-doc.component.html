@@ -41,29 +41,26 @@
         </div>
       </div>
       <div class="container" *ngFor="let typography of typographyItems; let i = index">
-        <div class="row">
+
+        <div class="row" >
+           <!-- Desktop -->
           <div class="example">
             <app-copy [message]="'e-'+typography.title">
               <ng-container ngProjectAs="copyContent">
-                <p class="example-text" [ngClass]="'e-'+typography.title">
+                <span class="example-text" [ngClass]="'e-'+typography.title">
                   {{ typography.example }}
-                </p>
+                </span>
                 <p class="e-text-caps example-title">{{ typography.title }} | {{ typography.size }}</p>
               </ng-container>
             </app-copy>
           </div>
+          <!-- Mobile -->
           <div class="example">
             <div>
               <app-copy [message]="'e-'+typography.title" [tooltipPosition]="'right'">
                 <ng-container ngProjectAs="copyContent">
-                  <p class="to-copy" #toCopy>{{ typography.example }}</p>
-                  <iframe 
-                    #mobileTypography 
-                    scrolling="no" 
-                    class="example-text"
-                    [ngClass]="'e-'+typography.title" 
-                    frameborder="0"
-                  ></iframe>
+                  <div class="to-copy" #toCopy>{{ typography.title }}</div>
+                  <app-iframe-preview [code]="getCodeExample(typography)"></app-iframe-preview>
                   <p class="e-text-caps example-title">
                     {{ typography.title }} | 
                     <span *ngIf="typography.sizeMobile">{{ typography.sizeMobile }}</span>
