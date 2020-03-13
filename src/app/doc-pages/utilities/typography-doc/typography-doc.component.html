@@ -57,17 +57,13 @@
           <!-- Mobile -->
           <div class="example">
             <div>
-              <app-copy [message]="'e-'+typography.title" [tooltipPosition]="'right'">
-                <ng-container ngProjectAs="copyContent">
-                  <div class="to-copy" #toCopy>{{ typography.title }}</div>
-                  <app-iframe-preview [code]="getCodeExample(typography)"></app-iframe-preview>
-                  <p class="e-text-caps example-title">
-                    {{ typography.title }} | 
-                    <span *ngIf="typography.sizeMobile">{{ typography.sizeMobile }}</span>
-                    <span *ngIf="!typography.sizeMobile">{{ typography.size }}</span>
-                  </p>
-                </ng-container>
-              </app-copy>
+              
+              <app-iframe-preview [code]="getCodeExample(typography)"></app-iframe-preview>
+              <p class="e-text-caps example-title">
+                {{ typography.title }} | 
+                <span *ngIf="typography.sizeMobile">{{ typography.sizeMobile }}</span>
+                <span *ngIf="!typography.sizeMobile">{{ typography.size }}</span>
+              </p>
             </div>
           </div>
         </div>
