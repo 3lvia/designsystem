@@ -58,7 +58,7 @@ export const eComponents: EItems[] = [
         title: 'Button',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Button,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
     },
     {

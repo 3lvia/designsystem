@@ -9,50 +9,52 @@ import { getComponent } from 'src/app/shared/e-items';
 export class ButtonDocComponent {
 
   componentStatus = getComponent('button-doc').status;
-  componentClasses = ['e-button'];
+  componentClasses = ['e-btn', 'e-btn btn-secondary', 'e-btn has-icon', 'e-btn btn-loading'];
   public clicked = false;
 
-  example1 = `<button class="e-button">Standard</button>
-<button class="e-button" disabled>Disabled</button>
+  example1 = `
+<button class="e-btn e-m-2" >
+  Standard
+</button>
+<button class="e-btn e-m-2" disabled >
+  Disabled
+</button>
 `;
 
-  example2 = `<button class="e-button is-secondary">Standard</button>
-<button class="e-button is-secondary" disabled>Disabled</button>
+  example2 = `
+<button class="e-btn btn-secondary e-m-2" >
+  Standard
+</button>
+<button class="e-btn btn-secondary e-m-2" disabled >
+  Disabled
+</button>
 `;
 
   example3 = `<div>
-  <button class="e-button has-icon">
-    <span class="some-icon"></span>Icon button
-  </button>
-  <button class="e-button has-icon" disabled>
-    <span class="some-icon"></span>Icon button
-  </button>
-</div>
-<div style="margin-top:8px;">
-  <button class="e-button has-icon is-danger">
-    <span class="some-icon"></span>Slett button
-  </button>
-  <button class="e-button has-icon is-danger" disabled>
-    <span class="some-icon"></span>Slett button
-  </button>
-</div>
-<div style="margin-top:8px;">
-  <button class="e-button has-icon is-secondary">
-    <span class="some-icon"></span>Icon button
-  </button>
-  <button class="e-button has-icon is-secondary" disabled>
-    <span class="some-icon"></span>Icon button
-  </button>
-</div>
-<div style="margin-top:8px;">
-  <button class="e-button has-icon is-transparent">
-    <span class="some-icon"></span>Icon button
-  </button>
-  <button class="e-button has-icon is-transparent" disabled>
-    <span class="some-icon"></span>Icon button
-  </button>
+<button class="e-btn has-icon e-m-2" >
+  <span class="e-icon-user-white-bg"></span>Icon button
+</button>
+<button class="e-btn has-icon e-m-2" disabled >
+  <span class="e-icon-user-white-bg"></span>Icon button
+</button>
+<br>
+<button class="e-btn btn-secondary has-icon e-m-2" >
+  <span class="e-icon-search"></span>Icon button
+</button>
+<button class="e-btn btn-secondary has-icon e-m-2" disabled >
+  <span class="e-icon-search-white"></span>Icon button
+</button>
 </div>
 `;
+
+  example4 = `
+  <button class="e-btn btn-loading e-m-2">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  `
+  ;
 
   constructor() { }
 
