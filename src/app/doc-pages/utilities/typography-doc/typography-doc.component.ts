@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, QueryList, ViewChildren, ɵConsole } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
 import { typographyItems } from './typography';
@@ -11,7 +11,7 @@ import { typographyItems } from './typography';
 export class TypographyDocComponent implements OnInit, AfterViewInit {
 
   @Input() selected = TabNames.Overview;
-  @ViewChildren('desktopTypography') desktopTypography: QueryList<ElementRef>;
+  @ViewChildren('toCopy') toCopy: QueryList<ElementRef>;
   @ViewChildren('mobileTypography') mobileTypography: QueryList<ElementRef>;
 
   typographyItems = typographyItems;
@@ -40,11 +40,18 @@ eller isolasjonssvikt i det elektriske anlegget eller tilknyttet utstyr. </p>
 
   ngAfterViewInit() {
     let i = 0;
-    this.desktopTypography.toArray().forEach(typo => {
+    this.toCopy.toArray().forEach(typo => {
       const html = typo.nativeElement.innerHTML;
       const doc = this.mobileTypography.toArray()[i].nativeElement.contentWindow.document;
+      const head = doc.head;
+      const link = doc.createElement('link');
+      link.type = 'text/css';
+      link.rel = 'stylesheet';
+      link.href = 'typography-doc.component.scss';
+      head.appendChild(link);
       doc.open();
-      doc.write('<html><head><title></title></head><body>' + html + '</body></html>');
+      // tslint:disable-next-line:max-line-length
+      doc.write('<html><head><link rel="stylesheet" type="text/scss" href="typography-doc.component.scss"/><title></title></head><body>' + html + '</body></html>');
       doc.close();
       i++;
     });

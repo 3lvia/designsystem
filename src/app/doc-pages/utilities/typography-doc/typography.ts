@@ -29,7 +29,7 @@ export const typographyItems: Typography[] = [
         title: 'text-quote',
         example: 'En hjemmeladestasjon for elbilen er smart! Ladingen går raskere og den blir tryggere.',
         size: '26px',
-        sizeMobile: '45px',
+        sizeMobile: '20px',
     },
     {
         title: 'text-body',

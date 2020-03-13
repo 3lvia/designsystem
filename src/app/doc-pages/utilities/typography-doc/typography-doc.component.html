@@ -31,20 +31,51 @@
     </p>
 
     <div class="example-container">
-      <div class="typography" *ngFor="let typography of typographyItems; let i = index">
-        <div class="example" #desktopTypography>
-          <app-copy [message]="'e-'+typography.title">
-            <ng-container ngProjectAs="copyContent">
-              <p class="example-text" [ngClass]="'e-'+typography.title">
-                {{ typography.example }}
-              </p>
-              <p class="e-text-caps example-title">{{ typography.title }} | {{ typography.size }}</p>
-            </ng-container>
-          </app-copy>
-          <hr class="e-divider is-light" *ngIf="i != typographyItems.length-1"/>
+      <div class="container">
+        <div class="row">
+          <div class="example-title"><h2 class="e-title-sm">Desktop & Tablet</h2></div>
+          <div class="example-title"><h2 class="e-title-sm">Mobile</h2></div>
         </div>
-        <div class="example">
-          <iframe #mobileTypography scrolling="no" frameborder="0"></iframe>
+        <div class="row">
+          <hr class="e-divider is-light"/>
+        </div>
+      </div>
+      <div class="container" *ngFor="let typography of typographyItems; let i = index">
+        <div class="row">
+          <div class="example">
+            <app-copy [message]="'e-'+typography.title">
+              <ng-container ngProjectAs="copyContent">
+                <p class="example-text" [ngClass]="'e-'+typography.title">
+                  {{ typography.example }}
+                </p>
+                <p class="e-text-caps example-title">{{ typography.title }} | {{ typography.size }}</p>
+              </ng-container>
+            </app-copy>
+          </div>
+          <div class="example">
+            <div>
+              <app-copy [message]="'e-'+typography.title" [tooltipPosition]="'right'">
+                <ng-container ngProjectAs="copyContent">
+                  <p class="to-copy" #toCopy>{{ typography.example }}</p>
+                  <iframe 
+                    #mobileTypography 
+                    scrolling="no" 
+                    class="example-text"
+                    [ngClass]="'e-'+typography.title" 
+                    frameborder="0"
+                  ></iframe>
+                  <p class="e-text-caps example-title">
+                    {{ typography.title }} | 
+                    <span *ngIf="typography.sizeMobile">{{ typography.sizeMobile }}</span>
+                    <span *ngIf="!typography.sizeMobile">{{ typography.size }}</span>
+                  </p>
+                </ng-container>
+              </app-copy>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <hr class="e-divider is-light" *ngIf="i != typographyItems.length-1"/>
         </div>
       </div>
     </div>
