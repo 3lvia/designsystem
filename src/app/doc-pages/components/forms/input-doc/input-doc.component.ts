@@ -50,7 +50,7 @@ export class InputDocComponent implements OnInit {
 `;
 
   example6 = `<div class="e-form_field">
-  <label class="e-form_field_label" for="title">Textarea</label>
+  <label class="e-form_field_label is-optional" for="title">Textarea</label>
   <div class="e-form_input">
     <textarea placeholder="Placeholder text"></textarea>
   </div>

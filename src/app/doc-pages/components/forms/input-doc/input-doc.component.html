@@ -2,14 +2,21 @@
 <app-component-header
   [componentStatus]="componentStatus"
   [componentClasses]="componentClasses"
+  [does]="'Text fields should be used in forms where the user has to fill in something that is not from a set of choices.'"
+  [donts]="'If a user chooses from a set of options, dropdowns, radio buttons, checkboxes or autocomplete fields should be used instead.'"
 >
   <ng-container ngProjectAs="headerTitle">
     Input
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
+    By default, all fields must be required. 
+    It should be possible to navigate through forms using the tab. 
+    User should also be given the opportunity to use autofill. 
+    When the zip code is filled in, the post office should be filled in automatically. 
+    Validation is determined on all fields based on the field being filled out. 
+    Validation takes place along the way, and the user must also be presented with guidance or error messages. 
+    Maximum input field width is 448px (28 strap).
   </ng-container>
-
-  
 </app-component-header>
 
 <!--BODY-->

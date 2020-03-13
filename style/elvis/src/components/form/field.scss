@@ -18,6 +18,11 @@
     display: block;
     margin-bottom: 5px;
     @extend .e-label-input;
+
+    &.is-optional::after {
+      content: " (valgfri)";
+      color: var(--e-grey-mine-shaft-05);
+    }
   }
 
   &_error {
@@ -34,6 +39,7 @@
 
     > i {
       margin-right: 5px;
+      padding: 8px;
     }
   }
 

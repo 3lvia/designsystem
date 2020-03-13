@@ -1,9 +1,10 @@
 @import '../../variables/colors.scss';
 @import '../../variables/animation.scss';
 
-$form-input-padding: 13px 16px;
+$form-input-padding: 12px 16px;
+$form-input-padding-active: 11px 15px;
 $form-input-border-radius: $border-radius;
-$form-input-border: 1px solid color('grey-mine-shaft');
+$form-input-border: 1px solid var(--e-grey-mine-shaft);
 
 .e-form_input {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -17,6 +18,9 @@ $form-input-border: 1px solid color('grey-mine-shaft');
   border-radius: $form-input-border-radius;
   box-sizing: border-box;
   background: var(--e-white);
+  outline: none;
+  max-width: 448px;
+  min-width: 200px;
 
   &_field,
   > input,
@@ -37,7 +41,7 @@ $form-input-border: 1px solid color('grey-mine-shaft');
 
   > i {
     float: right;
-    padding: 5px;
+    padding: 8px;
     margin-left: 16px;
   }
 
@@ -49,21 +53,26 @@ $form-input-border: 1px solid color('grey-mine-shaft');
   }
 
   &:not(.is-invalid):focus-within {
-    @extend .e-form_input, .is-focus;
+    @extend .is-focus;
+  }
+  &:disabled, input[type="text"]:disabled {
+    @extend .is-disabled;
   }
 
   &.is-focus {
-    border-color: var(--e-green-lime);
+    border: 2px solid var(--e-green-lime);
     box-shadow: 0 0 2px var(--e-green-lime);
+    padding: $form-input-padding-active;
   }
 
   &.is-invalid {
-    border-color: var(--e-red);
+    border: 2px solid var(--e-red);
+    padding: $form-input-padding-active;
   }
 
-  &.is-disabled, input[type="text"]:disabled {
+  &.is-disabled {
+    color: var(--e-grey-mine-shaft-02);
     border-color: var(--e-grey-mine-shaft-02);
-    color: green !important; 
     cursor: default;
   }
 }
