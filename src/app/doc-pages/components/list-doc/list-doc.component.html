@@ -1,0 +1,35 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [componentClasses]="componentClasses"
+>
+  <ng-container ngProjectAs="headerTitle">
+    List
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
+    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
+    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>
+
+
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'Bulletins'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example2"
+    [title]="'Bulletins Strong'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example3"
+    [title]="'Numbered'"
+  ></app-code-block>
+</div>
