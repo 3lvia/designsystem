@@ -51,7 +51,7 @@ export class InputDocComponent implements OnInit {
   <div class="e-form_input is-invalid">
     <input id="title" value="ola.hafslund.no">
   </div>
-  <span class="e-form_field_error is-active"><i class="fal fa-info-circle"></i>The email must contain @</span>
+  <span class="e-form_field_error is-active"><i class="e-icon-alert-circle e-icon-xs"></i>The email must contain @</span>
 </div>
 `;
 
