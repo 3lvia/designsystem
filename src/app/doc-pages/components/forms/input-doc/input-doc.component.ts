@@ -15,50 +15,44 @@ export class InputDocComponent implements OnInit {
   componentClasses = ['e-form_field', 'e-form_input'];
 
   example1 = `<div class="e-form_field">
-  <label class="e-form_field_label" for="title">Normal input field </label>
+  <label class="e-form_field_label" for="normal">Normal input field </label>
   <div class="e-form_input">
-    <input id="title" placeholder="Placeholdertext">
+    <input id="normal" placeholder="Placeholder text">
+    <i class="e-icon-email e-icon-xs"></i>
+  </div>
+</div>
+<div class="e-form_field">
+  <label class="e-form_field_label" for="disabled">Disabled input field </label>
+  <div class="e-form_input is-disabled">
+    <input id="disabled" placeholder="Placeholder text" disabled>
+    <i class="e-icon-email e-icon-xs"></i>
   </div>
 </div>
 `;
   example2 = `<div class="e-form_field">
-  <label class="e-form_field_label" for="title">Normal input field with icon</label>
+  <label class="e-form_field_label" for="password">Password input field</label>
   <div class="e-form_input">
-    <i class="fal fa-info-circle e-form_input_icon"></i>
-    <input id="title" placeholder="Placeholdertext">
+    <input id="password" type="password" placeholder="*******">
+    <i class="e-icon-lock e-icon-xs"></i>
   </div>
 </div>
-`;
-
-  example3 = `<div class="e-form_field">
-  <label class="e-form_field_label" for="title">Active input field </label>
-  <div class="e-form_input is-focus">
-    <input id="title" placeholder="Placeholdertext" value="Kari Nordmenn">
-  </div>
-</div>
-`;
-
-  example4 = `<div class="e-form_field">
-  <label class="e-form_field_label" for="title">Disabled input field</label>
-  <div class="e-form_input is-disabled">
-    <input id="title" placeholder="Placeholdertext" disabled>
-  </div>
-</div>
-`;
-
-  example5 = `<div class="e-form_field">
-  <label class="e-form_field_label" for="title">Invalid input field with field errormessage</label>
+<div class="e-form_field">
+  <label class="e-form_field_label" for="invalid">Invalid input field with error-message</label>
   <div class="e-form_input is-invalid">
-    <input id="title" value="ola.hafslund.no">
+    <input id="invalid" type="password" value="passord">
+    <i class="e-icon-lock e-icon-xs"></i>
   </div>
-  <span class="e-form_field_error is-active"><i class="e-icon-alert-circle e-icon-xs"></i>The email must contain @</span>
+  <span class="e-form_field_error is-active">
+    <i class="e-icon-alert-circle e-icon-xs"></i>
+    Passord må inneholde både bokstaver og tall
+  </span>
 </div>
 `;
 
   example6 = `<div class="e-form_field">
   <label class="e-form_field_label" for="title">Textarea</label>
   <div class="e-form_input">
-    <textarea placeholder="Placeholdertext"></textarea>
+    <textarea placeholder="Placeholder text"></textarea>
   </div>
 </div>
 `;

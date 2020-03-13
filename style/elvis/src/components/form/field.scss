@@ -16,6 +16,7 @@
 
   &_label {
     display: block;
+    margin-bottom: 5px;
     @extend .e-label-input;
   }
 
@@ -25,7 +26,7 @@
     align-items: center;
     margin-top: 5px;
     @extend .e-text-info;
-    color: #515151 !important;
+    color: var(--e-grey-mine-shaft) !important;
 
     &.is-active {
       visibility: visible;
@@ -33,7 +34,6 @@
 
     > i {
       margin-right: 5px;
-      color: color('red');
     }
   }
 
