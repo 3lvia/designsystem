@@ -19,15 +19,21 @@
     <div class="element">
       <div #preview></div>
     </div>
-    <div class="show-code e-border" *ngIf="!showCode" (click)="changeShowCodeStatus()">View code</div>
-    <div class="hide-code e-border" *ngIf="showCode" (click)="changeShowCodeStatus()">Hide code</div>
+    <div class="show-code e-border" role="button" *ngIf="!showCode" (click)="showCode = !showCode">View code</div>
+    <div class="hide-code e-border"  role="button" *ngIf="showCode" (click)="showCode = !showCode">Hide code</div>
     <div @heightDown class="code" *ngIf="showCode">
-      <app-code-highlighter
+        <app-code-highlighter
         [isHTML]="isHTML"
         [isTS]="isTS"
         [isSCSS]="isSCSS"
         [code]="code"
       ></app-code-highlighter>
+    </div>
+
+    <div class="show-code e-border" role="button" *ngIf="!showSmartphone" (click)="showSmartphone = !showSmartphone">Preview on smartphone</div>
+    <div class="hide-code e-border"  role="button" *ngIf="showSmartphone" (click)="showSmartphone = !showSmartphone">Hide preview</div>
+    <div @heightDown class="code" *ngIf="showSmartphone">
+      <app-smartphone [code]="code"></app-smartphone>
     </div>
   </div>
 </div>
