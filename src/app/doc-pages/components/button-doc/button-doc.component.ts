@@ -38,6 +38,7 @@ export class ButtonDocComponent {
   <button class="e-btn has-icon" disabled style="margin: 10px">
     <span class="e-icon-user-white-bg"></span>Icon button
   </button>
+  <br>
   <button class="e-btn btn-secondary has-icon" style="margin: 10px">
     <span class="e-icon-search"></span>Icon button
   </button>
