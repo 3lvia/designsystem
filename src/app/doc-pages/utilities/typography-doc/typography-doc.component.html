@@ -31,25 +31,21 @@
     </p>
 
     <div class="example-container">
-      <div class="example-container_column">
-        <h2 class="e-title-md">Desktop & Tablet</h2>
-        <div class="typography-desktop" *ngFor="let typography of typographyItems; let i = index">
-          <div class="example">
-            <app-copy [message]="'e-'+typography.title">
-              <ng-container ngProjectAs="copyContent">
-                <p class="example-text" [ngClass]="'e-'+typography.title">
-                  {{ typography.example }}
-                </p>
-                <p class="e-text-caps example-title">{{ typography.title }} | {{ typography.size }}</p>
-              </ng-container>
-            </app-copy>
-          </div>
+      <div class="typography" *ngFor="let typography of typographyItems; let i = index">
+        <div class="example" #desktopTypography>
+          <app-copy [message]="'e-'+typography.title">
+            <ng-container ngProjectAs="copyContent">
+              <p class="example-text" [ngClass]="'e-'+typography.title">
+                {{ typography.example }}
+              </p>
+              <p class="e-text-caps example-title">{{ typography.title }} | {{ typography.size }}</p>
+            </ng-container>
+          </app-copy>
           <hr class="e-divider is-light" *ngIf="i != typographyItems.length-1"/>
         </div>
-      </div>
-      <div class="example-container_column">
-        <h2 class="e-title-md">Mobile</h2>
-        <iframe height="100%" src="./typography-mobile" scrolling="no" frameborder="0"></iframe>
+        <div class="example">
+          <iframe #mobileTypography scrolling="no" frameborder="0"></iframe>
+        </div>
       </div>
     </div>
   </div>

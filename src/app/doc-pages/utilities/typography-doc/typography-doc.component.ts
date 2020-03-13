@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, QueryList, ViewChildren } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
 import { typographyItems } from './typography';
@@ -8,9 +8,11 @@ import { typographyItems } from './typography';
   templateUrl: './typography-doc.component.html',
   styleUrls: ['./typography-doc.component.scss']
 })
-export class TypographyDocComponent implements OnInit {
+export class TypographyDocComponent implements OnInit, AfterViewInit {
 
   @Input() selected = TabNames.Overview;
+  @ViewChildren('desktopTypography') desktopTypography: QueryList<ElementRef>;
+  @ViewChildren('mobileTypography') mobileTypography: QueryList<ElementRef>;
 
   typographyItems = typographyItems;
   tabNames = TabNames;
@@ -34,7 +36,18 @@ eller isolasjonssvikt i det elektriske anlegget eller tilknyttet utstyr. </p>
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit() { }
+
+  ngAfterViewInit() {
+    let i = 0;
+    this.desktopTypography.toArray().forEach(typo => {
+      const html = typo.nativeElement.innerHTML;
+      const doc = this.mobileTypography.toArray()[i].nativeElement.contentWindow.document;
+      doc.open();
+      doc.write('<html><head><title></title></head><body>' + html + '</body></html>');
+      doc.close();
+      i++;
+    });
   }
 
 }

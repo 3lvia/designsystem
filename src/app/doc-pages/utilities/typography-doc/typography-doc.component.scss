@@ -2,22 +2,20 @@
 
 .example-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
-
-  &_column {
-    display: flex;
-    flex-direction: column;
-    width: 48%;
-
+  
     h2 {
       margin-bottom: 0;
     }
-    .typography-desktop {
-      padding: 5px 0;
+    .typography {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
 
       .example {
+        width: 48%;
         margin: var(--e-spacing-5) 0;
         cursor: pointer;
       
@@ -31,10 +29,6 @@
         }
       }
     }
-
-    iframe {
-      width: 150%;
-    }
-  }
+  
 }
 
