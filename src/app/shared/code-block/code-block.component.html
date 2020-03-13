@@ -32,7 +32,7 @@
 
     <div class="show-code e-border" role="button" *ngIf="!showSmartphone" (click)="showSmartphone = !showSmartphone">Preview on smartphone</div>
     <div class="hide-code e-border"  role="button" *ngIf="showSmartphone" (click)="showSmartphone = !showSmartphone">Hide preview</div>
-    <div class="code" *ngIf="showSmartphone">
+    <div class="e-p-2 smartphone-preview" *ngIf="showSmartphone">
       <app-smartphone [code]="code"></app-smartphone>
     </div>
   </div>
