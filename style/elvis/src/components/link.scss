@@ -27,8 +27,8 @@
   }
 
   &.is-action {
-    $this: &;
     border: none;
+    
     &::after{
       content: ">";
       font-size: 0.6rem;
