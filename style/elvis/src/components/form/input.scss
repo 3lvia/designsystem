@@ -1,5 +1,6 @@
 @import '../../variables/colors.scss';
 @import '../../variables/animation.scss';
+@import '../../utilities/typography.scss';
 
 $form-input-padding: 12px 16px;
 $form-input-padding-active: 11px 15px;
@@ -20,9 +21,8 @@ $form-input-border: 1px solid var(--e-grey-mine-shaft);
   background: var(--e-white);
   outline: none;
   max-width: 448px;
-  min-width: 200px;
+  width: 100%;
 
-  &_field,
   > input,
   > textarea {
     width: 100%;
@@ -30,13 +30,7 @@ $form-input-border: 1px solid var(--e-grey-mine-shaft);
     border: none;
     background: transparent;
     outline: none;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 140%;
-
-    input[type='text'] {
-      color: var(--e-grey-mine-shaft);
-    }
+    @extend .e-label-option;
   }
 
   > i {
@@ -59,6 +53,20 @@ $form-input-border: 1px solid var(--e-grey-mine-shaft);
     @extend .is-disabled;
   }
 
+  &.is-small {
+    width: 60px;
+    input {
+      width: 60px;
+    }
+  }
+
+  &.is-medium {
+    width: 120px;
+    input {
+      width: 120px;
+    }
+  }
+
   &.is-focus {
     border: 2px solid var(--e-green-lime);
     box-shadow: 0 0 2px var(--e-green-lime);
@@ -74,5 +82,11 @@ $form-input-border: 1px solid var(--e-grey-mine-shaft);
     color: var(--e-grey-mine-shaft-02);
     border-color: var(--e-grey-mine-shaft-02);
     cursor: default;
+  }
+}
+
+.is-combined, .is-inline {
+  .e-form_input:not(:last-of-type) {
+    margin-right: var(--e-spacing-1);
   }
 }
