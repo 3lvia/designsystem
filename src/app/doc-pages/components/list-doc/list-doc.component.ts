@@ -11,33 +11,30 @@ export class ListDocComponent implements OnInit {
 
 
   componentStatus = getComponent('list-doc').status;
-  componentClasses = ['e-list'];
+  componentClasses = ['e-list', 'e-list strong', 'e-list numbers'];
 
-  example1 = `
-  <ul class="e-list">
-    <li>Honka</li>
-    <li>Honka</li>
-    <li>Burning</li>
-    <li>Love</li>
-  </ul>
+  example1 = `<ul class="e-list">
+  <li>Just a hunk, a hunk of burning list</li>
+  <li>Just a hunk, a hunk of burning list</li>
+  <li>Just a hunk, a hunk of burning list</li>
+  <li>Just a hunk, a hunk of burning list</li>
+</ul>
 `;
 
-  example2 = `
-  <ul class="e-list strong">
-    <li>Honka</li>
-    <li>Honka</li>
-    <li>Burning</li>
-    <li>Love</li>
-  </ul>
+  example2 = `<ul class="e-list strong">
+  <li>Just a hunk, a hunk of burning list</li>
+  <li>Just a hunk, a hunk of burning list</li>
+  <li>Just a hunk, a hunk of burning list</li>
+  <li>Just a hunk, a hunk of burning list</li>
+</ul>
 `;
 
-  example3 = `
-  <ol class="e-list numbers">
-    <li>Honka</li>
-    <li>Honka</li>
-    <li>Burning</li>
-    <li>Love</li>
-  </ol>
+  example3 = `<ol class="e-list numbers">
+  <li>Just a hunk, a hunk of burning list</li>
+  <li>Just a hunk, a hunk of burning lists</li>
+  <li>Just a hunk, a hunk of burning lists</li>
+  <li>Just a hunk, a hunk of burning lists</li>
+</ol>
 `;
 
   constructor() { }

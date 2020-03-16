@@ -1,9 +1,11 @@
 @import "../variables/colors.scss";
 
-.e-list {
+$list-border-size: 1.25rem;
+$list-dot-size: 0.5rem;
+$border-radius: 50%;
 
+.e-list {
       li {
-        $this: &;
         list-style: none;
         position: relative;
         padding: 0 0 0 20px;
@@ -13,25 +15,38 @@
           position: absolute;
           left: 0;
           top: 5px;
-          width: 8px;
-          height: 8px;
+          width: $list-dot-size;
+          height: $list-dot-size;
           background-color: color("green-lime");
-          border-radius: 50%;
+          border-radius: $border-radius;
         }
       }
 
       &.numbers {
+        counter-reset: elvis-item;
+        list-style: none;
         li {
-          list-style: decimal;
-          border: 2px solid color('green-lime');
+          counter-increment: elvis-item;
+          margin-left: 1rem;
+          margin-bottom: 0.75rem;
+          
            &::before {
-              content: none;
+            content: counter(elvis-item);
+            left: calc(-1 * 1rem - 10px);
+            line-height: $list-border-size;
+            width: $list-border-size;
+            height: $list-border-size;
+            top: 0;
+            background: transparent;
+            border-radius: $border-radius;
+            text-align: center;
+            box-shadow: 0px 0px 0px 2px color('green-lime');
            }
         }
       }
 
-
       &.strong {
         font-weight: bold;
+        background: transparent;
       }
 }
