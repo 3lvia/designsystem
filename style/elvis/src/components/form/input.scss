@@ -82,10 +82,8 @@ $form-input-border: 1px solid var(--e-grey-mine-shaft);
     color: var(--e-grey-mine-shaft-02);
     border-color: var(--e-grey-mine-shaft-02);
     cursor: not-allowed;
-    input:disabled,
-    input[type="text"]:disabled,
-    input[type="number"]:disabled,
-    input[type="password"]:disabled {
+    input:disabled {
+      opacity: 1;
       color: var(--e-grey-mine-shaft-02);
       -webkit-text-fill-color: var(--e-grey-mine-shaft-02);
       cursor: not-allowed;
