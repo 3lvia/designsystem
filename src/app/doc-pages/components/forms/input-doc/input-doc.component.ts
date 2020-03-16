@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
+import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
   selector: 'app-input-doc',

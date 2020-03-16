@@ -42,19 +42,6 @@
       padding: 8px;
     }
   }
-
-  &.is-line {
-    > * {
-      &:not(#{$this}_title):not(#{$this}_error) {
-        margin-right: 1rem;
-        float: left;
-      }
-    }
-  }
-
-  &.is-inline {
-    display: inline-block;
-  }
 }
 
 .is-combined-field {
