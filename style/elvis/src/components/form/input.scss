@@ -81,11 +81,19 @@ $form-input-border: 1px solid var(--e-grey-mine-shaft);
   &.is-disabled {
     color: var(--e-grey-mine-shaft-02);
     border-color: var(--e-grey-mine-shaft-02);
-    cursor: default;
+    cursor: not-allowed;
+    input:disabled,
+    input[type="text"]:disabled,
+    input[type="number"]:disabled,
+    input[type="password"]:disabled {
+      color: var(--e-grey-mine-shaft-02);
+      -webkit-text-fill-color: var(--e-grey-mine-shaft-02);
+      cursor: not-allowed;
+    }
   }
 }
 
-.is-combined, .is-inline {
+.is-combined-field {
   .e-form_input:not(:last-of-type) {
     margin-right: var(--e-spacing-1);
   }
