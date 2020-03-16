@@ -62,22 +62,22 @@ export class InputDocComponent implements OnInit {
 `;
 
 example4 = `<div class="e-form_field">
-<label class="e-form_field_label" for="password">Password input field</label>
-<div class="e-form_input">
-  <input id="password" type="password" placeholder="*******">
-  <i class="e-icon-lock e-icon-xs"></i>
-</div>
+  <label class="e-form_field_label" for="password">Password input field</label>
+  <div class="e-form_input">
+    <input id="password" type="password" placeholder="*******">
+    <i class="e-icon-lock e-icon-xs"></i>
+  </div>
 </div>
 <div class="e-form_field">
-<label class="e-form_field_label" for="invalid">Invalid input field with error-message</label>
-<div class="e-form_input is-invalid">
-  <input id="invalid" type="password" value="passord">
-  <i class="e-icon-lock e-icon-xs"></i>
-</div>
-<span class="e-form_field_error is-active">
-  <i class="e-icon-alert-circle e-icon-xs"></i>
-  Passord må inneholde både bokstaver og tall
-</span>
+  <label class="e-form_field_label" for="invalid">Invalid input field with error-message</label>
+  <div class="e-form_input is-invalid">
+    <input id="invalid" type="password" value="passord">
+    <i class="e-icon-lock e-icon-xs"></i>
+  </div>
+  <span class="e-form_field_error is-active">
+    <i class="e-icon-alert-circle e-icon-xs"></i>
+    Passord må inneholde både bokstaver og tall
+  </span>
 </div>
 `;
 
