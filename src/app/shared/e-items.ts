@@ -226,7 +226,7 @@ export const eUtilities: EItems[] = [
         title: 'Typography',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Typography,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View utility',
     },
 ];

@@ -27,49 +27,76 @@ $font-family: "Red Hat Display", sans-serif;
 
 body {
   font-family: $font-family;
-  color: color('black');
+  color: color('font-color');
 }
 
 // List of typography-variables
 $typography: (
-  title-large: (
+  title-lg: (
     family: $font-family,
     size: 2.75rem,
+    size-m: 1.75rem,
     weight: 900,
     height: 120%,
-    color: color('black'),
-    element: h1
+    color: color('font-color')
   ),
-  title-medium: (
+  title-md: (
     family: $font-family,
     size: 1.625rem,
+    size-m: 1.5rem,
     weight: 700,
     height: 120%,
-    color: color('black'),
-    element: h2
+    color: color('font-color')
   ),
-  title-small: (
+  title-sm: (
     family: $font-family,
     size: 1.25rem,
     weight: 700,
     height: 120%,
-    color: color('black'),
-    element: h3
+    color: color('font-color')
   ),
   text-lead: (
     family: $font-family,
-    size: 1.625rem,
+    size: 1.5rem,
+    size-m: 1.25rem,
     weight: 400,
-    height: 160%,
-    color: color('black')
+    height: 190%,
+    height-m: 160%,
+    color: color('font-color')
   ),
   text-quote: (
     family: $font-family,
-    size: 1.5rem,
+    size: 1.625rem,
+    size-m: 1.25rem,
     weight: 400,
     height: 160%,
     style: italic,
-    color: color('black')
+    color: color('font-color')
+  ),
+  text-body: (
+    family: $font-family,
+    size: 1.25rem,
+    size-m: 1.125rem,
+    weight: 400,
+    height: 190%,
+    height-m: 160%,
+    color: color('font-color')
+  ),
+  text-img: (
+    family: $font-family,
+    size: 1.125rem,
+    size-m: 1rem,
+    weight: 400,
+    height: 160%,
+    style: italic,
+    color: color('font-color')
+  ),
+  text-description: (
+    family: $font-family,
+    size: 1rem,
+    weight: 400,
+    height: 175%,
+    color: color('font-color')
   ),
   text-caps: (
     family: $font-family,
@@ -77,43 +104,29 @@ $typography: (
     weight: 500,
     height: 120%,
     transform: uppercase,
-    color: color('black')
-  ),
-  text-body: (
-    family: $font-family,
-    size: 1.125rem,
-    weight: 400,
-    height: 160%,
-    color: color('black')
-  ),
-  text-description: (
-    family: $font-family,
-    size: 1rem,
-    weight: 400,
-    height: 175%,
-    color: color('black'),
-    element: p
+    color: color('font-color')
   ),
   text-info: (
     family: $font-family,
     size: 0.875rem,
     weight: 400,
     height: 160%,
-    color: color('black')
+    letter-spacing: 0.2px,
+    color: color('font-color')
   ),
   label-input: (
     family: $font-family,
     size: 1rem,
     weight: 500,
     height: 140%,
-    color: color('black')
+    color: color('font-color')
   ),
   label-option: (
     family: $font-family,
     size: 1rem,
     weight: 400,
     height: 140%,
-    color: color('black')
+    color: color('font-color')
   ),
 );
 

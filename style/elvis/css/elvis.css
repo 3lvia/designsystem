@@ -2312,42 +2312,42 @@ body {
   font-family: "Red Hat Display", sans-serif;
   color: #000; }
 
-h1 {
+.e-title-lg {
   font-family: "Red Hat Display", sans-serif;
   font-size: 2.75rem;
   line-height: 120%;
   font-weight: 900;
   color: #000; }
 
-.e-title-large {
+.e-title-lg-m {
   font-family: "Red Hat Display", sans-serif;
-  font-size: 2.75rem;
+  font-size: 1.75rem;
   line-height: 120%;
   font-weight: 900;
   color: #000; }
 
-h2 {
+.e-title-md {
   font-family: "Red Hat Display", sans-serif;
   font-size: 1.625rem;
   line-height: 120%;
   font-weight: 700;
   color: #000; }
 
-.e-title-medium {
+.e-title-md-m {
   font-family: "Red Hat Display", sans-serif;
-  font-size: 1.625rem;
+  font-size: 1.5rem;
   line-height: 120%;
   font-weight: 700;
   color: #000; }
 
-h3 {
+.e-title-sm {
   font-family: "Red Hat Display", sans-serif;
   font-size: 1.25rem;
   line-height: 120%;
   font-weight: 700;
   color: #000; }
 
-.e-title-small {
+.e-title-sm-m {
   font-family: "Red Hat Display", sans-serif;
   font-size: 1.25rem;
   line-height: 120%;
@@ -2356,18 +2356,77 @@ h3 {
 
 .e-text-lead {
   font-family: "Red Hat Display", sans-serif;
-  font-size: 1.625rem;
+  font-size: 1.5rem;
+  line-height: 190%;
+  font-weight: 400;
+  color: #000; }
+
+.e-text-lead-m {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1.25rem;
   line-height: 160%;
   font-weight: 400;
   color: #000; }
 
 .e-text-quote {
   font-family: "Red Hat Display", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.625rem;
   line-height: 160%;
   font-weight: 400;
   color: #000;
   font-style: italic; }
+
+.e-text-quote-m {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1.25rem;
+  line-height: 160%;
+  font-weight: 400;
+  color: #000;
+  font-style: italic; }
+
+.e-text-body {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1.25rem;
+  line-height: 190%;
+  font-weight: 400;
+  color: #000; }
+
+.e-text-body-m {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1.125rem;
+  line-height: 160%;
+  font-weight: 400;
+  color: #000; }
+
+.e-text-img {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1.125rem;
+  line-height: 160%;
+  font-weight: 400;
+  color: #000;
+  font-style: italic; }
+
+.e-text-img-m {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1rem;
+  line-height: 160%;
+  font-weight: 400;
+  color: #000;
+  font-style: italic; }
+
+.e-text-description {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1rem;
+  line-height: 175%;
+  font-weight: 400;
+  color: #000; }
+
+.e-text-description-m {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1rem;
+  line-height: 175%;
+  font-weight: 400;
+  color: #000; }
 
 .e-text-caps {
   font-family: "Red Hat Display", sans-serif;
@@ -2377,28 +2436,23 @@ h3 {
   color: #000;
   text-transform: uppercase; }
 
-.e-text-body {
+.e-text-caps-m {
   font-family: "Red Hat Display", sans-serif;
-  font-size: 1.125rem;
-  line-height: 160%;
-  font-weight: 400;
-  color: #000; }
-
-p {
-  font-family: "Red Hat Display", sans-serif;
-  font-size: 1rem;
-  line-height: 175%;
-  font-weight: 400;
-  color: #000; }
-
-.e-text-description {
-  font-family: "Red Hat Display", sans-serif;
-  font-size: 1rem;
-  line-height: 175%;
-  font-weight: 400;
-  color: #000; }
+  font-size: 0.875rem;
+  line-height: 120%;
+  font-weight: 500;
+  color: #000;
+  text-transform: uppercase; }
 
 .e-text-info {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 0.875rem;
+  line-height: 160%;
+  font-weight: 400;
+  color: #000;
+  letter-spacing: 0.2px; }
+
+.e-text-info-m {
   font-family: "Red Hat Display", sans-serif;
   font-size: 0.875rem;
   line-height: 160%;
@@ -2412,7 +2466,21 @@ p {
   font-weight: 500;
   color: #000; }
 
+.e-label-input-m {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1rem;
+  line-height: 140%;
+  font-weight: 500;
+  color: #000; }
+
 .e-label-option {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1rem;
+  line-height: 140%;
+  font-weight: 400;
+  color: #000; }
+
+.e-label-option-m {
   font-family: "Red Hat Display", sans-serif;
   font-size: 1rem;
   line-height: 140%;

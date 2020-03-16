@@ -1,8 +1,46 @@
 @import "../../../shared/shared-animations";
 
-.examples-text {
-    @extend %scale-up-09;
-    &:hover {
-      @extend %scale-down-09;
+.example-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .e-divider {
+        width: 100%;
+      }
+      .example-title {
+        width: 48%;
+        margin-bottom: 0;
+      }
+      .example {
+        width: 48%;
+        margin: var(--e-spacing-5) 0;
+        cursor: pointer;
+      
+        @extend %scale-up-09;
+        &:hover {
+          @extend %scale-down-09;
+        }
+      
+        &-title {
+          color: var(--e-grey-mine-shaft-05);
+        }
+
+        .to-copy {
+          display: none;
+        }
+      }
     }
+  }
 }
+

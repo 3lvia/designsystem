@@ -18,8 +18,8 @@
 <div class="page-body">
   <!--OVERVIEW-->
   <div class="overview" *ngIf="selected == tabNames.Overview">
-    <h2>Icons</h2>
-    <p>Search through all the available icons here.</p>
+    <h2 class="e-title-md">Icons</h2>
+    <p class="e-text-body">Search through all the available icons here.</p>
     <div class="overview-search-container">
       <div class="e-form_field">
         <div class="e-form_input">
@@ -41,7 +41,7 @@
               <i class="{{ icon.class }} e-icon-lg"></i>
             </ng-container>
           </app-copy>
-          <p>{{ icon.title }}</p>
+          <p class="e-text-description">{{ icon.title }}</p>
         </div>
     </div>
   </div>
@@ -63,18 +63,18 @@
   <!--GUIDELINES-->
   <div *ngIf="selected == tabNames.Guidelines">
     <div>
-      <h2>Using Classes</h2>
-      <p>
+      <h2 class="e-title-md">Using Classes</h2>
+      <p class="e-text-body">
         All icons can be used through a set of classes. The <code class="code-text">e-icon-name</code>, where 'name' is the name of the icon, 
         which are all listed in the overview, can be used in an <code class="code-text">i</code> element to display icons.
         The code <code class="code-text">e-icon-clock</code> will show a clock. All icons can be sized by using the five sizing classes from
         extra large to extra small. 
       </p>
-      <h3>Icon classes</h3>
+      <h3 class="e-title-sm">Icon classes</h3>
       <ul>
         <li><code class="code-text">e-icon-name</code></li>
       </ul>
-      <h3>Size classes</h3>
+      <h3 class="e-title-sm">Size classes</h3>
       <ul>
         <li><code class="code-text">e-icon-xl</code></li>
         <li><code class="code-text">e-icon-lg</code></li>

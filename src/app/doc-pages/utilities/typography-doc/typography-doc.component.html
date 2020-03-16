@@ -10,7 +10,7 @@
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     This is the available typography that should be used with all application. 
-    All typography can be used through a set of classes. The e-title-large sets multiple attributes, like font-size, line-height and font-weight.
+    All typography can be used through a set of classes. The font-classes sets multiple attributes, like font-size, line-height and font-weight.
   </ng-container>
   
 </app-component-header>
@@ -19,66 +19,59 @@
 <div class="page-body">
   <!--Overview-->
   <div class="examples" *ngIf="selected == tabNames.Overview">
-    <h2>Typography</h2>
-    <p>
+    <h2 class="e-title-md">Typography</h2>
+    <p class="e-text-body">
       The font is Red Hat Display and should be used for all text. Here are all the different typography 
       classes represented.
     </p>
-    <app-copy [message]="'e-title-large'" [tooltipPosition]="'left'">
-      <ng-container ngProjectAs="copyContent">
-        <h1 class="examples-text e-title-large">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>
-      </ng-container>
-    </app-copy>
-    <app-copy [message]="'e-title-medium'" [tooltipPosition]="'left'">
-      <ng-container ngProjectAs="copyContent">
-        <h2 class="examples-text e-title-medium">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h2>
-      </ng-container>
-    </app-copy>
-    <app-copy [message]="'e-title-small'" [tooltipPosition]="'left'">
-      <ng-container ngProjectAs="copyContent">
-        <h3 class="examples-text e-title-small">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h3>
-      </ng-container>
-    </app-copy>
-    <app-copy [message]="'e-text-lead'" [tooltipPosition]="'left'">
-      <ng-container ngProjectAs="copyContent">
-        <p class="examples-text e-text-lead">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-      </ng-container>
-    </app-copy>
-    <app-copy [message]="'e-text-quote'" [tooltipPosition]="'left'">
-      <ng-container ngProjectAs="copyContent">
-        <p class="examples-text e-text-quote">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-      </ng-container>
-    </app-copy>
-    <app-copy [message]="'e-text-caps'" [tooltipPosition]="'left'">
-      <ng-container ngProjectAs="copyContent">
-        <p class="examples-text e-text-caps">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-      </ng-container>
-    </app-copy>
-    <app-copy [message]="'e-text-body'" [tooltipPosition]="'left'">
-      <ng-container ngProjectAs="copyContent">
-        <p class="examples-text e-text-body">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-      </ng-container>
-    </app-copy>
-    <app-copy [message]="'e-text-description'" [tooltipPosition]="'left'">
-      <ng-container ngProjectAs="copyContent">
-        <p class="examples-text e-text-description">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-      </ng-container>
-    </app-copy>
-    <app-copy [message]="'e-text-info'" [tooltipPosition]="'left'">
-      <ng-container ngProjectAs="copyContent">
-        <p class="examples-text e-text-info">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-      </ng-container>
-    </app-copy>
-    <app-copy [message]="'e-label-input'" [tooltipPosition]="'left'">
-      <ng-container ngProjectAs="copyContent">
-        <p class="examples-text e-label-input">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-      </ng-container>
-    </app-copy>
-    <app-copy [message]="'e-label-option'" [tooltipPosition]="'left'">
-      <ng-container ngProjectAs="copyContent">
-        <p class="examples-text e-label-option">Du åt ca fire wienerpølser og tok taxi hjem fra byen</p>
-      </ng-container>
-    </app-copy>
+    <h3 class="e-title-sm">Desktop & Tablet vs Mobile</h3>
+    <p class="e-text-body">
+      The font sizes will scale automatically at the correct breakpoint (767px) when using these classes.
+      There are therefore no specific classes for mobile for each typography-class.
+    </p>
+
+    <div class="example-container">
+      <div class="container">
+        <div class="row">
+          <div class="example-title"><h2 class="e-title-sm">Desktop & Tablet</h2></div>
+          <div class="example-title"><h2 class="e-title-sm">Mobile</h2></div>
+        </div>
+        <div class="row">
+          <hr class="e-divider is-light"/>
+        </div>
+      </div>
+      <div class="container" *ngFor="let typography of typographyItems; let i = index">
+
+        <div class="row" >
+           <!-- Desktop -->
+          <div class="example">
+            <app-copy [message]="'e-'+typography.title">
+              <ng-container ngProjectAs="copyContent">
+                <span class="example-text" [ngClass]="'e-'+typography.title">
+                  {{ typography.example }}
+                </span>
+                <p class="e-text-caps example-title">{{ typography.title }} | {{ typography.size }}</p>
+              </ng-container>
+            </app-copy>
+          </div>
+          <!-- Mobile -->
+          <div class="example">
+            <div>
+              
+              <app-iframe-preview [code]="getCodeExample(typography)"></app-iframe-preview>
+              <p class="e-text-caps example-title">
+                {{ typography.title }} | 
+                <span *ngIf="typography.sizeMobile">{{ typography.sizeMobile }}</span>
+                <span *ngIf="!typography.sizeMobile">{{ typography.size }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <hr class="e-divider is-light" *ngIf="i != typographyItems.length-1"/>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!--Examples-->
@@ -103,27 +96,28 @@
   <!--GUIDELINES-->
   <div *ngIf="selected == tabNames.Guidelines">
     <div>
-      <h2>Using Classes</h2>
-      <p>
-        All typography can be used through a set of classes. The <code class="code-text">e-title-large</code> sets multiple attributes,
+      <h2 class="e-title-md">Using Classes</h2>
+      <p class="e-text-body">
+        All typography can be used through a set of classes. The <code class="code-text">e-title-lg</code> sets multiple attributes,
         like font-size, line-height and font-weight. 
       </p>
-      <h3>Title classes</h3>
+      <h3 class="e-title-sm">Title classes</h3>
       <ul>
-        <li><code class="code-text">e-title-large</code></li>
-        <li><code class="code-text">e-title-medium</code></li>
-        <li><code class="code-text">e-title-small</code></li>
+        <li><code class="code-text">e-title-lg</code></li>
+        <li><code class="code-text">e-title-md</code></li>
+        <li><code class="code-text">e-title-sm</code></li>
       </ul>
-      <h3>Text classes</h3>
+      <h3 class="e-title-sm">Text classes</h3>
       <ul>
         <li><code class="code-text">e-text-lead</code></li>
         <li><code class="code-text">e-text-quote</code></li>
-        <li><code class="code-text">e-text-caps</code></li>
         <li><code class="code-text">e-text-body</code></li>
+        <li><code class="code-text">e-text-img</code></li>
         <li><code class="code-text">e-text-description</code></li>
+        <li><code class="code-text">e-text-caps</code></li>
         <li><code class="code-text">e-text-info</code></li>
       </ul>
-      <h3>Label classes</h3>
+      <h3 class="e-title-sm">Label classes</h3>
       <ul>
         <li><code class="code-text">e-label-input</code></li>
         <li><code class="code-text">e-label-option</code></li>

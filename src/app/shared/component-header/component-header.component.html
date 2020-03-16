@@ -2,12 +2,12 @@
   <div class="component-header page-body">
     <div class="component-header__title">
       <div class="title-text">
-        <h1>
+        <h1 class="e-title-lg">
           <ng-content select="headerTitle"></ng-content>
         </h1>
         <div *ngIf="componentStatus != ''">
           <span
-            class="e-badge e-bg-orange-peel"
+            class="e-badge e-bg-green-lime"
             *ngIf="componentStatus === itemStatus.New"
             >{{ componentStatus }}</span
           >
@@ -32,7 +32,7 @@
         </code>
       </p>
       <p
-        class="component-header__description"
+        class="component-header__description e-text-description"
         [ngClass]="{
           'class-margin': componentClasses && componentClasses.length > 0
         }"
@@ -42,12 +42,12 @@
       <div class="component-header__example-does" *ngIf="does || donts">
         <div class="component-header__example-does-does" *ngIf="does">
           <span class="marker e-bg-green-lime"></span>
-          <span class="e-title-small">When: </span>
+          <span class="e-title-sm">When: </span>
           <span class="e-text-body">{{ does }}</span>
         </div>
         <div class="component-header__example-does-donts" *ngIf="donts">
           <span class="marker e-bg-red"></span>
-          <span class="e-title-small">When not: </span>
+          <span class="e-title-sm">When not: </span>
           <span class="e-text-body">{{ donts }}</span>
         </div>
       </div>
@@ -57,7 +57,7 @@
     <div
       *ngFor="let tab of tabs"
       [ngClass]="{ active: selected == tab }"
-      class="component-tabs__title e-title-small e-border"
+      class="component-tabs__title e-title-sm e-border"
       (click)="chooseTab(tab)"
     >
       {{ tab }}
