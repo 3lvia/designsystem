@@ -2,7 +2,7 @@
 
 .e-link {
 
- border-bottom: 2px solid color('black');
+ border-bottom: 2.5px solid color('black');
 
   &:hover,
   &.is-hovering,
@@ -19,8 +19,6 @@
     font-size: inherit;
     font-weight: bold;
     border-bottom: 1.5px solid color('black');
-    padding-bottom: -2px;
-    display: inline;
 
     &:hover {
       border-bottom: 1.5px solid color('green-lime');
