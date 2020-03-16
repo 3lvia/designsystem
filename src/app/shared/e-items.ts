@@ -117,6 +117,13 @@ export const eComponents: EItems[] = [
         status: ItemStatus.Coming,
         actionText: 'View component',
     },
+    {
+        title: 'List',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.List,
+        status: ItemStatus.New,
+        actionText: 'View component',
+    },
     // {
     //     title: 'Notification-Dot',
     //     description: 'Some useful component with amazing features',

@@ -1,0 +1,37 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [componentClasses]="componentClasses"
+>
+  <ng-container ngProjectAs="headerTitle">
+    List
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
+    unde saepe, in dolores nam?
+  </ng-container>
+
+
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [description]="'Green elvis dots for regular unordred list'"
+    [title]="'Bulletins'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example2"
+    [description]="'Add strong class to bold text list elements'"
+    [title]="'Bulletins Strong'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example3"
+    [description]="'Round elvis green border for bulletins in ordered lists'"
+    [title]="'Numbered'"
+  ></app-code-block>
+</div>
