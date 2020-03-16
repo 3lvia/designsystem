@@ -29,6 +29,7 @@ export enum Pages {
     Header = 'header-doc',
     Input = 'input-doc',
     Link = 'link-doc',
+    List = 'list-doc',
     Notification = 'notification-dot-doc',
     Radiobutton = 'radiobutton-doc',
     Select = 'select-doc',

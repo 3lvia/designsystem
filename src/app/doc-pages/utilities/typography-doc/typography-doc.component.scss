@@ -1,0 +1,8 @@
+@import "../../../shared/shared-animations";
+
+.examples-text {
+    @extend %scale-up-09;
+    &:hover {
+      @extend %scale-down-09;
+    }
+}

@@ -22,7 +22,7 @@ body {
 // Shared classes
 .page-body {
   margin: auto;
-  margin-bottom: 40px;
+  margin-bottom: var(--e-spacing-8);
   width: 57%;
   min-width: 20em;
   max-width: 50em;
@@ -32,6 +32,14 @@ body {
   background: var(--e-green-lime-02);
   padding: 0 4px;
   line-height: 140%;
+}
+.code-block {
+  display: block;
+  width: 100%;
+  background: var(--e-green-lime-02);
+  padding: 4px 8px;
+  margin: 16px 0;
+  line-height: 180%;
 }
 
 .factbox {
@@ -75,13 +83,6 @@ body {
   }
 }
 
-.hover-scale {
-  @extend %scale-up;
-  &:hover {
-    @extend %scale-down;
-  }
-}
-
 // Display examples
 .display-container {
   display: flex;
@@ -114,9 +115,9 @@ body {
       max-height: 130px;
       border-radius: 50%;
       border: 2px solid transparent;
-      @extend %scale-up;
-      &:hover, &.dark-animation:hover {
-        @extend %scale-down;
+      @extend %scale-up-08;
+      &:hover {
+        @extend %scale-down-08;
       }
   
       &.primary {
@@ -129,9 +130,9 @@ body {
       margin: auto;
       margin-top: 10px;
       border: 2px solid transparent;
-      @extend %scale-up;
-      &:hover, &.dark-animation:hover {
-        @extend %scale-down;
+      @extend %scale-up-08;
+      &:hover {
+        @extend %scale-down-08;
       }
     }
   

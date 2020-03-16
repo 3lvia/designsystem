@@ -9,6 +9,7 @@ import { FeedbackDocModule } from './feedback-doc/feedback-doc.module';
 import { FormComponentsModule } from './forms/formComponents.module';
 import { HeaderDocModule } from './header-doc/header-doc.module';
 import { LinkDocModule } from './link-doc/link-doc.module';
+import { ListDocModule } from './list-doc/list-doc.module';
 import { NotificationDotDocModule } from './notification-dot-doc/notification-dot-doc.module';
 import { OverviewModule } from './overview-comp/overview-comp.module';
 import { TableDocModule } from './table-doc/table-doc.module';
@@ -27,6 +28,7 @@ import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
         FormComponentsModule,
         HeaderDocModule,
         LinkDocModule,
+        ListDocModule,
         NotificationDotDocModule,
         OverviewModule,
         TableDocModule,
