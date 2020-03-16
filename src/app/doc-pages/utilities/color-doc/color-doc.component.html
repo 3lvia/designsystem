@@ -28,42 +28,42 @@
   <!--GUIDELINES-->
   <div *ngIf="selected == tabNames.Guidelines">
     <div>
-      <h2>Using Classes</h2>
-      <p>
+      <h2 class="e-title-md">Using Classes</h2>
+      <p class="e-text-body">
         All colors can be used through a set of classes. The <code class="code-text">e-text</code> sets the text-color of the element, while the <code class="code-text">e-bg</code> sets the
         background as well as the text.
       </p>
-      <h3>Classes</h3>
+      <h3 class="e-title-sm">Classes</h3>
       <ul>
         <li><code class="code-text">e-bg-name</code></li>
         <li><code class="code-text">e-text-name</code></li>
       </ul>
-      <h3>Do's and Don'ts</h3>
-      <p>
+      <h3 class="e-title-sm">Do's and Don'ts</h3>
+      <p class="e-text-body">
         All bg-classes sets the text-color to the contrast-color of the background.
         It is therefore not necessary to use both the <code class="code-text">bg</code> and the <code class="code-text">text</code> class on the same element,
         exceptions can of course occur and then the <code class="code-text">text</code> class is available.
       </p>
-      <p>
+      <p class="e-text-body">
         <app-do-dont [isHTML]="true" [do]="true" [example]="doCode"></app-do-dont>
         <app-do-dont [isHTML]="true" [do]="false" [example]="dontCode"></app-do-dont>
       </p>
     </div>
 
     <div>
-      <h2>Using CSS-variables</h2>
-      <p>
+      <h2 class="e-title-md">Using CSS-variables</h2>
+      <p class="e-text-body">
         All colors can be used through their CSS-variable as well. 
       </p>
-      <h3>Variables</h3>
+      <h3 class="e-title-sm">Variables</h3>
       <ul>
         <li><code class="code-text">var(--e-name)</code></li>
       </ul>
-      <h3>Do's and Don'ts</h3>
-      <p>
+      <h3 class="e-title-sm">Do's and Don'ts</h3>
+      <p class="e-text-body">
         All CSS-variables can be used.
       </p>
-      <p>
+      <p class="e-text-body">
         <app-do-dont [isSCSS]="true" [do]="true" [example]="doCodeCSS"></app-do-dont>
         <app-do-dont [isSCSS]="true" [do]="false" [example]="dontCodeCSS"></app-do-dont>
       </p>
@@ -73,8 +73,8 @@
   <!--OVERVIEW-->
   <div class="overview" *ngIf="selected == tabNames.Overview">
     <section class="color-section">
-      <h2>Primary Colors</h2>
-      <p>
+      <h2 class="e-title-md">Primary Colors</h2>
+      <p class="e-text-body">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
         voluptates saepe, quos commodi eaque repellat fuga nihil, officiis
         magnam quibusdam eveniet eius quidem animi excepturi facilis. Tenetur
@@ -122,8 +122,8 @@
       </div>
     </section>
     <section class="display-section">
-      <h2>Secondary displays</h2>
-      <p>
+      <h2 class="e-title-md">Secondary displays</h2>
+      <p class="e-text-body">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
         adipisci odit, repellendus animi officiis eum obcaecati, at accusamus,
         debitis quisquam unde magni magnam dolores illo voluptatum officia

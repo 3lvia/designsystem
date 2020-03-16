@@ -1,3 +1,27 @@
+.smartphone {
+  height:640px;
+  width:360px;
+  background-color:black;
+  border-radius:10px;
+  padding:1rem;
+  padding-top:3rem;
+  padding-bottom:3rem;
+  margin:1rem;
+}
+
+.smartphone-preview {
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+
+iframe {
+  width:100%;
+  height:100%;
+  border:0;
+  background-color:white;
+}
+
 .component-body__example {
   &-title {
     margin-bottom: 8px;

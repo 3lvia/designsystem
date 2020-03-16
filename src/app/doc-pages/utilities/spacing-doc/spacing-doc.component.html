@@ -19,8 +19,8 @@
 <div class="page-body">
   <!--Overview-->
   <div *ngIf="selected == tabNames.Overview">
-    <h2>Spacing</h2>
-    <p>Following the 8-point grid system.</p>
+    <h2 class="e-title-md">Spacing</h2>
+    <p class="e-text-body">Following the 8-point grid system.</p>
     <div class="display-container centered-content">
       <div class="display-card">
         <app-copy [message]="'e-p-1'">
@@ -120,13 +120,13 @@
   <!--GUIDELINES-->
   <div *ngIf="selected == tabNames.Guidelines">
     <div>
-      <h2>Using Classes</h2>
-      <p>
+      <h2 class="e-title-md">Using Classes</h2>
+      <p class="e-text-body">
         All spacing can be used through a set of classes. The <code class="code-text">e-p-1</code> sets padding to the size of the last number. 
         The padding and margin sizes are multiplications of 0.5rem (8px), meaning 
         <code class="code-text">e-m-3</code> equals <code class="code-text">margin: 24px</code>. The classes are available from 0 to 9.
       </p>
-      <h3>Padding classes</h3>
+      <h3 class="e-title-sm">Padding classes</h3>
       <ul>
         <li><code class="code-text">e-p-0</code></li>
         <li><code class="code-text">e-p-number</code></li>
@@ -135,7 +135,7 @@
         <li><code class="code-text">e-pt-number</code></li>
         <li><code class="code-text">e-pb-number</code></li>
       </ul>
-      <h3>Margin classes</h3>
+      <h3 class="e-title-sm">Margin classes</h3>
       <ul>
         <li><code class="code-text">e-m-0</code></li>
         <li><code class="code-text">e-m-number</code></li>
@@ -146,19 +146,19 @@
       </ul>
     </div>
     <div>
-      <h2>Using CSS-variables</h2>
-      <p>
+      <h2 class="e-title-md">Using CSS-variables</h2>
+      <p class="e-text-body">
         All spacing can be used through their CSS-variable as well. 
       </p>
-      <h3>Variables</h3>
+      <h3 class="e-title-sm">Variables</h3>
       <ul>
         <li><code class="code-text">var(--e-spacing-number)</code></li>
       </ul>
-      <h3>Do's and Don'ts</h3>
-      <p>
+      <h3 class="e-title-sm">Do's and Don'ts</h3>
+      <p class="e-text-body">
         All CSS-variables can be used.
       </p>
-      <p>
+      <p class="e-text-body">
         <app-do-dont [isSCSS]="true" [do]="true" [example]="doCodeCSS"></app-do-dont>
         <app-do-dont [isSCSS]="true" [do]="false" [example]="dontCodeCSS"></app-do-dont>
       </p>

@@ -11,6 +11,7 @@ import { heightDown } from 'src/app/shared/animations';
 
 export class CodeBlockComponent implements AfterViewInit {
   @ViewChild('preview') preview;
+  @ViewChild('mobilepreview') mobilePreview;
   @Input() title = '';
   @Input() description = '';
   @Input() does = '';
@@ -21,14 +22,12 @@ export class CodeBlockComponent implements AfterViewInit {
   @Input() code = '';
 
   showCode = false;
+  showSmartphone = false;
 
   constructor() {}
 
   ngAfterViewInit() {
     this.preview.nativeElement.innerHTML = this.code;
   }
-
-  changeShowCodeStatus() {
-    this.showCode = !this.showCode;
-  }
 }
+

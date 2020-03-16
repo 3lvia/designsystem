@@ -6,12 +6,12 @@
   <div class="component-body__example-does" *ngIf="does || donts">
     <div class="component-body__example-does-does" *ngIf="does">
       <span class="marker e-bg-green-lime"></span>
-      <span class="e-title-small">Do's:</span>
+      <span class="e-title-sm">Do's:</span>
       {{ does }}
     </div>
     <div class="component-body__example-does-donts" *ngIf="donts">
       <span class="marker e-bg-red"></span>
-      <span class="e-title-small">Don'ts:</span>
+      <span class="e-title-sm">Don'ts:</span>
       {{ donts }}
     </div>
   </div>
@@ -19,15 +19,21 @@
     <div class="element">
       <div #preview></div>
     </div>
-    <div class="show-code e-border" *ngIf="!showCode" (click)="changeShowCodeStatus()">View code</div>
-    <div class="hide-code e-border" *ngIf="showCode" (click)="changeShowCodeStatus()">Hide code</div>
+    <div class="show-code e-border" role="button" *ngIf="!showCode" (click)="showCode = !showCode">View code</div>
+    <div class="hide-code e-border"  role="button" *ngIf="showCode" (click)="showCode = !showCode">Hide code</div>
     <div @heightDown class="code" *ngIf="showCode">
-      <app-code-highlighter
+        <app-code-highlighter
         [isHTML]="isHTML"
         [isTS]="isTS"
         [isSCSS]="isSCSS"
         [code]="code"
       ></app-code-highlighter>
+    </div>
+
+    <div class="show-code e-border" role="button" *ngIf="!showSmartphone" (click)="showSmartphone = !showSmartphone">Preview on smartphone</div>
+    <div class="hide-code e-border"  role="button" *ngIf="showSmartphone" (click)="showSmartphone = !showSmartphone">Hide preview</div>
+    <div class="e-p-2 smartphone-preview" *ngIf="showSmartphone">
+      <app-smartphone [code]="code"></app-smartphone>
     </div>
   </div>
 </div>
