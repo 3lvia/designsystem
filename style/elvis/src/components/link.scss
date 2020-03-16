@@ -19,6 +19,8 @@
     font-size: inherit;
     font-weight: bold;
     border-bottom: 1.5px solid color('black');
+    padding-bottom: -2px;
+    display: inline;
 
     &:hover {
       border-bottom: 1.5px solid color('green-lime');
@@ -27,26 +29,30 @@
   }
 
   &.action {
+    $this: &;
     border: none;
     &::after{
       content: ">";
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       font-weight: 800;
       padding: 0px 4px;
       border: 1px solid color('green-lime');
       border-radius: 50%;
-      margin-left: 0.5rem;
+      margin-left: 0.25rem;
     }
-    &::after:hover{
-      content: ">";
-      font-size: 0.7rem;
-      font-weight: 800;
-      padding: 0px 4px;
-      border: 1px solid color('green-lime');
-      color: color('black');
-      background-color: color('green-lime');
-      border-radius: 50%;
-      margin-left: 0.5rem;
+
+    &:hover{
+      &:after {
+        content: ">";
+        font-size: 0.6rem;
+        font-weight: 800;
+        padding: 0px 4px;
+        background-color: color('green-lime') ;
+        border: 1px solid color('green-lime');
+        color: color('black');
+        border-radius: 50%;
+        margin-left: 0.25rem;
+      }
     }
   }
 }
