@@ -22,13 +22,12 @@
 
     &:hover {
       border-bottom: 1.5px solid color('green-lime');
-      cursor: pointer;
     }
   }
 
   &.is-action {
     border: none;
-    
+
     &::after{
       content: ">";
       font-size: 0.6rem;
