@@ -24,23 +24,6 @@
       padding: 10px 16px;
       display: block;
     }
-    a.active {
-      color: var(--e-white);
-      background-color: var(--e-black);
-
-      &::after {
-        content: '';
-        display: inline-flex;
-        margin-left: 15px;
-        height: 12px;
-        width: 12px;
-        border-radius: 50%;
-        background-color: var(--e-green-lime);
-      }
-    }
-    a:hover:not(.active) {
-      background-color: var(--e-grey-mine-shaft-05);
-    }
   }
 
   &-item {
@@ -49,9 +32,12 @@
     display: flex;
 
     a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 10px 16px;
-      display: inline-block;
       width: 100%;
+      align-items: center;
 
       .navbar-item-title {
         float: left;
@@ -68,7 +54,7 @@
       color: var(--e-white);
       background-color: var(--e-grey-mine-shaft);
       
-      &::after {
+      .navbar-item-title::after {
         content: '';
         display: inline-flex;
         margin-left: 9px;
