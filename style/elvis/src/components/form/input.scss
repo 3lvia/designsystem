@@ -49,9 +49,6 @@ $form-input-border: 1px solid var(--e-grey-mine-shaft);
   &:not(.is-invalid):focus-within {
     @extend .is-focus;
   }
-  &:disabled, input[type="text"]:disabled {
-    @extend .is-disabled;
-  }
 
   &.is-small {
     width: 60px;
@@ -78,7 +75,7 @@ $form-input-border: 1px solid var(--e-grey-mine-shaft);
     padding: $form-input-padding-active;
   }
 
-  &.is-disabled {
+  &.is-disabled, input:disabled {
     color: var(--e-grey-mine-shaft-02);
     border-color: var(--e-grey-mine-shaft-02);
     cursor: not-allowed;
