@@ -1,39 +1,75 @@
 <div class="component-body__example">
   <h2 class="component-body__example-title">{{ title }}</h2>
-  <div class="component-body__example-description e-text-description">
+  <div class="component-body__example-description e-text-body">
     {{ description }}
   </div>
   <div class="component-body__example-does" *ngIf="does || donts">
     <div class="component-body__example-does-does" *ngIf="does">
       <span class="marker e-bg-green-lime"></span>
       <span class="e-title-sm">Do's:</span>
-      {{ does }}
+      <span class="e-text-body">
+        {{ does }}
+      </span>
     </div>
     <div class="component-body__example-does-donts" *ngIf="donts">
       <span class="marker e-bg-red"></span>
       <span class="e-title-sm">Don'ts:</span>
-      {{ donts }}
+      <span class="e-text-body">
+        {{ donts }}
+      </span>
     </div>
   </div>
   <div class="component-body__example-body e-border">
-    <div class="element">
-      <div #preview></div>
+    <div class="tabs">
+      <div
+        class="tab e-border"
+        role="button"
+        [ngClass]="{ active: showSmartphone === false }"
+        (click)="showSmartphone = false"
+      >
+        Desktop & Tablet
+      </div>
+      <div
+        class="tab e-border"
+        role="button"
+        [ngClass]="{ active: showSmartphone === true }"
+        (click)="showSmartphone = true"
+      >
+        Smartphone
+      </div>
     </div>
-    <div class="show-code e-border" role="button" *ngIf="!showCode" (click)="showCode = !showCode">View code</div>
-    <div class="hide-code e-border"  role="button" *ngIf="showCode" (click)="showCode = !showCode">Hide code</div>
+    <div class="element">
+      <div
+        class="smartphone-preview"
+        [ngClass]="{ hide: showSmartphone === false }"
+      >
+        <app-smartphone [code]="code"></app-smartphone>
+      </div>
+      <div [ngClass]="{ hide: showSmartphone === true }" #preview></div>
+    </div>
+    <div
+      class="show-code e-border"
+      role="button"
+      *ngIf="!showCode"
+      (click)="showCode = !showCode"
+    >
+      View code
+    </div>
+    <div
+      class="hide-code e-border"
+      role="button"
+      *ngIf="showCode"
+      (click)="showCode = !showCode"
+    >
+      Hide code
+    </div>
     <div @heightDown class="code" *ngIf="showCode">
-        <app-code-highlighter
+      <app-code-highlighter
         [isHTML]="isHTML"
         [isTS]="isTS"
         [isSCSS]="isSCSS"
         [code]="code"
       ></app-code-highlighter>
-    </div>
-
-    <div class="show-code e-border" role="button" *ngIf="!showSmartphone" (click)="showSmartphone = !showSmartphone">Preview on smartphone</div>
-    <div class="hide-code e-border"  role="button" *ngIf="showSmartphone" (click)="showSmartphone = !showSmartphone">Hide preview</div>
-    <div class="e-p-2 smartphone-preview" *ngIf="showSmartphone">
-      <app-smartphone [code]="code"></app-smartphone>
     </div>
   </div>
 </div>

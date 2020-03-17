@@ -2,7 +2,7 @@
 
 $list-border-size: 1.25rem;
 $list-dot-size: 0.5rem;
-$border-radius: 50%;
+$list-border-radius: 50%;
 
 .e-list {
       li {
@@ -19,7 +19,7 @@ $border-radius: 50%;
           width: $list-dot-size;
           height: $list-dot-size;
           background-color: color("green-lime");
-          border-radius: $border-radius;
+          border-radius: $list-border-radius;
         }
       }
 
@@ -39,7 +39,7 @@ $border-radius: 50%;
             height: $list-border-size;
             top: 0;
             background: transparent;
-            border-radius: $border-radius;
+            border-radius: $list-border-radius;
             text-align: center;
             box-shadow: 0px 0px 0px 2px color('green-lime');
            }
