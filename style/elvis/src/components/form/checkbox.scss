@@ -18,17 +18,70 @@ $form-checkbox-mark-border: 1px solid color('black');
 
   // Creating placeholder to inject style into checkbox mutations.
   // We have to seperate the checkbox marked styling because of the checked state
+
+  %check-icon {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+
+    &:before {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      height: 50%;
+      width: 3px;
+      background-color: #336699;
+      content: "";
+      transform: translateX(10px) rotate(-45deg);
+      transform-origin: left bottom;
+    }
+
+    &:after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 100%;
+      background-color: #336699;
+      content: "";
+      transform: translateX(10px) rotate(-45deg);
+      transform-origin: left bottom;
+    }
+  }
+
   %checkbox-mark {
     position: relative;
     background-color: color('green-lime');
+   
+    &::after {
+      position: absolute;
+      left: -30%;
+      bottom: 0;
+      height: 2px;
+      width: 100%;
+      background-color: color('black');
+      content: "";
+      transform: translateX(10px) rotate(-45deg);
+      transform-origin: left bottom;
+    }
+
     &::before {
-
+      position: absolute;
+      left: -30%;
+      top: 50%;
+      height: 50%;
+      width: 2px;
+      background-color: color('black');
+      content: "";
+      transform: translateX(10px) rotate(-45deg);
+      transform-origin: left bottom;
       
-      top: -1px;
-      left: 50%;
-      transform: translateX(-50%);
+      // top: -1px;
+      // left: 50%;
+      // transform: translateX(-50%);
 
-      color: color('white');
+      // color: color('white');
       font-size: 0.75rem;
     }
   }
