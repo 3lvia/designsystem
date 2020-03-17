@@ -41,16 +41,7 @@
 
     &:hover{
       &:after {
-        content: ">";
-        font-size: 0.6rem;
-        font-weight: 800;
-        padding: 0px 4px;
         background-color: color('green-lime') ;
-        border: 1px solid color('green-lime');
-        color: color('black');
-        border-radius: 50%;
-        margin-left: 0.25rem;
-        vertical-align: middle;
       }
     }
   }
