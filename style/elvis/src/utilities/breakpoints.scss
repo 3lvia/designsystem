@@ -1,0 +1,20 @@
+// breakpoints are not variables on purpose
+@mixin breakpoint-up($size) {
+  @if $size == Mobile {
+    @media (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == Tablet {
+    @media (max-width: 1023px) {
+      @content;
+    }
+  } @else if $size == MinDesktop {
+    @media (max-width: 1439px) {
+      @content;
+    }
+  } @else if $size == MaxDesktop {
+    @media (min-width: 1440px) {
+      @content;
+    }
+  } 
+}
