@@ -42,13 +42,13 @@
       <div class="component-header__example-does" *ngIf="does || donts">
         <div class="component-header__example-does-does" *ngIf="does">
           <span class="marker e-bg-green-lime"></span>
-          <span class="e-title-sm">Do's:</span>
-          {{ does }}
+          <span class="e-title-sm">When: </span>
+          <span class="e-text-body">{{ does }}</span>
         </div>
         <div class="component-header__example-does-donts" *ngIf="donts">
           <span class="marker e-bg-red"></span>
-          <span class="e-title-sm">Don'ts:</span>
-          {{ donts }}
+          <span class="e-title-sm">When not: </span>
+          <span class="e-text-body">{{ donts }}</span>
         </div>
       </div>
     </div>

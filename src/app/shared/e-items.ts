@@ -107,7 +107,7 @@ export const eComponents: EItems[] = [
         title: 'Input',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Input,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
     },
     {

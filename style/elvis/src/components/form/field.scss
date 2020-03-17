@@ -1,4 +1,5 @@
 @import '../../variables/colors.scss';
+@import '../../utilities/typography.scss';
 
 .e-form_field {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -15,49 +16,73 @@
 
   &_label {
     display: block;
-    margin-bottom: 0.2rem;
-    font-weight: bold;
-  }
+    margin-bottom: 5px;
+    @extend .e-label-input;
 
-  &_title {
-    display: block;
-    margin-bottom: 1rem;
-    font-weight: bold;
-  }
-
-  &_error,
-  &_info {
-    display: none;
-    position: absolute;
-    margin-top: 0.2rem;
-    font-size: 0.8rem;
-
-    &.is-active {
-      display: block;
+    &.is-optional::after {
+      content: " (valgfri)";
+      color: var(--e-grey-mine-shaft-05);
     }
   }
 
   &_error {
+    visibility: hidden;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    @extend .e-text-info;
+    color: var(--e-grey-mine-shaft) !important;
+
+    &.is-active {
+      visibility: visible;
+    }
+
     > i {
       margin-right: 5px;
-      color: color('red');
+      padding: 8px;
     }
   }
+}
 
-  &_info {
-    color: color('black');
+.is-combined-field {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  max-width: 448px;
+  width: 100%;
+
+  .e-form_field {
+    width: 100%;
+    margin-bottom: 0;
   }
+}
 
-  &.is-line {
-    > * {
-      &:not(#{$this}_title):not(#{$this}_error) {
-        margin-right: 1rem;
-        float: left;
+.is-inlined-field {
+  display: flex;
+  flex-direction: row;
+  max-width: 448px;
+  width: 100%;
+
+  .e-form_field {
+    width: 100%;
+    margin-bottom: 0;
+
+    &:not(:last-of-type) {
+      margin-right: var(--e-spacing-1);
+    }
+
+    &.is-small {
+      width: 60px;
+      input {
+        width: 60px;
       }
     }
-  }
-
-  &.is-inline {
-    display: inline-block;
+  
+    &.is-medium {
+      width: 140px;
+      input {
+        width: 140px;
+      }
+    }
   }
 }

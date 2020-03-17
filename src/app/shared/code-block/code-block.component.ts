@@ -29,5 +29,10 @@ export class CodeBlockComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.preview.nativeElement.innerHTML = this.code;
   }
+
+  showDesktop() {
+    this.showSmartphone = false;
+    this.preview.nativeElement.innerHTML = this.code;
+  }
 }
 

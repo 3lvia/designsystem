@@ -1,9 +1,11 @@
 @import '../../variables/colors.scss';
 @import '../../variables/animation.scss';
+@import '../../utilities/typography.scss';
 
-$form-input-padding: $form-input-padding-left 0.9rem;
+$form-input-padding: 12px 16px;
+$form-input-padding-active: 11px 15px;
 $form-input-border-radius: $border-radius;
-$form-input-border: 1px solid color('grey-mine-shaft');
+$form-input-border: 1px solid var(--e-grey-mine-shaft);
 
 .e-form_input {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -16,47 +18,25 @@ $form-input-border: 1px solid color('grey-mine-shaft');
   border: $form-input-border;
   border-radius: $form-input-border-radius;
   box-sizing: border-box;
-  background: color('white');
+  background: var(--e-white);
+  outline: none;
+  max-width: 448px;
+  width: 100%;
 
-  &:not(.is-invalid):focus-within {
-    @extend .e-form_input, .is-focus;
-  }
-
-  &.is-focus {
-    border-color: green;
-
-    #{$this}_icon,
-    svg,
-    i {
-      opacity: 1;
-      color: green;
-    }
-  }
-
-  &.is-invalid {
-    border-color: color('red');
-
-    i {
-      color: color('red');
-    }
-  }
-
-  &.is-disabled {
-    background: color('grey-silver');
-    cursor: default;
-  }
-
-  &_field,
   > input,
   > textarea {
     width: 100%;
     padding: 0;
     border: none;
     background: transparent;
+    outline: none;
+    @extend .e-label-option;
+  }
 
-    @include placeholder() {
-      color: color('grey-mine-shaft');
-    }
+  > i {
+    float: right;
+    padding: 8px;
+    margin-left: 16px;
   }
 
   > textarea {
@@ -66,20 +46,50 @@ $form-input-border: 1px solid color('grey-mine-shaft');
     overflow-y: auto;
   }
 
-  &_icon,
-  > svg,
-  > i {
-    transition: color $medium-transition $transition-cubic, opacity $medium-transition $transition-cubic;
-    opacity: 0.44;
-    color: color('black');
-    font-size: 1rem;
+  &:not(.is-invalid):focus-within {
+    @extend .is-focus;
+  }
 
-    &:first-child {
-      margin-right: $form-input-icon-margin;
+  &.is-small {
+    width: 60px;
+    input {
+      width: 60px;
     }
+  }
 
-    &:last-child {
-      margin-left: $form-input-icon-margin;
+  &.is-medium {
+    width: 120px;
+    input {
+      width: 120px;
     }
+  }
+
+  &.is-focus {
+    border: 2px solid var(--e-green-lime);
+    box-shadow: 0 0 2px var(--e-green-lime);
+    padding: $form-input-padding-active;
+  }
+
+  &.is-invalid {
+    border: 2px solid var(--e-red);
+    padding: $form-input-padding-active;
+  }
+
+  &.is-disabled, input:disabled {
+    color: var(--e-grey-mine-shaft-02);
+    border-color: var(--e-grey-mine-shaft-02);
+    cursor: not-allowed;
+    input:disabled {
+      opacity: 1;
+      color: var(--e-grey-mine-shaft-02);
+      -webkit-text-fill-color: var(--e-grey-mine-shaft-02);
+      cursor: not-allowed;
+    }
+  }
+}
+
+.is-combined-field {
+  .e-form_input:not(:last-of-type) {
+    margin-right: var(--e-spacing-1);
   }
 }

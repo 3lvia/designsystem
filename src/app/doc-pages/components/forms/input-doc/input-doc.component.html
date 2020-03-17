@@ -1,22 +1,25 @@
-<!--HEADER-->
+  <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
   [componentClasses]="componentClasses"
+  [does]="'In forms where the user has to fill in something that is not from a set of choices.'"
+  [donts]="'If a user chooses from a set of options. Dropdowns, radio buttons, checkboxes or autocomplete fields should be used instead.'"
 >
   <ng-container ngProjectAs="headerTitle">
     Input
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    By default, all fields must be required. 
+    It should be possible to navigate through forms using the tab. 
+    User should also be given the opportunity to use autofill. 
+    When the zip code is filled in, the post office should be filled in automatically. 
+    Maximum input field width is 448px (28 strap).
   </ng-container>
-
-  
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
+  <!--Overview-->
   <app-code-block
     [isHTML]="true"
     [code]="example1"
@@ -25,26 +28,27 @@
   <app-code-block
     [isHTML]="true"
     [code]="example2"
-    [title]="'Normal input field with icon'"
+    [title]="'Combined'"
+    [description]="'Use the is-combined-field class on the form-field element to keep two inputs for the same label.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example3"
-    [title]="'Active input field'"
+    [title]="'Inlined'"
+    [description]="'Use the is-inlined-field class outside the form-field element to align inputs on the same line.
+    When the zip code is filled in, the post office should be filled in automatically.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example4"
-    [title]="'Normal input field'"
+    [title]="'Validation of fields'"
+    [description]="'By default, all fields must be required. Validation is based on the field being filled out. 
+    Validation takes place along the way, and the user must also be presented with guidance or error messages.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example5"
-    [title]="'Invalid input field with field errormessage'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example6"
     [title]="'Textarea'"
+    [description]="'The is-optional class should be added to the label when the input is not required.'"
   ></app-code-block>
 </div>
