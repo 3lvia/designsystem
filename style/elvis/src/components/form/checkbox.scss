@@ -2,8 +2,8 @@
 @import '../../variables/animation.scss';
 
 $form-checkbox-mark-size: 1rem;
-$form-checkbox-mark-border-radius: $border-radius;
-$form-checkbox-mark-border: 1px solid color('green-lime');
+$form-checkbox-mark-border-radius: 4px;
+$form-checkbox-mark-border: 1px solid color('black');
 
 .e-form_checkbox {
   // Variable containing '&' to jump to current parent inside a child class.

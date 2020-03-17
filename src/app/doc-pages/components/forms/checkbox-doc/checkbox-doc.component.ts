@@ -28,6 +28,11 @@ export class CheckboxDocComponent implements OnInit {
     <span class="e-form_checkbox_mark"></span>
     <span class="e-form_checkbox_label">Invalid checkbox</span>
   </label>
+  <label>
+    <input type="checkbox">
+    <span></span>
+    <span class="e-form_checkbox_label">Without styling</span>
+  </label>
 </div>
 `;
 
