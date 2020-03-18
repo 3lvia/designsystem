@@ -21,7 +21,7 @@
 
     &.is-optional::after {
       content: " (valgfri)";
-      color: var(--e-grey-mine-shaft-05);
+      color: var(--e-grey-05);
     }
   }
 
@@ -31,7 +31,7 @@
     align-items: center;
     margin-top: 5px;
     @extend .e-text-info;
-    color: var(--e-grey-mine-shaft) !important;
+    color: var(--e-grey) !important;
 
     &.is-active {
       visibility: visible;

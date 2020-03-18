@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
+import { colorItemsPrimary, colorItemsSecondary } from './color';
 
 @Component({
   selector: 'app-color-doc',
@@ -11,6 +12,8 @@ export class ColorDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
+  colorItemsPrimary = colorItemsPrimary;
+  colorItemsSecondary = colorItemsSecondary;
   componentStatus = getUtilities('color-doc').status;
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
@@ -18,7 +21,7 @@ export class ColorDocComponent implements OnInit {
   colors: string[] = ['red', 'green'];
 
   doCode = `<div class="e-bg-green-lime"></div>`;
-  dontCode = `<div class="e-bg-green-lime e-text-grey-mine-shaft"></div>`;
+  dontCode = `<div class="e-bg-green-lime e-text-grey"></div>`;
   doCodeCSS = `background: var(--e-green-lime);
 color: var(--e-red);`;
   dontCodeCSS = `background: var(--e-bg-green-lime);

@@ -173,7 +173,7 @@ export const eUtilities: EItems[] = [
         title: 'New project',
         description: 'Guidance how to use, and implementation of Elvia Designsystem.',
         docUrl: Pages.NewProject,
-        status: ItemStatus.Coming,
+        status: ItemStatus.Done,
         actionText: 'Get started',
     },
     // {

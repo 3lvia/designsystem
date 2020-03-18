@@ -38,7 +38,7 @@ eller isolasjonssvikt i det elektriske anlegget eller tilknyttet utstyr. </p>
   constructor() { }
 
   getCodeExample(t: Typography) {
-    return `<p class="e-${t.title}">${t.example}</p>`
+    return `<p class="e-${t.title}">${t.example}</p>`;
   }
 
 }
