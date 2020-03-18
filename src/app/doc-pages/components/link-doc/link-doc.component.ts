@@ -9,13 +9,17 @@ import { getComponent } from 'src/app/shared/e-items';
 export class LinkDocComponent implements OnInit {
 
   componentStatus = getComponent('link-doc').status;
-  componentClasses = ['e-link', 'e-link is-inline', 'e-link is-action' ];
+  componentClasses = ['e-link', 'e-link is-inline', 'e-link is-custom', 'is-more', 'is-back' ];
 
   example1 = `<a class="e-link" href="https://hafslundnett.no">Normal link</a>
 `;
   example2 = `<p>Lorem ipsum <a class="e-link is-inline" href="https://hafslundnett.no">dolor</a> sit amet.</p>
 `;
-  example3 = `<a class="e-link is-action" href="https://hafslundnett.no">Se hva du kan gjøre</a>
+  example3 = `<a class="e-link is-more" href="https://hafslundnett.no">Se mer</a>
+`;
+  example4 = `<a class="e-link is-back" href="https://hafslundnett.no">Tilbake</a>
+`;
+  example5 = `<a class="e-link is-custom" href="https://hafslundnett.no">Se hva du kan gjøre</a>
 `;
 
 

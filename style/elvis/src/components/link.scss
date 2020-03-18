@@ -1,9 +1,10 @@
 @import '../variables/colors.scss';
 
 .e-link {
-
   border-bottom: 2.5px solid color('black');
   font-weight: bold;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
 
   &:hover,
   &.is-hovering,
@@ -11,22 +12,42 @@
   &.is-focusing {
     border-color: color('green-lime');
   }
-  &:active,
-  &.is-active {
-    // todo, no design yet. 
+
+  &.has-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    i {
+      padding-right: 9px;
+    }
   }
 
   &.is-inline {
     font-size: inherit;
     font-weight: bold;
     border-bottom: 1.5px solid color('black');
+    border-bottom-right-radius: 1px;
+    border-bottom-left-radius: 1px;
 
     &:hover {
       border-bottom: 1.5px solid color('green-lime');
     }
   }
 
-  &.is-action {
+  
+
+  &.is-back {
+   &::before{
+      content: "<";
+      font-size: 0.9rem;
+      font-weight: 800;
+      padding-right: 8px;
+      vertical-align: middle;
+    }
+  }
+
+  &.is-custom {
     border: none;
 
     &::after{
@@ -46,5 +67,23 @@
       }
     }
   }
+
+  &.is-more {
+    &::after{
+      content: ">";
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 0px 4px;
+      border-radius: 50%;
+      margin-left: 0.25rem;
+      vertical-align: top;
+      transform: rotate(-45deg);
+    }
+  }
 }
+
+
+
+
 
