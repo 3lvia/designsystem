@@ -201,13 +201,13 @@ export const eUtilities: EItems[] = [
         status: ItemStatus.Coming,
         actionText: 'View colors',
     },
-    {
-        title: 'Shadow',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Shadow,
-        status: ItemStatus.Coming,
-        actionText: 'View utility',
-    },
+    // {
+    //     title: 'Shadow',
+    //     description: 'Some useful component with amazing features',
+    //     docUrl: Pages.Shadow,
+    //     status: ItemStatus.Coming,
+    //     actionText: 'View utility',
+    // },
     {
         title: 'Spacing',
         description: 'Some useful component with amazing features',
