@@ -1,0 +1,39 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Responsive design - Breakpoints
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    To make a web page responsive we use media queries and the components we provide follow these rules. 
+    All components documentation therefore provide mobile previews to visualize how styling is affected by the screen-sizes.
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <h2 class="e-title-medium">Breakpoints for devices</h2>
+  <table class="e-table is-striped has-shadow">
+    <tr class="e-table_header">
+      <th>Device</th>
+      <th>Sizes</th>
+    </tr>
+    <tr>
+      <td>Mobile</td>
+      <td>-> 767px</td>
+    </tr>
+    <tr>
+      <td>Tablet</td>
+      <td>768px -> 1023px</td>
+    </tr>
+    <tr>
+      <td>MinDesktop</td>
+      <td>1024px -> 1439px</td>
+    </tr>
+    <tr>
+      <td>MaxDesktop</td>
+      <td>1440px -></td>
+    </tr>
+  </table>  
+</div>

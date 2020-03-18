@@ -199,7 +199,7 @@ export const eUtilities: EItems[] = [
         description: 'Some useful component with amazing features',
         docUrl: Pages.Color,
         status: ItemStatus.Coming,
-        actionText: 'View utility',
+        actionText: 'View colors',
     },
     {
         title: 'Shadow',
@@ -213,21 +213,28 @@ export const eUtilities: EItems[] = [
         description: 'Some useful component with amazing features',
         docUrl: Pages.Spacing,
         status: ItemStatus.Coming,
-        actionText: 'View utility',
+        actionText: 'View spacing',
     },
     {
         title: 'Icons',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Icon,
         status: ItemStatus.Coming,
-        actionText: 'View utility',
+        actionText: 'View icons',
     },
     {
         title: 'Typography',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Typography,
         status: ItemStatus.New,
-        actionText: 'View utility',
+        actionText: 'View typography',
+    },
+    {
+        title: 'Breakpoints',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Breakpoints,
+        status: ItemStatus.New,
+        actionText: 'View breakpoints',
     },
 ];
 
