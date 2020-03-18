@@ -173,7 +173,7 @@ export const eUtilities: EItems[] = [
         title: 'New project',
         description: 'Guidance how to use, and implementation of Elvia Designsystem.',
         docUrl: Pages.NewProject,
-        status: ItemStatus.Coming,
+        status: ItemStatus.Done,
         actionText: 'Get started',
     },
     // {
@@ -201,18 +201,18 @@ export const eUtilities: EItems[] = [
         status: ItemStatus.Coming,
         actionText: 'View colors',
     },
-    {
-        title: 'Shadow',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Shadow,
-        status: ItemStatus.Coming,
-        actionText: 'View utility',
-    },
+    // {
+    //     title: 'Shadow',
+    //     description: 'Some useful component with amazing features',
+    //     docUrl: Pages.Shadow,
+    //     status: ItemStatus.Coming,
+    //     actionText: 'View utility',
+    // },
     {
         title: 'Spacing',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Spacing,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View spacing',
     },
     {

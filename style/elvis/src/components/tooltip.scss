@@ -31,7 +31,7 @@ $tooltip-horizontal-transform: translate(0, -50%);
     width: max-content;
     max-width: 25ch;
     pointer-events: none;
-    background-color: color('grey-mine-shaft');
+    background-color: color('grey');
     color: color('white');
     padding: 10px 16px;
     border-radius: 4px;
@@ -54,7 +54,7 @@ $tooltip-horizontal-transform: translate(0, -50%);
         right: 100%;
         margin-top: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: transparent color('grey-mine-shaft') transparent transparent;
+        border-color: transparent color('grey') transparent transparent;
       }
     }
     &.is-left {
@@ -69,7 +69,7 @@ $tooltip-horizontal-transform: translate(0, -50%);
         left: 100%;
         margin-top: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: transparent transparent transparent color('grey-mine-shaft');
+        border-color: transparent transparent transparent color('grey');
       }
     }
     &.is-bottom {
@@ -84,7 +84,7 @@ $tooltip-horizontal-transform: translate(0, -50%);
         left: 50%;
         margin-left: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: transparent transparent color('grey-mine-shaft') transparent;
+        border-color: transparent transparent color('grey') transparent;
       }
     }
 
@@ -100,7 +100,7 @@ $tooltip-horizontal-transform: translate(0, -50%);
         left: 50%;
         margin-left: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: color('grey-mine-shaft') transparent transparent transparent;
+        border-color: color('grey') transparent transparent transparent;
       }
     }
     &.is-active {
@@ -110,20 +110,20 @@ $tooltip-horizontal-transform: translate(0, -50%);
   }
   &.is-light {
     #{$this}_content {
-      background-color: color('grey-silver') !important;
+      background-color: color('grey-03') !important;
       color: color('black') !important;
     }
     #{$this}_content.is-right::after {
-      border-color: transparent color('grey-silver') transparent transparent !important;
+      border-color: transparent color('grey-03') transparent transparent !important;
     }
     #{$this}_content.is-left::after {
-      border-color: transparent transparent transparent color('grey-silver') !important;
+      border-color: transparent transparent transparent color('grey-03') !important;
     }
     #{$this}_content.is-top::after {
-      border-color: color('grey-silver') transparent transparent transparent !important;
+      border-color: color('grey-03') transparent transparent transparent !important;
     }
     #{$this}_content.is-bottom::after {
-      border-color: transparent transparent color('grey-silver') transparent !important;
+      border-color: transparent transparent color('grey-03') transparent !important;
     }
   }
 }

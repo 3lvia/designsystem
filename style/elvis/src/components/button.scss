@@ -34,7 +34,7 @@ $button-font-size: 1rem;
     box-sizing: border-box;
 
     &:disabled {
-      background: color("grey-silver");
+      background: color("grey-03");
       color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
     }
@@ -71,7 +71,7 @@ $button-font-size: 1rem;
     box-sizing: border-box;
 
     &:disabled {
-      background: color("grey-silver");
+      background: color("grey-03");
       color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
       box-shadow: none;

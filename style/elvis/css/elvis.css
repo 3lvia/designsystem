@@ -79,7 +79,7 @@
   cursor: pointer;
   box-sizing: border-box; }
   .e-btn.is-primary:disabled, .e-btn:disabled {
-    background: #cacaca;
+    background: rgba(38, 38, 38, 0.3);
     color: rgba(255, 255, 255, 0.75);
     cursor: not-allowed; }
   .e-btn.is-primary:focus, .e-btn:focus {
@@ -103,7 +103,7 @@
   cursor: pointer;
   box-sizing: border-box; }
   .e-btn.btn-secondary:disabled {
-    background: #cacaca;
+    background: rgba(38, 38, 38, 0.3);
     color: rgba(255, 255, 255, 0.75);
     cursor: not-allowed;
     box-shadow: none; }
@@ -188,7 +188,7 @@
     background: transparent; } }
 
 .e-card {
-  border: 1px solid #cacaca;
+  border: 1px solid rgba(38, 38, 38, 0.3);
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(194, 194, 194, 0.5);
   display: inline-flex;
@@ -244,7 +244,7 @@
       margin: calc(1.375rem * -1) calc(1.375rem * -1);
       padding: 13px 0;
       border: 0;
-      border-top: 1px solid #cacaca;
+      border-top: 1px solid rgba(38, 38, 38, 0.3);
       border-radius: 0;
       background: transparent;
       color: #29D305;
@@ -257,7 +257,7 @@
 .e-divider {
   border: 1px solid #262626; }
   .e-divider.is-light {
-    border-color: #cacaca; }
+    border-color: rgba(38, 38, 38, 0.3); }
 
 .e-dropdown {
   position: relative;
@@ -373,7 +373,7 @@
       height: 40px;
       margin-right: 8px;
       border-radius: 100%;
-      background: #cacaca;
+      background: rgba(38, 38, 38, 0.3);
       background-position: center; }
     .e-header-user_icon-no-image {
       background-color: #29D305;
@@ -487,7 +487,7 @@
     background: rgba(255, 160, 0, 0.5); }
   .e-table_header {
     font-size: large;
-    border-bottom: 2px solid #cacaca;
+    border-bottom: 2px solid rgba(38, 38, 38, 0.3);
     text-align: left; }
     .e-table_header th,
     .e-table_header td {
@@ -593,16 +593,16 @@
       opacity: 1;
       z-index: 90; }
   .e-tooltip.is-light .e-tooltip_content {
-    background-color: #cacaca !important;
+    background-color: rgba(38, 38, 38, 0.3) !important;
     color: #000 !important; }
   .e-tooltip.is-light .e-tooltip_content.is-right::after {
-    border-color: transparent #cacaca transparent transparent !important; }
+    border-color: transparent rgba(38, 38, 38, 0.3) transparent transparent !important; }
   .e-tooltip.is-light .e-tooltip_content.is-left::after {
-    border-color: transparent transparent transparent #cacaca !important; }
+    border-color: transparent transparent transparent rgba(38, 38, 38, 0.3) !important; }
   .e-tooltip.is-light .e-tooltip_content.is-top::after {
-    border-color: #cacaca transparent transparent transparent !important; }
+    border-color: rgba(38, 38, 38, 0.3) transparent transparent transparent !important; }
   .e-tooltip.is-light .e-tooltip_content.is-bottom::after, .e-tooltip.is-light .e-tooltip_content:not(.is-top):not(.is-left):not(.is-right)::after {
-    border-color: transparent transparent #cacaca transparent !important; }
+    border-color: transparent transparent rgba(38, 38, 38, 0.3) transparent !important; }
 
 .e-form_toggle {
   cursor: pointer;
@@ -688,7 +688,7 @@ body {
   line-height: 120%;
   font-weight: 900;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-title-lg {
       font-size: 1.75rem; } }
 
@@ -698,7 +698,7 @@ body {
   line-height: 120%;
   font-weight: 700;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-title-md {
       font-size: 1.5rem; } }
 
@@ -712,12 +712,12 @@ body {
 .e-text-lead {
   font-family: "Red Hat Display", sans-serif;
   font-size: 1.5rem;
-  line-height: 190%;
+  line-height: 170%;
   font-weight: 400;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-lead {
-      font-size: 1.25rem;
+      font-size: 1.3125rem;
       line-height: 160%; } }
 
 .e-text-quote {
@@ -727,7 +727,7 @@ body {
   font-weight: 400;
   color: #000;
   font-style: italic; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-quote {
       font-size: 1.25rem; } }
 
@@ -737,7 +737,7 @@ body {
   line-height: 190%;
   font-weight: 400;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-body {
       font-size: 1.125rem;
       line-height: 160%; } }
@@ -749,7 +749,7 @@ body {
   font-weight: 400;
   color: #000;
   font-style: italic; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-img {
       font-size: 1rem; } }
 
@@ -803,13 +803,13 @@ body {
     margin-bottom: 5px; }
     .e-form_field_label.is-optional::after {
       content: " (valgfri)";
-      color: var(--e-grey-mine-shaft-05); }
+      color: var(--e-grey-05); }
   .e-form_field_error {
     visibility: hidden;
     display: flex;
     align-items: center;
     margin-top: 5px;
-    color: var(--e-grey-mine-shaft) !important; }
+    color: var(--e-grey) !important; }
     .e-form_field_error.is-active, .e-form_field_error.e-dropdown_content_item:hover:not(.no-hover), .e-tooltip:hover .e-form_field_error.e-tooltip_content, .e-tooltip:focus .e-form_field_error.e-tooltip_content {
       visibility: visible; }
     .e-form_field_error > i {
@@ -855,7 +855,7 @@ body {
   line-height: 120%;
   font-weight: 900;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-title-lg {
       font-size: 1.75rem; } }
 
@@ -865,7 +865,7 @@ body {
   line-height: 120%;
   font-weight: 700;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-title-md {
       font-size: 1.5rem; } }
 
@@ -879,12 +879,12 @@ body {
 .e-text-lead {
   font-family: "Red Hat Display", sans-serif;
   font-size: 1.5rem;
-  line-height: 190%;
+  line-height: 170%;
   font-weight: 400;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-lead {
-      font-size: 1.25rem;
+      font-size: 1.3125rem;
       line-height: 160%; } }
 
 .e-text-quote {
@@ -894,7 +894,7 @@ body {
   font-weight: 400;
   color: #000;
   font-style: italic; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-quote {
       font-size: 1.25rem; } }
 
@@ -904,7 +904,7 @@ body {
   line-height: 190%;
   font-weight: 400;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-body {
       font-size: 1.125rem;
       line-height: 160%; } }
@@ -916,7 +916,7 @@ body {
   font-weight: 400;
   color: #000;
   font-style: italic; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-img {
       font-size: 1rem; } }
 
@@ -963,7 +963,7 @@ body {
   align-items: center;
   padding: 12px 16px;
   transition: border-color 300ms cubic-bezier(0.55, 0, 0.1, 1);
-  border: 1px solid var(--e-grey-mine-shaft);
+  border: 1px solid #262626;
   border-radius: 4px;
   box-sizing: border-box;
   background: var(--e-white);
@@ -1002,13 +1002,13 @@ body {
     border: 2px solid var(--e-red);
     padding: 11px 15px; }
   .e-form_input.is-disabled, .e-form_input input:disabled {
-    color: var(--e-grey-mine-shaft-02);
-    border-color: var(--e-grey-mine-shaft-02);
+    color: var(--e-grey-02);
+    border-color: var(--e-grey-02);
     cursor: not-allowed; }
     .e-form_input.is-disabled input:disabled, .e-form_input input:disabled input:disabled {
       opacity: 1;
-      color: var(--e-grey-mine-shaft-02);
-      -webkit-text-fill-color: var(--e-grey-mine-shaft-02);
+      color: var(--e-grey-02);
+      -webkit-text-fill-color: var(--e-grey-02);
       cursor: not-allowed; }
 
 .is-combined-field .e-form_input:not(:last-of-type) {
@@ -1049,7 +1049,7 @@ body {
   align-items: center;
   width: 100%;
   transition: border-color 300ms cubic-bezier(0.55, 0, 0.1, 1);
-  border: 1px solid var(--e-grey-mine-shaft);
+  border: 1px solid #262626;
   border-radius: 4px;
   box-sizing: border-box;
   background: #FFF; }
@@ -1083,7 +1083,7 @@ body {
       opacity: 1;
       color: #FF0000; }
   .e-form_select.is-disabled {
-    background: #cacaca;
+    background: rgba(38, 38, 38, 0.3);
     cursor: default; }
   .e-form_select.has-icon select {
     padding-left: calc(0.9rem +  + 0.7rem); }
@@ -1665,22 +1665,22 @@ body {
   border: none; }
 
 .e-border {
-  border: 1px solid #cacaca; }
+  border: 1px solid rgba(38, 38, 38, 0.3); }
 
 .e-border-t {
-  border-top: 1px solid #cacaca; }
+  border-top: 1px solid rgba(38, 38, 38, 0.3); }
 
 .e-border-b {
-  border-bottom: 1px solid #cacaca; }
+  border-bottom: 1px solid rgba(38, 38, 38, 0.3); }
 
 .e-border-l {
-  border-left: 1px solid #cacaca; }
+  border-left: 1px solid rgba(38, 38, 38, 0.3); }
 
 .e-border-r {
-  border-right: 1px solid #cacaca; }
+  border-right: 1px solid rgba(38, 38, 38, 0.3); }
 
 :root {
-  --e-border-medium: 1px solid #cacaca; }
+  --e-border-medium: 1px solid rgba(38, 38, 38, 0.3); }
 
 .e-text {
   color: #000; }
@@ -1699,12 +1699,12 @@ body {
   color: #000; }
 
 :root {
-  --e-primary: #FFF; }
+  --e-on-color: #FFF; }
 
-.e-text-primary {
+.e-text-on-color {
   color: #FFF; }
 
-.e-bg-primary {
+.e-bg-on-color {
   background: #FFF;
   color: #000; }
 
@@ -1729,64 +1729,64 @@ body {
   color: #fff; }
 
 :root {
-  --e-grey-mine-shaft: #262626; }
+  --e-off-color: #000; }
 
-.e-text-grey-mine-shaft {
+.e-text-off-color {
+  color: #000; }
+
+.e-bg-off-color {
+  background: #000;
+  color: #fff; }
+
+:root {
+  --e-grey: #262626; }
+
+.e-text-grey {
   color: #262626; }
 
-.e-bg-grey-mine-shaft {
+.e-bg-grey {
   background: #262626;
   color: #fff; }
 
 :root {
-  --e-grey-mine-shaft-05: rgba(38, 38, 38, 0.5); }
+  --e-grey-05: rgba(38, 38, 38, 0.5); }
 
-.e-text-grey-mine-shaft-05 {
+.e-text-grey-05 {
   color: rgba(38, 38, 38, 0.5); }
 
-.e-bg-grey-mine-shaft-05 {
+.e-bg-grey-05 {
   background: rgba(38, 38, 38, 0.5);
   color: #fff; }
 
 :root {
-  --e-grey-mine-shaft-02: rgba(38, 38, 38, 0.2); }
+  --e-grey-03: rgba(38, 38, 38, 0.3); }
 
-.e-text-grey-mine-shaft-02 {
+.e-text-grey-03 {
+  color: rgba(38, 38, 38, 0.3); }
+
+.e-bg-grey-03 {
+  background: rgba(38, 38, 38, 0.3);
+  color: #fff; }
+
+:root {
+  --e-grey-02: rgba(38, 38, 38, 0.2); }
+
+.e-text-grey-02 {
   color: rgba(38, 38, 38, 0.2); }
 
-.e-bg-grey-mine-shaft-02 {
+.e-bg-grey-02 {
   background: rgba(38, 38, 38, 0.2);
   color: #fff; }
 
 :root {
-  --e-grey-stone: #707070; }
+  --e-grey-01: rgba(38, 38, 38, 0.1); }
 
-.e-text-grey-stone {
-  color: #707070; }
+.e-text-grey-01 {
+  color: rgba(38, 38, 38, 0.1); }
 
-.e-bg-grey-stone {
-  background: #707070;
+.e-bg-grey-01 {
+  background: rgba(38, 38, 38, 0.1);
   color: #fff; }
-
-:root {
-  --e-grey-silver: #cacaca; }
-
-.e-text-grey-silver {
-  color: #cacaca; }
-
-.e-bg-grey-silver {
-  background: #cacaca;
-  color: #000; }
-
-:root {
-  --e-border: #cacaca; }
-
-.e-text-border {
-  color: #cacaca; }
-
-.e-bg-border {
-  background: #cacaca;
-  color: #000; }
 
 :root {
   --e-green-lime: #29D305; }
@@ -1795,6 +1795,16 @@ body {
   color: #29D305; }
 
 .e-bg-green-lime {
+  background: #29D305;
+  color: #000; }
+
+:root {
+  --e-charge-color: #29D305; }
+
+.e-text-charge-color {
+  color: #29D305; }
+
+.e-bg-charge-color {
   background: #29D305;
   color: #000; }
 
@@ -2607,7 +2617,7 @@ body {
   line-height: 120%;
   font-weight: 900;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-title-lg {
       font-size: 1.75rem; } }
 
@@ -2617,7 +2627,7 @@ body {
   line-height: 120%;
   font-weight: 700;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-title-md {
       font-size: 1.5rem; } }
 
@@ -2631,12 +2641,12 @@ body {
 .e-text-lead {
   font-family: "Red Hat Display", sans-serif;
   font-size: 1.5rem;
-  line-height: 190%;
+  line-height: 170%;
   font-weight: 400;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-lead {
-      font-size: 1.25rem;
+      font-size: 1.3125rem;
       line-height: 160%; } }
 
 .e-text-quote {
@@ -2646,7 +2656,7 @@ body {
   font-weight: 400;
   color: #000;
   font-style: italic; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-quote {
       font-size: 1.25rem; } }
 
@@ -2656,7 +2666,7 @@ body {
   line-height: 190%;
   font-weight: 400;
   color: #000; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-body {
       font-size: 1.125rem;
       line-height: 160%; } }
@@ -2668,7 +2678,7 @@ body {
   font-weight: 400;
   color: #000;
   font-style: italic; }
-  @media screen and (max-width: 767px) {
+  @media (max-width: 767px) {
     .e-text-img {
       font-size: 1rem; } }
 

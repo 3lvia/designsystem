@@ -52,7 +52,7 @@
     }
     a.active {
       color: var(--e-white);
-      background-color: var(--e-grey-mine-shaft);
+      background-color: var(--e-grey);
       
       .navbar-item-title::after {
         content: '';
@@ -65,7 +65,7 @@
       }
     }
     a:hover:not(.active) {
-      background-color: var(--e-grey-silver);
+      background-color: var(--e-grey-03);
     }
   }
 }
