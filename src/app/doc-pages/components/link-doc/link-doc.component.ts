@@ -13,8 +13,15 @@ export class LinkDocComponent implements OnInit {
 
   example1 = `<a class="e-link" href="">Normal link</a>
 `;
-  example2 = `<p>Lorem ipsum <a class="e-link is-inline" href="">dolor</a> sit amet.</p>
+  example2 = `<p>Lorem ipsum <a class="e-link is-inline" href="">dolor</a> sit amet.
+  Soluta modi in rerum magnam blanditiis laboriosam architecto illum,
+  nemo eaque voluptate consectetur nulla fugiat delectus vel quia tenetur eius pariatur magni!
+</p>
 `;
+
+
+
+
   example3 = `<a class="e-link is-more" href="">Se mer</a>
 `;
   example4 = `<a class="e-link is-back" href="">Tilbake</a>
