@@ -212,7 +212,7 @@ export const eUtilities: EItems[] = [
         title: 'Spacing',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Spacing,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View spacing',
     },
     {
