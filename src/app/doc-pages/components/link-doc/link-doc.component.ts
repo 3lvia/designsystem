@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class LinkDocComponent implements OnInit {
 
   componentStatus = getComponent('link-doc').status;
-  componentClasses = ['e-link', 'e-link is-inline', 'e-link is-custom', 'is-more', 'is-back' ];
+  componentClasses = ['e-link', 'e-link is-inline', 'e-link is-more', 'e-link is-back', 'e-link has-icon', 'e-link is-custom'];
 
   example1 = `<a class="e-link" href="">Normal link</a>
 `;
@@ -18,9 +18,6 @@ export class LinkDocComponent implements OnInit {
   nemo eaque voluptate consectetur nulla fugiat delectus vel quia tenetur eius pariatur magni!
 </p>
 `;
-
-
-
 
   example3 = `<a class="e-link is-more" href="">Se mer</a>
 `;
