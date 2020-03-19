@@ -45,7 +45,8 @@
 
   &.is-inline {
     font-size: inherit;
-
+    font-weight: 500;
+    line-height: 100%;;
     &::before {
       content: "";
       height: 1.5px;
