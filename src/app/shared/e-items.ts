@@ -79,7 +79,7 @@ export const eComponents: EItems[] = [
         title: 'Toggle',
         description: 'Some useful component with amazing features',
         docUrl: Pages.CheckboxToggle,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
     },
     {
