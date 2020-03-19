@@ -70,6 +70,10 @@
         [isSCSS]="isSCSS"
         [code]="code"
       ></app-code-highlighter>
+      <form class="codepen e-p-1 e-bg-grey-05" #codepenForm *ngIf="isHTML" action="https://codepen.io/pen/define" method="POST" target="_blank">
+        <input type="hidden" name="data" [value]="codepen">
+        <a (click)="codepenForm.submit()" class="e-link is-more">Try in codepen</a>       
+      </form>
     </div>
   </div>
 </div>

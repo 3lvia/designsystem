@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, Input, AfterViewInit, ViewChild, OnInit } from '@angular/core';
 import { heightDown } from 'src/app/shared/animations';
 
 @Component({
@@ -9,7 +9,7 @@ import { heightDown } from 'src/app/shared/animations';
 })
 
 
-export class CodeBlockComponent implements AfterViewInit {
+export class CodeBlockComponent implements OnInit, AfterViewInit {
   @ViewChild('preview') preview;
   @ViewChild('mobilepreview') mobilePreview;
   @Input() title = '';
@@ -23,8 +23,19 @@ export class CodeBlockComponent implements AfterViewInit {
 
   showCode = false;
   showSmartphone = false;
+  codepen = '';
 
   constructor() {}
+
+  ngOnInit() {
+    this.codepen = JSON.stringify({
+      title: 'Preview',
+      html: `<head>
+  <link rel="stylesheet" href="https://unpkg.com/@hafslundnett/elvis@0.0.2/css/elvis.min.css">
+</head>
+<body>` + this.code + `</body>`
+    });
+  }
 
   ngAfterViewInit() {
     this.preview.nativeElement.innerHTML = this.code;
