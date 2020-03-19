@@ -77,7 +77,7 @@ $form-select-icon-margin: 0.9rem;
 
   &.has-icon {
     select {
-      padding-left: calc(#{$form-input-icon-margin} + #{font-size(h2)} + #{$form-input-padding-left});
+      // padding-left: calc(#{$form-input-icon-margin} + #{font-size(h2)} + #{$form-input-padding-left});
     }
   }
 
@@ -88,7 +88,7 @@ $form-select-icon-margin: 0.9rem;
     transition: color $medium-transition $transition-cubic, opacity $medium-transition $transition-cubic;
     opacity: 0.44;
     color: color('black');
-    font-size: font-size(h2);
+    // font-size: font-size(h2);
 
     &:first-child {
       left: $form-select-icon-margin;
