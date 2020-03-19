@@ -30,10 +30,9 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.codepen = JSON.stringify({
       title: 'Preview',
-      html: `<head>
-  <link rel="stylesheet" href="https://unpkg.com/@hafslundnett/elvis@0.0.2/css/elvis.min.css">
-</head>
-<body>` + this.code + `</body>`
+      html: `<link rel="stylesheet" href="https://unpkg.com/@hafslundnett/elvis@0.0.2/css/elvis.min.css">
+
+` + this.code
     });
   }
 
