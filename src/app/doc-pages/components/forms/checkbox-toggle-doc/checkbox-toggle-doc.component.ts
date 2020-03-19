@@ -9,28 +9,19 @@ import { getComponent } from 'src/app/shared/e-items';
 export class CheckboxToggleDocComponent implements OnInit {
 
   componentStatus = getComponent('checkbox-toggle-doc').status;
-  componentClasses = ['e-form_field', 'e-form_toggle'];
+  componentClasses = ['e-toggle', 'e-toggle slider'];
 
-  example1 = `<div class="e-form_field">
-  <span class="e-form_field_title ">Toggle Checkbox</span>
-  <label class="e-form_toggle e-m-2">
+  example1 = `
+  <label class="e-toggle e-m-2">
     <input type="checkbox">
-    <span class="e-form_toggle slider"></span>
+    <span class="e-toggle slider"></span>
   </label>
 
-  <label class="e-form_toggle e-m-2">
+  <label class="e-toggle e-m-2">
     <input type="checkbox" checked>
-    <span class="e-form_toggle slider"></span>
+    <span class="e-toggle slider"></span>
   </label>
-</div>
 `;
-  //
-// <label class="e-form_toggle" >
-  // <input type="checkbox" checked >
-  //   <span class="e-form_toggle slider" > </span>
-  //     < /label>
-  //     < /div>
-
 
   constructor() { }
 

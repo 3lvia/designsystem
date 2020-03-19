@@ -1,16 +1,25 @@
 @import '../../variables/colors.scss';
 
-.e-form_toggle {
+.e-toggle {
   cursor: pointer;
   display: flex;
   height: 1rem;
   width: 2.25rem;
+  
 
-  // Hides inital html checkbox
+
+// hide initial input
   & input {
     opacity: 0;
-    height: 0;
-    width: 0;
+// places inital input behind toggle style and show outline on :focus
+    &:focus {
+      opacity: 1;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      height: 1rem;
+      width: 2.25rem;
+    }
   }
 
   &.slider {
@@ -21,8 +30,8 @@
     transition: 0.15s;
   }
   &.slider:before {
-    position: absolute;
     content: "";
+    position: absolute;
     height: 0.6rem;
     width: 0.6rem;
     top: 0.125rem;
