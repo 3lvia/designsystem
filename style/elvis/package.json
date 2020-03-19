@@ -19,12 +19,5 @@
     "gulp-postcss": "^8.0.0",
     "postcss-css-variables": "^0.14.0",
     "css-vars-ponyfill": "^2.2.1"
-  },
-  "dependencies": {
-    "bootstrap": "^4.4.1",
-    "postcss-each": "^0.10.0",
-    "postcss-import": "^12.0.1",
-    "postcss-mixins": "^6.2.3",
-    "postcss-nesting": "^7.0.1"
   }
 }

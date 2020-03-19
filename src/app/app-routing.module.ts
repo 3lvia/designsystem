@@ -39,7 +39,6 @@ import { ComponentsStartComponent } from './doc-pages/components/components-star
 import { UtilitiesStartComponent } from './doc-pages/utilities/utilities-start/utilities-start.component';
 import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
 import { BreakpointsDocComponent } from './doc-pages/utilities/breakpoints-doc/breakpoints-doc.component';
-import { GridDocComponent } from './doc-pages/utilities/grid-doc/grid-doc.component';
 
 
 const routes: Routes = [
@@ -216,10 +215,6 @@ const routes: Routes = [
           {
             path: Pages.Breakpoints,
             component: BreakpointsDocComponent
-          },
-          {
-            path: Pages.Grid,
-            component: GridDocComponent
           },
         ]
       }

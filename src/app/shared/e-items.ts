@@ -236,13 +236,6 @@ export const eUtilities: EItems[] = [
         status: ItemStatus.New,
         actionText: 'View breakpoints',
     },
-    {
-        title: 'Grid',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Grid,
-        status: ItemStatus.New,
-        actionText: 'View grid',
-    },
 ];
 
 export const eAccessibility: EItems[] = [
