@@ -45,6 +45,6 @@
 
   input:checked + .slider:before {
     background-color: color('green-lime');
-    @include transform(translateX(1rem));
+    @include transform(translateX(1.2rem));
   }
 }
