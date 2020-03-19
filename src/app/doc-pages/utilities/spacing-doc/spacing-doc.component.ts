@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
+import { spacingItems } from './spacing';
 
 @Component({
   selector: 'app-spacing-doc',
@@ -11,6 +12,7 @@ export class SpacingDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
+  spacingItems = spacingItems;
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentClasses = ['e-p', 'e-m'];

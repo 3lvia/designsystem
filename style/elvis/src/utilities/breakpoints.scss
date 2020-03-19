@@ -1,0 +1,21 @@
+@import '../variables/breakpoints';
+
+@mixin breakpoint-up($size) {
+  @if $size == Mobile {
+    @media (max-width: #{$mobil-max}) {
+      @content;
+    }
+  } @else if $size == Tablet {
+    @media (max-width: #{$tablet-max}) {
+      @content;
+    }
+  } @else if $size == MinDesktop {
+    @media (max-width: #{$mindesktop-max}) {
+      @content;
+    }
+  } @else if $size == MaxDesktop {
+    @media (min-width: #{$maxdesktop-min}) {
+      @content;
+    }
+  } 
+}

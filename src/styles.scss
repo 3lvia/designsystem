@@ -45,7 +45,7 @@ body {
 .factbox {
   display: flex;
   padding: 10px 10px;
-  border: 2px solid var(--e-grey-silver);
+  border: 2px solid var(--e-grey-03);
   border-radius: 4px;
   margin: 10px 0;
 
@@ -88,7 +88,7 @@ body {
   display: flex;
   align-items: baseline;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin: var(--e-spacing-3) 0;
 
@@ -101,6 +101,13 @@ body {
     width: 31%;
     height: 100%;
     perspective: 1000;
+
+    .copy {
+      @extend %scale-up-08;
+      &:hover {
+        @extend %scale-down-08;
+      }
+    }
   
     &.primary {
       width: 48%;
@@ -109,16 +116,10 @@ body {
     &-circle {
       margin: auto;
       margin-top: 10px;
-      min-width: 80px;
-      min-height: 80px;
-      max-width: 130px;
-      max-height: 130px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       border: 2px solid transparent;
-      @extend %scale-up-08;
-      &:hover {
-        @extend %scale-down-08;
-      }
   
       &.primary {
         width: 130px;
@@ -130,23 +131,16 @@ body {
       margin: auto;
       margin-top: 10px;
       border: 2px solid transparent;
-      @extend %scale-up-08;
-      &:hover {
-        @extend %scale-down-08;
-      }
-    }
-  
-    &-variable, &-title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
     }
   
     &-title {
-      margin-top: 26px;
-      border-bottom: 1px solid var(--e-black);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 8px;
+      width: 100%;
     }
+  
     &-variable {
       height: 15%;
       margin: 5px 0;

@@ -10,6 +10,7 @@ import { ShadowDocModule } from './shadow-doc/shadow-doc.module';
 import { SpacingDocModule } from './spacing-doc/spacing-doc.module';
 import { TypographyDocModule } from './typography-doc/typography-doc.module';
 import { TemplatesModule } from './templates/templates.module';
+import { BreakpointsDocModule } from './breakpoints-doc/breakpoints-doc.module';
 
 @NgModule({
     imports: [
@@ -22,7 +23,8 @@ import { TemplatesModule } from './templates/templates.module';
         ShadowDocModule,
         SpacingDocModule,
         TypographyDocModule,
-        TemplatesModule
+        TemplatesModule,
+        BreakpointsDocModule
     ]
 })
 export class UtilitiesModule { }

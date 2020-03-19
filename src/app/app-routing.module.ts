@@ -38,6 +38,7 @@ import { AccessibilityStartComponent } from './doc-pages/accessibility/accessibi
 import { ComponentsStartComponent } from './doc-pages/components/components-start/components-start.component';
 import { UtilitiesStartComponent } from './doc-pages/utilities/utilities-start/utilities-start.component';
 import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
+import { BreakpointsDocComponent } from './doc-pages/utilities/breakpoints-doc/breakpoints-doc.component';
 
 
 const routes: Routes = [
@@ -210,6 +211,10 @@ const routes: Routes = [
           {
             path: Pages.Spacing,
             component: SpacingDocComponent
+          },
+          {
+            path: Pages.Breakpoints,
+            component: BreakpointsDocComponent
           },
         ]
       }
