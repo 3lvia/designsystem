@@ -5,7 +5,7 @@
 $form-input-padding: 12px 16px;
 $form-input-padding-active: 11px 15px;
 $form-input-border-radius: $border-radius;
-$form-input-border: 1px solid var(--e-grey-mine-shaft);
+$form-input-border: 1px solid color('grey');
 
 .e-form_input {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -76,13 +76,13 @@ $form-input-border: 1px solid var(--e-grey-mine-shaft);
   }
 
   &.is-disabled, input:disabled {
-    color: var(--e-grey-mine-shaft-02);
-    border-color: var(--e-grey-mine-shaft-02);
+    color: var(--e-grey-02);
+    border-color: var(--e-grey-02);
     cursor: not-allowed;
     input:disabled {
       opacity: 1;
-      color: var(--e-grey-mine-shaft-02);
-      -webkit-text-fill-color: var(--e-grey-mine-shaft-02);
+      color: var(--e-grey-02);
+      -webkit-text-fill-color: var(--e-grey-02);
       cursor: not-allowed;
     }
   }

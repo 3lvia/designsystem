@@ -41,37 +41,37 @@
 $colors: (
   'white': (
     color: #FFF,
-    alt-labels: (primary),
+    alt-labels: (on-color),
     contrast-text: #000,
   ),  
   'black': (
     color: #000,
-    alt-labels: (font-color),
+    alt-labels: (font-color, off-color),
     contrast-text: #fff,
   ),  
-  'grey-mine-shaft': (
+  'grey': (
     color: #262626,
     contrast-text: #fff,
   ),  
-  'grey-mine-shaft-05': (
+  'grey-05': (
     color: rgba(38,38,38, 0.5),
     contrast-text: #fff,
   ),  
-  'grey-mine-shaft-02': (
+  'grey-03': (
+    color: rgba(38,38,38, 0.3),
+    contrast-text: #fff,
+  ),  
+  'grey-02': (
     color: rgba(38,38,38, 0.2),
     contrast-text: #fff,
   ),  
-  'grey-stone': (
-    color: #707070,
+  'grey-01': (
+    color: rgba(38,38,38, 0.1),
     contrast-text: #fff,
   ),  
-  'grey-silver': (
-    color: #cacaca,
-    alt-labels: (border),
-    contrast-text: #000,
-  ),
   'green-lime': (
     color: #29D305,
+    alt-labels: (charge-color),
     contrast-text: #000,
   ),   
   'green-lime-05': (

@@ -19,11 +19,11 @@
       margin: 0 20px;
       text-align: center;
       perspective: 3000;
-      .e-icon-lg {
-        @extend %scale-up-08;
-        &:hover {
-          @extend %scale-down-08;
-        }
+      cursor: pointer;
+      
+      @extend %scale-up-08;
+      &:hover {
+        @extend %scale-down-08;
       }
     }  
   }
