@@ -14,8 +14,8 @@
   }
 
   &.slider {
-    background-color: color('white');
-    border: 1px solid color('green-lime');
+    background-color: color('black');
+    border: 1px solid color('black');
     border-radius: 2rem;
     position: absolute;
     transition: 0.1s;
@@ -27,17 +27,17 @@
     width: 0.75rem;
     top: 0.1rem;
     left: 0.1rem;
-    background-color: color('green-lime');
+    background-color: color('white');
     transition: 0.1s;
     border-radius: 50%;
   }
 
   input:checked + .slider {
-    background-color: color('green-lime');
+    background-color: color('black');
   }
 
   input:checked + .slider:before {
-    background-color: color('white');
+    background-color: color('green-lime');
     @include transform(translateX(0.95rem));
   }
 }
