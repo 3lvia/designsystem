@@ -9,7 +9,6 @@
 
   body {    
     &:after {
-      content: 'Made with ❤️ by Adiel Hercules';
       position: absolute;
       top: 0;
       right: 0;
@@ -19,7 +18,7 @@
     }
   }
   
-  .iphone-x {
+  .iphonex {
     position: relative;
     margin: 40px auto;
     width: 310px;
@@ -35,7 +34,7 @@
       transform: translateX(-50%);
     }
     
-    // home button indicator
+    // home button
     &:after {
       bottom: 7px;
       width: 140px;
@@ -44,8 +43,7 @@
       border-radius: 10px;
     }
     
-    // frontal camera/speaker frame
-    .iphonex__notch {
+    &__notch {
       position: absolute;
       top: 0;
       padding-top: 5px;
@@ -65,7 +63,7 @@
       }
     }
     
-    .camera {
+    &__camera {
       position: absolute;
       top: 5px;
       right: 38%;
@@ -75,19 +73,10 @@
       background-color: #535353;
     }
     
-    .iphonex__elvia {
+    &__elvia, &__time {
       position: absolute;
       top: 15px;
       left: 25px;
-      font-size: 14px;
-      font-weight: bold;
-      font-family: 'Roboto';
-    }
-    
-    .iphonex__time {
-      position: absolute;
-      top: 15px;
-      right: 25px;
       font-size: 14px;
       font-weight: bold;
       font-family: 'Roboto';
