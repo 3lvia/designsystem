@@ -29,14 +29,14 @@ body {
 }
 
 .code-text {
-  background: var(--e-green-lime-02);
+  background: var(--e-green-lime);
   padding: 0 4px;
   line-height: 140%;
 }
 .code-block {
   display: block;
   width: 100%;
-  background: var(--e-green-lime-02);
+  background: var(--e-green-lime);
   padding: 4px 8px;
   margin: 16px 0;
   line-height: 180%;
@@ -50,11 +50,11 @@ body {
   margin: 10px 0;
 
   &.is-info {
-    background-color: var(--e-yellow-05);
+    background-color: var(--e-yellow);
   }
 
   &.is-warn {
-    background: var(--e-orange-peel-05);
+    background: var(--e-orange-peel);
   }
 
   &_icon {

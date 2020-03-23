@@ -19,14 +19,6 @@ export const colorItemsPrimary: Color[] = [
         color: '#29D305',
     },
     {
-        title: 'green-lime-05',
-        color: '#29D305',
-    },
-    {
-        title: 'green-lime-02',
-        color: '#29D305',
-    },
-    {
         title: 'grey',
         color: '#262626',
     },
@@ -45,35 +37,11 @@ export const colorItemsSecondary: Color[] = [
         color: '#FFFF00',
     },
     {
-        title: 'yellow-05',
-        color: '#FFFF00',
-    },
-    {
-        title: 'yellow-02',
-        color: '#FFFF00',
-    },
-    {
         title: 'orange-peel',
         color: '#FFA000',
     },
     {
-        title: 'orange-peel-05',
-        color: '#FFA000',
-    },
-    {
-        title: 'orange-peel-02',
-        color: '#FFA000',
-    },
-    {
         title: 'red',
-        color: '#FF0000',
-    },
-    {
-        title: 'red-05',
-        color: '#FF0000',
-    },
-    {
-        title: 'red-02',
         color: '#FF0000',
     },
 ];
