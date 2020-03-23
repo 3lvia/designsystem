@@ -3,7 +3,7 @@
     <h2 class="component-body__example-title">{{ title }}</h2>
     <form class="codepen e-p-2" #codepenForm *ngIf="isHTML" action="https://codepen.io/pen/define" method="POST" target="_blank">
       <input type="hidden" name="data" [value]="codepen">
-      <a (click)="codepenForm.submit()" class="e-link is-more">Try in codepen</a>       
+      <a href="javascript:void(0)" (click)="codepenForm.submit()" class="e-link is-more">Try in codepen</a>       
     </form>
   </div>
   <div class="component-body__example-description e-text-body">
