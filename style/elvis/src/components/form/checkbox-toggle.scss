@@ -9,6 +9,7 @@
 // hide initial input
   input {
     opacity: 0;
+    outline: none;
   }
 
   &.slider {
