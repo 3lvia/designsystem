@@ -74,12 +74,6 @@
   <div class="overview" *ngIf="selected == tabNames.Overview">
     <section class="color-section">
       <h2 class="e-title-md">Primary Colors</h2>
-      <p class="e-text-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
-        voluptates saepe, quos commodi eaque repellat fuga nihil, officiis
-        magnam quibusdam eveniet eius quidem animi excepturi facilis. Tenetur
-        quos magnam recusandae.
-      </p>
       <div class="display-container">
         <div class="display-card" *ngFor="let item of colorItemsPrimary" [ngClass]="item.lg ? 'primary' : ''">
           <app-copy [message]="'e-bg-'+item.title">
@@ -96,15 +90,26 @@
       </div>
     </section>
     <section class="color-section">
-      <h2 class="e-title-md">Secondary displays</h2>
-      <p class="e-text-body">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores
-        adipisci odit, repellendus animi officiis eum obcaecati, at accusamus,
-        debitis quisquam unde magni magnam dolores illo voluptatum officia
-        laboriosam laborum similique?
-      </p>
+      <h2 class="e-title-md">Secondary Colors</h2>
       <div class="display-container">
         <div class="display-card" *ngFor="let item of colorItemsSecondary">
+          <app-copy [message]="'e-bg-'+item.title">
+            <ng-container ngProjectAs="copyContent">
+              <div class="copy">
+                <div [ngClass]="'e-bg-'+item.title" class="display-card-circle e-shadow-2"></div>
+                <div class="display-card-title e-text-caps">{{ item.title }}</div>
+                <div class="display-card-title e-text-caps" *ngFor="let label of item.labels">{{ label }}</div>
+                <div class="display-card-title">{{item.color}}</div>
+              </div>
+            </ng-container>
+          </app-copy>
+        </div>
+      </div>
+     </section>
+    <section class="color-section">
+      <h2 class="e-title-md">Greys</h2>
+      <div class="display-container">
+        <div class="display-card" *ngFor="let item of colorItemsGreys">
           <app-copy [message]="'e-bg-'+item.title">
             <ng-container ngProjectAs="copyContent">
               <div class="copy">

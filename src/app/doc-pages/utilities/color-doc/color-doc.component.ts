@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
-import { colorItemsPrimary, colorItemsSecondary } from './color';
+import { colorItemsPrimary, colorItemsSecondary, colorItemsGreys } from './color';
 
 @Component({
   selector: 'app-color-doc',
@@ -14,6 +14,7 @@ export class ColorDocComponent implements OnInit {
 
   colorItemsPrimary = colorItemsPrimary;
   colorItemsSecondary = colorItemsSecondary;
+  colorItemsGreys = colorItemsGreys;
   componentStatus = getUtilities('color-doc').status;
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];

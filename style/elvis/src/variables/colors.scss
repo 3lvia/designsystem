@@ -54,20 +54,48 @@ $colors: (
     alt-labels: (dark-color),
     contrast-text: #fff,
   ),  
-  'grey-05': (
+  'grey-90': (
+    color: rgba(38,38,38, 0.9),
+    contrast-text: #fff,
+  ),  
+  'grey-80': (
+    color: rgba(38,38,38, 0.8),
+    contrast-text: #fff,
+  ),  
+  'grey-70': (
+    color: rgba(38,38,38, 0.7),
+    contrast-text: #fff,
+  ),  
+  'grey-60': (
+    color: rgba(38,38,38, 0.6),
+    contrast-text: #fff,
+  ),  
+  'grey-50': (
     color: rgba(38,38,38, 0.5),
     contrast-text: #fff,
   ),  
-  'grey-03': (
+  'grey-40': (
+    color: rgba(38,38,38, 0.4),
+    contrast-text: #fff,
+  ),  
+  'grey-30': (
     color: rgba(38,38,38, 0.3),
     contrast-text: #fff,
   ),  
-  'grey-02': (
+  'grey-20': (
     color: rgba(38,38,38, 0.2),
     contrast-text: #fff,
   ),  
-  'grey-01': (
+  'grey-10': (
     color: rgba(38,38,38, 0.1),
+    contrast-text: #fff,
+  ),  
+  'grey-05': (
+    color: rgba(38,38,38, 0.05),
+    contrast-text: #fff,
+  ),  
+  'grey-02': (
+    color: rgba(38,38,38, 0.02),
     contrast-text: #fff,
   ),  
   'green-lime': (

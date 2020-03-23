@@ -76,13 +76,13 @@ $form-input-border: 1px solid color('grey');
   }
 
   &.is-disabled, input:disabled {
-    color: var(--e-grey-02);
-    border-color: var(--e-grey-02);
+    color: var(--e-grey-20);
+    border-color: var(--e-grey-20);
     cursor: not-allowed;
     input:disabled {
       opacity: 1;
-      color: var(--e-grey-02);
-      -webkit-text-fill-color: var(--e-grey-02);
+      color: var(--e-grey-20);
+      -webkit-text-fill-color: var(--e-grey-20);
       cursor: not-allowed;
     }
   }
