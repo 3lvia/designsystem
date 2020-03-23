@@ -12,13 +12,13 @@ export class CheckboxToggleDocComponent implements OnInit {
   componentClasses = ['e-toggle', 'e-toggle slider'];
 
   example1 = `
+  <label for="onOff">Turn off or on</label>
   <label class="e-toggle e-m-2">
-    <input type="checkbox">
+    <input id="onOff" type="checkbox">
     <span class="e-toggle slider"></span>
   </label>
-
   <label class="e-toggle e-m-2">
-    <input type="checkbox" checked>
+    <input id="onOff" type="checkbox" checked>
     <span class="e-toggle slider"></span>
   </label>
 `;

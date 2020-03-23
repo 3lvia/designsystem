@@ -5,27 +5,18 @@
   display: flex;
   height: 1rem;
   width: 2.25rem;
-  
+
 // hide initial input
-  & input {
+  input {
     opacity: 0;
-// places inital input behind toggle style and show outline on :focus
-    &:focus {
-      opacity: 1;
-      display: flex;
-      justify-content: center;
-      align-content: center;
-      height: 1rem;
-      width: 2.25rem;
-    }
   }
 
   &.slider {
+    position: absolute;
     background-color: color('black');
     border: 1px solid color('black');
     border-radius: 15px;
-    position: absolute;
-    transition: 0.15s;
+    transition: 0.15s;    
   }
   &.slider:before {
     content: "";
@@ -46,5 +37,9 @@
   input:checked + .slider:before {
     background-color: color('green-lime');
     @include transform(translateX(1.2rem));
+  }
+
+  input:focus + .slider {
+    box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 4px color('green-lime');
   }
 }
