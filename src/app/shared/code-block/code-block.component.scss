@@ -21,6 +21,8 @@ iframe {
 }
 
 .component-body__example {
+  margin-bottom: var(--e-spacing-9);
+
   &-title {
     margin-bottom: 8px;
   }
@@ -44,9 +46,12 @@ iframe {
     }
   }
 
-  &-body {
-    margin-bottom: 64px;
+  &-codepen {
+    display: flex;
+    justify-content: flex-end;
+  }
 
+  &-body {
     .tabs {
       display: flex;
       flex-direction: row;
