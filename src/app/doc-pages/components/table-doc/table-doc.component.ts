@@ -123,7 +123,7 @@ export class TableDocComponent implements OnInit {
     </tr>
   </tbody>
   <tbody>
-    <tr class="e-table-phone_header-m">
+    <tr class="e-table-phone_header-row">
       <th>16 A</th>
       <th></th>
     </tr>
@@ -141,7 +141,7 @@ export class TableDocComponent implements OnInit {
     </tr>
   </tbody>
   <tbody>
-    <tr class="e-table-phone_header-m">
+    <tr class="e-table-phone_header-row">
       <th>16 A</th>
       <th></th>
     </tr>
@@ -159,7 +159,7 @@ export class TableDocComponent implements OnInit {
     </tr>
   </tbody>
   <tbody>
-    <tr class="e-table-phone_header-m">
+    <tr class="e-table-phone_header-row">
       <th>16 A</th>
       <th></th>
     </tr>
