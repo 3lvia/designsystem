@@ -29,14 +29,14 @@ body {
 }
 
 .code-text {
-  background: var(--e-green-lime);
+  background: var(--e-grey-10);
   padding: 0 4px;
   line-height: 140%;
 }
 .code-block {
   display: block;
   width: 100%;
-  background: var(--e-green-lime);
+  background: var(--e-grey-10);
   padding: 4px 8px;
   margin: 16px 0;
   line-height: 180%;
@@ -133,12 +133,15 @@ body {
       border: 2px solid transparent;
     }
   
-    &-title {
+    &-title, &-sub-title {
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 8px;
       width: 100%;
+    }
+    &-sub-title {
+      color: var(--e-grey-80);
     }
   
     &-variable {

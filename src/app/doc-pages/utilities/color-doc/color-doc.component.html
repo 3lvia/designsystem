@@ -81,8 +81,9 @@
               <div class="copy">
                 <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-'+item.title]" class="display-card-circle e-shadow-2"></div>
                 <div class="display-card-title e-text-caps">{{ item.title }}</div>
-                <div class="display-card-title e-text-caps" *ngFor="let label of item.labels">{{ label }}</div>
-                <div class="display-card-title">{{item.color}}</div>
+                <div class="display-card-sub-title e-text-caps" *ngFor="let label of item.labels">{{ label }}</div>
+                <div class="display-card-sub-title e-text-info">{{item.hex}}</div>
+                <div class="display-card-sub-title e-text-info">{{item.rgba}}</div>
               </div>
             </ng-container>
           </app-copy>
@@ -98,8 +99,9 @@
               <div class="copy">
                 <div [ngClass]="'e-bg-'+item.title" class="display-card-circle e-shadow-2"></div>
                 <div class="display-card-title e-text-caps">{{ item.title }}</div>
-                <div class="display-card-title e-text-caps" *ngFor="let label of item.labels">{{ label }}</div>
-                <div class="display-card-title">{{item.color}}</div>
+                <div class="display-card-sub-title e-text-caps" *ngFor="let label of item.labels">{{ label }}</div>
+                <div class="display-card-sub-title e-text-info">{{item.hex}}</div>
+                <div class="display-card-sub-title e-text-info">{{item.rgba}}</div>
               </div>
             </ng-container>
           </app-copy>
@@ -115,8 +117,9 @@
               <div class="copy">
                 <div [ngClass]="'e-bg-'+item.title" class="display-card-circle e-shadow-2"></div>
                 <div class="display-card-title e-text-caps">{{ item.title }}</div>
-                <div class="display-card-title e-text-caps" *ngFor="let label of item.labels">{{ label }}</div>
-                <div class="display-card-title">{{item.color}}</div>
+                <div class="display-card-sub-title e-text-caps" *ngFor="let label of item.labels">{{ label }}</div>
+                <div class="display-card-sub-title e-text-info">{{item.hex}}</div>
+                <div class="display-card-sub-title e-text-info">{{item.rgba}}</div>
               </div>
             </ng-container>
           </app-copy>
