@@ -4,77 +4,108 @@ export const colorItemsPrimary: Color[] = [
     {
         title: 'white',
         labels: ['elvia-on'],
-        color: '#FFF',
+        hex: '#FFFFFF',
+        rgba: 'rgb(255,255,255)',
         lg: true
     },
     {
         title: 'black',
         labels: ['elvia-off', 'font-color'],
-        color: '#000',
+        hex: '#000000',
+        rgba: 'rgb(0,0,0)',
         lg: true
     },
     {
-        title: 'green-lime',
+        title: 'green',
         labels: ['elvia-charge'],
-        color: '#29D305',
-    },
-    {
-        title: 'green-lime-05',
-        color: '#29D305',
-    },
-    {
-        title: 'green-lime-02',
-        color: '#29D305',
+        hex: '#29D305',
+        rgba: 'rgb(41,211,5)',
+        lg: true
     },
     {
         title: 'grey',
-        color: '#262626',
-    },
-    {
-        title: 'grey-05',
-        color: '#262626',
-    },
-    {
-        title: 'grey-02',
-        color: '#262626',
+        hex: '#262626',
+        rgba: 'rgb(38,38,38)',
+        lg: true
     },
 ];
-export const colorItemsSecondary: Color[] = [
+export const colorItemsSignal: Color[] = [
     {
         title: 'yellow',
-        color: '#FFFF00',
+        hex: '#FFFF00',
+        rgba: 'rgb(255, 255, 0)',
     },
     {
-        title: 'yellow-05',
-        color: '#FFFF00',
-    },
-    {
-        title: 'yellow-02',
-        color: '#FFFF00',
-    },
-    {
-        title: 'orange-peel',
-        color: '#FFA000',
-    },
-    {
-        title: 'orange-peel-05',
-        color: '#FFA000',
-    },
-    {
-        title: 'orange-peel-02',
-        color: '#FFA000',
+        title: 'orange',
+        hex: '#FFA000',
+        rgba: 'rgb(255, 160, 0)',
     },
     {
         title: 'red',
-        color: '#FF0000',
+        hex: '#FF0000',
+        rgba: 'rgb(255, 0, 0)',
+    },
+];
+export const colorItemsGreys: Color[] = [
+    {
+        title: 'grey',
+        hex: '#262626',
+        rgba: 'rgb(38,38,38)',
     },
     {
-        title: 'red-05',
-        color: '#FF0000',
+        title: 'grey-90',
+        hex: '#3B3B3B',
+        rgba: 'rgba(38,38,38,0.9)',
     },
     {
-        title: 'red-02',
-        color: '#FF0000',
+        title: 'grey-80',
+        hex: '#515151',
+        rgba: 'rgba(38,38,38,0.8)',
+    },
+    {
+        title: 'grey-70',
+        hex: '#676767',
+        rgba: 'rgba(38,38,38,0.7)',
+    },
+    {
+        title: 'grey-60',
+        hex: '#7C7C7C',
+        rgba: 'rgba(38,38,38,0.6)',
+    },
+    {
+        title: 'grey-50',
+        hex: '#929292',
+        rgba: 'rgba(38,38,38,0.5)',
+    },
+    {
+        title: 'grey-40',
+        hex: '#A8A8A8',
+        rgba: 'rgba(38,38,38,0.4)',
+    },
+    {
+        title: 'grey-30',
+        hex: '#BDBDBD',
+        rgba: 'rgba(38,38,38,0.3)',
+    },
+    {
+        title: 'grey-20',
+        hex: '#D3D3D3',
+        rgba: 'rgba(38,38,38,0.2)',
+    },
+    {
+        title: 'grey-10',
+        hex: '#E9E9E9',
+        rgba: 'rgba(38,38,38,0.1)',
+    },
+    {
+        title: 'grey-05',
+        hex: '#F4F4F4',
+        rgba: 'rgba(38,38,38,0.05)',
+    },
+    {
+        title: 'grey-02',
+        hex: '#FAFAFA',
+        rgba: 'rgba(38,38,38,0.02)',
     },
 ];
 

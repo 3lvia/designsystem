@@ -36,11 +36,11 @@
   }
 
   input:checked + .slider:before {
-    background-color: color('green-lime');
+    background-color: color('green');
     @include transform(translateX(1.2rem));
   }
 
   input:focus ~ .slider {
-    box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 4px color('green-lime');
+    box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 4px color('green');
   }
 }

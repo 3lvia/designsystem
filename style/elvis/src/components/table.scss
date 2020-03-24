@@ -63,11 +63,11 @@ $table-last-column-padding: 1.5rem;
   &_row,
   tr {
     &.is-stripe {
-      background: color('orange-peel-02');
+      background: color('orange');
     }
 
     &.is-selected {
-      background: color('orange-peel-05');
+      background: color('orange');
     }
   }
   
@@ -76,7 +76,7 @@ $table-last-column-padding: 1.5rem;
     // @extend .is-h3;
     font-size: large;
 
-    border-bottom: 2px solid color('grey-03');
+    border-bottom: 2px solid color('grey-30');
     text-align: left;
 
     th,
