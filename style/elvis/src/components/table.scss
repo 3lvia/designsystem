@@ -70,6 +70,7 @@ $table-border-radius: 4px;
 
   tbody:not(:first-of-type) tr:not(:first-of-type):nth-of-type(odd) {
     background: color('grey-05');
+    border: 1px solid black;
   }
 
   th {
