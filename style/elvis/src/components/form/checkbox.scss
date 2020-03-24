@@ -1,14 +1,13 @@
-@import '../../variables/colors.scss';
-@import '../../variables/animation.scss';
+@import "../../variables/colors.scss";
+@import "../../variables/animation.scss";
 
-$form-checkbox-mark-size: 1rem;
-$form-checkbox-mark-border-radius: 4px;
-$form-checkbox-mark-border: 1px solid color('black');
+$checkbox-mark-size: 1.5rem;
+$checkbox-mark-border-radius: 4px;
+$checkbox-mark-border: 1px solid color("black");
 
-.e-form_checkbox {
-  // Variable containing '&' to jump to current parent inside a child class.
+.e-checkbox {
+  //   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
-
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -16,73 +15,51 @@ $form-checkbox-mark-border: 1px solid color('black');
     margin-bottom: 0.75rem;
   }
 
-  // Creating placeholder to inject style into checkbox mutations.
-  // We have to seperate the checkbox marked styling because of the checked state
+  //   // Need to hide the original checkbox
+  input {
+    opacity: 0;
 
-  %check-icon {
-    position: relative;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-
-    &:before {
-      position: absolute;
-      left: 0;
-      top: 50%;
-      height: 50%;
-      width: 3px;
-      background-color: #336699;
-      content: "";
-      transform: translateX(10px) rotate(-45deg);
-      transform-origin: left bottom;
+    &:checked ~ #{$this}_mark {
+      @extend %checkbox-mark;
     }
 
-    &:after {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 3px;
-      width: 100%;
-      background-color: #336699;
-      content: "";
-      transform: translateX(10px) rotate(-45deg);
-      transform-origin: left bottom;
+    &:focus ~ #{$this}_mark {
+      box-shadow: 0px 0px 0px 1px color("green-lime");
     }
   }
 
+  //   // Creating placeholder to inject style into checkbox mutations.
+  //   // We have to seperate the checkbox marked styling because of the checked state
+
   %checkbox-mark {
     position: relative;
-    background-color: color('green-lime');
-   
+    background-color: color("green-lime");
+
+    &::before {
+      position: absolute;
+      // left: -30%;
+      top: 50%;
+      height: 40%;
+      width: 2px;
+      background-color: color("black");
+      border-radius: 15px;
+      content: "";
+      transform: translateX(10px) rotate(-45deg);
+      transform-origin: left bottom;
+      font-size: 0.75rem;
+    }
+
     &::after {
       position: absolute;
       left: -30%;
       bottom: 0;
       height: 2px;
-      width: 100%;
-      background-color: color('black');
+      width: 70%;
+      background-color: color("black");
       content: "";
+      border-radius: 15px;
       transform: translateX(10px) rotate(-45deg);
       transform-origin: left bottom;
-    }
-
-    &::before {
-      position: absolute;
-      left: -30%;
-      top: 50%;
-      height: 50%;
-      width: 2px;
-      background-color: color('black');
-      content: "";
-      transform: translateX(10px) rotate(-45deg);
-      transform-origin: left bottom;
-      
-      // top: -1px;
-      // left: 50%;
-      // transform: translateX(-50%);
-
-      // color: color('white');
-      font-size: 0.75rem;
     }
   }
 
@@ -95,20 +72,11 @@ $form-checkbox-mark-border: 1px solid color('black');
   &.is-invalid {
     input:checked ~ #{$this}_mark,
     #{$this}_mark {
-      border-color: color('red');
+      border-color: color("red");
 
       &::before {
-        color: color('red');
+        color: color("red");
       }
-    }
-  }
-
-  // Need to hide the original checkbox
-  input {
-    display: none;
-
-    &:checked ~ #{$this}_mark {
-      @extend %checkbox-mark;
     }
   }
 
@@ -120,18 +88,17 @@ $form-checkbox-mark-border: 1px solid color('black');
   &_mark {
     display: inline-block;
 
-    min-width: $form-checkbox-mark-size;
-    min-height: $form-checkbox-mark-size;
-    max-width: $form-checkbox-mark-size;
-    max-height: $form-checkbox-mark-size;
+    min-width: $checkbox-mark-size;
+    min-height: $checkbox-mark-size;
+    max-width: $checkbox-mark-size;
+    max-height: $checkbox-mark-size;
     transition: background 0.3s $transition-cubic;
-    border: $form-checkbox-mark-border;
-    border-radius: $form-checkbox-mark-border-radius;
-    background: color('white');
+    border: $checkbox-mark-border;
+    border-radius: $checkbox-mark-border-radius;
+    background: color("white");
   }
 
   &_label {
-    flex-grow: 1;
     margin-left: 1rem;
   }
 }
