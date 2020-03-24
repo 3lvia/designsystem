@@ -85,12 +85,12 @@ $button-font-size: 1rem;
     &:enabled {
       &:hover:not(:focus) {
         color: color("black");
-        box-shadow: 0px 0px 0px 1px color("green-lime");
+        box-shadow: 0px 0px 0px 1px color("green");
       }
 
       &:active {
         color: color("black");
-        box-shadow: 0px 0px 0px 2px color("green-lime");
+        box-shadow: 0px 0px 0px 2px color("green");
       }
     }
   }
