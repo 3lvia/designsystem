@@ -24,7 +24,6 @@ export const colorItemsPrimary: Color[] = [
     },
     {
         title: 'grey',
-        labels: ['dark-color'],
         hex: '#262626',
         rgba: 'rgb(38,38,38)',
         lg: true
