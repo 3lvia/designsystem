@@ -41,17 +41,16 @@
 $colors: (
   'white': (
     color: #FFF,
-    alt-labels: (on-color),
+    alt-labels: (elvia-on),
     contrast-text: #000,
   ),  
   'black': (
     color: #000,
-    alt-labels: (font-color, off-color),
+    alt-labels: (font-color, elvia-off),
     contrast-text: #fff,
   ),  
   'grey': (
     color: #262626,
-    alt-labels: (dark-color),
     contrast-text: #fff,
   ),  
   'grey-90': (
@@ -100,7 +99,7 @@ $colors: (
   ),  
   'green': (
     color: #29D305,
-    alt-labels: (charge-color),
+    alt-labels: (elvia-charge),
     contrast-text: #000,
   ), 
   'yellow': (
