@@ -19,6 +19,12 @@
       </span>
     </div>
   </div>
+  <div class="component-body__example-codepen">
+    <form class="codepen e-mb-2" #codepenForm *ngIf="isHTML" action="https://codepen.io/pen/define" method="POST" target="_blank">
+      <input type="hidden" name="data" [value]="codepen">
+      <a href="javascript:void(0)" (click)="codepenForm.submit()" class="e-link is-more">Try in codepen</a>       
+    </form>
+  </div>
   <div class="component-body__example-body e-border">
     <div class="tabs">
       <div
