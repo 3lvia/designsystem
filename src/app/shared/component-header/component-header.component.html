@@ -7,7 +7,7 @@
         </h1>
         <div *ngIf="componentStatus != ''">
           <span
-            class="e-badge e-bg-green-lime"
+            class="e-badge e-bg-green"
             *ngIf="componentStatus === itemStatus.New"
             >{{ componentStatus }}</span
           >
@@ -17,7 +17,7 @@
             >{{ componentStatus }}</span
           >
           <span
-            class="e-badge e-bg-green-lime"
+            class="e-badge e-bg-green"
             *ngIf="componentStatus === itemStatus.Done"
             >{{ componentStatus }}</span
           >
@@ -41,7 +41,7 @@
       </p>
       <div class="component-header__example-does" *ngIf="does || donts">
         <div class="component-header__example-does-does" *ngIf="does">
-          <span class="marker e-bg-green-lime"></span>
+          <span class="marker e-bg-green"></span>
           <span class="e-title-sm">When: </span>
           <span class="e-text-body">{{ does }}</span>
         </div>

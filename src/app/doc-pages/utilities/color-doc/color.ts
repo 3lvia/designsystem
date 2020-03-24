@@ -16,7 +16,7 @@ export const colorItemsPrimary: Color[] = [
         lg: true
     },
     {
-        title: 'green-lime',
+        title: 'green',
         labels: ['elvia-charge'],
         hex: '#29D305',
         rgba: 'rgb(41,211,5)',
@@ -30,14 +30,14 @@ export const colorItemsPrimary: Color[] = [
         lg: true
     },
 ];
-export const colorItemsSecondary: Color[] = [
+export const colorItemsSignal: Color[] = [
     {
         title: 'yellow',
         hex: '#FFFF00',
         rgba: 'rgb(255, 255, 0)',
     },
     {
-        title: 'orange-peel',
+        title: 'orange',
         hex: '#FFA000',
         rgba: 'rgb(255, 160, 0)',
     },

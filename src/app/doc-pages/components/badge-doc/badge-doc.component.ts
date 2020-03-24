@@ -25,8 +25,8 @@ export class BadgeDocComponent implements OnInit {
   example1Donts = 'Donts donts donts donts donts donts donts donts';
 
   example2 = `<span class="e-badge">101001</span>
-<span class="e-badge e-bg-green-lime">101001</span>
-<span class="e-badge e-bg-orange-peel">101001</span>
+<span class="e-badge e-bg-green">101001</span>
+<span class="e-badge e-bg-orange">101001</span>
 <span class="e-badge e-bg-yellow">101001</span>
 `;
 

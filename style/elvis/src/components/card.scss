@@ -35,7 +35,7 @@ $card-actions-button-spacing: 25px;
       display: inline-flex;
       align-self: center;
       margin-right: $card-header-icon-margin;
-      color: color('green-lime');
+      color: color('green');
       line-height: $card-header-icon-height;
       vertical-align: top;
     }
@@ -107,7 +107,7 @@ $card-actions-button-spacing: 25px;
       border-radius: 0;
       background: transparent;
 
-      color: color('green-lime');
+      color: color('green');
       font-weight: 500;
       text-align: center;
       cursor: pointer;

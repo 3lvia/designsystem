@@ -65,8 +65,8 @@ $form-input-border: 1px solid color('grey');
   }
 
   &.is-focus {
-    border: 2px solid var(--e-green-lime);
-    box-shadow: 0 0 2px var(--e-green-lime);
+    border: 2px solid var(--e-green);
+    box-shadow: 0 0 2px var(--e-green);
     padding: $form-input-padding-active;
   }
 

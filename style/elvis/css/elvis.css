@@ -995,8 +995,8 @@ body {
     .e-form_input.is-medium input {
       width: 120px; }
   .e-form_input.is-focus, .e-form_input:not(.is-invalid):focus-within, .e-form_input.e-form_select:focus-within {
-    border: 2px solid var(--e-green-lime);
-    box-shadow: 0 0 2px var(--e-green-lime);
+    border: 2px solid var(--e-green);
+    box-shadow: 0 0 2px var(--e-green);
     padding: 11px 15px; }
   .e-form_input.is-invalid {
     border: 2px solid var(--e-red);
@@ -1789,12 +1789,12 @@ body {
   color: #fff; }
 
 :root {
-  --e-green-lime: #29D305; }
+  --e-green: #29D305; }
 
-.e-text-green-lime {
+.e-text-green {
   color: #29D305; }
 
-.e-bg-green-lime {
+.e-bg-green {
   background: #29D305;
   color: #000; }
 
@@ -1809,22 +1809,22 @@ body {
   color: #000; }
 
 :root {
-  --e-green-lime-05: rgba(41, 211, 5, 0.5); }
+  --e-green-05: rgba(41, 211, 5, 0.5); }
 
-.e-text-green-lime-05 {
+.e-text-green-05 {
   color: rgba(41, 211, 5, 0.5); }
 
-.e-bg-green-lime-05 {
+.e-bg-green-05 {
   background: rgba(41, 211, 5, 0.5);
   color: #000; }
 
 :root {
-  --e-green-lime-02: rgba(41, 211, 5, 0.2); }
+  --e-green-02: rgba(41, 211, 5, 0.2); }
 
-.e-text-green-lime-02 {
+.e-text-green-02 {
   color: rgba(41, 211, 5, 0.2); }
 
-.e-bg-green-lime-02 {
+.e-bg-green-02 {
   background: rgba(41, 211, 5, 0.2);
   color: #000; }
 
@@ -1859,32 +1859,32 @@ body {
   color: #000; }
 
 :root {
-  --e-orange-peel: #FFA000; }
+  --e-orange: #FFA000; }
 
-.e-text-orange-peel {
+.e-text-orange {
   color: #FFA000; }
 
-.e-bg-orange-peel {
+.e-bg-orange {
   background: #FFA000;
   color: #000; }
 
 :root {
-  --e-orange-peel-05: rgba(255, 160, 0, 0.5); }
+  --e-orange-05: rgba(255, 160, 0, 0.5); }
 
-.e-text-orange-peel-05 {
+.e-text-orange-05 {
   color: rgba(255, 160, 0, 0.5); }
 
-.e-bg-orange-peel-05 {
+.e-bg-orange-05 {
   background: rgba(255, 160, 0, 0.5);
   color: #000; }
 
 :root {
-  --e-orange-peel-02: rgba(255, 160, 0, 0.2); }
+  --e-orange-02: rgba(255, 160, 0, 0.2); }
 
-.e-text-orange-peel-02 {
+.e-text-orange-02 {
   color: rgba(255, 160, 0, 0.2); }
 
-.e-bg-orange-peel-02 {
+.e-bg-orange-02 {
   background: rgba(255, 160, 0, 0.2);
   color: #000; }
 
