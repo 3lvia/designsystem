@@ -1,9 +1,6 @@
-// Lazily just used b64.io for converting SVGs
-// Consider using: https://www.npmjs.com/package/mini-svg-data-uri combined with some SVG optimizer instead 
-// TODO: Add support for custom SVG classes
+@import '../utilities/icons.scss';
+
 $icons: (
-    //New icons, all run through svgGo first
-    //Misc
     'add-circle': url(data:image/svg+xml;base64,CjxzdmcgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDI0IDI0Ij48c3R5bGU+LnN0MHtmaWxsOiMyYzJlMzJ9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTIgMTcuMjVhLjc1Ljc1IDAgMDEtLjc1LS43NXYtMy43NUg3LjVhLjc1Ljc1IDAgMDEwLTEuNWgzLjc1VjcuNWEuNzUuNzUgMCAwMTEuNSAwdjMuNzVoMy43NWEuNzUuNzUgMCAwMTAgMS41aC0zLjc1djMuNzVhLjc1Ljc1IDAgMDEtLjc1Ljc1eiIvPjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMiAyNEM1LjM4MyAyNCAwIDE4LjYxNyAwIDEyUzUuMzgzIDAgMTIgMHMxMiA1LjM4MyAxMiAxMi01LjM4MyAxMi0xMiAxMnptMC0yMi41QzYuMjEgMS41IDEuNSA2LjIxIDEuNSAxMlM2LjIxIDIyLjUgMTIgMjIuNSAyMi41IDE3Ljc5IDIyLjUgMTIgMTcuNzkgMS41IDEyIDEuNXoiLz48L3N2Zz4=),
     'alert-circle': url(data:image/svg+xml;base64,CjxzdmcgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDI0IDI0Ij48c3R5bGU+LnN0MHtmaWxsOiMyYzJlMzJ9PC9zdHlsZT48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTIgMThhMS4xMjUgMS4xMjUgMCAxMDAtMi4yNUExLjEyNSAxLjEyNSAwIDAwMTIgMTh6bTAtMy43NWEuNzUuNzUgMCAwMS0uNzUtLjc1VjUuMjVhLjc1Ljc1IDAgMDExLjUgMHY4LjI1YS43NS43NSAwIDAxLS43NS43NXoiLz48cGF0aCBjbGFzcz0ic3QwIiBkPSJNMTIgMjRDNS4zODMgMjQgMCAxOC42MTcgMCAxMlM1LjM4MyAwIDEyIDBzMTIgNS4zODMgMTIgMTItNS4zODMgMTItMTIgMTJ6bTAtMjIuNUM2LjIxIDEuNSAxLjUgNi4yMSAxLjUgMTJTNi4yMSAyMi41IDEyIDIyLjUgMjIuNSAxNy43OSAyMi41IDEyIDE3Ljc5IDEuNSAxMiAxLjV6Ii8+PC9zdmc+),
     'attachment': url(data:image/svg+xml;base64,Cgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNOS43NSAyNGE1LjI1NiA1LjI1NiAwIDAxLTUuMjUtNS4yNVY3LjVDNC41IDMuMzY1IDcuODY1IDAgMTIgMHM3LjUgMy4zNjUgNy41IDcuNXY4LjI0OWEuNzUuNzUgMCAwMS0xLjUgMFY3LjVjMC0zLjMwOC0yLjY5Mi02LTYtNnMtNiAyLjY5Mi02IDZ2MTEuMjVjMCAyLjA2OCAxLjY4MiAzLjc1IDMuNzUgMy43NXMzLjc1LTEuNjgyIDMuNzUtMy43NVY3LjVjMC0uODI3LS42NzMtMS41LTEuNS0xLjVzLTEuNS42NzMtMS41IDEuNXY5Ljc1YS43NS43NSAwIDAxLTEuNSAwVjcuNWMwLTEuNjU0IDEuMzQ2LTMgMy0zczMgMS4zNDYgMyAzdjExLjI1QTUuMjU2IDUuMjU2IDAgMDE5Ljc1IDI0eiIgZmlsbD0iIzJjMmUzMiIvPjwvc3ZnPg==),
@@ -72,3 +69,27 @@ $icons: (
     'user-white-bg': url(data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MDkuNiA1MDkuNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTA5LjYgNTA5LjY7IiB4bWw6c3BhY2U9InByZXNlcnZlIiBmaWxsPSd3aGl0ZSc+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTM0NCwzMzQuOTZjMzQuOTM4LTQxLjQ0LDUzLjk5NS05My45NTgsNTMuNzYtMTQ4LjE2YzAtNzkuNTI5LTY0LjQ3MS0xNDQtMTQ0LTE0NHMtMTQ0LDY0LjQ3MS0xNDQsMTQ0CgkJCWMtMC4yNzksNTQuMTgyLDE4LjcxOSwxMDYuNjk4LDUzLjYsMTQ4LjE2Qzk1LjIwOCwzNDYuNzU1LDM1LjU3MSwzODcuNjQzLDAsNDQ2Ljk2bDI3LjM2LDE2CgkJCWMzNi4wMy02MC4xNTYsMTAwLjE1Ni05Ny44ODUsMTcwLjI0LTEwMC4xNmMzNC40OTYsMjAuNTg1LDc3LjUwNCwyMC41ODUsMTEyLDBjNzEuNTA1LDIuNzE4LDEzNi41OTMsNDIsMTcyLjMyLDEwNGwyNy42OC0xNgoJCQlDNDc0LjE0LDM4OS42OTUsNDEzLjU1OSwzNDcuMzE4LDM0NCwzMzQuOTZ6IE0yNTMuNzYsMzUxLjQ0Yy03NS4yLDAtMTE1LjItOTYuMzItMTE1LjItMTY0LjY0YzAtNjMuNjIzLDUxLjU3Ny0xMTUuMiwxMTUuMi0xMTUuMgoJCQljNjMuNjIzLDAsMTE1LjIsNTEuNTc3LDExNS4yLDExNS4yQzM2OC45NiwyNTUuNzYsMzI4Ljk2LDM1MS40NCwyNTMuNzYsMzUxLjQ0eiIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPg==),
     'search-white': url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMy41ODYgMTMuNjAyYTUuMDgxIDUuMDgxIDAgMDAwLTcuMTggNS4wNjcgNS4wNjcgMCAwMC03LjE3MiAwIDUuMDgxIDUuMDgxIDAgMDAwIDcuMTggNS4wNjcgNS4wNjcgMCAwMDcuMTcyIDB6bTEuNDE1LTguNTk3YTcuMDg1IDcuMDg1IDAgMDEwIDEwLjAxMiA3LjA2NiA3LjA2NiAwIDAxLTEwIDBBNy4wODUgNy4wODUgMCAwMTUgNS4wMDVhNy4wNjYgNy4wNjYgMCAwMTEwIDB6bS44ODQgMTAuODk3YTEgMSAwIDAxMS40MTQgMGwyLjk1NSAyLjk1OGMuMzkuMzkxLjM5IDEuMDI1IDAgMS40MTZhMSAxIDAgMDEtMS40MTUgMGwtMi45NTQtMi45NThhMS4wMDIgMS4wMDIgMCAwMTAtMS40MTZ6IiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPg==)
     );
+
+    
+@each $label, $size in $sizes {
+    .e-icon-#{$label} {
+        background-size: $size $size;
+        width: $size;
+        height: $size;
+        img {
+            width:$size;
+            height:$size;
+        }
+    }
+}
+
+@each $label, $icon in $icons {
+    .e-icon-#{$label} {
+        background-image: $icon;
+        background-size: $defaultSize $defaultSize;
+        width:$defaultSize;
+        height:$defaultSize;
+        display:inline-block;
+        background-repeat: no-repeat;
+    }
+}
