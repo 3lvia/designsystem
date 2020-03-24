@@ -57,10 +57,9 @@ $table-border-radius: 4px;
   //Creating variable containing '&' to jump to parent inside a child class.
   $this: &;
 
-  display: block;
+  display: inline-block;
   overflow: auto;
   white-space: nowrap;
-  width: fit-content;
   box-sizing: border-box;
   text-align: left;
 
