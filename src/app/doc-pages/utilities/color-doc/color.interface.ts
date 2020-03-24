@@ -1,6 +1,7 @@
 export interface Color {
     title: string;
     labels?: string[];
-    color: string;
+    hex: string;
+    rgba: string;
     lg?: boolean;
 }

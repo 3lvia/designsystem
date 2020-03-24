@@ -198,7 +198,7 @@ export const eUtilities: EItems[] = [
         title: 'Colors',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Color,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View colors',
     },
     // {

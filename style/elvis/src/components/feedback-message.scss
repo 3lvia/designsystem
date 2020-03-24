@@ -24,7 +24,7 @@ $feedback-message-gap: 10px;
   @extend .is-info;
 
   &.is-success {
-    background: color('green-lime');
+    background: color('green');
     
     #{$this}_icon, #{$this}_message, #{$this}_close-button {
       color: color('black');
@@ -32,7 +32,7 @@ $feedback-message-gap: 10px;
   }
 
   &.is-info {
-    background-color: color('yellow-05');
+    background-color: color('yellow');
 
     #{$this}_icon, #{$this}_message, #{$this}_close-button {
       color: color('black');
@@ -40,7 +40,7 @@ $feedback-message-gap: 10px;
   }
 
   &.is-warn {
-    background-color: color('orange-peel');
+    background-color: color('orange');
 
     #{$this}_icon, #{$this}_message, #{$this}_close-button {
       color: color('black');

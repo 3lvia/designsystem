@@ -3,7 +3,7 @@
 
 $form-checkbox-mark-size: 1rem;
 $form-checkbox-mark-border-radius: $border-radius;
-$form-checkbox-mark-border: 1px solid color('green-lime');
+$form-checkbox-mark-border: 1px solid color('green');
 
 .e-form_checkbox {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -20,7 +20,7 @@ $form-checkbox-mark-border: 1px solid color('green-lime');
   // We have to seperate the checkbox marked styling because of the checked state
   %checkbox-mark {
     position: relative;
-    background-color: color('green-lime');
+    background-color: color('green');
     &::before {
 
       
