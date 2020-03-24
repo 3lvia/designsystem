@@ -149,7 +149,7 @@ export const eComponents: EItems[] = [
         title: 'Table',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Table,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
     },
     {

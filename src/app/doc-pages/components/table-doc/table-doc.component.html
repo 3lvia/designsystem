@@ -2,17 +2,15 @@
 <app-component-header
   [componentStatus]="componentStatus"
   [componentClasses]="componentClasses"
+  [does]="'Tables should be used when displaying large amounts of data to the user. Text should be left aligned in the columns and numbers should be right aligned.'"
+  [donts]="'Don’t use tables when the content mainly is visual.'"
 >
   <ng-container ngProjectAs="headerTitle">
     Table
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Note: The Elvia design system does not include table functionality. The examples below show styling and suggested usage.
   </ng-container>
-
-  
 </app-component-header>
 
 <!--BODY-->
@@ -25,6 +23,11 @@
   <app-code-block
     [isHTML]="true"
     [code]="example2"
-    [title]="'Table'"
+    [title]="'Table with multiple rows'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example3"
+    [title]="'Table for mobile'"
   ></app-code-block>
 </div>
