@@ -12,8 +12,7 @@ export class ButtonDocComponent {
   componentClasses = ['e-btn', 'e-btn btn-secondary', 'e-btn has-icon', 'e-btn btn-loading'];
   public clicked = false;
 
-  example1 = `
-<button class="e-btn e-m-2" >
+  example1 = `<button class="e-btn e-m-2" >
   Standard
 </button>
 <button class="e-btn e-m-2" disabled >
@@ -21,8 +20,7 @@ export class ButtonDocComponent {
 </button>
 `;
 
-  example2 = `
-<button class="e-btn btn-secondary e-m-2" >
+  example2 = `<button class="e-btn btn-secondary e-m-2" >
   Standard
 </button>
 <button class="e-btn btn-secondary e-m-2" disabled >
@@ -47,13 +45,12 @@ export class ButtonDocComponent {
 </div>
 `;
 
-  example4 = `
-  <button class="e-btn btn-loading e-m-2">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  `
+  example4 = `<button class="e-btn btn-loading e-m-2">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+`
   ;
 
   constructor() { }

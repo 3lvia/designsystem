@@ -34,7 +34,7 @@ $button-font-size: 1rem;
     box-sizing: border-box;
 
     &:disabled {
-      background: color("grey-silver");
+      background: color("grey-03");
       color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
     }
@@ -71,7 +71,7 @@ $button-font-size: 1rem;
     box-sizing: border-box;
 
     &:disabled {
-      background: color("grey-silver");
+      background: color("grey-03");
       color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
       box-shadow: none;
@@ -84,12 +84,12 @@ $button-font-size: 1rem;
     // Changes button-text on hover/active/focus
     &:enabled {
       &:hover:not(:focus) {
-        color: color("green-lime");
+        color: color("black");
         box-shadow: 0px 0px 0px 1px color("green-lime");
       }
 
       &:active {
-        color: color("green-lime");
+        color: color("black");
         box-shadow: 0px 0px 0px 2px color("green-lime");
       }
     }

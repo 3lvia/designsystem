@@ -9,7 +9,7 @@ export class CopyComponent implements OnInit {
 
   @Input() message = '';
   @Input() tooltipPosition = 'left';
-  
+
   copyTooltip = 'Copy';
 
   constructor() { }
