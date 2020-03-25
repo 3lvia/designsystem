@@ -10,12 +10,13 @@ $checkbox-mark-border: 1px solid color("black");
   $this: &;
   display: flex;
   align-items: center;
+  width: fit-content;
   cursor: pointer;
   &:not(:last-child) {
     margin-bottom: 0.75rem;
   }
 
-  //   // Need to hide the original checkbox
+  // hides initial checkbox and gives placeholder style style according to state
   input {
     opacity: 0;
 
@@ -26,10 +27,22 @@ $checkbox-mark-border: 1px solid color("black");
     &:focus ~ #{$this}_mark {
       box-shadow: 0px 0px 0px 1px color("green-lime");
     }
+    
+    &:hover:not(:disabled):not(:invalid) ~ #{$this}_mark {
+      background-color: color("green-lime");
+    }
+ 
+    &:disabled ~ #{$this}_mark {
+      border-color: color('grey-03');
+    }
+
+    &:invalid ~ #{$this}_mark {
+      border-color: color("red");
+    }
   }
 
-  //   // Creating placeholder to inject style into checkbox mutations.
-  //   // We have to seperate the checkbox marked styling because of the checked state
+  // Creating placeholder to inject style into checkbox mutations.
+  // We have to seperate the checkbox marked styling because of the checked state
 
   %checkbox-mark {
     position: relative;
@@ -37,52 +50,28 @@ $checkbox-mark-border: 1px solid color("black");
 
     &::before {
       position: absolute;
-      // left: -30%;
       top: 50%;
-      height: 40%;
+      left: -2%;
+      height: 30%;
       width: 2px;
       background-color: color("black");
       border-radius: 15px;
       content: "";
       transform: translateX(10px) rotate(-45deg);
       transform-origin: left bottom;
-      font-size: 0.75rem;
     }
 
     &::after {
-      position: absolute;
-      left: -30%;
-      bottom: 0;
+     position: absolute;
+      bottom: 20%;
       height: 2px;
-      width: 70%;
+      width: 60%;
       background-color: color("black");
       content: "";
       border-radius: 15px;
-      transform: translateX(10px) rotate(-45deg);
+      transform: translateX(10px) rotate(-55deg);
       transform-origin: left bottom;
     }
-  }
-
-  &.is-checked {
-    #{$this}_mark {
-      @extend %checkbox-mark;
-    }
-  }
-
-  &.is-invalid {
-    input:checked ~ #{$this}_mark,
-    #{$this}_mark {
-      border-color: color("red");
-
-      &::before {
-        color: color("red");
-      }
-    }
-  }
-
-  .e-badge {
-    margin-left: 0.5rem;
-    float: right;
   }
 
   &_mark {
@@ -92,13 +81,14 @@ $checkbox-mark-border: 1px solid color("black");
     min-height: $checkbox-mark-size;
     max-width: $checkbox-mark-size;
     max-height: $checkbox-mark-size;
-    transition: background 0.3s $transition-cubic;
+    transition: background 0.2s $transition-cubic;
     border: $checkbox-mark-border;
     border-radius: $checkbox-mark-border-radius;
     background: color("white");
   }
 
   &_label {
+    font-size: inherit;
     margin-left: 1rem;
   }
 }

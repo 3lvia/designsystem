@@ -12,29 +12,31 @@ export class CheckboxDocComponent implements OnInit {
   componentClasses = ['e-form_field', 'e-form_checkbox'];
 
   example1 = `
-  <label class="e-checkbox">
-    <input type="checkbox" checked>
-    <span class="e-checkbox_mark"></span>
-    <span class="e-checkbox_label">Picked checkbox</span>
-  </label>
+  <form>
+    <label class="e-checkbox">
+      <input type="checkbox">
+      <span class="e-checkbox_mark"></span>
+      <span class="e-checkbox_label">Normal checkbox</span>
+    </label>
 
-  <label class="e-checkbox">
-    <input type="checkbox">
-    <span class="e-checkbox_mark"></span>
-    <span class="e-checkbox_label">Picked checkbox</span>
-  </label>
+    <label class="e-checkbox">
+      <input type="checkbox" checked>
+      <span class="e-checkbox_mark"></span>
+      <span class="e-checkbox_label">Checked checkbox</span>
+    </label>
 
-  <label class="e-checkbox">
-    <input type="checkbox">
-    <span class="e-checkbox_mark"></span>
-    <span class="e-checkbox_label">Picked checkbox</span>
-  </label>
+    <label class="e-checkbox">
+      <input type="checkbox" disabled>
+      <span class="e-checkbox_mark"></span>
+      <span class="e-checkbox_label">Disabled checkbox</span>
+    </label>
 
-  <label class="e-checkbox">
-    <input type="checkbox">
-    <span class="e-checkbox_mark"></span>
-    <span class="e-checkbox_label">Picked checkbox</span>
-  </label>
+    <label class="e-checkbox is-invalid">
+      <input type="checkbox" required>
+      <span class="e-checkbox_mark"></span>
+      <span class="e-checkbox_label">Invalid checkbox</span>
+    </label>
+  <form>
 `;
 
   constructor() { }
