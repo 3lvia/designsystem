@@ -64,6 +64,7 @@ $checkbox-mark-border: 1px solid color("black");
     &::after {
      position: absolute;
       bottom: 20%;
+      left: 2%;
       height: 2px;
       width: 60%;
       background-color: color("black");

@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class CheckboxDocComponent implements OnInit {
 
   componentStatus = getComponent('checkbox-doc').status;
-  componentClasses = ['e-form_field', 'e-form_checkbox'];
+  componentClasses = ['e-checkbox'];
 
   example1 = `
   <form>
@@ -31,7 +31,7 @@ export class CheckboxDocComponent implements OnInit {
       <span class="e-checkbox_label">Disabled checkbox</span>
     </label>
 
-    <label class="e-checkbox is-invalid">
+    <label class="e-checkbox">
       <input type="checkbox" required>
       <span class="e-checkbox_mark"></span>
       <span class="e-checkbox_label">Invalid checkbox</span>
