@@ -7,17 +7,6 @@ $sizes: (
     'xl': 64px,
 );
 
-@each $label, $icon in $icons {
-    .e-icon-#{$label} {
-        background-image: $icon;
-        background-size: $defaultSize $defaultSize;
-        width:$defaultSize;
-        height:32px;
-        display:inline-block;
-        background-repeat: no-repeat;
-    }
-}
-
 // Class used for custom SVGs 
 .e-icon-custom {
     width:$defaultSize;
@@ -26,17 +15,5 @@ $sizes: (
     img {
         width: $defaultSize;
         height:$defaultSize;
-    }
-}
-
-@each $label, $size in $sizes {
-    .e-icon-#{$label} {
-        background-size: $size $size;
-        width: $size;
-        height: $size;
-        img {
-            width:$size;
-            height:$size;
-        }
     }
 }

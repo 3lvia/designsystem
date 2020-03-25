@@ -34,7 +34,7 @@ $button-font-size: 1rem;
     box-sizing: border-box;
 
     &:disabled {
-      background: color("grey-03");
+      background: color("grey-30");
       color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
     }
@@ -47,12 +47,12 @@ $button-font-size: 1rem;
     // Changes button-text on hover/active/focus
     &:enabled {
       &:hover:not(:focus) {
-        color: color("green-lime");
+        color: color("green");
       }
 
       &:active {
-        color: color("green-lime");
-        border-color: color("green-lime");
+        color: color("green");
+        border-color: color("green");
       }
     }
   }
@@ -71,7 +71,7 @@ $button-font-size: 1rem;
     box-sizing: border-box;
 
     &:disabled {
-      background: color("grey-03");
+      background: color("grey-30");
       color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
       box-shadow: none;
@@ -84,13 +84,13 @@ $button-font-size: 1rem;
     // Changes button-text on hover/active/focus
     &:enabled {
       &:hover:not(:focus) {
-        color: color("green-lime");
-        box-shadow: 0px 0px 0px 1px color("green-lime");
+        color: color("black");
+        box-shadow: 0px 0px 0px 1px color("green");
       }
 
       &:active {
-        color: color("green-lime");
-        box-shadow: 0px 0px 0px 2px color("green-lime");
+        color: color("black");
+        box-shadow: 0px 0px 0px 2px color("green");
       }
     }
   }
@@ -118,8 +118,8 @@ $button-font-size: 1rem;
 
   // Buttons with icons only
   // &-icon {
-  //   border: $button-border-width solid color("green-lime");
-  //   color: color("green-lime");
+  //   border: $button-border-width solid color("green");
+  //   color: color("green");
   //   border-radius: $button-radius;
   //   background: transparent;
   //   height: $icon-button-height-with-border;
@@ -139,7 +139,7 @@ $button-font-size: 1rem;
 
   //     &:hover {
   //       box-shadow: $shadow-medium;
-  //       border: $button-border-width + $extra-border-hover solid color("green-lime");
+  //       border: $button-border-width + $extra-border-hover solid color("green");
   //     }
   //   }
   // }

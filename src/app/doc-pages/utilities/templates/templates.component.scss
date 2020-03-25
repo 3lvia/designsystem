@@ -23,7 +23,7 @@
     width: fit-content, available;
     background: var(--e-white);
     border-radius: 2rem;
-    border: 2px solid var(--e-grey-03);
+    border: 2px solid var(--e-grey-30);
 
     input {
     opacity: 0;
@@ -45,7 +45,7 @@
   }
 
    input:checked + label {
-      background-color: var(--e-green-lime);
+      background-color: var(--e-green);
       color: var(--e-white);
       transition: all 0.2s ease-in-out;
   }

@@ -1,6 +1,7 @@
 /* Elvia Styleguide */
-// @import "~@hafslundnett/elvis/src/main.scss";
+// @import "~@elvia/elvis/src/main.scss";
 @import "../style/elvis/src/main.scss";
+@import "../style/elvis/src/icons/embedded.scss";
 
 /* Code highlighter */
 @import "~prismjs/plugins/toolbar/prism-toolbar.css";
@@ -29,14 +30,14 @@ body {
 }
 
 .code-text {
-  background: var(--e-green-lime-02);
+  background: var(--e-grey-10);
   padding: 0 4px;
   line-height: 140%;
 }
 .code-block {
   display: block;
   width: 100%;
-  background: var(--e-green-lime-02);
+  background: var(--e-grey-10);
   padding: 4px 8px;
   margin: 16px 0;
   line-height: 180%;
@@ -45,16 +46,16 @@ body {
 .factbox {
   display: flex;
   padding: 10px 10px;
-  border: 2px solid var(--e-grey-03);
+  border: 2px solid var(--e-grey-30);
   border-radius: 4px;
   margin: 10px 0;
 
   &.is-info {
-    background-color: var(--e-yellow-05);
+    background-color: var(--e-yellow);
   }
 
   &.is-warn {
-    background: var(--e-orange-peel-05);
+    background: var(--e-orange);
   }
 
   &_icon {
@@ -133,12 +134,15 @@ body {
       border: 2px solid transparent;
     }
   
-    &-title {
+    &-title, &-sub-title {
       display: flex;
       justify-content: center;
       align-items: center;
       margin-top: 8px;
       width: 100%;
+    }
+    &-sub-title {
+      color: var(--e-grey-80);
     }
   
     &-variable {
