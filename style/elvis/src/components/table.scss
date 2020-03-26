@@ -19,13 +19,16 @@ $table-border-radius: 4px;
   border: 1px solid color('grey-10');
   border-radius: 4px;
 
-  // Border for table, not easy to get round borders with border-collapse
+  // Border for table, not easy to get rounded borders with border-collapse
   border-collapse: separate; 
   border-spacing: 0; 
   td, th {
     width: 100%;
     border: 1px solid color('grey-10');
     border-style: none solid solid none;
+    font-size: 1rem;
+    line-height: 175%;
+    padding: $table-padding;
   }
   tr:first-child th:first-child { border-top-left-radius: $table-border-radius; }
   tr:first-child th:last-child { border-top-right-radius: $table-border-radius; }
@@ -40,12 +43,9 @@ $table-border-radius: 4px;
 
   th {
     font-weight: 500;
-  }
-  
-  th, td {
-    font-size: 1rem;
-    line-height: 175%;
-    padding: $table-padding;
+    &.is-right {
+      text-align: right;
+    }
   }
 
   // Unique CSS for elements when there are more than 2 tr

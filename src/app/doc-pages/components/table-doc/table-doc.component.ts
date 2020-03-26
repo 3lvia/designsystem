@@ -14,7 +14,7 @@ export class TableDocComponent implements OnInit {
   example1 = `<table class="e-table">
   <tr class="e-table_header">
     <th>Gebyr for ikke-automatiske strømmålere</th>
-    <th>Nok</th>
+    <th class="is-right">Nok</th>
   </tr>
   <tr>
     <td>Administrativt arbeid i kundesystemet</td>
