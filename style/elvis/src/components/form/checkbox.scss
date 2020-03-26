@@ -45,7 +45,7 @@ $checkbox-mark-border: 1px solid color('black');
 
   // Creating a placeholder to inject checkbox mark into the checkbox
   // :before & :after each create a line which we put together to a checkmark.
-  // Postion properties top,left,right and bottom positions the line to look like a checkmark.
+  // Position properties top,left,right and bottom positions the line to look like a checkmark.
   %checkbox-mark {
     position: relative;
     background-color: color('green');
