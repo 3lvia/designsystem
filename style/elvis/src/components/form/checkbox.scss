@@ -9,6 +9,7 @@ $checkbox-mark-border: 1px solid color('black');
 .e-checkbox {
   //   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
+
   display: flex;
   align-items: center;
   width: fit-content;
@@ -17,7 +18,7 @@ $checkbox-mark-border: 1px solid color('black');
     margin-bottom: 0.75rem;
   }
 
-  // hides initial checkbox and gives placeholder style style according to state
+  // hides initial checkbox and gives placeholder style according to state
   input {
     opacity: 0;
 
@@ -42,9 +43,9 @@ $checkbox-mark-border: 1px solid color('black');
     }
   }
 
-  // Creating placeholder to inject style into checkbox mutations.
-  // We have to seperate the checkbox marked styling because of the checked state
-
+  // Creating a placeholder to inject checkbox mark into the checkbox
+  // :before & :after each create a line which we put together to a checkmark.
+  // Postion properties top,left,right and bottom positions the line to look like a checkmark.
   %checkbox-mark {
     position: relative;
     background-color: color('green');
