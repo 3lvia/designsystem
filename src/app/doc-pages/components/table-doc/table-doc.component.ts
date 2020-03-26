@@ -14,7 +14,7 @@ export class TableDocComponent implements OnInit {
   example1 = `<table class="e-table">
   <tr class="e-table_header">
     <th>Gebyr for ikke-automatiske strømmålere</th>
-    <th class="is-right">Nok</th>
+    <th>Nok</th>
   </tr>
   <tr>
     <td>Administrativt arbeid i kundesystemet</td>
@@ -115,15 +115,15 @@ export class TableDocComponent implements OnInit {
 </table>
 `;
 
-  example3 = `<table class="e-table-phone">
+  example3 = `<table class="e-table-mobile">
   <tbody>
-    <tr class="e-table-phone_header">
+    <tr class="e-table_header">
       <th>Sikringsstørrelse</th>
       <th></th>
     </tr>
   </tbody>
   <tbody>
-    <tr class="e-table-phone_header-row">
+    <tr class="e-table_header-row">
       <th>16 A</th>
       <th></th>
     </tr>
@@ -141,7 +141,7 @@ export class TableDocComponent implements OnInit {
     </tr>
   </tbody>
   <tbody>
-    <tr class="e-table-phone_header-row">
+    <tr class="e-table_header-row">
       <th>16 A</th>
       <th></th>
     </tr>
@@ -159,7 +159,7 @@ export class TableDocComponent implements OnInit {
     </tr>
   </tbody>
   <tbody>
-    <tr class="e-table-phone_header-row">
+    <tr class="e-table_header-row">
       <th>16 A</th>
       <th></th>
     </tr>

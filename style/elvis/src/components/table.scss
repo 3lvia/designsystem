@@ -1,9 +1,19 @@
+@import "./../utilities/typography.scss";
+
 $table-padding: 0.75rem 1.5rem;
 $table-multi-row-padding: 0.6875rem 1rem;
 $table-phone-padding: 0.375rem 1rem;
 $table-first-column-padding: 1.5rem;
 $table-last-column-padding: 1.5rem;
 $table-border-radius: 4px;
+
+%header-style {
+  background: color('grey');
+  th {
+    color: color('white');
+    font-weight: 500;
+  }
+}
 
 .e-table {
   display: block;
@@ -13,10 +23,10 @@ $table-border-radius: 4px;
   max-width: 700px;
   box-sizing: border-box;
   text-align: left;
-  border: 1px solid color('grey-10');
-  border-radius: 4px;
 
   // Not easy to get rounded borders with border-collapse
+  border: 1px solid color('grey-10');
+  border-radius: 4px;
   border-collapse: separate; 
   border-spacing: 0; 
   tr:first-child th:first-child { border-top-left-radius: $table-border-radius; }
@@ -26,24 +36,19 @@ $table-border-radius: 4px;
   tr:first-child th { border-top-style: solid; }
   tr td:first-child { border-left-style: solid; }
   td, th {
+    @extend .e-text-description;
     width: 100%;
     border: 1px solid color('grey-10');
     border-style: none solid solid none;
-    font-size: 1rem;
-    line-height: 175%;
     padding: $table-padding;
   }
 
-  tr:nth-of-type(even) {
-    background: color('grey-05');
+  .e-table_header {
+    @extend %header-style;
   }
 
-  th {
-    font-weight: 500;
-    &.is-right {
-      text-align: right;
-    }
-  }
+  // Striped table
+  tr:nth-of-type(even) { background: color('grey-05'); }
 
   // Unique CSS for elements when there are more than 2 tr
   tr {
@@ -52,45 +57,35 @@ $table-border-radius: 4px;
       padding: $table-multi-row-padding;
     }
   }
-  
-  &_header {
-    background: color('grey');
-    color: color('white');
-  }
 }
 
-.e-table-phone {
+.e-table-mobile {
   display: inline-block;
   overflow: auto;
   white-space: nowrap;
   box-sizing: border-box;
   text-align: left;
-
+  
   // Border for table, not easy to get round borders with border-collapse
   border-radius: $table-border-radius;
   border-spacing: 0;
   border: 1px solid color('grey-10');
 
+  // Striped table
   tbody:not(:first-of-type) tr:not(:first-of-type):nth-of-type(odd) {
     background: color('grey-05');
-    border: 1px solid black;
-  }
-
-  th {
-    font-weight: 500;
   }
   
   th, td {
-    font-size: 1rem;
-    line-height: 175%;
+    @extend .e-text-description;
     padding: $table-phone-padding;
   }
-  
-  &_header {
-    background: color('grey');
-    color: color('white');
+
+  .e-table_header {
+    @extend %header-style;
   }
-  &_header-row {
+  
+  .e-table_header-row {
     background: color('grey-10');
   }
 }
