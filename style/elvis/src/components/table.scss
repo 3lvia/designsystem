@@ -34,6 +34,11 @@ $table-border-radius: 4px;
     @extend .e-text-description;
     width: 100%;
     padding: $table-padding;
+    &.is-max {
+      display: inline-block;
+      white-space: pre-wrap;
+      width: 300px;
+    }
   }
 
   .e-table_header {
@@ -55,12 +60,10 @@ $table-border-radius: 4px;
 }
 
 .e-table-mobile {
-  display: inline-block;
-  overflow: auto;
-  white-space: nowrap;
-  text-align: left;
-  table-layout: fixed;
+  display: block;
   width: 100%;
+  overflow: auto;
+  text-align: left;
   border-radius: $table-border-radius;
   border-spacing: 0;
   border: 1px solid color('grey-10');
@@ -68,8 +71,7 @@ $table-border-radius: 4px;
   th, td {
     @extend .e-text-description;
     padding: $table-phone-padding;
-    width: 50%;
-    white-space: pre-wrap;
+    width: 45%;
   }
 
   .e-table_header {

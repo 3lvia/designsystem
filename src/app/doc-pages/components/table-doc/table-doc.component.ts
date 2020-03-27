@@ -48,13 +48,6 @@ export class TableDocComponent implements OnInit {
 `;
 
   example2 = `<table class="e-table">
-  <colgroup>
-    <col span="1">
-    <col span="1" style="width:300px">
-    <col span="1">
-    <col span="1">
-    <col span="1">
-  </colgroup>
   <thead>
     <tr class="e-table_header">
       <th>Sikringsstørrelse</th>
@@ -67,7 +60,7 @@ export class TableDocComponent implements OnInit {
   <tbody>
     <tr>
       <td>16 A</td>
-      <td class="is-right">340 kr/mnd. This cell exceeds 300px and should wrap to new line.</td>
+      <td class="is-right is-max">340 kr/mnd. This cell exceeds 300px, so the class 'is-max' is added.</td>
       <td class="is-right">1065 kr/mnd</td>
       <td class="is-right">900 kr/mnd</td>
       <td class="is-right">900 kr/mnd</td>
@@ -105,24 +98,6 @@ export class TableDocComponent implements OnInit {
         <th></th>
       </tr>
     </thead>
-    <tbody>
-      <tr class="e-table_header-row">
-        <th>16 A</th>
-        <th></th>
-      </tr>
-      <tr>
-        <td>230 V (2-fase)</td>
-        <td class="is-right">340 kr/mnd</td>
-      </tr>
-      <tr>
-        <td>230 V (3-fase)</td>
-        <td class="is-right">1065 kr/mnd</td>
-      </tr>
-      <tr>
-        <td>400 V (1-fase)</td>
-        <td class="is-right">900 kr/mnd</td>
-      </tr>
-    </tbody>
     <tbody>
       <tr class="e-table_header-row">
         <th>16 A</th>
