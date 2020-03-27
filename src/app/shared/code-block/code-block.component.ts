@@ -20,6 +20,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() isHTML = false;
   @Input() isSCSS = false;
   @Input() code = '';
+  @Input() showTabs = true;
 
   showCode = false;
   showSmartphone = false;
