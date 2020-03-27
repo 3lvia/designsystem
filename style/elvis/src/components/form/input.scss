@@ -46,8 +46,8 @@ $form-input-border: 1px solid color('grey');
     overflow-y: auto;
   }
 
-  &:not(.is-invalid):focus-within {
-    @extend .is-focus;
+  &:not(.invalid):focus-within {
+    @extend .focus;
   }
 
   &.is-small {
@@ -64,18 +64,18 @@ $form-input-border: 1px solid color('grey');
     }
   }
 
-  &.is-focus {
+  &.focus {
     border: 2px solid var(--e-green);
     box-shadow: 0 0 2px var(--e-green);
     padding: $form-input-padding-active;
   }
 
-  &.is-invalid {
+  &.invalid {
     border: 2px solid var(--e-red);
     padding: $form-input-padding-active;
   }
 
-  &.is-disabled, input:disabled {
+  &.disabled, input:disabled {
     color: var(--e-grey-20);
     border-color: var(--e-grey-20);
     cursor: not-allowed;

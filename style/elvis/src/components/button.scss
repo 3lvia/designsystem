@@ -21,6 +21,33 @@ $button-font-size: 1rem;
   // .is-primary is the default for any e-button
   @extend .is-primary;
 
+  &.disabled {
+    background: color("grey-30");
+    color: rgba(255, 255, 255, 0.75);
+    cursor: not-allowed;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.75) !important;
+    }
+
+    &:focus {
+      border: 2px solid transparent !important;
+    }
+  }
+
+  &.focus {
+    border-color: #00a2c7;
+  }
+
+  &.hover:not(.disabled) {
+    color: color("green");
+  }
+
+  &.active {
+    color: color("green");
+    border-color: color("green");
+  }
+
   &.is-primary {
     display: inline-block;
     border: 2px solid transparent;
@@ -41,7 +68,7 @@ $button-font-size: 1rem;
 
     &:focus {
       // Not in colors variables yet due to possibly update in future.
-      border-color: #00A2C7;
+      border-color: #00a2c7;
     }
 
     // Changes button-text on hover/active/focus
@@ -60,7 +87,7 @@ $button-font-size: 1rem;
   &.btn-secondary {
     display: inline-block;
     border: 2px solid transparent;
-    box-shadow: 0px 0px 0px 1px color('black');
+    box-shadow: 0px 0px 0px 1px color("black");
     border-radius: $button-radius;
     padding: $button-padding + 1px;
     font-size: $button-font-size;
@@ -77,8 +104,22 @@ $button-font-size: 1rem;
       box-shadow: none;
     }
 
+    &.disabled {
+      background: color("grey-30");
+      color: rgba(255, 255, 255, 0.75);
+      cursor: not-allowed;
+      box-shadow: none;
+
+      &:hover {
+        box-shadow: 0px 0px 0px 1px transparent !important;
+      }
+    }
+
     &:focus:not(:active) {
-      box-shadow: 0px 0px 0px 2px #00A2C7;
+      box-shadow: 0px 0px 0px 2px #00a2c7;
+    }
+    &.focus {
+      box-shadow: 0px 0px 0px 2px #00a2c7;
     }
 
     // Changes button-text on hover/active/focus
@@ -92,6 +133,16 @@ $button-font-size: 1rem;
         color: color("black");
         box-shadow: 0px 0px 0px 2px color("green");
       }
+    }
+
+    &.hover {
+      color: color("black");
+      box-shadow: 0px 0px 0px 1px color("green");
+    }
+
+    &.active {
+      color: color("black");
+      box-shadow: 0px 0px 0px 2px color("green");
     }
   }
 
@@ -112,9 +163,10 @@ $button-font-size: 1rem;
       margin-top: -8px;
       margin-bottom: -8px;
     }
+
   }
 
-  // Todo: Implement when "Close button" is ready, or we have more use cases for internal systems. 
+  // Todo: Implement when "Close button" is ready, or we have more use cases for internal systems.
 
   // Buttons with icons only
   // &-icon {
