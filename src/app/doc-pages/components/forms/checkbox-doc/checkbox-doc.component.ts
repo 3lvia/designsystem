@@ -37,6 +37,37 @@ export class CheckboxDocComponent implements OnInit {
   </label>
 <form>
 `;
+  example2 = `
+  <label class="e-checkbox">
+    <input type="checkbox">
+    <span class="e-checkbox_mark checked"></span>
+    <span class="e-checkbox_label">Checked</span>
+  </label>
+
+  <label class="e-checkbox">
+    <input type="checkbox">
+    <span class="e-checkbox_mark focus"></span>
+    <span class="e-checkbox_label">Focus</span>
+  </label>
+
+  <label class="e-checkbox">
+    <input type="checkbox">
+    <span class="e-checkbox_mark hover"></span>
+    <span class="e-checkbox_label">Hover</span>
+  </label>
+
+  <label class="e-checkbox">
+    <input type="checkbox">
+    <span class="e-checkbox_mark disabled"></span>
+    <span class="e-checkbox_label">Disabled</span>
+  </label>
+
+  <label class="e-checkbox">
+    <input type="checkbox">
+    <span class="e-checkbox_mark invalid"></span>
+    <span class="e-checkbox_label">Invalid</span>
+  </label>
+`;
 
   constructor() { }
 

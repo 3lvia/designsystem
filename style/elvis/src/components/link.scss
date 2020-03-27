@@ -28,7 +28,7 @@
     margin-bottom: -3px;
     border-radius: 15px;
   }
-  &:hover {
+  &:hover, &.hover {
     &:before {
       background-color: color("green");
     }
