@@ -9,13 +9,13 @@ import { getComponent } from 'src/app/shared/e-items';
 export class TableDocComponent implements OnInit {
 
   componentStatus = getComponent('table-doc').status;
-  componentClasses = ['e-table', 'e-table-phone'];
+  componentClasses = ['e-table', 'e-table no-zebra', 'e-table-phone'];
 
   example1 = `<table class="e-table">
   <thead>
     <tr class="e-table_header">
       <th>Gebyr for ikke-automatiske strømmålere</th>
-      <th>Nok</th>
+      <th>Gateadresse</th>
     </tr>
   </thead>
   <tbody>
@@ -120,7 +120,7 @@ export class TableDocComponent implements OnInit {
       </tr>
       <tr>
         <td>400 V (1-fase)</td>
-        <td class="is-right">900 kr/mnd</td>
+        <td class="is-right">900 kr/mnd a long row column text</td>
       </tr>
     </tbody>
     <tbody>

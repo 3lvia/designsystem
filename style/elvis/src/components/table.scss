@@ -17,40 +17,36 @@ $table-border-radius: 4px;
   display: block;
   overflow: auto;
   white-space: nowrap;
-  width: 100%;
-  max-width: 700px;
   box-sizing: border-box;
   text-align: left;
+  table-layout: fixed;
+  overflow-wrap: break-word;
+  width: 100%;
+  max-width: 768px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
 
-  // Not easy to get rounded borders with border-collapse
+  // Rounded borders with border-collapsed
   border: 1px solid color('grey-10');
   border-radius: $table-border-radius;
   border-collapse: separate; 
   border-spacing: 0; 
-  tr:first-child th:first-child { border-top-left-radius: $table-border-radius; }
-  tr:first-child th:last-child { border-top-right-radius: $table-border-radius; }
-  tr:last-child td:first-child { border-bottom-left-radius: $table-border-radius; }
-  tr:last-child td:last-child { border-bottom-right-radius: $table-border-radius; }
-  tr:first-child th { border-top-style: solid; }
-  tr td:first-child { border-left-style: solid; }
+  tr td:first-of-type, tr th:first-of-type { 
+    border-right: 1px solid color('grey-10');
+  }
+
   td, th {
     @extend .e-text-description;
-    width: 100%;
-    height: 100%;
-    border: 1px solid color('grey-10');
-    border-style: none solid solid none;
+    white-space: pre-wrap;
     padding: $table-padding;
-    border-spacing: 0; 
   }
-  tr td:first-of-type { border-left: transparent;}
-  tr td:last-of-type { border-right: transparent;}
-  tr:last-of-type td { border-bottom: transparent;}
 
   .e-table_header {
     @extend %header-style;
   }
 
-  // Striped table
+  // Zebra table
   &:not(.no-zebra) {
     tr:nth-of-type(even) { background: color('grey-05'); }
   }
@@ -66,21 +62,21 @@ $table-border-radius: 4px;
 
 .e-table-mobile {
   display: inline-block;
-  width: 100%;
   overflow: auto;
   white-space: nowrap;
   box-sizing: border-box;
   text-align: left;
-  
-  // Border for table, not easy to get round borders with border-collapse
+  table-layout: fixed;
+  width: 100%;
   border-radius: $table-border-radius;
   border-spacing: 0;
   border: 1px solid color('grey-10');
   
   th, td {
     @extend .e-text-description;
-    width: 100%;
     padding: $table-phone-padding;
+    width: 100%;
+    white-space: pre-wrap;
   }
 
   .e-table_header {
@@ -91,7 +87,7 @@ $table-border-radius: 4px;
     background: color('grey-10');
   }
 
-  // Striped table
+  // Zebra table
   &:not(.no-zebra) {
     tr:not(:first-of-type):nth-of-type(odd) { background: color('grey-05'); }
   }
