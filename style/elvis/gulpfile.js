@@ -19,23 +19,32 @@ const fs = require('fs');
 
 sass.compiler = require('node-sass');
 
-function clean() {
-  
-  const content = fs.readFileSync('./embedded.scss.backup').toString();
-  const verified = [];
-  
-  icons.forEach(icon => {
-      if(content.indexOf(icon.name) > -1) {
-          verified.push(icon);
+
+function findUnusedIconFiles() {
+  const content = fs.readdirSync('./src/icons/svg/src/');
+  const remove = [];
+
+  content.forEach(icon => {
+      const filename = icon.substr(0,icon.length - 4);
+      if(JSON.stringify(icons).indexOf(filename) === -1) {
+          remove.push(icon);
       }
   })
-  
-  
-  console.log(verified);
-  console.log(verified.length);
 
-  // Delete css and optimized icons
-  return del(['css/', 'icons/svg/dist/']);
+  return remove;
+}
+
+function clean() {
+  
+  let filesToDelete = ['css/', 'src/icons/svg/dist/'];
+  const unusedFiles = findUnusedIconFiles()
+  .map(file => {
+    return `src/icons/svg/src/${file}`;
+  })
+
+  filesToDelete = filesToDelete.concat(unusedFiles);
+  console.log(filesToDelete);
+  return del(filesToDelete);
 };
 
 
