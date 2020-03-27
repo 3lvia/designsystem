@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-dev": "concurrently \"npm run start\" \"cd style/elvis && gulp watch\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
