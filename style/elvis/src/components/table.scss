@@ -48,6 +48,12 @@ $table-border-radius: 4px;
   &:not(.no-zebra) {
     tr:nth-of-type(even) { background: color('grey-05'); }
   }
+  .is-right {
+    text-align: right;
+  }
+  .is-center {
+    text-align: center;
+  }
 }
 
 .e-table-mobile {
@@ -62,11 +68,6 @@ $table-border-radius: 4px;
   border-radius: $table-border-radius;
   border-spacing: 0;
   border: 1px solid color('grey-10');
-
-  // Striped table
-  &:not(.no-zebra) {
-    tr:not(:first-of-type):nth-of-type(odd) { background: color('grey-05'); }
-  }
   
   th, td {
     @extend .e-text-description;
@@ -80,5 +81,16 @@ $table-border-radius: 4px;
   
   .e-table_header-row {
     background: color('grey-10');
+  }
+
+  // Striped table
+  &:not(.no-zebra) {
+    tr:not(:first-of-type):nth-of-type(odd) { background: color('grey-05'); }
+  }
+  .is-right {
+    text-align: right;
+  }
+  .is-center {
+    text-align: center;
   }
 }
