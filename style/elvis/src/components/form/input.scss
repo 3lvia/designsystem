@@ -85,6 +85,12 @@ $form-input-border: 1px solid color('grey');
       -webkit-text-fill-color: var(--e-grey-20);
       cursor: not-allowed;
     }
+    input {
+      opacity: 1;
+      color: var(--e-grey-20);
+      -webkit-text-fill-color: var(--e-grey-20);
+      cursor: not-allowed;
+    }
   }
 }
 

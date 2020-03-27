@@ -29,6 +29,28 @@ export class InputDocComponent implements OnInit {
     <i class="e-icon-email e-icon-xs"></i>
   </div>
 </div>
+<h3>Pseudo Classes</h3>
+<div class="e-form_field">
+  <label class="e-form_field_label" for="disabled">Focused input field </label>
+  <div class="e-form_input focus">
+    <input id="disabled" type="text" placeholder="Placeholder text">
+    <i class="e-icon-email e-icon-xs"></i>
+  </div>
+</div>
+<div class="e-form_field">
+  <label class="e-form_field_label" for="disabled">Disabled input field </label>
+  <div class="e-form_input disabled">
+    <input id="disabled" type="text" placeholder="Placeholder text">
+    <i class="e-icon-email e-icon-xs"></i>
+  </div>
+</div>
+<div class="e-form_field">
+  <label class="e-form_field_label" for="disabled">Invalid input field </label>
+  <div class="e-form_input invalid">
+    <input id="disabled" type="text" placeholder="Placeholder text">
+    <i class="e-icon-email e-icon-xs"></i>
+  </div>
+</div>
 `;
 
   example2 = `<div class="e-form_field">
