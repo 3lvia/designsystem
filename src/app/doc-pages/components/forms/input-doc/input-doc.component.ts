@@ -13,18 +13,18 @@ export class InputDocComponent implements OnInit {
   headerDonts = 'A badge should not be used';
 
   componentStatus = getComponent('input-doc').status;
-  componentClasses = ['e-form_field', 'e-form_input'];
+  componentClasses = ['e-form_field', 'e-input'];
 
   example1 = `<div class="e-form_field">
   <label class="e-form_field_label" for="normal">Normal input field </label>
-  <div class="e-form_input">
+  <div class="e-input">
     <input id="normal" type="text" placeholder="Placeholder text">
     <i class="e-icon-email e-icon-xs"></i>
   </div>
 </div>
 <div class="e-form_field">
   <label class="e-form_field_label" for="disabled">Disabled input field </label>
-  <div class="e-form_input is-disabled">
+  <div class="e-input is-disabled">
     <input id="disabled" type="text" placeholder="Placeholder text" disabled>
     <i class="e-icon-email e-icon-xs"></i>
   </div>
@@ -32,21 +32,21 @@ export class InputDocComponent implements OnInit {
 <h3>Pseudo Classes</h3>
 <div class="e-form_field">
   <label class="e-form_field_label" for="disabled">Focused input field </label>
-  <div class="e-form_input focus">
+  <div class="e-input focus">
     <input id="disabled" type="text" placeholder="Placeholder text">
     <i class="e-icon-email e-icon-xs"></i>
   </div>
 </div>
 <div class="e-form_field">
   <label class="e-form_field_label" for="disabled">Disabled input field </label>
-  <div class="e-form_input disabled">
+  <div class="e-input disabled">
     <input id="disabled" type="text" placeholder="Placeholder text">
     <i class="e-icon-email e-icon-xs"></i>
   </div>
 </div>
 <div class="e-form_field">
   <label class="e-form_field_label" for="disabled">Invalid input field </label>
-  <div class="e-form_input invalid">
+  <div class="e-input invalid">
     <input id="disabled" type="text" placeholder="Placeholder text">
     <i class="e-icon-email e-icon-xs"></i>
   </div>
@@ -56,10 +56,10 @@ export class InputDocComponent implements OnInit {
   example2 = `<div class="e-form_field">
   <label class="e-form_field_label" for="phone">Phone</label>
   <div class="is-combined-field">
-    <div id="phone" class="e-form_input is-small">
+    <div id="phone" class="e-input is-small">
       <input type="text" value="+47">
     </div>
-    <div class="e-form_input">
+    <div class="e-input">
       <input type="text" placeholder="Placeholder text">
       <i class="e-icon-phone e-icon-xs"></i>
     </div>
@@ -70,13 +70,13 @@ export class InputDocComponent implements OnInit {
   example3 = `<div class="is-inlined-field">
   <div class="e-form_field is-medium">
     <label class="e-form_field_label" for="zip">Zip code</label>
-    <div class="e-form_input">
+    <div class="e-input">
       <input id="zip" type="text" placeholder="Zip code">
     </div>
   </div>
   <div class="e-form_field">
     <label class="e-form_field_label" for="city">City</label>
-    <div class="e-form_input">
+    <div class="e-input">
       <input id="city" type="text" placeholder="City">
     </div>
   </div>
@@ -85,14 +85,14 @@ export class InputDocComponent implements OnInit {
 
 example4 = `<div class="e-form_field">
   <label class="e-form_field_label" for="password">Password input field</label>
-  <div class="e-form_input">
+  <div class="e-input">
     <input id="password" type="password" placeholder="*******">
     <i class="e-icon-lock e-icon-xs"></i>
   </div>
 </div>
 <div class="e-form_field">
   <label class="e-form_field_label" for="invalid">Invalid input field with error-message</label>
-  <div class="e-form_input is-invalid">
+  <div class="e-input is-invalid">
     <input id="invalid" type="password" value="passord">
     <i class="e-icon-lock e-icon-xs"></i>
   </div>
@@ -105,7 +105,7 @@ example4 = `<div class="e-form_field">
 
 example5 = `<div class="e-form_field">
   <label class="e-form_field_label is-optional" for="textarea">Textarea</label>
-  <div class="e-form_input">
+  <div class="e-input">
     <textarea id="textarea" placeholder="Placeholder text" type="text"></textarea>
   </div>
 </div>

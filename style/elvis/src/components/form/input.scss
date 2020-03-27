@@ -7,7 +7,7 @@ $form-input-padding-active: 11px 15px;
 $form-input-border-radius: $border-radius;
 $form-input-border: 1px solid color('grey');
 
-.e-form_input {
+.e-input {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
 
@@ -95,7 +95,7 @@ $form-input-border: 1px solid color('grey');
 }
 
 .is-combined-field {
-  .e-form_input:not(:last-of-type) {
+  .e-input:not(:last-of-type) {
     margin-right: var(--e-spacing-1);
   }
 }
