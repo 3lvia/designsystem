@@ -45,11 +45,14 @@ $table-border-radius: 4px;
   }
 
   // Striped table
-  tr:nth-of-type(even) { background: color('grey-05'); }
+  &:not(.no-zebra) {
+    tr:nth-of-type(even) { background: color('grey-05'); }
+  }
 }
 
 .e-table-mobile {
   display: inline-block;
+  width: 100%;
   overflow: auto;
   white-space: nowrap;
   box-sizing: border-box;
@@ -61,12 +64,13 @@ $table-border-radius: 4px;
   border: 1px solid color('grey-10');
 
   // Striped table
-  tbody:not(:first-of-type) tr:not(:first-of-type):nth-of-type(odd) {
-    background: color('grey-05');
+  &:not(.no-zebra) {
+    tr:not(:first-of-type):nth-of-type(odd) { background: color('grey-05'); }
   }
   
   th, td {
     @extend .e-text-description;
+    width: 100%;
     padding: $table-phone-padding;
   }
 
