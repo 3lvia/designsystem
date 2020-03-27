@@ -9,26 +9,33 @@ import { getComponent } from 'src/app/shared/e-items';
 export class CheckboxDocComponent implements OnInit {
 
   componentStatus = getComponent('checkbox-doc').status;
-  componentClasses = ['e-form_field', 'e-form_checkbox'];
+  componentClasses = ['e-checkbox'];
 
-  example1 = `<div class="e-form_field">
-  <span class="e-form_field_title">Checkboxes</span>
-  <label class="e-form_checkbox">
-    <input type="checkbox" checked="">
-    <span class="e-form_checkbox_mark"></span>
-    <span class="e-form_checkbox_label">Picked checkbox</span>
-  </label>
-  <label class="e-form_checkbox">
+  example1 = `<form>
+  <label class="e-checkbox">
     <input type="checkbox">
-    <span class="e-form_checkbox_mark"></span>
-    <span class="e-form_checkbox_label">Unpicked checkbox</span>
+    <span class="e-checkbox_mark"></span>
+    <span class="e-checkbox_label">Normal checkbox</span>
   </label>
-  <label class="e-form_checkbox is-invalid">
-    <input type="checkbox">
-    <span class="e-form_checkbox_mark"></span>
-    <span class="e-form_checkbox_label">Invalid checkbox</span>
+
+  <label class="e-checkbox">
+    <input type="checkbox" checked>
+    <span class="e-checkbox_mark"></span>
+    <span class="e-checkbox_label">Checked checkbox</span>
   </label>
-</div>
+
+  <label class="e-checkbox">
+    <input type="checkbox" disabled>
+    <span class="e-checkbox_mark"></span>
+    <span class="e-checkbox_label">Disabled checkbox</span>
+  </label>
+
+  <label class="e-checkbox">
+    <input type="checkbox" required>
+    <span class="e-checkbox_mark"></span>
+    <span class="e-checkbox_label">Invalid checkbox</span>
+  </label>
+<form>
 `;
 
   constructor() { }
