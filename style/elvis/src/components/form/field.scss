@@ -39,7 +39,7 @@
 
     > i {
       margin-right: 5px;
-      padding: 8px;
+      padding: spacing('1');
     }
   }
 }
@@ -68,7 +68,7 @@
     margin-bottom: 0;
 
     &:not(:last-of-type) {
-      margin-right: 8px;
+      margin-right: spacing('1');
     }
 
     &.is-small {
