@@ -121,6 +121,9 @@ body {
       height: 80px;
       border-radius: 50%;
       border: 2px solid transparent;
+      display: flex;
+      justify-content: center;
+      align-items: center;
   
       &.primary {
         width: 130px;
