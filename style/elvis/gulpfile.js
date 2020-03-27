@@ -8,6 +8,8 @@ let del = require('del');
 let postcss = require('gulp-postcss');
 let concat = require('gulp-concat');
 let cssvariables = require('postcss-css-variables');
+const svgo = require('gulp-svgo');
+const icons = require('./src/icons/icons');
 
  
 sass.compiler = require('node-sass');
@@ -15,6 +17,25 @@ sass.compiler = require('node-sass');
 function clean() {
   return del(['css/']);
 };
+
+
+// TODO IMPLEMENT
+function createEmbeddedIcons() {
+  // optimizeSVG();
+  //percentEncodeSvg();
+}
+// TODO IMPLEMENT
+function percentEncodeSvg() {}
+
+function optimizeSVG() {
+  const iconsToInclude = icons.map(i => {
+    return 'src/icons/svg/src/' + i
+  });
+  return gulp.src(iconsToInclude)
+      .pipe(svgo())
+      .pipe(gulp.dest('src/icons/svg/dist'));
+};
+
 
 function styles () {
   return gulp.src('./src/main.scss')
@@ -32,7 +53,7 @@ function stylesFull () {
 };
 
 
-function icons () {
+function buildIcons () {
   return gulp.src('./src/icons/embedded.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(rename('elvis-icons.css'))
@@ -51,10 +72,10 @@ function minify() {
     .pipe(gulp.dest('./css/'));
 }
 
-gulp.task('default', gulp.series (clean, styles, icons, stylesFull, minify,
+gulp.task('default', gulp.series (clean, styles, buildIcons, optimizeSVG, stylesFull, minify,
     function (done) { console.log("Done!"); done(); }    
 ));
 
 gulp.task('sass:watch', function () {
-  gulp.watch('./sass/**/*.scss', ['styles', 'icons', 'stylesFull']);
+  gulp.watch('./sass/**/*.scss', ['styles', 'buildIcons', 'stylesFull']);
 });
