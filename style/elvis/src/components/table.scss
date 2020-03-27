@@ -16,16 +16,10 @@ $table-border-radius: 4px;
 .e-table {
   display: block;
   overflow: auto;
-  white-space: nowrap;
-  box-sizing: border-box;
   text-align: left;
-  table-layout: fixed;
-  overflow-wrap: break-word;
+  white-space: nowrap;
   width: 100%;
   max-width: 768px;
-  table-layout: fixed;
-  border-collapse: collapse;
-  width: 100%;
 
   // Rounded borders with border-collapsed
   border: 1px solid color('grey-10');
@@ -38,7 +32,7 @@ $table-border-radius: 4px;
 
   td, th {
     @extend .e-text-description;
-    white-space: pre-wrap;
+    width: 100%;
     padding: $table-padding;
   }
 
@@ -64,7 +58,6 @@ $table-border-radius: 4px;
   display: inline-block;
   overflow: auto;
   white-space: nowrap;
-  box-sizing: border-box;
   text-align: left;
   table-layout: fixed;
   width: 100%;
@@ -75,7 +68,7 @@ $table-border-radius: 4px;
   th, td {
     @extend .e-text-description;
     padding: $table-phone-padding;
-    width: 100%;
+    width: 50%;
     white-space: pre-wrap;
   }
 

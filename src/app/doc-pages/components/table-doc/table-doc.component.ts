@@ -15,7 +15,7 @@ export class TableDocComponent implements OnInit {
   <thead>
     <tr class="e-table_header">
       <th>Gebyr for ikke-automatiske strømmålere</th>
-      <th>Gateadresse</th>
+      <th>Nok</th>
     </tr>
   </thead>
   <tbody>
@@ -48,6 +48,13 @@ export class TableDocComponent implements OnInit {
 `;
 
   example2 = `<table class="e-table">
+  <colgroup>
+    <col span="1">
+    <col span="1" style="width:300px">
+    <col span="1">
+    <col span="1">
+    <col span="1">
+  </colgroup>
   <thead>
     <tr class="e-table_header">
       <th>Sikringsstørrelse</th>
@@ -60,38 +67,31 @@ export class TableDocComponent implements OnInit {
   <tbody>
     <tr>
       <td>16 A</td>
-      <td>340 kr/mnd</td>
-      <td>1065 kr/mnd</td>
-      <td>900 kr/mnd</td>
-      <td>900 kr/mnd</td>
+      <td class="is-right">340 kr/mnd. This cell exceeds 300px and should wrap to new line.</td>
+      <td class="is-right">1065 kr/mnd</td>
+      <td class="is-right">900 kr/mnd</td>
+      <td class="is-right">900 kr/mnd</td>
     </tr>
     <tr>
       <td>32 A</td>
-      <td>150 kr/kW/mnd</td>
-      <td>150 kr/kW/mnd</td>
-      <td>122 kr/kW/mnd</td>
-      <td>122 kr/kW/mnd</td>
+      <td class="is-right">150 kr/kW/mnd</td>
+      <td class="is-right">150 kr/kW/mnd</td>
+      <td class="is-right">122 kr/kW/mnd</td>
+      <td class="is-right">122 kr/kW/mnd</td>
     </tr>
     <tr>
       <td>40 A</td>
-      <td>80 kr/kW/mnd</td>
-      <td>80 kr/kW/mnd</td>
-      <td>52 kr/kW/mnd</td>
-      <td>52 kr/kW/mnd</td>
+      <td class="is-right">80 kr/kW/mnd</td>
+      <td class="is-right">80 kr/kW/mnd</td>
+      <td class="is-right">52 kr/kW/mnd</td>
+      <td class="is-right">52 kr/kW/mnd</td>
     </tr>
     <tr>
       <td>50 A</td>
-      <td>23 kr/kW/mnd</td>
-      <td>23 kr/kW/mnd</td>
-      <td>17 kr/kW/mnd</td>
-      <td>17 kr/kW/mnd</td>
-    </tr>
-    <tr>
-      <td>63 A</td>
-      <td>7,00 øre/kWh</td>
-      <td>7,00 øre/kWh</td>
-      <td>3,50 øre/kWh</td>
-      <td>3,50 øre/kWh</td>
+      <td class="is-right">23 kr/kW/mnd</td>
+      <td class="is-right">23 kr/kW/mnd</td>
+      <td class="is-right">17 kr/kW/mnd</td>
+      <td class="is-right">17 kr/kW/mnd</td>
     </tr>
   </tbody>
 </table>
@@ -120,7 +120,7 @@ export class TableDocComponent implements OnInit {
       </tr>
       <tr>
         <td>400 V (1-fase)</td>
-        <td class="is-right">900 kr/mnd a long row column text</td>
+        <td class="is-right">900 kr/mnd</td>
       </tr>
     </tbody>
     <tbody>
