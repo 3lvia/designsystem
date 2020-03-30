@@ -61,6 +61,7 @@ $table-border-radius: 4px;
 
 .e-table-mobile {
   display: block;
+  table-layout: auto;
   width: 100%;
   overflow: auto;
   text-align: left;
@@ -71,6 +72,7 @@ $table-border-radius: 4px;
   th, td {
     @extend .e-text-description;
     padding: $table-phone-padding;
+    // Might need a better solution here!
     width: 45%;
   }
 
