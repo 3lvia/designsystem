@@ -41,7 +41,7 @@
       background-size: cover;
       height: 24px;
       width: 24px;
-      margin-left: 8px;
+      margin-left: spacing('1');
     }
   }
 
@@ -67,7 +67,7 @@
       float: left;
       font-size: 14px;
       font-weight: 800;
-      padding-right: 8px;
+      padding-right: spacing('1');
       vertical-align: middle;
     }
   }
@@ -91,7 +91,7 @@
       padding: 0px 6px;
       border: 1px solid color("green");
       border-radius: 50%;
-      margin-left: 8px;
+      margin-left: spacing('1');
       vertical-align: text-bottom;
      
       @include breakpoint-up(Mobile) {
