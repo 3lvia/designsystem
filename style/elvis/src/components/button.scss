@@ -3,6 +3,7 @@
 @import "../variables/shared-sizes.scss";
 @import "../utilities/animations.scss";
 @import "../utilities/helpers.scss";
+@import "../variables/spacing";
 
 $button-radius: 24px;
 $button-border-width: 1px;
@@ -109,8 +110,8 @@ $button-font-size: 1rem;
       background-size: $icon-size;
       background-position: center;
       // negative margin on icons to not expand the button height
-      margin-top: -8px;
-      margin-bottom: -8px;
+      margin-top: - spacing('1');
+      margin-bottom: - spacing('1');
     }
   }
 
