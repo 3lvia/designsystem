@@ -1,17 +1,34 @@
 <div class="component-body__example">
   <h2 class="component-body__example-title">{{ title }}</h2>
+  <span *ngIf="class">
+    <span class="component-body__example-class e-bg-grey-30 e-text-info">{{ class }}</span>
+  </span>
+  <span *ngIf="multiclass">
+    <span class="component-body__example-class e-bg-grey-30 e-text-info" *ngFor="let class of multiclass">
+      {{ class }}       
+    </span>
+  </span>
   <div class="component-body__example-description e-text-body">
     {{ description }}
   </div>
-  <div class="component-body__example-does" *ngIf="does || donts">
-    <div class="component-body__example-does-does" *ngIf="does">
+  <div
+    class="component-body__example-does"
+    *ngIf="does || donts"
+  >
+    <div
+      class="component-body__example-does-does"
+      *ngIf="does"
+    >
       <span class="marker e-bg-green"></span>
       <span class="e-title-sm">Do's:</span>
       <span class="e-text-body">
         {{ does }}
       </span>
     </div>
-    <div class="component-body__example-does-donts" *ngIf="donts">
+    <div
+      class="component-body__example-does-donts"
+      *ngIf="donts"
+    >
       <span class="marker e-bg-red"></span>
       <span class="e-title-sm">Don'ts:</span>
       <span class="e-text-body">
@@ -20,9 +37,24 @@
     </div>
   </div>
   <div class="component-body__example-codepen">
-    <form class="codepen e-mb-2" #codepenForm *ngIf="isHTML" action="https://codepen.io/pen/define" method="POST" target="_blank">
-      <input type="hidden" name="data" [value]="codepen">
-      <a href="javascript:void(0)" (click)="codepenForm.submit()" class="e-link is-more">Try in codepen</a>       
+    <form
+      class="codepen e-mb-2"
+      #codepenForm
+      *ngIf="isHTML"
+      action="https://codepen.io/pen/define"
+      method="POST"
+      target="_blank"
+    >
+      <input
+        type="hidden"
+        name="data"
+        [value]="codepen"
+      >
+      <a
+        href="javascript:void(0)"
+        (click)="codepenForm.submit()"
+        class="e-link is-more"
+      >Try in codepen</a>
     </form>
   </div>
   <div class="component-body__example-body e-border">
@@ -51,7 +83,10 @@
       >
         <app-smartphone [code]="code"></app-smartphone>
       </div>
-      <div [ngClass]="{ hide: showSmartphone === true }" #preview></div>
+      <div
+        [ngClass]="{ hide: showSmartphone === true }"
+        #preview
+      ></div>
     </div>
     <div
       class="show-code e-border"
@@ -69,7 +104,11 @@
     >
       Hide code
     </div>
-    <div @heightDown class="code" *ngIf="showCode">
+    <div
+      @heightDown
+      class="code"
+      *ngIf="showCode"
+    >
       <app-code-highlighter
         [isHTML]="isHTML"
         [isTS]="isTS"
