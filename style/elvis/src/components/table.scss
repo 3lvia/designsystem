@@ -60,20 +60,19 @@ $table-border-radius: 4px;
 }
 
 .e-table-mobile {
-  display: block;
+  display: table;
   table-layout: auto;
   width: 100%;
-  overflow: auto;
+  overflow: hidden;
   text-align: left;
   border-radius: $table-border-radius;
   border-spacing: 0;
-  border: 1px solid color('grey-10');
+  border-collapse: collapse;
+  box-shadow: 0px 0px 0px 1px color('grey-10');
   
   th, td {
     @extend .e-text-description;
     padding: $table-phone-padding;
-    // Might need a better solution here!
-    width: 45%;
   }
 
   .e-table_header {
