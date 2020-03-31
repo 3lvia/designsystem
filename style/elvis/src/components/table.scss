@@ -1,123 +1,97 @@
-$table-header-padding: 1.2rem 1rem;
-$table-row-padding: 0.7rem 1rem;
-$table-first-column-padding: 1.5rem;
-$table-last-column-padding: 1.5rem;
+@import "./../utilities/typography.scss";
+
+$table-padding: 0.688rem 1rem;
+$table-phone-padding: 0.375rem 0.5rem;
+$table-border-radius: 4px;
+
+%header-style {
+  background: color('grey');
+  width: 100%;
+  th {
+    color: color('white');
+    font-weight: 500;
+  }
+}
 
 .e-table {
-  //Creating variable containing '&' to jump to parent inside a child class.
-  $this: &;
+  display: block;
+  overflow: auto;
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+  max-width: 768px;
 
-  min-width: 100%;
-  overflow: scroll;
+  // Rounded borders with border-collapsed
+  border: 1px solid color('grey-10');
+  border-radius: $table-border-radius;
+  border-collapse: separate; 
+  border-spacing: 0; 
+  tr th:first-of-type { 
+    border-right: 1px solid color('grey-10');
+  }
+
+  td, th {
+    @extend .e-text-description;
+    width: 100%;
+    padding: $table-padding;
+    &.is-max {
+      display: inline-block;
+      white-space: pre-wrap;
+      width: 300px;
+    }
+  }
+
+  .e-table_header {
+    @extend %header-style;
+  }
+
+  // Zebra table
+  &:not(.no-zebra) {
+    tr:nth-of-type(even) { background: color('grey-05'); }
+  }
+
+  .is-right {
+    text-align: right;
+  }
+
+  .is-center {
+    text-align: center;
+  }
+}
+
+.e-table-mobile {
+  display: table;
+  table-layout: auto;
+  width: 100%;
+  overflow: hidden;
+  text-align: left;
+  border-radius: $table-border-radius;
   border-spacing: 0;
-  border-collapse: collapse;
-  background: color('white');
-  box-sizing: border-box;
-
-  th,
-  td {
-    margin: 0;
-    padding: $table-row-padding;
-    text-align: left;
-
-    &#{$this}_action {
-      display: flex;
-      float: right;
-      font-size: 24px;
-      text-align: right;
-
-      > * {
-        margin: 0 0.5rem;
-
-        &:first-child {
-          margin-left: 0;
-        }
-
-        &:last-child {
-          margin-right: 0;
-        }
-      }
-    }
+  box-shadow: 0px 0px 0px 1px color('grey-10');
+  
+  th, td {
+    @extend .e-text-description;
+    padding: $table-phone-padding;
   }
 
-  &.no-wrap {
-    th,
-    td {
-      white-space: nowrap;
-    }
-  }
-
-  &:not(.no-row-padding) {
-    &#{$this}_row,
-    tr {
-      > *:first-child {
-        padding-left: $table-first-column-padding;
-      }
-
-      > *:last-child {
-        padding-right: $table-last-column-padding;
-      }
-    }
-  }
-
-  &_row,
-  tr {
-    &.is-stripe {
-      background: color('orange');
-    }
-
-    &.is-selected {
-      background: color('orange');
-    }
+  .e-table_header {
+    @extend %header-style;
   }
   
-  &_header {
-    // .is-h3 is font-properties, defined in typography.
-    // @extend .is-h3;
-    font-size: large;
-
-    border-bottom: 2px solid color('grey-30');
-    text-align: left;
-
-    th,
-    td {
-      padding: $table-header-padding;
-
-      > i {
-        margin-left: 0.3rem;
-      }
-    }
+  .e-table_header-row {
+    background: color('grey-10');
   }
 
-  &.is-striped {
-    tr:nth-of-type(even) {
-      @extend .e-table_row, .is-stripe;
-    }
+  // Zebra table
+  &:not(.no-zebra) {
+    tr:not(:first-of-type):nth-of-type(odd) { background: color('grey-05'); }
   }
 
-  &.is-aligned-top {
-    td {
-      vertical-align: top;
-    }
+  .is-right {
+    text-align: right;
   }
 
-  &.is-aligned-bottom {
-    td {
-      vertical-align: bottom;
-    }
-  }
-
-  &.has-shadow {
- 
-    border-radius: 5px;
-  }
-
-  &.is-sticky-header {
-    th {
-      position: sticky;
-      top: 0; // set this higher if it overlaps with another sticky
-      background: color('white');
-      z-index: 1;
-    }
+  .is-center {
+    text-align: center;
   }
 }

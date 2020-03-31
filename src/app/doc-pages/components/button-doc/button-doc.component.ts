@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class ButtonDocComponent {
 
+  externalUrl = getComponent('button-doc').externalUrl;
   componentStatus = getComponent('button-doc').status;
 
   eBtn: ['e-btn'];

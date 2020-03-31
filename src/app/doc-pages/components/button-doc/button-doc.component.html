@@ -1,7 +1,10 @@
 <!--HEADER-->
-<app-component-header [componentStatus]="componentStatus">
+<app-component-header
+  [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+>
   <ng-container ngProjectAs="headerTitle">
-    Button
+    Button 
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     Button elements are used to provide a straightforward and accessible experience for users.

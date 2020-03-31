@@ -21,6 +21,8 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() isHTML = false;
   @Input() isSCSS = false;
   @Input() code = '';
+  @Input() onlyPhone = false;
+  @Input() onlyDesktop = false;
 
   showCode = false;
   showSmartphone = false;
@@ -29,6 +31,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   constructor() {}
 
   ngOnInit() {
+    this.onlyPhone ? this.showSmartphone = true : this.showSmartphone = false;
     this.codepen = JSON.stringify({
       title: 'Preview',
       // tslint:disable-next-line:comment-format

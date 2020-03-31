@@ -86,6 +86,9 @@ iframe {
           background: var(--e-white);
         }
       }
+      .tab:last-of-type {
+        border-right: none;
+      }
     }
 
     .show-code, .hide-code {

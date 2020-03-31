@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class LinkDocComponent implements OnInit {
 
+  externalUrl = getComponent('link-doc').externalUrl;
   componentStatus = getComponent('link-doc').status;
   pseudoClasses = ['e-hover', 'e-focus'];
 
