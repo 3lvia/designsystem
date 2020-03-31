@@ -32,7 +32,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     this.codepen = JSON.stringify({
       title: 'Preview',
       // tslint:disable-next-line:comment-format
-      html: '<link href="https://unpkg.com/@elvia/elvis@latest/css/elvis.min.css" rel="stylesheet">' + this.code
+      html: '<link href="https://unpkg.com/@elvia/elvis@latest/css/elvis-all.min.css" rel="stylesheet">' + this.code
     });
   }
 
