@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class RadiobuttonDocComponent implements OnInit {
 
+  externalUrl = getComponent('radiobutton-doc').externalUrl;
   componentStatus = getComponent('radiobutton-doc').status;
   componentClasses = ['e-form_field', 'e-form_radiobutton'];
 

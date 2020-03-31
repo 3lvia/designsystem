@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class CheckboxToggleDocComponent implements OnInit {
 
+  externalUrl = getComponent('checkbox-toggle-doc').externalUrl;
   componentStatus = getComponent('checkbox-toggle-doc').status;
   componentClasses = ['e-toggle', 'e-toggle slider'];
 

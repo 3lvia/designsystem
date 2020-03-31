@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class CheckboxDocComponent implements OnInit {
 
+  externalUrl = getComponent('checkbox-doc').externalUrl;
   componentStatus = getComponent('checkbox-doc').status;
   componentClasses = ['e-checkbox'];
 

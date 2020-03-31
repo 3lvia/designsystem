@@ -14,6 +14,7 @@ export class ComponentHeaderComponent implements OnInit {
   @Input() does = '';
   @Input() donts = '';
   @Input() selected: string;
+  @Input() externalUrl: string;
   @Output() selectedChange = new EventEmitter();
 
   itemStatus = ItemStatus;

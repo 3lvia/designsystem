@@ -15,6 +15,7 @@ export class ColorDocComponent implements OnInit {
   colorItemsPrimary = colorItemsPrimary;
   colorItemsSignal = colorItemsSignal;
   colorItemsGreys = colorItemsGreys;
+  externalUrl = getUtilities('color-doc').externalUrl;
   componentStatus = getUtilities('color-doc').status;
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
