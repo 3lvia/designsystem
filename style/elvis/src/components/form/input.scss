@@ -95,7 +95,7 @@ $form-input-border: 1px solid color('grey');
 }
 
 .is-combined-field {
-  .e-form_input:not(:last-of-type) {
+  .e-input:not(:last-of-type) {
     margin-right: spacing('1');
   }
 }
