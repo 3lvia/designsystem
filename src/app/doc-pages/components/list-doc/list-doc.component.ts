@@ -11,7 +11,6 @@ export class ListDocComponent implements OnInit {
 
 
   componentStatus = getComponent('list-doc').status;
-  componentClasses = ['e-list', 'e-list strong', 'e-list numbers'];
 
   example1 = `<ul class="e-list">
   <li>Just a hunk, a hunk of burning list</li>
