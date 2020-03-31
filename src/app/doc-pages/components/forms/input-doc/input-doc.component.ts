@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
-import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
   selector: 'app-input-doc',
@@ -13,9 +12,6 @@ export class InputDocComponent implements OnInit {
   headerDonts = 'A badge should not be used';
 
   componentStatus = getComponent('input-doc').status;
-  componentClasses = [''];
-  // componentClasses = ['e-form_field', 'e-input'];
-
   pseudoClasses = ['focus', 'invalid', 'disabled'];
 
   example1 = `<div class="e-form_field">
