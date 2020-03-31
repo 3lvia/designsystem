@@ -96,27 +96,24 @@ example5 = `<div class="e-form_field">
 
 example6 = `
 <div class="e-form_field">
-  <label class="e-form_field_label" for="textarea">Focus</label>
+  <label class="e-form_field_label" for="pseudo-focus">Focus</label>
   <div class="e-input focus">
-    <input id="normal" type="text" placeholder="Placeholder text">
+    <input id="pseudo-focus" type="text" placeholder="Placeholder text">
   </div>
 </div>
 <div class="e-form_field">
-  <label class="e-form_field_label" for="textarea">Invalid</label>
+  <label class="e-form_field_label" for="pseudo-invalid">Invalid</label>
   <div class="e-input invalid">
-    <input id="normal" type="text" placeholder="Placeholder text">
+    <input id="pseudo-invalid" type="text" placeholder="Placeholder text">
   </div>
 </div>
+
+
+
 <div class="e-form_field">
-  <label class="e-form_field_label" for="textarea">Invalid</label>
-  <div class="e-input focus">
-    <input id="normal" type="text" placeholder="Placeholder text">
-  </div>
-</div>
-<div class="e-form_field">
-  <label class="e-form_field_label" for="textarea">Disabled</label>
+  <label class="e-form_field_label" for="pseudo-disabled">Disabled</label>
   <div class="e-input disabled">
-    <input id="normal" type="text" placeholder="Placeholder text">
+    <input id="pseudo-disabled" type="text" placeholder="Placeholder text">
   </div>
 </div>
 `;

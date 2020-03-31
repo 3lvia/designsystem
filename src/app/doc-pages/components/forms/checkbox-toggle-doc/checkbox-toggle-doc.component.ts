@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class CheckboxToggleDocComponent implements OnInit {
 
   componentStatus = getComponent('checkbox-toggle-doc').status;
-  componentClasses = ['e-toggle', 'e-toggle slider'];
+  pseudoClasses = ['e-toggle', 'e-toggle slider'];
 
   example1 = `
   <label for="onOff">Turn off or on</label>

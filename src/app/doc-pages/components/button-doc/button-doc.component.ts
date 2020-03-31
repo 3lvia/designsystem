@@ -10,6 +10,8 @@ export class ButtonDocComponent {
 
   componentStatus = getComponent('button-doc').status;
 
+  eBtn: ['e-btn'];
+
   pseudoClasses = ['hover', 'active', 'focus', 'disabled'];
   public clicked = false;
 

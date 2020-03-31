@@ -1,7 +1,7 @@
 <div class="component-body__example">
   <h2 class="component-body__example-title">{{ title }}</h2>
   <span *ngIf="class">
-    <span class="component-body__example-class e-bg-grey-30 e-text-info">{{ class }}</span>
+    <span *ngFor="let classDescr of class" class="component-body__example-class e-bg-grey-30 e-text-info">{{ classDescr }}</span>
   </span>
   <div class="component-body__example-description e-text-body">
     {{ description }}
