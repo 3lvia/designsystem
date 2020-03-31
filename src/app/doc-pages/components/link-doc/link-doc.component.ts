@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class LinkDocComponent implements OnInit {
 
   componentStatus = getComponent('link-doc').status;
-  componentClasses = ['e-link', 'e-link is-inline', 'e-link is-more', 'e-link is-back', 'e-link has-icon', 'e-link is-custom'];
+  pseudoClasses = ['hover', 'focus'];
 
   example1 = `<a class="e-link" href="https://www.elvia.no/">Normal link</a>
 `;
@@ -27,6 +27,13 @@ export class LinkDocComponent implements OnInit {
 `;
   example6 = `<a class="e-link is-custom" href="https://www.elvia.no/">Se hva du kan gjøre</a>
 `;
+  example7 = `
+<a class="e-link hover" href="https://www.elvia.no/">Se hva du kan gjøre</a>
+<br>
+<br>
+<a class="e-link focus" href="https://www.elvia.no/">Se hva du kan gjøre</a>
+`;
+
 
 
   constructor() { }
