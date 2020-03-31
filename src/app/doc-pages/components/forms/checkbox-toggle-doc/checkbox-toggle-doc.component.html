@@ -1,7 +1,6 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
-  [componentClasses]="componentClasses"
 >
   <ng-container ngProjectAs="headerTitle">
     Toggle
@@ -20,5 +19,6 @@
     [isHTML]="true"
     [code]="example1"
     [title]="'Toggle'"
+    [class]="componentClasses"
   ></app-code-block>
 </div>

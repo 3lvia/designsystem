@@ -13,7 +13,10 @@ export class InputDocComponent implements OnInit {
   headerDonts = 'A badge should not be used';
 
   componentStatus = getComponent('input-doc').status;
-  componentClasses = ['e-form_field', 'e-input'];
+  componentClasses = [''];
+  // componentClasses = ['e-form_field', 'e-input'];
+
+  pseudoClasses = ['focus', 'invalid', 'disabled'];
 
   example1 = `<div class="e-form_field">
   <label class="e-form_field_label" for="normal">Normal input field </label>
@@ -29,27 +32,7 @@ export class InputDocComponent implements OnInit {
     <i class="e-icon-email e-icon-xs"></i>
   </div>
 </div>
-<h3>Pseudo Classes</h3>
-<div class="e-form_field">
-  <label class="e-form_field_label" for="disabled">Focused input field </label>
-  <div class="e-input focus">
-    <input id="disabled" type="text" placeholder="Placeholder text">
-    <i class="e-icon-email e-icon-xs"></i>
-  </div>
-</div>
-<div class="e-form_field">
-  <label class="e-form_field_label" for="disabled">Disabled input field </label>
-  <div class="e-input disabled">
-    <input id="disabled" type="text" placeholder="Placeholder text">
-    <i class="e-icon-email e-icon-xs"></i>
-  </div>
-</div>
-<div class="e-form_field">
-  <label class="e-form_field_label" for="disabled">Invalid input field </label>
-  <div class="e-input invalid">
-    <input id="disabled" type="text" placeholder="Placeholder text">
-    <i class="e-icon-email e-icon-xs"></i>
-  </div>
+
 </div>
 `;
 
@@ -92,7 +75,7 @@ example4 = `<div class="e-form_field">
 </div>
 <div class="e-form_field">
   <label class="e-form_field_label" for="invalid">Invalid input field with error-message</label>
-  <div class="e-input is-invalid">
+  <div class="e-input invalid">
     <input id="invalid" type="password" value="passord">
     <i class="e-icon-lock e-icon-xs"></i>
   </div>
@@ -111,6 +94,32 @@ example5 = `<div class="e-form_field">
 </div>
 `;
 
+example6 = `
+<div class="e-form_field">
+  <label class="e-form_field_label" for="textarea">Focus</label>
+  <div class="e-input focus">
+    <input id="normal" type="text" placeholder="Placeholder text">
+  </div>
+</div>
+<div class="e-form_field">
+  <label class="e-form_field_label" for="textarea">Invalid</label>
+  <div class="e-input invalid">
+    <input id="normal" type="text" placeholder="Placeholder text">
+  </div>
+</div>
+<div class="e-form_field">
+  <label class="e-form_field_label" for="textarea">Invalid</label>
+  <div class="e-input focus">
+    <input id="normal" type="text" placeholder="Placeholder text">
+  </div>
+</div>
+<div class="e-form_field">
+  <label class="e-form_field_label" for="textarea">Disabled</label>
+  <div class="e-input disabled">
+    <input id="normal" type="text" placeholder="Placeholder text">
+  </div>
+</div>
+`;
   constructor() { }
 
   ngOnInit() {

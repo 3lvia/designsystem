@@ -9,7 +9,6 @@ import { getComponent } from 'src/app/shared/e-items';
 export class ButtonDocComponent {
 
   componentStatus = getComponent('button-doc').status;
-  // componentClasses = ['e-btn', 'e-btn btn-secondary', 'e-btn has-icon', 'e-btn btn-loading'];
 
   pseudoClasses = ['hover', 'active', 'focus', 'disabled'];
   public clicked = false;

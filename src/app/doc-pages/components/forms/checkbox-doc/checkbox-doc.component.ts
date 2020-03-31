@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class CheckboxDocComponent implements OnInit {
 
   componentStatus = getComponent('checkbox-doc').status;
-  componentClasses = ['e-checkbox'];
+  pseudoClasses = ['checked', 'focus', 'hover', 'disabled', 'invalid'];
 
   example1 = `<form>
   <label class="e-checkbox">

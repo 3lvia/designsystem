@@ -13,8 +13,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @ViewChild('preview') preview;
   @ViewChild('mobilepreview') mobilePreview;
   @Input() title = '';
-  @Input() class = '';
-  @Input() multiclass: string[];
+  @Input() class: string[];
   @Input() description = '';
   @Input() does = '';
   @Input() donts = '';

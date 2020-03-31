@@ -24,6 +24,7 @@
     [isHTML]="true"
     [code]="example1"
     [title]="'Normal input field'"
+    [class]="'e-input'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
@@ -50,5 +51,13 @@
     [code]="example5"
     [title]="'Textarea'"
     [description]="'The is-optional class should be added to the label when the input is not required.'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example6"
+    [title]="'Pseudo Classes'"
+    [class]="pseudoClasses"
+    [description]="'Pseudo Classes can be used to set the styling of input fields to emulate the state their in. 
+    For example adding the invalid class to an e-input will style the e-input field to have an invalid state'"
   ></app-code-block>
 </div>

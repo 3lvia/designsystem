@@ -3,11 +3,6 @@
   <span *ngIf="class">
     <span class="component-body__example-class e-bg-grey-30 e-text-info">{{ class }}</span>
   </span>
-  <span *ngIf="multiclass">
-    <span class="component-body__example-class e-bg-grey-30 e-text-info" *ngFor="let class of multiclass">
-      {{ class }}       
-    </span>
-  </span>
   <div class="component-body__example-description e-text-body">
     {{ description }}
   </div>

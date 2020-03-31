@@ -1,7 +1,6 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
-  [componentClasses]="componentClasses"
   [does]="'In forms where the user can choose multiple options at the same time, or when there is only one valid option.'"
   [donts]="'If a user chooses from a set of options where only one option is valid. Radio buttons should be used instead.'"
 >
@@ -12,8 +11,6 @@
     Checkboxes should be used when there is a option for the user to select multiple options, or when
     there is only on valid option, for example signing up for news letters og accepting terms.
   </ng-container>
-
-  
 </app-component-header>
 
 <!--BODY-->
@@ -22,10 +19,12 @@
     [isHTML]="true"
     [code]="example1"
     [title]="'Checkbox'"
+    [class]="'e-checkbox'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
     [title]="'Pseudo Classes'"
+    [class]="pseudoClasses"
   ></app-code-block>
 </div>
