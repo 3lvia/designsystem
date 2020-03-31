@@ -37,18 +37,20 @@
           'class-margin': componentClasses && componentClasses.length > 0
         }"
       >
-        <ng-content select="headerDescription"></ng-content>
+        <span class="e-text-body">
+          <ng-content select="headerDescription"></ng-content>
+        </span>
       </p>
       <div class="component-header__example-does" *ngIf="does || donts">
         <div class="component-header__example-does-does" *ngIf="does">
           <span class="marker e-bg-green"></span>
           <span class="e-title-sm">When: </span>
-          <span class="e-text-body">{{ does }}</span>
+          <span class="e-text-description">{{ does }}</span>
         </div>
         <div class="component-header__example-does-donts" *ngIf="donts">
           <span class="marker e-bg-red"></span>
           <span class="e-title-sm">When not: </span>
-          <span class="e-text-body">{{ donts }}</span>
+          <span class="e-text-description">{{ donts }}</span>
         </div>
       </div>
     </div>
