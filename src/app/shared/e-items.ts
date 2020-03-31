@@ -46,6 +46,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Feedback,
         status: ItemStatus.Coming,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-message?node-id=0%3A1'
     },
     {
         title: 'Badge',
@@ -60,6 +61,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Button,
         status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons'
     },
     {
         title: 'Card',
@@ -74,6 +76,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Checkbox,
         status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
     },
     {
         title: 'Toggle',
@@ -81,6 +84,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.CheckboxToggle,
         status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons'
     },
     {
         title: 'Divider',
@@ -109,6 +113,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Input,
         status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
     },
     {
         title: 'Link',
@@ -116,6 +121,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Link,
         status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons',
     },
     {
         title: 'List',
@@ -123,6 +129,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.List,
         status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Modules%3A-article?node-id=353%3A0'
     },
     // {
     //     title: 'Notification-Dot',
@@ -137,6 +144,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Radiobutton,
         status: ItemStatus.Coming,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
     },
     {
         title: 'Select',
@@ -151,6 +159,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Table,
         status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=0%3A1'
     },
     {
         title: 'Tags',
@@ -200,6 +209,7 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Color,
         status: ItemStatus.New,
         actionText: 'View colors',
+        externalUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=192%3A4'
     },
     // {
     //     title: 'Shadow',
@@ -214,6 +224,7 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Spacing,
         status: ItemStatus.New,
         actionText: 'View spacing',
+        externalUrl: 'https://www.figma.com/file/FvsJlYXAIXS5IVKzZzMYgT/Spacing'
     },
     {
         title: 'Icons',
@@ -221,6 +232,7 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Icon,
         status: ItemStatus.Coming,
         actionText: 'View icons',
+        externalUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=82%3A2'
     },
     {
         title: 'Typography',
@@ -228,6 +240,7 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Typography,
         status: ItemStatus.New,
         actionText: 'View typography',
+        externalUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography'
     },
     {
         title: 'Breakpoints',
@@ -235,6 +248,7 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Breakpoints,
         status: ItemStatus.New,
         actionText: 'View breakpoints',
+        externalUrl: 'https://www.figma.com/file/fMr1lhboPukTxmH9KruWB2/Grid'
     },
 ];
 

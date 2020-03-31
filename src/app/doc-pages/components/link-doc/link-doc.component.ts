@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class LinkDocComponent implements OnInit {
 
+  externalUrl = getComponent('link-doc').externalUrl;
   componentStatus = getComponent('link-doc').status;
   componentClasses = ['e-link', 'e-link is-inline', 'e-link is-more', 'e-link is-back', 'e-link has-icon', 'e-link is-custom'];
 

@@ -17,6 +17,7 @@ module.exports = [
     { name: 'earth', terms: [] },
     { name: 'edit', terms: [] },
     { name: 'email', terms: [] },
+    { name: 'figma', terms: [] },
     { name: 'gauge-dashboard', terms: [] },
     { name: 'graph-bar', terms: [] },
     { name: 'home', terms: [] },

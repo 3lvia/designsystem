@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
 .e-badge {
   padding: 5px 10px;
   border-radius: 20px;
@@ -716,44 +720,286 @@
   .e-toggle input:focus ~ .slider {
     box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 4px #29D305; }
 
-.e-form_checkbox {
+.e-text {
+  color: #000; }
+
+.e-bg {
+  background: #FFF; }
+
+:root {
+  --e-white: #FFF; }
+
+.e-text-white {
+  color: #FFF; }
+
+.e-bg-white {
+  background: #FFF;
+  color: #000; }
+
+:root {
+  --e-elvia-on: #FFF; }
+
+.e-text-elvia-on {
+  color: #FFF; }
+
+.e-bg-elvia-on {
+  background: #FFF;
+  color: #000; }
+
+:root {
+  --e-black: #000; }
+
+.e-text-black {
+  color: #000; }
+
+.e-bg-black {
+  background: #000;
+  color: #fff; }
+
+:root {
+  --e-font-color: #000; }
+
+.e-text-font-color {
+  color: #000; }
+
+.e-bg-font-color {
+  background: #000;
+  color: #fff; }
+
+:root {
+  --e-elvia-off: #000; }
+
+.e-text-elvia-off {
+  color: #000; }
+
+.e-bg-elvia-off {
+  background: #000;
+  color: #fff; }
+
+:root {
+  --e-grey: #262626; }
+
+.e-text-grey {
+  color: #262626; }
+
+.e-bg-grey {
+  background: #262626;
+  color: #fff; }
+
+:root {
+  --e-grey-90: rgba(38, 38, 38, 0.9); }
+
+.e-text-grey-90 {
+  color: rgba(38, 38, 38, 0.9); }
+
+.e-bg-grey-90 {
+  background: rgba(38, 38, 38, 0.9);
+  color: #fff; }
+
+:root {
+  --e-grey-80: rgba(38, 38, 38, 0.8); }
+
+.e-text-grey-80 {
+  color: rgba(38, 38, 38, 0.8); }
+
+.e-bg-grey-80 {
+  background: rgba(38, 38, 38, 0.8);
+  color: #fff; }
+
+:root {
+  --e-grey-70: rgba(38, 38, 38, 0.7); }
+
+.e-text-grey-70 {
+  color: rgba(38, 38, 38, 0.7); }
+
+.e-bg-grey-70 {
+  background: rgba(38, 38, 38, 0.7);
+  color: #fff; }
+
+:root {
+  --e-grey-60: rgba(38, 38, 38, 0.6); }
+
+.e-text-grey-60 {
+  color: rgba(38, 38, 38, 0.6); }
+
+.e-bg-grey-60 {
+  background: rgba(38, 38, 38, 0.6);
+  color: #000; }
+
+:root {
+  --e-grey-50: rgba(38, 38, 38, 0.5); }
+
+.e-text-grey-50 {
+  color: rgba(38, 38, 38, 0.5); }
+
+.e-bg-grey-50 {
+  background: rgba(38, 38, 38, 0.5);
+  color: #000; }
+
+:root {
+  --e-grey-40: rgba(38, 38, 38, 0.4); }
+
+.e-text-grey-40 {
+  color: rgba(38, 38, 38, 0.4); }
+
+.e-bg-grey-40 {
+  background: rgba(38, 38, 38, 0.4);
+  color: #000; }
+
+:root {
+  --e-grey-30: rgba(38, 38, 38, 0.3); }
+
+.e-text-grey-30 {
+  color: rgba(38, 38, 38, 0.3); }
+
+.e-bg-grey-30 {
+  background: rgba(38, 38, 38, 0.3);
+  color: #000; }
+
+:root {
+  --e-grey-20: rgba(38, 38, 38, 0.2); }
+
+.e-text-grey-20 {
+  color: rgba(38, 38, 38, 0.2); }
+
+.e-bg-grey-20 {
+  background: rgba(38, 38, 38, 0.2);
+  color: #000; }
+
+:root {
+  --e-grey-10: rgba(38, 38, 38, 0.1); }
+
+.e-text-grey-10 {
+  color: rgba(38, 38, 38, 0.1); }
+
+.e-bg-grey-10 {
+  background: rgba(38, 38, 38, 0.1);
+  color: #000; }
+
+:root {
+  --e-grey-05: rgba(38, 38, 38, 0.05); }
+
+.e-text-grey-05 {
+  color: rgba(38, 38, 38, 0.05); }
+
+.e-bg-grey-05 {
+  background: rgba(38, 38, 38, 0.05);
+  color: #000; }
+
+:root {
+  --e-grey-02: rgba(38, 38, 38, 0.02); }
+
+.e-text-grey-02 {
+  color: rgba(38, 38, 38, 0.02); }
+
+.e-bg-grey-02 {
+  background: rgba(38, 38, 38, 0.02);
+  color: #000; }
+
+:root {
+  --e-green: #29D305; }
+
+.e-text-green {
+  color: #29D305; }
+
+.e-bg-green {
+  background: #29D305;
+  color: #000; }
+
+:root {
+  --e-elvia-charge: #29D305; }
+
+.e-text-elvia-charge {
+  color: #29D305; }
+
+.e-bg-elvia-charge {
+  background: #29D305;
+  color: #000; }
+
+:root {
+  --e-yellow: #FFFF00; }
+
+.e-text-yellow {
+  color: #FFFF00; }
+
+.e-bg-yellow {
+  background: #FFFF00;
+  color: #000; }
+
+:root {
+  --e-orange: #FFA000; }
+
+.e-text-orange {
+  color: #FFA000; }
+
+.e-bg-orange {
+  background: #FFA000;
+  color: #000; }
+
+:root {
+  --e-red: #FF0000; }
+
+.e-text-red {
+  color: #FF0000; }
+
+.e-bg-red {
+  background: #FF0000;
+  color: #000; }
+
+.e-checkbox {
   display: flex;
   align-items: center;
+  width: fit-content;
   cursor: pointer; }
-  .e-form_checkbox:not(:last-child) {
+  .e-checkbox:not(:last-child) {
     margin-bottom: 0.75rem; }
-  .e-form_checkbox.is-checked .e-form_checkbox_mark, .e-form_checkbox input:checked ~ .e-form_checkbox_mark {
+  .e-checkbox input {
+    opacity: 0; }
+    .e-checkbox input:focus ~ .e-checkbox_mark {
+      box-shadow: 0px 0px 0px 1px #29D305; }
+    .e-checkbox input:hover:not(:disabled):not(:invalid) ~ .e-checkbox_mark {
+      background-color: #29D305; }
+    .e-checkbox input:disabled ~ .e-checkbox_mark {
+      border-color: rgba(38, 38, 38, 0.3); }
+    .e-checkbox input:invalid ~ .e-checkbox_mark {
+      border-color: #FF0000; }
+  .e-checkbox input:checked ~ .e-checkbox_mark {
     position: relative;
     background-color: #29D305; }
-    .e-form_checkbox.is-checked .e-form_checkbox_mark::before, .e-form_checkbox input:checked ~ .e-form_checkbox_mark::before {
-      top: -1px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #FFF;
-      font-size: 0.75rem; }
-  .e-form_checkbox.is-invalid input:checked ~ .e-form_checkbox_mark,
-  .e-form_checkbox.is-invalid .e-form_checkbox_mark {
-    border-color: #FF0000; }
-    .e-form_checkbox.is-invalid input:checked ~ .e-form_checkbox_mark::before,
-    .e-form_checkbox.is-invalid .e-form_checkbox_mark::before {
-      color: #FF0000; }
-  .e-form_checkbox input {
-    display: none; }
-  .e-form_checkbox .e-badge {
-    margin-left: 0.5rem;
-    float: right; }
-  .e-form_checkbox_mark {
+    .e-checkbox input:checked ~ .e-checkbox_mark::before {
+      position: absolute;
+      top: 50%;
+      left: -2%;
+      height: 30%;
+      width: 2px;
+      background-color: #000;
+      border-radius: 15px;
+      content: "";
+      transform: translateX(10px) rotate(-45deg);
+      transform-origin: left bottom; }
+    .e-checkbox input:checked ~ .e-checkbox_mark::after {
+      position: absolute;
+      bottom: 20%;
+      left: 2%;
+      height: 2px;
+      width: 60%;
+      background-color: #000;
+      content: "";
+      border-radius: 15px;
+      transform: translateX(10px) rotate(-55deg);
+      transform-origin: left bottom; }
+  .e-checkbox_mark {
     display: inline-block;
-    min-width: 1rem;
-    min-height: 1rem;
-    max-width: 1rem;
-    max-height: 1rem;
-    transition: background 0.3s cubic-bezier(0.55, 0, 0.1, 1);
-    border: 1px solid #29D305;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    transition: background 0.2s cubic-bezier(0.55, 0, 0.1, 1);
+    border: 1px solid #000;
     border-radius: 4px;
     background: #FFF; }
-  .e-form_checkbox_label {
-    flex-grow: 1;
+  .e-checkbox_label {
+    font-size: inherit;
     margin-left: 1rem; }
 
 body {
@@ -788,7 +1034,7 @@ body {
   color: #000; }
 
 .e-text-lead {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1.5rem;
   line-height: 170%;
   font-weight: 400;
@@ -810,7 +1056,7 @@ body {
       font-size: 1.25rem; } }
 
 .e-text-body {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1.25rem;
   line-height: 190%;
   font-weight: 400;
@@ -821,7 +1067,7 @@ body {
       line-height: 160%; } }
 
 .e-text-img {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1.125rem;
   line-height: 160%;
   font-weight: 400;
@@ -832,14 +1078,14 @@ body {
       font-size: 1rem; } }
 
 .e-text-description {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 175%;
   font-weight: 400;
   color: #000; }
 
 .e-text-caps {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 0.875rem;
   line-height: 120%;
   font-weight: 500;
@@ -847,7 +1093,7 @@ body {
   text-transform: uppercase; }
 
 .e-text-info, .e-form_field_error {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 0.875rem;
   line-height: 160%;
   font-weight: 400;
@@ -855,7 +1101,7 @@ body {
   letter-spacing: 0.2px; }
 
 .e-label-input, .e-form_field_label {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
   font-weight: 500;
@@ -863,7 +1109,7 @@ body {
 
 .e-label-option, .e-form_input > input,
 .e-form_input > textarea {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
   font-weight: 400;
@@ -881,13 +1127,13 @@ body {
     margin-bottom: 5px; }
     .e-form_field_label.is-optional::after {
       content: " (valgfri)";
-      color: var(--e-grey-50); }
+      color: rgba(38, 38, 38, 0.5); }
   .e-form_field_error {
     visibility: hidden;
     display: flex;
     align-items: center;
     margin-top: 5px;
-    color: var(--e-grey) !important; }
+    color: #262626 !important; }
     .e-form_field_error.is-active, .e-form_field_error.e-dropdown_content_item:hover:not(.no-hover), .e-tooltip:hover .e-form_field_error.e-tooltip_content, .e-tooltip:focus .e-form_field_error.e-tooltip_content {
       visibility: visible; }
     .e-form_field_error > i {
@@ -913,7 +1159,7 @@ body {
     width: 100%;
     margin-bottom: 0; }
     .is-inlined-field .e-form_field:not(:last-of-type) {
-      margin-right: var(--e-spacing-1); }
+      margin-right: 8px; }
     .is-inlined-field .e-form_field.is-small {
       width: 60px; }
       .is-inlined-field .e-form_field.is-small input {
@@ -955,7 +1201,7 @@ body {
   color: #000; }
 
 .e-text-lead {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1.5rem;
   line-height: 170%;
   font-weight: 400;
@@ -977,7 +1223,7 @@ body {
       font-size: 1.25rem; } }
 
 .e-text-body {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1.25rem;
   line-height: 190%;
   font-weight: 400;
@@ -988,7 +1234,7 @@ body {
       line-height: 160%; } }
 
 .e-text-img {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1.125rem;
   line-height: 160%;
   font-weight: 400;
@@ -999,14 +1245,14 @@ body {
       font-size: 1rem; } }
 
 .e-text-description {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 175%;
   font-weight: 400;
   color: #000; }
 
 .e-text-caps {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 0.875rem;
   line-height: 120%;
   font-weight: 500;
@@ -1014,7 +1260,7 @@ body {
   text-transform: uppercase; }
 
 .e-text-info, .e-form_field_error {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 0.875rem;
   line-height: 160%;
   font-weight: 400;
@@ -1022,7 +1268,7 @@ body {
   letter-spacing: 0.2px; }
 
 .e-label-input, .e-form_field_label {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
   font-weight: 500;
@@ -1030,7 +1276,7 @@ body {
 
 .e-label-option, .e-form_input > input,
 .e-form_input > textarea {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
   font-weight: 400;
@@ -1044,7 +1290,7 @@ body {
   border: 1px solid #262626;
   border-radius: 4px;
   box-sizing: border-box;
-  background: var(--e-white);
+  background: #FFF;
   outline: none;
   max-width: 448px;
   width: 100%; }
@@ -1073,24 +1319,24 @@ body {
     .e-form_input.is-medium input {
       width: 120px; }
   .e-form_input.is-focus, .e-form_input:not(.is-invalid):focus-within, .e-form_input.e-form_select:focus-within {
-    border: 2px solid var(--e-green);
-    box-shadow: 0 0 2px var(--e-green);
+    border: 2px solid #29D305;
+    box-shadow: 0 0 2px #29D305;
     padding: 11px 15px; }
   .e-form_input.is-invalid {
-    border: 2px solid var(--e-red);
+    border: 2px solid #FF0000;
     padding: 11px 15px; }
   .e-form_input.is-disabled, .e-form_input input:disabled {
-    color: var(--e-grey-20);
-    border-color: var(--e-grey-20);
+    color: rgba(38, 38, 38, 0.2);
+    border-color: rgba(38, 38, 38, 0.2);
     cursor: not-allowed; }
     .e-form_input.is-disabled input:disabled, .e-form_input input:disabled input:disabled {
       opacity: 1;
-      color: var(--e-grey-20);
-      -webkit-text-fill-color: var(--e-grey-20);
+      color: rgba(38, 38, 38, 0.2);
+      -webkit-text-fill-color: rgba(38, 38, 38, 0.2);
       cursor: not-allowed; }
 
 .is-combined-field .e-form_input:not(:last-of-type) {
-  margin-right: var(--e-spacing-1); }
+  margin-right: 8px; }
 
 .e-form_radiobutton {
   display: flex;
@@ -1360,7 +1606,7 @@ body {
 
 .e-bg-grey-60 {
   background: rgba(38, 38, 38, 0.6);
-  color: #fff; }
+  color: #000; }
 
 :root {
   --e-grey-50: rgba(38, 38, 38, 0.5); }
@@ -1370,7 +1616,7 @@ body {
 
 .e-bg-grey-50 {
   background: rgba(38, 38, 38, 0.5);
-  color: #fff; }
+  color: #000; }
 
 :root {
   --e-grey-40: rgba(38, 38, 38, 0.4); }
@@ -1380,7 +1626,7 @@ body {
 
 .e-bg-grey-40 {
   background: rgba(38, 38, 38, 0.4);
-  color: #fff; }
+  color: #000; }
 
 :root {
   --e-grey-30: rgba(38, 38, 38, 0.3); }
@@ -1390,7 +1636,7 @@ body {
 
 .e-bg-grey-30 {
   background: rgba(38, 38, 38, 0.3);
-  color: #fff; }
+  color: #000; }
 
 :root {
   --e-grey-20: rgba(38, 38, 38, 0.2); }
@@ -1400,7 +1646,7 @@ body {
 
 .e-bg-grey-20 {
   background: rgba(38, 38, 38, 0.2);
-  color: #fff; }
+  color: #000; }
 
 :root {
   --e-grey-10: rgba(38, 38, 38, 0.1); }
@@ -1410,7 +1656,7 @@ body {
 
 .e-bg-grey-10 {
   background: rgba(38, 38, 38, 0.1);
-  color: #fff; }
+  color: #000; }
 
 :root {
   --e-grey-05: rgba(38, 38, 38, 0.05); }
@@ -1420,7 +1666,7 @@ body {
 
 .e-bg-grey-05 {
   background: rgba(38, 38, 38, 0.05);
-  color: #fff; }
+  color: #000; }
 
 :root {
   --e-grey-02: rgba(38, 38, 38, 0.02); }
@@ -1430,7 +1676,7 @@ body {
 
 .e-bg-grey-02 {
   background: rgba(38, 38, 38, 0.02);
-  color: #fff; }
+  color: #000; }
 
 :root {
   --e-green: #29D305; }
@@ -1480,7 +1726,7 @@ body {
 
 .e-bg-red {
   background: #FF0000;
-  color: #fff; }
+  color: #000; }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
@@ -2193,7 +2439,7 @@ body {
   color: #000; }
 
 .e-text-lead {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1.5rem;
   line-height: 170%;
   font-weight: 400;
@@ -2215,7 +2461,7 @@ body {
       font-size: 1.25rem; } }
 
 .e-text-body {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1.25rem;
   line-height: 190%;
   font-weight: 400;
@@ -2226,7 +2472,7 @@ body {
       line-height: 160%; } }
 
 .e-text-img {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1.125rem;
   line-height: 160%;
   font-weight: 400;
@@ -2237,14 +2483,14 @@ body {
       font-size: 1rem; } }
 
 .e-text-description {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 175%;
   font-weight: 400;
   color: #000; }
 
 .e-text-caps {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 0.875rem;
   line-height: 120%;
   font-weight: 500;
@@ -2252,7 +2498,7 @@ body {
   text-transform: uppercase; }
 
 .e-text-info, .e-form_field_error {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 0.875rem;
   line-height: 160%;
   font-weight: 400;
@@ -2260,7 +2506,7 @@ body {
   letter-spacing: 0.2px; }
 
 .e-label-input, .e-form_field_label {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
   font-weight: 500;
@@ -2268,7 +2514,7 @@ body {
 
 .e-label-option, .e-form_input > input,
 .e-form_input > textarea {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
   font-weight: 400;

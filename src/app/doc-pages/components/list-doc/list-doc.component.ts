@@ -10,6 +10,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class ListDocComponent implements OnInit {
 
 
+  externalUrl = getComponent('list-doc').externalUrl;
   componentStatus = getComponent('list-doc').status;
   componentClasses = ['e-list', 'e-list strong', 'e-list numbers'];
 
