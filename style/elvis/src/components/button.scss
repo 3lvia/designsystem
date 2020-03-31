@@ -22,7 +22,7 @@ $button-font-size: 1rem;
   // .is-primary is the default for any e-button
   @extend .is-primary;
 
-  &.disabled {
+  &.e-disabled {
     background: color("grey-30");
     color: rgba(255, 255, 255, 0.75);
     cursor: not-allowed;
@@ -36,15 +36,15 @@ $button-font-size: 1rem;
     }
   }
 
-  &.focus {
+  &.e-focus {
     border-color: #00a2c7;
   }
 
-  &.hover:not(.disabled) {
+  &.e-hover:not(.disabled) {
     color: color("green");
   }
 
-  &.active {
+  &.e-active {
     color: color("green");
     border-color: color("green");
   }
@@ -85,7 +85,7 @@ $button-font-size: 1rem;
     }
   }
 
-  &.btn-secondary {
+  &.e-btn-secondary {
     display: inline-block;
     border: 2px solid transparent;
     box-shadow: 0px 0px 0px 1px color("black");
@@ -105,7 +105,7 @@ $button-font-size: 1rem;
       box-shadow: none;
     }
 
-    &.disabled {
+    &.e-disabled {
       background: color("grey-30");
       color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
@@ -119,7 +119,7 @@ $button-font-size: 1rem;
     &:focus:not(:active) {
       box-shadow: 0px 0px 0px 2px #00a2c7;
     }
-    &.focus {
+    &.e-focus {
       box-shadow: 0px 0px 0px 2px #00a2c7;
     }
 
@@ -136,19 +136,19 @@ $button-font-size: 1rem;
       }
     }
 
-    &.hover {
+    &.e-hover {
       color: color("black");
       box-shadow: 0px 0px 0px 1px color("green");
     }
 
-    &.active {
+    &.e-active {
       color: color("black");
       box-shadow: 0px 0px 0px 2px color("green");
     }
   }
 
   // When button with text has icon
-  &.has-icon {
+  &.e-has-icon {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
@@ -197,7 +197,7 @@ $button-font-size: 1rem;
   //   }
   // }
 
-  &.btn-loading {
+  &.e-btn-loading {
     span {
       background: transparent;
       border-radius: 50%;

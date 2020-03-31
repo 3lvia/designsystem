@@ -38,31 +38,31 @@ export class CheckboxDocComponent implements OnInit {
 <form>
 `;
   example2 = `
-  <label class="e-checkbox checked">
+  <label class="e-checkbox e-checked">
     <input type="checkbox">
     <span class="e-checkbox_mark"></span>
     <span class="e-checkbox_label">Checked</span>
   </label>
 
-  <label class="e-checkbox focus">
+  <label class="e-checkbox e-focus">
     <input type="checkbox">
     <span class="e-checkbox_mark"></span>
     <span class="e-checkbox_label">Focus</span>
   </label>
 
-  <label class="e-checkbox hover">
+  <label class="e-checkbox e-hover">
     <input type="checkbox">
     <span class="e-checkbox_mark"></span>
     <span class="e-checkbox_label">Hover</span>
   </label>
 
-  <label class="e-checkbox disabled">
+  <label class="e-checkbox e-disabled">
     <input type="checkbox">
     <span class="e-checkbox_mark"></span>
     <span class="e-checkbox_label">Disabled</span>
   </label>
 
-  <label class="e-checkbox invalid">
+  <label class="e-checkbox e-invalid">
     <input type="checkbox">
     <span class="e-checkbox_mark"></span>
     <span class="e-checkbox_label">Invalid</span>

@@ -12,7 +12,7 @@ export class ButtonDocComponent {
 
   eBtn: ['e-btn'];
 
-  pseudoClasses = ['hover', 'active', 'focus', 'disabled'];
+  pseudoClasses = ['e-hover', 'e-active', 'e-focus', 'e-disabled'];
   public clicked = false;
 
   example1 = `<button class="e-btn e-m-2" >
@@ -23,29 +23,29 @@ export class ButtonDocComponent {
 </button>`;
 
 
-  example2 = `<button class="e-btn btn-secondary e-m-2" >
+  example2 = `<button class="e-btn e-btn-secondary e-m-2" >
   Standard
 </button>
-<button class="e-btn btn-secondary e-m-2" disabled >
+<button class="e-btn e-btn-secondary e-m-2" disabled >
   Disabled
 </button>`;
 
   example3 = `
-<button class="e-btn has-icon e-m-2" >
-  <span class="e-icon-user-white-bg"></span>Icon button
+<button class="e-btn e-has-icon e-m-2" >
+  <span class="e-icon-user"></span>Icon button
 </button>
-<button class="e-btn has-icon e-m-2" disabled >
-  <span class="e-icon-user-white-bg"></span>Icon button
+<button class="e-btn e-has-icon e-m-2" disabled >
+  <span class="e-icon-user"></span>Icon button
 </button>
 <br>
-<button class="e-btn btn-secondary has-icon e-m-2" >
+<button class="e-btn e-btn-secondary e-has-icon e-m-2" >
   <span class="e-icon-search"></span>Icon button
 </button>
-<button class="e-btn btn-secondary has-icon e-m-2" disabled >
-  <span class="e-icon-search-white"></span>Icon button
+<button class="e-btn e-btn-secondary e-has-icon e-m-2" disabled >
+  <span class="e-icon-search"></span>Icon button
 </button>`;
 
-  example4 = `<button class="e-btn btn-loading e-m-2">
+  example4 = `<button class="e-btn e-btn-loading e-m-2">
   <span></span>
   <span></span>
   <span></span>
@@ -53,19 +53,19 @@ export class ButtonDocComponent {
 `;
 
   example5 = `
-<button class="e-btn hover e-m-2" >
+<button class="e-btn e-hover e-m-2" >
   Hover
 </button>
 
-<button class="e-btn active e-m-2" >
+<button class="e-btn e-active e-m-2" >
   Active
 </button>
 
-<button class="e-btn focus e-m-2" >
+<button class="e-btn e-focus e-m-2" >
   Focus
 </button>
 
-<button class="e-btn disabled e-m-2" >
+<button class="e-btn e-disabled e-m-2" >
   Disabled
 </button>
 `;

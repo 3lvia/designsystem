@@ -46,36 +46,36 @@ $form-input-border: 1px solid color('grey');
     overflow-y: auto;
   }
 
-  &:not(.invalid):focus-within {
-    @extend .focus;
+  &:not(.e-invalid):focus-within {
+    @extend .e-focus;
   }
 
-  &.is-small {
+  &.e-small {
     width: 60px;
     input {
       width: 60px;
     }
   }
 
-  &.is-medium {
+  &.e-medium {
     width: 120px;
     input {
       width: 120px;
     }
   }
 
-  &.focus {
+  &.e-focus {
     border: 2px solid var(--e-green);
     box-shadow: 0 0 2px var(--e-green);
     padding: $form-input-padding-active;
   }
 
-  &.invalid {
+  &.e-invalid {
     border: 2px solid var(--e-red);
     padding: $form-input-padding-active;
   }
 
-  &.disabled, input:disabled {
+  &.e-disabled, input:disabled {
     color: var(--e-grey-20);
     border-color: var(--e-grey-20);
     cursor: not-allowed;
@@ -94,7 +94,7 @@ $form-input-border: 1px solid color('grey');
   }
 }
 
-.is-combined-field {
+.e-combined-field {
   .e-input:not(:last-of-type) {
     margin-right: spacing('1');
   }

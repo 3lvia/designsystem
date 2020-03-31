@@ -18,31 +18,31 @@ $checkbox-mark-border: 1px solid color("black");
   }
 
   // pseudo classes to emulate state.
-  &.checked {
+  &.e-checked {
     #{$this}_mark {
       @extend %checkbox-mark;
     }
   }
 
-  &.focus {
+  &.e-focus {
     #{$this}_mark {
       box-shadow: 0px 0px 0px 1px color("green");
     }
   }
 
-  &.hover:not(.disabled):not(.invalid) {
+  &.e-hover:not(.disabled):not(.invalid) {
     #{$this}_mark {
       background-color: color("green");
     }
   }
 
-  &.disabled {
+  &.e-disabled {
     #{$this}_mark {
       border-color: color("grey-30");
     }
   }
 
-  &.invalid {
+  &.e-invalid {
     #{$this}_mark {
       border-color: color("red");
     }

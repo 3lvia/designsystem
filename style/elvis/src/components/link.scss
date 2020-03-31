@@ -29,19 +29,19 @@
     border-radius: 15px;
   }
   &:hover,
-  &.hover {
+  &.e-hover {
     &:before {
       background-color: color("green");
     }
   }
 
   &:focus,
-  &.focus {
+  &.e-focus {
     outline: auto;
     outline-color: lightblue;
   }
 
-  &.has-icon {
+  &.e-has-icon {
     display: inline-flex;
 
     i {
@@ -52,7 +52,7 @@
     }
   }
 
-  &.is-inline {
+  &.e-inline {
     font-size: inherit;
     font-weight: 500;
     line-height: 100%;
@@ -68,7 +68,7 @@
     }
   }
 
-  &.is-back {
+  &.e-back {
     &::after {
       content: "<";
       float: left;
@@ -79,7 +79,7 @@
     }
   }
 
-  &.is-custom {
+  &.e-custom {
     display: inline-block;
     max-height: 18px;
     border: none;
@@ -108,13 +108,13 @@
     }
 
     &:hover,
-    &.hover {
+    &.e-hover {
       &:after {
         background-color: color("green");
       }
     }
     &:focus,
-    &.focus {
+    &.e-focus {
       outline: auto;
       outline-color: lightblue;
     }
@@ -125,7 +125,7 @@
     }
   }
 
-  &.is-more {
+  &.e-more {
     &::after {
       content: ">";
       display: inline-block;
