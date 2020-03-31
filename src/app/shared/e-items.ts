@@ -157,7 +157,7 @@ export const eComponents: EItems[] = [
         title: 'Table',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Table,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=0%3A1'
     },

@@ -10,116 +10,131 @@ export class TableDocComponent implements OnInit {
 
   externalUrl = getComponent('table-doc').externalUrl;
   componentStatus = getComponent('table-doc').status;
-  componentClasses = ['e-table'];
+  componentClasses = ['e-table', 'e-table no-zebra', 'e-table-phone'];
 
-  example1 = `<table class="e-table is-striped has-shadow">
-  <tr class="e-table_header">
-    <th>ID<i class="far fa-arrow-up"></i></th>
-    <th>Kundenr.<i class="far fa-arrow-up"></i></th>
-    <th>Personnr.</th>
-    <th>Fakturanr.<i class="far fa-arrow-up"></i></th>
-    <th></th>
-  </tr>
-  <tr>
-    <td>1</td>
-    <td>338472</td>
-    <td>123419384</td>
-    <td>14</td>
-    <td class="e-table_action">
-      <i class="far fa-angle-down"></i>
-      <i class="far fa-ellipsis-v"></i>
-      <button class="e-button">Submit</button>
-    </td>
-  </tr>
-  <tr>
-    <td>2</td>
-    <td>338472</td>
-    <td>123419384</td>
-    <td>14</td>
-    <td class="e-table_action">
-      <i class="far fa-angle-down"></i>
-      <i class="far fa-ellipsis-v"></i>
-      <button class="e-button">Submit</button>
-    </td>
-  </tr>
-  <tr>
-    <td>3</td>
-    <td>338472</td>
-    <td>123419384</td>
-    <td>14</td>
-    <td class="e-table_action">
-      <i class="far fa-angle-down"></i>
-      <i class="far fa-ellipsis-v"></i>
-      <button class="e-button">Submit</button>
-    </td>
-  </tr>
+  example1 = `<table class="e-table">
+  <thead>
+    <tr class="e-table_header">
+      <th scope="col">Gebyr for ikke-automatiske strømmålere</th>
+      <th scope="col">Nok</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Administrativt arbeid i kundesystemet</th>
+      <td>420</td>
+    </tr>
+    <tr>
+      <th scope="row">Informasjon og purring til kunder</th>
+      <td>65</td>
+    </tr>
+    <tr>
+      <th scope="row">Arbeid relatert til booking av avlesning</th>
+      <td>140</td>
+    </tr>
+    <tr>
+      <th scope="row">Årlig kontrollavlesning hos kunde, inkl. kjøring</th>
+      <td>850</td>
+    </tr>
+    <tr>
+      <th scope="row">Arbeidsledelse og planlegging</th>
+      <td>150</td>
+    </tr>
+    <tr>
+      <th scope="row">Fradrag for besparelser i AMS-kostnader</th>
+      <td>-25</td>
+    </tr>
+  </tbody>
 </table>
 `;
 
-  example2 = `<div class="example-container-to-force-scroll">
-  <table class="e-table is-striped has-shadow is-sticky-header">
+  example2 = `<table class="e-table">
+  <thead>
     <tr class="e-table_header">
-      <th>ID<i class="far fa-arrow-up"></i></th>
-      <th>Kundenr.<i class="far fa-arrow-up"></i></th>
-      <th>Personnr.</th>
-      <th>Fakturanr.<i class="far fa-arrow-up"></i></th>
-      <th></th>
+      <th scope="col">Sikringsstørrelse</th>
+      <th scope="col">230 V (2-fase)</th>
+      <th scope="col">230 V (3-fase)</th>
+      <th scope="col">400 V (1-fase)</th>
+      <th scope="col">400 V (3-fase)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">16 A</th>
+      <td class="is-right is-max">340 kr/mnd. This cell exceeds 300px, so the class 'is-max' is added.</td>
+      <td class="is-right">1065 kr/mnd</td>
+      <td class="is-right">900 kr/mnd</td>
+      <td class="is-right">900 kr/mnd</td>
     </tr>
     <tr>
-      <td>1</td>
-      <td>338472</td>
-      <td>123419384</td>
-      <td>14</td>
-      <td class="e-table_action">
-        <i class="far fa-angle-down"></i>
-        <i class="far fa-ellipsis-v"></i>
-        <button class="e-button">Submit</button>
-      </td>
+      <th scope="row">32 A</th>
+      <td class="is-right">150 kr/kW/mnd</td>
+      <td class="is-right">150 kr/kW/mnd</td>
+      <td class="is-right">122 kr/kW/mnd</td>
+      <td class="is-right">122 kr/kW/mnd</td>
     </tr>
     <tr>
-      <td>2</td>
-      <td>338472</td>
-      <td>123419384</td>
-      <td>14</td>
-      <td class="e-table_action">
-        <i class="far fa-angle-down"></i>
-        <i class="far fa-ellipsis-v"></i>
-        <button class="e-button">Submit</button>
-      </td>
+      <th scope="row">40 A</th>
+      <td class="is-right">80 kr/kW/mnd</td>
+      <td class="is-right">80 kr/kW/mnd</td>
+      <td class="is-right">52 kr/kW/mnd</td>
+      <td class="is-right">52 kr/kW/mnd</td>
     </tr>
     <tr>
-      <td>3</td>
-      <td>338472</td>
-      <td>123419384</td>
-      <td>14</td>
-      <td class="e-table_action">
-        <i class="far fa-angle-down"></i>
-        <i class="far fa-ellipsis-v"></i>
-        <button class="e-button">Submit</button>
-      </td>
+      <th scope="row">50 A</th>
+      <td class="is-right">23 kr/kW/mnd</td>
+      <td class="is-right">23 kr/kW/mnd</td>
+      <td class="is-right">17 kr/kW/mnd</td>
+      <td class="is-right">17 kr/kW/mnd</td>
     </tr>
-    <tr>
-      <td>4</td>
-      <td>338472</td>
-      <td>123419384</td>
-      <td>14</td>
-      <td class="e-table_action">
-        <i class="far fa-angle-down"></i>
-        <i class="far fa-ellipsis-v"></i>
-        <button class="e-button">Submit</button>
-      </td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>338472</td>
-      <td>123419384</td>
-      <td>14</td>
-      <td class="e-table_action">
-        <i class="far fa-angle-down"></i>
-        <i class="far fa-ellipsis-v"></i>
-        <button class="e-button">Submit</button>
-      </td>
-    </tr>
+  </tbody>
+</table>
+`;
+
+  example3 = `<div style="width: 305px">
+  <table class="e-table-mobile">
+    <thead>
+      <tr class="e-table_header">
+        <th scope="col">Sikringsstørrelse</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="e-table_header-row">
+        <th scope="col">16 A</th>
+        <th scope="col"></th>
+      </tr>
+      <tr>
+        <th scope="row">230 V (2-fase)</td>
+        <td class="is-right">340 kr/mnd</td>
+      </tr>
+      <tr>
+        <th scope="row">230 V (3-fase)</td>
+        <td class="is-right">1065 kr/mnd</td>
+      </tr>
+      <tr>
+        <th scope="row">400 V (1-fase)</td>
+        <td class="is-right">900 kr/mnd</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr class="e-table_header-row">
+        <th scope="col">32 A</th>
+        <th scope="col"></th>
+      </tr>
+      <tr>
+        <th scope="row">230 V (2-fase)</td>
+        <td class="is-right">340 kr/mnd</td>
+      </tr>
+      <tr>
+        <th scope="row">230 V (3-fase)</td>
+        <td class="is-right">1065 kr/mnd</td>
+      </tr>
+      <tr>
+        <th scope="row">400 V (1-fase)</td>
+        <td class="is-right">900 kr/mnd</td>
+      </tr>
+    </tbody>
   </table>
 </div>
 `;
