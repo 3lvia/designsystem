@@ -21,7 +21,7 @@
 
     &.is-optional::after {
       content: " (valgfri)";
-      color: var(--e-grey-05);
+      color: color('grey-50');
     }
   }
 
@@ -31,7 +31,7 @@
     align-items: center;
     margin-top: 5px;
     @extend .e-text-info;
-    color: var(--e-grey) !important;
+    color: color('grey') !important;
 
     &.is-active {
       visibility: visible;
@@ -39,7 +39,7 @@
 
     > i {
       margin-right: 5px;
-      padding: 8px;
+      padding: spacing('1');
     }
   }
 }
@@ -68,7 +68,7 @@
     margin-bottom: 0;
 
     &:not(:last-of-type) {
-      margin-right: var(--e-spacing-1);
+      margin-right: spacing('1');
     }
 
     &.is-small {

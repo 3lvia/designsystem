@@ -10,6 +10,8 @@
   font-weight: bold;
   line-height: 24px;
   color: color("font-color");
+  cursor: pointer;
+  
   @include breakpoint-up(Mobile) {
     font-size: 16px;
     line-height: 21px;
@@ -28,7 +30,7 @@
   }
   &:hover {
     &:before {
-      background-color: color("green-lime");
+      background-color: color("green");
     }
   }
 
@@ -39,7 +41,7 @@
       background-size: cover;
       height: 24px;
       width: 24px;
-      margin-left: 8px;
+      margin-left: spacing('1');
     }
   }
 
@@ -54,7 +56,7 @@
     }
     &:hover {
       &:before {
-        background-color: color("green-lime");
+        background-color: color("green");
       }
     }
   }
@@ -65,7 +67,7 @@
       float: left;
       font-size: 14px;
       font-weight: 800;
-      padding-right: 8px;
+      padding-right: spacing('1');
       vertical-align: middle;
     }
   }
@@ -87,9 +89,9 @@
       font-size: 12px;
       font-weight: 800;
       padding: 0px 6px;
-      border: 1px solid color("green-lime");
+      border: 1px solid color("green");
       border-radius: 50%;
-      margin-left: 8px;
+      margin-left: spacing('1');
       vertical-align: text-bottom;
      
       @include breakpoint-up(Mobile) {
@@ -100,7 +102,7 @@
 
     &:hover {
       &:after {
-        background-color: color("green-lime");
+        background-color: color("green");
       }
     }
     // remove "border-bottom" created by :before

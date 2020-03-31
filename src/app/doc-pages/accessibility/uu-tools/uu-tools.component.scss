@@ -6,16 +6,16 @@
 .elvia-factbox {
     display: flex;
     padding: 10px 10px;
-    border: 2px solid var(--e-grey-03);
+    border: 2px solid var(--e-grey-30);
     border-radius: 4px;
     margin: 10px 0;
 
     &.is-info {
-        background-color: var(--e-yellow-05);
+        background-color: var(--e-yellow);
     }
 
     &.is-warn {
-        background: var(--e-orange-peel-05);
+        background: var(--e-orange);
     }
 
     &_icon {

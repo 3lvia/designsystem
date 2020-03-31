@@ -1,6 +1,7 @@
 @import './colors.scss';
 
 $font-family: "Red Hat Display", sans-serif;
+$font-family-secondary: "Red Hat Text", sans-serif;
 
 @function font-size($name) {
   $typography-map: null;
@@ -56,7 +57,7 @@ $typography: (
     color: color('font-color')
   ),
   text-lead: (
-    family: $font-family,
+    family: $font-family-secondary,
     size: 1.5rem,
     size-m: 1.3125rem,
     weight: 400,
@@ -74,7 +75,7 @@ $typography: (
     color: color('font-color')
   ),
   text-body: (
-    family: $font-family,
+    family: $font-family-secondary,
     size: 1.25rem,
     size-m: 1.125rem,
     weight: 400,
@@ -83,7 +84,7 @@ $typography: (
     color: color('font-color')
   ),
   text-img: (
-    family: $font-family,
+    family: $font-family-secondary,
     size: 1.125rem,
     size-m: 1rem,
     weight: 400,
@@ -92,14 +93,14 @@ $typography: (
     color: color('font-color')
   ),
   text-description: (
-    family: $font-family,
+    family: $font-family-secondary,
     size: 1rem,
     weight: 400,
     height: 175%,
     color: color('font-color')
   ),
   text-caps: (
-    family: $font-family,
+    family: $font-family-secondary,
     size: 0.875rem,
     weight: 500,
     height: 120%,
@@ -107,7 +108,7 @@ $typography: (
     color: color('font-color')
   ),
   text-info: (
-    family: $font-family,
+    family: $font-family-secondary,
     size: 0.875rem,
     weight: 400,
     height: 160%,
@@ -115,14 +116,14 @@ $typography: (
     color: color('font-color')
   ),
   label-input: (
-    family: $font-family,
+    family: $font-family-secondary,
     size: 1rem,
     weight: 500,
     height: 140%,
     color: color('font-color')
   ),
   label-option: (
-    family: $font-family,
+    family: $font-family-secondary,
     size: 1rem,
     weight: 400,
     height: 140%,
@@ -132,3 +133,4 @@ $typography: (
 
 
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap');

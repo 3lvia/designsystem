@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, Input, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-smartphone',
@@ -8,6 +8,7 @@ import { Component, Input, ViewChild, AfterViewInit } from '@angular/core';
 export class SmartphoneComponent implements AfterViewInit {
   @Input() code = '';
   @ViewChild('mobilepreview') mobilePreview;
+  now = new Date();
 
   constructor() { }
 

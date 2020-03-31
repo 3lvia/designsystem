@@ -1,7 +1,7 @@
 @import './../variables/colors';
 @import './../variables/shadows';
 
-$dropdown-border: 1px solid color('green-lime');
+$dropdown-border: 1px solid color('green');
 $dropdown-margin: 20px;
 $dropdown-item-padding: 0.625rem 0.75rem;
 
@@ -52,7 +52,7 @@ $dropdown-item-padding: 0.625rem 0.75rem;
       }
 
       &.is-active {
-        background: color('green-lime');
+        background: color('green');
         color: color('white');
       }
     }

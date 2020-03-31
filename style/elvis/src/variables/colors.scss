@@ -41,85 +41,77 @@
 $colors: (
   'white': (
     color: #FFF,
-    alt-labels: (on-color),
+    alt-labels: (elvia-on),
     contrast-text: #000,
   ),  
   'black': (
     color: #000,
-    alt-labels: (font-color, off-color),
+    alt-labels: (font-color, elvia-off),
     contrast-text: #fff,
   ),  
   'grey': (
     color: #262626,
     contrast-text: #fff,
   ),  
-  'grey-05': (
-    color: rgba(38,38,38, 0.5),
+  'grey-90': (
+    color: rgba(38,38,38, 0.9),
     contrast-text: #fff,
   ),  
-  'grey-03': (
-    color: rgba(38,38,38, 0.3),
+  'grey-80': (
+    color: rgba(38,38,38, 0.8),
     contrast-text: #fff,
+  ),  
+  'grey-70': (
+    color: rgba(38,38,38, 0.7),
+    contrast-text: #fff,
+  ),  
+  'grey-60': (
+    color: rgba(38,38,38, 0.6),
+    contrast-text: #000,
+  ),  
+  'grey-50': (
+    color: rgba(38,38,38, 0.5),
+    contrast-text: #000,
+  ),  
+  'grey-40': (
+    color: rgba(38,38,38, 0.4),
+    contrast-text: #000,
+  ),  
+  'grey-30': (
+    color: rgba(38,38,38, 0.3),
+    contrast-text: #000,
+  ),  
+  'grey-20': (
+    color: rgba(38,38,38, 0.2),
+    contrast-text: #000,
+  ),  
+  'grey-10': (
+    color: rgba(38,38,38, 0.1),
+    contrast-text: #000,
+  ),  
+  'grey-05': (
+    color: rgba(38,38,38, 0.05),
+    contrast-text: #000,
   ),  
   'grey-02': (
-    color: rgba(38,38,38, 0.2),
-    contrast-text: #fff,
+    color: rgba(38,38,38, 0.02),
+    contrast-text: #000,
   ),  
-  'grey-01': (
-    color: rgba(38,38,38, 0.1),
-    contrast-text: #fff,
-  ),  
-  'green-lime': (
+  'green': (
     color: #29D305,
-    alt-labels: (charge-color),
+    alt-labels: (elvia-charge),
     contrast-text: #000,
-  ),   
-  'green-lime-05': (
-    color: rgba(41, 211, 5, 0.5),
-    contrast-text: #000,
-  ),   
-  'green-lime-02': (
-    color: rgba(41, 211, 5, 0.2),
-    contrast-text: #000,
-  ),   
+  ), 
   'yellow': (
     color: #FFFF00,
     contrast-text: #000,
   ),  
-  'yellow-05': (
-    color: rgba(255, 255, 0, 0.5),
-    contrast-text: #000,
-  ),  
-  'yellow-02': (
-    color: rgba(255, 255, 0, 0.2),
-    contrast-text: #000,
-  ),  
-  'orange-peel': (
+  'orange': (
     color: #FFA000,
-    contrast-text: #000,
-  ),  
-  'orange-peel-05': (
-    color: rgba(255, 160, 0, 0.5),
-    contrast-text: #000,
-  ),  
-  'orange-peel-02': (
-    color: rgba(255, 160, 0, 0.2),
     contrast-text: #000,
   ),  
   'red': (
     color: #FF0000,
-    contrast-text: #fff,
-  ),  
-  'red-08': (
-    color: rgba(255, 0, 0, 0.8),
-    contrast-text: #fff,
-  ),  
-  'red-05': (
-    color: rgba(255, 0, 0, 0.5),
-    contrast-text: #000,
-  ),  
-  'red-02': (
-    color: rgba(255, 0, 0, 0.2),
     contrast-text: #000,
   ),  
 );  

@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start-dev": "concurrently \"npm run start\" \"cd style/elvis && gulp watch\"",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -22,7 +23,7 @@
     "@angular/platform-browser": "~9.0.1",
     "@angular/platform-browser-dynamic": "~9.0.1",
     "@angular/router": "~9.0.1",
-    "@hafslundnett/elvis": "0.0.2",
+    "@elvia/elvis": "^0.0.10",
     "classlist.js": "^1.1.20150312",
     "css-vars-ponyfill": "^2.2.1",
     "gulp": "^4.0.2",
