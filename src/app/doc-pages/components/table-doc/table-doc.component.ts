@@ -118,7 +118,7 @@ export class TableDocComponent implements OnInit {
     </tbody>
     <tbody>
       <tr class="e-table_header-row">
-        <th scope="col">16 A</th>
+        <th scope="col">32 A</th>
         <th scope="col"></th>
       </tr>
       <tr>

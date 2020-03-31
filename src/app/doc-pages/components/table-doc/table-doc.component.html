@@ -21,7 +21,7 @@
     [code]="example1"
     [title]="'Table'"
     [description]="''"
-    [showTabs]="false"
+    [onlyDesktop]="true"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
@@ -29,12 +29,13 @@
     [title]="'Table with multiple columns'"
     [description]="'If the table requires scrolling the max-width for a column is 300px, 
     the class is-max can then be added to ensure width of column and text wrap. Numbers here are aligned to the right.'"
-    [showTabs]="false"
+    [onlyDesktop]="true"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example3"
     [title]="'Table for mobile'"
-    [description]="'The mobile-table classes make the columns take 50% each of the content. The text in the last column should always be aligned to the right.'"
+    [description]="'The text in the last column should always be aligned to the right on phones.'"
+    [onlyPhone]="true"
   ></app-code-block>
 </div>
