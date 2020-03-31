@@ -248,6 +248,7 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Breakpoints,
         status: ItemStatus.New,
         actionText: 'View breakpoints',
+        externalUrl: 'https://www.figma.com/file/fMr1lhboPukTxmH9KruWB2/Grid'
     },
 ];
 

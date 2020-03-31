@@ -9,6 +9,7 @@ import { getUtilities } from 'src/app/shared/e-items';
 export class BreakpointsDocComponent implements OnInit {
 
   componentStatus = getUtilities('breakpoints-doc').status;
+  externalUrl = getUtilities('breakpoints-doc').externalUrl;
 
   constructor() { }
 
