@@ -1,5 +1,4 @@
 // Overwriting bootstrap variables for grid
-
 $grid-breakpoints: (
     xs: 0,
     sm: 320px,
@@ -29,27 +28,34 @@ $grid-breakpoints: (
     $grid-row-columns: 6 !default;
 }
 
-// $grid-columns: #{$columns} !default;
-// $grid-gutter-width: #{$gutter} !default;
-// $grid-row-columns: 6 !default;
+.e-row {
+    @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
 
-// Finne ut hvordan man kan legge til margin på sidene
+    @extend .row;
 
-@import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
+    .e-col { @extend .col; }
+    .e-col-sm { @extend .col-sm; }
+    .e-col-md { @extend .col-md; }
+    .e-col-lg { @extend .col-lg; }
+    .e-col-xl { @extend .col-xl; }
+    // Extend for all numbers
 
-@include breakpoint-up(MinDesktop) { 
-    .row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
-    .row .row {margin: unset}
-}
-@include breakpoint-up(MaxDesktop) { 
-    .row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
-    .row .row {margin: unset}
-}
-@include breakpoint-up(Tablet) { 
-    .row {margin: 0 calc(32px - (#{$grid-gutter-width} / 2));} 
-    .row .row {margin: unset}
-}
-@include breakpoint-up(Mobile) { 
-    .row {margin: 0 calc(16px - (#{$grid-gutter-width} / 2));} 
-    .row .row {margin: unset}
+
+    @include breakpoint-up(MinDesktop) { 
+        .row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
+        .row .row {margin: unset;}
+    }
+    
+    @include breakpoint-up(MaxDesktop) { 
+        .row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
+        .row .row {margin: unset}
+    }
+    @include breakpoint-up(Tablet) { 
+        .row {margin: 0 calc(32px - (#{$grid-gutter-width} / 2));} 
+        .row .row {margin: unset}
+    }
+    @include breakpoint-up(Mobile) { 
+        .row {margin: 0 calc(16px - (#{$grid-gutter-width} / 2));} 
+        .row .row {margin: unset}
+    }
 }
