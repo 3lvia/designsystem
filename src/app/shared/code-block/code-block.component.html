@@ -26,7 +26,7 @@
     </form>
   </div>
   <div class="component-body__example-body e-border">
-    <div class="tabs">
+    <div class="tabs" *ngIf="!onlyDesktop && !onlyPhone">
       <div
         class="tab e-border"
         role="button"

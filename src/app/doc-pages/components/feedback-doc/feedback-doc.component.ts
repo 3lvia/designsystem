@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class FeedbackDocComponent implements OnInit {
 
+  externalUrl = getComponent('feedback-doc').externalUrl;
   componentStatus = getComponent('feedback-doc').status;
   componentClasses = ['e-feedback-message'];
 

@@ -19,6 +19,7 @@ export class TypographyDocComponent  {
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentClasses = ['e-title', 'e-text', 'e-label'];
+  externalUrl = getUtilities('typography-doc').externalUrl;
   componentStatus = getUtilities('typography-doc').status;
 
   example1 = `<h1 class="e-title-lg">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>

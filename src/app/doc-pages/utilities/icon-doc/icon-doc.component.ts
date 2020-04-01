@@ -13,6 +13,7 @@ export class IconDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
+  externalUrl = getUtilities('icon-doc').externalUrl;
   componentStatus = getUtilities('icon-doc').status;
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];

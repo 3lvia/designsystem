@@ -17,6 +17,7 @@ export class SpacingDocComponent implements OnInit {
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentClasses = ['e-p', 'e-m'];
   componentStatus = getUtilities('spacing-doc').status;
+  externalUrl = getUtilities('spacing-doc').externalUrl;
 
   doCodeCSS = `padding: var(--e-spacing-2);
 margin: var(--e-spacing-6);`;
