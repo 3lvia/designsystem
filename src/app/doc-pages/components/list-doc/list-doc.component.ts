@@ -12,7 +12,6 @@ export class ListDocComponent implements OnInit {
 
   externalUrl = getComponent('list-doc').externalUrl;
   componentStatus = getComponent('list-doc').status;
-  componentClasses = ['e-list', 'e-list strong', 'e-list numbers'];
 
   example1 = `<ul class="e-list">
   <li>Just a hunk, a hunk of burning list</li>
@@ -22,7 +21,7 @@ export class ListDocComponent implements OnInit {
 </ul>
 `;
 
-  example2 = `<ul class="e-list strong">
+  example2 = `<ul class="e-list e-strong">
   <li>Just a hunk, a hunk of burning list</li>
   <li>Just a hunk, a hunk of burning list</li>
   <li>Just a hunk, a hunk of burning list</li>
@@ -30,7 +29,7 @@ export class ListDocComponent implements OnInit {
 </ul>
 `;
 
-  example3 = `<ol class="e-list numbers">
+  example3 = `<ol class="e-list e-numbers">
   <li>Just a hunk, a hunk of burning list</li>
   <li>Just a hunk, a hunk of burning lists</li>
   <li>Just a hunk, a hunk of burning lists</li>

@@ -10,7 +10,7 @@ export class CheckboxDocComponent implements OnInit {
 
   externalUrl = getComponent('checkbox-doc').externalUrl;
   componentStatus = getComponent('checkbox-doc').status;
-  componentClasses = ['e-checkbox'];
+  pseudoClasses = ['checked', 'focus', 'hover', 'disabled', 'invalid'];
 
   example1 = `<form>
   <label class="e-checkbox">
@@ -37,6 +37,37 @@ export class CheckboxDocComponent implements OnInit {
     <span class="e-checkbox_label">Invalid checkbox</span>
   </label>
 <form>
+`;
+  example2 = `
+  <label class="e-checkbox e-checked">
+    <input type="checkbox">
+    <span class="e-checkbox_mark"></span>
+    <span class="e-checkbox_label">Checked</span>
+  </label>
+
+  <label class="e-checkbox e-focus">
+    <input type="checkbox">
+    <span class="e-checkbox_mark"></span>
+    <span class="e-checkbox_label">Focus</span>
+  </label>
+
+  <label class="e-checkbox e-hover">
+    <input type="checkbox">
+    <span class="e-checkbox_mark"></span>
+    <span class="e-checkbox_label">Hover</span>
+  </label>
+
+  <label class="e-checkbox e-disabled">
+    <input type="checkbox">
+    <span class="e-checkbox_mark"></span>
+    <span class="e-checkbox_label">Disabled</span>
+  </label>
+
+  <label class="e-checkbox e-invalid">
+    <input type="checkbox">
+    <span class="e-checkbox_mark"></span>
+    <span class="e-checkbox_label">Invalid</span>
+  </label>
 `;
 
   constructor() { }
