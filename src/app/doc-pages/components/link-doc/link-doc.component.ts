@@ -24,9 +24,13 @@ export class LinkDocComponent implements OnInit {
 `;
   example4 = `<a class="e-link e-back" href="https://www.elvia.no/">Tilbake</a>
 `;
-  example5 = `<a class="e-link e-has-icon" href="https://www.elvia.no/">Last ned <i class="e-icon-download"></i></a>
+  example5 = `
+  <a class="e-link" href="https://www.elvia.no/">Last ned <i class="e-icon-download"></i></a>
+  <br>
+  <br>
+  <a class="e-link" href="https://www.elvia.no/"><i class="e-icon-download"></i> Last ned</a>
 `;
-  example6 = `<a class="e-link e-custom" href="https://www.elvia.no/">Se hva du kan gjøre</a>
+  example6 = `<a class="e-link e-custom" href="https://www.elvia.no/">Se hva du kan gjøre <i class="e-icon-arrow-right"></i></a>
 `;
   example7 = `
 <a class="e-link e-hover" href="https://www.elvia.no/">Se hva du kan gjøre</a>
