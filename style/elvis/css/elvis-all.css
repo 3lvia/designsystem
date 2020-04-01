@@ -6,6 +6,8 @@
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
 .e-badge {
   padding: 5px 10px;
   border-radius: 20px;
@@ -523,70 +525,172 @@
   font-weight: bold;
   background: transparent; }
 
+body {
+  font-family: "Red Hat Display", sans-serif;
+  color: #000; }
+
+.e-title-lg {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 2.75rem;
+  line-height: 120%;
+  font-weight: 900;
+  color: #000; }
+  @media (max-width: 767px) {
+    .e-title-lg {
+      font-size: 1.75rem; } }
+
+.e-title-md {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1.625rem;
+  line-height: 120%;
+  font-weight: 700;
+  color: #000; }
+  @media (max-width: 767px) {
+    .e-title-md {
+      font-size: 1.5rem; } }
+
+.e-title-sm {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1.25rem;
+  line-height: 120%;
+  font-weight: 700;
+  color: #000; }
+
+.e-text-lead {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1.5rem;
+  line-height: 170%;
+  font-weight: 400;
+  color: #000; }
+  @media (max-width: 767px) {
+    .e-text-lead {
+      font-size: 1.3125rem;
+      line-height: 160%; } }
+
+.e-text-quote {
+  font-family: "Red Hat Display", sans-serif;
+  font-size: 1.625rem;
+  line-height: 160%;
+  font-weight: 400;
+  color: #000;
+  font-style: italic; }
+  @media (max-width: 767px) {
+    .e-text-quote {
+      font-size: 1.25rem; } }
+
+.e-text-body {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1.25rem;
+  line-height: 190%;
+  font-weight: 400;
+  color: #000; }
+  @media (max-width: 767px) {
+    .e-text-body {
+      font-size: 1.125rem;
+      line-height: 160%; } }
+
+.e-text-img {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1.125rem;
+  line-height: 160%;
+  font-weight: 400;
+  color: #000;
+  font-style: italic; }
+  @media (max-width: 767px) {
+    .e-text-img {
+      font-size: 1rem; } }
+
+.e-text-description, .e-table td, .e-table th, .e-table-mobile th, .e-table-mobile td {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1rem;
+  line-height: 175%;
+  font-weight: 400;
+  color: #000; }
+
+.e-text-caps {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 0.875rem;
+  line-height: 120%;
+  font-weight: 500;
+  color: #000;
+  text-transform: uppercase; }
+
+.e-text-info, .e-form_field_error {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 0.875rem;
+  line-height: 160%;
+  font-weight: 400;
+  color: #000;
+  letter-spacing: 0.2px; }
+
+.e-label-input, .e-form_field_label {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1rem;
+  line-height: 140%;
+  font-weight: 500;
+  color: #000; }
+
+.e-label-option, .e-form_input > input,
+.e-form_input > textarea {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1rem;
+  line-height: 140%;
+  font-weight: 400;
+  color: #000; }
+
+.e-table .e-table_header, .e-table-mobile .e-table_header {
+  background: #262626;
+  width: 100%; }
+  .e-table .e-table_header th, .e-table-mobile .e-table_header th {
+    color: #FFF;
+    font-weight: 500; }
+
 .e-table {
-  min-width: 100%;
-  overflow: scroll;
+  display: block;
+  overflow: auto;
+  text-align: left;
+  white-space: nowrap;
+  width: 100%;
+  max-width: 768px;
+  border: 1px solid rgba(38, 38, 38, 0.1);
+  border-radius: 4px;
+  border-collapse: separate;
+  border-spacing: 0; }
+  .e-table tr th:first-of-type {
+    border-right: 1px solid rgba(38, 38, 38, 0.1); }
+  .e-table td, .e-table th {
+    width: 100%;
+    padding: 0.688rem 1rem; }
+    .e-table td.is-max, .e-table th.is-max {
+      display: inline-block;
+      white-space: pre-wrap;
+      width: 300px; }
+  .e-table:not(.no-zebra) tr:nth-of-type(even) {
+    background: rgba(38, 38, 38, 0.05); }
+  .e-table .is-right {
+    text-align: right; }
+  .e-table .is-center {
+    text-align: center; }
+
+.e-table-mobile {
+  display: table;
+  table-layout: auto;
+  width: 100%;
+  overflow: hidden;
+  text-align: left;
+  border-radius: 4px;
   border-spacing: 0;
-  border-collapse: collapse;
-  background: #FFF;
-  box-sizing: border-box; }
-  .e-table th,
-  .e-table td {
-    margin: 0;
-    padding: 0.7rem 1rem;
-    text-align: left; }
-    .e-table th.e-table_action,
-    .e-table td.e-table_action {
-      display: flex;
-      float: right;
-      font-size: 24px;
-      text-align: right; }
-      .e-table th.e-table_action > *,
-      .e-table td.e-table_action > * {
-        margin: 0 0.5rem; }
-        .e-table th.e-table_action > *:first-child,
-        .e-table td.e-table_action > *:first-child {
-          margin-left: 0; }
-        .e-table th.e-table_action > *:last-child,
-        .e-table td.e-table_action > *:last-child {
-          margin-right: 0; }
-  .e-table.no-wrap th,
-  .e-table.no-wrap td {
-    white-space: nowrap; }
-  .e-table:not(.no-row-padding).e-table_row > *:first-child, .e-table.is-striped tr.e-table:not(.no-row-padding):nth-of-type(even) > *:first-child,
-  .e-table:not(.no-row-padding) tr > *:first-child {
-    padding-left: 1.5rem; }
-  .e-table:not(.no-row-padding).e-table_row > *:last-child, .e-table.is-striped tr.e-table:not(.no-row-padding):nth-of-type(even) > *:last-child,
-  .e-table:not(.no-row-padding) tr > *:last-child {
-    padding-right: 1.5rem; }
-  .e-table_row.is-stripe, .e-table.is-striped tr:nth-of-type(even),
-  .e-table tr.is-stripe,
-  .e-table.is-striped tr:nth-of-type(even) {
-    background: #FFA000; }
-  .e-table_row.is-selected, .e-table.is-striped tr.is-selected:nth-of-type(even),
-  .e-table tr.is-selected {
-    background: #FFA000; }
-  .e-table_header {
-    font-size: large;
-    border-bottom: 2px solid rgba(38, 38, 38, 0.3);
-    text-align: left; }
-    .e-table_header th,
-    .e-table_header td {
-      padding: 1.2rem 1rem; }
-      .e-table_header th > i,
-      .e-table_header td > i {
-        margin-left: 0.3rem; }
-  .e-table.is-aligned-top td {
-    vertical-align: top; }
-  .e-table.is-aligned-bottom td, .e-table.e-dropdown_content td {
-    vertical-align: bottom; }
-  .e-table.has-shadow {
-    border-radius: 5px; }
-  .e-table.is-sticky-header th {
-    position: sticky;
-    top: 0;
-    background: #FFF;
-    z-index: 1; }
+  box-shadow: 0px 0px 0px 1px rgba(38, 38, 38, 0.1); }
+  .e-table-mobile th, .e-table-mobile td {
+    padding: 0.375rem 0.5rem; }
+  .e-table-mobile .e-table_header-row {
+    background: rgba(38, 38, 38, 0.1); }
+  .e-table-mobile:not(.no-zebra) tr:not(:first-of-type):nth-of-type(odd) {
+    background: rgba(38, 38, 38, 0.05); }
+  .e-table-mobile .is-right {
+    text-align: right; }
+  .e-table-mobile .is-center {
+    text-align: center; }
 
 .e-tags {
   position: relative;
@@ -1077,7 +1181,7 @@ body {
     .e-text-img {
       font-size: 1rem; } }
 
-.e-text-description {
+.e-text-description, .e-table td, .e-table th, .e-table-mobile th, .e-table-mobile td {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 175%;
@@ -1244,7 +1348,7 @@ body {
     .e-text-img {
       font-size: 1rem; } }
 
-.e-text-description {
+.e-text-description, .e-table td, .e-table th, .e-table-mobile th, .e-table-mobile td {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 175%;
@@ -2482,7 +2586,7 @@ body {
     .e-text-img {
       font-size: 1rem; } }
 
-.e-text-description {
+.e-text-description, .e-table td, .e-table th, .e-table-mobile th, .e-table-mobile td {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 175%;
