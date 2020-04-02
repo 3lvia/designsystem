@@ -11,7 +11,7 @@
   line-height: 24px;
   color: color("font-color");
   cursor: pointer;
-  
+
   @include breakpoint-up(Mobile) {
     font-size: 16px;
     line-height: 21px;
@@ -28,27 +28,34 @@
     margin-bottom: -3px;
     border-radius: 15px;
   }
-  &:hover {
+  &:hover,
+  &.e-hover {
     &:before {
       background-color: color("green");
     }
   }
 
-  &.has-icon {
+  &:focus,
+  &.e-focus {
+    outline: auto;
+    outline-color: lightblue;
+  }
+
+  &.e-has-icon {
     display: inline-flex;
 
     i {
       background-size: cover;
       height: 24px;
       width: 24px;
-      margin-left: 8px;
+      margin-left: spacing('1');
     }
   }
 
-  &.is-inline {
+  &.e-inline {
     font-size: inherit;
     font-weight: 500;
-    line-height: 100%;;
+    line-height: 100%;
     &::before {
       content: "";
       height: 1.5px;
@@ -61,18 +68,18 @@
     }
   }
 
-  &.is-back {
+  &.e-back {
     &::after {
       content: "<";
       float: left;
       font-size: 14px;
       font-weight: 800;
-      padding-right: 8px;
+      padding-right: spacing('1');
       vertical-align: middle;
     }
   }
 
-  &.is-custom {
+  &.e-custom {
     display: inline-block;
     max-height: 18px;
     border: none;
@@ -80,9 +87,9 @@
     line-height: 26px;
 
     @include breakpoint-up(Mobile) {
-    font-size: 18px;
-    line-height: 24px;
-  }
+      font-size: 18px;
+      line-height: 24px;
+    }
 
     &::after {
       content: ">";
@@ -91,27 +98,34 @@
       padding: 0px 6px;
       border: 1px solid color("green");
       border-radius: 50%;
-      margin-left: 8px;
+      margin-left: spacing('1');
       vertical-align: text-bottom;
-     
+
       @include breakpoint-up(Mobile) {
         font-size: 10px;
         padding: 0px 5px;
       }
     }
 
-    &:hover {
+    &:hover,
+    &.e-hover {
       &:after {
         background-color: color("green");
       }
     }
+    &:focus,
+    &.e-focus {
+      outline: auto;
+      outline-color: lightblue;
+    }
+
     // remove "border-bottom" created by :before
     &:before {
       content: none;
     }
   }
 
-  &.is-more {
+  &.e-more {
     &::after {
       content: ">";
       display: inline-block;

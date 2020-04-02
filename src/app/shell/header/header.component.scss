@@ -39,10 +39,11 @@
     &_links {
       display: flex;
       width: $navbar-width;
-      padding-right: 16px;
       justify-content: flex-end;
       align-items: center;
-      cursor: pointer;
+      a {
+        cursor: pointer;
+      }
     }
   }
 

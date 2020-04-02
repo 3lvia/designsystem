@@ -19,9 +19,9 @@
     margin-bottom: 5px;
     @extend .e-label-input;
 
-    &.is-optional::after {
+    &.e-optional::after {
       content: " (valgfri)";
-      color: var(--e-grey-50);
+      color: color('grey-50');
     }
   }
 
@@ -31,20 +31,20 @@
     align-items: center;
     margin-top: 5px;
     @extend .e-text-info;
-    color: var(--e-grey) !important;
+    color: color('grey') !important;
 
-    &.is-active {
+    &.e-active {
       visibility: visible;
     }
 
     > i {
       margin-right: 5px;
-      padding: 8px;
+      padding: spacing('1');
     }
   }
 }
 
-.is-combined-field {
+.e-combined-field {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -57,7 +57,7 @@
   }
 }
 
-.is-inlined-field {
+.e-inlined-field {
   display: flex;
   flex-direction: row;
   max-width: 448px;
@@ -68,17 +68,17 @@
     margin-bottom: 0;
 
     &:not(:last-of-type) {
-      margin-right: var(--e-spacing-1);
+      margin-right: spacing('1');
     }
 
-    &.is-small {
+    &.e-small {
       width: 60px;
       input {
         width: 60px;
       }
     }
   
-    &.is-medium {
+    &.e-medium {
       width: 140px;
       input {
         width: 140px;

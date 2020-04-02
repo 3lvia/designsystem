@@ -2,6 +2,7 @@
 <app-component-header
   [componentClasses]="componentClasses"
   [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
   [tabs]="tabs"
   [(selected)]="selected"
 >
@@ -21,7 +22,7 @@
   <div class="examples" *ngIf="selected == tabNames.Overview">
     <h2 class="e-title-md">Typography</h2>
     <p class="e-text-body">
-      The font is Red Hat Display and should be used for all text. Here are all the different typography 
+      The fonts are Red Hat Display and Red Hat Text and should be used for all text. Here are all the different typography 
       classes represented.
     </p>
     <h3 class="e-title-sm">Desktop & Tablet vs Mobile</h3>

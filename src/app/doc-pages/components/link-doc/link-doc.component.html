@@ -1,7 +1,7 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
-  [componentClasses]="componentClasses"
+  [externalUrl]="externalUrl"
 >
   <ng-container ngProjectAs="headerTitle">
     Link
@@ -18,30 +18,42 @@
     [isHTML]="true"
     [code]="example1"
     [title]="'Link'"
+    [class]="['e-link']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
     [title]="'Inline Link'"
+    [class]="['e-inline']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example3"
     [title]="'See more Link'"
+    [class]="['e-more']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example4"
     [title]="'Back Link'"
+    [class]="['e-back']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example5"
     [title]="'Links with icon'"
+    [class]="['e-has-icon']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example6"
     [title]="'Custom Link'"
+    [class]="['e-custom']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example7"
+    [title]="'Pseudo Classes'"
+    [class]="pseudoClasses"
   ></app-code-block>
 </div>

@@ -7,7 +7,7 @@ $form-input-padding-active: 11px 15px;
 $form-input-border-radius: $border-radius;
 $form-input-border: 1px solid color('grey');
 
-.e-form_input {
+.e-input {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
 
@@ -18,7 +18,7 @@ $form-input-border: 1px solid color('grey');
   border: $form-input-border;
   border-radius: $form-input-border-radius;
   box-sizing: border-box;
-  background: var(--e-white);
+  background: color('white');
   outline: none;
   max-width: 448px;
   width: 100%;
@@ -35,7 +35,7 @@ $form-input-border: 1px solid color('grey');
 
   > i {
     float: right;
-    padding: 8px;
+    padding: spacing('1');
     margin-left: 16px;
   }
 
@@ -46,40 +46,46 @@ $form-input-border: 1px solid color('grey');
     overflow-y: auto;
   }
 
-  &:not(.is-invalid):focus-within {
-    @extend .is-focus;
+  &:not(.e-invalid):focus-within {
+    @extend .e-focus;
   }
 
-  &.is-small {
+  &.e-small {
     width: 60px;
     input {
       width: 60px;
     }
   }
 
-  &.is-medium {
+  &.e-medium {
     width: 120px;
     input {
       width: 120px;
     }
   }
 
-  &.is-focus {
+  &.e-focus {
     border: 2px solid var(--e-green);
     box-shadow: 0 0 2px var(--e-green);
     padding: $form-input-padding-active;
   }
 
-  &.is-invalid {
+  &.e-invalid {
     border: 2px solid var(--e-red);
     padding: $form-input-padding-active;
   }
 
-  &.is-disabled, input:disabled {
+  &.e-disabled, input:disabled {
     color: var(--e-grey-20);
     border-color: var(--e-grey-20);
     cursor: not-allowed;
     input:disabled {
+      opacity: 1;
+      color: color('grey-20');
+      -webkit-text-fill-color: color('grey-20');
+      cursor: not-allowed;
+    }
+    input {
       opacity: 1;
       color: var(--e-grey-20);
       -webkit-text-fill-color: var(--e-grey-20);
@@ -88,8 +94,8 @@ $form-input-border: 1px solid color('grey');
   }
 }
 
-.is-combined-field {
-  .e-form_input:not(:last-of-type) {
-    margin-right: var(--e-spacing-1);
+.e-combined-field {
+  .e-input:not(:last-of-type) {
+    margin-right: spacing('1');
   }
 }

@@ -20,7 +20,7 @@
           {{ page.actionText }}
         </a>
       </div>
-      <div class="e-card_actions" *ngIf="page.externalUrl">
+      <div class="e-card_actions" *ngIf="page.externalUrl && !page.docUrl">
         <a class="e-card_actions_action" href="{{ page.externalUrl }}">
           {{ page.actionText }}
         </a>

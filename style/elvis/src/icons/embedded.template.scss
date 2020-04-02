@@ -1,0 +1,26 @@
+@import '../utilities/icons.scss';
+
+//[[INJECT_ICONS]]
+    
+@each $label, $icon in $icons {
+    .e-icon-#{$label} {
+        background-image: $icon;
+        background-size: $defaultSize $defaultSize;
+        width:$defaultSize;
+        height:$defaultSize;
+        display:inline-block;
+        background-repeat: no-repeat;
+    }
+}
+
+@each $label, $size in $sizes {
+    .e-icon-#{$label} {
+        background-size: $size $size;
+        width: $size;
+        height: $size;
+        img {
+            width:$size;
+            height:$size;
+        }
+    }
+}

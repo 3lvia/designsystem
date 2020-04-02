@@ -23,7 +23,7 @@ $list-border-radius: 50%;
         }
       }
 
-      &.numbers {
+      &.e-numbers {
         counter-reset: elvis-item;
         list-style: none;
         li {
@@ -46,7 +46,7 @@ $list-border-radius: 50%;
         }
       }
 
-      &.strong {
+      &.e-strong {
         font-weight: bold;
         background: transparent;
       }
