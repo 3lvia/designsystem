@@ -1,6 +1,9 @@
 @import "../variables/colors.scss";
 @import "../utilities/breakpoints.scss";
 
+$iconSize: 24px;
+$iconSizeCustom: 20px;
+
 .e-link {
   display: inline-flex;
   border-bottom: 2px solid color("black");
@@ -23,8 +26,8 @@
     position: relative;
     margin-left: spacing("1");
     background-size: cover;
-    height: 24px;
-    width: 24px;
+    height: $iconSize;
+    width: $iconSize;
   }
 
   &.e-back {
@@ -32,8 +35,8 @@
       position: relative;
       margin-left: - spacing("1");
       background-size: cover;
-      height: 24px;
-      width: 24px;
+      height: $iconSize;
+      width: $iconSize;
     }
   }
 
@@ -43,8 +46,8 @@
       margin-left: 0;
       margin-right: spacing("1");
       background-size: cover;
-      height: 24px;
-      width: 24px;
+      height: $iconSize;
+      width: $iconSize;
     }
   }
 
@@ -91,8 +94,8 @@
       background-size: 24px;
       background-position-x: 60%;
       background-position-y: 50%;
-      height: 20px;
-      width: 20px;
+      height: $iconSizeCustom;
+      width: $iconSizeCustom;
       border: 1px solid color("green");
       border-radius: 50%;
       align-self: center;
@@ -120,8 +123,8 @@
       margin-left: spacing("1");
       margin-right: 0px;
       background-size: 24px;
-      height: 20px;
-      width: 20px;
+      height: $iconSizeCustom;
+      width: $iconSizeCustom;
       bottom: 100%;
       transform: rotate(-45deg);
     }
