@@ -1,6 +1,6 @@
 # Elvis - Elvia Designsystem
 
-Elvis is a design system developed mainly for developers and designers at Elvia, supplying them with ready to use css classes for internal and external services provided by Elvia. 
+Elvis is a design system for developers and designers at Elvia, supplying them with ready to use css classes for internal and external services provided by Elvia. 
 
 Visit the documentation page to see all style components available: [Elvis Doc page](https://elvis-designsystem.netlify.com/)
 
