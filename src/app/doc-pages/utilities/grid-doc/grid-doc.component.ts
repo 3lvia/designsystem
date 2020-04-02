@@ -11,7 +11,7 @@ export class GridDocComponent implements OnInit {
   componentStatus = getUtilities('grid-doc').status;
 
   example1 = `<div class="e-bg-green">
-  <div class="e-row e-m-0">
+  <div class="e-row">
     <div class="e-col-sm e-bg-yellow">
       <div class="e-bg-green" style="border: 1px solid black">
         One of three columns
@@ -54,7 +54,7 @@ export class GridDocComponent implements OnInit {
 `;
 
   example2 = `<div class="e-bg-green">
-  <div class="e-row">
+  <div class="e-row e-m-0">
     <div class="col-sm-9 e-bg-yellow">
       <div class="e-bg-green" style="border: 1px solid black">
         Level 1: .col-sm-9
