@@ -130,7 +130,7 @@
 @each $label, $icon in $icons {
     .e-icon-#{$label} {
         background-image: $icon;
-        background-size: $defaultSize $defaultSize;
+        background-size: contain;
         width:$defaultSize;
         height:$defaultSize;
         display:inline-block;
@@ -140,7 +140,7 @@
 
 @each $label, $size in $sizes {
     .e-icon-#{$label} {
-        background-size: $size $size;
+        background-size: contain;
         width: $size;
         height: $size;
         img {

@@ -2,9 +2,9 @@
 // Naming: send, send-alt, send-alt-1, send-alt-2 
 // Filename has to be send.svg, send-alt.svg, send-alt-1.svg, send-alt-2.svg
 module.exports = [
-  { name: 'add-circle', terms: [] },  
-  { name: 'add-circle-filled', terms: [] },  
-  { name: 'add-powermeter', terms: [] },  
+  { name: 'add-circle', terms: ["plus"] },  
+  { name: 'add-circle-filled', terms: ["plus"] },  
+  { name: 'add-powermeter', terms: ["ams","metering"] },  
   { name: 'agreements-color', terms: [] },  
   { name: 'alert-circle', terms: [] },  
   { name: 'alert-circle-filled', terms: [] },  
@@ -22,7 +22,7 @@ module.exports = [
   { name: 'check-input', terms: [] },  
   { name: 'checklist-color', terms: [] },  
   { name: 'circle-color', terms: [] },  
-  { name: 'cog', terms: [] },  
+  { name: 'cog', terms: ["tannhjul"] },  
   { name: 'company-color', terms: [] },  
   { name: 'compensation-color', terms: [] },  
   { name: 'confirm-in-email', terms: [] },  
