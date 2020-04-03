@@ -61,6 +61,24 @@ export class GridDocComponent implements OnInit {
 </div>
 `;
 
+  example3 = `<div class="e-grid">
+  <div class="e-bg-grey-10">
+    <div class="row e-m-0">
+      <div class="col-sm-7 col-md-6 col-lg-8 e-bg-grey-40">
+        <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+          1
+        </div>
+      </div>
+      <div class="col-sm-5 col-md-6 col-lg-4 e-bg-grey-40">
+        <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+          2
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
   constructor() { }
 
   ngOnInit() {
