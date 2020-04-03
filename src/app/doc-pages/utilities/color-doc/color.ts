@@ -1,6 +1,6 @@
 import { Color } from './color.interface';
 
-export const colorItemsPrimary: Color[] = [
+export const primaryColors: Color[] = [
     {
         title: 'white',
         labels: ['elvia-on'],
@@ -29,7 +29,7 @@ export const colorItemsPrimary: Color[] = [
         lg: true
     },
 ];
-export const colorItemsSignal: Color[] = [
+export const signalColors: Color[] = [
     {
         title: 'yellow',
         hex: '#FFFF00',
@@ -46,7 +46,39 @@ export const colorItemsSignal: Color[] = [
         rgba: 'rgb(255, 0, 0)',
     },
 ];
-export const colorItemsGreys: Color[] = [
+export const dataColors: Color[] = [
+    {
+        title: 'green-apple',
+        hex: '#21AC04',
+        rgba: 'rgb(33, 172, 4)',
+    },
+    {
+        title: 'violet-grape',
+        hex: '#490192',
+        rgba: 'rgb(73, 1, 146)',
+    },
+    {
+        title: 'blue-berry',
+        hex: '#006DDB',
+        rgba: 'rgb(0, 109, 219)',
+    },
+    {
+        title: 'purple-plum',
+        hex: '#B66DFF',
+        rgba: 'rgb(182, 109, 255)',
+    },
+    {
+        title: 'orange-mango',
+        hex: '#DB6D00',
+        rgba: 'rgb(219, 109, 0)',
+    },
+    {
+        title: 'red-tomato',
+        hex: '#B90202',
+        rgba: 'rgb(185, 2, 2)',
+    },
+];
+export const greysColors: Color[] = [
     {
         title: 'grey',
         hex: '#262626',
