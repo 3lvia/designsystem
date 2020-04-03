@@ -1,4 +1,5 @@
 // Defining variables for grid that will overwrite bootstraps variables
+
 $grid-breakpoints: (
     xs: 0,
     sm: 320px,
@@ -6,54 +7,42 @@ $grid-breakpoints: (
     lg: 1024px,
     xl: 1440px,
 ) !default;
+$grid-gutter-width: 12px;
 @include breakpoint-up(MaxDesktop) {
-    $grid-columns: 12 !default;
-    $grid-gutter-width: 56px !default;
-    $grid-row-columns: 6 !default;
+    $grid-columns: 12;
+    $grid-gutter-width: 56px;
 }
 @include breakpoint-up(MinDesktop) {
-    $grid-columns: 12 !default;
-    $grid-gutter-width: 56px !default;
-    $grid-row-columns: 6 !default;
+    $grid-columns: 12;
+    $grid-gutter-width: 56px;
 }
 @include breakpoint-up(Tablet) {
-    $grid-columns: 8 !default;
-    $grid-gutter-width: 32px !default;
-    $grid-row-columns: 6 !default;
+    $grid-columns: 8;
+    $grid-gutter-width: 32px;
 }
 @include breakpoint-up(Mobile) {
-    $grid-columns: 6 !default;
-    $grid-gutter-width: 16px !default;
-    $grid-row-columns: 6 !default;
+    $grid-columns: 6;
+    $grid-gutter-width: 16px;
 }
 
-.e-row { 
+.e-grid {
     @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
-    display: flex;
-    flex-wrap: wrap;
-
-    .e-col { @extend .col; }
-    .e-col-sm { @extend .col-sm; }
-    .e-col-md { @extend .col-md; }
-    .e-col-lg { @extend .col-lg; }
-    .e-col-xl { @extend .col-xl; }
 }
-
 
 // Adding margin to grids
 @include breakpoint-up(MinDesktop) { 
-    .e-row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
-    .e-row .e-row {margin: unset;}
+    .e-grid .row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
+    .e-grid .row .row {margin: unset;}
 }
 @include breakpoint-up(MaxDesktop) { 
-    .e-row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
-    .e-row .e-row {margin: unset}
+    .e-grid .row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
+    .e-grid .row .row {margin: unset}
 }
 @include breakpoint-up(Tablet) { 
-    .e-row {margin: 0 calc(32px - (#{$grid-gutter-width} / 2));} 
-    .e-row .e-row {margin: unset}
+    .e-grid .row {margin: 0 calc(32px - (#{$grid-gutter-width} / 2));} 
+    .e-grid .row .row {margin: unset}
 }
 @include breakpoint-up(Mobile) { 
-    .e-row {margin: 0 calc(16px - (#{$grid-gutter-width} / 2));} 
-    .e-row .e-row {margin: unset}
+    .e-grid .row {margin: 0 calc(16px - (#{$grid-gutter-width} / 2));} 
+    .e-grid .row .row {margin: unset}
 }
