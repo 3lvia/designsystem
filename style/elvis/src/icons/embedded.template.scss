@@ -6,16 +6,16 @@
     .e-icon-#{$label} {
         background-image: $icon;
         background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
         width:$defaultSize;
         height:$defaultSize;
         display:inline-block;
-        background-repeat: no-repeat;
     }
 }
 
 @each $label, $size in $sizes {
     .e-icon-#{$label} {
-        background-size: contain;
         width: $size;
         height: $size;
         img {
