@@ -11,8 +11,6 @@ const cssvariables = require('postcss-css-variables');
 const svgo = require('gulp-svgo');
 const icons = require('./src/icons/icons');
 const svgToMiniDataURI = require('mini-svg-data-uri');
-const through = require('through2');
-const tap = require('gulp-tap');
 const path = require('path');
 const fs = require('fs');
 
@@ -43,12 +41,9 @@ function clean() {
   })
 
   filesToDelete = filesToDelete.concat(unusedFiles);
-  console.log(filesToDelete);
   return del(filesToDelete);
 };
 
-
-// TODO IMPLEMENT
 async function createEmbeddedIconsScss() {
   const iconsToInclude = icons.map(i => {
     return `src/icons/svg/dist/${i.name}.svg`

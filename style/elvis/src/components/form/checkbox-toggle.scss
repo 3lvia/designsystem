@@ -12,14 +12,14 @@
     outline: none;
   }
 
-  &.slider {
+  &.e-slider {
     position: absolute;
     background-color: color('black');
     border: 1px solid color('black');
     border-radius: 15px;
     transition: 0.15s;    
   }
-  &.slider:before {
+  &.e-slider:before {
     content: "";
     position: absolute;
     height: 0.6rem;
@@ -31,16 +31,16 @@
     border-radius: 50%;
   }
 
-  input:checked + .slider {
+  input:checked + .e-slider {
     background-color: color('black');
   }
 
-  input:checked + .slider:before {
+  input:checked + .e-slider:before {
     background-color: color('green');
     @include transform(translateX(1.2rem));
   }
 
-  input:focus ~ .slider {
+  input:focus ~ .e-slider {
     box-shadow: 0px 0px 0px 2px #fff, 0px 0px 0px 4px color('green');
   }
 }

@@ -1,7 +1,6 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
-  [componentClasses]="componentClasses"
   [externalUrl]="externalUrl"
 >
   <ng-container ngProjectAs="headerTitle">
@@ -21,5 +20,6 @@
     [isHTML]="true"
     [code]="example1"
     [title]="'Toggle'"
+    [class]="pseudoClasses"
   ></app-code-block>
 </div>

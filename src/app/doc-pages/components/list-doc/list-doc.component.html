@@ -1,7 +1,6 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
-  [componentClasses]="componentClasses"
   [externalUrl]="externalUrl"
 >
   <ng-container ngProjectAs="headerTitle">
@@ -11,8 +10,6 @@
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
     unde saepe, in dolores nam?
   </ng-container>
-
-
 </app-component-header>
 
 <!--BODY-->
@@ -22,17 +19,21 @@
     [code]="example1"
     [description]="'Green elvis dots for regular unordred list'"
     [title]="'Bulletins'"
+    [class]="['e-list']"
+
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
     [description]="'Add strong class to bold text list elements'"
     [title]="'Bulletins Strong'"
+    [class]="['e-strong']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example3"
     [description]="'Round elvis green border for bulletins in ordered lists'"
     [title]="'Numbered'"
+    [class]="['e-numbers']"
   ></app-code-block>
 </div>

@@ -19,7 +19,7 @@
     margin-bottom: 5px;
     @extend .e-label-input;
 
-    &.is-optional::after {
+    &.e-optional::after {
       content: " (valgfri)";
       color: color('grey-50');
     }
@@ -33,7 +33,7 @@
     @extend .e-text-info;
     color: color('grey') !important;
 
-    &.is-active {
+    &.e-active {
       visibility: visible;
     }
 
@@ -44,7 +44,7 @@
   }
 }
 
-.is-combined-field {
+.e-combined-field {
   display: flex;
   flex-direction: row;
   align-items: baseline;
@@ -57,7 +57,7 @@
   }
 }
 
-.is-inlined-field {
+.e-inlined-field {
   display: flex;
   flex-direction: row;
   max-width: 448px;
@@ -71,14 +71,14 @@
       margin-right: spacing('1');
     }
 
-    &.is-small {
+    &.e-small {
       width: 60px;
       input {
         width: 60px;
       }
     }
   
-    &.is-medium {
+    &.e-medium {
       width: 140px;
       input {
         width: 140px;
