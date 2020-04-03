@@ -27,22 +27,25 @@ $grid-gutter-width: 12px;
 
 .e-grid {
     @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
-}
 
-// Adding margin to grids
-@include breakpoint-up(MinDesktop) { 
-    .e-grid .row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
-    .e-grid .row .row {margin: unset;}
-}
-@include breakpoint-up(MaxDesktop) { 
-    .e-grid .row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
-    .e-grid .row .row {margin: unset}
-}
-@include breakpoint-up(Tablet) { 
-    .e-grid .row {margin: 0 calc(32px - (#{$grid-gutter-width} / 2));} 
-    .e-grid .row .row {margin: unset}
-}
-@include breakpoint-up(Mobile) { 
-    .e-grid .row {margin: 0 calc(16px - (#{$grid-gutter-width} / 2));} 
-    .e-grid .row .row {margin: unset}
+    // Adding margin to rows
+    @include breakpoint-up(MinDesktop) { 
+        .row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
+        .row .row {margin: unset;}
+    }
+    @include breakpoint-up(MaxDesktop) { 
+        .row {margin: 0 calc(120px - (#{$grid-gutter-width} / 2));} 
+        .row .row {margin: unset}
+    }
+    @include breakpoint-up(Tablet) { 
+        .row {margin: 0 calc(32px - (#{$grid-gutter-width} / 2));} 
+        .row .row {margin: unset}
+    }
+    @include breakpoint-up(Mobile) { 
+        .row {margin: 0 calc(16px - (#{$grid-gutter-width} / 2));} 
+        .row .row {margin: unset}
+    }
+    .row.e-m-0 {
+        margin: 0;
+    }
 }
