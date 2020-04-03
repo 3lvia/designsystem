@@ -131,6 +131,17 @@ body {
       }
     }
 
+    &-column {
+      margin: auto;
+      margin-top: 10px;
+      border: 2px solid transparent;
+      width: 55px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     &-square {
       margin: auto;
       margin-top: 10px;

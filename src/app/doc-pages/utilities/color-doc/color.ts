@@ -33,49 +33,49 @@ export const signalColors: Color[] = [
     {
         title: 'yellow',
         hex: '#FFFF00',
-        rgba: 'rgb(255, 255, 0)',
+        rgba: 'rgb(255,255,0)',
     },
     {
         title: 'orange',
         hex: '#FFA000',
-        rgba: 'rgb(255, 160, 0)',
+        rgba: 'rgb(255,160,0)',
     },
     {
         title: 'red',
         hex: '#FF0000',
-        rgba: 'rgb(255, 0, 0)',
+        rgba: 'rgb(255,0,0)',
     },
 ];
 export const dataColors: Color[] = [
     {
         title: 'green-apple',
         hex: '#21AC04',
-        rgba: 'rgb(33, 172, 4)',
+        rgba: 'rgb(33,172,4)',
     },
     {
         title: 'violet-grape',
         hex: '#490192',
-        rgba: 'rgb(73, 1, 146)',
+        rgba: 'rgb(73,1,146)',
     },
     {
         title: 'blue-berry',
         hex: '#006DDB',
-        rgba: 'rgb(0, 109, 219)',
+        rgba: 'rgb(0,109,219)',
     },
     {
         title: 'purple-plum',
         hex: '#B66DFF',
-        rgba: 'rgb(182, 109, 255)',
+        rgba: 'rgb(182,109,255)',
     },
     {
         title: 'orange-mango',
         hex: '#DB6D00',
-        rgba: 'rgb(219, 109, 0)',
+        rgba: 'rgb(219,109,0)',
     },
     {
         title: 'red-tomato',
         hex: '#B90202',
-        rgba: 'rgb(185, 2, 2)',
+        rgba: 'rgb(185,2,2)',
     },
 ];
 export const greysColors: Color[] = [
