@@ -1,0 +1,34 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+  [donts]="'Don’t use segmented controls if there is more than three options, or if the option text is long'"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Segmented Control
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Segmented constrols should be used in forms where the user have to choose between two and three options, and the
+    option
+    text is short. Segmented controls are suitable for mobile use and if the requirements above are met, segmented
+    constrols
+    is better alternative than radio buttons.
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'Segmented controls'"
+    [class]="['e-segmented-controls']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example2"
+    [title]="'Segmented controls'"
+    [description]="'Example with three options'"
+    [class]="['e-segmented-controls']"
+  ></app-code-block>
+</div>
