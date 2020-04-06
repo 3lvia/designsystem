@@ -123,5 +123,6 @@ module.exports = [
   { name: 'view-on', terms: [] },  
   { name: 'web-library-color', terms: [] },  
   { name: 'worker-color', terms: [] },  
-  { name: 'work-under-line-color', terms: [] }
+  { name: 'work-under-line-color', terms: [] },
+  { name: 'figma', terms: [] }
 ];

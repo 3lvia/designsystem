@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Icon } from 'src/app/shared/icon.interface';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
-import * as icons from 'style/elvis/src/icons/icons';
+import * as icons from 'style/elvis/src/icons/icons.config';
 
 @Component({
   selector: 'app-icon-doc',
@@ -12,7 +12,6 @@ import * as icons from 'style/elvis/src/icons/icons';
 export class IconDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
-
   externalUrl = getUtilities('icon-doc').externalUrl;
   componentStatus = getUtilities('icon-doc').status;
   tabNames = TabNames;
