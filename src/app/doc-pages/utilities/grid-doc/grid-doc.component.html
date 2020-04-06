@@ -12,6 +12,8 @@
     This grid-system is based off of Bootstraps grid-system and works almost the same. 
     Read the Bootstrap documentation <a class="e-link e-inline" href="https://getbootstrap.com/docs/4.4/layout/grid/">here</a>.
     All the available classes in the Bootstrap grid-system is also available here. 
+    To use the grid-system add the <span class="code">e-grid</span> class on a wrapper element. The bootstrap-classes
+    will only work inside this wrapper, and will therefore not break any other potential grid-systems.
   </ng-container>
 </app-component-header>
 
@@ -22,6 +24,7 @@
       [isHTML]="true"
       [code]="example1"
       [title]="'Grid rows and columns'"
+      [description]="'A standard grid.'"
     ></app-code-block>
     <app-code-block
       [isHTML]="true"
@@ -61,6 +64,32 @@
     ></app-code-block>
   </div>
   <div *ngIf="selected == tabNames.Guidelines">
-    Skulle vi hatt et tablet view her også? 
+    <h2 class="e-title-medium">Grid and breakpoints</h2>
+    <p class="e-text-body">
+      The grid-system follows a 12 column rule, but the max number of columns should 
+      not exceed 8 on tablet and 6 on mobile. 
+    </p>
+    <table class="e-table">
+      <tr>
+        <th>Device</th>
+        <th>Max number of columns</th>
+      </tr>
+      <tr>
+        <td>Mobile</td>
+        <td>6</td>
+      </tr>
+      <tr>
+        <td>Tablet</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>MinDesktop</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>MaxDesktop</td>
+        <td>12</td>
+      </tr>
+    </table>  
   </div>
 </div>
