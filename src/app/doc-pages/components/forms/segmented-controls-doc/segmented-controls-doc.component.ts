@@ -21,13 +21,21 @@ export class SegmentedControlsDocComponent implements OnInit {
 	</div>
 `;
   example2 = `
-	<div class="e-segmented-controls">
-		<input type="radio" id="radio-three" name="switch-example2" value="Option1"/ checked>
+	<div class="e-segmented-controls e-strong">
+		<input type="radio" id="radio-three" name="switch-example2" value="Option1" checked/>
 		<label for="radio-three">Option 1</label>
 		<input type="radio" id="radio-four" name="switch-example2" value="Option2" />
 		<label for="radio-four">Option 2</label>
-		<input type="radio" id="radio-five" name="switch-example2" value="Option3" />
-		<label for="radio-five">Option 3</label>
+	</div>
+`;
+  example3 = `
+	<div class="e-segmented-controls">
+		<input type="radio" id="radio-five" name="switch-example3" value="Option1"/ checked>
+		<label for="radio-five">Option 1</label>
+		<input type="radio" id="radio-six" name="switch-example3" value="Option2" />
+		<label for="radio-six">Option 2</label>
+		<input type="radio" id="radio-seven" name="switch-example3" value="Option3" />
+		<label for="radio-seven">Option 3</label>
 	</div>
 `;
 

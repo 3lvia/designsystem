@@ -1,9 +1,14 @@
 .e-segmented-controls {
     $this: &;
-    display: flex;
+    display: inline-flex;
     border: 1px solid color("black");
-    width: fit-content;
     border-radius: 38px;
+
+    &.e-strong {
+        label {
+            font-weight: bold;
+        }
+    }
 
     input {
         position: absolute;
@@ -11,13 +16,13 @@
 
         &:checked,
         &#{this} label {
-            background-color: color('black');
-            color: color('white');
+            background-color: color("black");
+            color: color("white");
         }
     }
 
     label {
-        color: rgba(0, 0, 0, 0.6);
+        color: color("black");
         font-size: 16px;
         line-height: 140%;
         padding: 14px 64px;
@@ -29,9 +34,13 @@
         }
     }
     input:checked + label {
-        background-color: color('black');
-        color: color('white');
+        background-color: color("black");
+        color: color("white");
         box-shadow: none;
         border-radius: 38px;
+    }
+
+    &:nth-last-child(3):first-child {
+        padding: 14px 32px;
     }
 }
