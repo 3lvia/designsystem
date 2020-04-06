@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { getUtilities } from 'src/app/shared/e-items';
+import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
   selector: 'app-grid-doc',
@@ -8,6 +9,9 @@ import { getUtilities } from 'src/app/shared/e-items';
 })
 export class GridDocComponent implements OnInit {
 
+  tabNames = TabNames;
+  selected = TabNames.Overview;
+  tabs = [TabNames.Overview, TabNames.Guidelines];
   componentClasses = ['e-grid'];
   componentStatus = getUtilities('grid-doc').status;
 
