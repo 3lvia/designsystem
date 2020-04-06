@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
-import { colorItemsPrimary, colorItemsSignal, colorItemsGreys } from './color';
+import { primaryColors, signalColors, dataColors, greysColors } from './color';
 
 @Component({
   selector: 'app-color-doc',
@@ -12,10 +12,10 @@ export class ColorDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
 
-  figmaApiKey = '38748-7b9074a3-8ffe-4198-9d9f-5698cb43ffd1';
-  colorItemsPrimary = colorItemsPrimary;
-  colorItemsSignal = colorItemsSignal;
-  colorItemsGreys = colorItemsGreys;
+  primaryColors = primaryColors;
+  signalColors = signalColors;
+  dataColors = dataColors;
+  greysColors = greysColors;
   externalUrl = getUtilities('color-doc').externalUrl;
   componentStatus = getUtilities('color-doc').status;
   tabNames = TabNames;
@@ -38,17 +38,6 @@ color: var(--e-text-red);`;
   constructor() { }
 
   ngOnInit() {
-    console.log(this.getImagesFromFigma());
-  }
-
-  async getImagesFromFigma() {
-    const figmaId = 'Q4bR2dykeg5bSC2VGPZRAL';
-    return await fetch('https://api.figma.com/v1/files/' + figmaId, {
-      method: 'GET',
-      headers: {
-        'X-Figma-Token': this.figmaApiKey
-      }
-    });
   }
 
 }

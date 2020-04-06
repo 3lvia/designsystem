@@ -19,12 +19,11 @@ export class IconDocComponent implements OnInit {
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentClasses = ['e-icon'];
 
-  example = `<i class="e-icon-clock e-icon-xl"></i>
-<i class="e-icon-clock e-icon-lg"></i>
-<i class="e-icon-clock e-icon-md"></i>
-<i class="e-icon-clock e-icon-sm"></i>
-<i class="e-icon-github e-icon-sm"></i>
-<i class="e-icon-clock e-icon-xs"></i>`;
+  example = `<i class="e-icon-move-truck-color e-icon-xl"></i>
+<i class="e-icon-move-truck-color e-icon-lg"></i>
+<i class="e-icon-move-truck-color e-icon-md"></i>
+<i class="e-icon-move-truck-color e-icon-sm"></i>
+<i class="e-icon-move-truck-color e-icon-xs"></i>`;
 
   example2 = `<i class="e-icon-custom e-icon-xl">
   <img src="assets/icons/example-custom-icon.svg"></img>
