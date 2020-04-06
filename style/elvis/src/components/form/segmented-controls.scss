@@ -3,6 +3,9 @@
     display: inline-flex;
     border: 1px solid color("black");
     border-radius: 38px;
+    width: 100%;
+    text-align: center;
+    flex-wrap: nowrap;
 
     &.e-strong {
         label {
@@ -18,6 +21,7 @@
         &#{this} label {
             background-color: color("black");
             color: color("white");
+            
         }
     }
 
@@ -26,11 +30,14 @@
         font-size: 16px;
         line-height: 140%;
         padding: 14px 32px;
-        transition: 0.2s ease-in;
         border-radius: 38px;
+        transition: 0.2s ease-in;
+        width: 100%;
  
         &:hover {
+            transition: none;
             cursor: pointer;
+            font-weight: bold;
         }
     }
     input:checked + label {
