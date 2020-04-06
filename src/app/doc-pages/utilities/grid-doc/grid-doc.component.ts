@@ -8,6 +8,7 @@ import { getUtilities } from 'src/app/shared/e-items';
 })
 export class GridDocComponent implements OnInit {
 
+  componentClasses = ['e-grid'];
   componentStatus = getUtilities('grid-doc').status;
 
   example1 = `<div class="e-grid e-bg-grey-10">
@@ -32,7 +33,7 @@ export class GridDocComponent implements OnInit {
   `;
 
   example2 = `<div class="e-grid e-bg-grey-10">
-  <div class="row e-m-0">
+  <div class="row e-no-margin e-no-gutters">
     <div class="col e-bg-grey-40">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
         1/4
@@ -67,6 +68,67 @@ export class GridDocComponent implements OnInit {
     <div class="col-sm-5 col-md-6 col-lg-4 e-bg-grey-40">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
         2
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+  example4 = `<div class="e-grid e-bg-grey-10">
+  <div class="row justify-content-center">
+    <div class="col-4 e-bg-grey-40">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        One of two columns
+      </div>
+    </div>
+    <div class="col-4 e-bg-grey-40">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        One of two columns
+      </div>
+    </div>
+  </div>
+  <div class="row align-items-end" style="height: 100px;">
+    <div class="col-4 e-bg-grey-40">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        One of two columns
+      </div>
+    </div>
+    <div class="col-4 e-bg-grey-40">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        One of two columns
+      </div>
+    </div>
+  </div>
+  <div class="row e-no-margin">
+    <div class="col-4 e-bg-grey-40">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        One of two columns
+      </div>
+    </div>
+    <div class="col-4 offset-3 e-bg-grey-40">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        One of two columns
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+  example5 = `<div class="e-grid e-bg-grey-10">
+  <div class="row">
+    <div class="col e-bg-grey-40">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        First in DOM, no order applied
+      </div>
+    </div>
+    <div class="col order-12 e-bg-grey-40">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        Second in DOM, with a larger order
+      </div>
+    </div>
+    <div class="col order-1 e-bg-grey-40">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        Third in DOM, with an order of 1
       </div>
     </div>
   </div>

@@ -1,12 +1,15 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
+  [componentClasses]="componentClasses"
 >
   <ng-container ngProjectAs="headerTitle">
     Grid
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    ...
+    This grid-system is based off of Bootstraps grid-system and works almost the same. 
+    Read the Bootstrap documentation <a class="e-link e-inline" href="https://getbootstrap.com/docs/4.4/layout/grid/">here</a>.
+    All the available classes in the Bootstrap grid-system is also available here. 
   </ng-container>
 </app-component-header>
 
@@ -20,13 +23,25 @@
   <app-code-block
     [isHTML]="true"
     [code]="example2"
-    [title]="'Grid with no margin'"
-    [description]="'Use the class e-m-0 to remove the margin on rows.'"
+    [title]="'Grid with no margin or no gutters'"
+    [description]="'Use the class e-no-margin to remove the margin on rows, and use e-no-gutters to remove gutters on the row.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example3"
     [title]="'Grid for different sizes'"
     [description]="'Use col-sm, col-md and col-lg to change grid at breakpoints.'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example4"
+    [title]="'Grid alignment'"
+    [description]="'Use justify-content, align-content, and offset to align col-classes inside grid.'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example5"
+    [title]="'Grid ordering'"
+    [description]="'Use order to choose the order of columns.'"
   ></app-code-block>
 </div>
