@@ -1,13 +1,14 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
-  [componentClasses]="componentClasses"
   [externalUrl]="externalUrl"
 >
   <ng-container ngProjectAs="headerTitle">
     Button 
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
+    Button elements are used to provide a straightforward and accessible experience for users.
+    A button element should be used whenever an action is performed by the user.
   </ng-container>
 </app-component-header>
 
@@ -15,8 +16,17 @@
 <div class="page-body">
   <app-code-block
     [isHTML]="true"
+    [code]="example10"
+    [title]="'Button primary'"
+    [class]="['e-btn']"
+    [description]="' Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions.
+      It is often the primary positive action of a use case. Can be used alone, or combined with a secondary og link style button.'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
     [code]="example1"
     [title]="'Button primary'"
+    [class]="['e-btn']"
     [description]="' Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions.
       It is often the primary positive action of a use case. Can be used alone, or combined with a secondary og link style button.'"
   ></app-code-block>
@@ -24,6 +34,7 @@
     [isHTML]="true"
     [code]="example2"
     [title]="'Button secondary'"
+    [class]="['e-btn-secondary']"
     [description]="'Secondary buttons are similar to primary buttons but is used as a supportive action, or for less important actions. 
       Can be used alone, or combined with a primary og link styled button.'"
   ></app-code-block>
@@ -31,10 +42,20 @@
     [isHTML]="true"
     [code]="example3"
     [title]="'Button with icon'"
+    [class]="['e-has-icon']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example4"
     [title]="'Loading button'"
+    [class]="['e-btn-loading']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example5"
+    [title]="'Pseudo classes'"
+    [class]="pseudoClasses"
+    [description]="'Pseudo Classes can be used to set the styling of button to emulate the state. 
+    For example adding hover to an e-btn will style the e-btn button to have a hover state'"
   ></app-code-block>
 </div>

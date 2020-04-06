@@ -24,7 +24,17 @@ iframe {
   margin-bottom: var(--e-spacing-9);
 
   &-title {
-    margin-bottom: 8px;
+    display: inline-flex;
+    margin-bottom: 0.5rem;
+    margin-right: 1rem;
+  }
+
+  &-class {
+    margin: 0px 4px;
+    margin-bottom: 0.5rem;
+    padding: 4px 16px;
+    border-radius: 14px;
+    width: fit-content;
   }
 
   &-description {

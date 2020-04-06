@@ -1,26 +1,66 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
+  [componentClasses]="componentClasses"
+  [tabs]="tabs"
+  [(selected)]="selected"
 >
   <ng-container ngProjectAs="headerTitle">
     Grid
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    ...
+    This grid-system is based off of Bootstraps grid-system and works almost the same. 
+    Read the Bootstrap documentation <a class="e-link e-inline" href="https://getbootstrap.com/docs/4.4/layout/grid/">here</a>.
+    All the available classes in the Bootstrap grid-system is also available here. 
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [isHTML]="true"
-    [code]="example1"
-    [title]="'Grid rows and columns'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example2"
-    [title]="'Grid with levels?'"
-  ></app-code-block>
-  
+  <div *ngIf="selected == tabNames.Overview">
+    <app-code-block
+      [isHTML]="true"
+      [code]="example1"
+      [title]="'Grid rows and columns'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example2"
+      [title]="'Grid with margin'"
+      [description]="'Use the class e-grid-margin to add dynamic margin on rows.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example3"
+      [title]="'Grid with no gutters'"
+      [description]="'Use no-gutters to remove gutters on the row.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example4"
+      [title]="'Grid for different sizes'"
+      [description]="'Use col-sm, col-md and col-lg to change grid at breakpoints.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example5"
+      [title]="'Grid alignment'"
+      [description]="'Use justify-content, align-content, and offset to align col-classes inside grid.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example6"
+      [title]="'Grid ordering'"
+      [description]="'Use order to choose the order of columns.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example7"
+      [title]="'Grid with levels'"
+      [description]="'The grid can have levels.'"
+    ></app-code-block>
+  </div>
+  <div *ngIf="selected == tabNames.Guidelines">
+    Skulle vi hatt et tablet view her også? 
+  </div>
 </div>
