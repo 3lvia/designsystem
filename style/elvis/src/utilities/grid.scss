@@ -36,19 +36,6 @@ $grid-breakpoints: (
     xl: 1440px,
 ) !default;
 
-// @include breakpoint-up(MinDesktop) { 
-//     $grid-columns: 12 !default;
-// }
-// @include breakpoint-up(MaxDesktop) { 
-//     $grid-columns: 12 !default;
-// }
-// @include breakpoint-up(Tablet) { 
-//     $grid-columns: 8 !default;
-// }
-// @include breakpoint-up(Mobile) { 
-//     $grid-columns: 6 !default;
-// }
-
 $grid-gutter-width: 56px;
 $grid-margin: 120px;
 
@@ -62,7 +49,9 @@ $grid-margin: 120px;
         $grid-columns: 12;
         // Setting margin and padding(gutters)
         .row {
-            margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
+            &.e-grid-margin {
+                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
+            }
             [class^="col"] {
                 padding: 0 calc(#{$grid-gutter-width} / 2);
             }
@@ -74,7 +63,9 @@ $grid-margin: 120px;
         $grid-columns: 12;
         // Setting margin and padding(gutters)
         .row {
-            margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
+            &.e-grid-margin {
+                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
+            }
             [class^="col"] {
                 padding: 0 calc(#{$grid-gutter-width} / 2);
             }
@@ -86,7 +77,9 @@ $grid-margin: 120px;
         $grid-columns: 8;
         // Setting margin and padding(gutters)
         .row {
-            margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
+            &.e-grid-margin {
+                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
+            }
             [class^="col"] {
                 padding: 0 calc(#{$grid-gutter-width} / 2);
             }
@@ -98,20 +91,17 @@ $grid-margin: 120px;
         $grid-columns: 8;
         // Setting margin and padding(gutters)
         .row {
-            margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
+            &.e-grid-margin {
+                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
+            }
             [class^="col"] {
                 padding: 0 calc(#{$grid-gutter-width} / 2);
             }
         } 
     }
 
-    .row .row {margin: unset}
 
-    .row.e-no-margin, .row.e-m-0 {
-        margin: 0;
-    }
-
-    .row.e-no-gutters {
+    .row.no-gutters {
         [class^="col"] {
             padding: 0;
         }
