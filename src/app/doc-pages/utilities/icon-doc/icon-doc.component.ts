@@ -12,7 +12,6 @@ import * as icons from 'style/elvis/src/icons/icons.config';
 export class IconDocComponent implements OnInit {
 
   @Input() selected = TabNames.Overview;
-
   externalUrl = getUtilities('icon-doc').externalUrl;
   componentStatus = getUtilities('icon-doc').status;
   tabNames = TabNames;
