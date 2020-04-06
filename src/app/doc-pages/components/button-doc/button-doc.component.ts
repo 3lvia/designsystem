@@ -16,6 +16,10 @@ export class ButtonDocComponent {
   pseudoClasses = ['e-hover', 'e-active', 'e-focus', 'e-disabled'];
   public clicked = false;
 
+  example10 = `<button class="e-jumbo-link e-m-2" >
+  Jumbo link
+</button>`;
+
   example1 = `<button class="e-btn e-m-2" >
   Standard
 </button>
