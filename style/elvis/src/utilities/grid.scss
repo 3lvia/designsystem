@@ -40,7 +40,7 @@ $grid-gutter-width: 56px;
 $grid-margin: 120px;
 
 .e-grid {
-    @import "bootstrap/scss/bootstrap-grid.scss";
+    @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
 
     // Adding margin to rows
     @include breakpoint-up(MinDesktop) { 

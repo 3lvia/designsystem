@@ -73,6 +73,48 @@
     -ms-transform: rotate(360deg);
     -webkit-transform: rotate(360deg); } }
 
+.e-jumbo-link {
+  display: inline-block;
+  border: 2px solid transparent;
+  box-shadow: 0px 0px 0px 1px #000;
+  border-radius: 64px;
+  padding: 26px;
+  font-size: 1rem;
+  background: #FFF;
+  color: #000;
+  outline: none;
+  cursor: pointer;
+  box-sizing: border-box; }
+  .e-jumbo-link:disabled {
+    background: rgba(38, 38, 38, 0.3);
+    color: rgba(255, 255, 255, 0.75);
+    cursor: not-allowed;
+    box-shadow: none;
+    filter: grayscale(80%); }
+  .e-jumbo-link.e-disabled {
+    background: rgba(38, 38, 38, 0.3);
+    color: rgba(255, 255, 255, 0.75);
+    cursor: not-allowed;
+    box-shadow: none; }
+    .e-jumbo-link.e-disabled:hover {
+      box-shadow: 0px 0px 0px 1px transparent !important; }
+  .e-jumbo-link:focus:not(:active) {
+    box-shadow: 0px 0px 0px 2px #00a2c7; }
+  .e-jumbo-link.e-focus, .e-jumbo-link.e-input:not(.e-invalid):focus-within {
+    box-shadow: 0px 0px 0px 2px #00a2c7; }
+  .e-jumbo-link:enabled:hover:not(:focus) {
+    color: #000;
+    box-shadow: 0px 0px 0px 1px #29D305; }
+  .e-jumbo-link:enabled:active {
+    color: #000;
+    box-shadow: 0px 0px 0px 2px #29D305; }
+  .e-jumbo-link.e-hover {
+    color: #000;
+    box-shadow: 0px 0px 0px 1px #29D305; }
+  .e-jumbo-link.e-active {
+    color: #000;
+    box-shadow: 0px 0px 0px 2px #29D305; }
+
 .e-btn.e-disabled {
   background: rgba(38, 38, 38, 0.3);
   color: rgba(255, 255, 255, 0.75);
@@ -1090,6 +1132,66 @@ body {
   background: #FF0000;
   color: #000; }
 
+:root {
+  --e-green-apple: #21AC04; }
+
+.e-text-green-apple {
+  color: #21AC04; }
+
+.e-bg-green-apple {
+  background: #21AC04;
+  color: #000; }
+
+:root {
+  --e-violet-grape: #490192; }
+
+.e-text-violet-grape {
+  color: #490192; }
+
+.e-bg-violet-grape {
+  background: #490192;
+  color: #fff; }
+
+:root {
+  --e-blue-berry: #006DDB; }
+
+.e-text-blue-berry {
+  color: #006DDB; }
+
+.e-bg-blue-berry {
+  background: #006DDB;
+  color: #fff; }
+
+:root {
+  --e-purple-plum: #B66DFF; }
+
+.e-text-purple-plum {
+  color: #B66DFF; }
+
+.e-bg-purple-plum {
+  background: #B66DFF;
+  color: #000; }
+
+:root {
+  --e-orange-mango: #DB6D00; }
+
+.e-text-orange-mango {
+  color: #DB6D00; }
+
+.e-bg-orange-mango {
+  background: #DB6D00;
+  color: #000; }
+
+:root {
+  --e-red-tomato: #B90202; }
+
+.e-text-red-tomato {
+  color: #B90202; }
+
+.e-bg-red-tomato {
+  background: #B90202;
+  color: #fff; }
+
 .e-checkbox {
   display: flex;
   align-items: center;
@@ -1883,6 +1985,94 @@ body {
   background: #FF0000;
   color: #000; }
 
+:root {
+  --e-green-apple: #21AC04; }
+
+.e-text-green-apple {
+  color: #21AC04; }
+
+.e-bg-green-apple {
+  background: #21AC04;
+  color: #000; }
+
+:root {
+  --e-violet-grape: #490192; }
+
+.e-text-violet-grape {
+  color: #490192; }
+
+.e-bg-violet-grape {
+  background: #490192;
+  color: #fff; }
+
+:root {
+  --e-blue-berry: #006DDB; }
+
+.e-text-blue-berry {
+  color: #006DDB; }
+
+.e-bg-blue-berry {
+  background: #006DDB;
+  color: #fff; }
+
+:root {
+  --e-purple-plum: #B66DFF; }
+
+.e-text-purple-plum {
+  color: #B66DFF; }
+
+.e-bg-purple-plum {
+  background: #B66DFF;
+  color: #000; }
+
+:root {
+  --e-orange-mango: #DB6D00; }
+
+.e-text-orange-mango {
+  color: #DB6D00; }
+
+.e-bg-orange-mango {
+  background: #DB6D00;
+  color: #000; }
+
+:root {
+  --e-red-tomato: #B90202; }
+
+.e-text-red-tomato {
+  color: #B90202; }
+
+.e-bg-red-tomato {
+  background: #B90202;
+  color: #fff; }
+
+/*
+
+The CSSen for this grid-system is based on https://getbootstrap.com/docs/4.4/layout/grid/, using the following license:
+
+The MIT License (MIT)
+
+Copyright (c) 2011-2018 Twitter, Inc.
+Copyright (c) 2011-2018 The Bootstrap Authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+*/
 .e-grid {
   /*!
  * Bootstrap Grid v4.4.1 (https://getbootstrap.com/)
@@ -1899,8 +2089,8 @@ body {
     box-sizing: inherit; }
   .e-grid .container {
     width: 100%;
-    padding-right: 6px;
-    padding-left: 6px;
+    padding-right: 28px;
+    padding-left: 28px;
     margin-right: auto;
     margin-left: auto; }
     @media (min-width: 320px) {
@@ -1917,8 +2107,8 @@ body {
         max-width: 1140px; } }
   .e-grid .container-fluid, .e-grid .container-sm, .e-grid .container-md, .e-grid .container-lg, .e-grid .container-xl {
     width: 100%;
-    padding-right: 6px;
-    padding-left: 6px;
+    padding-right: 28px;
+    padding-left: 28px;
     margin-right: auto;
     margin-left: auto; }
   @media (min-width: 320px) {
@@ -1936,8 +2126,8 @@ body {
   .e-grid .row {
     display: flex;
     flex-wrap: wrap;
-    margin-right: -6px;
-    margin-left: -6px; }
+    margin-right: -28px;
+    margin-left: -28px; }
   .e-grid .no-gutters {
     margin-right: 0;
     margin-left: 0; }
@@ -1953,8 +2143,8 @@ body {
   .e-grid .col-xl-auto {
     position: relative;
     width: 100%;
-    padding-right: 6px;
-    padding-left: 6px; }
+    padding-right: 28px;
+    padding-left: 28px; }
   .e-grid .col {
     flex-basis: 0;
     flex-grow: 1;
@@ -4259,27 +4449,27 @@ body {
     .e-grid .mx-xl-auto {
       margin-left: auto !important; } }
   @media (max-width: 1439px) {
-    .e-grid .row {
-      margin: 0 calc(120px - (12px / 2)); }
-    .e-grid .row .row {
-      margin: unset; } }
+    .e-grid .row.e-grid-margin {
+      margin: 0 calc(120px - (56px / 2)); }
+    .e-grid .row [class^="col"] {
+      padding: 0 calc(56px / 2); } }
   @media (min-width: 1440px) {
-    .e-grid .row {
-      margin: 0 calc(120px - (12px / 2)); }
-    .e-grid .row .row {
-      margin: unset; } }
+    .e-grid .row.e-grid-margin {
+      margin: 0 calc(120px - (56px / 2)); }
+    .e-grid .row [class^="col"] {
+      padding: 0 calc(56px / 2); } }
   @media (max-width: 1023px) {
-    .e-grid .row {
-      margin: 0 calc(32px - (12px / 2)); }
-    .e-grid .row .row {
-      margin: unset; } }
+    .e-grid .row.e-grid-margin {
+      margin: 0 calc(32px - (32px / 2)); }
+    .e-grid .row [class^="col"] {
+      padding: 0 calc(32px / 2); } }
   @media (max-width: 767px) {
-    .e-grid .row {
-      margin: 0 calc(16px - (12px / 2)); }
-    .e-grid .row .row {
-      margin: unset; } }
-  .e-grid .row.e-m-0 {
-    margin: 0; }
+    .e-grid .row.e-grid-margin {
+      margin: 0 calc(16px - (16px / 2)); }
+    .e-grid .row [class^="col"] {
+      padding: 0 calc(16px / 2); } }
+  .e-grid .row.no-gutters [class^="col"] {
+    padding: 0; }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
