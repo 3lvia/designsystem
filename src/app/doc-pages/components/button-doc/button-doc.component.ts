@@ -16,7 +16,9 @@ export class ButtonDocComponent {
   pseudoClasses = ['e-hover', 'e-active', 'e-focus', 'e-disabled'];
   public clicked = false;
 
-  example1 = `<button class="e-btn e-m-2" >
+  example1 = `
+<h3>Standard primary buttons</h3>
+  <button class="e-btn e-m-2" >
   Standard
 </button>
 <button class="e-btn e-m-2" disabled >
@@ -24,14 +26,33 @@ export class ButtonDocComponent {
 </button>`;
 
 
-  example2 = `<button class="e-btn e-btn-secondary e-m-2" >
+  example2 = `
+<h3>Standard primary buttons</h3>
+ <button class="e-btn e-btn-secondary e-m-2" >
   Standard
 </button>
 <button class="e-btn e-btn-secondary e-m-2" disabled >
   Disabled
 </button>`;
 
-  example3 = `
+example3 = `
+<h3>Small primary buttons</h3>
+<button class="e-btn e-btn-small e-m-2" >
+  Standard
+</button>
+<button class="e-btn e-btn-small e-m-2" disabled >
+  Disabled
+</button>
+
+<h3>Small secondary buttons</h3>
+<button class="e-btn e-btn-secondary e-btn-small e-m-2" >
+  Standard
+</button>
+<button class="e-btn e-btn-secondary e-btn-small e-m-2" disabled >
+  Disabled
+</button>`;
+
+  example4 = `
 <button class="e-btn e-has-icon e-m-2" >
   <span class="e-icon-user"></span>Icon button
 </button>
@@ -46,14 +67,18 @@ export class ButtonDocComponent {
   <span class="e-icon-search"></span>Icon button
 </button>`;
 
-  example4 = `<button class="e-btn e-btn-loading e-m-2">
+example5 = `
+Small buttons with icon. 
+`;
+
+  example6 = `<button class="e-btn e-btn-loading e-m-2">
   <span></span>
   <span></span>
   <span></span>
 </button>
 `;
 
-  example5 = `
+  example7 = `
 <button class="e-btn e-hover e-m-2" >
   Hover
 </button>
