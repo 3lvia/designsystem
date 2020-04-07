@@ -36,74 +36,49 @@ $grid-breakpoints: (
     xl: 1440px,
 ) !default;
 
-$grid-gutter-width: 56px;
-$grid-margin: 120px;
+$grid-columns: 12 !default;
+$grid-gutter-width: 48px !default;
+$grid-margin: 120px !default;
 
 .e-grid {
     @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
 
     // Adding margin to rows
     @include breakpoint-up(MinDesktop) { 
-        $grid-gutter-width: 56px;
+        $grid-gutter-width: 48px;
         $grid-margin: 120px;
-        $grid-columns: 12;
-        // Setting margin and padding(gutters)
         .row {
             &.e-grid-margin {
-                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
-            }
-            [class^="col"] {
-                padding: 0 calc(#{$grid-gutter-width} / 2);
+                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
             }
         } 
     }
     @include breakpoint-up(MaxDesktop) { 
-        $grid-gutter-width: 56px;
+        $grid-gutter-width: 48px;
         $grid-margin: 120px;
-        $grid-columns: 12;
-        // Setting margin and padding(gutters)
         .row {
             &.e-grid-margin {
-                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
-            }
-            [class^="col"] {
-                padding: 0 calc(#{$grid-gutter-width} / 2);
+                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
             }
         } 
     }
     @include breakpoint-up(Tablet) { 
         $grid-gutter-width: 32px;
         $grid-margin: 32px;
-        $grid-columns: 8;
-        // Setting margin and padding(gutters)
         .row {
             &.e-grid-margin {
-                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
-            }
-            [class^="col"] {
-                padding: 0 calc(#{$grid-gutter-width} / 2);
+                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
             }
         } 
     }
+
     @include breakpoint-up(Mobile) { 
         $grid-gutter-width: 16px;
         $grid-margin: 16px;
-        $grid-columns: 8;
-        // Setting margin and padding(gutters)
         .row {
             &.e-grid-margin {
-                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2));
-            }
-            [class^="col"] {
-                padding: 0 calc(#{$grid-gutter-width} / 2);
+                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
             }
         } 
-    }
-
-
-    .row.no-gutters {
-        [class^="col"] {
-            padding: 0;
-        }
     }
 }

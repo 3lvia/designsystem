@@ -15,6 +15,72 @@ export class GridDocComponent implements OnInit {
   componentClasses = ['e-grid'];
   componentStatus = getUtilities('grid-doc').status;
 
+  example9 = `<div class="e-grid e-bg-grey-20">
+  <div class="row mx-lg-n4 mx-md-n3 mx-sm-n2 e-grid-margin">
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        1
+      </div>
+    </div>
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        2
+      </div>
+    </div>
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        3
+      </div>
+    </div>
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        4
+      </div>
+    </div>
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        5
+      </div>
+    </div>
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        6
+      </div>
+    </div>
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        7
+      </div>
+    </div>
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        8
+      </div>
+    </div>
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        9
+      </div>
+    </div>
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        10
+      </div>
+    </div>
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        11
+      </div>
+    </div>
+    <div class="col px-lg-4 px-md-3 px-sm-2">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        12
+      </div>
+    </div>
+  </div>
+</div>
+  `;
+
   example1 = `<div class="e-grid e-bg-grey-20">
   <div class="row">
     <div class="col">
@@ -58,6 +124,27 @@ export class GridDocComponent implements OnInit {
   `;
 
   example3 = `<div class="e-grid e-bg-grey-20">
+  <div class="row mx-lg-n3 mx-md-n2 mx-sm-n1">
+    <div class="col px-lg-3 px-md-2 px-sm-1">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        One of three columns
+      </div>
+    </div>
+    <div class="col px-lg-3 px-md-2 px-sm-1">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        One of three columns
+      </div>
+    </div>
+    <div class="col px-lg-3 px-md-2 px-sm-1">
+      <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
+        One of three columns
+      </div>
+    </div>
+  </div>
+</div>
+  `;
+
+  example4 = `<div class="e-grid e-bg-grey-20">
   <div class="row no-gutters">
     <div class="col">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
@@ -83,7 +170,7 @@ export class GridDocComponent implements OnInit {
 </div>
 `;
 
-  example4 = `<div class="e-grid e-bg-grey-20">
+  example5 = `<div class="e-grid e-bg-grey-20">
   <div class="row">
     <div class="col-sm-7 col-md-6 col-lg-8">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
@@ -99,7 +186,7 @@ export class GridDocComponent implements OnInit {
 </div>
 `;
 
-  example5 = `<div class="e-grid e-bg-grey-20">
+  example6 = `<div class="e-grid e-bg-grey-20">
   <div class="row justify-content-center">
     <div class="col-4">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
@@ -139,7 +226,7 @@ export class GridDocComponent implements OnInit {
 </div>
 `;
 
-  example6 = `<div class="e-grid e-bg-grey-20">
+  example7 = `<div class="e-grid e-bg-grey-20">
   <div class="row">
     <div class="col">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
@@ -160,7 +247,7 @@ export class GridDocComponent implements OnInit {
 </div>
 `;
 
-  example7 = `<div class="e-grid e-bg-grey-20">
+  example8 = `<div class="e-grid e-bg-grey-20">
   <div class="row">
     <div class="col-6">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
