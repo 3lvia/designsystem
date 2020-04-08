@@ -21,7 +21,7 @@ $icon-button-font-size: 24px;
 $icon-button-height-with-border: $icon-button-height - $button-border-width; // Subtract width of border to match size of buttons without border
 $icon-button-padding: 24px;
 $icon-button-padding-top-bottom: 14px;
-$icon-size: 24px;
+$icon-size: 20px;
 $button-font-size: 18px;
 $button-small-font-size: 16px;
 $button-line-height: 24px;
@@ -34,11 +34,13 @@ $button-font-weight: 500;
 
   &.e-disabled {
     background: color("grey-30");
+    border: transparent;
     color: rgba(255, 255, 255, 0.75);
     cursor: not-allowed;
 
     &:hover {
       color: rgba(255, 255, 255, 0.75) !important;
+      background-color: color("grey-30") !important;
     }
 
     &:focus {
@@ -51,12 +53,14 @@ $button-font-weight: 500;
   }
 
   &.e-hover:not(.disabled) {
-    color: color("green");
+    background: color("green");
+    border: color("green");
   }
 
   &.e-active {
-    color: color("green");
-    border-color: color("green");
+    background: color("green");
+    background-clip: padding-box;
+    border: 2px solid transparent;
   }
 
   &.is-primary {
@@ -123,6 +127,7 @@ $button-font-weight: 500;
       align-items: center;
       justify-content: space-between;
       border-radius: $button-radius;
+      background-size: cover;
 
       span {
         // standard size for buttons in large buttons
@@ -238,9 +243,41 @@ $button-font-weight: 500;
       }
       &:active {
         padding: 9px 23px;
-        
+
         @include breakpoint-up(Mobile) {
           padding: 7px 15px;
+        }
+      }
+
+      &.e-has-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: $button-radius;
+        padding-left: 16px;
+        padding-right: 16px;
+
+        @include breakpoint-up(Mobile) {
+            padding: 8px 10px;
+          }
+
+        span {
+          // standard size for buttons in large buttons
+          background-size: 20px;
+          background-position: center;
+        }
+
+        &:active {
+          background-color: ("green");
+          background-clip: padding-box;
+          border: 2px solid transparent;
+          padding-left: 15px;
+          padding-right: 15px;
+          color: color("black");
+
+          @include breakpoint-up(Mobile) {
+            padding: 7px 9px;
+          }
         }
       }
     }

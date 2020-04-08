@@ -68,7 +68,20 @@ example3 = `
 </button>`;
 
 example5 = `
-Small buttons with icon.
+<h3>Small primary buttons</h3>
+<button class="e-btn e-btn-small e-has-icon e-m-2" >
+  Standard
+</button>
+<button class="e-btn e-btn-small e-has-icon e-m-2" disabled >
+  Disabled
+</button>
+<br>
+<button class="e-btn e-btn-secondary e-btn-small e-has-icon e-m-2" >
+  <span class="e-icon-search"></span>Icon button
+</button>
+<button class="e-btn e-btn-secondary e-btn-small e-has-icon e-m-2" disabled >
+  <span class="e-icon-search"></span>Icon button
+</button>
 `;
 
   example6 = `<button class="e-btn e-btn-loading e-m-2">
