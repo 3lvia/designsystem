@@ -139,13 +139,12 @@
       transform: rotate(-45deg);
     }
   }
-
   &.e-jumbo {
     @extend .e-title-sm;
     border: 2px solid transparent;
     box-shadow: 0px 0px 0px 1px color("black");
     border-radius: 64px;
-    padding: 25px + 1px;
+    padding: 32px 40px;
     width: 545px;
     background: color("white");
     color: color("black");
@@ -157,25 +156,58 @@
     &::before { content: none }
     &::after { content: none }
 
-    span {
+    span:not(:first-of-type):not(:last-of-type) {
       text-align: left;
       width: 100%;
     }
 
-    i:first-of-type {
+    span:first-of-type {
       margin-right: 24px;
+      i {
+        width: 48px;
+        height: 48px;
+        img {
+            width: 48px;
+            height: 48px;
+        }
+      }
     }
-    i:last-of-type {
-      margin-left: 24px;
+    span:last-of-type {
+      margin-left: 8px;
+      i {
+        width: 24px;
+        height: 24px;
+        img {
+            width: 24px;
+            height: 24px;
+        }
+      }
     }
 
     @include breakpoint-up(Mobile) {
       width: 287px;
-      i:first-of-type {
-        margin-right: 16px;
+      padding: 28px 32px;
+      span:first-of-type {
+        margin-right: 24px;
+        i {
+          width: 32px;
+          height: 32px;
+          img {
+              width: 32px;
+              height: 32px;
+          }
+        }
       }
-      i:last-of-type {
-        margin-left: 16px;
+      span:last-of-type {
+        margin-left: 8px;
+        i {
+          width: 24px;
+          height: 24px;
+          img {
+              width: 24px;
+              height: 24px;
+          }
+        }
       }
     }
 
