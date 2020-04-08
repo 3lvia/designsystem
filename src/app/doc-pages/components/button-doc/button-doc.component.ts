@@ -68,7 +68,7 @@ example3 = `
 </button>`;
 
 example5 = `
-Small buttons with icon. 
+Small buttons with icon.
 `;
 
   example6 = `<button class="e-btn e-btn-loading e-m-2">

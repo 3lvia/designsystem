@@ -20,6 +20,7 @@ $icon-button-height: 24px;
 $icon-button-font-size: 24px;
 $icon-button-height-with-border: $icon-button-height - $button-border-width; // Subtract width of border to match size of buttons without border
 $icon-button-padding: 24px;
+$icon-button-padding-top-bottom: 14px;
 $icon-size: 24px;
 $button-font-size: 18px;
 $button-small-font-size: 16px;
@@ -114,19 +115,53 @@ $button-font-weight: 500;
         padding: 8px 16px;
       }
     }
+
+    // When button with text has icon
+    // Is a modifier for primary and secondary because of different borders and padding
+    &.e-has-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: $button-radius;
+
+      span {
+        // standard size for buttons in large buttons
+        background-size: $icon-size;
+        background-position: center;
+        // negative margin on icons to not expand the button height
+        margin-top: -spacing("1");
+        margin-bottom: -spacing("1");
+      }
+
+      &:disabled {
+        i,
+        span {
+          filter: invert(1);
+        }
+      }
+    }
   }
 
   &.e-btn-secondary {
     display: inline-block;
     border: 1px solid color("black");
     border-radius: $button-radius;
-    padding: $button-padding + 1px;
+    padding-left: $button-padding-left-right;
+    padding-right: $button-padding-left-right;
+    padding-top: $button-padding-top-bottom;
+    padding-bottom: $button-padding-top-bottom;
     font-size: $button-font-size;
     line-height: $button-line-height;
     background: color("white");
     color: color("black");
     outline: none;
     cursor: pointer;
+
+    @include breakpoint-up(Mobile) {
+      font-size: $button-small-font-size;
+      line-height: $button-small-line-height;
+      padding: $button-small-padding;
+    }
 
     &:disabled {
       background: color("grey-30");
@@ -172,6 +207,13 @@ $button-font-weight: 500;
         padding-top: $button-padding-top-bottom - 1px;
         padding-bottom: $button-padding-top-bottom - 1px;
         color: color("black");
+
+        @include breakpoint-up(Mobile) {
+          padding-left: $button-small-padding-left-right - 1px;
+          padding-right: $button-small-padding-left-right - 1px;
+          padding-top: $button-small-padding-top-bottom - 1px;
+          padding-bottom: $button-small-padding-top-bottom - 1px;
+        }
       }
     }
 
@@ -179,7 +221,6 @@ $button-font-weight: 500;
       color: color("black");
       background-color: ("green");
       border: 1px solid color("green");
-      
     }
 
     &.e-active {
@@ -195,35 +236,44 @@ $button-font-weight: 500;
       @include breakpoint-up(Mobile) {
         padding: 8px 16px;
       }
-
       &:active {
         padding: 9px 23px;
+        
+        @include breakpoint-up(Mobile) {
+          padding: 7px 15px;
+        }
       }
     }
-  }
 
-  // When button with text has icon
-  &.e-has-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: $button-radius;
-    padding-left: $icon-button-padding;
-    padding-right: $icon-button-padding;
+    // When button with text has icon
+    &.e-has-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: $button-radius;
+      padding-left: $icon-button-padding;
+      padding-right: $icon-button-padding;
 
-    span {
-      // standard size for buttons in large buttons
-      background-size: $icon-size;
-      background-position: center;
-      // negative margin on icons to not expand the button height
-      margin-top: -spacing("1");
-      margin-bottom: -spacing("1");
-    }
-
-    &:disabled {
-      i,
       span {
-        filter: invert(1);
+        // standard size for buttons in large buttons
+        background-size: $icon-size;
+        background-position: center;
+      }
+
+      &:active {
+        background-color: ("green");
+        background-clip: padding-box;
+        border: 2px solid transparent;
+        padding-left: $icon-button-padding - 1px;
+        padding-right: $icon-button-padding - 1px;
+        color: color("black");
+      }
+
+      &:disabled {
+        i,
+        span {
+          filter: invert(1);
+        }
       }
     }
   }
