@@ -107,6 +107,24 @@ example5 = `
 <button class="e-btn e-disabled e-m-2" >
   Disabled
 </button>
+
+<br><br>
+
+<button class="e-btn e-btn-secondary e-hover e-m-2" >
+  Hover
+</button>
+
+<button class="e-btn e-btn-secondary e-active e-m-2" >
+  Active
+</button>
+
+<button class="e-btn e-btn-secondary e-focus e-m-2" >
+  Focus
+</button>
+
+<button class="e-btn e-btn-secondary e-disabled e-m-2" >
+  Disabled
+</button>
 `;
 
   constructor() { }

@@ -55,12 +55,14 @@ $button-font-weight: 500;
   &.e-hover:not(.disabled) {
     background: color("green");
     border: color("green");
+    color: color('black');
   }
 
   &.e-active {
     background: color("green");
     background-clip: padding-box;
     border: 2px solid transparent;
+    color: color("black");
   }
 
   &.is-primary {
@@ -183,7 +185,7 @@ $button-font-weight: 500;
 
       &:hover {
         background-color: ("green");
-        border: 1px solid color("green");
+        border: 1px solid transparent;
         color: rgba(255, 255, 255, 0.75);
       }
     }
@@ -200,7 +202,6 @@ $button-font-weight: 500;
       &:hover:not(:focus) {
         background-color: ("green");
         border: 1px solid color("green");
-        color: color("black");
       }
 
       &:active {
@@ -211,7 +212,6 @@ $button-font-weight: 500;
         padding-right: $button-padding-left-right - 1px;
         padding-top: $button-padding-top-bottom - 1px;
         padding-bottom: $button-padding-top-bottom - 1px;
-        color: color("black");
 
         @include breakpoint-up(Mobile) {
           padding-left: $button-small-padding-left-right - 1px;
@@ -230,7 +230,8 @@ $button-font-weight: 500;
 
     &.e-active {
       color: color("black");
-      box-shadow: 0px 0px 0px 2px color("green");
+      background: color("green");
+      border-color: transparent;
     }
 
     &.e-btn-small {
