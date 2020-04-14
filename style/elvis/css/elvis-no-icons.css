@@ -166,8 +166,8 @@
   .e-btn.e-has-icon span {
     background-size: 24px;
     background-position: center;
-    margin-top: -8px;
-    margin-bottom: -8px; }
+    margin-top: -64px;
+    margin-bottom: -64px; }
 
 .e-btn.e-btn-loading span {
   background: transparent;
@@ -468,7 +468,7 @@
       background-size: cover;
       height: 24px;
       width: 24px;
-      margin-left: 8px; }
+      margin-left: 64px; }
   .e-link.e-inline {
     font-size: inherit;
     font-weight: 500;
@@ -484,7 +484,7 @@
     float: left;
     font-size: 14px;
     font-weight: 800;
-    padding-right: 8px;
+    padding-right: 64px;
     vertical-align: middle; }
   .e-link.e-custom {
     display: inline-block;
@@ -503,7 +503,7 @@
       padding: 0px 6px;
       border: 1px solid #29D305;
       border-radius: 50%;
-      margin-left: 8px;
+      margin-left: 64px;
       vertical-align: text-bottom; }
       @media (max-width: 767px) {
         .e-link.e-custom::after {
@@ -678,10 +678,10 @@ body {
   font-weight: 400;
   color: #000; }
 
-.e-table .e-table_header, .e-table-mobile .e-table_header {
+.e-table thead, .e-table-mobile thead {
   background: #262626;
   width: 100%; }
-  .e-table .e-table_header th, .e-table-mobile .e-table_header th {
+  .e-table thead th, .e-table-mobile thead th {
     color: #FFF;
     font-weight: 500; }
 
@@ -723,7 +723,7 @@ body {
   box-shadow: 0px 0px 0px 1px rgba(38, 38, 38, 0.1); }
   .e-table-mobile th, .e-table-mobile td {
     padding: 0.375rem 0.5rem; }
-  .e-table-mobile .e-table_header-row {
+  .e-table-mobile tbody tr:first-of-type th {
     background: rgba(38, 38, 38, 0.1); }
   .e-table-mobile:not(.no-zebra) tr:not(:first-of-type):nth-of-type(odd) {
     background: rgba(38, 38, 38, 0.05); }
@@ -1090,6 +1090,66 @@ body {
   background: #FF0000;
   color: #000; }
 
+:root {
+  --e-green-apple: #21AC04; }
+
+.e-text-green-apple {
+  color: #21AC04; }
+
+.e-bg-green-apple {
+  background: #21AC04;
+  color: #000; }
+
+:root {
+  --e-violet-grape: #490192; }
+
+.e-text-violet-grape {
+  color: #490192; }
+
+.e-bg-violet-grape {
+  background: #490192;
+  color: #fff; }
+
+:root {
+  --e-blue-berry: #006DDB; }
+
+.e-text-blue-berry {
+  color: #006DDB; }
+
+.e-bg-blue-berry {
+  background: #006DDB;
+  color: #fff; }
+
+:root {
+  --e-purple-plum: #B66DFF; }
+
+.e-text-purple-plum {
+  color: #B66DFF; }
+
+.e-bg-purple-plum {
+  background: #B66DFF;
+  color: #000; }
+
+:root {
+  --e-orange-mango: #DB6D00; }
+
+.e-text-orange-mango {
+  color: #DB6D00; }
+
+.e-bg-orange-mango {
+  background: #DB6D00;
+  color: #000; }
+
+:root {
+  --e-red-tomato: #B90202; }
+
+.e-text-red-tomato {
+  color: #B90202; }
+
+.e-bg-red-tomato {
+  background: #B90202;
+  color: #fff; }
+
 .e-checkbox {
   display: flex;
   align-items: center;
@@ -1290,7 +1350,7 @@ body {
       visibility: visible; }
     .e-form_field_error > i {
       margin-right: 5px;
-      padding: 8px; }
+      padding: 64px; }
 
 .e-combined-field {
   display: flex;
@@ -1311,7 +1371,7 @@ body {
     width: 100%;
     margin-bottom: 0; }
     .e-inlined-field .e-form_field:not(:last-of-type) {
-      margin-right: 8px; }
+      margin-right: 64px; }
     .e-inlined-field .e-form_field.e-small {
       width: 60px; }
       .e-inlined-field .e-form_field.e-small input {
@@ -1455,7 +1515,7 @@ body {
     outline: none; }
   .e-input > i {
     float: right;
-    padding: 8px;
+    padding: 64px;
     margin-left: 16px; }
   .e-input > textarea {
     min-height: 16px;
@@ -1493,7 +1553,7 @@ body {
       cursor: not-allowed; }
 
 .e-combined-field .e-input:not(:last-of-type) {
-  margin-right: 8px; }
+  margin-right: 64px; }
 
 .e-radio {
   display: flex;
@@ -1883,6 +1943,66 @@ body {
   background: #FF0000;
   color: #000; }
 
+:root {
+  --e-green-apple: #21AC04; }
+
+.e-text-green-apple {
+  color: #21AC04; }
+
+.e-bg-green-apple {
+  background: #21AC04;
+  color: #000; }
+
+:root {
+  --e-violet-grape: #490192; }
+
+.e-text-violet-grape {
+  color: #490192; }
+
+.e-bg-violet-grape {
+  background: #490192;
+  color: #fff; }
+
+:root {
+  --e-blue-berry: #006DDB; }
+
+.e-text-blue-berry {
+  color: #006DDB; }
+
+.e-bg-blue-berry {
+  background: #006DDB;
+  color: #fff; }
+
+:root {
+  --e-purple-plum: #B66DFF; }
+
+.e-text-purple-plum {
+  color: #B66DFF; }
+
+.e-bg-purple-plum {
+  background: #B66DFF;
+  color: #000; }
+
+:root {
+  --e-orange-mango: #DB6D00; }
+
+.e-text-orange-mango {
+  color: #DB6D00; }
+
+.e-bg-orange-mango {
+  background: #DB6D00;
+  color: #000; }
+
+:root {
+  --e-red-tomato: #B90202; }
+
+.e-text-red-tomato {
+  color: #B90202; }
+
+.e-bg-red-tomato {
+  background: #B90202;
+  color: #fff; }
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -2214,353 +2334,353 @@ template {
 .e-p-0 {
   padding: 0; }
 
-.e-p-1 {
+.e-p-8 {
   padding: 8px; }
 
-.e-pt-1 {
+.e-pt-8 {
   padding-top: 8px; }
 
-.e-pb-1 {
+.e-pb-8 {
   padding-bottom: 8px; }
 
-.e-pl-1 {
+.e-pl-8 {
   padding-left: 8px; }
 
-.e-pr-1 {
+.e-pr-8 {
   padding-right: 8px; }
 
 .e-m-0 {
   margin: 0; }
 
-.e-m-1 {
+.e-m-8 {
   margin: 8px; }
 
-.e-mt-1 {
+.e-mt-8 {
   margin-top: 8px; }
 
-.e-mb-1 {
+.e-mb-8 {
   margin-bottom: 8px; }
 
-.e-ml-1 {
+.e-ml-8 {
   margin-left: 8px; }
 
-.e-mr-1 {
+.e-mr-8 {
   margin-right: 8px; }
 
 :root {
-  --e-spacing-1: 8px; }
+  --e-spacing-8: 8px; }
 
 .e-p-0 {
   padding: 0; }
 
-.e-p-2 {
+.e-p-16 {
   padding: 16px; }
 
-.e-pt-2 {
+.e-pt-16 {
   padding-top: 16px; }
 
-.e-pb-2 {
+.e-pb-16 {
   padding-bottom: 16px; }
 
-.e-pl-2 {
+.e-pl-16 {
   padding-left: 16px; }
 
-.e-pr-2 {
+.e-pr-16 {
   padding-right: 16px; }
 
 .e-m-0 {
   margin: 0; }
 
-.e-m-2 {
+.e-m-16 {
   margin: 16px; }
 
-.e-mt-2 {
+.e-mt-16 {
   margin-top: 16px; }
 
-.e-mb-2 {
+.e-mb-16 {
   margin-bottom: 16px; }
 
-.e-ml-2 {
+.e-ml-16 {
   margin-left: 16px; }
 
-.e-mr-2 {
+.e-mr-16 {
   margin-right: 16px; }
 
 :root {
-  --e-spacing-2: 16px; }
+  --e-spacing-16: 16px; }
 
 .e-p-0 {
   padding: 0; }
 
-.e-p-3 {
+.e-p-24 {
   padding: 24px; }
 
-.e-pt-3 {
+.e-pt-24 {
   padding-top: 24px; }
 
-.e-pb-3 {
+.e-pb-24 {
   padding-bottom: 24px; }
 
-.e-pl-3 {
+.e-pl-24 {
   padding-left: 24px; }
 
-.e-pr-3 {
+.e-pr-24 {
   padding-right: 24px; }
 
 .e-m-0 {
   margin: 0; }
 
-.e-m-3 {
+.e-m-24 {
   margin: 24px; }
 
-.e-mt-3 {
+.e-mt-24 {
   margin-top: 24px; }
 
-.e-mb-3 {
+.e-mb-24 {
   margin-bottom: 24px; }
 
-.e-ml-3 {
+.e-ml-24 {
   margin-left: 24px; }
 
-.e-mr-3 {
+.e-mr-24 {
   margin-right: 24px; }
 
 :root {
-  --e-spacing-3: 24px; }
+  --e-spacing-24: 24px; }
 
 .e-p-0 {
   padding: 0; }
 
-.e-p-4 {
+.e-p-32 {
   padding: 32px; }
 
-.e-pt-4 {
+.e-pt-32 {
   padding-top: 32px; }
 
-.e-pb-4 {
+.e-pb-32 {
   padding-bottom: 32px; }
 
-.e-pl-4 {
+.e-pl-32 {
   padding-left: 32px; }
 
-.e-pr-4 {
+.e-pr-32 {
   padding-right: 32px; }
 
 .e-m-0 {
   margin: 0; }
 
-.e-m-4 {
+.e-m-32 {
   margin: 32px; }
 
-.e-mt-4 {
+.e-mt-32 {
   margin-top: 32px; }
 
-.e-mb-4 {
+.e-mb-32 {
   margin-bottom: 32px; }
 
-.e-ml-4 {
+.e-ml-32 {
   margin-left: 32px; }
 
-.e-mr-4 {
+.e-mr-32 {
   margin-right: 32px; }
 
 :root {
-  --e-spacing-4: 32px; }
+  --e-spacing-32: 32px; }
 
 .e-p-0 {
   padding: 0; }
 
-.e-p-5 {
+.e-p-40 {
   padding: 40px; }
 
-.e-pt-5 {
+.e-pt-40 {
   padding-top: 40px; }
 
-.e-pb-5 {
+.e-pb-40 {
   padding-bottom: 40px; }
 
-.e-pl-5 {
+.e-pl-40 {
   padding-left: 40px; }
 
-.e-pr-5 {
+.e-pr-40 {
   padding-right: 40px; }
 
 .e-m-0 {
   margin: 0; }
 
-.e-m-5 {
+.e-m-40 {
   margin: 40px; }
 
-.e-mt-5 {
+.e-mt-40 {
   margin-top: 40px; }
 
-.e-mb-5 {
+.e-mb-40 {
   margin-bottom: 40px; }
 
-.e-ml-5 {
+.e-ml-40 {
   margin-left: 40px; }
 
-.e-mr-5 {
+.e-mr-40 {
   margin-right: 40px; }
 
 :root {
-  --e-spacing-5: 40px; }
+  --e-spacing-40: 40px; }
 
 .e-p-0 {
   padding: 0; }
 
-.e-p-6 {
+.e-p-48 {
   padding: 48px; }
 
-.e-pt-6 {
+.e-pt-48 {
   padding-top: 48px; }
 
-.e-pb-6 {
+.e-pb-48 {
   padding-bottom: 48px; }
 
-.e-pl-6 {
+.e-pl-48 {
   padding-left: 48px; }
 
-.e-pr-6 {
+.e-pr-48 {
   padding-right: 48px; }
 
 .e-m-0 {
   margin: 0; }
 
-.e-m-6 {
+.e-m-48 {
   margin: 48px; }
 
-.e-mt-6 {
+.e-mt-48 {
   margin-top: 48px; }
 
-.e-mb-6 {
+.e-mb-48 {
   margin-bottom: 48px; }
 
-.e-ml-6 {
+.e-ml-48 {
   margin-left: 48px; }
 
-.e-mr-6 {
+.e-mr-48 {
   margin-right: 48px; }
 
 :root {
-  --e-spacing-6: 48px; }
+  --e-spacing-48: 48px; }
 
 .e-p-0 {
   padding: 0; }
 
-.e-p-7 {
+.e-p-56 {
   padding: 56px; }
 
-.e-pt-7 {
+.e-pt-56 {
   padding-top: 56px; }
 
-.e-pb-7 {
+.e-pb-56 {
   padding-bottom: 56px; }
 
-.e-pl-7 {
+.e-pl-56 {
   padding-left: 56px; }
 
-.e-pr-7 {
+.e-pr-56 {
   padding-right: 56px; }
 
 .e-m-0 {
   margin: 0; }
 
-.e-m-7 {
+.e-m-56 {
   margin: 56px; }
 
-.e-mt-7 {
+.e-mt-56 {
   margin-top: 56px; }
 
-.e-mb-7 {
+.e-mb-56 {
   margin-bottom: 56px; }
 
-.e-ml-7 {
+.e-ml-56 {
   margin-left: 56px; }
 
-.e-mr-7 {
+.e-mr-56 {
   margin-right: 56px; }
 
 :root {
-  --e-spacing-7: 56px; }
+  --e-spacing-56: 56px; }
 
 .e-p-0 {
   padding: 0; }
 
-.e-p-8 {
+.e-p-64 {
   padding: 64px; }
 
-.e-pt-8 {
+.e-pt-64 {
   padding-top: 64px; }
 
-.e-pb-8 {
+.e-pb-64 {
   padding-bottom: 64px; }
 
-.e-pl-8 {
+.e-pl-64 {
   padding-left: 64px; }
 
-.e-pr-8 {
+.e-pr-64 {
   padding-right: 64px; }
 
 .e-m-0 {
   margin: 0; }
 
-.e-m-8 {
+.e-m-64 {
   margin: 64px; }
 
-.e-mt-8 {
+.e-mt-64 {
   margin-top: 64px; }
 
-.e-mb-8 {
+.e-mb-64 {
   margin-bottom: 64px; }
 
-.e-ml-8 {
+.e-ml-64 {
   margin-left: 64px; }
 
-.e-mr-8 {
+.e-mr-64 {
   margin-right: 64px; }
 
 :root {
-  --e-spacing-8: 64px; }
+  --e-spacing-64: 64px; }
 
 .e-p-0 {
   padding: 0; }
 
-.e-p-9 {
+.e-p-72 {
   padding: 72px; }
 
-.e-pt-9 {
+.e-pt-72 {
   padding-top: 72px; }
 
-.e-pb-9 {
+.e-pb-72 {
   padding-bottom: 72px; }
 
-.e-pl-9 {
+.e-pl-72 {
   padding-left: 72px; }
 
-.e-pr-9 {
+.e-pr-72 {
   padding-right: 72px; }
 
 .e-m-0 {
   margin: 0; }
 
-.e-m-9 {
+.e-m-72 {
   margin: 72px; }
 
-.e-mt-9 {
+.e-mt-72 {
   margin-top: 72px; }
 
-.e-mb-9 {
+.e-mb-72 {
   margin-bottom: 72px; }
 
-.e-ml-9 {
+.e-ml-72 {
   margin-left: 72px; }
 
-.e-mr-9 {
+.e-mr-72 {
   margin-right: 72px; }
 
 :root {
-  --e-spacing-9: 72px; }
+  --e-spacing-72: 72px; }
 
 body {
   font-family: "Red Hat Display", sans-serif;

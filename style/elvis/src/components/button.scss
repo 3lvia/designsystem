@@ -161,8 +161,8 @@ $button-font-size: 1rem;
       background-size: $icon-size;
       background-position: center;
       // negative margin on icons to not expand the button height
-      margin-top: - spacing('1');
-      margin-bottom: - spacing('1');
+      margin-top: - spacing('64');
+      margin-bottom: - spacing('64');
     }
 
   }
