@@ -32,6 +32,7 @@ export enum Pages {
     List = 'list-doc',
     Notification = 'notification-dot-doc',
     Radiobutton = 'radiobutton-doc',
+    SegmentedControl = 'segmented-control-doc',
     Select = 'select-doc',
     Table = 'table-doc',
     Tags = 'tags-doc',

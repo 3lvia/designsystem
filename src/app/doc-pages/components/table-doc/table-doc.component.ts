@@ -14,7 +14,7 @@ export class TableDocComponent implements OnInit {
 
   example1 = `<table class="e-table">
   <thead>
-    <tr class="e-table_header">
+    <tr>
       <th scope="col">Gebyr for ikke-automatiske strømmålere</th>
       <th scope="col">Nok</th>
     </tr>
@@ -50,7 +50,7 @@ export class TableDocComponent implements OnInit {
 
   example2 = `<table class="e-table">
   <thead>
-    <tr class="e-table_header">
+    <tr>
       <th scope="col">Sikringsstørrelse</th>
       <th scope="col">230 V (2-fase)</th>
       <th scope="col">230 V (3-fase)</th>
@@ -94,13 +94,13 @@ export class TableDocComponent implements OnInit {
   example3 = `<div style="width: 305px">
   <table class="e-table-mobile">
     <thead>
-      <tr class="e-table_header">
+      <tr>
         <th scope="col">Sikringsstørrelse</th>
         <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      <tr class="e-table_header-row">
+      <tr>
         <th scope="col">16 A</th>
         <th scope="col"></th>
       </tr>
@@ -118,7 +118,7 @@ export class TableDocComponent implements OnInit {
       </tr>
     </tbody>
     <tbody>
-      <tr class="e-table_header-row">
+      <tr>
         <th scope="col">32 A</th>
         <th scope="col"></th>
       </tr>
