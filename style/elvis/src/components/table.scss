@@ -41,7 +41,7 @@ $table-border-radius: 4px;
     }
   }
 
-  .e-table_header {
+  thead {
     @extend %header-style;
   }
 
@@ -74,11 +74,11 @@ $table-border-radius: 4px;
     padding: $table-phone-padding;
   }
 
-  .e-table_header {
+  thead {
     @extend %header-style;
   }
   
-  .e-table_header-row {
+  tbody tr:first-of-type th {
     background: color('grey-10');
   }
 
