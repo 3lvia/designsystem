@@ -36,14 +36,14 @@ export class LinkDocComponent implements OnInit {
 `;
 
 example8 = `<a class="e-link e-jumbo e-m-1" href="https://www.elvia.no/">
-  <i class="e-icon-hammer-wench-color e-icon-lg"></i>
+  <span><i class="e-icon-tree-powerline"></i></span>
   <span>Strømledning nær bakken</span>
-  <i class="e-icon-arrow-right e-icon-lg"></i>
+  <span><i class="e-icon-arrow-right"></i></span>
 </a>
 <a class="e-link e-jumbo e-m-1" href="https://www.elvia.no/">
-  <i class="e-icon-hammer-wench-color e-icon-lg"></i>
+  <span><i class="e-icon-powerline-snow"></i></span>
   <span>Strømledning nær bakken med mer tekst som er veldig lang og tar 2 linjer</span>
-  <i class="e-icon-arrow-right e-icon-lg"></i>
+  <span><i class="e-icon-arrow-right"></i></span>
 </a>`;
 
 
