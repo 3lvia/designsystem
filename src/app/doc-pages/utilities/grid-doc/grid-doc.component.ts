@@ -124,18 +124,18 @@ export class GridDocComponent implements OnInit {
   `;
 
   example3 = `<div class="e-grid e-bg-grey-20">
-  <div class="row mx-lg-n3 mx-md-n2 mx-sm-n1">
-    <div class="col px-lg-3 px-md-2 px-sm-1">
+  <div class="row mx-lg-n3 mx-md-n2 mx-sm-n1 mx-n1">
+    <div class="col px-lg-3 px-md-2 px-sm-1 px-1">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
         One of three columns
       </div>
     </div>
-    <div class="col px-lg-3 px-md-2 px-sm-1">
+    <div class="col px-lg-3 px-md-2 px-sm-1 px-1">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
         One of three columns
       </div>
     </div>
-    <div class="col px-lg-3 px-md-2 px-sm-1">
+    <div class="col px-lg-3 px-md-2 px-sm-1 px-1">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
         One of three columns
       </div>
@@ -248,40 +248,40 @@ export class GridDocComponent implements OnInit {
 `;
 
   example8 = `<div class="e-grid e-bg-grey-20">
-  <div class="row">
-    <div class="col-6">
+  <div class="row mx-lg-n3 mx-n1">
+    <div class="col-6 px-lg-3 px-1">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
         <div>
-          Level 1: .col-6
+          Level 1
         </div>
         <div class="row">
-          <div class="col-8 col-sm-12">
+          <div class="col-lg-6 col-12">
             <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-              Level 2: .col-8 .col-sm-12
+              Level 2
             </div>
           </div>
-          <div class="col-4 col-sm-12">
+          <div class="col-lg-6 col-12">
             <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-              Level 2: .col-4 .col-sm-12
+              Level 2
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-6 px-lg-3 px-1">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
         <div>
-          Level 1: .col-6
+          Level 1
         </div>
         <div class="row">
-          <div class="col-8 col-sm-12">
+          <div class="col-lg-6 col-12">
             <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-              Level 2: .col-8 .col-sm-12
+              Level 2
             </div>
           </div>
-          <div class="col-4 col-sm-12">
+          <div class="col-lg-6 col-12">
             <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-              Level 2: .col-4 .col-sm-12
+              Level 2
             </div>
           </div>
         </div>
