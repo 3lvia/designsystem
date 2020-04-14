@@ -255,14 +255,14 @@ export class GridDocComponent implements OnInit {
           Level 1: .col-6
         </div>
         <div class="row">
-          <div class="col-8 col-sm-6">
+          <div class="col-8 col-sm-12">
             <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-              Level 2: .col-8 .col-sm-6
+              Level 2: .col-8 .col-sm-12
             </div>
           </div>
-          <div class="col-4 col-sm-6">
+          <div class="col-4 col-sm-12">
             <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-              Level 2: .col-4 .col-sm-6
+              Level 2: .col-4 .col-sm-12
             </div>
           </div>
         </div>
@@ -274,14 +274,14 @@ export class GridDocComponent implements OnInit {
           Level 1: .col-6
         </div>
         <div class="row">
-          <div class="col-8 col-sm-6">
+          <div class="col-8 col-sm-12">
             <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-              Level 2: .col-8 .col-sm-6
+              Level 2: .col-8 .col-sm-12
             </div>
           </div>
-          <div class="col-4 col-sm-6">
+          <div class="col-4 col-sm-12">
             <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-              Level 2: .col-4 .col-sm-6
+              Level 2: .col-4 .col-sm-12
             </div>
           </div>
         </div>

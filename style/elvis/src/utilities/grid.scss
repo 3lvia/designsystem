@@ -38,8 +38,8 @@ $grid-breakpoints: (
 
 $grid-columns: 12 !default;
 $grid-gutter-width: 48px !default;
-$grid-margin: 120px !default;
 
+// Making custom margin classes
 .e-grid {
     @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
 
