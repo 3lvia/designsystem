@@ -188,38 +188,38 @@ export class GridDocComponent implements OnInit {
 
   example6 = `<div class="e-grid e-bg-grey-20">
   <div class="row justify-content-center">
-    <div class="col-4">
+    <div class="col-5">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-        One of two columns
+        Column
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-5">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-        One of two columns
+        Column
       </div>
     </div>
   </div>
   <div class="row align-items-end" style="height: 100px;">
-    <div class="col-4">
+    <div class="col-5">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-        One of two columns
+        Column
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-5">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-        One of two columns
+        Column
       </div>
     </div>
   </div>
   <div class="row">
-    <div class="col-4">
+    <div class="col-5">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-        One of two columns
+        Column
       </div>
     </div>
-    <div class="col-4 offset-3">
+    <div class="col-5 offset-3">
       <div class="e-bg-grey-70 e-p-2" style="border: 1px solid black;">
-        One of two columns
+        Column
       </div>
     </div>
   </div>
