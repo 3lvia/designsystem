@@ -115,7 +115,7 @@ $iconSizeCustom: 20px;
     }
   }
 
-  &.e-more {
+  &.e-external {
     display: inline-flex;
     position: relative;
 
@@ -124,10 +124,6 @@ $iconSizeCustom: 20px;
       margin-left: spacing("1");
       margin-right: 0px;
       background-size: 24px;
-      height: $iconSizeCustom;
-      width: $iconSizeCustom;
-      bottom: 100%;
-      transform: rotate(-45deg);
     }
   }
 }

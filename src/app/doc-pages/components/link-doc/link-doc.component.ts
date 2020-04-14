@@ -20,7 +20,7 @@ export class LinkDocComponent implements OnInit {
 </p>
 `;
 
-  example3 = `<a class="e-link e-more" href="https://www.elvia.no/">Se mer <i class="e-icon-arrow-right"></i></a>
+  example3 = `<a class="e-link e-external" href="https://www.elvia.no/">Se mer <i class="e-icon-external-link"></i></a>
 `;
 
   example4 = `<a class="e-link e-back" href="https://www.elvia.no/"><i class="e-icon-arrow-left"></i> Tilbake</a>
