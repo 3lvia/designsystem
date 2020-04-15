@@ -20,13 +20,19 @@ export class LinkDocComponent implements OnInit {
 </p>
 `;
 
-  example3 = `<a class="e-link e-more" href="https://www.elvia.no/">Se mer</a>
+  example3 = `<a class="e-link e-external" href="https://www.elvia.no/">Se mer <i class="e-icon-external-link"></i></a>
 `;
-  example4 = `<a class="e-link e-back" href="https://www.elvia.no/">Tilbake</a>
+
+  example4 = `<a class="e-link e-back" href="https://www.elvia.no/"><i class="e-icon-arrow-left"></i> Tilbake</a>
 `;
-  example5 = `<a class="e-link e-has-icon" href="https://www.elvia.no/">Last ned <i class="e-icon-download"></i></a>
+
+  example5 = `
+  <a class="e-link" href="https://www.elvia.no/">Last ned <i class="e-icon-download"></i></a>
+  <br>
+  <br>
+  <a class="e-link e-icon-first" href="https://www.elvia.no/"><i class="e-icon-download"></i> Last ned</a>
 `;
-  example6 = `<a class="e-link e-custom" href="https://www.elvia.no/">Se hva du kan gjøre</a>
+  example6 = `<a class="e-link e-custom" href="https://www.elvia.no/">Se hva du kan gjøre <i class="e-icon-arrow-right"></i></a>
 `;
   example7 = `
 <a class="e-link e-hover" href="https://www.elvia.no/">Se hva du kan gjøre</a>

@@ -147,6 +147,14 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
     },
     {
+        title: 'Segmented Control',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.SegmentedControl,
+        status: ItemStatus.New,
+        actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
+    },
+    {
         title: 'Select',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Select,
@@ -249,6 +257,13 @@ export const eUtilities: EItems[] = [
         status: ItemStatus.New,
         actionText: 'View breakpoints',
         externalUrl: 'https://www.figma.com/file/fMr1lhboPukTxmH9KruWB2/Grid'
+    },
+    {
+        title: 'Grid',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Grid,
+        status: ItemStatus.New,
+        actionText: 'View grid',
     },
 ];
 

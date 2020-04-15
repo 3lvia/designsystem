@@ -32,6 +32,7 @@ export enum Pages {
     List = 'list-doc',
     Notification = 'notification-dot-doc',
     Radiobutton = 'radiobutton-doc',
+    SegmentedControl = 'segmented-control-doc',
     Select = 'select-doc',
     Table = 'table-doc',
     Tags = 'tags-doc',
@@ -48,4 +49,5 @@ export enum Pages {
     Shadow = 'shadow-doc',
     Spacing = 'spacing-doc',
     Breakpoints = 'breakpoints-doc',
+    Grid = 'grid-doc',
 }
