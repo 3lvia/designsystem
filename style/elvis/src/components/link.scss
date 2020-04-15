@@ -24,7 +24,7 @@ $iconSizeCustom: 20px;
 
   i {
     position: relative;
-    margin-left: spacing("1");
+    margin-left: 8px;
     background-size: cover;
     height: $iconSize;
     width: $iconSize;
@@ -33,7 +33,7 @@ $iconSizeCustom: 20px;
   &.e-back {
     i {
       position: relative;
-      margin-left: - spacing("1");
+      margin-left: - 8px;
       background-size: cover;
       height: $iconSize;
       width: $iconSize;
@@ -44,7 +44,7 @@ $iconSizeCustom: 20px;
     i {
       position: relative;
       margin-left: 0;
-      margin-right: spacing("1");
+      margin-right: 8px;
       background-size: cover;
       height: $iconSize;
       width: $iconSize;
@@ -91,7 +91,7 @@ $iconSizeCustom: 20px;
 
     i {
       position: relative;
-      margin-left: spacing("1");
+      margin-left: 8px;
       background-size: 24px;
       background-position-x: 60%;
       background-position-y: 50%;
@@ -121,7 +121,7 @@ $iconSizeCustom: 20px;
 
     i {
       position: relative;
-      margin-left: spacing("1");
+      margin-left: 8px;
       margin-right: 0px;
       background-size: 24px;
     }
