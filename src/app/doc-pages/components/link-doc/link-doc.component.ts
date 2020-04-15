@@ -48,7 +48,7 @@ example8 = `<a class="e-link e-jumbo e-m-1" href="https://www.elvia.no/">
 </a>
 <a class="e-link e-jumbo e-m-1" href="https://www.elvia.no/">
   <span><i class="e-icon-powerline-snow"></i></span>
-  <span>Strømledning nær bakken med mer tekst som er veldig lang og tar 2 linjer</span>
+  <span>Jumbo link med en lang tekst som ikke overskrider 2 linjer</span>
   <span><i class="e-icon-arrow-right"></i></span>
 </a>`;
 
