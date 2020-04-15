@@ -40,6 +40,7 @@ import { UtilitiesStartComponent } from './doc-pages/utilities/utilities-start/u
 import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
 import { BreakpointsDocComponent } from './doc-pages/utilities/breakpoints-doc/breakpoints-doc.component';
 import { GridDocComponent } from './doc-pages/utilities/grid-doc/grid-doc.component';
+import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
 
 
 const routes: Routes = [
@@ -149,6 +150,10 @@ const routes: Routes = [
           {
             path: Pages.Radiobutton,
             component: RadiobuttonDocComponent
+          },
+          {
+            path: Pages.SegmentedControl,
+            component: SegmentedControlsDocComponent
           },
           {
             path: Pages.Select,

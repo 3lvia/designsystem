@@ -1,38 +1,60 @@
 @import "../variables/colors.scss";
 @import "../utilities/breakpoints.scss";
 
+$iconSize: 24px;
+$iconSizeCustom: 20px;
+
 .e-link {
-  display: inline-block;
-  position: relative;
+  display: inline-flex;
+  border-bottom: 2px solid color("black");
+  cursor: pointer;
+  text-decoration: none;
+
   // typography for links:
   font-family: "Red Hat Display", sans-serif;
   font-size: 18px;
   font-weight: bold;
   line-height: 24px;
   color: color("font-color");
-  cursor: pointer;
 
   @include breakpoint-up(Mobile) {
     font-size: 16px;
     line-height: 21px;
   }
-  // ::before to create bottom border with round edges.
-  &::before {
-    content: "";
-    position: absolute;
-    display: block;
-    bottom: 0;
-    background: color("black");
-    width: 100%;
-    height: 2.5px;
-    margin-bottom: -3px;
-    border-radius: 15px;
+
+  i {
+    position: relative;
+    margin-left: spacing("1");
+    background-size: cover;
+    height: $iconSize;
+    width: $iconSize;
   }
+
+  &.e-back {
+    i {
+      position: relative;
+      margin-left: - spacing("1");
+      background-size: cover;
+      height: $iconSize;
+      width: $iconSize;
+    }
+  }
+
+  &.e-icon-first {
+    i {
+      position: relative;
+      margin-left: 0;
+      margin-right: spacing("1");
+      background-size: cover;
+      height: $iconSize;
+      width: $iconSize;
+    }
+  }
+
   &:hover,
   &.e-hover {
-    &:before {
-      background-color: color("green");
-    }
+    border-bottom-color: color("green");
+    text-decoration: color("green");
   }
 
   &:focus,
@@ -41,75 +63,48 @@
     outline-color: lightblue;
   }
 
-  &.e-has-icon {
-    display: inline-flex;
-
-    i {
-      background-size: cover;
-      height: 24px;
-      width: 24px;
-      margin-left: spacing('1');
-    }
-  }
-
   &.e-inline {
+    display: inline;
     font-size: inherit;
     font-weight: 500;
     line-height: 100%;
-    &::before {
-      content: "";
-      height: 1.5px;
-      margin-bottom: -1px;
-    }
-    &:hover {
-      &:before {
-        background-color: color("green");
-      }
-    }
-  }
+    border: none;
+    text-decoration: underline;
 
-  &.e-back {
-    &::after {
-      content: "<";
-      float: left;
-      font-size: 14px;
-      font-weight: 800;
-      padding-right: spacing('1');
-      vertical-align: middle;
+    &:hover,
+    &.e-hover {
+      text-decoration: underline color("green");
     }
   }
 
   &.e-custom {
-    display: inline-block;
-    max-height: 18px;
-    border: none;
+    display: inline-flex;
+    position: relative;
     font-size: 20px;
     line-height: 26px;
-
+    border: none;
+    
     @include breakpoint-up(Mobile) {
       font-size: 18px;
       line-height: 24px;
     }
 
-    &::after {
-      content: ">";
-      font-size: 12px;
-      font-weight: 800;
-      padding: 0px 6px;
+    i {
+      position: relative;
+      margin-left: spacing("1");
+      background-size: 24px;
+      background-position-x: 60%;
+      background-position-y: 50%;
+      height: $iconSizeCustom;
+      width: $iconSizeCustom;
       border: 1px solid color("green");
       border-radius: 50%;
-      margin-left: spacing('1');
-      vertical-align: text-bottom;
-
-      @include breakpoint-up(Mobile) {
-        font-size: 10px;
-        padding: 0px 5px;
-      }
+      align-self: center;
     }
 
     &:hover,
     &.e-hover {
-      &:after {
+      i {
         background-color: color("green");
       }
     }
@@ -118,24 +113,17 @@
       outline: auto;
       outline-color: lightblue;
     }
-
-    // remove "border-bottom" created by :before
-    &:before {
-      content: none;
-    }
   }
 
-  &.e-more {
-    &::after {
-      content: ">";
-      display: inline-block;
-      font-size: 14px;
-      font-weight: 800;
-      padding: 0px 4px;
-      border-radius: 50%;
-      margin-left: 4px;
-      vertical-align: super;
-      transform: rotate(-45deg);
+  &.e-external {
+    display: inline-flex;
+    position: relative;
+
+    i {
+      position: relative;
+      margin-left: spacing("1");
+      margin-right: 0px;
+      background-size: 24px;
     }
   }
 }
