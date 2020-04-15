@@ -39,7 +39,11 @@ import { ComponentsStartComponent } from './doc-pages/components/components-star
 import { UtilitiesStartComponent } from './doc-pages/utilities/utilities-start/utilities-start.component';
 import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
 import { BreakpointsDocComponent } from './doc-pages/utilities/breakpoints-doc/breakpoints-doc.component';
+<<<<<<< Updated upstream
 import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
+=======
+import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
+>>>>>>> Stashed changes
 
 
 const routes: Routes = [
@@ -125,6 +129,10 @@ const routes: Routes = [
           {
             path: Pages.Feedback,
             component: FeedbackDocComponent
+          },
+          {
+            path: Pages.FileUpload,
+            component: FileUploadDocComponent
           },
           {
             path: Pages.Header,

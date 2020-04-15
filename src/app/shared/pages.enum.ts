@@ -26,6 +26,7 @@ export enum Pages {
     Divider = 'divider-doc',
     Dropdown = 'dropdown-doc',
     Feedback = 'feedback-doc',
+    FileUpload = 'fileUpload-doc',
     Header = 'header-doc',
     Input = 'input-doc',
     Link = 'link-doc',

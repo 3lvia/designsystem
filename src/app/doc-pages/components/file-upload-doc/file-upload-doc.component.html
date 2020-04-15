@@ -1,0 +1,21 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+>
+  <ng-container ngProjectAs="headerTitle">
+    File Upload
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'FileUpload'"
+    [class]="['e-fileupload']"
+  ></app-code-block>
+</div>
