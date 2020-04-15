@@ -26,7 +26,7 @@
       <div class="display-card" *ngFor="let item of spacingItems">
         <app-copy [message]="item.className">
           <ng-container ngProjectAs="copyContent">
-            <div class="display-card-square e-shadow-2 e-p-1 e-bg-green" [ngClass]="item.className"></div>
+            <div class="display-card-square e-shadow-2 e-bg-green" [ngClass]="item.className"></div>
           </ng-container>
         </app-copy>
         <div class="display-card-title e-text-caps">{{ item.title }}</div>
@@ -34,7 +34,7 @@
       </div>
     </div>
   </div>
-  <!--GUIDELINES-->
+  <!--CODE-->
   <div *ngIf="selected == tabNames.Code">
     <app-code-block
       [isHTML]="true"
@@ -47,9 +47,9 @@
     <div>
       <h2 class="e-title-md">Using Classes</h2>
       <p class="e-text-body">
-        All spacing can be used through a set of classes. The <code class="code-text">e-p-1</code> sets padding to the size of the last number. 
+        All spacing can be used through a set of classes. The <code class="code-text">e-p-64</code> sets padding to the size of the last number. 
         The padding and margin sizes are multiplications of 0.5rem (8px), meaning 
-        <code class="code-text">e-m-3</code> equals <code class="code-text">margin: 24px</code>. The classes are available from 0 to 9.
+        <code class="code-text">e-m-24</code> equals <code class="code-text">margin: 24px</code>. The classes are available from 0 to 72.
       </p>
       <h3 class="e-title-sm">Padding classes</h3>
       <ul>
@@ -59,6 +59,8 @@
         <li><code class="code-text">e-pr-number</code></li>
         <li><code class="code-text">e-pt-number</code></li>
         <li><code class="code-text">e-pb-number</code></li>
+        <li><code class="code-text">e-px-number</code></li>
+        <li><code class="code-text">e-py-number</code></li>
       </ul>
       <h3 class="e-title-sm">Margin classes</h3>
       <ul>
@@ -68,6 +70,9 @@
         <li><code class="code-text">e-mr-number</code></li>
         <li><code class="code-text">e-mt-number</code></li>
         <li><code class="code-text">e-mb-number</code></li>
+        <li><code class="code-text">e-mx-number</code></li>
+        <li><code class="code-text">e-my-number</code></li>
+        <li><code class="code-text">All the margin classes also have negative classes by adding 'n' before number (eks. e-mr-n8)</code></li>
       </ul>
     </div>
     <div>
