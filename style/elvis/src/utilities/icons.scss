@@ -12,8 +12,19 @@ $sizes: (
     width:$defaultSize;
     height:$defaultSize;
     display:inline-block;
-    img {
+    img, svg {
         width: $defaultSize;
         height:$defaultSize;
+    }
+}
+
+@each $label, $size in $sizes {
+    .e-icon-#{$label} {
+        width: $size;
+        height: $size;
+        img, svg {
+            width:$size !important;
+            height:$size !important;
+        }
     }
 }

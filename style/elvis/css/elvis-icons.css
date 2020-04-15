@@ -88,7 +88,7 @@
   display: inline-block; }
 
 .e-icon-arrow-right {
-  background-image: url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.302 8.465a1 1 0 011.413 0l2.829 2.828a1 1 0 010 1.414l-2.829 2.828a1 1 0 11-1.413-1.413L13.424 12l-2.122-2.122a1 1 0 010-1.413z' fill='black'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg width='16' height='16' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M3.522.586a1.926 1.926 0 00.055 2.693L8.417 8l-4.84 4.721a1.926 1.926 0 00-.055 2.693 1.854 1.854 0 002.651.055l6.25-6.095A1.92 1.92 0 0013 8a1.92 1.92 0 00-.576-1.374L6.174.53a1.854 1.854 0 00-2.652.055z' fill='black'/%3e%3c/svg%3e");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

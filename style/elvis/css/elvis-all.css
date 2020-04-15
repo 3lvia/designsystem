@@ -678,10 +678,10 @@ body {
   font-weight: 400;
   color: #000; }
 
-.e-table .e-table_header, .e-table-mobile .e-table_header {
+.e-table thead, .e-table-mobile thead {
   background: #262626;
   width: 100%; }
-  .e-table .e-table_header th, .e-table-mobile .e-table_header th {
+  .e-table thead th, .e-table-mobile thead th {
     color: #FFF;
     font-weight: 500; }
 
@@ -723,7 +723,7 @@ body {
   box-shadow: 0px 0px 0px 1px rgba(38, 38, 38, 0.1); }
   .e-table-mobile th, .e-table-mobile td {
     padding: 0.375rem 0.5rem; }
-  .e-table-mobile .e-table_header-row {
+  .e-table-mobile tbody tr:first-of-type th {
     background: rgba(38, 38, 38, 0.1); }
   .e-table-mobile:not(.no-zebra) tr:not(:first-of-type):nth-of-type(odd) {
     background: rgba(38, 38, 38, 0.05); }
@@ -1089,6 +1089,66 @@ body {
 .e-bg-red {
   background: #FF0000;
   color: #000; }
+
+:root {
+  --e-green-apple: #21AC04; }
+
+.e-text-green-apple {
+  color: #21AC04; }
+
+.e-bg-green-apple {
+  background: #21AC04;
+  color: #000; }
+
+:root {
+  --e-violet-grape: #490192; }
+
+.e-text-violet-grape {
+  color: #490192; }
+
+.e-bg-violet-grape {
+  background: #490192;
+  color: #fff; }
+
+:root {
+  --e-blue-berry: #006DDB; }
+
+.e-text-blue-berry {
+  color: #006DDB; }
+
+.e-bg-blue-berry {
+  background: #006DDB;
+  color: #fff; }
+
+:root {
+  --e-purple-plum: #B66DFF; }
+
+.e-text-purple-plum {
+  color: #B66DFF; }
+
+.e-bg-purple-plum {
+  background: #B66DFF;
+  color: #000; }
+
+:root {
+  --e-orange-mango: #DB6D00; }
+
+.e-text-orange-mango {
+  color: #DB6D00; }
+
+.e-bg-orange-mango {
+  background: #DB6D00;
+  color: #000; }
+
+:root {
+  --e-red-tomato: #B90202; }
+
+.e-text-red-tomato {
+  color: #B90202; }
+
+.e-bg-red-tomato {
+  background: #B90202;
+  color: #fff; }
 
 .e-checkbox {
   display: flex;
@@ -1882,6 +1942,66 @@ body {
 .e-bg-red {
   background: #FF0000;
   color: #000; }
+
+:root {
+  --e-green-apple: #21AC04; }
+
+.e-text-green-apple {
+  color: #21AC04; }
+
+.e-bg-green-apple {
+  background: #21AC04;
+  color: #000; }
+
+:root {
+  --e-violet-grape: #490192; }
+
+.e-text-violet-grape {
+  color: #490192; }
+
+.e-bg-violet-grape {
+  background: #490192;
+  color: #fff; }
+
+:root {
+  --e-blue-berry: #006DDB; }
+
+.e-text-blue-berry {
+  color: #006DDB; }
+
+.e-bg-blue-berry {
+  background: #006DDB;
+  color: #fff; }
+
+:root {
+  --e-purple-plum: #B66DFF; }
+
+.e-text-purple-plum {
+  color: #B66DFF; }
+
+.e-bg-purple-plum {
+  background: #B66DFF;
+  color: #000; }
+
+:root {
+  --e-orange-mango: #DB6D00; }
+
+.e-text-orange-mango {
+  color: #DB6D00; }
+
+.e-bg-orange-mango {
+  background: #DB6D00;
+  color: #000; }
+
+:root {
+  --e-red-tomato: #B90202; }
+
+.e-text-red-tomato {
+  color: #B90202; }
+
+.e-bg-red-tomato {
+  background: #B90202;
+  color: #fff; }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document

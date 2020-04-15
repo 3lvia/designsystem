@@ -1,8 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, AfterViewInit } from '@angular/core';
 import { Icon } from 'src/app/shared/icon.interface';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
 import * as icons from 'style/elvis/src/icons/icons.config';
+import { addCircle } from 'style/elvis/icons';
+import { ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-icon-doc',
@@ -10,7 +12,7 @@ import * as icons from 'style/elvis/src/icons/icons.config';
   styleUrls: ['./icon-doc.component.scss'],
 })
 export class IconDocComponent implements OnInit {
-
+  @ViewChild('dataContainer') dataContainer: ElementRef;
   @Input() selected = TabNames.Overview;
   externalUrl = getUtilities('icon-doc').externalUrl;
   componentStatus = getUtilities('icon-doc').status;
@@ -32,12 +34,27 @@ export class IconDocComponent implements OnInit {
   <img src="assets/icons/example-custom-icon.svg"></img>
 </i>`;
 
+example3 = `<div class="e-bg-black e-p-1">
+<i class="e-icon-chat e-icon-invert"></i>
+</div>
+<i class="e-icon-chat e-icon-disabled"></i>
+`;
+
+
+
   term;
   IconClassList: Icon[] = [];
   constructor() {}
 
   ngOnInit() {
+    console.log(this.dataContainer);
     this.fillIconList();
+  }
+
+  ngAfterViewInit() {
+    console.log(addCircle.getIcon());
+    console.log(addCircle.getIcon('red'));
+    this.dataContainer.nativeElement.innerHTML = addCircle.getIcon('red');
   }
 
   fillIconList(): void {

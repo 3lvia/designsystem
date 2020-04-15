@@ -15,6 +15,7 @@
 </app-component-header>
 
 <!--BODY-->
+<i class="e-icon-custom e-icon-xl" #dataContainer></i>
 <div class="page-body">
   <!--OVERVIEW-->
   <div class="overview" *ngIf="selected == tabNames.Overview">
@@ -52,6 +53,11 @@
       [isHTML]="true"
       [code]="example"
       [title]="'Icon sizes'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example3"
+      [title]="'Color'"
     ></app-code-block>
     <app-code-block
       [isHTML]="true"
