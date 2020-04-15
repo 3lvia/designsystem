@@ -1,8 +1,3 @@
-@function spacing($name) {
-  $space: map-get($spacing, $name);
-  @return map-get($space, value);
-}
-
 $spacing: (
   "8": (
     value: 8px,

@@ -1,0 +1,111 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [componentClasses]="componentClasses"
+  [tabs]="tabs"
+  [(selected)]="selected"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Grid
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    This grid-system is based off of Bootstraps grid-system and works almost the same. 
+    Read the Bootstrap documentation <a class="e-link e-inline" href="https://getbootstrap.com/docs/4.4/layout/grid/">here</a>.
+    All the Bootstrap grid-system classes are available for use. 
+    To use the grid-system add the <span class="code-text">e-grid</span> class on a wrapper element. The bootstrap-classes
+    will only work inside this wrapper, and will therefore not break any other potential grid-systems.
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <div *ngIf="selected == tabNames.Overview">
+    <!-- <app-code-block
+      [isHTML]="true"
+      [code]="example9"
+      [title]="'Standard layout with grid'"
+      [description]="'A standard layout using grid.'"
+    ></app-code-block> -->
+    <app-code-block
+      [isHTML]="true"
+      [code]="example1"
+      [title]="'Grid rows and columns'"
+      [description]="'A standard grid.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example2"
+      [title]="'Grid with margin'"
+      [description]="'Use the class e-grid-margin to add dynamic margin on rows.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example3"
+      [title]="'Grid with custom padding (gutters)'"
+      [description]="'Combine the padding classes (eks. px-lg-3) and negative margin classes (eks. mx-lg-n3 ) to add your own custom gutters.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example4"
+      [title]="'Grid with no gutters'"
+      [description]="'Use no-gutters to remove gutters on the row.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example5"
+      [title]="'Grid for different sizes'"
+      [description]="'Use col-sm, col-md and col-lg to change grid at breakpoints.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example6"
+      [title]="'Grid alignment'"
+      [description]="'Use justify-content, align-content, and offset to align col-classes inside grid.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example7"
+      [title]="'Grid ordering'"
+      [description]="'Use order to choose the order of columns.'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example8"
+      [title]="'Grid with levels'"
+      [description]="'The grid can have levels.'"
+    ></app-code-block>
+  </div>
+  <div *ngIf="selected == tabNames.Guidelines">
+    <h2 class="e-title-medium">Grid and breakpoints</h2>
+    <p class="e-text-body">
+      The grid-system follows a 12 column rule, but the max number of columns should 
+      not exceed 8 on tablet and 6 on mobile. 
+    </p>
+    <table class="e-table">
+      <thead>
+        <tr>
+          <th scope="col">Device</th>
+          <th scope="col" class="is-right">Max number of columns</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Mobile</th>
+          <td class="is-right">6</td>
+        </tr>
+        <tr>
+          <th scope="row">Tablet</th>
+          <td class="is-right">8</td>
+        </tr>
+        <tr>
+          <th scope="row">MinDesktop</th>
+          <td class="is-right">12</td>
+        </tr>
+        <tr>
+          <th scope="row">MaxDesktop</th>
+          <td class="is-right">12</td>
+        </tr>
+      </tbody>
+    </table>  
+  </div>
+</div>
