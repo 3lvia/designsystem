@@ -19,16 +19,19 @@ export class SpacingDocComponent implements OnInit {
   componentStatus = getUtilities('spacing-doc').status;
   externalUrl = getUtilities('spacing-doc').externalUrl;
 
-  doCodeCSS = `padding: var(--e-spacing-2);
-margin: var(--e-spacing-6);`;
-  dontCodeCSS = `padding: var(--e-p-2);
-margin:  var(--e-m-6);`;
-  example1 = `<span class="e-p-1 e-mt-2 e-mb-2 e-bg-green example-box unset"></span>
-<span class="e-p-2 e-mt-2 e-mb-2 e-bg-green example-box unset"></span>
-<span class="e-p-3 e-mt-2 e-mb-2 e-bg-green example-box unset"></span>
-<span class="e-p-4 e-mt-2 e-mb-2 e-bg-orange example-box unset"></span>
-<span class="e-p-5 e-mt-2 e-mb-2 e-bg-orange example-box unset"></span>
-<span class="e-p-6 e-mt-2 e-mb-2 e-bg-orange example-box unset"></span>`;
+  doCodeCSS = `padding: var(--e-spacing-16);
+margin: var(--e-spacing-48);`;
+  dontCodeCSS = `padding: var(--e-p-16);
+margin:  var(--e-m-48);`;
+  example1 = `<span class="e-p-8 e-my-16 e-bg-green example-box unset"></span>
+<span class="e-p-16 e-my-16 e-bg-green example-box unset"></span>
+<span class="e-p-24 e-my-16 e-bg-green example-box unset"></span>
+<span class="e-p-32 e-my-16 e-bg-orange example-box unset"></span>
+<span class="e-p-40 e-my-16 e-bg-orange example-box unset"></span>
+<span class="e-p-48 e-my-16 e-bg-orange example-box unset"></span>
+<span class="e-p-56 e-my-16 e-bg-red example-box unset"></span>
+<span class="e-p-64 e-my-16 e-bg-red example-box unset"></span>
+<span class="e-p-72 e-my-16 e-bg-red example-box unset"></span>`;
 
   constructor() { }
 

@@ -19,9 +19,9 @@ export class ShadowDocComponent implements OnInit {
   doCodeCSS = `box-shadow: var(--e-shadow-2);
 box-shadow: none;`;
   dontCodeCSS = `box-shadow: var(--e-shadow-none);`;
-  example1 = `<span class="e-shadow-1 e-mb-2 e-mt-2 example-box"></span>
-<span class="e-shadow-2 e-mb-2 e-mt-2 example-box"></span>
-<span class="e-shadow-3 e-mb-2 e-mt-2 example-box"></span>`;
+  example1 = `<span class="e-shadow-1 e-mb-16 e-mt-16 example-box"></span>
+<span class="e-shadow-2 e-mb-16 e-mt-16 example-box"></span>
+<span class="e-shadow-3 e-mb-16 e-mt-16 example-box"></span>`;
 
   constructor() { }
 

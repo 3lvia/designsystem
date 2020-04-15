@@ -1,6 +1,7 @@
 @import '../../variables/colors.scss';
 @import '../../variables/animation.scss';
 @import '../../utilities/typography.scss';
+@import '../../variables/spacing.scss';
 
 $form-input-padding: 12px 16px;
 $form-input-padding-active: 11px 15px;
@@ -35,7 +36,7 @@ $form-input-border: 1px solid color('grey');
 
   > i {
     float: right;
-    padding: spacing('1');
+    padding: 8px;
     margin-left: 16px;
   }
 
@@ -96,6 +97,6 @@ $form-input-border: 1px solid color('grey');
 
 .e-combined-field {
   .e-input:not(:last-of-type) {
-    margin-right: spacing('1');
+    margin-right: 8px;
   }
 }
