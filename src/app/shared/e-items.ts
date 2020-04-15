@@ -258,6 +258,13 @@ export const eUtilities: EItems[] = [
         actionText: 'View breakpoints',
         externalUrl: 'https://www.figma.com/file/fMr1lhboPukTxmH9KruWB2/Grid'
     },
+    {
+        title: 'Grid',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Grid,
+        status: ItemStatus.New,
+        actionText: 'View grid',
+    },
 ];
 
 export const eAccessibility: EItems[] = [
