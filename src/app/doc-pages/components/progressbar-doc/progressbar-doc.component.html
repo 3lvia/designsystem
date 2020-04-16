@@ -4,11 +4,9 @@
   [externalUrl]="externalUrl"
 >
   <ng-container ngProjectAs="headerTitle">
-    File Upload
+    Progressbar
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    File upload is an example of how to use existing components and utilities in Elvis to 
-    create new components. File Upload is structered using link style, spacing and icons.
   </ng-container>
 </app-component-header>
 
@@ -17,7 +15,13 @@
   <app-code-block
     [isHTML]="true"
     [code]="example1"
-    [title]="'FileUpload'"
-    [class]="['e-fileupload']"
+    [title]="'Progressbar loading'"
+    [class]="['e-progressbar', 'e-loading']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'Progressbar'"
+    [class]="['e-progressbar', 'e-error']"
   ></app-code-block>
 </div>

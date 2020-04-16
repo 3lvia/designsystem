@@ -16,6 +16,7 @@ import { TableDocModule } from './table-doc/table-doc.module';
 import { TagsDocModule } from './tags-doc/tags-doc.module';
 import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
 import { FileUploadDocModule } from './file-upload-doc/file-upload-doc.module';
+import { ProgressbarDocModule } from './progressbar-doc/progressbar-doc.module';
 
 @NgModule({
     imports: [
@@ -33,6 +34,7 @@ import { FileUploadDocModule } from './file-upload-doc/file-upload-doc.module';
         ListDocModule,
         NotificationDotDocModule,
         OverviewModule,
+        ProgressbarDocModule,
         TableDocModule,
         TagsDocModule,
         TooltipDocModule
