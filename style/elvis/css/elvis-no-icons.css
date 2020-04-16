@@ -2799,6 +2799,125 @@ body {
   width: 32px;
   height: 32px;
   display: inline-block; }
-  .e-icon-custom img {
+  .e-icon-custom img, .e-icon-custom svg {
     width: 32px;
     height: 32px; }
+
+.e-icon-xxs {
+  width: 8px;
+  height: 8px; }
+  .e-icon-xxs img, .e-icon-xxs svg {
+    width: 8px !important;
+    height: 8px !important; }
+
+.e-icon-xs {
+  width: 16px;
+  height: 16px; }
+  .e-icon-xs img, .e-icon-xs svg {
+    width: 16px !important;
+    height: 16px !important; }
+
+.e-icon-sm {
+  width: 24px;
+  height: 24px; }
+  .e-icon-sm img, .e-icon-sm svg {
+    width: 24px !important;
+    height: 24px !important; }
+
+.e-icon-md {
+  width: 32px;
+  height: 32px; }
+  .e-icon-md img, .e-icon-md svg {
+    width: 32px !important;
+    height: 32px !important; }
+
+.e-icon-lg {
+  width: 40px;
+  height: 40px; }
+  .e-icon-lg img, .e-icon-lg svg {
+    width: 40px !important;
+    height: 40px !important; }
+
+.e-icon-xl {
+  width: 48px;
+  height: 48px; }
+  .e-icon-xl img, .e-icon-xl svg {
+    width: 48px !important;
+    height: 48px !important; }
+
+.e-icon-xxl {
+  width: 56px;
+  height: 56px; }
+  .e-icon-xxl img, .e-icon-xxl svg {
+    width: 56px !important;
+    height: 56px !important; }
+
+.e-svg-xxs {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  font-size: 8px;
+  line-height: 8px; }
+  .e-svg-xxs svg {
+    width: 1em !important;
+    height: 1em !important; }
+
+.e-svg-xs {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  font-size: 16px;
+  line-height: 16px; }
+  .e-svg-xs svg {
+    width: 1em !important;
+    height: 1em !important; }
+
+.e-svg-sm {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  font-size: 24px;
+  line-height: 24px; }
+  .e-svg-sm svg {
+    width: 1em !important;
+    height: 1em !important; }
+
+.e-svg-md {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  font-size: 32px;
+  line-height: 32px; }
+  .e-svg-md svg {
+    width: 1em !important;
+    height: 1em !important; }
+
+.e-svg-lg {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
+  line-height: 40px; }
+  .e-svg-lg svg {
+    width: 1em !important;
+    height: 1em !important; }
+
+.e-svg-xl {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  font-size: 48px;
+  line-height: 48px; }
+  .e-svg-xl svg {
+    width: 1em !important;
+    height: 1em !important; }
+
+.e-svg-xxl {
+  display: inline-block;
+  width: 56px;
+  height: 56px;
+  font-size: 56px;
+  line-height: 56px; }
+  .e-svg-xxl svg {
+    width: 1em !important;
+    height: 1em !important; }
