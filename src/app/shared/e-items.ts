@@ -264,6 +264,15 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.Grid,
         status: ItemStatus.New,
         actionText: 'View grid',
+        externalUrl: 'https://www.figma.com/file/fMr1lhboPukTxmH9KruWB2/Grid'
+    },
+    {
+        title: 'Logo',
+        description: 'Our logo and how to use it correctly',
+        docUrl: Pages.Logo,
+        status: ItemStatus.New,
+        actionText: 'View logo',
+        externalUrl: 'https://www.figma.com/file/SDUCEPhQu0q602oh2uhvKZ/Logo'
     },
 ];
 
