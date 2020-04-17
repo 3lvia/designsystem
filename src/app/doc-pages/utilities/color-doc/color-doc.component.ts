@@ -29,11 +29,11 @@ export class ColorDocComponent implements OnInit {
 color: var(--e-red);`;
   dontCodeCSS = `background: var(--e-bg-green);
 color: var(--e-text-red);`;
-  example1 = `<span class="e-bg-green e-mb-2 e-mt-2 e-p-2 example-box">Text</span>
-<span class="e-bg-yellow e-mb-2 e-mt-2 e-p-2 example-box">Text</span>
-<span class="e-bg-orange e-mb-2 e-mt-2 e-p-2 example-box">Text</span>
-<span class="e-bg-red e-mb-2 e-mt-2 e-p-2 example-box">Text</span>
-<span class="e-bg-black e-mb-2 e-mt-2 e-p-2 example-box">Text</span>`;
+  example1 = `<span class="e-bg-green e-mb-16 e-mt-16 e-p-16 example-box">Text</span>
+<span class="e-bg-yellow e-mb-16 e-mt-16 e-p-16 example-box">Text</span>
+<span class="e-bg-orange e-mb-16 e-mt-16 e-p-16 example-box">Text</span>
+<span class="e-bg-red e-mb-16 e-mt-16 e-p-16 example-box">Text</span>
+<span class="e-bg-black e-mb-16 e-mt-16 e-p-16 example-box">Text</span>`;
 
   constructor() { }
 

@@ -87,12 +87,23 @@ async function createIconModule() {
   // ADD OR REMOVE ICONS IN icons.config.js`;
   
   for(let i = 0; i < iconsToInclude.length; i++) {
-    const fileContent = fs.readFileSync(iconsToInclude[i].path).toString()
+    const fileContent = fs.readFileSync(iconsToInclude[i].path).toString();
     const iconName = path.basename(iconsToInclude[i].path, '.svg');
     jsModule = jsModule + `
-      export const ${createCamelCase(iconsToInclude[i].name)} = '${fileContent}';`
+    export const ${createCamelCase(iconsToInclude[i].name)} = {
+      getIcon: function(color) {
+          let icon = '${fileContent}'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+  }`
   }
-  fs.writeFileSync('./icons.js', jsModule);
+  const template = fs.readFileSync('./icons.template.js').toString();
+  const newContent = template.replace('//[[INJECT_ICONS]]', jsModule);
+  fs.writeFileSync('./icons.js', newContent);
 
   return true;
 }

@@ -51,4 +51,5 @@ export enum Pages {
     Shadow = 'shadow-doc',
     Spacing = 'spacing-doc',
     Breakpoints = 'breakpoints-doc',
+    Grid = 'grid-doc',
 }
