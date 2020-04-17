@@ -1,0 +1,44 @@
+.e-segmented-controls {
+    $this: &;
+    display: inline-flex;
+    border: 1px solid color("black");
+    border-radius: 38px;
+    width: 100%;
+    text-align: center;
+    flex-wrap: nowrap;
+
+    input {
+        position: absolute;
+        opacity: 0;
+
+        &:checked,
+        &#{this} label {
+            background-color: color("black");
+            color: color("white");
+        }
+    }
+
+    label {
+        color: color("black");
+        font-size: 16px;
+        line-height: 140%;
+        padding: 14px 32px;
+        border-radius: 38px;
+        transition: 0.2s ease-in;
+        width: 100%;
+
+        &:hover {
+            transition: none;
+            cursor: pointer;
+            font-weight: 500;
+        }
+    }
+    input:checked + label {
+        background-color: color("black");
+        color: color("white");
+        box-shadow: none;
+        border-radius: 38px;
+        font-weight: 500;
+        transition: 0.2s;
+    }
+}

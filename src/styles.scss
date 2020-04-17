@@ -23,7 +23,7 @@ body {
 // Shared classes
 .page-body {
   margin: auto;
-  margin-bottom: var(--e-spacing-8);
+  margin-bottom: var(--e-spacing-64);
   width: 57%;
   min-width: 20em;
   max-width: 50em;
@@ -91,7 +91,7 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: var(--e-spacing-3) 0;
+  margin: var(--e-spacing-24) 0;
 
   .display-card {
     display: inline-flex;
