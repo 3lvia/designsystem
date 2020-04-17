@@ -5,49 +5,56 @@ $list-dot-size: 0.5rem;
 $list-border-radius: 50%;
 
 .e-list {
-      li {
-        list-style: none;
-        position: relative;
-        padding: 0 0 0 20px;
-        margin: 0.5rem 0;
+  // remove browser margin and padding
+  padding: 0;
+  padding-inline-start: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin: 0;
 
-        &::before {
-          content: "";
-          position: absolute;
-          left: 0;
-          top: 5px;
-          width: $list-dot-size;
-          height: $list-dot-size;
-          background-color: color("green");
-          border-radius: $list-border-radius;
-        }
-      }
+  li {
+    list-style: none;
+    position: relative;
+    padding: 0 0 0 20px;
+    margin: 0.5rem 0;
 
-      &.e-numbers {
-        counter-reset: elvis-item;
-        list-style: none;
-        li {
-          counter-increment: elvis-item;
-          margin-left: 1rem;
-          margin-bottom: 0.75rem;
-          
-           &::before {
-            content: counter(elvis-item);
-            left: calc(-1 * 1rem - 10px);
-            line-height: $list-border-size;
-            width: $list-border-size;
-            height: $list-border-size;
-            top: 0;
-            background: transparent;
-            border-radius: $list-border-radius;
-            text-align: center;
-            box-shadow: 0px 0px 0px 2px color('green');
-           }
-        }
-      }
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: $list-dot-size;
+      height: $list-dot-size;
+      background-color: color("green");
+      border-radius: $list-border-radius;
+    }
+  }
 
-      &.e-strong {
-        font-weight: bold;
+  &.e-numbers {
+    counter-reset: elvis-item;
+    list-style: none;
+    li {
+      counter-increment: elvis-item;
+      margin-left: 1rem;
+      margin-bottom: 0.75rem;
+
+      &::before {
+        content: counter(elvis-item);
+        left: calc(-1 * 1rem - 10px);
+        line-height: $list-border-size;
+        width: $list-border-size;
+        height: $list-border-size;
+        top: 0;
         background: transparent;
+        border-radius: $list-border-radius;
+        text-align: center;
+        box-shadow: 0px 0px 0px 2px color("green");
       }
+    }
+  }
+
+  &.e-strong {
+    font-weight: bold;
+    background: transparent;
+  }
 }
