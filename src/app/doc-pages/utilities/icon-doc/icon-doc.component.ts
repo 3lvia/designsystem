@@ -24,7 +24,7 @@ export class IconDocComponent implements OnInit {
 
   example = `<i class="e-icon-move-truck-color e-icon-xl"></i>
 <i class="e-icon-move-truck-color e-icon-lg"></i>
-<i class="e-icon-move-truck-color e-icfon-md"></i>
+<i class="e-icon-move-truck-color e-icon-md"></i>
 <i class="e-icon-move-truck-color e-icon-sm"></i>
 <i class="e-icon-move-truck-color e-icon-xs"></i>`;
 
