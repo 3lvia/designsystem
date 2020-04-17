@@ -19,6 +19,7 @@
   <!--OVERVIEW-->
   <div class="overview" *ngIf="selected == tabNames.Overview">
     <h2 class="e-title-md">Icons</h2>
+    
     <p class="e-text-body">Search through all the available icons here.</p>
     <div class="overview-search-container">
       <div class="e-form_field">
@@ -30,20 +31,21 @@
           />
         </div>
       </div>
+      <button (click)="invert()" class="e-btn" >
+      Invert
+    </button>
     </div>
-    <div class="overview-icons-container">
-        <div 
-          class="icon-card"
-          *ngFor="let icon of IconClassList | filter: term"
-        >
+    <div class="overview-icons-container e-pt-32" [style.backgroundColor] = "inverted ? 'black' : 'white'">
+        <div class="icon-card" *ngFor="let icon of svgIcons | filter: term">
           <app-copy [message]="icon.class">
             <ng-container ngProjectAs="copyContent">
-              <i class="{{ icon.class }} e-icon-lg"></i>
-              <p class="e-text-description">{{ icon.title }}</p>
+              <i class="e-svg-lg" [innerHTML]="icon.svg"></i>
+              <p class="e-text-description" [style.color] = "inverted ? 'white' : 'black'">{{ icon.title }}</p>
             </ng-container>
           </app-copy>
-        </div>
-    </div>
+        </div>  
+         
+      </div>
   </div>
 
    <!--CODE-->
@@ -52,6 +54,11 @@
       [isHTML]="true"
       [code]="example"
       [title]="'Icon sizes'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example3"
+      [title]="'Color'"
     ></app-code-block>
     <app-code-block
       [isHTML]="true"
@@ -65,22 +72,34 @@
     <div>
       <h2 class="e-title-md">Using Classes</h2>
       <p class="e-text-body">
-        All icons can be used through a set of classes. The <code class="code-text">e-icon-name</code>, where 'name' is the name of the icon, 
-        which are all listed in the overview, can be used in an <code class="code-text">i</code> element to display icons.
-        The code <code class="code-text">e-icon-clock</code> will show a clock. All icons can be sized by using the five sizing classes from
-        extra large to extra small. 
+          All icons are accessible as SVGs within a JS module.
+          Import the required icon individually where you need them:
       </p>
-      <h3 class="e-title-sm">Icon classes</h3>
-      <ul>
-        <li><code class="code-text">e-icon-name</code></li>
-      </ul>
+      <p class="e-text-body">
+        <code class="code-text">import {{ '{' }} addCircle {{ '}' }} from '@elvia/elvis/icons'</code>
+      </p>
+      <p class="e-text-body">
+        To get the icon you can use the following: 
+        <code class="code-text">addCircle.getIcon()</code>
+      </p>
+      <p class="e-text-body">
+        If you want a inverted icon use the following:
+        <code class="code-text">addCircle.getIcon('white')</code>
+      </p>
+      <p class="e-text-body">
+        Or set the color yourself with a hex:  
+        <code class="code-text">addCircle.getIcon('#bdbdbd')</code>
+      </p>
+
       <h3 class="e-title-sm">Size classes</h3>
       <ul>
-        <li><code class="code-text">e-icon-xl</code></li>
-        <li><code class="code-text">e-icon-lg</code></li>
-        <li><code class="code-text">e-icon-md</code></li>
-        <li><code class="code-text">e-icon-sm</code></li>
-        <li><code class="code-text">e-icon-xs</code></li>
+        <li><code class="code-text">e-svg-xxl</code></li>
+        <li><code class="code-text">e-svg-xl</code></li>
+        <li><code class="code-text">e-svg-lg</code></li>
+        <li><code class="code-text">e-svg-md</code></li>
+        <li><code class="code-text">e-svg-sm</code></li>
+        <li><code class="code-text">e-svg-xs</code></li>
+        <li><code class="code-text">e-svg-xxs</code></li>
       </ul>
     </div>
   </div>
