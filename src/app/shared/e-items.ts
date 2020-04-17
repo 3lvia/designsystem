@@ -265,6 +265,13 @@ export const eUtilities: EItems[] = [
         status: ItemStatus.New,
         actionText: 'View grid',
     },
+    {
+        title: 'Logo',
+        description: 'Our logo and how to use it correctly',
+        docUrl: Pages.Logo,
+        status: ItemStatus.New,
+        actionText: 'View logo',
+    },
 ];
 
 export const eAccessibility: EItems[] = [
