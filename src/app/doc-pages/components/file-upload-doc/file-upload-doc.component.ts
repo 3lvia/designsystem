@@ -13,22 +13,7 @@ export class FileUploadDocComponent implements OnInit {
   componentStatus = getComponent('fileUpload-doc').status;
 
   example1 = `
-  <div class="fileUpload-container">
-    <i class="e-icon-agreements-color"></i>
-    <input type="file">Velg fil</input>
-    <p>eller dra og slipp<p>
-  </div>
-
-  <style>
-    .fileUpload-container {
-      border: 2px dashed #D3D3D3;
-
-      i {
-        margin: auto;
-        margin-top: 32px;
-      }
-    }
-  </style>
+🚧👷🚧 Under Construction 🚧👷🚧
 `;
 
 

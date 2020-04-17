@@ -11,20 +11,16 @@ export class ProgressbarDocComponent implements OnInit {
   externalUrl = getComponent('progressbar-doc').externalUrl;
   componentStatus = getComponent('progressbar-doc').status;
 
-  example1 = `<ul class="e-list">
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning list</li>
-</ul>
+  example1 = `
+<div class="e-progessBar">
+  <div class="e-progessBar e-loading"></div>
+</div>
 `;
 
-  example2 = `<ul class="e-list e-strong">
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning list</li>
-</ul>
+  example2 = `
+<div class="e-progessBar">
+  <div class="e-progessBar e-error"></div>
+</div>
 `;
 
   constructor() { }

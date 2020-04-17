@@ -104,7 +104,7 @@ export const eComponents: EItems[] = [
         title: 'File Upload',
         description: 'Some useful component with amazing features',
         docUrl: Pages.FileUpload,
-        status: ItemStatus.New,
+        status: ItemStatus.Coming,
         actionText: 'View component',
     },
     {
