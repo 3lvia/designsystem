@@ -35,7 +35,7 @@
       Invert
     </button>
     </div>
-    <div class="overview-icons-container e-pt-8" [style.backgroundColor] = "inverted ? 'black' : 'white'">
+    <div class="overview-icons-container e-pt-32" [style.backgroundColor] = "inverted ? 'black' : 'white'">
         <div class="icon-card" *ngFor="let icon of svgIcons | filter: term">
           <app-copy [message]="icon.class">
             <ng-container ngProjectAs="copyContent">
