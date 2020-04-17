@@ -29,13 +29,22 @@ export class ListDocComponent implements OnInit {
 </ul>
 `;
 
-  example3 = `<ol class="e-list e-numbers">
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning lists</li>
-  <li>Just a hunk, a hunk of burning lists</li>
-  <li>Just a hunk, a hunk of burning lists</li>
+  example3 = `<ol class="e-list e-icons">
+  <li><i class="e-icon-step-1-color"></i>Just a hunk, a hunk of burning list</li>
+  <li><i class="e-icon-step-2-color"></i>Just a hunk, a hunk of burning lists</li>
+  <li><i class="e-icon-money-color"></i>Just a hunk, a hunk of burning lists</li>
+  <li><i class="e-icon-information-circle"></i>Just a hunk, a hunk of burning lists</li>
 </ol>
 `;
+
+// Old numbered lists. Might remove later
+//   example4 = `<ol class="e-list e-numbers">
+//   <li>Just a hunk, a hunk of burning list</li>
+//   <li>Just a hunk, a hunk of burning lists</li>
+//   <li>Just a hunk, a hunk of burning lists</li>
+//   <li>Just a hunk, a hunk of burning lists</li>
+// </ol>
+// `;
 
   constructor() { }
 
