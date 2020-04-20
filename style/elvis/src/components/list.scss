@@ -43,7 +43,7 @@ $list-border-radius: 50%;
 
       &::before {
         content: counter(elvis-item);
-        left: calc(-1 * 0.5rem);
+        left: -0.5rem;
         line-height: $list-border-size;
         width: $list-border-size;
         height: $list-border-size;
