@@ -7,13 +7,17 @@
     The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
-
-<div [ngClass]="{ 'phone': screenSize=='phone', 'tablet': screenSize=='tablet', 'desktop': screenSize=='desktop' }">
-  <div class="phone__elvia">Elvia</div>
-  <div class="phone__notch">
-    <div class="speaker"></div>
+<div class="screen-container">
+  <div *ngIf="screenSize=='phone'" class="phone">
+    <div class="phone__elvia">Elvia</div>
+    <div class="phone__notch">
+      <div class="speaker"></div>
+    </div>
+    <div class="phone__camera"></div>
+    <div class="phone__time">{{ now | date: "hh:mm" }}</div>
+    <iframe #iframe src="about:blank"></iframe>
   </div>
-  <div class="phone__camera"></div>
-  <div class="phone__time">{{ now | date: "hh:mm" }}</div>
-  <iframe #iframe src="about:blank"></iframe>
+  <div *ngIf="screenSize!=='phone'" [ngClass]="{ 'tablet': screenSize=='tablet', 'desktop': screenSize=='desktop' }">
+    <iframe #iframe src="about:blank"></iframe>
+  </div>
 </div>
