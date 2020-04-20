@@ -1,0 +1,23 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+>
+  <ng-container ngProjectAs="headerTitle">
+    File Upload
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    File upload is an example of how to use existing components and utilities in Elvis to 
+    create new components. File Upload is structered using link style, spacing and icons.
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'FileUpload'"
+    [class]="['e-fileupload']"
+  ></app-code-block>
+</div>
