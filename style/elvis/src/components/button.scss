@@ -139,13 +139,6 @@ $button-font-weight: 500;
         margin-top: -spacing("1");
         margin-bottom: -spacing("1");
       }
-
-      &:disabled {
-        i,
-        span {
-          filter: invert(1);
-        }
-      }
     }
   }
 
@@ -305,13 +298,6 @@ $button-font-weight: 500;
         padding-left: $icon-button-padding - 1px;
         padding-right: $icon-button-padding - 1px;
         color: color("black");
-      }
-
-      &:disabled {
-        i,
-        span {
-          filter: invert(1);
-        }
       }
     }
   }

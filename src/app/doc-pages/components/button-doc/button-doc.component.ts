@@ -54,10 +54,10 @@ example3 = `
 
   example4 = `
 <button class="e-btn e-has-icon e-m-2" >
-  <span class="e-icon-user"></span>Icon button
+  <span class="e-icon-alert-circle-filled"></span>Icon button
 </button>
 <button class="e-btn e-has-icon e-m-16" disabled >
-  <span class="e-icon-user"></span>Icon button
+  <span class="e-icon-checklist-color"></span>Icon button
 </button>
 <br>
 <button class="e-btn e-btn-secondary e-has-icon e-m-16" >
@@ -92,7 +92,7 @@ example5 = `
 `;
 
   example7 = `
-<button class="e-btn e-hover e-m-2" >
+<button class="e-btn e-hover e-m-16" >
   Hover
 </button>
 
@@ -110,19 +110,19 @@ example5 = `
 
 <br><br>
 
-<button class="e-btn e-btn-secondary e-hover e-m-2" >
+<button class="e-btn e-btn-secondary e-hover e-m-16" >
   Hover
 </button>
 
-<button class="e-btn e-btn-secondary e-active e-m-2" >
+<button class="e-btn e-btn-secondary e-active e-m-16" >
   Active
 </button>
 
-<button class="e-btn e-btn-secondary e-focus e-m-2" >
+<button class="e-btn e-btn-secondary e-focus e-m-16" >
   Focus
 </button>
 
-<button class="e-btn e-btn-secondary e-disabled e-m-2" >
+<button class="e-btn e-btn-secondary e-disabled e-m-16" >
   Disabled
 </button>
 `;
