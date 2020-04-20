@@ -52,4 +52,5 @@ export enum Pages {
     Spacing = 'spacing-doc',
     Breakpoints = 'breakpoints-doc',
     Grid = 'grid-doc',
+    Logo = 'logo-doc',
 }
