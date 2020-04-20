@@ -8,12 +8,12 @@
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 
-<div class="iphonex">
-  <div class="iphonex__elvia">Elvia</div>
-  <div class="iphonex__notch">
+<div [ngClass]="{ 'phone': screenSize=='phone', 'tablet': screenSize=='tablet', 'desktop': screenSize=='desktop' }">
+  <div class="phone__elvia">Elvia</div>
+  <div class="phone__notch">
     <div class="speaker"></div>
   </div>
-  <div class="iphonex__camera"></div>
-  <div class="iphonex__time">{{ now | date: "hh:mm" }}</div>
-  <iframe #mobilepreview src="about:blank"></iframe>
+  <div class="phone__camera"></div>
+  <div class="phone__time">{{ now | date: "hh:mm" }}</div>
+  <iframe #iframe src="about:blank"></iframe>
 </div>

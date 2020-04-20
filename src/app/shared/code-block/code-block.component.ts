@@ -9,9 +9,7 @@ import { heightDown } from 'src/app/shared/animations';
 })
 
 
-export class CodeBlockComponent implements OnInit, AfterViewInit {
-  @ViewChild('preview') preview;
-  @ViewChild('mobilepreview') mobilePreview;
+export class CodeBlockComponent implements OnInit {
   @Input() title = '';
   @Input() class: string[];
   @Input() description = '';
@@ -21,31 +19,17 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() isHTML = false;
   @Input() isSCSS = false;
   @Input() code = '';
-  @Input() onlyPhone = false;
-  @Input() onlyDesktop = false;
+  @Input() noPhone = false;
+  @Input() noTablet = false;
+  @Input() noDesktop = false;
 
   showCode = false;
-  showSmartphone = false;
+  screen = 'desktop';
   codepen = '';
 
   constructor() {}
 
   ngOnInit() {
-    this.onlyPhone ? this.showSmartphone = true : this.showSmartphone = false;
-    this.codepen = JSON.stringify({
-      title: 'Preview',
-      // tslint:disable-next-line:comment-format
-      html: '<link href="https://unpkg.com/@elvia/elvis@latest/css/elvis-all.min.css" rel="stylesheet">' + this.code
-    });
-  }
-
-  ngAfterViewInit() {
-    this.preview.nativeElement.innerHTML = this.code;
-  }
-
-  showDesktop() {
-    this.showSmartphone = false;
-    this.preview.nativeElement.innerHTML = this.code;
   }
 }
 

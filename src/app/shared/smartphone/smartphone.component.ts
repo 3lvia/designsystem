@@ -7,17 +7,19 @@ import { Component, Input, ViewChild, AfterViewInit, OnInit } from '@angular/cor
 })
 export class SmartphoneComponent implements AfterViewInit {
   @Input() code = '';
-  @ViewChild('mobilepreview') mobilePreview;
+  @Input() screenSize = 'desktop';
+  @ViewChild('iframe') iframe;
   now = new Date();
 
   constructor() { }
 
   ngAfterViewInit() {
-    this.createMobilePreview();
+    console.log(this.screenSize);
+    this.createIframe();
   }
 
-  createMobilePreview() {
-    const doc = this.mobilePreview.nativeElement.contentWindow.document;
+  createIframe() {
+    const doc = this.iframe.nativeElement.contentWindow.document;
     doc.open();
     doc.write(`<html><head>${window.document.head.innerHTML}</head><body style="padding:1rem 2px;">${this.code}</body></html>`);
     doc.close();
