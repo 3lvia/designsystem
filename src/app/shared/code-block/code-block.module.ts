@@ -2,14 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CodeBlockComponent } from './code-block.component';
 import { CodeHighlighterModule } from '../code-highlighter/code-highlighter.module';
-import { SmartphoneModule } from '../smartphone/smartphone.module';
+import { IframeScreenModule } from '../iframeScreen/iframeScreen.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
     CodeHighlighterModule,
-    SmartphoneModule
+    IframeScreenModule
   ],
   declarations: [CodeBlockComponent],
   exports: [CodeBlockComponent]

@@ -76,21 +76,21 @@
         [ngClass]="{ active: screen === 'phone' }"
         (click)="screen = 'phone'"
       >
-        Smartphone
+        Phone
       </div>
     </div>
     <div class="element">
       <div
         [ngClass]="{ hide: screen !== 'desktop' }">
-        <app-smartphone [code]="code" [screenSize]="'desktop'"></app-smartphone>
+        <app-iframe-screen [code]="code" [screenSize]="'desktop'"></app-iframe-screen>
       </div>
       <div
         [ngClass]="{ hide: screen !== 'tablet' }">
-        <app-smartphone [code]="code" [screenSize]="'tablet'"></app-smartphone>
+        <app-iframe-screen [code]="code" [screenSize]="'tablet'"></app-iframe-screen>
       </div>
       <div
         [ngClass]="{ hide: screen !== 'phone' }">
-        <app-smartphone [code]="code" [screenSize]="'phone'"></app-smartphone>
+        <app-iframe-screen [code]="code" [screenSize]="'phone'"></app-iframe-screen>
       </div>
     </div>
     <div
