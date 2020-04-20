@@ -21,7 +21,7 @@ export class SmartphoneComponent implements AfterViewInit {
   createIframe() {
     const doc = this.iframe.nativeElement.contentWindow.document;
     doc.open();
-    doc.write(`<html><head>${window.document.head.innerHTML}</head><body style="padding:1rem 2px;">${this.code}</body></html>`);
+    doc.write(`<html><head>${window.document.head.innerHTML}</head><body">${this.code}</body></html>`);
     doc.close();
   }
 
