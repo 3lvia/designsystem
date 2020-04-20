@@ -54,7 +54,7 @@ $list-border-radius: 50%;
     }
   }
 
-  &.e-icons {
+  &.e-has-icon {
     list-style: none;
 
     &#{$this} li {
@@ -63,9 +63,10 @@ $list-border-radius: 50%;
       }
     }
     li {
-      padding: 0;
+      padding-left: 16px;
       margin: 1rem 0;
-    };
+      margin-left: 16px;
+    }
     i {
       width: 32px;
       height: 32px;
@@ -78,4 +79,12 @@ $list-border-radius: 50%;
     font-weight: bold;
     background: transparent;
   }
+}
+
+.e-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
 }
