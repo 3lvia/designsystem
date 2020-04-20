@@ -101,6 +101,13 @@ export const eComponents: EItems[] = [
         actionText: 'View component',
     },
     {
+        title: 'File Upload',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.FileUpload,
+        status: ItemStatus.Coming,
+        actionText: 'View component',
+    },
+    {
         title: 'Header',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Header,
@@ -130,6 +137,14 @@ export const eComponents: EItems[] = [
         status: ItemStatus.New,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Modules%3A-article?node-id=353%3A0'
+    },
+    {
+        title: 'Progressbar',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Progressbar,
+        status: ItemStatus.New,
+        actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
     },
     // {
     //     title: 'Notification-Dot',
