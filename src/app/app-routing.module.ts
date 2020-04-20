@@ -39,6 +39,11 @@ import { ComponentsStartComponent } from './doc-pages/components/components-star
 import { UtilitiesStartComponent } from './doc-pages/utilities/utilities-start/utilities-start.component';
 import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
 import { BreakpointsDocComponent } from './doc-pages/utilities/breakpoints-doc/breakpoints-doc.component';
+import { LogoDocComponent } from './doc-pages/utilities/logo-doc/logo-doc.component';
+import { GridDocComponent } from './doc-pages/utilities/grid-doc/grid-doc.component';
+import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
+import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
+import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
 
 
 const routes: Routes = [
@@ -126,6 +131,10 @@ const routes: Routes = [
             component: FeedbackDocComponent
           },
           {
+            path: Pages.FileUpload,
+            component: FileUploadDocComponent
+          },
+          {
             path: Pages.Header,
             component: HeaderDocComponent
           },
@@ -146,8 +155,16 @@ const routes: Routes = [
             component: NotificationDotDocComponent
           },
           {
+            path: Pages.Progressbar,
+            component: ProgressbarDocComponent
+          },
+          {
             path: Pages.Radiobutton,
             component: RadiobuttonDocComponent
+          },
+          {
+            path: Pages.SegmentedControl,
+            component: SegmentedControlsDocComponent
           },
           {
             path: Pages.Select,
@@ -215,6 +232,14 @@ const routes: Routes = [
           {
             path: Pages.Breakpoints,
             component: BreakpointsDocComponent
+          },
+          {
+            path: Pages.Grid,
+            component: GridDocComponent
+          },
+          {
+            path: Pages.Logo,
+            component: LogoDocComponent
           },
         ]
       }

@@ -21,7 +21,7 @@ export class ButtonDocComponent {
   <button class="e-btn e-m-2" >
   Standard
 </button>
-<button class="e-btn e-m-2" disabled >
+<button class="e-btn e-m-16" disabled >
   Disabled
 </button>`;
 
@@ -31,7 +31,7 @@ export class ButtonDocComponent {
  <button class="e-btn e-btn-secondary e-m-2" >
   Standard
 </button>
-<button class="e-btn e-btn-secondary e-m-2" disabled >
+<button class="e-btn e-btn-secondary e-m-16" disabled >
   Disabled
 </button>`;
 
@@ -56,14 +56,14 @@ example3 = `
 <button class="e-btn e-has-icon e-m-2" >
   <span class="e-icon-user"></span>Icon button
 </button>
-<button class="e-btn e-has-icon e-m-2" disabled >
+<button class="e-btn e-has-icon e-m-16" disabled >
   <span class="e-icon-user"></span>Icon button
 </button>
 <br>
-<button class="e-btn e-btn-secondary e-has-icon e-m-2" >
+<button class="e-btn e-btn-secondary e-has-icon e-m-16" >
   <span class="e-icon-search"></span>Icon button
 </button>
-<button class="e-btn e-btn-secondary e-has-icon e-m-2" disabled >
+<button class="e-btn e-btn-secondary e-has-icon e-m-16" disabled >
   <span class="e-icon-search"></span>Icon button
 </button>`;
 
@@ -96,15 +96,15 @@ example5 = `
   Hover
 </button>
 
-<button class="e-btn e-active e-m-2" >
+<button class="e-btn e-active e-m-16" >
   Active
 </button>
 
-<button class="e-btn e-focus e-m-2" >
+<button class="e-btn e-focus e-m-16" >
   Focus
 </button>
 
-<button class="e-btn e-disabled e-m-2" >
+<button class="e-btn e-disabled e-m-16" >
   Disabled
 </button>
 

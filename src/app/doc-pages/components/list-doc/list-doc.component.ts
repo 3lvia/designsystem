@@ -29,13 +29,40 @@ export class ListDocComponent implements OnInit {
 </ul>
 `;
 
-  example3 = `<ol class="e-list e-numbers">
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning lists</li>
-  <li>Just a hunk, a hunk of burning lists</li>
-  <li>Just a hunk, a hunk of burning lists</li>
+  example3 = `
+<ol class="e-list e-has-icon">
+  <li>
+    <span class="e-list-icon-container">
+      <i class="e-icon-step-1-color e-list-icon"></i>
+    </span>
+  <strong>Describing title :</strong> After, one or multiple sentences could follow with more information. 
+  These sentences can span over multiple rows, but shouldn’t be too long.
+  </li>
+  <li>
+    <span class="e-list-icon-container">
+      <i class="e-icon-step-2-color e-list-icon"></i>
+    </span>
+  <strong>This can also be the start of a sentence</strong> that continues in thinner font.
+  The bold part should be describing and the rest of the text informative.
+  </li>
+  <li>
+    <span class="e-list-icon-container">
+      <i class="e-icon-step-3-color e-list-icon"></i>
+    </span>
+  <strong>Don’t use too many points</strong> and make sure the text is easy to read, 
+  informative and follows Elvia’s tone of voice.
+  </li>
 </ol>
 `;
+
+// Old numbered lists. Might remove later
+//   example4 = `<ol class="e-list e-numbers">
+//   <li>Just a hunk, a hunk of burning list</li>
+//   <li>Just a hunk, a hunk of burning lists</li>
+//   <li>Just a hunk, a hunk of burning lists</li>
+//   <li>Just a hunk, a hunk of burning lists</li>
+// </ol>
+// `;
 
   constructor() { }
 

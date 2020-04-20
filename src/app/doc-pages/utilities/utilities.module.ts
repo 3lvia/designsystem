@@ -11,6 +11,8 @@ import { SpacingDocModule } from './spacing-doc/spacing-doc.module';
 import { TypographyDocModule } from './typography-doc/typography-doc.module';
 import { TemplatesModule } from './templates/templates.module';
 import { BreakpointsDocModule } from './breakpoints-doc/breakpoints-doc.module';
+import { LogoDocModule } from './logo-doc/logo-doc.module';
+import { GridDocModule } from './grid-doc/grid-doc.module';
 
 @NgModule({
     imports: [
@@ -24,7 +26,9 @@ import { BreakpointsDocModule } from './breakpoints-doc/breakpoints-doc.module';
         SpacingDocModule,
         TypographyDocModule,
         TemplatesModule,
-        BreakpointsDocModule
+        BreakpointsDocModule,
+        GridDocModule,
+        LogoDocModule
     ]
 })
 export class UtilitiesModule { }

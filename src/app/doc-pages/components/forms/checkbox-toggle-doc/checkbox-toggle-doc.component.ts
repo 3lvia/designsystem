@@ -14,11 +14,11 @@ export class CheckboxToggleDocComponent implements OnInit {
 
   example1 = `
   <label for="onOff">Turn off or on</label>
-  <label class="e-toggle e-m-2">
+  <label class="e-toggle e-m-16">
     <input id="onOff" type="checkbox">
     <span class="e-toggle e-slider"></span>
   </label>
-  <label class="e-toggle e-m-2">
+  <label class="e-toggle e-m-16">
     <input id="onOff" type="checkbox" checked>
     <span class="e-toggle e-slider"></span>
   </label>
