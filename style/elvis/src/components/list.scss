@@ -12,6 +12,9 @@ $list-border-radius: 50%;
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0;
+  // list font properties
+  line-height: 190%;
+
 
   li {
     list-style: none;
@@ -24,7 +27,7 @@ $list-border-radius: 50%;
       content: "";
       position: absolute;
       left: 0;
-      top: 5px;
+      top: 10px;
       width: $list-dot-size;
       height: $list-dot-size;
       background-color: color("green");
