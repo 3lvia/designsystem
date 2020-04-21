@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CodeBlockComponent } from './code-block.component';
 import { CodeHighlighterModule } from '../code-highlighter/code-highlighter.module';
-import { IframeScreenModule } from '../iframeScreen/iframeScreen.module';
+import { IframeScreenModule } from '../iframe-screen/iframe-screen.module';
 
 
 @NgModule({
