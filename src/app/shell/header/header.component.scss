@@ -11,7 +11,12 @@
   box-sizing: border-box;
 
   overflow: hidden;
-  background-color: var(--e-white);
+  background-color: var(--e-grey);
+  color: var(--e-white);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 160%;
+  letter-spacing: 1px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -35,6 +40,7 @@
       cursor: pointer;
       width: 82%;
       padding: 20px;
+      h2 {color: var(--e-white) !important;}
     }
     &_links {
       display: flex;
@@ -50,23 +56,20 @@
   .header-tabs {
     height: $header-tabs-height;
     display: flex;
+    align-items: center;
+    justify-content: center;
     padding-top: 8px;
-    width: 100%;
     top: 80px;
     overflow: hidden;
     z-index: 11;
 
     .tab {
       cursor: pointer;
-      width: 10%;
-      padding-top: 10px;
-      margin: 0 10px;
-      // To not break text in tabs
-      min-width: 114px;
-      height: 100%;
+      margin: 0 24px;
+      width: 150px;
       text-align: center;
-      font-size: 20px;
-      border-bottom: 0px solid transparent;
+      //To not break text in tabs
+      border-bottom: 4px solid transparent;
       transition: border-width 150ms linear;
 
       &.active {
