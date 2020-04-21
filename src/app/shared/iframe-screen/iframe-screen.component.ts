@@ -2,8 +2,8 @@ import { Component, Input, ViewChild, AfterViewInit, OnInit } from '@angular/cor
 
 @Component({
   selector: 'app-iframe-screen',
-  templateUrl: './IframeScreen.component.html',
-  styleUrls: ['./IframeScreen.component.scss']
+  templateUrl: './iframe-screen.component.html',
+  styleUrls: ['./iframe-screen.component.scss']
 })
 export class IframeScreenComponent implements AfterViewInit {
   @Input() code = '';
