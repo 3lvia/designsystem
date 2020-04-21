@@ -12,12 +12,12 @@ describe('Elvis Components overview page navigation Test', () => {
         cy.url().should('eq', 'http://localhost:4200/components/feedback-doc');
     });
 
-    it('Navigates to Badge doc page when clicking card link', () => {
-        cy.get('.e-card_title').contains('Badge')
+    it('Navigates to label doc page when clicking card link', () => {
+        cy.get('.e-card_title').contains('label')
             .parent('.e-card_header_text')
             .parent('.e-card_header')
             .siblings('.e-card_actions').children().contains('View component').click();
-        cy.url().should('eq', 'http://localhost:4200/components/badge-doc');
+        cy.url().should('eq', 'http://localhost:4200/components/label-doc');
     });
 
     it('Navigates to Button doc page when clicking card link', () => {

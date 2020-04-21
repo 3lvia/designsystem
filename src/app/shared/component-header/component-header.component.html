@@ -12,35 +12,24 @@
         </h1>
         <div *ngIf="componentStatus != ''">
           <span
-            class="e-badge e-bg-green"
+            class="e-label e-is-safe"
             *ngIf="componentStatus === itemStatus.New"
             >{{ componentStatus }}</span
           >
           <span
-            class="e-badge e-bg-red"
+            class="e-label e-is-danger"
             *ngIf="componentStatus === itemStatus.Coming"
             >{{ componentStatus }}</span
           >
           <span
-            class="e-badge e-bg-green"
+            class="e-label e-is-info"
             *ngIf="componentStatus === itemStatus.Done"
             >{{ componentStatus }}</span
           >
         </div>
       </div>
       <p
-        class="class e-bg-grey-30 e-text-info"
-        *ngFor="let class of componentClasses"
-      >
-        <code>
-          {{ class }}
-        </code>
-      </p>
-      <p
         class="component-header__description e-text-description"
-        [ngClass]="{
-          'class-margin': componentClasses && componentClasses.length > 0
-        }"
       >
         <span class="e-text-body">
           <ng-content select="headerDescription"></ng-content>
@@ -49,12 +38,12 @@
       <div class="component-header__example-does" *ngIf="does || donts">
         <div class="component-header__example-does-does" *ngIf="does">
           <span class="marker e-bg-green"></span>
-          <span class="e-title-sm">When: </span>
+          <span class="e-text-description bold">When: </span>
           <span class="e-text-description">{{ does }}</span>
         </div>
         <div class="component-header__example-does-donts" *ngIf="donts">
           <span class="marker e-bg-red"></span>
-          <span class="e-title-sm">When not: </span>
+          <span class="e-text-description bold">When not: </span>
           <span class="e-text-description">{{ donts }}</span>
         </div>
       </div>

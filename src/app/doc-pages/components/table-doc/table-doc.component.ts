@@ -10,7 +10,6 @@ export class TableDocComponent implements OnInit {
 
   externalUrl = getComponent('table-doc').externalUrl;
   componentStatus = getComponent('table-doc').status;
-  componentClasses = ['e-table', 'e-table no-zebra', 'e-table-phone'];
 
   example1 = `<table class="e-table">
   <thead>

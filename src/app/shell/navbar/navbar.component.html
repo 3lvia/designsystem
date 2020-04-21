@@ -1,8 +1,6 @@
 <ul class="navbar e-border-r e-pb-32" @slideIn>
   <section>
     <ul class="navbar-list">
-      <h2 class="navbar-list-header e-pl-16">{{ listHeader }}</h2>
-      
       <li
         class="navbar-item e-text-body"
         *ngFor="let navbarItem of sidebarList"
@@ -15,12 +13,16 @@
             {{ navbarItem.title }}
           </span>
           <span
-            class="e-badge e-bg-green"
+            class="e-label e-is-safe"
             *ngIf="navbarItem.status && (navbarItem.status === 'New')"
           >{{ navbarItem.status }}</span>
           <span
-            class="e-badge e-bg-red"
+            class="e-label e-is-danger"
             *ngIf="navbarItem.status && (navbarItem.status === 'Coming')"
+          >{{ navbarItem.status }}</span>
+          <span
+            class="e-label e-is-info"
+            *ngIf="navbarItem.status && (navbarItem.status === 'Done')"
           >{{ navbarItem.status }}</span>
         </a>
       </li>

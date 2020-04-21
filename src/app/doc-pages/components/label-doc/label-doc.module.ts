@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BadgeDocComponent } from './badge-doc.component';
+import { LabelDocComponent } from './label-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-header/component-header.module';
 import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 
@@ -10,6 +10,6 @@ import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
     ComponentHeaderModule,
     CodeBlockModule
   ],
-  declarations: [BadgeDocComponent]
+  declarations: [LabelDocComponent]
 })
-export class BadgeDocModule { }
+export class LabelDocModule { }

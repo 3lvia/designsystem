@@ -13,7 +13,6 @@ export class ShadowDocComponent implements OnInit {
 
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
-  componentClasses = ['e-shadow'];
   componentStatus = getUtilities('shadow-doc').status;
 
   doCodeCSS = `box-shadow: var(--e-shadow-2);

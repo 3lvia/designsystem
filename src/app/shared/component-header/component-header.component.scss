@@ -1,8 +1,6 @@
 @import '../shared-sizes';
 
 .component {
-  background: #efefef;
-
   &-header {
     padding: 16px 0;
     margin-bottom: var(--e-spacing-40);
@@ -17,7 +15,7 @@
           margin-right: 16px;
         }
         h1,
-        .e-badge {
+        .e-label {
           display: flex;
           align-self: center;
         }
@@ -39,6 +37,10 @@
       &-does,
       &-donts {
         margin: 8px 0;
+
+        .e-text-description.bold {
+          font-weight: 500;
+        }
   
         .marker {
           display: inline-flex;

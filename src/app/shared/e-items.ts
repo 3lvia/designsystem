@@ -49,10 +49,10 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-message?node-id=0%3A1'
     },
     {
-        title: 'Badge',
+        title: 'Label',
         description: 'Some useful component with amazing features',
-        docUrl: Pages.Badge,
-        status: ItemStatus.Coming,
+        docUrl: Pages.Label,
+        status: ItemStatus.New,
         actionText: 'View component',
     },
     {

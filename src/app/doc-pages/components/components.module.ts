@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BadgeDocModule } from './badge-doc/badge-doc.module';
+import { LabelDocModule } from './label-doc/label-doc.module';
 import { ButtonDocModule } from './button-doc/button-doc.module';
 import { CardDocModule } from './card-doc/card-doc.module';
 import { ComponentsStartModule } from './components-start/components-start.module';
@@ -20,7 +20,7 @@ import { ProgressbarDocModule } from './progressbar-doc/progressbar-doc.module';
 
 @NgModule({
     imports: [
-        BadgeDocModule,
+        LabelDocModule,
         ButtonDocModule,
         CardDocModule,
         ComponentsStartModule,

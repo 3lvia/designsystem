@@ -35,9 +35,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 16px;
+      padding: 16px;
       width: 100%;
       align-items: center;
+      font-size: 1.125rem;
+      line-height: 140%;
 
       .navbar-item-title {
         float: left;
@@ -46,25 +48,14 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      .e-badge {
+      .e-label {
         float: right;
       }
     }
     a.active {
-      color: var(--e-white);
-      background-color: var(--e-grey);
-      
-      .navbar-item-title::after {
-        content: '';
-        display: inline-flex;
-        margin-left: 9px;
-        height: 11px;
-        width: 11px;
-        border-radius: 50%;
-        background-color: var(--e-green);
-      }
+      background-color: var(--e-grey-50);
     }
-    a:hover:not(.active) {
+    a:hover {
       background-color: var(--e-grey-30);
     }
   }

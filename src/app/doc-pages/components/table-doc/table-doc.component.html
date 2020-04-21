@@ -1,7 +1,6 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
-  [componentClasses]="componentClasses"
   [externalUrl]="externalUrl"
   [does]="'Tables should be used when displaying large amounts of data to the user. Text should be left aligned in the columns and numbers should be right aligned.'"
   [donts]="'Don’t use tables when the content mainly is visual.'"
@@ -23,6 +22,7 @@
     [title]="'Table'"
     [description]="''"
     [onlyDesktop]="true"
+    [class]="['e-table']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
@@ -31,6 +31,7 @@
     [description]="'If the table requires scrolling the max-width for a column is 300px, 
     the class is-max can then be added to ensure width of column and text wrap. Numbers here are aligned to the right.'"
     [onlyDesktop]="true"
+    [class]="['e-table']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
@@ -38,5 +39,6 @@
     [title]="'Table for mobile'"
     [description]="'The text in the last column should always be aligned to the right on phones.'"
     [onlyPhone]="true"
+    [class]="['e-table-phone']"
   ></app-code-block>
 </div>
