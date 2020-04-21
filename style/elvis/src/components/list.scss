@@ -66,7 +66,7 @@ $list-border-radius: 50%;
       }
     }
     li {
-      padding-left: var(--e-spacing-16);
+      padding-left: var(--e-spacing-32);
       margin: var(--e-spacing-16) 0;
       margin-left: var(--e-spacing-16);
 
@@ -90,13 +90,6 @@ $list-border-radius: 50%;
 }
 
 .e-list-icon-container {
-  left: -2em;
+  left: -16px;
   position: absolute;
-  text-align: center;
-  width: 2em;
-  line-height: inherit;
-
-  @include breakpoint-up(Mobile) {
-    left: -1em;
-  }
 }
