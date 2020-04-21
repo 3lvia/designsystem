@@ -10,6 +10,16 @@
 @import './app/shared/shared-sizes';
 @import './app/shared/shared-animations';
 
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
 html {
   overflow: -moz-scrollbars-vertical; 
   overflow-y: scroll;
