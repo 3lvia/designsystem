@@ -1,0 +1,27 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Progressbar
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'Progressbar loading'"
+    [class]="['e-progressbar', 'e-loading']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example2"
+    [title]="'Progressbar error'"
+    [class]="['e-progressbar', 'e-error']"
+  ></app-code-block>
+</div>

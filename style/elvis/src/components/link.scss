@@ -129,20 +129,16 @@ $iconSizeCustom: 20px;
 
   &.e-jumbo {
     @extend .e-title-sm;
-    border: 2px solid transparent;
-    box-shadow: 0px 0px 0px 1px color("black");
+    border: 2px solid color("black");
     border-radius: 64px;
     padding: 32px 40px;
     width: 545px;
     background: color("white");
     color: color("black");
-    outline: none;
     cursor: pointer;
     box-sizing: border-box;
     display: inline-flex;
     align-items: center;
-    &::before { content: none }
-    &::after { content: none }
 
     span:not(:first-of-type):not(:last-of-type) {
       text-align: left;
@@ -187,19 +183,14 @@ $iconSizeCustom: 20px;
       }
     }
 
-    // Psudo classes / States
+    //Psudo classes / States
     &:focus:not(:active), &.e-focus {
-      box-shadow: 0px 0px 0px 2px #00a2c7;
+      outline: 0px 0px 0px 2px #00a2c7;
     }
 
-    &:hover:not(:focus), &.e-hover {
+    &:hover, &.e-hover {
       color: color("black");
-      box-shadow: 0px 0px 0px 1px color("green");
-    }
-
-    &:active, &.e-active {
-      color: color("black");
-      box-shadow: 0px 0px 0px 2px color("green");
+      border: 2px solid color("green");
     }
   }
 }

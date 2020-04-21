@@ -14,6 +14,7 @@ export class GridDocComponent implements OnInit {
   tabs = [TabNames.Overview, TabNames.Guidelines];
   componentClasses = ['e-grid'];
   componentStatus = getUtilities('grid-doc').status;
+  externalUrl = getUtilities('grid-doc').externalUrl;
 
   example9 = `<div class="e-grid e-bg-grey-20">
   <div class="row mx-lg-n4 mx-md-n3 mx-sm-n2 e-grid-margin">
