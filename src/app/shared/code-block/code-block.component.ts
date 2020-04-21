@@ -30,6 +30,15 @@ export class CodeBlockComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    if (this.noPhone && this.noTablet) {
+      this.screen = 'desktop';
+    }
+    if (this.noPhone && this.noDesktop) {
+      this.screen = 'tablet';
+    }
+    if (this.noTablet && this.noDesktop) {
+      this.screen = 'phone';
+    }
   }
 }
 

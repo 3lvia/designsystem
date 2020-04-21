@@ -81,15 +81,15 @@
     </div>
     <div class="element">
       <div
-        [ngClass]="{ hide: screen !== 'desktop' }">
+        [ngClass]="{ hide: screen !== 'desktop' || noDesktop  }">
         <app-iframe-screen [code]="code" [screenSize]="'desktop'"></app-iframe-screen>
       </div>
       <div
-        [ngClass]="{ hide: screen !== 'tablet' }">
+        [ngClass]="{ hide: screen !== 'tablet' || noTablet }">
         <app-iframe-screen [code]="code" [screenSize]="'tablet'"></app-iframe-screen>
       </div>
       <div
-        [ngClass]="{ hide: screen !== 'phone' }">
+        [ngClass]="{ hide: screen !== 'phone' || noPhone}">
         <app-iframe-screen [code]="code" [screenSize]="'phone'"></app-iframe-screen>
       </div>
     </div>
