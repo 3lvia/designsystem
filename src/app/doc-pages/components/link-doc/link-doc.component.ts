@@ -42,13 +42,8 @@ export class LinkDocComponent implements OnInit {
 `;
 
 example8 = `<div><a class="e-link e-jumbo e-my-8" href="https://www.elvia.no/">
-  <span><i class="e-icon-tree-powerline"></i></span>
-  <span>Strømledning nær bakken</span>
-  <span><i class="e-icon-arrow-right"></i></span>
-</a></div>
-<div><a class="e-link e-jumbo e-my-8" href="https://www.elvia.no/">
   <span><i class="e-icon-powerline-snow"></i></span>
-  <span>Jumbo link med en lang tekst som ikke overskrider 2 linjer</span>
+  <span>Strømledning nær bakken</span>
   <span><i class="e-icon-arrow-right"></i></span>
 </a></div>`;
 
