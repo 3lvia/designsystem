@@ -55,7 +55,7 @@ $button-font-weight: 500;
   &.e-hover:not(.disabled) {
     background: color("green");
     border: color("green");
-    color: color('black');
+    color: color("black");
   }
 
   &.e-active {
@@ -252,8 +252,8 @@ $button-font-weight: 500;
         padding-right: 16px;
 
         @include breakpoint-up(Mobile) {
-            padding: 8px 10px;
-          }
+          padding: 8px 10px;
+        }
 
         span {
           // standard size for buttons in large buttons

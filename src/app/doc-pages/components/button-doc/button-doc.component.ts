@@ -91,7 +91,14 @@ example5 = `
 </button>
 `;
 
-  example7 = `
+  example7 = `<button class="e-btn e-btn-loading e-btn-small e-m-2">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+`;
+
+  example8 = `
 <button class="e-btn e-hover e-m-16" >
   Hover
 </button>
