@@ -18,7 +18,7 @@ export class ButtonDocComponent {
 
   example1 = `
 <h3>Standard primary buttons</h3>
-  <button class="e-btn e-m-2" >
+  <button class="e-btn e-m-16" >
   Standard
 </button>
 <button class="e-btn e-m-16" disabled >
@@ -28,7 +28,7 @@ export class ButtonDocComponent {
 
   example2 = `
 <h3>Standard primary buttons</h3>
- <button class="e-btn e-btn-secondary e-m-2" >
+ <button class="e-btn e-btn-secondary e-m-16" >
   Standard
 </button>
 <button class="e-btn e-btn-secondary e-m-16" disabled >
@@ -37,23 +37,23 @@ export class ButtonDocComponent {
 
 example3 = `
 <h3>Small primary buttons</h3>
-<button class="e-btn e-btn-small e-m-2" >
+<button class="e-btn e-btn-small e-m-16" >
   Standard
 </button>
-<button class="e-btn e-btn-small e-m-2" disabled >
+<button class="e-btn e-btn-small e-m-16" disabled >
   Disabled
 </button>
 
 <h3>Small secondary buttons</h3>
-<button class="e-btn e-btn-secondary e-btn-small e-m-2" >
+<button class="e-btn e-btn-secondary e-btn-small e-m-16" >
   Standard
 </button>
-<button class="e-btn e-btn-secondary e-btn-small e-m-2" disabled >
+<button class="e-btn e-btn-secondary e-btn-small e-m-16" disabled >
   Disabled
 </button>`;
 
   example4 = `
-<button class="e-btn e-has-icon e-m-2" >
+<button class="e-btn e-has-icon e-m-16" >
   <span class="e-icon-alert-circle-filled"></span>Icon button
 </button>
 <button class="e-btn e-has-icon e-m-16" disabled >
@@ -69,29 +69,29 @@ example3 = `
 
 example5 = `
 <h3>Small primary buttons</h3>
-<button class="e-btn e-btn-small e-has-icon e-m-2" >
+<button class="e-btn e-btn-small e-has-icon e-m-16 >
   Standard
 </button>
-<button class="e-btn e-btn-small e-has-icon e-m-2" disabled >
+<button class="e-btn e-btn-small e-has-icon e-m-16 disabled >
   Disabled
 </button>
 <br>
-<button class="e-btn e-btn-secondary e-btn-small e-has-icon e-m-2" >
+<button class="e-btn e-btn-secondary e-btn-small e-has-icon e-m-16 >
   <span class="e-icon-search"></span>Icon button
 </button>
-<button class="e-btn e-btn-secondary e-btn-small e-has-icon e-m-2" disabled >
+<button class="e-btn e-btn-secondary e-btn-small e-has-icon e-m-16 disabled >
   <span class="e-icon-search"></span>Icon button
 </button>
 `;
 
-  example6 = `<button class="e-btn e-btn-loading e-m-2">
+  example6 = `<button class="e-btn e-btn-loading e-m-16>
   <span></span>
   <span></span>
   <span></span>
 </button>
 `;
 
-  example7 = `<button class="e-btn e-btn-loading e-btn-small e-m-2">
+  example7 = `<button class="e-btn e-btn-loading e-btn-small e-m-16">
   <span></span>
   <span></span>
   <span></span>
@@ -114,8 +114,6 @@ example5 = `
 <button class="e-btn e-disabled e-m-16" >
   Disabled
 </button>
-
-<br><br>
 
 <button class="e-btn e-btn-secondary e-hover e-m-16" >
   Hover
