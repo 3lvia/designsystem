@@ -15,9 +15,7 @@
         characterData: true,
         subtree: true,
     });
-
-
-
+    
     function replaceIcons() {
         window.document.querySelectorAll('[class*="e-icon"]').forEach(function(element){
             if(!element.innerHTML) { 
@@ -25,8 +23,6 @@
             }
         });
     }
-
-
 
     function getIcon(classList) {
         for(let i = 0; i < classList.length; i++) {

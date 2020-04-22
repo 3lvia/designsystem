@@ -55,6 +55,9 @@ example3 = `<div class="e-bg-black e-p-1">
 
 
     for(let i = 0; i < icons.length; i++) {
+      if(icons[i].name.indexOf('figma') > -1){
+        continue;
+      }
       this.svgIcons.push({
         title: icons[i].name,
       });

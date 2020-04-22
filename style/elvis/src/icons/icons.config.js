@@ -46,7 +46,6 @@ module.exports = [
  {name: 'flag', terms: [] },
  {name: 'forms-color', terms: [] },
  {name: 'freshchat-color', terms: [] },
- {name: 'github', terms: [] },
  {name: 'graph-bar-color', terms: [] },
  {name: 'graph-sun-color', terms: [] },
  {name: 'ground-fault', terms: [] },

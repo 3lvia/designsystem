@@ -6,7 +6,6 @@ const cleanCSS = require('gulp-clean-css');
 const rename = require("gulp-rename");
 const del = require('del');
 const postcss = require('gulp-postcss');
-const concat = require('gulp-concat');
 const cssvariables = require('postcss-css-variables');
 const svgo = require('gulp-svgo');
 const icons = require('./src/icons/icons.config');
@@ -14,9 +13,7 @@ const svgToMiniDataURI = require('mini-svg-data-uri');
 const path = require('path');
 const fs = require('fs');
 
-
 sass.compiler = require('node-sass');
-
 
 function findUnusedIconFiles() {
   const content = fs.readdirSync('./src/icons/svg/src/');
@@ -67,13 +64,12 @@ async function createEmbeddedIconsJS() {
     }
   }
 
-  const template = fs.readFileSync('icons-injector.template.js').toString();
+  const template = fs.readFileSync('./src/templates/icons-injector.template.js').toString();
   const newContent = template.replace('//[[INJECT_ICONS]]', embeddedJs);
   fs.writeFileSync('icons-injector.js', newContent);
 
   return true;
 }
-
 
 async function createIconModule() {
   const iconsToInclude = icons.map(i => {
@@ -101,7 +97,7 @@ async function createIconModule() {
       }
   }`
   }
-  const template = fs.readFileSync('./icons.template.js').toString();
+  const template = fs.readFileSync('./src/templates/icons.template.js').toString();
   const newContent = template.replace('//[[INJECT_ICONS]]', jsModule);
   fs.writeFileSync('./icons.js', newContent);
 
@@ -131,19 +127,11 @@ function optimizeSVG() {
       .pipe(gulp.dest('src/icons/svg/dist'));
 };
 
-
 function styles () {
   return gulp.src('./src/main.scss')
     .pipe(postcss([cssvariables()]))
     .pipe(sass().on('error', sass.logError))
-    .pipe(rename('elvis-no-icons.css'))
-    .pipe(gulp.dest('./css/'));
-};
-
-function stylesFull () {
-  return gulp.src('./css/elvis-no-icons.css')
-    .pipe(concat('./css/elvis-icons.css'))
-    .pipe(rename('elvis-all.css'))
+    .pipe(rename('elvis.css'))
     .pipe(gulp.dest('./css/'));
 };
 
@@ -159,7 +147,7 @@ function minify() {
     .pipe(gulp.dest('./css/'));
 }
 
-gulp.task('default', gulp.series (clean, styles,optimizeSVG,  createEmbeddedIconsJS, createIconModule, stylesFull, minify,
+gulp.task('default', gulp.series (clean, styles,optimizeSVG,  createEmbeddedIconsJS, createIconModule, minify,
     function (done) { console.log("Done!"); done(); }    
 ));
 
