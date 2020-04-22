@@ -23,38 +23,9 @@
     <h2 class="e-title-md">Shadows</h2>
     <p class="e-text-body">There are 3 shadows available in the Elvis.</p>
 
-    <div class="display-container centered-content">
-      <div class="display-card">
-        <app-copy [message]="'e-shadow-soft'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-soft e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="display-card-title e-text-caps">shadow-soft</div>
-        <div class="display-card-variable">#000000-0.03</div>
-      </div>
-      <div class="display-card">
-        <app-copy [message]="'e-shadow-medium'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-medium e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="display-card-title e-text-caps">shadow-medium</div>
-        <div class="display-card-variable">#000000-0.06</div>
-      </div>
-      <div class="display-card">
-        <app-copy [message]="'e-shadow-3'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-hard e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="display-card-title e-text-caps">shadow-hard</div>
-        <div class="display-card-variable">#000000-0.08</div>
-      </div>
-    </div>
 
-    <div class="display-container centered-content e-bg-grey-05">
-      <div class="display-card">
+    <div class="display-container centered-content">
+      <div class="display-card e-bg-grey-05">
         <app-copy [message]="'e-shadow-soft'">
           <ng-container ngProjectAs="copyContent">
             <div class="display-card-circle e-shadow-soft e-bg-white"></div>
@@ -73,7 +44,7 @@
         <div class="display-card-variable">#000000-0.06</div>
       </div>
       <div class="display-card">
-        <app-copy [message]="'e-shadow-3'">
+        <app-copy [message]="'e-shadow-hard'">
           <ng-container ngProjectAs="copyContent">
             <div class="display-card-circle e-shadow-hard e-bg-white"></div>
           </ng-container>
@@ -83,6 +54,7 @@
       </div>
     </div>
   </div>
+
 
   <!--CODE-->
   <div *ngIf="selected == tabNames.Code">
