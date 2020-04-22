@@ -27,8 +27,7 @@ export class IframeScreenComponent implements AfterViewInit {
       // tslint:disable-next-line:max-line-length
       doc.write(`<html><head>${window.document.head.innerHTML}</head><body style="padding:16px 8px; overflow: auto;">${this.code}</body></html>`);
       doc.close();
-      const contentHeight = (doc.body.scrollHeight + 20) + 'px'; // 20px for extra height padding
-      this.iframeDesktop.nativeElement.style.height = `${contentHeight}`;
+      this.iframeDesktop.nativeElement.style.height = (doc.body.scrollHeight + 20) + 'px';
     }
     if (this.screenSize === 'tablet') {
       const doc = this.iframeTablet.nativeElement.contentWindow.document;
@@ -36,8 +35,7 @@ export class IframeScreenComponent implements AfterViewInit {
       // tslint:disable-next-line:max-line-length
       doc.write(`<html><head>${window.document.head.innerHTML}</head><body style="padding:4px; overflow: auto;">${this.code}</body></html>`);
       doc.close();
-      const contentHeight = '470px';
-      this.iframeTablet.nativeElement.style.height = `${contentHeight}`;
+      this.iframeTablet.nativeElement.style.height = '470px';
     }
     if (this.screenSize === 'phone') {
       const doc = this.iframePhone.nativeElement.contentWindow.document;
@@ -45,8 +43,7 @@ export class IframeScreenComponent implements AfterViewInit {
       // tslint:disable-next-line:max-line-length
       doc.write(`<html><head>${window.document.head.innerHTML}</head><body style="padding:4px; overflow: auto;">${this.code}</body></html>`);
       doc.close();
-      const contentHeight = '470px';
-      this.iframePhone.nativeElement.style.height = `${contentHeight}`;
+      this.iframePhone.nativeElement.style.height = '470px';
     }
   }
 }
