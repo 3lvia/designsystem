@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis",
-  "version": "0.0.28",
+  "version": "0.0.30",
   "description": "WIP",
   "main": "",
   "scripts": {
@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "bootstrap": "^4.4.1",
     "css-vars-ponyfill": "^2.2.1",
     "del": "^5.1.0",
     "gulp": "^4.0.2",
@@ -25,6 +24,7 @@
     "postcss-css-variables": "^0.14.0"
   },
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "gulp-concat": "^2.6.1"
   }
 }
