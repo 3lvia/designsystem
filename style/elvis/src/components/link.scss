@@ -16,6 +16,7 @@ $iconSizeCustom: 20px;
   font-weight: bold;
   line-height: 24px;
   color: color("font-color");
+  box-sizing: border-box;
 
   @include breakpoint-up(Mobile) {
     font-size: 16px;
