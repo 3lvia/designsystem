@@ -20,35 +20,66 @@
   <!--Overview-->
   <div *ngIf="selected == tabNames.Overview">
     <h2 class="e-title-md">Shadows</h2>
-    <p class="e-text-body">There are 3 shadows available in the Elvis.</p>
+    <p class="e-text-body">There are 3 shadows available in the Elvis. 
+      The naming convention reflects the percentage of opacity on the base color of shadows.</p>
 
 
     <div class="display-container centered-content">
-      <div class="display-card e-bg-grey-05">
-        <app-copy [message]="'e-shadow-soft'">
+      <div class="display-card">
+        <app-copy [message]="'e-shadow-3'">
           <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-soft e-bg-white"></div>
+            <div class="display-card-circle e-shadow-3 e-bg-white"></div>
           </ng-container>
         </app-copy>
-        <div class="display-card-title e-text-caps">shadow-soft</div>
+        <div class="display-card-title e-text-caps">e-shadow-3</div>
         <div class="display-card-variable">#000000-0.03</div>
       </div>
       <div class="display-card">
-        <app-copy [message]="'e-shadow-medium'">
+        <app-copy [message]="'e-shadow-6'">
           <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-medium e-bg-white"></div>
+            <div class="display-card-circle e-shadow-6 e-bg-white"></div>
           </ng-container>
         </app-copy>
-        <div class="display-card-title e-text-caps">shadow-medium</div>
+        <div class="display-card-title e-text-caps">e-shadow-6</div>
         <div class="display-card-variable">#000000-0.06</div>
       </div>
       <div class="display-card">
-        <app-copy [message]="'e-shadow-hard'">
+        <app-copy [message]="'e-shadow-8'">
           <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-hard e-bg-white"></div>
+            <div class="display-card-circle e-shadow-8 e-bg-white"></div>
           </ng-container>
         </app-copy>
-        <div class="display-card-title e-text-caps">shadow-hard</div>
+        <div class="display-card-title e-text-caps">e-shadow-8</div>
+        <div class="display-card-variable">#000000-0.08</div>
+      </div>
+    </div>
+    <!-- On grey background -->
+    <div class="display-container centered-content  e-bg-grey-05">
+      <div class="display-card">
+        <app-copy [message]="'e-shadow-3'">
+          <ng-container ngProjectAs="copyContent">
+            <div class="display-card-circle e-shadow-3 e-bg-white"></div>
+          </ng-container>
+        </app-copy>
+        <div class="display-card-title e-text-caps">e-shadow-3</div>
+        <div class="display-card-variable">#000000-0.03</div>
+      </div>
+      <div class="display-card">
+        <app-copy [message]="'e-shadow-6'">
+          <ng-container ngProjectAs="copyContent">
+            <div class="display-card-circle e-shadow-6 e-bg-white"></div>
+          </ng-container>
+        </app-copy>
+        <div class="display-card-title e-text-caps">e-shadow-6</div>
+        <div class="display-card-variable">#000000-0.06</div>
+      </div>
+      <div class="display-card">
+        <app-copy [message]="'e-shadow-8'">
+          <ng-container ngProjectAs="copyContent">
+            <div class="display-card-circle e-shadow-8 e-bg-white"></div>
+          </ng-container>
+        </app-copy>
+        <div class="display-card-title e-text-caps">e-shadow-8</div>
         <div class="display-card-variable">#000000-0.08</div>
       </div>
     </div>
@@ -60,16 +91,16 @@
       <h2 class="e-title-md">Using Classes</h2>
       <p class="e-text-body">
         All shadows can be used through a set of classes. 
-        The <code class="code-text">e-shadow-soft</code>,<code class="code-text">e-shadow-medium</code> and
-        <code class="code-text">e-shadow-hard</code> sets box-shadow blur and opacity. Softer shadows has higher blur and lower opacity,
+        The <code class="code-text">e-shadow-3</code>,<code class="code-text">e-shadow-6</code> and
+        <code class="code-text">e-shadow-8</code> sets box-shadow blur and opacity. Softer shadows has higher blur and lower opacity,
         and harder shadows has lower blur, but higher opacity.
       </p>
       <h3 class="e-title-sm">Classes</h3>
       <ul>
         <li><code class="code-text">e-shadow-none</code></li>
-        <li><code class="code-text">e-shadow-soft</code></li>
-        <li><code class="code-text">e-shadow-medium</code></li>
-        <li><code class="code-text">e-shadow-hard</code></li>
+        <li><code class="code-text">e-shadow-3</code></li>
+        <li><code class="code-text">e-shadow-6</code></li>
+        <li><code class="code-text">e-shadow-8</code></li>
       </ul>
     </div>
     <div>
@@ -80,9 +111,9 @@
       <h3 class="e-title-sm">Variables</h3>
       <ul>
         <li><code class="code-text">var(--e-shadow-none)</code></li>
-        <li><code class="code-text">var(--e-shadow-soft)</code></li>
-        <li><code class="code-text">var(--e-shadow-medium)</code></li>
-        <li><code class="code-text">var(--e-shadow-hard)</code></li>
+        <li><code class="code-text">var(--e-shadow-3)</code></li>
+        <li><code class="code-text">var(--e-shadow-6)</code></li>
+        <li><code class="code-text">var(--e-shadow-8)</code></li>
       </ul>
       <h3 class="e-title-sm">Do's and Don'ts</h3>
       <p class="e-text-body">

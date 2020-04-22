@@ -4,20 +4,20 @@
   &-none {
     box-shadow: none;
   }
-  &-soft {
-    box-shadow: $shadow-soft;
+  &-3 {
+    box-shadow: $e-shadow-3;
   }
-  &-medium {
-    box-shadow: $shadow-medium;
+  &-6 {
+    box-shadow: $e-shadow-6;
   }
-  &-hard {
-    box-shadow: $shadow-hard;
+  &-8 {
+    box-shadow: $e-shadow-8;
   }
 }
 
 // Making CSS-variables for shadow-variables
 :root {
-  --e-shadow-1: #{$shadow-soft};
-  --e-shadow-2: #{$shadow-medium};
-  --e-shadow-3: #{$shadow-hard};
+  --e-shadow-3: #{$e-shadow-3};
+  --e-shadow-6: #{$e-shadow-6};
+  --e-shadow-8: #{$e-shadow-8};
 }

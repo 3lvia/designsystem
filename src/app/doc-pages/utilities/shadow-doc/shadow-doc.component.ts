@@ -16,7 +16,7 @@ export class ShadowDocComponent implements OnInit {
   componentStatus = getUtilities('shadow-doc').status;
   externalUrl = getUtilities('shadow-doc').externalUrl;
 
-  doCodeCSS = `box-shadow: var(--e-shadow-medium);
+  doCodeCSS = `box-shadow: var(--e-shadow-6);
 box-shadow: none;`;
   dontCodeCSS = `box-shadow: var(--e-shadow-none);`;
 
