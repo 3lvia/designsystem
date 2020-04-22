@@ -12,6 +12,7 @@ $checkbox-mark-border: 1px solid color("black");
   display: flex;
   align-items: center;
   width: fit-content;
+  box-sizing: border-box;
   cursor: pointer;
   &:not(:last-child) {
     margin-bottom: 0.75rem;
