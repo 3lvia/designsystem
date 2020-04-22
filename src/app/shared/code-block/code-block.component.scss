@@ -1,17 +1,3 @@
-.smartphone {
-  height:640px;
-  width:360px;
-  background-color:black;
-  border-radius:10px;
-  padding: var(--e-spacing-24) var(--e-spacing-16);
-  margin: var(--e-spacing-16);
-}
-
-.smartphone-preview {
-  display: flex;
-  align-items:center;
-  justify-content:center;
-}
 
 iframe {
   width:100%;
@@ -102,6 +88,7 @@ iframe {
     .element {
       display: block;
       padding: 32px;
+      height: 100%;
 
       .hide {
         display: none;

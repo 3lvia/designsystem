@@ -53,35 +53,45 @@
     </form>
   </div>
   <div class="component-body__example-body e-border">
-    <div class="tabs" *ngIf="!onlyDesktop && !onlyPhone">
+    <div class="tabs" *ngIf="showTabs">
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{ active: showSmartphone === false }"
-        (click)="showSmartphone = false"
+        [ngClass]="{ active: screen === 'desktop' }"
+        (click)="screen = 'desktop'"
       >
-        Desktop & Tablet
+        Desktop
       </div>
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{ active: showSmartphone === true }"
-        (click)="showSmartphone = true"
+        [ngClass]="{ active: screen === 'tablet' }"
+        (click)="screen = 'tablet'"
       >
-        Smartphone
+        Tablet
+      </div>
+      <div
+        class="tab e-border"
+        role="button"
+        [ngClass]="{ active: screen === 'phone' }"
+        (click)="screen = 'phone'"
+      >
+        Phone
       </div>
     </div>
     <div class="element">
       <div
-        class="smartphone-preview"
-        [ngClass]="{ hide: showSmartphone === false }"
-      >
-        <app-smartphone [code]="code"></app-smartphone>
+        [ngClass]="{ hide: screen !== 'desktop' || noDesktop  }">
+        <app-iframe-screen [code]="code" [screenSize]="'desktop'"></app-iframe-screen>
       </div>
       <div
-        [ngClass]="{ hide: showSmartphone === true }"
-        #preview
-      ></div>
+        [ngClass]="{ hide: screen !== 'tablet' || noTablet }">
+        <app-iframe-screen [code]="code" [screenSize]="'tablet'"></app-iframe-screen>
+      </div>
+      <div
+        [ngClass]="{ hide: screen !== 'phone' || noPhone}">
+        <app-iframe-screen [code]="code" [screenSize]="'phone'"></app-iframe-screen>
+      </div>
     </div>
     <div
       class="show-code e-border"
