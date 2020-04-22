@@ -6182,51 +6182,51 @@ body {
 .e-icon-xxs {
   width: 8px;
   height: 8px; }
-  .e-icon-xxs img, .e-icon-xxs svg {
-    width: 8px !important;
-    height: 8px !important; }
+  .e-icon-xxs img {
+    width: 8px;
+    height: 8px; }
 
 .e-icon-xs {
   width: 16px;
   height: 16px; }
-  .e-icon-xs img, .e-icon-xs svg {
-    width: 16px !important;
-    height: 16px !important; }
+  .e-icon-xs img {
+    width: 16px;
+    height: 16px; }
 
 .e-icon-sm {
   width: 24px;
   height: 24px; }
-  .e-icon-sm img, .e-icon-sm svg {
-    width: 24px !important;
-    height: 24px !important; }
+  .e-icon-sm img {
+    width: 24px;
+    height: 24px; }
 
 .e-icon-md {
   width: 32px;
   height: 32px; }
-  .e-icon-md img, .e-icon-md svg {
-    width: 32px !important;
-    height: 32px !important; }
+  .e-icon-md img {
+    width: 32px;
+    height: 32px; }
 
 .e-icon-lg {
   width: 40px;
   height: 40px; }
-  .e-icon-lg img, .e-icon-lg svg {
-    width: 40px !important;
-    height: 40px !important; }
+  .e-icon-lg img {
+    width: 40px;
+    height: 40px; }
 
 .e-icon-xl {
   width: 48px;
   height: 48px; }
-  .e-icon-xl img, .e-icon-xl svg {
-    width: 48px !important;
-    height: 48px !important; }
+  .e-icon-xl img {
+    width: 48px;
+    height: 48px; }
 
 .e-icon-xxl {
   width: 56px;
   height: 56px; }
-  .e-icon-xxl img, .e-icon-xxl svg {
-    width: 56px !important;
-    height: 56px !important; }
+  .e-icon-xxl img {
+    width: 56px;
+    height: 56px; }
 
 .e-svg-xxs {
   display: inline-block;
@@ -6297,52 +6297,3 @@ body {
   .e-svg-xxl svg {
     width: 1em !important;
     height: 1em !important; }
-
-.e-icon-xxs {
-  width: 8px;
-  height: 8px; }
-  .e-icon-xxs img {
-    width: 8px;
-    height: 8px; }
-
-.e-icon-xs {
-  width: 16px;
-  height: 16px; }
-  .e-icon-xs img {
-    width: 16px;
-    height: 16px; }
-
-.e-icon-sm {
-  width: 24px;
-  height: 24px; }
-  .e-icon-sm img {
-    width: 24px;
-    height: 24px; }
-
-.e-icon-md {
-  width: 32px;
-  height: 32px; }
-  .e-icon-md img {
-    width: 32px;
-    height: 32px; }
-
-.e-icon-lg {
-  width: 40px;
-  height: 40px; }
-  .e-icon-lg img {
-    width: 40px;
-    height: 40px; }
-
-.e-icon-xl {
-  width: 48px;
-  height: 48px; }
-  .e-icon-xl img {
-    width: 48px;
-    height: 48px; }
-
-.e-icon-xxl {
-  width: 56px;
-  height: 56px; }
-  .e-icon-xxl img {
-    width: 56px;
-    height: 56px; }

@@ -26,9 +26,9 @@ $sizes: (
     .e-icon-#{$label} {
         width: $size;
         height: $size;
-        img, svg {
-            width:$size !important;
-            height:$size !important;
+        img {
+            width:$size;
+            height:$size;
         }
     }
 }
@@ -43,17 +43,6 @@ $sizes: (
         svg {
             width:1em !important;
             height:1em !important;
-        }
-    }
-}
-
-@each $label, $size in $sizes {
-    .e-icon-#{$label} {
-        width: $size;
-        height: $size;
-        img {
-            width:$size;
-            height:$size;
         }
     }
 }
