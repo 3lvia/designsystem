@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class CardDocComponent implements OnInit {
 
   componentStatus = getComponent('card-doc').status;
-  componentClasses = ['e-card'];
+  externalUrl = getComponent('card-doc').externalUrl;
 
   example1 = `<div class="e-card">
   <div class="e-card_header">

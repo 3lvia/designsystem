@@ -1,7 +1,7 @@
 @import './../variables/colors';
 @import './../variables/shadows';
 
-$card-radius: 4px;
+$card-radius: 8px;
 $card-padding-y: 1.375rem;
 $card-padding-x: 1.375rem;
 $card-header-icon-height: 28px;
@@ -11,7 +11,6 @@ $card-actions-action-padding: 13px 0;
 $card-actions-button-spacing: 25px;
 
 .e-card {
-  border: 1px solid color('grey-30');
   border-radius: $card-radius;
   box-shadow: $shadow-light;
   display: inline-flex;
@@ -28,31 +27,12 @@ $card-actions-button-spacing: 25px;
     display: flex;
     padding: $card-padding-y $card-padding-x;
 
-    &_icon {
-      // .is-icon-small is icon-properties, defined in typography.
-    //   @extend .is-icon-small;
-
-      display: inline-flex;
-      align-self: center;
-      margin-right: $card-header-icon-margin;
-      color: color('green');
-      line-height: $card-header-icon-height;
-      vertical-align: top;
-    }
-
     &_text {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-self: center;
       width: 100%;
-    }
-
-    &_action {
-      // .is-icon-small is icon-properties, defined in typography.
-    //   @extend .is-icon-small;
-      // .is-button-icon and .is-transparent is icon-properties, defined in button.
-    //   @extend .e-button-icon, .is-transparent
     }
 
     .is-center {
