@@ -13,7 +13,7 @@ $card-actions-button-spacing: 25px;
 .e-card {
   border: 1px solid color('grey-30');
   border-radius: $card-radius;
-  box-shadow: $shadow-light;
+  box-shadow: $shadow-hard;
   display: inline-flex;
   width: 100%;
   flex-direction: column;

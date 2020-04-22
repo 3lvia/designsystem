@@ -13,8 +13,9 @@ export class ShadowDocComponent implements OnInit {
 
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
-  componentClasses = ['e-shadow'];
+  // componentClasses = ['e-shadow-soft', 'e-shadow-medium', 'e-shadow-hard'];
   componentStatus = getUtilities('shadow-doc').status;
+  externalUrl = getUtilities('shadow-doc').externalUrl;
 
   doCodeCSS = `box-shadow: var(--e-shadow-2);
 box-shadow: none;`;
