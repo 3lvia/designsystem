@@ -4,7 +4,7 @@
   [externalUrl]="externalUrl"
 >
   <ng-container ngProjectAs="headerTitle">
-    Button 
+    Button
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     Button elements are used to provide a straightforward and accessible experience for users.
@@ -33,18 +33,39 @@
   <app-code-block
     [isHTML]="true"
     [code]="example3"
+    [title]="'Small buttons'"
+    [class]="['e-btn-small']"
+    [description]="'Smaller versions of primary and secondary buttons.'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]=""
     [title]="'Button with icon'"
+    [description]="'🚧👷🚧 Under Construction 🚧👷🚧'"
     [class]="['e-has-icon']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
-    [code]="example4"
+    [code]=""
+    [title]="'Small buttons with icon'"
+    [class]="['e-btn-small']"
+    [description]="'🚧👷🚧 Under Construction 🚧👷🚧'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example6"
     [title]="'Loading button'"
     [class]="['e-btn-loading']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
-    [code]="example5"
+    [code]="example7"
+    [title]="'Small loading button'"
+    [class]="['e-btn-small']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example8"
     [title]="'Pseudo classes'"
     [class]="pseudoClasses"
     [description]="'Pseudo Classes can be used to set the styling of button to emulate the state. 
