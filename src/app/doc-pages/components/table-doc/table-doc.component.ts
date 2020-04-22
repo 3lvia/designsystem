@@ -91,7 +91,7 @@ export class TableDocComponent implements OnInit {
 </table>
 `;
 
-  example3 = `<div style="width: 305px">
+  example3 = `<div style="width: 365px">
   <table class="e-table-mobile">
     <thead>
       <tr>
