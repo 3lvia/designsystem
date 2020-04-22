@@ -27,12 +27,12 @@ export class LinkDocComponent implements OnInit {
 `;
 
   example5 = `
-  <a class="e-link" href="https://www.elvia.no/">Last ned <i class="e-icon-download"></i></a>
+  <a class="e-link" href="https://www.elvia.no/">Last ned <i class="e-icon-sm e-icon-download"></i></a>
   <br>
   <br>
-  <a class="e-link e-icon-first" href="https://www.elvia.no/"><i class="e-icon-download"></i> Last ned</a>
+  <a class="e-link e-icon-first" href="https://www.elvia.no/"><i class="e-icon-sm  e-icon-download"></i> Last ned</a>
 `;
-  example6 = `<a class="e-link e-custom" href="https://www.elvia.no/">Se hva du kan gjøre <i class="e-icon-arrow-right"></i></a>
+  example6 = `<a class="e-link e-custom" href="https://www.elvia.no/">Se hva du kan gjøre <i class="e-icon-xxs e-icon-arrow-right"></i></a>
 `;
   example7 = `
 <a class="e-link e-hover" href="https://www.elvia.no/">Se hva du kan gjøre</a>
@@ -42,12 +42,12 @@ export class LinkDocComponent implements OnInit {
 `;
 
 example8 = `<a class="e-link e-jumbo e-m-8" href="https://www.elvia.no/">
-  <span><i class="e-icon-md e-icon-tree-powerline"></i></span>
+  <span><i class="e-icon-xl e-icon-tree-powerline"></i></span>
   <span>Strømledning nær bakken</span>
   <span><i class="e-icon-xs e-icon-arrow-right"></i></span>
 </a>
 <a class="e-link e-jumbo e-m-8" href="https://www.elvia.no/">
-  <span><i class="e-icon-md e-icon-powerline-snow"></i></span>
+  <span><i class="e-icon-xl e-icon-powerline-snow"></i></span>
   <span>Jumbo link med en lang tekst som ikke overskrider 2 linjer</span>
   <span><i class="e-icon-xs  e-icon-arrow-right"></i></span>
 </a>`;
