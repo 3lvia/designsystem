@@ -39,11 +39,13 @@ $button-font-weight: 500;
     cursor: not-allowed;
 
     &:hover {
+      // !important for general pseudoclasses so they overwrite default style. 
       color: rgba(255, 255, 255, 0.75) !important;
       background-color: color("grey-30") !important;
     }
 
     &:focus {
+      // !important for general pseudoclasses so they overwrite default style. 
       border: 2px solid transparent !important;
     }
   }
@@ -163,22 +165,16 @@ $button-font-weight: 500;
       padding: $button-small-padding;
     }
 
-    &:disabled {
-      background: color("grey-30");
-      border: 1px solid transparent;
-      color: rgba(255, 255, 255, 0.75);
-      cursor: not-allowed;
-    }
-
-    &.e-disabled {
+    &:disabled, &.e-disabled  {
       background: color("grey-30");
       border: 1px solid transparent;
       color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
 
       &:hover {
-        background-color: ("green");
-        border: 1px solid transparent;
+        background-color: color("grey-30");
+        // needs !important to override default :hover state on e-secondary class.
+        border: 1px solid transparent !important;
         color: rgba(255, 255, 255, 0.75);
       }
     }
@@ -257,7 +253,7 @@ $button-font-weight: 500;
         }
 
         span {
-          background-size: 20px;
+          background-size: $icon-size;
           background-position: center;
         }
 
