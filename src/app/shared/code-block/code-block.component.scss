@@ -74,7 +74,7 @@ iframe {
         padding: var(--e-spacing-16);
         border-top: none;
         border-left: none;
-        background: #dddddd;
+        background: var(--e-grey-20);
         cursor: pointer;
 
         &.active {

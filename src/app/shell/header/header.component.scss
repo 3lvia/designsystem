@@ -65,9 +65,8 @@
     .tab {
       cursor: pointer;
       margin: 0 24px;
-      width: 150px;
+      width: 170px;
       text-align: center;
-      //To not break text in tabs
       border-bottom: 2px solid transparent;
 
       &.active {

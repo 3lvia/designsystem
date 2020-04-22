@@ -53,10 +53,12 @@
       }
     }
     a.active {
-      background-color: var(--e-grey-50);
+      background-color: var(--e-grey);
+      color: var(--e-white);
     }
     a:hover {
-      background-color: var(--e-grey-30);
+      background-color: var(--e-grey-70);
+      color: var(--e-white);
     }
   }
 }
