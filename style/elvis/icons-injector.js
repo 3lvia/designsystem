@@ -31,7 +31,11 @@
     function getIcon(classList) {
         for(let i = 0; i < classList.length; i++) {
             if(icons[classList[i]]) {
-                return '<img width="100%" height="100%" aria-hidden="true" src="' + icons[classList[i]]  + '"></img>';
+                let icon = '<img width="100%" height="100%" aria-hidden="true" src="' + icons[classList[i]]  + '"></img>';
+                if(icon.indexOf('viewBox') > -1){
+                    return icon;
+                }
+                return icon.replace("%3csvg ", "%3csvg viewBox='0 0 24 24' ");
             }
         }
         console.error("Elvis - No icon found for classes: ", classList);
