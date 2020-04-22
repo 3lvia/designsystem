@@ -1,4 +1,6 @@
 # Elvis - Elvia Designsystem
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a7c263fb-8570-458d-8d9e-4fb84fbb2f8e/deploy-status)](https://app.netlify.com/sites/elvis-designsystem/deploys)
+[![npm version](https://badge.fury.io/js/%40elvia%2Felvis.svg)](https://badge.fury.io/js/%40elvia%2Felvis)
 
 Elvis is a design system for developers and designers at Elvia, supplying them with ready to use css classes for internal and external services provided by Elvia. 
 
@@ -24,10 +26,10 @@ Elvis is the design library Elvia use for external and internal systems. Elvis p
 
 Install the npm package:
 
-``$ npm install @hafslundnett/elvis --save``
+``$ npm install @elvia/elvis --save``
 
 Import main.sass in your stylesheet:
-``@import '~@hafslundnett/elvis/src/main.scss';``
+``@import '~@elvia/elvis/src/main.scss';``
 
 Elvis links:
 - [Elvis npm package](https://www.npmjs.com/package/@elvia/elvis)
