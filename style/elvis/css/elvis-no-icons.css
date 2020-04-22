@@ -542,23 +542,15 @@
       line-height: 21px; } }
   .e-link i {
     position: relative;
-    margin-left: 8px;
-    background-size: cover;
-    height: 24px;
-    width: 24px; }
+    margin-left: 8px; }
   .e-link.e-back i {
     position: relative;
-    margin-left: -8px;
-    background-size: cover;
-    height: 24px;
-    width: 24px; }
+    margin-left: -8px; }
   .e-link.e-icon-first i {
     position: relative;
     margin-left: 0;
     margin-right: 8px;
-    background-size: cover;
-    height: 24px;
-    width: 24px; }
+    background-size: cover; }
   .e-link:hover, .e-link.e-hover {
     border-bottom-color: #29D305;
     text-decoration: #29D305; }
@@ -6305,3 +6297,52 @@ body {
   .e-svg-xxl svg {
     width: 1em !important;
     height: 1em !important; }
+
+.e-icon-xxs {
+  width: 8px;
+  height: 8px; }
+  .e-icon-xxs img {
+    width: 8px;
+    height: 8px; }
+
+.e-icon-xs {
+  width: 16px;
+  height: 16px; }
+  .e-icon-xs img {
+    width: 16px;
+    height: 16px; }
+
+.e-icon-sm {
+  width: 24px;
+  height: 24px; }
+  .e-icon-sm img {
+    width: 24px;
+    height: 24px; }
+
+.e-icon-md {
+  width: 32px;
+  height: 32px; }
+  .e-icon-md img {
+    width: 32px;
+    height: 32px; }
+
+.e-icon-lg {
+  width: 40px;
+  height: 40px; }
+  .e-icon-lg img {
+    width: 40px;
+    height: 40px; }
+
+.e-icon-xl {
+  width: 48px;
+  height: 48px; }
+  .e-icon-xl img {
+    width: 48px;
+    height: 48px; }
+
+.e-icon-xxl {
+  width: 56px;
+  height: 56px; }
+  .e-icon-xxl img {
+    width: 56px;
+    height: 56px; }

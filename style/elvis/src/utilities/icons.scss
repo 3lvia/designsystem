@@ -46,3 +46,14 @@ $sizes: (
         }
     }
 }
+
+@each $label, $size in $sizes {
+    .e-icon-#{$label} {
+        width: $size;
+        height: $size;
+        img {
+            width:$size;
+            height:$size;
+        }
+    }
+}
