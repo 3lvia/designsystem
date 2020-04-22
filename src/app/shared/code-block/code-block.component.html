@@ -53,7 +53,7 @@
     </form>
   </div>
   <div class="component-body__example-body e-border">
-    <div class="tabs" *ngIf="!noPhone && !noTablet || !noPhone && !noDesktop || !noDesktop && !noTablet">
+    <div class="tabs" *ngIf="showTabs">
       <div
         class="tab e-border"
         role="button"

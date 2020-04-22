@@ -24,6 +24,7 @@ export class CodeBlockComponent implements OnInit {
   @Input() noDesktop = false;
 
   showCode = false;
+  showTabs = true;
   screen = 'desktop';
   codepen = '';
 
@@ -32,12 +33,15 @@ export class CodeBlockComponent implements OnInit {
   ngOnInit() {
     if (this.noPhone && this.noTablet) {
       this.screen = 'desktop';
+      this.showTabs = false;
     }
     if (this.noPhone && this.noDesktop) {
       this.screen = 'tablet';
+      this.showTabs = false;
     }
     if (this.noTablet && this.noDesktop) {
       this.screen = 'phone';
+      this.showTabs = false;
     }
   }
 }
