@@ -31,15 +31,15 @@
           />
         </div>
       </div>
-      <!--<button (click)="invert()" class="e-btn" >
+      <button (click)="invert()" class="e-btn" >
       Invert
-    </button>-->
+    </button>
     </div>
     <div class="overview-icons-container e-pt-32" [style.backgroundColor] = "inverted ? 'black' : 'white'">
         <div class="icon-card" *ngFor="let icon of svgIcons | filter: term">
           <app-copy [message]="'e-icon-lg e-icon-' + icon.title">
             <ng-container ngProjectAs="copyContent">
-              <i [class]="'e-icon-md e-icon-' + icon.title"></i>
+              <i [class.e-icon-invert]="inverted" [class]="'e-icon-md e-icon-' + icon.title"></i>
               <p class="e-text-description" [style.color] = "inverted ? 'white' : 'black'">{{ icon.title }}</p>
             </ng-container>
           </app-copy>

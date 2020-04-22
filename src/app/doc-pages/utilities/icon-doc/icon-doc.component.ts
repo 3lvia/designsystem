@@ -50,6 +50,11 @@ example3 = `<div class="e-bg-black e-p-1">
   }
 
 
+  invert(): void {
+    this.inverted = !this.inverted;
+  }
+
+
   fillIconList(): void {
     this.svgIcons = [];
 
