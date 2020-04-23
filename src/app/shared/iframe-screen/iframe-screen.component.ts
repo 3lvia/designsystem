@@ -21,6 +21,8 @@ export class IframeScreenComponent implements AfterViewInit {
 
 
   createIframe() {
+    this.code += '<script src="assets/js/icons-injector.js"></script>';
+
     if (this.screenSize === 'desktop') {
       const doc = this.iframeDesktop.nativeElement.contentWindow.document;
       doc.open();

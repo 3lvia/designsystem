@@ -1,5 +1,4 @@
 (function(){
-    replaceIcons();
     let mo = new MutationObserver(function(mutations){
         for(let i = 0; i < mutations.length; i++) {
             if(mutations[i].target.className && mutations[i].target.className.indexOf('e-icon' > -1)) {
@@ -39,4 +38,6 @@
     }
 
     //[[INJECT_ICONS]]
+
+    replaceIcons();
 })();

@@ -18,7 +18,9 @@ export class IframePreviewComponent implements AfterViewInit {
   createMobilePreview() {
     const doc = this.preview.nativeElement.contentWindow.document;
     doc.open();
-    doc.write(`<html><head>${window.document.head.innerHTML}</head><body><div id="height">${this.code}<div></body></html>`);
+    doc.write(`<html><head>
+    ${window.document.head.innerHTML}
+    </head><body><div id="height">${this.code}<div></body></html>`);
     doc.close();
     const contentHeight = window.getComputedStyle(doc.getElementById('height')).height;
     this.preview.nativeElement.style.height = `${contentHeight}`;

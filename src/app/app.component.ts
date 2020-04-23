@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-// @ts-ignore
-const iconsInjector = require('style/elvis/icons-injector');
 
 @Component({
   selector: 'app-root',
