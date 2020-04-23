@@ -1,7 +1,7 @@
 @import "../variables/colors.scss";
 @import "../utilities/breakpoints.scss";
 
-$iconSizeCustom: 20px;
+$iconSizeCustom: 10px;
 
 .e-link {
   display: inline-flex;
@@ -27,19 +27,11 @@ $iconSizeCustom: 20px;
     margin-left: 8px;
   }
 
-  &.e-back {
-    i {
-      position: relative;
-      margin-left: - 8px;
-    }
-  }
-
   &.e-icon-first {
     i {
-      position: relative;
       margin-left: 0;
       margin-right: 8px;
-      background-size: cover;
+      align-self: center;
     }
   }
 
@@ -84,11 +76,9 @@ $iconSizeCustom: 20px;
     i {
       position: relative;
       margin-left: 8px;
-      background-size: 24px;
-      background-position-x: 60%;
-      background-position-y: 50%;
       height: $iconSizeCustom;
       width: $iconSizeCustom;
+      padding:6px;
       border: 1px solid color("green");
       border-radius: 50%;
       align-self: center;
@@ -111,13 +101,12 @@ $iconSizeCustom: 20px;
     display: inline-flex;
     position: relative;
     padding-right:16px;
-    padding-top:calc(24px - 1em);
 
     i {
       position: absolute;
       margin-left: 8px;
       margin-right: 0px;
-      top:0;
+      top:4px;
       right:0;
     }
   }
