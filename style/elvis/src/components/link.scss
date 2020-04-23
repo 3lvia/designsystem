@@ -1,5 +1,6 @@
 @import "../variables/colors.scss";
 @import "../utilities/breakpoints.scss";
+@import "../utilities/outline.scss";
 
 $iconSizeCustom: 20px;
 
@@ -27,6 +28,15 @@ $iconSizeCustom: 20px;
     margin-left: 8px;
   }
 
+  &.e-hover, &:hover {
+    border-bottom-color: color("green");
+    text-decoration: color("green");
+  }
+
+  &.e-focus, &:focus:not(:active) {
+    @extend .e-outline;
+  }
+
   &.e-back {
     i {
       position: relative;
@@ -41,18 +51,6 @@ $iconSizeCustom: 20px;
       margin-right: 8px;
       background-size: cover;
     }
-  }
-
-  &:hover,
-  &.e-hover {
-    border-bottom-color: color("green");
-    text-decoration: color("green");
-  }
-
-  &:focus,
-  &.e-focus {
-    outline: auto;
-    outline-color: lightblue;
   }
 
   &.e-inline {
@@ -99,11 +97,6 @@ $iconSizeCustom: 20px;
       i {
         background-color: color("green");
       }
-    }
-    &:focus,
-    &.e-focus {
-      outline: auto;
-      outline-color: lightblue;
     }
   }
 
@@ -178,12 +171,7 @@ $iconSizeCustom: 20px;
       }
     }
 
-    //Psudo classes / States
-    &:focus:not(:active), &.e-focus {
-      outline: 0px 0px 0px 2px #00a2c7;
-    }
-
-    &:hover, &.e-hover {
+    &.e-hover, &:hover {
       color: color("black");
       border: 2px solid color("green");
     }

@@ -34,19 +34,17 @@ export class LinkDocComponent implements OnInit {
 `;
   example6 = `<a class="e-link e-custom" href="https://www.elvia.no/">Se hva du kan gjøre <i class="e-icon-xxs e-icon-arrow-right"></i></a>
 `;
-  example7 = `
+example7 = `<div><a class="e-link e-jumbo e-my-8" href="https://www.elvia.no/">
+  <span><i class="e-icon-xl e-icon-powerline-snow"></i></span>
+  <span>Strømledning nær bakken</span>
+  <span><i class="e-icon-xs e-icon-arrow-right"></i></span>
+</a></div>`;
+  example8 = `
 <a class="e-link e-hover" href="https://www.elvia.no/">Se hva du kan gjøre</a>
 <br>
 <br>
 <a class="e-link e-focus" href="https://www.elvia.no/">Se hva du kan gjøre</a>
 `;
-
-example8 = `<div><a class="e-link e-jumbo e-my-8" href="https://www.elvia.no/">
-  <span><i class="e-icon-xl e-icon-powerline-snow"></i></span>
-  <span>Strømledning nær bakken</span>
-  <span><i class="e-icon-xs e-icon-arrow-right"></i></span>
-</a></div>`;
-
 
   constructor() { }
 
