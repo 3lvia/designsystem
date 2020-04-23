@@ -13,8 +13,8 @@ export class LabelDocComponent implements OnInit {
   headerDonts = 'Labels are not used alone. Not if there are numeric values in a label, then data-labels should be used.';
 
   example1 = `<span class="e-label e-m-8">Skjema</span>
-<span class="e-label e-m-8">ARTIKKEL</span>
-<span class="e-label e-m-8">rapport</span>
+<span class="e-label e-m-8">Artikkel</span>
+<span class="e-label e-m-8">Rapport</span>
 `;
 
   example2 = `<span class="e-label e-safe e-m-8">Ny</span>
