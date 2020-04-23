@@ -570,14 +570,10 @@
   .e-link i {
     position: relative;
     margin-left: 8px; }
-  .e-link.e-back i {
-    position: relative;
-    margin-left: -8px; }
   .e-link.e-icon-first i {
-    position: relative;
     margin-left: 0;
     margin-right: 8px;
-    background-size: cover; }
+    align-self: center; }
   .e-link:hover, .e-link.e-hover {
     border-bottom-color: #29D305;
     text-decoration: #29D305; }
@@ -606,11 +602,9 @@
     .e-link.e-custom i {
       position: relative;
       margin-left: 8px;
-      background-size: 24px;
-      background-position-x: 60%;
-      background-position-y: 50%;
-      height: 20px;
-      width: 20px;
+      height: 10px;
+      width: 10px;
+      padding: 6px;
       border: 1px solid #29D305;
       border-radius: 50%;
       align-self: center; }
@@ -622,13 +616,12 @@
   .e-link.e-external {
     display: inline-flex;
     position: relative;
-    padding-right: 16px;
-    padding-top: calc(24px - 1em); }
+    padding-right: 16px; }
     .e-link.e-external i {
       position: absolute;
       margin-left: 8px;
       margin-right: 0px;
-      top: 0;
+      top: 4px;
       right: 0; }
   .e-link.e-jumbo {
     border: 2px solid #000;
