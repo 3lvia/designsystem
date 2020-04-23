@@ -23,7 +23,7 @@ export class LinkDocComponent implements OnInit {
   example3 = `<a class="e-link e-external" href="https://www.elvia.no/">Se mer <i class="e-icon-xxs e-icon-arrow-external"></i></a>
 `;
 
-  example4 = `<a class="e-link e-back" href="https://www.elvia.no/"><i class="e-icon-arrow-left e-icon-xxs"></i> Tilbake</a>
+  example4 = `<a class="e-link e-icon-first" href="https://www.elvia.no/"><i class="e-icon-arrow-left e-icon-xxs"></i> Tilbake</a>
 `;
 
   example5 = `
@@ -32,7 +32,7 @@ export class LinkDocComponent implements OnInit {
   <br>
   <a class="e-link e-icon-first" href="https://www.elvia.no/"><i class="e-icon-sm  e-icon-download"></i> Last ned</a>
 `;
-  example6 = `<a class="e-link e-custom" href="https://www.elvia.no/">Se hva du kan gjøre <i class="e-icon-xxs e-icon-arrow-right"></i></a>
+  example6 = `<a class="e-link e-custom" href="https://www.elvia.no/">Se hva du kan gjøre <i class="e-icon-arrow-right"></i></a>
 `;
 example7 = `<div><a class="e-link e-jumbo e-my-8" href="https://www.elvia.no/">
   <span><i class="e-icon-xl e-icon-powerline-snow"></i></span>
