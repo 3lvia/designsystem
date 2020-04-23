@@ -1,7 +1,6 @@
 @import "../variables/colors.scss";
 @import "../utilities/breakpoints.scss";
 
-$iconSize: 24px;
 $iconSizeCustom: 20px;
 
 .e-link {
@@ -26,18 +25,12 @@ $iconSizeCustom: 20px;
   i {
     position: relative;
     margin-left: 8px;
-    background-size: cover;
-    height: $iconSize;
-    width: $iconSize;
   }
 
   &.e-back {
     i {
       position: relative;
       margin-left: - 8px;
-      background-size: cover;
-      height: $iconSize;
-      width: $iconSize;
     }
   }
 
@@ -47,8 +40,6 @@ $iconSizeCustom: 20px;
       margin-left: 0;
       margin-right: 8px;
       background-size: cover;
-      height: $iconSize;
-      width: $iconSize;
     }
   }
 
@@ -119,12 +110,15 @@ $iconSizeCustom: 20px;
   &.e-external {
     display: inline-flex;
     position: relative;
+    padding-right:16px;
+    padding-top:calc(24px - 1em);
 
     i {
-      position: relative;
+      position: absolute;
       margin-left: 8px;
       margin-right: 0px;
-      background-size: 24px;
+      top:0;
+      right:0;
     }
   }
 

@@ -18,7 +18,6 @@ export enum Pages {
     ComponentsStart = 'components',
     // Children
     OverviewComp = 'overview-comp-doc',
-    Badge = 'badge-doc',
     Button = 'button-doc',
     Card = 'card-doc',
     Checkbox = 'checkbox-doc',
@@ -29,6 +28,7 @@ export enum Pages {
     FileUpload = 'fileUpload-doc',
     Header = 'header-doc',
     Input = 'input-doc',
+    Label = 'label-doc',
     Link = 'link-doc',
     List = 'list-doc',
     Notification = 'notification-dot-doc',

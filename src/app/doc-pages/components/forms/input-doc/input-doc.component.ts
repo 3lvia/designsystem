@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class InputDocComponent implements OnInit {
 
   headerDoes = 'A input should be used';
-  headerDonts = 'A badge should not be used';
+  headerDonts = 'A label should not be used';
 
   externalUrl = getComponent('input-doc').externalUrl;
   componentStatus = getComponent('input-doc').status;

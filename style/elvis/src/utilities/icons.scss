@@ -26,23 +26,9 @@ $sizes: (
     .e-icon-#{$label} {
         width: $size;
         height: $size;
-        img, svg {
-            width:$size !important;
-            height:$size !important;
-        }
-    }
-}
-
-@each $label, $size in $sizes {
-    .e-svg-#{$label} {
-        display:inline-block;
-        width: $size;
-        height:$size;
-        font-size:$size;
-        line-height: $size;
-        svg {
-            width:1em !important;
-            height:1em !important;
+        img {
+            width:$size;
+            height:$size;
         }
     }
 }

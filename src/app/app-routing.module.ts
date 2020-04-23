@@ -5,7 +5,7 @@ import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
 import { ButtonDocComponent } from './doc-pages/components/button-doc/button-doc.component';
-import { BadgeDocComponent } from './doc-pages/components/badge-doc/badge-doc.component';
+import { LabelDocComponent } from './doc-pages/components/label-doc/label-doc.component';
 import { CardDocComponent } from './doc-pages/components/card-doc/card-doc.component';
 import { DropdownDocComponent } from './doc-pages/components/dropdown-doc/dropdown-doc.component';
 import { FeedbackDocComponent } from './doc-pages/components/feedback-doc/feedback-doc.component';
@@ -99,8 +99,8 @@ const routes: Routes = [
             component: OverviewComponent
           },
           {
-            path: Pages.Badge,
-            component: BadgeDocComponent
+            path: Pages.Label,
+            component: LabelDocComponent
           },
           {
             path: Pages.Button,

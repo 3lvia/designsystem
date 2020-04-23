@@ -18,7 +18,6 @@ export class TypographyDocComponent  {
   typographyItems = typographyItems;
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
-  componentClasses = ['e-title', 'e-text', 'e-label'];
   externalUrl = getUtilities('typography-doc').externalUrl;
   componentStatus = getUtilities('typography-doc').status;
 

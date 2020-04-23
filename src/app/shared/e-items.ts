@@ -49,13 +49,6 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-message?node-id=0%3A1'
     },
     {
-        title: 'Badge',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Badge,
-        status: ItemStatus.Coming,
-        actionText: 'View component',
-    },
-    {
         title: 'Button',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Button,
@@ -123,12 +116,19 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
     },
     {
+        title: 'Label',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Label,
+        status: ItemStatus.New,
+        actionText: 'View component',
+    },
+    {
         title: 'Link',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Link,
         status: ItemStatus.New,
         actionText: 'View component',
-        externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons',
+        externalUrl: 'https://www.figma.com/file/sgrg5TId3ewAFznKBFh2Wb/Links',
     },
     {
         title: 'List',
@@ -234,13 +234,14 @@ export const eUtilities: EItems[] = [
         actionText: 'View colors',
         externalUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=192%3A4'
     },
-    // {
-    //     title: 'Shadow',
-    //     description: 'Some useful component with amazing features',
-    //     docUrl: Pages.Shadow,
-    //     status: ItemStatus.Coming,
-    //     actionText: 'View utility',
-    // },
+    {
+        title: 'Shadow',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Shadow,
+        status: ItemStatus.New,
+        actionText: 'View utility',
+        externalUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow'
+    },
     {
         title: 'Spacing',
         description: 'Some useful component with amazing features',

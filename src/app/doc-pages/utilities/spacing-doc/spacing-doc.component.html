@@ -1,6 +1,5 @@
 <!--HEADER-->
 <app-component-header
-  [componentClasses]="componentClasses"
   [componentStatus]="componentStatus"
   [externalUrl]="externalUrl"
   [tabs]="tabs"
@@ -21,7 +20,7 @@
   <!--Overview-->
   <div *ngIf="selected == tabNames.Overview">
     <h2 class="e-title-md">Spacing</h2>
-    <p class="e-text-body">Following the 8-point grid system.</p>
+    <p class="e-text-description">Following the 8-point grid system.</p>
     <div class="display-container centered-content">
       <div class="display-card" *ngFor="let item of spacingItems">
         <app-copy [message]="item.className">
@@ -46,7 +45,7 @@
   <div *ngIf="selected == tabNames.Guidelines">
     <div>
       <h2 class="e-title-md">Using Classes</h2>
-      <p class="e-text-body">
+      <p class="e-text-description">
         All spacing can be used through a set of classes. The <code class="code-text">e-p-64</code> sets padding to the size of the last number. 
         The padding and margin sizes are multiplications of 0.5rem (8px), meaning 
         <code class="code-text">e-m-24</code> equals <code class="code-text">margin: 24px</code>. The classes are available from 0 to 72.
@@ -77,7 +76,7 @@
     </div>
     <div>
       <h2 class="e-title-md">Using CSS-variables</h2>
-      <p class="e-text-body">
+      <p class="e-text-description">
         All spacing can be used through their CSS-variable as well. 
       </p>
       <h3 class="e-title-sm">Variables</h3>
@@ -85,10 +84,10 @@
         <li><code class="code-text">var(--e-spacing-number)</code></li>
       </ul>
       <h3 class="e-title-sm">Do's and Don'ts</h3>
-      <p class="e-text-body">
+      <p class="e-text-description">
         All CSS-variables can be used.
       </p>
-      <p class="e-text-body">
+      <p class="e-text-description">
         <app-do-dont [isSCSS]="true" [do]="true" [example]="doCodeCSS"></app-do-dont>
         <app-do-dont [isSCSS]="true" [do]="false" [example]="dontCodeCSS"></app-do-dont>
       </p>

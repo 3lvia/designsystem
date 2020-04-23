@@ -1,0 +1,65 @@
+@import '../variables/colors.scss';
+@import '../variables/borders.scss';
+@import '../utilities/breakpoints.scss';
+
+$label-padding: 4px 11px;
+$label-padding-mobile: 2px 7px;
+$label-radius: 4px;
+$label-font-size: 11px;
+
+%status-content {
+  display: inline-flex;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  margin-right: 8px;
+  @include breakpoint-up(Mobile) {
+    margin-right: 6px;
+  }
+}
+
+.e-label {
+  display: inline-flex;
+  align-items: center;
+  padding: $label-padding;
+  border-radius: $label-radius;
+  font-size: $label-font-size;
+  line-height: 160%;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: color('grey-10');
+  color: color('black');
+
+  @include breakpoint-up(Mobile) {
+    padding: $label-padding-mobile;
+  }
+
+  &.e-safe {
+    &::before {
+      content: ' ';
+      background-color: color('green');
+      @extend %status-content;
+    }
+  }
+  &.e-warn {
+    &::before {
+      content: ' ';
+      background-color: color('orange');
+      @extend %status-content;
+    }
+  }
+  &.e-danger {
+    &::before {
+      content: ' ';
+      background-color: color('red');
+      @extend %status-content;
+    }
+  }
+  &.e-info {
+    &::before {
+      content: ' ';
+      background-color: color('blue-blueberry');
+      @extend %status-content;
+    }
+  }
+}
