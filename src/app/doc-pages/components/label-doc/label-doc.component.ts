@@ -17,10 +17,10 @@ export class LabelDocComponent implements OnInit {
 <span class="e-label e-m-8">rapport</span>
 `;
 
-  example2 = `<span class="e-label e-is-safe e-m-8">Ny</span>
-<span class="e-label e-is-danger e-m-8">Farlig</span>
-<span class="e-label e-is-warn e-m-8">Advarsel</span>
-<span class="e-label e-is-info e-m-8">Info</span>
+  example2 = `<span class="e-label e-safe e-m-8">Ny</span>
+<span class="e-label e-danger e-m-8">Farlig</span>
+<span class="e-label e-warn e-m-8">Advarsel</span>
+<span class="e-label e-info e-m-8">Info</span>
 `;
 
   constructor() { }

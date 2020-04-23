@@ -34,28 +34,28 @@ $label-font-size: 11px;
     padding: $label-padding-mobile;
   }
 
-  &.e-is-safe {
+  &.e-safe {
     &::before {
       content: ' ';
       background-color: color('green');
       @extend %status-content;
     }
   }
-  &.e-is-warn {
+  &.e-warn {
     &::before {
       content: ' ';
       background-color: color('orange');
       @extend %status-content;
     }
   }
-  &.e-is-danger {
+  &.e-danger {
     &::before {
       content: ' ';
       background-color: color('red');
       @extend %status-content;
     }
   }
-  &.e-is-info {
+  &.e-info {
     &::before {
       content: ' ';
       background-color: color('blue-blueberry');
