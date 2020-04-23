@@ -234,13 +234,14 @@ export const eUtilities: EItems[] = [
         actionText: 'View colors',
         externalUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=192%3A4'
     },
-    // {
-    //     title: 'Shadow',
-    //     description: 'Some useful component with amazing features',
-    //     docUrl: Pages.Shadow,
-    //     status: ItemStatus.Coming,
-    //     actionText: 'View utility',
-    // },
+    {
+        title: 'Shadow',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Shadow,
+        status: ItemStatus.New,
+        actionText: 'View utility',
+        externalUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow'
+    },
     {
         title: 'Spacing',
         description: 'Some useful component with amazing features',
