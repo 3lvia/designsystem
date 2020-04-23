@@ -9,7 +9,8 @@ import { heightDown } from 'src/app/shared/animations';
 })
 
 
-export class CodeBlockComponent implements OnInit {
+export class CodeBlockComponent implements OnInit, AfterViewInit {
+  @ViewChild('defaultFrame') defaultFrame;
   @Input() title = '';
   @Input() class: string[];
   @Input() description = '';
@@ -19,6 +20,7 @@ export class CodeBlockComponent implements OnInit {
   @Input() isHTML = false;
   @Input() isSCSS = false;
   @Input() code = '';
+  @Input() showIframeScreens = false;
   @Input() noPhone = false;
   @Input() noTablet = false;
   @Input() noDesktop = false;
@@ -31,17 +33,25 @@ export class CodeBlockComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    if (this.noPhone && this.noTablet) {
-      this.screen = 'desktop';
-      this.showTabs = false;
+    if (this.showIframeScreens) {
+      if (this.noPhone && this.noTablet) {
+        this.screen = 'desktop';
+        this.showTabs = false;
+      }
+      if (this.noPhone && this.noDesktop) {
+        this.screen = 'tablet';
+        this.showTabs = false;
+      }
+      if (this.noTablet && this.noDesktop) {
+        this.screen = 'phone';
+        this.showTabs = false;
+      }
     }
-    if (this.noPhone && this.noDesktop) {
-      this.screen = 'tablet';
-      this.showTabs = false;
-    }
-    if (this.noTablet && this.noDesktop) {
-      this.screen = 'phone';
-      this.showTabs = false;
+  }
+
+  ngAfterViewInit() {
+    if (!this.showIframeScreens) {
+      this.defaultFrame.nativeElement.innerHTML = this.code;
     }
   }
 }
