@@ -67,6 +67,7 @@ async function createEmbeddedIconsJS() {
   const template = fs.readFileSync('./src/templates/icons-injector.template.js').toString();
   const newContent = template.replace('//[[INJECT_ICONS]]', embeddedJs);
   fs.writeFileSync('icons-injector.js', newContent);
+  fs.writeFileSync('../../src/assets/js/icons-injector.js', newContent);
 
   return true;
 }
@@ -100,7 +101,6 @@ async function createIconModule() {
   const template = fs.readFileSync('./src/templates/icons.template.js').toString();
   const newContent = template.replace('//[[INJECT_ICONS]]', jsModule);
   fs.writeFileSync('./icons.js', newContent);
-
   return true;
 }
 
