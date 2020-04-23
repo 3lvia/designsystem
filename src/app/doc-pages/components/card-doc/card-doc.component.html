@@ -17,21 +17,16 @@
   <app-code-block
     [isHTML]="true"
     [code]="example1"
-    [title]="'Card 1'"
+    [title]="'Card'"
+    [class]="['e-card']"
+    [description]="'Regular card with title and text'"
+    [greyBg]="true"
   ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example2"
-    [title]="'Card 2'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example3"
-    [title]="'Card 3'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example4"
-    [title]="'Card 4'"
-  ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example2"
+      [title]="'On white background'"
+      [class]="['e-card-bg-white']"
+      [description]="'Stronger box shadow on white background for depth'"
+    ></app-code-block>
 </div>

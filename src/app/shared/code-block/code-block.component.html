@@ -71,7 +71,9 @@
         Smartphone
       </div>
     </div>
-    <div class="element">
+    <div 
+      class="element" 
+      [ngClass]="greyBg ? 'e-bg-grey-02' : 'e-bg-white'">
       <div
         class="smartphone-preview"
         [ngClass]="{ hide: showSmartphone === false }"

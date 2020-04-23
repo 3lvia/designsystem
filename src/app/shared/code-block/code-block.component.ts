@@ -23,6 +23,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() code = '';
   @Input() onlyPhone = false;
   @Input() onlyDesktop = false;
+  @Input() greyBg = false;
 
   showCode = false;
   showSmartphone = false;
