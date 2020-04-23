@@ -128,7 +128,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Link,
         status: ItemStatus.New,
         actionText: 'View component',
-        externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons',
+        externalUrl: 'https://www.figma.com/file/sgrg5TId3ewAFznKBFh2Wb/Links',
     },
     {
         title: 'List',
