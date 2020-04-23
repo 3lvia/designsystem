@@ -20,7 +20,6 @@ export class ColorDocComponent implements OnInit {
   componentStatus = getUtilities('color-doc').status;
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
-  componentClasses = ['e-text', 'e-bg'];
   colors: string[] = ['red', 'green'];
 
   doCode = `<div class="e-bg-green"></div>`;

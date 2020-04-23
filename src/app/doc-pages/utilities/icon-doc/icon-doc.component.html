@@ -1,6 +1,5 @@
 <!--HEADER-->
 <app-component-header
-  [componentClasses]="componentClasses"
   [componentStatus]="componentStatus"
   [externalUrl]="externalUrl"
   [tabs]="tabs"
@@ -20,7 +19,7 @@
   <div class="overview" *ngIf="selected == tabNames.Overview">
     <h2 class="e-title-md">Icons</h2>
     
-    <p class="e-text-body">Search through all the available icons here.</p>
+    <p class="e-text-description">Search through all the available icons here.</p>
     <div class="overview-search-container">
       <div class="e-form_field">
         <div class="e-input">
@@ -71,31 +70,31 @@
   <div *ngIf="selected == tabNames.Guidelines">
     <div>
         <h2 class="e-title-md">Method 1: Easiest</h2>
-        <p class="e-text-body">
+        <p class="e-text-description">
             Add <code class="code-text">&#x3C;script src="icons-injector.js">&#x3C;/script&#x3E;</code>to the bottom of your body tag.
         </p>
-        <p class="e-text-body">
+        <p class="e-text-description">
             Use icons like this:
             <code class="code-text">class="e-md e-icon-chat"</code>
         </p>
 
       <h2 class="e-title-md">Method 2: Using JS Module / SVGs</h2>
-      <p class="e-text-body">
+      <p class="e-text-description">
           All icons are accessible as SVGs within a JS module.
           Import the required icon individually where you need them:
       </p>
-      <p class="e-text-body">
+      <p class="e-text-description">
         <code class="code-text">import {{ '{' }} addCircle {{ '}' }} from '@elvia/elvis/icons'</code>
       </p>
-      <p class="e-text-body">
+      <p class="e-text-description">
         To get the icon you can use the following: 
         <code class="code-text">addCircle.getIcon()</code>
       </p>
-      <p class="e-text-body">
+      <p class="e-text-description">
         If you want a inverted icon use the following:
         <code class="code-text">addCircle.getIcon('white')</code>
       </p>
-      <p class="e-text-body">
+      <p class="e-text-description">
         Or set the color yourself with a hex:  
         <code class="code-text">addCircle.getIcon('#bdbdbd')</code>
       </p>

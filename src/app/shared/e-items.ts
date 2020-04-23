@@ -49,13 +49,6 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-message?node-id=0%3A1'
     },
     {
-        title: 'Badge',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Badge,
-        status: ItemStatus.Coming,
-        actionText: 'View component',
-    },
-    {
         title: 'Button',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Button,
@@ -121,6 +114,13 @@ export const eComponents: EItems[] = [
         status: ItemStatus.New,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
+    },
+    {
+        title: 'Label',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Label,
+        status: ItemStatus.New,
+        actionText: 'View component',
     },
     {
         title: 'Link',

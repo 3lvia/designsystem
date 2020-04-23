@@ -1,0 +1,32 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [does]="headerDoes"
+  [donts]="headerDonts"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Labels
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Labels contain text information. Use labels to highlight content.
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--Overview-->
+  <div>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example1"
+      [title]="'Labels'"
+      [class]="['e-label']"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example2"
+      [title]="'Labels with status'"
+      [class]="['e-safe', 'e-danger', 'e-warn', 'e-info']"
+    ></app-code-block>
+  </div>
+</div>

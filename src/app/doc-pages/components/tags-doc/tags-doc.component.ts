@@ -9,7 +9,6 @@ import { getComponent } from 'src/app/shared/e-items';
 export class TagsDocComponent implements OnInit {
 
   componentStatus = getComponent('tags-doc').status;
-  componentClasses = ['e-tags', 'e-tags_item'];
 
   example1 = `<div class="e-tags">
   <span class="e-tags_item">707057500051628391</span>

@@ -9,7 +9,6 @@ import { getComponent } from 'src/app/shared/e-items';
 export class DropdownDocComponent implements OnInit {
 
   componentStatus = getComponent('dropdown-doc').status;
-  componentClasses = ['e-form_input', 'e-dropdown'];
 
   example1 = `<div class="e-form_input e-dropdown is-focus">
   <i class="fal fa-search e-form_input_icon"></i>

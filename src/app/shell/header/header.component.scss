@@ -58,7 +58,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 8px;
     top: 80px;
     overflow: hidden;
     z-index: 11;
@@ -66,18 +65,17 @@
     .tab {
       cursor: pointer;
       margin: 0 24px;
-      width: 150px;
+      width: 170px;
       text-align: center;
-      //To not break text in tabs
-      border-bottom: 4px solid transparent;
+      border-bottom: 2px solid transparent;
 
       &.active {
         font-weight: bold;
-        border-bottom: 4px solid var(--e-green);
+        border-bottom: 2px solid var(--e-green);
       }
       &:hover {
         font-weight: bold;
-        border-bottom: 4px solid var(--e-green);
+        border-bottom: 2px solid var(--e-green);
       }
     }
   }

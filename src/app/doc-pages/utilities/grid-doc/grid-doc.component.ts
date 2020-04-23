@@ -12,7 +12,6 @@ export class GridDocComponent implements OnInit {
   tabNames = TabNames;
   selected = TabNames.Overview;
   tabs = [TabNames.Overview, TabNames.Guidelines];
-  componentClasses = ['e-grid'];
   componentStatus = getUtilities('grid-doc').status;
   externalUrl = getUtilities('grid-doc').externalUrl;
 

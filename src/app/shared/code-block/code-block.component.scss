@@ -15,12 +15,8 @@ iframe {
     margin-right: 1rem;
   }
 
-  &-class {
-    margin: 0px 4px;
-    margin-bottom: 0.5rem;
-    padding: 4px 16px;
-    border-radius: 14px;
-    width: fit-content;
+  .example-classes {
+    font-size: 14px;
   }
 
   &-description {
@@ -64,7 +60,7 @@ iframe {
         padding: var(--e-spacing-16);
         border-top: none;
         border-left: none;
-        background: #dddddd;
+        background: var(--e-grey-20);
         cursor: pointer;
 
         &.active {
