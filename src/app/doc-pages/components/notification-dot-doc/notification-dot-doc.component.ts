@@ -9,7 +9,6 @@ import { getComponent } from 'src/app/shared/e-items';
 export class NotificationDotDocComponent implements OnInit {
 
   componentStatus = getComponent('notification-dot-doc').status;
-  componentClasses = ['e-notification-dot'];
 
   example1 = `<div class="example-margin">
   <i class="fal fa-cog"><span class="e-notification-dot"></span></i>

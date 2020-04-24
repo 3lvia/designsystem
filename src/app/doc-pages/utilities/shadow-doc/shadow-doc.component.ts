@@ -12,16 +12,13 @@ export class ShadowDocComponent implements OnInit {
   @Input() selected = TabNames.Overview;
 
   tabNames = TabNames;
-  tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
-  componentClasses = ['e-shadow'];
+  tabs = [TabNames.Overview, TabNames.Guidelines];
   componentStatus = getUtilities('shadow-doc').status;
+  externalUrl = getUtilities('shadow-doc').externalUrl;
 
-  doCodeCSS = `box-shadow: var(--e-shadow-2);
+  doCodeCSS = `box-shadow: var(--e-shadow-6);
 box-shadow: none;`;
   dontCodeCSS = `box-shadow: var(--e-shadow-none);`;
-  example1 = `<span class="e-shadow-1 e-mb-16 e-mt-16 example-box"></span>
-<span class="e-shadow-2 e-mb-16 e-mt-16 example-box"></span>
-<span class="e-shadow-3 e-mb-16 e-mt-16 example-box"></span>`;
 
   constructor() { }
 

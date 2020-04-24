@@ -9,7 +9,6 @@ import { ItemStatus } from './../item-status.enum';
 export class ComponentHeaderComponent implements OnInit {
 
   @Input() componentStatus = '';
-  @Input() componentClasses: string[];
   @Input() tabs: string[];
   @Input() does = '';
   @Input() donts = '';

@@ -10,7 +10,6 @@ export class FeedbackDocComponent implements OnInit {
 
   externalUrl = getComponent('feedback-doc').externalUrl;
   componentStatus = getComponent('feedback-doc').status;
-  componentClasses = ['e-feedback-message'];
 
   example1 = `<div class="e-feedback-message">
   <i class="fal fa-info-circle e-feedback-message_icon"></i>

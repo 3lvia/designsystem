@@ -15,7 +15,6 @@ export class SpacingDocComponent implements OnInit {
   spacingItems = spacingItems;
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
-  componentClasses = ['e-p', 'e-m'];
   componentStatus = getUtilities('spacing-doc').status;
   externalUrl = getUtilities('spacing-doc').externalUrl;
 

@@ -35,9 +35,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 16px;
+      padding: var(--e-spacing-16);
       width: 100%;
       align-items: center;
+      font-size: 1.125rem;
+      line-height: 140%;
 
       .navbar-item-title {
         float: left;
@@ -46,26 +48,17 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
-      .e-badge {
+      .e-label {
         float: right;
       }
     }
     a.active {
-      color: var(--e-white);
       background-color: var(--e-grey);
-      
-      .navbar-item-title::after {
-        content: '';
-        display: inline-flex;
-        margin-left: 9px;
-        height: 11px;
-        width: 11px;
-        border-radius: 50%;
-        background-color: var(--e-green);
-      }
+      color: var(--e-white);
     }
-    a:hover:not(.active) {
-      background-color: var(--e-grey-30);
+    a:hover {
+      background-color: var(--e-grey-70);
+      color: var(--e-white);
     }
   }
 }

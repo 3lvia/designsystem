@@ -3,19 +3,30 @@
 @import "../variables/shared-sizes.scss";
 @import "../utilities/animations.scss";
 @import "../utilities/helpers.scss";
+@import "../variables/spacing";
+@import "../utilities/breakpoints.scss";
 
 $button-radius: 24px;
 $button-border-width: 1px;
 $extra-border-hover: 1px;
 $button-padding-top-bottom: 12px;
 $button-padding-left-right: 32px;
+$button-small-padding-top-bottom: 10px;
+$button-small-padding-left-right: 24px;
 $button-padding: $button-padding-top-bottom $button-padding-left-right;
+$button-small-padding: $button-small-padding-top-bottom $button-small-padding-left-right;
+
 $icon-button-height: 24px;
 $icon-button-font-size: 24px;
 $icon-button-height-with-border: $icon-button-height - $button-border-width; // Subtract width of border to match size of buttons without border
 $icon-button-padding: 24px;
-$icon-size: 24px;
-$button-font-size: 1rem;
+$icon-button-padding-top-bottom: 14px;
+$icon-size: 20px;
+$button-font-size: 18px;
+$button-small-font-size: 16px;
+$button-line-height: 24px;
+$button-small-line-height: 21px;
+$button-font-weight: 500;
 
 .e-btn {
   // .is-primary is the default for any e-button
@@ -23,14 +34,18 @@ $button-font-size: 1rem;
 
   &.e-disabled {
     background: color("grey-30");
+    border: transparent;
     color: rgba(255, 255, 255, 0.75);
     cursor: not-allowed;
 
     &:hover {
+      // !important for general pseudoclasses so they overwrite default style. 
       color: rgba(255, 255, 255, 0.75) !important;
+      background-color: color("grey-30") !important;
     }
 
     &:focus {
+      // !important for general pseudoclasses so they overwrite default style. 
       border: 2px solid transparent !important;
     }
   }
@@ -40,28 +55,40 @@ $button-font-size: 1rem;
   }
 
   &.e-hover:not(.disabled) {
-    color: color("green");
+    background: color("green");
+    border: color("green");
+    color: color("black");
   }
 
   &.e-active {
-    color: color("green");
-    border-color: color("green");
+    background: color("green");
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    color: color("black");
   }
 
   &.is-primary {
     display: inline-block;
-    border: 2px solid transparent;
-    border-radius: $button-radius;
     padding: $button-padding;
     font-size: $button-font-size;
+    font-weight: $button-font-weight;
+    line-height: $button-line-height;
+    border: 2px solid color("black");
+    border-radius: $button-radius;
     background: color("black");
     color: color("white");
     outline: none;
     cursor: pointer;
-    box-sizing: border-box;
+
+    @include breakpoint-up(Mobile) {
+      font-size: $button-small-font-size;
+      line-height: $button-small-line-height;
+      padding: $button-small-padding;
+    }
 
     &:disabled {
       background: color("grey-30");
+      border-color: transparent;
       color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
     }
@@ -74,44 +101,81 @@ $button-font-size: 1rem;
     // Changes button-text on hover/active/focus
     &:enabled {
       &:hover:not(:focus) {
-        color: color("green");
+        background-color: color("green");
+        border-color: color("green");
+        color: color("black");
       }
 
       &:active {
-        color: color("green");
-        border-color: color("green");
+        background-color: color("green");
+        border-color: transparent;
+        background-clip: padding-box;
+        color: color("black");
+      }
+    }
+
+    &.e-btn-small {
+      font-size: $button-small-font-size;
+      line-height: $button-small-line-height;
+      padding: 10px 24px;
+
+      @include breakpoint-up(Mobile) {
+        padding: 8px 16px;
+      }
+    }
+
+    // When button with text has icon
+    // Is a modifier for primary and secondary because of different borders and padding
+    &.e-has-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: $button-radius;
+      background-size: cover;
+
+      span {
+        // standard size for icons in default size buttons
+        background-size: $icon-size;
+        background-position: center;
+        // negative margin on icons to not expand the button height
+        margin-top: -spacing("1");
+        margin-bottom: -spacing("1");
       }
     }
   }
 
   &.e-btn-secondary {
     display: inline-block;
-    border: 2px solid transparent;
-    box-shadow: 0px 0px 0px 1px color("black");
+    border: 1px solid color("black");
     border-radius: $button-radius;
-    padding: $button-padding + 1px;
+    padding-left: $button-padding-left-right;
+    padding-right: $button-padding-left-right;
+    padding-top: $button-padding-top-bottom;
+    padding-bottom: $button-padding-top-bottom;
     font-size: $button-font-size;
+    line-height: $button-line-height;
     background: color("white");
     color: color("black");
     outline: none;
     cursor: pointer;
-    box-sizing: border-box;
 
-    &:disabled {
-      background: color("grey-30");
-      color: rgba(255, 255, 255, 0.75);
-      cursor: not-allowed;
-      box-shadow: none;
+    @include breakpoint-up(Mobile) {
+      font-size: $button-small-font-size;
+      line-height: $button-small-line-height;
+      padding: $button-small-padding;
     }
 
-    &.e-disabled {
+    &:disabled, &.e-disabled  {
       background: color("grey-30");
+      border: 1px solid transparent;
       color: rgba(255, 255, 255, 0.75);
       cursor: not-allowed;
-      box-shadow: none;
 
       &:hover {
-        box-shadow: 0px 0px 0px 1px transparent !important;
+        background-color: color("grey-30");
+        // needs !important to override default :hover state on e-secondary class.
+        border: 1px solid transparent !important;
+        color: rgba(255, 255, 255, 0.75);
       }
     }
 
@@ -125,49 +189,116 @@ $button-font-size: 1rem;
     // Changes button-text on hover/active/focus
     &:enabled {
       &:hover:not(:focus) {
-        color: color("black");
-        box-shadow: 0px 0px 0px 1px color("green");
+        background-color: ("green");
+        border: 1px solid color("green");
       }
 
       &:active {
-        color: color("black");
-        box-shadow: 0px 0px 0px 2px color("green");
+        background-color: ("green");
+        background-clip: padding-box;
+        border: 2px solid transparent;
+        // -1px due to different border width on primary and secondary. Secondary needs 1 px less. 
+        padding-left: $button-padding-left-right - 1px;
+        padding-right: $button-padding-left-right - 1px;
+        padding-top: $button-padding-top-bottom - 1px;
+        padding-bottom: $button-padding-top-bottom - 1px;
+
+        @include breakpoint-up(Mobile) {
+          padding-left: $button-small-padding-left-right - 1px;
+          padding-right: $button-small-padding-left-right - 1px;
+          padding-top: $button-small-padding-top-bottom - 1px;
+          padding-bottom: $button-small-padding-top-bottom - 1px;
+        }
       }
     }
 
     &.e-hover {
       color: color("black");
-      box-shadow: 0px 0px 0px 1px color("green");
+      background-color: ("green");
+      border: 1px solid color("green");
     }
 
     &.e-active {
       color: color("black");
-      box-shadow: 0px 0px 0px 2px color("green");
-    }
-  }
-
-  // When button with text has icon
-  &.e-has-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: $button-radius;
-    padding-left: $icon-button-padding;
-    padding-right: $icon-button-padding;
-
-    span {
-      // standard size for buttons in large buttons
-      background-size: $icon-size;
-      background-position: center;
-      // negative margin on icons to not expand the button height
-      margin-top: - 8px;
-      margin-bottom: - 8px;
+      background: color("green");
+      border-color: transparent;
     }
 
+    &.e-btn-small {
+      font-size: $button-small-font-size;
+      line-height: $button-small-line-height;
+      padding: 10px 24px;
+
+      @include breakpoint-up(Mobile) {
+        padding: 8px 16px;
+      }
+      &:active {
+        padding: 9px 23px;
+
+        @include breakpoint-up(Mobile) {
+          padding: 7px 15px;
+        }
+      }
+
+      &.e-has-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: $button-radius;
+        padding-left: 16px;
+        padding-right: 16px;
+
+        @include breakpoint-up(Mobile) {
+          padding: 8px 10px;
+        }
+
+        span {
+          background-size: $icon-size;
+          background-position: center;
+        }
+
+        &:active {
+          background-color: ("green");
+          background-clip: padding-box;
+          border: 2px solid transparent;
+          padding-left: 15px;
+          padding-right: 15px;
+          color: color("black");
+
+          @include breakpoint-up(Mobile) {
+            padding: 7px 9px;
+          }
+        }
+      }
+    }
+
+    // When button with text has icon
+    &.e-has-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: $button-radius;
+      padding-left: $icon-button-padding;
+      padding-right: $icon-button-padding;
+
+      span {
+        // standard size for buttons in large buttons
+        background-size: $icon-size;
+        background-position: center;
+      }
+
+      &:active {
+        background-color: ("green");
+        background-clip: padding-box;
+        border: 2px solid transparent;
+        padding-left: $icon-button-padding - 1px;
+        padding-right: $icon-button-padding - 1px;
+        color: color("black");
+      }
+    }
   }
 
   // Todo: Implement when "Close button" is ready, or we have more use cases for internal systems.
-
   // Buttons with icons only
   // &-icon {
   //   border: $button-border-width solid color("green");
@@ -190,7 +321,7 @@ $button-font-size: 1rem;
   //     }
 
   //     &:hover {
-  //       box-shadow: $shadow-medium;
+  //       box-shadow: $e-shadow-6;
   //       border: $button-border-width + $extra-border-hover solid color("green");
   //     }
   //   }

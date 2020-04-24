@@ -20,17 +20,17 @@ export class LinkDocComponent implements OnInit {
 </p>
 `;
 
-  example3 = `<a class="e-link e-external" href="https://www.elvia.no/">Se mer <i class="e-icon-external-link"></i></a>
+  example3 = `<a class="e-link e-external" href="https://www.elvia.no/">Se mer <i class="e-icon-xxs e-icon-arrow-external"></i></a>
 `;
 
-  example4 = `<a class="e-link e-back" href="https://www.elvia.no/"><i class="e-icon-arrow-left"></i> Tilbake</a>
+  example4 = `<a class="e-link e-icon-first" href="https://www.elvia.no/"><i class="e-icon-arrow-left e-icon-xxs"></i> Tilbake</a>
 `;
 
   example5 = `
-  <a class="e-link" href="https://www.elvia.no/">Last ned <i class="e-icon-download"></i></a>
+  <a class="e-link" href="https://www.elvia.no/">Last ned <i class="e-icon-sm e-icon-download"></i></a>
   <br>
   <br>
-  <a class="e-link e-icon-first" href="https://www.elvia.no/"><i class="e-icon-download"></i> Last ned</a>
+  <a class="e-link e-icon-first" href="https://www.elvia.no/"><i class="e-icon-sm  e-icon-download"></i> Last ned</a>
 `;
   example6 = `<a class="e-link e-custom" href="https://www.elvia.no/">Se hva du kan gjøre <i class="e-icon-arrow-right"></i></a>
 `;
@@ -41,16 +41,11 @@ export class LinkDocComponent implements OnInit {
 <a class="e-link e-focus" href="https://www.elvia.no/">Se hva du kan gjøre</a>
 `;
 
-example8 = `<a class="e-link e-jumbo e-m-8" href="https://www.elvia.no/">
-  <span><i class="e-icon-tree-powerline"></i></span>
+example8 = `<div><a class="e-link e-jumbo e-my-8" href="https://www.elvia.no/">
+  <span><i class="e-icon-xl e-icon-powerline-snow"></i></span>
   <span>Strømledning nær bakken</span>
-  <span><i class="e-icon-arrow-right"></i></span>
-</a>
-<a class="e-link e-jumbo e-m-8" href="https://www.elvia.no/">
-  <span><i class="e-icon-powerline-snow"></i></span>
-  <span>Jumbo link med en lang tekst som ikke overskrider 2 linjer</span>
-  <span><i class="e-icon-arrow-right"></i></span>
-</a>`;
+  <span><i class="e-icon-xs e-icon-arrow-right"></i></span>
+</a></div>`;
 
 
   constructor() { }

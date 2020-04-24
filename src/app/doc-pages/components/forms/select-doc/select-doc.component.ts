@@ -9,7 +9,6 @@ import { getComponent } from 'src/app/shared/e-items';
 export class SelectDocComponent implements OnInit {
 
   componentStatus = getComponent('select-doc').status;
-  componentClasses = ['e-form_field', 'e-form_select'];
 
   example1 = `<div class="e-form_field">
   <label class="e-form_field_label" for="select-alt1">Select Option</label>

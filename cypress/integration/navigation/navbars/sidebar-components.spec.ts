@@ -13,9 +13,9 @@ describe('Components sidebar Test', () => {
         cy.url().should('eq', 'http://localhost:4200/components/feedback-doc');
     });
 
-    it('Visits the Badge doc page on clicking on Badge in the sidebar', () => {
-        cy.get('.navbar-item').contains('Badge').click();
-        cy.url().should('eq', 'http://localhost:4200/components/badge-doc');
+    it('Visits the label doc page on clicking on label in the sidebar', () => {
+        cy.get('.navbar-item').contains('label').click();
+        cy.url().should('eq', 'http://localhost:4200/components/label-doc');
     });
 
     it('Visits the Button doc page on clicking on Button in the sidebar', () => {

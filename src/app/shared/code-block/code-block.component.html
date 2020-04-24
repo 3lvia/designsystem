@@ -1,9 +1,13 @@
 <div class="component-body__example">
   <h2 class="component-body__example-title">{{ title }}</h2>
-  <span *ngIf="class">
-    <span *ngFor="let classDescr of class" class="component-body__example-class e-bg-grey-30 e-text-info">{{ classDescr }}</span>
-  </span>
-  <div class="component-body__example-description e-text-body">
+  <div *ngIf="class" class="e-mb-16 e-text-info example-classes">
+    <span 
+      *ngFor="let classDescr of class; let i = index" 
+    >
+      <code>{{ classDescr }}<span *ngIf="i != class.length-1">, </span></code>
+    </span>
+  </div>
+  <div class="component-body__example-description e-text-description">
     {{ description }}
   </div>
   <div
@@ -16,7 +20,7 @@
     >
       <span class="marker e-bg-green"></span>
       <span class="e-title-sm">Do's:</span>
-      <span class="e-text-body">
+      <span class="e-text-description">
         {{ does }}
       </span>
     </div>
@@ -26,7 +30,7 @@
     >
       <span class="marker e-bg-red"></span>
       <span class="e-title-sm">Don'ts:</span>
-      <span class="e-text-body">
+      <span class="e-text-description">
         {{ donts }}
       </span>
     </div>
@@ -53,37 +57,47 @@
     </form>
   </div>
   <div class="component-body__example-body e-border">
-    <div class="tabs" *ngIf="!onlyDesktop && !onlyPhone">
+    <div class="tabs" *ngIf="showTabs">
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{ active: showSmartphone === false }"
-        (click)="showSmartphone = false"
+        [ngClass]="{ active: screen === 'desktop' }"
+        (click)="screen = 'desktop'"
       >
-        Desktop & Tablet
+        Desktop
       </div>
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{ active: showSmartphone === true }"
-        (click)="showSmartphone = true"
+        [ngClass]="{ active: screen === 'tablet' }"
+        (click)="screen = 'tablet'"
       >
-        Smartphone
+        Tablet
+      </div>
+      <div
+        class="tab e-border"
+        role="button"
+        [ngClass]="{ active: screen === 'phone' }"
+        (click)="screen = 'phone'"
+      >
+        Phone
       </div>
     </div>
     <div 
       class="element" 
       [ngClass]="greyBg ? 'e-bg-grey-02' : 'e-bg-white'">
       <div
-        class="smartphone-preview"
-        [ngClass]="{ hide: showSmartphone === false }"
-      >
-        <app-smartphone [code]="code"></app-smartphone>
+        [ngClass]="{ hide: screen !== 'desktop' || noDesktop  }">
+        <app-iframe-screen [code]="code" [screenSize]="'desktop'"></app-iframe-screen>
       </div>
       <div
-        [ngClass]="{ hide: showSmartphone === true }"
-        #preview
-      ></div>
+        [ngClass]="{ hide: screen !== 'tablet' || noTablet }">
+        <app-iframe-screen [code]="code" [screenSize]="'tablet'"></app-iframe-screen>
+      </div>
+      <div
+        [ngClass]="{ hide: screen !== 'phone' || noPhone}">
+        <app-iframe-screen [code]="code" [screenSize]="'phone'"></app-iframe-screen>
+      </div>
     </div>
     <div
       class="show-code e-border"

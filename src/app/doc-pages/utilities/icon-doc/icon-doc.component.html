@@ -1,6 +1,5 @@
 <!--HEADER-->
 <app-component-header
-  [componentClasses]="componentClasses"
   [componentStatus]="componentStatus"
   [externalUrl]="externalUrl"
   [tabs]="tabs"
@@ -20,7 +19,7 @@
   <div class="overview" *ngIf="selected == tabNames.Overview">
     <h2 class="e-title-md">Icons</h2>
     
-    <p class="e-text-body">Search through all the available icons here.</p>
+    <p class="e-text-description">Search through all the available icons here.</p>
     <div class="overview-search-container">
       <div class="e-form_field">
         <div class="e-input">
@@ -37,9 +36,9 @@
     </div>
     <div class="overview-icons-container e-pt-32" [style.backgroundColor] = "inverted ? 'black' : 'white'">
         <div class="icon-card" *ngFor="let icon of svgIcons | filter: term">
-          <app-copy [message]="icon.class">
+          <app-copy [message]="'e-icon-lg e-icon-' + icon.title">
             <ng-container ngProjectAs="copyContent">
-              <i class="e-svg-lg" [innerHTML]="icon.svg"></i>
+              <i [class.e-icon-invert]="inverted" [class]="'e-icon-md e-icon-' + icon.title"></i>
               <p class="e-text-description" [style.color] = "inverted ? 'white' : 'black'">{{ icon.title }}</p>
             </ng-container>
           </app-copy>
@@ -70,36 +69,45 @@
   <!--GUIDELINES-->
   <div *ngIf="selected == tabNames.Guidelines">
     <div>
-      <h2 class="e-title-md">Using Classes</h2>
-      <p class="e-text-body">
+        <h2 class="e-title-md">Method 1: Easiest</h2>
+        <p class="e-text-description">
+            Add <code class="code-text">&#x3C;script src="icons-injector.js">&#x3C;/script&#x3E;</code>to the bottom of your body tag.
+        </p>
+        <p class="e-text-description">
+            Use icons like this:
+            <code class="code-text">class="e-md e-icon-chat"</code>
+        </p>
+
+      <h2 class="e-title-md">Method 2: Using JS Module / SVGs</h2>
+      <p class="e-text-description">
           All icons are accessible as SVGs within a JS module.
           Import the required icon individually where you need them:
       </p>
-      <p class="e-text-body">
+      <p class="e-text-description">
         <code class="code-text">import {{ '{' }} addCircle {{ '}' }} from '@elvia/elvis/icons'</code>
       </p>
-      <p class="e-text-body">
+      <p class="e-text-description">
         To get the icon you can use the following: 
         <code class="code-text">addCircle.getIcon()</code>
       </p>
-      <p class="e-text-body">
+      <p class="e-text-description">
         If you want a inverted icon use the following:
         <code class="code-text">addCircle.getIcon('white')</code>
       </p>
-      <p class="e-text-body">
+      <p class="e-text-description">
         Or set the color yourself with a hex:  
         <code class="code-text">addCircle.getIcon('#bdbdbd')</code>
       </p>
 
       <h3 class="e-title-sm">Size classes</h3>
       <ul>
-        <li><code class="code-text">e-svg-xxl</code></li>
-        <li><code class="code-text">e-svg-xl</code></li>
-        <li><code class="code-text">e-svg-lg</code></li>
-        <li><code class="code-text">e-svg-md</code></li>
-        <li><code class="code-text">e-svg-sm</code></li>
-        <li><code class="code-text">e-svg-xs</code></li>
-        <li><code class="code-text">e-svg-xxs</code></li>
+        <li><code class="code-text">e-icon-xxl</code></li>
+        <li><code class="code-text">e-icon-xl</code></li>
+        <li><code class="code-text">e-icon-lg</code></li>
+        <li><code class="code-text">e-icon-md</code></li>
+        <li><code class="code-text">e-icon-sm</code></li>
+        <li><code class="code-text">e-icon-xs</code></li>
+        <li><code class="code-text">e-icon-xxs</code></li>
       </ul>
     </div>
   </div>
