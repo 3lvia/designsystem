@@ -33,19 +33,20 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   constructor() {}
 
   ngOnInit() {
-    if (this.showIframeScreens) {
-      if (this.noPhone && this.noTablet) {
-        this.screen = 'desktop';
-        this.showTabs = false;
-      }
-      if (this.noPhone && this.noDesktop) {
-        this.screen = 'tablet';
-        this.showTabs = false;
-      }
-      if (this.noTablet && this.noDesktop) {
-        this.screen = 'phone';
-        this.showTabs = false;
-      }
+    if (!this.showIframeScreens) {
+      return;
+    }
+    if (this.noPhone && this.noTablet) {
+      this.screen = 'desktop';
+      this.showTabs = false;
+    }
+    if (this.noPhone && this.noDesktop) {
+      this.screen = 'tablet';
+      this.showTabs = false;
+    }
+    if (this.noTablet && this.noDesktop) {
+      this.screen = 'phone';
+      this.showTabs = false;
     }
   }
 
