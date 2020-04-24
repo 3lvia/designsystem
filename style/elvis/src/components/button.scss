@@ -39,6 +39,11 @@ $button-sm-line-height: 115%;
   align-items: center;
   font-weight: $button-font-weight;
 
+  outline: none;
+  &.e-btn---focus, &:enabled:focus:not(:active) {
+    @extend .e-outline;
+  }
+
   // Adding margin if icon
   &__title + &__icon, &__icon + &__title {
     margin-left: var(--e-spacing-8);
@@ -58,11 +63,6 @@ $button-sm-line-height: 115%;
     font-size: $button-lg-font-size;
     line-height: $button-lg-line-height;
     padding: $button-lg-padding;
-  }
-
-  outline: none;
-  &.e-btn---focus, &:enabled:focus:not(:active) {
-    @extend .e-outline;
   }
 
   &.e-btn--primary {
@@ -115,7 +115,6 @@ $button-sm-line-height: 115%;
   }
 
   &.e-btn--tertiary {
-    outline: none;
     border: none;
     border-bottom: 2.5px solid transparent;
     border-radius: 0px;
@@ -139,34 +138,6 @@ $button-sm-line-height: 115%;
       background: none;
     }
   }
-
-  // Todo: Implement when "Close button" is ready, or we have more use cases for internal systems.
-  // Buttons with icons only
-  // &-icon {
-  //   border: $button-border-width solid color("green");
-  //   color: color("green");
-  //   border-radius: $button-radius;
-  //   background: transparent;
-  //   height: $icon-button-height-with-border;
-  //   width: $icon-button-height-with-border;
-  //   font-size: $icon-button-font-size;
-  //   cursor: pointer;
-  //   padding: 0;
-  //   outline-offset: -1px;
-
-  //   // Changes button-text on hover/active/focus
-  //   &:not([disabled]) {
-  //     &:active {
-  //       background: green;
-  //       color: color("white");
-  //     }
-
-  //     &:hover {
-  //       box-shadow: $shadow-md;
-  //       border: $button-border-width + $button-extra-border-hover solid color("green");
-  //     }
-  //   }
-  // }
 
   &.e-btn--loading {
     span {
