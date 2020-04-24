@@ -25,7 +25,7 @@
       <div class="display-card" *ngFor="let item of spacingItems">
         <app-copy [message]="item.className">
           <ng-container ngProjectAs="copyContent">
-            <div class="display-card-square e-shadow-2 e-bg-green" [ngClass]="item.className"></div>
+            <div class="display-card-square e-shadow-6 e-bg-green" [ngClass]="item.className"></div>
           </ng-container>
         </app-copy>
         <div class="display-card-title e-text-caps">{{ item.title }}</div>
