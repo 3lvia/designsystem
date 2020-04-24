@@ -33,6 +33,10 @@ $iconSizeCustom: 10px;
     text-decoration: color("green");
   }
 
+  &:active {
+    outline: none;
+  }
+
   &.e-focus, &:focus:not(:active) {
     @extend .e-outline;
   }
