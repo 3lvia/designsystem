@@ -29,10 +29,6 @@ a {
   text-decoration: none;
 }
 
-*:focus {
-  @extend .e-outline;
-}
-
 // Shared classes
 .page-body {
   margin: auto;

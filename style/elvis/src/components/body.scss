@@ -1,0 +1,5 @@
+@import '../utilities/outline.scss';
+
+*:focus:not(:active) {
+    @extend .e-outline;
+}
