@@ -58,7 +58,7 @@ $checkbox-mark-border: 1px solid color("black");
       @extend %checkbox-mark;
     }
 
-    &:focus ~ #{$this}_mark {
+    &:focus:not(:active) ~ #{$this}_mark {
       @extend .e-outline;
     }
 
