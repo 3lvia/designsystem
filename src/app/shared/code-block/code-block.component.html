@@ -57,7 +57,7 @@
     </form>
   </div>
   <div class="component-body__example-body e-border">
-    <div class="tabs" *ngIf="showTabs">
+    <div class="tabs" *ngIf="showIframeScreens && showTabs">
       <div
         class="tab e-border"
         role="button"
@@ -83,7 +83,10 @@
         Phone
       </div>
     </div>
-    <div class="element">
+    <div class="element" *ngIf="!showIframeScreens">
+      <div #defaultFrame></div>
+    </div>
+    <div class="element" *ngIf="showIframeScreens">
       <div
         [ngClass]="{ hide: screen !== 'desktop' || noDesktop  }">
         <app-iframe-screen [code]="code" [screenSize]="'desktop'"></app-iframe-screen>

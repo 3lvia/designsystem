@@ -5,6 +5,7 @@
 @import "../utilities/helpers.scss";
 @import "../variables/spacing";
 @import "../utilities/breakpoints.scss";
+@import "../utilities/outline.scss";
 
 $button-radius: 24px;
 $button-border-width: 1px;
@@ -32,38 +33,27 @@ $button-font-weight: 500;
   // .is-primary is the default for any e-button
   @extend .is-primary;
 
-  &.e-disabled {
+  &.e-disabled, &:disabled {
     background: color("grey-30");
     border: transparent;
-    color: rgba(255, 255, 255, 0.75);
+    color: color("grey-05");
     cursor: not-allowed;
-
-    &:hover {
-      // !important for general pseudoclasses so they overwrite default style. 
-      color: rgba(255, 255, 255, 0.75) !important;
-      background-color: color("grey-30") !important;
-    }
-
-    &:focus {
-      // !important for general pseudoclasses so they overwrite default style. 
-      border: 2px solid transparent !important;
-    }
   }
 
-  &.e-focus {
-    border-color: #00a2c7;
+  outline: none;
+  &.e-focus, &:enabled:focus:not(:active) {
+    @extend .e-outline;
   }
 
-  &.e-hover:not(.disabled) {
-    background: color("green");
-    border: color("green");
+  &.e-hover, &:enabled:hover {
+    background-color: color("green");
+    border-color: color("green");
     color: color("black");
   }
-
-  &.e-active {
-    background: color("green");
+  &.e-active, &:enabled:active {
+    background-color: color("green");
+    border-color: transparent;
     background-clip: padding-box;
-    border: 2px solid transparent;
     color: color("black");
   }
 
@@ -77,41 +67,12 @@ $button-font-weight: 500;
     border-radius: $button-radius;
     background: color("black");
     color: color("white");
-    outline: none;
     cursor: pointer;
 
     @include breakpoint-up(Mobile) {
       font-size: $button-small-font-size;
       line-height: $button-small-line-height;
       padding: $button-small-padding;
-    }
-
-    &:disabled {
-      background: color("grey-30");
-      border-color: transparent;
-      color: rgba(255, 255, 255, 0.75);
-      cursor: not-allowed;
-    }
-
-    &:focus {
-      // Not in colors variables yet due to possibly update in future.
-      border-color: #00a2c7;
-    }
-
-    // Changes button-text on hover/active/focus
-    &:enabled {
-      &:hover:not(:focus) {
-        background-color: color("green");
-        border-color: color("green");
-        color: color("black");
-      }
-
-      &:active {
-        background-color: color("green");
-        border-color: transparent;
-        background-clip: padding-box;
-        color: color("black");
-      }
     }
 
     &.e-btn-small {
@@ -156,7 +117,6 @@ $button-font-weight: 500;
     line-height: $button-line-height;
     background: color("white");
     color: color("black");
-    outline: none;
     cursor: pointer;
 
     @include breakpoint-up(Mobile) {
@@ -168,60 +128,20 @@ $button-font-weight: 500;
     &:disabled, &.e-disabled  {
       background: color("grey-30");
       border: 1px solid transparent;
-      color: rgba(255, 255, 255, 0.75);
+      color: color("grey-05");
       cursor: not-allowed;
-
-      &:hover {
-        background-color: color("grey-30");
-        // needs !important to override default :hover state on e-secondary class.
-        border: 1px solid transparent !important;
-        color: rgba(255, 255, 255, 0.75);
-      }
     }
 
-    &:focus:not(:active) {
-      box-shadow: 0px 0px 0px 2px #00a2c7;
-    }
-    &.e-focus {
-      box-shadow: 0px 0px 0px 2px #00a2c7;
-    }
-
-    // Changes button-text on hover/active/focus
-    &:enabled {
-      &:hover:not(:focus) {
-        background-color: ("green");
-        border: 1px solid color("green");
-      }
-
-      &:active {
-        background-color: ("green");
-        background-clip: padding-box;
-        border: 2px solid transparent;
-        // -1px due to different border width on primary and secondary. Secondary needs 1 px less. 
-        padding-left: $button-padding-left-right - 1px;
-        padding-right: $button-padding-left-right - 1px;
-        padding-top: $button-padding-top-bottom - 1px;
-        padding-bottom: $button-padding-top-bottom - 1px;
-
-        @include breakpoint-up(Mobile) {
-          padding-left: $button-small-padding-left-right - 1px;
-          padding-right: $button-small-padding-left-right - 1px;
-          padding-top: $button-small-padding-top-bottom - 1px;
-          padding-bottom: $button-small-padding-top-bottom - 1px;
-        }
-      }
-    }
-
-    &.e-hover {
+    &.e-hover, &:enabled:hover {
+      background-color: color("green");
+      border-color: color("green");
       color: color("black");
-      background-color: ("green");
-      border: 1px solid color("green");
     }
-
-    &.e-active {
-      color: color("black");
-      background: color("green");
+    &.e-active, &:enabled:active {
+      background-color: color("green");
       border-color: transparent;
+      background-clip: padding-box;
+      color: color("black");
     }
 
     &.e-btn-small {
@@ -232,7 +152,8 @@ $button-font-weight: 500;
       @include breakpoint-up(Mobile) {
         padding: 8px 16px;
       }
-      &:active {
+
+      &:enabled:active {
         padding: 9px 23px;
 
         @include breakpoint-up(Mobile) {
@@ -248,16 +169,16 @@ $button-font-weight: 500;
         padding-left: 16px;
         padding-right: 16px;
 
-        @include breakpoint-up(Mobile) {
-          padding: 8px 10px;
-        }
-
         span {
           background-size: $icon-size;
           background-position: center;
         }
 
-        &:active {
+        @include breakpoint-up(Mobile) {
+          padding: 8px 10px;
+        }
+
+        &:enabled:active {
           background-color: ("green");
           background-clip: padding-box;
           border: 2px solid transparent;
@@ -287,7 +208,7 @@ $button-font-weight: 500;
         background-position: center;
       }
 
-      &:active {
+      &:enabled:active {
         background-color: ("green");
         background-clip: padding-box;
         border: 2px solid transparent;
@@ -317,11 +238,10 @@ $button-font-weight: 500;
   //     &:active {
   //       background: green;
   //       color: color("white");
-  //       outline: none;
   //     }
 
   //     &:hover {
-  //       box-shadow: $e-shadow-6;
+  //       box-shadow: $shadow-medium;
   //       border: $button-border-width + $extra-border-hover solid color("green");
   //     }
   //   }

@@ -58,7 +58,7 @@ $label-font-size: 11px;
   &.e-info {
     &::before {
       content: ' ';
-      background-color: color('blue-blueberry');
+      background-color: color('blue-berry');
       @extend %status-content;
     }
   }

@@ -22,8 +22,6 @@
     [title]="'Table'"
     [description]="''"
     [class]="['e-table']"
-    [noTablet]="true"
-    [noPhone]="true"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
@@ -32,8 +30,6 @@
     [description]="'If the table requires scrolling the max-width for a column is 300px, 
     the class is-max can then be added to ensure width of column and text wrap. Numbers here are aligned to the right.'"
     [class]="['e-table']"
-    [noTablet]="true"
-    [noPhone]="true"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
@@ -41,6 +37,7 @@
     [title]="'Table for mobile'"
     [description]="'The text in the last column should always be aligned to the right on phones.'"
     [class]="['e-table-phone']"
+    [showIframeScreens]="true"
     [noTablet]="true"
     [noDesktop]="true"
   ></app-code-block>
