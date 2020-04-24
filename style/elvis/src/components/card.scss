@@ -13,59 +13,33 @@ $card-actions-button-spacing: 25px;
 
 .e-card {
   border-radius: $card-radius;
-  box-shadow: $shadow-light;
+  // box-shadow: $e-shadow-3;
   display: inline-flex;
   width: 100%;
   flex-direction: column;
   background: color('white');
   box-sizing: border-box;
+  max-width: 70ch;
 
+  &--bg-white {
 
-
-  &.is-full-height {
-    height: 100%;
   }
 
-  &_header {
-    display: flex;
-    padding: $card-padding-y $card-padding-x;
-
-    &_text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-self: center;
-      width: 100%;
-    }
-
-    .is-center {
-      display: flex;
-      justify-content: center;
-    }
-  }
-
-  &_title {
-    // .is-h2 is font-properties, defined in typography.
-    // @extend .is-h2;
-
+  &__title {
+    // .e-title-sm is font-properties, defined in typography.
+    @extend .e-title-sm;
+    text-transform: uppercase;
     display: flex;
     height: 100%;
     font-weight: bold;
+    margin: 0 var(--e-spacing-40);
+    margin-top: var(--e-spacing-40);
   }
 
-  &_subtitle {
+  &__content {
     display: block;
-    color: color('black');
-  }
-
-  &_scroll-wrapper {	
-    overflow-x: auto;	
-  }
-
-  &_content {
-    display: block;
-    margin-bottom: $card-padding-y;
-    padding: 0 $card-padding-x;
+    margin: $card-padding-x $card-padding-y;
+    margin-top: var(--e-spacing-16);
   }
 
   &_actions {

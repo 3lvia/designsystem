@@ -11,20 +11,28 @@ export class CardDocComponent implements OnInit {
   componentStatus = getComponent('card-doc').status;
   externalUrl = getComponent('card-doc').externalUrl;
 
-  example1 = `<div class="e-card">
-  <div class="e-card_header">
-    <div class="e-card_header_text">
-      <div class="e-card_title">A card should have a title</div>
-    </div>
+  example1 = `
+<div class="e-card">
+  <div class="e-card__title">
+    A card should have a title
   </div>
-  <div class="e-card_content">
-    <p class="e-text-description">A card consist of some content.</p>
+  <div class="e-card__content">
+    Best design once so-called "iPad killer" although Apple will only get better,
+    overall gorgeous on the contrary profit.
   </div>
 </div>
 `;
 
   example2 = `
-  Hello form the box
+<div class="e-card">
+   <div class="e-card__title">
+    A card should have a title
+  </div>
+  <div class="e-card__content">
+    Best design once so-called "iPad killer" although Apple will only get better,
+    overall gorgeous on the contrary profit.
+  </div>
+</div>
   `;
 
   constructor() { }
