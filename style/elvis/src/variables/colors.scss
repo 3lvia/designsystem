@@ -36,6 +36,11 @@
   @return map-get($map, color);
 }
 
+@function internal-color($name, $color-set: $internal-colors) {
+  $map: color-map($name, $color-set);
+  @return map-get($map, color);
+}
+
 
 // All colors as a list
 // REMEMBER TO UPDATE THE DOCUMENTATION ALSO: color-doc -> color.ts
@@ -138,5 +143,11 @@ $colors: (
   'red-tomato': (
     color: #B90202,
     contrast-text: #fff,
-  ),  
+  ),   
 );  
+
+$internal-colors: (
+  'focus-outline': (
+    color: #0064FA,
+  ), 
+)

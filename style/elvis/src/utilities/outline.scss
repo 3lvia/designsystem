@@ -1,6 +1,6 @@
 .e-outline {
     outline: none;
-    outline-color: #0064FA;
+    outline-color: internal-color('focus-outline');
     outline-style: dashed;
     outline-width: 2px;
 }
