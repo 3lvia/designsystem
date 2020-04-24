@@ -30,7 +30,7 @@ $form-input-border: 1px solid color('grey');
     border: none;
     background: transparent;
     @extend .e-label-option;
-    outline: none; // Removes inner outline, adds outer later
+    outline: none !important; // Removes inner outline, adds outer later
   }
 
   > i {
