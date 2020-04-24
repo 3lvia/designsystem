@@ -35,6 +35,18 @@ export class CardDocComponent implements OnInit {
 </div>
   `;
 
+  example3 = `
+<div class="e-card">
+   <div class="e-card__title">
+    A card should have a title
+  </div>
+  <div class="e-card__content">
+    Best design once so-called "iPad killer" although Apple will only get better,
+    overall gorgeous on the contrary profit.
+  </div>
+</div>
+  `;
+
   constructor() { }
 
   ngOnInit() {

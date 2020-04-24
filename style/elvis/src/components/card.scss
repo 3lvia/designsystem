@@ -13,7 +13,7 @@ $card-actions-button-spacing: 25px;
 
 .e-card {
   border-radius: $card-radius;
-  box-shadow: $e-shadow-8;
+  box-shadow: $e-shadow-3;
   display: inline-flex;
   width: 100%;
   flex-direction: column;
@@ -22,7 +22,11 @@ $card-actions-button-spacing: 25px;
   max-width: 70ch;
 
   &--bg-white {
+    box-shadow: $e-shadow-6;
+  }
 
+  &--shaddow-hard {
+    box-shadow: $e-shadow-8;
   }
 
   &__title {
