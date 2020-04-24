@@ -24,7 +24,7 @@ export class CardDocComponent implements OnInit {
 `;
 
   example2 = `
-<div class="e-card">
+<div class="e-card e-card--bg-white">
    <div class="e-card__title">
     A card should have a title
   </div>

@@ -1,5 +1,5 @@
-@import './../variables/colors';
-@import './../variables/shadows';
+@import "./../variables/colors";
+@import "./../variables/shadows";
 
 $card-radius: 8px;
 $card-padding-y: var(--e-spacing-40);
@@ -17,8 +17,9 @@ $card-actions-button-spacing: 25px;
   display: inline-flex;
   width: 100%;
   flex-direction: column;
-  background: color('white');
+  background: color("white");
   box-sizing: border-box;
+  padding: $card-padding-y $card-padding-x;
   max-width: 70ch;
 
   &--bg-white {
@@ -36,43 +37,41 @@ $card-actions-button-spacing: 25px;
     display: flex;
     height: 100%;
     font-weight: bold;
-    margin: 0 var(--e-spacing-40);
-    margin-top: var(--e-spacing-40);
+    margin-bottom: var(--e-spacing-16);
   }
 
   &__content {
     display: block;
-    margin: $card-padding-x $card-padding-y;
-    margin-top: var(--e-spacing-16);
   }
 
   &_actions {
     display: flex;
     margin-top: auto; /* Align buttons always to the bottom of the card */
-    padding: $card-padding-y $card-padding-x;
 
     .e-button {
       flex: auto;
-      
+
       &:not(:last-child) {
         margin-right: $card-actions-button-spacing;
       }
     }
-    
+
     &_action {
       flex-grow: 1;
       margin: calc(#{$card-padding-y} * -1) calc(#{$card-padding-x} * -1);
       padding: $card-actions-action-padding;
       border: 0;
-      border-top: 1px solid color('grey-30');
+      border-top: 1px solid color("grey-30");
       border-radius: 0;
       background: transparent;
-
-      color: color('green');
+      color: color("green");
       font-weight: 500;
       text-align: center;
       cursor: pointer;
-      
+      align-self: flex-end;
+
+
+
       &:hover:not(.no-hover),
       &.is-hovering {
         background-color: #eee;
