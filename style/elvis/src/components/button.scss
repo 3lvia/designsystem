@@ -8,214 +8,135 @@
 @import "../utilities/outline.scss";
 
 $button-radius: 24px;
-$button-border-width: 1px;
-$extra-border-hover: 1px;
-$button-padding-top-bottom: 12px;
-$button-padding-left-right: 32px;
-$button-small-padding-top-bottom: 10px;
-$button-small-padding-left-right: 24px;
-$button-padding: $button-padding-top-bottom $button-padding-left-right;
-$button-small-padding: $button-small-padding-top-bottom $button-small-padding-left-right;
-
-$icon-button-height: 24px;
-$icon-button-font-size: 24px;
-$icon-button-height-with-border: $icon-button-height - $button-border-width; // Subtract width of border to match size of buttons without border
-$icon-button-padding: 24px;
-$icon-button-padding-top-bottom: 14px;
-$icon-size: 20px;
-$button-font-size: 18px;
-$button-small-font-size: 16px;
-$button-line-height: 24px;
-$button-small-line-height: 21px;
 $button-font-weight: 500;
+$button-border-width: 1px;
+$button-extra-border-hover: 1px;
+
+$button-lg-padding-top-bottom: 12px;
+$button-lg-padding-left-right: 32px;
+$button-lg-padding: $button-lg-padding-top-bottom $button-lg-padding-left-right;
+$button-lg-font-size: 18px;
+$button-lg-line-height: 24px;
+
+$button-md-padding-top-bottom: 10px;
+$button-md-padding-left-right: 24px;
+$button-md-padding: $button-md-padding-top-bottom $button-md-padding-left-right;
+$button-md-font-size: 16px;
+$button-md-line-height: 125%;
+
+$button-sm-padding-top-bottom: 8px;
+$button-sm-padding-left-right: 16px;
+$button-sm-padding: $button-sm-padding-top-bottom $button-sm-padding-left-right;
+$button-sm-font-size: 14px;
+$button-sm-line-height: 115%;
 
 .e-btn {
-  // .is-primary is the default for any e-button
-  @extend .is-primary;
+  // .e-btn--primary .e-btn--md is the default for any e-button
+  @extend .e-btn--primary;
+  @extend .e-btn--md;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-weight: $button-font-weight;
 
-  &.e-disabled, &:disabled {
-    background: color("grey-30");
-    border: transparent;
-    color: color("grey-05");
-    cursor: not-allowed;
+  // Adding margin if icon
+  &__title + &__icon, &__icon + &__title {
+    margin-left: var(--e-spacing-8);
+  }
+
+  &.e-btn--md {
+    font-size: $button-md-font-size;
+    line-height: $button-md-line-height;
+    padding: $button-md-padding;
+  }
+  &.e-btn--sm {
+    font-size: $button-sm-font-size;
+    line-height: $button-sm-line-height;
+    padding: $button-sm-padding;
+  }
+  &.e-btn--lg {
+    font-size: $button-lg-font-size;
+    line-height: $button-lg-line-height;
+    padding: $button-lg-padding;
   }
 
   outline: none;
-  &.e-focus, &:enabled:focus:not(:active) {
+  &.e-btn---focus, &:enabled:focus:not(:active) {
     @extend .e-outline;
   }
 
-  &.e-hover, &:enabled:hover {
-    background-color: color("green");
-    border-color: color("green");
-    color: color("black");
-  }
-  &.e-active, &:enabled:active {
-    background-color: color("green");
-    border-color: transparent;
-    background-clip: padding-box;
-    color: color("black");
-  }
-
-  &.is-primary {
-    display: inline-block;
-    padding: $button-padding;
-    font-size: $button-font-size;
-    font-weight: $button-font-weight;
-    line-height: $button-line-height;
-    border: 2px solid color("black");
+  &.e-btn--primary {
     border-radius: $button-radius;
     background: color("black");
     color: color("white");
-    cursor: pointer;
 
-    @include breakpoint-up(Mobile) {
-      font-size: $button-small-font-size;
-      line-height: $button-small-line-height;
-      padding: $button-small-padding;
+    &.e-btn---disabled, &:disabled {
+      background: color("grey-30");
+      color: color("grey-05");
+      cursor: not-allowed;
     }
-
-    &.e-btn-small {
-      font-size: $button-small-font-size;
-      line-height: $button-small-line-height;
-      padding: 10px 24px;
-
-      @include breakpoint-up(Mobile) {
-        padding: 8px 16px;
-      }
+    &.e-btn---hover, &:enabled:hover {
+      background: color("green");
+      border-color: color("green");
+      color: color("black");
     }
-
-    // When button with text has icon
-    // Is a modifier for primary and secondary because of different borders and padding
-    &.e-has-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: $button-radius;
-      background-size: cover;
-
-      span {
-        // standard size for icons in default size buttons
-        background-size: $icon-size;
-        background-position: center;
-        // negative margin on icons to not expand the button height
-        margin-top: -spacing("1");
-        margin-bottom: -spacing("1");
-      }
+    &.e-btn---active, &:enabled:active {
+      background: color("green");
+      border-color: transparent;
+      background-clip: padding-box;
+      color: color("black");
     }
   }
 
-  &.e-btn-secondary {
-    display: inline-block;
+  &.e-btn--secondary {
     border: 1px solid color("black");
     border-radius: $button-radius;
-    padding-left: $button-padding-left-right;
-    padding-right: $button-padding-left-right;
-    padding-top: $button-padding-top-bottom;
-    padding-bottom: $button-padding-top-bottom;
-    font-size: $button-font-size;
-    line-height: $button-line-height;
     background: color("white");
     color: color("black");
-    cursor: pointer;
 
-    @include breakpoint-up(Mobile) {
-      font-size: $button-small-font-size;
-      line-height: $button-small-line-height;
-      padding: $button-small-padding;
-    }
-
-    &:disabled, &.e-disabled  {
+    &.e-btn---disabled, &:disabled  {
       background: color("grey-30");
       border: 1px solid transparent;
       color: color("grey-05");
       cursor: not-allowed;
     }
 
-    &.e-hover, &:enabled:hover {
-      background-color: color("green");
+    &.e-btn---hover, &:enabled:hover {
+      background: color("green");
       border-color: color("green");
       color: color("black");
     }
-    &.e-active, &:enabled:active {
-      background-color: color("green");
+    &.e-btn---active, &:enabled:active {
+      background: color("green");
       border-color: transparent;
       background-clip: padding-box;
       color: color("black");
     }
+  }
 
-    &.e-btn-small {
-      font-size: $button-small-font-size;
-      line-height: $button-small-line-height;
-      padding: 10px 24px;
+  &.e-btn--tertiary {
+    outline: none;
+    border: none;
+    border-bottom: 2.5px solid transparent;
+    border-radius: 0px;
+    padding: 0px;
+    background: none;
+    color: color("black");
 
-      @include breakpoint-up(Mobile) {
-        padding: 8px 16px;
-      }
-
-      &:enabled:active {
-        padding: 9px 23px;
-
-        @include breakpoint-up(Mobile) {
-          padding: 7px 15px;
-        }
-      }
-
-      &.e-has-icon {
-        display: inline-flex;
-        align-items: center;
-        justify-content: space-between;
-        border-radius: $button-radius;
-        padding-left: 16px;
-        padding-right: 16px;
-
-        span {
-          background-size: $icon-size;
-          background-position: center;
-        }
-
-        @include breakpoint-up(Mobile) {
-          padding: 8px 10px;
-        }
-
-        &:enabled:active {
-          background-color: ("green");
-          background-clip: padding-box;
-          border: 2px solid transparent;
-          padding-left: 15px;
-          padding-right: 15px;
-          color: color("black");
-
-          @include breakpoint-up(Mobile) {
-            padding: 7px 9px;
-          }
-        }
-      }
+    &.e-btn---disabled, &:disabled  {
+      color: color("grey-30");
+      cursor: not-allowed;
     }
 
-    // When button with text has icon
-    &.e-has-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: $button-radius;
-      padding-left: $icon-button-padding;
-      padding-right: $icon-button-padding;
-
-      span {
-        // standard size for buttons in large buttons
-        background-size: $icon-size;
-        background-position: center;
-      }
-
-      &:enabled:active {
-        background-color: ("green");
-        background-clip: padding-box;
-        border: 2px solid transparent;
-        padding-left: $icon-button-padding - 1px;
-        padding-right: $icon-button-padding - 1px;
-        color: color("black");
-      }
+    &.e-btn---hover, &:enabled:hover {
+      border-bottom-color: color("green");
+      border-color: color("green");
+      background: none;
+    }
+    &.e-btn---active, &:enabled:active {
+      border-bottom: 1.5px solid color("green");
+      border-color: color("green");
+      background: none;
     }
   }
 
@@ -241,13 +162,13 @@ $button-font-weight: 500;
   //     }
 
   //     &:hover {
-  //       box-shadow: $shadow-medium;
-  //       border: $button-border-width + $extra-border-hover solid color("green");
+  //       box-shadow: $shadow-md;
+  //       border: $button-border-width + $button-extra-border-hover solid color("green");
   //     }
   //   }
   // }
 
-  &.e-btn-loading {
+  &.e-btn--loading {
     span {
       background: transparent;
       border-radius: 50%;
