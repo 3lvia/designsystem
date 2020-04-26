@@ -30,6 +30,13 @@ $link-jumbo-phone-width: 287px;
   font-weight: bold;
   color: color("font-color");
 
+  &__icon {
+    display: flex;
+    align-items: center;
+    i { display: flex; }
+    i, img { width: 8px; height: 8px;}
+  }
+
   // Adding margin if icon
   &__title + &__icon, &__icon + &__title {
     position: relative;
@@ -75,7 +82,7 @@ $link-jumbo-phone-width: 287px;
       i {
         position: absolute;
         left: 8px;
-        top: -5px;
+        top: 4px;
         right: 0;
       }
     }
@@ -95,7 +102,6 @@ $link-jumbo-phone-width: 287px;
       height: 22px;
       border: 1px solid color("green");
       border-radius: 50%;
-      i {display: flex;}
     }
 
     &.e-link---hover, &:hover {

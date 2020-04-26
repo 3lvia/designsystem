@@ -34,14 +34,14 @@ export class LinkDocComponent implements OnInit {
   example3 = `<div>
   <h3 class="e-title-small">Large</h3>
   <a class="e-link e-link--lg" href="https://www.elvia.no/">
-    <span class="e-link__icon"><i class="e-icon-arrow-left e-icon-xxs"></i></span>
+    <span class="e-link__icon"><i class="e-icon-arrow-left"></i></span>
     <span class="e-link__title">Tilbake</span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-small">Medium (default)</h3>
   <a class="e-link" href="https://www.elvia.no/">
-    <span class="e-link__icon"><i class="e-icon-arrow-left e-icon-xxs"></i></span>
+    <span class="e-link__icon"><i class="e-icon-arrow-left"></i></span>
     <span class="e-link__title">Tilbake</span>
   </a>
 </div>
@@ -51,14 +51,14 @@ export class LinkDocComponent implements OnInit {
   <h3 class="e-title-small">Large</h3>
   <a class="e-link e-link--external e-link--lg" href="https://www.elvia.no/">
     <span class="e-link__title">Se mer</span>
-    <span class="e-link__icon"><i class="e-icon-arrow-external e-icon-xxs"></i></span>
+    <span class="e-link__icon"><i class="e-icon-arrow-external"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-small">Medium (default)</h3>
   <a class="e-link e-link--external" href="https://www.elvia.no/">
     <span class="e-link__title">Se mer</span>
-    <span class="e-link__icon"><i class="e-icon-arrow-external e-icon-xxs"></i></span>
+    <span class="e-link__icon"><i class="e-icon-arrow-external"></i></span>
   </a>
 </div>
 `;
@@ -67,14 +67,14 @@ export class LinkDocComponent implements OnInit {
   <h3 class="e-title-small">Large</h3>
   <a class="e-link e-link--action e-link--lg" href="https://www.elvia.no/">
     <span class="e-link__title">Se hva du kan gjøre</span>
-    <span class="e-link__icon"><i class="e-icon-arrow-right e-icon-xxs"></i></span>
+    <span class="e-link__icon"><i class="e-icon-arrow-right"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-small">Medium (default)</h3>
   <a class="e-link e-link--action" href="https://www.elvia.no/">
     <span class="e-link__title">Se hva du kan gjøre</span>
-    <span class="e-link__icon"><i class="e-icon-arrow-right e-icon-xxs"></i></span>
+    <span class="e-link__icon"><i class="e-icon-arrow-right"></i></span>
   </a>
 </div>
 `;
