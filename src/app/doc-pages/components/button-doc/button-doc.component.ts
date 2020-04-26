@@ -11,9 +11,6 @@ export class ButtonDocComponent {
   externalUrl = getComponent('button-doc').externalUrl;
   componentStatus = getComponent('button-doc').status;
 
-  eBtn: ['e-btn'];
-
-  pseudoClasses = ['e-btn---hover', 'e-btn---active', 'e-btn---focus', 'e-btn---disabled'];
   public clicked = false;
 
   example1 = `<div>
@@ -44,7 +41,6 @@ export class ButtonDocComponent {
   </button>
 </div>
 `;
-
 
   example2 = `<div>
   <h3 class="e-title-small">Large</h3>
@@ -177,7 +173,6 @@ example3 = `<div>
   </div>
 </div>
 `;
-
 
   example5 = `<div>
   <h3 class="e-title-small">Large</h3>
