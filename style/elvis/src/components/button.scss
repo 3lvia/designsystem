@@ -42,12 +42,15 @@ $button-sm-icon-size: 16px;
   align-items: center;
   font-weight: $button-font-weight;
   outline: none;
-  i {display: flex;}
 
   &.e-btn---focus, &:enabled:focus:not(:active) {
     @extend .e-outline;
   }
 
+  &__icon {
+    i {display: flex;}
+  }
+  
   // Adding margin if icon
   &__title + &__icon, &__icon + &__title {
     margin-left: var(--e-spacing-8);
