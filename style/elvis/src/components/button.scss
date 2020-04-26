@@ -53,19 +53,29 @@ $button-sm-line-height: 115%;
     font-size: $button-md-font-size;
     line-height: $button-md-line-height;
     padding: $button-md-padding;
+    &.e-btn--secondary {
+      padding: calc(#{$button-md-padding-top-bottom} - 1px) calc(#{$button-md-padding-left-right} - 1px);
+    }
   }
   &.e-btn--sm {
     font-size: $button-sm-font-size;
     line-height: $button-sm-line-height;
     padding: $button-sm-padding;
+    &.e-btn--secondary {
+      padding: calc(#{$button-sm-padding-top-bottom} - 1px) calc(#{$button-sm-padding-left-right} - 1px);
+    }
   }
   &.e-btn--lg {
     font-size: $button-lg-font-size;
     line-height: $button-lg-line-height;
     padding: $button-lg-padding;
+    &.e-btn--secondary {
+      padding: calc(#{$button-lg-padding-top-bottom} - 1px) calc(#{$button-lg-padding-left-right} - 1px);
+    }
   }
 
   &.e-btn--primary {
+    border: none;
     border-radius: $button-radius;
     background: color("black");
     color: color("white");
@@ -140,10 +150,13 @@ $button-sm-line-height: 115%;
   }
 
   &.e-btn--loading {
+    display: inline-block;
+    
     span {
       background: transparent;
       border-radius: 50%;
       display: inline-block;
+      line-height: 24px;
       height: 0.6rem;
       width: 0.6rem;
       animation: dots 1000ms linear infinite;
