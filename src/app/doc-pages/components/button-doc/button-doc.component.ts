@@ -74,11 +74,11 @@ export class ButtonDocComponent {
 example3 = `<div>
   <h3 class="e-title-small">Large</h3>
   <button class="e-btn e-btn--tertiary e-btn--lg e-m-16" >
-    <span class="e-btn__icon e-icon-download e-icon-sm"></span>
+    <span class="e-btn__icon"><i class="e-icon-download"></i></span>
     <span class="e-btn__title">Standard</span>
   </button>
   <button class="e-btn e-btn--tertiary e-btn--lg e-m-16" disabled >
-    <span class="e-btn__icon e-icon-download e-icon-disabled e-icon-sm"></span>
+    <span class="e-btn__icon"><i class="e-icon-download e-icon-disabled"></i></span>
     <span class="e-btn__title">Disabled</span>
   </button>
 </div>
@@ -86,21 +86,21 @@ example3 = `<div>
   <h3 class="e-title-small">Medium (default)</h3>
   <button class="e-btn e-btn--tertiary e-m-16" >
     <span class="e-btn__title">Standard</span>
-    <span class="e-btn__icon e-icon-download e-icon-xs"></span>
+    <span class="e-btn__icon"><i class="e-icon-download"></i></span>
   </button>
   <button class="e-btn e-btn--tertiary e-m-16" disabled >
     <span class="e-btn__title">Disabled</span>
-    <span class="e-btn__icon e-icon-download e-icon-disabled e-icon-xs"></span>
+    <span class="e-btn__icon"><i class="e-icon-download e-icon-disabled"></i></span>
   </button>
 </div>
 <div>
   <h3 class="e-title-small">Small</h3>
   <button class="e-btn e-btn--tertiary e-btn--sm e-m-16" >
-    <span class="e-btn__icon e-icon-download e-icon-xs"></span>
+    <span class="e-btn__icon"><i class="e-icon-download"></i></span>
     <span class="e-btn__title">Standard</span>
   </button>
   <button class="e-btn e-btn--tertiary e-btn--sm e-m-16" disabled >
-    <span class="e-btn__icon e-icon-download e-icon-disabled e-icon-xs"></span>
+    <span class="e-btn__icon"><i class="e-icon-download e-icon-disabled"></i></span>
     <span class="e-btn__title">Disabled</span>
   </button>
 </div>
@@ -110,31 +110,31 @@ example3 = `<div>
   <h3 class="e-title-small">Primary buttons</h3>
   <div>
     <button class="e-btn e-btn--lg e-m-16" >
-      <span class="e-btn__icon e-icon-add-circle-filled e-icon-sm e-icon-invert"></span>
+      <span class="e-btn__icon"><i class="e-icon-add-circle-filled e-icon-invert"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
     <button class="e-btn e-btn--lg e-m-16" disabled >
-      <span class="e-btn__icon e-icon-add-circle-filled e-icon-sm e-icon-disabled"></span>
+      <span class="e-btn__icon"><i class="e-icon-add-circle-filled e-icon-disabled"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
   </div>
   <div>
     <button class="e-btn e-m-16">
-      <span class="e-btn__icon e-icon-add-circle-filled e-icon-xs e-icon-invert"></span>
+      <span class="e-btn__icon"><i class="e-icon-add-circle-filled e-icon-invert"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
     <button class="e-btn e-m-16" disabled >
-      <span class="e-btn__icon e-icon-add-circle-filled e-icon-xs e-icon-invert"></span>
+      <span class="e-btn__icon"><i class="e-icon-add-circle-filled e-icon-disabled"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
   </div>
   <div>
     <button class="e-btn e-btn--sm e-m-16" >
-      <span class="e-btn__icon e-icon-add-circle-filled e-icon-xs e-icon-invert"></span>
+      <span class="e-btn__icon"><i class="e-icon-add-circle-filled e-icon-invert"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
     <button class="e-btn e-btn--sm e-m-16" disabled>
-      <span class="e-btn__icon e-icon-add-circle-filled e-icon-xs e-icon-invert"></span>
+      <span class="e-btn__icon"><i class="e-icon-add-circle-filled e-icon-disabled"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
   </div>
@@ -143,31 +143,31 @@ example3 = `<div>
   <h3 class="e-title-small">Secondary buttons</h3>
   <div>
     <button class="e-btn e-btn--secondary e-btn--lg e-m-16" >
-      <span class="e-btn__icon e-icon-download e-icon-sm"></span>
+      <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
     <button class="e-btn e-btn--secondary e-btn--lg e-m-16" disabled>
-      <span class="e-btn__icon e-icon-download e-icon-sm"></span>
+      <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
   </div>
   <div>
     <button class="e-btn e-btn--secondary e-m-16" >
-      <span class="e-btn__icon e-icon-download e-icon-xs"></span>
+      <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
     <button class="e-btn e-btn--secondary e-m-16" disabled>
-      <span class="e-btn__icon e-icon-download e-icon-xs"></span>
+      <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
   </div>
   <div>
     <button class="e-btn e-btn--secondary e-btn--sm e-m-16" >
-      <span class="e-btn__icon e-icon-download e-icon-xs"></span>
+      <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
     <button class="e-btn e-btn--secondary e-btn--sm e-m-16" disabled >
-      <span class="e-btn__icon e-icon-download e-icon-xs"></span>
+      <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
   </div>

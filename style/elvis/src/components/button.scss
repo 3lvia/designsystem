@@ -12,23 +12,26 @@ $button-font-weight: 500;
 $button-border-width: 1px;
 $button-extra-border-hover: 1px;
 
-$button-lg-padding-top-bottom: 12px;
-$button-lg-padding-left-right: 32px;
-$button-lg-padding: $button-lg-padding-top-bottom $button-lg-padding-left-right;
+$button-lg-padding-y: 12px;
+$button-lg-padding-x: 32px;
+$button-lg-padding: $button-lg-padding-y $button-lg-padding-x;
 $button-lg-font-size: 18px;
 $button-lg-line-height: 24px;
+$button-lg-icon-size: 24px;
 
-$button-md-padding-top-bottom: 10px;
-$button-md-padding-left-right: 24px;
-$button-md-padding: $button-md-padding-top-bottom $button-md-padding-left-right;
+$button-md-padding-y: 10px;
+$button-md-padding-x: 24px;
+$button-md-padding: $button-md-padding-y $button-md-padding-x;
 $button-md-font-size: 16px;
 $button-md-line-height: 125%;
+$button-md-icon-size: 16px;
 
-$button-sm-padding-top-bottom: 8px;
-$button-sm-padding-left-right: 16px;
-$button-sm-padding: $button-sm-padding-top-bottom $button-sm-padding-left-right;
+$button-sm-padding-y: 8px;
+$button-sm-padding-x: 16px;
+$button-sm-padding: $button-sm-padding-y $button-sm-padding-x;
 $button-sm-font-size: 14px;
 $button-sm-line-height: 115%;
+$button-sm-icon-size: 16px;
 
 .e-btn {
   // .e-btn--primary .e-btn--md is the default for any e-button
@@ -38,8 +41,9 @@ $button-sm-line-height: 115%;
   display: inline-flex;
   align-items: center;
   font-weight: $button-font-weight;
-
   outline: none;
+  i {display: flex;}
+
   &.e-btn---focus, &:enabled:focus:not(:active) {
     @extend .e-outline;
   }
@@ -49,28 +53,31 @@ $button-sm-line-height: 115%;
     margin-left: var(--e-spacing-8);
   }
 
+  &.e-btn--lg {
+    font-size: $button-lg-font-size;
+    line-height: $button-lg-line-height;
+    padding: $button-lg-padding;
+    i, img { width: $button-lg-icon-size; height: $button-lg-icon-size; }
+    &.e-btn--secondary {
+      padding: calc(#{$button-lg-padding-y} - 1px) calc(#{$button-lg-padding-x} - 1px);
+    }
+  }
   &.e-btn--md {
     font-size: $button-md-font-size;
     line-height: $button-md-line-height;
     padding: $button-md-padding;
+    i, img { width: $button-md-icon-size; height: $button-md-icon-size; }
     &.e-btn--secondary {
-      padding: calc(#{$button-md-padding-top-bottom} - 1px) calc(#{$button-md-padding-left-right} - 1px);
+      padding: calc(#{$button-md-padding-y} - 1px) calc(#{$button-md-padding-x} - 1px);
     }
   }
   &.e-btn--sm {
     font-size: $button-sm-font-size;
     line-height: $button-sm-line-height;
     padding: $button-sm-padding;
+    i, img { width: $button-sm-icon-size; height: $button-sm-icon-size; }
     &.e-btn--secondary {
-      padding: calc(#{$button-sm-padding-top-bottom} - 1px) calc(#{$button-sm-padding-left-right} - 1px);
-    }
-  }
-  &.e-btn--lg {
-    font-size: $button-lg-font-size;
-    line-height: $button-lg-line-height;
-    padding: $button-lg-padding;
-    &.e-btn--secondary {
-      padding: calc(#{$button-lg-padding-top-bottom} - 1px) calc(#{$button-lg-padding-left-right} - 1px);
+      padding: calc(#{$button-sm-padding-y} - 1px) calc(#{$button-sm-padding-x} - 1px);
     }
   }
 
