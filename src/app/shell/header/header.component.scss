@@ -32,6 +32,12 @@
       justify-content: flex-start;
       align-items: center;
       cursor: pointer;
+      padding-top:20px;
+
+      img { 
+        padding:20px;
+        height:40px;
+      }
     }
     &_title {
       display: flex;
