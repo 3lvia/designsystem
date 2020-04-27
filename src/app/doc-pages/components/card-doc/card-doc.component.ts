@@ -30,13 +30,12 @@ export class CardDocComponent implements OnInit {
     Best design once so-called "iPad killer" although Apple will only get better,
     overall gorgeous on the contrary profit.
   </div>
-</div>
-  `;
+</div>`;
 
   example3 = `<div class="e-card__title-above">
     A card should have a title
-  </div>
-  <div class="e-card">
+</div>
+<div class="e-card">
   <div class="e-card__content">
     Can also not have a title
     Best design once so-called "iPad killer" although Apple will only get better,
