@@ -83,14 +83,16 @@
         Phone
       </div>
     </div>
-    <div 
-      class="element" 
-      *ngIf="!showIframeScreens"
-      [ngClass]="greyBg ? 'e-bg-grey-02' : 'e-bg-white'"
-      ></div>>
+    <div class="element" 
+    *ngIf="!showIframeScreens" 
+    [ngClass]=" greyBg ? 'e-bg-grey-02' : e-bg-white ">
       <div #defaultFrame></div>
     </div>
-    <div class="element" *ngIf="showIframeScreens">
+    <div 
+      class="element" 
+      *ngIf="showIframeScreens"
+      [ngClass]=" greyBg ? 'e-bg-grey-02' : e-bg-white "
+      >
       <div
         [ngClass]="{ hide: screen !== 'desktop' || noDesktop  }">
         <app-iframe-screen [code]="code" [screenSize]="'desktop'"></app-iframe-screen>

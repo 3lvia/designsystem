@@ -4,6 +4,7 @@
 $card-radius: 8px;
 $card-padding-y: var(--e-spacing-40);
 $card-padding-x: var(--e-spacing-40);
+$card-padding-mobile: var(--e-spacing-24);
 
 $card-header-icon-height: 28px;
 $card-header-icon-margin: 8px;
@@ -22,6 +23,11 @@ $card-actions-button-spacing: 25px;
   padding: $card-padding-y $card-padding-x;
   max-width: 70ch;
 
+  @include breakpoint-up(Mobile) {
+    padding: $card-padding-mobile;
+  }
+
+
   &--bg-white {
     box-shadow: $e-shadow-6;
   }
@@ -38,6 +44,15 @@ $card-actions-button-spacing: 25px;
     height: 100%;
     font-weight: bold;
     margin-bottom: var(--e-spacing-16);
+
+    &-above {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-bottom: var(--e-spacing-8);
+    }
   }
 
   &__content {

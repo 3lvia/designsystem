@@ -2,14 +2,22 @@
 <app-component-header
   [componentStatus]="componentStatus"
   [externalUrl]="externalUrl"
+  [does]="'
+  Simple Cards 
+  - Cards that contain information that also could have interaction possebilities. 
+  Should be used when you want to group content and/or want to seperate information from the rest of the page.'"
+  [donts]="'- Don´t let the cards navigate the user to external sites, use links instead.
+  - Don´t combine titles outside of the card and titles inside the cards on the same page.'"
 >
   <ng-container ngProjectAs="headerTitle">
     Card
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
+    A card is a flexible container that groups various elements of information and actions. They should be easy to scan,
+    read and get things done.
   </ng-container>
 
-  
+
 </app-component-header>
 
 <!--BODY-->
@@ -22,18 +30,19 @@
     [description]="'Regular card with title and text'"
     [greyBg]="true"
   ></app-code-block>
-    <app-code-block
-      [isHTML]="true"
-      [code]="example2"
-      [title]="'On white background'"
-      [class]="['e-card-bg-white']"
-      [description]="'Stronger box shadow on white background for depth'"
-    ></app-code-block>
-    <app-code-block
-      [isHTML]="true"
-      [code]="example3"
-      [title]="'On white background'"
-      [class]="['e-card-bg-white']"
-      [description]="'Stronger box shadow on white background for depth'"
-    ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example2"
+    [title]="'On white background'"
+    [class]="['e-card-bg-white']"
+    [description]="'Stronger box shadow on white background for depth'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example3"
+    [title]="'Titles above the card'"
+    [class]="['e-card e-card--header--title-above']"
+    [description]="'Cards can also have titles outside of the card'"
+    [greyBg]="true"
+  ></app-code-block>
 </div>
