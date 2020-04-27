@@ -2,8 +2,7 @@
 @import "./../variables/shadows";
 
 $card-radius: 8px;
-$card-padding-y: var(--e-spacing-40);
-$card-padding-x: var(--e-spacing-40);
+$card-padding: var(--e-spacing-40);
 $card-padding-mobile: var(--e-spacing-24);
 
 // For action cards on Elvis documentaion page
@@ -19,7 +18,7 @@ $card-actions-button-spacing: 25px;
   flex-direction: column;
   background: color("white");
   box-sizing: border-box;
-  padding: $card-padding-y $card-padding-x;
+  padding: $card-padding;
   max-width: 70ch;
 
   @include breakpoint-up(Tablet) {
@@ -65,7 +64,7 @@ $card-actions-button-spacing: 25px;
 
     &--action {
       flex-grow: 1;
-      margin: calc(#{$card-padding-y} * -1) calc(#{$card-padding-x} * -1);
+      margin: calc(#{$card-padding} * -1) calc(#{$card-padding} * -1);
       padding: $card-actions-action-padding;
       border: 0;
       border-top: 1px solid color("grey-30");
