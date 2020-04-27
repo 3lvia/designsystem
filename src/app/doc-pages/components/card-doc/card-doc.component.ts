@@ -37,7 +37,7 @@ export class CardDocComponent implements OnInit {
 
   example3 = `<div style="max-width:600px;margin:40px;">
   <div class="e-card">
-    <div class="e-card__title---above">
+    <div class="e-card__title--above">
       Strømregningen påvirkes av vinteren
   </div>
     <div class="e-card__content">
