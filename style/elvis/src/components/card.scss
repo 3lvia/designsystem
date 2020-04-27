@@ -23,7 +23,7 @@ $card-actions-button-spacing: 25px;
   padding: $card-padding-y $card-padding-x;
   max-width: 70ch;
 
-  @include breakpoint-up(Mobile) {
+  @include breakpoint-up(Tablet) {
     padding: $card-padding-mobile;
   }
 
