@@ -47,6 +47,7 @@ $card-actions-button-spacing: 25px;
 
   &__content {
     display: block;
+    @extend .e-text-description
   }
 
   // For action cards on Elvis documentaion page
