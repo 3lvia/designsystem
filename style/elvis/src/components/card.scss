@@ -25,7 +25,7 @@ $card-actions-button-spacing: 25px;
     padding: $card-padding-mobile;
   }
 
-  &--bg-white {
+  &--on-white {
     box-shadow: $e-shadow-6;
   }
 
@@ -35,7 +35,7 @@ $card-actions-button-spacing: 25px;
     margin-bottom: var(--e-spacing-16);
     line-height: 24px;
 
-    &--above {
+    &.e-card__title--above {
       font-weight: 500;
       font-size: 14px;
       line-height: 24px;
