@@ -1,8 +1,5 @@
-*::selection {
-  background: lightblue;
-  color: white;
-}
+@import '../utilities/outline.scss';
 
-*:focus {
-  outline-color: lightblue;
+*:focus:not(:active) {
+    @extend .e-outline;
 }

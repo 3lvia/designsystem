@@ -27,7 +27,7 @@ export class IframeScreenComponent implements AfterViewInit {
       const doc = this.iframeDesktop.nativeElement.contentWindow.document;
       doc.open();
       // tslint:disable-next-line:max-line-length
-      doc.write(`<html><head>${window.document.head.innerHTML}</head><body style="overflow: auto; padding-left: 4px;">${this.code}</body></html>`);
+      doc.write(`<html><head>${window.document.head.innerHTML}</head><body><div style="overflow: auto; padding: 8px;">${this.code}</div></body></html>`);
       doc.close();
       this.iframeDesktop.nativeElement.style.height = (doc.body.scrollHeight + 20) + 'px';
     }
@@ -35,7 +35,7 @@ export class IframeScreenComponent implements AfterViewInit {
       const doc = this.iframeTablet.nativeElement.contentWindow.document;
       doc.open();
       // tslint:disable-next-line:max-line-length
-      doc.write(`<html><head>${window.document.head.innerHTML}</head><body style="overflow: auto; padding-left: 4px;">${this.code}</body></html>`);
+      doc.write(`<html><head>${window.document.head.innerHTML}</head><body><div style="overflow: auto; padding: 4px;">${this.code}</div></body></html>`);
       doc.close();
       this.iframeTablet.nativeElement.style.height = '470px';
     }
@@ -43,7 +43,7 @@ export class IframeScreenComponent implements AfterViewInit {
       const doc = this.iframePhone.nativeElement.contentWindow.document;
       doc.open();
       // tslint:disable-next-line:max-line-length
-      doc.write(`<html><head>${window.document.head.innerHTML}</head><body style="overflow: auto; padding-left: 4px;">${this.code}</body></html>`);
+      doc.write(`<html><head>${window.document.head.innerHTML}</head><body><div style="overflow: auto; padding: 4px;">${this.code}</div></body></html>`);
       doc.close();
       this.iframePhone.nativeElement.style.height = '470px';
     }
