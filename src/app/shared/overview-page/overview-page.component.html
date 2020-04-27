@@ -2,13 +2,9 @@
   <h1 class="e-title-lg">{{ overviewTitle }}</h1>
   <div class="page-card-container">
     <div class="e-card e-card--bg-white" *ngFor="let page of pages">
-      <div class="e-card_header">
-        <div class="e-card__header_text">
-          <div class="e-card__title">{{ page.title }}</div>
-        </div>
-      </div>
+        <div class="e-card__title">{{ page.title }}</div>
       <div class="e-card__content">
-        <span class="e-text-description">{{ page.description }}</span>
+        {{ page.description }}
       </div>
       <div class="e-card__actions" *ngIf="page.docUrl && !page.absolutePath">
         <a class="e-card__actions e-card__actions--action" [routerLink]="[page.docUrl]">
