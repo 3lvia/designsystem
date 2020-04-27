@@ -19,7 +19,7 @@ $card-actions-button-spacing: 25px;
   background: color("white");
   box-sizing: border-box;
   padding: $card-padding;
-  max-width: 70ch;
+  max-width: 600px;
 
   @include breakpoint-up(Tablet) {
     padding: $card-padding-mobile;
@@ -42,6 +42,7 @@ $card-actions-button-spacing: 25px;
       letter-spacing: 0.8px;
       text-transform: uppercase;
       margin-bottom: var(--e-spacing-8);
+      margin-left: var(--e-spacing-8);
     }
   }
 
