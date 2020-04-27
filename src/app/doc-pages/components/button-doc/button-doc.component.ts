@@ -16,7 +16,7 @@ export class ButtonDocComponent {
   example1 = `<div>
   <h3 class="e-title-small">Large</h3>
   <button class="e-btn e-btn--lg e-m-16">
-    <span class="e-btn__title">Standard</span>
+    <span class="e-btn__title">Primary</span>
   </button>
   <button class="e-btn e-btn--lg e-m-16" disabled>
     <span class="e-btn__title">Disabled</span>
@@ -25,7 +25,7 @@ export class ButtonDocComponent {
 <div>
   <h3 class="e-title-small">Medium (default)</h3>
   <button class="e-btn e-m-16">
-    <span class="e-btn__title">Standard</span>
+    <span class="e-btn__title">Primary</span>
   </button>
   <button class="e-btn e-m-16" disabled>
     <span class="e-btn__title">Disabled</span>
@@ -34,7 +34,7 @@ export class ButtonDocComponent {
 <div>
   <h3 class="e-title-small">Small</h3>
   <button class="e-btn e-btn--sm e-m-16">
-    <span class="e-btn__title">Standard</span>
+    <span class="e-btn__title">Primary</span>
   </button>
   <button class="e-btn e-btn--sm e-m-16" disabled>
     <span class="e-btn__title">Disabled</span>
@@ -45,7 +45,7 @@ export class ButtonDocComponent {
   example2 = `<div>
   <h3 class="e-title-small">Large</h3>
   <button class="e-btn e-btn--secondary e-btn--lg e-m-16">
-    <span class="e-btn__title">Standard</span>
+    <span class="e-btn__title">Secondary</span>
   </button>
   <button class="e-btn e-btn--secondary e-btn--lg e-m-16" disabled>
     <span class="e-btn__title">Disabled</span>
@@ -54,7 +54,7 @@ export class ButtonDocComponent {
 <div>
   <h3 class="e-title-small">Medium (default)</h3>
   <button class="e-btn e-btn--secondary e-m-16">
-    <span class="e-btn__title">Standard</span>
+    <span class="e-btn__title">Secondary</span>
   </button>
   <button class="e-btn e-btn--secondary e-m-16" disabled>
     <span class="e-btn__title">Disabled</span>
@@ -63,7 +63,7 @@ export class ButtonDocComponent {
 <div>
   <h3 class="e-title-small">Small</h3>
   <button class="e-btn e-btn--secondary e-btn--sm e-m-16">
-    <span class="e-btn__title">Standard</span>
+    <span class="e-btn__title">Secondary</span>
   </button>
   <button class="e-btn e-btn--secondary e-btn--sm e-m-16" disabled>
     <span class="e-btn__title">Disabled</span>
@@ -75,7 +75,7 @@ example3 = `<div>
   <h3 class="e-title-small">Large</h3>
   <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
     <span class="e-btn__icon"><i class="e-icon-download"></i></span>
-    <span class="e-btn__title">Standard</span>
+    <span class="e-btn__title">Tertiary</span>
   </button>
   <button class="e-btn e-btn--tertiary e-btn--lg e-m-16" disabled>
     <span class="e-btn__icon"><i class="e-icon-download"></i></span>
@@ -85,7 +85,7 @@ example3 = `<div>
 <div>
   <h3 class="e-title-small">Medium (default)</h3>
   <button class="e-btn e-btn--tertiary e-m-16">
-    <span class="e-btn__title">Standard</span>
+    <span class="e-btn__title">Tertiary</span>
     <span class="e-btn__icon"><i class="e-icon-download"></i></span>
   </button>
   <button class="e-btn e-btn--tertiary e-m-16" disabled>
@@ -97,7 +97,7 @@ example3 = `<div>
   <h3 class="e-title-small">Small</h3>
   <button class="e-btn e-btn--tertiary e-btn--sm e-m-16">
     <span class="e-btn__icon"><i class="e-icon-download"></i></span>
-    <span class="e-btn__title">Standard</span>
+    <span class="e-btn__title">Tertiary</span>
   </button>
   <button class="e-btn e-btn--tertiary e-btn--sm e-m-16" disabled>
     <span class="e-btn__icon"><i class="e-icon-download"></i></span>
