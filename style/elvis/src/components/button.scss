@@ -8,7 +8,7 @@
 @import "../utilities/outline.scss";
 
 $button-radius: 24px;
-$button-font-weight: 400;
+$button-font-weight: 500;
 $button-border-width: 1px;
 $button-extra-border-hover: 1px;
 
@@ -143,6 +143,10 @@ $button-sm-icon-size: 16px;
     padding-bottom: 3.5px;
     background: none;
     color: color("black");
+
+    &.e-btn--lg {
+      padding-bottom: 1.5px;
+    }
 
     &.e-btn---disabled, &:disabled  {
       color: color("grey-30");

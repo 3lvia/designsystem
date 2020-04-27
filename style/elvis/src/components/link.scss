@@ -22,9 +22,9 @@ $link-jumbo-phone-width: 287px;
   @extend .e-link--normal;
   @extend .e-link--md;
   display: inline-flex;
-  border-bottom: 2px solid color("black");
   text-decoration: none;
   box-sizing: border-box;
+  border-bottom: 2px solid color("black");
   outline: none;
   cursor: pointer;
   font-weight: bold;
@@ -46,6 +46,7 @@ $link-jumbo-phone-width: 287px;
   &.e-link--lg {
     font-size: $link-lg-font-size;
     line-height: $link-lg-line-height;
+    border-bottom: 2.5px solid color("black");
   }
   &.e-link--md {
     font-size: $link-md-font-size;
@@ -98,9 +99,9 @@ $link-jumbo-phone-width: 287px;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 18px;
-      height: 18px;
-      border: 2px solid color("green");
+      width: 21px;
+      height: 21px;
+      border: 1.5px solid color("green");
       border-radius: 50%;
     }
 
