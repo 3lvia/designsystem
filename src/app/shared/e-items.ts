@@ -121,6 +121,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Label,
         status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-%26-chips?node-id=0%3A1'
     },
     {
         title: 'Link',
