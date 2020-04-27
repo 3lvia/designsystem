@@ -16,9 +16,10 @@ export class CardDocComponent implements OnInit {
     <div class="e-card__title">
       Strømregningen påvirkes av vinteren
     </div>
-  <div class="e-card__content">
-    Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker,
-    mens de fleste holder en jevn temperatur på rundt 20 grader inne...
+    <div class="e-card__content">
+      Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker,
+      mens de fleste holder en jevn temperatur på rundt 20 grader inne...
+    </div>
   </div>
 </div>
 `;
@@ -39,7 +40,7 @@ export class CardDocComponent implements OnInit {
   <div class="e-card">
     <div class="e-card__title--above">
       Strømregningen påvirkes av vinteren
-  </div>
+    </div>
     <div class="e-card__content">
       Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker,
       mens de fleste holder en jevn temperatur på rundt 20 grader inne...
