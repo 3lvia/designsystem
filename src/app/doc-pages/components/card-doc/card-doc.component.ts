@@ -36,10 +36,10 @@ export class CardDocComponent implements OnInit {
 </div>`;
 
   example3 = `<div style="max-width:600px;margin:40px;">
-  <div class="e-card__title-above">
+  <div class="e-card">
+    <div class="e-card__title---above">
       A card should have a title
   </div>
-  <div class="e-card">
     <div class="e-card__content">
       Can also not have a title
       Best design once so-called "iPad killer" although Apple will only get better,

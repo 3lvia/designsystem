@@ -19,6 +19,7 @@ $card-actions-button-spacing: 25px;
   background: color("white");
   box-sizing: border-box;
   padding: $card-padding;
+  position: relative;
 
   @include breakpoint-up(Tablet) {
     padding: $card-padding-mobile;
@@ -34,14 +35,15 @@ $card-actions-button-spacing: 25px;
     margin-bottom: var(--e-spacing-16);
     line-height: 24px;
 
-    &-above {
+    &---above {
       font-weight: 500;
       font-size: 14px;
       line-height: 24px;
       letter-spacing: 0.8px;
       text-transform: uppercase;
-      margin-bottom: var(--e-spacing-8);
-      margin-left: var(--e-spacing-8);
+      position: absolute;
+      top: -32px;
+      left: 8px;
     }
   }
 
@@ -79,7 +81,7 @@ $card-actions-button-spacing: 25px;
       justify-content: center;
 
       &:hover:not(.no-hover),
-      &.is-hovering {
+      &.e---hovering {
         background-color: #eee;
       }
     }
