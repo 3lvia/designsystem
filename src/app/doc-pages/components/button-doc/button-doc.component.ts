@@ -109,11 +109,11 @@ example3 = `<div>
   example4 = `<div>
   <h3 class="e-title-small">Primary buttons</h3>
   <div>
-    <button class="e-btn e-btn--lg e-m-16">
+    <button class="e-btn e-m-16">
       <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
-    <button class="e-btn e-btn--lg e-m-16" disabled>
+    <button class="e-btn e-m-16" disabled>
       <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
@@ -132,11 +132,11 @@ example3 = `<div>
 <div>
   <h3 class="e-title-small">Secondary buttons</h3>
   <div>
-    <button class="e-btn e-btn--secondary e-btn--lg e-m-16">
+    <button class="e-btn e-btn--secondary e-m-16">
       <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
-    <button class="e-btn e-btn--secondary e-btn--lg e-m-16" disabled>
+    <button class="e-btn e-btn--secondary e-m-16" disabled>
       <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
@@ -155,11 +155,11 @@ example3 = `<div>
 <div>
   <h3 class="e-title-small">Tertiary buttons</h3>
   <div>
-    <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
+    <button class="e-btn e-btn--tertiary e-m-16">
       <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
-    <button class="e-btn e-btn--tertiary e-btn--lg e-m-16" disabled>
+    <button class="e-btn e-btn--tertiary e-m-16" disabled>
       <span class="e-btn__icon"><i class="e-icon-download"></i></span>
       <span class="e-btn__title">Icon button</span>
     </button>
