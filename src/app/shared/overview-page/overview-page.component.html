@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="e-card__content">
-        <p class="e-text-description">{{ page.description }}</p>
+        <span class="e-text-description">{{ page.description }}</span>
       </div>
       <div class="e-card__actions" *ngIf="page.docUrl && !page.absolutePath">
         <a class="e-card__actions e-card__actions--action" [routerLink]="[page.docUrl]">

@@ -19,7 +19,6 @@ $card-actions-button-spacing: 25px;
   background: color("white");
   box-sizing: border-box;
   padding: $card-padding;
-  max-width: 600px;
 
   @include breakpoint-up(Tablet) {
     padding: $card-padding-mobile;
@@ -32,13 +31,13 @@ $card-actions-button-spacing: 25px;
   &__title {
     // .e-title-sm is font-properties, defined in typography.
     @extend .e-title-sm;
-    text-transform: uppercase;
     margin-bottom: var(--e-spacing-16);
+    line-height: 24px;
 
     &-above {
       font-weight: 500;
       font-size: 14px;
-      line-height: 17px;
+      line-height: 24px;
       letter-spacing: 0.8px;
       text-transform: uppercase;
       margin-bottom: var(--e-spacing-8);
