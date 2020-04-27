@@ -61,7 +61,7 @@
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{ active: screen === 'desktop' }"
+        [ngClass]="{ hide: noDesktop, active: screen === 'desktop' }"
         (click)="screen = 'desktop'"
       >
         Desktop
@@ -69,7 +69,7 @@
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{ active: screen === 'tablet' }"
+        [ngClass]="{ hide: noTablet, active: screen === 'tablet' }"
         (click)="screen = 'tablet'"
       >
         Tablet
@@ -77,7 +77,7 @@
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{ active: screen === 'phone' }"
+        [ngClass]="{ hide: noPhone, active: screen === 'phone' }"
         (click)="screen = 'phone'"
       >
         Phone

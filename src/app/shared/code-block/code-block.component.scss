@@ -71,6 +71,9 @@ iframe {
       .tab:last-of-type {
         border-right: none;
       }
+      .hide {
+        display: none;
+      }
     }
 
     .show-code, .hide-code {

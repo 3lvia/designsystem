@@ -7,9 +7,11 @@
     Link
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
+    The biggest difference between Buttons and Links is that Links often take the user to a new page or context, 
+    while Buttons are used as main actions taken in the same context and on the same page. 
+    Buttons take more attention and should therefore be used on main actions, 
+    while links are more discrete and can be used where the action is secondary.
   </ng-container>
-
-  
 </app-component-header>
 
 <!--BODY-->
@@ -17,56 +19,51 @@
   <app-code-block
     [isHTML]="true"
     [code]="example1"
-    [title]="'Link'"
-    [class]="['e-link']"
+    [title]="'Normal link (default)'"
+    [class]="['e-link', '(e-link--normal)', 'e-link--lg', 'e-link--md', 'e-link--sm']"
     [description]="'The e-link class is the default link style.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
     [title]="'Inline Link'"
-    [class]="['e-inline']"
-    [description]="'The e-inline modifier is used for links used inline in text sections.'"
+    [class]="['e-link', 'e-link--inline']"
+    [description]="'The e-link--inline modifier is used for links inlined in text sections. They will inherit the font-size.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example3"
-    [title]="'Link to external sites'"
-    [class]="['e-external']"
-    [description]="'The e-more modifier is used for links navigating to external sites'"
+    [title]="'Back link (link with icon)'"
+    [class]="['e-link', 'e-link__icon', 'e-link__title']"
+    [description]="'The element-classes e-link__icon and e-link__title will place icons correctly on either sides.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example4"
-    [title]="'Back Link'"
-    [class]="['e-icon-first']"
-    [description]="'The e-back modifier style is specifically used for navigating back.'"
+    [title]="'Link to external sites'"
+    [class]="['e-link', 'e-link--external']"
+    [description]="'The e-link--external modifier is used for links navigating to external sites.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example5"
-    [title]="'Links with icon'"
-    [class]="['e-link-icon-first']"
-    [description]="'Default behaviour for e-link icons is to be placed after the tekst. If you need an icon before 
-    the text, add the e-link-icon-first class, and add the icon before the text within the anchor tag'"
+    [title]="'Action Link'"
+    [class]="['e-link', 'e-link--action']"
+    [description]="'The e-link--action class gives a custom link for internal actions.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example6"
-    [title]="'Custom Link'"
-    [class]="['e-custom']"
+    [title]="'Jumbo link'"
+    [class]="['e-link', 'e-link--jumbo']"
+    [showIframeScreens]="true"
+    [noTablet]="true"
+    [description]="'Jumbo link is used to create a clear overview of multiple links within the same category. The text content cannot exceed 2 rows on desktop. The desktop version will keep standard height while the mobile version will expand for text content according to the desktop limit.'"
   ></app-code-block>
   <app-code-block
-  [isHTML]="true"
-  [code]="example7"
-  [title]="'Jumbo link'"
-  [class]="['e-jumbo']"
-  [description]="'Jumbo link is used to create a clear overview of multiple links within the same category. The text content cannot exceed 2 rows on desktop. The desktop version will keep standard height while the mobile version will expand for text content according to the desktop limit.'"
-></app-code-block>
-  <app-code-block
     [isHTML]="true"
-    [code]="example8"
+    [code]="example7"
     [title]="'Pseudo Classes'"
-    [class]="pseudoClasses"
+    [class]="['e-link---hover', 'e-link---focus']"
   ></app-code-block>
 </div>
