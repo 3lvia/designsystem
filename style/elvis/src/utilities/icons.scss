@@ -1,5 +1,3 @@
-$defaultSize: 32px;
-
 // Multiples of 8
 $sizes: (
     'xxs': 8px,
@@ -11,24 +9,20 @@ $sizes: (
     'xxl': 56px,
 );
 
-.e-icon {
-    $size: map-get($map: $sizes, $key: 'md');
-    width: $size;
-    height: $size;
-    img {
-        width:$size;
-        height:$size;
-    }
+@function icon-size($size){
+    @return map-get($map: $sizes, $key: $size)
 }
 
-// Class used for custom SVGs 
-.e-icon-custom {
-    width:$defaultSize;
-    height:$defaultSize;
-    display:inline-block;
-    img, svg {
+$defaultSize: icon-size('md');
+
+.e-icon {
+    // To make it possible for parent elements to use flex
+    display: flex;
+    width: $defaultSize;
+    height: $defaultSize;
+    img {
         width: $defaultSize;
-        height:$defaultSize;
+        height: $defaultSize;
     }
 }
 
@@ -40,5 +34,16 @@ $sizes: (
             width:$size;
             height:$size;
         }
+    }
+}
+
+// Class used for custom SVGs 
+.e-icon-custom {
+    width:$defaultSize;
+    height:$defaultSize;
+    display:inline-block;
+    img, svg {
+        width: $defaultSize;
+        height:$defaultSize;
     }
 }
