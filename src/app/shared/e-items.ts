@@ -41,14 +41,6 @@ export const eHomes: EItems[] = [
 
 export const eComponents: EItems[] = [
     {
-        title: 'Alerts',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Feedback,
-        status: ItemStatus.Coming,
-        actionText: 'View component',
-        externalUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-message?node-id=0%3A1'
-    },
-    {
         title: 'Button',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Button,
@@ -80,30 +72,9 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons'
     },
     {
-        title: 'Divider',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Divider,
-        status: ItemStatus.Coming,
-        actionText: 'View component',
-    },
-    {
-        title: 'Dropdown',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Dropdown,
-        status: ItemStatus.Coming,
-        actionText: 'View component',
-    },
-    {
         title: 'File Upload',
         description: 'Some useful component with amazing features',
         docUrl: Pages.FileUpload,
-        status: ItemStatus.Coming,
-        actionText: 'View component',
-    },
-    {
-        title: 'Header',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Header,
         status: ItemStatus.Coming,
         actionText: 'View component',
     },
@@ -146,13 +117,6 @@ export const eComponents: EItems[] = [
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
     },
-    // {
-    //     title: 'Notification-Dot',
-    //     description: 'Some useful component with amazing features',
-    //     docUrl: Pages.Notification,
-    //     status: ItemStatus.Coming,
-    //     actionText: 'View component',
-    // },
     {
         title: 'Radiobutton',
         description: 'Some useful component with amazing features',

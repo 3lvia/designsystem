@@ -3,13 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { Pages } from './shared/pages.enum';
 import { MainComponent } from './shell/main/main.component';
 import { HomeComponent } from './shell/home/home.component';
-import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
 import { ButtonDocComponent } from './doc-pages/components/button-doc/button-doc.component';
 import { LabelDocComponent } from './doc-pages/components/label-doc/label-doc.component';
 import { CardDocComponent } from './doc-pages/components/card-doc/card-doc.component';
-import { DropdownDocComponent } from './doc-pages/components/dropdown-doc/dropdown-doc.component';
-import { FeedbackDocComponent } from './doc-pages/components/feedback-doc/feedback-doc.component';
-import { HeaderDocComponent } from './doc-pages/components/header-doc/header-doc.component';
 import { LinkDocComponent } from './doc-pages/components/link-doc/link-doc.component';
 import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.component';
 import { TagsDocComponent } from './doc-pages/components/tags-doc/tags-doc.component';
@@ -119,24 +115,8 @@ const routes: Routes = [
             component: CheckboxToggleDocComponent
           },
           {
-            path: Pages.Divider,
-            component: DividerDocComponent
-          },
-          {
-            path: Pages.Dropdown,
-            component: DropdownDocComponent
-          },
-          {
-            path: Pages.Feedback,
-            component: FeedbackDocComponent
-          },
-          {
             path: Pages.FileUpload,
             component: FileUploadDocComponent
-          },
-          {
-            path: Pages.Header,
-            component: HeaderDocComponent
           },
           {
             path: Pages.Input,
