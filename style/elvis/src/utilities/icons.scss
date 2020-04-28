@@ -1,5 +1,3 @@
-$defaultSize: 32px;
-
 // Multiples of 8
 $sizes: (
     'xxs': 8px,
@@ -11,24 +9,30 @@ $sizes: (
     'xxl': 56px,
 );
 
-// Class used for custom SVGs 
-.e-icon-custom {
-    width:$defaultSize;
-    height:$defaultSize;
-    display:inline-block;
-    img, svg {
-        width: $defaultSize;
-        height:$defaultSize;
+@function get-icon-size($size){
+    @return map-get($map: $sizes, $key: $size)
+}
+
+@mixin icon-size($icon-size) {
+    $size: get-icon-size($icon-size);
+    width: $icon-size;
+    height: $icon-size;
+    img {
+        width: $icon-size;
+        height: $icon-size;
     }
 }
 
+$defaultSize: 'md';
+
+.e-icon {
+    @include icon-size($defaultSize);
+}
+
+// Making icon size classes
 @each $label, $size in $sizes {
-    .e-icon-#{$label} {
-        width: $size;
-        height: $size;
-        img {
-            width:$size;
-            height:$size;
-        }
+    .e-icon--#{$label} {
+        @include icon-size($size);
     }
 }
+

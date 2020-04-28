@@ -55,7 +55,7 @@ async function createEmbeddedIconsJS() {
     const iconName = path.basename(iconsToInclude[i], '.svg');
     const optimizedSVGDataURI = svgToMiniDataURI(fileContent);
     embeddedJs = embeddedJs + `
-     "e-icon-${iconName}":"${optimizedSVGDataURI}"`
+     "e-icon--${iconName}":"${optimizedSVGDataURI}"`
 
     if(i < iconsToInclude.length - 1){
       embeddedJs += ','
