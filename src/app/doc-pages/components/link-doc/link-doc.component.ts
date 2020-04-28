@@ -80,9 +80,9 @@ export class LinkDocComponent implements OnInit {
 `;
 
   example6 = `<a class="e-link e-link--jumbo" href="https://www.elvia.no/">
-  <span class="e-link__icon"><i class="e-icon-xl e-icon-powerline-snow"></i></span>
+  <span class="e-link__icon"><i class="e-icon--xl e-icon-powerline-snow"></i></span>
   <span class="e-link__title">Strømledning nær bakken</span>
-  <span class="e-link__icon"><i class="e-icon-xs e-icon-arrow-right"></i></span>
+  <span class="e-link__icon"><i class="e-icon--xs e-icon-arrow-right"></i></span>
 </a>
 `;
 

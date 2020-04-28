@@ -23,7 +23,7 @@ $sizes: (
 }
 
 @each $label, $size in $sizes {
-    .e-icon-#{$label} {
+    .e-icon--#{$label} {
         width: $size;
         height: $size;
         img {
