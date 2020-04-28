@@ -12,11 +12,10 @@ export class DraganddropDocComponent implements OnInit {
   componentStatus = getComponent('checkbox-toggle-doc').status;
 
   example1 = `<div class="e-dragdrop" style="width:300px; height:150px">
-  </div>
-`;
+  </div>`;
+
   example2 = `<div class="e-dragdrop e-dragdrop--hover" style="width:300px; height:150px">
-  </div>
-`;
+  </div>`;
 
   constructor() { }
 

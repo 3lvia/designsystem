@@ -73,7 +73,7 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons'
     },
     {
-        title: 'Drag&Drop Area',
+        title: 'Drag&Drop',
         description: 'Some useful component with amazing features',
         docUrl: Pages.DragAndDrop,
         status: ItemStatus.New,
