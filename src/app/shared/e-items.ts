@@ -73,6 +73,14 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons'
     },
     {
+        title: 'Drag&Drop Area',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.DragAndDrop,
+        status: ItemStatus.New,
+        actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
+    },
+    {
         title: 'File Upload',
         description: 'Some useful component with amazing features',
         docUrl: Pages.FileUpload,

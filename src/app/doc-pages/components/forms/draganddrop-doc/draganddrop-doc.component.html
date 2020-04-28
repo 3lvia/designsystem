@@ -1,3 +1,23 @@
-<p>
-  draganddrop-doc works!
-</p>
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Drag&Drop area
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Drag and Drop area with Elvia style
+  </ng-container>
+
+
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'Drag&Drop'"
+  ></app-code-block>
+</div>

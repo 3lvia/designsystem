@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-draganddrop-doc',
@@ -6,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./draganddrop-doc.component.scss']
 })
 export class DraganddropDocComponent implements OnInit {
+
+  externalUrl = getComponent('checkbox-toggle-doc').externalUrl;
+  componentStatus = getComponent('checkbox-toggle-doc').status;
+
+  example1 = `<div class="e-dragdrop" style="width:300px; height:150px">
+  </div>
+`;
 
   constructor() { }
 

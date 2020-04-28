@@ -40,6 +40,7 @@ import { GridDocComponent } from './doc-pages/utilities/grid-doc/grid-doc.compon
 import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
+import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
 
 
 const routes: Routes = [
@@ -113,6 +114,10 @@ const routes: Routes = [
           {
             path: Pages.CheckboxToggle,
             component: CheckboxToggleDocComponent
+          },
+          {
+            path: Pages.DragAndDrop,
+            component: DraganddropDocComponent
           },
           {
             path: Pages.FileUpload,
