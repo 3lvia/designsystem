@@ -11,6 +11,9 @@ $link-md-line-height: 21px;
 $link-sm-font-size: 14px;
 $link-sm-line-height: 19px;
 
+$link-action-lg-line-height: 26px;
+$link-action-md-line-height: 24px;
+
 $link-jumbo-desktop-padding: 30px 40px;
 $link-jumbo-desktop-width: 545px;
 
@@ -21,8 +24,7 @@ $link-jumbo-phone-width: 287px;
   // Default for links is normal + md
   @extend .e-link--normal;
   @extend .e-link--md;
-  display: inline-flex;
-  text-decoration: none;
+  display: inline;
   box-sizing: border-box;
   border-bottom: 2px solid color("black");
   outline: none;
@@ -31,7 +33,7 @@ $link-jumbo-phone-width: 287px;
   color: color("font-color");
 
   &__icon {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     i { display: flex; }
     i, img { width: 8px; height: 8px;}
@@ -39,8 +41,7 @@ $link-jumbo-phone-width: 287px;
 
   // Adding margin if icon
   &__title + &__icon, &__icon + &__title {
-    position: relative;
-    margin-left: var(--e-spacing-8);
+    margin-left: 5px;
   }
 
   &.e-link--lg {
@@ -61,7 +62,6 @@ $link-jumbo-phone-width: 287px;
 
     &.e-link---hover, &:hover {
       border-bottom-color: color("green");
-      text-decoration: color("green");
     }
     &.e-link---focus, &:focus:not(:active) {
       @extend .e-outline;
@@ -82,9 +82,8 @@ $link-jumbo-phone-width: 287px;
       margin-left: 0;
       i {
         position: absolute;
-        left: 8px;
-        top: 4px;
         right: 0;
+        bottom: 10px;
       }
     }
   }
@@ -95,7 +94,7 @@ $link-jumbo-phone-width: 287px;
     align-items: center;
     justify-content: center;
 
-    .e-link__icon {
+    .e-link__icon i {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -105,8 +104,15 @@ $link-jumbo-phone-width: 287px;
       border-radius: 50%;
     }
 
+    &.e-link--lg {
+      line-height: $link-action-lg-line-height;
+    }
+    &.e-link--md {
+      line-height: $link-action-md-line-height;
+    }
+
     &.e-link---hover, &:hover {
-      .e-link__icon {
+      .e-link__icon i {
         background-color: color("green");
       }
     }

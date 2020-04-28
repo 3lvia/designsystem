@@ -94,6 +94,23 @@ export class LinkDocComponent implements OnInit {
 </div>
 `;
 
+  example8 = `<div style="width:160px;">
+  <a class="e-link e-link--lg" href="https://www.elvia.no/">Normal link over multiple rows</a>
+</div>
+<div class="e-mt-16" style="width:160px;">
+  <a class="e-link e-link--external e-link--lg" href="https://www.elvia.no/">
+    <span class="e-link__title">External link over multiple rows</span>
+    <span class="e-link__icon"><i class="e-icon-arrow-external"></i></span>
+  </a>
+</div>
+<div class="e-mt-16" style="width:160px;">
+  <a class="e-link e-link--action e-link--lg" href="https://www.elvia.no/">
+    <span class="e-link__title">Action link over multiple rows</span>
+    <span class="e-link__icon"><i class="e-icon-arrow-right"></i></span>
+  </a>
+</div>
+`;
+
   constructor() { }
 
   ngOnInit() {
