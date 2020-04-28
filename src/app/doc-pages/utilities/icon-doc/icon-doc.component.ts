@@ -15,7 +15,7 @@ export class IconDocComponent implements OnInit {
   externalUrl = getUtilities('icon-doc').externalUrl;
   componentStatus = getUtilities('icon-doc').status;
   tabNames = TabNames;
-  tabs = [TabNames.Overview, TabNames.Guidelines]; // TabNames.Code, 
+  tabs = [TabNames.Overview, TabNames.Guidelines]; // TabNames.Code,
   inverted = false;
 
   example = `<i class="e-icon-move-truck-color e-icon-xl"></i>

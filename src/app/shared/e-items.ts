@@ -52,8 +52,9 @@ export const eComponents: EItems[] = [
         title: 'Card',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Card,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Card'
     },
     {
         title: 'Checkbox',
@@ -92,6 +93,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.Label,
         status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-%26-chips?node-id=0%3A1'
     },
     {
         title: 'Link',

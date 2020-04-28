@@ -17,57 +17,46 @@
   <app-code-block
     [isHTML]="true"
     [code]="example1"
-    [title]="'Button primary'"
-    [class]="['e-btn']"
-    [description]="' Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions.
+    [title]="'Primary'"
+    [class]="['e-btn', '(e-btn--primary)', 'e-btn--lg', 'e-btn--md', 'e-btn--sm']"
+    [description]="'Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions.
       It is often the primary positive action of a use case. Can be used alone, or combined with a secondary og link style button.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
-    [title]="'Button secondary'"
-    [class]="['e-btn-secondary']"
+    [title]="'Secondary'"
+    [class]="['e-btn', 'e-btn--secondary']"
     [description]="'Secondary buttons are similar to primary buttons but is used as a supportive action, or for less important actions. 
       Can be used alone, or combined with a primary og link styled button.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example3"
-    [title]="'Small buttons'"
-    [class]="['e-btn-small']"
-    [description]="'Smaller versions of primary and secondary buttons.'"
+    [title]="'Tertiary'"
+    [class]="['e-btn', 'e-btn--tertiary']"
+    [description]="'🚧👷🚧 COLORS FOR DISABLED ICONS IS UNDER CONSTRUCTION AND WILL BE UPDATED AUTOMATICALLY 🚧👷🚧
+    Tertiary buttons are action-oriented buttons to be used for less prominent actions. Tertiary button has the same dimensions as primary and secondary, but no background or border color. It can be used in isolation, but can also be used with Primary and Secondary buttons.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
-    [code]=""
+    [code]="example4"
     [title]="'Button with icon'"
-    [description]="'🚧👷🚧 Under Construction 🚧👷🚧'"
-    [class]="['e-has-icon']"
+    [description]="'🚧👷🚧 COLORS FOR DISABLED AND PRIMARY BUTTON ICONS IS UNDER CONSTRUCTION AND WILL BE UPDATED AUTOMATICALLY 🚧👷🚧
+    All icons can be placed to either the right or left of the button-title'"
+    [class]="['e-btn', 'e-btn__title', 'e-btn__icon']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
-    [code]=""
-    [title]="'Small buttons with icon'"
-    [class]="['e-btn-small']"
-    [description]="'🚧👷🚧 Under Construction 🚧👷🚧'"
+    [code]="example5"
+    [title]="'Loading'"
+    [class]="['e-btn', 'e-btn--loading']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example6"
-    [title]="'Loading button'"
-    [class]="['e-btn-loading']"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example7"
-    [title]="'Small loading button'"
-    [class]="['e-btn-loading', 'e-btn-small']"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example8"
     [title]="'Pseudo classes'"
-    [class]="pseudoClasses"
+    [class]="['e-btn---hover', 'e-btn---active', 'e-btn---focus', 'e-btn---disabled']"
     [description]="'Pseudo Classes can be used to set the styling of button to emulate the state. 
     For example adding hover to an e-btn will style the e-btn button to have a hover state'"
   ></app-code-block>

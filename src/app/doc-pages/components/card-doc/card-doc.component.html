@@ -1,17 +1,21 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+  [does]="'Cards contain information that also could have interaction possebilities. 
+  Should be used when you want to group content and/or want to seperate information from the rest of the page.'"
+  [donts]="'Don´t let the cards navigate the user to external sites, use links instead.
+  Don´t combine titles outside of the card and titles inside the cards on the same page.'"
 >
   <ng-container ngProjectAs="headerTitle">
     Card
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    A card is a flexible container that groups various elements of information and actions. They should be easy to scan,
+    read and get things done. NB! Cards take up 100% width of their container, define width on container to regulate card width.
   </ng-container>
 
-  
+
 </app-component-header>
 
 <!--BODY-->
@@ -19,21 +23,27 @@
   <app-code-block
     [isHTML]="true"
     [code]="example1"
-    [title]="'Card 1'"
+    [showIframeScreens]="true"
+    [title]="'Card'"
+    [class]="['e-card']"
+    [description]="'Regular card with title and text'"
+    [greyBg]="true"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
-    [title]="'Card 2'"
+    [showIframeScreens]="true"
+    [title]="'On white background'"
+    [class]="['e-card--on-white']"
+    [description]="'Stronger box shadow on white background for depth'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example3"
-    [title]="'Card 3'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example4"
-    [title]="'Card 4'"
+    [showIframeScreens]="true"
+    [title]="'Titles above the card'"
+    [class]="['e-card__title--above']"
+    [description]="'Cards can also have titles outside of the card'"
+    [greyBg]="true"
   ></app-code-block>
 </div>
