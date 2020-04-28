@@ -31,6 +31,7 @@ $link-jumbo-phone-width: 287px;
   cursor: pointer;
   font-weight: bold;
   color: color("font-color");
+  text-align: inherit;
 
   &__icon {
     display: inline-flex;
