@@ -8,11 +8,6 @@ describe('Components sidebar Test', () => {
         cy.url().should('eq', 'http://localhost:4200/components');
     });
 
-    it('Visits the Alerts doc page on clicking on Alerts in the sidebar', () => {
-        cy.get('.navbar-item').contains('Alerts').click();
-        cy.url().should('eq', 'http://localhost:4200/components/feedback-doc');
-    });
-
     it('Visits the label doc page on clicking on label in the sidebar', () => {
         cy.get('.navbar-item').contains('label').click();
         cy.url().should('eq', 'http://localhost:4200/components/label-doc');
@@ -36,21 +31,6 @@ describe('Components sidebar Test', () => {
     it('Visits the Checkbox-Toggle doc page on clicking on Checkbox-Toggle in the sidebar', () => {
         cy.get('.navbar-item').contains('Toggle').click();
         cy.url().should('eq', 'http://localhost:4200/components/checkbox-toggle-doc');
-    });
-
-    it('Visits the Divider doc page on clicking on Divider in the sidebar', () => {
-        cy.get('.navbar-item').contains('Divider').click();
-        cy.url().should('eq', 'http://localhost:4200/components/divider-doc');
-    });
-
-    it('Visits the Dropdown doc page on clicking on Dropdown in the sidebar', () => {
-        cy.get('.navbar-item').contains('Dropdown').click();
-        cy.url().should('eq', 'http://localhost:4200/components/dropdown-doc');
-    });
-
-    it('Visits the Header doc page on clicking on Header in the sidebar', () => {
-        cy.get('.navbar-item').contains('Header').click();
-        cy.url().should('eq', 'http://localhost:4200/components/header-doc');
     });
 
     it('Visits the Input doc page on clicking on Input in the sidebar', () => {
