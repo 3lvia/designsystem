@@ -15,20 +15,22 @@ export class IconDocComponent implements OnInit {
   externalUrl = getUtilities('icon-doc').externalUrl;
   componentStatus = getUtilities('icon-doc').status;
   tabNames = TabNames;
-  tabs = [TabNames.Overview, TabNames.Guidelines]; // TabNames.Code,
+  tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines]; // TabNames.Code,
   inverted = false;
 
-  example = `<i class="e-icon e-icon--move-truck-color e-icon--xl"></i>
+  example = `<i class="e-icon e-icon--move-truck-color e-icon--xxl"></i>
+<i class="e-icon e-icon--move-truck-color e-icon--xl"></i>
 <i class="e-icon e-icon--move-truck-color e-icon--lg"></i>
 <i class="e-icon e-icon--move-truck-color e-icon--md"></i>
 <i class="e-icon e-icon--move-truck-color e-icon--sm"></i>
-<i class="e-icon e-icon--move-truck-color e-icon--xs"></i>`;
+<i class="e-icon e-icon--move-truck-color e-icon--xs"></i>
+<i class="e-icon e-icon--move-truck-color e-icon--xxs"></i>`;
 
-example2 = `<div class="e-bg-black e-p-1">
-<i class="e-icon e-icon--chat e-icon--inverted"></i>
-</div>
-<i class="e-icon e-icon--chat e-icon--disabled"></i>
-`;
+// example2 = `<div class="e-bg-black e-p-1">
+// <i class="e-icon e-icon--chat e-icon--inverted"></i>
+// </div>
+// <i class="e-icon e-icon--chat e-icon--disabled"></i>
+// `;
 
   term;
   IconClassList: Icon[] = [];

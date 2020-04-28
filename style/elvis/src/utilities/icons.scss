@@ -13,13 +13,13 @@ $sizes: (
     @return map-get($map: $sizes, $key: $size)
 }
 
-@mixin icon-size($size) {
-    $size: get-icon-size($size);
-    width: $size;
-    height: $size;
+@mixin icon-size($icon-size) {
+    $size: get-icon-size($icon-size);
+    width: $icon-size;
+    height: $icon-size;
     img {
-        width: $size;
-        height: $size;
+        width: $icon-size;
+        height: $icon-size;
     }
 }
 
