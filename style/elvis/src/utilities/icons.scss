@@ -15,11 +15,11 @@ $sizes: (
 
 @mixin icon-size($icon-size) {
     $size: get-icon-size($icon-size);
-    width: $icon-size;
-    height: $icon-size;
+    width: $size;
+    height: $size;
     img {
-        width: $icon-size;
-        height: $icon-size;
+        width: $size;
+        height: $size;
     }
 }
 
@@ -32,7 +32,7 @@ $defaultSize: 'md';
 // Making icon size classes
 @each $label, $size in $sizes {
     .e-icon--#{$label} {
-        @include icon-size($size);
+        @include icon-size($label);
     }
 }
 
