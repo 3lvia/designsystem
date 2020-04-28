@@ -18,16 +18,16 @@ export class IconDocComponent implements OnInit {
   tabs = [TabNames.Overview, TabNames.Guidelines]; // TabNames.Code,
   inverted = false;
 
-  example = `<i class="e-icon e-icon-move-truck-color e-icon--xl"></i>
-<i class="e-icon e-icon-move-truck-color e-icon--lg"></i>
-<i class="e-icon e-icon-move-truck-color e-icon--md"></i>
-<i class="e-icon e-icon-move-truck-color e-icon--sm"></i>
-<i class="e-icon e-icon-move-truck-color e-icon--xs"></i>`;
+  example = `<i class="e-icon e-icon--move-truck-color e-icon--xl"></i>
+<i class="e-icon e-icon--move-truck-color e-icon--lg"></i>
+<i class="e-icon e-icon--move-truck-color e-icon--md"></i>
+<i class="e-icon e-icon--move-truck-color e-icon--sm"></i>
+<i class="e-icon e-icon--move-truck-color e-icon--xs"></i>`;
 
 example2 = `<div class="e-bg-black e-p-1">
-<i class="e-icon e-icon-chat e-icon-invert"></i>
+<i class="e-icon e-icon--chat e-icon--inverted"></i>
 </div>
-<i class="e-icon e-icon-chat e-icon-disabled"></i>
+<i class="e-icon e-icon--chat e-icon--disabled"></i>
 `;
 
   term;
@@ -48,12 +48,12 @@ example2 = `<div class="e-bg-black e-p-1">
     this.svgIcons = [];
 
 
-    for(let i = 0; i < icons.length; i++) {
-      if(icons[i].name.indexOf('figma') > -1){
+    for (const icon of icons) {
+      if (icon.name.indexOf('figma') > -1) {
         continue;
       }
       this.svgIcons.push({
-        title: icons[i].name,
+        title: icon.name,
       });
     }
 

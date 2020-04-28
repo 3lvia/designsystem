@@ -36,9 +36,9 @@
     </div>
     <div class="overview-icons-container e-pt-32" [style.backgroundColor] = "inverted ? 'black' : 'white'">
         <div class="icon-card" *ngFor="let icon of svgIcons | filter: term">
-          <app-copy [message]="'e-icon--lg e-icon-' + icon.title">
+          <app-copy [message]="'e-icon e-icon--' + icon.title + ' e-icon--lg'">
             <ng-container ngProjectAs="copyContent">
-              <i [class.e-icon-invert]="inverted" [class]="'e-icon e-icon--md e-icon-' + icon.title"></i>
+              <i [class.e-icon--inverted]="inverted" [class]="'e-icon e-icon--' + icon.title + ' e-icon--md'"></i>
               <p class="e-text-description" [style.color] = "inverted ? 'white' : 'black'">{{ icon.title }}</p>
             </ng-container>
           </app-copy>
@@ -70,7 +70,7 @@
         </p>
         <p class="e-text-description">
             Use icons like this:
-            <code class="code-text">class="e-icon e-icon-chat e-icon--md"</code>
+            <code class="code-text">class="e-icon e-icon--chat e-icon--md"</code>
         </p>
 
       <h2 class="e-title-md">Method 2: Using JS Module / SVGs</h2>

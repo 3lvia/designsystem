@@ -19,14 +19,14 @@ export class InputDocComponent implements OnInit {
   <label class="e-form_field_label" for="normal">Normal input field </label>
   <div class="e-input">
     <input id="normal" type="text" placeholder="Placeholder text">
-    <i class="e-icon e-icon-email e-icon--xs"></i>
+    <i class="e-icon e-icon--email e-icon--xs"></i>
   </div>
 </div>
 <div class="e-form_field">
   <label class="e-form_field_label" for="disabled">Disabled input field </label>
   <div class="e-input e-disabled">
     <input id="disabled" type="text" placeholder="Placeholder text" disabled>
-    <i class="e-icon e-icon-email e-icon--xs"></i>
+    <i class="e-icon e-icon--email e-icon--xs"></i>
   </div>
 </div>
 
@@ -41,7 +41,7 @@ export class InputDocComponent implements OnInit {
     </div>
     <div class="e-input">
       <input type="text" placeholder="Placeholder text">
-      <i class="e-icon e-icon-phone e-icon--xs"></i>
+      <i class="e-icon e-icon--phone e-icon--xs"></i>
     </div>
   </div>
 </div>
@@ -67,17 +67,17 @@ example4 = `<div class="e-form_field">
   <label class="e-form_field_label" for="password">Password input field</label>
   <div class="e-input">
     <input id="password" type="password" placeholder="*******">
-    <i class="e-icon e-icon-lock e-icon--xs"></i>
+    <i class="e-icon e-icon--lock e-icon--xs"></i>
   </div>
 </div>
 <div class="e-form_field">
   <label class="e-form_field_label" for="invalid">Invalid input field with error-message</label>
   <div class="e-input e-invalid">
     <input id="invalid" type="password" value="passord">
-    <i class="e-icon e-icon-lock e-icon--xs"></i>
+    <i class="e-icon e-icon--lock e-icon--xs"></i>
   </div>
   <span class="e-form_field_error e-active">
-    <i class="e-icon e-icon-alert-circle e-icon--xs"></i>
+    <i class="e-icon e-icon--alert-circle e-icon--xs"></i>
     Passord må inneholde både bokstaver og tall
   </span>
 </div>
