@@ -108,11 +108,11 @@
   outline-width: 2px; }
 
 .e-icon {
-  width: "md";
-  height: "md"; }
+  width: 32px;
+  height: 32px; }
   .e-icon img {
-    width: "md";
-    height: "md"; }
+    width: 32px;
+    height: 32px; }
 
 .e-icon--xxs {
   width: 8px;
@@ -179,11 +179,11 @@
     line-height: 24px;
     padding: 12px 32px; }
     .e-btn.e-btn--lg .e-btn__icon i {
-      width: "sm";
-      height: "sm"; }
+      width: 24px;
+      height: 24px; }
       .e-btn.e-btn--lg .e-btn__icon i img {
-        width: "sm";
-        height: "sm"; }
+        width: 24px;
+        height: 24px; }
     .e-btn.e-btn--lg.e-btn--secondary {
       padding: calc(12px - 1px) calc(32px - 1px); }
   .e-btn.e-btn--md, .e-btn {
@@ -191,11 +191,11 @@
     line-height: 20px;
     padding: 10px 24px; }
     .e-btn.e-btn--md .e-btn__icon i, .e-btn .e-btn__icon i {
-      width: "xs";
-      height: "xs"; }
+      width: 16px;
+      height: 16px; }
       .e-btn.e-btn--md .e-btn__icon i img, .e-btn .e-btn__icon i img {
-        width: "xs";
-        height: "xs"; }
+        width: 16px;
+        height: 16px; }
     .e-btn.e-btn--md.e-btn--secondary, .e-btn.e-btn--secondary {
       padding: calc(10px - 1px) calc(24px - 1px); }
   .e-btn.e-btn--sm {
@@ -203,11 +203,11 @@
     line-height: 16px;
     padding: 8px 16px; }
     .e-btn.e-btn--sm .e-btn__icon i {
-      width: "xs";
-      height: "xs"; }
+      width: 16px;
+      height: 16px; }
       .e-btn.e-btn--sm .e-btn__icon i img {
-        width: "xs";
-        height: "xs"; }
+        width: 16px;
+        height: 16px; }
     .e-btn.e-btn--sm.e-btn--secondary {
       padding: calc(8px - 1px) calc(16px - 1px); }
   .e-btn.e-btn--primary, .e-btn {
@@ -538,11 +538,11 @@
     align-items: center; }
     .e-link__icon i {
       display: flex;
-      width: "xxs";
-      height: "xxs"; }
+      width: 8px;
+      height: 8px; }
       .e-link__icon i img {
-        width: "xxs";
-        height: "xxs"; }
+        width: 8px;
+        height: 8px; }
   .e-link__title + .e-link__icon, .e-link__icon + .e-link__title {
     position: relative;
     margin-left: var(--e-spacing-8); }
@@ -606,29 +606,29 @@
     .e-link.e-link--jumbo .e-link__icon:first-of-type {
       margin-right: 24px; }
       .e-link.e-link--jumbo .e-link__icon:first-of-type i {
-        width: "xl";
-        height: "xl"; }
+        width: 48px;
+        height: 48px; }
         .e-link.e-link--jumbo .e-link__icon:first-of-type i img {
-          width: "xl";
-          height: "xl"; }
+          width: 48px;
+          height: 48px; }
     .e-link.e-link--jumbo .e-link__icon:last-of-type {
       margin-left: 11px; }
       .e-link.e-link--jumbo .e-link__icon:last-of-type i {
-        width: "xs";
-        height: "xs"; }
+        width: 16px;
+        height: 16px; }
         .e-link.e-link--jumbo .e-link__icon:last-of-type i img {
-          width: "xs";
-          height: "xs"; }
+          width: 16px;
+          height: 16px; }
     @media (max-width: 767px) {
       .e-link.e-link--jumbo {
         width: 287px;
         padding: 30px 24px; }
         .e-link.e-link--jumbo .e-link__icon:first-of-type i {
-          width: "lg";
-          height: "lg"; }
+          width: 40px;
+          height: 40px; }
           .e-link.e-link--jumbo .e-link__icon:first-of-type i img {
-            width: "lg";
-            height: "lg"; } }
+            width: 40px;
+            height: 40px; } }
     .e-link.e-link--jumbo.e-hover, .e-link.e-link--jumbo:hover {
       color: #000;
       border: 2px solid #29D305; }
@@ -1396,14 +1396,14 @@
   left: -16px;
   position: absolute; }
 
-.e-progessbar {
+.e-progressbar {
   display: flex;
   width: 100%;
   height: 2px;
   margin: 0;
   background-color: #E9E9E9;
   border-radius: 50px; }
-  .e-progessbar.e-loading {
+  .e-progressbar.e-loading {
     border-radius: 50px;
     align-self: center;
     width: 15%;
@@ -1411,7 +1411,7 @@
     margin-left: 0;
     background-color: #29D305;
     animation: loading 700ms infinite; }
-  .e-progessbar.e-error {
+  .e-progressbar.e-error {
     border-radius: 50px;
     align-self: center;
     width: 100%;
@@ -6163,11 +6163,11 @@ body {
   color: #000; }
 
 .e-icon {
-  width: "md";
-  height: "md"; }
+  width: 32px;
+  height: 32px; }
   .e-icon img {
-    width: "md";
-    height: "md"; }
+    width: 32px;
+    height: 32px; }
 
 .e-icon--xxs {
   width: 8px;
