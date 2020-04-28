@@ -14,6 +14,9 @@ export class DraganddropDocComponent implements OnInit {
   example1 = `<div class="e-dragdrop" style="width:300px; height:150px">
   </div>
 `;
+  example2 = `<div class="e-dragdrop e-dragdrop--hover" style="width:300px; height:150px">
+  </div>
+`;
 
   constructor() { }
 
