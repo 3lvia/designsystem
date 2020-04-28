@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class LabelDocComponent implements OnInit {
 
+  externalUrl = getComponent('label-doc').externalUrl;
   componentStatus = getComponent('label-doc').status;
   headerDoes = 'Use labels with the item they represent, so its clear which item is indicated.';
   headerDonts = 'Labels are not used alone. Not if there are numeric values in a label, then data-labels should be used.';
