@@ -12,9 +12,18 @@ export class FileUploadDocComponent implements OnInit {
   externalUrl = getComponent('fileUpload-doc').externalUrl;
   componentStatus = getComponent('fileUpload-doc').status;
 
-  example1 = `
-🚧👷🚧 Under Construction 🚧👷🚧
+  example1 = `<div class="e-input__file">
+  <input type="file" id="fileUploadTemplate">
+  <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i> Velg fil</label>
+</div>
 `;
+
+  example2 = `<div>
+  <div class="e-input__file">
+    <input type="file" id="fileUploadTemplate">
+    <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i> Velg fil</label>
+  </div>
+</div>`;
 
 
   constructor() { }
