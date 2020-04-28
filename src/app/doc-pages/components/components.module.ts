@@ -3,11 +3,7 @@ import { LabelDocModule } from './label-doc/label-doc.module';
 import { ButtonDocModule } from './button-doc/button-doc.module';
 import { CardDocModule } from './card-doc/card-doc.module';
 import { ComponentsStartModule } from './components-start/components-start.module';
-import { DividerDocModule } from './divider-doc/divider-doc.module';
-import { DropdownDocModule } from './dropdown-doc/dropdown-doc.module';
-import { FeedbackDocModule } from './feedback-doc/feedback-doc.module';
 import { FormComponentsModule } from './forms/formComponents.module';
-import { HeaderDocModule } from './header-doc/header-doc.module';
 import { LinkDocModule } from './link-doc/link-doc.module';
 import { ListDocModule } from './list-doc/list-doc.module';
 import { NotificationDotDocModule } from './notification-dot-doc/notification-dot-doc.module';
@@ -24,12 +20,8 @@ import { ProgressbarDocModule } from './progressbar-doc/progressbar-doc.module';
         ButtonDocModule,
         CardDocModule,
         ComponentsStartModule,
-        DividerDocModule,
-        DropdownDocModule,
-        FeedbackDocModule,
         FileUploadDocModule,
         FormComponentsModule,
-        HeaderDocModule,
         LinkDocModule,
         ListDocModule,
         NotificationDotDocModule,

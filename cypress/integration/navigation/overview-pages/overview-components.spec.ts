@@ -4,14 +4,6 @@ describe('Elvis Components overview page navigation Test', () => {
         cy.visit('http://localhost:4200/components');
     });
 
-    it('Navigates to Alerts doc page when clicking card link', () => {
-        cy.get('.e-card_title').contains('Alerts')
-            .parent('.e-card_header_text')
-            .parent('.e-card_header')
-            .siblings('.e-card_actions').children().contains('View component').click();
-        cy.url().should('eq', 'http://localhost:4200/components/feedback-doc');
-    });
-
     it('Navigates to label doc page when clicking card link', () => {
         cy.get('.e-card_title').contains('label')
             .parent('.e-card_header_text')
@@ -50,30 +42,6 @@ describe('Elvis Components overview page navigation Test', () => {
             .parent('.e-card_header')
             .siblings('.e-card_actions').children().contains('View component').click();
         cy.url().should('eq', 'http://localhost:4200/components/checkbox-toggle-doc');
-    });
-
-    it('Navigates to Divider doc page when clicking card link', () => {
-        cy.get('.e-card_title').contains('Divider')
-            .parent('.e-card_header_text')
-            .parent('.e-card_header')
-            .siblings('.e-card_actions').children().contains('View component').click();
-        cy.url().should('eq', 'http://localhost:4200/components/divider-doc');
-    });
-
-    it('Navigates to Dropdown doc page when clicking card link', () => {
-        cy.get('.e-card_title').contains('Dropdown')
-            .parent('.e-card_header_text')
-            .parent('.e-card_header')
-            .siblings('.e-card_actions').children().contains('View component').click();
-        cy.url().should('eq', 'http://localhost:4200/components/dropdown-doc');
-    });
-
-    it('Navigates to Header doc page when clicking card link', () => {
-        cy.get('.e-card_title').contains('Header')
-            .parent('.e-card_header_text')
-            .parent('.e-card_header')
-            .siblings('.e-card_actions').children().contains('View component').click();
-        cy.url().should('eq', 'http://localhost:4200/components/header-doc');
     });
 
     it('Navigates to Input doc page when clicking card link', () => {
