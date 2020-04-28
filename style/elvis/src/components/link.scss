@@ -33,8 +33,10 @@ $link-jumbo-phone-width: 287px;
   &__icon {
     display: flex;
     align-items: center;
-    i { display: flex; }
-    i, img { width: 8px; height: 8px;}
+    i { 
+      display: flex;
+      @include icon-size('xxs'); 
+    }
   }
 
   // Adding margin if icon
@@ -133,11 +135,11 @@ $link-jumbo-phone-width: 287px;
 
     .e-link__icon:first-of-type {
       margin-right: 24px;
-      i, img { width: 48px; height: 48px; }
+      i { @include icon-size('xl'); }
     }
     .e-link__icon:last-of-type {
       margin-left: 11px;
-      i, img { width: 16px; height: 16px; }
+      i { @include icon-size('xs'); }
     }
 
     @include breakpoint-up(Mobile) {
@@ -145,7 +147,7 @@ $link-jumbo-phone-width: 287px;
       padding: $link-jumbo-phone-padding;
 
       .e-link__icon:first-of-type {
-        i, img { width: 40px; height: 40px; }
+        i { @include icon-size('lg'); }
       }
     }
 

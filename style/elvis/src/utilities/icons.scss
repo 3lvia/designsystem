@@ -9,41 +9,30 @@ $sizes: (
     'xxl': 56px,
 );
 
-@function icon-size($size){
+@function get-icon-size($size){
     @return map-get($map: $sizes, $key: $size)
 }
 
-$defaultSize: icon-size('md');
-
-.e-icon {
-    // To make it possible for parent elements to use flex
-    display: flex;
-    width: $defaultSize;
-    height: $defaultSize;
+@mixin icon-size($size) {
+    $size: get-icon-size($size);
+    width: $size;
+    height: $size;
     img {
-        width: $defaultSize;
-        height: $defaultSize;
-    }
-}
-
-@each $label, $size in $sizes {
-    .e-icon--#{$label} {
         width: $size;
         height: $size;
-        img {
-            width:$size;
-            height:$size;
-        }
     }
 }
 
-// Class used for custom SVGs 
-.e-icon-custom {
-    width:$defaultSize;
-    height:$defaultSize;
-    display:inline-block;
-    img, svg {
-        width: $defaultSize;
-        height:$defaultSize;
+$defaultSize: 'md';
+
+.e-icon {
+    @include icon-size($defaultSize);
+}
+
+// Making icon size classes
+@each $label, $size in $sizes {
+    .e-icon--#{$label} {
+        @include icon-size($size);
     }
 }
+
