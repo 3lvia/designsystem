@@ -11,6 +11,16 @@ $sizes: (
     'xxl': 56px,
 );
 
+.e-icon {
+    $size: map-get($map: $sizes, $key: 'md');
+    width: $size;
+    height: $size;
+    img {
+        width:$size;
+        height:$size;
+    }
+}
+
 // Class used for custom SVGs 
 .e-icon-custom {
     width:$defaultSize;

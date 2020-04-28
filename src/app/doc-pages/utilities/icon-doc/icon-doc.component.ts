@@ -18,24 +18,24 @@ export class IconDocComponent implements OnInit {
   tabs = [TabNames.Overview, TabNames.Guidelines]; // TabNames.Code,
   inverted = false;
 
-  example = `<i class="e-icon-move-truck-color e-icon--xl"></i>
-<i class="e-icon-move-truck-color e-icon--lg"></i>
-<i class="e-icon-move-truck-color e-icon--md"></i>
-<i class="e-icon-move-truck-color e-icon--sm"></i>
-<i class="e-icon-move-truck-color e-icon--xs"></i>`;
+  example = `<i class="e-icon e-icon-move-truck-color e-icon--xl"></i>
+<i class="e-icon e-icon-move-truck-color e-icon--lg"></i>
+<i class="e-icon e-icon-move-truck-color e-icon--md"></i>
+<i class="e-icon e-icon-move-truck-color e-icon--sm"></i>
+<i class="e-icon e-icon-move-truck-color e-icon--xs"></i>`;
 
-  example2 = `<i class="e-icon-custom e-icon--xl">
+  example2 = `<i class="e-icon e-icon-custom e-icon--xl">
   <img src="assets/icons/example-custom-icon.svg"></img>
 </i>
 
-<i class="e-icon-custom">
+<i class="e-icon e-icon-custom">
   <img src="assets/icons/example-custom-icon.svg"></img>
 </i>`;
 
 example3 = `<div class="e-bg-black e-p-1">
-<i class="e-icon-chat e-icon-invert"></i>
+<i class="e-icon e-icon-chat e-icon-invert"></i>
 </div>
-<i class="e-icon-chat e-icon-disabled"></i>
+<i class="e-icon e-icon-chat e-icon-disabled"></i>
 `;
 
 
