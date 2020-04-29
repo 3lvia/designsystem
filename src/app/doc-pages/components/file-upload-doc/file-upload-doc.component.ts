@@ -17,7 +17,7 @@ export class FileUploadDocComponent implements OnInit {
     <i class="e-icon e-icon--file-add"></i>
   </div>
   <div class="e-fileupload__description">
-    Dra og eller slipp
+    Dra og slipp eller
   </div>
   <div class="e-fileupload__input">
     <input type="file" id="fileUploadTemplate">

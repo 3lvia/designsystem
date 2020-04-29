@@ -4,6 +4,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: var(--e-spacing-32) 0;
+    position: relative;
 
     &__icon-container {
         display: flex;
@@ -29,11 +30,15 @@
         align-items: center;
 
         input[type="file"] {
-            // opacity: 0;
-            display: none;
+            // display: none;
+            opacity: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
         }
 
         label {
+            z-index: 1;
             font-weight: 500;
             display: inline-flex;
             align-items: center;
