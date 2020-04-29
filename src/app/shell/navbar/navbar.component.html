@@ -13,15 +13,15 @@
             {{ navbarItem.title }}
           </span>
           <span
-            class="e-label e-safe"
+            class="e-label e-label--safe"
             *ngIf="navbarItem.status && (navbarItem.status === 'New')"
           >{{ navbarItem.status }}</span>
           <span
-            class="e-label e-danger"
+            class="e-label e-label--danger"
             *ngIf="navbarItem.status && (navbarItem.status === 'Coming')"
           >{{ navbarItem.status }}</span>
           <span
-            class="e-label e-info"
+            class="e-label e-label--info"
             *ngIf="navbarItem.status && (navbarItem.status === 'Done')"
           >{{ navbarItem.status }}</span>
         </a>
