@@ -2257,6 +2257,54 @@ body {
       .e-inlined-field .e-form_field.e-medium input {
         width: 140px; }
 
+.e-fileupload {
+  border: 2px dashed #D3D3D3;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap; }
+  .e-fileupload__icon {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center; }
+  .e-fileupload__description {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center; }
+  .e-fileupload__input {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center; }
+    .e-fileupload__input input[type="file"] {
+      display: none; }
+    .e-fileupload__input label {
+      display: inline-flex;
+      align-items: center;
+      border-bottom: 2.5px solid transparent;
+      border-radius: 0px;
+      padding: 0px;
+      padding-bottom: 3.5px;
+      color: #000; }
+      .e-fileupload__input label:disabled {
+        color: #BDBDBD;
+        cursor: not-allowed; }
+      .e-fileupload__input label:hover {
+        border-color: #29D305; }
+      .e-fileupload__input label:active {
+        border-bottom: 1.5px solid #29D305; }
+      .e-fileupload__input label i {
+        width: 24px;
+        height: 24px;
+        margin-right: var(--e-spacing-8);
+        display: flex; }
+        .e-fileupload__input label i img {
+          width: 24px;
+          height: 24px; }
+  .e-fileupload:hover, .e-fileupload--hover {
+    border-color: #29D305; }
+
 body {
   font-family: "Red Hat Display", sans-serif;
   color: #000; }
@@ -2414,16 +2462,19 @@ body {
   .e-input.e-invalid {
     border: 2px solid var(--e-red);
     padding: 11px 15px; }
-  .e-input.e-disabled, .e-input input:disabled {
+  .e-input.e-disabled,
+  .e-input input:disabled {
     color: var(--e-grey-20);
     border-color: var(--e-grey-20);
     cursor: not-allowed; }
-    .e-input.e-disabled input:disabled, .e-input input:disabled input:disabled {
+    .e-input.e-disabled input:disabled,
+    .e-input input:disabled input:disabled {
       opacity: 1;
       color: #D3D3D3;
       -webkit-text-fill-color: #D3D3D3;
       cursor: not-allowed; }
-    .e-input.e-disabled input, .e-input input:disabled input {
+    .e-input.e-disabled input,
+    .e-input input:disabled input {
       opacity: 1;
       color: var(--e-grey-20);
       -webkit-text-fill-color: var(--e-grey-20);
