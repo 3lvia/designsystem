@@ -41,7 +41,7 @@ export const SectionAnimation: AnimationTriggerMetadata = trigger('sectionAnimat
     'void',
     style({
       opacity: 0,
-      transform: 'scaleY(.7)'
+      transform: 'scaleY(.9)'
     })
   ),
   state(
