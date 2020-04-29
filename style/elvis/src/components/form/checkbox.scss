@@ -7,7 +7,7 @@ $checkbox-mark-border-radius: 4px;
 $checkbox-mark-border: 1px solid color("black");
 
 .e-checkbox {
-  //   // Variable containing '&' to jump to current parent inside a child class.
+  // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
 
   display: flex;
@@ -20,32 +20,32 @@ $checkbox-mark-border: 1px solid color("black");
   }
 
   // pseudo classes to emulate state.
-  &.e-checked {
-    #{$this}_mark {
+  &.e-checkbox---checked {
+    #{$this}__mark {
       @extend %checkbox-mark;
     }
   }
 
-  &.e-focus {
-    #{$this}_mark {
+  &.e-checkbox---focus {
+    #{$this}__mark {
       @extend .e-outline;
     }
   }
 
-  &.e-hover:not(.disabled):not(.invalid) {
-    #{$this}_mark {
+  &.e-checkbox---hover:not(.disabled):not(.invalid) {
+    #{$this}__mark {
       background-color: color("green");
     }
   }
 
-  &.e-disabled {
-    #{$this}_mark {
+  &.e-checkbox---disabled {
+    #{$this}__mark {
       border-color: color("grey-30");
     }
   }
 
-  &.e-invalid {
-    #{$this}_mark {
+  &.e-checkbox---invalid {
+    #{$this}__mark {
       border-color: color("red");
     }
   }
@@ -54,23 +54,23 @@ $checkbox-mark-border: 1px solid color("black");
   input {
     opacity: 0;
 
-    &:checked ~ #{$this}_mark {
+    &:checked ~ #{$this}__mark {
       @extend %checkbox-mark;
     }
 
-    &:focus:not(:active) ~ #{$this}_mark {
+    &:focus:not(:active) ~ #{$this}__mark {
       @extend .e-outline;
     }
 
-    &:hover:not(:disabled):not(:invalid) ~ #{$this}_mark {
+    &:hover:not(:disabled):not(:invalid) ~ #{$this}__mark {
       background-color: color("green");
     }
 
-    &:disabled ~ #{$this}_mark {
+    &:disabled ~ #{$this}__mark {
       border-color: color("grey-30");
     }
 
-    &:invalid ~ #{$this}_mark {
+    &:invalid ~ #{$this}__mark {
       border-color: color("red");
     }
   }
@@ -109,7 +109,7 @@ $checkbox-mark-border: 1px solid color("black");
     }
   }
 
-  &_mark {
+  &__mark {
     display: inline-block;
 
     min-width: $checkbox-mark-size;
@@ -122,7 +122,7 @@ $checkbox-mark-border: 1px solid color("black");
     background: color("white");
   }
 
-  &_label {
+  &__label {
     font-size: inherit;
     margin-left: 1rem;
   }
