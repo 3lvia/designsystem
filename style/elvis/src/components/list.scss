@@ -16,7 +16,7 @@ $list-border-radius: 50%;
   // list font properties
   line-height: 190%;
 
-  li.e-list__item {
+  li {
     list-style: none;
     position: relative;
     // extra padding for the width of the green content bulletin.
@@ -46,7 +46,7 @@ $list-border-radius: 50%;
         content: none;
       }
     }
-    li.e-list__item {
+    li {
       padding-left: var(--e-spacing-32);
       margin: var(--e-spacing-16) 0;
       margin-left: var(--e-spacing-16);
