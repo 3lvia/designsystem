@@ -51,40 +51,40 @@ export class TableDocComponent implements OnInit {
   <thead>
     <tr>
       <th scope="col">Sikringsstørrelse</th>
-      <th scope="col">230 V (2-fase)</th>
-      <th scope="col">230 V (3-fase)</th>
-      <th scope="col">400 V (1-fase)</th>
-      <th scope="col">400 V (3-fase)</th>
+      <th scope="col" class="e-align-right">230 V (2-fase)</th>
+      <th scope="col" class="e-align-right">230 V (3-fase)</th>
+      <th scope="col" class="e-align-right">400 V (1-fase)</th>
+      <th scope="col" class="e-align-right">400 V (3-fase)</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th scope="row">16 A</th>
-      <td class="is-max">340 kr/mnd. This cell exceeds 300px, so the class 'is-max' is added.</td>
-      <td>1065 kr/mnd</td>
-      <td>900 kr/mnd</td>
-      <td>900 kr/mnd</td>
+      <td class="is-max e-align-right">340 kr/mnd. This cell exceeds 300px, so the class 'is-max' is added.</td>
+      <td class="e-align-right">1065 kr/mnd</td>
+      <td class="e-align-right">900 kr/mnd</td>
+      <td class="e-align-right">900 kr/mnd</td>
     </tr>
     <tr>
       <th scope="row">32 A</th>
-      <td>150 kr/kW/mnd</td>
-      <td>150 kr/kW/mnd</td>
-      <td>122 kr/kW/mnd</td>
-      <td>122 kr/kW/mnd</td>
+      <td class="e-align-right">150 kr/kW/mnd</td>
+      <td class="e-align-right">150 kr/kW/mnd</td>
+      <td class="e-align-right">122 kr/kW/mnd</td>
+      <td class="e-align-right">122 kr/kW/mnd</td>
     </tr>
     <tr>
       <th scope="row">40 A</th>
-      <td>80 kr/kW/mnd</td>
-      <td>80 kr/kW/mnd</td>
-      <td>52 kr/kW/mnd</td>
-      <td>52 kr/kW/mnd</td>
+      <td class="e-align-right">80 kr/kW/mnd</td>
+      <td class="e-align-right">80 kr/kW/mnd</td>
+      <td class="e-align-right">52 kr/kW/mnd</td>
+      <td class="e-align-right">52 kr/kW/mnd</td>
     </tr>
     <tr>
       <th scope="row">50 A</th>
-      <td>23 kr/kW/mnd</td>
-      <td>23 kr/kW/mnd</td>
-      <td>17 kr/kW/mnd</td>
-      <td>17 kr/kW/mnd</td>
+      <td class="e-align-right">23 kr/kW/mnd</td>
+      <td class="e-align-right">23 kr/kW/mnd</td>
+      <td class="e-align-right">17 kr/kW/mnd</td>
+      <td class="e-align-right">17 kr/kW/mnd</td>
     </tr>
   </tbody>
 </table>

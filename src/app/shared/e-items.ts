@@ -256,6 +256,13 @@ export const eUtilities: EItems[] = [
         actionText: 'View logo',
         externalUrl: 'https://www.figma.com/file/SDUCEPhQu0q602oh2uhvKZ/Logo'
     },
+    {
+        title: 'Alignment',
+        description: 'Alignment of text',
+        docUrl: Pages.Alignment,
+        status: ItemStatus.New,
+        actionText: 'View alignment'
+    },
 ];
 
 export const eAccessibility: EItems[] = [

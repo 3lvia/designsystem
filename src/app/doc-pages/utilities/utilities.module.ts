@@ -13,6 +13,7 @@ import { TemplatesModule } from './templates/templates.module';
 import { BreakpointsDocModule } from './breakpoints-doc/breakpoints-doc.module';
 import { LogoDocModule } from './logo-doc/logo-doc.module';
 import { GridDocModule } from './grid-doc/grid-doc.module';
+import { AlignmentDocModule } from './alignment-doc/alignment-doc/alignment-doc.module';
 
 @NgModule({
     imports: [
@@ -28,7 +29,8 @@ import { GridDocModule } from './grid-doc/grid-doc.module';
         TemplatesModule,
         BreakpointsDocModule,
         GridDocModule,
-        LogoDocModule
+        LogoDocModule,
+        AlignmentDocModule
     ]
 })
 export class UtilitiesModule { }
