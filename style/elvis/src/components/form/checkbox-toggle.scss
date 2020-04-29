@@ -1,12 +1,12 @@
 @import '../../variables/colors.scss';
 @import '../../utilities/outline.scss';
 
-$toggle-border-radius: 30px;
+$toggle-border-radius: 50px;
 
-$toggle-desktop-height: 13px;
+$toggle-desktop-height: 14px;
 $toggle-desktop-width: 30px;
-$toggle-desktop-slider-size: 7px;
-$toggle-desktop-slider-padding: 3px;
+$toggle-desktop-slider-size: 8px;
+$toggle-desktop-slider-padding: calc((#{$toggle-desktop-height} - #{$toggle-desktop-slider-size})/2);
 
 $toggle-mobile-height: 18px;
 $toggle-mobile-width: 42px;
