@@ -10,9 +10,9 @@ export class AlignmentDocComponent implements OnInit {
 
   componentStatus = getUtilities('alignment-doc').status;
 
-  example1 = `<div class="e-align-left e-m-16">Left aligned text</div>
-<div class="e-align-right e-m-16">Right aligned text</div>
-<div class="e-align-center e-m-16">Center aligned text</div>
+  example1 = `<div class="e-text-left e-m-16">Left aligned text</div>
+<div class="e-text-right e-m-16">Right aligned text</div>
+<div class="e-text-center e-m-16">Center aligned text</div>
 `;
 
   constructor() { }
