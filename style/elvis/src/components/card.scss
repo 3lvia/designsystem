@@ -79,6 +79,7 @@ $card-actions-button-spacing: 25px;
       cursor: pointer;
       align-self: flex-end;
       justify-content: center;
+      margin-top: var(--e-spacing-8);
 
       &:hover:not(.no-hover),
       &.e---hovering {

@@ -1,4 +1,5 @@
 import { trigger, state, style, transition, animate, AnimationTriggerMetadata, query, keyframes } from '@angular/animations';
+import { Transform } from 'stream';
 
 export const slideIn: AnimationTriggerMetadata = trigger('slideIn', [
   state(
@@ -35,3 +36,23 @@ export const heightDown: AnimationTriggerMetadata = trigger('heightDown', [
   transition('void => *', animate(`250ms cubic-bezier(0.6, 0, 0.1, 1)`)),
   transition('* => void', animate(`250ms cubic-bezier(.55, 0, .88, 1)`))
 ]);
+
+export const SectionAnimation: AnimationTriggerMetadata = trigger('sectionAnimation', [
+  state(
+    'void',
+    style({
+      opacity: 0,
+      transform: 'scaleY(.7)'
+    })
+  ),
+  state(
+    '*',
+    style({
+      opacity: 1,
+      transform: 'scaleY(1)'
+    })
+  ),
+  transition('void => *', animate(`250ms cubic-bezier(0.6, 0, 0.1, 1)`)),
+  transition('* => void', animate(`250ms cubic-bezier(.55, 0, .88, 1)`))
+]);
+
