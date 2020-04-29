@@ -60,31 +60,31 @@ export class TableDocComponent implements OnInit {
   <tbody>
     <tr>
       <th scope="row">16 A</th>
-      <td class="is-right is-max">340 kr/mnd. This cell exceeds 300px, so the class 'is-max' is added.</td>
-      <td class="is-right">1065 kr/mnd</td>
-      <td class="is-right">900 kr/mnd</td>
-      <td class="is-right">900 kr/mnd</td>
+      <td class="is-max">340 kr/mnd. This cell exceeds 300px, so the class 'is-max' is added.</td>
+      <td>1065 kr/mnd</td>
+      <td>900 kr/mnd</td>
+      <td>900 kr/mnd</td>
     </tr>
     <tr>
       <th scope="row">32 A</th>
-      <td class="is-right">150 kr/kW/mnd</td>
-      <td class="is-right">150 kr/kW/mnd</td>
-      <td class="is-right">122 kr/kW/mnd</td>
-      <td class="is-right">122 kr/kW/mnd</td>
+      <td>150 kr/kW/mnd</td>
+      <td>150 kr/kW/mnd</td>
+      <td>122 kr/kW/mnd</td>
+      <td>122 kr/kW/mnd</td>
     </tr>
     <tr>
       <th scope="row">40 A</th>
-      <td class="is-right">80 kr/kW/mnd</td>
-      <td class="is-right">80 kr/kW/mnd</td>
-      <td class="is-right">52 kr/kW/mnd</td>
-      <td class="is-right">52 kr/kW/mnd</td>
+      <td>80 kr/kW/mnd</td>
+      <td>80 kr/kW/mnd</td>
+      <td>52 kr/kW/mnd</td>
+      <td>52 kr/kW/mnd</td>
     </tr>
     <tr>
       <th scope="row">50 A</th>
-      <td class="is-right">23 kr/kW/mnd</td>
-      <td class="is-right">23 kr/kW/mnd</td>
-      <td class="is-right">17 kr/kW/mnd</td>
-      <td class="is-right">17 kr/kW/mnd</td>
+      <td>23 kr/kW/mnd</td>
+      <td>23 kr/kW/mnd</td>
+      <td>17 kr/kW/mnd</td>
+      <td>17 kr/kW/mnd</td>
     </tr>
   </tbody>
 </table>
@@ -105,15 +105,15 @@ export class TableDocComponent implements OnInit {
       </tr>
       <tr>
         <th scope="row">230 V (2-fase)</td>
-        <td class="is-right">340 kr/mnd</td>
+        <td>340 kr/mnd</td>
       </tr>
       <tr>
         <th scope="row">230 V (3-fase)</td>
-        <td class="is-right">1065 kr/mnd</td>
+        <td>1065 kr/mnd</td>
       </tr>
       <tr>
         <th scope="row">400 V (1-fase)</td>
-        <td class="is-right">900 kr/mnd</td>
+        <td>900 kr/mnd</td>
       </tr>
     </tbody>
     <tbody>
@@ -123,15 +123,15 @@ export class TableDocComponent implements OnInit {
       </tr>
       <tr>
         <th scope="row">230 V (2-fase)</td>
-        <td class="is-right">340 kr/mnd</td>
+        <td>340 kr/mnd</td>
       </tr>
       <tr>
         <th scope="row">230 V (3-fase)</td>
-        <td class="is-right">1065 kr/mnd</td>
+        <td>1065 kr/mnd</td>
       </tr>
       <tr>
         <th scope="row">400 V (1-fase)</td>
-        <td class="is-right">900 kr/mnd</td>
+        <td>900 kr/mnd</td>
       </tr>
     </tbody>
   </table>
