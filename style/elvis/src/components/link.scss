@@ -42,7 +42,7 @@ $link-jumbo-phone-width: 287px;
   // Adding margin if icon
   &__title + &__icon, &__icon + &__title {
     position: relative;
-    margin-left: var(--e-spacing-8);
+    margin-left: 8px;
   }
 
   &.e-link--lg {
