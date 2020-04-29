@@ -16,7 +16,7 @@ $list-border-radius: 50%;
   // list font properties
   line-height: 190%;
 
-  li {
+  li.e-list__item {
     list-style: none;
     position: relative;
     // extra padding for the width of the green content bulletin.
@@ -35,37 +35,18 @@ $list-border-radius: 50%;
     }
   }
 
-  &.e-numbers {
-    counter-reset: elvis-item;
-    list-style: none;
-    li {
-      counter-increment: elvis-item;
-      margin: 1rem 0;
-
-      &::before {
-        content: counter(elvis-item);
-        left: -0.5rem;
-        line-height: $list-border-size;
-        width: $list-border-size;
-        height: $list-border-size;
-        top: 0;
-        background: transparent;
-        border-radius: $list-border-radius;
-        text-align: center;
-        box-shadow: 0px 0px 0px 2px color("green");
-      }
-    }
+  &.e-list--strong {
+    font-weight: bold;
+    background: transparent;
   }
 
-  &.e-has-icon {
-    list-style: none;
-
+  &.e-list--icons {
     &#{$this} li {
       &::before {
         content: none;
       }
     }
-    li {
+    li.e-list__item {
       padding-left: var(--e-spacing-32);
       margin: var(--e-spacing-16) 0;
       margin-left: var(--e-spacing-16);
@@ -75,19 +56,9 @@ $list-border-radius: 50%;
         margin-left: var(--e-spacing-24);
       }
     }
-    i {
+    .e-list__icon > i {
       margin-right: var(--e-spacing-16);
       vertical-align: middle;
     }
   }
-
-  &.e-strong {
-    font-weight: bold;
-    background: transparent;
-  }
-}
-
-.e-list-icon-container {
-  left: -16px;
-  position: absolute;
 }
