@@ -23,7 +23,7 @@ export class InputDocComponent implements OnInit {
 </div>
 <div class="e-form-field">
   <label class="e-form-field__label" for="disabled">Disabled input field </label>
-  <div class="e-input">
+  <div class="e-input e-input---disabled">
     <input id="disabled" type="text" placeholder="Placeholder text" disabled>
     <i class="e-icon e-icon--email e-icon--xs"></i>
   </div>

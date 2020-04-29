@@ -8,9 +8,6 @@ $form-input-padding-active: 11px 15px;
 $form-input-border-radius: $border-radius;
 $form-input-border: 1px solid color('grey');
 
-input[type="text"]:disabled {
-  @extend .e-input---disabled;
-}
 .e-input {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
@@ -66,18 +63,19 @@ input[type="text"]:disabled {
     @extend .e-outline;
   }
 
-  &.e-input---invalid, & input:invalid {
-    border: 2px solid var(--e-red);
+  &.e-input---invalid, input:invalid {
+    border: 2px solid color('red');
     padding: $form-input-padding-active;
   }
 
-  &.e-input---disabled, .e-input:has(input:disabled){
-    color: var(--e-grey-20);
-    border-color: var(--e-grey-20);
+  &.e-input---disabled, input:disabled {
+    color: color('grey-20');
+    border-color: color('grey-20');
     cursor: not-allowed;
     input:disabled {
       opacity: 1;
       color: color('grey-20');
+      -webkit-text-fill-color: color('grey-20');
       cursor: not-allowed;
     }
   }
