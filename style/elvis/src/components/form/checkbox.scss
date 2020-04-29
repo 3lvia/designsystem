@@ -20,10 +20,8 @@ $checkbox-mark-border: 1px solid color("black");
   }
 
   // pseudo classes to emulate state.
-  &.e-checkbox---checked {
-    #{$this}__mark {
-      @extend %checkbox-mark;
-    }
+  &.e-checkbox---checked &__mark {
+    @extend %checkbox-mark;
   }
 
   &.e-checkbox---focus {

@@ -41,8 +41,8 @@ export class CheckboxDocComponent implements OnInit {
   example2 = `
   <label class="e-checkbox e-checkbox---checked" for="elvis-pseudo-checkbox-checked">
     <input type="checkbox" id="elvis-pseudo-checkbox-checked">
-    <span class="e-checkbox_mark"></span>
-    <span class="e-checkbox_label">Checked</span>
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Checked</span>
   </label>
 
   <label class="e-checkbox e-checkbox---focus" for="elvis-pseudo-checkbox-focus">
