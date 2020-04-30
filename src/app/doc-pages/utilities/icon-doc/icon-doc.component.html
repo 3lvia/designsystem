@@ -31,8 +31,8 @@
         </div>
       </div>
       <button (click)="invert()" class="e-btn" >
-      Invert
-    </button>
+        Invert
+      </button>
     </div>
     <div class="overview-icons-container e-pt-32" [style.backgroundColor] = "inverted ? 'black' : 'white'">
         <div class="icon-card" *ngFor="let icon of svgIcons | filter: term">

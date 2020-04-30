@@ -10,18 +10,21 @@ export class CheckboxToggleDocComponent implements OnInit {
 
   externalUrl = getComponent('checkbox-toggle-doc').externalUrl;
   componentStatus = getComponent('checkbox-toggle-doc').status;
-  pseudoClasses = ['e-toggle', 'e-slider'];
 
-  example1 = `
-  <label for="onOff">Turn off or on</label>
-  <label class="e-toggle e-m-16">
-    <input id="onOff" type="checkbox">
-    <span class="e-toggle e-slider"></span>
+  example1 = `<div>
+  <h3>Normal toggle</h3>
+  <label class="e-toggle">
+    <input class="e-toggle__input" type="checkbox">
+    <span class="e-toggle__slider"></span>
   </label>
-  <label class="e-toggle e-m-16">
-    <input id="onOff" type="checkbox" checked>
-    <span class="e-toggle e-slider"></span>
+</div>
+<div class="e-mt-16">
+  <h3>Normal toggle checked</h3>
+  <label class="e-toggle">
+    <input class="e-toggle__input" type="checkbox" checked>
+    <span class="e-toggle__slider"></span>
   </label>
+</div>
 `;
 
   constructor() { }

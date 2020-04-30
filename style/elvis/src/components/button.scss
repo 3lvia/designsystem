@@ -40,6 +40,7 @@ $button-sm-line-height: 16px;
   align-items: center;
   font-family: 'Red Hat Display', sans-serif;
   font-weight: $button-font-weight;
+  justify-content: center;
   outline: none;
 
   &.e-btn---focus, &:enabled:focus:not(:active) {
@@ -48,7 +49,7 @@ $button-sm-line-height: 16px;
   
   // Adding margin if icon
   &__title + &__icon, &__icon + &__title {
-    margin-left: var(--e-spacing-8);
+    margin-left: 8px;
   }
 
   &__icon {

@@ -41,6 +41,7 @@ import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segm
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
 import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
+import { AlignmentDocComponent } from './doc-pages/utilities/alignment-doc/alignment-doc/alignment-doc.component';
 
 
 const routes: Routes = [
@@ -225,6 +226,10 @@ const routes: Routes = [
           {
             path: Pages.Logo,
             component: LogoDocComponent
+          },
+          {
+            path: Pages.Alignment,
+            component: AlignmentDocComponent
           },
         ]
       }
