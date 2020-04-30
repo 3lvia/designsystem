@@ -20,7 +20,7 @@ $list-border-radius: 50%;
     list-style: none;
     position: relative;
     // extra padding for the width of the green content bulletin.
-    padding-left: var(--e-spacing-24);
+    padding-left: 24px;
     margin: 0.5rem 0;
 
     &::before {
@@ -47,17 +47,17 @@ $list-border-radius: 50%;
       }
     }
     li {
-      padding-left: var(--e-spacing-32);
-      margin: var(--e-spacing-16) 0;
-      margin-left: var(--e-spacing-16);
+      padding-left: 32px;
+      margin: 16px 0;
+      margin-left: 16px;
 
       @include breakpoint-up(Mobile) {
         padding-left: 20px;
-        margin-left: var(--e-spacing-24);
+        margin-left: 24px;
       }
     }
     .e-list__icon > i {
-      margin-right: var(--e-spacing-16);
+      margin-right: 16px;
       vertical-align: middle;
     }
   }
