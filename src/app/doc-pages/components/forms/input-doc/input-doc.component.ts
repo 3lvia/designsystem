@@ -32,9 +32,9 @@ export class InputDocComponent implements OnInit {
 </div>
 `;
 
-  example2 = `<div class="e-form-field">
+  example2 = `<div class="e-form-field e-form-field--combined">
   <label class="e-form-field__label" for="phone">Phone</label>
-  <div class="e-combined-field">
+  <div class="e-form-field__input">
     <div id="phone" class="e-input e-input--small">
       <input type="text" value="+47">
     </div>
