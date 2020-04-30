@@ -60,7 +60,8 @@ export class TableDocComponent implements OnInit {
   <tbody>
     <tr>
       <th scope="row">16 A</th>
-      <td class="is-max e-text-right">340 kr/mnd. This cell exceeds 300px, so the class 'is-max' is added.</td>
+      <td class="e-table__cell--multiline e-text-right">340 kr/mnd.
+        This cell exceeds 300px, so the class 'e-table__cell--multiline' should be added.</td>
       <td class="e-text-right">1065 kr/mnd</td>
       <td class="e-text-right">900 kr/mnd</td>
       <td class="e-text-right">900 kr/mnd</td>
