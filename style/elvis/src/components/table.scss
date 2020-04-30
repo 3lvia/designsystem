@@ -35,7 +35,7 @@ $table-border-radius: 4px;
     @extend .e-text-description;
     width: 100%;
     padding: $table-padding;
-    &.is-max {
+    &.e-table__cell--multiline {
       display: inline-block;
       white-space: pre-wrap;
       width: 300px;
@@ -49,14 +49,6 @@ $table-border-radius: 4px;
   // Zebra table
   &:not(.no-zebra) {
     tr:nth-of-type(even) { background: color('grey-05'); }
-  }
-
-  .is-right {
-    text-align: right;
-  }
-
-  .is-center {
-    text-align: center;
   }
 }
 
@@ -75,6 +67,10 @@ $table-border-radius: 4px;
     padding: $table-phone-padding;
   }
 
+  td {
+    text-align: right;
+  }
+
   thead {
     @extend %header-style;
   }
@@ -86,13 +82,5 @@ $table-border-radius: 4px;
   // Zebra table
   &:not(.no-zebra) {
     tr:not(:first-of-type):nth-of-type(odd) { background: color('grey-05'); }
-  }
-
-  .is-right {
-    text-align: right;
-  }
-
-  .is-center {
-    text-align: center;
   }
 }
