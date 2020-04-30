@@ -1,0 +1,115 @@
+@import "../variables/colors.scss";
+
+$popover-border-style: 5px solid;
+$popover-margin-offset: -5px;
+$popover-calculate-height: auto;
+$popover-vertical-transform: translate(-50%, 0);
+$popover-horizontal-transform: translate(0, -50%);
+
+$popover-desktop-max-width: 400px;
+$popover-desktop-padding: 24px;
+
+$popover-mobile-max-width: 300px;
+
+.e-popover {
+  // Variable containing '&' to jump to current parent inside a child class.
+  $this: &;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+
+  &__content {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    width: max-content;
+    max-width: $popover-desktop-max-width;
+    padding: $popover-desktop-padding;
+    pointer-events: none;
+    background-color: color("white");
+    color: color("font-color");
+    border: 1px solid color("green");
+    border-radius: 4px;
+    transition: 200ms;
+
+    // Defaults to is-bottom popover if no direction class is applied.
+    &:not(.is-right):not(.is-left):not(.is-top) {
+      @extend .is-bottom;
+    }
+
+    &--right {
+      top: 50%;
+      left: 110%;
+      transform: $popover-horizontal-transform;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 100%;
+        margin-top: $popover-margin-offset;
+        border: $popover-border-style;
+        border-color: transparent color("grey") transparent transparent;
+      }
+    }
+    &--left {
+      top: 50%;
+      right: 110%;
+      transform: $popover-horizontal-transform;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        margin-top: $popover-margin-offset;
+        border: $popover-border-style;
+        border-color: transparent transparent transparent color("grey");
+      }
+    }
+    &--bottom {
+      top: 150%;
+      left: 50%;
+      transform: $popover-vertical-transform;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: $popover-margin-offset;
+        border: $popover-border-style;
+        border-color: transparent transparent color("grey") transparent;
+      }
+    }
+
+    &--top {
+      bottom: 150%;
+      left: 50%;
+      transform: $popover-vertical-transform;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: $popover-margin-offset;
+        border: $popover-border-style;
+        border-color: color("grey") transparent transparent transparent;
+      }
+    }
+  }
+
+  &---hover, &:hover {
+    #{$this}__content {
+      opacity: 1;
+      z-index: 90;
+    }
+  }
+  &---focus, &:focus {
+    #{$this}__content {
+      opacity: 1;
+      z-index: 90;
+    }
+  }
+}

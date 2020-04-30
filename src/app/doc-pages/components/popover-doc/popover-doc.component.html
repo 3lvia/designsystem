@@ -1,0 +1,22 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Popover
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
+    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
+    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+  </ng-container>  
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'Tooltip dark'"
+  ></app-code-block>
+</div>

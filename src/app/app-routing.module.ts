@@ -41,6 +41,7 @@ import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segm
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
 import { AlignmentDocComponent } from './doc-pages/utilities/alignment-doc/alignment-doc/alignment-doc.component';
+import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
 
 
 const routes: Routes = [
@@ -138,6 +139,10 @@ const routes: Routes = [
           {
             path: Pages.Progressbar,
             component: ProgressbarDocComponent
+          },
+          {
+            path: Pages.Popover,
+            component: PopoverDocComponent
           },
           {
             path: Pages.Radiobutton,

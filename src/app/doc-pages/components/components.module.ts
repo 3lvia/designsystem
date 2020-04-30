@@ -13,6 +13,7 @@ import { TagsDocModule } from './tags-doc/tags-doc.module';
 import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
 import { FileUploadDocModule } from './file-upload-doc/file-upload-doc.module';
 import { ProgressbarDocModule } from './progressbar-doc/progressbar-doc.module';
+import { PopoverDocModule } from './popover-doc/popover-doc.module';
 
 @NgModule({
     imports: [
@@ -29,7 +30,8 @@ import { ProgressbarDocModule } from './progressbar-doc/progressbar-doc.module';
         ProgressbarDocModule,
         TableDocModule,
         TagsDocModule,
-        TooltipDocModule
+        TooltipDocModule,
+        PopoverDocModule
     ],
 })
 export class ComponentsModule { }

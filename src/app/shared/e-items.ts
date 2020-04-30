@@ -120,6 +120,14 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
     },
     {
+        title: 'Popover',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Popover,
+        status: ItemStatus.New,
+        actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover'
+    },
+    {
         title: 'Radiobutton',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Radiobutton,
