@@ -68,7 +68,7 @@ export const eComponents: EItems[] = [
         title: 'Toggle',
         description: 'Some useful component with amazing features',
         docUrl: Pages.CheckboxToggle,
-        status: ItemStatus.New,
+        status: ItemStatus.Coming,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons'
     },
@@ -255,6 +255,13 @@ export const eUtilities: EItems[] = [
         status: ItemStatus.New,
         actionText: 'View logo',
         externalUrl: 'https://www.figma.com/file/SDUCEPhQu0q602oh2uhvKZ/Logo'
+    },
+    {
+        title: 'Alignment',
+        description: 'Alignment of text',
+        docUrl: Pages.Alignment,
+        status: ItemStatus.New,
+        actionText: 'View alignment'
     },
 ];
 

@@ -1,7 +1,7 @@
 @import '../../variables/colors.scss';
 @import '../../utilities/typography.scss';
 
-.e-form_field {
+.e-form-field {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
 
@@ -14,18 +14,18 @@
     margin-bottom: 2rem;
   }
 
-  &_label {
+  &__label {
     display: block;
     margin-bottom: 5px;
     @extend .e-label-input;
 
-    &.e-optional::after {
+    &.e-form-field__label--optional::after {
       content: " (valgfri)";
       color: color('grey-50');
     }
   }
 
-  &_error {
+  &__error {
     visibility: hidden;
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@
     @extend .e-text-info;
     color: color('grey') !important;
 
-    &.e-active {
+    &.e-form-field__error--visible {
       visibility: visible;
     }
 
@@ -51,7 +51,7 @@
   max-width: 448px;
   width: 100%;
 
-  .e-form_field {
+  .e-form-field {
     width: 100%;
     margin-bottom: 0;
   }
@@ -63,7 +63,7 @@
   max-width: 448px;
   width: 100%;
 
-  .e-form_field {
+  .e-form-field {
     width: 100%;
     margin-bottom: 0;
 
@@ -71,14 +71,14 @@
       margin-right: 8px;
     }
 
-    &.e-small {
+    &.e-form-field--small {
       width: 60px;
       input {
         width: 60px;
       }
     }
   
-    &.e-medium {
+    &.e-form-field--medium {
       width: 140px;
       input {
         width: 140px;

@@ -40,6 +40,7 @@ import { GridDocComponent } from './doc-pages/utilities/grid-doc/grid-doc.compon
 import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
+import { AlignmentDocComponent } from './doc-pages/utilities/alignment-doc/alignment-doc/alignment-doc.component';
 
 
 const routes: Routes = [
@@ -220,6 +221,10 @@ const routes: Routes = [
           {
             path: Pages.Logo,
             component: LogoDocComponent
+          },
+          {
+            path: Pages.Alignment,
+            component: AlignmentDocComponent
           },
         ]
       }

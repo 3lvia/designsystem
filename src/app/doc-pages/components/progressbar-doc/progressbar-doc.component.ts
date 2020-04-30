@@ -12,14 +12,14 @@ export class ProgressbarDocComponent implements OnInit {
   componentStatus = getComponent('progressbar-doc').status;
 
   example1 = `
-<div class="e-progressbar" role="progressbar">
-  <div class="e-progressbar e-loading"></div>
+<div class="e-progress" role="progressbar">
+  <div class="e-progress__bar"></div>
 </div>
 `;
 
   example2 = `
-<div class="e-progressbar" role="progressbar">
-  <div class="e-progressbar e-error"></div>
+<div class="e-progress" role="progressbar">
+  <div class="e-progress__bar e-progress__bar--error"></div>
 </div>
 `;
 
