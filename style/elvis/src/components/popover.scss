@@ -56,7 +56,7 @@ $popover-mobile-max-width: 300px;
       position: absolute;
       top: 16px;
       right: 16px;
-      @include icon-size('sm');
+      i { @include icon-size('sm'); }
     }
 
     .e-popover__title {

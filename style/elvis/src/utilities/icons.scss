@@ -15,13 +15,11 @@ $sizes: (
 
 @mixin icon-size($icon-size) {
     $size: get-icon-size($icon-size);
-    i {
+    width: $size;
+    height: $size;
+    img {
         width: $size;
         height: $size;
-        img {
-            width: $size;
-            height: $size;
-        }
     }
 }
 

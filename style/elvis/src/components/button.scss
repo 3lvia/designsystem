@@ -60,7 +60,7 @@ $button-sm-line-height: 16px;
     font-size: $button-lg-font-size;
     line-height: $button-lg-line-height;
     padding: $button-lg-padding;
-    .e-btn__icon { @include icon-size('sm'); }
+    .e-btn__icon i { @include icon-size('sm'); }
     &.e-btn--secondary {
       padding: calc(#{$button-lg-padding-y} - 1px) calc(#{$button-lg-padding-x} - 1px);
     }
@@ -69,7 +69,7 @@ $button-sm-line-height: 16px;
     font-size: $button-md-font-size;
     line-height: $button-md-line-height;
     padding: $button-md-padding;
-    .e-btn__icon { @include icon-size('xs'); }
+    .e-btn__icon i { @include icon-size('xs'); }
     &.e-btn--secondary {
       padding: calc(#{$button-md-padding-y} - 1px) calc(#{$button-md-padding-x} - 1px);
     }
