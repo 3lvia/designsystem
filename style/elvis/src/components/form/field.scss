@@ -42,18 +42,20 @@
       padding: 8px;
     }
   }
-}
-
-.e-combined-field {
-  display: flex;
-  flex-direction: row;
-  align-items: baseline;
-  max-width: 448px;
-  width: 100%;
-
-  .e-form-field {
+  
+  &--combined {
     width: 100%;
     margin-bottom: 0;
+    .e-form-field__input {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      max-width: 448px;
+      width: 100%;
+      .e-input:not(:last-of-type) {
+        margin-right: 8px;
+      }
+    }
   }
 }
 
