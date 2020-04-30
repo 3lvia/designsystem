@@ -43,7 +43,7 @@ $button-sm-line-height: 16px;
   justify-content: center;
   outline: none;
 
-  &.e-btn---focus, &:enabled:focus:not(:active) {
+  &.e-btn---focus, &:enabled:focus:not(:active):not(:hover) {
     @extend .e-outline;
   }
   
@@ -147,15 +147,19 @@ $button-sm-line-height: 16px;
       padding-bottom: 1.5px;
     }
 
+    &:focus:not(:hover) {
+      border: none;
+      padding-bottom: 0;
+    }
     &.e-btn---disabled, &:disabled  {
       color: color("grey-30");
       cursor: not-allowed;
     }
-
     &.e-btn---hover, &:enabled:hover {
       border-bottom-color: color("green");
       border-color: color("green");
       background: none;
+      outline: none;
     }
     &.e-btn---active, &:enabled:active {
       border-bottom: 1.5px solid color("green");

@@ -11,8 +11,9 @@ export class PopoverDocComponent implements OnInit {
   componentStatus = getComponent('popover-doc').status;
 
   example1 = `<span class="e-popover e-m-16">
-  <div class="e-popover__button">Top left</div>
+  Top left
   <div class="e-popover__content">
+    <div class="e-popover__close"><i class="e-icon e-icon--close-menu"></i></div>
     <div class="e-popover__title">Om innlogging</div>
     <div class="e-popover__text">
       Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
@@ -24,8 +25,9 @@ export class PopoverDocComponent implements OnInit {
 </span>
 
 <span class="e-popover e-popover--center e-m-16">
-  <div class="e-popover__button">Top center</div>
+  Top center
   <div class="e-popover__content">
+    <div class="e-popover__close"><i class="e-icon e-icon--close-menu"></i></div>
     <div class="e-popover__title">Om innlogging</div>
     <div class="e-popover__text">
       Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
@@ -37,8 +39,9 @@ export class PopoverDocComponent implements OnInit {
 </span>
 
 <span class="e-popover e-popover--right e-m-16">
-  <div class="e-popover__button">Top right</div>
+  Top right
   <div class="e-popover__content">
+    <div class="e-popover__close"><i class="e-icon e-icon--close-menu"></i></div>
     <div class="e-popover__title">Om innlogging</div>
     <div class="e-popover__text">
       Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
@@ -51,7 +54,7 @@ export class PopoverDocComponent implements OnInit {
 `;
 
   example2 = `<span class="e-popover e-popover--bottom e-m-16">
-  <div class="e-popover__button">Bottom left</div>
+  Bottom left
   <div class="e-popover__content">
     <div class="e-popover__close"><i class="e-icon e-icon--close-menu"></i></div>
     <div class="e-popover__title">Om innlogging</div>
@@ -65,7 +68,7 @@ export class PopoverDocComponent implements OnInit {
 </span>
 
 <span class="e-popover e-popover--bottom e-popover--center e-m-16">
-  <div class="e-popover__button">Bottom center</div>
+  Bottom center
   <div class="e-popover__content">
     <div class="e-popover__close"><i class="e-icon e-icon--close-menu"></i></div>
     <div class="e-popover__title">Om innlogging</div>
@@ -78,10 +81,14 @@ export class PopoverDocComponent implements OnInit {
   </div>
 </span>
 
-<span class="e-popover e-popover--bottom e-popover--right e-m-16">
-  <div class="e-popover__button">Bottom right</div>
-  <div class="e-popover__content">
-    <div class="e-popover__close"><i class="e-icon e-icon--close-menu"></i></div>
+<span class="e-popover e-popover--bottom e-popover--right visible e-m-16">
+  Bottom right
+  <div class="e-popover__content" style="margin-bottom:20px;">
+    <div class="e-popover__close">
+      <button class="e-btn e-btn--tertiary e-btn--sm">
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+      </button>
+    </div>
     <div class="e-popover__title">Om innlogging</div>
     <div class="e-popover__text">
       Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.

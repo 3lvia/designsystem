@@ -29,15 +29,6 @@ $popover-mobile-max-width: 300px;
     @extend .e-popover--top;
   }
 
-  &__button {
-    padding-top: 6px;
-  }
-
-  &--bottom &__button {
-    padding: 0;
-    padding-bottom: 6px;
-  }
-
   &__content {
     position: absolute;
     opacity: 0;
@@ -56,7 +47,7 @@ $popover-mobile-max-width: 300px;
       position: absolute;
       top: 16px;
       right: 16px;
-      i { @include icon-size('sm'); }
+      i { @include icon-size('xs'); }
     }
 
     .e-popover__title {
@@ -83,6 +74,7 @@ $popover-mobile-max-width: 300px;
     &:not(.e-popover--right):not(.e-popover--center) {
       @extend .e-popover--left;
     }
+    margin-bottom: 6px;
     .e-popover__content {
       bottom: 150%;
       &::before {
@@ -101,6 +93,7 @@ $popover-mobile-max-width: 300px;
     &:not(.e-popover--right):not(.e-popover--center) {
       @extend .e-popover--left;
     }
+    margin-top: 6px;
     .e-popover__content {
       top: 150%;
       &::before {
@@ -141,6 +134,13 @@ $popover-mobile-max-width: 300px;
     .e-popover__content {
       opacity: 1;
       z-index: 90;
+    }
+  }
+  &.visible {
+    .e-popover__content {
+      opacity: 1;
+      z-index: 0;
+      pointer-events: all;
     }
   }
 }
