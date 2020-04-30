@@ -6,9 +6,8 @@
     Popover
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    The class e-popover---visible needs to be added to show the popover. 
+    The popup will align to the top left position by default.
   </ng-container>  
 </app-component-header>
 
@@ -17,11 +16,50 @@
   <app-code-block
     [isHTML]="true"
     [code]="example1"
-    [title]="'Popover top'"
+    [title]="'Popover top left'"
+    [description]="'Add the class e-popover---visible to show the popover.'"
+    [class]="['e-popover', '(e-popover--top)', '(e-popover--left)', 'e-popover---visible']"
+    [showIframeScreens]="true"
+    [noTablet]="true"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
-    [title]="'Popover bottom'"
+    [title]="'Popover top center'"
+    [class]="['e-popover', '(e-popover--top)', 'e-popover--center']"
+    [showIframeScreens]="true"
+    [noTablet]="true"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example3"
+    [title]="'Popover top right'"
+    [class]="['e-popover', '(e-popover--top)', 'e-popover--right']"
+    [showIframeScreens]="true"
+    [noTablet]="true"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example4"
+    [title]="'Popover bottom left'"
+    [class]="['e-popover', 'e-popover--bottom', '(e-popover--left)']"
+    [showIframeScreens]="true"
+    [noTablet]="true"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example5"
+    [title]="'Popover bottom center'"
+    [class]="['e-popover', 'e-popover--bottom', 'e-popover--center']"
+    [showIframeScreens]="true"
+    [noTablet]="true"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example6"
+    [title]="'Popover bottom right'"
+    [class]="['e-popover', 'e-popover--bottom', 'e-popover--right']"
+    [showIframeScreens]="true"
+    [noTablet]="true"
   ></app-code-block>
 </div>
