@@ -50,7 +50,7 @@ export class TableDocComponent implements OnInit {
   example2 = `<table class="e-table">
   <thead>
     <tr>
-      <th scope="col">Sikringsstørrelse</th>
+      <th class="e-table__cell" scope="col">Sikringsstørrelse</th>
       <th scope="col" class="e-text-right">230 V (2-fase)</th>
       <th scope="col" class="e-text-right">230 V (3-fase)</th>
       <th scope="col" class="e-text-right">400 V (1-fase)</th>
