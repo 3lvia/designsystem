@@ -1,22 +1,42 @@
 @import "../variables/colors.scss";
+@import "../variables/typography.scss";
 
-$popover-border-style: 5px solid;
-$popover-margin-offset: -5px;
-$popover-calculate-height: auto;
-$popover-vertical-transform: translate(-50%, 0);
-$popover-horizontal-transform: translate(0, -50%);
+$popover-border-width: 1px;
+$popover-padding: 24px;
+$popover-arrow-size: 12px;
+$popover-arrow-size-small: calc(#{$popover-arrow-size} - (#{$popover-border-width} * 2));
+$popover-arrow-offset: 26px;
+$popover-button-offset: -15px;
 
 $popover-desktop-max-width: 400px;
-$popover-desktop-padding: 24px;
 
 $popover-mobile-max-width: 300px;
 
+%e-popover__widget {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+}
+
 .e-popover {
-  // Variable containing '&' to jump to current parent inside a child class.
-  $this: &;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
+  // Defaults position is top
+  &:not(.e-popover--bottom) {
+    @extend .e-popover--top;
+  }
+
+  &__button {
+    padding-top: 6px;
+  }
+
+  &--bottom &__button {
+    padding: 0;
+    padding-bottom: 6px;
+  }
 
   &__content {
     position: absolute;
@@ -24,90 +44,101 @@ $popover-mobile-max-width: 300px;
     z-index: -1;
     width: max-content;
     max-width: $popover-desktop-max-width;
-    padding: $popover-desktop-padding;
+    padding: $popover-padding;
     pointer-events: none;
     background-color: color("white");
     color: color("font-color");
     border: 1px solid color("green");
-    border-radius: 4px;
+    border-radius: 8px;
     transition: 200ms;
 
-    // Defaults to is-bottom popover if no direction class is applied.
-    &:not(.is-right):not(.is-left):not(.is-top) {
-      @extend .is-bottom;
+    .e-popover__close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      @include icon-size('sm');
     }
 
-    &--right {
-      top: 50%;
-      left: 110%;
-      transform: $popover-horizontal-transform;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 100%;
-        margin-top: $popover-margin-offset;
-        border: $popover-border-style;
-        border-color: transparent color("grey") transparent transparent;
-      }
+    .e-popover__title {
+      @extend .e-text-info;
+      font-weight: 500 !important;
+      padding-bottom: 8px;
     }
-    &--left {
-      top: 50%;
-      right: 110%;
-      transform: $popover-horizontal-transform;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 100%;
-        margin-top: $popover-margin-offset;
-        border: $popover-border-style;
-        border-color: transparent transparent transparent color("grey");
-      }
-    }
-    &--bottom {
-      top: 150%;
-      left: 50%;
-      transform: $popover-vertical-transform;
-
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 100%;
-        left: 50%;
-        margin-left: $popover-margin-offset;
-        border: $popover-border-style;
-        border-color: transparent transparent color("grey") transparent;
-      }
+    .e-popover__text {
+      @extend .e-text-info;
     }
 
-    &--top {
+    &::before {
+      @extend %e-popover__widget;
+      border: $popover-arrow-size solid;
+    }
+    &::after {
+      @extend %e-popover__widget;
+      border: $popover-arrow-size-small solid;
+    }
+  }
+
+  &.e-popover--top {
+    // Defaults position is top left
+    &:not(.e-popover--right):not(.e-popover--center) {
+      @extend .e-popover--left;
+    }
+    .e-popover__content {
       bottom: 150%;
-      left: 50%;
-      transform: $popover-vertical-transform;
-
+      &::before {
+        bottom: calc(#{$popover-arrow-size} * -2);
+        border-color: color("green") transparent transparent transparent;
+      }
       &::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: $popover-margin-offset;
-        border: $popover-border-style;
-        border-color: color("grey") transparent transparent transparent;
+        bottom: calc((#{$popover-arrow-size-small} * -2));
+        border-color: color("white") transparent transparent transparent;
       }
     }
   }
 
+  &.e-popover--bottom {
+    // Defaults position is top left
+    &:not(.e-popover--right):not(.e-popover--center) {
+      @extend .e-popover--left;
+    }
+    .e-popover__content {
+      top: 150%;
+      &::before {
+        top: calc(#{$popover-arrow-size} * -2);
+        border-color: transparent transparent color("green") transparent;
+      }
+      &::after {
+        top: calc((#{$popover-arrow-size-small} * -2));
+        border-color: transparent transparent color("white") transparent;
+      }
+    }
+  }
+
+  &.e-popover--left .e-popover__content {
+    left: $popover-button-offset;
+    &::before { left: $popover-arrow-offset; }
+    &::after { left: calc(#{$popover-arrow-offset} + 2px); }
+  }
+  &.e-popover--center .e-popover__content {
+    left: 50%;
+    transform: translate(-50%, 0);
+    &::before { left: calc(50% + #{$popover-button-offset}); }
+    &::after { left: calc(50% + #{$popover-button-offset} + 2px); }
+  }
+  &.e-popover--right .e-popover__content {
+    right: $popover-button-offset;
+    &::before { right: $popover-arrow-offset; }
+    &::after { right: calc(#{$popover-arrow-offset} + 2px); }
+  }
+
   &---hover, &:hover {
-    #{$this}__content {
+    .e-popover__content {
       opacity: 1;
       z-index: 90;
     }
   }
   &---focus, &:focus {
-    #{$this}__content {
+    .e-popover__content {
       opacity: 1;
       z-index: 90;
     }

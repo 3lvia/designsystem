@@ -11,28 +11,85 @@ export class PopoverDocComponent implements OnInit {
   componentStatus = getComponent('popover-doc').status;
 
   example1 = `<span class="e-popover e-m-16">
-  Hover Right
-  <span class="e-popover__content e-popover__content--right">
-    Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
-    BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
-    Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
-    Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
-  </span>
+  <div class="e-popover__button">Top left</div>
+  <div class="e-popover__content">
+    <div class="e-popover__title">Om innlogging</div>
+    <div class="e-popover__text">
+      Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
+      BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
+      Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
+      Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
+    </div>
+  </div>
 </span>
 
-<span class="e-popover e-m-16">
-  Hover Left
-  <span class="e-popover__content e-popover__content--left">Left popover</span>
+<span class="e-popover e-popover--center e-m-16">
+  <div class="e-popover__button">Top center</div>
+  <div class="e-popover__content">
+    <div class="e-popover__title">Om innlogging</div>
+    <div class="e-popover__text">
+      Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
+      BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
+      Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
+      Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
+    </div>
+  </div>
 </span>
 
-<span class="e-popover e-m-16">
-  Hover bottom
-  <span class="e-popover__content e-popover__content--bottom">Bottom popover</span>
+<span class="e-popover e-popover--right e-m-16">
+  <div class="e-popover__button">Top right</div>
+  <div class="e-popover__content">
+    <div class="e-popover__title">Om innlogging</div>
+    <div class="e-popover__text">
+      Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
+      BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
+      Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
+      Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
+    </div>
+  </div>
+</span>
+`;
+
+  example2 = `<span class="e-popover e-popover--bottom e-m-16">
+  <div class="e-popover__button">Bottom left</div>
+  <div class="e-popover__content">
+    <div class="e-popover__close"><i class="e-icon e-icon--close-menu"></i></div>
+    <div class="e-popover__title">Om innlogging</div>
+    <div class="e-popover__text">
+      Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
+      BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
+      Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
+      Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
+    </div>
+  </div>
 </span>
 
-<span class="e-popover e-m-16">
-  Hover on top
-  <span class="e-popover__content e-popover__content--top">Top popover</span>
+<span class="e-popover e-popover--bottom e-popover--center e-m-16">
+  <div class="e-popover__button">Bottom center</div>
+  <div class="e-popover__content">
+    <div class="e-popover__close"><i class="e-icon e-icon--close-menu"></i></div>
+    <div class="e-popover__title">Om innlogging</div>
+    <div class="e-popover__text">
+      Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
+      BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
+      Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
+      Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
+    </div>
+  </div>
+</span>
+
+<span class="e-popover e-popover--bottom e-popover--right e-m-16">
+  <div class="e-popover__button">Bottom right</div>
+  <div class="e-popover__content">
+    <div class="e-popover__close"><i class="e-icon e-icon--close-menu"></i></div>
+    <div class="e-popover__title">Om innlogging</div>
+    <div class="e-popover__text">
+      Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
+      BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
+      Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
+      Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
+    </div>
+  </div>
 </span>
 `;
 
