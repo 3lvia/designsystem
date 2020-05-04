@@ -96,8 +96,8 @@ const routes: Routes = [
             component: OverviewComponent
           },
           {
-            path: Pages.Label,
-            component: LabelDocComponent
+            path: Pages.Autocomplete,
+            component: ButtonDocComponent // Må endres
           },
           {
             path: Pages.Button,
@@ -122,6 +122,10 @@ const routes: Routes = [
           {
             path: Pages.Input,
             component: InputDocComponent
+          },
+          {
+            path: Pages.Label,
+            component: LabelDocComponent
           },
           {
             path: Pages.Link,
