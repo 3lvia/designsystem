@@ -21,6 +21,10 @@
             class="e-label e-label--danger"
             *ngIf="navbarItem.status && (navbarItem.status === 'Coming')"
           >{{ navbarItem.status }}</span>
+          <span
+            class="e-label e-label--warn"
+            *ngIf="navbarItem.status && (navbarItem.status === 'In progress')"
+          >{{ navbarItem.status }}</span>
         </a>
       </li>
     </ul>

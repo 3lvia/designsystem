@@ -227,7 +227,7 @@ export const eUtilities: EItems[] = [
         title: 'Icons',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Icon,
-        status: ItemStatus.Coming,
+        status: ItemStatus.Progress,
         actionText: 'View icons',
         externalUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=82%3A2'
     },

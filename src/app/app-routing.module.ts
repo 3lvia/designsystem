@@ -41,6 +41,7 @@ import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segm
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
 import { AlignmentDocComponent } from './doc-pages/utilities/alignment-doc/alignment-doc/alignment-doc.component';
+import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 
 
 const routes: Routes = [
@@ -97,7 +98,7 @@ const routes: Routes = [
           },
           {
             path: Pages.Autocomplete,
-            component: ButtonDocComponent // Må endres
+            component: AutocompleteDocComponent
           },
           {
             path: Pages.Button,
