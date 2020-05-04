@@ -1,0 +1,22 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Modal
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [description]="'Green elvis dots for regular unordred list'"
+    [title]="'Modal'"
+    [class]="['e-modal']"
+  ></app-code-block>
+</div>
