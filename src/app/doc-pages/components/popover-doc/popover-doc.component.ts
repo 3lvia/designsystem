@@ -12,7 +12,9 @@ export class PopoverDocComponent implements OnInit {
 
   example1 = `<div style="margin-top: 260px;">
   <span class="e-popover e-popover---visible e-m-16">
-    Top left
+    <button class="e-btn e-btn--tertiary e-btn--sm">
+      <span class="e-btn__icon"><i class="e-icon e-icon--information-circle"></i></span>
+    </button>
     <div class="e-popover__content">
       <div class="e-popover__close">
         <button class="e-btn e-btn--tertiary e-btn--sm">
@@ -33,7 +35,9 @@ export class PopoverDocComponent implements OnInit {
 
   example2 = `<div style="margin-top: 260px; text-align: center;">
   <span class="e-popover e-popover--center e-popover---visible e-m-16">
-    Top center
+    <button class="e-btn e-btn--tertiary e-btn--sm">
+      <span class="e-btn__icon"><i class="e-icon e-icon--information-circle"></i></span>
+    </button>
     <div class="e-popover__content">
       <div class="e-popover__close">
         <button class="e-btn e-btn--tertiary e-btn--sm">
@@ -54,7 +58,9 @@ export class PopoverDocComponent implements OnInit {
 
   example3 = `<div style="margin-top: 260px; text-align: right;">
   <span class="e-popover e-popover--right e-popover---visible e-m-16">
-    Top right
+    <button class="e-btn e-btn--tertiary e-btn--sm">
+      <span class="e-btn__icon"><i class="e-icon e-icon--information-circle"></i></span>
+    </button>
     <div class="e-popover__content">
       <div class="e-popover__close">
         <button class="e-btn e-btn--tertiary e-btn--sm">

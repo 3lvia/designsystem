@@ -5,8 +5,8 @@ $popover-border-width: 1px;
 $popover-padding: 24px;
 $popover-arrow-size: 12px;
 $popover-arrow-size-small: calc(#{$popover-arrow-size} - (#{$popover-border-width} * 2));
-$popover-arrow-offset: 26px;
-$popover-button-offset: -15px;
+$popover-arrow-offset: 25px; // Midtstilt i forhold til ikon 16X16px (xs)
+$popover-button-offset: -30px;
 
 $popover-desktop-max-width: 400px;
 
@@ -120,8 +120,8 @@ $popover-mobile-max-width: 300px;
   &.e-popover--center .e-popover__content {
     left: 50%;
     transform: translate(-50%, 0);
-    &::before { left: calc(50% + #{$popover-button-offset}); }
-    &::after { left: calc(50% + #{$popover-button-offset} + 2px); }
+    &::before { left: calc((50%) - (#{$popover-arrow-offset} / 2) + 1px); }
+    &::after { left: calc((50%) - (#{$popover-arrow-offset} / 2) + 3px); }
   }
   &.e-popover--right .e-popover__content {
     right: $popover-button-offset;
