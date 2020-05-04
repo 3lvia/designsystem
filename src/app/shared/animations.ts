@@ -41,17 +41,17 @@ export const SectionAnimation: AnimationTriggerMetadata = trigger('sectionAnimat
     'void',
     style({
       opacity: 0,
-      transform: 'scaleY(.9)'
+      transform: 'translateY(-5%)',
     })
   ),
   state(
     '*',
     style({
       opacity: 1,
-      transform: 'scaleY(1)'
+      transform: 'translateY(0%)'
     })
   ),
-  transition('void => *', animate(`250ms cubic-bezier(0.6, 0, 0.1, 1)`)),
-  transition('* => void', animate(`250ms cubic-bezier(.55, 0, .88, 1)`))
+  transition('void => *', animate(`350ms cubic-bezier(0.6, 0, 0.1, 1)`)),
+  transition('* => void', animate(`350ms cubic-bezier(.55, 0, .88, 1)`))
 ]);
 
