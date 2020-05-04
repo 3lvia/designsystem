@@ -1,11 +1,16 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
+  [does]="'Used where we want to give the user more information, such as in an info icon on My page or a question icon next to an input in a form.'"
+  [donts]="'Not used for critical information that is important for users.'"
 >
   <ng-container ngProjectAs="headerTitle">
     Popover
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
+    Popover is only visible when another element has triggered it to appear.
+    The component will position itself relative to this anchor element.
+    You should be able to close the pop-up by clicking on the X or outside of the component.
     The class e-popover---visible needs to be added to show the popover. 
     The popup will align to the top left position by default.
   </ng-container>  
