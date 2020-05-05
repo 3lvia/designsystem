@@ -1,9 +1,9 @@
-@import '../../variables/colors.scss';
-@import '../../variables/animation.scss';
+@import "../../variables/colors.scss";
+@import "../../variables/animation.scss";
 
 $form-radiobutton-mark-size: 1rem;
 $form-radiobutton-mark-border-radius: 14px;
-$form-radiobutton-mark-border: 1px solid color('green');
+$form-radiobutton-mark-border: 1px solid color("green");
 
 .e-radio {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -16,25 +16,7 @@ $form-radiobutton-mark-border: 1px solid color('green');
     margin-bottom: 0.75rem;
   }
 
-  // Creating placeholder to inject style into radiobutton mutations.
-  %radiobutton-mark {
-    position: relative;
-    background-color: color('green');
-    &:before {
-      content: "";
-      display: inline-block;
-      padding: 0.3rem;
-      border: 2px solid color('white');
-      border-radius: 14px;
-    }
-  }
-
-  &.is-checked {
-    #{$this}_mark {
-      @extend %radiobutton-mark;
-    }
-  }
-
+  // Hide defualt radiostyle and put in placeholder style
   input {
     display: none;
 
@@ -43,7 +25,27 @@ $form-radiobutton-mark-border: 1px solid color('green');
     }
   }
 
-  &_mark {
+  // Creating placeholder to inject style into radiobutton mutations.
+  %radiobutton-mark {
+    position: relative;
+    background-color: color("green");
+    &:before {
+      content: "";
+      display: inline-block;
+      padding: 0.3rem;
+      border: 2px solid color("white");
+      border-radius: 14px;
+    }
+  }
+
+  &:checked,
+  &---checked {
+    #{$this}_mark {
+      @extend %radiobutton-mark;
+    }
+  }
+
+  &__mark {
     display: inline-block;
 
     width: $form-radiobutton-mark-size;
@@ -51,10 +53,10 @@ $form-radiobutton-mark-border: 1px solid color('green');
     transition: background 0.3s $transition-cubic;
     border: $form-radiobutton-mark-border;
     border-radius: $form-radiobutton-mark-border-radius;
-    background: color('white');
+    background: color("white");
   }
 
-  &_label {
+  &__label {
     flex-grow: 1;
     margin-left: 1rem;
   }

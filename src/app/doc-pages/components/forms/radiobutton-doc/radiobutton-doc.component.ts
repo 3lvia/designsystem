@@ -13,15 +13,22 @@ export class RadiobuttonDocComponent implements OnInit {
 
   example1 = `<form class="e-form_field">
   <span class="e-form_field_title">Radio buttons</span>
-  <label class="e-form_radiobutton">
-      <input type="radio" name="formname" checked />
-      <span class="e-form_radiobutton_mark"></span>
-      <span class="e-form_radiobutton_label">Picked</span>
+  <label class="e-radio">
+    <input type="radio" name="formname" checked />
+    <span class="e-radio__mark"></span>
+    <span class="e-radio__label">Picked</span>
   </label>
-  <label class="e-form_radiobutton">
-      <input type="radio" name="formname" />
-      <span class="e-form_radiobutton_mark"></span>
-      <span class="e-form_radiobutton_label">Unpicked</span>
+
+
+  <label class="e-radio">
+      <input type="radio" name="formname" checked />
+      <span class="e-radio__mark"></span>
+      <span class="e-radio__label">Picked</span>
+  </label>
+ <label class="e-radio">
+      <input type="radio" name="formname" checked />
+      <span class="e-radio__mark"></span>
+      <span class="e-radio__label">Picked</span>
   </label>
 </form>
 `;
