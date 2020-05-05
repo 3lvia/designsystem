@@ -1,10 +1,26 @@
 @import "../../shared/shared-sizes";
+.header-warning {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  top: 0;
+  height: 60px;
+  width: 100%;
+  padding-left: 16px;
+  color: var(--e-black);
+  background: var(--e-orange);
+  font-size: 16px;
+  font-weight: normal;
+  z-index: 11;
+  i { padding-right: 16px; display: flex;}
+}
 
 .header {
   position: fixed;
   height: $header-height;
   width: 100%;
-  top: 0;
+  top: 60px;
   margin: 0;
   padding: 0;
   z-index: 10;

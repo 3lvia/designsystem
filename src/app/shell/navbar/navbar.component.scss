@@ -2,9 +2,9 @@
 
 .navbar {
   position: fixed;
-  height: calc(100% - #{$header-height});
+  height: calc(100% - #{$header-height} - 60px);
   width: $navbar-width;
-  top: $header-height;
+  top: $header-height + 60px;
   left: 0;
   margin: 0;
   padding: 0;
@@ -12,6 +12,11 @@
 
   overflow-y: auto;
   list-style-type: none;
+
+  .disabled { 
+    cursor: none !important;
+    pointer-events: none; 
+  }
 
   &-list {
     padding: 0;
