@@ -1,7 +1,6 @@
 @import '../variables/colors';
 @import '../utilities/typography';
 
-$modal-margin: 8px;
 $modal-border-radius: 8px;
 $modal-max-width: 704px;
 
@@ -30,7 +29,6 @@ $modal-mobile-padding: 32px;
     &__content {
         position: relative;
         padding: $modal-desktop-padding;
-        margin: $modal-margin;
         display: flex;
         flex-direction: column;
         max-width: calc(#{$modal-max-width} - (#{$modal-desktop-padding} * 2));
@@ -43,7 +41,8 @@ $modal-mobile-padding: 32px;
             padding: $modal-mobile-padding;
             border-radius: 0;
             width: 100%;
-            height: 100%;
+            max-width: 100%;
+            height: calc(100% - (#{$modal-mobile-padding} * 2));
             margin: 0;
         }
 
