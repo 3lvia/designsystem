@@ -106,7 +106,51 @@ example3 = `<div>
 </div>
 `;
 
-  example4 = `<div>
+example4 = `<div>
+  <h3 class="e-title-small">Border (default)</h3>
+  <div>
+    <h3 class="e-title-small">Large</h3>
+    <button class="e-btn e-btn--icon e-btn--lg e-m-16">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--lg e-m-16" disabled>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    </button>
+  </div>
+  <div>
+    <h3 class="e-title-small">Medium (default)</h3>
+    <button class="e-btn e-btn--icon e-m-16">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    </button>
+    <button class="e-btn e-btn--icon e-m-16" disabled>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    </button>
+  </div>
+</div>
+<div>
+  <h3 class="e-title-small">No border</h3>
+  <div>
+    <h3 class="e-title-small">Large</h3>
+    <button class="e-btn e-btn--icon e-btn--lg e-btn--no-border e-m-16">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--lg e-btn--no-border e-m-16" disabled>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    </button>
+  </div>
+  <div>
+    <h3 class="e-title-small">Medium (default)</h3>
+    <button class="e-btn e-btn--icon e-btn--no-border e-m-16">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--no-border e-m-16" disabled>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    </button>
+  </div>
+</div>
+`;
+
+  example5 = `<div>
   <h3 class="e-title-small">Primary buttons</h3>
   <div>
     <button class="e-btn e-m-16">
@@ -177,7 +221,7 @@ example3 = `<div>
 </div>
 `;
 
-  example5 = `<div>
+  example6 = `<div>
   <h3 class="e-title-small">Large</h3>
   <button class="e-btn e-btn--loading e-btn--lg e-m-16">
     <span></span>
@@ -203,7 +247,7 @@ example3 = `<div>
 </div>
 `;
 
-  example6 = `<div>
+  example7 = `<div>
   <h3 class="e-title-small">Primary buttons</h3>
   <button class="e-btn e-btn---hover e-m-16">
     Hover

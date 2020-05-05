@@ -17,7 +17,7 @@ export class PopoverDocComponent implements OnInit {
     </button>
     <div class="e-popover__content">
       <div class="e-popover__close">
-        <button class="e-btn e-btn--tertiary e-btn--sm">
+        <button class="e-btn e-btn--icon e-btn--no-border e-btn--sm">
           <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
         </button>
       </div>

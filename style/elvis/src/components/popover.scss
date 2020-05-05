@@ -50,14 +50,15 @@ $popover-mobile-max-width: 300px;
 
     .e-popover__close {
       position: absolute;
-      top: 16px;
-      right: 16px;
+      top: 7px;
+      right: 7px;
       i { @include icon-size('xs'); }
     }
 
     .e-popover__title {
       @extend .e-text-info;
       font-weight: 500 !important;
+      padding-bottom: 8px;
     }
     .e-popover__text {
       @extend .e-text-info;
