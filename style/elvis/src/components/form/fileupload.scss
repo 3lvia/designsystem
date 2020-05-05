@@ -3,14 +3,14 @@
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
-    padding: var(--e-spacing-32) 0;
+    padding: 32px 0;
 
-    &__icon-container {
+    &__icon {
         display: flex;
         width: 100%;
         justify-content: center;
         align-items: center;
-        margin-bottom: var(--e-spacing-16);
+        margin-bottom: 16px;
     }
 
     &__description {
@@ -19,7 +19,7 @@
         width: 100%;
         justify-content: center;
         align-items: center;
-        margin-bottom: var(--e-spacing-16);
+        margin-bottom: 16px;
     }
 
     &__input {
@@ -57,7 +57,7 @@
 
             i {
                 @include icon-size("sm");
-                margin-right: var(--e-spacing-8);
+                margin-right: 8px;
                 display: flex;
             }
         }

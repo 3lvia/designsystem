@@ -78,6 +78,7 @@ export const eComponents: EItems[] = [
         docUrl: Pages.FileUpload,
         status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132'
     },
     {
         title: 'Input',

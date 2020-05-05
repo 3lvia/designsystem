@@ -10,11 +10,11 @@ export class FileUploadDocComponent {
 
   externalUrl = getComponent('fileUpload-doc').externalUrl;
   componentStatus = getComponent('fileUpload-doc').status;
-  fileUploadClasses = ['e-fileupload', 'e-fileupload__icon-container', 'e-fileupload__description', 'e-fileupload__input'];
+  fileUploadClasses = ['e-fileupload', 'e-fileupload__icon', 'e-fileupload__description', 'e-fileupload__input'];
 
   // Code Block example code
   example1 = `<div class="e-fileupload" style="width:380px">
-  <div class="e-fileupload__icon-container">
+  <div class="e-fileupload__icon">
     <i class="e-icon e-icon--file-add"></i>
   </div>
   <div class="e-fileupload__description">
@@ -28,7 +28,7 @@ export class FileUploadDocComponent {
 `;
 
   example2 = `<div class="e-fileupload e-fileupload---hover" style="width:380px">
-  <div class="e-fileupload__icon-container">
+  <div class="e-fileupload__icon">
     <i class="e-icon e-icon--file-add"></i>
   </div>
   <div class="e-fileupload__description">
