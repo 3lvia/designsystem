@@ -1,30 +1,84 @@
 @import '../variables/colors';
+@import '../utilities/typography';
 
-$modal-padding: 16px;
-$modal-border-radius: 4px;
+$modal-margin: 8px;
+$modal-border-radius: 8px;
+$modal-max-width: 704px;
+
+$modal-desktop-padding: 48px;
+
+$modal-mobile-padding: 32px;
 
 .e-modal {
     display: flex;
-    position: absolute;
     justify-content: center;
     align-items: center;
-    padding: $modal-padding;
-    border-radius: $modal-border-radius;
-    background: color('white');
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
+    position: fixed;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 99999;
+    opacity:0;
+    // -webkit-transition: opacity 100ms ease-in;
+    // -moz-transition: opacity 100ms ease-in;
+    transition: opacity 100ms ease-in;
+    pointer-events: none;
+    box-sizing: border-box;
 
     &__content {
-        .e-modal__title {
-            font-weight: bold;
+        position: relative;
+        padding: $modal-desktop-padding;
+        margin: $modal-margin;
+        display: flex;
+        flex-direction: column;
+        max-width: calc(#{$modal-max-width} - (#{$modal-desktop-padding} * 2));
+        width: max-content;
+        height: max-content;
+        border-radius: $modal-border-radius;
+        background: color('white');
+
+        @include breakpoint-up(Mobile) {
+            padding: $modal-mobile-padding;
+            border-radius: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
         }
+
+        .e-modal__title {
+            @extend .e-title-md;
+        }
+        .e-modal__text {
+            @extend .e-text-body;
+            color: color('font-grey');
+            padding-top: 32px;
+        }
+        .e-modal__actions {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 32px;
+            @include breakpoint-up(Mobile) {
+                flex-direction: column;
+                justify-content: flex-end;
+                height: 100%;
+                width: 100%;
+            }
+            button {
+                width: 100%;
+            }
+            button:first-of-type:not(:last-of-type) {
+                margin-right: 24px;
+                @include breakpoint-up(Mobile) {
+                    margin-bottom: 16px;
+                }
+            }
+        }
+    }
+
+    &---visible {
+        opacity:1;
+        pointer-events: auto;
     }
 }

@@ -12,18 +12,66 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [isHTML]="true"
-    [code]="example1"
-    [description]="'Green elvis dots for regular unordred list'"
-    [title]="'Modal'"
-    [class]="['e-modal']"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example2"
-    [description]="'Green elvis dots for regular unordred list'"
-    [title]="'Modal'"
-    [class]="['e-modal', 'e-btn--danger']"
-  ></app-code-block>
+  
+  <h3>Modal</h3>
+  <button class="e-btn" (click)="openModal('modal1')">Open modal</button>
+  <div class="e-modal" #modal1>
+    <div class="e-modal__content">
+      <div class="e-modal__title">
+        Title of content comes here
+      </div>
+      <div class="e-modal__text">
+        <div>
+          Var sparsom med bruken av dialoger siden det kan oppleves forstyrrende å få noe liggendes over skjermen mange ganger på rad. 
+        </div>
+        <div>
+          Bruk aldrig et språk eller ord som brukeren ikke skjønner. Det skal alltid være klart for brukeren hva det er den skal ta.
+        </div>
+      </div>
+      <div class="e-modal__actions">
+        <button class="e-btn e-btn--secondary">
+          <span class="e-btn__title">Avbryt</span>
+        </button>
+        <button class="e-btn e-btn--primary">
+          <span class="e-btn__title">Primary action</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h3>Modal danger</h3>
+  <button class="e-btn" (click)="openModal('modal2')">Slett bruker</button>
+  <div class="e-modal" #modal2>
+    <div class="e-modal__content">
+      <div class="e-modal__title">
+        Er du sikker på at du vil slette brukeren din?
+      </div>
+      <div class="e-modal__text">
+        Body text comes here and can go over several lines. It looks like this and when it is two.
+      </div>
+      <div class="e-modal__actions">
+        <button class="e-btn e-btn--secondary">
+          <span class="e-btn__title">Avbryt</span>
+        </button>
+        <button class="e-btn e-btn--primary e-btn--danger">
+          <span class="e-btn__title">Slett bruker</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h3>Modal info</h3>
+  <button class="e-btn" (click)="openModal('modal3')">Send</button>
+  <div class="e-modal" #modal3>
+    <div class="e-modal__content">
+      <div class="e-modal__title">
+        Title of content comes here
+      </div>
+        Body text comes here and can go over several lines. It looks like this and when it is two.
+      <button class="e-btn e-btn--primary">
+        <span class="e-btn__title">OK</span>
+      </button>
+    </div>
+  </div>
+  
 </div>
