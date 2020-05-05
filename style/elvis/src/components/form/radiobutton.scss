@@ -15,7 +15,7 @@ $form-radiobutton-mark-border: 1px solid color("black");
   width: fit-content;
   cursor: pointer;
   &:not(:last-child) {
-    margin-bottom: 0.75rem;
+    margin-bottom: 8px;
   }
 
   // Hide defualt radiostyle and put in placeholder style
@@ -100,6 +100,6 @@ $form-radiobutton-mark-border: 1px solid color("black");
 
   &__label {
     flex-grow: 1;
-    margin-left: 1rem;
+    margin-left: 8px;
   }
 }

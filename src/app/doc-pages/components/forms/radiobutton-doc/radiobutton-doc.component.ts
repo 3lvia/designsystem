@@ -14,7 +14,6 @@ export class RadiobuttonDocComponent implements OnInit {
   , 'e-radio__mark---invalid'];
 
   example1 = `<form class="e-form_field">
-  <span class="e-form_field_title">Radio buttons</span>
   <label class="e-radio" for="option1">
     <input type="radio" id="option1" name="example1" value="value1" checked />
     <span class="e-radio__mark"></span>
