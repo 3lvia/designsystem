@@ -1,5 +1,4 @@
 @import "../../variables/colors.scss";
-@import "../../variables/animation.scss";
 @import "../../utilities/outline.scss";
 
 $form-radiobutton-mark-size: 24px;
@@ -69,7 +68,6 @@ $form-radiobutton-mark-border: 1px solid color("black");
 
     width: $form-radiobutton-mark-size;
     height: $form-radiobutton-mark-size;
-    transition: background 0.3s $transition-cubic;
     border: $form-radiobutton-mark-border;
     border-radius: $form-radiobutton-mark-border-radius;
     background: color("white");
