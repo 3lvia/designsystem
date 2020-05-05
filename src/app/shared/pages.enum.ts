@@ -18,6 +18,7 @@ export enum Pages {
     ComponentsStart = 'components',
     // Children
     OverviewComp = 'overview-comp-doc',
+    Autocomplete = 'autocomplete-doc', // Må endres
     Button = 'button-doc',
     Card = 'card-doc',
     Checkbox = 'checkbox-doc',

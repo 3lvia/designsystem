@@ -42,6 +42,7 @@ import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/f
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
 import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
 import { AlignmentDocComponent } from './doc-pages/utilities/alignment-doc/alignment-doc/alignment-doc.component';
+import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 
 
 const routes: Routes = [
@@ -97,8 +98,8 @@ const routes: Routes = [
             component: OverviewComponent
           },
           {
-            path: Pages.Label,
-            component: LabelDocComponent
+            path: Pages.Autocomplete,
+            component: AutocompleteDocComponent
           },
           {
             path: Pages.Button,
@@ -127,6 +128,10 @@ const routes: Routes = [
           {
             path: Pages.Input,
             component: InputDocComponent
+          },
+          {
+            path: Pages.Label,
+            component: LabelDocComponent
           },
           {
             path: Pages.Link,

@@ -4,6 +4,7 @@
       <li
         class="navbar-item e-text-body"
         *ngFor="let navbarItem of sidebarList"
+        [ngClass]="navbarItem.status && (navbarItem.status === 'Coming') ? 'disabled' : ''"
       >
         <a
           [routerLink]="[navbarItem.docUrl]"
@@ -21,8 +22,8 @@
             *ngIf="navbarItem.status && (navbarItem.status === 'Coming')"
           >{{ navbarItem.status }}</span>
           <span
-            class="e-label e-label--info"
-            *ngIf="navbarItem.status && (navbarItem.status === 'Done')"
+            class="e-label e-label--warn"
+            *ngIf="navbarItem.status && (navbarItem.status === 'In progress')"
           >{{ navbarItem.status }}</span>
         </a>
       </li>
