@@ -42,6 +42,17 @@ export class ButtonDocComponent {
 </div>
 `;
 
+  exampleDanger = `<div>
+  <button class="e-btn e-btn--primary e-btn--danger e-m-16">
+    <span class="e-btn__title">Primary</span>
+  </button>
+  <button class="e-btn e-btn--primary e-btn--danger e-m-16" disabled>
+    <span class="e-btn__title">Disabled</span>
+  </button>
+</div>
+<div>
+`;
+
   example2 = `<div>
   <h3 class="e-title-small">Large</h3>
   <button class="e-btn e-btn--secondary e-btn--lg e-m-16">

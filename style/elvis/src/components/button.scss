@@ -90,6 +90,11 @@ $button-sm-line-height: 16px;
     background: color("black");
     color: color("white");
 
+    &.e-btn--danger {
+      background: color("red");
+      color: color("black");
+    }
+
     &.e-btn---disabled, &:disabled {
       background: color("grey-30");
       color: color("grey-05");
