@@ -19,6 +19,12 @@
     [title]="'File Upload'"
     [class]="fileUploadClasses"
   ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example2"
+    [title]="'Pseudoclass for hoover on dragover'"
+    [class]="['e-fileupload---hover']"
+  ></app-code-block>
 
   <h3>Live example, built in Angular</h3>
   <p>The only general styling guide when implementing a file upload in Elvis style is to change
@@ -46,20 +52,9 @@
       </div>
     </div>
   </div>
-<!-- 
-  <app-code-highligther>
-
-  </app-code-highligther> -->
-    <!-- <app-code-block
-      [isHTML]="true"
-      [code]="example2"
-      [title]="'HTML live example code'"
-      [class]="fileUploadClasses"
-    ></app-code-block>
-    <app-code-block
-      [isHTML]="true"
-      [code]="example3"
-      [title]="'Angular Directive'"
-      [class]="fileUploadClasses"
-    ></app-code-block> -->
+  <h4>TS code for angular directive example</h4>
+    <app-code-highlighter
+      [isTS]="'true'"
+      [code]="dndDirective"
+    ></app-code-highlighter>
 </div>

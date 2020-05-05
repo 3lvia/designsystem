@@ -27,11 +27,7 @@ export class FileUploadDocComponent {
 </div>
 `;
 
-  example2 = `<div
-class="e-fileupload"
-style="width:380px"
-appDnd
->
+  example2 = `<div class="e-fileupload e-fileupload---hover" style="width:380px">
   <div class="e-fileupload__icon-container">
     <i class="e-icon e-icon--file-add"></i>
   </div>
@@ -39,14 +35,11 @@ appDnd
     Dra og slipp eller
   </div>
   <div class="e-fileupload__input">
-    <input
-    type="file"
-    id="fileUploadTemplate"
-    >
+    <input type="file" id="fileUploadTemplate">
     <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i> Velg fil</label>
   </div>
 </div>`;
-example3 = `
+  dndDirective = `
 import {
     Directive,
     Output,
