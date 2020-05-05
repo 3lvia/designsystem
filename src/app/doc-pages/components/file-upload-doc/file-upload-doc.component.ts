@@ -12,7 +12,6 @@ export class FileUploadDocComponent {
   componentStatus = getComponent('fileUpload-doc').status;
   fileUploadClasses = ['e-fileupload', 'e-fileupload__icon', 'e-fileupload__description', 'e-fileupload__input'];
 
-  // Code Block example code
   example1 = `<div class="e-fileupload" style="width:380px">
   <div class="e-fileupload__icon">
     <i class="e-icon e-icon--file-add"></i>
@@ -39,8 +38,8 @@ export class FileUploadDocComponent {
     <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i> Velg fil</label>
   </div>
 </div>`;
-  dndDirective = `
-import {
+
+  dndDirective = `import {
     Directive,
     Output,
     Input,
@@ -77,8 +76,6 @@ export class DndDirective {
         this.fileOver = false;
         alert('Files got dropped! Don´t worry, we do not store anything that you dropped here =)');
     }
-}
-`;
-
+}`;
 
 }
