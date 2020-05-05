@@ -76,7 +76,10 @@ $modal-mobile-padding: 32px;
             }
             button:only-of-type {
                 width: fit-content;
-                float: right;
+                @include breakpoint-up(Mobile) {
+                    position: absolute;
+                    right: $modal-mobile-padding;
+                }
             }
         }
     }
