@@ -37,7 +37,7 @@ export class IframeScreenComponent implements AfterViewInit {
       // tslint:disable-next-line:max-line-length
       doc.write(`<html><head>${window.document.head.innerHTML}</head><body><div style="overflow: auto; padding: 4px;">${this.code}</div></body></html>`);
       doc.close();
-      this.iframeTablet.nativeElement.style.height = '470px';
+      this.iframeTablet.nativeElement.style.height = '530px';
     }
     if (this.screenSize === 'phone') {
       const doc = this.iframePhone.nativeElement.contentWindow.document;
@@ -45,7 +45,7 @@ export class IframeScreenComponent implements AfterViewInit {
       // tslint:disable-next-line:max-line-length
       doc.write(`<html><head>${window.document.head.innerHTML}</head><body><div style="overflow: auto; padding: 4px;">${this.code}</div></body></html>`);
       doc.close();
-      this.iframePhone.nativeElement.style.height = '470px';
+      this.iframePhone.nativeElement.style.height = '530px';
     }
   }
 }

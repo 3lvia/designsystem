@@ -18,7 +18,7 @@ $modal-mobile-padding: 32px;
     right: 0;
     bottom: 0;
     left: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.25);
     z-index: 99999;
     opacity:0;
     // -webkit-transition: opacity 100ms ease-in;
@@ -52,12 +52,12 @@ $modal-mobile-padding: 32px;
         }
         .e-modal__text {
             @extend .e-text-body;
-            color: color('font-grey');
+            color: color('font-grey') !important;
             padding-top: 32px;
         }
         .e-modal__actions {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end; 
             padding-top: 32px;
             @include breakpoint-up(Mobile) {
                 flex-direction: column;
@@ -65,6 +65,7 @@ $modal-mobile-padding: 32px;
                 height: 100%;
                 width: 100%;
             }
+
             button {
                 width: 100%;
             }
@@ -73,6 +74,10 @@ $modal-mobile-padding: 32px;
                 @include breakpoint-up(Mobile) {
                     margin-bottom: 16px;
                 }
+            }
+            button:only-of-type {
+                width: fit-content;
+                float: right;
             }
         }
     }
