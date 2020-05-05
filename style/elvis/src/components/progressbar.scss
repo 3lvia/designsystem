@@ -1,4 +1,4 @@
-.e-progressbar {
+.e-progress {
   display: flex;
   width: 100%;
   height: 2px;
@@ -6,21 +6,24 @@
   background-color: color("grey-10");
   border-radius: 50px;
 
-  &.e-loading {
-    border-radius: 50px;
-    align-self: center;
-    width: 15%;
-    height: 6px;
-    margin-left: 0;
-    background-color: color("green");
-    animation: loading 700ms infinite;
-  }
-  &.e-error {
-    border-radius: 50px;
-    align-self: center;
-    width: 100%;
-    height: 6px;
-    background-color: color("red");
+  &__bar {
+    @extend .e-progress__bar--loading;
+
+    &.e-progress__bar--loading {
+      border-radius: 50px;
+      align-self: center;
+      width: 15%;
+      height: 6px;
+      margin-left: 0;
+      background-color: color("green");
+      animation: loading 700ms infinite;
+    }
+    &.e-progress__bar--error {
+      width: 100%;
+      height: 6px;
+      background-color: color("red");
+      animation: none;
+    }
   }
 }
 

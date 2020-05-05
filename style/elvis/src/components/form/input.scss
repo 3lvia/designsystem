@@ -45,45 +45,37 @@ $form-input-border: 1px solid color("grey");
     overflow-y: auto;
   }
 
-  &.e-small {
+  &.e-input--small {
     width: 60px;
     input {
       width: 60px;
     }
   }
 
-  &.e-medium {
+  &.e-input--medium {
     width: 120px;
     input {
       width: 120px;
     }
   }
 
-  &.e-focus,
-  &:focus-within:not(:active) {
+  &.e-input---focus, &:focus-within:not(:active) {
     @extend .e-outline;
   }
 
-  &.e-invalid {
-    border: 2px solid var(--e-red);
+  &.e-input---invalid, input:invalid {
+    border: 2px solid color('red');
     padding: $form-input-padding-active;
   }
 
-  &.e-disabled,
-  input:disabled {
-    color: var(--e-grey-20);
-    border-color: var(--e-grey-20);
+  &.e-input---disabled, input:disabled {
+    color: color('grey-20');
+    border-color: color('grey-20');
     cursor: not-allowed;
     input:disabled {
       opacity: 1;
       color: color("grey-20");
       -webkit-text-fill-color: color("grey-20");
-      cursor: not-allowed;
-    }
-    input {
-      opacity: 1;
-      color: var(--e-grey-20);
-      -webkit-text-fill-color: var(--e-grey-20);
       cursor: not-allowed;
     }
   }

@@ -20,7 +20,7 @@ $list-border-radius: 50%;
     list-style: none;
     position: relative;
     // extra padding for the width of the green content bulletin.
-    padding-left: var(--e-spacing-24);
+    padding-left: 24px;
     margin: 0.5rem 0;
 
     &::before {
@@ -35,59 +35,30 @@ $list-border-radius: 50%;
     }
   }
 
-  &.e-numbers {
-    counter-reset: elvis-item;
-    list-style: none;
-    li {
-      counter-increment: elvis-item;
-      margin: 1rem 0;
-
-      &::before {
-        content: counter(elvis-item);
-        left: -0.5rem;
-        line-height: $list-border-size;
-        width: $list-border-size;
-        height: $list-border-size;
-        top: 0;
-        background: transparent;
-        border-radius: $list-border-radius;
-        text-align: center;
-        box-shadow: 0px 0px 0px 2px color("green");
-      }
-    }
+  &.e-list--strong {
+    font-weight: bold;
+    background: transparent;
   }
 
-  &.e-has-icon {
-    list-style: none;
-
+  &.e-list--icons {
     &#{$this} li {
       &::before {
         content: none;
       }
     }
     li {
-      padding-left: var(--e-spacing-32);
-      margin: var(--e-spacing-16) 0;
-      margin-left: var(--e-spacing-16);
+      padding-left: 32px;
+      margin: 16px 0;
+      margin-left: 16px;
 
       @include breakpoint-up(Mobile) {
         padding-left: 20px;
-        margin-left: var(--e-spacing-24);
+        margin-left: 24px;
       }
     }
-    i {
-      margin-right: var(--e-spacing-16);
+    .e-list__icon > i {
+      margin-right: 16px;
       vertical-align: middle;
     }
   }
-
-  &.e-strong {
-    font-weight: bold;
-    background: transparent;
-  }
-}
-
-.e-list-icon-container {
-  left: -16px;
-  position: absolute;
 }

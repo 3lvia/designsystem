@@ -8,7 +8,7 @@
     flex-wrap: nowrap;
     box-sizing: border-box;
 
-    &.e-focus, &:focus-within:not(:active) {
+    &.e-segmented-controls---focus, &:focus-within:not(:active) {
         @extend .e-outline;
     }
 

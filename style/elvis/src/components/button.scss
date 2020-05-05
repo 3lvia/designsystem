@@ -49,7 +49,7 @@ $button-sm-line-height: 16px;
   
   // Adding margin if icon
   &__title + &__icon, &__icon + &__title {
-    margin-left: var(--e-spacing-8);
+    margin-left: 8px;
   }
 
   &__icon {
