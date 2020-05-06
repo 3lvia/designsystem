@@ -97,6 +97,7 @@ $button-sm-line-height: 16px;
       background: color("green");
       border-color: color("green");
       color: color("black");
+      outline: none;
     }
     &.e-btn---active, &:enabled:active {
       background: color("green");
@@ -123,6 +124,7 @@ $button-sm-line-height: 16px;
       background: color("green");
       border-color: color("green");
       color: color("black");
+      outline: none;
     }
     &.e-btn---active, &:enabled:active {
       background: color("green");
@@ -202,14 +204,19 @@ $button-sm-line-height: 16px;
 
     &.e-btn--circled {
       padding: 0;
-      &.e-btn---hover, &:hover {
+      &.e-btn---hover, &:enabled:hover {
         background: transparent;
-        border-color: transparent;
+        outline: none;
       }
     }
 
-    &.e-btn---active, &:active {
-      transform: scale(0.9);
+    &.e-btn---hover, &:enabled:hover {
+      background: color('green');
+      outline: none;
+    }
+    &.e-btn---active, &:enabled:active {
+      transform: scale(0.95);
+      background: color('green');
     }
     &.e-btn---disabled, &:disabled  {
       cursor: not-allowed;

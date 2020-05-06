@@ -117,7 +117,6 @@ example3 = `<div>
 `;
 
 example4 = `<div>
-  <h3 class="e-title-small">Transparent icons</h3>
   <div>
     <p class="e-text-body">Large</p>
     <button class="e-btn e-btn--icon e-btn--lg e-m-16">
@@ -148,8 +147,21 @@ example4 = `<div>
 </div>
 `;
 
-  exampleIconCircled = `<div>
-  <h3 class="e-title-small">Circled icons</h3>
+  exampleIconCircled = `<h3 class="e-title-small">
+  Icons that can be used for this button
+</h3>
+<div>
+  <span>
+    <i class="e-icon e-icon--information-circle e-m-8"></i>
+    <i class="e-icon e-icon--add-circle e-m-8"></i>
+    <i class="e-icon e-icon--subtract-circle e-m-8"></i>
+    <i class="e-icon e-icon--check-circle e-m-8"></i>
+    <i class="e-icon e-icon--remove-circle e-m-8"></i>
+    <i class="e-icon e-icon--alert-circle e-m-8"></i>
+    <i class="e-icon e-icon--question-circle e-m-8"></i>
+  </span>
+</div>
+<div>
   <div>
     <p class="e-text-body">Large (default)</p>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16">
@@ -320,6 +332,21 @@ example4 = `<div>
   </button>
   <button class="e-btn e-btn--tertiary e-btn---disabled e-m-16">
     Disabled
+  </button>
+</div>
+<div>
+  <h3 class="e-title-small">Icon buttons</h3>
+  <button class="e-btn e-btn--icon e-btn---hover e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+  </button>
+  <button class="e-btn e-btn--icon e-btn---active e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+  </button>
+  <button class="e-btn e-btn--icon e-btn---focus e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+  </button>
+  <button class="e-btn e-btn--icon e-btn---disabled e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
   </button>
 </div>
 `;
