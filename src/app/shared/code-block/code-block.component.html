@@ -95,7 +95,7 @@
       >
       <div
         [ngClass]="{ hide: screen !== 'desktop' || noDesktop  }">
-        <app-iframe-screen [code]="code" [screenSize]="'desktop'"></app-iframe-screen>
+        <app-iframe-screen [code]="code" [overwriteHeight]="overwriteHeight" [screenSize]="'desktop'"></app-iframe-screen>
       </div>
       <div
         [ngClass]="{ hide: screen !== 'tablet' || noTablet }">
