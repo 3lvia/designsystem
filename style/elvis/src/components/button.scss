@@ -59,44 +59,37 @@ $button-sm-line-height: 16px;
   &.e-btn--lg {
     font-size: $button-lg-font-size;
     line-height: $button-lg-line-height;
-    padding: $button-lg-padding;
+    padding: calc(#{$button-lg-padding-y} - 1px) calc(#{$button-lg-padding-x} - 1px);
     .e-btn__icon i { @include icon-size('sm'); }
-    &.e-btn--secondary {
-      padding: calc(#{$button-lg-padding-y} - 1px) calc(#{$button-lg-padding-x} - 1px);
-    }
   }
   &.e-btn--md {
     font-size: $button-md-font-size;
     line-height: $button-md-line-height;
-    padding: $button-md-padding;
+    padding: calc(#{$button-md-padding-y} - 1px) calc(#{$button-md-padding-x} - 1px);
     .e-btn__icon i { @include icon-size('xs'); }
-    &.e-btn--secondary {
-      padding: calc(#{$button-md-padding-y} - 1px) calc(#{$button-md-padding-x} - 1px);
-    }
   }
   &.e-btn--sm {
     font-size: $button-sm-font-size;
     line-height: $button-sm-line-height;
-    padding: $button-sm-padding;
+    padding: calc(#{$button-sm-padding-y} - 1px) calc(#{$button-sm-padding-x} - 1px);
     .e-btn__icon i { @include icon-size('xs'); }
-    &.e-btn--secondary {
-      padding: calc(#{$button-sm-padding-y} - 1px) calc(#{$button-sm-padding-x} - 1px);
-    }
   }
 
   &.e-btn--primary {
-    border: none;
+    border: 1px solid color("black");
     border-radius: $button-radius;
     background: color("black");
     color: color("white");
 
     &.e-btn--danger {
       background: color("red");
+      border-color: color("red");
       color: color("black");
     }
 
     &.e-btn---disabled, &:disabled {
       background: color("grey-30");
+      border-color: color("grey-30");
       color: color("grey-05");
       cursor: not-allowed;
     }
@@ -121,7 +114,7 @@ $button-sm-line-height: 16px;
 
     &.e-btn---disabled, &:disabled  {
       background: color("grey-30");
-      border: 1px solid transparent;
+      border-color: color("grey-30");
       color: color("grey-05");
       cursor: not-allowed;
     }
@@ -163,6 +156,9 @@ $button-sm-line-height: 16px;
       background: none;
     }
     &.e-btn---active, &:enabled:active {
+      padding-bottom: 4.5px;
+      &.e-btn--lg { padding-bottom: 2.5px; }
+      
       border-bottom: 1.5px solid color("green");
       border-color: color("green");
       background: none;
