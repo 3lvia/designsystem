@@ -11,6 +11,7 @@ export class PopoverDocComponent implements OnInit {
   @ViewChild('popover2') popover2: ElementRef;
 
   componentStatus = getComponent('popover-doc').status;
+  externalUrl = getComponent('popover-doc').externalUrl;
 
   example1 = `<div style="margin-top: 260px; text-align: center;">
   <span class="e-popover e-popover---visible e-m-16">
