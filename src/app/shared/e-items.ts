@@ -143,7 +143,7 @@ export const eComponents: EItems[] = [
     },
     {
         title: 'Popover',
-        description: 'Some useful component with amazing features',
+        description: 'An overlay that positions itself relative to an anchor element',
         docUrl: Pages.Popover,
         status: ItemStatus.New,
         actionText: 'View component',
