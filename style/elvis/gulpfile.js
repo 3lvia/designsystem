@@ -64,10 +64,10 @@ async function createEmbeddedIconsJS() {
     }
   }
 
-  const template = fs.readFileSync('./src/templates/icons-injector.template.js').toString();
+  const template = fs.readFileSync('./src/templates/elvis.template.js').toString();
   const newContent = template.replace('//[[INJECT_ICONS]]', embeddedJs);
-  fs.writeFileSync('icons-injector.js', newContent);
-  fs.writeFileSync('../../src/assets/js/icons-injector.js', newContent);
+  fs.writeFileSync('elvis.js', newContent);
+  fs.writeFileSync('../../src/assets/js/elvis.js', newContent);
 
   return true;
 }
@@ -161,5 +161,5 @@ gulp.task('default', gulp.series (clean, styles,optimizeSVG,  createEmbeddedIcon
 ));
 
 gulp.task('watch', function () {
-  gulp.watch(['./src/**/*.scss', './icons/svg/src/*.svg','./icons/svg/src/icons.config.js', '!./icons/embedded.scss'], gulp.series('default'));
+  gulp.watch(['./src/**/*.scss', './src/templates/**.*','./icons/svg/src/*.svg','./icons/svg/src/icons.config.js'], gulp.series('default'));
 });
