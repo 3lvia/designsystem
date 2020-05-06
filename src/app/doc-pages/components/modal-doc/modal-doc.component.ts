@@ -29,10 +29,10 @@ export class ModalDocComponent implements OnInit {
       </div>
     </div>
     <div class="e-modal__actions">
-      <button class="e-btn e-btn--secondary">
+      <button class="e-btn e-btn--secondary e-btn--lg">
         <span class="e-btn__title">Avbryt</span>
       </button>
-      <button class="e-btn e-btn--primary">
+      <button class="e-btn e-btn--primary e-btn--lg">
         <span class="e-btn__title">Primary action</span>
       </button>
     </div>
@@ -49,10 +49,10 @@ export class ModalDocComponent implements OnInit {
       Body text comes here and can go over several lines. It looks like this when it is two.
     </div>
     <div class="e-modal__actions">
-      <button class="e-btn e-btn--secondary">
+      <button class="e-btn e-btn--secondary e-btn--lg">
         <span class="e-btn__title">Avbryt</span>
       </button>
-      <button class="e-btn e-btn--primary e-btn--danger">
+      <button class="e-btn e-btn--primary e-btn--danger e-btn--lg">
         <span class="e-btn__title">Slett bruker</span>
       </button>
     </div>
@@ -69,7 +69,7 @@ export class ModalDocComponent implements OnInit {
       Body text comes here and can go over several lines. It looks like this when it is two.
     </div>
     <div class="e-modal__actions">
-      <button class="e-btn e-btn--primary">
+      <button class="e-btn e-btn--primary e-btn--lg">
         <span class="e-btn__title">OK</span>
       </button>
     </div>
