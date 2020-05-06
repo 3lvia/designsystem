@@ -32,8 +32,8 @@ $modal-mobile-padding: 32px;
         display: flex;
         flex-direction: column;
         max-width: calc(#{$modal-max-width} - (#{$modal-desktop-padding} * 2));
-        width: max-content;
-        height: max-content;
+        width: auto;
+        height: auto;
         border-radius: $modal-border-radius;
         background: color('white');
 
