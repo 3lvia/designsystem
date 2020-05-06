@@ -135,7 +135,7 @@ export const eComponents: EItems[] = [
     },
     {
         title: 'Modal',
-        description: 'Some useful component with amazing features',
+        description: 'An overlay that talks to the user',
         docUrl: Pages.Modal,
         status: ItemStatus.New,
         actionText: 'View modal',
