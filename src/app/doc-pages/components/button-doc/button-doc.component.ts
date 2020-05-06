@@ -107,9 +107,9 @@ example3 = `<div>
 `;
 
 example4 = `<div>
-  <h3 class="e-title-small">Border (default)</h3>
+  <h3 class="e-title-small">Transparent icons</h3>
   <div>
-    <h3 class="e-title-small">Large</h3>
+    <p class="e-text-body">Large</p>
     <button class="e-btn e-btn--icon e-btn--lg e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
     </button>
@@ -118,7 +118,7 @@ example4 = `<div>
     </button>
   </div>
   <div>
-    <h3 class="e-title-small">Medium (default)</h3>
+  <p class="e-text-body">Medium (default)</p>
     <button class="e-btn e-btn--icon e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
     </button>
@@ -126,25 +126,34 @@ example4 = `<div>
       <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
     </button>
   </div>
-</div>
-<div>
-  <h3 class="e-title-small">No border</h3>
   <div>
-    <h3 class="e-title-small">Large</h3>
-    <button class="e-btn e-btn--icon e-btn--lg e-btn--no-border e-m-16">
+    <p class="e-text-body">Small</p>
+    <button class="e-btn e-btn--icon e-btn--sm e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
     </button>
-    <button class="e-btn e-btn--icon e-btn--lg e-btn--no-border e-m-16" disabled>
+    <button class="e-btn e-btn--icon e-btn--sm e-m-16" disabled>
       <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
     </button>
   </div>
+</div>
+<div>
+  <h3 class="e-title-small">Circled icons</h3>
   <div>
-    <h3 class="e-title-small">Medium (default)</h3>
-    <button class="e-btn e-btn--icon e-btn--no-border e-m-16">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    <p class="e-text-body">Large (default)</p>
+    <button class="e-btn e-btn--icon e-btn--lg e-m-16">
+      <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
     </button>
-    <button class="e-btn e-btn--icon e-btn--no-border e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    <button class="e-btn e-btn--icon e-btn--lg e-m-16" disabled>
+      <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
+    </button>
+  </div>
+  <div>
+    <p class="e-text-body">Medium (default)</p>
+    <button class="e-btn e-btn--icon e-m-16">
+      <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
+    </button>
+    <button class="e-btn e-btn--icon e-m-16" disabled>
+      <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
     </button>
   </div>
 </div>
