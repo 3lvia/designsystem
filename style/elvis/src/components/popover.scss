@@ -128,7 +128,7 @@ $popover-mobile-max-width: 300px;
   &---visible {
     .e-popover__content {
       opacity: 1;
-      z-index: 0;
+      z-index: 99;
       pointer-events: all;
     }
   }
