@@ -18,16 +18,19 @@ export enum Pages {
     ComponentsStart = 'components',
     // Children
     OverviewComp = 'overview-comp-doc',
+    Autocomplete = 'autocomplete-doc', // Må endres
     Button = 'button-doc',
     Card = 'card-doc',
     Checkbox = 'checkbox-doc',
     CheckboxToggle = 'checkbox-toggle-doc',
+    DragAndDrop = 'draganddrop-doc',
     FileUpload = 'fileUpload-doc',
     Input = 'input-doc',
     Label = 'label-doc',
     Link = 'link-doc',
     List = 'list-doc',
     Notification = 'notification-dot-doc',
+    Modal = 'modal-doc',
     Progressbar = 'progressbar-doc',
     Radiobutton = 'radiobutton-doc',
     SegmentedControl = 'segmented-control-doc',
@@ -49,4 +52,5 @@ export enum Pages {
     Breakpoints = 'breakpoints-doc',
     Grid = 'grid-doc',
     Logo = 'logo-doc',
+    Alignment = 'alignment-doc',
 }

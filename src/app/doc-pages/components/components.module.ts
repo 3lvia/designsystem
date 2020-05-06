@@ -13,17 +13,21 @@ import { TagsDocModule } from './tags-doc/tags-doc.module';
 import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
 import { FileUploadDocModule } from './file-upload-doc/file-upload-doc.module';
 import { ProgressbarDocModule } from './progressbar-doc/progressbar-doc.module';
+import { ModalDocModule } from './modal-doc/modal-doc.module';
+import { AutocompleteDocModule } from './autocomplete-doc/autocomplete-doc.module';
 
 @NgModule({
     imports: [
-        LabelDocModule,
+        AutocompleteDocModule,
         ButtonDocModule,
         CardDocModule,
         ComponentsStartModule,
         FileUploadDocModule,
         FormComponentsModule,
+        LabelDocModule,
         LinkDocModule,
         ListDocModule,
+        ModalDocModule,
         NotificationDotDocModule,
         OverviewModule,
         ProgressbarDocModule,

@@ -1,0 +1,13 @@
+@import '../../variables/colors.scss';
+
+.e-dragdrop {
+    border: 2px dashed color('grey-20');
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover, &---hover {
+        border-color: color('green');
+    }
+}

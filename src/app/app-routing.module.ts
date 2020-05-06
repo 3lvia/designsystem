@@ -40,6 +40,10 @@ import { GridDocComponent } from './doc-pages/utilities/grid-doc/grid-doc.compon
 import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
+import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
+import { AlignmentDocComponent } from './doc-pages/utilities/alignment-doc/alignment-doc/alignment-doc.component';
+import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
+import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 
 
 const routes: Routes = [
@@ -95,8 +99,8 @@ const routes: Routes = [
             component: OverviewComponent
           },
           {
-            path: Pages.Label,
-            component: LabelDocComponent
+            path: Pages.Autocomplete,
+            component: AutocompleteDocComponent
           },
           {
             path: Pages.Button,
@@ -115,6 +119,10 @@ const routes: Routes = [
             component: CheckboxToggleDocComponent
           },
           {
+            path: Pages.DragAndDrop,
+            component: DraganddropDocComponent
+          },
+          {
             path: Pages.FileUpload,
             component: FileUploadDocComponent
           },
@@ -123,12 +131,20 @@ const routes: Routes = [
             component: InputDocComponent
           },
           {
+            path: Pages.Label,
+            component: LabelDocComponent
+          },
+          {
             path: Pages.Link,
             component: LinkDocComponent
           },
           {
             path: Pages.List,
             component: ListDocComponent
+          },
+          {
+            path: Pages.Modal,
+            component: ModalDocComponent
           },
           {
             path: Pages.Notification,
@@ -220,6 +236,10 @@ const routes: Routes = [
           {
             path: Pages.Logo,
             component: LogoDocComponent
+          },
+          {
+            path: Pages.Alignment,
+            component: AlignmentDocComponent
           },
         ]
       }
