@@ -25,6 +25,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() noTablet = false;
   @Input() noDesktop = false;
   @Input() greyBg = false;
+  @Input() overwriteHeight: number;
 
   showCode = false;
   showTabs = true;

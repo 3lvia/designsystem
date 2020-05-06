@@ -42,6 +42,16 @@ export class ButtonDocComponent {
 </div>
 `;
 
+  exampleDanger = `<div>
+  <button class="e-btn e-btn--primary e-btn--danger e-m-16">
+    <span class="e-btn__title">Primary</span>
+  </button>
+  <button class="e-btn e-btn--primary e-btn--danger e-m-16" disabled>
+    <span class="e-btn__title">Disabled</span>
+  </button>
+</div>
+`;
+
   example2 = `<div>
   <h3 class="e-title-small">Large</h3>
   <button class="e-btn e-btn--secondary e-btn--lg e-m-16">
@@ -136,28 +146,39 @@ example4 = `<div>
     </button>
   </div>
 </div>
-<div>
+`;
+
+  exampleIconCircled = `<div>
   <h3 class="e-title-small">Circled icons</h3>
   <div>
     <p class="e-text-body">Large (default)</p>
-    <button class="e-btn e-btn--icon e-btn--lg e-m-16">
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
     </button>
-    <button class="e-btn e-btn--icon e-btn--lg e-m-16" disabled>
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16" disabled>
       <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
     </button>
   </div>
   <div>
     <p class="e-text-body">Medium (default)</p>
-    <button class="e-btn e-btn--icon e-m-16">
+    <button class="e-btn e-btn--icon e-btn--circled e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
     </button>
-    <button class="e-btn e-btn--icon e-m-16" disabled>
+    <button class="e-btn e-btn--icon e-btn--circled e-m-16" disabled>
       <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
     </button>
   </div>
+</div>`;
+
+  exampleIconDanger = `<div>
+  <button class="e-btn e-btn--icon e-btn--danger e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
+  </button>
+  <button class="e-btn e-btn--icon e-btn--danger e-m-16" disabled>
+    <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
+  </button>
 </div>
-`;
+  `;
 
   example5 = `<div>
   <h3 class="e-title-small">Primary buttons</h3>

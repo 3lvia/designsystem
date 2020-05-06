@@ -14,6 +14,7 @@ import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
 import { FileUploadDocModule } from './file-upload-doc/file-upload-doc.module';
 import { ProgressbarDocModule } from './progressbar-doc/progressbar-doc.module';
 import { PopoverDocModule } from './popover-doc/popover-doc.module';
+import { ModalDocModule } from './modal-doc/modal-doc.module';
 import { AutocompleteDocModule } from './autocomplete-doc/autocomplete-doc.module';
 
 @NgModule({
@@ -27,6 +28,7 @@ import { AutocompleteDocModule } from './autocomplete-doc/autocomplete-doc.modul
         LabelDocModule,
         LinkDocModule,
         ListDocModule,
+        ModalDocModule,
         NotificationDotDocModule,
         OverviewModule,
         ProgressbarDocModule,

@@ -29,6 +29,7 @@ export enum Pages {
     Label = 'label-doc',
     Link = 'link-doc',
     List = 'list-doc',
+    Modal = 'modal-doc',
     Notification = 'notification-dot-doc',
     Popover = 'popover-doc',
     Progressbar = 'progressbar-doc',

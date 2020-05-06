@@ -43,6 +43,7 @@ import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/
 import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
 import { AlignmentDocComponent } from './doc-pages/utilities/alignment-doc/alignment-doc/alignment-doc.component';
 import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
+import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
 import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 
 
@@ -141,6 +142,10 @@ const routes: Routes = [
           {
             path: Pages.List,
             component: ListDocComponent
+          },
+          {
+            path: Pages.Modal,
+            component: ModalDocComponent
           },
           {
             path: Pages.Notification,

@@ -15,12 +15,12 @@ export class PopoverDocComponent implements OnInit {
 
   example1 = `<div style="margin-top: 260px; text-align: center;">
   <span class="e-popover e-popover---visible e-m-16">
-    <button class="e-btn e-btn--tertiary e-btn--sm">
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--sm">
       <span class="e-btn__icon"><i class="e-icon e-icon--information-circle"></i></span>
     </button>
     <div class="e-popover__content">
       <div class="e-popover__close">
-        <button class="e-btn e-btn--icon e-btn--no-border e-btn--sm">
+        <button class="e-btn e-btn--icon e-btn--sm">
           <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
         </button>
       </div>
@@ -38,12 +38,12 @@ export class PopoverDocComponent implements OnInit {
 
   example2 = `<div style="margin-bottom: 260px; text-align: center;">
   <span class="e-popover e-popover--bottom e-popover---visible e-m-16">
-    <button class="e-btn e-btn--tertiary e-btn--sm">
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--sm">
       <span class="e-btn__icon"><i class="e-icon e-icon--information-circle"></i></span>
     </button>
     <div class="e-popover__content">
       <div class="e-popover__close">
-        <button class="e-btn e-btn--tertiary e-btn--sm">
+        <button class="e-btn e-btn--icon e-btn--sm">
           <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
         </button>
       </div>
@@ -75,14 +75,23 @@ function closePopover(popoverId) {
   ngOnInit() {
   }
 
-  openPopover(popover: string) {
+  togglePopup(popover: string) {
     if (popover === 'popover1') {
-      this.popover1.nativeElement.classList.add('e-popover---visible');
+      if (this.popover1.nativeElement.classList.contains('e-popover---visible')) {
+        this.popover1.nativeElement.classList.remove('e-popover---visible');
+      } else {
+        this.popover1.nativeElement.classList.add('e-popover---visible');
+      }
     }
     if (popover === 'popover2') {
-      this.popover2.nativeElement.classList.add('e-popover---visible');
+      if (this.popover2.nativeElement.classList.contains('e-popover---visible')) {
+        this.popover2.nativeElement.classList.remove('e-popover---visible');
+      } else {
+        this.popover2.nativeElement.classList.add('e-popover---visible');
+      }
     }
   }
+
   closePopover(popover: string) {
     if (popover === 'popover1') {
       if (this.popover1.nativeElement.classList.contains('e-popover---visible')) {
