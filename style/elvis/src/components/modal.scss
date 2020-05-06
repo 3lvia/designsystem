@@ -65,7 +65,7 @@ $modal-mobile-padding: 32px;
                 width: 100%;
             }
 
-            button {
+            button:not(:only-of-type) {
                 width: 100%;
             }
             button:first-of-type:not(:last-of-type) {
@@ -75,7 +75,6 @@ $modal-mobile-padding: 32px;
                 }
             }
             button:only-of-type {
-                width: fit-content;
                 @include breakpoint-up(Mobile) {
                     position: absolute;
                     right: $modal-mobile-padding;

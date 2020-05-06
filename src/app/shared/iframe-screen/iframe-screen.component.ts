@@ -22,7 +22,6 @@ export class IframeScreenComponent implements AfterViewInit {
 
 
   createIframe() {
-    console.log(this.overwriteHeight);
     this.code += '<script src="assets/js/icons-injector.js"></script>';
 
     if (this.screenSize === 'desktop') {

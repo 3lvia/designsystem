@@ -35,7 +35,6 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   constructor() {}
 
   ngOnInit() {
-    console.log(this.overwriteHeight);
     if (!this.showIframeScreens) {
       return;
     }
