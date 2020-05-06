@@ -352,16 +352,16 @@ example4 = `<div>
 <div>
   <h3 class="e-title-small">Icon buttons circled</h3>
   <button class="e-btn e-btn--icon e-btn--circled e-btn---hover e-m-16">
-    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
   </button>
   <button class="e-btn e-btn--icon e-btn--circled e-btn---active e-m-16">
-    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
   </button>
   <button class="e-btn e-btn--icon e-btn--circled e-btn---focus e-m-16">
-    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
   </button>
   <button class="e-btn e-btn--icon e-btn--circled e-btn---disabled e-m-16">
-    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
   </button>
 </div>
 `;
