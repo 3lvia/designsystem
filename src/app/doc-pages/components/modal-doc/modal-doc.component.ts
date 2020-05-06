@@ -78,13 +78,13 @@ export class ModalDocComponent implements OnInit {
 `;
 
   modalLiveCode = `
-  function openModal(modal) {
-    const el = document.querySelector('#modal');
+  function openModal(modalId) {
+    const el = document.querySelector('modalId');
     el.classList.add('e-modal---visible');
   }
 
-  function closeModal(modal) {
-    const el = document.querySelector('#modal');
+  function closeModal(modalId) {
+    const el = document.querySelector('modalId');
     if (el.classList.contains('e-modal---visible')) {
       el.classList.remove('e-modal---visible');
     }

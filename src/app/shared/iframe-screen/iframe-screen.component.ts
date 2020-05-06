@@ -6,11 +6,12 @@ import { Component, Input, ViewChild, AfterViewInit, OnInit } from '@angular/cor
   styleUrls: ['./iframe-screen.component.scss']
 })
 export class IframeScreenComponent implements AfterViewInit {
-  @Input() code = '';
-  @Input() screenSize = 'desktop';
   @ViewChild('iframeDesktop') iframeDesktop;
   @ViewChild('iframeTablet') iframeTablet;
   @ViewChild('iframePhone') iframePhone;
+  @Input() code = '';
+  @Input() screenSize = 'desktop';
+  @Input() overwriteHeight: number;
   now = new Date();
 
   constructor() { }
@@ -21,6 +22,7 @@ export class IframeScreenComponent implements AfterViewInit {
 
 
   createIframe() {
+    console.log(this.overwriteHeight);
     this.code += '<script src="assets/js/icons-injector.js"></script>';
 
     if (this.screenSize === 'desktop') {
@@ -30,6 +32,9 @@ export class IframeScreenComponent implements AfterViewInit {
       doc.write(`<html><head>${window.document.head.innerHTML}</head><body><div style="overflow: auto; padding: 8px;">${this.code}</div></body></html>`);
       doc.close();
       this.iframeDesktop.nativeElement.style.height = (doc.body.scrollHeight + 20) + 'px';
+      if (this.overwriteHeight > 20) {
+        this.iframeDesktop.nativeElement.style.height = (this.overwriteHeight + 'px');
+      }
     }
     if (this.screenSize === 'tablet') {
       const doc = this.iframeTablet.nativeElement.contentWindow.document;
