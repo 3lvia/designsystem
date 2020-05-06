@@ -30,8 +30,8 @@ $form-input-border: 1px solid color('grey');
     border: none;
     background: transparent;
     @extend .e-label-option;
-    outline: none !important; // Removes inner outline, adds outer later
   }
+  input:focus, textarea:focus { outline: none; } // Removes inner outline, adds outer later
 
   > i {
     float: right;
