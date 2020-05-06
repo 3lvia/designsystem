@@ -15,6 +15,7 @@ $list-border-radius: 50%;
   margin: 0;
   // list font properties
   line-height: 190%;
+  box-sizing: border-box;
 
   li {
     list-style: none;
@@ -35,7 +36,7 @@ $list-border-radius: 50%;
     }
   }
 
-    &.e-list--numbers {
+  &.e-list--numbers {
     counter-reset: elvis-item;
     list-style: none;
 
@@ -50,21 +51,12 @@ $list-border-radius: 50%;
         align-items: center;
         justify-content: center;
         font-size: 18px;
-        width: 29px;
-        height: 30px;
+        width: 32px;
+        height: 32px;
         top: 0;
         background: transparent;
+        border: 2px solid color("green");
         border-radius: $list-border-radius;
-        box-shadow: 0px 0px 0px 2px color("green");
-        // Add padding to center number from 2 and upwards, this is done because of font centering on numbers larger than 1 
-        padding-left: 2px;
-      }
-    }
-    li:nth-child(1) {
-      &::before {
-        // numeber 1 dont need padding. remove padding and adjust width to get round circle
-        padding-left: 0;
-        width: 30px;
       }
     }
   }
@@ -75,6 +67,10 @@ $list-border-radius: 50%;
   }
 
   &.e-list--icons {
+
+    display: flex;
+    flex-direction: column;
+
     &#{$this} li {
       &::before {
         content: none;
@@ -91,8 +87,9 @@ $list-border-radius: 50%;
       }
     }
     .e-list__icon > i {
-      margin-right: 16px;
-      vertical-align: middle;
+      position: absolute;
+      margin-right: 8px;
+      margin-left: -40px;
     }
   }
 }
