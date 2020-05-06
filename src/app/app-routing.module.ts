@@ -40,8 +40,10 @@ import { GridDocComponent } from './doc-pages/utilities/grid-doc/grid-doc.compon
 import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
+import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
 import { AlignmentDocComponent } from './doc-pages/utilities/alignment-doc/alignment-doc/alignment-doc.component';
 import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
+import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 
 
 const routes: Routes = [
@@ -97,8 +99,8 @@ const routes: Routes = [
             component: OverviewComponent
           },
           {
-            path: Pages.Label,
-            component: LabelDocComponent
+            path: Pages.Autocomplete,
+            component: AutocompleteDocComponent
           },
           {
             path: Pages.Button,
@@ -117,12 +119,20 @@ const routes: Routes = [
             component: CheckboxToggleDocComponent
           },
           {
+            path: Pages.DragAndDrop,
+            component: DraganddropDocComponent
+          },
+          {
             path: Pages.FileUpload,
             component: FileUploadDocComponent
           },
           {
             path: Pages.Input,
             component: InputDocComponent
+          },
+          {
+            path: Pages.Label,
+            component: LabelDocComponent
           },
           {
             path: Pages.Link,
