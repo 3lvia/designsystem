@@ -120,28 +120,28 @@ example4 = `<div>
   <div>
     <p class="e-text-body">Large</p>
     <button class="e-btn e-btn--icon e-btn--lg e-m-16">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
     <button class="e-btn e-btn--icon e-btn--lg e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
   </div>
   <div>
   <p class="e-text-body">Medium (default)</p>
     <button class="e-btn e-btn--icon e-m-16">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
     <button class="e-btn e-btn--icon e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
   </div>
   <div>
     <p class="e-text-body">Small</p>
     <button class="e-btn e-btn--icon e-btn--sm e-m-16">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
     <button class="e-btn e-btn--icon e-btn--sm e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
   </div>
 </div>
@@ -163,7 +163,7 @@ example4 = `<div>
 </div>
 <div>
   <div>
-    <p class="e-text-body">Large (default)</p>
+    <p class="e-text-body">Large</p>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
     </button>
@@ -337,16 +337,16 @@ example4 = `<div>
 <div>
   <h3 class="e-title-small">Icon buttons transparent</h3>
   <button class="e-btn e-btn--icon e-btn---hover e-m-16">
-    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
   </button>
   <button class="e-btn e-btn--icon e-btn---active e-m-16">
-    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
   </button>
   <button class="e-btn e-btn--icon e-btn---focus e-m-16">
-    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
   </button>
   <button class="e-btn e-btn--icon e-btn---disabled e-m-16">
-    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
   </button>
 </div>
 <div>
