@@ -31,7 +31,6 @@
     align-items: center;
     margin-top: 5px;
     @extend .e-text-info;
-    color: color('grey') !important;
 
     &.e-form-field__error--visible {
       visibility: visible;
@@ -42,6 +41,7 @@
       padding: 8px;
     }
   }
+  .e-form-field__error { color: color('grey'); }
   
   &--combined {
     width: 100%;

@@ -49,7 +49,6 @@ $modal-mobile-padding: 32px;
         }
         .e-modal__text {
             @extend .e-text-body;
-            color: color('font-grey') !important;
             padding-top: 32px;
         }
         .e-modal__actions {
@@ -80,6 +79,7 @@ $modal-mobile-padding: 32px;
             }
         }
     }
+    .e-modal__content .e-modal__text{ color: color('font-grey'); }
 
     &---visible {
         opacity:1;
