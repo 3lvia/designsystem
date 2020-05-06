@@ -335,7 +335,7 @@ example4 = `<div>
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Icon buttons</h3>
+  <h3 class="e-title-small">Icon buttons transparent</h3>
   <button class="e-btn e-btn--icon e-btn---hover e-m-16">
     <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
   </button>
@@ -346,6 +346,21 @@ example4 = `<div>
     <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
   </button>
   <button class="e-btn e-btn--icon e-btn---disabled e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+  </button>
+</div>
+<div>
+  <h3 class="e-title-small">Icon buttons circled</h3>
+  <button class="e-btn e-btn--icon e-btn--circled e-btn---hover e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+  </button>
+  <button class="e-btn e-btn--icon e-btn--circled e-btn---active e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+  </button>
+  <button class="e-btn e-btn--icon e-btn--circled e-btn---focus e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+  </button>
+  <button class="e-btn e-btn--icon e-btn--circled e-btn---disabled e-m-16">
     <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
   </button>
 </div>

@@ -208,6 +208,10 @@ $button-sm-line-height: 16px;
         background: transparent;
         outline: none;
       }
+      &.e-btn---active, &:enabled:active {
+        transform: scale(0.93);
+        background: transparent;
+      }
     }
 
     &.e-btn---hover, &:enabled:hover {
