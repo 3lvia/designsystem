@@ -67,9 +67,6 @@ $list-border-radius: 50%;
   }
 
   &.e-list--icons {
-    // display: flex;
-    // flex-direction: column;
-
     &#{$this} li {
       &::before {
         content: none;
