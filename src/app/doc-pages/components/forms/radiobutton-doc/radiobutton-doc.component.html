@@ -2,17 +2,20 @@
 <app-component-header
   [componentStatus]="componentStatus"
   [externalUrl]="externalUrl"
+  [does]="'If a user can only choose one option from a selection of two and five options in total.'"
+  [donts]="'If it should be possible to select more than one option, in this case use checkboxes. If there are more than five options then use dropdown.'"
 >
   <ng-container ngProjectAs="headerTitle">
     Radiobutton
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Radio buttons should be used if a user can only select one option from multiple options.
+    Radio buttons should alway be displayed vertically on top of each other. The alternative should be
+    listed in a logical manner, and one option should be pre selected as a default. Labels should be precise and 
+    easy to understand.
   </ng-container>
 
-  
+
 </app-component-header>
 
 <!--BODY-->
@@ -21,5 +24,12 @@
     [isHTML]="true"
     [code]="example1"
     [title]="'Radiobutton'"
+    [class]="['e-radio']"
   ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example2"
+      [title]="'Pseudoclasses'"
+      [class]="pseudoclases"
+    ></app-code-block>
 </div>

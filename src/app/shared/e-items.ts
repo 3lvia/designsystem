@@ -162,9 +162,9 @@ export const eComponents: EItems[] = [
         title: 'Radiobutton',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Radiobutton,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
-        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1283%3A70'
     },
     {
         title: 'Segmented Control',
