@@ -103,6 +103,9 @@ $button-sm-line-height: 16px;
       i:not([class$="inverted"]) {
         visibility: hidden;
       }
+      i[class$="disabled"] {
+        visibility: visible;
+      }
     }
 
     // Husk at dette ikonet ikke skal endre seg på hover!
@@ -135,6 +138,12 @@ $button-sm-line-height: 16px;
       border-color: transparent;
       background-clip: padding-box;
       color: color("black");
+      .e-btn__icon i[class$="inverted"] {
+        visibility: hidden;
+      }
+      .e-btn__icon i:not([class$="inverted"]) {
+        visibility: visible;
+      }
     }
   }
 
@@ -243,18 +252,39 @@ $button-sm-line-height: 16px;
 
     &.e-btn--circled {
       padding: 0;
-      &.e-btn---hover, &:enabled:hover {
+
+      .e-btn__icon i[class$="full-color"] {
+        visibility: hidden;
+      }
+
+      &.e-btn---hover, &:enabled:hover, &.e-btn---active, &:enabled:active {
         background: transparent;
         outline: none;
+        .e-btn__icon i:not([class$="full-color"]), .e-btn__icon i:not([class$="disabled"]) {
+          visibility: hidden;
+        }
+        .e-btn__icon i[class$="full-color"] {
+          visibility: visible;
+        }
       }
       &.e-btn---active, &:enabled:active {
         transform: scale(0.93);
-        background: transparent;
       }
     }
 
     &.e-btn--danger {
-      // Black icon on hover
+      .e-btn__icon i:not([class$="red"]):not([class$="disabled"]) {
+        visibility: hidden;
+      }
+
+      &.e-btn---hover, &:enabled:hover, &.e-btn---active, &:enabled:active {
+        .e-btn__icon i[class$="red"] {
+          visibility: hidden;
+        }
+        .e-btn__icon i:not([class$="red"]) {
+          visibility: visible;
+        }
+      }
     }
 
     &.e-btn---hover, &:enabled:hover {
