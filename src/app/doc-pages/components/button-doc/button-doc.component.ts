@@ -207,10 +207,10 @@ exampleIcon = `<div>
   <div>
     <h3 class="e-title-small">Danger (Only transparent)</h3>
     <button class="e-btn e-btn--icon e-btn--danger e-btn--lg e-m-16">
-      <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle e-icon--red"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--bin e-icon--red"></i></span>
     </button>
     <button class="e-btn e-btn--icon e-btn--danger e-btn--lg e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle e-icon--red"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--bin e-icon--disabled"></i></span>
     </button>
   </div>
   <div>

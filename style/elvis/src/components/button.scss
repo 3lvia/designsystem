@@ -215,6 +215,10 @@ $button-sm-line-height: 16px;
       }
     }
 
+    &.e-btn--danger {
+      // Black icon on hover
+    }
+
     &.e-btn---hover, &:enabled:hover {
       background: color('green');
       outline: none;
