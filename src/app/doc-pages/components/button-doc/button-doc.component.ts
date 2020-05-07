@@ -176,9 +176,9 @@ example3 = `<div>
 </div>
 `;
 
-example4 = `<div>
+exampleIcon = `<div>
   <div>
-    <p class="e-text-body">Large</p>
+    <h3 class="e-title-small">Large</h3>
     <button class="e-btn e-btn--icon e-btn--lg e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
@@ -187,7 +187,7 @@ example4 = `<div>
     </button>
   </div>
   <div>
-  <p class="e-text-body">Medium (default)</p>
+  <h3 class="e-title-small">Medium (default)</h3>
     <button class="e-btn e-btn--icon e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
@@ -196,7 +196,7 @@ example4 = `<div>
     </button>
   </div>
   <div>
-    <p class="e-text-body">Small</p>
+    <h3 class="e-title-small">Small</h3>
     <button class="e-btn e-btn--icon e-btn--sm e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
@@ -204,41 +204,24 @@ example4 = `<div>
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
   </div>
-</div>
-`;
-
-  exampleIconCircled = `<h3 class="e-title-small">
-  Icons that can be used for this button
-</h3>
-<div>
-  <span>
-    <i class="e-icon e-icon--information-circle e-m-8"></i>
-    <i class="e-icon e-icon--add-circle e-m-8"></i>
-    <i class="e-icon e-icon--subtract-circle e-m-8"></i>
-    <i class="e-icon e-icon--check-circle e-m-8"></i>
-    <i class="e-icon e-icon--remove-circle e-m-8"></i>
-    <i class="e-icon e-icon--alert-circle e-m-8"></i>
-    <i class="e-icon e-icon--question-circle e-m-8"></i>
-  </span>
-</div>
-<div>
   <div>
-    <p class="e-text-body">Large</p>
+    <h3 class="e-title-small">Circled (Only medium + large)</h3>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
     </button>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16" disabled>
       <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
     </button>
-  </div>
-  <div>
-    <p class="e-text-body">Medium (default)</p>
-    <button class="e-btn e-btn--icon e-btn--circled e-m-16">
-      <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--circled e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
-    </button>
+    <p class="e-text-info">Circled Icons that can be used for this button</p>
+    <span>
+      <i class="e-icon e-icon--information-circle e-icon--sm e-m-8"></i>
+      <i class="e-icon e-icon--add-circle e-icon--sm e-m-8"></i>
+      <i class="e-icon e-icon--subtract-circle e-icon--sm e-m-8"></i>
+      <i class="e-icon e-icon--check-circle e-icon--sm e-m-8"></i>
+      <i class="e-icon e-icon--remove-circle e-icon--sm e-m-8"></i>
+      <i class="e-icon e-icon--alert-circle e-icon--sm e-m-8"></i>
+      <i class="e-icon e-icon--question-circle e-icon--sm e-m-8"></i>
+    </span>
   </div>
 </div>`;
 
