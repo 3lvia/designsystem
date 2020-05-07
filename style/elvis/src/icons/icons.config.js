@@ -41,6 +41,7 @@ module.exports = [
  {name: 'electricity-pillar', terms: [] },
  {name: 'email', terms: [] },
  {name: 'figma', terms: [] },
+ {name: 'file-add', terms: [] },
  {name: 'filter', terms: [] },
  {name: 'filter-filled', terms: [] },
  {name: 'flag', terms: [] },

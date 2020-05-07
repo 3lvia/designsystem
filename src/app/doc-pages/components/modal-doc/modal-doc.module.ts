@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FileUploadDocComponent } from './file-upload-doc.component';
+import { ModalDocComponent } from './modal-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-header/component-header.module';
 import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
-import { DndDirective } from './dnd.directive';
 import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-highlighter.module';
-
 
 @NgModule({
   imports: [
@@ -14,6 +12,6 @@ import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-high
     CodeBlockModule,
     CodeHighlighterModule
   ],
-  declarations: [FileUploadDocComponent, DndDirective]
+  declarations: [ModalDocComponent]
 })
-export class FileUploadDocModule { }
+export class ModalDocModule { }

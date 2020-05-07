@@ -24,6 +24,13 @@
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
+    [code]="exampleDanger"
+    [title]="'Primary danger'"
+    [class]="['e-btn', 'e-btn--primary', 'e-btn--danger']"
+    [description]="'Primary buttons have the modifier danger that makes the button red.'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
     [code]="example2"
     [title]="'Secondary'"
     [class]="['e-btn', 'e-btn--secondary']"
@@ -35,8 +42,7 @@
     [code]="example3"
     [title]="'Tertiary'"
     [class]="['e-btn', 'e-btn--tertiary']"
-    [description]="'🚧👷🚧 COLORS FOR DISABLED ICONS IS UNDER CONSTRUCTION AND WILL BE UPDATED AUTOMATICALLY 🚧👷🚧
-    Tertiary buttons are action-oriented buttons to be used for less prominent actions. Tertiary button has the same dimensions as primary and secondary, but no background or border color. It can be used in isolation, but can also be used with Primary and Secondary buttons.'"
+    [description]="'Tertiary buttons are action-oriented buttons to be used for less prominent actions. Tertiary button has the same dimensions as primary and secondary, but no background or border color. It can be used in isolation, but can also be used with Primary and Secondary buttons.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"

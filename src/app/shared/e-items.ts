@@ -98,8 +98,9 @@ export const eComponents: EItems[] = [
         title: 'File Upload',
         description: 'Some useful component with amazing features',
         docUrl: Pages.FileUpload,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132'
     },
     {
         title: 'Input',
@@ -132,6 +133,14 @@ export const eComponents: EItems[] = [
         status: ItemStatus.Done,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Modules%3A-article?node-id=353%3A0'
+    },
+    {
+        title: 'Modal',
+        description: 'An overlay that talks to the user',
+        docUrl: Pages.Modal,
+        status: ItemStatus.New,
+        actionText: 'View modal',
+        externalUrl: 'https://www.figma.com/file/unlDZ5F7svra9dPNKYdTK9/Modal?node-id=0%3A1'
     },
     {
         title: 'Progressbar',
@@ -235,7 +244,7 @@ export const eUtilities: EItems[] = [
         title: 'Icons',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Icon,
-        status: ItemStatus.Progress,
+        status: ItemStatus.Done,
         actionText: 'View icons',
         externalUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=82%3A2'
     },
