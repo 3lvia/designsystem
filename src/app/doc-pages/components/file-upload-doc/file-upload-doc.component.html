@@ -7,8 +7,7 @@
     File Upload
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    File upload is an example of how to use existing components and utilities in Elvis to 
-    create new components. File Upload is structered using link style, spacing and icons.
+    Upload files through a file input form element or a placeholder area
   </ng-container>
 </app-component-header>
 
@@ -17,7 +16,45 @@
   <app-code-block
     [isHTML]="true"
     [code]="example1"
-    [title]="'FileUpload'"
-    [class]="['e-fileupload']"
+    [title]="'File Upload'"
+    [class]="fileUploadClasses"
   ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example2"
+    [title]="'Pseudoclass for hoover state on dragover'"
+    [class]="['e-fileupload---hover']"
+  ></app-code-block>
+
+  <h3>Live example, built in Angular</h3>
+  <p>The only general styling guide when implementing a file upload in Elvis style is to change
+    the border color to green on dragover events. You can use the <code class="code-text">e-fileupload---hover</code> pseudoclass to do this.
+  </p>
+
+  <div class="liveExample e-mt-40">
+    <div
+      class="e-fileupload"
+      style="width:380px"
+      appDnd
+    >
+      <div class="e-fileupload__icon">
+        <i class="e-icon e-icon--file-add"></i>
+      </div>
+      <div class="e-fileupload__description">
+        Dra og slipp eller
+      </div>
+      <div class="e-fileupload__input">
+        <input
+          type="file"
+          id="fileUploadTemplate"
+        >
+        <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i> Velg fil</label>
+      </div>
+    </div>
+  </div>
+  <h4>TS code for angular directive example</h4>
+    <app-code-highlighter
+      [isTS]="'true'"
+      [code]="dndDirective"
+    ></app-code-highlighter>
 </div>
