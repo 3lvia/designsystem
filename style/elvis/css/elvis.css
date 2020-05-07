@@ -1346,7 +1346,8 @@
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0;
-  line-height: 190%; }
+  line-height: 190%;
+  box-sizing: border-box; }
   .e-list li {
     list-style: none;
     position: relative;
@@ -1361,6 +1362,25 @@
       height: 0.5rem;
       background-color: #29D305;
       border-radius: 50%; }
+  .e-list.e-list--numbers {
+    counter-reset: elvis-item;
+    list-style: none; }
+    .e-list.e-list--numbers li {
+      counter-increment: elvis-item;
+      margin: 32px 0;
+      padding-left: 48px; }
+      .e-list.e-list--numbers li::before {
+        content: counter(elvis-item);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        width: 30px;
+        height: 30px;
+        top: 0;
+        background: transparent;
+        border: 2px solid #29D305;
+        border-radius: 50%; }
   .e-list.e-list--strong {
     font-weight: bold;
     background: transparent; }
@@ -1375,8 +1395,9 @@
         padding-left: 20px;
         margin-left: 24px; } }
   .e-list.e-list--icons .e-list__icon > i {
-    margin-right: 16px;
-    vertical-align: middle; }
+    position: absolute;
+    margin-right: 8px;
+    margin-left: -48px; }
 
 body {
   font-family: "Red Hat Display", sans-serif;
@@ -1483,7 +1504,7 @@ body {
   font-weight: 500;
   color: #000; }
 
-.e-label-option, .e-input > input,
+.e-label-option, .e-fileupload__description, .e-input > input,
 .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
@@ -1692,7 +1713,7 @@ body {
   font-weight: 500;
   color: #000; }
 
-.e-label-option, .e-input > input,
+.e-label-option, .e-fileupload__description, .e-input > input,
 .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
@@ -2387,7 +2408,7 @@ body {
   font-weight: 500;
   color: #000; }
 
-.e-label-option, .e-input > input,
+.e-label-option, .e-fileupload__description, .e-input > input,
 .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
@@ -2450,6 +2471,61 @@ body {
       width: 140px; }
       .e-inlined-field .e-form-field.e-form-field--medium input {
         width: 140px; }
+
+.e-fileupload {
+  border: 2px dashed #D3D3D3;
+  border-radius: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 32px 0; }
+  .e-fileupload__icon {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px; }
+  .e-fileupload__description {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px; }
+  .e-fileupload__input {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center; }
+    .e-fileupload__input input[type="file"] {
+      display: none; }
+    .e-fileupload__input label {
+      z-index: 1;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      border-bottom: 2.5px solid transparent;
+      border-radius: 0px;
+      padding: 0px;
+      padding-bottom: 3.5px;
+      color: #000;
+      cursor: pointer; }
+      .e-fileupload__input label:disabled {
+        color: #BDBDBD;
+        cursor: not-allowed; }
+      .e-fileupload__input label:hover {
+        border-color: #29D305; }
+      .e-fileupload__input label:active {
+        border-bottom: 1.5px solid #29D305;
+        padding-bottom: 4.5px; }
+      .e-fileupload__input label i {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+        display: flex; }
+        .e-fileupload__input label i img {
+          width: 24px;
+          height: 24px; }
+  .e-fileupload---hover {
+    border-color: #29D305; }
 
 body {
   font-family: "Red Hat Display", sans-serif;
@@ -2556,7 +2632,7 @@ body {
   font-weight: 500;
   color: #000; }
 
-.e-label-option, .e-input > input,
+.e-label-option, .e-fileupload__description, .e-input > input,
 .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
@@ -6354,7 +6430,7 @@ body {
   font-weight: 500;
   color: #000; }
 
-.e-label-option, .e-input > input,
+.e-label-option, .e-fileupload__description, .e-input > input,
 .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;

@@ -98,8 +98,9 @@ export const eComponents: EItems[] = [
         title: 'File Upload',
         description: 'Some useful component with amazing features',
         docUrl: Pages.FileUpload,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132'
     },
     {
         title: 'Input',

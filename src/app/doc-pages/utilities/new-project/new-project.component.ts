@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { getUtilities } from 'src/app/shared/e-items';
 
 @Component({
@@ -10,7 +10,7 @@ export class NewProjectComponent implements OnInit {
 
   componentStatus = getUtilities('new-project-doc').status;
   cssVarsCode = `/* main.js/ts - file */
-  
+
 import cssVars from 'css-vars-ponyfill';
 
 cssVars({
