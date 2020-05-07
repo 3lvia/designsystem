@@ -71,11 +71,6 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
   </button>
-  <button class="e-btn e-btn--loading e-m-16" disabled>
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
 </div>
 `;
 
@@ -124,11 +119,6 @@ export class ButtonDocComponent {
 <div>
   <h3 class="e-title-small">Loading</h3>
   <button class="e-btn e-btn--secondary e-btn--loading e-m-16">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-  <button class="e-btn e-btn--secondary e-btn--loading e-m-16" disabled>
     <span></span>
     <span></span>
     <span></span>
