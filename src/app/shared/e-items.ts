@@ -135,6 +135,14 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Modules%3A-article?node-id=353%3A0'
     },
     {
+        title: 'Modal',
+        description: 'An overlay that talks to the user',
+        docUrl: Pages.Modal,
+        status: ItemStatus.New,
+        actionText: 'View modal',
+        externalUrl: 'https://www.figma.com/file/unlDZ5F7svra9dPNKYdTK9/Modal?node-id=0%3A1'
+    },
+    {
         title: 'Progressbar',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Progressbar,
