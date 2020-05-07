@@ -23,6 +23,12 @@ export class LinkDocComponent implements OnInit {
   <h3 class="e-title-small">Small</h3>
   <a class="e-link e-link--sm" href="https://www.elvia.no/">Normal link</a>
 </div>
+<div class="e-mt-40">
+  <h3 class="e-title-small">Multiline</h3>
+  <div style="width:160px;">
+    <a class="e-link" href="https://www.elvia.no/">Normal link over multiple rows</a>
+  </div>
+</div>
 `;
 
   example2 = `<p style="font-size: 20px;">Lorem ipsum <a class="e-link e-link--inline" href="https://www.elvia.no/">dolor</a> sit amet.
@@ -45,6 +51,13 @@ export class LinkDocComponent implements OnInit {
     <span class="e-link__title">Tilbake</span>
   </a>
 </div>
+<div class="e-mt-40">
+  <h3 class="e-title-small">Small</h3>
+  <a class="e-link e-link--sm" href="https://www.elvia.no/">
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow-left"></i></span>
+    <span class="e-link__title">Tilbake</span>
+  </a>
+</div>
 `;
 
   example4 = `<div>
@@ -58,6 +71,20 @@ export class LinkDocComponent implements OnInit {
   <h3 class="e-title-small">Medium (default)</h3>
   <a class="e-link e-link--external" href="https://www.elvia.no/">
     <span class="e-link__title">Se mer</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow-external"></i></span>
+  </a>
+</div>
+<div class="e-mt-40">
+  <h3 class="e-title-small">Medium (default)</h3>
+  <a class="e-link e-link--external e-link--sm" href="https://www.elvia.no/">
+    <span class="e-link__title">Se mer</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow-external"></i></span>
+  </a>
+</div>
+<div class="e-mt-40" style="width:164px;">
+  <h3 class="e-title-small">Multiline</h3>
+  <a class="e-link e-link--external" href="https://www.elvia.no/">
+    <span class="e-link__title">External link over multiple rows</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow-external"></i></span>
   </a>
 </div>
@@ -77,6 +104,16 @@ export class LinkDocComponent implements OnInit {
   <h3 class="e-title-small">Medium (default)</h3>
   <a class="e-link e-link--action" href="https://www.elvia.no/">
     <span class="e-link__title">Se hva du kan gjøre</span>
+    <span class="e-link__icon">
+      <i class="e-icon e-icon--arrow-circle-color"></i>
+      <i class="e-icon e-icon--arrow-circle-full-color"></i>
+    </span>
+  </a>
+</div>
+<div class="e-mt-16" style="width:164px;">
+  <h3 class="e-title-small">Multiline</h3>
+  <a class="e-link e-link--action" href="https://www.elvia.no/">
+    <span class="e-link__title">Action link over multiple rows</span>
     <span class="e-link__icon">
       <i class="e-icon e-icon--arrow-circle-color"></i>
       <i class="e-icon e-icon--arrow-circle-full-color"></i>
@@ -120,12 +157,6 @@ export class LinkDocComponent implements OnInit {
       </span>
     </a>
   </div>
-  <div class="e-mt-16" style="width:164px;">
-    <a class="e-link e-link--lg" href="https://www.elvia.no/">
-      <span class="e-link__title">Link with icon over multiple rows</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow-right"></i></span>
-    </a>
-  </div>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-small">Medium</h3>
@@ -135,7 +166,6 @@ export class LinkDocComponent implements OnInit {
   <div class="e-mt-16" style="width:164px;">
     <a class="e-link e-link--external" href="https://www.elvia.no/">
       <span class="e-link__title">External link over multiple rows</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow-external"></i></span>
     </a>
   </div>
   <div class="e-mt-16" style="width:164px;">
@@ -145,6 +175,18 @@ export class LinkDocComponent implements OnInit {
         <i class="e-icon e-icon--arrow-circle-color"></i>
         <i class="e-icon e-icon--arrow-circle-full-color"></i>
       </span>
+    </a>
+  </div>
+<div>
+<div class="e-mt-40">
+  <h3 class="e-title-small">Small</h3>
+  <div style="width:160px;">
+    <a class="e-link e-link--sm" href="https://www.elvia.no/">Normal link over multiple rows</a>
+  </div>
+  <div class="e-mt-16" style="width:164px;">
+    <a class="e-link e-link--external e-link--sm" href="https://www.elvia.no/">
+      <span class="e-link__title">External link over multiple rows</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--arrow-external"></i></span>
     </a>
   </div>
 <div>

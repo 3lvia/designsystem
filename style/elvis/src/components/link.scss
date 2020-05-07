@@ -20,8 +20,7 @@ $link-jumbo-phone-padding: 30px 24px;
 $link-jumbo-phone-width: 287px;
 
 .e-link {
-  // Default for links is normal + md
-  @extend .e-link--normal;
+  // Default for links is md
   @extend .e-link--md;
   display: inline;
   box-sizing: border-box;
@@ -31,6 +30,9 @@ $link-jumbo-phone-width: 287px;
   font-weight: bold;
   color: color("font-color");
   text-align: inherit;
+  position: relative;
+  padding: 2px;
+  margin: 2px;
 
   &__icon {
     display: inline-flex;
@@ -56,19 +58,27 @@ $link-jumbo-phone-width: 287px;
     font-size: $link-md-font-size;
     line-height: $link-md-line-height;
   }
+  &.e-link--sm:not(.e-link--action) {
+    font-size: $link-sm-font-size;
+    line-height: $link-sm-line-height;
+  }
 
-  &.e-link--normal {
-    &.e-link--sm {
-      font-size: $link-sm-font-size;
-      line-height: $link-sm-line-height;
-    }
-
-    &.e-link---hover, &:hover {
-      border-bottom-color: color("green");
-    }
-    &.e-link---focus, &:focus:not(:active) {
-      @extend .e-outline;
-    }
+  &.e-link---hover, &:hover {
+    border-bottom-color: color("green");
+  }
+  &.e-link---focus, &:focus {
+    @extend .e-outline;
+    // outline: none;
+    // &::before {
+    //   content: ' ';
+    //   display: block;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   height: 100%;
+    //   width: 100%;
+    //   @extend .e-outline;
+    // }
   }
 
   &.e-link--inline {
@@ -78,7 +88,6 @@ $link-jumbo-phone-width: 287px;
   }
 
   &.e-link--external {
-    position: relative;
     padding-right: 16px;
 
     .e-link__icon {
@@ -90,9 +99,7 @@ $link-jumbo-phone-width: 287px;
   }
 
   &.e-link--action {
-    position: relative;
-    border: none;
-    display: inline;
+    border: transparent;
 
     .e-link__icon i[class$="full-color"] {
       visibility: hidden;
@@ -100,6 +107,7 @@ $link-jumbo-phone-width: 287px;
     .e-link__icon{
       position: relative;
       top: 5px;
+      right: 0;
       i {
         position: absolute;
         left: 0;
