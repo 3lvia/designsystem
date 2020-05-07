@@ -41,7 +41,7 @@ export const SectionAnimation: AnimationTriggerMetadata = trigger('sectionAnimat
     'void',
     style({
       opacity: 0,
-      transform: 'translateY(-5%)',
+      transform: 'translateY(-4%)',
     })
   ),
   state(
@@ -51,7 +51,7 @@ export const SectionAnimation: AnimationTriggerMetadata = trigger('sectionAnimat
       transform: 'translateY(0%)'
     })
   ),
-  transition('void => *', animate(`350ms cubic-bezier(0.6, 0, 0.1, 1)`)),
-  transition('* => void', animate(`350ms cubic-bezier(.55, 0, .88, 1)`))
+  transition('void => *', animate(`450ms cubic-bezier(0.6, 0, 0.1, 1)`)),
+  transition('* => void', animate(`450ms cubic-bezier(.55, 0, .88, 1)`))
 ]);
 
