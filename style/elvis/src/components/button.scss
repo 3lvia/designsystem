@@ -43,7 +43,7 @@ $button-sm-line-height: 16px;
   justify-content: center;
   outline: none;
 
-  &.e-btn---focus, &:enabled:focus:not(:active) {
+  &.e-btn---focus, &:enabled:focus:not(:active):not(:hover) {
     @extend .e-outline;
   }
   
@@ -81,6 +81,7 @@ $button-sm-line-height: 16px;
     background: color("black");
     color: color("white");
 
+    // Husk at dette ikonet ikke skal endre seg på hover!
     &.e-btn--danger {
       background: color("red");
       border-color: color("red");
@@ -97,6 +98,7 @@ $button-sm-line-height: 16px;
       background: color("green");
       border-color: color("green");
       color: color("black");
+      outline: none;
     }
     &.e-btn---active, &:enabled:active {
       background: color("green");
@@ -113,9 +115,9 @@ $button-sm-line-height: 16px;
     color: color("black");
 
     &.e-btn---disabled, &:disabled  {
-      background: color("grey-30");
+      background: transparent;
       border-color: color("grey-30");
-      color: color("grey-05");
+      color: color("grey-30");
       cursor: not-allowed;
     }
 
@@ -123,6 +125,7 @@ $button-sm-line-height: 16px;
       background: color("green");
       border-color: color("green");
       color: color("black");
+      outline: none;
     }
     &.e-btn---active, &:enabled:active {
       background: color("green");
@@ -145,15 +148,19 @@ $button-sm-line-height: 16px;
       padding-bottom: 1.5px;
     }
 
+    &:focus:not(:hover) {
+      border: none;
+      padding-bottom: 0;
+    }
     &.e-btn---disabled, &:disabled  {
       color: color("grey-30");
       cursor: not-allowed;
     }
-
     &.e-btn---hover, &:enabled:hover {
       border-bottom-color: color("green");
       border-color: color("green");
       background: none;
+      outline: none;
     }
     &.e-btn---active, &:enabled:active {
       padding-bottom: 4.5px;
@@ -162,6 +169,66 @@ $button-sm-line-height: 16px;
       border-bottom: 1.5px solid color("green");
       border-color: color("green");
       background: none;
+    }
+  }
+
+  &.e-btn--icon {
+    border: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    padding: 8px;
+    background: none;
+    color: color("black");
+    .e-btn__icon {
+      width: 24px;
+      height: 24px;
+      i { 
+        @include icon-size('sm');
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+    &.e-btn--lg .e-btn__icon {
+      width: 32px;
+      height: 32px;
+      i { @include icon-size('md'); }
+    }
+    &.e-btn--sm:not(.e-btn--circled) .e-btn__icon {
+      width: 16px;
+      height: 16px;
+      i { @include icon-size('xs'); }
+    }
+
+    &.e-btn--circled {
+      padding: 0;
+      &.e-btn---hover, &:enabled:hover {
+        background: transparent;
+        outline: none;
+      }
+      &.e-btn---active, &:enabled:active {
+        transform: scale(0.93);
+        background: transparent;
+      }
+    }
+
+    &.e-btn--danger {
+      // Black icon on hover
+    }
+
+    &.e-btn---hover, &:enabled:hover {
+      background: color('green');
+      outline: none;
+    }
+    &.e-btn---active, &:enabled:active {
+      transform: scale(0.95);
+      background: color('green');
+    }
+    &.e-btn---disabled, &:disabled  {
+      cursor: not-allowed;
     }
   }
 
@@ -175,7 +242,13 @@ $button-sm-line-height: 16px;
       line-height: 24px;
       height: 0.6rem;
       width: 0.6rem;
-      animation: dots 1000ms linear infinite;
+      animation: dotsLight 1000ms linear infinite;
+    }
+
+    &.e-btn--secondary {
+      span {
+        animation: dotsDark 1000ms linear infinite;
+      }
     }
 
     span:nth-child(2) {
@@ -200,12 +273,23 @@ $button-sm-line-height: 16px;
 }
 
 // Animation for loading button
-@include keyframes(dots) {
+@include keyframes(dotsLight) {
   0% {
     background: transparent;
   }
   50% {
-    background: white;
+    background: color('white');
+  }
+  100% {
+    background: transparent;
+  }
+}
+@include keyframes(dotsDark) {
+  0% {
+    background: transparent;
+  }
+  50% {
+    background: color('black');
   }
   100% {
     background: transparent;

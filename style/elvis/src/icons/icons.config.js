@@ -13,6 +13,7 @@ module.exports = [
  {name: 'arrow-long', terms: [] },
  {name: 'arrow-right', terms: [] },
  {name: 'arrow-up', terms: [] },
+ {name: 'bin', terms: [] },
  {name: 'box-color', terms: [] },
  {name: 'building-business', terms: [] },
  {name: 'car-charger-color', terms: [] },
