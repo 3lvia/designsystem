@@ -26,11 +26,36 @@ export class IconDocComponent implements OnInit {
 <i class="e-icon e-icon--move-truck-color e-icon--xs"></i>
 <i class="e-icon e-icon--move-truck-color e-icon--xxs"></i>`;
 
-// example2 = `<div class="e-bg-black e-p-1">
-// <i class="e-icon e-icon--chat e-icon--inverted"></i>
-// </div>
-// <i class="e-icon e-icon--chat e-icon--disabled"></i>
-// `;
+
+  example2 = `<i class="e-icon e-icon--cog e-icon--purple-plum e-icon--xxl"></i>
+<i class="e-icon e-icon--cog e-icon--orange-mango e-icon--xl"></i>
+<i class="e-icon e-icon--cog e-icon--red-tomato e-icon--lg"></i>
+<i class="e-icon e-icon--cog e-icon--violet-grape e-icon--md"></i>
+<i class="e-icon e-icon--cog e-icon--grey-70 e-icon--sm"></i>
+<i class="e-icon e-icon--cog e-icon--blue-berry e-icon--xs"></i>
+<i class="e-icon e-icon--cog e-icon--green-apple e-icon--xxs"></i>`;
+
+example3 = `<div class="e-bg-black e-p-8">
+  <i class="e-icon e-icon--chat e-icon--inverted"></i>
+</div>
+<div class="e-p-8">
+  <i class="e-icon e-icon--chat e-icon--disabled"></i>
+</div>`;
+
+example4 = `<i class="e-icon e-icon--email"></i>
+<i class="e-icon e-icon--email e-icon--grey-90"></i>
+<i class="e-icon e-icon--email e-icon--grey-80"></i>
+<i class="e-icon e-icon--email e-icon--grey-70"></i>
+<i class="e-icon e-icon--email e-icon--grey-60"></i>
+<i class="e-icon e-icon--email e-icon--grey-50"></i>
+<i class="e-icon e-icon--email e-icon--grey-40"></i>
+<i class="e-icon e-icon--email e-icon--grey-30"></i>
+<i class="e-icon e-icon--email e-icon--grey-20"></i>
+<i class="e-icon e-icon--email e-icon--grey-10"></i>
+<i class="e-icon e-icon--email e-icon--grey-05"></i>
+<i class="e-icon e-icon--email e-icon--grey-02"></i>
+
+`
 
   term;
   IconClassList: Icon[] = [];
