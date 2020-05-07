@@ -98,8 +98,9 @@ export const eComponents: EItems[] = [
         title: 'File Upload',
         description: 'Some useful component with amazing features',
         docUrl: Pages.FileUpload,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132'
     },
     {
         title: 'Input',
@@ -251,7 +252,7 @@ export const eUtilities: EItems[] = [
         title: 'Icons',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Icon,
-        status: ItemStatus.Progress,
+        status: ItemStatus.Done,
         actionText: 'View icons',
         externalUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=82%3A2'
     },

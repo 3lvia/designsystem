@@ -52,7 +52,7 @@ export class ButtonDocComponent {
   </button>
   <button class="e-btn e-m-16" disabled>
     <span class="e-btn__title">Icon button</span>
-    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download e-icon--disabled"></i></span>
   </button>
 </div>
 <div>
@@ -113,7 +113,7 @@ export class ButtonDocComponent {
   </button>
   <button class="e-btn e-btn--secondary e-m-16" disabled>
     <span class="e-btn__title">Icon button</span>
-    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download e-icon--disabled"></i></span>
   </button>
 </div>
 <div>
@@ -133,7 +133,7 @@ example3 = `<div>
     <span class="e-btn__title">Tertiary</span>
   </button>
   <button class="e-btn e-btn--tertiary e-btn--lg e-m-16" disabled>
-    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download e-icon--disabled"></i></span>
     <span class="e-btn__title">Disabled</span>
   </button>
 </div>
@@ -144,7 +144,7 @@ example3 = `<div>
     <span class="e-btn__title">Tertiary</span>
   </button>
   <button class="e-btn e-btn--tertiary e-m-16" disabled>
-    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download e-icon--disabled"></i></span>
     <span class="e-btn__title">Disabled</span>
   </button>
 </div>
@@ -155,7 +155,7 @@ example3 = `<div>
     <span class="e-btn__title">Tertiary</span>
   </button>
   <button class="e-btn e-btn--tertiary e-btn--sm e-m-16" disabled>
-    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download e-icon--disabled"></i></span>
     <span class="e-btn__title">Disabled</span>
   </button>
 </div>
@@ -171,7 +171,7 @@ example3 = `<div>
   </button>
   <button class="e-btn e-btn--tertiary e-m-16" disabled>
     <span class="e-btn__title">Icon button</span>
-    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download e-icon--disabled"></i></span>
   </button>
 </div>
 `;
@@ -183,7 +183,7 @@ exampleIcon = `<div>
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
     <button class="e-btn e-btn--icon e-btn--lg e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--upload e-icon--disabled"></i></span>
     </button>
   </div>
   <div>
@@ -192,7 +192,7 @@ exampleIcon = `<div>
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
     <button class="e-btn e-btn--icon e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--upload e-icon--disabled"></i></span>
     </button>
   </div>
   <div>
@@ -201,7 +201,7 @@ exampleIcon = `<div>
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
     <button class="e-btn e-btn--icon e-btn--sm e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--upload e-icon--disabled"></i></span>
     </button>
   </div>
   <div>
@@ -210,17 +210,17 @@ exampleIcon = `<div>
       <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
     </button>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle e-icon--disabled"></i></span>
     </button>
     <p class="e-text-info">Circled Icons that can be used for this button</p>
     <span>
       <i class="e-icon e-icon--information-circle e-icon--sm e-m-8"></i>
-      <i class="e-icon e-icon--add-circle e-icon--sm e-m-8"></i>
-      <i class="e-icon e-icon--subtract-circle e-icon--sm e-m-8"></i>
-      <i class="e-icon e-icon--check-circle e-icon--sm e-m-8"></i>
-      <i class="e-icon e-icon--remove-circle e-icon--sm e-m-8"></i>
-      <i class="e-icon e-icon--alert-circle e-icon--sm e-m-8"></i>
-      <i class="e-icon e-icon--question-circle e-icon--sm e-m-8"></i>
+      <i class="e-icon e-icon--add-circle e-icon--sm  e-m-8"></i>
+      <i class="e-icon e-icon--subtract-circle e-icon--sm  e-m-8"></i>
+      <i class="e-icon e-icon--check-circle e-icon--sm  e-m-8"></i>
+      <i class="e-icon e-icon--remove-circle e-icon--sm  e-m-8"></i>
+      <i class="e-icon e-icon--alert-circle e-icon--sm  e-m-8"></i>
+      <i class="e-icon e-icon--question-circle e-icon--sm  e-m-8"></i>
     </span>
   </div>
 </div>`;
@@ -318,7 +318,7 @@ exampleIcon = `<div>
     <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
   </button>
   <button class="e-btn e-btn--icon e-btn---disabled e-m-16">
-    <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--upload e-icon--disabled"></i></span>
   </button>
 </div>
 <div>
@@ -333,7 +333,7 @@ exampleIcon = `<div>
     <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
   </button>
   <button class="e-btn e-btn--icon e-btn--circled e-btn---disabled e-m-16">
-    <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle e-icon--disabled"></i></span>
   </button>
 </div>
 `;
