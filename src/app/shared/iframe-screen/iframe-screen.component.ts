@@ -22,7 +22,7 @@ export class IframeScreenComponent implements AfterViewInit {
 
 
   createIframe() {
-    this.code += '<script src="assets/js/icons-injector.js"></script>';
+    this.code += '<script src="assets/js/elvis.js"></script>';
 
     if (this.screenSize === 'desktop') {
       const doc = this.iframeDesktop.nativeElement.contentWindow.document;
