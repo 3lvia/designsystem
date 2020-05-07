@@ -114,9 +114,9 @@ $button-sm-line-height: 16px;
     color: color("black");
 
     &.e-btn---disabled, &:disabled  {
-      background: color("grey-30");
+      background: transparent;
       border-color: color("grey-30");
-      color: color("grey-05");
+      color: color("grey-30");
       cursor: not-allowed;
     }
 
