@@ -40,14 +40,48 @@ export class ButtonDocComponent {
     <span class="e-btn__title">Disabled</span>
   </button>
 </div>
+<div>
+  <h3 class="e-title-small">With icon</h3>
+ <button class="e-btn e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__title">Icon button</span>
+  </button>
+  <button class="e-btn e-m-16">
+    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+  </button>
+  <button class="e-btn e-m-16" disabled>
+    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+  </button>
+</div>
 `;
 
-  exampleDanger = `<div>
-  <button class="e-btn e-btn--primary e-btn--danger e-m-16">
+  exampleModifiers = `<div>
+  <h3 class="e-title-small">Danger</h3>
+  <button class="e-btn e-btn--danger e-m-16">
     <span class="e-btn__title">Primary</span>
   </button>
-  <button class="e-btn e-btn--primary e-btn--danger e-m-16" disabled>
+  <button class="e-btn e-btn--danger e-m-16" disabled>
     <span class="e-btn__title">Disabled</span>
+  </button>
+</div>
+<div>
+  <h3 class="e-title-small">Loading</h3>
+  <button class="e-btn e-btn--loading e-btn--lg e-m-16">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button class="e-btn e-btn--loading e-m-16">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button class="e-btn e-btn--loading e-btn--sm e-m-16">
+    <span></span>
+    <span></span>
+    <span></span>
   </button>
 </div>
 `;
@@ -77,6 +111,21 @@ export class ButtonDocComponent {
   </button>
   <button class="e-btn e-btn--secondary e-btn--sm e-m-16" disabled>
     <span class="e-btn__title">Disabled</span>
+  </button>
+</div>
+<div>
+  <h3 class="e-title-small">With icons</h3>
+  <button class="e-btn e-btn--secondary e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__title">Icon button</span>
+  </button>
+  <button class="e-btn e-btn--secondary e-m-16">
+    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+  </button>
+  <button class="e-btn e-btn--secondary e-m-16" disabled>
+    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
   </button>
 </div>
 `;
@@ -112,6 +161,21 @@ example3 = `<div>
   <button class="e-btn e-btn--tertiary e-btn--sm e-m-16" disabled>
     <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
     <span class="e-btn__title">Disabled</span>
+  </button>
+</div>
+<div>
+  <h3 class="e-title-small">With icons</h3>
+  <button class="e-btn e-btn--tertiary e-m-16">
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__title">Icon button</span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-m-16">
+    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-m-16" disabled>
+    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
   </button>
 </div>
 `;
@@ -191,77 +255,6 @@ example4 = `<div>
   </button>
 </div>
   `;
-
-  example5 = `<div>
-  <h3 class="e-title-small">Primary buttons</h3>
-  <div>
-    <button class="e-btn e-m-16">
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-      <span class="e-btn__title">Icon button</span>
-    </button>
-    <button class="e-btn e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-      <span class="e-btn__title">Icon button</span>
-    </button>
-  </div>
-  <div>
-    <button class="e-btn e-m-16">
-      <span class="e-btn__title">Icon button</span>
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-    </button>
-    <button class="e-btn e-m-16" disabled>
-      <span class="e-btn__title">Icon button</span>
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-    </button>
-  </div>
-</div>
-<div>
-  <h3 class="e-title-small">Secondary buttons</h3>
-  <div>
-    <button class="e-btn e-btn--secondary e-m-16">
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-      <span class="e-btn__title">Icon button</span>
-    </button>
-    <button class="e-btn e-btn--secondary e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-      <span class="e-btn__title">Icon button</span>
-    </button>
-  </div>
-  <div>
-    <button class="e-btn e-btn--secondary e-m-16">
-      <span class="e-btn__title">Icon button</span>
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-    </button>
-    <button class="e-btn e-btn--secondary e-m-16" disabled>
-      <span class="e-btn__title">Icon button</span>
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-    </button>
-  </div>
-</div>
-<div>
-  <h3 class="e-title-small">Tertiary buttons</h3>
-  <div>
-    <button class="e-btn e-btn--tertiary e-m-16">
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-      <span class="e-btn__title">Icon button</span>
-    </button>
-    <button class="e-btn e-btn--tertiary e-m-16" disabled>
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-      <span class="e-btn__title">Icon button</span>
-    </button>
-  </div>
-  <div>
-    <button class="e-btn e-btn--tertiary e-m-16">
-      <span class="e-btn__title">Icon button</span>
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-    </button>
-    <button class="e-btn e-btn--tertiary e-m-16" disabled>
-      <span class="e-btn__title">Icon button</span>
-      <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-    </button>
-  </div>
-</div>
-`;
 
   example6 = `<div>
   <h3 class="e-title-small">Large</h3>

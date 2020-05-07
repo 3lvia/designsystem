@@ -81,6 +81,7 @@ $button-sm-line-height: 16px;
     background: color("black");
     color: color("white");
 
+    // Husk at dette ikonet ikke skal endre seg på hover!
     &.e-btn--danger {
       background: color("red");
       border-color: color("red");
