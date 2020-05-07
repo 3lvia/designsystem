@@ -121,6 +121,19 @@ export class ButtonDocComponent {
     <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
   </button>
 </div>
+<div>
+  <h3 class="e-title-small">Loading</h3>
+  <button class="e-btn e-btn--secondary e-btn--loading e-m-16">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button class="e-btn e-btn--secondary e-btn--loading e-m-16" disabled>
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
 `;
 
 example3 = `<div>

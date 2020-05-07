@@ -238,7 +238,13 @@ $button-sm-line-height: 16px;
       line-height: 24px;
       height: 0.6rem;
       width: 0.6rem;
-      animation: dots 1000ms linear infinite;
+      animation: dotsLight 1000ms linear infinite;
+    }
+
+    &.e-btn--secondary {
+      span {
+        animation: dotsDark 1000ms linear infinite;
+      }
     }
 
     span:nth-child(2) {
@@ -263,12 +269,23 @@ $button-sm-line-height: 16px;
 }
 
 // Animation for loading button
-@include keyframes(dots) {
+@include keyframes(dotsLight) {
   0% {
     background: transparent;
   }
   50% {
-    background: white;
+    background: color('white');
+  }
+  100% {
+    background: transparent;
+  }
+}
+@include keyframes(dotsDark) {
+  0% {
+    background: transparent;
+  }
+  50% {
+    background: color('black');
   }
   100% {
     background: transparent;
