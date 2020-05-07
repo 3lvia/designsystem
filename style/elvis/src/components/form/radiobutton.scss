@@ -23,6 +23,7 @@ $form-radiobutton-mark-border: 1px solid color("black");
     opacity: 0;
     outline: none;
     position: absolute;
+    z-index: -1;
 
     // states styles for input
     &:checked ~ #{$this}__mark {
@@ -47,14 +48,12 @@ $form-radiobutton-mark-border: 1px solid color("black");
   }
   // Creating placeholder to inject style into radiobutton mutations.
   %radiobutton-mark {
-    position: relative;
     background-color: color("green");
     display: flex;
     align-items: center;
     justify-content: center;
     &:before {
       content: "";
-      position: absolute;
       height: 14px;
       width: 14px;
       background-color: color("black");

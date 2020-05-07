@@ -37,27 +37,27 @@ export class RadiobuttonDocComponent implements OnInit {
   <label class="e-radio">
     <input type="radio"  name="example1"/>
     <span class="e-radio__mark e-radio__mark---checked" ></span>
-    <span class="e-radio__label">Picked</span>
+    <span class="e-radio__label">Checked style</span>
   </label>
   <label class="e-radio">
       <input type="radio" name="example1"/>
       <span class="e-radio__mark e-radio__mark---disabled"></span>
-      <span class="e-radio__label">Picked</span>
+      <span class="e-radio__label">Disabled style</span>
   </label>
   <label class="e-radio">
       <input type="radio" name="example1"/>
       <span class="e-radio__mark e-radio__mark---focus"></span>
-      <span class="e-radio__label">Picked</span>
+      <span class="e-radio__label">Focus style</span>
   </label>
     <label class="e-radio">
       <input type="radio" name="example1"/>
       <span class="e-radio__mark e-radio__mark---hover"></span>
-      <span class="e-radio__label">Picked</span>
+      <span class="e-radio__label">Hover style</span>
   </label>
     <label class="e-radio">
       <input type="radio" name="example1"/>
       <span class="e-radio__mark e-radio__mark---invalid"></span>
-      <span class="e-radio__label">Picked</span>
+      <span class="e-radio__label">Invalid style</span>
   </label>
 </form>`;
 
