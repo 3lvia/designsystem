@@ -1,0 +1,135 @@
+@import "../variables/colors.scss";
+@import "../variables/typography.scss";
+
+$popover-border-width: 1px;
+$popover-padding: 24px;
+$popover-arrow-size: 12px;
+$popover-arrow-size-small: calc(#{$popover-arrow-size} - (#{$popover-border-width} * 2));
+$popover-arrow-offset: 25px; // Midtstilt i forhold til ikon 16X16px (xs)
+$popover-button-offset: -30px;
+
+$popover-desktop-max-width: 400px;
+
+$popover-mobile-max-width: 300px;
+
+%e-popover__widget {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  bottom: 0;
+}
+
+.e-popover {
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  // Defaults position is top
+  &:not(.e-popover--bottom) {
+    @extend .e-popover--top;
+  }
+
+  &__content {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    width: max-content;
+    max-width: $popover-desktop-max-width;
+    padding: $popover-padding;
+    pointer-events: none;
+    background-color: color("white");
+    color: color("font-color");
+    border: 1px solid color("green");
+    border-radius: 8px;
+    text-align: left;
+
+    @include breakpoint-up(Mobile) {
+      max-width: $popover-mobile-max-width;
+    }
+
+    .e-popover__close {
+      position: absolute;
+      top: 7px;
+      right: 7px;
+      i { @include icon-size('xs'); }
+    }
+
+    .e-popover__title {
+      @extend .e-text-info;
+      font-weight: 500 !important;
+      padding-bottom: 8px;
+    }
+    .e-popover__text {
+      @extend .e-text-info;
+    }
+
+    &::before {
+      @extend %e-popover__widget;
+      border: $popover-arrow-size solid;
+    }
+    &::after {
+      @extend %e-popover__widget;
+      border: $popover-arrow-size-small solid;
+    }
+  }
+
+  &.e-popover--top {
+    // Defaults position is top left
+    @extend .e-popover--center;
+    .e-popover__content {
+      bottom: 150%;
+      margin-bottom: 8px;
+      &::before {
+        bottom: calc(#{$popover-arrow-size} * -2);
+        border-color: color("green") transparent transparent transparent;
+      }
+      &::after {
+        bottom: calc((#{$popover-arrow-size-small} * -2));
+        border-color: color("white") transparent transparent transparent;
+      }
+    }
+  }
+
+  &.e-popover--bottom {
+    // Defaults position is top left
+    @extend .e-popover--center;
+    .e-popover__content {
+      top: 150%;
+      margin-top: 6px;
+      &::before {
+        top: calc(#{$popover-arrow-size} * -2);
+        border-color: transparent transparent color("green") transparent;
+      }
+      &::after {
+        top: calc((#{$popover-arrow-size-small} * -2));
+        border-color: transparent transparent color("white") transparent;
+      }
+    }
+  }
+
+  // &.e-popover--left .e-popover__content {
+  //   left: $popover-button-offset;
+  //   &::before { left: $popover-arrow-offset; }
+  //   &::after { left: calc(#{$popover-arrow-offset} + 2px); }
+  // }
+  &.e-popover--center .e-popover__content {
+    left: 50%;
+    transform: translate(-50%, 0);
+    &::before { left: calc((50%) - (#{$popover-arrow-offset} / 2)); }
+    &::after { left: calc((50%) - (#{$popover-arrow-offset} / 2) + 2px); }
+  }
+  // &.e-popover--right .e-popover__content {
+  //   right: $popover-button-offset;
+  //   &::before { right: $popover-arrow-offset; }
+  //   &::after { right: calc(#{$popover-arrow-offset} + 2px); }
+  // }
+
+  &---visible {
+    .e-popover__content {
+      opacity: 1;
+      z-index: 99;
+      pointer-events: all;
+      transition: opacity 300ms ease-in;
+    }
+  }
+}

@@ -18,28 +18,26 @@
     [description]="'Green elvis dots for regular unordred list'"
     [title]="'Bulletins'"
     [class]="['e-list']"
-
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
     [description]="'Add strong class to bold text list elements'"
     [title]="'Bulletins Strong'"
-    [class]="['e-strong']"
+    [class]="['e-list', 'e-list--strong']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example3"
+    [description]="'Ordered list with generated elvis styled bulletins'"
+    [title]="'Numbered list'"
+    [class]="['e-list--numbers']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example4"
     [description]="'List with icons as bulletins'"
     [title]="'Icons'"
-    [class]="['e-has-icon']"
+    [class]="['e-list', 'e-list--icons', 'e-list__icon']"
   ></app-code-block>
-  <!-- Old numbered solution -->
-  <!-- <app-code-block
-      [isHTML]="true"
-      [code]="example4"
-      [description]="'Auto generated CSS number bulletins'"
-      [title]="'Numbered'"
-      [class]="['e-numbers']"
-    ></app-code-block> -->
 </div>

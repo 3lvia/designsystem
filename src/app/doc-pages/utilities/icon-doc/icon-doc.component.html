@@ -30,9 +30,9 @@
           />
         </div>
       </div>
-      <button (click)="invert()" class="e-btn" >
-      Invert
-    </button>
+      <button (click)="invert()" class="e-btn e-mt-24" >
+        Invert
+      </button>
     </div>
     <div class="overview-icons-container e-pt-32" [style.backgroundColor] = "inverted ? 'black' : 'white'">
         <div class="icon-card" *ngFor="let icon of svgIcons | filter: term">
@@ -54,11 +54,22 @@
       [code]="example"
       [title]="'Icon sizes'"
     ></app-code-block>
-    <!-- <app-code-block
+    <app-code-block
       [isHTML]="true"
       [code]="example2"
       [title]="'Color'"
-    ></app-code-block> -->
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example3"
+      [title]="'Inverted / Disabled'"
+    ></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example4"
+      [title]="'Shades of grey'"
+    ></app-code-block>
+
   </div>
 
   <!--GUIDELINES-->
@@ -66,12 +77,17 @@
     <div>
         <h2 class="e-title-md">Method 1: Easiest</h2>
         <p class="e-text-description">
-            Add <code class="code-text">&#x3C;script src="icons-injector.js">&#x3C;/script&#x3E;</code>to the bottom of your body tag.
+            Download the npm package and use Elvis.js from inside the npm package like this:<br>
+        <code class="code-text">&lt;script src="elvis.js"&gt;&lt;/script&gt;</code></p>
+        <p class="e-text-description">
+          <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
         </p>
         <p class="e-text-description">
-            Use icons like this:
+            The icons can then be used like this:
             <code class="code-text">class="e-icon e-icon--chat e-icon--md"</code>
         </p>
+        <p class="e-text-description"><strong>How it works:</strong><br>
+          Elvis.js looks for e-icon and similar classes and injects a img tag with the SVG icon at the desired location.</p>
 
       <h2 class="e-title-md">Method 2: Using JS Module / SVGs</h2>
       <p class="e-text-description">

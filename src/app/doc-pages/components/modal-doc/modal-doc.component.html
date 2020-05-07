@@ -1,0 +1,122 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+  [does]="'A dialogue is typically used in situations where we need the user to make an active choice before continuing, or when the cost of making a mistake is great.'"
+  [donts]="'Be frugal with the use of dialogues since it can be disruptive to get something lying on top of the screen many times in a row. Never use language or words that the user does not understand. It should always be clear what the user is making a choice about. Use short texts, up to 250 characters in body text.'"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Modal
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    A modal is an overlay that talks to the user. 
+    It informs the user of critical information, asks the user to make a decision, 
+    or asks the user to choose from several actions. 
+    The template is closed by clicking on the outside of it or the cancel button.
+    <b>Find live examples at the bottom.</b>
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'Modal with actions'"
+    [showIframeScreens]="true"
+    [noTablet]="true"
+    [overwriteHeight]="450"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example2"
+    [title]="'Modal with delete action'"
+    [showIframeScreens]="true"
+    [noTablet]="true"
+    [overwriteHeight]="400"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example3"
+    [title]="'Modal for info'"
+    [showIframeScreens]="true"
+    [noTablet]="true"
+    [overwriteHeight]="400"
+  ></app-code-block>
+  
+  <h2 class="e-title-medium">Live examples of a modal</h2>
+  <p>
+    Add the <code class="code-text">e-modal---visible</code> class to make a modal visible. 
+    <b>Remeber to implement closing of modal when clicking outside of the content.</b>
+  </p>
+
+  <button class="e-btn e-mr-8 e-mb-8" (click)="openModal('modal1')">Modal with actions</button>
+  <div class="e-modal" #modal1>
+    <div class="e-modal__content">
+      <div class="e-modal__title">
+        Title of content comes here
+      </div>
+      <div class="e-modal__text">
+        <div>
+          Var sparsom med bruken av dialoger siden det kan oppleves forstyrrende å få noe liggendes over skjermen mange ganger på rad. 
+        </div>
+        <div>
+          Bruk aldrig et språk eller ord som brukeren ikke skjønner. Det skal alltid være klart for brukeren hva det er den skal ta.
+        </div>
+      </div>
+      <div class="e-modal__actions">
+        <button class="e-btn e-btn--secondary e-btn--lg" (click)="closeModal('modal1')">
+          <span class="e-btn__title">Avbryt</span>
+        </button>
+        <button class="e-btn e-btn--primary e-btn--lg" (click)="closeModal('modal1')">
+          <span class="e-btn__title">Primary action</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button class="e-btn e-mr-8 e-mb-8" (click)="openModal('modal2')">Modal with delete actions</button>
+  <div class="e-modal" #modal2>
+    <div class="e-modal__content">
+      <div class="e-modal__title">
+        Er du sikker på at du vil slette brukeren din?
+      </div>
+      <div class="e-modal__text">
+        Body text comes here and can go over several lines. It looks like this when it is two.
+      </div>
+      <div class="e-modal__actions">
+        <button class="e-btn e-btn--secondary e-btn--lg" (click)="closeModal('modal2')">
+          <span class="e-btn__title">Avbryt</span>
+        </button>
+        <button class="e-btn e-btn--primary e-btn--danger e-btn--lg" (click)="closeModal('modal2')">
+          <span class="e-btn__title">Slett bruker</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <button class="e-btn" (click)="openModal('modal3')">Modal with info</button>
+  <div class="e-modal" #modal3>
+    <div class="e-modal__content">
+      <div class="e-modal__title">
+        Title of content comes here
+      </div>
+      <div class="e-modal__text">
+        Body text comes here and can go over several lines. It looks like this when it is two.
+      </div>
+      <div class="e-modal__actions">
+        <button class="e-btn e-btn--primary e-btn--lg" (click)="closeModal('modal3')">
+          <span class="e-btn__title">OK</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="e-title-small">Example of JavaScript code for opening and closing a modal</h3>
+  <app-code-highlighter
+    [isTS]="'true'"
+    [code]="modalLiveCode"
+  ></app-code-highlighter>
+  
+</div>

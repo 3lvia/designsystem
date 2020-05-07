@@ -41,10 +41,17 @@ export const eHomes: EItems[] = [
 
 export const eComponents: EItems[] = [
     {
+        title: 'Autocomplete',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Autocomplete,
+        status: ItemStatus.Coming,
+        actionText: 'View component',
+    },
+    {
         title: 'Button',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Button,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons'
     },
@@ -52,7 +59,7 @@ export const eComponents: EItems[] = [
         title: 'Card',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Card,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Card'
     },
@@ -60,30 +67,46 @@ export const eComponents: EItems[] = [
         title: 'Checkbox',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Checkbox,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
+    },
+    {
+        title: 'Dropdown',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Select, // Dette må endres
+        status: ItemStatus.Coming,
+        actionText: 'View component',
     },
     {
         title: 'Toggle',
         description: 'Some useful component with amazing features',
         docUrl: Pages.CheckboxToggle,
-        status: ItemStatus.New,
+        status: ItemStatus.Coming,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons'
+    },
+    {
+        title: 'Drag&Drop',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.DragAndDrop,
+        status: ItemStatus.New,
+        actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
     },
     {
         title: 'File Upload',
         description: 'Some useful component with amazing features',
         docUrl: Pages.FileUpload,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132'
     },
     {
         title: 'Input',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Input,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
     },
@@ -91,7 +114,7 @@ export const eComponents: EItems[] = [
         title: 'Label',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Label,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-%26-chips?node-id=0%3A1'
     },
@@ -99,7 +122,7 @@ export const eComponents: EItems[] = [
         title: 'Link',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Link,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/sgrg5TId3ewAFznKBFh2Wb/Links',
     },
@@ -107,17 +130,33 @@ export const eComponents: EItems[] = [
         title: 'List',
         description: 'Some useful component with amazing features',
         docUrl: Pages.List,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Modules%3A-article?node-id=353%3A0'
+    },
+    {
+        title: 'Modal',
+        description: 'An overlay that talks to the user',
+        docUrl: Pages.Modal,
+        status: ItemStatus.New,
+        actionText: 'View modal',
+        externalUrl: 'https://www.figma.com/file/unlDZ5F7svra9dPNKYdTK9/Modal?node-id=0%3A1'
     },
     {
         title: 'Progressbar',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Progressbar,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
+    },
+    {
+        title: 'Popover',
+        description: 'An overlay that positions itself relative to an anchor element',
+        docUrl: Pages.Popover,
+        status: ItemStatus.New,
+        actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover'
     },
     {
         title: 'Radiobutton',
@@ -131,29 +170,22 @@ export const eComponents: EItems[] = [
         title: 'Segmented Control',
         description: 'Some useful component with amazing features',
         docUrl: Pages.SegmentedControl,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs'
-    },
-    {
-        title: 'Select',
-        description: 'Some useful component with amazing features',
-        docUrl: Pages.Select,
-        status: ItemStatus.Coming,
-        actionText: 'View component',
     },
     {
         title: 'Table',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Table,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View component',
         externalUrl: 'https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=0%3A1'
     },
     {
-        title: 'Tags',
+        title: 'Chips',
         description: 'Some useful component with amazing features',
-        docUrl: Pages.Tags,
+        docUrl: Pages.Tags, // Dette må endres
         status: ItemStatus.Coming,
         actionText: 'View component',
     },
@@ -196,7 +228,7 @@ export const eUtilities: EItems[] = [
         title: 'Colors',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Color,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View colors',
         externalUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=192%3A4'
     },
@@ -204,7 +236,7 @@ export const eUtilities: EItems[] = [
         title: 'Shadow',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Shadow,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View utility',
         externalUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow'
     },
@@ -212,7 +244,7 @@ export const eUtilities: EItems[] = [
         title: 'Spacing',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Spacing,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View spacing',
         externalUrl: 'https://www.figma.com/file/FvsJlYXAIXS5IVKzZzMYgT/Spacing'
     },
@@ -220,7 +252,7 @@ export const eUtilities: EItems[] = [
         title: 'Icons',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Icon,
-        status: ItemStatus.Coming,
+        status: ItemStatus.Done,
         actionText: 'View icons',
         externalUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=82%3A2'
     },
@@ -228,7 +260,7 @@ export const eUtilities: EItems[] = [
         title: 'Typography',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Typography,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View typography',
         externalUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography'
     },
@@ -236,7 +268,7 @@ export const eUtilities: EItems[] = [
         title: 'Breakpoints',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Breakpoints,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View breakpoints',
         externalUrl: 'https://www.figma.com/file/fMr1lhboPukTxmH9KruWB2/Grid'
     },
@@ -244,7 +276,7 @@ export const eUtilities: EItems[] = [
         title: 'Grid',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Grid,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View grid',
         externalUrl: 'https://www.figma.com/file/fMr1lhboPukTxmH9KruWB2/Grid'
     },
@@ -252,9 +284,16 @@ export const eUtilities: EItems[] = [
         title: 'Logo',
         description: 'Our logo and how to use it correctly',
         docUrl: Pages.Logo,
-        status: ItemStatus.New,
+        status: ItemStatus.Done,
         actionText: 'View logo',
         externalUrl: 'https://www.figma.com/file/SDUCEPhQu0q602oh2uhvKZ/Logo'
+    },
+    {
+        title: 'Alignment',
+        description: 'Alignment of text',
+        docUrl: Pages.Alignment,
+        status: ItemStatus.Done,
+        actionText: 'View alignment'
     },
 ];
 

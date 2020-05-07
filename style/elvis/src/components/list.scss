@@ -15,12 +15,13 @@ $list-border-radius: 50%;
   margin: 0;
   // list font properties
   line-height: 190%;
+  box-sizing: border-box;
 
   li {
     list-style: none;
     position: relative;
     // extra padding for the width of the green content bulletin.
-    padding-left: var(--e-spacing-24);
+    padding-left: 24px;
     margin: 0.5rem 0;
 
     &::before {
@@ -35,59 +36,56 @@ $list-border-radius: 50%;
     }
   }
 
-  &.e-numbers {
+  &.e-list--numbers {
     counter-reset: elvis-item;
     list-style: none;
+
     li {
       counter-increment: elvis-item;
-      margin: 1rem 0;
+      margin: 32px 0;
+      padding-left: 48px;
 
       &::before {
         content: counter(elvis-item);
-        left: -0.5rem;
-        line-height: $list-border-size;
-        width: $list-border-size;
-        height: $list-border-size;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        width: 30px;
+        height: 30px;
         top: 0;
         background: transparent;
+        border: 2px solid color("green");
         border-radius: $list-border-radius;
-        text-align: center;
-        box-shadow: 0px 0px 0px 2px color("green");
       }
     }
   }
 
-  &.e-has-icon {
-    list-style: none;
+  &.e-list--strong {
+    font-weight: bold;
+    background: transparent;
+  }
 
+  &.e-list--icons {
     &#{$this} li {
       &::before {
         content: none;
       }
     }
     li {
-      padding-left: var(--e-spacing-32);
-      margin: var(--e-spacing-16) 0;
-      margin-left: var(--e-spacing-16);
+      padding-left: 32px;
+      margin: 16px 0;
+      margin-left: 16px;
 
       @include breakpoint-up(Mobile) {
         padding-left: 20px;
-        margin-left: var(--e-spacing-24);
+        margin-left: 24px;
       }
     }
-    i {
-      margin-right: var(--e-spacing-16);
-      vertical-align: middle;
+    .e-list__icon > i {
+      position: absolute;
+      margin-right: 8px;
+      margin-left: -48px;
     }
   }
-
-  &.e-strong {
-    font-weight: bold;
-    background: transparent;
-  }
-}
-
-.e-list-icon-container {
-  left: -16px;
-  position: absolute;
 }

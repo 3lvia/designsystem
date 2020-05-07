@@ -1,12 +1,12 @@
-@import '../../variables/colors.scss';
-@import '../../variables/animation.scss';
-@import '../../utilities/typography.scss';
-@import '../../utilities/outline.scss';
+@import "../../variables/colors.scss";
+@import "../../variables/animation.scss";
+@import "../../utilities/typography.scss";
+@import "../../utilities/outline.scss";
 
 $form-input-padding: 12px 16px;
 $form-input-padding-active: 11px 15px;
 $form-input-border-radius: $border-radius;
-$form-input-border: 1px solid color('grey');
+$form-input-border: 1px solid color("grey");
 
 .e-input {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -19,7 +19,7 @@ $form-input-border: 1px solid color('grey');
   border: $form-input-border;
   border-radius: $form-input-border-radius;
   box-sizing: border-box;
-  background: color('white');
+  background: color("white");
   max-width: 448px;
   width: 100%;
 
@@ -30,8 +30,8 @@ $form-input-border: 1px solid color('grey');
     border: none;
     background: transparent;
     @extend .e-label-option;
-    outline: none !important; // Removes inner outline, adds outer later
   }
+  input:focus, textarea:focus { outline: none; } // Removes inner outline, adds outer later
 
   > i {
     float: right;
@@ -45,43 +45,37 @@ $form-input-border: 1px solid color('grey');
     overflow-y: auto;
   }
 
-  &.e-small {
+  &.e-input--small {
     width: 60px;
     input {
       width: 60px;
     }
   }
 
-  &.e-medium {
+  &.e-input--medium {
     width: 120px;
     input {
       width: 120px;
     }
   }
 
-  &.e-focus, &:focus-within:not(:active) {
+  &.e-input---focus, &:focus-within:not(:active) {
     @extend .e-outline;
   }
 
-  &.e-invalid {
-    border: 2px solid var(--e-red);
+  &.e-input---invalid, input:invalid {
+    border: 2px solid color('red');
     padding: $form-input-padding-active;
   }
 
-  &.e-disabled, input:disabled {
-    color: var(--e-grey-20);
-    border-color: var(--e-grey-20);
+  &.e-input---disabled, input:disabled {
+    color: color('grey-20');
+    border-color: color('grey-20');
     cursor: not-allowed;
     input:disabled {
       opacity: 1;
-      color: color('grey-20');
-      -webkit-text-fill-color: color('grey-20');
-      cursor: not-allowed;
-    }
-    input {
-      opacity: 1;
-      color: var(--e-grey-20);
-      -webkit-text-fill-color: var(--e-grey-20);
+      color: color("grey-20");
+      -webkit-text-fill-color: color("grey-20");
       cursor: not-allowed;
     }
   }

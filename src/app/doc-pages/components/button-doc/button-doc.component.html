@@ -7,8 +7,9 @@
     Button
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Button elements are used to provide a straightforward and accessible experience for users.
-    A button element should be used whenever an action is performed by the user.
+    <div>Button elements are used to provide a straightforward and accessible experience for users.
+    A button element should be used whenever an action is performed by the user.</div>
+    <div><b>🚧👷🚧 COLORS FOR ICONS ARE UNDER CONSTRUCTION AND WILL BE UPDATED SOON 🚧👷🚧</b></div>
   </ng-container>
 </app-component-header>
 
@@ -19,42 +20,50 @@
     [code]="example1"
     [title]="'Primary'"
     [class]="['e-btn', '(e-btn--primary)', 'e-btn--lg', 'e-btn--md', 'e-btn--sm']"
-    [description]="'Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions.
-      It is often the primary positive action of a use case. Can be used alone, or combined with a secondary og link style button.'"
+    [description]="'All icons on a button can be placed to either the right or left of the button-title.
+      Primary buttons have the modifiers small, medium and large as well as danger and loading. Danger makes the button red, while loading adds a dottet loading animation.'"
+    [does]="'Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions.
+      It is often the primary positive action of a use case. Can be used alone, or combined with a secondary and link style button.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
     [title]="'Secondary'"
     [class]="['e-btn', 'e-btn--secondary']"
-    [description]="'Secondary buttons are similar to primary buttons but is used as a supportive action, or for less important actions. 
-      Can be used alone, or combined with a primary og link styled button.'"
+    [description]="'Secondary buttons have the same modifiers as primary except for danger.'"
+    [does]="'Secondary buttons are similar to primary buttons but is used as a supportive action, or for less important actions. 
+    Can be used alone, or combined with a primary og link styled button.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example3"
     [title]="'Tertiary'"
     [class]="['e-btn', 'e-btn--tertiary']"
-    [description]="'🚧👷🚧 COLORS FOR DISABLED ICONS IS UNDER CONSTRUCTION AND WILL BE UPDATED AUTOMATICALLY 🚧👷🚧
-    Tertiary buttons are action-oriented buttons to be used for less prominent actions. Tertiary button has the same dimensions as primary and secondary, but no background or border color. It can be used in isolation, but can also be used with Primary and Secondary buttons.'"
+    [description]="'Tertiary buttons are action-oriented buttons to be used for less prominent actions. Tertiary button has the same dimensions as primary and secondary, but no background or border color. It can be used in isolation, but can also be used with Primary and Secondary buttons.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
-    [code]="example4"
-    [title]="'Button with icon'"
-    [description]="'🚧👷🚧 COLORS FOR DISABLED AND PRIMARY BUTTON ICONS IS UNDER CONSTRUCTION AND WILL BE UPDATED AUTOMATICALLY 🚧👷🚧
-    All icons can be placed to either the right or left of the button-title'"
-    [class]="['e-btn', 'e-btn__title', 'e-btn__icon']"
+    [code]="exampleIcon"
+    [title]="'Icon buttons'"
+    [description]="'🚧👷🚧 COLORS FOR ICONS ARE UNDER CONSTRUCTION AND WILL BE UPDATED AUTOMATICALLY 🚧👷🚧
+    Icon buttons are used for familiar and simple actions such as close, edit, delete etc. These are ideal for task based actions where the buttons should not attract too much attention.
+    There are two types of icon-buttons; transparent and circled.'"
+    [class]="['e-btn', 'e-btn--icon', 'e-btn--circled']"
+    [donts]="'Unknown icon that is not descriptive alone without text. Don’t use both transparent and circle icons next to each other in a group'"
+    [does]="'Known actions that do not attract much attention. Different actions grouped together (example: A table where you can delete, edit and move)'"
   ></app-code-block>
+  <!-- IKKE KLAR
   <app-code-block
     [isHTML]="true"
-    [code]="example5"
-    [title]="'Loading'"
-    [class]="['e-btn', 'e-btn--loading']"
-  ></app-code-block>
+    [code]="exampleIconDanger"
+    [title]="'Icon buttons danger'"
+    [description]="'🚧👷🚧 COLORS FOR ICONS ARE UNDER CONSTRUCTION AND WILL BE UPDATED AUTOMATICALLY 🚧👷🚧
+    Icon buttons are used for familiar and simple actions such as close, edit, delete etc. These are ideal for task based actions where the buttons should not attract too much attention.'"
+    [class]="['e-btn', 'e-btn--icon', 'e-btn--danger']"
+  ></app-code-block> -->
   <app-code-block
     [isHTML]="true"
-    [code]="example6"
+    [code]="example7"
     [title]="'Pseudo classes'"
     [class]="['e-btn---hover', 'e-btn---active', 'e-btn---focus', 'e-btn---disabled']"
     [description]="'Pseudo Classes can be used to set the styling of button to emulate the state. 

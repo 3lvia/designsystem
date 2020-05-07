@@ -1,11 +1,12 @@
 {
   "name": "@elvia/elvis",
-  "version": "0.0.41",
+  "version": "0.0.52",
   "description": "WIP",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp"
+    "build": "gulp",
+    "watch": "gulp watch"
   },
   "author": "",
   "license": "ISC",

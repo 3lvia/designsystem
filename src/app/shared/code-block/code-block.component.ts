@@ -25,6 +25,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() noTablet = false;
   @Input() noDesktop = false;
   @Input() greyBg = false;
+  @Input() overwriteHeight: number;
 
   showCode = false;
   showTabs = true;
@@ -34,6 +35,8 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   constructor() {}
 
   ngOnInit() {
+    this.codepen = this.getCodePen(this.code, this.title);
+    
     if (!this.showIframeScreens) {
       return;
     }
@@ -48,13 +51,22 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     if (this.noTablet && this.noDesktop) {
       this.screen = 'phone';
       this.showTabs = false;
-    }
+    }    
   }
 
   ngAfterViewInit() {
     if (!this.showIframeScreens) {
       this.defaultFrame.nativeElement.innerHTML = this.code;
     }
+  }
+
+  getCodePen(code, title) {
+    title = title ? title : "Example";
+    let html = `${code}
+<script src="https://unpkg.com/@elvia/elvis@latest/elvis.js"></script>
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/@elvia/elvis@latest/css/elvis.min.css" />
+    `;
+    return JSON.stringify({ "title": title, html: html});
   }
 }
 
