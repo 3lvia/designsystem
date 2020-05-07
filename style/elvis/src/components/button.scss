@@ -60,19 +60,28 @@ $button-sm-line-height: 16px;
     font-size: $button-lg-font-size;
     line-height: $button-lg-line-height;
     padding: calc(#{$button-lg-padding-y} - 1px) calc(#{$button-lg-padding-x} - 1px);
-    .e-btn__icon i { @include icon-size('sm'); }
+    .e-btn__icon { 
+      @include icon-size('sm');
+      i { @include icon-size('sm'); } 
+    }
   }
   &.e-btn--md {
     font-size: $button-md-font-size;
     line-height: $button-md-line-height;
     padding: calc(#{$button-md-padding-y} - 1px) calc(#{$button-md-padding-x} - 1px);
-    .e-btn__icon i { @include icon-size('xs'); }
+    .e-btn__icon {
+      @include icon-size('xs');
+      i { @include icon-size('xs'); }
+    }
   }
   &.e-btn--sm {
     font-size: $button-sm-font-size;
     line-height: $button-sm-line-height;
     padding: calc(#{$button-sm-padding-y} - 1px) calc(#{$button-sm-padding-x} - 1px);
-    .e-btn__icon i { @include icon-size('xs'); }
+    .e-btn__icon {
+      @include icon-size('xs');
+      i { @include icon-size('xs'); }
+    }
   }
 
   &.e-btn--primary {
@@ -80,6 +89,21 @@ $button-sm-line-height: 16px;
     border-radius: $button-radius;
     background: color("black");
     color: color("white");
+
+    .e-btn__icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      i {
+        position: absolute;
+        display: flex;
+        left: 0;
+      }
+      i:not([class$="inverted"]) {
+        visibility: hidden;
+      }
+    }
 
     // Husk at dette ikonet ikke skal endre seg på hover!
     &.e-btn--danger {
@@ -99,6 +123,12 @@ $button-sm-line-height: 16px;
       border-color: color("green");
       color: color("black");
       outline: none;
+      .e-btn__icon i[class$="inverted"] {
+        visibility: hidden;
+      }
+      .e-btn__icon i:not([class$="inverted"]) {
+        visibility: visible;
+      }
     }
     &.e-btn---active, &:enabled:active {
       background: color("green");
@@ -113,6 +143,9 @@ $button-sm-line-height: 16px;
     border-radius: $button-radius;
     background: color("white");
     color: color("black");
+    .e-btn__icon i {
+      visibility: visible;
+    }
 
     &.e-btn---disabled, &:disabled  {
       background: transparent;
@@ -143,6 +176,9 @@ $button-sm-line-height: 16px;
     padding-bottom: 3.5px;
     background: none;
     color: color("black");
+    .e-btn__icon i {
+      visibility: visible;
+    }
 
     &.e-btn--lg {
       padding-bottom: 1.5px;
@@ -181,6 +217,7 @@ $button-sm-line-height: 16px;
     padding: 8px;
     background: none;
     color: color("black");
+
     .e-btn__icon {
       width: 24px;
       height: 24px;
@@ -189,6 +226,7 @@ $button-sm-line-height: 16px;
         display: flex; 
         justify-content: center;
         align-items: center;
+        visibility: visible;
       }
     }
 
