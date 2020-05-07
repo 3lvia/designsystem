@@ -110,7 +110,7 @@ export class LinkDocComponent implements OnInit {
     </span>
   </a>
 </div>
-<div class="e-mt-16" style="width:164px;">
+<div class="e-mt-40" style="width:164px;">
   <h3 class="e-title-small">Multiline</h3>
   <a class="e-link e-link--action" href="https://www.elvia.no/">
     <span class="e-link__title">Action link over multiple rows</span>

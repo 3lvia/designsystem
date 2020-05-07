@@ -25,15 +25,12 @@ $link-jumbo-phone-width: 287px;
   display: inline;
   box-sizing: border-box;
   border-bottom: 2px solid color("black");
-  outline: none;
   cursor: pointer;
   font-weight: bold;
   color: color("font-color");
   text-align: inherit;
   position: relative;
-  padding: 2px;
-  margin: 2px;
-
+  
   &__icon {
     display: inline-flex;
     align-items: center;
@@ -66,19 +63,9 @@ $link-jumbo-phone-width: 287px;
   &.e-link---hover, &:hover {
     border-bottom-color: color("green");
   }
-  &.e-link---focus, &:focus {
+  &.e-link---focus, &:focus:not(:active) {
     @extend .e-outline;
-    // outline: none;
-    // &::before {
-    //   content: ' ';
-    //   display: block;
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   height: 100%;
-    //   width: 100%;
-    //   @extend .e-outline;
-    // }
+    overflow: auto;
   }
 
   &.e-link--inline {
