@@ -3,20 +3,19 @@
 @import "../utilities/outline.scss";
 
 $link-lg-font-size: 18px;
-$link-lg-line-height: 24px;
-
 $link-md-font-size: 16px;
-$link-md-line-height: 21px;
-
 $link-sm-font-size: 14px;
-$link-sm-line-height: 19px;
+$link-lg-line-height: 24px;
+$link-md-line-height: 22px;
+$link-sm-line-height: 20px;
 
 $link-action-lg-line-height: 26px;
 $link-action-md-line-height: 24px;
+$link-action-lg-font-size: 20px;
+$link-action-md-font-size: 18px;
 
 $link-jumbo-desktop-padding: 30px 40px;
 $link-jumbo-desktop-width: 545px;
-
 $link-jumbo-phone-padding: 30px 24px;
 $link-jumbo-phone-width: 287px;
 
@@ -84,40 +83,47 @@ $link-jumbo-phone-width: 287px;
 
     .e-link__icon {
       margin-left: 0;
-      i {
-        position: absolute;
-        right: 0;
-        bottom: 10px;
-      }
+      position: absolute;
+      right: 0;
+      bottom: 10px;
     }
   }
 
   &.e-link--action {
     position: relative;
     border: none;
-    align-items: center;
-    justify-content: center;
+    display: inline;
 
-    .e-link__icon i {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 21px;
-      height: 21px;
-      border: 1.5px solid color("green");
-      border-radius: 50%;
+    .e-link__icon i[class$="full-color"] {
+      visibility: hidden;
+    }
+    .e-link__icon{
+      position: relative;
+      top: 5px;
+      i {
+        position: absolute;
+        left: 0;
+        display: flex;
+      }
     }
 
     &.e-link--lg {
       line-height: $link-action-lg-line-height;
+      font-size: $link-action-lg-font-size;
+      .e-link__icon, i, img { width: 24px; height: 24px; }
     }
     &.e-link--md {
       line-height: $link-action-md-line-height;
+      font-size: $link-action-md-font-size;
+      .e-link__icon, i, img { width: 23px; height: 23px; }
     }
 
     &.e-link---hover, &:hover {
-      .e-link__icon i {
-        background-color: color("green");
+      .e-link__icon i[class$="full-color"] {
+        visibility: visible;
+      }
+      .e-link__icon i:not([class$="full-color"]) {
+        visibility: hidden;
       }
     }
   }
