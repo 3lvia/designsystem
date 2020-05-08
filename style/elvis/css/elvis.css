@@ -242,7 +242,7 @@
         left: 0; }
       .e-btn.e-btn--primary .e-btn__icon i, .e-btn .e-btn__icon i {
         visibility: hidden; }
-      .e-btn.e-btn--primary .e-btn__icon i[class$="inverted"], .e-btn .e-btn__icon i[class$="inverted"], .e-btn.e-btn--primary .e-btn__icon i[class$="disabled-light"], .e-btn .e-btn__icon i[class$="disabled-light"] {
+      .e-btn.e-btn--primary .e-btn__icon i[class$="inverted"], .e-btn .e-btn__icon i[class$="inverted"], .e-btn.e-btn--primary .e-btn__icon i[class$="disabled-color-light"], .e-btn .e-btn__icon i[class$="disabled-color-light"] {
         visibility: visible; }
     .e-btn.e-btn--primary.e-btn--danger, .e-btn.e-btn--danger {
       background: #FF0000;
@@ -299,9 +299,6 @@
       visibility: visible; }
     .e-btn.e-btn--tertiary.e-btn--lg {
       padding-bottom: 1.5px; }
-    .e-btn.e-btn--tertiary:focus:not(:hover) {
-      border: none;
-      padding-bottom: 0; }
     .e-btn.e-btn--tertiary.e-btn---disabled, .e-btn.e-btn--tertiary:disabled {
       color: #BDBDBD;
       cursor: not-allowed; }
@@ -359,14 +356,14 @@
           height: 16px; }
     .e-btn.e-btn--icon.e-btn--circled {
       padding: 0; }
-      .e-btn.e-btn--icon.e-btn--circled .e-btn__icon i[class$="full-color"] {
+      .e-btn.e-btn--icon.e-btn--circled .e-btn__icon i[class$="filled-color"] {
         visibility: hidden; }
       .e-btn.e-btn--icon.e-btn--circled.e-btn---hover, .e-btn.e-btn--icon.e-btn--circled:enabled:hover, .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:enabled:active {
         background: transparent;
         outline: none; }
-        .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i:not([class$="full-color"]), .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled:enabled:hover .e-btn__icon i:not([class$="full-color"]), .e-btn.e-btn--icon.e-btn--circled:enabled:hover .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i:not([class$="full-color"]), .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled:enabled:active .e-btn__icon i:not([class$="full-color"]), .e-btn.e-btn--icon.e-btn--circled:enabled:active .e-btn__icon i:not([class$="disabled"]) {
+        .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i:not([class$="filled-color"]), .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled:enabled:hover .e-btn__icon i:not([class$="filled-color"]), .e-btn.e-btn--icon.e-btn--circled:enabled:hover .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i:not([class$="filled-color"]), .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled:enabled:active .e-btn__icon i:not([class$="filled-color"]), .e-btn.e-btn--icon.e-btn--circled:enabled:active .e-btn__icon i:not([class$="disabled"]) {
           visibility: hidden; }
-        .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i[class$="full-color"], .e-btn.e-btn--icon.e-btn--circled:enabled:hover .e-btn__icon i[class$="full-color"], .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i[class$="full-color"], .e-btn.e-btn--icon.e-btn--circled:enabled:active .e-btn__icon i[class$="full-color"] {
+        .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i[class$="filled-color"], .e-btn.e-btn--icon.e-btn--circled:enabled:hover .e-btn__icon i[class$="filled-color"], .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i[class$="filled-color"], .e-btn.e-btn--icon.e-btn--circled:enabled:active .e-btn__icon i[class$="filled-color"] {
           visibility: visible; }
       .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:enabled:active {
         transform: scale(0.93); }

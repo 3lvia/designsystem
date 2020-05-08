@@ -234,17 +234,17 @@ $button-sm-line-height: 16px;
     &.e-btn--circled {
       padding: 0;
 
-      .e-btn__icon i[class$="full-color"] {
+      .e-btn__icon i[class$="filled-color"] {
         visibility: hidden;
       }
 
       &.e-btn---hover, &:enabled:hover, &.e-btn---active, &:enabled:active {
         background: transparent;
         outline: none;
-        .e-btn__icon i:not([class$="full-color"]), .e-btn__icon i:not([class$="disabled"]) {
+        .e-btn__icon i:not([class$="filled-color"]), .e-btn__icon i:not([class$="disabled"]) {
           visibility: hidden;
         }
-        .e-btn__icon i[class$="full-color"] {
+        .e-btn__icon i[class$="filled-color"] {
           visibility: visible;
         }
       }
