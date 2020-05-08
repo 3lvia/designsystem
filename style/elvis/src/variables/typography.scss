@@ -115,14 +115,14 @@ $typography: (
     letter-spacing: 0.2px,
     color: color('font-color')
   ),
-  label-input: (
+  text-label: (
     family: $font-family-secondary,
     size: 1rem,
     weight: 500,
     height: 140%,
     color: color('font-color')
   ),
-  label-option: (
+  text-option: (
     family: $font-family-secondary,
     size: 1rem,
     weight: 400,

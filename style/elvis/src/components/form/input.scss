@@ -29,7 +29,7 @@ $form-input-border: 1px solid color("grey");
     padding: 0;
     border: none;
     background: transparent;
-    @extend .e-label-option;
+    @extend .e-text-option;
   }
   input:focus, textarea:focus { outline: none; } // Removes inner outline, adds outer later
 
