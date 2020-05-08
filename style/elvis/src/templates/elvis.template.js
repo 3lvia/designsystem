@@ -68,10 +68,13 @@ document.addEventListener("DOMContentLoaded", function(){
             return icon;
         }   
 
-        if(classList.contains('e-icon--disabled')) {
-            fill = colors['grey-70'].color;
+        if(classList.contains('e-icon--disabled-color')) {
+            fill = colors['grey-30'].color;
         }
-        
+
+        if(classList.contains('e-icon--disabled-color-light')) {
+            fill = colors['grey-05'].color;
+        }
         
         if(JSON.stringify(classList).indexOf('e-icon--') > -1) {
               for(let i = 0; i < classList.length; i++) {

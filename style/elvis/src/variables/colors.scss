@@ -87,6 +87,7 @@ $colors: (
   'grey-30': (
     color: #BDBDBD,
     contrast-text: #000,
+    alt-labels: (disabled-color),
   ),  
   'grey-20': (
     color: #D3D3D3,
@@ -99,6 +100,7 @@ $colors: (
   'grey-05': (
     color: #F4F4F4,
     contrast-text: #000,
+    alt-labels: (disabled-color-light),
   ),  
   'grey-02': (
     color: #FAFAFA,
