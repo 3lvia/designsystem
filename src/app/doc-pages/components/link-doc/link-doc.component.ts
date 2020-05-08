@@ -129,11 +129,40 @@ export class LinkDocComponent implements OnInit {
 </a>
 `;
 
-  example7 = `<div>
-  <a class="e-link e-link---hover" href="https://www.elvia.no/">Hover</a>
+  example7 = `<div class="e-mt-40">
+  <h3 class="e-title-small">Normal link</h3>
+  <a class="e-link e-link---hover e-m-8" href="https://www.elvia.no/">Hover</a>
+  <a class="e-link e-link---focus e-m-8" href="https://www.elvia.no/">Focus</a>
 </div>
-<div class="e-mt-16">
-  <a class="e-link e-link---focus" href="https://www.elvia.no/">Focus</a>
+<div class="e-mt-40">
+  <h3 class="e-title-small">Action link</h3>
+  <a class="e-link e-link--action e-link---hover e-m-8" href="https://www.elvia.no/">
+    <span class="e-link__title">Hover</span>
+    <span class="e-link__icon">
+      <i class="e-icon e-icon--arrow-circle-color"></i>
+      <i class="e-icon e-icon--arrow-circle-full-color"></i>
+    </span>
+  </a>
+  <a class="e-link e-link--action e-link---focus e-m-8" href="https://www.elvia.no/">
+    <span class="e-link__title">Focus</span>
+    <span class="e-link__icon">
+      <i class="e-icon e-icon--arrow-circle-color"></i>
+      <i class="e-icon e-icon--arrow-circle-full-color"></i>
+    </span>
+  </a>
+</div>
+<div class="e-mt-40">
+  <h3 class="e-title-small">Jumbo link</h3>
+  <a class="e-link e-link--jumbo e-link---hover e-m-8" href="https://www.elvia.no/">
+    <span class="e-link__icon"><i class="e-icon e-icon--powerline-snow e-icon--xl"></i></span>
+    <span class="e-link__title">Hover</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow-right e-icon--xs"></i></span>
+  </a>
+  <a class="e-link e-link--jumbo e-link---focus e-m-8" href="https://www.elvia.no/">
+    <span class="e-link__icon"><i class="e-icon e-icon--powerline-snow e-icon--xl"></i></span>
+    <span class="e-link__title">Focus</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow-right e-icon--xs"></i></span>
+  </a>
 </div>
 `;
 
