@@ -288,46 +288,50 @@ exampleIcon = `<div>
   example7 = `<div>
   <h3 class="e-title-small">Primary buttons</h3>
   <button class="e-btn e-btn---hover e-m-16">
-    Hover
+    <span class="e-btn__title">Hover</span>
   </button>
   <button class="e-btn e-btn---active e-m-16">
-    Active
+    <span class="e-btn__title">Active</span>
   </button>
   <button class="e-btn e-btn---focus e-m-16">
-    Focus
+    <span class="e-btn__title">Focus</span>
   </button>
   <button class="e-btn e-btn---disabled e-m-16">
-    Disabled
+    <span class="e-btn__title">Disabled</span>
   </button>
 </div>
 <div>
   <h3 class="e-title-small">Secondary buttons</h3>
   <button class="e-btn e-btn--secondary e-btn---hover e-m-16">
-    Hover
+    <span class="e-btn__title">Hover</span>
   </button>
   <button class="e-btn e-btn--secondary e-btn---active e-m-16">
-    Active
+    <span class="e-btn__title">Active</span>
   </button>
   <button class="e-btn e-btn--secondary e-btn---focus e-m-16">
-    Focus
+    <span class="e-btn__title">Focus</span>
   </button>
-  <button class="e-btn e-btn--secondary e-btn---disabled e-m-16">
-    Disabled
+  <button class="e-btn e-btn--secondary e-btn--lg e-m-16" disabled>
+    <span class="e-btn__title">Disabled</span>
   </button>
 </div>
 <div>
   <h3 class="e-title-small">Tertiary buttons</h3>
   <button class="e-btn e-btn--tertiary e-btn---hover e-m-16">
-    Hover
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__title">Hover</span>
   </button>
   <button class="e-btn e-btn--tertiary e-btn---active e-m-16">
-    Active
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__title">Active</span>
   </button>
   <button class="e-btn e-btn--tertiary e-btn---focus e-m-16">
-    Focus
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__title">Focus</span>
   </button>
   <button class="e-btn e-btn--tertiary e-btn---disabled e-m-16">
-    Disabled
+    <span class="e-btn__icon"><i class="e-icon e-icon--download e-icon--disabled-color"></i></span>
+    <span class="e-btn__title">Disabled</span>
   </button>
 </div>
 <div>
