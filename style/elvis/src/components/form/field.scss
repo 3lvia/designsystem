@@ -17,7 +17,7 @@
   &__label {
     display: block;
     margin-bottom: 5px;
-    @extend .e-label-input;
+    @extend .e-text-label;
 
     &.e-form-field__label--optional::after {
       content: " (valgfri)";

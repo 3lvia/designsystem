@@ -245,7 +245,7 @@ exampleIcon = `<div>
         <i class="e-icon e-icon--remove-circle e-icon--disabled-color"></i>
       </span>
     </button>
-    <p class="e-text-info">Circled Icons that can be used for this button</p>
+    <p class="e-text-label">Circled Icons that can be used for this button</p>
     <div class="e-m-8">
       <i class="e-icon e-icon--information-circle e-icon--sm e-m-8"></i>
       <i class="e-icon e-icon--add-circle e-icon--sm e-m-8"></i>

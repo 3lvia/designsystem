@@ -59,12 +59,12 @@ export const typographyItems: Typography[] = [
         size: '14px',
     },
     {
-        title: 'label-input',
+        title: 'text-label',
         example: 'Label title.',
         size: '16px',
     },
     {
-        title: 'label-option',
+        title: 'text-option',
         example: 'Placeholder text.',
         size: '16px',
     },

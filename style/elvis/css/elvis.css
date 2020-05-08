@@ -1638,14 +1638,14 @@ body {
   color: #000;
   letter-spacing: 0.2px; }
 
-.e-label-input, .e-form-field__label {
+.e-text-label, .e-form-field__label {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
   font-weight: 500;
   color: #000; }
 
-.e-label-option, .e-fileupload__description, .e-input > input,
+.e-text-option, .e-fileupload__description, .e-input > input,
 .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
@@ -1926,14 +1926,14 @@ body {
   color: #000;
   letter-spacing: 0.2px; }
 
-.e-label-input, .e-form-field__label {
+.e-text-label, .e-form-field__label {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
   font-weight: 500;
   color: #000; }
 
-.e-label-option, .e-fileupload__description, .e-input > input,
+.e-text-option, .e-fileupload__description, .e-input > input,
 .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
@@ -2641,14 +2641,14 @@ body {
   color: #000;
   letter-spacing: 0.2px; }
 
-.e-label-input, .e-form-field__label {
+.e-text-label, .e-form-field__label {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
   font-weight: 500;
   color: #000; }
 
-.e-label-option, .e-fileupload__description, .e-input > input,
+.e-text-option, .e-fileupload__description, .e-input > input,
 .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
@@ -2865,14 +2865,14 @@ body {
   color: #000;
   letter-spacing: 0.2px; }
 
-.e-label-input, .e-form-field__label {
+.e-text-label, .e-form-field__label {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
   font-weight: 500;
   color: #000; }
 
-.e-label-option, .e-fileupload__description, .e-input > input,
+.e-text-option, .e-fileupload__description, .e-input > input,
 .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
@@ -6713,14 +6713,14 @@ body {
   color: #000;
   letter-spacing: 0.2px; }
 
-.e-label-input, .e-form-field__label {
+.e-text-label, .e-form-field__label {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
   font-weight: 500;
   color: #000; }
 
-.e-label-option, .e-fileupload__description, .e-input > input,
+.e-text-option, .e-fileupload__description, .e-input > input,
 .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
