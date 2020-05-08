@@ -1,3 +1,36 @@
-<p>
-  autocomplete-doc works!
-</p>
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+  [does]="'In use cases where user have a lot of options, and the option have to be validated.'"
+
+>
+  <ng-container ngProjectAs="headerTitle">
+    Autocomplete
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Autocomplete fields can be used instead of long dropdowns. For example filling out which country you reside in.
+    Instead of the user having to scroll down a list of countries, users can fill out the autocomplete field and the 
+    the valid options are filtered. If a user types something that does not correspond to any choices, an error message will appear. 
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'Autocomplete Field'"
+    [class]="['e-autocomplete']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example2"
+    [title]="'Autocomplete dropdown field'"
+    [class]="['e-autocomplete__dropdown']"
+  ></app-code-block>
+  <h3>TODO App code block example</h3>
+
+  <h3>TODO Live example with code</h3>
+
+</div>
