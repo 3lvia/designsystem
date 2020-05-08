@@ -100,7 +100,7 @@ $button-sm-line-height: 16px;
         display: flex;
         left: 0;
       }
-      // Hiding hover ikon
+      // Hiding hover ikon (only show inverted ikon)
       i { visibility: hidden; }
       i[class$="inverted"], i[class$="disabled-color-light"] {
         visibility: visible;
@@ -234,6 +234,7 @@ $button-sm-line-height: 16px;
     &.e-btn--circled {
       padding: 0;
 
+      // Hiding hover ikon
       .e-btn__icon i[class$="filled-color"] {
         visibility: hidden;
       }
@@ -241,6 +242,7 @@ $button-sm-line-height: 16px;
       &.e-btn---hover, &:enabled:hover, &.e-btn---active, &:enabled:active {
         background: transparent;
         outline: none;
+        // Showing hover ikon
         .e-btn__icon i:not([class$="filled-color"]), .e-btn__icon i:not([class$="disabled"]) {
           visibility: hidden;
         }
@@ -254,11 +256,13 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn--danger {
+      // Hiding hover ikon
       .e-btn__icon i:not([class$="red"]):not([class$="disabled"]) {
         visibility: hidden;
       }
 
       &.e-btn---hover, &:enabled:hover, &.e-btn---active, &:enabled:active {
+        // Showing hover ikon
         .e-btn__icon i[class$="red"] {
           visibility: hidden;
         }
