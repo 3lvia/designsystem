@@ -102,7 +102,7 @@ $button-sm-line-height: 16px;
       }
       // Hiding hover ikon (only show inverted ikon)
       i { visibility: hidden; }
-      i[class$="inverted"], i[class$="disabled-color-light"] {
+      i[class$="inverted"], i[class$="color-disabled-light"] {
         visibility: visible;
       }
     }

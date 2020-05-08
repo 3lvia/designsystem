@@ -68,11 +68,11 @@ document.addEventListener("DOMContentLoaded", function(){
             return icon;
         }   
 
-        if(classList.contains('e-icon--disabled-color')) {
+        if(classList.contains('e-icon--color-disabled')) {
             fill = colors['grey-30'].color;
         }
 
-        if(classList.contains('e-icon--disabled-color-light')) {
+        if(classList.contains('e-icon--color-disabled-light')) {
             fill = colors['grey-05'].color;
         }
         
