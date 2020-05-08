@@ -51,7 +51,7 @@ export const SectionAnimation: AnimationTriggerMetadata = trigger('sectionAnimat
       transform: 'translateY(0%)'
     })
   ),
-  transition('void => *', animate(`450ms cubic-bezier(0.6, 0, 0.1, 1)`)),
-  transition('* => void', animate(`450ms cubic-bezier(.55, 0, .88, 1)`))
+  transition('void => *', animate(`550ms cubic-bezier(0.6, 0, 0.1, 1)`)),
+  transition('* => void', animate(`550ms cubic-bezier(.55, 0, .88, 1)`))
 ]);
 
