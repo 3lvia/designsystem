@@ -1,9 +1,9 @@
-@import '../../variables/colors.scss';
-@import '../../variables/animation.scss';
+@import "../../variables/colors.scss";
+@import "../../utilities/outline.scss";
 
-$form-radiobutton-mark-size: 1rem;
+$form-radiobutton-mark-size: 24px;
 $form-radiobutton-mark-border-radius: 14px;
-$form-radiobutton-mark-border: 1px solid color('green');
+$form-radiobutton-mark-border: 1px solid color("black");
 
 .e-radio {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -11,51 +11,94 @@ $form-radiobutton-mark-border: 1px solid color('green');
 
   display: flex;
   align-items: center;
+  box-sizing: border-box;
+  width: fit-content;
   cursor: pointer;
   &:not(:last-child) {
-    margin-bottom: 0.75rem;
+    margin-bottom: 8px;
   }
 
+  // Hide defualt radiostyle and put in placeholder style
+  input {
+    opacity: 0;
+    outline: none;
+    position: absolute;
+    z-index: -1;
+
+    // states styles for input
+    &:checked ~ #{$this}__mark {
+      @extend %radiobutton-mark;
+    }
+
+    &:focus:not(:active) ~ #{$this}__mark {
+      @extend .e-outline;
+    }
+
+    &:invalid ~ #{$this}__mark {
+      border-color: color("red");
+    }
+
+    &:disabled ~ #{$this}__mark,
+    &:disabled ~ #{$this}__label,
+    &:disabled ~ #{$this}:hover {
+      border-color: color("grey-30");
+      background: color("white");
+      color: color("grey-30");
+    }
+  }
   // Creating placeholder to inject style into radiobutton mutations.
   %radiobutton-mark {
-    position: relative;
-    background-color: color('green');
+    background-color: color("green");
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &:before {
       content: "";
-      display: inline-block;
-      padding: 0.3rem;
-      border: 2px solid color('white');
-      border-radius: 14px;
+      height: 14px;
+      width: 14px;
+      background-color: color("black");
+      border-radius: 50%;
     }
   }
 
-  &.is-checked {
-    #{$this}_mark {
-      @extend %radiobutton-mark;
-    }
-  }
-
-  input {
-    display: none;
-
-    &:checked ~ #{$this}_mark {
-      @extend %radiobutton-mark;
-    }
-  }
-
-  &_mark {
+  // the new checkbox mark
+  &__mark {
     display: inline-block;
 
     width: $form-radiobutton-mark-size;
     height: $form-radiobutton-mark-size;
-    transition: background 0.3s $transition-cubic;
     border: $form-radiobutton-mark-border;
     border-radius: $form-radiobutton-mark-border-radius;
-    background: color('white');
+    background: color("white");
+
+    //pseudo classes
+    &.e-radio__mark---checked {
+      @extend %radiobutton-mark;
+    }
+
+    &.e-radio__mark---disabled,
+    &.e-radio__mark---disabled ~ #{$this}__label {
+      border-color: color("grey-30");
+      background: color("white");
+      color: color("grey-30");
+    }
+
+    &.e-radio__mark---focus {
+      @extend .e-outline;
+    }
+
+    &:hover,
+    &.e-radio__mark---hover {
+      background: color("green");
+    }
+
+    &.e-radio__mark---invalid {
+      border-color: color("red");
+    }
   }
 
-  &_label {
+  &__label {
     flex-grow: 1;
-    margin-left: 1rem;
+    margin-left: 8px;
   }
 }
