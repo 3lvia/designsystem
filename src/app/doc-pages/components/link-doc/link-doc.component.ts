@@ -137,61 +137,6 @@ export class LinkDocComponent implements OnInit {
 </div>
 `;
 
-  example8 = `<div>
-  <h3 class="e-title-small">Large</h3>
-  <div style="width:160px;">
-    <a class="e-link e-link--lg" href="https://www.elvia.no/">Normal link over multiple rows</a>
-  </div>
-  <div class="e-mt-16" style="width:164px;">
-    <a class="e-link e-link--external e-link--lg" href="https://www.elvia.no/">
-      <span class="e-link__title">External link over multiple rows</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow-external"></i></span>
-    </a>
-  </div>
-  <div class="e-mt-16" style="width:164px;">
-    <a class="e-link e-link--action e-link--lg" href="https://www.elvia.no/">
-      <span class="e-link__title">Action link over multiple rows</span>
-      <span class="e-link__icon">
-        <i class="e-icon e-icon--arrow-circle-color"></i>
-        <i class="e-icon e-icon--arrow-circle-full-color"></i>
-      </span>
-    </a>
-  </div>
-</div>
-<div class="e-mt-40">
-  <h3 class="e-title-small">Medium</h3>
-  <div style="width:160px;">
-    <a class="e-link" href="https://www.elvia.no/">Normal link over multiple rows</a>
-  </div>
-  <div class="e-mt-16" style="width:164px;">
-    <a class="e-link e-link--external" href="https://www.elvia.no/">
-      <span class="e-link__title">External link over multiple rows</span>
-    </a>
-  </div>
-  <div class="e-mt-16" style="width:164px;">
-    <a class="e-link e-link--action" href="https://www.elvia.no/">
-      <span class="e-link__title">Action link over multiple rows</span>
-      <span class="e-link__icon">
-        <i class="e-icon e-icon--arrow-circle-color"></i>
-        <i class="e-icon e-icon--arrow-circle-full-color"></i>
-      </span>
-    </a>
-  </div>
-<div>
-<div class="e-mt-40">
-  <h3 class="e-title-small">Small</h3>
-  <div style="width:160px;">
-    <a class="e-link e-link--sm" href="https://www.elvia.no/">Normal link over multiple rows</a>
-  </div>
-  <div class="e-mt-16" style="width:164px;">
-    <a class="e-link e-link--external e-link--sm" href="https://www.elvia.no/">
-      <span class="e-link__title">External link over multiple rows</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow-external"></i></span>
-    </a>
-  </div>
-<div>
-`;
-
   constructor() { }
 
   ngOnInit() {
