@@ -66,16 +66,10 @@ export class ButtonDocComponent {
 <div>
   <h3 class="e-title-small">Danger</h3>
   <button class="e-btn e-btn--danger e-m-16">
-    <span class="e-btn__icon">
-      <i class="e-icon e-icon--download"></i>
-    </span>
     <span class="e-btn__title">Danger</span>
   </button>
   <button class="e-btn e-btn--danger e-m-16" disabled>
     <span class="e-btn__title">Disabled</span>
-    <span class="e-btn__icon">
-      <i class="e-icon e-icon--download e-icon--disabled-color-light"></i>
-    </span>
   </button>
 </div>
 <div>
@@ -236,13 +230,13 @@ exampleIcon = `<div>
     <h3 class="e-title-small">Circled (Only medium + large)</h3>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--remove-circle"></i>
-        <i class="e-icon e-icon e-icon--remove-circle-filled-color"></i>
+        <i class="e-icon e-icon--information-circle"></i>
+        <i class="e-icon e-icon e-icon--information-circle-filled-color"></i>
       </span>
     </button>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16" disabled>
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--remove-circle e-icon--disabled-color"></i>
+        <i class="e-icon e-icon--information-circle e-icon--disabled-color"></i>
       </span>
     </button>
     <p class="e-text-label">Circled Icons that can be used for this button</p>
@@ -251,7 +245,6 @@ exampleIcon = `<div>
       <i class="e-icon e-icon--add-circle e-icon--sm e-m-8"></i>
       <i class="e-icon e-icon--subtract-circle e-icon--sm e-m-8"></i>
       <i class="e-icon e-icon--check-circle e-icon--sm e-m-8"></i>
-      <i class="e-icon e-icon--remove-circle e-icon--sm e-m-8"></i>
       <i class="e-icon e-icon--alert-circle e-icon--sm e-m-8"></i>
       <i class="e-icon e-icon--question-circle e-icon--sm e-m-8"></i>
     </div>
@@ -260,7 +253,6 @@ exampleIcon = `<div>
       <i class="e-icon e-icon--add-circle-filled-color e-icon--sm e-m-8"></i>
       <i class="e-icon e-icon--subtract-circle-filled-color e-icon--sm e-m-8"></i>
       <i class="e-icon e-icon--check-circle-filled-color e-icon--sm e-m-8"></i>
-      <i class="e-icon e-icon--remove-circle-filled-color e-icon--sm e-m-8"></i>
       <i class="e-icon e-icon--alert-circle-filled-color e-icon--sm e-m-8"></i>
       <i class="e-icon e-icon--question-circle-filled-color e-icon--sm e-m-8"></i>
     </div>
@@ -362,26 +354,26 @@ exampleIcon = `<div>
   <div>
     <button class="e-btn e-btn--icon e-btn--circled e-btn---hover e-m-16">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--remove-circle"></i>
-        <i class="e-icon e-icon e-icon--remove-circle-filled-color"></i>
+        <i class="e-icon e-icon--information-circle"></i>
+        <i class="e-icon e-icon e-icon--information-circle-filled-color"></i>
       </span>
     </button>
     <button class="e-btn e-btn--icon e-btn--circled e-btn---active e-m-16">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--remove-circle"></i>
-        <i class="e-icon e-icon e-icon--remove-circle-filled-color"></i>
+        <i class="e-icon e-icon--information-circle"></i>
+        <i class="e-icon e-icon e-icon--information-circle-filled-color"></i>
       </span>
       </span>
     </button>
     <button class="e-btn e-btn--icon e-btn--circled e-btn---focus e-m-16">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--remove-circle"></i>
-        <i class="e-icon e-icon e-icon--remove-circle-filled-color"></i>
+        <i class="e-icon e-icon--information-circle"></i>
+        <i class="e-icon e-icon e-icon--information-circle-filled-color"></i>
       </span>
     </button>
     <button class="e-btn e-btn--icon e-btn--circled e-btn---disabled e-m-16">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--remove-circle e-icon--disabled-color"></i>
+        <i class="e-icon e-icon--information-circle e-icon--disabled-color"></i>
       </span>
     </button>
   </div>
