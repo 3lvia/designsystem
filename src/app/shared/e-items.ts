@@ -17,13 +17,13 @@ export const eHomes: EItems[] = [
         absolutePath: '/components/overview-comp-doc',
         actionText: 'View components',
     },
-    // {
-    //     title: 'Contribute',
-    //     description: 'Guidance to how to contribute to Elvia Designsystem.',
-    //     docUrl: Pages.Contribute,
-    //     absolutePath: '/utilities/contribute',
-    //     actionText: 'Start contributing',
-    // },
+    {
+        title: 'Contribute',
+        description: 'Guidance to how to contribute to Elvia Designsystem.',
+        docUrl: Pages.Contribute,
+        absolutePath: '/utilities/contribute',
+        actionText: 'Start contributing',
+    },
     {
         title: 'Discussion',
         description: 'Report a bug? Request a new feauture?',
@@ -206,23 +206,23 @@ export const eUtilities: EItems[] = [
         status: ItemStatus.Done,
         actionText: 'Get started',
     },
-    // {
-    //     title: 'Templates',
-    //     description: 'Page template and starte templates for new projects?',
-    //     docUrl: Pages.Template,
-    //     actionText: 'View templates',
-    // },
-    // {
-    //     title: 'Contribute',
-    //     description: 'Guidance to how to contribute to Elvia Designsystem.',
-    //     docUrl: Pages.Contribute,
-    //     actionText: 'Start contributing',
-    // },
+    {
+        title: 'Contribute',
+        description: 'Guidance to how to contribute to Elvia Designsystem.',
+        docUrl: Pages.Contribute,
+        actionText: 'Start contributing',
+    },
     // {
     //     title: 'Border',
     //     description: 'Some useful component with amazing features',
     //     docUrl: Pages.Border,
     //     actionText: 'View utility',
+    // },
+    // {
+    //     title: 'Templates',
+    //     description: 'Page template and starte templates for new projects?',
+    //     docUrl: Pages.Template,
+    //     actionText: 'View templates',
     // },
     {
         title: 'Colors',

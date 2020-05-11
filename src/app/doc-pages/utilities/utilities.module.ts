@@ -14,12 +14,14 @@ import { BreakpointsDocModule } from './breakpoints-doc/breakpoints-doc.module';
 import { LogoDocModule } from './logo-doc/logo-doc.module';
 import { GridDocModule } from './grid-doc/grid-doc.module';
 import { AlignmentDocModule } from './alignment-doc/alignment-doc/alignment-doc.module';
+import { ContributeModule } from './contribute/contribute.module';
 
 @NgModule({
     imports: [
         UtilitiesStartModule,
         BorderDocModule,
         ColorDocModule,
+        ContributeModule,
         IconDocModule,
         NewProjectModule,
         OverviewUtilModule,
