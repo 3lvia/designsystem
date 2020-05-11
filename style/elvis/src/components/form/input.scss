@@ -14,8 +14,6 @@ $form-input-border: 1px solid color("grey");
 
   display: flex;
   align-items: center;
-  padding: $form-input-padding;
-  transition: border-color $medium-transition $transition-cubic;
   border: $form-input-border;
   border-radius: $form-input-border-radius;
   box-sizing: border-box;
@@ -23,26 +21,25 @@ $form-input-border: 1px solid color("grey");
   max-width: 448px;
   width: 100%;
 
-  > input,
-  > textarea {
+  > input, > textarea {
     width: 100%;
-    padding: 0;
+    padding: $form-input-padding;
     border: none;
     background: transparent;
     @extend .e-text-option;
   }
-  input:focus, textarea:focus { outline: none; } // Removes inner outline, adds outer later
-
-  > i {
-    float: right;
-    margin-left: 16px;
-  }
-
   > textarea {
     min-height: 16px;
     height: 91px;
     resize: vertical;
     overflow-y: auto;
+  }
+
+  input::placeholder { color: color('grey-80'); }
+
+  > i {
+    float: right;
+    margin-right: 16px;
   }
 
   &.e-input--small {
@@ -59,15 +56,18 @@ $form-input-border: 1px solid color("grey");
     }
   }
 
+  input:focus, textarea:focus { outline: none; } // Removes inner outline, adds outer later
   &.e-input---focus, &:focus-within:not(:active) {
     @extend .e-outline;
+    border: 2px solid color('green');
+    > input, > textarea { padding: $form-input-padding-active; }
+    i { margin-right: 15px; }
   }
-
   &.e-input---invalid, input:invalid {
     border: 2px solid color('red');
-    padding: $form-input-padding-active;
+    > input, > textarea { padding: $form-input-padding-active; }
+    i { margin-right: 15px; }
   }
-
   &.e-input---disabled, input:disabled {
     color: color('grey-20');
     border-color: color('grey-20');

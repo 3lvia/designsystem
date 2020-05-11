@@ -519,7 +519,8 @@
       text-align: center;
       cursor: pointer;
       align-self: flex-end;
-      justify-content: center; }
+      justify-content: center;
+      margin-top: 8px; }
       .e-card__actions--action:hover:not(.no-hover), .e-card__actions--action.e---hovering {
         background-color: #eee; }
 
