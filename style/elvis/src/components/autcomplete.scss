@@ -1,0 +1,75 @@
+@import "../variables/colors.scss";
+@import "../utilities/typography.scss";
+@import "../variables/shadows.scss";
+
+.e-autocomplete {
+
+  input {
+    box-sizing: border-box;
+    height: 48px;
+    width: 100%;
+    max-width: 448px;
+    border: 1px solid color("black");
+    border-radius: 4px;
+    padding: 13px 16px;
+    @extend .e-text-description;
+
+    &::placeholder {
+      @extend .e-label-option;
+      color: color("grey-80") !important;
+    }
+
+    &:focus,
+    &:active {
+      outline: none;
+      border-color: transparent;
+      box-shadow: 0px 0px 0px 2px color('green');
+
+    }
+
+    &:invalid {
+      border-color: transparent;
+      box-shadow: 0px 0px 0px 2px color('red');
+    }
+  }
+
+  &__content {
+    display:flex;
+    flex-direction: column;
+    margin-top: 4px;
+    border: 1px solid color("grey-10");
+    border-radius: 4px;
+    box-shadow: $e-shadow-6;
+
+    &__item {
+      display:flex;
+      box-sizing: border-box;
+      height: 48px;
+      // fix pixel error on right side
+      width: calc(100% + 1px);
+      padding: 13px 16px;
+      @extend .e-label-option;
+
+      &:hover {
+        background-color: color("grey-10");
+      }
+    }
+  }
+
+  //pseudo classes
+  &.e-autocomplete---active {
+    input {
+      outline: none;
+      border-color: transparent;
+      box-shadow: 0px 0px 0px 2px color('green');
+    }
+  }
+
+  &.e-autocomplete---invalid {
+    input {
+      border-color: transparent;
+      box-shadow: 0px 0px 0px 2px color('red');
+    }
+  }
+
+}
