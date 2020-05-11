@@ -5,7 +5,7 @@ import { ItemStatus } from './item-status.enum';
 export const eHomes: EItems[] = [
     {
         title: 'New project',
-        description: 'Guidance how to use, and implementation of Elvia Designsystem.',
+        description: 'Guidance on how to use, and implementation of Elvia Designsystem.',
         docUrl: Pages.NewProject,
         absolutePath: '/utilities/new-project-doc',
         actionText: 'Get started',
@@ -19,7 +19,7 @@ export const eHomes: EItems[] = [
     },
     {
         title: 'Contribute',
-        description: 'Guidance to how to contribute to Elvia Designsystem.',
+        description: 'Guidance on how to contribute to Elvia Designsystem.',
         docUrl: Pages.Contribute,
         absolutePath: '/utilities/contribute',
         actionText: 'Start contributing',
@@ -201,14 +201,14 @@ export const eComponents: EItems[] = [
 export const eUtilities: EItems[] = [
     {
         title: 'New project',
-        description: 'Guidance how to use, and implementation of Elvia Designsystem.',
+        description: 'Guidance on how to use, and implementation of Elvia Designsystem.',
         docUrl: Pages.NewProject,
         status: ItemStatus.Done,
         actionText: 'Get started',
     },
     {
         title: 'Contribute',
-        description: 'Guidance to how to contribute to Elvia Designsystem.',
+        description: 'Guidance on how to contribute to Elvia Designsystem.',
         docUrl: Pages.Contribute,
         status: ItemStatus.New,
         actionText: 'Start contributing',
