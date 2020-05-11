@@ -210,6 +210,7 @@ export const eUtilities: EItems[] = [
         title: 'Contribute',
         description: 'Guidance to how to contribute to Elvia Designsystem.',
         docUrl: Pages.Contribute,
+        status: ItemStatus.New,
         actionText: 'Start contributing',
     },
     // {

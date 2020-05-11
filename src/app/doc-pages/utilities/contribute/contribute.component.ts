@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { getUtilities } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-contribute',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contribute.component.scss']
 })
 export class ContributeComponent implements OnInit {
+
+  componentStatus = getUtilities('contribute').status;
 
   constructor() { }
 
