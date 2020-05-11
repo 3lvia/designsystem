@@ -1657,8 +1657,7 @@ body {
   font-weight: 500;
   color: #000; }
 
-.e-text-option, .e-fileupload__description, .e-input > input,
-.e-input > textarea {
+.e-text-option, .e-fileupload__description, .e-input > input, .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
@@ -1945,8 +1944,7 @@ body {
   font-weight: 500;
   color: #000; }
 
-.e-text-option, .e-fileupload__description, .e-input > input,
-.e-input > textarea {
+.e-text-option, .e-fileupload__description, .e-input > input, .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
@@ -2660,8 +2658,7 @@ body {
   font-weight: 500;
   color: #000; }
 
-.e-text-option, .e-fileupload__description, .e-input > input,
-.e-input > textarea {
+.e-text-option, .e-fileupload__description, .e-input > input, .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
@@ -2884,8 +2881,7 @@ body {
   font-weight: 500;
   color: #000; }
 
-.e-text-option, .e-fileupload__description, .e-input > input,
-.e-input > textarea {
+.e-text-option, .e-fileupload__description, .e-input > input, .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
@@ -2902,30 +2898,27 @@ body {
 .e-input {
   display: flex;
   align-items: center;
-  padding: 12px 16px;
-  transition: border-color 300ms cubic-bezier(0.55, 0, 0.1, 1);
   border: 1px solid #262626;
   border-radius: 4px;
   box-sizing: border-box;
   background: #FFF;
   max-width: 448px;
   width: 100%; }
-  .e-input > input,
-  .e-input > textarea {
+  .e-input > input, .e-input > textarea {
     width: 100%;
-    padding: 0;
+    padding: 12px 16px;
     border: none;
     background: transparent; }
-  .e-input input:focus, .e-input textarea:focus {
-    outline: none; }
-  .e-input > i {
-    float: right;
-    margin-left: 16px; }
   .e-input > textarea {
     min-height: 16px;
     height: 91px;
     resize: vertical;
     overflow-y: auto; }
+  .e-input input::placeholder {
+    color: #515151; }
+  .e-input > i {
+    float: right;
+    margin-right: 16px; }
   .e-input.e-input--small {
     width: 60px; }
     .e-input.e-input--small input {
@@ -2934,9 +2927,20 @@ body {
     width: 120px; }
     .e-input.e-input--medium input {
       width: 120px; }
+  .e-input input:focus, .e-input textarea:focus {
+    outline: none; }
+  .e-input.e-input---focus, .e-input:focus-within:not(:active) {
+    border: 2px solid #29D305; }
+    .e-input.e-input---focus > input, .e-input.e-input---focus > textarea, .e-input:focus-within:not(:active) > input, .e-input:focus-within:not(:active) > textarea {
+      padding: 11px 15px; }
+    .e-input.e-input---focus i, .e-input:focus-within:not(:active) i {
+      margin-right: 15px; }
   .e-input.e-input---invalid, .e-input input:invalid {
-    border: 2px solid #FF0000;
-    padding: 11px 15px; }
+    border: 2px solid #FF0000; }
+    .e-input.e-input---invalid > input, .e-input.e-input---invalid > textarea, .e-input input:invalid > input, .e-input input:invalid > textarea {
+      padding: 11px 15px; }
+    .e-input.e-input---invalid i, .e-input input:invalid i {
+      margin-right: 15px; }
   .e-input.e-input---disabled, .e-input input:disabled {
     color: #D3D3D3;
     border-color: #D3D3D3;
@@ -6732,8 +6736,7 @@ body {
   font-weight: 500;
   color: #000; }
 
-.e-text-option, .e-fileupload__description, .e-input > input,
-.e-input > textarea {
+.e-text-option, .e-fileupload__description, .e-input > input, .e-input > textarea {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
