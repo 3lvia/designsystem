@@ -61,10 +61,12 @@ $form-input-border: 1px solid color("grey");
     @extend .e-outline;
     border: 2px solid color('green');
     > input, > textarea { padding: $form-input-padding-active; }
+    i { margin-right: 15px; }
   }
   &.e-input---invalid, input:invalid {
     border: 2px solid color('red');
     > input, > textarea { padding: $form-input-padding-active; }
+    i { margin-right: 15px; }
   }
   &.e-input---disabled, input:disabled {
     color: color('grey-20');
