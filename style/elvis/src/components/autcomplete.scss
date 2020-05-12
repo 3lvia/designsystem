@@ -36,6 +36,10 @@
   &__content {
     display:flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 448px;
+    max-height: 240px;
+    overflow-y: hidden;
     margin-top: 4px;
     border: 1px solid color("grey-10");
     border-radius: 4px;
@@ -45,8 +49,7 @@
       display:flex;
       box-sizing: border-box;
       height: 48px;
-      // fix pixel error on right side
-      width: calc(100% + 1px);
+      width: 100%;
       padding: 13px 16px;
       @extend .e-text-option;
 
