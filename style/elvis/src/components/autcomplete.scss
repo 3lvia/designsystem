@@ -15,7 +15,7 @@
     @extend .e-text-description;
 
     &::placeholder {
-      @extend .e-label-option;
+      @extend .e-text-option;
       color: color("grey-80") !important;
     }
 
@@ -48,7 +48,7 @@
       // fix pixel error on right side
       width: calc(100% + 1px);
       padding: 13px 16px;
-      @extend .e-label-option;
+      @extend .e-text-option;
 
       &:hover {
         background-color: color("grey-10");
