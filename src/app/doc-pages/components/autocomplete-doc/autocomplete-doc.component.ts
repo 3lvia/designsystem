@@ -73,6 +73,8 @@ onSearch(searchTerm:string) {
 
   if(searchTerm.length === 0) {
     this.showResults = false;
+  } else if(this.results.length === 0) {
+    this.showResults = false;
   } else {
     this.showResults = true;
   }
