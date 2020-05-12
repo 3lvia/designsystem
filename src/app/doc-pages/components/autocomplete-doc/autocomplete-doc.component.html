@@ -37,6 +37,12 @@
   ></app-code-block>
   <h3>TODO App code block example</h3>
 
-  <h3>TODO Live example with code</h3>
+  <div class="e-autocomplete">
+    <input placeholder="Placeholder text" (keyup)="OnSearch($event)" />
+
+    <div class="e-autocomplete__content" *ngIf="match">
+
+    </div>
+  </div>
 
 </div>

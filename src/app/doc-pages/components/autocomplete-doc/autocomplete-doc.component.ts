@@ -12,11 +12,11 @@ export class AutocompleteDocComponent implements OnInit {
   componentStatus = getComponent('autocomplete-doc').status;
 
   example1 = `<div class="e-autocomplete">
-    <input placeholder="Placeholder text"></input>
+    <input placeholder="Placeholder text"/>
   </div>`;
 
   example2 = `<div class="e-autocomplete">
-  <input placeholder="Placeholder text" value="Aus"></input>
+  <input placeholder="Placeholder text" value="Aus"/>
 
   <div class="e-autocomplete__content">
     <span class="e-autocomplete__content__item">Australia</span>
@@ -25,16 +25,29 @@ export class AutocompleteDocComponent implements OnInit {
 </div>`;
 
 example3 = `<div class="e-autocomplete e-mt-16">
-<input placeholder="Normal state" value="Normal state"></input>
+<input placeholder="Normal state" value="Normal state"/>
 </div>
 <div class="e-autocomplete e-autocomplete---active e-mt-16">
-<input placeholder="Active/Focus state" value="Active/Focus state"></input>
+<input placeholder="Active/Focus state" value="Active/Focus state"/>
 </div>
 <div class="e-autocomplete e-autocomplete---invalid e-mt-16">
-<input placeholder="Invalid error state" value="Invalid error state"></input>
+<input placeholder="Invalid error state" value="Invalid error state"/>
 </div>
 `;
 
+match = false;
+
+searchQueary = [];
+
+OnSearch(event) {
+  if(event.key === "Backspace") {
+    this.searchQueary.slice(-1);
+  }
+
+  this.searchQueary.push(event.key);
+  console.log(event);
+  console.log(this.searchQueary)
+}
   constructor() { }
 
   ngOnInit() {
