@@ -35,6 +35,7 @@
     [title]="'Pseudo Classes'"
     [class]="['e-autocomplete__dropdown']"
   ></app-code-block>
+
     <h3>Example of how to build Elvis Autocomplete</h3>
     <div class="e-autocomplete">
       <input type="text" [value]="ChoosenLand" #searchTerm (keyup)="onSearch(searchTerm.value)" id="ChooseCountry"/>
@@ -46,7 +47,6 @@
     </div>
 
     <h4>Html code for Angular example</h4>
-
     <app-code-highlighter
       [isHTML]="'true'"
       [code]="exampleInHTML"
