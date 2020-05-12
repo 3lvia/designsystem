@@ -35,19 +35,28 @@
     [title]="'Pseudo Classes'"
     [class]="['e-autocomplete__dropdown']"
   ></app-code-block>
-
-  <div class="liveExample e-pb-40" >
-    <h3>TODO App code block example</h3>
+    <h3>Example of how to build Elvis Autocomplete</h3>
     <div class="e-autocomplete">
       <input type="text" [value]="ChoosenLand" #searchTerm (keyup)="onSearch(searchTerm.value)" id="ChooseCountry"/>
-
       <div class="e-autocomplete__content" *ngIf="showResults">
         <div class="e-autocomplete__content__item" *ngFor="let country of results" (click)="SelectCountry(country)">
           {{ country }}
         </div>
       </div>
     </div>
-  </div>
+
+    <h4>Html code for Angular example</h4>
+
+    <app-code-highlighter
+      [isHTML]="'true'"
+      [code]="exampleInHTML"
+    ></app-code-highlighter>
+
+    <h4>TS code for Angular example</h4>
+    <app-code-highlighter
+      [isTS]="'true'"
+      [code]="exampleInTS"
+    ></app-code-highlighter>
 
 
 

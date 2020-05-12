@@ -5,6 +5,7 @@
 .e-autocomplete {
 
   input {
+    position: relative;
     box-sizing: border-box;
     height: 48px;
     width: 100%;
@@ -34,8 +35,9 @@
   }
 
   &__content {
-    display:flex;
-    flex-direction: column;
+    position: absolute;
+    display: block;
+    background-color: color("white");
     width: 100%;
     max-width: 448px;
     max-height: 240px;
@@ -44,13 +46,15 @@
     border: 1px solid color("grey-10");
     border-radius: 4px;
     box-shadow: $e-shadow-6;
+    z-index: 1;
 
     &__item {
-      display:flex;
+      display: block;
       box-sizing: border-box;
       height: 48px;
       width: 100%;
       padding: 13px 16px;
+      z-index: 1;
       @extend .e-text-option;
 
       &:hover {
