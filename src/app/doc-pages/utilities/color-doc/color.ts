@@ -98,6 +98,7 @@ export const greysColors: Color[] = [
     {
         title: 'grey-30',
         hex: '#BDBDBD',
+        labels: ['disabled'],
     },
     {
         title: 'grey-20',
@@ -110,6 +111,7 @@ export const greysColors: Color[] = [
     {
         title: 'grey-05',
         hex: '#F4F4F4',
+        labels: ['disabled-light'],
     },
     {
         title: 'grey-02',

@@ -35,3 +35,23 @@ export const heightDown: AnimationTriggerMetadata = trigger('heightDown', [
   transition('void => *', animate(`250ms cubic-bezier(0.6, 0, 0.1, 1)`)),
   transition('* => void', animate(`250ms cubic-bezier(.55, 0, .88, 1)`))
 ]);
+
+export const SectionAnimation: AnimationTriggerMetadata = trigger('sectionAnimation', [
+  state(
+    'void',
+    style({
+      opacity: 0,
+      transform: 'translateY(-4%)',
+    })
+  ),
+  state(
+    '*',
+    style({
+      opacity: 1,
+      transform: 'translateY(0%)'
+    })
+  ),
+  transition('void => *', animate(`550ms cubic-bezier(0.6, 0, 0.1, 1)`)),
+  transition('* => void', animate(`550ms cubic-bezier(.55, 0, .88, 1)`))
+]);
+

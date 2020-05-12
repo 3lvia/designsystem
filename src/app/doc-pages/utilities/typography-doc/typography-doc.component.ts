@@ -32,8 +32,8 @@ eller isolasjonssvikt i det elektriske anlegget eller tilknyttet utstyr. </p>
 <p class="e-text-description">Ved å legge til e-post på din bruker</p>
 <p class="e-text-caps">AV PETTER JENSEN</p>
 <p class="e-text-info">Tekst i en tabell</p>`;
-  example3 = `<p class="e-label-input">Label title</p>
-<p class="e-label-option">Placeholder text</p>`;
+  example3 = `<p class="e-text-label">Label title</p>
+<p class="e-text-option">Placeholder text</p>`;
 
   constructor() { }
 

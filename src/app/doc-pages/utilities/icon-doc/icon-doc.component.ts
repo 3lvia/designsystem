@@ -27,19 +27,22 @@ export class IconDocComponent implements OnInit {
 <i class="e-icon e-icon--move-truck-color e-icon--xxs"></i>`;
 
 
-  example2 = `<i class="e-icon e-icon--cog e-icon--purple-plum e-icon--xxl"></i>
-<i class="e-icon e-icon--cog e-icon--orange-mango e-icon--xl"></i>
-<i class="e-icon e-icon--cog e-icon--red-tomato e-icon--lg"></i>
-<i class="e-icon e-icon--cog e-icon--violet-grape e-icon--md"></i>
-<i class="e-icon e-icon--cog e-icon--grey-70 e-icon--sm"></i>
-<i class="e-icon e-icon--cog e-icon--blue-berry e-icon--xs"></i>
-<i class="e-icon e-icon--cog e-icon--green-apple e-icon--xxs"></i>`;
+  example2 = `<i class="e-icon e-icon--cog e-icon--xxl e-icon--purple-plum"></i>
+<i class="e-icon e-icon--cog e-icon--xl e-icon--orange-mango"></i>
+<i class="e-icon e-icon--cog e-icon--lg e-icon--red-tomato"></i>
+<i class="e-icon e-icon--cog e-icon--md e-icon--violet-grape"></i>
+<i class="e-icon e-icon--cog e-icon--sm e-icon--grey-70"></i>
+<i class="e-icon e-icon--cog e-icon--xs e-icon--blue-berry"></i>
+<i class="e-icon e-icon--cog e-icon--xxs e-icon--green-apple"></i>`;
 
 example3 = `<div class="e-bg-black e-p-8">
   <i class="e-icon e-icon--chat e-icon--inverted"></i>
 </div>
 <div class="e-p-8">
-  <i class="e-icon e-icon--chat e-icon--disabled"></i>
+  <i class="e-icon e-icon--chat e-icon--color-disabled"></i>
+</div>
+<div class="e-bg-black e-p-8">
+  <i class="e-icon e-icon--chat e-icon--color-disabled-light"></i>
 </div>`;
 
 example4 = `<i class="e-icon e-icon--email"></i>
@@ -54,8 +57,7 @@ example4 = `<i class="e-icon e-icon--email"></i>
 <i class="e-icon e-icon--email e-icon--grey-10"></i>
 <i class="e-icon e-icon--email e-icon--grey-05"></i>
 <i class="e-icon e-icon--email e-icon--grey-02"></i>
-
-`
+`;
 
   term;
   IconClassList: Icon[] = [];

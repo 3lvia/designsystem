@@ -14,7 +14,7 @@
     }
 
     &__description {
-        @extend .e-label-option;
+        @extend .e-text-option;
         display: flex;
         width: 100%;
         justify-content: center;
