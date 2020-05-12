@@ -5,3 +5,11 @@
     outline-offset: 2px;
     outline-width: 2px;
 }
+
+// Using this requires javascript to not fail WCAG criterion 2.4.7
+.e-no-outline {
+    a:focus,
+    button:focus {
+        outline: none !important;
+    }
+}

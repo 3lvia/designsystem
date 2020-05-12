@@ -1,4 +1,32 @@
 document.addEventListener("DOMContentLoaded", function(){
+    let DEBUG = false;
+    if(window.location.href.indexOf('#debug') > -1) {
+      DEBUG = true;
+    }
+    
+    function outlineFix() {
+      if(DEBUG) {
+        return;
+      }
+      let keyboardMode = false;
+      document.body.classList.add('e-no-outline');
+
+      document.documentElement.addEventListener('keyup', function(e) {
+        if (e.keyCode === 9) {
+          keyboardMode = true;
+          document.body.classList.remove('e-no-outline');
+        }
+      });
+
+      document.documentElement.addEventListener('click', function (event) {
+        if(!keyboardMode) {
+          document.body.classList.add('e-no-outline');
+        }
+      }, false);
+    }
+    
+
+
     let mo = new MutationObserver(function(mutations){
         mutations.forEach(function(mutation) {            
             injectIconIfEligible(mutation.target, mutation);
@@ -214,6 +242,8 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     
     replaceIcons();
+    outlineFix();
+
     // TODO: Remove this temporary fallback
     window.setInterval(function(){
         replaceIcons();

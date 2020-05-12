@@ -56,6 +56,10 @@
   outline-offset: 2px;
   outline-width: 2px; }
 
+.e-no-outline a:focus,
+.e-no-outline button:focus {
+  outline: none !important; }
+
 @-webkit-keyframes spinner {
   from {
     transform: rotate(0deg);
@@ -110,6 +114,10 @@
   outline-style: solid;
   outline-offset: 2px;
   outline-width: 2px; }
+
+.e-no-outline a:focus,
+.e-no-outline button:focus {
+  outline: none !important; }
 
 .e-icon {
   width: 32px;
@@ -670,6 +678,10 @@
   outline-style: solid;
   outline-offset: 2px;
   outline-width: 2px; }
+
+.e-no-outline a:focus,
+.e-no-outline button:focus {
+  outline: none !important; }
 
 .e-link {
   display: inline;
@@ -2104,6 +2116,10 @@ body {
   outline-offset: 2px;
   outline-width: 2px; }
 
+.e-no-outline a:focus,
+.e-no-outline button:focus {
+  outline: none !important; }
+
 .e-toggle {
   position: relative;
   display: inline-block;
@@ -2482,6 +2498,10 @@ body {
   outline-style: solid;
   outline-offset: 2px;
   outline-width: 2px; }
+
+.e-no-outline a:focus,
+.e-no-outline button:focus {
+  outline: none !important; }
 
 .e-checkbox {
   display: flex;
@@ -2895,6 +2915,10 @@ body {
   outline-offset: 2px;
   outline-width: 2px; }
 
+.e-no-outline a:focus,
+.e-no-outline button:focus {
+  outline: none !important; }
+
 .e-input {
   display: flex;
   align-items: center;
@@ -2960,6 +2984,10 @@ body {
   outline-style: solid;
   outline-offset: 2px;
   outline-width: 2px; }
+
+.e-no-outline a:focus,
+.e-no-outline button:focus {
+  outline: none !important; }
 
 .e-radio {
   display: flex;
@@ -6805,6 +6833,10 @@ body {
   outline-style: solid;
   outline-offset: 2px;
   outline-width: 2px; }
+
+.e-no-outline a:focus,
+.e-no-outline button:focus {
+  outline: none !important; }
 
 .e-text-right {
   text-align: right; }
