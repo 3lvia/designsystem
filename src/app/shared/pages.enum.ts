@@ -3,8 +3,7 @@ export enum Pages {
     Home = 'home',
     NewProject = 'new-project-doc',
     Template = 'template-doc',
-    // TODO: Add contribution card and url to Github Repo Contribution MD.
-    // Contribute = 'contribute',
+    Contribute = 'contribute',
 
     // Accessibility Pages
     AccessibilityStart = 'accessibility',

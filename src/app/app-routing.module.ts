@@ -45,6 +45,7 @@ import { AlignmentDocComponent } from './doc-pages/utilities/alignment-doc/align
 import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
 import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
 import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
+import { ContributeComponent } from './doc-pages/utilities/contribute/contribute.component';
 
 
 const routes: Routes = [
@@ -201,6 +202,10 @@ const routes: Routes = [
           {
             path: Pages.Border,
             component: BorderDocComponent
+          },
+          {
+            path: Pages.Contribute,
+            component: ContributeComponent
           },
           {
             path: Pages.Color,
