@@ -71,15 +71,9 @@ document.addEventListener("DOMContentLoaded", function(){
                 icon = icon.replace("fill='black'", "fillReplace");
               } 
             };
-            if(classList.contains('e-icon--check-circle-filled-color')){
-              console.log(icon);
-            }
             icon = icon.replace("fill='white'", "fillReplace");
-            if(classList.contains('e-icon--check-circle-filled-color')){
-              console.log(icon);
-            }
             icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
-            icon = icon.replace("fillReplace", "fill='black'");
+            icon = icon.replace(/fillReplace/g, "fill='black'");
             if(classList.contains('e-icon--check-circle-filled-color')){
               console.log(icon);
             }
