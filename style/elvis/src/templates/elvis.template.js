@@ -62,13 +62,19 @@ document.addEventListener("DOMContentLoaded", function(){
     function setCorrectColor(classList, icon) {
         let fill;
         if(classList.contains('e-icon--inverted')) {
+            if(classList.contains('e-icon--check-circle-filled-color')){
+              console.log(icon);
+            }
             for(let i = 0; i < classList.length; i++) {
-              if((classList[i].indexOf("-full-color") > -1) || (classList[i].indexOf("-filled-color") > -1)){
-                console.log(classList[i]);
+              if((classList[i].indexOf("-filled-color") > -1)){
+                //console.log(classList[i]);
                 icon = icon.replace("fill='black'", "fillReplace");
               } 
             };
             icon = icon.replace("fill='white'", "fillReplace");
+            if(classList.contains('e-icon--check-circle-filled-color')){
+              console.log(icon);
+            }
             icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
             icon = icon.replace("fillReplace", "fill='black'");
             return icon;

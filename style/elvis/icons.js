@@ -253,7 +253,7 @@
     }
     export const checkCircleFilledColor = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path d="M12 23.997c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M6.47 11.306a.75.75 0 011.06 0l3.006 3.002 6.54-6.534a.75.75 0 011.06 1.06l-7.07 7.063a.75.75 0 01-1.06 0L6.47 12.365a.748.748 0 010-1.06z" fill="#000"/></g></svg>'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path d="M12 23.997c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M6.47 11.306a.75.75 0 011.06 0l3.006 3.002 6.54-6.534a.75.75 0 011.06 1.06l-7.07 7.063a.75.75 0 01-1.06 0L6.47 12.365a.748.748 0 010-1.06z" fill="#000"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
