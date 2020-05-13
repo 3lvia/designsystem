@@ -43,8 +43,9 @@ $button-sm-line-height: 16px;
   justify-content: center;
   outline: none;
 
-  &.e-btn---focus, &:enabled:focus:not(:active):not(:hover) {
-    @extend .e-outline;
+  &.e-btn---focus, &:enabled:focus {
+    outline: none;
+    @include e-outline();
   }
   
   // Adding margin if icon
@@ -89,6 +90,7 @@ $button-sm-line-height: 16px;
     border-radius: $button-radius;
     background: color("black");
     color: color("white");
+    outline: none;
 
     .e-btn__icon {
       position: relative;

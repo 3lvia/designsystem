@@ -64,7 +64,7 @@ $link-jumbo-phone-width: 287px;
     border-bottom-color: color("green");
   }
   &.e-link---focus, &:focus:not(:active) {
-    @extend .e-outline;
+    @include e-outline();
     overflow: auto;
   }
 
