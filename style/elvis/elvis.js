@@ -1,4 +1,28 @@
 document.addEventListener("DOMContentLoaded", function(){
+    let DEBUG = false;
+    if(window.location.href.indexOf('#debug') > -1) {
+      DEBUG = true;
+    }
+    
+    function outlineFix() {
+      if(DEBUG){
+        return;
+      }
+      document.body.classList.add('e-no-outline');
+      document.documentElement.addEventListener('keyup', function(e) {
+        if (e.keyCode === 9) {
+          document.body.classList.remove('e-no-outline');
+        }
+      });
+
+      document.documentElement.addEventListener('click', function (event) {
+          document.body.classList.add('e-no-outline');
+      }, false);
+    }
+    outlineFix();
+    
+
+
     let mo = new MutationObserver(function(mutations){
         mutations.forEach(function(mutation) {            
             injectIconIfEligible(mutation.target, mutation);
@@ -60,25 +84,23 @@ document.addEventListener("DOMContentLoaded", function(){
     } 
 
     function setCorrectColor(classList, icon) {
-        let fill;
+        let fill;   
+
         if(classList.contains('e-icon--inverted')) {
-            if(classList.contains('e-icon--check-circle-filled-color')){
-              console.log(icon);
-            }
-            for(let i = 0; i < classList.length; i++) {
-              if((classList[i].indexOf("-filled-color") > -1)){
-                //console.log(classList[i]);
-                icon = icon.replace("fill='black'", "fillReplace");
-              } 
-            };
-            icon = icon.replace("fill='white'", "fillReplace");
-            icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
-            icon = icon.replace(/fillReplace/g, "fill='black'");
-            if(classList.contains('e-icon--check-circle-filled-color')){
-              console.log(icon);
-            }
-            return icon;
-        }   
+          for(let i = 0; i < classList.length; i++) {
+              // -full-color check can be removed when new icons have been added
+              if((classList[i].indexOf("-filled-color") > -1) || (classList[i].indexOf("-full-color") > -1)) {
+                  icon = icon.replace("fill='black'", "fillReplace");
+              }
+          };
+          icon = icon.replace("fill='white'", "fillReplace");
+          icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
+          icon = icon.replace(/fillReplace/g, "fill='black'");
+          if(classList.contains('e-icon--color-purple-plum')) {
+            console.log(icon);
+          }
+          return icon;
+        }
 
         if(classList.contains('e-icon--color-disabled')) {
             fill = colors['grey-30'].color;
@@ -88,9 +110,9 @@ document.addEventListener("DOMContentLoaded", function(){
             fill = colors['grey-05'].color;
         }
         
-        if(JSON.stringify(classList).indexOf('e-icon--') > -1) {
+        if(JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
               for(let i = 0; i < classList.length; i++) {
-                  let color = classList[i].replace('e-icon--', '');
+                  let color = classList[i].replace('e-icon--color-', '');
                   if(colors[color]){
                       fill = colors[color].color;
                   }
@@ -101,6 +123,7 @@ document.addEventListener("DOMContentLoaded", function(){
             fill = fill.replace('#', '%23');
             icon = icon.replace(/fill='([^']*)'/g, "fill='"+ fill +"'");
         }
+
         return icon;
     }
 
@@ -367,6 +390,7 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     
     replaceIcons();
+
     // TODO: Remove this temporary fallback
     window.setInterval(function(){
         replaceIcons();

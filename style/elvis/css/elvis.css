@@ -50,11 +50,13 @@
     background-color: #006DDB; }
 
 .e-outline, *:focus:not(:active), .e-btn.e-btn---focus, .e-btn:enabled:focus:not(:active):not(:hover), .e-link.e-link---focus, .e-link:focus:not(:active), .e-toggle input:focus:not(:active) + .e-slider, .e-checkbox.e-checkbox---focus .e-checkbox__mark, .e-checkbox input:focus:not(:active) ~ .e-checkbox__mark, .e-input.e-input---focus, .e-input:focus-within:not(:active), .e-radio input:focus:not(:active) ~ .e-radio__mark, .e-radio__mark.e-radio__mark---focus, .e-segmented-controls.e-segmented-controls---focus, .e-segmented-controls:focus-within:not(:active) {
-  outline: none;
-  outline-color: #0064FA;
-  outline-style: solid;
+  outline: 2px solid #0064FA;
   outline-offset: 2px;
-  outline-width: 2px; }
+  outline-style: solid;
+  outline-color: #0064FA; }
+
+.e-no-outline * {
+  outline: none !important; }
 
 @-webkit-keyframes spinner {
   from {
@@ -105,11 +107,13 @@
     -webkit-transform: rotate(360deg); } }
 
 .e-outline, *:focus:not(:active), .e-btn.e-btn---focus, .e-btn:enabled:focus:not(:active):not(:hover), .e-link.e-link---focus, .e-link:focus:not(:active), .e-toggle input:focus:not(:active) + .e-slider, .e-checkbox.e-checkbox---focus .e-checkbox__mark, .e-checkbox input:focus:not(:active) ~ .e-checkbox__mark, .e-input.e-input---focus, .e-input:focus-within:not(:active), .e-radio input:focus:not(:active) ~ .e-radio__mark, .e-radio__mark.e-radio__mark---focus, .e-segmented-controls.e-segmented-controls---focus, .e-segmented-controls:focus-within:not(:active) {
-  outline: none;
-  outline-color: #0064FA;
-  outline-style: solid;
+  outline: 2px solid #0064FA;
   outline-offset: 2px;
-  outline-width: 2px; }
+  outline-style: solid;
+  outline-color: #0064FA; }
+
+.e-no-outline * {
+  outline: none !important; }
 
 .e-icon {
   width: 32px;
@@ -665,11 +669,13 @@
         margin-right: 8px; }
 
 .e-outline, *:focus:not(:active), .e-btn.e-btn---focus, .e-btn:enabled:focus:not(:active):not(:hover), .e-link.e-link---focus, .e-link:focus:not(:active), .e-toggle input:focus:not(:active) + .e-slider, .e-checkbox.e-checkbox---focus .e-checkbox__mark, .e-checkbox input:focus:not(:active) ~ .e-checkbox__mark, .e-input.e-input---focus, .e-input:focus-within:not(:active), .e-radio input:focus:not(:active) ~ .e-radio__mark, .e-radio__mark.e-radio__mark---focus, .e-segmented-controls.e-segmented-controls---focus, .e-segmented-controls:focus-within:not(:active) {
-  outline: none;
-  outline-color: #0064FA;
-  outline-style: solid;
+  outline: 2px solid #0064FA;
   outline-offset: 2px;
-  outline-width: 2px; }
+  outline-style: solid;
+  outline-color: #0064FA; }
+
+.e-no-outline * {
+  outline: none !important; }
 
 .e-link {
   display: inline;
@@ -2098,11 +2104,13 @@ body {
     border-color: transparent transparent #BDBDBD transparent !important; }
 
 .e-outline, *:focus:not(:active), .e-btn.e-btn---focus, .e-btn:enabled:focus:not(:active):not(:hover), .e-link.e-link---focus, .e-link:focus:not(:active), .e-toggle input:focus:not(:active) + .e-slider, .e-checkbox.e-checkbox---focus .e-checkbox__mark, .e-checkbox input:focus:not(:active) ~ .e-checkbox__mark, .e-input.e-input---focus, .e-input:focus-within:not(:active), .e-radio input:focus:not(:active) ~ .e-radio__mark, .e-radio__mark.e-radio__mark---focus, .e-segmented-controls.e-segmented-controls---focus, .e-segmented-controls:focus-within:not(:active) {
-  outline: none;
-  outline-color: #0064FA;
-  outline-style: solid;
+  outline: 2px solid #0064FA;
   outline-offset: 2px;
-  outline-width: 2px; }
+  outline-style: solid;
+  outline-color: #0064FA; }
+
+.e-no-outline * {
+  outline: none !important; }
 
 .e-toggle {
   position: relative;
@@ -2477,11 +2485,13 @@ body {
   color: #fff; }
 
 .e-outline, *:focus:not(:active), .e-btn.e-btn---focus, .e-btn:enabled:focus:not(:active):not(:hover), .e-link.e-link---focus, .e-link:focus:not(:active), .e-toggle input:focus:not(:active) + .e-slider, .e-checkbox.e-checkbox---focus .e-checkbox__mark, .e-checkbox input:focus:not(:active) ~ .e-checkbox__mark, .e-input.e-input---focus, .e-input:focus-within:not(:active), .e-radio input:focus:not(:active) ~ .e-radio__mark, .e-radio__mark.e-radio__mark---focus, .e-segmented-controls.e-segmented-controls---focus, .e-segmented-controls:focus-within:not(:active) {
-  outline: none;
-  outline-color: #0064FA;
-  outline-style: solid;
+  outline: 2px solid #0064FA;
   outline-offset: 2px;
-  outline-width: 2px; }
+  outline-style: solid;
+  outline-color: #0064FA; }
+
+.e-no-outline * {
+  outline: none !important; }
 
 .e-checkbox {
   display: flex;
@@ -2889,11 +2899,13 @@ body {
   color: #000; }
 
 .e-outline, *:focus:not(:active), .e-btn.e-btn---focus, .e-btn:enabled:focus:not(:active):not(:hover), .e-link.e-link---focus, .e-link:focus:not(:active), .e-toggle input:focus:not(:active) + .e-slider, .e-checkbox.e-checkbox---focus .e-checkbox__mark, .e-checkbox input:focus:not(:active) ~ .e-checkbox__mark, .e-input.e-input---focus, .e-input:focus-within:not(:active), .e-radio input:focus:not(:active) ~ .e-radio__mark, .e-radio__mark.e-radio__mark---focus, .e-segmented-controls.e-segmented-controls---focus, .e-segmented-controls:focus-within:not(:active) {
-  outline: none;
-  outline-color: #0064FA;
-  outline-style: solid;
+  outline: 2px solid #0064FA;
   outline-offset: 2px;
-  outline-width: 2px; }
+  outline-style: solid;
+  outline-color: #0064FA; }
+
+.e-no-outline * {
+  outline: none !important; }
 
 .e-input {
   display: flex;
@@ -2955,11 +2967,13 @@ body {
   margin-right: 8px; }
 
 .e-outline, *:focus:not(:active), .e-btn.e-btn---focus, .e-btn:enabled:focus:not(:active):not(:hover), .e-link.e-link---focus, .e-link:focus:not(:active), .e-toggle input:focus:not(:active) + .e-slider, .e-checkbox.e-checkbox---focus .e-checkbox__mark, .e-checkbox input:focus:not(:active) ~ .e-checkbox__mark, .e-input.e-input---focus, .e-input:focus-within:not(:active), .e-radio input:focus:not(:active) ~ .e-radio__mark, .e-radio__mark.e-radio__mark---focus, .e-segmented-controls.e-segmented-controls---focus, .e-segmented-controls:focus-within:not(:active) {
-  outline: none;
-  outline-color: #0064FA;
-  outline-style: solid;
+  outline: 2px solid #0064FA;
   outline-offset: 2px;
-  outline-width: 2px; }
+  outline-style: solid;
+  outline-color: #0064FA; }
+
+.e-no-outline * {
+  outline: none !important; }
 
 .e-radio {
   display: flex;
@@ -6800,11 +6814,13 @@ body {
     height: 56px; }
 
 .e-outline, *:focus:not(:active), .e-btn.e-btn---focus, .e-btn:enabled:focus:not(:active):not(:hover), .e-link.e-link---focus, .e-link:focus:not(:active), .e-toggle input:focus:not(:active) + .e-slider, .e-checkbox.e-checkbox---focus .e-checkbox__mark, .e-checkbox input:focus:not(:active) ~ .e-checkbox__mark, .e-input.e-input---focus, .e-input:focus-within:not(:active), .e-radio input:focus:not(:active) ~ .e-radio__mark, .e-radio__mark.e-radio__mark---focus, .e-segmented-controls.e-segmented-controls---focus, .e-segmented-controls:focus-within:not(:active) {
-  outline: none;
-  outline-color: #0064FA;
-  outline-style: solid;
+  outline: 2px solid #0064FA;
   outline-offset: 2px;
-  outline-width: 2px; }
+  outline-style: solid;
+  outline-color: #0064FA; }
+
+.e-no-outline * {
+  outline: none !important; }
 
 .e-text-right {
   text-align: right; }

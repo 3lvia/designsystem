@@ -27,13 +27,25 @@ export class IconDocComponent implements OnInit {
 <i class="e-icon e-icon--move-truck-color e-icon--xxs"></i>`;
 
 
-  example2 = `<i class="e-icon e-icon--cog e-icon--xxl e-icon--purple-plum"></i>
-<i class="e-icon e-icon--cog e-icon--xl e-icon--orange-mango"></i>
-<i class="e-icon e-icon--cog e-icon--lg e-icon--red-tomato"></i>
-<i class="e-icon e-icon--cog e-icon--md e-icon--violet-grape"></i>
-<i class="e-icon e-icon--cog e-icon--sm e-icon--grey-70"></i>
-<i class="e-icon e-icon--cog e-icon--xs e-icon--blue-berry"></i>
-<i class="e-icon e-icon--cog e-icon--xxs e-icon--green-apple"></i>`;
+  example2 = `<div class="e-p-8">
+  <i class="e-icon e-icon--cog e-icon--xxl e-icon--color-purple-plum"></i>
+  <i class="e-icon e-icon--cog e-icon--xl e-icon--color-orange-mango"></i>
+  <i class="e-icon e-icon--cog e-icon--lg e-icon--color-red-tomato"></i>
+  <i class="e-icon e-icon--cog e-icon--md e-icon--color-violet-grape"></i>
+  <i class="e-icon e-icon--cog e-icon--sm e-icon--color-grey-70"></i>
+  <i class="e-icon e-icon--cog e-icon--xs e-icon--color-blue-berry"></i>
+  <i class="e-icon e-icon--cog e-icon--xxs e-icon--color-green-apple"></i>
+</div>
+<div class="e-bg-black e-p-8">
+  <i class="e-icon e-icon--cog e-icon--xxl e-icon--color-purple-plum e-icon--inverted"></i>
+  <i class="e-icon e-icon--cog e-icon--xl e-icon--color-orange-mango e-icon--inverted"></i>
+  <i class="e-icon e-icon--cog e-icon--lg e-icon--color-red-tomato e-icon--inverted"></i>
+  <i class="e-icon e-icon--cog e-icon--md e-icon--color-violet-grape e-icon--inverted"></i>
+  <i class="e-icon e-icon--cog e-icon--sm e-icon--color-grey-70 e-icon--inverted"></i>
+  <i class="e-icon e-icon--cog e-icon--xs e-icon--color-blue-berry e-icon--inverted"></i>
+  <i class="e-icon e-icon--cog e-icon--xxs e-icon--color-green-apple e-icon--inverted"></i>
+</div>
+`;
 
 example3 = `<div class="e-bg-black e-p-8">
   <i class="e-icon e-icon--chat e-icon--inverted"></i>
@@ -46,17 +58,17 @@ example3 = `<div class="e-bg-black e-p-8">
 </div>`;
 
 example4 = `<i class="e-icon e-icon--email"></i>
-<i class="e-icon e-icon--email e-icon--grey-90"></i>
-<i class="e-icon e-icon--email e-icon--grey-80"></i>
-<i class="e-icon e-icon--email e-icon--grey-70"></i>
-<i class="e-icon e-icon--email e-icon--grey-60"></i>
-<i class="e-icon e-icon--email e-icon--grey-50"></i>
-<i class="e-icon e-icon--email e-icon--grey-40"></i>
-<i class="e-icon e-icon--email e-icon--grey-30"></i>
-<i class="e-icon e-icon--email e-icon--grey-20"></i>
-<i class="e-icon e-icon--email e-icon--grey-10"></i>
-<i class="e-icon e-icon--email e-icon--grey-05"></i>
-<i class="e-icon e-icon--email e-icon--grey-02"></i>
+<i class="e-icon e-icon--email e-icon--color-grey-90"></i>
+<i class="e-icon e-icon--email e-icon--color-grey-80"></i>
+<i class="e-icon e-icon--email e-icon--color-grey-70"></i>
+<i class="e-icon e-icon--email e-icon--color-grey-60"></i>
+<i class="e-icon e-icon--email e-icon--color-grey-50"></i>
+<i class="e-icon e-icon--email e-icon--color-grey-40"></i>
+<i class="e-icon e-icon--email e-icon--color-grey-30"></i>
+<i class="e-icon e-icon--email e-icon--color-grey-20"></i>
+<i class="e-icon e-icon--email e-icon--color-grey-10"></i>
+<i class="e-icon e-icon--email e-icon--color-grey-05"></i>
+<i class="e-icon e-icon--email e-icon--color-grey-02"></i>
 `;
 
   term;

@@ -1,7 +1,13 @@
 .e-outline {
-    outline: none;
-    outline-color: internal-color('focus-outline');
-    outline-style: solid;
+    outline: 2px solid internal-color('focus-outline');
     outline-offset: 2px;
-    outline-width: 2px;
+    outline-style: solid;
+    outline-color: internal-color('focus-outline');
+}
+
+// Using this requires javascript to not fail WCAG criterion 2.4.7
+.e-no-outline {
+    * {
+        outline: none !important;
+    }
 }
