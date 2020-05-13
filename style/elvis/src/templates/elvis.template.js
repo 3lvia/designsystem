@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function(){
             let icon = icons[classList[i]];                
             
             if(icon.indexOf('viewBox') === -1){
-                icon.replace("%3csvg ", "%3csvg viewBox='0 0 64 64' ");
+                icon.replace("%3csvg ", "%3csvg viewBox='0 0 24 24' ");
             }
               
             icon = setCorrectColor(classList, icon);
