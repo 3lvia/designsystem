@@ -17,7 +17,7 @@ $sizes: (
     $size: get-icon-size($icon-size);
     width: $size;
     height: $size;
-    img, img[src*=".svg"] {
+    img {
         width: $size;
         height: $size;
     }
