@@ -55,6 +55,12 @@
       .e-input:not(:last-of-type) {
         margin-right: 8px;
       }
+      .e-input--small {
+        width: 73px;
+      }
+      .e-input--medium {
+        width: 150px;
+      }
     }
   }
 }
@@ -72,19 +78,11 @@
     &:not(:last-of-type) {
       margin-right: 8px;
     }
-
     &.e-form-field--small {
       width: 60px;
-      input {
-        width: 60px;
-      }
     }
-  
     &.e-form-field--medium {
       width: 140px;
-      input {
-        width: 140px;
-      }
     }
   }
 }
