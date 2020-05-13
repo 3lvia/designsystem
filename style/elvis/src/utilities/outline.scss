@@ -9,8 +9,8 @@
 // Using this requires javascript to not fail WCAG criterion 2.4.7
 .e-no-outline {
     a:focus,
-    textarea:focus,
-    input:focus
+    textarea:focus, 
+    input:focus,
     button:focus {
         outline: none !important;
     }

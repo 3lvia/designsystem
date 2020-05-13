@@ -57,6 +57,8 @@
   outline-width: 2px; }
 
 .e-no-outline a:focus,
+.e-no-outline textarea:focus,
+.e-no-outline input:focus,
 .e-no-outline button:focus {
   outline: none !important; }
 
@@ -116,6 +118,8 @@
   outline-width: 2px; }
 
 .e-no-outline a:focus,
+.e-no-outline textarea:focus,
+.e-no-outline input:focus,
 .e-no-outline button:focus {
   outline: none !important; }
 
@@ -680,6 +684,8 @@
   outline-width: 2px; }
 
 .e-no-outline a:focus,
+.e-no-outline textarea:focus,
+.e-no-outline input:focus,
 .e-no-outline button:focus {
   outline: none !important; }
 
@@ -2117,6 +2123,8 @@ body {
   outline-width: 2px; }
 
 .e-no-outline a:focus,
+.e-no-outline textarea:focus,
+.e-no-outline input:focus,
 .e-no-outline button:focus {
   outline: none !important; }
 
@@ -2500,6 +2508,8 @@ body {
   outline-width: 2px; }
 
 .e-no-outline a:focus,
+.e-no-outline textarea:focus,
+.e-no-outline input:focus,
 .e-no-outline button:focus {
   outline: none !important; }
 
@@ -2916,6 +2926,8 @@ body {
   outline-width: 2px; }
 
 .e-no-outline a:focus,
+.e-no-outline textarea:focus,
+.e-no-outline input:focus,
 .e-no-outline button:focus {
   outline: none !important; }
 
@@ -2986,6 +2998,8 @@ body {
   outline-width: 2px; }
 
 .e-no-outline a:focus,
+.e-no-outline textarea:focus,
+.e-no-outline input:focus,
 .e-no-outline button:focus {
   outline: none !important; }
 
@@ -6835,6 +6849,8 @@ body {
   outline-width: 2px; }
 
 .e-no-outline a:focus,
+.e-no-outline textarea:focus,
+.e-no-outline input:focus,
 .e-no-outline button:focus {
   outline: none !important; }
 

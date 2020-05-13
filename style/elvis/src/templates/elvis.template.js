@@ -5,25 +5,21 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     
     function outlineFix() {
-      if(DEBUG) {
+      if(DEBUG){
         return;
       }
-      let keyboardMode = false;
       document.body.classList.add('e-no-outline');
-
       document.documentElement.addEventListener('keyup', function(e) {
         if (e.keyCode === 9) {
-          keyboardMode = true;
           document.body.classList.remove('e-no-outline');
         }
       });
 
       document.documentElement.addEventListener('click', function (event) {
-        if(!keyboardMode) {
           document.body.classList.add('e-no-outline');
-        }
       }, false);
     }
+    outlineFix();
     
 
 
@@ -242,7 +238,6 @@ document.addEventListener("DOMContentLoaded", function(){
     }
     
     replaceIcons();
-    outlineFix();
 
     // TODO: Remove this temporary fallback
     window.setInterval(function(){
