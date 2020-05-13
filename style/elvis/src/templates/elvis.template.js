@@ -96,9 +96,6 @@ document.addEventListener("DOMContentLoaded", function(){
           icon = icon.replace("fill='white'", "fillReplace");
           icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
           icon = icon.replace(/fillReplace/g, "fill='black'");
-          if(classList.contains('e-icon--color-purple-plum')) {
-            console.log(icon);
-          }
           return icon;
         }
 
