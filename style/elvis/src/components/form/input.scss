@@ -50,16 +50,10 @@ $form-input-border: 1px solid color("grey");
       border: 2px solid color('red');
       padding: $form-input-padding-active;
     }
-    > i + input {
-      padding: $form-input-padding-with-icon-active;
-    }
   }
   > input:invalid, > textarea:invalid {
     border: 2px solid color('red');
     padding: $form-input-padding-active;
-  }
-  > i + input:invalid {
-    padding: $form-input-padding-with-icon-active;
   }
 
   &.e-input---focus {
@@ -68,17 +62,11 @@ $form-input-border: 1px solid color("grey");
       border: 2px solid color('green');
       padding: $form-input-padding-active;
     }
-    > i + input {
-      padding: $form-input-padding-with-icon-active;
-    }
   }
   > input:focus, > textarea:focus {
     @include e-outline();
     border: 2px solid color('green');
     padding: $form-input-padding-active;
-  }
-  > i + input:focus {
-    padding: $form-input-padding-with-icon-active;
   }
 
   &.e-input---disabled {
