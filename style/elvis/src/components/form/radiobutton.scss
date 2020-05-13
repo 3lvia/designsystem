@@ -30,8 +30,8 @@ $form-radiobutton-mark-border: 1px solid color("black");
       @extend %radiobutton-mark;
     }
 
-    &:focus:not(:active) ~ #{$this}__mark {
-      @extend .e-outline;
+    &:focus ~ #{$this}__mark {
+      @include e-outline();
     }
 
     &:invalid ~ #{$this}__mark {
@@ -84,7 +84,7 @@ $form-radiobutton-mark-border: 1px solid color("black");
     }
 
     &.e-radio__mark---focus {
-      @extend .e-outline;
+      @include e-outline();
     }
 
     &:hover,

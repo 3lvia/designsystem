@@ -1,3 +1,5 @@
+@import "../../utilities/outline.scss";
+
 .e-segmented-controls {
     $this: &;
     display: inline-flex;
@@ -8,8 +10,8 @@
     flex-wrap: nowrap;
     box-sizing: border-box;
 
-    &.e-segmented-controls---focus, &:focus-within:not(:active) {
-        @extend .e-outline;
+    &.e-segmented-controls---focus, &:focus-within {
+        @include e-outline();
     }
 
     input {

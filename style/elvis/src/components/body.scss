@@ -1,0 +1,5 @@
+@import "../utilities/outline.scss";
+
+*:focus {
+    @include e-outline();
+}

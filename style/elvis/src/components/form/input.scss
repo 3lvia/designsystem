@@ -56,9 +56,9 @@ $form-input-border: 1px solid color("grey");
     }
   }
 
-  input:focus, textarea:focus { outline: none; } // Removes inner outline, adds outer later
-  &.e-input---focus, &:focus-within:not(:active) {
-    @extend .e-outline;
+  input:focus {outline: none;}
+  &.e-input---focus, &:focus-within {
+    @include e-outline();
     border: 2px solid color('green');
     > input, > textarea { padding: $form-input-padding-active; }
     i { margin-right: 15px; }

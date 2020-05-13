@@ -78,7 +78,7 @@ $toggle-mobile-slider-padding: 4.15px;
     }
   }
 
-  input:focus:not(:active) + .e-slider {
-    @extend .e-outline;
+  input:focus + .e-slider {
+    @include e-outline();
   }
 }
