@@ -9,16 +9,14 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    align-items: center;
     margin-bottom: 16px;
   }
 
   &__description {
-    @extend .e-text-option;
+    @extend .e-text-label;
     display: flex;
     width: 100%;
     justify-content: center;
-    align-items: center;
     margin-bottom: 16px;
     margin-top: 8px;
   }
@@ -27,6 +25,5 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    align-items: center;
   }
 }

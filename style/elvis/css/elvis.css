@@ -1650,7 +1650,7 @@ body {
   color: #000;
   letter-spacing: 0.2px; }
 
-.e-text-label, .e-form-field__label {
+.e-text-label, .e-form-field__label, .e-position-picker__description {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
@@ -1937,7 +1937,7 @@ body {
   color: #000;
   letter-spacing: 0.2px; }
 
-.e-text-label, .e-form-field__label {
+.e-text-label, .e-form-field__label, .e-position-picker__description {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
@@ -2651,7 +2651,7 @@ body {
   color: #000;
   letter-spacing: 0.2px; }
 
-.e-text-label, .e-form-field__label {
+.e-text-label, .e-form-field__label, .e-position-picker__description {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
@@ -2723,7 +2723,7 @@ body {
 
 .e-fileupload {
   border: 2px dashed #D3D3D3;
-  border-radius: 8px;
+  border-radius: 4px;
   display: flex;
   flex-wrap: wrap;
   padding: 32px 0; }
@@ -2874,7 +2874,7 @@ body {
   color: #000;
   letter-spacing: 0.2px; }
 
-.e-text-label, .e-form-field__label {
+.e-text-label, .e-form-field__label, .e-position-picker__description {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
@@ -2953,6 +2953,28 @@ body {
 
 .e-combined-field .e-input:not(:last-of-type) {
   margin-right: 8px; }
+
+.e-position-picker {
+  border: 2px solid #000;
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 32px 0; }
+  .e-position-picker__icon {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 16px; }
+  .e-position-picker__description {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 16px;
+    margin-top: 8px; }
+  .e-position-picker__action {
+    display: flex;
+    width: 100%;
+    justify-content: center; }
 
 .e-outline, *:focus:not(:active), .e-btn.e-btn---focus, .e-btn:enabled:focus:not(:active):not(:hover), .e-link.e-link---focus, .e-link:focus:not(:active), .e-toggle input:focus:not(:active) + .e-slider, .e-checkbox.e-checkbox---focus .e-checkbox__mark, .e-checkbox input:focus:not(:active) ~ .e-checkbox__mark, .e-input.e-input---focus, .e-input:focus-within:not(:active), .e-radio input:focus:not(:active) ~ .e-radio__mark, .e-radio__mark.e-radio__mark---focus, .e-segmented-controls.e-segmented-controls---focus, .e-segmented-controls:focus-within:not(:active) {
   outline: none;
@@ -6729,7 +6751,7 @@ body {
   color: #000;
   letter-spacing: 0.2px; }
 
-.e-text-label, .e-form-field__label {
+.e-text-label, .e-form-field__label, .e-position-picker__description {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 140%;
