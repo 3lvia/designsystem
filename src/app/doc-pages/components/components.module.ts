@@ -16,6 +16,7 @@ import { ProgressbarDocModule } from './progressbar-doc/progressbar-doc.module';
 import { PopoverDocModule } from './popover-doc/popover-doc.module';
 import { ModalDocModule } from './modal-doc/modal-doc.module';
 import { AutocompleteDocModule } from './autocomplete-doc/autocomplete-doc.module';
+import { PositionPickerDocModule } from './position-picker-doc/position-picker-doc.module';
 
 @NgModule({
     imports: [
@@ -32,6 +33,7 @@ import { AutocompleteDocModule } from './autocomplete-doc/autocomplete-doc.modul
         NotificationDotDocModule,
         OverviewModule,
         ProgressbarDocModule,
+        PositionPickerDocModule,
         TableDocModule,
         TagsDocModule,
         TooltipDocModule,

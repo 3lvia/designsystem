@@ -1,3 +1,29 @@
-<p>
-  position-picker-doc works!
-</p>
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Position Picker
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+  </ng-container>
+
+
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+  [isHTML]="true"
+  [code]="example1"
+  [title]="'Position Picker'"
+  [class]="['e-position-picker']"
+></app-code-block>
+<app-code-block
+  [isHTML]="true"
+  [code]="example2"
+  [title]="'Something will come here'"
+  [class]="['e-position-picker']"
+></app-code-block>
+</div>

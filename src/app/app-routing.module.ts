@@ -46,6 +46,7 @@ import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-
 import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
 import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 import { ContributeComponent } from './doc-pages/utilities/contribute/contribute.component';
+import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
 
 
 const routes: Routes = [
@@ -159,6 +160,10 @@ const routes: Routes = [
           {
             path: Pages.Popover,
             component: PopoverDocComponent
+          },
+          {
+            path: Pages.PositionPicker,
+            component: PositionPickerDocComponent
           },
           {
             path: Pages.Radiobutton,

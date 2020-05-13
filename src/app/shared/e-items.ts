@@ -159,6 +159,14 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover'
     },
     {
+        title: 'Position Picker',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.PositionPicker,
+        status: ItemStatus.New,
+        actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132'
+    },
+    {
         title: 'Radiobutton',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Radiobutton,
