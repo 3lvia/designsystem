@@ -28,14 +28,22 @@
 
   <h3>Visual example of position picker</h3>
   <p>
-    In this example we have attached a modal to the tertiart button within the position picker component.
+    In this example we have attached a modal to the tertiary button within the position picker component.
+  </p>
+  <p>
     Genral styling guide here is to attach a modal containing a map service. Which in return updates the position picker with the choosen position.
     The information should then replace the icon container, and insert information in the description container.
   </p>
+  <p>
+    The example below is simply a visual illustration on how one could attach a service to the position picker component
+  </p>
 
   <div class="e-position-picker" style="width:380px">
-    <div class="e-position-picker__icon">
+    <div class="e-position-picker__icon" *ngIf="!ShowPosition">
       <span class="e-btn__icon"><i class="e-icon e-icon--map-pin"></i></span>
+    </div>
+    <div class="e-position-picker__description" *ngIf="ShowPosition">
+      60.026676, 10.798887
     </div>
     <div class="e-position-picker__action">
       <button class="e-btn e-btn--tertiary e-btn--lg e-m-16" (click)="openMapExample('mapModal')">
@@ -46,11 +54,17 @@
   </div>
   <div class="e-modal" #mapModal>
     <div class="e-modal__content">
-
-      <button class="e-btn e-btn--icon e-btn--lg e-m-16" (click)="closeModal('mapModal')">
+      <button class="e-btn e-btn--icon" (click)="closeModal('mapModal')" id="examplebutton">
         <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle-color"></i></span>
       </button>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7998.985919234493!2d10.685827403470268!3d59.9197547324057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sno!4v1589372574967!5m2!1sen!2sno" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      <div class="e-form-field" id="exampleInput">
+        <div class="e-input">
+          <input id="normal" type="text" placeholder="Velg Adresse">
+          <i class="e-icon e-icon--search e-icon--xs"></i>
+        </div>
+      </div>
     </div>
-    <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7998.985919234493!2d10.685827403470268!3d59.9197547324057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sno!4v1589372574967!5m2!1sen!2sno" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> -->
+
   </div>
 </div>

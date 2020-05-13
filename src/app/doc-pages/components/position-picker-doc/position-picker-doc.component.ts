@@ -8,10 +8,11 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class PositionPickerDocComponent implements OnInit {
 
+  @ViewChild('mapModal') mapModal: ElementRef;
+  ShowPosition = false;
+
   externalUrl = getComponent('position-picker-doc').externalUrl;
   componentStatus = getComponent('position-picker-doc').status;
-
-  @ViewChild('mapModal') mapModal: ElementRef;
 
   example1Classes = ['e-position-picker', 'e-position-picker__icon', 'e-position-picker__action'];
 
@@ -56,6 +57,7 @@ export class PositionPickerDocComponent implements OnInit {
     if (modal === 'mapModal') {
       if (this.mapModal.nativeElement.classList.contains('e-modal---visible')) {
         this.mapModal.nativeElement.classList.remove('e-modal---visible');
+        this.ShowPosition = true;
       }
     }
   }
