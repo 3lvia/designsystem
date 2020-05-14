@@ -1,9 +1,10 @@
 .e-position-picker {
-  border: 2px solid color("black");
-  border-radius: 4px;
   display: flex;
   flex-wrap: wrap;
+  border: 2px solid color("black");
+  border-radius: 4px;
   padding: 32px 0;
+  max-width: 375px;
 
   &__icon {
     display: flex;

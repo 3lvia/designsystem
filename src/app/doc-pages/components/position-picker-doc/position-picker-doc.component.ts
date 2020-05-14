@@ -16,9 +16,9 @@ export class PositionPickerDocComponent implements OnInit {
 
   example1Classes = ['e-position-picker', 'e-position-picker__icon', 'e-position-picker__action'];
 
-  example1 = `<div class="e-position-picker" style="width:380px">
+  example1 = `<div class="e-position-picker">
   <div class="e-position-picker__icon">
-    <span class="e-btn__icon"><i class="e-icon e-icon--map-pin"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--map-pin e-icon--lg"></i></span>
   </div>
   <div class="e-position-picker__action">
     <button class="e-btn e-btn--tertiary">
@@ -29,7 +29,7 @@ export class PositionPickerDocComponent implements OnInit {
 </div>
 `;
 
-  example2 = `<div class="e-position-picker" style="width:380px">
+  example2 = `<div class="e-position-picker">
   <div class="e-position-picker__description">
     60.026676, 10.798887
   </div>
@@ -63,9 +63,9 @@ closeModal(modal: string) {
 `;
 
 exampleHTMLCode = `<!-- Html -->
-<div class="e-position-picker" style="width:380px">
+<div class="e-position-picker">
 <div class="e-position-picker__icon" *ngIf="!ShowPosition">
-  <span class="e-btn__icon"><i class="e-icon e-icon--map-pin"></i></span>
+  <span class="e-btn__icon"><i class="e-icon e-icon--map-pin e-icon--lg"></i></span>
 </div>
 <div class="e-position-picker__description" *ngIf="ShowPosition">
   60.026676, 10.798887
