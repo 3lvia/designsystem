@@ -43,6 +43,10 @@ $button-sm-line-height: 16px;
   justify-content: center;
   text-decoration: none;
 
+  // Removing default focus on firefox 
+  &::-moz-focus-inner {
+    border: 0;
+  }
   &.e-btn---focus, &:enabled:focus {
     @include e-outline();
   }
