@@ -131,18 +131,21 @@ $link-jumbo-phone-width: 287px;
     border-radius: 64px;
     padding: $link-jumbo-desktop-padding;
     width: $link-jumbo-desktop-width;
-    line-height: 120%;
+    line-height: 48px;
     background: color("white");
     color: color("black");
     box-sizing: border-box;
     cursor: pointer;
 
+    & > .e-link__title:first-child {
+      padding-left: 56px - 40px;
+    }
     .e-link__title {
       text-align: left;
       width: 100%;
     }
 
-    .e-link__icon:first-of-type {
+    .e-link__icon:not(:only-of-type):first-of-type {
       margin-right: 24px;
       i { @include icon-size('xl'); }
     }
