@@ -1,5 +1,5 @@
 @import "../variables/colors.scss";
-@import "../utilities/typography.scss";
+@import "../variables/typography.scss";
 @import "../variables/shadows.scss";
 
 .e-autocomplete {
@@ -13,11 +13,11 @@
     border: 1px solid color("black");
     border-radius: 4px;
     padding: 13px 16px;
-    @extend .e-text-description;
+    @include typography('text-description');
 
     &::placeholder {
-      @extend .e-text-option;
-      color: color("grey-80") !important;
+      @include typography('text-option');
+      color: color("grey-80");
     }
 
     &:focus,
@@ -55,7 +55,7 @@
       width: 100%;
       padding: 13px 16px;
       z-index: 1;
-      @extend .e-text-option;
+      @include typography('text-option');
 
       &:hover {
         background-color: color("grey-10");
