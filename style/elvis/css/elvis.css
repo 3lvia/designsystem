@@ -2517,7 +2517,6 @@ body {
     max-width: 448px;
     width: 100%;
     padding: 12px 16px;
-    border: none;
     background: transparent;
     font-family: "Red Hat Text", sans-serif;
     font-size: 1rem;
@@ -2539,22 +2538,26 @@ body {
     top: calc(50% - (16px / 2)); }
   .e-input.e-input---invalid > input, .e-input.e-input---invalid > textarea {
     border: 2px solid #FF0000;
-    padding: 11px 15px 11px 15px; }
+    padding: 11px 15px; }
   .e-input > input:invalid, .e-input > textarea:invalid {
     border: 2px solid #FF0000;
-    padding: 11px 15px 11px 15px; }
+    padding: 11px 15px; }
+  .e-input i + input:invalid {
+    padding: 11px 43px 11px 15px; }
   .e-input.e-input---focus > input, .e-input.e-input---focus > textarea {
     outline: none;
     outline: 2px solid #0064FA;
     outline-offset: 2px;
     border: 2px solid #29D305;
-    padding: 11px 15px 11px 15px; }
+    padding: 11px 15px; }
   .e-input > input:focus, .e-input > textarea:focus {
     outline: none;
     outline: 2px solid #0064FA;
     outline-offset: 2px;
     border: 2px solid #29D305;
-    padding: 11px 15px 11px 15px; }
+    padding: 11px 15px; }
+  .e-input > i + input:focus {
+    padding: 11px 43px 11px 15px; }
   .e-input.e-input---disabled > input, .e-input.e-input---disabled > textarea {
     color: #D3D3D3;
     border-color: #D3D3D3;
@@ -2564,6 +2567,8 @@ body {
     color: #D3D3D3;
     -webkit-text-fill-color: #D3D3D3;
     cursor: not-allowed; }
+  .e-input i + input:disabled {
+    padding: 11px 43px 11px 15px; }
 
 .e-combined-field .e-input:not(:last-of-type) {
   margin-right: 8px; }
