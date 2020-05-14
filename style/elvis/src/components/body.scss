@@ -1,5 +1,5 @@
-@import '../utilities/outline.scss';
+@import "../utilities/outline.scss";
 
-*:focus:not(:active) {
-    @extend .e-outline;
+a:focus, button:focus, input:focus {
+    @include e-outline();
 }

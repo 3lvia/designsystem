@@ -14,7 +14,7 @@
     }
 
     &__description {
-        @extend .e-text-option;
+        @include typography('text-option');
         display: flex;
         width: 100%;
         justify-content: center;

@@ -1,5 +1,4 @@
 @import '../../variables/colors.scss';
-@import '../../utilities/typography.scss';
 
 .e-form-field {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -17,7 +16,7 @@
   &__label {
     display: block;
     margin-bottom: 5px;
-    @extend .e-text-label;
+    @include typography('text-label');
 
     &.e-form-field__label--optional::after {
       content: " (valgfri)";
@@ -30,7 +29,8 @@
     display: flex;
     align-items: center;
     margin-top: 5px;
-    @extend .e-text-info;
+    @include typography('text-info');
+    color: color('grey');
 
     &.e-form-field__error--visible {
       visibility: visible;
@@ -41,7 +41,6 @@
       padding: 8px;
     }
   }
-  .e-form-field__error { color: color('grey'); }
   
   &--combined {
     width: 100%;
@@ -54,6 +53,12 @@
       width: 100%;
       .e-input:not(:last-of-type) {
         margin-right: 8px;
+      }
+      .e-input--small {
+        width: 73px;
+      }
+      .e-input--medium {
+        width: 150px;
       }
     }
   }
@@ -72,19 +77,11 @@
     &:not(:last-of-type) {
       margin-right: 8px;
     }
-
     &.e-form-field--small {
       width: 60px;
-      input {
-        width: 60px;
-      }
     }
-  
     &.e-form-field--medium {
       width: 140px;
-      input {
-        width: 140px;
-      }
     }
   }
 }

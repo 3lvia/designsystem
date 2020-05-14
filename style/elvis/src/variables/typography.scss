@@ -3,7 +3,7 @@
 $font-family: "Red Hat Display", sans-serif;
 $font-family-secondary: "Red Hat Text", sans-serif;
 
-@function font-size($name) {
+@function get-value($name, $value) {
   $typography-map: null;
 
   @if map-has-key($typography, $name) {
@@ -23,7 +23,22 @@ $font-family-secondary: "Red Hat Text", sans-serif;
     @return null;
   }
 
-  @return map-get($typography-map, size);
+  @return map-get($typography-map, $value);
+}
+
+@mixin typography($name) {
+  font-family: get-value($name, family);
+  font-size: get-value($name, size);
+  line-height: get-value($name, height);
+  font-weight: get-value($name, weight);
+  color: get-value($name, color);
+  font-style: get-value($name, style);
+  letter-spacing: get-value($name, letter-spacing);
+  text-transform:  get-value($name, transform);
+  @include breakpoint-up(Mobile) {
+    font-size: get-value($name, size-m);
+    line-height: get-value($name, height-m);
+  }
 }
 
 body {
@@ -38,7 +53,8 @@ $typography: (
     size: 2.75rem,
     size-m: 1.75rem,
     weight: 900,
-    height: 120%,
+    height: 53px,
+    height-m: 34px,
     color: color('font-color')
   ),
   title-md: (
@@ -46,14 +62,15 @@ $typography: (
     size: 1.625rem,
     size-m: 1.5rem,
     weight: 700,
-    height: 120%,
+    height: 31px,
+    height-m: 29px,
     color: color('font-color')
   ),
   title-sm: (
     family: $font-family,
     size: 1.25rem,
     weight: 700,
-    height: 120%,
+    height: 24px,
     color: color('font-color')
   ),
   text-lead: (
@@ -61,8 +78,8 @@ $typography: (
     size: 1.5rem,
     size-m: 1.3125rem,
     weight: 400,
-    height: 170%,
-    height-m: 160%,
+    height: 41px,
+    height-m: 34px,
     color: color('font-color')
   ),
   text-quote: (
@@ -70,7 +87,8 @@ $typography: (
     size: 1.625rem,
     size-m: 1.25rem,
     weight: 400,
-    height: 160%,
+    height: 42px,
+    height-m: 32px,
     style: italic,
     color: color('font-color')
   ),
@@ -79,8 +97,8 @@ $typography: (
     size: 1.25rem,
     size-m: 1.125rem,
     weight: 400,
-    height: 190%,
-    height-m: 160%,
+    height: 38px,
+    height-m: 29px,
     color: color('font-color')
   ),
   text-img: (
@@ -88,7 +106,9 @@ $typography: (
     size: 1.125rem,
     size-m: 1rem,
     weight: 400,
-    height: 160%,
+    align: center,
+    height: 29px,
+    height-m: 26px,
     style: italic,
     color: color('font-color')
   ),
@@ -96,14 +116,15 @@ $typography: (
     family: $font-family-secondary,
     size: 1rem,
     weight: 400,
-    height: 175%,
+    height: 28px,
     color: color('font-color')
   ),
   text-caps: (
     family: $font-family-secondary,
     size: 0.875rem,
     weight: 500,
-    height: 120%,
+    height: 17px,
+    letter-spacing: 0.8px,
     transform: uppercase,
     color: color('font-color')
   ),
@@ -111,22 +132,21 @@ $typography: (
     family: $font-family-secondary,
     size: 0.875rem,
     weight: 400,
-    height: 160%,
-    letter-spacing: 0.2px,
+    height: 22px,
     color: color('font-color')
   ),
   text-label: (
     family: $font-family-secondary,
     size: 1rem,
     weight: 500,
-    height: 140%,
+    height: 23px,
     color: color('font-color')
   ),
   text-option: (
     family: $font-family-secondary,
     size: 1rem,
     weight: 400,
-    height: 140%,
+    height: 22px,
     color: color('font-color')
   ),
 );
