@@ -3,7 +3,7 @@
 $font-family: "Red Hat Display", sans-serif;
 $font-family-secondary: "Red Hat Text", sans-serif;
 
-@function font-size($name) {
+@function get-value($name, $value) {
   $typography-map: null;
 
   @if map-has-key($typography, $name) {
@@ -23,7 +23,22 @@ $font-family-secondary: "Red Hat Text", sans-serif;
     @return null;
   }
 
-  @return map-get($typography-map, size);
+  @return map-get($typography-map, $value);
+}
+
+@mixin typography($name) {
+  font-family: get-value($name, family);
+  font-size: get-value($name, size);
+  line-height: get-value($name, height);
+  font-weight: get-value($name, weight);
+  color: get-value($name, color);
+  font-style: get-value($name, style);
+  letter-spacing: get-value($name, letter-spacing);
+  text-transform:  get-value($name, transform);
+  @include breakpoint-up(Mobile) {
+    font-size: get-value($name, size-m);
+    line-height: get-value($name, height-m);
+  }
 }
 
 body {

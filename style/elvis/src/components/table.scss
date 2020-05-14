@@ -1,5 +1,3 @@
-@import "./../utilities/typography.scss";
-
 $table-padding: 0.688rem 1rem;
 $table-phone-padding: 0.375rem 0.5rem;
 $table-border-radius: 4px;
@@ -32,7 +30,7 @@ $table-border-radius: 4px;
   }
 
   td, th {
-    @extend .e-text-description;
+    @include typography('text-description');
     width: 100%;
     padding: $table-padding;
     &.e-table__cell--multiline {
@@ -63,7 +61,7 @@ $table-border-radius: 4px;
   box-shadow: 0px 0px 0px 1px color('grey-10');
   
   th, td {
-    @extend .e-text-description;
+    @include typography('text-description');
     padding: $table-phone-padding;
   }
 
