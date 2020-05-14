@@ -38,7 +38,7 @@
 
     <h3>Example of how to build Elvis Autocomplete</h3>
     <div class="e-autocomplete">
-      <input type="text" [value]="ChoosenLand" #searchTerm (keyup)="onSearch(searchTerm.value)" id="ChooseCountry"/>
+      <input type="text" [value]="chosenLand" #searchTerm (keyup)="onSearch(searchTerm.value)" id="ChooseCountry"/>
       <div class="e-autocomplete__content" *ngIf="showResults">
         <div class="e-autocomplete__content__item" *ngFor="let country of results" (click)="SelectCountry(country)">
           {{ country }}

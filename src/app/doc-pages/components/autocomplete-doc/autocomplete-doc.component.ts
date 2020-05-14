@@ -36,7 +36,7 @@ export class AutocompleteDocComponent implements OnInit {
 `;
 
 exampleInHTML= `<div class="e-autocomplete">
-  <input type="text" [value]="ChoosenLand" #searchTerm (keyup)="onSearch(searchTerm.value)" id="ChooseCountry"/>
+  <input type="text" [value]="chosenLand" #searchTerm (keyup)="onSearch(searchTerm.value)" id="ChooseCountry"/>
   <div class="e-autocomplete__content" *ngIf="showResults">
     <div class="e-autocomplete__content__item" *ngFor="let country of results" (click)="SelectCountry(country)">
     {{ country }}
@@ -46,7 +46,7 @@ exampleInHTML= `<div class="e-autocomplete">
 `;
 exampleInTS= `results = [];
 showResults = false;
-ChoosenLand = '';
+chosenLand = '';
 
 onSearch(searchTerm:string) {
 
@@ -62,7 +62,7 @@ onSearch(searchTerm:string) {
 }
 
 SelectCountry(value:string) {
-  this.ChoosenLand = value;
+  this.chosenLand = value;
   this.showResults = false;
 }
 
@@ -97,7 +97,7 @@ countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","An
 
 results = [];
 showResults = false;
-ChoosenLand = '';
+chosenLand = '';
 
 onSearch(searchTerm:string) {
 
@@ -113,7 +113,7 @@ onSearch(searchTerm:string) {
 }
 
 SelectCountry(value:string) {
-  this.ChoosenLand = value;
+  this.chosenLand = value;
   this.showResults = false;
 }
 
