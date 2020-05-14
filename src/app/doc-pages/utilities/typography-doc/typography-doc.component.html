@@ -47,9 +47,9 @@
           <div class="example">
             <app-copy [message]="'e-'+typography.title">
               <ng-container ngProjectAs="copyContent">
-                <span class="example-text" [ngClass]="'e-'+typography.title">
+                <p class="example-text" [ngClass]="'e-'+typography.title">
                   {{ typography.example }}
-                </span>
+                </p>
                 <p class="e-text-caps example-title">{{ typography.title }} | {{ typography.size }}</p>
               </ng-container>
             </app-copy>
@@ -57,7 +57,6 @@
           <!-- Mobile -->
           <div class="example">
             <div>
-              
               <app-iframe-preview [code]="getCodeExample(typography)"></app-iframe-preview>
               <p class="e-text-caps example-title">
                 {{ typography.title }} | 

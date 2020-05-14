@@ -5,6 +5,7 @@
   $family: map-get($map, family);
   $size: map-get($map, size);
   $size-m: map-get($map, size-m);
+  $align: map-get($map, align);
   $height: map-get($map, height);
   $height-m: map-get($map, height-m);
   $weight: map-get($map, weight);
@@ -19,6 +20,7 @@
     .e-#{$label} {
       font-family: $family;
       font-size: $size;
+      text-align: $align;
       line-height: $height;
       font-weight: $weight;
       color: $color;
