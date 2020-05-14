@@ -21,8 +21,8 @@
   <app-code-block
     [isHTML]="true"
     [code]="example2"
-    [title]="'After position is choosen'"
-    [description]="'When position is choosen replace the icon container with the description container along with the choosen position or information'"
+    [title]="'After position is chosen'"
+    [description]="'When position is chosen replace the icon container with the description container along with the chosen position or information'"
     [class]="['e-position-picker__description']"
   ></app-code-block>
 
@@ -40,10 +40,10 @@
   </p>
 
   <div class="e-position-picker" style="width:380px">
-    <div class="e-position-picker__icon" *ngIf="!ShowPosition">
+    <div class="e-position-picker__icon" *ngIf="!showPosition">
       <span class="e-btn__icon"><i class="e-icon e-icon--map-pin e-icon--lg"></i></span>
     </div>
-    <div class="e-position-picker__description" *ngIf="ShowPosition">
+    <div class="e-position-picker__description" *ngIf="showPosition">
       60.026676, 10.798887
     </div>
     <div class="e-position-picker__action">

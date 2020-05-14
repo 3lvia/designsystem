@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class PositionPickerDocComponent implements OnInit {
 
   @ViewChild('mapModal') mapModal: ElementRef;
-  ShowPosition = false;
+  showPosition = false;
 
   externalUrl = getComponent('position-picker-doc').externalUrl;
   componentStatus = getComponent('position-picker-doc').status;
@@ -44,7 +44,7 @@ export class PositionPickerDocComponent implements OnInit {
 
 exampleTSCode = `// Typescript
 @ViewChild('mapModal') mapModal: ElementRef;
-ShowPosition = false;
+showPosition = false;
 
 openMapExample(modal: string) {
   if (modal === 'mapModal') {
@@ -56,7 +56,7 @@ closeModal(modal: string) {
   if (modal === 'mapModal') {
     if (this.mapModal.nativeElement.classList.contains('e-modal---visible')) {
       this.mapModal.nativeElement.classList.remove('e-modal---visible');
-      this.ShowPosition = true;
+      this.showPosition = true;
     }
   }
 }
@@ -64,10 +64,10 @@ closeModal(modal: string) {
 
 exampleHTMLCode = `<!-- Html -->
 <div class="e-position-picker">
-<div class="e-position-picker__icon" *ngIf="!ShowPosition">
+<div class="e-position-picker__icon" *ngIf="!showPosition">
   <span class="e-btn__icon"><i class="e-icon e-icon--map-pin e-icon--lg"></i></span>
 </div>
-<div class="e-position-picker__description" *ngIf="ShowPosition">
+<div class="e-position-picker__description" *ngIf="showPosition">
   60.026676, 10.798887
 </div>
 <div class="e-position-picker__action">
@@ -115,7 +115,7 @@ exampleHTMLCode = `<!-- Html -->
     if (modal === 'mapModal') {
       if (this.mapModal.nativeElement.classList.contains('e-modal---visible')) {
         this.mapModal.nativeElement.classList.remove('e-modal---visible');
-        this.ShowPosition = true;
+        this.showPosition = true;
       }
     }
   }

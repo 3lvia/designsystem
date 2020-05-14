@@ -1,3 +1,5 @@
+@import '../../variables/typography.scss';
+
 .e-position-picker {
   display: flex;
   flex-wrap: wrap;
@@ -14,7 +16,8 @@
   }
 
   &__description {
-    @extend .e-text-label;
+    @include typography('text-label');
+    color: #333333;
     display: flex;
     width: 100%;
     justify-content: center;
