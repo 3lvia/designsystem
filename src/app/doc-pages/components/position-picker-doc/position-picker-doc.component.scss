@@ -4,15 +4,14 @@
 
 #examplebutton {
   position: absolute;
-  z-index: 100000000;
   top:1%;
   right:1%;
 }
 
 #exampleInput {
   position: absolute;
-  z-index: 100000000;
-  bottom:11%;
   align-self: center;
+  bottom:11%;
   width: 50%;
+  background-color: #ffffff;
 }
