@@ -1,0 +1,80 @@
+@import "../variables/typography.scss";
+@import "../variables/shadows.scss";
+
+.e-autocomplete {
+
+  input {
+    position: relative;
+    box-sizing: border-box;
+    height: 48px;
+    width: 100%;
+    max-width: 448px;
+    border: 1px solid color("black");
+    border-radius: 4px;
+    padding: 13px 16px;
+    @include typography('text-description');
+
+    &::placeholder {
+      @include typography('text-option');
+      color: color("grey-80");
+    }
+
+    &:focus,
+    &:active {
+      border: 2px solid color("green");
+      padding: 12px 15px;
+      outline: none;
+    }
+
+    &:invalid {
+      border: 2px solid color("red");
+      padding: 12px 15px;
+      outline: none;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    display: block;
+    background-color: color("white");
+    width: 100%;
+    max-width: 448px;
+    max-height: 240px;
+    overflow-y: hidden;
+    margin-top: 4px;
+    border: 1px solid color("grey-10");
+    border-radius: 4px;
+    box-shadow: $e-shadow-6;
+    z-index: 1;
+
+    &__item {
+      display: block;
+      box-sizing: border-box;
+      height: 48px;
+      width: 100%;
+      padding: 13px 16px;
+      z-index: 1;
+      @include typography('text-option');
+
+      &:hover {
+        background-color: color("grey-10");
+      }
+    }
+  }
+
+  //pseudo classes
+  &.e-autocomplete---active {
+    input {
+      border: 2px solid color("green");
+      padding: 12px 15px;
+    }
+  }
+
+  &.e-autocomplete---invalid {
+    input {
+      border: 2px solid color("red");
+      padding: 12px 15px;
+    }
+  }
+
+}
