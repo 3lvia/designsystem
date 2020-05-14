@@ -1,6 +1,5 @@
 @import "../../variables/colors.scss";
 @import "../../variables/animation.scss";
-@import "../../utilities/typography.scss";
 @import "../../utilities/outline.scss";
 
 $form-input-padding: 12px 16px;
@@ -25,7 +24,9 @@ $form-input-border: 1px solid color("grey");
     max-width: 448px;
     width: 100%;
     padding: $form-input-padding;
-    @extend .e-text-option;
+    border: none;
+    background: transparent;
+    @include typography('text-option');
   }
   > i + input {
     padding: $form-input-padding-with-icon;
