@@ -216,7 +216,7 @@ exampleIcon = `<div>
     <h3 class="e-title-small">Danger (Only transparent)</h3>
     <button class="e-btn e-btn--icon e-btn--danger e-btn--lg e-m-16">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--bin e-icon--red"></i>
+        <i class="e-icon e-icon--bin e-icon--color-red"></i>
         <i class="e-icon e-icon--bin"></i>
       </span>
     </button>

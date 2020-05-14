@@ -84,13 +84,20 @@ document.addEventListener("DOMContentLoaded", function(){
     } 
 
     function setCorrectColor(classList, icon) {
-        let fill;
+        let fill;   
+
         if(classList.contains('e-icon--inverted')) {
-            icon = icon.replace("fill='white'", "fillReplace");
-            icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
-            icon = icon.replace("fillReplace", "fill='black'");
-            return icon;
-        }   
+          for(let i = 0; i < classList.length; i++) {
+              // -full-color check can be removed when new icons have been added
+              if((classList[i].indexOf("-filled-color") > -1) || (classList[i].indexOf("-full-color") > -1)) {
+                  icon = icon.replace("fill='black'", "fillReplace");
+              }
+          };
+          icon = icon.replace("fill='white'", "fillReplace");
+          icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
+          icon = icon.replace(/fillReplace/g, "fill='black'");
+          return icon;
+        }
 
         if(classList.contains('e-icon--color-disabled')) {
             fill = colors['grey-30'].color;
@@ -100,9 +107,9 @@ document.addEventListener("DOMContentLoaded", function(){
             fill = colors['grey-05'].color;
         }
         
-        if(JSON.stringify(classList).indexOf('e-icon--') > -1) {
+        if(JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
               for(let i = 0; i < classList.length; i++) {
-                  let color = classList[i].replace('e-icon--', '');
+                  let color = classList[i].replace('e-icon--color-', '');
                   if(colors[color]){
                       fill = colors[color].color;
                   }
@@ -113,6 +120,7 @@ document.addEventListener("DOMContentLoaded", function(){
             fill = fill.replace('#', '%23');
             icon = icon.replace(/fill='([^']*)'/g, "fill='"+ fill +"'");
         }
+
         return icon;
     }
 
