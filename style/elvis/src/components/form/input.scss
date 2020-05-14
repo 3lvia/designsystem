@@ -1,32 +1,34 @@
 @import "../../variables/colors.scss";
 @import "../../variables/animation.scss";
-@import "../../utilities/typography.scss";
 @import "../../utilities/outline.scss";
 
 $form-input-padding: 12px 16px;
 $form-input-padding-active: 11px 15px;
+$form-input-padding-with-icon: 12px 44px 12px 16px;
+$form-input-padding-with-icon-active: 11px 43px 11px 15px;
 $form-input-border-radius: $border-radius;
 $form-input-border: 1px solid color("grey");
 
 .e-input {
-  // Variable containing '&' to jump to current parent inside a child class.
-  $this: &;
-
-  display: flex;
-  align-items: center;
-  border: $form-input-border;
-  border-radius: $form-input-border-radius;
-  box-sizing: border-box;
-  background: color("white");
   max-width: 448px;
   width: 100%;
+  position: relative;
 
   > input, > textarea {
+    display: flex;
+    align-items: center;
+    border: $form-input-border;
+    border-radius: $form-input-border-radius;
+    box-sizing: border-box;
+    background: color("white");
+    max-width: 448px;
     width: 100%;
     padding: $form-input-padding;
-    border: none;
     background: transparent;
-    @extend .e-text-option;
+    @include typography('text-option');
+  }
+  > i + input {
+    padding: $form-input-padding-with-icon;
   }
   > textarea {
     min-height: 16px;
@@ -35,49 +37,59 @@ $form-input-border: 1px solid color("grey");
     overflow-y: auto;
   }
 
-  input::placeholder { color: color('grey-80'); }
+  > input::placeholder { color: color('grey-80'); }
 
-  > i {
-    float: right;
-    margin-right: 16px;
+  i {
+    position: absolute;
+    right: 16px;
+    top: calc(50% - (16px / 2));
   }
 
-  &.e-input--small {
-    width: 60px;
-    input {
-      width: 60px;
+  &.e-input---invalid {
+    > input, > textarea { 
+      border: 2px solid color('red');
+      padding: $form-input-padding-active;
     }
   }
-
-  &.e-input--medium {
-    width: 120px;
-    input {
-      width: 120px;
-    }
-  }
-
-  input:focus, textarea:focus { outline: none; } // Removes inner outline, adds outer later
-  &.e-input---focus, &:focus-within:not(:active) {
-    @extend .e-outline;
-    border: 2px solid color('green');
-    > input, > textarea { padding: $form-input-padding-active; }
-    i { margin-right: 15px; }
-  }
-  &.e-input---invalid, input:invalid {
+  > input:invalid, > textarea:invalid {
     border: 2px solid color('red');
-    > input, > textarea { padding: $form-input-padding-active; }
-    i { margin-right: 15px; }
+    padding: $form-input-padding-active;
   }
-  &.e-input---disabled, input:disabled {
-    color: color('grey-20');
-    border-color: color('grey-20');
-    cursor: not-allowed;
-    input:disabled {
-      opacity: 1;
-      color: color("grey-20");
-      -webkit-text-fill-color: color("grey-20");
+  i + input:invalid {
+    padding: $form-input-padding-with-icon-active;
+  }
+
+  &.e-input---focus {
+    > input, > textarea { 
+      @include e-outline();
+      border: 2px solid color('green');
+      padding: $form-input-padding-active;
+    }
+  }
+  > input:focus, > textarea:focus {
+    @include e-outline();
+    border: 2px solid color('green');
+    padding: $form-input-padding-active;
+  }
+  > i + input:focus {
+    padding: $form-input-padding-with-icon-active;
+  }
+
+  &.e-input---disabled {
+    > input, > textarea { 
+      color: color('grey-20');
+      border-color: color('grey-20');
       cursor: not-allowed;
     }
+  }
+  > input:disabled, > textarea:disabled {
+    opacity: 1;
+    color: color("grey-20");
+    -webkit-text-fill-color: color("grey-20");
+    cursor: not-allowed;
+  }
+  i + input:disabled {
+    padding: $form-input-padding-with-icon-active;
   }
 }
 

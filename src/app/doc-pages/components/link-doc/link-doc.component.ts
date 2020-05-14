@@ -122,11 +122,21 @@ export class LinkDocComponent implements OnInit {
 </div>
 `;
 
-  example6 = `<a class="e-link e-link--jumbo" href="https://www.elvia.no/">
-  <span class="e-link__icon"><i class="e-icon e-icon--powerline-snow e-icon--xl"></i></span>
-  <span class="e-link__title">Strømledning nær bakken</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--arrow-right e-icon--xs"></i></span>
-</a>
+  example6 = `<div>
+  <h3 class="e-title-small">With icon</h3>
+  <a class="e-link e-link--jumbo" href="https://www.elvia.no/">
+    <span class="e-link__icon"><i class="e-icon e-icon--powerline-snow e-icon--xl"></i></span>
+    <span class="e-link__title">Strømledning nær bakken</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow-right e-icon--xs"></i></span>
+  </a>
+</div>
+<div>
+  <h3 class="e-title-small">Without icon</h3>
+  <a class="e-link e-link--jumbo" href="https://www.elvia.no/">
+    <span class="e-link__title">Strømledning nær bakken</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow-right e-icon--xs"></i></span>
+  </a>
+</div>
 `;
 
   example7 = `<div class="e-mt-40">
