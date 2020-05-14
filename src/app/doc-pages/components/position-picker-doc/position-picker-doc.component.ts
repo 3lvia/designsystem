@@ -42,7 +42,7 @@ export class PositionPickerDocComponent implements OnInit {
 </div>
 `;
 
-exampleTSCode = `// Typescript
+exampleTSCode = `
 @ViewChild('mapModal') mapModal: ElementRef;
 showPosition = false;
 
@@ -62,7 +62,7 @@ closeModal(modal: string) {
 }
 `;
 
-exampleHTMLCode = `<!-- Html -->
+exampleHTMLCode = `
 <div class="e-position-picker">
 <div class="e-position-picker__icon" *ngIf="!showPosition">
   <span class="e-btn__icon"><i class="e-icon e-icon--map-pin e-icon--lg"></i></span>
