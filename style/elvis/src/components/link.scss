@@ -124,7 +124,7 @@ $link-jumbo-phone-width: 287px;
   }
 
   &.e-link--jumbo {
-    @extend .e-title-sm;
+    @include typography('title-sm');
     display: inline-flex;
     align-items: center;
     border: 2px solid color("black");

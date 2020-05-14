@@ -1,5 +1,4 @@
 @import "../variables/colors.scss";
-@import "../variables/typography.scss";
 
 $popover-border-width: 1px;
 $popover-padding: 24px;
@@ -55,12 +54,12 @@ $popover-mobile-max-width: 300px;
     }
 
     .e-popover__title {
-      @extend .e-text-info;
+      @include typography('text-info');
       font-weight: 500 !important;
       padding-bottom: 8px;
     }
     .e-popover__text {
-      @extend .e-text-info;
+      @include typography('text-info');
     }
 
     &::before {
