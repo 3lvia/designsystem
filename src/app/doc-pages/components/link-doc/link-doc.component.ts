@@ -122,9 +122,7 @@ export class LinkDocComponent implements OnInit {
 </div>
 `;
 
-  example6 = `
-<div>Note: When multiple jumbo links are used together only one of the types should be used, they should not be mixed.</div>
-<div>
+  example6 = `<div>
   <h3 class="e-title-small">With icon</h3>
   <a class="e-link e-link--jumbo" href="https://www.elvia.no/">
     <span class="e-link__icon"><i class="e-icon e-icon--powerline-snow e-icon--xl"></i></span>
