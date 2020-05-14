@@ -58,7 +58,13 @@
     [class]="['e-link', 'e-link--jumbo']"
     [showIframeScreens]="true"
     [noTablet]="true"
-    [description]="'Jumbo link is used to create a clear overview of multiple links within the same category. The text content cannot exceed 2 rows on desktop. The desktop version will keep standard height while the mobile version will expand for text content according to the desktop limit.'"
+    [description]="'Jumbo link is used to create a clear overview of multiple links within the same category. 
+    The text content cannot exceed 2 rows on desktop. 
+    The desktop version will keep standard height while the mobile version will expand for text content according to the desktop limit.'"
+    [donts]="'Do not use jumbo links for groups with less than three links.
+    Do not mix links that aren’t naturally grouped together in the jumbo link section.
+    Do not mix icon jumbo link with jumbo links without icons - in that case, all jumbo links in the section should be showed without icon.'"
+    [does]="'Use jumbo links for a group of links on the same level, to gather and provide an overview.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
