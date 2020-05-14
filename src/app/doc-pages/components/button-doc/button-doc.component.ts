@@ -286,7 +286,46 @@ exampleIcon = `<div>
 </div>
 `;
 
-  example7 = `<div>
+example7 = `<div>
+<a class="e-btn e-m-16" href="www.elvia.no">
+<span class="e-btn__title">Anchor tags</span>
+</a>
+
+<a class="e-btn e-m-16" href="www.elvia.no">
+<span class="e-btn__icon">
+  <i class="e-icon e-icon--download e-icon--inverted"></i>
+  <i class="e-icon e-icon--download"></i>
+</span>
+<span class="e-btn__title">With Icon</span>
+</a>
+</div>
+
+<div>
+  <a class="e-btn e-btn--secondary e-m-16" href="www.elvia.no">
+  <span class="e-btn__title">Secondary</span>
+  </a>
+
+  <a class="e-btn e-btn--secondary e-m-16" href="www.elvia.no">
+    <span class="e-btn__title">With icon</span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+  </a>
+</div>
+
+<div>
+  <a class="e-btn e-btn--tertiary e-m-16" href="www.elvia.no">
+  <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+  <span class="e-btn__title">Tertiary</span>
+  </a>
+
+  <a class="e-btn e-btn--icon e-btn--lg e-m-16" href="www.elvia.no">
+  <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
+  </a>
+</div>
+
+
+`;
+
+  example8 = `<div>
   <h3 class="e-title-small">Primary buttons</h3>
   <button class="e-btn e-btn---hover e-m-16">
     <span class="e-btn__title">Hover</span>

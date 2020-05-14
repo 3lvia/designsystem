@@ -30,7 +30,7 @@
     [title]="'Secondary'"
     [class]="['e-btn', 'e-btn--secondary']"
     [description]="'Secondary buttons have the same modifiers as primary except for danger.'"
-    [does]="'Secondary buttons are similar to primary buttons but is used as a supportive action, or for less important actions. 
+    [does]="'Secondary buttons are similar to primary buttons but is used as a supportive action, or for less important actions.
     Can be used alone, or combined with a primary og link styled button.'"
   ></app-code-block>
   <app-code-block
@@ -45,17 +45,25 @@
     [code]="exampleIcon"
     [title]="'Icon buttons'"
     [description]="'Icon buttons are used for familiar and simple actions such as close, edit, delete etc. These are ideal for task based actions where the buttons should not attract too much attention.
-    There are two types of icon-buttons; transparent and circled.'"
+There are two types of icon-buttons; transparent and circled.'"
     [class]="['e-btn', 'e-btn--icon', 'e-btn--circled']"
     [donts]="'Unknown icon that is not descriptive alone without text. Don’t use both transparent and circle icons next to each other in a group'"
     [does]="'Known actions that do not attract much attention. Different actions grouped together (example: A table where you can delete, edit and move)'"
   ></app-code-block>
   <app-code-block
+  [isHTML]="true"
+  [code]="example7"
+  [title]="'e-btn classes on anchor tags'"
+  [class]="['e-btn']"
+  [description]="'The e-btn class can also be used on anchor tags to make links appear like buttons.'"
+  [donts]="'On actions that could have disabled state. Links do not have an disabled state, and the e-btn disabled style will not be applied on links with disbabled html syntax.'"
+></app-code-block>
+  <app-code-block
     [isHTML]="true"
-    [code]="example7"
+    [code]="example8"
     [title]="'Pseudo classes'"
     [class]="['e-btn---hover', 'e-btn---active', 'e-btn---focus', 'e-btn---disabled']"
-    [description]="'Pseudo Classes can be used to set the styling of button to emulate the state. 
+    [description]="'Pseudo Classes can be used to set the styling of button to emulate the state.
     For example adding hover to an e-btn will style the e-btn button to have a hover state'"
   ></app-code-block>
 </div>
