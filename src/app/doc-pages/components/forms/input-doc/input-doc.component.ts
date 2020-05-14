@@ -17,15 +17,15 @@ export class InputDocComponent implements OnInit {
   example1 = `<div class="e-form-field">
   <label class="e-form-field__label" for="normal">Normal input field </label>
   <div class="e-input">
-    <input id="normal" type="text" placeholder="Placeholder text">
     <i class="e-icon e-icon--email e-icon--xs"></i>
+    <input id="normal" type="text" placeholder="Placeholder text">
   </div>
 </div>
 <div class="e-form-field">
   <label class="e-form-field__label" for="disabled">Disabled input field </label>
   <div class="e-input e-input---disabled">
-    <input id="disabled" type="text" placeholder="Placeholder text" disabled>
     <i class="e-icon e-icon--email e-icon--xs e-icon--color-disabled"></i>
+    <input id="disabled" type="text" placeholder="Placeholder text" disabled>
   </div>
 </div>
 
@@ -39,8 +39,8 @@ export class InputDocComponent implements OnInit {
       <input type="text" value="+47">
     </div>
     <div class="e-input">
-      <input type="text" placeholder="Placeholder text">
       <i class="e-icon e-icon--phone e-icon--xs"></i>
+      <input type="text" placeholder="Placeholder text">
     </div>
   </div>
 </div>
@@ -65,15 +65,15 @@ export class InputDocComponent implements OnInit {
 example4 = `<div class="e-form-field">
   <label class="e-form-field__label" for="password">Password input field</label>
   <div class="e-input">
-    <input id="password" type="password" placeholder="*******">
     <i class="e-icon e-icon--lock e-icon--xs"></i>
+    <input id="password" type="password" placeholder="*******">
   </div>
 </div>
 <div class="e-form-field">
   <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
   <div class="e-input e-input---invalid">
-    <input id="invalid" type="password" value="passord" invalid>
     <i class="e-icon e-icon--lock e-icon--xs"></i>
+    <input id="invalid" type="password" value="passord" invalid>
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
     <i class="e-icon e-icon--alert-circle e-icon--xs"></i>

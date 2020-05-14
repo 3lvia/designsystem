@@ -1,5 +1,6 @@
+@import "../../utilities/outline.scss";
+
 .e-segmented-controls {
-    $this: &;
     display: inline-flex;
     border: 1px solid color("black");
     border-radius: 38px;
@@ -7,15 +8,11 @@
     text-align: center;
     flex-wrap: nowrap;
     box-sizing: border-box;
-
-    &.e-segmented-controls---focus, &:focus-within:not(:active) {
-        @extend .e-outline;
-    }
+    position: relative;
 
     input {
         position: absolute;
         opacity: 0;
-
         &:checked,
         &#{this} label {
             background-color: color("black");
@@ -46,4 +43,9 @@
         font-weight: 500;
         transition: 0.2s;
     }
+
+    input:focus + label{
+        @include e-outline();
+    }
+
 }

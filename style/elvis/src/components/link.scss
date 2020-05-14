@@ -63,8 +63,8 @@ $link-jumbo-phone-width: 287px;
   &.e-link---hover, &:hover {
     border-bottom-color: color("green");
   }
-  &.e-link---focus, &:focus:not(:active) {
-    @extend .e-outline;
+  &.e-link---focus, &:focus {
+    @include e-outline();
     overflow: auto;
   }
 
