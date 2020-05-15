@@ -1,5 +1,4 @@
 @mixin e-outline() {
-    outline: none;
     outline: 2px solid internal-color('focus-outline');
     outline-offset: 2px;
 }
