@@ -51,8 +51,7 @@ $button-sm-line-height: 16px;
     @include e-outline();
   }
   &.e-btn---focus {
-    outline: 2px solid internal-color('focus-outline') !important;
-    outline-offset: 2px;
+    @include e-outline-pseudoclass();
   }
 
 

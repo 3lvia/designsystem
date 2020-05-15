@@ -84,8 +84,7 @@ $form-radiobutton-mark-border: 1px solid color("black");
     }
 
     &.e-radio__mark---focus {
-      outline: 2px solid internal-color('focus-outline') !important;
-      outline-offset: 2px;
+      @include e-outline-pseudoclass();
     }
 
     &:hover,

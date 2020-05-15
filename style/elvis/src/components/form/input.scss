@@ -61,8 +61,7 @@ $form-input-border: 1px solid color("grey");
 
   &.e-input---focus {
     > input, > textarea {
-      outline: 2px solid internal-color('focus-outline') !important;
-      outline-offset: 2px;
+      @include e-outline-pseudoclass();
       border: 2px solid color('green');
       padding: $form-input-padding-active;
     }
