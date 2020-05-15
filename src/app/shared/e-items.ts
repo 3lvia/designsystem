@@ -44,8 +44,9 @@ export const eComponents: EItems[] = [
         title: 'Autocomplete',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Autocomplete,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1332%3A231'
     },
     {
         title: 'Button',
