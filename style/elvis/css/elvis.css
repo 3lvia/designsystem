@@ -2442,7 +2442,7 @@ body {
 
 .e-fileupload {
   border: 2px dashed #D3D3D3;
-  border-radius: 8px;
+  border-radius: 4px;
   display: flex;
   flex-wrap: wrap;
   padding: 32px 0; }
@@ -2572,6 +2572,29 @@ body {
 
 .e-combined-field .e-input:not(:last-of-type) {
   margin-right: 8px; }
+
+.e-position-picker {
+  display: flex;
+  flex-wrap: wrap;
+  border: 2px solid #000;
+  border-radius: 4px;
+  padding: 32px 0;
+  max-width: 375px; }
+  .e-position-picker__icon {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 22px; }
+  .e-position-picker__description {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 22px;
+    margin-top: 8px; }
+  .e-position-picker__action {
+    display: flex;
+    width: 100%;
+    justify-content: center; }
 
 .e-no-outline * {
   outline: none !important; }
@@ -6365,7 +6388,7 @@ body {
   font-weight: 400;
   color: #000; }
 
-.e-text-label {
+.e-text-label, .e-position-picker__description {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 23px;
