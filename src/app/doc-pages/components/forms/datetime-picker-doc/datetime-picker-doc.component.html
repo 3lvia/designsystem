@@ -9,11 +9,11 @@
   <ng-container ngProjectAs="headerDescription">
     <div>
       This documentation shows how you should style your date and time picker. We do not currently provide styling classes
-      for this, because we understand that it is desirable to use libraries with date/time picker that have all the logic 
+      for this, because we understand that it is desirable to use libraries with date/time pickers that have all the logic 
       necessary. So in this documentation we have pictures of the design that you should try applying to your date/time picker. 
     </div>
     <div class="e-mt-8">
-      Take a look in <a class="e-link e-link--inline" href="{{externalUrl}}">figma</a> to get a detailed view where you can inspect properties of the design.
+      Take a look in <a class="e-link e-link--inline" href="{{externalUrl}}">figma</a> to get the detailed view where you can inspect properties of the design.
     </div>
   </ng-container>
 
@@ -22,7 +22,40 @@
 
 <!--BODY-->
 <div class="page-body">
-  <h2 class="e-title-md">Design time picker</h2>
-  <div class="e-text-description e-mb-24"></div>
+  <h2 class="e-title-md">Designing from scratch</h2>
+  <div class="e-text-description e-mb-24">
+    If you need to style the datepicker or timepicker from scratch you can use our utilities classes which provide styling that can be useful. 
+    <ul class="e-list">
+      <li><a class="e-link" [routerLink]="['/utilities/typography-doc']">typography</a></li>
+      <li><a class="e-link" [routerLink]="['/utilities/spacing-doc']">spacing</a></li>
+      <li><a class="e-link" [routerLink]="['/utilities/shadow-doc']">shadows</a></li>
+      <li><a class="e-link" [routerLink]="['/utilities/color-doc']">colors</a></li>
+    </ul>
+  </div>
+
+  <h2 class="e-title-md">Design timepicker</h2>
+  <div class="e-text-description e-mb-24">
+    To make the timepicker you might be able to use our <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">autocomplete classes</a> 
+    or <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>.
+    These classes have the same styling as the timepicker designed here.
+  </div>
+  <div class="image-container">
+    <img class="e-m-16 image-size" src="assets/datepicker/timepicker.png">
+  </div>
+
+  <h2 class="e-title-md">Design datepicker</h2>
+  <div class="e-text-description e-mb-24">
+    To make the datepicker you might be able to use our <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>.
+  </div>
+  <div class="image-container">
+    <img class="e-m-16 image-size" src="assets/datepicker/datepicker-closed.png">
+  </div>
+  <div class="e-text-description e-mb-24">
+    To make the opened datepicker you might be able use some styling we provide in the <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">autocomplete classes</a>.
+    But it is probably necessary to style from scratch.
+  </div>
+  <div class="image-container">
+    <img class="e-m-16 image-size" src="assets/datepicker/datepicker-opened.png">
+  </div>
 
 </div>
