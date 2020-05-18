@@ -4,42 +4,79 @@
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
-.e-label.e-label--safe::before, .e-label.e-label--warn::before, .e-label.e-label--danger::before, .e-label.e-label--info::before {
-  display: inline-flex;
-  border-radius: 50%;
-  height: 8px;
-  width: 8px;
-  margin-right: 8px; }
-  @media (max-width: 767px) {
-    .e-label.e-label--safe::before, .e-label.e-label--warn::before, .e-label.e-label--danger::before, .e-label.e-label--info::before {
-      margin-right: 6px; } }
-
-.e-label {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 11px;
-  border-radius: 4px;
-  font-size: 11px;
-  line-height: 18px;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  background: #E9E9E9;
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap");
+body {
+  font-family: "Red Hat Display", sans-serif;
   color: #000; }
-  @media (max-width: 767px) {
-    .e-label {
-      padding: 2px 7px; } }
-  .e-label.e-label--safe::before {
-    content: ' ';
-    background-color: #29D305; }
-  .e-label.e-label--warn::before {
-    content: ' ';
-    background-color: #FFA000; }
-  .e-label.e-label--danger::before {
-    content: ' ';
-    background-color: #FF0000; }
-  .e-label.e-label--info::before {
-    content: ' ';
-    background-color: #006DDB; }
+
+.e-autocomplete input {
+  position: relative;
+  box-sizing: border-box;
+  height: 48px;
+  width: 100%;
+  max-width: 448px;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 13px 16px;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 1rem;
+  line-height: 28px;
+  font-weight: 400;
+  color: #000; }
+  .e-autocomplete input::placeholder {
+    font-family: "Red Hat Text", sans-serif;
+    font-size: 1rem;
+    line-height: 22px;
+    font-weight: 400;
+    color: #000;
+    color: #515151; }
+  .e-autocomplete input:focus, .e-autocomplete input:active {
+    border: 2px solid #29D305;
+    padding: 12px 15px;
+    outline: none; }
+  .e-autocomplete input:invalid {
+    border: 2px solid #FF0000;
+    padding: 12px 15px;
+    outline: none; }
+
+.e-autocomplete__content {
+  position: absolute;
+  display: block;
+  background-color: #FFF;
+  width: 100%;
+  max-width: 448px;
+  max-height: 240px;
+  overflow-y: hidden;
+  margin-top: 4px;
+  border: 1px solid #E9E9E9;
+  border-radius: 4px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+  z-index: 1; }
+  .e-autocomplete__content__item {
+    display: block;
+    box-sizing: border-box;
+    height: 48px;
+    width: 100%;
+    padding: 13px 16px;
+    z-index: 1;
+    font-family: "Red Hat Text", sans-serif;
+    font-size: 1rem;
+    line-height: 22px;
+    font-weight: 400;
+    color: #000; }
+    .e-autocomplete__content__item:hover {
+      background-color: #E9E9E9; }
+
+.e-autocomplete.e-autocomplete---active input {
+  border: 2px solid #29D305;
+  padding: 12px 15px; }
+
+.e-autocomplete.e-autocomplete---invalid input {
+  border: 2px solid #FF0000;
+  padding: 12px 15px; }
 
 .e-no-outline * {
   outline: none !important; }
@@ -163,6 +200,8 @@ a:focus, button:focus, input:focus {
   font-family: 'Red Hat Display', sans-serif;
   font-weight: 500;
   justify-content: center; }
+  .e-btn::-moz-focus-inner {
+    border: 0; }
   .e-btn.e-btn---focus, .e-btn:enabled:focus {
     outline: none;
     outline: 2px solid #0064FA;
@@ -664,6 +703,43 @@ body {
       display: none; }
       .e-header-user_name:not(:last-child) {
         margin-right: 8px; }
+
+.e-label.e-label--safe::before, .e-label.e-label--warn::before, .e-label.e-label--danger::before, .e-label.e-label--info::before {
+  display: inline-flex;
+  border-radius: 50%;
+  height: 8px;
+  width: 8px;
+  margin-right: 8px; }
+  @media (max-width: 767px) {
+    .e-label.e-label--safe::before, .e-label.e-label--warn::before, .e-label.e-label--danger::before, .e-label.e-label--info::before {
+      margin-right: 6px; } }
+
+.e-label {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  border-radius: 4px;
+  font-size: 11px;
+  line-height: 18px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: #E9E9E9;
+  color: #000; }
+  @media (max-width: 767px) {
+    .e-label {
+      padding: 2px 7px; } }
+  .e-label.e-label--safe::before {
+    content: ' ';
+    background-color: #29D305; }
+  .e-label.e-label--warn::before {
+    content: ' ';
+    background-color: #FFA000; }
+  .e-label.e-label--danger::before {
+    content: ' ';
+    background-color: #FF0000; }
+  .e-label.e-label--info::before {
+    content: ' ';
+    background-color: #006DDB; }
 
 .e-no-outline * {
   outline: none !important; }
@@ -2316,7 +2392,9 @@ body {
   .e-checkbox.e-checkbox---invalid .e-checkbox__mark {
     border-color: #FF0000; }
   .e-checkbox input {
-    opacity: 0; }
+    opacity: 0;
+    position: absolute;
+    z-index: -1; }
     .e-checkbox input:focus ~ .e-checkbox__mark {
       outline: none;
       outline: 2px solid #0064FA;
@@ -2573,10 +2651,14 @@ body {
 .e-combined-field .e-input:not(:last-of-type) {
   margin-right: 8px; }
 
+body {
+  font-family: "Red Hat Display", sans-serif;
+  color: #000; }
+
 .e-position-picker {
   display: flex;
   flex-wrap: wrap;
-  border: 2px solid #000;
+  border: 1px solid #000;
   border-radius: 4px;
   padding: 32px 0;
   max-width: 375px; }
@@ -2586,6 +2668,12 @@ body {
     justify-content: center;
     margin-bottom: 22px; }
   .e-position-picker__description {
+    font-family: "Red Hat Text", sans-serif;
+    font-size: 1rem;
+    line-height: 23px;
+    font-weight: 500;
+    color: #000;
+    color: #333333;
     display: flex;
     width: 100%;
     justify-content: center;
@@ -6388,7 +6476,7 @@ body {
   font-weight: 400;
   color: #000; }
 
-.e-text-label, .e-position-picker__description {
+.e-text-label {
   font-family: "Red Hat Text", sans-serif;
   font-size: 1rem;
   line-height: 23px;
