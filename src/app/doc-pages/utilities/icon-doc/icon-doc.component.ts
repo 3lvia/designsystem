@@ -36,15 +36,6 @@ export class IconDocComponent implements OnInit {
   <i class="e-icon e-icon--cog e-icon--xs e-icon--color-blue-berry"></i>
   <i class="e-icon e-icon--cog e-icon--xxs e-icon--color-green-apple"></i>
 </div>
-<div class="e-bg-black e-p-8">
-  <i class="e-icon e-icon--cog e-icon--xxl e-icon--color-purple-plum e-icon--inverted"></i>
-  <i class="e-icon e-icon--cog e-icon--xl e-icon--color-orange-mango e-icon--inverted"></i>
-  <i class="e-icon e-icon--cog e-icon--lg e-icon--color-red-tomato e-icon--inverted"></i>
-  <i class="e-icon e-icon--cog e-icon--md e-icon--color-violet-grape e-icon--inverted"></i>
-  <i class="e-icon e-icon--cog e-icon--sm e-icon--color-grey-70 e-icon--inverted"></i>
-  <i class="e-icon e-icon--cog e-icon--xs e-icon--color-blue-berry e-icon--inverted"></i>
-  <i class="e-icon e-icon--cog e-icon--xxs e-icon--color-green-apple e-icon--inverted"></i>
-</div>
 `;
 
 example3 = `<div class="e-bg-black e-p-8">
