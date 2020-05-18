@@ -32,6 +32,7 @@ export enum Pages {
     Modal = 'modal-doc',
     Notification = 'notification-dot-doc',
     Popover = 'popover-doc',
+    PositionPicker = 'position-picker-doc',
     Progressbar = 'progressbar-doc',
     Radiobutton = 'radiobutton-doc',
     SegmentedControl = 'segmented-control-doc',

@@ -1,6 +1,6 @@
 .e-fileupload {
     border: 2px dashed color("grey-20");
-    border-radius: 8px;
+    border-radius: 4px;
     display: flex;
     flex-wrap: wrap;
     padding: 32px 0;
@@ -63,7 +63,7 @@
             }
         }
     }
-    
+
     &---hover {
         border-color: color("green");
     }
