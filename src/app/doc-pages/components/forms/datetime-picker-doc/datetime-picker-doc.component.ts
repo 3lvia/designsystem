@@ -11,6 +11,22 @@ export class DatetimePickerDocComponent implements OnInit {
   externalUrl = getComponent('datetime-picker-doc').externalUrl;
   componentStatus = getComponent('datetime-picker-doc').status;
 
+  inputTimeExample = `<div class="e-form-field" style="width:140px">
+  <label class="e-form-field__label" for="normal">Normal input field </label>
+  <div class="e-input">
+    <i class="e-icon e-icon--clock e-icon--xs"></i>
+    <input id="normal" type="time" placeholder="">
+  </div>
+</div>`;
+
+  inputDateExample = `<div class="e-form-field" style="width:250px">
+  <label class="e-form-field__label" for="normal">Normal input field </label>
+  <div class="e-input">
+    <i class="e-icon e-icon--calendar e-icon--xs"></i>
+    <input id="normal" type="date" placeholder="">
+  </div>
+</div>`;
+
   constructor() { }
 
   ngOnInit() {
