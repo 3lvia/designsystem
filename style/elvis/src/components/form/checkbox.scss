@@ -26,7 +26,7 @@ $checkbox-mark-border: 1px solid color("black");
 
   &.e-checkbox---focus {
     #{$this}__mark {
-      @include e-outline();
+      @include e-outline-pseudoclass();
     }
   }
 
@@ -51,6 +51,8 @@ $checkbox-mark-border: 1px solid color("black");
   // hides initial checkbox and gives placeholder style according to state
   input {
     opacity: 0;
+    position: absolute;
+    z-index: -1;
 
     &:checked ~ #{$this}__mark {
       @extend %checkbox-mark;

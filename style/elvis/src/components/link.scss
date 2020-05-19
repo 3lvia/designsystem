@@ -30,13 +30,13 @@ $link-jumbo-phone-width: 287px;
   color: color("font-color");
   text-align: inherit;
   position: relative;
-  
+
   &__icon {
     display: inline-flex;
     align-items: center;
-    i { 
+    i {
       display: flex;
-      @include icon-size('xxs'); 
+      @include icon-size('xxs');
     }
   }
 
@@ -63,7 +63,10 @@ $link-jumbo-phone-width: 287px;
   &.e-link---hover, &:hover {
     border-bottom-color: color("green");
   }
-  &.e-link---focus, &:focus {
+  &.e-link---focus {
+    @include e-outline-pseudoclass();
+  }
+  &:focus {
     @include e-outline();
     overflow: auto;
   }
