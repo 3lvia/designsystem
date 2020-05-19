@@ -41,13 +41,14 @@ $button-sm-line-height: 16px;
   font-family: "Red Hat Display", sans-serif;
   font-weight: $button-font-weight;
   justify-content: center;
+  text-decoration: none;
 
   // Removing default focus on firefox
   &::-moz-focus-inner {
     border: 0;
   }
 
-  &:enabled:focus {
+  &:focus:not(:disabled) {
     @include e-outline();
   }
   &.e-btn---focus {
@@ -144,9 +145,9 @@ $button-sm-line-height: 16px;
       cursor: not-allowed;
     }
     &.e-btn---hover,
-    &:enabled:hover,
+    &:hover:not(:disabled),
     &.e-btn---active,
-    &:enabled:active {
+    &:active:not(:disabled) {
       background: color("green");
       border-color: color("green");
       color: color("black");
@@ -159,7 +160,7 @@ $button-sm-line-height: 16px;
       }
     }
     &.e-btn---active,
-    &:enabled:active {
+    &:active:not(:disabled) {
       border-color: transparent;
       background-clip: padding-box;
     }
@@ -183,15 +184,15 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn---hover,
-    &:enabled:hover,
+    &:hover:not(:disabled),
     &.e-btn---active,
-    &:enabled:active {
+    &:active:not(:disabled) {
       background: color("green");
       border-color: color("green");
       color: color("black");
     }
     &.e-btn---active,
-    &:enabled:active {
+    &:active:not(:disabled) {
       border-color: transparent;
       background-clip: padding-box;
     }
@@ -219,13 +220,13 @@ $button-sm-line-height: 16px;
       cursor: not-allowed;
     }
     &.e-btn---hover,
-    &:enabled:hover {
+    &:hover:not(:disabled) {
       border-bottom-color: color("green");
       border-color: color("green");
       background: none;
     }
     &.e-btn---active,
-    &:enabled:active {
+    &:active:not(:disabled) {
       padding-bottom: 4.5px;
       &.e-btn--lg {
         padding-bottom: 2.5px;
@@ -282,9 +283,9 @@ $button-sm-line-height: 16px;
       }
 
       &.e-btn---hover,
-      &:enabled:hover,
+      &:hover:not(:disabled),
       &.e-btn---active,
-      &:enabled:active {
+      &:active:not(:disabled) {
         background: transparent;
         // Showing hover ikon
         .e-btn__icon i:not([class$="filled-color"]),
@@ -296,7 +297,7 @@ $button-sm-line-height: 16px;
         }
       }
       &.e-btn---active,
-      &:enabled:active {
+      &:active:not(:disabled) {
         transform: scale(0.93);
       }
     }
@@ -308,9 +309,9 @@ $button-sm-line-height: 16px;
       }
 
       &.e-btn---hover,
-      &:enabled:hover,
+      &:hover:not(:disabled),
       &.e-btn---active,
-      &:enabled:active {
+      &:active:not(:disabled) {
         // Showing hover ikon
         .e-btn__icon i[class$="red"] {
           visibility: hidden;
@@ -322,13 +323,13 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn---hover,
-    &:enabled:hover,
+    &:hover:not(:disabled),
     &.e-btn---active,
-    &:enabled:active {
+    &:active:not(:disabled) {
       background: color("green");
     }
     &.e-btn---active,
-    &:enabled:active {
+    &:active:not(:disabled) {
       transform: scale(0.95);
     }
     &.e-btn---disabled,
