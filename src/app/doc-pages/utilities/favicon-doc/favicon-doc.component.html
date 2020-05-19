@@ -1,3 +1,128 @@
-<p>
-  favicon-doc works!
-</p>
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Favicon
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Here you can download the elvia favicons you need. 
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <h2 class="e-title-md">Favicon light + dark</h2>
+  <p class="e-text-description">
+    The favicon should change from black to white on dark-themed browsers. 
+    Take a look at the bottom for a solution to changing favicon when dark-theme is used. 
+  </p>
+  <h2 class="e-title-md e-mt-40">Assets</h2>
+  <div class="e-grid">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 e-mb-24 e-text-center">
+        <div>
+          <img class="asset-preview e-mt-40" src="assets/favicon/favicon.ico">
+          <div class="e-mt-24">
+            <a href="assets/favicon/favicon.ico" download>
+              <button class="e-btn">
+                <span class="e-btn__title">favicon.ico</span>
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--download e-icon--inverted"></i>
+                  <i class="e-icon e-icon--download"></i>
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+        <div>
+          <img class="asset-preview e-mt-40" src="assets/favicon/favicon-16x16.png">
+          <div class="e-mt-24">
+            <a href="assets/favicon/favicon-16x16.png" download>
+              <button class="e-btn">
+                <span class="e-btn__title">favicon-16x16.png</span>
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--download e-icon--inverted"></i>
+                  <i class="e-icon e-icon--download"></i>
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+        <div>
+          <img class="asset-preview e-mt-40" src="assets/favicon/favicon-32x32.png">
+          <div class="e-mt-24">
+            <a href="assets/favicon/favicon-32x32.png" download>
+              <button class="e-btn">
+                <span class="e-btn__title">favicon-32x32.png</span>
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--download e-icon--inverted"></i>
+                  <i class="e-icon e-icon--download"></i>
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 e-bg-grey-90 e-pb-24 e-text-center">
+        <div>
+          <img class="asset-preview e-mt-40" src="assets/favicon/favicon-dark.ico">
+          <div class="e-mt-24">
+            <a href="assets/favicon/favicon-dark.ico" download>
+              <button class="e-btn">
+                <span class="e-btn__title">favicon-dark.ico</span>
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--download e-icon--inverted"></i>
+                  <i class="e-icon e-icon--download"></i>
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+        <div>
+          <img class="asset-preview e-mt-40" src="assets/favicon/favicon-dark-16x16.png">
+          <div class="e-mt-24">
+            <a href="assets/favicon/favicon-dark-16x16.png" download>
+              <button class="e-btn">
+                <span class="e-btn__title">favicon-dark-16x16.png</span>
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--download e-icon--inverted"></i>
+                  <i class="e-icon e-icon--download"></i>
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+        <div>
+          <img class="asset-preview e-mt-40" src="assets/favicon/favicon-dark-32x32.png">
+          <div class="e-mt-24">
+            <a href="assets/favicon/favicon-dark-32x32.png" download>
+              <button class="e-btn">
+                <span class="e-btn__title">favicon-dark-32x32.png</span>
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--download e-icon--inverted"></i>
+                  <i class="e-icon e-icon--download"></i>
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <h2 class="e-title-md">Changing favicon when dark-theme</h2>
+  <p class="e-text-description">
+    The favicon should change from black to white on dark-themed browsers. 
+    Take a look at the bottom for a solution to changing favicon when dark-theme is used. 
+  </p>
+  <h3 class="e-title-sm">TypeScript</h3>
+  <app-code-highlighter
+    [isTS]="'true'"
+    [code]="faviconTS"
+  ></app-code-highlighter>
+  <h3 class="e-title-sm">HTML</h3>
+  <app-code-highlighter
+    [isHTML]="'true'"
+    [code]="faviconHTML"
+  ></app-code-highlighter>
+</div>
