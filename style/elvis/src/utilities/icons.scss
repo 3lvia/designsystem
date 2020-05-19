@@ -26,7 +26,11 @@ $sizes: (
 $defaultSize: 'md';
 
 .e-icon {
-    @include icon-size($defaultSize);
+  @include icon-size($defaultSize);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
 }
 
 // Making icon size classes

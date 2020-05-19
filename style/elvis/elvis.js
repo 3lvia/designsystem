@@ -1,229 +1,218 @@
 document.addEventListener("DOMContentLoaded", function(){
-    let DEBUG = false;
-    if(window.location.href.indexOf('#debug') > -1) {
-      DEBUG = true;
+  let DEBUG = false;
+  if(window.location.href.indexOf('#debug') > -1) {
+    DEBUG = true;
+  }
+
+  function outlineFix() {
+    if(DEBUG){
+      return;
     }
-    
-    function outlineFix() {
-      if(DEBUG){
-        return;
+    document.body.classList.add('e-no-outline');
+    document.documentElement.addEventListener('keyup', function(e) {
+      if (e.keyCode === 9) {
+        document.body.classList.remove('e-no-outline');
       }
-      document.body.classList.add('e-no-outline');
-      document.documentElement.addEventListener('keyup', function(e) {
-        if (e.keyCode === 9) {
-          document.body.classList.remove('e-no-outline');
-        }
+    });
+
+    document.documentElement.addEventListener('click', function (event) {
+        document.body.classList.add('e-no-outline');
+    }, false);
+  }
+  outlineFix();
+
+
+
+  let mo = new MutationObserver(function(mutations){
+      mutations.forEach(function(mutation) {
+          injectIconIfEligible(mutation.target, mutation);
       });
-
-      document.documentElement.addEventListener('click', function (event) {
-          document.body.classList.add('e-no-outline');
-      }, false);
-    }
-    outlineFix();
-    
+  });
 
 
-    let mo = new MutationObserver(function(mutations){
-        mutations.forEach(function(mutation) {            
-            injectIconIfEligible(mutation.target, mutation);
-        });
-    });
-
-
-    function injectIconIfEligible(node, mutation) {
-        if(!node || !node.className || node.className.indexOf('e-icon') === -1) {
-            return; 
-        }
-
-        if(mutation.type === 'attributes') {
-            node.innerHTML = '';
-            node.appendChild(getIcon(node.classList));
-        }
-    }
-
-    mo.observe(document.documentElement, {
-        childList: true,
-        attributes: true,
-        characterData: true,
-        subtree: true,
-    });
-
-    function getUniqueIdentifier(classList) {
-      let id = '';
-      for(let i = 0; i < classList.length; i++ ) {
-        id += classList[i];
+  function injectIconIfEligible(node, mutation) {
+      if(!node || !node.className || node.className.indexOf(icons) === -1) {
+          return;
       }
-      return id;
+
+      if(mutation.type === 'attributes') {
+          node.style.backgroundImage = 'url("'+getIcon(node.classList) +'")';
+          node.setAttribute('e-id', getUniqueIdentifier(node.classList));
+      }
+  }
+
+  mo.observe(document.documentElement, {
+      childList: true,
+      attributes: true,
+      characterData: true,
+      subtree: true,
+  });
+
+  function getUniqueIdentifier(classList) {
+    let id = '';
+    for(let i = 0; i < classList.length; i++ ) {
+      id += classList[i];
     }
+    return id;
+  }
 
-    function getIcon(classList) {
-        for(let i = 0; i < classList.length; i++) {
-            if(!icons[classList[i]]) {
-                continue;
-            }
-            
-            let icon = icons[classList[i]];                
-            
-            if(icon.indexOf('viewBox') === -1){
-                icon.replace("%3csvg ", "%3csvg viewBox='0 0 24 24' ");
-            }
-              
-            icon = setCorrectColor(classList, icon);
+  function getIcon(classList) {
+      for(let i = 0; i < classList.length; i++) {
+          if(!icons[classList[i]]) {
+              continue;
+          }
 
-            let imgNode = document.createElement('IMG');
-            imgNode.width = '100%';
-            imgNode.height = '100%';
-            imgNode.setAttribute('aria-hidden', 'true');
-            imgNode.src = icon;
-            imgNode.setAttribute('e-id', getUniqueIdentifier(classList));
-            return imgNode;
-            
-        }
-        console.error("Elvis - No icon found for classes: ", classList);
-        return 'No icon found!';
-    } 
+          let icon = icons[classList[i]];
 
-    function setCorrectColor(classList, icon) {
-        let fill;   
-
-        if(classList.contains('e-icon--inverted')) {
-          for(let i = 0; i < classList.length; i++) {
-              // -full-color check can be removed when new icons have been added
-              if((classList[i].indexOf("-filled-color") > -1) || (classList[i].indexOf("-full-color") > -1)) {
-                  icon = icon.replace("fill='black'", "fillReplace");
-              }
-          };
-          icon = icon.replace("fill='white'", "fillReplace");
-          icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
-          icon = icon.replace(/fillReplace/g, "fill='black'");
+          icon = setCorrectColor(classList, icon);
           return icon;
-        }
 
-        if(classList.contains('e-icon--color-disabled')) {
-            fill = colors['grey-30'].color;
-        }
+      }
+      console.error("Elvis - No icon found for classes: ", classList);
+      return 'No icon found!';
+  }
 
-        if(classList.contains('e-icon--color-disabled-light')) {
-            fill = colors['grey-05'].color;
-        }
-        
-        if(JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
-              for(let i = 0; i < classList.length; i++) {
-                  let color = classList[i].replace('e-icon--color-', '');
-                  if(colors[color]){
-                      fill = colors[color].color;
-                  }
-              }
-        }
+  function setCorrectColor(classList, icon) {
+      let fill;
 
-        if(fill) {
-            fill = fill.replace('#', '%23');
-            icon = icon.replace(/fill='([^']*)'/g, "fill='"+ fill +"'");
-        }
-
+      if(classList.contains('e-icon--inverted')) {
+        for(let i = 0; i < classList.length; i++) {
+            // -full-color check can be removed when new icons have been added
+            if((classList[i].indexOf("-filled-color") > -1) || (classList[i].indexOf("-full-color") > -1)) {
+                icon = icon.replace("fill='black'", "fillReplace");
+            }
+        };
+        icon = icon.replace("fill='white'", "fillReplace");
+        icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
+        icon = icon.replace(/fillReplace/g, "fill='black'");
         return icon;
-    }
+      }
 
-    colors = {
-        'white': {
-          color: '#FFF',
-          contrastText: '#000',
-        },  
-        'black': {
-          color: '#000',
-          contrastText: '#fff',
-        },  
-        'grey': {
-          color: '#262626',
-          contrastText: '#fff',
-        },  
-        'grey-90': {
-          color: '#3B3B3B',
-          contrastText: '#fff',
-        },  
-        'grey-80': {
-          color: '#515151',
-          contrastText: '#fff',
-        },  
-        'grey-70': {
-          color: '#676767',
-          contrastText: '#fff',
-        },  
-        'grey-60': {
-          color: '#7C7C7C',
-          contrastText: '#000',
-        },  
-        'grey-50': {
-          color: '#929292',
-          contrastText: '#000',
-        },  
-        'grey-40': {
-          color: '#A8A8A8',
-          contrastText: '#000',
-        },  
-        'grey-30': {
-          color: '#BDBDBD',
-          contrastText: '#000',
-        },  
-        'grey-20': {
-          color: '#D3D3D3',
-          contrastText: '#000',
-        },  
-        'grey-10': {
-          color: '#E9E9E9',
-          contrastText: '#000',
-        },  
-        'grey-05': {
-          color: '#F4F4F4',
-          contrastText: '#000',
-        },  
-        'grey-02': {
-          color: '#FAFAFA',
-          contrastText: '#000',
-        },  
-        'green': {
-          color: '#29D305',
-          contrastText: '#000',
-        }, 
-        'yellow': {
-          color: '#FFFF00',
-          contrastText: '#000',
-        },  
-        'orange': {
-          color: '#FFA000',
-          contrastText: '#000',
-        },  
-        'red': {
-          color: '#FF0000',
-          contrastText: '#000',
-        },  
-        'green-apple': {
-          color: '#21AC04',
-          contrastText: '#000',
-        },  
-        'violet-grape': {
-          color: '#490192',
-          contrastText: '#fff',
-        },  
-        'blue-berry': {
-          color: '#006DDB',
-          contrastText: '#fff',
-        },  
-        'purple-plum': {
-          color: '#B66DFF',
-          contrastText: '#000',
-        },  
-        'orange-mango': {
-          color: '#DB6D00',
-          contrastText: '#000',
-        },  
-        'red-tomato': {
-          color: '#B90202',
-          contrastText: '#fff',
-        },   
-    }; 
+      if(classList.contains('e-icon--color-disabled')) {
+          fill = colors['grey-30'].color;
+      }
 
-    
+      if(classList.contains('e-icon--color-disabled-light')) {
+          fill = colors['grey-05'].color;
+      }
+
+      if(JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
+            for(let i = 0; i < classList.length; i++) {
+                let color = classList[i].replace('e-icon--color-', '');
+                if(colors[color]){
+                    fill = colors[color].color;
+                }
+            }
+      }
+
+      if(fill) {
+          fill = fill.replace('#', '%23');
+          icon = icon.replace(/fill='([^']*)'/g, "fill='"+ fill +"'");
+      }
+
+      return icon;
+  }
+
+  colors = {
+      'white': {
+        color: '#FFF',
+        contrastText: '#000',
+      },
+      'black': {
+        color: '#000',
+        contrastText: '#fff',
+      },
+      'grey': {
+        color: '#262626',
+        contrastText: '#fff',
+      },
+      'grey-90': {
+        color: '#3B3B3B',
+        contrastText: '#fff',
+      },
+      'grey-80': {
+        color: '#515151',
+        contrastText: '#fff',
+      },
+      'grey-70': {
+        color: '#676767',
+        contrastText: '#fff',
+      },
+      'grey-60': {
+        color: '#7C7C7C',
+        contrastText: '#000',
+      },
+      'grey-50': {
+        color: '#929292',
+        contrastText: '#000',
+      },
+      'grey-40': {
+        color: '#A8A8A8',
+        contrastText: '#000',
+      },
+      'grey-30': {
+        color: '#BDBDBD',
+        contrastText: '#000',
+      },
+      'grey-20': {
+        color: '#D3D3D3',
+        contrastText: '#000',
+      },
+      'grey-10': {
+        color: '#E9E9E9',
+        contrastText: '#000',
+      },
+      'grey-05': {
+        color: '#F4F4F4',
+        contrastText: '#000',
+      },
+      'grey-02': {
+        color: '#FAFAFA',
+        contrastText: '#000',
+      },
+      'green': {
+        color: '#29D305',
+        contrastText: '#000',
+      },
+      'yellow': {
+        color: '#FFFF00',
+        contrastText: '#000',
+      },
+      'orange': {
+        color: '#FFA000',
+        contrastText: '#000',
+      },
+      'red': {
+        color: '#FF0000',
+        contrastText: '#000',
+      },
+      'green-apple': {
+        color: '#21AC04',
+        contrastText: '#000',
+      },
+      'violet-grape': {
+        color: '#490192',
+        contrastText: '#fff',
+      },
+      'blue-berry': {
+        color: '#006DDB',
+        contrastText: '#fff',
+      },
+      'purple-plum': {
+        color: '#B66DFF',
+        contrastText: '#000',
+      },
+      'orange-mango': {
+        color: '#DB6D00',
+        contrastText: '#000',
+      },
+      'red-tomato': {
+        color: '#B90202',
+        contrastText: '#fff',
+      },
+  };
+
+  
   // THIS FILE IS GENERATED BY GULP, DO NOT CHANGE THIS ICON LIST MANUALLY. 
   // ADD OR REMOVE ICONS IN icons.config.js 
   let icons = {
@@ -368,30 +357,25 @@ document.addEventListener("DOMContentLoaded", function(){
      "e-icon--window-add-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M12.901 8.327H9.656V9.3h2.272v1.082H9.656v.973h2.272v1.298H9.656v.973h3.245v-5.3zM8.14 12.653H5.87v-1.298H8.14V8.327H4.896V9.3h2.27v1.082h-2.27v3.245H8.14v-.974zM17.446 10.382h-2.055V9.3h2.055v-.973h-3.029v3.028h2.056l-.553.155.49.245h.244l.245-.245.547-1.128z' fill='black'/%3e%3cpath d='M2.259 21.003a2.252 2.252 0 01-2.25-2.25v-16.5a2.252 2.252 0 012.25-2.25h18a2.252 2.252 0 012.25 2.25v6a.75.75 0 01-1.5 0v-2.25h-19.5v12.75c0 .414.336.75.75.75h6a.75.75 0 010 1.5h-6zm18.75-16.5v-2.25a.75.75 0 00-.75-.75h-18a.75.75 0 00-.75.75v2.25h19.5z' fill='black'/%3e%3cpath d='M17.259 24.003a6.758 6.758 0 01-6.75-6.75 6.758 6.758 0 016.75-6.75 6.758 6.758 0 016.75 6.75 6.758 6.758 0 01-6.75 6.75zm0-12a5.256 5.256 0 00-5.25 5.25 5.256 5.256 0 005.25 5.25 5.256 5.256 0 005.25-5.25 5.256 5.256 0 00-5.25-5.25z' fill='%2329D305'/%3e%3cpath d='M17.259 21.003a.75.75 0 01-.75-.75v-2.25h-2.25a.75.75 0 010-1.5h2.25v-2.25a.75.75 0 011.5 0v2.25h2.25a.75.75 0 010 1.5h-2.25v2.25a.75.75 0 01-.75.75z' fill='%2329D305'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
      "e-icon--work-under-line-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.896 22.001H1.552a.5.5 0 00-.508.493.5.5 0 00.508.493h10.344a.5.5 0 00.508-.493.5.5 0 00-.508-.493zM1.552 20.988c-.857 0-1.552.674-1.552 1.506S.695 24 1.552 24h10.344c.857 0 1.552-.674 1.552-1.506s-.695-1.506-1.552-1.506H1.552zM15.06 8.678l7.216 7.273c.21.212.21.555 0 .767a.534.534 0 01-.76 0L14.3 9.444a.545.545 0 010-.766.535.535 0 01.76 0zm-1.49-.736a1.561 1.561 0 012.22 0l7.216 7.274c.54.544.605 1.387.193 2.002.11.102.19.24.214.406l.579 3.788a.69.69 0 01-.819.785l-5.404-1.115c-.628-.129-.755-.976-.194-1.287l3.657-2.026a1.57 1.57 0 01-.446-.315l-7.217-7.274a1.592 1.592 0 010-2.238zm5.323 12.31l3.575-1.98.428 2.806-4.003-.826z' fill='black'/%3e%3cpath d='M11.146 10.942l3.39-2.368a.542.542 0 11.624.889l-2.624 1.832c.223.2.383.471.44.783l.03.16 2.753-1.922c.718-.502.893-1.49.39-2.207a1.59 1.59 0 00-2.212-.389l-4.612 3.222h1.82zM7.59 13.425v-1.094a1.4 1.4 0 01.013-.187L5.48 13.628a1.58 1.58 0 00-.665 1.1h1.07a.54.54 0 01.194-.247l1.512-1.056z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.635 15.77H1.393a.348.348 0 00-.349.347v2.729c0 .191.156.347.349.347h11.424a.348.348 0 00.342-.41l-1.21-6.515a.348.348 0 00-.341-.284H8.982a.348.348 0 00-.348.347v3.439zm-1.044-3.44c0-.766.623-1.388 1.392-1.388h2.624c.672 0 1.248.477 1.37 1.136l1.21 6.515a1.39 1.39 0 01-1.37 1.642H1.393c-.77 0-1.393-.622-1.393-1.39v-2.728c0-.767.624-1.39 1.393-1.39H7.59v-2.396z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.47 20.235v.753h-.987v-.753h.987zm3.255.753v-.753h.987v.753h-.987z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M21.692.185a.633.633 0 010 .89c-2.144 2.161-5.811 3.493-9.595 3.707-3.792.215-7.843-.686-10.75-3.167a.633.633 0 01-.074-.888.622.622 0 01.88-.074c2.593 2.21 6.292 3.074 9.874 2.871 3.592-.203 6.925-1.468 8.781-3.34a.621.621 0 01.884 0zm.84 2.635c.181.296.09.684-.204.866-3.374 2.093-7.81 3.055-11.864 3.023C6.439 6.677 2.608 5.661.558 3.595a.633.633 0 010-.89.622.622 0 01.884 0c1.7 1.713 5.119 2.713 9.032 2.744 3.882.03 8.072-.896 11.198-2.836a.622.622 0 01.86.207z' fill='%2329D305'/%3e%3c/svg%3e"};
 
-    function replaceIcons() {
-        window.document.querySelectorAll('[class*="e-icon"]').forEach(function(element){
-            if(element.innerHTML) {
-                // Uses e-id to avoid unnessesary changes to the DOM
-                id = element.firstChild.getAttribute('e-id');
-                let icon = getIcon(element.classList);
-                if(!id || id + '' !== icon.getAttribute('e-id')){
-                    element.innerHTML = '';
-                    element.appendChild(icon);
-                }
-            }
-            else {
-                element.innerHTML = '';
-                element.appendChild(getIcon(element.classList));
-            }
-            
-            
-        });
-    }
-    
-    replaceIcons();
+  function replaceIcons() {
+      window.document.querySelectorAll('[class*="e-icon"]').forEach(function(element){
+        // Uses e-id to avoid unnessesary changes to the DOM
+        let id = element.getAttribute('e-id');
+        let newId = getUniqueIdentifier(element.classList) + '';
+        if(!id || id + '' !== newId){
+            element.style.backgroundImage = 'url("'+getIcon(element.classList) +'")';
+            element.setAttribute('e-id', newId);
+        }
+      });
+  }
 
-    // TODO: Remove this temporary fallback
-    window.setInterval(function(){
-        replaceIcons();
-    }, 3000)
+  replaceIcons();
+
+  // TODO: Remove this temporary fallback
+  window.setTimeout(function() {
+      replaceIcons();
+  }, 500);
+  window.setInterval(function(){
+      replaceIcons();
+  }, 3000);
 });
