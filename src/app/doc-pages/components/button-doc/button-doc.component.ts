@@ -288,21 +288,21 @@ exampleIcon = `<div>
 
 example7 = `<div>
 <a class="e-btn e-m-16" href="www.elvia.no">
-<span class="e-btn__title">Anchor tags</span>
+  <span class="e-btn__title">Anchor tags</span>
 </a>
 
 <a class="e-btn e-m-16" href="www.elvia.no">
-<span class="e-btn__icon">
-  <i class="e-icon e-icon--download e-icon--inverted"></i>
-  <i class="e-icon e-icon--download"></i>
-</span>
-<span class="e-btn__title">With Icon</span>
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--download e-icon--inverted"></i>
+    <i class="e-icon e-icon--download"></i>
+  </span>
+  <span class="e-btn__title">With Icon</span>
 </a>
 </div>
 
 <div>
   <a class="e-btn e-btn--secondary e-m-16" href="www.elvia.no">
-  <span class="e-btn__title">Secondary</span>
+    <span class="e-btn__title">Secondary</span>
   </a>
 
   <a class="e-btn e-btn--secondary e-m-16" href="www.elvia.no">
@@ -313,12 +313,12 @@ example7 = `<div>
 
 <div>
   <a class="e-btn e-btn--tertiary e-m-16" href="www.elvia.no">
-  <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-  <span class="e-btn__title">Tertiary</span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+    <span class="e-btn__title">Tertiary</span>
   </a>
 
   <a class="e-btn e-btn--icon e-btn--lg e-m-16" href="www.elvia.no">
-  <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
   </a>
 </div>
 
