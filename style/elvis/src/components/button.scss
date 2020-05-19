@@ -189,11 +189,17 @@ $button-sm-line-height: 16px;
       background: color("green");
       border-color: color("green");
       color: color("black");
+      .e-btn__icon i {
+        visibility: visible;
+      }
     }
     &.e-btn---active,
     &:enabled:active {
       border-color: transparent;
       background-clip: padding-box;
+      .e-btn__icon i {
+        visibility: visible;
+      }
     }
   }
 
@@ -223,6 +229,9 @@ $button-sm-line-height: 16px;
       border-bottom-color: color("green");
       border-color: color("green");
       background: none;
+      .e-btn__icon i {
+        visibility: visible;
+      }
     }
     &.e-btn---active,
     &:enabled:active {
@@ -233,6 +242,9 @@ $button-sm-line-height: 16px;
       border-bottom: 1.5px solid color("green");
       border-color: color("green");
       background: none;
+      .e-btn__icon i {
+        visibility: visible;
+      }
     }
   }
 
