@@ -321,8 +321,6 @@ example7 = `<div>
     <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
   </a>
 </div>
-
-
 `;
 
   example8 = `<div>
