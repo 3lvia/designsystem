@@ -16,17 +16,19 @@ export class TooltipDocComponent implements OnInit {
   example1 = `<div style="display:flex;align-items: center;justify-content: space-around;height: 100px;width: 100%;">
 
   <span class="e-tooltip" tabindex=0>
-    <i class="e-icon e-icon--information-circle e-icon--sm"></i>
+    <i class="e-icon e-icon--edit e-icon--sm"></i>
     <span class="e-tooltip__content">Above </span>
   </span>
 
   <span class="e-tooltip" tabindex=0>
-    <i class="e-icon e-icon--information-circle e-icon--sm"></i>
+    <i class="e-icon e-icon--edit e-icon--sm"></i>
     <span class="e-tooltip__content e-tooltip__content--bottom">Below</span>
   </span>
 
 </div>
 `;
+
+
 
 constructor() { }
 
