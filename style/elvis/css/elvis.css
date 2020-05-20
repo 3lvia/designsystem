@@ -811,7 +811,7 @@ body {
       bottom: 10px; }
   .e-link.e-link--action {
     border: transparent; }
-    .e-link.e-link--action .e-link__icon i[class$="full-color"] {
+    .e-link.e-link--action .e-link__icon i[class$="filled-color"] {
       visibility: hidden; }
     .e-link.e-link--action .e-link__icon {
       position: relative;
@@ -833,9 +833,9 @@ body {
       .e-link.e-link--action.e-link--md .e-link__icon, .e-link.e-link--action .e-link__icon, .e-link.e-link--action.e-link--md i, .e-link.e-link--action i, .e-link.e-link--action.e-link--md img, .e-link.e-link--action img {
         width: 23px;
         height: 23px; }
-    .e-link.e-link--action.e-link---hover .e-link__icon i[class$="full-color"], .e-link.e-link--action:hover .e-link__icon i[class$="full-color"] {
+    .e-link.e-link--action.e-link---hover .e-link__icon i[class$="filled-color"], .e-link.e-link--action:hover .e-link__icon i[class$="filled-color"] {
       visibility: visible; }
-    .e-link.e-link--action.e-link---hover .e-link__icon i:not([class$="full-color"]), .e-link.e-link--action:hover .e-link__icon i:not([class$="full-color"]) {
+    .e-link.e-link--action.e-link---hover .e-link__icon i:not([class$="filled-color"]), .e-link.e-link--action:hover .e-link__icon i:not([class$="filled-color"]) {
       visibility: hidden; }
   .e-link.e-link--jumbo {
     font-family: "Red Hat Display", sans-serif;

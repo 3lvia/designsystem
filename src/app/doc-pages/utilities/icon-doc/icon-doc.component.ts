@@ -18,13 +18,13 @@ export class IconDocComponent implements OnInit {
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines]; // TabNames.Code,
   inverted = false;
 
-  example = `<i class="e-icon e-icon--move-truck-color e-icon--xxl"></i>
-<i class="e-icon e-icon--move-truck-color e-icon--xl"></i>
-<i class="e-icon e-icon--move-truck-color e-icon--lg"></i>
-<i class="e-icon e-icon--move-truck-color e-icon--md"></i>
-<i class="e-icon e-icon--move-truck-color e-icon--sm"></i>
-<i class="e-icon e-icon--move-truck-color e-icon--xs"></i>
-<i class="e-icon e-icon--move-truck-color e-icon--xxs"></i>`;
+  example = `<i class="e-icon e-icon--move_truck-color e-icon--xxl"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xl"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--lg"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--md"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--sm"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xs"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xxs"></i>`;
 
 
   example2 = `<div class="e-p-8">
@@ -57,18 +57,18 @@ example3 = `<div class="e-bg-black e-p-8">
   <i class="e-icon e-icon--chat e-icon--color-disabled-light"></i>
 </div>`;
 
-example4 = `<i class="e-icon e-icon--email"></i>
-<i class="e-icon e-icon--email e-icon--color-grey-90"></i>
-<i class="e-icon e-icon--email e-icon--color-grey-80"></i>
-<i class="e-icon e-icon--email e-icon--color-grey-70"></i>
-<i class="e-icon e-icon--email e-icon--color-grey-60"></i>
-<i class="e-icon e-icon--email e-icon--color-grey-50"></i>
-<i class="e-icon e-icon--email e-icon--color-grey-40"></i>
-<i class="e-icon e-icon--email e-icon--color-grey-30"></i>
-<i class="e-icon e-icon--email e-icon--color-grey-20"></i>
-<i class="e-icon e-icon--email e-icon--color-grey-10"></i>
-<i class="e-icon e-icon--email e-icon--color-grey-05"></i>
-<i class="e-icon e-icon--email e-icon--color-grey-02"></i>
+example4 = `<i class="e-icon e-icon--mail"></i>
+<i class="e-icon e-icon--mail e-icon--color-grey-90"></i>
+<i class="e-icon e-icon--mail e-icon--color-grey-80"></i>
+<i class="e-icon e-icon--mail e-icon--color-grey-70"></i>
+<i class="e-icon e-icon--mail e-icon--color-grey-60"></i>
+<i class="e-icon e-icon--mail e-icon--color-grey-50"></i>
+<i class="e-icon e-icon--mail e-icon--color-grey-40"></i>
+<i class="e-icon e-icon--mail e-icon--color-grey-30"></i>
+<i class="e-icon e-icon--mail e-icon--color-grey-20"></i>
+<i class="e-icon e-icon--mail e-icon--color-grey-10"></i>
+<i class="e-icon e-icon--mail e-icon--color-grey-05"></i>
+<i class="e-icon e-icon--mail e-icon--color-grey-02"></i>
 `;
 
   term;

@@ -77,8 +77,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
       if(classList.contains('e-icon--inverted')) {
         for(let i = 0; i < classList.length; i++) {
-            // -full-color check can be removed when new icons have been added
-            if((classList[i].indexOf("-filled-color") > -1) || (classList[i].indexOf("-full-color") > -1)) {
+            if((classList[i].indexOf("-filled-color") > -1)) {
                 icon = icon.replace("fill='black'", "fillReplace");
             }
         };

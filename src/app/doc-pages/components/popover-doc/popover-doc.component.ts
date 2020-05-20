@@ -24,7 +24,7 @@ export class PopoverDocComponent implements OnInit {
     <div class="e-popover__content">
       <div class="e-popover__close">
         <button class="e-btn e-btn--icon e-btn--sm">
-          <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
         </button>
       </div>
       <div class="e-popover__title">Om innlogging</div>
@@ -50,7 +50,7 @@ export class PopoverDocComponent implements OnInit {
     <div class="e-popover__content">
       <div class="e-popover__close">
         <button class="e-btn e-btn--icon e-btn--sm">
-          <span class="e-btn__icon"><i class="e-icon e-icon--close-menu"></i></span>
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
         </button>
       </div>
       <div class="e-popover__title">Om innlogging</div>
