@@ -32,7 +32,7 @@ $header-img-size: 40px;
     text-align: center;
     display: flex;
     align-items: center;
-    padding: 0px 1rem;
+    padding: 0px 16px;
   }
   &-user {
     flex: 1 1 0%;
@@ -66,7 +66,7 @@ $header-img-size: 40px;
     }
 
     &_name {
-      font-size: 1rem;
+      font-size: 16px;
       letter-spacing: 0.5px;
       color: color('black');
 
