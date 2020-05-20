@@ -17,14 +17,14 @@ export class InputDocComponent implements OnInit {
   example1 = `<div class="e-form-field">
   <label class="e-form-field__label" for="normal">Normal input field </label>
   <div class="e-input">
-    <i class="e-icon e-icon--email e-icon--xs"></i>
+    <i class="e-icon e-icon--mail e-icon--xs"></i>
     <input id="normal" type="text" placeholder="Placeholder text">
   </div>
 </div>
 <div class="e-form-field">
   <label class="e-form-field__label" for="disabled">Disabled input field </label>
   <div class="e-input e-input---disabled">
-    <i class="e-icon e-icon--email e-icon--xs e-icon--color-disabled"></i>
+    <i class="e-icon e-icon--mail e-icon--xs e-icon--color-disabled"></i>
     <input id="disabled" type="text" placeholder="Placeholder text" disabled>
   </div>
 </div>
@@ -76,7 +76,7 @@ example4 = `<div class="e-form-field">
     <input id="invalid" type="password" value="passord" invalid>
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
-    <i class="e-icon e-icon--alert-circle e-icon--xs"></i>
+    <i class="e-icon e-icon--warning_circle e-icon--xs"></i>
     Passord må inneholde både bokstaver og tall
   </span>
 </div>
