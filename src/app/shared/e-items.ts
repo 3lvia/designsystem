@@ -30,6 +30,12 @@ export const eHomes: EItems[] = [
         externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose',
         actionText: 'Give feedback',
     },
+    {
+        title: 'Changelog',
+        description: 'Overview og major and minor changes to Elvis',
+        externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/blob/master/CHANGELOG.md',
+        actionText: 'View changelog',
+    },
     // {
     //     title: 'Templates',
     //     description: 'Page template and starte templates for new projects?',
