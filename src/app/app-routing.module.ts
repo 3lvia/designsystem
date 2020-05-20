@@ -46,6 +46,7 @@ import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-
 import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
 import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 import { ContributeComponent } from './doc-pages/utilities/contribute/contribute.component';
+import { DatetimePickerDocComponent } from './doc-pages/components/forms/datetime-picker-doc/datetime-picker-doc.component';
 import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
 
 
@@ -120,6 +121,10 @@ const routes: Routes = [
           {
             path: Pages.CheckboxToggle,
             component: CheckboxToggleDocComponent
+          },
+          {
+            path: Pages.DateTimePicker,
+            component: DatetimePickerDocComponent
           },
           {
             path: Pages.DragAndDrop,

@@ -88,6 +88,14 @@ export const eComponents: EItems[] = [
         externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons'
     },
     {
+        title: 'Date/Time Picker',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.DateTimePicker,
+        status: ItemStatus.New,
+        actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2193%3A468'
+    },
+    {
         title: 'Drag&Drop',
         description: 'Some useful component with amazing features',
         docUrl: Pages.DragAndDrop,
