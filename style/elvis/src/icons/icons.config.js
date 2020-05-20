@@ -22,7 +22,6 @@ module.exports = [
   {name:'arrow_up-bold', terms: ['collapse','close'] }, 
   {name:'attachment-color', terms: [] },
   {name:'bin', terms: ['delete', 'trash'] },
-  {name:'bin-color', terms: ['delete', 'trash'] },  
   {name:'business-color', terms: [] }, 
   {name:'calendar', terms: [] }, 
   {name:'calendar_clock-color', terms: [] }, 
