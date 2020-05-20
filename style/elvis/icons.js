@@ -9,7 +9,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -34,7 +34,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -59,7 +59,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -84,7 +84,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -109,7 +109,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -134,7 +134,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -159,7 +159,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -184,7 +184,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -209,7 +209,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -234,7 +234,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -259,7 +259,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -284,7 +284,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -309,7 +309,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -334,7 +334,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -359,7 +359,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -384,7 +384,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -409,7 +409,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -434,7 +434,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -459,7 +459,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -484,7 +484,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -509,7 +509,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -534,7 +534,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -559,7 +559,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -584,7 +584,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -609,7 +609,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -634,7 +634,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -659,7 +659,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -684,7 +684,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -709,7 +709,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -734,7 +734,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -759,7 +759,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -784,7 +784,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -809,7 +809,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -834,7 +834,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -859,7 +859,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -884,7 +884,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -909,7 +909,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -934,7 +934,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -959,7 +959,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -984,7 +984,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1009,7 +1009,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1034,7 +1034,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1059,7 +1059,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1084,7 +1084,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1109,7 +1109,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1134,7 +1134,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1159,7 +1159,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1184,7 +1184,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1209,7 +1209,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1234,7 +1234,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1259,7 +1259,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1284,7 +1284,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1309,7 +1309,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1334,7 +1334,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1359,7 +1359,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1384,7 +1384,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1409,7 +1409,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1434,7 +1434,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1459,7 +1459,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1484,7 +1484,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1509,7 +1509,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1534,7 +1534,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1559,7 +1559,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1584,7 +1584,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1609,7 +1609,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1634,7 +1634,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1659,7 +1659,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1684,7 +1684,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1709,7 +1709,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1734,7 +1734,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1759,7 +1759,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1784,7 +1784,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1809,7 +1809,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1834,7 +1834,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1859,7 +1859,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1884,7 +1884,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1909,7 +1909,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1934,7 +1934,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1959,7 +1959,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -1984,7 +1984,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2009,7 +2009,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2034,7 +2034,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2059,7 +2059,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2084,7 +2084,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2109,7 +2109,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2134,7 +2134,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2159,7 +2159,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2184,7 +2184,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2209,7 +2209,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2234,7 +2234,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2259,7 +2259,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2284,7 +2284,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2309,7 +2309,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2334,7 +2334,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2359,7 +2359,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2384,7 +2384,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2409,7 +2409,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2434,7 +2434,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2459,7 +2459,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2484,7 +2484,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2509,7 +2509,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2534,7 +2534,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2559,7 +2559,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2584,7 +2584,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2609,7 +2609,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2634,7 +2634,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2659,7 +2659,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2684,7 +2684,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2709,7 +2709,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2734,7 +2734,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2759,7 +2759,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2784,7 +2784,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2809,7 +2809,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2834,7 +2834,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2859,7 +2859,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2884,7 +2884,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2909,7 +2909,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2934,7 +2934,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2959,7 +2959,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -2984,7 +2984,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3009,7 +3009,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3034,7 +3034,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3059,7 +3059,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3084,7 +3084,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3109,7 +3109,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3134,7 +3134,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3159,7 +3159,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3184,7 +3184,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3209,7 +3209,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3234,7 +3234,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3259,7 +3259,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3284,7 +3284,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3309,7 +3309,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3334,7 +3334,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3359,7 +3359,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3384,7 +3384,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3409,7 +3409,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3434,7 +3434,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3459,7 +3459,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
@@ -3484,7 +3484,7 @@
           if(!color) {
               return icon;
           }
-          if(color=='inverted') {
+          if(color==='inverted') {
             if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
                 icon = icon.replace(/fill="#29D305"/g, "fillGreen");
             }
