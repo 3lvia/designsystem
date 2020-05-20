@@ -24,9 +24,9 @@ handleMode(darkMode) {
     return;
   }
   if (darkMode) {
-    favicon.setAttribute('href', './../assets/favicon/favicon-dark.ico');
+    favicon.setAttribute('href', './../assets/favicon/favicon_final_white/favicon.ico');
   } else {
-    favicon.setAttribute('href', './../assets/favicon/favicon.ico');
+    favicon.setAttribute('href', './../assets/favicon/favicon_final_black/favicon.ico');
   }
 }
 `;

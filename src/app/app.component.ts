@@ -30,11 +30,11 @@ export class AppComponent implements OnInit {
     }
     if (darkMode) {
       console.log(favicon);
-      favicon.setAttribute('href', './../assets/favicon/favicon-dark.ico');
+      favicon.setAttribute('href', './../assets/favicon/favicon_final_white/favicon.ico');
       console.log(favicon);
     } else {
       console.log(favicon);
-      favicon.setAttribute('href', './../assets/favicon/favicon.ico');
+      favicon.setAttribute('href', './../assets/favicon/favicon_final_black/favicon.ico');
       console.log(favicon);
     }
   }
