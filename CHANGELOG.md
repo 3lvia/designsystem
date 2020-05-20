@@ -7,7 +7,7 @@ We dont think this will have a large impact on how to use icons.
 # Update [0.3.0]
 In this update we provided a solution for icons changing colors on hover. This affected buttons particularly.
 ##### Breaking changes
-The structure of a button with icon was changes.
+The structure of a button with icon was changed.
 
 
 # Update [0.2.0]
