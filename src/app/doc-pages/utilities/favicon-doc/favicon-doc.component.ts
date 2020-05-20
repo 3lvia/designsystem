@@ -20,7 +20,7 @@ isLightMode = window.matchMedia('(prefers-color-scheme: light)').addListener(
 handleMode(darkMode) {
   const favicon = document.querySelector('link[rel="icon"]');
   if (!favicon) {
-    console.log('Cant find favicon element');
+    console.warn('Cant find favicon element');
     return;
   }
   if (darkMode) {

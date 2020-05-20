@@ -22,20 +22,15 @@ export class AppComponent implements OnInit {
 
 
   handleMode(darkMode) {
-    console.log(darkMode);
     const favicon = document.querySelector('link[rel="icon"]');
     if (!favicon) {
-      console.log('Cant find favicon element');
+      console.warn('Cant find favicon element');
       return;
     }
     if (darkMode) {
-      console.log(favicon);
       favicon.setAttribute('href', './../assets/favicon/favicon_final_white/favicon.ico');
-      console.log(favicon);
     } else {
-      console.log(favicon);
       favicon.setAttribute('href', './../assets/favicon/favicon_final_black/favicon.ico');
-      console.log(favicon);
     }
   }
 }
