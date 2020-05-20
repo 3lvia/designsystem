@@ -47,6 +47,7 @@ export enum Pages {
     OverviewUtil = 'overview-util-doc',
     Border = 'border-doc',
     Color = 'color-doc',
+    Favicon = 'favicon-doc',
     Icon = 'icon-doc',
     Typography = 'typography-doc',
     Shadow = 'shadow-doc',

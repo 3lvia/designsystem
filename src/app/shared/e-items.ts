@@ -30,6 +30,12 @@ export const eHomes: EItems[] = [
         externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose',
         actionText: 'Give feedback',
     },
+    {
+        title: 'Changelog',
+        description: 'Overview og major and minor changes to Elvis',
+        externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/blob/master/CHANGELOG.md',
+        actionText: 'View changelog',
+    },
     // {
     //     title: 'Templates',
     //     description: 'Page template and starte templates for new projects?',
@@ -251,6 +257,13 @@ export const eUtilities: EItems[] = [
         status: ItemStatus.Done,
         actionText: 'View colors',
         externalUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=192%3A4'
+    },
+    {
+        title: 'Favicon',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Favicon,
+        status: ItemStatus.New,
+        actionText: 'View favicons',
     },
     {
         title: 'Shadow',

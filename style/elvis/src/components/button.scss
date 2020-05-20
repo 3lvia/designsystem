@@ -190,11 +190,17 @@ $button-sm-line-height: 16px;
       background: color("green");
       border-color: color("green");
       color: color("black");
+      .e-btn__icon i {
+        visibility: visible;
+      }
     }
     &.e-btn---active,
     &:active:not(:disabled) {
       border-color: transparent;
       background-clip: padding-box;
+      .e-btn__icon i {
+        visibility: visible;
+      }
     }
   }
 
@@ -224,6 +230,9 @@ $button-sm-line-height: 16px;
       border-bottom-color: color("green");
       border-color: color("green");
       background: none;
+      .e-btn__icon i {
+        visibility: visible;
+      }
     }
     &.e-btn---active,
     &:active:not(:disabled) {
@@ -234,6 +243,9 @@ $button-sm-line-height: 16px;
       border-bottom: 1.5px solid color("green");
       border-color: color("green");
       background: none;
+      .e-btn__icon i {
+        visibility: visible;
+      }
     }
   }
 
@@ -346,8 +358,8 @@ $button-sm-line-height: 16px;
       border-radius: 50%;
       display: inline-block;
       line-height: 24px;
-      height: 0.6rem;
-      width: 0.6rem;
+      height: 9px;
+      width: 9px;
       animation: dotsLight 1000ms linear infinite;
     }
 

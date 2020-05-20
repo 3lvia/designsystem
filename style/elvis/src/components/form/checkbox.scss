@@ -2,7 +2,7 @@
 @import "../../utilities/outline.scss";
 @import "../../variables/animation.scss";
 
-$checkbox-mark-size: 1.5rem;
+$checkbox-mark-size: 24px;
 $checkbox-mark-border-radius: 4px;
 $checkbox-mark-border: 1px solid color("black");
 
@@ -16,7 +16,7 @@ $checkbox-mark-border: 1px solid color("black");
   box-sizing: border-box;
   cursor: pointer;
   &:not(:last-child) {
-    margin-bottom: 0.75rem;
+    margin-bottom: 12px;
   }
 
   // pseudo classes to emulate state.
@@ -124,6 +124,6 @@ $checkbox-mark-border: 1px solid color("black");
 
   &__label {
     font-size: inherit;
-    margin-left: 1rem;
+    margin-left: 16px;
   }
 }
