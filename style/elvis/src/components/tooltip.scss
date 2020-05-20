@@ -1,4 +1,4 @@
-@import '../variables/colors.scss';
+@import "../variables/colors.scss";
 
 $tooltip-border-style: 5px solid;
 $tooltip-margin-offset: -5px;
@@ -12,7 +12,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
   display: inline-block;
   box-sizing: border-box;
   line-height: 0;
-  // focus effect in only a visible toooltip.
+  // only focus effect is currently a visible toooltip.
   outline: none;
 
   &:hover {
@@ -31,7 +31,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
     opacity: 0;
     z-index: -1;
     width: max-content;
-    background-color: color('grey-80');
+    background-color: color("grey-80");
     padding: 6px 8px;
     border-radius: 4px;
     transition: 200ms;
@@ -39,7 +39,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
     font-size: 14px;
     line-height: 19px;
     letter-spacing: 0.002em;
-    color: color('white');
+    color: color("white");
 
     // Defaults .e-tooltip_content---top if no direction class is applied.
     &:not(.e-tooltip__content--bottom) {
@@ -59,7 +59,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
         left: 50%;
         margin-left: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: transparent transparent color('grey-80') transparent;
+        border-color: transparent transparent color("grey-80") transparent;
       }
     }
 
@@ -76,7 +76,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
         left: 50%;
         margin-left: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: color('grey-80') transparent transparent transparent;
+        border-color: color("grey-80") transparent transparent transparent;
       }
     }
 
