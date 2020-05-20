@@ -48,6 +48,7 @@ import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-do
 import { ContributeComponent } from './doc-pages/utilities/contribute/contribute.component';
 import { DatetimePickerDocComponent } from './doc-pages/components/forms/datetime-picker-doc/datetime-picker-doc.component';
 import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
+import { FaviconDocComponent } from './doc-pages/utilities/favicon-doc/favicon-doc.component';
 
 
 const routes: Routes = [
@@ -220,6 +221,10 @@ const routes: Routes = [
           {
             path: Pages.Color,
             component: ColorDocComponent
+          },
+          {
+            path: Pages.Favicon,
+            component: FaviconDocComponent
           },
           {
             path: Pages.Icon,

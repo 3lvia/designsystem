@@ -257,6 +257,13 @@ export const eUtilities: EItems[] = [
         externalUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=192%3A4'
     },
     {
+        title: 'Favicon',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Favicon,
+        status: ItemStatus.New,
+        actionText: 'View favicons',
+    },
+    {
         title: 'Shadow',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Shadow,
