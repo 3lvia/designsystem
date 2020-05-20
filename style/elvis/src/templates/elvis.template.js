@@ -57,60 +57,62 @@ document.addEventListener("DOMContentLoaded", function(){
   }
 
   function getIcon(classList) {
-      for(let i = 0; i < classList.length; i++) {
-          if(!icons[classList[i]]) {
-              continue;
-          }
+    for(let i = 0; i < classList.length; i++) {
+        if(!icons[classList[i]]) {
+            continue;
+        }
+        let icon = icons[classList[i]];
 
-          let icon = icons[classList[i]];
-
-          icon = setCorrectColor(classList, icon);
-          return icon;
-
-      }
-      console.error("Elvis - No icon found for classes: ", classList);
-      return 'No icon found!';
+        icon = setCorrectColor(classList, icon);
+        return icon;
+    }
+    console.error("Elvis - No icon found for classes: ", classList);
+    return 'No icon found!';
   }
 
   function setCorrectColor(classList, icon) {
-      let fill;
+    let fill;   
 
-      if(classList.contains('e-icon--inverted')) {
-        for(let i = 0; i < classList.length; i++) {
-            // -full-color check can be removed when new icons have been added
-            if((classList[i].indexOf("-filled-color") > -1) || (classList[i].indexOf("-full-color") > -1)) {
-                icon = icon.replace("fill='black'", "fillReplace");
-            }
-        };
-        icon = icon.replace("fill='white'", "fillReplace");
-        icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
-        icon = icon.replace(/fillReplace/g, "fill='black'");
-        return icon;
-      }
-
-      if(classList.contains('e-icon--color-disabled')) {
-          fill = colors['grey-30'].color;
-      }
-
-      if(classList.contains('e-icon--color-disabled-light')) {
-          fill = colors['grey-05'].color;
-      }
-
-      if(JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
-            for(let i = 0; i < classList.length; i++) {
-                let color = classList[i].replace('e-icon--color-', '');
-                if(colors[color]){
-                    fill = colors[color].color;
-                }
-            }
-      }
-
-      if(fill) {
-          fill = fill.replace('#', '%23');
-          icon = icon.replace(/fill='([^']*)'/g, "fill='"+ fill +"'");
-      }
-
+    if(classList.contains('e-icon--inverted')) {
+      for(let i = 0; i < classList.length; i++) {
+          if ((classList[i].indexOf("-color") > -1) && !(classList[i].indexOf("-color-") > -1)) {
+              icon = icon.replace(/fill='%2329D305'/g, "fillGreen");
+          }
+          // -full-color check can be removed when new icons have been added
+          if((classList[i].indexOf("-filled-color") > -1) || (classList[i].indexOf("-full-color") > -1)){
+              icon = icon.replace(/fill='black'/g, "fillBlack");
+          }
+      };
+      icon = icon.replace(/fill='white'/g, "fillBlack");
+      icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
+      icon = icon.replace(/fillBlack/g, "fill='black'");
+      icon = icon.replace(/fillGreen/g, "fill='%2329D305'");
       return icon;
+    }
+
+    if(classList.contains('e-icon--color-disabled')) {
+        fill = colors['grey-30'].color;
+    }
+
+    if(classList.contains('e-icon--color-disabled-light')) {
+        fill = colors['grey-05'].color;
+    }
+
+    if(JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
+          for(let i = 0; i < classList.length; i++) {
+              let color = classList[i].replace('e-icon--color-', '');
+              if(colors[color]){
+                  fill = colors[color].color;
+              }
+          }
+    }
+
+    if(fill) {
+        fill = fill.replace('#', '%23');
+        icon = icon.replace(/fill='([^']*)'/g, "fill='"+ fill +"'");
+    }
+
+    return icon;
   }
 
   colors = {
