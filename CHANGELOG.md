@@ -1,3 +1,8 @@
+# Update [0.5.0]
+Major renaming of icons. All icons now follow the correct and desired naming scheme for a maintainable library. 
+# Breaking changes
+Icon names have changed, so some references should be expected to now be broken
+
 # Update [0.4.0]
 In this update icons are injected as background-images again on the 'i' tags with e-icon classes. 
 ##### Breaking changes
