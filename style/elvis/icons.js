@@ -123,7 +123,7 @@
     }
     export const arrow_externalBold = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.834 4.784H4.391a2.391 2.391 0 010-4.784h17.217A2.38 2.38 0 0123.3.7c.433.434.7 1.031.7 1.692L24 19.608a2.391 2.391 0 11-4.782 0V8.164L6.081 21.3a2.39 2.39 0 11-3.381-3.383L15.834 4.784z" fill="#000"/></svg>'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.73 4.844H4.145a2.422 2.422 0 010-4.844h17.434a2.41 2.41 0 011.712.71c.439.438.71 1.043.71 1.712v17.434a2.422 2.422 0 11-4.843 0V8.268L4.134 23.29a2.421 2.421 0 11-3.425-3.426l15.022-15.02z" fill="#000"/></svg>'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
@@ -1611,7 +1611,7 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
-    export const warningCircleFilledColor = {
+    export const warning_circleFilledColor = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="12" fill="#29D305"/><path d="M12.125 18a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25zM12.125 14.25a.75.75 0 01-.75-.75V5.25a.75.75 0 011.5 0v8.25a.75.75 0 01-.75.75z" fill="#000"/></svg>'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');

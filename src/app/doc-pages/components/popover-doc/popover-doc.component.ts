@@ -17,8 +17,8 @@ export class PopoverDocComponent implements OnInit {
   <span class="e-popover e-popover---visible e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--information-circle"></i>
-        <i class="e-icon e-icon e-icon--information-circle-filled-color"></i>
+        <i class="e-icon e-icon--information_circle"></i>
+        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
       </span>
     </button>
     <div class="e-popover__content">
@@ -43,8 +43,8 @@ export class PopoverDocComponent implements OnInit {
   <span class="e-popover e-popover--bottom e-popover---visible e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
-        <i class="e-icon e-icon--information-circle"></i>
-        <i class="e-icon e-icon e-icon--information-circle-filled-color"></i>
+        <i class="e-icon e-icon--information_circle"></i>
+        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
       </span>
     </button>
     <div class="e-popover__content">
