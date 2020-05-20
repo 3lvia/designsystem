@@ -24,7 +24,8 @@ export class TooltipDocComponent implements OnInit {
     <i class="e-icon e-icon--information-circle e-icon--sm"></i>
     <span class="e-tooltip__content e-tooltip__content--bottom">Below</span>
   </span>
-  </div>
+
+</div>
 `;
 
 constructor() { }
