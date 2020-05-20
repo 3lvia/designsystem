@@ -1,17 +1,19 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+
+  [does]="'Explain the function of an user interactive element. Showing full version of shortened text'"
+[donts]="'If you can\'t think of any particularly useful content in a tooltip. Don’t use tooltip to explain a concept. Don’t hide necessary information in a tooltip'"
 >
   <ng-container ngProjectAs="headerTitle">
     Tooltip
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Tooltip is a light popover for showing additional information upon hover or focus. Keep tooltips short.
   </ng-container>
 
-  
+
 </app-component-header>
 
 <!--BODY-->
@@ -19,11 +21,7 @@
   <app-code-block
     [isHTML]="true"
     [code]="example1"
-    [title]="'Tooltip dark'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example2"
-    [title]="'Tooltip light'"
+    [title]="'Tooltip'"
+    [class]="['e-tooltip', 'e-tooltip__content']"
   ></app-code-block>
 </div>

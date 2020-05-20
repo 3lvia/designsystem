@@ -202,8 +202,10 @@ export const eComponents: EItems[] = [
         title: 'Tooltip',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Tooltip,
-        status: ItemStatus.Coming,
+        status: ItemStatus.New,
         actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/kisdszIRwlezU3B4ZYRjfG/Tooltip?node-id=1%3A19'
+
     }
 ];
 

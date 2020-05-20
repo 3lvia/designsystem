@@ -8,44 +8,35 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class TooltipDocComponent implements OnInit {
 
+  externalUrl = getComponent('tooltip-doc').externalUrl;
   componentStatus = getComponent('tooltip-doc').status;
 
-  example1 = `<span class="e-tooltip">
-  Hover Right
-  <span class="e-tooltip_content is-right">Right tooltip </span>
-</span>
-<span class="e-tooltip">
-  Hover Left
-  <span class="e-tooltip_content is-left">Left tooltip</span>
-</span>
-<span class="e-tooltip">
-  Hover bottom
-  <span class="e-tooltip_content is-bottom">Bottom tooltip</span>
-</span>
-<span class="e-tooltip">
-  Hover on top
-  <span class="e-tooltip_content is-top">Top tooltip</span>
-</span>
-`;
-  example2 = `<span class="e-tooltip is-light">
-  Hover Right
-  <span class="e-tooltip_content is-right">Right tooltip</span>
-</span>
-<span class="e-tooltip is-light">
-  Hover Left
-  <span class="e-tooltip_content is-left">Left tooltip</span>
-</span>
-<span class="e-tooltip is-light">
-  Hover bottom
-  <span class="e-tooltip_content is-bottom">Bottom tooltip</span>
-</span>
-<span class="e-tooltip is-light">
-  Hover on top
-  <span class="e-tooltip_content is-top">Top tooltip</span>
-</span>
+  example1 = `<div style="display:flex;align-items: center;justify-content: space-around;height: 100px;width: 100%;">
+
+  <span class="e-tooltip" tabindex=0>
+    <i class="e-icon e-icon--information-circle e-icon--sm"></i>
+    <span class="e-tooltip__content">Above </span>
+  </span>
+  <span class="e-tooltip" tabindex=0>
+    <i class="e-icon e-icon--information-circle e-icon--lg"></i>
+    <span class="e-tooltip__content">Above </span>
+  </span>
+  <span class="e-tooltip" tabindex=0>
+    <i class="e-icon e-icon--information-circle e-icon--xxl"></i>
+    <span class="e-tooltip__content">Above </span>
+  </span>
+
+  <span class="e-tooltip" tabindex=0>
+    <i class="e-icon e-icon--information-circle e-icon--sm"></i>
+    <span class="e-tooltip__content e-tooltip__content--bottom">Below</span>
+  </span>
+  </div>
+
+
+
 `;
 
-  constructor() { }
+constructor() { }
 
   ngOnInit() {
   }
