@@ -26,7 +26,7 @@ $checkbox-mark-border: 1px solid color("black");
 
   &.e-checkbox---focus {
     #{$this}__mark {
-      @include e-outline();
+      @include e-outline-pseudoclass();
     }
   }
 
