@@ -14,7 +14,7 @@ export class FileUploadDocComponent {
 
   example1 = `<div class="e-fileupload" style="width:380px">
   <div class="e-fileupload__icon">
-    <i class="e-icon e-icon--file-add"></i>
+    <i class="e-icon e-icon--image_add-color"></i>
   </div>
   <div class="e-fileupload__description">
     Dra og slipp eller
@@ -28,7 +28,7 @@ export class FileUploadDocComponent {
 
   example2 = `<div class="e-fileupload e-fileupload---hover" style="width:380px">
   <div class="e-fileupload__icon">
-    <i class="e-icon e-icon--file-add"></i>
+    <i class="e-icon e-icon--image_add-color"></i>
   </div>
   <div class="e-fileupload__description">
     Dra og slipp eller
