@@ -6,11 +6,13 @@ import { RadiobuttonDocModule } from './radiobutton-doc/radiobutton-doc.module';
 import { SelectDocModule } from './select-doc/select-doc.module';
 import { SegmentedControlsDocModule } from './segmented-controls-doc/segmented-controls-doc.module';
 import { DraganddropDocModule } from './draganddrop-doc/draganddrop-doc.module';
+import { DatetimePickerDocModule } from './datetime-picker-doc/datetime-picker-doc.module';
 
 @NgModule({
     imports: [
         CheckboxDocModule,
         CheckboxToggleDocModule,
+        DatetimePickerDocModule,
         DraganddropDocModule,
         InputDocModule,
         RadiobuttonDocModule,

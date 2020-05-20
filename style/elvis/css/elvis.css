@@ -138,7 +138,11 @@ a:focus, button:focus, input:focus {
 
 .e-icon {
   width: 32px;
-  height: 32px; }
+  height: 32px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block; }
   .e-icon img {
     width: 32px;
     height: 32px; }
@@ -198,10 +202,11 @@ a:focus, button:focus, input:focus {
   align-items: center;
   font-family: "Red Hat Display", sans-serif;
   font-weight: 500;
-  justify-content: center; }
+  justify-content: center;
+  text-decoration: none; }
   .e-btn::-moz-focus-inner {
     border: 0; }
-  .e-btn:enabled:focus {
+  .e-btn:focus:not(:disabled) {
     outline: 2px solid #0064FA;
     outline-offset: 2px; }
   .e-btn.e-btn---focus {
@@ -290,15 +295,15 @@ a:focus, button:focus, input:focus {
       border-color: #BDBDBD;
       color: #F4F4F4;
       cursor: not-allowed; }
-    .e-btn.e-btn--primary.e-btn---hover, .e-btn.e-btn---hover, .e-btn.e-btn--primary:enabled:hover, .e-btn:enabled:hover, .e-btn.e-btn--primary.e-btn---active, .e-btn.e-btn---active, .e-btn.e-btn--primary:enabled:active, .e-btn:enabled:active {
+    .e-btn.e-btn--primary.e-btn---hover, .e-btn.e-btn---hover, .e-btn.e-btn--primary:hover:not(:disabled), .e-btn:hover:not(:disabled), .e-btn.e-btn--primary.e-btn---active, .e-btn.e-btn---active, .e-btn.e-btn--primary:active:not(:disabled), .e-btn:active:not(:disabled) {
       background: #29D305;
       border-color: #29D305;
       color: #000; }
-      .e-btn.e-btn--primary.e-btn---hover .e-btn__icon i[class$="inverted"], .e-btn.e-btn---hover .e-btn__icon i[class$="inverted"], .e-btn.e-btn--primary:enabled:hover .e-btn__icon i[class$="inverted"], .e-btn:enabled:hover .e-btn__icon i[class$="inverted"], .e-btn.e-btn--primary.e-btn---active .e-btn__icon i[class$="inverted"], .e-btn.e-btn---active .e-btn__icon i[class$="inverted"], .e-btn.e-btn--primary:enabled:active .e-btn__icon i[class$="inverted"], .e-btn:enabled:active .e-btn__icon i[class$="inverted"] {
+      .e-btn.e-btn--primary.e-btn---hover .e-btn__icon i[class$="inverted"], .e-btn.e-btn---hover .e-btn__icon i[class$="inverted"], .e-btn.e-btn--primary:hover:not(:disabled) .e-btn__icon i[class$="inverted"], .e-btn:hover:not(:disabled) .e-btn__icon i[class$="inverted"], .e-btn.e-btn--primary.e-btn---active .e-btn__icon i[class$="inverted"], .e-btn.e-btn---active .e-btn__icon i[class$="inverted"], .e-btn.e-btn--primary:active:not(:disabled) .e-btn__icon i[class$="inverted"], .e-btn:active:not(:disabled) .e-btn__icon i[class$="inverted"] {
         visibility: hidden; }
-      .e-btn.e-btn--primary.e-btn---hover .e-btn__icon i:not([class$="inverted"]), .e-btn.e-btn---hover .e-btn__icon i:not([class$="inverted"]), .e-btn.e-btn--primary:enabled:hover .e-btn__icon i:not([class$="inverted"]), .e-btn:enabled:hover .e-btn__icon i:not([class$="inverted"]), .e-btn.e-btn--primary.e-btn---active .e-btn__icon i:not([class$="inverted"]), .e-btn.e-btn---active .e-btn__icon i:not([class$="inverted"]), .e-btn.e-btn--primary:enabled:active .e-btn__icon i:not([class$="inverted"]), .e-btn:enabled:active .e-btn__icon i:not([class$="inverted"]) {
+      .e-btn.e-btn--primary.e-btn---hover .e-btn__icon i:not([class$="inverted"]), .e-btn.e-btn---hover .e-btn__icon i:not([class$="inverted"]), .e-btn.e-btn--primary:hover:not(:disabled) .e-btn__icon i:not([class$="inverted"]), .e-btn:hover:not(:disabled) .e-btn__icon i:not([class$="inverted"]), .e-btn.e-btn--primary.e-btn---active .e-btn__icon i:not([class$="inverted"]), .e-btn.e-btn---active .e-btn__icon i:not([class$="inverted"]), .e-btn.e-btn--primary:active:not(:disabled) .e-btn__icon i:not([class$="inverted"]), .e-btn:active:not(:disabled) .e-btn__icon i:not([class$="inverted"]) {
         visibility: visible; }
-    .e-btn.e-btn--primary.e-btn---active, .e-btn.e-btn---active, .e-btn.e-btn--primary:enabled:active, .e-btn:enabled:active {
+    .e-btn.e-btn--primary.e-btn---active, .e-btn.e-btn---active, .e-btn.e-btn--primary:active:not(:disabled), .e-btn:active:not(:disabled) {
       border-color: transparent;
       background-clip: padding-box; }
   .e-btn.e-btn--secondary {
@@ -313,11 +318,11 @@ a:focus, button:focus, input:focus {
       border-color: #BDBDBD;
       color: #BDBDBD;
       cursor: not-allowed; }
-    .e-btn.e-btn--secondary.e-btn---hover, .e-btn.e-btn--secondary:enabled:hover, .e-btn.e-btn--secondary.e-btn---active, .e-btn.e-btn--secondary:enabled:active {
+    .e-btn.e-btn--secondary.e-btn---hover, .e-btn.e-btn--secondary:hover:not(:disabled), .e-btn.e-btn--secondary.e-btn---active, .e-btn.e-btn--secondary:active:not(:disabled) {
       background: #29D305;
       border-color: #29D305;
       color: #000; }
-    .e-btn.e-btn--secondary.e-btn---active, .e-btn.e-btn--secondary:enabled:active {
+    .e-btn.e-btn--secondary.e-btn---active, .e-btn.e-btn--secondary:active:not(:disabled) {
       border-color: transparent;
       background-clip: padding-box; }
   .e-btn.e-btn--tertiary {
@@ -335,16 +340,16 @@ a:focus, button:focus, input:focus {
     .e-btn.e-btn--tertiary.e-btn---disabled, .e-btn.e-btn--tertiary:disabled {
       color: #BDBDBD;
       cursor: not-allowed; }
-    .e-btn.e-btn--tertiary.e-btn---hover, .e-btn.e-btn--tertiary:enabled:hover {
+    .e-btn.e-btn--tertiary.e-btn---hover, .e-btn.e-btn--tertiary:hover:not(:disabled) {
       border-bottom-color: #29D305;
       border-color: #29D305;
       background: none; }
-    .e-btn.e-btn--tertiary.e-btn---active, .e-btn.e-btn--tertiary:enabled:active {
+    .e-btn.e-btn--tertiary.e-btn---active, .e-btn.e-btn--tertiary:active:not(:disabled) {
       padding-bottom: 4.5px;
       border-bottom: 1.5px solid #29D305;
       border-color: #29D305;
       background: none; }
-      .e-btn.e-btn--tertiary.e-btn---active.e-btn--lg, .e-btn.e-btn--tertiary:enabled:active.e-btn--lg {
+      .e-btn.e-btn--tertiary.e-btn---active.e-btn--lg, .e-btn.e-btn--tertiary:active:not(:disabled).e-btn--lg {
         padding-bottom: 2.5px; }
   .e-btn.e-btn--icon {
     border: none;
@@ -390,27 +395,27 @@ a:focus, button:focus, input:focus {
       padding: 0; }
       .e-btn.e-btn--icon.e-btn--circled .e-btn__icon i[class$="filled-color"] {
         visibility: hidden; }
-      .e-btn.e-btn--icon.e-btn--circled.e-btn---hover, .e-btn.e-btn--icon.e-btn--circled:enabled:hover, .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:enabled:active {
+      .e-btn.e-btn--icon.e-btn--circled.e-btn---hover, .e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled), .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) {
         background: transparent; }
         .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i:not([class$="filled-color"]),
-        .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled:enabled:hover .e-btn__icon i:not([class$="filled-color"]),
-        .e-btn.e-btn--icon.e-btn--circled:enabled:hover .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i:not([class$="filled-color"]),
-        .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled:enabled:active .e-btn__icon i:not([class$="filled-color"]),
-        .e-btn.e-btn--icon.e-btn--circled:enabled:active .e-btn__icon i:not([class$="disabled"]) {
+        .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled) .e-btn__icon i:not([class$="filled-color"]),
+        .e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled) .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i:not([class$="filled-color"]),
+        .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i:not([class$="disabled"]), .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) .e-btn__icon i:not([class$="filled-color"]),
+        .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) .e-btn__icon i:not([class$="disabled"]) {
           visibility: hidden; }
-        .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i[class$="filled-color"], .e-btn.e-btn--icon.e-btn--circled:enabled:hover .e-btn__icon i[class$="filled-color"], .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i[class$="filled-color"], .e-btn.e-btn--icon.e-btn--circled:enabled:active .e-btn__icon i[class$="filled-color"] {
+        .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i[class$="filled-color"], .e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled) .e-btn__icon i[class$="filled-color"], .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i[class$="filled-color"], .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) .e-btn__icon i[class$="filled-color"] {
           visibility: visible; }
-      .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:enabled:active {
+      .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) {
         transform: scale(0.93); }
     .e-btn.e-btn--icon.e-btn--danger .e-btn__icon i:not([class$="red"]):not([class$="disabled"]) {
       visibility: hidden; }
-    .e-btn.e-btn--icon.e-btn--danger.e-btn---hover .e-btn__icon i[class$="red"], .e-btn.e-btn--icon.e-btn--danger:enabled:hover .e-btn__icon i[class$="red"], .e-btn.e-btn--icon.e-btn--danger.e-btn---active .e-btn__icon i[class$="red"], .e-btn.e-btn--icon.e-btn--danger:enabled:active .e-btn__icon i[class$="red"] {
+    .e-btn.e-btn--icon.e-btn--danger.e-btn---hover .e-btn__icon i[class$="red"], .e-btn.e-btn--icon.e-btn--danger:hover:not(:disabled) .e-btn__icon i[class$="red"], .e-btn.e-btn--icon.e-btn--danger.e-btn---active .e-btn__icon i[class$="red"], .e-btn.e-btn--icon.e-btn--danger:active:not(:disabled) .e-btn__icon i[class$="red"] {
       visibility: hidden; }
-    .e-btn.e-btn--icon.e-btn--danger.e-btn---hover .e-btn__icon i:not([class$="red"]), .e-btn.e-btn--icon.e-btn--danger:enabled:hover .e-btn__icon i:not([class$="red"]), .e-btn.e-btn--icon.e-btn--danger.e-btn---active .e-btn__icon i:not([class$="red"]), .e-btn.e-btn--icon.e-btn--danger:enabled:active .e-btn__icon i:not([class$="red"]) {
+    .e-btn.e-btn--icon.e-btn--danger.e-btn---hover .e-btn__icon i:not([class$="red"]), .e-btn.e-btn--icon.e-btn--danger:hover:not(:disabled) .e-btn__icon i:not([class$="red"]), .e-btn.e-btn--icon.e-btn--danger.e-btn---active .e-btn__icon i:not([class$="red"]), .e-btn.e-btn--icon.e-btn--danger:active:not(:disabled) .e-btn__icon i:not([class$="red"]) {
       visibility: visible; }
-    .e-btn.e-btn--icon.e-btn---hover, .e-btn.e-btn--icon:enabled:hover, .e-btn.e-btn--icon.e-btn---active, .e-btn.e-btn--icon:enabled:active {
+    .e-btn.e-btn--icon.e-btn---hover, .e-btn.e-btn--icon:hover:not(:disabled), .e-btn.e-btn--icon.e-btn---active, .e-btn.e-btn--icon:active:not(:disabled) {
       background: #29D305; }
-    .e-btn.e-btn--icon.e-btn---active, .e-btn.e-btn--icon:enabled:active {
+    .e-btn.e-btn--icon.e-btn---active, .e-btn.e-btn--icon:active:not(:disabled) {
       transform: scale(0.95); }
     .e-btn.e-btn--icon.e-btn---disabled, .e-btn.e-btn--icon:disabled {
       cursor: not-allowed; }
@@ -6493,7 +6498,11 @@ body {
 
 .e-icon {
   width: 32px;
-  height: 32px; }
+  height: 32px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block; }
   .e-icon img {
     width: 32px;
     height: 32px; }

@@ -1,233 +1,220 @@
 document.addEventListener("DOMContentLoaded", function(){
-    let DEBUG = false;
-    if(window.location.href.indexOf('#debug') > -1) {
-      DEBUG = true;
+  let DEBUG = false;
+  if(window.location.href.indexOf('#debug') > -1) {
+    DEBUG = true;
+  }
+
+  function outlineFix() {
+    if(DEBUG){
+      return;
     }
-    
-    function outlineFix() {
-      if(DEBUG){
-        return;
+    document.body.classList.add('e-no-outline');
+    document.documentElement.addEventListener('keyup', function(e) {
+      if (e.keyCode === 9) {
+        document.body.classList.remove('e-no-outline');
       }
-      document.body.classList.add('e-no-outline');
-      document.documentElement.addEventListener('keyup', function(e) {
-        if (e.keyCode === 9) {
-          document.body.classList.remove('e-no-outline');
-        }
+    });
+
+    document.documentElement.addEventListener('click', function (event) {
+        document.body.classList.add('e-no-outline');
+    }, false);
+  }
+  outlineFix();
+
+
+
+  let mo = new MutationObserver(function(mutations){
+      mutations.forEach(function(mutation) {
+          injectIconIfEligible(mutation.target, mutation);
       });
-
-      document.documentElement.addEventListener('click', function (event) {
-          document.body.classList.add('e-no-outline');
-      }, false);
-    }
-    outlineFix();
-    
+  });
 
 
-    let mo = new MutationObserver(function(mutations){
-        mutations.forEach(function(mutation) {            
-            injectIconIfEligible(mutation.target, mutation);
-        });
-    });
-
-
-    function injectIconIfEligible(node, mutation) {
-        if(!node || !node.className || node.className.indexOf('e-icon') === -1) {
-            return; 
-        }
-
-        if(mutation.type === 'attributes') {
-            node.innerHTML = '';
-            node.appendChild(getIcon(node.classList));
-        }
-    }
-
-    mo.observe(document.documentElement, {
-        childList: true,
-        attributes: true,
-        characterData: true,
-        subtree: true,
-    });
-
-    function getUniqueIdentifier(classList) {
-      let id = '';
-      for(let i = 0; i < classList.length; i++ ) {
-        id += classList[i];
+  function injectIconIfEligible(node, mutation) {
+      if(!node || !node.className || node.className.indexOf(icons) === -1) {
+          return;
       }
-      return id;
+
+      if(mutation.type === 'attributes') {
+          node.style.backgroundImage = 'url("'+getIcon(node.classList) +'")';
+          node.setAttribute('e-id', getUniqueIdentifier(node.classList));
+      }
+  }
+
+  mo.observe(document.documentElement, {
+      childList: true,
+      attributes: true,
+      characterData: true,
+      subtree: true,
+  });
+
+  function getUniqueIdentifier(classList) {
+    let id = '';
+    for(let i = 0; i < classList.length; i++ ) {
+      id += classList[i];
     }
+    return id;
+  }
 
-    function getIcon(classList) {
-        for(let i = 0; i < classList.length; i++) {
-            if(!icons[classList[i]]) {
-                continue;
-            }
-            
-            let icon = icons[classList[i]];                
-            
-            if(icon.indexOf('viewBox') === -1){
-                icon.replace("%3csvg ", "%3csvg viewBox='0 0 24 24' ");
-            }
-              
-            icon = setCorrectColor(classList, icon);
-
-            let imgNode = document.createElement('IMG');
-            imgNode.width = '100%';
-            imgNode.height = '100%';
-            imgNode.setAttribute('aria-hidden', 'true');
-            imgNode.src = icon;
-            imgNode.setAttribute('e-id', getUniqueIdentifier(classList));
-            return imgNode;
-            
+  function getIcon(classList) {
+    for(let i = 0; i < classList.length; i++) {
+        if(!icons[classList[i]]) {
+            continue;
         }
-        console.error("Elvis - No icon found for classes: ", classList);
-        return 'No icon found!';
-    } 
+        let icon = icons[classList[i]];
 
-    function setCorrectColor(classList, icon) {
-        let fill;   
-
-        if(classList.contains('e-icon--inverted')) {
-          for(let i = 0; i < classList.length; i++) {
-              if ((classList[i].indexOf("-color") > -1) && !(classList[i].indexOf("-color-") > -1)) {
-                  icon = icon.replace(/fill='%2329D305'/g, "fillGreen");
-              }
-              // -full-color check can be removed when new icons have been added
-              if((classList[i].indexOf("-filled-color") > -1) || (classList[i].indexOf("-full-color") > -1)){
-                  icon = icon.replace(/fill='black'/g, "fillBlack");
-              }
-          };
-          icon = icon.replace(/fill='white'/g, "fillBlack");
-          icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
-          icon = icon.replace(/fillBlack/g, "fill='black'");
-          icon = icon.replace(/fillGreen/g, "fill='%2329D305'");
-          return icon;
-        }
-
-        if(classList.contains('e-icon--color-disabled')) {
-            fill = colors['grey-30'].color;
-        }
-
-        if(classList.contains('e-icon--color-disabled-light')) {
-            fill = colors['grey-05'].color;
-        }
-        
-        if(JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
-              for(let i = 0; i < classList.length; i++) {
-                  let color = classList[i].replace('e-icon--color-', '');
-                  if(colors[color]){
-                      fill = colors[color].color;
-                  }
-              }
-        }
-
-        if(fill) {
-            fill = fill.replace('#', '%23');
-            icon = icon.replace(/fill='([^']*)'/g, "fill='"+ fill +"'");
-        }
-
+        icon = setCorrectColor(classList, icon);
         return icon;
     }
+    console.error("Elvis - No icon found for classes: ", classList);
+    return 'No icon found!';
+  }
 
-    colors = {
-        'white': {
-          color: '#FFF',
-          contrastText: '#000',
-        },  
-        'black': {
-          color: '#000',
-          contrastText: '#fff',
-        },  
-        'grey': {
-          color: '#262626',
-          contrastText: '#fff',
-        },  
-        'grey-90': {
-          color: '#3B3B3B',
-          contrastText: '#fff',
-        },  
-        'grey-80': {
-          color: '#515151',
-          contrastText: '#fff',
-        },  
-        'grey-70': {
-          color: '#676767',
-          contrastText: '#fff',
-        },  
-        'grey-60': {
-          color: '#7C7C7C',
-          contrastText: '#000',
-        },  
-        'grey-50': {
-          color: '#929292',
-          contrastText: '#000',
-        },  
-        'grey-40': {
-          color: '#A8A8A8',
-          contrastText: '#000',
-        },  
-        'grey-30': {
-          color: '#BDBDBD',
-          contrastText: '#000',
-        },  
-        'grey-20': {
-          color: '#D3D3D3',
-          contrastText: '#000',
-        },  
-        'grey-10': {
-          color: '#E9E9E9',
-          contrastText: '#000',
-        },  
-        'grey-05': {
-          color: '#F4F4F4',
-          contrastText: '#000',
-        },  
-        'grey-02': {
-          color: '#FAFAFA',
-          contrastText: '#000',
-        },  
-        'green': {
-          color: '#29D305',
-          contrastText: '#000',
-        }, 
-        'yellow': {
-          color: '#FFFF00',
-          contrastText: '#000',
-        },  
-        'orange': {
-          color: '#FFA000',
-          contrastText: '#000',
-        },  
-        'red': {
-          color: '#FF0000',
-          contrastText: '#000',
-        },  
-        'green-apple': {
-          color: '#21AC04',
-          contrastText: '#000',
-        },  
-        'violet-grape': {
-          color: '#490192',
-          contrastText: '#fff',
-        },  
-        'blue-berry': {
-          color: '#006DDB',
-          contrastText: '#fff',
-        },  
-        'purple-plum': {
-          color: '#B66DFF',
-          contrastText: '#000',
-        },  
-        'orange-mango': {
-          color: '#DB6D00',
-          contrastText: '#000',
-        },  
-        'red-tomato': {
-          color: '#B90202',
-          contrastText: '#fff',
-        },   
-    }; 
+  function setCorrectColor(classList, icon) {
+    let fill;   
 
-    
+    if(classList.contains('e-icon--inverted')) {
+      for(let i = 0; i < classList.length; i++) {
+          if ((classList[i].indexOf("-color") > -1) && !(classList[i].indexOf("-color-") > -1)) {
+              icon = icon.replace(/fill='%2329D305'/g, "fillGreen");
+          }
+          // -full-color check can be removed when new icons have been added
+          if((classList[i].indexOf("-filled-color") > -1) || (classList[i].indexOf("-full-color") > -1)){
+              icon = icon.replace(/fill='black'/g, "fillBlack");
+          }
+      };
+      icon = icon.replace(/fill='white'/g, "fillBlack");
+      icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
+      icon = icon.replace(/fillBlack/g, "fill='black'");
+      icon = icon.replace(/fillGreen/g, "fill='%2329D305'");
+      return icon;
+    }
+
+    if(classList.contains('e-icon--color-disabled')) {
+        fill = colors['grey-30'].color;
+    }
+
+    if(classList.contains('e-icon--color-disabled-light')) {
+        fill = colors['grey-05'].color;
+    }
+
+    if(JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
+          for(let i = 0; i < classList.length; i++) {
+              let color = classList[i].replace('e-icon--color-', '');
+              if(colors[color]){
+                  fill = colors[color].color;
+              }
+          }
+    }
+
+    if(fill) {
+        fill = fill.replace('#', '%23');
+        icon = icon.replace(/fill='([^']*)'/g, "fill='"+ fill +"'");
+    }
+
+    return icon;
+  }
+
+  colors = {
+      'white': {
+        color: '#FFF',
+        contrastText: '#000',
+      },
+      'black': {
+        color: '#000',
+        contrastText: '#fff',
+      },
+      'grey': {
+        color: '#262626',
+        contrastText: '#fff',
+      },
+      'grey-90': {
+        color: '#3B3B3B',
+        contrastText: '#fff',
+      },
+      'grey-80': {
+        color: '#515151',
+        contrastText: '#fff',
+      },
+      'grey-70': {
+        color: '#676767',
+        contrastText: '#fff',
+      },
+      'grey-60': {
+        color: '#7C7C7C',
+        contrastText: '#000',
+      },
+      'grey-50': {
+        color: '#929292',
+        contrastText: '#000',
+      },
+      'grey-40': {
+        color: '#A8A8A8',
+        contrastText: '#000',
+      },
+      'grey-30': {
+        color: '#BDBDBD',
+        contrastText: '#000',
+      },
+      'grey-20': {
+        color: '#D3D3D3',
+        contrastText: '#000',
+      },
+      'grey-10': {
+        color: '#E9E9E9',
+        contrastText: '#000',
+      },
+      'grey-05': {
+        color: '#F4F4F4',
+        contrastText: '#000',
+      },
+      'grey-02': {
+        color: '#FAFAFA',
+        contrastText: '#000',
+      },
+      'green': {
+        color: '#29D305',
+        contrastText: '#000',
+      },
+      'yellow': {
+        color: '#FFFF00',
+        contrastText: '#000',
+      },
+      'orange': {
+        color: '#FFA000',
+        contrastText: '#000',
+      },
+      'red': {
+        color: '#FF0000',
+        contrastText: '#000',
+      },
+      'green-apple': {
+        color: '#21AC04',
+        contrastText: '#000',
+      },
+      'violet-grape': {
+        color: '#490192',
+        contrastText: '#fff',
+      },
+      'blue-berry': {
+        color: '#006DDB',
+        contrastText: '#fff',
+      },
+      'purple-plum': {
+        color: '#B66DFF',
+        contrastText: '#000',
+      },
+      'orange-mango': {
+        color: '#DB6D00',
+        contrastText: '#000',
+      },
+      'red-tomato': {
+        color: '#B90202',
+        contrastText: '#fff',
+      },
+  };
+
+  
   // THIS FILE IS GENERATED BY GULP, DO NOT CHANGE THIS ICON LIST MANUALLY. 
   // ADD OR REMOVE ICONS IN icons.config.js 
   let icons = {
@@ -252,6 +239,7 @@ document.addEventListener("DOMContentLoaded", function(){
      "e-icon--bin":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='black'%3e%3cpath d='M23.253 3.2h-6.4v-.853A2.367 2.367 0 0014.507 0H9.6a2.368 2.368 0 00-2.347 2.347V3.2h-6.4C.32 3.2 0 3.52 0 4.053c0 .534.32.854.853.854H2.56l1.387 16.96c.106 1.28 1.173 2.24 2.346 2.24h11.414c1.28 0 2.24-.96 2.346-2.24l1.387-16.96h1.707c.426 0 .853-.32.853-.854 0-.533-.32-.853-.747-.853zM8.747 2.347c0-.427.32-.854.853-.854h4.8c.427 0 .853.32.853.854V3.2H8.747v-.853zm9.813 19.306c0 .427-.427.747-.747.747H6.293a.73.73 0 01-.746-.747L4.053 4.8H19.947L18.56 21.653z'/%3e%3cpath d='M9.6 8.747c-.427 0-.853.426-.853.853v8c0 .427.32.853.853.853.533 0 .853-.32.853-.853v-8c0-.427-.426-.853-.853-.853zM14.4 8.747a.841.841 0 00-.853.853v8c0 .427.32.853.853.853.533 0 .853-.32.853-.853v-8c-.106-.427-.426-.853-.853-.853z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
      "e-icon--box-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12 24a.72.72 0 01-.225-.037.426.426 0 01-.054-.017l-11.25-4.5A.745.745 0 010 18.75V5.25a.748.748 0 01.244-.55l.041-.036a.571.571 0 01.132-.084.662.662 0 01.053-.026l11.251-4.5a.74.74 0 01.558 0l11.249 4.5a.489.489 0 01.052.025.641.641 0 01.134.084l.036.031a.722.722 0 01.094.102c.016.022.031.042.044.064a.798.798 0 01.112.39v13.5a.747.747 0 01-.472.697l-11.25 4.5A.761.761 0 0112 24zm.75-1.858l9.75-3.9V6.358l-9.75 3.9v11.884zm-1.5 0V10.258l-9.75-3.9v11.885l9.75 3.899zm.75-13.2l4.168-1.667-9.23-3.692L2.77 5.25 12 8.942zm6.187-2.475L21.23 5.25 12 1.558 8.957 2.775l9.23 3.692z' fill='black'/%3e%3cpath d='M18.75 18a.744.744 0 01-.696-.472.747.747 0 01.418-.975l1.875-.75a.744.744 0 01.974.418.747.747 0 01-.418.975l-1.875.75a.732.732 0 01-.278.054z' fill='%2329D305'/%3e%3c/svg%3e",
      "e-icon--building-business":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M4.5 24a.75.75 0 01-.75-.75v-12a.75.75 0 011.5 0v12a.75.75 0 01-.75.75zM7.5 24a.75.75 0 01-.75-.75v-12a.75.75 0 011.5 0v12a.75.75 0 01-.75.75z' fill='black'/%3e%3cpath d='M10.5 24a.75.75 0 01-.75-.75V9h-7.5v14.25a.75.75 0 01-1.5 0v-15l.003-.051.007-.067a1.08 1.08 0 01.067-.209.527.527 0 01.103-.161l4.32-5.04V.75a.75.75 0 011.5 0v1.973l4.319 5.039a.764.764 0 01.07.099l.033.06a.968.968 0 01.051.136.608.608 0 01.015.071c.004.025.006.048.008.071a.477.477 0 01.003.051v15a.749.749 0 01-.749.75zM8.869 7.5L6 4.152 3.131 7.5h5.738zM22.5 24a.75.75 0 01-.75-.75V11.041l-7.5-2.501v14.71a.75.75 0 01-1.5 0V8.541a1.5 1.5 0 011.975-1.423l7.5 2.5a1.501 1.501 0 011.026 1.423v12.21A.752.752 0 0122.5 24z' fill='black'/%3e%3cpath d='M19.5 22.5a.75.75 0 01-.75-.75V21a.75.75 0 011.5 0v.75a.75.75 0 01-.75.75z' fill='black'/%3e%3cpath d='M19.5 18.75a.75.75 0 01-.75-.75v-.75a.75.75 0 011.5 0V18a.75.75 0 01-.75.75z' fill='%2329D305'/%3e%3cpath d='M19.5 15a.75.75 0 01-.75-.75v-.75a.75.75 0 011.5 0v.75a.75.75 0 01-.75.75zM16.5 22.5a.75.75 0 01-.75-.75V21a.75.75 0 011.5 0v.75a.75.75 0 01-.75.75zM16.5 18.75a.75.75 0 01-.75-.75v-.75a.75.75 0 011.5 0V18a.75.75 0 01-.75.75z' fill='black'/%3e%3cpath d='M16.5 15a.75.75 0 01-.75-.75v-.75a.75.75 0 011.5 0v.75a.75.75 0 01-.75.75z' fill='%2329D305'/%3e%3c/svg%3e",
+     "e-icon--calendar":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='black'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
      "e-icon--car-charger-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M22.682.31L11.011 0 8.148.282a1.13 1.13 0 00-1.022 1.116l-.033 4.666c.493-.124.93-.225 1.26-.298l.031-4.246 2.02-.2v15.024c-.44.22-1.071.54-1.644.83l-.49.249.058-8.007c-.352.183-.805.392-1.263.597L7 19.079h14.401c.299 0 .58-.117.79-.322L24 16.992l-.215-15.568A1.131 1.131 0 0022.682.31zm-11.02 15.795V1.273l10.866.289.2 14.543H11.664zm-.481 1.255h10.643l-.476.464H10.257c.363-.184.693-.35.924-.464z' fill='black'/%3e%3cpath d='M16.143 12.401a.43.43 0 01-.429-.429V8.967h-1.071a.641.641 0 01-.64-.589.64.64 0 01.148-.47l3.381-3.943a.427.427 0 01.754.28V7.25h1.072a.645.645 0 01.492 1.059l-3.382 3.942a.427.427 0 01-.325.15zm0-4.292a.43.43 0 01.428.429v2.276l2.32-2.706h-1.034a.43.43 0 01-.428-.429V5.404l-2.32 2.705h1.034z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.684 8.027v-1.75c-.997.226-2.324.556-3.568.955-.861.276-1.639.572-2.226.872-.294.15-.509.284-.653.397a.97.97 0 00-.142.13c-.119.252-.246.68-.359 1.284a21.19 21.19 0 00-.259 2.018 46.975 46.975 0 00-.15 2.97h.815l1.21-3.533c.04-.113.182-.523.607-.807.232-.155.73-.411 1.216-.66l.45-.23c.423-.216.884-.451 1.337-.688a30.776 30.776 0 001.722-.958zM10 8.614V5.29a.514.514 0 00-.618-.51C7.46 5.18 1.674 6.5.924 8.032.12 9.671.014 13.941 0 15.694a.52.52 0 00.524.523h.627c-.18 1.166-.238 2.93.186 4.477.427 1.56 1.416 3.096 3.463 3.303.357.036.677-.211.715-.552a.628.628 0 00-.578-.682c-1.25-.126-1.972-1.029-2.342-2.382-.37-1.349-.32-2.952-.153-4.016.008-.05.009-.1.005-.148h.26a.525.525 0 00.498-.355l1.393-4.067a.26.26 0 01.092-.14c.192-.127.795-.435 1.528-.81C7.803 10.038 10 8.916 10 8.615z' fill='black'/%3e%3c/svg%3e",
      "e-icon--chat":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill-rule='evenodd' clip-rule='evenodd' fill='black'%3e%3cpath d='M22.5 19.716v-7.934c0-5.694-4.701-10.31-10.5-10.31-5.781 0-10.5 4.707-10.5 10.418 0 5.832 4.818 10.637 10.722 10.637h7.414c.654 0 1.076 0 1.4-.02.311-.019.431-.052.488-.073.408-.149.73-.464.881-.865.022-.056.055-.173.074-.48.02-.317.021-.731.021-1.373zM12 0C5.373 0 0 5.383 0 11.89 0 18.517 5.472 24 12.222 24h7.414c1.27 0 1.905 0 2.412-.186a2.973 2.973 0 001.763-1.73c.189-.498.189-1.121.189-2.368v-7.934C24 5.275 18.627 0 12 0z'/%3e%3cpath d='M7.55 10.582c.835 0 1.51.66 1.51 1.473 0 .813-.675 1.473-1.51 1.473-.833 0-1.51-.66-1.51-1.473 0-.813.677-1.473 1.51-1.473zM12.081 10.582c.834 0 1.51.66 1.51 1.473 0 .813-.676 1.473-1.51 1.473s-1.51-.66-1.51-1.473c0-.813.676-1.473 1.51-1.473zM16.611 10.582c.834 0 1.51.66 1.51 1.473 0 .813-.675 1.473-1.51 1.473-.834 0-1.51-.66-1.51-1.473 0-.813.676-1.473 1.51-1.473z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
      "e-icon--check-circle":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='black'%3e%3cpath d='M12 23.997c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.53 11.307a.75.75 0 011.061 0l3.005 3.002 6.54-6.534a.75.75 0 011.062 1.06l-7.072 7.063a.75.75 0 01-1.06 0L6.53 12.366a.748.748 0 010-1.06z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
@@ -259,6 +247,7 @@ document.addEventListener("DOMContentLoaded", function(){
      "e-icon--check-circle-filled-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M12 23.997c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.47 11.306a.75.75 0 011.06 0l3.006 3.002 6.54-6.534a.75.75 0 011.06 1.06l-7.07 7.063a.75.75 0 01-1.06 0L6.47 12.365a.748.748 0 010-1.06z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath fill='white' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
      "e-icon--check-input":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M7.244 22c-.208 0-.417-.021-.625-.062a3.182 3.182 0 01-2.038-1.355L.243 14.44a1.33 1.33 0 011.09-2.097c.434 0 .84.212 1.091.565l4.356 6.167a.544.544 0 00.464.263.524.524 0 00.42-.211l13.96-17.624a1.334 1.334 0 012.366.67c.042.353-.056.701-.276.98L9.768 20.756c-.2.265-.457.504-.752.703A3.168 3.168 0 017.244 22z' fill='black'/%3e%3c/svg%3e",
      "e-icon--checklist-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M2.25 24A2.252 2.252 0 010 21.75v-18A2.252 2.252 0 012.25 1.5H4.5V.75a.75.75 0 011.5 0v.75h12V.75a.75.75 0 011.5 0v.75h2.25A2.252 2.252 0 0124 3.75v18A2.252 2.252 0 0121.75 24H2.25zm0-21a.75.75 0 00-.75.75v18c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75v-18a.75.75 0 00-.75-.75H19.5v.75a.75.75 0 01-1.5 0V3H6v.75a.75.75 0 01-1.5 0V3H2.25z' fill='black'/%3e%3cpath d='M12.75 18.75a.75.75 0 010-1.5h4.5a.75.75 0 010 1.5h-4.5zM12.75 11.25a.75.75 0 010-1.5h4.5a.75.75 0 010 1.5h-4.5z' fill='%2329D305'/%3e%3cpath d='M6.75 20.25a.743.743 0 01-.53-.22l-2.25-2.25a.744.744 0 010-1.06.743.743 0 01.53-.22c.2 0 .389.078.53.22l1.639 1.639L9.3 14.85a.756.756 0 01.601-.3c.163 0 .319.052.449.15a.747.747 0 01.15 1.05l-3.15 4.2a.75.75 0 01-.6.3zM6.75 12.45a.743.743 0 01-.53-.22L3.97 9.98a.743.743 0 01-.22-.53c0-.2.078-.389.22-.53a.743.743 0 01.53-.22c.2 0 .389.078.53.22l1.639 1.638L9.3 7.05a.755.755 0 011.051-.15.748.748 0 01.149 1.05l-3.15 4.2a.75.75 0 01-.547.298l-.053.002z' fill='black'/%3e%3c/svg%3e",
+     "e-icon--clock":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='black'%3e%3cpath d='M12 24C5.383 24 0 18.616 0 12 0 5.383 5.383 0 12 0c6.616 0 12 5.383 12 12 0 6.616-5.384 12-12 12zm0-22.4C6.266 1.6 1.6 6.266 1.6 12S6.266 22.4 12 22.4 22.4 17.734 22.4 12 17.734 1.6 12 1.6z'/%3e%3cpath d='M17 17.8a.792.792 0 01-.566-.234l-5-5a.789.789 0 01-.173-.262l-.01-.027a.786.786 0 01-.05-.277V8a.8.8 0 011.6 0v3.668l4.765 4.766A.794.794 0 0117.8 17 .802.802 0 0117 17.8z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
      "e-icon--close-menu":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3crect y='21.818' width='30.855' height='3.086' rx='1.5' transform='rotate(-45 0 21.818)' fill='black'/%3e%3crect x='2.182' width='30.855' height='3.086' rx='1.5' transform='rotate(45 2.182 0)' fill='black'/%3e%3c/svg%3e",
      "e-icon--cog":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='black'%3e%3cpath d='M8.154 24.002c-.676 0-1.323-.25-1.823-.705a2.704 2.704 0 01-.883-2.13l.072-1.404a1.211 1.211 0 00-1.144-1.27l-.062-.002c-.021 0-.042 0-.063.002l-1.401.071a2.7 2.7 0 01-1.954-.692 2.694 2.694 0 01-.892-1.873 2.7 2.7 0 01.887-2.15l1.043-.94c.239-.217.38-.514.397-.837a1.208 1.208 0 00-.397-.96L.89 10.164a2.69 2.69 0 01-.885-1.876A2.709 2.709 0 012.84 5.45l1.402.071a1.21 1.21 0 001.272-1.27l-.067-1.406A2.714 2.714 0 018.157.005c.76 0 1.49.324 2.002.887l.941 1.04a1.2 1.2 0 00.902.401 1.187 1.187 0 00.892-.398l.95-1.043a2.69 2.69 0 012.008-.89A2.707 2.707 0 0118.56 2.85l-.07 1.4a1.211 1.211 0 001.146 1.268l.06.002h.058l1.4-.072a2.695 2.695 0 011.954.7c.536.486.851 1.153.887 1.875a2.702 2.702 0 01-.889 2.145l-1.042.94a1.2 1.2 0 00-.397.837 1.2 1.2 0 00.397.958l1.042.942c.537.485.853 1.15.89 1.874a2.69 2.69 0 01-.695 1.954 2.72 2.72 0 01-2.147.89l-1.402-.071-.066-.002c-.302 0-.58.108-.807.311a1.195 1.195 0 00-.397.96l.071 1.402a2.7 2.7 0 01-.708 1.954 2.69 2.69 0 01-2.012.883c-.75 0-1.475-.322-1.987-.88l-.944-1.046a1.213 1.213 0 00-1.796 0l-.946 1.043a2.72 2.72 0 01-2.006.884zm-3.84-7.011a2.713 2.713 0 012.705 2.85l-.072 1.4a1.206 1.206 0 001.206 1.262l.06-.001a1.2 1.2 0 00.836-.395l.945-1.04a2.705 2.705 0 012.009-.893c.766 0 1.5.325 2.012.893l.942 1.041c.226.248.552.39.896.39l.05-.001a1.211 1.211 0 001.152-1.263l-.071-1.396a2.69 2.69 0 01.89-2.15 2.698 2.698 0 011.955-.695l1.4.071.068.002a1.2 1.2 0 00.89-.4c.217-.24.327-.55.31-.872a1.2 1.2 0 00-.396-.836l-1.043-.94a2.715 2.715 0 010-4.025l1.043-.941c.27-.244.414-.593.396-.957a1.2 1.2 0 00-.396-.837 1.203 1.203 0 00-.81-.314l-.062.002-1.4.071a2.95 2.95 0 01-.27 0 2.712 2.712 0 01-2.568-2.843l.07-1.401a1.2 1.2 0 00-.397-.96 1.176 1.176 0 00-.87-.31 1.197 1.197 0 00-.837.398l-.949 1.04a2.704 2.704 0 01-2.149.89 2.692 2.692 0 01-1.871-.891L9.048 1.9a1.213 1.213 0 00-.894-.394h-.057c-.665.032-1.181.6-1.15 1.267l.067 1.4A2.71 2.71 0 014.167 7.02l-1.4-.07a1.21 1.21 0 00-1.263 1.265c.016.322.156.62.396.837l1.041.945a2.715 2.715 0 01-.002 4.024l-1.041.94c-.27.245-.415.595-.396.96.017.322.158.619.399.835.222.2.509.31.807.31.02 0 .043 0 .064-.002l1.401-.071.14-.002z'/%3e%3cpath d='M12 17.26a5.259 5.259 0 01-5.253-5.254A5.259 5.259 0 0112 6.752a5.259 5.259 0 015.252 5.254A5.259 5.259 0 0112 17.259zm0-9.007a3.756 3.756 0 00-3.752 3.753A3.756 3.756 0 0012 15.758a3.756 3.756 0 003.751-3.752A3.756 3.756 0 0012 8.253z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
      "e-icon--company-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12 1.593C6.253 1.593 1.593 6.253 1.593 12S6.253 22.407 12 22.407 22.407 17.747 22.407 12 17.747 1.593 12 1.593zM0 12C0 5.373 5.373 0 12 0s12 5.373 12 12-5.373 12-12 12S0 18.627 0 12z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M16.687 5.33a1.544 1.544 0 012.085 1.44V21.48a.797.797 0 01-1.594 0V6.902l-5.725 4.074a.796.796 0 01-.15.084v2.433a.797.797 0 01-1.593 0v-2.471a1.544 1.544 0 01.889-1.394l5.905-4.202a.797.797 0 01.183-.097z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M14.938 10.507c0-.44.356-.796.796-.796h2.241a.797.797 0 110 1.593h-2.24a.797.797 0 01-.797-.797zM13.444 13.495c0-.44.357-.797.797-.797h3.734a.797.797 0 110 1.593h-3.734a.797.797 0 01-.797-.796z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.481 16.481c0-.44.357-.796.797-.796h3.734a.797.797 0 010 1.593H5.278a.797.797 0 01-.797-.797z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.747 5.23c.44 0 .797.356.797.796v3.05a.797.797 0 01-1.594 0v-3.05c0-.44.357-.797.797-.797zM6.772 14.29a.697.697 0 00-.697.698v5.975a.797.797 0 11-1.594 0v-5.976a2.29 2.29 0 012.29-2.29h3.735a2.29 2.29 0 012.29 2.29v8.216a.797.797 0 01-1.593 0v-8.215a.697.697 0 00-.697-.698H6.772z' fill='black'/%3e%3c/svg%3e",
@@ -372,30 +361,25 @@ document.addEventListener("DOMContentLoaded", function(){
      "e-icon--window-add-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M12.901 8.327H9.656V9.3h2.272v1.082H9.656v.973h2.272v1.298H9.656v.973h3.245v-5.3zM8.14 12.653H5.87v-1.298H8.14V8.327H4.896V9.3h2.27v1.082h-2.27v3.245H8.14v-.974zM17.446 10.382h-2.055V9.3h2.055v-.973h-3.029v3.028h2.056l-.553.155.49.245h.244l.245-.245.547-1.128z' fill='black'/%3e%3cpath d='M2.259 21.003a2.252 2.252 0 01-2.25-2.25v-16.5a2.252 2.252 0 012.25-2.25h18a2.252 2.252 0 012.25 2.25v6a.75.75 0 01-1.5 0v-2.25h-19.5v12.75c0 .414.336.75.75.75h6a.75.75 0 010 1.5h-6zm18.75-16.5v-2.25a.75.75 0 00-.75-.75h-18a.75.75 0 00-.75.75v2.25h19.5z' fill='black'/%3e%3cpath d='M17.259 24.003a6.758 6.758 0 01-6.75-6.75 6.758 6.758 0 016.75-6.75 6.758 6.758 0 016.75 6.75 6.758 6.758 0 01-6.75 6.75zm0-12a5.256 5.256 0 00-5.25 5.25 5.256 5.256 0 005.25 5.25 5.256 5.256 0 005.25-5.25 5.256 5.256 0 00-5.25-5.25z' fill='%2329D305'/%3e%3cpath d='M17.259 21.003a.75.75 0 01-.75-.75v-2.25h-2.25a.75.75 0 010-1.5h2.25v-2.25a.75.75 0 011.5 0v2.25h2.25a.75.75 0 010 1.5h-2.25v2.25a.75.75 0 01-.75.75z' fill='%2329D305'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
      "e-icon--work-under-line-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.896 22.001H1.552a.5.5 0 00-.508.493.5.5 0 00.508.493h10.344a.5.5 0 00.508-.493.5.5 0 00-.508-.493zM1.552 20.988c-.857 0-1.552.674-1.552 1.506S.695 24 1.552 24h10.344c.857 0 1.552-.674 1.552-1.506s-.695-1.506-1.552-1.506H1.552zM15.06 8.678l7.216 7.273c.21.212.21.555 0 .767a.534.534 0 01-.76 0L14.3 9.444a.545.545 0 010-.766.535.535 0 01.76 0zm-1.49-.736a1.561 1.561 0 012.22 0l7.216 7.274c.54.544.605 1.387.193 2.002.11.102.19.24.214.406l.579 3.788a.69.69 0 01-.819.785l-5.404-1.115c-.628-.129-.755-.976-.194-1.287l3.657-2.026a1.57 1.57 0 01-.446-.315l-7.217-7.274a1.592 1.592 0 010-2.238zm5.323 12.31l3.575-1.98.428 2.806-4.003-.826z' fill='black'/%3e%3cpath d='M11.146 10.942l3.39-2.368a.542.542 0 11.624.889l-2.624 1.832c.223.2.383.471.44.783l.03.16 2.753-1.922c.718-.502.893-1.49.39-2.207a1.59 1.59 0 00-2.212-.389l-4.612 3.222h1.82zM7.59 13.425v-1.094a1.4 1.4 0 01.013-.187L5.48 13.628a1.58 1.58 0 00-.665 1.1h1.07a.54.54 0 01.194-.247l1.512-1.056z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M8.635 15.77H1.393a.348.348 0 00-.349.347v2.729c0 .191.156.347.349.347h11.424a.348.348 0 00.342-.41l-1.21-6.515a.348.348 0 00-.341-.284H8.982a.348.348 0 00-.348.347v3.439zm-1.044-3.44c0-.766.623-1.388 1.392-1.388h2.624c.672 0 1.248.477 1.37 1.136l1.21 6.515a1.39 1.39 0 01-1.37 1.642H1.393c-.77 0-1.393-.622-1.393-1.39v-2.728c0-.767.624-1.39 1.393-1.39H7.59v-2.396z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M5.47 20.235v.753h-.987v-.753h.987zm3.255.753v-.753h.987v.753h-.987z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M21.692.185a.633.633 0 010 .89c-2.144 2.161-5.811 3.493-9.595 3.707-3.792.215-7.843-.686-10.75-3.167a.633.633 0 01-.074-.888.622.622 0 01.88-.074c2.593 2.21 6.292 3.074 9.874 2.871 3.592-.203 6.925-1.468 8.781-3.34a.621.621 0 01.884 0zm.84 2.635c.181.296.09.684-.204.866-3.374 2.093-7.81 3.055-11.864 3.023C6.439 6.677 2.608 5.661.558 3.595a.633.633 0 010-.89.622.622 0 01.884 0c1.7 1.713 5.119 2.713 9.032 2.744 3.882.03 8.072-.896 11.198-2.836a.622.622 0 01.86.207z' fill='%2329D305'/%3e%3c/svg%3e"};
 
-    function replaceIcons() {
-        window.document.querySelectorAll('[class*="e-icon"]').forEach(function(element){
-            if(element.innerHTML) {
-                // Uses e-id to avoid unnessesary changes to the DOM
-                id = element.firstChild.getAttribute('e-id');
-                let icon = getIcon(element.classList);
-                if(!id || id + '' !== icon.getAttribute('e-id')){
-                    element.innerHTML = '';
-                    element.appendChild(icon);
-                }
-            }
-            else {
-                element.innerHTML = '';
-                element.appendChild(getIcon(element.classList));
-            }
-            
-            
-        });
-    }
-    
-    replaceIcons();
+  function replaceIcons() {
+      window.document.querySelectorAll('[class*="e-icon"]').forEach(function(element){
+        // Uses e-id to avoid unnessesary changes to the DOM
+        let id = element.getAttribute('e-id');
+        let newId = getUniqueIdentifier(element.classList) + '';
+        if(!id || id + '' !== newId){
+            element.style.backgroundImage = 'url("'+getIcon(element.classList) +'")';
+            element.setAttribute('e-id', newId);
+        }
+      });
+  }
 
-    // TODO: Remove this temporary fallback
-    window.setInterval(function(){
-        replaceIcons();
-    }, 3000)
+  replaceIcons();
+
+  // TODO: Remove this temporary fallback
+  window.setTimeout(function() {
+      replaceIcons();
+  }, 500);
+  window.setInterval(function(){
+      replaceIcons();
+  }, 3000);
 });
