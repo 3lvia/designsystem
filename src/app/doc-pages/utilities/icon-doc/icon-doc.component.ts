@@ -78,7 +78,7 @@ example4 = `<i class="e-icon e-icon--mail"></i>
 
   getShortIconName(iconName: string): string {
     let short = iconName.split('-')[0];
-    short = short.replace('_', ' ');
+    short = short.split('_').join(' ');
     return short.charAt(0).toUpperCase() + short.slice(1);
   }
 
