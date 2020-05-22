@@ -6,6 +6,7 @@ import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ComponentHeaderModule } from 'src/app/shared/component-header/component-header.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
+import { IconSearchPipe } from './icon-search.pipe';
 
 
 @NgModule({
@@ -17,6 +18,6 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
     ComponentHeaderModule,
     CopyModule
   ],
-  declarations: [IconDocComponent]
+  declarations: [IconDocComponent, IconSearchPipe]
 })
 export class IconDocModule { }
