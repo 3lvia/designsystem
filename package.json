@@ -27,7 +27,6 @@
     "classlist.js": "^1.1.20150312",
     "css-vars-ponyfill": "^2.3.0",
     "gulp": "^4.0.2",
-    "ng2-search-filter": "^0.5.1",
     "prismjs": "^1.20.0",
     "rxjs": "^6.5.5",
     "stylelint-config-sass-guidelines": "^7.0.0",
