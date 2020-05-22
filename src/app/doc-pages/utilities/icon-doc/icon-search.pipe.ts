@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'iconSeachPipe',
+  pure: false,
 })
 export class IconSearchPipe implements PipeTransform {
 
@@ -25,19 +26,14 @@ export class IconSearchPipe implements PipeTransform {
         if (IconList[property] === null || IconList[property] === undefined) {
           continue;
         }
-        if (typeof IconList[property] === 'object') {
-          if (checkInside(IconList[property], searchTerm)) {
+        if (typeof IconList[property] === 'object' && checkInside(IconList[property], searchTerm)) {
             return true;
-          }
-        } else if (
-          IconList[property].toString().toLowerCase().includes(compare)
-        ) {
+        } else if (IconList[property].toString().toLowerCase().includes(compare)) {
           return true;
         }
       }
       return false;
     }
-
     return IconList.filter(function (IconList) {
       return checkInside(IconList, searchTerm);
     });
