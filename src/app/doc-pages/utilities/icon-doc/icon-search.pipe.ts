@@ -1,34 +1,53 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import * as icons from 'style/elvis/src/icons/icons.config';
 
 @Pipe({
-  name: 'iconSeachPipe'
+  name: 'iconSeachPipe',
 })
 export class IconSearchPipe implements PipeTransform {
 
-  transform(iconList: [], searchTerm: string) {
+  static filter(
+    IconList: Array<{ [key: string]: any }>,
+    searchTerm: string
+  ): Array<{ [key: string]: any }> {
 
-    const filtereList = [];
+    const compare = searchTerm.toLowerCase();
 
-    if (!searchTerm) {
-      return iconList;
-    }
-
-    for (const icon of icons) {
-      if (icon.name.indexOf('figma') > -1) {
-        continue;
+    // tslint:disable-next-line: no-shadowed-variable
+    function checkInside(IconList: any, searchTerm: string) {
+      if (
+        typeof IconList === 'string' &&
+        IconList.toString().toLowerCase().includes(compare)
+      ) {
+        return true;
       }
 
-      if (icon.name.includes(searchTerm)) {
-        filtereList.push({
-          title: icon.name,
-        });
+      for (const property in IconList) {
+        if (IconList[property] === null || IconList[property] === undefined) {
+          continue;
+        }
+        if (typeof IconList[property] === 'object') {
+          if (checkInside(IconList[property], searchTerm)) {
+            return true;
+          }
+        } else if (
+          IconList[property].toString().toLowerCase().includes(compare)
+        ) {
+          return true;
+        }
       }
+      return false;
     }
 
-    if (filtereList.length > 0) {
-      return filtereList;
+    return IconList.filter(function (IconList) {
+      return checkInside(IconList, searchTerm);
+    });
+  }
+
+  transform(IconList: any, searchTerm: string): any {
+    if (!searchTerm || !IconList) {
+      return IconList;
     }
 
+    return IconSearchPipe.filter(IconList, searchTerm);
   }
 }

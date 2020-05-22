@@ -87,6 +87,7 @@ example4 = `<i class="e-icon e-icon--email"></i>
       }
       this.svgIcons.push({
         title: icon.name,
+        terms: icon.terms,
       });
     }
 
