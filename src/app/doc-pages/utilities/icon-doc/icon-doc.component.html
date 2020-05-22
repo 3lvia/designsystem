@@ -39,7 +39,7 @@
           <app-copy [message]="'e-icon e-icon--' + icon.title + ' e-icon--lg'">
             <ng-container ngProjectAs="copyContent">
               <i [class.e-icon--inverted]="inverted" [class]="'e-icon e-icon--' + icon.title + ' e-icon--md'"></i>
-              <p class="e-text-description" [style.color] = "inverted ? 'white' : 'black'">{{ icon.title }}</p>
+              <p class="e-text-description" [style.color] = "inverted ? 'white' : 'black'">{{ icon.pretty }}</p>
             </ng-container>
           </app-copy>
         </div>  

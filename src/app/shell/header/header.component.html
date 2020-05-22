@@ -1,13 +1,25 @@
-<div class="header-warning">
-  <div><i class="e-icon e-icon--warning_circle e-icon--sm"></i></div>
+<div [class.show-header-warning]="showWarning()" class="header-warning e-pl-16 e-pr-16">
   <div>
     <div>
-      Designsystemet er fortsatt i en tidlig fase, det er mye som mangler og det skjer endringer i et høyt tempo. 
-      Kontakt oss og følg utviklingen av designsystemet på <a class="e-link" href="https://hafslundnett.slack.com/archives/C01302LBTC2">#designsystemet</a>
+      <i class="e-icon e-icon--warning_circle e-icon--sm e-mr-16"></i>
+    </div>
+    <div>
+      <div>
+        The designsystem is still in an early phase. A lot is still missing and changes happen in a rapid pace.  
+        Contact us and keep up with the development at &nbsp;<a class="e-link e-link--sm" href="https://hafslundnett.slack.com/archives/C01302LBTC2">#designsystemet</a>
+      </div>
     </div>
   </div>
+  <div *ngIf="removableWarning()" class="header-warning-close">
+    <button (click)="removeWarning()" class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-16">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--remove_circle"></i>
+        <i class="e-icon e-icon e-icon--remove_circle-filled-color"></i>
+      </span>
+    </button>
+  </div>
 </div>
-<div class="header e-border-b">
+<div [class.show-header-warning]="showWarning()" class="header e-border-b">
   <div class="header-top">
     <a class="header-top_logo" [routerLink]="['', 'home']">
       <img src="./../../../assets/logo/elvia_negative_1.svg" alt="Logo" />

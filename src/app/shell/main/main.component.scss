@@ -2,6 +2,10 @@
 
 .main-content {
   position: relative;
-  top: $header-height + 60px;
+  
+  top: $header-height;
+  &.show-header-warning {
+    top: $header-height + 60px;
+  } 
   margin-left: $navbar-width;
 }

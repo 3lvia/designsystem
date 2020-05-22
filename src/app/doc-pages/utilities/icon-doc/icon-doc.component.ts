@@ -76,6 +76,12 @@ example4 = `<i class="e-icon e-icon--mail"></i>
     this.inverted = !this.inverted;
   }
 
+  getShortIconName(iconName: string): string {
+    let short = iconName.split('-')[0];
+    short = short.replace('_', ' ');
+    return short.charAt(0).toUpperCase() + short.slice(1);
+  }
+
 
   fillIconList(): void {
     this.svgIcons = [];
@@ -86,6 +92,7 @@ example4 = `<i class="e-icon e-icon--mail"></i>
         continue;
       }
       this.svgIcons.push({
+        pretty: this.getShortIconName(icon.name),
         title: icon.name,
       });
     }
