@@ -1,6 +1,6 @@
 # Update [0.5.0]
 Major renaming of icons. All icons now follow the correct and desired naming scheme for a maintainable library. 
-# Breaking changes
+##### Breaking changes
 Icon names have changed, so some references should be expected to now be broken
 
 # Update [0.4.0]
