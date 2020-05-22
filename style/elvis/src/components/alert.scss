@@ -1,0 +1,59 @@
+@import "./../variables/typography.scss";
+
+.e-alert {
+    display: inline-flex;
+    padding: (24px - 2px) (32px - 2px) (24px - 2px) (24px - 2px); // -2px for border
+    box-sizing: border-box;
+    border: 2px solid var(--e-red);
+    flex-direction: row;
+    align-items: center;
+    max-width: 850px;
+
+    &__icon {
+        display: flex;
+        margin-right: 24px;
+    }
+    &__content {
+        display: flex;
+        flex-direction: column;
+        .e-alert__title {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 18px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+        .e-alert__text {
+            font-size: 16px;
+            line-height: 28px;
+            ul {
+                margin: 0;
+                padding: 0;
+                padding-left: 17px;
+            }
+        }
+        .e-alert__links {
+            margin-top: 14px;
+            a:not(:last-of-type) {
+                margin-right: 24px;
+            }
+        }
+    }
+
+    &--local {
+        border-radius: 8px;
+    }
+
+    &--positive {
+        border-color: var(--e-green);
+    }
+
+    &--warn {
+        border-color: var(--e-orange);
+    }
+
+    &--info {
+        border-color: var(--e-black);
+    }
+}
