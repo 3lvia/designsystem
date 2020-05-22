@@ -129,7 +129,7 @@ export declare const ${createCamelCase(iconsToInclude[i].name)}: Icon;`
 }
 
 function createCamelCase(original) {
-  const arr = original.split('-');
+  const arr = original.split(/[_-]+/);
   let newText = '';
 
   for(let i = 0; i < arr.length; i++){
