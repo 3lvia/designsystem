@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start-dev": "concurrently \"npm run start\" \"cd style/elvis && gulp watch\"",
-    "build": "cd style/elvis && npm install && cd ../.. && ng build",
+    "build": "cd style/elvis && npm install && cd ../.. && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

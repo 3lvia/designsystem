@@ -2,9 +2,15 @@
 
 .navbar {
   position: fixed;
-  height: calc(100% - #{$header-height} - 60px);
+  height: calc(100% - #{$header-height});
+  top: $header-height;
+
+  &.show-header-warning {
+    height: calc(100% - #{$header-height} - 60px);
+    top: $header-height + 60px;
+  }
+
   width: $navbar-width;
-  top: $header-height + 60px;
   left: 0;
   margin: 0;
   padding: 0;
