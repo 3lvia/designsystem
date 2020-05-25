@@ -12,7 +12,7 @@ export class AlertMessagesComponent implements OnInit {
   externalUrl = getComponent('alert-messages-doc').externalUrl;
 
   exampleAlertDefault = `<h3 class="e-title-sm">Standard</h3>
-<div class="e-alert e-alert--local e-my-8">
+<div class="e-alert e-alert--local e-m-8">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
   </div>
