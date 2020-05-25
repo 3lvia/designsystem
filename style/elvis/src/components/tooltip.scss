@@ -1,10 +1,9 @@
-@import '../variables/colors.scss';
+@import "../variables/colors.scss";
 
 $tooltip-border-style: 5px solid;
 $tooltip-margin-offset: -5px;
-$tooltip-calculate-height: auto;
+$tooltop-margin-horizontal-offset: 14px;
 $tooltip-vertical-transform: translate(-50%, 0);
-$tooltip-horizontal-transform: translate(0, -50%);
 
 .e-tooltip {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -12,69 +11,45 @@ $tooltip-horizontal-transform: translate(0, -50%);
   position: relative;
   display: inline-block;
   box-sizing: border-box;
+  line-height: 0;
+  // only focus effect is currently a visible toooltip.
+  outline: none;
 
   &:hover {
-    #{$this}_content {
-      @extend .e-tooltip_content, .is-active;
+    #{$this}__content {
+      @extend .e-tooltip__content, .is-active;
     }
   }
   &:focus {
-    #{$this}_content {
-      @extend .e-tooltip_content, .is-active;
+    #{$this}__content {
+      @extend .e-tooltip__content, .is-active;
     }
   }
 
-  &_content {
+  &__content {
     position: absolute;
     opacity: 0;
     z-index: -1;
     width: max-content;
-    max-width: 25ch;
-    pointer-events: none;
-    background-color: color('grey');
-    color: color('white');
-    padding: 10px 16px;
+    background-color: color("grey-80");
+    padding: 6px 8px;
     border-radius: 4px;
     transition: 200ms;
+    // tooltip spesific font style
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.002em;
+    color: color("white");
 
-    // Defaults to is-bottom tooltip if no direction class is applied.
-    &:not(.is-right):not(.is-left):not(.is-top) {
-      @extend .is-bottom;
+    // Defaults .e-tooltip_content---top if no direction class is applied.
+    &:not(.e-tooltip__content--bottom) {
+      @extend .e-tooltip__content--top;
     }
 
-    &.is-right {
-      top: 50%;
-      left: 110%;
-      transform: $tooltip-horizontal-transform;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 100%;
-        margin-top: $tooltip-margin-offset;
-        border: $tooltip-border-style;
-        border-color: transparent color('grey') transparent transparent;
-      }
-    }
-    &.is-left {
-      top: 50%;
-      right: 110%;
-      transform: $tooltip-horizontal-transform;
-
-      &::after {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 100%;
-        margin-top: $tooltip-margin-offset;
-        border: $tooltip-border-style;
-        border-color: transparent transparent transparent color('grey');
-      }
-    }
-    &.is-bottom {
-      top: 150%;
+    &.e-tooltip__content--bottom {
+      top: 100%;
       left: 50%;
+      margin-top: $tooltop-margin-horizontal-offset;
       transform: $tooltip-vertical-transform;
 
       &::after {
@@ -84,13 +59,14 @@ $tooltip-horizontal-transform: translate(0, -50%);
         left: 50%;
         margin-left: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: transparent transparent color('grey') transparent;
+        border-color: transparent transparent color("grey-80") transparent;
       }
     }
 
-    &.is-top {
-      bottom: 150%;
+    &.e-tooltip__content--top {
+      bottom: 100%;
       left: 50%;
+      margin-bottom: $tooltop-margin-horizontal-offset;
       transform: $tooltip-vertical-transform;
 
       &::after {
@@ -100,30 +76,13 @@ $tooltip-horizontal-transform: translate(0, -50%);
         left: 50%;
         margin-left: $tooltip-margin-offset;
         border: $tooltip-border-style;
-        border-color: color('grey') transparent transparent transparent;
+        border-color: color("grey-80") transparent transparent transparent;
       }
     }
+
     &.is-active {
       opacity: 1;
       z-index: 90;
-    }
-  }
-  &.is-light {
-    #{$this}_content {
-      background-color: color('grey-30') !important;
-      color: color('black') !important;
-    }
-    #{$this}_content.is-right::after {
-      border-color: transparent color('grey-30') transparent transparent !important;
-    }
-    #{$this}_content.is-left::after {
-      border-color: transparent transparent transparent color('grey-30') !important;
-    }
-    #{$this}_content.is-top::after {
-      border-color: color('grey-30') transparent transparent transparent !important;
-    }
-    #{$this}_content.is-bottom::after {
-      border-color: transparent transparent color('grey-30') transparent !important;
     }
   }
 }

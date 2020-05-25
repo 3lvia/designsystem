@@ -41,7 +41,7 @@ export class ListDocComponent implements OnInit {
 
   example4 = `<ol class="e-list e-list--icons">
   <li>
-    <span class="e-list__icon"><i class="e-icon e-icon e-icon--powermeter-ams e-icon--md"></i></span>
+    <span class="e-list__icon"><i class="e-icon e-icon e-icon--powermeter_ams e-icon--md"></i></span>
     <strong>Slik fungerer strømmåleren:</strong> Gjelder etablering og montering av nye målere og ved bytte av eksisterende målere.
   </li>
   <li>
@@ -50,7 +50,7 @@ export class ListDocComponent implements OnInit {
     Vil du styre strømforbruket ditt bedre? Da kan det være en idé å bestille åpning av HAN-porten på strømmåleren din.
   </li>
   <li>
-    <span class="e-list__icon"><i class="e-icon e-icon e-icon--powermeter-old e-icon--md"></i></span>
+    <span class="e-list__icon"><i class="e-icon e-icon e-icon--powermeter_old e-icon--md"></i></span>
     <strong>Priser på målere og utstyr:</strong> Gjelder etablering og montering av nye målere og ved bytte av eksisterende målere.
   </li>
 </ol>

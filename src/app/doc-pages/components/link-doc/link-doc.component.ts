@@ -40,21 +40,21 @@ export class LinkDocComponent implements OnInit {
   example3 = `<div>
   <h3 class="e-title-small">Large</h3>
   <a class="e-link e-link--lg" href="https://www.elvia.no/">
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow-left"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
     <span class="e-link__title">Tilbake</span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-small">Medium (default)</h3>
   <a class="e-link" href="https://www.elvia.no/">
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow-left"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
     <span class="e-link__title">Tilbake</span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-small">Small</h3>
   <a class="e-link e-link--sm" href="https://www.elvia.no/">
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow-left"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
     <span class="e-link__title">Tilbake</span>
   </a>
 </div>
@@ -64,28 +64,28 @@ export class LinkDocComponent implements OnInit {
   <h3 class="e-title-small">Large</h3>
   <a class="e-link e-link--external e-link--lg" href="https://www.elvia.no/">
     <span class="e-link__title">Se mer</span>
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow-external"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-small">Medium (default)</h3>
   <a class="e-link e-link--external" href="https://www.elvia.no/">
     <span class="e-link__title">Se mer</span>
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow-external"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Medium (default)</h3>
+  <h3 class="e-title-small">Small</h3>
   <a class="e-link e-link--external e-link--sm" href="https://www.elvia.no/">
     <span class="e-link__title">Se mer</span>
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow-external"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
   </a>
 </div>
 <div class="e-mt-40" style="width:164px;">
   <h3 class="e-title-small">Multiline</h3>
   <a class="e-link e-link--external" href="https://www.elvia.no/">
     <span class="e-link__title">External link over multiple rows</span>
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow-external"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
   </a>
 </div>
 `;
@@ -95,8 +95,8 @@ export class LinkDocComponent implements OnInit {
   <a class="e-link e-link--action e-link--lg" href="https://www.elvia.no/">
     <span class="e-link__title">Se hva du kan gjøre</span>
     <span class="e-link__icon">
-      <i class="e-icon e-icon--arrow-circle-color"></i>
-      <i class="e-icon e-icon--arrow-circle-full-color"></i>
+      <i class="e-icon e-icon--arrow_circle-color"></i>
+      <i class="e-icon e-icon--arrow_circle-filled-color"></i>
     </span>
   </a>
 </div>
@@ -105,8 +105,8 @@ export class LinkDocComponent implements OnInit {
   <a class="e-link e-link--action" href="https://www.elvia.no/">
     <span class="e-link__title">Se hva du kan gjøre</span>
     <span class="e-link__icon">
-      <i class="e-icon e-icon--arrow-circle-color"></i>
-      <i class="e-icon e-icon--arrow-circle-full-color"></i>
+      <i class="e-icon e-icon--arrow_circle-color"></i>
+      <i class="e-icon e-icon--arrow_circle-filled-color"></i>
     </span>
   </a>
 </div>
@@ -115,8 +115,8 @@ export class LinkDocComponent implements OnInit {
   <a class="e-link e-link--action" href="https://www.elvia.no/">
     <span class="e-link__title">Action link over multiple rows</span>
     <span class="e-link__icon">
-      <i class="e-icon e-icon--arrow-circle-color"></i>
-      <i class="e-icon e-icon--arrow-circle-full-color"></i>
+      <i class="e-icon e-icon--arrow_circle-color"></i>
+      <i class="e-icon e-icon--arrow_circle-filled-color"></i>
     </span>
   </a>
 </div>
@@ -125,16 +125,16 @@ export class LinkDocComponent implements OnInit {
   example6 = `<div>
   <h3 class="e-title-small">With icon</h3>
   <a class="e-link e-link--jumbo" href="https://www.elvia.no/">
-    <span class="e-link__icon"><i class="e-icon e-icon--powerline-snow e-icon--xl"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
     <span class="e-link__title">Strømledning nær bakken</span>
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow-right e-icon--xs"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>
   </a>
 </div>
 <div>
   <h3 class="e-title-small">Without icon</h3>
   <a class="e-link e-link--jumbo" href="https://www.elvia.no/">
     <span class="e-link__title">Strømledning nær bakken</span>
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow-right e-icon--xs"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>
   </a>
 </div>
 `;
@@ -149,29 +149,29 @@ export class LinkDocComponent implements OnInit {
   <a class="e-link e-link--action e-link---hover e-m-8" href="https://www.elvia.no/">
     <span class="e-link__title">Hover</span>
     <span class="e-link__icon">
-      <i class="e-icon e-icon--arrow-circle-color"></i>
-      <i class="e-icon e-icon--arrow-circle-full-color"></i>
+      <i class="e-icon e-icon--arrow_circle-color"></i>
+      <i class="e-icon e-icon--arrow_circle-filled-color"></i>
     </span>
   </a>
   <a class="e-link e-link--action e-link---focus e-m-8" href="https://www.elvia.no/">
     <span class="e-link__title">Focus</span>
     <span class="e-link__icon">
-      <i class="e-icon e-icon--arrow-circle-color"></i>
-      <i class="e-icon e-icon--arrow-circle-full-color"></i>
+      <i class="e-icon e-icon--arrow_circle-color"></i>
+      <i class="e-icon e-icon--arrow_circle-filled-color"></i>
     </span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-small">Jumbo link</h3>
   <a class="e-link e-link--jumbo e-link---hover e-m-8" href="https://www.elvia.no/">
-    <span class="e-link__icon"><i class="e-icon e-icon--powerline-snow e-icon--xl"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
     <span class="e-link__title">Hover</span>
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow-right e-icon--xs"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>
   </a>
   <a class="e-link e-link--jumbo e-link---focus e-m-8" href="https://www.elvia.no/">
-    <span class="e-link__icon"><i class="e-icon e-icon--powerline-snow e-icon--xl"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
     <span class="e-link__title">Focus</span>
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow-right e-icon--xs"></i></span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>
   </a>
 </div>
 `;

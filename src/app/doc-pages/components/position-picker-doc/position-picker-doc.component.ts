@@ -18,7 +18,7 @@ export class PositionPickerDocComponent implements OnInit {
 
   example1 = `<div class="e-position-picker">
   <div class="e-position-picker__icon">
-    <span class="e-btn__icon"><i class="e-icon e-icon--map-pin e-icon--lg"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>
   </div>
   <div class="e-position-picker__action">
     <button class="e-btn e-btn--tertiary">
@@ -65,7 +65,7 @@ closeModal(modal: string) {
 exampleHTMLCode = `
 <div class="e-position-picker">
 <div class="e-position-picker__icon" *ngIf="!showPosition">
-  <span class="e-btn__icon"><i class="e-icon e-icon--map-pin e-icon--lg"></i></span>
+  <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>
 </div>
 <div class="e-position-picker__description" *ngIf="showPosition">
   60.026676, 10.798887
@@ -80,7 +80,7 @@ exampleHTMLCode = `
 <div class="e-modal" #mapModal>
 <div class="e-modal__content">
   <button class="e-btn e-btn--icon" (click)="closeModal('mapModal')" id="examplebutton">
-    <span class="e-btn__icon"><i class="e-icon e-icon--remove-circle-color"></i></span>
+    <span class="e-btn__icon"><i class="e-icon e-icon--remove_circle-color"></i></span>
   </button>
   <iframe
  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7998.985919234493!2d10.685827403470268!3d59.9197547324057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sno!4v1589372574967!5m2!1sen!2sno"

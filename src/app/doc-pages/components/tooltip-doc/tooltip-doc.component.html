@@ -1,17 +1,18 @@
 <!--HEADER-->
 <app-component-header
   [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+  [does]="'Explain the function of an user interactive element. Showing full version of shortened text'"
+  [donts]="'If you can\'t think of any particularly useful content in a tooltip. Don’t use tooltip to explain a concept. Don’t hide necessary information in a tooltip'"
 >
   <ng-container ngProjectAs="headerTitle">
     Tooltip
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Tooltip is a light popover for showing additional information upon hover or focus. Keep tooltips short.
+    If a tooltip is attached to a non focusable element, like an icon remember to add the <span class="code-text">tabindex</span>
+    tag with a value equal to 0 or higher, as shown in the example below.
   </ng-container>
-
-  
 </app-component-header>
 
 <!--BODY-->
@@ -19,11 +20,8 @@
   <app-code-block
     [isHTML]="true"
     [code]="example1"
-    [title]="'Tooltip dark'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example2"
-    [title]="'Tooltip light'"
+    [title]="'Tooltip'"
+    [description]="'The default position for the tooltip is above the attached element. There is therefore no need to specify this position, unless you want the tooltip to appear below, then append the e-tooltip__content--bottom class.'"
+    [class]="classes"
   ></app-code-block>
 </div>
