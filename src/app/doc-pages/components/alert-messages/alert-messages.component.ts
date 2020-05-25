@@ -23,7 +23,7 @@ export class AlertMessagesComponent implements OnInit {
 </div>
 
 <h3 class="e-title-sm">Without title</h3>
-<div class="e-alert e-alert--local e-m-8">
+<div class="e-alert e-alert--local e-alert--no-title e-m-8">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--remove-circle e-icon--color-red"></i>
   </div>
