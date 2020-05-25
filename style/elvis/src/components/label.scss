@@ -34,31 +34,45 @@ $label-font-size: 11px;
     padding: $label-padding-mobile;
   }
 
-  &.e-label--safe {
+  &.e-label--green-apple {
     &::before {
       content: ' ';
-      background-color: color('green');
+      background-color: color('green-apple');
       @extend %status-content;
     }
   }
-  &.e-label--warn {
+  &.e-label--violet-grape {
     &::before {
       content: ' ';
-      background-color: color('orange');
+      background-color: color('violet-grape');
       @extend %status-content;
     }
   }
-  &.e-label--danger {
-    &::before {
-      content: ' ';
-      background-color: color('red');
-      @extend %status-content;
-    }
-  }
-  &.e-label--info {
+  &.e-label--blue-berry {
     &::before {
       content: ' ';
       background-color: color('blue-berry');
+      @extend %status-content;
+    }
+  }
+  &.e-label--purple-plum {
+    &::before {
+      content: ' ';
+      background-color: color('purple-plum');
+      @extend %status-content;
+    }
+  }
+  &.e-label--orange-mango {
+    &::before {
+      content: ' ';
+      background-color: color('orange-mango');
+      @extend %status-content;
+    }
+  }
+  &.e-label--red-tomato {
+    &::before {
+      content: ' ';
+      background-color: color('red-tomato');
       @extend %status-content;
     }
   }
