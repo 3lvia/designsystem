@@ -2,7 +2,7 @@
 
 .e-alert {
     display: inline-flex;
-    padding: (24px - 2px) (32px - 2px) (24px - 2px) (24px - 2px); // -2px for border
+    padding: 22px 30px 22px 22px; // -2px for border
     box-sizing: border-box;
     border: 2px solid var(--e-red);
     flex-direction: row;
@@ -10,7 +10,6 @@
 
     .e-alert__icon {
         display: flex;
-        box-sizing: border-box;
         margin-right: 24px;
         margin-top: 8px;
     }
