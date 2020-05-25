@@ -6,7 +6,6 @@
     box-sizing: border-box;
     border: 2px solid var(--e-red);
     flex-direction: row;
-    align-items: flex-start;
     max-width: 850px;
 
     .e-alert__icon {
@@ -24,13 +23,10 @@
     &__content {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         .e-alert__title {
-            font-weight: 500;
-            font-size: 14px;
-            line-height: 18px;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            padding-bottom: 2px;
+            @include typography('text-caps');
+            margin-bottom: 8px;
         }
         .e-alert__text {
             font-size: 16px;
@@ -42,7 +38,7 @@
             }
         }
         .e-alert__links {
-            margin-top: 14px;
+            margin-top: 16px;
             a:not(:last-of-type) {
                 margin-right: 24px;
             }
