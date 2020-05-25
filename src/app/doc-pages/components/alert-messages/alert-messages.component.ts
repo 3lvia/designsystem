@@ -14,7 +14,7 @@ export class AlertMessagesComponent implements OnInit {
   exampleAlertDefault = `<h3 class="e-title-sm">Standard</h3>
 <div class="e-alert e-alert--local e-my-8">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--remove-circle e-icon--color-red"></i>
+    <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Kort tittel</div>
@@ -25,7 +25,7 @@ export class AlertMessagesComponent implements OnInit {
 <h3 class="e-title-sm">Without title</h3>
 <div class="e-alert e-alert--local e-alert--no-title e-m-8">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--remove-circle e-icon--color-red"></i>
+    <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__text">Enkel alert uten title</div>
@@ -35,7 +35,7 @@ export class AlertMessagesComponent implements OnInit {
 <h3 class="e-title-sm">With list</h3>
 <div class="e-alert e-alert--local e-m-8">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--remove-circle e-icon--color-red"></i>
+    <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Kort tittel</div>
@@ -52,7 +52,7 @@ export class AlertMessagesComponent implements OnInit {
 <h3 class="e-title-sm">With links</h3>
 <div class="e-alert e-alert--local e-m-8">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--remove-circle e-icon--color-red"></i>
+    <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Kort tittel</div>
@@ -69,7 +69,7 @@ export class AlertMessagesComponent implements OnInit {
 <h3 class="e-title-sm">With inline link</h3>
 <div class="e-alert e-alert--local e-m-8">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--remove-circle e-icon--color-red"></i>
+    <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Kort tittel</div>
@@ -81,7 +81,7 @@ export class AlertMessagesComponent implements OnInit {
 
   exampleAlertStatuses = `<div class="e-alert e-alert--local e-m-8">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--remove-circle e-icon--color-red"></i>
+    <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Danger</div>
@@ -90,7 +90,7 @@ export class AlertMessagesComponent implements OnInit {
 </div>
 <div class="e-alert e-alert--local e-alert--warn e-m-8">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--alert-circle e-icon--color-orange"></i>
+    <i class="e-icon e-icon--warning_circle e-icon--color-orange"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Warn</div>
@@ -99,7 +99,7 @@ export class AlertMessagesComponent implements OnInit {
 </div>
 <div class="e-alert e-alert--local e-alert--positive e-m-8">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--check-circle e-icon--color-green"></i>
+    <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Positive</div>
@@ -108,7 +108,7 @@ export class AlertMessagesComponent implements OnInit {
 </div>
 <div class="e-alert e-alert--local e-alert--info e-m-8">
   <div class="e-alert__icon">
-    <i class="e-icon e-icon--information-circle"></i>
+    <i class="e-icon e-icon--information_circle"></i>
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Info</div>
