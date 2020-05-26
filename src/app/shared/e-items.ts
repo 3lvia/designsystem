@@ -33,7 +33,7 @@ export const eHomes: EItems[] = [
     {
         title: 'Changelog',
         description: 'Overview og major and minor changes to Elvis',
-        externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/blob/master/CHANGELOG.md',
+        externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/blob/master/style/elvis/CHANGELOG.md',
         actionText: 'View changelog',
     },
     // {
