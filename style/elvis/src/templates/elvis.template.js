@@ -75,18 +75,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
     if(classList.contains('e-icon--inverted')) {
       for(let i = 0; i < classList.length; i++) {
-          if((classList[i].indexOf("-filled-color") > -1)) {
-              icon = icon.replace("fill='black'", "fillReplace");
-          }
-      };
-      icon = icon.replace("fill='white'", "fillReplace");
-      icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
-      icon = icon.replace(/fillReplace/g, "fill='black'");
-      return icon;
-    }
-
-    if(classList.contains('e-icon--inverted')) {
-      for(let i = 0; i < classList.length; i++) {
           if ((classList[i].indexOf("-color") > -1) && !(classList[i].indexOf("-color-") > -1)) {
               icon = icon.replace(/fill='%2329D305'/g, "fillGreen");
           }
