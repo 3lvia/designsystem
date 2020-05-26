@@ -3,24 +3,25 @@
 
 .header-warning {
   position: fixed;
-  display: flex;
+  display: none;
   flex-direction: row;
+  justify-content:space-between;
   align-items: center;
   top: 0;
-  min-height: 60px;
-  width: 100%;
-  padding-left: 16px;
+  height: 60px;
+  width: calc(100% - 16px);
   color: var(--e-black);
   background: var(--e-orange);
-  font-size: 16px;
   font-weight: normal;
   z-index: 11;
-  i { padding-right: 16px; display: flex;}
+  
+  div {
+    display:flex;
+    align-items: center;
+  }
 
-  @include breakpoint-up(Tablet) {
-    padding: 0;
-    min-height: 100px;
-    word-break: break-word;
+  &.show-header-warning {
+    display:flex;
   }
 }
 
@@ -28,11 +29,15 @@
   position: fixed;
   height: $header-height;
   width: 100%;
-  top: 60px;
+  top: 0px;
   margin: 0;
   padding: 0;
   z-index: 10;
   box-sizing: border-box;
+  
+  &.show-header-warning {
+    top:60px;
+  }
 
   overflow: hidden;
   background-color: var(--e-grey);
@@ -44,10 +49,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  @include breakpoint-up(Tablet) {
-    top: 100px;
-  }
 
   .header-top {
     height: $header-top-height;
