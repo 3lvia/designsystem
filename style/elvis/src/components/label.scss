@@ -12,13 +12,27 @@ $label-font-size: 11px;
   border-radius: 50%;
   height: 8px;
   width: 8px;
-  margin-right: 8px;
+  left: 11px;
   @include breakpoint-up(Mobile) {
-    margin-right: 6px;
+    left: 7px;
+  }
+}
+
+@mixin circle($color) {
+  padding: 4px 11px 4px (11px + 8px + 8px);
+  @include breakpoint-up(Mobile) {
+    padding: 2px 7px 2px (7px + 8px + 6px);
+  }
+  &::before {
+    content: ' ';
+    position: absolute;
+    background-color: color($color);
+    @extend %status-content;
   }
 }
 
 .e-label {
+  position: relative;
   display: inline-flex;
   align-items: center;
   padding: $label-padding;
@@ -34,32 +48,22 @@ $label-font-size: 11px;
     padding: $label-padding-mobile;
   }
 
-  &.e-label--safe {
-    &::before {
-      content: ' ';
-      background-color: color('green');
-      @extend %status-content;
-    }
+  &.e-label--green-apple {
+    @include circle('green-apple');
   }
-  &.e-label--warn {
-    &::before {
-      content: ' ';
-      background-color: color('orange');
-      @extend %status-content;
-    }
+  &.e-label--violet-grape {
+    @include circle('violet-grape');
   }
-  &.e-label--danger {
-    &::before {
-      content: ' ';
-      background-color: color('red');
-      @extend %status-content;
-    }
+  &.e-label--blue-berry {
+    @include circle('blue-berry');
   }
-  &.e-label--info {
-    &::before {
-      content: ' ';
-      background-color: color('blue-berry');
-      @extend %status-content;
-    }
+  &.e-label--purple-plum {
+    @include circle('purple-plum');
+  }
+  &.e-label--orange-mango {
+    @include circle('orange-mango');
+  }
+  &.e-label--red-tomato {
+    @include circle('red-tomato');
   }
 }

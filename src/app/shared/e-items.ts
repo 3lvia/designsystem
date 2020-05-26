@@ -47,6 +47,14 @@ export const eHomes: EItems[] = [
 
 export const eComponents: EItems[] = [
     {
+        title: 'Alert',
+        description: 'Some useful component with amazing features',
+        docUrl: Pages.Alert,
+        status: ItemStatus.New,
+        actionText: 'View component',
+        externalUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-messages?node-id=222%3A157'
+    },
+    {
         title: 'Autocomplete',
         description: 'Some useful component with amazing features',
         docUrl: Pages.Autocomplete,
