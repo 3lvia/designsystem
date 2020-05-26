@@ -72,7 +72,7 @@
       align-items: center;
       cursor: pointer;
       padding-top: 20px;
-        @include breakpoint-up(Tablet) {
+        @include breakpoint-up(Mobile) {
          width:15%;
         }
 
@@ -80,7 +80,7 @@
         padding: 20px;
         height: 40px;
 
-        @include breakpoint-up(Tablet) {
+        @include breakpoint-up(Mobile) {
           padding: 8px;
           height: 16px;
           align-self: start;
@@ -96,7 +96,7 @@
       h2 {
         color: var(--e-white) !important;
       }
-      @include breakpoint-up(Tablet) {
+      @include breakpoint-up(Mobile) {
         width: 100%;
         padding: 0px;
       }
@@ -110,7 +110,7 @@
         cursor: pointer;
       }
 
-      @include breakpoint-up(Tablet) {
+      @include breakpoint-up(Mobile) {
         visibility: hidden;
         width: 0;
       }
