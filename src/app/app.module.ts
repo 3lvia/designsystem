@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { AccessibilityModule } from './doc-pages/accessibility/accessibility.module';
 import { ComponentsModule } from './doc-pages/components/components.module';
 import { UtilitiesModule } from './doc-pages/utilities/utilities.module';
-import { GlobalService } from './core/services/global.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,6 @@ import { GlobalService } from './core/services/global.service';
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  providers: [GlobalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,24 +1,33 @@
 @import "../../shared/shared-sizes";
+@import "../../../../style/elvis/src/utilities/breakpoints.scss";
+
 .header-warning {
   position: fixed;
   display: none;
   flex-direction: row;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   top: 0;
-  height: 60px;
+  min-height: 60px;
+  max-height: 60px;
   width: calc(100% - 16px);
   color: var(--e-black);
   background: var(--e-orange);
   font-weight: normal;
   z-index: 11;
+
+  @include breakpoint-up(Mobile) {
+    min-height: 120px;
+    max-height: 120px;
+  }
+
   div {
-    display:flex;
+    display: flex;
     align-items: center;
   }
 
   &.show-header-warning {
-    display:flex;
+    display: flex;
   }
 }
 
@@ -31,9 +40,13 @@
   padding: 0;
   z-index: 10;
   box-sizing: border-box;
-  
+
   &.show-header-warning {
-    top:60px;
+    top: 60px;
+
+    @include breakpoint-up(Mobile) {
+      top: 120px;
+    }
   }
 
   overflow: hidden;
@@ -47,8 +60,6 @@
   flex-direction: column;
   justify-content: center;
 
-  
-
   .header-top {
     height: $header-top-height;
     display: flex;
@@ -60,11 +71,21 @@
       justify-content: flex-start;
       align-items: center;
       cursor: pointer;
-      padding-top:20px;
+      padding-top: 20px;
+        @include breakpoint-up(Mobile) {
+         width:15%;
+        }
 
-      img { 
-        padding:20px;
-        height:40px;
+      img {
+        padding: 20px;
+        height: 40px;
+        transition: all 500ms;
+
+        @include breakpoint-up(Mobile) {
+          padding: 8px;
+          height: 16px;
+          align-self: start;
+        }
       }
     }
     &_title {
@@ -73,7 +94,13 @@
       align-items: center;
       width: 82%;
       padding: 20px;
-      h2 {color: var(--e-white) !important;}
+      h2 {
+        color: var(--e-white) !important;
+      }
+      @include breakpoint-up(Mobile) {
+        width: 85%;
+        padding: 0px;
+      }
     }
     &_links {
       display: flex;
@@ -82,6 +109,12 @@
       align-items: center;
       a {
         cursor: pointer;
+      }
+      transition: all 500ms;
+
+      @include breakpoint-up(Mobile) {
+        opacity: 0;
+        width: 0;
       }
     }
   }
