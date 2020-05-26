@@ -4,7 +4,7 @@
     display: inline-flex;
     padding: 22px 30px 22px 22px; // -2px for border
     box-sizing: border-box;
-    border: 2px solid var(--e-red);
+    border: 2px solid color('red');
     flex-direction: row;
     max-width: 850px;
 
@@ -50,14 +50,14 @@
     }
 
     &--positive {
-        border-color: var(--e-green);
+        border-color: color('green');
     }
 
     &--warn {
-        border-color: var(--e-orange);
+        border-color: color('orange');
     }
 
     &--info {
-        border-color: var(--e-black);
+        border-color: color('black');
     }
 }
