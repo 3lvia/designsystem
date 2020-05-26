@@ -49,6 +49,7 @@ import { ContributeComponent } from './doc-pages/utilities/contribute/contribute
 import { DatetimePickerDocComponent } from './doc-pages/components/forms/datetime-picker-doc/datetime-picker-doc.component';
 import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
 import { FaviconDocComponent } from './doc-pages/utilities/favicon-doc/favicon-doc.component';
+import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
 
 
 const routes: Routes = [
@@ -102,6 +103,10 @@ const routes: Routes = [
           {
             path: Pages.OverviewComp,
             component: OverviewComponent
+          },
+          {
+            path: Pages.Alert,
+            component: AlertMessagesComponent
           },
           {
             path: Pages.Autocomplete,
