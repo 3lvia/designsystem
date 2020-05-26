@@ -79,6 +79,7 @@
       img {
         padding: 20px;
         height: 40px;
+        transition: all 500ms;
 
         @include breakpoint-up(Mobile) {
           padding: 8px;
@@ -97,7 +98,7 @@
         color: var(--e-white) !important;
       }
       @include breakpoint-up(Mobile) {
-        width: 100%;
+        width: 85%;
         padding: 0px;
       }
     }
@@ -109,9 +110,10 @@
       a {
         cursor: pointer;
       }
+      transition: all 500ms;
 
       @include breakpoint-up(Mobile) {
-        visibility: hidden;
+        opacity: 0;
         width: 0;
       }
     }
