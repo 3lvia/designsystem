@@ -12,12 +12,12 @@
         </h1>
         <div *ngIf="componentStatus != ''">
           <span
-            class="e-label e-label--safe"
+            class="e-label e-label--green-apple"
             *ngIf="componentStatus === itemStatus.New"
             >{{ componentStatus }}</span
           >
           <span
-            class="e-label e-label--danger"
+            class="e-label e-label--red-tomato"
             *ngIf="componentStatus === itemStatus.Coming"
             >{{ componentStatus }}</span
           >

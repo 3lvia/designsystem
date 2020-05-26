@@ -17,9 +17,11 @@ import { PopoverDocModule } from './popover-doc/popover-doc.module';
 import { ModalDocModule } from './modal-doc/modal-doc.module';
 import { AutocompleteDocModule } from './autocomplete-doc/autocomplete-doc.module';
 import { PositionPickerDocModule } from './position-picker-doc/position-picker-doc.module';
+import { AlertMessagesModule } from './alert-messages/alert-messages.module';
 
 @NgModule({
     imports: [
+        AlertMessagesModule,
         AutocompleteDocModule,
         ButtonDocModule,
         CardDocModule,

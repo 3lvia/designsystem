@@ -1,0 +1,39 @@
+<!--HEADER-->
+<app-component-header
+  [componentStatus]="componentStatus"
+  [externalUrl]="externalUrl"
+>
+  <ng-container ngProjectAs="headerTitle">
+    Alert messages
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Alert should provide important messages and feedback to the user. 
+    It may be an alert message that something went wrong, to warn about something, 
+    confirmation to the user or just to inform. Alerts have different types and statuses 
+    that are customized to the different severity.
+  </ng-container>
+
+
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="exampleAlertDefault"
+    [title]="'Local Alert'"
+    [class]="['e-alert', 'e-alert--local']"
+    [description]="'Local alert is messages related to the site and the content. It can be placed anywhere between the header and footer, but close to the content it is related to. Local messages can also be used for feedback after a user actions.'"
+    [does]="'
+    - Message related to the content of the page.
+    - To correct a problem.
+    - After a user operation.
+    '"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="exampleAlertStatuses"
+    [title]="'Local Alert Statuses'"
+    [class]="['e-alert--danger', 'e-alert--warn', 'e-alert--positive', 'e-alert--info']"
+  ></app-code-block>
+</div>
