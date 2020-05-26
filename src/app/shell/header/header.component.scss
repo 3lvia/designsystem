@@ -5,7 +5,7 @@
   position: fixed;
   display: none;
   flex-direction: row;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   top: 0;
   min-height: 60px;
@@ -20,14 +20,14 @@
     min-height: 120px;
     max-height: 120px;
   }
-  
+
   div {
-    display:flex;
+    display: flex;
     align-items: center;
   }
 
   &.show-header-warning {
-    display:flex;
+    display: flex;
   }
 }
 
@@ -40,9 +40,9 @@
   padding: 0;
   z-index: 10;
   box-sizing: border-box;
-  
+
   &.show-header-warning {
-    top:60px;
+    top: 60px;
 
     @include breakpoint-up(Mobile) {
       top: 120px;
@@ -71,15 +71,19 @@
       justify-content: flex-start;
       align-items: center;
       cursor: pointer;
-      padding-top:20px;
+      padding-top: 20px;
+        @include breakpoint-up(Tablet) {
+         width:15%;
+        }
 
       img {
-        padding:20px;
-        height:40px;
+        padding: 20px;
+        height: 40px;
 
         @include breakpoint-up(Tablet) {
-          padding:10px;
-          height:20px;
+          padding: 8px;
+          height: 16px;
+          align-self: start;
         }
       }
     }
@@ -89,7 +93,13 @@
       align-items: center;
       width: 82%;
       padding: 20px;
-      h2 {color: var(--e-white) !important;}
+      h2 {
+        color: var(--e-white) !important;
+      }
+      @include breakpoint-up(Tablet) {
+        width: 100%;
+        padding: 0px;
+      }
     }
     &_links {
       display: flex;
@@ -100,7 +110,10 @@
         cursor: pointer;
       }
 
-
+      @include breakpoint-up(Tablet) {
+        visibility: hidden;
+        width: 0;
+      }
     }
   }
 
