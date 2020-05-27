@@ -12,26 +12,42 @@
   </div>
   <div
     class="component-body__example-does"
-    *ngIf="does || donts"
+    *ngIf="does.length!=0 || donts.length!=0"
   >
     <div
       class="component-body__example-does-does"
-      *ngIf="does"
+      *ngIf="does.length!=0"
     >
-      <span class="marker e-bg-green"></span>
-      <span class="e-title-sm">Do's:</span>
+      <span class="e-text-caps" style="display: flex; align-items: center;">
+        <span class="e-mr-8">
+          <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green"></i>
+        </span>
+        When to use:
+      </span>
       <span class="e-text-description">
-        {{ does }}
+        <ul *ngFor="let do of does">
+          <li>
+            {{ do }}
+          </li>
+        </ul>
       </span>
     </div>
     <div
       class="component-body__example-does-donts"
-      *ngIf="donts"
+      *ngIf="donts.length!=0"
     >
-      <span class="marker e-bg-red"></span>
-      <span class="e-title-sm">Don'ts:</span>
+      <span class="e-text-caps" style="display: flex; align-items: center;">
+        <span class="e-mr-8">
+          <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-red"></i>
+        </span>
+        When not to use:
+      </span>
       <span class="e-text-description">
-        {{ donts }}
+        <ul *ngFor="let dont of donts">
+          <li>
+            {{ dont }}
+          </li>
+        </ul>
       </span>
     </div>
   </div>

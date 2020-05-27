@@ -13,18 +13,20 @@ export class InputDocComponent implements OnInit {
 
   externalUrl = getComponent('input-doc').externalUrl;
   componentStatus = getComponent('input-doc').status;
+  does = ['In forms where the user has to fill in something that is not from a set of choices.'];
+  donts = ['If a user chooses from a set of options, dropdowns, radio buttons, checkboxes or autocomplete fields should be used instead.'];
 
   example1 = `<div class="e-form-field">
   <label class="e-form-field__label" for="normal">Normal input field </label>
   <div class="e-input">
-    <i class="e-icon e-icon--mail e-icon--xs"></i>
+    <span><i class="e-icon e-icon--mail e-icon--xs"></i></span>
     <input id="normal" type="text" placeholder="Placeholder text">
   </div>
 </div>
 <div class="e-form-field">
   <label class="e-form-field__label" for="disabled">Disabled input field </label>
   <div class="e-input e-input---disabled">
-    <i class="e-icon e-icon--mail e-icon--xs e-icon--color-disabled"></i>
+    <span><i class="e-icon e-icon--mail e-icon--xs e-icon--color-disabled"></i></span>
     <input id="disabled" type="text" placeholder="Placeholder text" disabled>
   </div>
 </div>
@@ -39,7 +41,7 @@ export class InputDocComponent implements OnInit {
       <input type="text" value="+47">
     </div>
     <div class="e-input">
-      <i class="e-icon e-icon--phone e-icon--xs"></i>
+      <span><i class="e-icon e-icon--phone e-icon--xs"></i></span>
       <input type="text" placeholder="Placeholder text">
     </div>
   </div>
@@ -65,19 +67,23 @@ export class InputDocComponent implements OnInit {
 example4 = `<div class="e-form-field">
   <label class="e-form-field__label" for="password">Password input field</label>
   <div class="e-input">
-    <i class="e-icon e-icon--lock e-icon--xs"></i>
+    <span><i class="e-icon e-icon--lock e-icon--xs"></i></span>
     <input id="password" type="password" placeholder="*******">
   </div>
 </div>
 <div class="e-form-field">
   <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
   <div class="e-input e-input---invalid">
-    <i class="e-icon e-icon--lock e-icon--xs"></i>
+    <span><i class="e-icon e-icon--lock e-icon--xs"></i></span>
     <input id="invalid" type="password" value="passord" invalid>
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
-    <i class="e-icon e-icon--warning_circle e-icon--xs"></i>
-    Passord må inneholde både bokstaver og tall
+    <span>
+      <i class="e-icon e-icon--warning_circle e-icon--xs"></i>
+    </span>
+    <span>
+      Passord må inneholde både bokstaver og tall
+    </span>
   </span>
 </div>
 `;

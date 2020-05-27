@@ -28,7 +28,7 @@
     visibility: hidden;
     display: flex;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 8px;
     @include typography('text-info');
     color: color('grey');
 
@@ -36,9 +36,10 @@
       visibility: visible;
     }
 
-    > i {
-      margin-right: 5px;
-      padding: 8px;
+    span:first-of-type {
+      display: flex;
+      align-items: center;
+      margin-right: 8px;
     }
   }
   

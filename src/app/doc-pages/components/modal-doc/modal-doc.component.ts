@@ -14,6 +14,10 @@ export class ModalDocComponent implements OnInit {
 
   externalUrl = getComponent('modal-doc').externalUrl;
   componentStatus = getComponent('modal-doc').status;
+  // tslint:disable-next-line:max-line-length
+  does = ['A dialogue is typically used in situations where we need the user to make an active choice before continuing, or when the cost of making a mistake is great.'];
+  // tslint:disable-next-line:max-line-length
+  donts = ['Be frugal with the use of dialogues since it can be disruptive to get something lying on top of the screen many times in a row.'];
 
   example1 = `<div class="e-modal e-modal---visible">
   <div class="e-modal__content">

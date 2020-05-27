@@ -10,8 +10,8 @@ export class ComponentHeaderComponent implements OnInit {
 
   @Input() componentStatus = '';
   @Input() tabs: string[];
-  @Input() does = '';
-  @Input() donts = '';
+  @Input() does = [];
+  @Input() donts = [];
   @Input() selected: string;
   @Input() externalUrl: string;
   @Output() selectedChange = new EventEmitter();

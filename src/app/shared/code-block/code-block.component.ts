@@ -14,8 +14,8 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() title = '';
   @Input() class: string[];
   @Input() description = '';
-  @Input() does = '';
-  @Input() donts = '';
+  @Input() does = [];
+  @Input() donts = [];
   @Input() isTS = false;
   @Input() isHTML = false;
   @Input() isSCSS = false;

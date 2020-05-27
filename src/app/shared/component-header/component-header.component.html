@@ -30,16 +30,36 @@
           <ng-content select="headerDescription"></ng-content>
         </span>
       </p>
-      <div class="component-header__example-does" *ngIf="does || donts">
-        <div class="component-header__example-does-does" *ngIf="does">
-          <span class="marker e-bg-green"></span>
-          <span class="e-text-description bold">When: </span>
-          <span class="e-text-description">{{ does }}</span>
+      <div class="component-header__example-does e-mt-16" *ngIf="does.length != 0 || donts.length != 0">
+        <div class="component-header__example-does-does e-mr-16" *ngIf="does.length != 0">
+          <span class="e-text-caps" style="display: flex; align-items: center;">
+            <span class="e-mr-8">
+              <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green"></i>
+            </span>
+            When to use: 
+          </span>
+          <span class="e-text-description">
+            <ul *ngFor="let do of does">
+              <li>
+                {{ do }}
+              </li>
+            </ul>
+          </span>
         </div>
-        <div class="component-header__example-does-donts" *ngIf="donts">
-          <span class="marker e-bg-red"></span>
-          <span class="e-text-description bold">When not: </span>
-          <span class="e-text-description">{{ donts }}</span>
+        <div class="component-header__example-does-donts" *ngIf="donts.length != 0">
+          <span class="e-text-caps" style="display: flex; align-items: center;">
+            <span class="e-mr-8">
+              <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-red"></i>
+            </span>
+            When not to use:
+          </span>
+          <span class="e-text-description">
+            <ul *ngFor="let dont of donts">
+              <li>
+                {{ dont }}
+              </li>
+            </ul>
+          </span>
         </div>
       </div>
     </div>

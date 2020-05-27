@@ -10,6 +10,7 @@ export class AutocompleteDocComponent implements OnInit {
 
   externalUrl = getComponent('autocomplete-doc').externalUrl;
   componentStatus = getComponent('autocomplete-doc').status;
+  does = ['In use cases where user have a lot of options, and the option have to be validated.'];
 
   example1 = `<div class="e-autocomplete">
     <input placeholder="Placeholder text"/>

@@ -12,6 +12,9 @@ export class RadiobuttonDocComponent implements OnInit {
   componentStatus = getComponent('radiobutton-doc').status;
   pseudoclases = ['e-radio__mark---checked', 'e-radio__mark---disabled', 'e-radio__mark---focus', 'e-radio__mark---hover'
   , 'e-radio__mark---invalid'];
+  does = ['If a user can only choose one option from a selection of two and five options in total.'];
+  donts = ['If it should be possible to select more than one option, in this case use checkboxes.',
+  'If there are more than five options then use dropdown.'];
 
   example1 = `<form class="e-form_field">
   <label class="e-radio" for="option1">

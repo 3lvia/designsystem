@@ -21,8 +21,7 @@
     [class]="['e-btn', '(e-btn--primary)', 'e-btn--lg', 'e-btn--md', 'e-btn--sm']"
     [description]="'All icons on a button can be placed to either the right or left of the button-title.
       Primary buttons have the modifiers small, medium and large as well as danger and loading. Danger makes the button red, while loading adds a dottet loading animation.'"
-    [does]="'Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions.
-      It is often the primary positive action of a use case. Can be used alone, or combined with a secondary and link style button.'"
+    [does]="doesExample1"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
@@ -30,8 +29,7 @@
     [title]="'Secondary'"
     [class]="['e-btn', 'e-btn--secondary']"
     [description]="'Secondary buttons have the same modifiers as primary except for danger.'"
-    [does]="'Secondary buttons are similar to primary buttons but is used as a supportive action, or for less important actions.
-    Can be used alone, or combined with a primary og link styled button.'"
+    [does]="doesExample2"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
@@ -47,8 +45,8 @@
     [description]="'Icon buttons are used for familiar and simple actions such as close, edit, delete etc. These are ideal for task based actions where the buttons should not attract too much attention.
 There are two types of icon-buttons; transparent and circled.'"
     [class]="['e-btn', 'e-btn--icon', 'e-btn--circled']"
-    [donts]="'Unknown icon that is not descriptive alone without text. Don’t use both transparent and circle icons next to each other in a group'"
-    [does]="'Known actions that do not attract much attention. Different actions grouped together (example: A table where you can delete, edit and move)'"
+    [donts]="dontsExampleIcon"
+    [does]="doesExampleIcon"
   ></app-code-block>
   <app-code-block
   [isHTML]="true"
@@ -56,7 +54,7 @@ There are two types of icon-buttons; transparent and circled.'"
   [title]="'e-btn classes on anchor tags'"
   [class]="['e-btn']"
   [description]="'The e-btn class can also be used on anchor tags to make links appear like buttons.'"
-  [donts]="'On actions that could have disabled state. Links do not have an disabled state, and the e-btn disabled style will not be applied on links with disabled html syntax.'"
+  [donts]="dontsExample7"
 ></app-code-block>
   <app-code-block
     [isHTML]="true"
