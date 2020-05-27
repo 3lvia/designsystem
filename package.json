@@ -11,6 +11,12 @@
     "e2e": "ng e2e",
     "cypress": "cypress open"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "./scripts/pre-commit.sh",
+      "pre-push":  "./scripts/pre-push.sh"
+    }
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^9.0.7",
@@ -47,6 +53,7 @@
     "del": "^5.1.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-rename": "^2.0.0",
+    "husky": "^4.2.5",
     "jasmine-core": "~3.5.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~4.3.0",
