@@ -172,7 +172,7 @@ function minify() {
 }
 
 gulp.task('default', gulp.series (clean, styles,optimizeSVG,  createEmbeddedIconsJS, createIconModule, minify,
-    function (done) { console.log("Done!"); done(); }    
+    function (done) { done();console.log("Elvis - Successfully built Elvis!");  }    
 ));
 
 gulp.task('watch', function () {
