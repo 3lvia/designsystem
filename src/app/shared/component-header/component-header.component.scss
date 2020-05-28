@@ -1,4 +1,5 @@
-@import '../shared-sizes';
+@import "../shared-sizes";
+@import "../../../../style/elvis/src/utilities/breakpoints.scss";
 
 .component {
   &-header {
@@ -11,6 +12,11 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+
+        @include breakpoint-up(Mobile) {
+         justify-content: center;
+        }
+        
         h1 {
           margin-right: 16px;
         }
@@ -39,7 +45,7 @@
         .e-text-description.bold {
           font-weight: 500;
         }
-  
+
         .marker {
           display: inline-flex;
           margin-right: 11px;
@@ -75,7 +81,7 @@
       background: var(--e-grey-20);
       border-top: none;
       cursor: pointer;
-      
+
       &.active {
         border-bottom: none;
         background: var(--e-white);

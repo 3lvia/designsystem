@@ -8,4 +8,8 @@ export class GlobalService {
         show: true,
         closable: true
     };
+
+    sideBar = {
+        show: true
+    };
 }

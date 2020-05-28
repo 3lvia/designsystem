@@ -9,6 +9,9 @@
 @import './app/shared/shared-sizes';
 @import './app/shared/shared-animations';
 
+// Elvia breakpoints for mobile
+@import "./style/elvis/src/utilities/breakpoints.scss";
+
 // Normalizer for website
 body {
   margin: 0;
@@ -36,6 +39,10 @@ a {
   width: 59%;
   min-width: 20rem;
   max-width: 50rem;
+
+  @include breakpoint-up(Mobile) {
+    margin-left: 50px;
+  }
 }
 
 .code-text {

@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { EItems } from 'src/app/shared/e-items.interface';
 import { slideIn } from 'src/app/shared/animations';
 import { GlobalService } from 'src/app/core/services/global.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
@@ -14,12 +15,19 @@ export class NavbarComponent implements OnInit {
   @Input() listHeader = 'Title';
   @Input() sidebarList: EItems[];
 
-  constructor(private _globals: GlobalService) {}
+  toggleMenu = false;
+
+  constructor(private globalService: GlobalService) {}
 
   showWarning() {
-    return this._globals.headerWarning.show;
+    return this.globalService.headerWarning.show;
+  }
+
+  showMenu() {
+    this.toggleMenu = !this.toggleMenu;
   }
 
   ngOnInit() {
   }
+
 }

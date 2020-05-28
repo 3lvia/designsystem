@@ -1,37 +1,81 @@
-@import '../../shared/shared-sizes.scss';
+@import "../../shared/shared-sizes.scss";
+@import "../../../../style/elvis/src/utilities/breakpoints.scss";
+
+.hamburger {
+  display: none;
+  position: fixed;
+  top: $header-height;
+  left: 0;
+  z-index: 1111;
+  @include breakpoint-up(Mobile) {
+    display: flex;
+  }
+
+  &.is-warning {
+    top: $header-height + 120px;
+  }
+}
 
 .navbar {
   position: fixed;
   height: calc(100% - #{$header-height});
   top: $header-height;
-
-  &.show-header-warning {
-    height: calc(100% - #{$header-height} - 60px);
-    top: $header-height + 60px;
-  }
+  z-index: 10;
+  background-color: white;
 
   width: $navbar-width;
   left: 0;
   margin: 0;
   padding: 0;
-  
 
   overflow-y: auto;
   list-style-type: none;
 
-  .disabled { 
+  display: block;
+
+    @include breakpoint-up(Mobile) {
+      display: none;
+    }
+
+  &.showMenu {
+      @include breakpoint-up(Mobile) {
+      display: block;
+    }
+  }
+
+  &-toggle-area {
+    display: none;
+    align-items: center;
+    justify-content: start;
+    @include breakpoint-up(Mobile) {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &.show-header-warning {
+    height: calc(100% - #{$header-height} - 60px);
+    top: $header-height + 60px;
+
+    @include breakpoint-up(Mobile) {
+      top: $header-height + 120px;
+    }
+  }
+
+  .disabled {
     cursor: none !important;
-    pointer-events: none; 
+    pointer-events: none;
   }
 
   &-list {
     padding: 0;
+    width: 100%;
 
     &-header {
       padding: 5px 16px;
     }
 
-    a h2{
+    a h2 {
       padding: 10px 16px;
       display: block;
     }
@@ -41,11 +85,11 @@
     list-style-type: none;
     cursor: pointer;
     display: flex;
+    background-color: white;
 
     a {
       display: flex;
       justify-content: space-between;
-      align-items: center;
       padding: var(--e-spacing-16);
       width: 100%;
       align-items: center;

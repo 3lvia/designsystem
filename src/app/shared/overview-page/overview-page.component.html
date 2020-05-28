@@ -1,5 +1,7 @@
 <div class="main-container page-body" @sectionAnimation>
-  <h1 class="e-title-lg">{{ overviewTitle }}</h1>
+  <span class="main-container-title">
+    <h1 class="e-title-lg">{{ overviewTitle }}</h1>
+  </span>
   <div class="page-card-container">
     <div class="e-card e-card--on-white" *ngFor="let page of pages">
         <div class="e-card__title">{{ page.title }}</div>

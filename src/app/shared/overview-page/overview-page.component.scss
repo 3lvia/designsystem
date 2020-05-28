@@ -1,6 +1,13 @@
-@import '../shared-sizes.scss';
+@import "../shared-sizes.scss";
+@import "../../../../style/elvis/src/utilities/breakpoints.scss";
 
 .main-container {
+  &-title {
+    @include breakpoint-up(Mobile) {
+      text-align: center;
+    }
+  }
+
   .page-card-container {
     display: flex;
     flex-direction: row;
@@ -9,6 +16,10 @@
     justify-content: space-between;
     margin: auto;
     height: 100%;
+
+    @include breakpoint-up(Mobile) {
+      width: 90%;
+    }
 
     .e-card {
       display: flex;
