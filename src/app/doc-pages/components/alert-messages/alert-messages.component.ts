@@ -10,7 +10,7 @@ export class AlertMessagesComponent implements OnInit {
 
   componentStatus = getComponent('alert-messages-doc').status;
   externalUrl = getComponent('alert-messages-doc').externalUrl;
-  does = ['Message related to the content of the page.', 'To correct a problem.', 'After a user operation.'];
+  doesAlertDefault = ['Message related to the content of the page.', 'To correct a problem.', 'After a user operation.'];
 
   exampleAlertDefault = `<h3 class="e-title-sm">Standard</h3>
 <div class="e-alert e-alert--local e-m-8">

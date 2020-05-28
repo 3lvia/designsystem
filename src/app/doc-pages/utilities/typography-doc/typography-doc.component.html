@@ -9,8 +9,12 @@
     Typography
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    This is the available typography that should be used with all application. 
-    All typography can be used through a set of classes. The font-classes sets multiple attributes, like font-size, line-height and font-weight.
+    <div>
+      Red Hat is Elvia's profile font and should be used throughout all material. The font family has two optical sizes, Display and Text.
+    </div>
+    <div class="e-mt-16">
+      All typography can be used through a set of classes. The font-classes sets multiple attributes, like font-size, line-height and font-weight.
+    </div>
   </ng-container>
   
 </app-component-header>
@@ -19,17 +23,20 @@
 <div class="page-body">
   <!--Overview-->
   <div class="examples" *ngIf="selected == tabNames.Overview">
-    <h2 class="e-title-md">Typography</h2>
+    <!-- <h2 class="e-title-md">ON / OFF</h2>
     <p class="e-text-description">
-      The fonts are Red Hat Display and Red Hat Text and should be used for all text. Here are all the different typography 
-      classes represented.
+      Titles can be activated to show that Elvia is ON and fully charged. We use text with outline in combination with filled text to give a message energy and to show that it is ON, enabled and fully charged.
     </p>
-    <h3 class="e-title-sm">Desktop & Tablet vs Mobile</h3>
+    <h3 class="e-title-sm">Activated text</h3>
     <p class="e-text-description">
-      The font sizes will scale automatically at the correct breakpoint (767px) when using these classes.
-      There are therefore no specific classes for mobile for each typography-class.
+      Activated text should always be filled in white or black according to the color that gives the best contrast to the background.
     </p>
+    <h3 class="e-title-sm">Disabled text</h3>
+    <p class="e-text-description">
+      Disabled text should be set with a outline (black or white according to its background). To obtain optically equal thickness for titles of all sizes, a rule for line thickness on outline is defined.
+    </p> -->
 
+    <h2 class="e-title-md">Typography</h2>
     <div class="example-container">
       <div class="container">
         <div class="row">

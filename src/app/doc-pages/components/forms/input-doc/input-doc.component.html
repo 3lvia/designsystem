@@ -6,14 +6,12 @@
   [donts]="donts"
 >
   <ng-container ngProjectAs="headerTitle">
-    Input
+    Input - Text fields
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    By default, all fields must be required. 
-    It should be possible to navigate through forms using the tab. 
-    User should also be given the opportunity to use autofill. 
-    When the zip code is filled in, the post office should be filled in automatically. 
-    Maximum input field width is 448px (28 strap).
+    <div>
+      Text fields are boxes the user can type text or number into in a structured format. The size of the container should be proportional to the expected user input. Validation is determined in all fields based on the field being filled out. Validation takes place along the way, and the user must also be presented with guidance or error message.
+    </div>
   </ng-container>
 </app-component-header>
 

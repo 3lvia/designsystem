@@ -2,17 +2,15 @@
 <app-component-header
   [componentStatus]="componentStatus"
   [externalUrl]="externalUrl"
+  [does]="does"
   [donts]="donts"
 >
   <ng-container ngProjectAs="headerTitle">
     Segmented Control
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Segmented constrols should be used in forms where the user have to choose between two and three options, and the
-    option
-    text is short. Segmented controls are suitable for mobile use and if the requirements above are met, segmented
-    constrols
-    is better alternative than radio buttons.
+    Segmented controls are a horizontal set of two or more segments, each of which functions as a mutually exclusive button. 
+    Segments should be kept short and clear, and try to keep the segment size consistent. 
   </ng-container>
 </app-component-header>
 

@@ -7,8 +7,27 @@
     Button
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <div>Button elements are used to provide a straightforward and accessible experience for users.
-    A button element should be used whenever an action is performed by the user.</div>
+    <div>
+      Button elements are used to provide a straightforward and accessible experience for users. A button element should be used whenever an action is performed by the user. There are three different sizes of buttons: small, medium and large (medium is default).
+    </div>
+    <div class="e-mt-16">
+      <h3 class="e-title-sm">Order</h3>
+      When using buttons in a pair, the primary button are placed to the right and secondary to the left. This should be followed at all times. 
+    </div>
+    <div class="e-mt-16">
+      <h3 class="e-title-sm">Label</h3>
+      The button label should be a action verb and tell the user what the button will do. Label in a button should not be longer than three words.
+    </div>
+    <div class="e-mt-16">
+      <b>Do: </b>
+      <button class="e-btn e-btn--secondary e-btn--sm e-mr-8">Avbryt</button>
+      <button class="e-btn e-btn--sm">Publiser</button>
+    </div>
+    <div class="e-mt-16">
+      <b>Dont: </b>
+      <button class="e-btn e-btn--secondary e-btn--sm e-mr-8">No</button>
+      <button class="e-btn e-btn--sm">Yes</button>
+    </div>
   </ng-container>
 </app-component-header>
 
@@ -19,8 +38,10 @@
     [code]="example1"
     [title]="'Primary'"
     [class]="['e-btn', '(e-btn--primary)', 'e-btn--lg', 'e-btn--md', 'e-btn--sm']"
-    [description]="'All icons on a button can be placed to either the right or left of the button-title.
-      Primary buttons have the modifiers small, medium and large as well as danger and loading. Danger makes the button red, while loading adds a dottet loading animation.'"
+    [description]="'Primary buttons are action-oriented buttons used for primary actions we want the user to do. 
+    Primary are design to stand out and take the most attention of all the buttons. 
+    Primary button are often used for saving, sending, submitting, registering and so on. 
+    It can be used alone or together with secondary and tertiary.'"
     [does]="doesExample1"
   ></app-code-block>
   <app-code-block
@@ -28,7 +49,9 @@
     [code]="example2"
     [title]="'Secondary'"
     [class]="['e-btn', 'e-btn--secondary']"
-    [description]="'Secondary buttons have the same modifiers as primary except for danger.'"
+    [description]="'Secondary buttons are the alternative we give users to the primary 
+    action and should be used in less important actions. Seondary are often used for canceling, declining, 
+    go back and so on. It can be used alone or together to support primary or link style button.'"
     [does]="doesExample2"
   ></app-code-block>
   <app-code-block
@@ -36,14 +59,17 @@
     [code]="example3"
     [title]="'Tertiary'"
     [class]="['e-btn', 'e-btn--tertiary']"
-    [description]="'Tertiary buttons are action-oriented buttons to be used for less prominent actions. Tertiary button has the same dimensions as primary and secondary, but no background or border color. It can be used in isolation, but can also be used with Primary and Secondary buttons.'"
+    [description]="'Tertiary buttons are usually used for miscellaneous actions and may not be what the user is looking for to do right then. 
+    Tertiary are designed to be less striking than primary and secondary. 
+    Example of use is download and edit. It can be used isolated alone or paired together with primary or secondary.'"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="exampleIcon"
     [title]="'Icon buttons'"
-    [description]="'Icon buttons are used for familiar and simple actions such as close, edit, delete etc. These are ideal for task based actions where the buttons should not attract too much attention.
-There are two types of icon-buttons; transparent and circled.'"
+    [description]="'Icon buttons are used for well-known and simple actions such as close, edit, delete etc. 
+    They are ideal for task based actions where the button should not attract to much attention. 
+    Icon button should be supported by a tooltip. '"
     [class]="['e-btn', 'e-btn--icon', 'e-btn--circled']"
     [donts]="dontsExampleIcon"
     [does]="doesExampleIcon"

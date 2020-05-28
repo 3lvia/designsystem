@@ -2,7 +2,6 @@
 <app-component-header
   [componentStatus]="componentStatus"
   [externalUrl]="externalUrl"
-  [does]="does"
 >
   <ng-container ngProjectAs="headerTitle">
     Alert messages
@@ -22,7 +21,11 @@
     [code]="exampleAlertDefault"
     [title]="'Local Alert'"
     [class]="['e-alert', 'e-alert--local']"
-    [description]="'Local alert is messages related to the site and the content. It can be placed anywhere between the header and footer, but close to the content it is related to. Local messages can also be used for feedback after a user actions.'"
+    [description]="'Local alert is messages related to the site and the content. 
+    It can be placed anywhere between the header and footer, but close to the content it is related to. 
+    Local messages can also be used for feedback after a user actions. 
+    The maximum width is 850px.'"
+    [does]="doesAlertDefault"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"

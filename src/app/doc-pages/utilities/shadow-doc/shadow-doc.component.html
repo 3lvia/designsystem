@@ -4,14 +4,15 @@
   [externalUrl]="externalUrl"
   [tabs]="tabs"
   [(selected)]="selected"
+  [does]="does"
+  [donts]="donts"
 >
   <ng-container ngProjectAs="headerTitle">
     Shadow
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Shadows are used on elements to create depth. Which shadow variable to use is dependable on context and use.
-    Guidelines here are to use soft shadow on grey background, while medium or hard shadows are to be used on
-    white backgrounds.
+    Shadow is used to make an element stand out from the surface to create depth. 
+    Choosing a shadow is up to each scenario - but the shadow should be "experienced" and should not be prominent.
   </ng-container>
 </app-component-header>
 
@@ -19,11 +20,12 @@
 <div class="page-body">
   <!--Overview-->
   <div *ngIf="selected == tabNames.Overview">
-    <h2 class="e-title-md">Shadows</h2>
-    <p class="e-text-body">There are 3 shadows available in the Elvis. 
-      The naming convention reflects the percentage of opacity on the base color of shadows.</p>
-
-
+    <h2 class="e-title-md">Soft, medium and hard</h2>
+    <p class="e-text-body">
+      We have three different shadows; soft, medium and hard. 
+      Soft are mostly used on grey background, while medium and hard should be used on white background.
+      The naming convention reflects the percentage of opacity on the base color of shadows.
+    </p>
     <div class="display-container centered-content">
       <div class="display-card">
         <app-copy [message]="'e-shadow-3'">

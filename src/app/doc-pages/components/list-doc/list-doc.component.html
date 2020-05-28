@@ -7,6 +7,7 @@
     List
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
+    Lists are related content grouped vertically. We have different types of lists to suit different needs; bullet, numbered and icon. 
   </ng-container>
 </app-component-header>
 
@@ -18,6 +19,7 @@
     [description]="'Green elvis dots for regular unordred list'"
     [title]="'Bulletins'"
     [class]="['e-list']"
+    [does]="doesExample1"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
@@ -31,6 +33,7 @@
     [code]="example3"
     [description]="'Ordered list with generated elvis styled bulletins'"
     [title]="'Numbered list'"
+    [does]="doesExample3"
     [class]="['e-list--numbers']"
   ></app-code-block>
   <app-code-block
@@ -38,6 +41,7 @@
     [code]="example4"
     [description]="'List with icons as bulletins'"
     [title]="'Icons'"
+    [does]="doesExample4"
     [class]="['e-list', 'e-list--icons', 'e-list__icon']"
   ></app-code-block>
 </div>

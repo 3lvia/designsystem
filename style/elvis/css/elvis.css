@@ -2563,7 +2563,7 @@ body {
     visibility: hidden;
     display: flex;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 8px;
     font-family: "Red Hat Text", sans-serif;
     font-size: 0.875rem;
     line-height: 22px;
@@ -2572,9 +2572,10 @@ body {
     color: #262626; }
     .e-form-field__error.e-form-field__error--visible {
       visibility: visible; }
-    .e-form-field__error > i {
-      margin-right: 5px;
-      padding: 8px; }
+    .e-form-field__error span:first-of-type {
+      display: flex;
+      align-items: center;
+      margin-right: 8px; }
   .e-form-field--combined {
     width: 100%;
     margin-bottom: 0; }

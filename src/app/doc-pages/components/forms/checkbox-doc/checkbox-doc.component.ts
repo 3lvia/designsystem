@@ -11,8 +11,8 @@ export class CheckboxDocComponent implements OnInit {
   externalUrl = getComponent('checkbox-doc').externalUrl;
   componentStatus = getComponent('checkbox-doc').status;
   pseudoClasses = ['checked', 'focus', 'hover', 'disabled', 'invalid'];
-  does = ['In forms where the user can choose multiple options at the same time, or when there is only one valid option.'];
-  donts = ['If a user chooses from a set of options where only one option is valid. Radio buttons should be used instead.'];
+  does = ['- When user can select multiple options from a list.', 'Toggle a single option on or off.'];
+  donts = ['If the user only can select one option from a list - use radio buttons.'];
 
   example1 = `<form>
   <label class="e-checkbox" for="elvis-checkbox">

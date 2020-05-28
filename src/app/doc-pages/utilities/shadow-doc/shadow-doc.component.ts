@@ -15,6 +15,9 @@ export class ShadowDocComponent implements OnInit {
   tabs = [TabNames.Overview, TabNames.Guidelines];
   componentStatus = getUtilities('shadow-doc').status;
   externalUrl = getUtilities('shadow-doc').externalUrl;
+  does = ['Behind a solid surface together with example cards.'];
+  donts = ['Should not be applied to typography or icons.',
+  'Don’t use a lot of shadows on the same surface, since we want our visual profile to be have a more flat expression.'];
 
   doCodeCSS = `box-shadow: var(--e-shadow-6);
 box-shadow: none;`;

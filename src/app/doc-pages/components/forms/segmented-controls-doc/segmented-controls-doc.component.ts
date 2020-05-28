@@ -10,7 +10,8 @@ export class SegmentedControlsDocComponent implements OnInit {
 
   externalUrl = getComponent('segmented-control-doc').externalUrl;
   componentStatus = getComponent('segmented-control-doc').status;
-  donts = ['Don’t use segmented controls if there is more than three options, or if the option text is long'];
+  does = ['To display different views.', 'Instead of radio buttons.'];
+  donts = ['Do not use segmented controls if there are more than three options or the option texts are too long.'];
 
 
   example1 = `

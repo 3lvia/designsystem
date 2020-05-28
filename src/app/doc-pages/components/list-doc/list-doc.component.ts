@@ -12,12 +12,14 @@ export class ListDocComponent implements OnInit {
 
   externalUrl = getComponent('list-doc').externalUrl;
   componentStatus = getComponent('list-doc').status;
+  doesExample1 = ['Items that are in no required order.'];
+  doesExample3 = ['When you need to have a priority or hierarchy between list items', 'Item in required order (step by step)'];
+  doesExample4 = ['When you need to list up definitions or explain items.'];
 
   example1 = `<ul class="e-list">
   <li>Just a hunk, a hunk of burning list</li>
   <li>Just a hunk, a hunk of burning list</li>
   <li>Just a hunk, a hunk of burning list</li>
-
 </ul>
 `;
 

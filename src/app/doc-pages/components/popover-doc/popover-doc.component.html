@@ -9,13 +9,16 @@
     Popover
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <div>Popover is only visible when another element has triggered it to appear.
-    The component will position itself relative to this anchor element.
-    You should be able to close the pop-up by clicking on the X or outside of the component.
-    The class e-popover---visible needs to be added to show the popover. 
-    The popup will align to the top left position by default.</div>
-    <div>View working example at the bottom.</div>
-
+    <div>
+      Popover is a non-modal dialog that appears over the content on the screen. 
+      Popover is used with a clickable trigger element and should position itself relative 
+      to where there is free space on the screen. You can close the popover either by clicking “x” or outside the component.
+      The class <span class="code-text">e-popover---visible</span> needs to be added to show the popover. 
+      The popup will align to the top left position by default.
+    </div>
+    <div class="e-mt-16">
+      View live example, written in TypeScript, at the bottom.
+    </div>
   </ng-container>  
 </app-component-header>
 
@@ -39,7 +42,7 @@
     [noTablet]="true"
   ></app-code-block>
 
-  <h2 class="e-title-medium">Live examples of a popover</h2>
+  <h2 class="e-title-medium">Live example of a popover</h2>
   <p>
     Add the <code class="code-text">e-popover---visible</code> class to make a popover visible. 
     <b>Remeber to implement closing of popover when clicking outside of the content.</b>
@@ -98,7 +101,7 @@
     </span>
   </p>
 
-  <h3 class="e-title-small">Example of JavaScript code for opening and closing a modal</h3>
+  <h3 class="e-title-small">JavaScript code for opening and closing a popover</h3>
   <app-code-highlighter
     [isTS]="'true'"
     [code]="popupLiveCode"

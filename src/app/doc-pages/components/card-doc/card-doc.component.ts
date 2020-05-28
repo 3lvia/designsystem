@@ -10,10 +10,8 @@ export class CardDocComponent implements OnInit {
 
   componentStatus = getComponent('card-doc').status;
   externalUrl = getComponent('card-doc').externalUrl;
-  does = ['Cards contain information that also could have interaction possibilities.',
-  'Should be used when you want to group content and/or want to separate information from the rest of the page.'];
-  donts = ['Don´t let the cards navigate the user to external sites, use links instead.',
-  'Don´t combine titles outside of the card and titles inside the cards on the same page.'];
+  donts = ['Don\'t redirect cards to external sites - use link instead.',
+  'Do not combine "title outside card" and "title inside card" on the same front.'];
 
   example1 = `<div style="max-width:600px;margin:40px;">
   <div class="e-card">

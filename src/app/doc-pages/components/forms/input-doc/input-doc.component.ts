@@ -13,8 +13,8 @@ export class InputDocComponent implements OnInit {
 
   externalUrl = getComponent('input-doc').externalUrl;
   componentStatus = getComponent('input-doc').status;
-  does = ['In forms where the user has to fill in something that is not from a set of choices.'];
-  donts = ['If a user chooses from a set of options, dropdowns, radio buttons, checkboxes or autocomplete fields should be used instead.'];
+  does = ['Text fields should be used in forms where the user has to fill in something that is not from a set of choices.'];
+  donts = ['If the user can choose from a set of options, use dropdown, radio buttons, checkboxes, or auto-complete fields instead.'];
 
   example1 = `<div class="e-form-field">
   <label class="e-form-field__label" for="normal">Normal input field </label>

@@ -10,6 +10,7 @@ export class DatetimePickerDocComponent implements OnInit {
 
   externalUrl = getComponent('datetime-picker-doc').externalUrl;
   componentStatus = getComponent('datetime-picker-doc').status;
+  does = ['When it\'s more efficient than typing a date in a text field.'];
 
   inputTimeExample = `<div class="e-form-field" style="width:140px">
   <label class="e-form-field__label" for="normal">Normal input field </label>

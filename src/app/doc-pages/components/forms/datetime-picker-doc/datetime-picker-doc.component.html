@@ -2,12 +2,17 @@
 <app-component-header
   [componentStatus]="componentStatus"
   [externalUrl]="externalUrl"
+  [does]="does"
 >
   <ng-container ngProjectAs="headerTitle">
     Date & Time picker
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     <div>
+      Date and time picker is a simple way for the user to quickly select a date and/or time in a calendar dialog. 
+      It uses a text field and a visual calendar in a popover. You can also let the user select a range of dates. 
+    </div>
+    <div class="e-mt-16">
       This documentation shows how you should style your date and time picker. We do not currently provide styling classes
       for this, because we understand that it is desirable to use libraries with date/time pickers that have all the logic 
       necessary. So in this documentation we have pictures of the design that you should try applying to your date/time picker. 

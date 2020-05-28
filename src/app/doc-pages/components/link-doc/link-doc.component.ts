@@ -10,6 +10,9 @@ export class LinkDocComponent implements OnInit {
 
   externalUrl = getComponent('link-doc').externalUrl;
   componentStatus = getComponent('link-doc').status;
+  doExample = `<a class="e-link e-link--lg" href="https://www.elvia.no/">Se vårt strømsbruddskart</a>`;
+  dontExample = `<a class="e-link e-link--lg" href="https://www.elvia.no/">Klikk her</a>`;
+
   doesExample6 = ['Use jumbo links for a group of links on the same level, to gather and provide an overview.'];
   dontsExample6 = ['Do not use jumbo links for groups with less than three links.',
     'Do not mix links that aren’t naturally grouped together in the jumbo link section.',
@@ -17,7 +20,7 @@ export class LinkDocComponent implements OnInit {
     'Do not mix icon jumbo link with jumbo links without icons - in that case, all jumbo links in the section should be showed without icon.'];
   // tslint:disable-next-line:max-line-length
   dontsExample8 = ['On actions that could have disabled state. Links do not have an disabled state, and the e-btn disabled style will not be applied on links with disabled html syntax.'];
-  
+
   example1 = `<div>
   <h3 class="e-title-small">Large</h3>
   <a class="e-link e-link--lg" href="https://www.elvia.no/">Normal link</a>

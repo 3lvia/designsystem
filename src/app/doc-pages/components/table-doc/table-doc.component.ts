@@ -10,9 +10,8 @@ export class TableDocComponent implements OnInit {
 
   externalUrl = getComponent('table-doc').externalUrl;
   componentStatus = getComponent('table-doc').status;
-  does = ['Tables should be used when displaying large amounts of data to the user.',
-  'Text should be left aligned in the columns and numbers should be right aligned.'];
-  donts = ['Don’t use tables when the content mainly is visual.'];
+  does = ['Tables should be used when displaying large amounts of data to the user.'];
+  donts = ['Don’t use a table when you can use a data visualization.'];
 
   example1 = `<table class="e-table">
   <thead>

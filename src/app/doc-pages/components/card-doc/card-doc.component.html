@@ -2,15 +2,14 @@
 <app-component-header
   [componentStatus]="componentStatus"
   [externalUrl]="externalUrl"
-  [does]="does"
   [donts]="donts"
 >
   <ng-container ngProjectAs="headerTitle">
     Card
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    A card is a flexible container that groups various elements of information and actions. They should be easy to scan,
-    read and get things done. NB! Cards take up 100% width of their container, define width on container to regulate card width.
+    A card is a flexible container that groups various elements of information and actions. 
+    They should be easy to scan, read and get things done.
   </ng-container>
 
 
@@ -22,9 +21,10 @@
     [isHTML]="true"
     [code]="example1"
     [showIframeScreens]="true"
-    [title]="'Card'"
+    [title]="'Simple card'"
     [class]="['e-card']"
-    [description]="'Regular card with title and text'"
+    [description]="'Simple cards containing information with or withouth actions.'"
+    [does]="['Grouping content', 'To separate information from the rest of the page.']"
     [greyBg]="true"
   ></app-code-block>
   <app-code-block

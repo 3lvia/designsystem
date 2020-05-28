@@ -9,7 +9,10 @@
     Colors
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Here are all the available colors in Elvis design system.
+    <div>
+      Elvia colours are a reference for energy and light. It plays an important part to bring the concept ON/OFF to life. 
+      For consistency, you shall use the defined color palette throughout our interface. 
+    </div>
   </ng-container>
   
 </app-component-header>
@@ -27,6 +30,38 @@
 
   <!--GUIDELINES-->
   <div *ngIf="selected == tabNames.Guidelines">
+    <div>
+      <h2 class="e-title-md">Tint & shade</h2>
+      <p class="e-text-description">
+        All colors should be used in solid 100%. Don’t use a darker shade or lighter tint of a color in the palette. The only shades we have are greys.
+      </p>
+    </div>
+    <div>
+      <h2 class="e-title-md">Weight</h2>
+      <p class="e-text-description">
+        Elvia should mainly be white and dark grey, some black components and a touch of green in the details like icons, illustration and active states.
+      </p>
+      <h3 class="e-text-caps">Green</h3>
+      <p class="e-text-description">
+        Shows that Elvia is ON, activated, fully charged and environmentally friendly. 
+        The green colour should be used intentionally and should not be used on large surfaces as a background. 
+        The green color are used to display when something is active/clickable on interactions. 
+        It’s also used in illustration and icons to highlight the most important or just to get a touch of 
+        the green light in between all the white and black. 
+      </p>
+      <h3 class="e-text-caps">White</h3>
+      <p class="e-text-description">
+        Light and energy. White is used as a background colour and as a text colour on darker surfaces.
+      </p>
+      <h3 class="e-text-caps">Black</h3>
+      <p class="e-text-description">
+        Black shows that Elvia is OFF. It’s the primary color for text and icons, but can also be used to get a dark surface.
+      </p>
+      <h3 class="e-text-caps">Dark</h3>
+      <p class="e-text-description">
+        Dark (grey) is the preferred dark background.
+      </p>
+    </div>
     <div>
       <h2 class="e-title-md">Using Classes</h2>
       <p class="e-text-description">
