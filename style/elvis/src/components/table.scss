@@ -19,6 +19,7 @@ $table-border-radius: 4px;
   width: 100%;
   max-width: 768px;
   box-sizing: border-box;
+  background: white;
 
   // Rounded borders with border-collapsed
   border: 1px solid color('grey-10');
@@ -59,6 +60,7 @@ $table-border-radius: 4px;
   border-radius: $table-border-radius;
   border-spacing: 0;
   box-shadow: 0px 0px 0px 1px color('grey-10');
+  background: white;
   
   th, td {
     @include typography('text-description');
