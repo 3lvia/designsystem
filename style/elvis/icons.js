@@ -1426,6 +1426,31 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    export const elsmartColor = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 4.02a.77.77 0 00-.77-.77H4.5c-1.241 0-2.25 1.035-2.25 2.308v9.83L.194 20.005a2.336 2.336 0 00-.194.937c0 1.273 1.009 2.308 2.25 2.308v.001h19.5c.317 0 .624-.068.914-.199 1.134-.517 1.646-1.883 1.143-3.046L21.75 15.39V5.558c0-1.273-1.01-2.308-2.25-2.308h-2.23a.77.77 0 000 1.538h2.23a.76.76 0 01.75.77v9.23H3.75v-9.23a.76.76 0 01.75-.77h2.23a.77.77 0 00.77-.769zM1.561 20.636a.774.774 0 00-.061.305c0 .424.337.77.75.77h19.5a.73.73 0 00.305-.067.778.778 0 00.38-1.014l-1.917-4.305H3.482l-1.921 4.31z" fill="#000"/><path d="M10.5 20.168a.76.76 0 01-.75-.769.76.76 0 01.75-.769h3a.76.76 0 01.75.77.76.76 0 01-.75.768h-3z" fill="#29D305"/><path d="M14.536 7.194c.305.284.303.783-.05 1.003a3.862 3.862 0 01-.747.344 4.244 4.244 0 01-1.528.262 3.678 3.678 0 01-2.634-1.091 3.823 3.823 0 01-.786-1.208A3.82 3.82 0 018.5 5.019c0-.533.087-1.028.262-1.484.184-.466.432-.864.742-1.194.32-.34.699-.606 1.135-.8a3.436 3.436 0 011.412-.291c.495 0 .95.097 1.368.291.427.184.79.442 1.091.771.31.33.553.728.728 1.194.175.456.262.955.262 1.499a.407.407 0 01-.408.407h-4.977c.078.573.32 1.048.728 1.426a2.1 2.1 0 001.455.568c.34 0 .66-.058.96-.175.077-.03.149-.064.218-.1.34-.176.78-.199 1.06.063zm-2.5-4.605a1.71 1.71 0 00-1.237.495c-.29.282-.492.646-.605 1.091a.19.19 0 00.189.233h3.32c.125 0 .22-.113.188-.234a2.294 2.294 0 00-.618-1.076c-.34-.34-.752-.51-1.237-.51z" fill="#000"/></svg>'
+          let iconName = 'elsmart-color'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     export const filter = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path d="M10.495 24c-.828 0-1.504-.698-1.504-1.555v-9.622C4.048 11.497.37 6.952.003 1.663.001 1.625 0 1.591 0 1.556c0-.414.157-.805.44-1.1A1.47 1.47 0 011.502 0h20.994a1.473 1.473 0 011.13.53c.264.312.396.712.37 1.128l-.001.01c-.37 5.288-4.049 9.832-8.992 11.155v7.03c.001.463-.197.898-.542 1.195l-3.005 2.591c-.27.232-.61.361-.96.361zM1.503 1.555c.348 4.852 3.795 8.916 8.39 9.888a.774.774 0 01.601.762v10.24l3.006-2.593v-7.647c0-.368.253-.689.601-.762 4.605-.972 8.057-5.039 8.395-9.89l-20.993.002z" fill="#000"/></g><defs><clipPath id="clip0"><path d="M0 0h24v24H0V0z" fill="#fff"/></clipPath></defs></svg>'
@@ -1980,6 +2005,31 @@
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24C5.383 24 0 18.617 0 12S5.383 0 12 0s12 5.383 12 12-5.383 12-12 12z" fill="#29D305"/><path d="M13.5 17.25A2.252 2.252 0 0111.25 15v-3.75h-.75a.75.75 0 010-1.5h.75c.827 0 1.5.673 1.5 1.5V15c0 .414.336.75.75.75h.75a.75.75 0 010 1.5h-.75zM11.625 8.25a1.125 1.125 0 100-2.25 1.125 1.125 0 000 2.25z" fill="#000"/></svg>'
           let iconName = 'information_circle-filled-color'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
+    export const installatorwebColor = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 4.02a.77.77 0 00-.77-.77H4.5c-1.241 0-2.25 1.035-2.25 2.308v9.83L.194 20.005a2.336 2.336 0 00-.194.937c0 1.273 1.009 2.308 2.25 2.308v.001h19.5c.317 0 .624-.068.914-.199 1.134-.517 1.646-1.883 1.143-3.046L21.75 15.39V5.558c0-1.273-1.01-2.308-2.25-2.308h-3.73a.77.77 0 000 1.538h3.73a.76.76 0 01.75.77v9.23H3.75v-9.23a.76.76 0 01.75-.77h3.73A.77.77 0 009 4.02zM1.561 20.636a.774.774 0 00-.061.305c0 .424.337.77.75.77h19.5a.73.73 0 00.305-.067.778.778 0 00.38-1.014l-1.917-4.305H3.482l-1.921 4.31z" fill="#000"/><path d="M10.5 20.168a.76.76 0 01-.75-.769.76.76 0 01.75-.769h3a.76.76 0 01.75.77.76.76 0 01-.75.768h-3z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3.5c.414 0 .75.32.75.716v3.818c0 .395-.336.716-.75.716s-.75-.32-.75-.716V4.216c0-.395.336-.716.75-.716z" fill="#000"/><path d="M13 1.75a1 1 0 11-2 0 1 1 0 012 0z" fill="#000"/></svg>'
+          let iconName = 'installatorweb-color'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
