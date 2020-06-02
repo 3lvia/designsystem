@@ -9,12 +9,15 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "cypress": "cypress open"
+    "cypress": "cypress open",
+    "commitizen-unix": "git cz --hook || true",
+    "commitizen-windows": "winpty git cz --hook || true"
   },
   "husky": {
     "hooks": {
+      "prepare-commit-msg": "./scripts/commitizen.sh",
       "pre-commit": "./scripts/pre-commit.sh",
-      "pre-push":  "./scripts/pre-push.sh"
+      "pre-push": "./scripts/pre-push.sh"
     }
   },
   "private": true,
@@ -48,8 +51,10 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.12.37",
     "codelyzer": "^5.2.2",
+    "commitizen": "^4.1.2",
     "concurrently": "^5.2.0",
     "cypress": "^4.4.1",
+    "cz-conventional-changelog": "^3.2.0",
     "del": "^5.1.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-rename": "^2.0.0",
@@ -64,5 +69,10 @@
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
