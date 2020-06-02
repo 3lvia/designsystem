@@ -20,47 +20,56 @@ export class RadiobuttonDocComponent implements OnInit {
   <label class="e-radio" for="option1">
     <input type="radio" id="option1" name="example1" value="value1" checked />
     <span class="e-radio__mark"></span>
-    <span class="e-radio__label">Picked option</span>
+    <span class="e-radio__label">Selected</span>
   </label>
   <label class="e-radio" for="option2">
-      <input type="radio" id="option2" name="example1" value="value2"/>
-      <span class="e-radio__mark"></span>
-      <span class="e-radio__label">Unpicked option</span>
+    <input type="radio" id="option2" name="example1" value="value2"/>
+    <span class="e-radio__mark"></span>
+    <span class="e-radio__label">Normal</span>
   </label>
   <label class="e-radio" for="option3">
-      <input type="radio" id="option3" name="example1" value="value2" disabled/>
-      <span class="e-radio__mark"></span>
-      <span class="e-radio__label">Disabled</span>
+    <input type="radio" id="option3" name="example1" value="value2" disabled/>
+    <span class="e-radio__mark"></span>
+    <span class="e-radio__label">Disabled</span>
+  </label>
+  <label class="e-radio" for="disabled-checked">
+    <input type="radio" id="disabled-checked"  disabled checked/>
+    <span class="e-radio__mark"></span>
+    <span class="e-radio__label">Disabled checked</span>
   </label>
 </form>
-`;
+  `;
 
-  example2 = `<form class="e-form_field">
-  <span class="e-form_field_title">Radio buttons</span>
+    example2 = `<form class="e-form_field">
+  <label class="e-radio">
+    <input type="radio" name="example1"/>
+    <span class="e-radio__mark e-radio__mark---hover"></span>
+    <span class="e-radio__label">Hover</span>
+  </label>
   <label class="e-radio">
     <input type="radio"  name="example1"/>
     <span class="e-radio__mark e-radio__mark---checked" ></span>
-    <span class="e-radio__label">Checked style</span>
+    <span class="e-radio__label">Checked</span>
   </label>
   <label class="e-radio">
       <input type="radio" name="example1"/>
       <span class="e-radio__mark e-radio__mark---disabled"></span>
-      <span class="e-radio__label">Disabled style</span>
+      <span class="e-radio__label">Disabled</span>
   </label>
   <label class="e-radio">
-      <input type="radio" name="example1"/>
-      <span class="e-radio__mark e-radio__mark---focus"></span>
-      <span class="e-radio__label">Focus style</span>
+    <input type="radio" name="example1"/>
+    <span class="e-radio__mark e-radio__mark---disabled-checked"></span>
+    <span class="e-radio__label">Disabled checked</span>
   </label>
-    <label class="e-radio">
-      <input type="radio" name="example1"/>
-      <span class="e-radio__mark e-radio__mark---hover"></span>
-      <span class="e-radio__label">Hover style</span>
+  <label class="e-radio">
+    <input type="radio" name="example1"/>
+    <span class="e-radio__mark e-radio__mark---focus"></span>
+    <span class="e-radio__label">Focus</span>
   </label>
-    <label class="e-radio">
-      <input type="radio" name="example1"/>
-      <span class="e-radio__mark e-radio__mark---invalid"></span>
-      <span class="e-radio__label">Invalid style</span>
+  <label class="e-radio">
+    <input type="radio" name="example1"/>
+    <span class="e-radio__mark e-radio__mark---invalid"></span>
+    <span class="e-radio__label">Invalid</span>
   </label>
 </form>`;
 

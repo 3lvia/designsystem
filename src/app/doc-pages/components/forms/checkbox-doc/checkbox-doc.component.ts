@@ -11,32 +11,38 @@ export class CheckboxDocComponent implements OnInit {
   externalUrl = getComponent('checkbox-doc').externalUrl;
   componentStatus = getComponent('checkbox-doc').status;
   pseudoClasses = ['checked', 'focus', 'hover', 'disabled', 'invalid'];
-  does = ['- When user can select multiple options from a list.', 'Toggle a single option on or off.'];
+  does = ['When user can select multiple options from a list.', 'Toggle a single option on or off.'];
   donts = ['If the user only can select one option from a list - use radio buttons.'];
 
   example1 = `<form>
   <label class="e-checkbox" for="elvis-checkbox">
     <input type="checkbox" id="elvis-checkbox">
     <span class="e-checkbox__mark"></span>
-    <span class="e-checkbox__label">Normal checkbox</span>
+    <span class="e-checkbox__label">Normal</span>
   </label>
 
   <label class="e-checkbox" for="elvis-checkbox-checked">
     <input type="checkbox" id="elvis-checkbox-checked" checked>
     <span class="e-checkbox__mark"></span>
-    <span class="e-checkbox__label">Checked checkbox</span>
+    <span class="e-checkbox__label">Checked</span>
   </label>
 
   <label class="e-checkbox" for="elvis-checkbox-disabled">
     <input type="checkbox" id="elvis-checkbox-disabled" disabled>
     <span class="e-checkbox__mark"></span>
-    <span class="e-checkbox__label">Disabled checkbox</span>
+    <span class="e-checkbox__label">Disabled</span>
+  </label>
+
+  <label class="e-checkbox" for="elvis-checkbox-disabled-checked">
+    <input type="checkbox" id="elvis-checkbox-disabled-checked" checked disabled>
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Disabled checked</span>
   </label>
 
   <label class="e-checkbox" for="elvis-checkbox-invalid">
     <input type="checkbox" id="elvis-checkbox-invalid" required>
     <span class="e-checkbox__mark"></span>
-    <span class="e-checkbox__label">Invalid checkbox</span>
+    <span class="e-checkbox__label">Invalid</span>
   </label>
 <form>
 `;
@@ -61,6 +67,12 @@ export class CheckboxDocComponent implements OnInit {
 
   <label class="e-checkbox e-checkbox---disabled" for="elvis-pseudo-checkbox-disabled">
     <input type="checkbox" id="elvis-pseudo-checkbox-disabled">
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Disabled</span>
+  </label>
+
+  <label class="e-checkbox e-checkbox---disabled-checked" for="elvis-pseudo-checkbox-disabled-checked">
+    <input type="checkbox" id="elvis-pseudo-checkbox-disabled-checked">
     <span class="e-checkbox__mark"></span>
     <span class="e-checkbox__label">Disabled</span>
   </label>

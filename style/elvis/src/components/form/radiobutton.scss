@@ -38,12 +38,27 @@ $form-radiobutton-mark-border: 1px solid color("black");
       border-color: color("red");
     }
 
-    &:disabled ~ #{$this}__mark,
-    &:disabled ~ #{$this}__label,
-    &:disabled ~ #{$this}:hover {
+    &:disabled ~ #{$this}__mark {
       border-color: color("grey-30");
-      background: color("white");
-      color: color("grey-30");
+      background: color("grey-05");
+      cursor: not-allowed;
+    }
+    &:disabled ~ #{$this}__label {
+      color: color("grey-70");
+    }
+
+    &:disabled:checked ~ #{$this}__mark {
+      border-color: color("grey-30");
+      background: color("grey-05");
+      cursor: not-allowed;
+
+      &:before,
+      &:after {
+        background-color: color("grey-40");
+      }
+    }
+    &:disabled:checked ~ #{$this}__label {
+      color: color("grey-70");
     }
   }
   // Creating placeholder to inject style into radiobutton mutations.
@@ -76,11 +91,27 @@ $form-radiobutton-mark-border: 1px solid color("black");
       @extend %radiobutton-mark;
     }
 
-    &.e-radio__mark---disabled,
-    &.e-radio__mark---disabled ~ #{$this}__label {
+    &.e-radio__mark---disabled {
       border-color: color("grey-30");
-      background: color("white");
-      color: color("grey-30");
+      background: color("grey-05");
+      cursor: not-allowed;
+    }
+    &.e-radio__mark---disabled ~ #{$this}__label {
+      color: color("grey-70");
+    }
+    &.e-radio__mark---disabled-checked {
+      @extend %radiobutton-mark;
+      border-color: color("grey-30") !important;
+      background: color("grey-05") !important;
+      cursor: not-allowed;
+
+      &:before,
+      &:after {
+        background-color: color("grey-40") !important;
+      }
+    }
+    &.e-radio__mark---disabled-checked ~ #{$this}__label {
+      color: color("grey-70");
     }
 
     &.e-radio__mark---focus {
