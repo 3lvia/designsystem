@@ -16,6 +16,7 @@ import { GridDocModule } from './grid-doc/grid-doc.module';
 import { AlignmentDocModule } from './alignment-doc/alignment-doc/alignment-doc.module';
 import { ContributeModule } from './contribute/contribute.module';
 import { FaviconDocModule } from './favicon-doc/favicon-doc.module';
+import { FaqDocModule } from './faq-doc/faq-doc.module';
 
 @NgModule({
     imports: [
@@ -34,7 +35,8 @@ import { FaviconDocModule } from './favicon-doc/favicon-doc.module';
         GridDocModule,
         LogoDocModule,
         AlignmentDocModule,
-        FaviconDocModule
+        FaviconDocModule,
+        FaqDocModule
     ]
 })
 export class UtilitiesModule { }

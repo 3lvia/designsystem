@@ -36,6 +36,13 @@ export const eHomes: EItems[] = [
         externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/blob/master/style/elvis/CHANGELOG.md',
         actionText: 'View changelog',
     },
+    {
+        title: 'FAQ',
+        description: 'Answers to frequently asked questions',
+        docUrl: Pages.Faq,
+        absolutePath: '/utilities/faq-doc',
+        actionText: 'View FAQ',
+    },
     // {
     //     title: 'Templates',
     //     description: 'Page template and starte templates for new projects?',
@@ -238,6 +245,13 @@ export const eUtilities: EItems[] = [
         docUrl: Pages.NewProject,
         status: ItemStatus.Done,
         actionText: 'Get started',
+    },
+    {
+        title: 'FAQ',
+        description: 'Answers to frequently asked questions',
+        docUrl: Pages.Faq,
+        status: ItemStatus.New,
+        actionText: 'View FAQ',
     },
     {
         title: 'Contribute',

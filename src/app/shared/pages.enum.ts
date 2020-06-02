@@ -4,6 +4,7 @@ export enum Pages {
     NewProject = 'new-project-doc',
     Template = 'template-doc',
     Contribute = 'contribute',
+    Faq = 'faq-doc',
 
     // Accessibility Pages
     AccessibilityStart = 'accessibility',

@@ -50,6 +50,7 @@ import { DatetimePickerDocComponent } from './doc-pages/components/forms/datetim
 import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
 import { FaviconDocComponent } from './doc-pages/utilities/favicon-doc/favicon-doc.component';
 import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
+import { FaqDocComponent } from './doc-pages/utilities/faq-doc/faq-doc.component';
 
 
 const routes: Routes = [
@@ -230,6 +231,10 @@ const routes: Routes = [
           {
             path: Pages.Favicon,
             component: FaviconDocComponent
+          },
+          {
+            path: Pages.Faq,
+            component: FaqDocComponent
           },
           {
             path: Pages.Icon,
