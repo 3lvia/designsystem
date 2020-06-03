@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './label-doc.component.html',
   styleUrls: ['./label-doc.component.scss']
 })
-export class LabelDocComponent implements OnInit {
+export class LabelDocComponent {
 
   externalUrl = getComponent('label-doc').externalUrl;
   componentStatus = getComponent('label-doc').status;
@@ -26,10 +26,5 @@ export class LabelDocComponent implements OnInit {
 <label class="e-label e-label--violet-grape e-m-8">Violet Grape</label>
 <label class="e-label e-label--blue-berry e-m-8">Blue Berry</label>
 `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './tags-doc.component.html',
   styleUrls: ['./tags-doc.component.scss']
 })
-export class TagsDocComponent implements OnInit {
+export class TagsDocComponent {
 
   componentStatus = getComponent('tags-doc').status;
 
@@ -15,10 +15,5 @@ export class TagsDocComponent implements OnInit {
   <span class="e-tags_item">707057500051628391</span>
 </div>
 `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

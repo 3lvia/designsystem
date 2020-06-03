@@ -1,16 +1,16 @@
 /* Elvia Styleguide */
 // @import "~@elvia/elvis/src/main.scss";
-@import "../style/elvis/src/main.scss";
+@import '../style/elvis/src/main.scss';
 
 /* Code highlighter */
-@import "~prismjs/plugins/toolbar/prism-toolbar.css";
-@import "~prismjs/themes/prism-okaidia";
+@import '~prismjs/plugins/toolbar/prism-toolbar.css';
+@import '~prismjs/themes/prism-okaidia';
 
 @import './app/shared/shared-sizes';
 @import './app/shared/shared-animations';
 
 // Elvia breakpoints for mobile
-@import "./style/elvis/src/utilities/breakpoints.scss";
+@import './style/elvis/src/utilities/breakpoints.scss';
 
 // Normalizer for website
 body {
@@ -18,7 +18,7 @@ body {
 }
 
 html {
-  overflow: -moz-scrollbars-vertical; 
+  overflow: -moz-scrollbars-vertical;
   overflow-y: scroll;
 }
 
@@ -88,7 +88,6 @@ a {
   }
 }
 
-
 // Code examples
 .example-box {
   display: block;
@@ -126,11 +125,11 @@ a {
         @extend %scale-down-08;
       }
     }
-  
+
     &.primary {
       width: 48%;
     }
-  
+
     &-circle {
       margin: auto;
       margin-top: 10px;
@@ -141,7 +140,7 @@ a {
       display: flex;
       justify-content: center;
       align-items: center;
-  
+
       &.primary {
         width: 130px;
         height: 130px;
@@ -164,8 +163,9 @@ a {
       margin-top: 10px;
       border: 2px solid transparent;
     }
-  
-    &-title, &-sub-title {
+
+    &-title,
+    &-sub-title {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -175,10 +175,10 @@ a {
     &-sub-title {
       color: var(--e-grey-80);
     }
-  
+
     &-variable {
       height: 15%;
       margin: 5px 0;
     }
-  }  
+  }
 }

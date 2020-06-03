@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './modal-doc.component.html',
   styleUrls: ['./modal-doc.component.scss']
 })
-export class ModalDocComponent implements OnInit {
+export class ModalDocComponent {
 
   @ViewChild('modal1') modal1: ElementRef;
   @ViewChild('modal2') modal2: ElementRef;
@@ -95,12 +95,7 @@ export class ModalDocComponent implements OnInit {
   }
 `;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  openModal(modal: string) {
+  openModal(modal: string): void {
     if (modal === 'modal1') {
       this.modal1.nativeElement.classList.add('e-modal---visible');
     }
@@ -112,7 +107,7 @@ export class ModalDocComponent implements OnInit {
     }
   }
 
-  closeModal(modal: string) {
+  closeModal(modal: string): void {
     if (modal === 'modal1') {
       if (this.modal1.nativeElement.classList.contains('e-modal---visible')) {
         this.modal1.nativeElement.classList.remove('e-modal---visible');

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getUtilities } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getUtilities } from 'src/app/shared/e-items';
   templateUrl: './favicon-doc.component.html',
   styleUrls: ['./favicon-doc.component.scss']
 })
-export class FaviconDocComponent implements OnInit {
+export class FaviconDocComponent {
 
   componentStatus = getUtilities('favicon-doc').status;
 
@@ -32,10 +32,5 @@ handleMode(darkMode) {
 `;
   faviconHTML = `<link id="favicon" rel="icon" href="/favicon.ico" type="image/x-icon">
 `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

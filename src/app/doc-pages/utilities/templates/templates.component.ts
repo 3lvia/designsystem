@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
@@ -6,7 +6,7 @@ import { TabNames } from 'src/app/shared/tab-names.enums';
   templateUrl: './templates.component.html',
   styleUrls: ['./templates.component.scss']
 })
-export class TemplatesComponent implements OnInit {
+export class TemplatesComponent {
 
   @Input() selected = TabNames.Overview;
 
@@ -17,16 +17,11 @@ export class TemplatesComponent implements OnInit {
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Article, TabNames.Header, TabNames.Footer];
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  displayDesktop() {
+  displayDesktop(): void {
     this.isDesktop = true;
   }
 
-  displayMobile() {
+  displayMobile(): void {
     this.isDesktop = false;
   }
 

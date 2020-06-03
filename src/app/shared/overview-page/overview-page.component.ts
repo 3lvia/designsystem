@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { SectionAnimation } from '../animations';
 
 
@@ -9,15 +9,10 @@ import { SectionAnimation } from '../animations';
   animations: [SectionAnimation]
 
 })
-export class OverviewPageComponent implements OnInit {
+export class OverviewPageComponent {
 
   @Input() overviewTitle: string;
   @Input() pages: string[];
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }
 

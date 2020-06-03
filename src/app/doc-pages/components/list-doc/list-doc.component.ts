@@ -1,19 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
-
+import {Component} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-list-doc',
   templateUrl: './list-doc.component.html',
-  styleUrls: ['./list-doc.component.scss']
+  styleUrls: ['./list-doc.component.scss'],
 })
-export class ListDocComponent implements OnInit {
-
-
+export class ListDocComponent {
   externalUrl = getComponent('list-doc').externalUrl;
   componentStatus = getComponent('list-doc').status;
   doesExample1 = ['Items that are in no required order.'];
-  doesExample3 = ['When you need to have a priority or hierarchy between list items', 'Item in required order (step by step)'];
+  doesExample3 = [
+    'When you need to have a priority or hierarchy between list items',
+    'Item in required order (step by step)',
+  ];
   doesExample4 = ['When you need to list up definitions or explain items.'];
 
   example1 = `<ul class="e-list">
@@ -57,9 +57,4 @@ export class ListDocComponent implements OnInit {
   </li>
 </ol>
 `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 }

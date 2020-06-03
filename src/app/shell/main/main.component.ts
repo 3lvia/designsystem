@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { GlobalService } from 'src/app/core/services/global.service';
 
 @Component({
@@ -6,14 +6,11 @@ import { GlobalService } from 'src/app/core/services/global.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit {
+export class MainComponent {
 
   constructor(private globalService: GlobalService) { }
 
-  ngOnInit() {
-  }
-
-  visibleWarning() {
+  visibleWarning(): boolean {
     return this.globalService.headerWarning.show;
   }
 

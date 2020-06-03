@@ -9,13 +9,11 @@ export class IframePreviewComponent implements AfterViewInit {
   @Input() code = '';
   @ViewChild('preview') preview;
 
-  constructor() { }
-
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.createMobilePreview();
   }
 
-  createMobilePreview() {
+  createMobilePreview(): void {
     const doc = this.preview.nativeElement.contentWindow.document;
     doc.open();
     doc.write(`<html><head>

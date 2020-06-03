@@ -1,5 +1,5 @@
-@import "../shared-sizes";
-@import "../../../../style/elvis/src/utilities/breakpoints.scss";
+@import '../shared-sizes';
+@import '../../../../style/elvis/src/utilities/breakpoints.scss';
 
 .component {
   &-header {
@@ -14,9 +14,9 @@
         align-items: center;
 
         @include breakpoint-up(Mobile) {
-         justify-content: center;
+          justify-content: center;
         }
-        
+
         h1 {
           margin-right: 16px;
         }

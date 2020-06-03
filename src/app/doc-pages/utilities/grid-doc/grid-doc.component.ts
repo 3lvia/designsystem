@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getUtilities } from 'src/app/shared/e-items';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 
@@ -7,7 +7,7 @@ import { TabNames } from 'src/app/shared/tab-names.enums';
   templateUrl: './grid-doc.component.html',
   styleUrls: ['./grid-doc.component.scss']
 })
-export class GridDocComponent implements OnInit {
+export class GridDocComponent {
 
   tabNames = TabNames;
   selected = TabNames.Overview;
@@ -290,10 +290,5 @@ export class GridDocComponent implements OnInit {
   </div>
 </div>
 `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

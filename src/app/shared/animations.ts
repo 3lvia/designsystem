@@ -1,4 +1,4 @@
-import { trigger, state, style, transition, animate, AnimationTriggerMetadata, query, keyframes } from '@angular/animations';
+import { trigger, state, style, transition, animate, AnimationTriggerMetadata } from '@angular/animations';
 
 export const slideIn: AnimationTriggerMetadata = trigger('slideIn', [
   state(

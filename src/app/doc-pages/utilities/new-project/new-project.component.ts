@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getUtilities } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getUtilities } from 'src/app/shared/e-items';
   templateUrl: './new-project.component.html',
   styleUrls: ['./new-project.component.scss']
 })
-export class NewProjectComponent implements OnInit {
+export class NewProjectComponent {
 
   componentStatus = getUtilities('new-project-doc').status;
   cssVarsCode = `/* main.js/ts - file */
@@ -18,10 +18,5 @@ cssVars({
   onlyLegacy: true,
   watch: true,
 });`;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

@@ -1,217 +1,218 @@
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener('DOMContentLoaded', function () {
   let DEBUG = false;
-  if(window.location.href.indexOf('#debug') > -1) {
+  if (window.location.href.indexOf('#debug') > -1) {
     DEBUG = true;
   }
 
   function outlineFix() {
-    if(DEBUG){
+    if (DEBUG) {
       return;
     }
     document.body.classList.add('e-no-outline');
-    document.documentElement.addEventListener('keyup', function(e) {
+    document.documentElement.addEventListener('keyup', function (e) {
       if (e.keyCode === 9) {
         document.body.classList.remove('e-no-outline');
       }
     });
 
-    document.documentElement.addEventListener('click', function (event) {
+    document.documentElement.addEventListener(
+      'click',
+      function (event) {
         document.body.classList.add('e-no-outline');
-    }, false);
+      },
+      false,
+    );
   }
   outlineFix();
 
-
-
-  let mo = new MutationObserver(function(mutations){
-      mutations.forEach(function(mutation) {
-          injectIconIfEligible(mutation.target, mutation);
-      });
+  let mo = new MutationObserver(function (mutations) {
+    mutations.forEach(function (mutation) {
+      injectIconIfEligible(mutation.target, mutation);
+    });
   });
 
-
   function injectIconIfEligible(node, mutation) {
-      if(!node || !node.className || node.className.indexOf(icons) === -1) {
-          return;
-      }
+    if (!node || !node.className || node.className.indexOf(icons) === -1) {
+      return;
+    }
 
-      if(mutation.type === 'attributes') {
-          node.style.backgroundImage = 'url("'+getIcon(node.classList) +'")';
-          node.setAttribute('e-id', getUniqueIdentifier(node.classList));
-      }
+    if (mutation.type === 'attributes') {
+      node.style.backgroundImage = 'url("' + getIcon(node.classList) + '")';
+      node.setAttribute('e-id', getUniqueIdentifier(node.classList));
+    }
   }
 
   mo.observe(document.documentElement, {
-      childList: true,
-      attributes: true,
-      characterData: true,
-      subtree: true,
+    childList: true,
+    attributes: true,
+    characterData: true,
+    subtree: true,
   });
 
   function getUniqueIdentifier(classList) {
     let id = '';
-    for(let i = 0; i < classList.length; i++ ) {
+    for (let i = 0; i < classList.length; i++) {
       id += classList[i];
     }
     return id;
   }
 
   function getIcon(classList) {
-    for(let i = 0; i < classList.length; i++) {
-        if(!icons[classList[i]]) {
-            continue;
-        }
-        let icon = icons[classList[i]];
+    for (let i = 0; i < classList.length; i++) {
+      if (!icons[classList[i]]) {
+        continue;
+      }
+      let icon = icons[classList[i]];
 
-        icon = setCorrectColor(classList, icon);
-        return icon;
+      icon = setCorrectColor(classList, icon);
+      return icon;
     }
-    console.error("Elvis - No icon found for classes: ", classList);
+    console.error('Elvis - No icon found for classes: ', classList);
     return 'No icon found!';
   }
 
   function setCorrectColor(classList, icon) {
     let fill;
 
-    if(classList.contains('e-icon--inverted')) {
-      for(let i = 0; i < classList.length; i++) {
-          if ((classList[i].indexOf("-color") > -1) && !(classList[i].indexOf("-color-") > -1)) {
-              icon = icon.replace(/fill='%2329D305'/g, "fillGreen");
-          }
-          // -full-color check can be removed when new icons have been added
-          if((classList[i].indexOf("-filled-color") > -1) || (classList[i].indexOf("-full-color") > -1)){
-              icon = icon.replace(/fill='black'/g, "fillBlack");
-          }
-      };
-      icon = icon.replace(/fill='white'/g, "fillBlack");
+    if (classList.contains('e-icon--inverted')) {
+      for (let i = 0; i < classList.length; i++) {
+        if (classList[i].indexOf('-color') > -1 && !(classList[i].indexOf('-color-') > -1)) {
+          icon = icon.replace(/fill='%2329D305'/g, 'fillGreen');
+        }
+        // -full-color check can be removed when new icons have been added
+        if (classList[i].indexOf('-filled-color') > -1 || classList[i].indexOf('-full-color') > -1) {
+          icon = icon.replace(/fill='black'/g, 'fillBlack');
+        }
+      }
+      icon = icon.replace(/fill='white'/g, 'fillBlack');
       icon = icon.replace(/fill='([^']*)'/g, "fill='white'");
       icon = icon.replace(/fillBlack/g, "fill='black'");
       icon = icon.replace(/fillGreen/g, "fill='%2329D305'");
       return icon;
     }
 
-    if(classList.contains('e-icon--color-disabled')) {
-        fill = colors['grey-30'].color;
+    if (classList.contains('e-icon--color-disabled')) {
+      fill = colors['grey-30'].color;
     }
 
-    if(classList.contains('e-icon--color-disabled-light')) {
-        fill = colors['grey-05'].color;
+    if (classList.contains('e-icon--color-disabled-light')) {
+      fill = colors['grey-05'].color;
     }
 
-    if(JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
-          for(let i = 0; i < classList.length; i++) {
-              let color = classList[i].replace('e-icon--color-', '');
-              if(colors[color]){
-                  fill = colors[color].color;
-              }
-          }
+    if (JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
+      for (let i = 0; i < classList.length; i++) {
+        let color = classList[i].replace('e-icon--color-', '');
+        if (colors[color]) {
+          fill = colors[color].color;
+        }
+      }
     }
 
-    if(fill) {
-        fill = fill.replace('#', '%23');
-        icon = icon.replace(/fill='([^']*)'/g, "fill='"+ fill +"'");
+    if (fill) {
+      fill = fill.replace('#', '%23');
+      icon = icon.replace(/fill='([^']*)'/g, "fill='" + fill + "'");
     }
 
     return icon;
   }
 
   colors = {
-      'white': {
-        color: '#FFF',
-        contrastText: '#000',
-      },
-      'black': {
-        color: '#000',
-        contrastText: '#fff',
-      },
-      'grey': {
-        color: '#262626',
-        contrastText: '#fff',
-      },
-      'grey-90': {
-        color: '#3B3B3B',
-        contrastText: '#fff',
-      },
-      'grey-80': {
-        color: '#515151',
-        contrastText: '#fff',
-      },
-      'grey-70': {
-        color: '#676767',
-        contrastText: '#fff',
-      },
-      'grey-60': {
-        color: '#7C7C7C',
-        contrastText: '#000',
-      },
-      'grey-50': {
-        color: '#929292',
-        contrastText: '#000',
-      },
-      'grey-40': {
-        color: '#A8A8A8',
-        contrastText: '#000',
-      },
-      'grey-30': {
-        color: '#BDBDBD',
-        contrastText: '#000',
-      },
-      'grey-20': {
-        color: '#D3D3D3',
-        contrastText: '#000',
-      },
-      'grey-10': {
-        color: '#E9E9E9',
-        contrastText: '#000',
-      },
-      'grey-05': {
-        color: '#F4F4F4',
-        contrastText: '#000',
-      },
-      'grey-02': {
-        color: '#FAFAFA',
-        contrastText: '#000',
-      },
-      'green': {
-        color: '#29D305',
-        contrastText: '#000',
-      },
-      'yellow': {
-        color: '#FFFF00',
-        contrastText: '#000',
-      },
-      'orange': {
-        color: '#FFA000',
-        contrastText: '#000',
-      },
-      'red': {
-        color: '#FF0000',
-        contrastText: '#000',
-      },
-      'green-apple': {
-        color: '#21AC04',
-        contrastText: '#000',
-      },
-      'violet-grape': {
-        color: '#490192',
-        contrastText: '#fff',
-      },
-      'blue-berry': {
-        color: '#006DDB',
-        contrastText: '#fff',
-      },
-      'purple-plum': {
-        color: '#B66DFF',
-        contrastText: '#000',
-      },
-      'orange-mango': {
-        color: '#DB6D00',
-        contrastText: '#000',
-      },
-      'red-tomato': {
-        color: '#B90202',
-        contrastText: '#fff',
-      },
+    white: {
+      color: '#FFF',
+      contrastText: '#000',
+    },
+    black: {
+      color: '#000',
+      contrastText: '#fff',
+    },
+    grey: {
+      color: '#262626',
+      contrastText: '#fff',
+    },
+    'grey-90': {
+      color: '#3B3B3B',
+      contrastText: '#fff',
+    },
+    'grey-80': {
+      color: '#515151',
+      contrastText: '#fff',
+    },
+    'grey-70': {
+      color: '#676767',
+      contrastText: '#fff',
+    },
+    'grey-60': {
+      color: '#7C7C7C',
+      contrastText: '#000',
+    },
+    'grey-50': {
+      color: '#929292',
+      contrastText: '#000',
+    },
+    'grey-40': {
+      color: '#A8A8A8',
+      contrastText: '#000',
+    },
+    'grey-30': {
+      color: '#BDBDBD',
+      contrastText: '#000',
+    },
+    'grey-20': {
+      color: '#D3D3D3',
+      contrastText: '#000',
+    },
+    'grey-10': {
+      color: '#E9E9E9',
+      contrastText: '#000',
+    },
+    'grey-05': {
+      color: '#F4F4F4',
+      contrastText: '#000',
+    },
+    'grey-02': {
+      color: '#FAFAFA',
+      contrastText: '#000',
+    },
+    green: {
+      color: '#29D305',
+      contrastText: '#000',
+    },
+    yellow: {
+      color: '#FFFF00',
+      contrastText: '#000',
+    },
+    orange: {
+      color: '#FFA000',
+      contrastText: '#000',
+    },
+    red: {
+      color: '#FF0000',
+      contrastText: '#000',
+    },
+    'green-apple': {
+      color: '#21AC04',
+      contrastText: '#000',
+    },
+    'violet-grape': {
+      color: '#490192',
+      contrastText: '#fff',
+    },
+    'blue-berry': {
+      color: '#006DDB',
+      contrastText: '#fff',
+    },
+    'purple-plum': {
+      color: '#B66DFF',
+      contrastText: '#000',
+    },
+    'orange-mango': {
+      color: '#DB6D00',
+      contrastText: '#000',
+    },
+    'red-tomato': {
+      color: '#B90202',
+      contrastText: '#fff',
+    },
   };
 
   
@@ -386,24 +387,24 @@ document.addEventListener("DOMContentLoaded", function(){
      "e-icon--worker-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.597 5.926c.393 0 .711.332.711.74 0 2.545 1.948 4.495 4.313 4.495 2.356 0 4.313-2.04 4.313-4.494 0-.41.318-.741.71-.741.393 0 .712.332.712.74 0 3.274-2.594 5.976-5.735 5.976-3.133 0-5.735-2.594-5.735-5.975 0-.41.319-.741.711-.741zM12 14.42c-4.735 0-8.578 3.925-8.578 8.84 0 .408-.318.74-.711.74-.393 0-.711-.332-.711-.74 0-5.753 4.498-10.322 10-10.322 5.506 0 10 4.673 10 10.321 0 .41-.318.74-.71.74-.393 0-.712-.33-.712-.74 0-4.82-3.847-8.84-8.578-8.84z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.847 14.1a.692.692 0 011-.106L12 16.674l3.152-2.68a.692.692 0 011 .106.762.762 0 01-.1 1.042l-3.603 3.062a.689.689 0 01-.898 0l-3.602-3.062a.762.762 0 01-.102-1.042zM6.218 15.012c.393 0 .71.332.71.74v7.507c0 .41-.317.74-.71.74-.393 0-.71-.33-.71-.74v-7.506c0-.41.317-.74.71-.74zM17.592 15.012c.393 0 .711.332.711.74v7.507c0 .41-.318.74-.71.74-.393 0-.712-.33-.712-.74v-7.506c0-.41.319-.74.711-.74z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.895.701a.715.715 0 01.816.612l.758 4.84c.064.403-.2.784-.587.85a.715.715 0 01-.816-.612l-.758-4.84c-.063-.403.2-.784.587-.85zM13.412.941s.924.052.853.455l-.853 4.84a.714.714 0 01-.827.594c-.387-.074-.642-.46-.571-.862l.853-4.84c.07-.402.545-.187.545-.187z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.844 6.272c0-.41.318-.741.71-.741h12.797c.392 0 .71.332.71.74 0 .41-.318.741-.71.741H5.555c-.393 0-.711-.331-.711-.74z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12 16.889c.393 0 .71.332.71.74v5.63c0 .41-.317.741-.71.741-.393 0-.711-.332-.711-.74v-5.63c0-.41.318-.741.71-.741z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.235 2.011a1.22 1.22 0 01-.42.3l-.004.001c-1.528.67-2.503 2.173-2.503 4.058 0 .41-.318.297-.71.297-.393 0-.712.112-.712-.297 0-2.42 1.259-4.447 3.274-5.378.026-.086.073-.22.17-.356.21-.3.528-.443.864-.521C10.53.037 10.988 0 11.621 0c.635 0 1.1.037 1.446.113.345.075.65.205.874.456a1.254 1.254 0 01.252.43c2.023.945 3.162 2.983 3.162 5.371 0 .41-.413.297-.805.297-.393 0-.616.112-.616-.297 0-1.911-.903-3.397-2.409-4.058a1.186 1.186 0 01-.615-.664l-.022-.055a1.118 1.118 0 00-.113-.03c-.205-.045-.557-.082-1.154-.082-.6 0-.935.038-1.118.08a1.114 1.114 0 00-.023.006 1.151 1.151 0 01-.245.444zm2.707-.396h-.001z' fill='%2329D305'/%3e%3c/svg%3e"};
 
   function replaceIcons() {
-      window.document.querySelectorAll('[class*="e-icon"]').forEach(function(element){
-        // Uses e-id to avoid unnessesary changes to the DOM
-        let id = element.getAttribute('e-id');
-        let newId = getUniqueIdentifier(element.classList) + '';
-        if(!id || id + '' !== newId){
-            element.style.backgroundImage = 'url("'+getIcon(element.classList) +'")';
-            element.setAttribute('e-id', newId);
-        }
-      });
+    window.document.querySelectorAll('[class*="e-icon"]').forEach(function (element) {
+      // Uses e-id to avoid unnessesary changes to the DOM
+      let id = element.getAttribute('e-id');
+      let newId = getUniqueIdentifier(element.classList) + '';
+      if (!id || id + '' !== newId) {
+        element.style.backgroundImage = 'url("' + getIcon(element.classList) + '")';
+        element.setAttribute('e-id', newId);
+      }
+    });
   }
 
   replaceIcons();
 
   // TODO: Remove this temporary fallback
-  window.setTimeout(function() {
-      replaceIcons();
+  window.setTimeout(function () {
+    replaceIcons();
   }, 500);
-  window.setInterval(function(){
-      replaceIcons();
+  window.setInterval(function () {
+    replaceIcons();
   }, 3000);
 });

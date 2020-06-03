@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './position-picker-doc.component.html',
   styleUrls: ['./position-picker-doc.component.scss']
 })
-export class PositionPickerDocComponent implements OnInit {
+export class PositionPickerDocComponent {
 
   @ViewChild('mapModal') mapModal: ElementRef;
   showPosition = false;
@@ -100,18 +100,13 @@ exampleHTMLCode = `
 </div>
 `;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  openMapExample(modal: string) {
+  openMapExample(modal: string): void {
     if (modal === 'mapModal') {
       this.mapModal.nativeElement.classList.add('e-modal---visible');
     }
   }
 
-  closeModal(modal: string) {
+  closeModal(modal: string): void {
     if (modal === 'mapModal') {
       if (this.mapModal.nativeElement.classList.contains('e-modal---visible')) {
         this.mapModal.nativeElement.classList.remove('e-modal---visible');

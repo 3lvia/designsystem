@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './select-doc.component.html',
   styleUrls: ['./select-doc.component.scss']
 })
-export class SelectDocComponent implements OnInit {
+export class SelectDocComponent {
 
   componentStatus = getComponent('select-doc').status;
 
@@ -58,10 +58,5 @@ export class SelectDocComponent implements OnInit {
   </div>
 </div>
 `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

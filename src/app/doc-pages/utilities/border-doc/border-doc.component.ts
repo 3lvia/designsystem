@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
@@ -6,7 +6,7 @@ import { TabNames } from 'src/app/shared/tab-names.enums';
   templateUrl: './border-doc.component.html',
   styleUrls: ['./border-doc.component.scss']
 })
-export class BorderDocComponent implements OnInit {
+export class BorderDocComponent {
 
   @Input() selected = TabNames.Overview;
 
@@ -18,10 +18,5 @@ export class BorderDocComponent implements OnInit {
 <span class="e-border-t example-box"></span>
 <span class="e-border-l example-box"></span>
 <span class="e-border-r example-box"></span>`;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

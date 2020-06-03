@@ -1,22 +1,17 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-copy',
   templateUrl: './copy.component.html',
   styleUrls: ['./copy.component.scss']
 })
-export class CopyComponent implements OnInit {
+export class CopyComponent {
 
   @Input() message = '';
 
   copyTooltip = 'Copy';
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  copyMessage(copyMessage) {
+  copyMessage(copyMessage: string): void {
     this.copyToClipBoard(copyMessage);
     this.copyTooltip = 'Copied!';
     setTimeout(() => {
@@ -24,7 +19,7 @@ export class CopyComponent implements OnInit {
     }, 3000);
   }
 
-  copyToClipBoard(val: string) {
+  copyToClipBoard(val: string): void {
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';

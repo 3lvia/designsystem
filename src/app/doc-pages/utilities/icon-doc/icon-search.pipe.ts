@@ -39,7 +39,7 @@ export class IconSearchPipe implements PipeTransform {
     });
   }
 
-  transform(IconList: any, searchTerm: string): any {
+  transform(IconList: Array<unknown>, searchTerm: string): unknown {
     if (!searchTerm || !IconList) {
       return IconList;
     }

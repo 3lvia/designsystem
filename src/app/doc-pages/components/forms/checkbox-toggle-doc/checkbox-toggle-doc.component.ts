@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './checkbox-toggle-doc.component.html',
   styleUrls: ['./checkbox-toggle-doc.component.scss']
 })
-export class CheckboxToggleDocComponent implements OnInit {
+export class CheckboxToggleDocComponent {
 
   externalUrl = getComponent('checkbox-toggle-doc').externalUrl;
   componentStatus = getComponent('checkbox-toggle-doc').status;
@@ -26,10 +26,5 @@ export class CheckboxToggleDocComponent implements OnInit {
   </label>
 </div>
 `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

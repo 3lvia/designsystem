@@ -1,33 +1,34 @@
 .doDont-container {
-    display: inline-block;
-    width: 50%;
-    margin: 8px 0;
-    
-    .doDont, .doDo {
-        margin: 0 8px;
-    }
+  display: inline-block;
+  width: 50%;
+  margin: 8px 0;
 
-    .doDo {
-        margin-left: 0;
-    }
-    .doDont {
-        margin-right: 0;
-    }
+  .doDont,
+  .doDo {
+    margin: 0 8px;
+  }
+
+  .doDo {
+    margin-left: 0;
+  }
+  .doDont {
+    margin-right: 0;
+  }
 }
 
 .instructions {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-   
-    i {
-        margin: 0 5px;
-    }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-    &.do {
-        border-top: 5px solid var(--e-green);
-    }
-    &.dont {
-        border-top: 5px solid var(--e-red);
-    }
+  i {
+    margin: 0 5px;
+  }
+
+  &.do {
+    border-top: 5px solid var(--e-green);
+  }
+  &.dont {
+    border-top: 5px solid var(--e-red);
+  }
 }

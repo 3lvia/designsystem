@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, AfterViewInit, OnInit } from '@angular/core';
+import { Component, Input, ViewChild, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-iframe-screen',
@@ -14,14 +14,12 @@ export class IframeScreenComponent implements AfterViewInit {
   @Input() overwriteHeight: number;
   now = new Date();
 
-  constructor() { }
-
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     this.createIframe();
   }
 
 
-  createIframe() {
+  createIframe(): void{
     this.code += '<script src="assets/js/elvis.js"></script>';
 
     if (this.screenSize === 'desktop') {

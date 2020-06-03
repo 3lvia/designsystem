@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './alert-messages.component.html',
   styleUrls: ['./alert-messages.component.scss']
 })
-export class AlertMessagesComponent implements OnInit {
+export class AlertMessagesComponent {
 
   componentStatus = getComponent('alert-messages-doc').status;
   externalUrl = getComponent('alert-messages-doc').externalUrl;
@@ -116,11 +116,5 @@ export class AlertMessagesComponent implements OnInit {
     <div class="e-alert__text">Informasjon om noe viktig</div>
   </div>
 </div>`;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 
 }

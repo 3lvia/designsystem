@@ -1,5 +1,5 @@
-@import "../../shared/shared-sizes.scss";
-@import "../../../../style/elvis/src/utilities/breakpoints.scss";
+@import '../../shared/shared-sizes.scss';
+@import '../../../../style/elvis/src/utilities/breakpoints.scss';
 
 .hamburger {
   display: none;
@@ -33,12 +33,12 @@
 
   display: block;
 
-    @include breakpoint-up(Mobile) {
-      display: none;
-    }
+  @include breakpoint-up(Mobile) {
+    display: none;
+  }
 
   &.showMenu {
-      @include breakpoint-up(Mobile) {
+    @include breakpoint-up(Mobile) {
       display: block;
     }
   }

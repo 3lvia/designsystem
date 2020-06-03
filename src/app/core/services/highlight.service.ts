@@ -13,16 +13,14 @@ import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-sass';
 import 'prismjs/components/prism-scss';
 
-declare var Prism: any;
+declare let Prism: any;
 
 @Injectable({
   providedIn: 'root'
 })
 export class HighlightService {
 
-  constructor() { }
-
-  highlightAll() {
+  highlightAll(): void {
     Prism.highlightAll();
   }
 

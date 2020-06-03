@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { eHomes } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,14 +6,9 @@ import { eHomes } from 'src/app/shared/e-items';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
   overviewTitle = 'Get started';
   pages = eHomes;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

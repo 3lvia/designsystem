@@ -1,57 +1,56 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA, } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { Pages } from './shared/pages.enum';
-import { MainComponent } from './shell/main/main.component';
-import { HomeComponent } from './shell/home/home.component';
-import { ButtonDocComponent } from './doc-pages/components/button-doc/button-doc.component';
-import { LabelDocComponent } from './doc-pages/components/label-doc/label-doc.component';
-import { CardDocComponent } from './doc-pages/components/card-doc/card-doc.component';
-import { LinkDocComponent } from './doc-pages/components/link-doc/link-doc.component';
-import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.component';
-import { TagsDocComponent } from './doc-pages/components/tags-doc/tags-doc.component';
-import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
-import { ColorDocComponent } from './doc-pages/utilities/color-doc/color-doc.component';
-import { IconDocComponent } from './doc-pages/utilities/icon-doc/icon-doc.component';
-import { TypographyDocComponent } from './doc-pages/utilities/typography-doc/typography-doc.component';
-import { CheckboxDocComponent } from './doc-pages/components/forms/checkbox-doc/checkbox-doc.component';
-import { CheckboxToggleDocComponent } from './doc-pages/components/forms/checkbox-toggle-doc/checkbox-toggle-doc.component';
-import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-doc.component';
-import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
-import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
-import { ShadowDocComponent } from './doc-pages/utilities/shadow-doc/shadow-doc.component';
-import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
-import { AccessibilityDocComponent } from './doc-pages/accessibility/accessibility-doc/accessibility-doc.component';
-import { AltTextComponent } from './doc-pages/accessibility/alt-text/alt-text.component';
-import { UuToolsComponent } from './doc-pages/accessibility/uu-tools/uu-tools.component';
-import { SpacingDocComponent } from './doc-pages/utilities/spacing-doc/spacing-doc.component';
-import { BorderDocComponent } from './doc-pages/utilities/border-doc/border-doc.component';
-import { OverviewAccessibilityComponent } from './doc-pages/accessibility/overview-accessibility/overview-accessibility.component';
-import { OverviewUtilComponent } from './doc-pages/utilities/overview-util/overview-util.component';
-import { OverviewComponent } from './doc-pages/components/overview-comp/overview-comp.component';
-import { NewProjectComponent } from './doc-pages/utilities/new-project/new-project.component';
-import { TemplatesComponent } from './doc-pages/utilities/templates/templates.component';
-import { AccessibilityStartComponent } from './doc-pages/accessibility/accessibility-start/accessibility-start.component';
-import { ComponentsStartComponent } from './doc-pages/components/components-start/components-start.component';
-import { UtilitiesStartComponent } from './doc-pages/utilities/utilities-start/utilities-start.component';
-import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
-import { BreakpointsDocComponent } from './doc-pages/utilities/breakpoints-doc/breakpoints-doc.component';
-import { LogoDocComponent } from './doc-pages/utilities/logo-doc/logo-doc.component';
-import { GridDocComponent } from './doc-pages/utilities/grid-doc/grid-doc.component';
-import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
-import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
-import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
-import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
-import { AlignmentDocComponent } from './doc-pages/utilities/alignment-doc/alignment-doc/alignment-doc.component';
-import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
-import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
-import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
-import { ContributeComponent } from './doc-pages/utilities/contribute/contribute.component';
-import { DatetimePickerDocComponent } from './doc-pages/components/forms/datetime-picker-doc/datetime-picker-doc.component';
-import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
-import { FaviconDocComponent } from './doc-pages/utilities/favicon-doc/favicon-doc.component';
-import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
-import { FaqDocComponent } from './doc-pages/utilities/faq-doc/faq-doc.component';
-
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {Pages} from './shared/pages.enum';
+import {MainComponent} from './shell/main/main.component';
+import {HomeComponent} from './shell/home/home.component';
+import {ButtonDocComponent} from './doc-pages/components/button-doc/button-doc.component';
+import {LabelDocComponent} from './doc-pages/components/label-doc/label-doc.component';
+import {CardDocComponent} from './doc-pages/components/card-doc/card-doc.component';
+import {LinkDocComponent} from './doc-pages/components/link-doc/link-doc.component';
+import {TableDocComponent} from './doc-pages/components/table-doc/table-doc.component';
+import {TagsDocComponent} from './doc-pages/components/tags-doc/tags-doc.component';
+import {TooltipDocComponent} from './doc-pages/components/tooltip-doc/tooltip-doc.component';
+import {ColorDocComponent} from './doc-pages/utilities/color-doc/color-doc.component';
+import {IconDocComponent} from './doc-pages/utilities/icon-doc/icon-doc.component';
+import {TypographyDocComponent} from './doc-pages/utilities/typography-doc/typography-doc.component';
+import {CheckboxDocComponent} from './doc-pages/components/forms/checkbox-doc/checkbox-doc.component';
+import {CheckboxToggleDocComponent} from './doc-pages/components/forms/checkbox-toggle-doc/checkbox-toggle-doc.component';
+import {InputDocComponent} from './doc-pages/components/forms/input-doc/input-doc.component';
+import {RadiobuttonDocComponent} from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
+import {SelectDocComponent} from './doc-pages/components/forms/select-doc/select-doc.component';
+import {ShadowDocComponent} from './doc-pages/utilities/shadow-doc/shadow-doc.component';
+import {NotificationDotDocComponent} from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
+import {AccessibilityDocComponent} from './doc-pages/accessibility/accessibility-doc/accessibility-doc.component';
+import {AltTextComponent} from './doc-pages/accessibility/alt-text/alt-text.component';
+import {UuToolsComponent} from './doc-pages/accessibility/uu-tools/uu-tools.component';
+import {SpacingDocComponent} from './doc-pages/utilities/spacing-doc/spacing-doc.component';
+import {BorderDocComponent} from './doc-pages/utilities/border-doc/border-doc.component';
+import {OverviewAccessibilityComponent} from './doc-pages/accessibility/overview-accessibility/overview-accessibility.component';
+import {OverviewUtilComponent} from './doc-pages/utilities/overview-util/overview-util.component';
+import {OverviewComponent} from './doc-pages/components/overview-comp/overview-comp.component';
+import {NewProjectComponent} from './doc-pages/utilities/new-project/new-project.component';
+import {TemplatesComponent} from './doc-pages/utilities/templates/templates.component';
+import {AccessibilityStartComponent} from './doc-pages/accessibility/accessibility-start/accessibility-start.component';
+import {ComponentsStartComponent} from './doc-pages/components/components-start/components-start.component';
+import {UtilitiesStartComponent} from './doc-pages/utilities/utilities-start/utilities-start.component';
+import {ListDocComponent} from './doc-pages/components/list-doc/list-doc.component';
+import {BreakpointsDocComponent} from './doc-pages/utilities/breakpoints-doc/breakpoints-doc.component';
+import {LogoDocComponent} from './doc-pages/utilities/logo-doc/logo-doc.component';
+import {GridDocComponent} from './doc-pages/utilities/grid-doc/grid-doc.component';
+import {SegmentedControlsDocComponent} from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
+import {FileUploadDocComponent} from './doc-pages/components/file-upload-doc/file-upload-doc.component';
+import {ProgressbarDocComponent} from './doc-pages/components/progressbar-doc/progressbar-doc.component';
+import {DraganddropDocComponent} from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
+import {AlignmentDocComponent} from './doc-pages/utilities/alignment-doc/alignment-doc/alignment-doc.component';
+import {PopoverDocComponent} from './doc-pages/components/popover-doc/popover-doc.component';
+import {ModalDocComponent} from './doc-pages/components/modal-doc/modal-doc.component';
+import {AutocompleteDocComponent} from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
+import {ContributeComponent} from './doc-pages/utilities/contribute/contribute.component';
+import {DatetimePickerDocComponent} from './doc-pages/components/forms/datetime-picker-doc/datetime-picker-doc.component';
+import {PositionPickerDocComponent} from './doc-pages/components/position-picker-doc/position-picker-doc.component';
+import {FaviconDocComponent} from './doc-pages/utilities/favicon-doc/favicon-doc.component';
+import {AlertMessagesComponent} from './doc-pages/components/alert-messages/alert-messages.component';
+import {FaqDocComponent} from './doc-pages/utilities/faq-doc/faq-doc.component';
 
 const routes: Routes = [
   {
@@ -60,37 +59,38 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
       },
       {
         path: Pages.Home,
-        component: HomeComponent
+        component: HomeComponent,
       },
       // Accessibility section
-      { path: Pages.AccessibilityStart,
+      {
+        path: Pages.AccessibilityStart,
         component: AccessibilityStartComponent,
         children: [
           {
             path: '',
-            component: OverviewAccessibilityComponent
+            component: OverviewAccessibilityComponent,
           },
           {
             path: Pages.OverviewAccess,
-            component: OverviewAccessibilityComponent
+            component: OverviewAccessibilityComponent,
           },
           {
             path: Pages.Accessibility,
-            component: AccessibilityDocComponent
+            component: AccessibilityDocComponent,
           },
           {
             path: Pages.AltText,
-            component: AltTextComponent
+            component: AltTextComponent,
           },
           {
             path: Pages.UUTools,
-            component: UuToolsComponent
+            component: UuToolsComponent,
           },
-        ]
+        ],
       },
       // Components section
       {
@@ -99,109 +99,109 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: OverviewComponent
+            component: OverviewComponent,
           },
           {
             path: Pages.OverviewComp,
-            component: OverviewComponent
+            component: OverviewComponent,
           },
           {
             path: Pages.Alert,
-            component: AlertMessagesComponent
+            component: AlertMessagesComponent,
           },
           {
             path: Pages.Autocomplete,
-            component: AutocompleteDocComponent
+            component: AutocompleteDocComponent,
           },
           {
             path: Pages.Button,
-            component: ButtonDocComponent
+            component: ButtonDocComponent,
           },
           {
             path: Pages.Card,
-            component: CardDocComponent
+            component: CardDocComponent,
           },
           {
             path: Pages.Checkbox,
-            component: CheckboxDocComponent
+            component: CheckboxDocComponent,
           },
           {
             path: Pages.CheckboxToggle,
-            component: CheckboxToggleDocComponent
+            component: CheckboxToggleDocComponent,
           },
           {
             path: Pages.DateTimePicker,
-            component: DatetimePickerDocComponent
+            component: DatetimePickerDocComponent,
           },
           {
             path: Pages.DragAndDrop,
-            component: DraganddropDocComponent
+            component: DraganddropDocComponent,
           },
           {
             path: Pages.FileUpload,
-            component: FileUploadDocComponent
+            component: FileUploadDocComponent,
           },
           {
             path: Pages.Input,
-            component: InputDocComponent
+            component: InputDocComponent,
           },
           {
             path: Pages.Label,
-            component: LabelDocComponent
+            component: LabelDocComponent,
           },
           {
             path: Pages.Link,
-            component: LinkDocComponent
+            component: LinkDocComponent,
           },
           {
             path: Pages.List,
-            component: ListDocComponent
+            component: ListDocComponent,
           },
           {
             path: Pages.Modal,
-            component: ModalDocComponent
+            component: ModalDocComponent,
           },
           {
             path: Pages.Notification,
-            component: NotificationDotDocComponent
+            component: NotificationDotDocComponent,
           },
           {
             path: Pages.Progressbar,
-            component: ProgressbarDocComponent
+            component: ProgressbarDocComponent,
           },
           {
             path: Pages.Popover,
-            component: PopoverDocComponent
+            component: PopoverDocComponent,
           },
           {
             path: Pages.PositionPicker,
-            component: PositionPickerDocComponent
+            component: PositionPickerDocComponent,
           },
           {
             path: Pages.Radiobutton,
-            component: RadiobuttonDocComponent
+            component: RadiobuttonDocComponent,
           },
           {
             path: Pages.SegmentedControl,
-            component: SegmentedControlsDocComponent
+            component: SegmentedControlsDocComponent,
           },
           {
             path: Pages.Select,
-            component: SelectDocComponent
+            component: SelectDocComponent,
           },
           {
             path: Pages.Table,
-            component: TableDocComponent
+            component: TableDocComponent,
           },
           {
             path: Pages.Tags,
-            component: TagsDocComponent
+            component: TagsDocComponent,
           },
           {
             path: Pages.Tooltip,
-            component: TooltipDocComponent
+            component: TooltipDocComponent,
           },
-        ]
+        ],
       },
       // Utilities section
       {
@@ -210,74 +210,74 @@ const routes: Routes = [
         children: [
           {
             path: '',
-            component: OverviewUtilComponent
+            component: OverviewUtilComponent,
           },
           {
             path: Pages.OverviewComp,
-            component: OverviewUtilComponent
+            component: OverviewUtilComponent,
           },
           {
             path: Pages.Border,
-            component: BorderDocComponent
+            component: BorderDocComponent,
           },
           {
             path: Pages.Contribute,
-            component: ContributeComponent
+            component: ContributeComponent,
           },
           {
             path: Pages.Color,
-            component: ColorDocComponent
+            component: ColorDocComponent,
           },
           {
             path: Pages.Favicon,
-            component: FaviconDocComponent
+            component: FaviconDocComponent,
           },
           {
             path: Pages.Faq,
-            component: FaqDocComponent
+            component: FaqDocComponent,
           },
           {
             path: Pages.Icon,
-            component: IconDocComponent
+            component: IconDocComponent,
           },
           {
             path: Pages.NewProject,
-            component: NewProjectComponent
+            component: NewProjectComponent,
           },
           {
             path: Pages.Template,
-            component: TemplatesComponent
+            component: TemplatesComponent,
           },
           {
             path: Pages.Typography,
-            component: TypographyDocComponent
+            component: TypographyDocComponent,
           },
           {
             path: Pages.Shadow,
-            component: ShadowDocComponent
+            component: ShadowDocComponent,
           },
           {
             path: Pages.Spacing,
-            component: SpacingDocComponent
+            component: SpacingDocComponent,
           },
           {
             path: Pages.Breakpoints,
-            component: BreakpointsDocComponent
+            component: BreakpointsDocComponent,
           },
           {
             path: Pages.Grid,
-            component: GridDocComponent
+            component: GridDocComponent,
           },
           {
             path: Pages.Logo,
-            component: LogoDocComponent
+            component: LogoDocComponent,
           },
           {
             path: Pages.Alignment,
-            component: AlignmentDocComponent
+            component: AlignmentDocComponent,
           },
-        ]
-      }
+        ],
+      },
     ],
   },
 ];
@@ -285,8 +285,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
   exports: [RouterModule],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
-  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

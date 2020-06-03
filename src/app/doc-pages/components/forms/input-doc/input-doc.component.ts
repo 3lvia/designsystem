@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './input-doc.component.html',
   styleUrls: ['./input-doc.component.scss']
 })
-export class InputDocComponent implements OnInit {
+export class InputDocComponent {
 
   headerDoes = 'A input should be used';
   headerDonts = 'A label should not be used';
@@ -116,10 +116,6 @@ example6 = `
   </div>
 </div>
 `;
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }
 

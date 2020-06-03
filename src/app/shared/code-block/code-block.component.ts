@@ -32,9 +32,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   screen = 'desktop';
   codepen = '';
 
-  constructor() {}
-
-  ngOnInit() {
+  ngOnInit(): void {
     this.codepen = this.getCodePen(this.code, this.title);
     
     if (!this.showIframeScreens) {
@@ -54,15 +52,15 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     }    
   }
 
-  ngAfterViewInit() {
+  ngAfterViewInit(): void {
     if (!this.showIframeScreens) {
       this.defaultFrame.nativeElement.innerHTML = this.code;
     }
   }
 
-  getCodePen(code, title) {
+  getCodePen(code: string, title: string): string {
     title = title ? title : "Example";
-    let html = `${code}
+    const html = `${code}
 <script src="https://unpkg.com/@elvia/elvis@latest/elvis.js"></script>
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/@elvia/elvis@latest/css/elvis.min.css" />
     `;

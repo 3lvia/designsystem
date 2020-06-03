@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './notification-dot-doc.component.html',
   styleUrls: ['./notification-dot-doc.component.scss']
 })
-export class NotificationDotDocComponent implements OnInit {
+export class NotificationDotDocComponent {
 
   componentStatus = getComponent('notification-dot-doc').status;
 
@@ -24,10 +24,5 @@ export class NotificationDotDocComponent implements OnInit {
   <i class="fal fa-bars"><span class="e-notification-dot"></span></i>
 </div>
 `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

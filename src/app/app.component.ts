@@ -15,13 +15,13 @@ export class AppComponent implements OnInit {
     e => e.matches && this.handleMode(!e.matches)
   );
 
-  ngOnInit() {
+  ngOnInit(): void {
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
     this.handleMode(darkMode.matches);
   }
 
 
-  handleMode(darkMode) {
+  handleMode(darkMode: boolean): void {
     const favicon = document.querySelector('link[rel="icon"]');
     if (!favicon) {
       console.warn('Cant find favicon element');

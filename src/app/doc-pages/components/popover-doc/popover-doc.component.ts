@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './popover-doc.component.html',
   styleUrls: ['./popover-doc.component.scss']
 })
-export class PopoverDocComponent implements OnInit {
+export class PopoverDocComponent {
   @ViewChild('popover1') popover1: ElementRef;
   @ViewChild('popover2') popover2: ElementRef;
 
@@ -79,12 +79,7 @@ function closePopover(popoverId) {
   }
 }`;
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-  togglePopup(popover: string) {
+  togglePopup(popover: string): void {
     if (popover === 'popover1') {
       if (this.popover1.nativeElement.classList.contains('e-popover---visible')) {
         this.popover1.nativeElement.classList.remove('e-popover---visible');
@@ -101,7 +96,7 @@ function closePopover(popoverId) {
     }
   }
 
-  closePopover(popover: string) {
+  closePopover(popover: string): void {
     if (popover === 'popover1') {
       if (this.popover1.nativeElement.classList.contains('e-popover---visible')) {
         this.popover1.nativeElement.classList.remove('e-popover---visible');

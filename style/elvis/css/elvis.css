@@ -1978,7 +1978,8 @@ body {
   border-spacing: 0; }
   .e-table tr th:first-of-type {
     border-right: 1px solid #E9E9E9; }
-  .e-table td, .e-table th {
+  .e-table td,
+  .e-table th {
     font-family: "Red Hat Text", sans-serif;
     font-size: 1rem;
     line-height: 28px;
@@ -1986,7 +1987,8 @@ body {
     color: #000;
     width: 100%;
     padding: 11px 16px; }
-    .e-table td.e-table__cell--multiline, .e-table th.e-table__cell--multiline {
+    .e-table td.e-table__cell--multiline,
+    .e-table th.e-table__cell--multiline {
       display: inline-block;
       white-space: pre-wrap;
       width: 300px; }
@@ -2003,7 +2005,8 @@ body {
   border-spacing: 0;
   box-shadow: 0px 0px 0px 1px #E9E9E9;
   background: white; }
-  .e-table-mobile th, .e-table-mobile td {
+  .e-table-mobile th,
+  .e-table-mobile td {
     font-family: "Red Hat Text", sans-serif;
     font-size: 1rem;
     line-height: 28px;
@@ -2528,7 +2531,7 @@ body {
       width: 2px;
       background-color: #000;
       border-radius: 15px;
-      content: "";
+      content: '';
       transform: translateX(10px) rotate(-45deg);
       transform-origin: left bottom; }
     .e-checkbox.e-checkbox---checked .e-checkbox__mark::after, .e-checkbox.e-checkbox---disabled-checked .e-checkbox__mark::after, .e-checkbox input:checked ~ .e-checkbox__mark::after {
@@ -2538,7 +2541,7 @@ body {
       height: 2px;
       width: 60%;
       background-color: #000;
-      content: "";
+      content: '';
       border-radius: 15px;
       transform: translateX(10px) rotate(-55deg);
       transform-origin: left bottom; }
@@ -2835,7 +2838,7 @@ body {
     align-items: center;
     justify-content: center; }
     .e-radio input:checked ~ .e-radio__mark:before, .e-radio .e-radio__mark.e-radio__mark---checked:before, .e-radio .e-radio__mark.e-radio__mark---disabled-checked:before {
-      content: "";
+      content: '';
       height: 14px;
       width: 14px;
       background-color: #000;

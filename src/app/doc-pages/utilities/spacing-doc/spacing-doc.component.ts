@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
 import { spacingItems } from './spacing';
@@ -8,7 +8,7 @@ import { spacingItems } from './spacing';
   templateUrl: './spacing-doc.component.html',
   styleUrls: ['./spacing-doc.component.scss']
 })
-export class SpacingDocComponent implements OnInit {
+export class SpacingDocComponent {
 
   @Input() selected = TabNames.Overview;
 
@@ -31,10 +31,5 @@ margin:  var(--e-m-48);`;
 <span class="e-p-56 e-my-16 e-bg-red example-box unset"></span>
 <span class="e-p-64 e-my-16 e-bg-red example-box unset"></span>
 <span class="e-p-72 e-my-16 e-bg-red example-box unset"></span>`;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

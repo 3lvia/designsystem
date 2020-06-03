@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './card-doc.component.html',
   styleUrls: ['./card-doc.component.scss']
 })
-export class CardDocComponent implements OnInit {
+export class CardDocComponent {
 
   componentStatus = getComponent('card-doc').status;
   externalUrl = getComponent('card-doc').externalUrl;
@@ -50,10 +50,5 @@ export class CardDocComponent implements OnInit {
   </div>
 </div>
   `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

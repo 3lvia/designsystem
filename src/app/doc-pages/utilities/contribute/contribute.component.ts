@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getUtilities } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,13 +6,8 @@ import { getUtilities } from 'src/app/shared/e-items';
   templateUrl: './contribute.component.html',
   styleUrls: ['./contribute.component.scss']
 })
-export class ContributeComponent implements OnInit {
+export class ContributeComponent {
 
   componentStatus = getUtilities('contribute').status;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

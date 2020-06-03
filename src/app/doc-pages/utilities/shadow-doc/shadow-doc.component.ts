@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
 
@@ -7,7 +7,7 @@ import { getUtilities } from 'src/app/shared/e-items';
   templateUrl: './shadow-doc.component.html',
   styleUrls: ['./shadow-doc.component.scss']
 })
-export class ShadowDocComponent implements OnInit {
+export class ShadowDocComponent {
 
   @Input() selected = TabNames.Overview;
 
@@ -22,11 +22,6 @@ export class ShadowDocComponent implements OnInit {
   doCodeCSS = `box-shadow: var(--e-shadow-6);
 box-shadow: none;`;
   dontCodeCSS = `box-shadow: var(--e-shadow-none);`;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }
 

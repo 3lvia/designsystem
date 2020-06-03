@@ -426,6 +426,4 @@ example7 = `<div>
 </div>
 `;
 
-  constructor() { }
-
 }

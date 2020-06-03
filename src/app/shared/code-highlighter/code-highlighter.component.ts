@@ -17,7 +17,7 @@ export class CodeHighlighterComponent implements AfterViewChecked {
 
   constructor(private highlightService: HighlightService) { }
 
-  ngAfterViewChecked() {
+  ngAfterViewChecked(): void {
     if (!this.highlighted) {
       this.highlightService.highlightAll();
       this.highlighted = true;

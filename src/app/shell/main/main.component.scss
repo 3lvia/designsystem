@@ -1,23 +1,21 @@
 @import '../../shared/shared-sizes';
-@import "../../../../style/elvis/src/utilities/breakpoints.scss";
+@import '../../../../style/elvis/src/utilities/breakpoints.scss';
 
 .main-content {
   position: relative;
   top: $header-height;
   margin-left: $navbar-width;
 
-     @include breakpoint-up(Mobile) {
-      margin-left: 0;
-    }
+  @include breakpoint-up(Mobile) {
+    margin-left: 0;
+  }
 
-  
   &.show-header-warning {
     top: $header-height + 60px;
-    
-     @include breakpoint-up(Mobile) {
+
+    @include breakpoint-up(Mobile) {
       top: $header-height + 120px;
       margin-left: 0;
     }
-  } 
-  
+  }
 }

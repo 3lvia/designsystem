@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './table-doc.component.html',
   styleUrls: ['./table-doc.component.scss']
 })
-export class TableDocComponent implements OnInit {
+export class TableDocComponent {
 
   externalUrl = getComponent('table-doc').externalUrl;
   componentStatus = getComponent('table-doc').status;
@@ -140,10 +140,5 @@ export class TableDocComponent implements OnInit {
   </table>
 </div>
 `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

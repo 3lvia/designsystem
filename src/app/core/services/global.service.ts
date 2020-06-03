@@ -1,15 +1,15 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root',
 })
 export class GlobalService {
-    headerWarning = {
-        show: true,
-        closable: true
-    };
+  headerWarning = {
+    show: true,
+    closable: true,
+  };
 
-    sideBar = {
-        show: true
-    };
+  sideBar = {
+    show: true,
+  };
 }

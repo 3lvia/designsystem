@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ItemStatus } from './../item-status.enum';
 
 @Component({
@@ -6,7 +6,7 @@ import { ItemStatus } from './../item-status.enum';
   templateUrl: './component-header.component.html',
   styleUrls: ['./component-header.component.scss']
 })
-export class ComponentHeaderComponent implements OnInit {
+export class ComponentHeaderComponent {
 
   @Input() componentStatus = '';
   @Input() tabs: string[];
@@ -17,11 +17,6 @@ export class ComponentHeaderComponent implements OnInit {
   @Output() selectedChange = new EventEmitter();
 
   itemStatus = ItemStatus;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
   chooseTab(tab: string): void {
     this.selected = tab;

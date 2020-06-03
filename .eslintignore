@@ -1,0 +1,12 @@
+cypress
+dist
+e2e
+node_modules
+assets
+coverage
+build
+style/elvis/css/*.js
+style/elvis/elvis.js
+style/elvis/icons.js
+style/elvis/icons.d.ts
+src/assets/js/elvis.js

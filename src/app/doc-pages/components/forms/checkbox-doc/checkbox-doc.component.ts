@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-checkbox-doc',
   templateUrl: './checkbox-doc.component.html',
-  styleUrls: ['./checkbox-doc.component.scss']
+  styleUrls: ['./checkbox-doc.component.scss'],
 })
-export class CheckboxDocComponent implements OnInit {
-
+export class CheckboxDocComponent {
   externalUrl = getComponent('checkbox-doc').externalUrl;
   componentStatus = getComponent('checkbox-doc').status;
   pseudoClasses = ['checked', 'focus', 'hover', 'disabled', 'invalid'];
@@ -83,10 +82,4 @@ export class CheckboxDocComponent implements OnInit {
     <span class="e-checkbox__label">Invalid</span>
   </label>
 `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

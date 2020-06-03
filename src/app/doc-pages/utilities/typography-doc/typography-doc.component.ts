@@ -35,9 +35,7 @@ eller isolasjonssvikt i det elektriske anlegget eller tilknyttet utstyr. </p>
   example3 = `<p class="e-text-label">Label title</p>
 <p class="e-text-option">Placeholder text</p>`;
 
-  constructor() { }
-
-  getCodeExample(t: Typography) {
+  getCodeExample(t: Typography): string {
     return `<p class="e-${t.title}">${t.example}</p>`;
   }
 

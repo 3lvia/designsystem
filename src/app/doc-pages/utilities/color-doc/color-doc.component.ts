@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
 import { primaryColors, signalColors, dataColors, greysColors } from './color';
@@ -8,7 +8,7 @@ import { primaryColors, signalColors, dataColors, greysColors } from './color';
   templateUrl: './color-doc.component.html',
   styleUrls: ['./color-doc.component.scss']
 })
-export class ColorDocComponent implements OnInit {
+export class ColorDocComponent {
 
   @Input() selected = TabNames.Overview;
 
@@ -33,10 +33,5 @@ color: var(--e-text-red);`;
 <span class="e-bg-orange e-mb-16 e-mt-16 e-p-16 example-box">Text</span>
 <span class="e-bg-red e-mb-16 e-mt-16 e-p-16 example-box">Text</span>
 <span class="e-bg-black e-mb-16 e-mt-16 e-p-16 example-box">Text</span>`;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

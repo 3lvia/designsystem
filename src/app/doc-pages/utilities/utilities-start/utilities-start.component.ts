@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { eUtilities } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,13 +6,8 @@ import { eUtilities } from 'src/app/shared/e-items';
   templateUrl: './utilities-start.component.html',
   styleUrls: ['./utilities-start.component.scss']
 })
-export class UtilitiesStartComponent implements OnInit {
+export class UtilitiesStartComponent {
 
   pages = eUtilities;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

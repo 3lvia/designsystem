@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './progressbar-doc.component.html',
   styleUrls: ['./progressbar-doc.component.scss']
 })
-export class ProgressbarDocComponent implements OnInit {
+export class ProgressbarDocComponent {
 
   externalUrl = getComponent('progressbar-doc').externalUrl;
   componentStatus = getComponent('progressbar-doc').status;
@@ -22,10 +22,5 @@ export class ProgressbarDocComponent implements OnInit {
   <div class="e-progress__bar e-progress__bar--error"></div>
 </div>
 `;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

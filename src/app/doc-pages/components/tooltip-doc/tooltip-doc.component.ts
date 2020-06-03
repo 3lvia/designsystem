@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './tooltip-doc.component.html',
   styleUrls: ['./tooltip-doc.component.scss']
 })
-export class TooltipDocComponent implements OnInit {
+export class TooltipDocComponent {
 
   externalUrl = getComponent('tooltip-doc').externalUrl;
   componentStatus = getComponent('tooltip-doc').status;
@@ -32,12 +32,5 @@ export class TooltipDocComponent implements OnInit {
 
 </div>
 `;
-
-
-
-constructor() { }
-
-  ngOnInit() {
-  }
 
 }

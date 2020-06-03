@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getUtilities } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,14 +6,9 @@ import { getUtilities } from 'src/app/shared/e-items';
   templateUrl: './logo-doc.component.html',
   styleUrls: ['./logo-doc.component.scss']
 })
-export class LogoDocComponent implements OnInit {
+export class LogoDocComponent {
 
   componentStatus = getUtilities('logo-doc').status;
   externalUrl = getUtilities('logo-doc').externalUrl;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

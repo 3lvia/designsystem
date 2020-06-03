@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { getComponent } from 'src/app/shared/e-items';
   templateUrl: './draganddrop-doc.component.html',
   styleUrls: ['./draganddrop-doc.component.scss']
 })
-export class DraganddropDocComponent implements OnInit {
+export class DraganddropDocComponent {
 
   externalUrl = getComponent('checkbox-toggle-doc').externalUrl;
   componentStatus = getComponent('checkbox-toggle-doc').status;
@@ -16,10 +16,5 @@ export class DraganddropDocComponent implements OnInit {
 
   example2 = `<div class="e-dragdrop e-dragdrop---hover" style="width:300px; height:150px">
   </div>`;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

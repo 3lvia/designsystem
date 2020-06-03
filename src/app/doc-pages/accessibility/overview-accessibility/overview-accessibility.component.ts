@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { eAccessibility } from 'src/app/shared/e-items';
 
 @Component({
@@ -6,14 +6,9 @@ import { eAccessibility } from 'src/app/shared/e-items';
   templateUrl: './overview-accessibility.component.html',
   styleUrls: ['./overview-accessibility.component.scss']
 })
-export class OverviewAccessibilityComponent implements OnInit {
+export class OverviewAccessibilityComponent {
 
   overviewTitle = 'Accessibility';
   pages = eAccessibility;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }
