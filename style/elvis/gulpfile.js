@@ -1,7 +1,8 @@
 'use strict';
 
-const gulp = require('gulp');
-const sass = require('gulp-sass');
+var Fiber = require('fibers');
+var gulp = require('gulp');
+var sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
 const del = require('del');
@@ -13,7 +14,7 @@ const svgToMiniDataURI = require('mini-svg-data-uri');
 const path = require('path');
 const fs = require('fs');
 
-sass.compiler = require('node-sass');
+sass.compiler = require('sass');
 
 function findUnusedIconFiles() {
   const content = fs.readdirSync('./src/icons/svg/src/');
@@ -157,7 +158,7 @@ function styles() {
   return gulp
     .src('./src/main.scss')
     .pipe(postcss([cssvariables()]))
-    .pipe(sass().on('error', sass.logError))
+    .pipe(sass({fiber: Fiber}).on('error', sass.logError))
     .pipe(rename('elvis.css'))
     .pipe(gulp.dest('./css/'));
 }
