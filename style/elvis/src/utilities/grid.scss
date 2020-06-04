@@ -29,11 +29,11 @@ THE SOFTWARE.
 
 // Defining variables for grid that will overwrite bootstraps variables
 $grid-breakpoints: (
-    xs: 0,
-    sm: 320px,
-    md: 768px,
-    lg: 1024px,
-    xl: 1440px,
+  xs: 0,
+  sm: 320px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1440px,
 ) !default;
 
 $grid-columns: 12 !default;
@@ -41,45 +41,45 @@ $grid-gutter-width: 48px !default;
 
 // Making custom margin classes
 .e-grid {
-    box-sizing: border-box;
-    @import "../../node_modules/bootstrap/scss/bootstrap-grid.scss";
+  box-sizing: border-box;
+  @import 'bootstrap/scss/bootstrap-grid.scss';
 
-    // Adding margin to rows
-    @include breakpoint-up(MinDesktop) { 
-        $grid-gutter-width: 48px;
-        $grid-margin: 120px;
-        .row {
-            &.e-grid-margin {
-                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
-            }
-        } 
+  // Adding margin to rows
+  @include breakpoint-up(MinDesktop) {
+    $grid-gutter-width: 48px;
+    $grid-margin: 120px;
+    .row {
+      &.e-grid-margin {
+        margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
+      }
     }
-    @include breakpoint-up(MaxDesktop) { 
-        $grid-gutter-width: 48px;
-        $grid-margin: 120px;
-        .row {
-            &.e-grid-margin {
-                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
-            }
-        } 
+  }
+  @include breakpoint-up(MaxDesktop) {
+    $grid-gutter-width: 48px;
+    $grid-margin: 120px;
+    .row {
+      &.e-grid-margin {
+        margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
+      }
     }
-    @include breakpoint-up(Tablet) { 
-        $grid-gutter-width: 32px;
-        $grid-margin: 32px;
-        .row {
-            &.e-grid-margin {
-                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
-            }
-        } 
+  }
+  @include breakpoint-up(Tablet) {
+    $grid-gutter-width: 32px;
+    $grid-margin: 32px;
+    .row {
+      &.e-grid-margin {
+        margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
+      }
     }
+  }
 
-    @include breakpoint-up(Mobile) { 
-        $grid-gutter-width: 16px;
-        $grid-margin: 16px;
-        .row {
-            &.e-grid-margin {
-                margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
-            }
-        } 
+  @include breakpoint-up(Mobile) {
+    $grid-gutter-width: 16px;
+    $grid-margin: 16px;
+    .row {
+      &.e-grid-margin {
+        margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
+      }
     }
+  }
 }
