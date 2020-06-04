@@ -1,12 +1,14 @@
-@import '../../variables/colors.scss';
-@import '../../utilities/outline.scss';
+@use '../../variables/colors.scss';
+@use '../../utilities/outline.scss';
+@use "../../utilities/breakpoints";
+@use "../../utilities/helpers";
 
 $toggle-border-radius: 50px;
 
 $toggle-desktop-height: 14px;
 $toggle-desktop-width: 30px;
 $toggle-desktop-slider-size: 8px;
-$toggle-desktop-slider-padding: calc((#{$toggle-desktop-height} - #{$toggle-desktop-slider-size})/2);
+$toggle-desktop-slider-padding: calc((#{$toggle-desktop-height} - #{$toggle-desktop-slider-size}) / 2);
 
 $toggle-mobile-height: 18px;
 $toggle-mobile-width: 42px;
@@ -18,18 +20,18 @@ $toggle-mobile-slider-padding: 4.15px;
   display: inline-block;
   height: $toggle-desktop-height;
   width: $toggle-desktop-width;
-  background-color: color('black');
+  background-color: colors.color('black');
   border-radius: $toggle-border-radius;
   cursor: pointer;
   box-sizing: border-box;
 
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     height: $toggle-mobile-height;
     width: $toggle-mobile-width;
   }
 
   // hide initial input
-  & input { 
+  & input {
     opacity: 0;
     width: 0;
     height: 0;
@@ -42,20 +44,20 @@ $toggle-mobile-slider-padding: 4.15px;
     right: 0;
     bottom: 0;
     transition: 0.15s;
-    border-radius: $toggle-border-radius;  
+    border-radius: $toggle-border-radius;
   }
   &__slider::before {
     position: absolute;
-    content: "";
+    content: '';
     height: $toggle-desktop-slider-size;
     width: $toggle-desktop-slider-size;
     left: $toggle-desktop-slider-padding;
     bottom: $toggle-desktop-slider-padding;
-    background-color: color('white');
+    background-color: colors.color('white');
     transition: 0.1s;
     border-radius: 50%;
 
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       height: $toggle-mobile-slider-size;
       width: $toggle-mobile-slider-size;
       left: $toggle-mobile-slider-padding;
@@ -64,21 +66,25 @@ $toggle-mobile-slider-padding: 4.15px;
   }
 
   input:checked + .e-toggle__slider {
-    background-color: color('black');
+    background-color: colors.color('black');
   }
 
   input:checked + .e-toggle__slider::before {
-    background-color: color('green');
-    $transX: calc(#{$toggle-desktop-width} - (#{$toggle-desktop-slider-padding} * 2) - #{$toggle-desktop-slider-size});
-    @include transform(translateX(#{$transX}));
+    background-color: colors.color('green');
+    $transX: calc(
+      #{$toggle-desktop-width} - (#{$toggle-desktop-slider-padding} * 2) - #{$toggle-desktop-slider-size}
+    );
+    @include helpers.transform(translateX(#{$transX}));
 
-    @include breakpoint-up(Mobile) {
-      $transX: calc(#{$toggle-mobile-width} - (#{$toggle-mobile-slider-padding} * 2) - #{$toggle-mobile-slider-size});
-      @include transform(translateX(#{$transX}));
+    @include breakpoints.breakpoint-up(Mobile) {
+      $transX: calc(
+        #{$toggle-mobile-width} - (#{$toggle-mobile-slider-padding} * 2) - #{$toggle-mobile-slider-size}
+      );
+      @include helpers.transform(translateX(#{$transX}));
     }
   }
 
   input:focus + .e-slider {
-    @include e-outline();
+    @include outline.e-outline();
   }
 }

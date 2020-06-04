@@ -1,23 +1,23 @@
-@import "../variables/shadows";
+@use "../variables/shadows";
 
 .e-shadow {
   &-none {
     box-shadow: none;
   }
   &-3 {
-    box-shadow: $e-shadow-3;
+    box-shadow: shadows.$e-shadow-3;
   }
   &-6 {
-    box-shadow: $e-shadow-6;
+    box-shadow: shadows.$e-shadow-6;
   }
   &-8 {
-    box-shadow: $e-shadow-8;
+    box-shadow: shadows.$e-shadow-8;
   }
 }
 
 // Making CSS-variables for shadow-variables
 :root {
-  --e-shadow-3: #{$e-shadow-3};
-  --e-shadow-6: #{$e-shadow-6};
-  --e-shadow-8: #{$e-shadow-8};
+  --e-shadow-3: #{shadows.$e-shadow-3};
+  --e-shadow-6: #{shadows.$e-shadow-6};
+  --e-shadow-8: #{shadows.$e-shadow-8};
 }

@@ -27,25 +27,26 @@ THE SOFTWARE.
 
 */
 
-// Defining variables for grid that will overwrite bootstraps variables
-$grid-breakpoints: (
-  xs: 0,
-  sm: 320px,
-  md: 768px,
-  lg: 1024px,
-  xl: 1440px,
-) !default;
-
-$grid-columns: 12 !default;
-$grid-gutter-width: 48px !default;
+@use "breakpoints";
+@use 'bootstrap/scss/bootstrap-grid.scss' with (
+  // Defining variables for grid that will overwrite bootstraps variables
+  $grid-breakpoints: (
+    xs: 0,
+    sm: 320px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1440px,
+  ),
+  $grid-columns: 12,
+  $grid-gutter-width: 48px
+);
 
 // Making custom margin classes
 .e-grid {
   box-sizing: border-box;
-  @import 'bootstrap/scss/bootstrap-grid.scss';
 
   // Adding margin to rows
-  @include breakpoint-up(MinDesktop) {
+  @include breakpoints.breakpoint-up(MinDesktop) {
     $grid-gutter-width: 48px;
     $grid-margin: 120px;
     .row {
@@ -54,7 +55,7 @@ $grid-gutter-width: 48px !default;
       }
     }
   }
-  @include breakpoint-up(MaxDesktop) {
+  @include breakpoints.breakpoint-up(MaxDesktop) {
     $grid-gutter-width: 48px;
     $grid-margin: 120px;
     .row {
@@ -63,7 +64,7 @@ $grid-gutter-width: 48px !default;
       }
     }
   }
-  @include breakpoint-up(Tablet) {
+  @include breakpoints.breakpoint-up(Tablet) {
     $grid-gutter-width: 32px;
     $grid-margin: 32px;
     .row {
@@ -73,7 +74,7 @@ $grid-gutter-width: 48px !default;
     }
   }
 
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     $grid-gutter-width: 16px;
     $grid-margin: 16px;
     .row {

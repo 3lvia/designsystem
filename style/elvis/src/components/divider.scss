@@ -1,9 +1,9 @@
-@import '../variables/colors.scss';
+@use '../variables/colors.scss';
 
 .e-divider {
-  border: 1px solid color('grey');
+  border: 1px solid colors.color('grey');
 
   &.is-light {
-    border-color: color('grey-30');
+    border-color: colors.color('grey-30');
   }
 }

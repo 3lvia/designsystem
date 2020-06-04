@@ -1,24 +1,28 @@
+@use "sass:list";
+@use "sass:map";
+@use "../variables/colors";
+
 // Making background and color classes for all colors
 
 .e {
   &-text {
-    color: color('black');
+    color: colors.color('black');
   }
   &-bg {
-    background: color('white');
+    background: colors.color('white');
   }
 }
-  
-@each $label, $map in $colors {
-  $color: color($label);
-  $contrast-text: map-get($map, contrast-text);
 
-  $alt-labels: map-get($map, alt-labels);
+@each $label, $map in colors.$colors {
+  $color: colors.color($label);
+  $contrast-text: map.get($map, contrast-text);
+
+  $alt-labels: map.get($map, alt-labels);
   $labels: ($label);
 
   @if $alt-labels {
     @each $label in $alt-labels {
-      $labels: append($labels, $label);
+      $labels: list.append($labels, $label);
     }
   }
 

@@ -1,8 +1,7 @@
-@import 'animation';
-@import 'borders';
-@import 'breakpoints';
-@import 'colors';
-@import 'shadows';
-@import 'shared-sizes';
-@import 'spacing';
-@import 'typography';
+@use 'animation';
+@use 'borders';
+@use 'colors';
+@use 'shadows';
+@use 'shared-sizes';
+@use 'spacing';
+@use 'typography';

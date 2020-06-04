@@ -1,30 +1,33 @@
-@import "../../variables/colors.scss";
-@import "../../variables/animation.scss";
-@import "../../utilities/outline.scss";
+@use "../../variables/colors.scss";
+@use "../../variables/animation.scss";
+@use "../../utilities/outline.scss";
+@use "../../variables/shared-sizes";
+@use "../../variables/typography";
 
 $form-input-padding: 12px 16px;
 $form-input-padding-active: 11px 15px;
 $form-input-padding-with-icon: 12px 44px 12px 16px;
 $form-input-padding-with-icon-active: 11px 43px 11px 15px;
-$form-input-border-radius: $border-radius;
-$form-input-border: 1px solid color("grey");
+$form-input-border-radius: shared-sizes.$border-radius;
+$form-input-border: 1px solid colors.color('grey');
 
 .e-input {
   max-width: 448px;
   width: 100%;
   position: relative;
 
-  > input, > textarea {
+  > input,
+  > textarea {
     display: flex;
     align-items: center;
     border: $form-input-border;
     border-radius: $form-input-border-radius;
     box-sizing: border-box;
-    background: color("white");
+    background: colors.color('white');
     max-width: 448px;
     width: 100%;
     padding: $form-input-padding;
-    @include typography('text-option');
+    @include typography.typography('text-option');
   }
   > i + input {
     padding: $form-input-padding-with-icon;
@@ -36,7 +39,9 @@ $form-input-border: 1px solid color("grey");
     overflow-y: auto;
   }
 
-  > input::placeholder { color: color('grey-80'); }
+  > input::placeholder {
+    color: colors.color('grey-80');
+  }
 
   i {
     position: absolute;
@@ -45,13 +50,15 @@ $form-input-border: 1px solid color("grey");
   }
 
   &.e-input---invalid {
-    > input, > textarea {
-      border: 2px solid color('red');
+    > input,
+    > textarea {
+      border: 2px solid colors.color('red');
       padding: $form-input-padding-active;
     }
   }
-  > input:invalid, > textarea:invalid {
-    border: 2px solid color('red');
+  > input:invalid,
+  > textarea:invalid {
+    border: 2px solid colors.color('red');
     padding: $form-input-padding-active;
   }
   i + input:invalid {
@@ -59,15 +66,17 @@ $form-input-border: 1px solid color("grey");
   }
 
   &.e-input---focus {
-    > input, > textarea {
-      @include e-outline-pseudoclass();
-      border: 2px solid color('green');
+    > input,
+    > textarea {
+      @include outline.e-outline-pseudoclass();
+      border: 2px solid colors.color('green');
       padding: $form-input-padding-active;
     }
   }
-  > input:focus, > textarea:focus {
-    @include e-outline();
-    border: 2px solid color('green');
+  > input:focus,
+  > textarea:focus {
+    @include outline.e-outline();
+    border: 2px solid colors.color('green');
     padding: $form-input-padding-active;
   }
   > i + input:focus {
@@ -75,16 +84,18 @@ $form-input-border: 1px solid color("grey");
   }
 
   &.e-input---disabled {
-    > input, > textarea {
-      color: color('grey-20');
-      border-color: color('grey-20');
+    > input,
+    > textarea {
+      color: colors.color('grey-20');
+      border-color: colors.color('grey-20');
       cursor: not-allowed;
     }
   }
-  > input:disabled, > textarea:disabled {
+  > input:disabled,
+  > textarea:disabled {
     opacity: 1;
-    color: color("grey-20");
-    -webkit-text-fill-color: color("grey-20");
+    color: colors.color('grey-20');
+    -webkit-text-fill-color: colors.color('grey-20');
     cursor: not-allowed;
   }
   i + input:disabled {

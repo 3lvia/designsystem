@@ -1,33 +1,33 @@
-@import "../variables/typography.scss";
-@import "../variables/shadows.scss";
+@use "../variables/typography.scss";
+@use "../variables/shadows.scss";
+@use "../variables/colors";
 
 .e-autocomplete {
-
   input {
     position: relative;
     box-sizing: border-box;
     height: 48px;
     width: 100%;
     max-width: 448px;
-    border: 1px solid color("black");
+    border: 1px solid colors.color('black');
     border-radius: 4px;
     padding: 13px 16px;
-    @include typography('text-description');
+    @include typography.typography('text-description');
 
     &::placeholder {
-      @include typography('text-option');
-      color: color("grey-80");
+      @include typography.typography('text-option');
+      color: colors.color('grey-80');
     }
 
     &:focus,
     &:active {
-      border: 2px solid color("green");
+      border: 2px solid colors.color('green');
       padding: 12px 15px;
       outline: none;
     }
 
     &:invalid {
-      border: 2px solid color("red");
+      border: 2px solid colors.color('red');
       padding: 12px 15px;
       outline: none;
     }
@@ -36,15 +36,15 @@
   &__content {
     position: absolute;
     display: block;
-    background-color: color("white");
+    background-color: colors.color('white');
     width: 100%;
     max-width: 448px;
     max-height: 240px;
     overflow-y: hidden;
     margin-top: 4px;
-    border: 1px solid color("grey-10");
+    border: 1px solid colors.color('grey-10');
     border-radius: 4px;
-    box-shadow: $e-shadow-6;
+    box-shadow: shadows.$e-shadow-6;
     z-index: 1;
 
     &__item {
@@ -54,10 +54,10 @@
       width: 100%;
       padding: 13px 16px;
       z-index: 1;
-      @include typography('text-option');
+      @include typography.typography('text-option');
 
       &:hover {
-        background-color: color("grey-10");
+        background-color: colors.color('grey-10');
       }
     }
   }
@@ -65,16 +65,15 @@
   //pseudo classes
   &.e-autocomplete---active {
     input {
-      border: 2px solid color("green");
+      border: 2px solid colors.color('green');
       padding: 12px 15px;
     }
   }
 
   &.e-autocomplete---invalid {
     input {
-      border: 2px solid color("red");
+      border: 2px solid colors.color('red');
       padding: 12px 15px;
     }
   }
-
 }

@@ -1,2 +1,3 @@
-$border-medium: 1px solid color('grey-30');
+@use "colors";
 
+$border-medium: 1px solid colors.color('grey-30');

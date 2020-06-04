@@ -1,14 +1,16 @@
-@import "../variables/spacing";
+@use "sass:list";
+@use "sass:map";
+@use "../variables/spacing";
 
 // Making margin and padding classes for all spacing
-@each $label, $map in $spacing {
-  $value: map-get($map, value);
-  $alt-labels: map-get($map, labels);
+@each $label, $map in spacing.$spacing {
+  $value: map.get($map, value);
+  $alt-labels: map.get($map, labels);
   $labels: ($label);
 
   @if $alt-labels {
     @each $label in $alt-labels {
-      $labels: append($labels, $label);
+      $labels: list.append($labels, $label);
     }
   }
 
@@ -67,27 +69,27 @@
         margin-bottom: $value;
       }
       &-m-n#{$label} {
-        margin: - $value;
+        margin: -$value;
       }
       &-mt-n#{$label} {
-        margin-top: - $value;
+        margin-top: -$value;
       }
       &-mb-n#{$label} {
-        margin-bottom: - $value;
+        margin-bottom: -$value;
       }
       &-ml-n#{$label} {
-        margin-left: - $value;
+        margin-left: -$value;
       }
       &-mr-n#{$label} {
-        margin-right: - $value;
+        margin-right: -$value;
       }
       &-mx-n#{$label} {
-        margin-right: - $value;
-        margin-left: - $value;
+        margin-right: -$value;
+        margin-left: -$value;
       }
       &-my-n#{$label} {
-        margin-top: - $value;
-        margin-bottom: - $value;
+        margin-top: -$value;
+        margin-bottom: -$value;
       }
     }
     // Making CSS-variables for shadow-variables
@@ -96,4 +98,3 @@
     }
   }
 }
-

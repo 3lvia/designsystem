@@ -1,6 +1,20 @@
+# Update [0.7.0]
+
+Switched from @import to @use. The @use rule is the primary replacement for @import, which will be deprecated
+in near future (2022 latest).
+
+##### Breaking changes
+
+If you are using our stylesheets directly and your sass-compiler do not support the use of @use. @use is
+currently not supported by the node-sass compiler. Dart-sass is the primary implementation of Sass and do
+support the use of @use. Read more about the advantages of @use here:
+https://sass-lang.com/blog/the-module-system-is-launched.
+
 # Update [0.6.0]
 
-Switched from node-sass compiler to dart-sass compiler
+Switched from node-sass compiler to dart-sass compiler. Dart-sass is the primary implementation of Sass, which
+means it gets new features before any other implementation and at current time node-sass do not support the
+use of @use, which is the module system replacing @import.
 
 ##### Breaking changes
 

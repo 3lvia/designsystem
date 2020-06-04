@@ -1,4 +1,6 @@
-@import '../variables/colors';
+@use '../variables/colors';
+@use "../utilities/breakpoints";
+@use "../variables/typography";
 
 $modal-border-radius: 8px;
 $modal-max-width: 704px;
@@ -8,80 +10,80 @@ $modal-desktop-padding: 48px;
 $modal-mobile-padding: 32px;
 
 .e-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+  pointer-events: none;
+  box-sizing: border-box;
+
+  &__content {
+    position: relative;
+    padding: $modal-desktop-padding;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0, 0, 0, 0.25);
-    z-index: 99999;
-    opacity:0;
-    transition: opacity 300ms ease-in;
-    pointer-events: none;
-    box-sizing: border-box;
+    flex-direction: column;
+    max-width: calc(#{$modal-max-width} - (#{$modal-desktop-padding} * 2));
+    width: auto;
+    height: auto;
+    border-radius: $modal-border-radius;
+    background: colors.color('white');
 
-    &__content {
-        position: relative;
-        padding: $modal-desktop-padding;
-        display: flex;
+    @include breakpoints.breakpoint-up(Mobile) {
+      padding: $modal-mobile-padding;
+      border-radius: 0;
+      width: 100%;
+      max-width: 100%;
+      height: calc(100% - (#{$modal-mobile-padding} * 2));
+      margin: 0;
+    }
+
+    .e-modal__title {
+      @include typography.typography('title-md');
+    }
+    .e-modal__text {
+      @include typography.typography('text-body');
+      color: colors.color('font-grey');
+      padding-top: 32px;
+    }
+    .e-modal__actions {
+      display: flex;
+      justify-content: flex-end;
+      padding-top: 32px;
+      @include breakpoints.breakpoint-up(Mobile) {
         flex-direction: column;
-        max-width: calc(#{$modal-max-width} - (#{$modal-desktop-padding} * 2));
-        width: auto;
-        height: auto;
-        border-radius: $modal-border-radius;
-        background: color('white');
+        justify-content: flex-end;
+        height: 100%;
+        width: 100%;
+      }
 
-        @include breakpoint-up(Mobile) {
-            padding: $modal-mobile-padding;
-            border-radius: 0;
-            width: 100%;
-            max-width: 100%;
-            height: calc(100% - (#{$modal-mobile-padding} * 2));
-            margin: 0;
+      button:not(:only-of-type) {
+        width: 100%;
+      }
+      button:first-of-type:not(:last-of-type) {
+        margin-right: 24px;
+        @include breakpoints.breakpoint-up(Mobile) {
+          margin-bottom: 16px;
         }
-
-        .e-modal__title {
-            @include typography('title-md');
+      }
+      button:only-of-type {
+        @include breakpoints.breakpoint-up(Mobile) {
+          position: absolute;
+          right: $modal-mobile-padding;
         }
-        .e-modal__text {
-            @include typography('text-body');
-            color: color('font-grey');
-            padding-top: 32px;
-        }
-        .e-modal__actions {
-            display: flex;
-            justify-content: flex-end; 
-            padding-top: 32px;
-            @include breakpoint-up(Mobile) {
-                flex-direction: column;
-                justify-content: flex-end;
-                height: 100%;
-                width: 100%;
-            }
-
-            button:not(:only-of-type) {
-                width: 100%;
-            }
-            button:first-of-type:not(:last-of-type) {
-                margin-right: 24px;
-                @include breakpoint-up(Mobile) {
-                    margin-bottom: 16px;
-                }
-            }
-            button:only-of-type {
-                @include breakpoint-up(Mobile) {
-                    position: absolute;
-                    right: $modal-mobile-padding;
-                }
-            }
-        }
+      }
     }
+  }
 
-    &---visible {
-        opacity:1;
-        pointer-events: auto;
-    }
+  &---visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
 }

@@ -1,18 +1,19 @@
-@import './colors.scss';
-@import '../utilities/breakpoints.scss';
+@use "sass:map";
+@use './colors.scss';
+@use '../utilities/breakpoints.scss';
 
-$font-family: "Red Hat Display", sans-serif;
-$font-family-secondary: "Red Hat Text", sans-serif;
+$font-family: 'Red Hat Display', sans-serif;
+$font-family-secondary: 'Red Hat Text', sans-serif;
 
 @function get-value($name, $value) {
   $typography-map: null;
 
-  @if map-has-key($typography, $name) {
-    $typography-map: map-get($typography, $name);
+  @if map.has-key($typography, $name) {
+    $typography-map: map.get($typography, $name);
   } @else {
     @each $label, $map in $typography {
-      @if map-has-key($typography, alt-labels) {
-        @if contains(map-get($map, alt-labels), $name) {
+      @if map.has-key($typography, alt-labels) {
+        @if contains(map.get($map, alt-labels), $name) {
           $typography-map: $map;
         }
       }
@@ -24,7 +25,7 @@ $font-family-secondary: "Red Hat Text", sans-serif;
     @return null;
   }
 
-  @return map-get($typography-map, $value);
+  @return map.get($typography-map, $value);
 }
 
 @mixin typography($name) {
@@ -35,8 +36,8 @@ $font-family-secondary: "Red Hat Text", sans-serif;
   color: get-value($name, color);
   font-style: get-value($name, style);
   letter-spacing: get-value($name, letter-spacing);
-  text-transform:  get-value($name, transform);
-  @include breakpoint-up(Mobile) {
+  text-transform: get-value($name, transform);
+  @include breakpoints.breakpoint-up(Mobile) {
     font-size: get-value($name, size-m);
     line-height: get-value($name, height-m);
   }
@@ -44,7 +45,7 @@ $font-family-secondary: "Red Hat Text", sans-serif;
 
 body {
   font-family: $font-family;
-  color: color('font-color');
+  color: colors.color('font-color');
 }
 
 // List of typography-variables
@@ -56,7 +57,7 @@ $typography: (
     weight: 900,
     height: 53px,
     height-m: 34px,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
   title-md: (
     family: $font-family,
@@ -65,14 +66,14 @@ $typography: (
     weight: 700,
     height: 31px,
     height-m: 29px,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
   title-sm: (
     family: $font-family,
     size: 1.25rem,
     weight: 700,
     height: 24px,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
   text-lead: (
     family: $font-family-secondary,
@@ -81,7 +82,7 @@ $typography: (
     weight: 400,
     height: 41px,
     height-m: 34px,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
   text-quote: (
     family: $font-family,
@@ -91,7 +92,7 @@ $typography: (
     height: 42px,
     height-m: 32px,
     style: italic,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
   text-body: (
     family: $font-family-secondary,
@@ -100,7 +101,7 @@ $typography: (
     weight: 400,
     height: 38px,
     height-m: 29px,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
   text-img: (
     family: $font-family-secondary,
@@ -111,14 +112,14 @@ $typography: (
     height: 29px,
     height-m: 26px,
     style: italic,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
   text-description: (
     family: $font-family-secondary,
     size: 1rem,
     weight: 400,
     height: 28px,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
   text-caps: (
     family: $font-family-secondary,
@@ -127,31 +128,30 @@ $typography: (
     height: 17px,
     letter-spacing: 0.8px,
     transform: uppercase,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
   text-info: (
     family: $font-family-secondary,
     size: 0.875rem,
     weight: 400,
     height: 22px,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
   text-label: (
     family: $font-family-secondary,
     size: 1rem,
     weight: 500,
     height: 23px,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
   text-option: (
     family: $font-family-secondary,
     size: 1rem,
     weight: 400,
     height: 22px,
-    color: color('font-color')
+    color: colors.color('font-color'),
   ),
 );
-
 
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap');

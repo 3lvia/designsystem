@@ -1,4 +1,4 @@
-@import './../variables/colors';
+@use './../variables/colors';
 
 $feedback-padding: 20px 30px;
 $feedback-border-radius: 4px;
@@ -19,39 +19,47 @@ $feedback-message-gap: 10px;
   border: none;
   border-radius: $feedback-border-radius;
   box-sizing: border-box;
-  
+
   // .is-info is the default for any feedback-container
   @extend .is-info;
 
   &.is-success {
-    background: color('green');
-    
-    #{$this}_icon, #{$this}_message, #{$this}_close-button {
-      color: color('black');
+    background: colors.color('green');
+
+    #{$this}_icon,
+    #{$this}_message,
+    #{$this}_close-button {
+      color: colors.color('black');
     }
   }
 
   &.is-info {
-    background-color: color('yellow');
+    background-color: colors.color('yellow');
 
-    #{$this}_icon, #{$this}_message, #{$this}_close-button {
-      color: color('black');
+    #{$this}_icon,
+    #{$this}_message,
+    #{$this}_close-button {
+      color: colors.color('black');
     }
   }
 
   &.is-warn {
-    background-color: color('orange');
+    background-color: colors.color('orange');
 
-    #{$this}_icon, #{$this}_message, #{$this}_close-button {
-      color: color('black');
+    #{$this}_icon,
+    #{$this}_message,
+    #{$this}_close-button {
+      color: colors.color('black');
     }
   }
 
   &.is-error {
-    background-color: color('red');
+    background-color: colors.color('red');
 
-    #{$this}_icon, #{$this}_message, #{$this}_close-button {
-      color: color('white');
+    #{$this}_icon,
+    #{$this}_message,
+    #{$this}_close-button {
+      color: colors.color('white');
     }
   }
 

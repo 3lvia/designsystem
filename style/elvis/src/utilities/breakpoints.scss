@@ -1,8 +1,11 @@
-@import '../variables/breakpoints';
+$mobile-max: 767px;
+$tablet-max: 1023px;
+$mindesktop-max: 1439px;
+$maxdesktop-min: 1440px;
 
 @mixin breakpoint-up($size) {
   @if $size == Mobile {
-    @media (max-width: #{$mobil-max}) {
+    @media (max-width: #{$mobile-max}) {
       @content;
     }
   } @else if $size == Tablet {
@@ -17,5 +20,5 @@
     @media (min-width: #{$maxdesktop-min}) {
       @content;
     }
-  } 
+  }
 }

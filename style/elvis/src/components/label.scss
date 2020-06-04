@@ -1,6 +1,6 @@
-@import '../variables/colors.scss';
-@import '../variables/borders.scss';
-@import '../utilities/breakpoints.scss';
+@use '../variables/colors.scss';
+@use '../variables/borders.scss';
+@use '../utilities/breakpoints.scss';
 
 $label-padding: 4px 11px;
 $label-padding-mobile: 2px 7px;
@@ -13,20 +13,20 @@ $label-font-size: 11px;
   height: 8px;
   width: 8px;
   left: 11px;
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     left: 7px;
   }
 }
 
 @mixin circle($color) {
   padding: 4px 11px 4px (11px + 8px + 8px);
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     padding: 2px 7px 2px (7px + 8px + 6px);
   }
   &::before {
     content: ' ';
     position: absolute;
-    background-color: color($color);
+    background-color: colors.color($color);
     @extend %status-content;
   }
 }
@@ -41,10 +41,10 @@ $label-font-size: 11px;
   line-height: 18px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  background: color('grey-10');
-  color: color('black');
+  background: colors.color('grey-10');
+  color: colors.color('black');
 
-  @include breakpoint-up(Mobile) {
+  @include breakpoints.breakpoint-up(Mobile) {
     padding: $label-padding-mobile;
   }
 

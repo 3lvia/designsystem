@@ -1,5 +1,5 @@
-@import './../variables/colors';
-@import './../variables/shadows';
+@use './../variables/colors';
+@use './../variables/shadows';
 
 $header-height: 66px;
 $header-z-index: 99;
@@ -13,8 +13,8 @@ $header-img-size: 40px;
   padding: 0 16px;
   box-sizing: border-box;
 
-  background: color('white');
-  box-shadow: $e-shadow-6;
+  background: colors.color('white');
+  box-shadow: shadows.$e-shadow-6;
   z-index: $header-z-index;
 
   display: flex;
@@ -46,12 +46,12 @@ $header-img-size: 40px;
       margin-right: 8px;
       border-radius: 100%;
 
-      background: color('grey-30');
+      background: colors.color('grey-30');
       background-position: center;
     }
 
     &_icon-no-image {
-      background-color: color('green');
+      background-color: colors.color('green');
       width: $header-img-size;
       height: $header-img-size;
       margin-right: 8px;
@@ -61,14 +61,14 @@ $header-img-size: 40px;
       align-items: center;
       justify-content: center;
 
-      color: color('white');
+      color: colors.color('white');
       text-transform: uppercase;
     }
 
     &_name {
       font-size: 16px;
       letter-spacing: 0.5px;
-      color: color('black');
+      color: colors.color('black');
 
       // give space for next if exist
       &:not(:last-child) {

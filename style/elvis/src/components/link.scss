@@ -1,6 +1,8 @@
-@import "../variables/colors.scss";
-@import "../utilities/breakpoints.scss";
-@import "../utilities/outline.scss";
+@use "../variables/colors.scss";
+@use "../utilities/breakpoints.scss";
+@use "../utilities/outline.scss";
+@use "../utilities/icons";
+@use "../variables/typography";
 
 $link-lg-font-size: 18px;
 $link-md-font-size: 16px;
@@ -24,10 +26,10 @@ $link-jumbo-phone-width: 287px;
   @extend .e-link--md;
   display: inline;
   box-sizing: border-box;
-  border-bottom: 2px solid color("black");
+  border-bottom: 2px solid colors.color('black');
   cursor: pointer;
   font-weight: bold;
-  color: color("font-color");
+  color: colors.color('font-color');
   text-align: inherit;
   position: relative;
 
@@ -36,12 +38,13 @@ $link-jumbo-phone-width: 287px;
     align-items: center;
     i {
       display: flex;
-      @include icon-size('xxs');
+      @include icons.icon-size('xxs');
     }
   }
 
   // Adding margin if icon
-  &__title + &__icon, &__icon + &__title {
+  &__title + &__icon,
+  &__icon + &__title {
     position: relative;
     margin-left: 8px;
   }
@@ -49,7 +52,7 @@ $link-jumbo-phone-width: 287px;
   &.e-link--lg {
     font-size: $link-lg-font-size;
     line-height: $link-lg-line-height;
-    border-bottom: 2.5px solid color("black");
+    border-bottom: 2.5px solid colors.color('black');
   }
   &.e-link--md {
     font-size: $link-md-font-size;
@@ -60,14 +63,15 @@ $link-jumbo-phone-width: 287px;
     line-height: $link-sm-line-height;
   }
 
-  &.e-link---hover, &:hover {
-    border-bottom-color: color("green");
+  &.e-link---hover,
+  &:hover {
+    border-bottom-color: colors.color('green');
   }
   &.e-link---focus {
-    @include e-outline-pseudoclass();
+    @include outline.e-outline-pseudoclass();
   }
   &:focus {
-    @include e-outline();
+    @include outline.e-outline();
     overflow: auto;
   }
 
@@ -92,10 +96,10 @@ $link-jumbo-phone-width: 287px;
   &.e-link--action {
     border: transparent;
 
-    .e-link__icon i[class$="filled-color"] {
+    .e-link__icon i[class$='filled-color'] {
       visibility: hidden;
     }
-    .e-link__icon{
+    .e-link__icon {
       position: relative;
       top: 5px;
       right: 0;
@@ -109,35 +113,46 @@ $link-jumbo-phone-width: 287px;
     &.e-link--lg {
       line-height: $link-action-lg-line-height;
       font-size: $link-action-lg-font-size;
-      .e-link__icon, i, img { width: 24px; height: 24px; }
+      .e-link__icon,
+      i,
+      img {
+        width: 24px;
+        height: 24px;
+      }
     }
     &.e-link--md {
       line-height: $link-action-md-line-height;
       font-size: $link-action-md-font-size;
-      .e-link__icon, i, img { width: 23px; height: 23px; }
+      .e-link__icon,
+      i,
+      img {
+        width: 23px;
+        height: 23px;
+      }
     }
 
-    &.e-link---hover, &:hover {
-      .e-link__icon i[class$="filled-color"] {
+    &.e-link---hover,
+    &:hover {
+      .e-link__icon i[class$='filled-color'] {
         visibility: visible;
       }
-      .e-link__icon i:not([class$="filled-color"]) {
+      .e-link__icon i:not([class$='filled-color']) {
         visibility: hidden;
       }
     }
   }
 
   &.e-link--jumbo {
-    @include typography('title-sm');
+    @include typography.typography('title-sm');
     display: inline-flex;
     align-items: center;
-    border: 2px solid color("black");
+    border: 2px solid colors.color('black');
     border-radius: 64px;
     padding: $link-jumbo-desktop-padding;
     width: $link-jumbo-desktop-width;
     line-height: 48px;
-    background: color("white");
-    color: color("black");
+    background: colors.color('white');
+    color: colors.color('black');
     box-sizing: border-box;
     cursor: pointer;
 
@@ -151,25 +166,32 @@ $link-jumbo-phone-width: 287px;
 
     .e-link__icon:not(:only-of-type):first-of-type {
       margin-right: 24px;
-      i { @include icon-size('xl'); }
+      i {
+        @include icons.icon-size('xl');
+      }
     }
     .e-link__icon:last-of-type {
       margin-left: 11px;
-      i { @include icon-size('xs'); }
+      i {
+        @include icons.icon-size('xs');
+      }
     }
 
-    @include breakpoint-up(Mobile) {
+    @include breakpoints.breakpoint-up(Mobile) {
       width: $link-jumbo-phone-width;
       padding: $link-jumbo-phone-padding;
 
       .e-link__icon:first-of-type {
-        i { @include icon-size('lg'); }
+        i {
+          @include icons.icon-size('lg');
+        }
       }
     }
 
-    &.e-link---hover, &:hover {
-      color: color("black");
-      border: 2px solid color("green");
+    &.e-link---hover,
+    &:hover {
+      color: colors.color('black');
+      border: 2px solid colors.color('green');
     }
   }
 }

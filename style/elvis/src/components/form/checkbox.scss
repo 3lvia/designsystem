@@ -1,10 +1,11 @@
-@import '../../utilities/colors.scss';
-@import '../../utilities/outline.scss';
-@import '../../variables/animation.scss';
+@use '../../utilities/colors.scss' as colors2;
+@use '../../utilities/outline.scss';
+@use '../../variables/animation.scss';
+@use "../../variables/colors";
 
 $checkbox-mark-size: 24px;
 $checkbox-mark-border-radius: 4px;
-$checkbox-mark-border: 1px solid color('black');
+$checkbox-mark-border: 1px solid colors.color('black');
 
 .e-checkbox {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -26,43 +27,43 @@ $checkbox-mark-border: 1px solid color('black');
 
   &.e-checkbox---focus {
     #{$this}__mark {
-      @include e-outline-pseudoclass();
+      @include outline.e-outline-pseudoclass();
     }
   }
 
   &.e-checkbox---hover:not(:disabled):not(:invalid) {
     #{$this}__mark {
-      background-color: color('green');
+      background-color: colors.color('green');
     }
   }
 
   &.e-checkbox---disabled {
     #{$this}__mark {
-      border-color: color('grey-30');
-      background-color: color('grey-05');
+      border-color: colors.color('grey-30');
+      background-color: colors.color('grey-05');
       cursor: not-allowed;
     }
   }
   &.e-checkbox---disabled-checked {
     #{$this}__mark {
       @extend %checkbox-mark;
-      border-color: color('grey-30') !important;
-      background-color: color('grey-05') !important;
+      border-color: colors.color('grey-30') !important;
+      background-color: colors.color('grey-05') !important;
       cursor: not-allowed;
 
       &:after,
       &:before {
-        background-color: color('grey-30') !important;
+        background-color: colors.color('grey-30') !important;
       }
     }
     #{$this}__label {
-      color: color('grey-70');
+      color: colors.color('grey-70');
     }
   }
 
   &.e-checkbox---invalid {
     #{$this}__mark {
-      border-color: color('red');
+      border-color: colors.color('red');
     }
   }
 
@@ -77,38 +78,38 @@ $checkbox-mark-border: 1px solid color('black');
     }
 
     &:focus ~ #{$this}__mark {
-      @include e-outline();
+      @include outline.e-outline();
     }
 
     &:hover:not(:disabled):not(:invalid) ~ #{$this}__mark {
-      background-color: color('green');
+      background-color: colors.color('green');
     }
 
     &:disabled ~ #{$this}__mark {
-      border-color: color('grey-30');
-      background-color: color('grey-05');
+      border-color: colors.color('grey-30');
+      background-color: colors.color('grey-05');
       cursor: not-allowed;
     }
     &:disabled ~ #{$this}__label {
-      color: color('grey-70');
+      color: colors.color('grey-70');
     }
 
     &:disabled:checked ~ #{$this}__mark {
-      border-color: color('grey-30');
-      background-color: color('grey-05');
+      border-color: colors.color('grey-30');
+      background-color: colors.color('grey-05');
       cursor: not-allowed;
 
       &:after,
       &:before {
-        background-color: color('grey-30');
+        background-color: colors.color('grey-30');
       }
     }
     &:disabled ~ #{$this}__label {
-      color: color('grey-70');
+      color: colors.color('grey-70');
     }
 
     &:invalid ~ #{$this}__mark {
-      border-color: color('red');
+      border-color: colors.color('red');
     }
   }
 
@@ -117,7 +118,7 @@ $checkbox-mark-border: 1px solid color('black');
   // Position properties top,left,right and bottom positions the lines to look like a checkmark.
   %checkbox-mark {
     position: relative;
-    background-color: color('green');
+    background-color: colors.color('green');
 
     &::before {
       position: absolute;
@@ -125,7 +126,7 @@ $checkbox-mark-border: 1px solid color('black');
       left: -2%;
       height: 30%;
       width: 2px;
-      background-color: color('black');
+      background-color: colors.color('black');
       border-radius: 15px;
       content: '';
       transform: translateX(10px) rotate(-45deg);
@@ -138,7 +139,7 @@ $checkbox-mark-border: 1px solid color('black');
       left: 2%;
       height: 2px;
       width: 60%;
-      background-color: color('black');
+      background-color: colors.color('black');
       content: '';
       border-radius: 15px;
       transform: translateX(10px) rotate(-55deg);
@@ -153,10 +154,10 @@ $checkbox-mark-border: 1px solid color('black');
     min-height: $checkbox-mark-size;
     max-width: $checkbox-mark-size;
     max-height: $checkbox-mark-size;
-    transition: background 0.2s $transition-cubic;
+    transition: background 0.2s animation.$transition-cubic;
     border: $checkbox-mark-border;
     border-radius: $checkbox-mark-border-radius;
-    background: color('white');
+    background: colors.color('white');
   }
 
   &__label {

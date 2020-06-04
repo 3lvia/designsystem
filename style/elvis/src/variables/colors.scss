@@ -1,22 +1,25 @@
+@use "sass:list";
+@use "sass:map";
+@use "sass:meta";
 @function color-map($name, $color-set: $colors) {
   $color-map: null;
 
-  @if map-has-key($color-set, $name) {
-    $color-map: map-get($color-set, $name);
+  @if map.has-key($color-set, $name) {
+    $color-map: map.get($color-set, $name);
   } @else {
     @each $label, $map in $color-set {
-      @if index(map-get($map, alt-labels), $name) {
+      @if list.index(map.get($map, alt-labels), $name) {
         $color-map: $map;
       }
     }
   }
 
-  @if global-variable-exists(override-colors) {
-    @if map-has-key($override-colors, $name) {
-      $color-map: map-get($override-colors, $name);
+  @if meta.global-variable-exists(override-colors) {
+    @if map.has-key($override-colors, $name) {
+      $color-map: map.get($override-colors, $name);
     } @else {
       @each $label, $map in $override-colors {
-        @if index(map-get($map, alt-labels), $name) {
+        @if list.index(map.get($map, alt-labels), $name) {
           $color-map: $map;
         }
       }
@@ -33,124 +36,136 @@
 
 @function color($name, $color-set: $colors) {
   $map: color-map($name, $color-set);
-  @return map-get($map, color);
+  @return map.get($map, color);
 }
 
 @function internal-color($name, $color-set: $internal-colors) {
   $map: color-map($name, $color-set);
-  @return map-get($map, color);
+  @return map.get($map, color);
 }
-
 
 // All colors as a list
 // REMEMBER TO UPDATE THE DOCUMENTATION ALSO: color-doc -> color.ts
 $colors: (
   'white': (
-    color: #FFF,
-    alt-labels: (elvia-on),
+    color: #fff,
+    alt-labels: (
+      elvia-on,
+    ),
     contrast-text: #000,
-  ),  
+  ),
   'black': (
     color: #000,
-    alt-labels: (font-color, elvia-off),
+    alt-labels: (
+      font-color,
+      elvia-off,
+    ),
     contrast-text: #fff,
-  ),  
+  ),
   'grey': (
     color: #262626,
     contrast-text: #fff,
-  ),  
+  ),
   'grey-90': (
-    color: #3B3B3B,
+    color: #3b3b3b,
     contrast-text: #fff,
-  ),  
+  ),
   'grey-80': (
     color: #515151,
     contrast-text: #fff,
-    alt-labels: (font-grey)
-  ),  
+    alt-labels: (
+      font-grey,
+    ),
+  ),
   'grey-70': (
     color: #676767,
     contrast-text: #fff,
-  ),  
+  ),
   'grey-60': (
-    color: #7C7C7C,
+    color: #7c7c7c,
     contrast-text: #000,
-  ),  
+  ),
   'grey-50': (
     color: #929292,
     contrast-text: #000,
-  ),  
+  ),
   'grey-40': (
-    color: #A8A8A8,
+    color: #a8a8a8,
     contrast-text: #000,
-  ),  
+  ),
   'grey-30': (
-    color: #BDBDBD,
+    color: #bdbdbd,
     contrast-text: #000,
-    alt-labels: (disabled),
-  ),  
+    alt-labels: (
+      disabled,
+    ),
+  ),
   'grey-20': (
-    color: #D3D3D3,
+    color: #d3d3d3,
     contrast-text: #000,
-  ),  
+  ),
   'grey-10': (
-    color: #E9E9E9,
+    color: #e9e9e9,
     contrast-text: #000,
-  ),  
+  ),
   'grey-05': (
-    color: #F4F4F4,
+    color: #f4f4f4,
     contrast-text: #000,
-    alt-labels: (disabled-light),
-  ),  
+    alt-labels: (
+      disabled-light,
+    ),
+  ),
   'grey-02': (
-    color: #FAFAFA,
+    color: #fafafa,
     contrast-text: #000,
-  ),  
+  ),
   'green': (
-    color: #29D305,
-    alt-labels: (elvia-charge),
+    color: #29d305,
+    alt-labels: (
+      elvia-charge,
+    ),
     contrast-text: #000,
-  ), 
+  ),
   'yellow': (
-    color: #FFFF00,
+    color: #ffff00,
     contrast-text: #000,
-  ),  
+  ),
   'orange': (
-    color: #FFA000,
+    color: #ffa000,
     contrast-text: #000,
-  ),  
+  ),
   'red': (
-    color: #FF0000,
+    color: #ff0000,
     contrast-text: #000,
-  ),  
+  ),
   'green-apple': (
-    color: #21AC04,
+    color: #21ac04,
     contrast-text: #000,
-  ),  
+  ),
   'violet-grape': (
     color: #490192,
     contrast-text: #fff,
-  ),  
+  ),
   'blue-berry': (
-    color: #006DDB,
+    color: #006ddb,
     contrast-text: #fff,
-  ),  
+  ),
   'purple-plum': (
-    color: #B66DFF,
+    color: #b66dff,
     contrast-text: #000,
-  ),  
+  ),
   'orange-mango': (
-    color: #DB6D00,
+    color: #db6d00,
     contrast-text: #000,
-  ),  
+  ),
   'red-tomato': (
-    color: #B90202,
+    color: #b90202,
     contrast-text: #fff,
-  ),   
-);  
+  ),
+);
 
 $internal-colors: (
   'focus-outline': (
-    color: #0064FA,
-  ), 
-)
+    color: #0064fa,
+  ),
+);

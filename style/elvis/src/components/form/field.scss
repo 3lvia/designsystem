@@ -1,4 +1,5 @@
-@import '../../variables/colors.scss';
+@use '../../variables/colors.scss';
+@use "../../variables/typography";
 
 .e-form-field {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -16,11 +17,11 @@
   &__label {
     display: block;
     margin-bottom: 5px;
-    @include typography('text-label');
+    @include typography.typography('text-label');
 
     &.e-form-field__label--optional::after {
-      content: " (valgfri)";
-      color: color('grey-50');
+      content: ' (valgfri)';
+      color: colors.color('grey-50');
     }
   }
 
@@ -29,8 +30,8 @@
     display: flex;
     align-items: center;
     margin-top: 8px;
-    @include typography('text-info');
-    color: color('grey');
+    @include typography.typography('text-info');
+    color: colors.color('grey');
 
     &.e-form-field__error--visible {
       visibility: visible;
@@ -42,7 +43,7 @@
       margin-right: 8px;
     }
   }
-  
+
   &--combined {
     width: 100%;
     margin-bottom: 0;

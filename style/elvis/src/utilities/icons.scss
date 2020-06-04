@@ -1,26 +1,27 @@
+@use "sass:map";
 // Multiples of 8
 $sizes: (
-    'xxs': 8px,
-    'xs': 16px,
-    'sm': 24px,
-    'md': 32px,
-    'lg': 40px,
-    'xl': 48px,
-    'xxl': 56px,
+  'xxs': 8px,
+  'xs': 16px,
+  'sm': 24px,
+  'md': 32px,
+  'lg': 40px,
+  'xl': 48px,
+  'xxl': 56px,
 );
 
-@function get-icon-size($size){
-    @return map-get($map: $sizes, $key: $size)
+@function get-icon-size($size) {
+  @return map.get($map: $sizes, $key: $size);
 }
 
 @mixin icon-size($icon-size) {
-    $size: get-icon-size($icon-size);
+  $size: get-icon-size($icon-size);
+  width: $size;
+  height: $size;
+  img {
     width: $size;
     height: $size;
-    img {
-        width: $size;
-        height: $size;
-    }
+  }
 }
 
 $defaultSize: 'md';
@@ -35,8 +36,7 @@ $defaultSize: 'md';
 
 // Making icon size classes
 @each $label, $size in $sizes {
-    .e-icon--#{$label} {
-        @include icon-size($label);
-    }
+  .e-icon--#{$label} {
+    @include icon-size($label);
+  }
 }
-

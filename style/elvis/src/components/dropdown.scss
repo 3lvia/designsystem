@@ -1,7 +1,7 @@
-@import './../variables/colors';
-@import './../variables/shadows';
+@use './../variables/colors';
+@use './../variables/shadows';
 
-$dropdown-border: 1px solid color('green');
+$dropdown-border: 1px solid colors.color('green');
 $dropdown-margin: 20px;
 $dropdown-item-padding: 10px 12px;
 
@@ -11,7 +11,7 @@ $dropdown-item-padding: 10px 12px;
 
   &_content {
     @extend .is-aligned-bottom;
-    display: none;    
+    display: none;
     position: absolute;
     z-index: 90;
     min-width: 100%;
@@ -26,7 +26,7 @@ $dropdown-item-padding: 10px 12px;
     min-width: calc(100% + 1px);
     border: $dropdown-border;
     border-radius: 4px;
-    background: color('white');
+    background: colors.color('white');
 
     &.is-aligned-top {
       top: initial;
@@ -35,7 +35,7 @@ $dropdown-item-padding: 10px 12px;
     }
 
     &.is-aligned-bottom {
-      top:100%;
+      top: 100%;
       margin-bottom: $dropdown-margin;
     }
 
@@ -52,8 +52,8 @@ $dropdown-item-padding: 10px 12px;
       }
 
       &.is-active {
-        background: color('green');
-        color: color('white');
+        background: colors.color('green');
+        color: colors.color('white');
       }
     }
   }

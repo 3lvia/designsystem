@@ -1,12 +1,15 @@
+@use "../variables/colors";
+@use "../variables/typography";
+
 $table-padding: 11px 16px;
 $table-phone-padding: 6px 8px;
 $table-border-radius: 4px;
 
 %header-style {
-  background: color('grey');
+  background: colors.color('grey');
   width: 100%;
   th {
-    color: color('white');
+    color: colors.color('white');
     font-weight: 500;
   }
 }
@@ -22,17 +25,17 @@ $table-border-radius: 4px;
   background: white;
 
   // Rounded borders with border-collapsed
-  border: 1px solid color('grey-10');
+  border: 1px solid colors.color('grey-10');
   border-radius: $table-border-radius;
   border-collapse: separate;
   border-spacing: 0;
   tr th:first-of-type {
-    border-right: 1px solid color('grey-10');
+    border-right: 1px solid colors.color('grey-10');
   }
 
   td,
   th {
-    @include typography('text-description');
+    @include typography.typography('text-description');
     width: 100%;
     padding: $table-padding;
     &.e-table__cell--multiline {
@@ -49,7 +52,7 @@ $table-border-radius: 4px;
   // Zebra table
   &:not(.no-zebra) {
     tr:nth-of-type(even) {
-      background: color('grey-05');
+      background: colors.color('grey-05');
     }
   }
 }
@@ -62,12 +65,12 @@ $table-border-radius: 4px;
   text-align: left;
   border-radius: $table-border-radius;
   border-spacing: 0;
-  box-shadow: 0px 0px 0px 1px color('grey-10');
+  box-shadow: 0px 0px 0px 1px colors.color('grey-10');
   background: white;
 
   th,
   td {
-    @include typography('text-description');
+    @include typography.typography('text-description');
     padding: $table-phone-padding;
   }
 
@@ -80,13 +83,13 @@ $table-border-radius: 4px;
   }
 
   tbody tr:first-of-type th {
-    background: color('grey-10');
+    background: colors.color('grey-10');
   }
 
   // Zebra table
   &:not(.no-zebra) {
     tr:not(:first-of-type):nth-of-type(odd) {
-      background: color('grey-05');
+      background: colors.color('grey-05');
     }
   }
 }

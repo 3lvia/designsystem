@@ -1,4 +1,4 @@
-@import "../variables/borders";
+@use "../variables/borders";
 
 // Making border classes for all border-sizes
 .e-border {
@@ -6,23 +6,23 @@
     border: none;
   }
   & {
-    border: $border-medium;
+    border: borders.$border-medium;
   }
   &-t {
-    border-top: $border-medium;
+    border-top: borders.$border-medium;
   }
   &-b {
-    border-bottom: $border-medium;
+    border-bottom: borders.$border-medium;
   }
   &-l {
-    border-left: $border-medium;
+    border-left: borders.$border-medium;
   }
   &-r {
-    border-right: $border-medium;
+    border-right: borders.$border-medium;
   }
 }
 
 // Making CSS-variables for shadow-variables
 :root {
-  --e-border-medium: #{$border-medium};
+  --e-border-medium: #{borders.$border-medium};
 }
