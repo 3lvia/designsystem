@@ -59,7 +59,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.Alert,
     status: ItemStatus.New,
     actionText: 'View component',
-    externalUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-messages?node-id=222%3A157',
+    externalUrl: 'https://www.figma.com/file/rxDEfFvqhgtlUWoEbJnGQW/Alert-messages?node-id=165%3A0',
   },
   {
     title: 'Autocomplete',
@@ -75,7 +75,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.Button,
     status: ItemStatus.Done,
     actionText: 'View component',
-    externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons',
+    externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons?node-id=2596%3A1120',
   },
   {
     title: 'Card',
@@ -83,7 +83,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.Card,
     status: ItemStatus.Done,
     actionText: 'View component',
-    externalUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Card',
+    externalUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Cards?node-id=2%3A9',
   },
   {
     title: 'Checkbox',
@@ -91,7 +91,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.Checkbox,
     status: ItemStatus.Done,
     actionText: 'View component',
-    externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs',
+    externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1263%3A493',
   },
   {
     title: 'Dropdown',
@@ -106,7 +106,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.CheckboxToggle,
     status: ItemStatus.Coming,
     actionText: 'View component',
-    externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons',
+    externalUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons?node-id=837%3A422',
   },
   {
     title: 'Date/Time Picker',
@@ -122,7 +122,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.DragAndDrop,
     status: ItemStatus.New,
     actionText: 'View component',
-    externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs',
+    externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
   },
   {
     title: 'File Upload',
@@ -138,7 +138,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.Input,
     status: ItemStatus.Done,
     actionText: 'View component',
-    externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs',
+    externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1262%3A486',
   },
   {
     title: 'Label',
@@ -154,7 +154,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.Link,
     status: ItemStatus.Done,
     actionText: 'View component',
-    externalUrl: 'https://www.figma.com/file/sgrg5TId3ewAFznKBFh2Wb/Links',
+    externalUrl: 'https://www.figma.com/file/sgrg5TId3ewAFznKBFh2Wb/Links?node-id=1%3A10',
   },
   {
     title: 'List',
@@ -178,7 +178,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.Progressbar,
     status: ItemStatus.Done,
     actionText: 'View component',
-    externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs',
+    externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
   },
   {
     title: 'Popover',
@@ -186,7 +186,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.Popover,
     status: ItemStatus.New,
     actionText: 'View component',
-    externalUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover',
+    externalUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover?node-id=372%3A36',
   },
   {
     title: 'Position Picker',
@@ -210,7 +210,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.SegmentedControl,
     status: ItemStatus.Done,
     actionText: 'View component',
-    externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs',
+    externalUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1285%3A253',
   },
   {
     title: 'Table',
@@ -277,7 +277,7 @@ export const eUtilities: EItems[] = [
     docUrl: Pages.Color,
     status: ItemStatus.Done,
     actionText: 'View colors',
-    externalUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=192%3A4',
+    externalUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=1426%3A834',
   },
   {
     title: 'Favicon',
@@ -292,7 +292,7 @@ export const eUtilities: EItems[] = [
     docUrl: Pages.Shadow,
     status: ItemStatus.Done,
     actionText: 'View utility',
-    externalUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow',
+    externalUrl: 'https://www.figma.com/file/E2yRkpqSSuRnq8RDXO4Mly/Shadow?node-id=1%3A10',
   },
   {
     title: 'Spacing',
@@ -300,7 +300,7 @@ export const eUtilities: EItems[] = [
     docUrl: Pages.Spacing,
     status: ItemStatus.Done,
     actionText: 'View spacing',
-    externalUrl: 'https://www.figma.com/file/FvsJlYXAIXS5IVKzZzMYgT/Spacing',
+    externalUrl: 'https://www.figma.com/file/FvsJlYXAIXS5IVKzZzMYgT/Spacing?node-id=1%3A2',
   },
   {
     title: 'Icons',
@@ -316,7 +316,7 @@ export const eUtilities: EItems[] = [
     docUrl: Pages.Typography,
     status: ItemStatus.Done,
     actionText: 'View typography',
-    externalUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography',
+    externalUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
   },
   {
     title: 'Breakpoints',
@@ -324,7 +324,7 @@ export const eUtilities: EItems[] = [
     docUrl: Pages.Breakpoints,
     status: ItemStatus.Done,
     actionText: 'View breakpoints',
-    externalUrl: 'https://www.figma.com/file/fMr1lhboPukTxmH9KruWB2/Grid',
+    externalUrl: 'https://www.figma.com/file/fMr1lhboPukTxmH9KruWB2/Grid?node-id=2%3A0',
   },
   {
     title: 'Grid',
@@ -332,7 +332,7 @@ export const eUtilities: EItems[] = [
     docUrl: Pages.Grid,
     status: ItemStatus.Done,
     actionText: 'View grid',
-    externalUrl: 'https://www.figma.com/file/fMr1lhboPukTxmH9KruWB2/Grid',
+    externalUrl: 'https://www.figma.com/file/fMr1lhboPukTxmH9KruWB2/Grid?node-id=2%3A0',
   },
   {
     title: 'Logo',
@@ -340,7 +340,7 @@ export const eUtilities: EItems[] = [
     docUrl: Pages.Logo,
     status: ItemStatus.Done,
     actionText: 'View logo',
-    externalUrl: 'https://www.figma.com/file/SDUCEPhQu0q602oh2uhvKZ/Logo',
+    externalUrl: 'https://www.figma.com/file/SDUCEPhQu0q602oh2uhvKZ/Logo?node-id=0%3A1',
   },
   {
     title: 'Alignment',
