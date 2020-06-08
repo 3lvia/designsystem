@@ -21,6 +21,8 @@ $link-jumbo-desktop-width: 545px;
 $link-jumbo-phone-padding: 30px 24px;
 $link-jumbo-phone-width: 287px;
 
+$link-card-padding: 23px;
+
 .e-link {
   // Default for links is md
   @extend .e-link--md;
@@ -149,8 +151,9 @@ $link-jumbo-phone-width: 287px;
     border: 2px solid colors.color('black');
     border-radius: 64px;
     padding: $link-jumbo-desktop-padding;
-    width: $link-jumbo-desktop-width;
-    line-height: 48px;
+    width: 100%;
+    max-width: $link-jumbo-desktop-width;
+    line-height: 24px;
     background: colors.color('white');
     color: colors.color('black');
     box-sizing: border-box;
@@ -160,8 +163,11 @@ $link-jumbo-phone-width: 287px;
       padding-left: 56px - 40px;
     }
     .e-link__title {
+      display: flex;
       text-align: left;
       width: 100%;
+      min-height: 48px;
+      align-items: center;
     }
 
     .e-link__icon:not(:only-of-type):first-of-type {
@@ -178,7 +184,7 @@ $link-jumbo-phone-width: 287px;
     }
 
     @include breakpoints.breakpoint-up(Mobile) {
-      width: $link-jumbo-phone-width;
+      width: 100%;
       padding: $link-jumbo-phone-padding;
 
       .e-link__icon:first-of-type {

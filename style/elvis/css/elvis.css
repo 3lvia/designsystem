@@ -1369,8 +1369,9 @@ input:focus {
   border: 2px solid #000;
   border-radius: 64px;
   padding: 30px 40px;
-  width: 545px;
-  line-height: 48px;
+  width: 100%;
+  max-width: 545px;
+  line-height: 24px;
   background: #fff;
   color: #000;
   box-sizing: border-box;
@@ -1382,8 +1383,11 @@ input:focus {
 }
 
 .e-link.e-link--jumbo .e-link__title {
+  display: flex;
   text-align: left;
   width: 100%;
+  min-height: 48px;
+  align-items: center;
 }
 
 .e-link.e-link--jumbo .e-link__icon:not(:only-of-type):first-of-type {
@@ -1416,7 +1420,7 @@ input:focus {
 
 @media (max-width: 767px) {
   .e-link.e-link--jumbo {
-    width: 287px;
+    width: 100%;
     padding: 30px 24px;
   }
 
