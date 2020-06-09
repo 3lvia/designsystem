@@ -17,7 +17,7 @@
     "lint-all": "npm run lint-elvis && npm run lint-doc && npm run eslint"
   },
   "lint-staged": {
-    "**/*.+(js|md|ts|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
+    "**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
       "npx prettier --write",
       "git add"
     ],
