@@ -1,55 +1,22 @@
 <span class="hamburger" [ngClass]="showWarning() ? 'is-warning' : ''">
-  <button 
-    class="e-btn e-btn--icon e-btn--md e-ml-8 e-mt-8" 
-    (click)="showMenu()"
-    *ngIf="!toggleMenu"
-    >
+  <button class="e-btn e-btn--icon e-btn--md e-ml-8 e-mt-8" (click)="showMenu()" *ngIf="!toggleMenu">
     <span class="e-btn__icon"><i class="e-icon e-icon--menu"></i></span>
   </button>
 </span>
 
-<ul 
-  [class.show-header-warning]="showWarning()" 
-  class="navbar e-border-r e-pb-32" 
-  @slideIn
-  [ngClass]="toggleMenu ? 'showMenu' : ''"
->
-  <section>
-    <span class="navbar-toggle-area">
-      <button 
-        class="e-btn e-btn--icon e-btn--md"
-        (click)="showMenu()"
-        > 
-        <span class="e-btn__icon"><i class="e-icon e-icon--close"></i></span>
-      </button>
-    </span>
-    <ul class="navbar-list" >
-      <li
-        class="navbar-item e-text-body"
-        *ngFor="let navbarItem of sidebarList"
-        [ngClass]="navbarItem.status && (navbarItem.status === 'Coming') ? 'disabled' : ''"
-      >
-        <a
-          [routerLink]="[navbarItem.docUrl]"
-          routerLinkActive="active"
-        >
-          <span class="navbar-item-title">
-            {{ navbarItem.title }}
-          </span>
-          <span
-            class="e-label e-label--green-apple"
-            *ngIf="navbarItem.status && (navbarItem.status === 'New')"
-          >{{ navbarItem.status }}</span>
-          <span
-            class="e-label e-label--red-tomato"
-            *ngIf="navbarItem.status && (navbarItem.status === 'Coming')"
-          >{{ navbarItem.status }}</span>
-          <span
-            class="e-label e-label--orange-mango"
-            *ngIf="navbarItem.status && (navbarItem.status === 'In progress')"
-          >{{ navbarItem.status }}</span>
-        </a>
-      </li>
-    </ul>
-  </section>
-</ul>
+<div [class.show-header-warning]="showWarning()" class="navbar" [ngClass]="toggleMenu ? 'showMenu' : ''">
+  <span class="navbar-toggle-area">
+    <button class="e-btn e-btn--icon e-btn--md" (click)="showMenu()">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close"></i></span>
+    </button>
+  </span>
+  <ul class="navbar-list">
+    <li class="navbar-item" *ngFor="let navbarItem of navbarItems">
+      <a [routerLink]="[navbarItem.docUrl]" routerLinkActive="active">
+        <span class="navbar-item-title">
+          {{ navbarItem.title }}
+        </span>
+      </a>
+    </li>
+  </ul>
+</div>

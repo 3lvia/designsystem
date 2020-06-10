@@ -1,5 +1,5 @@
-@import "../../shared/shared-sizes";
-@import "../../../../style/elvis/src/utilities/breakpoints.scss";
+@import '../../shared/shared-sizes';
+@import '../../../../style/elvis/src/utilities/breakpoints.scss';
 
 .header-warning {
   position: fixed;
@@ -16,7 +16,7 @@
   font-weight: normal;
   z-index: 11;
 
-  @include breakpoint-up(Mobile) {
+  @include breakpoint-up(Tablet) {
     min-height: 120px;
     max-height: 120px;
   }
@@ -44,7 +44,7 @@
   &.show-header-warning {
     top: 60px;
 
-    @include breakpoint-up(Mobile) {
+    @include breakpoint-up(Tablet) {
       top: 120px;
     }
   }
@@ -72,16 +72,16 @@
       align-items: center;
       cursor: pointer;
       padding-top: 20px;
-        @include breakpoint-up(Mobile) {
-         width:15%;
-        }
+      @include breakpoint-up(Tablet) {
+        width: 15%;
+      }
 
       img {
         padding: 20px;
         height: 40px;
         transition: all 500ms;
 
-        @include breakpoint-up(Mobile) {
+        @include breakpoint-up(Tablet) {
           padding: 8px;
           height: 16px;
           align-self: start;
@@ -97,7 +97,7 @@
       h2 {
         color: var(--e-white) !important;
       }
-      @include breakpoint-up(Mobile) {
+      @include breakpoint-up(Tablet) {
         width: 85%;
         padding: 0px;
       }
@@ -112,7 +112,7 @@
       }
       transition: all 500ms;
 
-      @include breakpoint-up(Mobile) {
+      @include breakpoint-up(Tablet) {
         opacity: 0;
         width: 0;
       }

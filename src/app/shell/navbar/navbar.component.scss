@@ -3,11 +3,8 @@
 
 .hamburger {
   display: none;
-  position: fixed;
-  top: $header-height;
-  left: 0;
   z-index: 1111;
-  @include breakpoint-up(Mobile) {
+  @include breakpoint-up(Tablet) {
     display: flex;
   }
 
@@ -17,28 +14,12 @@
 }
 
 .navbar {
-  position: fixed;
-  height: calc(100% - #{$header-height});
-  top: $header-height;
-  z-index: 10;
-  background-color: white;
-
-  width: $navbar-width;
-  left: 0;
-  margin: 0;
-  padding: 0;
-
-  overflow-y: auto;
-  list-style-type: none;
-
-  display: block;
-
-  @include breakpoint-up(Mobile) {
+  @include breakpoint-up(Tablet) {
     display: none;
   }
 
   &.showMenu {
-    @include breakpoint-up(Mobile) {
+    @include breakpoint-up(Tablet) {
       display: block;
     }
   }
@@ -47,74 +28,61 @@
     display: none;
     align-items: center;
     justify-content: start;
-    @include breakpoint-up(Mobile) {
+    @include breakpoint-up(Tablet) {
       display: flex;
       justify-content: center;
     }
   }
 
   &.show-header-warning {
-    height: calc(100% - #{$header-height} - 60px);
-    top: $header-height + 60px;
-
-    @include breakpoint-up(Mobile) {
+    @include breakpoint-up(Tablet) {
       top: $header-height + 120px;
     }
   }
 
-  .disabled {
-    cursor: none !important;
-    pointer-events: none;
-  }
-
-  &-list {
-    padding: 0;
-    width: 100%;
-
-    &-header {
-      padding: 5px 16px;
-    }
-
-    a h2 {
-      padding: 10px 16px;
-      display: block;
-    }
-  }
-
-  &-item {
+  .navbar-list {
     list-style-type: none;
-    cursor: pointer;
-    display: flex;
-    background-color: white;
+    padding-left: 0;
 
-    a {
-      display: flex;
-      justify-content: space-between;
-      padding: var(--e-spacing-16);
-      width: 100%;
-      align-items: center;
-      font-size: 1.125rem;
-      line-height: 140%;
-      outline-offset: unset;
+    .navbar-item {
+      margin-bottom: 4px;
 
-      .navbar-item-title {
-        float: left;
-        max-width: 140px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+      a {
+        cursor: pointer;
+        outline-offset: unset;
+        .navbar-item-title {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          font-family: 'Red Hat Text';
+          font-style: normal;
+          font-weight: 500;
+          font-size: 14px;
+          line-height: 32px;
+          letter-spacing: 0.012em;
+        }
+        // .navbar-item-title::before {
+        //   content: '';
+        //   position: absolute;
+        //   top: 10px;
+        //   width: 8px;
+        //   height: 8px;
+        //   background-color: var(--e-green);
+        //   border-radius: 50%;
+        // }
       }
-      .e-label {
-        float: right;
+      a:hover,
+      a.active {
+        .navbar-item-title {
+          font-size: 15px;
+        }
       }
-    }
-    a.active {
-      background-color: var(--e-grey);
-      color: var(--e-white);
-    }
-    a:hover {
-      background-color: var(--e-grey-70);
-      color: var(--e-white);
+      a.active {
+        .navbar-item-title:before {
+          background: var(--e-green);
+        }
+      }
     }
   }
 }

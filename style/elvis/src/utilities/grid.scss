@@ -54,6 +54,11 @@ THE SOFTWARE.
         margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
       }
     }
+    .row.e-vertical-gutters {
+      [class^='col'] {
+        padding-bottom: calc((#{$grid-gutter-width})) !important;
+      }
+    }
   }
   @include breakpoints.breakpoint-up(MaxDesktop) {
     $grid-gutter-width: 48px;
@@ -61,6 +66,11 @@ THE SOFTWARE.
     .row {
       &.e-grid-margin {
         margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
+      }
+    }
+    .row.e-vertical-gutters {
+      [class^='col'] {
+        padding-bottom: calc((#{$grid-gutter-width})) !important;
       }
     }
   }
@@ -72,6 +82,11 @@ THE SOFTWARE.
         margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
       }
     }
+    .row.e-vertical-gutters {
+      [class^='col'] {
+        padding-bottom: calc((#{$grid-gutter-width})) !important;
+      }
+    }
   }
 
   @include breakpoints.breakpoint-up(Mobile) {
@@ -80,6 +95,11 @@ THE SOFTWARE.
     .row {
       &.e-grid-margin {
         margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
+      }
+    }
+    .row.e-vertical-gutters {
+      [class^='col'] {
+        padding-bottom: calc((#{$grid-gutter-width})) !important;
       }
     }
   }

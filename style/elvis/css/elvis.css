@@ -8573,20 +8573,36 @@ THE SOFTWARE.
   .e-grid .row.e-grid-margin {
     margin: 0 calc(120px - (48px / 2)) !important;
   }
+
+  .e-grid .row.e-vertical-gutters [class^=col] {
+    padding-bottom: calc((48px)) !important;
+  }
 }
 @media (min-width: 1440px) {
   .e-grid .row.e-grid-margin {
     margin: 0 calc(120px - (48px / 2)) !important;
+  }
+
+  .e-grid .row.e-vertical-gutters [class^=col] {
+    padding-bottom: calc((48px)) !important;
   }
 }
 @media (max-width: 1023px) {
   .e-grid .row.e-grid-margin {
     margin: 0 calc(32px - (32px / 2)) !important;
   }
+
+  .e-grid .row.e-vertical-gutters [class^=col] {
+    padding-bottom: calc((32px)) !important;
+  }
 }
 @media (max-width: 767px) {
   .e-grid .row.e-grid-margin {
     margin: 0 calc(16px - (16px / 2)) !important;
+  }
+
+  .e-grid .row.e-vertical-gutters [class^=col] {
+    padding-bottom: calc((16px)) !important;
   }
 }
 .e-shadow-none {

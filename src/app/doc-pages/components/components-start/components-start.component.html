@@ -1,5 +1,5 @@
-<app-navbar
-    [listHeader]="'Components'"
-    [sidebarList]="pages"
-></app-navbar>
-<router-outlet></router-outlet>
+<app-page-structure [pages]="pages">
+  <ng-container ngProjectAs="pageRouterOutlet">
+    <router-outlet></router-outlet>
+  </ng-container>
+</app-page-structure>

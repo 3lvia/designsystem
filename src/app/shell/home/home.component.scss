@@ -1,10 +1,2 @@
 @import '../../shared/shared-sizes';
 @import '../../../../style/elvis/src/utilities/breakpoints.scss';
-
-.main-container {
-  margin-left: -$navbar-width;
-
-  @include breakpoint-up(Mobile) {
-    margin-left: 0;
-  }
-}

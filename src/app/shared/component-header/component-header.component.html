@@ -5,27 +5,21 @@
         <h1 class="e-title-lg">
           <ng-content select="headerTitle"></ng-content>
           <div class="e-pl-16">
-            <a *ngIf="externalUrl" href="{{externalUrl}}">
+            <a *ngIf="externalUrl" href="{{ externalUrl }}">
               <i class="e-icon e-icon--figma e-icon--md"></i>
             </a>
           </div>
         </h1>
         <div *ngIf="componentStatus != ''">
-          <span
-            class="e-label e-label--green-apple"
-            *ngIf="componentStatus === itemStatus.New"
-            >{{ componentStatus }}</span
-          >
-          <span
-            class="e-label e-label--red-tomato"
-            *ngIf="componentStatus === itemStatus.Coming"
-            >{{ componentStatus }}</span
-          >
+          <span class="e-label e-label--green-apple" *ngIf="componentStatus === itemStatus.New">
+            {{ componentStatus }}
+          </span>
+          <span class="e-label e-label--red-tomato" *ngIf="componentStatus === itemStatus.Coming">
+            {{ componentStatus }}
+          </span>
         </div>
       </div>
-      <p
-        class="component-header__description e-text-description"
-      >
+      <p class="component-header__description e-text-description">
         <span class="e-text-description">
           <ng-content select="headerDescription"></ng-content>
         </span>
@@ -36,7 +30,7 @@
             <span class="e-mr-8">
               <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green"></i>
             </span>
-            When to use: 
+            When to use:
           </span>
           <span class="e-text-description">
             <ul *ngFor="let do of does">
@@ -67,7 +61,7 @@
   <div class="component-tabs e-border-t">
     <div
       *ngFor="let tab of tabs"
-      [ngClass]="{ active: selected == tab }"
+      [ngClass]="{active: selected == tab}"
       class="component-tabs__title e-title-sm e-border"
       (click)="chooseTab(tab)"
     >

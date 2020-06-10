@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-link-doc',
