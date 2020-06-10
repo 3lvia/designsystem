@@ -45,20 +45,6 @@
 <div class="page-body">
   <app-code-block
     [isHTML]="true"
-    [code]="exampleCard"
-    [title]="'Card link'"
-    [class]="['e-link', 'e-link--card']"
-    [does]="doesExampleCard"
-    [donts]="dontsExampleCard"
-    [description]="
-      'Card links have an icon, label, and alternatively a description text. 
-      The entire card link is clickable and are useful for grouping several related pieces of information together. 
-      Card links work best when they provide summaries of many different kinds of content to choose from.
-      Use the class `e-link--delay-hover` if you want the ikon on hover to appear after scaling has happened.'
-    "
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
     [code]="example1"
     [title]="'Normal link (default)'"
     [class]="['e-link', 'e-link--lg', 'e-link--md', 'e-link--sm']"
@@ -113,6 +99,20 @@
     "
     [donts]="dontsExample6"
     [does]="doesExample6"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="exampleCard"
+    [title]="'Card link'"
+    [class]="['e-link', 'e-link--card']"
+    [does]="doesExampleCard"
+    [donts]="dontsExampleCard"
+    [description]="
+      'Card links have an icon, label, and alternatively a description text. 
+      The entire card link is clickable and are useful for grouping several related pieces of information together. 
+      Card links work best when they provide summaries of many different kinds of content to choose from.
+      Use the class `e-link--delay-hover` if you want the ikon on hover to appear after scaling has happened.'
+    "
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
