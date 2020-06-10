@@ -8,36 +8,24 @@
     }
   }
 
-  .page-card-container {
+  .page-cards {
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: auto;
-    height: 100%;
 
     @include breakpoint-up(Mobile) {
       width: 90%;
     }
 
-    .e-card {
+    .page-card-container {
       display: flex;
-      min-width: 250px;
-      max-width: 600px;
-      min-height: 200px;
-      margin: 20px 0;
+      .e-link--card {
+        margin: 24px;
+      }
     }
-  }
-}
-
-@media screen and (min-width: 1180px) {
-  .e-card {
-    width: 48%;
-  }
-}
-@media screen and (max-width: 1180px) {
-  .e-card {
-    width: 100%;
   }
 }

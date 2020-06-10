@@ -336,11 +336,6 @@ input:focus {
   margin-left: 8px;
 }
 
-.e-btn__icon i {
-  display: flex;
-  top: 0px;
-}
-
 .e-btn.e-btn--lg {
   font-size: 18px;
   line-height: 24px;
@@ -436,6 +431,7 @@ input:focus {
   position: absolute;
   display: flex;
   left: 0;
+  top: 0px;
 }
 
 .e-btn.e-btn--primary .e-btn__icon i, .e-btn .e-btn__icon i {
@@ -860,41 +856,6 @@ input:focus {
   line-height: 28px;
   font-weight: 400;
   color: #000;
-}
-
-.e-card__actions {
-  display: flex;
-  margin-top: auto;
-  /* Align buttons always to the bottom of the card */
-}
-
-.e-card__actions .e-button {
-  flex: auto;
-}
-
-.e-card__actions .e-button:not(:last-child) {
-  margin-right: 25px;
-}
-
-.e-card__actions--action {
-  flex-grow: 1;
-  margin: calc(40px * -1) calc(40px * -1);
-  padding: 13px 0;
-  border: 0;
-  border-top: 1px solid #bdbdbd;
-  border-radius: 0;
-  background: transparent;
-  color: #29d305;
-  font-weight: 500;
-  text-align: center;
-  cursor: pointer;
-  align-self: flex-end;
-  justify-content: center;
-  margin-top: 8px;
-}
-
-.e-card__actions--action:hover:not(.no-hover), .e-card__actions--action.e---hovering {
-  background-color: #eee;
 }
 
 .e-divider {
@@ -1437,6 +1398,234 @@ input:focus {
 .e-link.e-link--jumbo.e-link---hover, .e-link.e-link--jumbo:hover {
   color: #000;
   border: 2px solid #29d305;
+}
+
+.e-link.e-link--jumbo.e-link---hover .e-link__icon, .e-link.e-link--jumbo:hover .e-link__icon {
+  transform: scale(1.125);
+}
+
+.e-link.e-link--jumbo.e-link---hover .e-link__icon i, .e-link.e-link--jumbo:hover .e-link__icon i {
+  visibility: hidden;
+  transition: visibility 0.3s ease;
+}
+
+.e-link.e-link--jumbo.e-link---hover .e-link__icon i + i, .e-link.e-link--jumbo:hover .e-link__icon i + i {
+  visibility: visible;
+  transition: visibility 0.3s ease;
+}
+
+.e-link.e-link--jumbo.e-link---hover .e-link__icon.e-link--delay-hover, .e-link.e-link--jumbo:hover .e-link__icon.e-link--delay-hover {
+  transform: scale(1.125);
+}
+
+.e-link.e-link--jumbo.e-link---hover .e-link__icon.e-link--delay-hover i, .e-link.e-link--jumbo:hover .e-link__icon.e-link--delay-hover i {
+  visibility: hidden;
+  transition: visibility 0.3s ease;
+  transition-delay: 0.3s;
+}
+
+.e-link.e-link--jumbo.e-link---hover .e-link__icon.e-link--delay-hover i + i, .e-link.e-link--jumbo:hover .e-link__icon.e-link--delay-hover i + i {
+  visibility: visible;
+  transition: visibility 0.3s ease;
+  transition-delay: 0.3s;
+}
+
+.e-link.e-link--card {
+  width: unset;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  box-sizing: border-box;
+  border: none;
+  box-shadow: 0 0 0 1px transparent, 0 0 0 1px #e9e9e9;
+  border-radius: 8px;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  padding-top: 90%;
+}
+
+.e-link.e-link--card .e-link__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 6%;
+}
+
+.e-link.e-link--card .e-link__content .e-link__icon {
+  transform: scale(0.8333);
+  transition: transform 0.3s ease-in-out;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+}
+
+.e-link.e-link--card .e-link__content .e-link__icon img {
+  width: 48px;
+  height: 48px;
+}
+
+.e-link.e-link--card .e-link__content .e-link__icon i {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  display: flex;
+  left: 0;
+  top: 0px;
+  visibility: visible;
+  transition: visibility 0s;
+  transition-delay: 0s;
+}
+
+.e-link.e-link--card .e-link__content .e-link__icon i img {
+  width: 48px;
+  height: 48px;
+}
+
+.e-link.e-link--card .e-link__content .e-link__icon i + i {
+  visibility: hidden;
+  transition: visibility 0s;
+  transition-delay: 0s;
+}
+
+.e-link.e-link--card .e-link__title {
+  margin: 0;
+  margin-top: 10%;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 16px;
+  line-height: 23px;
+  font-weight: 500;
+  color: #000;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+}
+
+.e-link.e-link--card .e-link__description {
+  margin-top: 2%;
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 16px;
+  line-height: 23px;
+  font-weight: 500;
+  color: #000;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 19px;
+  letter-spacing: 0.2px;
+}
+
+.e-link.e-link--card:hover {
+  box-shadow: 0 0 0 2px #29d305;
+  cursor: pointer;
+}
+
+.e-link.e-link--card:hover .e-link__icon {
+  transform: scale(0.9166);
+}
+
+.e-link.e-link--card:hover .e-link__icon i {
+  visibility: hidden;
+  transition: visibility 0.3s ease;
+}
+
+.e-link.e-link--card:hover .e-link__icon i + i {
+  visibility: visible;
+  transition: visibility 0.3s ease;
+}
+
+.e-link.e-link--card:hover .e-link__icon.e-link--delay-hover i {
+  visibility: hidden;
+  transition: visibility 0.3s ease;
+  transition-delay: 0.3s;
+}
+
+.e-link.e-link--card:hover .e-link__icon.e-link--delay-hover i + i {
+  visibility: visible;
+  transition: visibility 0.3s ease;
+  transition-delay: 0.3s;
+}
+
+.e-link.e-link--card.e-link--shortcut {
+  box-shadow: none;
+  border: none;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+
+.e-link.e-link--card.e-link--shortcut .e-link__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.e-link.e-link--card.e-link--shortcut .e-link__content .e-link__icon {
+  transform: scale(1);
+  width: 32px;
+  height: 32px;
+}
+
+.e-link.e-link--card.e-link--shortcut .e-link__content .e-link__icon img {
+  width: 32px;
+  height: 32px;
+}
+
+.e-link.e-link--card.e-link--shortcut .e-link__content .e-link__icon i {
+  width: 32px;
+  height: 32px;
+}
+
+.e-link.e-link--card.e-link--shortcut .e-link__content .e-link__icon i img {
+  width: 32px;
+  height: 32px;
+}
+
+.e-link.e-link--card.e-link--shortcut .e-link__content .e-link__title {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 16px;
+  line-height: 23px;
+  font-weight: 500;
+  color: #000;
+  font-size: 16px;
+}
+
+.e-link.e-link--card.e-link--shortcut .e-link__content .e-link__description {
+  font-family: "Red Hat Text", sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
+}
+
+.e-link.e-link--card.e-link--shortcut:hover {
+  border-color: #29d305;
+}
+
+.e-link.e-link--card.e-link--shortcut:hover .e-link__icon {
+  transform: scale(1.125);
+}
+
+.e-link.e-link--card.e-link--shortcut:hover .e-link__icon.e-link--delay-hover {
+  transform: scale(1.125);
 }
 
 .e-p-0 {

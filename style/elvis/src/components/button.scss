@@ -61,13 +61,6 @@ $button-sm-line-height: 16px;
     margin-left: 8px;
   }
 
-  &__icon {
-    i {
-      display: flex;
-      top: 0px;
-    }
-  }
-
   &.e-btn--lg {
     font-size: $button-lg-font-size;
     line-height: $button-lg-line-height;
@@ -117,6 +110,7 @@ $button-sm-line-height: 16px;
         position: absolute;
         display: flex;
         left: 0;
+        top: 0px;
       }
       // Hiding hover ikon (only show inverted ikon)
       i {

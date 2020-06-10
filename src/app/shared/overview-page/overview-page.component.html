@@ -2,25 +2,32 @@
   <span class="main-container-title">
     <h1 class="e-title-lg">{{ overviewTitle }}</h1>
   </span>
-  <div class="page-card-container">
-    <div class="e-card e-card--on-white" *ngFor="let page of pages">
-        <div class="e-card__title">{{ page.title }}</div>
-      <div class="e-card__content">
-        {{ page.description }}
-      </div>
-      <div class="e-card__actions" *ngIf="page.docUrl && !page.absolutePath">
-        <a class="e-card__actions e-card__actions--action" [routerLink]="[page.docUrl]">
-          {{ page.actionText }}
+  <div class="page-cards">
+    <div *ngFor="let page of pages" class="page-card-container">
+      <div style="width: 150px;" class="e-mr-16" *ngIf="page.status !== 'Coming'">
+        <a class="e-link e-link--card" *ngIf="page.docUrl && !page.absolutePath" [routerLink]="[page.docUrl]">
+          <div class="e-link__content">
+            <div class="e-link__icon">
+              <img src="{{ page.imageUrl }}" />
+            </div>
+            <div class="e-link__title">{{ page.title }}</div>
+          </div>
         </a>
-      </div>
-      <div class="e-card__actions" *ngIf="page.absolutePath">
-        <a class="e-card__actions e-card__actions--action" [routerLink]="[page.absolutePath]">
-          {{ page.actionText }}
+        <a class="e-link e-link--card" *ngIf="page.absolutePath" [routerLink]="[page.absolutePath]">
+          <div class="e-link__content">
+            <div class="e-link__icon">
+              <img src="{{ page.imageUrl }}" />
+            </div>
+            <div class="e-link__title">{{ page.title }}</div>
+          </div>
         </a>
-      </div>
-      <div class="e-card__actions" *ngIf="page.externalUrl && !page.docUrl">
-        <a class="e-card__actions e-card__actions--action" href="{{ page.externalUrl }}">
-          {{ page.actionText }}
+        <a class="e-link e-link--card" *ngIf="page.externalUrl && !page.docUrl" href="{{ page.externalUrl }}">
+          <div class="e-link__content">
+            <div class="e-link__icon">
+              <img src="{{ page.imageUrl }}" />
+            </div>
+            <div class="e-link__title">{{ page.title }}</div>
+          </div>
         </a>
       </div>
     </div>

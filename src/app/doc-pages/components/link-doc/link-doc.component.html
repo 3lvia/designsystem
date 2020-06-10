@@ -1,40 +1,41 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
-  [externalUrl]="externalUrl"
->
+<app-component-header [componentStatus]="componentStatus" [externalUrl]="externalUrl">
   <ng-container ngProjectAs="headerTitle">
     Link
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     <div>
-      Links are navigational elements that take the user to a new page or context. 
-      Links can be used alone or inline with text. 
+      Links are navigational elements that take the user to a new page or context. Links can be used alone or
+      inline with text.
     </div>
     <div class="e-mt-16">
       <h3 class="e-title-sm">Link or button?</h3>
       <div class="e-text-description">
         <div>
-          Link takes you to another place while button does something. Don’t use button for navigational actions.
+          Link takes you to another place while button does something. Don’t use button for navigational
+          actions.
         </div>
         <div>
-          <b>Use Button</b>: Actions where users affect the website’s back-end or front-end
+          <b>Use Button</b>
+          : Actions where users affect the website’s back-end or front-end
         </div>
         <div>
-          <b>Use Link</b>: Actions where users won’t affect the website at all.
+          <b>Use Link</b>
+          : Actions where users won’t affect the website at all.
         </div>
       </div>
     </div>
     <div class="e-mt-16">
       <h3 class="e-title-sm">Label</h3>
-      Use meaningful labels for links and avoid terms like “click here”, and try to cut down the unnecessary words. Try to reflect the content user will find when clicking on the link.
+      Use meaningful labels for links and avoid terms like “click here”, and try to cut down the unnecessary
+      words. Try to reflect the content user will find when clicking on the link.
     </div>
     <div class="e-mt-16">
-      <b>Do: </b>
+      <b>Do:</b>
       <a class="e-link" href="https://www.elvia.no/">Se vårt strømsbruddskart</a>
     </div>
     <div class="e-mt-16">
-      <b>Dont: </b>
+      <b>Dont:</b>
       <a class="e-link" href="https://www.elvia.no/">Klikk her</a>
     </div>
   </ng-container>
@@ -44,10 +45,26 @@
 <div class="page-body">
   <app-code-block
     [isHTML]="true"
+    [code]="exampleCard"
+    [title]="'Card link'"
+    [class]="['e-link', 'e-link--card']"
+    [does]="doesExampleCard"
+    [donts]="dontsExampleCard"
+    [description]="
+      'Card links have an icon, label, and alternatively a description text. 
+      The entire card link is clickable and are useful for grouping several related pieces of information together. 
+      Card links work best when they provide summaries of many different kinds of content to choose from.
+      Use the class `e-link--delay-hover` if you want the ikon on hover to appear after scaling has happened.'
+    "
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
     [code]="example1"
     [title]="'Normal link (default)'"
     [class]="['e-link', 'e-link--lg', 'e-link--md', 'e-link--sm']"
-    [description]="'We have two different links: default and inline link. Default links stands alone and should not be used within sentences. You can also pair a default link with an icon. Inline link are used within sentences and text blocks, and will always carry the font size of the text block. They both are styled with an underline.'"
+    [description]="
+      'We have two different links: default and inline link. Default links stands alone and should not be used within sentences. You can also pair a default link with an icon. Inline link are used within sentences and text blocks, and will always carry the font size of the text block. They both are styled with an underline.'
+    "
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
@@ -61,7 +78,9 @@
     [code]="example3"
     [title]="'Back link (link with icon)'"
     [class]="['e-link', 'e-link__icon', 'e-link__title']"
-    [description]="'The element-classes e-link__icon and e-link__title will place icons correctly on either sides.'"
+    [description]="
+      'The element-classes e-link__icon and e-link__title will place icons correctly on either sides.'
+    "
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
@@ -75,7 +94,9 @@
     [code]="example5"
     [title]="'Action Link'"
     [class]="['e-link', 'e-link--action']"
-    [description]="'Action link are mostly used when you link to another page to do an action. It can also be used when you have a link alone and want it to take more attention than a regular link. Action link have an arrow icon next to it.'"
+    [description]="
+      'Action link are mostly used when you link to another page to do an action. It can also be used when you have a link alone and want it to take more attention than a regular link. Action link have an arrow icon next to it.'
+    "
     [does]="['Internal action links']"
   ></app-code-block>
   <app-code-block
@@ -85,9 +106,11 @@
     [class]="['e-link', 'e-link--jumbo']"
     [showIframeScreens]="true"
     [noTablet]="true"
-    [description]="'Jumbo link is used to create a clear overview of multiple links within the same category. 
+    [description]="
+      'Jumbo link is used to create a clear overview of multiple links within the same category. 
     The text content cannot exceed two desktop rows in the jumbo link. 
-    The desktop version will keep standard height while the mobile version will expand for text content according to the desktop limit.'"
+    The desktop version will keep standard height while the mobile version will expand for text content according to the desktop limit.'
+    "
     [donts]="dontsExample6"
     [does]="doesExample6"
   ></app-code-block>

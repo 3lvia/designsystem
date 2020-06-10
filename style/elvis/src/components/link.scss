@@ -21,8 +21,6 @@ $link-jumbo-desktop-width: 545px;
 $link-jumbo-phone-padding: 30px 24px;
 $link-jumbo-phone-width: 287px;
 
-$link-card-padding: 23px;
-
 .e-link {
   // Default for links is md
   @extend .e-link--md;
@@ -198,6 +196,177 @@ $link-card-padding: 23px;
     &:hover {
       color: colors.color('black');
       border: 2px solid colors.color('green');
+      .e-link__icon {
+        transform: scale(1.125);
+        i {
+          visibility: hidden;
+          transition: visibility 0.3s ease;
+        }
+        i + i {
+          visibility: visible;
+          transition: visibility 0.3s ease;
+        }
+      }
+      .e-link__icon.e-link--delay-hover {
+        transform: scale(1.125);
+        i {
+          visibility: hidden;
+          transition: visibility 0.3s ease;
+          transition-delay: 0.3s;
+        }
+        i + i {
+          visibility: visible;
+          transition: visibility 0.3s ease;
+          transition-delay: 0.3s;
+        }
+      }
+    }
+  }
+
+  &.e-link--card {
+    width: unset;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: colors.color('white');
+    box-sizing: border-box;
+    border: none;
+    box-shadow: 0 0 0 1px transparent, 0 0 0 1px colors.color('grey-10');
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    padding-top: 90%;
+
+    .e-link__content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 6%;
+
+      .e-link__icon {
+        transform: scale(0.8333);
+        transition: transform 0.3s ease-in-out;
+        position: relative;
+        display: flex;
+        align-items: center;
+        @include icons.icon-size('xl');
+        i {
+          @include icons.icon-size('xl');
+          position: absolute;
+          display: flex;
+          left: 0;
+          top: 0px;
+
+          // Hiding hover ikon
+          visibility: visible;
+          transition: visibility 0s;
+          transition-delay: 0s;
+        }
+        i + i {
+          visibility: hidden;
+          transition: visibility 0s;
+          transition-delay: 0s;
+        }
+      }
+    }
+    .e-link__title {
+      margin: 0;
+      margin-top: 10%;
+      @include typography.typography('text-label');
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+      letter-spacing: 0.4px;
+    }
+
+    .e-link__description {
+      margin-top: 2%;
+      @include typography.typography('text-label');
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 19px;
+      letter-spacing: 0.2px;
+    }
+    &:hover {
+      box-shadow: 0 0 0 2px colors.color('green');
+      cursor: pointer;
+      .e-link__icon {
+        transform: scale(0.9166);
+        i {
+          visibility: hidden;
+          transition: visibility 0.3s ease;
+        }
+        i + i {
+          visibility: visible;
+          transition: visibility 0.3s ease;
+        }
+      }
+      .e-link__icon.e-link--delay-hover {
+        i {
+          visibility: hidden;
+          transition: visibility 0.3s ease;
+          transition-delay: 0.3s;
+        }
+        i + i {
+          visibility: visible;
+          transition: visibility 0.3s ease;
+          transition-delay: 0.3s;
+        }
+      }
+    }
+
+    &.e-link--shortcut {
+      box-shadow: none;
+      border: none;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      position: relative;
+      width: 100%;
+      padding-top: 100%;
+
+      .e-link__content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        .e-link__icon {
+          transform: scale(1);
+          @include icons.icon-size('md');
+          i {
+            @include icons.icon-size('md');
+          }
+        }
+        .e-link__title {
+          @include typography.typography('text-label');
+          font-size: 16px;
+        }
+        .e-link__description {
+          @include typography.typography('text-info');
+        }
+      }
+      &:hover {
+        border-color: colors.color('green');
+        .e-link__icon {
+          transform: scale(1.125);
+        }
+        .e-link__icon.e-link--delay-hover {
+          transform: scale(1.125);
+        }
+      }
     }
   }
 }

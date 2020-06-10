@@ -1,25 +1,36 @@
-import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-link-doc',
   templateUrl: './link-doc.component.html',
-  styleUrls: ['./link-doc.component.scss']
+  styleUrls: ['./link-doc.component.scss'],
 })
 export class LinkDocComponent {
-
   externalUrl = getComponent('link-doc').externalUrl;
   componentStatus = getComponent('link-doc').status;
   doExample = `<a class="e-link e-link--lg" href="https://www.elvia.no/">Se vårt strømsbruddskart</a>`;
   dontExample = `<a class="e-link e-link--lg" href="https://www.elvia.no/">Klikk her</a>`;
 
-  doesExample6 = ['Use jumbo links for a group of links on the same level, to gather and provide an overview.'];
-  dontsExample6 = ['Do not use jumbo links for groups with less than three links.',
+  doesExample6 = [
+    'Use jumbo links for a group of links on the same level, to gather and provide an overview.',
+  ];
+  dontsExample6 = [
+    'Do not use jumbo links for groups with less than three links.',
     'Do not mix links that aren’t naturally grouped together in the jumbo link section.',
     // tslint:disable-next-line:max-line-length
-    'Do not mix icon jumbo link with jumbo links without icons - in that case, all jumbo links in the section should be showed without icon.'];
+    'Do not mix icon jumbo link with jumbo links without icons - in that case, all jumbo links in the section should be showed without icon.',
+  ];
   // tslint:disable-next-line:max-line-length
-  dontsExample8 = ['On actions that could have disabled state. Links do not have an disabled state, and the e-btn disabled style will not be applied on links with disabled html syntax.'];
+  dontsExample8 = [
+    'On actions that could have disabled state. Links do not have an disabled state, and the e-btn disabled style will not be applied on links with disabled html syntax.',
+  ];
+  doesExampleCard = [
+    'When you want a more visual representation of content than a list view',
+    'Shortcurts on the front page',
+    'Overview pages for content selection',
+  ];
+  dontsExampleCard = ['The card link should not be smaller than 112px wide and not larger than 360px wide.'];
 
   example1 = `<div>
   <h3 class="e-title-small">Large</h3>
@@ -149,6 +160,76 @@ export class LinkDocComponent {
 </div>
 `;
 
+  exampleCard = `<div>
+  <h3 class="e-title-small">Standard (default)</h3>
+  <div style="display: flex; align-items: flex-end;">
+    <div class="e-mr-16" style="width: 150px;">
+      <a
+        class="e-link e-link--card"
+        href="https://www.elvia.no/"
+      >
+        <div class="e-link__content">
+          <span class="e-link__icon">
+            <i class="e-icon e-icon--electricity_safety"></i>
+            <i class="e-icon e-icon--electricity_safety-color"></i>
+          </span>
+          <div class="e-link__title">Label</div>
+        </div>
+      </a>
+    </div>
+    <div style="width: 200px;">
+      <a
+        class="e-link e-link--card"
+        href="https://www.elvia.no/"
+      >
+        <div class="e-link__content">
+          <span class="e-link__icon">
+            <i class="e-icon e-icon--electricity_safety"></i>
+            <i class="e-icon e-icon--electricity_safety"></i>
+          </span>
+          <div class="e-link__title">Label</div>
+          <div class="e-link__description">Description</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+<div>
+  <h3 class="e-title-small">Shortcut</h3>
+  <div style="display: flex; align-items: flex-end;">
+    <div class="e-mr-16" style="width: 150px;">
+      <a
+        class="e-link e-link--card e-link--shortcut"
+        href="https://www.elvia.no/"
+      >
+        <div class="e-link__content">
+          <span class="e-link__icon">
+            <i class="e-icon e-icon--electricity_safety"></i>
+            <i class="e-icon e-icon--electricity_safety-color"></i>
+          </span>
+          <div class="e-link__title">Label</div>
+        </div>
+      </a>
+    </div>
+    <div style="width: 200px;">
+      <a
+        class="e-link e-link--card e-link--shortcut"
+        href="https://www.elvia.no/"
+      >
+        <div class="e-link__content">
+          <span class="e-link__icon">
+            <i class="e-icon e-icon--electricity_safety"></i>
+            <i class="e-icon e-icon--electricity_safety"></i>
+          </span>
+          <div class="e-link__title">Label</div>
+          <div class="e-link__description">Description</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+`;
+
   example7 = `<div class="e-mt-40">
   <h3 class="e-title-small">Normal link</h3>
   <a class="e-link e-link---hover e-m-8" href="https://www.elvia.no/">Hover</a>
@@ -186,7 +267,7 @@ export class LinkDocComponent {
 </div>
 `;
 
-example8 = `<div>
+  example8 = `<div>
 <a class="e-btn e-m-16" href="www.elvia.no">
   <span class="e-btn__title">Anchor tags</span>
 </a>
@@ -222,5 +303,4 @@ example8 = `<div>
   </a>
 </div>
 `;
-
 }
