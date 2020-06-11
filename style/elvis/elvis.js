@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
       function (event) {
         document.body.classList.add('e-no-outline');
       },
-      false,
+      false
     );
   }
   outlineFix();
