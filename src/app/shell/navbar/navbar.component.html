@@ -11,7 +11,7 @@
     </button>
   </span>
   <ul class="navbar-list">
-    <li class="navbar-item" *ngFor="let navbarItem of navbarItems">
+    <li class="navbar-item" *ngFor="let navbarItem of filteredPages">
       <a [routerLink]="[navbarItem.docUrl]" routerLinkActive="active">
         <span class="navbar-item-title">
           {{ navbarItem.title }}

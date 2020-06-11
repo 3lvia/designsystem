@@ -1,6 +1,8 @@
 @import '../../shared/shared-sizes.scss';
 @import '../../../../style/elvis/src/utilities/breakpoints.scss';
 
+$text-line-height: 32px;
+
 .hamburger {
   display: none;
   z-index: 1111;
@@ -14,6 +16,29 @@
 }
 
 .navbar {
+  height: calc(100% - 64px - #{$header-height});
+  top: $header-height + 64px;
+  width: 18%;
+  bottom: 0;
+  position: fixed;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 32px;
+  background: white;
+  z-index: 111;
+  &.show-header-warning {
+    height: calc(100% - 64px - #{$header-height} - 60px);
+    top: $header-height + 64px + 60px;
+
+    @include breakpoint-up(Mobile) {
+      top: $header-height + 64px + 120px;
+    }
+  }
+
+  @include breakpoint-up(MaxDesktop) {
+    width: 13%;
+  }
+
   @include breakpoint-up(Tablet) {
     display: none;
   }
@@ -43,6 +68,7 @@
   .navbar-list {
     list-style-type: none;
     padding-left: 0;
+    margin-top: 0;
 
     .navbar-item {
       margin-bottom: 4px;
@@ -51,36 +77,43 @@
         cursor: pointer;
         outline-offset: unset;
         .navbar-item-title {
+          position: relative;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
+          padding-left: 16px;
 
           font-family: 'Red Hat Text';
           font-style: normal;
           font-weight: 500;
           font-size: 14px;
-          line-height: 32px;
+          line-height: $text-line-height;
           letter-spacing: 0.012em;
         }
-        // .navbar-item-title::before {
-        //   content: '';
-        //   position: absolute;
-        //   top: 10px;
-        //   width: 8px;
-        //   height: 8px;
-        //   background-color: var(--e-green);
-        //   border-radius: 50%;
-        // }
       }
       a:hover,
       a.active {
         .navbar-item-title {
           font-size: 15px;
         }
+        .navbar-item-title:before {
+          content: '';
+          position: absolute;
+          left: 0px;
+          top: calc((#{$text-line-height} / 2) - 8px - 2px);
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          border: 2px solid var(--e-green);
+        }
       }
       a.active {
+        .navbar-item-title {
+          font-size: 14px;
+          font-weight: 700;
+        }
         .navbar-item-title:before {
-          background: var(--e-green);
+          background-color: var(--e-green);
         }
       }
     }

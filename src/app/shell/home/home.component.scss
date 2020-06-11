@@ -1,2 +1,11 @@
 @import '../../shared/shared-sizes';
 @import '../../../../style/elvis/src/utilities/breakpoints.scss';
+
+@media (max-width: 600px) {
+  .col-sm-4 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}

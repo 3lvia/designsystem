@@ -54,9 +54,11 @@ THE SOFTWARE.
         margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
       }
     }
-    .row.e-vertical-gutters {
+    .row.e-custom-gutters {
       [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width})) !important;
+        padding-bottom: #{$grid-gutter-width} !important;
+        padding-right: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-left: calc((#{$grid-gutter-width} / 2)) !important;
       }
     }
   }
@@ -68,9 +70,11 @@ THE SOFTWARE.
         margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
       }
     }
-    .row.e-vertical-gutters {
+    .row.e-custom-gutters {
       [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width})) !important;
+        padding-bottom: #{$grid-gutter-width} !important;
+        padding-right: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-left: calc((#{$grid-gutter-width} / 2)) !important;
       }
     }
   }
@@ -82,9 +86,11 @@ THE SOFTWARE.
         margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
       }
     }
-    .row.e-vertical-gutters {
+    .row.e-custom-gutters {
       [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width})) !important;
+        padding-bottom: #{$grid-gutter-width} !important;
+        padding-right: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-left: calc((#{$grid-gutter-width} / 2)) !important;
       }
     }
   }
@@ -97,9 +103,11 @@ THE SOFTWARE.
         margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
       }
     }
-    .row.e-vertical-gutters {
+    .row.e-custom-gutters {
       [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width})) !important;
+        padding-bottom: #{$grid-gutter-width} !important;
+        padding-right: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-left: calc((#{$grid-gutter-width} / 2)) !important;
       }
     }
   }

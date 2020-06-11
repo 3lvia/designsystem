@@ -1,25 +1,13 @@
 <div class="page-body" @sectionAnimation>
   <div class="e-grid e-mt-56">
     <div class="row">
-      <h2 class="e-title-md e-mb-40">{{ overviewTitle }}</h2>
+      <div class="col">
+        <h2 class="e-title-md e-mb-40">{{ overviewTitle }}</h2>
+      </div>
     </div>
-    <div class="row e-vertical-gutters">
-      <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4" *ngFor="let page of pages">
-        <div style="max-width: 154px; min-width: 102px;">
-          <a
-            class="e-link e-link--card e-link--shortcut"
-            *ngIf="page.docUrl && !page.absolutePath"
-            [routerLink]="[page.docUrl]"
-          >
-            <div class="e-link__content">
-              <div class="e-link__icon">
-                <img src="{{ page.imageUrl }}" />
-              </div>
-              <div class="e-link__title">{{ page.title }}</div>
-            </div>
-          </a>
-        </div>
-        <div style="max-width: 154px; min-width: 102px;">
+    <div class="row e-custom-gutters">
+      <div class="col-xs-6 col-sm-4" *ngFor="let page of pages">
+        <div style="max-width: 180px;">
           <a
             class="e-link e-link--card e-link--shortcut"
             *ngIf="page.absolutePath"
@@ -27,13 +15,13 @@
           >
             <div class="e-link__content">
               <div class="e-link__icon">
-                <img src="{{ page.imageUrl }}" />
+                <img src="{{ page.imageUrl }}" alt="" />
               </div>
               <div class="e-link__title">{{ page.title }}</div>
             </div>
           </a>
         </div>
-        <div style="max-width: 154px; min-width: 102px;">
+        <div style="max-width: 180px;">
           <a
             class="e-link e-link--card e-link--shortcut"
             *ngIf="page.externalUrl && !page.docUrl"
@@ -41,7 +29,7 @@
           >
             <div class="e-link__content">
               <div class="e-link__icon">
-                <img src="{{ page.imageUrl }}" />
+                <img src="{{ page.imageUrl }}" alt="" />
               </div>
               <div class="e-link__title">{{ page.title }}</div>
             </div>

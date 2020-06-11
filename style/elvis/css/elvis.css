@@ -8574,8 +8574,10 @@ THE SOFTWARE.
     margin: 0 calc(120px - (48px / 2)) !important;
   }
 
-  .e-grid .row.e-vertical-gutters [class^=col] {
-    padding-bottom: calc((48px)) !important;
+  .e-grid .row.e-custom-gutters [class^=col] {
+    padding-bottom: 48px !important;
+    padding-right: calc((48px / 2)) !important;
+    padding-left: calc((48px / 2)) !important;
   }
 }
 @media (min-width: 1440px) {
@@ -8583,8 +8585,10 @@ THE SOFTWARE.
     margin: 0 calc(120px - (48px / 2)) !important;
   }
 
-  .e-grid .row.e-vertical-gutters [class^=col] {
-    padding-bottom: calc((48px)) !important;
+  .e-grid .row.e-custom-gutters [class^=col] {
+    padding-bottom: 48px !important;
+    padding-right: calc((48px / 2)) !important;
+    padding-left: calc((48px / 2)) !important;
   }
 }
 @media (max-width: 1023px) {
@@ -8592,8 +8596,10 @@ THE SOFTWARE.
     margin: 0 calc(32px - (32px / 2)) !important;
   }
 
-  .e-grid .row.e-vertical-gutters [class^=col] {
-    padding-bottom: calc((32px)) !important;
+  .e-grid .row.e-custom-gutters [class^=col] {
+    padding-bottom: 32px !important;
+    padding-right: calc((32px / 2)) !important;
+    padding-left: calc((32px / 2)) !important;
   }
 }
 @media (max-width: 767px) {
@@ -8601,8 +8607,10 @@ THE SOFTWARE.
     margin: 0 calc(16px - (16px / 2)) !important;
   }
 
-  .e-grid .row.e-vertical-gutters [class^=col] {
-    padding-bottom: calc((16px)) !important;
+  .e-grid .row.e-custom-gutters [class^=col] {
+    padding-bottom: 16px !important;
+    padding-right: calc((16px / 2)) !important;
+    padding-left: calc((16px / 2)) !important;
   }
 }
 .e-shadow-none {
