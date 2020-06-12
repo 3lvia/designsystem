@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { getUtilities } from 'src/app/shared/e-items';
+import {Component} from '@angular/core';
+import {getUtilities} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-favicon-doc',
   templateUrl: './favicon-doc.component.html',
-  styleUrls: ['./favicon-doc.component.scss']
+  styleUrls: ['./favicon-doc.component.scss'],
 })
 export class FaviconDocComponent {
-
   componentStatus = getUtilities('favicon-doc').status;
 
   faviconTS = `isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').addListener(
@@ -32,5 +31,4 @@ handleMode(darkMode) {
 `;
   faviconHTML = `<link id="favicon" rel="icon" href="/favicon.ico" type="image/x-icon">
 `;
-
 }

@@ -1,15 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { TabNames } from 'src/app/shared/tab-names.enums';
-import { getUtilities } from 'src/app/shared/e-items';
-import { spacingItems } from './spacing';
+import {Component, Input} from '@angular/core';
+import {TabNames} from 'src/app/shared/tab-names.enums';
+import {getUtilities} from 'src/app/shared/e-items';
+import {spacingItems} from './spacing';
 
 @Component({
   selector: 'app-spacing-doc',
   templateUrl: './spacing-doc.component.html',
-  styleUrls: ['./spacing-doc.component.scss']
+  styleUrls: ['./spacing-doc.component.scss'],
 })
 export class SpacingDocComponent {
-
   @Input() selected = TabNames.Overview;
 
   spacingItems = spacingItems;
@@ -31,5 +30,4 @@ margin:  var(--e-m-48);`;
 <span class="e-p-56 e-my-16 e-bg-red example-box unset"></span>
 <span class="e-p-64 e-my-16 e-bg-red example-box unset"></span>
 <span class="e-p-72 e-my-16 e-bg-red example-box unset"></span>`;
-
 }

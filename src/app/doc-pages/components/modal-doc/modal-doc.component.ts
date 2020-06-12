@@ -1,13 +1,12 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component, ViewChild, ElementRef} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-modal-doc',
   templateUrl: './modal-doc.component.html',
-  styleUrls: ['./modal-doc.component.scss']
+  styleUrls: ['./modal-doc.component.scss'],
 })
 export class ModalDocComponent {
-
   @ViewChild('modal1') modal1: ElementRef;
   @ViewChild('modal2') modal2: ElementRef;
   @ViewChild('modal3') modal3: ElementRef;
@@ -15,9 +14,13 @@ export class ModalDocComponent {
   externalUrl = getComponent('modal-doc').externalUrl;
   componentStatus = getComponent('modal-doc').status;
   // tslint:disable-next-line:max-line-length
-  does = ['Where we need the user to make an active choice before continuing, or when a wrong decision can be critical.'];
+  does = [
+    'Where we need the user to make an active choice before continuing, or when a wrong decision can be critical.',
+  ];
   // tslint:disable-next-line:max-line-length
-  donts = ['Be careful with the use of modals, as it can be disruptive to have something lying across the screen many times in a row.'];
+  donts = [
+    'Be careful with the use of modals, as it can be disruptive to have something lying across the screen many times in a row.',
+  ];
 
   example1 = `<div class="e-modal e-modal---visible">
   <div class="e-modal__content">
@@ -124,5 +127,4 @@ export class ModalDocComponent {
       }
     }
   }
-
 }

@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {eHomes} from 'src/app/shared/e-items';
-import {SectionAnimation} from 'src/app/shared/animations';
+import { Component } from '@angular/core';
+import { eHomes } from 'src/app/shared/e-items';
+import { SectionAnimation } from 'src/app/shared/animations';
 
 @Component({
   selector: 'app-home',

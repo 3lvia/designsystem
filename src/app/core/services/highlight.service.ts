@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 
 import 'clipboard';
 
@@ -16,12 +16,10 @@ import 'prismjs/components/prism-scss';
 declare let Prism: any;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HighlightService {
-
   highlightAll(): void {
     Prism.highlightAll();
   }
-
 }

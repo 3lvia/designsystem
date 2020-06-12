@@ -1,13 +1,12 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component, ViewChild, ElementRef} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-position-picker-doc',
   templateUrl: './position-picker-doc.component.html',
-  styleUrls: ['./position-picker-doc.component.scss']
+  styleUrls: ['./position-picker-doc.component.scss'],
 })
 export class PositionPickerDocComponent {
-
   @ViewChild('mapModal') mapModal: ElementRef;
   showPosition = false;
 
@@ -42,7 +41,7 @@ export class PositionPickerDocComponent {
 </div>
 `;
 
-exampleTSCode = `
+  exampleTSCode = `
 @ViewChild('mapModal') mapModal: ElementRef;
 showPosition = false;
 
@@ -62,7 +61,7 @@ closeModal(modal: string) {
 }
 `;
 
-exampleHTMLCode = `
+  exampleHTMLCode = `
 <div class="e-position-picker">
 <div class="e-position-picker__icon" *ngIf="!showPosition">
   <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>
@@ -114,5 +113,4 @@ exampleHTMLCode = `
       }
     }
   }
-
 }

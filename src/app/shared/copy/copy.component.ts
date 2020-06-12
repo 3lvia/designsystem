@@ -1,12 +1,11 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-copy',
   templateUrl: './copy.component.html',
-  styleUrls: ['./copy.component.scss']
+  styleUrls: ['./copy.component.scss'],
 })
 export class CopyComponent {
-
   @Input() message = '';
 
   copyTooltip = 'Copy';
@@ -32,5 +31,4 @@ export class CopyComponent {
     document.execCommand('copy');
     document.body.removeChild(selBox);
   }
-
 }

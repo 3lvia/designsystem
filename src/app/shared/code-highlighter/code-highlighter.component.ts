@@ -1,13 +1,12 @@
-import { Component, Input, AfterViewChecked } from '@angular/core';
-import { HighlightService } from 'src/app/core/services/highlight.service';
+import {Component, Input, AfterViewChecked} from '@angular/core';
+import {HighlightService} from 'src/app/core/services/highlight.service';
 
 @Component({
   selector: 'app-code-highlighter',
   templateUrl: './code-highlighter.component.html',
-  styleUrls: ['./code-highlighter.component.scss']
+  styleUrls: ['./code-highlighter.component.scss'],
 })
 export class CodeHighlighterComponent implements AfterViewChecked {
-
   @Input() isTS = false;
   @Input() isHTML = false;
   @Input() isSCSS = false;
@@ -15,7 +14,7 @@ export class CodeHighlighterComponent implements AfterViewChecked {
 
   highlighted = false;
 
-  constructor(private highlightService: HighlightService) { }
+  constructor(private highlightService: HighlightService) {}
 
   ngAfterViewChecked(): void {
     if (!this.highlighted) {
@@ -23,5 +22,4 @@ export class CodeHighlighterComponent implements AfterViewChecked {
       this.highlighted = true;
     }
   }
-
 }

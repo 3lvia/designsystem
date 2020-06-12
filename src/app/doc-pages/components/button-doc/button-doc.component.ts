@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-button-doc',
@@ -7,19 +7,30 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./button-doc.component.scss'],
 })
 export class ButtonDocComponent {
-
   externalUrl = getComponent('button-doc').externalUrl;
   componentStatus = getComponent('button-doc').status;
   // tslint:disable-next-line:max-line-length
-  doesExample1 = ['Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions. It is often the primary positive action of a use case. Can be used alone, or combined with a secondary and link style button.'];
+  doesExample1 = [
+    'Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions. It is often the primary positive action of a use case. Can be used alone, or combined with a secondary and link style button.',
+  ];
   // tslint:disable-next-line:max-line-length
-  doesExample2 = ['Secondary buttons are similar to primary buttons but is used as a supportive action, or for less important actions. Can be used alone, or combined with a primary og link styled button.'];
+  doesExample2 = [
+    'Secondary buttons are similar to primary buttons but is used as a supportive action, or for less important actions. Can be used alone, or combined with a primary og link styled button.',
+  ];
   // tslint:disable-next-line:max-line-length
-  dontsExampleIcon = ['Unknown icon that is not descriptive alone without text.', 'Don’t use both transparent and circle icons next to each other in a group'];
+  dontsExampleIcon = [
+    'Unknown icon that is not descriptive alone without text.',
+    'Don’t use both transparent and circle icons next to each other in a group',
+  ];
   // tslint:disable-next-line:max-line-length
-  doesExampleIcon = ['Known actions that do not attract much attention.', 'Different actions grouped together (example: A table where you can delete, edit and move)'];
+  doesExampleIcon = [
+    'Known actions that do not attract much attention.',
+    'Different actions grouped together (example: A table where you can delete, edit and move)',
+  ];
   // tslint:disable-next-line:max-line-length
-  dontsExample7 = ['On actions that could have disabled state. Links do not have an disabled state, and the e-btn disabled style will not be applied on links with disabled html syntax.'];
+  dontsExample7 = [
+    'On actions that could have disabled state. Links do not have an disabled state, and the e-btn disabled style will not be applied on links with disabled html syntax.',
+  ];
   public clicked = false;
 
   example1 = `<div>
@@ -143,7 +154,7 @@ export class ButtonDocComponent {
 </div>
 `;
 
-example3 = `<div>
+  example3 = `<div>
   <h3 class="e-title-small">Large</h3>
   <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
     <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
@@ -193,7 +204,7 @@ example3 = `<div>
 </div>
 `;
 
-exampleIcon = `<div>
+  exampleIcon = `<div>
   <div>
     <h3 class="e-title-small">Large</h3>
     <button class="e-btn e-btn--icon e-btn--lg e-m-16">
@@ -295,7 +306,7 @@ exampleIcon = `<div>
 </div>
 `;
 
-example7 = `<div>
+  example7 = `<div>
 <a class="e-btn e-m-16" href="www.elvia.no">
   <span class="e-btn__title">Anchor tags</span>
 </a>
@@ -425,5 +436,4 @@ example7 = `<div>
   </div>
 </div>
 `;
-
 }

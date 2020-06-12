@@ -1,14 +1,12 @@
-import { Component, Input, AfterViewInit, ViewChild, OnInit } from '@angular/core';
-import { heightDown } from 'src/app/shared/animations';
+import {Component, Input, AfterViewInit, ViewChild, OnInit} from '@angular/core';
+import {heightDown} from 'src/app/shared/animations';
 
 @Component({
   selector: 'app-code-block',
   templateUrl: './code-block.component.html',
   styleUrls: ['./code-block.component.scss'],
-  animations: [heightDown]
+  animations: [heightDown],
 })
-
-
 export class CodeBlockComponent implements OnInit, AfterViewInit {
   @ViewChild('defaultFrame') defaultFrame;
   @Input() title = '';
@@ -34,7 +32,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.codepen = this.getCodePen(this.code, this.title);
-    
+
     if (!this.showIframeScreens) {
       return;
     }
@@ -49,7 +47,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     if (this.noTablet && this.noDesktop) {
       this.screen = 'phone';
       this.showTabs = false;
-    }    
+    }
   }
 
   ngAfterViewInit(): void {
@@ -59,12 +57,11 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   }
 
   getCodePen(code: string, title: string): string {
-    title = title ? title : "Example";
+    title = title ? title : 'Example';
     const html = `${code}
 <script src="https://unpkg.com/@elvia/elvis@latest/elvis.js"></script>
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/@elvia/elvis@latest/css/elvis.min.css" />
     `;
-    return JSON.stringify({ "title": title, html: html});
+    return JSON.stringify({title: title, html: html});
   }
 }
-

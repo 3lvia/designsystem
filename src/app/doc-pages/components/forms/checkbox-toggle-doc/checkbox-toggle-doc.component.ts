@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-checkbox-toggle-doc',
   templateUrl: './checkbox-toggle-doc.component.html',
-  styleUrls: ['./checkbox-toggle-doc.component.scss']
+  styleUrls: ['./checkbox-toggle-doc.component.scss'],
 })
 export class CheckboxToggleDocComponent {
-
   externalUrl = getComponent('checkbox-toggle-doc').externalUrl;
   componentStatus = getComponent('checkbox-toggle-doc').status;
 
@@ -26,5 +25,4 @@ export class CheckboxToggleDocComponent {
   </label>
 </div>
 `;
-
 }

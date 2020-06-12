@@ -1,15 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { TabNames } from 'src/app/shared/tab-names.enums';
-import { getUtilities } from 'src/app/shared/e-items';
-import { primaryColors, signalColors, dataColors, greysColors } from './color';
+import {Component, Input} from '@angular/core';
+import {TabNames} from 'src/app/shared/tab-names.enums';
+import {getUtilities} from 'src/app/shared/e-items';
+import {primaryColors, signalColors, dataColors, greysColors} from './color';
 
 @Component({
   selector: 'app-color-doc',
   templateUrl: './color-doc.component.html',
-  styleUrls: ['./color-doc.component.scss']
+  styleUrls: ['./color-doc.component.scss'],
 })
 export class ColorDocComponent {
-
   @Input() selected = TabNames.Overview;
 
   primaryColors = primaryColors;
@@ -33,5 +32,4 @@ color: var(--e-text-red);`;
 <span class="e-bg-orange e-mb-16 e-mt-16 e-p-16 example-box">Text</span>
 <span class="e-bg-red e-mb-16 e-mt-16 e-p-16 example-box">Text</span>
 <span class="e-bg-black e-mb-16 e-mt-16 e-p-16 example-box">Text</span>`;
-
 }

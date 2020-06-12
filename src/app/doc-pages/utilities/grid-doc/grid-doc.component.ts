@@ -1,14 +1,13 @@
-import { Component } from '@angular/core';
-import { getUtilities } from 'src/app/shared/e-items';
-import { TabNames } from 'src/app/shared/tab-names.enums';
+import {Component} from '@angular/core';
+import {getUtilities} from 'src/app/shared/e-items';
+import {TabNames} from 'src/app/shared/tab-names.enums';
 
 @Component({
   selector: 'app-grid-doc',
   templateUrl: './grid-doc.component.html',
-  styleUrls: ['./grid-doc.component.scss']
+  styleUrls: ['./grid-doc.component.scss'],
 })
 export class GridDocComponent {
-
   tabNames = TabNames;
   selected = TabNames.Overview;
   tabs = [TabNames.Overview, TabNames.Guidelines];
@@ -290,5 +289,4 @@ export class GridDocComponent {
   </div>
 </div>
 `;
-
 }

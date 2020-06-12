@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-draganddrop-doc',
   templateUrl: './draganddrop-doc.component.html',
-  styleUrls: ['./draganddrop-doc.component.scss']
+  styleUrls: ['./draganddrop-doc.component.scss'],
 })
 export class DraganddropDocComponent {
-
   externalUrl = getComponent('checkbox-toggle-doc').externalUrl;
   componentStatus = getComponent('checkbox-toggle-doc').status;
 
@@ -16,5 +15,4 @@ export class DraganddropDocComponent {
 
   example2 = `<div class="e-dragdrop e-dragdrop---hover" style="width:300px; height:150px">
   </div>`;
-
 }

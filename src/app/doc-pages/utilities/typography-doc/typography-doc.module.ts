@@ -14,8 +14,8 @@ import { IframePreviewModule } from 'src/app/shared/iframe-preview/iframe-previe
     CodeBlockModule,
     CopyModule,
     IframeScreenModule,
-    IframePreviewModule
+    IframePreviewModule,
   ],
-  declarations: [TypographyDocComponent]
+  declarations: [TypographyDocComponent],
 })
 export class TypographyDocModule { }

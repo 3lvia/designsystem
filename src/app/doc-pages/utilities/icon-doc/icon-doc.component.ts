@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Icon } from 'src/app/shared/icon.interface';
-import { TabNames } from 'src/app/shared/tab-names.enums';
-import { getUtilities } from 'src/app/shared/e-items';
-import * as icons from 'style/elvis/src/icons/icons.config';
+import {Component, Input, OnInit} from '@angular/core';
+import {Icon} from 'src/app/shared/icon.interface';
+import {TabNames} from 'src/app/shared/tab-names.enums';
+import {getUtilities} from 'src/app/shared/e-items';
+import * as icons from 'style/elvis/src/config/icons.config';
 
 @Component({
   selector: 'app-icon-doc',
@@ -26,7 +26,6 @@ export class IconDocComponent implements OnInit {
 <i class="e-icon e-icon--move_truck-color e-icon--xs"></i>
 <i class="e-icon e-icon--move_truck-color e-icon--xxs"></i>`;
 
-
   example2 = `<div class="e-p-8">
   <i class="e-icon e-icon--cog e-icon--xxl e-icon--color-purple-plum"></i>
   <i class="e-icon e-icon--cog e-icon--xl e-icon--color-orange-mango"></i>
@@ -38,7 +37,7 @@ export class IconDocComponent implements OnInit {
 </div>
 `;
 
-example3 = `<div class="e-bg-black e-p-8">
+  example3 = `<div class="e-bg-black e-p-8">
   <i class="e-icon e-icon--chat e-icon--inverted"></i>
 </div>
 <div class="e-p-8">
@@ -48,7 +47,7 @@ example3 = `<div class="e-bg-black e-p-8">
   <i class="e-icon e-icon--chat e-icon--color-disabled-light"></i>
 </div>`;
 
-example4 = `<i class="e-icon e-icon--mail"></i>
+  example4 = `<i class="e-icon e-icon--mail"></i>
 <i class="e-icon e-icon--mail e-icon--color-grey-90"></i>
 <i class="e-icon e-icon--mail e-icon--color-grey-80"></i>
 <i class="e-icon e-icon--mail e-icon--color-grey-70"></i>
@@ -69,7 +68,6 @@ example4 = `<i class="e-icon e-icon--mail"></i>
     this.fillIconList();
   }
 
-
   invert(): void {
     this.inverted = !this.inverted;
   }
@@ -80,10 +78,8 @@ example4 = `<i class="e-icon e-icon--mail"></i>
     return short.charAt(0).toUpperCase() + short.slice(1);
   }
 
-
   fillIconList(): void {
     this.svgIcons = [];
-
 
     for (const icon of icons) {
       if (icon.name.indexOf('figma') > -1) {
@@ -99,7 +95,7 @@ example4 = `<i class="e-icon e-icon--mail"></i>
     this.svgIcons.sort((icon: any, icon2: any) => {
       const a = icon.title.toLowerCase();
       const b = icon2.title.toLowerCase();
-      return (a < b) ? -1 : (a > b ) ? 1 : 0;
+      return a < b ? -1 : a > b ? 1 : 0;
     });
   }
 }

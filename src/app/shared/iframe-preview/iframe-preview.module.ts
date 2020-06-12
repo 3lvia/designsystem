@@ -7,6 +7,6 @@ import { IframePreviewComponent } from './iframe-preview.component';
     CommonModule,
   ],
   declarations: [IframePreviewComponent],
-  exports: [IframePreviewComponent]
+  exports: [IframePreviewComponent],
 })
 export class IframePreviewModule { }

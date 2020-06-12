@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-table-doc',
   templateUrl: './table-doc.component.html',
-  styleUrls: ['./table-doc.component.scss']
+  styleUrls: ['./table-doc.component.scss'],
 })
 export class TableDocComponent {
-
   externalUrl = getComponent('table-doc').externalUrl;
   componentStatus = getComponent('table-doc').status;
   does = ['Tables should be used when displaying large amounts of data to the user.'];
@@ -140,5 +139,4 @@ export class TableDocComponent {
   </table>
 </div>
 `;
-
 }

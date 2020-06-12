@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-notification-dot-doc',
   templateUrl: './notification-dot-doc.component.html',
-  styleUrls: ['./notification-dot-doc.component.scss']
+  styleUrls: ['./notification-dot-doc.component.scss'],
 })
 export class NotificationDotDocComponent {
-
   componentStatus = getComponent('notification-dot-doc').status;
 
   example1 = `<div class="example-margin">
@@ -24,5 +23,4 @@ export class NotificationDotDocComponent {
   <i class="fal fa-bars"><span class="e-notification-dot"></span></i>
 </div>
 `;
-
 }

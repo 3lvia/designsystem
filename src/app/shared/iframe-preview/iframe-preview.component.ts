@@ -3,10 +3,11 @@ import { Component, Input, ViewChild, AfterViewInit } from '@angular/core';
 @Component({
   selector: 'app-iframe-preview',
   templateUrl: './iframe-preview.component.html',
-  styleUrls: ['./iframe-preview.component.scss']
+  styleUrls: ['./iframe-preview.component.scss'],
 })
 export class IframePreviewComponent implements AfterViewInit {
   @Input() code = '';
+  @Input() class = '';
   @ViewChild('preview') preview;
 
   ngAfterViewInit(): void {
@@ -18,10 +19,10 @@ export class IframePreviewComponent implements AfterViewInit {
     doc.open();
     doc.write(`<html><head>
     ${window.document.head.innerHTML}
-    </head><body><div id="height">${this.code}<div></body></html>`);
+    </head><body><div class="${this.class}" style="
+    width: fit-content" id="height">${this.code}<div></body></html>`);
     doc.close();
     const contentHeight = window.getComputedStyle(doc.getElementById('height')).height;
     this.preview.nativeElement.style.height = `${contentHeight}`;
   }
-
 }

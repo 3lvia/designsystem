@@ -1,20 +1,23 @@
-import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-input-doc',
   templateUrl: './input-doc.component.html',
-  styleUrls: ['./input-doc.component.scss']
+  styleUrls: ['./input-doc.component.scss'],
 })
 export class InputDocComponent {
-
   headerDoes = 'A input should be used';
   headerDonts = 'A label should not be used';
 
   externalUrl = getComponent('input-doc').externalUrl;
   componentStatus = getComponent('input-doc').status;
-  does = ['Text fields should be used in forms where the user has to fill in something that is not from a set of choices.'];
-  donts = ['If the user can choose from a set of options, use dropdown, radio buttons, checkboxes, or auto-complete fields instead.'];
+  does = [
+    'Text fields should be used in forms where the user has to fill in something that is not from a set of choices.',
+  ];
+  donts = [
+    'If the user can choose from a set of options, use dropdown, radio buttons, checkboxes, or auto-complete fields instead.',
+  ];
 
   example1 = `<div class="e-form-field">
   <label class="e-form-field__label" for="normal">Normal input field </label>
@@ -64,7 +67,7 @@ export class InputDocComponent {
 </div>
 `;
 
-example4 = `<div class="e-form-field">
+  example4 = `<div class="e-form-field">
   <label class="e-form-field__label" for="password">Password input field</label>
   <div class="e-input">
     <span><i class="e-icon e-icon--lock e-icon--xs"></i></span>
@@ -88,7 +91,7 @@ example4 = `<div class="e-form-field">
 </div>
 `;
 
-example5 = `<div class="e-form-field">
+  example5 = `<div class="e-form-field">
   <label class="e-form-field__label e-form-field__label--optional" for="textarea">Textarea</label>
   <div class="e-input">
     <textarea id="textarea" placeholder="Placeholder text" type="text"></textarea>
@@ -96,7 +99,7 @@ example5 = `<div class="e-form-field">
 </div>
 `;
 
-example6 = `
+  example6 = `
 <div class="e-form-field">
   <label class="e-form-field__label" for="pseudo-focus">Focus</label>
   <div class="e-input e-input---focus">
@@ -116,6 +119,4 @@ example6 = `
   </div>
 </div>
 `;
-
 }
-

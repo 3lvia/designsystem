@@ -4,9 +4,9 @@ import { CopyComponent } from './copy.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [CopyComponent],
-  declarations: [CopyComponent]
+  declarations: [CopyComponent],
 })
 export class CopyModule { }

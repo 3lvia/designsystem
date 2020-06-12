@@ -1,25 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   title = 'elvia-designsystem';
 
-  isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').addListener(
-    e => e.matches && this.handleMode(e.matches)
-  );
-  isLightMode = window.matchMedia('(prefers-color-scheme: light)').addListener(
-    e => e.matches && this.handleMode(!e.matches)
-  );
+  isDarkMode = window
+    .matchMedia('(prefers-color-scheme: dark)')
+    .addListener((e) => e.matches && this.handleMode(e.matches));
+  isLightMode = window
+    .matchMedia('(prefers-color-scheme: light)')
+    .addListener((e) => e.matches && this.handleMode(!e.matches));
 
   ngOnInit(): void {
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
     this.handleMode(darkMode.matches);
   }
-
 
   handleMode(darkMode: boolean): void {
     const favicon = document.querySelector('link[rel="icon"]');

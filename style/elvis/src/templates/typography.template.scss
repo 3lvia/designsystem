@@ -1,0 +1,54 @@
+@use "sass:map";
+@use './colors.scss';
+@use '../utilities/breakpoints.scss';
+
+$font-family: 'Red Hat Display', sans-serif;
+$font-family-secondary: 'Red Hat Text', sans-serif;
+
+@function getValue($name, $value) {
+  $typography-map: null;
+
+  @if map-has-key($typography, $name) {
+    $typography-map: map-get($typography, $name);
+  } @else {
+    @each $label, $map in $typography {
+      @if map-has-key($typography, alt-labels) {
+        @if contains(map-get($map, alt-labels), $name) {
+          $typography-map: $map;
+        }
+      }
+    }
+  }
+
+  @if not $typography-map {
+    @warn 'the typography variable "#{$name}" was not found';
+    @return null;
+  }
+
+  @return map-get($typography-map, $value);
+}
+
+@mixin typography($name) {
+  font-family: getValue($name, family);
+  font-size: getValue($name, size);
+  line-height: getValue($name, height);
+  font-weight: getValue($name, weight);
+  color: getValue($name, color);
+  font-style: getValue($name, style);
+  letter-spacing: getValue($name, letter-spacing);
+  text-transform: getValue($name, transform);
+  @include breakpoints.breakpoint-up(Mobile) {
+    font-size: getValue($name, size-m);
+    line-height: getValue($name, height-m);
+  }
+}
+
+body {
+  font-family: $font-family;
+  color: #000;
+}
+
+//[[INJECT_TYPOGRAPHY_VARIABLES]]
+
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap');

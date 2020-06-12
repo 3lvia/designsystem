@@ -1,19 +1,23 @@
-@import "../../../shared/shared-animations";
+@import '../../../shared/shared-animations';
 
 .example-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  
+
   .container {
     display: flex;
     flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
 
     .row {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
 
       .e-divider {
         width: 100%;
@@ -25,13 +29,16 @@
       .example {
         width: 48%;
         margin: var(--e-spacing-40) 0;
-        cursor: pointer;
-      
+
         @extend %scale-up-09;
-        &:hover {
-          @extend %scale-down-09;
+
+        &-text {
+          width: fit-content;
+          &:hover {
+            @extend %scale-down-09;
+          }
         }
-      
+
         &-title {
           color: var(--e-grey-50);
         }
@@ -43,4 +50,16 @@
     }
   }
 }
-
+.mobileCopy {
+  display: flex;
+  position: relative;
+  width: fit-content;
+}
+.copyMessage {
+  display: flex;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+}

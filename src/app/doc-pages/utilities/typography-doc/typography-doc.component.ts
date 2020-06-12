@@ -1,21 +1,19 @@
-import { Component, Input, ElementRef , QueryList, ViewChildren, } from '@angular/core';
+import { Component, Input, ElementRef, QueryList, ViewChildren, OnInit } from '@angular/core';
 import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getUtilities } from 'src/app/shared/e-items';
-import { typographyItems } from './typography';
-import { Typography } from './typography.interface';
+import * as typography from 'style/elvis/src/config/typography.config';
 
 @Component({
   selector: 'app-typography-doc',
   templateUrl: './typography-doc.component.html',
-  styleUrls: ['./typography-doc.component.scss']
+  styleUrls: ['./typography-doc.component.scss'],
 })
-export class TypographyDocComponent  {
-
+export class TypographyDocComponent implements OnInit {
   @Input() selected = TabNames.Overview;
   @ViewChildren('toCopy') toCopy: QueryList<ElementRef>;
   @ViewChildren('mobileTypography') mobileTypography: QueryList<ElementRef>;
 
-  typographyItems = typographyItems;
+  typographyClasses = [];
   tabNames = TabNames;
   tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   externalUrl = getUtilities('typography-doc').externalUrl;
@@ -35,8 +33,14 @@ eller isolasjonssvikt i det elektriske anlegget eller tilknyttet utstyr. </p>
   example3 = `<p class="e-text-label">Label title</p>
 <p class="e-text-option">Placeholder text</p>`;
 
-  getCodeExample(t: Typography): string {
-    return `<p class="e-${t.title}">${t.example}</p>`;
+  ngOnInit(): void {
+    this.fillTypography();
   }
 
+  fillTypography(): void {
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < typography.length; i++) {
+      this.typographyClasses.push(typography[i]);
+    }
+  }
 }

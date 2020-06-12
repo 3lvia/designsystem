@@ -1,18 +1,18 @@
-import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-segmented-controls-doc',
   templateUrl: './segmented-controls-doc.component.html',
-  styleUrls: ['./segmented-controls-doc.component.scss']
+  styleUrls: ['./segmented-controls-doc.component.scss'],
 })
 export class SegmentedControlsDocComponent {
-
   externalUrl = getComponent('segmented-control-doc').externalUrl;
   componentStatus = getComponent('segmented-control-doc').status;
   does = ['To display different views.', 'Instead of radio buttons.'];
-  donts = ['Do not use segmented controls if there are more than three options or the option texts are too long.'];
-
+  donts = [
+    'Do not use segmented controls if there are more than three options or the option texts are too long.',
+  ];
 
   example1 = `
 	<div class="e-segmented-controls">
@@ -43,5 +43,4 @@ export class SegmentedControlsDocComponent {
 		<label for="sc-focus3">Option 3</label>
 	</div>
 `;
-
 }

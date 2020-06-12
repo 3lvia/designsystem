@@ -1,13 +1,12 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ItemStatus } from './../item-status.enum';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {ItemStatus} from './../item-status.enum';
 
 @Component({
   selector: 'app-component-header',
   templateUrl: './component-header.component.html',
-  styleUrls: ['./component-header.component.scss']
+  styleUrls: ['./component-header.component.scss'],
 })
 export class ComponentHeaderComponent {
-
   @Input() componentStatus = '';
   @Input() tabs: string[];
   @Input() does = [];
@@ -22,5 +21,4 @@ export class ComponentHeaderComponent {
     this.selected = tab;
     this.selectedChange.emit(this.selected);
   }
-
 }

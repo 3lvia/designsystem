@@ -31,7 +31,7 @@ body {
 }
 
 .e-alert__content .e-alert__title {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
@@ -86,7 +86,7 @@ body {
   border: 1px solid #000;
   border-radius: 4px;
   padding: 13px 16px;
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
@@ -94,7 +94,7 @@ body {
 }
 
 .e-autocomplete input::placeholder {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
@@ -136,7 +136,7 @@ body {
   width: 100%;
   padding: 13px 16px;
   z-index: 1;
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
@@ -829,7 +829,7 @@ input:focus {
 }
 
 .e-card__title {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: Red Hat Display, sans-serif;
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
@@ -851,7 +851,7 @@ input:focus {
 
 .e-card__content {
   display: block;
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
@@ -1320,7 +1320,7 @@ input:focus {
 }
 
 .e-link.e-link--jumbo {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: Red Hat Display, sans-serif;
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
@@ -1501,7 +1501,7 @@ input:focus {
 .e-link.e-link--card .e-link__title {
   margin: 0;
   margin-top: 10%;
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
@@ -1514,7 +1514,7 @@ input:focus {
 
 .e-link.e-link--card .e-link__description {
   margin-top: 2%;
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
@@ -1600,7 +1600,7 @@ input:focus {
 }
 
 .e-link.e-link--card.e-link--shortcut .e-link__content .e-link__title {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
@@ -1609,7 +1609,7 @@ input:focus {
 }
 
 .e-link.e-link--card.e-link--shortcut .e-link__content .e-link__description {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
@@ -2666,7 +2666,7 @@ input:focus {
   }
 }
 .e-modal__content .e-modal__title {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: Red Hat Display, sans-serif;
   font-size: 26px;
   line-height: 31px;
   font-weight: 700;
@@ -2680,7 +2680,7 @@ input:focus {
   }
 }
 .e-modal__content .e-modal__text {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 20px;
   line-height: 38px;
   font-weight: 400;
@@ -2827,7 +2827,7 @@ input:focus {
 }
 
 .e-popover__content .e-popover__title {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
@@ -2837,7 +2837,7 @@ input:focus {
 }
 
 .e-popover__content .e-popover__text {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
@@ -2933,7 +2933,7 @@ input:focus {
 
 .e-table td,
 .e-table th {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
@@ -2967,7 +2967,7 @@ input:focus {
 
 .e-table-mobile th,
 .e-table-mobile td {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
@@ -3723,7 +3723,7 @@ input:focus {
 .e-form-field__label {
   display: block;
   margin-bottom: 5px;
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
@@ -3740,7 +3740,7 @@ input:focus {
   display: flex;
   align-items: center;
   margin-top: 8px;
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
@@ -3824,7 +3824,7 @@ input:focus {
 }
 
 .e-fileupload__description {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
@@ -3907,7 +3907,7 @@ input:focus {
   max-width: 448px;
   width: 100%;
   padding: 12px 16px;
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
@@ -4011,7 +4011,7 @@ input:focus {
 }
 
 .e-position-picker__description {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
@@ -8636,7 +8636,7 @@ THE SOFTWARE.
 }
 
 .e-title-lg {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: Red Hat Display, sans-serif;
   font-size: 44px;
   line-height: 53px;
   font-weight: 900;
@@ -8650,7 +8650,7 @@ THE SOFTWARE.
   }
 }
 .e-title-md {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: Red Hat Display, sans-serif;
   font-size: 26px;
   line-height: 31px;
   font-weight: 700;
@@ -8664,7 +8664,7 @@ THE SOFTWARE.
   }
 }
 .e-title-sm {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: Red Hat Display, sans-serif;
   font-size: 20px;
   line-height: 24px;
   font-weight: 700;
@@ -8672,7 +8672,7 @@ THE SOFTWARE.
 }
 
 .e-text-lead {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 24px;
   line-height: 41px;
   font-weight: 400;
@@ -8686,7 +8686,7 @@ THE SOFTWARE.
   }
 }
 .e-text-quote {
-  font-family: "Red Hat Display", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 26px;
   line-height: 42px;
   font-weight: 400;
@@ -8701,7 +8701,7 @@ THE SOFTWARE.
   }
 }
 .e-text-body {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 20px;
   line-height: 38px;
   font-weight: 400;
@@ -8715,7 +8715,7 @@ THE SOFTWARE.
   }
 }
 .e-text-img {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 18px;
   text-align: center;
   line-height: 29px;
@@ -8731,7 +8731,7 @@ THE SOFTWARE.
   }
 }
 .e-text-description {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
@@ -8739,7 +8739,7 @@ THE SOFTWARE.
 }
 
 .e-text-caps {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
@@ -8749,7 +8749,7 @@ THE SOFTWARE.
 }
 
 .e-text-info {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
@@ -8757,7 +8757,7 @@ THE SOFTWARE.
 }
 
 .e-text-label {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
@@ -8765,7 +8765,7 @@ THE SOFTWARE.
 }
 
 .e-text-option {
-  font-family: "Red Hat Text", sans-serif;
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;

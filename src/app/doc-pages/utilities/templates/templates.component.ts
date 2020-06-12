@@ -1,13 +1,12 @@
-import { Component, Input } from '@angular/core';
-import { TabNames } from 'src/app/shared/tab-names.enums';
+import {Component, Input} from '@angular/core';
+import {TabNames} from 'src/app/shared/tab-names.enums';
 
 @Component({
   selector: 'app-templates',
   templateUrl: './templates.component.html',
-  styleUrls: ['./templates.component.scss']
+  styleUrls: ['./templates.component.scss'],
 })
 export class TemplatesComponent {
-
   @Input() selected = TabNames.Overview;
 
   isDesktop = true;
@@ -24,6 +23,4 @@ export class TemplatesComponent {
   displayMobile(): void {
     this.isDesktop = false;
   }
-
-
 }

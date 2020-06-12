@@ -1,10 +1,10 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component, ViewChild, ElementRef} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-popover-doc',
   templateUrl: './popover-doc.component.html',
-  styleUrls: ['./popover-doc.component.scss']
+  styleUrls: ['./popover-doc.component.scss'],
 })
 export class PopoverDocComponent {
   @ViewChild('popover1') popover1: ElementRef;
@@ -13,8 +13,12 @@ export class PopoverDocComponent {
   componentStatus = getComponent('popover-doc').status;
   externalUrl = getComponent('popover-doc').externalUrl;
   // tslint:disable-next-line:max-line-length
-  does = ['When you want to give the user more information about something, and are typically paired with an information or question icon.'];
-  donts = ['Should not be used if the information in popover is necessary for the user to complete their task.'];
+  does = [
+    'When you want to give the user more information about something, and are typically paired with an information or question icon.',
+  ];
+  donts = [
+    'Should not be used if the information in popover is necessary for the user to complete their task.',
+  ];
 
   example1 = `<div style="margin-top: 260px; text-align: center;">
   <span class="e-popover e-popover---visible e-m-16">
@@ -108,5 +112,4 @@ function closePopover(popoverId) {
       }
     }
   }
-
 }

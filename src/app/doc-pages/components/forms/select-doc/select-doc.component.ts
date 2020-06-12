@@ -1,13 +1,12 @@
-import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import {Component} from '@angular/core';
+import {getComponent} from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-select-doc',
   templateUrl: './select-doc.component.html',
-  styleUrls: ['./select-doc.component.scss']
+  styleUrls: ['./select-doc.component.scss'],
 })
 export class SelectDocComponent {
-
   componentStatus = getComponent('select-doc').status;
 
   example1 = `<div class="e-form_field">
@@ -58,5 +57,4 @@ export class SelectDocComponent {
   </div>
 </div>
 `;
-
 }
