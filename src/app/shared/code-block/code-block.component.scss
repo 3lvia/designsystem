@@ -23,8 +23,13 @@ iframe {
   }
 
   &-does {
+    display: flex;
+    flex-direction: row;
     &-does,
     &-donts {
+      display: flex;
+      flex-direction: column;
+      width: 50%;
       margin: 8px 0;
 
       .marker {
@@ -34,6 +39,9 @@ iframe {
         width: 11px;
         border-radius: 50%;
       }
+    }
+    &-does {
+      margin-right: 16px;
     }
   }
 

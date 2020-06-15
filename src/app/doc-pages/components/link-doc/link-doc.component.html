@@ -111,9 +111,47 @@
       'Card links have an icon, label, and alternatively a description text. 
       The entire card link is clickable and are useful for grouping several related pieces of information together. 
       Card links work best when they provide summaries of many different kinds of content to choose from.
-      Use the class `e-link--delay-hover` if you want the ikon on hover to appear after scaling has happened.'
+      Use the class `e-link--delay-hover` if you want the ikon on hover to appear after scaling has happened.
+      Standard vs shortcut'
     "
-  ></app-code-block>
+  >
+    <ng-container ngProjectAs="extraInformation">
+      <div>
+        <p class="e-text-caps">Standard vs shortcut</p>
+        <p class="e-text-description">
+          Standard link cards are the best to use when you have a lot of links, while the shortcut is better
+          suited to fewer links.
+        </p>
+      </div>
+      <div>
+        <p class="e-text-caps">Icons</p>
+        <p class="e-text-description">
+          If 2 different icons are given the second will be visible on hover while the first is visible from
+          start.
+        </p>
+      </div>
+      <div>
+        <p class="e-text-caps">Description</p>
+        <p class="e-text-description">
+          You can add a description together with the label. Keep it short!
+        </p>
+      </div>
+      <div>
+        <p class="e-text-caps">Hover</p>
+        <p class="e-text-description">
+          The icon is scaling up and a green border appears when hovering. You can add an extra hover effect
+          by switching a black icon with a two-colored icon.
+        </p>
+      </div>
+      <div>
+        <p class="e-text-caps">Dynamic size</p>
+        <p class="e-text-description">
+          The size of the card link should be dynamic and responsive, but the card link should not be smaller
+          than 112px wide and not larger than 300px wide.
+        </p>
+      </div>
+    </ng-container>
+  </app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example8"

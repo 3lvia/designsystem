@@ -30,7 +30,7 @@ export class LinkDocComponent {
     'Shortcurts on the front page',
     'Overview pages for content selection',
   ];
-  dontsExampleCard = ['The card link should not be smaller than 112px wide and not larger than 360px wide.'];
+  dontsExampleCard = ['Do not use both standard and shortcut on the same page. The same goes for the description version, use description on all or none.'];
 
   example1 = `<div>
   <h3 class="e-title-small">Large</h3>

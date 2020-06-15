@@ -1,24 +1,18 @@
 <div class="component-body__example">
   <h2 class="component-body__example-title">{{ title }}</h2>
   <div *ngIf="class" class="e-mb-16 e-text-info example-classes">
-    <span 
-      *ngFor="let classDescr of class; let i = index" 
-    >
-      <code>{{ classDescr }}<span *ngIf="i != class.length-1">, </span></code>
+    <span *ngFor="let classDescr of class; let i = index">
+      <code>
+        {{ classDescr }}
+      </code>
     </span>
   </div>
   <div class="component-body__example-description e-text-description">
     {{ description }}
   </div>
-  <div
-    class="component-body__example-does"
-    *ngIf="does.length!=0 || donts.length!=0"
-  >
-    <div
-      class="component-body__example-does-does"
-      *ngIf="does.length!=0"
-    >
-      <span class="e-text-caps" style="display: flex; align-items: center;">
+  <div class="component-body__example-does" *ngIf="does.length != 0 || donts.length != 0">
+    <div class="component-body__example-does-does" *ngIf="does.length != 0">
+      <span class="e-text-caps">
         <span class="e-mr-8">
           <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green"></i>
         </span>
@@ -32,11 +26,8 @@
         </ul>
       </span>
     </div>
-    <div
-      class="component-body__example-does-donts"
-      *ngIf="donts.length!=0"
-    >
-      <span class="e-text-caps" style="display: flex; align-items: center;">
+    <div class="component-body__example-does-donts" *ngIf="donts.length != 0">
+      <span class="e-text-caps">
         <span class="e-mr-8">
           <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-red"></i>
         </span>
@@ -51,6 +42,9 @@
       </span>
     </div>
   </div>
+  <div>
+    <ng-content select="extraInformation"></ng-content>
+  </div>
   <div class="component-body__example-codepen">
     <form
       class="codepen e-mb-16"
@@ -60,16 +54,8 @@
       method="POST"
       target="_blank"
     >
-      <input
-        type="hidden"
-        name="data"
-        [value]="codepen"
-      >
-      <a
-        href="javascript:void(0)"
-        (click)="codepenForm.submit()"
-        class="e-link is-more"
-      >Try in codepen</a>
+      <input type="hidden" name="data" [value]="codepen" />
+      <a href="javascript:void(0)" (click)="codepenForm.submit()" class="e-link is-more">Try in codepen</a>
     </form>
   </div>
   <div class="component-body__example-body e-border">
@@ -77,7 +63,7 @@
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{ hide: noDesktop, active: screen === 'desktop' }"
+        [ngClass]="{hide: noDesktop, active: screen === 'desktop'}"
         (click)="screen = 'desktop'"
       >
         Desktop
@@ -85,7 +71,7 @@
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{ hide: noTablet, active: screen === 'tablet' }"
+        [ngClass]="{hide: noTablet, active: screen === 'tablet'}"
         (click)="screen = 'tablet'"
       >
         Tablet
@@ -93,56 +79,37 @@
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{ hide: noPhone, active: screen === 'phone' }"
+        [ngClass]="{hide: noPhone, active: screen === 'phone'}"
         (click)="screen = 'phone'"
       >
         Phone
       </div>
     </div>
-    <div class="element" 
-    *ngIf="!showIframeScreens" 
-    [ngClass]=" greyBg ? 'e-bg-grey-02' : 'e-bg-white' ">
+    <div class="element" *ngIf="!showIframeScreens" [ngClass]="greyBg ? 'e-bg-grey-02' : 'e-bg-white'">
       <div #defaultFrame></div>
     </div>
-    <div 
-      class="element" 
-      *ngIf="showIframeScreens"
-      [ngClass]=" greyBg ? 'e-bg-grey-02' : 'e-bg-white' "
-      >
-      <div
-        [ngClass]="{ hide: screen !== 'desktop' || noDesktop  }">
-        <app-iframe-screen [code]="code" [overwriteHeight]="overwriteHeight" [screenSize]="'desktop'"></app-iframe-screen>
+    <div class="element" *ngIf="showIframeScreens" [ngClass]="greyBg ? 'e-bg-grey-02' : 'e-bg-white'">
+      <div [ngClass]="{hide: screen !== 'desktop' || noDesktop}">
+        <app-iframe-screen
+          [code]="code"
+          [overwriteHeight]="overwriteHeight"
+          [screenSize]="'desktop'"
+        ></app-iframe-screen>
       </div>
-      <div
-        [ngClass]="{ hide: screen !== 'tablet' || noTablet }">
+      <div [ngClass]="{hide: screen !== 'tablet' || noTablet}">
         <app-iframe-screen [code]="code" [screenSize]="'tablet'"></app-iframe-screen>
       </div>
-      <div
-        [ngClass]="{ hide: screen !== 'phone' || noPhone}">
+      <div [ngClass]="{hide: screen !== 'phone' || noPhone}">
         <app-iframe-screen [code]="code" [screenSize]="'phone'"></app-iframe-screen>
       </div>
     </div>
-    <div
-      class="show-code e-border"
-      role="button"
-      *ngIf="!showCode"
-      (click)="showCode = !showCode"
-    >
+    <div class="show-code e-border" role="button" *ngIf="!showCode" (click)="showCode = !showCode">
       View code
     </div>
-    <div
-      class="hide-code e-border"
-      role="button"
-      *ngIf="showCode"
-      (click)="showCode = !showCode"
-    >
+    <div class="hide-code e-border" role="button" *ngIf="showCode" (click)="showCode = !showCode">
       Hide code
     </div>
-    <div
-      @heightDown
-      class="code"
-      *ngIf="showCode"
-    >
+    <div @heightDown class="code" *ngIf="showCode">
       <app-code-highlighter
         [isHTML]="isHTML"
         [isTS]="isTS"
