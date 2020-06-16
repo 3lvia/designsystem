@@ -32,14 +32,39 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function injectIconIfEligible(node, mutation) {
-    if (!node || !node.className || node.className.indexOf(icons) === -1) {
-      return;
-    }
 
-    if (mutation.type === 'attributes') {
-      node.style.backgroundImage = 'url("' + getIcon(node.classList) + '")';
-      node.setAttribute('e-id', getUniqueIdentifier(node.classList));
+    if(mutation.addedNodes.length > 0) {      
+      mutation.addedNodes.forEach(function(addedNode){
+        if(addedNode.localName === 'i'){
+          injectIconInNode(addedNode);
+        }
+        addedNode.querySelectorAll && addedNode.querySelectorAll('i').forEach(function (elem){
+          injectIconInNode(elem);
+        });
+      });
     }
+    
+    injectIconInNode(node);   
+  }
+
+  // Check if node has a class with a matching icon name and inject if it has one
+  function injectIconInNode(node) {
+    if(node && node.classList) {      
+      for(let i = 0; i < node.classList.length; i++) {
+        if(icons[node.classList[i]]) {
+          if (iconHasMutated(node)) {
+            node.style.backgroundImage = 'url("' + getIcon(node.classList) + '")';
+            node.setAttribute('e-id', getUniqueIdentifier(node.classList));
+          }
+        }
+      }
+    }
+  }
+
+  function iconHasMutated(node) {
+    let id = node.getAttribute('e-id');
+    let newId = getUniqueIdentifier(node.classList) + '';
+    return !id || id + '' !== newId;
   }
 
   mo.observe(document.documentElement, {
@@ -390,25 +415,24 @@ document.addEventListener('DOMContentLoaded', function () {
      "e-icon--work_under_line-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.707 5.794l-.724.574h-1.897a1.611 1.611 0 00-1.099.452 2.486 2.486 0 00-.66 1.906v4.027c.001.026-.01.051-.028.07a.1.1 0 01-.07.028H3.514a1.688 1.688 0 00-1.145.59 1.633 1.633 0 00-.373 1.218v2.809c.012.302.059.602.14.894a2.771 2.771 0 00-1.554.979A2.692 2.692 0 000 21.063v.324c-.003.689.272 1.35.764 1.84.493.49 1.162.768 1.862.773h12.782c.7-.005 1.37-.283 1.862-.773.492-.49.767-1.151.765-1.84v-.324a2.758 2.758 0 00-.546-1.671 2.835 2.835 0 00-1.451-1.02.08.08 0 01-.063-.043.076.076 0 01.002-.075c.157-.455.198-.94.12-1.415-.22-1.67-.848-6.198-1.158-8.349a.116.116 0 010-.088l1.038-.884 4.135 6.365a.086.086 0 01.027.064.086.086 0 01-.027.064l-1.997 1.453a.87.87 0 00-.117 1.353.903.903 0 00.456.238l4.514 1.042a.822.822 0 00.729-.177.827.827 0 00.3-.707l-.31-4.273a.836.836 0 00-.13-.423l-5.204-7.755a16.26 16.26 0 01-1.132.361l5.048 7.375-1.059.756-5.301-7.817c-.381.076-.768.14-1.158.193l.637.925-.788.688a2.42 2.42 0 00-.86-.806l.972-.802a19.19 19.19 0 01-2.005.159zm10.011 7.725l.18 3.32a.096.096 0 01-.04.083.101.101 0 01-.09.016l-3.345-.786a.1.1 0 01-.057-.089.097.097 0 01.057-.088l3.295-2.456zM14.7 18.038c-.188.161-.429.252-.679.255H3.625a.363.363 0 01-.25-.078 1.24 1.24 0 01-.13-.708V14.66c0-.423.2-.501.31-.501H9.637V8.539c0-.55 0-.648.12-.766a.36.36 0 01.329-.118h3.056a.454.454 0 01.409.295s.998 6.876 1.278 9.056a1.228 1.228 0 01-.21 1.032h.08zM1.29 21.063a1.469 1.469 0 01.376-1.01c.25-.277.596-.454.971-.493h12.782c.374.042.718.219.965.497.248.278.38.637.373 1.006v.324a1.306 1.306 0 01-.387.94 1.35 1.35 0 01-.95.396H2.635a1.37 1.37 0 01-.954-.395 1.325 1.325 0 01-.394-.94v-.325z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M22.374 1.111a.633.633 0 00.024-.89.622.622 0 00-.884-.024c-1.905 1.821-5.27 2.998-8.866 3.106C9.06 3.41 5.386 2.449 2.854.17a.622.622 0 00-.883.05.633.633 0 00.05.89c2.841 2.557 6.866 3.566 10.663 3.452 3.788-.113 7.49-1.348 9.69-3.45z' fill='%2329D305'/%3e%3cpath d='M5.25 22.5a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5zM12.25 22.5a1.25 1.25 0 100-2.5 1.25 1.25 0 000 2.5z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e",
      "e-icon--worker-color":"data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.597 5.926c.393 0 .711.332.711.74 0 2.545 1.948 4.495 4.313 4.495 2.356 0 4.313-2.04 4.313-4.494 0-.41.318-.741.71-.741.393 0 .712.332.712.74 0 3.274-2.594 5.976-5.735 5.976-3.133 0-5.735-2.594-5.735-5.975 0-.41.319-.741.711-.741zM12 14.42c-4.735 0-8.578 3.925-8.578 8.84 0 .408-.318.74-.711.74-.393 0-.711-.332-.711-.74 0-5.753 4.498-10.322 10-10.322 5.506 0 10 4.673 10 10.321 0 .41-.318.74-.71.74-.393 0-.712-.33-.712-.74 0-4.82-3.847-8.84-8.578-8.84z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.847 14.1a.692.692 0 011-.106L12 16.674l3.152-2.68a.692.692 0 011 .106.762.762 0 01-.1 1.042l-3.603 3.062a.689.689 0 01-.898 0l-3.602-3.062a.762.762 0 01-.102-1.042zM6.218 15.012c.393 0 .71.332.71.74v7.507c0 .41-.317.74-.71.74-.393 0-.71-.33-.71-.74v-7.506c0-.41.317-.74.71-.74zM17.592 15.012c.393 0 .711.332.711.74v7.507c0 .41-.318.74-.71.74-.393 0-.712-.33-.712-.74v-7.506c0-.41.319-.74.711-.74z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M9.895.701a.715.715 0 01.816.612l.758 4.84c.064.403-.2.784-.587.85a.715.715 0 01-.816-.612l-.758-4.84c-.063-.403.2-.784.587-.85zM13.412.941s.924.052.853.455l-.853 4.84a.714.714 0 01-.827.594c-.387-.074-.642-.46-.571-.862l.853-4.84c.07-.402.545-.187.545-.187z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.844 6.272c0-.41.318-.741.71-.741h12.797c.392 0 .71.332.71.74 0 .41-.318.741-.71.741H5.555c-.393 0-.711-.331-.711-.74z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12 16.889c.393 0 .71.332.71.74v5.63c0 .41-.317.741-.71.741-.393 0-.711-.332-.711-.74v-5.63c0-.41.318-.741.71-.741z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M10.235 2.011a1.22 1.22 0 01-.42.3l-.004.001c-1.528.67-2.503 2.173-2.503 4.058 0 .41-.318.297-.71.297-.393 0-.712.112-.712-.297 0-2.42 1.259-4.447 3.274-5.378.026-.086.073-.22.17-.356.21-.3.528-.443.864-.521C10.53.037 10.988 0 11.621 0c.635 0 1.1.037 1.446.113.345.075.65.205.874.456a1.254 1.254 0 01.252.43c2.023.945 3.162 2.983 3.162 5.371 0 .41-.413.297-.805.297-.393 0-.616.112-.616-.297 0-1.911-.903-3.397-2.409-4.058a1.186 1.186 0 01-.615-.664l-.022-.055a1.118 1.118 0 00-.113-.03c-.205-.045-.557-.082-1.154-.082-.6 0-.935.038-1.118.08a1.114 1.114 0 00-.023.006 1.151 1.151 0 01-.245.444zm2.707-.396h-.001z' fill='%2329D305'/%3e%3c/svg%3e"};
 
+  let lastReplace = 0;
+  const throttleReplaceInterval = 500;
   function replaceIcons() {
+    // Simple throttle without handling the trailing case
+    let ms = new Date().getTime();
+    if(lastReplace > ms - throttleReplaceInterval) {
+      return;
+    }
+    
     window.document.querySelectorAll('[class*="e-icon"]').forEach(function (element) {
       // Uses e-id to avoid unnessesary changes to the DOM
-      let id = element.getAttribute('e-id');
-      let newId = getUniqueIdentifier(element.classList) + '';
-      if (!id || id + '' !== newId) {
+      if(iconHasMutated(element)) {
         element.style.backgroundImage = 'url("' + getIcon(element.classList) + '")';
-        element.setAttribute('e-id', newId);
+        element.setAttribute('e-id', getUniqueIdentifier(element.classList));
       }
     });
+    lastReplace = ms;
   }
 
   replaceIcons();
-
-  // TODO: Remove this temporary fallback
-  window.setTimeout(function () {
-    replaceIcons();
-  }, 500);
-  window.setInterval(function () {
-    replaceIcons();
-  }, 3000);
 });

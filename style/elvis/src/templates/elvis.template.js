@@ -32,14 +32,39 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function injectIconIfEligible(node, mutation) {
-    if (!node || !node.className || node.className.indexOf(icons) === -1) {
-      return;
-    }
 
-    if (mutation.type === 'attributes') {
-      node.style.backgroundImage = 'url("' + getIcon(node.classList) + '")';
-      node.setAttribute('e-id', getUniqueIdentifier(node.classList));
+    if(mutation.addedNodes.length > 0) {      
+      mutation.addedNodes.forEach(function(addedNode){
+        if(addedNode.localName === 'i'){
+          injectIconInNode(addedNode);
+        }
+        addedNode.querySelectorAll && addedNode.querySelectorAll('i').forEach(function (elem){
+          injectIconInNode(elem);
+        });
+      });
     }
+    
+    injectIconInNode(node);   
+  }
+
+  // Check if node has a class with a matching icon name and inject if it has one
+  function injectIconInNode(node) {
+    if(node && node.classList) {      
+      for(let i = 0; i < node.classList.length; i++) {
+        if(icons[node.classList[i]]) {
+          if (iconHasMutated(node)) {
+            node.style.backgroundImage = 'url("' + getIcon(node.classList) + '")';
+            node.setAttribute('e-id', getUniqueIdentifier(node.classList));
+          }
+        }
+      }
+    }
+  }
+
+  function iconHasMutated(node) {
+    let id = node.getAttribute('e-id');
+    let newId = getUniqueIdentifier(node.classList) + '';
+    return !id || id + '' !== newId;
   }
 
   mo.observe(document.documentElement, {
@@ -217,25 +242,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //[[INJECT_ICONS]]
 
+  let lastReplace = 0;
+  const throttleReplaceInterval = 500;
   function replaceIcons() {
+    // Simple throttle without handling the trailing case
+    let ms = new Date().getTime();
+    if(lastReplace > ms - throttleReplaceInterval) {
+      return;
+    }
+    
     window.document.querySelectorAll('[class*="e-icon"]').forEach(function (element) {
       // Uses e-id to avoid unnessesary changes to the DOM
-      let id = element.getAttribute('e-id');
-      let newId = getUniqueIdentifier(element.classList) + '';
-      if (!id || id + '' !== newId) {
+      if(iconHasMutated(element)) {
         element.style.backgroundImage = 'url("' + getIcon(element.classList) + '")';
-        element.setAttribute('e-id', newId);
+        element.setAttribute('e-id', getUniqueIdentifier(element.classList));
       }
     });
+    lastReplace = ms;
   }
 
   replaceIcons();
-
-  // TODO: Remove this temporary fallback
-  window.setTimeout(function () {
-    replaceIcons();
-  }, 500);
-  window.setInterval(function () {
-    replaceIcons();
-  }, 3000);
 });
