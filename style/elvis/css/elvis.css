@@ -1400,36 +1400,6 @@ input:focus {
   border: 2px solid #29d305;
 }
 
-.e-link.e-link--jumbo.e-link---hover .e-link__icon, .e-link.e-link--jumbo:hover .e-link__icon {
-  transform: scale(1.125);
-}
-
-.e-link.e-link--jumbo.e-link---hover .e-link__icon i, .e-link.e-link--jumbo:hover .e-link__icon i {
-  visibility: hidden;
-  transition: visibility 0.3s ease;
-}
-
-.e-link.e-link--jumbo.e-link---hover .e-link__icon i + i, .e-link.e-link--jumbo:hover .e-link__icon i + i {
-  visibility: visible;
-  transition: visibility 0.3s ease;
-}
-
-.e-link.e-link--jumbo.e-link---hover .e-link__icon.e-link--delay-hover, .e-link.e-link--jumbo:hover .e-link__icon.e-link--delay-hover {
-  transform: scale(1.125);
-}
-
-.e-link.e-link--jumbo.e-link---hover .e-link__icon.e-link--delay-hover i, .e-link.e-link--jumbo:hover .e-link__icon.e-link--delay-hover i {
-  visibility: hidden;
-  transition: visibility 0.3s ease;
-  transition-delay: 0.3s;
-}
-
-.e-link.e-link--jumbo.e-link---hover .e-link__icon.e-link--delay-hover i + i, .e-link.e-link--jumbo:hover .e-link__icon.e-link--delay-hover i + i {
-  visibility: visible;
-  transition: visibility 0.3s ease;
-  transition-delay: 0.3s;
-}
-
 .e-link.e-link--card {
   width: unset;
   display: inline-flex;

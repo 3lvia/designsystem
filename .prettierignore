@@ -4,6 +4,7 @@ e2e
 node_modules
 coverage
 build
+style/elvis/.internal/classlist.json
 style/elvis/css/*.css
 style/elvis/elvis.js
 style/elvis/icons.js

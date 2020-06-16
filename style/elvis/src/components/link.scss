@@ -196,30 +196,6 @@ $link-jumbo-phone-width: 287px;
     &:hover {
       color: colors.color('black');
       border: 2px solid colors.color('green');
-      .e-link__icon {
-        transform: scale(1.125);
-        i {
-          visibility: hidden;
-          transition: visibility 0.3s ease;
-        }
-        i + i {
-          visibility: visible;
-          transition: visibility 0.3s ease;
-        }
-      }
-      .e-link__icon.e-link--delay-hover {
-        transform: scale(1.125);
-        i {
-          visibility: hidden;
-          transition: visibility 0.3s ease;
-          transition-delay: 0.3s;
-        }
-        i + i {
-          visibility: visible;
-          transition: visibility 0.3s ease;
-          transition-delay: 0.3s;
-        }
-      }
     }
   }
 

@@ -105,8 +105,8 @@
 				"e-link--inline": {},
 				"e-link--external": {},
 				"e-link--jumbo": {},
-				"e-link--delay-hover": {},
 				"e-link--card": {},
+				"e-link--delay-hover": {},
 				"e-link--shortcut": {}
 			},
 			"psuedo": {

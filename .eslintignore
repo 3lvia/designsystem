@@ -5,6 +5,7 @@ node_modules
 assets
 coverage
 build
+style/elvis/.internal/classlist.json
 style/elvis/css/*.js
 style/elvis/elvis.js
 style/elvis/icons.js
