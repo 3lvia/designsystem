@@ -1,0 +1,68 @@
+<div class="header">
+  <div class="logo">
+    <a
+      class="header-top_logo"
+      (click)="navigateHome()"
+    >
+      <img
+        src="../../../../assets/logo/elvia_positive_1.svg"
+        alt="Elvia Logo"
+      />
+    </a>
+  </div>
+  <div class="closing">
+    <button
+      class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16"
+      (click)="onClose()"
+    >
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--remove_circle-color"></i>
+        <i class="e-icon e-icon--remove_circle-filled-color"></i>
+      </span>
+    </button>
+  </div>
+</div>
+
+<div class="content">
+  <div class="menu">
+    <div
+      class="links e-pt-16 e-pb-24"
+      (click)="navigateHome()"
+    >
+      <span class="text">
+        Get started
+      </span>
+      <span class="links-icon">
+        <i class="e-icon e-icon--arrow_right-bold e-icon--xxs"></i>
+      </span>
+    </div>
+    <div class="divider"></div>
+    <div
+      class="links e-py-24"
+      (click)="navigateComps()"
+    >
+      <span class="text">
+        Components
+      </span>
+      <span class="links-icon">
+        <i class="e-icon e-icon--arrow_right-bold e-icon--xxs"></i>
+      </span> </div>
+    <div class="divider"></div>
+    <div
+      class="links e-py-24"
+      (click)="navigateUtilites()"
+    >
+      <span class="text">
+        Utilites
+      </span>
+      <span class="links-icon">
+        <i class="e-icon e-icon--arrow_right-bold e-icon--xxs"></i>
+      </span> </div>
+    <div class="divider"></div>
+
+    <div class="version">
+      v{{ version }}
+    </div>
+  </div>
+  <div class="rounded-bottom"></div>
+</div>

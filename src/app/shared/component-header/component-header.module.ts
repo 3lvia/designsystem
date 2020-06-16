@@ -4,7 +4,7 @@ import { ComponentHeaderComponent } from './component-header.component';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [ComponentHeaderComponent],
   declarations: [ComponentHeaderComponent]

@@ -1,20 +1,5 @@
-@import '../../shared/shared-sizes';
-@import '../../../../style/elvis/src/utilities/breakpoints.scss';
-
 .main-content {
   position: relative;
-  top: $header-height;
-
-  @include breakpoint-up(Tablet) {
-    margin-left: 0;
-  }
-
-  &.show-header-warning {
-    top: $header-height + 60px;
-
-    @include breakpoint-up(Tablet) {
-      top: $header-height + 120px;
-      margin-left: 0;
-    }
-  }
+  top: 60px;
+  margin-left: 0;
 }

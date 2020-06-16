@@ -9,6 +9,8 @@ import { RouterModule } from '@angular/router';
 import { AccessibilityModule } from './doc-pages/accessibility/accessibility.module';
 import { ComponentsModule } from './doc-pages/components/components.module';
 import { UtilitiesModule } from './doc-pages/utilities/utilities.module';
+import { OverlayModule } from '@angular/cdk/overlay';
+
 
 @NgModule({
   declarations: [
@@ -22,11 +24,12 @@ import { UtilitiesModule } from './doc-pages/utilities/utilities.module';
     ShellModule,
     AccessibilityModule,
     ComponentsModule,
-    UtilitiesModule
+    UtilitiesModule,
+    OverlayModule,
   ],
   schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
+    CUSTOM_ELEMENTS_SCHEMA,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
