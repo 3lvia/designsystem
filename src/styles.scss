@@ -39,10 +39,6 @@ a {
   width: 90%;
   min-width: 20rem;
   max-width: 50rem;
-
-  @include breakpoint-up(Mobile) {
-    margin-left: 50px;
-  }
 }
 
 .code-text {
