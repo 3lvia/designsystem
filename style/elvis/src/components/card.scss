@@ -44,7 +44,8 @@ $card-actions-button-spacing: 25px;
       letter-spacing: 0.8px;
       text-transform: uppercase;
       position: absolute;
-      top: -32px;
+      transform: translateY(-100%);
+      top: -8px;
       left: 8px;
     }
   }

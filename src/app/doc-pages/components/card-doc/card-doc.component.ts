@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-card-doc',
@@ -10,7 +10,7 @@ export class CardDocComponent {
   componentStatus = getComponent('card-doc').status;
   externalUrl = getComponent('card-doc').externalUrl;
   donts = [
-    "Don't redirect cards to external sites - use link instead.",
+    'Don\'t redirect cards to external sites - use link instead.',
     'Do not combine "title outside card" and "title inside card" on the same front.',
   ];
 
@@ -39,7 +39,7 @@ export class CardDocComponent {
   </div>
 </div>`;
 
-  example3 = `<div style="max-width:600px;margin:40px;">
+  example3 = `<div style="max-width:600px;margin:50px;">
   <div class="e-card">
     <div class="e-card__title e-card__title--above">
       Strømregningen påvirkes av vinteren
