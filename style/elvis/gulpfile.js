@@ -35,12 +35,15 @@ function getAllClasses(stylesheet) {
   });
 
   const style = {
-    block: {}
+    block: {},
+    flat: {}
   };
 
+
   [...uniqueClasses].forEach((rule) => {
+    style.flat[rule] = {};
     const classBlock = getBlockFromClass(rule);
-    if(!style.block[classBlock]) {
+    if (!style.block[classBlock]) {
       style.block[classBlock] = {};
     }
     const block = style.block[classBlock];
@@ -52,34 +55,34 @@ function getAllClasses(stylesheet) {
       block.element[element] = block.element[element] ? block.element[element] : {};
 
       if (modifierIsOnElement(rule)) {
-        block.element[element]['modifier'] = block.element[element]['modifier'] ? block.element[element]['modifier']: {};
+        block.element[element]['modifier'] = block.element[element]['modifier'] ? block.element[element]['modifier'] : {};
         block.element[element].modifier[rule] = {};
       }
-      
+
       if (psuedoIsOnElement(rule)) {
-        block.element[element]['psuedo'] = block.element[element]['psuedo'] ? block.element[element]['psuedo']: {};
+        block.element[element]['psuedo'] = block.element[element]['psuedo'] ? block.element[element]['psuedo'] : {};
         block.element[element].psuedo[rule] = {};
-      }      
+      }
       return;
     }
-    
+
     // Psuedo
-    if(rule.indexOf('---') > -1) {
+    if (rule.indexOf('---') > -1) {
       block.psuedo = block.psuedo ? block.psuedo : {}
       block.psuedo[rule] = {};
       return;
     }
-    
+
     // Modifier
-    if(rule.indexOf('--') > -1) {
+    if (rule.indexOf('--') > -1) {
       block.modifier = block.modifier ? block.modifier : {}
-      block.modifier[rule]  = {};
+      block.modifier[rule] = {};
       return;
     }
   });
 
   return style;
-    
+
 }
 
 function getBlockFromClass(className) {
@@ -100,7 +103,7 @@ function modifierIsOnElement(className) {
 }
 
 function psuedoIsOnElement(className) {
-  if (className.indexOf('__') === -1 || className.indexOf('---') === -1 ) {
+  if (className.indexOf('__') === -1 || className.indexOf('---') === -1) {
     return false;
   }
   return true;
@@ -284,8 +287,8 @@ function styles() {
   return gulp
     .src('./src/main.scss')
     .pipe(postcss([cssvariables()]))
-    .pipe(sass({includePaths: sassPaths}))
-    .pipe(sass({fiber: Fiber}).on('error', sass.logError))
+    .pipe(sass({ includePaths: sassPaths }))
+    .pipe(sass({ fiber: Fiber }).on('error', sass.logError))
     .pipe(rename('elvis.css'))
     .pipe(gulp.dest('./css/'));
 }
@@ -294,7 +297,7 @@ function minify() {
   return gulp
     .src('./css/*.css')
     .pipe(
-      cleanCSS({debug: true}, (details) => {
+      cleanCSS({ debug: true }, (details) => {
         console.log(`${details.name}: ${details.stats.originalSize}`);
         console.log(`${details.name}: ${details.stats.minifiedSize}`);
       }),
