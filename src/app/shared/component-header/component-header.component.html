@@ -1,5 +1,5 @@
 <div class="component">
-  <div class="component-header page-body">
+  <div class="component-header">
     <div class="component-header__title">
       <div class="title-text">
         <h1 class="e-title-lg">
@@ -19,11 +19,23 @@
           </span>
         </div>
       </div>
-      <p class="component-header__description e-text-description">
+      <p class="component-header__description">
         <span class="e-text-description">
           <ng-content select="headerDescription"></ng-content>
         </span>
       </p>
+      <div class="anchors e-mb-16" *ngIf="navbarAnchors.length != 0">
+        <div class="link" *ngFor="let anchor of navbarAnchors">
+          <a
+            (click)="scrollToElement(anchor)"
+            class="anchor"
+            [ngClass]="{ 'active-anchor': isActive(anchor) }"
+            id="navbar-{{ anchor.title }}"
+          >
+            {{ anchor.title }}
+          </a>
+        </div>
+      </div>
       <div class="component-header__example-does e-mt-16" *ngIf="does.length != 0 || donts.length != 0">
         <div class="component-header__example-does-does e-mr-16" *ngIf="does.length != 0">
           <span class="e-text-caps" style="display: flex; align-items: center;">
@@ -58,10 +70,10 @@
       </div>
     </div>
   </div>
-  <div class="component-tabs e-border-t">
+  <div class="component-tabs">
     <div
       *ngFor="let tab of tabs"
-      [ngClass]="{active: selected == tab}"
+      [ngClass]="{ active: selected == tab }"
       class="component-tabs__title e-title-sm e-border"
       (click)="chooseTab(tab)"
     >

@@ -1,22 +1,37 @@
-<span class="hamburger" [ngClass]="showWarning() ? 'is-warning' : ''">
-  <button class="e-btn e-btn--icon e-btn--md e-ml-8 e-mt-8" (click)="showMenu()" *ngIf="!toggleMenu">
-    <span class="e-btn__icon"><i class="e-icon e-icon--menu"></i></span>
-  </button>
-</span>
-
 <div [class.show-header-warning]="showWarning()" class="navbar" [ngClass]="toggleMenu ? 'showMenu' : ''">
-  <span class="navbar-toggle-area">
-    <button class="e-btn e-btn--icon e-btn--md" (click)="showMenu()">
-      <span class="e-btn__icon"><i class="e-icon e-icon--close"></i></span>
-    </button>
-  </span>
   <ul class="navbar-list">
     <li class="navbar-item" *ngFor="let navbarItem of filteredPages">
-      <a [routerLink]="[navbarItem.docUrl]" routerLinkActive="active">
+      <a
+        [routerLink]="[navbarItem.docUrl]"
+        routerLinkActive="active-route"
+        (click)="markNewActiveAnchor(navbarItem)"
+      >
         <span class="navbar-item-title">
           {{ navbarItem.title }}
         </span>
       </a>
+      <div class="anchors">
+        <div *ngIf="navbarItem === prevActiveNavbarItem">
+          <div class="link" *ngFor="let anchor of prevNavbarAnchors">
+            <a class="anchor" id="navbar-{{ anchor.title }}" href="javascript:void()">
+              {{ anchor.title }}
+            </a>
+          </div>
+        </div>
+        <div *ngIf="navbarItem === activeNavbarItem">
+          <div class="link" *ngFor="let anchor of navbarAnchors">
+            <a
+              (click)="scrollToElement(anchor)"
+              class="anchor"
+              [ngClass]="{ 'active-anchor': anchor === activeAnchor }"
+              id="navbar-{{ anchor.title }}"
+              href="javascript:void()"
+            >
+              {{ anchor.title }}
+            </a>
+          </div>
+        </div>
+      </div>
     </li>
   </ul>
 </div>

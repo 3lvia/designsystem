@@ -1,6 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {TabNames} from 'src/app/shared/tab-names.enums';
-import {getUtilities} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { TabNames } from 'src/app/shared/tab-names.enums';
+import { getUtilities } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-shadow-doc',
@@ -8,10 +8,7 @@ import {getUtilities} from 'src/app/shared/e-items';
   styleUrls: ['./shadow-doc.component.scss'],
 })
 export class ShadowDocComponent {
-  @Input() selected = TabNames.Overview;
-
   tabNames = TabNames;
-  tabs = [TabNames.Overview, TabNames.Guidelines];
   componentStatus = getUtilities('shadow-doc').status;
   externalUrl = getUtilities('shadow-doc').externalUrl;
   does = ['Behind a solid surface together with example cards.'];

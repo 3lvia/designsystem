@@ -1,5 +1,7 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {ItemStatus} from './../item-status.enum';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { ItemStatus } from './../item-status.enum';
+import { NavbarAnchor } from '../navbarAnchor.interface';
+import { ScrollService } from 'src/app/core/services/scroll.service';
 
 @Component({
   selector: 'app-component-header',
@@ -16,6 +18,27 @@ export class ComponentHeaderComponent {
   @Output() selectedChange = new EventEmitter();
 
   itemStatus = ItemStatus;
+  navbarAnchors: NavbarAnchor[] = [];
+  activeAnchor: NavbarAnchor;
+
+  constructor(private scrollService: ScrollService) {
+    this.scrollService.listenAnchorAtCurrPos().subscribe((anchor: NavbarAnchor) => {
+      this.activeAnchor = anchor;
+    });
+    this.scrollService.listenAnchors().subscribe((anchors: NavbarAnchor[]) => {
+      this.navbarAnchors = anchors;
+      this.activeAnchor = this.navbarAnchors[0];
+    });
+  }
+
+  scrollToElement(anchor: NavbarAnchor): void {
+    this.activeAnchor = anchor;
+    this.scrollService.newAnchorToScrollTo(anchor);
+  }
+
+  isActive(anchor: NavbarAnchor): boolean {
+    return anchor === this.activeAnchor;
+  }
 
   chooseTab(tab: string): void {
     this.selected = tab;

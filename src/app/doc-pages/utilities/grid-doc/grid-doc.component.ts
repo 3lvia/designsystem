@@ -1,6 +1,6 @@
-import {Component} from '@angular/core';
-import {getUtilities} from 'src/app/shared/e-items';
-import {TabNames} from 'src/app/shared/tab-names.enums';
+import { Component } from '@angular/core';
+import { getUtilities } from 'src/app/shared/e-items';
+import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
   selector: 'app-grid-doc',
@@ -9,8 +9,6 @@ import {TabNames} from 'src/app/shared/tab-names.enums';
 })
 export class GridDocComponent {
   tabNames = TabNames;
-  selected = TabNames.Overview;
-  tabs = [TabNames.Overview, TabNames.Guidelines];
   componentStatus = getUtilities('grid-doc').status;
   externalUrl = getUtilities('grid-doc').externalUrl;
 

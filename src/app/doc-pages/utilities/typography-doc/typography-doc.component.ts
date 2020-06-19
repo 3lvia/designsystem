@@ -1,5 +1,4 @@
-import { Component, Input, ElementRef, QueryList, ViewChildren, OnInit } from '@angular/core';
-import { TabNames } from 'src/app/shared/tab-names.enums';
+import { Component, ElementRef, QueryList, ViewChildren, OnInit } from '@angular/core';
 import { getUtilities } from 'src/app/shared/e-items';
 import * as typography from 'style/elvis/src/config/typography.config';
 
@@ -9,13 +8,10 @@ import * as typography from 'style/elvis/src/config/typography.config';
   styleUrls: ['./typography-doc.component.scss'],
 })
 export class TypographyDocComponent implements OnInit {
-  @Input() selected = TabNames.Overview;
   @ViewChildren('toCopy') toCopy: QueryList<ElementRef>;
   @ViewChildren('mobileTypography') mobileTypography: QueryList<ElementRef>;
 
   typographyClasses = [];
-  tabNames = TabNames;
-  tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   externalUrl = getUtilities('typography-doc').externalUrl;
   componentStatus = getUtilities('typography-doc').status;
 

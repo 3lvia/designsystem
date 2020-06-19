@@ -1,23 +1,20 @@
 <!--HEADER-->
-<app-component-header
-  [tabs]="tabs"
-  [(selected)]="selected"
->
+<app-component-header [tabs]="tabs" [(selected)]="selected">
   <ng-container ngProjectAs="headerTitle">
     Border
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore unde saepe, in dolores nam?
+    Iusto corporis odit dolore deleniti maiores distinctio, quas facilis ratione laudantium quae consectetur,
+    fugiat qui?
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
   <!--Overview-->
-  <div *ngIf="selected == tabNames.Overview">
-    <h2 class="e-title-md">Border</h2>
+  <div *ngIf="selected == tabNames.Overview" class="elvis-anchor">
+    <h2 class="e-title-md elvis-anchor-title">Border</h2>
     <p class="e-text-body">1 border should be used...</p>
     <div class="centered-content">
       <span class="e-border example-box"></span>
@@ -27,15 +24,11 @@
 
   <!--CODE-->
   <div *ngIf="selected == tabNames.Code">
-    <app-code-block
-      [isHTML]="true"
-      [code]="example1"
-      [title]="'Border'"
-    ></app-code-block>
+    <app-code-block [isHTML]="true" [code]="example1" [title]="'Border'"></app-code-block>
   </div>
 
-   <!--GUIDELINES-->
-   <div *ngIf="selected == tabNames.Guidelines">
+  <!--GUIDELINES-->
+  <div *ngIf="selected == tabNames.Guidelines">
     Some guideline-page
   </div>
 </div>

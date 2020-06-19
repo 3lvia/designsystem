@@ -1,84 +1,91 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
-  [externalUrl]="externalUrl"
->
+<app-component-header [componentStatus]="componentStatus" [externalUrl]="externalUrl">
   <ng-container ngProjectAs="headerTitle">
     Logo
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Elvia can be described as the power source in your home. Just like our services, our logo acts as the power source that the consumer can turn on and off when needed.
+    Elvia can be described as the power source in your home. Just like our services, our logo acts as the
+    power source that the consumer can turn on and off when needed.
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <p class="e-title-md">Margin / Padding</p>
-  <p class="e-text-description">The minimum area of padding around the logo is half it's height.</p>
-  <p class="e-text-description"><span class="e-text-label">Example:</span> This logo is 100px tall. Which means the padding / margin has to be at least 50px. Making the total element height 200px.</p>
-  <div class="e-grid">
-    <div class="row">
-      <div class="col-xs-12 col-md-10 col-xl-8">
-        <img class="padding-example" src="assets/logo/elvia_positive_1.svg">
+  <div class="elvis-anchor">
+    <h2 class="e-title-md elvis-anchor-title">Margin / Padding</h2>
+    <p class="e-text-description">The minimum area of padding around the logo is half it's height.</p>
+    <p class="e-text-description">
+      <span class="e-text-label">Example:</span>
+      This logo is 100px tall. Which means the padding / margin has to be at least 50px. Making the total
+      element height 200px.
+    </p>
+    <div class="e-grid">
+      <div class="row">
+        <div class="col-xs-12 col-md-10 col-xl-8">
+          <img class="padding-example" src="assets/logo/elvia_positive_1.svg" />
+        </div>
       </div>
     </div>
   </div>
-  <p class="e-title-md">Minimum logo size</p>
-  <p class="e-text-description">
-    The logo should have a height of at least 25px, and then a padding of at least 50% of 25px = 12.25px. 
-  </p>
-  <p class="e-text-label">
-    Example (25px height, 12.25px padding)
-  </p>
-  <img class="logo-minimum-size" src="assets/logo/elvia_positive_1.svg">
+  <div class="elvis-anchor">
+    <h2 class="e-title-md elvis-anchor-title">Minimum logo size</h2>
+    <p class="e-text-description">
+      The logo should have a height of at least 25px, and then a padding of at least 50% of 25px = 12.25px.
+    </p>
+    <p class="e-text-label">
+      Example (25px height, 12.25px padding)
+    </p>
+    <img class="logo-minimum-size" src="assets/logo/elvia_positive_1.svg" />
+  </div>
 
-  <h2 class="e-title-md e-mt-40">Assets</h2>
-  <div class="e-grid">
-    <div class="row">
-      <div class="col-xs-12 col-xl-6 e-mb-24 e-text-center">
-        <img class="asset-preview e-mt-40" src="assets/logo/elvia_positive_1.svg">
-        <div>
-          <a href="assets/logo/elvia_positive_1.svg" download>
-            <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
-              <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-              <span class="e-btn__title">Download</span>
-            </button>
-          </a>
-        </div>
-        
-        <img class="asset-preview e-mt-40" src="assets/logo/elvia_positive_2.svg">
-        <div>
-          <a href="assets/logo/elvia_positive_2.svg" download>
-            <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
-              <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-              <span class="e-btn__title">Download</span>
-            </button>
-          </a>
+  <div class="elvis-anchor">
+    <h2 class="e-title-md e-mt-40 elvis-anchor-title">Assets</h2>
+    <div class="e-grid">
+      <div class="row">
+        <div class="col-xs-12 col-xl-6 e-mb-24 e-text-center">
+          <img class="asset-preview e-mt-40" src="assets/logo/elvia_positive_1.svg" />
+          <div>
+            <a href="assets/logo/elvia_positive_1.svg" download>
+              <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
+                <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+                <span class="e-btn__title">Download</span>
+              </button>
+            </a>
+          </div>
+
+          <img class="asset-preview e-mt-40" src="assets/logo/elvia_positive_2.svg" />
+          <div>
+            <a href="assets/logo/elvia_positive_2.svg" download>
+              <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
+                <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+                <span class="e-btn__title">Download</span>
+              </button>
+            </a>
+          </div>
+
+          <img class="asset-preview e-mt-40" src="assets/logo/elvia_positive_3.svg" />
+          <div>
+            <a href="assets/logo/elvia_positive_3.svg" download>
+              <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
+                <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+                <span class="e-btn__title">Download</span>
+              </button>
+            </a>
+          </div>
+
+          <img class="asset-preview e-mt-40" src="assets/logo/elvia_positive_4.svg" />
+          <div>
+            <a href="assets/logo/elvia_positive_4.svg" download>
+              <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
+                <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
+                <span class="e-btn__title">Download</span>
+              </button>
+            </a>
+          </div>
         </div>
 
-        <img class="asset-preview e-mt-40" src="assets/logo/elvia_positive_3.svg">
-        <div>
-          <a href="assets/logo/elvia_positive_3.svg" download>
-            <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
-              <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-              <span class="e-btn__title">Download</span>
-            </button>
-          </a>
-        </div>
-
-        <img class="asset-preview e-mt-40" src="assets/logo/elvia_positive_4.svg">
-        <div>
-          <a href="assets/logo/elvia_positive_4.svg" download>
-            <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
-              <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
-              <span class="e-btn__title">Download</span>
-            </button>
-          </a>
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-xl-6 e-bg-grey-90 e-pb-24 e-text-center">
-          <img class="asset-preview e-mt-40" src="assets/logo/elvia_negative_1.svg">
+        <div class="col-xs-12 col-xl-6 e-bg-grey-90 e-pb-24 e-text-center">
+          <img class="asset-preview e-mt-40" src="assets/logo/elvia_negative_1.svg" />
           <div>
             <a href="assets/logo/elvia_negative_1.svg" download>
               <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
@@ -88,7 +95,7 @@
             </a>
           </div>
 
-          <img class="asset-preview e-mt-40" src="assets/logo/elvia_negative_2.svg">
+          <img class="asset-preview e-mt-40" src="assets/logo/elvia_negative_2.svg" />
           <div>
             <a href="assets/logo/elvia_negative_2.svg" download>
               <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
@@ -98,7 +105,7 @@
             </a>
           </div>
 
-          <img class="asset-preview e-mt-40" src="assets/logo/elvia_negative_3.svg">
+          <img class="asset-preview e-mt-40" src="assets/logo/elvia_negative_3.svg" />
           <div>
             <a href="assets/logo/elvia_negative_3.svg" download>
               <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
@@ -108,7 +115,7 @@
             </a>
           </div>
 
-          <img class="asset-preview e-mt-40" src="assets/logo/elvia_negative_4.svg">
+          <img class="asset-preview e-mt-40" src="assets/logo/elvia_negative_4.svg" />
           <div>
             <a href="assets/logo/elvia_negative_4.svg" download>
               <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
@@ -117,6 +124,7 @@
               </button>
             </a>
           </div>
+        </div>
       </div>
     </div>
   </div>

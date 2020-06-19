@@ -1,35 +1,34 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
-  [externalUrl]="externalUrl"
-  [does]="does"
->
+<app-component-header [componentStatus]="componentStatus" [externalUrl]="externalUrl" [does]="does">
   <ng-container ngProjectAs="headerTitle">
     Date & Time picker
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     <div>
-      Date and time picker is a simple way for the user to quickly select a date and/or time in a calendar dialog. 
-      It uses a text field and a visual calendar in a popover. You can also let the user select a range of dates. 
+      Date and time picker is a simple way for the user to quickly select a date and/or time in a calendar
+      dialog. It uses a text field and a visual calendar in a popover. You can also let the user select a
+      range of dates.
     </div>
     <div class="e-mt-16">
-      This documentation shows how you should style your date and time picker. We do not currently provide styling classes
-      for this, because we understand that it is desirable to use libraries with date/time pickers that have all the logic 
-      necessary. So in this documentation we have pictures of the design that you should try applying to your date/time picker. 
+      This documentation shows how you should style your date and time picker. We do not currently provide
+      styling classes for this, because we understand that it is desirable to use libraries with date/time
+      pickers that have all the logic necessary. So in this documentation we have pictures of the design that
+      you should try applying to your date/time picker.
     </div>
     <div class="e-mt-8">
-      Take a look in <a class="e-link e-link--inline" href="{{externalUrl}}">figma</a> to get the detailed view where you can inspect properties of the design.
+      Take a look in
+      <a class="e-link e-link--inline" href="{{ externalUrl }}">figma</a>
+      to get the detailed view where you can inspect properties of the design.
     </div>
   </ng-container>
-
-
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
   <h2 class="e-title-md">Designing from scratch</h2>
   <div class="e-text-description e-mb-24">
-    If you need to style the datepicker or timepicker from scratch you can use our utilities classes which provide styling that can be useful. 
+    If you need to style the datepicker or timepicker from scratch you can use our utilities classes which
+    provide styling that can be useful.
     <ul class="e-list">
       <li><a class="e-link" [routerLink]="['/utilities/typography-doc']">Typography</a></li>
       <li><a class="e-link" [routerLink]="['/utilities/spacing-doc']">Spacing</a></li>
@@ -41,45 +40,51 @@
 
   <h2 class="e-title-md">Design timepicker</h2>
   <div class="e-text-description e-mb-24">
-    To make the timepicker you might be able to use our <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">autocomplete classes</a> 
-    or <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>.
-    These classes have the same styling as the timepicker designed here.
+    To make the timepicker you might be able to use our
+    <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">autocomplete classes</a>
+    or
+    <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>
+    . These classes have the same styling as the timepicker designed here.
   </div>
   <div>
-    <b>Icons used:</b> <span class="code-text">e-icon--clock</span> <i class="e-icon e-icon--clock e-icon--xs e-ml-8"></i>
+    <b>Icons used:</b>
+    <span class="code-text">e-icon--clock</span>
+    <i class="e-icon e-icon--clock e-icon--xs e-ml-8"></i>
   </div>
   <div class="image-container">
-    <img class="e-m-16 image-size" src="assets/datepicker/timepicker.png">
+    <img class="e-m-16 image-size" src="assets/datepicker/timepicker.png" />
   </div>
   <app-code-block
     [isHTML]="true"
     [code]="inputTimeExample"
-    [title]="'Example of e-input with type time'"
+    [title]="'Example with type time'"
     [class]="['e-input']"
-  >
-  </app-code-block>
+  ></app-code-block>
 
   <h2 class="e-title-md">Design datepicker</h2>
   <div class="e-text-description e-mb-24">
-    To make the datepicker you might be able to use our <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>.
+    To make the datepicker you might be able to use our
+    <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>
+    .
   </div>
-  <b>Icons used:</b> <span class="code-text">e-icon--calendar</span> <i class="e-icon e-icon--calendar e-icon--xs e-ml-8"></i>
+  <b>Icons used:</b>
+  <span class="code-text">e-icon--calendar</span>
+  <i class="e-icon e-icon--calendar e-icon--xs e-ml-8"></i>
   <div class="image-container e-mt-16">
-    <img class="e-m-16 image-size" src="assets/datepicker/datepicker-closed.png">
+    <img class="e-m-16 image-size" src="assets/datepicker/datepicker-closed.png" />
   </div>
   <div class="e-text-description e-mb-24">
-    To make the opened datepicker you might be able use some styling we provide in the <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">autocomplete classes</a>.
-    But it is probably necessary to style from scratch.
+    To make the opened datepicker you might be able use some styling we provide in the
+    <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">autocomplete classes</a>
+    . But it is probably necessary to style from scratch.
   </div>
   <div class="image-container">
-    <img class="e-m-16 image-size" src="assets/datepicker/datepicker-opened.png">
+    <img class="e-m-16 image-size" src="assets/datepicker/datepicker-opened.png" />
   </div>
   <app-code-block
     [isHTML]="true"
     [code]="inputDateExample"
-    [title]="'Example of e-input with type date'"
+    [title]="'Example with type date'"
     [class]="['e-input']"
-  >
-  </app-code-block>
-
+  ></app-code-block>
 </div>

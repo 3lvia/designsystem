@@ -1,14 +1,13 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"  
->
+<app-component-header [componentStatus]="componentStatus">
   <ng-container ngProjectAs="headerTitle">
     New project with Elvis
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Elvis is the design library Elvia used for external and internal systems. Elvis provides classes and variables for styling components,
-    as well as templates, accessibility rules and design principles for all developers and designers at Elvia to follow. 
-    This guide provides you how to install the project and how to use the classes and variables provided.
+    Elvis is the design library Elvia used for external and internal systems. Elvis provides classes and
+    variables for styling components, as well as templates, accessibility rules and design principles for all
+    developers and designers at Elvia to follow. This guide provides you how to install the project and how to
+    use the classes and variables provided.
   </ng-container>
 </app-component-header>
 
@@ -16,11 +15,11 @@
 <div class="page-body">
   <!--OVERVIEW-->
   <div>
-    <div>
-      <h2 class="e-title-md">Getting started with Elvis</h2>
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Getting started with Elvis</h2>
       <div class="e-text-description">
         <div>
-          To get started with Elvis: 
+          To get started with Elvis:
           <h3 class="e-title-sm">Install the package:</h3>
           <app-copy [message]="'npm i @elvia/elvis'">
             <ng-container ngProjectAs="copyContent">
@@ -43,43 +42,48 @@
             <a class="e-link" href="https://github.com/hafslundnett/elvia-designsystem/">Elvis repository</a>
           </div>
           <div>
-            <a class="e-link" href="https://github.com/hafslundnett/elvia-designsystem/issues/new/choose">Give feedback</a>
+            <a class="e-link" href="https://github.com/hafslundnett/elvia-designsystem/issues/new/choose">
+              Give feedback
+            </a>
           </div>
         </div>
       </div>
     </div>
-    <div>
-      <h2 class="e-title-md e-mt-40">Using the classes</h2>
+
+    <div class="elvis-anchor">
+      <h2 class="e-title-md e-mt-40 elvis-anchor-title">Using the classes</h2>
       <div class="e-text-description">
-        All components consists of classes that are available through the Elvis style library. Which classes 
+        All components consists of classes that are available through the Elvis style library. Which classes
         to use is documented for each component.
         <div>
-          The syntax for classes: <code class="code-text">e-name-of-class</code>
+          The syntax for classes:
+          <code class="code-text">e-name-of-class</code>
         </div>
       </div>
     </div>
-    <div>
-      <h2 class="e-title-md e-mt-40">Using the CSS-variables (optional)</h2>
+
+    <div class="elvis-anchor">
+      <h2 class="e-title-md e-mt-40 elvis-anchor-title">Using CSS-variables (optional)</h2>
       <div class="e-text-description">
-        For most of the utilities like colors, shadows and spacing CSS-variables are also provided. 
-        All these variables are available when importing the main.scss file in your stylesheet, meaning you
-        don't need to import any specific files to use them.
+        For most of the utilities like colors, shadows and spacing CSS-variables are also provided. All these
+        variables are available when importing the main.scss file in your stylesheet, meaning you don't need
+        to import any specific files to use them.
         <div>
-          The syntax for CSS-variables: <code class="code-text">var(--e-name-of-class)</code>
+          The syntax for CSS-variables:
+          <code class="code-text">var(--e-name-of-class)</code>
         </div>
       </div>
       <h3 class="e-title-sm">IE Support</h3>
       <div class="e-text-description">
         <div>
-          <a class="e-link" href="https://jhildenbiddle.github.io/css-vars-ponyfill/#/">Ponyfill documentation</a>
+          <a class="e-link" href="https://jhildenbiddle.github.io/css-vars-ponyfill/#/">
+            Ponyfill documentation
+          </a>
         </div>
-        The CSS-variables are not supported by IE11 and a ponyfill is therefore added as a dependency.
-        But this library is offered as a ponyfill, not a polyfill, 
-        meaning that the code below needs to be added to your project, in your main.js/ts file, for processing to take place:
-        <app-code-highlighter
-          [isTS]="true"
-          [code]="cssVarsCode"
-        ></app-code-highlighter>
+        The CSS-variables are not supported by IE11 and a ponyfill is therefore added as a dependency. But
+        this library is offered as a ponyfill, not a polyfill, meaning that the code below needs to be added
+        to your project, in your main.js/ts file, for processing to take place:
+        <app-code-highlighter [isTS]="true" [code]="cssVarsCode"></app-code-highlighter>
       </div>
     </div>
   </div>

@@ -1,5 +1,5 @@
-import {Component, Input, AfterViewInit, ViewChild, OnInit} from '@angular/core';
-import {heightDown} from 'src/app/shared/animations';
+import { Component, Input, AfterViewInit, ViewChild, OnInit } from '@angular/core';
+import { heightDown } from 'src/app/shared/animations';
 
 @Component({
   selector: 'app-code-block',
@@ -29,6 +29,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   showTabs = true;
   screen = 'desktop';
   codepen = '';
+
 
   ngOnInit(): void {
     this.codepen = this.getCodePen(this.code, this.title);
@@ -62,6 +63,6 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
 <script src="https://unpkg.com/@elvia/elvis@latest/elvis.js"></script>
 <link rel="stylesheet" type="text/css" href="https://unpkg.com/@elvia/elvis@latest/css/elvis.min.css" />
     `;
-    return JSON.stringify({title: title, html: html});
+    return JSON.stringify({ title: title, html: html });
   }
 }

@@ -1,35 +1,25 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
-  [externalUrl]="externalUrl"
-  [tabs]="tabs"
-  [(selected)]="selected"
->
+<app-component-header [componentStatus]="componentStatus" [externalUrl]="externalUrl">
   <ng-container ngProjectAs="headerTitle">
     Typography
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     <div>
-      Red Hat is Elvia's profile font and should be used throughout all material. The font family has two optical sizes,
-      Display and Text.
+      Red Hat is Elvia's profile font and should be used throughout all material. The font family has two
+      optical sizes, Display and Text.
     </div>
     <div class="e-mt-16">
-      All typography can be used through a set of classes. The font-classes sets multiple attributes, like font-size,
-      line-height and font-weight.
+      All typography can be used through a set of classes. The font-classes sets multiple attributes, like
+      font-size, line-height and font-weight.
     </div>
   </ng-container>
-
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
   <!--Overview-->
-  <div
-    class="examples"
-    *ngIf="selected == tabNames.Overview"
-  >
-    <h2 class="e-title-md">Typography</h2>
-
+  <div class="examples elvis-anchor">
+    <h2 class="e-title-md elvis-anchor-title">Preview</h2>
     <div class="example-container">
       <div class="container">
         <div class="row">
@@ -75,10 +65,7 @@
               <app-copy [message]="'e-title-lg'">
                 <ng-container ngProjectAs="copyContent">
                   <div class="mobileCopy">
-                    <app-iframe-preview
-                      [class]="'e-title-lg'"
-                      [code]="'Title Large'"
-                    ></app-iframe-preview>
+                    <app-iframe-preview [class]="'e-title-lg'" [code]="'Title Large'"></app-iframe-preview>
                     <span class="copyMessage">
                       Title Large
                     </span>
@@ -131,10 +118,7 @@
                 <app-copy [message]="'e-title-md'">
                   <ng-container ngProjectAs="copyContent">
                     <div class="mobileCopy">
-                      <app-iframe-preview
-                        [class]="'e-title-md'"
-                        [code]="'Title Medium'"
-                      ></app-iframe-preview>
+                      <app-iframe-preview [class]="'e-title-md'" [code]="'Title Medium'"></app-iframe-preview>
                       <span class="copyMessage">
                         Title Medium
                       </span>
@@ -188,10 +172,7 @@
                 <app-copy [message]="'e-title-sm'">
                   <ng-container ngProjectAs="copyContent">
                     <div class="mobileCopy">
-                      <app-iframe-preview
-                        [class]="'e-title-sm'"
-                        [code]="'Title Small'"
-                      ></app-iframe-preview>
+                      <app-iframe-preview [class]="'e-title-sm'" [code]="'Title Small'"></app-iframe-preview>
                       <span class="copyMessage">
                         Title Small
                       </span>
@@ -244,10 +225,7 @@
                 <app-copy [message]="'e-text-lead'">
                   <ng-container ngProjectAs="copyContent">
                     <div class="mobileCopy">
-                      <app-iframe-preview
-                        [class]="'e-text-lead'"
-                        [code]="'Text Lead'"
-                      ></app-iframe-preview>
+                      <app-iframe-preview [class]="'e-text-lead'" [code]="'Text Lead'"></app-iframe-preview>
                       <span class="copyMessage">
                         Text Lead
                       </span>
@@ -302,10 +280,7 @@
                 <app-copy [message]="'e-text-quote'">
                   <ng-container ngProjectAs="copyContent">
                     <div class="mobileCopy">
-                      <app-iframe-preview
-                        [class]="'e-text-quote'"
-                        [code]="'Text Quote'"
-                      ></app-iframe-preview>
+                      <app-iframe-preview [class]="'e-text-quote'" [code]="'Text Quote'"></app-iframe-preview>
                       <span class="copyMessage">
                         Text Quote
                       </span>
@@ -351,7 +326,6 @@
                 <li>Line-Height: {{ typographyClasses[5].properties[4].value }}</li>
               </ul>
             </div>
-
           </div>
           <!-- Mobile -->
           <div class="example">
@@ -360,10 +334,7 @@
                 <app-copy [message]="'e-text-body'">
                   <ng-container ngProjectAs="copyContent">
                     <div class="mobileCopy">
-                      <app-iframe-preview
-                        [class]="'e-text-body'"
-                        [code]="'Text Body'"
-                      ></app-iframe-preview>
+                      <app-iframe-preview [class]="'e-text-body'" [code]="'Text Body'"></app-iframe-preview>
                       <span class="copyMessage">
                         Text Body
                       </span>
@@ -419,10 +390,7 @@
                 <app-copy [message]="'e-text-img'">
                   <ng-container ngProjectAs="copyContent">
                     <div class="mobileCopy">
-                      <app-iframe-preview
-                        [class]="'e-text-img'"
-                        [code]="'Text Image'"
-                      ></app-iframe-preview>
+                      <app-iframe-preview [class]="'e-text-img'" [code]="'Text Image'"></app-iframe-preview>
                       <span class="copyMessage">
                         Text Image
                       </span>
@@ -468,7 +436,6 @@
                 <li>Line-Height: {{ typographyClasses[7].properties[3].value }}</li>
               </ul>
             </div>
-
           </div>
           <!-- Mobile -->
           <div class="example">
@@ -534,10 +501,7 @@
                 <app-copy [message]="'e-text-caps'">
                   <ng-container ngProjectAs="copyContent">
                     <div class="mobileCopy">
-                      <app-iframe-preview
-                        [class]="'e-text-caps'"
-                        [code]="'Text Caps'"
-                      ></app-iframe-preview>
+                      <app-iframe-preview [class]="'e-text-caps'" [code]="'Text Caps'"></app-iframe-preview>
                       <span class="copyMessage">
                         Text Caps
                       </span>
@@ -582,7 +546,6 @@
                 <li>Line-Height: {{ typographyClasses[9].properties[3].value }}</li>
               </ul>
             </div>
-
           </div>
           <!-- Mobile -->
           <div class="example">
@@ -591,10 +554,7 @@
                 <app-copy [message]="'e-text-info'">
                   <ng-container ngProjectAs="copyContent">
                     <div class="mobileCopy">
-                      <app-iframe-preview
-                        [class]="'e-text-info'"
-                        [code]="'Text Info'"
-                      ></app-iframe-preview>
+                      <app-iframe-preview [class]="'e-text-info'" [code]="'Text Info'"></app-iframe-preview>
                       <span class="copyMessage">
                         Text Info
                       </span>
@@ -639,7 +599,6 @@
                 <li>Line-Height: {{ typographyClasses[10].properties[3].value }}</li>
               </ul>
             </div>
-
           </div>
           <!-- Mobile -->
           <div class="example">
@@ -648,10 +607,7 @@
                 <app-copy [message]="'e-text-label'">
                   <ng-container ngProjectAs="copyContent">
                     <div class="mobileCopy">
-                      <app-iframe-preview
-                        [class]="'e-text-label'"
-                        [code]="'Text Label'"
-                      ></app-iframe-preview>
+                      <app-iframe-preview [class]="'e-text-label'" [code]="'Text Label'"></app-iframe-preview>
                       <span class="copyMessage">
                         Text Label
                       </span>
@@ -696,7 +652,6 @@
                 <li>Line-Height: {{ typographyClasses[11].properties[3].value }}</li>
               </ul>
             </div>
-
           </div>
           <!-- Mobile -->
           <div class="example">
@@ -726,46 +681,30 @@
           </div>
         </div>
       </div>
-
     </div>
   </div>
 
-  <!--Examples-->
-  <div *ngIf="selected == tabNames.Code">
-    <app-code-block
-      [isHTML]="true"
-      [code]="example1"
-      [title]="'Title'"
-    ></app-code-block>
-    <app-code-block
-      [isHTML]="true"
-      [code]="example2"
-      [title]="'Text'"
-    ></app-code-block>
-    <app-code-block
-      [isHTML]="true"
-      [code]="example3"
-      [title]="'Label'"
-    ></app-code-block>
+  <div>
+    <app-code-block [isHTML]="true" [code]="example1" [title]="'Code examples: Title'"></app-code-block>
+    <app-code-block [isHTML]="true" [code]="example2" [title]="'Code examples: Text'"></app-code-block>
+    <app-code-block [isHTML]="true" [code]="example3" [title]="'Code examples: Label'"></app-code-block>
   </div>
 
-  <!--GUIDELINES-->
-  <div *ngIf="selected == tabNames.Guidelines">
-    <div>
-      <h2 class="e-title-md">Using Classes</h2>
+  <div>
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Using Classes</h2>
       <p class="e-text-description">
-        All typography can be used through a set of classes. The <code class="code-text">e-title-lg</code> sets
-        multiple
-        attributes,
-        like font-size, line-height and font-weight.
+        All typography can be used through a set of classes. The
+        <code class="code-text">e-title-lg</code>
+        sets multiple attributes, like font-size, line-height and font-weight.
       </p>
-      <h3 class="e-title-sm">Title classes</h3>
+      <h3 class="e-text-caps">Title classes</h3>
       <ul>
         <li><code class="code-text">e-title-lg</code></li>
         <li><code class="code-text">e-title-md</code></li>
         <li><code class="code-text">e-title-sm</code></li>
       </ul>
-      <h3 class="e-title-sm">Text classes</h3>
+      <h3 class="e-text-caps">Text classes</h3>
       <ul>
         <li><code class="code-text">e-text-lead</code></li>
         <li><code class="code-text">e-text-quote</code></li>
@@ -775,7 +714,7 @@
         <li><code class="code-text">e-text-caps</code></li>
         <li><code class="code-text">e-text-info</code></li>
       </ul>
-      <h3 class="e-title-sm">Label classes</h3>
+      <h3 class="e-text-caps">Label classes</h3>
       <ul>
         <li><code class="code-text">e-text-label</code></li>
         <li><code class="code-text">e-text-option</code></li>

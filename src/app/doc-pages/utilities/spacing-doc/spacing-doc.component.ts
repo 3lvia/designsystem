@@ -1,7 +1,6 @@
-import {Component, Input} from '@angular/core';
-import {TabNames} from 'src/app/shared/tab-names.enums';
-import {getUtilities} from 'src/app/shared/e-items';
-import {spacingItems} from './spacing';
+import { Component } from '@angular/core';
+import { getUtilities } from 'src/app/shared/e-items';
+import { spacingItems } from './spacing';
 
 @Component({
   selector: 'app-spacing-doc',
@@ -9,11 +8,8 @@ import {spacingItems} from './spacing';
   styleUrls: ['./spacing-doc.component.scss'],
 })
 export class SpacingDocComponent {
-  @Input() selected = TabNames.Overview;
 
   spacingItems = spacingItems;
-  tabNames = TabNames;
-  tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
   componentStatus = getUtilities('spacing-doc').status;
   externalUrl = getUtilities('spacing-doc').externalUrl;
 

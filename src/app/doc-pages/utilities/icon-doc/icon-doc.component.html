@@ -18,8 +18,8 @@
 <!--BODY-->
 <div class="page-body">
   <!--OVERVIEW-->
-  <div class="overview" *ngIf="selected == tabNames.Overview">
-    <h2 class="e-title-md">Sizes</h2>
+  <div class="overview elvis-anchor" *ngIf="selected == tabNames.Overview">
+    <h2 class="e-title-md elvis-anchor-title">Sizes</h2>
     <div class="e-grid e-mr-72" style="flex-grow: 0;">
       <div class="row no-gutters">
         <div class="col">
@@ -88,80 +88,74 @@
       </div>
     </div>
 
-    <h2 class="e-title-md">Icons</h2>
-    <p class="e-text-description">Search through all the available icons here.</p>
-    <div class="overview-search-container">
-      <div class="e-form_field">
-        <div class="e-input">
-          <input
-            type="text"
-            placeholder="Search for Icons"
-            [(ngModel)]="term"
-          />
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Icons</h2>
+      <p class="e-text-description">Search through all the available icons here.</p>
+      <div class="overview-search-container">
+        <div class="e-form_field">
+          <div class="e-input">
+            <input type="text" placeholder="Search for Icons" [(ngModel)]="term" />
+          </div>
         </div>
+        <button (click)="invert()" class="e-btn e-mt-24">
+          Invert
+        </button>
       </div>
-      <button (click)="invert()" class="e-btn e-mt-24" >
-        Invert
-      </button>
-    </div>
-    <div class="overview-icons-container e-pt-32" [style.backgroundColor] = "inverted ? 'black' : 'white'">
-      <div class="icon-card" *ngFor="let icon of svgIcons | iconSeachPipe: term">
-        <app-copy [message]="'e-icon e-icon--' + icon.title + ' e-icon--lg'">
-          <ng-container ngProjectAs="copyContent">
-            <i [class.e-icon--inverted]="inverted" [class]="'e-icon e-icon--' + icon.title + ' e-icon--md'"></i>
-            <p class="e-text-description" [style.color] = "inverted ? 'white' : 'black'">{{ icon.pretty }}</p>
-          </ng-container>
-        </app-copy>
+      <div class="overview-icons-container e-pt-32" [style.backgroundColor]="inverted ? 'black' : 'white'">
+        <div class="icon-card" *ngFor="let icon of svgIcons | iconSeachPipe: term">
+          <app-copy [message]="'e-icon e-icon--' + icon.title + ' e-icon--lg'">
+            <ng-container ngProjectAs="copyContent">
+              <i
+                [class.e-icon--inverted]="inverted"
+                [class]="'e-icon e-icon--' + icon.title + ' e-icon--md'"
+              ></i>
+              <p class="e-text-description" [style.color]="inverted ? 'white' : 'black'">{{ icon.pretty }}</p>
+            </ng-container>
+          </app-copy>
+        </div>
       </div>
     </div>
   </div>
 
-   <!--CODE-->
-   <div *ngIf="selected == tabNames.Code">
-    <app-code-block
-      [isHTML]="true"
-      [code]="example"
-      [title]="'Icon sizes'"
-    ></app-code-block>
-    <app-code-block
-      [isHTML]="true"
-      [code]="example2"
-      [title]="'Color'"
-    ></app-code-block>
+  <!--CODE-->
+  <div *ngIf="selected == tabNames.Code">
+    <app-code-block [isHTML]="true" [code]="example" [title]="'Icon sizes'"></app-code-block>
+    <app-code-block [isHTML]="true" [code]="example2" [title]="'Color'"></app-code-block>
     <app-code-block
       [isHTML]="true"
       [code]="example3"
       [title]="'Inverted / Disabled + Disabled light'"
     ></app-code-block>
-    <app-code-block
-      [isHTML]="true"
-      [code]="example4"
-      [title]="'Shades of grey'"
-    ></app-code-block>
-
+    <app-code-block [isHTML]="true" [code]="example4" [title]="'Shades of grey'"></app-code-block>
   </div>
 
   <!--GUIDELINES-->
   <div *ngIf="selected == tabNames.Guidelines">
     <div>
-        <h2 class="e-title-md">Method 1: Easiest</h2>
-        <p class="e-text-description">
-            Download the npm package and use Elvis.js from inside the npm package like this:<br>
-        <code class="code-text">&lt;script src="path_to_file/elvis.js"&gt;&lt;/script&gt;</code></p>
-        <p class="e-text-description">
-          <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
-        </p>
-        <p class="e-text-description">
-            The icons can then be used like this:
-            <code class="code-text">class="e-icon e-icon--chat e-icon--md"</code>
-        </p>
-        <p class="e-text-description"><strong>How it works:</strong><br>
-          Elvis.js looks for e-icon and similar classes and injects a img tag with the SVG icon at the desired location.</p>
+      <h2 class="e-title-md">Method 1: Easiest</h2>
+      <p class="e-text-description">
+        Download the npm package and use Elvis.js from inside the npm package like this:
+        <br />
+        <code class="code-text">&lt;script src="path_to_file/elvis.js"&gt;&lt;/script&gt;</code>
+      </p>
+      <p class="e-text-description">
+        <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
+      </p>
+      <p class="e-text-description">
+        The icons can then be used like this:
+        <code class="code-text">class="e-icon e-icon--chat e-icon--md"</code>
+      </p>
+      <p class="e-text-description">
+        <strong>How it works:</strong>
+        <br />
+        Elvis.js looks for e-icon and similar classes and injects a img tag with the SVG icon at the desired
+        location.
+      </p>
 
       <h2 class="e-title-md">Method 2: Using JS Module / SVGs</h2>
       <p class="e-text-description">
-          All icons are accessible as SVGs within a JS module.
-          Import the required icon individually where you need them:
+        All icons are accessible as SVGs within a JS module. Import the required icon individually where you
+        need them:
       </p>
       <p class="e-text-description">
         <code class="code-text">import {{ '{' }} addCircle {{ '}' }} from '@elvia/elvis/icons'</code>

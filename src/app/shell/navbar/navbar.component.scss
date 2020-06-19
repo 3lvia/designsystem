@@ -1,19 +1,8 @@
 @import '../../shared/shared-sizes.scss';
+@import '../../shared/shared-animations';
 @import '../../../../style/elvis/src/utilities/breakpoints.scss';
 
 $text-line-height: 32px;
-
-.hamburger {
-  display: none;
-  z-index: 1111;
-  @include breakpoint-up(Tablet) {
-    display: flex;
-  }
-
-  &.is-warning {
-    top: $header-height + 120px;
-  }
-}
 
 .navbar {
   height: calc(100% - 64px - #{$header-height});
@@ -71,11 +60,11 @@ $text-line-height: 32px;
     margin-top: 0;
 
     .navbar-item {
+      margin-left: 4px;
       margin-bottom: 4px;
 
       a {
         cursor: pointer;
-        outline-offset: unset;
         .navbar-item-title {
           position: relative;
           white-space: nowrap;
@@ -92,7 +81,7 @@ $text-line-height: 32px;
         }
       }
       a:hover,
-      a.active {
+      a.active-route {
         .navbar-item-title {
           font-size: 15px;
         }
@@ -107,13 +96,70 @@ $text-line-height: 32px;
           border: 2px solid var(--e-green);
         }
       }
-      a.active {
+      a.active-route {
         .navbar-item-title {
           font-size: 14px;
           font-weight: 700;
         }
         .navbar-item-title:before {
           background-color: var(--e-green);
+        }
+      }
+      .anchors {
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.5s cubic-bezier(0, 1.05, 0, 1), opacity 0.4s cubic-bezier(0, 0.77, 0.78, 1.1);
+
+        margin-left: 16px;
+        padding-left: 16px;
+        border-left: 1px solid var(--e-grey-10);
+
+        .link {
+          width: 100%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          a {
+            width: 100%;
+            justify-self: start;
+            font-family: 'Red Hat Text';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 13px;
+            line-height: 17px;
+            letter-spacing: 0.012em;
+            color: var(--e-grey-70);
+          }
+        }
+        .link:not(:last-of-type) {
+          margin-bottom: 12px;
+        }
+      }
+      .active-route + .anchors {
+        max-height: 1000px;
+        opacity: 1;
+
+        height: 100%;
+        width: 100%;
+        margin-top: 8px;
+        margin-bottom: 8px;
+
+        .link {
+          @extend %scale-down-ver-top;
+
+          @for $i from 1 through 50 {
+            &:nth-child(#{$i}) {
+              animation-delay: 30ms * $i;
+            }
+          }
+          a:hover {
+            font-size: 14px;
+          }
+          a.active-anchor {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--e-black);
+          }
         }
       }
     }

@@ -2,8 +2,6 @@
 <app-component-header
   [componentStatus]="componentStatus"
   [externalUrl]="externalUrl"
-  [tabs]="tabs"
-  [(selected)]="selected"
   [does]="does"
   [donts]="donts"
 >
@@ -11,93 +9,100 @@
     Shadow
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Shadow is used to make an element stand out from the surface to create depth. 
-    Choosing a shadow is up to each scenario - but the shadow should be "experienced" and should not be prominent.
+    Shadow is used to make an element stand out from the surface to create depth. Choosing a shadow is up to
+    each scenario - but the shadow should be "experienced" and should not be prominent.
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <!--Overview-->
-  <div *ngIf="selected == tabNames.Overview">
-    <h2 class="e-title-md">Soft, medium and hard</h2>
-    <p class="e-text-body">
-      We have three different shadows; soft, medium and hard. 
-      Soft are mostly used on grey background, while medium and hard should be used on white background.
-      The naming convention reflects the percentage of opacity on the base color of shadows.
-    </p>
-    <div class="display-container centered-content">
-      <div class="display-card">
-        <app-copy [message]="'e-shadow-3'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-3 e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="display-card-title e-text-caps">e-shadow-3</div>
-        <div class="display-card-variable">#000000-0.03</div>
-      </div>
-      <div class="display-card">
-        <app-copy [message]="'e-shadow-6'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-6 e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="display-card-title e-text-caps">e-shadow-6</div>
-        <div class="display-card-variable">#000000-0.06</div>
-      </div>
-      <div class="display-card">
-        <app-copy [message]="'e-shadow-8'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-8 e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="display-card-title e-text-caps">e-shadow-8</div>
-        <div class="display-card-variable">#000000-0.08</div>
-      </div>
+  <div>
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Soft, medium and hard</h2>
+      <p class="e-text-description">
+        We have three different shadows; soft, medium and hard. Soft are mostly used on grey background, while
+        medium and hard should be used on white background. The naming convention reflects the percentage of
+        opacity on the base color of shadows.
+      </p>
     </div>
-    <!-- On grey background -->
-    <div class="display-container centered-content  e-bg-grey-05">
-      <div class="display-card">
-        <app-copy [message]="'e-shadow-3'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-3 e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="display-card-title e-text-caps">e-shadow-3</div>
-        <div class="display-card-variable">#000000-0.03</div>
+
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Preview</h2>
+      <div class="display-container centered-content">
+        <div class="display-card">
+          <app-copy [message]="'e-shadow-3'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-3 e-bg-white"></div>
+            </ng-container>
+          </app-copy>
+          <div class="display-card-title e-text-caps">e-shadow-3</div>
+          <div class="display-card-variable">#000000-0.03</div>
+        </div>
+        <div class="display-card">
+          <app-copy [message]="'e-shadow-6'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-6 e-bg-white"></div>
+            </ng-container>
+          </app-copy>
+          <div class="display-card-title e-text-caps">e-shadow-6</div>
+          <div class="display-card-variable">#000000-0.06</div>
+        </div>
+        <div class="display-card">
+          <app-copy [message]="'e-shadow-8'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-8 e-bg-white"></div>
+            </ng-container>
+          </app-copy>
+          <div class="display-card-title e-text-caps">e-shadow-8</div>
+          <div class="display-card-variable">#000000-0.08</div>
+        </div>
       </div>
-      <div class="display-card">
-        <app-copy [message]="'e-shadow-6'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-6 e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="display-card-title e-text-caps">e-shadow-6</div>
-        <div class="display-card-variable">#000000-0.06</div>
-      </div>
-      <div class="display-card">
-        <app-copy [message]="'e-shadow-8'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="display-card-circle e-shadow-8 e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="display-card-title e-text-caps">e-shadow-8</div>
-        <div class="display-card-variable">#000000-0.08</div>
+      <!-- On grey background -->
+      <div class="display-container centered-content e-bg-grey-05">
+        <div class="display-card">
+          <app-copy [message]="'e-shadow-3'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-3 e-bg-white"></div>
+            </ng-container>
+          </app-copy>
+          <div class="display-card-title e-text-caps">e-shadow-3</div>
+          <div class="display-card-variable">#000000-0.03</div>
+        </div>
+        <div class="display-card">
+          <app-copy [message]="'e-shadow-6'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-6 e-bg-white"></div>
+            </ng-container>
+          </app-copy>
+          <div class="display-card-title e-text-caps">e-shadow-6</div>
+          <div class="display-card-variable">#000000-0.06</div>
+        </div>
+        <div class="display-card">
+          <app-copy [message]="'e-shadow-8'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="display-card-circle e-shadow-8 e-bg-white"></div>
+            </ng-container>
+          </app-copy>
+          <div class="display-card-title e-text-caps">e-shadow-8</div>
+          <div class="display-card-variable">#000000-0.08</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!--GUIDELINES-->
-  <div *ngIf="selected == tabNames.Guidelines">
-    <div>
-      <h2 class="e-title-md">Using Classes</h2>
-      <p class="e-text-body">
-        All shadows can be used through a set of classes. 
-        The <code class="code-text">e-shadow-3</code>,<code class="code-text">e-shadow-6</code> and
-        <code class="code-text">e-shadow-8</code> sets box-shadow blur and opacity. Softer shadows has higher blur and lower opacity,
-        and harder shadows has lower blur, but higher opacity.
+  <div>
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Using Classes</h2>
+      <p class="e-text-description">
+        All shadows can be used through a set of classes. The
+        <code class="code-text">e-shadow-3</code>
+        ,
+        <code class="code-text">e-shadow-6</code>
+        and
+        <code class="code-text">e-shadow-8</code>
+        sets box-shadow blur and opacity. Softer shadows has higher blur and lower opacity, and harder shadows
+        has lower blur, but higher opacity.
       </p>
-      <h3 class="e-title-sm">Classes</h3>
       <ul>
         <li><code class="code-text">e-shadow-none</code></li>
         <li><code class="code-text">e-shadow-3</code></li>
@@ -105,33 +110,24 @@
         <li><code class="code-text">e-shadow-8</code></li>
       </ul>
     </div>
-    <div>
-      <h2 class="e-title-md">Using CSS-variables</h2>
-      <p class="e-text-body">
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Using CSS-variables</h2>
+      <p class="e-text-description">
         All shadows can be used through their CSS-variable as well.
       </p>
-      <h3 class="e-title-sm">Variables</h3>
       <ul>
         <li><code class="code-text">var(--e-shadow-none)</code></li>
         <li><code class="code-text">var(--e-shadow-3)</code></li>
         <li><code class="code-text">var(--e-shadow-6)</code></li>
         <li><code class="code-text">var(--e-shadow-8)</code></li>
       </ul>
-      <h3 class="e-title-sm">Do's and Don'ts</h3>
-      <p class="e-text-body">
+      <h3 class="e-text-caps">Do's and Don'ts</h3>
+      <p class="e-text-description">
         All CSS-variables can be used except if you want remove shadow.
       </p>
-      <p class="e-text-body">
-        <app-do-dont
-          [isSCSS]="true"
-          [do]="true"
-          [example]="doCodeCSS"
-        ></app-do-dont>
-        <app-do-dont
-          [isSCSS]="true"
-          [do]="false"
-          [example]="dontCodeCSS"
-        ></app-do-dont>
+      <p class="e-text-description">
+        <app-do-dont [isSCSS]="true" [do]="true" [example]="doCodeCSS"></app-do-dont>
+        <app-do-dont [isSCSS]="true" [do]="false" [example]="dontCodeCSS"></app-do-dont>
       </p>
     </div>
   </div>

@@ -1,7 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Icon} from 'src/app/shared/icon.interface';
-import {TabNames} from 'src/app/shared/tab-names.enums';
-import {getUtilities} from 'src/app/shared/e-items';
+import { Component, Input, OnInit } from '@angular/core';
+import { Icon } from 'src/app/shared/icon.interface';
+import { TabNames } from 'src/app/shared/tab-names.enums';
+import { getUtilities } from 'src/app/shared/e-items';
 import * as icons from 'style/elvis/src/config/icons.config';
 
 @Component({

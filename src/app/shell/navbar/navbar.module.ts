@@ -9,6 +9,6 @@ import { RouterModule } from '@angular/router';
     RouterModule,
   ],
   declarations: [NavbarComponent],
-  exports: [NavbarComponent]
+  exports: [NavbarComponent],
 })
 export class NavbarModule { }

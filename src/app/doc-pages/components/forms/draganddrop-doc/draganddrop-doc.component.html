@@ -1,15 +1,9 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
-  [externalUrl]="externalUrl"
->
+<app-component-header [componentStatus]="componentStatus" [externalUrl]="externalUrl">
   <ng-container ngProjectAs="headerTitle">
     Drag&Drop
   </ng-container>
-  <ng-container ngProjectAs="headerDescription">
-  </ng-container>
-
-
+  <ng-container ngProjectAs="headerDescription"></ng-container>
 </app-component-header>
 
 <!--BODY-->
@@ -24,7 +18,7 @@
   <app-code-block
     [isHTML]="true"
     [code]="example2"
-    [title]="'Pseudoclass'"
+    [title]="'Pseudo Classes'"
     [class]="['e-dragdrop---hover']"
     [description]="'Hoover state class for drag and drop area'"
   ></app-code-block>

@@ -1,8 +1,5 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
-  [externalUrl]="externalUrl"
->
+<app-component-header [componentStatus]="componentStatus" [externalUrl]="externalUrl">
   <ng-container ngProjectAs="headerTitle">
     File Upload
   </ng-container>
@@ -22,39 +19,37 @@
   <app-code-block
     [isHTML]="true"
     [code]="example2"
-    [title]="'Pseudoclass for hoover state on dragover'"
+    [title]="'Pseudo Classes'"
     [class]="['e-fileupload---hover']"
   ></app-code-block>
 
-  <h3>Live example, built in Angular</h3>
-  <p>The only general styling guide when implementing a file upload in Elvis style is to change
-    the border color to green on dragover events. You can use the <code class="code-text">e-fileupload---hover</code> pseudoclass to do this.
-  </p>
+  <div class="elvis-anchor">
+    <h2 class="e-title-medium elvis-anchor-title">Live example</h2>
+    <p>
+      The only general styling guide when implementing a file upload in Elvis style is to change the border
+      color to green on dragover events. You can use the
+      <code class="code-text">e-fileupload---hover</code>
+      pseudoclass to do this.
+    </p>
 
-  <div class="liveExample e-mt-40">
-    <div
-      class="e-fileupload"
-      style="width:380px"
-      appDnd
-    >
-      <div class="e-fileupload__icon">
-        <i class="e-icon e-icon--image_add-color"></i>
-      </div>
-      <div class="e-fileupload__description">
-        Dra og slipp eller
-      </div>
-      <div class="e-fileupload__input">
-        <input
-          type="file"
-          id="fileUploadTemplate"
-        >
-        <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i> Velg fil</label>
+    <div class="liveExample e-mt-40">
+      <div class="e-fileupload" style="width: 380px;" appDnd>
+        <div class="e-fileupload__icon">
+          <i class="e-icon e-icon--image_add-color"></i>
+        </div>
+        <div class="e-fileupload__description">
+          Dra og slipp eller
+        </div>
+        <div class="e-fileupload__input">
+          <input type="file" id="fileUploadTemplate" />
+          <label for="fileUploadTemplate">
+            <i class="e-icon e-icon--download"></i>
+            Velg fil
+          </label>
+        </div>
       </div>
     </div>
+    <h4>TS code for angular directive example</h4>
+    <app-code-highlighter [isTS]="'true'" [code]="dndDirective"></app-code-highlighter>
   </div>
-  <h4>TS code for angular directive example</h4>
-    <app-code-highlighter
-      [isTS]="'true'"
-      [code]="dndDirective"
-    ></app-code-highlighter>
 </div>
