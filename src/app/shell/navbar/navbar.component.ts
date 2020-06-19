@@ -49,6 +49,9 @@ export class NavbarComponent implements OnInit {
   }
 
   markNewActiveAnchor(navbarItem: EItems): void {
+    if (navbarItem === this.activeNavbarItem) {
+      return;
+    }
     this.prevNavbarAnchors = this.navbarAnchors;
     this.prevActiveNavbarItem = this.activeNavbarItem;
     this.activeNavbarItem = navbarItem;
