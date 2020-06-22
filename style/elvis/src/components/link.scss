@@ -102,10 +102,16 @@ $link-jumbo-phone-width: 287px;
     .e-link__icon {
       position: relative;
       top: 5px;
+      @media screen and (-ms-high-contrast: none) {
+        top: -5px;
+      }
       right: 0;
       i {
         position: absolute;
+        top: 0;
+        bottom: 0;
         left: 0;
+        right: 0;
         display: flex;
       }
     }
@@ -165,6 +171,7 @@ $link-jumbo-phone-width: 287px;
       text-align: left;
       width: 100%;
       min-height: 48px;
+      height: 40px;
       align-items: center;
     }
 

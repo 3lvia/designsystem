@@ -1280,9 +1280,17 @@ input:focus {
   right: 0;
 }
 
+@media screen and (-ms-high-contrast: none) {
+  .e-link.e-link--action .e-link__icon {
+    top: -5px;
+  }
+}
 .e-link.e-link--action .e-link__icon i {
   position: absolute;
+  top: 0;
+  bottom: 0;
   left: 0;
+  right: 0;
   display: flex;
 }
 
@@ -1349,6 +1357,7 @@ input:focus {
   text-align: left;
   width: 100%;
   min-height: 48px;
+  height: 40px;
   align-items: center;
 }
 
