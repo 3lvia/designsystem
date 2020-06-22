@@ -1,18 +1,23 @@
 .asset-preview {
-    max-width:400px;
-    width:100%;
-    padding: 50px;
-    max-height:200px;
+  max-width: 400px;
+  width: 100%;
+  padding: 50px;
+  max-height: 200px;
 }
 
 .logo-minimum-size {
-    height:25px;
-    padding:12.25px; 
-    border:1px dashed #29D305;
+  height: 25px;
+  margin: 12.25px;
+}
+
+.logo-minimum-size-wrapper {
+  border: 1px dashed #29d305;
+  display: inline-block;
+  line-height: 0;
 }
 
 .padding-example {
-    height:202px;
-    padding:50px;
-    border:1px dashed #29D305;
+  height: 202px;
+  padding: 50px;
+  border: 1px dashed #29d305;
 }
