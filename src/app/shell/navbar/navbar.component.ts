@@ -35,7 +35,9 @@ export class NavbarComponent implements OnInit {
       this.navbarAnchors = anchors;
       this.navbarItems.forEach((item) => {
         let currentRoute = this.router.url.slice(this.router.url.lastIndexOf('/') + 1);
-        currentRoute = currentRoute.slice(0, currentRoute.indexOf('#'));
+        if (currentRoute.includes('#')) {
+          currentRoute = currentRoute.slice(0, currentRoute.indexOf('#'));
+        }
         if (item.docUrl === currentRoute) {
           this.activeNavbarItem = item;
         }
@@ -43,12 +45,22 @@ export class NavbarComponent implements OnInit {
 
       this.route.fragment.subscribe(fragment => {
         if (fragment) {
-          this.navbarAnchors.forEach(anchor => {
-            if (anchor.title.toLocaleLowerCase().replace(/\s/g, '') === fragment.toLocaleLowerCase().replace(/\s/g, '')) {
-              this.activeAnchor = anchor;
-              this.scrollService.scrollToElement(anchor.top);
-            }
+          const fragmentExists = this.navbarAnchors.find(anchor => {
+            const anchorRoute = anchor.title.toLocaleLowerCase().replace(/\s/g, '');
+            const fragmentRoute = fragment.toLocaleLowerCase().replace(/\s/g, '');
+            return anchorRoute === fragmentRoute;
           });
+          if (fragmentExists) {
+            this.navbarAnchors.forEach(anchor => {
+              if (anchor.title.toLocaleLowerCase().replace(/\s/g, '') === fragment.toLocaleLowerCase().replace(/\s/g, '')) {
+                this.activeAnchor = anchor;
+                this.scrollService.scrollToElement(anchor.top);
+                return true;
+              }
+            });
+          } else {
+            this.activeAnchor = this.navbarAnchors[0];
+          }
         } else {
           this.activeAnchor = this.navbarAnchors[0];
         }
@@ -61,21 +73,6 @@ export class NavbarComponent implements OnInit {
     this.filteredPages = this.navbarItems.filter((page) => {
       return page.status !== 'Coming';
     });
-    // this.route.fragment.subscribe(fragment => {
-    //   if (fragment) {
-    //     console.log(fragment);
-    //     this.navbarAnchors.forEach(anchor => {
-    //       console.log(anchor.title);
-    //       if (anchor.title.toLocaleLowerCase() === fragment) {
-    //         window.scrollTo({
-    //           top: anchor.top,
-    //           behavior: 'smooth',
-    //         });
-    //       }
-    //     });
-    //     //document.querySelector('#' + fragment).scrollIntoView();
-    //   }
-    // });
   }
 
   showWarning(): boolean {
