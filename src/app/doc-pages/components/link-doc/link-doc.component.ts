@@ -84,21 +84,21 @@ export class LinkDocComponent {
   example4 = `<div>
   <h3 class="e-title-small">Large</h3>
   <a class="e-link e-link--external e-link--lg" href="https://www.elvia.no/">
-    <span class="e-link__title">Se mer</span>
+    <span class="e-link__title">External</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-small">Medium (default)</h3>
   <a class="e-link e-link--external" href="https://www.elvia.no/">
-    <span class="e-link__title">Se mer</span>
+    <span class="e-link__title">External</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-small">Small</h3>
   <a class="e-link e-link--external e-link--sm" href="https://www.elvia.no/">
-    <span class="e-link__title">Se mer</span>
+    <span class="e-link__title">External</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
   </a>
 </div>
@@ -110,6 +110,36 @@ export class LinkDocComponent {
   </a>
 </div>
 `;
+
+  exampleNewTab = `<div>
+  <h3 class="e-title-small">Large</h3>
+  <a class="e-link e-link--new-tab e-link--lg" href="https://www.elvia.no/">
+    <span class="e-link__title">New tab</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
+  </a>
+</div>
+<div class="e-mt-40">
+  <h3 class="e-title-small">Medium (default)</h3>
+  <a class="e-link e-link--new-tab" href="https://www.elvia.no/">
+    <span class="e-link__title">New tab</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
+  </a>
+</div>
+<div class="e-mt-40">
+  <h3 class="e-title-small">Small</h3>
+  <a class="e-link e-link--new-tab e-link--sm" href="https://www.elvia.no/">
+    <span class="e-link__title">New tab</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
+  </a>
+</div>
+<div class="e-mt-40" style="width:164px;">
+  <h3 class="e-title-small">Multiline</h3>
+  <a class="e-link e-link--new-tab" href="https://www.elvia.no/">
+    <span class="e-link__title">New-tab link over multiple rows</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
+  </a>
+</div>
+  `;
 
   example5 = `<div>
   <h3 class="e-title-small">Large</h3>

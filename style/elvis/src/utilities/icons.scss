@@ -18,7 +18,8 @@ $sizes: (
   $size: get-icon-size($icon-size);
   width: $size;
   height: $size;
-  img {
+  img,
+  i {
     width: $size;
     height: $size;
   }

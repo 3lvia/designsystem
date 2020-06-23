@@ -2526,6 +2526,31 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    export const newTab = {
+      getIcon: function(color) {
+          let icon = '<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5.75a.75.75 0 01.75-.75h4a.75.75 0 01.75.75v4a.75.75 0 01-1.5 0V1.5h-3.25a.75.75 0 01-.75-.75z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14.78 1.22a.75.75 0 010 1.06l-4 4a.75.75 0 11-1.06-1.06l4-4a.75.75 0 011.06 0z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2.083 3a.583.583 0 00-.583.583v10.334a.583.583 0 00.583.583h10.334a.583.583 0 00.583-.583v-6a.75.75 0 011.5 0v6A2.083 2.083 0 0112.417 16H2.083A2.083 2.083 0 010 13.917V3.583A2.083 2.083 0 012.083 1.5h6a.75.75 0 110 1.5h-6z" fill="#000"/></svg>'
+          let iconName = 'new_tab'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     export const noteApprovedColor = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.25 24A2.252 2.252 0 010 21.75V2.25A2.252 2.252 0 012.25 0h19.5A2.252 2.252 0 0124 2.25v11.379c0 .317-.066.625-.196.916l-.011.023a2.232 2.232 0 01-.451.65l-8.123 8.122a2.24 2.24 0 01-.691.47c-.274.124-.582.19-.899.19H2.25zm0-22.5a.75.75 0 00-.75.75v19.5c0 .414.336.75.75.75H13.5v-6.75a2.252 2.252 0 012.25-2.25h6.75V2.25a.75.75 0 00-.75-.75H2.25zM15.75 15a.75.75 0 00-.75.75v5.689L21.439 15H15.75z" fill="#000"/><path d="M11.115 4.449A1.03 1.03 0 0111.953 4c.227 0 .445.078.628.224a1.184 1.184 0 01.208 1.576l-4.028 5.751a1.03 1.03 0 01-.763.446h-.002a1.003 1.003 0 01-.81-.326l-2.878-3.08A1.158 1.158 0 014 7.795c0-.3.11-.585.308-.796.197-.213.461-.329.74-.329.277 0 .541.116.738.329l2.025 2.167 3.304-4.717z" fill="#29D305"/></svg>'
