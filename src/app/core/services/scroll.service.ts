@@ -34,7 +34,7 @@ export class ScrollService {
 
   scrollToElement(offsetPos: number): void {
     window.scrollTo({
-      top: offsetPos,
+      top: offsetPos + 1,
       behavior: 'smooth',
     });
   }

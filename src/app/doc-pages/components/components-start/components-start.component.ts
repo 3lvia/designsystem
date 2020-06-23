@@ -50,7 +50,7 @@ export class ComponentsStartComponent implements OnInit, OnDestroy {
 
   onScrollToAnchor(anchor: NavbarAnchor): void {
     this.listenOnScrollSubscription.unsubscribe();
-    this.scrollService.scrollToElement(anchor.top + 1);
+    this.scrollService.scrollToElement(anchor.top);
     clearTimeout(this.scrollEventTimeout);
     this.scrollEventTimeout = setTimeout(() => {
       this.startScrollSubscription();
