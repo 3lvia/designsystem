@@ -63,7 +63,7 @@
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{hide: noDesktop, active: screen === 'desktop'}"
+        [ngClass]="{ hide: noDesktop, active: screen === 'desktop' }"
         (click)="screen = 'desktop'"
       >
         Desktop
@@ -71,7 +71,7 @@
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{hide: noTablet, active: screen === 'tablet'}"
+        [ngClass]="{ hide: noTablet, active: screen === 'tablet' }"
         (click)="screen = 'tablet'"
       >
         Tablet
@@ -79,7 +79,7 @@
       <div
         class="tab e-border"
         role="button"
-        [ngClass]="{hide: noPhone, active: screen === 'phone'}"
+        [ngClass]="{ hide: noPhone, active: screen === 'phone' }"
         (click)="screen = 'phone'"
       >
         Phone
@@ -89,17 +89,17 @@
       <div #defaultFrame></div>
     </div>
     <div class="element" *ngIf="showIframeScreens" [ngClass]="greyBg ? 'e-bg-grey-02' : 'e-bg-white'">
-      <div [ngClass]="{hide: screen !== 'desktop' || noDesktop}">
+      <div [ngClass]="{ hide: screen !== 'desktop' || noDesktop }">
         <app-iframe-screen
           [code]="code"
           [overwriteHeight]="overwriteHeight"
           [screenSize]="'desktop'"
         ></app-iframe-screen>
       </div>
-      <div [ngClass]="{hide: screen !== 'tablet' || noTablet}">
+      <div [ngClass]="{ hide: screen !== 'tablet' || noTablet }">
         <app-iframe-screen [code]="code" [screenSize]="'tablet'"></app-iframe-screen>
       </div>
-      <div [ngClass]="{hide: screen !== 'phone' || noPhone}">
+      <div [ngClass]="{ hide: screen !== 'phone' || noPhone }">
         <app-iframe-screen [code]="code" [screenSize]="'phone'"></app-iframe-screen>
       </div>
     </div>
