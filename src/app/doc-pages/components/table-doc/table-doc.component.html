@@ -10,39 +10,104 @@
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     <div>
-      A table displays rows and columns with data and makes it efficient to look up and compare values. 
-      Text should be left aligned in the columns and numbers should be right aligned.
+      A table displays rows and columns with data and makes it efficient to look up and compare values. Text
+      should be left aligned in the columns and numbers should be right aligned.
     </div>
     <div class="e-mt-16">
-      <b>Note:</b> The Elvia design system does not include table functionality, 
-      which means the design for mobiles included here will not automatically appear when switching to smaller screens.
+      Tables are available in two levels of density (a larger table and a compact table) as well as in two
+      types of styles (light header and dark header). The light version is best suited when using multiple
+      tables on one page. When using tables, make sure to always use the same type of density and style on all
+      tables throughout the page.
+    </div>
+    <div class="e-mt-16">
+      <b>Note:</b>
+      Note: The Elvia design system does not include table functionality, which means the design for mobiles
+      included here will not automatically appear when switching to smaller screens.
     </div>
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
+  <div></div>
   <app-code-block
     [isHTML]="true"
     [code]="example1"
     [title]="'Table'"
-    [description]="''"
+    [description]="
+      'Less compact tables should be used in most external systems when displaying information
+       that should be percieved as easy to read and provide a better experience for new users.'
+    "
     [class]="['e-table']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
-    [title]="'Table with multiple columns'"
-    [description]="'If the table requires scrolling the max-width for a column is 300px, 
-    the class e-table__cell--multiline can then be added to ensure width of column and text wrap. Use e-text-right to align numbers to the right.'"
-    [class]="['e-table__cell--multiline']"
+    [title]="'Compact table'"
+    [description]="
+      'Compact tables should be used when showing large amounts of data, 
+      typically in internal systems. They could also provide a better overview when used to show
+       lots of similar type of data that’s typically easier for the user to navigate in. '
+    "
+    [class]="['e-table--compact']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example8"
+    [title]="'Alignment of content'"
+    [description]="
+      'Text should be left aligned in the columns, numbers should be right aligned and icons should be center aligned.
+      Default text alignment in e-table is left. These helper classes is available for the e-table-mobile class as well, 
+      just add --align-option.'
+    "
+    [class]="['e-table--align-left', 'e-table--align-center', 'e-table--align-right']"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example3"
+    [title]="'White header'"
+    [description]="
+      'Change the header to white background, this modifier works in combination with both e-table and e-table--compact 
+      classes for desktop and mobile.'
+    "
+    [class]="['e-table--white-header', 'e-table-mobile--white-header']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example4"
+    [title]="'Bold first table colum'"
+    [description]="
+      'Change the first table header column to bold text, this modifier works in combination with both e-table and e-table--compact 
+      classes for desktop and mobile.'
+    "
+    [class]="['e-table--bold', 'e-table-mobile--bold']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example5"
+    [title]="'Table with multiple columns'"
+    [description]="
+      'If the table requires scrolling the max-width for a column is 300px, 
+    the class e-table__cell--multiline can then be added to ensure width of column and text wrap. Use e-text-right to align numbers to the right.'
+    "
+    [class]="['e-table__cell--multiline']"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example6"
     [title]="'Table for mobile'"
     [description]="'The text in the last column will always be aligned to the right on phones.'"
-    [class]="['e-table-phone']"
+    [class]="['e-table-mobile']"
+    [showIframeScreens]="true"
+    [noTablet]="true"
+    [noDesktop]="true"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="example7"
+    [title]="'Compact table for mobile'"
+    [description]="'The text in the last column will always be aligned to the right on phones.'"
+    [class]="['e-table-mobile', 'e-table--compact']"
     [showIframeScreens]="true"
     [noTablet]="true"
     [noDesktop]="true"

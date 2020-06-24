@@ -1,9 +1,10 @@
 @use "../variables/colors";
 @use "../variables/typography";
 
-$table-padding: 11px 16px;
+$table-padding: 10px 16px;
+$table-compact-padding: 9px 16px;
 $table-phone-padding: 6px 8px;
-$table-border-radius: 4px;
+$table-border-radius: 8px;
 
 %header-style {
   background: colors.color('grey');
@@ -29,8 +30,49 @@ $table-border-radius: 4px;
   border-radius: $table-border-radius;
   border-collapse: separate;
   border-spacing: 0;
-  tr th:first-of-type {
-    border-right: 1px solid colors.color('grey-10');
+
+  &.e-table--compact {
+    thead {
+      td,
+      th {
+        color: colors.color('white');
+        font-weight: 500;
+      }
+    }
+
+    td,
+    th {
+      @include typography.typography('text-info');
+      padding: $table-compact-padding;
+    }
+  }
+
+  &.e-table--white-header {
+    thead {
+      th {
+        background: colors.color('white');
+        color: colors.color('font-color');
+        border-bottom: 1px solid colors.color('grey-10');
+      }
+    }
+  }
+
+  &.e-table--bold {
+    tbody {
+      th {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &--align-center {
+    text-align: center;
+  }
+  &--align-left {
+    text-align: left;
+  }
+  &--align-right {
+    text-align: right;
   }
 
   td,
@@ -47,12 +89,19 @@ $table-border-radius: 4px;
 
   thead {
     @extend %header-style;
+    text-align: center;
+
+    th:first-child {
+      text-align: left;
+    }
   }
 
   // Zebra table
-  &:not(.no-zebra) {
-    tr:nth-of-type(even) {
-      background: colors.color('grey-05');
+  tbody {
+    &:not(.no-zebra) {
+      tr:nth-of-type(odd) {
+        background: colors.color('grey-05');
+      }
     }
   }
 }
@@ -68,10 +117,53 @@ $table-border-radius: 4px;
   box-shadow: 0px 0px 0px 1px colors.color('grey-10');
   background: white;
 
+  &.e-table-mobile--compact {
+    thead {
+      td,
+      th {
+        color: colors.color('white');
+      }
+    }
+
+    td,
+    th {
+      @include typography.typography('text-info');
+      padding: $table-compact-padding;
+    }
+  }
+
+  &.e-table-mobile--white-header {
+    thead {
+      background-color: colors.color('white');
+
+      th {
+        color: colors.color('font-color');
+      }
+    }
+  }
+
+  &.e-table-mobile--bold {
+    tbody {
+      th {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &--align-center {
+    text-align: center;
+  }
+  &--align-left {
+    text-align: left;
+  }
+  &--align-right {
+    text-align: right;
+  }
+
   th,
   td {
     @include typography.typography('text-description');
-    padding: $table-phone-padding;
+    padding: $table-padding;
   }
 
   td {

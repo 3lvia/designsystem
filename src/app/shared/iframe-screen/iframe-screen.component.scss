@@ -16,12 +16,13 @@ iframe {
     height: 540px;
   }
   .phone {
-    width: 380px; 
+    width: 380px;
     height: 540px;
   }
 }
 
-.phone, .tablet {
+.phone,
+.tablet {
   position: relative;
   margin: 4px auto;
   padding: 56px 12px;
@@ -30,7 +31,7 @@ iframe {
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -81,7 +82,7 @@ iframe {
     top: 15px;
     font-size: 14px;
     font-weight: bold;
-    font-family: "Roboto";
+    font-family: 'Roboto';
   }
   &__elvia {
     left: 25px;
