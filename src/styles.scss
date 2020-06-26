@@ -178,3 +178,15 @@ a {
     }
   }
 }
+
+// Typography - specific for doc
+.big-header {
+  font-family: 'Red Hat Display';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 56px;
+  line-height: 120%;
+  @include breakpoint-up(Mobile) {
+    font-size: 32px;
+  }
+}
