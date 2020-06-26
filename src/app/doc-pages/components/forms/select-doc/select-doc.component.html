@@ -1,39 +1,19 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
->
+<app-component-header>
   <ng-container ngProjectAs="headerTitle">
     Select
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore unde saepe, in dolores nam?
+    Iusto corporis odit dolore deleniti maiores distinctio, quas facilis ratione laudantium quae consectetur,
+    fugiat qui?
   </ng-container>
-
-  
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [isHTML]="true"
-    [code]="example1"
-    [title]="'Select Option'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example2"
-    [title]="'Select Option with icon'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example3"
-    [title]="'Select Option (Disabled)'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example4"
-    [title]="'Select Option (Invalid)'"
-  ></app-code-block>
+  <app-code-block [isHTML]="true" [code]="example1" [title]="'Select Option'"></app-code-block>
+  <app-code-block [isHTML]="true" [code]="example2" [title]="'Select Option with icon'"></app-code-block>
+  <app-code-block [isHTML]="true" [code]="example3" [title]="'Select Option (Disabled)'"></app-code-block>
+  <app-code-block [isHTML]="true" [code]="example4" [title]="'Select Option (Invalid)'"></app-code-block>
 </div>

@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-datetime-picker-doc',
@@ -7,8 +7,7 @@ import {getComponent} from 'src/app/shared/e-items';
   styleUrls: ['./datetime-picker-doc.component.scss'],
 })
 export class DatetimePickerDocComponent {
-  externalUrl = getComponent('datetime-picker-doc').externalUrl;
-  componentStatus = getComponent('datetime-picker-doc').status;
+  figmaUrl = getComponent('datetime-picker-doc').figmaUrl;
   does = ["When it's more efficient than typing a date in a text field."];
 
   inputTimeExample = `<div class="e-form-field" style="width:140px">

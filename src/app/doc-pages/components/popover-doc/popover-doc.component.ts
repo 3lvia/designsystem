@@ -1,5 +1,5 @@
-import {Component, ViewChild, ElementRef} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-popover-doc',
@@ -10,8 +10,7 @@ export class PopoverDocComponent {
   @ViewChild('popover1') popover1: ElementRef;
   @ViewChild('popover2') popover2: ElementRef;
 
-  componentStatus = getComponent('popover-doc').status;
-  externalUrl = getComponent('popover-doc').externalUrl;
+  figmaUrl = getComponent('popover-doc').figmaUrl;
   // tslint:disable-next-line:max-line-length
   does = [
     'When you want to give the user more information about something, and are typically paired with an information or question icon.',

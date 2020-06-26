@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-label-doc',
@@ -7,8 +7,7 @@ import {getComponent} from 'src/app/shared/e-items';
   styleUrls: ['./label-doc.component.scss'],
 })
 export class LabelDocComponent {
-  externalUrl = getComponent('label-doc').externalUrl;
-  componentStatus = getComponent('label-doc').status;
+  figmaUrl = getComponent('label-doc').figmaUrl;
   headerDoes = ['When you need to categorize or view the status of items.'];
   headerDonts = [
     'Do not use label alone without pairing it with an item.',

@@ -1,29 +1,17 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
->
+<app-component-header>
   <ng-container ngProjectAs="headerTitle">
     Notification dot
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore
-    unde saepe, in dolores nam? Iusto corporis odit dolore deleniti maiores
-    distinctio, quas facilis ratione laudantium quae consectetur, fugiat qui?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam inventore unde saepe, in dolores nam?
+    Iusto corporis odit dolore deleniti maiores distinctio, quas facilis ratione laudantium quae consectetur,
+    fugiat qui?
   </ng-container>
-
-  
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [isHTML]="true"
-    [code]="example1"
-    [title]="'Notification'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="example2"
-    [title]="'Notification colors'"
-  ></app-code-block>
+  <app-code-block [isHTML]="true" [code]="example1" [title]="'Notification'"></app-code-block>
+  <app-code-block [isHTML]="true" [code]="example2" [title]="'Notification colors'"></app-code-block>
 </div>

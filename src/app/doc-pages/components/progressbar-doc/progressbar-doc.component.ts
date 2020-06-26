@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-progressbar-doc',
@@ -7,8 +7,7 @@ import {getComponent} from 'src/app/shared/e-items';
   styleUrls: ['./progressbar-doc.component.scss'],
 })
 export class ProgressbarDocComponent {
-  externalUrl = getComponent('progressbar-doc').externalUrl;
-  componentStatus = getComponent('progressbar-doc').status;
+  figmaUrl = getComponent('progressbar-doc').figmaUrl;
 
   example1 = `
 <div class="e-progress" role="progressbar">

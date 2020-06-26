@@ -1,13 +1,9 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
-  [externalUrl]="externalUrl"
->
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Progress
   </ng-container>
-  <ng-container ngProjectAs="headerDescription">
-  </ng-container>
+  <ng-container ngProjectAs="headerDescription"></ng-container>
 </app-component-header>
 
 <!--BODY-->

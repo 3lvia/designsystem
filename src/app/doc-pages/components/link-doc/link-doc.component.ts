@@ -7,8 +7,7 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./link-doc.component.scss'],
 })
 export class LinkDocComponent {
-  externalUrl = getComponent('link-doc').externalUrl;
-  componentStatus = getComponent('link-doc').status;
+  figmaUrl = getComponent('link-doc').figmaUrl;
   doExample = `<a class="e-link e-link--lg" href="https://www.elvia.no/">Se vårt strømsbruddskart</a>`;
   dontExample = `<a class="e-link e-link--lg" href="https://www.elvia.no/">Klikk her</a>`;
 

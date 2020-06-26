@@ -1,5 +1,5 @@
-import {Component, ViewChild, ElementRef} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-position-picker-doc',
@@ -10,8 +10,7 @@ export class PositionPickerDocComponent {
   @ViewChild('mapModal') mapModal: ElementRef;
   showPosition = false;
 
-  externalUrl = getComponent('position-picker-doc').externalUrl;
-  componentStatus = getComponent('position-picker-doc').status;
+  figmaUrl = getComponent('position-picker-doc').figmaUrl;
 
   example1Classes = ['e-position-picker', 'e-position-picker__icon', 'e-position-picker__action'];
 

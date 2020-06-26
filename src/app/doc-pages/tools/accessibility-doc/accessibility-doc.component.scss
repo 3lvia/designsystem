@@ -1,0 +1,36 @@
+.header {
+  &-main {
+    padding: 8px 0px;
+  }
+
+  &-secondary {
+    padding: 8px 0px;
+  }
+}
+
+.elvis-example {
+  padding: 10px 40px;
+  background: var(--e-grey-20);
+
+  &-header {
+    margin: 15px 0px;
+  }
+
+  &-content {
+    li {
+      margin: 10px 0px;
+    }
+  }
+}
+
+.links-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .e-card {
+    margin: 10px 0px;
+    width: 48%;
+  }
+}

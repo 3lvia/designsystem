@@ -14,7 +14,7 @@ export class ComponentHeaderComponent {
   @Input() does = [];
   @Input() donts = [];
   @Input() selected: string;
-  @Input() externalUrl: string;
+  @Input() figmaUrl: string;
   @Output() selectedChange = new EventEmitter();
 
   itemStatus = ItemStatus;

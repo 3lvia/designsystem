@@ -1,7 +1,4 @@
-<div
-  class="page-body"
-  @sectionAnimation
->
+<div class="page-body" @sectionAnimation>
   <div class="e-grid">
     <div class="row">
       <div class="col">
@@ -9,10 +6,7 @@
       </div>
     </div>
     <div class="row e-custom-gutters">
-      <div
-        class="col-xs-6 col-sm-4"
-        *ngFor="let page of pages"
-      >
+      <div class="col-xs-6 col-sm-4" *ngFor="let page of pages">
         <div style="max-width: 180px;">
           <a
             class="e-link e-link--card e-link--shortcut"
@@ -21,27 +15,7 @@
           >
             <div class="e-link__content">
               <div class="e-link__icon">
-                <img
-                  src="{{ page.imageUrl }}"
-                  alt=""
-                />
-              </div>
-              <div class="e-link__title">{{ page.title }}</div>
-            </div>
-          </a>
-        </div>
-        <div style="max-width: 180px;">
-          <a
-            class="e-link e-link--card e-link--shortcut"
-            *ngIf="page.externalUrl && !page.docUrl"
-            href="{{ page.externalUrl }}"
-          >
-            <div class="e-link__content">
-              <div class="e-link__icon">
-                <img
-                  src="{{ page.imageUrl }}"
-                  alt=""
-                />
+                <img src="{{ page.imageUrl }}" alt="" />
               </div>
               <div class="e-link__title">{{ page.title }}</div>
             </div>

@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-alert-messages',
@@ -7,8 +7,7 @@ import {getComponent} from 'src/app/shared/e-items';
   styleUrls: ['./alert-messages.component.scss'],
 })
 export class AlertMessagesComponent {
-  componentStatus = getComponent('alert-messages-doc').status;
-  externalUrl = getComponent('alert-messages-doc').externalUrl;
+  figmaUrl = getComponent('alert-messages-doc').figmaUrl;
   doesAlertDefault = [
     'Message related to the content of the page.',
     'To correct a problem.',

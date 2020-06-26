@@ -1,5 +1,5 @@
-import {Component, ViewChild, ElementRef} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-modal-doc',
@@ -11,8 +11,7 @@ export class ModalDocComponent {
   @ViewChild('modal2') modal2: ElementRef;
   @ViewChild('modal3') modal3: ElementRef;
 
-  externalUrl = getComponent('modal-doc').externalUrl;
-  componentStatus = getComponent('modal-doc').status;
+  figmaUrl = getComponent('modal-doc').figmaUrl;
   // tslint:disable-next-line:max-line-length
   does = [
     'Where we need the user to make an active choice before continuing, or when a wrong decision can be critical.',

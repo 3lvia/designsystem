@@ -7,8 +7,7 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./table-doc.component.scss'],
 })
 export class TableDocComponent {
-  externalUrl = getComponent('table-doc').externalUrl;
-  componentStatus = getComponent('table-doc').status;
+  figmaUrl = getComponent('table-doc').figmaUrl;
   does = ['Tables should be used when displaying large amounts of data to the user.'];
   donts = ['Don’t use a table when you can use a data visualization.', 'Don’t mix different styles of tables on the same page.'];
 

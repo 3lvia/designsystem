@@ -1,0 +1,43 @@
+@import '../../../shared/shared-animations';
+
+.e-grid {
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+  .col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+.overview {
+  &-search-container {
+    margin: 24px 0;
+  }
+
+  &-icons-container {
+    margin: 36px 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .icon-card {
+      display: inline-block;
+      max-width: 10%;
+      min-width: 10%;
+      margin: 0 32px;
+      text-align: center;
+      perspective: 3000;
+      height: 160px;
+      cursor: pointer;
+
+      @extend %scale-up-08;
+      &:hover {
+        @extend %scale-down-08;
+      }
+    }
+  }
+}

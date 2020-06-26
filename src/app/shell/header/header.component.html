@@ -1,8 +1,5 @@
 <!-- Temporary warning message  -->
-<div
-  [class.show-header-warning]="showWarning()"
-  class="header-warning e-pl-16 e-pr-16"
->
+<div [class.show-header-warning]="showWarning()" class="header-warning e-pl-16 e-pr-16">
   <div>
     <div>
       <i class="e-icon e-icon--warning_circle e-icon--sm e-mr-16"></i>
@@ -10,23 +7,20 @@
     <div>
       <div>
         <p>
-          The designsystem is in an early phase. Some important features are missing and changes happen in a rapid pace.
-          Contact us and keep up with the development at &nbsp;<a
+          The designsystem is in an early phase. Some important features are missing and changes happen in a
+          rapid pace. Contact us and keep up with the development at &nbsp;
+          <a
             class="e-link e-link--inline e-link--sm"
             href="https://hafslundnett.slack.com/archives/C01302LBTC2"
-          >#designsystemet</a>
+          >
+            #designsystemet
+          </a>
         </p>
       </div>
     </div>
   </div>
-  <div
-    *ngIf="removableWarning()"
-    class="header-warning-close"
-  >
-    <button
-      (click)="removeWarning()"
-      class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-16"
-    >
+  <div *ngIf="removableWarning()" class="header-warning-close">
+    <button (click)="removeWarning()" class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-16">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--remove_circle"></i>
         <i class="e-icon e-icon e-icon--remove_circle-filled-color"></i>
@@ -35,103 +29,51 @@
   </div>
 </div>
 <!-- Header  -->
-<div
-  [class.show-header-warning]="showWarning()"
-  class="header"
->
+<div [class.show-header-warning]="showWarning()" class="header">
   <div class="logo">
-    <a
-      class="header-top_logo"
-      [routerLink]="['', 'home']"
-    >
-      <img
-        src="./../../../assets/logo/elvia_negative_1.svg"
-        alt="Elvia Logo"
-      />
+    <a class="header-top_logo" [routerLink]="['', 'home']">
+      <img src="./../../../assets/logo/elvia_negative_1.svg" alt="Elvia Logo" />
     </a>
   </div>
 
   <div class="tabs">
-    <a
-      class="tabs-links"
-      [routerLink]="['/home']"
-      routerLinkActive="active"
-      role="tab"
-    >
+    <a class="tabs-links" [routerLink]="['/get-started']" routerLinkActive="active" role="tab">
       Get Started
     </a>
-    <a
-      class="tabs-links"
-      [routerLink]="['/components']"
-      routerLinkActive="active"
-      role="tab"
-    >
+    <a class="tabs-links" [routerLink]="['/identity']" routerLinkActive="active" role="tab">
+      Identity
+    </a>
+    <a class="tabs-links" [routerLink]="['/components']" routerLinkActive="active" role="tab">
       Components
     </a>
-    <a
-      class="tabs-links"
-      [routerLink]="['/utilities']"
-      routerLinkActive="active"
-      role="tab"
-    >
-      Utilities
-    </a>
-    <!-- Contribute page -->
-    <!-- <a
-      class="tabs-links"
-      [routerLink]="['/home']"
-      routerLinkActive="active"
-      role="tab"
-    >
-      Community
+    <!-- <a class="tabs-links" [routerLink]="['/tools']" routerLinkActive="active" role="tab">
+      Tools
     </a> -->
+    <a class="tabs-links" [routerLink]="['/community']" routerLinkActive="active" role="tab">
+      Community
+    </a>
   </div>
 
   <div class="external-links">
-
     <span class="vertical-line e-mr-24"></span>
 
-    <div class="version">
-      v{{version}}
-    </div>
+    <div class="version">v{{ version }}</div>
     <span class="links e-ml-24">
       <a href="https://www.figma.com/files/project/5995782/Designsystem-(Elvis)">
-        <img
-          class="default-img"
-          src="../../../assets/icons/figma-header.svg"
-          alt="Figma icon"
-        >
-        <img
-          class="inverted-img"
-          src="../../../assets/icons/figma-header_inverted.svg"
-          alt="Figma icon"
-        >
+        <img class="default-img" src="../../../assets/icons/figma-header.svg" alt="Figma icon" />
+        <img class="inverted-img" src="../../../assets/icons/figma-header_inverted.svg" alt="Figma icon" />
       </a>
     </span>
     <span class="links e-mr-24 e-ml-16">
       <a href="https://github.com/hafslundnett/elvia-designsystem">
-        <img
-          class="default-img"
-          src="../../../assets/icons/github-header.svg"
-          alt="Github icon"
-        >
-        <img
-          class="inverted-img"
-          src="../../../assets/icons/github-header_inverted.svg"
-          alt="Github icon"
-        >
+        <img class="default-img" src="../../../assets/icons/github-header.svg" alt="Github icon" />
+        <img class="inverted-img" src="../../../assets/icons/github-header_inverted.svg" alt="Github icon" />
       </a>
     </span>
   </div>
   <div class="mobile-menu e-mr-16">
-    <button
-      class="menu-button"
-      (click)="openMobileMenu()"
-    >
-      <img
-        src="../../../assets/icons/hamburger-menu.svg"
-        alt="Mobile Menu Icon"
-      >
+    <button class="menu-button" (click)="openMobileMenu()">
+      <img src="../../../assets/icons/hamburger-menu.svg" alt="Mobile Menu Icon" />
     </button>
   </div>
 </div>

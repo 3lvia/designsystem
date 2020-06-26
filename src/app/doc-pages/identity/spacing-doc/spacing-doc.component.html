@@ -1,0 +1,105 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">
+    Spacing
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    <div>
+      Spacing refers to space between UI elements. It is important to create an appropriate spatial
+      relationship between items and are a big part of the visual design. We are using the 8 point grid system
+      - Use multiples of 8 to define dimensions, padding, and margin of both block and inline elements.
+    </div>
+    <div class="e-mt-16">
+      The spacing classes
+      <code class="code-text">e-p</code>
+      and
+      <code class="code-text">e-m</code>
+      styles the padding and margin attributes and can be specified to style left, right, top or bottom. The
+      spacing system follows multiplication 8px.
+    </div>
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <div class="elvis-anchor">
+    <h2 class="e-title-md elvis-anchor-title">Preview</h2>
+    <p class="e-text-description">Following the 8-point grid system.</p>
+    <div class="display-container centered-content">
+      <div class="display-card" *ngFor="let item of spacingItems">
+        <app-copy [message]="item.className">
+          <ng-container ngProjectAs="copyContent">
+            <div class="display-card-square e-shadow-6 e-bg-green" [ngClass]="item.className"></div>
+          </ng-container>
+        </app-copy>
+        <div class="display-card-title e-text-caps">{{ item.title }}</div>
+        <div class="display-card-variable">{{ item.size }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <app-code-block [isHTML]="true" [code]="example1" [title]="'Code example'"></app-code-block>
+  </div>
+
+  <div>
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Using Classes</h2>
+      <p class="e-text-description">
+        All spacing can be used through a set of classes. The
+        <code class="code-text">e-p-64</code>
+        sets padding to the size of the last number. The padding and margin sizes are multiplications of 8px,
+        meaning
+        <code class="code-text">e-m-24</code>
+        equals
+        <code class="code-text">margin: 24px</code>
+        . The classes are available from 0 to 72.
+      </p>
+      <h3 class="e-text-caps">Padding classes</h3>
+      <ul>
+        <li><code class="code-text">e-p-0</code></li>
+        <li><code class="code-text">e-p-number</code></li>
+        <li><code class="code-text">e-pl-number</code></li>
+        <li><code class="code-text">e-pr-number</code></li>
+        <li><code class="code-text">e-pt-number</code></li>
+        <li><code class="code-text">e-pb-number</code></li>
+        <li><code class="code-text">e-px-number</code></li>
+        <li><code class="code-text">e-py-number</code></li>
+      </ul>
+      <h3 class="e-text-caps">Margin classes</h3>
+      <ul>
+        <li><code class="code-text">e-m-0</code></li>
+        <li><code class="code-text">e-m-number</code></li>
+        <li><code class="code-text">e-ml-number</code></li>
+        <li><code class="code-text">e-mr-number</code></li>
+        <li><code class="code-text">e-mt-number</code></li>
+        <li><code class="code-text">e-mb-number</code></li>
+        <li><code class="code-text">e-mx-number</code></li>
+        <li><code class="code-text">e-my-number</code></li>
+        <li>
+          <code class="code-text">
+            All the margin classes also have negative classes by adding 'n' before number (eks. e-mr-n8)
+          </code>
+        </li>
+      </ul>
+    </div>
+
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Using CSS-variables</h2>
+      <p class="e-text-description">
+        All spacing can be used through their CSS-variable as well.
+      </p>
+      <ul>
+        <li><code class="code-text">var(--e-spacing-number)</code></li>
+      </ul>
+      <h3 class="e-text-caps">Do's and Don'ts</h3>
+      <p class="e-text-description">
+        All CSS-variables can be used.
+      </p>
+      <p class="e-text-description">
+        <app-do-dont [isSCSS]="true" [do]="true" [example]="doCodeCSS"></app-do-dont>
+        <app-do-dont [isSCSS]="true" [do]="false" [example]="dontCodeCSS"></app-do-dont>
+      </p>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,6 @@ import { SectionAnimation } from 'src/app/shared/animations';
   animations: [SectionAnimation],
 })
 export class HomeComponent {
-  overviewTitle = 'Get started';
+  overviewTitle = '';
   pages = eHomes;
 }

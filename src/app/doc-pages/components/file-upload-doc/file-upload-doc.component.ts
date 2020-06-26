@@ -8,8 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class FileUploadDocComponent {
 
-  externalUrl = getComponent('fileUpload-doc').externalUrl;
-  componentStatus = getComponent('fileUpload-doc').status;
+  figmaUrl = getComponent('fileUpload-doc').figmaUrl;
   fileUploadClasses = ['e-fileupload', 'e-fileupload__icon', 'e-fileupload__description', 'e-fileupload__input'];
 
   example1 = `<div class="e-fileupload" style="width:380px">

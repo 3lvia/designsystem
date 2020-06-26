@@ -31,12 +31,24 @@ export class MobileMenuComponent implements OnDestroy {
     this.router.navigate(['/home']);
     this.onClose();
   }
+  navigateGetStarted(): void {
+    this.router.navigate(['/get-started']);
+    this.onClose();
+  }
+  navigateIdentity(): void {
+    this.router.navigate(['/identity']);
+    this.onClose();
+  }
   navigateComps(): void {
     this.router.navigate(['/components']);
     this.onClose();
   }
-  navigateUtilites(): void {
-    this.router.navigate(['/utilities']);
+  navigateTools(): void {
+    this.router.navigate(['/tools']);
+    this.onClose();
+  }
+  navigateCommunity(): void {
+    this.router.navigate(['/community']);
     this.onClose();
   }
 

@@ -7,8 +7,7 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./card-doc.component.scss'],
 })
 export class CardDocComponent {
-  componentStatus = getComponent('card-doc').status;
-  externalUrl = getComponent('card-doc').externalUrl;
+  figmaUrl = getComponent('card-doc').figmaUrl;
   donts = [
     'Don\'t redirect cards to external sites - use link instead.',
     'Do not combine "title outside card" and "title inside card" on the same front.',

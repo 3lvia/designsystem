@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-tooltip-doc',
@@ -7,8 +7,7 @@ import {getComponent} from 'src/app/shared/e-items';
   styleUrls: ['./tooltip-doc.component.scss'],
 })
 export class TooltipDocComponent {
-  externalUrl = getComponent('tooltip-doc').externalUrl;
-  componentStatus = getComponent('tooltip-doc').status;
+  figmaUrl = getComponent('tooltip-doc').figmaUrl;
   does = ['Explain the function of an user interactive element.', 'Showing full version of shortened text.'];
   donts = [
     "If you can't think of any particularly useful content in a tooltip.",

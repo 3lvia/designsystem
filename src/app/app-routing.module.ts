@@ -10,47 +10,50 @@ import { LinkDocComponent } from './doc-pages/components/link-doc/link-doc.compo
 import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.component';
 import { TagsDocComponent } from './doc-pages/components/tags-doc/tags-doc.component';
 import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
-import { ColorDocComponent } from './doc-pages/utilities/color-doc/color-doc.component';
-import { IconDocComponent } from './doc-pages/utilities/icon-doc/icon-doc.component';
-import { TypographyDocComponent } from './doc-pages/utilities/typography-doc/typography-doc.component';
+import { ColorDocComponent } from './doc-pages/identity/color-doc/color-doc.component';
+import { IconDocComponent } from './doc-pages/identity/icon-doc/icon-doc.component';
+import { TypographyDocComponent } from './doc-pages/identity/typography-doc/typography-doc.component';
 import { CheckboxDocComponent } from './doc-pages/components/forms/checkbox-doc/checkbox-doc.component';
 import { CheckboxToggleDocComponent } from './doc-pages/components/forms/checkbox-toggle-doc/checkbox-toggle-doc.component';
 import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-doc.component';
 import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
-import { ShadowDocComponent } from './doc-pages/utilities/shadow-doc/shadow-doc.component';
+import { ShadowDocComponent } from './doc-pages/identity/shadow-doc/shadow-doc.component';
 import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
-import { AccessibilityDocComponent } from './doc-pages/accessibility/accessibility-doc/accessibility-doc.component';
-import { AltTextComponent } from './doc-pages/accessibility/alt-text/alt-text.component';
-import { UuToolsComponent } from './doc-pages/accessibility/uu-tools/uu-tools.component';
-import { SpacingDocComponent } from './doc-pages/utilities/spacing-doc/spacing-doc.component';
-import { BorderDocComponent } from './doc-pages/utilities/border-doc/border-doc.component';
-import { OverviewAccessibilityComponent } from './doc-pages/accessibility/overview-accessibility/overview-accessibility.component';
-import { OverviewUtilComponent } from './doc-pages/utilities/overview-util/overview-util.component';
+import { AltTextComponent } from './doc-pages/tools/alt-text/alt-text.component';
+import { UuToolsComponent } from './doc-pages/tools/uu-tools/uu-tools.component';
+import { SpacingDocComponent } from './doc-pages/identity/spacing-doc/spacing-doc.component';
+import { BorderDocComponent } from './doc-pages/identity/border-doc/border-doc.component';
+import { OverviewToolsComponent } from './doc-pages/tools/overview-tools/overview-tools.component';
+import { OverviewIdentityComponent } from './doc-pages/identity/overview-identity/overview-identity.component';
 import { OverviewComponent } from './doc-pages/components/overview-comp/overview-comp.component';
-import { NewProjectComponent } from './doc-pages/utilities/new-project/new-project.component';
-import { TemplatesComponent } from './doc-pages/utilities/templates/templates.component';
-import { AccessibilityStartComponent } from './doc-pages/accessibility/accessibility-start/accessibility-start.component';
+import { NewProjectComponent } from './doc-pages/get-started/new-project/new-project.component';
+import { ToolsStartComponent } from './doc-pages/tools/tools-start/tools-start.component';
 import { ComponentsStartComponent } from './doc-pages/components/components-start/components-start.component';
-import { UtilitiesStartComponent } from './doc-pages/utilities/utilities-start/utilities-start.component';
+import { IdentityStartComponent } from './doc-pages/identity/identity-start/identity-start.component';
 import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
-import { BreakpointsDocComponent } from './doc-pages/utilities/breakpoints-doc/breakpoints-doc.component';
-import { LogoDocComponent } from './doc-pages/utilities/logo-doc/logo-doc.component';
-import { GridDocComponent } from './doc-pages/utilities/grid-doc/grid-doc.component';
+import { LogoDocComponent } from './doc-pages/identity/logo-doc/logo-doc.component';
+import { GridDocComponent } from './doc-pages/identity/grid-doc/grid-doc.component';
 import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
 import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
-import { AlignmentDocComponent } from './doc-pages/utilities/alignment-doc/alignment-doc/alignment-doc.component';
+import { AlignmentDocComponent } from './doc-pages/identity/alignment-doc/alignment-doc/alignment-doc.component';
 import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
 import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
 import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
-import { ContributeComponent } from './doc-pages/utilities/contribute/contribute.component';
+import { ContributeComponent } from './doc-pages/community/contribute/contribute.component';
 import { DatetimePickerDocComponent } from './doc-pages/components/forms/datetime-picker-doc/datetime-picker-doc.component';
 import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
-import { FaviconDocComponent } from './doc-pages/utilities/favicon-doc/favicon-doc.component';
 import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
-import { FaqDocComponent } from './doc-pages/utilities/faq-doc/faq-doc.component';
+import { FaqDocComponent } from './doc-pages/community/faq-doc/faq-doc.component';
+import { AccessibilityDocComponent } from './doc-pages/tools/accessibility-doc/accessibility-doc.component';
+import { CommunityStartComponent } from './doc-pages/community/community-start/community-start.component';
+import { OverviewCommunityComponent } from './doc-pages/community/overview-community/overview-community.component';
+import { OverviewGetStartedComponent } from './doc-pages/get-started/overview-get-started/overview-get-started.component';
+import { GetStartedStartComponent } from './doc-pages/get-started/get-started-start/get-started-start.component';
+import { ChangelogComponent } from './doc-pages/community/changelog/changelog.component';
+import { DiscussionComponent } from './doc-pages/community/discussion/discussion.component';
 
 const routes: Routes = [
   {
@@ -66,30 +69,73 @@ const routes: Routes = [
         path: Pages.Home,
         component: HomeComponent,
       },
-      // Accessibility section
+      // Get Started section
       {
-        path: Pages.AccessibilityStart,
-        component: AccessibilityStartComponent,
+        path: Pages.GetStartedStart,
+        component: GetStartedStartComponent,
         children: [
           {
             path: '',
-            component: OverviewAccessibilityComponent,
+            component: OverviewGetStartedComponent,
           },
           {
-            path: Pages.OverviewAccess,
-            component: OverviewAccessibilityComponent,
+            path: Pages.OverviewGetStarted,
+            component: OverviewGetStartedComponent,
           },
           {
-            path: Pages.Accessibility,
-            component: AccessibilityDocComponent,
+            path: Pages.NewProject,
+            component: NewProjectComponent,
+          },
+        ],
+      },
+      // Identity section
+      {
+        path: Pages.IdentityStart,
+        component: IdentityStartComponent,
+        children: [
+          {
+            path: '',
+            component: OverviewIdentityComponent,
           },
           {
-            path: Pages.AltText,
-            component: AltTextComponent,
+            path: Pages.OverviewIdentity,
+            component: OverviewIdentityComponent,
           },
           {
-            path: Pages.UUTools,
-            component: UuToolsComponent,
+            path: Pages.Border,
+            component: BorderDocComponent,
+          },
+          {
+            path: Pages.Color,
+            component: ColorDocComponent,
+          },
+          {
+            path: Pages.Icon,
+            component: IconDocComponent,
+          },
+          {
+            path: Pages.Typography,
+            component: TypographyDocComponent,
+          },
+          {
+            path: Pages.Shadow,
+            component: ShadowDocComponent,
+          },
+          {
+            path: Pages.Spacing,
+            component: SpacingDocComponent,
+          },
+          {
+            path: Pages.Grid,
+            component: GridDocComponent,
+          },
+          {
+            path: Pages.Logo,
+            component: LogoDocComponent,
+          },
+          {
+            path: Pages.Alignment,
+            component: AlignmentDocComponent,
           },
         ],
       },
@@ -204,78 +250,61 @@ const routes: Routes = [
           },
         ],
       },
-      // Utilities section
+      // Tools section
       {
-        path: Pages.UtilitiesStart,
-        component: UtilitiesStartComponent,
+        path: Pages.ToolsStart,
+        component: ToolsStartComponent,
         children: [
           {
             path: '',
-            component: OverviewUtilComponent,
+            component: OverviewToolsComponent,
           },
           {
-            path: Pages.OverviewComp,
-            component: OverviewUtilComponent,
+            path: Pages.OverviewTools,
+            component: OverviewToolsComponent,
           },
           {
-            path: Pages.Border,
-            component: BorderDocComponent,
+            path: Pages.Accessibility,
+            component: AccessibilityDocComponent,
+          },
+          {
+            path: Pages.AltText,
+            component: AltTextComponent,
+          },
+          {
+            path: Pages.UUTools,
+            component: UuToolsComponent,
+          },
+        ],
+      },
+      // Community section
+      {
+        path: Pages.CommunityStart,
+        component: CommunityStartComponent,
+        children: [
+          {
+            path: '',
+            component: OverviewCommunityComponent,
+          },
+          {
+            path: Pages.OverviewCommunity,
+            component: OverviewCommunityComponent,
+          },
+          {
+            path: Pages.Changelog,
+            component: ChangelogComponent,
           },
           {
             path: Pages.Contribute,
             component: ContributeComponent,
           },
           {
-            path: Pages.Color,
-            component: ColorDocComponent,
-          },
-          {
-            path: Pages.Favicon,
-            component: FaviconDocComponent,
+            path: Pages.Discussion,
+            component: DiscussionComponent,
           },
           {
             path: Pages.Faq,
             component: FaqDocComponent,
-          },
-          {
-            path: Pages.Icon,
-            component: IconDocComponent,
-          },
-          {
-            path: Pages.NewProject,
-            component: NewProjectComponent,
-          },
-          {
-            path: Pages.Template,
-            component: TemplatesComponent,
-          },
-          {
-            path: Pages.Typography,
-            component: TypographyDocComponent,
-          },
-          {
-            path: Pages.Shadow,
-            component: ShadowDocComponent,
-          },
-          {
-            path: Pages.Spacing,
-            component: SpacingDocComponent,
-          },
-          {
-            path: Pages.Breakpoints,
-            component: BreakpointsDocComponent,
-          },
-          {
-            path: Pages.Grid,
-            component: GridDocComponent,
-          },
-          {
-            path: Pages.Logo,
-            component: LogoDocComponent,
-          },
-          {
-            path: Pages.Alignment,
-            component: AlignmentDocComponent,
           },
         ],
       },

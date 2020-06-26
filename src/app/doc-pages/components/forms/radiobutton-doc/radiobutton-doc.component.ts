@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-radiobutton-doc',
@@ -7,8 +7,7 @@ import {getComponent} from 'src/app/shared/e-items';
   styleUrls: ['./radiobutton-doc.component.scss'],
 })
 export class RadiobuttonDocComponent {
-  externalUrl = getComponent('radiobutton-doc').externalUrl;
-  componentStatus = getComponent('radiobutton-doc').status;
+  figmaUrl = getComponent('radiobutton-doc').figmaUrl;
   pseudoclases = [
     'e-radio__mark---checked',
     'e-radio__mark---disabled',

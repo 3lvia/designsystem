@@ -1,18 +1,26 @@
 export enum Pages {
-  // Home Pages
+  // Home
   Home = 'home',
-  NewProject = 'new-project-doc',
-  Template = 'template-doc',
-  Contribute = 'contribute',
-  Faq = 'faq-doc',
 
-  // Accessibility Pages
-  AccessibilityStart = 'accessibility',
+  // Get Started
+  GetStartedStart = 'get-started',
   // Children
-  OverviewAccess = 'overview-accessibility-doc',
-  Accessibility = 'accessibility-doc',
-  AltText = 'alttext-doc',
-  UUTools = 'uutools-doc',
+  OverviewGetStarted = 'overview-get-started-doc',
+  NewProject = 'new-project-doc',
+
+  // Identity Pages
+  IdentityStart = 'identity',
+  // Children
+  OverviewIdentity = 'overview-identity-doc',
+  Border = 'border-doc',
+  Color = 'color-doc',
+  Icon = 'icon-doc',
+  Typography = 'typography-doc',
+  Shadow = 'shadow-doc',
+  Spacing = 'spacing-doc',
+  Grid = 'grid-doc',
+  Logo = 'logo-doc',
+  Alignment = 'alignment-doc',
 
   // Component Pages
   ComponentsStart = 'components',
@@ -43,19 +51,20 @@ export enum Pages {
   Tags = 'tags-doc',
   Tooltip = 'tooltip-doc',
 
-  // Utilities Pages
-  UtilitiesStart = 'utilities',
+  // Tools Pages
+  ToolsStart = 'tools',
   // Children
-  OverviewUtil = 'overview-util-doc',
-  Border = 'border-doc',
-  Color = 'color-doc',
-  Favicon = 'favicon-doc',
-  Icon = 'icon-doc',
-  Typography = 'typography-doc',
-  Shadow = 'shadow-doc',
-  Spacing = 'spacing-doc',
-  Breakpoints = 'breakpoints-doc',
-  Grid = 'grid-doc',
-  Logo = 'logo-doc',
-  Alignment = 'alignment-doc',
+  OverviewTools = 'overview-tools-doc',
+  Accessibility = 'accessibility-doc',
+  AltText = 'alttext-doc',
+  UUTools = 'uutools-doc',
+
+  // Community Pages
+  CommunityStart = 'community',
+  // Children
+  OverviewCommunity = 'overview-community-doc',
+  Contribute = 'contribute',
+  Faq = 'faq-doc',
+  Changelog = 'changelog',
+  Discussion = 'discussion',
 }

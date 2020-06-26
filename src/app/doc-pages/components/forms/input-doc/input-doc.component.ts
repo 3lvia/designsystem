@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-input-doc',
@@ -10,8 +10,7 @@ export class InputDocComponent {
   headerDoes = 'A input should be used';
   headerDonts = 'A label should not be used';
 
-  externalUrl = getComponent('input-doc').externalUrl;
-  componentStatus = getComponent('input-doc').status;
+  figmaUrl = getComponent('input-doc').figmaUrl;
   does = [
     'Text fields should be used in forms where the user has to fill in something that is not from a set of choices.',
   ];

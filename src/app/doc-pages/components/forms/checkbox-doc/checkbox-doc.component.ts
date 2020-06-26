@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-checkbox-doc',
@@ -7,8 +7,7 @@ import {getComponent} from 'src/app/shared/e-items';
   styleUrls: ['./checkbox-doc.component.scss'],
 })
 export class CheckboxDocComponent {
-  externalUrl = getComponent('checkbox-doc').externalUrl;
-  componentStatus = getComponent('checkbox-doc').status;
+  figmaUrl = getComponent('checkbox-doc').figmaUrl;
   pseudoClasses = ['checked', 'focus', 'hover', 'disabled', 'invalid'];
   does = ['When user can select multiple options from a list.', 'Toggle a single option on or off.'];
   donts = ['If the user only can select one option from a list - use radio buttons.'];

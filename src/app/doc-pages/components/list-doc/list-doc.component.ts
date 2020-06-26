@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-list-doc',
@@ -7,8 +7,7 @@ import {getComponent} from 'src/app/shared/e-items';
   styleUrls: ['./list-doc.component.scss'],
 })
 export class ListDocComponent {
-  externalUrl = getComponent('list-doc').externalUrl;
-  componentStatus = getComponent('list-doc').status;
+  figmaUrl = getComponent('list-doc').figmaUrl;
   doesExample1 = ['Items that are in no required order.'];
   doesExample3 = [
     'When you need to have a priority or hierarchy between list items',

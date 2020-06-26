@@ -1,0 +1,187 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl" [tabs]="tabs" [(selected)]="selected">
+  <ng-container ngProjectAs="headerTitle">
+    Icons
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    <div>
+      Here are all the available icons in Elvis design system.
+    </div>
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--OVERVIEW-->
+  <div class="overview elvis-anchor" *ngIf="selected == tabNames.Overview">
+    <h2 class="e-title-md elvis-anchor-title">Sizes</h2>
+    <div class="e-grid e-mr-72" style="flex-grow: 0;">
+      <div class="row no-gutters">
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--xxs"></i></span>
+          </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">XXS</div>
+            <div class="e-text-info">8x8</div>
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--xs"></i></span>
+          </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">XS</div>
+            <div class="e-text-info">16x16</div>
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--sm"></i></span>
+          </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">SM</div>
+            <div class="e-text-info">24x24</div>
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--md"></i></span>
+          </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">MD</div>
+            <div class="e-text-info">32x32</div>
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--lg"></i></span>
+          </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">LG</div>
+            <div class="e-text-info">40x40</div>
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--xl"></i></span>
+          </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">XL</div>
+            <div class="e-text-info">48x48</div>
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--xxl"></i></span>
+          </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">XXL</div>
+            <div class="e-text-info">56x56</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Icons</h2>
+      <p class="e-text-description">Search through all the available icons here.</p>
+      <div class="overview-search-container">
+        <div class="e-form_field">
+          <div class="e-input">
+            <input type="text" placeholder="Search for Icons" [(ngModel)]="term" />
+          </div>
+        </div>
+        <button (click)="invert()" class="e-btn e-mt-24">
+          Invert
+        </button>
+      </div>
+      <div class="overview-icons-container e-pt-32" [style.backgroundColor]="inverted ? 'black' : 'white'">
+        <div class="icon-card" *ngFor="let icon of svgIcons | iconSeachPipe: term">
+          <app-copy [message]="'e-icon e-icon--' + icon.title + ' e-icon--lg'">
+            <ng-container ngProjectAs="copyContent">
+              <i
+                [class.e-icon--inverted]="inverted"
+                [class]="'e-icon e-icon--' + icon.title + ' e-icon--md'"
+              ></i>
+              <p class="e-text-description" [style.color]="inverted ? 'white' : 'black'">{{ icon.pretty }}</p>
+            </ng-container>
+          </app-copy>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--CODE-->
+  <div *ngIf="selected == tabNames.Code">
+    <app-code-block [isHTML]="true" [code]="example" [title]="'Icon sizes'"></app-code-block>
+    <app-code-block [isHTML]="true" [code]="example2" [title]="'Color'"></app-code-block>
+    <app-code-block
+      [isHTML]="true"
+      [code]="example3"
+      [title]="'Inverted / Disabled + Disabled light'"
+    ></app-code-block>
+    <app-code-block [isHTML]="true" [code]="example4" [title]="'All shades'"></app-code-block>
+  </div>
+
+  <!--GUIDELINES-->
+  <div *ngIf="selected == tabNames.Guidelines">
+    <div>
+      <h2 class="e-title-md">Method 1: Easiest</h2>
+      <p class="e-text-description">
+        Download the npm package and use Elvis.js from inside the npm package like this:
+        <br />
+        <code class="code-text">&lt;script src="path_to_file/elvis.js"&gt;&lt;/script&gt;</code>
+      </p>
+      <p class="e-text-description">
+        <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
+      </p>
+      <p class="e-text-description">
+        The icons can then be used like this:
+        <code class="code-text">class="e-icon e-icon--chat e-icon--md"</code>
+      </p>
+      <p class="e-text-description">
+        <strong>How it works:</strong>
+        <br />
+        Elvis.js looks for e-icon and similar classes and injects a img tag with the SVG icon at the desired
+        location.
+      </p>
+
+      <h2 class="e-title-md">Method 2: Using JS Module / SVGs</h2>
+      <p class="e-text-description">
+        All icons are accessible as SVGs within a JS module. Import the required icon individually where you
+        need them:
+      </p>
+      <p class="e-text-description">
+        <code class="code-text">import {{ '{' }} addCircle {{ '}' }} from '@elvia/elvis/icons'</code>
+      </p>
+      <p class="e-text-description">
+        To get the icon you can use the following:
+        <code class="code-text">addCircle.getIcon()</code>
+      </p>
+      <p class="e-text-description">
+        If you want a inverted icon use the following:
+        <code class="code-text">addCircle.getIcon('inverted')</code>
+      </p>
+      <p class="e-text-description">
+        If you want a color:
+        <code class="code-text">addCircle.getIcon('white')</code>
+      </p>
+      <p class="e-text-description">
+        Or set the color yourself with a hex:
+        <code class="code-text">addCircle.getIcon('#bdbdbd')</code>
+      </p>
+
+      <h3 class="e-title-sm">Size classes</h3>
+      <ul>
+        <li><code class="code-text">e-icon--xxl</code></li>
+        <li><code class="code-text">e-icon--xl</code></li>
+        <li><code class="code-text">e-icon--lg</code></li>
+        <li><code class="code-text">e-icon--md</code></li>
+        <li><code class="code-text">e-icon--sm</code></li>
+        <li><code class="code-text">e-icon--xs</code></li>
+        <li><code class="code-text">e-icon--xxs</code></li>
+      </ul>
+    </div>
+  </div>
+</div>

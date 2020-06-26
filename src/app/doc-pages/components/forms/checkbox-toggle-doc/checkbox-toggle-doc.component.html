@@ -1,17 +1,12 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
-  [externalUrl]="externalUrl"
->
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Toggle
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Toggles are interactions for users where one of two possible actions is preselected. 
-    Interactions with toggles is often for state changes, for examples "on" or "off".
+    Toggles are interactions for users where one of two possible actions is preselected. Interactions with
+    toggles is often for state changes, for examples "on" or "off".
   </ng-container>
-
-  
 </app-component-header>
 
 <!--BODY-->

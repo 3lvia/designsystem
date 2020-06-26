@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShellModule } from './shell/shell.module';
 import { RouterModule } from '@angular/router';
-import { AccessibilityModule } from './doc-pages/accessibility/accessibility.module';
+import { ToolsModule } from './doc-pages/tools/tools.module';
 import { ComponentsModule } from './doc-pages/components/components.module';
-import { UtilitiesModule } from './doc-pages/utilities/utilities.module';
+import { IdentityModule } from './doc-pages/identity/identity.module';
 import { OverlayModule } from '@angular/cdk/overlay';
+import { CommunityModule } from './doc-pages/community/community.module';
 
 
 @NgModule({
@@ -22,10 +23,11 @@ import { OverlayModule } from '@angular/cdk/overlay';
     AppRoutingModule,
     RouterModule,
     ShellModule,
-    AccessibilityModule,
+    ToolsModule,
     ComponentsModule,
-    UtilitiesModule,
+    IdentityModule,
     OverlayModule,
+    CommunityModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,

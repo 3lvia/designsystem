@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-select-doc',
@@ -7,7 +6,6 @@ import {getComponent} from 'src/app/shared/e-items';
   styleUrls: ['./select-doc.component.scss'],
 })
 export class SelectDocComponent {
-  componentStatus = getComponent('select-doc').status;
 
   example1 = `<div class="e-form_field">
   <label class="e-form_field_label" for="select-alt1">Select Option</label>

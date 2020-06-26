@@ -1,14 +1,11 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
-  [externalUrl]="externalUrl"
->
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Position Picker
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Position selector lets you select a position and gives you coordinates. 
-    You can choose either by clicking on a map or text input field.
+    Position selector lets you select a position and gives you coordinates. You can choose either by clicking
+    on a map or text input field.
   </ng-container>
 </app-component-header>
 
@@ -18,31 +15,38 @@
     [isHTML]="true"
     [code]="example1"
     [title]="'Position Picker'"
-    [description]="'The position picker component consist mainly of container classes. Where each element is asigned for it intended purpose as icons, description text of picked position and action area for placing tertiary buttons'"
+    [description]="
+      'The position picker component consist mainly of container classes. Where each element is asigned for it intended purpose as icons, description text of picked position and action area for placing tertiary buttons'
+    "
     [class]="example1Classes"
   ></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
     [title]="'After position is chosen'"
-    [description]="'When position is chosen replace the icon container with the description container along with the chosen position or information'"
+    [description]="
+      'When position is chosen replace the icon container with the description container along with the chosen position or information'
+    "
     [class]="['e-position-picker__description']"
   ></app-code-block>
 
   <h3>Visual example of position picker</h3>
   <p>
-    In this example we have attached a modal with an iframe of google maps to the tertiary button within the position picker component.
+    In this example we have attached a modal with an iframe of google maps to the tertiary button within the
+    position picker component.
   </p>
   <p>
-    General styling guide here is to attach a modal containing a map service. Which in return updates the position picker with the chosen position.
-    The information should then replace the icon container, and insert information in the description container.
+    General styling guide here is to attach a modal containing a map service. Which in return updates the
+    position picker with the chosen position. The information should then replace the icon container, and
+    insert information in the description container.
   </p>
   <p>
-    The example below is simply a visual illustration on how one could attach a service to the position picker component. It does not let you pick an actual position and is meant purely as an illustraion
-    on how an actual component should be presented.
+    The example below is simply a visual illustration on how one could attach a service to the position picker
+    component. It does not let you pick an actual position and is meant purely as an illustraion on how an
+    actual component should be presented.
   </p>
 
-  <div class="e-position-picker" style="width:380px">
+  <div class="e-position-picker" style="width: 380px;">
     <div class="e-position-picker__icon" *ngIf="!showPosition">
       <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>
     </div>
@@ -50,7 +54,7 @@
       60.026676, 10.798887
     </div>
     <div class="e-position-picker__action">
-      <button class="e-btn e-btn--tertiary " (click)="openMapExample('mapModal')">
+      <button class="e-btn e-btn--tertiary" (click)="openMapExample('mapModal')">
         <span class="e-btn__icon"><i class="e-icon e-icon--pin"></i></span>
         <span class="e-btn__title">Velg plassering</span>
       </button>
@@ -62,34 +66,27 @@
         <span class="e-btn__icon"><i class="e-icon e-icon--remove_circle-color"></i></span>
       </button>
       <iframe
-      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7998.985919234493!2d10.685827403470268!3d59.9197547324057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sno!4v1589372574967!5m2!1sen!2sno"
-      width="600"
-      height="450"
-      frameborder="0"
-      style="border:0;"
-      allowfullscreen=""
-      aria-hidden="false"
-      tabindex="0">
-    </iframe>
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7998.985919234493!2d10.685827403470268!3d59.9197547324057!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sno!4v1589372574967!5m2!1sen!2sno"
+        width="600"
+        height="450"
+        frameborder="0"
+        style="border: 0;"
+        allowfullscreen=""
+        aria-hidden="false"
+        tabindex="0"
+      ></iframe>
       <div class="e-form-field" id="exampleInput">
         <div class="e-input">
-          <input id="normal" type="text" placeholder="Velg Adresse">
+          <input id="normal" type="text" placeholder="Velg Adresse" />
           <i class="e-icon e-icon--search e-icon--xs"></i>
         </div>
       </div>
     </div>
-
   </div>
 
   <h3 class="e-title-small">Example Typescript</h3>
-  <app-code-highlighter
-    [isTS]="'true'"
-    [code]="exampleTSCode"
-  ></app-code-highlighter>
+  <app-code-highlighter [isTS]="'true'" [code]="exampleTSCode"></app-code-highlighter>
   <h3 class="e-title-small">Example Html</h3>
-  <app-code-highlighter
-    [isHTML]="'true'"
-    [code]="exampleHTMLCode"
-  ></app-code-highlighter>
+  <app-code-highlighter [isHTML]="'true'" [code]="exampleHTMLCode"></app-code-highlighter>
 </div>
 <!--  -->

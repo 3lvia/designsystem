@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-autocomplete-doc',
@@ -7,8 +7,7 @@ import {getComponent} from 'src/app/shared/e-items';
   styleUrls: ['./autocomplete-doc.component.scss'],
 })
 export class AutocompleteDocComponent {
-  externalUrl = getComponent('autocomplete-doc').externalUrl;
-  componentStatus = getComponent('autocomplete-doc').status;
+  figmaUrl = getComponent('autocomplete-doc').figmaUrl;
   does = ['When you have many options in a list and the input must be validated'];
 
   example1 = `<div class="e-autocomplete">

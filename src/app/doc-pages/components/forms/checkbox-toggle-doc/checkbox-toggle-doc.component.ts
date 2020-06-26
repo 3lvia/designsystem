@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {getComponent} from 'src/app/shared/e-items';
+import { Component } from '@angular/core';
+import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-checkbox-toggle-doc',
@@ -7,8 +7,7 @@ import {getComponent} from 'src/app/shared/e-items';
   styleUrls: ['./checkbox-toggle-doc.component.scss'],
 })
 export class CheckboxToggleDocComponent {
-  externalUrl = getComponent('checkbox-toggle-doc').externalUrl;
-  componentStatus = getComponent('checkbox-toggle-doc').status;
+  figmaUrl = getComponent('checkbox-toggle-doc').figmaUrl;
 
   example1 = `<div>
   <h3>Normal toggle</h3>

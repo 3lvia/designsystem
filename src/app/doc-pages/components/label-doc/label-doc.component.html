@@ -1,19 +1,17 @@
 <!--HEADER-->
-<app-component-header
-  [componentStatus]="componentStatus"
-  [does]="headerDoes"
-  [donts]="headerDonts"
-  [externalUrl]="externalUrl"
->
+<app-component-header [does]="headerDoes" [donts]="headerDonts" [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Labels
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     <div>
-      Labels are used to label, categorize or organize items using keywords that describe them. They can also be used to show the status of an item.  
+      Labels are used to label, categorize or organize items using keywords that describe them. They can also
+      be used to show the status of an item.
     </div>
     <div class="e-mt-16">
-      <b>Note:</b> Labels should be easy to scan to quickly get an overview, so keep it short and descriptive. Maximum two words.
+      <b>Note:</b>
+      Labels should be easy to scan to quickly get an overview, so keep it short and descriptive. Maximum two
+      words.
     </div>
   </ng-container>
 </app-component-header>
@@ -35,7 +33,14 @@
       [code]="example2"
       [title]="'Labels with colors'"
       [description]="'Labels can be used with any of the data-colors.'"
-      [class]="['e-label--green-apple', 'e-label--violet-grape', 'e-label--blue-berry', 'e-label--purple-plum', 'e-label--orange-mango', 'e-label--red-tomato']"
+      [class]="[
+        'e-label--green-apple',
+        'e-label--violet-grape',
+        'e-label--blue-berry',
+        'e-label--purple-plum',
+        'e-label--orange-mango',
+        'e-label--red-tomato'
+      ]"
       [showIframeScreens]="true"
       [noTablet]="true"
     ></app-code-block>
