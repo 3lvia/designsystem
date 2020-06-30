@@ -12,6 +12,9 @@
 // Elvia breakpoints for mobile
 @import './style/elvis/src/utilities/breakpoints.scss';
 
+// Prebuilt css for enabling use of overlays from @angular/cdk
+@import '@angular/cdk/overlay-prebuilt.css';
+
 // Normalizer for website
 body {
   margin: 0;
