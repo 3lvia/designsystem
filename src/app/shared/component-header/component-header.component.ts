@@ -2,6 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ItemStatus } from './../item-status.enum';
 import { NavbarAnchor } from '../navbarAnchor.interface';
 import { ScrollService } from 'src/app/core/services/scroll.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-component-header',
@@ -20,8 +21,14 @@ export class ComponentHeaderComponent {
   itemStatus = ItemStatus;
   navbarAnchors: NavbarAnchor[] = [];
   activeAnchor: NavbarAnchor;
+  currentRoute: string;
+  backBtn: string;
 
-  constructor(private scrollService: ScrollService) {
+  constructor(private scrollService: ScrollService, private router: Router) {
+    this.currentRoute = this.router.url.substring(1);
+    this.currentRoute = this.currentRoute.substring(0, this.currentRoute.indexOf('/'));
+    this.backBtn = this.currentRoute.replace('-', ' ');
+
     this.scrollService.listenAnchorAtCurrPos().subscribe((anchor: NavbarAnchor) => {
       this.activeAnchor = anchor;
     });

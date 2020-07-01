@@ -10,6 +10,12 @@
   &-header {
     margin-bottom: var(--e-spacing-16);
 
+    .back-link {
+      display: none;
+      @include breakpoint-up(Tablet) {
+        display: block;
+      }
+    }
     &__title {
       .title-text {
         display: flex;
@@ -17,13 +23,10 @@
         justify-content: space-between;
         align-items: center;
 
-        @include breakpoint-up(Tablet) {
-          justify-content: center;
-        }
-
         h1 {
           margin-right: 16px;
           margin-top: 0;
+          margin-bottom: 8px;
         }
         h1,
         .e-label {
