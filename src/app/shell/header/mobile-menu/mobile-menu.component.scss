@@ -47,19 +47,15 @@
     padding-top: 32px;
   }
 
-  .rounded-bottom {
-    position: absolute;
-    display: flex;
-    height: calc(100% - 8px);
-    width: 200%;
-    z-index: -1;
-    overflow: hidden;
+  &::before {
+    content: '';
+    left: -50%;
     border-radius: 50%;
+    position: absolute;
     background-color: var(--e-white);
-
-    @include breakpoint-up(Mobile) {
-      height: calc(100% + 8px);
-    }
+    width: 200vw;
+    height: calc(100% + 8px);
+    z-index: -1;
   }
 
   .menu {
