@@ -8,7 +8,6 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class CheckboxDocComponent {
   figmaUrl = getComponent('checkbox-doc').figmaUrl;
-  pseudoClasses = ['checked', 'focus', 'hover', 'disabled', 'invalid'];
   does = ['When user can select multiple options from a list.', 'Toggle a single option on or off.'];
   donts = ['If the user only can select one option from a list - use radio buttons.'];
 

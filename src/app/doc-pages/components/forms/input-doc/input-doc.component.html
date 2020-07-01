@@ -16,17 +16,11 @@
 <!--BODY-->
 <div class="page-body">
   <!--Overview-->
-  <app-code-block
-    [isHTML]="true"
-    [code]="example1"
-    [title]="'Normal input field'"
-    [class]="['e-input']"
-  ></app-code-block>
+  <app-code-block [isHTML]="true" [code]="example1" [title]="'Normal input field'"></app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example2"
     [title]="'Combined'"
-    [class]="['e-combined-field', 'e-form-field']"
     [description]="
       'Use the e-combined-field class on the form-field element to keep two inputs for the same label.'
     "
@@ -35,7 +29,6 @@
     [isHTML]="true"
     [code]="example3"
     [title]="'Inlined'"
-    [class]="['e-inlined-field', 'e-form-field']"
     [description]="
       'Use the e-inlined-field class outside the form-field element to align inputs on the same line.
     When the zip code is filled in, the post office should be filled in automatically.'
@@ -45,7 +38,6 @@
     [isHTML]="true"
     [code]="example4"
     [title]="'Validation of fields'"
-    [class]="['e-input---invalid', 'e-form-field__error e-form-field__error--visible']"
     [description]="
       'By default, all fields must be required. Validation is based on the field being filled out. 
     Validation takes place along the way, and the user must also be presented with guidance or error messages.'
@@ -55,7 +47,6 @@
     [isHTML]="true"
     [code]="example5"
     [title]="'Textarea'"
-    [class]="['e-form-field__label e-form-field__label--optional']"
     [description]="
       'The e-form-field__label--optional class should be added to the label when the input is not required.'
     "
@@ -64,7 +55,6 @@
     [isHTML]="true"
     [code]="example6"
     [title]="'Pseudo Classes'"
-    [class]="['e-input---focus', 'e-input---invalid', 'e-input---disabled']"
     [description]="
       'Pseudo Classes can be used to set the styling of input fields to emulate the state their in. 
     For example adding the invalid class to an e-input will style the e-input field to have an invalid state'

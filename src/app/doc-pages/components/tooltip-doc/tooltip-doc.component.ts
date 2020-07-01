@@ -10,12 +10,10 @@ export class TooltipDocComponent {
   figmaUrl = getComponent('tooltip-doc').figmaUrl;
   does = ['Explain the function of an user interactive element.', 'Showing full version of shortened text.'];
   donts = [
-    "If you can't think of any particularly useful content in a tooltip.",
+    'If you can\'t think of any particularly useful content in a tooltip.',
     'Don’t use tooltip to explain a concept.',
     'Don’t hide necessary information in a tooltip.',
   ];
-
-  classes = ['e-tooltip', 'e-tooltip__content', 'e-tooltip__content--top', 'e-tooltip__content--bottom'];
 
   example1 = `<div style="display:flex;align-items: center;justify-content: space-around;height: 100px;width: 100%;">
 

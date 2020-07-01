@@ -12,8 +12,6 @@ export class PositionPickerDocComponent {
 
   figmaUrl = getComponent('position-picker-doc').figmaUrl;
 
-  example1Classes = ['e-position-picker', 'e-position-picker__icon', 'e-position-picker__action'];
-
   example1 = `<div class="e-position-picker">
   <div class="e-position-picker__icon">
     <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>

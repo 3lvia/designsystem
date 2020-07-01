@@ -10,7 +10,6 @@ import { heightDown } from 'src/app/shared/animations';
 export class CodeBlockComponent implements OnInit, AfterViewInit {
   @ViewChild('defaultFrame') defaultFrame;
   @Input() title = '';
-  @Input() class: string[];
   @Input() description = '';
   @Input() does = [];
   @Input() donts = [];
