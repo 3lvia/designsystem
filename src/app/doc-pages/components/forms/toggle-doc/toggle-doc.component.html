@@ -1,0 +1,20 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl" [does]="does" [donts]="donts">
+  <ng-container ngProjectAs="headerTitle">
+    Toggle
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Toggle button allows the user to switch between to states (on/off) and have always a default state.
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="example1"
+    [title]="'Toggle states'"
+    [showIframeScreens]="true"
+    [noTablet]="true"
+  ></app-code-block>
+</div>

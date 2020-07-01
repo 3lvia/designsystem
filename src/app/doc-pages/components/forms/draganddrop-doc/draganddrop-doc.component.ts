@@ -7,7 +7,7 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./draganddrop-doc.component.scss'],
 })
 export class DraganddropDocComponent {
-  figmaUrl = getComponent('checkbox-toggle-doc').figmaUrl;
+  figmaUrl = getComponent('toggle-doc').figmaUrl;
 
   example1 = `<div class="e-dragdrop" style="width:300px; height:150px">
   </div>`;

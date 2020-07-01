@@ -392,6 +392,9 @@
 			}
 		},
 		"e-toggle": {
+			"modifier": {
+				"e-toggle--disabled": {}
+			},
 			"element": {
 				"e-toggle__slider": {}
 			}
@@ -901,6 +904,7 @@
 		"e-tooltip__content--bottom": {},
 		"e-tooltip__content--top": {},
 		"e-toggle": {},
+		"e-toggle--disabled": {},
 		"e-toggle__slider": {},
 		"e-slider": {},
 		"e-text": {},

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CheckboxDocModule } from './checkbox-doc/checkbox-doc.module';
-import { CheckboxToggleDocModule } from './checkbox-toggle-doc/checkbox-toggle-doc.module';
+import { ToggleDocModule } from './toggle-doc/toggle-doc.module';
 import { InputDocModule } from './input-doc/input-doc.module';
 import { RadiobuttonDocModule } from './radiobutton-doc/radiobutton-doc.module';
 import { SelectDocModule } from './select-doc/select-doc.module';
@@ -11,7 +11,7 @@ import { DatetimePickerDocModule } from './datetime-picker-doc/datetime-picker-d
 @NgModule({
     imports: [
         CheckboxDocModule,
-        CheckboxToggleDocModule,
+        ToggleDocModule,
         DatetimePickerDocModule,
         DraganddropDocModule,
         InputDocModule,

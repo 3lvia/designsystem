@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CheckboxToggleDocComponent } from './checkbox-toggle-doc.component';
+import { ToggleDocComponent } from './toggle-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-header/component-header.module';
 import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 
@@ -8,8 +8,8 @@ import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
   imports: [
     CommonModule,
     ComponentHeaderModule,
-    CodeBlockModule
+    CodeBlockModule,
   ],
-  declarations: [CheckboxToggleDocComponent]
+  declarations: [ToggleDocComponent],
 })
-export class CheckboxToggleDocModule { }
+export class ToggleDocModule { }

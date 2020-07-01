@@ -41,7 +41,7 @@ describe('Elvis Components overview page navigation Test', () => {
             .parent('.e-card_header_text')
             .parent('.e-card_header')
             .siblings('.e-card_actions').children().contains('View component').click();
-        cy.url().should('eq', 'http://localhost:4200/components/checkbox-toggle-doc');
+        cy.url().should('eq', 'http://localhost:4200/components/toggle-doc');
     });
 
     it('Navigates to Input doc page when clicking card link', () => {

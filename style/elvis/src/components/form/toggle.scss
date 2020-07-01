@@ -10,17 +10,17 @@ $toggle-desktop-width: 30px;
 $toggle-desktop-slider-size: 8px;
 $toggle-desktop-slider-padding: calc((#{$toggle-desktop-height} - #{$toggle-desktop-slider-size}) / 2);
 
-$toggle-mobile-height: 18px;
+$toggle-mobile-height: 20px;
 $toggle-mobile-width: 42px;
-$toggle-mobile-slider-size: 10px;
-$toggle-mobile-slider-padding: 4.15px;
+$toggle-mobile-slider-size: 12px;
+$toggle-mobile-slider-padding: calc((#{$toggle-mobile-height} - #{$toggle-mobile-slider-size}) / 2);
 
 .e-toggle {
   position: relative;
   display: inline-block;
   height: $toggle-desktop-height;
   width: $toggle-desktop-width;
-  background-color: colors.color('black');
+  background-color: colors.color('grey');
   border-radius: $toggle-border-radius;
   cursor: pointer;
   box-sizing: border-box;
@@ -28,6 +28,21 @@ $toggle-mobile-slider-padding: 4.15px;
   @include breakpoints.breakpoint-up(Mobile) {
     height: $toggle-mobile-height;
     width: $toggle-mobile-width;
+  }
+
+  &.e-toggle--disabled,
+  &:disabled {
+    cursor: not-allowed;
+    background-color: colors.color('grey-30');
+    .e-toggle__slider::before {
+      background-color: colors.color('grey-10');
+    }
+    input:checked + .e-toggle__slider {
+      background-color: colors.color('grey-30');
+    }
+    input:checked + .e-toggle__slider::before {
+      background-color: colors.color('grey-70');
+    }
   }
 
   // hide initial input
@@ -66,7 +81,7 @@ $toggle-mobile-slider-padding: 4.15px;
   }
 
   input:checked + .e-toggle__slider {
-    background-color: colors.color('black');
+    background-color: colors.color('grey');
   }
 
   input:checked + .e-toggle__slider::before {

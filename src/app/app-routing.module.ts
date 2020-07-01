@@ -14,7 +14,7 @@ import { ColorDocComponent } from './doc-pages/identity/color-doc/color-doc.comp
 import { IconDocComponent } from './doc-pages/identity/icon-doc/icon-doc.component';
 import { TypographyDocComponent } from './doc-pages/identity/typography-doc/typography-doc.component';
 import { CheckboxDocComponent } from './doc-pages/components/forms/checkbox-doc/checkbox-doc.component';
-import { CheckboxToggleDocComponent } from './doc-pages/components/forms/checkbox-toggle-doc/checkbox-toggle-doc.component';
+import { ToggleDocComponent } from './doc-pages/components/forms/toggle-doc/toggle-doc.component';
 import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-doc.component';
 import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
@@ -173,8 +173,8 @@ const routes: Routes = [
             component: CheckboxDocComponent,
           },
           {
-            path: Pages.CheckboxToggle,
-            component: CheckboxToggleDocComponent,
+            path: Pages.Toggle,
+            component: ToggleDocComponent,
           },
           {
             path: Pages.DateTimePicker,

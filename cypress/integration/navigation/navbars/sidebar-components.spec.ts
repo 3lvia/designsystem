@@ -28,9 +28,9 @@ describe('Components sidebar Test', () => {
         cy.url().should('eq', 'http://localhost:4200/components/checkbox-doc');
     });
 
-    it('Visits the Checkbox-Toggle doc page on clicking on Checkbox-Toggle in the sidebar', () => {
+    it('Visits the toggle doc page on clicking on toggle in the sidebar', () => {
         cy.get('.navbar-item').contains('Toggle').click();
-        cy.url().should('eq', 'http://localhost:4200/components/checkbox-toggle-doc');
+        cy.url().should('eq', 'http://localhost:4200/components/toggle-doc');
     });
 
     it('Visits the Input doc page on clicking on Input in the sidebar', () => {

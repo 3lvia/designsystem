@@ -115,14 +115,6 @@ export const eComponents: EItems[] = [
     imageUrl: 'assets/website-icons/component-images/Chip.svg',
   },
   {
-    title: 'Toggle',
-    description: 'Some useful component with amazing features',
-    docUrl: Pages.CheckboxToggle,
-    status: ItemStatus.Coming,
-    imageUrl: 'assets/website-icons/component-images/Toggle.svg',
-    figmaUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons?node-id=837%3A422',
-  },
-  {
     title: 'Date/Time Picker',
     description: 'Some useful component with amazing features',
     docUrl: Pages.DateTimePicker,
@@ -247,6 +239,15 @@ export const eComponents: EItems[] = [
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Table.svg',
     figmaUrl: 'https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=0%3A1',
+  },
+  {
+    title: 'Toggle',
+    description: 'Some useful component with amazing features',
+    docUrl: Pages.Toggle,
+    absolutePath: '/components/' + Pages.Toggle,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Toggle.svg',
+    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A49',
   },
   {
     title: 'Tooltip',
