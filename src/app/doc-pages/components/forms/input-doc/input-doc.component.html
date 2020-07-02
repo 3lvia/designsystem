@@ -19,6 +19,17 @@
   <app-code-block [isHTML]="true" [code]="example1" [title]="'Normal input field'"></app-code-block>
   <app-code-block
     [isHTML]="true"
+    [code]="exampleCompactInput"
+    [title]="'Compact input field'"
+    [description]="
+      'Compact text fields are typically used in Elvia’s internal systems, 
+      where screen real estate is an important factor. 
+      Regardless of which style you use for text fields, 
+      you should always stick with the same type throughout the page and never mix the two.'
+    "
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
     [code]="example2"
     [title]="'Combined'"
     [description]="

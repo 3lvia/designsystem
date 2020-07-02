@@ -484,6 +484,12 @@
 			}
 		},
 		"e-form-field": {
+			"modifier": {
+				"e-form-field--compact": {},
+				"e-form-field--combined": {},
+				"e-form-field--small": {},
+				"e-form-field--medium": {}
+			},
 			"element": {
 				"e-form-field__label": {
 					"modifier": {
@@ -496,22 +502,17 @@
 					}
 				},
 				"e-form-field__input": {}
-			},
-			"modifier": {
-				"e-form-field--combined": {},
-				"e-form-field--small": {},
-				"e-form-field--medium": {}
 			}
 		},
 		"e-input": {
-			"modifier": {
-				"e-input--small": {},
-				"e-input--medium": {}
-			},
 			"psuedo": {
 				"e-input---invalid": {},
 				"e-input---focus": {},
 				"e-input---disabled": {}
+			},
+			"modifier": {
+				"e-input--small": {},
+				"e-input--medium": {}
 			}
 		},
 		"e-inlined-field": {},
@@ -983,13 +984,16 @@
 		"e-dragdrop": {},
 		"e-dragdrop---hover": {},
 		"e-form-field": {},
+		"e-form-field--compact": {},
 		"e-form-field__label": {},
-		"e-form-field__label--optional": {},
 		"e-form-field__error": {},
+		"e-input": {},
+		"e-input---invalid": {},
+		"e-input---focus": {},
+		"e-form-field__label--optional": {},
 		"e-form-field__error--visible": {},
 		"e-form-field--combined": {},
 		"e-form-field__input": {},
-		"e-input": {},
 		"e-input--small": {},
 		"e-input--medium": {},
 		"e-inlined-field": {},
@@ -1000,8 +1004,6 @@
 		"e-fileupload__description": {},
 		"e-fileupload__input": {},
 		"e-fileupload---hover": {},
-		"e-input---invalid": {},
-		"e-input---focus": {},
 		"e-input---disabled": {},
 		"e-combined-field": {},
 		"e-position-picker": {},

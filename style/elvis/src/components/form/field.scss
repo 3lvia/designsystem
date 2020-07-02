@@ -1,6 +1,9 @@
 @use '../../variables/colors.scss';
 @use "../../variables/typography";
 
+$form-input-padding: 5px 10px;
+$form-input-padding-with-icon: 5px 36px 5px 10px;
+
 .e-form-field {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
@@ -12,6 +15,68 @@
 
   &:not(:last-child) {
     margin-bottom: 32px;
+  }
+
+  &.e-form-field--compact {
+    position: relative;
+    .e-form-field__label {
+      position: absolute;
+      z-index: 1;
+      top: -5px;
+      left: 8px;
+      background: colors.color('white');
+      padding: 0 3px;
+
+      font-family: 'Red Hat Text';
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 100%;
+    }
+    .e-form-field__error {
+      margin-top: 4px;
+
+      font-family: 'Red Hat Text';
+      font-size: 12px;
+      line-height: 16px;
+    }
+    .e-input {
+      input,
+      textarea {
+        padding: $form-input-padding;
+        @include typography.typography('text-info');
+      }
+
+      i {
+        position: absolute;
+        right: 10px;
+        top: calc(50% - (16px / 2));
+      }
+
+      &.e-input---invalid input,
+      &.e-input---invalid textarea,
+      input:invalid,
+      textarea:invalid {
+        border: 1px solid colors.color('red');
+      }
+      &.e-input---focus input,
+      &.e-input---focus textarea,
+      > input:focus,
+      > textarea:focus {
+        border: 1px solid colors.color('green');
+      }
+      > i ~ input {
+        padding: $form-input-padding-with-icon;
+      }
+      i ~ input:invalid {
+        padding: $form-input-padding-with-icon;
+      }
+      > i ~ input:focus {
+        padding: $form-input-padding-with-icon;
+      }
+      i ~ input:disabled {
+        padding: $form-input-padding-with-icon;
+      }
+    }
   }
 
   &__label {

@@ -29,7 +29,7 @@ $form-input-border: 1px solid colors.color('grey');
     padding: $form-input-padding;
     @include typography.typography('text-option');
   }
-  > i + input {
+  > i ~ input {
     padding: $form-input-padding-with-icon;
   }
   > textarea {
@@ -49,56 +49,39 @@ $form-input-border: 1px solid colors.color('grey');
     top: calc(50% - (16px / 2));
   }
 
-  &.e-input---invalid {
-    > input,
-    > textarea {
-      border: 2px solid colors.color('red');
-      padding: $form-input-padding-active;
-    }
-  }
+  &.e-input---invalid > input,
+  &.e-input---invalid > textarea,
   > input:invalid,
   > textarea:invalid {
     border: 2px solid colors.color('red');
     padding: $form-input-padding-active;
   }
-  i + input:invalid {
+  i ~ input:invalid {
     padding: $form-input-padding-with-icon-active;
   }
 
-  &.e-input---focus {
-    > input,
-    > textarea {
-      @include outline.e-outline-pseudoclass();
-      border: 2px solid colors.color('green');
-      padding: $form-input-padding-active;
-    }
-  }
+  &.e-input---focus > input,
+  &.e-input---focus > textarea,
   > input:focus,
   > textarea:focus {
     @include outline.e-outline();
     border: 2px solid colors.color('green');
     padding: $form-input-padding-active;
   }
-  > i + input:focus {
+  > i ~ input:focus {
     padding: $form-input-padding-with-icon-active;
   }
 
-  &.e-input---disabled {
-    > input,
-    > textarea {
-      color: colors.color('grey-20');
-      border-color: colors.color('grey-20');
-      cursor: not-allowed;
-    }
-  }
+  &.e-input---disabled > input,
+  &.e-input---disabled > textarea,
   > input:disabled,
   > textarea:disabled {
     opacity: 1;
     color: colors.color('grey-20');
-    -webkit-text-fill-color: colors.color('grey-20');
+    border-color: colors.color('grey-20');
     cursor: not-allowed;
   }
-  i + input:disabled {
+  i ~ input:disabled {
     padding: $form-input-padding-with-icon-active;
   }
 }

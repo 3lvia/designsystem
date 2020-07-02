@@ -3849,6 +3849,74 @@ input:focus {
   margin-bottom: 32px;
 }
 
+.e-form-field.e-form-field--compact {
+  position: relative;
+}
+
+.e-form-field.e-form-field--compact .e-form-field__label {
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 8px;
+  background: #fff;
+  padding: 0 3px;
+  font-family: "Red Hat Text";
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 100%;
+}
+
+.e-form-field.e-form-field--compact .e-form-field__error {
+  margin-top: 4px;
+  font-family: "Red Hat Text";
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.e-form-field.e-form-field--compact .e-input input,
+.e-form-field.e-form-field--compact .e-input textarea {
+  padding: 5px 10px;
+  font-family: Red Hat Text, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
+}
+
+.e-form-field.e-form-field--compact .e-input i {
+  position: absolute;
+  right: 10px;
+  top: calc(50% - (16px / 2));
+}
+
+.e-form-field.e-form-field--compact .e-input.e-input---invalid input, .e-form-field.e-form-field--compact .e-input.e-input---invalid textarea,
+.e-form-field.e-form-field--compact .e-input input:invalid,
+.e-form-field.e-form-field--compact .e-input textarea:invalid {
+  border: 1px solid #ff0000;
+}
+
+.e-form-field.e-form-field--compact .e-input.e-input---focus input, .e-form-field.e-form-field--compact .e-input.e-input---focus textarea,
+.e-form-field.e-form-field--compact .e-input > input:focus,
+.e-form-field.e-form-field--compact .e-input > textarea:focus {
+  border: 1px solid #29d305;
+}
+
+.e-form-field.e-form-field--compact .e-input > i ~ input {
+  padding: 5px 36px 5px 10px;
+}
+
+.e-form-field.e-form-field--compact .e-input i ~ input:invalid {
+  padding: 5px 36px 5px 10px;
+}
+
+.e-form-field.e-form-field--compact .e-input > i ~ input:focus {
+  padding: 5px 36px 5px 10px;
+}
+
+.e-form-field.e-form-field--compact .e-input i ~ input:disabled {
+  padding: 5px 36px 5px 10px;
+}
+
 .e-form-field__label {
   display: block;
   margin-bottom: 5px;
@@ -4044,7 +4112,7 @@ input:focus {
   color: #000;
 }
 
-.e-input > i + input {
+.e-input > i ~ input {
   padding: 12px 44px 12px 16px;
 }
 
@@ -4065,30 +4133,18 @@ input:focus {
   top: calc(50% - (16px / 2));
 }
 
-.e-input.e-input---invalid > input,
-.e-input.e-input---invalid > textarea {
-  border: 2px solid #ff0000;
-  padding: 11px 15px;
-}
-
+.e-input.e-input---invalid > input, .e-input.e-input---invalid > textarea,
 .e-input > input:invalid,
 .e-input > textarea:invalid {
   border: 2px solid #ff0000;
   padding: 11px 15px;
 }
 
-.e-input i + input:invalid {
+.e-input i ~ input:invalid {
   padding: 11px 43px 11px 15px;
 }
 
-.e-input.e-input---focus > input,
-.e-input.e-input---focus > textarea {
-  outline: 2px solid #0064fa !important;
-  outline-offset: 2px;
-  border: 2px solid #29d305;
-  padding: 11px 15px;
-}
-
+.e-input.e-input---focus > input, .e-input.e-input---focus > textarea,
 .e-input > input:focus,
 .e-input > textarea:focus {
   outline: 2px solid #0064fa;
@@ -4097,26 +4153,20 @@ input:focus {
   padding: 11px 15px;
 }
 
-.e-input > i + input:focus {
+.e-input > i ~ input:focus {
   padding: 11px 43px 11px 15px;
 }
 
-.e-input.e-input---disabled > input,
-.e-input.e-input---disabled > textarea {
+.e-input.e-input---disabled > input, .e-input.e-input---disabled > textarea,
+.e-input > input:disabled,
+.e-input > textarea:disabled {
+  opacity: 1;
   color: #d3d3d3;
   border-color: #d3d3d3;
   cursor: not-allowed;
 }
 
-.e-input > input:disabled,
-.e-input > textarea:disabled {
-  opacity: 1;
-  color: #d3d3d3;
-  -webkit-text-fill-color: #d3d3d3;
-  cursor: not-allowed;
-}
-
-.e-input i + input:disabled {
+.e-input i ~ input:disabled {
   padding: 11px 43px 11px 15px;
 }
 
