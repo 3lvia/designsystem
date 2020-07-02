@@ -13,33 +13,46 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block [isHTML]="true" [code]="example1" [title]="'Autocomplete Field'"></app-code-block>
-  <app-code-block [isHTML]="true" [code]="example2" [title]="'Autocomplete dropdown field'"></app-code-block>
-  <app-code-block [isHTML]="true" [code]="example3" [title]="'Pseudo Classes'"></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="exampleAutocomplete"
+    [title]="'Autocomplete dropdown field'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="exampleCompact"
+    [title]="'Compact Autocomplete'"
+    [description]="
+      'Much like compact text fields, 
+      the compact autocomplete is a version of the text field that’s primarily designed for internal systems, 
+      and shouldn’t be mixed with the other input styles.'
+    "
+  ></app-code-block>
 
-  <h3>Example of how to build Elvis Autocomplete</h3>
-  <div class="e-autocomplete">
-    <input
-      type="text"
-      [value]="chosenLand"
-      #searchTerm
-      (keyup)="onSearch(searchTerm.value)"
-      id="ChooseCountry"
-    />
-    <div class="e-autocomplete__content" *ngIf="showResults">
-      <div
-        class="e-autocomplete__content__item"
-        *ngFor="let country of results"
-        (click)="SelectCountry(country)"
-      >
-        {{ country }}
+  <div class="elvis-anchor">
+    <h2 class="elvis-anchor-title">Live example</h2>
+    <div class="e-form-field">
+      <label class="e-form-field__label" for="compact">Country</label>
+      <div class="e-input">
+        <input
+          placeholder="Search for country"
+          [value]="chosenLand"
+          #searchTerm
+          (keyup)="onSearch(searchTerm.value)"
+          id="ChooseCountry"
+        />
+        <div class="e-autocomplete" *ngIf="showResults">
+          <span class="e-autocomplete__item" *ngFor="let country of results" (click)="SelectCountry(country)">
+            {{ country }}
+          </span>
+        </div>
       </div>
     </div>
+
+    <h4>Html code for Angular example</h4>
+    <app-code-highlighter [isHTML]="'true'" [code]="exampleInHTML"></app-code-highlighter>
+
+    <h4>TS code for Angular example</h4>
+    <app-code-highlighter [isTS]="'true'" [code]="exampleInTS"></app-code-highlighter>
   </div>
-
-  <h4>Html code for Angular example</h4>
-  <app-code-highlighter [isHTML]="'true'" [code]="exampleInHTML"></app-code-highlighter>
-
-  <h4>TS code for Angular example</h4>
-  <app-code-highlighter [isTS]="'true'" [code]="exampleInTS"></app-code-highlighter>
 </div>

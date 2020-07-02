@@ -18,12 +18,7 @@
 		},
 		"e-autocomplete": {
 			"element": {
-				"e-autocomplete__content": {},
-				"e-autocomplete__content__item": {}
-			},
-			"psuedo": {
-				"e-autocomplete---active": {},
-				"e-autocomplete---invalid": {}
+				"e-autocomplete__item": {}
 			}
 		},
 		"e-no-outline": {},
@@ -593,10 +588,7 @@
 		"e-alert--warn": {},
 		"e-alert--info": {},
 		"e-autocomplete": {},
-		"e-autocomplete__content": {},
-		"e-autocomplete__content__item": {},
-		"e-autocomplete---active": {},
-		"e-autocomplete---invalid": {},
+		"e-autocomplete__item": {},
 		"e-no-outline": {},
 		"e-icon": {},
 		"e-icon--xxs": {},

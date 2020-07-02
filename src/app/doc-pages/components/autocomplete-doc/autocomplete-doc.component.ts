@@ -10,35 +10,40 @@ export class AutocompleteDocComponent {
   figmaUrl = getComponent('autocomplete-doc').figmaUrl;
   does = ['When you have many options in a list and the input must be validated'];
 
-  example1 = `<div class="e-autocomplete">
-  <input placeholder="Placeholder text"/>
-</div>`;
-
-  example2 = `<div class="e-autocomplete" style="height:150px">
-  <input placeholder="Placeholder text" value="Aus"/>
-
-  <div class="e-autocomplete__content">
-    <span class="e-autocomplete__content__item">Australia</span>
-    <span class="e-autocomplete__content__item">Austria</span>
+  exampleAutocomplete = `<div class="e-form-field">
+  <label class="e-form-field__label" for="compact">Label</label>
+  <div class="e-input" style="height:155px">
+    <input placeholder="Placeholder text" value="Aus"/>
+    <div class="e-autocomplete">
+      <span class="e-autocomplete__item">Australia</span>
+      <span class="e-autocomplete__item">Austria</span>
+    </div>
   </div>
-</div>`;
-
-  example3 = `<div class="e-autocomplete e-mt-16">
-  <input placeholder="Normal state" value="Normal state"/>
-</div>
-<div class="e-autocomplete e-autocomplete---active e-mt-16">
-  <input placeholder="Active/Focus state" value="Active/Focus state"/>
-</div>
-<div class="e-autocomplete e-autocomplete---invalid e-mt-16">
-  <input placeholder="Invalid error state" value="Invalid error state"/>
 </div>
 `;
 
-  exampleInHTML = `<div class="e-autocomplete">
-  <input type="text" [value]="chosenLand" #searchTerm (keyup)="onSearch(searchTerm.value)" id="ChooseCountry"/>
-  <div class="e-autocomplete__content" *ngIf="showResults">
-    <div class="e-autocomplete__content__item" *ngFor="let country of results" (click)="SelectCountry(country)">
-    {{ country }}
+  exampleCompact = `<div style="width: 240px;">
+  <div class="e-form-field e-form-field--compact">
+    <label class="e-form-field__label" for="compact">Label</label>
+    <div class="e-input" style="height:105px">
+      <input placeholder="Placeholder text" value="Aus"/>
+      <div class="e-autocomplete">
+        <span class="e-autocomplete__item">Australia</span>
+        <span class="e-autocomplete__item">Austria</span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+  exampleInHTML = `<div class="e-form-field">
+  <label class="e-form-field__label" for="compact">Label</label>
+  <div class="e-input">
+    <input placeholder="Placeholder text" [value]="chosenLand" #searchTerm (keyup)="onSearch(searchTerm.value)" id="ChooseCountry"/>
+    <div class="e-autocomplete" *ngIf="showResults">
+      <span class="e-autocomplete__item" *ngFor="let country of results" (click)="SelectCountry(country)">
+        {{ country }}
+      </span>
     </div>
   </div>
 </div>
@@ -325,7 +330,7 @@ countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","An
   chosenLand = '';
 
   onSearch(searchTerm: string): void {
-    this.results = this.countries.filter((country) => country.includes(searchTerm));
+    this.results = this.countries.filter((country) => country.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()));
 
     if (searchTerm.length === 0) {
       this.showResults = false;

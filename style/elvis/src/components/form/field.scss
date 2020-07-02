@@ -1,8 +1,9 @@
 @use '../../variables/colors.scss';
 @use "../../variables/typography";
 
-$form-input-padding: 5px 10px;
-$form-input-padding-with-icon: 5px 36px 5px 10px;
+$form-input-padding-compact: 5px 10px;
+$form-input-padding-compact-with-icon: 5px 36px 5px 10px;
+$autocomplete-padding-item-compact: 6px 16px;
 
 .e-form-field {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -39,10 +40,16 @@ $form-input-padding-with-icon: 5px 36px 5px 10px;
       font-size: 12px;
       line-height: 16px;
     }
+    .e-autocomplete {
+      &__item {
+        padding: $autocomplete-padding-item-compact;
+        @include typography.typography('text-info');
+      }
+    }
     .e-input {
       input,
       textarea {
-        padding: $form-input-padding;
+        padding: $form-input-padding-compact;
         @include typography.typography('text-info');
       }
 
@@ -65,16 +72,16 @@ $form-input-padding-with-icon: 5px 36px 5px 10px;
         border: 1px solid colors.color('green');
       }
       > i ~ input {
-        padding: $form-input-padding-with-icon;
+        padding: $form-input-padding-compact-with-icon;
       }
       i ~ input:invalid {
-        padding: $form-input-padding-with-icon;
+        padding: $form-input-padding-compact-with-icon;
       }
       > i ~ input:focus {
-        padding: $form-input-padding-with-icon;
+        padding: $form-input-padding-compact-with-icon;
       }
       i ~ input:disabled {
-        padding: $form-input-padding-with-icon;
+        padding: $form-input-padding-compact-with-icon;
       }
     }
   }
