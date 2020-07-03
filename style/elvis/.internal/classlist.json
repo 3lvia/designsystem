@@ -474,8 +474,8 @@
 			}
 		},
 		"e-dragdrop": {
-			"psuedo": {
-				"e-dragdrop---hover": {}
+			"modifier": {
+				"e-dragdrop--dragover": {}
 			}
 		},
 		"e-form-field": {
@@ -974,7 +974,7 @@
 		"e-checkbox---invalid": {},
 		"e-checkbox---checked": {},
 		"e-dragdrop": {},
-		"e-dragdrop---hover": {},
+		"e-dragdrop--dragover": {},
 		"e-form-field": {},
 		"e-form-field--compact": {},
 		"e-form-field__label": {},

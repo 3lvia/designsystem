@@ -3787,7 +3787,7 @@ input:focus {
   align-items: center;
 }
 
-.e-dragdrop:hover, .e-dragdrop---hover {
+.e-dragdrop--dragover {
   border-color: #29d305;
 }
 
