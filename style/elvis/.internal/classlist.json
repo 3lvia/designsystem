@@ -342,6 +342,10 @@
 			"modifier": {
 				"e-popover--top": {},
 				"e-popover--bottom": {},
+				"e-popover--top--left": {},
+				"e-popover--top--right": {},
+				"e-popover--bottom--left": {},
+				"e-popover--bottom--right": {},
 				"e-popover--center": {}
 			},
 			"psuedo": {
@@ -873,6 +877,10 @@
 		"e-popover__text": {},
 		"e-popover--top": {},
 		"e-popover--bottom": {},
+		"e-popover--top--left": {},
+		"e-popover--top--right": {},
+		"e-popover--bottom--left": {},
+		"e-popover--bottom--right": {},
 		"e-popover--center": {},
 		"e-popover---visible": {},
 		"e-table-mobile": {},

@@ -10,8 +10,8 @@ import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-high
     CommonModule,
     ComponentHeaderModule,
     CodeBlockModule,
-    CodeHighlighterModule
+    CodeHighlighterModule,
   ],
-  declarations: [PopoverDocComponent]
+  declarations: [PopoverDocComponent],
 })
 export class PopoverDocModule { }

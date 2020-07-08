@@ -32,6 +32,7 @@ $popover-mobile-max-width: 300px;
   }
 
   &__content {
+    display: none;
     position: absolute;
     opacity: 0;
     z-index: -1;
@@ -47,6 +48,11 @@ $popover-mobile-max-width: 300px;
 
     @include breakpoints.breakpoint-up(Mobile) {
       max-width: $popover-mobile-max-width;
+    }
+
+    // for smallest units
+    @media screen and (max-width: 360px) {
+      max-width: 280px;
     }
 
     .e-popover__close {
@@ -92,6 +98,38 @@ $popover-mobile-max-width: 300px;
         border-color: colors.color('white') transparent transparent transparent;
       }
     }
+
+    &.e-popover--top--left {
+      .e-popover__content {
+        transform: translateX(-90%);
+        @include breakpoints.breakpoint-up(Mobile) {
+          transform: translateX(-87.5%);
+        }
+        // adding pixels to center and fit the arrows to relative point
+        &:after {
+          left: calc((100%) - (#{$popover-arrow-offset}) - 25px);
+        }
+        &:before {
+          left: calc((100%) - (#{$popover-arrow-offset}) - 2px - 25px);
+        }
+      }
+    }
+
+    &.e-popover--top--right {
+      .e-popover__content {
+        transform: translateX(-10%);
+        @include breakpoints.breakpoint-up(Mobile) {
+          transform: translateX(-12.5%);
+        }
+        // adding pixels to center and fit the arrows to relative point
+        &:after {
+          left: calc((0%) + (#{$popover-arrow-offset}) + 4px);
+        }
+        &:before {
+          left: calc((0%) + (#{$popover-arrow-offset}) + 2px);
+        }
+      }
+    }
   }
 
   &.e-popover--bottom {
@@ -109,13 +147,40 @@ $popover-mobile-max-width: 300px;
         border-color: transparent transparent colors.color('white') transparent;
       }
     }
+
+    &.e-popover--bottom--left {
+      .e-popover__content {
+        transform: translateX(-90%);
+        @include breakpoints.breakpoint-up(Mobile) {
+          transform: translateX(-87.5%);
+        }
+        // adding pixels to center and fit the arrows to relative point
+        &:after {
+          left: calc((100%) - (#{$popover-arrow-offset}) + 2px - 25px);
+        }
+        &:before {
+          left: calc((100%) - (#{$popover-arrow-offset}) - 25px);
+        }
+      }
+    }
+
+    &.e-popover--bottom--right {
+      .e-popover__content {
+        transform: translateX(-10%);
+        @include breakpoints.breakpoint-up(Mobile) {
+          transform: translateX(-12.5%);
+        }
+        // adding pixels to center and fit the arrows to relative point
+        &:after {
+          left: calc((0%) + (#{$popover-arrow-offset}) + 4px);
+        }
+        &:before {
+          left: calc((0%) + (#{$popover-arrow-offset}) + 2px);
+        }
+      }
+    }
   }
 
-  // &.e-popover--left .e-popover__content {
-  //   left: $popover-button-offset;
-  //   &::before { left: $popover-arrow-offset; }
-  //   &::after { left: calc(#{$popover-arrow-offset} + 2px); }
-  // }
   &.e-popover--center .e-popover__content {
     left: 50%;
     transform: translate(-50%, 0);
@@ -126,14 +191,10 @@ $popover-mobile-max-width: 300px;
       left: calc((50%) - (#{$popover-arrow-offset} / 2) + 2px);
     }
   }
-  // &.e-popover--right .e-popover__content {
-  //   right: $popover-button-offset;
-  //   &::before { right: $popover-arrow-offset; }
-  //   &::after { right: calc(#{$popover-arrow-offset} + 2px); }
-  // }
 
   &---visible {
     .e-popover__content {
+      display: block;
       opacity: 1;
       z-index: 99;
       pointer-events: all;
