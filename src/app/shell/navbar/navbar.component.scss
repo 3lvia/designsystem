@@ -3,17 +3,20 @@
 @import '../../../../style/elvis/src/utilities/breakpoints.scss';
 
 $text-line-height: 32px;
-
+.wrapper {
+  height: 100%;
+  position: relative;
+}
 .navbar {
   height: calc(100% - 64px - #{$header-height});
   top: $header-height + 64px;
   width: 18%;
-  bottom: 0;
+  bottom: $footer-height;
   position: fixed;
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 32px;
-  background: white;
+  background: transparent;
   z-index: 111;
   &.show-header-warning {
     height: calc(100% - 64px - #{$header-height} - 60px);

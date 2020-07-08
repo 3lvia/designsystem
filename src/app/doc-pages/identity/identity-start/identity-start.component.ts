@@ -36,7 +36,14 @@ export class IdentityStartComponent implements OnInit, OnDestroy {
 
   startScrollSubscription(): void {
     const scrollEvents = fromEvent(document, 'scroll');
-    this.listenOnScrollSubscription = scrollEvents.subscribe(() => { this.findAnchorAtScrollPosition(); });
+    this.listenOnScrollSubscription = scrollEvents.subscribe(() => {
+      this.findAnchorAtScrollPosition();
+      this.findNewNavbarHeight();
+    });
+  }
+
+  findNewNavbarHeight(): void {
+    this.scrollService.newScrollPosition();
   }
 
   ngOnDestroy(): void {

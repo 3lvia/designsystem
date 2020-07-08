@@ -56,7 +56,8 @@ THE SOFTWARE.
     }
     .row.e-custom-gutters {
       [class^='col'] {
-        padding-bottom: #{$grid-gutter-width} !important;
+        padding-bottom: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-top: calc((#{$grid-gutter-width} / 2)) !important;
         padding-right: calc((#{$grid-gutter-width} / 2)) !important;
         padding-left: calc((#{$grid-gutter-width} / 2)) !important;
       }
@@ -72,7 +73,8 @@ THE SOFTWARE.
     }
     .row.e-custom-gutters {
       [class^='col'] {
-        padding-bottom: #{$grid-gutter-width} !important;
+        padding-bottom: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-top: calc((#{$grid-gutter-width} / 2)) !important;
         padding-right: calc((#{$grid-gutter-width} / 2)) !important;
         padding-left: calc((#{$grid-gutter-width} / 2)) !important;
       }
@@ -88,7 +90,8 @@ THE SOFTWARE.
     }
     .row.e-custom-gutters {
       [class^='col'] {
-        padding-bottom: #{$grid-gutter-width} !important;
+        padding-bottom: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-top: calc((#{$grid-gutter-width} / 2)) !important;
         padding-right: calc((#{$grid-gutter-width} / 2)) !important;
         padding-left: calc((#{$grid-gutter-width} / 2)) !important;
       }
@@ -105,7 +108,8 @@ THE SOFTWARE.
     }
     .row.e-custom-gutters {
       [class^='col'] {
-        padding-bottom: #{$grid-gutter-width} !important;
+        padding-bottom: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-top: calc((#{$grid-gutter-width} / 2)) !important;
         padding-right: calc((#{$grid-gutter-width} / 2)) !important;
         padding-left: calc((#{$grid-gutter-width} / 2)) !important;
       }

@@ -29,7 +29,11 @@
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
-    margin-left: 24px;
+    margin-left: 32px;
+
+    @include breakpoint-up(Mobile) {
+      margin-left: 16px;
+    }
 
     img {
       height: 26px;
@@ -123,51 +127,6 @@
       letter-spacing: 0.2px;
       color: var(--e-white);
     }
-
-    .links {
-      position: relative;
-      background: var(--e-grey-90);
-      height: 32px;
-      width: 32px;
-      border-radius: 50%;
-      cursor: pointer;
-
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        background: var(--e-green);
-
-        .default-img {
-          display: none;
-        }
-        .inverted-img {
-          display: flex;
-        }
-      }
-
-      .default-img {
-        display: flex;
-        height: 16px;
-        width: 16px;
-      }
-
-      .inverted-img {
-        display: none;
-        height: 16px;
-        width: 16px;
-      }
-      a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        height: inherit;
-        width: inherit;
-        border-radius: inherit;
-      }
-    }
   }
 
   .mobile-menu {
@@ -177,6 +136,10 @@
       display: inline-flex;
       width: 100%;
       justify-content: flex-end;
+      margin-right: 32px;
+    }
+    @include breakpoint-up(Mobile) {
+      margin-right: 16px;
     }
 
     .menu-button {

@@ -8792,7 +8792,8 @@ THE SOFTWARE.
   }
 
   .e-grid .row.e-custom-gutters [class^=col] {
-    padding-bottom: 48px !important;
+    padding-bottom: calc((48px / 2)) !important;
+    padding-top: calc((48px / 2)) !important;
     padding-right: calc((48px / 2)) !important;
     padding-left: calc((48px / 2)) !important;
   }
@@ -8803,7 +8804,8 @@ THE SOFTWARE.
   }
 
   .e-grid .row.e-custom-gutters [class^=col] {
-    padding-bottom: 48px !important;
+    padding-bottom: calc((48px / 2)) !important;
+    padding-top: calc((48px / 2)) !important;
     padding-right: calc((48px / 2)) !important;
     padding-left: calc((48px / 2)) !important;
   }
@@ -8814,7 +8816,8 @@ THE SOFTWARE.
   }
 
   .e-grid .row.e-custom-gutters [class^=col] {
-    padding-bottom: 32px !important;
+    padding-bottom: calc((32px / 2)) !important;
+    padding-top: calc((32px / 2)) !important;
     padding-right: calc((32px / 2)) !important;
     padding-left: calc((32px / 2)) !important;
   }
@@ -8825,7 +8828,8 @@ THE SOFTWARE.
   }
 
   .e-grid .row.e-custom-gutters [class^=col] {
-    padding-bottom: 16px !important;
+    padding-bottom: calc((16px / 2)) !important;
+    padding-top: calc((16px / 2)) !important;
     padding-right: calc((16px / 2)) !important;
     padding-left: calc((16px / 2)) !important;
   }

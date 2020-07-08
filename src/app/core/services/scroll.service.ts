@@ -7,9 +7,17 @@ import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
 })
 
 export class ScrollService {
+  private subjectScroll = new Subject<any>();
   private subjectAnchorScrollTo = new Subject<any>();
   private subjectAnchorAtPositions = new Subject<any>();
   private subjectAnchorsNew = new Subject<any>();
+
+  listenNewScrollPosition(): Observable<any> {
+    return this.subjectScroll.asObservable();
+  }
+  newScrollPosition(): void {
+    this.subjectScroll.next();
+  }
 
   listenAnchorToScrollTo(): Observable<any> {
     return this.subjectAnchorScrollTo.asObservable();

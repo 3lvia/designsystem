@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {GlobalService} from 'src/app/core/services/global.service';
+import { Component } from '@angular/core';
+import { GlobalService } from 'src/app/core/services/global.service';
 
 @Component({
   selector: 'app-main',
@@ -7,7 +7,7 @@ import {GlobalService} from 'src/app/core/services/global.service';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent {
-  constructor(private globalService: GlobalService) {}
+  constructor(private globalService: GlobalService) { }
 
   visibleWarning(): boolean {
     return this.globalService.headerWarning.show;

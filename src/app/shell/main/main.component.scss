@@ -1,5 +1,7 @@
+@import '../../shared/shared-sizes.scss';
+
 .main-content {
-  position: relative;
-  top: 60px;
-  margin-left: 0;
+  min-height: calc(100vh - #{$header-height} - #{$footer-height} - 64px - 120px);
+  margin-top: 64px;
+  margin-bottom: 120px;
 }

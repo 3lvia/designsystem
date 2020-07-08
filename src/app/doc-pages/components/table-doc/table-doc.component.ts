@@ -202,7 +202,7 @@ export class TableDocComponent {
 </table>
 `;
 
-  example6 = `<div style="width: 365px">
+  example6 = `<div style="width: 305px">
   <table class="e-table-mobile">
     <thead>
       <tr>
@@ -249,7 +249,7 @@ export class TableDocComponent {
   </table>
 </div>
 `;
-  example7 = `<div style="width: 365px">
+  example7 = `<div style="width: 305px;">
   <table class="e-table-mobile e-table-mobile--compact">
     <thead>
       <tr>

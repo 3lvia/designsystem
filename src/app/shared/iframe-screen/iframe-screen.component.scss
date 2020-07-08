@@ -13,18 +13,18 @@ iframe {
   }
   .tablet {
     width: 768px;
-    height: 540px;
+    height: 570px;
   }
   .phone {
     width: 380px;
-    height: 540px;
+    height: 570px;
   }
 }
 
 .phone,
 .tablet {
   position: relative;
-  margin: 4px auto;
+  margin: auto;
   padding: 56px 12px;
   border-radius: 50px;
   border: 20px solid #111;

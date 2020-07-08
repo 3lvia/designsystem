@@ -31,6 +31,9 @@ export class NavbarComponent implements OnInit {
     private scrollService: ScrollService,
     private location: Location,
   ) {
+    this.scrollService.listenNewScrollPosition().subscribe(() => {
+      this.updateNavbarHeight();
+    });
     this.scrollService.listenAnchorAtCurrPos().subscribe((anchor: NavbarAnchor) => {
       if (this.prevActiveAnchor !== anchor) {
         this.updateAnchorRoute(anchor);
@@ -41,6 +44,7 @@ export class NavbarComponent implements OnInit {
 
     this.scrollService.listenAnchors().subscribe((anchors: NavbarAnchor[]) => {
       this.navbarAnchors = anchors;
+
       this.navbarItems.forEach((item) => {
         let currentRoute = this.router.url.slice(this.router.url.lastIndexOf('/') + 1);
         if (currentRoute.includes('#')) {
@@ -89,6 +93,24 @@ export class NavbarComponent implements OnInit {
 
   showWarning(): boolean {
     return this.globalService.headerWarning.show;
+  }
+
+  updateNavbarHeight(): void {
+    const fromTop = document.documentElement.scrollTop + window.innerHeight + 200 + 60;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const el = document.getElementById('side-navbar') as HTMLElement;
+    if (fromTop >= scrollHeight) {
+      let newHeight = (scrollHeight - document.documentElement.scrollTop - 60 - 64 - 64 - 60 - 200);
+      if (!this.showWarning()) {
+        newHeight = (scrollHeight - document.documentElement.scrollTop - 60 - 64 - 60 - 200);
+      }
+      el.style.height = (newHeight) + 'px';
+    } else {
+      el.style.height = (window.innerHeight - 64 - 64 - 60) + 'px';
+      if (!this.showWarning()) {
+        el.style.height = (window.innerHeight - 64 - 60) + 'px';
+      }
+    }
   }
 
   updateAnchorRoute(anchor: NavbarAnchor): void {

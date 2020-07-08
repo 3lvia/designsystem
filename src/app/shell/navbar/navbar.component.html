@@ -1,37 +1,44 @@
-<div [class.show-header-warning]="showWarning()" class="navbar" [ngClass]="toggleMenu ? 'showMenu' : ''">
-  <ul class="navbar-list">
-    <li class="navbar-item" *ngFor="let navbarItem of filteredPages">
-      <a
-        [routerLink]="[navbarItem.docUrl]"
-        routerLinkActive="active-route"
-        (click)="markNewActiveNavbarItem(navbarItem)"
-      >
-        <span class="navbar-item-title">
-          {{ navbarItem.title }}
-        </span>
-      </a>
-      <div class="anchors">
-        <div *ngIf="navbarItem === prevActiveNavbarItem">
-          <div class="link" *ngFor="let anchor of prevNavbarAnchors">
-            <a class="anchor" id="navbar-{{ anchor.title }}" href="javascript:void()">
-              {{ anchor.title }}
-            </a>
+<div class="wrapper">
+  <div
+    [class.show-header-warning]="showWarning()"
+    class="navbar"
+    id="side-navbar"
+    [ngClass]="toggleMenu ? 'showMenu' : ''"
+  >
+    <ul class="navbar-list">
+      <li class="navbar-item" *ngFor="let navbarItem of filteredPages">
+        <a
+          [routerLink]="[navbarItem.docUrl]"
+          routerLinkActive="active-route"
+          (click)="markNewActiveNavbarItem(navbarItem)"
+        >
+          <span class="navbar-item-title">
+            {{ navbarItem.title }}
+          </span>
+        </a>
+        <div class="anchors">
+          <div *ngIf="navbarItem === prevActiveNavbarItem">
+            <div class="link" *ngFor="let anchor of prevNavbarAnchors">
+              <a class="anchor" id="navbar-{{ anchor.title }}" href="javascript:void()">
+                {{ anchor.title }}
+              </a>
+            </div>
+          </div>
+          <div *ngIf="navbarItem === activeNavbarItem">
+            <div class="link" *ngFor="let anchor of navbarAnchors">
+              <a
+                (click)="scrollToElement(anchor)"
+                class="anchor"
+                [ngClass]="{ 'active-anchor': anchor === activeAnchor }"
+                id="navbar-{{ anchor.title }}"
+                href="javascript:void()"
+              >
+                {{ anchor.title }}
+              </a>
+            </div>
           </div>
         </div>
-        <div *ngIf="navbarItem === activeNavbarItem">
-          <div class="link" *ngFor="let anchor of navbarAnchors">
-            <a
-              (click)="scrollToElement(anchor)"
-              class="anchor"
-              [ngClass]="{ 'active-anchor': anchor === activeAnchor }"
-              id="navbar-{{ anchor.title }}"
-              href="javascript:void()"
-            >
-              {{ anchor.title }}
-            </a>
-          </div>
-        </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 </div>

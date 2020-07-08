@@ -11,6 +11,7 @@ import { ComponentsModule } from './doc-pages/components/components.module';
 import { IdentityModule } from './doc-pages/identity/identity.module';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CommunityModule } from './doc-pages/community/community.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { CommunityModule } from './doc-pages/community/community.module';
     IdentityModule,
     OverlayModule,
     CommunityModule,
+    HttpClientModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA,
