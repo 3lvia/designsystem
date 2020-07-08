@@ -54,6 +54,7 @@ import { OverviewGetStartedComponent } from './doc-pages/get-started/overview-ge
 import { GetStartedStartComponent } from './doc-pages/get-started/get-started-start/get-started-start.component';
 import { ChangelogComponent } from './doc-pages/community/changelog/changelog.component';
 import { DiscussionComponent } from './doc-pages/community/discussion/discussion.component';
+import { SearchDocComponent } from './doc-pages/components/forms/search-doc/search-doc.component';
 
 const routes: Routes = [
   {
@@ -231,6 +232,10 @@ const routes: Routes = [
           {
             path: Pages.SegmentedControl,
             component: SegmentedControlsDocComponent,
+          },
+          {
+            path: Pages.Search,
+            component: SearchDocComponent,
           },
           {
             path: Pages.Select,

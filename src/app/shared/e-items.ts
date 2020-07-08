@@ -223,6 +223,15 @@ export const eComponents: EItems[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1283%3A70',
   },
   {
+    title: 'Search',
+    description: 'Some useful component with amazing features',
+    docUrl: Pages.Search,
+    absolutePath: '/components/' + Pages.Search,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/component-images/Search.svg',
+    figmaUrl: 'https://www.figma.com/file/Yz09cKdXxOvfP0KP7AkTI7/Search?node-id=1%3A51',
+  },
+  {
     title: 'Segmented Control',
     description: 'Some useful component with amazing features',
     docUrl: Pages.SegmentedControl,

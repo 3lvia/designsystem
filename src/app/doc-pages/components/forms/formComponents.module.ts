@@ -7,6 +7,7 @@ import { SelectDocModule } from './select-doc/select-doc.module';
 import { SegmentedControlsDocModule } from './segmented-controls-doc/segmented-controls-doc.module';
 import { DraganddropDocModule } from './draganddrop-doc/draganddrop-doc.module';
 import { DatetimePickerDocModule } from './datetime-picker-doc/datetime-picker-doc.module';
+import { SearchDocModule } from './search-doc/search-doc.module';
 
 @NgModule({
     imports: [
@@ -17,7 +18,8 @@ import { DatetimePickerDocModule } from './datetime-picker-doc/datetime-picker-d
         InputDocModule,
         RadiobuttonDocModule,
         SegmentedControlsDocModule,
-        SelectDocModule
+        SelectDocModule,
+        SearchDocModule,
     ],
 })
 export class FormComponentsModule { }

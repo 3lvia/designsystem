@@ -1,0 +1,31 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">
+    Search
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    <div>
+      Search allows the user to find specific information by search terms as an alternative to the main
+      navigation menu.
+    </div>
+    <div>
+      <h3>Search results</h3>
+      When showing results, the heading as well as page text of maximum two lines should be shown. This should
+      be enough to give the user context as well as overview of results. Alternatively, if the site contains
+      ingresses, these could be shown as page text results.
+    </div>
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="searchExample"
+    [title]="'Local Search'"
+    [description]="
+      'Local search is used when the search feature shouldn’t affect the whole application. This could for example be in connection to a data table or list.
+      Search results appear when the user presses enter on the keyboard or clicks the magnifying button.'
+    "
+  ></app-code-block>
+</div>

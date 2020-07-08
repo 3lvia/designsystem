@@ -71,15 +71,9 @@ $autocomplete-padding-item-compact: 6px 16px;
       > textarea:focus {
         border: 1px solid colors.color('green');
       }
-      > i ~ input {
-        padding: $form-input-padding-compact-with-icon;
-      }
-      i ~ input:invalid {
-        padding: $form-input-padding-compact-with-icon;
-      }
-      > i ~ input:focus {
-        padding: $form-input-padding-compact-with-icon;
-      }
+      > i ~ input,
+      i ~ input:invalid,
+      > i ~ input:focus,
       i ~ input:disabled {
         padding: $form-input-padding-compact-with-icon;
       }

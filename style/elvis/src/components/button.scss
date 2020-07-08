@@ -111,9 +111,7 @@ $button-sm-line-height: 16px;
         display: flex;
         left: 0;
         top: 0px;
-      }
-      // Hiding hover ikon (only show inverted ikon)
-      i {
+        // Hiding hover ikon (only show inverted ikon)
         visibility: hidden;
       }
       i[class$='inverted'],

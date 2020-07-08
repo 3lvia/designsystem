@@ -1,0 +1,53 @@
+@use "../../utilities/icons.scss";
+
+.e-search {
+  position: relative;
+  &.e-search--local {
+    .e-input {
+      input,
+      input:invalid,
+      input:focus,
+      input:disabled {
+        padding: 5px 36px 5px 10px;
+      }
+    }
+    .e-btn.e-btn--icon {
+      position: absolute;
+      top: 5px;
+      right: 8px;
+      width: 24px;
+      height: 24px;
+      @media screen and (-ms-high-contrast: none) {
+        top: 3px;
+      }
+      .e-btn__icon {
+        @include icons.icon-size('custom12');
+        i[class$='e-icon--search-bold'] {
+          visibility: visible;
+          position: absolute;
+          display: flex;
+          top: 0px;
+          left: -2px;
+        }
+        i[class$='e-icon--close-bold'] {
+          visibility: hidden;
+        }
+      }
+    }
+
+    &.e-search---searched {
+      .e-btn.e-btn--icon .e-btn__icon {
+        i[class$='e-icon--search-bold'] {
+          visibility: hidden;
+        }
+        i[class$='e-icon--close-bold'] {
+          visibility: visible;
+          position: absolute;
+          display: flex;
+          top: 0px;
+          left: -6px;
+        }
+      }
+    }
+  }
+}

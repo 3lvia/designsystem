@@ -2,18 +2,18 @@ import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
-	selector: 'app-segmented-controls-doc',
-	templateUrl: './segmented-controls-doc.component.html',
-	styleUrls: ['./segmented-controls-doc.component.scss'],
+  selector: 'app-segmented-controls-doc',
+  templateUrl: './segmented-controls-doc.component.html',
+  styleUrls: ['./segmented-controls-doc.component.scss'],
 })
 export class SegmentedControlsDocComponent {
-	figmaUrl = getComponent('segmented-control-doc').figmaUrl;
-	does = ['To display different views.', 'Instead of radio buttons.'];
-	donts = [
-		'Do not use segmented controls if there are more than three options or the option texts are too long.',
-	];
+  figmaUrl = getComponent('segmented-control-doc').figmaUrl;
+  does = ['To display different views.', 'Instead of radio buttons.'];
+  donts = [
+    'Do not use segmented controls if there are more than three options or the option texts are too long.',
+  ];
 
-	example1 = `
+  example1 = `
 	<div class="e-segmented-controls">
 		<input type="radio" id="radio-one" name="switch-example1" value="Option1" checked/>
 		<label for="radio-one">Option 1</label>
@@ -21,7 +21,7 @@ export class SegmentedControlsDocComponent {
 		<label for="radio-two">Option 2</label>
 	</div>
 `;
-	example2 = `
+  example2 = `
 	<div class="e-segmented-controls">
 		<input type="radio" id="radio-five" name="switch-example2" value="Option1"/ checked>
 		<label for="radio-five">Option 1</label>
@@ -32,7 +32,7 @@ export class SegmentedControlsDocComponent {
 	</div>
 `;
 
-	example3 = `
+  example3 = `
 	<div class="e-segmented-controls e-segmented-controls---focus">
 		<input type="radio" id="sc-focus1" name="switch-example3" value="Option1"/ checked>
 		<label for="sc-focus1">Option 1</label>

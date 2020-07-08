@@ -46,6 +46,7 @@ export enum Pages {
   Progressbar = 'progressbar-doc',
   Radiobutton = 'radiobutton-doc',
   SegmentedControl = 'segmented-control-doc',
+  Search = 'search-doc',
   Select = 'select-doc',
   Table = 'table-doc',
   Tags = 'tags-doc',
