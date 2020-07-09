@@ -133,6 +133,15 @@ export const eComponents: EItems[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
   },
   {
+    title: 'Dropdown',
+    description: 'Some useful component with amazing features',
+    docUrl: Pages.Dropdown,
+    absolutePath: '/components/' + Pages.Dropdown,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Dropdown.svg',
+    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1285%3A842',
+  },
+  {
     title: 'File Upload',
     description: 'Some useful component with amazing features',
     docUrl: Pages.FileUpload,

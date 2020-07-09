@@ -31,6 +31,7 @@ export enum Pages {
   Button = 'button-doc',
   Card = 'card-doc',
   Checkbox = 'checkbox-doc',
+  Dropdown = 'dropdown-doc',
   Toggle = 'toggle-doc',
   DateTimePicker = 'datetime-picker-doc',
   DragAndDrop = 'draganddrop-doc',

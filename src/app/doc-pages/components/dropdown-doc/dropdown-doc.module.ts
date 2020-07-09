@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AutocompleteDocComponent } from './autocomplete-doc.component';
+import { DropdownDocComponent } from './dropdown-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-header/component-header.module';
 import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-highlighter.module';
@@ -13,6 +13,6 @@ import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-high
     CodeBlockModule,
     CodeHighlighterModule,
   ],
-  declarations: [AutocompleteDocComponent],
+  declarations: [DropdownDocComponent],
 })
-export class AutocompleteDocModule { }
+export class DropdownDocModule { }

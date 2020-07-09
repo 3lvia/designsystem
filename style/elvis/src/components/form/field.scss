@@ -59,6 +59,14 @@ $autocomplete-padding-item-compact: 6px 16px;
         top: calc(50% - (16px / 2));
       }
 
+      &.e-input-xxs-icon {
+        i {
+          position: absolute;
+          right: 16px;
+          top: calc(50% - (8px / 2));
+        }
+      }
+
       &.e-input---invalid input,
       &.e-input---invalid textarea,
       input:invalid,

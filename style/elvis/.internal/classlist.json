@@ -21,6 +21,14 @@
 				"e-autocomplete__item": {}
 			}
 		},
+		"e-dropdown": {
+			"element": {
+				"e-dropdown__item": {}
+			},
+			"modifier": {
+				"e-dropdown--compact": {}
+			}
+		},
 		"e-no-outline": {},
 		"e-icon": {
 			"modifier": {
@@ -72,7 +80,19 @@
 			}
 		},
 		"e-divider": {},
-		"e-dropdown": {},
+		"e-input": {
+			"psuedo": {
+				"e-input---invalid": {},
+				"e-input---focus": {},
+				"e-input---disabled": {}
+			},
+			"modifier": {
+				"e-input--small": {},
+				"e-input--medium": {}
+			}
+		},
+		"e-input-xxs-icon": {},
+		"e-combined-field": {},
 		"e-feedback-message": {},
 		"e-header": {},
 		"e-header-user": {},
@@ -504,17 +524,6 @@
 				"e-form-field__input": {}
 			}
 		},
-		"e-input": {
-			"psuedo": {
-				"e-input---invalid": {},
-				"e-input---focus": {},
-				"e-input---disabled": {}
-			},
-			"modifier": {
-				"e-input--small": {},
-				"e-input--medium": {}
-			}
-		},
 		"e-inlined-field": {},
 		"e-fileupload": {
 			"element": {
@@ -526,7 +535,6 @@
 				"e-fileupload---hover": {}
 			}
 		},
-		"e-combined-field": {},
 		"e-position-picker": {
 			"element": {
 				"e-position-picker__icon": {},
@@ -601,7 +609,9 @@
 		"e-alert--warn": {},
 		"e-alert--info": {},
 		"e-autocomplete": {},
+		"e-dropdown": {},
 		"e-autocomplete__item": {},
+		"e-dropdown__item": {},
 		"e-no-outline": {},
 		"e-icon": {},
 		"e-icon--xxs": {},
@@ -635,9 +645,13 @@
 		"e-card__title--above": {},
 		"e-card__content": {},
 		"e-divider": {},
-		"e-dropdown": {},
-		"e-dropdown_content": {},
-		"e-dropdown_content_item": {},
+		"e-input": {},
+		"e-input-xxs-icon": {},
+		"e-input---invalid": {},
+		"e-input---focus": {},
+		"e-input---disabled": {},
+		"e-combined-field": {},
+		"e-dropdown--compact": {},
 		"e-feedback-message": {},
 		"e-feedback-message_icon": {},
 		"e-feedback-message_message": {},
@@ -997,9 +1011,6 @@
 		"e-form-field--compact": {},
 		"e-form-field__label": {},
 		"e-form-field__error": {},
-		"e-input": {},
-		"e-input---invalid": {},
-		"e-input---focus": {},
 		"e-form-field__label--optional": {},
 		"e-form-field__error--visible": {},
 		"e-form-field--combined": {},
@@ -1014,8 +1025,6 @@
 		"e-fileupload__description": {},
 		"e-fileupload__input": {},
 		"e-fileupload---hover": {},
-		"e-input---disabled": {},
-		"e-combined-field": {},
 		"e-position-picker": {},
 		"e-position-picker__icon": {},
 		"e-position-picker__description": {},

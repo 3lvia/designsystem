@@ -77,13 +77,13 @@ body {
   border-color: #000;
 }
 
-.e-autocomplete {
+.e-autocomplete, .e-dropdown {
   position: absolute;
   display: block;
   background-color: #fff;
   width: 100%;
   max-width: 448px;
-  max-height: 240px;
+  max-height: 262px;
   overflow-y: auto;
   margin-top: 4px;
   border: 1px solid #e9e9e9;
@@ -92,7 +92,7 @@ body {
   z-index: 1;
 }
 
-.e-autocomplete__item {
+.e-autocomplete__item, .e-dropdown__item {
   cursor: pointer;
   display: block;
   box-sizing: border-box;
@@ -106,7 +106,7 @@ body {
   color: #000;
 }
 
-.e-autocomplete__item:hover {
+.e-autocomplete__item:hover, .e-dropdown__item:hover {
   background-color: #e9e9e9;
 }
 
@@ -847,52 +847,117 @@ input:focus {
   border-color: #bdbdbd;
 }
 
-.e-dropdown {
+.e-input {
+  max-width: 448px;
+  width: 100%;
   position: relative;
-  box-sizing: border-box;
 }
 
-.e-dropdown_content {
-  display: none;
-  position: absolute;
-  z-index: 90;
-  min-width: 100%;
-  max-height: 150px;
-  overflow-y: auto;
-  /*
-  Left and min-width calculation is to correct pixel error where dropdown is 1 px
-  to the left of relative search field;
-  */
-  left: -1px;
-  min-width: calc(100% + 1px);
-  border: 1px solid #29d305;
+.e-input > input,
+.e-input > textarea {
+  display: flex;
+  align-items: center;
+  border: 1px solid #262626;
   border-radius: 4px;
+  box-sizing: border-box;
   background: #fff;
+  max-width: 448px;
+  width: 100%;
+  padding: 12px 16px;
+  font-family: Red Hat Text, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
 }
 
-.e-dropdown_content.is-aligned-top {
-  top: initial;
-  bottom: 100%;
-  margin-bottom: 0;
-}
-
-.e-dropdown_content.is-aligned-bottom, .e-dropdown_content {
-  top: 100%;
-  margin-bottom: 20px;
-}
-
-.e-dropdown_content.is-active, .e-dropdown_content.e-dropdown_content_item:hover:not(.no-hover) {
-  display: block;
-}
-
-.e-dropdown_content_item {
-  padding: 10px 12px;
+.e-input > input[type=button] {
   cursor: pointer;
 }
 
-.e-dropdown_content_item.is-active, .e-dropdown_content_item:hover:not(.no-hover) {
-  background: #29d305;
-  color: #fff;
+.e-input > i ~ input {
+  padding: 12px 44px 12px 16px;
+}
+
+.e-input > textarea {
+  min-height: 16px;
+  height: 91px;
+  resize: vertical;
+  overflow-y: auto;
+}
+
+.e-input > input::placeholder {
+  color: #515151;
+}
+
+.e-input input[type=button] {
+  color: #515151;
+}
+
+.e-input i {
+  position: absolute;
+  right: 16px;
+  top: calc(50% - (16px / 2));
+}
+
+.e-input.e-input-xxs-icon i {
+  position: absolute;
+  right: 16px;
+  top: calc(50% - (8px / 2));
+}
+
+.e-input.e-input---invalid > input, .e-input.e-input---invalid > textarea,
+.e-input > input:invalid,
+.e-input > textarea:invalid {
+  border: 2px solid #ff0000;
+  padding: 11px 15px;
+}
+
+.e-input i ~ input:invalid {
+  padding: 11px 43px 11px 15px;
+}
+
+.e-input.e-input---focus > input, .e-input.e-input---focus > textarea,
+.e-input > input:focus,
+.e-input > textarea:focus {
+  outline: 2px solid #0064fa;
+  outline-offset: 2px;
+  border: 2px solid #29d305;
+  padding: 11px 15px;
+}
+
+.e-input > i ~ input:focus {
+  padding: 11px 43px 11px 15px;
+}
+
+.e-input.e-input---disabled > input, .e-input.e-input---disabled > textarea,
+.e-input > input:disabled,
+.e-input > textarea:disabled {
+  opacity: 1;
+  color: #d3d3d3;
+  border-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+.e-input i ~ input:disabled {
+  padding: 11px 43px 11px 15px;
+}
+
+.e-combined-field .e-input:not(:last-of-type) {
+  margin-right: 8px;
+}
+
+.e-dropdown.e-dropdown--compact .e-dropdown__item {
+  display: flex;
+  align-items: center;
+  max-height: 34px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 16px;
+}
+
+.e-dropdown__item:hover {
+  background-color: #e9e9e9;
 }
 
 .e-feedback-message {
@@ -3934,6 +3999,12 @@ input:focus {
   top: calc(50% - (16px / 2));
 }
 
+.e-form-field.e-form-field--compact .e-input.e-input-xxs-icon i {
+  position: absolute;
+  right: 16px;
+  top: calc(50% - (8px / 2));
+}
+
 .e-form-field.e-form-field--compact .e-input.e-input---invalid input, .e-form-field.e-form-field--compact .e-input.e-input---invalid textarea,
 .e-form-field.e-form-field--compact .e-input input:invalid,
 .e-form-field.e-form-field--compact .e-input textarea:invalid {
@@ -4122,92 +4193,6 @@ input:focus {
 
 .e-fileupload---hover {
   border-color: #29d305;
-}
-
-.e-input {
-  max-width: 448px;
-  width: 100%;
-  position: relative;
-}
-
-.e-input > input,
-.e-input > textarea {
-  display: flex;
-  align-items: center;
-  border: 1px solid #262626;
-  border-radius: 4px;
-  box-sizing: border-box;
-  background: #fff;
-  max-width: 448px;
-  width: 100%;
-  padding: 12px 16px;
-  font-family: Red Hat Text, sans-serif;
-  font-size: 16px;
-  line-height: 22px;
-  font-weight: 400;
-  color: #000;
-}
-
-.e-input > i ~ input {
-  padding: 12px 44px 12px 16px;
-}
-
-.e-input > textarea {
-  min-height: 16px;
-  height: 91px;
-  resize: vertical;
-  overflow-y: auto;
-}
-
-.e-input > input::placeholder {
-  color: #515151;
-}
-
-.e-input i {
-  position: absolute;
-  right: 16px;
-  top: calc(50% - (16px / 2));
-}
-
-.e-input.e-input---invalid > input, .e-input.e-input---invalid > textarea,
-.e-input > input:invalid,
-.e-input > textarea:invalid {
-  border: 2px solid #ff0000;
-  padding: 11px 15px;
-}
-
-.e-input i ~ input:invalid {
-  padding: 11px 43px 11px 15px;
-}
-
-.e-input.e-input---focus > input, .e-input.e-input---focus > textarea,
-.e-input > input:focus,
-.e-input > textarea:focus {
-  outline: 2px solid #0064fa;
-  outline-offset: 2px;
-  border: 2px solid #29d305;
-  padding: 11px 15px;
-}
-
-.e-input > i ~ input:focus {
-  padding: 11px 43px 11px 15px;
-}
-
-.e-input.e-input---disabled > input, .e-input.e-input---disabled > textarea,
-.e-input > input:disabled,
-.e-input > textarea:disabled {
-  opacity: 1;
-  color: #d3d3d3;
-  border-color: #d3d3d3;
-  cursor: not-allowed;
-}
-
-.e-input i ~ input:disabled {
-  padding: 11px 43px 11px 15px;
-}
-
-.e-combined-field .e-input:not(:last-of-type) {
-  margin-right: 8px;
 }
 
 .e-position-picker {

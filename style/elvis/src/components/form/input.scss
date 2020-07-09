@@ -29,6 +29,9 @@ $form-input-border: 1px solid colors.color('grey');
     padding: $form-input-padding;
     @include typography.typography('text-option');
   }
+  > input[type='button'] {
+    cursor: pointer;
+  }
   > i ~ input {
     padding: $form-input-padding-with-icon;
   }
@@ -43,10 +46,22 @@ $form-input-border: 1px solid colors.color('grey');
     color: colors.color('grey-80');
   }
 
+  input[type='button'] {
+    color: colors.color('grey-80');
+  }
+
   i {
     position: absolute;
     right: 16px;
     top: calc(50% - (16px / 2));
+  }
+
+  &.e-input-xxs-icon {
+    i {
+      position: absolute;
+      right: 16px;
+      top: calc(50% - (8px / 2));
+    }
   }
 
   &.e-input---invalid > input,
