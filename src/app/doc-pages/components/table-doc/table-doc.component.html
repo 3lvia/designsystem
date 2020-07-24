@@ -31,7 +31,7 @@
     [title]="'Table'"
     [description]="
       'Less compact tables should be used in most external systems when displaying information
-       that should be percieved as easy to read and provide a better experience for new users.'
+       that should be perceived as easy to read and provide a better experience for new users.'
     "
   ></app-code-block>
   <app-code-block
@@ -44,6 +44,39 @@
        lots of similar type of data that’s typically easier for the user to navigate in. '
     "
   ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="exampleSorting"
+    [title]="'Sorting'"
+    [description]="
+      'Sorting is another way to ease users’ search process in tables. 
+      The sorting functionality could either be in a sorting dropdown outside of the table, 
+      or as a table sorting in the table header. 
+      Here we provide the classes for table sorting, but the logic needs to be added.'
+    "
+  >
+    <ng-container ngProjectAs="extraInformation">
+      <div>
+        <h3 class="e-title-sm">Table sorting</h3>
+        <p class="e-text-description">
+          The sorting arrow appears when hovering over any of the sortable top tabs. When clicked, the table
+          will sort according to the chosen column; either ascending (arrow up), descending (arrow down), or
+          original order (no arrow). When active, the arrow will stay visible in the table header until it’s
+          either deactivated or replaced by another column sorting.
+        </p>
+        <p class="e-text-description">
+          Add the
+          <span class="code-text">e-table__sort-header</span>
+          to the th-tag on the columns you want to sort. Then add the 2 icons for arrow up and down inside the
+          span with class
+          <span class="code-text">e-table__sort-icon</span>
+          . When toggling between arrow down and up, add or remove the class
+          <span class="code-text">arrow-up</span>
+          .
+        </p>
+      </div>
+    </ng-container>
+  </app-code-block>
   <app-code-block
     [isHTML]="true"
     [code]="example8"

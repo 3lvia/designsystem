@@ -1,5 +1,6 @@
 @use "../variables/colors";
 @use "../variables/typography";
+@use "../utilities/icons";
 
 $table-padding: 10px 16px;
 $table-compact-padding: 9px 16px;
@@ -30,6 +31,28 @@ $table-border-radius: 8px;
   border-radius: $table-border-radius;
   border-collapse: separate;
   border-spacing: 0;
+
+  &__sort-header {
+    cursor: pointer;
+  }
+  &__sort-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 8px;
+    @include icons.icon-size('xxs');
+    i[class$='e-icon--arrow_up-bold'] {
+      display: none;
+    }
+    &.arrow-up {
+      i[class$='e-icon--arrow_up-bold'] {
+        display: flex;
+      }
+      i[class$='e-icon--arrow_down-bold'] {
+        display: none;
+      }
+    }
+  }
 
   &.e-table--compact {
     thead {

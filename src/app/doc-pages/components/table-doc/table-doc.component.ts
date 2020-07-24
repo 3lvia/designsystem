@@ -81,6 +81,55 @@ export class TableDocComponent {
   </tbody>
 </table>
 `;
+
+  exampleSorting = `<table class="e-table">
+  <thead>
+    <tr>
+      <th scope="col" class="e-table__sort-header">
+        Gebyr for ikke-automatiske strømmålere
+        <span class="e-table__sort-icon">
+          <i class="e-icon e-icon--inverted e-icon--arrow_down-bold"></i>
+          <i class="e-icon e-icon--inverted e-icon--arrow_up-bold"></i>
+        </span>
+      </th>
+      <th scope="col" class="e-table__sort-header">
+        Nok
+        <span class="e-table__sort-icon arrow-up">
+          <i class="e-icon e-icon--inverted e-icon--arrow_down-bold"></i>
+          <i class="e-icon e-icon--inverted e-icon--arrow_up-bold"></i>
+        </span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Fradrag for besparelser i AMS-kostnader</th>
+      <td class="e-table--align-right">-25</td>
+    </tr>
+    <tr>
+      <th scope="row">Informasjon og purring til kunder</th>
+      <td class="e-table--align-right">65</td>
+    </tr>
+    <tr>
+      <th scope="row">Arbeid relatert til booking av avlesning</th>
+      <td class="e-table--align-right">140</td>
+    </tr>
+    <tr>
+      <th scope="row">Arbeidsledelse og planlegging</th>
+      <td class="e-table--align-right">150</td>
+    </tr>
+    <tr>
+      <th scope="row">Administrativt arbeid i kundesystemet</th>
+      <td class="e-table--align-right">420</td>
+    </tr>
+    <tr>
+      <th scope="row">Årlig kontrollavlesning hos kunde, inkl. kjøring</th>
+      <td class="e-table--align-right">850</td>
+    </tr>
+  </tbody>
+</table>
+`;
+
   example3 = `<table class="e-table e-table--white-header">
   <thead>
     <tr>

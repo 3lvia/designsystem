@@ -3059,6 +3059,37 @@ input:focus {
   border-spacing: 0;
 }
 
+.e-table__sort-header {
+  cursor: pointer;
+}
+
+.e-table__sort-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  width: 8px;
+  height: 8px;
+}
+
+.e-table__sort-icon img,
+.e-table__sort-icon i {
+  width: 8px;
+  height: 8px;
+}
+
+.e-table__sort-icon i[class$=e-icon--arrow_up-bold] {
+  display: none;
+}
+
+.e-table__sort-icon.arrow-up i[class$=e-icon--arrow_up-bold] {
+  display: flex;
+}
+
+.e-table__sort-icon.arrow-up i[class$=e-icon--arrow_down-bold] {
+  display: none;
+}
+
 .e-table.e-table--compact thead td,
 .e-table.e-table--compact thead th {
   color: #fff;

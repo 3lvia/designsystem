@@ -384,6 +384,15 @@
 			}
 		},
 		"e-table": {
+			"element": {
+				"e-table__sort-header": {},
+				"e-table__sort-icon": {},
+				"e-table__cell": {
+					"modifier": {
+						"e-table__cell--multiline": {}
+					}
+				}
+			},
 			"modifier": {
 				"e-table--compact": {},
 				"e-table--white-header": {},
@@ -391,13 +400,6 @@
 				"e-table--align-center": {},
 				"e-table--align-left": {},
 				"e-table--align-right": {}
-			},
-			"element": {
-				"e-table__cell": {
-					"modifier": {
-						"e-table__cell--multiline": {}
-					}
-				}
 			}
 		},
 		"e-tags": {},
@@ -909,6 +911,8 @@
 		"e-popover---visible": {},
 		"e-table-mobile": {},
 		"e-table": {},
+		"e-table__sort-header": {},
+		"e-table__sort-icon": {},
 		"e-table--compact": {},
 		"e-table--white-header": {},
 		"e-table--bold": {},
