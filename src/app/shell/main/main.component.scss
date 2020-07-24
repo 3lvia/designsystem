@@ -2,6 +2,6 @@
 
 .main-content {
   min-height: calc(100vh - #{$header-height} - #{$footer-height} - 64px - 120px);
-  margin-top: 64px;
-  margin-bottom: 120px;
+  padding-top: 64px;
+  padding-bottom: 120px;
 }

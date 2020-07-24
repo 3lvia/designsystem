@@ -31,15 +31,4 @@ export class SegmentedControlsDocComponent {
 		<label for="radio-seven">Option 3</label>
 	</div>
 `;
-
-  example3 = `
-	<div class="e-segmented-controls e-segmented-controls---focus">
-		<input type="radio" id="sc-focus1" name="switch-example3" value="Option1"/ checked>
-		<label for="sc-focus1">Option 1</label>
-		<input type="radio" id="sc-focus2" name="switch-example3" value="Option2" />
-		<label for="sc-focus2">Option 2</label>
-		<input type="radio" id="sc-focus3" name="switch-example3" value="Option3" />
-		<label for="sc-focus3">Option 3</label>
-	</div>
-`;
 }

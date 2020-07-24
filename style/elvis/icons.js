@@ -3026,6 +3026,31 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    export const pinColor = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 5.25a3 3 0 100 6 3 3 0 000-6zm-4.5 3a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0z" fill="#29D305"/><path d="M12 1.5a6.75 6.75 0 00-6.75 6.75c0 .706.273 1.77.772 3.08.49 1.287 1.167 2.732 1.907 4.169 1.48 2.874 3.184 5.665 4.071 7.001l-.625.415L12 22.5l.625.415L12 22.5c.887-1.336 2.591-4.127 4.071-7.001.74-1.438 1.417-2.883 1.907-4.17.499-1.308.772-2.373.772-3.079A6.75 6.75 0 0012 1.5zM12 0a8.25 8.25 0 00-8.25 8.25c0 .997.361 2.278.87 3.614.518 1.358 1.222 2.857 1.975 4.321 1.508 2.928 3.24 5.766 4.155 7.145a1.5 1.5 0 002.5 0c.914-1.379 2.647-4.217 4.155-7.145.753-1.463 1.457-2.963 1.975-4.321.509-1.336.87-2.617.87-3.614A8.25 8.25 0 0012 0z" fill="#000"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>'
+          let iconName = 'pin-color'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     export const plus = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.75.75a.75.75 0 00-1.5 0v10.5H.75a.75.75 0 000 1.5h10.5v10.5a.75.75 0 001.5 0v-10.5h10.5a.75.75 0 000-1.5h-10.5V.75z" fill="#000"/></svg>'

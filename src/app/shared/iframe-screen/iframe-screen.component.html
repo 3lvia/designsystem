@@ -8,25 +8,25 @@
     THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -->
 <div class="screen-container">
-  <div *ngIf="screenSize==='desktop'" class="desktop">
+  <div *ngIf="screenSize === 'desktop'" class="desktop">
     <iframe #iframeDesktop src="about:blank"></iframe>
   </div>
-  <div *ngIf="screenSize==='tablet'" class="tablet">
+  <div *ngIf="screenSize === 'tablet'" class="tablet">
     <div class="tablet__elvia">Elvia</div>
     <div class="tablet__notch">
       <div class="speaker"></div>
     </div>
     <div class="tablet__camera"></div>
-    <div class="tablet__time">{{ now | date: "hh:mm" }}</div>
+    <div class="tablet__time">{{ now | date: 'hh:mm' }}</div>
     <iframe #iframeTablet src="about:blank"></iframe>
   </div>
-  <div *ngIf="screenSize==='phone'" class="phone">
+  <div *ngIf="screenSize === 'phone'" class="phone">
     <div class="phone__elvia">Elvia</div>
     <div class="phone__notch">
       <div class="speaker"></div>
     </div>
     <div class="phone__camera"></div>
-    <div class="phone__time">{{ now | date: "hh:mm" }}</div>
+    <div class="phone__time">{{ now | date: 'hh:mm' }}</div>
     <iframe #iframePhone src="about:blank"></iframe>
   </div>
 </div>

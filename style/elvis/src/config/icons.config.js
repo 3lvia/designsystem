@@ -120,6 +120,7 @@ module.exports = [
   { name: 'phone_image', terms: ['mobile', 'picture', 'content'] },
   { name: 'pie_chart', terms: [] },
   { name: 'pin', terms: [] },
+  { name: 'pin-color', terms: [] },
   { name: 'plus', terms: ['add', 'maximize', 'expand', 'create'] },
   { name: 'plus-bold', terms: ['add', 'maximize', 'expand', 'create'] },
   { name: 'power', terms: [] },

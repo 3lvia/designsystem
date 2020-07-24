@@ -94,8 +94,91 @@
 		"e-input-xxs-icon": {},
 		"e-combined-field": {},
 		"e-feedback-message": {},
-		"e-header": {},
-		"e-header-user": {},
+		"e-header": {
+			"psuedo": {
+				"e-header---open": {}
+			}
+		},
+		"e-top-bar": {
+			"element": {
+				"e-top-bar__app": {
+					"psuedo": {
+						"e-top-bar__app---open": {}
+					}
+				},
+				"e-top-bar__app-menu": {},
+				"e-top-bar__app-menu-item": {
+					"psuedo": {
+						"e-top-bar__app-menu-item---active": {}
+					}
+				},
+				"e-top-bar__app-circle": {},
+				"e-top-bar__app-title": {},
+				"e-top-bar__area": {
+					"psuedo": {
+						"e-top-bar__area---open": {}
+					}
+				},
+				"e-top-bar__area-menu": {},
+				"e-top-bar__area-menu-item": {},
+				"e-top-bar__logo": {},
+				"e-top-bar__title": {},
+				"e-top-bar__user": {
+					"psuedo": {
+						"e-top-bar__user---open": {}
+					}
+				},
+				"e-top-bar__hamburger": {},
+				"e-top-bar__link": {},
+				"e-top-bar__line": {},
+				"e-top-bar__user-menu": {},
+				"e-top-bar__user-menu-name": {},
+				"e-top-bar__user-menu-mail": {},
+				"e-top-bar__user-menu-settings": {},
+				"e-top-bar__user-menu-logout": {},
+				"e-top-bar__link-icon": {}
+			}
+		},
+		"e-top-bar-mobile": {
+			"element": {
+				"e-top-bar-mobile__app": {
+					"psuedo": {
+						"e-top-bar-mobile__app---open": {}
+					}
+				},
+				"e-top-bar-mobile__area": {
+					"psuedo": {
+						"e-top-bar-mobile__area---open": {}
+					}
+				},
+				"e-top-bar-mobile__user": {},
+				"e-top-bar-mobile__title": {},
+				"e-top-bar-mobile__link": {},
+				"e-top-bar-mobile__link-icon": {},
+				"e-top-bar-mobile__user-menu": {},
+				"e-top-bar-mobile__user-menu-name": {},
+				"e-top-bar-mobile__user-menu-settings": {},
+				"e-top-bar-mobile__user-menu-logout": {},
+				"e-top-bar-mobile__divider": {}
+			}
+		},
+		"e-top-bar-desktop": {},
+		"e-grid": {},
+		"e-sidebar": {
+			"element": {
+				"e-sidebar__item": {
+					"psuedo": {
+						"e-sidebar__item---active": {}
+					}
+				},
+				"e-sidebar__open-close": {},
+				"e-sidebar__text": {},
+				"e-sidebar__icon": {}
+			},
+			"psuedo": {
+				"e-sidebar---open": {}
+			}
+		},
 		"e-label": {
 			"modifier": {
 				"e-label--red-tomato": {},
@@ -575,7 +658,6 @@
 		"e-border-b": {},
 		"e-border-l": {},
 		"e-border-r": {},
-		"e-grid": {},
 		"e-grid-margin": {},
 		"e-custom-gutters": {},
 		"e-shadow-none": {},
@@ -659,12 +741,55 @@
 		"e-feedback-message_message": {},
 		"e-feedback-message_close-button": {},
 		"e-header": {},
-		"e-header_logo": {},
-		"e-header_title": {},
-		"e-header-user": {},
-		"e-header-user_icon-image": {},
-		"e-header-user_icon-no-image": {},
-		"e-header-user_name": {},
+		"e-top-bar__app": {},
+		"e-top-bar__app-menu": {},
+		"e-top-bar__app-menu-item": {},
+		"e-top-bar__app-circle": {},
+		"e-top-bar__app-menu-item---active": {},
+		"e-top-bar__app-title": {},
+		"e-top-bar__area": {},
+		"e-top-bar__area-menu": {},
+		"e-top-bar__area-menu-item": {},
+		"e-top-bar": {},
+		"e-top-bar-mobile": {},
+		"e-top-bar-desktop": {},
+		"e-grid": {},
+		"e-top-bar__logo": {},
+		"e-top-bar__title": {},
+		"e-top-bar__user": {},
+		"e-top-bar__hamburger": {},
+		"e-top-bar__link": {},
+		"e-top-bar__line": {},
+		"e-top-bar__user-menu": {},
+		"e-top-bar__user-menu-name": {},
+		"e-top-bar__user-menu-mail": {},
+		"e-top-bar__user-menu-settings": {},
+		"e-top-bar__user-menu-logout": {},
+		"e-top-bar__link-icon": {},
+		"e-top-bar__app---open": {},
+		"e-top-bar__area---open": {},
+		"e-top-bar__user---open": {},
+		"e-header---open": {},
+		"e-sidebar": {},
+		"e-top-bar-mobile__app": {},
+		"e-top-bar-mobile__area": {},
+		"e-top-bar-mobile__user": {},
+		"e-top-bar-mobile__title": {},
+		"e-top-bar-mobile__link": {},
+		"e-top-bar-mobile__link-icon": {},
+		"e-top-bar-mobile__user-menu": {},
+		"e-top-bar-mobile__user-menu-name": {},
+		"e-top-bar-mobile__user-menu-settings": {},
+		"e-top-bar-mobile__user-menu-logout": {},
+		"e-top-bar-mobile__divider": {},
+		"e-top-bar-mobile__app---open": {},
+		"e-top-bar-mobile__area---open": {},
+		"e-sidebar__item": {},
+		"e-sidebar__open-close": {},
+		"e-sidebar__text": {},
+		"e-sidebar__icon": {},
+		"e-sidebar__item---active": {},
+		"e-sidebar---open": {},
 		"e-label": {},
 		"e-label--red-tomato": {},
 		"e-label--orange-mango": {},
@@ -1054,7 +1179,6 @@
 		"e-border-b": {},
 		"e-border-l": {},
 		"e-border-r": {},
-		"e-grid": {},
 		"e-grid-margin": {},
 		"e-custom-gutters": {},
 		"e-shadow-none": {},

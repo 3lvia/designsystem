@@ -17,7 +17,7 @@ $text-line-height: 32px;
   overflow-x: hidden;
   padding-right: 32px;
   background: transparent;
-  z-index: 111;
+  z-index: 0;
   &.show-header-warning {
     height: calc(100% - 64px - #{$header-height} - 60px);
     top: $header-height + 64px + 60px;

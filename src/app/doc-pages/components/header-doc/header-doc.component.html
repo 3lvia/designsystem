@@ -1,0 +1,142 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">
+    Header
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    <div>
+      Headers are used for navigation on the website and should be displayed at the top of the page. There are
+      two types of headers available: one for external(coming) and one for internal systems.
+    </div>
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--Overview-->
+  <div class="elvis-anchor">
+    <div class="elvis-anchor-title e-title-md">Internal - Preview</div>
+    <button class="e-btn e-mt-16" *ngIf="!internalHeader" (click)="testInternalHeader()">
+      Test internal header
+    </button>
+    <button class="e-btn e-mt-16" *ngIf="internalHeader" (click)="hideInternalHeader()">
+      Hide internal header
+    </button>
+    <div class="e-mt-24">
+      <div class="e-alert e-alert--local e-alert--info">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">NB! This preview is not a finished working header.</div>
+          <div class="e-alert__text">
+            This header only shows some logic to visualize how it should look. Logic has to be applied for
+            opening, closing and choosing menus and items.
+            <ul>
+              <li>
+                The dynamic classes listed below should be added and removed when clicking menus and choosing
+                options.
+              </li>
+              <li>When clicking outside of any menu or if choosing any option the menus should close.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="elvis-anchor e-mt-56">
+    <div class="elvis-anchor-title e-title-md">Internal - Dynamic classes</div>
+    <div class="e-text-description e-mt-24">
+      To open a menu in the top-bar one or more of the following classes needs to be added.
+    </div>
+
+    <table class="e-table e-mt-16">
+      <thead>
+        <tr>
+          <th scope="col">Location</th>
+          <th scope="col">New class</th>
+          <th scope="col">Where</th>
+          <th scope="col">When</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">App-menu (DT)</th>
+          <td>e-top-bar__app---open</td>
+          <td>e-top-bar-desktop</td>
+          <td>When opening app-menu</td>
+        </tr>
+        <tr>
+          <th scope="row">Area-menu (DT)</th>
+          <td>e-top-bar__area---open</td>
+          <td>e-top-bar-desktop</td>
+          <td>When opening area-menu</td>
+        </tr>
+        <tr>
+          <th scope="row">User-menu (DT)</th>
+          <td>e-top-bar__user---open</td>
+          <td>e-top-bar-desktop</td>
+          <td>When opening user-menu</td>
+        </tr>
+        <tr>
+          <th scope="row">Sidebar-menu (DT)</th>
+          <td>e-sidebar---open</td>
+          <td>e-sidebar</td>
+          <td>When opening side-menu</td>
+        </tr>
+        <tr>
+          <th scope="row">Top-menu (MOB)</th>
+          <td>e-header---open</td>
+          <td>e-header</td>
+          <td>When opening top-menu on mobile</td>
+        </tr>
+        <tr>
+          <th scope="row">App-menu (MOB)</th>
+          <td>e-top-bar-mobile__app---open</td>
+          <td>e-top-bar-mobile</td>
+          <td>When opening app-menu on mobile</td>
+        </tr>
+        <tr>
+          <th scope="row">Area-menu (MOB)</th>
+          <td>e-top-bar-mobile__area---open</td>
+          <td>e-top-bar-mobile</td>
+          <td>When opening area-menu on mobile</td>
+        </tr>
+        <tr>
+          <th scope="row">App ~ active (DT + MOB)</th>
+          <td>e-top-bar__app-circle---active</td>
+          <td>e-top-bar__app-circle</td>
+          <td>Should always be present on 1 element</td>
+        </tr>
+        <tr>
+          <th scope="row">Sidebar app ~ active (DT + MOB)</th>
+          <td>e-sidebar__item---active</td>
+          <td>e-sidebar__item</td>
+          <td>Should always be present on 1 element</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <app-code-block
+    [isHTML]="true"
+    [code]="internalHeaderOpen"
+    [title]="'Internal - Open top menus'"
+    [showIframeScreens]="true"
+    [greyBg]="true"
+    [overwriteHeight]="500"
+    [overwriteHeightTablet]="640"
+    [overwriteHeightPhone]="640"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="internalHeaderSideOpen"
+    [title]="'Internal - Open side menu'"
+    [showIframeScreens]="true"
+    [greyBg]="true"
+    [overwriteHeight]="500"
+    [overwriteHeightTablet]="640"
+    [overwriteHeightPhone]="640"
+  ></app-code-block>
+</div>

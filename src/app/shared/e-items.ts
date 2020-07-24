@@ -151,6 +151,15 @@ export const eComponents: EItems[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
   },
   {
+    title: 'Header',
+    description: 'Some useful component with amazing features',
+    docUrl: Pages.Header,
+    absolutePath: '/components/' + Pages.Header,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Header.svg',
+    figmaUrl: 'https://www.figma.com/file/QRhfgr0sd9MPmACos1xDNT/Header?node-id=230%3A88',
+  },
+  {
     title: 'Input',
     description: 'Some useful component with amazing features',
     docUrl: Pages.Input,

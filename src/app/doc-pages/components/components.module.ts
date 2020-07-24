@@ -18,6 +18,7 @@ import { ModalDocModule } from './modal-doc/modal-doc.module';
 import { AutocompleteDocModule } from './autocomplete-doc/autocomplete-doc.module';
 import { PositionPickerDocModule } from './position-picker-doc/position-picker-doc.module';
 import { AlertMessagesModule } from './alert-messages/alert-messages.module';
+import { HeaderDocModule } from './header-doc/header-doc.module';
 import { DropdownDocModule } from './dropdown-doc/dropdown-doc.module';
 
 @NgModule({
@@ -42,6 +43,7 @@ import { DropdownDocModule } from './dropdown-doc/dropdown-doc.module';
         TagsDocModule,
         TooltipDocModule,
         PopoverDocModule,
+        HeaderDocModule,
     ],
 })
 export class ComponentsModule { }

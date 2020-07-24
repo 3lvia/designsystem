@@ -12,12 +12,13 @@ iframe {
     width: 1024px;
   }
   .tablet {
-    width: 768px;
-    height: 570px;
+    width: 850px;
+    height: 637px;
+    z-index: 111;
   }
   .phone {
-    width: 380px;
-    height: 570px;
+    width: 400px;
+    height: 637px;
   }
 }
 
@@ -35,15 +36,6 @@ iframe {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-  }
-
-  // home button
-  &:after {
-    bottom: 7px;
-    width: 140px;
-    height: 4px;
-    background-color: #000;
-    border-radius: 10px;
   }
 
   &__notch {
