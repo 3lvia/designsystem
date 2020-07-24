@@ -56,24 +56,29 @@
   </div>
 
   <div>
-    <!-- <app-code-block
+    <app-code-block
       [isHTML]="true"
       [code]="example9"
       [title]="'Standard layout with grid'"
-      [description]="'A standard layout using grid.'"
-    ></app-code-block> -->
+      [description]="'A grid layout for external and internal systems.'"
+    ></app-code-block>
     <app-code-block
       [isHTML]="true"
       [code]="example1"
-      [title]="'Rows and columns'"
-      [description]="'Standard grid.'"
+      [title]="'Gutters'"
+      [description]="
+        'Use the class e-grid-gutters-ext (for external systems) or e-grid-gutters-int (for internal systems) to add dynamic gutters on rows.
+        Get vertical gutters as well by adding the class e-grid-gutters-vertical.'
+      "
       [showIframeScreens]="true"
     ></app-code-block>
     <app-code-block
       [isHTML]="true"
       [code]="example2"
       [title]="'Margin'"
-      [description]="'Use the class e-grid-margin to add dynamic margin on rows.'"
+      [description]="
+        'Use the class e-grid-margin-ext (for external systems) or e-grid-margin-int (for internal systems) to add dynamic margin on rows.'
+      "
       [showIframeScreens]="true"
     ></app-code-block>
     <app-code-block

@@ -47,53 +47,110 @@ THE SOFTWARE.
 
   // Adding margin to rows
   @include breakpoints.breakpoint-up(MinDesktop) {
-    $grid-gutter-width: 48px;
-    $grid-margin: 120px;
-    .row {
-      &.e-grid-margin {
-        margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
+    $grid-gutter-width-ext: 56px;
+    $grid-gutter-width-int: 24px;
+    $grid-margin-ext: 120px;
+    $grid-margin-int: 88px;
+    .row.e-grid-gutters-ext {
+      margin: 0 calc((#{$grid-gutter-width-ext} / 2) * -1) !important;
+      [class^='col'] {
+        padding-right: calc((#{$grid-gutter-width-ext} / 2)) !important;
+        padding-left: calc((#{$grid-gutter-width-ext} / 2)) !important;
+      }
+      &.e-grid-gutters-vertical [class^='col'] {
+        padding-bottom: calc((#{$grid-gutter-width-ext} / 2)) !important;
+        padding-top: calc((#{$grid-gutter-width-ext} / 2)) !important;
       }
     }
-    .row.e-custom-gutters {
+    .row.e-grid-gutters-int {
+      margin: 0 calc((#{$grid-gutter-width-int} / 2) * -1) !important;
       [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-top: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-right: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-left: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-right: calc((#{$grid-gutter-width-int} / 2)) !important;
+        padding-left: calc((#{$grid-gutter-width-int} / 2)) !important;
+      }
+      &.e-grid-gutters-vertical [class^='col'] {
+        padding-bottom: calc((#{$grid-gutter-width-int} / 2)) !important;
+        padding-top: calc((#{$grid-gutter-width-int} / 2)) !important;
+      }
+    }
+    .row {
+      &.e-grid-margin-ext {
+        margin: calc(#{$grid-margin-ext} - #{$grid-gutter-width-ext}) !important;
+      }
+      &.e-grid-margin-int {
+        margin: calc(#{$grid-margin-int} - #{$grid-gutter-width-int}) !important;
       }
     }
   }
   @include breakpoints.breakpoint-up(MaxDesktop) {
-    $grid-gutter-width: 48px;
-    $grid-margin: 120px;
-    .row {
-      &.e-grid-margin {
-        margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
+    $grid-gutter-width-ext: 56px;
+    $grid-gutter-width-int: 24px;
+    $grid-margin-ext: 120px;
+    $grid-margin-int: 88px;
+    .row.e-grid-gutters-ext {
+      margin: 0 calc((#{$grid-gutter-width-ext} / 2) * -1) !important;
+      [class^='col'] {
+        padding-right: calc((#{$grid-gutter-width-ext} / 2)) !important;
+        padding-left: calc((#{$grid-gutter-width-ext} / 2)) !important;
+      }
+      &.e-grid-gutters-vertical [class^='col'] {
+        padding-bottom: calc((#{$grid-gutter-width-ext} / 2)) !important;
+        padding-top: calc((#{$grid-gutter-width-ext} / 2)) !important;
       }
     }
-    .row.e-custom-gutters {
+    .row.e-grid-gutters-int {
+      margin: 0 calc((#{$grid-gutter-width-int} / 2) * -1) !important;
       [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-top: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-right: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-left: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-right: calc((#{$grid-gutter-width-int} / 2)) !important;
+        padding-left: calc((#{$grid-gutter-width-int} / 2)) !important;
+      }
+      &.e-grid-gutters-vertical [class^='col'] {
+        padding-bottom: calc((#{$grid-gutter-width-int} / 2)) !important;
+        padding-top: calc((#{$grid-gutter-width-int} / 2)) !important;
+      }
+    }
+    .row {
+      &.e-grid-margin-ext {
+        margin: calc(#{$grid-margin-ext} - #{$grid-gutter-width-ext}) !important;
+      }
+      &.e-grid-margin-int {
+        margin: calc(#{$grid-margin-int} - #{$grid-gutter-width-int}) !important;
       }
     }
   }
   @include breakpoints.breakpoint-up(Tablet) {
-    $grid-gutter-width: 32px;
-    $grid-margin: 32px;
-    .row {
-      &.e-grid-margin {
-        margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
+    $grid-gutter-width-ext: 32px;
+    $grid-gutter-width-int: 24px;
+    $grid-margin-ext: 32px;
+    $grid-margin-int: 24px;
+    .row.e-grid-gutters-ext {
+      margin: 0 calc((#{$grid-gutter-width-ext} / 2) * -1) !important;
+      [class^='col'] {
+        padding-right: calc((#{$grid-gutter-width-ext} / 2)) !important;
+        padding-left: calc((#{$grid-gutter-width-ext} / 2)) !important;
+      }
+      &.e-grid-gutters-vertical [class^='col'] {
+        padding-bottom: calc((#{$grid-gutter-width-ext} / 2)) !important;
+        padding-top: calc((#{$grid-gutter-width-ext} / 2)) !important;
       }
     }
-    .row.e-custom-gutters {
+    .row.e-grid-gutters-int {
+      margin: 0 calc((#{$grid-gutter-width-int} / 2) * -1) !important;
       [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-top: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-right: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-left: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-right: calc((#{$grid-gutter-width-int} / 2)) !important;
+        padding-left: calc((#{$grid-gutter-width-int} / 2)) !important;
+      }
+      &.e-grid-gutters-vertical [class^='col'] {
+        padding-bottom: calc((#{$grid-gutter-width-int} / 2)) !important;
+        padding-top: calc((#{$grid-gutter-width-int} / 2)) !important;
+      }
+    }
+    .row {
+      &.e-grid-margin-ext {
+        margin: calc(#{$grid-margin-ext} - #{$grid-gutter-width-ext}) !important;
+      }
+      &.e-grid-margin-int {
+        margin: calc(#{$grid-margin-int} - #{$grid-gutter-width-int}) !important;
       }
     }
   }
@@ -101,17 +158,22 @@ THE SOFTWARE.
   @include breakpoints.breakpoint-up(Mobile) {
     $grid-gutter-width: 16px;
     $grid-margin: 16px;
-    .row {
-      &.e-grid-margin {
-        margin: 0 calc(#{$grid-margin} - (#{$grid-gutter-width} / 2)) !important;
-      }
-    }
-    .row.e-custom-gutters {
+    .row.e-grid-gutters-ext,
+    .row.e-grid-gutters-int {
+      margin: 0 calc((#{$grid-gutter-width} / 2) * -1) !important;
       [class^='col'] {
-        padding-bottom: calc((#{$grid-gutter-width} / 2)) !important;
-        padding-top: calc((#{$grid-gutter-width} / 2)) !important;
         padding-right: calc((#{$grid-gutter-width} / 2)) !important;
         padding-left: calc((#{$grid-gutter-width} / 2)) !important;
+      }
+      &.e-grid-gutters-vertical [class^='col'] {
+        padding-bottom: calc((#{$grid-gutter-width} / 2)) !important;
+        padding-top: calc((#{$grid-gutter-width} / 2)) !important;
+      }
+    }
+    .row {
+      &.e-grid-margin-ext,
+      &.e-grid-margin-int {
+        margin: calc(#{$grid-margin} - #{$grid-gutter-width}) !important;
       }
     }
   }

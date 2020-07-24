@@ -1,3 +1,16 @@
+# Update [0.10.0]
+
+Grid classes have updated to include internal systems. New classes have been added for the internal-systems as
+well as classes for vertical gutters
+
+##### Breaking changes
+
+If you are using the grid-classes some might have to be updated to work as usual. The classes that have
+changed / been added:
+
+- e-grid-margin -> e-grid-margin-ext + e-grid-margin-int
+- e-custom-gutters -> e-grid-gutters-ext + e-grid-gutters-int + e-grid-gutters-vertical
+
 # Update [0.7.0]
 
 Switched from @import to @use. The @use rule is the primary replacement for @import, which will be deprecated
