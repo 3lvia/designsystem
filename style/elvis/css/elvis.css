@@ -1914,6 +1914,7 @@ input:focus {
   color: #000;
   text-align: inherit;
   position: relative;
+  text-decoration: none;
 }
 
 .e-link__icon {
