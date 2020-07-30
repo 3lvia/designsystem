@@ -1,7 +1,7 @@
 @import '../../shared/shared-sizes.scss';
 
 .main-content {
-  min-height: calc(100vh - #{$header-height} - #{$footer-height} - 64px - 120px);
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
   padding-top: 64px;
   padding-bottom: 120px;
 }
