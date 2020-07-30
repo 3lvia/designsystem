@@ -9,9 +9,9 @@ import { IframeScreenModule } from '../iframe-screen/iframe-screen.module';
   imports: [
     CommonModule,
     CodeHighlighterModule,
-    IframeScreenModule
+    IframeScreenModule,
   ],
   declarations: [CodeBlockComponent],
-  exports: [CodeBlockComponent]
+  exports: [CodeBlockComponent],
 })
 export class CodeBlockModule { }

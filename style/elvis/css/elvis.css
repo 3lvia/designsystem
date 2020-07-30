@@ -9839,3 +9839,23 @@ THE SOFTWARE.
 .e-text-center {
   text-align: center;
 }
+
+.e-none {
+  display: none !important;
+}
+
+.e-invisible {
+  visibility: hidden !important;
+}
+
+.e-uppercase {
+  text-transform: uppercase !important;
+}
+
+.e-lowercase {
+  text-transform: lowercase !important;
+}
+
+.e-capitalize {
+  text-transform: capitalize !important;
+}

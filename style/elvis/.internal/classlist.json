@@ -683,7 +683,12 @@
 		"e-text-option": {},
 		"e-text-right": {},
 		"e-text-left": {},
-		"e-text-center": {}
+		"e-text-center": {},
+		"e-none": {},
+		"e-invisible": {},
+		"e-uppercase": {},
+		"e-lowercase": {},
+		"e-capitalize": {}
 	},
 	"flat": {
 		"e-alert": {},
@@ -1209,6 +1214,11 @@
 		"e-text-option": {},
 		"e-text-right": {},
 		"e-text-left": {},
-		"e-text-center": {}
+		"e-text-center": {},
+		"e-none": {},
+		"e-invisible": {},
+		"e-uppercase": {},
+		"e-lowercase": {},
+		"e-capitalize": {}
 	}
 }

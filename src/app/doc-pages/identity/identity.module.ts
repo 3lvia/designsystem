@@ -11,6 +11,7 @@ import { TypographyDocModule } from './typography-doc/typography-doc.module';
 import { LogoDocModule } from './logo-doc/logo-doc.module';
 import { GridDocModule } from './grid-doc/grid-doc.module';
 import { AlignmentDocModule } from './alignment-doc/alignment-doc/alignment-doc.module';
+import { UtilitiesDocModule } from './utilities-doc/utilities-doc.module';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { AlignmentDocModule } from './alignment-doc/alignment-doc/alignment-doc.
     GridDocModule,
     LogoDocModule,
     AlignmentDocModule,
+    UtilitiesDocModule,
   ],
 })
 export class IdentityModule { }

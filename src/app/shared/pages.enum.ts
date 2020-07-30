@@ -21,6 +21,7 @@ export enum Pages {
   Grid = 'grid-doc',
   Logo = 'logo-doc',
   Alignment = 'alignment-doc',
+  Utilities = 'utilities-doc',
 
   // Component Pages
   ComponentsStart = 'components',
