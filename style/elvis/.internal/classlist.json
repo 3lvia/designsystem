@@ -23,9 +23,11 @@
 		},
 		"e-dropdown": {
 			"element": {
+				"e-dropdown__content": {},
 				"e-dropdown__item": {}
 			},
 			"modifier": {
+				"e-dropdown--placeholder": {},
 				"e-dropdown--compact": {}
 			}
 		},
@@ -696,7 +698,7 @@
 		"e-alert--warn": {},
 		"e-alert--info": {},
 		"e-autocomplete": {},
-		"e-dropdown": {},
+		"e-dropdown__content": {},
 		"e-autocomplete__item": {},
 		"e-dropdown__item": {},
 		"e-no-outline": {},
@@ -738,6 +740,8 @@
 		"e-input---focus": {},
 		"e-input---disabled": {},
 		"e-combined-field": {},
+		"e-dropdown": {},
+		"e-dropdown--placeholder": {},
 		"e-dropdown--compact": {},
 		"e-feedback-message": {},
 		"e-feedback-message_icon": {},

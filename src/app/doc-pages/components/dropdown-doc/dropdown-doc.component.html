@@ -21,28 +21,33 @@
       [title]="'Dropdown'"
       [description]="''"
     ></app-code-block>
-    <!-- Add later, scss needs to be reworked for compact class -->
-    <!-- <app-code-block
+    <app-code-block
       [isHTML]="true"
       [code]="example2"
       [title]="'Compact Dropdown'"
       [description]="''"
-    ></app-code-block> -->
+    ></app-code-block>
   </div>
 
   <div class="elvis-anchor">
     <h2 class="elvis-anchor-title">Live example</h2>
     <div class="e-form-field">
       <label class="e-form-field__label">Label</label>
-      <div class="e-input e-input-xxs-icon" (click)="toggleDropdown()">
-        <i class="e-icon e-icon--arrow_up-bold e-icon--xxs" *ngIf="showDropdown"></i>
-        <i class="e-icon e-icon--arrow_down-bold e-icon--xxs" *ngIf="!showDropdown"></i>
-        <input type="button" placeholder="Placeholder text" [value]="currentValue" />
-      </div>
-      <div class="e-dropdown" *ngIf="showDropdown">
-        <span class="e-dropdown__item" *ngFor="let option of options" (click)="selectOption(option)">
-          {{ option }}
-        </span>
+      <div class="e-dropdown">
+        <div class="e-input e-input-xxs-icon" (click)="toggleDropdown()">
+          <i class="e-icon e-icon--arrow_up-bold e-icon--xxs" *ngIf="showDropdown"></i>
+          <i class="e-icon e-icon--arrow_down-bold e-icon--xxs" *ngIf="!showDropdown"></i>
+          <input
+            type="button"
+            [ngClass]="!valueChanged ? 'e-dropdown--placeholder' : ''"
+            [value]="currentValue"
+          />
+        </div>
+        <div class="e-dropdown__content" *ngIf="showDropdown">
+          <span class="e-dropdown__item" *ngFor="let option of options" (click)="selectOption(option)">
+            {{ option }}
+          </span>
+        </div>
       </div>
     </div>
 
