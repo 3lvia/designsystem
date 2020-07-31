@@ -17,11 +17,11 @@ export class DropdownDocComponent {
 
   example1 = `<div style="height:350px">
   <div class="e-form-field">
-  <label class="e-form-field__label">Label</label>
+    <label class="e-form-field__label">Label</label>
     <div class="e-dropdown">
-      <div class="e-input e-input-xxs-icon">
-        <i class="e-icon e-icon--arrow_up-bold e-icon--xxs"></i>
-        <input type="button" class="e-dropdown--placeholder" value="Velg Alternativ"/>
+      <div class="e-input">
+        <i class="e-icon e-icon--arrow_up-bold"></i>
+        <input type="button" class="e-input--placeholder" value="Velg Alternativ"/>
       </div>
       <div class="e-dropdown__content">
         <span class="e-dropdown__item">Alternativ 1</span>
@@ -37,13 +37,13 @@ export class DropdownDocComponent {
 
   example2 = `<div style="height:200px; width:240px">
   <div class="e-form-field e-form-field--compact">
-  <label class="e-form-field__label">Label</label>
+    <label class="e-form-field__label">Label</label>
     <div class="e-dropdown">
-      <div class="e-input e-input-xxs-icon">
-        <i class="e-icon e-icon--arrow_up-bold e-icon--xxs"></i>
-        <input type="button" class="e-dropdown--placeholder" value="Velg Alternativ"/>
+      <div class="e-input">
+        <i class="e-icon e-icon--arrow_up-bold"></i>
+        <input type="button" class="e-input--placeholder" value="Velg Alternativ"/>
       </div>
-      <div class="e-dropdown__content e-dropdown--compact">
+      <div class="e-dropdown__content">
         <span class="e-dropdown__item">Alternativ 1</span>
         <span class="e-dropdown__item">Alternativ 2</span>
         <span class="e-dropdown__item">Alternativ 3</span>
@@ -58,21 +58,17 @@ export class DropdownDocComponent {
   exampleInHTML = `<div class="e-form-field">
   <label class="e-form-field__label">Label</label>
   <div class="e-dropdown">
-    <div class="e-input e-input-xxs-icon" (click)="toggleDropdown()">
-      <i class="e-icon e-icon--arrow_up-bold e-icon--xxs" *ngIf="showDropdown"></i>
-      <i class="e-icon e-icon--arrow_down-bold e-icon--xxs" *ngIf="!showDropdown"></i>
+    <div class="e-input" (click)="toggleDropdown()">
+      <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown"></i>
+      <i class="e-icon e-icon--arrow_down-bold" *ngIf="!showDropdown"></i>
       <input
         type="button"
-        [ngClass]="!valueChanged ? 'e-dropdown--placeholder' : ''"
+        [ngClass]="!valueChanged ? 'e-input--placeholder' : ''"
         [value]="currentValue"
       />
     </div>
     <div class="e-dropdown__content" *ngIf="showDropdown">
-      <span
-        class="e-dropdown__content__item"
-        *ngFor="let option of options"
-        (click)="selectOption(option)"
-      >
+      <span class="e-dropdown__item" *ngFor="let option of options" (click)="selectOption(option)">
         {{ option }}
       </span>
     </div>

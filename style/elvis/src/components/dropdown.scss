@@ -4,37 +4,32 @@
 @use "../variables/shared-sizes";
 @use './form/input.scss';
 @use "../utilities/outline.scss";
+@use "../utilities/icons.scss";
 @use './autcomplete.scss';
 
 .e-dropdown {
   cursor: pointer;
   max-width: 448px;
 
-  input {
-    cursor: pointer;
-    color: colors.color('black');
+  .e-input {
+    > input {
+      cursor: pointer;
+      color: colors.color('black');
+    }
+    i {
+      @include icons.icon-size('xxs');
+      position: absolute;
+      right: 16px;
+      top: calc(50% - (8px / 2));
+    }
   }
-
-  .e-dropdown--placeholder {
-    color: colors.color('grey-80') !important;
-  }
-
   &__content {
     @extend .e-autocomplete;
-
-    &.e-dropdown--compact {
-      .e-dropdown__item {
-        display: flex;
-        align-items: center;
-        max-height: 34px;
-        padding-top: 13px;
-        padding-bottom: 13px;
-        padding-left: 16px;
-      }
-    }
   }
   &__item {
     @extend .e-autocomplete__item;
+    line-height: 22px;
+    padding: 13px 16px;
 
     &:hover {
       background-color: colors.color('grey-10');

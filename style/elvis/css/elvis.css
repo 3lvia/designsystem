@@ -882,20 +882,15 @@ input:focus {
   overflow-y: auto;
 }
 
-.e-input > input::placeholder {
-  color: #515151;
+.e-input > input::placeholder,
+.e-input .e-input--placeholder {
+  color: #515151 !important;
 }
 
 .e-input i {
   position: absolute;
   right: 16px;
   top: calc(50% - (16px / 2));
-}
-
-.e-input.e-input-xxs-icon i {
-  position: absolute;
-  right: 16px;
-  top: calc(50% - (8px / 2));
 }
 
 .e-input.e-input---invalid > input, .e-input.e-input---invalid > textarea,
@@ -944,22 +939,28 @@ input:focus {
   max-width: 448px;
 }
 
-.e-dropdown input {
+.e-dropdown .e-input > input {
   cursor: pointer;
   color: #000;
 }
 
-.e-dropdown .e-dropdown--placeholder {
-  color: #515151 !important;
+.e-dropdown .e-input i {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  right: 16px;
+  top: calc(50% - (8px / 2));
 }
 
-.e-dropdown__content.e-dropdown--compact .e-dropdown__item {
-  display: flex;
-  align-items: center;
-  max-height: 34px;
-  padding-top: 13px;
-  padding-bottom: 13px;
-  padding-left: 16px;
+.e-dropdown .e-input i img,
+.e-dropdown .e-input i i {
+  width: 8px;
+  height: 8px;
+}
+
+.e-dropdown__item {
+  line-height: 22px;
+  padding: 13px 16px;
 }
 
 .e-dropdown__item:hover {
@@ -4690,6 +4691,17 @@ input:focus {
   color: #000;
 }
 
+.e-form-field.e-form-field--compact .e-dropdown .e-input i {
+  right: 10px;
+}
+
+.e-form-field.e-form-field--compact .e-dropdown .e-dropdown__content .e-dropdown__item {
+  display: flex;
+  align-items: center;
+  line-height: 22px;
+  padding: 6px 16px;
+}
+
 .e-form-field.e-form-field--compact .e-input input,
 .e-form-field.e-form-field--compact .e-input textarea {
   padding: 5px 10px;
@@ -4698,18 +4710,6 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
-}
-
-.e-form-field.e-form-field--compact .e-input i {
-  position: absolute;
-  right: 10px;
-  top: calc(50% - (16px / 2));
-}
-
-.e-form-field.e-form-field--compact .e-input.e-input-xxs-icon i {
-  position: absolute;
-  right: 16px;
-  top: calc(50% - (8px / 2));
 }
 
 .e-form-field.e-form-field--compact .e-input.e-input---invalid input, .e-form-field.e-form-field--compact .e-input.e-input---invalid textarea,

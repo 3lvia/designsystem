@@ -39,22 +39,15 @@ $form-input-border: 1px solid colors.color('grey');
     overflow-y: auto;
   }
 
-  > input::placeholder {
-    color: colors.color('grey-80');
+  > input::placeholder,
+  .e-input--placeholder {
+    color: colors.color('grey-80') !important;
   }
 
   i {
     position: absolute;
     right: 16px;
     top: calc(50% - (16px / 2));
-  }
-
-  &.e-input-xxs-icon {
-    i {
-      position: absolute;
-      right: 16px;
-      top: calc(50% - (8px / 2));
-    }
   }
 
   &.e-input---invalid > input,

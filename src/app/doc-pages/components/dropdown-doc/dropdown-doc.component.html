@@ -34,12 +34,12 @@
     <div class="e-form-field">
       <label class="e-form-field__label">Label</label>
       <div class="e-dropdown">
-        <div class="e-input e-input-xxs-icon" (click)="toggleDropdown()">
-          <i class="e-icon e-icon--arrow_up-bold e-icon--xxs" *ngIf="showDropdown"></i>
-          <i class="e-icon e-icon--arrow_down-bold e-icon--xxs" *ngIf="!showDropdown"></i>
+        <div class="e-input" (click)="toggleDropdown()">
+          <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown"></i>
+          <i class="e-icon e-icon--arrow_down-bold" *ngIf="!showDropdown"></i>
           <input
             type="button"
-            [ngClass]="!valueChanged ? 'e-dropdown--placeholder' : ''"
+            [ngClass]="!valueChanged ? 'e-input--placeholder' : ''"
             [value]="currentValue"
           />
         </div>

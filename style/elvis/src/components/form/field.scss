@@ -46,25 +46,22 @@ $autocomplete-padding-item-compact: 6px 16px;
         @include typography.typography('text-info');
       }
     }
+    .e-dropdown {
+      .e-input i {
+        right: 10px;
+      }
+      .e-dropdown__content .e-dropdown__item {
+        display: flex;
+        align-items: center;
+        line-height: 22px;
+        padding: 6px 16px;
+      }
+    }
     .e-input {
       input,
       textarea {
         padding: $form-input-padding-compact;
         @include typography.typography('text-info');
-      }
-
-      i {
-        position: absolute;
-        right: 10px;
-        top: calc(50% - (16px / 2));
-      }
-
-      &.e-input-xxs-icon {
-        i {
-          position: absolute;
-          right: 16px;
-          top: calc(50% - (8px / 2));
-        }
       }
 
       &.e-input---invalid input,
