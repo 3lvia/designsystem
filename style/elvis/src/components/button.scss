@@ -114,8 +114,8 @@ $button-sm-line-height: 16px;
         // Hiding hover ikon (only show inverted ikon)
         visibility: hidden;
       }
-      i[class$='inverted'],
-      i[class$='color-disabled-light'] {
+      i[class*='inverted'],
+      i[class*='color-disabled-light'] {
         visibility: visible;
       }
     }
@@ -144,7 +144,7 @@ $button-sm-line-height: 16px;
       border-color: colors.color('green');
       color: colors.color('black');
       // Showing hover ikon
-      .e-btn__icon i[class$='inverted'] {
+      .e-btn__icon i[class*='inverted'] {
         visibility: hidden;
       }
       .e-btn__icon i:not([class$='inverted']) {
@@ -282,7 +282,7 @@ $button-sm-line-height: 16px;
       padding: 0;
 
       // Hiding hover ikon
-      .e-btn__icon i[class$='filled-color'] {
+      .e-btn__icon i[class*='filled-color'] {
         visibility: hidden;
       }
 
@@ -296,7 +296,7 @@ $button-sm-line-height: 16px;
         .e-btn__icon i:not([class$='disabled']) {
           visibility: hidden;
         }
-        .e-btn__icon i[class$='filled-color'] {
+        .e-btn__icon i[class*='filled-color'] {
           visibility: visible;
         }
       }
@@ -317,7 +317,7 @@ $button-sm-line-height: 16px;
       &.e-btn---active,
       &:active:not(:disabled) {
         // Showing hover ikon
-        .e-btn__icon i[class$='red'] {
+        .e-btn__icon i[class*='red'] {
           visibility: hidden;
         }
         .e-btn__icon i:not([class$='red']) {

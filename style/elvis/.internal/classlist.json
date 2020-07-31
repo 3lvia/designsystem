@@ -489,7 +489,12 @@
 		"e-table": {
 			"element": {
 				"e-table__sort-header": {},
-				"e-table__sort-icon": {},
+				"e-table__sort-icon": {
+					"modifier": {
+						"e-table__sort-icon--up": {},
+						"e-table__sort-icon--inactive": {}
+					}
+				},
 				"e-table__cell": {
 					"modifier": {
 						"e-table__cell--multiline": {}
@@ -664,10 +669,8 @@
 		},
 		"e-search": {
 			"modifier": {
-				"e-search--local": {}
-			},
-			"psuedo": {
-				"e-search---searched": {}
+				"e-search--local": {},
+				"e-search--searched": {}
 			}
 		},
 		"e-segmented-controls": {},
@@ -1077,6 +1080,8 @@
 		"e-table": {},
 		"e-table__sort-header": {},
 		"e-table__sort-icon": {},
+		"e-table__sort-icon--up": {},
+		"e-table__sort-icon--inactive": {},
 		"e-table--compact": {},
 		"e-table--white-header": {},
 		"e-table--bold": {},
@@ -1208,7 +1213,7 @@
 		"e-radio__mark---invalid": {},
 		"e-search": {},
 		"e-search--local": {},
-		"e-search---searched": {},
+		"e-search--searched": {},
 		"e-segmented-controls": {},
 		"e-select": {},
 		"e-select_icon": {},

@@ -87,14 +87,14 @@ export class TableDocComponent {
     <tr>
       <th scope="col" class="e-table__sort-header">
         Gebyr for ikke-automatiske strømmålere
-        <span class="e-table__sort-icon">
+        <span class="e-table__sort-icon e-table__sort-icon--inactive">
           <i class="e-icon e-icon--inverted e-icon--arrow_down-bold"></i>
           <i class="e-icon e-icon--inverted e-icon--arrow_up-bold"></i>
         </span>
       </th>
       <th scope="col" class="e-table__sort-header">
         Nok
-        <span class="e-table__sort-icon arrow-up">
+        <span class="e-table__sort-icon e-table__sort-icon--up">
           <i class="e-icon e-icon--inverted e-icon--arrow_down-bold"></i>
           <i class="e-icon e-icon--inverted e-icon--arrow_up-bold"></i>
         </span>

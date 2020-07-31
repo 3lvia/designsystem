@@ -23,10 +23,10 @@ export class SearchDocComponent {
     </button>
   </div>
 </div>
-<h3>After search (e-search---searched)</h3>
+<h3>After search (e-search--searched)</h3>
 <div class="e-form-field e-form-field--compact">
   <label class="e-form-field__label" for="compact">Søk</label>
-  <div class="e-search e-search--local e-search---searched" style="width:240px;">
+  <div class="e-search e-search--local e-search--searched" style="width:240px;">
     <div class="e-input">
       <input id="compact" type="text" placeholder="Placeholder text">
     </div>

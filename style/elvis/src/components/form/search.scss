@@ -22,25 +22,25 @@
       }
       .e-btn__icon {
         @include icons.icon-size('custom12');
-        i[class$='e-icon--search-bold'] {
+        i[class*='e-icon--search-bold'] {
           visibility: visible;
           position: absolute;
           display: flex;
           top: 0px;
           left: -2px;
         }
-        i[class$='e-icon--close-bold'] {
+        i[class*='e-icon--close-bold'] {
           visibility: hidden;
         }
       }
     }
 
-    &.e-search---searched {
+    &.e-search--searched {
       .e-btn.e-btn--icon .e-btn__icon {
-        i[class$='e-icon--search-bold'] {
+        i[class*='e-icon--search-bold'] {
           visibility: hidden;
         }
-        i[class$='e-icon--close-bold'] {
+        i[class*='e-icon--close-bold'] {
           visibility: visible;
           position: absolute;
           display: flex;

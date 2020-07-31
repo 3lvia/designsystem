@@ -114,7 +114,7 @@ $link-jumbo-phone-width: 287px;
   &.e-link--action {
     border: transparent;
 
-    .e-link__icon i[class$='filled-color'] {
+    .e-link__icon i[class*='filled-color'] {
       visibility: hidden;
     }
     .e-link__icon {
@@ -157,7 +157,7 @@ $link-jumbo-phone-width: 287px;
 
     &.e-link---hover,
     &:hover {
-      .e-link__icon i[class$='filled-color'] {
+      .e-link__icon i[class*='filled-color'] {
         visibility: visible;
       }
       .e-link__icon i:not([class$='filled-color']) {
