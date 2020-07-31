@@ -205,6 +205,15 @@ export const eComponents: EItems[] = [
     figmaUrl: 'https://www.figma.com/file/unlDZ5F7svra9dPNKYdTK9/Modal?node-id=0%3A1',
   },
   {
+    title: 'Pagination',
+    description: 'An overlay that positions itself relative to an anchor element',
+    docUrl: Pages.Pagination,
+    absolutePath: '/components/' + Pages.Pagination,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Pagination.svg',
+    figmaUrl: 'https://www.figma.com/file/Um5AotNfUftDorJHGbIy99/Pagination?node-id=0%3A1',
+  },
+  {
     title: 'Popover',
     description: 'An overlay that positions itself relative to an anchor element',
     docUrl: Pages.Popover,

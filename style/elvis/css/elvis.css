@@ -887,6 +887,10 @@ input:focus {
   color: #515151 !important;
 }
 
+.e-input.e-input--centered > input {
+  justify-content: center;
+}
+
 .e-input i {
   position: absolute;
   right: 16px;
@@ -3464,6 +3468,92 @@ input:focus {
 .e-modal---visible {
   opacity: 1;
   pointer-events: auto;
+}
+
+.e-pagination {
+  display: flex;
+  flex-direction: row;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.e-pagination__number-per-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 24px;
+  font-family: "Red Hat Text";
+  color: #515151;
+  font-size: 13px;
+  line-height: 21px;
+}
+
+.e-pagination__number-per-page .e-pagination__dropdown {
+  margin: 0 8px;
+}
+
+.e-pagination__number-per-page .e-pagination__dropdown .e-input {
+  width: 72px;
+}
+
+.e-pagination__number-per-page .e-pagination__dropdown .e-input input {
+  padding: 5px 28px 5px 10px !important;
+}
+
+.e-pagination__number-per-page .e-pagination__dropdown .e-dropdown {
+  bottom: 36px;
+  border-color: black;
+}
+
+.e-pagination__number-per-page .e-pagination__dropdown .e-dropdown .e-dropdown__item {
+  justify-content: center;
+}
+
+.e-pagination__choosing-page {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Red Hat Text";
+  font-size: 13px;
+  line-height: 23px;
+}
+
+.e-pagination__choosing-page .e-pagination__dots {
+  display: flex;
+  justify-content: center;
+  margin: 0 16px;
+}
+
+.e-pagination__choosing-page .e-pagination__number,
+.e-pagination__choosing-page .e-pagination__arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.e-pagination__choosing-page .e-pagination__number:not(:last-of-type),
+.e-pagination__choosing-page .e-pagination__arrow:not(:last-of-type) {
+  margin-right: 4px;
+}
+
+.e-pagination__choosing-page .e-pagination__number.e-pagination__number--active,
+.e-pagination__choosing-page .e-pagination__arrow.e-pagination__number--active {
+  border: 1px solid #000;
+}
+
+.e-pagination__choosing-page .e-pagination__number:hover, .e-pagination__choosing-page .e-pagination__number.e-pagination__number---hover, .e-pagination__choosing-page .e-pagination__number.e-pagination__arrow---hover,
+.e-pagination__choosing-page .e-pagination__arrow:hover,
+.e-pagination__choosing-page .e-pagination__arrow.e-pagination__number---hover,
+.e-pagination__choosing-page .e-pagination__arrow.e-pagination__arrow---hover {
+  border: 1px solid #29d305;
 }
 
 .e-progress {

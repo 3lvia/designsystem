@@ -81,6 +81,7 @@
 		"e-input": {
 			"modifier": {
 				"e-input--placeholder": {},
+				"e-input--centered": {},
 				"e-input--small": {},
 				"e-input--medium": {}
 			},
@@ -424,6 +425,27 @@
 				"e-modal---visible": {}
 			}
 		},
+		"e-pagination": {
+			"element": {
+				"e-pagination__number-per-page": {},
+				"e-pagination__dropdown": {},
+				"e-pagination__choosing-page": {},
+				"e-pagination__dots": {},
+				"e-pagination__number": {
+					"modifier": {
+						"e-pagination__number--active": {}
+					},
+					"psuedo": {
+						"e-pagination__number---hover": {}
+					}
+				},
+				"e-pagination__arrow": {
+					"psuedo": {
+						"e-pagination__arrow---hover": {}
+					}
+				}
+			}
+		},
 		"e-progress": {
 			"element": {
 				"e-progress__bar": {
@@ -737,6 +759,7 @@
 		"e-divider": {},
 		"e-input": {},
 		"e-input--placeholder": {},
+		"e-input--centered": {},
 		"e-input---invalid": {},
 		"e-input---focus": {},
 		"e-input---disabled": {},
@@ -1023,6 +1046,16 @@
 		"e-modal__text": {},
 		"e-modal__actions": {},
 		"e-modal---visible": {},
+		"e-pagination": {},
+		"e-pagination__number-per-page": {},
+		"e-pagination__dropdown": {},
+		"e-pagination__choosing-page": {},
+		"e-pagination__dots": {},
+		"e-pagination__number": {},
+		"e-pagination__arrow": {},
+		"e-pagination__number--active": {},
+		"e-pagination__number---hover": {},
+		"e-pagination__arrow---hover": {},
 		"e-progress": {},
 		"e-progress__bar": {},
 		"e-progress__bar--loading": {},

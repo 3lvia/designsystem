@@ -1,0 +1,73 @@
+@use "../variables/typography.scss";
+@use "../variables/colors";
+@use "../utilities/helpers";
+
+.e-pagination {
+  display: flex;
+  flex-direction: row;
+  @include helpers.user-select(none);
+
+  &__number-per-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 24px;
+    font-family: 'Red Hat Text';
+    color: colors.color('grey-80');
+    font-size: 13px;
+    line-height: 21px;
+    .e-pagination__dropdown {
+      margin: 0 8px;
+      .e-input {
+        width: 72px;
+        input {
+          padding: 5px 28px 5px 10px !important;
+        }
+      }
+      .e-dropdown {
+        bottom: 36px;
+        border-color: black;
+        .e-dropdown__item {
+          justify-content: center;
+        }
+      }
+    }
+  }
+  &__choosing-page {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    font-family: 'Red Hat Text';
+    font-size: 13px;
+    line-height: 23px;
+    .e-pagination__dots {
+      display: flex;
+      justify-content: center;
+      margin: 0 16px;
+    }
+    .e-pagination__number,
+    .e-pagination__arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      &:not(:last-of-type) {
+        margin-right: 4px;
+      }
+
+      &.e-pagination__number--active {
+        border: 1px solid colors.color('black');
+      }
+
+      &:hover,
+      &.e-pagination__number---hover,
+      &.e-pagination__arrow---hover {
+        border: 1px solid colors.color('green');
+      }
+    }
+  }
+}

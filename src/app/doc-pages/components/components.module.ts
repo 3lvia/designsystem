@@ -18,33 +18,35 @@ import { ModalDocModule } from './modal-doc/modal-doc.module';
 import { AutocompleteDocModule } from './autocomplete-doc/autocomplete-doc.module';
 import { PositionPickerDocModule } from './position-picker-doc/position-picker-doc.module';
 import { AlertMessagesModule } from './alert-messages/alert-messages.module';
+import { PaginationDocModule } from './pagination-doc/pagination-doc.module';
 import { HeaderDocModule } from './header-doc/header-doc.module';
 import { DropdownDocModule } from './dropdown-doc/dropdown-doc.module';
 
 @NgModule({
-    imports: [
-        AlertMessagesModule,
-        AutocompleteDocModule,
-        ButtonDocModule,
-        CardDocModule,
-        ComponentsStartModule,
-        DropdownDocModule,
-        FileUploadDocModule,
-        FormComponentsModule,
-        LabelDocModule,
-        LinkDocModule,
-        ListDocModule,
-        ModalDocModule,
-        NotificationDotDocModule,
-        OverviewModule,
-        ProgressbarDocModule,
-        PositionPickerDocModule,
-        TableDocModule,
-        TagsDocModule,
-        TooltipDocModule,
-        PopoverDocModule,
-        HeaderDocModule,
-    ],
+        imports: [
+                AlertMessagesModule,
+                AutocompleteDocModule,
+                ButtonDocModule,
+                CardDocModule,
+                ComponentsStartModule,
+                DropdownDocModule,
+                FileUploadDocModule,
+                FormComponentsModule,
+                LabelDocModule,
+                LinkDocModule,
+                ListDocModule,
+                ModalDocModule,
+                NotificationDotDocModule,
+                OverviewModule,
+                ProgressbarDocModule,
+                PositionPickerDocModule,
+                TableDocModule,
+                TagsDocModule,
+                TooltipDocModule,
+                PopoverDocModule,
+                PaginationDocModule,
+                HeaderDocModule,
+        ],
 })
 export class ComponentsModule { }
 

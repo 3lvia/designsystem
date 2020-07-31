@@ -1,0 +1,85 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl" [does]="does">
+  <ng-container ngProjectAs="headerTitle">
+    Pagination
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Pagination provides navigation to the page, by splitting content across pages and linking to them at the
+    bottom of the page. This way the user is given a sense of control by being able to estimate the size of
+    the data set as well as how much time it will take for them to find the information they’re looking for.
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block [isHTML]="true" [code]="paginationExample" [title]="'Full paginator'"></app-code-block>
+
+  <div class="elvis-anchor e-mt-72">
+    <h2 class="e-title-md elvis-anchor-title">Live example</h2>
+    <div class="e-pagination">
+      <div class="e-pagination__number-per-page">
+        <span>Viser</span>
+        <span class="e-pagination__dropdown">
+          <div class="e-form-field e-form-field--compact">
+            <div class="e-dropdown">
+              <div class="e-input e-input--centered" (click)="toggleDropdown()">
+                <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown"></i>
+                <i class="e-icon e-icon--arrow_down-bold" *ngIf="!showDropdown"></i>
+                <input type="button" [value]="currentValue" />
+              </div>
+              <div class="e-dropdown__content" *ngIf="showDropdown">
+                <span class="e-dropdown__item" *ngFor="let option of options" (click)="selectOption(option)">
+                  {{ option }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </span>
+        <span>av 200 bilder</span>
+      </div>
+      <div class="e-pagination__choosing-page">
+        <div class="e-pagination__arrow" *ngIf="leftArrow()" (click)="prev()">
+          <i class="e-icon e-icon--arrow_long_left e-icon--xs"></i>
+        </div>
+        <div
+          *ngFor="let firstNum of firstNums"
+          class="e-pagination__number"
+          [ngClass]="{ 'e-pagination__number--active': activeNumber(firstNum) }"
+          id="element-{{ firstNum }}"
+          (click)="chooseNumber($event)"
+        >
+          {{ firstNum }}
+        </div>
+        <div class="e-pagination__dots" *ngIf="paginationDotsLeft()">...</div>
+        <div
+          class="e-pagination__number"
+          *ngFor="let centerNum of centerNums"
+          [ngClass]="{ 'e-pagination__number--active': activeNumber(centerNum) }"
+          id="element-{{ centerNum }}"
+          (click)="chooseNumber($event)"
+        >
+          {{ centerNum }}
+        </div>
+        <div class="e-pagination__dots" *ngIf="paginationDotsRight()">...</div>
+        <div
+          class="e-pagination__number"
+          *ngFor="let lastNum of lastNums"
+          [ngClass]="{ 'e-pagination__number--active': activeNumber(lastNum) }"
+          id="element-{{ lastNum }}"
+          (click)="chooseNumber($event)"
+        >
+          {{ lastNum }}
+        </div>
+        <div class="e-pagination__arrow" *ngIf="rightArrow()" (click)="next()">
+          <i class="e-icon e-icon--arrow_long e-icon--xs"></i>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="e-text-caps e-mt-40">Html code</h3>
+    <app-code-highlighter [isHTML]="'true'" [code]="exampleInHTML"></app-code-highlighter>
+
+    <h3 class="e-text-caps e-mt-40">TS code</h3>
+    <app-code-highlighter [isTS]="'true'" [code]="exampleInTS"></app-code-highlighter>
+  </div>
+</div>

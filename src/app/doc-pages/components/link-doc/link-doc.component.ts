@@ -32,19 +32,19 @@ export class LinkDocComponent {
   dontsExampleCard = ['Do not use both standard and shortcut on the same page. The same goes for the description version, use description on all or none.'];
 
   example1 = `<div>
-  <h3 class="e-title-small">Large</h3>
+  <h3 class="e-title-sm">Large</h3>
   <a class="e-link e-link--lg" href="https://www.elvia.no/">Normal link</a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Medium (default)</h3>
+  <h3 class="e-title-sm">Medium (default)</h3>
   <a class="e-link" href="https://www.elvia.no/">Normal link</a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Small</h3>
+  <h3 class="e-title-sm">Small</h3>
   <a class="e-link e-link--sm" href="https://www.elvia.no/">Normal link</a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Multiline</h3>
+  <h3 class="e-title-sm">Multiline</h3>
   <div style="width:160px;">
     <a class="e-link" href="https://www.elvia.no/">Normal link over multiple rows</a>
   </div>
@@ -58,21 +58,21 @@ export class LinkDocComponent {
 `;
 
   example3 = `<div>
-  <h3 class="e-title-small">Large</h3>
+  <h3 class="e-title-sm">Large</h3>
   <a class="e-link e-link--lg" href="https://www.elvia.no/">
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
     <span class="e-link__title">Tilbake</span>
   </a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Medium (default)</h3>
+  <h3 class="e-title-sm">Medium (default)</h3>
   <a class="e-link" href="https://www.elvia.no/">
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
     <span class="e-link__title">Tilbake</span>
   </a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Small</h3>
+  <h3 class="e-title-sm">Small</h3>
   <a class="e-link e-link--sm" href="https://www.elvia.no/">
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
     <span class="e-link__title">Tilbake</span>
@@ -81,28 +81,28 @@ export class LinkDocComponent {
 `;
 
   example4 = `<div>
-  <h3 class="e-title-small">Large</h3>
+  <h3 class="e-title-sm">Large</h3>
   <a class="e-link e-link--external e-link--lg" href="https://www.elvia.no/">
     <span class="e-link__title">External</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Medium (default)</h3>
+  <h3 class="e-title-sm">Medium (default)</h3>
   <a class="e-link e-link--external" href="https://www.elvia.no/">
     <span class="e-link__title">External</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Small</h3>
+  <h3 class="e-title-sm">Small</h3>
   <a class="e-link e-link--external e-link--sm" href="https://www.elvia.no/">
     <span class="e-link__title">External</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
   </a>
 </div>
 <div class="e-mt-40" style="width:164px;">
-  <h3 class="e-title-small">Multiline</h3>
+  <h3 class="e-title-sm">Multiline</h3>
   <a class="e-link e-link--external" href="https://www.elvia.no/">
     <span class="e-link__title">External link over multiple rows</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
@@ -111,28 +111,28 @@ export class LinkDocComponent {
 `;
 
   exampleNewTab = `<div>
-  <h3 class="e-title-small">Large</h3>
+  <h3 class="e-title-sm">Large</h3>
   <a class="e-link e-link--new-tab e-link--lg" href="https://www.elvia.no/">
     <span class="e-link__title">New tab</span>
     <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Medium (default)</h3>
+  <h3 class="e-title-sm">Medium (default)</h3>
   <a class="e-link e-link--new-tab" href="https://www.elvia.no/">
     <span class="e-link__title">New tab</span>
     <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Small</h3>
+  <h3 class="e-title-sm">Small</h3>
   <a class="e-link e-link--new-tab e-link--sm" href="https://www.elvia.no/">
     <span class="e-link__title">New tab</span>
     <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
   </a>
 </div>
 <div class="e-mt-40" style="width:164px;">
-  <h3 class="e-title-small">Multiline</h3>
+  <h3 class="e-title-sm">Multiline</h3>
   <a class="e-link e-link--new-tab" href="https://www.elvia.no/">
     <span class="e-link__title">New-tab link over multiple rows</span>
     <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
@@ -141,7 +141,7 @@ export class LinkDocComponent {
   `;
 
   example5 = `<div>
-  <h3 class="e-title-small">Large</h3>
+  <h3 class="e-title-sm">Large</h3>
   <a class="e-link e-link--action e-link--lg" href="https://www.elvia.no/">
     <span class="e-link__title">Se hva du kan gjøre</span>
     <span class="e-link__icon">
@@ -151,7 +151,7 @@ export class LinkDocComponent {
   </a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Medium (default)</h3>
+  <h3 class="e-title-sm">Medium (default)</h3>
   <a class="e-link e-link--action" href="https://www.elvia.no/">
     <span class="e-link__title">Se hva du kan gjøre</span>
     <span class="e-link__icon">
@@ -161,7 +161,7 @@ export class LinkDocComponent {
   </a>
 </div>
 <div class="e-mt-40" style="width:164px;">
-  <h3 class="e-title-small">Multiline</h3>
+  <h3 class="e-title-sm">Multiline</h3>
   <a class="e-link e-link--action" href="https://www.elvia.no/">
     <span class="e-link__title">Action link over multiple rows</span>
     <span class="e-link__icon">
@@ -173,7 +173,7 @@ export class LinkDocComponent {
 `;
 
   example6 = `<div>
-  <h3 class="e-title-small">With icon</h3>
+  <h3 class="e-title-sm">With icon</h3>
   <a class="e-link e-link--jumbo" href="https://www.elvia.no/">
     <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
     <span class="e-link__title">Strømledning nær bakken</span>
@@ -181,7 +181,7 @@ export class LinkDocComponent {
   </a>
 </div>
 <div>
-  <h3 class="e-title-small">Without icon</h3>
+  <h3 class="e-title-sm">Without icon</h3>
   <a class="e-link e-link--jumbo" href="https://www.elvia.no/">
     <span class="e-link__title">Strømledning nær bakken</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>
@@ -190,7 +190,7 @@ export class LinkDocComponent {
 `;
 
   exampleCard = `<div>
-  <h3 class="e-title-small">Standard (default)</h3>
+  <h3 class="e-title-sm">Standard (default)</h3>
   <div style="display: flex; align-items: flex-end;">
     <div class="e-mr-16" style="width: 150px;">
       <a
@@ -224,7 +224,7 @@ export class LinkDocComponent {
   </div>
 </div>
 <div>
-  <h3 class="e-title-small">Shortcut</h3>
+  <h3 class="e-title-sm">Shortcut</h3>
   <div style="display: flex; align-items: flex-end;">
     <div class="e-mr-16" style="width: 150px;">
       <a
@@ -260,12 +260,12 @@ export class LinkDocComponent {
 `;
 
   example7 = `<div class="e-mt-40">
-  <h3 class="e-title-small">Normal link</h3>
+  <h3 class="e-title-sm">Normal link</h3>
   <a class="e-link e-link---hover e-m-8" href="https://www.elvia.no/">Hover</a>
   <a class="e-link e-link---focus e-m-8" href="https://www.elvia.no/">Focus</a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Action link</h3>
+  <h3 class="e-title-sm">Action link</h3>
   <a class="e-link e-link--action e-link---hover e-m-8" href="https://www.elvia.no/">
     <span class="e-link__title">Hover</span>
     <span class="e-link__icon">
@@ -282,7 +282,7 @@ export class LinkDocComponent {
   </a>
 </div>
 <div class="e-mt-40">
-  <h3 class="e-title-small">Jumbo link</h3>
+  <h3 class="e-title-sm">Jumbo link</h3>
   <a class="e-link e-link--jumbo e-link---hover e-m-8" href="https://www.elvia.no/">
     <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
     <span class="e-link__title">Hover</span>

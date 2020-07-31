@@ -44,6 +44,7 @@ export enum Pages {
   List = 'list-doc',
   Modal = 'modal-doc',
   Notification = 'notification-dot-doc',
+  Pagination = 'pagination-doc',
   Popover = 'popover-doc',
   PositionPicker = 'position-picker-doc',
   Progressbar = 'progressbar-doc',

@@ -31,7 +31,7 @@ export class ButtonDocComponent {
   public clicked = false;
 
   example1 = `<div>
-  <h3 class="e-title-small">Large</h3>
+  <h3 class="e-title-sm">Large</h3>
   <button class="e-btn e-btn--lg e-m-16">
     <span class="e-btn__title">Primary</span>
   </button>
@@ -40,7 +40,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Medium (default)</h3>
+  <h3 class="e-title-sm">Medium (default)</h3>
   <button class="e-btn e-m-16">
     <span class="e-btn__title">Primary</span>
   </button>
@@ -49,7 +49,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Small</h3>
+  <h3 class="e-title-sm">Small</h3>
   <button class="e-btn e-btn--sm e-m-16">
     <span class="e-btn__title">Primary</span>
   </button>
@@ -58,7 +58,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">With icon</h3>
+  <h3 class="e-title-sm">With icon</h3>
  <button class="e-btn e-m-16">
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download e-icon--inverted"></i>
@@ -81,7 +81,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Danger</h3>
+  <h3 class="e-title-sm">Danger</h3>
   <button class="e-btn e-btn--danger e-m-16">
     <span class="e-btn__title">Danger</span>
   </button>
@@ -90,7 +90,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Loading</h3>
+  <h3 class="e-title-sm">Loading</h3>
   <button class="e-btn e-btn--loading e-m-16">
     <span></span>
     <span></span>
@@ -100,7 +100,7 @@ export class ButtonDocComponent {
 `;
 
   example2 = `<div>
-  <h3 class="e-title-small">Large</h3>
+  <h3 class="e-title-sm">Large</h3>
   <button class="e-btn e-btn--secondary e-btn--lg e-m-16">
     <span class="e-btn__title">Secondary</span>
   </button>
@@ -109,7 +109,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Medium (default)</h3>
+  <h3 class="e-title-sm">Medium (default)</h3>
   <button class="e-btn e-btn--secondary e-m-16">
     <span class="e-btn__title">Secondary</span>
   </button>
@@ -118,7 +118,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Small</h3>
+  <h3 class="e-title-sm">Small</h3>
   <button class="e-btn e-btn--secondary e-btn--sm e-m-16">
     <span class="e-btn__title">Secondary</span>
   </button>
@@ -127,7 +127,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">With icons</h3>
+  <h3 class="e-title-sm">With icons</h3>
   <button class="e-btn e-btn--secondary e-m-16">
     <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
     <span class="e-btn__title">Icon button</span>
@@ -142,7 +142,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Loading</h3>
+  <h3 class="e-title-sm">Loading</h3>
   <button class="e-btn e-btn--secondary e-btn--loading e-m-16">
     <span></span>
     <span></span>
@@ -152,7 +152,7 @@ export class ButtonDocComponent {
 `;
 
   example3 = `<div>
-  <h3 class="e-title-small">Large</h3>
+  <h3 class="e-title-sm">Large</h3>
   <button class="e-btn e-btn--tertiary e-btn--lg e-m-16">
     <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
     <span class="e-btn__title">Tertiary</span>
@@ -163,7 +163,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Medium (default)</h3>
+  <h3 class="e-title-sm">Medium (default)</h3>
   <button class="e-btn e-btn--tertiary e-m-16">
     <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
     <span class="e-btn__title">Tertiary</span>
@@ -174,7 +174,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Small</h3>
+  <h3 class="e-title-sm">Small</h3>
   <button class="e-btn e-btn--tertiary e-btn--sm e-m-16">
     <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
     <span class="e-btn__title">Tertiary</span>
@@ -185,7 +185,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">With icons</h3>
+  <h3 class="e-title-sm">With icons</h3>
   <button class="e-btn e-btn--tertiary e-m-16">
     <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
     <span class="e-btn__title">Icon button</span>
@@ -203,7 +203,7 @@ export class ButtonDocComponent {
 
   exampleIcon = `<div>
   <div>
-    <h3 class="e-title-small">Large</h3>
+    <h3 class="e-title-sm">Large</h3>
     <button class="e-btn e-btn--icon e-btn--lg e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
@@ -212,7 +212,7 @@ export class ButtonDocComponent {
     </button>
   </div>
   <div>
-  <h3 class="e-title-small">Medium (default)</h3>
+  <h3 class="e-title-sm">Medium (default)</h3>
     <button class="e-btn e-btn--icon e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
@@ -221,7 +221,7 @@ export class ButtonDocComponent {
     </button>
   </div>
   <div>
-    <h3 class="e-title-small">Small</h3>
+    <h3 class="e-title-sm">Small</h3>
     <button class="e-btn e-btn--icon e-btn--sm e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
@@ -230,7 +230,7 @@ export class ButtonDocComponent {
     </button>
   </div>
   <div>
-    <h3 class="e-title-small">Danger (Only transparent)</h3>
+    <h3 class="e-title-sm">Danger (Only transparent)</h3>
     <button class="e-btn e-btn--icon e-btn--danger e-btn--lg e-m-16">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--bin e-icon--color-red"></i>
@@ -244,7 +244,7 @@ export class ButtonDocComponent {
     </button>
   </div>
   <div>
-    <h3 class="e-title-small">Circled (Only medium + large)</h3>
+    <h3 class="e-title-sm">Circled (Only medium + large)</h3>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-16">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
@@ -278,7 +278,7 @@ export class ButtonDocComponent {
 `;
 
   example6 = `<div>
-  <h3 class="e-title-small">Large</h3>
+  <h3 class="e-title-sm">Large</h3>
   <button class="e-btn e-btn--loading e-btn--lg e-m-16">
     <span></span>
     <span></span>
@@ -286,7 +286,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Medium (default)</h3>
+  <h3 class="e-title-sm">Medium (default)</h3>
   <button class="e-btn e-btn--loading e-m-16">
     <span></span>
     <span></span>
@@ -294,7 +294,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Small</h3>
+  <h3 class="e-title-sm">Small</h3>
   <button class="e-btn e-btn--loading e-btn--sm e-m-16">
     <span></span>
     <span></span>
@@ -341,7 +341,7 @@ export class ButtonDocComponent {
 `;
 
   example8 = `<div>
-  <h3 class="e-title-small">Primary buttons</h3>
+  <h3 class="e-title-sm">Primary buttons</h3>
   <button class="e-btn e-btn---hover e-m-16">
     <span class="e-btn__title">Hover</span>
   </button>
@@ -356,7 +356,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Secondary buttons</h3>
+  <h3 class="e-title-sm">Secondary buttons</h3>
   <button class="e-btn e-btn--secondary e-btn---hover e-m-16">
     <span class="e-btn__title">Hover</span>
   </button>
@@ -371,7 +371,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Tertiary buttons</h3>
+  <h3 class="e-title-sm">Tertiary buttons</h3>
   <button class="e-btn e-btn--tertiary e-btn---hover e-m-16">
     <span class="e-btn__icon"><i class="e-icon e-icon--download"></i></span>
     <span class="e-btn__title">Hover</span>
@@ -390,7 +390,7 @@ export class ButtonDocComponent {
   </button>
 </div>
 <div>
-  <h3 class="e-title-small">Icon buttons</h3>
+  <h3 class="e-title-sm">Icon buttons</h3>
   <div>
     <button class="e-btn e-btn--icon e-btn---hover e-m-16">
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>

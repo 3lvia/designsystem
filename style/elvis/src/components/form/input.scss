@@ -44,6 +44,10 @@ $form-input-border: 1px solid colors.color('grey');
     color: colors.color('grey-80') !important;
   }
 
+  &.e-input--centered > input {
+    justify-content: center;
+  }
+
   i {
     position: absolute;
     right: 16px;
