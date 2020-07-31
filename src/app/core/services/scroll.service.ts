@@ -41,10 +41,16 @@ export class ScrollService {
   }
 
   scrollToElement(offsetPos: number): void {
-    window.scrollTo({
-      top: offsetPos + 1,
-      behavior: 'smooth',
-    });
+    // Check if browser is IE11
+    if (navigator.userAgent.indexOf('MSIE') !== -1
+      || navigator.appVersion.indexOf('Trident/') > -1) {
+      window.scrollTo(0, offsetPos);
+    } else {
+      window.scrollTo({
+        top: offsetPos + 1,
+        behavior: 'smooth',
+      });
+    }
   }
 
   getNavbarAnchors(anchors: NavbarAnchor[]): NavbarAnchor[] {
