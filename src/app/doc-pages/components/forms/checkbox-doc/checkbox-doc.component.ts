@@ -43,7 +43,40 @@ export class CheckboxDocComponent {
   </label>
 <form>
 `;
-  example2 = `
+  example2 = `<form>
+  <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-sm">
+    <input type="checkbox" id="elvis-checkbox-sm">
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Normal</span>
+  </label>
+
+  <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-checked-sm">
+    <input type="checkbox" id="elvis-checkbox-checked-sm" checked>
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Checked</span>
+  </label>
+
+  <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-disabled-sm">
+    <input type="checkbox" id="elvis-checkbox-disabled-sm" disabled>
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Disabled</span>
+  </label>
+
+  <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-disabled-checked-sm">
+    <input type="checkbox" id="elvis-checkbox-disabled-checked-sm" checked disabled>
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Disabled checked</span>
+  </label>
+
+  <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-invalid-sm">
+    <input type="checkbox" id="elvis-checkbox-invalid-sm" required>
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Invalid</span>
+  </label>
+<form>
+`;
+  example3 = `
+  <h3>For normal checkboxes</h3>
   <label class="e-checkbox e-checkbox---checked" for="elvis-pseudo-checkbox-checked">
     <input type="checkbox" id="elvis-pseudo-checkbox-checked">
     <span class="e-checkbox__mark"></span>
@@ -76,6 +109,43 @@ export class CheckboxDocComponent {
 
   <label class="e-checkbox e-checkbox---invalid" for="elvis-pseudo-checkbox-invalid">
     <input type="checkbox" id="elvis-pseudo-checkbox-invalid">
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Invalid</span>
+  </label>
+
+    <h3>For small checkboxes</h3>
+  <label class="e-checkbox e-checkbox--sm e-checkbox---checked" for="elvis-pseudo-checkbox-checked-sm">
+    <input type="checkbox" id="elvis-pseudo-checkbox-checked-sm">
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Checked</span>
+  </label>
+
+  <label class="e-checkbox e-checkbox--sm e-checkbox---focus" for="elvis-pseudo-checkbox-focus-sm">
+    <input type="checkbox" id="elvis-pseudo-checkbox-focus-sm">
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Focus</span>
+  </label>
+
+  <label class="e-checkbox e-checkbox--sm e-checkbox---hover" for="elvis-pseudo-checkbox-hover-sm">
+    <input type="checkbox" id="elvis-pseudo-checkbox-hover-sm">
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Hover</span>
+  </label>
+
+  <label class="e-checkbox e-checkbox--sm e-checkbox---disabled" for="elvis-pseudo-checkbox-disabled-sm">
+    <input type="checkbox" id="elvis-pseudo-checkbox-disabled-sm">
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Disabled</span>
+  </label>
+
+  <label class="e-checkbox e-checkbox--sm e-checkbox---disabled-checked" for="elvis-pseudo-checkbox-disabled-checked-sm">
+    <input type="checkbox" id="elvis-pseudo-checkbox-disabled-checked-sm">
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Disabled</span>
+  </label>
+
+  <label class="e-checkbox e-checkbox--sm e-checkbox---invalid" for="elvis-pseudo-checkbox-invalid-sm">
+    <input type="checkbox" id="elvis-pseudo-checkbox-invalid-sm">
     <span class="e-checkbox__mark"></span>
     <span class="e-checkbox__label">Invalid</span>
   </label>

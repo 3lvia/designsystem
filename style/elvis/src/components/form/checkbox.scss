@@ -2,9 +2,11 @@
 @use '../../utilities/outline.scss';
 @use '../../variables/animation.scss';
 @use "../../variables/colors";
+@use "../../variables/typography";
 
 $checkbox-mark-size: 24px;
-$checkbox-mark-border-radius: 4px;
+$checkbox-mark-small-size: 16px;
+$checkbox-mark-border-radius: 3px;
 $checkbox-mark-border: 1px solid colors.color('black');
 
 .e-checkbox {
@@ -20,9 +22,47 @@ $checkbox-mark-border: 1px solid colors.color('black');
     margin-bottom: 12px;
   }
 
+  &.e-checkbox--sm {
+    .e-checkbox__mark {
+      min-width: $checkbox-mark-small-size;
+      min-height: $checkbox-mark-small-size;
+      max-width: $checkbox-mark-small-size;
+      max-height: $checkbox-mark-small-size;
+    }
+
+    .e-checkbox__label {
+      @include typography.typography('text-info');
+    }
+
+    input {
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+
+      &:checked ~ #{$this}__mark {
+        @extend %checkbox-mark-small;
+      }
+
+      &:disabled:checked ~ #{$this}__mark {
+        border-color: colors.color('grey-30');
+        background-color: colors.color('grey-05');
+        cursor: not-allowed;
+
+        &:after,
+        &:before {
+          background-color: colors.color('grey-30');
+        }
+      }
+    }
+  }
+
   // pseudo classes to emulate state.
   &.e-checkbox---checked &__mark {
     @extend %checkbox-mark;
+  }
+  // extends correct checkbox mark on small checkboxes in pseudoclass
+  &.e-checkbox--sm[class$='e-checkbox---checked'] &__mark {
+    @extend %checkbox-mark-small;
   }
 
   &.e-checkbox---focus {
@@ -34,6 +74,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
   &.e-checkbox---hover:not(:disabled):not(:invalid) {
     #{$this}__mark {
       background-color: colors.color('green');
+      border-color: colors.color('black');
     }
   }
 
@@ -60,6 +101,10 @@ $checkbox-mark-border: 1px solid colors.color('black');
       color: colors.color('grey-70');
     }
   }
+  // extends correct checkbox mark on small checkboxes in pseudoclass
+  &.e-checkbox--sm[class$='disabled-checked'] &__mark {
+    @extend %checkbox-mark-small;
+  }
 
   &.e-checkbox---invalid {
     #{$this}__mark {
@@ -84,6 +129,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
 
     &:hover:not(:disabled):not(:invalid) ~ #{$this}__mark {
       background-color: colors.color('green');
+      border-color: colors.color('black');
     }
 
     &:disabled ~ #{$this}__mark {
@@ -122,29 +168,64 @@ $checkbox-mark-border: 1px solid colors.color('black');
     background-color: colors.color('green');
 
     &::before {
+      content: '';
       position: absolute;
-      top: 50%;
-      left: -2%;
+      top: 55%;
+      left: -9%;
       height: 30%;
       width: 2px;
       background-color: colors.color('black');
       border-radius: 15px;
-      content: '';
       transform: translateX(10px) rotate(-45deg);
       transform-origin: left bottom;
+      animation: checkmarkHeight 150ms;
     }
 
     &::after {
-      position: absolute;
-      bottom: 20%;
-      left: 2%;
-      height: 2px;
-      width: 60%;
-      background-color: colors.color('black');
       content: '';
+      position: absolute;
+      bottom: 15%;
+      left: -4%;
+      height: 2px;
+      width: 0%;
+      background-color: colors.color('black');
       border-radius: 15px;
       transform: translateX(10px) rotate(-55deg);
       transform-origin: left bottom;
+      animation: checkmarkWidth 150ms 150ms forwards;
+    }
+  }
+
+  %checkbox-mark-small {
+    position: relative;
+    background-color: colors.color('green');
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -28%;
+      height: 39%;
+      width: 2px;
+      background-color: colors.color('black');
+      border-radius: 15px;
+      transform: translateX(10px) rotate(-45deg);
+      transform-origin: left bottom;
+      animation: checkmarkHeightSmall 150ms;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 15%;
+      left: -25%;
+      height: 2px;
+      width: 0%;
+      background-color: colors.color('black');
+      border-radius: 15px;
+      transform: translateX(10px) rotate(-55deg);
+      transform-origin: left bottom;
+      animation: checkmarkWidthSmall 150ms 150ms forwards;
     }
   }
 
@@ -163,6 +244,50 @@ $checkbox-mark-border: 1px solid colors.color('black');
 
   &__label {
     font-size: inherit;
-    margin-left: 16px;
+    margin-left: 8px;
+  }
+}
+
+@keyframes checkmarkHeight {
+  0% {
+    left: -31%;
+    height: 0%;
+  }
+
+  100% {
+    left: -9%;
+    height: 30%;
+  }
+}
+
+@keyframes checkmarkWidth {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 83%;
+  }
+}
+
+@keyframes checkmarkHeightSmall {
+  0% {
+    left: -55%;
+    height: 0%;
+  }
+
+  100% {
+    left: -28%;
+    height: 39%;
+  }
+}
+
+@keyframes checkmarkWidthSmall {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 80%;
   }
 }

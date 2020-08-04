@@ -113,7 +113,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Checkbox,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Checkbox.svg',
-    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1263%3A493',
+    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A452',
   },
   {
     title: 'Chips',

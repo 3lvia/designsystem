@@ -614,6 +614,13 @@
 		"e-text-red-tomato": {},
 		"e-bg-red-tomato": {},
 		"e-checkbox": {
+			"modifier": {
+				"e-checkbox--sm": {}
+			},
+			"element": {
+				"e-checkbox__mark": {},
+				"e-checkbox__label": {}
+			},
 			"psuedo": {
 				"e-checkbox---focus": {},
 				"e-checkbox---hover": {},
@@ -621,10 +628,6 @@
 				"e-checkbox---disabled-checked": {},
 				"e-checkbox---invalid": {},
 				"e-checkbox---checked": {}
-			},
-			"element": {
-				"e-checkbox__mark": {},
-				"e-checkbox__label": {}
 			}
 		},
 		"e-dragdrop": {
@@ -1202,12 +1205,13 @@
 		"e-text-red-tomato": {},
 		"e-bg-red-tomato": {},
 		"e-checkbox": {},
-		"e-checkbox---focus": {},
+		"e-checkbox--sm": {},
 		"e-checkbox__mark": {},
+		"e-checkbox__label": {},
+		"e-checkbox---focus": {},
 		"e-checkbox---hover": {},
 		"e-checkbox---disabled": {},
 		"e-checkbox---disabled-checked": {},
-		"e-checkbox__label": {},
 		"e-checkbox---invalid": {},
 		"e-checkbox---checked": {},
 		"e-dragdrop": {},
