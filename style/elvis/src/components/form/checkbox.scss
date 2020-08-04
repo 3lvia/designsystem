@@ -75,6 +75,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
 
     &:checked ~ #{$this}__mark {
       @extend %checkbox-mark;
+      border-color: colors.color('black');
     }
 
     &:focus ~ #{$this}__mark {

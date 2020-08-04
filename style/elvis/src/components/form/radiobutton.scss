@@ -2,6 +2,7 @@
 @use '../../utilities/outline.scss';
 
 $form-radiobutton-mark-size: 24px;
+$form-radiobutton-small-mark-size: 16px;
 $form-radiobutton-mark-border-radius: 14px;
 $form-radiobutton-mark-border: 1px solid colors.color('black');
 
@@ -18,6 +19,59 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
     margin-bottom: 8px;
   }
 
+  &.e-radio--sm {
+    input {
+      opacity: 0;
+      outline: none;
+      position: absolute;
+      z-index: -1;
+
+      // states styles for input
+      &:checked ~ #{$this}__mark {
+        @extend %radiobutton-mark--small;
+        border-color: colors.color('black');
+      }
+
+      &:focus ~ #{$this}__mark {
+        @include outline.e-outline();
+      }
+
+      &:invalid ~ #{$this}__mark {
+        border-color: colors.color('red');
+      }
+
+      &:disabled ~ #{$this}__mark {
+        border-color: colors.color('grey-30');
+        background: colors.color('grey-05');
+        cursor: not-allowed;
+      }
+      &:disabled ~ #{$this}__label {
+        color: colors.color('grey-70');
+        cursor: not-allowed;
+      }
+
+      &:disabled:checked ~ #{$this}__mark {
+        border-color: colors.color('grey-30');
+        background: colors.color('grey-05');
+        cursor: not-allowed;
+
+        &:before,
+        &:after {
+          background-color: colors.color('grey-40');
+        }
+      }
+      &:disabled:checked ~ #{$this}__label {
+        color: colors.color('grey-70');
+        cursor: not-allowed;
+      }
+    }
+
+    .e-radio__mark {
+      width: $form-radiobutton-small-mark-size;
+      height: $form-radiobutton-small-mark-size;
+    }
+  }
+
   // Hide defualt radiostyle and put in placeholder style
   input {
     opacity: 0;
@@ -28,6 +82,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
     // states styles for input
     &:checked ~ #{$this}__mark {
       @extend %radiobutton-mark;
+      border-color: colors.color('black');
     }
 
     &:focus ~ #{$this}__mark {
@@ -45,6 +100,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
     }
     &:disabled ~ #{$this}__label {
       color: colors.color('grey-70');
+      cursor: not-allowed;
     }
 
     &:disabled:checked ~ #{$this}__mark {
@@ -59,6 +115,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
     }
     &:disabled:checked ~ #{$this}__label {
       color: colors.color('grey-70');
+      cursor: not-allowed;
     }
   }
   // Creating placeholder to inject style into radiobutton mutations.
@@ -73,10 +130,36 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
       width: 14px;
       background-color: colors.color('black');
       border-radius: 50%;
+      opacity: 1;
+      animation: fadeIn 250ms;
     }
   }
 
-  // the new checkbox mark
+  %radiobutton-mark--small {
+    background-color: colors.color('green');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:before {
+      content: '';
+      height: 8px;
+      width: 8px;
+      background-color: colors.color('black');
+      border-radius: 50%;
+      opacity: 1;
+      animation: fadeIn 250ms;
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   &__mark {
     display: inline-block;
 
@@ -86,20 +169,37 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
     border-radius: $form-radiobutton-mark-border-radius;
     background: colors.color('white');
 
-    //pseudo classes
-    &.e-radio__mark---checked {
+    &:hover {
+      background: colors.color('green');
+    }
+  }
+
+  // pseudoclasses
+
+  &.e-radio---checked {
+    .e-radio__mark {
       @extend %radiobutton-mark;
     }
+  }
+  // extends correct radiomark for sm radiobuttons
+  &.e-radio--sm[class$='e-radio---checked'] &__mark {
+    @extend %radiobutton-mark--small;
+  }
 
-    &.e-radio__mark---disabled {
+  &.e-radio---disabled {
+    .e-radio__mark {
       border-color: colors.color('grey-30');
       background: colors.color('grey-05');
       cursor: not-allowed;
     }
-    &.e-radio__mark---disabled ~ #{$this}__label {
+    .e-radio__label {
       color: colors.color('grey-70');
+      cursor: not-allowed;
     }
-    &.e-radio__mark---disabled-checked {
+  }
+
+  &.e-radio---disabled-checked {
+    .e-radio__mark {
       @extend %radiobutton-mark;
       border-color: colors.color('grey-30') !important;
       background: colors.color('grey-05') !important;
@@ -110,20 +210,30 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
         background-color: colors.color('grey-40') !important;
       }
     }
-    &.e-radio__mark---disabled-checked ~ #{$this}__label {
+    .e-radio__label {
       color: colors.color('grey-70');
+      cursor: not-allowed;
     }
+  }
+  // extends correct radiomark for sm radiobuttons
+  &.e-radio--sm[class$='e-radio---disabled-checked'] &__mark {
+    @extend %radiobutton-mark--small;
+  }
 
-    &.e-radio__mark---focus {
+  &.e-radio---focus {
+    .e-radio__mark {
       @include outline.e-outline-pseudoclass();
     }
+  }
 
-    &:hover,
-    &.e-radio__mark---hover {
+  &.e-radio---hover {
+    .e-radio__mark {
       background: colors.color('green');
     }
+  }
 
-    &.e-radio__mark---invalid {
+  &.e-radio---invalid {
+    .e-radio__mark {
       border-color: colors.color('red');
     }
   }

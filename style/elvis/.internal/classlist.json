@@ -653,18 +653,20 @@
 			}
 		},
 		"e-radio": {
+			"modifier": {
+				"e-radio--sm": {}
+			},
 			"element": {
-				"e-radio__mark": {
-					"psuedo": {
-						"e-radio__mark---disabled-checked": {},
-						"e-radio__mark---checked": {},
-						"e-radio__mark---disabled": {},
-						"e-radio__mark---focus": {},
-						"e-radio__mark---hover": {},
-						"e-radio__mark---invalid": {}
-					}
-				},
+				"e-radio__mark": {},
 				"e-radio__label": {}
+			},
+			"psuedo": {
+				"e-radio---disabled-checked": {},
+				"e-radio---checked": {},
+				"e-radio---disabled": {},
+				"e-radio---focus": {},
+				"e-radio---hover": {},
+				"e-radio---invalid": {}
 			}
 		},
 		"e-search": {
@@ -1203,14 +1205,15 @@
 		"e-position-picker__description": {},
 		"e-position-picker__action": {},
 		"e-radio": {},
+		"e-radio--sm": {},
 		"e-radio__mark": {},
 		"e-radio__label": {},
-		"e-radio__mark---disabled-checked": {},
-		"e-radio__mark---checked": {},
-		"e-radio__mark---disabled": {},
-		"e-radio__mark---focus": {},
-		"e-radio__mark---hover": {},
-		"e-radio__mark---invalid": {},
+		"e-radio---disabled-checked": {},
+		"e-radio---checked": {},
+		"e-radio---disabled": {},
+		"e-radio---focus": {},
+		"e-radio---hover": {},
+		"e-radio---invalid": {},
 		"e-search": {},
 		"e-search--local": {},
 		"e-search--searched": {},

@@ -247,7 +247,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Radiobutton,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Radio buttons.svg',
-    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1283%3A70',
+    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A517',
   },
   {
     title: 'Search',
