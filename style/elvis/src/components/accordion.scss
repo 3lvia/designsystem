@@ -1,0 +1,141 @@
+@use "../utilities/icons.scss";
+@use "../variables/colors.scss";
+@use "../variables/typography";
+
+.e-accordion {
+  display: inline-flex;
+  width: 100%;
+
+  &__item {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 100%;
+
+    .e-accordion__label {
+      display: flex;
+      font-family: 'Red Hat Display';
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      padding-right: 8px;
+    }
+    .e-accordion__icon {
+      @keyframes rotate-center-forward {
+        0% {
+          -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+        }
+        100% {
+          -webkit-transform: rotate(0);
+          transform: rotate(0);
+        }
+      }
+      animation: rotate-center-forward 0.2s ease-in-out both;
+
+      display: flex;
+      @include icons.icon-size('sm');
+      i[class*='expand_circle-filled-color'] {
+        display: none;
+      }
+    }
+
+    .e-accordion__content {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0;
+      transition: max-height 0.24s cubic-bezier(0, 1.22, 0.9, 1),
+        opacity 0.23s cubic-bezier(0.4, 0.01, 0.78, 1.1), padding-top 0.25s cubic-bezier(0, 0.2, 1, 1);
+
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      pointer-events: none;
+      overflow: hidden;
+      @include typography.typography('text-body');
+    }
+
+    &.e-accordion__item--open {
+      .e-accordion__icon {
+        @keyframes rotate-center-back {
+          0% {
+            -webkit-transform: rotate(0);
+            transform: rotate(0);
+          }
+          100% {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+          }
+        }
+        animation: rotate-center-back 0.2s ease-in-out both;
+      }
+      .e-accordion__content {
+        pointer-events: auto;
+        max-height: 10000px;
+        opacity: 1;
+        padding-top: 24px;
+        transition: 0.8s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 1.2s cubic-bezier(0, 0.3, 0.83, 0.97),
+          padding-top 0s;
+      }
+    }
+
+    .e-accordion__label:hover,
+    .e-accordion__icon:hover {
+      cursor: pointer;
+    }
+    .e-accordion__label:hover + .e-accordion__icon,
+    .e-accordion__icon:hover {
+      i[class*='expand_circle-color'] {
+        display: none;
+      }
+      i[class*='expand_circle-filled-color'] {
+        display: flex;
+      }
+    }
+  }
+
+  &.e-accordion--lg .e-accordion__icon {
+    @include icons.icon-size('md');
+  }
+  &.e-accordion--md .e-accordion__icon {
+    @include icons.icon-size('sm');
+  }
+  &.e-accordion--sm .e-accordion__icon {
+    @include icons.icon-size('xs');
+  }
+
+  &.e-accordion--single {
+    .e-accordion__icon {
+      @include icons.icon-size('xs');
+    }
+    .e-accordion__content {
+      padding-top: 16px;
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+
+  &.e-accordion--group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .e-accordion__item {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 16px 19px 16px;
+      border-bottom: 1px solid colors.color('grey-10');
+
+      .e-accordion__label {
+        font-family: 'Red Hat Display';
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 32px;
+        margin-right: 8px;
+      }
+      .e-accordion__icon {
+        @include icons.icon-size('md');
+      }
+    }
+  }
+}

@@ -1,5 +1,36 @@
 {
 	"block": {
+		"e-icon": {
+			"modifier": {
+				"e-icon--xxs": {},
+				"e-icon--custom12": {},
+				"e-icon--xs": {},
+				"e-icon--sm": {},
+				"e-icon--md": {},
+				"e-icon--lg": {},
+				"e-icon--xl": {},
+				"e-icon--xxl": {}
+			}
+		},
+		"e-accordion": {
+			"element": {
+				"e-accordion__item": {
+					"modifier": {
+						"e-accordion__item--open": {}
+					}
+				},
+				"e-accordion__label": {},
+				"e-accordion__icon": {},
+				"e-accordion__content": {}
+			},
+			"modifier": {
+				"e-accordion--lg": {},
+				"e-accordion--md": {},
+				"e-accordion--sm": {},
+				"e-accordion--single": {},
+				"e-accordion--group": {}
+			}
+		},
 		"e-alert": {
 			"element": {
 				"e-alert__icon": {},
@@ -28,18 +59,6 @@
 			}
 		},
 		"e-no-outline": {},
-		"e-icon": {
-			"modifier": {
-				"e-icon--xxs": {},
-				"e-icon--custom12": {},
-				"e-icon--xs": {},
-				"e-icon--sm": {},
-				"e-icon--md": {},
-				"e-icon--lg": {},
-				"e-icon--xl": {},
-				"e-icon--xxl": {}
-			}
-		},
 		"e-btn": {
 			"psuedo": {
 				"e-btn---focus": {},
@@ -714,6 +733,26 @@
 		"e-capitalize": {}
 	},
 	"flat": {
+		"e-icon": {},
+		"e-icon--xxs": {},
+		"e-icon--custom12": {},
+		"e-icon--xs": {},
+		"e-icon--sm": {},
+		"e-icon--md": {},
+		"e-icon--lg": {},
+		"e-icon--xl": {},
+		"e-icon--xxl": {},
+		"e-accordion": {},
+		"e-accordion__item": {},
+		"e-accordion__label": {},
+		"e-accordion__icon": {},
+		"e-accordion__content": {},
+		"e-accordion__item--open": {},
+		"e-accordion--lg": {},
+		"e-accordion--md": {},
+		"e-accordion--sm": {},
+		"e-accordion--single": {},
+		"e-accordion--group": {},
 		"e-alert": {},
 		"e-alert__icon": {},
 		"e-alert--no-title": {},
@@ -730,15 +769,6 @@
 		"e-autocomplete__item": {},
 		"e-dropdown__item": {},
 		"e-no-outline": {},
-		"e-icon": {},
-		"e-icon--xxs": {},
-		"e-icon--custom12": {},
-		"e-icon--xs": {},
-		"e-icon--sm": {},
-		"e-icon--md": {},
-		"e-icon--lg": {},
-		"e-icon--xl": {},
-		"e-icon--xxl": {},
 		"e-btn": {},
 		"e-btn---focus": {},
 		"e-btn__title": {},

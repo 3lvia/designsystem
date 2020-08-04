@@ -58,6 +58,7 @@ import { PaginationDocComponent } from './doc-pages/components/pagination-doc/pa
 import { HeaderDocComponent } from './doc-pages/components/header-doc/header-doc.component';
 import { DropdownDocComponent } from './doc-pages/components/dropdown-doc/dropdown-doc.component';
 import { SearchDocComponent } from './doc-pages/components/forms/search-doc/search-doc.component';
+import { AccordionDocComponent } from './doc-pages/components/accordion-doc/accordion-doc.component';
 import { UtilitiesDocComponent } from './doc-pages/identity/utilities-doc/utilities-doc.component';
 
 const routes: Routes = [
@@ -160,6 +161,10 @@ const routes: Routes = [
           {
             path: Pages.OverviewComp,
             component: OverviewComponent,
+          },
+          {
+            path: Pages.Accordion,
+            component: AccordionDocComponent,
           },
           {
             path: Pages.Alert,

@@ -1,0 +1,79 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl" [does]="doesAccordion" [donts]="dontsAccordion">
+  <ng-container ngProjectAs="headerTitle">
+    Accordion
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    An accordion let the user show and hide a section of content they. It let us organize information and
+    deliver large amount of content in a small place.
+
+    <div class="e-mt-16">
+      <span class="e-text-caps">NOTE:</span>
+      The accordion-icon can be used in different use-cases, not only the once showed here.
+    </div>
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-code-block
+    [isHTML]="true"
+    [code]="exampleAccordionSizes"
+    [title]="'Sizes'"
+    [description]="'The different sizes of the accordion icon.'"
+  ></app-code-block>
+  <app-code-block
+    [isHTML]="true"
+    [code]="exampleAccordionSimple"
+    [title]="'Simple Accordion'"
+    [description]="
+      'A single accordion icon with a label. 
+      Often used in a card or below elements to allow the user to expand for more detailed information.'
+    "
+  >
+    <ng-container ngProjectAs="extraInformation">
+      Use the class
+      <span class="code-text">e-accordion__content.</span>
+      to define the hidden information. To get the open state add the class
+      <span class="code-text">e-accordion--open.</span>
+    </ng-container>
+  </app-code-block>
+
+  <app-code-block
+    [isHTML]="true"
+    [code]="exampleAccordionGroup"
+    [title]="'Group Accordion'"
+    [description]="
+      'A group accordion with titles. 
+      Can be used to organize a lot of content and are easy for the user to scan and select what’s relevant. 
+      Example of use is as a FAQ section.'
+    "
+  >
+    <ng-container ngProjectAs="extraInformation">
+      To get the open state add the class
+      <span class="code-text">e-accordion__item--open.</span>
+    </ng-container>
+  </app-code-block>
+
+  <div class="elvis-anchor e-mt-56">
+    <h2 class="e-title-md elvis-anchor-title">Live preview</h2>
+    <div class="e-accordion e-accordion--md">
+      <div class="e-accordion__item" #accordionLiveExample>
+        <div class="e-accordion__icon" (click)="toggleOpen()">
+          <i class="e-icon e-icon--expand_circle-color"></i>
+          <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        </div>
+        <div class="e-accordion__content">
+          <div>Hidden information</div>
+          <div>Hidden information</div>
+          <div>Hidden information</div>
+          <div>Hidden information</div>
+        </div>
+      </div>
+    </div>
+    <h3 class="e-title-small">Example of HTML code for accordion</h3>
+    <app-code-highlighter [isHTML]="'true'" [code]="liveCodeHTML"></app-code-highlighter>
+    <h3 class="e-title-small">Example of TypeScripts code for accordion</h3>
+    <app-code-highlighter [isTS]="'true'" [code]="liveCodeTS"></app-code-highlighter>
+  </div>
+</div>

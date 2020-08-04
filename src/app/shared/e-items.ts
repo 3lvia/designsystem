@@ -62,6 +62,15 @@ export const eGetStarted: EItems[] = [
 
 export const eComponents: EItems[] = [
   {
+    title: 'Accordion',
+    description: 'Some useful component with amazing features',
+    docUrl: Pages.Accordion,
+    absolutePath: '/components/' + Pages.Accordion,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Alert.svg',
+    figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=71%3A1',
+  },
+  {
     title: 'Alert',
     description: 'Some useful component with amazing features',
     docUrl: Pages.Alert,

@@ -27,6 +27,7 @@ export enum Pages {
   ComponentsStart = 'components',
   // Children
   OverviewComp = 'overview-comp-doc',
+  Accordion = 'accordion-doc',
   Alert = 'alert-messages-doc',
   Autocomplete = 'autocomplete-doc',
   Button = 'button-doc',

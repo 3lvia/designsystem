@@ -21,32 +21,34 @@ import { AlertMessagesModule } from './alert-messages/alert-messages.module';
 import { PaginationDocModule } from './pagination-doc/pagination-doc.module';
 import { HeaderDocModule } from './header-doc/header-doc.module';
 import { DropdownDocModule } from './dropdown-doc/dropdown-doc.module';
+import { AccordionDocModule } from './accordion-doc/accordion-doc.module';
 
 @NgModule({
-        imports: [
-                AlertMessagesModule,
-                AutocompleteDocModule,
-                ButtonDocModule,
-                CardDocModule,
-                ComponentsStartModule,
-                DropdownDocModule,
-                FileUploadDocModule,
-                FormComponentsModule,
-                LabelDocModule,
-                LinkDocModule,
-                ListDocModule,
-                ModalDocModule,
-                NotificationDotDocModule,
-                OverviewModule,
-                ProgressbarDocModule,
-                PositionPickerDocModule,
-                TableDocModule,
-                TagsDocModule,
-                TooltipDocModule,
-                PopoverDocModule,
-                PaginationDocModule,
-                HeaderDocModule,
-        ],
+    imports: [
+        AccordionDocModule,
+        AlertMessagesModule,
+        AutocompleteDocModule,
+        ButtonDocModule,
+        CardDocModule,
+        ComponentsStartModule,
+        DropdownDocModule,
+        FileUploadDocModule,
+        FormComponentsModule,
+        LabelDocModule,
+        LinkDocModule,
+        ListDocModule,
+        ModalDocModule,
+        NotificationDotDocModule,
+        OverviewModule,
+        ProgressbarDocModule,
+        PositionPickerDocModule,
+        TableDocModule,
+        TagsDocModule,
+        TooltipDocModule,
+        PopoverDocModule,
+        PaginationDocModule,
+        HeaderDocModule,
+    ],
 })
 export class ComponentsModule { }
 
