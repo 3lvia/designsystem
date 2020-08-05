@@ -439,9 +439,6 @@
 				"e-modal__title": {},
 				"e-modal__text": {},
 				"e-modal__actions": {}
-			},
-			"psuedo": {
-				"e-modal---visible": {}
 			}
 		},
 		"e-pagination": {
@@ -490,9 +487,6 @@
 				"e-popover--bottom--left": {},
 				"e-popover--bottom--right": {},
 				"e-popover--center": {}
-			},
-			"psuedo": {
-				"e-popover---visible": {}
 			}
 		},
 		"e-table-mobile": {
@@ -1083,7 +1077,6 @@
 		"e-modal__title": {},
 		"e-modal__text": {},
 		"e-modal__actions": {},
-		"e-modal---visible": {},
 		"e-pagination": {},
 		"e-pagination__number-per-page": {},
 		"e-pagination__dropdown": {},
@@ -1110,7 +1103,6 @@
 		"e-popover--bottom--left": {},
 		"e-popover--bottom--right": {},
 		"e-popover--center": {},
-		"e-popover---visible": {},
 		"e-table-mobile": {},
 		"e-table": {},
 		"e-table__sort-header": {},

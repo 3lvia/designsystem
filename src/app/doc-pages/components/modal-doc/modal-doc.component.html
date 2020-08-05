@@ -51,21 +51,21 @@
   <div class="elvis-anchor">
     <h2 class="e-title-md elvis-anchor-title">Live examples</h2>
     <p>
-      Add the
-      <code class="code-text">e-modal---visible</code>
-      class to make a modal visible.
+      The modal is by default always visible, to remove it or hide it apply the utility class
+      <span class="code-text">e-none</span>
+      .
       <b>Remeber to implement closing of modal when clicking outside of the content.</b>
     </p>
 
     <button class="e-btn e-mr-8 e-mb-8" (click)="openModal('modal1')">Modal with actions</button>
-    <div class="e-modal" #modal1>
+    <div class="e-modal e-none" #modal1>
       <div class="e-modal__content">
         <div class="e-modal__title">
           Title of content comes here
         </div>
         <div class="e-modal__text">
           <div>
-            Var sparsom med bruken av dialoger siden det kan oppleves forstyrrende å få noe liggendes over
+            Vær sparsom med bruken av dialoger siden det kan oppleves forstyrrende å få noe liggendes over
             skjermen mange ganger på rad.
           </div>
           <div>
@@ -85,7 +85,7 @@
     </div>
 
     <button class="e-btn e-mr-8 e-mb-8" (click)="openModal('modal2')">Modal with delete actions</button>
-    <div class="e-modal" #modal2>
+    <div class="e-modal e-none" #modal2>
       <div class="e-modal__content">
         <div class="e-modal__title">
           Er du sikker på at du vil slette brukeren din?
@@ -105,7 +105,7 @@
     </div>
 
     <button class="e-btn" (click)="openModal('modal3')">Modal with info</button>
-    <div class="e-modal" #modal3>
+    <div class="e-modal e-none" #modal3>
       <div class="e-modal__content">
         <div class="e-modal__title">
           Title of content comes here

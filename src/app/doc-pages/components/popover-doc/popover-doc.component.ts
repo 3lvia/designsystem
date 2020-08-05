@@ -20,7 +20,7 @@ export class PopoverDocComponent {
   ];
 
   example1 = `<div style="margin-top: 260px; text-align: center;">
-  <span class="e-popover e-popover---visible e-m-16">
+  <span class="e-popover e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
@@ -46,7 +46,7 @@ export class PopoverDocComponent {
 `;
 
   example2 = `<div style="margin-top: 260px; text-align: center;">
-  <span class="e-popover e-popover---visible e-popover--top--left e-m-16">
+  <span class="e-popover e-popover--top--left e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
@@ -72,7 +72,7 @@ export class PopoverDocComponent {
 `;
 
   example3 = `<div style="margin-bottom: 260px; text-align: center;">
-  <span class="e-popover e-popover--bottom e-popover---visible e-m-16">
+  <span class="e-popover e-popover--bottom e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
@@ -97,7 +97,7 @@ export class PopoverDocComponent {
 </div>
 `;
   example4 = `<div style="margin-bottom: 260px; text-align: center;">
-  <span class="e-popover e-popover--bottom e-popover--bottom--right e-popover---visible e-m-16">
+  <span class="e-popover e-popover--bottom e-popover--bottom--right e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
@@ -130,12 +130,18 @@ getWindowWidth(): number {
   return windowWidth;
 }
 
-togglePopup(popOver: string): void {
-  // find element to toggle.
-  const popOverElement = document.getElementById(popOver);
-  // check for e-popover-visible class and return if it exist
-  if (popOverElement.classList.contains('e-popover---visible')) {
-    popOverElement.classList.remove('e-popover---visible');
+togglePopup(popOverId: string, contentId: string): void {
+  // find popover wrapper element.
+  const popOverElement = document.getElementById(popOverId);
+
+  // find popover contentArea
+  const popoverContentElement = document.getElementById(contentId);
+
+  // toggle the e-none class on or off
+  if (popoverContentElement.classList.contains('e-none')) {
+    popoverContentElement.classList.remove('e-none');
+  } else {
+    popoverContentElement.classList.add('e-none');
     return;
   }
 
@@ -154,8 +160,6 @@ togglePopup(popOver: string): void {
   const currentWindowWidht = this.getWindowWidth();
   // store initial classes
   const currentClasses = popOverElement.className;
-  // Add visible modifier to display popover
-  popOverElement.classList.add('e-popover---visible');
   // find the child element containting the content element of the popOver
   let popOverContent = null;
   // tslint:disable-next-line:prefer-for-of
@@ -183,9 +187,9 @@ togglePopup(popOver: string): void {
   }
 }
 
-closePopover(popUp: string): void {
-  const popupElement: HTMLElement = document.getElementById(popUp);
-  popupElement.classList.remove('e-popover---visible');
+closePopover(popUpContent: string): void {
+  const popupContentElement: HTMLElement = document.getElementById(popUpContent);
+  popupContentElement.classList.add('e-none');
 }`;
 
 
@@ -197,12 +201,18 @@ closePopover(popUp: string): void {
     return windowWidth;
   }
 
-  togglePopup(popOver: string): void {
-    // find element to toggle.
-    const popOverElement = document.getElementById(popOver);
-    // check for e-popover-visible class and return if it exist
-    if (popOverElement.classList.contains('e-popover---visible')) {
-      popOverElement.classList.remove('e-popover---visible');
+  togglePopup(popOverId: string, contentId: string): void {
+    // find popover wrapper element.
+    const popOverElement = document.getElementById(popOverId);
+
+    // find popover contentArea
+    const popoverContentElement = document.getElementById(contentId);
+
+    // toggle the e-none class on or off
+    if (popoverContentElement.classList.contains('e-none')) {
+      popoverContentElement.classList.remove('e-none');
+    } else {
+      popoverContentElement.classList.add('e-none');
       return;
     }
 
@@ -217,12 +227,11 @@ closePopover(popUp: string): void {
       popOverElement.classList.remove('e-popover--bottom--left');
     }
 
+
     // get current window width
     const currentWindowWidht = this.getWindowWidth();
     // store initial classes
     const currentClasses = popOverElement.className;
-    // Add visible modifier to display popover
-    popOverElement.classList.add('e-popover---visible');
     // find the child element containting the content element of the popOver
     let popOverContent = null;
     // tslint:disable-next-line:prefer-for-of
@@ -250,9 +259,9 @@ closePopover(popUp: string): void {
     }
   }
 
-  closePopover(popUp: string): void {
-    const popupElement: HTMLElement = document.getElementById(popUp);
-    popupElement.classList.remove('e-popover---visible');
+  closePopover(popUpContent: string): void {
+    const popupContentElement: HTMLElement = document.getElementById(popUpContent);
+    popupContentElement.classList.add('e-none');
   }
 }
 

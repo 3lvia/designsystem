@@ -32,19 +32,29 @@ $popover-mobile-max-width: 300px;
   }
 
   &__content {
-    display: none;
+    display: block;
+    opacity: 1;
+    z-index: 99;
+    pointer-events: all;
     position: absolute;
-    opacity: 0;
-    z-index: -1;
     width: max-content;
     max-width: $popover-desktop-max-width;
     padding: $popover-padding;
-    pointer-events: none;
     background-color: colors.color('white');
     color: colors.color('font-color');
     border: 1px solid colors.color('green');
     border-radius: 8px;
     text-align: left;
+    animation: fadeIn 300ms ease-in;
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
 
     @include breakpoints.breakpoint-up(Mobile) {
       max-width: $popover-mobile-max-width;
@@ -189,16 +199,6 @@ $popover-mobile-max-width: 300px;
     }
     &::after {
       left: calc((50%) - (#{$popover-arrow-offset} / 2) + 2px);
-    }
-  }
-
-  &---visible {
-    .e-popover__content {
-      display: block;
-      opacity: 1;
-      z-index: 99;
-      pointer-events: all;
-      transition: opacity 300ms ease-in;
     }
   }
 }

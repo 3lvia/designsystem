@@ -20,10 +20,19 @@ $modal-mobile-padding: 32px;
   left: 0;
   background: rgba(0, 0, 0, 0.25);
   z-index: 99999;
-  opacity: 0;
-  transition: opacity 300ms ease-in;
-  pointer-events: none;
+  pointer-events: auto;
   box-sizing: border-box;
+  opacity: 1;
+  animation: fadeIn 300ms ease-in;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 
   &__content {
     position: relative;
@@ -80,10 +89,5 @@ $modal-mobile-padding: 32px;
         }
       }
     }
-  }
-
-  &---visible {
-    opacity: 1;
-    pointer-events: auto;
   }
 }

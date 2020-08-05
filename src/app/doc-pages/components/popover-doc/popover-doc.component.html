@@ -7,9 +7,9 @@
     <div>
       Popover is a non-modal dialog that appears over the content on the screen. Popover is used with a
       clickable trigger element and should position itself relative to where there is free space on the
-      screen. You can close the popover either by clicking “x” or outside the component. The class
-      <span class="code-text">e-popover---visible</span>
-      needs to be added to show the popover. The popup will align to the top left position by default.
+      screen. The popover is by default always visible, to remove it or hide it apply the utility class
+      <span class="code-text">e-none</span>
+      . The popup will align to the top left position by default.
     </div>
     <div class="e-mt-16">
       View live example, written in TypeScript, at the bottom.
@@ -23,7 +23,6 @@
     [isHTML]="true"
     [code]="example1"
     [title]="'Popover top center'"
-    [description]="'Add the class e-popover---visible to show the popover.'"
     [showIframeScreens]="true"
     [noTablet]="true"
   ></app-code-block>
@@ -60,9 +59,12 @@
   <div class="elvis-anchor">
     <h2 class="e-title-md elvis-anchor-title">Live examples</h2>
     <p>
-      Add the
-      <code class="code-text">e-popover---visible</code>
-      class to make a popover visible.
+      The popover content element is by default always visible, to remove or hide it apply the utility class
+      <span class="code-text">"e-none"</span>
+      to the
+      <span class="code-text">"e-popover__content"</span>
+      class.
+
       <b>Remeber to implement closing of popover when clicking outside of the content.</b>
     </p>
 
@@ -70,15 +72,21 @@
       <span style="display: flex; align-items: center;">
         <span>Click icon</span>
         <span class="e-popover e-m-16" id="popover1">
-          <button class="e-btn e-btn--icon e-btn--circled" (click)="togglePopup('popover1')">
+          <button
+            class="e-btn e-btn--icon e-btn--circled"
+            (click)="togglePopup('popover1', 'popover1Content')"
+          >
             <span class="e-btn__icon">
               <i class="e-icon e-icon--information_circle"></i>
               <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
             </span>
           </button>
-          <div class="e-popover__content">
+          <div class="e-popover__content e-none" id="popover1Content">
             <div class="e-popover__close">
-              <button class="e-btn e-btn--icon e-btn--no-border e-btn--sm" (click)="closePopover('popover1')">
+              <button
+                class="e-btn e-btn--icon e-btn--no-border e-btn--sm"
+                (click)="closePopover('popover1Content')"
+              >
                 <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
               </button>
             </div>
@@ -95,15 +103,21 @@
       <span style="display: flex; align-items: center;">
         <span>Click icon</span>
         <span class="e-popover e-popover--bottom e-m-16" id="popover2">
-          <button class="e-btn e-btn--icon e-btn--circled" (click)="togglePopup('popover2')">
+          <button
+            class="e-btn e-btn--icon e-btn--circled"
+            (click)="togglePopup('popover2', 'popover2Content')"
+          >
             <span class="e-btn__icon">
               <i class="e-icon e-icon--information_circle"></i>
               <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
             </span>
           </button>
-          <div class="e-popover__content">
+          <div class="e-popover__content e-none" id="popover2Content">
             <div class="e-popover__close">
-              <button class="e-btn e-btn--icon e-btn--no-border e-btn--sm" (click)="closePopover('popover2')">
+              <button
+                class="e-btn e-btn--icon e-btn--no-border e-btn--sm"
+                (click)="closePopover('popover2Content')"
+              >
                 <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
               </button>
             </div>

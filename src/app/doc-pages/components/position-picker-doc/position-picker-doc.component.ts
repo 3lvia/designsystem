@@ -42,18 +42,16 @@ export class PositionPickerDocComponent {
 @ViewChild('mapModal') mapModal: ElementRef;
 showPosition = false;
 
-openMapExample(modal: string) {
+openMapExample(modal: string): void {
   if (modal === 'mapModal') {
-    this.mapModal.nativeElement.classList.add('e-modal---visible');
+    this.mapModal.nativeElement.classList.remove('e-none');
   }
 }
 
-closeModal(modal: string) {
+closeModal(modal: string): void {
   if (modal === 'mapModal') {
-    if (this.mapModal.nativeElement.classList.contains('e-modal---visible')) {
-      this.mapModal.nativeElement.classList.remove('e-modal---visible');
-      this.showPosition = true;
-    }
+    this.mapModal.nativeElement.classList.add('e-none');
+    this.showPosition = true;
   }
 }
 `;
@@ -98,16 +96,14 @@ closeModal(modal: string) {
 
   openMapExample(modal: string): void {
     if (modal === 'mapModal') {
-      this.mapModal.nativeElement.classList.add('e-modal---visible');
+      this.mapModal.nativeElement.classList.remove('e-none');
     }
   }
 
   closeModal(modal: string): void {
     if (modal === 'mapModal') {
-      if (this.mapModal.nativeElement.classList.contains('e-modal---visible')) {
-        this.mapModal.nativeElement.classList.remove('e-modal---visible');
-        this.showPosition = true;
-      }
+      this.mapModal.nativeElement.classList.add('e-none');
+      this.showPosition = true;
     }
   }
 }

@@ -21,14 +21,14 @@ export class ModalDocComponent {
     'Be careful with the use of modals, as it can be disruptive to have something lying across the screen many times in a row.',
   ];
 
-  example1 = `<div class="e-modal e-modal---visible">
+  example1 = `<div class="e-modal">
   <div class="e-modal__content">
     <div class="e-modal__title">
       Title of content comes here
     </div>
     <div class="e-modal__text">
       <div>
-        Var sparsom med bruken av dialoger siden det kan oppleves forstyrrende å få noe liggendes over skjermen mange ganger på rad. 
+        Var sparsom med bruken av dialoger siden det kan oppleves forstyrrende å få noe liggendes over skjermen mange ganger på rad.
       </div>
       <div>
         Bruk aldrig et språk eller ord som brukeren ikke skjønner. Det skal alltid være klart for brukeren hva det er den skal ta.
@@ -46,7 +46,7 @@ export class ModalDocComponent {
 </div>
 `;
 
-  example2 = ` <div class="e-modal e-modal---visible">
+  example2 = ` <div class="e-modal">
   <div class="e-modal__content">
     <div class="e-modal__title">
       Er du sikker på at du vil slette brukeren din?
@@ -66,7 +66,7 @@ export class ModalDocComponent {
 </div>
 `;
 
-  example3 = `<div class="e-modal e-modal---visible">
+  example3 = `<div class="e-modal">
   <div class="e-modal__content">
     <div class="e-modal__title">
       Title of content comes here
@@ -83,47 +83,55 @@ export class ModalDocComponent {
 </div>
 `;
 
-  modalLiveCode = `
-  function openModal(modalId) {
-    const el = document.querySelector('modalId');
-    el.classList.add('e-modal---visible');
-  }
-
-  function closeModal(modalId) {
-    const el = document.querySelector('modalId');
-    if (el.classList.contains('e-modal---visible')) {
-      el.classList.remove('e-modal---visible');
+  modalLiveCode = `function openModal(modal: string): void {
+  if (modal === 'modalId') {
+    if (this.modalId.nativeElement.classList.contains('e-none')) {
+      this.modalId.nativeElement.classList.remove('e-none');
+    } else {
+      this.modalId.nativeElement.classList.add('e-none');
     }
   }
-`;
+}
+
+function closeModal(modal: string): void {
+  if (modal === 'modalId') {
+    this.modalId.nativeElement.classList.add('e-none');
+  }
+}`;
 
   openModal(modal: string): void {
     if (modal === 'modal1') {
-      this.modal1.nativeElement.classList.add('e-modal---visible');
+      if (this.modal1.nativeElement.classList.contains('e-none')) {
+        this.modal1.nativeElement.classList.remove('e-none');
+      } else {
+        this.modal1.nativeElement.classList.add('e-none');
+      }
     }
     if (modal === 'modal2') {
-      this.modal2.nativeElement.classList.add('e-modal---visible');
+      if (this.modal2.nativeElement.classList.contains('e-none')) {
+        this.modal2.nativeElement.classList.remove('e-none');
+      } else {
+        this.modal2.nativeElement.classList.add('e-none');
+      }
     }
     if (modal === 'modal3') {
-      this.modal3.nativeElement.classList.add('e-modal---visible');
+      if (this.modal3.nativeElement.classList.contains('e-none')) {
+        this.modal3.nativeElement.classList.remove('e-none');
+      } else {
+        this.modal3.nativeElement.classList.add('e-none');
+      }
     }
   }
 
   closeModal(modal: string): void {
     if (modal === 'modal1') {
-      if (this.modal1.nativeElement.classList.contains('e-modal---visible')) {
-        this.modal1.nativeElement.classList.remove('e-modal---visible');
-      }
+      this.modal1.nativeElement.classList.add('e-none');
     }
     if (modal === 'modal2') {
-      if (this.modal2.nativeElement.classList.contains('e-modal---visible')) {
-        this.modal2.nativeElement.classList.remove('e-modal---visible');
-      }
+      this.modal2.nativeElement.classList.add('e-none');
     }
     if (modal === 'modal3') {
-      if (this.modal3.nativeElement.classList.contains('e-modal---visible')) {
-        this.modal3.nativeElement.classList.remove('e-modal---visible');
-      }
+      this.modal3.nativeElement.classList.add('e-none');
     }
   }
 }
