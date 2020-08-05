@@ -1,3 +1,15 @@
+# Update [0.11.0]
+
+---visible classes for modal and popover components is removed.
+New utility classes for show and hide elements.
+
+##### Breaking changes
+
+If you are using the modal or popover components you now have to use the new utility classes for hiding and showing.
+Theses components are by deault now always visible, add the 'e-none' or 'e-invisble' utlity classes to toggle the components.
+
+- e-component---visible -> e-none & e-invisible
+
 # Update [0.10.0]
 
 Grid classes have updated to include internal systems. New classes have been added for the internal-systems as
