@@ -1,10 +1,5 @@
 <div class="wrapper">
-  <div
-    [class.show-header-warning]="showWarning()"
-    class="navbar"
-    id="side-navbar"
-    [ngClass]="toggleMenu ? 'showMenu' : ''"
-  >
+  <div class="navbar" id="side-navbar" [ngClass]="toggleMenu ? 'showMenu' : ''">
     <ul class="navbar-list">
       <li class="navbar-item" *ngFor="let navbarItem of filteredPages">
         <a

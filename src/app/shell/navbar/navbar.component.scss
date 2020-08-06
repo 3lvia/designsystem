@@ -18,14 +18,6 @@ $text-line-height: 32px;
   padding-right: 32px;
   background: transparent;
   z-index: 0;
-  &.show-header-warning {
-    height: calc(100% - 64px - #{$header-height} - 60px);
-    top: $header-height + 64px + 60px;
-
-    @include breakpoint-up(Mobile) {
-      top: $header-height + 64px + 120px;
-    }
-  }
 
   @include breakpoint-up(MaxDesktop) {
     width: 13%;
@@ -48,12 +40,6 @@ $text-line-height: 32px;
     @include breakpoint-up(Tablet) {
       display: flex;
       justify-content: center;
-    }
-  }
-
-  &.show-header-warning {
-    @include breakpoint-up(Tablet) {
-      top: $header-height + 120px;
     }
   }
 

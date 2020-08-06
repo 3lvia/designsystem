@@ -1,19 +1,72 @@
-<div class="page-body" @sectionAnimation>
-  <h1 class="big-header">{{ overviewTitle }}</h1>
-  <div class="e-grid" style="margin-top: 100px;">
-    <div class="row e-grid-margin-ext e-grid-gutters-ext">
-      <div class="col-xs-6 col-sm-4 col-md-3 col-lg-4" *ngFor="let page of pages">
-        <div>
+<div class="home-container" @sectionAnimation>
+  <div class="e-grid">
+    <div class="row no-gutters e-bg-grey">
+      <div class="home-top-desktop">
+        <div class="col-lg-6 desktop-col">
+          <div class="home-header">
+            <h1 class="big-header">
+              <span class="title">{{ overviewTitle }}</span>
+              <span class="dot"></span>
+            </h1>
+            <div class="e-text-lead e-mt-32">
+              A scalable system of visual language, components and design assets so we can work together
+              towards an ultimate brand experience.
+            </div>
+            <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
+              <span class="e-btn__title">Get started</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="image-div">
+            <img src="assets/DSIllustration.svg" />
+          </div>
+        </div>
+      </div>
+
+      <div class="home-top-mobile">
+        <div class="col-md-12">
+          <div class="image-div">
+            <img src="assets/DSIllustration.svg" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-md-12 mobile-col">
+        <div class="home-header">
+          <h1 class="big-header">
+            <span class="title">
+              {{ overviewTitle }}
+              <span class="dot"></span>
+            </span>
+          </h1>
+          <div class="e-text-lead e-mt-32">
+            A scalable system of visual language, components and design assets so we can work together towards
+            an ultimate brand experience.
+          </div>
+          <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
+            <span class="e-btn__title">Get started</span>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row no-gutters">
+      <div class="col-12 card-links">
+        <div class="card-link" *ngFor="let page of pages">
           <a
             class="e-link e-link--card e-link--shortcut"
             *ngIf="page.absolutePath"
             [routerLink]="[page.absolutePath]"
           >
             <div class="e-link__content">
-              <div class="e-link__icon">
-                <img src="{{ page.imageUrl }}" alt="" />
+              <div class="e-link__icon e-link--delay-hover">
+                <img src="{{ page.imageUrl }}" class="shortcut-off" alt="" />
+                <img src="{{ page.imageUrlOn }}" class="shortcut-on" alt="" />
               </div>
               <div class="e-link__title">{{ page.title }}</div>
+              <div class="e-link__description">{{ page.description }}</div>
             </div>
           </a>
         </div>

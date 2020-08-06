@@ -5,10 +5,6 @@ import { Subject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class GlobalService {
-  headerWarning = {
-    show: true,
-    closable: true,
-  };
 
   sideBar = {
     show: true,

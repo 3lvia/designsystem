@@ -1,0 +1,11 @@
+@import '../../../../style/elvis/src/utilities/breakpoints.scss';
+
+.e-grid {
+  margin: 0 120px;
+  @include breakpoint-up(Tablet) {
+    margin: 0 32px;
+  }
+  @include breakpoint-up(Mobile) {
+    margin: 0 16px;
+  }
+}

@@ -36,18 +36,6 @@ export class HeaderComponent {
     });
   }
 
-  removeWarning(): void {
-    this.globalService.headerWarning.show = false;
-  }
-
-  showWarning(): boolean {
-    return this.globalService.headerWarning.show;
-  }
-
-  removableWarning(): boolean {
-    return this.globalService.headerWarning.closable;
-  }
-
   openMobileMenu(): void {
     const overlayRef: OverlayRef = this.mobileMenu.setupOverlay();
     const compInstance = this.mobileMenu.openOverlay(overlayRef, MobileMenuComponent);
@@ -61,7 +49,6 @@ export class HeaderComponent {
   }
 
   testInternalHeader(): void {
-    this.removeWarning();
     this.internalHeader = true;
     const element = document.querySelectorAll('.main-content')[0] as HTMLElement;
     element.classList.add('e-bg-grey-05');

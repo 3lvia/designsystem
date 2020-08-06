@@ -1,7 +1,18 @@
 @import '../../shared/shared-sizes.scss';
+@import '../../../../style/elvis/src/utilities/breakpoints.scss';
 
 .main-content {
   min-height: calc(100vh - #{$header-height} - #{$footer-height});
   padding-top: 64px;
   padding-bottom: 120px;
+  border: 8px solid white;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  @include breakpoint-up(Tablet) {
+    padding-top: 56px;
+  }
+  @include breakpoint-up(Mobile) {
+    padding-top: 40px;
+  }
 }

@@ -4,49 +4,37 @@ import { ItemStatus } from './item-status.enum';
 
 export const eHomes: EItems[] = [
   {
-    title: 'New project',
-    description: 'Guidance on how to use, and implementation of Elvia Designsystem.',
-    docUrl: Pages.NewProject,
-    absolutePath: '/get-started/new-project-doc',
-    imageUrl: 'assets/website-icons/temporary.svg',
+    title: 'Identity',
+    description: 'Elvis Branding',
+    docUrl: Pages.OverviewIdentity,
+    absolutePath: '/identity/' + Pages.OverviewIdentity,
+    imageUrl: 'assets/website-icons/shortcut-images/Identity.svg',
+    imageUrlOn: 'assets/website-icons/shortcut-images/IdentityOn.svg',
   },
   {
     title: 'Components',
-    description: 'Explore components that are available in Elvia Designsystem.',
+    description: 'UI Library',
     docUrl: Pages.OverviewComp,
     absolutePath: '/components/' + Pages.OverviewComp,
     imageUrl: 'assets/website-icons/shortcut-images/Component.svg',
+    imageUrlOn: 'assets/website-icons/shortcut-images/ComponentOn.svg',
   },
+  // {
+  //   title: 'Accessibility',
+  //   description: 'WCAG 2.0',
+  //   docUrl: Pages.Contribute,
+  //   absolutePath: '/community/' + Pages.Contribute,
+  //   imageUrl: 'assets/website-icons/shortcut-images/Accessibility.svg',
+  //   imageUrlOn: 'assets/website-icons/shortcut-images/AccessibilityOn.svg',
+  // },
   {
     title: 'Contribute',
-    description: 'Guidance on how to contribute to Elvia Designsystem.',
+    description: 'Help us get better',
     docUrl: Pages.Contribute,
     absolutePath: '/community/' + Pages.Contribute,
     imageUrl: 'assets/website-icons/shortcut-images/Contribute.svg',
-  },
-  {
-    title: 'Discussion',
-    description: 'Report a bug? Request a new feauture?',
-    docUrl: Pages.Discussion,
-    absolutePath: '/community/' + Pages.Discussion,
-    externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose',
-    imageUrl: 'assets/website-icons/temporary.svg',
-  },
-  {
-    title: 'Changelog',
-    description: 'Overview og major and minor changes to Elvis',
-    docUrl: Pages.Changelog,
-    absolutePath: '/community/' + Pages.Changelog,
-    externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/blob/master/style/elvis/CHANGELOG.md',
-    imageUrl: 'assets/website-icons/temporary.svg',
-  },
-  {
-    title: 'FAQ',
-    description: 'Answers to frequently asked questions',
-    docUrl: Pages.Faq,
-    absolutePath: '/community/' + Pages.Faq,
-    imageUrl: 'assets/website-icons/temporary.svg',
-  },
+    imageUrlOn: 'assets/website-icons/shortcut-images/ContributeOn.svg',
+  }
 ];
 
 export const eGetStarted: EItems[] = [

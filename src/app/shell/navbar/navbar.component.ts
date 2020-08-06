@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EItems } from 'src/app/shared/e-items.interface';
-import { GlobalService } from 'src/app/core/services/global.service';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -27,7 +26,6 @@ export class NavbarComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private globalService: GlobalService,
     private scrollService: ScrollService,
     private location: Location,
   ) {
@@ -91,25 +89,15 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  showWarning(): boolean {
-    return this.globalService.headerWarning.show;
-  }
-
   updateNavbarHeight(): void {
     const fromTop = document.documentElement.scrollTop + window.innerHeight + 200 + 60;
     const scrollHeight = document.documentElement.scrollHeight;
     const el = document.getElementById('side-navbar') as HTMLElement;
     if (fromTop >= scrollHeight) {
-      let newHeight = (scrollHeight - document.documentElement.scrollTop - 60 - 64 - 64 - 60 - 200);
-      if (!this.showWarning()) {
-        newHeight = (scrollHeight - document.documentElement.scrollTop - 60 - 64 - 60 - 200);
-      }
+      const newHeight = (scrollHeight - document.documentElement.scrollTop - 60 - 64 - 60 - 200);
       el.style.height = (newHeight) + 'px';
     } else {
-      el.style.height = (window.innerHeight - 64 - 64 - 60) + 'px';
-      if (!this.showWarning()) {
-        el.style.height = (window.innerHeight - 64 - 60) + 'px';
-      }
+      el.style.height = (window.innerHeight - 64 - 60) + 'px';
     }
   }
 

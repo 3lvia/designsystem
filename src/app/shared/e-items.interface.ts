@@ -7,4 +7,5 @@ export interface EItems {
   externalUrl?: string;
   figmaUrl?: string;
   status?: string;
+  imageUrlOn?: string;
 }
