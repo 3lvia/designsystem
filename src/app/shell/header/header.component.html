@@ -46,7 +46,7 @@
         <div class="e-top-bar-mobile__title">Applikasjon</div>
         <a
           class="e-top-bar-mobile__link"
-          (click)="toggleElement('.e-top-bar-mobile', 'e-top-bar-mobile__app---open')"
+          (click)="toggleElement('.e-top-bar-mobile', 'e-top-bar-mobile__app--open')"
         >
           <span>DROPS</span>
           <span class="e-top-bar-mobile__link-icon">
@@ -62,7 +62,7 @@
         <div class="e-top-bar-mobile__title">Område</div>
         <a
           class="e-top-bar-mobile__link"
-          (click)="toggleElement('.e-top-bar-mobile', 'e-top-bar-mobile__area---open')"
+          (click)="toggleElement('.e-top-bar-mobile', 'e-top-bar-mobile__area--open')"
         >
           <span>Sør</span>
           <span class="e-top-bar-mobile__link-icon">
@@ -104,7 +104,7 @@
             <div class="e-top-bar__app">
               <a
                 class="e-top-bar__link"
-                (click)="toggleElement('.e-top-bar-desktop', 'e-top-bar__app---open')"
+                (click)="toggleElement('.e-top-bar-desktop', 'e-top-bar__app--open')"
               >
                 <span>Drops</span>
                 <span class="e-top-bar__link-icon">
@@ -113,7 +113,7 @@
                 </span>
               </a>
               <div class="e-top-bar__app-menu">
-                <div class="e-top-bar__app-menu-item e-top-bar__app-menu-item---active">
+                <div class="e-top-bar__app-menu-item e-top-bar__app-menu-item--active">
                   <div class="e-top-bar__app-circle">D</div>
                   <div class="e-top-bar__app-title">DROPS</div>
                 </div>
@@ -154,7 +154,7 @@
             <div class="e-top-bar__area">
               <a
                 class="e-top-bar__link"
-                (click)="toggleElement('.e-top-bar-desktop', 'e-top-bar__area---open')"
+                (click)="toggleElement('.e-top-bar-desktop', 'e-top-bar__area--open')"
               >
                 <span>Elvia Sør</span>
                 <span class="e-top-bar__link-icon">
@@ -173,7 +173,7 @@
             <div class="e-top-bar__user">
               <a
                 class="e-top-bar__link"
-                (click)="toggleElement('.e-top-bar-desktop', 'e-top-bar__user---open')"
+                (click)="toggleElement('.e-top-bar-desktop', 'e-top-bar__user--open')"
               >
                 <span><i class="e-icon e-icon--profile-bold e-icon--xs"></i></span>
                 <span>Ragna Nordmann</span>
@@ -196,10 +196,10 @@
           <!--HAMBURGER-->
           <div class="col-xs-2 col-sm-3 col-md-3">
             <div class="e-top-bar__hamburger">
-              <i class="e-icon e-icon--menu-bold" (click)="toggleElement('.e-header', 'e-header---open')"></i>
+              <i class="e-icon e-icon--menu-bold" (click)="toggleElement('.e-header', 'e-header--open')"></i>
               <i
                 class="e-icon e-icon--remove_circle-color"
-                (click)="toggleElement('.e-header', 'e-header---open')"
+                (click)="toggleElement('.e-header', 'e-header--open')"
               ></i>
             </div>
           </div>
@@ -225,7 +225,7 @@
       </span>
       <span class="e-sidebar__text">Målepunksøk</span>
     </div>
-    <div class="e-sidebar__item e-sidebar__item---active">
+    <div class="e-sidebar__item e-sidebar__item--active">
       <span class="e-sidebar__icon">
         <i class="e-icon e-icon--pin"></i>
         <i class="e-icon e-icon--pin-color"></i>
@@ -241,7 +241,7 @@
     </div>
 
     <!--OPEN/CLOSE BTN-->
-    <div class="e-sidebar__open-close" (click)="toggleElement('.e-sidebar', 'e-sidebar---open')">
+    <div class="e-sidebar__open-close" (click)="toggleElement('.e-sidebar', 'e-sidebar--open')">
       <span class="e-sidebar__icon">
         <i class="e-icon e-icon--open_menu"></i>
         <i class="e-icon e-icon--close_menu"></i>
