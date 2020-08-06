@@ -113,28 +113,28 @@
 		"e-combined-field": {},
 		"e-feedback-message": {},
 		"e-header": {
-			"modifier": {
-				"e-header--open": {}
+			"psuedo": {
+				"e-header---open": {}
 			}
 		},
 		"e-top-bar": {
 			"element": {
 				"e-top-bar__app": {
-					"modifier": {
-						"e-top-bar__app--open": {}
+					"psuedo": {
+						"e-top-bar__app---open": {}
 					}
 				},
 				"e-top-bar__app-menu": {},
 				"e-top-bar__app-menu-item": {
-					"modifier": {
-						"e-top-bar__app-menu-item--active": {}
+					"psuedo": {
+						"e-top-bar__app-menu-item---active": {}
 					}
 				},
 				"e-top-bar__app-circle": {},
 				"e-top-bar__app-title": {},
 				"e-top-bar__area": {
-					"modifier": {
-						"e-top-bar__area--open": {}
+					"psuedo": {
+						"e-top-bar__area---open": {}
 					}
 				},
 				"e-top-bar__area-menu": {},
@@ -142,8 +142,8 @@
 				"e-top-bar__logo": {},
 				"e-top-bar__title": {},
 				"e-top-bar__user": {
-					"modifier": {
-						"e-top-bar__user--open": {}
+					"psuedo": {
+						"e-top-bar__user---open": {}
 					}
 				},
 				"e-top-bar__hamburger": {},
@@ -160,13 +160,13 @@
 		"e-top-bar-mobile": {
 			"element": {
 				"e-top-bar-mobile__app": {
-					"modifier": {
-						"e-top-bar-mobile__app--open": {}
+					"psuedo": {
+						"e-top-bar-mobile__app---open": {}
 					}
 				},
 				"e-top-bar-mobile__area": {
-					"modifier": {
-						"e-top-bar-mobile__area--open": {}
+					"psuedo": {
+						"e-top-bar-mobile__area---open": {}
 					}
 				},
 				"e-top-bar-mobile__user": {},
@@ -185,16 +185,16 @@
 		"e-sidebar": {
 			"element": {
 				"e-sidebar__item": {
-					"modifier": {
-						"e-sidebar__item--active": {}
+					"psuedo": {
+						"e-sidebar__item---active": {}
 					}
 				},
 				"e-sidebar__open-close": {},
 				"e-sidebar__text": {},
 				"e-sidebar__icon": {}
 			},
-			"modifier": {
-				"e-sidebar--open": {}
+			"psuedo": {
+				"e-sidebar---open": {}
 			}
 		},
 		"e-label": {
@@ -806,7 +806,7 @@
 		"e-top-bar__app-menu": {},
 		"e-top-bar__app-menu-item": {},
 		"e-top-bar__app-circle": {},
-		"e-top-bar__app-menu-item--active": {},
+		"e-top-bar__app-menu-item---active": {},
 		"e-top-bar__app-title": {},
 		"e-top-bar__area": {},
 		"e-top-bar__area-menu": {},
@@ -827,10 +827,10 @@
 		"e-top-bar__user-menu-settings": {},
 		"e-top-bar__user-menu-logout": {},
 		"e-top-bar__link-icon": {},
-		"e-top-bar__app--open": {},
-		"e-top-bar__area--open": {},
-		"e-top-bar__user--open": {},
-		"e-header--open": {},
+		"e-top-bar__app---open": {},
+		"e-top-bar__area---open": {},
+		"e-top-bar__user---open": {},
+		"e-header---open": {},
 		"e-sidebar": {},
 		"e-top-bar-mobile__app": {},
 		"e-top-bar-mobile__area": {},
@@ -843,14 +843,14 @@
 		"e-top-bar-mobile__user-menu-settings": {},
 		"e-top-bar-mobile__user-menu-logout": {},
 		"e-top-bar-mobile__divider": {},
-		"e-top-bar-mobile__app--open": {},
-		"e-top-bar-mobile__area--open": {},
+		"e-top-bar-mobile__app---open": {},
+		"e-top-bar-mobile__area---open": {},
 		"e-sidebar__item": {},
 		"e-sidebar__open-close": {},
 		"e-sidebar__text": {},
 		"e-sidebar__icon": {},
-		"e-sidebar__item--active": {},
-		"e-sidebar--open": {},
+		"e-sidebar__item---active": {},
+		"e-sidebar---open": {},
 		"e-label": {},
 		"e-label--red-tomato": {},
 		"e-label--orange-mango": {},

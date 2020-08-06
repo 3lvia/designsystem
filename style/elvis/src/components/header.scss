@@ -72,7 +72,7 @@ $sidebar-mobile-z-index: -2;
         color: colors.color('white');
         border: 2px solid colors.color('white');
       }
-      &.e-top-bar__app-menu-item--active {
+      &.e-top-bar__app-menu-item---active {
         .e-top-bar__app-circle {
           background: colors.color('black');
         }
@@ -331,9 +331,9 @@ $sidebar-mobile-z-index: -2;
   }
 
   // OPEN MENUS & MARK LINKS ~ DESKTOP
-  .e-top-bar-desktop.e-top-bar__app--open .e-top-bar__app,
-  .e-top-bar-desktop.e-top-bar__area--open .e-top-bar__area,
-  .e-top-bar-desktop.e-top-bar__user--open .e-top-bar__user {
+  .e-top-bar-desktop.e-top-bar__app---open .e-top-bar__app,
+  .e-top-bar-desktop.e-top-bar__area---open .e-top-bar__area,
+  .e-top-bar-desktop.e-top-bar__user---open .e-top-bar__user {
     .e-top-bar__app-menu,
     .e-top-bar__area-menu,
     .e-top-bar__user-menu {
@@ -388,7 +388,7 @@ $sidebar-mobile-z-index: -2;
     }
   }
   // MOBILE ~ OPEN
-  .e-header.e-header--open {
+  .e-header.e-header---open {
     overflow: hidden;
     height: 100vh;
     .e-top-bar + .e-sidebar {
@@ -504,8 +504,8 @@ $sidebar-mobile-z-index: -2;
   }
 
   // OPEN MENUS & MARK LINKS ~ MOBILE
-  .e-header.e-header--open
-    .e-top-bar-mobile.e-top-bar-mobile__app--open
+  .e-header.e-header---open
+    .e-top-bar-mobile.e-top-bar-mobile__app---open
     + .e-top-bar-desktop
     .e-top-bar__app-menu {
     display: flex;
@@ -515,8 +515,8 @@ $sidebar-mobile-z-index: -2;
     height: 254px;
     box-shadow: shadows.$e-shadow-8;
   }
-  .e-header.e-header--open
-    .e-top-bar-mobile.e-top-bar-mobile__area--open
+  .e-header.e-header---open
+    .e-top-bar-mobile.e-top-bar-mobile__area---open
     + .e-top-bar-desktop
     .e-top-bar__area-menu {
     display: flex;
@@ -527,8 +527,8 @@ $sidebar-mobile-z-index: -2;
     width: 289px;
     box-shadow: shadows.$e-shadow-8;
   }
-  .e-top-bar-mobile.e-top-bar-mobile__app--open .e-top-bar-mobile__app,
-  .e-top-bar-mobile.e-top-bar-mobile__area--open .e-top-bar-mobile__area {
+  .e-top-bar-mobile.e-top-bar-mobile__app---open .e-top-bar-mobile__app,
+  .e-top-bar-mobile.e-top-bar-mobile__area---open .e-top-bar-mobile__area {
     .e-top-bar-mobile__link {
       .e-top-bar-mobile__link-icon {
         i[class*='arrow_up-bold'] {
@@ -589,7 +589,7 @@ $sidebar-mobile-z-index: -2;
         visibility: hidden;
       }
     }
-    &--active {
+    &---active {
       .e-sidebar__icon {
         border: 1px solid colors.color('black');
         i {
@@ -612,7 +612,7 @@ $sidebar-mobile-z-index: -2;
     }
   }
 
-  &--open {
+  &---open {
     width: $side-bar-open-width;
     .e-sidebar__item,
     .e-sidebar__open-close {
