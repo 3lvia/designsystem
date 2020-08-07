@@ -44,19 +44,16 @@
           <li>
             <strong>Put the following in &lt;head></strong>
             <!-- Terrible hack just to get it working, since PrismJS does not update DOM on changes to the code in the code-highlighter -->
-            <app-code-highlighter *ngIf="!updateToggle" [codeHTML]="linkTagCode"></app-code-highlighter>
-            <app-code-highlighter *ngIf="updateToggle" [codeHTML]="linkTagCode"></app-code-highlighter>
+            <app-code-highlighter [codeHTML]="linkTagCode"></app-code-highlighter>
           </li>
           <li>
             <strong>Put the following at the bottom of &lt;body></strong>
-            <app-code-highlighter *ngIf="!updateToggle" [codeHTML]="scriptTagCode"></app-code-highlighter>
-            <app-code-highlighter *ngIf="updateToggle" [codeHTML]="scriptTagCode"></app-code-highlighter>
+            <app-code-highlighter [codeHTML]="scriptTagCode"></app-code-highlighter>
           </li>
         </ol>
 
         <h3 class="e-title-sm e-mt-48">What it should look like</h3>
-        <app-code-highlighter *ngIf="!updateToggle" [codeHTML]="fullExampleCode"></app-code-highlighter>
-        <app-code-highlighter *ngIf="updateToggle" [codeHTML]="fullExampleCode"></app-code-highlighter>
+        <app-code-highlighter [codeHTML]="fullExampleCode"></app-code-highlighter>
       </div>
 
       <div class="elvis-anchor e-mb-64">
@@ -87,16 +84,14 @@
               <li>
                 <strong>Add elvis.js from the NPM package in &#x3C;body&#x3E;</strong>
                 <p><strong>or use the CDN for elvis.js:</strong></p>
-                <app-code-highlighter *ngIf="!updateToggle" [codeHTML]="scriptTagCode"></app-code-highlighter>
-                <app-code-highlighter *ngIf="updateToggle" [codeHTML]="scriptTagCode"></app-code-highlighter>
+                <app-code-highlighter [codeHTML]="scriptTagCode"></app-code-highlighter>
               </li>
             </ol>
           </div>
         </div>
       </div>
       <div class="elvis-anchor">
-        <h2 class="e-title-md e-mt-48 elvis-anchor-title"></h2>
-        <h2 class="e-title-md elvis-anchor-title">
+        <h2 class="e-title-md e-mt-48 elvis-anchor-title">
           Optional: CSS-variables
         </h2>
         <hr />

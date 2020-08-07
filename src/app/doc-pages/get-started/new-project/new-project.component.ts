@@ -11,8 +11,6 @@ export class NewProjectComponent implements OnInit {
   linkTagCode = '';
   scriptTagCode = '';
   fullExampleCode = '';
-  /* Terrible hack just to get it working, since PrismJS does not update DOM on changes to the code in the code-highlighter */
-  updateToggle = true;
   cssVarsCode = `/* main.js/ts - file */
 
 import cssVars from 'css-vars-ponyfill';
@@ -36,20 +34,10 @@ cssVars({
     this.versionService.getCDNScriptFile().subscribe((tag: string) => {
       this.scriptTagCode = tag;
       this.createFullExample();
-      /* Terrible hack just to get it working, since PrismJS does not update DOM on changes to the code in the code-highlighter */
-      this.updateToggle = false;
-      window.setTimeout(() => {
-        this.updateToggle = true;
-      }, 10);
     });
     this.versionService.getCDNStyleFile().subscribe((tag: string) => {
       this.linkTagCode = tag;
       this.createFullExample();
-      /* Terrible hack just to get it working, since PrismJS does not update DOM on changes to the code in the code-highlighter */
-      this.updateToggle = false;
-      window.setTimeout(() => {
-        this.updateToggle = true;
-      }, 10);
     });
   }
 

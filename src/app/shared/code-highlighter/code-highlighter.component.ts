@@ -29,6 +29,21 @@ export class CodeHighlighterComponent implements OnInit, OnChanges, AfterViewChe
       this.isInverted = changes.isInverted.currentValue;
       this.highlighted = false;
     }
+    if (changes.codeTS) {
+      this.codeTS = changes.codeTS.currentValue;
+      this.highlighted = false;
+      this.activeTab = this.codeTS !== '' ? 'ts' : (this.codeHTML !== '' ? 'html' : 'css');
+    }
+    if (changes.codeHTML) {
+      this.codeHTML = changes.codeHTML.currentValue;
+      this.highlighted = false;
+      this.activeTab = this.codeTS !== '' ? 'ts' : (this.codeHTML !== '' ? 'html' : 'css');
+    }
+    if (changes.codeCSS) {
+      this.codeCSS = changes.codeCSS.currentValue;
+      this.highlighted = false;
+      this.activeTab = this.codeTS !== '' ? 'ts' : (this.codeHTML !== '' ? 'html' : 'css');
+    }
   }
 
   ngAfterViewChecked(): void {
