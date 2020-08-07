@@ -28,7 +28,7 @@ iframe {
   margin: auto;
   padding: 56px 12px;
   border-radius: 50px;
-  border: 20px solid #111;
+  border: 20px solid var(--e-grey-80);
 
   &:before,
   &:after {
@@ -45,7 +45,7 @@ iframe {
     left: 22%;
     width: 56%;
     height: 27px;
-    background-color: #1f1f1f;
+    background-color: var(--e-grey-80);
     border-radius: 0px 0px 20px 20px;
     display: flex;
     justify-content: center;
@@ -54,7 +54,7 @@ iframe {
       width: 25%;
       height: 7px;
       margin-right: 5px;
-      background-color: #3b3b3b;
+      background-color: var(--e-grey);
     }
   }
 
@@ -65,16 +65,16 @@ iframe {
     width: 8px;
     height: 8px;
     border-radius: 100%;
-    background-color: #535353;
+    background-color: var(--e-grey);
   }
 
   &__elvia,
   &__time {
     position: absolute;
     top: 15px;
+    font-family: 'Red Hat Display';
     font-size: 14px;
     font-weight: bold;
-    font-family: 'Roboto';
   }
   &__elvia {
     left: 25px;

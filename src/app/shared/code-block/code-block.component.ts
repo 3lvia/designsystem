@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, ViewChild, OnInit } from '@angular/core';
+import { Component, Input, AfterViewInit, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { heightDown } from 'src/app/shared/animations';
 
 @Component({
@@ -8,15 +8,16 @@ import { heightDown } from 'src/app/shared/animations';
   animations: [heightDown],
 })
 export class CodeBlockComponent implements OnInit, AfterViewInit {
+  @ViewChild('accordion') accordion: ElementRef;
   @ViewChild('defaultFrame') defaultFrame;
   @Input() title = '';
   @Input() description = '';
   @Input() does = [];
   @Input() donts = [];
-  @Input() isTS = false;
-  @Input() isHTML = false;
-  @Input() isSCSS = false;
-  @Input() code = '';
+  @Input() codeTS = '';
+  @Input() codeHTML = '';
+  @Input() codeCSS = '';
+  @Input() codeInverted = '';
   @Input() showIframeScreens = false;
   @Input() noPhone = false;
   @Input() noTablet = false;
@@ -26,14 +27,19 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() overwriteHeightTablet: number;
   @Input() overwriteHeightPhone: number;
 
+  code = '';
   showCode = false;
   showTabs = true;
   screen = 'desktop';
   codepen = '';
+  displayCode = '';
+  isInverted = false;
 
 
   ngOnInit(): void {
-    this.codepen = this.getCodePen(this.code, this.title);
+    this.codepen = this.getCodePen();
+    this.code = this.codeTS !== '' ? this.codeTS : (this.codeHTML !== '' ? this.codeHTML : this.codeCSS);
+    this.displayCode = this.code;
 
     if (!this.showIframeScreens) {
       return;
@@ -58,12 +64,47 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getCodePen(code: string, title: string): string {
-    title = title ? title : 'Example';
-    const html = `${code}
-<script src="https://unpkg.com/@elvia/elvis@latest/elvis.js"></script>
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/@elvia/elvis@latest/css/elvis.min.css" />
-    `;
-    return JSON.stringify({ title: title, html: html });
+  getCodePen(): string {
+    this.title = this.title ? this.title : 'Example';
+    let html;
+    if (this.codeInverted !== '' && this.isInverted) {
+      html = `${this.codeInverted}
+      <script src="https://unpkg.com/@elvia/elvis@latest/elvis.js"></script>
+      <link rel="stylesheet" type="text/css" href="https://unpkg.com/@elvia/elvis@latest/css/elvis.min.css" />
+      `;
+    } else {
+      html = `${this.code}
+  <script src="https://unpkg.com/@elvia/elvis@latest/elvis.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@elvia/elvis@latest/css/elvis.min.css" />
+      `;
+    }
+    return JSON.stringify({ title: this.title, html });
+  }
+
+  toggleInverted(): void {
+    this.isInverted = !this.isInverted;
+    this.codepen = this.getCodePen();
+    if (this.displayCode === this.code) {
+      if (this.defaultFrame) {
+        this.defaultFrame.nativeElement.innerHTML = this.codeInverted;
+      } else {
+        this.displayCode = this.codeInverted;
+      }
+    } else {
+      if (this.defaultFrame) {
+        this.defaultFrame.nativeElement.innerHTML = this.code;
+      } else {
+        this.displayCode = this.code;
+      }
+    }
+  }
+
+  toggleOpen(): void {
+    if (this.accordion.nativeElement.classList.contains('e-accordion__item--open')) {
+      this.accordion.nativeElement.classList.remove('e-accordion__item--open');
+    } else {
+      this.accordion.nativeElement.classList.add('e-accordion__item--open');
+    }
   }
 }
+

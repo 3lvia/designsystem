@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-do-dont',
@@ -6,9 +6,8 @@ import {Component, Input} from '@angular/core';
   styleUrls: ['./do-dont.component.scss'],
 })
 export class DoDontComponent {
-  @Input() isHTML = false;
-  @Input() isTS = false;
-  @Input() isSCSS = false;
-  @Input() example = '';
+  @Input() codeTS = '';
+  @Input() codeHTML = '';
+  @Input() codeCSS = '';
   @Input() do = false;
 }

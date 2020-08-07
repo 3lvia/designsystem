@@ -20,15 +20,13 @@
 <!--BODY-->
 <div class="page-body">
   <app-code-block
-    [isHTML]="true"
-    [code]="example1"
+    [codeHTML]="example1"
     [title]="'Popover top center'"
     [showIframeScreens]="true"
     [noTablet]="true"
   ></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="example2"
+    [codeHTML]="example2"
     [title]="'Popover top left and right alignments'"
     [description]="
       'Add the class e-popover--top--left or --right to align the popover in different directions.'
@@ -38,15 +36,13 @@
     [noTablet]="true"
   ></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="example3"
+    [codeHTML]="example3"
     [title]="'Popover bottom center'"
     [showIframeScreens]="true"
     [noTablet]="true"
   ></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="example4"
+    [codeHTML]="example4"
     [title]="'Popover bottom left and right alignments'"
     [description]="
       'Add the class e-popover--bottom--left or --right to align the popover in different directions.'
@@ -137,5 +133,5 @@
   <h3 class="e-title-sm">
     JavaScript code for opening and closing a popover, with alignment for responsiveness
   </h3>
-  <app-code-highlighter [isTS]="'true'" [code]="popupLiveCode"></app-code-highlighter>
+  <app-code-highlighter [isJS]="true" [codeTS]="popupLiveCode"></app-code-highlighter>
 </div>

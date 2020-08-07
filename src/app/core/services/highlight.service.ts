@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import 'clipboard';
 
@@ -21,5 +21,10 @@ declare let Prism: any;
 export class HighlightService {
   highlightAll(): void {
     Prism.highlightAll();
+    const elements = document.querySelectorAll('.toolbar');
+    for (let i = 0; i < elements.length; i++) {
+      const item = elements.item(i) as HTMLElement;
+      item.style.display = 'none';
+    }
   }
 }

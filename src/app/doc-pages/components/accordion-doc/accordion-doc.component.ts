@@ -20,7 +20,7 @@ export class AccordionDocComponent {
     'Don’t use it for navigation elements.',
   ];
 
-  exampleAccordionSimple = `<h3 class="e-title-sm">Closed</h3>
+  exampleAccordionSingle = `<h3 class="e-title-sm">Closed</h3>
 <div class="e-accordion e-accordion--single">
   <div class="e-accordion__item">
     <div class="e-accordion__label">

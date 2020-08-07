@@ -16,10 +16,9 @@
 <!--BODY-->
 <div class="page-body">
   <!--Overview-->
-  <app-code-block [isHTML]="true" [code]="example1" [title]="'Normal input field'"></app-code-block>
+  <app-code-block [codeHTML]="example1" [title]="'Normal input field'"></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="exampleCompactInput"
+    [codeHTML]="exampleCompactInput"
     [title]="'Compact input field'"
     [description]="
       'Compact text fields are typically used in Elvia’s internal systems, 
@@ -29,16 +28,14 @@
     "
   ></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="example2"
+    [codeHTML]="example2"
     [title]="'Combined'"
     [description]="
       'Use the e-combined-field class on the form-field element to keep two inputs for the same label.'
     "
   ></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="example3"
+    [codeHTML]="example3"
     [title]="'Inlined'"
     [description]="
       'Use the e-inlined-field class outside the form-field element to align inputs on the same line.
@@ -46,8 +43,7 @@
     "
   ></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="example4"
+    [codeHTML]="example4"
     [title]="'Validation of fields'"
     [description]="
       'By default, all fields must be required. Validation is based on the field being filled out. 
@@ -55,16 +51,14 @@
     "
   ></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="example5"
+    [codeHTML]="example5"
     [title]="'Textarea'"
     [description]="
       'The e-form-field__label--optional class should be added to the label when the input is not required.'
     "
   ></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="example6"
+    [codeHTML]="example6"
     [title]="'Pseudo Classes'"
     [description]="
       'Pseudo Classes can be used to set the styling of input fields to emulate the state their in. 

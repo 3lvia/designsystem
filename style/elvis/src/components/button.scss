@@ -61,6 +61,7 @@ $button-sm-line-height: 16px;
     margin-left: 8px;
   }
 
+  // SIZES
   &.e-btn--lg {
     font-size: $button-lg-font-size;
     line-height: $button-lg-line-height;
@@ -95,6 +96,7 @@ $button-sm-line-height: 16px;
     }
   }
 
+  // PRIMARY BTM
   &.e-btn--primary {
     border: 1px solid colors.color('black');
     border-radius: $button-radius;
@@ -158,6 +160,7 @@ $button-sm-line-height: 16px;
     }
   }
 
+  // SECONDARY BTN
   &.e-btn--secondary {
     border: 1px solid colors.color('black');
     border-radius: $button-radius;
@@ -196,6 +199,7 @@ $button-sm-line-height: 16px;
     }
   }
 
+  // TERTIARY BTN
   &.e-btn--tertiary {
     border: none;
     border-bottom: 2.5px solid transparent;
@@ -241,6 +245,7 @@ $button-sm-line-height: 16px;
     }
   }
 
+  // ICON BTN
   &.e-btn--icon {
     border: none;
     display: inline-flex;
@@ -331,6 +336,9 @@ $button-sm-line-height: 16px;
     &.e-btn---active,
     &:active:not(:disabled) {
       background: colors.color('green');
+      .e-btn__icon i[class$='inverted'] {
+        visibility: visible;
+      }
     }
     &.e-btn---active,
     &:active:not(:disabled) {

@@ -12,7 +12,7 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block [isHTML]="true" [code]="paginationExample" [title]="'Full paginator'"></app-code-block>
+  <app-code-block [codeHTML]="paginationExample" [title]="'Full paginator'"></app-code-block>
 
   <div class="elvis-anchor e-mt-72">
     <h2 class="e-title-md elvis-anchor-title">Live example</h2>
@@ -77,9 +77,9 @@
     </div>
 
     <h3 class="e-text-caps e-mt-40">Html code</h3>
-    <app-code-highlighter [isHTML]="'true'" [code]="exampleInHTML"></app-code-highlighter>
+    <app-code-highlighter [codeTS]="exampleInHTML"></app-code-highlighter>
 
     <h3 class="e-text-caps e-mt-40">TS code</h3>
-    <app-code-highlighter [isTS]="'true'" [code]="exampleInTS"></app-code-highlighter>
+    <app-code-highlighter [codeTS]="exampleInTS"></app-code-highlighter>
   </div>
 </div>

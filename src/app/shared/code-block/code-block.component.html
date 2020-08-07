@@ -38,53 +38,62 @@
   <div>
     <ng-content select="extraInformation"></ng-content>
   </div>
-  <div class="component-body__example-codepen">
-    <form
-      class="codepen e-mb-16"
-      #codepenForm
-      *ngIf="isHTML"
-      action="https://codepen.io/pen/define"
-      method="POST"
-      target="_blank"
-    >
-      <input type="hidden" name="data" [value]="codepen" />
-      <a href="javascript:void(0)" (click)="codepenForm.submit()" class="e-link is-more">Try in codepen</a>
-    </form>
-  </div>
-  <div class="component-body__example-body e-border">
-    <div class="tabs" *ngIf="showIframeScreens && showTabs">
-      <div
-        class="tab e-border"
-        role="button"
-        [ngClass]="{ hide: noDesktop, active: screen === 'desktop' }"
-        (click)="screen = 'desktop'"
-      >
-        Desktop
+
+  <div
+    class="component-body__example-body e-mt-24"
+    [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+  >
+    <div class="top-menu">
+      <div class="tabs" *ngIf="showIframeScreens && showTabs">
+        <div
+          class="tab"
+          role="button"
+          [ngClass]="{ hide: noDesktop, active: screen === 'desktop' }"
+          (click)="screen = 'desktop'"
+        >
+          Desktop
+        </div>
+        <div
+          class="tab"
+          role="button"
+          [ngClass]="{ hide: noTablet, active: screen === 'tablet' }"
+          (click)="screen = 'tablet'"
+        >
+          Tablet
+        </div>
+        <div
+          class="tab"
+          role="button"
+          [ngClass]="{ hide: noPhone, active: screen === 'phone' }"
+          (click)="screen = 'phone'"
+        >
+          Phone
+        </div>
       </div>
-      <div
-        class="tab e-border"
-        role="button"
-        [ngClass]="{ hide: noTablet, active: screen === 'tablet' }"
-        (click)="screen = 'tablet'"
-      >
-        Tablet
-      </div>
-      <div
-        class="tab e-border"
-        role="button"
-        [ngClass]="{ hide: noPhone, active: screen === 'phone' }"
-        (click)="screen = 'phone'"
-      >
-        Phone
+      <div class="dark-mode-toggle" *ngIf="codeInverted != ''">
+        <span>Dark</span>
+        <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': isInverted }">
+          <input class="e-toggle__input" type="checkbox" (click)="toggleInverted()" />
+          <span class="e-toggle__slider"></span>
+        </label>
       </div>
     </div>
-    <div class="element" *ngIf="!showIframeScreens" [ngClass]="greyBg ? 'e-bg-grey-05' : 'e-bg-white'">
+
+    <div
+      class="element"
+      *ngIf="!showIframeScreens"
+      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+    >
       <div #defaultFrame></div>
     </div>
-    <div class="element" *ngIf="showIframeScreens" [ngClass]="greyBg ? 'e-bg-grey-05' : 'e-bg-white'">
+    <div
+      class="element"
+      *ngIf="showIframeScreens"
+      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+    >
       <div [ngClass]="{ hide: screen !== 'desktop' || noDesktop }">
         <app-iframe-screen
-          [code]="code"
+          [codeHTML]="displayCode"
           [overwriteHeight]="overwriteHeight"
           [overwriteHeightTablet]="overwriteHeightTablet"
           [overwriteHeightPhone]="overwriteHeightPhone"
@@ -92,25 +101,64 @@
         ></app-iframe-screen>
       </div>
       <div [ngClass]="{ hide: screen !== 'tablet' || noTablet }">
-        <app-iframe-screen [code]="code" [screenSize]="'tablet'"></app-iframe-screen>
+        <app-iframe-screen [codeHTML]="displayCode" [screenSize]="'tablet'"></app-iframe-screen>
       </div>
       <div [ngClass]="{ hide: screen !== 'phone' || noPhone }">
-        <app-iframe-screen [code]="code" [screenSize]="'phone'"></app-iframe-screen>
+        <app-iframe-screen [codeHTML]="displayCode" [screenSize]="'phone'"></app-iframe-screen>
       </div>
     </div>
-    <div class="show-code e-border" role="button" *ngIf="!showCode" (click)="showCode = !showCode">
-      View code
-    </div>
-    <div class="hide-code e-border" role="button" *ngIf="showCode" (click)="showCode = !showCode">
-      Hide code
-    </div>
-    <div @heightDown class="code" *ngIf="showCode">
-      <app-code-highlighter
-        [isHTML]="isHTML"
-        [isTS]="isTS"
-        [isSCSS]="isSCSS"
-        [code]="code"
-      ></app-code-highlighter>
+  </div>
+
+  <div class="show-code e-mt-16">
+    <div class="e-accordion e-accordion--single">
+      <div class="e-accordion__item" #accordion>
+        <div class="e-accordion__label" (click)="toggleOpen()">
+          <div role="button" *ngIf="!showCode" (click)="showCode = !showCode">
+            View code
+          </div>
+          <div role="button" *ngIf="showCode" (click)="showCode = !showCode">
+            Hide code
+          </div>
+        </div>
+        <div class="e-accordion__icon" (click)="toggleOpen()">
+          <i class="e-icon e-icon--expand_circle-color"></i>
+          <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        </div>
+        <div class="e-accordion__content">
+          <div class="code">
+            <div class="code-highlight">
+              <app-code-highlighter
+                [codeTS]="codeTS"
+                [codeHTML]="codeHTML"
+                [codeCSS]="codeCSS"
+                [codeInverted]="codeInverted"
+                [isInverted]="isInverted"
+              ></app-code-highlighter>
+            </div>
+
+            <div class="codepen-link">
+              <form
+                class="codepen"
+                #codepenForm
+                *ngIf="this.codeHTML !== ''"
+                action="https://codepen.io/pen/define"
+                method="POST"
+                target="_blank"
+              >
+                <input type="hidden" name="data" [value]="codepen" />
+                <a
+                  href="javascript:void(0)"
+                  (click)="codepenForm.submit()"
+                  class="e-link e-link--new-tab e-link--sm"
+                >
+                  <span class="e-link__title">Try in codepen</span>
+                  <span class="e-link__icon"><i class="e-icon e-icon--new_tab e-icon--inverted"></i></span>
+                </a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

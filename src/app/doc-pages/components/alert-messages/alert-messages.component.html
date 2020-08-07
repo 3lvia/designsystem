@@ -13,8 +13,7 @@
 <!--BODY-->
 <div class="page-body">
   <app-code-block
-    [isHTML]="true"
-    [code]="exampleAlertDefault"
+    [codeHTML]="exampleAlertDefault"
     [title]="'Local Alert'"
     [description]="
       'Local alert is messages related to the site and the content. 
@@ -24,9 +23,5 @@
     "
     [does]="doesAlertDefault"
   ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="exampleAlertStatuses"
-    [title]="'Local Alert Statuses'"
-  ></app-code-block>
+  <app-code-block [codeHTML]="exampleAlertStatuses" [title]="'Local Alert Statuses'"></app-code-block>
 </div>

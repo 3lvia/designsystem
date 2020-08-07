@@ -7,19 +7,18 @@
     Alle meningsbærende bilder skal ha en beskrivende alt-tekst.
 
     <p class="e-text-body">
-      Utkast er basert på NAV sin side om tilgjengelighet: 
+      Utkast er basert på NAV sin side om tilgjengelighet:
       <span class="e-link">https://design.nav.no/accessibility/alt-text</span>
     </p>
   </ng-container>
-  
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
   <h2 class="e-title-md">Hva er en alt-tekst?</h2>
   <p class="e-text-body">
-    En alt-tekst (kort for alternativ tekst) er en tekst som vises eller leses
-    opp når bildet ikke vises for brukeren. Dette kan være fordi:
+    En alt-tekst (kort for alternativ tekst) er en tekst som vises eller leses opp når bildet ikke vises for
+    brukeren. Dette kan være fordi:
   </p>
   <ol>
     <li>Bildet ble ikke funnet</li>
@@ -28,48 +27,44 @@
     <li>Brukeren bruker en skjermleser (for eksempel bilde)</li>
     <li>Brukeren bruker en rent tekstbasert nettleser (f.eks. Lynx)</li>
   </ol>
-  <div class="factbox is-info ">
+  <div class="factbox is-info">
     <div class="factbox-icon">
       <i class="e-icon e-icon--info-circle e-icon--sm"></i>
     </div>
     <div class="factbox-content">
-      Begrepet «bilde» favner i denne konteksten både fotografier,
-      illustrasjoner, logoer, ikoner, grafer, infografikk og annen type grafikk.
+      Begrepet «bilde» favner i denne konteksten både fotografier, illustrasjoner, logoer, ikoner, grafer,
+      infografikk og annen type grafikk.
     </div>
   </div>
 
   <h2 class="e-title-md">Bilder uten tekst</h2>
   <p class="e-text-body">
-    Bilder som ikke er meningsbærende (for eksempel bare til pynt eller
-    overflødig) skal ikke ha noe alt-text, men husk å gi dem et tomt
-    alt-attributt:
+    Bilder som ikke er meningsbærende (for eksempel bare til pynt eller overflødig) skal ikke ha noe alt-text,
+    men husk å gi dem et tomt alt-attributt:
   </p>
-  <app-do-dont [do]="true" [example]="example1"></app-do-dont>
-  <app-do-dont [do]="false" [example]="example2"></app-do-dont>
+  <app-do-dont [do]="true" [codeHTML]="example1"></app-do-dont>
+  <app-do-dont [do]="false" [codeHTML]="example2"></app-do-dont>
   <div class="factbox is-warn">
     <div class="factbox-icon">
       <i class="e-icon e-icon--warning_circle e-icon--sm"></i>
     </div>
     <div class="factbox-content">
-      Skjermlesere trenger et tomt alt-attributt for å vite at de skal ignorere
-      bildet. For bilder uten alt-attributt er det fare for at skjermlesere
-      leser opp kilde-attributtet i stedet.
+      Skjermlesere trenger et tomt alt-attributt for å vite at de skal ignorere bildet. For bilder uten
+      alt-attributt er det fare for at skjermlesere leser opp kilde-attributtet i stedet.
     </div>
   </div>
 
   <h3 class="e-title-md">Er bildet meningsbærende</h3>
   <p class="e-text-body">
-    Det er ikke alltid enkelt å vite om bildet er meningsbærende eller rent
-    dekorativt.
+    Det er ikke alltid enkelt å vite om bildet er meningsbærende eller rent dekorativt.
   </p>
   <p class="e-text-body">
-    En god start kan være å «leke skjermleser»: prøv å les opp siden som den
-    skulle blitt lest for en bruker med skjermleser. Går brukeren glipp av
-    relevant informasjon hvis du hopper over bildene?
+    En god start kan være å «leke skjermleser»: prøv å les opp siden som den skulle blitt lest for en bruker
+    med skjermleser. Går brukeren glipp av relevant informasjon hvis du hopper over bildene?
   </p>
   <p class="e-text-body">
-    Hvis bildene bare gjentar informasjon som er tilgjengelig i nærheten som ren
-    tekst er alt-tekster på disse overfødig.
+    Hvis bildene bare gjentar informasjon som er tilgjengelig i nærheten som ren tekst er alt-tekster på disse
+    overfødig.
   </p>
   <div class="links-container">
     <div class="e-card">
@@ -80,16 +75,14 @@
       </div>
       <div class="e-card_content">
         <p class="e-text-body">
-          Hvis du er i tvil anbefaler vi å bruke W3C sitt beslutningstre for å
-          finne ut om man trenger alt-tekster eller ikke.
+          Hvis du er i tvil anbefaler vi å bruke W3C sitt beslutningstre for å finne ut om man trenger
+          alt-tekster eller ikke.
         </p>
       </div>
       <div class="e-card_actions">
-        <a
-          class="e-card_actions_action"
-          href="https://www.w3.org/WAI/tutorials/images/decision-tree/"
-          >View more</a
-        >
+        <a class="e-card_actions_action" href="https://www.w3.org/WAI/tutorials/images/decision-tree/">
+          View more
+        </a>
       </div>
     </div>
   </div>
@@ -106,12 +99,9 @@
         <p class="e-text-body">W3.org offers some tips when writing alt-text</p>
       </div>
       <div class="e-card_actions">
-        <a
-          class="e-card_actions_action"
-          href="https://www.w3.org/WAI/tutorials/images/tips/"
-        >
-          View more</a
-        >
+        <a class="e-card_actions_action" href="https://www.w3.org/WAI/tutorials/images/tips/">
+          View more
+        </a>
       </div>
     </div>
 
@@ -123,8 +113,7 @@
       </div>
       <div class="e-card_content">
         <p class="e-text-body">
-          Difi tilbyr elæringskurs for redaktører, skribenter og
-          innholdsprodusenter.
+          Difi tilbyr elæringskurs for redaktører, skribenter og innholdsprodusenter.
         </p>
       </div>
       <div class="e-card_actions">
@@ -132,8 +121,8 @@
           class="e-card_actions_action"
           href="https://uu.difi.no/krav-og-regelverk/kom-i-gang/e-laeringskurs-om-universell-utforming-av-nettinnhold"
         >
-          View more</a
-        >
+          View more
+        </a>
       </div>
     </div>
   </div>

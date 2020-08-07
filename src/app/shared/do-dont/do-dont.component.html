@@ -1,11 +1,6 @@
 <div class="doDont-container">
   <div class="doDo" *ngIf="do">
-    <app-code-highlighter
-      [isHTML]="isHTML"
-      [isTS]="isTS"
-      [isSCSS]="isSCSS"
-      [code]="example"
-    ></app-code-highlighter>
+    <app-code-highlighter [codeTS]="codeTS" [codeHTML]="codeHTML" [codeCSS]="codeCSS"></app-code-highlighter>
     <div class="instructions do">
       <span style="display: flex; align-items: center;">
         <i class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"></i>
@@ -14,12 +9,7 @@
     </div>
   </div>
   <div class="doDont" *ngIf="!do">
-    <app-code-highlighter
-      [isHTML]="isHTML"
-      [isTS]="isTS"
-      [isSCSS]="isSCSS"
-      [code]="example"
-    ></app-code-highlighter>
+    <app-code-highlighter [codeTS]="codeTS" [codeHTML]="codeHTML" [codeCSS]="codeCSS"></app-code-highlighter>
     <div class="instructions dont">
       <span style="display: flex; align-items: center;">
         <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-red"></i>

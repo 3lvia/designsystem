@@ -28,14 +28,44 @@ export class ToggleDocComponent {
 </div>
 <div class="e-mt-16">
   <h3>Disabled off</h3>
-  <label class="e-toggle e-toggle--disabled">
+  <label class="e-toggle e-toggle---disabled">
     <input class="e-toggle__input" type="checkbox" disabled>
     <span class="e-toggle__slider"></span>
   </label>
 </div>
 <div class="e-mt-16">
   <h3>Disabled on</h3>
-  <label class="e-toggle e-toggle--disabled">
+  <label class="e-toggle e-toggle---disabled">
+    <input class="e-toggle__input" type="checkbox" checked disabled>
+    <span class="e-toggle__slider"></span>
+  </label>
+</div>
+`;
+
+  exampleInverted = `<div>
+  <h3 class="e-text-white">Off</h3>
+  <label class="e-toggle e-toggle--inverted">
+    <input class="e-toggle__input" type="checkbox">
+    <span class="e-toggle__slider"></span>
+  </label>
+</div>
+<div class="e-mt-16">
+  <h3 class="e-text-white">On</h3>
+  <label class="e-toggle e-toggle--inverted">
+    <input class="e-toggle__input" type="checkbox" checked>
+    <span class="e-toggle__slider"></span>
+  </label>
+</div>
+<div class="e-mt-16">
+  <h3 class="e-text-white">Disabled off</h3>
+  <label class="e-toggle e-toggle---disabled e-toggle--inverted">
+    <input class="e-toggle__input" type="checkbox" disabled>
+    <span class="e-toggle__slider"></span>
+  </label>
+</div>
+<div class="e-mt-16">
+  <h3 class="e-text-white">Disabled on</h3>
+  <label class="e-toggle e-toggle---disabled e-toggle--inverted">
     <input class="e-toggle__input" type="checkbox" checked disabled>
     <span class="e-toggle__slider"></span>
   </label>

@@ -17,15 +17,13 @@
 <!--BODY-->
 <div class="page-body">
   <app-code-block
-    [isHTML]="true"
-    [code]="exampleAccordionSizes"
+    [codeHTML]="exampleAccordionSizes"
     [title]="'Sizes'"
     [description]="'The different sizes of the accordion icon.'"
   ></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="exampleAccordionSimple"
-    [title]="'Simple Accordion'"
+    [codeHTML]="exampleAccordionSingle"
+    [title]="'Single Accordion'"
     [description]="
       'A single accordion icon with a label. 
       Often used in a card or below elements to allow the user to expand for more detailed information.'
@@ -40,8 +38,7 @@
   </app-code-block>
 
   <app-code-block
-    [isHTML]="true"
-    [code]="exampleAccordionGroup"
+    [codeHTML]="exampleAccordionGroup"
     [title]="'Group Accordion'"
     [description]="
       'A group accordion with titles. 
@@ -71,9 +68,7 @@
         </div>
       </div>
     </div>
-    <h3 class="e-title-small">Example of HTML code for accordion</h3>
-    <app-code-highlighter [isHTML]="'true'" [code]="liveCodeHTML"></app-code-highlighter>
-    <h3 class="e-title-small">Example of TypeScripts code for accordion</h3>
-    <app-code-highlighter [isTS]="'true'" [code]="liveCodeTS"></app-code-highlighter>
+    <h3 class="e-title-small">Example of TS and HTML code for accordion</h3>
+    <app-code-highlighter [codeHTML]="liveCodeHTML" [codeTS]="liveCodeTS"></app-code-highlighter>
   </div>
 </div>

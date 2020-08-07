@@ -10,10 +10,22 @@ $toggle-desktop-width: 30px;
 $toggle-desktop-slider-size: 8px;
 $toggle-desktop-slider-padding: calc((#{$toggle-desktop-height} - #{$toggle-desktop-slider-size}) / 2);
 
+$toggle-desktop-negative-height: 12px;
+$toggle-desktop-negative-width: 28px;
+$toggle-desktop-negative-slider-padding: calc(
+  (#{$toggle-desktop-negative-height} - #{$toggle-desktop-slider-size}) / 2
+);
+
 $toggle-mobile-height: 20px;
 $toggle-mobile-width: 42px;
 $toggle-mobile-slider-size: 12px;
 $toggle-mobile-slider-padding: calc((#{$toggle-mobile-height} - #{$toggle-mobile-slider-size}) / 2);
+
+$toggle-mobile-negative-height: 18px;
+$toggle-mobile-negative-width: 40px;
+$toggle-mobile-negative-slider-padding: calc(
+  (#{$toggle-mobile-negative-height} - #{$toggle-mobile-slider-size}) / 2
+);
 
 .e-toggle {
   position: relative;
@@ -28,21 +40,6 @@ $toggle-mobile-slider-padding: calc((#{$toggle-mobile-height} - #{$toggle-mobile
   @include breakpoints.breakpoint-up(Mobile) {
     height: $toggle-mobile-height;
     width: $toggle-mobile-width;
-  }
-
-  &.e-toggle--disabled,
-  &:disabled {
-    cursor: not-allowed;
-    background-color: colors.color('grey-30');
-    .e-toggle__slider::before {
-      background-color: colors.color('grey-10');
-    }
-    input:checked + .e-toggle__slider {
-      background-color: colors.color('grey-30');
-    }
-    input:checked + .e-toggle__slider::before {
-      background-color: colors.color('grey-70');
-    }
   }
 
   // hide initial input
@@ -101,5 +98,56 @@ $toggle-mobile-slider-padding: calc((#{$toggle-mobile-height} - #{$toggle-mobile
 
   input:focus + .e-slider {
     @include outline.e-outline();
+  }
+
+  &.e-toggle--inverted {
+    border: 1px solid colors.color('white');
+    box-sizing: content-box;
+
+    height: $toggle-desktop-negative-height;
+    width: $toggle-desktop-negative-width;
+    @include breakpoints.breakpoint-up(Mobile) {
+      height: $toggle-mobile-negative-height;
+      width: $toggle-mobile-negative-width;
+    }
+    .e-toggle__slider::before {
+      left: $toggle-desktop-negative-slider-padding;
+      bottom: $toggle-desktop-negative-slider-padding;
+
+      @include breakpoints.breakpoint-up(Mobile) {
+        left: $toggle-mobile-negative-slider-padding;
+        bottom: $toggle-mobile-negative-slider-padding;
+      }
+    }
+
+    &.e-toggle---disabled,
+    &:disabled {
+      background-color: colors.color('grey');
+      border: 1px solid colors.color('grey-70');
+      .e-toggle__slider::before {
+        background-color: colors.color('grey-70');
+      }
+      input:checked + .e-toggle__slider {
+        background-color: colors.color('grey');
+      }
+      input:checked + .e-toggle__slider::before {
+        background-color: colors.color('grey-30');
+      }
+    }
+  }
+
+  &.e-toggle---disabled,
+  &:disabled {
+    cursor: not-allowed;
+    background-color: colors.color('grey-30');
+    .e-toggle__slider::before {
+      background-color: colors.color('grey-10');
+    }
+    input:checked + .e-toggle__slider {
+      background-color: colors.color('grey-30');
+    }
+    input:checked + .e-toggle__slider::before {
+      background-color: colors.color('grey-70');
+    }
   }
 }

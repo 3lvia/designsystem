@@ -13,14 +13,9 @@
 
 <!--BODY-->
 <div class="page-body">
+  <app-code-block [codeHTML]="exampleAutocomplete" [title]="'Autocomplete dropdown field'"></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="exampleAutocomplete"
-    [title]="'Autocomplete dropdown field'"
-  ></app-code-block>
-  <app-code-block
-    [isHTML]="true"
-    [code]="exampleCompact"
+    [codeHTML]="exampleCompact"
     [title]="'Compact Autocomplete'"
     [description]="
       'Much like compact text fields, 
@@ -49,10 +44,7 @@
       </div>
     </div>
 
-    <h4>Html code for Angular example</h4>
-    <app-code-highlighter [isHTML]="'true'" [code]="exampleInHTML"></app-code-highlighter>
-
-    <h4>TS code for Angular example</h4>
-    <app-code-highlighter [isTS]="'true'" [code]="exampleInTS"></app-code-highlighter>
+    <h4>TS and Html code for Angular example</h4>
+    <app-code-highlighter [codeTS]="exampleInTS" [codeHTML]="exampleInHTML"></app-code-highlighter>
   </div>
 </div>

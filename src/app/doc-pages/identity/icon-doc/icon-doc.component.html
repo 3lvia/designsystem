@@ -114,14 +114,10 @@
 
   <!--CODE-->
   <div *ngIf="selected == tabNames.Code">
-    <app-code-block [isHTML]="true" [code]="example" [title]="'Icon sizes'"></app-code-block>
-    <app-code-block [isHTML]="true" [code]="example2" [title]="'Color'"></app-code-block>
-    <app-code-block
-      [isHTML]="true"
-      [code]="example3"
-      [title]="'Inverted / Disabled + Disabled light'"
-    ></app-code-block>
-    <app-code-block [isHTML]="true" [code]="example4" [title]="'All shades'"></app-code-block>
+    <app-code-block [codeHTML]="example" [title]="'Icon sizes'"></app-code-block>
+    <app-code-block [codeHTML]="example2" [title]="'Color'"></app-code-block>
+    <app-code-block [codeHTML]="example3" [title]="'Inverted / Disabled + Disabled light'"></app-code-block>
+    <app-code-block [codeHTML]="example4" [title]="'All shades'"></app-code-block>
   </div>
 
   <!--GUIDELINES-->

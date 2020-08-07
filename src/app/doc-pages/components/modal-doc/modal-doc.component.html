@@ -24,24 +24,21 @@
 <!--BODY-->
 <div class="page-body">
   <app-code-block
-    [isHTML]="true"
-    [code]="example1"
+    [codeHTML]="example1"
     [title]="'Modal with actions'"
     [showIframeScreens]="true"
     [noTablet]="true"
     [overwriteHeight]="450"
   ></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="example2"
+    [codeHTML]="example2"
     [title]="'Modal with delete action'"
     [showIframeScreens]="true"
     [noTablet]="true"
     [overwriteHeight]="400"
   ></app-code-block>
   <app-code-block
-    [isHTML]="true"
-    [code]="example3"
+    [codeHTML]="example3"
     [title]="'Modal for info'"
     [showIframeScreens]="true"
     [noTablet]="true"
@@ -122,6 +119,6 @@
     </div>
   </div>
 
-  <h3 class="e-title-sm">Example of JavaScript code for opening and closing a modal</h3>
-  <app-code-highlighter [isTS]="'true'" [code]="modalLiveCode"></app-code-highlighter>
+  <h3 class="e-title-small">Example of JavaScript code for opening and closing a modal</h3>
+  <app-code-highlighter [isJS]="true" [codeTS]="modalLiveCode"></app-code-highlighter>
 </div>
