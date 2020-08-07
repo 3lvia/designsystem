@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
       return;
     }
     document.body.classList.add('e-no-outline');
-    document.documentElement.addEventListener('keyup', function (e) {
+    document.documentElement.addEventListener('keydown', function (e) {
       if (e.keyCode === 9) {
         document.body.classList.remove('e-no-outline');
       }
