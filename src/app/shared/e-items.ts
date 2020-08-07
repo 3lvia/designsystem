@@ -39,7 +39,7 @@ export const eHomes: EItems[] = [
 
 export const eGetStarted: EItems[] = [
   {
-    title: 'New project',
+    title: 'For developers',
     description: 'Guidance on how to use, and implementation of Elvia Designsystem.',
     docUrl: Pages.NewProject,
     status: ItemStatus.New,
