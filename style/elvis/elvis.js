@@ -26,32 +26,36 @@ document.addEventListener('DOMContentLoaded', function () {
   outlineFix();
 
   let mo = new MutationObserver(function (mutations) {
-    mutations.forEach(function (mutation) {
-      injectIconIfEligible(mutation.target, mutation);
-    });
+    for (let i = 0; i < mutations.length; i++) {
+      injectIconIfEligible(mutations[i].target, mutations[i]);
+    }
   });
 
   function injectIconIfEligible(node, mutation) {
 
-    if(mutation.addedNodes.length > 0) {      
-      mutation.addedNodes.forEach(function(addedNode){
-        if(addedNode.localName === 'i'){
+    if (mutation.addedNodes.length > 0) {
+      for (let i = 0; i < mutation.addedNodes.length; i++) {
+        let addedNode = mutation.addedNodes[i];
+        if (addedNode.localName === 'i') {
           injectIconInNode(addedNode);
         }
-        addedNode.querySelectorAll && addedNode.querySelectorAll('i').forEach(function (elem){
-          injectIconInNode(elem);
-        });
-      });
+        if (addedNode.querySelectorAll) {
+          let elements = addedNode.querySelectorAll('i');
+          for (let j = 0; j < elements.length; j++) {
+            injectIconInNode(elements[j]);
+          }
+        }
+      }
     }
-    
-    injectIconInNode(node);   
+
+    injectIconInNode(node);
   }
 
   // Check if node has a class with a matching icon name and inject if it has one
   function injectIconInNode(node) {
-    if(node && node.classList) {      
-      for(let i = 0; i < node.classList.length; i++) {
-        if(icons[node.classList[i]]) {
+    if (node && node.classList) {
+      for (let i = 0; i < node.classList.length; i++) {
+        if (icons[node.classList[i]]) {
           if (iconHasMutated(node)) {
             node.style.backgroundImage = 'url("' + getIcon(node.classList) + '")';
             node.setAttribute('e-id', getUniqueIdentifier(node.classList));
@@ -436,17 +440,19 @@ document.addEventListener('DOMContentLoaded', function () {
   function replaceIcons() {
     // Simple throttle without handling the trailing case
     let ms = new Date().getTime();
-    if(lastReplace > ms - throttleReplaceInterval) {
+    if (lastReplace > ms - throttleReplaceInterval) {
       return;
     }
-    
-    window.document.querySelectorAll('[class*="e-icon"]').forEach(function (element) {
+
+    let elements = window.document.querySelectorAll('[class*="e-icon"]');
+    for (let i = 0; i < elements.length; i++) {
+      let element = elements[i];
       // Uses e-id to avoid unnessesary changes to the DOM
-      if(iconHasMutated(element)) {
+      if (iconHasMutated(element)) {
         element.style.backgroundImage = 'url("' + getIcon(element.classList) + '")';
         element.setAttribute('e-id', getUniqueIdentifier(element.classList));
       }
-    });
+    }
     lastReplace = ms;
   }
 
