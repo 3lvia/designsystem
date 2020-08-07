@@ -12,12 +12,12 @@ export class HeaderDocComponent {
   internalHeader = false;
   figmaUrl = getComponent('header-doc').figmaUrl;
 
-  internalHeaderOpen = `<div class="e-header e-header---open">
+  internalHeaderOpen = `<div class="e-header e-header--open">
   <!--TOP MENU-->
   <div class="e-top-bar">
 
     <!--TOP MENU ~ MOBILE-->
-    <div class="e-top-bar-mobile e-top-bar-mobile__app---open e-top-bar-mobile__area---open">
+    <div class="e-top-bar-mobile e-top-bar-mobile__app--open e-top-bar-mobile__area--open">
 
       <!--APP-->
       <div class="e-top-bar-mobile__app">
@@ -63,7 +63,7 @@ export class HeaderDocComponent {
     </div>
 
     <!--TOP MENU ~ DESKTOP-->
-    <div class="e-top-bar-desktop e-top-bar__app---open e-top-bar__area---open e-top-bar__user---open">
+    <div class="e-top-bar-desktop e-top-bar__app--open e-top-bar__area--open e-top-bar__user--open">
       <div class="e-grid">
         <div class="row no-gutters">
 
@@ -83,7 +83,7 @@ export class HeaderDocComponent {
                 </span>
               </a>
               <div class="e-top-bar__app-menu">
-                <div class="e-top-bar__app-menu-item e-top-bar__app-menu-item---active">
+                <div class="e-top-bar__app-menu-item e-top-bar__app-menu-item--active">
                   <div class="e-top-bar__app-circle">D</div>
                   <div class="e-top-bar__app-title">DROPS</div>
                 </div>
@@ -187,7 +187,7 @@ export class HeaderDocComponent {
       </span>
       <span class="e-sidebar__text">Målepunksøk</span>
     </div>
-    <div class="e-sidebar__item e-sidebar__item---active">
+    <div class="e-sidebar__item e-sidebar__item--active">
       <span class="e-sidebar__icon">
         <i class="e-icon e-icon--pin"></i>
         <i class="e-icon e-icon--pin-color"></i>
@@ -285,7 +285,7 @@ export class HeaderDocComponent {
                 </span>
               </a>
               <div class="e-top-bar__app-menu">
-                <div class="e-top-bar__app-menu-item e-top-bar__app-menu-item---active">
+                <div class="e-top-bar__app-menu-item e-top-bar__app-menu-item--active">
                   <div class="e-top-bar__app-circle">D</div>
                   <div class="e-top-bar__app-title">DROPS</div>
                 </div>
@@ -372,7 +372,7 @@ export class HeaderDocComponent {
   </div>
 
   <!--SIDE MENU-->
-  <div class="e-sidebar e-sidebar---open">
+  <div class="e-sidebar e-sidebar--open">
 
     <!--APPS-->
     <div class="e-sidebar__item">
@@ -389,7 +389,7 @@ export class HeaderDocComponent {
       </span>
       <span class="e-sidebar__text">Målepunksøk</span>
     </div>
-    <div class="e-sidebar__item e-sidebar__item---active">
+    <div class="e-sidebar__item e-sidebar__item--active">
       <span class="e-sidebar__icon">
         <i class="e-icon e-icon--pin"></i>
         <i class="e-icon e-icon--pin-color"></i>
