@@ -265,15 +265,15 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</th>
         <td class="e-table-mobile__cell">340 kr/mnd</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</th>
         <td class="e-table-mobile__cell">1065 kr/mnd</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</th>
         <td class="e-table-mobile__cell">900 kr/mnd</td>
       </tr>
     </tbody>
@@ -283,15 +283,15 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</th>
         <td class="e-table-mobile__cell">340 kr/mnd</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</th>
         <td class="e-table-mobile__cell">1065 kr/mnd</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</th>
         <td class="e-table-mobile__cell">900 kr/mnd</td>
       </tr>
     </tbody>
@@ -312,15 +312,15 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</th>
         <td class="e-table-mobile__cell">340 kr/mnd</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</th>
         <td class="e-table-mobile__cell">1065 kr/mnd</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</th>
         <td class="e-table-mobile__cell">900 kr/mnd</td>
       </tr>
     </tbody>
@@ -330,15 +330,15 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</th>
         <td class="e-table-mobile__cell">340 kr/mnd</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</th>
         <td class="e-table-mobile__cell">1065 kr/mnd</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</td>
+        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</th>
         <td class="e-table-mobile__cell">900 kr/mnd</td>
       </tr>
     </tbody>

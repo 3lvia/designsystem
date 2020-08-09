@@ -214,7 +214,11 @@ $table-border-radius: 8px;
     padding: $table-padding;
   }
 
-  td {
+  td:first-of-type {
+    text-align: left;
+  }
+  th + td:first-of-type,
+  td:not(:first-of-type) {
     text-align: right;
   }
 
