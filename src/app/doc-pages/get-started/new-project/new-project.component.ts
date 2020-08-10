@@ -42,7 +42,8 @@ cssVars({
   }
 
   createFullExample(): void {
-    this.fullExampleCode = `
+    if (this.linkTagCode !== '' && this.scriptTagCode !== '') {
+      this.fullExampleCode = `
 <!doctype html>
 <html lang="en">
 <head>
@@ -53,5 +54,6 @@ cssVars({
     ${this.scriptTagCode}
 </body>
 </html>`;
+    }
   }
 }
