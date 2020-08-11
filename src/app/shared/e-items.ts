@@ -55,7 +55,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.Accordion,
     absolutePath: '/components/' + Pages.Accordion,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/component-images/Alert.svg',
+    imageUrl: 'assets/website-icons/component-images/Accordion.svg',
     figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=71%3A1',
   },
   {
