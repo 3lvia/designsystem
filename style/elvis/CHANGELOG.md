@@ -1,3 +1,17 @@
+# Update [1.0.0]
+
+Some of the typography has new font-sizes and line-heights and a new smaller title has been added: e-title-xs.
+
+##### Breaking changes
+
+The changes will affect the appearance of the typography where it is used and may need to be updated. Some
+components we offer has also changed typography which means some minor visual differences to these components:
+
+- card
+- internal header
+- jumbo-link
+- modal
+
 # Update [0.11.0]
 
 ---visible classes for modal and popover components is removed. New utility classes for show and hide
@@ -6,7 +20,7 @@ elements.
 ##### Breaking changes
 
 If you are using the modal or popover components you now have to use the new utility classes for hiding and
-showing. Theses components are by deault now always visible, add the 'e-none' or 'e-invisble' utlity classes
+showing. Theses components are by default now always visible, add the 'e-none' or 'e-invisble' utlity classes
 to toggle the components.
 
 - e-component---visible -> e-none & e-invisible

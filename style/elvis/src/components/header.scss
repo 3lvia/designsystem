@@ -68,7 +68,7 @@ $sidebar-mobile-z-index: -2;
         margin-bottom: 8px;
         background: colors.color('grey-60');
         box-shadow: shadows.$e-shadow-8;
-        @include typography.typography('title-sm');
+        @include typography.typography('title-xs');
         color: colors.color('white');
         border: 2px solid colors.color('white');
       }

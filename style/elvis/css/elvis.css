@@ -168,7 +168,7 @@ body {
   overflow: hidden;
   font-family: Red Hat Text, sans-serif;
   font-size: 20px;
-  line-height: 38px;
+  line-height: 32px;
   font-weight: 400;
   color: #000;
 }
@@ -1004,8 +1004,8 @@ input:focus {
 
 .e-card__title {
   font-family: Red Hat Display, sans-serif;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 22px;
   font-weight: 700;
   color: #000;
   line-height: 24px;
@@ -1300,8 +1300,8 @@ input:focus {
   background: #7c7c7c;
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
   font-family: Red Hat Display, sans-serif;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 22px;
   font-weight: 700;
   color: #000;
   color: #fff;
@@ -2274,8 +2274,8 @@ input:focus {
 
 .e-link.e-link--jumbo {
   font-family: Red Hat Display, sans-serif;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 22px;
   font-weight: 700;
   color: #000;
   display: inline-flex;
@@ -3606,22 +3606,21 @@ input:focus {
 }
 .e-modal__content .e-modal__title {
   font-family: Red Hat Display, sans-serif;
-  font-size: 26px;
-  line-height: 31px;
+  font-size: 24px;
+  line-height: 29px;
   font-weight: 700;
   color: #000;
 }
 
 @media (max-width: 767px) {
   .e-modal__content .e-modal__title {
-    font-size: 24px;
-    line-height: 29px;
+    line-height: 24px;
   }
 }
 .e-modal__content .e-modal__text {
   font-family: Red Hat Text, sans-serif;
   font-size: 20px;
-  line-height: 38px;
+  line-height: 32px;
   font-weight: 400;
   color: #000;
   color: #515151;
@@ -10257,14 +10256,14 @@ THE SOFTWARE.
 
 @media (max-width: 767px) {
   .e-title-lg {
-    font-size: 28px;
+    font-size: 32px;
     line-height: 34px;
   }
 }
 .e-title-md {
   font-family: Red Hat Display, sans-serif;
-  font-size: 26px;
-  line-height: 31px;
+  font-size: 30px;
+  line-height: 36px;
   font-weight: 700;
   color: #000;
 }
@@ -10277,8 +10276,21 @@ THE SOFTWARE.
 }
 .e-title-sm {
   font-family: Red Hat Display, sans-serif;
-  font-size: 20px;
-  line-height: 24px;
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 700;
+  color: #000;
+}
+
+@media (max-width: 767px) {
+  .e-title-sm {
+    line-height: 24px;
+  }
+}
+.e-title-xs {
+  font-family: Red Hat Display, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
   font-weight: 700;
   color: #000;
 }
@@ -10286,15 +10298,15 @@ THE SOFTWARE.
 .e-text-lead {
   font-family: Red Hat Text, sans-serif;
   font-size: 24px;
-  line-height: 41px;
+  line-height: 39px;
   font-weight: 400;
   color: #000;
 }
 
 @media (max-width: 767px) {
   .e-text-lead {
-    font-size: 21px;
-    line-height: 34px;
+    font-size: 22px;
+    line-height: 36px;
   }
 }
 .e-text-quote {
@@ -10315,7 +10327,7 @@ THE SOFTWARE.
 .e-text-body {
   font-family: Red Hat Text, sans-serif;
   font-size: 20px;
-  line-height: 38px;
+  line-height: 32px;
   font-weight: 400;
   color: #000;
 }

@@ -183,6 +183,59 @@
               <div class="e-text-caps">
                 <ul class="e-list">
                   <p class="e-text-caps">Mobile Information</p>
+                  <li>Line-Height: {{ typographyClasses[2].properties[4].value }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <hr class="e-divider is-light" />
+        </div>
+      </div>
+
+      <!-- title-xs -->
+      <div class="container">
+        <div class="row">
+          <div class="example">
+            <div class="example-text e-mb-24">
+              <app-copy [message]="'e-title-xs'">
+                <ng-container ngProjectAs="copyContent">
+                  <div class="example-text e-title-xs">
+                    Title XSmall
+                  </div>
+                </ng-container>
+              </app-copy>
+            </div>
+            <div class="e-text-caps">
+              <ul class="e-list">
+                <p class="e-text-caps">Typography Information</p>
+                <li>Class: e-{{ typographyClasses[3].name }}</li>
+                <li>Font-Family: {{ typographyClasses[3].properties[0].value }}</li>
+                <li>Font-Size: {{ typographyClasses[3].properties[1].value }}</li>
+                <li>Font-Weight: {{ typographyClasses[3].properties[2].value }}</li>
+                <li>Line-Height: {{ typographyClasses[3].properties[3].value }}</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Mobile -->
+          <div class="example">
+            <div>
+              <div class="example-text">
+                <app-copy [message]="'e-title-xs'">
+                  <ng-container ngProjectAs="copyContent">
+                    <div class="mobileCopy">
+                      <app-iframe-preview [class]="'e-title-xs'" [code]="'Title XSmall'"></app-iframe-preview>
+                      <span class="copyMessage">
+                        Title XSmall
+                      </span>
+                    </div>
+                  </ng-container>
+                </app-copy>
+              </div>
+              <div class="e-text-caps">
+                <ul class="e-list">
+                  <p class="e-text-caps">Mobile Information</p>
                   <li>No changes</li>
                 </ul>
               </div>
@@ -210,11 +263,11 @@
             <div class="e-text-caps">
               <ul class="e-list">
                 <p class="e-text-caps">Typography Information</p>
-                <li>Class: e-{{ typographyClasses[3].name }}</li>
-                <li>Font-Family: {{ typographyClasses[3].properties[0].value }}</li>
-                <li>Font-Size: {{ typographyClasses[3].properties[1].value }}</li>
-                <li>Font-Weight: {{ typographyClasses[3].properties[3].value }}</li>
-                <li>Line-Height: {{ typographyClasses[3].properties[4].value }}</li>
+                <li>Class: e-{{ typographyClasses[4].name }}</li>
+                <li>Font-Family: {{ typographyClasses[4].properties[0].value }}</li>
+                <li>Font-Size: {{ typographyClasses[4].properties[1].value }}</li>
+                <li>Font-Weight: {{ typographyClasses[4].properties[3].value }}</li>
+                <li>Line-Height: {{ typographyClasses[4].properties[4].value }}</li>
               </ul>
             </div>
           </div>
@@ -236,8 +289,8 @@
               <div class="e-text-caps">
                 <ul class="e-list">
                   <p class="e-text-caps">Mobile Information</p>
-                  <li>Font-Size: {{ typographyClasses[3].properties[2].value }}</li>
-                  <li>Line-Height: {{ typographyClasses[3].properties[5].value }}</li>
+                  <li>Font-Size: {{ typographyClasses[4].properties[2].value }}</li>
+                  <li>Line-Height: {{ typographyClasses[4].properties[5].value }}</li>
                 </ul>
               </div>
             </div>
@@ -264,12 +317,12 @@
             <div class="e-text-caps">
               <ul class="e-list">
                 <p class="e-text-caps">Typography Information</p>
-                <li>Class: e-{{ typographyClasses[4].name }}</li>
-                <li>Font-Family: {{ typographyClasses[4].properties[0].value }}</li>
-                <li>Font-Size: {{ typographyClasses[4].properties[1].value }}</li>
-                <li>Font-Weight: {{ typographyClasses[4].properties[3].value }}</li>
-                <li>Line-Height: {{ typographyClasses[4].properties[4].value }}</li>
-                <li>Style: {{ typographyClasses[4].properties[6].value }}</li>
+                <li>Class: e-{{ typographyClasses[5].name }}</li>
+                <li>Font-Family: {{ typographyClasses[5].properties[0].value }}</li>
+                <li>Font-Size: {{ typographyClasses[5].properties[1].value }}</li>
+                <li>Font-Weight: {{ typographyClasses[5].properties[3].value }}</li>
+                <li>Line-Height: {{ typographyClasses[5].properties[4].value }}</li>
+                <li>Style: {{ typographyClasses[5].properties[6].value }}</li>
               </ul>
             </div>
           </div>
@@ -291,8 +344,8 @@
               <div class="e-text-caps">
                 <ul class="e-list">
                   <p class="e-text-caps">Mobile Information</p>
-                  <li>Font-Size: {{ typographyClasses[4].properties[2].value }}</li>
-                  <li>Line-Height: {{ typographyClasses[4].properties[5].value }}</li>
+                  <li>Font-Size: {{ typographyClasses[5].properties[2].value }}</li>
+                  <li>Line-Height: {{ typographyClasses[5].properties[5].value }}</li>
                 </ul>
               </div>
             </div>
@@ -319,11 +372,11 @@
             <div class="e-text-caps">
               <ul class="e-list">
                 <p class="e-text-caps">Typography Information</p>
-                <li>Class: e-{{ typographyClasses[5].name }}</li>
-                <li>Font-Family: {{ typographyClasses[5].properties[0].value }}</li>
-                <li>Font-Size: {{ typographyClasses[5].properties[1].value }}</li>
-                <li>Font-Weight: {{ typographyClasses[5].properties[3].value }}</li>
-                <li>Line-Height: {{ typographyClasses[5].properties[4].value }}</li>
+                <li>Class: e-{{ typographyClasses[6].name }}</li>
+                <li>Font-Family: {{ typographyClasses[6].properties[0].value }}</li>
+                <li>Font-Size: {{ typographyClasses[6].properties[1].value }}</li>
+                <li>Font-Weight: {{ typographyClasses[6].properties[3].value }}</li>
+                <li>Line-Height: {{ typographyClasses[6].properties[4].value }}</li>
               </ul>
             </div>
           </div>
@@ -345,8 +398,8 @@
               <div class="e-text-caps">
                 <ul class="e-list">
                   <p class="e-text-caps">Mobile Information</p>
-                  <li>Font-Size: {{ typographyClasses[5].properties[2].value }}</li>
-                  <li>Line-Height: {{ typographyClasses[5].properties[5].value }}</li>
+                  <li>Font-Size: {{ typographyClasses[6].properties[2].value }}</li>
+                  <li>Line-Height: {{ typographyClasses[6].properties[5].value }}</li>
                 </ul>
               </div>
             </div>
@@ -373,13 +426,13 @@
             <div class="e-text-caps">
               <ul class="e-list">
                 <p class="e-text-caps">Typography Information</p>
-                <li>Class: e-{{ typographyClasses[6].name }}</li>
-                <li>Font-Family: {{ typographyClasses[6].properties[0].value }}</li>
-                <li>Font-Size: {{ typographyClasses[6].properties[1].value }}</li>
-                <li>Font-Weight: {{ typographyClasses[6].properties[3].value }}</li>
-                <li>Line-Height: {{ typographyClasses[6].properties[5].value }}</li>
-                <li>Text-Align: {{ typographyClasses[6].properties[4].value }}</li>
-                <li>Style: {{ typographyClasses[6].properties[7].value }}</li>
+                <li>Class: e-{{ typographyClasses[7].name }}</li>
+                <li>Font-Family: {{ typographyClasses[7].properties[0].value }}</li>
+                <li>Font-Size: {{ typographyClasses[7].properties[1].value }}</li>
+                <li>Font-Weight: {{ typographyClasses[7].properties[3].value }}</li>
+                <li>Line-Height: {{ typographyClasses[7].properties[5].value }}</li>
+                <li>Text-Align: {{ typographyClasses[7].properties[4].value }}</li>
+                <li>Style: {{ typographyClasses[7].properties[7].value }}</li>
               </ul>
             </div>
           </div>
@@ -401,8 +454,8 @@
               <div class="e-text-caps">
                 <ul class="e-list">
                   <p class="e-text-caps">Mobile Information</p>
-                  <li>Font-Size: {{ typographyClasses[6].properties[2].value }}</li>
-                  <li>Line-Height: {{ typographyClasses[6].properties[6].value }}</li>
+                  <li>Font-Size: {{ typographyClasses[7].properties[2].value }}</li>
+                  <li>Line-Height: {{ typographyClasses[7].properties[6].value }}</li>
                 </ul>
               </div>
             </div>
@@ -429,11 +482,11 @@
             <div class="e-text-caps">
               <ul class="e-list">
                 <p class="e-text-caps">Typography Information</p>
-                <li>Class: e-{{ typographyClasses[7].name }}</li>
-                <li>Font-Family: {{ typographyClasses[7].properties[0].value }}</li>
-                <li>Font-Size: {{ typographyClasses[7].properties[1].value }}</li>
-                <li>Font-Weight: {{ typographyClasses[7].properties[2].value }}</li>
-                <li>Line-Height: {{ typographyClasses[7].properties[3].value }}</li>
+                <li>Class: e-{{ typographyClasses[8].name }}</li>
+                <li>Font-Family: {{ typographyClasses[8].properties[0].value }}</li>
+                <li>Font-Size: {{ typographyClasses[8].properties[1].value }}</li>
+                <li>Font-Weight: {{ typographyClasses[8].properties[2].value }}</li>
+                <li>Line-Height: {{ typographyClasses[8].properties[3].value }}</li>
               </ul>
             </div>
           </div>
@@ -485,12 +538,12 @@
             <div class="e-text-caps">
               <ul class="e-list">
                 <p class="e-text-caps">Typography Information</p>
-                <li>Class: e-{{ typographyClasses[8].name }}</li>
-                <li>Font-Family: {{ typographyClasses[8].properties[0].value }}</li>
-                <li>Font-Size: {{ typographyClasses[8].properties[1].value }}</li>
-                <li>Font-Weight: {{ typographyClasses[8].properties[2].value }}</li>
-                <li>Line-Height: {{ typographyClasses[8].properties[3].value }}</li>
-                <li>Letterspacing: {{ typographyClasses[8].properties[4].value }}</li>
+                <li>Class: e-{{ typographyClasses[9].name }}</li>
+                <li>Font-Family: {{ typographyClasses[9].properties[0].value }}</li>
+                <li>Font-Size: {{ typographyClasses[9].properties[1].value }}</li>
+                <li>Font-Weight: {{ typographyClasses[9].properties[2].value }}</li>
+                <li>Line-Height: {{ typographyClasses[9].properties[3].value }}</li>
+                <li>Letterspacing: {{ typographyClasses[9].properties[4].value }}</li>
               </ul>
             </div>
           </div>
@@ -539,11 +592,11 @@
             <div class="e-text-caps">
               <ul class="e-list">
                 <p class="e-text-caps">Typography Information</p>
-                <li>Class: e-{{ typographyClasses[9].name }}</li>
-                <li>Font-Family: {{ typographyClasses[9].properties[0].value }}</li>
-                <li>Font-Size: {{ typographyClasses[9].properties[1].value }}</li>
-                <li>Font-Weight: {{ typographyClasses[9].properties[2].value }}</li>
-                <li>Line-Height: {{ typographyClasses[9].properties[3].value }}</li>
+                <li>Class: e-{{ typographyClasses[10].name }}</li>
+                <li>Font-Family: {{ typographyClasses[10].properties[0].value }}</li>
+                <li>Font-Size: {{ typographyClasses[10].properties[1].value }}</li>
+                <li>Font-Weight: {{ typographyClasses[10].properties[2].value }}</li>
+                <li>Line-Height: {{ typographyClasses[10].properties[3].value }}</li>
               </ul>
             </div>
           </div>
@@ -592,11 +645,11 @@
             <div class="e-text-caps">
               <ul class="e-list">
                 <p class="e-text-caps">Typography Information</p>
-                <li>Class: e-{{ typographyClasses[10].name }}</li>
-                <li>Font-Family: {{ typographyClasses[10].properties[0].value }}</li>
-                <li>Font-Size: {{ typographyClasses[10].properties[1].value }}</li>
-                <li>Font-Weight: {{ typographyClasses[10].properties[2].value }}</li>
-                <li>Line-Height: {{ typographyClasses[10].properties[3].value }}</li>
+                <li>Class: e-{{ typographyClasses[11].name }}</li>
+                <li>Font-Family: {{ typographyClasses[11].properties[0].value }}</li>
+                <li>Font-Size: {{ typographyClasses[11].properties[1].value }}</li>
+                <li>Font-Weight: {{ typographyClasses[11].properties[2].value }}</li>
+                <li>Line-Height: {{ typographyClasses[11].properties[3].value }}</li>
               </ul>
             </div>
           </div>
@@ -645,11 +698,11 @@
             <div class="e-text-caps">
               <ul class="e-list">
                 <p class="e-text-caps">Typography Information</p>
-                <li>Class: e-{{ typographyClasses[11].name }}</li>
-                <li>Font-Family: {{ typographyClasses[11].properties[0].value }}</li>
-                <li>Font-Size: {{ typographyClasses[11].properties[1].value }}</li>
-                <li>Font-Weight: {{ typographyClasses[11].properties[2].value }}</li>
-                <li>Line-Height: {{ typographyClasses[11].properties[3].value }}</li>
+                <li>Class: e-{{ typographyClasses[12].name }}</li>
+                <li>Font-Family: {{ typographyClasses[12].properties[0].value }}</li>
+                <li>Font-Size: {{ typographyClasses[12].properties[1].value }}</li>
+                <li>Font-Weight: {{ typographyClasses[12].properties[2].value }}</li>
+                <li>Line-Height: {{ typographyClasses[12].properties[3].value }}</li>
               </ul>
             </div>
           </div>

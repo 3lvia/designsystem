@@ -33,7 +33,7 @@ $card-actions-button-spacing: 25px;
 
   &__title {
     // .e-title-sm is font-properties, defined in typography.
-    @include typography.typography('title-sm');
+    @include typography.typography('title-xs');
     line-height: 24px;
     margin-bottom: 16px;
 

@@ -55,7 +55,7 @@ $modal-mobile-padding: 32px;
     }
 
     .e-modal__title {
-      @include typography.typography('title-md');
+      @include typography.typography('title-sm');
     }
     .e-modal__text {
       @include typography.typography('text-body');
