@@ -38,11 +38,7 @@ $card-actions-button-spacing: 25px;
     margin-bottom: 16px;
 
     &.e-card__title--above {
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 24px;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
+      @include typography.typography('text-caps');
       position: absolute;
       transform: translateY(-100%);
       top: -8px;

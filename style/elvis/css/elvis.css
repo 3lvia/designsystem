@@ -1013,9 +1013,11 @@ input:focus {
 }
 
 .e-card__title.e-card__title--above {
-  font-weight: 500;
+  font-family: Red Hat Text, sans-serif;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 17px;
+  font-weight: 500;
+  color: #000;
   letter-spacing: 0.8px;
   text-transform: uppercase;
   position: absolute;
