@@ -12,6 +12,7 @@ export class VersionService {
   private latestVersion = new BehaviorSubject<string>(this.defaultVersion);
   private scriptFile = new BehaviorSubject<string>('');
   private styleFile = new BehaviorSubject<string>('');
+  private codePenTag = new BehaviorSubject<string>('');
 
   constructor(private http: HttpClient) { }
 
@@ -31,6 +32,10 @@ export class VersionService {
 
       this.scriptFile.next(this.createScriptTag(scriptFile));
       this.styleFile.next(this.createStyleTag(styleFile));
+      this.codePenTag.next(`
+${this.createScriptTag(scriptFile)}
+${this.createStyleTag(styleFile)}`);
+
       this.latestVersion.next(this.cdnVersion);
     }, () => {
 
@@ -53,6 +58,13 @@ export class VersionService {
     }
 
     return this.styleFile;
+  }
+
+  getCodePenTag(): BehaviorSubject<string> {
+    if (!this.cdnVersion) {
+      this.updateVersionFromCDN();
+    }
+    return this.codePenTag;
   }
 
   // Returns latest version accessible through CDN

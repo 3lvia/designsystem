@@ -1,5 +1,6 @@
 import { Component, Input, AfterViewInit, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { heightDown } from 'src/app/shared/animations';
+import { VersionService } from 'src/app/core/services/version.service';
 
 @Component({
   selector: 'app-code-block',
@@ -35,10 +36,12 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   displayCode = '';
   isInverted = false;
 
+  constructor(private versionService: VersionService) {
+  }
 
   ngOnInit(): void {
-    this.codepen = this.getCodePen();
     this.code = this.codeTS !== '' ? this.codeTS : (this.codeHTML !== '' ? this.codeHTML : this.codeCSS);
+    this.setCodePenValue();
     this.displayCode = this.code;
 
     if (!this.showIframeScreens) {
@@ -64,26 +67,25 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     }
   }
 
-  getCodePen(): string {
+  setCodePenValue() {
     this.title = this.title ? this.title : 'Example';
     let html;
-    if (this.codeInverted !== '' && this.isInverted) {
-      html = `${this.codeInverted}
-      <script src="https://unpkg.com/@elvia/elvis@latest/elvis.js"></script>
-      <link rel="stylesheet" type="text/css" href="https://unpkg.com/@elvia/elvis@latest/css/elvis.min.css" />
-      `;
-    } else {
-      html = `${this.code}
-  <script src="https://unpkg.com/@elvia/elvis@latest/elvis.js"></script>
-  <link rel="stylesheet" type="text/css" href="https://unpkg.com/@elvia/elvis@latest/css/elvis.min.css" />
-      `;
-    }
-    return JSON.stringify({ title: this.title, html });
+    this.versionService.getCodePenTag().subscribe(tag => {
+      if (this.codeInverted !== '' && this.isInverted) {
+        html = `${this.codeInverted}
+${tag}`;
+      } else {
+        html = `${this.code}
+${tag}`;
+      }
+      this.codepen = JSON.stringify({ title: this.title, html });
+    });
+
   }
 
   toggleInverted(): void {
     this.isInverted = !this.isInverted;
-    this.codepen = this.getCodePen();
+    this.setCodePenValue();
     if (this.displayCode === this.code) {
       if (this.defaultFrame) {
         this.defaultFrame.nativeElement.innerHTML = this.codeInverted;
