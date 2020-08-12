@@ -12,8 +12,8 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
     CodeBlockModule,
     ComponentHeaderModule,
     DoDontModule,
-    CopyModule
+    CopyModule,
   ],
-  declarations: [SpacingDocComponent]
+  declarations: [SpacingDocComponent],
 })
 export class SpacingDocModule { }

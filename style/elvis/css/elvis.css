@@ -10414,10 +10414,50 @@ THE SOFTWARE.
   display: none !important;
 }
 
+@media (min-width: 1440px) {
+  .e-none-xl {
+    display: none !important;
+  }
+}
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .e-none-lg {
+    display: none !important;
+  }
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+  .e-none-md {
+    display: none !important;
+  }
+}
+@media (max-width: 767px) {
+  .e-none-sm {
+    display: none !important;
+  }
+}
 .e-invisible {
   visibility: hidden !important;
 }
 
+@media (min-width: 1440px) {
+  .e-invisible-xl {
+    visibility: hidden !important;
+  }
+}
+@media (max-width: 1439px) and (min-width: 1024px) {
+  .e-invisible-lg {
+    visibility: hidden !important;
+  }
+}
+@media (max-width: 1023px) and (min-width: 768px) {
+  .e-invisible-md {
+    visibility: hidden !important;
+  }
+}
+@media (max-width: 767px) {
+  .e-invisible-sm {
+    visibility: hidden !important;
+  }
+}
 .e-uppercase {
   text-transform: uppercase !important;
 }
@@ -10428,4 +10468,20 @@ THE SOFTWARE.
 
 .e-capitalize {
   text-transform: capitalize !important;
+}
+
+.e-w-100 {
+  width: 100% !important;
+}
+
+.e-w-75 {
+  width: 75% !important;
+}
+
+.e-w-50 {
+  width: 50% !important;
+}
+
+.e-w-25 {
+  width: 25% !important;
 }

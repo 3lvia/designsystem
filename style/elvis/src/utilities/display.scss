@@ -1,4 +1,26 @@
+@use 'breakpoints.scss';
+
 .e-none {
   display: none !important;
 }
-// add breakpoints later
+
+.e-none-xl {
+  @media (min-width: breakpoints.$maxdesktop-min) {
+    display: none !important;
+  }
+}
+.e-none-lg {
+  @media (max-width: breakpoints.$mindesktop-max) and (min-width: breakpoints.$tablet-max + 1) {
+    display: none !important;
+  }
+}
+.e-none-md {
+  @media (max-width: breakpoints.$tablet-max) and (min-width: breakpoints.$mobile-max + 1) {
+    display: none !important;
+  }
+}
+.e-none-sm {
+  @media (max-width: breakpoints.$mobile-max) {
+    display: none !important;
+  }
+}

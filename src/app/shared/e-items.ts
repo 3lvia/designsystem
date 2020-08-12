@@ -372,7 +372,7 @@ export const eIdentity: EItems[] = [
     absolutePath: '/identity/' + Pages.Utilities,
     status: ItemStatus.Done,
     // Update Icons
-    imageUrl: 'assets/website-icons/identity-images/Typography.svg',
+    imageUrl: 'assets/website-icons/identity-images/Utilities.svg',
     // No figma page ready yet
     // figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
   },
