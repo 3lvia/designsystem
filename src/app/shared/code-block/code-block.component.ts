@@ -86,7 +86,7 @@ ${tag}`;
   toggleInverted(): void {
     this.isInverted = !this.isInverted;
     this.setCodePenValue();
-    if (this.displayCode === this.code) {
+    if (this.displayCode === this.code && this.isInverted) {
       if (this.defaultFrame) {
         this.defaultFrame.nativeElement.innerHTML = this.codeInverted;
       } else {
