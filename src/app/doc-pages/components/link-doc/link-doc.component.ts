@@ -8,8 +8,8 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class LinkDocComponent {
   figmaUrl = getComponent('link-doc').figmaUrl;
-  doExample = `<a class="e-link e-link--lg" href="https://www.elvia.no/">Se vårt strømsbruddskart</a>`;
-  dontExample = `<a class="e-link e-link--lg" href="https://www.elvia.no/">Klikk her</a>`;
+  doExample = `<a class="e-link e-link--lg" href="https://design.elvia.io">Se vårt strømsbruddskart</a>`;
+  dontExample = `<a class="e-link e-link--lg" href="https://design.elvia.io">Klikk her</a>`;
 
   doesExample6 = [
     'Use jumbo links for a group of links on the same level, to gather and provide an overview.',
@@ -33,25 +33,25 @@ export class LinkDocComponent {
 
   example1 = `<div>
   <h3 class="e-title-sm">Large</h3>
-  <a class="e-link e-link--lg" href="https://www.elvia.no/">Normal link</a>
+  <a class="e-link e-link--lg" href="https://design.elvia.io">Normal link</a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-sm">Medium (default)</h3>
-  <a class="e-link" href="https://www.elvia.no/">Normal link</a>
+  <a class="e-link" href="https://design.elvia.io">Normal link</a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-sm">Small</h3>
-  <a class="e-link e-link--sm" href="https://www.elvia.no/">Normal link</a>
+  <a class="e-link e-link--sm" href="https://design.elvia.io">Normal link</a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-sm">Multiline</h3>
   <div style="width:160px;">
-    <a class="e-link" href="https://www.elvia.no/">Normal link over multiple rows</a>
+    <a class="e-link" href="https://design.elvia.io">Normal link over multiple rows</a>
   </div>
 </div>
 `;
 
-  example2 = `<p style="font-size: 20px;">Lorem ipsum <a class="e-link e-link--inline" href="https://www.elvia.no/">dolor</a> sit amet.
+  example2 = `<p style="font-size: 20px;">Lorem ipsum <a class="e-link e-link--inline" href="https://design.elvia.io">dolor</a> sit amet.
   Soluta modi in rerum magnam blanditiis laboriosam architecto illum,
   nemo eaque voluptate consectetur nulla fugiat delectus vel quia tenetur eius pariatur magni!
 </p>
@@ -59,21 +59,21 @@ export class LinkDocComponent {
 
   example3 = `<div>
   <h3 class="e-title-sm">Large</h3>
-  <a class="e-link e-link--lg" href="https://www.elvia.no/">
+  <a class="e-link e-link--lg" href="https://design.elvia.io">
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
     <span class="e-link__title">Tilbake</span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-sm">Medium (default)</h3>
-  <a class="e-link" href="https://www.elvia.no/">
+  <a class="e-link" href="https://design.elvia.io">
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
     <span class="e-link__title">Tilbake</span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-sm">Small</h3>
-  <a class="e-link e-link--sm" href="https://www.elvia.no/">
+  <a class="e-link e-link--sm" href="https://design.elvia.io">
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
     <span class="e-link__title">Tilbake</span>
   </a>
@@ -112,28 +112,28 @@ export class LinkDocComponent {
 
   exampleNewTab = `<div>
   <h3 class="e-title-sm">Large</h3>
-  <a class="e-link e-link--new-tab e-link--lg" href="https://www.elvia.no/">
+  <a class="e-link e-link--new-tab e-link--lg" href="https://design.elvia.io">
     <span class="e-link__title">New tab</span>
     <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-sm">Medium (default)</h3>
-  <a class="e-link e-link--new-tab" href="https://www.elvia.no/">
+  <a class="e-link e-link--new-tab" href="https://design.elvia.io">
     <span class="e-link__title">New tab</span>
     <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
   </a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-sm">Small</h3>
-  <a class="e-link e-link--new-tab e-link--sm" href="https://www.elvia.no/">
+  <a class="e-link e-link--new-tab e-link--sm" href="https://design.elvia.io">
     <span class="e-link__title">New tab</span>
     <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
   </a>
 </div>
 <div class="e-mt-40" style="width:164px;">
   <h3 class="e-title-sm">Multiline</h3>
-  <a class="e-link e-link--new-tab" href="https://www.elvia.no/">
+  <a class="e-link e-link--new-tab" href="https://design.elvia.io">
     <span class="e-link__title">New-tab link over multiple rows</span>
     <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
   </a>
@@ -142,7 +142,7 @@ export class LinkDocComponent {
 
   example5 = `<div>
   <h3 class="e-title-sm">Large</h3>
-  <a class="e-link e-link--action e-link--lg" href="https://www.elvia.no/">
+  <a class="e-link e-link--action e-link--lg" href="https://design.elvia.io">
     <span class="e-link__title">Se hva du kan gjøre</span>
     <span class="e-link__icon">
       <i class="e-icon e-icon--arrow_circle-color"></i>
@@ -152,7 +152,7 @@ export class LinkDocComponent {
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-sm">Medium (default)</h3>
-  <a class="e-link e-link--action" href="https://www.elvia.no/">
+  <a class="e-link e-link--action" href="https://design.elvia.io">
     <span class="e-link__title">Se hva du kan gjøre</span>
     <span class="e-link__icon">
       <i class="e-icon e-icon--arrow_circle-color"></i>
@@ -162,7 +162,7 @@ export class LinkDocComponent {
 </div>
 <div class="e-mt-40" style="width:164px;">
   <h3 class="e-title-sm">Multiline</h3>
-  <a class="e-link e-link--action" href="https://www.elvia.no/">
+  <a class="e-link e-link--action" href="https://design.elvia.io">
     <span class="e-link__title">Action link over multiple rows</span>
     <span class="e-link__icon">
       <i class="e-icon e-icon--arrow_circle-color"></i>
@@ -174,7 +174,7 @@ export class LinkDocComponent {
 
   example6 = `<div>
   <h3 class="e-title-sm">With icon</h3>
-  <a class="e-link e-link--jumbo" href="https://www.elvia.no/">
+  <a class="e-link e-link--jumbo" href="https://design.elvia.io">
     <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
     <span class="e-link__title">Strømledning nær bakken</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>
@@ -182,7 +182,7 @@ export class LinkDocComponent {
 </div>
 <div>
   <h3 class="e-title-sm">Without icon</h3>
-  <a class="e-link e-link--jumbo" href="https://www.elvia.no/">
+  <a class="e-link e-link--jumbo" href="https://design.elvia.io">
     <span class="e-link__title">Strømledning nær bakken</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>
   </a>
@@ -195,7 +195,7 @@ export class LinkDocComponent {
     <div class="e-mr-16" style="width: 150px;">
       <a
         class="e-link e-link--card"
-        href="https://www.elvia.no/"
+        href="https://design.elvia.io"
       >
         <div class="e-link__content">
           <span class="e-link__icon">
@@ -209,7 +209,7 @@ export class LinkDocComponent {
     <div style="width: 200px;">
       <a
         class="e-link e-link--card"
-        href="https://www.elvia.no/"
+        href="https://design.elvia.io"
       >
         <div class="e-link__content">
           <span class="e-link__icon">
@@ -229,7 +229,7 @@ export class LinkDocComponent {
     <div class="e-mr-16" style="width: 150px;">
       <a
         class="e-link e-link--card e-link--shortcut"
-        href="https://www.elvia.no/"
+        href="https://design.elvia.io"
       >
         <div class="e-link__content">
           <span class="e-link__icon">
@@ -243,7 +243,7 @@ export class LinkDocComponent {
     <div style="width: 200px;">
       <a
         class="e-link e-link--card e-link--shortcut"
-        href="https://www.elvia.no/"
+        href="https://design.elvia.io"
       >
         <div class="e-link__content">
           <span class="e-link__icon">
@@ -261,19 +261,19 @@ export class LinkDocComponent {
 
   example7 = `<div class="e-mt-40">
   <h3 class="e-title-sm">Normal link</h3>
-  <a class="e-link e-link---hover e-m-8" href="https://www.elvia.no/">Hover</a>
-  <a class="e-link e-link---focus e-m-8" href="https://www.elvia.no/">Focus</a>
+  <a class="e-link e-link---hover e-m-8" href="https://design.elvia.io">Hover</a>
+  <a class="e-link e-link---focus e-m-8" href="https://design.elvia.io">Focus</a>
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-sm">Action link</h3>
-  <a class="e-link e-link--action e-link---hover e-m-8" href="https://www.elvia.no/">
+  <a class="e-link e-link--action e-link---hover e-m-8" href="https://design.elvia.io">
     <span class="e-link__title">Hover</span>
     <span class="e-link__icon">
       <i class="e-icon e-icon--arrow_circle-color"></i>
       <i class="e-icon e-icon--arrow_circle-filled-color"></i>
     </span>
   </a>
-  <a class="e-link e-link--action e-link---focus e-m-8" href="https://www.elvia.no/">
+  <a class="e-link e-link--action e-link---focus e-m-8" href="https://design.elvia.io">
     <span class="e-link__title">Focus</span>
     <span class="e-link__icon">
       <i class="e-icon e-icon--arrow_circle-color"></i>
@@ -283,12 +283,12 @@ export class LinkDocComponent {
 </div>
 <div class="e-mt-40">
   <h3 class="e-title-sm">Jumbo link</h3>
-  <a class="e-link e-link--jumbo e-link---hover e-m-8" href="https://www.elvia.no/">
+  <a class="e-link e-link--jumbo e-link---hover e-m-8" href="https://design.elvia.io">
     <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
     <span class="e-link__title">Hover</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>
   </a>
-  <a class="e-link e-link--jumbo e-link---focus e-m-8" href="https://www.elvia.no/">
+  <a class="e-link e-link--jumbo e-link---focus e-m-8" href="https://design.elvia.io">
     <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
     <span class="e-link__title">Focus</span>
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>

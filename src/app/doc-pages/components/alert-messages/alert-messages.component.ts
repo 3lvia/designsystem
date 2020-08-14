@@ -63,8 +63,8 @@ export class AlertMessagesComponent {
       Beskriv hva som gikk galt sammen med en eller flere links.
     </div>
     <div class="e-alert__links">
-      <a class="e-link" href="https://www.elvia.no/">Link 1</a>
-      <a class="e-link" href="https://www.elvia.no/">Link 2</a>
+      <a class="e-link" href="https://design.elvia.io">Link 1</a>
+      <a class="e-link" href="https://design.elvia.io">Link 2</a>
     </div>
   </div>
 </div>
