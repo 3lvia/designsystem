@@ -22,6 +22,7 @@ import { PaginationDocModule } from './pagination-doc/pagination-doc.module';
 import { HeaderDocModule } from './header-doc/header-doc.module';
 import { DropdownDocModule } from './dropdown-doc/dropdown-doc.module';
 import { AccordionDocModule } from './accordion-doc/accordion-doc.module';
+import { StepperDocModule } from './stepper-doc/stepper-doc.module';
 
 @NgModule({
     imports: [
@@ -42,11 +43,12 @@ import { AccordionDocModule } from './accordion-doc/accordion-doc.module';
         OverviewModule,
         ProgressbarDocModule,
         PositionPickerDocModule,
+        PopoverDocModule,
+        PaginationDocModule,
+        StepperDocModule,
         TableDocModule,
         TagsDocModule,
         TooltipDocModule,
-        PopoverDocModule,
-        PaginationDocModule,
         HeaderDocModule,
     ],
 })

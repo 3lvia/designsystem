@@ -60,6 +60,7 @@ import { DropdownDocComponent } from './doc-pages/components/dropdown-doc/dropdo
 import { SearchDocComponent } from './doc-pages/components/forms/search-doc/search-doc.component';
 import { AccordionDocComponent } from './doc-pages/components/accordion-doc/accordion-doc.component';
 import { UtilitiesDocComponent } from './doc-pages/identity/utilities-doc/utilities-doc.component';
+import { StepperDocComponent } from './doc-pages/components/stepper-doc/stepper-doc.component';
 
 const routes: Routes = [
   {
@@ -265,6 +266,10 @@ const routes: Routes = [
           {
             path: Pages.Select,
             component: SelectDocComponent,
+          },
+          {
+            path: Pages.Stepper,
+            component: StepperDocComponent,
           },
           {
             path: Pages.Table,

@@ -15,7 +15,7 @@ $autocomplete-padding-item-compact: 6px 16px;
   box-sizing: border-box;
 
   &:not(:last-child) {
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   &.e-form-field--compact {
@@ -128,7 +128,7 @@ $autocomplete-padding-item-compact: 6px 16px;
         margin-right: 8px;
       }
       .e-input--small {
-        width: 73px;
+        width: 80px;
       }
       .e-input--medium {
         width: 150px;

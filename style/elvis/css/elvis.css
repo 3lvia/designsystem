@@ -4000,6 +4000,257 @@ input:focus {
   left: calc((50%) - (25px / 2) + 2px);
 }
 
+.e-stepper {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.e-stepper__steps {
+  display: flex;
+  flex-direction: row;
+}
+
+.e-stepper__step {
+  display: flex;
+  flex-direction: row;
+}
+
+.e-stepper__step-number {
+  font-family: "Red Hat Display";
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+
+.e-stepper__step-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 4px;
+  width: 58px;
+  height: 2px;
+  background: #000;
+  border-radius: 50px;
+}
+
+.e-stepper__step-line:not(:first-of-type) {
+  display: none;
+}
+
+.e-stepper__step:first-of-type .e-stepper__step-line {
+  display: none;
+}
+
+.e-stepper__step-lines {
+  display: flex;
+  flex-direction: row;
+}
+
+.e-stepper__step-lines .e-stepper__step-line {
+  display: flex;
+  background: #bdbdbd;
+  width: 6px;
+  height: 2px;
+  margin: 15px 3px;
+}
+
+.e-stepper__step-lines .e-stepper__step-line:first-of-type {
+  margin-left: 6px;
+}
+
+.e-stepper__step-lines .e-stepper__step-line:last-of-type {
+  margin-right: 6px;
+}
+
+.e-stepper__title {
+  font-family: "Red Hat Display";
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+  display: flex;
+  justify-content: center;
+  margin: 32px 0;
+}
+
+.e-stepper__content .e-stepper__actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.e-stepper.e-stepper--vertical {
+  flex-direction: column;
+}
+
+.e-stepper.e-stepper--vertical .e-stepper__step {
+  flex-direction: column;
+}
+
+.e-stepper.e-stepper--vertical .e-stepper__step .e-stepper__step-line {
+  width: 2px;
+  height: 12px;
+  margin: 4px 15px;
+}
+
+.e-stepper.e-stepper--vertical .e-stepper__step .e-stepper__step-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.e-stepper.e-stepper--vertical .e-stepper__step .e-stepper__step-header .e-stepper__step-title {
+  display: flex;
+  font-family: "Red Hat Text";
+  font-size: 16px;
+  line-height: 28px;
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.e-stepper.e-stepper--vertical .e-stepper__step .e-stepper__content {
+  border-left: 2px solid #bdbdbd;
+  margin: 4px 15px;
+  padding: 28px 30px;
+}
+
+.e-stepper.e-stepper--vertical .e-stepper__step.e-stepper__step--active .e-stepper__step-title {
+  font-family: "Red Hat Display";
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.e-stepper.e-stepper--vertical .e-stepper__step:last-of-type .e-stepper__content {
+  border-color: transparent;
+}
+
+.e-stepper.e-stepper--vertical .e-stepper__step-lines {
+  display: flex;
+  flex-direction: column;
+}
+
+.e-stepper.e-stepper--vertical .e-stepper__step-lines .e-stepper__step-line {
+  display: flex;
+  background: #bdbdbd;
+  width: 2px;
+  height: 6px;
+  margin: 3px 15px;
+}
+
+.e-stepper.e-stepper--vertical .e-stepper__step-lines .e-stepper__step-line:first-of-type {
+  margin-top: 6px;
+}
+
+.e-stepper.e-stepper--vertical .e-stepper__step-lines .e-stepper__step-line:last-of-type {
+  margin-bottom: 6px;
+}
+
+.e-stepper.e-stepper--forced .e-stepper__step-number {
+  color: #bdbdbd;
+  border: 2px solid #bdbdbd;
+}
+
+.e-stepper.e-stepper--forced .e-stepper__step.e-stepper__step--active ~ .e-stepper__step .e-stepper__step-number, .e-stepper.e-stepper--forced .e-stepper__step.e-stepper__step--active-done ~ .e-stepper__step .e-stepper__step-number {
+  cursor: not-allowed;
+}
+
+.e-stepper.e-stepper--forced .e-stepper__step.e-stepper__step--active ~ .e-stepper__step .e-stepper__step-title, .e-stepper.e-stepper--forced .e-stepper__step.e-stepper__step--active-done ~ .e-stepper__step .e-stepper__step-title {
+  cursor: not-allowed;
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--active .e-stepper__step-number {
+  color: #000;
+  border-color: var(--e-green);
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--active ~ .e-stepper__step .e-stepper__step-line {
+  background: #bdbdbd;
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--active .e-stepper__step-title {
+  display: flex;
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--done .e-stepper__step-number {
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  color: transparent;
+  border-color: #000;
+  background: #000;
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--done .e-stepper__step-line {
+  background: #000;
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--active-done .e-stepper__step-number {
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  color: transparent;
+  background: #000;
+  border-color: var(--e-green);
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--active-done ~ .e-stepper__step .e-stepper__step-line {
+  background: #bdbdbd;
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--active-done .e-stepper__step-title {
+  display: flex;
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--error .e-stepper__step-number {
+  color: #000;
+  border-color: #ff0000;
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--done .e-stepper__step-number, .e-stepper .e-stepper__step.e-stepper__step--active-done .e-stepper__step-number {
+  position: relative;
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--done .e-stepper__step-number::before, .e-stepper .e-stepper__step.e-stepper__step--active-done .e-stepper__step-number::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  left: 2px;
+  height: 8px;
+  width: 2px;
+  background-color: #fff;
+  border-radius: 15px;
+  transform: translateX(10px) rotate(-43deg);
+  transform-origin: left bottom;
+}
+
+.e-stepper .e-stepper__step.e-stepper__step--done .e-stepper__step-number::after, .e-stepper .e-stepper__step.e-stepper__step--active-done .e-stepper__step-number::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 1px;
+  height: 15px;
+  width: 2px;
+  background-color: #fff;
+  border-radius: 15px;
+  transform: translateX(10px) rotate(43deg);
+  transform-origin: left bottom;
+}
+
 .e-table-mobile thead, .e-table thead {
   background: #262626;
   width: 100%;
@@ -5122,7 +5373,7 @@ input:focus {
 }
 
 .e-form-field:not(:last-child) {
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 
 .e-form-field.e-form-field--compact {
@@ -5254,7 +5505,7 @@ input:focus {
 }
 
 .e-form-field--combined .e-form-field__input .e-input--small {
-  width: 73px;
+  width: 80px;
 }
 
 .e-form-field--combined .e-form-field__input .e-input--medium {

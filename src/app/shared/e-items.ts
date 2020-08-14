@@ -265,6 +265,15 @@ export const eComponents: EItems[] = [
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1285%3A253',
   },
   {
+    title: 'Stepper',
+    description: 'Some useful component with amazing features',
+    docUrl: Pages.Stepper,
+    absolutePath: '/components/' + Pages.Stepper,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/component-images/Stepper.svg',
+    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=622%3A0',
+  },
+  {
     title: 'Table',
     description: 'Some useful component with amazing features',
     docUrl: Pages.Table,

@@ -489,6 +489,31 @@
 				"e-popover--center": {}
 			}
 		},
+		"e-stepper": {
+			"element": {
+				"e-stepper__steps": {},
+				"e-stepper__step": {
+					"modifier": {
+						"e-stepper__step--active": {},
+						"e-stepper__step--active-done": {},
+						"e-stepper__step--done": {},
+						"e-stepper__step--error": {}
+					}
+				},
+				"e-stepper__step-number": {},
+				"e-stepper__step-line": {},
+				"e-stepper__step-lines": {},
+				"e-stepper__title": {},
+				"e-stepper__content": {},
+				"e-stepper__actions": {},
+				"e-stepper__step-header": {},
+				"e-stepper__step-title": {}
+			},
+			"modifier": {
+				"e-stepper--vertical": {},
+				"e-stepper--forced": {}
+			}
+		},
 		"e-table-mobile": {
 			"modifier": {
 				"e-table-mobile--compact": {},
@@ -1119,6 +1144,23 @@
 		"e-popover--bottom--left": {},
 		"e-popover--bottom--right": {},
 		"e-popover--center": {},
+		"e-stepper": {},
+		"e-stepper__steps": {},
+		"e-stepper__step": {},
+		"e-stepper__step-number": {},
+		"e-stepper__step-line": {},
+		"e-stepper__step-lines": {},
+		"e-stepper__title": {},
+		"e-stepper__content": {},
+		"e-stepper__actions": {},
+		"e-stepper--vertical": {},
+		"e-stepper__step-header": {},
+		"e-stepper__step-title": {},
+		"e-stepper__step--active": {},
+		"e-stepper--forced": {},
+		"e-stepper__step--active-done": {},
+		"e-stepper__step--done": {},
+		"e-stepper__step--error": {},
 		"e-table-mobile": {},
 		"e-table": {},
 		"e-table__sort-header": {},

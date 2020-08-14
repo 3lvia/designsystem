@@ -54,7 +54,7 @@ export class InputDocComponent {
 </div>
 `;
 
-  example1 = `<div class="e-form-field">
+  example1 = `<div class="e-form-field e-mb-24">
   <label class="e-form-field__label" for="normal">Normal input field </label>
   <div class="e-input">
     <i class="e-icon e-icon--mail e-icon--xs"></i>
@@ -100,7 +100,7 @@ export class InputDocComponent {
 </div>
 `;
 
-  example4 = `<div class="e-form-field">
+  example4 = `<div class="e-form-field e-mb-24">
   <label class="e-form-field__label" for="password">Password input field</label>
   <div class="e-input">
     <i class="e-icon e-icon--lock e-icon--xs"></i>
@@ -133,13 +133,13 @@ export class InputDocComponent {
 `;
 
   example6 = `
-<div class="e-form-field">
+<div class="e-form-field e-mb-24">
   <label class="e-form-field__label" for="pseudo-focus">Focus</label>
   <div class="e-input e-input---focus">
     <input id="pseudo-focus" type="text" placeholder="Placeholder text">
   </div>
 </div>
-<div class="e-form-field">
+<div class="e-form-field e-mb-24">
   <label class="e-form-field__label" for="pseudo-invalid">Invalid</label>
   <div class="e-input e-input---invalid">
     <input id="pseudo-invalid" type="text" placeholder="Placeholder text">

@@ -1,0 +1,1001 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl" [does]="does" [donts]="donts">
+  <ng-container ngProjectAs="headerTitle">
+    Stepper
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    Steppers provide users with an overview of a process and helps them keep track of progress. The stepper
+    can be normal or forced. A normal stepper enables full navigation through the steps - typically useful in
+    long processes, while a forced stepper should be used if any step has to be completed before advancing to
+    the next - typically in short processes.
+    <div class="e-mt-16">
+      View live examples, at the bottom. Note that the examples do not currently offer JavaScript and the HTML
+      does not provide a complete stepper, so the logic needs to be implemented to get a working stepper.
+    </div>
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <div class="elvis-anchor">
+    <h2 class="elvis-anchor-title e-title-md">States</h2>
+    <div class="container">
+      <div class="state">
+        <div class="number-cont e-stepper">
+          <div class="e-stepper__step e-stepper__step--active">
+            <div class="e-stepper__step-header">
+              <div class="e-stepper__step-number">2</div>
+            </div>
+          </div>
+        </div>
+        <div class="e-text-description">
+          Active steps are steps the user is currently working on or completing.
+          <div><span class="code-text">e-stepper__step--active</span></div>
+        </div>
+      </div>
+
+      <div class="state">
+        <div class="number-cont e-stepper">
+          <div class="e-stepper__step e-stepper__step--done">
+            <div class="e-stepper__step-header">
+              <div class="e-stepper__step-number">2</div>
+            </div>
+          </div>
+        </div>
+        <div class="e-text-description">
+          Done steps are steps that the user has already completed.
+          <div><span class="code-text">e-stepper__step--done</span></div>
+        </div>
+      </div>
+
+      <div class="state">
+        <div class="number-cont e-stepper">
+          <div class="e-stepper__step e-stepper__step--active-done">
+            <div class="e-stepper__step-header">
+              <div class="e-stepper__step-number">2</div>
+            </div>
+          </div>
+        </div>
+        <div class="e-text-description">
+          Active-done steps are active steps that has been completed.
+          <div><span class="code-text">e-stepper__step--active-done</span></div>
+        </div>
+      </div>
+
+      <div class="state">
+        <div class="number-cont">
+          <div class="number error">2</div>
+        </div>
+        <div class="e-text-description">
+          Error steps are used to highlight a step if you have forgotten to fill out required fields. This
+          step should not be activated before you are at the final step and click the button to submit a form.
+          <div><span class="code-text">e-stepper__step--error</span></div>
+        </div>
+      </div>
+
+      <div class="state">
+        <div class="number-cont">
+          <div class="number disabled">2</div>
+        </div>
+        <div class="e-text-description">
+          Disabled steps are used in a forced stepper where the user has to complete previous steps to enable
+          this one.
+          <div><span class="code-text">e-stepper--forced</span></div>
+        </div>
+      </div>
+
+      <div class="state">
+        <div class="number-cont">
+          <span class="number collapsed">5</span>
+          <span class="e-stepper__step-lines">
+            <div class="e-stepper__step-line"></div>
+            <div class="e-stepper__step-line"></div>
+            <div class="e-stepper__step-line"></div>
+            <div class="e-stepper__step-line"></div>
+            <div class="e-stepper__step-line"></div>
+          </span>
+          <span class="number collapsed">7</span>
+        </div>
+        <div class="e-text-description">
+          Collapsed steps are used when you have more than 4 steps.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-code-block [codeHTML]="exampleShortHorizontalHTML" [title]="'Horizontal stepper'"></app-code-block>
+  <app-code-block
+    [codeHTML]="exampleForcedHorizontalHTML"
+    [title]="'Horizontal forced stepper'"
+  ></app-code-block>
+  <app-code-block
+    [codeHTML]="exampleHorizontalHTML"
+    [title]="'Horizontal long stepper'"
+    [description]="
+      'When there are more than 4 steps the stepper should collapse. 
+      Be cautious of adding more than 4 steps as a lot of steps can be overwhelming for the user.'
+    "
+  ></app-code-block>
+  <app-code-block [codeHTML]="exampleVerticalShortHTML" [title]="'Vertical stepper'"></app-code-block>
+  <app-code-block [codeHTML]="exampleVerticalForcedHTML" [title]="'Vertical forced stepper'"></app-code-block>
+  <app-code-block
+    [codeHTML]="exampleVerticalHTML"
+    [title]="'Vertical long stepper'"
+    [description]="
+      'When there are more than 4 steps the stepper should collapse. 
+      Be cautious of adding more than 4 steps as a lot of steps can be overwhelming for the user.'
+    "
+  ></app-code-block>
+
+  <!--SHORT HORIZONTAL STEPPER-->
+  <div class="elvis-anchor e-mt-72">
+    <h2 class="elvis-anchor-title e-title-md">Live example - Horizontal stepper</h2>
+    <div class="e-stepper e-stepper--horizontal">
+      <div class="e-stepper__steps">
+        <div
+          class="e-stepper__step"
+          *ngFor="let step of shortSteps"
+          (click)="chooseShortStep(step)"
+          [ngClass]="{
+            'e-stepper__step--done': step.status === 'done',
+            'e-stepper__step--active': step.status === 'active',
+            'e-stepper__step--error': step.status === 'error',
+            'e-stepper__step--active-done': step.status === 'activeDone'
+          }"
+        >
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">{{ step.number }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!--CONTENT-->
+      <div class="e-stepper__content">
+        <div class="e-stepper__title">{{ shortActiveTitle }}</div>
+        <form class="e-form-field" *ngIf="shortChosenNum == 1">
+          <label class="e-radio" for="option1">
+            <input type="radio" id="option1" name="example1" value="value1" checked />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">Visa</span>
+          </label>
+          <label class="e-radio e-mb-24" for="option2">
+            <input type="radio" id="option2" name="example1" value="value2" />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">PayPal</span>
+          </label>
+        </form>
+        <div class="e-form-field" *ngIf="shortChosenNum == 2">
+          <label class="e-form-field__label" for="more">Card number</label>
+          <div class="e-form-field__input e-mb-24">
+            <div class="e-input">
+              <input type="text" value="1234 1234 1234 1234" />
+            </div>
+          </div>
+          <div class="e-inlined-field e-mb-24">
+            <div class="e-form-field">
+              <label class="e-form-field__label" for="name">Cardholder name</label>
+              <div class="e-input">
+                <input id="name" type="text" value="Ola Nordmann" />
+              </div>
+            </div>
+            <div class="e-form-field e-form-field--medium">
+              <label class="e-form-field__label" for="city">Date</label>
+              <div class="e-input">
+                <input id="city" type="text" value="10/21" />
+              </div>
+            </div>
+            <div class="e-form-field e-form-field--medium e-mb-24">
+              <label class="e-form-field__label" for="city">CVV</label>
+              <div class="e-input e-input---invalid">
+                <input id="city" type="text" value="" />
+              </div>
+              <span class="e-form-field__error e-form-field__error--visible">
+                <span>
+                  <i class="e-icon e-icon--warning_circle e-icon--color-red e-icon--xs"></i>
+                </span>
+                <span>
+                  Invalid
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="e-form-field e-mb-24" *ngIf="shortChosenNum == 3">
+          <label class="e-form-field__label" for="normal">Email</label>
+          <div class="e-input">
+            <i class="e-icon e-icon--mail e-icon--xs"></i>
+            <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
+          </div>
+        </div>
+        <div class="e-form-field e-form-field--combined" *ngIf="shortChosenNum == 3">
+          <label class="e-form-field__label" for="phone">Phone</label>
+          <div class="e-form-field__input">
+            <div id="phone" class="e-input e-input--small">
+              <input type="text" value="+47" />
+            </div>
+            <div class="e-input e-mb-24">
+              <i class="e-icon e-icon--phone e-icon--xs"></i>
+              <input type="text" placeholder="48484848" />
+            </div>
+          </div>
+        </div>
+        <div class="e-form-field" *ngIf="shortChosenNum == 4">
+          <label class="e-form-field__label" for="more">More</label>
+          <div class="e-form-field__input">
+            <div class="e-input e-mb-24">
+              <input type="text" placeholder="More info here" />
+            </div>
+          </div>
+        </div>
+        <div class="e-stepper__actions">
+          <button class="e-btn e-btn--secondary" (click)="newShortStep(shortChosenNum - 1)">Back</button>
+          <button
+            class="e-btn e-btn--primary"
+            *ngIf="shortChosenNum != 4"
+            (click)="newShortStep(shortChosenNum + 1)"
+          >
+            Next
+          </button>
+          <button
+            class="e-btn e-btn--primary"
+            *ngIf="shortChosenNum == 4"
+            (click)="newShortStep(shortChosenNum + 1)"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--HORIZONTAL FORCED STEPPER-->
+  <div class="elvis-anchor e-mt-72">
+    <h2 class="e-title-md elvis-anchor-title">Live example - Horizontal forced stepper</h2>
+    <div class="e-stepper e-stepper--horizontal e-stepper--forced">
+      <div class="e-stepper__steps">
+        <div
+          class="e-stepper__step"
+          *ngFor="let step of forcedSteps"
+          (click)="chooseForcedStep(step)"
+          [ngClass]="{
+            'e-stepper__step--done': step.status === 'done',
+            'e-stepper__step--active': step.status === 'active',
+            'e-stepper__step--error': step.status === 'error',
+            'e-stepper__step--active-done': step.status === 'activeDone'
+          }"
+        >
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">{{ step.number }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!--CONTENT-->
+      <div class="e-stepper__content">
+        <div class="e-stepper__title">{{ forcedActiveTitle }}</div>
+        <form class="e-form-field" *ngIf="forcedChosenNum == 1">
+          <label class="e-radio" for="option1">
+            <input type="radio" id="option1" name="example1" value="value1" checked />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">Visa</span>
+          </label>
+          <label class="e-radio e-mb-24" for="option2">
+            <input type="radio" id="option2" name="example1" value="value2" />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">PayPal</span>
+          </label>
+        </form>
+        <div class="e-form-field" *ngIf="forcedChosenNum == 2">
+          <label class="e-form-field__label" for="more">Card number</label>
+          <div class="e-form-field__input e-mb-24">
+            <div class="e-input">
+              <input type="text" value="1234 1234 1234 1234" />
+            </div>
+          </div>
+          <div class="e-inlined-field e-mb-24">
+            <div class="e-form-field">
+              <label class="e-form-field__label" for="name">Cardholder name</label>
+              <div class="e-input">
+                <input id="name" type="text" value="Ola Nordmann" />
+              </div>
+            </div>
+            <div class="e-form-field e-form-field--medium">
+              <label class="e-form-field__label" for="city">Date</label>
+              <div class="e-input">
+                <input id="city" type="text" value="10/21" />
+              </div>
+            </div>
+            <div class="e-form-field e-form-field--medium e-mb-24">
+              <label class="e-form-field__label" for="city">CVV</label>
+              <div class="e-input">
+                <input id="city" type="text" value="123" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="e-form-field e-mb-24" *ngIf="forcedChosenNum == 3">
+          <label class="e-form-field__label" for="normal">Email</label>
+          <div class="e-input">
+            <i class="e-icon e-icon--mail e-icon--xs"></i>
+            <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
+          </div>
+        </div>
+        <div class="e-form-field e-form-field--combined" *ngIf="forcedChosenNum == 3">
+          <label class="e-form-field__label" for="phone">Phone</label>
+          <div class="e-form-field__input">
+            <div id="phone" class="e-input e-input--small">
+              <input type="text" value="+47" />
+            </div>
+            <div class="e-input e-mb-24">
+              <i class="e-icon e-icon--phone e-icon--xs"></i>
+              <input type="text" placeholder="48484848" />
+            </div>
+          </div>
+        </div>
+        <div class="e-form-field" *ngIf="forcedChosenNum == 4">
+          <label class="e-form-field__label" for="more">More</label>
+          <div class="e-form-field__input">
+            <div class="e-input e-mb-24">
+              <input type="text" placeholder="More info here" />
+            </div>
+          </div>
+        </div>
+        <div class="e-stepper__actions">
+          <button class="e-btn e-btn--secondary" (click)="newForcedStep(forcedChosenNum - 1)">Back</button>
+          <button
+            class="e-btn e-btn--primary"
+            *ngIf="forcedChosenNum != 4"
+            (click)="newForcedStep(forcedChosenNum + 1)"
+          >
+            Next
+          </button>
+          <button
+            class="e-btn e-btn--primary"
+            *ngIf="forcedChosenNum == 4"
+            (click)="newForcedStep(forcedChosenNum + 1)"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--LONG HORIZONTAL STEPPER-->
+  <div class="elvis-anchor e-mt-72">
+    <h2 class="e-title-md elvis-anchor-title">Live example - Long Horizontal stepper</h2>
+    <div class="e-stepper e-stepper--horizontal">
+      <div class="e-stepper__steps">
+        <div
+          class="e-stepper__step"
+          *ngFor="let step of firstSteps"
+          (click)="chooseStep(step)"
+          [ngClass]="{
+            'e-stepper__step--done': step.status === 'done',
+            'e-stepper__step--active': step.status === 'active',
+            'e-stepper__step--error': step.status === 'error',
+            'e-stepper__step--active-done': step.status === 'activeDone'
+          }"
+        >
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">{{ step.number }}</div>
+          </div>
+        </div>
+
+        <!--DASHED LINES-->
+        <div class="e-stepper__step-lines">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+        </div>
+
+        <div
+          class="e-stepper__step"
+          *ngFor="let step of centerSteps"
+          (click)="chooseStep(step)"
+          [ngClass]="{
+            'e-stepper__step--done': step.status === 'done',
+            'e-stepper__step--active': step.status === 'active',
+            'e-stepper__step--error': step.status === 'error',
+            'e-stepper__step--active-done': step.status === 'activeDone'
+          }"
+        >
+          <div class="e-stepper__step-line" *ngIf="step.number > chosenNum - 1"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">{{ step.number }}</div>
+          </div>
+        </div>
+
+        <!--DASHED LINES-->
+        <div class="e-stepper__step-lines" *ngIf="linesBottom()">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-line"></div>
+        </div>
+
+        <div
+          class="e-stepper__step"
+          *ngFor="let step of lastSteps"
+          (click)="chooseStep(step)"
+          [ngClass]="{
+            'e-stepper__step--done': step.status === 'done',
+            'e-stepper__step--active': step.status === 'active',
+            'e-stepper__step--error': step.status === 'error',
+            'e-stepper__step--active-done': step.status === 'activeDone'
+          }"
+        >
+          <div class="e-stepper__step-line" *ngIf="lastLine(step)"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">{{ step.number }}</div>
+          </div>
+        </div>
+      </div>
+
+      <!--CONTENT-->
+      <div class="e-stepper__content special-stepper">
+        <div class="e-stepper__title">{{ activeTitle }}</div>
+        <form class="e-form-field" *ngIf="chosenNum == 1">
+          <label class="e-radio" for="option1">
+            <input type="radio" id="option1" name="example1" value="value1" checked />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">Visa</span>
+          </label>
+          <label class="e-radio e-mb-24" for="option2">
+            <input type="radio" id="option2" name="example1" value="value2" />
+            <span class="e-radio__mark"></span>
+            <span class="e-radio__label">PayPal</span>
+          </label>
+        </form>
+        <div class="e-form-field" *ngIf="chosenNum == 2">
+          <label class="e-form-field__label" for="more">Card number</label>
+          <div class="e-form-field__input e-mb-24">
+            <div class="e-input">
+              <input type="text" value="1234 1234 1234 1234" />
+            </div>
+          </div>
+          <div class="e-inlined-field e-mb-24">
+            <div class="e-form-field">
+              <label class="e-form-field__label" for="name">Cardholder name</label>
+              <div class="e-input">
+                <input id="name" type="text" value="Ola Nordmann" />
+              </div>
+            </div>
+            <div class="e-form-field e-form-field--medium">
+              <label class="e-form-field__label" for="city">Date</label>
+              <div class="e-input">
+                <input id="city" type="text" value="10/21" />
+              </div>
+            </div>
+            <div class="e-form-field e-form-field--medium e-mb-24">
+              <label class="e-form-field__label" for="city">CVV</label>
+              <div class="e-input e-input---invalid">
+                <input id="city" type="text" value="" />
+              </div>
+              <span class="e-form-field__error e-form-field__error--visible">
+                <span>
+                  <i class="e-icon e-icon--warning_circle e-icon--color-red e-icon--xs"></i>
+                </span>
+                <span>
+                  Invalid
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="e-form-field e-mb-24" *ngIf="chosenNum == 3">
+          <label class="e-form-field__label" for="normal">Email</label>
+          <div class="e-input">
+            <i class="e-icon e-icon--mail e-icon--xs"></i>
+            <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
+          </div>
+        </div>
+        <div class="e-form-field e-form-field--combined" *ngIf="chosenNum == 3">
+          <label class="e-form-field__label" for="phone">Phone</label>
+          <div class="e-form-field__input">
+            <div id="phone" class="e-input e-input--small">
+              <input type="text" value="+47" />
+            </div>
+            <div class="e-input e-mb-24">
+              <i class="e-icon e-icon--phone e-icon--xs"></i>
+              <input type="text" placeholder="48484848" />
+            </div>
+          </div>
+        </div>
+        <div class="e-form-field" *ngIf="chosenNum == 4">
+          <label class="e-form-field__label" for="more">More</label>
+          <div class="e-form-field__input">
+            <div class="e-input e-mb-24">
+              <input type="text" placeholder="More info here" />
+            </div>
+          </div>
+        </div>
+        <div class="e-form-field" *ngIf="chosenNum == 5">
+          <label class="e-form-field__label" for="more">More</label>
+          <div class="e-form-field__input">
+            <div class="e-input e-mb-24">
+              <input type="text" placeholder="More info here" />
+            </div>
+          </div>
+        </div>
+        <div class="e-form-field" *ngIf="chosenNum == 6">
+          <label class="e-form-field__label" for="more">More</label>
+          <div class="e-form-field__input">
+            <div class="e-input e-mb-24">
+              <input type="text" placeholder="More info here" />
+            </div>
+          </div>
+        </div>
+        <div class="e-form-field" *ngIf="chosenNum == 7">
+          <label class="e-form-field__label" for="more">More</label>
+          <div class="e-form-field__input">
+            <div class="e-input e-mb-24">
+              <input type="text" placeholder="More info here" />
+            </div>
+          </div>
+        </div>
+
+        <div class="e-stepper__actions">
+          <button class="e-btn e-btn--secondary" (click)="newStep(chosenNum - 1)">Back</button>
+          <button class="e-btn e-btn--primary" *ngIf="chosenNum != 7" (click)="newStep(chosenNum + 1)">
+            Next
+          </button>
+          <button class="e-btn e-btn--primary" *ngIf="chosenNum == 7" (click)="newStep(chosenNum + 1)">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--VERTICAL SHORT STEPPER-->
+  <div class="elvis-anchor e-mt-72">
+    <h2 class="elvis-anchor-title e-title-md">Live example - Vertical stepper</h2>
+    <div class="e-stepper e-stepper--vertical">
+      <div
+        class="e-stepper__step"
+        *ngFor="let step of shortSteps"
+        [ngClass]="{
+          'e-stepper__step--done': step.status === 'done',
+          'e-stepper__step--active': step.status === 'active',
+          'e-stepper__step--error': step.status === 'error',
+          'e-stepper__step--active-done': step.status === 'activeDone'
+        }"
+      >
+        <div class="e-stepper__step-line" *ngIf="shortChosenNum !== step.number - 1"></div>
+        <div class="e-stepper__step-header" (click)="chooseShortStep(step)">
+          <div class="e-stepper__step-number">{{ step.number }}</div>
+          <div class="e-stepper__step-title">{{ step.title }}</div>
+        </div>
+
+        <!--CONTENT-->
+        <div class="e-stepper__content" *ngIf="step.number == shortChosenNum">
+          <form class="e-form-field" *ngIf="step.number == 1">
+            <label class="e-radio" for="option1">
+              <input type="radio" id="option1" name="example1" value="value1" checked />
+              <span class="e-radio__mark"></span>
+              <span class="e-radio__label">Visa</span>
+            </label>
+            <label class="e-radio e-mb-24" for="option2">
+              <input type="radio" id="option2" name="example1" value="value2" />
+              <span class="e-radio__mark"></span>
+              <span class="e-radio__label">PayPal</span>
+            </label>
+          </form>
+          <div class="e-form-field" *ngIf="step.number == 2">
+            <label class="e-form-field__label" for="more">Card number</label>
+            <div class="e-form-field__input e-mb-24">
+              <div class="e-input">
+                <input type="text" value="1234 1234 1234 1234" />
+              </div>
+            </div>
+            <div class="e-inlined-field e-mb-24">
+              <div class="e-form-field">
+                <label class="e-form-field__label" for="name">Cardholder name</label>
+                <div class="e-input">
+                  <input id="name" type="text" value="Ola Nordmann" />
+                </div>
+              </div>
+              <div class="e-form-field e-form-field--medium">
+                <label class="e-form-field__label" for="city">Date</label>
+                <div class="e-input">
+                  <input id="city" type="text" value="10/21" />
+                </div>
+              </div>
+              <div class="e-form-field e-form-field--medium e-mb-24">
+                <label class="e-form-field__label" for="city">CVV</label>
+                <div class="e-input e-input---invalid">
+                  <input id="city" type="text" value="" />
+                </div>
+                <span class="e-form-field__error e-form-field__error--visible">
+                  <span>
+                    <i class="e-icon e-icon--warning_circle e-icon--color-red e-icon--xs"></i>
+                  </span>
+                  <span>
+                    Invalid
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="e-form-field e-mb-24" *ngIf="step.number == 3">
+            <label class="e-form-field__label" for="normal">Email</label>
+            <div class="e-input">
+              <i class="e-icon e-icon--mail e-icon--xs"></i>
+              <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
+            </div>
+          </div>
+          <div class="e-form-field e-form-field--combined" *ngIf="step.number == 3">
+            <label class="e-form-field__label" for="phone">Phone</label>
+            <div class="e-form-field__input">
+              <div id="phone" class="e-input e-input--small">
+                <input type="text" value="+47" />
+              </div>
+              <div class="e-input e-mb-24">
+                <i class="e-icon e-icon--phone e-icon--xs"></i>
+                <input type="text" placeholder="48484848" />
+              </div>
+            </div>
+          </div>
+          <div class="e-form-field" *ngIf="step.number == 4">
+            <label class="e-form-field__label" for="more">More</label>
+            <div class="e-form-field__input">
+              <div class="e-input e-mb-24">
+                <input type="text" placeholder="More info here" />
+              </div>
+            </div>
+          </div>
+          <div class="e-stepper__actions">
+            <button class="e-btn e-btn--secondary" (click)="newShortStep(shortChosenNum - 1)">Back</button>
+            <button
+              class="e-btn e-btn--primary"
+              *ngIf="shortChosenNum != 4"
+              (click)="newShortStep(shortChosenNum + 1)"
+            >
+              Next
+            </button>
+            <button
+              class="e-btn e-btn--primary"
+              *ngIf="shortChosenNum == 4"
+              (click)="newShortStep(shortChosenNum + 1)"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--VERTICAL FORCED STEPPER-->
+  <div class="elvis-anchor e-mt-72">
+    <h2 class="elvis-anchor-title e-title-md">Live example - Vertical forced stepper</h2>
+    <div class="e-stepper e-stepper--vertical e-stepper--forced">
+      <div
+        class="e-stepper__step"
+        *ngFor="let step of forcedSteps"
+        [ngClass]="{
+          'e-stepper__step--done': step.status === 'done',
+          'e-stepper__step--active': step.status === 'active',
+          'e-stepper__step--error': step.status === 'error',
+          'e-stepper__step--active-done': step.status === 'activeDone'
+        }"
+      >
+        <div class="e-stepper__step-line" *ngIf="forcedChosenNum !== step.number - 1"></div>
+        <div class="e-stepper__step-header" (click)="chooseForcedStep(step)">
+          <div class="e-stepper__step-number">{{ step.number }}</div>
+          <div class="e-stepper__step-title">{{ step.title }}</div>
+        </div>
+
+        <!--CONTENT-->
+        <div class="e-stepper__content" *ngIf="step.number == forcedChosenNum">
+          <form class="e-form-field" *ngIf="step.number == 1">
+            <label class="e-radio" for="option1">
+              <input type="radio" id="option1" name="example1" value="value1" checked />
+              <span class="e-radio__mark"></span>
+              <span class="e-radio__label">Visa</span>
+            </label>
+            <label class="e-radio e-mb-24" for="option2">
+              <input type="radio" id="option2" name="example1" value="value2" />
+              <span class="e-radio__mark"></span>
+              <span class="e-radio__label">PayPal</span>
+            </label>
+          </form>
+          <div class="e-form-field" *ngIf="step.number == 2">
+            <label class="e-form-field__label" for="more">Card number</label>
+            <div class="e-form-field__input e-mb-24">
+              <div class="e-input">
+                <input type="text" value="1234 1234 1234 1234" />
+              </div>
+            </div>
+            <div class="e-inlined-field e-mb-24">
+              <div class="e-form-field">
+                <label class="e-form-field__label" for="name">Cardholder name</label>
+                <div class="e-input">
+                  <input id="name" type="text" value="Ola Nordmann" />
+                </div>
+              </div>
+              <div class="e-form-field e-form-field--medium">
+                <label class="e-form-field__label" for="city">Date</label>
+                <div class="e-input">
+                  <input id="city" type="text" value="10/21" />
+                </div>
+              </div>
+              <div class="e-form-field e-form-field--medium e-mb-24">
+                <label class="e-form-field__label" for="city">CVV</label>
+                <div class="e-input">
+                  <input id="city" type="text" value="123" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="e-form-field e-mb-24" *ngIf="step.number == 3">
+            <label class="e-form-field__label" for="normal">Email</label>
+            <div class="e-input">
+              <i class="e-icon e-icon--mail e-icon--xs"></i>
+              <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
+            </div>
+          </div>
+          <div class="e-form-field e-form-field--combined" *ngIf="step.number == 3">
+            <label class="e-form-field__label" for="phone">Phone</label>
+            <div class="e-form-field__input">
+              <div id="phone" class="e-input e-input--small">
+                <input type="text" value="+47" />
+              </div>
+              <div class="e-input e-mb-24">
+                <i class="e-icon e-icon--phone e-icon--xs"></i>
+                <input type="text" placeholder="48484848" />
+              </div>
+            </div>
+          </div>
+          <div class="e-form-field" *ngIf="step.number == 4">
+            <label class="e-form-field__label" for="more">More</label>
+            <div class="e-form-field__input">
+              <div class="e-input e-mb-24">
+                <input type="text" placeholder="More info here" />
+              </div>
+            </div>
+          </div>
+          <div class="e-stepper__actions">
+            <button class="e-btn e-btn--secondary" (click)="newForcedStep(forcedChosenNum - 1)">Back</button>
+            <button
+              class="e-btn e-btn--primary"
+              *ngIf="forcedChosenNum != 4"
+              (click)="newForcedStep(forcedChosenNum + 1)"
+            >
+              Next
+            </button>
+            <button
+              class="e-btn e-btn--primary"
+              *ngIf="forcedChosenNum == 4"
+              (click)="newForcedStep(forcedChosenNum + 1)"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--LONG VERTICAL STEPPER-->
+  <div class="elvis-anchor e-mt-72">
+    <h2 class="elvis-anchor-title e-title-md">Live example - Long Vertical stepper</h2>
+    <div class="e-stepper e-stepper--vertical">
+      <!--STEP FIRSTS-->
+      <div
+        class="e-stepper__step"
+        *ngFor="let step of firstSteps"
+        [ngClass]="{
+          'e-stepper__step--done': step.status === 'done',
+          'e-stepper__step--active': step.status === 'active',
+          'e-stepper__step--error': step.status === 'error',
+          'e-stepper__step--active-done': step.status === 'activeDone'
+        }"
+      >
+        <div class="e-stepper__step-line" *ngIf="chosenNum !== step.number - 1"></div>
+        <div class="e-stepper__step-header" (click)="chooseStep(step)">
+          <div class="e-stepper__step-number">{{ step.number }}</div>
+          <div class="e-stepper__step-title">{{ step.title }}</div>
+        </div>
+
+        <!--CONTENT-->
+        <div class="e-stepper__content" *ngIf="step.number == chosenNum">
+          <form class="e-form-field" *ngIf="step.number == 1">
+            <label class="e-radio" for="option1">
+              <input type="radio" id="option1" name="example1" value="value1" checked />
+              <span class="e-radio__mark"></span>
+              <span class="e-radio__label">Visa</span>
+            </label>
+            <label class="e-radio e-mb-24" for="option2">
+              <input type="radio" id="option2" name="example1" value="value2" />
+              <span class="e-radio__mark"></span>
+              <span class="e-radio__label">PayPal</span>
+            </label>
+          </form>
+          <div class="e-form-field" *ngIf="step.number == 2">
+            <label class="e-form-field__label" for="more">Card number</label>
+            <div class="e-form-field__input e-mb-24">
+              <div class="e-input">
+                <input type="text" value="1234 1234 1234 1234" />
+              </div>
+            </div>
+            <div class="e-inlined-field e-mb-24">
+              <div class="e-form-field">
+                <label class="e-form-field__label" for="name">Cardholder name</label>
+                <div class="e-input">
+                  <input id="name" type="text" value="Ola Nordmann" />
+                </div>
+              </div>
+              <div class="e-form-field e-form-field--medium">
+                <label class="e-form-field__label" for="city">Date</label>
+                <div class="e-input">
+                  <input id="city" type="text" value="10/21" />
+                </div>
+              </div>
+              <div class="e-form-field e-form-field--medium e-mb-24">
+                <label class="e-form-field__label" for="city">CVV</label>
+                <div class="e-input e-input---invalid">
+                  <input id="city" type="text" value="" />
+                </div>
+                <span class="e-form-field__error e-form-field__error--visible">
+                  <span>
+                    <i class="e-icon e-icon--warning_circle e-icon--color-red e-icon--xs"></i>
+                  </span>
+                  <span>
+                    Invalid
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="e-form-field e-mb-24" *ngIf="step.number == 3">
+            <label class="e-form-field__label" for="normal">Email</label>
+            <div class="e-input">
+              <i class="e-icon e-icon--mail e-icon--xs"></i>
+              <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
+            </div>
+          </div>
+          <div class="e-form-field e-form-field--combined" *ngIf="step.number == 3">
+            <label class="e-form-field__label" for="phone">Phone</label>
+            <div class="e-form-field__input">
+              <div id="phone" class="e-input e-input--small">
+                <input type="text" value="+47" />
+              </div>
+              <div class="e-input e-mb-24">
+                <i class="e-icon e-icon--phone e-icon--xs"></i>
+                <input type="text" placeholder="48484848" />
+              </div>
+            </div>
+          </div>
+          <div class="e-stepper__actions">
+            <button class="e-btn e-btn--secondary" (click)="newStep(chosenNum - 1)">Back</button>
+            <button class="e-btn e-btn--primary" *ngIf="chosenNum != 7" (click)="newStep(chosenNum + 1)">
+              Next
+            </button>
+            <button class="e-btn e-btn--primary" *ngIf="chosenNum == 7" (click)="newStep(chosenNum + 1)">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!--DASHED LINES-->
+      <div class="e-stepper__step-lines">
+        <div class="e-stepper__step-line"></div>
+        <div class="e-stepper__step-line"></div>
+        <div class="e-stepper__step-line"></div>
+      </div>
+
+      <!--STEP CENTER-->
+      <div
+        class="e-stepper__step"
+        *ngFor="let step of centerSteps"
+        [ngClass]="{
+          'e-stepper__step--done': step.status === 'done',
+          'e-stepper__step--active': step.status === 'active',
+          'e-stepper__step--error': step.status === 'error',
+          'e-stepper__step--active-done': step.status === 'activeDone'
+        }"
+      >
+        <div
+          class="e-stepper__step-line"
+          *ngIf="chosenNum !== step.number - 1 && chosenNum !== step.number + 1"
+        ></div>
+        <div class="e-stepper__step-header" (click)="chooseStep(step)">
+          <div class="e-stepper__step-number">{{ step.number }}</div>
+          <div class="e-stepper__step-title">{{ step.title }}</div>
+        </div>
+
+        <!--CONTENT-->
+        <div class="e-stepper__content" *ngIf="step.number == chosenNum">
+          <div class="e-form-field" *ngIf="step.number == 4">
+            <label class="e-form-field__label" for="more">More</label>
+            <div class="e-form-field__input">
+              <div class="e-input e-mb-24">
+                <input type="text" placeholder="More info here" />
+              </div>
+            </div>
+          </div>
+          <div class="e-stepper__actions">
+            <button class="e-btn e-btn--secondary" (click)="newStep(chosenNum - 1)">Back</button>
+            <button class="e-btn e-btn--primary" *ngIf="chosenNum != 7" (click)="newStep(chosenNum + 1)">
+              Next
+            </button>
+            <button class="e-btn e-btn--primary" *ngIf="chosenNum == 7" (click)="newStep(chosenNum + 1)">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!--DASHED LINES-->
+      <div class="e-stepper__step-lines" *ngIf="linesBottom()">
+        <div class="e-stepper__step-line"></div>
+        <div class="e-stepper__step-line"></div>
+        <div class="e-stepper__step-line"></div>
+      </div>
+
+      <!--STEP LASTS-->
+      <div
+        class="e-stepper__step"
+        *ngFor="let step of lastSteps"
+        [ngClass]="{
+          'e-stepper__step--done': step.status === 'done',
+          'e-stepper__step--active': step.status === 'active',
+          'e-stepper__step--error': step.status === 'error',
+          'e-stepper__step--active-done': step.status === 'activeDone'
+        }"
+      >
+        <div class="e-stepper__step-line" *ngIf="lastLine(step) && chosenNum !== step.number - 1"></div>
+        <div class="e-stepper__step-header" (click)="chooseStep(step)">
+          <div class="e-stepper__step-number">{{ step.number }}</div>
+          <div class="e-stepper__step-title">{{ step.title }}</div>
+        </div>
+
+        <!--CONTENT-->
+        <div class="e-stepper__content" *ngIf="step.number == chosenNum">
+          <div class="e-form-field" *ngIf="step.number == 5">
+            <label class="e-form-field__label" for="more">More</label>
+            <div class="e-form-field__input">
+              <div class="e-input e-mb-24">
+                <input type="text" placeholder="More info here" />
+              </div>
+            </div>
+          </div>
+          <div class="e-form-field" *ngIf="step.number == 6">
+            <label class="e-form-field__label" for="more">More</label>
+            <div class="e-form-field__input">
+              <div class="e-input e-mb-24">
+                <input type="text" placeholder="More info here" />
+              </div>
+            </div>
+          </div>
+          <div class="e-form-field" *ngIf="step.number == 7">
+            <label class="e-form-field__label" for="more">More</label>
+            <div class="e-form-field__input">
+              <div class="e-input e-mb-24">
+                <input type="text" placeholder="More info here" />
+              </div>
+            </div>
+          </div>
+          <div class="e-stepper__actions">
+            <button class="e-btn e-btn--secondary" (click)="newStep(chosenNum - 1)">Back</button>
+            <button class="e-btn e-btn--primary" *ngIf="chosenNum != 7" (click)="newStep(chosenNum + 1)">
+              Next
+            </button>
+            <button class="e-btn e-btn--primary" *ngIf="chosenNum == 7" (click)="newStep(chosenNum + 1)">
+              Submit
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

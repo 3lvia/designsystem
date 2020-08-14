@@ -53,6 +53,7 @@ export enum Pages {
   SegmentedControl = 'segmented-control-doc',
   Search = 'search-doc',
   Select = 'select-doc',
+  Stepper = 'stepper-doc',
   Table = 'table-doc',
   Tags = 'tags-doc',
   Tooltip = 'tooltip-doc',
