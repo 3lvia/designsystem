@@ -3616,6 +3616,7 @@ input:focus {
 
 @media (max-width: 767px) {
   .e-modal__content .e-modal__title {
+    font-size: 20px;
     line-height: 24px;
   }
 }
@@ -10537,6 +10538,7 @@ THE SOFTWARE.
 
 @media (max-width: 767px) {
   .e-title-sm {
+    font-size: 20px;
     line-height: 24px;
   }
 }
