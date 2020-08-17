@@ -9,15 +9,85 @@
       from. Dropdown can be used to submit data, filter, menu and so on. If you have too many options consider
       using autocomplete instead.
     </div>
+    <div class="e-mt-16">
+      This documentation shows how you should style your dropdown. We do not currently provide styling classes
+      for this, because we understand that it is desirable to use libraries with dropdowns that have all the
+      logic necessary, and works in an accessible way for all users. So in this documentation we have pictures
+      of the design that you should try applying to your dropdown.
+    </div>
+    <div class="e-mt-8">
+      Take a look in
+      <a class="e-link e-link--inline" href="{{ figmaUrl }}">figma</a>
+      to get the detailed view where you can inspect properties of the design.
+    </div>
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block [codeHTML]="example1" [title]="'Dropdown'" [description]="''"></app-code-block>
-  <app-code-block [codeHTML]="example2" [title]="'Compact Dropdown'" [description]="''"></app-code-block>
-
   <div class="elvis-anchor">
+    <h2 class="e-title-md elvis-anchor-title">Design dropdown</h2>
+    <div class="e-text-description">
+      To make the dropdown input field you might be able to use our
+      <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">
+        autocomplete classes
+      </a>
+      or
+      <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>
+      . These classes have the same styling as the dropdown input designed here. Make sure to asign the input
+      type to "button" to not let user type inside the input field
+    </div>
+    <div>
+      <div class="e-mt-16">
+        <b>Icons used:</b>
+      </div>
+      <ul class="e-list">
+        <li>
+          <span class="code-text">e-icon--arrow_up-bold</span>
+          <i class="e-icon e-icon--arrow_up-bold e-icon--xs e-ml-8"></i>
+        </li>
+        <li>
+          <span class="code-text">e-icon--arrow_down-bold</span>
+          <i class="e-icon e-icon--arrow_down-bold e-icon--xs e-ml-8"></i>
+        </li>
+      </ul>
+    </div>
+    <div class="e-mt-16">
+      <div class="e-mt-32 e-mb-32">
+        <a class="e-link" href="{{ figmaUrl }}">Figma sketches</a>
+      </div>
+      <h3>
+        Normal dropdown input fields
+      </h3>
+      <div class="image-container">
+        <img class="e-m-16 image-size" src="assets/dropdown/dropdown-inputs.png" />
+      </div>
+      <h3>
+        Opened with dropdown content
+      </h3>
+      <div class="image-container">
+        <img class="e-m-16 image-size" src="assets/dropdown/dropdown-content.png" />
+      </div>
+
+      <h3>
+        Compact dropdown input fields
+      </h3>
+      <div class="image-container">
+        <img class="e-m-16 image-size-compact" src="assets/dropdown/compact/dropdown-compact-inputs.png" />
+      </div>
+      <h3>
+        Opened compact dropdown with content
+      </h3>
+      <div class="image-container">
+        <img class="e-m-16 image-size" src="assets/dropdown/compact/dropdown-compact-content.png" />
+      </div>
+    </div>
+  </div>
+
+  <!-- Old solution -->
+  <!-- <app-code-block [codeHTML]="example1" [title]="'Dropdown'" [description]="''"></app-code-block>
+  <app-code-block [codeHTML]="example2" [title]="'Compact Dropdown'" [description]="''"></app-code-block> -->
+  <!-- <div class="elvis-anchor">
     <h2 class="elvis-anchor-title">Live example</h2>
     <div class="e-form-field">
       <label class="e-form-field__label">Label</label>
@@ -41,5 +111,5 @@
 
     <h4>Ts and Html code for Angular example</h4>
     <app-code-highlighter [codeHTML]="exampleInHTML" [codeTS]="exampleInTS"></app-code-highlighter>
-  </div>
+  </div> -->
 </div>
