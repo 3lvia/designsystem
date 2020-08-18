@@ -5,6 +5,7 @@ import { ComponentHeaderModule } from 'src/app/shared/component-header/component
 import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
 import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -12,8 +13,9 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
     ComponentHeaderModule,
     DoDontModule,
     CodeBlockModule,
-    CopyModule
+    CopyModule,
+    RouterModule,
   ],
-  declarations: [ColorDocComponent]
+  declarations: [ColorDocComponent],
 })
 export class ColorDocModule { }

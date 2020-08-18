@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { getIdentity } from 'src/app/shared/e-items';
-import { TabNames } from 'src/app/shared/tab-names.enums';
 
 @Component({
   selector: 'app-grid-doc',
@@ -8,7 +7,6 @@ import { TabNames } from 'src/app/shared/tab-names.enums';
   styleUrls: ['./grid-doc.component.scss'],
 })
 export class GridDocComponent {
-  tabNames = TabNames;
   figmaUrl = getIdentity('grid-doc').figmaUrl;
 
   example9 = `<h3 class="e-title-sm">External example</h3>

@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { TabNames } from 'src/app/shared/tab-names.enums';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-accessibility-doc',
@@ -7,8 +6,4 @@ import { TabNames } from 'src/app/shared/tab-names.enums';
   styleUrls: ['./accessibility-doc.component.scss'],
 })
 export class AccessibilityDocComponent {
-  @Input() selected = TabNames.Overview;
-
-  tabNames = TabNames;
-  tabs = [TabNames.Overview, TabNames.Tips];
 }

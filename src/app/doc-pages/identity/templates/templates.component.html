@@ -1,37 +1,30 @@
 <!--HEADER-->
-<app-component-header
-  [tabs]="tabs"
-  [(selected)]="selected"
-  [does]="does"
-  [donts]="donts"
->
+<app-component-header [does]="does" [donts]="donts">
   <ng-container ngProjectAs="headerTitle">
     Templates
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    At the start of a new project we advice that you take a look at the existing
-    templates to get a good insight into how components are used, styled and toned.
+    At the start of a new project we advice that you take a look at the existing templates to get a good
+    insight into how components are used, styled and toned.
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
   <!--OVERVIEW-->
-  <div *ngIf="selected == tabNames.Overview">
+  <div>
     <h2 class="e-title-md">Why templates</h2>
     <div class="e-text-body">
-      At the start of a new project we advice that you take a look at the existing
-      templates. This will give you a good insight into how components are used,
-      styled and toned. Feel free to use an existing template as an origin to
-      quickly get started on development. This will contribute a consistent
-      experience for our users. Remember that components can be adapted to your
-      need, but this needs to be clarified with the designer in charge of the
-      Elvis design system.
+      At the start of a new project we advice that you take a look at the existing templates. This will give
+      you a good insight into how components are used, styled and toned. Feel free to use an existing template
+      as an origin to quickly get started on development. This will contribute a consistent experience for our
+      users. Remember that components can be adapted to your need, but this needs to be clarified with the
+      designer in charge of the Elvis design system.
     </div>
   </div>
   <!-- Toggle Desktop or Mobile display -->
-  <div *ngIf="selected != tabNames.Overview" class="template-choice-container">
-  <div class="template-radio-switch">
+  <div class="template-choice-container">
+    <div class="template-radio-switch">
       <input
         type="radio"
         id="desktop-display"
@@ -53,59 +46,41 @@
     </div>
   </div>
   <!--GUIDELINES-->
-  <div *ngIf="selected == tabNames.Article">
+  <div>
     <div *ngIf="isDesktop">
       <div class="template-img-container">
-        <img
-          src="../../../../assets/img/desktop-placeholder.png"
-          alt="Desktop Example"
-        />
+        <img src="../../../../assets/img/desktop-placeholder.png" alt="Desktop Example" />
       </div>
     </div>
     <div *ngIf="!isDesktop">
       <div class="template-img-container">
-        <img
-          src="../../../../assets/img/mobile-placeholder.png"
-          alt="Mobile Example"
-        />
+        <img src="../../../../assets/img/mobile-placeholder.png" alt="Mobile Example" />
       </div>
     </div>
   </div>
   <!--GUIDELINES-->
-  <div *ngIf="selected == tabNames.Header">
+  <div>
     <div *ngIf="isDesktop">
       <div class="template-img-container">
-        <img
-          src="../../../../assets/img/desktop-placeholder.png"
-          alt="Desktop Example"
-        />
+        <img src="../../../../assets/img/desktop-placeholder.png" alt="Desktop Example" />
       </div>
     </div>
     <div *ngIf="!isDesktop">
       <div class="template-img-container">
-        <img
-          src="../../../../assets/img/mobile-placeholder.png"
-          alt="Mobile Example"
-        />
+        <img src="../../../../assets/img/mobile-placeholder.png" alt="Mobile Example" />
       </div>
     </div>
   </div>
   <!--GUIDELINES-->
-  <div *ngIf="selected == tabNames.Footer">
+  <div>
     <div *ngIf="isDesktop">
       <div class="template-img-container">
-        <img
-          src="../../../../assets/img/desktop-placeholder.png"
-          alt="Desktop Example"
-        />
+        <img src="../../../../assets/img/desktop-placeholder.png" alt="Desktop Example" />
       </div>
     </div>
     <div *ngIf="!isDesktop">
       <div class="template-img-container">
-        <img
-          src="../../../../assets/img/mobile-placeholder.png"
-          alt="Mobile Example"
-        />
+        <img src="../../../../assets/img/mobile-placeholder.png" alt="Mobile Example" />
       </div>
     </div>
   </div>

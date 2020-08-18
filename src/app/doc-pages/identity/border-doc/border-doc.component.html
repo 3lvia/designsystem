@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [tabs]="tabs" [(selected)]="selected">
+<app-component-header>
   <ng-container ngProjectAs="headerTitle">
     Border
   </ng-container>
@@ -13,7 +13,7 @@
 <!--BODY-->
 <div class="page-body">
   <!--Overview-->
-  <div *ngIf="selected == tabNames.Overview" class="elvis-anchor">
+  <div class="elvis-anchor">
     <h2 class="e-title-md elvis-anchor-title">Border</h2>
     <p class="e-text-body">1 border should be used...</p>
     <div class="centered-content">
@@ -23,12 +23,12 @@
   </div>
 
   <!--CODE-->
-  <div *ngIf="selected == tabNames.Code">
+  <div>
     <app-code-block [codeHTML]="example1" [title]="'Border'"></app-code-block>
   </div>
 
   <!--GUIDELINES-->
-  <div *ngIf="selected == tabNames.Guidelines">
+  <div>
     Some guideline-page
   </div>
 </div>

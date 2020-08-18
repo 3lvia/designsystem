@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Icon } from 'src/app/shared/icon.interface';
-import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getIdentity } from 'src/app/shared/e-items';
 import * as icons from 'style/elvis/src/config/icons.config';
 
@@ -10,11 +9,8 @@ import * as icons from 'style/elvis/src/config/icons.config';
   styleUrls: ['./icon-doc.component.scss'],
 })
 export class IconDocComponent implements OnInit {
-  @Input() selected = TabNames.Overview;
   svgIcons = [];
   figmaUrl = getIdentity('icon-doc').figmaUrl;
-  tabNames = TabNames;
-  tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines]; // TabNames.Code,
   inverted = false;
 
   example = `<i class="e-icon e-icon--move_truck-color e-icon--xxl"></i>
@@ -59,6 +55,10 @@ export class IconDocComponent implements OnInit {
 <i class="e-icon e-icon--mail e-icon--color-grey-05"></i>
 <i class="e-icon e-icon--mail e-icon--color-grey-02"></i>
 `;
+
+  importCodeTS = `import { addCircle } from '@elvia/elvis/icons'`;
+  scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>;`;
+  iconExample = `<i class="e-icon e-icon--chat e-icon--md"></i>`;
 
   term;
   IconClassList: Icon[] = [];

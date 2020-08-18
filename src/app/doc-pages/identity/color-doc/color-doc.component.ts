@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { TabNames } from 'src/app/shared/tab-names.enums';
+import { Component } from '@angular/core';
 import { getIdentity } from 'src/app/shared/e-items';
 import { primaryColors, signalColors, dataColors, greysColors } from './color';
 
@@ -9,8 +8,6 @@ import { primaryColors, signalColors, dataColors, greysColors } from './color';
   styleUrls: ['./color-doc.component.scss'],
 })
 export class ColorDocComponent {
-  @Input() selected = TabNames.Overview;
-
   primaryColors = primaryColors;
   signalColors = signalColors;
   dataColors = dataColors;

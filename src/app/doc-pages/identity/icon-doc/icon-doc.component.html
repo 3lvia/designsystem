@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [tabs]="tabs" [(selected)]="selected">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Icons
   </ng-container>
@@ -13,7 +13,7 @@
 <!--BODY-->
 <div class="page-body">
   <!--OVERVIEW-->
-  <div class="overview elvis-anchor" *ngIf="selected == tabNames.Overview">
+  <div class="overview elvis-anchor">
     <h2 class="e-title-md elvis-anchor-title">Sizes</h2>
     <div class="e-grid e-mr-72" style="flex-grow: 0;">
       <div class="row no-gutters">
@@ -113,7 +113,7 @@
   </div>
 
   <!--CODE-->
-  <div *ngIf="selected == tabNames.Code">
+  <div>
     <app-code-block [codeHTML]="example" [title]="'Icon sizes'"></app-code-block>
     <app-code-block [codeHTML]="example2" [title]="'Color'"></app-code-block>
     <app-code-block [codeHTML]="example3" [title]="'Inverted / Disabled + Disabled light'"></app-code-block>
@@ -121,20 +121,20 @@
   </div>
 
   <!--GUIDELINES-->
-  <div *ngIf="selected == tabNames.Guidelines">
-    <div>
-      <h2 class="e-title-md">Method 1: Easiest</h2>
+  <div>
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Method 1: Easiest</h2>
       <p class="e-text-description">
         Download the npm package and use Elvis.js from inside the npm package like this:
         <br />
-        <code class="code-text">&lt;script src="path_to_file/elvis.js"&gt;&lt;/script&gt;</code>
+        <app-code-highlighter [codeHTML]="scriptCodeHTML"></app-code-highlighter>
       </p>
       <p class="e-text-description">
         <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
       </p>
       <p class="e-text-description">
         The icons can then be used like this:
-        <code class="code-text">class="e-icon e-icon--chat e-icon--md"</code>
+        <app-code-highlighter [codeHTML]="iconExample"></app-code-highlighter>
       </p>
       <p class="e-text-description">
         <strong>How it works:</strong>
@@ -142,15 +142,17 @@
         Elvis.js looks for e-icon and similar classes and injects a img tag with the SVG icon at the desired
         location.
       </p>
+    </div>
 
-      <h2 class="e-title-md">Method 2: Using JS Module / SVGs</h2>
+    <div class="elvis-anchor">
+      <h2 class="e-title-md elvis-anchor-title">Method 2: Using JS Module / SVGs</h2>
       <p class="e-text-description">
         All icons are accessible as SVGs within a JS module. Import the required icon individually where you
         need them:
       </p>
-      <p class="e-text-description">
-        <code class="code-text">import {{ '{' }} addCircle {{ '}' }} from '@elvia/elvis/icons'</code>
-      </p>
+
+      <app-code-highlighter [codeTS]="importCodeTS"></app-code-highlighter>
+
       <p class="e-text-description">
         To get the icon you can use the following:
         <code class="code-text">addCircle.getIcon()</code>

@@ -21,6 +21,7 @@ cssVars({
   watch: true,
 });`;
 
+  bodyScriptMessage = `<body><script src="assets/js/elvis.js"></script></body>`;
 
   constructor(private versionService: VersionService) {
 

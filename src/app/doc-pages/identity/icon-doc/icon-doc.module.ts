@@ -6,6 +6,7 @@ import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 import { ComponentHeaderModule } from 'src/app/shared/component-header/component-header.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { IconSearchPipe } from './icon-search.pipe';
+import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-highlighter.module';
 
 
 @NgModule({
@@ -14,8 +15,9 @@ import { IconSearchPipe } from './icon-search.pipe';
     CodeBlockModule,
     FormsModule,
     ComponentHeaderModule,
-    CopyModule
+    CopyModule,
+    CodeHighlighterModule,
   ],
-  declarations: [IconDocComponent, IconSearchPipe]
+  declarations: [IconDocComponent, IconSearchPipe],
 })
 export class IconDocModule { }

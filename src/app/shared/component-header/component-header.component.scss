@@ -70,33 +70,6 @@
       }
     }
   }
-
-  &-tabs {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    margin-bottom: 48px;
-    background: var(--e-white);
-
-    &__title {
-      border-left: none;
-    }
-    &__title {
-      display: flex;
-      padding: 18px;
-      width: 100%;
-      height: 100%;
-      justify-content: center;
-      background: var(--e-grey-20);
-      border-top: none;
-      cursor: pointer;
-
-      &.active {
-        border-bottom: none;
-        background: var(--e-white);
-      }
-    }
-  }
 }
 
 .anchors {

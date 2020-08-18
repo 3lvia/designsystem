@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { TabNames } from 'src/app/shared/tab-names.enums';
 import { getIdentity } from 'src/app/shared/e-items';
 
 @Component({
@@ -8,7 +7,6 @@ import { getIdentity } from 'src/app/shared/e-items';
   styleUrls: ['./shadow-doc.component.scss'],
 })
 export class ShadowDocComponent {
-  tabNames = TabNames;
   figmaUrl = getIdentity('shadow-doc').figmaUrl;
   does = ['Behind a solid surface together with example cards.'];
   donts = [

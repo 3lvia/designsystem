@@ -11,10 +11,8 @@ import { Router } from '@angular/router';
 })
 export class ComponentHeaderComponent {
   @Input() componentStatus = '';
-  @Input() tabs: string[];
   @Input() does = [];
   @Input() donts = [];
-  @Input() selected: string;
   @Input() figmaUrl: string;
   @Output() selectedChange = new EventEmitter();
 
@@ -45,10 +43,5 @@ export class ComponentHeaderComponent {
 
   isActive(anchor: NavbarAnchor): boolean {
     return anchor === this.activeAnchor;
-  }
-
-  chooseTab(tab: string): void {
-    this.selected = tab;
-    this.selectedChange.emit(this.selected);
   }
 }

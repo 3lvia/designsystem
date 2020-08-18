@@ -82,6 +82,13 @@
               </li>
               <li>
                 <strong>Add elvis.js from the NPM package in &#x3C;body&#x3E;</strong>
+                <app-copy [message]="bodyScriptMessage">
+                  <ng-container ngProjectAs="copyContent">
+                    <code class="code-block">
+                      &lt;body&gt;&lt;script src="assets/js/elvis.js"&gt;&lt;/script&gt;&lt;/body&gt;
+                    </code>
+                  </ng-container>
+                </app-copy>
                 <p><strong>or use the CDN for elvis.js:</strong></p>
                 <app-code-highlighter [codeHTML]="scriptTagCode"></app-code-highlighter>
               </li>
@@ -110,10 +117,20 @@
               Ponyfill documentation
             </a>
           </div>
-          The CSS-variables are not supported by IE11 and a ponyfill is therefore added as a dependency. But
-          this library is offered as a ponyfill, not a polyfill, meaning that the code below needs to be added
-          to your project, in your main.js/ts file, for processing to take place:
-          <app-code-highlighter [codeTS]="cssVarsCode"></app-code-highlighter>
+          <p>
+            <app-copy [message]="'npm install css-vars-ponyfill'">
+              <ng-container ngProjectAs="copyContent">
+                <code class="code-block">npm install css-vars-ponyfill</code>
+              </ng-container>
+            </app-copy>
+          </p>
+
+          <p>
+            The CSS-variables are not supported by IE11 and a ponyfill is therefore added as a dependency. But
+            this library is offered as a ponyfill, not a polyfill, meaning that the code below needs to be
+            added to your project, in your main.js/ts file, for processing to take place:
+          </p>
+          <p><app-code-highlighter [codeTS]="cssVarsCode"></app-code-highlighter></p>
         </div>
       </div>
     </div>

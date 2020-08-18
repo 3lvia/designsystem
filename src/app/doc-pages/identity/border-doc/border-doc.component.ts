@@ -1,5 +1,4 @@
-import {Component, Input} from '@angular/core';
-import {TabNames} from 'src/app/shared/tab-names.enums';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-border-doc',
@@ -7,11 +6,6 @@ import {TabNames} from 'src/app/shared/tab-names.enums';
   styleUrls: ['./border-doc.component.scss'],
 })
 export class BorderDocComponent {
-  @Input() selected = TabNames.Overview;
-
-  tabNames = TabNames;
-  tabs = [TabNames.Overview, TabNames.Code, TabNames.Guidelines];
-
   example1 = `<span class="e-border example-box"></span>
 <span class="e-border-b example-box"></span>
 <span class="e-border-t example-box"></span>
