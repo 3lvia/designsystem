@@ -32,7 +32,7 @@
     }
     .e {
       &-text-#{$label} {
-        color: $color;
+        color: $color !important;
       }
       &-bg-#{$label} {
         background: $color;

@@ -63,6 +63,10 @@ $link-jumbo-phone-width: 287px;
     font-size: $link-sm-font-size;
     line-height: $link-sm-line-height;
   }
+  &.e-link--inverted {
+    color: colors.color('white');
+    border-color: colors.color('white');
+  }
 
   &.e-link---hover,
   &:hover {

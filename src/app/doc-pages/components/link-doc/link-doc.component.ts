@@ -51,9 +51,36 @@ export class LinkDocComponent {
 </div>
 `;
 
+  example1Inverted = `<div>
+<h3 class="e-title-sm e-text-white">Large</h3>
+  <a class="e-link e-link--lg e-link--inverted" href="https://design.elvia.io">Normal link</a>
+</div>
+<div class="e-mt-40">
+  <h3 class="e-title-sm e-text-white">Medium (default)</h3>
+  <a class="e-link e-link--inverted" href="https://design.elvia.io">Normal link</a>
+</div>
+<div class="e-mt-40">
+  <h3 class="e-title-sm e-text-white">Small</h3>
+  <a class="e-link e-link--sm e-link--inverted" href="https://design.elvia.io">Normal link</a>
+</div>
+<div class="e-mt-40">
+  <h3 class="e-title-sm e-text-white">Multiline</h3>
+  <div style="width:160px;">
+    <a class="e-link e-link--inverted" href="https://design.elvia.io">Normal link over multiple rows</a>
+  </div>
+</div>
+`;
+
   example2 = `<p style="font-size: 20px;">Lorem ipsum <a class="e-link e-link--inline" href="https://design.elvia.io">dolor</a> sit amet.
   Soluta modi in rerum magnam blanditiis laboriosam architecto illum,
   nemo eaque voluptate consectetur nulla fugiat delectus vel quia tenetur eius pariatur magni!
+</p>
+`;
+
+  // tslint:disable-next-line: max-line-length
+  example2Inverted = `<p style="font-size: 20px; e-text-white">Lorem ipsum <a class="e-link e-link--inline e-link--inverted" href="https://design.elvia.io">dolor</a> sit amet.
+Soluta modi in rerum magnam blanditiis laboriosam architecto illum,
+nemo eaque voluptate consectetur nulla fugiat delectus vel quia tenetur eius pariatur magni!
 </p>
 `;
 
@@ -75,6 +102,29 @@ export class LinkDocComponent {
   <h3 class="e-title-sm">Small</h3>
   <a class="e-link e-link--sm" href="https://design.elvia.io">
     <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
+    <span class="e-link__title">Tilbake</span>
+  </a>
+</div>
+`;
+
+  example3Inverted = `<div>
+<h3 class="e-title-sm e-text-white">Large</h3>
+  <a class="e-link e-link--lg e-link--inverted" href="https://design.elvia.io">
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold e-icon--inverted"></i></span>
+    <span class="e-link__title">Tilbake</span>
+  </a>
+</div>
+<div class="e-mt-40">
+<h3 class="e-title-sm e-text-white">Medium (default)</h3>
+  <a class="e-link e-link--inverted" href="https://design.elvia.io">
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold e-icon--inverted"></i></span>
+    <span class="e-link__title">Tilbake</span>
+  </a>
+</div>
+<div class="e-mt-40">
+<h3 class="e-title-sm e-text-white">Small</h3>
+  <a class="e-link e-link--sm e-link--inverted" href="https://design.elvia.io">
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold e-icon--inverted"></i></span>
     <span class="e-link__title">Tilbake</span>
   </a>
 </div>
@@ -110,6 +160,37 @@ export class LinkDocComponent {
 </div>
 `;
 
+  example4Inverted = `<div>
+  <h3 class="e-title-sm e-text-white">Large</h3>
+  <a class="e-link e-link--external e-link--lg e-link--inverted" href="https://www.elvia.no/">
+    <span class="e-link__title">External</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold e-icon--inverted"></i></span>
+  </a>
+</div>
+<div class="e-mt-40">
+  <h3 class="e-title-sm e-text-white">Medium (default)</h3>
+  <a class="e-link e-link--external e-link--inverted" href="https://www.elvia.no/">
+    <span class="e-link__title">External</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold e-icon--inverted"></i></span>
+  </a>
+</div>
+<div class="e-mt-40">
+  <h3 class="e-title-sm e-text-white">Small</h3>
+  <a class="e-link e-link--external e-link--sm e-link--inverted" href="https://www.elvia.no/">
+    <span class="e-link__title">External</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold e-icon--inverted"></i></span>
+  </a>
+</div>
+<div class="e-mt-40" style="width:164px;">
+  <h3 class="e-title-sm e-text-white">Multiline</h3>
+  <a class="e-link e-link--external e-link--inverted" href="https://www.elvia.no/">
+    <span class="e-link__title">External link over multiple rows</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold e-icon--inverted"></i></span>
+  </a>
+</div>
+`;
+
+
   exampleNewTab = `<div>
   <h3 class="e-title-sm">Large</h3>
   <a class="e-link e-link--new-tab e-link--lg" href="https://design.elvia.io">
@@ -136,6 +217,36 @@ export class LinkDocComponent {
   <a class="e-link e-link--new-tab" href="https://design.elvia.io">
     <span class="e-link__title">New-tab link over multiple rows</span>
     <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
+  </a>
+</div>
+  `;
+
+  exampleNewTabInverted = `<div>
+  <h3 class="e-title-sm e-text-white">Large</h3>
+  <a class="e-link e-link--new-tab e-link--inverted e-link--lg" href="https://design.elvia.io">
+    <span class="e-link__title">New tab</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab e-icon--inverted"></i></span>
+  </a>
+</div>
+<div class="e-mt-40">
+  <h3 class="e-title-sm e-text-white">Medium (default)</h3>
+  <a class="e-link e-link--new-tab e-link--inverted" href="https://design.elvia.io">
+    <span class="e-link__title">New tab</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab e-icon--inverted"></i></span>
+  </a>
+</div>
+<div class="e-mt-40">
+  <h3 class="e-title-sm e-text-white">Small</h3>
+  <a class="e-link e-link--new-tab e-link--inverted e-link--sm" href="https://design.elvia.io">
+    <span class="e-link__title">New tab</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab e-icon--inverted"></i></span>
+  </a>
+</div>
+<div class="e-mt-40" style="width:164px;">
+  <h3 class="e-title-sm e-text-white">Multiline</h3>
+  <a class="e-link e-link--new-tab e-link--inverted" href="https://design.elvia.io">
+    <span class="e-link__title">New-tab link over multiple rows</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab e-icon--inverted"></i></span>
   </a>
 </div>
   `;

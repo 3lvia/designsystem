@@ -2156,6 +2156,11 @@ input:focus {
   line-height: 20px;
 }
 
+.e-link.e-link--inverted {
+  color: #fff;
+  border-color: #fff;
+}
+
 .e-link.e-link---hover, .e-link:hover {
   border-bottom-color: #29d305;
 }
@@ -4712,7 +4717,7 @@ input:focus {
 }
 
 .e-text-white {
-  color: #fff;
+  color: #fff !important;
 }
 
 .e-bg-white {
@@ -4725,7 +4730,7 @@ input:focus {
 }
 
 .e-text-elvia-on {
-  color: #fff;
+  color: #fff !important;
 }
 
 .e-bg-elvia-on {
@@ -4738,7 +4743,7 @@ input:focus {
 }
 
 .e-text-black {
-  color: #000;
+  color: #000 !important;
 }
 
 .e-bg-black {
@@ -4751,7 +4756,7 @@ input:focus {
 }
 
 .e-text-font-color {
-  color: #000;
+  color: #000 !important;
 }
 
 .e-bg-font-color {
@@ -4764,7 +4769,7 @@ input:focus {
 }
 
 .e-text-elvia-off {
-  color: #000;
+  color: #000 !important;
 }
 
 .e-bg-elvia-off {
@@ -4777,7 +4782,7 @@ input:focus {
 }
 
 .e-text-grey {
-  color: #262626;
+  color: #262626 !important;
 }
 
 .e-bg-grey {
@@ -4790,7 +4795,7 @@ input:focus {
 }
 
 .e-text-grey-90 {
-  color: #3b3b3b;
+  color: #3b3b3b !important;
 }
 
 .e-bg-grey-90 {
@@ -4803,7 +4808,7 @@ input:focus {
 }
 
 .e-text-grey-80 {
-  color: #515151;
+  color: #515151 !important;
 }
 
 .e-bg-grey-80 {
@@ -4816,7 +4821,7 @@ input:focus {
 }
 
 .e-text-font-grey {
-  color: #515151;
+  color: #515151 !important;
 }
 
 .e-bg-font-grey {
@@ -4829,7 +4834,7 @@ input:focus {
 }
 
 .e-text-grey-70 {
-  color: #676767;
+  color: #676767 !important;
 }
 
 .e-bg-grey-70 {
@@ -4842,7 +4847,7 @@ input:focus {
 }
 
 .e-text-grey-60 {
-  color: #7c7c7c;
+  color: #7c7c7c !important;
 }
 
 .e-bg-grey-60 {
@@ -4855,7 +4860,7 @@ input:focus {
 }
 
 .e-text-grey-50 {
-  color: #929292;
+  color: #929292 !important;
 }
 
 .e-bg-grey-50 {
@@ -4868,7 +4873,7 @@ input:focus {
 }
 
 .e-text-grey-40 {
-  color: #a8a8a8;
+  color: #a8a8a8 !important;
 }
 
 .e-bg-grey-40 {
@@ -4881,7 +4886,7 @@ input:focus {
 }
 
 .e-text-grey-30 {
-  color: #bdbdbd;
+  color: #bdbdbd !important;
 }
 
 .e-bg-grey-30 {
@@ -4894,7 +4899,7 @@ input:focus {
 }
 
 .e-text-disabled {
-  color: #bdbdbd;
+  color: #bdbdbd !important;
 }
 
 .e-bg-disabled {
@@ -4907,7 +4912,7 @@ input:focus {
 }
 
 .e-text-grey-20 {
-  color: #d3d3d3;
+  color: #d3d3d3 !important;
 }
 
 .e-bg-grey-20 {
@@ -4920,7 +4925,7 @@ input:focus {
 }
 
 .e-text-grey-10 {
-  color: #e9e9e9;
+  color: #e9e9e9 !important;
 }
 
 .e-bg-grey-10 {
@@ -4933,7 +4938,7 @@ input:focus {
 }
 
 .e-text-grey-05 {
-  color: #f4f4f4;
+  color: #f4f4f4 !important;
 }
 
 .e-bg-grey-05 {
@@ -4946,7 +4951,7 @@ input:focus {
 }
 
 .e-text-disabled-light {
-  color: #f4f4f4;
+  color: #f4f4f4 !important;
 }
 
 .e-bg-disabled-light {
@@ -4959,7 +4964,7 @@ input:focus {
 }
 
 .e-text-grey-02 {
-  color: #fafafa;
+  color: #fafafa !important;
 }
 
 .e-bg-grey-02 {
@@ -4972,7 +4977,7 @@ input:focus {
 }
 
 .e-text-green {
-  color: #29d305;
+  color: #29d305 !important;
 }
 
 .e-bg-green {
@@ -4985,7 +4990,7 @@ input:focus {
 }
 
 .e-text-elvia-charge {
-  color: #29d305;
+  color: #29d305 !important;
 }
 
 .e-bg-elvia-charge {
@@ -4998,7 +5003,7 @@ input:focus {
 }
 
 .e-text-yellow {
-  color: #ffff00;
+  color: #ffff00 !important;
 }
 
 .e-bg-yellow {
@@ -5011,7 +5016,7 @@ input:focus {
 }
 
 .e-text-orange {
-  color: #ffa000;
+  color: #ffa000 !important;
 }
 
 .e-bg-orange {
@@ -5024,7 +5029,7 @@ input:focus {
 }
 
 .e-text-red {
-  color: #ff0000;
+  color: #ff0000 !important;
 }
 
 .e-bg-red {
@@ -5037,7 +5042,7 @@ input:focus {
 }
 
 .e-text-green-apple {
-  color: #21ac04;
+  color: #21ac04 !important;
 }
 
 .e-bg-green-apple {
@@ -5050,7 +5055,7 @@ input:focus {
 }
 
 .e-text-violet-grape {
-  color: #490192;
+  color: #490192 !important;
 }
 
 .e-bg-violet-grape {
@@ -5063,7 +5068,7 @@ input:focus {
 }
 
 .e-text-blue-berry {
-  color: #006ddb;
+  color: #006ddb !important;
 }
 
 .e-bg-blue-berry {
@@ -5076,7 +5081,7 @@ input:focus {
 }
 
 .e-text-purple-plum {
-  color: #b66dff;
+  color: #b66dff !important;
 }
 
 .e-bg-purple-plum {
@@ -5089,7 +5094,7 @@ input:focus {
 }
 
 .e-text-orange-mango {
-  color: #db6d00;
+  color: #db6d00 !important;
 }
 
 .e-bg-orange-mango {
@@ -5102,7 +5107,7 @@ input:focus {
 }
 
 .e-text-red-tomato {
-  color: #b90202;
+  color: #b90202 !important;
 }
 
 .e-bg-red-tomato {

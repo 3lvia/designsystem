@@ -49,11 +49,13 @@
     [description]="
       'We have two different links: default and inline link. Default links stands alone and should not be used within sentences. You can also pair a default link with an icon. Inline link are used within sentences and text blocks, and will always carry the font size of the text block. They both are styled with an underline.'
     "
+    [codeInverted]="example1Inverted"
   ></app-code-block>
   <app-code-block
     [codeHTML]="example2"
     [title]="'Inline Link'"
     [description]="'The e-link--inline modifier is used for links inlined in text sections.'"
+    [codeInverted]="example2Inverted"
   ></app-code-block>
   <app-code-block
     [codeHTML]="example3"
@@ -61,16 +63,19 @@
     [description]="
       'The element-classes e-link__icon and e-link__title will place icons correctly on either sides.'
     "
+    [codeInverted]="example3Inverted"
   ></app-code-block>
   <app-code-block
     [codeHTML]="example4"
     [title]="'Link to external sites'"
     [description]="'The e-link--external modifier is used for links navigating to external sites.'"
+    [codeInverted]="example4Inverted"
   ></app-code-block>
   <app-code-block
     [codeHTML]="exampleNewTab"
     [title]="'Link to new tabs'"
     [description]="'The e-link--new-tab modifier is used for links navigating to new tabs.'"
+    [codeInverted]="exampleNewTabInverted"
   ></app-code-block>
   <app-code-block
     [codeHTML]="example5"

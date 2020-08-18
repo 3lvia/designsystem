@@ -10,6 +10,7 @@ import { VersionService } from 'src/app/core/services/version.service';
 })
 export class CodeBlockComponent implements OnInit, AfterViewInit {
   @ViewChild('accordion') accordion: ElementRef;
+  @ViewChild('toggle') toggle: ElementRef;
   @ViewChild('defaultFrame') defaultFrame;
   @Input() title = '';
   @Input() description = '';
@@ -65,9 +66,18 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     if (!this.showIframeScreens) {
       this.defaultFrame.nativeElement.innerHTML = this.code;
     }
+    if (this.codeInverted !== '') {
+      const elements = document.querySelectorAll('.e-toggle__input');
+      for (let i = 0; i < elements.length; i++) {
+        const item = elements.item(i) as HTMLInputElement;
+        setTimeout(() => {
+          item.checked = false;
+        });
+      }
+    }
   }
 
-  setCodePenValue() {
+  setCodePenValue(): void {
     this.title = this.title ? this.title : 'Example';
     let html;
     this.versionService.getCodePenTag().subscribe(tag => {
