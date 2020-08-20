@@ -11,6 +11,7 @@ export class InputDocComponent {
   headerDonts = 'A label should not be used';
 
   figmaUrl = getComponent('input-doc').figmaUrl;
+  description = getComponent('input-doc').description;
   does = [
     'Text fields should be used in forms where the user has to fill in something that is not from a set of choices.',
   ];

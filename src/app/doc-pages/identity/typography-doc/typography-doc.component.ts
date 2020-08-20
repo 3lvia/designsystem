@@ -13,6 +13,7 @@ export class TypographyDocComponent implements OnInit {
 
   typographyClasses = [];
   figmaUrl = getIdentity('typography-doc').figmaUrl;
+  description = getIdentity('typography-doc').description;
 
   example1 = `<h1 class="e-title-lg">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>
 <h2 class="e-title-md">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h2>

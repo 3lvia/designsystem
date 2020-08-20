@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class TooltipDocComponent {
   figmaUrl = getComponent('tooltip-doc').figmaUrl;
+  description = getComponent('tooltip-doc').description;
   does = ['Explain the function of an user interactive element.', 'Showing full version of shortened text.'];
   donts = [
     'If you can\'t think of any particularly useful content in a tooltip.',

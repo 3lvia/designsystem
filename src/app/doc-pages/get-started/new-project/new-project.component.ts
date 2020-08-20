@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { VersionService } from 'src/app/core/services/version.service';
+import { getGetStarted } from 'src/app/shared/e-items';
 
 
 @Component({
@@ -8,6 +9,7 @@ import { VersionService } from 'src/app/core/services/version.service';
   styleUrls: ['./new-project.component.scss'],
 })
 export class NewProjectComponent implements OnInit {
+  description = getGetStarted('new-project-doc').description;
   linkTagCode = '';
   scriptTagCode = '';
   fullExampleCode = '';

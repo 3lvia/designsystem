@@ -717,7 +717,8 @@
 		"e-search": {
 			"modifier": {
 				"e-search--local": {},
-				"e-search--searched": {}
+				"e-search--searched": {},
+				"e-search--global": {}
 			}
 		},
 		"e-segmented-controls": {},
@@ -1304,6 +1305,7 @@
 		"e-search": {},
 		"e-search--local": {},
 		"e-search--searched": {},
+		"e-search--global": {},
 		"e-segmented-controls": {},
 		"e-select": {},
 		"e-select_icon": {},

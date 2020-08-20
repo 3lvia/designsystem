@@ -13,6 +13,7 @@ export class ColorDocComponent {
   dataColors = dataColors;
   greysColors = greysColors;
   figmaUrl = getIdentity('color-doc').figmaUrl;
+  description = getIdentity('color-doc').description;
   colors: string[] = ['red', 'green'];
 
   doCode = `<div class="e-bg-green"></div>`;

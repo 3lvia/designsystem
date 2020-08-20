@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { getIdentity } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-utilities-doc',
@@ -8,5 +9,6 @@ import { Component } from '@angular/core';
 export class UtilitiesDocComponent {
 
   example1 = 'Just some test';
+  description = getIdentity('utilities-doc').description;
 
 }

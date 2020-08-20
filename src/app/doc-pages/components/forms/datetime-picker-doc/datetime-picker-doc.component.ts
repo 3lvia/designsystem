@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class DatetimePickerDocComponent {
   figmaUrl = getComponent('datetime-picker-doc').figmaUrl;
+  description = getComponent('datetime-picker-doc').description;
   does = ['When it\'s more efficient than typing a date in a text field.'];
 
   inputTimeExample = `<h3>NB!!! This is not a finished component, style has to be applied based on the figma sketches</h3>

@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class LinkDocComponent {
   figmaUrl = getComponent('link-doc').figmaUrl;
+  description = getComponent('link-doc').description;
   doExample = `<a class="e-link e-link--lg" href="https://design.elvia.io">Se vårt strømsbruddskart</a>`;
   dontExample = `<a class="e-link e-link--lg" href="https://design.elvia.io">Klikk her</a>`;
 

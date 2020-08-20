@@ -11,6 +11,7 @@ import * as icons from 'style/elvis/src/config/icons.config';
 export class IconDocComponent implements OnInit {
   svgIcons = [];
   figmaUrl = getIdentity('icon-doc').figmaUrl;
+  description = getIdentity('icon-doc').description;
   inverted = false;
 
   example = `<i class="e-icon e-icon--move_truck-color e-icon--xxl"></i>

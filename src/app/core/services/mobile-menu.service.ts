@@ -16,7 +16,7 @@ export class MobileMenuService {
     return this.overlay.create({
       hasBackdrop: true,
       minWidth: '100%',
-      scrollStrategy: this.overlay.scrollStrategies.noop(),
+      scrollStrategy: this.overlay.scrollStrategies.block(),
       positionStrategy: this.overlay.position().global().centerHorizontally().top(),
     });
   }

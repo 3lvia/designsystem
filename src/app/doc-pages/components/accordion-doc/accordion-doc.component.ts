@@ -11,6 +11,8 @@ export class AccordionDocComponent {
   @ViewChild('accordionLiveExample') accordionLiveExample: ElementRef;
 
   figmaUrl = getComponent('accordion-doc').figmaUrl;
+  description = getComponent('accordion-doc').description;
+
   doesAccordion = [
     'Organize related information.',
     'When you have a lot of content and the content is not important to always have available.',

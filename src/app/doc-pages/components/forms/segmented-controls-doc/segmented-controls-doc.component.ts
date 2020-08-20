@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class SegmentedControlsDocComponent {
   figmaUrl = getComponent('segmented-control-doc').figmaUrl;
+  description = getComponent('segmented-control-doc').description;
   does = ['To display different views.', 'Instead of radio buttons.'];
   donts = [
     'Do not use segmented controls if there are more than three options or the option texts are too long.',

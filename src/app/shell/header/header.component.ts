@@ -4,6 +4,7 @@ import { MobileMenuService } from 'src/app/core/services/mobile-menu.service';
 import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { NavigationEnd, Router } from '@angular/router';
+import { SearchMenuComponent } from './search-menu/search-menu.component';
 
 
 @Component({
@@ -16,10 +17,13 @@ export class HeaderComponent {
   // @ts-ignore
   version = require('../../../../style/elvis/package.json').version;
   internalHeader = false;
+  searchMenuOpen = false;
+  searchOverlay: OverlayRef;
 
   constructor(
     private globalService: GlobalService,
     private mobileMenu: MobileMenuService,
+    private searchMenu: MobileMenuService,
     private router: Router,
   ) {
     this.globalService.listenShowInternalHeader().subscribe((show) => {
@@ -36,15 +40,40 @@ export class HeaderComponent {
     });
   }
 
+  shortcutEvent(e: KeyboardEvent): void {
+    if (!e.shiftKey || e.code !== 'Digit7') {
+      return;
+    }
+    if (this.searchMenuOpen === false) {
+      setTimeout(() => { this.openSearchMenu(); }, 50);
+    } else {
+      this.searchMenu.detach(this.searchOverlay);
+      this.searchMenuOpen = false;
+    }
+  }
+
   openMobileMenu(): void {
     const overlayRef: OverlayRef = this.mobileMenu.setupOverlay();
     const compInstance = this.mobileMenu.openOverlay(overlayRef, MobileMenuComponent);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    overlayRef.backdropClick().subscribe(next => {
+    overlayRef.backdropClick().subscribe(() => {
       this.mobileMenu.detach(overlayRef);
     });
     compInstance.onDestroy$.subscribe(() => {
       this.mobileMenu.detach(overlayRef);
+    });
+  }
+
+  openSearchMenu(): void {
+    this.searchMenuOpen = true;
+    this.searchOverlay = this.searchMenu.setupOverlay();
+    const compInstance = this.searchMenu.openOverlay(this.searchOverlay, SearchMenuComponent);
+    this.searchOverlay.backdropClick().subscribe(() => {
+      this.searchMenu.detach(this.searchOverlay);
+      this.searchMenuOpen = false;
+    });
+    compInstance.onDestroy$.subscribe(() => {
+      this.searchMenu.detach(this.searchOverlay);
+      this.searchMenuOpen = false;
     });
   }
 

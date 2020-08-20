@@ -12,6 +12,7 @@ export class ModalDocComponent {
   @ViewChild('modal3') modal3: ElementRef;
 
   figmaUrl = getComponent('modal-doc').figmaUrl;
+  description = getComponent('modal-doc').description;
   // tslint:disable-next-line:max-line-length
   does = [
     'Where we need the user to make an active choice before continuing, or when a wrong decision can be critical.',

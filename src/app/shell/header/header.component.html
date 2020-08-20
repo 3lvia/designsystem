@@ -1,5 +1,5 @@
 <!-- Header  -->
-<div class="header" *ngIf="!internalHeader">
+<div class="header" *ngIf="!internalHeader" (window:keydown)="shortcutEvent($event)">
   <div class="logo">
     <a class="header-top_logo" [routerLink]="['', 'home']">
       <img src="./../../../assets/logo/elvia_negative_1.svg" alt="Elvia Logo" />
@@ -25,11 +25,23 @@
   </div>
 
   <div class="external-links">
-    <!-- <span class="vertical-line e-mr-24"></span> -->
+    <div class="tabs-links elvis-search e-mr-24" (click)="openSearchMenu()">
+      <span class="elvis-search__icon e-mr-8">
+        <i class="e-icon e-icon--search-bold e-icon--xs e-icon--inverted"></i>
+      </span>
+      <span class="elvis-search__title">Search</span>
+    </div>
+
+    <span class="vertical-line e-mr-24"></span>
 
     <div class="version e-mr-24">v{{ version }}</div>
   </div>
   <div class="mobile-menu">
+    <div class="tabs-links elvis-search e-mr-24" (click)="openSearchMenu()">
+      <span class="elvis-search__icon e-mr-8">
+        <i class="e-icon e-icon--search-bold e-icon--sm e-icon--inverted"></i>
+      </span>
+    </div>
     <button class="menu-button" (click)="openMobileMenu()">
       <img src="../../../assets/icons/hamburger-menu.svg" alt="Mobile Menu Icon" />
     </button>

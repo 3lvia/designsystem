@@ -8,6 +8,7 @@ import { getIdentity } from 'src/app/shared/e-items';
 })
 export class LogoDocComponent {
   figmaUrl = getIdentity('logo-doc').figmaUrl;
+  description = getIdentity('logo-doc').description;
 
   faviconTS = `isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').addListener(
   e => e.matches && this.handleMode(e.matches)

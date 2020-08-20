@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class PaginationDocComponent implements OnInit {
 
   figmaUrl = getComponent('pagination-doc').figmaUrl;
+  description = getComponent('pagination-doc').description;
   does = ['When there’s a lot of content to process and the user is looking for specific information. Often used in tables.'];
 
   paginationExample = `<h3>Start</h3>

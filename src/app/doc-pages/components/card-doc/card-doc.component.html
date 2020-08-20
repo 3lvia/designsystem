@@ -4,8 +4,7 @@
     Card
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    A card is a flexible container that groups various elements of information and actions. They should be
-    easy to scan, read and get things done.
+    {{ description }}
   </ng-container>
 </app-component-header>
 
@@ -15,7 +14,7 @@
     [codeHTML]="example1"
     [showIframeScreens]="true"
     [title]="'Simple card'"
-    [description]="'Simple cards containing information with or withouth actions.'"
+    [description]="'Simple cards containing information with or without actions.'"
     [does]="['Grouping content', 'To separate information from the rest of the page.']"
     [greyBg]="true"
   ></app-code-block>

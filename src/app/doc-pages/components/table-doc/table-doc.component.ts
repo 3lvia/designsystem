@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class TableDocComponent {
   figmaUrl = getComponent('table-doc').figmaUrl;
+  description = getComponent('table-doc').description;
   does = ['Tables should be used when displaying large amounts of data to the user.'];
   donts = ['Don’t use a table when you can use a data visualization.', 'Don’t mix different styles of tables on the same page.'];
 

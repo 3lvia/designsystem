@@ -460,6 +460,8 @@ export class StepperDocComponent implements OnInit {
 `;
 
   figmaUrl = getComponent('stepper-doc').figmaUrl;
+  description = getComponent('stepper-doc').description;
+
   shortSteps: Step[] = [
     { number: 1, title: 'Create payment', status: 'done' },
     { number: 2, title: 'Card', status: 'error' },

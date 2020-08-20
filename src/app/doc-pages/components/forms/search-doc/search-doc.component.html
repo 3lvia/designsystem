@@ -5,8 +5,7 @@
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     <div>
-      Search allows the user to find specific information by search terms as an alternative to the main
-      navigation menu.
+      {{ description }}
     </div>
     <div>
       <h3>Search results</h3>
@@ -27,4 +26,11 @@
       Search results appear when the user presses enter on the keyboard or clicks the magnifying button.'
     "
   ></app-code-block>
+  <!-- <app-code-block
+    [codeHTML]="searchGlobalExample"
+    [title]="'Global Search'"
+    [description]="
+      'Global search lives in the header of the application, since it should be highly discoverable and always available to users. It’s used to find global information and will include search results from the whole application. On desktop, the search window will appear under the top menu, while the tablet and mobile search will replace the menu content.'
+    "
+  ></app-code-block> -->
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { ItemStatus } from './../item-status.enum';
 import { NavbarAnchor } from '../navbarAnchor.interface';
 import { ScrollService } from 'src/app/core/services/scroll.service';
@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
   templateUrl: './component-header.component.html',
   styleUrls: ['./component-header.component.scss'],
 })
-export class ComponentHeaderComponent {
+export class ComponentHeaderComponent implements AfterViewInit {
+  @ViewChild('contentWrapper') content: ElementRef;
+
   @Input() componentStatus = '';
   @Input() does = [];
   @Input() donts = [];
@@ -36,6 +38,10 @@ export class ComponentHeaderComponent {
     });
   }
 
+  ngAfterViewInit(): void {
+    this.getNewInnerHTML();
+  }
+
   scrollToElement(anchor: NavbarAnchor): void {
     this.activeAnchor = anchor;
     this.scrollService.newAnchorToScrollTo(anchor);
@@ -44,4 +50,24 @@ export class ComponentHeaderComponent {
   isActive(anchor: NavbarAnchor): boolean {
     return anchor === this.activeAnchor;
   }
+
+  decodeHTML(txt: string): string {
+    txt = txt.replace(/&lt;/g, '<');
+    txt = txt.replace(/&gt;/g, '>');
+    return txt;
+  }
+
+  createHTMLElement(txt: string): any {
+    const div = document.createElement('div');
+    div.innerHTML = txt;
+    return div;
+  }
+
+  getNewInnerHTML(): void {
+    const element = this.content.nativeElement;
+    const newInner = this.decodeHTML(element.innerHTML);
+    element.innerHTML = '';
+    element.appendChild(this.createHTMLElement(newInner));
+  }
+
 }

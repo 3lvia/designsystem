@@ -9,5 +9,6 @@ import { getCommunity } from 'src/app/shared/e-items';
 export class ChangelogComponent {
 
   externalUrl = getCommunity('changelog').externalUrl;
+  description = getCommunity('changelog').description;
 
 }

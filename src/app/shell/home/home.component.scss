@@ -226,6 +226,9 @@
       border-color: var(--e-white);
       &:hover {
         background: var(--e-green);
+        border-color: var(--e-green);
+      }
+      &:active {
         border-color: var(--e-grey);
       }
     }

@@ -11,6 +11,7 @@ export class PopoverDocComponent {
   @ViewChild('popover2') popover2: ElementRef;
 
   figmaUrl = getComponent('popover-doc').figmaUrl;
+  description = getComponent('popover-doc').description;
   // tslint:disable-next-line:max-line-length
   does = [
     'When you want to give the user more information about something, and are typically paired with an information or question icon.',

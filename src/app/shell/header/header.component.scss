@@ -100,9 +100,24 @@
     justify-content: flex-end;
     align-items: center;
     width: 20%;
-
     @include breakpoint-up(Tablet) {
       display: none;
+    }
+
+    .elvis-search {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      .elvis-search__title {
+        color: var(--e-white);
+        font-family: 'Red Hat Display';
+        font-style: normal;
+        text-transform: none;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 17px;
+      }
     }
 
     .vertical-line {
@@ -132,6 +147,30 @@
     }
     @include breakpoint-up(Mobile) {
       margin-right: 16px;
+    }
+
+    .elvis-search {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      .elvis-search__title {
+        color: var(--e-white);
+        font-family: 'Red Hat Display';
+        font-style: normal;
+        text-transform: none;
+        font-weight: 500;
+        font-size: 15px;
+        line-height: 17px;
+        @include breakpoint-up(Mobile) {
+          display: none;
+        }
+      }
+      .elvis-search__icon {
+        @include breakpoint-up(Mobile) {
+          margin-right: 0px;
+        }
+      }
     }
 
     .menu-button {

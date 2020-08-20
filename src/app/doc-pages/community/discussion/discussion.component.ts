@@ -9,5 +9,6 @@ import { getCommunity } from 'src/app/shared/e-items';
 export class DiscussionComponent {
 
   externalUrl = getCommunity('discussion').externalUrl;
+  description = getCommunity('discussion').description;
 
 }

@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class SearchDocComponent {
 
   figmaUrl = getComponent('search-doc').figmaUrl;
+  description = getComponent('search-doc').description;
 
   searchExample = `<h3>Before search</h3>
 <div class="e-form-field e-form-field--compact">
@@ -35,6 +36,32 @@ export class SearchDocComponent {
       <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
     </button>
   </div>
+</div>
+`;
+
+  searchGlobalExample = `<h3>Before search</h3>
+<div class="e-search e-search--global" style="width:340px;">
+  <div class="e-input">
+    <input
+      type="text"
+      placeholder="Search"
+    />
+  </div>
+  <button class="e-btn e-btn--icon" (click)="searchString = ''">
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+  </button>
+</div>
+<h3>After search (e-search--searched)</h3>
+<div class="e-search e-search--global e-search--searched" style="width:340px;">
+  <div class="e-input">
+    <input
+      type="text"
+      placeholder="Search"
+    />
+  </div>
+  <button class="e-btn e-btn--icon" (click)="searchString = ''">
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+  </button>
 </div>
 `;
 

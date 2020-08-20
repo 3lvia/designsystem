@@ -8,4 +8,5 @@ export interface EItems {
   figmaUrl?: string;
   status?: string;
   imageUrlOn?: string;
+  type?: string;
 }

@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class ProgressbarDocComponent {
   figmaUrl = getComponent('progressbar-doc').figmaUrl;
+  description = getComponent('progressbar-doc').description;
 
   example1 = `
 <div class="e-progress" role="progressbar">

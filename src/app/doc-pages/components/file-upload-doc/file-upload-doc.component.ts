@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class FileUploadDocComponent {
 
   figmaUrl = getComponent('fileUpload-doc').figmaUrl;
+  description = getComponent('fileUpload-doc').description;
 
   example1 = `<div class="e-fileupload" style="width:380px">
   <div class="e-fileupload__icon">

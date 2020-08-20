@@ -9,6 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 export class DropdownDocComponent {
 
   figmaUrl = getComponent('dropdown-doc').figmaUrl;
+  description = getComponent('dropdown-doc').description;
   headerDoes = ['Use sparingly: use dropdowns only when the user have 5-10 options and you have limited space to display it all open.'];
   headerDonts = [
     'Fewer than 5 options',

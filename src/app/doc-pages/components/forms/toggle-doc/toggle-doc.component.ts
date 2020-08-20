@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class ToggleDocComponent {
   figmaUrl = getComponent('toggle-doc').figmaUrl;
+  description = getComponent('toggle-doc').description;
 
   does = ['Single state that is either on or off.'];
   donts = ['Never use a switch in place of a button (actions).'];

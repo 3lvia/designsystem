@@ -8,6 +8,7 @@ import { getIdentity } from 'src/app/shared/e-items';
 })
 export class ShadowDocComponent {
   figmaUrl = getIdentity('shadow-doc').figmaUrl;
+  description = getIdentity('shadow-doc').description;
   does = ['Behind a solid surface together with example cards.'];
   donts = [
     'Should not be applied to typography or icons.',

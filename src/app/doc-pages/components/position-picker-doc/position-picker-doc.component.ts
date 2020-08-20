@@ -11,6 +11,7 @@ export class PositionPickerDocComponent {
   showPosition = false;
 
   figmaUrl = getComponent('position-picker-doc').figmaUrl;
+  description = getComponent('position-picker-doc').description;
 
   example1 = `<div class="e-position-picker">
   <div class="e-position-picker__icon">

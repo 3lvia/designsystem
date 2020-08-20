@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class RadiobuttonDocComponent {
   figmaUrl = getComponent('radiobutton-doc').figmaUrl;
+  description = getComponent('radiobutton-doc').description;
   does = [
     'When you only can select one option.',
     'Want to visually expose all options instead of hiding them in a dropdown.',

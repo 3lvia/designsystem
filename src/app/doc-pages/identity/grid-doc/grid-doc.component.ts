@@ -8,6 +8,7 @@ import { getIdentity } from 'src/app/shared/e-items';
 })
 export class GridDocComponent {
   figmaUrl = getIdentity('grid-doc').figmaUrl;
+  description = getIdentity('grid-doc').description;
 
   example9 = `<h3 class="e-title-sm">External example</h3>
   <div class="e-grid e-bg-grey-20">

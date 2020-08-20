@@ -11,6 +11,7 @@ export class HeaderDocComponent {
 
   internalHeader = false;
   figmaUrl = getComponent('header-doc').figmaUrl;
+  description = getComponent('header-doc').description;
 
   internalHeaderOpen = `<div class="e-header e-header--open">
   <!--TOP MENU-->

@@ -1,0 +1,141 @@
+<!-- Header  -->
+<div class="header">
+  <div class="logo">
+    <a class="header-top_logo" [routerLink]="['', 'home']">
+      <img src="./../../../assets/logo/elvia_positive_1.svg" alt="Elvia Logo" />
+    </a>
+  </div>
+
+  <div class="tabs">
+    <a
+      class="tabs-links"
+      style="color: black;"
+      [routerLink]="['/get-started']"
+      role="tab"
+      (click)="closeSearch()"
+    >
+      Get Started
+    </a>
+    <a
+      class="tabs-links"
+      style="color: black;"
+      [routerLink]="['/identity']"
+      role="tab"
+      (click)="closeSearch()"
+    >
+      Identity
+    </a>
+    <a
+      class="tabs-links"
+      style="color: black;"
+      [routerLink]="['/components']"
+      role="tab"
+      (click)="closeSearch()"
+    >
+      Components
+    </a>
+    <!-- <a 
+      class="tabs-links" 
+      style="color: black;" 
+      [routerLink]="['/tools']" 
+      role="tab" 
+      (click)="closeSearch()"
+    >
+      Tools
+    </a> -->
+    <a
+      class="tabs-links"
+      style="color: black;"
+      [routerLink]="['/community']"
+      role="tab"
+      (click)="closeSearch()"
+    >
+      Community
+    </a>
+  </div>
+
+  <div class="external-links">
+    <div class="tabs-links active elvis-search e-mr-24" (click)="closeSearch()">
+      <span class="elvis-search__icon e-mr-8">
+        <i class="e-icon e-icon--search-bold e-icon--xs"></i>
+      </span>
+      <span class="elvis-search__title">Search</span>
+    </div>
+
+    <span class="vertical-line e-mr-24"></span>
+
+    <div class="version e-mr-24">v{{ version }}</div>
+  </div>
+  <div class="mobile-menu">
+    <div class="closing">
+      <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-mt-16" (click)="closeSearch()">
+        <span class="e-btn__icon">
+          <i class="e-icon e-icon--remove_circle-color"></i>
+          <i class="e-icon e-icon--remove_circle-filled-color"></i>
+        </span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div
+  class="content"
+  [ngClass]="{
+    'content-result': showResults,
+    'content-no-result': searchString.length !== 0 && this.activeResults.length === 0,
+    'long-result': this.activeResults.length > 2
+  }"
+>
+  <div class="inner-content">
+    <div class="close-btn-desk">
+      <button class="e-btn e-btn--icon e-btn--circled e-btn--lg" (click)="closeSearch()">
+        <span class="e-btn__icon">
+          <i class="e-icon e-icon--remove_circle-color"></i>
+          <i class="e-icon e-icon--remove_circle-filled-color"></i>
+        </span>
+      </button>
+    </div>
+    <div class="elvis-search-header e-mt-8">
+      <h2 class="e-title-md search-title">
+        What are you looking for?
+      </h2>
+      <div class="e-search e-search--global" [ngClass]="{ 'e-search--searched': searchString !== '' }">
+        <div class="e-input">
+          <input
+            [(ngModel)]="searchString"
+            type="text"
+            placeholder="Search"
+            id="search-field"
+            autocomplete="off"
+            (keyup)="onSearch()"
+          />
+        </div>
+        <button class="e-btn e-btn--icon" (click)="removeSearch()">
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="no-results" *ngIf="searchString.length !== 0 && this.activeResults.length === 0">
+      <div>Oh snap 😕</div>
+      <div>We can’t find what you are looking for</div>
+    </div>
+
+    <div class="results" *ngIf="showResults">
+      <a
+        class="result-item"
+        *ngFor="let result of activeResults"
+        [routerLink]="[result.absolutePath]"
+        (click)="closeSearch()"
+      >
+        <div class="result-title">
+          <div class="title item-title" [id]="'search_' + result.title">{{ result.title }}</div>
+          <label class="e-label" *ngIf="result.type === 'Component'">{{ result.type }}</label>
+        </div>
+        <div class="result-content">
+          <div class="description-item" [id]="encodeHTML(result.description)"></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class AlertMessagesComponent {
   figmaUrl = getComponent('alert-messages-doc').figmaUrl;
+  description = getComponent('alert-messages-doc').description;
   doesAlertDefault = [
     'Message related to the content of the page.',
     'To correct a problem.',
