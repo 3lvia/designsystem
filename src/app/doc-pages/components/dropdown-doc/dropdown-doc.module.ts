@@ -5,6 +5,7 @@ import { ComponentHeaderModule } from 'src/app/shared/component-header/component
 import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-highlighter.module';
 import { RouterModule } from '@angular/router';
+import { ComponentPropertiesModule } from 'src/app/shared/component-properties/component-properties.module';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { RouterModule } from '@angular/router';
     CodeBlockModule,
     CodeHighlighterModule,
     RouterModule,
+    ComponentPropertiesModule,
   ],
   declarations: [DropdownDocComponent],
 })

@@ -1,13 +1,13 @@
 .e-tooltip {
-    display: block;
-    
-    &_content {
-        line-height: 120%;
-        font-size: 16px;
-    }
-    
-    .copy-content {
-        cursor: pointer;
-        width: 100%;
-    }
+  display: inline-flex;
+
+  &_content {
+    line-height: 120%;
+    font-size: 16px;
+  }
+
+  .copy-content {
+    cursor: pointer;
+    width: 100%;
+  }
 }

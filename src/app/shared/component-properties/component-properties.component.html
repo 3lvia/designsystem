@@ -1,0 +1,79 @@
+<!--PROPERTIES-->
+
+<div class="elvis-anchor e-mt-72" *ngIf="elements.length > 1 || modifiers.length != 0 || psuedos.length != 0">
+  <div class="properties-header">
+    <h2 class="e-title-md elvis-anchor-title">
+      Properties
+    </h2>
+    <span class="e-ml-16">
+      <app-copy [message]="componentName">
+        <ng-container ngProjectAs="copyContent">
+          <span class="prop-element-title">{{ componentName }}</span>
+        </ng-container>
+      </app-copy>
+    </span>
+  </div>
+  <div class="elvis-anchor-body">
+    <div *ngIf="elements.length != 0">
+      <h2 class="e-title-sm e-mt-72">Elements</h2>
+      <ul class="e-list">
+        <div *ngFor="let el of elements">
+          <li *ngIf="el.name">
+            <app-copy [message]="el.name">
+              <ng-container ngProjectAs="copyContent">
+                <span class="prop-element-title">{{ el.name }}</span>
+              </ng-container>
+            </app-copy>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div *ngIf="allElementModifiers.length != 0">
+      <h3 class="e-title-xs e-mt-32">
+        Element modifiers
+      </h3>
+      <ul class="e-list">
+        <div *ngFor="let elMod of allElementModifiers" class="prop-element">
+          <li>
+            <app-copy [message]="elMod">
+              <ng-container ngProjectAs="copyContent">
+                <span class="prop-element-title">{{ elMod }}</span>
+              </ng-container>
+            </app-copy>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div *ngIf="modifiers.length != 0">
+      <h2 class="e-title-sm e-mt-72">Modifiers</h2>
+      <ul class="e-list">
+        <div *ngFor="let mod of modifiers" class="prop-element">
+          <li>
+            <app-copy [message]="mod">
+              <ng-container ngProjectAs="copyContent">
+                <span class="prop-element-title">{{ mod }}</span>
+              </ng-container>
+            </app-copy>
+          </li>
+        </div>
+      </ul>
+    </div>
+
+    <div *ngIf="psuedos.length != 0">
+      <h2 class="e-title-sm e-mt-72">Pseudos</h2>
+      <ul class="e-list">
+        <div *ngFor="let psu of psuedos" class="prop-element">
+          <li>
+            <app-copy [message]="psu">
+              <ng-container ngProjectAs="copyContent">
+                <span class="prop-element-title">{{ psu }}</span>
+              </ng-container>
+            </app-copy>
+          </li>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

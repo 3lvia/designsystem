@@ -6,6 +6,7 @@ import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 import { ComponentHeaderModule } from 'src/app/shared/component-header/component-header.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { IconSearchPipe } from './icon-search.pipe';
+import { ComponentPropertiesModule } from 'src/app/shared/component-properties/component-properties.module';
 import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-highlighter.module';
 
 
@@ -16,6 +17,7 @@ import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-high
     FormsModule,
     ComponentHeaderModule,
     CopyModule,
+    ComponentPropertiesModule,
     CodeHighlighterModule,
   ],
   declarations: [IconDocComponent, IconSearchPipe],

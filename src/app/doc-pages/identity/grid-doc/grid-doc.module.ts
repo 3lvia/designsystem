@@ -8,8 +8,8 @@ import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
   imports: [
     CommonModule,
     ComponentHeaderModule,
-    CodeBlockModule
+    CodeBlockModule,
   ],
-  declarations: [GridDocComponent]
+  declarations: [GridDocComponent],
 })
 export class GridDocModule { }

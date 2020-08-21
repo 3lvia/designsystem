@@ -4513,6 +4513,7 @@ input:focus {
   display: inline-block;
   box-sizing: border-box;
   line-height: 0;
+  cursor: pointer;
   outline: none;
 }
 

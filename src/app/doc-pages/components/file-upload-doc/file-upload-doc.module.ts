@@ -5,6 +5,7 @@ import { ComponentHeaderModule } from 'src/app/shared/component-header/component
 import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 import { DndDirective } from './dnd.directive';
 import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-highlighter.module';
+import { ComponentPropertiesModule } from 'src/app/shared/component-properties/component-properties.module';
 
 
 @NgModule({
@@ -12,8 +13,9 @@ import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-high
     CommonModule,
     ComponentHeaderModule,
     CodeBlockModule,
-    CodeHighlighterModule
+    CodeHighlighterModule,
+    ComponentPropertiesModule,
   ],
-  declarations: [FileUploadDocComponent, DndDirective]
+  declarations: [FileUploadDocComponent, DndDirective],
 })
 export class FileUploadDocModule { }
