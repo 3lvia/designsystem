@@ -80,6 +80,9 @@ export class ScrollService {
 
   findAnchorAtScrollPosition(navbarAnchors: NavbarAnchor[]): void {
     const currentPos = window.scrollY;
+    if (navbarAnchors === undefined) {
+      return;
+    }
     navbarAnchors.forEach((anchor) => {
       if ((window.scrollY + window.innerHeight) === document.body.scrollHeight) {
         this.newAnchorAtCurrPos(navbarAnchors[navbarAnchors.length - 1]);

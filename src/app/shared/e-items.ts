@@ -513,7 +513,7 @@ export const eCommunity: EItems[] = [
   {
     title: 'FAQ',
     // tslint:disable-next-line: max-line-length
-    description: `Answers to frequently asked questions. Here we try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack: <a onclick="event.stopPropagation();" class="e-link" href="https://hafslundnett.slack.com/archives/C01302LBTC2">#designsystemet</a>.`,
+    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack: <a onclick="event.stopPropagation();" class="e-link e-text-lead" href="https://hafslundnett.slack.com/archives/C01302LBTC2">#designsystemet</a>.`,
     docUrl: Pages.Faq,
     absolutePath: '/community/' + Pages.Faq,
     status: ItemStatus.New,
