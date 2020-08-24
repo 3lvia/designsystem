@@ -7,12 +7,6 @@
     <div>
       {{ description }}
     </div>
-    <div>
-      <h3>Search results</h3>
-      When showing results, the heading as well as page text of maximum two lines should be shown. This should
-      be enough to give the user context as well as overview of results. Alternatively, if the site contains
-      ingresses, these could be shown as page text results.
-    </div>
   </ng-container>
 </app-component-header>
 
@@ -26,6 +20,7 @@
       Search results appear when the user presses enter on the keyboard or clicks the magnifying button.'
     "
   ></app-code-block>
+  <app-code-block [codeHTML]="searchCompactExample" [title]="'Local Compact Search'"></app-code-block>
   <!-- <app-code-block
     [codeHTML]="searchGlobalExample"
     [title]="'Global Search'"

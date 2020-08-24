@@ -679,6 +679,13 @@
 				"e-form-field__input": {}
 			}
 		},
+		"e-search": {
+			"modifier": {
+				"e-search--local": {},
+				"e-search--searched": {},
+				"e-search--global": {}
+			}
+		},
 		"e-inlined-field": {},
 		"e-fileupload": {
 			"element": {
@@ -712,13 +719,6 @@
 				"e-radio---focus": {},
 				"e-radio---hover": {},
 				"e-radio---invalid": {}
-			}
-		},
-		"e-search": {
-			"modifier": {
-				"e-search--local": {},
-				"e-search--searched": {},
-				"e-search--global": {}
 			}
 		},
 		"e-segmented-controls": {},
@@ -1274,6 +1274,7 @@
 		"e-form-field--compact": {},
 		"e-form-field__label": {},
 		"e-form-field__error": {},
+		"e-search--local": {},
 		"e-form-field__label--optional": {},
 		"e-form-field__error--visible": {},
 		"e-form-field--combined": {},
@@ -1303,7 +1304,6 @@
 		"e-radio---hover": {},
 		"e-radio---invalid": {},
 		"e-search": {},
-		"e-search--local": {},
 		"e-search--searched": {},
 		"e-search--global": {},
 		"e-segmented-controls": {},
