@@ -6,13 +6,17 @@ pre {
   padding: 0;
   margin: 0;
   font-size: 0.875rem;
-  background: var(--e-black);
+  background: var(--e-grey);
 }
 
 .highlight-container {
   padding: 24px;
-  background: var(--e-black);
+  background: var(--e-grey);
   border-radius: 8px;
+
+  &.do-dont-comp {
+    border-radius: 8px 8px 0 0;
+  }
 
   .top-menu {
     display: flex;

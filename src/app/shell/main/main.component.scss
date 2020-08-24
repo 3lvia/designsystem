@@ -2,7 +2,7 @@
 @import '../../../../style/elvis/src/utilities/breakpoints.scss';
 
 .main-content {
-  min-height: calc(100vh - #{$header-height} - #{$footer-height});
+  min-height: calc(100vh - #{$footer-height});
   padding-top: 64px;
   padding-bottom: 120px;
   border: 8px solid white;

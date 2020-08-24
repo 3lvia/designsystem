@@ -10,10 +10,27 @@
 
   .doDo {
     margin-left: 0;
+    .code-highlighter {
+      margin-top: -5px;
+      border-bottom: 7px solid var(--e-green);
+      border-radius: 0 0 8px 8px;
+    }
   }
   .doDont {
     margin-right: 0;
+    .code-highlighter {
+      margin-top: -10px;
+      border-bottom: 7px solid var(--e-red);
+      border-radius: 0 0 8px 8px;
+    }
   }
+}
+
+.doDont-container[_ngcontent-bah-c77]
+  .doDo[_ngcontent-bah-c77]
+  .code-highlighter[_ngcontent-bah-c77]
+  .highlight-container[_ngcontent-osw-c65] {
+  border-radius: 8px 8px 0 0;
 }
 
 .instructions {
@@ -23,12 +40,5 @@
 
   i {
     margin: 0 5px;
-  }
-
-  &.do {
-    border-top: 5px solid var(--e-green);
-  }
-  &.dont {
-    border-top: 5px solid var(--e-red);
   }
 }

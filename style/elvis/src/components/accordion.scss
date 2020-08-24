@@ -45,8 +45,8 @@
       max-height: 0;
       opacity: 0;
       padding-top: 0;
-      transition: max-height 0.24s cubic-bezier(0, 1.22, 0.9, 1),
-        opacity 0.23s cubic-bezier(0.4, 0.01, 0.78, 1.1), padding-top 0.25s cubic-bezier(0, 0.2, 1, 1);
+      transition: max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1),
+        opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
 
       display: flex;
       width: 100%;
@@ -75,9 +75,10 @@
         max-height: 10000px;
         opacity: 1;
         padding-top: 24px;
-        transition: 0.8s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 1.2s cubic-bezier(0, 0.3, 0.83, 0.97),
+        transition: 0.5s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97),
           padding-top 0s;
         font-size: inherit;
+        @include typography.typography('text-body');
       }
     }
 

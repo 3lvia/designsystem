@@ -14,6 +14,7 @@ export class CodeHighlighterComponent implements OnInit, OnChanges, AfterViewChe
   @Input() codeInverted = '';
   @Input() isInverted = false;
   @Input() isJS = false;
+  @Input() doDontComp = false;
 
   highlighted = false;
   activeTab = 'ts';
