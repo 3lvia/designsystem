@@ -14,7 +14,7 @@
         <div class="anchors">
           <div *ngIf="navbarItem === prevActiveNavbarItem">
             <div class="link" *ngFor="let anchor of prevNavbarAnchors">
-              <a class="anchor" id="navbar-{{ anchor.title }}" href="javascript:void()">
+              <a class="anchor" id="navbar-{{ anchor.title }}" href="javascript:void(0)">
                 {{ anchor.title }}
               </a>
             </div>
@@ -26,7 +26,7 @@
                 class="anchor"
                 [ngClass]="{ 'active-anchor': anchor === activeAnchor }"
                 id="navbar-{{ anchor.title }}"
-                href="javascript:void()"
+                href="javascript:void(0)"
               >
                 {{ anchor.title }}
               </a>
