@@ -35,8 +35,8 @@
         color: $color !important;
       }
       &-bg-#{$label} {
-        background: $color;
-        color: $contrast-text;
+        background: $color !important;
+        color: $contrast-text !important;
       }
     }
   }

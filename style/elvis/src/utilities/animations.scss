@@ -1,4 +1,5 @@
 @use 'helpers';
+@use 'colors';
 
 @include helpers.keyframes(spinner) {
   from {
@@ -6,5 +7,19 @@
   }
   to {
     @include helpers.transform(rotate(360deg));
+  }
+}
+
+@mixin dotAnimation($name, $color) {
+  @include helpers.keyframes($name) {
+    0% {
+      background: transparent;
+    }
+    50% {
+      background: $color;
+    }
+    100% {
+      background: transparent;
+    }
   }
 }

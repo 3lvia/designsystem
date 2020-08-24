@@ -128,6 +128,13 @@ document.addEventListener('DOMContentLoaded', function () {
       fill = colors['grey-05'].color;
     }
 
+    if (classList.contains('e-icon--inverted-disabled-grey')) {
+      fill = colors['grey'].color;
+    }
+    if (classList.contains('e-icon--inverted-disabled-grey-70')) {
+      fill = colors['grey-70'].color;
+    }
+
     if (JSON.stringify(classList).indexOf('e-icon--color-') > -1) {
       for (let i = 0; i < classList.length; i++) {
         let color = classList[i].replace('e-icon--color-', '');

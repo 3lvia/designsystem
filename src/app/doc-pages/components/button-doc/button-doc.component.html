@@ -34,6 +34,7 @@
 <div class="page-body">
   <app-code-block
     [codeHTML]="example1"
+    [codeInverted]="example1Inverted"
     [title]="'Primary'"
     [description]="
       'Primary buttons are action-oriented buttons used for primary actions we want the user to do. 
@@ -45,6 +46,7 @@
   ></app-code-block>
   <app-code-block
     [codeHTML]="example2"
+    [codeInverted]="example2Inverted"
     [title]="'Secondary'"
     [description]="
       'Secondary buttons are the alternative we give users to the primary 
@@ -55,6 +57,7 @@
   ></app-code-block>
   <app-code-block
     [codeHTML]="example3"
+    [codeInverted]="example3Inverted"
     [title]="'Tertiary'"
     [description]="
       'Tertiary buttons are usually used for miscellaneous actions and may not be what the user is looking for to do right then. 
@@ -64,6 +67,7 @@
   ></app-code-block>
   <app-code-block
     [codeHTML]="exampleIcon"
+    [codeInverted]="exampleIconInverted"
     [title]="'Icon buttons'"
     [description]="
       'Icon buttons are used for well-known and simple actions such as close, edit, delete etc. 
@@ -74,13 +78,14 @@
     [does]="doesExampleIcon"
   ></app-code-block>
   <app-code-block
-    [codeHTML]="example7"
+    [codeHTML]="buttonLinks"
+    [codeInverted]="buttonLinksInverted"
     [title]="'Links with button style'"
     [description]="'The e-btn class can also be used on anchor tags to make links appear like buttons.'"
     [donts]="dontsExample7"
   ></app-code-block>
   <app-code-block
-    [codeHTML]="example8"
+    [codeHTML]="pseudoClasses"
     [title]="'Pseudo Classes'"
     [description]="
       'Pseudo Classes can be used to set the styling of button to emulate the state.
