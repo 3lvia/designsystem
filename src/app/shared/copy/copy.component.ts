@@ -1,4 +1,5 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 
 @Component({
   selector: 'app-copy',
@@ -10,6 +11,8 @@ export class CopyComponent {
 
   copyTooltip = 'Copy';
 
+  constructor(private copyService: CopyToClipboardService) { }
+
   copyMessage(copyMessage: string): void {
     this.copyToClipBoard(copyMessage);
     this.copyTooltip = 'Copied!';
@@ -19,16 +22,6 @@ export class CopyComponent {
   }
 
   copyToClipBoard(val: string): void {
-    const selBox = document.createElement('textarea');
-    selBox.style.position = 'fixed';
-    selBox.style.left = '0';
-    selBox.style.top = '0';
-    selBox.style.opacity = '0';
-    selBox.value = val;
-    document.body.appendChild(selBox);
-    selBox.focus();
-    selBox.select();
-    document.execCommand('copy');
-    document.body.removeChild(selBox);
+    this.copyService.copyToClipBoard(val);
   }
 }

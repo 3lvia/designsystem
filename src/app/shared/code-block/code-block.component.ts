@@ -1,6 +1,8 @@
 import { Component, Input, AfterViewInit, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { heightDown } from 'src/app/shared/animations';
 import { VersionService } from 'src/app/core/services/version.service';
+import { Router } from '@angular/router';
+import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 
 @Component({
   selector: 'app-code-block',
@@ -37,7 +39,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   displayCode = '';
   isInverted = false;
 
-  constructor(private versionService: VersionService) {
+  constructor(private versionService: VersionService, private router: Router, private copyService: CopyToClipboardService) {
   }
 
   ngOnInit(): void {
@@ -117,6 +119,20 @@ ${tag}`;
     } else {
       this.accordion.nativeElement.classList.add('e-accordion__item--open');
     }
+  }
+
+  copyAnchor(): void {
+    const anchorTitleElement = document.getElementById(this.title);
+    anchorTitleElement.classList.add('anchor-copied');
+    setTimeout(() => { anchorTitleElement.classList.remove('anchor-copied'); }, 800);
+    const modifiedAnchor = this.title.replace(' ', '-');
+    let anchorUrl = 'https://design.elvia.io';
+    if (this.router.url.includes('#')) {
+      anchorUrl = anchorUrl + this.router.url.slice(0, this.router.url.lastIndexOf('#')) + '#' + modifiedAnchor;
+    } else {
+      anchorUrl = anchorUrl + this.router.url + '#' + modifiedAnchor;
+    }
+    this.copyService.copyToClipBoard(anchorUrl);
   }
 }
 

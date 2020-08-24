@@ -1,5 +1,18 @@
 <div class="component-body__example elvis-anchor">
-  <h2 class="component-body__example-title elvis-anchor-title" id="{{ title }}">{{ title }}</h2>
+  <h2 class="component-body__example-title elvis-anchor-title" id="{{ title }}">
+    <span class="e-tooltip" tabindex="0" (click)="copyAnchor()">
+      <span class="icons">
+        <img class="component-body__img normal-img" alt="Copy anchor button" src="assets/hyperlink-3.svg" />
+        <img
+          class="component-body__img green-img"
+          alt="Copy anchor button"
+          src="assets/hyperlink-3-green.svg"
+        />
+      </span>
+      <span>{{ title }}</span>
+      <span class="e-tooltip__content">Copied!</span>
+    </span>
+  </h2>
   <div class="component-body__example-description e-text-description">
     {{ description }}
   </div>

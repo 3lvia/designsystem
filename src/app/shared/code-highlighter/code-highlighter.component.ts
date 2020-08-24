@@ -1,5 +1,6 @@
 import { Component, Input, AfterViewChecked, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { HighlightService } from 'src/app/core/services/highlight.service';
+import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 
 @Component({
   selector: 'app-code-highlighter',
@@ -18,7 +19,7 @@ export class CodeHighlighterComponent implements OnInit, OnChanges, AfterViewChe
   activeTab = 'ts';
   copyMessage = '';
 
-  constructor(private highlightService: HighlightService) { }
+  constructor(private highlightService: HighlightService, private copyService: CopyToClipboardService) { }
 
   ngOnInit(): void {
     this.activeTab = this.codeTS !== '' ? 'ts' : (this.codeHTML !== '' ? 'html' : 'css');
@@ -72,17 +73,7 @@ export class CodeHighlighterComponent implements OnInit, OnChanges, AfterViewChe
   }
 
   copyToClipBoard(val: string): void {
-    const selBox = document.createElement('textarea');
-    selBox.style.position = 'fixed';
-    selBox.style.left = '0';
-    selBox.style.top = '0';
-    selBox.style.opacity = '0';
-    selBox.value = val;
-    document.body.appendChild(selBox);
-    selBox.focus();
-    selBox.select();
-    document.execCommand('copy');
-    document.body.removeChild(selBox);
+    this.copyService.copyToClipBoard(val);
   }
 
   changeActiveTab(type: string): void {

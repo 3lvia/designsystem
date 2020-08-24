@@ -4526,7 +4526,9 @@ input:focus {
   padding: 6px 8px;
   border-radius: 4px;
   transition: 200ms;
+  font-family: "Red Hat Text";
   font-size: 14px;
+  font-weight: normal;
   line-height: 19px;
   letter-spacing: 0.002em;
   color: #fff;

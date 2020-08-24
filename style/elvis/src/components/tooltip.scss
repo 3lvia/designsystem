@@ -37,7 +37,9 @@ $tooltip-vertical-transform: translate(-50%, 0);
     border-radius: 4px;
     transition: 200ms;
     // tooltip spesific font style
+    font-family: 'Red Hat Text';
     font-size: 14px;
+    font-weight: normal;
     line-height: 19px;
     letter-spacing: 0.002em;
     color: colors.color('white');
