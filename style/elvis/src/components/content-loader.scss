@@ -1,0 +1,44 @@
+@use './../variables/colors.scss';
+
+.e-content-loader {
+  display: flex;
+  width: 260px;
+  height: 260px;
+
+  &::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: colors.color('grey-10');
+    border-radius: 16px;
+    animation: 1s wave infinite alternate;
+  }
+
+  &.e-content-loader--circle {
+    &:after {
+      border-radius: 50%;
+    }
+  }
+
+  &.e-content-loader--text {
+    width: 100%;
+    height: 24px;
+    &:after {
+      width: 100%;
+      height: 24px;
+      border-radius: 8px;
+    }
+    &.e-content-loader--short {
+      width: 100%;
+      &:after {
+        width: 70%;
+      }
+    }
+  }
+}
+
+@keyframes wave {
+  to {
+    opacity: 0.3;
+  }
+}

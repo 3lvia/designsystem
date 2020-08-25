@@ -127,6 +127,17 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
+    title: 'Content Loader',
+    // tslint:disable-next-line: max-line-length
+    description: 'Loaders confirms that content or actions are being processed by the system, either on a global or local level. The content loader is used globally to show page structure before it’s possible to show real content.',
+    docUrl: Pages.ContentLoader,
+    absolutePath: '/components/' + Pages.ContentLoader,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Chip.svg',
+    figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loader?node-id=1%3A41',
+    type: 'Component',
+  },
+  {
     title: 'Date/Time Picker',
     // tslint:disable-next-line: max-line-length
     description: 'Date and time picker is a simple way for the user to quickly select a date and/or time in a calendar dialog. It uses a text field and a visual calendar in a popover. You can also let the user select a range of dates.',

@@ -13,6 +13,9 @@ export class NewProjectComponent implements OnInit {
   linkTagCode = '';
   scriptTagCode = '';
   fullExampleCode = '';
+  loadedScript = false;
+  loadedStyle = false;
+  loadedFullExample = false;
   cssVarsCode = `/* main.js/ts - file */
 
 import cssVars from 'css-vars-ponyfill';
@@ -46,8 +49,10 @@ cssVars({
 
   createFullExample(): void {
     if (this.linkTagCode !== '' && this.scriptTagCode !== '') {
-      this.fullExampleCode = `
-<!doctype html>
+      this.loadedScript = true;
+      this.loadedStyle = true;
+      this.loadedFullExample = true;
+      this.fullExampleCode = `<!doctype html>
 <html lang="en">
 <head>
     <meta charset="utf-8">

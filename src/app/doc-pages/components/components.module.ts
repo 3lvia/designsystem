@@ -23,6 +23,7 @@ import { HeaderDocModule } from './header-doc/header-doc.module';
 import { DropdownDocModule } from './dropdown-doc/dropdown-doc.module';
 import { AccordionDocModule } from './accordion-doc/accordion-doc.module';
 import { StepperDocModule } from './stepper-doc/stepper-doc.module';
+import { ContentLoaderDocModule } from './content-loader-doc/content-loader-doc.module';
 
 @NgModule({
     imports: [
@@ -32,6 +33,7 @@ import { StepperDocModule } from './stepper-doc/stepper-doc.module';
         ButtonDocModule,
         CardDocModule,
         ComponentsStartModule,
+        ContentLoaderDocModule,
         DropdownDocModule,
         FileUploadDocModule,
         FormComponentsModule,

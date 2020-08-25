@@ -61,6 +61,7 @@ import { SearchDocComponent } from './doc-pages/components/forms/search-doc/sear
 import { AccordionDocComponent } from './doc-pages/components/accordion-doc/accordion-doc.component';
 import { UtilitiesDocComponent } from './doc-pages/identity/utilities-doc/utilities-doc.component';
 import { StepperDocComponent } from './doc-pages/components/stepper-doc/stepper-doc.component';
+import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
 
 const routes: Routes = [
   {
@@ -186,6 +187,10 @@ const routes: Routes = [
           {
             path: Pages.Checkbox,
             component: CheckboxDocComponent,
+          },
+          {
+            path: Pages.ContentLoader,
+            component: ContentLoaderDocComponent,
           },
           {
             path: Pages.Dropdown,

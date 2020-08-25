@@ -10,8 +10,8 @@ import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
     CommonModule,
     ComponentHeaderModule,
     RouterModule,
-    CodeBlockModule
+    CodeBlockModule,
   ],
-  declarations: [DatetimePickerDocComponent]
+  declarations: [DatetimePickerDocComponent],
 })
 export class DatetimePickerDocModule { }

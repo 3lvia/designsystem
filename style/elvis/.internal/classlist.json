@@ -161,6 +161,13 @@
 				"e-card__content": {}
 			}
 		},
+		"e-content-loader": {
+			"modifier": {
+				"e-content-loader--circle": {},
+				"e-content-loader--text": {},
+				"e-content-loader--short": {}
+			}
+		},
 		"e-divider": {},
 		"e-input": {
 			"modifier": {
@@ -897,6 +904,10 @@
 		"e-card__title": {},
 		"e-card__title--above": {},
 		"e-card__content": {},
+		"e-content-loader": {},
+		"e-content-loader--circle": {},
+		"e-content-loader--text": {},
+		"e-content-loader--short": {},
 		"e-divider": {},
 		"e-input": {},
 		"e-input--placeholder": {},

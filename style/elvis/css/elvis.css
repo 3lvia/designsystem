@@ -1600,6 +1600,49 @@ input:focus {
   color: #000;
 }
 
+.e-content-loader {
+  display: flex;
+  width: 260px;
+  height: 260px;
+}
+
+.e-content-loader::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: #e9e9e9;
+  border-radius: 16px;
+  animation: 1s wave infinite alternate;
+}
+
+.e-content-loader.e-content-loader--circle:after {
+  border-radius: 50%;
+}
+
+.e-content-loader.e-content-loader--text {
+  width: 100%;
+  height: 24px;
+}
+
+.e-content-loader.e-content-loader--text:after {
+  width: 100%;
+  height: 24px;
+  border-radius: 8px;
+}
+
+.e-content-loader.e-content-loader--text.e-content-loader--short {
+  width: 100%;
+}
+
+.e-content-loader.e-content-loader--text.e-content-loader--short:after {
+  width: 70%;
+}
+
+@keyframes wave {
+  to {
+    opacity: 0.3;
+  }
+}
 .e-divider {
   border: 1px solid #262626;
 }
