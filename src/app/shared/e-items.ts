@@ -494,11 +494,10 @@ export const eTools: EItems[] = [
 ];
 export const eCommunity: EItems[] = [
   {
-    title: 'Changelog',
-    description: 'Overview og major and minor changes to Elvis',
+    title: 'What´s new?',
+    description: 'The latest news, updates, and changes to the design system.',
     docUrl: Pages.Changelog,
     absolutePath: '/community/' + Pages.Changelog,
-    externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/blob/master/style/elvis/CHANGELOG.md',
     imageUrl: 'assets/website-icons/temporary.svg',
     type: 'Community',
   },

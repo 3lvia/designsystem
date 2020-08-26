@@ -13,7 +13,6 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { CommunityModule } from './doc-pages/community/community.module';
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,
