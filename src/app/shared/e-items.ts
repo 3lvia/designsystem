@@ -133,7 +133,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.ContentLoader,
     absolutePath: '/components/' + Pages.ContentLoader,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/component-images/Chip.svg',
+    imageUrl: 'assets/website-icons/component-images/Content loader.svg',
     figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loader?node-id=1%3A41',
     type: 'Component',
   },

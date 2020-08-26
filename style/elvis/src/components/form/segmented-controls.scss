@@ -1,51 +1,151 @@
 @use "../../utilities/outline.scss";
 @use "../../variables/colors";
+@use "../../utilities/helpers";
+
+$control-count: 3;
+$transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+$transition-duration: 0.35s;
 
 .e-segmented-controls {
   display: inline-flex;
   border: 1px solid colors.color('black');
   border-radius: 38px;
   width: 100%;
+  max-width: 442px;
   text-align: center;
   flex-wrap: nowrap;
   box-sizing: border-box;
   position: relative;
+  @include helpers.user-select(none);
 
-  input {
+  transition-duration: $transition-duration;
+  transition-timing-function: $transition-timing-function;
+
+  > input {
     position: absolute;
     opacity: 0;
-    &:checked,
-    &#{this} label {
-      background-color: colors.color('black');
-      color: colors.color('white');
+    &:focus ~ label:first-of-type {
+      @include outline.e-outline();
+    }
+
+    &[type='checkbox'] ~ label {
+      transition-duration: 0;
+
+      &:before {
+        opacity: 0;
+      }
+    }
+
+    @for $i from 1 through $control-count {
+      &:nth-child(#{$i}) {
+        ~ label:nth-of-type(#{$i}) {
+          .e-segmented-controls__title {
+            font-weight: 400;
+            transition: font-weight 0s 0;
+          }
+          .e-segmented-controls__title {
+            color: black;
+            transition: color 0s calc(#{$transition-duration} / 2);
+            z-index: 11;
+          }
+          &:hover .e-segmented-controls__title {
+            font-weight: 500;
+            transition-delay: 0s;
+          }
+        }
+      }
+      &:nth-child(#{$i}):checked {
+        ~ label:nth-of-type(#{$i}) {
+          .e-segmented-controls__title {
+            transition-delay: calc(#{$transition-duration} / 2);
+            color: white;
+            font-weight: 500;
+            z-index: 11;
+          }
+        }
+
+        @for $j from $i through $control-count {
+          ~ label:first-of-type:nth-last-of-type(#{$j}) {
+            &:after,
+            &:before,
+            & ~ label:after,
+            & ~ label:before {
+              left: percentage((($i - 1) / 10) / ($j / 10));
+            }
+          }
+        }
+      }
     }
   }
 
-  label {
-    color: colors.color('black');
-    font-size: 16px;
-    line-height: 140%;
-    padding: 14px 32px;
-    border-radius: 38px;
-    transition: 0.2s ease-in;
-    width: 100%;
+  > label {
+    cursor: pointer;
+    float: left;
+    height: 49px;
 
-    &:hover {
-      transition: none;
-      cursor: pointer;
+    transition-property: none;
+    transition-duration: inherit;
+    transition-timing-function: inherit;
+
+    .e-segmented-controls__title {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      font-family: 'Red Hat Text';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 145%;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    &:after {
+      background: black;
+      text-align: center;
+      padding: inherit;
+      z-index: 10;
+      opacity: 0;
       font-weight: 500;
-    }
-  }
-  input:checked + label {
-    background-color: colors.color('black');
-    color: colors.color('white');
-    box-shadow: none;
-    border-radius: 38px;
-    font-weight: 500;
-    transition: 0.2s;
-  }
 
-  input:focus + label {
-    @include outline.e-outline();
+      transition-property: (left);
+      transition-duration: inherit;
+      transition-timing-function: inherit;
+    }
+
+    &:before {
+      content: '';
+      background: black;
+
+      transition-property: left;
+      transition-duration: inherit;
+      transition-timing-function: inherit;
+    }
+
+    @for $i from 1 through $control-count {
+      &:first-of-type:nth-last-of-type(#{$i}) {
+        &,
+        & ~ label {
+          &,
+          &:after,
+          &:before {
+            display: flex;
+            justify-content: center;
+            width: percentage(1 / $i);
+            border-radius: 36px;
+          }
+        }
+      }
+    }
   }
 }

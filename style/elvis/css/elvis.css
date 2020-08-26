@@ -6240,50 +6240,201 @@ input:focus {
   border: 1px solid #000;
   border-radius: 38px;
   width: 100%;
+  max-width: 442px;
   text-align: center;
   flex-wrap: nowrap;
   box-sizing: border-box;
   position: relative;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition-duration: 0.35s;
+  transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
-.e-segmented-controls input {
+.e-segmented-controls > input {
   position: absolute;
   opacity: 0;
 }
 
-.e-segmented-controls input:checked, .e-segmented-controls inputthis label {
-  background-color: #000;
-  color: #fff;
-}
-
-.e-segmented-controls label {
-  color: #000;
-  font-size: 16px;
-  line-height: 140%;
-  padding: 14px 32px;
-  border-radius: 38px;
-  transition: 0.2s ease-in;
-  width: 100%;
-}
-
-.e-segmented-controls label:hover {
-  transition: none;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.e-segmented-controls input:checked + label {
-  background-color: #000;
-  color: #fff;
-  box-shadow: none;
-  border-radius: 38px;
-  font-weight: 500;
-  transition: 0.2s;
-}
-
-.e-segmented-controls input:focus + label {
+.e-segmented-controls > input:focus ~ label:first-of-type {
   outline: 2px solid #0064fa;
   outline-offset: 2px;
+}
+
+.e-segmented-controls > input[type=checkbox] ~ label {
+  transition-duration: 0;
+}
+
+.e-segmented-controls > input[type=checkbox] ~ label:before {
+  opacity: 0;
+}
+
+.e-segmented-controls > input:nth-child(1) ~ label:nth-of-type(1) .e-segmented-controls__title {
+  font-weight: 400;
+  transition: font-weight 0s 0;
+}
+
+.e-segmented-controls > input:nth-child(1) ~ label:nth-of-type(1) .e-segmented-controls__title {
+  color: black;
+  transition: color 0s calc(0.35s / 2);
+  z-index: 11;
+}
+
+.e-segmented-controls > input:nth-child(1) ~ label:nth-of-type(1):hover .e-segmented-controls__title {
+  font-weight: 500;
+  transition-delay: 0s;
+}
+
+.e-segmented-controls > input:nth-child(1):checked ~ label:nth-of-type(1) .e-segmented-controls__title {
+  transition-delay: calc(0.35s / 2);
+  color: white;
+  font-weight: 500;
+  z-index: 11;
+}
+
+.e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(1):after, .e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(1):before, .e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(1) ~ label:after, .e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(1) ~ label:before {
+  left: 0%;
+}
+
+.e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(2):after, .e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(2):before, .e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(2) ~ label:after, .e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(2) ~ label:before {
+  left: 0%;
+}
+
+.e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(3):after, .e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(3):before, .e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(3) ~ label:after, .e-segmented-controls > input:nth-child(1):checked ~ label:first-of-type:nth-last-of-type(3) ~ label:before {
+  left: 0%;
+}
+
+.e-segmented-controls > input:nth-child(2) ~ label:nth-of-type(2) .e-segmented-controls__title {
+  font-weight: 400;
+  transition: font-weight 0s 0;
+}
+
+.e-segmented-controls > input:nth-child(2) ~ label:nth-of-type(2) .e-segmented-controls__title {
+  color: black;
+  transition: color 0s calc(0.35s / 2);
+  z-index: 11;
+}
+
+.e-segmented-controls > input:nth-child(2) ~ label:nth-of-type(2):hover .e-segmented-controls__title {
+  font-weight: 500;
+  transition-delay: 0s;
+}
+
+.e-segmented-controls > input:nth-child(2):checked ~ label:nth-of-type(2) .e-segmented-controls__title {
+  transition-delay: calc(0.35s / 2);
+  color: white;
+  font-weight: 500;
+  z-index: 11;
+}
+
+.e-segmented-controls > input:nth-child(2):checked ~ label:first-of-type:nth-last-of-type(2):after, .e-segmented-controls > input:nth-child(2):checked ~ label:first-of-type:nth-last-of-type(2):before, .e-segmented-controls > input:nth-child(2):checked ~ label:first-of-type:nth-last-of-type(2) ~ label:after, .e-segmented-controls > input:nth-child(2):checked ~ label:first-of-type:nth-last-of-type(2) ~ label:before {
+  left: 50%;
+}
+
+.e-segmented-controls > input:nth-child(2):checked ~ label:first-of-type:nth-last-of-type(3):after, .e-segmented-controls > input:nth-child(2):checked ~ label:first-of-type:nth-last-of-type(3):before, .e-segmented-controls > input:nth-child(2):checked ~ label:first-of-type:nth-last-of-type(3) ~ label:after, .e-segmented-controls > input:nth-child(2):checked ~ label:first-of-type:nth-last-of-type(3) ~ label:before {
+  left: 33.3333333333%;
+}
+
+.e-segmented-controls > input:nth-child(3) ~ label:nth-of-type(3) .e-segmented-controls__title {
+  font-weight: 400;
+  transition: font-weight 0s 0;
+}
+
+.e-segmented-controls > input:nth-child(3) ~ label:nth-of-type(3) .e-segmented-controls__title {
+  color: black;
+  transition: color 0s calc(0.35s / 2);
+  z-index: 11;
+}
+
+.e-segmented-controls > input:nth-child(3) ~ label:nth-of-type(3):hover .e-segmented-controls__title {
+  font-weight: 500;
+  transition-delay: 0s;
+}
+
+.e-segmented-controls > input:nth-child(3):checked ~ label:nth-of-type(3) .e-segmented-controls__title {
+  transition-delay: calc(0.35s / 2);
+  color: white;
+  font-weight: 500;
+  z-index: 11;
+}
+
+.e-segmented-controls > input:nth-child(3):checked ~ label:first-of-type:nth-last-of-type(3):after, .e-segmented-controls > input:nth-child(3):checked ~ label:first-of-type:nth-last-of-type(3):before, .e-segmented-controls > input:nth-child(3):checked ~ label:first-of-type:nth-last-of-type(3) ~ label:after, .e-segmented-controls > input:nth-child(3):checked ~ label:first-of-type:nth-last-of-type(3) ~ label:before {
+  left: 66.6666666667%;
+}
+
+.e-segmented-controls > label {
+  cursor: pointer;
+  float: left;
+  height: 49px;
+  transition-property: none;
+  transition-duration: inherit;
+  transition-timing-function: inherit;
+}
+
+.e-segmented-controls > label .e-segmented-controls__title {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-family: "Red Hat Text";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 145%;
+}
+
+.e-segmented-controls > label:before, .e-segmented-controls > label:after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.e-segmented-controls > label:after {
+  background: black;
+  text-align: center;
+  padding: inherit;
+  z-index: 10;
+  opacity: 0;
+  font-weight: 500;
+  transition-property: left;
+  transition-duration: inherit;
+  transition-timing-function: inherit;
+}
+
+.e-segmented-controls > label:before {
+  content: "";
+  background: black;
+  transition-property: left;
+  transition-duration: inherit;
+  transition-timing-function: inherit;
+}
+
+.e-segmented-controls > label:first-of-type:nth-last-of-type(1), .e-segmented-controls > label:first-of-type:nth-last-of-type(1):after, .e-segmented-controls > label:first-of-type:nth-last-of-type(1):before, .e-segmented-controls > label:first-of-type:nth-last-of-type(1) ~ label, .e-segmented-controls > label:first-of-type:nth-last-of-type(1) ~ label:after, .e-segmented-controls > label:first-of-type:nth-last-of-type(1) ~ label:before {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border-radius: 36px;
+}
+
+.e-segmented-controls > label:first-of-type:nth-last-of-type(2), .e-segmented-controls > label:first-of-type:nth-last-of-type(2):after, .e-segmented-controls > label:first-of-type:nth-last-of-type(2):before, .e-segmented-controls > label:first-of-type:nth-last-of-type(2) ~ label, .e-segmented-controls > label:first-of-type:nth-last-of-type(2) ~ label:after, .e-segmented-controls > label:first-of-type:nth-last-of-type(2) ~ label:before {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  border-radius: 36px;
+}
+
+.e-segmented-controls > label:first-of-type:nth-last-of-type(3), .e-segmented-controls > label:first-of-type:nth-last-of-type(3):after, .e-segmented-controls > label:first-of-type:nth-last-of-type(3):before, .e-segmented-controls > label:first-of-type:nth-last-of-type(3) ~ label, .e-segmented-controls > label:first-of-type:nth-last-of-type(3) ~ label:after, .e-segmented-controls > label:first-of-type:nth-last-of-type(3) ~ label:before {
+  display: flex;
+  justify-content: center;
+  width: 33.3333333333%;
+  border-radius: 36px;
 }
 
 .e-select, .e-select:focus-within {

@@ -729,7 +729,11 @@
 				"e-radio---invalid": {}
 			}
 		},
-		"e-segmented-controls": {},
+		"e-segmented-controls": {
+			"element": {
+				"e-segmented-controls__title": {}
+			}
+		},
 		"e-select": {},
 		"e-border-none": {},
 		"e-border": {},
@@ -1320,6 +1324,7 @@
 		"e-search--searched": {},
 		"e-search--global": {},
 		"e-segmented-controls": {},
+		"e-segmented-controls__title": {},
 		"e-select": {},
 		"e-select_icon": {},
 		"e-border-none": {},
