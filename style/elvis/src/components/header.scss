@@ -558,7 +558,7 @@ $sidebar-mobile-z-index: -2;
     align-items: center;
     cursor: pointer;
     .e-sidebar__text {
-      visibility: hidden;
+      display:none;
       margin-left: 8px;
       @include typography.typography('text-description');
     }
@@ -617,7 +617,7 @@ $sidebar-mobile-z-index: -2;
     .e-sidebar__item,
     .e-sidebar__open-close {
       .e-sidebar__text {
-        visibility: visible;
+        display:flex;
       }
     }
     .e-sidebar__open-close {

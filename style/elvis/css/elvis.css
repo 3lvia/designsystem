@@ -2487,7 +2487,7 @@ input:focus {
 }
 
 .e-sidebar__item .e-sidebar__text, .e-sidebar__open-close .e-sidebar__text {
-  visibility: hidden;
+  display: none;
   margin-left: 8px;
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
@@ -2557,7 +2557,7 @@ input:focus {
 
 .e-sidebar--open .e-sidebar__item .e-sidebar__text,
 .e-sidebar--open .e-sidebar__open-close .e-sidebar__text {
-  visibility: visible;
+  display: flex;
 }
 
 .e-sidebar--open .e-sidebar__open-close .e-sidebar__icon i {
