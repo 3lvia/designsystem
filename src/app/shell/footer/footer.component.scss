@@ -18,10 +18,14 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
-  background: var(--e-grey);
+  background-color: var(--e-grey);
   color: var(--e-white);
   @include breakpoint-up(Mobile) {
     height: calc(#{$footer-height} + 25px);
+  }
+
+  @media screen and (-ms-high-contrast: none) {
+    border-top: solid 1.5px var(--e-white);
   }
 
   &::before {
@@ -34,17 +38,26 @@
     width: 190vw;
     height: calc(280% + 8px);
     bottom: 157px;
+    @media screen and (-ms-high-contrast: none) {
+      bottom: 140px;
+    }
     @include breakpoint-up(Tablet) {
       left: -65%;
       width: 230vw;
       height: calc(280% + 8px);
       bottom: 171px;
+      @media screen and (-ms-high-contrast: none) {
+        bottom: 150px;
+      }
     }
     @include breakpoint-up(Mobile) {
       left: -30%;
       width: 160vw;
       height: calc(100% + 8px);
       bottom: 199px;
+      @media screen and (-ms-high-contrast: none) {
+        bottom: 175px;
+      }
     }
   }
 

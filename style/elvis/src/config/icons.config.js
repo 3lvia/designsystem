@@ -31,8 +31,8 @@ module.exports = [
   { name: 'call', terms: ['phone', 'mobile', 'telephone'] },
   { name: 'car_charger-color', terms: [] },
   { name: 'chat', terms: ['message', 'text', 'write', 'conversation'] },
-  { name: 'charging_battery', terms: [] },
-  { name: 'charging_battery-color', terms: [] },
+  { name: 'charging_battery', terms: ['charge', 'load'] },
+  { name: 'charging_battery-color', terms: ['charge', 'power'] },
   { name: 'check', terms: [] },
   { name: 'check-bold', terms: [] },
   { name: 'check_circle', terms: [] },
@@ -194,5 +194,5 @@ module.exports = [
   { name: 'web_library-color', terms: [] },
   { name: 'work_under_line-color', terms: [] },
   { name: 'worker-color', terms: [] },
-  { name: 'wrench', terms: ['tool'] },
+  { name: 'wrench', terms: ['working', 'in progress', 'tool'] },
 ];
