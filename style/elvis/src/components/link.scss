@@ -91,9 +91,8 @@ $link-jumbo-phone-width: 287px;
     padding-right: 16px;
 
     .e-link__icon {
-      margin-left: 0;
+      margin-left: 8px;
       position: absolute;
-      right: 0;
       bottom: 10px;
     }
   }
@@ -103,9 +102,8 @@ $link-jumbo-phone-width: 287px;
 
     .e-link__icon {
       @include icons.icon-size('xs');
-      margin-left: 0;
+      margin-left: 8px;
       position: absolute;
-      right: 0;
       bottom: 2px;
     }
     &.e-link--lg {

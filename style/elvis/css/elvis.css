@@ -2808,9 +2808,8 @@ input:focus {
 }
 
 .e-link.e-link--external .e-link__icon {
-  margin-left: 0;
+  margin-left: 8px;
   position: absolute;
-  right: 0;
   bottom: 10px;
 }
 
@@ -2821,9 +2820,8 @@ input:focus {
 .e-link.e-link--new-tab .e-link__icon {
   width: 16px;
   height: 16px;
-  margin-left: 0;
+  margin-left: 8px;
   position: absolute;
-  right: 0;
   bottom: 2px;
 }
 
@@ -4110,13 +4108,13 @@ input:focus {
   margin-block-start: 0;
   margin-block-end: 0;
   margin: 0;
-  line-height: 190%;
   box-sizing: border-box;
 }
 
 .e-list li {
   list-style: none;
   position: relative;
+  line-height: 32px;
   padding-left: 24px;
   margin: 0.5rem 0;
 }
@@ -4125,7 +4123,7 @@ input:focus {
   content: "";
   position: absolute;
   left: 0;
-  top: 10px;
+  top: 12px;
   width: 8px;
   height: 8px;
   background-color: #29d305;
@@ -4151,7 +4149,7 @@ input:focus {
   font-size: 18px;
   width: 30px;
   height: 30px;
-  top: 0;
+  top: 2px;
   background: transparent;
   border: 2px solid #29d305;
   border-radius: 50%;
