@@ -5127,7 +5127,7 @@ input:focus {
   position: absolute;
   opacity: 0;
   z-index: -1;
-  width: max-content;
+  width: auto;
   background-color: #515151;
   padding: 6px 8px;
   border-radius: 4px;

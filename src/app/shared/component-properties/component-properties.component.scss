@@ -1,3 +1,5 @@
+@import '../../../../style/elvis/src/utilities/breakpoints.scss';
+
 .properties-header {
   display: flex;
   align-items: center;
@@ -5,7 +7,12 @@
 }
 .elvis-anchor-body {
   margin: 0 105px;
+
+  @include breakpoint-up(Mobile) {
+    margin: 0 55px;
+  }
 }
+
 .e-list li::before {
   top: 11px;
 }
