@@ -2600,7 +2600,7 @@ input:focus {
     margin: 0;
   }
 
-  .e-sidebar__open-close, .e-sidebar__text {
+  .e-sidebar__open-close, .e-sidebar--open .e-sidebar__item .e-sidebar__text {
     display: none;
   }
 }

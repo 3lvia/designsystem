@@ -650,7 +650,7 @@ $sidebar-mobile-z-index: -2;
       }
     }
     &__open-close,
-    &__text {
+    &--open &__item &__text {
       display: none;
     }
   }
