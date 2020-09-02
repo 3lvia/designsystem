@@ -48,6 +48,12 @@
       color: colors.color('black');
       cursor: pointer;
 
+      font-family: 'Red Hat Display';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+
       &:disabled {
         color: colors.color('grey-30');
         cursor: not-allowed;

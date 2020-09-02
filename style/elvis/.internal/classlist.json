@@ -150,6 +150,9 @@
 		},
 		"e-card": {
 			"modifier": {
+				"e-card--shadow-soft": {},
+				"e-card--shadow-medium": {},
+				"e-card--shadow-hard": {},
 				"e-card--on-white": {}
 			},
 			"element": {
@@ -904,6 +907,9 @@
 		"e-btn--icon": {},
 		"e-btn--circled": {},
 		"e-card": {},
+		"e-card--shadow-soft": {},
+		"e-card--shadow-medium": {},
+		"e-card--shadow-hard": {},
 		"e-card--on-white": {},
 		"e-card__title": {},
 		"e-card__title--above": {},

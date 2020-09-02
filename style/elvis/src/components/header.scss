@@ -190,7 +190,7 @@ $sidebar-mobile-z-index: -2;
     font-family: 'Red Hat Display';
     font-weight: bold;
     font-size: 18px;
-    line-height: 120%;
+    line-height: 22px;
     @include breakpoints.breakpoint-up(Tablet) {
       font-size: 16px;
       line-height: 145%;
@@ -198,22 +198,22 @@ $sidebar-mobile-z-index: -2;
   }
   &__area {
     position: relative;
-    font-family: 'Red Hat Text';
+    font-family: 'Red Hat Display';
     font-weight: 500;
     font-size: 14px;
-    line-height: 120%;
+    line-height: 16px;
     @extend %area-menu;
   }
   &__line {
-    border: 1px solid var(--e-grey-30);
+    border: 1px solid var(--e-grey-10);
     height: 22px;
   }
   &__user {
     margin-right: 19px;
-    font-family: 'Red Hat Text';
+    font-family: 'Red Hat Display';
     font-weight: 500;
     font-size: 14px;
-    line-height: 115%;
+    line-height: 16px;
     .e-top-bar__user-menu {
       display: none;
       flex-direction: column;
@@ -558,7 +558,7 @@ $sidebar-mobile-z-index: -2;
     align-items: center;
     cursor: pointer;
     .e-sidebar__text {
-      display:none;
+      display: none;
       margin-left: 8px;
       @include typography.typography('text-description');
     }
@@ -617,7 +617,7 @@ $sidebar-mobile-z-index: -2;
     .e-sidebar__item,
     .e-sidebar__open-close {
       .e-sidebar__text {
-        display:flex;
+        display: flex;
       }
     }
     .e-sidebar__open-close {

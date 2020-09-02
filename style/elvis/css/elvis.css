@@ -1563,6 +1563,18 @@ input:focus {
     padding: 24px;
   }
 }
+.e-card--shadow-soft {
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.03);
+}
+
+.e-card--shadow-medium {
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+}
+
+.e-card--shadow-hard {
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
+}
+
 .e-card--on-white {
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
 }
@@ -2050,7 +2062,7 @@ input:focus {
   font-family: "Red Hat Display";
   font-weight: bold;
   font-size: 18px;
-  line-height: 120%;
+  line-height: 22px;
 }
 
 @media (max-width: 1023px) {
@@ -2061,23 +2073,23 @@ input:focus {
 }
 .e-top-bar__area {
   position: relative;
-  font-family: "Red Hat Text";
+  font-family: "Red Hat Display";
   font-weight: 500;
   font-size: 14px;
-  line-height: 120%;
+  line-height: 16px;
 }
 
 .e-top-bar__line {
-  border: 1px solid var(--e-grey-30);
+  border: 1px solid var(--e-grey-10);
   height: 22px;
 }
 
 .e-top-bar__user {
   margin-right: 19px;
-  font-family: "Red Hat Text";
+  font-family: "Red Hat Display";
   font-weight: 500;
   font-size: 14px;
-  line-height: 115%;
+  line-height: 16px;
 }
 
 .e-top-bar__user .e-top-bar__user-menu {
@@ -5834,6 +5846,11 @@ input:focus {
   padding-bottom: 3.5px;
   color: #000;
   cursor: pointer;
+  font-family: "Red Hat Display";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .e-fileupload__input label:disabled {
