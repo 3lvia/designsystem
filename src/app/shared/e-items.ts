@@ -59,7 +59,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Accordion,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Accordion.svg',
-    figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=71%3A1',
+    figmaUrl: 'https://www.figma.com/file/CTFyTP4zr2KuVjSXsgZO1s/Accordion?node-id=72%3A491',
     type: 'Component',
   },
   {
@@ -81,7 +81,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Autocomplete,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Autocomplete.svg',
-    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1332%3A231',
+    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2742%3A0',
     type: 'Component',
   },
   {
@@ -92,7 +92,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Button,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Button.svg',
-    figmaUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons?node-id=2596%3A1120',
+    figmaUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons?node-id=0%3A1',
     type: 'Component',
   },
   {
@@ -117,15 +117,16 @@ export const eComponents: EItems[] = [
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A452',
     type: 'Component',
   },
-  {
-    title: 'Chips',
-    description: 'Some useful component with amazing features',
-    docUrl: Pages.Tags, // Dette må endres
-    absolutePath: '/components/' + Pages.Tags, // Dette må endres
-    status: ItemStatus.Coming,
-    imageUrl: 'assets/website-icons/component-images/Chip.svg',
-    type: 'Component',
-  },
+  // Not implemented yet
+  // {
+  //   title: 'Chips',
+  //   description: 'Some useful component with amazing features',
+  //   docUrl: Pages.Tags, // Dette må endres
+  //   absolutePath: '/components/' + Pages.Tags, // Dette må endres
+  //   status: ItemStatus.Coming,
+  //   imageUrl: 'assets/website-icons/component-images/Chip.svg',
+  //   type: 'Component',
+  // },
   {
     title: 'Content Loader',
     // tslint:disable-next-line: max-line-length
@@ -134,7 +135,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.ContentLoader,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Content loader.svg',
-    figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loader?node-id=1%3A41',
+    figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loading-%26-scroll?node-id=9%3A0',
     type: 'Component',
   },
   {
@@ -156,7 +157,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.DragAndDrop,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Drag & drop.svg',
-    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
+    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1811%3A1080',
     type: 'Component',
   },
   {
@@ -188,7 +189,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Header,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Header.svg',
-    figmaUrl: 'https://www.figma.com/file/QRhfgr0sd9MPmACos1xDNT/Header?node-id=230%3A88',
+    figmaUrl: 'https://www.figma.com/file/QRhfgr0sd9MPmACos1xDNT/Header?node-id=230%3A604',
     type: 'Component',
   },
   {
@@ -210,7 +211,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Label,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Label.svg',
-    figmaUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-%26-chips?node-id=0%3A1',
+    figmaUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-%26-chips?node-id=136%3A1738',
     type: 'Component',
   },
   {
@@ -232,7 +233,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.List,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/List.svg',
-    figmaUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Modules%3A-article?node-id=353%3A0',
+    figmaUrl: 'https://www.figma.com/file/uT9r54Z9NP5JQXxRvZ4LBV/Lists?node-id=353%3A0',
     type: 'Component',
   },
   {
@@ -243,7 +244,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Modal,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Modal.svg',
-    figmaUrl: 'https://www.figma.com/file/unlDZ5F7svra9dPNKYdTK9/Modal?node-id=0%3A1',
+    figmaUrl: 'https://www.figma.com/file/unlDZ5F7svra9dPNKYdTK9/Modal?node-id=2%3A0',
     type: 'Component',
   },
   {
@@ -265,7 +266,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Popover,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Popover.svg',
-    figmaUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover?node-id=372%3A36',
+    figmaUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover?node-id=1%3A10',
     type: 'Component',
   },
   {
@@ -276,7 +277,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.PositionPicker,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Position picker.svg',
-    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
+    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2506%3A17',
     type: 'Component',
   },
   {
@@ -287,7 +288,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Progressbar,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Progressbar.svg',
-    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
+    figmaUrl: 'https://www.figma.com/file/gZpJ1gY3wXM06X04j1r2RR/Loading-%26-scroll?node-id=73%3A9',
     type: 'Component',
   },
   {
@@ -308,7 +309,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Search,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Search.svg',
-    figmaUrl: 'https://www.figma.com/file/Yz09cKdXxOvfP0KP7AkTI7/Search?node-id=1%3A51',
+    figmaUrl: 'https://www.figma.com/file/Yz09cKdXxOvfP0KP7AkTI7/Search?node-id=1%3A2',
     type: 'Component',
   },
   {
@@ -319,7 +320,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.SegmentedControl,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Segment control.svg',
-    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1285%3A253',
+    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A436',
     type: 'Component',
   },
   {
@@ -340,7 +341,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Table,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Table.svg',
-    figmaUrl: 'https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=0%3A1',
+    figmaUrl: 'https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=3%3A292',
     type: 'Component',
   },
   {
@@ -360,7 +361,7 @@ export const eComponents: EItems[] = [
     absolutePath: '/components/' + Pages.Tooltip,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Tooltip.svg',
-    figmaUrl: 'https://www.figma.com/file/kisdszIRwlezU3B4ZYRjfG/Tooltip?node-id=1%3A19',
+    figmaUrl: 'https://www.figma.com/file/kisdszIRwlezU3B4ZYRjfG/Tooltip?node-id=1%3A10',
     type: 'Component',
   },
 ];
@@ -383,7 +384,7 @@ export const eIdentity: EItems[] = [
     absolutePath: '/identity/' + Pages.Color,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/identity-images/Color.svg',
-    figmaUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=1426%3A834',
+    figmaUrl: 'https://www.figma.com/file/Q4bR2dykeg5bSC2VGPZRAL/Colours?node-id=0%3A1',
     type: 'Identity',
   },
   {
@@ -415,7 +416,7 @@ export const eIdentity: EItems[] = [
     absolutePath: '/identity/' + Pages.Icon,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/identity-images/Icon.svg',
-    figmaUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=82%3A2',
+    figmaUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=0%3A1',
     type: 'Identity',
   },
   {
