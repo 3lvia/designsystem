@@ -1,0 +1,65 @@
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
+
+.component-section {
+  margin-top: 104px;
+  @include breakpoint-up(Mobile) {
+    margin-top: 72px;
+  }
+
+  &__content {
+    margin-top: 72px;
+    margin-left: 72px;
+    @include breakpoint-up(Tablet) {
+      margin-top: 56px;
+      margin-left: 0;
+    }
+    @include breakpoint-up(Mobile) {
+      margin-top: 48px;
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid var(--e-black);
+
+    .e-tooltip {
+      .e-tooltip__content {
+        display: none;
+        left: -24px;
+        margin-bottom: -4px;
+      }
+      &:hover .icons .normal-img {
+        display: flex;
+      }
+    }
+    .icons {
+      cursor: pointer;
+      position: relative;
+      .component-section__img {
+        display: none;
+        position: absolute;
+        top: 33px;
+        left: -36px;
+        padding-right: 12px;
+      }
+    }
+    &.anchor-copied .icons .green-img,
+    &.anchor-copied .e-tooltip .e-tooltip__content {
+      display: flex;
+      opacity: 1;
+    }
+    &.anchor-copied .icons .normal-img {
+      display: none;
+    }
+
+    .prop-element-title {
+      font-family: 'Fira Mono';
+      font-size: 14px;
+      line-height: 22px;
+      background: var(--e-grey-05);
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+  }
+}

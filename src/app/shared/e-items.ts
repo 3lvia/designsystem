@@ -54,7 +54,7 @@ export const eComponents: EItems[] = [
   {
     title: 'Accordion',
     // tslint:disable-next-line: max-line-length
-    description: 'An accordion let the user show and hide a section of content they. It let us organize information and deliver large amount of content in a small place.',
+    description: 'An accordion lets the user show and hide a section of content. It let us organize information and deliver a large amount of content in a small place.',
     docUrl: Pages.Accordion,
     absolutePath: '/components/' + Pages.Accordion,
     status: ItemStatus.New,
@@ -87,7 +87,7 @@ export const eComponents: EItems[] = [
   {
     title: 'Button',
     // tslint:disable-next-line: max-line-length
-    description: 'Button elements are used to provide a straightforward and accessible experience for users. A button element should be used whenever an action is performed by the user. There are three different sizes of buttons: small, medium and large (medium is default).',
+    description: 'Button elements are used to provide a straightforward and accessible experience for users. A button element should be used whenever an action is performed by the user.',
     docUrl: Pages.Button,
     absolutePath: '/components/' + Pages.Button,
     status: ItemStatus.Done,
@@ -130,7 +130,7 @@ export const eComponents: EItems[] = [
   {
     title: 'Content Loader',
     // tslint:disable-next-line: max-line-length
-    description: 'Loaders confirms that content or actions are being processed by the system, either on a global or local level. The content loader is used globally to show page structure before it’s possible to show real content.',
+    description: 'A content loader is used to indicate loading content in a way that gives users a perception of a faster loading time. Each component is shown in its animated block state, hinting the overall page structure, until its possible to replace the blocks with real content.',
     docUrl: Pages.ContentLoader,
     absolutePath: '/components/' + Pages.ContentLoader,
     status: ItemStatus.New,
@@ -195,7 +195,7 @@ export const eComponents: EItems[] = [
   {
     title: 'Input',
     // tslint:disable-next-line: max-line-length
-    description: 'Text fields are boxes the user can type text or number into in a structured format. The size of the container should be proportional to the expected user input. Validation is determined in all fields based on the field being filled out. Validation takes place along the way, and the user must also be presented with guidance or error message.',
+    description: 'Text fields are boxes the user can type text or number into in a structured format.',
     docUrl: Pages.Input,
     absolutePath: '/components/' + Pages.Input,
     status: ItemStatus.Done,
@@ -368,15 +368,6 @@ export const eComponents: EItems[] = [
 
 export const eIdentity: EItems[] = [
   {
-    title: 'Alignment',
-    description: 'Alignment of text',
-    docUrl: Pages.Alignment,
-    absolutePath: '/identity/' + Pages.Alignment,
-    status: ItemStatus.Done,
-    imageUrl: 'assets/website-icons/identity-images/Alignment.svg',
-    type: 'Identity',
-  },
-  {
     title: 'Colors',
     // tslint:disable-next-line: max-line-length
     description: 'Elvia colors are a reference for energy and light. It plays an important part to bring the concept ON/OFF to life. For consistency, you shall use the defined color palette throughout our interface.',
@@ -399,6 +390,17 @@ export const eIdentity: EItems[] = [
     type: 'Identity',
   },
   {
+    title: 'Icons',
+    // tslint:disable-next-line: max-line-length
+    description: 'In our icon library, you’ll find all available icons in the design system as well as defined sizes for them. Missing a specific icon? Let us know and we’ll look into if we can add it to the library.',
+    docUrl: Pages.Icon,
+    absolutePath: '/identity/' + Pages.Icon,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/identity-images/Icon.svg',
+    figmaUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=0%3A1',
+    type: 'Identity',
+  },
+  {
     title: 'Logo',
     // tslint:disable-next-line: max-line-length
     description: 'Elvia can be described as the power source in your home. Just like our services, our logo acts as the power source that the consumer can turn on and off when needed.',
@@ -407,16 +409,6 @@ export const eIdentity: EItems[] = [
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/identity-images/Logo.svg',
     figmaUrl: 'https://www.figma.com/file/SDUCEPhQu0q602oh2uhvKZ/Logo?node-id=0%3A1',
-    type: 'Identity',
-  },
-  {
-    title: 'Icons',
-    description: 'Here are all the available icons in Elvis design system.',
-    docUrl: Pages.Icon,
-    absolutePath: '/identity/' + Pages.Icon,
-    status: ItemStatus.Done,
-    imageUrl: 'assets/website-icons/identity-images/Icon.svg',
-    figmaUrl: 'https://www.figma.com/file/0RM10vUNKdYVlW5BuXwqQK/Icons?node-id=0%3A1',
     type: 'Identity',
   },
   {

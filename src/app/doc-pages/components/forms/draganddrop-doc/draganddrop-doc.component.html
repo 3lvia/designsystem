@@ -10,16 +10,40 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [codeHTML]="example1"
-    [title]="'Drag&Drop'"
-    [description]="'Container style for drag and drop areas'"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example2"
-    [title]="'Dragover class'"
-    [description]="'Dragover class for green borders'"
-  ></app-code-block>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <div class="e-dragdrop" style="width: 300px; height: 150px;"></div>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="example1"></app-code-block>
+    </div>
+  </div>
 
-  <app-component-properties [componentName]="'e-dragdrop'"></app-component-properties>
+  <!--STATUS-->
+  <app-component-section [sectionTitle]="'Status'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Before dragover'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="example1"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'When dragging over'">
+        <ng-container ngProjectAs="sectionContent">
+          When dragging over the modifier
+          <span class="code-text">e-dragdrop--dragover</span>
+          should be added.
+          <app-code-block [codeHTML]="example2"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-dragdrop'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-dragdrop'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

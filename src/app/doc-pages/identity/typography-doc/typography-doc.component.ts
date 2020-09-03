@@ -15,6 +15,11 @@ export class TypographyDocComponent implements OnInit {
   figmaUrl = getIdentity('typography-doc').figmaUrl;
   description = getIdentity('typography-doc').description;
 
+  alignmentOfText = `<div class="e-text-left e-m-16">Left aligned text</div>
+<div class="e-text-right e-m-16">Right aligned text</div>
+<div class="e-text-center e-m-16">Center aligned text</div>
+`;
+
   example1 = `<h1 class="e-title-lg">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>
 <h2 class="e-title-md">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h2>
 <h3 class="e-title-sm">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h3>`;

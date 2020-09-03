@@ -18,6 +18,7 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 24px;
+
       padding-right: 8px;
       max-width: 80%;
     }
@@ -97,14 +98,29 @@
     }
   }
 
-  &.e-accordion--lg .e-accordion__icon {
-    @include icons.icon-size('md');
+  &.e-accordion--lg {
+    .e-accordion__icon {
+      @include icons.icon-size('md');
+    }
+    .e-accordion__label {
+      font-size: 18px;
+    }
   }
-  &.e-accordion--md .e-accordion__icon {
-    @include icons.icon-size('sm');
+  &.e-accordion--md {
+    .e-accordion__icon {
+      @include icons.icon-size('sm');
+    }
+    .e-accordion__label {
+      font-size: 16px;
+    }
   }
-  &.e-accordion--sm .e-accordion__icon {
-    @include icons.icon-size('xs');
+  &.e-accordion--sm {
+    .e-accordion__icon {
+      @include icons.icon-size('xs');
+    }
+    .e-accordion__label {
+      font-size: 14px;
+    }
   }
 
   &.e-accordion--single {
@@ -112,9 +128,14 @@
       @include icons.icon-size('xs');
     }
     .e-accordion__content {
-      padding-top: 16px;
+      padding-top: 0px;
       font-size: 14px;
       line-height: 24px;
+    }
+    .e-accordion__item.e-accordion__item--open {
+      .e-accordion__content {
+        padding-top: 16px;
+      }
     }
   }
 
@@ -139,6 +160,15 @@
       .e-accordion__icon {
         @include icons.icon-size('md');
       }
+    }
+  }
+
+  &.e-accordion--center {
+    .e-accordion__item {
+      justify-content: center;
+    }
+    .e-accordion__content {
+      align-items: center;
     }
   }
 }

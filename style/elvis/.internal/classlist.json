@@ -28,7 +28,8 @@
 				"e-accordion--md": {},
 				"e-accordion--sm": {},
 				"e-accordion--single": {},
-				"e-accordion--group": {}
+				"e-accordion--group": {},
+				"e-accordion--center": {}
 			}
 		},
 		"e-alert": {
@@ -808,6 +809,7 @@
 		"e-accordion--sm": {},
 		"e-accordion--single": {},
 		"e-accordion--group": {},
+		"e-accordion--center": {},
 		"e-alert": {},
 		"e-alert__icon": {},
 		"e-alert--no-title": {},

@@ -1,0 +1,33 @@
+<!--COMPONENT SECTION-->
+
+<div class="component-section elvis-anchor">
+  <div class="component-section__title" id="{{ sectionTitle }}">
+    <span class="e-tooltip" tabindex="0" (click)="copyAnchor()">
+      <span class="icons">
+        <img
+          class="component-section__img normal-img"
+          alt="Copy anchor button"
+          src="assets/hyperlink-3.svg"
+        />
+        <img
+          class="component-section__img green-img"
+          alt="Copy anchor button"
+          src="assets/hyperlink-3-green.svg"
+        />
+      </span>
+      <h2 class="e-title-md elvis-anchor-title e-mt-104 e-mb-24">{{ sectionTitle }}</h2>
+      <span class="e-tooltip__content">Copied!</span>
+    </span>
+    <span class="e-ml-16" *ngIf="propertiesClass != ''">
+      <app-copy [message]="propertiesClass">
+        <ng-container ngProjectAs="copyContent">
+          <span class="prop-element-title">{{ propertiesClass }}</span>
+        </ng-container>
+      </app-copy>
+    </span>
+  </div>
+
+  <div class="component-section__content e-text-body">
+    <ng-content select="sectionContent"></ng-content>
+  </div>
+</div>

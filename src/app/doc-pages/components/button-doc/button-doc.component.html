@@ -4,94 +4,215 @@
     Button
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <div>
-      {{ description }}
-    </div>
-    <div class="e-mt-16">
-      <h3 class="e-title-sm">Order</h3>
-      When using buttons in a pair, the primary button are placed to the right and secondary to the left. This
-      should be followed at all times.
-    </div>
-    <div class="e-mt-16">
-      <h3 class="e-title-sm">Label</h3>
-      The button label should be a action verb and tell the user what the button will do. Label in a button
-      should not be longer than three words.
-    </div>
-    <div class="e-mt-16">
-      <b>Do:&nbsp;</b>
-      <button class="e-btn e-btn--secondary e-btn--sm e-mr-8">Avbryt</button>
-      <button class="e-btn e-btn--sm">Publiser</button>
-    </div>
-    <div class="e-mt-16">
-      <b>Don't:&nbsp;</b>
-      <button class="e-btn e-btn--secondary e-btn--sm e-mr-8">No</button>
-      <button class="e-btn e-btn--sm">Yes</button>
-    </div>
+    {{ description }}
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [codeHTML]="example1"
-    [codeInverted]="example1Inverted"
-    [title]="'Primary'"
-    [description]="
-      'Primary buttons are action-oriented buttons used for primary actions we want the user to do. 
-    Primary are design to stand out and take the most attention of all the buttons. 
-    Primary button are often used for saving, sending, submitting, registering and so on. 
-    It can be used alone or together with secondary and tertiary.'
-    "
-    [does]="doesExample1"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example2"
-    [codeInverted]="example2Inverted"
-    [title]="'Secondary'"
-    [description]="
-      'Secondary buttons are the alternative we give users to the primary 
-    action and should be used in less important actions. Seondary are often used for canceling, declining, 
-    go back and so on. It can be used alone or together to support primary or link style button.'
-    "
-    [does]="doesExample2"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example3"
-    [codeInverted]="example3Inverted"
-    [title]="'Tertiary'"
-    [description]="
-      'Tertiary buttons are usually used for miscellaneous actions and may not be what the user is looking for to do right then. 
-    Tertiary are designed to be less striking than primary and secondary. 
-    Example of use is download and edit. It can be used isolated alone or paired together with primary or secondary.'
-    "
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="exampleIcon"
-    [codeInverted]="exampleIconInverted"
-    [title]="'Icon buttons'"
-    [description]="
-      'Icon buttons are used for well-known and simple actions such as close, edit, delete etc. 
-    They are ideal for task based actions where the button should not attract to much attention. 
-    Icon button should be supported by a tooltip. '
-    "
-    [donts]="dontsExampleIcon"
-    [does]="doesExampleIcon"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="buttonLinks"
-    [codeInverted]="buttonLinksInverted"
-    [title]="'Links with button style'"
-    [description]="'The e-btn class can also be used on anchor tags to make links appear like buttons.'"
-    [donts]="dontsExample7"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="pseudoClasses"
-    [title]="'Pseudo Classes'"
-    [description]="
-      'Pseudo Classes can be used to set the styling of button to emulate the state.
-    For example adding hover to an e-btn will style the e-btn button to have a hover state'
-    "
-  ></app-code-block>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <button class="e-btn">
+      <span class="e-btn__title">Button</span>
+    </button>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+    </div>
+  </div>
 
-  <app-component-properties [componentName]="'e-btn'"></app-component-properties>
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Primary'">
+        <ng-container ngProjectAs="sectionContent">
+          Primary buttons are action-oriented buttons used for primary actions we want the user to do. Primary
+          are design to stand out and take the most attention of all the buttons. Primary button are often
+          used for saving, sending, submitting, registering and so on. It can be used alone or together with
+          secondary and tertiary.
+          <app-code-block [codeHTML]="example1" [codeInverted]="example1Inverted"></app-code-block>
+          <app-when-to-use [whens]="doesExample1"></app-when-to-use>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Secondary'">
+        <ng-container ngProjectAs="sectionContent">
+          Secondary buttons are the alternative we give users to the primary action and should be used in less
+          important actions. Secondary are often used for canceling, declining, go back and so on. It can be
+          used alone or together to support primary or link style button.'
+          <app-code-block [codeHTML]="example2" [codeInverted]="example2Inverted"></app-code-block>
+          <app-when-to-use [whens]="doesExample2"></app-when-to-use>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Tertiary'">
+        <ng-container ngProjectAs="sectionContent">
+          Tertiary buttons are usually used for miscellaneous actions and may not be what the user is looking
+          for to do right then. Tertiary are designed to be less striking than primary and secondary. Example
+          of use is download and edit. It can be used isolated alone or paired together with primary or
+          secondary.
+          <app-code-block [codeHTML]="example3" [codeInverted]="example3Inverted"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Icon buttons'">
+        <ng-container ngProjectAs="sectionContent">
+          Icon buttons are used for well-known and simple actions such as close, edit, delete etc. They are
+          ideal for task based actions where the button should not attract to much attention. Icon button
+          should be supported by a tooltip.
+          <app-code-block [codeHTML]="exampleIcon" [codeInverted]="exampleIconInverted"></app-code-block>
+          <app-when-to-use [whens]="doesExampleIcon" [whenNots]="dontsExampleIcon"></app-when-to-use>
+          <app-component-subsubsection [sectionTitle]="'Circled icons'">
+            <ng-container ngProjectAs="sectionContent">
+              Circled Icons that can be used for the circled icon-button.
+              <div class="e-mt-16">
+                <i class="e-icon e-icon--information_circle e-icon--sm e-mr-8"></i>
+                <i class="e-icon e-icon--add_circle e-icon--sm e-mr-8"></i>
+                <i class="e-icon e-icon--subtract_circle e-icon--sm e-mr-8"></i>
+                <i class="e-icon e-icon--check_circle e-icon--sm e-mr-8"></i>
+                <i class="e-icon e-icon--warning_circle e-icon--sm e-mr-8"></i>
+                <i class="e-icon e-icon--question_circle e-icon--sm"></i>
+              </div>
+              <div>
+                <i class="e-icon e-icon--information_circle-filled-color e-icon--sm e-mr-8"></i>
+                <i class="e-icon e-icon--add_circle-filled-color e-icon--sm e-mr-8"></i>
+                <i class="e-icon e-icon--subtract_circle-filled-color e-icon--sm e-mr-8"></i>
+                <i class="e-icon e-icon--check_circle-filled-color e-icon--sm e-mr-8"></i>
+                <i class="e-icon e-icon--warning_circle-filled-color e-icon--sm e-mr-8"></i>
+                <i class="e-icon e-icon--question_circle-filled-color e-icon--sm"></i>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Links with button style'">
+        <ng-container ngProjectAs="sectionContent">
+          The e-btn class can also be used on anchor tags to make links appear like buttons.
+          <app-code-block [codeHTML]="buttonLinks" [codeInverted]="buttonLinksInverted"></app-code-block>
+          <app-when-to-use [whenNots]="dontsExample7"></app-when-to-use>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--SIZE-->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-code-block [codeHTML]="sizesHTML"></app-code-block>
+      <p class="e-mt-24">
+        There are three different sizes of buttons: small, medium, and large. The choice of button size
+        depends on how important the button is and how much attention it should have. It can also depend on
+        the components used together with the button whether they are large or small in size.
+      </p>
+      <p>
+        Make sure you have a good touch target on mobile. You can extend the button in full width on the
+        mobile to make sure that the touch target is big enough for the thumb.
+      </p>
+      <app-component-subsection [sectionTitle]="'Small'">
+        <ng-container ngProjectAs="sectionContent">
+          Use small if the button has low priority and don’t need a lot of attention.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Medium'">
+        <ng-container ngProjectAs="sectionContent">
+          Medium is the default size and should fit to the majority of UI use cases.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Large'">
+        <ng-container ngProjectAs="sectionContent">
+          Use large if the button has high priority and needs a lot of attention.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Order'">
+        <ng-container ngProjectAs="sectionContent">
+          When using buttons in a pair, the primary button are placed to the right and secondary to the left.
+          This should be followed at all times.
+          <div class="e-mt-24">
+            <button class="e-btn e-btn--secondary e-mr-16">Secondary</button>
+            <button class="e-btn">Primary</button>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Label'">
+        <ng-container ngProjectAs="sectionContent">
+          The button label should be a action verb and tell the user what the button will do. Label in a
+          button should not be longer than three words.
+          <app-do-dont-text>
+            <ng-container ngProjectAs="do">
+              <button class="e-btn e-btn--secondary e-mt-8 e-mr-16">Avbryt</button>
+              <button class="e-btn e-mt-8">Publiser</button>
+            </ng-container>
+            <ng-container ngProjectAs="dont">
+              <button class="e-btn e-btn--secondary e-mt-8 e-mr-16">No</button>
+              <button class="e-btn e-mt-8">Yes</button>
+            </ng-container>
+          </app-do-dont-text>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Icon'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>
+            Icons can be used to the left or right of the text on a button. This should only be done when used
+            to clarify additional information that helps the context.
+          </div>
+          <app-do-dont-text>
+            <ng-container ngProjectAs="do">
+              <button class="e-btn e-mr-16 e-mt-8">
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--profile e-icon--inverted"></i>
+                  <i class="e-icon e-icon--profile"></i>
+                </span>
+                <span class="e-btn__title">Min side</span>
+              </button>
+              <button class="e-btn e-mt-8">
+                <span class="e-btn__title">Neste</span>
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--arrow_right-bold e-icon--inverted e-btn--xs"></i>
+                  <i class="e-icon e-icon--arrow_right-bold e-btn--xs"></i>
+                </span>
+              </button>
+            </ng-container>
+            <ng-container ngProjectAs="dont">
+              <button class="e-btn e-mr-16 e-mt-8">
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--mail_send-color e-icon--inverted"></i>
+                  <i class="e-icon e-icon--mail_send-color"></i>
+                </span>
+                <span class="e-btn__title">Send</span>
+              </button>
+              <button class="e-btn e-mt-8">
+                <span class="e-btn__title">Logg inn</span>
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--lock e-icon--inverted"></i>
+                  <i class="e-icon e-icon--lock"></i>
+                </span>
+              </button>
+            </ng-container>
+          </app-do-dont-text>
+          <div class="e-mt-24">
+            An exception goes for Tertiary buttons however. In these cases, icons along with texts are often
+            are preferred, as they clarify that the otherwise simple text is clickable.
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-btn'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-btn'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

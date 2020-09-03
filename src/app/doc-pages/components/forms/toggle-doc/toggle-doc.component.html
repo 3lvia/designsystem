@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [does]="does" [donts]="donts">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Toggle
   </ng-container>
@@ -10,13 +10,43 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [codeHTML]="example1"
-    [codeInverted]="exampleInverted"
-    [title]="'Toggle states'"
-    [showIframeScreens]="true"
-    [noTablet]="true"
-  ></app-code-block>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <label class="e-toggle">
+      <input class="e-toggle__input" type="checkbox" />
+      <span class="e-toggle__slider"></span>
+    </label>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+    </div>
+  </div>
 
-  <app-component-properties [componentName]="'e-toggle'"></app-component-properties>
+  <!--STATES-->
+  <app-component-section [sectionTitle]="'States'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-code-block
+        [codeHTML]="example1"
+        [codeInverted]="exampleInverted"
+        [showIframeScreens]="true"
+        [noTablet]="true"
+      ></app-code-block>
+    </ng-container>
+  </app-component-section>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-toggle'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-toggle'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

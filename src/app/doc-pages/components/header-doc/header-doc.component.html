@@ -12,120 +12,150 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--Overview-->
-  <div class="elvis-anchor">
-    <div class="elvis-anchor-title e-title-md">Internal - Preview</div>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
     <button class="e-btn e-mt-16" *ngIf="!internalHeader" (click)="testInternalHeader()">
       Test internal header
     </button>
     <button class="e-btn e-mt-16" *ngIf="internalHeader" (click)="hideInternalHeader()">
       Hide internal header
     </button>
-    <div class="e-mt-24">
-      <div class="e-alert e-alert--local e-alert--info">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle"></i>
-        </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">NB! This preview is not a finished working header.</div>
-          <div class="e-alert__text">
-            This header only shows some logic to visualize how it should look. Logic has to be applied for
-            opening, closing and choosing menus and items.
-            <ul>
-              <li>
-                The modifiers classes listed below should be added and removed when clicking menus and
-                choosing options.
-              </li>
-              <li>When clicking outside of any menu or if choosing any option the menus should close.</li>
-            </ul>
-          </div>
+  </div>
+  <div>
+    <div class="e-alert e-alert--local e-alert--info">
+      <div class="e-alert__icon">
+        <i class="e-icon e-icon--information_circle"></i>
+      </div>
+      <div class="e-alert__content">
+        <div class="e-alert__title">NB! This preview is not a finished working header.</div>
+        <div class="e-alert__text">
+          This header only shows some logic to visualize how it should look. Logic has to be applied for
+          opening, closing and choosing menus and items.
+          <ul>
+            <li>
+              The modifiers classes listed below should be added and removed when clicking menus and choosing
+              options.
+            </li>
+            <li>When clicking outside of any menu or if choosing any option the menus should close.</li>
+          </ul>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="elvis-anchor e-mt-56">
-    <div class="elvis-anchor-title e-title-md">Internal - Active & Open modifiers</div>
-    <div class="e-text-description e-mt-24">
-      To open a menu in the top-bar one or more of the following classes needs to be added.
-    </div>
+  <!-- TYPE -->
 
-    <table class="e-table e-mt-16">
-      <thead>
-        <tr>
-          <th scope="col">New class</th>
-          <th scope="col">Where</th>
-          <th scope="col">When</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">e-top-bar__app--open</th>
-          <td>e-top-bar-desktop</td>
-          <td>When opening app-menu</td>
-        </tr>
-        <tr>
-          <th scope="row">e-top-bar__area--open</th>
-          <td>e-top-bar-desktop</td>
-          <td>When opening area-menu</td>
-        </tr>
-        <tr>
-          <th scope="row">e-top-bar__user--open</th>
-          <td>e-top-bar-desktop</td>
-          <td>When opening user-menu</td>
-        </tr>
-        <tr>
-          <th scope="row">e-sidebar--open</th>
-          <td>e-sidebar</td>
-          <td>When opening side-menu</td>
-        </tr>
-        <tr>
-          <th scope="row">e-header--open</th>
-          <td>e-header</td>
-          <td>When opening top-menu on mobile</td>
-        </tr>
-        <tr>
-          <th scope="row">e-top-bar-mobile__app--open</th>
-          <td>e-top-bar-mobile</td>
-          <td>When opening app-menu on mobile</td>
-        </tr>
-        <tr>
-          <th scope="row">e-top-bar-mobile__area--open</th>
-          <td>e-top-bar-mobile</td>
-          <td>When opening area-menu on mobile</td>
-        </tr>
-        <tr>
-          <th scope="row">e-top-bar__app-circle--active</th>
-          <td>e-top-bar__app-circle</td>
-          <td>Should always be present on 1 element</td>
-        </tr>
-        <tr>
-          <th scope="row">e-sidebar__item--active</th>
-          <td>e-sidebar__item</td>
-          <td>Should always be present on 1 element</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Internal'">
+        <ng-container ngProjectAs="sectionContent">
+          The internal header contains a general top menu and a side navigation section. The navigation bar on
+          the side contain app-specific tabs, while the top menu gathers general navigation, such as the app
+          switch and any global settings.
+          <app-code-block
+            [codeHTML]="internalHeaderExample"
+            [showIframeScreens]="true"
+            [greyBg]="true"
+            [overwriteHeight]="500"
+            [overwriteHeightTablet]="640"
+            [overwriteHeightPhone]="640"
+          ></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
 
-  <app-code-block
-    [codeHTML]="internalHeaderOpen"
-    [title]="'Internal - Open top menus'"
-    [showIframeScreens]="true"
-    [greyBg]="true"
-    [overwriteHeight]="500"
-    [overwriteHeightTablet]="640"
-    [overwriteHeightPhone]="640"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="internalHeaderSideOpen"
-    [title]="'Internal - Open side menu'"
-    [showIframeScreens]="true"
-    [greyBg]="true"
-    [overwriteHeight]="500"
-    [overwriteHeightTablet]="640"
-    [overwriteHeightPhone]="640"
-  ></app-code-block>
-
-  <app-component-properties [componentName]="'e-header'"></app-component-properties>
+  <!-- STATES -->
+  <app-component-section [sectionTitle]="'States - Internal'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Top menu open'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block
+            [codeHTML]="internalHeaderOpen"
+            [showIframeScreens]="true"
+            [greyBg]="true"
+            [overwriteHeight]="500"
+            [overwriteHeightTablet]="640"
+            [overwriteHeightPhone]="640"
+          ></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Side menu open'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block
+            [codeHTML]="internalHeaderSideOpen"
+            [showIframeScreens]="true"
+            [greyBg]="true"
+            [overwriteHeight]="500"
+            [overwriteHeightTablet]="640"
+            [overwriteHeightPhone]="640"
+          ></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Manually adding modifiers'">
+        <ng-container ngProjectAs="sectionContent">
+          To open a menu in the top-bar one or more of the following classes needs to be added.
+          <table class="e-table e-mt-16">
+            <thead>
+              <tr>
+                <th scope="col">New class</th>
+                <th scope="col">Where</th>
+                <th scope="col">When</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">e-top-bar__app--open</th>
+                <td>e-top-bar-desktop</td>
+                <td>When opening app-menu</td>
+              </tr>
+              <tr>
+                <th scope="row">e-top-bar__area--open</th>
+                <td>e-top-bar-desktop</td>
+                <td>When opening area-menu</td>
+              </tr>
+              <tr>
+                <th scope="row">e-top-bar__user--open</th>
+                <td>e-top-bar-desktop</td>
+                <td>When opening user-menu</td>
+              </tr>
+              <tr>
+                <th scope="row">e-sidebar--open</th>
+                <td>e-sidebar</td>
+                <td>When opening side-menu</td>
+              </tr>
+              <tr>
+                <th scope="row">e-header--open</th>
+                <td>e-header</td>
+                <td>When opening top-menu on mobile</td>
+              </tr>
+              <tr>
+                <th scope="row">e-top-bar-mobile__app--open</th>
+                <td>e-top-bar-mobile</td>
+                <td>When opening app-menu on mobile</td>
+              </tr>
+              <tr>
+                <th scope="row">e-top-bar-mobile__area--open</th>
+                <td>e-top-bar-mobile</td>
+                <td>When opening area-menu on mobile</td>
+              </tr>
+              <tr>
+                <th scope="row">e-top-bar__app-circle--active</th>
+                <td>e-top-bar__app-circle</td>
+                <td>Should always be present on 1 element</td>
+              </tr>
+              <tr>
+                <th scope="row">e-sidebar__item--active</th>
+                <td>e-sidebar__item</td>
+                <td>Should always be present on 1 element</td>
+              </tr>
+            </tbody>
+          </table>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
 </div>

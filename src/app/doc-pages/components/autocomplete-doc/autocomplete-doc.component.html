@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [does]="does">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Autocomplete
   </ng-container>
@@ -10,19 +10,11 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block [codeHTML]="exampleAutocomplete" [title]="'Autocomplete dropdown field'"></app-code-block>
-  <app-code-block
-    [codeHTML]="exampleCompact"
-    [title]="'Compact Autocomplete'"
-    [description]="
-      'Much like compact text fields, 
-      the compact autocomplete is a version of the text field that’s primarily designed for internal systems, 
-      and shouldn’t be mixed with the other input styles.'
-    "
-  ></app-code-block>
-
-  <div class="elvis-anchor">
-    <h2 class="elvis-anchor-title">Live example</h2>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
     <div class="e-form-field">
       <label class="e-form-field__label" for="compact">Country</label>
       <div class="e-input">
@@ -40,10 +32,45 @@
         </div>
       </div>
     </div>
-
-    <h4>TS and Html code for Angular example</h4>
-    <app-code-highlighter [codeTS]="exampleInTS" [codeHTML]="exampleInHTML"></app-code-highlighter>
+    <div class="e-w-100">
+      <app-code-block
+        [showPreview]="false"
+        [codeHTML]="exampleInHTML"
+        [codeTS]="exampleInTS"
+      ></app-code-block>
+    </div>
   </div>
 
-  <app-component-properties [componentName]="'e-autocomplete'"></app-component-properties>
+  <!-- SIZES -->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Normal'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="[exampleAutocomplete]"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Compact'">
+        <ng-container ngProjectAs="sectionContent">
+          Much like compact text fields, the compact autocomplete is a version of the text field that’s
+          primarily designed for internal systems, and shouldn’t be mixed with the other input styles.
+          <app-code-block [codeHTML]="[exampleCompact]"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-autocomplete'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-autocomplete'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

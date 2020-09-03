@@ -10,29 +10,54 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [codeHTML]="example1"
-    [description]="'Green elvis dots for regular unordred list'"
-    [title]="'Bulletins'"
-    [does]="doesExample1"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example2"
-    [description]="'Add strong class to bold text list elements'"
-    [title]="'Bulletins Strong'"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example3"
-    [description]="'Ordered list with generated elvis styled bulletins'"
-    [title]="'Numbered list'"
-    [does]="doesExample3"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example4"
-    [description]="'List with icons as bulletins'"
-    [title]="'Icons'"
-    [does]="doesExample4"
-  ></app-code-block>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <ul class="e-list">
+      <li>List with bullet points</li>
+      <li>List with bullet points</li>
+      <li>List with bullet points</li>
+    </ul>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="overviewExample"></app-code-block>
+    </div>
+  </div>
 
-  <app-component-properties [componentName]="'e-list'"></app-component-properties>
+  <!--TYPE-->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Bullet list'">
+        <ng-container ngProjectAs="sectionContent">
+          Green elvis dots for regular unordered list.
+          <app-code-block [codeHTML]="example1"></app-code-block>
+          <app-when-to-use [whens]="doesExample1"></app-when-to-use>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Numbered list'">
+        <ng-container ngProjectAs="sectionContent">
+          Ordered list with generated elvis styled bullet point
+          <app-code-block [codeHTML]="example3"></app-code-block>
+          <app-when-to-use [whens]="doesExample3"></app-when-to-use>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Icon list'">
+        <ng-container ngProjectAs="sectionContent">
+          List with icons as bullet point
+          <app-code-block [codeHTML]="example4"></app-code-block>
+          <app-when-to-use [whens]="doesExample4"></app-when-to-use>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-list'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-list'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

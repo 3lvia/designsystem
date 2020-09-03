@@ -20,7 +20,6 @@ export enum Pages {
   Spacing = 'spacing-doc',
   Grid = 'grid-doc',
   Logo = 'logo-doc',
-  Alignment = 'alignment-doc',
   Utilities = 'utilities-doc',
 
   // Component Pages

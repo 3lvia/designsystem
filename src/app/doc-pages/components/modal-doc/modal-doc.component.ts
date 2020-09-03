@@ -22,6 +22,27 @@ export class ModalDocComponent {
     'Be careful with the use of modals, as it can be disruptive to have something lying across the screen many times in a row.',
   ];
 
+  overviewExample = `<button class="e-btn" (click)="openModal('modal1')">Modal</button>
+<div class="e-modal e-none" #modal1>
+  <div class="e-modal__content">
+    <div class="e-modal__title">
+      Title
+    </div>
+    <div class="e-modal__text">
+      Modal content Modal content Modal content Modal content Modal content
+    </div>
+    <div class="e-modal__actions">
+      <button class="e-btn e-btn--secondary e-btn--lg" (click)="closeModal('modal1')">
+        <span class="e-btn__title">Avbryt</span>
+      </button>
+      <button class="e-btn e-btn--primary e-btn--lg" (click)="closeModal('modal1')">
+        <span class="e-btn__title">Primary action</span>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
   example1 = `<div class="e-modal">
   <div class="e-modal__content">
     <div class="e-modal__title">

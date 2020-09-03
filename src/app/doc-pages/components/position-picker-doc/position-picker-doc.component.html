@@ -10,38 +10,11 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [codeHTML]="example1"
-    [title]="'Position Picker'"
-    [description]="
-      'The position picker component consist mainly of container classes. Where each element is asigned for it intended purpose as icons, description text of picked position and action area for placing tertiary buttons'
-    "
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example2"
-    [title]="'After position is chosen'"
-    [description]="
-      'When position is chosen replace the icon container with the description container along with the chosen position or information'
-    "
-  ></app-code-block>
-
-  <div class="elvis-anchor">
-    <h2 class="e-title-md elvis-anchor-title">Live preview</h2>
-    <p>
-      In this example we have attached a modal with an iframe of google maps to the tertiary button within the
-      position picker component.
-    </p>
-    <p>
-      General styling guide here is to attach a modal containing a map service. Which in return updates the
-      position picker with the chosen position. The information should then replace the icon container, and
-      insert information in the description container.
-    </p>
-    <p>
-      The example below is simply a visual illustration on how one could attach a service to the position
-      picker component. It does not let you pick an actual position and is meant purely as an illustraion on
-      how an actual component should be presented.
-    </p>
-
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
     <div class="e-position-picker" style="width: 380px;">
       <div class="e-position-picker__icon" *ngIf="!showPosition">
         <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>
@@ -79,9 +52,57 @@
         </div>
       </div>
     </div>
-    <h3 class="e-title-small">Example Typescript and HTML</h3>
-    <app-code-highlighter [codeTS]="exampleTSCode" [codeHTML]="exampleHTMLCode"></app-code-highlighter>
+    <div class="e-w-100">
+      <app-code-block
+        [showPreview]="false"
+        [codeTS]="exampleTSCode"
+        [codeHTML]="exampleOverview"
+      ></app-code-block>
+    </div>
   </div>
 
-  <app-component-properties [componentName]="'e-position-picker'"></app-component-properties>
+  <!--STATES-->
+  <app-component-section [sectionTitle]="'States'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Before picking position'">
+        <ng-container ngProjectAs="sectionContent">
+          The position picker component consist mainly of container classes. Where each element is assigned
+          for it intended purpose as icons, description text of picked position and action area for placing
+          tertiary buttons.
+          <app-code-block [codeHTML]="example1"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'After position picked'">
+        <ng-container ngProjectAs="sectionContent">
+          When position is chosen replace the icon container with the description container along with the
+          chosen position or information.
+          <app-code-block [codeHTML]="example2"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      In the working example above we have attached a modal with an iframe of google maps to the tertiary
+      button within the position picker component. This is simply a visual illustration on how one could
+      attach a service to the position picker component. It does not let you pick an actual position and is
+      only meant to illustrate how an actual component should be presented.
+      <app-component-subsection [sectionTitle]="'Map styling'">
+        <ng-container ngProjectAs="sectionContent">
+          General styling guide here is to attach a modal containing a map service. Which in return updates
+          the position picker with the chosen position. The information should then replace the icon
+          container, and insert information in the description container.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-position-picker'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-position-picker'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

@@ -19,54 +19,30 @@ export class InputDocComponent {
     'If the user can choose from a set of options, use dropdown, radio buttons, checkboxes, or auto-complete fields instead.',
   ];
 
-  exampleCompactInput = `<div style="width: 240px;">
-  <div class="e-form-field e-form-field--compact">
-    <label class="e-form-field__label" for="compact">Label </label>
-    <div class="e-input">
-      <i class="e-icon e-icon--mail e-icon--xs"></i>
-      <input id="compact" type="text" placeholder="Placeholder text">
-    </div>
-  </div>
-</div>
-<div style="width: 240px;" class="e-mt-40">
-  <div class="e-form-field e-form-field--compact">
-    <label class="e-form-field__label" for="compact_disabled">Label </label>
-    <div class="e-input e-input---disabled">
-      <i class="e-icon e-icon--mail e-icon--xs e-icon--color-disabled"></i>
-      <input id="compact_disabled" type="text" placeholder="Placeholder text" disabled>
-    </div>
-  </div>
-</div>
-<div style="width: 240px;" class="e-mt-40">
-  <div class="e-form-field e-form-field--compact">
-    <label class="e-form-field__label" for="compact_invalid">Label </label>
-    <div class="e-input e-input---invalid">
-      <input id="compact_invalid" value="Oslo" invalid>
-    </div>
-    <span class="e-form-field__error e-form-field__error--visible">
-      <span>
-        <i class="e-icon e-icon--warning_circle e-icon--color-red e-icon--xs"></i>
-      </span>
-      <span>
-        Ikke gyldig land
-      </span>
-    </span>
-  </div>
-</div>
-`;
-
-  example1 = `<div class="e-form-field e-mb-24">
-  <label class="e-form-field__label" for="normal">Normal input field </label>
+  overviewExample = `<div class="e-form-field">
+  <label class="e-form-field__label" for="normal">Input field </label>
   <div class="e-input">
     <i class="e-icon e-icon--mail e-icon--xs"></i>
     <input id="normal" type="text" placeholder="Placeholder text">
   </div>
 </div>
-<div class="e-form-field">
-  <label class="e-form-field__label" for="disabled">Disabled input field </label>
-  <div class="e-input e-input---disabled">
-    <i class="e-icon e-icon--mail e-icon--xs e-icon--color-disabled"></i>
-    <input id="disabled" type="text" placeholder="Placeholder text" disabled>
+`;
+
+  exampleCompactInput = `<div style="width: 240px;">
+  <div class="e-form-field e-form-field--compact">
+    <label class="e-form-field__label" for="compact">Label </label>
+    <div class="e-input">
+      <input id="compact" type="text" placeholder="Placeholder text">
+    </div>
+  </div>
+</div>
+`;
+
+  example1 = `<div class="e-form-field">
+  <label class="e-form-field__label" for="normal">Normal input field </label>
+  <div class="e-input">
+    <i class="e-icon e-icon--mail e-icon--xs"></i>
+    <input id="normal" type="text" placeholder="Placeholder text">
   </div>
 </div>
 `;
@@ -101,14 +77,7 @@ export class InputDocComponent {
 </div>
 `;
 
-  example4 = `<div class="e-form-field e-mb-24">
-  <label class="e-form-field__label" for="password">Password input field</label>
-  <div class="e-input">
-    <i class="e-icon e-icon--lock e-icon--xs"></i>
-    <input id="password" type="password" placeholder="*******">
-  </div>
-</div>
-<div class="e-form-field">
+  example4 = `<div class="e-form-field">
   <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
   <div class="e-input e-input---invalid">
     <i class="e-icon e-icon--lock e-icon--xs"></i>

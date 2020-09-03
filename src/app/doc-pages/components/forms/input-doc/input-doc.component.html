@@ -1,67 +1,101 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [does]="does" [donts]="donts">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Input - Text fields
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <div>
-      {{ description }}
-    </div>
+    {{ description }}
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <!--Overview-->
-  <app-code-block [codeHTML]="example1" [title]="'Normal input field'"></app-code-block>
-  <app-code-block
-    [codeHTML]="exampleCompactInput"
-    [title]="'Compact input field'"
-    [description]="
-      'Compact text fields are typically used in Elvia’s internal systems, 
-      where screen real estate is an important factor. 
-      Regardless of which style you use for text fields, 
-      you should always stick with the same type throughout the page and never mix the two.'
-    "
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example2"
-    [title]="'Combined'"
-    [description]="
-      'Use the e-combined-field class on the form-field element to keep two inputs for the same label.'
-    "
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example3"
-    [title]="'Inlined'"
-    [description]="
-      'Use the e-inlined-field class outside the form-field element to align inputs on the same line.
-    When the zip code is filled in, the post office should be filled in automatically.'
-    "
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example4"
-    [title]="'Validation of fields'"
-    [description]="
-      'By default, all fields must be required. Validation is based on the field being filled out. 
-    Validation takes place along the way, and the user must also be presented with guidance or error messages.'
-    "
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example5"
-    [title]="'Textarea'"
-    [description]="
-      'The e-form-field__label--optional class should be added to the label when the input is not required.'
-    "
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example6"
-    [title]="'Pseudo Classes'"
-    [description]="
-      'Pseudo Classes can be used to set the styling of input fields to emulate the state their in. 
-    For example adding the invalid class to an e-input will style the e-input field to have an invalid state'
-    "
-  ></app-code-block>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <div class="e-form-field">
+      <label class="e-form-field__label" for="normal">Text field</label>
+      <div class="e-input">
+        <input id="normal" type="text" placeholder="Placeholder text" />
+      </div>
+    </div>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="overviewExample"></app-code-block>
+    </div>
+  </div>
 
-  <app-component-properties [componentName]="'e-input'"></app-component-properties>
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Normal'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="example1"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Combined'">
+        <ng-container ngProjectAs="sectionContent">
+          Use the e-combined-field class on the form-field element to keep two inputs for the same label.
+          <app-code-block [codeHTML]="example2"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Inlined'">
+        <ng-container ngProjectAs="sectionContent">
+          Use the e-inlined-field class outside the form-field element to align inputs on the same line. When
+          the zip code is filled in, the post office should be filled in automatically.
+          <app-code-block [codeHTML]="example3"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Textarea'">
+        <ng-container ngProjectAs="sectionContent">
+          The e-form-field__label--optional class should be added to the label when the input is not required.
+          <app-code-block [codeHTML]="example5"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- Size -->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      There are two different sizes of input. The width of the container should be proportional to the
+      expected user input and can be changes by setting the width on the container of the input.
+      <app-component-subsection [sectionTitle]="'Normal'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="example1"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Compact'">
+        <ng-container ngProjectAs="sectionContent">
+          Compact text fields are typically used in Elvia’s internal systems, where screen real estate is an
+          important factor. Regardless of which style you use for text fields, you should always stick with
+          the same type throughout the page and never mix the two.
+          <app-code-block [codeHTML]="exampleCompactInput"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+      <app-component-subsection [sectionTitle]="'Validation'">
+        <ng-container ngProjectAs="sectionContent">
+          By default, all fields must be required. Validation is based on the field being filled out.
+          Validation takes place along the way, and the user must also be presented with guidance or error
+          messages.
+          <app-code-block [codeHTML]="example4"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-input'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-input'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

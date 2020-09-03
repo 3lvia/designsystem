@@ -1,71 +1,28 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [does]="does" [donts]="donts">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Modal
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <div>
-      {{ description }}
-    </div>
-    <div class="e-mt-16">
-      <b>Note:</b>
-      Be clear! Never use a language or word that the user does not understand. It should always be clear to
-      the user what the actions are all about. Use short texts, up to 250 characters in body text.
-    </div>
-    <div class="e-mt-16">
-      Find live examples at the bottom.
-    </div>
+    {{ description }}
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [codeHTML]="example1"
-    [title]="'Modal with actions'"
-    [showIframeScreens]="true"
-    [noTablet]="true"
-    [overwriteHeight]="450"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example2"
-    [title]="'Modal with delete action'"
-    [showIframeScreens]="true"
-    [noTablet]="true"
-    [overwriteHeight]="400"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example3"
-    [title]="'Modal for info'"
-    [showIframeScreens]="true"
-    [noTablet]="true"
-    [overwriteHeight]="400"
-  ></app-code-block>
-
-  <div class="elvis-anchor">
-    <h2 class="e-title-md elvis-anchor-title">Live examples</h2>
-    <p>
-      The modal is by default always visible, to remove it or hide it apply the utility class
-      <span class="code-text">e-none</span>
-      .
-      <b>Remeber to implement closing of modal when clicking outside of the content.</b>
-    </p>
-
-    <button class="e-btn e-mr-8 e-mb-8" (click)="openModal('modal1')">Modal with actions</button>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <button class="e-btn" (click)="openModal('modal1')">Modal</button>
     <div class="e-modal e-none" #modal1>
       <div class="e-modal__content">
         <div class="e-modal__title">
-          Title of content comes here
+          Title
         </div>
         <div class="e-modal__text">
-          <div>
-            Vær sparsom med bruken av dialoger siden det kan oppleves forstyrrende å få noe liggendes over
-            skjermen mange ganger på rad.
-          </div>
-          <div>
-            Bruk aldrig et språk eller ord som brukeren ikke skjønner. Det skal alltid være klart for brukeren
-            hva det er den skal ta.
-          </div>
+          Modal content Modal content Modal content Modal content Modal content
         </div>
         <div class="e-modal__actions">
           <button class="e-btn e-btn--secondary e-btn--lg" (click)="closeModal('modal1')">
@@ -77,47 +34,70 @@
         </div>
       </div>
     </div>
-
-    <button class="e-btn e-mr-8 e-mb-8" (click)="openModal('modal2')">Modal with delete actions</button>
-    <div class="e-modal e-none" #modal2>
-      <div class="e-modal__content">
-        <div class="e-modal__title">
-          Er du sikker på at du vil slette brukeren din?
-        </div>
-        <div class="e-modal__text">
-          Body text comes here and can go over several lines. It looks like this when it is two.
-        </div>
-        <div class="e-modal__actions">
-          <button class="e-btn e-btn--secondary e-btn--lg" (click)="closeModal('modal2')">
-            <span class="e-btn__title">Avbryt</span>
-          </button>
-          <button class="e-btn e-btn--primary e-btn--danger e-btn--lg" (click)="closeModal('modal2')">
-            <span class="e-btn__title">Slett bruker</span>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <button class="e-btn" (click)="openModal('modal3')">Modal with info</button>
-    <div class="e-modal e-none" #modal3>
-      <div class="e-modal__content">
-        <div class="e-modal__title">
-          Title of content comes here
-        </div>
-        <div class="e-modal__text">
-          Body text comes here and can go over several lines. It looks like this when it is two.
-        </div>
-        <div class="e-modal__actions">
-          <button class="e-btn e-btn--primary e-btn--lg" (click)="closeModal('modal3')">
-            <span class="e-btn__title">OK</span>
-          </button>
-        </div>
-      </div>
+    <div class="e-w-100">
+      <app-code-block
+        [showPreview]="false"
+        [codeHTML]="overviewExample"
+        [codeTS]="modalLiveCode"
+      ></app-code-block>
     </div>
   </div>
 
-  <h3 class="e-title-small">Example of JavaScript code for opening and closing a modal</h3>
-  <app-code-highlighter [isJS]="true" [codeTS]="modalLiveCode"></app-code-highlighter>
+  <!--TYPE-->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Actions'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block
+            [codeHTML]="example1"
+            [showIframeScreens]="true"
+            [noTablet]="true"
+            [overwriteHeight]="400"
+          ></app-code-block>
+        </ng-container>
+      </app-component-subsection>
 
-  <app-component-properties [componentName]="'e-modal'"></app-component-properties>
+      <app-component-subsection [sectionTitle]="'Danger'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block
+            [codeHTML]="example2"
+            [showIframeScreens]="true"
+            [noTablet]="true"
+            [overwriteHeight]="400"
+          ></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Info'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block
+            [codeHTML]="example3"
+            [showIframeScreens]="true"
+            [noTablet]="true"
+            [overwriteHeight]="400"
+          ></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+      <app-component-subsection [sectionTitle]="'Be clear'">
+        <ng-container ngProjectAs="sectionContent">
+          Never use a language or word that the user does not understand. It should always be clear to the
+          user what the actions are all about. Use short texts, up to 250 characters in body text.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-modal'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-modal'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

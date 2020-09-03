@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [donts]="donts">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Card
   </ng-container>
@@ -10,27 +10,80 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [codeHTML]="example1"
-    [showIframeScreens]="true"
-    [title]="'Simple card'"
-    [description]="'Simple cards containing information with or without actions.'"
-    [does]="['Grouping content', 'To separate information from the rest of the page.']"
-    [greyBg]="true"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example2"
-    [showIframeScreens]="true"
-    [title]="'On white background'"
-    [description]="'Stronger box shadow on white background for depth'"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="example3"
-    [showIframeScreens]="true"
-    [title]="'Titles above the card'"
-    [description]="'Cards can also have titles outside of the card'"
-    [greyBg]="true"
-  ></app-code-block>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <div class="e-card e-card--on-white">
+      <div class="e-card__title">
+        Card
+      </div>
+      <div class="e-card__content">
+        Description
+      </div>
+    </div>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+    </div>
+  </div>
 
-  <app-component-properties [componentName]="'e-card'"></app-component-properties>
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Simple card'">
+        <ng-container ngProjectAs="sectionContent">
+          Simple cards containing information with or without actions.
+          <app-code-block [codeHTML]="example1" [showIframeScreens]="true" [greyBg]="true"></app-code-block>
+          <app-when-to-use
+            [whens]="['Grouping content', 'To separate information from the rest of the page.']"
+          ></app-when-to-use>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Titles above'">
+        <ng-container ngProjectAs="sectionContent">
+          Cards can also have titles outside of the card.
+          <app-code-block [codeHTML]="example3" [showIframeScreens]="true" [greyBg]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--SHADOW-->
+  <app-component-section [sectionTitle]="'Shadow'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Soft'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleShadowSoft"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Medium'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleShadowMedium"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Hard'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleShadowHard"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-card'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-card'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

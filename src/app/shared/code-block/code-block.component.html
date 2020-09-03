@@ -1,60 +1,8 @@
-<div class="component-body__example elvis-anchor">
-  <h2 class="component-body__example-title elvis-anchor-title" id="{{ title }}">
-    <span class="e-tooltip" tabindex="0" (click)="copyAnchor()">
-      <span class="icons">
-        <img class="component-body__img normal-img" alt="Copy anchor button" src="assets/hyperlink-3.svg" />
-        <img
-          class="component-body__img green-img"
-          alt="Copy anchor button"
-          src="assets/hyperlink-3-green.svg"
-        />
-      </span>
-      <span>{{ title }}</span>
-      <span class="e-tooltip__content">Copied!</span>
-    </span>
-  </h2>
-  <div class="component-body__example-description e-text-description">
-    {{ description }}
-  </div>
-  <div class="component-body__example-does" *ngIf="does.length != 0 || donts.length != 0">
-    <div class="component-body__example-does-does" *ngIf="does.length != 0">
-      <span class="e-text-caps">
-        <span class="e-mr-8">
-          <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green"></i>
-        </span>
-        When to use:
-      </span>
-      <span class="e-text-description">
-        <ul *ngFor="let do of does">
-          <li>
-            {{ do }}
-          </li>
-        </ul>
-      </span>
-    </div>
-    <div class="component-body__example-does-donts" *ngIf="donts.length != 0">
-      <span class="e-text-caps">
-        <span class="e-mr-8">
-          <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-red"></i>
-        </span>
-        When not to use:
-      </span>
-      <span class="e-text-description">
-        <ul *ngFor="let dont of donts">
-          <li>
-            {{ dont }}
-          </li>
-        </ul>
-      </span>
-    </div>
-  </div>
-  <div>
-    <ng-content select="extraInformation"></ng-content>
-  </div>
-
+<div class="component-body__example">
   <div
     class="component-body__example-body e-mt-24"
     [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+    *ngIf="showPreview"
   >
     <div class="top-menu">
       <div class="tabs" *ngIf="showIframeScreens && showTabs">
@@ -123,27 +71,16 @@
   </div>
 
   <div class="show-code e-mt-16">
-    <div class="e-accordion e-accordion--single">
-      <div class="e-accordion__item" #accordion>
-        <div class="e-accordion__label" (click)="toggleOpen()">
-          <div role="button" *ngIf="!showCode" (click)="showCode = !showCode">
-            View code
-          </div>
-          <div role="button" *ngIf="showCode" (click)="showCode = !showCode">
-            Hide code
-          </div>
-        </div>
-        <div class="e-accordion__icon" (click)="toggleOpen()">
-          <i class="e-icon e-icon--expand_circle-color"></i>
-          <i class="e-icon e-icon--expand_circle-filled-color"></i>
-        </div>
-        <div class="e-accordion__content">
-          <div class="code">
+    <div class="e-w-100">
+      <app-code-block-accordion>
+        <ng-container ngProjectAs="accordionContent">
+          <div class="code e-w-100">
             <div class="code-highlight">
               <app-code-highlighter
                 [codeTS]="codeTS"
                 [codeHTML]="codeHTML"
                 [codeCSS]="codeCSS"
+                [isJS]="isJS"
                 [codeInverted]="codeInverted"
                 [isInverted]="isInverted"
               ></app-code-highlighter>
@@ -170,8 +107,8 @@
               </form>
             </div>
           </div>
-        </div>
-      </div>
+        </ng-container>
+      </app-code-block-accordion>
     </div>
   </div>
 </div>

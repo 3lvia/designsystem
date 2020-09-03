@@ -1,115 +1,79 @@
 <!--HEADER-->
-<app-component-header [does]="headerDoes" [donts]="headerDonts" [figmaUrl]="figmaUrl">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Dropdown
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <div>
-      {{ description }}
-    </div>
-    <div class="e-mt-16">
-      This documentation shows how you should style your dropdown. We do not currently provide styling classes
-      for this, because we understand that it is desirable to use libraries with dropdowns that have all the
-      logic necessary, and works in an accessible way for all users. So in this documentation we have pictures
-      of the design that you should try applying to your dropdown.
-    </div>
-    <div class="e-mt-8">
-      Take a look in
-      <a class="e-link e-link--inline" href="{{ figmaUrl }}">figma</a>
-      to get the detailed view where you can inspect properties of the design.
-    </div>
+    {{ description }}
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <div class="elvis-anchor">
-    <h2 class="e-title-md elvis-anchor-title">Design dropdown</h2>
-    <div class="e-text-description">
-      To make the dropdown input field you might be able to use our
-      <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">
-        autocomplete classes
-      </a>
-      or
-      <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>
-      . These classes have the same styling as the dropdown input designed here. Make sure to asign the input
-      type to "button" to not let user type inside the input field
-    </div>
-    <div>
-      <div class="e-mt-16">
-        <b>Icons used:</b>
-      </div>
-      <ul class="e-list">
-        <li>
-          <span class="code-text">e-icon--arrow_up-bold</span>
-          <i class="e-icon e-icon--arrow_up-bold e-icon--xs e-ml-8"></i>
-        </li>
-        <li>
-          <span class="code-text">e-icon--arrow_down-bold</span>
-          <i class="e-icon e-icon--arrow_down-bold e-icon--xs e-ml-8"></i>
-        </li>
-      </ul>
-    </div>
-    <div class="e-mt-16">
-      <div class="e-mt-32 e-mb-32">
+  <!-- SIZE -->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Normal'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="image-container">
+            <img class="e-m-16 image-size" src="assets/dropdown/dropdown-inputs.png" />
+          </div>
+          <div class="image-container">
+            <img class="e-m-16 image-size" src="assets/dropdown/dropdown-content.png" />
+          </div>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Compact'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="image-container">
+            <img
+              class="e-m-16 image-size-compact"
+              src="assets/dropdown/compact/dropdown-compact-inputs.png"
+            />
+          </div>
+          <div class="image-container">
+            <img class="e-m-16 image-size" src="assets/dropdown/compact/dropdown-compact-content.png" />
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- STYLING DROPDOWN -->
+  <app-component-section [sectionTitle]="'Styling dropdown'">
+    <ng-container ngProjectAs="sectionContent">
+      <p>
         <a class="e-link" href="{{ figmaUrl }}">Figma sketches</a>
-      </div>
-      <h3>
-        Normal dropdown input fields
-      </h3>
-      <div class="image-container">
-        <img class="e-m-16 image-size" src="assets/dropdown/dropdown-inputs.png" />
-      </div>
-      <h3>
-        Opened with dropdown content
-      </h3>
-      <div class="image-container">
-        <img class="e-m-16 image-size" src="assets/dropdown/dropdown-content.png" />
-      </div>
+      </p>
+      <p>
+        This documentation shows how you should style your dropdown. We do not currently provide styling
+        classes for this, because we understand that it is desirable to use libraries with dropdowns that have
+        all the logic necessary, and works in an accessible way for all users. So in this documentation we
+        have pictures of the design that you should try applying to your dropdown.
+      </p>
+      <p>
+        Take a look in
+        <a class="e-link e-link--inline" href="{{ figmaUrl }}">figma</a>
+        to get the detailed view where you can inspect properties of the design.
+      </p>
+      <p>
+        To make the dropdown input field you might be able to use our
+        <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">
+          autocomplete classes
+        </a>
+        or
+        <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>
+        . These classes have the same styling as the dropdown input designed here. Make sure to asign the
+        input type to "button" to not let user type inside the input field
+      </p>
+    </ng-container>
+  </app-component-section>
 
-      <h3>
-        Compact dropdown input fields
-      </h3>
-      <div class="image-container">
-        <img class="e-m-16 image-size-compact" src="assets/dropdown/compact/dropdown-compact-inputs.png" />
-      </div>
-      <h3>
-        Opened compact dropdown with content
-      </h3>
-      <div class="image-container">
-        <img class="e-m-16 image-size" src="assets/dropdown/compact/dropdown-compact-content.png" />
-      </div>
-    </div>
-  </div>
-
-  <!-- Old solution -->
-  <!-- <app-code-block [codeHTML]="example1" [title]="'Dropdown'" [description]="''"></app-code-block>
-  <app-code-block [codeHTML]="example2" [title]="'Compact Dropdown'" [description]="''"></app-code-block> -->
-  <!-- <div class="elvis-anchor">
-    <h2 class="elvis-anchor-title">Live example</h2>
-    <div class="e-form-field">
-      <label class="e-form-field__label">Label</label>
-      <div class="e-dropdown">
-        <div class="e-input" (click)="toggleDropdown()">
-          <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown"></i>
-          <i class="e-icon e-icon--arrow_down-bold" *ngIf="!showDropdown"></i>
-          <input
-            type="button"
-            [ngClass]="!valueChanged ? 'e-input--placeholder' : ''"
-            [value]="currentValue"
-          />
-        </div>
-        <div class="e-dropdown__content" *ngIf="showDropdown">
-          <span class="e-dropdown__item" *ngFor="let option of options" (click)="selectOption(option)">
-            {{ option }}
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <h4>Ts and Html code for Angular example</h4>
-    <app-code-highlighter [codeHTML]="exampleInHTML" [codeTS]="exampleInTS"></app-code-highlighter>
-  </div> -->
-
-  <app-component-properties [componentName]="'e-dropdown'"></app-component-properties>
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="headerDoes" [whenNots]="headerDonts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
 </div>

@@ -10,9 +10,9 @@ export class DraganddropDocComponent {
   figmaUrl = getComponent('draganddrop-doc').figmaUrl;
   description = getComponent('draganddrop-doc').description;
 
-  example1 = `<div class="e-dragdrop" style="width:300px; height:150px">
-  </div>`;
+  example1 = `<div class="e-dragdrop" style="width:300px; height:150px"></div>
+`;
 
-  example2 = `<div class="e-dragdrop e-dragdrop--dragover" style="width:300px; height:150px">
-  </div>`;
+  example2 = `<div class="e-dragdrop e-dragdrop--dragover" style="width:300px; height:150px"></div>
+`;
 }

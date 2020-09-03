@@ -56,7 +56,7 @@ export class ScrollService {
   getNavbarAnchors(anchors: NavbarAnchor[]): NavbarAnchor[] {
     const elements = document.querySelectorAll('.elvis-anchor');
     const elementTitles = document.querySelectorAll('.elvis-anchor-title');
-    if (elements.length === 0) {
+    if (elements.length === 0 || elementTitles.length === 0) {
       return;
     }
     const firstItem = elements.item(0) as HTMLElement;

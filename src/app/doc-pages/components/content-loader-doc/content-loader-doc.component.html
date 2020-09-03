@@ -5,27 +5,17 @@
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
-    <p>
-      In the design system, it’s available by using the
-      <span class="code-text">e-content-loader</span>
-      class and should be used together with its wrapper to get the full wave-effect over more than one
-      element. Place the loader where the content is loading and add size with width and height on the element
-      to match the content that is loading.
-    </p>
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
-<div class="page-body" style="margin-top: 56px;">
-  <div class="elvis-anchor">
-    <h2 class="elvis-anchor-title e-title-md">Content loader blocks</h2>
-    <div class="e-text-description">
-      A content loader is used to indicate loading content in a way that gives users a perception of a faster
-      loading time. Each component is shown in its animated block state, hinting the overall page structure,
-      until its possible to replace the blocks with real content.
-    </div>
-
-    <div class="e-mt-48 e-mb-72 e-w-100" style="display: flex; flex-direction: row;">
+<div class="page-body">
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <div class="e-w-100" style="display: flex; flex-direction: row;">
       <div class="e-mr-24" style="display: flex; flex-direction: column;">
         <div class="e-content-loader" style="width: 170px; height: 170px;"></div>
       </div>
@@ -40,27 +30,47 @@
         <div class="e-content-loader e-content-loader--text e-content-loader--short e-mt-24"></div>
       </div>
     </div>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+    </div>
   </div>
 
-  <app-code-block
-    [codeHTML]="exampleContentLoader"
-    [title]="'Content loader box'"
-    [description]="'Simple cards containing information with or without actions.'"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="exampleContentLoaderCircle"
-    [title]="'Content loader circle'"
-    [description]="'Simple cards containing information with or without actions.'"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="exampleContentLoaderText"
-    [title]="'Content loader text'"
-    [description]="'Simple cards containing information with or without actions.'"
-  ></app-code-block>
-  <app-code-block
-    [codeHTML]="exampleContentLoaderExample"
-    [title]="'Content loader example'"
-  ></app-code-block>
+  <!--TYPES -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Box'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleContentLoader"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Circle'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleContentLoaderCircle"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Text'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleContentLoaderText"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
 
-  <app-component-properties [componentName]="'e-content-loader'"></app-component-properties>
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      In the design system, it’s available by using the
+      <span class="code-text">e-content-loader</span>
+      . Place the loader where the content is loading and add size with width and height on the element to
+      match the content that is loading.
+      <app-code-block [codeHTML]="exampleContentLoaderExample"></app-code-block>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-content-loader'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-content-loader'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

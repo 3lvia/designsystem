@@ -4,30 +4,59 @@
     Search
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <div>
-      {{ description }}
-    </div>
+    {{ description }}
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block
-    [codeHTML]="searchExample"
-    [title]="'Local Search'"
-    [description]="
-      'Local search is used when the search feature shouldn’t affect the whole application. This could for example be in connection to a data table or list.
-      Search results appear when the user presses enter on the keyboard or clicks the magnifying button.'
-    "
-  ></app-code-block>
-  <app-code-block [codeHTML]="searchCompactExample" [title]="'Local Compact Search'"></app-code-block>
-  <!-- <app-code-block
-    [codeHTML]="searchGlobalExample"
-    [title]="'Global Search'"
-    [description]="
-      'Global search lives in the header of the application, since it should be highly discoverable and always available to users. It’s used to find global information and will include search results from the whole application. On desktop, the search window will appear under the top menu, while the tablet and mobile search will replace the menu content.'
-    "
-  ></app-code-block> -->
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <div class="e-form-field">
+      <label class="e-form-field__label" for="compact">Søk</label>
+      <div class="e-search e-search--local" style="width: 400px;">
+        <div class="e-input">
+          <input id="compact" type="text" placeholder="Placeholder text" />
+        </div>
+        <button class="e-btn e-btn--icon e-btn--lg">
+          <span class="e-btn__icon"><i class="e-icon e-icon--search-bold"></i></span>
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
+    </div>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="overviewExample"></app-code-block>
+    </div>
+  </div>
 
-  <app-component-properties [componentName]="'e-search'"></app-component-properties>
+  <!--TYPE-->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Local'">
+        <ng-container ngProjectAs="sectionContent">
+          Local search is used when the search feature shouldn’t affect the whole application. This could for
+          example be in connection to a data table or list. Search results appear when the user presses enter
+          on the keyboard or clicks the magnifying button.
+          <app-code-block [codeHTML]="searchExample"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--SIZE-->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-code-block [codeHTML]="searchSizesExample"></app-code-block>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-search'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-search'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

@@ -10,6 +10,23 @@ export class ContentLoaderDocComponent {
   figmaUrl = getComponent('content-loader-doc').figmaUrl;
   description = getComponent('content-loader-doc').description;
 
+  exampleOverview = `<div class="e-mt-48 e-mb-72 e-w-100" style="display: flex; flex-direction: row;">
+  <div class="e-mr-24" style="display: flex; flex-direction: column;">
+    <div class="e-content-loader" style="width: 170px; height: 170px;"></div>
+  </div>
+
+  <div class="e-mr-24" style="display: flex; flex-direction: column;">
+    <div class="e-content-loader e-content-loader--circle" style="width: 170px; height: 170px;"></div>
+  </div>
+
+  <div class="e-w-100" style="display: flex; flex-direction: column; justify-content: center;">
+    <div class="e-content-loader e-content-loader--text"></div>
+    <div class="e-content-loader e-content-loader--text e-mt-24"></div>
+    <div class="e-content-loader e-content-loader--text e-content-loader--short e-mt-24"></div>
+  </div>
+</div>
+`;
+
   exampleContentLoader = `<div class="e-content-loader"></div>
 `;
   exampleContentLoaderCircle = `<div class="e-content-loader e-content-loader--circle"></div>`;

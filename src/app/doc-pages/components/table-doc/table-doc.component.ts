@@ -12,6 +12,30 @@ export class TableDocComponent {
   does = ['Tables should be used when displaying large amounts of data to the user.'];
   donts = ['Don’t use a table when you can use a data visualization.', 'Don’t mix different styles of tables on the same page.'];
 
+  exampleOverview = `<table class="e-table">
+  <thead>
+    <tr>
+      <th scope="col">Table column 1</th>
+      <th scope="col">Table column 2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Table row 1 column 1</th>
+      <td>Table row 1 column 2</td>
+    </tr>
+    <tr>
+      <th scope="row">Table row 2 column 1</th>
+      <td>Table row 2 column 2</td>
+    </tr>
+    <tr>
+      <th scope="row">Table row 3 column 1</th>
+      <td>Table row 3 column 2</td>
+    </tr>
+  </tbody>
+</table>
+`;
+
   example1 = `<table class="e-table">
   <thead>
     <tr>

@@ -1,0 +1,8 @@
+<!--COMPONENT SUBSECTION-->
+
+<div class="component-section e-my-72">
+  <h3 class="e-title-sm e-mb-16 e-mt-0" *ngIf="sectionTitle.length > 0">{{ sectionTitle }}</h3>
+  <div class="component-section__content e-text-body">
+    <ng-content select="sectionContent"></ng-content>
+  </div>
+</div>

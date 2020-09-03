@@ -10,14 +10,17 @@ export class ProgressbarDocComponent {
   figmaUrl = getComponent('progressbar-doc').figmaUrl;
   description = getComponent('progressbar-doc').description;
 
-  example1 = `
-<div class="e-progress" role="progressbar">
+  exampleOverview = `<div class="e-progress" role="progressbar">
   <div class="e-progress__bar"></div>
 </div>
 `;
 
-  example2 = `
-<div class="e-progress" role="progressbar">
+  example1 = `<div class="e-progress" role="progressbar">
+  <div class="e-progress__bar"></div>
+</div>
+`;
+
+  example2 = `<div class="e-progress" role="progressbar">
   <div class="e-progress__bar e-progress__bar--error"></div>
 </div>
 `;

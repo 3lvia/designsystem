@@ -543,6 +543,9 @@ export class StepperDocComponent implements OnInit {
   }
 
   chooseForcedStep(step: Step): void {
+    if (step.number > 3) {
+      return;
+    }
     this.forcedSteps.forEach(s => {
       if (this.forcedChosenNum === s.number && s.status !== 'activeDone') {
         s.status = 'none';
@@ -638,6 +641,9 @@ export class StepperDocComponent implements OnInit {
   }
 
   newForcedStep(chosenNumber: number): void {
+    if (chosenNumber > 3) {
+      return;
+    }
     if (chosenNumber < 5 && chosenNumber > 0) {
       this.forcedSteps.forEach(s => {
         if (this.forcedChosenNum === s.number && s.status !== 'activeDone') {

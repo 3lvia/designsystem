@@ -1,0 +1,28 @@
+@import '../../../../style/elvis/src/utilities/breakpoints.scss';
+
+.when {
+  display: flex;
+  flex-direction: row;
+  .when-to-use,
+  .when-not-to-use {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+  .when-to-use {
+    padding-right: 8px;
+  }
+  .when-not-to-use {
+    padding-left: 8px;
+  }
+  ul {
+    padding-left: 22px;
+  }
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+    .when-to-use,
+    .when-not-to-use {
+      width: 100%;
+    }
+  }
+}

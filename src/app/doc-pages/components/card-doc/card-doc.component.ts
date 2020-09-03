@@ -10,9 +10,19 @@ export class CardDocComponent {
   figmaUrl = getComponent('card-doc').figmaUrl;
   description = getComponent('card-doc').description;
   donts = [
-    'Don\'t redirect cards to external sites - use link instead.',
+    'Don\'t redirect cards to external sites - use links instead.',
     'Do not combine "title outside card" and "title inside card" on the same front.',
   ];
+
+  exampleOverview = `<div class="e-card e-card--on-white">
+  <div class="e-card__title">
+    Card
+  </div>
+  <div class="e-card__content">
+    Description
+  </div>
+</div>
+`;
 
   example1 = `<div style="max-width:600px;margin:40px;">
   <div class="e-card">
@@ -51,4 +61,43 @@ export class CardDocComponent {
   </div>
 </div>
   `;
+
+  exampleShadowSoft = `<div style="max-width:600px;margin:50px;">
+  <div class="e-card e-card--shadow-soft">
+    <div class="e-card__title e-card__title--above">
+      Strømregningen påvirkes av vinteren
+    </div>
+    <div class="e-card__content">
+      Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker,
+      mens de fleste holder en jevn temperatur på rundt 20 grader inne...
+    </div>
+  </div>
+</div>
+`;
+
+  exampleShadowMedium = `<div style="max-width:600px;margin:50px;">
+  <div class="e-card e-card--shadow-medium">
+    <div class="e-card__title e-card__title--above">
+      Strømregningen påvirkes av vinteren
+    </div>
+    <div class="e-card__content">
+      Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker,
+      mens de fleste holder en jevn temperatur på rundt 20 grader inne...
+    </div>
+  </div>
+</div>
+`;
+
+  exampleShadowHard = `<div style="max-width:600px;margin:50px;">
+  <div class="e-card e-card--shadow-hard">
+    <div class="e-card__title e-card__title--above">
+      Strømregningen påvirkes av vinteren
+    </div>
+    <div class="e-card__content">
+      Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker,
+      mens de fleste holder en jevn temperatur på rundt 20 grader inne...
+    </div>
+  </div>
+</div>
+`;
 }

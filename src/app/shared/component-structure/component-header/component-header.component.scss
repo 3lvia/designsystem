@@ -1,6 +1,6 @@
-@import '../shared-sizes';
-@import '../../shared/shared-animations';
-@import '../../../../style/elvis/src/utilities/breakpoints.scss';
+@import '../../shared-sizes';
+@import '../../../shared/shared-animations';
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
 
 .component {
   margin: auto;
@@ -26,7 +26,10 @@
         h1 {
           margin-right: 16px;
           margin-top: 0;
-          margin-bottom: 8px;
+          margin-bottom: 32px;
+          @include breakpoint-up(Tablet) {
+            margin-bottom: 24px;
+          }
         }
         h1,
         .e-label {
@@ -38,35 +41,6 @@
     &__description {
       &.class-margin {
         padding-top: 24px;
-      }
-    }
-
-    &__example-does {
-      display: flex;
-      flex-direction: row;
-      margin-top: 40px;
-      &-does,
-      &-donts {
-        display: flex;
-        flex-direction: column;
-        width: 50%;
-
-        .e-text-description.bold {
-          font-weight: 500;
-        }
-
-        .marker {
-          display: inline-flex;
-          margin-right: 11px;
-          height: 11px;
-          width: 11px;
-          border-radius: 50%;
-        }
-      }
-      &-donts {
-        li::before {
-          background-color: var(--e-red);
-        }
       }
     }
   }

@@ -12,6 +12,7 @@ export class AccordionDocComponent {
 
   figmaUrl = getComponent('accordion-doc').figmaUrl;
   description = getComponent('accordion-doc').description;
+  showCode = false;
 
   doesAccordion = [
     'Organize related information.',
@@ -22,11 +23,10 @@ export class AccordionDocComponent {
     'Don’t use it for navigation elements.',
   ];
 
-  exampleAccordionSingle = `<h3 class="e-title-sm">Closed</h3>
-<div class="e-accordion e-accordion--single">
+  exampleAccordionSingle = `<div class="e-accordion e-accordion--single">
   <div class="e-accordion__item">
     <div class="e-accordion__label">
-      Label
+      Closed Accordion
     </div>
     <div class="e-accordion__icon">
       <i class="e-icon e-icon--expand_circle-color"></i>
@@ -37,11 +37,10 @@ export class AccordionDocComponent {
     </div>
   </div>
 </div>
-<h3 class="e-title-sm">Open</h3>
-<div class="e-accordion e-accordion--single">
+<div class="e-accordion e-accordion--single e-mt-40">
   <div class="e-accordion__item  e-accordion__item--open">
     <div class="e-accordion__label">
-      Label
+      Open Accordion
     </div>
     <div class="e-accordion__icon">
       <i class="e-icon e-icon--expand_circle-color"></i>
@@ -100,9 +99,11 @@ export class AccordionDocComponent {
 </div>
 `;
 
-  exampleAccordionSizes = `<h3 class="e-title-sm">Large</h3>
-<div class="e-accordion e-accordion--lg e-mr-8">
+  exampleAccordionSizes = `<div class="e-accordion e-accordion--sm">
   <div class="e-accordion__item">
+    <div class="e-accordion__label">
+      Small Accordion
+    </div>
     <div class="e-accordion__icon">
       <i class="e-icon e-icon--expand_circle-color"></i>
       <i class="e-icon e-icon--expand_circle-filled-color"></i>
@@ -110,9 +111,11 @@ export class AccordionDocComponent {
   </div>
 </div>
 
-<h3 class="e-title-sm">Medium</h3>
-<div class="e-accordion e-accordion--md e-mr-8">
+<div class="e-accordion e-accordion--md e-mt-40">
   <div class="e-accordion__item">
+    <div class="e-accordion__label">
+      Medium Accordion
+    </div>
     <div class="e-accordion__icon">
       <i class="e-icon e-icon--expand_circle-color"></i>
       <i class="e-icon e-icon--expand_circle-filled-color"></i>
@@ -120,9 +123,11 @@ export class AccordionDocComponent {
   </div>
 </div>
 
-<h3 class="e-title-sm">Small</h3>
-<div class="e-accordion e-accordion--sm e-mr-8">
+<div class="e-accordion e-accordion--lg e-mt-40">
   <div class="e-accordion__item">
+    <div class="e-accordion__label">
+      Large Accordion
+    </div>
     <div class="e-accordion__icon">
       <i class="e-icon e-icon--expand_circle-color"></i>
       <i class="e-icon e-icon--expand_circle-filled-color"></i>
@@ -132,7 +137,7 @@ export class AccordionDocComponent {
 `;
 
 
-  liveCodeHTML = `<div class="e-accordion e-accordion--md">
+  liveCodeHTML = `<div class="e-accordion e-accordion--md e-accordion--center">
   <div class="e-accordion__item" #accordionLiveExample>
     <div class="e-accordion__icon" (click)="toggleOpen()">
       <i class="e-icon e-icon--expand_circle-color"></i>

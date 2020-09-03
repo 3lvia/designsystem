@@ -19,6 +19,19 @@ export class RadiobuttonDocComponent {
     'If you have more than five options in total - use dropdown.',
   ];
 
+  overviewExample = `<form class="e-form_field">
+  <label class="e-radio" for="optionOverview1">
+    <input type="radio" id="optionOverview1" name="example1" value="value1" checked />
+    <span class="e-radio__mark"></span>
+    <span class="e-radio__label">Radio button option 1</span>
+  </label>
+  <label class="e-radio" for="optionOverview2">
+    <input type="radio" id="optionOverview2" name="example1" value="value2" />
+    <span class="e-radio__mark"></span>
+    <span class="e-radio__label">Radio button option 2</span>
+  </label>
+</form>`;
+
   example1 = `<form class="e-form_field">
   <label class="e-radio" for="option1">
     <input type="radio" id="option1" name="example1" value="value1" checked />
@@ -30,43 +43,22 @@ export class RadiobuttonDocComponent {
     <span class="e-radio__mark"></span>
     <span class="e-radio__label">Normal</span>
   </label>
-  <label class="e-radio" for="option3">
-    <input type="radio" id="option3" name="example1" value="value2" disabled/>
-    <span class="e-radio__mark"></span>
-    <span class="e-radio__label">Disabled</span>
-  </label>
-  <label class="e-radio" for="disabled-checked">
-    <input type="radio" id="disabled-checked" value="value2" disabled checked/>
-    <span class="e-radio__mark"></span>
-    <span class="e-radio__label">Disabled checked</span>
-  </label>
 </form>`;
 
   example2 = `<form class="e-form_field">
-<label class="e-radio e-radio--sm" for="optionSmall1">
-  <input type="radio" id="optionSmall1" name="exampleSmall" value="value1" checked />
-  <span class="e-radio__mark"></span>
-  <span class="e-radio__label">Selected</span>
-</label>
-<label class="e-radio e-radio--sm" for="optionSmall2">
-  <input type="radio" id="optionSmall2" name="exampleSmall" value="value2"/>
-  <span class="e-radio__mark"></span>
-  <span class="e-radio__label">Normal</span>
-</label>
-<label class="e-radio e-radio--sm" for="optionSmall3">
-  <input type="radio" id="optionSmall3" name="exampleSmall" value="value2" disabled/>
-  <span class="e-radio__mark"></span>
-  <span class="e-radio__label">Disabled</span>
-</label>
-<label class="e-radio e-radio--sm" for="disabled-checked-small">
-  <input type="radio" id="disabled-checked-small"  disabled checked/>
-  <span class="e-radio__mark"></span>
-  <span class="e-radio__label">Disabled checked</span>
-</label>
+  <label class="e-radio e-radio--sm" for="optionSmall1">
+    <input type="radio" id="optionSmall1" name="example1" value="value1" checked />
+    <span class="e-radio__mark"></span>
+    <span class="e-radio__label">Selected</span>
+  </label>
+  <label class="e-radio e-radio--sm" for="optionSmall2">
+    <input type="radio" id="optionSmall2" name="example1" value="value2"/>
+    <span class="e-radio__mark"></span>
+    <span class="e-radio__label">Normal</span>
+  </label>
 </form>`;
 
-  example3 = `<h3>For normal radiobuttons</h3>
-<form class="e-form_field">
+  example3 = `<form class="e-form_field">
   <label class="e-radio e-radio---hover">
     <input type="radio" name="example1"/>
     <span class="e-radio__mark"></span>
@@ -98,39 +90,5 @@ export class RadiobuttonDocComponent {
     <span class="e-radio__label">Invalid</span>
   </label>
 </form>
-
-<h3>Small radiobutton</h3>
-
-<form class="e-form_field">
-  <label class="e-radio e-radio--sm e-radio---hover">
-    <input type="radio" name="example1"/>
-    <span class="e-radio__mark e-radio__mark---hover"></span>
-    <span class="e-radio__label">Hover</span>
-  </label>
-  <label class="e-radio e-radio--sm e-radio---checked">
-    <input type="radio"  name="example1"/>
-    <span class="e-radio__mark e-radio__mark" ></span>
-    <span class="e-radio__label">Checked</span>
-  </label>
-  <label class="e-radio e-radio--sm e-radio---disabled">
-      <input type="radio" name="example1"/>
-      <span class="e-radio__mark"></span>
-      <span class="e-radio__label">Disabled</span>
-  </label>
-  <label class="e-radio e-radio--sm e-radio---disabled-checked">
-    <input type="radio" name="example1"/>
-    <span class="e-radio__mark"></span>
-    <span class="e-radio__label">Disabled checked</span>
-  </label>
-  <label class="e-radio e-radio--sm e-radio---focus">
-    <input type="radio" name="example1"/>
-    <span class="e-radio__mark"></span>
-    <span class="e-radio__label">Focus</span>
-  </label>
-  <label class="e-radio e-radio--sm e-radio---invalid">
-    <input type="radio" name="example1"/>
-    <span class="e-radio__mark"></span>
-    <span class="e-radio__label">Invalid</span>
-  </label>
-</form>`;
+`;
 }

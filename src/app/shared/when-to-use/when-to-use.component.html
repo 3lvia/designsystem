@@ -1,0 +1,32 @@
+<div class="when e-mt-48 e-mb-n16">
+  <div class="when-to-use" *ngIf="whens[0] != ''">
+    <div class="e-text-caps" style="display: flex; flex-direction: row;">
+      <div class="e-mr-8">
+        <i class="e-icon e-icon--check_circle e-icon--xs e-icon--color-green"></i>
+      </div>
+      <div>When to use:</div>
+    </div>
+    <span class="e-text-description">
+      <ul>
+        <li *ngFor="let when of whens">
+          {{ when }}
+        </li>
+      </ul>
+    </span>
+  </div>
+  <div class="when-not-to-use" *ngIf="whenNots[0] != ''">
+    <div class="e-text-caps" style="display: flex; flex-direction: row;">
+      <div class="e-mr-8">
+        <i class="e-icon e-icon--remove_circle e-icon--xs e-icon--color-red"></i>
+      </div>
+      <div>When not to use:</div>
+    </div>
+    <span class="e-text-description">
+      <ul>
+        <li *ngFor="let whenNot of whenNots">
+          {{ whenNot }}
+        </li>
+      </ul>
+    </span>
+  </div>
+</div>

@@ -7,67 +7,6 @@ iframe {
 
 .component-body__example {
   margin-top: 40px;
-  &-title {
-    display: inline-flex;
-    margin-bottom: 0.5rem;
-    margin-right: 1rem;
-    cursor: pointer;
-    .e-tooltip {
-      .e-tooltip__content {
-        display: none;
-        left: -24px;
-        margin-bottom: 26px;
-      }
-    }
-    .icons {
-      position: relative;
-      .component-body__img {
-        display: none;
-        position: absolute;
-        top: 3px;
-        left: -36px;
-        padding-right: 12px;
-      }
-    }
-    &:hover .icons .normal-img {
-      display: flex;
-    }
-    &.anchor-copied .icons .green-img,
-    &.anchor-copied .e-tooltip .e-tooltip__content {
-      display: flex;
-      opacity: 1;
-    }
-    &.anchor-copied .icons .normal-img {
-      display: none;
-    }
-  }
-
-  &-description {
-    margin-bottom: 12px;
-  }
-
-  &-does {
-    display: flex;
-    flex-direction: row;
-    &-does,
-    &-donts {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-      margin: 8px 0;
-
-      .marker {
-        display: inline-flex;
-        margin-right: 11px;
-        height: 11px;
-        width: 11px;
-        border-radius: 50%;
-      }
-    }
-    &-does {
-      margin-right: 16px;
-    }
-  }
 
   &-codepen {
     display: flex;

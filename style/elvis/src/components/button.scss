@@ -468,6 +468,14 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn--danger {
+      width: 40px;
+      height: 40px;
+
+      .e-btn__icon
+        i:not([class$='color-red']):not([class$='e-icon--color-disabled']):not([class$='e-icon--inverted-disabled-grey-70']) {
+        visibility: hidden;
+      }
+
       &.e-btn--inverted {
         &:hover:not(:disabled) {
           .e-btn__icon {
@@ -481,11 +489,6 @@ $button-sm-line-height: 16px;
             }
           }
         }
-      }
-
-      .e-btn__icon
-        i:not([class$='color-red']):not([class$='e-icon--color-disabled']):not([class$='e-icon--inverted-disabled-grey-70']) {
-        visibility: hidden;
       }
 
       &.e-btn---hover,

@@ -15,6 +15,9 @@ export class LabelDocComponent {
     "Don't show numeric values ​​in a label, then you should use data labels instead.",
   ];
 
+  exampleOverview = `<label class="e-label">Label</label>
+`;
+
   example1 = `<label class="e-label e-m-8">Skjema</label>
 <label class="e-label e-m-8">Artikkel</label>
 <label class="e-label e-m-8">Rapport</label>

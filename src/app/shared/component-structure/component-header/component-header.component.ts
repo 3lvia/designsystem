@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { ItemStatus } from './../item-status.enum';
-import { NavbarAnchor } from '../navbarAnchor.interface';
+import { ItemStatus } from './../../item-status.enum';
+import { NavbarAnchor } from '../../navbarAnchor.interface';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { Router } from '@angular/router';
 
@@ -13,8 +13,6 @@ export class ComponentHeaderComponent implements AfterViewInit {
   @ViewChild('contentWrapper') content: ElementRef;
 
   @Input() componentStatus = '';
-  @Input() does = [];
-  @Input() donts = [];
   @Input() figmaUrl: string;
   @Output() selectedChange = new EventEmitter();
 

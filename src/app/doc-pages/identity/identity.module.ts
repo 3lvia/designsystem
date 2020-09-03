@@ -10,7 +10,6 @@ import { SpacingDocModule } from './spacing-doc/spacing-doc.module';
 import { TypographyDocModule } from './typography-doc/typography-doc.module';
 import { LogoDocModule } from './logo-doc/logo-doc.module';
 import { GridDocModule } from './grid-doc/grid-doc.module';
-import { AlignmentDocModule } from './alignment-doc/alignment-doc/alignment-doc.module';
 import { UtilitiesDocModule } from './utilities-doc/utilities-doc.module';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { UtilitiesDocModule } from './utilities-doc/utilities-doc.module';
     TypographyDocModule,
     GridDocModule,
     LogoDocModule,
-    AlignmentDocModule,
     UtilitiesDocModule,
   ],
 })

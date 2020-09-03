@@ -10,15 +10,12 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--OVERVIEW-->
-  <div>
-    <div class="elvis-anchor">
-      <h2 class="e-title-md elvis-anchor-title">Contribution model</h2>
-      <div class="e-text-description e-mb-24">
-        This model was made to help you know when to contact Elvis about potential new components for the
-        design system.
-      </div>
-      <div class="e-mx-n72">
+  <!--CONTRIBUTION MODEL-->
+  <app-component-subsection [sectionTitle]="'Contribution model'">
+    <ng-container ngProjectAs="sectionContent">
+      This model was made to help you know when to contact Elvis about potential new components for the design
+      system.
+      <div class="e-mt-40">
         <iframe
           style="border: none;"
           width="100%"
@@ -27,6 +24,6 @@
           allowfullscreen
         ></iframe>
       </div>
-    </div>
-  </div>
+    </ng-container>
+  </app-component-subsection>
 </div>

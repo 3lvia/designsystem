@@ -1,38 +1,61 @@
 <!--HEADER-->
-<app-component-header [does]="headerDoes" [donts]="headerDonts" [figmaUrl]="figmaUrl">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Labels
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <div>
-      {{ description }}
-    </div>
-    <div class="e-mt-16">
-      <b>Note:</b>
-      Labels should be easy to scan to quickly get an overview, so keep it short and descriptive. Maximum two
-      words.
-    </div>
+    {{ description }}
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <!--Overview-->
-  <div>
-    <app-code-block
-      [codeHTML]="example1"
-      [title]="'Labels'"
-      [showIframeScreens]="true"
-      [noTablet]="true"
-    ></app-code-block>
-    <app-code-block
-      [codeHTML]="example2"
-      [title]="'Labels with colors'"
-      [description]="'Labels can be used with any of the data-colors.'"
-      [showIframeScreens]="true"
-      [noTablet]="true"
-    ></app-code-block>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <label class="e-label">Label</label>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+    </div>
   </div>
 
-  <app-component-properties [componentName]="'e-label'"></app-component-properties>
+  <!--TYPE-->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Normal'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="example1" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Colored'">
+        <ng-container ngProjectAs="sectionContent">
+          Labels can be used with any of the data-colors.
+          <app-code-block [codeHTML]="example2" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="headerDoes" [whenNots]="headerDonts"></app-when-to-use>
+      <app-component-subsection [sectionTitle]="'Keep it short'">
+        <ng-container ngProjectAs="sectionContent">
+          Labels should be easy to scan to quickly get an overview, so keep it short and descriptive. Maximum
+          two words.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-label'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-label'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

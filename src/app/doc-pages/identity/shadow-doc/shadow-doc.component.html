@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [does]="does" [donts]="donts">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Shadow
   </ng-container>
@@ -10,18 +10,18 @@
 
 <!--BODY-->
 <div class="page-body">
-  <div>
-    <div class="elvis-anchor">
-      <h2 class="e-title-md elvis-anchor-title">Soft, medium and hard</h2>
-      <p class="e-text-description">
-        We have three different shadows; soft, medium and hard. Soft are mostly used on grey background, while
-        medium and hard should be used on white background. The naming convention reflects the percentage of
-        opacity on the base color of shadows.
-      </p>
-    </div>
+  <!--SOFT MEDIUM HARD-->
+  <app-component-section [sectionTitle]="'Soft, medium and hard'">
+    <ng-container ngProjectAs="sectionContent">
+      We have three different shadows; soft, medium and hard. Soft are mostly used on grey background, while
+      medium and hard should be used on white background. The naming convention reflects the percentage of
+      opacity on the base color of shadows.
+    </ng-container>
+  </app-component-section>
 
-    <div class="elvis-anchor">
-      <h2 class="e-title-md elvis-anchor-title">Preview</h2>
+  <!--PREVIEW-->
+  <app-component-section [sectionTitle]="'Preview'">
+    <ng-container ngProjectAs="sectionContent">
       <div class="display-container centered-content">
         <div class="display-card">
           <app-copy [message]="'e-shadow-3'">
@@ -81,48 +81,55 @@
           <div class="display-card-variable">#000000-0.08</div>
         </div>
       </div>
-    </div>
-  </div>
+    </ng-container>
+  </app-component-section>
 
-  <div>
-    <div class="elvis-anchor">
-      <h2 class="e-title-md elvis-anchor-title">Using Classes</h2>
-      <p class="e-text-description">
-        All shadows can be used through a set of classes. The
-        <code class="code-text">e-shadow-3</code>
-        ,
-        <code class="code-text">e-shadow-6</code>
-        and
-        <code class="code-text">e-shadow-8</code>
-        sets box-shadow blur and opacity. Softer shadows has higher blur and lower opacity, and harder shadows
-        has lower blur, but higher opacity.
-      </p>
-      <ul>
-        <li><code class="code-text">e-shadow-none</code></li>
-        <li><code class="code-text">e-shadow-3</code></li>
-        <li><code class="code-text">e-shadow-6</code></li>
-        <li><code class="code-text">e-shadow-8</code></li>
-      </ul>
-    </div>
-    <div class="elvis-anchor">
-      <h2 class="e-title-md elvis-anchor-title">Using CSS-variables</h2>
-      <p class="e-text-description">
-        All shadows can be used through their CSS-variable as well.
-      </p>
-      <ul>
-        <li><code class="code-text">var(--e-shadow-none)</code></li>
-        <li><code class="code-text">var(--e-shadow-3)</code></li>
-        <li><code class="code-text">var(--e-shadow-6)</code></li>
-        <li><code class="code-text">var(--e-shadow-8)</code></li>
-      </ul>
-      <h3 class="e-text-caps">Do's and Don'ts</h3>
-      <p class="e-text-description">
-        All CSS-variables can be used except if you want remove shadow.
-      </p>
-      <p class="e-text-description">
-        <app-do-dont [do]="true" [codeCSS]="doCodeCSS"></app-do-dont>
-        <app-do-dont [do]="false" [codeCSS]="dontCodeCSS"></app-do-dont>
-      </p>
-    </div>
-  </div>
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+
+      <app-component-subsection [sectionTitle]="'Using Classes'">
+        <ng-container ngProjectAs="sectionContent">
+          <p>
+            All shadows can be used through a set of classes. The
+            <code class="code-text">e-shadow-3</code>
+            ,
+            <code class="code-text">e-shadow-6</code>
+            and
+            <code class="code-text">e-shadow-8</code>
+            sets box-shadow blur and opacity. Softer shadows has higher blur and lower opacity, and harder
+            shadows has lower blur, but higher opacity.
+          </p>
+          <ul>
+            <li><code class="code-text">e-shadow-none</code></li>
+            <li><code class="code-text">e-shadow-3</code></li>
+            <li><code class="code-text">e-shadow-6</code></li>
+            <li><code class="code-text">e-shadow-8</code></li>
+          </ul>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Using CSS-variables'">
+        <ng-container ngProjectAs="sectionContent">
+          <p class="e-text-description">
+            All shadows can be used through their CSS-variable as well.
+          </p>
+          <ul>
+            <li><code class="code-text">var(--e-shadow-none)</code></li>
+            <li><code class="code-text">var(--e-shadow-3)</code></li>
+            <li><code class="code-text">var(--e-shadow-6)</code></li>
+            <li><code class="code-text">var(--e-shadow-8)</code></li>
+          </ul>
+          <p class="e-text-description">
+            All CSS-variables can be used except if you want remove shadow.
+          </p>
+          <p class="e-text-description">
+            <app-do-dont [do]="true" [codeCSS]="doCodeCSS"></app-do-dont>
+            <app-do-dont [do]="false" [codeCSS]="dontCodeCSS"></app-do-dont>
+          </p>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
 </div>

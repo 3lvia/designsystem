@@ -39,9 +39,15 @@ a {
 }
 
 .code-text {
-  background: var(--e-grey-10);
-  padding: 0 4px;
-  line-height: 140%;
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: inherit;
+
+  background: var(--e-grey-05);
+  border-radius: 2px;
+  padding: 0 2px;
 }
 .code-block {
   display: block;
@@ -191,3 +197,5 @@ a {
 hr {
   border: 1px solid black;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');

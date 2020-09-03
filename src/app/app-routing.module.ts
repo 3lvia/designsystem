@@ -38,7 +38,6 @@ import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segm
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
 import { ProgressbarDocComponent } from './doc-pages/components/progressbar-doc/progressbar-doc.component';
 import { DraganddropDocComponent } from './doc-pages/components/forms/draganddrop-doc/draganddrop-doc.component';
-import { AlignmentDocComponent } from './doc-pages/identity/alignment-doc/alignment-doc/alignment-doc.component';
 import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-doc.component';
 import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
 import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
@@ -140,10 +139,6 @@ const routes: Routes = [
           {
             path: Pages.Logo,
             component: LogoDocComponent,
-          },
-          {
-            path: Pages.Alignment,
-            component: AlignmentDocComponent,
           },
           {
             path: Pages.Utilities,

@@ -10,8 +10,40 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block [codeHTML]="example1" [title]="'Progressbar loading'"></app-code-block>
-  <app-code-block [codeHTML]="example2" [title]="'Progressbar error'"></app-code-block>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <div class="e-progress" role="progressbar">
+      <div class="e-progress__bar"></div>
+    </div>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+    </div>
+  </div>
 
-  <app-component-properties [componentName]="'e-progress'"></app-component-properties>
+  <!--STATE-->
+  <app-component-section [sectionTitle]="'State'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Progressbar loading'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="example1"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Progressbar error'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="example2"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-progress'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-progress'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

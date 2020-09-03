@@ -2,12 +2,11 @@
 @import '../../shared/shared-sizes.scss';
 
 .e-grid {
-  margin: 0 120px;
+  margin: 128px 128px 0 128px;
   @include breakpoint-up(Tablet) {
-    margin: 0 32px;
+    margin: 96px 32px 32px 32px;
   }
   @include breakpoint-up(Mobile) {
-    margin: 0 16px;
+    margin: 96px 16px 16px 16px;
   }
-  margin-top: 64px;
 }

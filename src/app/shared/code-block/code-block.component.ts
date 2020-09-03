@@ -1,8 +1,6 @@
 import { Component, Input, AfterViewInit, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { heightDown } from 'src/app/shared/animations';
 import { VersionService } from 'src/app/core/services/version.service';
-import { Router } from '@angular/router';
-import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 
 @Component({
   selector: 'app-code-block',
@@ -11,16 +9,15 @@ import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.
   animations: [heightDown],
 })
 export class CodeBlockComponent implements OnInit, AfterViewInit {
-  @ViewChild('accordion') accordion: ElementRef;
   @ViewChild('toggle') toggle: ElementRef;
   @ViewChild('defaultFrame') defaultFrame;
-  @Input() title = '';
-  @Input() description = '';
   @Input() does = [];
   @Input() donts = [];
+  @Input() showPreview = true;
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
+  @Input() isJS = false;
   @Input() codeInverted = '';
   @Input() showIframeScreens = false;
   @Input() noPhone = false;
@@ -32,14 +29,13 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() overwriteHeightPhone: number;
 
   code = '';
-  showCode = false;
   showTabs = true;
   screen = 'desktop';
   codepen = '';
   displayCode = '';
   isInverted = false;
 
-  constructor(private versionService: VersionService, private router: Router, private copyService: CopyToClipboardService) {
+  constructor(private versionService: VersionService) {
   }
 
   ngOnInit(): void {
@@ -65,10 +61,10 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (!this.showIframeScreens) {
+    if (!this.showIframeScreens && this.showPreview) {
       this.defaultFrame.nativeElement.innerHTML = this.code;
     }
-    if (this.codeInverted !== '') {
+    if (this.codeInverted !== '' && this.showPreview) {
       const elements = document.querySelectorAll('.e-toggle__input');
       for (let i = 0; i < elements.length; i++) {
         const item = elements.item(i) as HTMLInputElement;
@@ -80,7 +76,6 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   }
 
   setCodePenValue(): void {
-    this.title = this.title ? this.title : 'Example';
     let html;
     this.versionService.getCodePenTag().subscribe(tag => {
       if (this.codeInverted !== '' && this.isInverted) {
@@ -90,7 +85,7 @@ ${tag}`;
         html = `${this.code}
 ${tag}`;
       }
-      this.codepen = JSON.stringify({ title: this.title, html });
+      this.codepen = JSON.stringify({ title: 'Elvis', html });
     });
 
   }
@@ -113,26 +108,5 @@ ${tag}`;
     }
   }
 
-  toggleOpen(): void {
-    if (this.accordion.nativeElement.classList.contains('e-accordion__item--open')) {
-      this.accordion.nativeElement.classList.remove('e-accordion__item--open');
-    } else {
-      this.accordion.nativeElement.classList.add('e-accordion__item--open');
-    }
-  }
-
-  copyAnchor(): void {
-    const anchorTitleElement = document.getElementById(this.title);
-    anchorTitleElement.classList.add('anchor-copied');
-    setTimeout(() => { anchorTitleElement.classList.remove('anchor-copied'); }, 800);
-    const modifiedAnchor = this.title.replace(' ', '-');
-    let anchorUrl = 'https://design.elvia.io';
-    if (this.router.url.includes('#')) {
-      anchorUrl = anchorUrl + this.router.url.slice(0, this.router.url.lastIndexOf('#')) + '#' + modifiedAnchor;
-    } else {
-      anchorUrl = anchorUrl + this.router.url + '#' + modifiedAnchor;
-    }
-    this.copyService.copyToClipBoard(anchorUrl);
-  }
 }
 

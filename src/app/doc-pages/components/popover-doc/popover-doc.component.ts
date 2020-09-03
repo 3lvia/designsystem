@@ -20,7 +20,31 @@ export class PopoverDocComponent {
     'Should not be used if the information in popover is necessary for the user to complete their task.',
   ];
 
-  example1 = `<div style="margin-top: 260px; text-align: center;">
+  exampleOverview = `<span class="e-popover">
+  <button class="e-btn e-btn--icon e-btn--circled">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    </span>
+  </button>
+  <div class="e-popover__content">
+    <div class="e-popover__close">
+      <button class="e-btn e-btn--icon e-btn--sm">
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+      </button>
+    </div>
+    <div class="e-popover__title">Om innlogging</div>
+    <div class="e-popover__text">
+      Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
+      BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
+      Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
+      Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
+    </div>
+  </div>
+</span>
+`;
+
+  example1 = `<div style="margin-top: 320px; text-align: center;">
   <span class="e-popover e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
@@ -46,7 +70,7 @@ export class PopoverDocComponent {
 </div>
 `;
 
-  example2 = `<div style="margin-top: 260px; text-align: center;">
+  example2 = `<div style="margin-top: 320px; text-align: center;">
   <span class="e-popover e-popover--top--left e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
@@ -72,7 +96,7 @@ export class PopoverDocComponent {
 </div>
 `;
 
-  example3 = `<div style="margin-bottom: 260px; text-align: center;">
+  example3 = `<div style="margin-bottom: 320px; text-align: center;">
   <span class="e-popover e-popover--bottom e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
@@ -97,7 +121,7 @@ export class PopoverDocComponent {
   </span>
 </div>
 `;
-  example4 = `<div style="margin-bottom: 260px; text-align: center;">
+  example4 = `<div style="margin-bottom: 320px; text-align: center;">
   <span class="e-popover e-popover--bottom e-popover--bottom--right e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
@@ -124,7 +148,7 @@ export class PopoverDocComponent {
 `;
 
   popupLiveCode = ` // Js example implementation
-
+  
 // Get current window width
 getWindowWidth(): number {
   const windowWidth = window.innerWidth;

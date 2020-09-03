@@ -16,19 +16,24 @@ export class ListDocComponent {
   ];
   doesExample4 = ['When you need to list up definitions or explain items.'];
 
-  example1 = `<ul class="e-list">
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning list</li>
+  overviewExample = `<ul class="e-list">
+  <li>List with bullet points</li>
+  <li>List with bullet points</li>
+  <li>List with bullet points</li>
 </ul>
 `;
 
-  example2 = `<ul class="e-list e-list--strong">
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning list</li>
-  <li>Just a hunk, a hunk of burning list</li>
+  example1 = `<ul class="e-list">
+  <li>This is a normal list</li>
+  <li>This is a normal list</li>
+</ul>
+<ul class="e-list e-list--strong">
+  <li>This is a bold list</li>
+  <li>This is a bold list</li>
 </ul>
 `;
+
+
   example3 = `<ol class="e-list e-list--numbers">
   <li><strong>Describing title :</strong> After, one or multiple sentences could follow with more information.
     These sentences can span over multiple rows, but shouldn’t be too long.</li>

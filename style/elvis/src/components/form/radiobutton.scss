@@ -20,6 +20,9 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
   }
 
   &.e-radio--sm {
+    &:not(:last-child) {
+      margin-bottom: 0px;
+    }
     input {
       opacity: 0;
       outline: none;

@@ -13,29 +13,35 @@ export class ToggleDocComponent {
   does = ['Single state that is either on or off.'];
   donts = ['Never use a switch in place of a button (actions).'];
 
+  exampleOverview = `<label class="e-toggle">
+  <input class="e-toggle__input" type="checkbox">
+  <span class="e-toggle__slider"></span>
+</label>
+`;
+
   example1 = `<div>
-  <h3>Off</h3>
+  <div class="e-text-label">Off</div>
   <label class="e-toggle">
     <input class="e-toggle__input" type="checkbox">
     <span class="e-toggle__slider"></span>
   </label>
 </div>
 <div class="e-mt-16">
-  <h3>On</h3>
+  <div class="e-text-label">On</div>
   <label class="e-toggle">
     <input class="e-toggle__input" type="checkbox" checked>
     <span class="e-toggle__slider"></span>
   </label>
 </div>
 <div class="e-mt-16">
-  <h3>Disabled off</h3>
+  <div class="e-text-label">Disabled off</div>
   <label class="e-toggle e-toggle---disabled">
     <input class="e-toggle__input" type="checkbox" disabled>
     <span class="e-toggle__slider"></span>
   </label>
 </div>
 <div class="e-mt-16">
-  <h3>Disabled on</h3>
+  <div class="e-text-label">Disabled on</div>
   <label class="e-toggle e-toggle---disabled">
     <input class="e-toggle__input" type="checkbox" checked disabled>
     <span class="e-toggle__slider"></span>
@@ -44,28 +50,28 @@ export class ToggleDocComponent {
 `;
 
   exampleInverted = `<div>
-  <h3 class="e-text-white">Off</h3>
+  <div class="e-text-label e-text-white">Off</div>
   <label class="e-toggle e-toggle--inverted">
     <input class="e-toggle__input" type="checkbox">
     <span class="e-toggle__slider"></span>
   </label>
 </div>
 <div class="e-mt-16">
-  <h3 class="e-text-white">On</h3>
+  <div class="e-text-label e-text-white">On</div>
   <label class="e-toggle e-toggle--inverted">
     <input class="e-toggle__input" type="checkbox" checked>
     <span class="e-toggle__slider"></span>
   </label>
 </div>
 <div class="e-mt-16">
-  <h3 class="e-text-white">Disabled off</h3>
+  <div class="e-text-label e-text-white">Disabled off</div>
   <label class="e-toggle e-toggle---disabled e-toggle--inverted">
     <input class="e-toggle__input" type="checkbox" disabled>
     <span class="e-toggle__slider"></span>
   </label>
 </div>
 <div class="e-mt-16">
-  <h3 class="e-text-white">Disabled on</h3>
+  <div class="e-text-label e-text-white">Disabled on</div>
   <label class="e-toggle e-toggle---disabled e-toggle--inverted">
     <input class="e-toggle__input" type="checkbox" checked disabled>
     <span class="e-toggle__slider"></span>

@@ -18,7 +18,7 @@
       height: 6px;
       margin-left: 0;
       background-color: colors.color('green');
-      animation: loading 700ms infinite;
+      animation: loading 1s infinite;
     }
     &.e-progress__bar--error {
       width: 100%;

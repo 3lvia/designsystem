@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [does]="does">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Pagination
   </ng-container>
@@ -10,10 +10,11 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block [codeHTML]="paginationExample" [title]="'Full paginator'"></app-code-block>
-
-  <div class="elvis-anchor e-mt-72">
-    <h2 class="e-title-md elvis-anchor-title">Live example</h2>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
     <div class="e-pagination">
       <div class="e-pagination__number-per-page">
         <span>Viser</span>
@@ -74,9 +75,26 @@
       </div>
     </div>
 
-    <h3 class="e-text-caps e-mt-40">HTML & TS code</h3>
-    <app-code-highlighter [codeHTML]="exampleInHTML" [codeTS]="exampleInTS"></app-code-highlighter>
+    <div class="e-w-100">
+      <app-code-block
+        [showPreview]="false"
+        [codeHTML]="exampleInHTML"
+        [codeTS]="exampleInTS"
+      ></app-code-block>
+    </div>
   </div>
 
-  <app-component-properties [componentName]="'e-pagination'"></app-component-properties>
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-pagination'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-pagination'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>

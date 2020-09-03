@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [does]="does" [donts]="donts">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">
     Segmented Control
   </ng-container>
@@ -10,12 +10,54 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-code-block [codeHTML]="example1" [title]="'Segmented controls'"></app-code-block>
-  <app-code-block
-    [codeHTML]="example2"
-    [title]="'Multiple controls'"
-    [description]="'Example with three options'"
-  ></app-code-block>
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <div class="e-segmented-controls">
+      <input type="radio" name="so-1-1" id="so-1-1" checked />
+      <input type="radio" name="so-1-1" id="so-1-2" />
+      <label for="so-1-1" data-value="Option 1">
+        <span class="e-segmented-controls__title">Option 1</span>
+      </label>
+      <label for="so-1-2" data-value="Option 2">
+        <span class="e-segmented-controls__title">Option 2</span>
+      </label>
+    </div>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+    </div>
+  </div>
 
-  <app-component-properties [componentName]="'e-segmented-controls'"></app-component-properties>
+  <!--TYPE-->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'2 options'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="example1"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'3 options'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="example2"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-segmented-controls'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-segmented-controls'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
 </div>
