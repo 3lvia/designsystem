@@ -38,6 +38,41 @@ a {
   max-width: 55rem;
 }
 
+.changelog-row {
+  font-family: 'Red Hat Text';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 32px;
+}
+.changelog-date {
+  vertical-align: top;
+  padding-bottom: 48px;
+  padding-top: 48px;
+}
+.changelog-content {
+  padding-top: 48px;
+  width: 75%;
+
+  .changelog-section:not(:first-of-type) {
+    margin-top: 32px;
+  }
+
+  .changelog-section-title {
+    font-weight: 500;
+  }
+  .changelog-code {
+    font-size: 14px !important;
+    line-height: 21px !important;
+  }
+  .changelog-divider {
+    height: 1px;
+    width: 135.7%;
+    margin-left: -33.7%;
+    background: var(--e-grey-10);
+    margin-top: 48px;
+  }
+}
+
 .code-text {
   font-family: 'Fira Mono';
   font-style: normal;

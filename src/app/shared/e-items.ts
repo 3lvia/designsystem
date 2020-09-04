@@ -487,7 +487,7 @@ export const eTools: EItems[] = [
 ];
 export const eCommunity: EItems[] = [
   {
-    title: 'What´s new?',
+    title: 'What\'s new?',
     description: 'The latest news, updates, and changes to the design system.',
     docUrl: Pages.Changelog,
     absolutePath: '/community/' + Pages.Changelog,
@@ -497,7 +497,7 @@ export const eCommunity: EItems[] = [
   {
     title: 'Contribute',
     // tslint:disable-next-line: max-line-length
-    description: `Guidance on how to contribute to Elvia Designsystem. To contribute, or if you have any question, you can contact us on slack: <a onclick="event.stopPropagation();" class="e-link" href="https://hafslundnett.slack.com/archives/C01302LBTC2">#designsystemet</a>`,
+    description: `To contribute, or if you have any question, you can contact us on slack: <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="https://hafslundnett.slack.com/archives/C01302LBTC2">#designsystemet</a>`,
     docUrl: Pages.Contribute,
     absolutePath: '/community/' + Pages.Contribute,
     status: ItemStatus.New,
