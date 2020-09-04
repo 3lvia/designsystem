@@ -16,80 +16,74 @@
 
   @each $label in $labels {
     .e {
-      &-p-0 {
-        padding: 0;
-      }
       &-p-#{$label} {
-        padding: $value;
+        padding: $value !important;
       }
       &-pt-#{$label} {
-        padding-top: $value;
+        padding-top: $value !important;
       }
       &-pb-#{$label} {
-        padding-bottom: $value;
+        padding-bottom: $value !important;
       }
       &-pl-#{$label} {
-        padding-left: $value;
+        padding-left: $value !important;
       }
       &-pr-#{$label} {
-        padding-right: $value;
+        padding-right: $value !important;
       }
       &-px-#{$label} {
-        padding-right: $value;
-        padding-left: $value;
+        padding-right: $value !important;
+        padding-left: $value !important;
       }
       &-py-#{$label} {
-        padding-bottom: $value;
-        padding-top: $value;
-      }
-      &-m-0 {
-        margin: 0;
+        padding-bottom: $value !important;
+        padding-top: $value !important;
       }
       &-m-#{$label} {
-        margin: $value;
+        margin: $value !important;
       }
       &-mt-#{$label} {
-        margin-top: $value;
+        margin-top: $value !important;
       }
       &-mb-#{$label} {
-        margin-bottom: $value;
+        margin-bottom: $value !important;
       }
       &-ml-#{$label} {
-        margin-left: $value;
+        margin-left: $value !important;
       }
       &-mr-#{$label} {
-        margin-right: $value;
+        margin-right: $value !important;
       }
       &-mx-#{$label} {
-        margin-right: $value;
-        margin-left: $value;
+        margin-right: $value !important;
+        margin-left: $value !important;
       }
       &-my-#{$label} {
-        margin-top: $value;
-        margin-bottom: $value;
+        margin-top: $value !important;
+        margin-bottom: $value !important;
       }
       &-m-n#{$label} {
-        margin: -$value;
+        margin: -$value !important;
       }
       &-mt-n#{$label} {
-        margin-top: -$value;
+        margin-top: -$value !important;
       }
       &-mb-n#{$label} {
-        margin-bottom: -$value;
+        margin-bottom: -$value !important;
       }
       &-ml-n#{$label} {
-        margin-left: -$value;
+        margin-left: -$value !important;
       }
       &-mr-n#{$label} {
-        margin-right: -$value;
+        margin-right: -$value !important;
       }
       &-mx-n#{$label} {
-        margin-right: -$value;
-        margin-left: -$value;
+        margin-right: -$value !important;
+        margin-left: -$value !important;
       }
       &-my-n#{$label} {
-        margin-top: -$value;
-        margin-bottom: -$value;
+        margin-top: -$value !important;
+        margin-bottom: -$value !important;
       }
     }
     // Making CSS-variables for shadow-variables

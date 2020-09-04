@@ -15,6 +15,7 @@ export enum Pages {
   Border = 'border-doc',
   Color = 'color-doc',
   Icon = 'icon-doc',
+  ToneOfVoice = 'tone-of-voice',
   Typography = 'typography-doc',
   Shadow = 'shadow-doc',
   Spacing = 'spacing-doc',

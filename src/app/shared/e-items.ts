@@ -434,6 +434,17 @@ export const eIdentity: EItems[] = [
     type: 'Identity',
   },
   {
+    title: 'Tone of voice',
+    // tslint:disable-next-line: max-line-length
+    description: 'In order to create clear content and simultaneously have a consistent linguistic personality, it is important that we have a defined tone of voice. This section explains the difference between Elvia\'s style and tone and how they are connected when we communicate with our customers; whether it is written or oral.',
+    docUrl: Pages.ToneOfVoice,
+    absolutePath: '/identity/' + Pages.ToneOfVoice,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/identity-images/Tone of voice.svg',
+    figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
+    type: 'Identity',
+  },
+  {
     title: 'Typography',
     // tslint:disable-next-line: max-line-length
     description: 'Red Hat is Elvia\'s profile font and should be used throughout all material. The font family has two optical sizes, Display and Text.',

@@ -1,32 +1,35 @@
 $spacing: (
-  "8": (
+  '0': (
+    value: 0px,
+  ),
+  '8': (
     value: 8px,
     alt-labels: (
-      primary
-    )
+      primary,
+    ),
   ),
-  "16": (
-    value: 16px
+  '16': (
+    value: 16px,
   ),
-  "24": (
-    value: 24px
+  '24': (
+    value: 24px,
   ),
-  "32": (
-    value: 32px
+  '32': (
+    value: 32px,
   ),
-  "40": (
-    value: 40px
+  '40': (
+    value: 40px,
   ),
-  "48": (
-    value: 48px
+  '48': (
+    value: 48px,
   ),
-  "56": (
-    value: 56px
+  '56': (
+    value: 56px,
   ),
-  "64": (
-    value: 64px
+  '64': (
+    value: 64px,
   ),
-  "72": (
-    value: 72px
-  )
+  '72': (
+    value: 72px,
+  ),
 );

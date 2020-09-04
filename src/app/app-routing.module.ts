@@ -61,6 +61,7 @@ import { AccordionDocComponent } from './doc-pages/components/accordion-doc/acco
 import { UtilitiesDocComponent } from './doc-pages/identity/utilities-doc/utilities-doc.component';
 import { StepperDocComponent } from './doc-pages/components/stepper-doc/stepper-doc.component';
 import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
+import { ToneOfVoiceComponent } from './doc-pages/identity/tone-of-voice/tone-of-voice.component';
 
 const routes: Routes = [
   {
@@ -119,6 +120,10 @@ const routes: Routes = [
           {
             path: Pages.Icon,
             component: IconDocComponent,
+          },
+          {
+            path: Pages.ToneOfVoice,
+            component: ToneOfVoiceComponent,
           },
           {
             path: Pages.Typography,

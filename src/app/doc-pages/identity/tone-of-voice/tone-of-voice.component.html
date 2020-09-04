@@ -1,0 +1,243 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">
+    Tone of voice
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--STYLE-->
+  <app-component-section [sectionTitle]="'Style'">
+    <ng-container ngProjectAs="sectionContent">
+      <p>
+        Everything we say should be clear, useful and easy to understand for the customer, regardless of
+        whether they know who we are or what they can expect from us.
+      </p>
+
+      <p>
+        This means that we have to think about the following when we write or talk to the customer:
+      </p>
+
+      <ol class="e-list e-list--numbers e-mt-24">
+        <li>
+          <strong>We are ON.</strong>
+          We understand the everyday life and the challenges of our customers. We fully understand that the
+          power industry can be confusing both when it comes to language, concepts, who is responsible for
+          what, et cetera. Written dialogue should be perceived as a conversation, not as generic information.
+        </li>
+        <li>
+          <strong>We are human and real.</strong>
+          Although Elvia has the role of "monopolist", the company consists of ordinary people. Therefore, we
+          can also relate to our customers, who are also ordinary people. We have understanding and empathy,
+          and we talk to them in a friendly and open way.
+        </li>
+        <li>
+          <strong>We translate.</strong>
+          The language of the power industry is often complex and confusing, and only experts can make the
+          difficult easy. That is why we work to make the online industry more understandable and increase our
+          customers’ knowledge. We do this through clear and simple, but not stupefying, communication.
+        </li>
+        <li>
+          <strong>We have a twinkle in our eye.</strong>
+          Even though we have monopoly and an important role in society we are by no means mundane. Elvia has
+          a fair and subtle kind of humor; we rather give a small wink than shout. We are never condescending
+          or exclusive and we include the customer.
+        </li>
+      </ol>
+    </ng-container>
+  </app-component-section>
+
+  <!--TONE-->
+  <app-component-section [sectionTitle]="'Tone'">
+    <ng-container ngProjectAs="sectionContent">
+      <p>
+        A tone may vary depending on the situation you’re in. You may use a completely different tone when
+        talking to friends than when talking to your boss. The tone can also change depending on the emotional
+        state of the person you are talking to.
+      </p>
+      <p>
+        When we talk or write with a customer, it is therefore important that we look at the customer's
+        situation - is it a crisis or is it a general question? Is the customer happy or angry? A rule of
+        thumb may be that you do not use the same tone to a customer who is scared or sad than for a customer
+        who is happy and satisfied.
+      </p>
+      <p>
+        Elvia's tone is professional, but never strictly so. We are clear and speak the customer's language.
+        Put yourself in the customer's situation when formulating yourself. Why is the customer confused? Is
+        the customer impatient because he or she aren’t getting an answer fast enough? Once you have settled
+        some thoughts about where the customer is in the emotional register, you can adjust your tone
+        accordingly. A rule of thumb is to meet the customer where they are.
+      </p>
+      <p>
+        In summary, we say that our tone can change, but our voice is the same. Elvia’s tone is professional,
+        but friendly and instructive. You can read more about Elvia’s style and tone on
+        <a class="e-link e-link--external e-link--inline" href="https://brand.elvia.io/">
+          <span class="e-link__title">brand.elvia.io.</span>
+          <span class="e-link__icon">
+            <i class="e-icon e-icon--arrow_external-bold"></i>
+          </span>
+        </a>
+      </p>
+    </ng-container>
+  </app-component-section>
+
+  <!--WRITING GUIDE-->
+  <!-- <app-component-section [sectionTitle]="'Writing guide'">
+    <ng-container ngProjectAs="sectionContent">
+      When we adhere to certain rules of grammar and mechanics in our language, it helps us to create content
+      that is clear and consistent - regardless of who produces the content. This section contains clear
+      examples that help us maintain our style and tone, that applies across all content.
+
+      <div class="e-accordion e-accordion--group e-mt-72">
+        <div class="e-accordion__item" id="basics">
+          <div class="e-accordion__label" (click)="toggleOpen('basics')">
+            Basic writing tips
+          </div>
+          <div class="e-accordion__icon" (click)="toggleOpen('basics')">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+          <div class="e-accordion__content"></div>
+        </div>
+
+        <div class="e-accordion__item" id="activeTone">
+          <div class="e-accordion__label" (click)="toggleOpen('activeTone')">
+            Active tone
+          </div>
+          <div class="e-accordion__icon" (click)="toggleOpen('activeTone')">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              <h4 class="e-title-xs e-mt-24 e-mb-8">Active language</h4>
+              An important part of Elvia's brand is to be ON. This should be reflected in an active language,
+              rather than a passive language. An active language and an active voice turn themes in a text
+              into an action that is going on (present), and not something that has been done (past).
+              <p>
+                Words like "was" and "off" are perceived as passive - especially in written form. Therefore,
+                you should rather use words that are active and write in the present tense. Exceptions may be
+                if you want to highlight a specific action, for example if you need to confirm that something
+                has been done.
+              </p>
+            </div>
+            <div>
+              <h4 class="e-title-xs e-mt-24 e-mb-8">Positive language</h4>
+              Use a positive language rather than a negative. One way to detect negative language is to look
+              for words and phrases such as "can not", "not", etc.
+            </div>
+            <div>
+              <h4 class="e-title-xs e-mt-64 e-mb-8">Emoji usage</h4>
+              Emojis are a fun and easy way to add humor and mirror the customer's language, but use them
+              infrequently, consciously and only on channels where it is natural, such as on social media.
+              Emojis can be used when it is natural to reflect the customer's language and tone.
+              <p>
+                A rule of thumb is to use only a maximum of two emojis in a post or message.
+              </p>
+              <div class="e-mt-40">
+                <div>
+                  <div>😄😨😂👍</div>
+                  <div>General emojis that can be used to mirror the customer</div>
+                </div>
+
+                <div class="e-mt-40">
+                  <div>💚</div>
+                  <div>Green heart can be used when someone praises us or is very happy with us</div>
+                </div>
+
+                <div class="e-mt-40">
+                  <div>🌪⛈❄️☀️</div>
+                  <div>
+                    Weather conditions can be natural to use in connection with e.g. storm, precipitation and
+                    drought that may affect our services
+                  </div>
+                </div>
+
+                <div class="e-mt-40">
+                  <div>👷‍♀️👷‍♂️🛠🚁</div>
+                  <div>
+                    These can be used in connection with maintenance or when we have crews out to correct
+                    errors.
+                  </div>
+                </div>
+
+                <div class="e-mt-40">
+                  <div>⚠</div>
+                  <div>
+                    Used in connection with notifying power outages
+                  </div>
+                </div>
+
+                <div class="e-mt-40 e-mb-24">
+                  <div>💡🔦 🔌</div>
+                  <div>
+                    These can be used alone or in interaction with other emojis.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="e-accordion__item" id="numbers">
+          <div class="e-accordion__label" (click)="toggleOpen('numbers')">
+            Numbers
+          </div>
+          <div class="e-accordion__icon" (click)="toggleOpen('numbers')">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+          <div class="e-accordion__content"></div>
+        </div>
+
+        <div class="e-accordion__item" id="signs">
+          <div class="e-accordion__label" (click)="toggleOpen('signs')">
+            Signs
+          </div>
+          <div class="e-accordion__icon" (click)="toggleOpen('signs')">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+          <div class="e-accordion__content"></div>
+        </div>
+
+        <div class="e-accordion__item" id="people">
+          <div class="e-accordion__label" (click)="toggleOpen('people')">
+            People, places and things
+          </div>
+          <div class="e-accordion__icon" (click)="toggleOpen('people')">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+          <div class="e-accordion__content"></div>
+        </div>
+
+        <div class="e-accordion__item" id="webElements">
+          <div class="e-accordion__label" (click)="toggleOpen('webElements')">
+            Web elements
+          </div>
+          <div class="e-accordion__icon" (click)="toggleOpen('webElements')">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+          <div class="e-accordion__content"></div>
+        </div>
+
+        <div class="e-accordion__item" id="content">
+          <div class="e-accordion__label" (click)="toggleOpen('content')">
+            Content, structure and production
+          </div>
+          <div class="e-accordion__icon" (click)="toggleOpen('content')">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+          <div class="e-accordion__content"></div>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-section> -->
+</div>
