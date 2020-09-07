@@ -185,7 +185,8 @@
                   </div>
                   <div>
                     <div class="e-text-caps e-mr-8">Margin</div>
-                    <div class="e-text-description">32px</div>
+                    <div class="e-text-description">Left: 88px</div>
+                    <div class="e-text-description">Right: 24px</div>
                   </div>
                 </div>
                 <div class="information-container">
@@ -194,7 +195,7 @@
                   </div>
                   <div>
                     <div class="e-text-caps e-mr-8">Gutter</div>
-                    <div class="e-text-description">32px</div>
+                    <div class="e-text-description">24px</div>
                   </div>
                 </div>
               </div>
@@ -327,7 +328,17 @@
     <ng-container ngProjectAs="sectionContent">
       Use the class e-grid-gutters-ext (for external systems) or e-grid-gutters-int (for internal systems) to
       add dynamic gutters on rows. Get vertical gutters as well by adding the class e-grid-gutters-vertical.
-      <app-code-block [codeHTML]="example1" [showIframeScreens]="true"></app-code-block>
+      <app-component-subsection [sectionTitle]="'External gutters'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleGutterExternal" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Internal gutters'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleGutterInternal" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Custom padding (gutters)'">
         <ng-container ngProjectAs="sectionContent">
@@ -351,7 +362,16 @@
     <ng-container ngProjectAs="sectionContent">
       Use the class e-grid-margin-ext (for external systems) or e-grid-margin-int (for internal systems) to
       add dynamic margin on rows.
-      <app-code-block [codeHTML]="example2" [showIframeScreens]="true"></app-code-block>
+      <app-component-subsection [sectionTitle]="'External margin'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleExternalMargin" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Internal margin'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleInternalMargin" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 </div>

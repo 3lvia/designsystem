@@ -62,7 +62,7 @@ export class GridDocComponent {
   </div>
   `;
 
-  example1 = `<div class="e-text-caps e-mt-16 e-mb-8">External gutters</div>
+  exampleGutterExternal = `<div class="e-text-caps e-mt-16 e-mb-8">Without vertical gutters</div>
 <div class="e-grid e-bg-grey-20">
   <div class="row e-grid-gutters-ext">
     <div class="col">
@@ -82,7 +82,8 @@ export class GridDocComponent {
     </div>
   </div>
 </div>
-<div class="e-text-caps e-mt-16 e-mb-8">External gutters + vertical gutters</div>
+
+<div class="e-text-caps e-mt-16 e-mb-8">With vertical gutters</div>
 <div class="e-grid e-bg-grey-20">
   <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
     <div class="col">
@@ -102,7 +103,9 @@ export class GridDocComponent {
     </div>
   </div>
 </div>
-<div class="e-text-caps e-mt-16 e-mb-8">Internal gutters</div>
+`;
+
+  exampleGutterInternal = `<div class="e-text-caps e-mt-16 e-mb-8">Without vertical gutters</div>
 <div class="e-grid e-bg-grey-20">
   <div class="row e-grid-gutters-int">
     <div class="col">
@@ -122,7 +125,8 @@ export class GridDocComponent {
     </div>
   </div>
 </div>
-<div class="e-text-caps e-mt-16 e-mb-8">Internal gutters + vertical gutters</div>
+
+<div class="e-text-caps e-mt-16 e-mb-8">With vertical gutters</div>
 <div class="e-grid e-bg-grey-20">
   <div class="row e-grid-gutters-int e-grid-gutters-vertical">
     <div class="col">
@@ -144,8 +148,7 @@ export class GridDocComponent {
 </div>
   `;
 
-  example2 = `<div class="e-text-caps e-mt-16 e-mb-8">External margin</div>
-<div class="e-grid e-bg-grey-20">
+  exampleExternalMargin = `<div class="e-grid e-bg-grey-20">
   <div class="row e-grid-margin-ext">
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
@@ -164,8 +167,9 @@ export class GridDocComponent {
     </div>
   </div>
 </div>
-<div class="e-text-caps e-mt-16 e-mb-8">Internal margin</div>
-<div class="e-grid e-bg-grey-20">
+`;
+
+  exampleInternalMargin = ` <div class="e-grid e-bg-grey-20">
   <div class="row e-grid-margin-int">
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
