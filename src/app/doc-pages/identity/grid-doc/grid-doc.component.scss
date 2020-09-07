@@ -1,0 +1,32 @@
+@use '../../../../../style/elvis/src/variables/typography.scss';
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
+
+.circles-container {
+  display: flex;
+  flex-direction: row;
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+    .information-container {
+      margin-top: 16px;
+    }
+  }
+
+  .information-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &:not(:last-of-type) {
+      margin-right: 16px;
+    }
+    .information-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+      @include typography.typography('text-caps');
+    }
+  }
+}
