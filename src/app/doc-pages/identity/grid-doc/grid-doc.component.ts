@@ -241,12 +241,12 @@ export class GridDocComponent {
   <div class="row">
     <div class="col-sm-7 col-md-6 col-lg-8">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        6/12
+        SM: 7/12, MD: 6/12, LG: 8/12
       </div>
     </div>
     <div class="col-sm-5 col-md-6 col-lg-4">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        6/12
+        SM: 5/12, MD: 6/12, LG: 4/12
       </div>
     </div>
   </div>
