@@ -17,22 +17,59 @@
         <div class="display-card" *ngFor="let item of primaryColors" [ngClass]="item.lg ? 'primary' : ''">
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
-              <div class="copy">
-                <div
-                  [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]"
-                  class="display-card-circle e-shadow-8"
-                >
-                  Text
-                </div>
-                <div class="display-card-title e-text-caps">{{ item.title }}</div>
-                <div class="display-card-sub-title e-text-caps" *ngFor="let label of item.labels">
-                  {{ label }}
-                </div>
-                <div class="display-card-sub-title e-text-info">{{ item.hex }}</div>
-                <div class="display-card-sub-title e-text-info">{{ item.rgba }}</div>
+              <div
+                [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]"
+                style="text-align: center; padding: 14px;"
+                class="display-card-circle"
+              >
+                <div class="e-text-caps" *ngIf="item.title == 'white'">Elvia On</div>
+                <div class="e-text-caps" *ngIf="item.title == 'green'">Elvia Charge</div>
+                <div class="e-text-caps" *ngIf="item.title == 'black'">Elvia Off</div>
+                <div class="e-text-caps" *ngIf="item.title == 'grey'">Elvia Dark</div>
               </div>
             </ng-container>
           </app-copy>
+          <div class="display-text-content">
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-text-caps">Hex</div>
+              <div class="sub-content">{{ item.hex }}</div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-text-caps">RGB</div>
+              <div class="sub-content">{{ item.rgba }}</div>
+            </div>
+            <div
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-text-caps e-text-black">wcag</div>
+              <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
+                  <span>White ({{ item.contrast }})</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+                  <span>Black</span>
+                </div>
+              </div>
+              <div class="sub-content e-text-info" *ngIf="item.textColorBlack">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+                  <span>White</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xs"></i>
+                  <span>Black ({{ item.contrast }})</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </ng-container>
@@ -45,17 +82,52 @@
         <div class="display-card" *ngFor="let item of signalColors">
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
-              <div class="copy">
-                <div [ngClass]="'e-bg-' + item.title" class="display-card-circle e-shadow-8">Text</div>
-                <div class="display-card-title e-text-caps">{{ item.title }}</div>
-                <div class="display-card-sub-title e-text-caps" *ngFor="let label of item.labels">
-                  {{ label }}
-                </div>
-                <div class="display-card-sub-title e-text-info">{{ item.hex }}</div>
-                <div class="display-card-sub-title e-text-info">{{ item.rgba }}</div>
+              <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
+                <div class="e-text-caps">{{ item.title }}</div>
               </div>
             </ng-container>
           </app-copy>
+          <div class="display-text-content">
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-text-caps">Hex</div>
+              <div class="sub-content">{{ item.hex }}</div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-text-caps">RGB</div>
+              <div class="sub-content">{{ item.rgba }}</div>
+            </div>
+            <div
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-text-caps e-text-black">wcag</div>
+              <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
+                  <span>White ({{ item.contrast }})</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+                  <span>Black</span>
+                </div>
+              </div>
+              <div class="sub-content e-text-info" *ngIf="item.textColorBlack">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+                  <span>White</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xs"></i>
+                  <span>Black ({{ item.contrast }})</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </ng-container>
@@ -68,17 +140,54 @@
         <div class="display-card" *ngFor="let item of dataColors">
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
-              <div class="copy">
-                <div [ngClass]="'e-bg-' + item.title" class="display-card-column e-shadow-8">Text</div>
-                <div class="display-card-title e-text-caps">{{ item.title }}</div>
-                <div class="display-card-sub-title e-text-caps" *ngFor="let label of item.labels">
-                  {{ label }}
+              <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
+                <div class="e-text-caps" style="text-align: center; padding: 14px;">
+                  {{ item.titleWithSpace }}
                 </div>
-                <div class="display-card-sub-title e-text-info">{{ item.hex }}</div>
-                <div class="display-card-sub-title e-text-info">{{ item.rgba }}</div>
               </div>
             </ng-container>
           </app-copy>
+          <div class="display-text-content">
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-text-caps">Hex</div>
+              <div class="sub-content">{{ item.hex }}</div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-text-caps">RGB</div>
+              <div class="sub-content">{{ item.rgba }}</div>
+            </div>
+            <div
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-text-caps e-text-black">wcag</div>
+              <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
+                  <span>White ({{ item.contrast }})</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+                  <span>Black</span>
+                </div>
+              </div>
+              <div class="sub-content e-text-info" *ngIf="item.textColorBlack">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+                  <span>White</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xs"></i>
+                  <span>Black ({{ item.contrast }})</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </ng-container>
@@ -91,17 +200,52 @@
         <div class="display-card" *ngFor="let item of greysColors">
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
-              <div class="copy">
-                <div [ngClass]="'e-bg-' + item.title" class="display-card-circle e-shadow-8">Text</div>
-                <div class="display-card-title e-text-caps">{{ item.title }}</div>
-                <div class="display-card-sub-title e-text-caps" *ngFor="let label of item.labels">
-                  {{ label }}
-                </div>
-                <div class="display-card-sub-title e-text-info">{{ item.hex }}</div>
-                <div class="display-card-sub-title e-text-info">{{ item.rgba }}</div>
+              <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
+                <div class="e-text-caps">{{ item.title }}</div>
               </div>
             </ng-container>
           </app-copy>
+          <div class="display-text-content">
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-text-caps">Hex</div>
+              <div class="sub-content">{{ item.hex }}</div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-text-caps">RGB</div>
+              <div class="sub-content">{{ item.rgba }}</div>
+            </div>
+            <div
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-text-caps e-text-black">wcag</div>
+              <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
+                  <span>White ({{ item.contrast }})</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+                  <span>Black</span>
+                </div>
+              </div>
+              <div class="sub-content e-text-info" *ngIf="item.textColorBlack">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+                  <span>White</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xs"></i>
+                  <span>Black ({{ item.contrast }})</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </ng-container>
@@ -117,6 +261,9 @@
         <ng-container ngProjectAs="sectionContent">
           Elvia is mainly white and dark grey, with some black components and a touch of green in details such
           as icons, illustration and active states.
+          <div>
+            <img style="width: calc(20% + 180px);" class="e-p-24" src="assets/color-doc/color-weight.svg" />
+          </div>
 
           <app-component-subsubsection [sectionTitle]="'Green'">
             <ng-container ngProjectAs="sectionContent">
@@ -125,14 +272,34 @@
               The green color are used to display when something is active/clickable on interactions. It’s
               also used in illustration and icons to highlight the most important or just to get a touch of
               the green light in between all the white and black.
+              <app-do-dont-text>
+                <ng-container ngProjectAs="do">
+                  <img src="assets/color-doc/a.svg" style="max-width: 100%;" />
+                </ng-container>
+                <ng-container ngProjectAs="dont">
+                  <img src="assets/color-doc/b.svg" style="max-width: 100%;" />
+                </ng-container>
+              </app-do-dont-text>
             </ng-container>
           </app-component-subsubsection>
 
           <app-component-subsubsection [sectionTitle]="'White'">
             <ng-container ngProjectAs="sectionContent">
               White stands for light and energy. White is used as a background colour and as a text colour on
-              darker surfaces. Black shows that Elvia is OFF. It’s the primary color for text and icons, but
-              can also be used to get a dark surface. Dark (grey) is the preferred dark background.
+              darker surfaces.
+            </ng-container>
+          </app-component-subsubsection>
+
+          <app-component-subsubsection [sectionTitle]="'Black'">
+            <ng-container ngProjectAs="sectionContent">
+              Black shows that Elvia is OFF. It’s the primary color for text and icons, but can also be used
+              to get a dark surface.
+            </ng-container>
+          </app-component-subsubsection>
+
+          <app-component-subsubsection [sectionTitle]="'Dark (grey)'">
+            <ng-container ngProjectAs="sectionContent">
+              Dark (grey) is the preferred dark background.
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
@@ -150,7 +317,7 @@
           sets the text-color of the element, while the
           <code class="code-text">e-bg</code>
           sets the background as well as the text.
-          <ul>
+          <ul class="e-list">
             <li><code class="code-text">e-bg-name</code></li>
             <li><code class="code-text">e-text-name</code></li>
           </ul>
@@ -175,17 +342,16 @@
         <ng-container ngProjectAs="sectionContent">
           <p>
             All colors can be used through their CSS-variable as well. To use the CSS-variables you need to
-            install the ponyfill css-vars-ponyfill. Click
+            install the ponyfill css-vars-ponyfill. Read more about
             <a
               class="e-link e-link-inline"
               [routerLink]="['/get-started/new-project-doc']"
               fragment="'Optional:-CSS-variables'"
             >
-              here
+              the ponyfill here.
             </a>
-            more information about how.
           </p>
-          <ul>
+          <ul class="e-list">
             <li><code class="code-text">var(--e-name)</code></li>
           </ul>
           <p>

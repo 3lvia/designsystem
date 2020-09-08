@@ -1,7 +1,7 @@
 @import '../../../../style/elvis/src/utilities/breakpoints.scss';
 
 .dont {
-  @include breakpoint-up(Mobile) {
+  @include breakpoint-up(MinDesktop) {
     margin-top: 16px;
   }
 }
