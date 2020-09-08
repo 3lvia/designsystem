@@ -144,35 +144,31 @@ p {
   align-items: baseline;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin: var(--e-spacing-24) 0;
+  justify-content: flex-start;
+  margin: 0 -30px;
 
   .display-card {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    box-sizing: border-box;
-    padding: 16px;
-    width: 31%;
-    height: 100%;
-    perspective: 1000;
-
-    .copy {
-      @extend %scale-up-08;
-      &:hover {
-        @extend %scale-down-08;
-      }
+    margin: 30px;
+    width: 172px;
+    .display-text-content {
+      width: 100%;
     }
 
-    &.primary {
-      width: 48%;
+    .sub-title {
+      width: 40%;
+      color: black;
+    }
+    .sub-content {
+      width: 60%;
     }
 
     &-circle {
       margin: auto;
-      margin-top: 10px;
-      width: 80px;
-      height: 80px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
       border: 2px solid transparent;
       display: flex;
@@ -180,20 +176,21 @@ p {
       align-items: center;
 
       &.primary {
-        width: 130px;
-        height: 130px;
+        width: 160px;
+        height: 160px;
       }
     }
 
-    &-column {
-      margin: auto;
-      margin-top: 10px;
-      border: 2px solid transparent;
-      width: 55px;
-      height: 150px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    @media (max-width: 494px) {
+      flex-direction: row;
+      width: 100%;
+      .display-text-content {
+        margin-left: 32px;
+      }
+      &-circle.primary {
+        width: 120px;
+        height: 120px;
+      }
     }
 
     &-square {
@@ -202,16 +199,28 @@ p {
       border: 2px solid transparent;
     }
 
-    &-title,
     &-sub-title {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 8px;
+      padding: 12px 0;
+      &:first-of-type {
+        padding-top: 26px;
+      }
       width: 100%;
+      border-bottom: 1px solid var(--e-grey-10);
     }
     &-sub-title {
       color: var(--e-grey-80);
+    }
+
+    .contrast-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .e-icon {
+        margin-right: 8px;
+      }
     }
 
     &-variable {

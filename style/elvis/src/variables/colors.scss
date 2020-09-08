@@ -52,7 +52,7 @@ $colors: (
     alt-labels: (
       elvia-on,
     ),
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'black': (
     color: #000,
@@ -60,107 +60,107 @@ $colors: (
       font-color,
       elvia-off,
     ),
-    contrast-text: #fff,
+    contrastText: #fff,
   ),
   'grey': (
     color: #262626,
-    contrast-text: #fff,
+    contrastText: #fff,
   ),
   'grey-90': (
     color: #3b3b3b,
-    contrast-text: #fff,
+    contrastText: #fff,
   ),
   'grey-80': (
     color: #515151,
-    contrast-text: #fff,
+    contrastText: #fff,
     alt-labels: (
       font-grey,
     ),
   ),
   'grey-70': (
     color: #676767,
-    contrast-text: #fff,
+    contrastText: #fff,
   ),
   'grey-60': (
     color: #7c7c7c,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'grey-50': (
     color: #929292,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'grey-40': (
     color: #a8a8a8,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'grey-30': (
     color: #bdbdbd,
-    contrast-text: #000,
+    contrastText: #000,
     alt-labels: (
       disabled,
     ),
   ),
   'grey-20': (
     color: #d3d3d3,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'grey-10': (
     color: #e9e9e9,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'grey-05': (
     color: #f4f4f4,
-    contrast-text: #000,
+    contrastText: #000,
     alt-labels: (
       disabled-light,
     ),
   ),
   'grey-02': (
     color: #fafafa,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'green': (
     color: #29d305,
     alt-labels: (
       elvia-charge,
     ),
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'yellow': (
     color: #ffff00,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'orange': (
     color: #ffa000,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'red': (
     color: #ff0000,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'green-apple': (
     color: #21ac04,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'violet-grape': (
     color: #490192,
-    contrast-text: #fff,
+    contrastText: #fff,
   ),
   'blue-berry': (
     color: #006ddb,
-    contrast-text: #fff,
+    contrastText: #fff,
   ),
   'purple-plum': (
     color: #b66dff,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'orange-mango': (
     color: #db6d00,
-    contrast-text: #000,
+    contrastText: #000,
   ),
   'red-tomato': (
     color: #b90202,
-    contrast-text: #fff,
+    contrastText: #fff,
   ),
 );
 

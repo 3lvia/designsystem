@@ -10,13 +10,18 @@ export class CopyComponent {
   @Input() message = '';
 
   copyTooltip = 'Copy';
+  copyTimeout;
 
   constructor(private copyService: CopyToClipboardService) { }
 
   copyMessage(copyMessage: string): void {
     this.copyToClipBoard(copyMessage);
     this.copyTooltip = 'Copied!';
-    setTimeout(() => {
+    clearTimeout(this.copyTimeout);
+    if (screen.width < 1024) {
+      return;
+    }
+    this.copyTimeout = setTimeout(() => {
       this.copyTooltip = 'Copy';
     }, 3000);
   }

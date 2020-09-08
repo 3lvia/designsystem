@@ -15,7 +15,7 @@
 
 @each $label, $map in colors.$colors {
   $color: colors.color($label);
-  $contrast-text: map.get($map, contrast-text);
+  $contrastText: map.get($map, contrastText);
 
   $alt-labels: map.get($map, alt-labels);
   $labels: ($label);
@@ -36,7 +36,7 @@
       }
       &-bg-#{$label} {
         background: $color !important;
-        color: $contrast-text !important;
+        color: $contrastText !important;
       }
     }
   }

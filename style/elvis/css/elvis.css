@@ -11033,7 +11033,6 @@ THE SOFTWARE.
   font-size: 44px;
   line-height: 53px;
   font-weight: 900;
-  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -11047,7 +11046,6 @@ THE SOFTWARE.
   font-size: 30px;
   line-height: 36px;
   font-weight: 700;
-  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -11061,7 +11059,6 @@ THE SOFTWARE.
   font-size: 24px;
   line-height: 29px;
   font-weight: 700;
-  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -11075,7 +11072,6 @@ THE SOFTWARE.
   font-size: 18px;
   line-height: 22px;
   font-weight: 700;
-  color: #000;
 }
 
 .e-text-lead {
@@ -11083,7 +11079,6 @@ THE SOFTWARE.
   font-size: 24px;
   line-height: 39px;
   font-weight: 400;
-  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -11097,7 +11092,6 @@ THE SOFTWARE.
   font-size: 26px;
   line-height: 42px;
   font-weight: 400;
-  color: #000;
   font-style: italic;
 }
 
@@ -11112,7 +11106,6 @@ THE SOFTWARE.
   font-size: 20px;
   line-height: 32px;
   font-weight: 400;
-  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -11127,7 +11120,6 @@ THE SOFTWARE.
   text-align: center;
   line-height: 29px;
   font-weight: 400;
-  color: #000;
   font-style: italic;
 }
 
@@ -11142,7 +11134,6 @@ THE SOFTWARE.
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
-  color: #000;
 }
 
 .e-text-caps {
@@ -11150,7 +11141,6 @@ THE SOFTWARE.
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
-  color: #000;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
@@ -11160,7 +11150,6 @@ THE SOFTWARE.
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
 }
 
 .e-text-label {
@@ -11168,7 +11157,6 @@ THE SOFTWARE.
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
-  color: #000;
 }
 
 .e-text-option {
@@ -11176,7 +11164,6 @@ THE SOFTWARE.
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
 }
 
 .e-text-right {

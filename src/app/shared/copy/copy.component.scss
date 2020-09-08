@@ -1,5 +1,11 @@
 .e-tooltip {
   display: inline-flex;
+  &:first-child {
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.03);
+    }
+  }
 
   &__content {
     line-height: 120%;
