@@ -6,22 +6,43 @@
     display: none;
   }
 }
-.circles-container {
+.grid-info {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  @include breakpoint-up(MinDesktop) {
+    flex-direction: column;
+  }
+}
+.circles-container {
+  display: flex;
+  flex-direction: column;
   @include breakpoint-up(Mobile) {
     flex-direction: column;
     .information-container {
       margin-top: 16px;
     }
   }
+  @include breakpoint-up(MinDesktop) {
+    flex-direction: row;
+  }
 
   .information-container {
     display: flex;
     flex-direction: row;
     align-items: center;
-    &:not(:last-of-type) {
-      margin-right: 16px;
+    margin-left: 16px;
+    &:not(:first-of-type) {
+      margin-top: 16px;
+    }
+    @include breakpoint-up(MinDesktop) {
+      margin-left: 0px;
+      &:not(:first-of-type) {
+        margin-top: 0px;
+      }
+      &:not(:last-of-type) {
+        margin-right: 16px;
+      }
     }
     .information-circle {
       width: 32px;
