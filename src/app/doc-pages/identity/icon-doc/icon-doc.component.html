@@ -13,18 +13,22 @@
   <!--ICONS-->
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
-      <p class="e-text-description">Search through all the available icons here.</p>
       <div class="overview-search-container">
-        <div class="e-form_field">
+        <div class="e-form-field">
+          <label class="e-form-field__label" for="compact">Search</label>
           <div class="e-input">
-            <input type="text" placeholder="Search for Icons" [(ngModel)]="term" />
+            <input type="text" placeholder="Search through all icons" [(ngModel)]="term" />
           </div>
         </div>
-        <button (click)="invert()" class="e-btn e-mt-24">
-          Invert
-        </button>
+        <div class="dark-mode-toggle">
+          <span class="e-text-info">Dark</span>
+          <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': inverted }">
+            <input class="e-toggle__input" type="checkbox" (click)="invert()" [checked]="inverted" />
+            <span class="e-toggle__slider"></span>
+          </label>
+        </div>
       </div>
-      <div class="overview-icons-container e-pt-32" [style.backgroundColor]="inverted ? 'black' : 'white'">
+      <div class="overview-icons-container" [style.backgroundColor]="inverted ? 'black' : 'white'">
         <div class="icon-card" *ngFor="let icon of svgIcons | iconSeachPipe: term">
           <app-copy [message]="'e-icon e-icon--' + icon.title + ' e-icon--lg'">
             <ng-container ngProjectAs="copyContent">
@@ -32,11 +36,11 @@
                 [class.e-icon--inverted]="inverted"
                 [class]="'e-icon e-icon--' + icon.title + ' e-icon--md'"
               ></i>
-              <p class="e-text-description" [style.color]="inverted ? 'white' : 'black'">
-                {{ icon.pretty }}
-              </p>
             </ng-container>
           </app-copy>
+          <div class="e-text-description" [style.color]="inverted ? 'white' : 'black'">
+            {{ icon.pretty }}
+          </div>
         </div>
       </div>
     </ng-container>
@@ -45,70 +49,68 @@
   <!--SIZES-->
   <app-component-section [sectionTitle]="'Sizes'">
     <ng-container ngProjectAs="sectionContent">
-      <div class="e-grid e-mr-72" style="flex-grow: 0;">
-        <div class="row no-gutters">
-          <div class="col">
-            <div>
-              <span><i class="e-icon e-icon--profile e-icon--xxs"></i></span>
-            </div>
-            <div class="e-py-8">
-              <div class="e-text-caps">XXS</div>
-              <div class="e-text-info">8x8</div>
-            </div>
+      <div class="sizes-container">
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--xxs"></i></span>
           </div>
-          <div class="col">
-            <div>
-              <span><i class="e-icon e-icon--profile e-icon--xs"></i></span>
-            </div>
-            <div class="e-py-8">
-              <div class="e-text-caps">XS</div>
-              <div class="e-text-info">16x16</div>
-            </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">XXS</div>
+            <div class="e-text-info">8x8</div>
           </div>
-          <div class="col">
-            <div>
-              <span><i class="e-icon e-icon--profile e-icon--sm"></i></span>
-            </div>
-            <div class="e-py-8">
-              <div class="e-text-caps">SM</div>
-              <div class="e-text-info">24x24</div>
-            </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--xs"></i></span>
           </div>
-          <div class="col">
-            <div>
-              <span><i class="e-icon e-icon--profile e-icon--md"></i></span>
-            </div>
-            <div class="e-py-8">
-              <div class="e-text-caps">MD</div>
-              <div class="e-text-info">32x32</div>
-            </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">XS</div>
+            <div class="e-text-info">16x16</div>
           </div>
-          <div class="col">
-            <div>
-              <span><i class="e-icon e-icon--profile e-icon--lg"></i></span>
-            </div>
-            <div class="e-py-8">
-              <div class="e-text-caps">LG</div>
-              <div class="e-text-info">40x40</div>
-            </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--sm"></i></span>
           </div>
-          <div class="col">
-            <div>
-              <span><i class="e-icon e-icon--profile e-icon--xl"></i></span>
-            </div>
-            <div class="e-py-8">
-              <div class="e-text-caps">XL</div>
-              <div class="e-text-info">48x48</div>
-            </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">SM</div>
+            <div class="e-text-info">24x24</div>
           </div>
-          <div class="col">
-            <div>
-              <span><i class="e-icon e-icon--profile e-icon--xxl"></i></span>
-            </div>
-            <div class="e-py-8">
-              <div class="e-text-caps">XXL</div>
-              <div class="e-text-info">56x56</div>
-            </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--md"></i></span>
+          </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">MD</div>
+            <div class="e-text-info">32x32</div>
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--lg"></i></span>
+          </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">LG</div>
+            <div class="e-text-info">40x40</div>
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--xl"></i></span>
+          </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">XL</div>
+            <div class="e-text-info">48x48</div>
+          </div>
+        </div>
+        <div class="col">
+          <div>
+            <span><i class="e-icon e-icon--profile e-icon--xxl"></i></span>
+          </div>
+          <div class="e-py-8">
+            <div class="e-text-caps">XXL</div>
+            <div class="e-text-info">56x56</div>
           </div>
         </div>
       </div>
@@ -120,17 +122,14 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Method 1: Easiest'">
         <ng-container ngProjectAs="sectionContent">
+          <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
           <p>
             Download the npm package and use Elvis.js from inside the npm package like this:
-            <br />
-            <app-code-highlighter [codeHTML]="scriptCodeHTML"></app-code-highlighter>
-          </p>
-          <p>
-            <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
+            <app-code-highlighter [codeHTML]="scriptCodeHTML" class="e-mt-16"></app-code-highlighter>
           </p>
           <p>
             The icons can then be used like this:
-            <app-code-highlighter [codeHTML]="iconExample"></app-code-highlighter>
+            <app-code-highlighter [codeHTML]="iconExample" class="e-mt-16"></app-code-highlighter>
           </p>
           <p>
             <strong>How it works:</strong>
@@ -143,11 +142,9 @@
 
       <app-component-subsection [sectionTitle]="'Method 2: Using JS Module / SVGs'">
         <ng-container ngProjectAs="sectionContent">
-          <p>
-            All icons are accessible as SVGs within a JS module. Import the required icon individually where
-            you need them:
-          </p>
-          <app-code-highlighter [codeTS]="importCodeTS"></app-code-highlighter>
+          All icons are accessible as SVGs within a JS module. Import the required icon individually where you
+          need them:
+          <app-code-highlighter [codeTS]="importCodeTS" class="e-mt-16"></app-code-highlighter>
           <p>
             To get the icon you can use the following:
             <code class="code-text">addCircle.getIcon()</code>
@@ -164,20 +161,6 @@
             Or set the color yourself with a hex:
             <code class="code-text">addCircle.getIcon('#bdbdbd')</code>
           </p>
-
-          <app-component-subsubsection [sectionTitle]="'Size classes'">
-            <ng-container ngProjectAs="sectionContent">
-              <ul>
-                <li><code class="code-text">e-icon--xxl</code></li>
-                <li><code class="code-text">e-icon--xl</code></li>
-                <li><code class="code-text">e-icon--lg</code></li>
-                <li><code class="code-text">e-icon--md</code></li>
-                <li><code class="code-text">e-icon--sm</code></li>
-                <li><code class="code-text">e-icon--xs</code></li>
-                <li><code class="code-text">e-icon--xxs</code></li>
-              </ul>
-            </ng-container>
-          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -198,15 +181,9 @@
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Inverted / Disabled + Disabled light'">
+      <app-component-subsection [sectionTitle]="'Disabled + Inverted'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example3"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'All shades'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example4"></app-code-block>
+          <app-code-block [codeHTML]="example3" [codeInverted]="example3Inverted"></app-code-block>
         </ng-container>
       </app-component-subsection>
     </ng-container>

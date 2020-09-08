@@ -14,48 +14,32 @@ export class IconDocComponent implements OnInit {
   description = getIdentity('icon-doc').description;
   inverted = false;
 
-  example = `<i class="e-icon e-icon--move_truck-color e-icon--xxl"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xl"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--lg"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--md"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--sm"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xs"></i>
-<i class="e-icon e-icon--move_truck-color e-icon--xxs"></i>`;
-
-  example2 = `<div class="e-p-8">
-  <i class="e-icon e-icon--cog e-icon--xxl e-icon--color-purple-plum"></i>
-  <i class="e-icon e-icon--cog e-icon--xl e-icon--color-orange-mango"></i>
-  <i class="e-icon e-icon--cog e-icon--lg e-icon--color-red-tomato"></i>
-  <i class="e-icon e-icon--cog e-icon--md e-icon--color-violet-grape"></i>
-  <i class="e-icon e-icon--cog e-icon--sm e-icon--color-grey-70"></i>
-  <i class="e-icon e-icon--cog e-icon--xs e-icon--color-blue-berry"></i>
-  <i class="e-icon e-icon--cog e-icon--xxs e-icon--color-green-apple"></i>
-</div>
+  example = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xs e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--sm e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--md e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--lg e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xl e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xxl"></i>
 `;
 
-  example3 = `<div class="e-bg-black e-p-8">
-  <i class="e-icon e-icon--chat e-icon--inverted"></i>
-</div>
-<div class="e-p-8">
-  <i class="e-icon e-icon--chat e-icon--color-disabled"></i>
-</div>
-<div class="e-bg-black e-p-8">
-  <i class="e-icon e-icon--chat e-icon--color-disabled-light"></i>
-</div>`;
-
-  example4 = `<i class="e-icon e-icon--mail"></i>
-<i class="e-icon e-icon--mail e-icon--color-grey-90"></i>
-<i class="e-icon e-icon--mail e-icon--color-grey-80"></i>
-<i class="e-icon e-icon--mail e-icon--color-grey-70"></i>
-<i class="e-icon e-icon--mail e-icon--color-grey-60"></i>
-<i class="e-icon e-icon--mail e-icon--color-grey-50"></i>
-<i class="e-icon e-icon--mail e-icon--color-grey-40"></i>
-<i class="e-icon e-icon--mail e-icon--color-grey-30"></i>
-<i class="e-icon e-icon--mail e-icon--color-grey-20"></i>
-<i class="e-icon e-icon--mail e-icon--color-grey-10"></i>
-<i class="e-icon e-icon--mail e-icon--color-grey-05"></i>
-<i class="e-icon e-icon--mail e-icon--color-grey-02"></i>
+  example2 = `<i class="e-icon e-icon--cog e-icon--color-red-tomato e-mr-40"></i>
+<i class="e-icon e-icon--cog e-icon--color-orange-mango e-mr-40"></i>
+<i class="e-icon e-icon--cog e-icon--color-green-apple e-mr-40"></i>
+<i class="e-icon e-icon--cog e-icon--color-blue-berry e-mr-40"></i>
+<i class="e-icon e-icon--cog e-icon--color-purple-plum e-mr-40"></i>
+<i class="e-icon e-icon--cog e-icon--color-violet-grape e-mr-40"></i>
+<i class="e-icon e-icon--cog e-icon--color-grey e-mr-40"></i>
+<i class="e-icon e-icon--cog e-icon--color-grey-70"></i>
 `;
+
+  example3 = `<i class="e-icon e-icon--chat e-mr-40"></i>
+<i class="e-icon e-icon--chat e-icon--color-disabled"></i>
+`;
+  example3Inverted = `<i class="e-icon e-icon--chat e-icon--inverted e-mr-40"></i>
+<i class="e-icon e-icon--chat e-icon--color-disabled e-icon--inverted"></i>
+`;
+
 
   importCodeTS = `import { addCircle } from '@elvia/elvis/icons'`;
   scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>;`;
