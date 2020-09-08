@@ -9,6 +9,11 @@ import { getIdentity } from 'src/app/shared/e-items';
 export class LogoDocComponent {
   figmaUrl = getIdentity('logo-doc').figmaUrl;
   description = getIdentity('logo-doc').description;
+  isInverted = false;
+  isInverted2 = false;
+  isInverted3 = false;
+  isInverted4 = false;
+  isInvertedFav = false;
 
   faviconTS = `isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').addListener(
   e => e.matches && this.handleMode(e.matches)
@@ -32,4 +37,22 @@ handleMode(darkMode) {
   faviconHTML = `<link id="favicon" rel="icon" href="/favicon.ico" type="image/x-icon">
 `;
 
+
+  toggleInverted(asset: string): void {
+    if (asset === 'isInverted') {
+      this.isInverted = !this.isInverted;
+    }
+    if (asset === 'isInverted2') {
+      this.isInverted2 = !this.isInverted2;
+    }
+    if (asset === 'isInverted3') {
+      this.isInverted3 = !this.isInverted3;
+    }
+    if (asset === 'isInverted4') {
+      this.isInverted4 = !this.isInverted4;
+    }
+    if (asset === 'isInvertedFav') {
+      this.isInvertedFav = !this.isInvertedFav;
+    }
+  }
 }

@@ -1,8 +1,31 @@
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
+@import '../../../../../style/elvis/src/variables/typography.scss';
+
+.asset-container {
+  border: 1px solid #e9e9e9;
+  border-radius: 8px;
+  padding: 16px;
+  padding-bottom: 8px;
+  height: 222px;
+}
+
+.image-container {
+  color: var(--e-grey-80);
+  text-align: left;
+  padding-left: 40px;
+  @include breakpoint-up(Mobile) {
+    padding-left: 16px;
+  }
+}
+
 .asset-preview {
   max-width: 400px;
-  width: 100%;
-  padding: 50px;
-  max-height: 200px;
+  max-height: 90px;
+  margin-top: 16px;
+  @include breakpoint-up(Mobile) {
+    max-width: 200px;
+    max-height: 50px;
+  }
 }
 
 .logo-minimum-size {
@@ -20,4 +43,23 @@
   height: 202px;
   padding: 50px;
   border: 1px dashed #29d305;
+}
+
+.dark-mode-toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+
+  font-family: 'Red Hat Text';
+  font-size: 14px;
+  line-height: 160%;
+  .e-toggle {
+    margin-left: 8px;
+  }
+  &.toggle-darkmode .e-toggle {
+    border: 1px solid var(--e-white);
+    box-sizing: content-box;
+  }
 }
