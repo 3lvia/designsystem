@@ -16,11 +16,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
   // only focus effect is currently a visible toooltip.
   outline: none;
 
-  &:hover {
-    #{$this}__content {
-      @extend .e-tooltip__content, .is-active;
-    }
-  }
+  &:hover,
   &:focus {
     #{$this}__content {
       @extend .e-tooltip__content, .is-active;

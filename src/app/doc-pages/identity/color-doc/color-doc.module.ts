@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure/component-subsubsection/component-subsubsection.module';
+import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
+    DoDontTextModule,
   ],
   declarations: [ColorDocComponent],
 })
