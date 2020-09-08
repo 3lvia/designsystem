@@ -8,6 +8,7 @@ import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.
 })
 export class CopyComponent {
   @Input() message = '';
+  @Input() smallElementAnimation = false;
 
   copyTooltip = 'Copy';
   copyTimeout;

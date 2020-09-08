@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   margin: 0 -16px;
 
-  .col {
+  .sizes-col {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -28,20 +28,26 @@
 
 .overview {
   &-search-container {
-    margin: 24px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    .e-form-field {
+      margin-top: -28px;
+    }
   }
 
   &-icons-container {
-    max-height: 816px;
+    max-height: 336px;
     overflow: scroll;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    margin-top: 46px;
+    padding: 8px;
+    border-radius: 4px;
 
     .icon-card {
       display: inline-flex;
@@ -50,14 +56,22 @@
       align-items: center;
       max-width: 10%;
       min-width: 10%;
-      margin: 16px 20px;
-      width: 78px;
+      margin: 20px 10px;
+      width: 72px;
       text-align: center;
-      cursor: pointer;
+
+      .icon-icon {
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
 
       .e-text-description {
         margin-top: 8px;
         width: 78px;
+        line-height: 16px;
       }
     }
   }
