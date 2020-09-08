@@ -6,7 +6,22 @@
   border-radius: 8px;
   padding: 16px;
   padding-bottom: 8px;
-  height: 222px;
+  height: 240px;
+  &.fav {
+    height: 212px;
+  }
+  @include breakpoint-up(Tablet) {
+    height: 228px;
+    &.fav {
+      height: 208px;
+    }
+  }
+  @include breakpoint-up(Mobile) {
+    height: 202px;
+    &.fav {
+      height: 202px;
+    }
+  }
 }
 
 .image-container {
