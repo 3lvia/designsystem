@@ -1,11 +1,27 @@
 @use "../variables/typography.scss";
+@use "../utilities/outline.scss";
 
+.e-filter-button-container {
+  display: flex;
+  flex-direction: row;
+  .e-filter-button:not(:last-child) {
+    margin-right: 4px;
+  }
+}
 .e-filter-button {
   @include typography.typography('text-option');
   padding: 4px 11px;
   border: 1px solid transparent;
   border-radius: 32px;
+  background: var(--e-white);
   cursor: pointer;
+
+  &--selected {
+    border-color: var(--e-black);
+    &:hover {
+      border-color: var(--e-black);
+    }
+  }
 
   &:hover,
   &---hover {
@@ -21,7 +37,8 @@
     }
   }
 
-  &--selected {
-    border-color: var(--e-black);
+  &:focus,
+  &---focus {
+    @include outline.e-outline();
   }
 }

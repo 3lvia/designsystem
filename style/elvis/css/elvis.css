@@ -1902,6 +1902,15 @@ input:focus {
   cursor: pointer;
 }
 
+.e-filter-button-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.e-filter-button-container .e-filter-button:not(:last-child) {
+  margin-right: 4px;
+}
+
 .e-filter-button {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
@@ -1911,7 +1920,16 @@ input:focus {
   padding: 4px 11px;
   border: 1px solid transparent;
   border-radius: 32px;
+  background: var(--e-white);
   cursor: pointer;
+}
+
+.e-filter-button--selected {
+  border-color: var(--e-black);
+}
+
+.e-filter-button--selected:hover {
+  border-color: var(--e-black);
 }
 
 .e-filter-button:hover, .e-filter-button---hover {
@@ -1927,8 +1945,9 @@ input:focus {
   border-color: transparent;
 }
 
-.e-filter-button--selected {
-  border-color: var(--e-black);
+.e-filter-button:focus, .e-filter-button---focus {
+  outline: 2px solid #0064fa;
+  outline-offset: 2px;
 }
 
 .e-header {
