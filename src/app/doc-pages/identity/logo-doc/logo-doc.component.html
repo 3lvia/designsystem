@@ -230,16 +230,20 @@
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      There should always be sufficient space around the logo to avoid conflict with other visual elements.
-      Recommended padding around the logo is 50% of the height.
-      <div style="margin-top: 8px; display: flex; flex-direction: row; flex-wrap: wrap;">
-        <img class="e-mr-40 e-mt-16" src="assets/logo/logoWithMargin.svg" />
-        <img class="e-mt-16" src="assets/logo/simpleLogoWithMargin.svg" />
-      </div>
-      <div class="e-text-img e-mt-16 e-text-left e-text-grey-80">
-        This logo is 100px tall, meaning that the spacing has to be at least 50px, making the total element
-        height 200px
-      </div>
+      <app-component-subsection [sectionTitle]="'Margin / padding'">
+        <ng-container ngProjectAs="sectionContent">
+          There should always be sufficient space around the logo to avoid conflict with other visual
+          elements. Recommended padding around the logo is 50% of the height.
+          <div style="margin-top: 8px; display: flex; flex-direction: row; flex-wrap: wrap;">
+            <img class="e-mr-40 e-mt-16" src="assets/logo/logoWithMargin.svg" />
+            <img class="e-mt-16" src="assets/logo/simpleLogoWithMargin.svg" />
+          </div>
+          <div class="e-text-img e-mt-16 e-text-left e-text-grey-80">
+            This logo is 100px tall, meaning that the spacing has to be at least 50px, making the total
+            element height 200px
+          </div>
+        </ng-container>
+      </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Minimum size'">
         <ng-container ngProjectAs="sectionContent">
@@ -256,16 +260,19 @@
           </div>
         </ng-container>
       </app-component-subsection>
+    </ng-container>
+  </app-component-section>
 
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Dark theme'">
         <ng-container ngProjectAs="sectionContent">
           The favicon should change from black to white on dark-themed browsers. Take a look at the example
           below for a solution to changing favicon when dark-theme is used:
-          <app-code-highlighter
-            [codeTS]="faviconTS"
-            [codeHTML]="faviconHTML"
-            class="e-mt-24"
-          ></app-code-highlighter>
+          <div class="e-mt-24">
+            <app-code-highlighter [codeTS]="faviconTS" [codeHTML]="faviconHTML"></app-code-highlighter>
+          </div>
         </ng-container>
       </app-component-subsection>
     </ng-container>
