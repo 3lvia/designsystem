@@ -6,7 +6,7 @@
     <ul class="e-list">
       <div *ngFor="let el of elements">
         <li *ngIf="el.name">
-          <app-copy [message]="el.name">
+          <app-copy [message]="el.name" [noAnimation]="true">
             <ng-container ngProjectAs="copyContent">
               <span class="prop-element-title code-text">{{ el.name }}</span>
             </ng-container>
@@ -23,7 +23,7 @@
     <ul class="e-list">
       <div *ngFor="let elMod of allElementModifiers" class="prop-element">
         <li>
-          <app-copy [message]="elMod">
+          <app-copy [message]="elMod" [noAnimation]="true">
             <ng-container ngProjectAs="copyContent">
               <span class="prop-element-title code-text">{{ elMod }}</span>
             </ng-container>
@@ -38,7 +38,7 @@
     <ul class="e-list">
       <div *ngFor="let mod of modifiers" class="prop-element">
         <li>
-          <app-copy [message]="mod">
+          <app-copy [message]="mod" [noAnimation]="true">
             <ng-container ngProjectAs="copyContent">
               <span class="prop-element-title code-text">{{ mod }}</span>
             </ng-container>
@@ -53,7 +53,7 @@
     <ul class="e-list">
       <div *ngFor="let psu of psuedos" class="prop-element">
         <li>
-          <app-copy [message]="psu">
+          <app-copy [message]="psu" [noAnimation]="true">
             <ng-container ngProjectAs="copyContent">
               <span class="prop-element-title code-text">{{ psu }}</span>
             </ng-container>

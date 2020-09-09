@@ -29,34 +29,37 @@
           </div>
         </div>
         <div class="filter-buttons">
-          <div
+          <button
             class="e-filter-button"
-            (click)="selected = 'all'"
+            style="margin-right: 4px;"
+            (click)="selectFilter('all')"
             [ngClass]="{ 'e-filter-button--selected': selected === 'all' }"
           >
             All
-          </div>
-          <div
+          </button>
+          <button
             class="e-filter-button"
-            (click)="selected = 'outline'"
+            style="margin-right: 4px;"
+            (click)="selectFilter('outline')"
             [ngClass]="{ 'e-filter-button--selected': selected === 'outline' }"
           >
             Outline
-          </div>
-          <div
+          </button>
+          <button
             class="e-filter-button"
-            (click)="selected = 'filled'"
+            style="margin-right: 4px;"
+            (click)="selectFilter('filled')"
             [ngClass]="{ 'e-filter-button--selected': selected === 'filled' }"
           >
             Filled
-          </div>
-          <div
+          </button>
+          <button
             class="e-filter-button"
-            (click)="selected = 'colored'"
+            (click)="selectFilter('colored')"
             [ngClass]="{ 'e-filter-button--selected': selected === 'colored' }"
           >
             Two colored
-          </div>
+          </button>
         </div>
         <div class="dark-mode-toggle">
           <span class="e-text-info">Dark</span>
@@ -67,7 +70,7 @@
         </div>
       </div>
       <div class="overview-icons-container" [style.backgroundColor]="inverted ? 'black' : 'white'" #icons>
-        <div class="icon-card" *ngFor="let icon of svgIcons | iconSeachPipe: term">
+        <div class="icon-card" *ngFor="let icon of visibleIcons | iconSeachPipe: term">
           <div class="icon-icon">
             <i
               [class.e-icon--inverted]="inverted"

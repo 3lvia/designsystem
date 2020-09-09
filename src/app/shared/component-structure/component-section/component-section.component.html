@@ -19,7 +19,7 @@
       <span class="e-tooltip__content">Copied!</span>
     </span>
     <span class="e-ml-16" *ngIf="propertiesClass != ''">
-      <app-copy [message]="propertiesClass">
+      <app-copy [message]="propertiesClass" [noAnimation]="true">
         <ng-container ngProjectAs="copyContent">
           <span class="prop-element-title">{{ propertiesClass }}</span>
         </ng-container>

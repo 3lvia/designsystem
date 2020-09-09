@@ -13,7 +13,11 @@ export class IconDocComponent implements OnInit {
   @ViewChild('accordionIcons') accordionIcons: ElementRef;
   @ViewChild('icons') icons: ElementRef;
 
-  svgIcons = [];
+  visibleIcons = [];
+  allIcons = [];
+  outlinedIcons = [];
+  filledIcons = [];
+  twoColoredIcons = [];
   figmaUrl = getIdentity('icon-doc').figmaUrl;
   description = getIdentity('icon-doc').description;
   inverted = false;
@@ -55,6 +59,10 @@ export class IconDocComponent implements OnInit {
 
   ngOnInit(): void {
     this.fillIconList();
+    this.setOutlineIcons();
+    this.setFilledIcons();
+    this.setTwoColoredIcons();
+    this.visibleIcons = this.allIcons;
   }
 
   invert(): void {
@@ -68,23 +76,40 @@ export class IconDocComponent implements OnInit {
   }
 
   fillIconList(): void {
-    this.svgIcons = [];
+    this.allIcons = [];
 
     for (const icon of icons) {
       if (icon.name.indexOf('figma') > -1) {
         continue;
       }
-      this.svgIcons.push({
+      this.allIcons.push({
         pretty: this.getShortIconName(icon.name),
         title: icon.name,
         terms: icon.terms,
       });
     }
 
-    this.svgIcons.sort((icon: any, icon2: any) => {
+    this.allIcons.sort((icon: any, icon2: any) => {
       const a = icon.title.toLowerCase();
       const b = icon2.title.toLowerCase();
       return a < b ? -1 : a > b ? 1 : 0;
+    });
+  }
+
+  setOutlineIcons(): void {
+    console.log(this.allIcons);
+    this.outlinedIcons = this.allIcons.filter(icon => {
+      return !icon.title.includes('-filled') && !icon.title.includes('-color');
+    });
+  }
+  setFilledIcons(): void {
+    this.filledIcons = this.allIcons.filter(icon => {
+      return icon.title.includes('-filled');
+    });
+  }
+  setTwoColoredIcons(): void {
+    this.twoColoredIcons = this.allIcons.filter(icon => {
+      return icon.title.includes('-color');
     });
   }
 
@@ -98,6 +123,22 @@ export class IconDocComponent implements OnInit {
       this.accordionIcons.nativeElement.classList.remove('e-accordion__item--open');
     } else {
       this.accordionIcons.nativeElement.classList.add('e-accordion__item--open');
+    }
+  }
+
+  selectFilter(filter: string): void {
+    this.selected = filter;
+    if (filter === 'all') {
+      this.visibleIcons = this.allIcons;
+    }
+    if (filter === 'outline') {
+      this.visibleIcons = this.outlinedIcons;
+    }
+    if (filter === 'filled') {
+      this.visibleIcons = this.filledIcons;
+    }
+    if (filter === 'colored') {
+      this.visibleIcons = this.twoColoredIcons;
     }
   }
 }

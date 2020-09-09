@@ -62,6 +62,7 @@ import { UtilitiesDocComponent } from './doc-pages/identity/utilities-doc/utilit
 import { StepperDocComponent } from './doc-pages/components/stepper-doc/stepper-doc.component';
 import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
 import { ToneOfVoiceComponent } from './doc-pages/identity/tone-of-voice/tone-of-voice.component';
+import { FilterButtonDocComponent } from './doc-pages/components/filter-button-doc/filter-button-doc.component';
 
 const routes: Routes = [
   {
@@ -211,6 +212,10 @@ const routes: Routes = [
           {
             path: Pages.FileUpload,
             component: FileUploadDocComponent,
+          },
+          {
+            path: Pages.FilterButton,
+            component: FilterButtonDocComponent,
           },
           {
             path: Pages.Header,

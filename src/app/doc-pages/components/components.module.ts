@@ -24,6 +24,7 @@ import { DropdownDocModule } from './dropdown-doc/dropdown-doc.module';
 import { AccordionDocModule } from './accordion-doc/accordion-doc.module';
 import { StepperDocModule } from './stepper-doc/stepper-doc.module';
 import { ContentLoaderDocModule } from './content-loader-doc/content-loader-doc.module';
+import { FilterButtonDocModule } from './filter-button-doc/filter-button-doc.module';
 
 @NgModule({
     imports: [
@@ -36,6 +37,7 @@ import { ContentLoaderDocModule } from './content-loader-doc/content-loader-doc.
         ContentLoaderDocModule,
         DropdownDocModule,
         FileUploadDocModule,
+        FilterButtonDocModule,
         FormComponentsModule,
         LabelDocModule,
         LinkDocModule,

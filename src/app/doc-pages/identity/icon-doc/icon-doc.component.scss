@@ -54,9 +54,6 @@
         margin-top: 24px;
         .e-filter-button {
           margin-right: 4px;
-          // &:last-of-type {
-          //   margin-right: 0px;
-          // }
         }
       }
       .dark-mode-toggle {
@@ -78,6 +75,9 @@
     margin-top: 46px;
     padding: 8px;
     border-radius: 8px;
+    @media (max-width: 560px) {
+      max-height: 348px;
+    }
 
     &.open-accordion {
       max-height: 10000px;
