@@ -14,14 +14,50 @@
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
       <div class="overview-search-container">
-        <div class="e-form-field e-w-75">
+        <div class="dark-mode-toggle mobile">
+          <span class="e-text-info">Dark</span>
+          <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': inverted }">
+            <input class="e-toggle__input" type="checkbox" (click)="invert()" [checked]="inverted" />
+            <span class="e-toggle__slider"></span>
+          </label>
+        </div>
+        <div class="e-form-field">
           <label class="e-form-field__label" for="compact">Search</label>
           <div class="e-input">
             <i class="e-icon e-icon--search e-icon--xs"></i>
             <input type="text" placeholder="Search through all icons" [(ngModel)]="term" />
           </div>
         </div>
-
+        <div class="filter-buttons">
+          <div
+            class="e-filter-button"
+            (click)="selected = 'all'"
+            [ngClass]="{ 'e-filter-button--selected': selected === 'all' }"
+          >
+            All
+          </div>
+          <div
+            class="e-filter-button"
+            (click)="selected = 'outline'"
+            [ngClass]="{ 'e-filter-button--selected': selected === 'outline' }"
+          >
+            Outline
+          </div>
+          <div
+            class="e-filter-button"
+            (click)="selected = 'filled'"
+            [ngClass]="{ 'e-filter-button--selected': selected === 'filled' }"
+          >
+            Filled
+          </div>
+          <div
+            class="e-filter-button"
+            (click)="selected = 'colored'"
+            [ngClass]="{ 'e-filter-button--selected': selected === 'colored' }"
+          >
+            Two colored
+          </div>
+        </div>
         <div class="dark-mode-toggle">
           <span class="e-text-info">Dark</span>
           <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': inverted }">
@@ -30,7 +66,7 @@
           </label>
         </div>
       </div>
-      <div class="overview-icons-container" [style.backgroundColor]="inverted ? 'black' : 'white'">
+      <div class="overview-icons-container" [style.backgroundColor]="inverted ? 'black' : 'white'" #icons>
         <div class="icon-card" *ngFor="let icon of svgIcons | iconSeachPipe: term">
           <div class="icon-icon">
             <i
@@ -40,6 +76,19 @@
           </div>
           <div class="e-text-info" [style.color]="inverted ? 'white' : 'black'">
             {{ icon.pretty }}
+          </div>
+        </div>
+      </div>
+      <div class="e-mt-40">
+        <div class="e-accordion e-accordion--end">
+          <div class="e-accordion__item" #accordionIcons>
+            <div class="e-accordion__label" (click)="toggleOpen()">
+              See all
+            </div>
+            <div class="e-accordion__icon" (click)="toggleOpen()">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
           </div>
         </div>
       </div>

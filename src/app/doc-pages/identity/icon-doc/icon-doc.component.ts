@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Icon } from 'src/app/shared/icon.interface';
 import { getIdentity } from 'src/app/shared/e-items';
 import * as icons from 'style/elvis/src/config/icons.config';
@@ -9,10 +9,15 @@ import * as icons from 'style/elvis/src/config/icons.config';
   styleUrls: ['./icon-doc.component.scss'],
 })
 export class IconDocComponent implements OnInit {
+
+  @ViewChild('accordionIcons') accordionIcons: ElementRef;
+  @ViewChild('icons') icons: ElementRef;
+
   svgIcons = [];
   figmaUrl = getIdentity('icon-doc').figmaUrl;
   description = getIdentity('icon-doc').description;
   inverted = false;
+  selected = 'all';
 
   example = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-mr-40"></i>
 <i class="e-icon e-icon--move_truck-color e-icon--xs e-mr-40"></i>
@@ -81,5 +86,18 @@ export class IconDocComponent implements OnInit {
       const b = icon2.title.toLowerCase();
       return a < b ? -1 : a > b ? 1 : 0;
     });
+  }
+
+  toggleOpen(): void {
+    if (this.icons.nativeElement.classList.contains('open-accordion')) {
+      this.icons.nativeElement.classList.remove('open-accordion');
+    } else {
+      this.icons.nativeElement.classList.add('open-accordion');
+    }
+    if (this.accordionIcons.nativeElement.classList.contains('e-accordion__item--open')) {
+      this.accordionIcons.nativeElement.classList.remove('e-accordion__item--open');
+    } else {
+      this.accordionIcons.nativeElement.classList.add('e-accordion__item--open');
+    }
   }
 }
