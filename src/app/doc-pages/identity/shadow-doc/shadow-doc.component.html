@@ -13,7 +13,11 @@
   <div>
     <div class="shadowCardContainer e-mt-72">
       <div class="shadowCardExample">
-        <div class="shadowCardCircle e-shadow-3 e-bg-white"></div>
+        <app-copy [message]="'e-shadow-3'">
+          <ng-container ngProjectAs="copyContent">
+            <div class="shadowCardCircle e-shadow-3 e-bg-white"></div>
+          </ng-container>
+        </app-copy>
         <div class="shadowCardInfo">
           <div class="shadowCardInfo__title e-text-caps">SOFT</div>
           <div class="shadowCardInfo__info e-text-info">E-SHADOW-3</div>
@@ -21,7 +25,11 @@
         </div>
       </div>
       <div class="shadowCardExample">
-        <div class="shadowCardCircle shadowCardCircle--overlap e-shadow-6 e-bg-white"></div>
+        <app-copy [message]="'e-shadow-6'">
+          <ng-container ngProjectAs="copyContent">
+            <div class="shadowCardCircle shadowCardCircle--overlap e-shadow-6 e-bg-white"></div>
+          </ng-container>
+        </app-copy>
         <div class="shadowCardInfo shadowCardInfo--overlap">
           <div class="shadowCardInfo__title e-text-caps">MEDIUM</div>
           <div class="shadowCardInfo__info e-text-info">E-SHADOW-6</div>
@@ -29,7 +37,11 @@
         </div>
       </div>
       <div class="shadowCardExample">
-        <div class="shadowCardCircle shadowCardCircle--overlap e-shadow-8 e-bg-white"></div>
+        <app-copy [message]="'e-shadow-8'">
+          <ng-container ngProjectAs="copyContent">
+            <div class="shadowCardCircle shadowCardCircle--overlap e-shadow-8 e-bg-white"></div>
+          </ng-container>
+        </app-copy>
         <div class="shadowCardInfo shadowCardInfo--overlap">
           <div class="shadowCardInfo__title e-text-caps">HARD</div>
           <div class="shadowCardInfo__info e-text-info">E-SHADOW-8</div>
@@ -92,6 +104,17 @@
             <li>var(--e-shadow-6)</li>
             <li>var(--e-shadow-8)</li>
           </ul>
+          <p class="e-text-body">
+            If you have to support IE11 and want to use CSS-variables please check out the get started section
+            for how to:
+            <a
+              class="e-link e-link--inline"
+              [routerLink]="['/get-started/new-project-doc']"
+              fragment="Optional:-CSS-variables"
+            >
+              Get started
+            </a>
+          </p>
           <p class="e-text-body">
             All CSS-variables can be used, except if you want remove shadow.
           </p>
