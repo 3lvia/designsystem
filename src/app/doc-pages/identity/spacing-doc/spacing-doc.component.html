@@ -17,11 +17,7 @@
         <div class="ExampleBox e-mr-16" *ngFor="let item of spacingItems">
           <app-copy [message]="item.className">
             <ng-container ngProjectAs="copyContent">
-              <div
-                class="ExampleItem"
-                [ngClass]="item.className"
-                [ngStyle]="{ 'width.px': item.size } { 'height.px': item.size }"
-              ></div>
+              <div class="ExampleItem" [ngClass]="item.className"></div>
             </ng-container>
           </app-copy>
           <div class="e-text-caps">{{ item.title }}</div>
