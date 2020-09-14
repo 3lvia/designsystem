@@ -425,7 +425,7 @@ export const eIdentity: EItems[] = [
   {
     title: 'Spacing',
     // tslint:disable-next-line: max-line-length
-    description: 'Spacing refers to space between UI elements. It is important to create an appropriate spatial relationship between items and are a big part of the visual design. We are using the 8 point grid system - Use multiples of 8 to define dimensions, padding, and margin of both block and inline elements.',
+    description: 'Spacing refers to space between UI elements. It is important to create an appropriate spatial relationship between items and are a big part of the visual design.',
     docUrl: Pages.Spacing,
     absolutePath: '/identity/' + Pages.Spacing,
     status: ItemStatus.Done,

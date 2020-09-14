@@ -13,6 +13,26 @@
   <!--PREVIEW-->
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
+      <div class="ExampleContainer">
+        <div class="ExampleBox e-mr-16" *ngFor="let item of spacingItems">
+          <app-copy [message]="item.className">
+            <ng-container ngProjectAs="copyContent">
+              <div
+                class="ExampleItem"
+                [ngClass]="item.className"
+                [ngStyle]="{ 'width.px': item.size } { 'height.px': item.size }"
+              ></div>
+            </ng-container>
+          </app-copy>
+          <div class="e-text-caps">{{ item.title }}</div>
+          <div class="e-text-info">{{ item.size }}</div>
+        </div>
+      </div>
+      <app-code-block [showPreview]="false" [codeHTML]="liveCodeHTML"></app-code-block>
+    </ng-container>
+  </app-component-subsection>
+  <app-component-subsection>
+    <ng-container ngProjectAs="sectionContent">
       <p>Following the 8-point grid system.</p>
       <div class="display-container centered-content">
         <div class="display-card" *ngFor="let item of spacingItems">
