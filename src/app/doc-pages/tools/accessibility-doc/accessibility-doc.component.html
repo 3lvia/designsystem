@@ -4,237 +4,200 @@
     Accessibility
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    Å leve med nedsatt funksjonsevne fører ofte med seg utfordringer i dagliglivet, deriblant bruk av
-    teknologi. Defor skal alle digitale løsninger vi bygger i Elvia være universelt utformet slik at de aller
-    fleste kan klare seg selv.
-
-    <p class="e-text-body">
-      Utkast er basert på NAV sin side om tilgjengelighet:
-      <span class="e-link">https://design.nav.no/accessibility/overview</span>
-    </p>
+    <div>
+      We create accessible solutions to enable all users to access an user experience, regardless of
+      permanent, temporary or situational disability.
+    </div>
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <div>
-    <h2 class="e-title-md">
-      Nødvendig for noen, bra for alle
-    </h2>
-    <p class="e-text-body">
-      I følge Verdens helseorganisasjon lever omtrent 15 prosent av verdens befolkning med en eller annen form
-      for permanent nedsatt funksjonsevne. Samtidig kan vi alle oppleve å få midlertidig nedsatt funksjonsevne
-      som følge av f.eks. uhell eller sykdom. Det betyr at tilpasninger som er nødvendig for noen, kan være
-      bra for alle i blant.
-    </p>
-    <div class="elvis-example">
-      <div class="elvis-example-header e-title-sm">Eksempler</div>
-      <div class="elvis-example-content e-text-body">
-        <ul>
+  <!-- Intro section -->
+  <div class="headerSection e-mt-48 e-text-body">
+    <div class="headerSection--information">
+      Traditionally, accessibility is often linked with people with disabilities, but when we design services
+      and products for users with a permanent disabilities, someone with a temporary or situational limitation
+      will benefit as well. For example, a solution that works well for someone who is deaf might also benefit
+      any person in a loud environment. Designing inclusive solutions for a spectrum of disabilities connects
+      different people in similar circumstances and makes it better for many.
+    </div>
+    <div class="headerSection--illustration">
+      <img
+        src="../../../../assets/website-icons/tools-images/inclusive_toolkit.svg"
+        alt="Illustration from Microsoft inclusive toolkit"
+      />
+      <span class="e-text-img e-mt-16" style="display: flex;">
+        <span class="e-text-img">
+          From Microsoft’s
+          <a
+            class="e-link e-link--inline e-link--external"
+            href="https://www.microsoft.com/design/inclusive/"
+          >
+            <span class="e-link__title">inclusive toolkit</span>
+            <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+          </a>
+        </span>
+      </span>
+    </div>
+  </div>
+  <!-- WCAG -->
+  <app-component-section [sectionTitle]="'WCAG'">
+    <ng-container ngProjectAs="sectionContent">
+      Web Content Accessibility Guidelines (WCAG) are a collection of guidelines developed by the Web
+      Accessibility Initiative for making web content more accessible.
+
+      <p>
+        WCAG 2.0 was published in December 2008 and became an ISO standard in October 2012. In 2018, version
+        2.1 was introduced as recommendations, but was as of July 2020 adopted as future requirements with an
+        intended transition period of six months.
+      </p>
+      <p>
+        By January 2021,
+        <b>WCAG 2.1</b>
+        will be applied as legal requirements. It is backwards-compatible with WCAG 2.0 with some additions
+        that, amonst other, takes more consideration to mobile devices than previously. Note that the
+        requirements apply to intranets, extranets, as well as mobile apps.
+      </p>
+      <p>
+        You can read the full set of guidelines on the
+        <a
+          class="e-link e-link--inline e-link--external"
+          href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+        >
+          <span class="e-link__title">w3c official site</span>
+          <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+        </a>
+        , or read a summary of the new additions to 2.1 on the Norwegian Digitization Directorate
+        <a class="e-link e-link--inline e-link--external" href="https://uu.difi.no/">
+          <span class="e-link__title">Norwegian Digitization Directorate</span>
+          <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+        </a>
+        .
+      </p>
+    </ng-container>
+  </app-component-section>
+  <app-component-section [sectionTitle]="'For developers'">
+    <ng-container ngProjectAs="sectionContent">
+      <span class="e-text-body">
+        Here’s a list of recommendations to make sure your code is accessible:
+      </span>
+      <div class="e-mt-24">
+        <ul class="e-list e-mt-24">
+          <li>Use alt text for images</li>
+          <li>Check color contrasts</li>
+          <li>Test your code on screen readers</li>
           <li>
-            Tekstede videoer er bra for hørselshemmede og bra for en pendler på toget.
+            All form elements can use the e-form-field classes for label, error messages and alignment of form
+            elements (see
+            <a class="e-link e-link--lg" [routerLink]="['/components/input-doc']">
+              input
+            </a>
+            )
           </li>
-          <li>
-            God lesbarhet er ikke bare nødvendig for sterkt synshemmede, det er også fint for de som «bare»
-            har glemt lesebrillene hjemme.
-          </li>
-          <li>
-            At nettsidene kan brukes med tastaturet er bra både for en med nedsatt motorikk og en med
-            senebetennelse.
-          </li>
+          <li>Use background classes (e-bg) to automatically get right text contrasts</li>
         </ul>
       </div>
-    </div>
-
-    <h2 class="e-title-md">Eksempler på funksjonshemninger</h2>
-    <table class="e-table is-striped">
-      <tr class="e-table_header">
-        <th></th>
-        <th>Permanent</th>
-        <th>Midlertidig</th>
-        <th>Situasjonsbetinget</th>
-      </tr>
-      <tr>
-        <td>Bevegelse</td>
-        <td>Én arm</td>
-        <td>Brukket arm</td>
-        <td>Nybakt forelder</td>
-      </tr>
-      <tr>
-        <td>Syn</td>
-        <td>Blind</td>
-        <td>Glemt briller</td>
-        <td>Uoppmerksom sjåfør</td>
-      </tr>
-      <tr>
-        <td>Hørsel</td>
-        <td>Døv</td>
-        <td>Øreinfeksjon</td>
-        <td>Bartender</td>
-      </tr>
-      <tr>
-        <td>Tale</td>
-        <td>Ikke-verbal</td>
-        <td>Laryngitt</td>
-        <td>Sterk aksent</td>
-      </tr>
-    </table>
-
-    <h2 class="e-title-md">Lovkrav</h2>
-    <p class="e-text-body">
-      Elvia, i likhet med alle andre offentlige og private virksomheter, er pålagt å etterleve hovedregelen om
-      at alle IKT-løsninger skal være universelt utformet.*
-    </p>
-    <p class="e-text-body">
-      Vi oppfordrer alle til å gjøre seg kjent med og bruke følgende ressurser aktivt:
-    </p>
-
-    <div class="links-container">
-      <div class="e-card">
-        <div class="e-card_header">
-          <div class="e-card_header_text">
-            <div class="e-card_title">Universel Utforming, Difi</div>
-          </div>
-        </div>
-        <div class="e-card_content">
-          <p class="e-text-body">
-            Tilsynsmyndighetenes offentlige ressursportal for universel utforming av digitale tjenester.
-          </p>
-        </div>
-        <div class="e-card_actions">
-          <button class="e-card_actions_action">View more</button>
-        </div>
+      <h3 class="e-title-sm">Examples</h3>
+      <p>
+        <app-do-dont [do]="true" [codeHTML]="doCode"></app-do-dont>
+        <app-do-dont [do]="false" [codeHTML]="dontCode"></app-do-dont>
+      </p>
+    </ng-container>
+  </app-component-section>
+  <app-component-section [sectionTitle]="'For content editors'">
+    <ng-container ngProjectAs="sectionContent">
+      <span class="e-text-body">
+        What to think about when writing accessible in digital media:
+      </span>
+      <div class="e-mt-24">
+        <ul class="e-list e-mt-24">
+          <li>Use concise and meaningful titles to make pages easier to scan</li>
+          <li>Use alt text for images, and image descriptions when suitable</li>
+          <li>Use subtitles in videos when possible</li>
+          <li>Use describing phrases rather than “click here” or “read more” for buttons and links</li>
+        </ul>
       </div>
-
-      <div class="e-card">
-        <div class="e-card_header">
-          <div class="e-card_header_text">
-            <div class="e-card_title">
-              Web Content Accessibility Guidelines(WCAG) 2.1
+      <div>
+        <div class="e-title-sm e-mt-24">Examples</div>
+        <div class="contentExamples e-mt-24">
+          <div class="e-mr-32">
+            <a href="" class="e-link">
+              Les våre beste tips for elsikkerhet
+            </a>
+            <div class="exampleRow">
+              <span class="exampleRowItem">
+                <i class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"></i>
+                <span class="e-text-caps e-ml-16">Do</span>
+              </span>
+            </div>
+          </div>
+          <div class="examplesItemTwo">
+            <a href="" class="e-link">Les mer</a>
+            <div class="exampleRow">
+              <span class="exampleRowItem">
+                <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-red"></i>
+                <span class="e-text-caps e-ml-16">DON´T</span>
+              </span>
             </div>
           </div>
         </div>
-        <div class="e-card_content">
-          <p class="e-text-body">
-            Neste versjon av W3s internasjonale standard med tekniske spesifikasjon for minimumskrav (nivå A
-            og AA) all digitale løsninger må oppfylle
-          </p>
-        </div>
-        <div class="e-card_actions">
-          <button class="e-card_actions_action">View more</button>
-        </div>
-      </div>
-
-      <div class="factbox is-info">
-        <div class="factbox-icon">
-          <i class="e-icon e-icon--info-circle e-icon--sm"></i>
-        </div>
-        <div class="factbox-content">
-          * Per nå gir forskriften egentlig unntak for noen typer systemer (som f.eks. interne
-          saksbehandlingsystemer). Vi har uansett bestemt at våre internsystemer likevel skal oppfylle kravene
-          på samme måte som systemer vi lager mot allmennheten - i tråd med Elvias ønske om å ikke ekskludere
-          noen og støtte alle våre ansatte gjennom hele arbeidslivet.
-        </div>
-      </div>
-
-      <div class="factbox is-warn">
-        <div class="factbox-icon">
-          <i class="e-icon e-icon--warning_circle e-icon--sm"></i>
-        </div>
-        <div class="factbox-content">
-          Merk at nivå A og AA i WCAG kun spesifiserer de kravene som er absolutt minimum av det vi må
-          oppfylle. Det bør være et mål i seg selv å gjøre mer enn bare det som er minimum.
+        <div class="contentExamples e-mt-56">
+          <div class="e-mr-56">
+            <button class="e-btn">Send</button>
+            <div class="exampleRow">
+              <span class="exampleRowItem">
+                <i class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"></i>
+                <span class="e-text-caps e-ml-16">Do</span>
+              </span>
+            </div>
+          </div>
+          <div class="examplesItemTwo">
+            <button class="e-btn">Click here</button>
+            <div class="exampleRow">
+              <span class="exampleRowItem">
+                <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-red"></i>
+                <span class="e-text-caps e-ml-16">DON´T</span>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
-    <h2 class="e-title-md">Bruk design systemet!</h2>
-    <p class="e-text-body">
-      Ved å bruke Designsystemet får du mye gratis hjelp, og en bra start i både design- og
-      utviklingsprosessen. Vi har lagt ned mye tid og arbeid for å sikre at komponentene og retningslinjene i
-      Designsystemet er utformet i henhold til offentlige krav til universell utforming. Besøk
-      tilgjengelighets-fanen på de forskjellige komponent-sidene for å lese mer om hvilke hensyn du bør være
-      klar over for den enkelte komponent.
-    </p>
-  </div>
-
-  <div>
-    <h2 class="e-title-md">
-      Tips and tricks
-    </h2>
-    <p class="e-text-body">
-      Dette er noen av de viktigste tingene du bør huske på for å unngå de vanligste feilene. Vær likevel
-      bevisst på at disse punktene ikke er komplett.
-    </p>
-
-    <h4 class="e-title-md">
-      For designere
-    </h4>
-    <ol>
-      <li>
-        Bruk aktuell versjon av Elvias komponent- og illustrasjonsbibliotek i Sketch når du designer.
-      </li>
-      <li>
-        Design for grupper med spesielle behov («ytterkantene»). Spør deg selv: Hadde bestemoren min klart å
-        bruke tjenesten? Om inklusiv design (University of Cambridge)
-      </li>
-      <li>
-        Husk god kontrast, både på tekst, interaktive elementer, grafer og illustrasjoner.
-      </li>
-      <li>Husk beskrivende alt-tekster på bilder, illustrasjoner og grafer.</li>
-      <li>Husk beskrivende alt-tekster på bilder, illustrasjoner og grafer.</li>
-      <li>
-        Video: Husk å ha en tekstversjon som har samme innhold som videoen på siden, samt tekste video og bruk
-        nyeste versjon av QBrick. Snart kommer en lovendring om at videoer også må være synstolket. Det betyr
-        at man skal tilby en audiobeskrivelse av det som vises i videoen som ikke blir tydelig av selve
-        lydsporet.
-      </li>
-      <li>
-        Språk og begreper: Skriv så forståelig som molig og test teksten på reelle brukere. Bruk beskrivende
-        overskrifter, deloverskrifter og punktlister der det er hensiktsmessig. Husk å ha en hovedoverskrift
-        som beskriver hovedinnholdet på siden. Les mer om tekst og struktur (Difi) og våre retningslinjer for
-        språk
-      </li>
-      <li>
-        Lenker: Skriv lenketekster slik at det er tydelig hvor lenken går. Ikke åpne lenker i ny fane/vindu.
-        Se retningslinjer for gode lenker.
-      </li>
-      <li>
-        Lag gode og beskrivende feilmeldinger (Difi) og pass på at meldingene er i tråd med Designsystemet.
-      </li>
-      <li>
-        Test med reelle brukere, også med personer som bruker hjelpemidler. Bruk Sanselaben i Sannergata (rom
-        5006).
-      </li>
-    </ol>
-    <h4 class="e-title-md">
-      For utviklere
-    </h4>
-    <ol class="elvia-tips-list">
-      <li>Bruk komponentene våre.</li>
-      <li>Sjekk at koderekkefølgen gjenspeiler den visuelle rekkefølgen.</li>
-      <li>
-        Test at alt kan betjenes med tastatur og at fokusmarkering flyttes i forventet rekkefølge.
-      </li>
-      <li>Bruk de semantiske egenskapene i HTML (MDN).</li>
-      <li>Sjekk at du har med hopp-lenkene (W3) og at de fungerer.</li>
-      <li>
-        Sjekk at du har med riktig "title" (W3). Formen skal være [hovedinnhold/overskrift på siden] -
-        www.Elvia.no
-      </li>
-      <li>Pass på riktig overskriftshierarki (Difi)</li>
-      <li>Sjekk at HTMLen din validerer (W3).</li>
-      <li>
-        Bruk WAI-Aria (W3) der standard HTML ikke er tilstrekkelig, for eksempel på feilmeldinger
-      </li>
-      <li>
-        Bruk automatiserte testverktøy (som f.eks. WAVE eller Sortsite) aktivt og ofte.
-      </li>
-      <li>
-        Test med skjermleser på egen hånd. Med for eksempel ChromeVox, VoiceOver på Mac, eller TalkBack på
-        Android er dette enklere enn du tror.
-      </li>
-      <li>Hvis molig, bruk Elvia-ally i utviklingsprosessen.</li>
-    </ol>
-  </div>
+      <div class="e-mt-72">
+        <span class="e-text-body">
+          See our
+          <a class="e-link e-link--lg" [routerLink]="['/identity/tone-of-voice']">
+            tone of voice
+          </a>
+          for more guides to Elvia’s written style and tone.
+        </span>
+      </div>
+    </ng-container>
+  </app-component-section>
+  <app-component-section [sectionTitle]="'Useful links'">
+    <ng-container ngProjectAs="sectionContent">
+      <span class="e-text-body">
+        Interested in learning more? Here’s a few valuable resources:
+      </span>
+      <div class="e-mt-24">
+        <ul class="e-list e-mt-24">
+          <li>
+            <a class="e-link" href="https://www.w3.org/WAI/standards-guidelines/wcag/">
+              W3C WCAG guidelines
+            </a>
+          </li>
+          <li>
+            <a class="e-link" href="https://webaim.org/resources/contrastchecker/">
+              Webaim contrast checker
+            </a>
+          </li>
+          <li>
+            <a class="e-link" href="https://uu.difi.no/">
+              Norwegian Digitization Directorate
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+  </app-component-section>
 </div>
