@@ -7,30 +7,59 @@
     <div>
       {{ description }}
     </div>
-    <div class="e-mt-16">
-      All typography can be used through a set of classes. The font-classes sets multiple attributes, like
-      font-size, line-height and font-weight.
+    <div class="e-mt-72 e-mb-24">
+      <img
+        class="headerImg"
+        src="../../../../assets/website-icons/identity-images/RedHat.svg"
+        alt="Confirmation page illustration"
+      />
+    </div>
+    <div class="e-text-body">
+      <p>
+        <b>Red Hat Display</b>
+        has denser letter space and higher x-height and is suitable in large sizes, for example in titles.
+        <b>Red Hat Text</b>
+        has a slightly smaller x-height, more space and is designed for good readability in smaller sizes.
+      </p>
+      <p>
+        Red Hat was originally commissioned by Pentagram and was designed by Jeremy Mickel, MCKL. It is an
+        open-source font family and you can
+        <a class="e-link e-link--inline e-link--external" href="https://fonts.google.com/?query=red+hat">
+          <span class="e-link__title">download Red Hat here</span>
+          <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+        </a>
+        , via Google Fonts.
+      </p>
+      <p>
+        As an alternative system font, we use
+        <b>Verdana</b>
+        . It’s only used in the cases where it isn’t possible to use the profile font, for example digital
+        documents and templates that are shared with people outside of Elvia, who might not have the profile
+        font installed. Verdana is less dense than Red Hat, but to simulate Red Hat in the best way you can
+        pinch the text by reducing the letter spacing.
+      </p>
     </div>
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <!--PREVIEW-->
-  <app-component-subsection>
+  <!--Text Styles-->
+  <app-component-section [sectionTitle]="'Text styles'">
     <ng-container ngProjectAs="sectionContent">
+      <div class="e-text-body">
+        All typography can be used through a set of classes. The font-classes sets multiple attributes, like
+        font-size, line-height and font-weight.
+      </div>
       <div class="example-container">
         <div class="container">
           <div class="row">
             <div class="example-title">
-              <h2 class="e-title-sm">Desktop & Tablet</h2>
+              <h2 class="e-text-caps">Desktop & Tablet</h2>
             </div>
             <div class="example-title">
-              <h2 class="e-title-sm">Mobile</h2>
+              <h2 class="e-text-caps">Mobile</h2>
             </div>
-          </div>
-          <div class="row">
-            <hr class="e-divider is-light" />
           </div>
         </div>
 
@@ -48,6 +77,12 @@
                 </app-copy>
               </div>
               <div>
+                <span class="e-text-description e-text-grey-80">
+                  {{ typographyClasses[0].properties[0].value }} |
+                  {{ typographyClasses[0].properties[3].value }} | Lh
+                  {{ typographyClasses[0].properties[4].value }}
+                </span>
+
                 <ul class="e-list e-text-caps">
                   <p class="e-text-caps">Typography Information</p>
                   <li>Class: e-{{ typographyClasses[0].name }}</li>
@@ -751,7 +786,7 @@
         </div>
       </div>
     </ng-container>
-  </app-component-subsection>
+  </app-component-section>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
