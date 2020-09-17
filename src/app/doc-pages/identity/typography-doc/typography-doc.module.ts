@@ -9,6 +9,7 @@ import { IframePreviewModule } from 'src/app/shared/iframe-preview/iframe-previe
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure/component-subsubsection/component-subsubsection.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
+import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-highlighter.module';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
+    CodeHighlighterModule,
   ],
   declarations: [TypographyDocComponent],
 })

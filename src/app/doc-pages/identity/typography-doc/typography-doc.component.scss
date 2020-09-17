@@ -26,13 +26,22 @@
         margin-bottom: 0;
       }
       .example {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
         width: 48%;
         margin: var(--e-spacing-24) 0;
+        margin-bottom: 0;
+
+        &.example-first {
+          margin-top: var(--e-spacing-16);
+        }
 
         @extend %scale-up-09;
 
         &-text {
           width: fit-content;
+          margin-bottom: 8px;
           &:hover {
             @extend %scale-down-09;
           }
