@@ -14,20 +14,92 @@
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
       <div class="ExampleContainer">
-        <div class="ExampleBox e-mr-16" *ngFor="let item of spacingItems">
-          <app-copy [message]="item.className">
+        <div class="ExampleBox e-mr-16">
+          <app-copy [message]="'e-p-8'">
             <ng-container ngProjectAs="copyContent">
-              <div class="ExampleItem" [ngClass]="item.className"></div>
+              <div class="ExampleItem" style="width: 8px; height: 8px;"></div>
             </ng-container>
           </app-copy>
-          <div class="e-text-caps">{{ item.title }}</div>
-          <div class="e-text-info">{{ item.size }}</div>
+          <div class="e-text-caps">SPACING-8</div>
+          <div class="e-text-info">8px</div>
+        </div>
+        <div class="ExampleBox e-mr-16">
+          <app-copy [message]="'e-p-16'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="ExampleItem" style="width: 16px; height: 16px;"></div>
+            </ng-container>
+          </app-copy>
+          <div class="e-text-caps">SPACING-16</div>
+          <div class="e-text-info">16px</div>
+        </div>
+        <div class="ExampleBox e-mr-16">
+          <app-copy [message]="'e-p-24'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="ExampleItem" style="width: 24px; height: 24px;"></div>
+            </ng-container>
+          </app-copy>
+          <div class="e-text-caps">SPACING-24</div>
+          <div class="e-text-info">24px</div>
+        </div>
+        <div class="ExampleBox e-mr-16">
+          <app-copy [message]="'e-p-32'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="ExampleItem" style="width: 32px; height: 32px;"></div>
+            </ng-container>
+          </app-copy>
+          <div class="e-text-caps">SPACING-32</div>
+          <div class="e-text-info">32px</div>
+        </div>
+        <div class="ExampleBox e-mr-16">
+          <app-copy [message]="'e-p-40'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="ExampleItem" style="width: 40px; height: 40px;"></div>
+            </ng-container>
+          </app-copy>
+          <div class="e-text-caps">SPACING-40</div>
+          <div class="e-text-info">50px</div>
+        </div>
+        <div class="ExampleBox e-mr-16">
+          <app-copy [message]="'e-p-48'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="ExampleItem" style="width: 48px; height: 48px;"></div>
+            </ng-container>
+          </app-copy>
+          <div class="e-text-caps">SPACING-48</div>
+          <div class="e-text-info">48px</div>
+        </div>
+        <div class="ExampleBox e-mr-16">
+          <app-copy [message]="'e-p-56'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="ExampleItem" style="width: 56px; height: 56px;"></div>
+            </ng-container>
+          </app-copy>
+          <div class="e-text-caps">SPACING-56</div>
+          <div class="e-text-info">56px</div>
+        </div>
+        <div class="ExampleBox e-mr-16">
+          <app-copy [message]="'e-p-64'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="ExampleItem" style="width: 64px; height: 64px;"></div>
+            </ng-container>
+          </app-copy>
+          <div class="e-text-caps">SPACING-64</div>
+          <div class="e-text-info">64px</div>
+        </div>
+        <div class="ExampleBox e-mr-16">
+          <app-copy [message]="'e-p-72'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="ExampleItem" style="width: 72px; height: 72px;"></div>
+            </ng-container>
+          </app-copy>
+          <div class="e-text-caps">SPACING-72</div>
+          <div class="e-text-info">72px</div>
         </div>
       </div>
-      <app-code-block [showPreview]="false"></app-code-block>
+      <!-- <app-code-block [showPreview]="false"></app-code-block> -->
     </ng-container>
   </app-component-subsection>
-  <app-component-subsection>
+  <!-- <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
       <p>Following the 8-point grid system.</p>
       <div class="display-container centered-content">
@@ -42,76 +114,109 @@
         </div>
       </div>
     </ng-container>
-  </app-component-subsection>
+  </app-component-subsection> -->
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      The spacing classes
-      <code class="code-text">e-p</code>
-      and
-      <code class="code-text">e-m</code>
-      styles the padding and margin attributes and can be specified to style left, right, top or bottom. The
-      spacing system follows multiplication 8px.
+      <div class="e-text-body e-mb-24">
+        We are using the
+        <b>8 point grid</b>
+        system - multiples of 8 to define dimensions, padding, and margin of both block and inline elements.
+      </div>
 
+      <div class="e-mb-32">
+        <img class="padding-example" src="assets/website-icons/identity-images/SpacingUsage.svg" />
+      </div>
+      <div class="e-mb-16">
+        Something to keep in mind when choosing spacing:
+      </div>
+      <ul class="e-list e-mb-48">
+        <li>
+          It's about logic. Related things are closer than unrelated things, so two unrelated things must be
+          far away from each other.
+        </li>
+        <li>The bigger the object, the bigger space around it.</li>
+        <li>We all need to breathe, so let the layout breathe as well.</li>
+      </ul>
+      <div>You can read more about the 8 point grid system and what its used for in this intro article .</div>
+    </ng-container>
+  </app-component-section>
+
+  <!--Implementation-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <div>
+        The spacing classes
+        <b>e-p</b>
+        and
+        <b>e-m</b>
+        styles the padding and margin attributes and can be specified to style left, right, top or bottom.
+      </div>
+      <!--Using classes-->
       <app-component-subsection [sectionTitle]="'Using classes'">
         <ng-container ngProjectAs="sectionContent">
-          <p>
-            All spacing can be used through a set of classes. The
-            <code class="code-text">e-p-64</code>
-            sets padding to the size of the last number. The padding and margin sizes are multiplications of
-            8px, meaning
-            <code class="code-text">e-m-24</code>
-            equals
-            <code class="code-text">margin: 24px</code>
-            . The classes are available from 0 to 72.
-          </p>
-          <h3 class="e-text-caps">Padding classes</h3>
-          <ul>
-            <li><code class="code-text">e-p-0</code></li>
-            <li><code class="code-text">e-p-number</code></li>
-            <li><code class="code-text">e-pl-number</code></li>
-            <li><code class="code-text">e-pr-number</code></li>
-            <li><code class="code-text">e-pt-number</code></li>
-            <li><code class="code-text">e-pb-number</code></li>
-            <li><code class="code-text">e-px-number</code></li>
-            <li><code class="code-text">e-py-number</code></li>
-          </ul>
-          <h3 class="e-text-caps">Margin classes</h3>
-          <ul>
-            <li><code class="code-text">e-m-0</code></li>
-            <li><code class="code-text">e-m-number</code></li>
-            <li><code class="code-text">e-ml-number</code></li>
-            <li><code class="code-text">e-mr-number</code></li>
-            <li><code class="code-text">e-mt-number</code></li>
-            <li><code class="code-text">e-mb-number</code></li>
-            <li><code class="code-text">e-mx-number</code></li>
-            <li><code class="code-text">e-my-number</code></li>
-            <li>
-              <code class="code-text">
-                All the margin classes also have negative classes by adding 'n' before number (eks. e-mr-n8)
-              </code>
-            </li>
-          </ul>
+          <div class="e-text-body e-mb-32">
+            All spacing can be used through a set of classes. The e-p-64 sets padding to the size of the last
+            number. The padding and margin sizes are multiplications of 8px, meaning e-m-24 equals margin:
+            24px . The classes are available from 0 to 72.
+          </div>
+
+          <div class="listContainer e-mb-56">
+            <div class="listExample">
+              <div class="e-text-body e-mb-16">
+                Padding classes:
+              </div>
+              <ul class="e-list">
+                <li>e-p-0</li>
+                <li>e-p-number</li>
+                <li>e-pl-number</li>
+                <li>e-pr-number</li>
+                <li>e-pt-number</li>
+                <li>e-pb-number</li>
+                <li>e-px-number</li>
+                <li>e-py-number</li>
+              </ul>
+            </div>
+            <div class="listExample">
+              <div class="e-text-body e-mb-16">
+                Margin classes:
+              </div>
+              <ul class="e-list">
+                <li>e-m-0</li>
+                <li>e-m-number</li>
+                <li>e-ml-number</li>
+                <li>e-mr-number</li>
+                <li>e-mt-number</li>
+                <li>e-mb-number</li>
+                <li>e-mx-number</li>
+                <li>e-my-number</li>
+              </ul>
+            </div>
+          </div>
+          <div class="e-text-body">
+            All the margin classes also have negative classes by adding 'n' before number.For example:
+            <b>e-mr-n8</b>
+          </div>
         </ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Using CCS-variables'">
         <ng-container ngProjectAs="sectionContent">
-          <p>
+          <p class="e-text-body">
             All spacing can be used through their CSS-variable as well. To use the CSS-variables you need to
             install the ponyfill css-vars-ponyfill. Click
             <a
-              class="e-link e-link-inline"
+              class="e-link e-link--inline"
               [routerLink]="['/get-started/new-project-doc']"
-              fragment="'Optional:-CSS-variables'"
+              fragment="Optional:-CSS-variables"
             >
               here
             </a>
             more information about how.
           </p>
-          <ul>
-            <li><code class="code-text">var(--e-spacing-number)</code></li>
+          <ul class="e-list">
+            <li>var(--e-spacing-number)</li>
           </ul>
           <p>
             All CSS-variables can be used.
@@ -122,13 +227,6 @@
           </p>
         </ng-container>
       </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!--CODE EXAMPLE-->
-  <app-component-section [sectionTitle]="'Code example'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-code-block [codeHTML]="example1"></app-code-block>
     </ng-container>
   </app-component-section>
 </div>

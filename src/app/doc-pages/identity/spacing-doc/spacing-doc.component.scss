@@ -12,7 +12,18 @@
 }
 
 .ExampleItem {
+  box-sizing: border-box;
   border: 1px solid #262626;
   border-radius: 8%;
-  box-sizing: border-box;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: row;
+
+  .listExample {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
 }
