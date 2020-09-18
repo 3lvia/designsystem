@@ -15,6 +15,9 @@ export class TypographyDocComponent implements OnInit {
   figmaUrl = getIdentity('typography-doc').figmaUrl;
   description = getIdentity('typography-doc').description;
 
+  isDesktop = true;
+  isMobile = false;
+
   alignmentOfText = `<div class="e-text-left e-m-16">Left aligned text</div>
 <div class="e-text-center e-m-16">Center aligned text</div>
 <div class="e-text-right e-m-16">Right aligned text</div>
@@ -47,5 +50,10 @@ eller isolasjonssvikt i det elektriske anlegget eller tilknyttet utstyr. </p>
     for (let i = 0; i < typography.length; i++) {
       this.typographyClasses.push(typography[i]);
     }
+  }
+
+  changeListView(): void {
+    this.isDesktop = !this.isDesktop;
+    this.isMobile = !this.isMobile;
   }
 }

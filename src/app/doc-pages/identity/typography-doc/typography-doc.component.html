@@ -51,102 +51,109 @@
         All typography can be used through a set of classes. The font-classes sets multiple attributes, like
         font-size, line-height and font-weight.
       </div>
-      <div class="example-container">
-        <div class="container">
-          <div class="row">
-            <div class="example-title">
-              <h2 class="e-text-caps">Desktop & Tablet</h2>
-            </div>
-            <div class="example-title">
-              <h2 class="e-text-caps">Mobile</h2>
+      <div>
+        <div class="example-container">
+          <div class="container e-none-sm">
+            <div class="row">
+              <div class="example-title">
+                <h2 class="e-text-caps">Desktop & tablet</h2>
+              </div>
+              <div class="example-title">
+                <h2 class="e-text-caps">Mobile</h2>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- title-lg -->
-        <div class="container">
-          <div class="row">
-            <div class="example example-first">
-              <div class="example-text">
-                <app-copy [message]="'e-title-lg'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-title-lg">
-                      Title Large
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[0].properties[0].value }} |
-                  {{ typographyClasses[0].properties[3].value }}
-                  {{ typographyClasses[0].properties[1].value }} | Lh
-                  {{ typographyClasses[0].properties[4].value }}
-                </span>
+          <div class="container selectionContainer e-mb-24">
+            <div class="row">
+              <div class="example-title e-w-100">
+                <div class="e-segmented-controls">
+                  <input
+                    type="radio"
+                    name="so-1-1"
+                    id="so-1-1"
+                    [checked]="isDesktop"
+                    (change)="changeListView()"
+                  />
+                  <input
+                    type="radio"
+                    name="so-1-1"
+                    id="so-1-2"
+                    [checked]="!isDesktop"
+                    (change)="changeListView()"
+                  />
+                  <label for="so-1-1" data-value="Option 1">
+                    <span class="e-segmented-controls__title">Desktop & tablet</span>
+                  </label>
+                  <label for="so-1-2" data-value="Option 2">
+                    <span class="e-segmented-controls__title">Mobile</span>
+                  </label>
+                </div>
               </div>
             </div>
-            <!-- Mobile -->
-            <div class="example example-first">
-              <div class="example-text">
-                <app-copy [message]="'e-title-lg'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="mobileCopy">
-                      <app-iframe-preview [class]="'e-title-lg'" [code]="'Title Large'"></app-iframe-preview>
-                      <span class="copyMessage">
+          </div>
+
+          <!-- title-lg -->
+          <div class="container">
+            <div class="row">
+              <div class="example example-first" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
+                <div class="example-text">
+                  <app-copy [message]="'e-title-lg'">
+                    <ng-container ngProjectAs="copyContent">
+                      <div class="e-title-lg statusQuoFont-title-lg">
                         Title Large
-                      </span>
-                    </div>
-                  </ng-container>
-                </app-copy>
+                      </div>
+                    </ng-container>
+                  </app-copy>
+                </div>
+                <div>
+                  <span class="e-text-description e-text-grey-80">
+                    {{ typographyClasses[0].properties[0].value }} |
+                    {{ typographyClasses[0].properties[3].value }}
+                    {{ typographyClasses[0].properties[1].value }} | Lh
+                    {{ typographyClasses[0].properties[4].value }}
+                  </span>
+                </div>
               </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[0].properties[0].value }} |
-                  {{ typographyClasses[0].properties[3].value }}
-                  {{ typographyClasses[0].properties[2].value }} | Lh
-                  {{ typographyClasses[0].properties[5].value }}
-                </span>
+              <!-- Mobile -->
+              <div class="example example-first" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div class="example-text">
+                  <app-copy [message]="'e-title-lg'">
+                    <ng-container ngProjectAs="copyContent">
+                      <!-- Might ngIf here to hide on -->
+                      <div class="mobileCopy">
+                        <app-iframe-preview
+                          [class]="'e-title-lg'"
+                          [code]="'Title Large'"
+                        ></app-iframe-preview>
+                        <span class="copyMessage">
+                          Title Large
+                        </span>
+                      </div>
+                    </ng-container>
+                  </app-copy>
+                </div>
+                <div>
+                  <span class="e-text-description e-text-grey-80">
+                    {{ typographyClasses[0].properties[0].value }} |
+                    {{ typographyClasses[0].properties[3].value }}
+                    {{ typographyClasses[0].properties[2].value }} | Lh
+                    {{ typographyClasses[0].properties[5].value }}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- title-md -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-title-md'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="example-text e-title-md">
-                      Title Medium
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[1].properties[0].value }} |
-                  {{ typographyClasses[1].properties[3].value }}
-                  {{ typographyClasses[1].properties[1].value }} | Lh
-                  {{ typographyClasses[1].properties[4].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- title-md -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-title-md'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview
-                          [class]="'e-title-md'"
-                          [code]="'Title Medium'"
-                        ></app-iframe-preview>
-                        <span class="copyMessage">
-                          Title Medium
-                        </span>
+                      <div class="e-title-md statusQuoFont-title-md">
+                        Title Medium
                       </div>
                     </ng-container>
                   </app-copy>
@@ -155,51 +162,51 @@
                   <span class="e-text-description e-text-grey-80">
                     {{ typographyClasses[1].properties[0].value }} |
                     {{ typographyClasses[1].properties[3].value }}
-                    {{ typographyClasses[1].properties[2].value }} | Lh
-                    {{ typographyClasses[1].properties[5].value }}
+                    {{ typographyClasses[1].properties[1].value }} | Lh
+                    {{ typographyClasses[1].properties[4].value }}
                   </span>
+                </div>
+              </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-title-md'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-title-md'"
+                            [code]="'Title Medium'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Title Medium
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[1].properties[0].value }} |
+                      {{ typographyClasses[1].properties[3].value }}
+                      {{ typographyClasses[1].properties[2].value }} | Lh
+                      {{ typographyClasses[1].properties[5].value }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- title-sm -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-title-sm'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="example-text e-title-sm">
-                      Title Small
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[2].properties[0].value }} |
-                  {{ typographyClasses[2].properties[3].value }}
-                  {{ typographyClasses[2].properties[1].value }} | Lh
-                  {{ typographyClasses[2].properties[4].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- title-sm -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-title-sm'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview
-                          [class]="'e-title-sm'"
-                          [code]="'Title Small'"
-                        ></app-iframe-preview>
-                        <span class="copyMessage">
-                          Title Small
-                        </span>
+                      <div class="e-title-sm statusQuoFont-title-sm">
+                        Title Small
                       </div>
                     </ng-container>
                   </app-copy>
@@ -208,51 +215,51 @@
                   <span class="e-text-description e-text-grey-80">
                     {{ typographyClasses[2].properties[0].value }} |
                     {{ typographyClasses[2].properties[3].value }}
-                    {{ typographyClasses[2].properties[2].value }} | Lh
-                    {{ typographyClasses[2].properties[5].value }}
+                    {{ typographyClasses[2].properties[1].value }} | Lh
+                    {{ typographyClasses[2].properties[4].value }}
                   </span>
+                </div>
+              </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-title-sm'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-title-sm'"
+                            [code]="'Title Small'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Title Small
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[2].properties[0].value }} |
+                      {{ typographyClasses[2].properties[3].value }}
+                      {{ typographyClasses[2].properties[2].value }} | Lh
+                      {{ typographyClasses[2].properties[5].value }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- title-xs -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-title-xs'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="example-text e-title-xs">
-                      Title XSmall
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[3].properties[0].value }} |
-                  {{ typographyClasses[3].properties[2].value }}
-                  {{ typographyClasses[3].properties[1].value }} | Lh
-                  {{ typographyClasses[3].properties[3].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- title-xs -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-title-xs'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview
-                          [class]="'e-title-xs'"
-                          [code]="'Title XSmall'"
-                        ></app-iframe-preview>
-                        <span class="copyMessage">
-                          Title XSmall
-                        </span>
+                      <div class="e-title-xs">
+                        Title XSmall
                       </div>
                     </ng-container>
                   </app-copy>
@@ -266,43 +273,46 @@
                   </span>
                 </div>
               </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-title-xs'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-title-xs'"
+                            [code]="'Title XSmall'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Title XSmall
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[3].properties[0].value }} |
+                      {{ typographyClasses[3].properties[2].value }}
+                      {{ typographyClasses[3].properties[1].value }} | Lh
+                      {{ typographyClasses[3].properties[3].value }}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- title-lead -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-text-lead'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="example-text e-text-lead">
-                      Text Lead
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[4].properties[0].value }} |
-                  {{ typographyClasses[4].properties[3].value }}
-                  {{ typographyClasses[4].properties[1].value }} | Lh
-                  {{ typographyClasses[4].properties[4].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- title-lead -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-text-lead'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview [class]="'e-text-lead'" [code]="'Text Lead'"></app-iframe-preview>
-                        <span class="copyMessage">
-                          Text Lead
-                        </span>
+                      <div class="e-text-lead statusQuoFont-text-lead">
+                        Text Lead
                       </div>
                     </ng-container>
                   </app-copy>
@@ -311,51 +321,51 @@
                   <span class="e-text-description e-text-grey-80">
                     {{ typographyClasses[4].properties[0].value }} |
                     {{ typographyClasses[4].properties[3].value }}
-                    {{ typographyClasses[4].properties[2].value }} | Lh
-                    {{ typographyClasses[4].properties[5].value }}
+                    {{ typographyClasses[4].properties[1].value }} | Lh
+                    {{ typographyClasses[4].properties[4].value }}
                   </span>
+                </div>
+              </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-text-lead'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-text-lead'"
+                            [code]="'Text Lead'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Text Lead
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[4].properties[0].value }} |
+                      {{ typographyClasses[4].properties[3].value }}
+                      {{ typographyClasses[4].properties[2].value }} | Lh
+                      {{ typographyClasses[4].properties[5].value }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- text-quote -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-text-quote'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="example-text e-text-quote">
-                      Text Quote
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[5].properties[0].value }} |
-                  {{ typographyClasses[5].properties[6].value }}
-                  {{ typographyClasses[5].properties[1].value }} | Lh
-                  {{ typographyClasses[5].properties[4].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- text-quote -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-text-quote'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview
-                          [class]="'e-text-quote'"
-                          [code]="'Text Quote'"
-                        ></app-iframe-preview>
-                        <span class="copyMessage">
-                          Text Quote
-                        </span>
+                      <div class="e-text-quote statusQuoFont-text-quote">
+                        Text Quote
                       </div>
                     </ng-container>
                   </app-copy>
@@ -364,48 +374,51 @@
                   <span class="e-text-description e-text-grey-80">
                     {{ typographyClasses[5].properties[0].value }} |
                     {{ typographyClasses[5].properties[6].value }}
-                    {{ typographyClasses[5].properties[2].value }} | Lh
-                    {{ typographyClasses[5].properties[5].value }}
+                    {{ typographyClasses[5].properties[1].value }} | Lh
+                    {{ typographyClasses[5].properties[4].value }}
                   </span>
+                </div>
+              </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-text-quote'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-text-quote'"
+                            [code]="'Text Quote'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Text Quote
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[5].properties[0].value }} |
+                      {{ typographyClasses[5].properties[6].value }}
+                      {{ typographyClasses[5].properties[2].value }} | Lh
+                      {{ typographyClasses[5].properties[5].value }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- text-body -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-text-body'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="example-text e-text-body">
-                      Text Body
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[6].properties[0].value }} |
-                  {{ typographyClasses[6].properties[3].value }}
-                  {{ typographyClasses[6].properties[1].value }} | Lh
-                  {{ typographyClasses[6].properties[4].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- text-body -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-text-body'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview [class]="'e-text-body'" [code]="'Text Body'"></app-iframe-preview>
-                        <span class="copyMessage">
-                          Text Body
-                        </span>
+                      <div class="e-text-body statusQuoFont-text-body">
+                        Text Body
                       </div>
                     </ng-container>
                   </app-copy>
@@ -414,49 +427,51 @@
                   <span class="e-text-description e-text-grey-80">
                     {{ typographyClasses[6].properties[0].value }} |
                     {{ typographyClasses[6].properties[3].value }}
-                    {{ typographyClasses[6].properties[2].value }} | Lh
-                    {{ typographyClasses[6].properties[5].value }}
+                    {{ typographyClasses[6].properties[1].value }} | Lh
+                    {{ typographyClasses[6].properties[4].value }}
                   </span>
+                </div>
+              </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-text-body'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-text-body'"
+                            [code]="'Text Body'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Text Body
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[6].properties[0].value }} |
+                      {{ typographyClasses[6].properties[3].value }}
+                      {{ typographyClasses[6].properties[2].value }} | Lh
+                      {{ typographyClasses[6].properties[5].value }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- text-img -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-text-img'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-img">
-                      Text Image
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[7].properties[0].value }} |
-                  {{ typographyClasses[7].properties[7].value }},
-                  {{ typographyClasses[7].properties[4].value }}
-                  {{ typographyClasses[7].properties[1].value }} | Lh
-                  {{ typographyClasses[7].properties[5].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- text-img -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-text-img'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview [class]="'e-text-img'" [code]="'Text Image'"></app-iframe-preview>
-                        <span class="copyMessage">
-                          Text Image
-                        </span>
+                      <div class="e-text-img statusQuoFont-text-img">
+                        Text Image
                       </div>
                     </ng-container>
                   </app-copy>
@@ -466,51 +481,52 @@
                     {{ typographyClasses[7].properties[0].value }} |
                     {{ typographyClasses[7].properties[7].value }},
                     {{ typographyClasses[7].properties[4].value }}
-                    {{ typographyClasses[7].properties[2].value }} | Lh
-                    {{ typographyClasses[7].properties[6].value }}
+                    {{ typographyClasses[7].properties[1].value }} | Lh
+                    {{ typographyClasses[7].properties[5].value }}
                   </span>
+                </div>
+              </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-text-img'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-text-img'"
+                            [code]="'Text Image'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Text Image
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[7].properties[0].value }} |
+                      {{ typographyClasses[7].properties[7].value }},
+                      {{ typographyClasses[7].properties[4].value }}
+                      {{ typographyClasses[7].properties[2].value }} | Lh
+                      {{ typographyClasses[7].properties[6].value }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <!-- text-description -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-text-description'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="example-text e-text-description">
-                      Text Description
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[8].properties[0].value }} |
-                  {{ typographyClasses[8].properties[2].value }}
-                  {{ typographyClasses[8].properties[1].value }} | Lh
-                  {{ typographyClasses[8].properties[3].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- text-description -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-text-description'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview
-                          [class]="'e-text-description'"
-                          [code]="'Text Description'"
-                        ></app-iframe-preview>
-                        <span class="copyMessage">
-                          Text Description
-                        </span>
+                      <div class="e-text-description">
+                        Text Description
                       </div>
                     </ng-container>
                   </app-copy>
@@ -524,44 +540,46 @@
                   </span>
                 </div>
               </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-text-description'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-text-description'"
+                            [code]="'Text Description'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Text Description
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[8].properties[0].value }} |
+                      {{ typographyClasses[8].properties[2].value }}
+                      {{ typographyClasses[8].properties[1].value }} | Lh
+                      {{ typographyClasses[8].properties[3].value }}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- text-caps -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-text-caps'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="example-text e-text-caps">
-                      Text Caps
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[9].properties[0].value }} |
-                  {{ typographyClasses[9].properties[5].value }}
-                  {{ typographyClasses[9].properties[1].value }} | Lh
-                  {{ typographyClasses[9].properties[3].value }} | Ls
-                  {{ typographyClasses[9].properties[4].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- text-caps -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-text-caps'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview [class]="'e-text-caps'" [code]="'Text Caps'"></app-iframe-preview>
-                        <span class="copyMessage">
-                          Text Caps
-                        </span>
+                      <div class="e-text-caps">
+                        Text Caps
                       </div>
                     </ng-container>
                   </app-copy>
@@ -576,43 +594,47 @@
                   </span>
                 </div>
               </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-text-caps'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-text-caps'"
+                            [code]="'Text Caps'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Text Caps
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[9].properties[0].value }} |
+                      {{ typographyClasses[9].properties[5].value }}
+                      {{ typographyClasses[9].properties[1].value }} | Lh
+                      {{ typographyClasses[9].properties[3].value }} | Ls
+                      {{ typographyClasses[9].properties[4].value }}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- text-info -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-text-info'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="example-text e-text-info">
-                      Text Info
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[10].properties[0].value }} |
-                  {{ typographyClasses[10].properties[2].value }}
-                  {{ typographyClasses[10].properties[1].value }} | Lh
-                  {{ typographyClasses[10].properties[3].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- text-info -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-text-info'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview [class]="'e-text-info'" [code]="'Text Info'"></app-iframe-preview>
-                        <span class="copyMessage">
-                          Text Info
-                        </span>
+                      <div class="e-text-info">
+                        Text Info
                       </div>
                     </ng-container>
                   </app-copy>
@@ -626,46 +648,46 @@
                   </span>
                 </div>
               </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-text-info'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-text-info'"
+                            [code]="'Text Info'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Text Info
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[10].properties[0].value }} |
+                      {{ typographyClasses[10].properties[2].value }}
+                      {{ typographyClasses[10].properties[1].value }} | Lh
+                      {{ typographyClasses[10].properties[3].value }}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- text-label -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-text-label'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="example-text e-text-label">
-                      Text Label
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[11].properties[0].value }} |
-                  {{ typographyClasses[11].properties[2].value }}
-                  {{ typographyClasses[11].properties[1].value }} | Lh
-                  {{ typographyClasses[11].properties[3].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- text-label -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-text-label'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview
-                          [class]="'e-text-label'"
-                          [code]="'Text Label'"
-                        ></app-iframe-preview>
-                        <span class="copyMessage">
-                          Text Label
-                        </span>
+                      <div class="e-text-label">
+                        Text Label
                       </div>
                     </ng-container>
                   </app-copy>
@@ -679,46 +701,46 @@
                   </span>
                 </div>
               </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-text-label'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-text-label'"
+                            [code]="'Text Label'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Text Label
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[11].properties[0].value }} |
+                      {{ typographyClasses[11].properties[2].value }}
+                      {{ typographyClasses[11].properties[1].value }} | Lh
+                      {{ typographyClasses[11].properties[3].value }}
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- text-option -->
-        <div class="container">
-          <div class="row">
-            <div class="example">
-              <div class="example-text">
-                <app-copy [message]="'e-text-option'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="example-text e-text-option">
-                      Text Option
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[12].properties[0].value }} |
-                  {{ typographyClasses[12].properties[2].value }}
-                  {{ typographyClasses[12].properties[1].value }} | Lh
-                  {{ typographyClasses[12].properties[3].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="example">
-              <div>
+          <!-- text-option -->
+          <div class="container">
+            <div class="row">
+              <div class="example" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
                 <div class="example-text">
                   <app-copy [message]="'e-text-option'">
                     <ng-container ngProjectAs="copyContent">
-                      <div class="mobileCopy">
-                        <app-iframe-preview
-                          [class]="'e-text-option'"
-                          [code]="'Text Option'"
-                        ></app-iframe-preview>
-                        <span class="copyMessage">
-                          Text Option
-                        </span>
+                      <div class="e-text-option">
+                        Text Option
                       </div>
                     </ng-container>
                   </app-copy>
@@ -730,6 +752,34 @@
                     {{ typographyClasses[12].properties[1].value }} | Lh
                     {{ typographyClasses[12].properties[3].value }}
                   </span>
+                </div>
+              </div>
+              <!-- Mobile -->
+              <div class="example" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+                <div>
+                  <div class="example-text">
+                    <app-copy [message]="'e-text-option'">
+                      <ng-container ngProjectAs="copyContent">
+                        <div class="mobileCopy">
+                          <app-iframe-preview
+                            [class]="'e-text-option'"
+                            [code]="'Text Option'"
+                          ></app-iframe-preview>
+                          <span class="copyMessage">
+                            Text Option
+                          </span>
+                        </div>
+                      </ng-container>
+                    </app-copy>
+                  </div>
+                  <div>
+                    <span class="e-text-description e-text-grey-80">
+                      {{ typographyClasses[12].properties[0].value }} |
+                      {{ typographyClasses[12].properties[2].value }}
+                      {{ typographyClasses[12].properties[1].value }} | Lh
+                      {{ typographyClasses[12].properties[3].value }}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>

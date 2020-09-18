@@ -11,6 +11,14 @@
     display: flex;
     flex-direction: column;
 
+    &.selectionContainer {
+      display: none;
+
+      @include breakpoint-up(Mobile) {
+        display: flex;
+      }
+    }
+
     .row {
       display: flex;
       flex-direction: row;
@@ -33,6 +41,10 @@
         margin: var(--e-spacing-24) 0;
         margin-bottom: 0;
 
+        @include breakpoint-up(Mobile) {
+          width: 100%;
+        }
+
         &.example-first {
           margin-top: var(--e-spacing-16);
         }
@@ -54,6 +66,13 @@
     }
   }
 }
+
+.hideOnMobile {
+  @include breakpoint-up(Mobile) {
+    display: none !important;
+  }
+}
+
 .mobileCopy {
   display: flex;
   position: relative;
@@ -71,4 +90,48 @@
   display: flex;
   width: 60%;
   margin: auto;
+}
+
+// classes to maintain desktop font variables on mobile examples
+.statusQuoFont-title-lg {
+  @include breakpoint-up(Mobile) {
+    font-size: 44px;
+    line-height: 53px;
+  }
+}
+.statusQuoFont-title-md {
+  @include breakpoint-up(Mobile) {
+    font-size: 30px;
+    line-height: 36px;
+  }
+}
+.statusQuoFont-title-sm {
+  @include breakpoint-up(Mobile) {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+.statusQuoFont-text-lead {
+  @include breakpoint-up(Mobile) {
+    font-size: 24px;
+    line-height: 39px;
+  }
+}
+.statusQuoFont-text-quote {
+  @include breakpoint-up(Mobile) {
+    font-size: 26px;
+    line-height: 42px;
+  }
+}
+.statusQuoFont-text-body {
+  @include breakpoint-up(Mobile) {
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
+.statusQuoFont-text-img {
+  @include breakpoint-up(Mobile) {
+    font-size: 18px;
+    line-height: 29px;
+  }
 }
