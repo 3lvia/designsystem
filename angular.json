@@ -29,8 +29,8 @@
               "src/_redirects",
               { "glob": "CHANGELOG.md", "input": "style/elvis", "output": "./assets/elvis" },
               {
-                "glob": "*.svg",
-                "input": "style/elvis/src/icons/svg/dist/",
+                "glob": "**/*",
+                "input": "style/elvis/src/icons/",
                 "output": "./assets/elvis/icons/"
               }
             ],

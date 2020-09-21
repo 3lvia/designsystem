@@ -51,7 +51,7 @@
               </button>
             </div>
             <a
-              href="./assets/elvis/icons/add_circle.svg"
+              [href]="'./assets/elvis/icons/svg/dist/' + icon.title + '.svg'"
               download
               class="e-btn e-btn--tertiary e-btn--sm e-mr-24"
             >
@@ -60,12 +60,16 @@
               </span>
               <span class="e-btn__title">Svg</span>
             </a>
-            <button class="e-btn e-btn--tertiary e-btn--sm">
+            <a
+              [href]="'./assets/elvis/icons/png/dist/' + icon.title + '.png'"
+              download
+              class="e-btn e-btn--tertiary e-btn--sm e-mr-24"
+            >
               <span class="e-btn__icon">
                 <i class="e-icon e-icon--download"></i>
               </span>
               <span class="e-btn__title">Png</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -246,13 +250,17 @@
       <app-component-subsection [sectionTitle]="'Method 1: Easiest'">
         <ng-container ngProjectAs="sectionContent">
           <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
-          <p>
+          <p class="e-mb-0">
             Download the npm package and use Elvis.js from inside the npm package like this:
-            <app-code-highlighter [codeHTML]="scriptCodeHTML" class="e-mt-16"></app-code-highlighter>
           </p>
-          <p>
+          <p class="e-m-0 e-mt-16">
+            <app-code-highlighter [codeHTML]="scriptCodeHTML"></app-code-highlighter>
+          </p>
+          <p class="e-mb-0">
             The icons can then be used like this:
-            <app-code-highlighter [codeHTML]="iconExample" class="e-mt-16"></app-code-highlighter>
+          </p>
+          <p class="e-m-0 e-mt-16">
+            <app-code-highlighter [codeHTML]="iconExample"></app-code-highlighter>
           </p>
           <p>
             <strong>How it works:</strong>
@@ -267,7 +275,9 @@
         <ng-container ngProjectAs="sectionContent">
           All icons are accessible as SVGs within a JS module. Import the required icon individually where you
           need them:
-          <app-code-highlighter [codeTS]="importCodeTS" class="e-mt-16"></app-code-highlighter>
+          <div class="e-mt-16">
+            <app-code-highlighter [codeTS]="importCodeTS"></app-code-highlighter>
+          </div>
           <p>
             To get the icon you can use the following:
             <code class="code-text">addCircle.getIcon()</code>

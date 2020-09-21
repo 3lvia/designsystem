@@ -290,9 +290,13 @@ async function createPNG() {
   });
 
   iconsToInclude.forEach((file) => {
-    sharp(file.path).toFile('src/icons/png/dist/' + file.name + '.png', (err, info) => {
-      console.log(err, info);
-    });
+    const density = parseInt((72 * 56) / 24);
+
+    sharp(file.path, { density: density })
+      .resize(56)
+      .toFile('src/icons/png/dist/' + file.name + '.png', (err, info) => {
+        console.log(err, info);
+      });
   });
 
   return true;

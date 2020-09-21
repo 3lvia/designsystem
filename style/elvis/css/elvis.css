@@ -1908,7 +1908,7 @@ input:focus {
   flex-direction: row;
 }
 
-.e-filter-button-container .e-filter-button:not(:last-child) {
+.e-filter-button-container .e-filter-button:not(:last-of-type) {
   margin-right: 4px;
 }
 
