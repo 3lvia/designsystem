@@ -1,1 +1,29 @@
-<app-overview-page [overviewTitle]="overviewTitle" [pages]="pages"></app-overview-page>
+<app-overview-page class="phone-overview" [overviewTitle]="overviewTitle" [pages]="pages"></app-overview-page>
+
+<div class="desktop-overview">
+  <span class="e-title-md">Tools</span>
+
+  <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
+    <div style="width: 100%;">
+      <div class="headerIllustration">
+        <img
+          class="toolsIllustration"
+          src="../../../../assets/website-icons/tools-images/tools-illustration.svg"
+          alt="Illustration for Tools overview page"
+        />
+      </div>
+    </div>
+    <div class="cardsContainer">
+      <div class="cardLink" *ngFor="let page of filteredPages">
+        <a class="e-link e-link--card" *ngIf="page.absolutePath" [routerLink]="[page.absolutePath]">
+          <div class="e-link__content">
+            <div class="e-link__icon">
+              <img src="{{ page.imageUrl }}" alt="" />
+            </div>
+            <div class="e-link__title">{{ page.title }}</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

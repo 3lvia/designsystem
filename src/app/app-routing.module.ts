@@ -20,8 +20,6 @@ import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutto
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
 import { ShadowDocComponent } from './doc-pages/identity/shadow-doc/shadow-doc.component';
 import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
-import { AltTextComponent } from './doc-pages/tools/alt-text/alt-text.component';
-import { UuToolsComponent } from './doc-pages/tools/uu-tools/uu-tools.component';
 import { SpacingDocComponent } from './doc-pages/identity/spacing-doc/spacing-doc.component';
 import { BorderDocComponent } from './doc-pages/identity/border-doc/border-doc.component';
 import { OverviewToolsComponent } from './doc-pages/tools/overview-tools/overview-tools.component';
@@ -58,10 +56,13 @@ import { HeaderDocComponent } from './doc-pages/components/header-doc/header-doc
 import { DropdownDocComponent } from './doc-pages/components/dropdown-doc/dropdown-doc.component';
 import { SearchDocComponent } from './doc-pages/components/forms/search-doc/search-doc.component';
 import { AccordionDocComponent } from './doc-pages/components/accordion-doc/accordion-doc.component';
-import { UtilitiesDocComponent } from './doc-pages/identity/utilities-doc/utilities-doc.component';
+import { UtilitiesDocComponent } from './doc-pages/tools/utilities-doc/utilities-doc.component';
 import { StepperDocComponent } from './doc-pages/components/stepper-doc/stepper-doc.component';
 import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
+import { DesignProcessDocComponent } from './doc-pages/tools/design-process-doc/design-process-doc.component';
+import { UserFeedbackDocComponent } from './doc-pages/tools/user-feedback-doc/user-feedback-doc.component';
 import { ToneOfVoiceComponent } from './doc-pages/identity/tone-of-voice/tone-of-voice.component';
+import { PatternsDocComponent } from './doc-pages/tools/patterns-doc/patterns-doc.component';
 
 const routes: Routes = [
   {
@@ -144,10 +145,6 @@ const routes: Routes = [
           {
             path: Pages.Logo,
             component: LogoDocComponent,
-          },
-          {
-            path: Pages.Utilities,
-            component: UtilitiesDocComponent,
           },
         ],
       },
@@ -308,12 +305,20 @@ const routes: Routes = [
             component: AccessibilityDocComponent,
           },
           {
-            path: Pages.AltText,
-            component: AltTextComponent,
+            path: Pages.DesignProcess,
+            component: DesignProcessDocComponent,
           },
           {
-            path: Pages.UUTools,
-            component: UuToolsComponent,
+            path: Pages.UserFeedback,
+            component: UserFeedbackDocComponent,
+          },
+          {
+            path: Pages.Utilities,
+            component: UtilitiesDocComponent,
+          },
+          {
+            path: Pages.Patterns,
+            component: PatternsDocComponent,
           },
         ],
       },

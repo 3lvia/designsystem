@@ -1779,6 +1779,11 @@ input:focus {
   padding: 11px 43px 11px 15px;
 }
 
+.e-input input[type=date]::-webkit-calendar-picker-indicator,
+.e-input input[type=time]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
 .e-combined-field .e-input:not(:last-of-type) {
   margin-right: 8px;
 }
@@ -5384,6 +5389,11 @@ input:focus {
   cursor: pointer;
 }
 
+@media screen and (-ms-high-contrast: none) {
+  .e-checkbox {
+    width: 100%;
+  }
+}
 .e-checkbox:not(:last-child) {
   margin-bottom: 12px;
 }
@@ -5401,6 +5411,7 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  line-height: 16px;
 }
 
 .e-checkbox.e-checkbox--sm input {
@@ -5568,7 +5579,8 @@ input:focus {
 }
 
 .e-checkbox__mark {
-  display: inline-block;
+  display: inline-flex;
+  align-self: flex-start;
   min-width: 24px;
   min-height: 24px;
   max-width: 24px;
@@ -5582,6 +5594,8 @@ input:focus {
 .e-checkbox__label {
   font-size: inherit;
   margin-left: 8px;
+  line-height: 24px;
+  width: fit-content;
 }
 
 @keyframes checkmarkHeight {

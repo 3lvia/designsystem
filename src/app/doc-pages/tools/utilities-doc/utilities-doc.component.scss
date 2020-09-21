@@ -1,0 +1,58 @@
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
+@import '../../../../../style/elvis/src/variables/colors.scss';
+
+.utilityContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
+  @include breakpoint-up(Tablet) {
+    flex-direction: column;
+  }
+}
+
+.tableRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+  }
+}
+
+.rowTitle {
+  width: 15%;
+  margin-right: 24px;
+
+  @include breakpoint-up(Tablet) {
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+}
+
+.class {
+  width: 25%;
+  height: fit-content;
+  margin-right: 16px;
+  @include breakpoint-up(Mobile) {
+    width: 100%;
+  }
+}
+
+.description {
+  display: flex;
+  width: 50%;
+  @include breakpoint-up(Mobile) {
+    width: 100%;
+  }
+}
+
+.cssContent {
+  width: 25%;
+  margin-left: 16px;
+  @include breakpoint-up(Mobile) {
+    width: 100%;
+    margin-left: 0;
+  }
+}

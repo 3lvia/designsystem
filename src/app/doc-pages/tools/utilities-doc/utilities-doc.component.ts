@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getIdentity } from 'src/app/shared/e-items';
+import { getTools } from 'src/app/shared/e-items';
 
 @Component({
   selector: 'app-utilities-doc',
@@ -8,7 +8,6 @@ import { getIdentity } from 'src/app/shared/e-items';
 })
 export class UtilitiesDocComponent {
 
-  example1 = 'Just some test';
-  description = getIdentity('utilities-doc').description;
+  description = getTools('utilities-doc').description;
 
 }

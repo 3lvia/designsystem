@@ -6,4 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./accessibility-doc.component.scss'],
 })
 export class AccessibilityDocComponent {
+
+  doCode = `<div class="e-bg-green"></div>`;
+  dontCode = `<div class="e-bg-green e-text-grey"></div>`;
 }

@@ -15,7 +15,11 @@
           src="assets/hyperlink-3-green.svg"
         />
       </span>
-      <h2 class="e-title-md elvis-anchor-title e-mt-104 e-mb-24">{{ sectionTitle }}</h2>
+      <h2 class="e-title-md elvis-anchor-title e-mt-104 e-mb-24" style="display: flex;">
+        {{ sectionTitle }}
+        <ng-content select="headerIcon"></ng-content>
+      </h2>
+
       <span class="e-tooltip__content">Copied!</span>
     </span>
     <span class="e-ml-16" *ngIf="propertiesClass != ''">
