@@ -348,6 +348,7 @@ body {
   padding: 22px 30px 22px 22px;
   box-sizing: border-box;
   border: 2px solid #ff0000;
+  background: #fff;
   flex-direction: row;
   max-width: 850px;
 }

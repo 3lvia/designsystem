@@ -10,17 +10,72 @@
 
 <!--BODY-->
 <div class="page-body">
+  <!--COPY ALERT-->
+  <div
+    class="alert-container e-none"
+    *ngFor="let icon of visibleIcons | iconSearchPipe: term"
+    [id]="icon.title"
+  >
+    <div class="e-alert e-alert--local e-alert--info">
+      <div class="e-alert__icon">
+        <i class="e-icon e-icon--download"></i>
+      </div>
+      <div class="e-alert__content e-w-100">
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+            <div class="e-alert__title">Download</div>
+            <div class="e-alert__text">
+              <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                <div class="e-text-info e-text-grey-70">
+                  e-icon e-icon--{{ icon.title }} e-icon--sm
+                  <span *ngIf="inverted">e-icon--inverted</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="alert-buttons e-text-info e-text-grey-70">
+            <div class="copy-text-container">
+              <div [ngClass]="{ hide: !copied }" class="copy-text e-mr-24 e-text-black">
+                Copied!
+              </div>
+              <button
+                [ngClass]="{ hide: copied }"
+                class="copy-text e-btn e-btn--tertiary e-btn--sm e-mr-24"
+                (click)="copyIconClass(icon.title)"
+              >
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--copy"></i>
+                </span>
+                <span class="e-btn__title">Copy</span>
+              </button>
+            </div>
+            <a
+              href="./assets/elvis/icons/add_circle.svg"
+              download
+              class="e-btn e-btn--tertiary e-btn--sm e-mr-24"
+            >
+              <span class="e-btn__icon">
+                <i class="e-icon e-icon--download"></i>
+              </span>
+              <span class="e-btn__title">Svg</span>
+            </a>
+            <button class="e-btn e-btn--tertiary e-btn--sm">
+              <span class="e-btn__icon">
+                <i class="e-icon e-icon--download"></i>
+              </span>
+              <span class="e-btn__title">Png</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!--ICONS-->
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
       <div class="overview-search-container">
-        <div class="dark-mode-toggle mobile">
-          <span class="e-text-info">Dark</span>
-          <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': inverted }">
-            <input class="e-toggle__input" type="checkbox" (click)="invert()" [checked]="inverted" />
-            <span class="e-toggle__slider"></span>
-          </label>
-        </div>
         <div class="e-form-field">
           <label class="e-form-field__label" for="compact">Search</label>
           <div class="e-input">
@@ -28,7 +83,7 @@
             <input type="text" placeholder="Search through all icons" [(ngModel)]="term" />
           </div>
         </div>
-        <div class="filter-buttons">
+        <div class="e-filter-button-container">
           <button
             class="e-filter-button"
             style="margin-right: 4px;"
@@ -61,6 +116,13 @@
             Two colored
           </button>
         </div>
+        <div class="dark-mode-toggle mobile">
+          <span class="e-text-description">Dark</span>
+          <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': inverted }">
+            <input class="e-toggle__input" type="checkbox" (click)="invert()" [checked]="inverted" />
+            <span class="e-toggle__slider"></span>
+          </label>
+        </div>
         <div class="dark-mode-toggle">
           <span class="e-text-info">Dark</span>
           <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': inverted }">
@@ -69,28 +131,37 @@
           </label>
         </div>
       </div>
-      <div class="overview-icons-container" [style.backgroundColor]="inverted ? 'black' : 'white'" #icons>
-        <div class="icon-card" *ngFor="let icon of visibleIcons | iconSeachPipe: term">
-          <div class="icon-icon">
-            <i
-              [class.e-icon--inverted]="inverted"
-              [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
-            ></i>
-          </div>
-          <div class="e-text-info" [style.color]="inverted ? 'white' : 'black'">
-            {{ icon.pretty }}
-          </div>
-        </div>
-      </div>
-      <div class="e-mt-40">
-        <div class="e-accordion e-accordion--end">
-          <div class="e-accordion__item" #accordionIcons>
-            <div class="e-accordion__label" (click)="toggleOpen()">
-              See all
+      <div class="icon-accordion-container">
+        <div
+          class="overview-icons-container"
+          [style.backgroundColor]="inverted ? 'var(--e-grey)' : 'white'"
+          #icons
+        >
+          <div
+            *ngFor="let icon of visibleIcons | iconSearchPipe: term; let i = index"
+            [class.margin-auto]="icon === -1"
+          >
+            <div *ngIf="icon === -1" class="no-results" [class.e-text-white]="inverted">
+              <div>Oh snap 😕</div>
+              <div>We can’t find the icon you are looking for! Contact us if you want to add an icon</div>
             </div>
-            <div class="e-accordion__icon" (click)="toggleOpen()">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            <div
+              *ngIf="icon !== -1"
+              class="icon-card"
+              (click)="openCopyAlert(icon.title)"
+              [id]="icon.title + '_container'"
+            >
+              <div>
+                <div class="icon-icon">
+                  <i
+                    [class.e-icon--inverted]="inverted"
+                    [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
+                  ></i>
+                </div>
+                <div class="e-text-info" [style.color]="inverted ? 'white' : 'black'">
+                  {{ icon.pretty }}
+                </div>
+              </div>
             </div>
           </div>
         </div>

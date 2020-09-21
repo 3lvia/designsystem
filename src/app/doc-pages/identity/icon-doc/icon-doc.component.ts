@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
 import { Icon } from 'src/app/shared/icon.interface';
 import { getIdentity } from 'src/app/shared/e-items';
 import * as icons from 'style/elvis/src/config/icons.config';
+import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 
 @Component({
   selector: 'app-icon-doc',
@@ -10,8 +11,11 @@ import * as icons from 'style/elvis/src/config/icons.config';
 })
 export class IconDocComponent implements OnInit {
 
-  @ViewChild('accordionIcons') accordionIcons: ElementRef;
+  @ViewChild('accordionIconsDesktop') accordionIconsDesktop: ElementRef;
+  @ViewChild('accordionIconsMobile') accordionIconsMobile: ElementRef;
   @ViewChild('icons') icons: ElementRef;
+
+  @Output() clickOutside: EventEmitter<any> = new EventEmitter();
 
   visibleIcons = [];
   allIcons = [];
@@ -22,6 +26,8 @@ export class IconDocComponent implements OnInit {
   description = getIdentity('icon-doc').description;
   inverted = false;
   selected = 'all';
+  latestIcon = '';
+  copied = false;
 
   example = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-mr-40"></i>
 <i class="e-icon e-icon--move_truck-color e-icon--xs e-mr-40"></i>
@@ -56,6 +62,22 @@ export class IconDocComponent implements OnInit {
 
   term;
   IconClassList: Icon[] = [];
+
+  constructor(private copyService: CopyToClipboardService) { }
+
+  @HostListener('document:click', ['$event', '$event.target'])
+  onClick(event: MouseEvent, targetElement: HTMLElement): void {
+    const alert = document.getElementById(this.latestIcon);
+    const iconContainer = document.getElementById(this.latestIcon + '_container');
+    if (!alert && !iconContainer) {
+      return;
+    }
+    const alertClick = alert.contains(targetElement);
+    const iconContainerClick = iconContainer.contains(targetElement);
+    if (!alertClick && !iconContainerClick) {
+      this.closeLastAlert(this.latestIcon);
+    }
+  }
 
   ngOnInit(): void {
     this.fillIconList();
@@ -97,7 +119,6 @@ export class IconDocComponent implements OnInit {
   }
 
   setOutlineIcons(): void {
-    console.log(this.allIcons);
     this.outlinedIcons = this.allIcons.filter(icon => {
       return !icon.title.includes('-filled') && !icon.title.includes('-color');
     });
@@ -113,16 +134,28 @@ export class IconDocComponent implements OnInit {
     });
   }
 
-  toggleOpen(): void {
+  toggleOpenDesktop(): void {
     if (this.icons.nativeElement.classList.contains('open-accordion')) {
       this.icons.nativeElement.classList.remove('open-accordion');
     } else {
       this.icons.nativeElement.classList.add('open-accordion');
     }
-    if (this.accordionIcons.nativeElement.classList.contains('e-accordion__item--open')) {
-      this.accordionIcons.nativeElement.classList.remove('e-accordion__item--open');
+    if (this.accordionIconsDesktop.nativeElement.classList.contains('e-accordion__item--open')) {
+      this.accordionIconsDesktop.nativeElement.classList.remove('e-accordion__item--open');
     } else {
-      this.accordionIcons.nativeElement.classList.add('e-accordion__item--open');
+      this.accordionIconsDesktop.nativeElement.classList.add('e-accordion__item--open');
+    }
+  }
+  toggleOpenMobile(): void {
+    if (this.icons.nativeElement.classList.contains('open-accordion')) {
+      this.icons.nativeElement.classList.remove('open-accordion');
+    } else {
+      this.icons.nativeElement.classList.add('open-accordion');
+    }
+    if (this.accordionIconsMobile.nativeElement.classList.contains('e-accordion__item--open')) {
+      this.accordionIconsMobile.nativeElement.classList.remove('e-accordion__item--open');
+    } else {
+      this.accordionIconsMobile.nativeElement.classList.add('e-accordion__item--open');
     }
   }
 
@@ -140,5 +173,37 @@ export class IconDocComponent implements OnInit {
     if (filter === 'colored') {
       this.visibleIcons = this.twoColoredIcons;
     }
+  }
+
+  openCopyAlert(iconTitle: string): void {
+    this.closeLastAlert(this.latestIcon);
+
+    const elementContainer = document.getElementById(iconTitle + '_container');
+    elementContainer.classList.add('selected');
+    const element = document.getElementById(iconTitle);
+    element.classList.remove('e-none');
+    this.latestIcon = iconTitle;
+  }
+
+  closeLastAlert(itemId: string): void {
+    this.copied = false;
+    if (this.latestIcon !== '') {
+      const lastElementContainer = document.getElementById(itemId + '_container');
+      if (lastElementContainer) {
+        lastElementContainer.classList.remove('selected');
+      }
+
+      const element = document.getElementById(itemId);
+      if (element) {
+        element.classList.add('e-none');
+      }
+
+    }
+  }
+
+  copyIconClass(iconTitle: string): void {
+    this.copied = true;
+    const iconClass = 'e-icon e-icon--' + iconTitle + ' e-icon--sm';
+    this.copyService.copyToClipBoard(iconClass);
   }
 }

@@ -1,6 +1,9 @@
 @import '../../../shared/shared-animations';
 @import '../../../../../style/elvis/src/utilities/breakpoints.scss';
 
+$maxIconContainer: 550px;
+$maxIconContainerMobile: 450px;
+
 .sizes-container {
   display: flex;
   justify-content: center;
@@ -17,16 +20,6 @@
   }
 }
 
-.dark-mode-toggle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .e-toggle {
-    margin-left: 8px;
-  }
-}
-
 .overview {
   &-search-container {
     display: flex;
@@ -34,54 +27,85 @@
     justify-content: space-between;
     align-items: center;
     .e-form-field {
-      width: 35%;
+      width: 270px;
       margin-top: -28px;
     }
-    .filter-buttons {
+    .e-filter-button-container {
       display: flex;
+    }
+    .dark-mode-toggle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .e-toggle {
+        margin-left: 8px;
+      }
     }
     .dark-mode-toggle.mobile {
       display: none;
     }
     @media (max-width: 1260px) {
-      flex-direction: column;
-      align-items: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
       .e-form-field {
-        width: 100%;
-        margin-top: 24px;
+        margin-right: 24px;
+        margin-top: -28px + 16px;
       }
-      .filter-buttons {
-        margin-top: 24px;
-        .e-filter-button {
-          margin-right: 4px;
-        }
+      .e-filter-button-container {
+        margin-top: 16px;
+        flex: 1 1 350px;
       }
       .dark-mode-toggle {
         display: none;
       }
       .dark-mode-toggle.mobile {
+        margin-top: 16px;
         display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 1 1 10%;
+      }
+    }
+    @include breakpoint-up(Mobile) {
+      .e-form-field {
+        width: 100%;
+        margin-right: 0;
       }
     }
   }
 
   &-icons-container {
-    max-height: 364px;
-    overflow: hidden;
+    min-height: $maxIconContainer;
+    max-height: $maxIconContainer;
+    overflow: scroll;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    margin-top: 46px;
+    align-content: baseline;
+    margin-top: 24px;
     padding: 8px;
     border-radius: 8px;
-    @media (max-width: 560px) {
-      max-height: 348px;
+    @include breakpoint-up(Mobile) {
+      min-height: $maxIconContainerMobile;
+      max-height: $maxIconContainerMobile;
     }
 
-    &.open-accordion {
-      max-height: 10000px;
-      transition: 0.5s cubic-bezier(0.4, 0.01, 0.12, 0.32);
+    .margin-auto {
+      margin: 0 auto;
+    }
+
+    .no-results {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 0 72px;
+      margin-top: 104px;
+      text-align: center;
+      @include breakpoint-up(Mobile) {
+        margin: 0 24px;
+        margin-top: 72px;
+      }
     }
 
     .icon-card {
@@ -89,22 +113,148 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin: 20px 10px;
-      width: 72px;
-      text-align: center;
+      width: 110px;
+      height: 110px;
+      margin: 6px;
 
-      .icon-icon {
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-        &:hover {
-          transform: scale(1.1);
-        }
+      @include breakpoint-up(Mobile) {
+        margin: 0px;
+        width: 93px;
+        height: 93px;
       }
+      @include breakpoint-up(Tablet) {
+        margin: 4px;
+      }
+      padding: 4px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: 8px;
 
       .e-text-description {
         margin-top: 8px;
         width: 78px;
         line-height: 16px;
+      }
+
+      .icon-icon {
+        transition: transform 0.3s ease-in-out;
+      }
+      &:hover .icon-icon {
+        transform: scale(1.15);
+      }
+      &.selected {
+        border: 1px solid var(--e-green);
+      }
+    }
+  }
+}
+
+.page-body {
+  position: relative;
+  .alert-container {
+    position: fixed;
+    z-index: 11;
+    left: 50%;
+    top: calc(100vh - 92px);
+    transform: translate(-50%, -50%);
+    .e-alert {
+      height: 109px;
+      width: 650px;
+    }
+    @include breakpoint-up(Tablet) {
+      .e-alert {
+        width: 600px;
+      }
+    }
+    @include breakpoint-up(Mobile) {
+      .e-alert {
+        height: 131px;
+        width: 465px;
+      }
+      top: calc(100vh - 101px);
+    }
+    @media (max-width: 490px) and (min-width: 391px) {
+      .e-alert {
+        width: 350px;
+        height: 156px;
+      }
+      top: calc(100vh - 114px);
+    }
+    @media (max-width: 390px) {
+      .e-alert {
+        width: 290px;
+        height: 196px;
+      }
+      top: calc(100vh - 134px);
+    }
+    .e-alert {
+      box-shadow: var(--e-shadow-3);
+      border: 1px solid #000000;
+      &__icon {
+        justify-content: center;
+        align-items: center;
+        margin-top: 0px;
+        @media (max-width: 490px) {
+          i {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+      &__text {
+        margin-right: 48px;
+        max-width: 350px;
+        @media (max-width: 490px) {
+          width: 136px;
+          margin-right: 0px;
+        }
+      }
+      .alert-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        @include breakpoint-up(Mobile) {
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: flex-start;
+          padding-top: 16px;
+          margin: -16px 0;
+          button:first-of-type {
+            margin-top: 0;
+          }
+          button,
+          a {
+            margin-top: 6px;
+          }
+        }
+      }
+    }
+
+    .copy-text-container {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 82px;
+      .copy-text {
+        visibility: visible;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        width: 58px;
+
+        font-family: 'Red Hat Display';
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .copy-text.hide {
+        visibility: hidden;
+        .e-btn__icon {
+          display: none;
+        }
       }
     }
   }

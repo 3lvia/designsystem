@@ -188,7 +188,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.FilterButton,
     absolutePath: '/components/' + Pages.FilterButton,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/component-images/Filter button.svg',
+    imageUrl: 'assets/website-icons/component-images/Filter buttons.svg',
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=813%3A821',
     type: 'Component',
   },

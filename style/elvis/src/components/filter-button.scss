@@ -4,7 +4,7 @@
 .e-filter-button-container {
   display: flex;
   flex-direction: row;
-  .e-filter-button:not(:last-child) {
+  .e-filter-button:not(:last-of-type) {
     margin-right: 4px;
   }
 }
