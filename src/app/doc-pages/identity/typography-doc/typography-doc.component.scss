@@ -88,8 +88,18 @@
 
 .headerImg {
   display: flex;
-  width: 60%;
+  width: 70%;
   margin: auto;
+
+  @include breakpoint-up(Tablet) {
+    width: 80%;
+    transition: width 250ms ease-in;
+  }
+
+  @include breakpoint-up(Mobile) {
+    width: 90%;
+    transition: width 250ms ease-in;
+  }
 }
 
 // classes to maintain desktop font variables on mobile examples
