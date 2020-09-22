@@ -392,7 +392,7 @@ export const eIdentity: EItems[] = [
   {
     title: 'Grid',
     // tslint:disable-next-line: max-line-length
-    description: 'This grid-system is based off of Bootstraps grid-system and works almost the same. All the Bootstrap grid-system classes are available for use. To use the grid-system add the e-grid class on a wrapper element. The bootstrap-classes will only work inside this wrapper, and will therefore not break any other potential grid-systems.',
+    description: 'Our grid-system is based off of Bootstraps grid-system and works almost the same. Read the  <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://getbootstrap.com/docs/4.4/layout/grid/"><span class="e-link__title">Bootstrap documentation</span><span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span></a> . All the Bootstrap grid-system classes are available for use. To use the grid-system add the e-grid class on a wrapper element. The bootstrap-classes will only work inside this wrapper, and will therefore not break any other potential grid-systems.',
     docUrl: Pages.Grid,
     absolutePath: '/identity/' + Pages.Grid,
     status: ItemStatus.Done,

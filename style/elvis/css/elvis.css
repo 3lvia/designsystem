@@ -10978,7 +10978,8 @@ THE SOFTWARE.
   }
 
   .e-grid .row.e-grid-margin-int {
-    margin: calc(88px - 24px) !important;
+    margin-right: calc(32px - 24px) !important;
+    margin-left: calc(88px - 24px) !important;
   }
 }
 @media (min-width: 1440px) {
@@ -11015,7 +11016,8 @@ THE SOFTWARE.
   }
 
   .e-grid .row.e-grid-margin-int {
-    margin: calc(88px - 24px) !important;
+    margin-right: calc(32px - 24px) !important;
+    margin-left: calc(88px - 24px) !important;
   }
 }
 @media (max-width: 1023px) {
@@ -11052,7 +11054,8 @@ THE SOFTWARE.
   }
 
   .e-grid .row.e-grid-margin-int {
-    margin: calc(24px - 24px) !important;
+    margin-right: calc(24px - 24px) !important;
+    margin-left: calc(88px - 24px) !important;
   }
 }
 @media (max-width: 767px) {
