@@ -1,17 +1,4 @@
-.ExampleContainer {
-  display: flex;
-  justify-content: center;
-
-  .ExampleBox {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    min-width: fit-content;
-  }
-}
-
-.ExampleItem {
+.ExampleSquare {
   box-sizing: border-box;
   border: 1px solid #262626;
   border-radius: 8%;

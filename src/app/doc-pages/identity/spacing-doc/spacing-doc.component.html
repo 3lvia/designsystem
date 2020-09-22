@@ -10,103 +10,18 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--PREVIEW-->
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
-      <div class="ExampleContainer">
-        <div class="ExampleBox e-mr-16">
-          <app-copy [message]="'e-p-8'">
-            <ng-container ngProjectAs="copyContent">
-              <div class="ExampleItem" style="width: 8px; height: 8px;"></div>
-            </ng-container>
-          </app-copy>
-          <div class="e-text-caps">SPACING-8</div>
-          <div class="e-text-info">8px</div>
-        </div>
-        <div class="ExampleBox e-mr-16">
-          <app-copy [message]="'e-p-16'">
-            <ng-container ngProjectAs="copyContent">
-              <div class="ExampleItem" style="width: 16px; height: 16px;"></div>
-            </ng-container>
-          </app-copy>
-          <div class="e-text-caps">SPACING-16</div>
-          <div class="e-text-info">16px</div>
-        </div>
-        <div class="ExampleBox e-mr-16">
-          <app-copy [message]="'e-p-24'">
-            <ng-container ngProjectAs="copyContent">
-              <div class="ExampleItem" style="width: 24px; height: 24px;"></div>
-            </ng-container>
-          </app-copy>
-          <div class="e-text-caps">SPACING-24</div>
-          <div class="e-text-info">24px</div>
-        </div>
-        <div class="ExampleBox e-mr-16">
-          <app-copy [message]="'e-p-32'">
-            <ng-container ngProjectAs="copyContent">
-              <div class="ExampleItem" style="width: 32px; height: 32px;"></div>
-            </ng-container>
-          </app-copy>
-          <div class="e-text-caps">SPACING-32</div>
-          <div class="e-text-info">32px</div>
-        </div>
-        <div class="ExampleBox e-mr-16">
-          <app-copy [message]="'e-p-40'">
-            <ng-container ngProjectAs="copyContent">
-              <div class="ExampleItem" style="width: 40px; height: 40px;"></div>
-            </ng-container>
-          </app-copy>
-          <div class="e-text-caps">SPACING-40</div>
-          <div class="e-text-info">50px</div>
-        </div>
-        <div class="ExampleBox e-mr-16">
-          <app-copy [message]="'e-p-48'">
-            <ng-container ngProjectAs="copyContent">
-              <div class="ExampleItem" style="width: 48px; height: 48px;"></div>
-            </ng-container>
-          </app-copy>
-          <div class="e-text-caps">SPACING-48</div>
-          <div class="e-text-info">48px</div>
-        </div>
-        <div class="ExampleBox e-mr-16">
-          <app-copy [message]="'e-p-56'">
-            <ng-container ngProjectAs="copyContent">
-              <div class="ExampleItem" style="width: 56px; height: 56px;"></div>
-            </ng-container>
-          </app-copy>
-          <div class="e-text-caps">SPACING-56</div>
-          <div class="e-text-info">56px</div>
-        </div>
-        <div class="ExampleBox e-mr-16">
-          <app-copy [message]="'e-p-64'">
-            <ng-container ngProjectAs="copyContent">
-              <div class="ExampleItem" style="width: 64px; height: 64px;"></div>
-            </ng-container>
-          </app-copy>
-          <div class="e-text-caps">SPACING-64</div>
-          <div class="e-text-info">64px</div>
-        </div>
-        <div class="ExampleBox e-mr-16">
-          <app-copy [message]="'e-p-72'">
-            <ng-container ngProjectAs="copyContent">
-              <div class="ExampleItem" style="width: 72px; height: 72px;"></div>
-            </ng-container>
-          </app-copy>
-          <div class="e-text-caps">SPACING-72</div>
-          <div class="e-text-info">72px</div>
-        </div>
-      </div>
-      <!-- <app-code-block [showPreview]="false"></app-code-block> -->
-    </ng-container>
-  </app-component-subsection>
-  <!-- <app-component-subsection>
-    <ng-container ngProjectAs="sectionContent">
-      <p>Following the 8-point grid system.</p>
+      <p>
+        Example containers created with
+        <span class="code-text">e-p</span>
+        classes following the 8-point grid system, assigning padding in each direction.
+      </p>
       <div class="display-container centered-content">
         <div class="display-card" *ngFor="let item of spacingItems">
           <app-copy [message]="item.className">
             <ng-container ngProjectAs="copyContent">
-              <div class="display-card-square e-shadow-6 e-bg-green" [ngClass]="item.className"></div>
+              <div class="display-card-square e-shadow-6 ExampleSquare" [ngClass]="item.className"></div>
             </ng-container>
           </app-copy>
           <div class="display-card-title e-text-caps">{{ item.title }}</div>
@@ -114,32 +29,17 @@
         </div>
       </div>
     </ng-container>
-  </app-component-subsection> -->
+  </app-component-subsection>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <div class="e-text-body e-mb-24">
+      <div class="e-text-body e-mb-32">
         We are using the
         <b>8 point grid</b>
         system - multiples of 8 to define dimensions, padding, and margin of both block and inline elements.
       </div>
-
-      <div class="e-mb-32">
-        <img class="padding-example" src="assets/website-icons/identity-images/SpacingUsage.svg" />
-      </div>
-      <div class="e-mb-16">
-        Something to keep in mind when choosing spacing:
-      </div>
-      <ul class="e-list e-mb-48">
-        <li>
-          It's about logic. Related things are closer than unrelated things, so two unrelated things must be
-          far away from each other.
-        </li>
-        <li>The bigger the object, the bigger space around it.</li>
-        <li>We all need to breathe, so let the layout breathe as well.</li>
-      </ul>
-      <div class="e-text-body">
+      <div class="e-text-body e-mb-40">
         You can read more about the 8 point grid system and what its used for in this
         <a
           class="e-link e-link--inline e-link--external"
@@ -150,6 +50,104 @@
         </a>
         .
       </div>
+
+      <div class="e-mb-40">
+        <img class="padding-example" src="assets/website-icons/identity-images/SpacingUsage.svg" />
+      </div>
+      <div class="e-mb-16">
+        Something to keep in mind when choosing spacing:
+      </div>
+      <ul class="e-list">
+        <li>
+          It's about logic. Related things are closer than unrelated things, so two unrelated things must be
+          far away from each other.
+        </li>
+        <li>The bigger the object, the bigger space around it.</li>
+        <li>We all need to breathe, so let the layout breathe as well.</li>
+      </ul>
+
+      <app-component-subsection [sectionTitle]="'Help guide'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="e-text-body e-mb-40">
+            We have defined a guide to help you choose the correct spacing. These are not rules so exceptions
+            may occur. Spacing will also be used differently depending on which device you are on.
+          </div>
+
+          <div class="e-title-xs e-mb-8">Related elements</div>
+          <div class="e-text-body e-mb-24">
+            Used for spacing between related elements or inside a component. Example:
+          </div>
+
+          <ul class="e-list e-mb-24">
+            <li>Padding inside card, table, form etc.</li>
+            <li>Padding between typography, related inputfields, filter options etc.</li>
+          </ul>
+          <!-- EXAMPLES -->
+          <div>
+            <span class="e-p-8 e-my-16 e-bg-red-tomato example-box unset">
+              <span>DUMMY</span>
+            </span>
+          </div>
+          <div>
+            <span class="e-p-8 e-my-16 e-bg-red-tomato example-box unset">
+              <span>DUMMY</span>
+            </span>
+          </div>
+          <div>
+            <span class="e-p-8 e-my-16 e-bg-red-tomato example-box unset">
+              <span>DUMMY</span>
+            </span>
+          </div>
+          <div class="e-title-xs e-mb-8 e-mt-72">Unrelated elements</div>
+          <div class="e-text-body e-mb-24">
+            Used for spacing between unrelated elements and defines the layout.
+          </div>
+
+          <ul class="e-list e-mb-24">
+            <li>Margin between cards, tables etc.</li>
+          </ul>
+
+          <div>
+            <span class="e-p-8 e-my-16 e-bg-blue-berry example-box unset">
+              <span>DUMMY</span>
+            </span>
+          </div>
+          <div>
+            <span class="e-p-8 e-my-16 e-bg-blue-berry example-box unset">
+              <span>DUMMY</span>
+            </span>
+          </div>
+          <div>
+            <span class="e-p-8 e-my-16 e-bg-blue-berry example-box unset">
+              <span>DUMMY</span>
+            </span>
+          </div>
+          <div class="e-title-xs e-mb-8 e-mt-72">Unrelated sections</div>
+          <div class="e-text-body e-mb-24">
+            Used for spacing between unrelated sections and is more used by external websites.
+          </div>
+
+          <ul class="e-list e-mb-24">
+            <li>Margin between different sections vertically</li>
+          </ul>
+
+          <div>
+            <span class="e-p-8 e-my-16 e-bg-green-apple example-box unset">
+              <span>DUMMY</span>
+            </span>
+          </div>
+          <div>
+            <span class="e-p-8 e-my-16 e-bg-green-apple example-box unset">
+              <span>DUMMY</span>
+            </span>
+          </div>
+          <div>
+            <span class="e-p-8 e-my-16 e-bg-green-apple example-box unset">
+              <span>DUMMY</span>
+            </span>
+          </div>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
