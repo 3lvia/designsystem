@@ -4,46 +4,32 @@
     Typography
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    <div>
-      {{ description }}
-    </div>
-    <div class="e-mt-72 e-mb-24">
-      <img
-        class="headerImg"
-        src="../../../../assets/website-icons/identity-images/RedHat.svg"
-        alt="Confirmation page illustration"
-      />
-    </div>
-    <div class="e-text-body">
-      <p>
-        <b>Red Hat Display</b>
-        has denser letter space and higher x-height and is suitable in large sizes, for example in titles.
-        <b>Red Hat Text</b>
-        has a slightly smaller x-height, more space and is designed for good readability in smaller sizes.
-      </p>
-      <p>
-        Red Hat was originally commissioned by Pentagram and was designed by Jeremy Mickel, MCKL. It is an
-        open-source font family and you can
-        <a class="e-link e-link--inline e-link--external" href="https://fonts.google.com/?query=red+hat">
-          <span class="e-link__title">download Red Hat here</span>
-          <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
-        </a>
-        , via Google Fonts.
-      </p>
-      <p>
-        As an alternative system font, we use
-        <b>Verdana</b>
-        . It’s only used in the cases where it isn’t possible to use the profile font, for example digital
-        documents and templates that are shared with people outside of Elvia, who might not have the profile
-        font installed. Verdana is less dense than Red Hat, but to simulate Red Hat in the best way you can
-        pinch the text by reducing the letter spacing.
-      </p>
+    <div class="e-text-lead">
+      Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font
+      family inlcudes two optical sizes: Display and Text, and can be dowloaded here
+      <a
+        class="e-link e-link--inline e-link--external"
+        href="https://fonts.google.com/?query=red+hat"
+        target="_blank"
+      >
+        <span class="e-link__title">dowloaded here</span>
+        <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+      </a>
+      via Google Fonts.
     </div>
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
+  <!-- Red Hat illustration -->
+  <div class="e-mt-72 e-mb-24">
+    <img
+      class="headerImg"
+      src="../../../../assets/website-icons/identity-images/RedHat.svg"
+      alt="Confirmation page illustration"
+    />
+  </div>
   <!--Text Styles-->
   <app-component-section [sectionTitle]="'Text styles'">
     <ng-container ngProjectAs="sectionContent">
@@ -769,7 +755,33 @@
     </ng-container>
   </app-component-section>
 
-  <!--USAGE-->
+  <!--Usage-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <div class="e-title-sm e-mb-8">
+        Display VS Text
+      </div>
+      <div class="e-text-body e-mb-32">
+        <b>Red Hat Display</b>
+        has denser letter space and higher x-height and is suitable in large sizes, for example in titles.
+        <b>Red Hat Text</b>
+        has a slightly smaller x-height, more space and is designed for good readability in smaller sizes.
+      </div>
+      <div class="e-title-sm e-mb-8">
+        Alternative font
+      </div>
+      <div class="e-text-body">
+        We use
+        <b>Verdana</b>
+        as an alternative system font. It’s only used in the cases where it isn’t possible to use the profile
+        font, for example digital documents and templates that are shared with people outside of Elvia who
+        might not have the profile font installed. Verdana is less dense than Red Hat, but to simulate Red Hat
+        in the best way you can pinch the text by reducing the letter spacing.
+      </div>
+    </ng-container>
+  </app-component-section>
+
+  <!--Implemenation-->
   <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
       <div>
@@ -823,64 +835,10 @@
     </ng-container>
   </app-component-section>
 
-  <!--USAGE-->
+  <!--Text Alignment-->
   <app-component-section [sectionTitle]="'Text alignment'">
     <ng-container ngProjectAs="sectionContent">
       <app-code-block [codeHTML]="alignmentOfText"></app-code-block>
-      <!-- <app-component-subsection [sectionTitle]="'Alignment'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="alignmentOfText"></app-code-block>
-        </ng-container>
-      </app-component-subsection> -->
-      <!-- <app-component-subsection [sectionTitle]="'Using Classes'">
-        <ng-container ngProjectAs="sectionContent">
-          <p>
-            All typography can be used through a set of classes. The
-            <code class="code-text">e-title-lg</code>
-            sets multiple attributes, like font-size, line-height and font-weight.
-          </p>
-          <app-component-subsubsection [sectionTitle]="'Title classes'">
-            <ng-container ngProjectAs="sectionContent">
-              <ul>
-                <li><code class="code-text">e-title-lg</code></li>
-                <li><code class="code-text">e-title-md</code></li>
-                <li><code class="code-text">e-title-sm</code></li>
-              </ul>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Text classes'">
-            <ng-container ngProjectAs="sectionContent">
-              <ul>
-                <li><code class="code-text">e-text-lead</code></li>
-                <li><code class="code-text">e-text-quote</code></li>
-                <li><code class="code-text">e-text-body</code></li>
-                <li><code class="code-text">e-text-img</code></li>
-                <li><code class="code-text">e-text-description</code></li>
-                <li><code class="code-text">e-text-caps</code></li>
-                <li><code class="code-text">e-text-info</code></li>
-                <li><code class="code-text">e-text-label</code></li>
-                <li><code class="code-text">e-text-option</code></li>
-              </ul>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection> -->
     </ng-container>
   </app-component-section>
-
-  <!--CODE EXAMPLES-->
-  <!-- <app-component-section [sectionTitle]="'Code examples'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Title'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="exampleLabels"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Text'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="exampleLabels"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section> -->
 </div>

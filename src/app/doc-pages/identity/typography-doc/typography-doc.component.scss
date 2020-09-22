@@ -43,64 +43,6 @@
       width: 100%;
     }
   }
-  .container {
-    display: flex;
-    flex-direction: column;
-
-    &.selectionContainer {
-      display: none;
-
-      @include breakpoint-up(Mobile) {
-        display: flex;
-      }
-    }
-
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      width: 100%;
-
-      .e-divider {
-        width: 100%;
-      }
-      .example-title {
-        width: 48%;
-        margin-bottom: 0;
-      }
-      .example {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        width: 48%;
-        margin: var(--e-spacing-24) 0;
-        margin-bottom: 0;
-
-        @include breakpoint-up(Mobile) {
-          width: 100%;
-        }
-
-        &.example-first {
-          margin-top: var(--e-spacing-16);
-        }
-
-        @extend %scale-up-09;
-
-        &-text {
-          width: fit-content;
-          margin-bottom: 8px;
-          &:hover {
-            @extend %scale-down-09;
-          }
-        }
-
-        .to-copy {
-          display: none;
-        }
-      }
-    }
-  }
 }
 
 .hideOnMobile {
@@ -123,17 +65,17 @@
 }
 
 .headerImg {
-  display: flex;
-  width: 70%;
+  display: block;
+  width: 80%;
   margin: auto;
 
   @include breakpoint-up(Tablet) {
-    width: 80%;
+    width: 90%;
     transition: width 250ms ease-in;
   }
 
   @include breakpoint-up(Mobile) {
-    width: 90%;
+    width: 100%;
     transition: width 250ms ease-in;
   }
 }
