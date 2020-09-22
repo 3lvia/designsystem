@@ -106,7 +106,7 @@ $maxIconContainerMobile: 450px;
       margin-top: 104px;
       text-align: center;
       @include breakpoint-up(Mobile) {
-        margin: 0 24px;
+        margin: 0 8px;
         margin-top: 72px;
       }
     }
@@ -114,25 +114,25 @@ $maxIconContainerMobile: 450px;
     .icon-card {
       display: inline-flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       width: 110px;
       height: 110px;
       margin: 6px;
+      padding: 12px 4px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid transparent;
+      border-radius: 8px;
 
       @include breakpoint-up(Mobile) {
         margin: 0px;
         width: 93px;
         height: 93px;
+        padding: 9px 4px;
       }
       @include breakpoint-up(Tablet) {
         margin: 4px;
       }
-      padding: 4px;
-      text-align: center;
-      cursor: pointer;
-      border: 1px solid transparent;
-      border-radius: 8px;
 
       .e-text-description {
         margin-top: 8px;
@@ -163,11 +163,11 @@ $maxIconContainerMobile: 450px;
     transform: translate(-50%, -50%);
     .e-alert {
       height: 109px;
-      width: 650px;
+      width: 800px;
     }
     @include breakpoint-up(Tablet) {
       .e-alert {
-        width: 600px;
+        width: 650px;
       }
     }
     @include breakpoint-up(Mobile) {
@@ -207,7 +207,7 @@ $maxIconContainerMobile: 450px;
       }
       &__text {
         margin-right: 48px;
-        max-width: 350px;
+
         @media (max-width: 490px) {
           width: 136px;
           margin-right: 0px;
@@ -239,7 +239,6 @@ $maxIconContainerMobile: 450px;
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
       width: 82px;
       @include breakpoint-up(Mobile) {
         margin-bottom: 10px;

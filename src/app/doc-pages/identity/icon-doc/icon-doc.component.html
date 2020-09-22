@@ -18,12 +18,12 @@
   >
     <div class="e-alert e-alert--local e-alert--info">
       <div class="e-alert__icon">
-        <i class="e-icon e-icon--download"></i>
+        <i class="e-icon" [ngClass]="'e-icon--' + icon.title"></i>
       </div>
       <div class="e-alert__content e-w-100">
         <div style="display: flex; justify-content: space-between;">
           <div>
-            <div class="e-alert__title">Download</div>
+            <div class="e-alert__title">{{ icon.pretty }}</div>
             <div class="e-alert__text">
               <div style="display: flex; flex-direction: row; justify-content: space-between;">
                 <div class="e-text-info e-text-grey-70">
@@ -157,7 +157,8 @@
           >
             <div *ngIf="icon === -1" class="no-results" [class.e-text-white]="inverted">
               <div>Oh snap 😕</div>
-              <div>We can’t find the icon you are looking for! Contact us if you want to add an icon</div>
+              <div>We can’t find the icon you are looking for!</div>
+              <div>Contact us if you want to add an icon</div>
             </div>
             <div
               *ngIf="icon !== -1"

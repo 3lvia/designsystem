@@ -188,7 +188,7 @@ export const eComponents: EItems[] = [
     docUrl: Pages.RadioFilter,
     absolutePath: '/components/' + Pages.RadioFilter,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/component-images/Radio Filters.svg',
+    imageUrl: 'assets/website-icons/component-images/Radio filters.svg',
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=813%3A821',
     type: 'Component',
   },
