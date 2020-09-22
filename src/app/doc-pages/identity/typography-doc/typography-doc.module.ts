@@ -10,6 +10,7 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
 import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-highlighter.module';
+import { FontWeightPipe } from './fontWeight.pipe';
 
 @NgModule({
   imports: [
@@ -24,6 +25,8 @@ import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-high
     ComponentSubsubsectionModule,
     CodeHighlighterModule,
   ],
-  declarations: [TypographyDocComponent],
+  declarations: [	TypographyDocComponent,
+      FontWeightPipe
+   ],
 })
 export class TypographyDocModule { }
