@@ -21,7 +21,6 @@ export enum Pages {
   Spacing = 'spacing-doc',
   Grid = 'grid-doc',
   Logo = 'logo-doc',
-  Utilities = 'utilities-doc',
 
   // Component Pages
   ComponentsStart = 'components',
@@ -65,8 +64,10 @@ export enum Pages {
   // Children
   OverviewTools = 'overview-tools-doc',
   Accessibility = 'accessibility-doc',
-  AltText = 'alttext-doc',
-  UUTools = 'uutools-doc',
+  DesignProcess = 'design-process-doc',
+  UserFeedback = 'user-feedback-doc',
+  Utilities = 'utilities-doc',
+  Patterns = 'patterns-doc',
 
   // Community Pages
   CommunityStart = 'community',

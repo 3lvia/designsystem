@@ -10,7 +10,6 @@ import { SpacingDocModule } from './spacing-doc/spacing-doc.module';
 import { TypographyDocModule } from './typography-doc/typography-doc.module';
 import { LogoDocModule } from './logo-doc/logo-doc.module';
 import { GridDocModule } from './grid-doc/grid-doc.module';
-import { UtilitiesDocModule } from './utilities-doc/utilities-doc.module';
 import { ToneOfVoiceModule } from './tone-of-voice/tone-of-voice.module';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { ToneOfVoiceModule } from './tone-of-voice/tone-of-voice.module';
     TypographyDocModule,
     GridDocModule,
     LogoDocModule,
-    UtilitiesDocModule,
     ToneOfVoiceModule,
   ],
 })

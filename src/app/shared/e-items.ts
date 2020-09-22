@@ -466,19 +466,6 @@ export const eIdentity: EItems[] = [
     figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
     type: 'Identity',
   },
-  {
-    title: 'Utility Classes',
-    // tslint:disable-next-line: max-line-length
-    description: 'Elvis offers several utility classes that can be applied on elements without making any extra CSS classes or modifications in your project.',
-    docUrl: Pages.Utilities,
-    absolutePath: '/identity/' + Pages.Utilities,
-    status: ItemStatus.Done,
-    // Update Icons
-    imageUrl: 'assets/website-icons/identity-images/Utilities.svg',
-    // No figma page ready yet
-    // figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
-    type: 'Identity',
-  },
 ];
 
 export const eTools: EItems[] = [
@@ -487,23 +474,45 @@ export const eTools: EItems[] = [
     description: 'Accessibility in Elvia Designsystem',
     docUrl: Pages.Accessibility,
     absolutePath: '/tools/' + Pages.Accessibility,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/tools-images/accessibility.svg',
     type: 'Tool',
   },
   {
-    title: 'Alt-texts',
-    description: 'All meaningful images should have an alt-text (alternative text)',
-    docUrl: Pages.AltText,
-    absolutePath: '/tools/' + Pages.AltText,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    title: 'Design process',
+    description: 'Designprocess stuff',
+    docUrl: Pages.DesignProcess,
+    absolutePath: '/tools/' + Pages.DesignProcess,
+    imageUrl: 'assets/website-icons/tools-images/designProcess.svg',
     type: 'Tool',
   },
   {
-    title: 'UU Tools',
-    description: 'Useful UU tools',
-    docUrl: Pages.UUTools,
-    absolutePath: '/tools/' + Pages.UUTools,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    title: 'Patterns',
+    // tslint:disable-next-line:max-line-length
+    description: 'Patterns are best practice solutions to solve common user situations. These solutions will ensure that we have the same user flow and consistent experience across applications.',
+    docUrl: Pages.Patterns,
+    absolutePath: '/tools/' + Pages.Patterns,
+    imageUrl: 'assets/website-icons/tools-images/patternsIllustration.svg',
+    type: 'Tool',
+  },
+  {
+    title: 'User Feedback',
+    description: 'Some feedback to the user',
+    docUrl: Pages.UserFeedback,
+    absolutePath: '/tools/' + Pages.UserFeedback,
+    imageUrl: 'assets/website-icons/tools-images/userFeedback.svg',
+    type: 'Tool',
+  },
+  {
+    title: 'Utility Classes',
+    // tslint:disable-next-line: max-line-length
+    description: 'Elvis offers several utility classes that can be applied on elements without making any extra CSS classes or modifications in your project.',
+    docUrl: Pages.Utilities,
+    absolutePath: '/tools/' + Pages.Utilities,
+    status: ItemStatus.Done,
+    // Update Icons
+    imageUrl: 'assets/website-icons/tools-images/utilityClasses.svg',
+    // No figma page ready yet
+    // figmaUrl: 'https://www.figma.com/file/hvQucRpSHYZtSiIKM7NgBo/Typography?node-id=0%3A1',
     type: 'Tool',
   },
 ];
