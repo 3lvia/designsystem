@@ -12,12 +12,15 @@ $checkbox-mark-border: 1px solid colors.color('black');
 .e-checkbox {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
-
   display: flex;
   align-items: center;
   width: fit-content;
   box-sizing: border-box;
   cursor: pointer;
+  // IE hack
+  @media screen and (-ms-high-contrast: none) {
+    width: 100%;
+  }
   &:not(:last-child) {
     margin-bottom: 12px;
   }
@@ -32,6 +35,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
 
     .e-checkbox__label {
       @include typography.typography('text-info');
+      line-height: 16px;
     }
 
     input {
@@ -230,7 +234,8 @@ $checkbox-mark-border: 1px solid colors.color('black');
   }
 
   &__mark {
-    display: inline-block;
+    display: inline-flex;
+    align-self: flex-start;
 
     min-width: $checkbox-mark-size;
     min-height: $checkbox-mark-size;
@@ -245,6 +250,8 @@ $checkbox-mark-border: 1px solid colors.color('black');
   &__label {
     font-size: inherit;
     margin-left: 8px;
+    line-height: 24px;
+    width: fit-content;
   }
 }
 

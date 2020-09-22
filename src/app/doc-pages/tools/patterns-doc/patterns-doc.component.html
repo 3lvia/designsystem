@@ -1,0 +1,125 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">
+    Patterns
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+<!--BODY-->
+<div class="page-body">
+  <app-component-section [sectionTitle]="'Forms'">
+    <ng-container ngProjectAs="sectionContent">
+      <p class="e-text-body e-mt-16 e-mb-72">
+        A form is a group of input fields and selections for users to enter data. Forms can be simple or
+        complex, but always try to make it easy, clear and quickly for the user to use.
+      </p>
+      <span class="e-title-sm">One column</span>
+      <p class="e-text-body e-mt-16 e-mb-72">
+        To improve the scanability of a form stack the input fields vertically and display it as a single
+        column. This makes it easier and faster for user to scan. Exceptions for this is related fields like
+        postcode and city or date of birth.
+      </p>
+      <span class="e-title-sm">Mark optional</span>
+      <p class="e-text-body e-mt-16 e-mb-72">
+        Some input fields can be optional or required. In Elvia, we mark the optional fields. Most times there
+        are more required fields than optional, so to avoid visual noise and use a more positive tone to it,
+        we write “optional” behind the label to indicate who’s optional.
+      </p>
+      <span class="e-title-sm">Length of the input field</span>
+      <p class="e-text-body e-mt-16 e-mb-72">
+        The size of the input field should reflect the expected answer. For example, a postcode field should
+        therefore be shorter in size than the address field.
+      </p>
+      <div class="e-mb-72">
+        <img
+          class="patternImg"
+          src="../../../../assets/website-icons/tools-images/patterns/example_form.svg"
+          alt="Form example illustration"
+        />
+      </div>
+      <span class="e-title-sm">Complex forms</span>
+      <p class="e-text-body e-mt-16 e-mb-16">
+        Forms can be long and complex and this can put some users off. To make a better experience for the
+        user you can group related questions and break up the form in separate pages or steps. Use a stepper
+        to inform the user how long the form is and where they are in the process.
+      </p>
+      <p class="e-text-body e-mt-16 e-mb-72">
+        Keep it simple, so try to remove all non-essential fields. Ask the user for truly necessary
+        information and remove the rest.
+      </p>
+      <span class="e-title-sm">Enable the buttons</span>
+      <p class="e-text-body e-mt-16 e-mb-72">
+        You often disable a button untill all the required fields and inputs are filled out. A disabled button
+        can make the user irritated, confused, and make the user feel stupid. A better solution is to enable
+        the button and rather guide the user to the missing fields with red error indications when they are
+        trying to submit the form.
+      </p>
+      <div>
+        <img
+          class="patternImg"
+          src="../../../../assets/website-icons/tools-images/patterns/example_stepper.svg"
+          alt="Form example with stepper"
+        />
+      </div>
+    </ng-container>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="'Empty states'">
+    <ng-container ngProjectAs="sectionContent">
+      <p class="e-text-body">
+        Empty states are moments when there is no data and nothing to display to the user. In these cases the
+        user needs to be informed what’s happenening and what to do about it.
+      </p>
+      <div class="e-mb-72">
+        <span class="e-text-body e-mb-16">Example of empty states</span>
+        <ul class="e-list">
+          <li>Error page, like 404</li>
+          <li>Searching for something but no results was found</li>
+          <li>Confirmation page when you have completed something, like submitting a form</li>
+        </ul>
+      </div>
+      <span class="e-title-sm">Inform the user</span>
+      <p class="e-text-body e-mt-16 e-mb-72">
+        A good empty state should explain what’s going on in plain language. Tell the user what the next step
+        is and guide them forward with a button or link if needed.
+      </p>
+      <span class="e-title-sm">Tone of voice</span>
+      <p class="e-text-body e-mt-16 e-mb-72">
+        Don’t use product-specific terms that the user may not understand. Use a positive tone and motivate
+        the user, maybe by the use of humor or add some emojis in the message.
+      </p>
+      <span class="e-title-sm">Visuals</span>
+      <p class="e-text-body e-mt-16 e-mb-72">
+        Use a graphical elements to support the information such as illustrations, colors and icons. You can
+        use a neautral or humorous tone to it, but try to play with our concept off/on - most often this is a
+        great opportunity for when something is off!
+      </p>
+      <div class="e-mb-56">
+        <img
+          class="patternImg"
+          src="../../../../assets/website-icons/tools-images/patterns/example_error.svg"
+          alt="Error example with illustration of a http 404 error"
+        />
+        <span class="e-text-img imageText">Error 404</span>
+      </div>
+      <div class="e-mb-56">
+        <img
+          class="patternImg"
+          src="../../../../assets/website-icons/tools-images/patterns/example_noresult.svg"
+          alt="No results on search example illustration"
+        />
+        <span class="e-text-img imageText">No search result</span>
+      </div>
+      <div>
+        <img
+          class="patternImg"
+          src="../../../../assets/website-icons/tools-images/patterns/example_confirmation.svg"
+          alt="Confirmation page illustration"
+        />
+        <span class="e-text-img imageText">Confirmation page</span>
+      </div>
+    </ng-container>
+  </app-component-section>
+</div>

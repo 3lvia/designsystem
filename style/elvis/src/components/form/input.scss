@@ -89,6 +89,12 @@ $form-input-border: 1px solid colors.color('grey');
   i ~ input:disabled {
     padding: $form-input-padding-with-icon-active;
   }
+
+  // removes default time&date icons in input fields
+  input[type='date']::-webkit-calendar-picker-indicator,
+  input[type='time']::-webkit-calendar-picker-indicator {
+    display: none;
+  }
 }
 
 .e-combined-field {

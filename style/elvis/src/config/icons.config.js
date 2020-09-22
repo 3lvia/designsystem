@@ -1,4 +1,5 @@
 module.exports = [
+  { name: 'accessibility-color', terms: ['universal', 'UU'] },
   { name: 'add_circle', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-color', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-filled', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
@@ -54,6 +55,7 @@ module.exports = [
   { name: 'danger_electricity-color', terms: [] },
   { name: 'dashboard', terms: [] },
   { name: 'dashboard-color', terms: [] },
+  { name: 'design_process-color', terms: [] },
   { name: 'digging-color', terms: [] },
   { name: 'download', terms: [] },
   { name: 'edit', terms: ['pencil', 'pen'] },
@@ -184,6 +186,8 @@ module.exports = [
   { name: 'tree_powerline-color', terms: [] },
   { name: 'unlock', terms: [] },
   { name: 'upload', terms: [] },
+  { name: 'user_testing-color', terms: [] },
+  { name: 'utilities-color', terms: [] },
   { name: 'view_off', terms: ['eye', 'eye closed'] },
   { name: 'view_on', terms: ['eye', 'eye open'] },
   { name: 'warning_circle', terms: ['!', 'danger', 'alert', 'caution', 'exclamation'] },

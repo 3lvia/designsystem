@@ -1,36 +1,56 @@
-.header {
-  &-main {
-    padding: 8px 0px;
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
+
+.headerSection {
+  display: flex;
+
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
   }
 
-  &-secondary {
-    padding: 8px 0px;
-  }
-}
-
-.elvis-example {
-  padding: 10px 40px;
-  background: var(--e-grey-20);
-
-  &-header {
-    margin: 15px 0px;
+  &--information {
+    width: 60%;
+    @include breakpoint-up(Mobile) {
+      width: 100%;
+    }
   }
 
-  &-content {
-    li {
-      margin: 10px 0px;
+  &--illustration {
+    flex-direction: column;
+    position: relative;
+    margin-left: 55px;
+    width: 40%;
+
+    @include breakpoint-up(Mobile) {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-top: 16px;
+      margin-left: 0;
     }
   }
 }
 
-.links-container {
+.contentExamples {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
 
-  .e-card {
-    margin: 10px 0px;
-    width: 48%;
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+  }
+
+  .examplesItemTwo {
+    @include breakpoint-up(Mobile) {
+      margin-top: 24px;
+    }
+  }
+
+  .exampleRow {
+    display: flex;
+    flex-direction: row;
+
+    .exampleRowItem {
+      display: flex;
+      align-items: center;
+      margin-top: 16px;
+    }
   }
 }
