@@ -182,6 +182,17 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
+    title: 'Radio Filter',
+    // tslint:disable-next-line: max-line-length
+    description: 'Radio Filters are buttons you can toggle between to select different views of same content. An example is an email inbox and you want to toggle between “all”, “read” and “unread” for all mails.',
+    docUrl: Pages.RadioFilter,
+    absolutePath: '/components/' + Pages.RadioFilter,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Radio filters.svg',
+    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=813%3A821',
+    type: 'Component',
+  },
+  {
     title: 'Header',
     // tslint:disable-next-line: max-line-length
     description: 'Headers are used for navigation on the website and should be displayed at the top of the page. There are two types of headers available: one for external(coming) and one for internal systems.',

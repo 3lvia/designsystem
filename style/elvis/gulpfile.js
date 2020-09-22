@@ -15,6 +15,7 @@ const typographyConfig = require('./src/config/typography.config');
 const svgToMiniDataURI = require('mini-svg-data-uri');
 const path = require('path');
 const fs = require('fs');
+const sharp = require('sharp');
 
 sass.compiler = require('sass');
 
@@ -30,15 +31,14 @@ async function createCSSOverview() {
 function getAllClasses(stylesheet) {
   const cssRules = stylesheet.match(/([\.]){1}(e-){1}([\w-])+/g);
   const uniqueClasses = new Set();
-  cssRules.forEach(cssClass => {
+  cssRules.forEach((cssClass) => {
     uniqueClasses.add(cssClass.substr(1, cssClass.length - 1));
   });
 
   const style = {
     block: {},
-    flat: {}
+    flat: {},
   };
-
 
   [...uniqueClasses].forEach((rule) => {
     style.flat[rule] = {};
@@ -51,16 +51,20 @@ function getAllClasses(stylesheet) {
     // Element
     if (rule.indexOf('__') > -1) {
       const element = getElementFromClass(rule);
-      block.element = block.element ? block.element : {}
+      block.element = block.element ? block.element : {};
       block.element[element] = block.element[element] ? block.element[element] : {};
 
       if (modifierIsOnElement(rule)) {
-        block.element[element]['modifier'] = block.element[element]['modifier'] ? block.element[element]['modifier'] : {};
+        block.element[element]['modifier'] = block.element[element]['modifier']
+          ? block.element[element]['modifier']
+          : {};
         block.element[element].modifier[rule] = {};
       }
 
       if (psuedoIsOnElement(rule)) {
-        block.element[element]['psuedo'] = block.element[element]['psuedo'] ? block.element[element]['psuedo'] : {};
+        block.element[element]['psuedo'] = block.element[element]['psuedo']
+          ? block.element[element]['psuedo']
+          : {};
         block.element[element].psuedo[rule] = {};
       }
       return;
@@ -68,21 +72,20 @@ function getAllClasses(stylesheet) {
 
     // Psuedo
     if (rule.indexOf('---') > -1) {
-      block.psuedo = block.psuedo ? block.psuedo : {}
+      block.psuedo = block.psuedo ? block.psuedo : {};
       block.psuedo[rule] = {};
       return;
     }
 
     // Modifier
     if (rule.indexOf('--') > -1) {
-      block.modifier = block.modifier ? block.modifier : {}
+      block.modifier = block.modifier ? block.modifier : {};
       block.modifier[rule] = {};
       return;
     }
   });
 
   return style;
-
 }
 
 function getBlockFromClass(className) {
@@ -93,7 +96,6 @@ function getBlockFromClass(className) {
 function getElementFromClass(className) {
   return className.split('--')[0];
 }
-
 
 function modifierIsOnElement(className) {
   if (className.indexOf('__') === -1 || className.indexOf('--') === -1 || className.indexOf('---') > -1) {
@@ -108,7 +110,6 @@ function psuedoIsOnElement(className) {
   }
   return true;
 }
-
 
 function findUnusedIconFiles() {
   const content = fs.readdirSync('./src/icons/svg/src/');
@@ -283,6 +284,22 @@ function optimizeSVG() {
   return gulp.src(iconsToInclude).pipe(svgo()).pipe(gulp.dest('src/icons/svg/dist'));
 }
 
+async function createPNG() {
+  const iconsToInclude = icons.map((i) => {
+    return { name: i.name, path: `src/icons/svg/src/${i.name}.svg` };
+  });
+
+  iconsToInclude.forEach((file) => {
+    const density = parseInt((72 * 56) / 24);
+
+    sharp(file.path, { density: density })
+      .resize(56)
+      .toFile('src/icons/png/src/' + file.name + '.png');
+  });
+
+  return true;
+}
+
 function styles() {
   return gulp
     .src('./src/main.scss')
@@ -315,6 +332,7 @@ gulp.task(
   gulp.series(
     clean,
     optimizeSVG,
+    createPNG,
     createEmbeddedIconsJS,
     createTypographyScss,
     styles,

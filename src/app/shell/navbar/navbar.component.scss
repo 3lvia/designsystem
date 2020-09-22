@@ -36,7 +36,7 @@ $text-line-height: 32px;
   &-toggle-area {
     display: none;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     @include breakpoint-up(Tablet) {
       display: flex;
       justify-content: center;
@@ -110,7 +110,7 @@ $text-line-height: 32px;
           text-overflow: ellipsis;
           a {
             width: 100%;
-            justify-self: start;
+            justify-self: flex-start;
             font-family: 'Red Hat Text';
             font-style: normal;
             font-weight: normal;

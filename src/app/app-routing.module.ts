@@ -62,6 +62,7 @@ import { ContentLoaderDocComponent } from './doc-pages/components/content-loader
 import { DesignProcessDocComponent } from './doc-pages/tools/design-process-doc/design-process-doc.component';
 import { UserFeedbackDocComponent } from './doc-pages/tools/user-feedback-doc/user-feedback-doc.component';
 import { ToneOfVoiceComponent } from './doc-pages/identity/tone-of-voice/tone-of-voice.component';
+import { RadioFilterDocComponent } from './doc-pages/components/radio-filter-doc/radio-filter-doc.component';
 import { PatternsDocComponent } from './doc-pages/tools/patterns-doc/patterns-doc.component';
 
 const routes: Routes = [
@@ -208,6 +209,10 @@ const routes: Routes = [
           {
             path: Pages.FileUpload,
             component: FileUploadDocComponent,
+          },
+          {
+            path: Pages.RadioFilter,
+            component: RadioFilterDocComponent,
           },
           {
             path: Pages.Header,

@@ -187,7 +187,6 @@ module.exports = [
   { name: 'unlock', terms: [] },
   { name: 'upload', terms: [] },
   { name: 'user_testing-color', terms: [] },
-  { name: 'utilities-color', terms: [] },
   { name: 'view_off', terms: ['eye', 'eye closed'] },
   { name: 'view_on', terms: ['eye', 'eye open'] },
   { name: 'warning_circle', terms: ['!', 'danger', 'alert', 'caution', 'exclamation'] },

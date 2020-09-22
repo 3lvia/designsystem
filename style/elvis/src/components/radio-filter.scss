@@ -1,0 +1,44 @@
+@use "../variables/typography.scss";
+@use "../utilities/outline.scss";
+
+.e-radio-filter-container {
+  display: flex;
+  flex-direction: row;
+  .e-radio-filter:not(:last-of-type) {
+    margin-right: 4px;
+  }
+}
+.e-radio-filter {
+  @include typography.typography('text-option');
+  padding: 4px 11px;
+  border: 1px solid transparent;
+  border-radius: 32px;
+  background: var(--e-white);
+  cursor: pointer;
+
+  &--selected {
+    border-color: var(--e-black);
+    &:hover {
+      border-color: var(--e-black);
+    }
+  }
+
+  &:hover,
+  &---hover {
+    border-color: var(--e-green);
+  }
+
+  &:disabled,
+  &---disabled {
+    cursor: not-allowed;
+    color: var(--e-grey-40);
+    &:hover {
+      border-color: transparent;
+    }
+  }
+
+  &:focus,
+  &---focus {
+    @include outline.e-outline();
+  }
+}
