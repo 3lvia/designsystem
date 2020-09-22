@@ -4,11 +4,20 @@
   <span class="e-title-md">Tools</span>
 
   <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
-    <div style="width: 100%;">
+    <div class="e-w-100 e-mt-24 e-mb-72">
+      <div class="headerIllustration" style="display: flex; justify-content: center;" *ngIf="!loadedImg">
+        <div style="width: 100%; padding-bottom: 33.92%; position: relative;">
+          <div
+            class="e-content-loader toolsIllustration"
+            style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 100%; margin: auto;"
+          ></div>
+        </div>
+      </div>
       <div class="headerIllustration">
         <img
           class="toolsIllustration"
           src="../../../../assets/website-icons/tools-images/tools-illustration.svg"
+          (load)="hideContentLoader($event)"
           alt="Illustration for Tools overview page"
         />
       </div>

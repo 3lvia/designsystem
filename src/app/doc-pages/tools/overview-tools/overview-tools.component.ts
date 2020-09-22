@@ -12,6 +12,7 @@ export class OverviewToolsComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   description = 'Whether you need inspiration or concrete advice, our library of tools gather methods and information for both designers and developers to help in your project.';
   pages = eTools;
+  loadedImg = false;
 
   filteredPages: EItems[];
 
@@ -19,5 +20,12 @@ export class OverviewToolsComponent implements OnInit {
     this.filteredPages = this.pages.filter((page) => {
       return page.status !== 'Coming';
     });
+  }
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  hideContentLoader(evt: any): void {
+    if (evt && evt.target) {
+      this.loadedImg = true;
+    }
   }
 }

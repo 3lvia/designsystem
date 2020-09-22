@@ -3,7 +3,6 @@
 .headerIllustration {
   display: flex;
   justify-content: center;
-  margin-bottom: 48px;
 
   @include breakpoint-up(Mobile) {
     display: none;
@@ -11,11 +10,11 @@
 }
 
 .toolsIllustration {
-  width: 55%;
+  width: 59.5%;
   transition: width ease-in 250ms;
 
   @include breakpoint-up(MinDesktop) {
-    width: 50%;
+    width: 59.5%;
     transition: width ease-in 250ms;
   }
 }
