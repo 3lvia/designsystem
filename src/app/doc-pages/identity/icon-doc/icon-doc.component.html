@@ -94,8 +94,8 @@
               ></i>
               <input type="text" placeholder="Search through all icons" [(ngModel)]="term" />
             </div>
-            <button class="e-btn e-btn--icon e-btn--sm" *ngIf="term.length > 0">
-              <span class="e-btn__icon" (click)="removeSearch()">
+            <button class="e-btn e-btn--icon e-btn--sm" *ngIf="term.length > 0" (click)="removeSearch()">
+              <span class="e-btn__icon">
                 <i class="e-icon e-icon--close-bold" style="left: 0;"></i>
               </span>
             </button>
