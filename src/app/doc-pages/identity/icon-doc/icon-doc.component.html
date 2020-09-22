@@ -82,9 +82,19 @@
       <div class="overview-search-container">
         <div class="e-form-field">
           <label class="e-form-field__label" for="compact">Search</label>
-          <div class="e-input">
-            <i class="e-icon e-icon--search e-icon--xs"></i>
-            <input type="text" placeholder="Search through all icons" [(ngModel)]="term" />
+          <div class="e-search e-search--local">
+            <div class="e-input">
+              <i
+                class="e-icon e-icon--search-bold e-icon--xs e-icon--color-grey-60"
+                *ngIf="term.length == 0"
+              ></i>
+              <input type="text" placeholder="Search through all icons" [(ngModel)]="term" />
+            </div>
+            <button class="e-btn e-btn--icon e-btn--sm" *ngIf="term.length > 0">
+              <span class="e-btn__icon" (click)="removeSearch()">
+                <i class="e-icon e-icon--close-bold" style="left: 0;"></i>
+              </span>
+            </button>
           </div>
         </div>
         <div class="e-filter-button-container">

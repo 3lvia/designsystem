@@ -60,7 +60,7 @@ export class IconDocComponent implements OnInit {
   scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>;`;
   iconExample = `<i class="e-icon e-icon--chat e-icon--md"></i>`;
 
-  term;
+  term = '';
   IconClassList: Icon[] = [];
 
   constructor(private copyService: CopyToClipboardService) { }
@@ -89,6 +89,10 @@ export class IconDocComponent implements OnInit {
 
   invert(): void {
     this.inverted = !this.inverted;
+  }
+
+  removeSearch(): void {
+    this.term = '';
   }
 
   getShortIconName(iconName: string): string {

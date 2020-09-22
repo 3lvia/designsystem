@@ -294,9 +294,7 @@ async function createPNG() {
 
     sharp(file.path, { density: density })
       .resize(56)
-      .toFile('src/icons/png/dist/' + file.name + '.png', (err, info) => {
-        console.log(err, info);
-      });
+      .toFile('src/icons/png/dist/' + file.name + '.png');
   });
 
   return true;
