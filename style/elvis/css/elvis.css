@@ -1908,16 +1908,16 @@ input:focus {
   cursor: pointer;
 }
 
-.e-filter-button-container {
+.e-radio-filter-container {
   display: flex;
   flex-direction: row;
 }
 
-.e-filter-button-container .e-filter-button:not(:last-of-type) {
+.e-radio-filter-container .e-radio-filter:not(:last-of-type) {
   margin-right: 4px;
 }
 
-.e-filter-button {
+.e-radio-filter {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 22px;
@@ -1930,28 +1930,28 @@ input:focus {
   cursor: pointer;
 }
 
-.e-filter-button--selected {
+.e-radio-filter--selected {
   border-color: var(--e-black);
 }
 
-.e-filter-button--selected:hover {
+.e-radio-filter--selected:hover {
   border-color: var(--e-black);
 }
 
-.e-filter-button:hover, .e-filter-button---hover {
+.e-radio-filter:hover, .e-radio-filter---hover {
   border-color: var(--e-green);
 }
 
-.e-filter-button:disabled, .e-filter-button---disabled {
+.e-radio-filter:disabled, .e-radio-filter---disabled {
   cursor: not-allowed;
   color: var(--e-grey-40);
 }
 
-.e-filter-button:disabled:hover, .e-filter-button---disabled:hover {
+.e-radio-filter:disabled:hover, .e-radio-filter---disabled:hover {
   border-color: transparent;
 }
 
-.e-filter-button:focus, .e-filter-button---focus {
+.e-radio-filter:focus, .e-radio-filter---focus {
   outline: 2px solid #0064fa;
   outline-offset: 2px;
 }

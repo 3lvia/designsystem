@@ -182,13 +182,13 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
-    title: 'Filter button',
+    title: 'Radio Filter',
     // tslint:disable-next-line: max-line-length
-    description: 'Filter buttons are buttons you can toggle between to select different views of same content. An example is an email inbox and you want to toggle between “all”, “read” and “unread” for all mails.',
-    docUrl: Pages.FilterButton,
-    absolutePath: '/components/' + Pages.FilterButton,
+    description: 'Radio Filters are buttons you can toggle between to select different views of same content. An example is an email inbox and you want to toggle between “all”, “read” and “unread” for all mails.',
+    docUrl: Pages.RadioFilter,
+    absolutePath: '/components/' + Pages.RadioFilter,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/component-images/Filter buttons.svg',
+    imageUrl: 'assets/website-icons/component-images/Radio Filters.svg',
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=813%3A821',
     type: 'Component',
   },

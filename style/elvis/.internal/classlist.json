@@ -189,15 +189,15 @@
 		},
 		"e-combined-field": {},
 		"e-feedback-message": {},
-		"e-filter-button-container": {},
-		"e-filter-button": {
+		"e-radio-filter-container": {},
+		"e-radio-filter": {
 			"modifier": {
-				"e-filter-button--selected": {}
+				"e-radio-filter--selected": {}
 			},
 			"psuedo": {
-				"e-filter-button---hover": {},
-				"e-filter-button---disabled": {},
-				"e-filter-button---focus": {}
+				"e-radio-filter---hover": {},
+				"e-radio-filter---disabled": {},
+				"e-radio-filter---focus": {}
 			}
 		},
 		"e-header": {
@@ -965,12 +965,12 @@
 		"e-feedback-message_icon": {},
 		"e-feedback-message_message": {},
 		"e-feedback-message_close-button": {},
-		"e-filter-button-container": {},
-		"e-filter-button": {},
-		"e-filter-button--selected": {},
-		"e-filter-button---hover": {},
-		"e-filter-button---disabled": {},
-		"e-filter-button---focus": {},
+		"e-radio-filter-container": {},
+		"e-radio-filter": {},
+		"e-radio-filter--selected": {},
+		"e-radio-filter---hover": {},
+		"e-radio-filter---disabled": {},
+		"e-radio-filter---focus": {},
 		"e-header": {},
 		"e-top-bar__app": {},
 		"e-top-bar__app-menu": {},

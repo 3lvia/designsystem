@@ -97,35 +97,35 @@
             </button>
           </div>
         </div>
-        <div class="e-filter-button-container">
+        <div class="e-radio-filter-container">
           <button
-            class="e-filter-button"
+            class="e-radio-filter"
             style="margin-right: 4px;"
             (click)="selectFilter('all')"
-            [ngClass]="{ 'e-filter-button--selected': selected === 'all' }"
+            [ngClass]="{ 'e-radio-filter--selected': selected === 'all' }"
           >
             All
           </button>
           <button
-            class="e-filter-button"
+            class="e-radio-filter"
             style="margin-right: 4px;"
             (click)="selectFilter('outline')"
-            [ngClass]="{ 'e-filter-button--selected': selected === 'outline' }"
+            [ngClass]="{ 'e-radio-filter--selected': selected === 'outline' }"
           >
             Outline
           </button>
           <button
-            class="e-filter-button"
+            class="e-radio-filter"
             style="margin-right: 4px;"
             (click)="selectFilter('filled')"
-            [ngClass]="{ 'e-filter-button--selected': selected === 'filled' }"
+            [ngClass]="{ 'e-radio-filter--selected': selected === 'filled' }"
           >
             Filled
           </button>
           <button
-            class="e-filter-button"
+            class="e-radio-filter"
             (click)="selectFilter('colored')"
-            [ngClass]="{ 'e-filter-button--selected': selected === 'colored' }"
+            [ngClass]="{ 'e-radio-filter--selected': selected === 'colored' }"
           >
             Two colored
           </button>
