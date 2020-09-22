@@ -6,7 +6,6 @@ $maxIconContainerMobile: 450px;
 
 .sizes-container {
   display: flex;
-  justify-content: center;
   align-items: baseline;
   flex-wrap: wrap;
   margin: 0 -16px;
@@ -137,10 +136,10 @@ $maxIconContainerMobile: 450px;
         line-height: 16px;
       }
 
-      .icon-icon {
+      .icon-icon .e-icon {
         transition: transform 0.3s ease-in-out;
       }
-      &:hover .icon-icon {
+      &:hover .icon-icon .e-icon {
         transform: scale(1.15);
       }
       &.selected {
@@ -238,6 +237,9 @@ $maxIconContainerMobile: 450px;
       align-items: center;
       justify-content: center;
       width: 82px;
+      @include breakpoint-up(Mobile) {
+        margin-bottom: 10px;
+      }
       .copy-text {
         visibility: visible;
         position: absolute;
