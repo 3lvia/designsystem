@@ -7,6 +7,42 @@
   justify-content: space-between;
   width: 100%;
 
+  .typoContainer {
+    display: flex;
+    margin-bottom: 24px;
+
+    @include breakpoint-up(MinDesktop) {
+      width: 140%;
+    }
+    @include breakpoint-up(Tablet) {
+      width: 100%;
+    }
+  }
+  .typoRow {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+  }
+
+  .typoExample {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 48%;
+
+    @include breakpoint-up(Mobile) {
+      width: 100%;
+    }
+  }
+
+  .selectionContainer {
+    display: none;
+
+    @include breakpoint-up(Mobile) {
+      display: block;
+      width: 100%;
+    }
+  }
   .container {
     display: flex;
     flex-direction: column;
@@ -99,49 +135,5 @@
   @include breakpoint-up(Mobile) {
     width: 90%;
     transition: width 250ms ease-in;
-  }
-}
-
-// classes to maintain desktop font variables on mobile examples
-.statusQuoFont-title-lg {
-  @include breakpoint-up(Mobile) {
-    font-size: 44px;
-    line-height: 53px;
-  }
-}
-.statusQuoFont-title-md {
-  @include breakpoint-up(Mobile) {
-    font-size: 30px;
-    line-height: 36px;
-  }
-}
-.statusQuoFont-title-sm {
-  @include breakpoint-up(Mobile) {
-    font-size: 24px;
-    line-height: 29px;
-  }
-}
-.statusQuoFont-text-lead {
-  @include breakpoint-up(Mobile) {
-    font-size: 24px;
-    line-height: 39px;
-  }
-}
-.statusQuoFont-text-quote {
-  @include breakpoint-up(Mobile) {
-    font-size: 26px;
-    line-height: 42px;
-  }
-}
-.statusQuoFont-text-body {
-  @include breakpoint-up(Mobile) {
-    font-size: 20px;
-    line-height: 32px;
-  }
-}
-.statusQuoFont-text-img {
-  @include breakpoint-up(Mobile) {
-    font-size: 18px;
-    line-height: 29px;
   }
 }
