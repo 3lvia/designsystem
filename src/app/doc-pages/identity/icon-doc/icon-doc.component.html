@@ -36,7 +36,11 @@
 
           <div class="alert-buttons e-text-info e-text-grey-70">
             <div class="copy-text-container">
-              <div [ngClass]="{ hide: !copied }" class="copy-text e-mr-24 e-text-black">
+              <div
+                [ngClass]="{ hide: !copied }"
+                class="copy-text e-mr-24 e-text-black"
+                style="margin-top: -4px;"
+              >
                 Copied!
               </div>
               <button
