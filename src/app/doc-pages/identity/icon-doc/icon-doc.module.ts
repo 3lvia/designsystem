@@ -25,6 +25,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
+    CopyModule,
   ],
   declarations: [IconDocComponent, IconSearchPipe],
 })

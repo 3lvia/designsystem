@@ -86,12 +86,23 @@ $maxIconContainerMobile: 450px;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: baseline;
-    margin-top: 24px;
-    padding: 8px;
+    padding: 50px 8px;
     border-radius: 8px;
     @include breakpoint-up(Mobile) {
       min-height: $maxIconContainerMobile;
       max-height: $maxIconContainerMobile;
+    }
+
+    .desktop-copy {
+      @include breakpoint-up(Mobile) {
+        display: none;
+      }
+    }
+    .mobile-copy {
+      display: none;
+      @include breakpoint-up(Mobile) {
+        display: block;
+      }
     }
 
     .margin-auto {
@@ -171,25 +182,7 @@ $maxIconContainerMobile: 450px;
       }
     }
     @include breakpoint-up(Mobile) {
-      .e-alert {
-        height: 131px;
-        width: 465px;
-      }
-      top: calc(100vh - 101px);
-    }
-    @media (max-width: 490px) and (min-width: 391px) {
-      .e-alert {
-        width: 350px;
-        height: 156px;
-      }
-      top: calc(100vh - 114px);
-    }
-    @media (max-width: 390px) {
-      .e-alert {
-        width: 290px;
-        height: 196px;
-      }
-      top: calc(100vh - 134px);
+      display: none;
     }
     .e-alert {
       box-shadow: var(--e-shadow-3);
@@ -198,40 +191,15 @@ $maxIconContainerMobile: 450px;
         justify-content: center;
         align-items: center;
         margin-top: 0px;
-        @media (max-width: 490px) {
-          i {
-            width: 24px;
-            height: 24px;
-          }
-        }
       }
       &__text {
         margin-right: 48px;
-
-        @media (max-width: 490px) {
-          width: 136px;
-          margin-right: 0px;
-        }
       }
       .alert-buttons {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        @include breakpoint-up(Mobile) {
-          flex-direction: column;
-          justify-content: space-around;
-          align-items: flex-start;
-          padding-top: 16px;
-          margin: -16px 0;
-          button:first-of-type {
-            margin-top: 0;
-          }
-          button,
-          a {
-            margin-top: 6px;
-          }
-        }
       }
     }
 
@@ -240,9 +208,6 @@ $maxIconContainerMobile: 450px;
       display: flex;
       align-items: center;
       width: 82px;
-      @include breakpoint-up(Mobile) {
-        margin-bottom: 10px;
-      }
       .copy-text {
         visibility: visible;
         position: absolute;

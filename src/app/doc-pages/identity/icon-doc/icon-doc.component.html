@@ -160,23 +160,49 @@
               <div>We can’t find the icon you are looking for!</div>
               <div>Contact us if you want to add an icon</div>
             </div>
-            <div
-              *ngIf="icon !== -1"
-              class="icon-card"
-              (click)="openCopyAlert(icon.title)"
-              [id]="icon.title + '_container'"
-            >
-              <div>
-                <div class="icon-icon">
-                  <i
-                    [class.e-icon--inverted]="inverted"
-                    [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
-                  ></i>
-                </div>
-                <div class="e-text-info" [style.color]="inverted ? 'white' : 'black'">
-                  {{ icon.pretty }}
+            <div class="desktop-copy">
+              <div
+                *ngIf="icon !== -1"
+                class="icon-card"
+                (click)="openCopyAlert(icon.title)"
+                [id]="icon.title + '_container'"
+              >
+                <div>
+                  <div class="icon-icon">
+                    <i
+                      [class.e-icon--inverted]="inverted"
+                      [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
+                    ></i>
+                  </div>
+                  <div class="e-text-info" [style.color]="inverted ? 'white' : 'black'">
+                    {{ icon.pretty }}
+                  </div>
                 </div>
               </div>
+            </div>
+            <div class="mobile-copy">
+              <app-copy [message]="'e-icon e-icon--' + icon.title + ' e-icon--sm'" [noAnimation]="true">
+                <ng-container ngProjectAs="copyContent">
+                  <div
+                    *ngIf="icon !== -1"
+                    class="icon-card"
+                    (click)="openCopyAlert(icon.title)"
+                    [id]="icon.title + '_container'"
+                  >
+                    <div>
+                      <div class="icon-icon">
+                        <i
+                          [class.e-icon--inverted]="inverted"
+                          [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
+                        ></i>
+                      </div>
+                      <div class="e-text-info" [style.color]="inverted ? 'white' : 'black'">
+                        {{ icon.pretty }}
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+              </app-copy>
             </div>
           </div>
         </div>
