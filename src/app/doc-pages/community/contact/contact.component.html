@@ -12,7 +12,18 @@
 <div class="page-body">
   <div class="contact-profile-container">
     <div class="contact-profile">
-      <div><img class="profile-image" src="./../../../../assets/contact/Michael.svg" /></div>
+      <div style="position: relative;">
+        <img src="./../../../../assets/contact/rocket_1f680.png" class="profile-emoji" />
+        <div
+          class="e-content-loader e-content-loader--circle profile-image-loader"
+          *ngIf="!loadedImgMic"
+        ></div>
+        <img
+          class="profile-image"
+          src="./../../../../assets/contact/Michael.svg"
+          (load)="hideContentLoaderMic($event)"
+        />
+      </div>
       <div class="profile-info">
         <div class="e-text-caps">Product owner & Tech lead</div>
         <div class="e-title-sm e-mt-8">Michael Pande</div>
@@ -37,7 +48,15 @@
   </div>
   <div class="contact-profile-container patricia">
     <div class="contact-profile patricia">
-      <div><img class="profile-image" src="./../../../../assets/contact/Patricia.svg" /></div>
+      <img src="./../../../../assets/contact/unicorn-face_1f984.png" class="profile-emoji right" />
+      <div class="e-content-loader e-content-loader--circle profile-image-loader" *ngIf="!loadedImgPat"></div>
+      <div>
+        <img
+          class="profile-image"
+          src="./../../../../assets/contact/Patricia.svg"
+          (load)="hideContentLoaderPat($event)"
+        />
+      </div>
       <div class="profile-info">
         <div class="e-text-caps">Designer</div>
         <div class="e-title-sm e-mt-8">Patricia Lundgren</div>
@@ -62,7 +81,18 @@
   </div>
   <div class="contact-profile-container fride">
     <div class="contact-profile fride">
-      <div><img class="profile-image" src="./../../../../assets/contact/Fride.svg" /></div>
+      <div style="position: relative;">
+        <img src="./../../../../assets/contact/black-sun-with-rays_2600.png" class="profile-emoji" />
+        <div
+          class="e-content-loader e-content-loader--circle profile-image-loader"
+          *ngIf="!loadedImgFri"
+        ></div>
+        <img
+          class="profile-image"
+          src="./../../../../assets/contact/Fride.svg"
+          (load)="hideContentLoaderFri($event)"
+        />
+      </div>
       <div class="profile-info">
         <div class="e-text-caps">Developer</div>
         <div class="e-title-sm e-mt-8">Fride Skarseth</div>
@@ -87,7 +117,18 @@
   </div>
   <div class="contact-profile-container martin">
     <div class="contact-profile martin">
-      <div><img class="profile-image" src="./../../../../assets/contact/Martin.svg" /></div>
+      <div style="position: relative;">
+        <img src="./../../../../assets/contact/nerd-face_1f913.png" class="profile-emoji right" />
+        <div
+          class="e-content-loader e-content-loader--circle profile-image-loader"
+          *ngIf="!loadedImgMar"
+        ></div>
+        <img
+          class="profile-image"
+          src="./../../../../assets/contact/Martin.svg"
+          (load)="hideContentLoaderMar($event)"
+        />
+      </div>
       <div class="profile-info">
         <div class="e-text-caps">Developer</div>
         <div class="e-title-sm e-mt-8">Martin Arentsen Espeland</div>
@@ -112,7 +153,18 @@
   </div>
   <div class="contact-profile-container hilde">
     <div class="contact-profile">
-      <div><img class="profile-image" src="./../../../../assets/contact/Hilde.png" /></div>
+      <div style="position: relative;">
+        <img src="./../../../../assets/contact/palm-tree_1f334.png" class="profile-emoji right" />
+        <div
+          class="e-content-loader e-content-loader--circle profile-image-loader"
+          *ngIf="!loadedImgHil"
+        ></div>
+        <img
+          class="profile-image"
+          src="./../../../../assets/contact/Hilde.svg"
+          (load)="hideContentLoaderHil($event)"
+        />
+      </div>
       <div class="profile-info">
         <div class="e-text-caps">Designer</div>
         <div class="e-title-sm e-mt-8">Hilde Iren Breivik</div>

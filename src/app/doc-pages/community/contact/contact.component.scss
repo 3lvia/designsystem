@@ -75,6 +75,30 @@
     @include breakpoint-up(Mobile) {
       position: relative;
     }
+    .profile-emoji {
+      width: 58px;
+      position: absolute;
+      top: 5px;
+      left: 36px;
+      @include breakpoint-up(Mobile) {
+        width: 44px;
+        left: 186px - 44px;
+      }
+      &.right {
+        left: 314px - 36px - 58px;
+        @include breakpoint-up(Mobile) {
+          left: 186px - 44px;
+        }
+      }
+    }
+    .profile-image-loader {
+      width: 314px;
+      height: 314px;
+      @include breakpoint-up(Mobile) {
+        width: 186px;
+        height: 186px;
+      }
+    }
     .profile-image {
       max-width: 314px;
       @include breakpoint-up(Mobile) {
