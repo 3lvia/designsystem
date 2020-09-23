@@ -73,6 +73,7 @@ export enum Pages {
   CommunityStart = 'community',
   // Children
   OverviewCommunity = 'overview-community-doc',
+  Contact = 'contact',
   Contribute = 'contribute',
   Faq = 'faq-doc',
   Changelog = 'changelog',
