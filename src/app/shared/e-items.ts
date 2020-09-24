@@ -458,7 +458,7 @@ export const eIdentity: EItems[] = [
   {
     title: 'Typography',
     // tslint:disable-next-line: max-line-length
-    description: 'Red Hat is Elvia\'s profile font and should be used throughout all material. The font family has two optical sizes, Display and Text.',
+    description: 'Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font family inlcudes two optical sizes: Display and Text.',
     docUrl: Pages.Typography,
     absolutePath: '/identity/' + Pages.Typography,
     status: ItemStatus.Done,
