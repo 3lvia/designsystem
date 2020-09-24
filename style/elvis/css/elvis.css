@@ -335,11 +335,20 @@ body {
   align-items: center;
 }
 
+.e-accordion.e-accordion--end .e-accordion__item {
+  justify-content: flex-end;
+}
+
+.e-accordion.e-accordion--end .e-accordion__content {
+  align-items: flex-end;
+}
+
 .e-alert {
   display: inline-flex;
   padding: 22px 30px 22px 22px;
   box-sizing: border-box;
   border: 2px solid #ff0000;
+  background: #fff;
   flex-direction: row;
   max-width: 850px;
 }
@@ -1897,6 +1906,54 @@ input:focus {
   background: none;
   font-size: 16px;
   cursor: pointer;
+}
+
+.e-radio-filter-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.e-radio-filter-container .e-radio-filter:not(:last-of-type) {
+  margin-right: 4px;
+}
+
+.e-radio-filter {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
+  padding: 4px 11px;
+  border: 1px solid transparent;
+  border-radius: 32px;
+  background: var(--e-white);
+  cursor: pointer;
+}
+
+.e-radio-filter--selected {
+  border-color: var(--e-black);
+}
+
+.e-radio-filter--selected:hover {
+  border-color: var(--e-black);
+}
+
+.e-radio-filter:hover, .e-radio-filter---hover {
+  border-color: var(--e-green);
+}
+
+.e-radio-filter:disabled, .e-radio-filter---disabled {
+  cursor: not-allowed;
+  color: var(--e-grey-40);
+}
+
+.e-radio-filter:disabled:hover, .e-radio-filter---disabled:hover {
+  border-color: transparent;
+}
+
+.e-radio-filter:focus, .e-radio-filter---focus {
+  outline: 2px solid #0064fa;
+  outline-offset: 2px;
 }
 
 .e-header {
@@ -10921,7 +10978,8 @@ THE SOFTWARE.
   }
 
   .e-grid .row.e-grid-margin-int {
-    margin: calc(88px - 24px) !important;
+    margin-right: calc(32px - 24px) !important;
+    margin-left: calc(88px - 24px) !important;
   }
 }
 @media (min-width: 1440px) {
@@ -10958,7 +11016,8 @@ THE SOFTWARE.
   }
 
   .e-grid .row.e-grid-margin-int {
-    margin: calc(88px - 24px) !important;
+    margin-right: calc(32px - 24px) !important;
+    margin-left: calc(88px - 24px) !important;
   }
 }
 @media (max-width: 1023px) {
@@ -10995,7 +11054,8 @@ THE SOFTWARE.
   }
 
   .e-grid .row.e-grid-margin-int {
-    margin: calc(24px - 24px) !important;
+    margin-right: calc(24px - 24px) !important;
+    margin-left: calc(88px - 24px) !important;
   }
 }
 @media (max-width: 767px) {

@@ -5,6 +5,7 @@ import { ComponentHeaderModule } from 'src/app/shared/component-structure/compon
 import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
+import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure/component-subsubsection/component-subsubsection.module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
     CodeBlockModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
+    ComponentSubsubsectionModule,
   ],
   declarations: [GridDocComponent],
 })

@@ -48,9 +48,11 @@ THE SOFTWARE.
   // Adding margin to rows
   @include breakpoints.breakpoint-up(MinDesktop) {
     $grid-gutter-width-ext: 56px;
-    $grid-gutter-width-int: 24px;
     $grid-margin-ext: 120px;
-    $grid-margin-int: 88px;
+
+    $grid-gutter-width-int: 24px;
+    $grid-margin-left-int: 88px;
+    $grid-margin-right-int: 32px;
     .row.e-grid-gutters-ext {
       margin: 0 calc((#{$grid-gutter-width-ext} / 2) * -1) !important;
       [class^='col'] {
@@ -78,15 +80,18 @@ THE SOFTWARE.
         margin: calc(#{$grid-margin-ext} - #{$grid-gutter-width-ext}) !important;
       }
       &.e-grid-margin-int {
-        margin: calc(#{$grid-margin-int} - #{$grid-gutter-width-int}) !important;
+        margin-right: calc(#{$grid-margin-right-int} - #{$grid-gutter-width-int}) !important;
+        margin-left: calc(#{$grid-margin-left-int} - #{$grid-gutter-width-int}) !important;
       }
     }
   }
   @include breakpoints.breakpoint-up(MaxDesktop) {
     $grid-gutter-width-ext: 56px;
-    $grid-gutter-width-int: 24px;
     $grid-margin-ext: 120px;
-    $grid-margin-int: 88px;
+
+    $grid-gutter-width-int: 24px;
+    $grid-margin-left-int: 88px;
+    $grid-margin-right-int: 32px;
     .row.e-grid-gutters-ext {
       margin: 0 calc((#{$grid-gutter-width-ext} / 2) * -1) !important;
       [class^='col'] {
@@ -114,15 +119,18 @@ THE SOFTWARE.
         margin: calc(#{$grid-margin-ext} - #{$grid-gutter-width-ext}) !important;
       }
       &.e-grid-margin-int {
-        margin: calc(#{$grid-margin-int} - #{$grid-gutter-width-int}) !important;
+        margin-right: calc(#{$grid-margin-right-int} - #{$grid-gutter-width-int}) !important;
+        margin-left: calc(#{$grid-margin-left-int} - #{$grid-gutter-width-int}) !important;
       }
     }
   }
   @include breakpoints.breakpoint-up(Tablet) {
     $grid-gutter-width-ext: 32px;
-    $grid-gutter-width-int: 24px;
     $grid-margin-ext: 32px;
-    $grid-margin-int: 24px;
+
+    $grid-gutter-width-int: 24px;
+    $grid-margin-left-int: 88px;
+    $grid-margin-right-int: 24px;
     .row.e-grid-gutters-ext {
       margin: 0 calc((#{$grid-gutter-width-ext} / 2) * -1) !important;
       [class^='col'] {
@@ -150,7 +158,8 @@ THE SOFTWARE.
         margin: calc(#{$grid-margin-ext} - #{$grid-gutter-width-ext}) !important;
       }
       &.e-grid-margin-int {
-        margin: calc(#{$grid-margin-int} - #{$grid-gutter-width-int}) !important;
+        margin-right: calc(#{$grid-margin-right-int} - #{$grid-gutter-width-int}) !important;
+        margin-left: calc(#{$grid-margin-left-int} - #{$grid-gutter-width-int}) !important;
       }
     }
   }

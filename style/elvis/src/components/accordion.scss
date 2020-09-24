@@ -171,4 +171,13 @@
       align-items: center;
     }
   }
+
+  &.e-accordion--end {
+    .e-accordion__item {
+      justify-content: flex-end;
+    }
+    .e-accordion__content {
+      align-items: flex-end;
+    }
+  }
 }

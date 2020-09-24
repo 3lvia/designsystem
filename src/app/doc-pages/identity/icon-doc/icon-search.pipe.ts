@@ -1,11 +1,11 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'iconSeachPipe',
+  name: 'iconSearchPipe',
   pure: false,
 })
 export class IconSearchPipe implements PipeTransform {
-  static filter(IconList: Array<{[key: string]: any}>, searchTerm: string): Array<{[key: string]: any}> {
+  static filter(IconList: Array<{ [key: string]: any }>, searchTerm: string): Array<{ [key: string]: any }> {
     const compare = searchTerm.toLowerCase();
 
     // tslint:disable-next-line: no-shadowed-variable
@@ -26,8 +26,8 @@ export class IconSearchPipe implements PipeTransform {
       }
       return false;
     }
-    return IconList.filter(function (IconList) {
-      return checkInside(IconList, searchTerm);
+    return IconList.filter((iconList) => {
+      return checkInside(iconList, searchTerm);
     });
   }
 
@@ -36,6 +36,11 @@ export class IconSearchPipe implements PipeTransform {
       return IconList;
     }
 
-    return IconSearchPipe.filter(IconList, searchTerm);
+    const resultList = IconSearchPipe.filter(IconList, searchTerm);
+    if (resultList.length === 0) {
+      return [-1];
+    }
+
+    return resultList;
   }
 }

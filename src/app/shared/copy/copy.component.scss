@@ -6,6 +6,14 @@
       transform: scale(1.03);
     }
   }
+  &.no-animation {
+    &:first-child {
+      transition: none;
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
 
   &__content {
     line-height: 120%;

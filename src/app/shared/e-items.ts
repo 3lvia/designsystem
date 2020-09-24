@@ -182,6 +182,17 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
+    title: 'Radio Filter',
+    // tslint:disable-next-line: max-line-length
+    description: 'Radio Filters are buttons you can toggle between to select different views of same content. An example is an email inbox and you want to toggle between “all”, “read” and “unread” for all mails.',
+    docUrl: Pages.RadioFilter,
+    absolutePath: '/components/' + Pages.RadioFilter,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Radio filters.svg',
+    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=813%3A821',
+    type: 'Component',
+  },
+  {
     title: 'Header',
     // tslint:disable-next-line: max-line-length
     description: 'Headers are used for navigation on the website and should be displayed at the top of the page. There are two types of headers available: one for external(coming) and one for internal systems.',
@@ -381,7 +392,7 @@ export const eIdentity: EItems[] = [
   {
     title: 'Grid',
     // tslint:disable-next-line: max-line-length
-    description: 'This grid-system is based off of Bootstraps grid-system and works almost the same. All the Bootstrap grid-system classes are available for use. To use the grid-system add the e-grid class on a wrapper element. The bootstrap-classes will only work inside this wrapper, and will therefore not break any other potential grid-systems.',
+    description: 'Our grid-system is based off of Bootstraps grid-system and works almost the same. Read the  <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://getbootstrap.com/docs/4.4/layout/grid/"><span class="e-link__title">Bootstrap documentation</span><span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span></a> . All the Bootstrap grid-system classes are available for use. To use the grid-system add the e-grid class on a wrapper element. The bootstrap-classes will only work inside this wrapper, and will therefore not break any other potential grid-systems.',
     docUrl: Pages.Grid,
     absolutePath: '/identity/' + Pages.Grid,
     status: ItemStatus.Done,

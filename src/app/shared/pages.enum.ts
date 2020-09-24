@@ -38,6 +38,7 @@ export enum Pages {
   DateTimePicker = 'datetime-picker-doc',
   DragAndDrop = 'draganddrop-doc',
   FileUpload = 'fileUpload-doc',
+  RadioFilter = 'radio-filter-doc',
   Header = 'header-doc',
   Input = 'input-doc',
   Label = 'label-doc',
