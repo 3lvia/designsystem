@@ -40,10 +40,10 @@
   }
 }
 .color-img {
-  width: 241px;
+  min-width: 321px;
   margin-left: 40px;
-  @media (max-width: 1100px) {
-    max-width: 201px;
+  @media (max-width: 1250px) {
+    min-width: 221px;
     margin-left: 16px;
   }
   @include breakpoint-up(Tablet) {
@@ -53,6 +53,6 @@
   @include breakpoint-up(Mobile) {
     width: 100%;
     margin-left: 0px;
-    margin-top: 24px;
+    margin-top: 48px;
   }
 }
