@@ -532,7 +532,7 @@ export const eCommunity: EItems[] = [
     description: 'The latest news, updates, and changes to the design system.',
     docUrl: Pages.Changelog,
     absolutePath: '/community/' + Pages.Changelog,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/community-images/what\'s new.svg',
     type: 'Community',
   },
   {
@@ -551,7 +551,7 @@ export const eCommunity: EItems[] = [
     docUrl: Pages.Discussion,
     absolutePath: '/community/' + Pages.Discussion,
     externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose',
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/community-images/discussion.svg',
     type: 'Community',
   },
   {
@@ -561,7 +561,7 @@ export const eCommunity: EItems[] = [
     docUrl: Pages.Faq,
     absolutePath: '/community/' + Pages.Faq,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/community-images/FAQ.svg',
     type: 'Community',
   },
 ];
