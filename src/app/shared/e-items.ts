@@ -45,7 +45,7 @@ export const eGetStarted: EItems[] = [
     docUrl: Pages.NewProject,
     status: ItemStatus.New,
     absolutePath: '/get-started/' + Pages.NewProject,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/get-started-images/For developers.svg',
     type: 'Get started',
   },
   {
@@ -55,7 +55,7 @@ export const eGetStarted: EItems[] = [
     docUrl: Pages.GetStartedDesigners,
     status: ItemStatus.New,
     absolutePath: '/get-started/' + Pages.GetStartedDesigners,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/get-started-images/For designers.svg',
     type: 'Get started',
   },
 ];

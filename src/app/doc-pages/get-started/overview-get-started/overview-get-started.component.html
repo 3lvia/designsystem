@@ -1,1 +1,96 @@
-<app-overview-page [overviewTitle]="overviewTitle" [pages]="pages"></app-overview-page>
+<app-overview-page class="phone-overview" [overviewTitle]="overviewTitle" [pages]="pages"></app-overview-page>
+
+<div class="desktop-overview">
+  <h2 class="e-title-md e-mb-16 e-mt-0">Get started</h2>
+  <div class="e-text-lead">
+    We are an open-source design system to be used for Elvia’s external and internal systems to provide a
+    comprehensive and user-friendly experience. We offer classes and variables for styling components, as well
+    as templates, accessibility rules and design principles for all developers and designers.
+  </div>
+
+  <div style="display: flex; justify-content: space-between; margin-top: 104px;">
+    <div class="text-container e-mr-24">
+      <div style="display: flex; align-items: center;">
+        <img
+          class="e-mr-24"
+          style="width: 40px; height: 40px;"
+          src="../../../../assets/website-icons/get-started-images/For developers.svg"
+        />
+        <h3 class="e-title-sm e-mt-0 e-mb-0">For developers</h3>
+      </div>
+      <div class="e-text-description e-mt-16">
+        A full guide of installation instructions and tips for developers using Elvis for the first time. Some
+        other text here.
+      </div>
+      <div class="e-mt-16">
+        <a class="e-link e-link--action" [routerLink]="'get-started/new-project-doc#Overview'">
+          <span class="e-link__title">Start developing</span>
+          <span class="e-link__icon">
+            <i class="e-icon e-icon--arrow_circle-color"></i>
+            <i class="e-icon e-icon--arrow_circle-filled-color"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="text-container e-ml-24">
+      <div style="display: flex; align-items: center;">
+        <img
+          class="e-mr-24"
+          style="width: 40px; height: 40px;"
+          src="../../../../assets/website-icons/get-started-images/For designers.svg"
+        />
+        <h3 class="e-title-sm e-mt-0 e-mb-0">For designers</h3>
+      </div>
+      <div class="e-text-description e-mt-16">
+        All the resources you need as a designer starting with Elvis. You can easily find all of the
+        components and styles in the Figma UI library.
+      </div>
+      <div class="e-mt-16">
+        <a class="e-link e-link--action" [routerLink]="'get-started/get-started-designers#Overview'">
+          <span class="e-link__title">Start designing</span>
+          <span class="e-link__icon">
+            <i class="e-icon e-icon--arrow_circle-color"></i>
+            <i class="e-icon e-icon--arrow_circle-filled-color"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; margin-top: 104px;">
+    <div class="text-container e-mr-24">
+      <h3 class="e-title-sm e-mt-0 e-mb-0">About Elvia</h3>
+      <div class="e-text-description e-mt-16">
+        New in Elvia? Our identity and values ​​should reflect us as a company in everything we do and how we
+        are perceived at the corporate level and towards the customers.
+      </div>
+      <div class="e-mt-16">
+        <a class="e-link e-link--action" [routerLink]="['/get-started/new-project-doc']">
+          <span class="e-link__title">Read about Elvia’s identity</span>
+          <span class="e-link__icon">
+            <i class="e-icon e-icon--arrow_circle-color"></i>
+            <i class="e-icon e-icon--arrow_circle-filled-color"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="text-container e-ml-24">
+      <h3 class="e-title-sm e-mt-0 e-mb-0">About the design system</h3>
+      <div class="e-text-description e-mt-16">
+        Wondering what the purpose and principles of Elvia’s design system are? We’ll explain how to use it in
+        the best way and how you can contribute.
+      </div>
+      <div class="e-mt-16">
+        <a class="e-link e-link--action" [routerLink]="['/identity/color-doc']">
+          <span class="e-link__title">About the design system</span>
+          <span class="e-link__icon">
+            <i class="e-icon e-icon--arrow_circle-color"></i>
+            <i class="e-icon e-icon--arrow_circle-filled-color"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
