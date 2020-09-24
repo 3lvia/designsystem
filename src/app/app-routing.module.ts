@@ -64,6 +64,7 @@ import { UserFeedbackDocComponent } from './doc-pages/tools/user-feedback-doc/us
 import { ToneOfVoiceComponent } from './doc-pages/identity/tone-of-voice/tone-of-voice.component';
 import { RadioFilterDocComponent } from './doc-pages/components/radio-filter-doc/radio-filter-doc.component';
 import { PatternsDocComponent } from './doc-pages/tools/patterns-doc/patterns-doc.component';
+import { GetStartedDesignersComponent } from './doc-pages/get-started/get-started-designers/get-started-designers.component';
 
 const routes: Routes = [
   {
@@ -95,6 +96,10 @@ const routes: Routes = [
           {
             path: Pages.NewProject,
             component: NewProjectComponent,
+          },
+          {
+            path: Pages.GetStartedDesigners,
+            component: GetStartedDesignersComponent,
           },
         ],
       },

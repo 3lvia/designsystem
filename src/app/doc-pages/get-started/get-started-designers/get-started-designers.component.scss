@@ -1,0 +1,58 @@
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
+
+.flex-img-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include breakpoint-up(Mobile) {
+    display: block;
+  }
+}
+
+.flex-container-figma {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include breakpoint-up(Mobile) {
+    align-items: flex-start;
+  }
+}
+
+.figma-img {
+  width: 105px;
+  margin-right: 48px;
+  @include breakpoint-up(Tablet) {
+    width: 98px;
+    margin-right: 24px;
+  }
+  @include breakpoint-up(Mobile) {
+    width: 64px;
+    margin-right: 20px;
+  }
+}
+
+.color-text {
+  @include breakpoint-up(Tablet) {
+    width: 50%;
+  }
+  @include breakpoint-up(Mobile) {
+    width: 100%;
+  }
+}
+.color-img {
+  width: 241px;
+  margin-left: 40px;
+  @media (max-width: 1100px) {
+    max-width: 201px;
+    margin-left: 16px;
+  }
+  @include breakpoint-up(Tablet) {
+    max-width: unset;
+    width: 50%;
+  }
+  @include breakpoint-up(Mobile) {
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 24px;
+  }
+}

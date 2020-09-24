@@ -48,6 +48,16 @@ export const eGetStarted: EItems[] = [
     imageUrl: 'assets/website-icons/temporary.svg',
     type: 'Get started',
   },
+  {
+    title: 'For designers',
+    // tslint:disable-next-line: max-line-length
+    description: 'As a designer, there’s a few resources to gather before getting started with the design system in Elvia. First thing to do is to make sure you have access to the Figma library.',
+    docUrl: Pages.GetStartedDesigners,
+    status: ItemStatus.New,
+    absolutePath: '/get-started/' + Pages.GetStartedDesigners,
+    imageUrl: 'assets/website-icons/temporary.svg',
+    type: 'Get started',
+  },
 ];
 
 export const eComponents: EItems[] = [
