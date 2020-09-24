@@ -18,44 +18,22 @@
     }
     &.patricia {
       margin-top: -170px;
-      @media (max-width: 1300px) {
-        margin-top: 0px;
-      }
-      @include breakpoint-up(Tablet) {
-        margin-top: -120px;
-      }
-      @include breakpoint-up(Mobile) {
-        margin-top: 0px;
-      }
     }
     &.fride {
       margin-top: -100px;
-      @media (max-width: 1300px) {
-        margin-top: 0px;
-      }
-      @include breakpoint-up(Tablet) {
-        margin-top: -120px;
-      }
-      @include breakpoint-up(Mobile) {
-        margin-top: 0px;
-      }
     }
     &.martin {
       margin-top: -170px;
-      @media (max-width: 1300px) {
-        margin-top: 0px;
-      }
-      @include breakpoint-up(Tablet) {
-        margin-top: -120px;
-      }
-      @include breakpoint-up(Mobile) {
-        margin-top: 0px;
-      }
     }
     &.hilde {
       margin-top: -100px;
+    }
+    &.patricia,
+    &.fride,
+    &.martin,
+    &.hilde {
       @media (max-width: 1300px) {
-        margin-top: 0px;
+        margin-top: 40px;
       }
       @include breakpoint-up(Tablet) {
         margin-top: -120px;
@@ -76,12 +54,12 @@
       position: relative;
     }
     .profile-emoji {
-      width: 58px;
+      font-size: 58px;
       position: absolute;
       top: 5px;
       left: 36px;
       @include breakpoint-up(Mobile) {
-        width: 44px;
+        font-size: 44px;
         left: 186px - 44px;
       }
       &.right {
