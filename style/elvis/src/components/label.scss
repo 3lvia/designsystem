@@ -48,7 +48,7 @@ $label-font-size: 11px;
     padding: $label-padding-mobile;
   }
 
-  @each $label, $map in colors.$colors {
+  @each $label, $map in colors.$just-colors {
     $color: colors.color($label);
     $labels: ($label);
 
