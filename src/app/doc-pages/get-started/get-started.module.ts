@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { GetStartedStartModule } from './get-started-start/get-started-start.module';
 import { OverviewGetStartedModule } from './overview-get-started/overview-get-started.module';
 import { NewProjectModule } from './new-project/new-project.module';
+import { TheDesignSystemDocModule } from './the-design-system-doc/the-design-system-doc.module';
 
 
 @NgModule({
@@ -9,6 +10,7 @@ import { NewProjectModule } from './new-project/new-project.module';
         GetStartedStartModule,
         OverviewGetStartedModule,
         NewProjectModule,
+        TheDesignSystemDocModule,
     ],
 })
 export class GetStartedModule { }

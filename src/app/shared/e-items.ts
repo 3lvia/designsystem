@@ -39,6 +39,16 @@ export const eHomes: EItems[] = [
 
 export const eGetStarted: EItems[] = [
   {
+    title: 'The design system',
+    // tslint:disable-next-line: max-line-length
+    description: 'Elvia’s design system - or Elvis, for short - is a scalable system of visual language, components and design assets which enables us to work together towards an ultimate brand experience.',
+    docUrl: Pages.TheDesignSystem,
+    status: ItemStatus.New,
+    absolutePath: '/get-started/' + Pages.TheDesignSystem,
+    imageUrl: 'assets/website-icons/temporary.svg',
+    type: 'Get started',
+  },
+  {
     title: 'For developers',
     // tslint:disable-next-line: max-line-length
     description: 'Guidance on how to use, and implementation of Elvia Designsystem. Elvis helps designers and developers create software with a consistent look and feel and saves time by allowing us to reuse components and design elements across multiple systems and sketches.',
@@ -458,7 +468,7 @@ export const eIdentity: EItems[] = [
   {
     title: 'Typography',
     // tslint:disable-next-line: max-line-length
-    description: 'Red Hat is Elvia\'s profile font and should be used throughout all material. The font family has two optical sizes, Display and Text.',
+    description: 'Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font family inlcudes two optical sizes: Display and Text.',
     docUrl: Pages.Typography,
     absolutePath: '/identity/' + Pages.Typography,
     status: ItemStatus.Done,
