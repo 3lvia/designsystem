@@ -22,7 +22,6 @@ export class InputDocComponent {
   overviewExample = `<div class="e-form-field">
   <label class="e-form-field__label" for="normal">Input field </label>
   <div class="e-input">
-    <i class="e-icon e-icon--mail e-icon--xs"></i>
     <input id="normal" type="text" placeholder="Placeholder text">
   </div>
 </div>
@@ -41,7 +40,6 @@ export class InputDocComponent {
   example1 = `<div class="e-form-field">
   <label class="e-form-field__label" for="normal">Normal input field </label>
   <div class="e-input">
-    <i class="e-icon e-icon--mail e-icon--xs"></i>
     <input id="normal" type="text" placeholder="Placeholder text">
   </div>
 </div>
@@ -54,7 +52,6 @@ export class InputDocComponent {
       <input type="text" value="+47">
     </div>
     <div class="e-input">
-      <i class="e-icon e-icon--phone e-icon--xs"></i>
       <input type="text" placeholder="Placeholder text">
     </div>
   </div>
@@ -80,7 +77,7 @@ export class InputDocComponent {
   example4 = `<div class="e-form-field">
   <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
   <div class="e-input e-input---invalid">
-    <i class="e-icon e-icon--lock e-icon--xs"></i>
+    <i class="e-icon e-icon--view_on e-icon--xs"></i>
     <input id="invalid" type="password" value="passord" invalid>
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
@@ -102,24 +99,4 @@ export class InputDocComponent {
 </div>
 `;
 
-  example6 = `
-<div class="e-form-field e-mb-24">
-  <label class="e-form-field__label" for="pseudo-focus">Focus</label>
-  <div class="e-input e-input---focus">
-    <input id="pseudo-focus" type="text" placeholder="Placeholder text">
-  </div>
-</div>
-<div class="e-form-field e-mb-24">
-  <label class="e-form-field__label" for="pseudo-invalid">Invalid</label>
-  <div class="e-input e-input---invalid">
-    <input id="pseudo-invalid" type="text" placeholder="Placeholder text">
-  </div>
-</div>
-<div class="e-form-field">
-  <label class="e-form-field__label" for="pseudo-disabled">Disabled</label>
-  <div class="e-input e-input---disabled">
-    <input id="pseudo-disabled" type="text" placeholder="Placeholder text">
-  </div>
-</div>
-`;
 }
