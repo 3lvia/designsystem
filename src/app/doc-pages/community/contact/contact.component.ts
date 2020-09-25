@@ -16,37 +16,23 @@ export class ContactComponent {
   loadedImgHil = false;
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  hideContentLoaderMic(evt: any): void {
+  hideContentLoader(evt: any, name: string): void {
     if (evt && evt.target) {
-      this.loadedImgMic = true;
-    }
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  hideContentLoaderPat(evt: any): void {
-    if (evt && evt.target) {
-      this.loadedImgPat = true;
-    }
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  hideContentLoaderFri(evt: any): void {
-    if (evt && evt.target) {
-      this.loadedImgFri = true;
-    }
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  hideContentLoaderMar(evt: any): void {
-    if (evt && evt.target) {
-      this.loadedImgMar = true;
-    }
-  }
-
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  hideContentLoaderHil(evt: any): void {
-    if (evt && evt.target) {
-      this.loadedImgHil = true;
+      if (name === 'mic') {
+        this.loadedImgMic = true;
+      }
+      if (name === 'pat') {
+        this.loadedImgPat = true;
+      }
+      if (name === 'fri') {
+        this.loadedImgFri = true;
+      }
+      if (name === 'mar') {
+        this.loadedImgMar = true;
+      }
+      if (name === 'hil') {
+        this.loadedImgHil = true;
+      }
     }
   }
 }
