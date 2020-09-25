@@ -4,6 +4,7 @@ export enum Pages {
 
   // Get Started
   GetStartedStart = 'get-started',
+  TheDesignSystem = 'the-design-system-doc',
   // Children
   OverviewGetStarted = 'overview-get-started-doc',
   NewProject = 'new-project-doc',

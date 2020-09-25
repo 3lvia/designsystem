@@ -49,6 +49,16 @@ export const eHomes: EItems[] = [
 
 export const eGetStarted: EItems[] = [
   {
+    title: 'The design system',
+    // tslint:disable-next-line: max-line-length
+    description: 'Elvia’s design system - or Elvis, for short - is a scalable system of visual language, components and design assets which enables us to work together towards an ultimate brand experience.',
+    docUrl: Pages.TheDesignSystem,
+    status: ItemStatus.New,
+    absolutePath: '/get-started/' + Pages.TheDesignSystem,
+    imageUrl: 'assets/website-icons/temporary.svg',
+    type: 'Get started',
+  },
+  {
     title: 'For developers',
     // tslint:disable-next-line: max-line-length
     description: 'Guidance on how to use, and implementation of Elvia Designsystem. Elvis helps designers and developers create software with a consistent look and feel and saves time by allowing us to reuse components and design elements across multiple systems and sketches.',
