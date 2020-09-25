@@ -1,0 +1,16 @@
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
+
+.phone-overview {
+  display: none;
+  @include breakpoint-up(Mobile) {
+    display: block;
+  }
+}
+
+.desktop-overview {
+  @include breakpoint-up(Mobile) {
+    display: none;
+  }
+  max-width: 70rem;
+  margin: 0 auto;
+}
