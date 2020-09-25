@@ -82,7 +82,7 @@ export class InputDocComponent {
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
     <span>
-      <i class="e-icon e-icon--warning_circle e-icon--color-red e-icon--xs"></i>
+      <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
     </span>
     <span>
       Passord må inneholde både bokstaver og tall
