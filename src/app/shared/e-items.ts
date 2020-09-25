@@ -28,6 +28,16 @@ export const eHomes: EItems[] = [
   //   imageUrlOn: 'assets/website-icons/shortcut-images/AccessibilityOn.svg',
   // },
   {
+    title: 'Utility Classes',
+    description: 'Developer Tools',
+    docUrl: Pages.Utilities,
+    absolutePath: '/tools/' + Pages.Utilities,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/shortcut-images/UtilityClasses.svg',
+    imageUrlOn: 'assets/website-icons/shortcut-images/UtilityClassesOn.svg',
+
+  },
+  {
     title: 'Contribute',
     description: 'Help us get better',
     docUrl: Pages.Contribute,
@@ -546,9 +556,27 @@ export const eCommunity: EItems[] = [
     type: 'Community',
   },
   {
+    title: 'Contact',
+    // tslint:disable-next-line: max-line-length
+    description: `We at team LEGO will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at 
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
+      <span class="e-link__title">#designsystemet</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+    </a>`,
+    docUrl: Pages.Contact,
+    absolutePath: '/community/' + Pages.Contact,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/temporary.svg',
+    type: 'Community',
+  },
+  {
     title: 'Contribute',
     // tslint:disable-next-line: max-line-length
-    description: `To contribute, or if you have any question, you can contact us on slack: <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="https://hafslundnett.slack.com/archives/C01302LBTC2">#designsystemet</a>`,
+    description: `To contribute, or if you have any question, you can contact us on slack: 
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
+      <span class="e-link__title">#designsystemet</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+    </a>`,
     docUrl: Pages.Contribute,
     absolutePath: '/community/' + Pages.Contribute,
     status: ItemStatus.New,
@@ -567,7 +595,11 @@ export const eCommunity: EItems[] = [
   {
     title: 'FAQ',
     // tslint:disable-next-line: max-line-length
-    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack: <a onclick="event.stopPropagation();" class="e-link e-text-lead" href="https://hafslundnett.slack.com/archives/C01302LBTC2">#designsystemet</a>.`,
+    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
+      <span class="e-link__title">#designsystemet</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+    </a>`,
     docUrl: Pages.Faq,
     absolutePath: '/community/' + Pages.Faq,
     status: ItemStatus.New,
