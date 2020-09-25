@@ -56,3 +56,45 @@
     margin-top: 48px;
   }
 }
+
+.brand-text-container {
+  display: flex;
+  justify-content: space-around;
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+    margin: -16px 24px;
+  }
+}
+.top-text {
+  font-family: 'Red Hat Display';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 120%;
+  text-transform: uppercase;
+  @include breakpoint-up(Mobile) {
+    margin: 16px 0;
+  }
+}
+.principles-text {
+  white-space: nowrap;
+  margin-right: 24px;
+  color: black;
+  -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+.principle {
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    margin-left: 3px;
+    bottom: 9px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--e-green);
+  }
+}
