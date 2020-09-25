@@ -625,7 +625,6 @@
 		"e-table-mobile": {
 			"modifier": {
 				"e-table-mobile--compact": {},
-				"e-table-mobile--white-header": {},
 				"e-table-mobile--bold": {},
 				"e-table-mobile--align-center": {},
 				"e-table-mobile--align-left": {},
@@ -633,6 +632,13 @@
 			}
 		},
 		"e-table": {
+			"modifier": {
+				"e-table--compact": {},
+				"e-table--bold": {},
+				"e-table--align-center": {},
+				"e-table--align-left": {},
+				"e-table--align-right": {}
+			},
 			"element": {
 				"e-table__sort-header": {},
 				"e-table__sort-icon": {
@@ -646,16 +652,9 @@
 						"e-table__cell--multiline": {}
 					}
 				}
-			},
-			"modifier": {
-				"e-table--compact": {},
-				"e-table--white-header": {},
-				"e-table--bold": {},
-				"e-table--align-center": {},
-				"e-table--align-left": {},
-				"e-table--align-right": {}
 			}
 		},
+		"e-table-container": {},
 		"e-tags": {},
 		"e-tooltip": {
 			"element": {
@@ -1311,20 +1310,19 @@
 		"e-stepper__step--done": {},
 		"e-stepper__step--error": {},
 		"e-table-mobile": {},
+		"e-table-mobile--compact": {},
 		"e-table": {},
+		"e-table--compact": {},
+		"e-table-container": {},
 		"e-table__sort-header": {},
 		"e-table__sort-icon": {},
 		"e-table__sort-icon--up": {},
 		"e-table__sort-icon--inactive": {},
-		"e-table--compact": {},
-		"e-table--white-header": {},
 		"e-table--bold": {},
 		"e-table--align-center": {},
 		"e-table--align-left": {},
 		"e-table--align-right": {},
 		"e-table__cell--multiline": {},
-		"e-table-mobile--compact": {},
-		"e-table-mobile--white-header": {},
 		"e-table-mobile--bold": {},
 		"e-table-mobile--align-center": {},
 		"e-table-mobile--align-left": {},

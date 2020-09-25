@@ -15,51 +15,38 @@
     class="e-my-48"
     style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
   >
-    <table class="e-table overview-example">
-      <thead>
-        <tr>
-          <th scope="col">Table header column 1 of 2</th>
-          <th scope="col">Table header column 2 of 2</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th scope="row">Table row 1 column 1</th>
-          <td>Table row 1 column 2</td>
-        </tr>
-        <tr>
-          <th scope="row">Table row 2 column 1</th>
-          <td>Table row 2 column 2</td>
-        </tr>
-        <tr>
-          <th scope="row">Table row 3 column 1</th>
-          <td>Table row 3 column 2</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="e-table-container">
+      <table class="e-table overview-example">
+        <thead>
+          <tr>
+            <th scope="col">Table header column 1 of 3</th>
+            <th scope="col">Table header of 3</th>
+            <th scope="col">Table header column 3 of 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Table row 1 column 1</th>
+            <td>Table olumn 2</td>
+            <td>Table row 1 column 2</td>
+          </tr>
+          <tr>
+            <th scope="row">Table row 2 column 1</th>
+            <td>Tab 2</td>
+            <td>Table row 2 column 2</td>
+          </tr>
+          <tr>
+            <th scope="row">Table row 3 column 1</th>
+            <td>Table lumn 2</td>
+            <td>Table row 3 column 2</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <div class="e-w-100">
       <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
     </div>
   </div>
-
-  <!--TYPE-->
-  <app-component-section [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Black header'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example1"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'White header'">
-        <ng-container ngProjectAs="sectionContent">
-          Change the header to white background, this modifier works in combination with both e-table and
-          e-table--compact classes for desktop and mobile.
-          <app-code-block [codeHTML]="example3"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
 
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">

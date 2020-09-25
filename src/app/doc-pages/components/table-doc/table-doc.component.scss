@@ -1,7 +1,10 @@
 @import '../../../../../style/elvis/src/utilities/breakpoints.scss';
 
 .overview-example {
-  width: 75%;
+  width: 70%;
+  @include breakpoint-up(MinDesktop) {
+    width: 100%;
+  }
   @include breakpoint-up(Mobile) {
     width: 100%;
   }
