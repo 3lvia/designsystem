@@ -46,7 +46,7 @@
 
 // All colors as a list
 // REMEMBER TO UPDATE THE DOCUMENTATION ALSO: color-doc -> color.ts
-$clean-colors: (
+$main-colors: (
   'green': (
     color: #29d305,
     alt-labels: (
@@ -170,7 +170,7 @@ $greys: (
   ),
 );
 
-$just-colors: map-merge($clean-colors, $data-colors);
+$just-colors: map-merge($main-colors, $data-colors);
 $colors: map-merge($just-colors, $greys);
 
 $internal-colors: (
