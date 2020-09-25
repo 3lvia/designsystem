@@ -150,6 +150,16 @@
       padding: 20px 16px 19px 16px;
       border-bottom: 1px solid colors.color('grey-10');
 
+      &:hover {
+        cursor: pointer;
+        i[class*='expand_circle-color'] {
+          display: none;
+        }
+        i[class*='expand_circle-filled-color'] {
+          display: flex;
+        }
+      }
+
       .e-accordion__label {
         font-family: 'Red Hat Display';
         font-weight: 500;
