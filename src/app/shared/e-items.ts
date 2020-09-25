@@ -28,6 +28,16 @@ export const eHomes: EItems[] = [
   //   imageUrlOn: 'assets/website-icons/shortcut-images/AccessibilityOn.svg',
   // },
   {
+    title: 'Utility Classes',
+    description: 'Developer Tools',
+    docUrl: Pages.Utilities,
+    absolutePath: '/tools/' + Pages.Utilities,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/shortcut-images/UtilityClasses.svg',
+    imageUrlOn: 'assets/website-icons/shortcut-images/UtilityClassesOn.svg',
+
+  },
+  {
     title: 'Contribute',
     description: 'Help us get better',
     docUrl: Pages.Contribute,
