@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
-import { eGetStarted, eComponents, eIdentity, eCommunity } from 'src/app/shared/e-items';
+import { eGetStarted, eComponents, eIdentity, eCommunity, eTools } from 'src/app/shared/e-items';
 import { EItems } from 'src/app/shared/e-items.interface';
 
 @Component({
@@ -42,7 +42,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const search = document.getElementById('search-field');
     search.focus();
-    this.elvisItems = this.elvisItems.concat(eComponents, eGetStarted, eIdentity, eCommunity);
+    this.elvisItems = this.elvisItems.concat(eComponents, eGetStarted, eIdentity, eCommunity, eTools);
   }
 
   onSearch(): void {
