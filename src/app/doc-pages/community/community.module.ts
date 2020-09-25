@@ -5,6 +5,7 @@ import { ContributeModule } from './contribute/contribute.module';
 import { FaqDocModule } from './faq-doc/faq-doc.module';
 import { ChangelogModule } from './changelog/changelog.module';
 import { DiscussionModule } from './discussion/discussion.module';
+import { ContactModule } from './contact/contact.module';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { DiscussionModule } from './discussion/discussion.module';
         FaqDocModule,
         ChangelogModule,
         DiscussionModule,
+        ContactModule,
     ],
 })
 export class CommunityModule { }
