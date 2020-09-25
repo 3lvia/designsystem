@@ -39,7 +39,7 @@ $modal-mobile-padding: 32px;
     padding: $modal-desktop-padding;
     display: flex;
     flex-direction: column;
-    max-width: calc(#{$modal-max-width} - (#{$modal-desktop-padding} * 2));
+    max-width: $modal-max-width;
     width: auto;
     height: auto;
     border-radius: $modal-border-radius;
@@ -50,7 +50,7 @@ $modal-mobile-padding: 32px;
       border-radius: 0;
       width: 100%;
       max-width: 100%;
-      height: calc(100% - (#{$modal-mobile-padding} * 2));
+      height: 100%;
       margin: 0;
     }
 
@@ -59,7 +59,7 @@ $modal-mobile-padding: 32px;
     }
     .e-modal__text {
       @include typography.typography('text-body');
-      color: colors.color('font-grey');
+      color: colors.color('black');
       padding-top: 32px;
     }
     .e-modal__actions {
@@ -76,16 +76,16 @@ $modal-mobile-padding: 32px;
       button:not(:only-of-type) {
         width: 100%;
       }
+      button:only-of-type {
+        width: 50%;
+        @include breakpoints.breakpoint-up(Mobile) {
+          width: 100%;
+        }
+      }
       button:first-of-type:not(:last-of-type) {
         margin-right: 24px;
         @include breakpoints.breakpoint-up(Mobile) {
           margin-bottom: 16px;
-        }
-      }
-      button:only-of-type {
-        @include breakpoints.breakpoint-up(Mobile) {
-          position: absolute;
-          right: $modal-mobile-padding;
         }
       }
     }

@@ -4325,7 +4325,7 @@ input:focus {
   padding: 48px;
   display: flex;
   flex-direction: column;
-  max-width: calc(704px - (48px * 2));
+  max-width: 704px;
   width: auto;
   height: auto;
   border-radius: 8px;
@@ -4338,7 +4338,7 @@ input:focus {
     border-radius: 0;
     width: 100%;
     max-width: 100%;
-    height: calc(100% - (32px * 2));
+    height: 100%;
     margin: 0;
   }
 }
@@ -4362,7 +4362,7 @@ input:focus {
   line-height: 32px;
   font-weight: 400;
   color: #000;
-  color: #515151;
+  color: #000;
   padding-top: 32px;
 }
 
@@ -4390,6 +4390,15 @@ input:focus {
   width: 100%;
 }
 
+.e-modal__content .e-modal__actions button:only-of-type {
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .e-modal__content .e-modal__actions button:only-of-type {
+    width: 100%;
+  }
+}
 .e-modal__content .e-modal__actions button:first-of-type:not(:last-of-type) {
   margin-right: 24px;
 }
@@ -4397,12 +4406,6 @@ input:focus {
 @media (max-width: 767px) {
   .e-modal__content .e-modal__actions button:first-of-type:not(:last-of-type) {
     margin-bottom: 16px;
-  }
-}
-@media (max-width: 767px) {
-  .e-modal__content .e-modal__actions button:only-of-type {
-    position: absolute;
-    right: 32px;
   }
 }
 .e-pagination {
