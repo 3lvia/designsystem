@@ -4344,16 +4344,16 @@ input:focus {
 }
 .e-modal__content .e-modal__title {
   font-family: Red Hat Display, sans-serif;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 30px;
+  line-height: 36px;
   font-weight: 700;
   color: #000;
 }
 
 @media (max-width: 767px) {
   .e-modal__content .e-modal__title {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 24px;
+    line-height: 29px;
   }
 }
 .e-modal__content .e-modal__text {
