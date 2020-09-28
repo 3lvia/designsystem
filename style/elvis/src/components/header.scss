@@ -259,7 +259,7 @@ $sidebar-mobile-z-index: -2;
         i {
           margin-right: 8px;
         }
-        &:before {
+        &::before {
           content: '';
           position: absolute;
           width: 0;
@@ -271,7 +271,7 @@ $sidebar-mobile-z-index: -2;
           visibility: hidden;
           transition: all 0.3s ease-in-out;
         }
-        &:hover:before {
+        &:hover::before {
           visibility: visible;
           width: 100%;
         }
@@ -308,11 +308,11 @@ $sidebar-mobile-z-index: -2;
         display: flex;
       }
     }
-    &:hover:before {
+    &:hover::before {
       visibility: visible;
       width: 100%;
     }
-    &:before {
+    &::before {
       content: '';
       position: absolute;
       width: 0;
@@ -338,7 +338,7 @@ $sidebar-mobile-z-index: -2;
   }
 
   .e-header__top-bar-desktop__link {
-    &:before {
+    &::before {
       content: '';
       visibility: visible;
       width: 100%;
@@ -401,6 +401,24 @@ $sidebar-mobile-z-index: -2;
       z-index: $top-bar-mobile-z-index;
       display: flex;
       justify-content: center;
+
+      &::before {
+        content: '';
+        border-radius: 50%;
+        position: absolute;
+        background-color: var(--e-white);
+        width: 245vw;
+        height: 502px;
+        top: -30px;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        z-index: $top-bar-underlay-mobile-z-index;
+        background: colors.color('grey-70');
+      }
     }
 
     .e-header__top-bar-desktop {
@@ -419,23 +437,6 @@ $sidebar-mobile-z-index: -2;
           top: 0;
           left: 0;
         }
-      }
-      &:before {
-        content: '';
-        border-radius: 50%;
-        position: absolute;
-        background-color: var(--e-white);
-        width: 245vw;
-        height: 502px;
-        top: -30px;
-      }
-      &:after {
-        content: '';
-        position: absolute;
-        height: 100vh;
-        width: 100%;
-        z-index: $top-bar-underlay-mobile-z-index;
-        background: colors.color('grey-70');
       }
     }
 
