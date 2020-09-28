@@ -15,30 +15,30 @@
     class="e-my-48"
     style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
   >
-    <div class="e-table-container">
-      <table class="e-table overview-example">
+    <div class="e-table-container overview-example">
+      <table class="e-table">
         <thead>
           <tr>
-            <th scope="col">Table header column 1 of 3</th>
-            <th scope="col">Table header of 3</th>
-            <th scope="col">Table header column 3 of 3</th>
+            <th scope="col">Column header</th>
+            <th scope="col">Column header</th>
+            <th scope="col">Column header</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <th scope="row">Table row 1 column 1</th>
-            <td>Table row 1 column 2</td>
-            <td>Table row 1 column 3</td>
+            <th scope="row">Table Row</th>
+            <td>Table Row</td>
+            <td>Table Row</td>
           </tr>
           <tr>
-            <th scope="row">Table row 2 column 1</th>
-            <td>Table row 2 column 2</td>
-            <td>Table row 2 column 3</td>
+            <th scope="row">Table Row</th>
+            <td>Table Row</td>
+            <td>Table Row</td>
           </tr>
           <tr>
-            <th scope="row">Table row 3 column 1</th>
-            <td>Table row 3 column 2</td>
-            <td>Table row 3 column 3</td>
+            <th scope="row">Table Row</th>
+            <td>Table Row</td>
+            <td>Table Row</td>
           </tr>
         </tbody>
       </table>
@@ -150,16 +150,9 @@
           The first column should always be left aligned no matter the content of that column. Text should be
           left aligned in the columns, numbers should be right aligned and icons should be center aligned.
           Default text alignment in e-table is left. These helper classes is available for the e-table-mobile
-          class as well, just add --align-option.
+          class as well, just add --align-option. The table header should alway follow the alignment of the
+          column.
           <app-code-block [codeHTML]="example8"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Bold first column'">
-        <ng-container ngProjectAs="sectionContent">
-          Change the first table header column to bold text, this modifier works in combination with both
-          e-table and e-table--compact classes for desktop and mobile.
-          <app-code-block [codeHTML]="example4"></app-code-block>
         </ng-container>
       </app-component-subsection>
 

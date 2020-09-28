@@ -13,6 +13,7 @@ $table-border-radius: 8px;
   th {
     color: colors.color('font-color');
     font-weight: 700;
+    border-bottom: 1px solid colors.color('grey-10');
   }
 }
 
@@ -26,7 +27,7 @@ $table-border-radius: 8px;
   display: table;
   overflow: auto;
   text-align: left;
-  width: 100%;
+  width: calc(100% + 1px);
   box-sizing: border-box;
   background: white;
   white-space: nowrap;
@@ -36,11 +37,13 @@ $table-border-radius: 8px;
   border-spacing: 0;
   position: relative;
 
-  tr:last-child :first-child {
-    border-bottom-left-radius: 10px;
-  }
-  tr:last-child :last-child {
-    border-bottom-right-radius: 10px;
+  tbody {
+    tr:last-child :first-child {
+      border-bottom-left-radius: $table-border-radius;
+    }
+    tr:last-child :last-child {
+      border-bottom-right-radius: $table-border-radius;
+    }
   }
 
   &__sort-header {
@@ -48,7 +51,6 @@ $table-border-radius: 8px;
     .e-table__sort-icon {
       display: inline-flex;
       align-items: center;
-      // justify-content: center;
       margin-left: 8px;
       @include icons.icon-size('xxs');
       width: 16px;
@@ -179,9 +181,13 @@ $table-border-radius: 8px;
     padding: $table-padding;
   }
 
-  tbody tr:nth-of-type(n + 3) td,
-  tbody tr:nth-of-type(n + 3) th {
-    border-top: 1px solid colors.color('grey-10');
+  tbody:not(:last-of-type) tr td,
+  tbody:not(:last-of-type) tr th {
+    border-bottom: 1px solid colors.color('grey-10');
+  }
+  tbody:last-of-type tr:not(:last-of-type) td,
+  tbody:last-of-type tr:not(:last-of-type) th {
+    border-bottom: 1px solid colors.color('grey-10');
   }
 
   td:first-of-type {

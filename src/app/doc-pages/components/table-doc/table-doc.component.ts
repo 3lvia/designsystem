@@ -46,40 +46,40 @@ export class TableDocComponent {
     <thead>
       <tr>
         <th scope="col">Periode</th>
-        <th scope="col">Beløp</th>
         <th scope="col">Status</th>
-        <th scope="col">Faktura nr.</th>
+        <th scope="col" class="e-table--align-right">Beløp</th>
+        <th scope="col" class="e-table--align-right">Faktura nr.</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row">Januar 2020</th>
-        <td class="e-table--align-right">567,98 kr</td>
         <td>Sendt</td>
+        <td class="e-table--align-right">567,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">Februar 2020</th>
-        <td class="e-table--align-right">543,10 kr</td>
         <td>Betalt</td>
+        <td class="e-table--align-right">543,10 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">Mars 2020</th>
-        <td class="e-table--align-right">568,98 kr</td>
         <td>Betalt</td>
+        <td class="e-table--align-right">568,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">April 2020</th>
-        <td class="e-table--align-right">521,98 kr</td>
         <td>Sendt</td>
+        <td class="e-table--align-right">521,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">Mai 2020</th>
-        <td class="e-table--align-right">556,98 kr</td>
         <td>Betalt</td>
+        <td class="e-table--align-right">556,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
     </tbody>
@@ -101,12 +101,12 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Beløp</th>
-        <td class="e-table-mobile__cell">567,98 kr</td>
-      </tr>
-      <tr>
         <th class="e-table-mobile__cell" scope="row">Status</th>
         <td class="e-table-mobile__cell">Sendt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">567,98 kr</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
@@ -119,12 +119,12 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Beløp</th>
-        <td class="e-table-mobile__cell">543,10 kr</td>
-      </tr>
-      <tr>
         <th class="e-table-mobile__cell" scope="row">Status</th>
         <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">543,10 kr</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
@@ -137,12 +137,12 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Beløp</th>
-        <td class="e-table-mobile__cell">568,98 kr</td>
-      </tr>
-      <tr>
         <th class="e-table-mobile__cell" scope="row">Status</th>
         <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">568,98 kr</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
@@ -155,12 +155,12 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Beløp</th>
-        <td class="e-table-mobile__cell">521,98 kr</td>
-      </tr>
-      <tr>
         <th class="e-table-mobile__cell" scope="row">Status</th>
         <td class="e-table-mobile__cell">Sendt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">521,98 kr</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
@@ -173,12 +173,12 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Beløp</th>
-        <td class="e-table-mobile__cell">556,98 kr</td>
-      </tr>
-      <tr>
         <th class="e-table-mobile__cell" scope="row">Status</th>
         <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">556,98 kr</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
@@ -194,40 +194,40 @@ export class TableDocComponent {
     <thead>
       <tr>
         <th scope="col">Periode</th>
-        <th scope="col">Beløp</th>
         <th scope="col">Status</th>
-        <th scope="col">Faktura nr.</th>
+        <th scope="col" class="e-table--align-right">Beløp</th>
+        <th scope="col" class="e-table--align-right">Faktura nr.</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row">Januar 2020</th>
-        <td class="e-table--align-right">567,98 kr</td>
         <td>Sendt</td>
+        <td class="e-table--align-right">567,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">Februar 2020</th>
-        <td class="e-table--align-right">543,10 kr</td>
         <td>Betalt</td>
+        <td class="e-table--align-right">543,10 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">Mars 2020</th>
-        <td class="e-table--align-right">568,98 kr</td>
         <td>Betalt</td>
+        <td class="e-table--align-right">568,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">April 2020</th>
-        <td class="e-table--align-right">521,98 kr</td>
         <td>Sendt</td>
+        <td class="e-table--align-right">521,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">Mai 2020</th>
-        <td class="e-table--align-right">556,98 kr</td>
         <td>Betalt</td>
+        <td class="e-table--align-right">556,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
     </tbody>
@@ -249,12 +249,12 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Beløp</th>
-        <td class="e-table-mobile__cell">567,98 kr</td>
-      </tr>
-      <tr>
         <th class="e-table-mobile__cell" scope="row">Status</th>
         <td class="e-table-mobile__cell">Sendt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">567,98 kr</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
@@ -267,12 +267,12 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Beløp</th>
-        <td class="e-table-mobile__cell">543,10 kr</td>
-      </tr>
-      <tr>
         <th class="e-table-mobile__cell" scope="row">Status</th>
         <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">543,10 kr</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
@@ -285,12 +285,12 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Beløp</th>
-        <td class="e-table-mobile__cell">568,98 kr</td>
-      </tr>
-      <tr>
         <th class="e-table-mobile__cell" scope="row">Status</th>
         <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">568,98 kr</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
@@ -303,12 +303,12 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Beløp</th>
-        <td class="e-table-mobile__cell">521,98 kr</td>
-      </tr>
-      <tr>
         <th class="e-table-mobile__cell" scope="row">Status</th>
         <td class="e-table-mobile__cell">Sendt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">521,98 kr</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
@@ -321,12 +321,12 @@ export class TableDocComponent {
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Beløp</th>
-        <td class="e-table-mobile__cell">556,98 kr</td>
-      </tr>
-      <tr>
         <th class="e-table-mobile__cell" scope="row">Status</th>
         <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">556,98 kr</td>
       </tr>
       <tr>
         <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
@@ -348,7 +348,7 @@ export class TableDocComponent {
             <i class="e-icon e-icon--arrow_up-bold"></i>
           </span>
         </th>
-        <th scope="col" class="e-table__sort-header">
+        <th scope="col" class="e-table__sort-header e-table--align-right">
           Beløp
           <span class="e-table__sort-icon e-table__sort-icon--up">
             <i class="e-icon e-icon--arrow_down-bold"></i>
@@ -379,88 +379,45 @@ export class TableDocComponent {
 </div>
 `;
 
-  example4 = `<div class="e-table-container">
-  <table class="e-table e-table--compact e-table--bold">
-    <thead>
-      <tr>
-        <th scope="col">Periode</th>
-        <th scope="col">Beløp</th>
-        <th scope="col">Status</th>
-        <th scope="col">Faktura nr.</th>
-        <th scope="col">Last ned</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">Juni 2019</th>
-        <td class="e-table--align-right">565,98 kr</td>
-        <td>Sendt</td>
-        <td class="e-table--align-right">148392</td>
-        <td class="e-table--align-center">
-          <i class="e-icon e-icon--download e-icon--xs"></i>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">Mai 2019</th>
-        <td class="e-table--align-right">502,73 kr</td>
-        <td>Betalt</td>
-        <td class="e-table--align-right">148393</td>
-        <td class="e-table--align-center">
-          <i class="e-icon e-icon--download e-icon--xs"></i>
-        </td>
-      </tr>
-      <tr>
-        <th scope="row">April 2019</th>
-        <td class="e-table--align-right">345,58 kr</td>
-        <td>Betalt</td>
-        <td class="e-table--align-right">148394</td>
-        <td class="e-table--align-center">
-          <i class="e-icon e-icon--download e-icon--xs"></i>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-`;
   example5 = `<div class="e-table-container">
   <table class="e-table">
     <thead>
       <tr>
         <th scope="col">Periode</th>
-        <th scope="col">Beløp</th>
         <th scope="col">Status</th>
-        <th scope="col">Faktura nr.</th>
+        <th scope="col" class="e-table--align-right">Beløp</th>
+        <th scope="col" class="e-table--align-right">Faktura nr.</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row" class="e-table__cell--multiline">This cell exceeds 450px in width, so the class 'e-table__cell--multiline' should be added to break the lines.</th>
-        <td class="e-table--align-right">567,98 kr</td>
         <td>Sendt</td>
+        <td class="e-table--align-right">567,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">Februar 2020</th>
-        <td class="e-table--align-right">543,10 kr</td>
         <td>Betalt</td>
+        <td class="e-table--align-right">543,10 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">Mars 2020</th>
-        <td class="e-table--align-right">568,98 kr</td>
         <td>Betalt</td>
+        <td class="e-table--align-right">568,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">April 2020</th>
-        <td class="e-table--align-right">521,98 kr</td>
         <td>Sendt</td>
+        <td class="e-table--align-right">521,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
         <th scope="row">Mai 2020</th>
-        <td class="e-table--align-right">556,98 kr</td>
         <td>Betalt</td>
+        <td class="e-table--align-right">556,98 kr</td>
         <td class="e-table--align-right">123456</td>
       </tr>
     </tbody>
@@ -473,9 +430,9 @@ export class TableDocComponent {
   <table class="e-table">
     <thead>
       <tr>
-        <th scope="col">Text left</th>
-        <th scope="col">Icons centered</th>
-        <th scope="col">Numbers right</th>
+        <th scope="col" class="e-table--align-left">Text left</th>
+        <th scope="col" class="e-table--align-center">Icons centered</th>
+        <th scope="col" class="e-table--align-right">Numbers right</th>
       </tr>
     </thead>
     <tbody>
