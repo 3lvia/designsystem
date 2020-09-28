@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -7,13 +7,15 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./input-doc.component.scss'],
 })
 export class InputDocComponent {
+  @ViewChild('validationExample') validationExample: ElementRef;
+
+  showPassword = false;
+
   headerDoes = 'A input should be used';
   headerDonts = 'A label should not be used';
 
   figmaUrl = getComponent('input-doc').figmaUrl;
   description = getComponent('input-doc').description;
-
-  showPassword = false;
 
   does = [
     'Text fields should be used in forms where the user has to fill in something that is not from a set of choices.',
@@ -90,7 +92,7 @@ export class InputDocComponent {
       class="e-icon e-icon--view_off e-icon--xs"
       (click)="showMockPassword()"
     ></i>
-    <input id="validationExample" type="password" value="Passord" invalid />
+    <input id="validationExample" type="password" value="Passord" invalid #validationExample />
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
     <span>
@@ -103,15 +105,15 @@ export class InputDocComponent {
 </div>
 `;
 
-  example4TS = `showPassword = false;
+  example4TS = `@ViewChild('validationExample') validationExample: ElementRef;
+showPassword = false;
 
 showMockPassword() {
-  const validationExample = document.getElementById('validationExample');
-  if (validationExample.type === 'password') {
-    validationExample.type = 'text';
+  if (this.validationExample.nativeElement.type === 'password') {
+    this.validationExample.nativeElement.type = 'text';
     this.showPassword = true;
   } else {
-    validationExample.type = 'password';
+    this.validationExample.nativeElement.type = 'password';
     this.showPassword = false;
   }
 }`;
@@ -125,12 +127,11 @@ showMockPassword() {
 `;
 
   showMockPassword() {
-    const validationExample = document.getElementById('validationExample');
-    if (validationExample.type === 'password') {
-      validationExample.type = 'text';
+    if (this.validationExample.nativeElement.type === 'password') {
+      this.validationExample.nativeElement.type = 'text';
       this.showPassword = true;
     } else {
-      validationExample.type = 'password';
+      this.validationExample.nativeElement.type = 'password';
       this.showPassword = false;
     }
   }
