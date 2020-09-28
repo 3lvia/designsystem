@@ -5006,6 +5006,13 @@ input:focus {
   border-radius: 8px;
 }
 
+.e-table-footnote {
+  margin-top: 8px;
+  font-family: "Red Hat Text";
+  font-size: 16px;
+  line-height: 26px;
+}
+
 .e-table {
   display: table;
   overflow: auto;
@@ -5091,6 +5098,7 @@ input:focus {
   font-weight: 400;
   color: #000;
   padding: 9px 16px;
+  line-height: 21px;
 }
 
 .e-table.e-table--compact tr {
@@ -5154,6 +5162,7 @@ input:focus {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  line-height: 27px;
   padding: 10px 16px;
   text-align: left;
 }
@@ -5202,6 +5211,11 @@ input:focus {
   font-weight: 400;
   color: #000;
   padding: 9px 16px;
+  line-height: 21px;
+}
+
+.e-table-mobile.e-table-mobile--compact thead tr {
+  height: 40px;
 }
 
 .e-table-mobile.e-table-mobile--compact thead th {

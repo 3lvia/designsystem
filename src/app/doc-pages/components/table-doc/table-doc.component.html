@@ -149,19 +149,33 @@
         <ng-container ngProjectAs="sectionContent">
           The first column should always be left aligned no matter the content of that column. Text should be
           left aligned in the columns, numbers should be right aligned and icons should be center aligned.
-          Default text alignment in e-table is left. These helper classes is available for the e-table-mobile
-          class as well, just add --align-option. The table header should alway follow the alignment of the
-          column.
+          Default text alignment in e-table is left. These helper classes is available for the
+          <span class="code-text">e-table-mobile</span>
+          class as well, just add
+          <span class="code-text">--align-option</span>
+          . The table header should alway follow the alignment of the column.
           <app-code-block [codeHTML]="example8"></app-code-block>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Multiple columns'">
+      <app-component-subsection [sectionTitle]="'Long column'">
         <ng-container ngProjectAs="sectionContent">
           If the table requires scrolling the max-width for a column is 450px, the class
-          e-table__cell--multiline can then be added to ensure width of column and text wrap. Use e-text-right
+          <span class="code-text">e-table__cell--multiline</span>
+          can then be added to ensure width of column and text wrap. Use
+          <span class="code-text">e-text-right</span>
           to align numbers to the right.
           <app-code-block [codeHTML]="example5"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Footnote'">
+        <ng-container ngProjectAs="sectionContent">
+          If you include a footnote to your table, it should be positioned at the bottom outside the table
+          using the class
+          <span class="code-text">e-table-footnote</span>
+          .
+          <app-code-block [codeHTML]="exampleFootnote"></app-code-block>
         </ng-container>
       </app-component-subsection>
     </ng-container>

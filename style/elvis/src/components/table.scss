@@ -23,6 +23,13 @@ $table-border-radius: 8px;
   border: 1px solid colors.color('grey-10');
   border-radius: $table-border-radius;
 }
+.e-table-footnote {
+  margin-top: 8px;
+
+  font-family: 'Red Hat Text';
+  font-size: 16px;
+  line-height: 26px;
+}
 .e-table {
   display: table;
   overflow: auto;
@@ -99,6 +106,7 @@ $table-border-radius: 8px;
     th {
       @include typography.typography('text-info');
       padding: $table-compact-padding;
+      line-height: 21px;
     }
     tr {
       height: 40px;
@@ -158,6 +166,7 @@ $table-border-radius: 8px;
   th,
   td {
     @include typography.typography('text-description');
+    line-height: 27px;
     padding: $table-padding;
     text-align: left;
   }
@@ -203,12 +212,18 @@ $table-border-radius: 8px;
     th {
       @include typography.typography('text-info');
       padding: $table-compact-padding;
+      line-height: 21px;
     }
-    thead th {
-      font-family: 'Red Hat Display';
-      font-weight: 700;
-      font-size: 15px;
-      line-height: 19px;
+    thead {
+      tr {
+        height: 40px;
+      }
+      th {
+        font-family: 'Red Hat Display';
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 19px;
+      }
     }
     tbody tr:first-of-type th {
       font-size: 15px;

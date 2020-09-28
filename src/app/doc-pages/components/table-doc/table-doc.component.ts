@@ -447,4 +447,51 @@ export class TableDocComponent {
   </table>
 </div>
 `;
+
+  exampleFootnote = `<div class="e-table-container">
+<table class="e-table">
+  <thead>
+    <tr>
+      <th scope="col">Periode*</th>
+      <th scope="col">Status</th>
+      <th scope="col" class="e-text-right">Beløp</th>
+      <th scope="col" class="e-text-right">Faktura nr.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Januar 2020</th>
+      <td>Sendt</td>
+      <td class="e-text-right">567,98 kr</td>
+      <td class="e-text-right">123456</td>
+    </tr>
+    <tr>
+      <th scope="row">Februar 2020</th>
+      <td>Betalt</td>
+      <td class="e-text-right">543,10 kr</td>
+      <td class="e-text-right">123456</td>
+    </tr>
+    <tr>
+      <th scope="row">Mars 2020</th>
+      <td>Betalt</td>
+      <td class="e-text-right">568,98 kr</td>
+      <td class="e-text-right">123456</td>
+    </tr>
+    <tr>
+      <th scope="row">April 2020</th>
+      <td>Sendt</td>
+      <td class="e-text-right">521,98 kr</td>
+      <td class="e-text-right">123456</td>
+    </tr>
+    <tr>
+      <th scope="row">Mai 2020</th>
+      <td>Betalt</td>
+      <td class="e-text-right">556,98 kr</td>
+      <td class="e-text-right">123456</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="e-table-footnote">*If you include a footnote to your table, it should look like this</div>
+`;
 }
