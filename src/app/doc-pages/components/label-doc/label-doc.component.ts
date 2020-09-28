@@ -23,9 +23,9 @@ export class LabelDocComponent {
 <label class="e-label e-m-8">Rapport</label>
 `;
 
-  example2 = `<label class="e-label e-label--green-apple e-m-8">Ny</label>
-<label class="e-label e-label--red-tomato e-m-8">Farlig</label>
-<label class="e-label e-label--orange-mango e-m-8">Advarsel</label>
+  example2 = `<label class="e-label e-label--green e-m-8">Ny</label>
+<label class="e-label e-label--red e-m-8">Farlig</label>
+<label class="e-label e-label--orange e-m-8">Advarsel</label>
 <label class="e-label e-label--blue-berry e-m-8">Info</label>
 `;
 }
