@@ -5160,6 +5160,7 @@ input:focus {
   font-weight: 400;
   color: #000;
   padding: 10px 16px;
+  text-align: left;
 }
 
 .e-table-mobile tbody:not(:last-of-type) tr td,
