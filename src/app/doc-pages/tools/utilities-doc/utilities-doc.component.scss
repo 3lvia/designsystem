@@ -25,9 +25,13 @@
   width: 15%;
   margin-right: 24px;
 
+  @include breakpoint-up(MinDesktop) {
+    width: 17%;
+  }
   @include breakpoint-up(Tablet) {
     margin-right: 0;
     margin-bottom: 24px;
+    width: 15%;
   }
 }
 
@@ -35,6 +39,12 @@
   width: 25%;
   height: fit-content;
   margin-right: 16px;
+  @include breakpoint-up(MinDesktop) {
+    width: 38%;
+  }
+  @include breakpoint-up(Tablet) {
+    width: 25%;
+  }
   @include breakpoint-up(Mobile) {
     width: 100%;
   }
@@ -43,6 +53,12 @@
 .description {
   display: flex;
   width: 50%;
+  @include breakpoint-up(MinDesktop) {
+    width: 37%;
+  }
+  @include breakpoint-up(Tablet) {
+    width: 50%;
+  }
   @include breakpoint-up(Mobile) {
     width: 100%;
   }

@@ -5010,7 +5010,7 @@ input:focus {
   display: table;
   overflow: auto;
   text-align: left;
-  width: calc(100% + 1px);
+  width: 100%;
   box-sizing: border-box;
   background: white;
   white-space: nowrap;
@@ -5101,18 +5101,6 @@ input:focus {
   font-weight: 500;
 }
 
-.e-table--align-center {
-  text-align: center;
-}
-
-.e-table--align-left {
-  text-align: left;
-}
-
-.e-table--align-right {
-  text-align: right;
-}
-
 .e-table td,
 .e-table th {
   font-family: Red Hat Text, sans-serif;
@@ -5120,6 +5108,7 @@ input:focus {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  text-align: left;
   padding: 10px 16px;
 }
 
@@ -5128,10 +5117,6 @@ input:focus {
   display: inline-block;
   white-space: pre-wrap;
   width: 450px;
-}
-
-.e-table thead {
-  text-align: left;
 }
 
 .e-table thead tr {
@@ -5146,7 +5131,8 @@ input:focus {
   color: #000;
 }
 
-.e-table thead th:first-child {
+.e-table thead th,
+.e-table thead td {
   text-align: left;
 }
 
@@ -11270,15 +11256,15 @@ THE SOFTWARE.
 }
 
 .e-text-right {
-  text-align: right;
+  text-align: right !important;
 }
 
 .e-text-left {
-  text-align: left;
+  text-align: left !important;
 }
 
 .e-text-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .e-none {

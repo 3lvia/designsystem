@@ -634,10 +634,7 @@
 		"e-table": {
 			"modifier": {
 				"e-table--compact": {},
-				"e-table--bold": {},
-				"e-table--align-center": {},
-				"e-table--align-left": {},
-				"e-table--align-right": {}
+				"e-table--bold": {}
 			},
 			"element": {
 				"e-table__sort-header": {},
@@ -1318,9 +1315,6 @@
 		"e-table__sort-icon--up": {},
 		"e-table__sort-icon--inactive": {},
 		"e-table--bold": {},
-		"e-table--align-center": {},
-		"e-table--align-left": {},
-		"e-table--align-right": {},
 		"e-table__cell--multiline": {},
 		"e-table-mobile--compact": {},
 		"e-table-mobile--bold": {},

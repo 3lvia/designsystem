@@ -27,7 +27,7 @@ $table-border-radius: 8px;
   display: table;
   overflow: auto;
   text-align: left;
-  width: calc(100% + 1px);
+  width: 100%;
   box-sizing: border-box;
   background: white;
   white-space: nowrap;
@@ -116,19 +116,10 @@ $table-border-radius: 8px;
     }
   }
 
-  &--align-center {
-    text-align: center;
-  }
-  &--align-left {
-    text-align: left;
-  }
-  &--align-right {
-    text-align: right;
-  }
-
   td,
   th {
     @include typography.typography('text-description');
+    text-align: left;
     padding: $table-padding;
     &.e-table__cell--multiline {
       display: inline-block;
@@ -139,16 +130,14 @@ $table-border-radius: 8px;
 
   thead {
     @extend %header-style;
-
-    text-align: left;
     tr {
       height: 56px;
     }
     th {
       @include typography.typography('title-xs');
     }
-
-    th:first-child {
+    th,
+    td {
       text-align: left;
     }
   }
