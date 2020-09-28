@@ -147,9 +147,10 @@
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
       <app-component-subsection [sectionTitle]="'Alignment'">
         <ng-container ngProjectAs="sectionContent">
-          Text should be left aligned in the columns, numbers should be right aligned and icons should be
-          center aligned. Default text alignment in e-table is left. These helper classes is available for the
-          e-table-mobile class as well, just add --align-option.
+          The first column should always be left aligned no matter the content of that column. Text should be
+          left aligned in the columns, numbers should be right aligned and icons should be center aligned.
+          Default text alignment in e-table is left. These helper classes is available for the e-table-mobile
+          class as well, just add --align-option.
           <app-code-block [codeHTML]="example8"></app-code-block>
         </ng-container>
       </app-component-subsection>
