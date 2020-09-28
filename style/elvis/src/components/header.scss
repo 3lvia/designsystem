@@ -8,8 +8,8 @@
 $header-height: 64px;
 $header-img-size: 40px;
 
-$side-bar-width: 64px;
-$side-bar-open-width: 227px;
+$sidebar-width: 64px;
+$sidebar-open-width: 227px;
 
 // Z-INDEX
 $header-z-index: 99;
@@ -555,7 +555,7 @@ $sidebar-mobile-z-index: -2;
   position: fixed;
   bottom: 0;
   height: calc(100vh - #{$header-height});
-  width: $side-bar-width;
+  width: $sidebar-width;
   background: colors.color('white');
   overflow: hidden;
   border-right: 2px solid colors.color('grey-05');
@@ -621,7 +621,7 @@ $sidebar-mobile-z-index: -2;
   }
 
   &--open {
-    width: $side-bar-open-width;
+    width: $sidebar-open-width;
     .e-header__sidebar__item,
     .e-header__sidebar__open-close {
       .e-header__sidebar__text {
@@ -643,7 +643,7 @@ $sidebar-mobile-z-index: -2;
   // SIDEBAR - MOBILE
   @include breakpoints.breakpoint-up(Mobile) {
     position: fixed;
-    height: $side-bar-width;
+    height: $sidebar-width;
     top: calc(100vh - #{$header-height});
     width: 100vw;
     background: colors.color('white');

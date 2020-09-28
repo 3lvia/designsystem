@@ -1,4 +1,43 @@
 <table>
+<tr class="changelog-row">
+    <td class="changelog-date">
+    <span class="e-title-sm">
+      2.0.0
+    </span>
+    <br>
+    <span>
+      September 28, 2020
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">Breaking changes</div>
+        <div>
+          Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/header-doc#Overview">Header</a>,
+        </div>
+        <span class="code-text changelog-code">e-header</span> er lagt på foran alle klasser som manglet det. Desktop top-bar klasser inkluderer nå ordet 'desktop' slik som for mobil, eks: <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>. Properties liste lagt til for header.
+      </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">Conditioner</div>
+        This will require a lot of classes to be updated in the header html structure. The easiest way to fix an existing header is to search and replace the classes listed here with the new classes. If this fails the second easiest way will be to copy the examples in the documentation.
+        <ul>
+          <li>
+            <span class="code-text changelog-code">e-top-bar</span> -> <span class="code-text changelog-code">e-header__top-bar</span>
+          </li>
+          <li>
+            <span class="code-text changelog-code">e-sidebar</span> -> <span class="code-text changelog-code">e-header__sidebar</span>
+          </li>
+          <li>
+            <span class="code-text changelog-code">top-bar__</span> -> <span class="code-text changelog-code">top-bar-desktop__</span>
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+
+  </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
