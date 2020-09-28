@@ -12,6 +12,9 @@ export class InputDocComponent {
 
   figmaUrl = getComponent('input-doc').figmaUrl;
   description = getComponent('input-doc').description;
+
+  showPassword = false;
+
   does = [
     'Text fields should be used in forms where the user has to fill in something that is not from a set of choices.',
   ];
@@ -74,11 +77,20 @@ export class InputDocComponent {
 </div>
 `;
 
-  example4 = `<div class="e-form-field">
+  example4 = `<div class="e-form-field e-w-50">
   <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
   <div class="e-input e-input---invalid">
-    <i class="e-icon e-icon--view_on e-icon--xs"></i>
-    <input id="invalid" type="password" value="passord" invalid>
+    <i
+      *ngIf="!showPassword"
+      class="e-icon e-icon--view_on e-icon--xs"
+      (click)="showMockPassword()"
+    ></i>
+    <i
+      *ngIf="showPassword"
+      class="e-icon e-icon--view_off e-icon--xs"
+      (click)="showMockPassword()"
+    ></i>
+    <input id="validationExample" type="password" value="Passord" invalid />
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
     <span>
@@ -91,6 +103,19 @@ export class InputDocComponent {
 </div>
 `;
 
+  example4TS = `showPassword = false;
+
+showMockPassword() {
+  const validationExample = document.getElementById('validationExample');
+  if (validationExample.type === 'password') {
+    validationExample.type = 'text';
+    this.showPassword = true;
+  } else {
+    validationExample.type = 'password';
+    this.showPassword = false;
+  }
+}`;
+
   example5 = `<div class="e-form-field">
   <label class="e-form-field__label e-form-field__label--optional" for="textarea">Textarea</label>
   <div class="e-input">
@@ -99,4 +124,14 @@ export class InputDocComponent {
 </div>
 `;
 
+  showMockPassword() {
+    const validationExample = document.getElementById('validationExample');
+    if (validationExample.type === 'password') {
+      validationExample.type = 'text';
+      this.showPassword = true;
+    } else {
+      validationExample.type = 'password';
+      this.showPassword = false;
+    }
+  }
 }
