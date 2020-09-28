@@ -5097,10 +5097,6 @@ input:focus {
   height: 40px;
 }
 
-.e-table.e-table--bold tbody th {
-  font-weight: 500;
-}
-
 .e-table td,
 .e-table th {
   font-family: Red Hat Text, sans-serif;
@@ -5145,7 +5141,6 @@ input:focus {
   table-layout: auto;
   width: 100%;
   overflow: hidden;
-  text-align: left;
   border-radius: 8px;
   border-spacing: 0;
   box-shadow: 0px 0px 0px 1px #e9e9e9;
@@ -5173,17 +5168,13 @@ input:focus {
   border-bottom: 1px solid #e9e9e9;
 }
 
-.e-table-mobile td:first-of-type {
-  text-align: left;
-}
-
-.e-table-mobile th + td:first-of-type,
-.e-table-mobile td:not(:first-of-type) {
-  text-align: right;
-}
-
 .e-table-mobile thead tr {
   height: 56px;
+}
+
+.e-table-mobile thead th,
+.e-table-mobile thead td {
+  text-align: left;
 }
 
 .e-table-mobile tbody tr:first-of-type th {
@@ -5191,6 +5182,16 @@ input:focus {
   font-size: 17px;
   color: #000;
   font-weight: 500;
+}
+
+.e-table-mobile tbody tr:first-of-type th th,
+.e-table-mobile tbody tr:first-of-type th td {
+  text-align: left;
+}
+
+.e-table-mobile th + td:first-of-type,
+.e-table-mobile td:not(:first-of-type) {
+  text-align: right;
 }
 
 .e-table-mobile.e-table-mobile--compact td,
@@ -5212,22 +5213,6 @@ input:focus {
 
 .e-table-mobile.e-table-mobile--compact tbody tr:first-of-type th {
   font-size: 15px;
-}
-
-.e-table-mobile.e-table-mobile--bold tbody th {
-  font-weight: 700;
-}
-
-.e-table-mobile--align-center {
-  text-align: center;
-}
-
-.e-table-mobile--align-left {
-  text-align: left;
-}
-
-.e-table-mobile--align-right {
-  text-align: right;
 }
 
 .e-tags {

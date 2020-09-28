@@ -624,17 +624,12 @@
 		},
 		"e-table-mobile": {
 			"modifier": {
-				"e-table-mobile--compact": {},
-				"e-table-mobile--bold": {},
-				"e-table-mobile--align-center": {},
-				"e-table-mobile--align-left": {},
-				"e-table-mobile--align-right": {}
+				"e-table-mobile--compact": {}
 			}
 		},
 		"e-table": {
 			"modifier": {
-				"e-table--compact": {},
-				"e-table--bold": {}
+				"e-table--compact": {}
 			},
 			"element": {
 				"e-table__sort-header": {},
@@ -1314,13 +1309,8 @@
 		"e-table__sort-icon": {},
 		"e-table__sort-icon--up": {},
 		"e-table__sort-icon--inactive": {},
-		"e-table--bold": {},
 		"e-table__cell--multiline": {},
 		"e-table-mobile--compact": {},
-		"e-table-mobile--bold": {},
-		"e-table-mobile--align-center": {},
-		"e-table-mobile--align-left": {},
-		"e-table-mobile--align-right": {},
 		"e-tags": {},
 		"e-tags_item": {},
 		"e-tooltip": {},
