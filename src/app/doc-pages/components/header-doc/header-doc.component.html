@@ -108,23 +108,23 @@
             </thead>
             <tbody>
               <tr>
-                <th scope="row">e-top-bar__app--open</th>
-                <td>e-top-bar-desktop</td>
+                <th scope="row">e-header__top-bar-desktop__app--open</th>
+                <td>e-header__top-bar-desktop</td>
                 <td>When opening app-menu</td>
               </tr>
               <tr>
-                <th scope="row">e-top-bar__area--open</th>
-                <td>e-top-bar-desktop</td>
+                <th scope="row">e-header__top-bar-desktop__area--open</th>
+                <td>e-header__top-bar-desktop</td>
                 <td>When opening area-menu</td>
               </tr>
               <tr>
-                <th scope="row">e-top-bar__user--open</th>
-                <td>e-top-bar-desktop</td>
+                <th scope="row">e-header__top-bar-desktop__user--open</th>
+                <td>e-header__top-bar-desktop</td>
                 <td>When opening user-menu</td>
               </tr>
               <tr>
-                <th scope="row">e-sidebar--open</th>
-                <td>e-sidebar</td>
+                <th scope="row">e-header__sidebar--open</th>
+                <td>e-header__sidebar</td>
                 <td>When opening side-menu</td>
               </tr>
               <tr>
@@ -133,29 +133,36 @@
                 <td>When opening top-menu on mobile</td>
               </tr>
               <tr>
-                <th scope="row">e-top-bar-mobile__app--open</th>
-                <td>e-top-bar-mobile</td>
+                <th scope="row">e-header__top-bar-mobile__app--open</th>
+                <td>e-header__top-bar-mobile</td>
                 <td>When opening app-menu on mobile</td>
               </tr>
               <tr>
-                <th scope="row">e-top-bar-mobile__area--open</th>
-                <td>e-top-bar-mobile</td>
+                <th scope="row">e-header__top-bar-mobile__area--open</th>
+                <td>e-header__top-bar-mobile</td>
                 <td>When opening area-menu on mobile</td>
               </tr>
               <tr>
-                <th scope="row">e-top-bar__app-circle--active</th>
-                <td>e-top-bar__app-circle</td>
+                <th scope="row">e-header__top-bar-desktop__app-circle--active</th>
+                <td>e-header__top-bar-desktop__app-circle</td>
                 <td>Should always be present on 1 element</td>
               </tr>
               <tr>
-                <th scope="row">e-sidebar__item--active</th>
-                <td>e-sidebar__item</td>
+                <th scope="row">e-header__sidebar__item--active</th>
+                <td>e-header__sidebar__item</td>
                 <td>Should always be present on 1 element</td>
               </tr>
             </tbody>
           </table>
         </ng-container>
       </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-header'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-header'"></app-component-properties>
     </ng-container>
   </app-component-section>
 </div>

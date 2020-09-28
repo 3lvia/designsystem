@@ -15,47 +15,47 @@ export class HeaderDocComponent {
 
   internalHeaderExample = `<div class="e-header">
   <!--TOP MENU-->
-  <div class="e-top-bar">
+  <div class="e-header__top-bar">
 
     <!--TOP MENU ~ MOBILE-->
-    <div class="e-top-bar-mobile">
+    <div class="e-header__top-bar-mobile">
 
       <!--APP-->
-      <div class="e-top-bar-mobile__app">
-        <div class="e-top-bar-mobile__title">Applikasjon</div>
-        <a class="e-top-bar-mobile__link">
+      <div class="e-header__top-bar-mobile__app">
+        <div class="e-header__top-bar-mobile__title">Applikasjon</div>
+        <a class="e-header__top-bar-mobile__link">
           <span>DROPS</span>
-          <span class="e-top-bar-mobile__link-icon">
+          <span class="e-header__top-bar-mobile__link-icon">
             <i class="e-icon e-icon--arrow_down-bold"></i>
             <i class="e-icon e-icon--arrow_up-bold"></i>
           </span>
         </a>
       </div>
-      <div class="e-top-bar-mobile__divider"></div>
+      <div class="e-header__top-bar-mobile__divider"></div>
 
       <!--AREA-->
-      <div class="e-top-bar-mobile__area">
-        <div class="e-top-bar-mobile__title">Område</div>
-        <a class="e-top-bar-mobile__link">
+      <div class="e-header__top-bar-mobile__area">
+        <div class="e-header__top-bar-mobile__title">Område</div>
+        <a class="e-header__top-bar-mobile__link">
           <span>Sør</span>
-          <span class="e-top-bar-mobile__link-icon">
+          <span class="e-header__top-bar-mobile__link-icon">
             <i class="e-icon e-icon--arrow_down-bold"></i>
             <i class="e-icon e-icon--arrow_up-bold"></i>
           </span>
         </a>
       </div>
-      <div class="e-top-bar-mobile__divider"></div>
+      <div class="e-header__top-bar-mobile__divider"></div>
 
       <!--USER-->
-      <div class="e-top-bar-mobile__user">
-        <div class="e-top-bar-mobile__title">Innlogget som:</div>
-        <div class="e-top-bar-mobile__user-menu">
-          <div class="e-top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
-          <div class="e-top-bar-mobile__user-menu-settings">
+      <div class="e-header__top-bar-mobile__user">
+        <div class="e-header__top-bar-mobile__title">Innlogget som:</div>
+        <div class="e-header__top-bar-mobile__user-menu">
+          <div class="e-header__top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
+          <div class="e-header__top-bar-mobile__user-menu-settings">
             <i class="e-icon e-icon--cog e-icon--xs"></i>
             Instillinger
           </div>
-          <div class="e-top-bar-mobile__user-menu-logout">
+          <div class="e-header__top-bar-mobile__user-menu-logout">
             <i class="e-icon e-icon--logout e-icon--xs"></i>
             Logg ut
           </div>
@@ -64,49 +64,49 @@ export class HeaderDocComponent {
     </div>
 
     <!--TOP MENU ~ DESKTOP-->
-    <div class="e-top-bar-desktop">
+    <div class="e-header__top-bar-desktop">
       <div class="e-grid">
         <div class="row no-gutters">
 
           <!--LOGO + APP-->
           <div class="col-xs-2 col-sm-3 col-md-3 col-lg-4">
             <!--LOGO-->
-            <div class="e-top-bar__logo">
+            <div class="e-header__top-bar-desktop__logo">
               <img src="./../../../assets/logo/elvia_positive_4.svg" alt="Elvia Logo" />
             </div>
             <!--APP-->
-            <div class="e-top-bar__app">
-              <a class="e-top-bar__link">
+            <div class="e-header__top-bar-desktop__app">
+              <a class="e-header__top-bar-desktop__link">
                 <span>Drops</span>
-                <span class="e-top-bar__link-icon">
+                <span class="e-header__top-bar-desktop__link-icon">
                   <i class="e-icon e-icon--arrow_down-bold"></i>
                   <i class="e-icon e-icon--arrow_up-bold"></i>
                 </span>
               </a>
-              <div class="e-top-bar__app-menu">
-                <div class="e-top-bar__app-menu-item e-top-bar__app-menu-item--active">
-                  <div class="e-top-bar__app-circle">D</div>
-                  <div class="e-top-bar__app-title">DROPS</div>
+              <div class="e-header__top-bar-desktop__app-menu">
+                <div class="e-header__top-bar-desktop__app-menu-item e-header__top-bar-desktop__app-menu-item--active">
+                  <div class="e-header__top-bar-desktop__app-circle">D</div>
+                  <div class="e-header__top-bar-desktop__app-title">DROPS</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">O</div>
-                  <div class="e-top-bar__app-title">ORBIT</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">O</div>
+                  <div class="e-header__top-bar-desktop__app-title">ORBIT</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">J</div>
-                  <div class="e-top-bar__app-title">JORDFEIL</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">J</div>
+                  <div class="e-header__top-bar-desktop__app-title">JORDFEIL</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">D</div>
-                  <div class="e-top-bar__app-title">DIKO</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">D</div>
+                  <div class="e-header__top-bar-desktop__app-title">DIKO</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">A</div>
-                  <div class="e-top-bar__app-title">ADLS</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">A</div>
+                  <div class="e-header__top-bar-desktop__app-title">ADLS</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">S</div>
-                  <div class="e-top-bar__app-title">SV</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">S</div>
+                  <div class="e-header__top-bar-desktop__app-title">SV</div>
                 </div>
               </div>
             </div>
@@ -114,7 +114,7 @@ export class HeaderDocComponent {
 
           <!--TITTLE-->
           <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
-            <div class="e-top-bar__title">
+            <div class="e-header__top-bar-desktop__title">
               Kart og analyse
             </div>
           </div>
@@ -122,35 +122,35 @@ export class HeaderDocComponent {
           <!--AREA + USER-->
           <div class="col-sm-3 col-md-5 col-lg-4">
             <!--AREA-->
-            <div class="e-top-bar__area">
-              <a class="e-top-bar__link">
+            <div class="e-header__top-bar-desktop__area">
+              <a class="e-header__top-bar-desktop__link">
                 <span>Elvia Sør</span>
-                <span class="e-top-bar__link-icon">
+                <span class="e-header__top-bar-desktop__link-icon">
                   <i class="e-icon e-icon--arrow_down-bold"></i>
                   <i class="e-icon e-icon--arrow_up-bold"></i>
                 </span>
               </a>
-              <div class="e-top-bar__area-menu">
-                <div class="e-top-bar__area-menu-item">Elvia Nord</div>
-                <div class="e-top-bar__area-menu-item">Elvia Sør</div>
-                <div class="e-top-bar__area-menu-item">Elvia Nord og Sør</div>
+              <div class="e-header__top-bar-desktop__area-menu">
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Sør</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord og Sør</div>
               </div>
             </div>
-            <span class="e-top-bar__line e-mx-24"></span>
+            <span class="e-header__top-bar-desktop__line e-mx-24"></span>
             <!--USER-->
-            <div class="e-top-bar__user">
-              <a class="e-top-bar__link">
+            <div class="e-header__top-bar-desktop__user">
+              <a class="e-header__top-bar-desktop__link">
                 <span><i class="e-icon e-icon--profile-bold e-icon--xs"></i></span>
                 <span>Ragna Nordmann</span>
               </a>
-              <div class="e-top-bar__user-menu">
-                <div class="e-top-bar__user-menu-name">Ragna Nordmann</div>
-                <div class="e-top-bar__user-menu-mail">e55717@hafslund.no</div>
-                <div class="e-top-bar__user-menu-settings">
+              <div class="e-header__top-bar-desktop__user-menu">
+                <div class="e-header__top-bar-desktop__user-menu-name">Ragna Nordmann</div>
+                <div class="e-header__top-bar-desktop__user-menu-mail">e55717@hafslund.no</div>
+                <div class="e-header__top-bar-desktop__user-menu-settings">
                   <i class="e-icon e-icon--cog e-icon--xs"></i>
                   Instillinger
                 </div>
-                <div class="e-top-bar__user-menu-logout">
+                <div class="e-header__top-bar-desktop__user-menu-logout">
                   <i class="e-icon e-icon--logout e-icon--xs"></i>
                   Logg ut
                 </div>
@@ -160,7 +160,7 @@ export class HeaderDocComponent {
 
           <!--HAMBURGER-->
           <div class="col-xs-2 col-sm-3 col-md-3">
-            <div class="e-top-bar__hamburger">
+            <div class="e-header__top-bar-desktop__hamburger">
               <i class="e-icon e-icon--menu-bold"></i>
               <i class="e-icon e-icon--remove_circle-color"></i>
             </div>
@@ -171,45 +171,45 @@ export class HeaderDocComponent {
   </div>
 
   <!--SIDE MENU-->
-  <div class="e-sidebar">
+  <div class="e-header__sidebar">
 
     <!--APPS-->
-    <div class="e-sidebar__item">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--dashboard"></i>
         <i class="e-icon e-icon--dashboard-color"></i>
       </span>
-      <span class="e-sidebar__text">Oversikt</span>
+      <span class="e-header__sidebar__text">Oversikt</span>
     </div>
-    <div class="e-sidebar__item">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--search"></i>
         <i class="e-icon e-icon--search-color"></i>
       </span>
-      <span class="e-sidebar__text">Målepunksøk</span>
+      <span class="e-header__sidebar__text">Målepunksøk</span>
     </div>
-    <div class="e-sidebar__item e-sidebar__item--active">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item e-header__sidebar__item--active">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--pin"></i>
         <i class="e-icon e-icon--pin-color"></i>
       </span>
-      <span class="e-sidebar__text">Analyse</span>
+      <span class="e-header__sidebar__text">Analyse</span>
     </div>
-    <div class="e-sidebar__item">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--graph_bar"></i>
         <i class="e-icon e-icon--graph_bar-color"></i>
       </span>
-      <span class="e-sidebar__text">Statistikk</span>
+      <span class="e-header__sidebar__text">Statistikk</span>
     </div>
 
     <!--OPEN/CLOSE BTN-->
-    <div class="e-sidebar__open-close">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__open-close">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--open_menu"></i>
         <i class="e-icon e-icon--close_menu"></i>
       </span>
-      <span class="e-sidebar__text">Minimer</span>
+      <span class="e-header__sidebar__text">Minimer</span>
     </div>
   </div>
 </div>
@@ -217,47 +217,47 @@ export class HeaderDocComponent {
 
   internalHeaderOpen = `<div class="e-header e-header--open">
   <!--TOP MENU-->
-  <div class="e-top-bar">
+  <div class="e-header__top-bar">
 
     <!--TOP MENU ~ MOBILE-->
-    <div class="e-top-bar-mobile e-top-bar-mobile__app--open e-top-bar-mobile__area--open">
+    <div class="e-header__top-bar-mobile e-header__top-bar-mobile__app--open e-header__top-bar-mobile__area--open">
 
       <!--APP-->
-      <div class="e-top-bar-mobile__app">
-        <div class="e-top-bar-mobile__title">Applikasjon</div>
-        <a class="e-top-bar-mobile__link">
+      <div class="e-header__top-bar-mobile__app">
+        <div class="e-header__top-bar-mobile__title">Applikasjon</div>
+        <a class="e-header__top-bar-mobile__link">
           <span>DROPS</span>
-          <span class="e-top-bar-mobile__link-icon">
+          <span class="e-header__top-bar-mobile__link-icon">
             <i class="e-icon e-icon--arrow_down-bold"></i>
             <i class="e-icon e-icon--arrow_up-bold"></i>
           </span>
         </a>
       </div>
-      <div class="e-top-bar-mobile__divider"></div>
+      <div class="e-header__top-bar-mobile__divider"></div>
 
       <!--AREA-->
-      <div class="e-top-bar-mobile__area">
-        <div class="e-top-bar-mobile__title">Område</div>
-        <a class="e-top-bar-mobile__link">
+      <div class="e-header__top-bar-mobile__area">
+        <div class="e-header__top-bar-mobile__title">Område</div>
+        <a class="e-header__top-bar-mobile__link">
           <span>Sør</span>
-          <span class="e-top-bar-mobile__link-icon">
+          <span class="e-header__top-bar-mobile__link-icon">
             <i class="e-icon e-icon--arrow_down-bold"></i>
             <i class="e-icon e-icon--arrow_up-bold"></i>
           </span>
         </a>
       </div>
-      <div class="e-top-bar-mobile__divider"></div>
+      <div class="e-header__top-bar-mobile__divider"></div>
 
       <!--USER-->
-      <div class="e-top-bar-mobile__user">
-        <div class="e-top-bar-mobile__title">Innlogget som:</div>
-        <div class="e-top-bar-mobile__user-menu">
-          <div class="e-top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
-          <div class="e-top-bar-mobile__user-menu-settings">
+      <div class="e-header__top-bar-mobile__user">
+        <div class="e-header__top-bar-mobile__title">Innlogget som:</div>
+        <div class="e-header__top-bar-mobile__user-menu">
+          <div class="e-header__top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
+          <div class="e-header__top-bar-mobile__user-menu-settings">
             <i class="e-icon e-icon--cog e-icon--xs"></i>
             Instillinger
           </div>
-          <div class="e-top-bar-mobile__user-menu-logout">
+          <div class="e-header__top-bar-mobile__user-menu-logout">
             <i class="e-icon e-icon--logout e-icon--xs"></i>
             Logg ut
           </div>
@@ -266,49 +266,49 @@ export class HeaderDocComponent {
     </div>
 
     <!--TOP MENU ~ DESKTOP-->
-    <div class="e-top-bar-desktop e-top-bar__app--open e-top-bar__area--open e-top-bar__user--open">
+    <div class="e-header__top-bar-desktop e-header__top-bar-desktop__app--open e-header__top-bar-desktop__area--open e-header__top-bar-desktop__user--open">
       <div class="e-grid">
         <div class="row no-gutters">
 
           <!--LOGO + APP-->
           <div class="col-xs-2 col-sm-3 col-md-3 col-lg-4">
             <!--LOGO-->
-            <div class="e-top-bar__logo">
+            <div class="e-header__top-bar-desktop__logo">
               <img src="./../../../assets/logo/elvia_positive_4.svg" alt="Elvia Logo" />
             </div>
             <!--APP-->
-            <div class="e-top-bar__app">
-              <a class="e-top-bar__link">
+            <div class="e-header__top-bar-desktop__app">
+              <a class="e-header__top-bar-desktop__link">
                 <span>Drops</span>
-                <span class="e-top-bar__link-icon">
+                <span class="e-header__top-bar-desktop__link-icon">
                   <i class="e-icon e-icon--arrow_down-bold"></i>
                   <i class="e-icon e-icon--arrow_up-bold"></i>
                 </span>
               </a>
-              <div class="e-top-bar__app-menu">
-                <div class="e-top-bar__app-menu-item e-top-bar__app-menu-item--active">
-                  <div class="e-top-bar__app-circle">D</div>
-                  <div class="e-top-bar__app-title">DROPS</div>
+              <div class="e-header__top-bar-desktop__app-menu">
+                <div class="e-header__top-bar-desktop__app-menu-item e-header__top-bar-desktop__app-menu-item--active">
+                  <div class="e-header__top-bar-desktop__app-circle">D</div>
+                  <div class="e-header__top-bar-desktop__app-title">DROPS</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">O</div>
-                  <div class="e-top-bar__app-title">ORBIT</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">O</div>
+                  <div class="e-header__top-bar-desktop__app-title">ORBIT</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">J</div>
-                  <div class="e-top-bar__app-title">JORDFEIL</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">J</div>
+                  <div class="e-header__top-bar-desktop__app-title">JORDFEIL</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">D</div>
-                  <div class="e-top-bar__app-title">DIKO</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">D</div>
+                  <div class="e-header__top-bar-desktop__app-title">DIKO</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">A</div>
-                  <div class="e-top-bar__app-title">ADLS</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">A</div>
+                  <div class="e-header__top-bar-desktop__app-title">ADLS</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">S</div>
-                  <div class="e-top-bar__app-title">SV</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">S</div>
+                  <div class="e-header__top-bar-desktop__app-title">SV</div>
                 </div>
               </div>
             </div>
@@ -316,7 +316,7 @@ export class HeaderDocComponent {
 
           <!--TITTLE-->
           <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
-            <div class="e-top-bar__title">
+            <div class="e-header__top-bar-desktop__title">
               Kart og analyse
             </div>
           </div>
@@ -324,35 +324,35 @@ export class HeaderDocComponent {
           <!--AREA + USER-->
           <div class="col-sm-3 col-md-5 col-lg-4">
             <!--AREA-->
-            <div class="e-top-bar__area">
-              <a class="e-top-bar__link">
+            <div class="e-header__top-bar-desktop__area">
+              <a class="e-header__top-bar-desktop__link">
                 <span>Elvia Sør</span>
-                <span class="e-top-bar__link-icon">
+                <span class="e-header__top-bar-desktop__link-icon">
                   <i class="e-icon e-icon--arrow_down-bold"></i>
                   <i class="e-icon e-icon--arrow_up-bold"></i>
                 </span>
               </a>
-              <div class="e-top-bar__area-menu">
-                <div class="e-top-bar__area-menu-item">Elvia Nord</div>
-                <div class="e-top-bar__area-menu-item">Elvia Sør</div>
-                <div class="e-top-bar__area-menu-item">Elvia Nord og Sør</div>
+              <div class="e-header__top-bar-desktop__area-menu">
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Sør</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord og Sør</div>
               </div>
             </div>
-            <span class="e-top-bar__line e-mx-24"></span>
+            <span class="e-header__top-bar-desktop__line e-mx-24"></span>
             <!--USER-->
-            <div class="e-top-bar__user">
-              <a class="e-top-bar__link">
+            <div class="e-header__top-bar-desktop__user">
+              <a class="e-header__top-bar-desktop__link">
                 <span><i class="e-icon e-icon--profile-bold e-icon--xs"></i></span>
                 <span>Ragna Nordmann</span>
               </a>
-              <div class="e-top-bar__user-menu">
-                <div class="e-top-bar__user-menu-name">Ragna Nordmann</div>
-                <div class="e-top-bar__user-menu-mail">e55717@hafslund.no</div>
-                <div class="e-top-bar__user-menu-settings">
+              <div class="e-header__top-bar-desktop__user-menu">
+                <div class="e-header__top-bar-desktop__user-menu-name">Ragna Nordmann</div>
+                <div class="e-header__top-bar-desktop__user-menu-mail">e55717@hafslund.no</div>
+                <div class="e-header__top-bar-desktop__user-menu-settings">
                   <i class="e-icon e-icon--cog e-icon--xs"></i>
                   Instillinger
                 </div>
-                <div class="e-top-bar__user-menu-logout">
+                <div class="e-header__top-bar-desktop__user-menu-logout">
                   <i class="e-icon e-icon--logout e-icon--xs"></i>
                   Logg ut
                 </div>
@@ -362,7 +362,7 @@ export class HeaderDocComponent {
 
           <!--HAMBURGER-->
           <div class="col-xs-2 col-sm-3 col-md-3">
-            <div class="e-top-bar__hamburger">
+            <div class="e-header__top-bar-desktop__hamburger">
               <i class="e-icon e-icon--menu-bold"></i>
               <i class="e-icon e-icon--remove_circle-color"></i>
             </div>
@@ -373,45 +373,45 @@ export class HeaderDocComponent {
   </div>
 
   <!--SIDE MENU-->
-  <div class="e-sidebar">
+  <div class="e-header__sidebar">
 
     <!--APPS-->
-    <div class="e-sidebar__item">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--dashboard"></i>
         <i class="e-icon e-icon--dashboard-color"></i>
       </span>
-      <span class="e-sidebar__text">Oversikt</span>
+      <span class="e-header__sidebar__text">Oversikt</span>
     </div>
-    <div class="e-sidebar__item">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--search"></i>
         <i class="e-icon e-icon--search-color"></i>
       </span>
-      <span class="e-sidebar__text">Målepunksøk</span>
+      <span class="e-header__sidebar__text">Målepunksøk</span>
     </div>
-    <div class="e-sidebar__item e-sidebar__item--active">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item e-header__sidebar__item--active">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--pin"></i>
         <i class="e-icon e-icon--pin-color"></i>
       </span>
-      <span class="e-sidebar__text">Analyse</span>
+      <span class="e-header__sidebar__text">Analyse</span>
     </div>
-    <div class="e-sidebar__item">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--graph_bar"></i>
         <i class="e-icon e-icon--graph_bar-color"></i>
       </span>
-      <span class="e-sidebar__text">Statistikk</span>
+      <span class="e-header__sidebar__text">Statistikk</span>
     </div>
 
     <!--OPEN/CLOSE BTN-->
-    <div class="e-sidebar__open-close">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__open-close">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--open_menu"></i>
         <i class="e-icon e-icon--close_menu"></i>
       </span>
-      <span class="e-sidebar__text">Minimer</span>
+      <span class="e-header__sidebar__text">Minimer</span>
     </div>
   </div>
 </div>
@@ -419,47 +419,47 @@ export class HeaderDocComponent {
 
   internalHeaderSideOpen = `<div class="e-header">
   <!--TOP MENU-->
-  <div class="e-top-bar">
+  <div class="e-header__top-bar">
 
     <!--TOP MENU ~ MOBILE-->
-    <div class="e-top-bar-mobile">
+    <div class="e-header__top-bar-mobile">
 
       <!--APP-->
-      <div class="e-top-bar-mobile__app">
-        <div class="e-top-bar-mobile__title">Applikasjon</div>
-        <a class="e-top-bar-mobile__link">
+      <div class="e-header__top-bar-mobile__app">
+        <div class="e-header__top-bar-mobile__title">Applikasjon</div>
+        <a class="e-header__top-bar-mobile__link">
           <span>DROPS</span>
-          <span class="e-top-bar-mobile__link-icon">
+          <span class="e-header__top-bar-mobile__link-icon">
             <i class="e-icon e-icon--arrow_down-bold"></i>
             <i class="e-icon e-icon--arrow_up-bold"></i>
           </span>
         </a>
       </div>
-      <div class="e-top-bar-mobile__divider"></div>
+      <div class="e-header__top-bar-mobile__divider"></div>
 
       <!--AREA-->
-      <div class="e-top-bar-mobile__area">
-        <div class="e-top-bar-mobile__title">Område</div>
-        <a class="e-top-bar-mobile__link">
+      <div class="e-header__top-bar-mobile__area">
+        <div class="e-header__top-bar-mobile__title">Område</div>
+        <a class="e-header__top-bar-mobile__link">
           <span>Sør</span>
-          <span class="e-top-bar-mobile__link-icon">
+          <span class="e-header__top-bar-mobile__link-icon">
             <i class="e-icon e-icon--arrow_down-bold"></i>
             <i class="e-icon e-icon--arrow_up-bold"></i>
           </span>
         </a>
       </div>
-      <div class="e-top-bar-mobile__divider"></div>
+      <div class="e-header__top-bar-mobile__divider"></div>
 
       <!--USER-->
-      <div class="e-top-bar-mobile__user">
-        <div class="e-top-bar-mobile__title">Innlogget som:</div>
-        <div class="e-top-bar-mobile__user-menu">
-          <div class="e-top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
-          <div class="e-top-bar-mobile__user-menu-settings">
+      <div class="e-header__top-bar-mobile__user">
+        <div class="e-header__top-bar-mobile__title">Innlogget som:</div>
+        <div class="e-header__top-bar-mobile__user-menu">
+          <div class="e-header__top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
+          <div class="e-header__top-bar-mobile__user-menu-settings">
             <i class="e-icon e-icon--cog e-icon--xs"></i>
             Instillinger
           </div>
-          <div class="e-top-bar-mobile__user-menu-logout">
+          <div class="e-header__top-bar-mobile__user-menu-logout">
             <i class="e-icon e-icon--logout e-icon--xs"></i>
             Logg ut
           </div>
@@ -468,49 +468,49 @@ export class HeaderDocComponent {
     </div>
 
     <!--TOP MENU ~ DESKTOP-->
-    <div class="e-top-bar-desktop">
+    <div class="e-header__top-bar-desktop">
       <div class="e-grid">
         <div class="row no-gutters">
 
           <!--LOGO + APP-->
           <div class="col-xs-2 col-sm-3 col-md-3 col-lg-4">
             <!--LOGO-->
-            <div class="e-top-bar__logo">
+            <div class="e-header__top-bar-desktop__logo">
               <img src="./../../../assets/logo/elvia_positive_4.svg" alt="Elvia Logo" />
             </div>
             <!--APP-->
-            <div class="e-top-bar__app">
-              <a class="e-top-bar__link">
+            <div class="e-header__top-bar-desktop__app">
+              <a class="e-header__top-bar-desktop__link">
                 <span>Drops</span>
-                <span class="e-top-bar__link-icon">
+                <span class="e-header__top-bar-desktop__link-icon">
                   <i class="e-icon e-icon--arrow_down-bold"></i>
                   <i class="e-icon e-icon--arrow_up-bold"></i>
                 </span>
               </a>
-              <div class="e-top-bar__app-menu">
-                <div class="e-top-bar__app-menu-item e-top-bar__app-menu-item--active">
-                  <div class="e-top-bar__app-circle">D</div>
-                  <div class="e-top-bar__app-title">DROPS</div>
+              <div class="e-header__top-bar-desktop__app-menu">
+                <div class="e-header__top-bar-desktop__app-menu-item e-header__top-bar-desktop__app-menu-item--active">
+                  <div class="e-header__top-bar-desktop__app-circle">D</div>
+                  <div class="e-header__top-bar-desktop__app-title">DROPS</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">O</div>
-                  <div class="e-top-bar__app-title">ORBIT</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">O</div>
+                  <div class="e-header__top-bar-desktop__app-title">ORBIT</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">J</div>
-                  <div class="e-top-bar__app-title">JORDFEIL</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">J</div>
+                  <div class="e-header__top-bar-desktop__app-title">JORDFEIL</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">D</div>
-                  <div class="e-top-bar__app-title">DIKO</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">D</div>
+                  <div class="e-header__top-bar-desktop__app-title">DIKO</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">A</div>
-                  <div class="e-top-bar__app-title">ADLS</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">A</div>
+                  <div class="e-header__top-bar-desktop__app-title">ADLS</div>
                 </div>
-                <div class="e-top-bar__app-menu-item">
-                  <div class="e-top-bar__app-circle">S</div>
-                  <div class="e-top-bar__app-title">SV</div>
+                <div class="e-header__top-bar-desktop__app-menu-item">
+                  <div class="e-header__top-bar-desktop__app-circle">S</div>
+                  <div class="e-header__top-bar-desktop__app-title">SV</div>
                 </div>
               </div>
             </div>
@@ -518,7 +518,7 @@ export class HeaderDocComponent {
 
           <!--TITTLE-->
           <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
-            <div class="e-top-bar__title">
+            <div class="e-header__top-bar-desktop__title">
               Kart og analyse
             </div>
           </div>
@@ -526,35 +526,35 @@ export class HeaderDocComponent {
           <!--AREA + USER-->
           <div class="col-sm-3 col-md-5 col-lg-4">
             <!--AREA-->
-            <div class="e-top-bar__area">
-              <a class="e-top-bar__link">
+            <div class="e-header__top-bar-desktop__area">
+              <a class="e-header__top-bar-desktop__link">
                 <span>Elvia Sør</span>
-                <span class="e-top-bar__link-icon">
+                <span class="e-header__top-bar-desktop__link-icon">
                   <i class="e-icon e-icon--arrow_down-bold"></i>
                   <i class="e-icon e-icon--arrow_up-bold"></i>
                 </span>
               </a>
-              <div class="e-top-bar__area-menu">
-                <div class="e-top-bar__area-menu-item">Elvia Nord</div>
-                <div class="e-top-bar__area-menu-item">Elvia Sør</div>
-                <div class="e-top-bar__area-menu-item">Elvia Nord og Sør</div>
+              <div class="e-header__top-bar-desktop__area-menu">
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Sør</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord og Sør</div>
               </div>
             </div>
-            <span class="e-top-bar__line e-mx-24"></span>
+            <span class="e-header__top-bar-desktop__line e-mx-24"></span>
             <!--USER-->
-            <div class="e-top-bar__user">
-              <a class="e-top-bar__link">
+            <div class="e-header__top-bar-desktop__user">
+              <a class="e-header__top-bar-desktop__link">
                 <span><i class="e-icon e-icon--profile-bold e-icon--xs"></i></span>
                 <span>Ragna Nordmann</span>
               </a>
-              <div class="e-top-bar__user-menu">
-                <div class="e-top-bar__user-menu-name">Ragna Nordmann</div>
-                <div class="e-top-bar__user-menu-mail">e55717@hafslund.no</div>
-                <div class="e-top-bar__user-menu-settings">
+              <div class="e-header__top-bar-desktop__user-menu">
+                <div class="e-header__top-bar-desktop__user-menu-name">Ragna Nordmann</div>
+                <div class="e-header__top-bar-desktop__user-menu-mail">e55717@hafslund.no</div>
+                <div class="e-header__top-bar-desktop__user-menu-settings">
                   <i class="e-icon e-icon--cog e-icon--xs"></i>
                   Instillinger
                 </div>
-                <div class="e-top-bar__user-menu-logout">
+                <div class="e-header__top-bar-desktop__user-menu-logout">
                   <i class="e-icon e-icon--logout e-icon--xs"></i>
                   Logg ut
                 </div>
@@ -564,7 +564,7 @@ export class HeaderDocComponent {
 
           <!--HAMBURGER-->
           <div class="col-xs-2 col-sm-3 col-md-3">
-            <div class="e-top-bar__hamburger">
+            <div class="e-header__top-bar-desktop__hamburger">
               <i class="e-icon e-icon--menu-bold"></i>
               <i class="e-icon e-icon--remove_circle-color"></i>
             </div>
@@ -575,45 +575,45 @@ export class HeaderDocComponent {
   </div>
 
   <!--SIDE MENU-->
-  <div class="e-sidebar e-sidebar--open">
+  <div class="e-header__sidebar e-header__sidebar--open">
 
     <!--APPS-->
-    <div class="e-sidebar__item">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--dashboard"></i>
         <i class="e-icon e-icon--dashboard-color"></i>
       </span>
-      <span class="e-sidebar__text">Oversikt</span>
+      <span class="e-header__sidebar__text">Oversikt</span>
     </div>
-    <div class="e-sidebar__item">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--search"></i>
         <i class="e-icon e-icon--search-color"></i>
       </span>
-      <span class="e-sidebar__text">Målepunksøk</span>
+      <span class="e-header__sidebar__text">Målepunksøk</span>
     </div>
-    <div class="e-sidebar__item e-sidebar__item--active">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item e-header__sidebar__item--active">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--pin"></i>
         <i class="e-icon e-icon--pin-color"></i>
       </span>
-      <span class="e-sidebar__text">Analyse</span>
+      <span class="e-header__sidebar__text">Analyse</span>
     </div>
-    <div class="e-sidebar__item">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__item">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--graph_bar"></i>
         <i class="e-icon e-icon--graph_bar-color"></i>
       </span>
-      <span class="e-sidebar__text">Statistikk</span>
+      <span class="e-header__sidebar__text">Statistikk</span>
     </div>
 
     <!--OPEN/CLOSE BTN-->
-    <div class="e-sidebar__open-close">
-      <span class="e-sidebar__icon">
+    <div class="e-header__sidebar__open-close">
+      <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--open_menu"></i>
         <i class="e-icon e-icon--close_menu"></i>
       </span>
-      <span class="e-sidebar__text">Minimer</span>
+      <span class="e-header__sidebar__text">Minimer</span>
     </div>
   </div>
 </div>
