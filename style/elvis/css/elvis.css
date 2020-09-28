@@ -5033,10 +5033,10 @@ input:focus {
 .e-table__sort-header .e-table__sort-icon {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   margin-left: 8px;
   width: 8px;
   height: 8px;
+  width: 16px;
 }
 
 .e-table__sort-header .e-table__sort-icon img,
@@ -5055,6 +5055,7 @@ input:focus {
 
 .e-table__sort-header .e-table__sort-icon.e-table__sort-icon--up i[class*=e-icon--arrow_up-bold] {
   display: flex;
+  width: 16px;
 }
 
 .e-table__sort-header .e-table__sort-icon.e-table__sort-icon--up i[class*=e-icon--arrow_down-bold] {
@@ -5129,7 +5130,7 @@ input:focus {
 }
 
 .e-table thead {
-  text-align: center;
+  text-align: left;
 }
 
 .e-table thead tr {

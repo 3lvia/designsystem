@@ -24,14 +24,17 @@ export class TableDocComponent {
       <tr>
         <th scope="row">Table row 1 column 1</th>
         <td>Table row 1 column 2</td>
+        <td>Table row 1 column 3</td>
       </tr>
       <tr>
         <th scope="row">Table row 2 column 1</th>
         <td>Table row 2 column 2</td>
+        <td>Table row 2 column 3</td>
       </tr>
       <tr>
         <th scope="row">Table row 3 column 1</th>
         <td>Table row 3 column 2</td>
+        <td>Table row 3 column 3</td>
       </tr>
     </tbody>
   </table>
@@ -42,71 +45,292 @@ export class TableDocComponent {
   <table class="e-table">
     <thead>
       <tr>
-        <th scope="col">Gebyr for ikke-automatiske strømmålere</th>
-        <th scope="col">Nok</th>
+        <th scope="col">Periode</th>
+        <th scope="col">Beløp</th>
+        <th scope="col">Status</th>
+        <th scope="col">Faktura nr.</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">Administrativt arbeid i kundesystemet</th>
-        <td class="e-table--align-right">420</td>
+        <th scope="row">Januar 2020</th>
+        <td class="e-table--align-right">567,98 kr</td>
+        <td>Sendt</td>
+        <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
-        <th scope="row">Informasjon og purring til kunder</th>
-        <td class="e-table--align-right">65</td>
+        <th scope="row">Februar 2020</th>
+        <td class="e-table--align-right">543,10 kr</td>
+        <td>Betalt</td>
+        <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
-        <th scope="row">Arbeid relatert til booking av avlesning</th>
-        <td class="e-table--align-right">140</td>
+        <th scope="row">Mars 2020</th>
+        <td class="e-table--align-right">568,98 kr</td>
+        <td>Betalt</td>
+        <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
-        <th scope="row">Årlig kontrollavlesning hos kunde, inkl. kjøring</th>
-        <td class="e-table--align-right">850</td>
+        <th scope="row">April 2020</th>
+        <td class="e-table--align-right">521,98 kr</td>
+        <td>Sendt</td>
+        <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
-        <th scope="row">Arbeidsledelse og planlegging</th>
-        <td class="e-table--align-right">150</td>
-      </tr>
-      <tr>
-        <th scope="row">Fradrag for besparelser i AMS-kostnader</th>
-        <td class="e-table--align-right">-25</td>
+        <th scope="row">Mai 2020</th>
+        <td class="e-table--align-right">556,98 kr</td>
+        <td>Betalt</td>
+        <td class="e-table--align-right">123456</td>
       </tr>
     </tbody>
   </table>
 </div>
 `;
-  example2 = `<div class="e-table-container">
-  <table class="e-table e-table--compact">
+
+  example6 = `<div style="width: 305px; margin: 16px;">
+  <table class="e-table-mobile">
     <thead>
       <tr>
-        <th scope="col">Gebyr for ikke-automatiske strømmålere</th>
-        <th scope="col">Nok</th>
+        <th class="e-table-mobile__cell" scope="col">Periode</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">Administrativt arbeid i kundesystemet</th>
-        <td class="e-table--align-right">420</td>
+        <th class="e-table-mobile__cell" scope="col">Januar 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th scope="row">Informasjon og purring til kunder</th>
-        <td class="e-table--align-right">65</td>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">567,98 kr</td>
       </tr>
       <tr>
-        <th scope="row">Arbeid relatert til booking av avlesning</th>
-        <td class="e-table--align-right">140</td>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Sendt</td>
       </tr>
       <tr>
-        <th scope="row">Årlig kontrollavlesning hos kunde, inkl. kjøring</th>
-        <td class="e-table--align-right">850</td>
+        <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
+        <td class="e-table-mobile__cell">123456</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">Februar 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th scope="row">Arbeidsledelse og planlegging</th>
-        <td class="e-table--align-right">150</td>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">543,10 kr</td>
       </tr>
       <tr>
-        <th scope="row">Fradrag for besparelser i AMS-kostnader</th>
-        <td class="e-table--align-right">-25</td>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
+        <td class="e-table-mobile__cell">123456</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">Mars 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">568,98 kr</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
+        <td class="e-table-mobile__cell">123456</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">April 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">521,98 kr</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Sendt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
+        <td class="e-table-mobile__cell">123456</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">Mai 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">556,98 kr</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
+        <td class="e-table-mobile__cell">123456</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+  example2 = `<div class="e-table-container">
+  <table class="e-table e-table--compact">
+    <thead>
+      <tr>
+        <th scope="col">Periode</th>
+        <th scope="col">Beløp</th>
+        <th scope="col">Status</th>
+        <th scope="col">Faktura nr.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Januar 2020</th>
+        <td class="e-table--align-right">567,98 kr</td>
+        <td>Sendt</td>
+        <td class="e-table--align-right">123456</td>
+      </tr>
+      <tr>
+        <th scope="row">Februar 2020</th>
+        <td class="e-table--align-right">543,10 kr</td>
+        <td>Betalt</td>
+        <td class="e-table--align-right">123456</td>
+      </tr>
+      <tr>
+        <th scope="row">Mars 2020</th>
+        <td class="e-table--align-right">568,98 kr</td>
+        <td>Betalt</td>
+        <td class="e-table--align-right">123456</td>
+      </tr>
+      <tr>
+        <th scope="row">April 2020</th>
+        <td class="e-table--align-right">521,98 kr</td>
+        <td>Sendt</td>
+        <td class="e-table--align-right">123456</td>
+      </tr>
+      <tr>
+        <th scope="row">Mai 2020</th>
+        <td class="e-table--align-right">556,98 kr</td>
+        <td>Betalt</td>
+        <td class="e-table--align-right">123456</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+  example7 = `<div style="width: 305px; margin: 16px;">
+  <table class="e-table-mobile e-table-mobile--compact">
+    <thead>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">Periode</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">Januar 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">567,98 kr</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Sendt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
+        <td class="e-table-mobile__cell">123456</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">Februar 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">543,10 kr</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
+        <td class="e-table-mobile__cell">123456</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">Mars 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">568,98 kr</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
+        <td class="e-table-mobile__cell">123456</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">April 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">521,98 kr</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Sendt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
+        <td class="e-table-mobile__cell">123456</td>
+      </tr>
+    </tbody>
+    <tbody>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">Mai 2020</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Beløp</th>
+        <td class="e-table-mobile__cell">556,98 kr</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Status</th>
+        <td class="e-table-mobile__cell">Betalt</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Faktura nr.</th>
+        <td class="e-table-mobile__cell">123456</td>
       </tr>
     </tbody>
   </table>
@@ -118,45 +342,37 @@ export class TableDocComponent {
     <thead>
       <tr>
         <th scope="col" class="e-table__sort-header">
-          Gebyr for ikke-automatiske strømmålere
+          Periode
           <span class="e-table__sort-icon e-table__sort-icon--inactive">
-            <i class="e-icon e-icon--inverted e-icon--arrow_down-bold"></i>
-            <i class="e-icon e-icon--inverted e-icon--arrow_up-bold"></i>
+            <i class="e-icon e-icon--arrow_down-bold"></i>
+            <i class="e-icon e-icon--arrow_up-bold"></i>
           </span>
         </th>
         <th scope="col" class="e-table__sort-header">
-          Nok
+          Beløp
           <span class="e-table__sort-icon e-table__sort-icon--up">
-            <i class="e-icon e-icon--inverted e-icon--arrow_down-bold"></i>
-            <i class="e-icon e-icon--inverted e-icon--arrow_up-bold"></i>
+            <i class="e-icon e-icon--arrow_down-bold"></i>
+            <i class="e-icon e-icon--arrow_up-bold"></i>
           </span>
         </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">Fradrag for besparelser i AMS-kostnader</th>
-        <td class="e-table--align-right">-25</td>
+        <th scope="row">Januar 2020</th>
+        <td class="e-table--align-right">567,98 kr</td>
       </tr>
       <tr>
-        <th scope="row">Informasjon og purring til kunder</th>
-        <td class="e-table--align-right">65</td>
+        <th scope="row">Februar 2020</th>
+        <td class="e-table--align-right">543,10 kr</td>
       </tr>
       <tr>
-        <th scope="row">Arbeid relatert til booking av avlesning</th>
-        <td class="e-table--align-right">140</td>
+        <th scope="row">Mars 2020</th>
+        <td class="e-table--align-right">568,98 kr</td>
       </tr>
       <tr>
-        <th scope="row">Arbeidsledelse og planlegging</th>
-        <td class="e-table--align-right">150</td>
-      </tr>
-      <tr>
-        <th scope="row">Administrativt arbeid i kundesystemet</th>
-        <td class="e-table--align-right">420</td>
-      </tr>
-      <tr>
-        <th scope="row">Årlig kontrollavlesning hos kunde, inkl. kjøring</th>
-        <td class="e-table--align-right">850</td>
+        <th scope="row">April 2020</th>
+        <td class="e-table--align-right">521,98 kr</td>
       </tr>
     </tbody>
   </table>
@@ -210,154 +426,68 @@ export class TableDocComponent {
   <table class="e-table">
     <thead>
       <tr>
-        <th scope="col">Sikringsstørrelse</th>
-        <th scope="col">230 V (2-fase)</th>
-        <th scope="col">230 V (3-fase)</th>
-        <th scope="col">400 V (1-fase)</th>
+        <th scope="col">Periode</th>
+        <th scope="col">Beløp</th>
+        <th scope="col">Status</th>
+        <th scope="col">Faktura nr.</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">16 A</th>
-        <td class="e-table__cell--multiline">This cell exceeds 450px, so the class 'e-table__cell--multiline' should be added.</td>
-        <td class="e-table--align-right">1065 kr/mnd</td>
-        <td class="e-table--align-right">900 kr/mnd</td>
+        <th scope="row" class="e-table__cell--multiline">This cell exceeds 450px in width, so the class 'e-table__cell--multiline' should be added to break the lines.</th>
+        <td class="e-table--align-right">567,98 kr</td>
+        <td>Sendt</td>
+        <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
-        <th scope="row">32 A</th>
-        <td>This cell exceeds 450px, so the</td>
-        <td class="e-table--align-right">150 kr/kW/mnd</td>
-        <td class="e-table--align-right">122 kr/kW/mnd</td>
+        <th scope="row">Februar 2020</th>
+        <td class="e-table--align-right">543,10 kr</td>
+        <td>Betalt</td>
+        <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
-        <th scope="row">40 A</th>
-        <td>80 kr/kW/mnd</td>
-        <td class="e-table--align-right">80 kr/kW/mnd</td>
-        <td class="e-table--align-right">52 kr/kW/mnd</td>
+        <th scope="row">Mars 2020</th>
+        <td class="e-table--align-right">568,98 kr</td>
+        <td>Betalt</td>
+        <td class="e-table--align-right">123456</td>
       </tr>
       <tr>
-        <th scope="row">50 A</th>
-        <td>23 kr/kW/mnd</td>
-        <td class="e-table--align-right">23 kr/kW/mnd</td>
-        <td class="e-table--align-right">17 kr/kW/mnd</td>
+        <th scope="row">April 2020</th>
+        <td class="e-table--align-right">521,98 kr</td>
+        <td>Sendt</td>
+        <td class="e-table--align-right">123456</td>
+      </tr>
+      <tr>
+        <th scope="row">Mai 2020</th>
+        <td class="e-table--align-right">556,98 kr</td>
+        <td>Betalt</td>
+        <td class="e-table--align-right">123456</td>
       </tr>
     </tbody>
   </table>
 </div>
 `;
 
-  example6 = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile">
-    <thead>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">Sikringsstørrelse</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">16 A</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</th>
-        <td class="e-table-mobile__cell">340 kr/mnd</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</th>
-        <td class="e-table-mobile__cell">1065 kr/mnd</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</th>
-        <td class="e-table-mobile__cell">900 kr/mnd</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">32 A</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</th>
-        <td class="e-table-mobile__cell">340 kr/mnd</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</th>
-        <td class="e-table-mobile__cell">1065 kr/mnd</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</th>
-        <td class="e-table-mobile__cell">900 kr/mnd</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-`;
-  example7 = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile e-table-mobile--compact">
-    <thead>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">Sikringsstørrelse</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">16 A</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</th>
-        <td class="e-table-mobile__cell">340 kr/mnd</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</th>
-        <td class="e-table-mobile__cell">1065 kr/mnd</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</th>
-        <td class="e-table-mobile__cell">900 kr/mnd</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">32 A</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (2-fase)</th>
-        <td class="e-table-mobile__cell">340 kr/mnd</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">230 V (3-fase)</th>
-        <td class="e-table-mobile__cell">1065 kr/mnd</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">400 V (1-fase)</th>
-        <td class="e-table-mobile__cell">900 kr/mnd</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-`;
 
-  example8 = `<table class="e-table">
-  <thead>
-    <tr>
-      <th scope="col">Text left</th>
-      <th scope="col">Icons centered</th>
-      <th scope="col">Numbers right</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="e-table--align-left">Text left aligned</td>
-      <td class="e-table--align-center">
-        <i class="e-icon e-icon--download e-icon--sm"></i>
-      </td>
-      <td class="e-table--align-right">123456789</td>
-    </tr>
-  </tbody>
-</table>
+  example8 = `<div class="e-table-container">
+  <table class="e-table">
+    <thead>
+      <tr>
+        <th scope="col">Text left</th>
+        <th scope="col">Icons centered</th>
+        <th scope="col">Numbers right</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="e-table--align-left">Text left aligned</td>
+        <td class="e-table--align-center">
+          <i class="e-icon e-icon--download e-icon--sm"></i>
+        </td>
+        <td class="e-table--align-right">123456789</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 `;
 }

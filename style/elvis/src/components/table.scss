@@ -48,9 +48,10 @@ $table-border-radius: 8px;
     .e-table__sort-icon {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
+      // justify-content: center;
       margin-left: 8px;
       @include icons.icon-size('xxs');
+      width: 16px;
       i[class*='e-icon--arrow_down-bold'] {
         display: flex;
       }
@@ -60,6 +61,7 @@ $table-border-radius: 8px;
       &.e-table__sort-icon--up {
         i[class*='e-icon--arrow_up-bold'] {
           display: flex;
+          width: 16px;
         }
         i[class*='e-icon--arrow_down-bold'] {
           display: none;
@@ -125,7 +127,6 @@ $table-border-radius: 8px;
   td,
   th {
     @include typography.typography('text-description');
-    // width: 100%;
     padding: $table-padding;
     &.e-table__cell--multiline {
       display: inline-block;
@@ -137,7 +138,7 @@ $table-border-radius: 8px;
   thead {
     @extend %header-style;
 
-    text-align: center;
+    text-align: left;
     tr {
       height: 56px;
     }
