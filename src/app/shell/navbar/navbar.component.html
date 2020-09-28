@@ -11,7 +11,7 @@
             {{ navbarItem.title }}
           </span>
         </a>
-        <div class="anchors">
+        <div class="anchors" *ngIf="navbarAnchors.length > 0">
           <div *ngIf="navbarItem === prevActiveNavbarItem">
             <div class="link" *ngFor="let anchor of prevNavbarAnchors">
               <a class="anchor" id="navbar-{{ anchor.title }}" href="javascript:void(0)">
