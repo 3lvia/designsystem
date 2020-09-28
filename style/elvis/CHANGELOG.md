@@ -1,4 +1,53 @@
 <table>
+<tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      1.0.0
+    </span>
+    <br>
+    <span>
+      September 29, 2020
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">Breaking changes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table-doc#Overview">Table</a>
+        </div>
+        The design and structure of tables have been updated.
+        <ul>
+          <li>
+            Tables with black headers have been removed and tables have white headers be default.
+          </li>
+          <li>
+            For better alignment of content inside the tables there has been added a wrapper-class making the border of the table as well as assuring scrolling when the table overflows.
+          </li>
+          <li>
+            The class for bold text in the first column has also been removed as no usecase for it was apparent.
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">Conditioner</div>
+        Add an element with the <span class="code-text changelog-code">e-table-container</span> class outside the element with the <span class="code-text changelog-code">e-table</span> class.
+        <ul>
+          <li>
+            <span class="code-text changelog-code">e-table</span> -> <span class="code-text changelog-code">e-table-container e-table</span>
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">New features</div>
+           <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography-doc#Overview">Table</a>
+        </div>
+        A class for adding footnotes to the table has been created: <span class="code-text changelog-code">e-table-footnote</span>.
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
