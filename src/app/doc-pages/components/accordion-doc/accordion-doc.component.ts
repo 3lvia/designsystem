@@ -25,7 +25,7 @@ export class AccordionDocComponent {
 
   exampleAccordionSingle = `<div class="e-accordion e-accordion--single">
   <div class="e-accordion__item">
-    <div class="e-accordion__label">
+    <div class="e-accordion__title">
       Closed Accordion
     </div>
     <div class="e-accordion__icon">
@@ -39,7 +39,7 @@ export class AccordionDocComponent {
 </div>
 <div class="e-accordion e-accordion--single e-mt-40">
   <div class="e-accordion__item  e-accordion__item--open">
-    <div class="e-accordion__label">
+    <div class="e-accordion__title">
       Open Accordion
     </div>
     <div class="e-accordion__icon">
@@ -55,8 +55,8 @@ export class AccordionDocComponent {
 
   exampleAccordionGroup = `<div class="e-accordion e-accordion--group">
   <div class="e-accordion__item">
-    <div class="e-accordion__item__row">
-      <div class="e-accordion__label">
+    <div class="e-accordion__label">
+      <div class="e-accordion__title">
         Hvor ofte kommer fakturaen?
       </div>
       <div class="e-accordion__icon">
@@ -69,8 +69,8 @@ export class AccordionDocComponent {
     </div>
   </div>
   <div class="e-accordion__item e-accordion__item--open">
-    <div class="e-accordion__item__row">
-      <div class="e-accordion__label">
+    <div class="e-accordion__label">
+      <div class="e-accordion__title">
         Kan jeg bestille på vegne av andre?
       </div>
       <div class="e-accordion__icon">
@@ -83,8 +83,8 @@ export class AccordionDocComponent {
     </div>
   </div>
   <div class="e-accordion__item">
-    <div class="e-accordion__item__row">
-      <div class="e-accordion__label">
+    <div class="e-accordion__label">
+      <div class="e-accordion__title">
         Hva kan jeg gjøre for å spare strøm?
       </div>
       <div class="e-accordion__icon">
@@ -94,8 +94,8 @@ export class AccordionDocComponent {
     </div>
   </div>
   <div class="e-accordion__item">
-    <div class="e-accordion__item__row">
-      <div class="e-accordion__label">
+    <div class="e-accordion__label">
+      <div class="e-accordion__title">
         Hva kan jeg gjøre for å spare strøm?
       </div>
       <div class="e-accordion__icon">
@@ -109,7 +109,7 @@ export class AccordionDocComponent {
 
   exampleAccordionSizes = `<div class="e-accordion e-accordion--sm">
   <div class="e-accordion__item">
-    <div class="e-accordion__label">
+    <div class="e-accordion__title">
       Small Accordion
     </div>
     <div class="e-accordion__icon">
@@ -121,7 +121,7 @@ export class AccordionDocComponent {
 
 <div class="e-accordion e-accordion--md e-mt-40">
   <div class="e-accordion__item">
-    <div class="e-accordion__label">
+    <div class="e-accordion__title">
       Medium Accordion
     </div>
     <div class="e-accordion__icon">
@@ -133,7 +133,7 @@ export class AccordionDocComponent {
 
 <div class="e-accordion e-accordion--lg e-mt-40">
   <div class="e-accordion__item">
-    <div class="e-accordion__label">
+    <div class="e-accordion__title">
       Large Accordion
     </div>
     <div class="e-accordion__icon">

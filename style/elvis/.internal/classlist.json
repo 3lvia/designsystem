@@ -19,9 +19,10 @@
 						"e-accordion__item--open": {}
 					}
 				},
-				"e-accordion__label": {},
+				"e-accordion__title": {},
 				"e-accordion__icon": {},
 				"e-accordion__content": {},
+				"e-accordion__label": {},
 				"e-accordion__item__row": {}
 			},
 			"modifier": {
@@ -832,7 +833,7 @@
 		"e-icon--xxl": {},
 		"e-accordion": {},
 		"e-accordion__item": {},
-		"e-accordion__label": {},
+		"e-accordion__title": {},
 		"e-accordion__icon": {},
 		"e-accordion__content": {},
 		"e-accordion__item--open": {},
@@ -841,6 +842,7 @@
 		"e-accordion--sm": {},
 		"e-accordion--single": {},
 		"e-accordion--group": {},
+		"e-accordion__label": {},
 		"e-accordion__item__row": {},
 		"e-accordion--center": {},
 		"e-accordion--end": {},

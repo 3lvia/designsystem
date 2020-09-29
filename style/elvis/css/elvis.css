@@ -120,7 +120,7 @@ body {
   width: 100%;
 }
 
-.e-accordion__item .e-accordion__label {
+.e-accordion__item .e-accordion__title {
   display: flex;
   font-family: "Red Hat Display";
   font-weight: 500;
@@ -214,17 +214,17 @@ body {
     line-height: 29px;
   }
 }
-.e-accordion__item .e-accordion__label:hover,
+.e-accordion__item .e-accordion__title:hover,
 .e-accordion__item .e-accordion__icon:hover {
   cursor: pointer;
 }
 
-.e-accordion__item .e-accordion__label:hover + .e-accordion__icon i[class*=expand_circle-color],
+.e-accordion__item .e-accordion__title:hover + .e-accordion__icon i[class*=expand_circle-color],
 .e-accordion__item .e-accordion__icon:hover i[class*=expand_circle-color] {
   display: none;
 }
 
-.e-accordion__item .e-accordion__label:hover + .e-accordion__icon i[class*=expand_circle-filled-color],
+.e-accordion__item .e-accordion__title:hover + .e-accordion__icon i[class*=expand_circle-filled-color],
 .e-accordion__item .e-accordion__icon:hover i[class*=expand_circle-filled-color] {
   display: flex;
 }
@@ -240,7 +240,7 @@ body {
   height: 32px;
 }
 
-.e-accordion.e-accordion--lg .e-accordion__label {
+.e-accordion.e-accordion--lg .e-accordion__title {
   font-size: 18px;
 }
 
@@ -255,7 +255,7 @@ body {
   height: 24px;
 }
 
-.e-accordion.e-accordion--md .e-accordion__label {
+.e-accordion.e-accordion--md .e-accordion__title {
   font-size: 16px;
 }
 
@@ -270,7 +270,7 @@ body {
   height: 16px;
 }
 
-.e-accordion.e-accordion--sm .e-accordion__label {
+.e-accordion.e-accordion--sm .e-accordion__title {
   font-size: 14px;
 }
 
@@ -301,7 +301,7 @@ body {
   width: 100%;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label {
   display: flex;
   justify-content: space-between;
   padding: 20px 16px 19px 16px;
@@ -309,19 +309,19 @@ body {
   width: 100%;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row:hover {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label:hover {
   cursor: pointer;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row:hover i[class*=expand_circle-color] {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label:hover i[class*=expand_circle-color] {
   display: none;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row:hover i[class*=expand_circle-filled-color] {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label:hover i[class*=expand_circle-filled-color] {
   display: flex;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row .e-accordion__label {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label .e-accordion__title {
   font-family: "Red Hat Display";
   font-weight: 500;
   font-size: 20px;
@@ -329,13 +329,13 @@ body {
   margin-right: 8px;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row .e-accordion__icon {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label .e-accordion__icon {
   width: 32px;
   height: 32px;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row .e-accordion__icon img,
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row .e-accordion__icon i {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label .e-accordion__icon img,
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label .e-accordion__icon i {
   width: 32px;
   height: 32px;
 }
