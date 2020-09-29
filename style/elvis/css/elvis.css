@@ -2984,7 +2984,7 @@ input:focus {
   visibility: visible;
 }
 
-.e-link.e-link--action.e-link---hover .e-link__icon i:not([class$=filled-color]), .e-link.e-link--action:hover .e-link__icon i:not([class$=filled-color]) {
+.e-link.e-link--action.e-link---hover .e-link__icon i:not([class*=filled-color]), .e-link.e-link--action:hover .e-link__icon i:not([class*=filled-color]) {
   visibility: hidden;
 }
 

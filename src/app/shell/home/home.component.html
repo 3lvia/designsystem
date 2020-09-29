@@ -75,12 +75,18 @@
 
     <div class="row no-gutters" style="margin-top: 80px;">
       <div style="width: 48%; margin: 0 auto;">
-        <div class="e-text-caps e-mb-24">What's new?</div>
+        <div class="e-title-md e-mb-56" style="display: flex; justify-content: center;">What's new?</div>
         <div>
           <div class="e-mt-n48" style="padding-top: 0px;" markdown [src]="'assets/elvis/CHANGELOG.md'"></div>
         </div>
-        <div class="e-mt-32" style="display: flex; justify-content: flex-end;">
-          <a class="e-link" [routerLink]="['/community/changelog']">View changelog</a>
+        <div class="e-mt-48" style="display: flex; justify-content: center;">
+          <a class="e-link e-link--action" [routerLink]="['/community/changelog']">
+            <span class="e-link__title">View changelog</span>
+            <span class="e-link__icon">
+              <i class="e-icon e-icon--arrow_circle-color"></i>
+              <i class="e-icon e-icon--arrow_circle-filled-color"></i>
+            </span>
+          </a>
         </div>
       </div>
     </div>
