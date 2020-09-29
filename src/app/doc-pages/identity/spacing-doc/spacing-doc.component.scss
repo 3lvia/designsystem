@@ -14,3 +14,94 @@
     width: 50%;
   }
 }
+
+.exampleContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: flex-start;
+
+  .number {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 20px;
+    color: black;
+  }
+  .square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.relElem1 {
+      background: rgb(185, 2, 2, 0.32);
+      height: 8px;
+      width: 8px;
+    }
+    &.relElem2 {
+      background: rgb(185, 2, 2, 0.24);
+      height: 16px;
+      width: 16px;
+    }
+    &.relElem3 {
+      background: rgb(185, 2, 2, 0.16);
+      height: 24px;
+      width: 24px;
+    }
+    &.relElem4 {
+      background: rgb(185, 2, 2, 0.08);
+      height: 32px;
+      width: 32px;
+    }
+    &.UnElem1 {
+      background: rgb(0, 109, 219, 0.4);
+      height: 40px;
+      width: 40px;
+    }
+    &.UnElem2 {
+      background: rgb(0, 109, 219, 0.32);
+      height: 48px;
+      width: 48px;
+    }
+    &.UnElem3 {
+      background: rgb(0, 109, 219, 0.24);
+      height: 56px;
+      width: 56px;
+    }
+    &.UnElem4 {
+      background: rgb(0, 109, 219, 0.16);
+      height: 64px;
+      width: 64px;
+    }
+    &.UnElem5 {
+      background: rgb(0, 109, 219, 0.08);
+      height: 72px;
+      width: 72px;
+    }
+    &.UnSect1 {
+      background: rgb(33, 172, 4, 0.4);
+      height: 80px;
+      width: 80px;
+    }
+    &.UnSect2 {
+      background: rgb(33, 172, 4, 0.36);
+      height: 88px;
+      width: 88px;
+    }
+    &.UnSect3 {
+      background: rgb(33, 172, 4, 0.24);
+      height: 96px;
+      width: 96px;
+    }
+    &.UnSect4 {
+      background: rgb(33, 172, 4, 0.16);
+      height: 104px;
+      width: 104px;
+    }
+    &.UnSect5 {
+      background: rgb(33, 172, 4, 0.08);
+      height: 112px;
+      width: 112px;
+    }
+  }
+}
