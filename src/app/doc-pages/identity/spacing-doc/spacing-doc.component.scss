@@ -1,3 +1,5 @@
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
+
 .ExampleSquare {
   box-sizing: border-box;
   border: 1px solid #262626;
@@ -15,9 +17,21 @@
   }
 }
 
+.display-card {
+  @media (max-width: 494px) {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.padding-example {
+  width: 100%;
+}
+
 .exampleContainer {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
   justify-content: flex-start;
 
@@ -32,6 +46,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 24px;
 
     &.relElem1 {
       background: rgb(185, 2, 2, 0.32);

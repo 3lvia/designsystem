@@ -40,6 +40,36 @@ export const spacingItems: Spacing[] = [
         title: 'e-p-64',
         size: '64px',
         className: 'e-p-64',
+    },
+    {
+        title: 'e-p-72',
+        size: '72px',
+        className: 'e-p-72',
+    },
+    {
+        title: 'e-p-80',
+        size: '80px',
+        className: 'e-p-80',
+    },
+    {
+        title: 'e-p-88',
+        size: '88px',
+        className: 'e-p-88',
+    },
+    {
+        title: 'e-p-96',
+        size: '96px',
+        className: 'e-p-96',
+    },
+    {
+        title: 'e-p-104',
+        size: '104px',
+        className: 'e-p-104',
+    },
+    {
+        title: 'e-p-112',
+        size: '112px',
+        className: 'e-p-112',
     }
 ];
 

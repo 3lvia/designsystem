@@ -12,11 +12,6 @@
 <div class="page-body">
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
-      <p>
-        Example containers created with
-        <span class="code-text">e-p</span>
-        classes following the 8-point grid system, assigning padding in each direction.
-      </p>
       <div class="display-container centered-content">
         <div class="display-card" *ngFor="let item of spacingItems">
           <app-copy [message]="item.className">
@@ -24,10 +19,15 @@
               <div class="display-card-square e-shadow-6 ExampleSquare" [ngClass]="item.className"></div>
             </ng-container>
           </app-copy>
-          <div class="display-card-title e-text-caps">{{ item.title }}</div>
-          <div class="display-card-variable">{{ item.size }}</div>
+          <div class="display-card-title e-text-caps e-mt-8">{{ item.title }}</div>
+          <div class="display-card-variable e-text-description">{{ item.size }}</div>
         </div>
       </div>
+      <p>
+        Example containers created with
+        <span class="code-text">e-p</span>
+        classes following the 8-point grid system, assigning padding in each direction.
+      </p>
     </ng-container>
   </app-component-subsection>
 
