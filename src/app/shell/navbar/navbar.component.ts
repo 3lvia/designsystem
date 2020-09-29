@@ -117,7 +117,7 @@ export class NavbarComponent implements OnInit {
     this.prevNavbarAnchors = this.navbarAnchors;
     this.prevActiveNavbarItem = this.activeNavbarItem;
     this.activeNavbarItem = navbarItem;
-    this.navbarAnchors = [];
+    this.scrollService.getNavbarAnchors([]);
   }
 
   scrollToElement(anchor: NavbarAnchor): void {

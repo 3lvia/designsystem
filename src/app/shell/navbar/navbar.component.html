@@ -19,7 +19,7 @@
               </a>
             </div>
           </div>
-          <div *ngIf="navbarItem === activeNavbarItem">
+          <div *ngIf="navbarItem === activeNavbarItem && navbarItem !== prevActiveNavbarItem">
             <div class="link" *ngFor="let anchor of navbarAnchors">
               <a
                 (click)="scrollToElement(anchor)"
