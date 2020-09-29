@@ -5041,7 +5041,7 @@ input:focus {
 .e-table__sort-header .e-table__sort-icon {
   display: inline-flex;
   align-items: center;
-  margin-left: 8px;
+  margin-left: 4px;
   width: 8px;
   height: 8px;
   width: 16px;
@@ -5055,6 +5055,7 @@ input:focus {
 
 .e-table__sort-header .e-table__sort-icon i[class*=e-icon--arrow_down-bold] {
   display: flex;
+  width: 16px;
 }
 
 .e-table__sort-header .e-table__sort-icon i[class*=e-icon--arrow_up-bold] {
@@ -5167,8 +5168,8 @@ input:focus {
   text-align: left;
 }
 
-.e-table-mobile tbody:not(:last-of-type) tr td,
-.e-table-mobile tbody:not(:last-of-type) tr th {
+.e-table-mobile tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) td,
+.e-table-mobile tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) th {
   border-bottom: 1px solid #e9e9e9;
 }
 
@@ -5186,6 +5187,14 @@ input:focus {
   text-align: left;
 }
 
+.e-table-mobile thead th {
+  font-family: Red Hat Display, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  color: #000;
+}
+
 .e-table-mobile tbody tr:first-of-type th {
   background: #f4f4f4;
   font-size: 17px;
@@ -5193,8 +5202,8 @@ input:focus {
   font-weight: 500;
 }
 
-.e-table-mobile tbody tr:first-of-type th th,
-.e-table-mobile tbody tr:first-of-type th td {
+.e-table-mobile tbody th,
+.e-table-mobile tbody td {
   text-align: left;
 }
 

@@ -58,11 +58,12 @@ $table-border-radius: 8px;
     .e-table__sort-icon {
       display: inline-flex;
       align-items: center;
-      margin-left: 8px;
+      margin-left: 4px;
       @include icons.icon-size('xxs');
       width: 16px;
       i[class*='e-icon--arrow_down-bold'] {
         display: flex;
+        width: 16px;
       }
       i[class*='e-icon--arrow_up-bold'] {
         display: none;
@@ -171,8 +172,8 @@ $table-border-radius: 8px;
     text-align: left;
   }
 
-  tbody:not(:last-of-type) tr td,
-  tbody:not(:last-of-type) tr th {
+  tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) td,
+  tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) th {
     border-bottom: 1px solid colors.color('grey-10');
   }
   tbody:last-of-type tr:not(:last-of-type) td,
@@ -189,6 +190,9 @@ $table-border-radius: 8px;
       text-align: left;
     }
     @extend %header-style;
+    th {
+      @include typography.typography('title-xs');
+    }
   }
 
   tbody tr:first-of-type th {
@@ -196,10 +200,10 @@ $table-border-radius: 8px;
     font-size: 17px;
     color: colors.color('font-color');
     font-weight: 500;
-    th,
-    td {
-      text-align: left;
-    }
+  }
+  tbody th,
+  tbody td {
+    text-align: left;
   }
 
   th + td:first-of-type,
