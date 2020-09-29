@@ -27,7 +27,12 @@
               "src/favicon.ico",
               "src/assets",
               "src/_redirects",
-              { "glob": "CHANGELOG.md", "input": "style/elvis", "output": "./assets/elvis" }
+              { "glob": "CHANGELOG.md", "input": "style/elvis", "output": "./assets/elvis" },
+              {
+                "glob": "**/*",
+                "input": "style/elvis/src/icons/",
+                "output": "./assets/elvis/icons/"
+              }
             ],
             "styles": ["src/styles.scss"],
             "scripts": []

@@ -1,4 +1,5 @@
 @import '../../../shared/shared-animations';
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
 
 .example-container {
   display: flex;
@@ -6,48 +7,50 @@
   justify-content: space-between;
   width: 100%;
 
-  .container {
+  .typoContainer {
+    display: flex;
+    margin-bottom: 24px;
+
+    @include breakpoint-up(MinDesktop) {
+      width: 140%;
+    }
+    @include breakpoint-up(Tablet) {
+      width: 100%;
+    }
+  }
+  .typoRow {
+    display: flex;
+    align-items: baseline;
+    width: 100%;
+  }
+
+  .typoExample {
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    width: 48%;
 
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      flex-wrap: wrap;
+    @include breakpoint-up(Mobile) {
       width: 100%;
+    }
+  }
 
-      .e-divider {
-        width: 100%;
-      }
-      .example-title {
-        width: 48%;
-        margin-bottom: 0;
-      }
-      .example {
-        width: 48%;
-        margin: var(--e-spacing-40) 0;
+  .selectionContainer {
+    display: none;
 
-        @extend %scale-up-09;
-
-        &-text {
-          width: fit-content;
-          &:hover {
-            @extend %scale-down-09;
-          }
-        }
-
-        &-title {
-          color: var(--e-grey-50);
-        }
-
-        .to-copy {
-          display: none;
-        }
-      }
+    @include breakpoint-up(Mobile) {
+      display: block;
+      width: 100%;
     }
   }
 }
+
+.hideOnMobile {
+  @include breakpoint-up(Mobile) {
+    display: none !important;
+  }
+}
+
 .mobileCopy {
   display: flex;
   position: relative;
@@ -59,4 +62,20 @@
   width: 100%;
   z-index: 1;
   opacity: 0;
+}
+
+.headerImg {
+  display: block;
+  width: 80%;
+  margin: auto;
+
+  @include breakpoint-up(Tablet) {
+    width: 90%;
+    transition: width 250ms ease-in;
+  }
+
+  @include breakpoint-up(Mobile) {
+    width: 100%;
+    transition: width 250ms ease-in;
+  }
 }

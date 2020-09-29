@@ -18,8 +18,13 @@
         If you have any issues at all, please don't hesitate to contact us! Any friction you experience in the
         onboarding process, or during use is valuable feedback for us. Reach out on slack in
         <span class="e-link__title">
-          <a class="e-link e-link--action" href="https://hafslundnett.slack.com/archives/C01302LBTC2">
-            #designsystemet.
+          <a
+            class="e-link e-link--external"
+            href="https://hafslundnett.slack.com/archives/C01302LBTC2"
+            target="_blank"
+          >
+            <span class="e-link__title">#designsystemet</span>
+            <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
           </a>
         </span>
       </p>
@@ -69,7 +74,7 @@
       <ol class="e-list e-list--numbers">
         <li>
           <strong class="e-mr-16">Install the package</strong>
-          <app-copy [message]="'npm i @elvia/elvis'">
+          <app-copy [message]="'npm i @elvia/elvis'" [noAnimation]="true">
             <ng-container ngProjectAs="copyContent">
               <code class="code-text">npm i @elvia/elvis</code>
             </ng-container>
@@ -77,7 +82,7 @@
         </li>
         <li>
           <strong class="e-mr-16">Import src/main.scss or elvis.min.css in your stylesheet</strong>
-          <app-copy [message]="'@import \'~@elvia/elvis/src/main.scss\';'">
+          <app-copy [message]="'@import \'~@elvia/elvis/src/main.scss\';'" [noAnimation]="true">
             <ng-container ngProjectAs="copyContent">
               <code class="code-text">@import '~@elvia/elvis/src/main.scss';</code>
             </ng-container>
@@ -85,7 +90,7 @@
         </li>
         <li>
           <strong class="e-mr-16">Add elvis.js from the NPM package in &#x3C;body&#x3E;</strong>
-          <app-copy [message]="bodyScriptMessage">
+          <app-copy [message]="bodyScriptMessage" [noAnimation]="true">
             <ng-container ngProjectAs="copyContent">
               <code class="code-text">
                 &lt;body&gt;&lt;script src="assets/js/elvis.js"&gt;&lt;/script&gt;&lt;/body&gt;
@@ -117,7 +122,7 @@
       <app-component-subsection [sectionTitle]="'Internet Explorer Support'">
         <ng-container ngProjectAs="sectionContent">
           <p>
-            <app-copy [message]="'npm install css-vars-ponyfill'">
+            <app-copy [message]="'npm install css-vars-ponyfill'" [noAnimation]="true">
               <ng-container ngProjectAs="copyContent">
                 <code class="code-text">npm install css-vars-ponyfill</code>
               </ng-container>

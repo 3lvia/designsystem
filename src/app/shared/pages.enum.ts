@@ -4,6 +4,7 @@ export enum Pages {
 
   // Get Started
   GetStartedStart = 'get-started',
+  TheDesignSystem = 'the-design-system-doc',
   // Children
   OverviewGetStarted = 'overview-get-started-doc',
   NewProject = 'new-project-doc',
@@ -38,6 +39,7 @@ export enum Pages {
   DateTimePicker = 'datetime-picker-doc',
   DragAndDrop = 'draganddrop-doc',
   FileUpload = 'fileUpload-doc',
+  RadioFilter = 'radio-filter-doc',
   Header = 'header-doc',
   Input = 'input-doc',
   Label = 'label-doc',
@@ -72,6 +74,7 @@ export enum Pages {
   CommunityStart = 'community',
   // Children
   OverviewCommunity = 'overview-community-doc',
+  Contact = 'contact',
   Contribute = 'contribute',
   Faq = 'faq-doc',
   Changelog = 'changelog',

@@ -1,4 +1,8 @@
-<span class="e-tooltip">
+<span
+  class="e-tooltip"
+  [ngClass]="{ 'small-element': smallElementAnimation }"
+  [ngClass]="{ 'no-animation': noAnimation }"
+>
   <span class="copy-content" (click)="copyMessage(message)">
     <ng-content select="copyContent"></ng-content>
   </span>

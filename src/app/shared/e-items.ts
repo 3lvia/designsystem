@@ -28,6 +28,16 @@ export const eHomes: EItems[] = [
   //   imageUrlOn: 'assets/website-icons/shortcut-images/AccessibilityOn.svg',
   // },
   {
+    title: 'Utility Classes',
+    description: 'Developer Tools',
+    docUrl: Pages.Utilities,
+    absolutePath: '/tools/' + Pages.Utilities,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/shortcut-images/UtilityClasses.svg',
+    imageUrlOn: 'assets/website-icons/shortcut-images/UtilityClassesOn.svg',
+
+  },
+  {
     title: 'Contribute',
     description: 'Help us get better',
     docUrl: Pages.Contribute,
@@ -38,6 +48,16 @@ export const eHomes: EItems[] = [
 ];
 
 export const eGetStarted: EItems[] = [
+  {
+    title: 'The design system',
+    // tslint:disable-next-line: max-line-length
+    description: 'Elvia’s design system - or Elvis, for short - is a scalable system of visual language, components and design assets which enables us to work together towards an ultimate brand experience.',
+    docUrl: Pages.TheDesignSystem,
+    status: ItemStatus.New,
+    absolutePath: '/get-started/' + Pages.TheDesignSystem,
+    imageUrl: 'assets/website-icons/temporary.svg',
+    type: 'Get started',
+  },
   {
     title: 'For developers',
     // tslint:disable-next-line: max-line-length
@@ -179,6 +199,17 @@ export const eComponents: EItems[] = [
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/File upload.svg',
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1404%3A132',
+    type: 'Component',
+  },
+  {
+    title: 'Radio Filter',
+    // tslint:disable-next-line: max-line-length
+    description: 'Radio Filters are buttons you can toggle between to select different views of same content. An example is an email inbox and you want to toggle between “all”, “read” and “unread” for all mails.',
+    docUrl: Pages.RadioFilter,
+    absolutePath: '/components/' + Pages.RadioFilter,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Radio filters.svg',
+    figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=813%3A821',
     type: 'Component',
   },
   {
@@ -381,7 +412,7 @@ export const eIdentity: EItems[] = [
   {
     title: 'Grid',
     // tslint:disable-next-line: max-line-length
-    description: 'This grid-system is based off of Bootstraps grid-system and works almost the same. All the Bootstrap grid-system classes are available for use. To use the grid-system add the e-grid class on a wrapper element. The bootstrap-classes will only work inside this wrapper, and will therefore not break any other potential grid-systems.',
+    description: 'Our grid-system is based off of Bootstraps grid-system and works almost the same. Read the  <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://getbootstrap.com/docs/4.4/layout/grid/"><span class="e-link__title">Bootstrap documentation</span><span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span></a> . All the Bootstrap grid-system classes are available for use. To use the grid-system add the e-grid class on a wrapper element. The bootstrap-classes will only work inside this wrapper, and will therefore not break any other potential grid-systems.',
     docUrl: Pages.Grid,
     absolutePath: '/identity/' + Pages.Grid,
     status: ItemStatus.Done,
@@ -447,7 +478,7 @@ export const eIdentity: EItems[] = [
   {
     title: 'Typography',
     // tslint:disable-next-line: max-line-length
-    description: 'Red Hat is Elvia\'s profile font and should be used throughout all material. The font family has two optical sizes, Display and Text.',
+    description: 'Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font family inlcudes two optical sizes: Display and Text.',
     docUrl: Pages.Typography,
     absolutePath: '/identity/' + Pages.Typography,
     status: ItemStatus.Done,
@@ -515,9 +546,27 @@ export const eCommunity: EItems[] = [
     type: 'Community',
   },
   {
+    title: 'Contact',
+    // tslint:disable-next-line: max-line-length
+    description: `We at team LEGO will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at 
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
+      <span class="e-link__title">#designsystemet</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+    </a>`,
+    docUrl: Pages.Contact,
+    absolutePath: '/community/' + Pages.Contact,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/temporary.svg',
+    type: 'Community',
+  },
+  {
     title: 'Contribute',
     // tslint:disable-next-line: max-line-length
-    description: `To contribute, or if you have any question, you can contact us on slack: <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="https://hafslundnett.slack.com/archives/C01302LBTC2">#designsystemet</a>`,
+    description: `To contribute, or if you have any question, you can contact us on slack: 
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
+      <span class="e-link__title">#designsystemet</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+    </a>`,
     docUrl: Pages.Contribute,
     absolutePath: '/community/' + Pages.Contribute,
     status: ItemStatus.New,
@@ -536,7 +585,11 @@ export const eCommunity: EItems[] = [
   {
     title: 'FAQ',
     // tslint:disable-next-line: max-line-length
-    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack: <a onclick="event.stopPropagation();" class="e-link e-text-lead" href="https://hafslundnett.slack.com/archives/C01302LBTC2">#designsystemet</a>.`,
+    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
+      <span class="e-link__title">#designsystemet</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+    </a>`,
     docUrl: Pages.Faq,
     absolutePath: '/community/' + Pages.Faq,
     status: ItemStatus.New,

@@ -10,176 +10,180 @@ export class GridDocComponent {
   figmaUrl = getIdentity('grid-doc').figmaUrl;
   description = getIdentity('grid-doc').description;
 
-  example9 = `<h3 class="e-title-sm">External example</h3>
+  example9 = `<div class="e-text-caps e-mt-16 e-mb-8">External example</div>
   <div class="e-grid e-bg-grey-20">
     <div class="row e-grid-margin-ext e-grid-gutters-ext e-grid-gutters-vertical">
       <div class="col-4">
         <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-          1/4
+          4/12
         </div>
       </div>
       <div class="col-8">
         <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-          2/4
+          8/12
         </div>
       </div>
       <div class="col-6">
         <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-          3/4
+          6/12
         </div>
       </div>
       <div class="col-6">
         <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-          4/4
+          6/12
         </div>
       </div>
     </div>
   </div>
-  <h3 class="e-title-sm">Internal example</h3>
+  <div class="e-text-caps e-mt-16 e-mb-8">Internal example</div>
   <div class="e-grid e-bg-grey-20">
     <div class="row e-grid-margin-int e-grid-gutters-int e-grid-gutters-vertical">
       <div class="col-4">
         <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-          1/4
+          4/12
         </div>
       </div>
       <div class="col-8">
         <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-          2/4
+          8/12
         </div>
       </div>
       <div class="col-6">
         <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-          3/4
+          6/12
         </div>
       </div>
       <div class="col-6">
         <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-          4/4
+          6/12
         </div>
       </div>
     </div>
   </div>
   `;
 
-  example1 = `<h3 class="e-title-sm">External gutters</h3>
+  exampleGutterExternal = `<div class="e-text-caps e-mt-16 e-mb-8">Without vertical gutters</div>
 <div class="e-grid e-bg-grey-20">
   <div class="row e-grid-gutters-ext">
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        3/3
+        4/12
       </div>
     </div>
   </div>
 </div>
-<h3 class="e-title-sm">External gutters + vertical gutters</h3>
+
+<div class="e-text-caps e-mt-16 e-mb-8">With vertical gutters</div>
 <div class="e-grid e-bg-grey-20">
   <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        3/3
+        4/12
       </div>
     </div>
   </div>
 </div>
-<h3 class="e-title-sm">Internal gutters</h3>
+`;
+
+  exampleGutterInternal = `<div class="e-text-caps e-mt-16 e-mb-8">Without vertical gutters</div>
 <div class="e-grid e-bg-grey-20">
   <div class="row e-grid-gutters-int">
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        3/3
+        4/12
       </div>
     </div>
   </div>
 </div>
-<h3 class="e-title-sm">Internal gutters + vertical gutters</h3>
+
+<div class="e-text-caps e-mt-16 e-mb-8">With vertical gutters</div>
 <div class="e-grid e-bg-grey-20">
   <div class="row e-grid-gutters-int e-grid-gutters-vertical">
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        3/3
+        4/12
       </div>
     </div>
   </div>
 </div>
   `;
 
-  example2 = `<h3 class="e-title-sm">External margin</h3>
-<div class="e-grid e-bg-grey-20">
+  exampleExternalMargin = `<div class="e-grid e-bg-grey-20">
   <div class="row e-grid-margin-ext">
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        3/3
+        4/12
       </div>
     </div>
   </div>
 </div>
-<h3 class="e-title-sm">Internal margin</h3>
-<div class="e-grid e-bg-grey-20">
+`;
+
+  exampleInternalMargin = ` <div class="e-grid e-bg-grey-20">
   <div class="row e-grid-margin-int">
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/3
+        4/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        3/3
+        4/12
       </div>
     </div>
   </div>
@@ -190,17 +194,17 @@ export class GridDocComponent {
   <div class="row mx-lg-n3 mx-md-n2 mx-sm-n1 mx-n1">
     <div class="col px-lg-3 px-md-2 px-sm-1 px-1">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/3
+        4/12
       </div>
     </div>
     <div class="col px-lg-3 px-md-2 px-sm-1 px-1">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/3
+        4/12
       </div>
     </div>
     <div class="col px-lg-3 px-md-2 px-sm-1 px-1">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        3/3
+        4/12
       </div>
     </div>
   </div>
@@ -211,22 +215,22 @@ export class GridDocComponent {
   <div class="row no-gutters">
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/4
+        3/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/4
+        3/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        3/4
+        3/12
       </div>
     </div>
     <div class="col">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        4/4
+        3/12
       </div>
     </div>
   </div>
@@ -237,12 +241,16 @@ export class GridDocComponent {
   <div class="row">
     <div class="col-sm-7 col-md-6 col-lg-8">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/2
+        <div>LG: 8/12</div>
+        <div>MD: 6/12</div>
+        <div>SM: 7/12</div>
       </div>
     </div>
     <div class="col-sm-5 col-md-6 col-lg-4">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/2
+        <div>LG: 4/12</div>
+        <div>MD: 6/12</div>
+        <div>SM: 5/12</div>
       </div>
     </div>
   </div>
@@ -253,36 +261,36 @@ export class GridDocComponent {
   <div class="row justify-content-center">
     <div class="col-5">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/2
+        5/12
       </div>
     </div>
     <div class="col-5">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/2
+        5/12
       </div>
     </div>
   </div>
   <div class="row align-items-end" style="height: 100px;">
     <div class="col-5">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/2
+        5/12
       </div>
     </div>
     <div class="col-5">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/2
+        5/12
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-5">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        1/2
+        5/12
       </div>
     </div>
     <div class="col-5 offset-3">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
-        2/2
+        5/12
       </div>
     </div>
   </div>

@@ -4,94 +4,283 @@
     Grid
   </ng-container>
   <ng-container ngProjectAs="headerDescription">
-    {{ description }} Read the Bootstrap documentation
-    <a class="e-link e-inline" href="https://getbootstrap.com/docs/4.4/layout/grid/">here</a>
-    .
+    {{ description }}
   </ng-container>
 </app-component-header>
 
 <!--BODY-->
 <div class="page-body">
-  <!--EXAMPLES-->
-  <app-component-section [sectionTitle]="'Examples'">
+  <!--12-COLUMN GRID-->
+  <app-component-section [sectionTitle]="'12-column grid'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Standard layout'">
+      We use the 12-column grid in our design system. We have two versions of it, one for external use and one
+      for internal. They both are responsive and have same number of columns, but they have different gutters
+      and margins.
+      <app-component-subsection [sectionTitle]="'External grid'">
         <ng-container ngProjectAs="sectionContent">
-          A grid layout for external and internal systems.
-          <app-code-block [codeHTML]="example9"></app-code-block>
+          The external grid are used on elvia.no and design.elvia.io.
+
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <div class="grid-info">
+                <div>
+                  <img
+                    src="../../../../assets/grid/externalDesktopGrid.svg"
+                    alt="External grid desktop"
+                    style="max-width: 100%;"
+                  />
+                </div>
+                <div class="circles-container">
+                  <div class="information-container">
+                    <div class="information-circle e-bg-grey-20"></div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Columns</div>
+                      <div class="e-text-info">12</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-orange-mango">
+                      M
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Margin</div>
+                      <div class="e-text-info">120px</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-blue-berry">
+                      G
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Gutter</div>
+                      <div class="e-text-info">56px</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Tablet'">
+            <ng-container ngProjectAs="sectionContent">
+              <div class="grid-info">
+                <div>
+                  <img
+                    src="../../../../assets/grid/externalTabletGrid.svg"
+                    alt="External grid tablet"
+                    style="max-width: 100%;"
+                  />
+                </div>
+                <div class="circles-container">
+                  <div class="information-container">
+                    <div class="information-circle e-bg-grey-20"></div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Columns</div>
+                      <div class="e-text-info">8</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-orange-mango">
+                      M
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Margin</div>
+                      <div class="e-text-info">32px</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-blue-berry">
+                      G
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Gutter</div>
+                      <div class="e-text-info">32px</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <div class="grid-info">
+                <div>
+                  <img
+                    src="../../../../assets/grid/externalMobileGrid.svg"
+                    alt="External grid mobile"
+                    style="max-width: 100%;"
+                  />
+                </div>
+                <div class="circles-container">
+                  <div class="information-container">
+                    <div class="information-circle e-bg-grey-20"></div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Columns</div>
+                      <div class="e-text-info">6</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-orange-mango">
+                      M
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Margin</div>
+                      <div class="e-text-info">16px</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-blue-berry">
+                      G
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Gutter</div>
+                      <div class="e-text-info">16px</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Gutters'">
+      <app-component-subsection [sectionTitle]="'Internal grid'">
         <ng-container ngProjectAs="sectionContent">
-          Use the class e-grid-gutters-ext (for external systems) or e-grid-gutters-int (for internal systems)
-          to add dynamic gutters on rows. Get vertical gutters as well by adding the class
-          e-grid-gutters-vertical.
-          <app-code-block [codeHTML]="example1" [showIframeScreens]="true"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
+          The internal grid is used on internal applications.
 
-      <app-component-subsection [sectionTitle]="'Margin'">
-        <ng-container ngProjectAs="sectionContent">
-          Use the class e-grid-margin-ext (for external systems) or e-grid-margin-int (for internal systems)
-          to add dynamic margin on rows.
-          <app-code-block [codeHTML]="example2" [showIframeScreens]="true"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Custom padding (gutters)'">
-        <ng-container ngProjectAs="sectionContent">
-          Combine the padding classes (eks. px-lg-3) and negative margin classes (eks. mx-lg-n3 ) to add your
-          own custom gutters.
-          <app-code-block [codeHTML]="example3" [showIframeScreens]="true"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'No gutters'">
-        <ng-container ngProjectAs="sectionContent">
-          Use no-gutters to remove gutters on the row.
-          <app-code-block [codeHTML]="example4" [showIframeScreens]="true"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Different sizes'">
-        <ng-container ngProjectAs="sectionContent">
-          Use col-sm, col-md and col-lg to change grid at breakpoints.
-          <app-code-block [codeHTML]="example5" [showIframeScreens]="true"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Alignment'">
-        <ng-container ngProjectAs="sectionContent">
-          Use justify-content, align-content, and offset to align col-classes inside grid.
-          <app-code-block [codeHTML]="example6" [showIframeScreens]="true"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Ordering'">
-        <ng-container ngProjectAs="sectionContent">
-          Use order to choose the order of columns.
-          <app-code-block [codeHTML]="example7" [showIframeScreens]="true"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Levels'">
-        <ng-container ngProjectAs="sectionContent">
-          The grid can have levels.
-          <app-code-block [codeHTML]="example8" [showIframeScreens]="true"></app-code-block>
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <div class="grid-info">
+                <div>
+                  <img
+                    src="../../../../assets/grid/internalDesktopGrid.svg"
+                    alt="Internal grid desktop"
+                    style="max-width: 100%;"
+                  />
+                </div>
+                <div class="circles-container">
+                  <div class="information-container">
+                    <div class="information-circle e-bg-grey-20"></div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Columns</div>
+                      <div class="e-text-info">12</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-orange-mango">
+                      M
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Margin</div>
+                      <div class="e-text-info">Left: 88px</div>
+                      <div class="e-text-info">Right: 32px</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-blue-berry">
+                      G
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Gutter</div>
+                      <div class="e-text-info">32px</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Tablet'">
+            <ng-container ngProjectAs="sectionContent">
+              <div class="grid-info">
+                <div>
+                  <img
+                    src="../../../../assets/grid/internalTabletGrid.svg"
+                    alt="Internal grid tablet"
+                    style="max-width: 100%;"
+                  />
+                </div>
+                <div class="circles-container">
+                  <div class="information-container">
+                    <div class="information-circle e-bg-grey-20"></div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Columns</div>
+                      <div class="e-text-info">8</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-orange-mango">
+                      M
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Margin</div>
+                      <div class="e-text-info">Left: 88px</div>
+                      <div class="e-text-info">Right: 32px</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-blue-berry">
+                      G
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Gutter</div>
+                      <div class="e-text-info">24px</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <div class="grid-info">
+                <div>
+                  <img
+                    src="../../../../assets/grid/internalMobileGrid.svg"
+                    alt="Internal grid mobile"
+                    style="max-width: 100%;"
+                  />
+                </div>
+                <div class="circles-container">
+                  <div class="information-container">
+                    <div class="information-circle e-bg-grey-20"></div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Columns</div>
+                      <div class="e-text-info">6</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-orange-mango">
+                      M
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Margin</div>
+                      <div class="e-text-info">16px</div>
+                    </div>
+                  </div>
+                  <div class="information-container">
+                    <div class="information-circle e-bg-blue-berry">
+                      G
+                    </div>
+                    <div>
+                      <div class="e-text-caps e-mr-8">Gutter</div>
+                      <div class="e-text-info">16px</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>
 
-  <!--EXAMPLES-->
+  <!--BREAKPOINTS-->
   <app-component-section [sectionTitle]="'Breakpoints'">
     <ng-container ngProjectAs="sectionContent">
-      <p>
-        The grid-system follows a 12 column rule, but the max number of columns should not exceed 8 on tablet
-        and 6 on mobile.
-      </p>
-      <table class="e-table">
+      The grid-system follows a 12 column rule, but the max number of columns should not exceed 8 on tablet
+      and 6 on mobile.
+
+      <table class="e-table e-table--white-header e-mt-24">
         <thead>
           <tr>
             <th scope="col">Device</th>
@@ -122,6 +311,103 @@
           </tr>
         </tbody>
       </table>
+
+      <app-component-subsection [sectionTitle]="'Different sizes'">
+        <ng-container ngProjectAs="sectionContent">
+          Use col-sm, col-md and col-lg to change grid at breakpoints.
+          <app-code-block [codeHTML]="example5" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--LAYOUT-->
+  <app-component-section [sectionTitle]="'Layout'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Standard'">
+        <ng-container ngProjectAs="sectionContent">
+          A grid layout for external and internal systems. If you don’t need to use all 12 column
+          individually, you can group the columns together to create wider columns.
+          <img
+            src="../../../../assets/grid/standardLayout.svg"
+            alt="Internal grid mobile"
+            style="max-width: 100%; margin-top: 32px;"
+          />
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Alignment'">
+        <ng-container ngProjectAs="sectionContent">
+          Use justify-content, align-content, and offset to align col-classes inside grid.
+          <app-code-block [codeHTML]="example6" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Ordering'">
+        <ng-container ngProjectAs="sectionContent">
+          Use order to choose the order of columns.
+          <app-code-block [codeHTML]="example7" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Levels'">
+        <ng-container ngProjectAs="sectionContent">
+          The grid can have levels.
+          <app-code-block [codeHTML]="example8" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--GUTTERS-->
+  <app-component-section [sectionTitle]="'Gutters'">
+    <ng-container ngProjectAs="sectionContent">
+      Use the class e-grid-gutters-ext (for external systems) or e-grid-gutters-int (for internal systems) to
+      add dynamic gutters on rows. Get vertical gutters as well by adding the class e-grid-gutters-vertical.
+      <app-component-subsection [sectionTitle]="'External gutters'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleGutterExternal" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Internal gutters'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleGutterInternal" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Custom padding (gutters)'">
+        <ng-container ngProjectAs="sectionContent">
+          Combine the padding classes (eks. px-lg-3) and negative margin classes (eks. mx-lg-n3 ) to add your
+          own custom gutters.
+          <app-code-block [codeHTML]="example3" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'No gutters'">
+        <ng-container ngProjectAs="sectionContent">
+          Use no-gutters to remove gutters on the row.
+          <app-code-block [codeHTML]="example4" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--MARGIN-->
+  <app-component-section [sectionTitle]="'Margin'">
+    <ng-container ngProjectAs="sectionContent">
+      Use the class e-grid-margin-ext (for external systems) or e-grid-margin-int (for internal systems) to
+      add dynamic margin on rows.
+      <app-component-subsection [sectionTitle]="'External margin'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleExternalMargin" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Internal margin'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleInternalMargin" [showIframeScreens]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 </div>
