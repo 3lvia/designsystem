@@ -22,6 +22,11 @@
     flex-direction: column;
     width: 100%;
   }
+
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .padding-example {
