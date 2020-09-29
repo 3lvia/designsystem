@@ -21,7 +21,8 @@
 				},
 				"e-accordion__label": {},
 				"e-accordion__icon": {},
-				"e-accordion__content": {}
+				"e-accordion__content": {},
+				"e-accordion__item__row": {}
 			},
 			"modifier": {
 				"e-accordion--lg": {},
@@ -840,6 +841,7 @@
 		"e-accordion--sm": {},
 		"e-accordion--single": {},
 		"e-accordion--group": {},
+		"e-accordion__item__row": {},
 		"e-accordion--center": {},
 		"e-accordion--end": {},
 		"e-alert": {},

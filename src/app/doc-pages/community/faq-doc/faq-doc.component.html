@@ -13,15 +13,17 @@
 <!--BODY-->
 <div class="page-body">
   <div class="e-accordion e-accordion--group e-mt-72">
-    <div class="e-accordion__item" #contribute (click)="toggleOpen('contribute')">
-      <div class="e-accordion__label">
-        How do I contribute or propose new components/ideas?
+    <div class="e-accordion__item" #contribute>
+      <div class="e-accordion__item__row" (click)="toggleOpen('contribute')">
+        <div class="e-accordion__label">
+          How do I contribute or propose new components/ideas?
+        </div>
+        <div class="e-accordion__icon">
+          <i class="e-icon e-icon--expand_circle-color"></i>
+          <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        </div>
       </div>
-      <div class="e-accordion__icon">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
-      </div>
-      <div class="e-accordion__content" style="display: block;">
+      <div class="e-accordion__content">
         <span class="e-text-body">
           Check out the
           <a class="e-link e-text-body" [routerLink]="['/community/contribute']">contribution model</a>
@@ -29,15 +31,17 @@
         </span>
       </div>
     </div>
-    <div class="e-accordion__item" #bugs (click)="toggleOpen('bugs')">
-      <div class="e-accordion__label">
-        How do I report bugs?
+    <div class="e-accordion__item" #bugs>
+      <div class="e-accordion__item__row" (click)="toggleOpen('bugs')">
+        <div class="e-accordion__label">
+          How do I report bugs?
+        </div>
+        <div class="e-accordion__icon">
+          <i class="e-icon e-icon--expand_circle-color"></i>
+          <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        </div>
       </div>
-      <div class="e-accordion__icon">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
-      </div>
-      <div class="e-accordion__content" style="display: block;">
+      <div class="e-accordion__content">
         <span class="e-text-body">
           Come in contact with us with any requests or reports of bugs and issues on slack
           <a
@@ -61,13 +65,15 @@
         </span>
       </div>
     </div>
-    <div class="e-accordion__item" #browsers (click)="toggleOpen('browsers')">
-      <div class="e-accordion__label">
-        Which browsers are supported?
-      </div>
-      <div class="e-accordion__icon">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+    <div class="e-accordion__item" #browsers>
+      <div class="e-accordion__item__row" (click)="toggleOpen('browsers')">
+        <div class="e-accordion__label">
+          Which browsers are supported?
+        </div>
+        <div class="e-accordion__icon">
+          <i class="e-icon e-icon--expand_circle-color"></i>
+          <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        </div>
       </div>
       <div class="e-accordion__content">
         <p class="e-text-body">

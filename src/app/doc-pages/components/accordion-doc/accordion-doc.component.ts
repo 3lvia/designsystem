@@ -55,45 +55,53 @@ export class AccordionDocComponent {
 
   exampleAccordionGroup = `<div class="e-accordion e-accordion--group">
   <div class="e-accordion__item">
-    <div class="e-accordion__label">
-      Hvor ofte kommer fakturaen?
-    </div>
-    <div class="e-accordion__icon">
-      <i class="e-icon e-icon--expand_circle-color"></i>
-      <i class="e-icon e-icon--expand_circle-filled-color"></i>
+    <div class="e-accordion__item__row">
+      <div class="e-accordion__label">
+        Hvor ofte kommer fakturaen?
+      </div>
+      <div class="e-accordion__icon">
+        <i class="e-icon e-icon--expand_circle-color"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      </div>
     </div>
     <div class="e-accordion__content">
       Hidden information
     </div>
   </div>
   <div class="e-accordion__item e-accordion__item--open">
-    <div class="e-accordion__label">
-      Kan jeg bestille på vegne av andre?
-    </div>
-    <div class="e-accordion__icon">
-      <i class="e-icon e-icon--expand_circle-color"></i>
-      <i class="e-icon e-icon--expand_circle-filled-color"></i>
+    <div class="e-accordion__item__row">
+      <div class="e-accordion__label">
+        Kan jeg bestille på vegne av andre?
+      </div>
+      <div class="e-accordion__icon">
+        <i class="e-icon e-icon--expand_circle-color"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      </div>
     </div>
     <div class="e-accordion__content">
       Hidden information
     </div>
   </div>
   <div class="e-accordion__item">
-    <div class="e-accordion__label">
-      Hva kan jeg gjøre for å spare strøm?
-    </div>
-    <div class="e-accordion__icon">
-      <i class="e-icon e-icon--expand_circle-color"></i>
-      <i class="e-icon e-icon--expand_circle-filled-color"></i>
+    <div class="e-accordion__item__row">
+      <div class="e-accordion__label">
+        Hva kan jeg gjøre for å spare strøm?
+      </div>
+      <div class="e-accordion__icon">
+        <i class="e-icon e-icon--expand_circle-color"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      </div>
     </div>
   </div>
   <div class="e-accordion__item">
-    <div class="e-accordion__label">
-      Hva kan jeg gjøre for å spare strøm?
-    </div>
-    <div class="e-accordion__icon">
-      <i class="e-icon e-icon--expand_circle-color"></i>
-      <i class="e-icon e-icon--expand_circle-filled-color"></i>
+    <div class="e-accordion__item__row">
+      <div class="e-accordion__label">
+        Hva kan jeg gjøre for å spare strøm?
+      </div>
+      <div class="e-accordion__icon">
+        <i class="e-icon e-icon--expand_circle-color"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      </div>
     </div>
   </div>
 </div>

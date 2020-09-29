@@ -199,7 +199,7 @@ body {
   max-height: 10000px;
   opacity: 1;
   padding-top: 24px;
-  transition: 0.5s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97), padding-top 0s;
+  transition: 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
   font-size: inherit;
   font-family: Red Hat Text, sans-serif;
   font-size: 20px;
@@ -301,26 +301,27 @@ body {
   width: 100%;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row {
   display: flex;
   justify-content: space-between;
   padding: 20px 16px 19px 16px;
   border-bottom: 1px solid #e9e9e9;
+  width: 100%;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item:hover {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row:hover {
   cursor: pointer;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item:hover i[class*=expand_circle-color] {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row:hover i[class*=expand_circle-color] {
   display: none;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item:hover i[class*=expand_circle-filled-color] {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row:hover i[class*=expand_circle-filled-color] {
   display: flex;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row .e-accordion__label {
   font-family: "Red Hat Display";
   font-weight: 500;
   font-size: 20px;
@@ -328,15 +329,30 @@ body {
   margin-right: 8px;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__icon {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row .e-accordion__icon {
   width: 32px;
   height: 32px;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__icon img,
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__icon i {
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row .e-accordion__icon img,
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__item__row .e-accordion__icon i {
   width: 32px;
   height: 32px;
+}
+
+.e-accordion.e-accordion--group .e-accordion__item .e-accordion__content {
+  padding-left: 19px;
+  border-bottom: 1px solid #e9e9e9;
+  transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
+}
+
+.e-accordion.e-accordion--group .e-accordion__item--open .e-accordion__item__row {
+  border: none;
+  padding-bottom: 0px;
+}
+
+.e-accordion.e-accordion--group .e-accordion__item--open .e-accordion__content {
+  padding-bottom: 24px;
 }
 
 .e-accordion.e-accordion--center .e-accordion__item {
