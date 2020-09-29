@@ -355,3 +355,15 @@
     }
   }
 }
+
+.home-whats-new {
+  width: 48%;
+  margin: 0 auto;
+  @include breakpoint-up(Tablet) {
+    width: 60%;
+  }
+  @include breakpoint-up(Mobile) {
+    width: 100%;
+    padding: 24px;
+  }
+}
