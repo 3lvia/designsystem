@@ -348,7 +348,7 @@ export class TableDocComponent {
             <i class="e-icon e-icon--arrow_up-bold"></i>
           </span>
         </th>
-        <th scope="col" class="e-table__sort-header e-text-right">
+        <th scope="col" class="e-table__sort-header ">
           Beløp
           <span class="e-table__sort-icon e-table__sort-icon--up">
             <i class="e-icon e-icon--arrow_down-bold"></i>
@@ -360,19 +360,19 @@ export class TableDocComponent {
     <tbody>
       <tr>
         <th scope="row">Januar 2020</th>
-        <td class="e-text-right">567,98 kr</td>
+        <td>567,98 kr</td>
       </tr>
       <tr>
         <th scope="row">Februar 2020</th>
-        <td class="e-text-right">543,10 kr</td>
+        <td>543,10 kr</td>
       </tr>
       <tr>
         <th scope="row">Mars 2020</th>
-        <td class="e-text-right">568,98 kr</td>
+        <td>568,98 kr</td>
       </tr>
       <tr>
         <th scope="row">April 2020</th>
-        <td class="e-text-right">521,98 kr</td>
+        <td>521,98 kr</td>
       </tr>
     </tbody>
   </table>
