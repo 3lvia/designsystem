@@ -2,6 +2,27 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      2.0.0
+    </span>
+    <br>
+    <span>
+      September 29, 2020
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">Breaking changes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion-doc#Overview">Accordion</a>,
+        </div>
+        The group accordion class now has a new child class under accordion__item, accordion__item__row. This groups up the label and icon class to enable two click surfaces, one for the label & icon row, and a seperate element for accordion content. 
+      </div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       1.0.0
     </span>
     <br>
