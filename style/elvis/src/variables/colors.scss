@@ -46,7 +46,36 @@
 
 // All colors as a list
 // REMEMBER TO UPDATE THE DOCUMENTATION ALSO: color-doc -> color.ts
-$main-colors: (
+$primary-colors: (
+  'white': (
+    color: #fff,
+    alt-labels: (
+      elvia-on,
+    ),
+    contrastText: #000,
+  ),
+  'black': (
+    color: #000,
+    alt-labels: (
+      font-color,
+      elvia-off,
+    ),
+    contrastText: #fff,
+  ),
+  'grey': (
+    color: #262626,
+    contrastText: #fff,
+  ),
+  'green': (
+    color: #29d305,
+    alt-labels: (
+      elvia-charge,
+    ),
+    contrastText: #000,
+  ),
+);
+
+$signal-colors: (
   'green': (
     color: #29d305,
     alt-labels: (
@@ -96,25 +125,6 @@ $data-colors: (
 );
 
 $greys: (
-  'white': (
-    color: #fff,
-    alt-labels: (
-      elvia-on,
-    ),
-    contrastText: #000,
-  ),
-  'black': (
-    color: #000,
-    alt-labels: (
-      font-color,
-      elvia-off,
-    ),
-    contrastText: #fff,
-  ),
-  'grey': (
-    color: #262626,
-    contrastText: #fff,
-  ),
   'grey-90': (
     color: #3b3b3b,
     contrastText: #fff,
@@ -170,8 +180,9 @@ $greys: (
   ),
 );
 
-$just-colors: map-merge($main-colors, $data-colors);
-$colors: map-merge($just-colors, $greys);
+$just-colors: map-merge($signal-colors, $data-colors);
+$grey-primary: map-merge($greys, $primary-colors);
+$colors: map-merge($just-colors, $grey-primary);
 
 $internal-colors: (
   'focus-outline': (

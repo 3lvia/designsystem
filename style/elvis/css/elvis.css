@@ -612,84 +612,6 @@ input:focus {
 }
 
 :root {
-  --e-white: #fff;
-}
-
-.e-text-white {
-  color: #fff !important;
-}
-
-.e-bg-white {
-  background: #fff !important;
-  color: #000 !important;
-}
-
-:root {
-  --e-elvia-on: #fff;
-}
-
-.e-text-elvia-on {
-  color: #fff !important;
-}
-
-.e-bg-elvia-on {
-  background: #fff !important;
-  color: #000 !important;
-}
-
-:root {
-  --e-black: #000;
-}
-
-.e-text-black {
-  color: #000 !important;
-}
-
-.e-bg-black {
-  background: #000 !important;
-  color: #fff !important;
-}
-
-:root {
-  --e-font-color: #000;
-}
-
-.e-text-font-color {
-  color: #000 !important;
-}
-
-.e-bg-font-color {
-  background: #000 !important;
-  color: #fff !important;
-}
-
-:root {
-  --e-elvia-off: #000;
-}
-
-.e-text-elvia-off {
-  color: #000 !important;
-}
-
-.e-bg-elvia-off {
-  background: #000 !important;
-  color: #fff !important;
-}
-
-:root {
-  --e-grey: #262626;
-}
-
-.e-text-grey {
-  color: #262626 !important;
-}
-
-.e-bg-grey {
-  background: #262626 !important;
-  color: #fff !important;
-}
-
-:root {
   --e-grey-90: #3b3b3b;
 }
 
@@ -869,6 +791,84 @@ input:focus {
 .e-bg-grey-02 {
   background: #fafafa !important;
   color: #000 !important;
+}
+
+:root {
+  --e-white: #fff;
+}
+
+.e-text-white {
+  color: #fff !important;
+}
+
+.e-bg-white {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+:root {
+  --e-elvia-on: #fff;
+}
+
+.e-text-elvia-on {
+  color: #fff !important;
+}
+
+.e-bg-elvia-on {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+:root {
+  --e-black: #000;
+}
+
+.e-text-black {
+  color: #000 !important;
+}
+
+.e-bg-black {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+:root {
+  --e-font-color: #000;
+}
+
+.e-text-font-color {
+  color: #000 !important;
+}
+
+.e-bg-font-color {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+:root {
+  --e-elvia-off: #000;
+}
+
+.e-text-elvia-off {
+  color: #000 !important;
+}
+
+.e-bg-elvia-off {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+:root {
+  --e-grey: #262626;
+}
+
+.e-text-grey {
+  color: #262626 !important;
+}
+
+.e-bg-grey {
+  background: #262626 !important;
+  color: #fff !important;
 }
 
 @-webkit-keyframes spinner {
