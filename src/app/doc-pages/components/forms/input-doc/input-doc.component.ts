@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -7,11 +7,16 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./input-doc.component.scss'],
 })
 export class InputDocComponent {
+  @ViewChild('validationExample') validationExample: ElementRef;
+
+  showPassword = false;
+
   headerDoes = 'A input should be used';
   headerDonts = 'A label should not be used';
 
   figmaUrl = getComponent('input-doc').figmaUrl;
   description = getComponent('input-doc').description;
+
   does = [
     'Text fields should be used in forms where the user has to fill in something that is not from a set of choices.',
   ];
@@ -22,7 +27,6 @@ export class InputDocComponent {
   overviewExample = `<div class="e-form-field">
   <label class="e-form-field__label" for="normal">Input field </label>
   <div class="e-input">
-    <i class="e-icon e-icon--mail e-icon--xs"></i>
     <input id="normal" type="text" placeholder="Placeholder text">
   </div>
 </div>
@@ -41,7 +45,6 @@ export class InputDocComponent {
   example1 = `<div class="e-form-field">
   <label class="e-form-field__label" for="normal">Normal input field </label>
   <div class="e-input">
-    <i class="e-icon e-icon--mail e-icon--xs"></i>
     <input id="normal" type="text" placeholder="Placeholder text">
   </div>
 </div>
@@ -54,7 +57,6 @@ export class InputDocComponent {
       <input type="text" value="+47">
     </div>
     <div class="e-input">
-      <i class="e-icon e-icon--phone e-icon--xs"></i>
       <input type="text" placeholder="Placeholder text">
     </div>
   </div>
@@ -77,15 +79,24 @@ export class InputDocComponent {
 </div>
 `;
 
-  example4 = `<div class="e-form-field">
+  example4 = `<div class="e-form-field e-w-50">
   <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
   <div class="e-input e-input---invalid">
-    <i class="e-icon e-icon--lock e-icon--xs"></i>
-    <input id="invalid" type="password" value="passord" invalid>
+    <i
+      *ngIf="!showPassword"
+      class="e-icon e-icon--view_on e-icon--xs"
+      (click)="showMockPassword()"
+    ></i>
+    <i
+      *ngIf="showPassword"
+      class="e-icon e-icon--view_off e-icon--xs"
+      (click)="showMockPassword()"
+    ></i>
+    <input id="validationExample" type="password" value="Passord" invalid #validationExample />
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
     <span>
-      <i class="e-icon e-icon--warning_circle e-icon--color-red e-icon--xs"></i>
+      <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
     </span>
     <span>
       Passord må inneholde både bokstaver og tall
@@ -93,6 +104,19 @@ export class InputDocComponent {
   </span>
 </div>
 `;
+
+  example4TS = `@ViewChild('validationExample') validationExample: ElementRef;
+showPassword = false;
+
+showMockPassword() {
+  if (this.validationExample.nativeElement.type === 'password') {
+    this.validationExample.nativeElement.type = 'text';
+    this.showPassword = true;
+  } else {
+    this.validationExample.nativeElement.type = 'password';
+    this.showPassword = false;
+  }
+}`;
 
   example5 = `<div class="e-form-field">
   <label class="e-form-field__label e-form-field__label--optional" for="textarea">Textarea</label>
@@ -102,24 +126,13 @@ export class InputDocComponent {
 </div>
 `;
 
-  example6 = `
-<div class="e-form-field e-mb-24">
-  <label class="e-form-field__label" for="pseudo-focus">Focus</label>
-  <div class="e-input e-input---focus">
-    <input id="pseudo-focus" type="text" placeholder="Placeholder text">
-  </div>
-</div>
-<div class="e-form-field e-mb-24">
-  <label class="e-form-field__label" for="pseudo-invalid">Invalid</label>
-  <div class="e-input e-input---invalid">
-    <input id="pseudo-invalid" type="text" placeholder="Placeholder text">
-  </div>
-</div>
-<div class="e-form-field">
-  <label class="e-form-field__label" for="pseudo-disabled">Disabled</label>
-  <div class="e-input e-input---disabled">
-    <input id="pseudo-disabled" type="text" placeholder="Placeholder text">
-  </div>
-</div>
-`;
+  showMockPassword() {
+    if (this.validationExample.nativeElement.type === 'password') {
+      this.validationExample.nativeElement.type = 'text';
+      this.showPassword = true;
+    } else {
+      this.validationExample.nativeElement.type = 'password';
+      this.showPassword = false;
+    }
+  }
 }
