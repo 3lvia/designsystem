@@ -86,7 +86,33 @@
           By default, all fields must be required. Validation is based on the field being filled out.
           Validation takes place along the way, and the user must also be presented with guidance or error
           messages.
-          <app-code-block [codeHTML]="example4"></app-code-block>
+          <div class="exampleContainer e-mt-24">
+            <div class="e-form-field">
+              <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
+              <div class="e-input e-input---invalid">
+                <i
+                  *ngIf="!showPassword"
+                  class="e-icon e-icon--view_on e-icon--xs"
+                  (click)="showMockPassword()"
+                ></i>
+                <i
+                  *ngIf="showPassword"
+                  class="e-icon e-icon--view_off e-icon--xs"
+                  (click)="showMockPassword()"
+                ></i>
+                <input id="validationExample" type="password" value="Passord" invalid #validationExample />
+              </div>
+              <span class="e-form-field__error e-form-field__error--visible">
+                <span>
+                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+                </span>
+                <span>
+                  Passord må inneholde både bokstaver og tall
+                </span>
+              </span>
+            </div>
+          </div>
+          <app-code-block [showPreview]="false" [codeHTML]="example4" [codeTS]="example4TS"></app-code-block>
         </ng-container>
       </app-component-subsection>
     </ng-container>
