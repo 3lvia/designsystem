@@ -48,22 +48,14 @@ $label-font-size: 11px;
     padding: $label-padding-mobile;
   }
 
-  &.e-label--green-apple {
-    @include circle('green-apple');
-  }
-  &.e-label--violet-grape {
-    @include circle('violet-grape');
-  }
-  &.e-label--blue-berry {
-    @include circle('blue-berry');
-  }
-  &.e-label--purple-plum {
-    @include circle('purple-plum');
-  }
-  &.e-label--orange-mango {
-    @include circle('orange-mango');
-  }
-  &.e-label--red-tomato {
-    @include circle('red-tomato');
+  @each $label, $map in colors.$just-colors {
+    $color: colors.color($label);
+    $labels: ($label);
+
+    @each $label in $labels {
+      &.e-label--#{$label} {
+        @include circle($label);
+      }
+    }
   }
 }

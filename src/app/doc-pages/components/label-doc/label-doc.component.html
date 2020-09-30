@@ -32,7 +32,6 @@
 
       <app-component-subsection [sectionTitle]="'Colored'">
         <ng-container ngProjectAs="sectionContent">
-          Labels can be used with any of the data-colors.
           <app-code-block [codeHTML]="example2" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
         </ng-container>
       </app-component-subsection>
@@ -47,6 +46,12 @@
         <ng-container ngProjectAs="sectionContent">
           Labels should be easy to scan to quickly get an overview, so keep it short and descriptive. Maximum
           two words.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Color usage'">
+        <ng-container ngProjectAs="sectionContent">
+          Labels can be used with any color, but when visualising status, we typically use the combinations
+          seen in the examples.
         </ng-container>
       </app-component-subsection>
     </ng-container>

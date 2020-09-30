@@ -18,16 +18,13 @@
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion-doc#Overview">Accordion</a>,
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/header-doc#Overview">Header</a>,
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table-doc#Overview">Table</a>
         </div>
         The e-accordion__label has now been renamed to e-accordion__title. The e-accordion__label class is still available, but only in combination with the e-accordion--group modifier, and e-accordion__label is the container class for e-accordion__title and e-accordion__icon in a group accordion. 
-      </div>
-      <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
-        <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/header-doc#Overview">Header</a>,
-        </div>
-        <span class="code-text changelog-code">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile eks: <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>. 
-        <div class="e-mt-16">
+        <div class="e-mt-24">
+          <span class="code-text changelog-code">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile eks: <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>. 
+          <div class="e-mt-8">
           How to fix:
           The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.
           <ul>
@@ -42,14 +39,9 @@
             </li>
           </ul>
         </div>
-      </div>
-      <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
-          <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/table-doc#Overview">Table</a>
-          </div>
+        <div class="e-mt-24">
           The design and structure of tables have been updated. Tables with black headers have been removed and a wrapper class has been added.
-          <div class="e-mt-16">
+          <div class="e-mt-8">
             How to fix:
             Add an element with the <span class="code-text changelog-code">e-table-container</span> class outside the element with the <span class="code-text changelog-code">e-table</span> class.
             <ul>
@@ -121,7 +113,7 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover-doc#Overview">Popover</a>
         </div>
         All <span class="code-text changelog-code">---visible</span> classes for modal and popover components are removed. New utility classes are added instead for showing and hiding elements. If you are using the modal or popover components you now have to use the new utility classes for hiding and showing. Theses components are by default now always visible.
-        <div class="e-mt-16">
+        <div class="e-mt-8">
           How to fix:
           Add the <span class="code-text changelog-code">e-none</span> or <span class="code-text changelog-code">e-invisble</span> utility classes to toggle the components.
           <ul>
@@ -195,7 +187,7 @@
         <div class="changelog-section-title">✂️ Breaking changes</div>
         Switched from @import to @use. The @use rule is the primary replacement for @import, which will be deprecated in near future (2022 latest). @use is currently not supported by the node-sass compiler. Dart-sass is the primary implementation of Sass and do support the use of @use. Read more about the advantages of @use here: 
         <a class="e-link e-link--inline" href="https://sass-lang.com/blog/the-module-system-is-launched">Sass module system</a>
-        <div class="e-mt-16">
+        <div class="e-mt-8">
           How to fix:
           If you are using our stylesheets directly and your sass-compiler do not support the use of @use you will have to migrate as well.
         </div>
