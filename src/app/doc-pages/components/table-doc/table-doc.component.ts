@@ -22,17 +22,17 @@ export class TableDocComponent {
     </thead>
     <tbody>
       <tr>
-        <th scope="row">Table row 1 column 1</th>
+        <td>Table row 1 column 1</td>
         <td>Table row 1 column 2</td>
         <td>Table row 1 column 3</td>
       </tr>
       <tr>
-        <th scope="row">Table row 2 column 1</th>
+        <td>Table row 2 column 1</td>
         <td>Table row 2 column 2</td>
         <td>Table row 2 column 3</td>
       </tr>
       <tr>
-        <th scope="row">Table row 3 column 1</th>
+        <td>Table row 3 column 1</td>
         <td>Table row 3 column 2</td>
         <td>Table row 3 column 3</td>
       </tr>

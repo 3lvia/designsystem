@@ -2,11 +2,11 @@
 <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
-      1.0.0
+      2.0.0
     </span>
     <br>
     <span>
-      September 29, 2020
+      September 30, 2020
     </span>
     </td>
     <td class="changelog-content">
