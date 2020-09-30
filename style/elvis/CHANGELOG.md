@@ -16,7 +16,7 @@
           Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/header-doc#Overview">Header</a>,
         </div>
-        <span class="code-text changelog-code">e-header</span> er lagt på foran alle klasser som manglet det. Desktop top-bar klasser inkluderer nå ordet 'desktop' slik som for mobil, eks: <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>. Properties liste lagt til for header.
+        <span class="code-text changelog-code">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile eks: <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>. Properties list is also added to header.
       </div>
       <div class="changelog-section">
         <div class="changelog-section-title">Conditioner</div>
