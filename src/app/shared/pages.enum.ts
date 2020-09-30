@@ -78,5 +78,4 @@ export enum Pages {
   Contribute = 'contribute',
   Faq = 'faq-doc',
   Changelog = 'changelog',
-  Discussion = 'discussion',
 }

@@ -574,15 +574,6 @@ export const eCommunity: EItems[] = [
     type: 'Community',
   },
   {
-    title: 'Discussion',
-    description: 'Discuss the design system? Report a bug? Request a new feature?',
-    docUrl: Pages.Discussion,
-    absolutePath: '/community/' + Pages.Discussion,
-    externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose',
-    imageUrl: 'assets/website-icons/temporary.svg',
-    type: 'Community',
-  },
-  {
     title: 'FAQ',
     // tslint:disable-next-line: max-line-length
     description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
