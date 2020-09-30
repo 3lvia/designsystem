@@ -355,3 +355,17 @@
     }
   }
 }
+
+.home-whats-new {
+  margin: 0 auto;
+  max-width: 700px;
+  @include breakpoint-up(Tablet) {
+    width: 60%;
+    min-width: 520px;
+  }
+  @include breakpoint-up(Mobile) {
+    width: 100%;
+    padding: 24px;
+    min-width: unset;
+  }
+}

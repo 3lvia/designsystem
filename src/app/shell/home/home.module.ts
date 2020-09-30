@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home.component';
 import { OverviewPageModule } from 'src/app/shared/overview-page/overview-page.module';
 import { RouterModule } from '@angular/router';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
   imports: [
     CommonModule,
     OverviewPageModule,
-    RouterModule
+    RouterModule,
+    MarkdownModule.forRoot(),
   ],
   declarations: [HomeComponent],
 })
