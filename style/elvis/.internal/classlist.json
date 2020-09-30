@@ -203,90 +203,84 @@
 			}
 		},
 		"e-header": {
+			"element": {
+				"e-header__top-bar": {},
+				"e-header__top-bar-desktop": {},
+				"e-header__top-bar-desktop__app": {
+					"modifier": {
+						"e-header__top-bar-desktop__app--open": {}
+					}
+				},
+				"e-header__top-bar-desktop__app-menu": {},
+				"e-header__top-bar-desktop__app-menu-item": {
+					"modifier": {
+						"e-header__top-bar-desktop__app-menu-item--active": {}
+					}
+				},
+				"e-header__top-bar-desktop__app-circle": {},
+				"e-header__top-bar-desktop__app-title": {},
+				"e-header__top-bar-desktop__area": {
+					"modifier": {
+						"e-header__top-bar-desktop__area--open": {}
+					}
+				},
+				"e-header__top-bar-desktop__area-menu": {},
+				"e-header__top-bar-desktop__area-menu-item": {},
+				"e-header__top-bar-desktop__logo": {},
+				"e-header__top-bar-desktop__title": {},
+				"e-header__top-bar-desktop__user": {
+					"modifier": {
+						"e-header__top-bar-desktop__user--open": {}
+					}
+				},
+				"e-header__top-bar-desktop__hamburger": {},
+				"e-header__top-bar-desktop__link": {},
+				"e-header__top-bar-desktop__line": {},
+				"e-header__top-bar-desktop__user-menu": {},
+				"e-header__top-bar-desktop__user-menu-name": {},
+				"e-header__top-bar-desktop__user-menu-mail": {},
+				"e-header__top-bar-desktop__user-menu-settings": {},
+				"e-header__top-bar-desktop__user-menu-logout": {},
+				"e-header__top-bar-desktop__link-icon": {},
+				"e-header__top-bar-mobile": {},
+				"e-header__top-bar-mobile__app": {
+					"modifier": {
+						"e-header__top-bar-mobile__app--open": {}
+					}
+				},
+				"e-header__top-bar-mobile__area": {
+					"modifier": {
+						"e-header__top-bar-mobile__area--open": {}
+					}
+				},
+				"e-header__top-bar-mobile__user": {},
+				"e-header__top-bar-mobile__title": {},
+				"e-header__top-bar-mobile__link": {},
+				"e-header__top-bar-mobile__link-icon": {},
+				"e-header__top-bar-mobile__user-menu": {},
+				"e-header__top-bar-mobile__user-menu-name": {},
+				"e-header__top-bar-mobile__user-menu-settings": {},
+				"e-header__top-bar-mobile__user-menu-logout": {},
+				"e-header__top-bar-mobile__divider": {},
+				"e-header__sidebar": {
+					"modifier": {
+						"e-header__sidebar--open": {}
+					}
+				},
+				"e-header__sidebar__item": {
+					"modifier": {
+						"e-header__sidebar__item--active": {}
+					}
+				},
+				"e-header__sidebar__open-close": {},
+				"e-header__sidebar__text": {},
+				"e-header__sidebar__icon": {}
+			},
 			"modifier": {
 				"e-header--open": {}
 			}
 		},
-		"e-top-bar": {
-			"element": {
-				"e-top-bar__app": {
-					"modifier": {
-						"e-top-bar__app--open": {}
-					}
-				},
-				"e-top-bar__app-menu": {},
-				"e-top-bar__app-menu-item": {
-					"modifier": {
-						"e-top-bar__app-menu-item--active": {}
-					}
-				},
-				"e-top-bar__app-circle": {},
-				"e-top-bar__app-title": {},
-				"e-top-bar__area": {
-					"modifier": {
-						"e-top-bar__area--open": {}
-					}
-				},
-				"e-top-bar__area-menu": {},
-				"e-top-bar__area-menu-item": {},
-				"e-top-bar__logo": {},
-				"e-top-bar__title": {},
-				"e-top-bar__user": {
-					"modifier": {
-						"e-top-bar__user--open": {}
-					}
-				},
-				"e-top-bar__hamburger": {},
-				"e-top-bar__link": {},
-				"e-top-bar__line": {},
-				"e-top-bar__user-menu": {},
-				"e-top-bar__user-menu-name": {},
-				"e-top-bar__user-menu-mail": {},
-				"e-top-bar__user-menu-settings": {},
-				"e-top-bar__user-menu-logout": {},
-				"e-top-bar__link-icon": {}
-			}
-		},
-		"e-top-bar-mobile": {
-			"element": {
-				"e-top-bar-mobile__app": {
-					"modifier": {
-						"e-top-bar-mobile__app--open": {}
-					}
-				},
-				"e-top-bar-mobile__area": {
-					"modifier": {
-						"e-top-bar-mobile__area--open": {}
-					}
-				},
-				"e-top-bar-mobile__user": {},
-				"e-top-bar-mobile__title": {},
-				"e-top-bar-mobile__link": {},
-				"e-top-bar-mobile__link-icon": {},
-				"e-top-bar-mobile__user-menu": {},
-				"e-top-bar-mobile__user-menu-name": {},
-				"e-top-bar-mobile__user-menu-settings": {},
-				"e-top-bar-mobile__user-menu-logout": {},
-				"e-top-bar-mobile__divider": {}
-			}
-		},
-		"e-top-bar-desktop": {},
 		"e-grid": {},
-		"e-sidebar": {
-			"element": {
-				"e-sidebar__item": {
-					"modifier": {
-						"e-sidebar__item--active": {}
-					}
-				},
-				"e-sidebar__open-close": {},
-				"e-sidebar__text": {},
-				"e-sidebar__icon": {}
-			},
-			"modifier": {
-				"e-sidebar--open": {}
-			}
-		},
 		"e-label": {
 			"modifier": {
 				"e-label--red-tomato": {},
@@ -976,55 +970,55 @@
 		"e-radio-filter---disabled": {},
 		"e-radio-filter---focus": {},
 		"e-header": {},
-		"e-top-bar__app": {},
-		"e-top-bar__app-menu": {},
-		"e-top-bar__app-menu-item": {},
-		"e-top-bar__app-circle": {},
-		"e-top-bar__app-menu-item--active": {},
-		"e-top-bar__app-title": {},
-		"e-top-bar__area": {},
-		"e-top-bar__area-menu": {},
-		"e-top-bar__area-menu-item": {},
-		"e-top-bar": {},
-		"e-top-bar-mobile": {},
-		"e-top-bar-desktop": {},
+		"e-header__top-bar": {},
+		"e-header__top-bar-desktop": {},
 		"e-grid": {},
-		"e-top-bar__logo": {},
-		"e-top-bar__title": {},
-		"e-top-bar__user": {},
-		"e-top-bar__hamburger": {},
-		"e-top-bar__link": {},
-		"e-top-bar__line": {},
-		"e-top-bar__user-menu": {},
-		"e-top-bar__user-menu-name": {},
-		"e-top-bar__user-menu-mail": {},
-		"e-top-bar__user-menu-settings": {},
-		"e-top-bar__user-menu-logout": {},
-		"e-top-bar__link-icon": {},
-		"e-top-bar__app--open": {},
-		"e-top-bar__area--open": {},
-		"e-top-bar__user--open": {},
+		"e-header__top-bar-desktop__app": {},
+		"e-header__top-bar-desktop__app-menu": {},
+		"e-header__top-bar-desktop__app-menu-item": {},
+		"e-header__top-bar-desktop__app-circle": {},
+		"e-header__top-bar-desktop__app-menu-item--active": {},
+		"e-header__top-bar-desktop__app-title": {},
+		"e-header__top-bar-desktop__area": {},
+		"e-header__top-bar-desktop__area-menu": {},
+		"e-header__top-bar-desktop__area-menu-item": {},
+		"e-header__top-bar-desktop__logo": {},
+		"e-header__top-bar-desktop__title": {},
+		"e-header__top-bar-desktop__user": {},
+		"e-header__top-bar-desktop__hamburger": {},
+		"e-header__top-bar-desktop__link": {},
+		"e-header__top-bar-desktop__line": {},
+		"e-header__top-bar-desktop__user-menu": {},
+		"e-header__top-bar-desktop__user-menu-name": {},
+		"e-header__top-bar-desktop__user-menu-mail": {},
+		"e-header__top-bar-desktop__user-menu-settings": {},
+		"e-header__top-bar-desktop__user-menu-logout": {},
+		"e-header__top-bar-desktop__link-icon": {},
+		"e-header__top-bar-desktop__app--open": {},
+		"e-header__top-bar-desktop__area--open": {},
+		"e-header__top-bar-desktop__user--open": {},
+		"e-header__top-bar-mobile": {},
 		"e-header--open": {},
-		"e-sidebar": {},
-		"e-top-bar-mobile__app": {},
-		"e-top-bar-mobile__area": {},
-		"e-top-bar-mobile__user": {},
-		"e-top-bar-mobile__title": {},
-		"e-top-bar-mobile__link": {},
-		"e-top-bar-mobile__link-icon": {},
-		"e-top-bar-mobile__user-menu": {},
-		"e-top-bar-mobile__user-menu-name": {},
-		"e-top-bar-mobile__user-menu-settings": {},
-		"e-top-bar-mobile__user-menu-logout": {},
-		"e-top-bar-mobile__divider": {},
-		"e-top-bar-mobile__app--open": {},
-		"e-top-bar-mobile__area--open": {},
-		"e-sidebar__item": {},
-		"e-sidebar__open-close": {},
-		"e-sidebar__text": {},
-		"e-sidebar__icon": {},
-		"e-sidebar__item--active": {},
-		"e-sidebar--open": {},
+		"e-header__top-bar-mobile__app": {},
+		"e-header__top-bar-mobile__area": {},
+		"e-header__top-bar-mobile__user": {},
+		"e-header__top-bar-mobile__title": {},
+		"e-header__top-bar-mobile__link": {},
+		"e-header__top-bar-mobile__link-icon": {},
+		"e-header__top-bar-mobile__user-menu": {},
+		"e-header__top-bar-mobile__user-menu-name": {},
+		"e-header__top-bar-mobile__user-menu-settings": {},
+		"e-header__top-bar-mobile__user-menu-logout": {},
+		"e-header__top-bar-mobile__divider": {},
+		"e-header__sidebar": {},
+		"e-header__top-bar-mobile__app--open": {},
+		"e-header__top-bar-mobile__area--open": {},
+		"e-header__sidebar__item": {},
+		"e-header__sidebar__open-close": {},
+		"e-header__sidebar__text": {},
+		"e-header__sidebar__icon": {},
+		"e-header__sidebar__item--active": {},
+		"e-header__sidebar--open": {},
 		"e-label": {},
 		"e-label--red-tomato": {},
 		"e-label--orange-mango": {},
