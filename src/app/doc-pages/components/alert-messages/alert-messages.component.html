@@ -36,6 +36,32 @@
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
+      <div class="alert-type-container">
+        <div class="alert-type-item">
+          <div class="e-text-caps">Global</div>
+          <div><img src="./../../../../assets/alert/Group 854.svg" /></div>
+        </div>
+        <div class="alert-type-item">
+          <div class="e-text-caps">Local</div>
+          <div><img src="./../../../../assets/alert/Group 855.svg" /></div>
+        </div>
+        <div class="alert-type-item">
+          <div class="e-text-caps">Toast</div>
+          <div><img src="./../../../../assets/alert/Group 856.svg" /></div>
+        </div>
+      </div>
+
+      <app-component-subsection [sectionTitle]="'Global Alert'">
+        <ng-container ngProjectAs="sectionContent">
+          Global alert is in most cases initiated by the application or system, but can also be used when an
+          important message needs to be flagged. It’s a general message to all users and are not associated
+          with user actions. Global alert appears on all pages of the application/website and extends in full
+          length above the header. It can include links or actions such as expand and close.
+          <app-code-block [codeHTML]="globalAlert"></app-code-block>
+          <app-when-to-use [whens]="doesGlobalDefault" [whenNots]="dontsGlobalDefault"></app-when-to-use>
+        </ng-container>
+      </app-component-subsection>
+
       <app-component-subsection [sectionTitle]="'Local Alert'">
         <ng-container ngProjectAs="sectionContent">
           Local alerts are messages related to the site and the content. It can be placed anywhere between the
@@ -43,6 +69,17 @@
           feedback after a user actions. The maximum width is 850px.
           <app-code-block [codeHTML]="exampleAlertDefault"></app-code-block>
           <app-when-to-use [whens]="doesAlertDefault"></app-when-to-use>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Toast Alert'">
+        <ng-container ngProjectAs="sectionContent">
+          Toast alert should be used to provide short and simple feedback after a user action. Mostly used
+          when you want to confirm to the user after a user action (positive or informative). Toast pops up
+          the top right corner, above the content, and disappears after 7 seconds. On mobile, the toast will
+          show at the bottom center.
+          <app-code-block [codeHTML]="toastAlert"></app-code-block>
+          <app-when-to-use [whens]="doesToastDefault" [whenNots]="dontsToastDefault"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -57,29 +94,30 @@
       <app-component-subsection [sectionTitle]="'Error'">
         <ng-container ngProjectAs="sectionContent">
           Notify when something goes wrong or the user is denied completing their task. Explain why and what
-          to do. Example: Error, missing fields and invalid entry.
+          to do. Example: Error, missing fields and invalid entry. This status can be used by local and global
+          alerts.
           <app-code-block [codeHTML]="errorStatus"></app-code-block>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Warning'">
         <ng-container ngProjectAs="sectionContent">
           Help users to avoid error situations and to give attention to something undesirable that may occur.
-          Explain why and what to do.
+          Explain why and what to do. This status can be used by local and global alerts.
           <app-code-block [codeHTML]="warnStatus"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Positive'">
-        <ng-container ngProjectAs="sectionContent">
-          Provide a positive response to user actions, like a confirmation that an action is fully completed.
-          Example: save, edit and submit.
-          <app-code-block [codeHTML]="positiveStatus"></app-code-block>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Informative'">
         <ng-container ngProjectAs="sectionContent">
           Inform users to understand minor contextual changes, and are not typically in response to a user
-          action. Like a helpful tip or a suggestion.
+          action. Like a helpful tip or a suggestion. This status can be used by all the alerts.
           <app-code-block [codeHTML]="infoStatus"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Positive'">
+        <ng-container ngProjectAs="sectionContent">
+          Provide a positive response to user actions, like a confirmation that an action is fully completed.
+          Example: save, edit and submit. This status can only be used with the toast alert.
+          <app-code-block [codeHTML]="positiveStatus"></app-code-block>
         </ng-container>
       </app-component-subsection>
     </ng-container>

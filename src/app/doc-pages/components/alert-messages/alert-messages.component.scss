@@ -1,0 +1,29 @@
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
+
+.alert-type-container {
+  display: flex;
+  justify-content: space-between;
+
+  @include breakpoint-up(MinDesktop) {
+    flex-direction: column;
+  }
+
+  .alert-type-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 24px;
+
+    img {
+      margin-top: 16px;
+      height: 150px;
+      @include breakpoint-up(MinDesktop) {
+        width: 100%;
+        height: 170px;
+      }
+    }
+  }
+}

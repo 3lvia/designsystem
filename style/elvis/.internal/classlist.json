@@ -44,9 +44,11 @@
 			"modifier": {
 				"e-alert--no-title": {},
 				"e-alert--local": {},
-				"e-alert--positive": {},
 				"e-alert--warn": {},
-				"e-alert--info": {}
+				"e-alert--info": {},
+				"e-alert--global": {},
+				"e-alert--error": {},
+				"e-alert--toast": {}
 			}
 		},
 		"e-autocomplete": {
@@ -854,9 +856,11 @@
 		"e-alert__text": {},
 		"e-alert__links": {},
 		"e-alert--local": {},
-		"e-alert--positive": {},
 		"e-alert--warn": {},
 		"e-alert--info": {},
+		"e-alert--global": {},
+		"e-alert--error": {},
+		"e-alert--toast": {},
 		"e-autocomplete": {},
 		"e-dropdown__content": {},
 		"e-autocomplete__item": {},

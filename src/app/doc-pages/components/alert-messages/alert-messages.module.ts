@@ -7,6 +7,7 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-properties/c
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure/component-subsubsection/component-subsubsection.module';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     ComponentPropertiesModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
+    ComponentSubsubsectionModule,
     WhenToUseModule,
   ],
   declarations: [AlertMessagesComponent],

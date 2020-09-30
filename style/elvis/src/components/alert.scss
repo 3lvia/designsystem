@@ -49,17 +49,29 @@
 
   &--local {
     border-radius: 8px;
+    &.e-alert--warn {
+      border-color: colors.color('orange');
+    }
+    &.e-alert--info {
+      border-color: colors.color('black');
+    }
   }
-
-  &--positive {
-    border-color: colors.color('green');
-  }
-
-  &--warn {
-    border-color: colors.color('orange');
-  }
-
-  &--info {
+  &--global {
+    width: 100%;
+    max-width: unset;
     border-color: colors.color('black');
+    &.e-alert--warn {
+      border-color: colors.color('orange');
+    }
+    &.e-alert--error {
+      border-color: colors.color('red');
+    }
+  }
+  &--toast {
+    border-radius: 8px;
+    border-color: colors.color('green');
+    &.e-alert--info {
+      border-color: colors.color('black');
+    }
   }
 }
