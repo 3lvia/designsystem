@@ -144,11 +144,11 @@
     width: 100%;
 
     .e-accordion__item {
+      border-bottom: 1px solid colors.color('grey-10');
       .e-accordion__label {
         display: flex;
         justify-content: space-between;
         padding: 20px 16px 19px 16px;
-        border-bottom: 1px solid colors.color('grey-10');
         width: 100%;
 
         &:hover {
@@ -175,7 +175,6 @@
 
       .e-accordion__content {
         padding-left: 19px;
-        border-bottom: 1px solid colors.color('grey-10');
         transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1),
           padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
       }
