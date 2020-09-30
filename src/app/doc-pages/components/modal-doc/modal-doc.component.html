@@ -22,7 +22,7 @@
           Title
         </div>
         <div class="e-modal__text">
-          Modal content Modal content Modal content Modal content Modal content
+          Body text comes here and can go over several lines. It looks like this when it is two.
         </div>
         <div class="e-modal__actions">
           <button class="e-btn e-btn--secondary e-btn--lg" (click)="closeModal('modal1')">
@@ -89,6 +89,13 @@
         <ng-container ngProjectAs="sectionContent">
           Never use a language or word that the user does not understand. It should always be clear to the
           user what the actions are all about. Use short texts, up to 250 characters in body text.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Closing modal'">
+        <ng-container ngProjectAs="sectionContent">
+          The modal is by default always visible, to hide it apply the utility class e-none. The modal should
+          be hidden when clicking outside the dialog window, when clicking 'cancel' and when pressing the
+          'ESC' button.
         </ng-container>
       </app-component-subsection>
     </ng-container>

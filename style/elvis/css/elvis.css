@@ -1749,6 +1749,7 @@ input:focus {
   position: absolute;
   right: 16px;
   top: calc(50% - (16px / 2));
+  cursor: pointer;
 }
 
 .e-input.e-input---invalid > input, .e-input.e-input---invalid > textarea,
@@ -2984,7 +2985,7 @@ input:focus {
   visibility: visible;
 }
 
-.e-link.e-link--action.e-link---hover .e-link__icon i:not([class$=filled-color]), .e-link.e-link--action:hover .e-link__icon i:not([class$=filled-color]) {
+.e-link.e-link--action.e-link---hover .e-link__icon i:not([class*=filled-color]), .e-link.e-link--action:hover .e-link__icon i:not([class*=filled-color]) {
   visibility: hidden;
 }
 
@@ -4325,7 +4326,7 @@ input:focus {
   padding: 48px;
   display: flex;
   flex-direction: column;
-  max-width: calc(704px - (48px * 2));
+  max-width: 704px;
   width: auto;
   height: auto;
   border-radius: 8px;
@@ -4338,22 +4339,22 @@ input:focus {
     border-radius: 0;
     width: 100%;
     max-width: 100%;
-    height: calc(100% - (32px * 2));
+    height: 100%;
     margin: 0;
   }
 }
 .e-modal__content .e-modal__title {
   font-family: Red Hat Display, sans-serif;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 30px;
+  line-height: 36px;
   font-weight: 700;
   color: #000;
 }
 
 @media (max-width: 767px) {
   .e-modal__content .e-modal__title {
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 24px;
+    line-height: 29px;
   }
 }
 .e-modal__content .e-modal__text {
@@ -4362,7 +4363,7 @@ input:focus {
   line-height: 32px;
   font-weight: 400;
   color: #000;
-  color: #515151;
+  color: #000;
   padding-top: 32px;
 }
 
@@ -4390,6 +4391,15 @@ input:focus {
   width: 100%;
 }
 
+.e-modal__content .e-modal__actions button:only-of-type {
+  width: 50%;
+}
+
+@media (max-width: 767px) {
+  .e-modal__content .e-modal__actions button:only-of-type {
+    width: 100%;
+  }
+}
 .e-modal__content .e-modal__actions button:first-of-type:not(:last-of-type) {
   margin-right: 24px;
 }
@@ -4397,12 +4407,6 @@ input:focus {
 @media (max-width: 767px) {
   .e-modal__content .e-modal__actions button:first-of-type:not(:last-of-type) {
     margin-bottom: 16px;
-  }
-}
-@media (max-width: 767px) {
-  .e-modal__content .e-modal__actions button:only-of-type {
-    position: absolute;
-    right: 32px;
   }
 }
 .e-pagination {
@@ -5837,6 +5841,7 @@ input:focus {
 .e-form-field__label.e-form-field__label--optional::after {
   content: " (valgfri)";
   color: #929292;
+  font-weight: normal;
 }
 
 .e-form-field__error {
