@@ -6,6 +6,27 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      2.0.0
+    </span>
+    <br>
+    <span>
+      September 29, 2020
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">Breaking changes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion-doc#Overview">Accordion</a>,
+        </div>
+        The e-accordion__label has now been renamed to e-accordion__title. The e-accordion__label class is still available, but only in combination with the e-accordion--group modifer, and e-accordion__label is the container class for e-accordion__title and e-accordion__icon in a group accordion. 
+      </div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       1.0.0
     </span>
     <br>
