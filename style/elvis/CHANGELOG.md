@@ -22,27 +22,26 @@
         The e-accordion__label has now been renamed to e-accordion__title. The e-accordion__label class is still available, but only in combination with the e-accordion--group modifer, and e-accordion__label is the container class for e-accordion__title and e-accordion__icon in a group accordion. 
       </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">Breaking changes</div>
-        <div>
-          Component: 
+        <div class="changelog-section-title">✂️Breaking changes</div>
+        <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/header-doc#Overview">Header</a>,
         </div>
         <span class="code-text changelog-code">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile eks: <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>. Properties list is also added to header.
-      </div>
-      <div class="changelog-section">
-        <div class="changelog-section-title">Conditioner</div>
-        This will require a lot of classes to be updated in the header html structure. The easiest way to fix an existing header is to search and replace the classes listed here with the new classes. If this fails the second easiest way will be to copy the examples in the documentation.
-        <ul>
-          <li>
-            <span class="code-text changelog-code">e-top-bar</span> -> <span class="code-text changelog-code">e-header__top-bar</span>
-          </li>
-          <li>
-            <span class="code-text changelog-code">e-sidebar</span> -> <span class="code-text changelog-code">e-header__sidebar</span>
-          </li>
-          <li>
-            <span class="code-text changelog-code">top-bar__</span> -> <span class="code-text changelog-code">top-bar-desktop__</span>
-          </li>
-        </ul>
+        <div class="e-mt-24">
+          How to fix:
+          This will require a lot of classes to be updated in the header html structure. The easiest way to fix an existing header is to search and replace the classes listed here with the new classes. If this fails the second easiest way will be to copy the examples in the documentation.
+          <ul>
+            <li>
+              <span class="code-text changelog-code">e-top-bar</span> -> <span class="code-text changelog-code">e-header__top-bar</span>
+            </li>
+            <li>
+              <span class="code-text changelog-code">e-sidebar</span> -> <span class="code-text changelog-code">e-header__sidebar</span>
+            </li>
+            <li>
+              <span class="code-text changelog-code">top-bar__</span> -> <span class="code-text changelog-code">top-bar-desktop__</span>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="changelog-divider"></div>
     </td>
