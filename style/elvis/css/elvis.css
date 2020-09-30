@@ -1749,6 +1749,7 @@ input:focus {
   position: absolute;
   right: 16px;
   top: calc(50% - (16px / 2));
+  cursor: pointer;
 }
 
 .e-input.e-input---invalid > input, .e-input.e-input---invalid > textarea,
@@ -2984,7 +2985,7 @@ input:focus {
   visibility: visible;
 }
 
-.e-link.e-link--action.e-link---hover .e-link__icon i:not([class$=filled-color]), .e-link.e-link--action:hover .e-link__icon i:not([class$=filled-color]) {
+.e-link.e-link--action.e-link---hover .e-link__icon i:not([class*=filled-color]), .e-link.e-link--action:hover .e-link__icon i:not([class*=filled-color]) {
   visibility: hidden;
 }
 
@@ -5840,6 +5841,7 @@ input:focus {
 .e-form-field__label.e-form-field__label--optional::after {
   content: " (valgfri)";
   color: #929292;
+  font-weight: normal;
 }
 
 .e-form-field__error {
