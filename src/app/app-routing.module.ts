@@ -65,6 +65,7 @@ import { RadioFilterDocComponent } from './doc-pages/components/radio-filter-doc
 import { PatternsDocComponent } from './doc-pages/tools/patterns-doc/patterns-doc.component';
 import { ContactComponent } from './doc-pages/community/contact/contact.component';
 import { TheDesignSystemDocComponent } from './doc-pages/get-started/the-design-system-doc/the-design-system-doc.component';
+import { TheConceptComponent } from './doc-pages/identity/the-concept/the-concept.component';
 
 const routes: Routes = [
   {
@@ -151,6 +152,10 @@ const routes: Routes = [
           {
             path: Pages.Logo,
             component: LogoDocComponent,
+          },
+          {
+            path: Pages.TheConcept,
+            component: TheConceptComponent,
           },
         ],
       },

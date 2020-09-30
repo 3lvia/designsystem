@@ -1,0 +1,147 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">
+    The concept
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--BRAND CONCEPT-->
+  <app-component-section [sectionTitle]="'Brand concept'">
+    <ng-container ngProjectAs="sectionContent">
+      <div style="display: flex; justify-content: center;">
+        <img src="../../../../assets/logo/elvia_positive_1.svg" alt="Elvia Logo" />
+      </div>
+
+      <p>
+        The purpose of Elvia's brand and visual identity is to appear clear and comprehensive to our
+        customers, partners, employees and society at large.
+      </p>
+
+      <app-component-subsection [sectionTitle]="'Present in everyday life'">
+        <ng-container ngProjectAs="sectionContent">
+          As a brand, Elvia is ON and activated. In the same way as the light bulb turns on in the bedside
+          table lamp, or the mobile phone is charged when connected to the socket, Elvia is seamlessly
+          present.
+
+          <p>
+            The name Elvia came from the norwegian words el and via. The name explains that we supply over 2
+            million Norwegians with electricity every single day - we make sure that you are on in an electric
+            everyday life.
+          </p>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--VALUES-->
+  <app-component-section [sectionTitle]="'Values'">
+    <ng-container ngProjectAs="sectionContent">
+      As Elvia, we are:
+
+      <ul class="e-list e-mt-16">
+        <li>
+          <div><b>Proper</b></div>
+          <div>
+            We are honest and responsible in our business operations. We keep our promises and are thorough
+            and professional in our work.
+          </div>
+        </li>
+        <li>
+          <div><b>Open</b></div>
+          <div>
+            We are welcoming and listening. We cooperate, share our knowledge, and help each other to success.
+          </div>
+        </li>
+        <li>
+          <div><b>Fearless</b></div>
+          <div>
+            We are brave, energetic and dare to try. We will always seek improvement.
+          </div>
+        </li>
+      </ul>
+
+      <p>
+        These values must be a starting point for all communication - both internally and externally - and a
+        cornerstone for our tone of voice. The values must be reflected in our corporate culture and be part
+        of our operational work every day.
+      </p>
+    </ng-container>
+  </app-component-section>
+
+  <!--DESIGN LANGUAGE-->
+  <app-component-section [sectionTitle]="'Design language'">
+    <ng-container ngProjectAs="sectionContent">
+      A big part of the Elvia brand is translated visually through rounded forms, curves and circles. We use
+      green details to communicate that we are active and on.
+
+      <app-component-subsection [sectionTitle]="'Energy ring and light circle'">
+        <ng-container ngProjectAs="sectionContent">
+          Elvia has an energy ring that communicates that we deliver energy and light and that it has ripple
+          effects for society.
+
+          <p>
+            The energy ring defines an area around the logo and/or light circle and can vary in size. The
+            energy ring should never be inside the protection area of the logo (see the example below, where
+            the area is defined in green).
+          </p>
+          <img src="../../../../assets/the-concept/energy-ring.svg" alt="Elvia Logo" class="e-w-100" />
+          <p>
+            When the energy ring is placed on the same surface as an "OFF text", the line thickness of the
+            ring and the outline of the text should be the same.
+          </p>
+          <p>
+            The light circle around the logo (seen to the right in the image above) is flexible and can be
+            enlarged. When the circle is enlarged, the center point should always be centered in the “A-dot”
+            in the logo. The circle of light should never be smaller than in the examples above.
+          </p>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'The Elvia curve'">
+        <ng-container ngProjectAs="sectionContent">
+          The Elvia curve stems from our energy ring and is commonly used for content division, such as in
+          footers or dividers.
+          <!-- Read more about the curve formula and its usage in
+          <a class="e-link e-text-body" [routerLink]="['/components/divider-doc']">
+            dividers.
+          </a> -->
+
+          <img
+            src="../../../../assets/the-concept/tablet (768).svg"
+            alt="Elvia Logo"
+            class="e-w-100 e-mt-32"
+          />
+          <img src="../../../../assets/the-concept/Footer 768.svg" alt="Elvia Logo" class="e-w-100" />
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Green in details'">
+        <ng-container ngProjectAs="sectionContent">
+          In our design language, we use green details to contrast from the otherwise dominantly black and
+          white design. This could for example be a green detail in icons or illustrations, or when
+          incorporated in text styles.
+
+          <div class="e-my-48 brand">
+            <span class="brand-text">Vi gir deg mulighet til å være</span>
+            <span>&nbsp;på</span>
+            <span class="e-text-green">.</span>
+          </div>
+
+          <!-- You can read about text branding in our
+          <a class="e-link e-text-body" [routerLink]="['/identity/typography-doc']">
+            typography documentation
+          </a>
+          and learn more about color usage in our
+          <a class="e-link e-text-body" [routerLink]="['/identity/color-doc']" fragment="'usage'">
+            color guidelines.
+          </a> -->
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+</div>
