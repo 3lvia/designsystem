@@ -20,12 +20,16 @@
 .display-card {
   @media (max-width: 494px) {
     flex-direction: column;
-    width: 100%;
+    width: 30%;
   }
 
+  @include breakpoint-up(Tablet) {
+    flex-direction: column;
+    width: 40%;
+  }
   @include breakpoint-up(Mobile) {
     flex-direction: column;
-    width: 100%;
+    width: 33%;
   }
 }
 
