@@ -16,14 +16,14 @@
     display: flex;
     margin-right: 24px;
     margin-top: 8px;
-    @include icons.icon-size('md');
+    width: 32px;
   }
 
   &__content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: calc(100% - 62px);
     .e-alert__title {
       @include typography.typography('text-caps');
     }
@@ -55,6 +55,7 @@
     margin-top: 8px;
     padding-left: 24px;
     margin-left: auto;
+    width: 56px;
   }
   &.e-alert--no-title {
     .e-alert__close {

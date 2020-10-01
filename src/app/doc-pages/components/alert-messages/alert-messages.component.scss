@@ -43,6 +43,9 @@
   .alert-icons {
     display: flex;
     margin-right: 48px;
+    @media screen and (-ms-high-contrast: none) {
+      margin-right: 48px + 48px;
+    }
     @include breakpoint-up(Mobile) {
       margin-right: 0px;
     }
