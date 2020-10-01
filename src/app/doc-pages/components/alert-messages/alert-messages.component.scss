@@ -6,6 +6,7 @@
 
   @include breakpoint-up(MinDesktop) {
     flex-direction: column;
+    justify-content: flex-start;
   }
 
   .alert-type-item {
@@ -13,15 +14,17 @@
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     margin-top: 24px;
+    @include breakpoint-up(MinDesktop) {
+      text-align: left;
+    }
 
     img {
       margin-top: 16px;
       height: 150px;
       @include breakpoint-up(MinDesktop) {
-        width: 100%;
         height: 170px;
       }
     }
