@@ -401,6 +401,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 }
 
 .e-alert__content .e-alert__title {
