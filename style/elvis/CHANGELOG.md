@@ -17,13 +17,14 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion-doc#Overview">Accordion</a>,
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/header-doc#Overview">Header</a>,
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table-doc#Overview">Table</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion-doc#Overview">Accordion</a>
         </div>
         The e-accordion__label has now been renamed to e-accordion__title. The e-accordion__label class is still available, but only in combination with the e-accordion--group modifier, and e-accordion__label is the container class for e-accordion__title and e-accordion__icon in a group accordion. 
         <div class="e-mt-24">
-          <span class="code-text changelog-code">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile eks: <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>. 
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/header-doc#Overview">Header</a>
+          </div>
+          <span class="code-text changelog-code">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile e.g. <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>. 
           <div class="e-mt-8">
           How to fix:
           The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.
@@ -40,6 +41,9 @@
           </ul>
         </div>
         <div class="e-mt-24">
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/table-doc#Overview">Table</a>
+          </div>
           The design and structure of tables have been updated. Tables with black headers have been removed and a wrapper class has been added.
           <div class="e-mt-8">
             How to fix:
@@ -54,7 +58,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New features</div>
            <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography-doc#Overview">Table</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table-doc#Overview">Table</a>
         </div>
         A class for adding footnotes to the table has been created: <span class="code-text changelog-code">e-table-footnote</span>.
       </div>
