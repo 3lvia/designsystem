@@ -30,3 +30,26 @@
     }
   }
 }
+
+.alert-status {
+  display: flex;
+  align-items: center;
+  margin-top: 56px;
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .alert-icons {
+    display: flex;
+    margin-right: 48px;
+    @include breakpoint-up(Mobile) {
+      margin-right: 0px;
+    }
+  }
+  .title {
+    @include breakpoint-up(Mobile) {
+      margin-top: 16px;
+    }
+  }
+}
