@@ -16,6 +16,7 @@
     display: flex;
     margin-right: 24px;
     margin-top: 8px;
+    @include icons.icon-size('md');
   }
 
   &__content {
@@ -85,6 +86,7 @@
         min-height: 32px;
 
         .e-alert__accordion {
+          @include icons.icon-size('sm');
           margin-left: 24px;
           @keyframes rotate-center-forward {
             0% {
