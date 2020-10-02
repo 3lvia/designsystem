@@ -69,8 +69,8 @@ export class PopoverDocComponent {
 </div>
 `;
 
-  example2 = `<div style="margin-top: 320px; text-align: center;">
-  <span class="e-popover e-popover--top--left e-m-16">
+  example2 = `<div style="margin-top: 320px; margin-left:16px">
+  <span class="e-popover e-popover--right e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
@@ -120,8 +120,8 @@ export class PopoverDocComponent {
   </span>
 </div>
 `;
-  example4 = `<div style="margin-bottom: 320px; text-align: center;">
-  <span class="e-popover e-popover--bottom e-popover--bottom--right e-m-16">
+  example4 = `<div style="margin-bottom: 320px; margin-left:16px;">
+  <span class="e-popover e-popover--bottom e-popover--right e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
@@ -147,7 +147,6 @@ export class PopoverDocComponent {
 `;
 
   popupLiveCode = ` // Js example implementation
-  
 // Get current window width
 getWindowWidth(): number {
   const windowWidth = window.innerWidth;
