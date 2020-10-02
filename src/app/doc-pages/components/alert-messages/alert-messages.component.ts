@@ -123,7 +123,7 @@ export class AlertMessagesComponent {
     <i class="e-icon e-icon--information_circle"></i>
   </div>
   <div class="e-alert__content">
-    <div class="e-alert__title">Kort informasjons tittel</div>
+    <div class="e-alert__title">Kort info tittel</div>
     <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
   </div>
 </div>
@@ -134,7 +134,7 @@ export class AlertMessagesComponent {
     <i class="e-icon e-icon--information_circle"></i>
   </div>
   <div class="e-alert__content">
-    <div class="e-alert__title">Kort informasjons tittel</div>
+    <div class="e-alert__title">Kort info tittel</div>
     <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
   </div>
   <div class="e-alert__close">
@@ -151,7 +151,7 @@ export class AlertMessagesComponent {
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">
-      <div>Kort informasjons tittel</div>
+      <div>Kort info tittel</div>
       <div class="e-alert__accordion">
         <i class="e-icon e-icon--expand_circle-color"></i>
         <i class="e-icon e-icon--expand_circle-filled-color"></i>
@@ -172,7 +172,7 @@ export class AlertMessagesComponent {
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">
-      <div>Kort informasjons tittel</div>
+      <div>Kort info tittel</div>
       <div class="e-alert__accordion">
         <i class="e-icon e-icon--expand_circle-color"></i>
         <i class="e-icon e-icon--expand_circle-filled-color"></i>

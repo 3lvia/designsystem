@@ -12,6 +12,7 @@
   background: colors.color('white');
   flex-direction: row;
   max-width: 850px;
+  min-width: 270px;
 
   .e-alert__icon {
     display: flex;

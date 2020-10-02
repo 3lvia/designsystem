@@ -387,6 +387,7 @@ body {
   background: #fff;
   flex-direction: row;
   max-width: 850px;
+  min-width: 270px;
 }
 
 .e-alert .e-alert__icon {

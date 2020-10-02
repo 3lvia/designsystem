@@ -20,10 +20,10 @@
         <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
       </div>
       <div class="e-alert__content">
-        <div class="e-alert__title">Local Alert</div>
+        <div class="e-alert__title">Kort tittel.</div>
         <div class="e-alert__text">
           <div>
-            Describe what went wrong
+            Kort beskrivelse.
           </div>
         </div>
       </div>
@@ -57,6 +57,11 @@
           important message needs to be flagged. It’s a general message to all users and are not associated
           with user actions. Global alert appears on all pages of the application/website and extends in full
           length above the header. It can include links or actions such as expand and close.
+
+          <p>
+            NB: Remember to make the global alert fixed to the top of your application and make sure that it
+            extends the full length of the page!
+          </p>
           <app-code-block
             [codeHTML]="globalAlert"
             [showIframeScreens]="true"
