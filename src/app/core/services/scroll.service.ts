@@ -53,12 +53,26 @@ export class ScrollService {
     }
   }
 
-  getNavbarAnchors(anchors: NavbarAnchor[]): NavbarAnchor[] {
+  getPageAnchors(): NodeListOf<Element> {
     const elements = document.querySelectorAll('.elvis-anchor');
-    const elementTitles = document.querySelectorAll('.elvis-anchor-title');
-    if (elements.length === 0 || elementTitles.length === 0) {
+    if (elements.length === 0) {
       return;
     }
+    return elements;
+  }
+
+  getPageAnchorTitles(): NodeListOf<Element> {
+    const elementTitles = document.querySelectorAll('.elvis-anchor-title');
+    if (elementTitles.length === 0) {
+      return;
+    }
+    return elementTitles;
+  }
+
+  getNavbarAnchors(anchors: NavbarAnchor[]): NavbarAnchor[] {
+    const elements = this.getPageAnchors();
+    const elementTitles = this.getPageAnchorTitles();
+
     const firstItem = elements.item(0) as HTMLElement;
     anchors = [{ title: 'Overview', top: 0, height: firstItem.offsetTop }];
     for (let i = 0; i < elements.length; i++) {
@@ -80,11 +94,9 @@ export class ScrollService {
 
   // Checks for changes in position from top and navigates according to changes or inital list of anchor offset positions.
   navigateToAnchor(anchors: NavbarAnchor[], anchor: NavbarAnchor): void {
-    const elements = document.querySelectorAll('.elvis-anchor');
-    const elementTitles = document.querySelectorAll('.elvis-anchor-title');
-    if (elements.length === 0 || elementTitles.length === 0) {
-      return;
-    }
+    const elements = this.getPageAnchors();
+    const elementTitles = this.getPageAnchorTitles();
+
     if (anchor.title === 'Overview') {
       this.newAnchorToScrollTo(anchor);
       return;
