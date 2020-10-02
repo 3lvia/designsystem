@@ -217,7 +217,7 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  toastAlertClosable = `<div class="e-alert e-alert--toast">
+  toastAlertClosable = `<div class="e-alert e-alert--toast e-alert--no-title">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
   </div>

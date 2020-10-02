@@ -2,6 +2,7 @@
 @use "../variables/colors";
 @use "../utilities/icons.scss";
 @use "../utilities/breakpoints";
+@use "./../variables/shadows";
 
 .e-alert {
   display: inline-flex;
@@ -28,7 +29,8 @@
       @include typography.typography('text-caps');
     }
     .e-alert__text {
-      margin-top: 8px;
+      @include typography.typography('text-description');
+      margin-top: 4px;
       font-size: 16px;
       line-height: 28px;
       max-width: 758px;
@@ -67,6 +69,10 @@
     width: 100%;
     max-width: unset;
     border-color: colors.color('black');
+
+    .e-alert__content .e-alert__title {
+      @include typography.typography('title-xs');
+    }
     &.e-alert--warn {
       border-color: colors.color('orange');
     }
@@ -178,8 +184,21 @@
   &.e-alert--toast {
     border-radius: 8px;
     border-color: colors.color('green');
+    box-shadow: shadows.$e-shadow-6;
+    max-width: 400px;
     &.e-alert--info {
       border-color: colors.color('black');
+    }
+    .e-alert__icon {
+      margin-top: 0px;
+      align-items: center;
+    }
+    .e-alert__content .e-alert__text {
+      @include typography.typography('text-info');
+    }
+    .e-alert__close {
+      margin-top: 0px;
+      align-items: center;
     }
   }
 
@@ -201,6 +220,7 @@
     }
     .e-alert__text {
       display: flex;
+      align-items: center;
     }
     .e-alert__actions {
       margin-left: auto;

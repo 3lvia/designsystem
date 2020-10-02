@@ -172,6 +172,9 @@ body {
   line-height: 32px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -206,6 +209,9 @@ body {
   line-height: 32px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -403,12 +409,21 @@ body {
   line-height: 17px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
 
 .e-alert__content .e-alert__text {
-  margin-top: 8px;
+  font-family: Red Hat Text, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  margin-top: 4px;
   font-size: 16px;
   line-height: 28px;
   max-width: 758px;
@@ -448,6 +463,17 @@ body {
   width: 100%;
   max-width: unset;
   border-color: #000;
+}
+
+.e-alert.e-alert--global .e-alert__content .e-alert__title {
+  font-family: Red Hat Display, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-alert.e-alert--global.e-alert--warn {
@@ -581,10 +607,33 @@ body {
 .e-alert.e-alert--toast {
   border-radius: 8px;
   border-color: #29d305;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+  max-width: 400px;
 }
 
 .e-alert.e-alert--toast.e-alert--info {
   border-color: #000;
+}
+
+.e-alert.e-alert--toast .e-alert__icon {
+  margin-top: 0px;
+  align-items: center;
+}
+
+.e-alert.e-alert--toast .e-alert__content .e-alert__text {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+}
+
+.e-alert.e-alert--toast .e-alert__close {
+  margin-top: 0px;
+  align-items: center;
 }
 
 .e-alert.e-alert--no-title .e-alert__icon {
@@ -607,6 +656,7 @@ body {
 
 .e-alert.e-alert--actions .e-alert__content .e-alert__text {
   display: flex;
+  align-items: center;
 }
 
 .e-alert.e-alert--actions .e-alert__content .e-alert__actions {
@@ -690,6 +740,9 @@ body {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-autocomplete__item:hover, .e-dropdown__item:hover {
@@ -1870,6 +1923,9 @@ input:focus {
   line-height: 22px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   line-height: 24px;
   margin-bottom: 16px;
 }
@@ -1880,6 +1936,7 @@ input:focus {
   line-height: 17px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
   position: absolute;
@@ -1895,6 +1952,9 @@ input:focus {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-content-loader {
@@ -1970,6 +2030,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-input > i ~ input {
@@ -2171,6 +2234,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   padding: 4px 11px;
   border: 1px solid transparent;
   border-radius: 32px;
@@ -2302,6 +2368,9 @@ input:focus {
   line-height: 22px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   color: #fff;
   border: 2px solid #fff;
 }
@@ -2321,6 +2390,7 @@ input:focus {
   line-height: 17px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
@@ -2351,6 +2421,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-header__top-bar-desktop__area .e-header__top-bar-desktop__area-menu-item:first-of-type {
@@ -2389,6 +2462,7 @@ input:focus {
   line-height: 17px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
@@ -2457,6 +2531,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-header__top-bar-desktop__user .e-header__top-bar-desktop__user-menu-settings {
@@ -2715,6 +2792,9 @@ input:focus {
     line-height: 22px;
     font-weight: 400;
     color: #000;
+    font-style: unset;
+    letter-spacing: unset;
+    text-transform: unset;
     color: #515151;
   }
 
@@ -2762,6 +2842,9 @@ input:focus {
     line-height: 22px;
     font-weight: 400;
     color: #000;
+    font-style: unset;
+    letter-spacing: unset;
+    text-transform: unset;
     letter-spacing: 0.2px;
   }
 
@@ -2845,6 +2928,9 @@ input:focus {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-header__sidebar__item .e-header__sidebar__icon, .e-header__sidebar__open-close .e-header__sidebar__icon {
@@ -3302,6 +3388,9 @@ input:focus {
   line-height: 22px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   display: inline-flex;
   align-items: center;
   border: 2px solid #000;
@@ -3459,6 +3548,9 @@ input:focus {
   line-height: 23px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;
@@ -3472,6 +3564,9 @@ input:focus {
   line-height: 23px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   font-weight: 400;
   font-size: 12px;
   line-height: 19px;
@@ -3560,6 +3655,9 @@ input:focus {
   line-height: 23px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   font-size: 16px;
 }
 
@@ -3569,6 +3667,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-link.e-link--card.e-link--shortcut:hover {
@@ -5126,6 +5227,9 @@ input:focus {
   line-height: 36px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -5140,6 +5244,9 @@ input:focus {
   line-height: 32px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   color: #000;
   padding-top: 32px;
 }
@@ -5387,6 +5494,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   font-weight: 500 !important;
   padding-bottom: 8px;
 }
@@ -5397,6 +5507,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-popover__content::before {
@@ -5879,6 +5992,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   padding: 9px 16px;
   line-height: 21px;
 }
@@ -5894,6 +6010,9 @@ input:focus {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   text-align: left;
   padding: 10px 16px;
 }
@@ -5915,6 +6034,9 @@ input:focus {
   line-height: 22px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-table thead th,
@@ -5944,6 +6066,9 @@ input:focus {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   line-height: 27px;
   padding: 10px 16px;
   text-align: left;
@@ -5974,6 +6099,9 @@ input:focus {
   line-height: 22px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-table-mobile tbody tr:first-of-type th {
@@ -6000,6 +6128,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   padding: 9px 16px;
   line-height: 21px;
 }
@@ -6273,6 +6404,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   line-height: 16px;
 }
 
@@ -6546,6 +6680,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-form-field.e-form-field--compact .e-search--local {
@@ -6608,6 +6745,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-form-field.e-form-field--compact .e-input.e-input---invalid input, .e-form-field.e-form-field--compact .e-input.e-input---invalid textarea,
@@ -6637,6 +6777,9 @@ input:focus {
   line-height: 23px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-form-field__label.e-form-field__label--optional::after {
@@ -6655,6 +6798,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   color: #262626;
 }
 
@@ -6739,6 +6885,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -6828,6 +6977,9 @@ input:focus {
   line-height: 23px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   color: #333333;
   display: flex;
   width: 100%;
@@ -11913,6 +12065,9 @@ THE SOFTWARE.
   font-size: 44px;
   line-height: 53px;
   font-weight: 900;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11926,6 +12081,9 @@ THE SOFTWARE.
   font-size: 30px;
   line-height: 36px;
   font-weight: 700;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11939,6 +12097,9 @@ THE SOFTWARE.
   font-size: 24px;
   line-height: 29px;
   font-weight: 700;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11952,6 +12113,9 @@ THE SOFTWARE.
   font-size: 18px;
   line-height: 22px;
   font-weight: 700;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-text-lead {
@@ -11959,6 +12123,9 @@ THE SOFTWARE.
   font-size: 24px;
   line-height: 39px;
   font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11973,6 +12140,8 @@ THE SOFTWARE.
   line-height: 42px;
   font-weight: 400;
   font-style: italic;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11986,6 +12155,9 @@ THE SOFTWARE.
   font-size: 20px;
   line-height: 32px;
   font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -12001,6 +12173,8 @@ THE SOFTWARE.
   line-height: 29px;
   font-weight: 400;
   font-style: italic;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -12014,6 +12188,9 @@ THE SOFTWARE.
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-text-caps {
@@ -12021,6 +12198,7 @@ THE SOFTWARE.
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
+  font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
@@ -12030,6 +12208,9 @@ THE SOFTWARE.
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-text-label {
@@ -12037,6 +12218,9 @@ THE SOFTWARE.
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-text-option {
@@ -12044,6 +12228,9 @@ THE SOFTWARE.
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-text-right {

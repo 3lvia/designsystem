@@ -39,15 +39,15 @@
       <div class="alert-type-container">
         <div class="alert-type-item">
           <div class="e-text-caps">Global</div>
-          <div><img src="./../../../../assets/alert/Group 854.svg" /></div>
+          <div><img src="./../../../../assets/alert/Group 856.svg" /></div>
         </div>
         <div class="alert-type-item">
           <div class="e-text-caps">Local</div>
-          <div><img src="./../../../../assets/alert/Group 855.svg" class="e-mr-n8" /></div>
+          <div><img src="./../../../../assets/alert/Group 854.svg" /></div>
         </div>
         <div class="alert-type-item">
           <div class="e-text-caps">Toast</div>
-          <div><img src="./../../../../assets/alert/Group 856.svg" /></div>
+          <div><img src="./../../../../assets/alert/Group 855.svg" class="e-mr-n8" /></div>
         </div>
       </div>
 
@@ -126,7 +126,9 @@
 
           <app-component-subsubsection [sectionTitle]="'Closable'">
             <ng-container ngProjectAs="sectionContent">
-              Toast alerts can also have a close button.
+              The close button can be used when you want to give the user the chance to close the alert before
+              7 seconds. Long messages are not recommended, but if necessary, the close button can be used to
+              close alerts that can't disappear after 7 seconds because of the length of message.
               <app-code-block [codeHTML]="toastAlertClosable"></app-code-block>
             </ng-container>
           </app-component-subsubsection>
