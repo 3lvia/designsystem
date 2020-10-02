@@ -7,6 +7,5 @@ import { getIdentity } from 'src/app/shared/e-items';
   styleUrls: ['./the-concept.component.scss']
 })
 export class TheConceptComponent {
-  figmaUrl = getIdentity('the-concept').figmaUrl;
   description = getIdentity('the-concept').description;
 }

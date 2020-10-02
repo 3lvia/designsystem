@@ -472,7 +472,6 @@ export const eIdentity: EItems[] = [
     absolutePath: '/identity/' + Pages.TheConcept,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/identity-images/The concept.svg',
-    figmaUrl: 'https://www.figma.com/file/S7hXnDqBIr6VTSWJx1OQlx/Design.elvia.io?node-id=2995%3A3',
     type: 'Identity',
   },
   {
