@@ -11,9 +11,81 @@ $popover-arrow-offset: 25px; // Midtstilt i forhold til ikon 16X16px (xs)
 $popover-button-offset: -30px;
 
 $popover-desktop-max-width: 400px;
-
 $popover-mobile-max-width: 300px;
 
+%e-popover--center .e-popover__content {
+  left: 50%;
+  transform: translate(-50%, 0);
+  &::before {
+    left: calc(50% - (#{$popover-arrow-offset} / 2));
+  }
+  &::after {
+    left: calc(50% - (#{$popover-arrow-offset} / 2) + 2px);
+  }
+}
+%e-popover--top .e-popover__content {
+  bottom: 150%;
+  margin-bottom: 8px;
+  &::before {
+    bottom: calc(#{$popover-arrow-size} * -2);
+    border-color: colors.color('green') transparent transparent transparent;
+  }
+  &::after {
+    bottom: calc((#{$popover-arrow-size-small} * -2));
+    border-color: colors.color('white') transparent transparent transparent;
+  }
+}
+
+%e-popover--bottom .e-popover__content {
+  top: 150%;
+  margin-top: 6px;
+  &::before {
+    top: calc(#{$popover-arrow-size} * -2);
+    border-color: transparent transparent colors.color('green') transparent;
+  }
+  &::after {
+    top: calc((#{$popover-arrow-size-small} * -2));
+    border-color: transparent transparent colors.color('white') transparent;
+  }
+}
+%e-popover--left .e-popover__content {
+  transform: translateX(-87%);
+  // adding pixels to center and fit the arrows to relative point
+  &:after {
+    left: calc(100% - #{$popover-arrow-offset} - 24px);
+  }
+  &:before {
+    left: calc(100% - #{$popover-arrow-offset} - 2px - 24px);
+  }
+  @include breakpoints.breakpoint-up(Mobile) {
+    transform: translateX(-83.5%);
+    &:after {
+      left: calc(100% - #{$popover-arrow-offset} - 21px);
+    }
+    &:before {
+      left: calc(100% - #{$popover-arrow-offset} - 2px - 21px);
+    }
+  }
+}
+%e-popover--right .e-popover__content {
+  transform: translateX(-7%);
+  // adding pixels to center and fit the arrows to relative point
+  &:after {
+    left: calc(#{$popover-arrow-offset} + 4px);
+  }
+  &:before {
+    left: calc(#{$popover-arrow-offset} + 2px);
+  }
+  @include breakpoints.breakpoint-up(Mobile) {
+    transform: translateX(-8.7%);
+    &:after {
+      left: calc(#{$popover-arrow-offset} + 2px);
+    }
+    &:before {
+      left: #{$popover-arrow-offset};
+    }
+  }
+}
 %e-popover__widget {
   content: '';
   position: absolute;
@@ -26,10 +98,6 @@ $popover-mobile-max-width: 300px;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  // Defaults position is top
-  &:not(.e-popover--bottom) {
-    @extend .e-popover--top;
-  }
 
   &__content {
     display: block;
@@ -93,112 +161,23 @@ $popover-mobile-max-width: 300px;
     }
   }
 
-  &.e-popover--top {
-    // Defaults position is top left
-    @extend .e-popover--center;
-    .e-popover__content {
-      bottom: 150%;
-      margin-bottom: 8px;
-      &::before {
-        bottom: calc(#{$popover-arrow-size} * -2);
-        border-color: colors.color('green') transparent transparent transparent;
-      }
-      &::after {
-        bottom: calc((#{$popover-arrow-size-small} * -2));
-        border-color: colors.color('white') transparent transparent transparent;
-      }
-    }
-
-    &.e-popover--top--left {
-      .e-popover__content {
-        transform: translateX(-90%);
-        @include breakpoints.breakpoint-up(Mobile) {
-          transform: translateX(-87.5%);
-        }
-        // adding pixels to center and fit the arrows to relative point
-        &:after {
-          left: calc((100%) - (#{$popover-arrow-offset}) - 25px);
-        }
-        &:before {
-          left: calc((100%) - (#{$popover-arrow-offset}) - 2px - 25px);
-        }
-      }
-    }
-
-    &.e-popover--top--right {
-      .e-popover__content {
-        transform: translateX(-10%);
-        @include breakpoints.breakpoint-up(Mobile) {
-          transform: translateX(-12.5%);
-        }
-        // adding pixels to center and fit the arrows to relative point
-        &:after {
-          left: calc((0%) + (#{$popover-arrow-offset}) + 4px);
-        }
-        &:before {
-          left: calc((0%) + (#{$popover-arrow-offset}) + 2px);
-        }
-      }
-    }
+  // Default
+  &:not(.e-popover--bottom) {
+    @extend %e-popover--top;
+  }
+  &:not(.e-popover--left):not(.e-popover--right) {
+    @extend %e-popover--center;
   }
 
   &.e-popover--bottom {
-    // Defaults position is top left
-    @extend .e-popover--center;
-    .e-popover__content {
-      top: 150%;
-      margin-top: 6px;
-      &::before {
-        top: calc(#{$popover-arrow-size} * -2);
-        border-color: transparent transparent colors.color('green') transparent;
-      }
-      &::after {
-        top: calc((#{$popover-arrow-size-small} * -2));
-        border-color: transparent transparent colors.color('white') transparent;
-      }
-    }
-
-    &.e-popover--bottom--left {
-      .e-popover__content {
-        transform: translateX(-90%);
-        @include breakpoints.breakpoint-up(Mobile) {
-          transform: translateX(-87.5%);
-        }
-        // adding pixels to center and fit the arrows to relative point
-        &:after {
-          left: calc((100%) - (#{$popover-arrow-offset}) + 2px - 25px);
-        }
-        &:before {
-          left: calc((100%) - (#{$popover-arrow-offset}) - 25px);
-        }
-      }
-    }
-
-    &.e-popover--bottom--right {
-      .e-popover__content {
-        transform: translateX(-10%);
-        @include breakpoints.breakpoint-up(Mobile) {
-          transform: translateX(-12.5%);
-        }
-        // adding pixels to center and fit the arrows to relative point
-        &:after {
-          left: calc((0%) + (#{$popover-arrow-offset}) + 4px);
-        }
-        &:before {
-          left: calc((0%) + (#{$popover-arrow-offset}) + 2px);
-        }
-      }
-    }
+    @extend %e-popover--bottom;
   }
 
-  &.e-popover--center .e-popover__content {
-    left: 50%;
-    transform: translate(-50%, 0);
-    &::before {
-      left: calc((50%) - (#{$popover-arrow-offset} / 2));
-    }
-    &::after {
-      left: calc((50%) - (#{$popover-arrow-offset} / 2) + 2px);
-    }
+  &.e-popover--left {
+    @extend %e-popover--left;
+  }
+
+  &.e-popover--right {
+    @extend %e-popover--right;
   }
 }

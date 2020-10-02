@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -8,7 +8,6 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class PopoverDocComponent {
   @ViewChild('popover1') popover1: ElementRef;
-  @ViewChild('popover2') popover2: ElementRef;
 
   figmaUrl = getComponent('popover-doc').figmaUrl;
   description = getComponent('popover-doc').description;
@@ -220,6 +219,20 @@ closePopover(popUpContent: string): void {
 
   // Js example implementation
 
+  showPopover = false;
+
+  // for closing dropdown content on click outside of the content area
+  @HostListener('click', ['$event'])
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  onClick(event: any): void {
+    if (event.target.id === 'popoverIcon') {
+      return;
+    }
+    if (this.showPopover === true) {
+      this.closePopover('popover1Content');
+    }
+  }
+
   // Get current window width
   getWindowWidth(): number {
     const windowWidth = window.innerWidth;
@@ -236,8 +249,10 @@ closePopover(popUpContent: string): void {
     // toggle the e-none class on or off
     if (popoverContentElement.classList.contains('e-none')) {
       popoverContentElement.classList.remove('e-none');
+      this.showPopover = true;
     } else {
       popoverContentElement.classList.add('e-none');
+      this.showPopover = false;
       return;
     }
 
