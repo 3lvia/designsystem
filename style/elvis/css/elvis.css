@@ -5174,6 +5174,7 @@ input:focus {
   color: #000;
   font-weight: 500 !important;
   padding-bottom: 8px;
+  margin-right: 16px;
 }
 
 .e-popover__content .e-popover__text {

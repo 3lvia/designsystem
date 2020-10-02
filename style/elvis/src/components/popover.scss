@@ -10,9 +10,9 @@ $popover-arrow-size-small: calc(#{$popover-arrow-size} - (#{$popover-border-widt
 $popover-arrow-offset: 25px; // Midtstilt i forhold til ikon 16X16px (xs)
 $popover-button-offset: -30px;
 
-$popover-desktop-max-width: 400px;
+$popover-desktop-size: 400px;
 
-$popover-mobile-max-width: 300px;
+$popover-mobile-size: 300px;
 
 %e-popover__widget {
   content: '';
@@ -38,8 +38,8 @@ $popover-mobile-max-width: 300px;
     pointer-events: all;
     position: absolute;
     width: max-content;
-    min-width: $popover-desktop-max-width;
-    max-width: $popover-desktop-max-width;
+    min-width: $popover-desktop-size;
+    max-width: $popover-desktop-size;
     padding: $popover-padding;
     background-color: colors.color('white');
     color: colors.color('font-color');
@@ -58,8 +58,8 @@ $popover-mobile-max-width: 300px;
     }
 
     @include breakpoints.breakpoint-up(Mobile) {
-      min-width: $popover-mobile-max-width;
-      max-width: $popover-mobile-max-width;
+      min-width: $popover-mobile-size;
+      max-width: $popover-mobile-size;
     }
 
     // for smallest units
@@ -80,6 +80,7 @@ $popover-mobile-max-width: 300px;
       @include typography.typography('text-info');
       font-weight: 500 !important;
       padding-bottom: 8px;
+      margin-right: 16px;
     }
     .e-popover__text {
       @include typography.typography('text-info');
