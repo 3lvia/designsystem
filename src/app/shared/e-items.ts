@@ -578,7 +578,7 @@ export const eCommunity: EItems[] = [
     description: 'Discuss the design system? Report a bug? Request a new feature?',
     docUrl: Pages.Discussion,
     absolutePath: '/community/' + Pages.Discussion,
-    externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose',
+    externalUrl: 'https://github.com/3lvia/designsystem/issues/new/choose',
     imageUrl: 'assets/website-icons/temporary.svg',
     type: 'Community',
   },

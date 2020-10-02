@@ -28,7 +28,7 @@ describe('Elvis Home page navigation Test', () => {
             .parent('.e-card_header')
             .siblings('.e-card_actions')
             .children().contains('Give feedback')
-            .should('have.attr', 'href', 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose');
+            .should('have.attr', 'href', 'https://github.com/3lvia/designsystem/issues/new/choose');
     });
 
     // TODO: Implement when page is ready
