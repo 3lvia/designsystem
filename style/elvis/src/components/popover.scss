@@ -38,6 +38,7 @@ $popover-mobile-max-width: 300px;
     pointer-events: all;
     position: absolute;
     width: max-content;
+    min-width: $popover-desktop-max-width;
     max-width: $popover-desktop-max-width;
     padding: $popover-padding;
     background-color: colors.color('white');
@@ -57,6 +58,7 @@ $popover-mobile-max-width: 300px;
     }
 
     @include breakpoints.breakpoint-up(Mobile) {
+      min-width: $popover-mobile-max-width;
       max-width: $popover-mobile-max-width;
     }
 

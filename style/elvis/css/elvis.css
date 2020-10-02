@@ -5119,6 +5119,7 @@ input:focus {
   pointer-events: all;
   position: absolute;
   width: max-content;
+  min-width: 400px;
   max-width: 400px;
   padding: 24px;
   background-color: #fff;
@@ -5139,6 +5140,7 @@ input:focus {
 }
 @media (max-width: 767px) {
   .e-popover__content {
+    min-width: 300px;
     max-width: 300px;
   }
 }
