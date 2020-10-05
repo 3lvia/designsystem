@@ -465,6 +465,16 @@ export const eIdentity: EItems[] = [
     type: 'Identity',
   },
   {
+    title: 'The concept',
+    // tslint:disable-next-line: max-line-length
+    description: 'Our concept and values ​​should reflect us as a company in everything we do and how we are perceived on a corporate level and towards the customers.',
+    docUrl: Pages.TheConcept,
+    absolutePath: '/identity/' + Pages.TheConcept,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/identity-images/The concept.svg',
+    type: 'Identity',
+  },
+  {
     title: 'Tone of voice',
     // tslint:disable-next-line: max-line-length
     description: 'In order to create clear content and simultaneously have a consistent linguistic personality, it is important that we have a defined tone of voice. This section explains the difference between Elvia\'s style and tone and how they are connected when we communicate with our customers; whether it is written or oral.',
@@ -548,7 +558,7 @@ export const eCommunity: EItems[] = [
   {
     title: 'Contact',
     // tslint:disable-next-line: max-line-length
-    description: `We at team LEGO will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at 
+    description: `We at team LEGO will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
@@ -562,7 +572,7 @@ export const eCommunity: EItems[] = [
   {
     title: 'Contribute',
     // tslint:disable-next-line: max-line-length
-    description: `To contribute, or if you have any question, you can contact us on slack: 
+    description: `To contribute, or if you have any question, you can contact us on slack:
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
@@ -570,15 +580,6 @@ export const eCommunity: EItems[] = [
     docUrl: Pages.Contribute,
     absolutePath: '/community/' + Pages.Contribute,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/temporary.svg',
-    type: 'Community',
-  },
-  {
-    title: 'Discussion',
-    description: 'Discuss the design system? Report a bug? Request a new feature?',
-    docUrl: Pages.Discussion,
-    absolutePath: '/community/' + Pages.Discussion,
-    externalUrl: 'https://github.com/3lvia/designsystem/issues/new/choose',
     imageUrl: 'assets/website-icons/temporary.svg',
     type: 'Community',
   },
