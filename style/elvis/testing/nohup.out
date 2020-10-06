@@ -1,0 +1,25 @@
+Listening on port 3333
+events.js:187
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::3333
+    at Server.setupListenHandle [as _listen2] (net.js:1301:14)
+    at listenInCluster (net.js:1349:12)
+    at Server.listen (net.js:1437:7)
+    at Object.<anonymous> (D:\SafeFolder\src\designsystem\style\elvis\testing\server.js:11:8)
+    at Module._compile (internal/modules/cjs/loader.js:959:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:995:10)
+    at Module.load (internal/modules/cjs/loader.js:815:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:727:14)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:1047:10)
+    at internal/main/run_main_module.js:17:11
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (net.js:1328:8)
+    at processTicksAndRejections (internal/process/task_queues.js:80:21) {
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '::',
+  port: 3333
+}

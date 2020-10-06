@@ -4,13 +4,16 @@
   "description": "WIP",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "test": "node testing/server.js",
+    "percy": "percy exec -- node testing/snapshots.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@percy/script": "^1.1.0",
+    "concurrently": "^5.3.0",
     "css-vars-ponyfill": "^2.2.1",
     "del": "^5.1.0",
     "fibers": "^4.0.3",
