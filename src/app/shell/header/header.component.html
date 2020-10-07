@@ -1,5 +1,5 @@
 <!-- Header  -->
-<div class="header" *ngIf="!internalHeader" (window:keydown)="shortcutEvent($event)">
+<div class="header" *ngIf="!internalHeader">
   <div class="logo">
     <a class="header-top_logo" [routerLink]="['', 'home']">
       <img src="./../../../assets/logo/elvia_negative_1.svg" alt="Elvia Logo" />

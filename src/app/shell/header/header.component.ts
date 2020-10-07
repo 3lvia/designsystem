@@ -40,18 +40,6 @@ export class HeaderComponent {
     });
   }
 
-  shortcutEvent(e: KeyboardEvent): void {
-    if (!e.shiftKey || e.code !== 'Digit7') {
-      return;
-    }
-    if (this.searchMenuOpen === false) {
-      setTimeout(() => { this.openSearchMenu(); }, 50);
-    } else {
-      this.searchMenu.detach(this.searchOverlay);
-      this.searchMenuOpen = false;
-    }
-  }
-
   openMobileMenu(): void {
     const overlayRef: OverlayRef = this.mobileMenu.setupOverlay();
     const compInstance = this.mobileMenu.openOverlay(overlayRef, MobileMenuComponent);
