@@ -80,7 +80,7 @@ $maxIconContainerMobile: 450px;
   &-icons-container {
     min-height: $maxIconContainer;
     max-height: $maxIconContainer;
-    overflow: scroll;
+    overflow-y: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
