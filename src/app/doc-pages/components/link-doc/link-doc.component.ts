@@ -64,7 +64,7 @@ export class LinkDocComponent {
   <div class="e-mt-16">
     <a class="e-link e-link--new-tab" href="https://design.elvia.io/components/link-doc#Overview">
       <span class="e-link__title">New tab</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab"></i></span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>
   </div>
 </div>
@@ -86,7 +86,7 @@ export class LinkDocComponent {
   <div class="e-mt-16">
     <a class="e-link e-link--new-tab e-link--inverted" href="https://design.elvia.io/components/link-doc#Overview">
       <span class="e-link__title">New tab</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab e-icon--inverted"></i></span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold e-icon--inverted"></i></span>
     </a>
   </div>
 </div>
