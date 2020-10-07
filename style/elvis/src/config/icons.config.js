@@ -1,5 +1,4 @@
 module.exports = [
-  { name: 'accessibility-color', terms: ['universal', 'UU'] },
   { name: 'add_circle', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-color', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-filled', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
@@ -123,7 +122,6 @@ module.exports = [
   { name: 'minus-bold', terms: ['subtract', 'minimize', 'collapse'] },
   { name: 'money-color', terms: ['finance', 'cash', 'coins', 'payment', 'pay', 'cost'] },
   { name: 'move_truck-color', terms: [] },
-  { name: 'new_tab', terms: ['external', 'open', 'link'] },
   { name: 'new_tab-bold', terms: ['external', 'open', 'link'] },
   { name: 'note_approved-color', terms: [] },
   { name: 'note_check-color', terms: [] },
