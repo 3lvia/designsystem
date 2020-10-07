@@ -542,7 +542,7 @@ export const eCommunity: EItems[] = [
     description: 'The latest news, updates, and changes to the design system.',
     docUrl: Pages.Changelog,
     absolutePath: '/community/' + Pages.Changelog,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/community-images/Whats-new.svg',
     type: 'Community',
   },
   {
@@ -556,7 +556,7 @@ export const eCommunity: EItems[] = [
     docUrl: Pages.Contact,
     absolutePath: '/community/' + Pages.Contact,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/community-images/contact.svg',
     type: 'Community',
   },
   {
@@ -570,7 +570,7 @@ export const eCommunity: EItems[] = [
     docUrl: Pages.Contribute,
     absolutePath: '/community/' + Pages.Contribute,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/community-images/contribute.svg',
     type: 'Community',
   },
   {
@@ -593,7 +593,7 @@ export const eCommunity: EItems[] = [
     docUrl: Pages.Faq,
     absolutePath: '/community/' + Pages.Faq,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/community-images/FAQ.svg',
     type: 'Community',
   },
 ];
