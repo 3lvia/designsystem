@@ -5,29 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v1.0.0
       - name: Install
         run: npm install
       - name: Percy Test
-        uses: percy/snapshot-action@v0.1.0
-        run: npm run percyServer
+        uses: percy/exec-action@v0.3.0
         with:
-          build-directory: 'http://localhost:3333/'
+          command: 'npm run percy'
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-# name: CI
-# on: [push, pull_request]
-# jobs:
-#   build:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v1.0.0
-#       - name: Install
-#         run: npm install
-#       - name: Percy Test
-#         uses: percy/exec-action@v0.3.0
-#         with:
-#           command: 'npm run percy'
-#         env:
-#           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
