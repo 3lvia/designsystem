@@ -9,7 +9,7 @@ jobs:
       - name: Install
         run: npm install
       - name: Local server
-        run: npm percyServer
+        run: npm run percyServer
       - name: Percy Test
         uses: percy/snapshot-action@v0.1.0
         with:
