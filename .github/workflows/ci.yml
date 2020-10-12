@@ -7,7 +7,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1.0.0
       - name: Install
-        run: yarn
+        run: npm install
       - name: Percy Test
         uses: percy/exec-action@v0.3.0
         with:
