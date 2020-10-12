@@ -6,8 +6,9 @@
   "scripts": {
     "build": "gulp",
     "watch": "gulp watch",
-    "test": "node testing/server.js",
-    "percy": "percy exec -- node testing/snapshots.js"
+    "percyServer": "node testing/server.js",
+    "percyStart": "percy exec -- node testing/snapshots.js",
+    "test": "npm run percyServer &  npm run percyStart"
   },
   "author": "",
   "license": "ISC",
