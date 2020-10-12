@@ -19,6 +19,7 @@ const sharp = require('sharp');
 
 sass.compiler = require('sass');
 
+// CREATING CLASSLIST.JSON
 async function createCSSOverview() {
   const elvisCSS = fs.readFileSync('./css/elvis.css').toString();
 
@@ -111,6 +112,17 @@ function psuedoIsOnElement(className) {
   return true;
 }
 
+// DELETE UNUSED ICONS + GENERATED ICONS BEFORE GENERATING AGAIN
+function clean() {
+  let filesToDelete = ['css/', 'src/icons/svg/dist/'];
+  const unusedFiles = findUnusedIconFiles().map((file) => {
+    return `src/icons/svg/src/${file}`;
+  });
+
+  filesToDelete = filesToDelete.concat(unusedFiles);
+  return del(filesToDelete);
+}
+
 function findUnusedIconFiles() {
   const content = fs.readdirSync('./src/icons/svg/src/');
   const remove = [];
@@ -125,16 +137,7 @@ function findUnusedIconFiles() {
   return remove;
 }
 
-function clean() {
-  let filesToDelete = ['css/', 'src/icons/svg/dist/'];
-  const unusedFiles = findUnusedIconFiles().map((file) => {
-    return `src/icons/svg/src/${file}`;
-  });
-
-  filesToDelete = filesToDelete.concat(unusedFiles);
-  return del(filesToDelete);
-}
-
+// CREATE TYPOGRAPHY SCSS FILE
 async function createTypographyScss() {
   let content = `$typography: (`;
 
@@ -170,6 +173,7 @@ async function createTypographyScss() {
   return true;
 }
 
+// CREATE ICONS JS FILE
 async function createEmbeddedIconsJS() {
   const iconsToInclude = icons.map((i) => {
     return `src/icons/svg/dist/${i.name}.svg`;
@@ -203,6 +207,7 @@ async function createEmbeddedIconsJS() {
   return true;
 }
 
+// CREATE ICON MODULES
 async function createIconModule() {
   const iconsToInclude = icons.map((i) => {
     return {
@@ -277,6 +282,7 @@ function createCamelCase(original) {
   return newText;
 }
 
+// OPTIMIZE SVG ICONS
 function optimizeSVG() {
   const iconsToInclude = icons.map((i) => {
     return `src/icons/svg/src/${i.name}.svg`;
@@ -284,6 +290,7 @@ function optimizeSVG() {
   return gulp.src(iconsToInclude).pipe(svgo()).pipe(gulp.dest('src/icons/svg/dist'));
 }
 
+// CREATE PNG ICONS FROM SVG
 async function createPNG() {
   const iconsToInclude = icons.map((i) => {
     return { name: i.name, path: `src/icons/svg/src/${i.name}.svg` };
@@ -300,6 +307,7 @@ async function createPNG() {
   return true;
 }
 
+// GENERATE CSS FILE FROM SCSS FILES
 function styles() {
   return gulp
     .src('./src/main.scss')
@@ -310,6 +318,7 @@ function styles() {
     .pipe(gulp.dest('./css/'));
 }
 
+// CREATE MINIFIED VERSION OF CSS FILE
 function minify() {
   return gulp
     .src('./css/*.css')
@@ -327,6 +336,7 @@ function minify() {
     .pipe(gulp.dest('./css/'));
 }
 
+// RUN GULP TASKS
 gulp.task(
   'default',
   gulp.series(
@@ -346,6 +356,7 @@ gulp.task(
   ),
 );
 
+// RUN GULP WATCH
 gulp.task('watch', function () {
   gulp.watch(
     ['./src/**/*.scss', './src/templates/**.*', './icons/svg/src/*.svg', './icons/svg/src/icons.config.js'],
