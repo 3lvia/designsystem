@@ -3,7 +3,7 @@ on: [push, pull_request]
 
 defaults:
   run:
-    working-directory: ./style/elvis
+    working-directory: style/elvis
 
 jobs:
   build:
