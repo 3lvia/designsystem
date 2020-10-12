@@ -8,10 +8,9 @@ jobs:
         uses: actions/checkout@master
       - name: Install
         run: npm install
-      - name: Local server
-        run: npm run percyServer
       - name: Percy Test
         uses: percy/snapshot-action@v0.1.0
+        run: npm run percyServer
         with:
           build-directory: 'http://localhost:3333/'
         env:
