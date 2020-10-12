@@ -11,6 +11,6 @@ jobs:
       - name: Percy Test
         uses: percy/exec-action@v0.3.0
         with:
-          command: 'cd style/elvis && npm run test'
+          command: 'npm run percy'
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}

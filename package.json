@@ -14,7 +14,8 @@
     "lint-elvis": "npx prettier --write 'style/elvis/**/*.js'",
     "lint-doc": "npx prettier --write 'src/**/*.ts'",
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
-    "lint-all": "npm run lint-elvis && npm run lint-doc && npm run eslint"
+    "lint-all": "npm run lint-elvis && npm run lint-doc && npm run eslint",
+    "percy": "cd style/elvis; npm run test"
   },
   "lint-staged": {
     "**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
