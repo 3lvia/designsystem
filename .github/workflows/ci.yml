@@ -12,7 +12,7 @@ jobs:
         run: npm install
       - name: Percy Test
         id: PercyTest
-        run: npm run percy
+        run: npm run percy && echo "::set-output name=test::world"
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
   log:
