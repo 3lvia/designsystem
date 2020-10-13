@@ -9,6 +9,9 @@ jobs:
       - name: Install
         run: npm install
       - name: Percy Test
+        id: PercyTest
         run: npm run percy
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      - name: Log results
+        run: 'The time was ${{ steps.PercyTest }}'
