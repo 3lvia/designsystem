@@ -14,4 +14,4 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
       - name: Log results
-        run: 'The time was ${{ steps.PercyTest }}'
+        run: 'The time was ${{ steps.PercyTest.outputs.time }}'
