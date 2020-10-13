@@ -13,5 +13,3 @@ jobs:
         run: npm run percy
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-      - name: Log results
-        run: 'The time was ${{ steps.PercyTest.outputs.time }}'
