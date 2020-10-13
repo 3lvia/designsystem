@@ -1,31 +1,3 @@
-@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
-
-.overview-description {
-  @include breakpoint-up(Tablet) {
-    display: none;
-  }
-}
-.phone-overview {
-  display: none;
-  @include breakpoint-up(Mobile) {
-    display: block;
-  }
-}
-.tablet-overview {
-  display: none;
-  @include breakpoint-up(Tablet) {
-    display: block;
-  }
-  @include breakpoint-up(Mobile) {
-    display: none;
-  }
-}
-.desktop-overview {
-  @include breakpoint-up(Mobile) {
-    display: none;
-  }
-}
-
 .text-container {
   width: 50%;
   max-width: 400px;

@@ -49,6 +49,34 @@ p {
   @extend %slide-in-top;
 }
 
+.overview-page {
+  .overview-description {
+    @include breakpoint-up(Tablet) {
+      display: none;
+    }
+  }
+  .phone-overview {
+    display: none;
+    @include breakpoint-up(Mobile) {
+      display: block;
+    }
+  }
+  .tablet-overview {
+    display: none;
+    @include breakpoint-up(Tablet) {
+      display: block;
+    }
+    @include breakpoint-up(Mobile) {
+      display: none;
+    }
+  }
+  .desktop-overview {
+    @include breakpoint-up(Mobile) {
+      display: none;
+    }
+  }
+}
+
 .changelog-row {
   font-family: 'Red Hat Text';
   font-style: normal;

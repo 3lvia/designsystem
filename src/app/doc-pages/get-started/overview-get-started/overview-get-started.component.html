@@ -1,14 +1,20 @@
-<app-overview-page class="phone-overview" [overviewTitle]="overviewTitle" [pages]="pages"></app-overview-page>
+<div class="overview-page">
+  <app-overview-page
+    class="phone-overview"
+    [overviewTitle]="overviewTitle"
+    [pages]="pages"
+  ></app-overview-page>
 
-<div class="page-body overview desktop-overview">
-  <h2 class="e-title-md e-mb-24 e-mt-0">Get started</h2>
-  <img style="height: 500px;" src="../../../../assets/overview-pages/get-started.svg" />
-  <div class="e-text-lead e-mt-40 overview-description">
-    We are an open-source design system to be used for Elvia’s external and internal systems to provide a
-    comprehensive and user-friendly experience. We offer classes and variables for styling components, as well
-    as templates, accessibility rules and design principles.
+  <div class="page-body overview desktop-overview">
+    <h2 class="e-title-md e-mb-24 e-mt-0">Get started</h2>
+    <img style="height: 500px;" src="../../../../assets/overview-pages/get-started.svg" />
+    <div class="e-text-lead e-mt-40 overview-description">
+      We are an open-source design system to be used for Elvia’s external and internal systems to provide a
+      comprehensive and user-friendly experience. We offer classes and variables for styling components, as
+      well as templates, accessibility rules and design principles.
+    </div>
+    <app-overview-page class="tablet-overview e-mt-40" [pages]="pages"></app-overview-page>
   </div>
-  <app-overview-page class="tablet-overview e-mt-40" [pages]="pages"></app-overview-page>
 </div>
 
 <!-- 
