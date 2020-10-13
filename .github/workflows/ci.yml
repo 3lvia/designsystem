@@ -2,12 +2,17 @@ name: CI
 on: [push, pull_request]
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v1.0.0
       - name: Install
         run: npm install
+  Percy:
+    name: Testing on Percy
+    runs-on: ubuntu-latest
+    steps:     
       - name: Percy Test
         id: PercyTest
         run: npm run percy
