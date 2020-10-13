@@ -46,6 +46,7 @@ p {
   @include breakpoint-up(MinDesktop) {
     margin: 0 auto;
   }
+  @extend %slide-in-top;
 }
 
 .changelog-row {
