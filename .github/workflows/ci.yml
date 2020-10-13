@@ -11,6 +11,7 @@ jobs:
         run: npm install
   Percy:
     name: Testing on Percy
+    needs: [build]
     runs-on: ubuntu-latest
     steps:     
       - name: Percy Test
