@@ -1,7 +1,7 @@
 name: CI
 on: [push, pull_request]
 jobs:
-  build&test:
+  percy:
     runs-on: ubuntu-latest
     outputs:
       testResults: ${{ steps.PercyTest }}
@@ -17,7 +17,7 @@ jobs:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
   log:
     runs-on: ubuntu-latest
-    needs: [build&test]
+    needs: [percy]
     steps:
       - name: Log percy
-        run: echo ${{ needs.build&test.job1.outputs.testResults}}
+        run: echo ${{ needs.percy.job1.outputs.testResults}}
