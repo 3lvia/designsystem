@@ -39,19 +39,10 @@ $table-border-radius: 8px;
   background: white;
   white-space: nowrap;
 
-  // Rounded borders with border-collapsed
+  // No spacing between table and container
   border-collapse: separate;
   border-spacing: 0;
   position: relative;
-
-  tbody {
-    tr:last-child :first-child {
-      border-bottom-left-radius: $table-border-radius;
-    }
-    tr:last-child :last-child {
-      border-bottom-right-radius: $table-border-radius;
-    }
-  }
 
   &__sort-header {
     cursor: pointer;
