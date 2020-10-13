@@ -36,12 +36,12 @@ p {
 
 // Shared classes
 .page-body {
-  margin-left: 12%;
+  margin-left: 10%;
   width: 90%;
   min-width: 20rem;
   max-width: 55rem;
   &.overview {
-    max-width: 72rem;
+    max-width: 65rem;
   }
   @include breakpoint-up(MinDesktop) {
     margin: 0 auto;
@@ -50,6 +50,14 @@ p {
 }
 
 .overview-page {
+  .illustration-container {
+    display: flex;
+    justify-content: center;
+    .illustration {
+      width: 68%;
+      transition: width ease-in 250ms;
+    }
+  }
   .overview-description {
     @include breakpoint-up(Tablet) {
       display: none;
