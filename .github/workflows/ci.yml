@@ -16,8 +16,8 @@ jobs:
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
   log:
-    needs: [build&test]
     runs-on: ubuntu-latest
+    needs: [build&test]
     steps:
       - name: Log percy
       - run: echo ${{ needs.build&test.job1.outputs.testResults}}
