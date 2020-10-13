@@ -1,21 +1,23 @@
 name: CI
 on: [push, pull_request]
 jobs:
-  build:
-    name: Build
+  build&test:
     runs-on: ubuntu-latest
+    outputs:
+      testResults: ${{ steps.PercyTest }}
     steps:
       - name: Checkout
         uses: actions/checkout@v1.0.0
       - name: Install
         run: npm install
-  Percy:
-    name: Testing on Percy
-    needs: [build]
-    runs-on: ubuntu-latest
-    steps:     
       - name: Percy Test
         id: PercyTest
         run: npm run percy
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+  log:
+    needs: [build&test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Log percy
+      - run: echo ${{ needs.build&test.job1.outputs.testResults}}
