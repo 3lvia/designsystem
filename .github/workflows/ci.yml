@@ -20,4 +20,4 @@ jobs:
     needs: [percy]
     steps:
       - name: Log percy
-        run: echo ${{ needs.percy.job1.outputs.testResults}}
+        run: echo ${{ needs.percy.outputs.testResults}}
