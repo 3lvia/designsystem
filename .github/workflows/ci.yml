@@ -4,7 +4,7 @@ jobs:
   percy:
     runs-on: ubuntu-latest
     outputs:
-      testResults: ${{ steps.PercyTest }}
+      testResults: steps.PercyTest
     steps:
       - name: Checkout
         uses: actions/checkout@v1.0.0
@@ -12,7 +12,7 @@ jobs:
         run: npm install
       - name: Percy Test
         id: PercyTest
-        run: npm run percy && echo "::set-output name=test::world"
+        run: npm run percy
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
   log:
