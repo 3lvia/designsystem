@@ -280,37 +280,39 @@
       The grid-system follows a 12 column rule, but the max number of columns should not exceed 8 on tablet
       and 6 on mobile.
 
-      <table class="e-table e-table--white-header e-mt-24">
-        <thead>
-          <tr>
-            <th scope="col">Device</th>
-            <th scope="col" class="e-text-right">Sizes</th>
-            <th scope="col" class="e-text-right">Max number of columns</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="col">Mobile</th>
-            <td class="e-text-right">-> 767px</td>
-            <td class="e-text-right">6</td>
-          </tr>
-          <tr>
-            <th scope="row">Tablet</th>
-            <td class="e-text-right">768px -> 1023px</td>
-            <td class="e-text-right">8</td>
-          </tr>
-          <tr>
-            <th scope="row">MinDesktop</th>
-            <td class="e-text-right">1024px -> 1439px</td>
-            <td class="e-text-right">12</td>
-          </tr>
-          <tr>
-            <th scope="row">MaxDesktop</th>
-            <td class="e-text-right">1440px -></td>
-            <td class="e-text-right">12</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="e-table-container e-mt-24">
+        <table class="e-table">
+          <thead>
+            <tr>
+              <th scope="col">Device</th>
+              <th scope="col">Max columns</th>
+              <th scope="col">Sizes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="col">Mobile</th>
+              <td>6</td>
+              <td>-> 767px</td>
+            </tr>
+            <tr>
+              <th scope="row">Tablet</th>
+              <td>8</td>
+              <td>768px -> 1023px</td>
+            </tr>
+            <tr>
+              <th scope="row">MinDesktop</th>
+              <td>12</td>
+              <td>1024px -> 1439px</td>
+            </tr>
+            <tr>
+              <th scope="row">MaxDesktop</th>
+              <td>12</td>
+              <td>1440px -></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <app-component-subsection [sectionTitle]="'Different sizes'">
         <ng-container ngProjectAs="sectionContent">
@@ -378,7 +380,7 @@
 
       <app-component-subsection [sectionTitle]="'Custom padding (gutters)'">
         <ng-container ngProjectAs="sectionContent">
-          Combine the padding classes (eks. px-lg-3) and negative margin classes (eks. mx-lg-n3 ) to add your
+          Combine the padding classes (e.g. px-lg-3) and negative margin classes (e.g. mx-lg-n3 ) to add your
           own custom gutters.
           <app-code-block [codeHTML]="example3" [showIframeScreens]="true"></app-code-block>
         </ng-container>

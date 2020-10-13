@@ -466,12 +466,22 @@ export const eIdentity: EItems[] = [
   {
     title: 'Spacing',
     // tslint:disable-next-line: max-line-length
-    description: 'Spacing refers to space between UI elements. It is important to create an appropriate spatial relationship between items and are a big part of the visual design. We are using the 8 point grid system - Use multiples of 8 to define dimensions, padding, and margin of both block and inline elements.',
+    description: 'Spacing refers to space between UI elements. It is important to create an appropriate spatial relationship between items and are a big part of the visual design.',
     docUrl: Pages.Spacing,
     absolutePath: '/identity/' + Pages.Spacing,
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/identity-images/Spacing.svg',
     figmaUrl: 'https://www.figma.com/file/FvsJlYXAIXS5IVKzZzMYgT/Spacing?node-id=1%3A2',
+    type: 'Identity',
+  },
+  {
+    title: 'The concept',
+    // tslint:disable-next-line: max-line-length
+    description: 'Our concept and values ​​should reflect us as a company in everything we do and how we are perceived on a corporate level and towards the customers.',
+    docUrl: Pages.TheConcept,
+    absolutePath: '/identity/' + Pages.TheConcept,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/identity-images/The concept.svg',
     type: 'Identity',
   },
   {
@@ -581,15 +591,6 @@ export const eCommunity: EItems[] = [
     absolutePath: '/community/' + Pages.Contribute,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/temporary.svg',
-    type: 'Community',
-  },
-  {
-    title: 'Discussion',
-    description: 'Discuss the design system? Report a bug? Request a new feature?',
-    docUrl: Pages.Discussion,
-    absolutePath: '/community/' + Pages.Discussion,
-    externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose',
-    imageUrl: 'assets/website-icons/community-images/discussion.svg',
     type: 'Community',
   },
   {

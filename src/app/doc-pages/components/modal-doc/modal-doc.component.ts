@@ -29,7 +29,7 @@ export class ModalDocComponent {
       Title
     </div>
     <div class="e-modal__text">
-      Modal content Modal content Modal content Modal content Modal content
+      Body text comes here and can go over several lines. It looks like this when it is two.
     </div>
     <div class="e-modal__actions">
       <button class="e-btn e-btn--secondary e-btn--lg" (click)="closeModal('modal1')">
@@ -50,10 +50,7 @@ export class ModalDocComponent {
     </div>
     <div class="e-modal__text">
       <div>
-        Var sparsom med bruken av dialoger siden det kan oppleves forstyrrende å få noe liggendes over skjermen mange ganger på rad.
-      </div>
-      <div>
-        Bruk aldrig et språk eller ord som brukeren ikke skjønner. Det skal alltid være klart for brukeren hva det er den skal ta.
+        Body text comes here and can go over several lines. It looks like this when it is two.
       </div>
     </div>
     <div class="e-modal__actions">

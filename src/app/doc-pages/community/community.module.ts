@@ -4,7 +4,6 @@ import { OverviewCommunityModule } from './overview-community/overview-community
 import { ContributeModule } from './contribute/contribute.module';
 import { FaqDocModule } from './faq-doc/faq-doc.module';
 import { ChangelogModule } from './changelog/changelog.module';
-import { DiscussionModule } from './discussion/discussion.module';
 import { ContactModule } from './contact/contact.module';
 
 
@@ -15,7 +14,6 @@ import { ContactModule } from './contact/contact.module';
         ContributeModule,
         FaqDocModule,
         ChangelogModule,
-        DiscussionModule,
         ContactModule,
     ],
 })

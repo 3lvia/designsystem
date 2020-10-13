@@ -10,92 +10,226 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--PREVIEW-->
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
-      <p>Following the 8-point grid system.</p>
       <div class="display-container centered-content">
         <div class="display-card" *ngFor="let item of spacingItems">
           <app-copy [message]="item.className">
             <ng-container ngProjectAs="copyContent">
-              <div class="display-card-square e-shadow-6 e-bg-green" [ngClass]="item.className"></div>
+              <div class="display-card-square ExampleSquare" [ngClass]="item.className"></div>
             </ng-container>
           </app-copy>
-          <div class="display-card-title e-text-caps">{{ item.title }}</div>
-          <div class="display-card-variable">{{ item.size }}</div>
+          <div class="display-card-title e-text-caps e-mt-8">{{ item.title }}</div>
+          <div class="display-card-variable e-text-description">{{ item.size }}</div>
         </div>
       </div>
+      <p>
+        Example containers created with
+        <span class="code-text">e-p</span>
+        classes following the 8-point grid system, assigning padding in each direction.
+      </p>
     </ng-container>
   </app-component-subsection>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      The spacing classes
-      <code class="code-text">e-p</code>
-      and
-      <code class="code-text">e-m</code>
-      styles the padding and margin attributes and can be specified to style left, right, top or bottom. The
-      spacing system follows multiplication 8px.
+      <div class="e-text-body e-mb-32">
+        We are using the
+        <b>8 point grid</b>
+        system - multiples of 8 to define dimensions, padding, and margin of both block and inline elements.
+      </div>
+      <div class="e-text-body e-mb-40">
+        You can read more about the 8 point grid system and what its used for in this
+        <a
+          class="e-link e-link--inline e-link--external"
+          href="https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632"
+        >
+          <span class="e-link__title">intro article</span>
+          <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+        </a>
+      </div>
 
+      <div class="e-mb-40">
+        <img class="padding-example" src="assets/website-icons/identity-images/SpacingUsage.svg" />
+      </div>
+      <div class="e-mb-16">
+        Something to keep in mind when choosing spacing:
+      </div>
+      <ul class="e-list">
+        <li>
+          It's about logic. Related things are closer than unrelated things, so two unrelated things must be
+          far away from each other.
+        </li>
+        <li>The bigger the object, the bigger space around it.</li>
+        <li>We all need to breathe, so let the layout breathe as well.</li>
+      </ul>
+
+      <app-component-subsection [sectionTitle]="'Help guide'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="e-text-body e-mb-40">
+            We have defined a guide to help you choose the correct spacing. These are not rules so exceptions
+            may occur. Spacing will also be used differently depending on which device you are on.
+          </div>
+
+          <div class="e-title-xs e-mb-8">Related elements</div>
+          <div class="e-text-body e-mb-24">
+            Used for spacing between related elements or inside a component. Example:
+          </div>
+
+          <ul class="e-list e-mb-24">
+            <li>Padding inside card, table, form etc.</li>
+            <li>Padding between typography, related inputfields, filter options etc.</li>
+          </ul>
+          <!-- EXAMPLES -->
+
+          <div class="exampleContainer">
+            <div class="square relElem1 e-mr-24">
+              <div class="number">8</div>
+            </div>
+            <div class="square relElem2 e-mr-24">
+              <div class="number">16</div>
+            </div>
+            <div class="square relElem3 e-mr-24">
+              <div class="number">24</div>
+            </div>
+            <div class="square relElem4">
+              <div class="number">32</div>
+            </div>
+          </div>
+
+          <div class="e-title-xs e-mb-8 e-mt-72">Unrelated elements</div>
+          <div class="e-text-body e-mb-24">
+            Used for spacing between unrelated elements and defines the layout.
+          </div>
+
+          <ul class="e-list e-mb-24">
+            <li>Margin between cards, tables etc.</li>
+          </ul>
+
+          <div class="exampleContainer">
+            <div class="square UnElem1 e-mr-24">
+              <div class="number">40</div>
+            </div>
+            <div class="square UnElem2 e-mr-24">
+              <div class="number">48</div>
+            </div>
+            <div class="square UnElem3 e-mr-24">
+              <div class="number">56</div>
+            </div>
+            <div class="square UnElem4 e-mr-24">
+              <div class="number">64</div>
+            </div>
+            <div class="square UnElem5">
+              <div class="number">72</div>
+            </div>
+          </div>
+
+          <div class="e-title-xs e-mb-8 e-mt-72">Unrelated sections</div>
+          <div class="e-text-body e-mb-24">
+            Used for spacing between unrelated sections and is more used by external websites.
+          </div>
+
+          <ul class="e-list e-mb-24">
+            <li>Margin between different sections vertically</li>
+          </ul>
+
+          <div class="exampleContainer">
+            <div class="square UnSect1 e-mr-24">
+              <div class="number">80</div>
+            </div>
+            <div class="square UnSect2 e-mr-24">
+              <div class="number">88</div>
+            </div>
+            <div class="square UnSect3 e-mr-24">
+              <div class="number">96</div>
+            </div>
+            <div class="square UnSect4 e-mr-24">
+              <div class="number">104</div>
+            </div>
+            <div class="square UnSect5">
+              <div class="number">112</div>
+            </div>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--Implementation-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <div>
+        The spacing classes
+        <b>e-p</b>
+        and
+        <b>e-m</b>
+        styles the padding and margin attributes and can be specified to style left, right, top or bottom.
+      </div>
+      <!--Using classes-->
       <app-component-subsection [sectionTitle]="'Using classes'">
         <ng-container ngProjectAs="sectionContent">
-          <p>
-            All spacing can be used through a set of classes. The
-            <code class="code-text">e-p-64</code>
-            sets padding to the size of the last number. The padding and margin sizes are multiplications of
-            8px, meaning
-            <code class="code-text">e-m-24</code>
-            equals
-            <code class="code-text">margin: 24px</code>
-            . The classes are available from 0 to 72.
-          </p>
-          <h3 class="e-text-caps">Padding classes</h3>
-          <ul>
-            <li><code class="code-text">e-p-0</code></li>
-            <li><code class="code-text">e-p-number</code></li>
-            <li><code class="code-text">e-pl-number</code></li>
-            <li><code class="code-text">e-pr-number</code></li>
-            <li><code class="code-text">e-pt-number</code></li>
-            <li><code class="code-text">e-pb-number</code></li>
-            <li><code class="code-text">e-px-number</code></li>
-            <li><code class="code-text">e-py-number</code></li>
-          </ul>
-          <h3 class="e-text-caps">Margin classes</h3>
-          <ul>
-            <li><code class="code-text">e-m-0</code></li>
-            <li><code class="code-text">e-m-number</code></li>
-            <li><code class="code-text">e-ml-number</code></li>
-            <li><code class="code-text">e-mr-number</code></li>
-            <li><code class="code-text">e-mt-number</code></li>
-            <li><code class="code-text">e-mb-number</code></li>
-            <li><code class="code-text">e-mx-number</code></li>
-            <li><code class="code-text">e-my-number</code></li>
-            <li>
-              <code class="code-text">
-                All the margin classes also have negative classes by adding 'n' before number (eks. e-mr-n8)
-              </code>
-            </li>
-          </ul>
+          <div class="e-text-body e-mb-32">
+            All spacing can be used through a set of classes. The e-p-64 sets padding to the size of the last
+            number. The padding and margin sizes are multiplications of 8px, meaning e-m-24 equals margin:
+            24px . The classes are available from 0 to 112.
+          </div>
+
+          <div class="listContainer e-mb-56">
+            <div class="listExample">
+              <div class="e-text-body e-mb-16">
+                Padding classes:
+              </div>
+              <ul class="e-list">
+                <li>e-p-0</li>
+                <li>e-p-number</li>
+                <li>e-pl-number</li>
+                <li>e-pr-number</li>
+                <li>e-pt-number</li>
+                <li>e-pb-number</li>
+                <li>e-px-number</li>
+                <li>e-py-number</li>
+              </ul>
+            </div>
+            <div class="listExample">
+              <div class="e-text-body e-mb-16">
+                Margin classes:
+              </div>
+              <ul class="e-list">
+                <li>e-m-0</li>
+                <li>e-m-number</li>
+                <li>e-ml-number</li>
+                <li>e-mr-number</li>
+                <li>e-mt-number</li>
+                <li>e-mb-number</li>
+                <li>e-mx-number</li>
+                <li>e-my-number</li>
+              </ul>
+            </div>
+          </div>
+          <div class="e-text-body">
+            All the margin classes also have negative classes by adding 'n' before number.For example:
+            <b>e-mr-n8</b>
+          </div>
         </ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Using CCS-variables'">
         <ng-container ngProjectAs="sectionContent">
-          <p>
+          <p class="e-text-body">
             All spacing can be used through their CSS-variable as well. To use the CSS-variables you need to
             install the ponyfill css-vars-ponyfill. Click
             <a
-              class="e-link e-link-inline"
+              class="e-link e-link--inline"
               [routerLink]="['/get-started/new-project-doc']"
-              fragment="'Optional:-CSS-variables'"
+              fragment="Optional:-CSS-variables"
             >
               here
             </a>
             more information about how.
           </p>
-          <ul>
-            <li><code class="code-text">var(--e-spacing-number)</code></li>
+          <ul class="e-list">
+            <li>var(--e-spacing-number)</li>
           </ul>
           <p>
             All CSS-variables can be used.
@@ -106,13 +240,6 @@
           </p>
         </ng-container>
       </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!--CODE EXAMPLE-->
-  <app-component-section [sectionTitle]="'Code example'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-code-block [codeHTML]="example1"></app-code-block>
     </ng-container>
   </app-component-section>
 </div>

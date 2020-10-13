@@ -50,7 +50,6 @@ import { OverviewCommunityComponent } from './doc-pages/community/overview-commu
 import { OverviewGetStartedComponent } from './doc-pages/get-started/overview-get-started/overview-get-started.component';
 import { GetStartedStartComponent } from './doc-pages/get-started/get-started-start/get-started-start.component';
 import { ChangelogComponent } from './doc-pages/community/changelog/changelog.component';
-import { DiscussionComponent } from './doc-pages/community/discussion/discussion.component';
 import { PaginationDocComponent } from './doc-pages/components/pagination-doc/pagination-doc.component';
 import { HeaderDocComponent } from './doc-pages/components/header-doc/header-doc.component';
 import { DropdownDocComponent } from './doc-pages/components/dropdown-doc/dropdown-doc.component';
@@ -67,6 +66,7 @@ import { PatternsDocComponent } from './doc-pages/tools/patterns-doc/patterns-do
 import { GetStartedDesignersComponent } from './doc-pages/get-started/get-started-designers/get-started-designers.component';
 import { ContactComponent } from './doc-pages/community/contact/contact.component';
 import { TheDesignSystemDocComponent } from './doc-pages/get-started/the-design-system-doc/the-design-system-doc.component';
+import { TheConceptComponent } from './doc-pages/identity/the-concept/the-concept.component';
 
 const routes: Routes = [
   {
@@ -157,6 +157,10 @@ const routes: Routes = [
           {
             path: Pages.Logo,
             component: LogoDocComponent,
+          },
+          {
+            path: Pages.TheConcept,
+            component: TheConceptComponent,
           },
         ],
       },
@@ -362,10 +366,6 @@ const routes: Routes = [
           {
             path: Pages.Contribute,
             component: ContributeComponent,
-          },
-          {
-            path: Pages.Discussion,
-            component: DiscussionComponent,
           },
           {
             path: Pages.Faq,

@@ -8,40 +8,62 @@ $table-phone-padding: 6px 8px;
 $table-border-radius: 8px;
 
 %header-style {
-  background: colors.color('grey');
+  background: colors.color('white');
   width: 100%;
   th {
-    color: colors.color('white');
-    font-weight: 500;
+    color: colors.color('font-color');
+    font-weight: 700;
+    border-bottom: 1px solid colors.color('grey-10');
   }
 }
 
-.e-table {
-  display: block;
-  overflow: auto;
-  text-align: left;
-  white-space: nowrap;
+.e-table-container {
   width: 100%;
-  max-width: 768px;
-  box-sizing: border-box;
-  background: white;
-
-  // Rounded borders with border-collapsed
+  overflow: auto;
   border: 1px solid colors.color('grey-10');
   border-radius: $table-border-radius;
+}
+.e-table-footnote {
+  margin-top: 8px;
+
+  font-family: 'Red Hat Text';
+  font-size: 16px;
+  line-height: 26px;
+}
+.e-table {
+  display: table;
+  overflow: auto;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+  white-space: nowrap;
+
+  // Rounded borders with border-collapsed
   border-collapse: separate;
   border-spacing: 0;
+  position: relative;
+
+  tbody {
+    tr:last-child :first-child {
+      border-bottom-left-radius: $table-border-radius;
+    }
+    tr:last-child :last-child {
+      border-bottom-right-radius: $table-border-radius;
+    }
+  }
 
   &__sort-header {
     cursor: pointer;
     .e-table__sort-icon {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      margin-left: 8px;
+      margin-left: 4px;
       @include icons.icon-size('xxs');
+      width: 16px;
       i[class*='e-icon--arrow_down-bold'] {
         display: flex;
+        width: 16px;
       }
       i[class*='e-icon--arrow_up-bold'] {
         display: none;
@@ -49,6 +71,7 @@ $table-border-radius: 8px;
       &.e-table__sort-icon--up {
         i[class*='e-icon--arrow_up-bold'] {
           display: flex;
+          width: 16px;
         }
         i[class*='e-icon--arrow_down-bold'] {
           display: none;
@@ -80,66 +103,42 @@ $table-border-radius: 8px;
   }
 
   &.e-table--compact {
-    thead {
-      td,
-      th {
-        color: colors.color('white');
-        font-weight: 500;
-      }
-    }
-
     td,
     th {
       @include typography.typography('text-info');
       padding: $table-compact-padding;
+      line-height: 21px;
     }
-  }
-
-  &.e-table--white-header {
+    tr {
+      height: 40px;
+    }
     thead {
-      th {
-        background: colors.color('white');
-        color: colors.color('font-color');
-        border-bottom: 1px solid colors.color('grey-10');
-      }
+      @extend %header-style;
     }
-  }
-
-  &.e-table--bold {
-    tbody {
-      th {
-        font-weight: bold;
-      }
-    }
-  }
-
-  &--align-center {
-    text-align: center;
-  }
-  &--align-left {
-    text-align: left;
-  }
-  &--align-right {
-    text-align: right;
   }
 
   td,
   th {
     @include typography.typography('text-description');
-    width: 100%;
+    text-align: left;
     padding: $table-padding;
     &.e-table__cell--multiline {
       display: inline-block;
       white-space: pre-wrap;
-      width: 300px;
+      width: 450px;
     }
   }
 
   thead {
     @extend %header-style;
-    text-align: center;
-
-    th:first-child {
+    tr {
+      height: 56px;
+    }
+    th {
+      @include typography.typography('title-xs');
+    }
+    th,
+    td {
       text-align: left;
     }
   }
@@ -154,86 +153,84 @@ $table-border-radius: 8px;
   }
 }
 
+// TABLE MOBILE
 .e-table-mobile {
   display: table;
   table-layout: auto;
   width: 100%;
   overflow: hidden;
-  text-align: left;
   border-radius: $table-border-radius;
   border-spacing: 0;
   box-shadow: 0px 0px 0px 1px colors.color('grey-10');
   background: white;
 
-  &.e-table-mobile--compact {
-    thead {
-      td,
-      th {
-        color: colors.color('white');
-      }
-    }
-
-    td,
-    th {
-      @include typography.typography('text-info');
-      padding: $table-compact-padding;
-    }
-  }
-
-  &.e-table-mobile--white-header {
-    thead {
-      background-color: colors.color('white');
-
-      th {
-        color: colors.color('font-color');
-      }
-    }
-  }
-
-  &.e-table-mobile--bold {
-    tbody {
-      th {
-        font-weight: bold;
-      }
-    }
-  }
-
-  &--align-center {
-    text-align: center;
-  }
-  &--align-left {
-    text-align: left;
-  }
-  &--align-right {
-    text-align: right;
-  }
-
   th,
   td {
     @include typography.typography('text-description');
+    line-height: 27px;
     padding: $table-padding;
-  }
-
-  td:first-of-type {
     text-align: left;
   }
+
+  tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) td,
+  tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) th {
+    border-bottom: 1px solid colors.color('grey-10');
+  }
+  tbody:last-of-type tr:not(:last-of-type) td,
+  tbody:last-of-type tr:not(:last-of-type) th {
+    border-bottom: 1px solid colors.color('grey-10');
+  }
+
+  thead {
+    tr {
+      height: 56px;
+    }
+    th,
+    td {
+      text-align: left;
+    }
+    @extend %header-style;
+    th {
+      @include typography.typography('title-xs');
+    }
+  }
+
+  tbody tr:first-of-type th {
+    background: colors.color('grey-05');
+    font-size: 17px;
+    color: colors.color('font-color');
+    font-weight: 500;
+  }
+  tbody th,
+  tbody td {
+    text-align: left;
+  }
+
   th + td:first-of-type,
   td:not(:first-of-type) {
     text-align: right;
   }
 
-  thead {
-    @extend %header-style;
-  }
-
-  tbody tr:first-of-type th {
-    background: colors.color('grey-10');
-  }
-
-  // Zebra table
-  &:not(.no-zebra) {
-    tr:not(:first-of-type):nth-of-type(odd) {
-      background: colors.color('grey-05');
+  &.e-table-mobile--compact {
+    td,
+    th {
+      @include typography.typography('text-info');
+      padding: $table-compact-padding;
+      line-height: 21px;
+    }
+    thead {
+      tr {
+        height: 40px;
+      }
+      th {
+        font-family: 'Red Hat Display';
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 19px;
+      }
+    }
+    tbody tr:first-of-type th {
+      font-size: 15px;
     }
   }
 }

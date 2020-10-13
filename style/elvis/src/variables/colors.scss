@@ -46,7 +46,7 @@
 
 // All colors as a list
 // REMEMBER TO UPDATE THE DOCUMENTATION ALSO: color-doc -> color.ts
-$colors: (
+$primary-colors: (
   'white': (
     color: #fff,
     alt-labels: (
@@ -66,6 +66,65 @@ $colors: (
     color: #262626,
     contrastText: #fff,
   ),
+  'green': (
+    color: #29d305,
+    alt-labels: (
+      elvia-charge,
+    ),
+    contrastText: #000,
+  ),
+);
+
+$signal-colors: (
+  'green': (
+    color: #29d305,
+    alt-labels: (
+      elvia-charge,
+    ),
+    contrastText: #000,
+  ),
+  'yellow': (
+    color: #ffff00,
+    contrastText: #000,
+  ),
+  'orange': (
+    color: #ffa000,
+    contrastText: #000,
+  ),
+  'red': (
+    color: #ff0000,
+    contrastText: #000,
+  ),
+);
+
+$data-colors: (
+  'green-apple': (
+    color: #21ac04,
+    contrastText: #000,
+  ),
+  'violet-grape': (
+    color: #490192,
+    contrastText: #fff,
+  ),
+  'blue-berry': (
+    color: #006ddb,
+    contrastText: #fff,
+  ),
+  'purple-plum': (
+    color: #b66dff,
+    contrastText: #000,
+  ),
+  'orange-mango': (
+    color: #db6d00,
+    contrastText: #000,
+  ),
+  'red-tomato': (
+    color: #b90202,
+    contrastText: #fff,
+  ),
+);
+
+$greys: (
   'grey-90': (
     color: #3b3b3b,
     contrastText: #fff,
@@ -119,50 +178,11 @@ $colors: (
     color: #fafafa,
     contrastText: #000,
   ),
-  'green': (
-    color: #29d305,
-    alt-labels: (
-      elvia-charge,
-    ),
-    contrastText: #000,
-  ),
-  'yellow': (
-    color: #ffff00,
-    contrastText: #000,
-  ),
-  'orange': (
-    color: #ffa000,
-    contrastText: #000,
-  ),
-  'red': (
-    color: #ff0000,
-    contrastText: #000,
-  ),
-  'green-apple': (
-    color: #21ac04,
-    contrastText: #000,
-  ),
-  'violet-grape': (
-    color: #490192,
-    contrastText: #fff,
-  ),
-  'blue-berry': (
-    color: #006ddb,
-    contrastText: #fff,
-  ),
-  'purple-plum': (
-    color: #b66dff,
-    contrastText: #000,
-  ),
-  'orange-mango': (
-    color: #db6d00,
-    contrastText: #000,
-  ),
-  'red-tomato': (
-    color: #b90202,
-    contrastText: #fff,
-  ),
 );
+
+$just-colors: map-merge($signal-colors, $data-colors);
+$grey-primary: map-merge($greys, $primary-colors);
+$colors: map-merge($just-colors, $grey-primary);
 
 $internal-colors: (
   'focus-outline': (
