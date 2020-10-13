@@ -36,10 +36,16 @@ p {
 
 // Shared classes
 .page-body {
-  margin: auto;
+  margin-left: 12%;
   width: 90%;
   min-width: 20rem;
   max-width: 55rem;
+  &.overview {
+    max-width: 72rem;
+  }
+  @include breakpoint-up(MinDesktop) {
+    margin: 0 auto;
+  }
 }
 
 .changelog-row {
