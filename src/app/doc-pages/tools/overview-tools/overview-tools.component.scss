@@ -1,34 +1,5 @@
 @import '../../../../../style/elvis/src/utilities/breakpoints.scss';
 
-.headerIllustration {
-  display: flex;
-  justify-content: center;
-
-  @include breakpoint-up(Mobile) {
-    display: none;
-  }
-
-  .e-content-loader {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    margin: auto;
-  }
-}
-
-.toolsIllustration {
-  width: 59.5%;
-  transition: width ease-in 250ms;
-
-  @include breakpoint-up(MinDesktop) {
-    width: 59.5%;
-    transition: width ease-in 250ms;
-  }
-}
-
 .cardsContainer {
   display: flex;
   flex-flow: row wrap;
