@@ -1,5 +1,4 @@
 module.exports = [
-  { name: 'accessibility-color', terms: ['universal', 'UU'] },
   { name: 'add_circle', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-color', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-filled', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
