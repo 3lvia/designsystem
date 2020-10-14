@@ -465,6 +465,16 @@ export const eIdentity: EItems[] = [
     type: 'Identity',
   },
   {
+    title: 'The concept',
+    // tslint:disable-next-line: max-line-length
+    description: 'Our concept and values ​​should reflect us as a company in everything we do and how we are perceived on a corporate level and towards the customers.',
+    docUrl: Pages.TheConcept,
+    absolutePath: '/identity/' + Pages.TheConcept,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/identity-images/The concept.svg',
+    type: 'Identity',
+  },
+  {
     title: 'Tone of voice',
     // tslint:disable-next-line: max-line-length
     description: 'In order to create clear content and simultaneously have a consistent linguistic personality, it is important that we have a defined tone of voice. This section explains the difference between Elvia\'s style and tone and how they are connected when we communicate with our customers; whether it is written or oral.',
@@ -570,15 +580,6 @@ export const eCommunity: EItems[] = [
     docUrl: Pages.Contribute,
     absolutePath: '/community/' + Pages.Contribute,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/temporary.svg',
-    type: 'Community',
-  },
-  {
-    title: 'Discussion',
-    description: 'Discuss the design system? Report a bug? Request a new feature?',
-    docUrl: Pages.Discussion,
-    absolutePath: '/community/' + Pages.Discussion,
-    externalUrl: 'https://github.com/hafslundnett/elvia-designsystem/issues/new/choose',
     imageUrl: 'assets/website-icons/temporary.svg',
     type: 'Community',
   },

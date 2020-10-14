@@ -22,6 +22,7 @@ export enum Pages {
   Spacing = 'spacing-doc',
   Grid = 'grid-doc',
   Logo = 'logo-doc',
+  TheConcept = 'the-concept',
 
   // Component Pages
   ComponentsStart = 'components',
@@ -78,5 +79,4 @@ export enum Pages {
   Contribute = 'contribute',
   Faq = 'faq-doc',
   Changelog = 'changelog',
-  Discussion = 'discussion',
 }
