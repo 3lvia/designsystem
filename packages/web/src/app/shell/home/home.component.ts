@@ -24,7 +24,9 @@ export class HomeComponent implements OnInit {
         rows[i].classList.add('e-none');
       }
       const divider = document.getElementsByClassName('changelog-divider')[0] as HTMLElement;
-      divider.classList.add('e-none');
+      if (divider) {
+        divider.classList.add('e-none');
+      }
     }, 500);
   }
 }

@@ -28,7 +28,7 @@ THE SOFTWARE.
 */
 
 @use "breakpoints";
-/*@use 'bootstrap/scss/bootstrap-grid.scss' with (
+@use 'bootstrap/scss/bootstrap-grid.scss' with (
   // Defining variables for grid that will overwrite bootstraps variables
   $grid-breakpoints: (
     xs: 0,
@@ -39,7 +39,7 @@ THE SOFTWARE.
   ),
   $grid-columns: 12,
   $grid-gutter-width: 48px
-);*/
+);
 
 // Making custom margin classes
 .e-grid {
