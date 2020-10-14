@@ -1,5 +1,6 @@
 const sassPaths = ['./node_modules'];
 const Fiber = require('fibers');
+const del = require('del');
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
@@ -8,10 +9,16 @@ const postcss = require('gulp-postcss');
 const cssvariables = require('postcss-css-variables');
 
 
+// Delete old css
+function clean() {
+  let filesToDelete = ['css/'];
+  return del(filesToDelete);
+}
+
 // Generate elvis.css from scss files
 function generateElvisStyle() {
   return gulp
-    .src('src/main.scss')
+    .src('./src/main.scss')
     .pipe(postcss([cssvariables()]))
     .pipe(sass({ includePaths: sassPaths }))
     .pipe(sass({ fiber: Fiber }).on('error', sass.logError))
@@ -39,5 +46,5 @@ function minifyElvisStyle() {
 }
 
 
-const generateCSS = gulp.series(generateElvisStyle, minifyElvisStyle);
+const generateCSS = gulp.series(clean, generateElvisStyle, minifyElvisStyle);
 exports.generateCSS = generateCSS;

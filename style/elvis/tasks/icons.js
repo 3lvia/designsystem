@@ -11,7 +11,7 @@ const imagemin = require('gulp-imagemin');
 
 // Delete unused icons + generated icons
 function clean() {
-  let filesToDelete = ['css/', 'src/icons/svg/dist/'];
+  let filesToDelete = ['src/icons/svg/dist/'];
   const unusedFiles = findUnusedIconFiles().map((file) => {
     return `src/icons/svg/src/${file}`;
   });
