@@ -6,6 +6,7 @@ const svgToMiniDataURI = require('mini-svg-data-uri');
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
+const imagemin = require('gulp-imagemin');
 
 
 // Delete unused icons + generated icons
@@ -172,5 +173,14 @@ async function createPNGs() {
 }
 
 
-const generateIcons = gulp.series(clean, optimizeSVG, createEmbeddedIconsJS, createIconModule, createPNGs);
+// Optimize PNG icons
+function optimizePNG() {
+  const iconsToInclude = icons.map((i) => {
+    return `src/icons/png/src/${i.name}.png`;
+  });
+  return gulp.src(iconsToInclude).pipe(imagemin()).pipe(gulp.dest('src/icons/png/dist'));
+}
+
+
+const generateIcons = gulp.series(clean, optimizeSVG, createEmbeddedIconsJS, createIconModule, createPNGs, optimizePNG);
 exports.generateIcons = generateIcons;
