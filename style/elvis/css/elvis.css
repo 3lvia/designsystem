@@ -2470,7 +2470,7 @@ input:focus {
 
 .e-header__top-bar-desktop__title {
   font-family: "Red Hat Display";
-  font-weight: bold;
+  font-weight: 700;
   font-size: 18px;
   line-height: 22px;
 }
@@ -3217,11 +3217,11 @@ input:focus {
   box-sizing: border-box;
   border-bottom: 2px solid #000;
   cursor: pointer;
-  font-weight: bold;
   color: #000;
   text-align: inherit;
   position: relative;
   text-decoration: none;
+  font-weight: 500 !important;
 }
 
 .e-link__icon {
@@ -5140,7 +5140,7 @@ input:focus {
 }
 
 .e-list.e-list--strong {
-  font-weight: bold;
+  font-weight: 700;
   background: transparent;
 }
 
@@ -5641,7 +5641,7 @@ input:focus {
 
 .e-stepper__step-number {
   font-family: "Red Hat Display";
-  font-weight: bold;
+  font-weight: 700;
   font-size: 18px;
   line-height: 22px;
   color: #000;
@@ -5697,7 +5697,7 @@ input:focus {
 
 .e-stepper__title {
   font-family: "Red Hat Display";
-  font-weight: bold;
+  font-weight: 700;
   font-size: 24px;
   line-height: 29px;
   display: flex;
@@ -5747,7 +5747,7 @@ input:focus {
 
 .e-stepper.e-stepper--vertical .e-stepper__step.e-stepper__step--active .e-stepper__step-title {
   font-family: "Red Hat Display";
-  font-weight: bold;
+  font-weight: 700;
   font-size: 24px;
   line-height: 29px;
 }
@@ -6185,7 +6185,7 @@ input:focus {
   transition: 200ms;
   font-family: "Red Hat Text";
   font-size: 14px;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 19px;
   letter-spacing: 0.002em;
   color: #fff;
@@ -6777,7 +6777,7 @@ input:focus {
 .e-form-field__label.e-form-field__label--optional::after {
   content: " (valgfri)";
   color: #929292;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .e-form-field__error {
@@ -7228,7 +7228,7 @@ input:focus {
 .e-search.e-search--local {
   font-family: "Red Hat Text";
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 16px;
   line-height: 22px;
 }
