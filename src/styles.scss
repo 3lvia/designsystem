@@ -54,7 +54,7 @@ p {
     display: flex;
     justify-content: center;
     .illustration {
-      width: 68%;
+      width: 60%;
       transition: width ease-in 250ms;
     }
   }
@@ -65,21 +65,12 @@ p {
   }
   .phone-overview {
     display: none;
-    @include breakpoint-up(Mobile) {
-      display: block;
-    }
-  }
-  .tablet-overview {
-    display: none;
     @include breakpoint-up(Tablet) {
       display: block;
     }
-    @include breakpoint-up(Mobile) {
-      display: none;
-    }
   }
   .desktop-overview {
-    @include breakpoint-up(Mobile) {
+    @include breakpoint-up(Tablet) {
       display: none;
     }
   }
