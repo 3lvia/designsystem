@@ -50,6 +50,12 @@ p {
 }
 
 .overview-page {
+  .illustration-placement {
+    margin: -24px 0;
+    @include breakpoint-up(MinDesktop) {
+      margin: 0;
+    }
+  }
   .illustration-container {
     display: flex;
     justify-content: center;
