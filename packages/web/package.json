@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "elvia-designsystem",
   "version": "0.0.0",
   "workspaces": {
     "packages": [
@@ -7,30 +7,9 @@
     ]
   },
   "scripts": {
-    "build": "cd packages/elvis && npm install && cd ../web && ng build --prod=true",
-    "commitizen-unix": "exec < /dev/tty && git cz --hook",
-    "commitizen-windows": "winpty git cz --hook || true",
-    "lint-elvis": "npx prettier --write 'packages/elvis/**/*.js'",
-    "lint-doc": "npx prettier --write 'src/**/*.ts'",
-    "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
-    "lint-all": "npm run lint-elvis && npm run lint-doc && npm run eslint"
-  },
-  "lint-staged": {
-    "**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
-      "npx prettier --write",
-      "git add"
-    ],
-    "**/*.+(js|ts|tsx)": [
-      "./node_modules/.bin/eslint --fix",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "./scripts/commitizen.sh",
-      "pre-commit": "lint-staged && ./scripts/pre-commit.sh",
-      "pre-push": "./scripts/pre-push.sh"
-    }
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "cd packages/elvis && npm install && cd ../.. && ng build --prod=true",
   },
   "private": true,
   "dependencies": {
@@ -91,10 +70,5 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~4.0.2"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
   }
 }
