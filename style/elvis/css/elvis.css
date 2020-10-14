@@ -6991,11 +6991,17 @@ input:focus {
   align-items: center;
   box-sizing: border-box;
   width: fit-content;
+  position: relative;
+  line-height: 24px;
   cursor: pointer;
 }
 
 .e-radio:not(:last-child) {
   margin-bottom: 8px;
+}
+
+.e-radio.e-radio--sm {
+  line-height: 22px;
 }
 
 .e-radio.e-radio--sm:not(:last-child) {
@@ -7193,9 +7199,22 @@ input:focus {
   border-color: #ff0000;
 }
 
+.e-radio__mark {
+  position: absolute;
+  top: 0px;
+}
+
+.e-radio.e-radio--sm .e-radio__mark {
+  top: 3px;
+}
+
 .e-radio__label {
   flex-grow: 1;
-  margin-left: 8px;
+  margin-left: 32px;
+}
+
+.e-radio.e-radio--sm .e-radio__label {
+  margin-left: 24px;
 }
 
 .e-search {

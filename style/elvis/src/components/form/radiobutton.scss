@@ -14,12 +14,16 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
   align-items: center;
   box-sizing: border-box;
   width: fit-content;
+  position: relative;
+  line-height: 24px;
   cursor: pointer;
+
   &:not(:last-child) {
     margin-bottom: 8px;
   }
 
   &.e-radio--sm {
+    line-height: 22px;
     &:not(:last-child) {
       margin-bottom: 0px;
     }
@@ -241,8 +245,22 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
     }
   }
 
+  &__mark {
+    position: absolute;
+    top: 0px;
+  }
+  &.e-radio--sm {
+    .e-radio__mark {
+      top: 3px;
+    }
+  }
   &__label {
     flex-grow: 1;
-    margin-left: 8px;
+    margin-left: 32px;
+  }
+  &.e-radio--sm {
+    .e-radio__label {
+      margin-left: 24px;
+    }
   }
 }
