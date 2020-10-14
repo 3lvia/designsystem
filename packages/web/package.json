@@ -9,7 +9,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod=true"
+    "build": "ng build",
+    "build:production": "ng build --prod=true"
   },
   "private": true,
   "dependencies": {
