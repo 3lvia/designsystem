@@ -33,7 +33,7 @@ async function createTypographyScss() {
 
 ` + fs.readFileSync('./src/templates/typography.template.scss').toString();
   const newContent = template.replace('//[[INJECT_TYPOGRAPHY_VARIABLES]]', content);
-  fs.writeFileSync('src/variables/typography.scss', newContent);
+  fs.writeFileSync('./src/variables/typography.scss', newContent);
 
   return true;
 }
