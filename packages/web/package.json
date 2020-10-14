@@ -9,7 +9,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "cd packages/elvis && npm install && cd ../.. && ng build --prod=true",
+    "build": "cd ../packages/elvis && npm install && cd ../web && ng build --prod=true"
   },
   "private": true,
   "dependencies": {

@@ -11,7 +11,7 @@
     "commitizen-unix": "exec < /dev/tty && git cz --hook",
     "commitizen-windows": "winpty git cz --hook || true",
     "lint-elvis": "npx prettier --write 'packages/elvis/**/*.js'",
-    "lint-doc": "npx prettier --write 'src/**/*.ts'",
+    "lint-doc": "npx prettier --write 'packages/web/src/**/*.ts'",
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint-all": "npm run lint-elvis && npm run lint-doc && npm run eslint"
   },
