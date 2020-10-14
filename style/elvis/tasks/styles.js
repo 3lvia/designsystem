@@ -15,6 +15,7 @@ function clean() {
   return del(filesToDelete);
 }
 
+
 // Generate elvis.css from scss files
 function generateElvisStyle() {
   return gulp
