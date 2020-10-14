@@ -172,6 +172,9 @@ body {
   line-height: 32px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -206,6 +209,9 @@ body {
   line-height: 32px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -375,28 +381,27 @@ body {
 
 .e-alert {
   display: inline-flex;
-  padding: 22px 30px 22px 22px;
+  padding: 22px;
   box-sizing: border-box;
   border: 2px solid #ff0000;
   background: #fff;
   flex-direction: row;
   max-width: 850px;
+  min-width: 270px;
 }
 
 .e-alert .e-alert__icon {
   display: flex;
   margin-right: 24px;
   margin-top: 8px;
-}
-
-.e-alert.e-alert--no-title .e-alert__icon {
-  margin-top: 0;
+  width: 32px;
 }
 
 .e-alert__content {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: calc(100% - 62px);
 }
 
 .e-alert__content .e-alert__title {
@@ -405,14 +410,24 @@ body {
   line-height: 17px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  margin-bottom: 2px;
 }
 
 .e-alert__content .e-alert__text {
+  font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 28px;
+  font-weight: 400;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  margin-top: 4px;
+  font-size: 16px;
+  line-height: 28px;
+  max-width: 758px;
 }
 
 .e-alert__content .e-alert__text ul {
@@ -424,28 +439,281 @@ body {
 
 .e-alert__content .e-alert__links {
   margin-top: 16px;
+  height: 24px;
 }
 
 .e-alert__content .e-alert__links a:not(:last-of-type) {
   margin-right: 24px;
 }
 
-.e-alert--local {
-  border-radius: 8px;
+.e-alert__close {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 8px;
+  padding-left: 24px;
+  margin-left: auto;
+  width: 56px;
 }
 
-.e-alert--positive {
-  border-color: #29d305;
+.e-alert.e-alert--no-title .e-alert__close {
+  margin-top: 0;
 }
 
-.e-alert--warn {
-  border-color: #ffa000;
-}
-
-.e-alert--info {
+.e-alert.e-alert--global {
+  width: 100%;
+  max-width: unset;
   border-color: #000;
 }
 
+.e-alert.e-alert--global .e-alert__content .e-alert__title {
+  font-family: Red Hat Display, sans-serif;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 700;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+}
+
+.e-alert.e-alert--global.e-alert--warn {
+  border-color: #ffa000;
+}
+
+.e-alert.e-alert--global.e-alert--error {
+  border-color: #ff0000;
+}
+
+.e-alert.e-alert--global.e-alert--expandable .e-alert__icon {
+  margin-top: 0px;
+}
+
+.e-alert.e-alert--global.e-alert--expandable .e-alert__content,
+.e-alert.e-alert--global.e-alert--expandable .e-alert__title {
+  width: 100%;
+}
+
+.e-alert.e-alert--global.e-alert--expandable .e-alert__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 32px;
+}
+
+.e-alert.e-alert--global.e-alert--expandable .e-alert__title .e-alert__accordion {
+  width: 24px;
+  height: 24px;
+  margin-left: 24px;
+  animation: rotate-center-forward 0.2s ease-in-out both;
+  display: flex;
+  width: 24px;
+  height: 24px;
+}
+
+.e-alert.e-alert--global.e-alert--expandable .e-alert__title .e-alert__accordion img,
+.e-alert.e-alert--global.e-alert--expandable .e-alert__title .e-alert__accordion i {
+  width: 24px;
+  height: 24px;
+}
+
+@keyframes rotate-center-forward {
+  0% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+}
+.e-alert.e-alert--global.e-alert--expandable .e-alert__title .e-alert__accordion img,
+.e-alert.e-alert--global.e-alert--expandable .e-alert__title .e-alert__accordion i {
+  width: 24px;
+  height: 24px;
+}
+
+.e-alert.e-alert--global.e-alert--expandable .e-alert__title .e-alert__accordion i[class*=expand_circle-filled-color] {
+  display: none;
+}
+
+.e-alert.e-alert--global.e-alert--expandable .e-alert__title:hover {
+  cursor: pointer;
+}
+
+.e-alert.e-alert--global.e-alert--expandable .e-alert__title:hover i[class*=expand_circle-color] {
+  display: none;
+}
+
+.e-alert.e-alert--global.e-alert--expandable .e-alert__title:hover i[class*=expand_circle-filled-color] {
+  display: flex;
+}
+
+.e-alert.e-alert--global.e-alert--expandable .e-alert__text {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+  transition: max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1), opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), margin-top 0.17s cubic-bezier(0, 0.18, 1, 1);
+  width: 100%;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.e-alert.e-alert--global.e-alert--expandable.e-alert--open .e-alert__accordion {
+  animation: rotate-center-back 0.2s ease-in-out both;
+}
+
+@keyframes rotate-center-back {
+  0% {
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100% {
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+  }
+}
+.e-alert.e-alert--global.e-alert--expandable.e-alert--open .e-alert__text {
+  margin-top: 8px;
+  pointer-events: auto;
+  max-height: 10000px;
+  opacity: 1;
+  transition: 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97), margin-top 0.1s cubic-bezier(0, 0.3, 0.83, 0.97);
+}
+
+@media (max-width: 767px) {
+  .e-alert.e-alert--global.e-alert--expandable .e-alert__icon {
+    align-items: flex-start;
+  }
+
+  .e-alert.e-alert--global.e-alert--expandable.e-alert--open .e-alert__text {
+    margin-top: 16px;
+    margin-left: -56px;
+    width: calc(100% + 56px);
+  }
+}
+.e-alert.e-alert--local {
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.e-alert.e-alert--local.e-alert--warn {
+  border-color: #ffa000;
+}
+
+.e-alert.e-alert--local.e-alert--info {
+  border-color: #000;
+}
+
+.e-alert.e-alert--toast {
+  border-radius: 8px;
+  border-color: #29d305;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
+  max-width: 400px;
+}
+
+.e-alert.e-alert--toast.e-alert--info {
+  border-color: #000;
+}
+
+.e-alert.e-alert--toast .e-alert__icon {
+  margin-top: 0px;
+  align-items: center;
+}
+
+.e-alert.e-alert--toast .e-alert__content .e-alert__text {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+}
+
+.e-alert.e-alert--toast .e-alert__close {
+  margin-top: 0px;
+  align-items: center;
+}
+
+.e-alert.e-alert--no-title .e-alert__icon {
+  margin-top: 0;
+}
+
+.e-alert.e-alert--no-title .e-alert__text {
+  margin-top: 0;
+}
+
+.e-alert.e-alert--actions .e-alert__content {
+  flex-direction: row;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.e-alert.e-alert--actions .e-alert__content .e-alert__icon {
+  margin-top: 0px;
+}
+
+.e-alert.e-alert--actions .e-alert__content .e-alert__text {
+  display: flex;
+  align-items: center;
+}
+
+.e-alert.e-alert--actions .e-alert__content .e-alert__actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  margin-left: auto;
+}
+
+@media (max-width: 767px) {
+  .e-alert .e-alert__icon {
+    align-items: center;
+    margin-top: 0px;
+  }
+
+  .e-alert .e-alert__close {
+    align-items: center;
+    margin-top: 0px;
+  }
+
+  .e-alert.e-alert--actions .e-alert__icon {
+    align-items: flex-start;
+  }
+
+  .e-alert.e-alert--actions .e-alert__content {
+    flex-direction: column;
+  }
+
+  .e-alert.e-alert--actions .e-alert__content .e-alert__actions {
+    padding-left: 0px;
+    margin-top: 24px;
+    margin-left: -56px;
+    width: calc(100% + 56px);
+  }
+
+  .e-alert.e-alert--actions .e-alert__content .e-alert__actions button {
+    width: 100%;
+  }
+
+  .e-alert.e-alert--local {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .e-alert.e-alert--local .e-alert__icon {
+    margin-right: 0px;
+  }
+
+  .e-alert.e-alert--local .e-alert__content {
+    margin-top: 16px;
+  }
+}
 .e-autocomplete, .e-dropdown__content {
   position: absolute;
   display: block;
@@ -473,6 +741,9 @@ body {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-autocomplete__item:hover, .e-dropdown__item:hover {
@@ -1653,6 +1924,9 @@ input:focus {
   line-height: 22px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   line-height: 24px;
   margin-bottom: 16px;
 }
@@ -1663,6 +1937,7 @@ input:focus {
   line-height: 17px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
   position: absolute;
@@ -1678,6 +1953,9 @@ input:focus {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-content-loader {
@@ -1753,6 +2031,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-input > i ~ input {
@@ -1954,6 +2235,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   padding: 4px 11px;
   border: 1px solid transparent;
   border-radius: 32px;
@@ -2085,6 +2369,9 @@ input:focus {
   line-height: 22px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   color: #fff;
   border: 2px solid #fff;
 }
@@ -2104,6 +2391,7 @@ input:focus {
   line-height: 17px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
@@ -2134,6 +2422,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-header__top-bar-desktop__area .e-header__top-bar-desktop__area-menu-item:first-of-type {
@@ -2172,6 +2463,7 @@ input:focus {
   line-height: 17px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
@@ -2240,6 +2532,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-header__top-bar-desktop__user .e-header__top-bar-desktop__user-menu-settings {
@@ -2498,6 +2793,9 @@ input:focus {
     line-height: 22px;
     font-weight: 400;
     color: #000;
+    font-style: unset;
+    letter-spacing: unset;
+    text-transform: unset;
     color: #515151;
   }
 
@@ -2545,6 +2843,9 @@ input:focus {
     line-height: 22px;
     font-weight: 400;
     color: #000;
+    font-style: unset;
+    letter-spacing: unset;
+    text-transform: unset;
     letter-spacing: 0.2px;
   }
 
@@ -2628,6 +2929,9 @@ input:focus {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-header__sidebar__item .e-header__sidebar__icon, .e-header__sidebar__open-close .e-header__sidebar__icon {
@@ -3076,6 +3380,9 @@ input:focus {
   line-height: 22px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   display: inline-flex;
   align-items: center;
   border: 2px solid #000;
@@ -3233,6 +3540,9 @@ input:focus {
   line-height: 23px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;
@@ -3246,6 +3556,9 @@ input:focus {
   line-height: 23px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   font-weight: 400;
   font-size: 12px;
   line-height: 19px;
@@ -3334,6 +3647,9 @@ input:focus {
   line-height: 23px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   font-size: 16px;
 }
 
@@ -3343,6 +3659,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-link.e-link--card.e-link--shortcut:hover {
@@ -4900,6 +5219,9 @@ input:focus {
   line-height: 36px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -4914,6 +5236,9 @@ input:focus {
   line-height: 32px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   color: #000;
   padding-top: 32px;
 }
@@ -5161,6 +5486,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   font-weight: 500 !important;
   padding-bottom: 8px;
 }
@@ -5171,6 +5499,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-popover__content::before {
@@ -5653,6 +5984,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   padding: 9px 16px;
   line-height: 21px;
 }
@@ -5668,6 +6002,9 @@ input:focus {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   text-align: left;
   padding: 10px 16px;
 }
@@ -5689,6 +6026,9 @@ input:focus {
   line-height: 22px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-table thead th,
@@ -5718,6 +6058,9 @@ input:focus {
   line-height: 28px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   line-height: 27px;
   padding: 10px 16px;
   text-align: left;
@@ -5748,6 +6091,9 @@ input:focus {
   line-height: 22px;
   font-weight: 700;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-table-mobile tbody tr:first-of-type th {
@@ -5774,6 +6120,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   padding: 9px 16px;
   line-height: 21px;
 }
@@ -6047,6 +6396,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   line-height: 16px;
 }
 
@@ -6320,6 +6672,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-form-field.e-form-field--compact .e-search--local {
@@ -6382,6 +6737,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-form-field.e-form-field--compact .e-input.e-input---invalid input, .e-form-field.e-form-field--compact .e-input.e-input---invalid textarea,
@@ -6411,6 +6769,9 @@ input:focus {
   line-height: 23px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-form-field__label.e-form-field__label--optional::after {
@@ -6429,6 +6790,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   color: #262626;
 }
 
@@ -6513,6 +6877,9 @@ input:focus {
   line-height: 22px;
   font-weight: 400;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -6602,6 +6969,9 @@ input:focus {
   line-height: 23px;
   font-weight: 500;
   color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   color: #333333;
   display: flex;
   width: 100%;
@@ -11687,6 +12057,9 @@ THE SOFTWARE.
   font-size: 44px;
   line-height: 53px;
   font-weight: 900;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11700,6 +12073,9 @@ THE SOFTWARE.
   font-size: 30px;
   line-height: 36px;
   font-weight: 700;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11713,6 +12089,9 @@ THE SOFTWARE.
   font-size: 24px;
   line-height: 29px;
   font-weight: 700;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11726,6 +12105,9 @@ THE SOFTWARE.
   font-size: 18px;
   line-height: 22px;
   font-weight: 700;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-text-lead {
@@ -11733,6 +12115,9 @@ THE SOFTWARE.
   font-size: 24px;
   line-height: 39px;
   font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11747,6 +12132,8 @@ THE SOFTWARE.
   line-height: 42px;
   font-weight: 400;
   font-style: italic;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11760,6 +12147,9 @@ THE SOFTWARE.
   font-size: 20px;
   line-height: 32px;
   font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11775,6 +12165,8 @@ THE SOFTWARE.
   line-height: 29px;
   font-weight: 400;
   font-style: italic;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 @media (max-width: 767px) {
@@ -11788,6 +12180,9 @@ THE SOFTWARE.
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-text-caps {
@@ -11795,6 +12190,7 @@ THE SOFTWARE.
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
+  font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
 }
@@ -11804,6 +12200,9 @@ THE SOFTWARE.
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-text-label {
@@ -11811,6 +12210,9 @@ THE SOFTWARE.
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-text-option {
@@ -11818,6 +12220,9 @@ THE SOFTWARE.
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-text-right {
