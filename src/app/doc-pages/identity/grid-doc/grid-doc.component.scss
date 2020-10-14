@@ -1,5 +1,5 @@
-@use '../../../../../style/elvis/src/variables/typography.scss';
-@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
+@use '../../../../../packages/elvis/src/variables/typography.scss';
+@import '../../../../../packages/elvis/src/utilities/breakpoints.scss';
 
 @include breakpoint-up(Mobile) {
   img {

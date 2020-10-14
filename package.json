@@ -1,17 +1,22 @@
 {
   "name": "elvia-designsystem",
   "version": "0.0.0",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start-dev": "concurrently \"npm run start\" \"cd style/elvis && gulp watch\"",
-    "build": "cd style/elvis && npm install && cd ../.. && ng build --prod=true",
+    "start-dev": "concurrently \"npm run start\" \"cd packages/elvis && gulp watch\"",
+    "build": "cd packages/elvis && npm install && cd ../.. && ng build --prod=true",
     "test": "ng test",
     "e2e": "ng e2e",
     "cypress": "cypress open",
     "commitizen-unix": "exec < /dev/tty && git cz --hook",
     "commitizen-windows": "winpty git cz --hook || true",
-    "lint-elvis": "npx prettier --write 'style/elvis/**/*.js'",
+    "lint-elvis": "npx prettier --write 'packages/elvis/**/*.js'",
     "lint-doc": "npx prettier --write 'src/**/*.ts'",
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint-all": "npm run lint-elvis && npm run lint-doc && npm run eslint"
@@ -45,7 +50,6 @@
     "@angular/platform-browser": "^10.1.1",
     "@angular/platform-browser-dynamic": "^10.1.1",
     "@angular/router": "^10.1.1",
-    "@elvia/elvis": "^0.0.10",
     "classlist.js": "^1.1.20150312",
     "css-vars-ponyfill": "^2.3.0",
     "glob": "^7.1.6",
@@ -56,7 +60,8 @@
     "rxjs": "^6.5.5",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "tslib": "^2.0.0",
-    "zone.js": "^0.10.3"
+    "zone.js": "^0.10.3",
+    "@elvia/elvis": "*"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1001.1",
@@ -86,6 +91,7 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "lerna": "^3.22.1",
     "lint-staged": "^10.2.7",
     "sharp": "^0.26.1",
     "ts-node": "~8.3.0",

@@ -1,5 +1,5 @@
 @import '../../shared/shared-sizes.scss';
-@import '../../../../style/elvis/src/utilities/breakpoints.scss';
+@import '../../../../packages/elvis/src/utilities/breakpoints.scss';
 
 .main-content {
   min-height: calc(100vh - 40px + 104px - #{$footer-height});

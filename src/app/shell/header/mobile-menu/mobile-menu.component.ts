@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class MobileMenuComponent implements OnDestroy {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  version = require('../../../../../style/elvis/package.json').version;
+  version = require('../../../../../packages/elvis/package.json').version;
 
   private onDestroy = new Subject();
 

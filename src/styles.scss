@@ -1,6 +1,5 @@
 /* Elvia Styleguide */
-// @import "~@elvia/elvis/src/main.scss";
-@import '../style/elvis/src/main.scss';
+@import '../packages/elvis/src/main.scss';
 
 /* Code highlighter */
 @import '~prismjs/plugins/toolbar/prism-toolbar.css';
@@ -10,7 +9,7 @@
 @import './app/shared/shared-animations';
 
 // Elvia breakpoints for mobile
-@import './style/elvis/src/utilities/breakpoints.scss';
+@import './packages/elvis/src/utilities/breakpoints.scss';
 
 // Prebuilt css for enabling use of overlays from @angular/cdk
 @import '@angular/cdk/overlay-prebuilt.css';
