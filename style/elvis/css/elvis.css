@@ -3289,26 +3289,17 @@ input:focus {
   line-height: 100%;
 }
 
-.e-link.e-link--external {
-  padding-right: 16px;
-}
-
 .e-link.e-link--external .e-link__icon {
   margin-left: 8px;
-  position: absolute;
-  bottom: 10px;
-}
-
-.e-link.e-link--new-tab {
-  padding-right: 24px;
+  display: inline-block;
+  vertical-align: super;
 }
 
 .e-link.e-link--new-tab .e-link__icon {
   width: 16px;
   height: 16px;
   margin-left: 8px;
-  position: absolute;
-  bottom: 2px;
+  display: inline-block;
 }
 
 .e-link.e-link--new-tab .e-link__icon img,

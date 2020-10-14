@@ -30,7 +30,7 @@ describe('Elvis Header Test', () => {
         cy.url().should('eq', 'http://localhost:4200/home');
     });
     it('should have a icon wihth link to Github repo of elvia design system in the header', () => {
-        cy.get('.header-top_links').should('have.attr', 'href', 'https://github.com/hafslundnett/elvia-designsystem');
+        cy.get('.header-top_links').should('have.attr', 'href', 'https://github.com/3lvia/designsystem');
     });
 });
 

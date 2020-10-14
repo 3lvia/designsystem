@@ -88,23 +88,18 @@ $link-jumbo-phone-width: 287px;
   }
 
   &.e-link--external {
-    padding-right: 16px;
-
     .e-link__icon {
       margin-left: 8px;
-      position: absolute;
-      bottom: 10px;
+      display: inline-block;
+      vertical-align: super;
     }
   }
 
   &.e-link--new-tab {
-    padding-right: 24px;
-
     .e-link__icon {
       @include icons.icon-size('xs');
       margin-left: 8px;
-      position: absolute;
-      bottom: 2px;
+      display: inline-block;
     }
     &.e-link--lg {
       .e-link__icon {
