@@ -73,7 +73,7 @@ async function createEmbeddedIconsJS() {
   const template = fs.readFileSync('./src/templates/elvis.template.js').toString();
   const newContent = template.replace('//[[INJECT_ICONS]]', embeddedJs);
   fs.writeFileSync('elvis.js', newContent);
-  fs.writeFileSync('../../src/assets/js/elvis.js', newContent);
+  fs.writeFileSync('../web/src/assets/js/elvis.js', newContent);
 
   return true;
 }
