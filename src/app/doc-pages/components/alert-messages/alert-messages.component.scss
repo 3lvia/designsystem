@@ -1,0 +1,58 @@
+@import '../../../../../style/elvis/src/utilities/breakpoints.scss';
+
+.alert-type-container {
+  display: flex;
+  justify-content: space-between;
+
+  @include breakpoint-up(MinDesktop) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  .alert-type-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: flex-start;
+    text-align: center;
+    margin-top: 24px;
+    @include breakpoint-up(MinDesktop) {
+      text-align: left;
+    }
+
+    img {
+      margin-top: 16px;
+      height: 150px;
+      @include breakpoint-up(MinDesktop) {
+        height: 170px;
+      }
+    }
+  }
+}
+
+.alert-status {
+  display: flex;
+  align-items: center;
+  margin-top: 56px;
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .alert-icons {
+    display: flex;
+    margin-right: 48px;
+    @media screen and (-ms-high-contrast: none) {
+      margin-right: 48px + 48px;
+    }
+    @include breakpoint-up(Mobile) {
+      margin-right: 0px;
+    }
+  }
+  .title {
+    @include breakpoint-up(Mobile) {
+      margin-top: 16px;
+    }
+  }
+}
