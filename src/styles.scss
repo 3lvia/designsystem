@@ -54,7 +54,7 @@ p {
     display: flex;
     justify-content: center;
     .illustration {
-      width: 60%;
+      width: calc(150px + 40%);
       transition: width ease-in 250ms;
     }
   }
