@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { eGetStarted, eComponents, eIdentity, eCommunity, eTools } from 'src/app/shared/e-items';
 import { EItems } from 'src/app/shared/e-items.interface';
+import * as packageJson from '@elvia/elvis/package.json';
 
 @Component({
   selector: 'app-search-menu',
@@ -9,9 +10,7 @@ import { EItems } from 'src/app/shared/e-items.interface';
   styleUrls: ['./search-menu.component.scss'],
 })
 export class SearchMenuComponent implements OnInit, OnDestroy {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  version = require('../../../../../packages/elvis/package.json').version;
+  version = packageJson.version;
   showResults = false;
   resultOfMoreThanTwo = false;
   searchString = '';
@@ -47,11 +46,11 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
   onSearch(): void {
     // Adding all titles that contain searchString to results
-    this.activeResults = this.elvisItems.filter((item) =>
+    this.activeResults = this.elvisItems.filter((item: any) =>
       item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()),
     );
     // Adding all descriptions that contain searchString to results
-    this.activeResults = this.activeResults.concat(this.elvisItems.filter((item) =>
+    this.activeResults = this.activeResults.concat(this.elvisItems.filter((item: any) =>
       this.containsSearchString(item),
     ));
 

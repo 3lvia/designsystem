@@ -1,6 +1,6 @@
 import { Component, ElementRef, QueryList, ViewChildren, OnInit } from '@angular/core';
 import { getIdentity } from 'src/app/shared/e-items';
-import * as typography from 'packages/elvis/src/config/typography.config';
+import * as typography from '@elvia/elvis/src/config/typography.config';
 
 @Component({
   selector: 'app-typography-doc',

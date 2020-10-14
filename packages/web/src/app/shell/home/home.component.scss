@@ -1,6 +1,6 @@
 @import '../../shared/shared-sizes';
-@import '../../../../packages/elvis/src/utilities/breakpoints.scss';
-@import '../../../../packages/elvis/src/utilities/helpers';
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import '@elvia/elvis/src/utilities/helpers';
 
 .home-container {
   overflow: hidden;

@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
 import { Icon } from 'src/app/shared/icon.interface';
 import { getIdentity } from 'src/app/shared/e-items';
-import * as icons from 'packages/elvis/src/config/icons.config';
+import * as icons from '@elvia/elvis/src/config/icons.config';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 
 @Component({

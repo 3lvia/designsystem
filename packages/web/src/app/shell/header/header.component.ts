@@ -5,7 +5,7 @@ import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { SearchMenuComponent } from './search-menu/search-menu.component';
-
+import * as packageJson from '@elvia/elvis/package.json';
 
 @Component({
   selector: 'app-header',
@@ -13,9 +13,7 @@ import { SearchMenuComponent } from './search-menu/search-menu.component';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  version = require('../../../../packages/elvis/package.json').version;
+  version = packageJson.version;
   internalHeader = false;
   searchMenuOpen = false;
   searchOverlay: OverlayRef;

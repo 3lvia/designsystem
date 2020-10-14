@@ -1,6 +1,6 @@
 @import '../../shared/shared-sizes.scss';
 @import '../../shared/shared-animations';
-@import '../../../../packages/elvis/src/utilities/breakpoints.scss';
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 $text-line-height: 32px;
 .wrapper {

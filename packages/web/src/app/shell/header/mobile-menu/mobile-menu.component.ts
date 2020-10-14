@@ -1,15 +1,15 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import * as packageJson from '@elvia/elvis/package.json';
+
 @Component({
   selector: 'app-mobile-menu',
   templateUrl: './mobile-menu.component.html',
   styleUrls: ['./mobile-menu.component.scss'],
 })
 export class MobileMenuComponent implements OnDestroy {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  version = require('../../../../../packages/elvis/package.json').version;
+  version = packageJson.version;
 
   private onDestroy = new Subject();
 
