@@ -59,6 +59,7 @@ p {
     }
   }
   .overview-description {
+    text-align: center;
     @include breakpoint-up(Tablet) {
       display: none;
     }
