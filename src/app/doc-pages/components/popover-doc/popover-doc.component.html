@@ -59,21 +59,39 @@
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Top left and right'">
+      <app-component-subsection [sectionTitle]="'Bottom center'">
         <ng-container ngProjectAs="sectionContent">
           <app-code-block [codeHTML]="example2" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Bottom center'">
+      <app-component-subsection [sectionTitle]="'Left and right'">
         <ng-container ngProjectAs="sectionContent">
           <app-code-block [codeHTML]="example3" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Bottom left and right'">
+      <app-component-subsection [sectionTitle]="'Left-50 and right-50'">
         <ng-container ngProjectAs="sectionContent">
+          <div class="e-text-description">
+            For use cases where you only want the popover to move 50% from the center to left or right.
+          </div>
           <app-code-block [codeHTML]="example4" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Sizing for mobile'">
+        <ng-container ngProjectAs="sectionContent">
+          <div class="e-text-description">
+            To ease the implementation of the popover on mobile displays we offer sizing classes.The sizing
+            options are 200px, 220px, 240px and 260px that are only applied on mobile breakpoints.
+          </div>
+          <app-code-block
+            [codeHTML]="example5"
+            [showIframeScreens]="true"
+            [noDesktop]="true"
+            [noTablet]="true"
+          ></app-code-block>
         </ng-container>
       </app-component-subsection>
     </ng-container>
