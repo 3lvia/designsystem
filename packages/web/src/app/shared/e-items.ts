@@ -19,14 +19,6 @@ export const eHomes: EItems[] = [
     imageUrl: 'assets/website-icons/shortcut-images/Component.svg',
     imageUrlOn: 'assets/website-icons/shortcut-images/ComponentOn.svg',
   },
-  // {
-  //   title: 'Accessibility',
-  //   description: 'WCAG 2.0',
-  //   docUrl: Pages.Contribute,
-  //   absolutePath: '/community/' + Pages.Contribute,
-  //   imageUrl: 'assets/website-icons/shortcut-images/Accessibility.svg',
-  //   imageUrlOn: 'assets/website-icons/shortcut-images/AccessibilityOn.svg',
-  // },
   {
     title: 'Utility Classes',
     description: 'Developer Tools',
