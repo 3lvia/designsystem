@@ -35,10 +35,85 @@ p {
 
 // Shared classes
 .page-body {
-  margin: auto;
+  margin-left: 10%;
   width: 90%;
   min-width: 20rem;
   max-width: 55rem;
+  &.overview {
+    max-width: 65rem;
+  }
+  @include breakpoint-up(MinDesktop) {
+    margin: 0 auto;
+  }
+  @extend %slide-in-top;
+}
+
+.overview-page {
+  .illustration-placement {
+    margin: -24px 0;
+    @include breakpoint-up(MinDesktop) {
+      margin: 0;
+    }
+  }
+  .illustration-container {
+    display: flex;
+    justify-content: center;
+
+    @include breakpoint-up(Mobile) {
+      display: none;
+    }
+
+    .content-loader-padding {
+      width: 100%;
+      padding-bottom: 42.363%;
+      position: relative;
+      @include breakpoint-up(MinDesktop) {
+        padding-bottom: 45.863%;
+      }
+    }
+    .illustration {
+      width: 60.5%;
+      transition: width ease-in 250ms;
+
+      @include breakpoint-up(MinDesktop) {
+        width: 65.5%;
+        transition: width ease-in 250ms;
+      }
+    }
+
+    .e-content-loader {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      margin: auto;
+      padding: 56px;
+      padding-top: 72px;
+      @include breakpoint-up(MinDesktop) {
+        padding: 16px;
+        padding-top: 54px;
+      }
+    }
+  }
+  .overview-description {
+    text-align: center;
+    @include breakpoint-up(Tablet) {
+      display: none;
+    }
+  }
+  .phone-overview {
+    display: none;
+    @include breakpoint-up(Tablet) {
+      display: block;
+    }
+  }
+  .desktop-overview {
+    @include breakpoint-up(Tablet) {
+      display: none;
+    }
+  }
 }
 
 .changelog-row {

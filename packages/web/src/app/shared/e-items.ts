@@ -65,7 +65,17 @@ export const eGetStarted: EItems[] = [
     docUrl: Pages.NewProject,
     status: ItemStatus.New,
     absolutePath: '/get-started/' + Pages.NewProject,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/get-started-images/For developers.svg',
+    type: 'Get started',
+  },
+  {
+    title: 'For designers',
+    // tslint:disable-next-line: max-line-length
+    description: 'As a designer, there’s a few resources to gather before getting started with the design system in Elvia. First thing to do is to make sure you have access to the Figma library.',
+    docUrl: Pages.GetStartedDesigners,
+    status: ItemStatus.New,
+    absolutePath: '/get-started/' + Pages.GetStartedDesigners,
+    imageUrl: 'assets/website-icons/get-started-images/For designers.svg',
     type: 'Get started',
   },
 ];
@@ -552,7 +562,7 @@ export const eCommunity: EItems[] = [
     description: 'The latest news, updates, and changes to the design system.',
     docUrl: Pages.Changelog,
     absolutePath: '/community/' + Pages.Changelog,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/community-images/what\'s new.svg',
     type: 'Community',
   },
   {
@@ -594,7 +604,7 @@ export const eCommunity: EItems[] = [
     docUrl: Pages.Faq,
     absolutePath: '/community/' + Pages.Faq,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/community-images/FAQ.svg',
     type: 'Community',
   },
 ];

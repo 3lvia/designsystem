@@ -1,11 +1,13 @@
 @import '../../shared/shared-sizes';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 @import '@elvia/elvis/src/utilities/helpers';
+@import '../../shared/shared-animations.scss';
 
 .home-container {
   overflow: hidden;
   padding-bottom: 40px;
   padding-top: 64px;
+  @extend %slide-in-top;
 }
 
 // IMAGE SIZING

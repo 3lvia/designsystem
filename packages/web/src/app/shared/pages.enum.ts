@@ -8,6 +8,7 @@ export enum Pages {
   // Children
   OverviewGetStarted = 'overview-get-started-doc',
   NewProject = 'new-project-doc',
+  GetStartedDesigners = 'get-started-designers',
 
   // Identity Pages
   IdentityStart = 'identity',

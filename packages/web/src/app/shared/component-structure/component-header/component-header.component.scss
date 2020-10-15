@@ -3,10 +3,6 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .component {
-  margin: auto;
-  width: 90%;
-  min-width: 20rem;
-  max-width: 55rem;
   &-header {
     margin-bottom: var(--e-spacing-16);
 
