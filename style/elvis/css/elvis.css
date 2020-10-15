@@ -5912,14 +5912,6 @@ input:focus {
   position: relative;
 }
 
-.e-table tbody tr:last-child :first-child {
-  border-bottom-left-radius: 8px;
-}
-
-.e-table tbody tr:last-child :last-child {
-  border-bottom-right-radius: 8px;
-}
-
 .e-table__sort-header {
   cursor: pointer;
 }
