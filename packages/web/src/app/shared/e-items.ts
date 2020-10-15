@@ -137,6 +137,17 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
+    title: 'Chips',
+    // tslint:disable-next-line: max-line-length
+    description: 'Checkboxes let users select one or multiple options. It can also be used to toggle on/off when you have a single option available, for example if you want to receive a newsletter or when you have to accept terms.',
+    docUrl: Pages.Chips,
+    absolutePath: '/components/' + Pages.Chips,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/component-images/Chip.svg',
+    figmaUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-and-chips?node-id=136%3A1258',
+    type: 'Component',
+  },
+  {
     title: 'Checkbox',
     // tslint:disable-next-line: max-line-length
     description: 'Checkboxes let users select one or multiple options. It can also be used to toggle on/off when you have a single option available, for example if you want to receive a newsletter or when you have to accept terms.',

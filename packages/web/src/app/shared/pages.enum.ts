@@ -34,6 +34,7 @@ export enum Pages {
   Autocomplete = 'autocomplete-doc',
   Button = 'button-doc',
   Card = 'card-doc',
+  Chips = 'chips',
   Checkbox = 'checkbox-doc',
   ContentLoader = 'content-loader-doc',
   Dropdown = 'dropdown-doc',

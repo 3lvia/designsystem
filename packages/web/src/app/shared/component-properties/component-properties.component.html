@@ -1,6 +1,19 @@
 <!--PROPERTIES-->
 
 <div class="e-mt-72" *ngIf="elements.length > 0 || modifiers.length != 0 || psuedos.length != 0">
+  <div *ngIf="container">
+    <h3 class="e-title-sm e-mt-72 e-mb-16">Container</h3>
+    <ul class="e-list">
+      <li>
+        <app-copy [message]="container" [noAnimation]="true">
+          <ng-container ngProjectAs="copyContent">
+            <span class="prop-element-title code-text">{{ container }}</span>
+          </ng-container>
+        </app-copy>
+      </li>
+    </ul>
+  </div>
+
   <div *ngIf="elements.length != 0">
     <h3 class="e-title-sm e-mt-72 e-mb-16">Elements</h3>
     <ul class="e-list">
@@ -17,9 +30,7 @@
   </div>
 
   <div *ngIf="allElementModifiers.length != 0">
-    <h4 class="e-title-xs e-mt-48 e-mb-8">
-      Element modifiers
-    </h4>
+    <h4 class="e-title-xs e-mt-48 e-mb-8">Element modifiers</h4>
     <ul class="e-list">
       <div *ngFor="let elMod of allElementModifiers" class="prop-element">
         <li>

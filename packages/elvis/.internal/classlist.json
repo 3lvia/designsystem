@@ -176,6 +176,14 @@
 				"e-card__content": {}
 			}
 		},
+		"e-chip": {
+			"container": {
+				"e-chip-container": {}
+			},
+			"element": {
+				"e-chip__label": {}
+			}
+		},
 		"e-content-loader": {
 			"modifier": {
 				"e-content-loader--circle": {},
@@ -198,8 +206,10 @@
 			}
 		},
 		"e-combined-field": {},
-		"e-radio-filter-container": {},
 		"e-radio-filter": {
+			"container": {
+				"e-radio-filter-container": {}
+			},
 			"modifier": {
 				"e-radio-filter--selected": {}
 			},
@@ -743,6 +753,9 @@
 			"modifier": {
 				"e-table--compact": {}
 			},
+			"container": {
+				"e-table-container": {}
+			},
 			"element": {
 				"e-table__sort-header": {},
 				"e-table__sort-icon": {
@@ -758,7 +771,6 @@
 				}
 			}
 		},
-		"e-table-container": {},
 		"e-table-footnote": {},
 		"e-tags": {},
 		"e-tooltip": {
@@ -1062,6 +1074,9 @@
 		"e-card__title": {},
 		"e-card__title--above": {},
 		"e-card__content": {},
+		"e-chip-container": {},
+		"e-chip": {},
+		"e-chip__label": {},
 		"e-content-loader": {},
 		"e-content-loader--circle": {},
 		"e-content-loader--text": {},

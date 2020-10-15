@@ -1958,6 +1958,32 @@ input:focus {
   text-transform: unset;
 }
 
+.e-chip-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.e-chip-container .e-chip:not(:last-of-type) {
+  margin-right: 16px;
+}
+
+.e-chip {
+  border: 1px solid #000000;
+  border-radius: 50px;
+  padding: 4px 16px;
+}
+
+.e-chip__label {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+}
+
 .e-content-loader {
   display: flex;
   width: 260px;

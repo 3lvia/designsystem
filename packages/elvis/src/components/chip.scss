@@ -1,0 +1,19 @@
+@use "./../variables/typography.scss";
+
+.e-chip-container {
+  display: flex;
+  flex-direction: row;
+
+  .e-chip:not(:last-of-type) {
+    margin-right: 16px;
+  }
+}
+.e-chip {
+  border: 1px solid #000000;
+  border-radius: 50px;
+  padding: 4px 16px;
+
+  &__label {
+    @include typography.typography('text-info');
+  }
+}
