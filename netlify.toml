@@ -1,4 +1,4 @@
 [build]
 base = "packages/web/"
+command = "cd ../../ && npm run build:web"
 publish = "dist/elvia-designsystem"
-command = "cd ../../ npm run build:web"
