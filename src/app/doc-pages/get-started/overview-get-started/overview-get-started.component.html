@@ -1,1 +1,33 @@
-<app-overview-page [overviewTitle]="overviewTitle" [pages]="pages"></app-overview-page>
+<div class="overview-page">
+  <app-overview-page
+    class="phone-overview"
+    [overviewTitle]="overviewTitle"
+    [pages]="pages"
+  ></app-overview-page>
+
+  <div class="page-body overview desktop-overview">
+    <h2 class="e-title-md e-my-0">Get started</h2>
+
+    <div class="e-w-100 illustration-placement">
+      <div class="illustration-container" *ngIf="!loadedImg">
+        <div class="content-loader-padding">
+          <div class="e-content-loader illustration"></div>
+        </div>
+      </div>
+      <div class="illustration-container">
+        <img
+          class="illustration e-none"
+          id="getstarted-illustration"
+          src="../../../../assets/overview-pages/Getstarted.png"
+          (load)="hideContentLoader($event)"
+          alt="Illustration for get started overview page"
+        />
+      </div>
+    </div>
+
+    <div class="e-text-body e-mt-24 overview-description">
+      We are an open-source design system that provides a comprehensive and user-friendly experience. We offer
+      classes and variables for styling components, templates, accessibility rules and design principles.
+    </div>
+  </div>
+</div>
