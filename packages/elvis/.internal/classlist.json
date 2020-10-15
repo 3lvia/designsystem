@@ -198,7 +198,6 @@
 			}
 		},
 		"e-combined-field": {},
-		"e-feedback-message": {},
 		"e-radio-filter-container": {},
 		"e-radio-filter": {
 			"modifier": {
@@ -1076,10 +1075,6 @@
 		"e-input---disabled": {},
 		"e-combined-field": {},
 		"e-dropdown": {},
-		"e-feedback-message": {},
-		"e-feedback-message_icon": {},
-		"e-feedback-message_message": {},
-		"e-feedback-message_close-button": {},
 		"e-radio-filter-container": {},
 		"e-radio-filter": {},
 		"e-radio-filter--selected": {},
