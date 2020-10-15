@@ -1,0 +1,12 @@
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import '../../shared/shared-sizes.scss';
+
+.e-grid {
+  margin: 128px 128px 0 128px;
+  @include breakpoint-up(Tablet) {
+    margin: 96px 32px 32px 32px;
+  }
+  @include breakpoint-up(Mobile) {
+    margin: 96px 16px 16px 16px;
+  }
+}

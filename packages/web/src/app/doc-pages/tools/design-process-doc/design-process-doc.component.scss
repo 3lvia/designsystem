@@ -1,0 +1,27 @@
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import '@elvia/elvis/src/variables/colors.scss';
+
+.headerIllustration {
+  display: flex;
+  justify-content: center;
+}
+
+.feedbackSection {
+  border-top: 1px solid color('grey-10');
+  display: flex;
+
+  &__icons {
+    display: flex;
+    margin-left: 80px;
+
+    &__emotion {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.DDProcessIllustration {
+  width: 100%;
+}
