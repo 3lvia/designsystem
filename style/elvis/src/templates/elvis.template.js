@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function () {
     DEBUG = true;
   }
 
-  // LISTEN AND REMOVE OUTLINE WHEN CLICKING ELEMENTS
   function outlineFix() {
     if (DEBUG) {
       return;
@@ -21,12 +20,11 @@ document.addEventListener('DOMContentLoaded', function () {
       function (event) {
         document.body.classList.add('e-no-outline');
       },
-      false,
+      false
     );
   }
   outlineFix();
 
-  // MUTATION OBSERVER FOR ICONS
   let mo = new MutationObserver(function (mutations) {
     for (let i = 0; i < mutations.length; i++) {
       injectIconIfEligible(mutations[i].target, mutations[i]);
@@ -34,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function injectIconIfEligible(node, mutation) {
+
     if (mutation.addedNodes.length > 0) {
       for (let i = 0; i < mutation.addedNodes.length; i++) {
         let addedNode = mutation.addedNodes[i];
