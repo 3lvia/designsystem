@@ -1,16 +1,13 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Icons
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Icons</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
 </app-component-header>
 
-<!--BODY-->
-<div class="page-body">
-  <!--COPY ALERT-->
+<!--COPY ALERT-->
+<div class="body">
   <div
     class="alert-container e-none"
     *ngFor="let icon of visibleIcons | iconSearchPipe: term"
@@ -21,11 +18,11 @@
         <i class="e-icon" [ngClass]="'e-icon--' + icon.title"></i>
       </div>
       <div class="e-alert__content e-w-100">
-        <div style="display: flex; justify-content: space-between;">
+        <div style="display: flex; justify-content: space-between">
           <div>
             <div class="e-alert__title">{{ icon.pretty }}</div>
             <div class="e-alert__text">
-              <div style="display: flex; flex-direction: row; justify-content: space-between;">
+              <div style="display: flex; flex-direction: row; justify-content: space-between">
                 <div class="e-text-info e-text-grey-70">
                   e-icon e-icon--{{ icon.title }} e-icon--sm
                   <span *ngIf="inverted">e-icon--inverted</span>
@@ -39,7 +36,7 @@
               <div
                 [ngClass]="{ hide: !copied }"
                 class="copy-text e-mr-24 e-text-black"
-                style="margin-top: -4px;"
+                style="margin-top: -4px"
               >
                 Copied!
               </div>
@@ -79,7 +76,10 @@
       </div>
     </div>
   </div>
+</div>
 
+<!--BODY-->
+<div class="page-body">
   <!--ICONS-->
   <app-component-subsection>
     <ng-container ngProjectAs="sectionContent">
@@ -96,7 +96,7 @@
             </div>
             <button class="e-btn e-btn--icon e-btn--sm" *ngIf="term.length > 0" (click)="removeSearch()">
               <span class="e-btn__icon">
-                <i class="e-icon e-icon--close-bold" style="left: 0;"></i>
+                <i class="e-icon e-icon--close-bold" style="left: 0"></i>
               </span>
             </button>
           </div>
@@ -104,7 +104,7 @@
         <div class="e-radio-filter-container">
           <button
             class="e-radio-filter"
-            style="margin-right: 4px;"
+            style="margin-right: 4px"
             (click)="selectFilter('all')"
             [ngClass]="{ 'e-radio-filter--selected': selected === 'all' }"
           >
@@ -112,7 +112,7 @@
           </button>
           <button
             class="e-radio-filter"
-            style="margin-right: 4px;"
+            style="margin-right: 4px"
             (click)="selectFilter('outline')"
             [ngClass]="{ 'e-radio-filter--selected': selected === 'outline' }"
           >
@@ -120,7 +120,7 @@
           </button>
           <button
             class="e-radio-filter"
-            style="margin-right: 4px;"
+            style="margin-right: 4px"
             (click)="selectFilter('filled')"
             [ngClass]="{ 'e-radio-filter--selected': selected === 'filled' }"
           >
@@ -297,9 +297,7 @@
           <p class="e-m-0 e-mt-16">
             <app-code-highlighter [codeHTML]="scriptCodeHTML"></app-code-highlighter>
           </p>
-          <p class="e-mb-0">
-            The icons can then be used like this:
-          </p>
+          <p class="e-mb-0">The icons can then be used like this:</p>
           <p class="e-m-0 e-mt-16">
             <app-code-highlighter [codeHTML]="iconExample"></app-code-highlighter>
           </p>
