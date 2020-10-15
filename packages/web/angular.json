@@ -29,12 +29,12 @@
               "src/_redirects",
               {
                 "glob": "CHANGELOG.md",
-                "input": "../packages/elvis",
+                "input": "../elvis",
                 "output": "./assets/elvis"
               },
               {
                 "glob": "**/*",
-                "input": "../packages/elvis/src/icons/",
+                "input": "../elvis/src/icons/",
                 "output": "./assets/elvis/icons/"
               }
             ],
@@ -103,7 +103,7 @@
               "src/assets",
               {
                 "glob": "CHANGELOG.md",
-                "input": "../packages/elvis",
+                "input": "../elvis",
                 "output": "./assets/elvis"
               }
             ],
