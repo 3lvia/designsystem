@@ -15,6 +15,11 @@
 @import '@angular/cdk/overlay-prebuilt.css';
 
 // Normalizer for website
+::selection {
+  background: var(--e-green);
+  color: var(--e-black);
+}
+
 body {
   margin: 0;
 }

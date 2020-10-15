@@ -19,14 +19,6 @@ export const eHomes: EItems[] = [
     imageUrl: 'assets/website-icons/shortcut-images/Component.svg',
     imageUrlOn: 'assets/website-icons/shortcut-images/ComponentOn.svg',
   },
-  // {
-  //   title: 'Accessibility',
-  //   description: 'WCAG 2.0',
-  //   docUrl: Pages.Contribute,
-  //   absolutePath: '/community/' + Pages.Contribute,
-  //   imageUrl: 'assets/website-icons/shortcut-images/Accessibility.svg',
-  //   imageUrlOn: 'assets/website-icons/shortcut-images/AccessibilityOn.svg',
-  // },
   {
     title: 'Utility Classes',
     description: 'Developer Tools',
@@ -55,7 +47,7 @@ export const eGetStarted: EItems[] = [
     docUrl: Pages.TheDesignSystem,
     status: ItemStatus.New,
     absolutePath: '/get-started/' + Pages.TheDesignSystem,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/get-started-images/the design system.svg',
     type: 'Get started',
   },
   {
@@ -562,7 +554,7 @@ export const eCommunity: EItems[] = [
     description: 'The latest news, updates, and changes to the design system.',
     docUrl: Pages.Changelog,
     absolutePath: '/community/' + Pages.Changelog,
-    imageUrl: 'assets/website-icons/community-images/what\'s new.svg',
+    imageUrl: 'assets/website-icons/community-images/Whats-new.svg',
     type: 'Community',
   },
   {
@@ -576,7 +568,7 @@ export const eCommunity: EItems[] = [
     docUrl: Pages.Contact,
     absolutePath: '/community/' + Pages.Contact,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/community-images/contact.svg',
     type: 'Community',
   },
   {
@@ -590,7 +582,7 @@ export const eCommunity: EItems[] = [
     docUrl: Pages.Contribute,
     absolutePath: '/community/' + Pages.Contribute,
     status: ItemStatus.New,
-    imageUrl: 'assets/website-icons/temporary.svg',
+    imageUrl: 'assets/website-icons/community-images/contribute.svg',
     type: 'Community',
   },
   {

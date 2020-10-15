@@ -3126,31 +3126,6 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
-    export const newTab = {
-      getIcon: function(color) {
-          let icon = '<svg width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5.75a.75.75 0 01.75-.75h4a.75.75 0 01.75.75v4a.75.75 0 01-1.5 0V1.5h-3.25a.75.75 0 01-.75-.75z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14.78 1.22a.75.75 0 010 1.06l-4 4a.75.75 0 11-1.06-1.06l4-4a.75.75 0 011.06 0z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M2.083 3a.583.583 0 00-.583.583v10.334a.583.583 0 00.583.583h10.334a.583.583 0 00.583-.583v-6a.75.75 0 011.5 0v6A2.083 2.083 0 0112.417 16H2.083A2.083 2.083 0 010 13.917V3.583A2.083 2.083 0 012.083 1.5h6a.75.75 0 110 1.5h-6z" fill="#000"/></svg>'
-          let iconName = 'new_tab'
-          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
-          if(!color) {
-              return icon;
-          }
-          if(color==='inverted') {
-            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
-                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
-            }
-            // -full-color check can be removed when new icons have been added
-            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
-                icon = icon.replace(/fill="#000"/g, "fillBlack'");
-            }
-            icon = icon.replace(/fill="#fff"/g, "fillBlack");
-            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
-            icon = icon.replace(/fillBlack/g, "fill='black'");
-            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
-            return icon;
-          }
-          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
-      }
-    }
     export const newTabBold = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.875 0a1.125 1.125 0 000 2.25h3.284l-5.58 5.58a1.125 1.125 0 001.591 1.59l5.58-5.579v3.284a1.125 1.125 0 002.25 0v-6C24 .504 23.496 0 22.875 0h-6z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M3.125 4.5a.875.875 0 00-.875.875v15.5a.875.875 0 00.875.875h15.5a.875.875 0 00.875-.875v-9a1.125 1.125 0 012.25 0v9A3.125 3.125 0 0118.625 24h-15.5A3.125 3.125 0 010 20.875v-15.5A3.125 3.125 0 013.125 2.25h9a1.125 1.125 0 010 2.25h-9z" fill="#000"/></svg>'
