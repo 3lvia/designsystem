@@ -1,6 +1,6 @@
-@use '@elvia/elvis/src/variables/typography.scss';
 @import '../../../shared/shared-sizes';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import '@elvia/elvis/src/variables/typography.scss';
 
 .header {
   position: fixed;
@@ -77,7 +77,7 @@
 
       .text {
         display: flex;
-        @include typography.typography('text-caps');
+        @include typography('text-caps');
       }
 
       .links-icon {
