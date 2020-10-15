@@ -6979,6 +6979,14 @@ input:focus {
 }
 
 .e-radio {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -6994,6 +7002,14 @@ input:focus {
 
 .e-radio.e-radio--sm {
   line-height: 22px;
+  font-family: Red Hat Text, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-radio.e-radio--sm:not(:last-child) {

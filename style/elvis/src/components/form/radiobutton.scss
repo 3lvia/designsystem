@@ -1,5 +1,6 @@
 @use '../../variables/colors.scss';
 @use '../../utilities/outline.scss';
+@use "../../variables/typography";
 
 $form-radiobutton-mark-size: 24px;
 $form-radiobutton-small-mark-size: 16px;
@@ -9,6 +10,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
 .e-radio {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
+  @include typography.typography('text-option');
 
   display: flex;
   align-items: center;
@@ -24,6 +26,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
 
   &.e-radio--sm {
     line-height: 22px;
+    @include typography.typography('text-info');
+
     &:not(:last-child) {
       margin-bottom: 0px;
     }
