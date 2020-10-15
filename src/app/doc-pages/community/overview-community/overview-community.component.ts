@@ -9,5 +9,14 @@ import { eCommunity } from 'src/app/shared/e-items';
 export class OverviewCommunityComponent {
   overviewTitle = 'Community';
   pages = eCommunity;
+  loadedImg = false;
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  hideContentLoader(evt: any): void {
+    if (evt && evt.target) {
+      this.loadedImg = true;
+      const communityIllustration = document.getElementById('community-illustration');
+      communityIllustration.classList.remove('e-none');
+    }
+  }
 }

@@ -11,6 +11,7 @@ export class OverviewIdentityComponent implements OnInit {
   pages = eIdentity;
   brandPages = [];
   layoutPages = [];
+  loadedImg = false;
 
   ngOnInit(): void {
     this.brandPages = this.pages.filter(page => {
@@ -19,5 +20,15 @@ export class OverviewIdentityComponent implements OnInit {
     this.layoutPages = this.pages.filter(page => {
       return page.title === 'Grid' || page.title === 'Spacing' || page.title === 'Shadow';
     });
+  }
+
+
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  hideContentLoader(evt: any): void {
+    if (evt && evt.target) {
+      this.loadedImg = true;
+      const indentityIllustration = document.getElementById('identity-illustration');
+      indentityIllustration.classList.remove('e-none');
+    }
   }
 }
