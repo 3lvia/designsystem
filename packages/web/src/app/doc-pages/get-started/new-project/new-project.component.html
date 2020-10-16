@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header>
-  <ng-container ngProjectAs="headerTitle">
-    For developers
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">For developers</ng-container>
 
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -15,11 +13,13 @@
   <app-component-section [sectionTitle]="'Talk with us'">
     <ng-container ngProjectAs="sectionContent">
       <p>
-        If you have any issues at all, please don't hesitate to contact us! Any friction you experience in the
-        onboarding process, or during use is valuable feedback for us. Reach out on slack in
+        If you have any issues at all, please don't hesitate to
+        <a class="e-link e-link--inline" [routerLink]="['/community/contact']">contact us!</a>
+        Any friction you experience in the onboarding process, or during use is valuable feedback for us.
+        Reach out on slack in
         <span class="e-link__title">
           <a
-            class="e-link e-link--external"
+            class="e-link e-link--external e-link--inline"
             href="https://hafslundnett.slack.com/archives/C01302LBTC2"
             target="_blank"
           >
@@ -40,14 +40,14 @@
           <div *ngIf="loadedStyle">
             <app-code-highlighter [codeHTML]="linkTagCode"></app-code-highlighter>
           </div>
-          <div *ngIf="!loadedStyle" class="e-content-loader" style="width: 100%; height: 127px;"></div>
+          <div *ngIf="!loadedStyle" class="e-content-loader" style="width: 100%; height: 127px"></div>
         </li>
         <li>
           <strong>Put the following at the bottom of &lt;body></strong>
           <div *ngIf="loadedScript">
             <app-code-highlighter [codeHTML]="scriptTagCode"></app-code-highlighter>
           </div>
-          <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px;"></div>
+          <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
         </li>
       </ol>
 
@@ -55,7 +55,7 @@
       <div *ngIf="loadedFullExample">
         <app-code-highlighter [codeHTML]="fullExampleCode"></app-code-highlighter>
       </div>
-      <div *ngIf="!loadedFullExample" class="e-content-loader" style="width: 100%; height: 337px;"></div>
+      <div *ngIf="!loadedFullExample" class="e-content-loader" style="width: 100%; height: 337px"></div>
     </ng-container>
   </app-component-section>
 
@@ -101,7 +101,7 @@
           <div *ngIf="loadedScript">
             <app-code-highlighter [codeHTML]="scriptTagCode"></app-code-highlighter>
           </div>
-          <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px;"></div>
+          <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
         </li>
       </ol>
     </ng-container>
