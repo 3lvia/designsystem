@@ -24,7 +24,7 @@ $font-family-secondary: 'Red Hat Text', sans-serif;
   }
 
   @if not $typography-map {
-    @warn 'the typography variable "#{$name}" was not found';
+    // @warn 'the typography variable "#{$name}" was not found';
     @return null;
   }
 
@@ -141,6 +141,19 @@ $typography: (
     transform: #{unset},
     color: #{#000},
   ),
+  text-lg: (
+    family: #{Red Hat Text,
+    sans-serif},
+    size: #{20px},
+    size-m: #{18px},
+    weight: #{400},
+    height: #{32px},
+    height-m: #{29px},
+    letter-spacing: #{unset},
+    style: #{unset},
+    transform: #{unset},
+    color: #{#000},
+  ),
   text-img: (
     family: #{Red Hat Text,
     sans-serif},
@@ -166,6 +179,17 @@ $typography: (
     transform: #{unset},
     color: #{#000},
   ),
+  text-md: (
+    family: #{Red Hat Text,
+    sans-serif},
+    size: #{16px},
+    weight: #{400},
+    height: #{28px},
+    letter-spacing: #{unset},
+    style: #{unset},
+    transform: #{unset},
+    color: #{#000},
+  ),
   text-caps: (
     family: #{Red Hat Text,
     sans-serif},
@@ -178,6 +202,17 @@ $typography: (
     color: #{#000},
   ),
   text-info: (
+    family: #{Red Hat Text,
+    sans-serif},
+    size: #{14px},
+    weight: #{400},
+    height: #{22px},
+    letter-spacing: #{unset},
+    style: #{unset},
+    transform: #{unset},
+    color: #{#000},
+  ),
+  text-sm: (
     family: #{Red Hat Text,
     sans-serif},
     size: #{14px},
