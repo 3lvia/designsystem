@@ -1,0 +1,39 @@
+<div class="wrapper">
+  <div class="navbar" id="side-navbar" [ngClass]="toggleMenu ? 'showMenu' : ''">
+    <ul class="navbar-list">
+      <li class="navbar-item" *ngFor="let navbarItem of filteredPages">
+        <a
+          [routerLink]="[navbarItem.docUrl]"
+          routerLinkActive="active-route"
+          (click)="markNewActiveNavbarItem(navbarItem)"
+        >
+          <div class="navbar-item-title">
+            {{ navbarItem.title }}
+          </div>
+        </a>
+        <div class="anchors" *ngIf="navbarAnchors.length > 0">
+          <div *ngIf="navbarItem === prevActiveNavbarItem">
+            <div class="link" *ngFor="let anchor of prevNavbarAnchors">
+              <a class="anchor" id="navbar-{{ anchor.title }}" href="javascript:void(0)">
+                {{ anchor.title }}
+              </a>
+            </div>
+          </div>
+          <div *ngIf="navbarItem === activeNavbarItem && navbarItem !== prevActiveNavbarItem">
+            <div class="link" *ngFor="let anchor of navbarAnchors">
+              <a
+                (click)="scrollToElement(anchor)"
+                class="anchor"
+                [ngClass]="{ 'active-anchor': anchor === activeAnchor }"
+                id="navbar-{{ anchor.title }}"
+                href="javascript:void(0)"
+              >
+                {{ anchor.title }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
