@@ -1,0 +1,483 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/elvis.min.css" />
+    <script src="../elvis.js"></script>
+  </head>
+  <body>
+    <div class="e-title-md" style="width: 100%; display: flex; justify-content: space-evenly;">
+      Components
+    </div>
+    <div class="e-title-sm">Accordion</div>
+    <div class="e-title-xs e-mt-16">Singe Accordion</div>
+
+    <div style="width: 100%; display: flex; flex-direction: column;">
+      <div class="e-accordion e-accordion--single">
+        <div class="e-accordion__item">
+          <div class="e-accordion__title">
+            Closed Accordion
+          </div>
+          <div class="e-accordion__icon">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+          <div class="e-accordion__content">
+            Hidden information
+          </div>
+        </div>
+      </div>
+      <div class="e-accordion e-accordion--single e-mt-40">
+        <div class="e-accordion__item e-accordion__item--open">
+          <div class="e-accordion__title">
+            Open Accordion
+          </div>
+          <div class="e-accordion__icon">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+          <div class="e-accordion__content">
+            Hidden information
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="e-title-xs e-mt-16">Group Accordion</div>
+
+    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;">
+      <div class="e-accordion e-accordion--group">
+        <div class="e-accordion__item">
+          <div class="e-accordion__label">
+            <div class="e-accordion__title">
+              Hvor ofte kommer fakturaen?
+            </div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            Hidden information
+          </div>
+        </div>
+        <div class="e-accordion__item e-accordion__item--open">
+          <div class="e-accordion__label">
+            <div class="e-accordion__title">
+              Kan jeg bestille på vegne av andre?
+            </div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            Hidden information
+          </div>
+        </div>
+        <div class="e-accordion__item">
+          <div class="e-accordion__label">
+            <div class="e-accordion__title">
+              Hva kan jeg gjøre for å spare strøm?
+            </div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+        </div>
+        <div class="e-accordion__item">
+          <div class="e-accordion__label">
+            <div class="e-accordion__title">
+              Hva kan jeg gjøre for å spare strøm?
+            </div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="e-title-xs e-mt-16">Sizing</div>
+    <div class="e-mt-16" style="width: 100%; display: flex; flex-direction: column; align-content: center;">
+      <div class="e-accordion e-accordion--sm">
+        <div class="e-accordion__item">
+          <div class="e-accordion__title">
+            Small Accordion
+          </div>
+          <div class="e-accordion__icon">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-accordion e-accordion--md e-mt-40">
+        <div class="e-accordion__item">
+          <div class="e-accordion__title">
+            Medium Accordion
+          </div>
+          <div class="e-accordion__icon">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="e-accordion e-accordion--lg e-mt-40">
+        <div class="e-accordion__item">
+          <div class="e-accordion__title">
+            Large Accordion
+          </div>
+          <div class="e-accordion__icon">
+            <i class="e-icon e-icon--expand_circle-color"></i>
+            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-title-sm e-mt-16">Alerts</div>
+    <div class="e-title-xs e-mt-16">Global Alert</div>
+    <div class="e-mt-16" style="width: 100%; display: flex; flex-direction: column;">
+      <div>Regular</div>
+
+      <div class="e-alert e-alert--global">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort info tittel</div>
+          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+        </div>
+      </div>
+      <div>Closeable</div>
+
+      <div class="e-alert e-alert--global">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort info tittel</div>
+          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+        </div>
+        <div class="e-alert__close">
+          <button class="e-btn e-btn--icon e-btn--sm">
+            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+          </button>
+        </div>
+      </div>
+      <div>Expandable</div>
+      <div>
+        <div class="e-alert e-alert--global e-alert--expandable">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--information_circle"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">
+              <div>Kort info tittel</div>
+              <div class="e-alert__accordion">
+                <i class="e-icon e-icon--expand_circle-color"></i>
+                <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              </div>
+            </div>
+            <div class="e-alert__text">
+              <div>Generell informasjon til alle brukere på tvers.</div>
+              <div class="e-alert__links">
+                <a class="e-link" href="https://design.elvia.io">Medium link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="e-alert e-alert--global e-alert--expandable e-alert--open e-mt-40">
+          <div class="e-alert__icon">
+            <i class="e-icon e-icon--information_circle"></i>
+          </div>
+          <div class="e-alert__content">
+            <div class="e-alert__title">
+              <div>Kort info tittel</div>
+              <div class="e-alert__accordion">
+                <i class="e-icon e-icon--expand_circle-color"></i>
+                <i class="e-icon e-icon--expand_circle-filled-color"></i>
+              </div>
+            </div>
+            <div class="e-alert__text">
+              <div>Generell informasjon til alle brukere på tvers.</div>
+              <div class="e-alert__links">
+                <a class="e-link" href="https://design.elvia.io">Medium link</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>Actions</div>
+    <div class="e-alert e-alert--global e-alert--no-title e-alert--actions">
+      <div class="e-alert__icon">
+        <i class="e-icon e-icon--information_circle"></i>
+      </div>
+      <div class="e-alert__content">
+        <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen.</div>
+        <div class="e-alert__actions">
+          <button class="e-btn e-btn--secondary e-btn--sm">
+            <span class="e-btn__title">Secondary</span>
+          </button>
+          <button class="e-btn e-ml-24 e-btn--sm">
+            <span class="e-btn__title">Primary</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-title-xs e-my-16">Local Alert</div>
+
+    <div>
+      <div class="e-alert e-alert--local">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Standard alert</div>
+          <div class="e-alert__text">
+            <div>
+              Description with a list and an
+              <a class="e-link e-link--inline">inline link.</a>
+            </div>
+            <div class="e-alert__links">
+              <a class="e-link" href="https://design.elvia.io">Link 1</a>
+              <a class="e-link" href="https://design.elvia.io">Link 2</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-title-xs e-my-16">Toast Alert</div>
+
+    <div class="e-alert e-alert--toast">
+      <div class="e-alert__icon">
+        <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
+      </div>
+      <div class="e-alert__content">
+        <div class="e-alert__title">Kort Tittel</div>
+        <div class="e-alert__text">En velykket bekreftelses melding!</div>
+      </div>
+    </div>
+    <div class="e-my-16">Closeable</div>
+    <div class="e-alert e-alert--toast e-alert--no-title">
+      <div class="e-alert__icon">
+        <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
+      </div>
+      <div class="e-alert__content">
+        <div class="e-alert__text">
+          En velykket bekreftelses melding en lang og velykket bekreftelse på en lang melding!
+        </div>
+      </div>
+      <div class="e-alert__close">
+        <button class="e-btn e-btn--icon e-btn--sm">
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
+    </div>
+    <div class="e-my-16">Statuses</div>
+
+    <div>
+      <div class="e-alert e-alert--error e-alert--local">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--check_circle e-icon--color-red"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort Tittel</div>
+          <div class="e-alert__text">En velykket bekreftelses melding!</div>
+        </div>
+      </div>
+      <div class="e-alert e-alert e-alert--warn e-alert--local">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--check_circle e-icon--color-orange"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort Tittel</div>
+          <div class="e-alert__text">En velykket bekreftelses melding!</div>
+        </div>
+      </div>
+      <div class="e-alert e-alert e-alert--info e-alert--local">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--check_circle e-icon--color-black"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort Tittel</div>
+          <div class="e-alert__text">En velykket bekreftelses melding!</div>
+        </div>
+      </div>
+
+      <div class="e-alert e-alert--toast e-alert--info">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--check_circle e-icon--color-black"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort Tittel</div>
+          <div class="e-alert__text">En velykket bekreftelses melding!</div>
+        </div>
+      </div>
+      <div class="e-alert e-alert--toast">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--check_circle e-icon--color-black"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort Tittel</div>
+          <div class="e-alert__text">En velykket bekreftelses melding!</div>
+        </div>
+      </div>
+    </div>
+     <div class="e-alert e-alert--global">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort info tittel</div>
+          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+        </div>
+      </div>
+       <div class="e-alert e-alert--global e-alert--error">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort info tittel</div>
+          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+        </div>
+      </div>
+       <div class="e-alert e-alert--global e-alert--warn">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--information_circle"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Kort info tittel</div>
+          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+        </div>
+      </div>
+
+    <div class="e-title-sm e-mt-16">Buttons</div>
+    <div class="e-title-xs e-my-16">Primary</div>
+
+    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;">
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+        <button class="e-btn e-m-8">
+          <span class="e-btn__title">Primary</span>
+        </button>
+        <button class="e-btn e-m-8">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download e-icon--inverted"></i>
+            <i class="e-icon e-icon--download"></i>
+          </span>
+          <span class="e-btn__title">Icon button</span>
+        </button>
+        <button class="e-btn e-m-8">
+          <span class="e-btn__title">Icon button</span>
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--download e-icon--inverted"></i>
+            <i class="e-icon e-icon--download"></i>
+          </span>
+        </button>
+        <button class="e-btn e-btn--loading e-m-8">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <button class="e-btn e-btn--danger e-m-8">
+          <span class="e-btn__title">Danger</span>
+        </button>
+      </div>
+    </div>
+    <div class="e-title-xs e-my-16">Secondary</div>
+    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;">
+  <button class="e-btn e-btn--secondary e-m-8">
+    <span class="e-btn__title">Secondary</span>
+  </button>
+  <button class="e-btn e-btn--secondary e-m-8">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--inverted"></i>
+      <i class="e-icon e-icon--download"></i>
+    </i></span>
+    <span class="e-btn__title">Icon button</span>
+  </button>
+  <button class="e-btn e-btn--secondary e-m-8">
+    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--inverted"></i>
+      <i class="e-icon e-icon--download"></i>
+    </i></span>
+  </button>
+  <button class="e-btn e-btn--secondary e-btn--loading e-m-8">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
+<div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly; background-color: #262626;">
+   <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
+    <span class="e-btn__title">Secondary</span>
+  </button>
+  <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--inverted"></i>
+      <i class="e-icon e-icon--download"></i>
+    </i></span>
+    <span class="e-btn__title">Icon button</span>
+  </button>
+  <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
+    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--inverted"></i>
+      <i class="e-icon e-icon--download"></i>
+    </i></span>
+  </button>
+  <button class="e-btn e-btn--secondary e-btn--loading e-btn--inverted e-m-8">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
+
+    <div class="e-title-xs e-my-16">Tertiary</div>
+    <div class="e-title-xs e-my-16">Icon buttons</div>
+
+
+    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;"></div>
+    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;"></div>
+    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;"></div>
+
+      <div class="e-title-sm e-mt-16">Card</div>
+      <div class="e-title-sm e-mt-16">Checkboxes</div>
+      <div class="e-title-sm e-mt-16">Content Loader</div>
+      <div class="e-title-sm e-mt-16">DatePicker</div>
+      <div class="e-title-sm e-mt-16">Darg&Drop</div>
+      <div class="e-title-sm e-mt-16">Dropdown</div>
+      <div class="e-title-sm e-mt-16">File Upload</div>
+      <div class="e-title-sm e-mt-16">Radio Filter</div>
+      <div class="e-title-sm e-mt-16">Header</div>
+      <div class="e-title-sm e-mt-16">Input</div>
+      <div class="e-title-sm e-mt-16">Label</div>
+      <div class="e-title-sm e-mt-16">Link</div>
+      <div class="e-title-sm e-mt-16">List</div>
+      <div class="e-title-sm e-mt-16">Modal</div>
+      <div class="e-title-sm e-mt-16">Pagination</div>
+      <div class="e-title-sm e-mt-16">Popover</div>
+      <div class="e-title-sm e-mt-16">Position Picker</div>
+      <div class="e-title-sm e-mt-16">Progressbar</div>
+      <div class="e-title-sm e-mt-16">RadioButtons</div>
+      <div class="e-title-sm e-mt-16">Search</div>
+      <div class="e-title-sm e-mt-16">Segmented Controls</div>
+      <div class="e-title-sm e-mt-16">Stepper</div>
+      <div class="e-title-sm e-mt-16">Table</div>
+      <div class="e-title-sm e-mt-16">Toggle</div>
+      <div class="e-title-sm e-mt-16">Tooltip</div>
+
+
+      <!-- TODO 
+              <div class="e-title-sm e-mt-16">AutoComplete</div>
+      -->
+  </body>
+</html>
