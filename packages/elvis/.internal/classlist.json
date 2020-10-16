@@ -182,6 +182,14 @@
 			},
 			"element": {
 				"e-chip__label": {}
+			},
+			"modifier": {
+				"e-chip--green-apple": {},
+				"e-chip--violet-grape": {},
+				"e-chip--blue-berry": {},
+				"e-chip--purple-plum": {},
+				"e-chip--orange-mango": {},
+				"e-chip--red-tomato": {}
 			}
 		},
 		"e-content-loader": {
@@ -1077,6 +1085,12 @@
 		"e-chip-container": {},
 		"e-chip": {},
 		"e-chip__label": {},
+		"e-chip--green-apple": {},
+		"e-chip--violet-grape": {},
+		"e-chip--blue-berry": {},
+		"e-chip--purple-plum": {},
+		"e-chip--orange-mango": {},
+		"e-chip--red-tomato": {},
 		"e-content-loader": {},
 		"e-content-loader--circle": {},
 		"e-content-loader--text": {},

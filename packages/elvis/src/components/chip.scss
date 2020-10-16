@@ -1,13 +1,20 @@
 @use "./../variables/typography.scss";
+@use './../variables/colors.scss';
 
 .e-chip-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: -8px;
 
+  .e-chip {
+    margin-bottom: 8px;
+  }
   .e-chip:not(:last-of-type) {
     margin-right: 16px;
   }
 }
+
 .e-chip {
   border: 1px solid #000000;
   border-radius: 50px;
@@ -15,5 +22,28 @@
 
   &__label {
     @include typography.typography('text-info');
+  }
+
+  @each $label, $map in colors.$data-colors {
+    $labels: ($label);
+
+    @each $label in $labels {
+      &.e-chip--#{$label} {
+        border: none;
+        position: relative;
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: 100%;
+          height: 100%;
+          background: colors.color($label);
+          border: 1px solid colors.color($label);
+          opacity: 0.25;
+          border-radius: 50px;
+        }
+      }
+    }
   }
 }

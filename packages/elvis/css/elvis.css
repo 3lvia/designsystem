@@ -1961,6 +1961,12 @@ input:focus {
 .e-chip-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: -8px;
+}
+
+.e-chip-container .e-chip {
+  margin-bottom: 8px;
 }
 
 .e-chip-container .e-chip:not(:last-of-type) {
@@ -1982,6 +1988,114 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+}
+
+.e-chip.e-chip--green-apple {
+  border: none;
+  position: relative;
+}
+
+.e-chip.e-chip--green-apple::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #21ac04;
+  border: 1px solid #21ac04;
+  opacity: 0.25;
+  border-radius: 50px;
+}
+
+.e-chip.e-chip--violet-grape {
+  border: none;
+  position: relative;
+}
+
+.e-chip.e-chip--violet-grape::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #490192;
+  border: 1px solid #490192;
+  opacity: 0.25;
+  border-radius: 50px;
+}
+
+.e-chip.e-chip--blue-berry {
+  border: none;
+  position: relative;
+}
+
+.e-chip.e-chip--blue-berry::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #006ddb;
+  border: 1px solid #006ddb;
+  opacity: 0.25;
+  border-radius: 50px;
+}
+
+.e-chip.e-chip--purple-plum {
+  border: none;
+  position: relative;
+}
+
+.e-chip.e-chip--purple-plum::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #b66dff;
+  border: 1px solid #b66dff;
+  opacity: 0.25;
+  border-radius: 50px;
+}
+
+.e-chip.e-chip--orange-mango {
+  border: none;
+  position: relative;
+}
+
+.e-chip.e-chip--orange-mango::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #db6d00;
+  border: 1px solid #db6d00;
+  opacity: 0.25;
+  border-radius: 50px;
+}
+
+.e-chip.e-chip--red-tomato {
+  border: none;
+  position: relative;
+}
+
+.e-chip.e-chip--red-tomato::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #b90202;
+  border: 1px solid #b90202;
+  opacity: 0.25;
+  border-radius: 50px;
 }
 
 .e-content-loader {

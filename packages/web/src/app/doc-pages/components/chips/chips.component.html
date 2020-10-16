@@ -1,6 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">Chips</ng-container>
+  <ng-container ngProjectAs="headerTitle">Chip</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -17,10 +17,10 @@
       <div class="e-chip">
         <div class="e-chip__label">Chip</div>
       </div>
-      <div class="e-chip">
+      <div class="e-chip e-chip--green-apple">
         <div class="e-chip__label">Chip</div>
       </div>
-      <div class="e-chip">
+      <div class="e-chip e-chip--violet-grape">
         <div class="e-chip__label">Chip</div>
       </div>
     </div>
@@ -30,26 +30,21 @@
   </div>
 
   <!-- TYPE -->
-  <!-- <app-component-section [sectionTitle]="'Type'">
+  <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Simple card'">
+      <app-component-subsection [sectionTitle]="'Standard'">
         <ng-container ngProjectAs="sectionContent">
-          Simple cards containing information with or without actions.
-          <app-code-block [codeHTML]="example1" [showIframeScreens]="true" [greyBg]="true"></app-code-block>
-          <app-when-to-use
-            [whens]="['Grouping content', 'To separate information from the rest of the page.']"
-          ></app-when-to-use>
+          <app-code-block [codeHTML]="exampleStandard"></app-code-block>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Titles above'">
+      <app-component-subsection [sectionTitle]="'Colored'">
         <ng-container ngProjectAs="sectionContent">
-          Cards can also have titles outside of the card.
-          <app-code-block [codeHTML]="example3" [showIframeScreens]="true" [greyBg]="true"></app-code-block>
+          <app-code-block [codeHTML]="exampleColors"></app-code-block>
         </ng-container>
       </app-component-subsection>
     </ng-container>
-  </app-component-section> -->
+  </app-component-section>
 
   <!-- USAGE -->
   <app-component-section [sectionTitle]="'Usage'">

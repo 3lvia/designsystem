@@ -6,6 +6,7 @@ import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 import { ComponentPropertiesModule } from 'src/app/shared/component-properties/component-properties.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     CodeBlockModule,
     ComponentPropertiesModule,
     ComponentSectionModule,
+    ComponentSubsectionModule,
     WhenToUseModule,
   ],
   declarations: [ChipsComponent]
