@@ -2392,7 +2392,7 @@ input:focus {
 
 .e-header__top-bar-desktop__title {
   font-family: "Red Hat Display";
-  font-weight: bold;
+  font-weight: 700;
   font-size: 18px;
   line-height: 22px;
 }
@@ -3139,11 +3139,11 @@ input:focus {
   box-sizing: border-box;
   border-bottom: 2px solid #000;
   cursor: pointer;
-  font-weight: bold;
   color: #000;
   text-align: inherit;
   position: relative;
   text-decoration: none;
+  font-weight: 500 !important;
 }
 
 .e-link__icon {
@@ -5062,7 +5062,7 @@ input:focus {
 }
 
 .e-list.e-list--strong {
-  font-weight: bold;
+  font-weight: 700;
   background: transparent;
 }
 
@@ -5563,7 +5563,7 @@ input:focus {
 
 .e-stepper__step-number {
   font-family: "Red Hat Display";
-  font-weight: bold;
+  font-weight: 700;
   font-size: 18px;
   line-height: 22px;
   color: #000;
@@ -5619,7 +5619,7 @@ input:focus {
 
 .e-stepper__title {
   font-family: "Red Hat Display";
-  font-weight: bold;
+  font-weight: 700;
   font-size: 24px;
   line-height: 29px;
   display: flex;
@@ -5669,7 +5669,7 @@ input:focus {
 
 .e-stepper.e-stepper--vertical .e-stepper__step.e-stepper__step--active .e-stepper__step-title {
   font-family: "Red Hat Display";
-  font-weight: bold;
+  font-weight: 700;
   font-size: 24px;
   line-height: 29px;
 }
@@ -6099,7 +6099,7 @@ input:focus {
   transition: 200ms;
   font-family: "Red Hat Text";
   font-size: 14px;
-  font-weight: normal;
+  font-weight: 400;
   line-height: 19px;
   letter-spacing: 0.002em;
   color: #fff;
@@ -6691,7 +6691,7 @@ input:focus {
 .e-form-field__label.e-form-field__label--optional::after {
   content: " (valgfri)";
   color: #929292;
-  font-weight: normal;
+  font-weight: 400;
 }
 
 .e-form-field__error {
@@ -6901,15 +6901,37 @@ input:focus {
 }
 
 .e-radio {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
   display: flex;
   align-items: center;
   box-sizing: border-box;
   width: fit-content;
+  position: relative;
+  line-height: 24px;
   cursor: pointer;
 }
 
 .e-radio:not(:last-child) {
   margin-bottom: 8px;
+}
+
+.e-radio.e-radio--sm {
+  line-height: 22px;
+  font-family: Red Hat Text, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-radio.e-radio--sm:not(:last-child) {
@@ -7107,9 +7129,22 @@ input:focus {
   border-color: #ff0000;
 }
 
+.e-radio__mark {
+  position: absolute;
+  top: 0px;
+}
+
+.e-radio.e-radio--sm .e-radio__mark {
+  top: 3px;
+}
+
 .e-radio__label {
   flex-grow: 1;
-  margin-left: 8px;
+  margin-left: 32px;
+}
+
+.e-radio.e-radio--sm .e-radio__label {
+  margin-left: 24px;
 }
 
 .e-search {
@@ -7123,7 +7158,7 @@ input:focus {
 .e-search.e-search--local {
   font-family: "Red Hat Text";
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 16px;
   line-height: 22px;
 }
