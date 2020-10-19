@@ -137,6 +137,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
   scrollToElement(anchor: NavbarAnchor): void {
     this.activeAnchor = anchor;
     this.updateAnchorRoute(this.activeAnchor);
-    this.scrollService.navigateToAnchor(this.navbarAnchors, anchor);
+    this.scrollService.navigateToAnchor(anchor);
   }
 }

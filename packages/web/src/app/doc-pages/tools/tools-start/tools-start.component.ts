@@ -26,7 +26,7 @@ export class ToolsStartComponent implements OnInit, OnDestroy {
       });
     this.routerSubscription = this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {
-        if (ev.url !== '/components') {
+        if (ev.url !== '/tools') {
           setTimeout(() => { this.getNavbarAnchors(); }, 50);
         }
       }
