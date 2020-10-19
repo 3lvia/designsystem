@@ -4,6 +4,7 @@ import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
 import { NavigationEnd, Router } from '@angular/router';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { fromEvent, Subscription } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-identity-start',
@@ -14,6 +15,7 @@ export class IdentityStartComponent implements OnInit, OnDestroy {
   pages = eIdentity;
   navbarAnchors: NavbarAnchor[] = [];
   listenOnScrollSubscription: Subscription;
+  routerSubscription: Subscription;
   scrollEventTimeout;
 
   constructor(private router: Router, private scrollService: ScrollService) {
@@ -21,7 +23,7 @@ export class IdentityStartComponent implements OnInit, OnDestroy {
       .subscribe((anchor: NavbarAnchor) => {
         this.onScrollToAnchor(anchor);
       });
-    this.router.events.subscribe((ev) => {
+    this.routerSubscription = this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {
         if (ev.url !== '/identity') {
           setTimeout(() => { this.getNavbarAnchors(); }, 50);
@@ -34,9 +36,15 @@ export class IdentityStartComponent implements OnInit, OnDestroy {
     this.startScrollSubscription();
   }
 
+  ngOnDestroy(): void {
+    this.listenOnScrollSubscription.unsubscribe();
+    this.routerSubscription.unsubscribe();
+  }
+
   startScrollSubscription(): void {
     const scrollEvents = fromEvent(document, 'scroll');
-    this.listenOnScrollSubscription = scrollEvents.subscribe(() => {
+    const result = scrollEvents.pipe(throttleTime(200));
+    this.listenOnScrollSubscription = result.subscribe(() => {
       this.findAnchorAtScrollPosition();
       this.findNewNavbarHeight();
     });
@@ -44,10 +52,6 @@ export class IdentityStartComponent implements OnInit, OnDestroy {
 
   findNewNavbarHeight(): void {
     this.scrollService.newScrollPosition();
-  }
-
-  ngOnDestroy(): void {
-    this.listenOnScrollSubscription.unsubscribe();
   }
 
   getNavbarAnchors(): void {

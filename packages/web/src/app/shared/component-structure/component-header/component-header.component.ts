@@ -40,10 +40,10 @@ export class ComponentHeaderComponent implements AfterViewInit {
     this.getNewInnerHTML();
   }
 
-  scrollToElement(anchor: NavbarAnchor): void {
-    this.activeAnchor = anchor;
-    this.scrollService.newAnchorToScrollTo(anchor);
-  }
+  // scrollToElement(anchor: NavbarAnchor): void {
+  //   this.activeAnchor = anchor;
+  //   this.scrollService.newAnchorToScrollTo(anchor);
+  // }
 
   isActive(anchor: NavbarAnchor): boolean {
     return anchor === this.activeAnchor;

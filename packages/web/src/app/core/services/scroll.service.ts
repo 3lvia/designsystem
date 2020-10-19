@@ -40,6 +40,7 @@ export class ScrollService {
     this.subjectAnchorsNew.next(anchors);
   }
 
+
   scrollToElement(offsetPos: number): void {
     // Check if browser is IE11
     if (navigator.userAgent.indexOf('MSIE') !== -1
@@ -73,8 +74,8 @@ export class ScrollService {
         height: fullHeight,
       };
       anchors.push(newElement);
-      this.newAnchors(anchors);
     }
+    this.newAnchors(anchors);
     return anchors;
   }
 

@@ -4,6 +4,7 @@ import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
 import { Router, NavigationEnd } from '@angular/router';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { Subscription, fromEvent } from 'rxjs';
+import { throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-components-start',
@@ -13,6 +14,7 @@ import { Subscription, fromEvent } from 'rxjs';
 export class ComponentsStartComponent implements OnInit, OnDestroy {
 
   listenOnScrollSubscription: Subscription;
+  routerSubscription: Subscription;
   pages = eComponents;
   navbarAnchors: NavbarAnchor[] = [];
   scrollEventTimeout;
@@ -22,7 +24,7 @@ export class ComponentsStartComponent implements OnInit, OnDestroy {
       .subscribe((anchor: NavbarAnchor) => {
         this.onScrollToAnchor(anchor);
       });
-    this.router.events.subscribe((ev) => {
+    this.routerSubscription = this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {
         if (ev.url !== '/components') {
           setTimeout(() => { this.getNavbarAnchors(); }, 50);
@@ -35,9 +37,15 @@ export class ComponentsStartComponent implements OnInit, OnDestroy {
     this.startScrollSubscription();
   }
 
+  ngOnDestroy(): void {
+    this.listenOnScrollSubscription.unsubscribe();
+    this.routerSubscription.unsubscribe();
+  }
+
   startScrollSubscription(): void {
     const scrollEvents = fromEvent(document, 'scroll');
-    this.listenOnScrollSubscription = scrollEvents.subscribe(() => {
+    const result = scrollEvents.pipe(throttleTime(200));
+    this.listenOnScrollSubscription = result.subscribe(() => {
       this.findAnchorAtScrollPosition();
       this.findNewNavbarHeight();
     });
@@ -45,10 +53,6 @@ export class ComponentsStartComponent implements OnInit, OnDestroy {
 
   findNewNavbarHeight(): void {
     this.scrollService.newScrollPosition();
-  }
-
-  ngOnDestroy(): void {
-    this.listenOnScrollSubscription.unsubscribe();
   }
 
   getNavbarAnchors(): void {
