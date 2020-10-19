@@ -33,7 +33,6 @@ export class ComponentPropertiesComponent implements OnInit {
 
   getContainer(): void {
     if (data.block[this.componentName].container) {
-      console.log(data.block[this.componentName]);
       Object.keys(data.block[this.componentName].container).forEach(el => {
         this.container = el;
       });
