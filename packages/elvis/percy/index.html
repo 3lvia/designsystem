@@ -1,483 +1,1225 @@
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/elvis.min.css" />
+    <link
+        rel="stylesheet"
+        type="text/css"
+        href="../css/elvis.min.css"
+    />
     <script src="../elvis.js"></script>
-  </head>
-  <body>
-    <div class="e-title-md" style="width: 100%; display: flex; justify-content: space-evenly;">
-      Components
+</head>
+
+<body>
+    <div
+        class="e-title-md"
+        style="width: 100%; display: flex; justify-content: space-evenly;"
+    >
+        Components
     </div>
     <div class="e-title-sm">Accordion</div>
     <div class="e-title-xs e-mt-16">Singe Accordion</div>
 
     <div style="width: 100%; display: flex; flex-direction: column;">
-      <div class="e-accordion e-accordion--single">
-        <div class="e-accordion__item">
-          <div class="e-accordion__title">
-            Closed Accordion
-          </div>
-          <div class="e-accordion__icon">
-            <i class="e-icon e-icon--expand_circle-color"></i>
-            <i class="e-icon e-icon--expand_circle-filled-color"></i>
-          </div>
-          <div class="e-accordion__content">
-            Hidden information
-          </div>
+        <div class="e-accordion e-accordion--single">
+            <div class="e-accordion__item">
+                <div class="e-accordion__title">
+                    Closed Accordion
+                </div>
+                <div class="e-accordion__icon">
+                    <i class="e-icon e-icon--expand_circle-color"></i>
+                    <i class="e-icon e-icon--expand_circle-filled-color"></i>
+                </div>
+                <div class="e-accordion__content">
+                    Hidden information
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="e-accordion e-accordion--single e-mt-40">
-        <div class="e-accordion__item e-accordion__item--open">
-          <div class="e-accordion__title">
-            Open Accordion
-          </div>
-          <div class="e-accordion__icon">
-            <i class="e-icon e-icon--expand_circle-color"></i>
-            <i class="e-icon e-icon--expand_circle-filled-color"></i>
-          </div>
-          <div class="e-accordion__content">
-            Hidden information
-          </div>
+        <div class="e-accordion e-accordion--single e-mt-40">
+            <div class="e-accordion__item e-accordion__item--open">
+                <div class="e-accordion__title">
+                    Open Accordion
+                </div>
+                <div class="e-accordion__icon">
+                    <i class="e-icon e-icon--expand_circle-color"></i>
+                    <i class="e-icon e-icon--expand_circle-filled-color"></i>
+                </div>
+                <div class="e-accordion__content">
+                    Hidden information
+                </div>
+            </div>
         </div>
-      </div>
     </div>
     <div class="e-title-xs e-mt-16">Group Accordion</div>
 
-    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;">
-      <div class="e-accordion e-accordion--group">
-        <div class="e-accordion__item">
-          <div class="e-accordion__label">
-            <div class="e-accordion__title">
-              Hvor ofte kommer fakturaen?
+    <div
+        class="e-mt-16"
+        style="width: 100%; display: flex; justify-content: space-evenly;"
+    >
+        <div class="e-accordion e-accordion--group">
+            <div class="e-accordion__item">
+                <div class="e-accordion__label">
+                    <div class="e-accordion__title">
+                        Hvor ofte kommer fakturaen?
+                    </div>
+                    <div class="e-accordion__icon">
+                        <i class="e-icon e-icon--expand_circle-color"></i>
+                        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+                    </div>
+                </div>
+                <div class="e-accordion__content">
+                    Hidden information
+                </div>
             </div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            <div class="e-accordion__item e-accordion__item--open">
+                <div class="e-accordion__label">
+                    <div class="e-accordion__title">
+                        Kan jeg bestille på vegne av andre?
+                    </div>
+                    <div class="e-accordion__icon">
+                        <i class="e-icon e-icon--expand_circle-color"></i>
+                        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+                    </div>
+                </div>
+                <div class="e-accordion__content">
+                    Hidden information
+                </div>
             </div>
-          </div>
-          <div class="e-accordion__content">
-            Hidden information
-          </div>
+            <div class="e-accordion__item">
+                <div class="e-accordion__label">
+                    <div class="e-accordion__title">
+                        Hva kan jeg gjøre for å spare strøm?
+                    </div>
+                    <div class="e-accordion__icon">
+                        <i class="e-icon e-icon--expand_circle-color"></i>
+                        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="e-accordion__item">
+                <div class="e-accordion__label">
+                    <div class="e-accordion__title">
+                        Hva kan jeg gjøre for å spare strøm?
+                    </div>
+                    <div class="e-accordion__icon">
+                        <i class="e-icon e-icon--expand_circle-color"></i>
+                        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="e-accordion__item e-accordion__item--open">
-          <div class="e-accordion__label">
-            <div class="e-accordion__title">
-              Kan jeg bestille på vegne av andre?
-            </div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            Hidden information
-          </div>
-        </div>
-        <div class="e-accordion__item">
-          <div class="e-accordion__label">
-            <div class="e-accordion__title">
-              Hva kan jeg gjøre for å spare strøm?
-            </div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
-            </div>
-          </div>
-        </div>
-        <div class="e-accordion__item">
-          <div class="e-accordion__label">
-            <div class="e-accordion__title">
-              Hva kan jeg gjøre for å spare strøm?
-            </div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="e-title-xs e-mt-16">Sizing</div>
-    <div class="e-mt-16" style="width: 100%; display: flex; flex-direction: column; align-content: center;">
-      <div class="e-accordion e-accordion--sm">
-        <div class="e-accordion__item">
-          <div class="e-accordion__title">
-            Small Accordion
-          </div>
-          <div class="e-accordion__icon">
-            <i class="e-icon e-icon--expand_circle-color"></i>
-            <i class="e-icon e-icon--expand_circle-filled-color"></i>
-          </div>
+    <div
+        class="e-mt-16"
+        style="width: 100%; display: flex; flex-direction: column; align-content: center;"
+    >
+        <div class="e-accordion e-accordion--sm">
+            <div class="e-accordion__item">
+                <div class="e-accordion__title">
+                    Small Accordion
+                </div>
+                <div class="e-accordion__icon">
+                    <i class="e-icon e-icon--expand_circle-color"></i>
+                    <i class="e-icon e-icon--expand_circle-filled-color"></i>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="e-accordion e-accordion--md e-mt-40">
-        <div class="e-accordion__item">
-          <div class="e-accordion__title">
-            Medium Accordion
-          </div>
-          <div class="e-accordion__icon">
-            <i class="e-icon e-icon--expand_circle-color"></i>
-            <i class="e-icon e-icon--expand_circle-filled-color"></i>
-          </div>
+        <div class="e-accordion e-accordion--md e-mt-40">
+            <div class="e-accordion__item">
+                <div class="e-accordion__title">
+                    Medium Accordion
+                </div>
+                <div class="e-accordion__icon">
+                    <i class="e-icon e-icon--expand_circle-color"></i>
+                    <i class="e-icon e-icon--expand_circle-filled-color"></i>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <div class="e-accordion e-accordion--lg e-mt-40">
-        <div class="e-accordion__item">
-          <div class="e-accordion__title">
-            Large Accordion
-          </div>
-          <div class="e-accordion__icon">
-            <i class="e-icon e-icon--expand_circle-color"></i>
-            <i class="e-icon e-icon--expand_circle-filled-color"></i>
-          </div>
+        <div class="e-accordion e-accordion--lg e-mt-40">
+            <div class="e-accordion__item">
+                <div class="e-accordion__title">
+                    Large Accordion
+                </div>
+                <div class="e-accordion__icon">
+                    <i class="e-icon e-icon--expand_circle-color"></i>
+                    <i class="e-icon e-icon--expand_circle-filled-color"></i>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
     <div class="e-title-sm e-mt-16">Alerts</div>
     <div class="e-title-xs e-mt-16">Global Alert</div>
-    <div class="e-mt-16" style="width: 100%; display: flex; flex-direction: column;">
-      <div>Regular</div>
+    <div
+        class="e-mt-16"
+        style="width: 100%; display: flex; flex-direction: column;"
+    >
+        <div>Regular</div>
 
-      <div class="e-alert e-alert--global">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle"></i>
+        <div class="e-alert e-alert--global">
+            <div class="e-alert__icon">
+                <i class="e-icon e-icon--information_circle"></i>
+            </div>
+            <div class="e-alert__content">
+                <div class="e-alert__title">Kort info tittel</div>
+                <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+            </div>
         </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">Kort info tittel</div>
-          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
-        </div>
-      </div>
-      <div>Closeable</div>
+        <div>Closeable</div>
 
-      <div class="e-alert e-alert--global">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle"></i>
-        </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">Kort info tittel</div>
-          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
-        </div>
-        <div class="e-alert__close">
-          <button class="e-btn e-btn--icon e-btn--sm">
-            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-          </button>
-        </div>
-      </div>
-      <div>Expandable</div>
-      <div>
-        <div class="e-alert e-alert--global e-alert--expandable">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--information_circle"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">
-              <div>Kort info tittel</div>
-              <div class="e-alert__accordion">
-                <i class="e-icon e-icon--expand_circle-color"></i>
-                <i class="e-icon e-icon--expand_circle-filled-color"></i>
-              </div>
+        <div class="e-alert e-alert--global">
+            <div class="e-alert__icon">
+                <i class="e-icon e-icon--information_circle"></i>
             </div>
-            <div class="e-alert__text">
-              <div>Generell informasjon til alle brukere på tvers.</div>
-              <div class="e-alert__links">
-                <a class="e-link" href="https://design.elvia.io">Medium link</a>
-              </div>
+            <div class="e-alert__content">
+                <div class="e-alert__title">Kort info tittel</div>
+                <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
             </div>
-          </div>
+            <div class="e-alert__close">
+                <button class="e-btn e-btn--icon e-btn--sm">
+                    <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+                </button>
+            </div>
         </div>
+        <div>Expandable</div>
+        <div>
+            <div class="e-alert e-alert--global e-alert--expandable">
+                <div class="e-alert__icon">
+                    <i class="e-icon e-icon--information_circle"></i>
+                </div>
+                <div class="e-alert__content">
+                    <div class="e-alert__title">
+                        <div>Kort info tittel</div>
+                        <div class="e-alert__accordion">
+                            <i class="e-icon e-icon--expand_circle-color"></i>
+                            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+                        </div>
+                    </div>
+                    <div class="e-alert__text">
+                        <div>Generell informasjon til alle brukere på tvers.</div>
+                        <div class="e-alert__links">
+                            <a
+                                class="e-link"
+                                href="https://design.elvia.io"
+                            >Medium link</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="e-alert e-alert--global e-alert--expandable e-alert--open e-mt-40">
-          <div class="e-alert__icon">
-            <i class="e-icon e-icon--information_circle"></i>
-          </div>
-          <div class="e-alert__content">
-            <div class="e-alert__title">
-              <div>Kort info tittel</div>
-              <div class="e-alert__accordion">
-                <i class="e-icon e-icon--expand_circle-color"></i>
-                <i class="e-icon e-icon--expand_circle-filled-color"></i>
-              </div>
+            <div class="e-alert e-alert--global e-alert--expandable e-alert--open e-mt-40">
+                <div class="e-alert__icon">
+                    <i class="e-icon e-icon--information_circle"></i>
+                </div>
+                <div class="e-alert__content">
+                    <div class="e-alert__title">
+                        <div>Kort info tittel</div>
+                        <div class="e-alert__accordion">
+                            <i class="e-icon e-icon--expand_circle-color"></i>
+                            <i class="e-icon e-icon--expand_circle-filled-color"></i>
+                        </div>
+                    </div>
+                    <div class="e-alert__text">
+                        <div>Generell informasjon til alle brukere på tvers.</div>
+                        <div class="e-alert__links">
+                            <a
+                                class="e-link"
+                                href="https://design.elvia.io"
+                            >Medium link</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="e-alert__text">
-              <div>Generell informasjon til alle brukere på tvers.</div>
-              <div class="e-alert__links">
-                <a class="e-link" href="https://design.elvia.io">Medium link</a>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
     <div>Actions</div>
     <div class="e-alert e-alert--global e-alert--no-title e-alert--actions">
-      <div class="e-alert__icon">
-        <i class="e-icon e-icon--information_circle"></i>
-      </div>
-      <div class="e-alert__content">
-        <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen.</div>
-        <div class="e-alert__actions">
-          <button class="e-btn e-btn--secondary e-btn--sm">
-            <span class="e-btn__title">Secondary</span>
-          </button>
-          <button class="e-btn e-ml-24 e-btn--sm">
-            <span class="e-btn__title">Primary</span>
-          </button>
+        <div class="e-alert__icon">
+            <i class="e-icon e-icon--information_circle"></i>
         </div>
-      </div>
+        <div class="e-alert__content">
+            <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen.</div>
+            <div class="e-alert__actions">
+                <button class="e-btn e-btn--secondary e-btn--sm">
+                    <span class="e-btn__title">Secondary</span>
+                </button>
+                <button class="e-btn e-ml-24 e-btn--sm">
+                    <span class="e-btn__title">Primary</span>
+                </button>
+            </div>
+        </div>
     </div>
 
     <div class="e-title-xs e-my-16">Local Alert</div>
 
     <div>
-      <div class="e-alert e-alert--local">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
-        </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">Standard alert</div>
-          <div class="e-alert__text">
-            <div>
-              Description with a list and an
-              <a class="e-link e-link--inline">inline link.</a>
+        <div class="e-alert e-alert--local">
+            <div class="e-alert__icon">
+                <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
             </div>
-            <div class="e-alert__links">
-              <a class="e-link" href="https://design.elvia.io">Link 1</a>
-              <a class="e-link" href="https://design.elvia.io">Link 2</a>
+            <div class="e-alert__content">
+                <div class="e-alert__title">Standard alert</div>
+                <div class="e-alert__text">
+                    <div>
+                        Description with a list and an
+                        <a class="e-link e-link--inline">inline link.</a>
+                    </div>
+                    <div class="e-alert__links">
+                        <a
+                            class="e-link"
+                            href="https://design.elvia.io"
+                        >Link 1</a>
+                        <a
+                            class="e-link"
+                            href="https://design.elvia.io"
+                        >Link 2</a>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
 
     <div class="e-title-xs e-my-16">Toast Alert</div>
 
     <div class="e-alert e-alert--toast">
-      <div class="e-alert__icon">
-        <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
-      </div>
-      <div class="e-alert__content">
-        <div class="e-alert__title">Kort Tittel</div>
-        <div class="e-alert__text">En velykket bekreftelses melding!</div>
-      </div>
+        <div class="e-alert__icon">
+            <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
+        </div>
+        <div class="e-alert__content">
+            <div class="e-alert__title">Kort Tittel</div>
+            <div class="e-alert__text">En velykket bekreftelses melding!</div>
+        </div>
     </div>
     <div class="e-my-16">Closeable</div>
     <div class="e-alert e-alert--toast e-alert--no-title">
-      <div class="e-alert__icon">
-        <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
-      </div>
-      <div class="e-alert__content">
-        <div class="e-alert__text">
-          En velykket bekreftelses melding en lang og velykket bekreftelse på en lang melding!
+        <div class="e-alert__icon">
+            <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
         </div>
-      </div>
-      <div class="e-alert__close">
-        <button class="e-btn e-btn--icon e-btn--sm">
-          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-        </button>
-      </div>
+        <div class="e-alert__content">
+            <div class="e-alert__text">
+                En velykket bekreftelses melding en lang og velykket bekreftelse på en lang melding!
+            </div>
+        </div>
+        <div class="e-alert__close">
+            <button class="e-btn e-btn--icon e-btn--sm">
+                <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+            </button>
+        </div>
     </div>
     <div class="e-my-16">Statuses</div>
 
     <div>
-      <div class="e-alert e-alert--error e-alert--local">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--check_circle e-icon--color-red"></i>
+        <div class="e-alert e-alert--error e-alert--local">
+            <div class="e-alert__icon">
+                <i class="e-icon e-icon--check_circle e-icon--color-red"></i>
+            </div>
+            <div class="e-alert__content">
+                <div class="e-alert__title">Kort Tittel</div>
+                <div class="e-alert__text">En velykket bekreftelses melding!</div>
+            </div>
         </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">Kort Tittel</div>
-          <div class="e-alert__text">En velykket bekreftelses melding!</div>
+        <div class="e-alert e-alert e-alert--warn e-alert--local">
+            <div class="e-alert__icon">
+                <i class="e-icon e-icon--check_circle e-icon--color-orange"></i>
+            </div>
+            <div class="e-alert__content">
+                <div class="e-alert__title">Kort Tittel</div>
+                <div class="e-alert__text">En velykket bekreftelses melding!</div>
+            </div>
         </div>
-      </div>
-      <div class="e-alert e-alert e-alert--warn e-alert--local">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--check_circle e-icon--color-orange"></i>
+        <div class="e-alert e-alert e-alert--info e-alert--local">
+            <div class="e-alert__icon">
+                <i class="e-icon e-icon--check_circle e-icon--color-black"></i>
+            </div>
+            <div class="e-alert__content">
+                <div class="e-alert__title">Kort Tittel</div>
+                <div class="e-alert__text">En velykket bekreftelses melding!</div>
+            </div>
         </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">Kort Tittel</div>
-          <div class="e-alert__text">En velykket bekreftelses melding!</div>
-        </div>
-      </div>
-      <div class="e-alert e-alert e-alert--info e-alert--local">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--check_circle e-icon--color-black"></i>
-        </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">Kort Tittel</div>
-          <div class="e-alert__text">En velykket bekreftelses melding!</div>
-        </div>
-      </div>
 
-      <div class="e-alert e-alert--toast e-alert--info">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--check_circle e-icon--color-black"></i>
+        <div class="e-alert e-alert--toast e-alert--info">
+            <div class="e-alert__icon">
+                <i class="e-icon e-icon--check_circle e-icon--color-black"></i>
+            </div>
+            <div class="e-alert__content">
+                <div class="e-alert__title">Kort Tittel</div>
+                <div class="e-alert__text">En velykket bekreftelses melding!</div>
+            </div>
         </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">Kort Tittel</div>
-          <div class="e-alert__text">En velykket bekreftelses melding!</div>
+        <div class="e-alert e-alert--toast">
+            <div class="e-alert__icon">
+                <i class="e-icon e-icon--check_circle e-icon--color-black"></i>
+            </div>
+            <div class="e-alert__content">
+                <div class="e-alert__title">Kort Tittel</div>
+                <div class="e-alert__text">En velykket bekreftelses melding!</div>
+            </div>
         </div>
-      </div>
-      <div class="e-alert e-alert--toast">
-        <div class="e-alert__icon">
-          <i class="e-icon e-icon--check_circle e-icon--color-black"></i>
-        </div>
-        <div class="e-alert__content">
-          <div class="e-alert__title">Kort Tittel</div>
-          <div class="e-alert__text">En velykket bekreftelses melding!</div>
-        </div>
-      </div>
     </div>
-     <div class="e-alert e-alert--global">
+    <div class="e-alert e-alert--global">
         <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle"></i>
+            <i class="e-icon e-icon--information_circle"></i>
         </div>
         <div class="e-alert__content">
-          <div class="e-alert__title">Kort info tittel</div>
-          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+            <div class="e-alert__title">Kort info tittel</div>
+            <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
         </div>
-      </div>
-       <div class="e-alert e-alert--global e-alert--error">
+    </div>
+    <div class="e-alert e-alert--global e-alert--error">
         <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle"></i>
+            <i class="e-icon e-icon--information_circle"></i>
         </div>
         <div class="e-alert__content">
-          <div class="e-alert__title">Kort info tittel</div>
-          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+            <div class="e-alert__title">Kort info tittel</div>
+            <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
         </div>
-      </div>
-       <div class="e-alert e-alert--global e-alert--warn">
+    </div>
+    <div class="e-alert e-alert--global e-alert--warn">
         <div class="e-alert__icon">
-          <i class="e-icon e-icon--information_circle"></i>
+            <i class="e-icon e-icon--information_circle"></i>
         </div>
         <div class="e-alert__content">
-          <div class="e-alert__title">Kort info tittel</div>
-          <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+            <div class="e-alert__title">Kort info tittel</div>
+            <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
         </div>
-      </div>
+    </div>
 
     <div class="e-title-sm e-mt-16">Buttons</div>
     <div class="e-title-xs e-my-16">Primary</div>
 
-    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;">
-      <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
-        <button class="e-btn e-m-8">
-          <span class="e-btn__title">Primary</span>
-        </button>
-        <button class="e-btn e-m-8">
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--download e-icon--inverted"></i>
-            <i class="e-icon e-icon--download"></i>
-          </span>
-          <span class="e-btn__title">Icon button</span>
-        </button>
-        <button class="e-btn e-m-8">
-          <span class="e-btn__title">Icon button</span>
-          <span class="e-btn__icon">
-            <i class="e-icon e-icon--download e-icon--inverted"></i>
-            <i class="e-icon e-icon--download"></i>
-          </span>
-        </button>
-        <button class="e-btn e-btn--loading e-m-8">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <button class="e-btn e-btn--danger e-m-8">
-          <span class="e-btn__title">Danger</span>
-        </button>
-      </div>
+    <div
+        class="e-mt-16"
+        style="width: 100%; display: flex; justify-content: space-evenly;"
+    >
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+            <button class="e-btn e-m-8">
+                <span class="e-btn__title">Primary</span>
+            </button>
+            <button class="e-btn e-m-8">
+                <span class="e-btn__icon">
+                    <i class="e-icon e-icon--download e-icon--inverted"></i>
+                    <i class="e-icon e-icon--download"></i>
+                </span>
+                <span class="e-btn__title">Icon button</span>
+            </button>
+            <button class="e-btn e-m-8">
+                <span class="e-btn__title">Icon button</span>
+                <span class="e-btn__icon">
+                    <i class="e-icon e-icon--download e-icon--inverted"></i>
+                    <i class="e-icon e-icon--download"></i>
+                </span>
+            </button>
+            <button class="e-btn e-btn--loading e-m-8">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <button class="e-btn e-btn--danger e-m-8">
+                <span class="e-btn__title">Danger</span>
+            </button>
+        </div>
+    </div>
+    <div
+        class="e-mt-16"
+        style="width: 100%; display: flex; justify-content: space-evenly; background-color: #262626;"
+    >
+        <div style="display: flex; flex-direction: row; flex-wrap: wrap;">
+            <button class="e-btn e-btn--inverted e-m-8">
+                <span class="e-btn__title">Primary</span>
+            </button>
+            <button class="e-btn e-btn--inverted e-m-8">
+                <span class="e-btn__icon">
+                    <i class="e-icon e-icon--download e-icon--inverted"></i>
+                    <i class="e-icon e-icon--download"></i>
+                </span>
+                <span class="e-btn__title">Icon button</span>
+            </button>
+            <button class="e-btn e-btn--inverted e-m-8">
+                <span class="e-btn__title">Icon button</span>
+                <span class="e-btn__icon">
+                    <i class="e-icon e-icon--download e-icon--inverted"></i>
+                    <i class="e-icon e-icon--download"></i>
+                </span>
+            </button>
+            <button class="e-btn e-btn--loading e-btn--inverted e-m-8">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <button class="e-btn e-btn--danger e-btn--inverted e-m-8">
+                <span class="e-btn__title">Danger</span>
+            </button>
+        </div>
     </div>
     <div class="e-title-xs e-my-16">Secondary</div>
-    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;">
-  <button class="e-btn e-btn--secondary e-m-8">
-    <span class="e-btn__title">Secondary</span>
-  </button>
-  <button class="e-btn e-btn--secondary e-m-8">
-    <span class="e-btn__icon">
-      <i class="e-icon e-icon--download e-icon--inverted"></i>
-      <i class="e-icon e-icon--download"></i>
-    </i></span>
-    <span class="e-btn__title">Icon button</span>
-  </button>
-  <button class="e-btn e-btn--secondary e-m-8">
-    <span class="e-btn__title">Icon button</span>
-    <span class="e-btn__icon">
-      <i class="e-icon e-icon--download e-icon--inverted"></i>
-      <i class="e-icon e-icon--download"></i>
-    </i></span>
-  </button>
-  <button class="e-btn e-btn--secondary e-btn--loading e-m-8">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</div>
-<div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly; background-color: #262626;">
-   <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
-    <span class="e-btn__title">Secondary</span>
-  </button>
-  <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
-    <span class="e-btn__icon">
-      <i class="e-icon e-icon--download e-icon--inverted"></i>
-      <i class="e-icon e-icon--download"></i>
-    </i></span>
-    <span class="e-btn__title">Icon button</span>
-  </button>
-  <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
-    <span class="e-btn__title">Icon button</span>
-    <span class="e-btn__icon">
-      <i class="e-icon e-icon--download e-icon--inverted"></i>
-      <i class="e-icon e-icon--download"></i>
-    </i></span>
-  </button>
-  <button class="e-btn e-btn--secondary e-btn--loading e-btn--inverted e-m-8">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-</div>
+    <div
+        class="e-mt-16"
+        style="width: 100%; display: flex; justify-content: space-evenly;"
+    >
+        <button class="e-btn e-btn--secondary e-m-8">
+            <span class="e-btn__title">Secondary</span>
+        </button>
+        <button class="e-btn e-btn--secondary e-m-8">
+            <span class="e-btn__icon">
+                <i class="e-icon e-icon--download e-icon--inverted"></i>
+                <i class="e-icon e-icon--download"></i>
+                </i></span>
+            <span class="e-btn__title">Icon button</span>
+        </button>
+        <button class="e-btn e-btn--secondary e-m-8">
+            <span class="e-btn__title">Icon button</span>
+            <span class="e-btn__icon">
+                <i class="e-icon e-icon--download e-icon--inverted"></i>
+                <i class="e-icon e-icon--download"></i>
+                </i></span>
+        </button>
+        <button class="e-btn e-btn--secondary e-btn--loading e-m-8">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+    <div
+        class="e-mt-16"
+        style="width: 100%; display: flex; justify-content: space-evenly; background-color: #262626;"
+    >
+        <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
+            <span class="e-btn__title">Secondary</span>
+        </button>
+        <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
+            <span class="e-btn__icon">
+                <i class="e-icon e-icon--download e-icon--inverted"></i>
+                <i class="e-icon e-icon--download"></i>
+                </i></span>
+            <span class="e-btn__title">Icon button</span>
+        </button>
+        <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
+            <span class="e-btn__title">Icon button</span>
+            <span class="e-btn__icon">
+                <i class="e-icon e-icon--download e-icon--inverted"></i>
+                <i class="e-icon e-icon--download"></i>
+                </i></span>
+        </button>
+        <button class="e-btn e-btn--secondary e-btn--loading e-btn--inverted e-m-8">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
 
     <div class="e-title-xs e-my-16">Tertiary</div>
+    <div>
+        <button class="e-btn e-btn--tertiary">
+            <span class="e-btn__icon">
+                <i class="e-icon e-icon--download"></i>
+            </span>
+            <span class="e-btn__title">Tertiary</span>
+        </button>
+    </div>
+    <div style="background-color: #262626;">
+        <button class="e-btn e-btn--tertiary e-btn--inverted">
+            <span class="e-btn__icon">
+                <i class="e-icon e-icon--download e-icon--inverted"></i>
+            </span>
+            <span class="e-btn__title">Tertiary</span>
+        </button>
+    </div>
     <div class="e-title-xs e-my-16">Icon buttons</div>
+    <div style="display:flex; flex-direction:row; flex-wrap: wrap;">
+        <div
+            class="e-mr-40"
+            style="display: flex; flex-direction: column; align-content:center;"
+        >
+            <div class="e-text-label e-mb-8">Flat</div>
+            <button class="e-btn e-btn--icon">
+                <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
+            </button>
+        </div>
+        <div
+            class="e-mr-40"
+            style="display: flex; flex-direction: column; align-content:center;"
+        >
+            <div class="e-text-label e-mb-8">Danger</div>
+            <button class="e-btn e-btn--icon e-btn--danger">
+                <span class="e-btn__icon">
+                    <i class="e-icon e-icon--bin e-icon--color-red"></i>
+                    <i class="e-icon e-icon--bin"></i>
+                </span>
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: column; align-content:center;">
+            <div class="e-text-label e-mb-8">Circled</div>
+            <button class="e-btn e-btn--icon e-btn--circled">
+                <span class="e-btn__icon">
+                    <i class="e-icon e-icon--information_circle"></i>
+                    <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div style="display:flex; flex-direction:row; flex-wrap: wrap;background-color: #262626;">
+        <div
+            class="e-mr-40"
+            style="display: flex; flex-direction: column; align-content:center;"
+        >
+            <div class="e-text-label e-mb-8 e-text-white">Flat</div>
+            <button class="e-btn e-btn--icon e-btn--inverted">
+                <span class="e-btn__icon">
+                    <i class="e-icon e-icon--upload"></i>
+                    <i class="e-icon e-icon--upload e-icon--inverted"></i>
+                </span>
+            </button>
+        </div>
+        <div
+            class="e-mr-40"
+            style="display: flex; flex-direction: column; align-content:center;"
+        >
+            <div class="e-text-label e-mb-8 e-text-white">Danger</div>
+            <button class="e-btn e-btn--icon e-btn--danger e-btn--inverted">
+                <span class="e-btn__icon">
+                    <i class="e-icon e-icon--bin e-icon--color-red"></i>
+                    <i class="e-icon e-icon--bin"></i>
+                </span>
+            </button>
+        </div>
+        <div style="display: flex; flex-direction: column; align-content:center;">
+            <div class="e-text-label e-mb-8 e-text-white">Circled</div>
+            <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted">
+                <span class="e-btn__icon">
+                    <i class="e-icon e-icon--information_circle e-icon--inverted"></i>
+                    <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="e-title-xs e-my-16">Links with button style</div>
+    <div>
+        <a
+            class="e-btn e-m-16"
+            href="www.elvia.no"
+        >
+            <span class="e-btn__title">Anchor tags</span>
+        </a>
+    </div>
+    <div style="background-color: #262626;">
+        <a
+            class="e-btn e-btn--inverted e-m-16"
+            href="www.elvia.no"
+        >
+            <span class="e-btn__title">Anchor tags</span>
+        </a>
+    </div>
+    <div class="e-title-xs e-my-16">Sizing of buttons</div>
+    <div style="display:flex; flex-direction:row; flex-wrap: wrap; align-items: center;">
+        <div class="e-m-8">
+            <button class="e-btn e-btn--sm">
+                <span class="e-btn__title">Small</span>
+            </button>
+        </div>
+        <div class="e-m-8">
+            <button class="e-btn">
+                <span class="e-btn__title">Medium</span>
+            </button>
+        </div>
+        <div class="e-m-8">
+            <button class="e-btn e-btn--lg">
+                <span class="e-btn__title">Large</span>
+            </button>
+        </div>
+        <div class="e-w-100 e-mt-24">
+            <button class="e-btn e-w-100">
+                <span class="e-btn__title">Full width</span>
+            </button>
+        </div>
+    </div>
+    <div class="e-title-sm e-mt-16">Card</div>
+    <div class="e-title-xs e-my-16">Simple Cards</div>
+    <div style="max-width:600px;margin:40px;">
+        <div class="e-card">
+            <div class="e-card__title">
+                Strømregningen påvirkes av vinteren
+            </div>
+            <div class="e-card__content">
+                Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker,
+                mens de fleste holder en jevn temperatur på rundt 20 grader inne...
+            </div>
+        </div>
+    </div>
+
+    <div class="e-title-xs e-my-16">Titles above</div>
+    <div style="max-width:600px;margin:50px;">
+        <div class="e-card">
+            <div class="e-card__title e-card__title--above">
+                Strømregningen påvirkes av vinteren
+            </div>
+            <div class="e-card__content">
+                Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker,
+                mens de fleste holder en jevn temperatur på rundt 20 grader inne...
+            </div>
+        </div>
+    </div>
+    <div class="e-title-xs e-my-16">Shadows on Cards - Soft</div>
+    <div style="max-width:600px;margin:50px;">
+        <div class="e-card e-card--shadow-soft">
+            <div class="e-card__title e-card__title--above">
+                Strømregningen påvirkes av vinteren
+            </div>
+            <div class="e-card__content">
+                Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker,
+                mens de fleste holder en jevn temperatur på rundt 20 grader inne...
+            </div>
+        </div>
+    </div>
+
+    <div class="e-title-xs e-my-16">Shadows on Cards - Medium</div>
+    <div style="max-width:600px;margin:50px;">
+        <div class="e-card e-card--shadow-medium">
+            <div class="e-card__title e-card__title--above">
+                Strømregningen påvirkes av vinteren
+            </div>
+            <div class="e-card__content">
+                Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker,
+                mens de fleste holder en jevn temperatur på rundt 20 grader inne...
+            </div>
+        </div>
+    </div>
+
+    <div class="e-title-xs e-my-16">Shadows on Cards - Hard</div>
+    <div style="max-width:600px;margin:50px;">
+        <div class="e-card e-card--shadow-hard">
+            <div class="e-card__title e-card__title--above">
+                Strømregningen påvirkes av vinteren
+            </div>
+            <div class="e-card__content">
+                Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker,
+                mens de fleste holder en jevn temperatur på rundt 20 grader inne...
+            </div>
+        </div>
+    </div>
+    <div class="e-title-sm e-mt-16">Checkboxes</div>
+    <label
+        class="e-checkbox"
+        for="elvis-checkbox"
+    >
+        <input
+            type="checkbox"
+            id="elvis-checkbox"
+        >
+        <span class="e-checkbox__mark"></span>
+        <span class="e-checkbox__label">Normal</span>
+    </label>
+    <div class="e-title-xs e-my-16">Sizing</div>
+    <form>
+        <label
+            class="e-checkbox"
+            for="elvis-checkbox-md"
+        >
+            <input
+                type="checkbox"
+                id="elvis-checkbox-md"
+            >
+            <span class="e-checkbox__mark"></span>
+            <span class="e-checkbox__label">Medium</span>
+        </label>
+        <label
+            class="e-checkbox e-checkbox--sm"
+            for="elvis-checkbox-sm"
+        >
+            <input
+                type="checkbox"
+                id="elvis-checkbox-sm"
+            >
+            <span class="e-checkbox__mark"></span>
+            <span class="e-checkbox__label">Small</span>
+        </label>
+        <form>
+            <div class="e-title-xs e-my-16">Checkbox States</div>
+            <label
+                class="e-checkbox e-checkbox---checked"
+                for="elvis-pseudo-checkbox-checked"
+            >
+                <input
+                    type="checkbox"
+                    id="elvis-pseudo-checkbox-checked"
+                >
+                <span class="e-checkbox__mark"></span>
+                <span class="e-checkbox__label">Checked</span>
+            </label>
+
+            <label
+                class="e-checkbox e-checkbox---focus"
+                for="elvis-pseudo-checkbox-focus"
+            >
+                <input
+                    type="checkbox"
+                    id="elvis-pseudo-checkbox-focus"
+                >
+                <span class="e-checkbox__mark"></span>
+                <span class="e-checkbox__label">Focus</span>
+            </label>
+
+            <label
+                class="e-checkbox e-checkbox---hover"
+                for="elvis-pseudo-checkbox-hover"
+            >
+                <input
+                    type="checkbox"
+                    id="elvis-pseudo-checkbox-hover"
+                >
+                <span class="e-checkbox__mark"></span>
+                <span class="e-checkbox__label">Hover</span>
+            </label>
+
+            <label
+                class="e-checkbox e-checkbox---disabled"
+                for="elvis-pseudo-checkbox-disabled"
+            >
+                <input
+                    type="checkbox"
+                    id="elvis-pseudo-checkbox-disabled"
+                >
+                <span class="e-checkbox__mark"></span>
+                <span class="e-checkbox__label">Disabled</span>
+            </label>
+
+            <label
+                class="e-checkbox e-checkbox---disabled-checked"
+                for="elvis-pseudo-checkbox-disabled-checked"
+            >
+                <input
+                    type="checkbox"
+                    id="elvis-pseudo-checkbox-disabled-checked"
+                >
+                <span class="e-checkbox__mark"></span>
+                <span class="e-checkbox__label">Disabled</span>
+            </label>
+
+            <label
+                class="e-checkbox e-checkbox---invalid"
+                for="elvis-pseudo-checkbox-invalid"
+            >
+                <input
+                    type="checkbox"
+                    id="elvis-pseudo-checkbox-invalid"
+                >
+                <span class="e-checkbox__mark"></span>
+                <span class="e-checkbox__label">Invalid</span>
+            </label>
+
+            <div class="e-title-sm e-mt-16">Content Loader</div>
+
+            <div
+                class="e-mt-48 e-mb-72 e-w-100"
+                style="display: flex; flex-direction: row;"
+            >
+                <div
+                    class="e-mr-24"
+                    style="display: flex; flex-direction: column;"
+                >
+                    <div
+                        class="e-content-loader"
+                        style="width: 170px; height: 170px;"
+                    ></div>
+                </div>
+
+                <div
+                    class="e-mr-24"
+                    style="display: flex; flex-direction: column;"
+                >
+                    <div
+                        class="e-content-loader e-content-loader--circle"
+                        style="width: 170px; height: 170px;"
+                    ></div>
+                </div>
+
+                <div
+                    class="e-w-100"
+                    style="display: flex; flex-direction: column; justify-content: center;"
+                >
+                    <div class="e-content-loader e-content-loader--text"></div>
+                    <div class="e-content-loader e-content-loader--text e-mt-24"></div>
+                    <div class="e-content-loader e-content-loader--text e-content-loader--short e-mt-24"></div>
+                </div>
+            </div>
+
+            <div class="e-title-sm e-mt-16">DatePicker</div>
+
+            <div class="e-title-xs e-my-16">Input date</div>
+            <div
+                class="e-form-field"
+                style="width:250px"
+            >
+                <label
+                    class="e-form-field__label"
+                    for="normal"
+                >Velg dato</label>
+                <div class="e-input">
+                    <i class="e-icon e-icon--calendar e-icon--xs"></i>
+                    <input
+                        id="normal"
+                        type="date"
+                        placeholder=""
+                    >
+                </div>
+            </div>
+            <div class="e-title-xs e-my-16">Input Time</div>
+            <div
+                class="e-form-field"
+                style="width:140px"
+            >
+                <label
+                    class="e-form-field__label"
+                    for="normal"
+                >Velg tid</label>
+                <div class="e-input">
+                    <i class="e-icon e-icon--clock e-icon--xs"></i>
+                    <input
+                        id="normal"
+                        type="time"
+                        placeholder=""
+                    >
+                </div>
+            </div>
+
+            <div class="e-title-sm e-mt-16">Drag&Drop</div>
+            <div class="e-title-xs e-my-16">Before dragover</div>
+            <div
+                class="e-dragdrop"
+                style="width:300px; height:150px"
+            ></div>
+            <div class="e-title-xs e-my-16">When dragging over</div>
+            <div
+                class="e-dragdrop e-dragdrop--dragover"
+                style="width:300px; height:150px"
+            ></div>
+
+            <div class="e-title-sm e-mt-16">File Upload</div>
+            <div class="e-title-xs e-my-16">Before hover</div>
+            <div
+                class="e-fileupload"
+                style="width:380px"
+            >
+                <div class="e-fileupload__icon">
+                    <i class="e-icon e-icon--image_add-color"></i>
+                </div>
+                <div class="e-fileupload__description">
+                    Dra og slipp eller
+                </div>
+                <div class="e-fileupload__input">
+                    <input
+                        type="file"
+                        id="fileUploadTemplate"
+                    >
+                    <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i> Velg fil</label>
+                </div>
+            </div>
+            <div class="e-title-xs e-my-16">When hovering</div>
+            <div
+                class="e-fileupload e-fileupload---hover"
+                style="width:380px"
+            >
+                <div class="e-fileupload__icon">
+                    <i class="e-icon e-icon--image_add-color"></i>
+                </div>
+                <div class="e-fileupload__description">
+                    Dra og slipp eller
+                </div>
+                <div class="e-fileupload__input">
+                    <input
+                        type="file"
+                        id="fileUploadTemplate"
+                    >
+                    <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i> Velg fil</label>
+                </div>
+            </div>
+
+            <div class="e-title-sm e-mt-16">Radio Filter</div>
+            <div class="e-radio-filter-container">
+                <button class="e-radio-filter">
+                    Filter 1
+                </button>
+                <button class="e-radio-filter e-radio-filter--selected">
+                    Filter 2
+                </button>
+                <button class="e-radio-filter e-radio-filter---disabled">
+                    Filter 3
+                </button>
+            </div>
+
+            <div class="e-title-sm e-mt-16">Input</div>
+            <div class="e-title-xs e-my-16">Normal Input</div>
+
+            <div class="e-form-field">
+                <label
+                    class="e-form-field__label"
+                    for="normal"
+                >Normal input field </label>
+                <div class="e-input">
+                    <input
+                        id="normal"
+                        type="text"
+                        placeholder="Placeholder text"
+                    >
+                </div>
+            </div>
+            <div class="e-title-xs e-my-16">Combined Input</div>
+
+            <div class="e-form-field e-form-field--combined">
+                <label
+                    class="e-form-field__label"
+                    for="phone"
+                >Phone</label>
+                <div class="e-form-field__input">
+                    <div
+                        id="phone"
+                        class="e-input e-input--small"
+                    >
+                        <input
+                            type="text"
+                            value="+47"
+                        >
+                    </div>
+                    <div class="e-input">
+                        <input
+                            type="text"
+                            placeholder="Placeholder text"
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="e-title-xs e-my-16">Inlined Input</div>
+            <div class="e-inlined-field">
+                <div class="e-form-field e-form-field--medium">
+                    <label
+                        class="e-form-field__label"
+                        for="zip"
+                    >Zip code</label>
+                    <div class="e-input">
+                        <input
+                            id="zip"
+                            type="text"
+                            placeholder="Zip code"
+                        >
+                    </div>
+                </div>
+                <div class="e-form-field">
+                    <label
+                        class="e-form-field__label"
+                        for="city"
+                    >City</label>
+                    <div class="e-input">
+                        <input
+                            id="city"
+                            type="text"
+                            placeholder="City"
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="e-title-xs e-my-16">Textarea</div>
+            <div class="e-form-field">
+                <label
+                    class="e-form-field__label e-form-field__label--optional"
+                    for="textarea"
+                >Textarea</label>
+                <div class="e-input">
+                    <textarea
+                        id="textarea"
+                        placeholder="Placeholder text"
+                        type="text"
+                    ></textarea>
+                </div>
+            </div>
+            <div class="e-title-xs e-my-16">Sizing - Normal and Compact</div>
+            <div class="e-form-field">
+                <label
+                    class="e-form-field__label"
+                    for="normal"
+                >Normal input field </label>
+                <div class="e-input">
+                    <input
+                        id="normal"
+                        type="text"
+                        placeholder="Placeholder text"
+                    >
+                </div>
+            </div>
+
+            <div
+                class="e-mt-16"
+                style="width: 240px;"
+            >
+                <div class="e-form-field e-form-field--compact">
+                    <label
+                        class="e-form-field__label"
+                        for="compact"
+                    >Compact input field </label>
+                    <div class="e-input">
+                        <input
+                            id="compact"
+                            type="text"
+                            placeholder="Placeholder text"
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="e-title-xs e-my-16">Validation</div>
+            <div class="e-form-field e-w-50">
+                <label
+                    class="e-form-field__label"
+                    for="invalid"
+                >Invalid input field with error-message</label>
+                <div class="e-input e-input---invalid">
+                    <i
+                        *ngIf="!showPassword"
+                        class="e-icon e-icon--view_on e-icon--xs"
+                        (click)="showMockPassword()"
+                    ></i>
+                    <i
+                        *ngIf="showPassword"
+                        class="e-icon e-icon--view_off e-icon--xs"
+                        (click)="showMockPassword()"
+                    ></i>
+                    <input
+                        id="validationExample"
+                        type="password"
+                        value="Passord"
+                        invalid
+                        #validationExample
+                    />
+                </div>
+                <span class="e-form-field__error e-form-field__error--visible">
+                    <span>
+                        <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+                    </span>
+                    <span>
+                        Passord må inneholde både bokstaver og tall
+                    </span>
+                </span>
+            </div>
+
+            <div class="e-title-sm e-mt-16">Label</div>
+            <div class="e-title-xs e-my-16">Normal</div>
+
+            <div>
+                <label class="e-label e-m-8">Skjema</label>
+                <label class="e-label e-m-8">Artikkel</label>
+                <label class="e-label e-m-8">Rapport</label>
+            </div>
+
+            <div class="e-title-xs e-my-16">Colored</div>
+            <div>
+                <label class="e-label e-label--green e-m-8">Ny</label>
+                <label class="e-label e-label--red e-m-8">Farlig</label>
+                <label class="e-label e-label--orange e-m-8">Advarsel</label>
+                <label class="e-label e-label--blue-berry e-m-8">Info</label>
+            </div>
 
 
-    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;"></div>
-    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;"></div>
-    <div class="e-mt-16" style="width: 100%; display: flex; justify-content: space-evenly;"></div>
+            <div class="e-title-sm e-mt-16">Link</div>
+            <div class="e-title-xs e-my-16">Standard Link</div>
+            <div>
+<a class="e-link" href="https://design.elvia.io/components/link-doc#Overview">Standard link</a>
 
-      <div class="e-title-sm e-mt-16">Card</div>
-      <div class="e-title-sm e-mt-16">Checkboxes</div>
-      <div class="e-title-sm e-mt-16">Content Loader</div>
-      <div class="e-title-sm e-mt-16">DatePicker</div>
-      <div class="e-title-sm e-mt-16">Darg&Drop</div>
-      <div class="e-title-sm e-mt-16">Dropdown</div>
-      <div class="e-title-sm e-mt-16">File Upload</div>
-      <div class="e-title-sm e-mt-16">Radio Filter</div>
-      <div class="e-title-sm e-mt-16">Header</div>
-      <div class="e-title-sm e-mt-16">Input</div>
-      <div class="e-title-sm e-mt-16">Label</div>
-      <div class="e-title-sm e-mt-16">Link</div>
-      <div class="e-title-sm e-mt-16">List</div>
-      <div class="e-title-sm e-mt-16">Modal</div>
-      <div class="e-title-sm e-mt-16">Pagination</div>
-      <div class="e-title-sm e-mt-16">Popover</div>
-      <div class="e-title-sm e-mt-16">Position Picker</div>
-      <div class="e-title-sm e-mt-16">Progressbar</div>
-      <div class="e-title-sm e-mt-16">RadioButtons</div>
-      <div class="e-title-sm e-mt-16">Search</div>
-      <div class="e-title-sm e-mt-16">Segmented Controls</div>
-      <div class="e-title-sm e-mt-16">Stepper</div>
-      <div class="e-title-sm e-mt-16">Table</div>
-      <div class="e-title-sm e-mt-16">Toggle</div>
-      <div class="e-title-sm e-mt-16">Tooltip</div>
+            </div>
+            <div class="e-my-16" style="background-color: #262626; height: 40px;">
+<a class="e-link e-link--inverted" href="https://design.elvia.io/components/link-doc#Overview">Standard link</a>
+            </div>
+
+                    <div class="e-title-xs e-my-16">Inline Link</div>
+            <div>
+<p style="font-size: 20px;">Dette er en <a class="e-link e-link--inline" href="https://design.elvia.io/components/link-doc#Overview">inline link</a></p>
+
+            </div>
+            <div class="e-my-16" style="background-color: #262626; height: 40px;">
+<p class="e-text-white" style="font-size: 20px;">Dette er en <a class="e-link e-link--inline e-link--inverted" href="https://design.elvia.io/components/link-doc#Overview">inline link</a></p>
+            </div>
 
 
-      <!-- TODO 
-              <div class="e-title-sm e-mt-16">AutoComplete</div>
-      -->
-  </body>
+
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+
+            <div class="e-title-sm e-mt-16">List</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">Modal</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">Pagination</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">Popover</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">Position Picker</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">Progressbar</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">RadioButtons</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">Search</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">Segmented Controls</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">Stepper</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">Table</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">Toggle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+            <div class="e-title-sm e-mt-16">Tooltip</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Subtitle</div>
+
+
+
+            <!-- TODO 
+                <div class="e-title-sm e-mt-16">AutoComplete</div>
+                <div class="e-title-sm e-mt-16">Header</div> How to implement a iframe to display this. 
+            -->
+</body>
+
 </html>
