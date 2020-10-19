@@ -16,7 +16,7 @@
 
     &-number {
       font-family: 'Red Hat Display';
-      font-weight: bold;
+      font-weight: 700;
       font-size: 18px;
       line-height: 22px;
       color: colors.color('black');
@@ -71,7 +71,7 @@
 
   &__title {
     font-family: 'Red Hat Display';
-    font-weight: bold;
+    font-weight: 700;
     font-size: 24px;
     line-height: 29px;
 
@@ -117,7 +117,7 @@
       }
       &.e-stepper__step--active .e-stepper__step-title {
         font-family: 'Red Hat Display';
-        font-weight: bold;
+        font-weight: 700;
         font-size: 24px;
         line-height: 29px;
       }

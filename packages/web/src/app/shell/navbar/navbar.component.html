@@ -7,9 +7,9 @@
           routerLinkActive="active-route"
           (click)="markNewActiveNavbarItem(navbarItem)"
         >
-          <span class="navbar-item-title">
+          <div class="navbar-item-title">
             {{ navbarItem.title }}
-          </span>
+          </div>
         </a>
         <div class="anchors" *ngIf="navbarAnchors.length > 0">
           <div *ngIf="navbarItem === prevActiveNavbarItem">

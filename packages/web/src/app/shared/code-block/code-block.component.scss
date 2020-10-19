@@ -44,7 +44,7 @@ iframe {
           border-bottom: 2px solid transparent;
 
           &.active {
-            font-weight: bold;
+            font-weight: 700;
             &:before {
               content: '';
               visibility: visible;

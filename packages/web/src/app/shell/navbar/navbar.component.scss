@@ -50,22 +50,20 @@ $text-line-height: 32px;
 
     .navbar-item {
       margin-left: 4px;
-      margin-bottom: 4px;
+      margin-bottom: 16px;
 
       a {
         cursor: pointer;
         .navbar-item-title {
           position: relative;
-          white-space: nowrap;
           overflow: hidden;
-          text-overflow: ellipsis;
           padding-left: 16px;
 
           font-family: 'Red Hat Text';
           font-style: normal;
           font-weight: 500;
           font-size: 14px;
-          line-height: $text-line-height;
+          line-height: 16px;
           letter-spacing: 0.012em;
         }
       }
@@ -74,11 +72,11 @@ $text-line-height: 32px;
         .navbar-item-title {
           font-size: 15px;
         }
-        .navbar-item-title:before {
+        .navbar-item-title::before {
           content: '';
           position: absolute;
           left: 0px;
-          top: calc((#{$text-line-height} / 2) - 8px - 2px);
+          top: calc((#{$text-line-height} / 2) - 8px - 4px);
           width: 8px;
           height: 8px;
           border-radius: 50%;
@@ -105,15 +103,13 @@ $text-line-height: 32px;
 
         .link {
           width: 100%;
-          white-space: nowrap;
           overflow: hidden;
-          text-overflow: ellipsis;
           a {
             width: 100%;
             justify-self: flex-start;
             font-family: 'Red Hat Text';
             font-style: normal;
-            font-weight: normal;
+            font-weight: 400;
             font-size: 13px;
             line-height: 17px;
             letter-spacing: 0.012em;

@@ -15,6 +15,11 @@
 @import '@angular/cdk/overlay-prebuilt.css';
 
 // Normalizer for website
+::selection {
+  background: var(--e-green);
+  color: var(--e-black);
+}
+
 body {
   margin: 0;
 }
@@ -159,7 +164,7 @@ p {
 .code-text {
   font-family: 'Fira Mono';
   font-style: normal;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 16px;
   line-height: inherit;
 

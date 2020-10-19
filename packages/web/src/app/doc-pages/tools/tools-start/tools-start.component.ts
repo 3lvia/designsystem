@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { eTools } from 'src/app/shared/e-items';
 import { Subscription, fromEvent } from 'rxjs';
 import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
@@ -10,29 +10,32 @@ import { ScrollService } from 'src/app/core/services/scroll.service';
   templateUrl: './tools-start.component.html',
   styleUrls: ['./tools-start.component.scss'],
 })
-export class ToolsStartComponent implements OnInit, OnDestroy {
+export class ToolsStartComponent implements OnDestroy {
 
   listenOnScrollSubscription: Subscription;
   pages = eTools;
   navbarAnchors: NavbarAnchor[] = [];
   scrollEventTimeout;
+  routerSubscription: Subscription;
+  startedScrollSub = false;
 
   constructor(private router: Router, private scrollService: ScrollService) {
     this.scrollService.listenAnchorToScrollTo()
       .subscribe((anchor: NavbarAnchor) => {
         this.onScrollToAnchor(anchor);
       });
-    this.router.events.subscribe((ev) => {
+    this.routerSubscription = this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {
-        if (ev.url !== '/components') {
+        if (ev.url !== '/tools') {
           setTimeout(() => { this.getNavbarAnchors(); }, 50);
         }
       }
     });
   }
 
-  ngOnInit(): void {
-    this.startScrollSubscription();
+  ngOnDestroy(): void {
+    if (this.listenOnScrollSubscription) { this.listenOnScrollSubscription.unsubscribe(); }
+    if (this.routerSubscription) { this.routerSubscription.unsubscribe(); }
   }
 
   startScrollSubscription(): void {
@@ -47,16 +50,16 @@ export class ToolsStartComponent implements OnInit, OnDestroy {
     this.scrollService.newScrollPosition();
   }
 
-  ngOnDestroy(): void {
-    this.listenOnScrollSubscription.unsubscribe();
-  }
-
   getNavbarAnchors(): void {
     this.navbarAnchors = this.scrollService.getNavbarAnchors(this.navbarAnchors);
+    if (this.navbarAnchors && !this.startedScrollSub) {
+      this.startScrollSubscription();
+      this.startedScrollSub = true;
+    }
   }
 
   onScrollToAnchor(anchor: NavbarAnchor): void {
-    this.listenOnScrollSubscription.unsubscribe();
+    if (this.listenOnScrollSubscription) { this.listenOnScrollSubscription.unsubscribe(); }
     this.scrollService.scrollToElement(anchor.top);
     clearTimeout(this.scrollEventTimeout);
     this.scrollEventTimeout = setTimeout(() => {
