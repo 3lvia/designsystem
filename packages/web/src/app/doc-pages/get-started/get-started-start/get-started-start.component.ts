@@ -4,7 +4,6 @@ import { Subscription, fromEvent } from 'rxjs';
 import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
 import { Router, NavigationEnd } from '@angular/router';
 import { ScrollService } from 'src/app/core/services/scroll.service';
-import { throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-get-started-start',
@@ -41,9 +40,7 @@ export class GetStartedStartComponent implements OnDestroy {
 
   startScrollSubscription(): void {
     const scrollEvents = fromEvent(document, 'scroll');
-    const result = scrollEvents.pipe(throttleTime(200));
-    this.listenOnScrollSubscription = result.subscribe(() => {
-      console.log('scrolling');
+    this.listenOnScrollSubscription = scrollEvents.subscribe(() => {
       this.findAnchorAtScrollPosition();
       this.findNewNavbarHeight();
     });

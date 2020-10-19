@@ -1,7 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { eCommunity } from 'src/app/shared/e-items';
 import { Subscription, fromEvent } from 'rxjs';
-import { throttleTime } from 'rxjs/operators';
 import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
 import { Router, NavigationEnd } from '@angular/router';
 import { ScrollService } from 'src/app/core/services/scroll.service';
@@ -41,9 +40,7 @@ export class CommunityStartComponent implements OnDestroy {
 
   startScrollSubscription(): void {
     const scrollEvents = fromEvent(document, 'scroll');
-    const result = scrollEvents.pipe(throttleTime(200));
-    this.listenOnScrollSubscription = result.subscribe(() => {
-      console.log('scrolling');
+    this.listenOnScrollSubscription = scrollEvents.subscribe(() => {
       this.findAnchorAtScrollPosition();
       this.findNewNavbarHeight();
     });

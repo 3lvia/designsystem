@@ -4,7 +4,6 @@ import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
 import { NavigationEnd, Router } from '@angular/router';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { fromEvent, Subscription } from 'rxjs';
-import { throttleTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-identity-start',
@@ -40,9 +39,7 @@ export class IdentityStartComponent implements OnDestroy {
 
   startScrollSubscription(): void {
     const scrollEvents = fromEvent(document, 'scroll');
-    const result = scrollEvents.pipe(throttleTime(200));
-    this.listenOnScrollSubscription = result.subscribe(() => {
-      console.log('scrolling');
+    this.listenOnScrollSubscription = scrollEvents.subscribe(() => {
       this.findAnchorAtScrollPosition();
       this.findNewNavbarHeight();
     });
