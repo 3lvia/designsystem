@@ -1,16 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { EItems } from 'src/app/shared/e-items.interface';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   @Input() navbarItems: EItems[];
 
   navbarAnchors: NavbarAnchor[] = [];
@@ -22,6 +23,10 @@ export class NavbarComponent implements OnInit {
   toggleMenu = false;
   activeAnchor: NavbarAnchor;
   prevActiveAnchor: NavbarAnchor;
+  anchorSubscription: Subscription;
+  fragmentSubscription: Subscription;
+  scrollPosSubscription: Subscription;
+  anchorPosSubscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,10 +34,10 @@ export class NavbarComponent implements OnInit {
     private scrollService: ScrollService,
     private location: Location,
   ) {
-    this.scrollService.listenNewScrollPosition().subscribe(() => {
+    this.scrollPosSubscription = this.scrollService.listenNewScrollPosition().subscribe(() => {
       this.updateNavbarHeight();
     });
-    this.scrollService.listenAnchorAtCurrPos().subscribe((anchor: NavbarAnchor) => {
+    this.anchorPosSubscription = this.scrollService.listenAnchorAtCurrPos().subscribe((anchor: NavbarAnchor) => {
       if (this.prevActiveAnchor !== anchor) {
         this.updateAnchorRoute(anchor);
       }
@@ -40,7 +45,7 @@ export class NavbarComponent implements OnInit {
       this.activeAnchor = anchor;
     });
 
-    this.scrollService.listenAnchors().subscribe((anchors: NavbarAnchor[]) => {
+    this.anchorSubscription = this.scrollService.listenAnchors().subscribe((anchors: NavbarAnchor[]) => {
       this.navbarAnchors = anchors;
 
       this.navbarItems.forEach((item) => {
@@ -53,7 +58,7 @@ export class NavbarComponent implements OnInit {
         }
       });
 
-      this.route.fragment.subscribe(fragment => {
+      this.fragmentSubscription = this.route.fragment.subscribe(fragment => {
         if (!fragment) {
           this.activeAnchor = this.navbarAnchors[0];
           this.updateAnchorRoute(this.activeAnchor);
@@ -87,6 +92,15 @@ export class NavbarComponent implements OnInit {
     this.filteredPages = this.navbarItems.filter((page) => {
       return page.status !== 'Coming';
     });
+  }
+
+  ngOnDestroy(): void {
+    this.scrollPosSubscription.unsubscribe();
+    this.anchorPosSubscription.unsubscribe();
+    this.anchorSubscription.unsubscribe();
+    if (this.fragmentSubscription) {
+      this.fragmentSubscription.unsubscribe();
+    }
   }
 
   updateNavbarHeight(): void {
@@ -123,6 +137,6 @@ export class NavbarComponent implements OnInit {
   scrollToElement(anchor: NavbarAnchor): void {
     this.activeAnchor = anchor;
     this.updateAnchorRoute(this.activeAnchor);
-    this.scrollService.navigateToAnchor(this.navbarAnchors, anchor);
+    this.scrollService.navigateToAnchor(anchor);
   }
 }

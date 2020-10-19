@@ -40,6 +40,7 @@ export class ScrollService {
     this.subjectAnchorsNew.next(anchors);
   }
 
+
   scrollToElement(offsetPos: number): void {
     // Check if browser is IE11
     if (navigator.userAgent.indexOf('MSIE') !== -1
@@ -73,27 +74,29 @@ export class ScrollService {
     const elements = this.getPageAnchors();
     const elementTitles = this.getPageAnchorTitles();
 
-    const firstItem = elements.item(0) as HTMLElement;
-    anchors = [{ title: 'Overview', top: 0, height: firstItem.offsetTop }];
-    for (let i = 0; i < elements.length; i++) {
-      const item = elements.item(i) as HTMLElement;
-      const elementTitle = elementTitles.item(i) as HTMLElement;
-      const innerText = elementTitle.innerText;
-      const fromTop = item.offsetTop;
-      const fullHeight = item.offsetHeight;
-      const newElement = {
-        title: innerText,
-        top: fromTop,
-        height: fullHeight,
-      };
-      anchors.push(newElement);
+    if (elements && elementTitles) {
+      const firstItem = elements.item(0) as HTMLElement;
+      anchors = [{ title: 'Overview', top: 0, height: firstItem.offsetTop }];
+      for (let i = 0; i < elements.length; i++) {
+        const item = elements.item(i) as HTMLElement;
+        const elementTitle = elementTitles.item(i) as HTMLElement;
+        const innerText = elementTitle.innerText;
+        const fromTop = item.offsetTop;
+        const fullHeight = item.offsetHeight;
+        const newElement = {
+          title: innerText,
+          top: fromTop,
+          height: fullHeight,
+        };
+        anchors.push(newElement);
+      }
       this.newAnchors(anchors);
+      return anchors;
     }
-    return anchors;
   }
 
-  // Checks for changes in position from top and navigates according to changes or inital list of anchor offset positions.
-  navigateToAnchor(anchors: NavbarAnchor[], anchor: NavbarAnchor): void {
+  // Checks for changes in position from top and navigates according to changes or initial list of anchor offset positions.
+  navigateToAnchor(anchor: NavbarAnchor): void {
     const elements = this.getPageAnchors();
     const elementTitles = this.getPageAnchorTitles();
 
