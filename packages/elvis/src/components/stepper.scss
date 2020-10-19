@@ -1,0 +1,246 @@
+@use '../variables/colors';
+@use "../utilities/helpers";
+
+.e-stepper {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+
+  &__steps {
+    display: flex;
+    flex-direction: row;
+  }
+  &__step {
+    display: flex;
+    flex-direction: row;
+
+    &-number {
+      font-family: 'Red Hat Display';
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 22px;
+      color: colors.color('black');
+      cursor: pointer;
+
+      height: 32px;
+      width: 32px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid colors.color('black');
+      border-radius: 50%;
+    }
+    &-line {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 15px 4px;
+      width: 58px;
+      height: 2px;
+      background: colors.color('black');
+      border-radius: 50px;
+      &:not(:first-of-type) {
+        display: none;
+      }
+    }
+
+    &:first-of-type {
+      .e-stepper__step-line {
+        display: none;
+      }
+    }
+
+    &-lines {
+      display: flex;
+      flex-direction: row;
+      .e-stepper__step-line {
+        display: flex;
+        background: colors.color('grey-30');
+        width: 6px;
+        height: 2px;
+        margin: 15px 3px;
+        &:first-of-type {
+          margin-left: 6px;
+        }
+        &:last-of-type {
+          margin-right: 6px;
+        }
+      }
+    }
+  }
+
+  &__title {
+    font-family: 'Red Hat Display';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+
+    display: flex;
+    justify-content: center;
+    margin: 32px 0;
+  }
+  &__content {
+    .e-stepper__actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &.e-stepper--vertical {
+    flex-direction: column;
+    .e-stepper__step {
+      flex-direction: column;
+      .e-stepper__step-line {
+        width: 2px;
+        height: 12px;
+        margin: 4px 15px;
+      }
+      .e-stepper__step-header {
+        display: flex;
+        flex-direction: row;
+
+        .e-stepper__step-title {
+          display: flex;
+          font-family: 'Red Hat Text';
+          font-size: 16px;
+          line-height: 28px;
+
+          margin-left: 16px;
+          cursor: pointer;
+        }
+      }
+      .e-stepper__content {
+        border-left: 2px solid colors.color('grey-30');
+        margin: 4px 15px;
+        padding: 28px 30px;
+      }
+      &.e-stepper__step--active .e-stepper__step-title {
+        font-family: 'Red Hat Display';
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+      }
+      &:last-of-type .e-stepper__content {
+        border-color: transparent;
+      }
+    }
+    .e-stepper__step-lines {
+      display: flex;
+      flex-direction: column;
+      .e-stepper__step-line {
+        display: flex;
+        background: colors.color('grey-30');
+        width: 2px;
+        height: 6px;
+        margin: 3px 15px;
+        &:first-of-type {
+          margin-top: 6px;
+        }
+        &:last-of-type {
+          margin-bottom: 6px;
+        }
+      }
+    }
+  }
+
+  &.e-stepper--forced {
+    .e-stepper__step {
+      &-number {
+        color: colors.color('grey-30');
+        border: 2px solid colors.color('grey-30');
+      }
+      &.e-stepper__step--active ~ .e-stepper__step,
+      &.e-stepper__step--active-done ~ .e-stepper__step {
+        .e-stepper__step-number {
+          cursor: not-allowed;
+        }
+        .e-stepper__step-title {
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .e-stepper__step.e-stepper__step--active {
+    .e-stepper__step-number {
+      color: colors.color('black');
+      border-color: var(--e-green);
+    }
+    & ~ .e-stepper__step {
+      .e-stepper__step-line {
+        background: colors.color('grey-30');
+      }
+    }
+    .e-stepper__step-title {
+      display: flex;
+    }
+  }
+
+  .e-stepper__step.e-stepper__step--done {
+    .e-stepper__step-number {
+      @include helpers.user-select(none);
+      color: transparent;
+      border-color: colors.color('black');
+      background: colors.color('black');
+      @extend %checkbox-mark;
+    }
+    .e-stepper__step-line {
+      background: colors.color('black');
+    }
+  }
+
+  .e-stepper__step.e-stepper__step--active-done {
+    .e-stepper__step-number {
+      @include helpers.user-select(none);
+      color: transparent;
+      background: colors.color('black');
+      @extend %checkbox-mark;
+      border-color: var(--e-green);
+    }
+    & ~ .e-stepper__step {
+      .e-stepper__step-line {
+        background: colors.color('grey-30');
+      }
+    }
+    .e-stepper__step-title {
+      display: flex;
+    }
+  }
+
+  .e-stepper__step.e-stepper__step--error {
+    .e-stepper__step-number {
+      color: colors.color('black');
+      border-color: colors.color('red');
+    }
+  }
+}
+
+%checkbox-mark {
+  position: relative;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 2px;
+    height: 8px;
+    width: 2px;
+    background-color: colors.color('white');
+    border-radius: 15px;
+    transform: translateX(10px) rotate(-43deg);
+    transform-origin: left bottom;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 1px;
+    height: 15px;
+    width: 2px;
+    background-color: colors.color('white');
+    border-radius: 15px;
+    transform: translateX(10px) rotate(43deg);
+    transform-origin: left bottom;
+  }
+}

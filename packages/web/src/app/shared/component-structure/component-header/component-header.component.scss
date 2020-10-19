@@ -1,0 +1,88 @@
+@import '../../shared-sizes';
+@import '../../../shared/shared-animations';
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+
+.component {
+  &-header {
+    margin-bottom: var(--e-spacing-16);
+
+    .back-link {
+      display: none;
+      @include breakpoint-up(Tablet) {
+        display: block;
+      }
+    }
+    &__title {
+      .title-text {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        h1 {
+          margin-right: 16px;
+          margin-top: 0;
+          margin-bottom: 32px;
+          @include breakpoint-up(Tablet) {
+            margin-bottom: 24px;
+          }
+        }
+        h1,
+        .e-label {
+          display: flex;
+          align-self: center;
+        }
+      }
+    }
+    &__description {
+      &.class-margin {
+        padding-top: 24px;
+      }
+    }
+  }
+}
+
+.anchors {
+  // @extend %scale-down-ver-top;
+  display: none;
+  margin-top: 40px;
+  padding-left: 16px;
+  border-left: 1px solid var(--e-grey-10);
+
+  .link {
+    @extend %scale-down-ver-top;
+
+    @for $i from 1 through 50 {
+      &:nth-child(#{$i}) {
+        animation-delay: 90ms * $i;
+      }
+    }
+    a {
+      width: 93.5%;
+      cursor: pointer;
+      display: inline-flex;
+      justify-self: flex-start;
+      font-family: 'Red Hat Text';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 17px;
+      letter-spacing: 0.012em;
+      color: var(--e-grey-70);
+    }
+    .anchor.active-anchor {
+      font-weight: 500;
+      color: var(--e-black);
+      width: 100%;
+    }
+  }
+  .link:not(:last-of-type) {
+    margin-bottom: 12px;
+  }
+}
+
+@include breakpoint-up(Tablet) {
+  .anchors {
+    display: block;
+  }
+}
