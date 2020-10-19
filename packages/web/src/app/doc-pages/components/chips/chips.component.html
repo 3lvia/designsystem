@@ -1,0 +1,62 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Chip</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
+  >
+    <div class="e-chip-container">
+      <div class="e-chip">
+        <div class="e-chip__label">Chip</div>
+      </div>
+      <div class="e-chip e-chip--green-apple">
+        <div class="e-chip__label">Chip</div>
+      </div>
+      <div class="e-chip e-chip--violet-grape">
+        <div class="e-chip__label">Chip</div>
+      </div>
+    </div>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+    </div>
+  </div>
+
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Standard'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleStandard"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Colored'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="exampleColors"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-chip'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-chip'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
+</div>

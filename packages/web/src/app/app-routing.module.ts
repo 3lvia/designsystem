@@ -67,6 +67,7 @@ import { GetStartedDesignersComponent } from './doc-pages/get-started/get-starte
 import { ContactComponent } from './doc-pages/community/contact/contact.component';
 import { TheDesignSystemDocComponent } from './doc-pages/get-started/the-design-system-doc/the-design-system-doc.component';
 import { TheConceptComponent } from './doc-pages/identity/the-concept/the-concept.component';
+import { ChipsComponent } from './doc-pages/components/chips/chips.component';
 
 const routes: Routes = [
   {
@@ -196,6 +197,10 @@ const routes: Routes = [
           {
             path: Pages.Card,
             component: CardDocComponent,
+          },
+          {
+            path: Pages.Chips,
+            component: ChipsComponent,
           },
           {
             path: Pages.Checkbox,
