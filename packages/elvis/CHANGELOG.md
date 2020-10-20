@@ -19,7 +19,7 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover-doc#Overview">Popover</a>
         </div>
-        The e-popover alignements classes for left and right positions have been renamed and refactored. Instead of specifying top or bottom before left and right classes it is now possible to only add a simple <span class="code-text changelog-code">e-popover--left</span> or <span class="code-text changelog-code">e-popover--right</span> to align the popover. 
+        The e-popover alignements classes for left and right positions have been renamed and refactored. 
               <div class="e-mt-8">
             How to fix:
             <ul>
