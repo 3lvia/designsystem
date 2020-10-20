@@ -10,6 +10,7 @@ export class ComponentPropertiesComponent implements OnInit {
 
   @Input() componentName: string;
 
+  container;
   elements = [];
   modifiers = [];
   psuedos = [];
@@ -22,11 +23,20 @@ export class ComponentPropertiesComponent implements OnInit {
   makePropertyLists(): void {
     Object.keys(data.block).forEach(block => {
       if (block === this.componentName) {
+        this.getContainer();
         this.getAllElement();
         this.getAllModifiers();
         this.getAllPsuedo();
       }
     });
+  }
+
+  getContainer(): void {
+    if (data.block[this.componentName].container) {
+      Object.keys(data.block[this.componentName].container).forEach(el => {
+        this.container = el;
+      });
+    }
   }
 
   getAllElement(): void {

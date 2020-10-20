@@ -184,7 +184,7 @@ $sidebar-mobile-z-index: -2;
   &__title {
     // TITLE XSM -> MANGLER I TYPO
     font-family: 'Red Hat Display';
-    font-weight: bold;
+    font-weight: 700;
     font-size: 18px;
     line-height: 22px;
     @include breakpoints.breakpoint-up(Tablet) {

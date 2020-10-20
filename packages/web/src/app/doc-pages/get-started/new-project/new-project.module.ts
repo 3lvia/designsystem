@@ -6,6 +6,7 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-highlighter.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
     CodeHighlighterModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
+    RouterModule,
   ],
   declarations: [NewProjectComponent],
 })

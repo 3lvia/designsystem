@@ -25,6 +25,7 @@ import { AccordionDocModule } from './accordion-doc/accordion-doc.module';
 import { StepperDocModule } from './stepper-doc/stepper-doc.module';
 import { ContentLoaderDocModule } from './content-loader-doc/content-loader-doc.module';
 import { RadioFilterDocModule } from './radio-filter-doc/radio-filter-doc.module';
+import { ChipsModule } from './chips/chips.module';
 
 @NgModule({
     imports: [
@@ -33,6 +34,7 @@ import { RadioFilterDocModule } from './radio-filter-doc/radio-filter-doc.module
         AutocompleteDocModule,
         ButtonDocModule,
         CardDocModule,
+        ChipsModule,
         ComponentsStartModule,
         ContentLoaderDocModule,
         DropdownDocModule,

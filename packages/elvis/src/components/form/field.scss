@@ -118,7 +118,7 @@ $autocomplete-padding-item-compact: 6px 16px;
     &.e-form-field__label--optional::after {
       content: ' (valgfri)';
       color: colors.color('grey-50');
-      font-weight: normal;
+      font-weight: 400;
     }
   }
 
