@@ -55,7 +55,7 @@
             </li>
           </ul>
           <div>
-            Classes for sizing popover smaller than 200px wide.
+            Classes for sizing popover smaller when is has limited space.
           </div>
             <ul>
             <li>
