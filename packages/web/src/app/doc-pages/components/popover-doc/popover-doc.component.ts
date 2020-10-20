@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -8,7 +8,6 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class PopoverDocComponent {
   @ViewChild('popover1') popover1: ElementRef;
-  @ViewChild('popover2') popover2: ElementRef;
 
   figmaUrl = getComponent('popover-doc').figmaUrl;
   description = getComponent('popover-doc').description;
@@ -70,33 +69,7 @@ export class PopoverDocComponent {
 </div>
 `;
 
-  example2 = `<div style="margin-top: 320px; text-align: center;">
-  <span class="e-popover e-popover--top--left e-m-16">
-    <button class="e-btn e-btn--icon e-btn--circled">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--information_circle"></i>
-        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-      </span>
-    </button>
-    <div class="e-popover__content">
-      <div class="e-popover__close">
-        <button class="e-btn e-btn--icon e-btn--sm">
-          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-        </button>
-      </div>
-      <div class="e-popover__title">Om innlogging</div>
-      <div class="e-popover__text">
-        Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
-        BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
-        Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
-        Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
-      </div>
-    </div>
-  </span>
-</div>
-`;
-
-  example3 = `<div style="margin-bottom: 320px; text-align: center;">
+  example2 = `<div style="margin-bottom: 320px; text-align: center;">
   <span class="e-popover e-popover--bottom e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
@@ -121,8 +94,9 @@ export class PopoverDocComponent {
   </span>
 </div>
 `;
-  example4 = `<div style="margin-bottom: 320px; text-align: center;">
-  <span class="e-popover e-popover--bottom e-popover--bottom--right e-m-16">
+
+  example3 = `<div style="margin-top: 320px; margin-left:16px">
+  <span class="e-popover e-popover--right e-m-16">
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
@@ -147,143 +121,253 @@ export class PopoverDocComponent {
 </div>
 `;
 
-  popupLiveCode = ` // Js example implementation
-  
-// Get current window width
-getWindowWidth(): number {
-  const windowWidth = window.innerWidth;
-  return windowWidth;
-}
+  example4 = `<div style="margin-top: 320px; margin-left:126px">
+  <span class="e-popover e-popover--right-50 e-m-16">
+    <button class="e-btn e-btn--icon e-btn--circled">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--information_circle"></i>
+        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      </span>
+    </button>
+    <div class="e-popover__content">
+      <div class="e-popover__close">
+        <button class="e-btn e-btn--icon e-btn--sm">
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
+      <div class="e-popover__title">Om innlogging</div>
+      <div class="e-popover__text">
+        Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
+        BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
+        Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
+        Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
+      </div>
+    </div>
+  </span>
+</div>
+`;
 
-togglePopup(popOverId: string, contentId: string): void {
-  // find popover wrapper element.
-  const popOverElement = document.getElementById(popOverId);
+  example5 = `<div style="margin-top: 380px; text-align: center;">
+  <span class="e-popover e-popover--w-240 e-m-16">
+    <button class="e-btn e-btn--icon e-btn--circled">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--information_circle"></i>
+        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      </span>
+    </button>
+    <div class="e-popover__content">
+      <div class="e-popover__close">
+        <button class="e-btn e-btn--icon e-btn--sm">
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
+      <div class="e-popover__title">Om innlogging</div>
+      <div class="e-popover__text">
+        Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
+        BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
+        Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
+        Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
+      </div>
+    </div>
+  </span>
+</div>
+`;
 
-  // find popover contentArea
-  const popoverContentElement = document.getElementById(contentId);
-
-  // toggle the e-none class on or off
-  if (popoverContentElement.classList.contains('e-none')) {
-    popoverContentElement.classList.remove('e-none');
-  } else {
-    popoverContentElement.classList.add('e-none');
-    return;
-  }
-
-  // check for any alignment classes and remove them before calculating width
-  if (popOverElement.classList.contains('e-popover--bottom--left')) {
-    popOverElement.classList.remove('e-popover--bottom--left');
-  } else if (popOverElement.classList.contains('e-popover--bottom--right')) {
-    popOverElement.classList.remove('e-popover--bottom--left');
-  } else if (popOverElement.classList.contains('e-popover--top--right')) {
-    popOverElement.classList.remove('e-popover--bottom--left');
-  } else if (popOverElement.classList.contains('e-popover--top--left')) {
-    popOverElement.classList.remove('e-popover--bottom--left');
-  }
-
-  // get current window width
-  const currentWindowWidht = this.getWindowWidth();
-  // store initial classes
-  const currentClasses = popOverElement.className;
-  // find the child element containting the content element of the popOver
-  let popOverContent = null;
-  // tslint:disable-next-line:prefer-for-of
-  for (let i = 0; i < popOverElement.children.length; i++) {
-    if (popOverElement.children[i].className === 'e-popover__content') {
-      popOverContent = popOverElement.children[i];
+  popupLiveCode = ` /*
+Note that this is only a mockup example. Adjustments and other implementations are most
+likely necessary for implementing a functioning popover in your project.
+*/
+// for closing dropdown content on click outside of the content area
+  showPopover = false;
+  @HostListener('click', ['$event'])
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  onClick(event: any): void {
+    if (event.target.id === 'popoverIcon') {
+      return;
+    }
+    if (this.showPopover === true) {
+      this.closePopover('popover1Content');
     }
   }
-  // get content element coordinates in window.
-  const ContentPosition = popOverContent.getBoundingClientRect();
-  // add alignment classes left or right if content extends window width
-  if (currentClasses.includes('bottom')) {
-    if (currentWindowWidht < ContentPosition.right) {
-      popOverElement.classList.add('e-popover--bottom--left');
-    } else if (0 > ContentPosition.left) {
-      popOverElement.classList.add('e-popover--bottom--right');
+
+  // main function to toggle and adjust position of popove
+  togglePopup(popOverId: string, contentId: string): void {
+    // find popover wrapper element.
+    const popOverElement = document.getElementById(popOverId);
+    // find popover contentArea
+    const popoverContentElement = document.getElementById(contentId);
+    // toggle the e-none class on or off
+    if (popoverContentElement.classList.contains('e-none')) {
+      popoverContentElement.classList.remove('e-none');
+      this.showPopover = true;
+    } else {
+      popoverContentElement.classList.add('e-none');
+      this.showPopover = false;
+      return;
+    }
+    // store inital classes of popover
+    const initialClasses = popOverElement.classList;
+    const initialClassesArray = [];
+    initialClasses.forEach(element => {
+      initialClassesArray.push(element.toString());
+    });
+
+    // remove any inital alignment classes
+    this.removeAlignClasses(popOverElement);
+    // find contentposition and add alignment if neccesary
+    this.getElementPosition(popoverContentElement);
+    this.addAlignment(popoverContentElement, popOverElement, initialClassesArray);
+    // check if new alignements make the popover exceed window and remove if so to center popover
+    this.removeAlignment(popoverContentElement, popOverElement);
+
+  }
+  // check to see if any current alignment classes make popover exceed the window
+  removeAlignClasses(element: HTMLElement): void {
+    const alignClasses = ['e-popover--left', 'e-popover--left-50', 'e-popover--right', 'e-popover--right-50'];
+    alignClasses.forEach(cssClass => {
+      if (element.classList.contains(cssClass)) {
+        element.classList.remove(cssClass);
+      }
+    });
+  }
+  // add suitable alignment class if inital classes make the popover exceed the window
+  addAlignment(contentElement: HTMLElement, element: HTMLElement, initialClasses: any[]): void {
+    const currentWindowWidht = this.getWindowWidth();
+    const contentPosition = this.getElementPosition(contentElement);
+    let changes = false;
+
+    if (contentPosition.right > currentWindowWidht) {
+      element.classList.add('e-popover--left');
+      changes = true;
+    }
+    if (contentPosition.left < 0) {
+      element.classList.add('e-popover--right');
+      changes = true;
+    }
+    if (!changes) {
+      element.classList.remove('e-popover');
+      initialClasses.forEach(initalClass => {
+        element.classList.add(initalClass);
+      });
     }
   }
-  if (currentClasses.includes('bottom') === false) {
-    if (currentWindowWidht < ContentPosition.right) {
-      popOverElement.classList.add('e-popover--top--left');
-    } else if (0 > ContentPosition.left) {
-      popOverElement.classList.add('e-popover--top--right');
+  // remove any alignment class if they make the popover content exceed the window
+  removeAlignment(contentElement: HTMLElement, element: HTMLElement): void {
+    const currentWindowWidht = this.getWindowWidth();
+    const contentPosition = this.getElementPosition(contentElement);
+    if (contentPosition.left < 0 || contentPosition.right > currentWindowWidht) {
+      this.removeAlignClasses(element);
     }
   }
-}
-
-closePopover(popUpContent: string): void {
-  const popupContentElement: HTMLElement = document.getElementById(popUpContent);
-  popupContentElement.classList.add('e-none');
-}`;
-
-
-  // Js example implementation
-
   // Get current window width
   getWindowWidth(): number {
     const windowWidth = window.innerWidth;
     return windowWidth;
   }
+  // Get DOM position of content area of popover
+  getElementPosition(element: HTMLElement) {
+    return element.getBoundingClientRect();
+  }
+  // closes the popover class
+  closePopover(popUpContent: string): void {
+    const popupContentElement: HTMLElement = document.getElementById(popUpContent);
+    popupContentElement.classList.add('e-none');
+  }`;
 
+
+  // Js example implementation
+
+  showPopover = false;
+  // for closing dropdown content on click outside of the content area
+  @HostListener('click', ['$event'])
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  onClick(event: any): void {
+    if (event.target.id === 'popoverIcon') {
+      return;
+    }
+    if (this.showPopover === true) {
+      this.closePopover('popover1Content');
+    }
+  }
+  // main function to toggle and adjust position of popover
   togglePopup(popOverId: string, contentId: string): void {
     // find popover wrapper element.
     const popOverElement = document.getElementById(popOverId);
-
     // find popover contentArea
     const popoverContentElement = document.getElementById(contentId);
-
     // toggle the e-none class on or off
     if (popoverContentElement.classList.contains('e-none')) {
       popoverContentElement.classList.remove('e-none');
+      this.showPopover = true;
     } else {
       popoverContentElement.classList.add('e-none');
+      this.showPopover = false;
       return;
     }
+    // store inital classes of popover
+    const initialClasses = popOverElement.classList;
+    const initialClassesArray = [];
+    initialClasses.forEach(element => {
+      initialClassesArray.push(element.toString());
+    });
 
-    // check for any alignment classes and remove them before calculating width
-    if (popOverElement.classList.contains('e-popover--bottom--left')) {
-      popOverElement.classList.remove('e-popover--bottom--left');
-    } else if (popOverElement.classList.contains('e-popover--bottom--right')) {
-      popOverElement.classList.remove('e-popover--bottom--left');
-    } else if (popOverElement.classList.contains('e-popover--top--right')) {
-      popOverElement.classList.remove('e-popover--bottom--left');
-    } else if (popOverElement.classList.contains('e-popover--top--left')) {
-      popOverElement.classList.remove('e-popover--bottom--left');
-    }
+    // remove any inital alignment classes
+    this.removeAlignClasses(popOverElement);
+    // find contentposition and add alignment if neccesary
+    this.getElementPosition(popoverContentElement);
+    this.addAlignment(popoverContentElement, popOverElement, initialClassesArray);
+    // check if new alignements make the popover exceed window and remove if so to center popover
+    this.removeAlignment(popoverContentElement, popOverElement);
 
-
-    // get current window width
+  }
+  // check to see if any current alignment classes make popover exceed the window
+  removeAlignClasses(element: HTMLElement): void {
+    const alignClasses = ['e-popover--left', 'e-popover--left-50', 'e-popover--right', 'e-popover--right-50'];
+    alignClasses.forEach(cssClass => {
+      if (element.classList.contains(cssClass)) {
+        element.classList.remove(cssClass);
+      }
+    });
+  }
+  // add suitable alignment class if inital classes make the popover exceed the window
+  addAlignment(contentElement: HTMLElement, element: HTMLElement, initialClasses: any[]): void {
     const currentWindowWidht = this.getWindowWidth();
-    // store initial classes
-    const currentClasses = popOverElement.className;
-    // find the child element containting the content element of the popOver
-    let popOverContent = null;
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < popOverElement.children.length; i++) {
-      if (popOverElement.children[i].className === 'e-popover__content') {
-        popOverContent = popOverElement.children[i];
-      }
+    const contentPosition = this.getElementPosition(contentElement);
+    let changes = false;
+
+    if (contentPosition.right > currentWindowWidht) {
+      element.classList.add('e-popover--left');
+      changes = true;
     }
-    // get content element coordinates in window.
-    const ContentPosition = popOverContent.getBoundingClientRect();
-    // add alignment classes left or right if content extends window width
-    if (currentClasses.includes('bottom')) {
-      if (currentWindowWidht < ContentPosition.right) {
-        popOverElement.classList.add('e-popover--bottom--left');
-      } else if (0 > ContentPosition.left) {
-        popOverElement.classList.add('e-popover--bottom--right');
-      }
+    if (contentPosition.left < 0) {
+      element.classList.add('e-popover--right');
+      changes = true;
     }
-    if (currentClasses.includes('bottom') === false) {
-      if (currentWindowWidht < ContentPosition.right) {
-        popOverElement.classList.add('e-popover--top--left');
-      } else if (0 > ContentPosition.left) {
-        popOverElement.classList.add('e-popover--top--right');
-      }
+    if (!changes) {
+      element.classList.remove('e-popover');
+      initialClasses.forEach(initalClass => {
+        element.classList.add(initalClass);
+      });
     }
   }
-
+  // remove any alignment class if they make the popover content exceed the window
+  removeAlignment(contentElement: HTMLElement, element: HTMLElement): void {
+    const currentWindowWidht = this.getWindowWidth();
+    const contentPosition = this.getElementPosition(contentElement);
+    if (contentPosition.left < 0 || contentPosition.right > currentWindowWidht) {
+      this.removeAlignClasses(element);
+    }
+  }
+  // Get current window width
+  getWindowWidth(): number {
+    const windowWidth = window.innerWidth;
+    return windowWidth;
+  }
+  // Get DOM position of content area of popover
+  getElementPosition(element: HTMLElement) {
+    return element.getBoundingClientRect();
+  }
+  // closes the popover class
   closePopover(popUpContent: string): void {
     const popupContentElement: HTMLElement = document.getElementById(popUpContent);
     popupContentElement.classList.add('e-none');

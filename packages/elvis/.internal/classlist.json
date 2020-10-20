@@ -718,13 +718,15 @@
 				"e-popover__text": {}
 			},
 			"modifier": {
-				"e-popover--top": {},
 				"e-popover--bottom": {},
-				"e-popover--top--left": {},
-				"e-popover--top--right": {},
-				"e-popover--bottom--left": {},
-				"e-popover--bottom--right": {},
-				"e-popover--center": {}
+				"e-popover--left": {},
+				"e-popover--left-50": {},
+				"e-popover--right": {},
+				"e-popover--right-50": {},
+				"e-popover--w-200": {},
+				"e-popover--w-220": {},
+				"e-popover--w-240": {},
+				"e-popover--w-260": {}
 			}
 		},
 		"e-stepper": {
@@ -1534,13 +1536,15 @@
 		"e-popover__close": {},
 		"e-popover__title": {},
 		"e-popover__text": {},
-		"e-popover--top": {},
 		"e-popover--bottom": {},
-		"e-popover--top--left": {},
-		"e-popover--top--right": {},
-		"e-popover--bottom--left": {},
-		"e-popover--bottom--right": {},
-		"e-popover--center": {},
+		"e-popover--left": {},
+		"e-popover--left-50": {},
+		"e-popover--right": {},
+		"e-popover--right-50": {},
+		"e-popover--w-200": {},
+		"e-popover--w-220": {},
+		"e-popover--w-240": {},
+		"e-popover--w-260": {},
 		"e-stepper": {},
 		"e-stepper__steps": {},
 		"e-stepper__step": {},
