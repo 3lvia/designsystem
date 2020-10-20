@@ -5524,6 +5524,7 @@ input:focus {
 }
 @media screen and (max-width: 360px) {
   .e-popover__content {
+    min-width: 280px;
     max-width: 280px;
   }
 }

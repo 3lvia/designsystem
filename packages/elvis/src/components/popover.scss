@@ -59,6 +59,7 @@ $popover-mobile-size: 300px;
 
     // for smallest units
     @media screen and (max-width: 360px) {
+      min-width: 280px;
       max-width: 280px;
     }
 
