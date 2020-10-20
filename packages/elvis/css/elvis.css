@@ -7847,10 +7847,10 @@ input:focus {
 }
 
 /*!
- * Bootstrap Grid v4.5.0 (https://getbootstrap.com/)
+ * Bootstrap Grid v4.5.3 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
  * Copyright 2011-2020 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 html {
   box-sizing: border-box;
@@ -7863,35 +7863,12 @@ html {
   box-sizing: inherit;
 }
 
-.container {
-  width: 100%;
-  padding-right: 24px;
-  padding-left: 24px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-@media (min-width: 320px) {
-  .container {
-    max-width: 540px;
-  }
-}
-@media (min-width: 768px) {
-  .container {
-    max-width: 720px;
-  }
-}
-@media (min-width: 1024px) {
-  .container {
-    max-width: 960px;
-  }
-}
-@media (min-width: 1440px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-.container-fluid, .container-xl, .container-lg, .container-md, .container-sm {
+.container,
+.container-fluid,
+.container-xl,
+.container-lg,
+.container-md,
+.container-sm {
   width: 100%;
   padding-right: 24px;
   padding-left: 24px;
@@ -7952,7 +7929,6 @@ html {
 .col {
   flex-basis: 0;
   flex-grow: 1;
-  min-width: 0;
   max-width: 100%;
 }
 
@@ -8160,7 +8136,6 @@ html {
   .col-sm {
     flex-basis: 0;
     flex-grow: 1;
-    min-width: 0;
     max-width: 100%;
   }
 
@@ -8372,7 +8347,6 @@ html {
   .col-md {
     flex-basis: 0;
     flex-grow: 1;
-    min-width: 0;
     max-width: 100%;
   }
 
@@ -8584,7 +8558,6 @@ html {
   .col-lg {
     flex-basis: 0;
     flex-grow: 1;
-    min-width: 0;
     max-width: 100%;
   }
 
@@ -8796,7 +8769,6 @@ html {
   .col-xl {
     flex-basis: 0;
     flex-grow: 1;
-    min-width: 0;
     max-width: 100%;
   }
 
