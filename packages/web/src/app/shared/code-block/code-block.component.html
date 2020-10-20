@@ -1,0 +1,116 @@
+<div class="component-body__example">
+  <div
+    class="component-body__example-body e-mt-24"
+    [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+    *ngIf="showPreview"
+  >
+    <div class="top-menu">
+      <div class="tabs" *ngIf="showIframeScreens && showTabs">
+        <div
+          class="tab"
+          role="button"
+          [ngClass]="{ hide: noDesktop, active: screen === 'desktop' }"
+          (click)="screen = 'desktop'"
+        >
+          Desktop
+        </div>
+        <div
+          class="tab"
+          role="button"
+          [ngClass]="{ hide: noTablet, active: screen === 'tablet' }"
+          (click)="screen = 'tablet'"
+        >
+          Tablet
+        </div>
+        <div
+          class="tab"
+          role="button"
+          [ngClass]="{ hide: noPhone, active: screen === 'phone' }"
+          (click)="screen = 'phone'"
+        >
+          Phone
+        </div>
+      </div>
+      <div class="dark-mode-toggle" *ngIf="codeInverted != ''">
+        <span>Dark</span>
+        <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': isInverted }">
+          <input class="e-toggle__input" type="checkbox" (click)="toggleInverted()" [checked]="isInverted" />
+          <span class="e-toggle__slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <div
+      class="element"
+      *ngIf="!showIframeScreens"
+      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+    >
+      <div #defaultFrame></div>
+    </div>
+    <div
+      class="element"
+      *ngIf="showIframeScreens"
+      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+    >
+      <div [ngClass]="{ hide: screen !== 'desktop' || noDesktop }">
+        <app-iframe-screen
+          [codeHTML]="displayCode"
+          [overwriteHeight]="overwriteHeight"
+          [overwriteHeightTablet]="overwriteHeightTablet"
+          [overwriteHeightPhone]="overwriteHeightPhone"
+          [screenSize]="'desktop'"
+        ></app-iframe-screen>
+      </div>
+      <div [ngClass]="{ hide: screen !== 'tablet' || noTablet }">
+        <app-iframe-screen [codeHTML]="displayCode" [screenSize]="'tablet'"></app-iframe-screen>
+      </div>
+      <div [ngClass]="{ hide: screen !== 'phone' || noPhone }">
+        <app-iframe-screen [codeHTML]="displayCode" [screenSize]="'phone'"></app-iframe-screen>
+      </div>
+    </div>
+  </div>
+
+  <div class="show-code e-mt-16">
+    <div class="e-w-100">
+      <app-code-block-accordion>
+        <ng-container ngProjectAs="accordionContent">
+          <div class="code e-w-100">
+            <div class="code-highlight">
+              <app-code-highlighter
+                [codeTS]="codeTS"
+                [codeHTML]="codeHTML"
+                [codeCSS]="codeCSS"
+                [isJS]="isJS"
+                [codeInverted]="codeInverted"
+                [isInverted]="isInverted"
+              ></app-code-highlighter>
+            </div>
+
+            <div class="codepen-link">
+              <form
+                class="codepen"
+                #codepenForm
+                *ngIf="this.codeHTML !== ''"
+                action="https://codepen.io/pen/define"
+                method="POST"
+                target="_blank"
+              >
+                <input type="hidden" name="data" [value]="codepen" />
+                <a
+                  href="javascript:void(0)"
+                  (click)="codepenForm.submit()"
+                  class="e-link e-link--new-tab e-link--sm"
+                >
+                  <span class="e-link__title">Try in codepen</span>
+                  <span class="e-link__icon">
+                    <i class="e-icon e-icon--new_tab-bold e-icon--inverted"></i>
+                  </span>
+                </a>
+              </form>
+            </div>
+          </div>
+        </ng-container>
+      </app-code-block-accordion>
+    </div>
+  </div>
+</div>

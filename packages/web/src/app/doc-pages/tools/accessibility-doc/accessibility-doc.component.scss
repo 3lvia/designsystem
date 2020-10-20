@@ -1,0 +1,56 @@
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+
+.headerSection {
+  display: flex;
+
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+  }
+
+  &--information {
+    width: 60%;
+    @include breakpoint-up(Mobile) {
+      width: 100%;
+    }
+  }
+
+  &--illustration {
+    flex-direction: column;
+    position: relative;
+    margin-left: 55px;
+    width: 40%;
+
+    @include breakpoint-up(Mobile) {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-top: 16px;
+      margin-left: 0;
+    }
+  }
+}
+
+.contentExamples {
+  display: flex;
+
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+  }
+
+  .examplesItemTwo {
+    @include breakpoint-up(Mobile) {
+      margin-top: 24px;
+    }
+  }
+
+  .exampleRow {
+    display: flex;
+    flex-direction: row;
+
+    .exampleRowItem {
+      display: flex;
+      align-items: center;
+      margin-top: 16px;
+    }
+  }
+}

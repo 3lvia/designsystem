@@ -1,0 +1,11 @@
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+
+.overview-example {
+  width: 70%;
+  @include breakpoint-up(MinDesktop) {
+    width: 100%;
+  }
+  @include breakpoint-up(Mobile) {
+    width: 100%;
+  }
+}

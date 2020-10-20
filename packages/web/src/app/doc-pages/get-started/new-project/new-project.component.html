@@ -1,0 +1,153 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">For developers</ng-container>
+
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--TALK WITH US-->
+  <app-component-section [sectionTitle]="'Talk with us'">
+    <ng-container ngProjectAs="sectionContent">
+      <p>
+        If you have any issues at all, please don't hesitate to
+        <a class="e-link e-link--inline" [routerLink]="['/community/contact']">contact us!</a>
+        Any friction you experience in the onboarding process, or during use is valuable feedback for us.
+        Reach out on slack in
+        <span class="e-link__title">
+          <a
+            class="e-link e-link--external e-link--inline"
+            href="https://hafslundnett.slack.com/archives/C01302LBTC2"
+            target="_blank"
+          >
+            <span class="e-link__title">#designsystemet</span>
+            <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+          </a>
+        </span>
+      </p>
+    </ng-container>
+  </app-component-section>
+
+  <!--GET STARTED USING CDN-->
+  <app-component-section [sectionTitle]="'Get started using CDN - Recommended'">
+    <ng-container ngProjectAs="sectionContent">
+      <ol class="e-list e-list--numbers">
+        <li>
+          <strong>Put the following in &lt;head></strong>
+          <div *ngIf="loadedStyle">
+            <app-code-highlighter [codeHTML]="linkTagCode"></app-code-highlighter>
+          </div>
+          <div *ngIf="!loadedStyle" class="e-content-loader" style="width: 100%; height: 127px"></div>
+        </li>
+        <li>
+          <strong>Put the following at the bottom of &lt;body></strong>
+          <div *ngIf="loadedScript">
+            <app-code-highlighter [codeHTML]="scriptTagCode"></app-code-highlighter>
+          </div>
+          <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
+        </li>
+      </ol>
+
+      <p>The result should look like this:</p>
+      <div *ngIf="loadedFullExample">
+        <app-code-highlighter [codeHTML]="fullExampleCode"></app-code-highlighter>
+      </div>
+      <div *ngIf="!loadedFullExample" class="e-content-loader" style="width: 100%; height: 337px"></div>
+    </ng-container>
+  </app-component-section>
+
+  <!--GET STARTED USING NPM-->
+  <app-component-section [sectionTitle]="'Alternative: Get started using NPM'">
+    <ng-container ngProjectAs="sectionContent">
+      <div class="e-alert e-alert--local e-alert--warn e-mb-32">
+        <div class="e-alert__icon">
+          <i class="e-icon e-icon--warning_circle e-icon--color-orange"></i>
+        </div>
+        <div class="e-alert__content">
+          <div class="e-alert__title">Not recommended</div>
+          <div class="e-alert__text">This method is not recommended for less advanced users</div>
+        </div>
+      </div>
+      <ol class="e-list e-list--numbers">
+        <li>
+          <strong class="e-mr-16">Install the package</strong>
+          <app-copy [message]="'npm i @elvia/elvis'" [noAnimation]="true">
+            <ng-container ngProjectAs="copyContent">
+              <code class="code-text">npm i @elvia/elvis</code>
+            </ng-container>
+          </app-copy>
+        </li>
+        <li>
+          <strong class="e-mr-16">Import src/main.scss or elvis.min.css in your stylesheet</strong>
+          <app-copy [message]="'@import \'~@elvia/elvis/src/main.scss\';'" [noAnimation]="true">
+            <ng-container ngProjectAs="copyContent">
+              <code class="code-text">@import '~@elvia/elvis/src/main.scss';</code>
+            </ng-container>
+          </app-copy>
+        </li>
+        <li>
+          <strong class="e-mr-16">Add elvis.js from the NPM package in &#x3C;body&#x3E;</strong>
+          <app-copy [message]="bodyScriptMessage" [noAnimation]="true">
+            <ng-container ngProjectAs="copyContent">
+              <code class="code-text">
+                &lt;body&gt; &lt;script src="assets/js/elvis.js"&gt;&lt;/script&gt; &lt;/body&gt;
+              </code>
+            </ng-container>
+          </app-copy>
+          <p><strong>or use the CDN for elvis.js:</strong></p>
+          <div *ngIf="loadedScript">
+            <app-code-highlighter [codeHTML]="scriptTagCode"></app-code-highlighter>
+          </div>
+          <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
+        </li>
+      </ol>
+    </ng-container>
+  </app-component-section>
+
+  <!--TALK WITH US-->
+  <app-component-section [sectionTitle]="'Optional: CSS-variables'">
+    <ng-container ngProjectAs="sectionContent">
+      <div>
+        Sometimes creating your own classes is necessary. For most of the identity like colors, shadows and
+        spacing CSS-variables are also provided. All these variables are available when importing the
+        main.scss file in your stylesheet, meaning you don't need to import any specific files to use them.
+        <p class="e-my-56">
+          <code class="code-text">var(--e-name-of-class)</code>
+        </p>
+      </div>
+
+      <app-component-subsection [sectionTitle]="'Internet Explorer Support'">
+        <ng-container ngProjectAs="sectionContent">
+          <p>
+            <app-copy [message]="'npm install css-vars-ponyfill'" [noAnimation]="true">
+              <ng-container ngProjectAs="copyContent">
+                <code class="code-text">npm install css-vars-ponyfill</code>
+              </ng-container>
+            </app-copy>
+          </p>
+          <p>
+            The CSS-variables are not supported by IE11 and a ponyfill is therefore added as a dependency. But
+            this library is offered as a ponyfill, not a polyfill, meaning that the code below needs to be
+            added to your project, in your main.js/ts file, for processing to take place:
+          </p>
+          <p><app-code-highlighter [codeTS]="cssVarsCode"></app-code-highlighter></p>
+          <p>
+            You can read more on the
+            <span>
+              <a
+                class="e-link e-link--inline e-link--external"
+                href="https://jhildenbiddle.github.io/css-vars-ponyfill/#/"
+              >
+                <span class="e-link__title">Ponyfill documentation here.</span>
+                <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+              </a>
+            </span>
+          </p>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+</div>

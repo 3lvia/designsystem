@@ -1,0 +1,71 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">
+    Radiobutton
+  </ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+  >
+    <form class="e-form_field">
+      <label class="e-radio" for="option1">
+        <input type="radio" id="option1" name="example1" value="value1" checked />
+        <span class="e-radio__mark"></span>
+        <span class="e-radio__label">Radio button option 1</span>
+      </label>
+      <label class="e-radio" for="option2">
+        <input type="radio" id="option2" name="example1" value="value2" />
+        <span class="e-radio__mark"></span>
+        <span class="e-radio__label">Radio button option 2</span>
+      </label>
+    </form>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="overviewExample"></app-code-block>
+    </div>
+  </div>
+
+  <!--SIZE-->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Medium'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="example1"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Small'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="example2"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--STATES-->
+  <app-component-section [sectionTitle]="'States'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-code-block [codeHTML]="example3"></app-code-block>
+    </ng-container>
+  </app-component-section>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-radio'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-radio'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
+</div>

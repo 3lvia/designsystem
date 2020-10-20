@@ -1,0 +1,87 @@
+@use "../variables/colors.scss";
+
+$tooltip-border-style: 5px solid;
+$tooltip-margin-offset: -5px;
+$tooltop-margin-horizontal-offset: 14px;
+$tooltip-vertical-transform: translate(-50%, 0);
+
+.e-tooltip {
+  // Variable containing '&' to jump to current parent inside a child class.
+  $this: &;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 0;
+  cursor: pointer;
+  // only focus effect is currently a visible toooltip.
+  outline: none;
+
+  &:hover,
+  &:focus {
+    #{$this}__content {
+      @extend .e-tooltip__content, .is-active;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    width: auto;
+    background-color: colors.color('grey-80');
+    padding: 6px 8px;
+    border-radius: 4px;
+    transition: 200ms;
+    // tooltip spesific font style
+    font-family: 'Red Hat Text';
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0.002em;
+    color: colors.color('white');
+
+    // Defaults .e-tooltip_content---top if no direction class is applied.
+    &:not(.e-tooltip__content--bottom) {
+      @extend .e-tooltip__content--top;
+    }
+
+    &.e-tooltip__content--bottom {
+      top: 100%;
+      left: 50%;
+      margin-top: $tooltop-margin-horizontal-offset;
+      transform: $tooltip-vertical-transform;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        margin-left: $tooltip-margin-offset;
+        border: $tooltip-border-style;
+        border-color: transparent transparent colors.color('grey-80') transparent;
+      }
+    }
+
+    &.e-tooltip__content--top {
+      bottom: 100%;
+      left: 50%;
+      margin-bottom: $tooltop-margin-horizontal-offset;
+      transform: $tooltip-vertical-transform;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: $tooltip-margin-offset;
+        border: $tooltip-border-style;
+        border-color: colors.color('grey-80') transparent transparent transparent;
+      }
+    }
+
+    &.is-active {
+      opacity: 1;
+      z-index: 90;
+    }
+  }
+}
