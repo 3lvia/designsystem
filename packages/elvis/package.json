@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "WIP",
   "main": "",
   "scripts": {
@@ -10,8 +10,10 @@
   },
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.5.3"
+  },
   "devDependencies": {
-    "css-vars-ponyfill": "^2.3.2",
     "del": "^5.1.0",
     "fibers": "^4.0.3",
     "gulp": "^4.0.2",
@@ -25,9 +27,7 @@
     "path": "^0.12.7",
     "postcss-css-variables": "^0.14.0",
     "sass": "^1.27.0",
-    "sharp": "^0.26.2"
-  },
-  "dependencies": {
-    "bootstrap": "^4.5.3"
+    "sharp": "^0.26.2",
+    "yargs-parser": ">=13.1.2"
   }
 }
