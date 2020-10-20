@@ -5,7 +5,7 @@ const builds = [];
 elviaComponents.forEach(component => {
     builds.push(
         {
-            entry: `./src/components/web_components/${component.name}/${component.name}.ts`,
+            entry: `./components/${component.name}/src/web_component/${component.name}.ts`,
             module: {
                 rules: [
                     {
@@ -44,7 +44,7 @@ elviaComponents.forEach(component => {
             },
             output: {
                 filename: `${component.name}.js`,
-                path: path.resolve(__dirname, 'dist/cdn/components'),
+                path: path.resolve(__dirname, `./components/${component.name}/dist/cdn/`),
             },
             devServer: {
                 contentBase: 'dist'

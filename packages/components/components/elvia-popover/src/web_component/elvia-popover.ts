@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events';
-import * as ReactPopoverComponent from '../../../../dist/react/js/elvia-popover/elvia-popover.js';
+import * as ReactPopoverComponent from '../../dist/react/js/elvia-popover.js';
 const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaPopover extends HTMLElement {

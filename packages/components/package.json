@@ -1,13 +1,15 @@
 {
-  "name": "@elvia/webcomponent-template",
+  "name": "root",
   "version": "0.0.1",
   "description": "WIP",
   "main": "server.js",
+  "private": "true",
   "scripts": {
     "start-dev": "concurrently \"webpack-dev-server --config ./webpack.config.js --mode development\" \"webpack --watch --mode development\" \"npm run gulp:watch\"",
     "build": "npm run build:component && npm run build:loader",
     "build:components": "webpack --config ./webpack.config.js && gulp --gulpfile build/gulpfile.js",
     "build:loader": "rollup -c rollup.config.loader.js",
+    "gulp": "gulp --gulpfile build/gulpfile.js",
     "gulp:watch": "gulp --gulpfile build/gulpfile.js cleanup && gulp --gulpfile build/gulpfile.js watch"
   },
   "author": "",

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import '../../../../dist/webcomponents/ts/elvia-popover/elvia-popover';
-
+import { PopoverWebComponent } from '@elvia/popover';
+console.log(PopoverWebComponent);
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

@@ -1,6 +1,6 @@
-import * as React from "react";
-import { useState } from "react";
-import "./style.scss";
+import * as React from 'react';
+import { useState } from 'react';
+import './style.scss';
 
 export interface PopoverProps {
   title?: string;
@@ -20,10 +20,10 @@ export const Popover: React.FC<PopoverProps> = ({ title }) => {
       </button>
       {visiblePopover ? (
         <span className="ewc-popover">
-          <div className={"ewc-popover__content"}>{title}</div>
+          <div className={'ewc-popover__content'}>{title}</div>
         </span>
       ) : (
-        ""
+        ''
       )}
     </span>
   );
