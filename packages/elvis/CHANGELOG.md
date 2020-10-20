@@ -42,7 +42,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New features</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/table-doc#Overview">Popover</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover-doc#Overview">Popover</a>
           </div>
           <div>
             Classes for aligning 50% to the left or right.
