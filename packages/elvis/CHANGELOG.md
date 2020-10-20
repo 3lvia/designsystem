@@ -27,13 +27,13 @@
                 <span class="code-text changelog-code">e-popover--top--left</span> -> <span class="code-text changelog-code">e-popover--left</span>
               </li>
               <li>
-                <span class="code-text changelog-code">e-popover--bottom--left</span> -> <span class="code-text changelog-code">e-popover--left</span>
+                <span class="code-text changelog-code">e-popover--bottom--left</span> -> <span class="code-text changelog-code">e-popover--bottom e-popover--left</span>
               </li>
               <li>
                 <span class="code-text changelog-code">e-popover--top--right</span> -> <span class="code-text changelog-code">e-popover--right</span>
               </li>
               <li>
-                <span class="code-text changelog-code">e-popover--bottom--right</span> -> <span class="code-text changelog-code">e-popover--right</span>
+                <span class="code-text changelog-code">e-popover--bottom--right</span> -> <span class="code-text changelog-code">e-popover--bottom e-popover--right</span>
               </li>
             </ul>
           </div>
@@ -68,7 +68,7 @@
               <span class="code-text changelog-code">e-popover--w-240</span>
             </li>
             <li>
-              <span class="code-text changelog-code">e-popover-w-260</span>
+              <span class="code-text changelog-code">e-popover--w-260</span>
             </li>
           </ul>
       </div>
