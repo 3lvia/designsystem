@@ -694,22 +694,22 @@
 			}
 		},
 		"e-popover": {
-			"modifier": {
-				"e-popover--left": {},
-				"e-popover--left-50": {},
-				"e-popover--right": {},
-				"e-popover--right-50": {},
-				"e-popover--bottom": {},
-				"e-popover--w-200": {},
-				"e-popover--w-220": {},
-				"e-popover--w-240": {},
-				"e-popover--w-260": {}
-			},
 			"element": {
 				"e-popover__content": {},
 				"e-popover__close": {},
 				"e-popover__title": {},
 				"e-popover__text": {}
+			},
+			"modifier": {
+				"e-popover--bottom": {},
+				"e-popover--left": {},
+				"e-popover--left-50": {},
+				"e-popover--right": {},
+				"e-popover--right-50": {},
+				"e-popover--w-200": {},
+				"e-popover--w-220": {},
+				"e-popover--w-240": {},
+				"e-popover--w-260": {}
 			}
 		},
 		"e-stepper": {
@@ -1507,20 +1507,20 @@
 		"e-progress__bar": {},
 		"e-progress__bar--loading": {},
 		"e-progress__bar--error": {},
+		"e-popover__content": {},
 		"e-popover": {},
+		"e-popover__close": {},
+		"e-popover__title": {},
+		"e-popover__text": {},
+		"e-popover--bottom": {},
 		"e-popover--left": {},
 		"e-popover--left-50": {},
 		"e-popover--right": {},
 		"e-popover--right-50": {},
-		"e-popover__content": {},
-		"e-popover--bottom": {},
 		"e-popover--w-200": {},
 		"e-popover--w-220": {},
 		"e-popover--w-240": {},
 		"e-popover--w-260": {},
-		"e-popover__close": {},
-		"e-popover__title": {},
-		"e-popover__text": {},
 		"e-stepper": {},
 		"e-stepper__steps": {},
 		"e-stepper__step": {},
