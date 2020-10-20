@@ -81,6 +81,9 @@ function TSX_to_JSX() {
                     "presets": [
                         "@babel/preset-typescript"
                     ],
+                    "plugins": [
+                        "@babel/plugin-transform-typescript",
+                    ]
                 }))
                 .pipe(gulp.dest(`../components/${component.name}/dist/react/jsx/`)),
 
@@ -88,6 +91,19 @@ function TSX_to_JSX() {
                 gulp.dest(`../components/${component.name}/dist/react/jsx/`)
             )
         );
+    });
+    return mergeStream(tasks);
+}
+
+function buildWebComponentsToDistributeJSFolder() {
+    const tasks = components.map((component) => {
+        return mergeStream(gulp.src(`../components/${component.name}/dist/web_component/ts/**/*.ts`)
+            .pipe(babel({
+                "presets": [
+                    "@babel/preset-typescript"
+                ],
+            }))
+            .pipe(gulp.dest(`../components/${component.name}/dist/web_component/js/`)));
     });
     return mergeStream(tasks);
 }
@@ -106,6 +122,7 @@ gulp.task(
         copyReactComponentsToDistFolder,
         //copyReactComponentsToFrameworkFolder,
         buildWebComponentsToDistributeFolder,
+        buildWebComponentsToDistributeJSFolder,
         function (done) {
             done();
             console.log('Successfully built Elvia Components!');
