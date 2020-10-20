@@ -1380,88 +1380,309 @@
             <div class="e-title-sm e-mt-16">Pagination</div>
 
             <div class="e-pagination">
-  <div class="e-pagination__number-per-page">
-    <span>Viser</span>
-    <span class="e-pagination__dropdown">
-      <div class="e-form-field e-form-field--compact">
-        <div class="e-dropdown">
-          <div class="e-input e-input--centered" (click)="toggleDropdown()">
-            <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown"></i>
-           
-            <input type="button"  />
-          </div>
-          <div class="e-dropdown__content" *ngIf="showDropdown">
-            <span class="e-dropdown__item" *ngFor="let option of options" (click)="selectOption(option)">
-              10
-            </span>
-          </div>
-        </div>
-      </div>
-    </span>
-    <span>av 200 bilder</span>
-  </div>
-  <div class="e-pagination__choosing-page">
-    <div class="e-pagination__arrow" *ngIf="leftArrow()" (click)="prev()">
-      <i class="e-icon e-icon--arrow_long_left e-icon--xs"></i>
-    </div>
-    <div
-      *ngFor="let firstNum of firstNums"
-      class="e-pagination__number"
-      [ngClass]="{ 'e-pagination__number--active': activeNumber(firstNum) }"
-      id="element-{{ firstNum }}"
-      (click)="chooseNumber($event)"
-    >
-      1
-    </div>
-    <div class="e-pagination__dots" *ngIf="paginationDotsLeft()">...</div>
-    <div
-      class="e-pagination__number"
-      *ngFor="let centerNum of centerNums"
-      [ngClass]="{ 'e-pagination__number--active': activeNumber(centerNum) }"
-      id="element-{{ centerNum }}"
-      (click)="chooseNumber($event)"
-    >
-      5
-    </div>
-    <div class="e-pagination__dots" *ngIf="paginationDotsRight()">...</div>
-    <div
-      class="e-pagination__number"
-      *ngFor="let lastNum of lastNums"
-      [ngClass]="{ 'e-pagination__number--active': activeNumber(lastNum) }"
-      id="element-{{ lastNum }}"
-      (click)="chooseNumber($event)"
-    >
-      10
-    </div>
-    <div class="e-pagination__arrow" *ngIf="rightArrow()" (click)="next()">
-      <i class="e-icon e-icon--arrow_long e-icon--xs"></i>
-    </div>
-  </div>
-</div>
+                <div class="e-pagination__number-per-page">
+                    <span>Viser</span>
+                    <span class="e-pagination__dropdown">
+                        <div class="e-form-field e-form-field--compact">
+                            <div class="e-dropdown">
+                                <div
+                                    class="e-input e-input--centered"
+                                    (click)="toggleDropdown()"
+                                >
+                                    <i
+                                        class="e-icon e-icon--arrow_up-bold"
+                                        *ngIf="showDropdown"
+                                    ></i>
 
-        
+                                    <input type="button" />
+                                </div>
+                                <div
+                                    class="e-dropdown__content"
+                                    *ngIf="showDropdown"
+                                >
+                                    <span
+                                        class="e-dropdown__item"
+                                        *ngFor="let option of options"
+                                        (click)="selectOption(option)"
+                                    >
+                                        10
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                    <span>av 200 bilder</span>
+                </div>
+                <div class="e-pagination__choosing-page">
+                    <div
+                        class="e-pagination__arrow"
+                        *ngIf="leftArrow()"
+                        (click)="prev()"
+                    >
+                        <i class="e-icon e-icon--arrow_long_left e-icon--xs"></i>
+                    </div>
+                    <div
+                        *ngFor="let firstNum of firstNums"
+                        class="e-pagination__number"
+                        [ngClass]="{ 'e-pagination__number--active': activeNumber(firstNum) }"
+                        id="element-{{ firstNum }}"
+                        (click)="chooseNumber($event)"
+                    >
+                        1
+                    </div>
+                    <div
+                        class="e-pagination__dots"
+                        *ngIf="paginationDotsLeft()"
+                    >...</div>
+                    <div
+                        class="e-pagination__number"
+                        *ngFor="let centerNum of centerNums"
+                        [ngClass]="{ 'e-pagination__number--active': activeNumber(centerNum) }"
+                        id="element-{{ centerNum }}"
+                        (click)="chooseNumber($event)"
+                    >
+                        5
+                    </div>
+                    <div
+                        class="e-pagination__dots"
+                        *ngIf="paginationDotsRight()"
+                    >...</div>
+                    <div
+                        class="e-pagination__number"
+                        *ngFor="let lastNum of lastNums"
+                        [ngClass]="{ 'e-pagination__number--active': activeNumber(lastNum) }"
+                        id="element-{{ lastNum }}"
+                        (click)="chooseNumber($event)"
+                    >
+                        10
+                    </div>
+                    <div
+                        class="e-pagination__arrow"
+                        *ngIf="rightArrow()"
+                        (click)="next()"
+                    >
+                        <i class="e-icon e-icon--arrow_long e-icon--xs"></i>
+                    </div>
+                </div>
+            </div>
+
             <div class="e-title-sm e-mt-48">Popover</div>
+            <div class="e-title-xs e-my-16">Top & Bottom</div>
+
+
+            div style="margin-top: 320px; text-align: center;">
+            <span class="e-popover e-m-16">
+                <button class="e-btn e-btn--icon e-btn--circled">
+                    <span class="e-btn__icon">
+                        <i class="e-icon e-icon--information_circle"></i>
+                        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+                    </span>
+                </button>
+                <div class="e-popover__content">
+                    <div class="e-popover__close">
+                        <button class="e-btn e-btn--icon e-btn--sm">
+                            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+                        </button>
+                    </div>
+                    <div class="e-popover__title">Om innlogging</div>
+                    <div class="e-popover__text">
+                        Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.
+                        BankID sikrer trygg og enkel pålogging til kundeinformasjon og forbruksdata.
+                        Når du først har logget inn, kan du velge å legge til e-post som innloggingsmåte.
+                        Da kan du selv velge den påloggingsmåten du vil ved senere besøk på Min side.
+                    </div>
+                </div>
+            </span>
+            </div>
+
+            <div class="e-title-xs e-my-16">Left / right alignments</div>
+
+
+            <div class="e-title-xs e-my-16">Sizing for mobile</div>
+
+
             <div class="e-title-xs e-my-16">Subtitle</div>
             <div class="e-title-xs e-my-16">Subtitle</div>
             <div class="e-title-xs e-my-16">Subtitle</div>
 
             <div class="e-title-sm e-mt-16">Position Picker</div>
-            <div class="e-title-xs e-my-16">Subtitle</div>
-            <div class="e-title-xs e-my-16">Subtitle</div>
-            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Before picking position</div>
+            <div class="e-position-picker">
+                <div class="e-position-picker__icon">
+                    <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>
+                </div>
+                <div class="e-position-picker__action">
+                    <button class="e-btn e-btn--tertiary">
+                        <span class="e-btn__icon"><i class="e-icon e-icon--pin"></i></span>
+                        <span class="e-btn__title">Velg plassering</span>
+                    </button>
+                </div>
+            </div>
+            <div class="e-title-xs e-my-16">After position picked</div>
+            <div class="e-position-picker">
+                <div class="e-position-picker__description">
+                    60.026676, 10.798887
+                </div>
+                <div class="e-position-picker__action">
+                    <button class="e-btn e-btn--tertiary">
+                        <span class="e-btn__icon"><i class="e-icon e-icon e-icon--pin"></i></span>
+                        <span class="e-btn__title">Endre plassering</span>
+                    </button>
+                </div>
+            </div>
+
+
 
             <div class="e-title-sm e-mt-16">Progressbar</div>
-            <div class="e-title-xs e-my-16">Subtitle</div>
-            <div class="e-title-xs e-my-16">Subtitle</div>
-            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Progressbar loading</div>
+            <div
+                class="e-progress"
+                role="progressbar"
+            >
+                <div class="e-progress__bar"></div>
+            </div>
+            <div class="e-title-xs e-my-16">Progressbar error</div>
+            <div
+                class="e-progress"
+                role="progressbar"
+            >
+                <div class="e-progress__bar e-progress__bar--error"></div>
+            </div>
 
             <div class="e-title-sm e-mt-16">RadioButtons</div>
-            <div class="e-title-xs e-my-16">Subtitle</div>
-            <div class="e-title-xs e-my-16">Subtitle</div>
-            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Medium radiobuttons</div>
+            <form class="e-form_field">
+                <label
+                    class="e-radio"
+                    for="ex1_1"
+                >
+                    <input
+                        type="radio"
+                        id="ex1_1"
+                        name="example1_1"
+                        value="value1"
+                        checked
+                    />
+                    <span class="e-radio__mark"></span>
+                    <span class="e-radio__label">Selected</span>
+                </label>
+                <label
+                    class="e-radio"
+                    for="ex1_2"
+                >
+                    <input
+                        type="radio"
+                        id="ex1_2"
+                        name="example1_1"
+                        value="value2"
+                    />
+                    <span class="e-radio__mark"></span>
+                    <span class="e-radio__label">Normal</span>
+                </label>
+            </form>
+            <div class="e-title-xs e-my-16">Small radiobuttons</div>
+            <form class="e-form_field">
+                <label
+                    class="e-radio e-radio--sm"
+                    for="optionSmall1"
+                >
+                    <input
+                        type="radio"
+                        id="optionSmall1"
+                        name="example2_1"
+                        value="value1"
+                        checked
+                    />
+                    <span class="e-radio__mark"></span>
+                    <span class="e-radio__label">Selected</span>
+                </label>
+                <label
+                    class="e-radio e-radio--sm"
+                    for="optionSmall2"
+                >
+                    <input
+                        type="radio"
+                        id="optionSmall2"
+                        name="example2_1"
+                        value="value2"
+                    />
+                    <span class="e-radio__mark"></span>
+                    <span class="e-radio__label">Normal</span>
+                </label>
+            </form>
+            <div class="e-title-xs e-my-16">States</div>
+            <form class="e-form_field">
+                <label class="e-radio e-radio---hover">
+                    <input
+                        type="radio"
+                        name="hover"
+                    />
+                    <span class="e-radio__mark"></span>
+                    <span class="e-radio__label">Hover</span>
+                </label>
+                <label class="e-radio e-radio---checked">
+                    <input
+                        type="radio"
+                        name="checked"
+                    />
+                    <span class="e-radio__mark"></span>
+                    <span class="e-radio__label">Checked</span>
+                </label>
+                <label
+                    class="e-radio e-radio---disabled"
+                    style="pointer-events: none;"
+                >
+                    <input
+                        type="radio"
+                        name="disabled"
+                    />
+                    <span class="e-radio__mark"></span>
+                    <span class="e-radio__label">Disabled</span>
+                </label>
+                <label
+                    class="e-radio e-radio---disabled-checked"
+                    style="pointer-events: none;"
+                >
+                    <input
+                        type="radio"
+                        name="disabled-checked"
+                    />
+                    <span class="e-radio__mark"></span>
+                    <span class="e-radio__label">Disabled checked</span>
+                </label>
+                <label class="e-radio e-radio---focus">
+                    <input
+                        type="radio"
+                        name="focus"
+                    />
+                    <span class="e-radio__mark"></span>
+                    <span class="e-radio__label">Focus</span>
+                </label>
+                <label class="e-radio e-radio---invalid">
+                    <input
+                        type="radio"
+                        name="invalid"
+                    />
+                    <span class="e-radio__mark"></span>
+                    <span class="e-radio__label">Invalid</span>
+                </label>
+            </form>
 
             <div class="e-title-sm e-mt-16">Search</div>
-            <div class="e-title-xs e-my-16">Subtitle</div>
+            <div class="e-title-xs e-my-16">Local Search</div>
+            <div class="e-form-field">
+  <label class="e-form-field__label" for="compact">Søk</label>
+  <div class="e-search e-search--local" style="width:400px;">
+    <div class="e-input">
+      <input id="compact" type="text" placeholder="Placeholder text">
+    </div>
+    <button class="e-btn e-btn--icon e-btn--lg">
+      <span class="e-btn__icon"><i class="e-icon e-icon--search-bold"></i></span>
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    </button>
+  </div>
+</div>
+
             <div class="e-title-xs e-my-16">Subtitle</div>
             <div class="e-title-xs e-my-16">Subtitle</div>
 
