@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "codelyzer": "^5.2.2",
-    "commitizen": "^4.1.2",
+    "commitizen": "^4.2.2",
     "cz-conventional-changelog": "^3.2.0",
     "del": "^5.1.0",
     "eslint": "^7.1.0",
