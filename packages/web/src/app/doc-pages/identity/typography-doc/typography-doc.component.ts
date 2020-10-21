@@ -36,8 +36,6 @@ export class TypographyDocComponent implements OnInit {
 `;
   exampleSpecial = `<p class="e-text-quote">En hjemmeladestasjon for elbilen er smart! Ladingen går raskere og den blir tryggere.</p>
 <p class="e-text-img">Jordfeil er en samlebetegnelse på situasjoner der du har feil eller isolasjonssvikt i det elektriske anlegget eller tilknyttet utstyr. </p>
-<p class="e-text-label">Tekst label</p>
-<p class="e-text-option">Tekst option</p>
 `;
 
   ngOnInit(): void {

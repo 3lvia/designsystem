@@ -643,88 +643,6 @@
             </div>
           </div>
         </div>
-
-        <!-- text-label -->
-        <div class="typoContainer">
-          <div class="typoRow">
-            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-label'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-label">Text Label</div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-md e-text-grey-80">
-                  {{ typographyClasses[11].properties[0].value }} |
-                  {{ typographyClasses[11].properties[2].value | fontWeight }}
-                  {{ typographyClasses[11].properties[1].value }} | Lh
-                  {{ typographyClasses[11].properties[3].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-label'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-label">Text Label</div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-md e-text-grey-80">
-                  {{ typographyClasses[11].properties[0].value }} |
-                  {{ typographyClasses[11].properties[2].value | fontWeight }}
-                  {{ typographyClasses[11].properties[1].value }} | Lh
-                  {{ typographyClasses[11].properties[3].value }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- text-option -->
-        <div class="typoContainer">
-          <div class="typoRow">
-            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-option'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-option">Text Option</div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-md e-text-grey-80">
-                  {{ typographyClasses[12].properties[0].value }} |
-                  {{ typographyClasses[12].properties[2].value | fontWeight }}
-                  {{ typographyClasses[12].properties[1].value }} | Lh
-                  {{ typographyClasses[12].properties[3].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-option'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-option">Text Option</div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-md e-text-grey-80">
-                  {{ typographyClasses[12].properties[0].value }} |
-                  {{ typographyClasses[12].properties[2].value | fontWeight }}
-                  {{ typographyClasses[12].properties[1].value }} | Lh
-                  {{ typographyClasses[12].properties[3].value }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </ng-container>
   </app-component-section>
@@ -797,14 +715,6 @@
           <div class="e-mt-16">
             <b>Text Image</b>
             is only used together with an image for caption to provide more context.
-          </div>
-          <div class="e-mt-16">
-            <b>Text Label</b>
-            is used in our components for label input.
-          </div>
-          <div class="e-mt-16">
-            <b>Text Option</b>
-            is used in our components as option text.
           </div>
         </ng-container>
       </app-component-subsection>
