@@ -5,6 +5,10 @@ PercyScript.run(async (page, percySnapshot) => {
     await page.waitFor(2000)
     await page.goto('http://localhost:3333/');
     await page.waitFor(2000)
+
+    //clicakble components
+    await page.click('span[id="tooltip-top"]');
+    await page.click('span[id="tooltip-bottom"]');
     // Homepage
     await percySnapshot('Stilbibliotek', { widths: breakpoints });
 
