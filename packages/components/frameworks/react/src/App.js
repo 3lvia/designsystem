@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import * as Popover from '@elvia/popover/dist/react/tsx/elvia-popover';
-//import { Popover } from './components/elvia-popover'
+// import * as Popover from '@elvia/popover/dist/react/tsx/elvia-popover';
+import { Popover } from './components/elvia-popover'
 
 function App() {
 
