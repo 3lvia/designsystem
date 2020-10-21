@@ -1,4 +1,7 @@
 export enum Pages {
+  // Index
+  Index = '',
+
   // Home
   Home = 'home',
 
