@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Position Picker
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Position Picker</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,15 +11,13 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
-    <div class="e-position-picker" style="width: 380px;">
+    <div class="e-position-picker" style="width: 300px">
       <div class="e-position-picker__icon" *ngIf="!showPosition">
         <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>
       </div>
-      <div class="e-position-picker__description" *ngIf="showPosition">
-        60.026676, 10.798887
-      </div>
+      <div class="e-position-picker__description" *ngIf="showPosition">60.026676, 10.798887</div>
       <div class="e-position-picker__action">
         <button class="e-btn e-btn--tertiary" (click)="openMapExample('mapModal')">
           <span class="e-btn__icon"><i class="e-icon e-icon--pin"></i></span>
@@ -39,7 +35,7 @@
           width="600"
           height="450"
           frameborder="0"
-          style="border: 0;"
+          style="border: 0"
           allowfullscreen=""
           aria-hidden="false"
           tabindex="0"
