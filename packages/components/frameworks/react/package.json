@@ -1,5 +1,5 @@
 {
-  "name": "root",
+  "name": "@elvia/components-react-preview",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
