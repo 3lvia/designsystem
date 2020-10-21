@@ -1822,9 +1822,9 @@
       }
     },
     "@elvia/elvis": {
-      "version": "3.0.1",
-      "resolved": "https://registry.npmjs.org/@elvia/elvis/-/elvis-3.0.1.tgz",
-      "integrity": "sha512-NF7rYkRTCVstyoBRqZk9QLprz2oUwJDpwMn3agqR2yIwsRtpi0jGNTQGWp/KSpiIIhtKPn7F47GMB8su9UEBgw==",
+      "version": "3.0.2",
+      "resolved": "https://registry.npmjs.org/@elvia/elvis/-/elvis-3.0.2.tgz",
+      "integrity": "sha512-ZTm7osxJNIYrnnYnZBYZflYvWiRLzV54QwGuk8R73woL8D8AgfVpfGTpsXK8dmLOpZKx2wv8KzU0xuUMNsjK5A==",
       "requires": {
         "bootstrap": "^4.5.3"
       }
