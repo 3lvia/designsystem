@@ -19,22 +19,21 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover-doc#Overview">Popover</a>
         </div>
-        The e-popover alignements classes for left and right positions have been renamed and refactored. Instead of specifying top or bottom before left and right classes it is now possible to only add a simple <span class="code-text changelog-code">e-popover--left</span> or <span class="code-text changelog-code">e-popover--right</span> to align the popover. 
+        The e-popover alignements classes for left and right positions have been renamed and refactored. 
               <div class="e-mt-8">
             How to fix:
-            Add an element with the <span class="code-text changelog-code">e-table-container</span> class outside the element with the <span class="code-text changelog-code">e-table</span> class.
             <ul>
               <li>
                 <span class="code-text changelog-code">e-popover--top--left</span> -> <span class="code-text changelog-code">e-popover--left</span>
               </li>
               <li>
-                <span class="code-text changelog-code">e-popover--bottom--left</span> -> <span class="code-text changelog-code">e-popover--left</span>
+                <span class="code-text changelog-code">e-popover--bottom--left</span> -> <span class="code-text changelog-code">e-popover--bottom e-popover--left</span>
               </li>
               <li>
                 <span class="code-text changelog-code">e-popover--top--right</span> -> <span class="code-text changelog-code">e-popover--right</span>
               </li>
               <li>
-                <span class="code-text changelog-code">e-popover--bottom--right</span> -> <span class="code-text changelog-code">e-popover--right</span>
+                <span class="code-text changelog-code">e-popover--bottom--right</span> -> <span class="code-text changelog-code">e-popover--bottom e-popover--right</span>
               </li>
             </ul>
           </div>
@@ -45,7 +44,7 @@
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover-doc#Overview">Popover</a>
           </div>
           <div>
-            Classes for aligning 50% to the left or right.
+            Classes for aligning 50% to the left or right from the middle.
           </div>
             <ul>
             <li>
@@ -56,20 +55,20 @@
             </li>
           </ul>
           <div>
-            Classes for sizing popover on mobile for smaller width: <span class="code-text changelog-code">e-popover-w-200</span>.
+            Classes for sizing popover smaller when is has limited space.
           </div>
             <ul>
             <li>
-              <span class="code-text changelog-code">e-popover-w-200</span>
+              <span class="code-text changelog-code">e-popover--w-200</span>
             </li>
             <li>
-              <span class="code-text changelog-code">e-popover-w-220</span>
+              <span class="code-text changelog-code">e-popover--w-220</span>
             </li>
             <li>
-              <span class="code-text changelog-code">e-popover-w-240</span>
+              <span class="code-text changelog-code">e-popover--w-240</span>
             </li>
             <li>
-              <span class="code-text changelog-code">e-popover-w-260</span>
+              <span class="code-text changelog-code">e-popover--w-260</span>
             </li>
           </ul>
       </div>
