@@ -17,6 +17,7 @@
     "bootstrap": "^4.5.3"
   },
   "devDependencies": {
+    "@percy/script": "^1.1.0",
     "del": "^5.1.0",
     "fibers": "^4.0.3",
     "gulp": "^4.0.2",
