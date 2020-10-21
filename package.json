@@ -16,11 +16,11 @@
     "lint-all": "npm run lint-elvis && npm run lint-doc && npm run eslint"
   },
   "lint-staged": {
-    "**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
+    "packages/elvis/**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
       "npx prettier --write",
       "git add"
     ],
-    "**/*.+(js|ts|tsx)": [
+    "packages/web/**/*.+(js|ts|tsx)": [
       "./node_modules/.bin/eslint --fix",
       "git add"
     ]
