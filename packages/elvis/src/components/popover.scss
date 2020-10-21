@@ -10,9 +10,8 @@ $popover-arrow-size-small: calc(#{$popover-arrow-size} - (#{$popover-border-widt
 $popover-arrow-offset: 25px; // Midtstilt i forhold til ikon 16X16px (xs)
 $popover-button-offset: -30px;
 
-$popover-desktop-max-width: 400px;
-
-$popover-mobile-max-width: 300px;
+$popover-desktop-size: 400px;
+$popover-mobile-size: 300px;
 
 %e-popover__widget {
   content: '';
@@ -26,10 +25,6 @@ $popover-mobile-max-width: 300px;
   position: relative;
   display: inline-block;
   box-sizing: border-box;
-  // Defaults position is top
-  &:not(.e-popover--bottom) {
-    @extend .e-popover--top;
-  }
 
   &__content {
     display: block;
@@ -38,7 +33,8 @@ $popover-mobile-max-width: 300px;
     pointer-events: all;
     position: absolute;
     width: max-content;
-    max-width: $popover-desktop-max-width;
+    min-width: $popover-desktop-size;
+    max-width: $popover-desktop-size;
     padding: $popover-padding;
     background-color: colors.color('white');
     color: colors.color('font-color');
@@ -57,11 +53,13 @@ $popover-mobile-max-width: 300px;
     }
 
     @include breakpoints.breakpoint-up(Mobile) {
-      max-width: $popover-mobile-max-width;
+      min-width: $popover-mobile-size;
+      max-width: $popover-mobile-size;
     }
 
     // for smallest units
     @media screen and (max-width: 360px) {
+      min-width: 280px;
       max-width: 280px;
     }
 
@@ -78,6 +76,7 @@ $popover-mobile-max-width: 300px;
       @include typography.typography('text-info');
       font-weight: 500 !important;
       padding-bottom: 8px;
+      margin-right: 16px;
     }
     .e-popover__text {
       @include typography.typography('text-info');
@@ -93,9 +92,9 @@ $popover-mobile-max-width: 300px;
     }
   }
 
-  &.e-popover--top {
-    // Defaults position is top left
-    @extend .e-popover--center;
+  // Modifiers for alignment of popover
+  // Top aligned (Default)
+  &:not(.e-popover--bottom) {
     .e-popover__content {
       bottom: 150%;
       margin-bottom: 8px;
@@ -108,97 +107,183 @@ $popover-mobile-max-width: 300px;
         border-color: colors.color('white') transparent transparent transparent;
       }
     }
-
-    &.e-popover--top--left {
-      .e-popover__content {
-        transform: translateX(-90%);
-        @include breakpoints.breakpoint-up(Mobile) {
-          transform: translateX(-87.5%);
-        }
-        // adding pixels to center and fit the arrows to relative point
-        &:after {
-          left: calc((100%) - (#{$popover-arrow-offset}) - 25px);
-        }
-        &:before {
-          left: calc((100%) - (#{$popover-arrow-offset}) - 2px - 25px);
-        }
-      }
-    }
-
-    &.e-popover--top--right {
-      .e-popover__content {
-        transform: translateX(-10%);
-        @include breakpoints.breakpoint-up(Mobile) {
-          transform: translateX(-12.5%);
-        }
-        // adding pixels to center and fit the arrows to relative point
-        &:after {
-          left: calc((0%) + (#{$popover-arrow-offset}) + 4px);
-        }
-        &:before {
-          left: calc((0%) + (#{$popover-arrow-offset}) + 2px);
-        }
-      }
-    }
   }
-
-  &.e-popover--bottom {
-    // Defaults position is top left
-    @extend .e-popover--center;
+  // Center aligned (Default)
+  &:not(.e-popover--left):not(.e-popover--left-50):not(.e-popover--right):not(.e-popover--right-50) {
     .e-popover__content {
-      top: 150%;
-      margin-top: 6px;
+      left: 50%;
+      transform: translate(-50%, 0);
       &::before {
-        top: calc(#{$popover-arrow-size} * -2);
-        border-color: transparent transparent colors.color('green') transparent;
+        left: calc(50% - (#{$popover-arrow-offset} / 2));
       }
       &::after {
-        top: calc((#{$popover-arrow-size-small} * -2));
-        border-color: transparent transparent colors.color('white') transparent;
+        left: calc(50% - (#{$popover-arrow-offset} / 2) + 2px);
       }
     }
-
-    &.e-popover--bottom--left {
-      .e-popover__content {
-        transform: translateX(-90%);
-        @include breakpoints.breakpoint-up(Mobile) {
-          transform: translateX(-87.5%);
-        }
-        // adding pixels to center and fit the arrows to relative point
-        &:after {
-          left: calc((100%) - (#{$popover-arrow-offset}) + 2px - 25px);
-        }
-        &:before {
-          left: calc((100%) - (#{$popover-arrow-offset}) - 25px);
-        }
+  }
+  // Bottom aligned
+  &.e-popover--bottom .e-popover__content {
+    top: 150%;
+    margin-top: 6px;
+    &::before {
+      top: calc(#{$popover-arrow-size} * -2);
+      border-color: transparent transparent colors.color('green') transparent;
+    }
+    &::after {
+      top: calc((#{$popover-arrow-size-small} * -2));
+      border-color: transparent transparent colors.color('white') transparent;
+    }
+  }
+  // Left aligned
+  &.e-popover--left .e-popover__content {
+    transform: translateX(-87%);
+    // adding pixels to center and fit the arrows to relative point
+    &:after {
+      left: calc(100% - #{$popover-arrow-offset} - 24px);
+    }
+    &:before {
+      left: calc(100% - #{$popover-arrow-offset} - 2px - 24px);
+    }
+    @include breakpoints.breakpoint-up(Mobile) {
+      transform: translateX(-83.5%);
+      &:after {
+        left: calc(100% - #{$popover-arrow-offset} - 21px);
+      }
+      &:before {
+        left: calc(100% - #{$popover-arrow-offset} - 2px - 21px);
       }
     }
-
-    &.e-popover--bottom--right {
-      .e-popover__content {
-        transform: translateX(-10%);
-        @include breakpoints.breakpoint-up(Mobile) {
-          transform: translateX(-12.5%);
-        }
-        // adding pixels to center and fit the arrows to relative point
-        &:after {
-          left: calc((0%) + (#{$popover-arrow-offset}) + 4px);
-        }
-        &:before {
-          left: calc((0%) + (#{$popover-arrow-offset}) + 2px);
-        }
+  }
+  // Left-50 aligned
+  &.e-popover--left-50 .e-popover__content {
+    transform: translateX(-62%);
+    // adding pixels to center and fit the arrows to relative point
+    &:after {
+      left: calc(75% - #{$popover-arrow-offset} - 24px);
+    }
+    &:before {
+      left: calc(75% - #{$popover-arrow-offset} - 2px - 24px);
+    }
+    @include breakpoints.breakpoint-up(Mobile) {
+      transform: translateX(-58.5%);
+      &:after {
+        left: calc(75% - #{$popover-arrow-offset} - 21px);
+      }
+      &:before {
+        left: calc(75% - #{$popover-arrow-offset} - 2px - 21px);
+      }
+    }
+  }
+  // Right aligned
+  &.e-popover--right .e-popover__content {
+    transform: translateX(-7%);
+    // adding pixels to center and fit the arrows to relative point
+    &:after {
+      left: calc(#{$popover-arrow-offset} + 4px);
+    }
+    &:before {
+      left: calc(#{$popover-arrow-offset} + 2px);
+    }
+    @include breakpoints.breakpoint-up(Mobile) {
+      transform: translateX(-8.7%);
+      &:after {
+        left: calc(#{$popover-arrow-offset} + 2px);
+      }
+      &:before {
+        left: #{$popover-arrow-offset};
+      }
+    }
+  }
+  // Right-50 aligned
+  &.e-popover--right-50 .e-popover__content {
+    transform: translateX(-32%);
+    // adding pixels to center and fit the arrows to relative point
+    &:after {
+      left: calc(38% - #{$popover-arrow-offset} + 4px);
+    }
+    &:before {
+      left: calc(38% - #{$popover-arrow-offset} + 2px);
+    }
+    @include breakpoints.breakpoint-up(Mobile) {
+      transform: translateX(-33.7%);
+      &:after {
+        left: calc(42% - #{$popover-arrow-offset} + 2px);
+      }
+      &:before {
+        left: calc(42% - #{$popover-arrow-offset});
       }
     }
   }
 
-  &.e-popover--center .e-popover__content {
-    left: 50%;
-    transform: translate(-50%, 0);
-    &::before {
-      left: calc((50%) - (#{$popover-arrow-offset} / 2));
+  // Modifiers sizing of popover
+  @include breakpoints.breakpoint-up(Mobile) {
+    &.e-popover--w-200 .e-popover__content {
+      min-width: 200px;
+      max-width: 200px;
     }
-    &::after {
-      left: calc((50%) - (#{$popover-arrow-offset} / 2) + 2px);
+    &.e-popover--w-220 .e-popover__content {
+      min-width: 220px;
+      max-width: 220px;
+    }
+    &.e-popover--w-240 .e-popover__content {
+      min-width: 240px;
+      max-width: 240px;
+    }
+    &.e-popover--w-260 .e-popover__content {
+      min-width: 260px;
+      max-width: 260px;
+    }
+  }
+
+  // Adjusting alignment of popover for sizing classes
+  @include breakpoints.breakpoint-up(Mobile) {
+    &.e-popover--w-200.e-popover--left .e-popover__content {
+      transform: translateX(-75%);
+    }
+    &.e-popover--w-220.e-popover--left .e-popover__content {
+      transform: translateX(-78%);
+    }
+    &.e-popover--w-240.e-popover--left .e-popover__content {
+      transform: translateX(-80%);
+    }
+    &.e-popover--w-260.e-popover--left .e-popover__content {
+      transform: translateX(-81%);
+    }
+    &.e-popover--w-200.e-popover--left-50 .e-popover__content {
+      transform: translateX(-51%);
+    }
+    &.e-popover--w-220.e-popover--left-50 .e-popover__content {
+      transform: translateX(-53.5%);
+    }
+    &.e-popover--w-240.e-popover--left-50 .e-popover__content {
+      transform: translateX(-55.5%);
+    }
+    &.e-popover--w-260.e-popover--left-50 .e-popover__content {
+      transform: translateX(-56.5%);
+    }
+    &.e-popover--w-200.e-popover--right .e-popover__content {
+      transform: translateX(-13%);
+    }
+    &.e-popover--w-220.e-popover--right .e-popover__content {
+      transform: translateX(-12%);
+    }
+    &.e-popover--w-240.e-popover--right .e-popover__content {
+      transform: translateX(-11%);
+    }
+    &.e-popover--w-260.e-popover--right .e-popover__content {
+      transform: translateX(-10%);
+    }
+    &.e-popover--w-200.e-popover--right-50 .e-popover__content {
+      transform: translateX(-30%);
+    }
+    &.e-popover--w-220.e-popover--right-50 .e-popover__content {
+      transform: translateX(-31%);
+    }
+    &.e-popover--w-240.e-popover--right-50 .e-popover__content {
+      transform: translateX(-32%);
+    }
+    &.e-popover--w-260.e-popover--right-50 .e-popover__content {
+      transform: translateX(-33%);
     }
   }
 }

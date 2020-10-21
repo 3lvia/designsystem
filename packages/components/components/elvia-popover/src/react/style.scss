@@ -1,0 +1,17 @@
+.ewc-popover {
+  position: absolute;
+  border: 2px solid green;
+  border-radius: 4px;
+  width: 100px;
+  height: 200px;
+  display: inline-block;
+  padding: 10px;
+  background-color: white;
+  z-index: 10;
+}
+
+.ewc-popover__button {
+  padding: 10px;
+  margin-bottom: 16px;
+  display: block;
+}

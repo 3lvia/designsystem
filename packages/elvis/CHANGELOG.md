@@ -6,6 +6,78 @@
 <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      3.0.0
+    </span>
+    <br>
+    <span>
+      Oktober 20, 2020
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover-doc#Overview">Popover</a>
+        </div>
+        The e-popover alignements classes for left and right positions have been renamed and refactored. 
+              <div class="e-mt-8">
+            How to fix:
+            <ul>
+              <li>
+                <span class="code-text changelog-code">e-popover--top--left</span> -> <span class="code-text changelog-code">e-popover--left</span>
+              </li>
+              <li>
+                <span class="code-text changelog-code">e-popover--bottom--left</span> -> <span class="code-text changelog-code">e-popover--bottom e-popover--left</span>
+              </li>
+              <li>
+                <span class="code-text changelog-code">e-popover--top--right</span> -> <span class="code-text changelog-code">e-popover--right</span>
+              </li>
+              <li>
+                <span class="code-text changelog-code">e-popover--bottom--right</span> -> <span class="code-text changelog-code">e-popover--bottom e-popover--right</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New features</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover-doc#Overview">Popover</a>
+          </div>
+          <div>
+            Classes for aligning 50% to the left or right from the middle.
+          </div>
+            <ul>
+            <li>
+              <span class="code-text changelog-code">e-popover--left-50</span>
+            </li>
+            <li>
+              <span class="code-text changelog-code">e-popover--right-50</span>
+            </li>
+          </ul>
+          <div>
+            Classes for sizing popover smaller when is has limited space.
+          </div>
+            <ul>
+            <li>
+              <span class="code-text changelog-code">e-popover--w-200</span>
+            </li>
+            <li>
+              <span class="code-text changelog-code">e-popover--w-220</span>
+            </li>
+            <li>
+              <span class="code-text changelog-code">e-popover--w-240</span>
+            </li>
+            <li>
+              <span class="code-text changelog-code">e-popover--w-260</span>
+            </li>
+          </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+<tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       2.0.0
     </span>
     <br>

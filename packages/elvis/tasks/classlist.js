@@ -25,11 +25,20 @@ function getAllClasses(stylesheet) {
 
   [...uniqueClasses].forEach((rule) => {
     style.flat[rule] = {};
-    const classBlock = getBlockFromClass(rule);
+    const classBlock = getBlockFromClass(rule); // Returns the block name
     if (!style.block[classBlock]) {
       style.block[classBlock] = {};
     }
-    const block = style.block[classBlock];
+    const block = style.block[classBlock]; // Get block element by rule
+    
+    // Container
+    if(rule.indexOf('-container') > -1) {
+      const container = getContainerFromClass(rule);
+      block.container = block.container ? block.container : {};
+      block.container[container] = block.container[container] ? block.container[container] : {};
+      
+      return;
+    }
 
     // Element
     if (rule.indexOf('__') > -1) {
@@ -72,12 +81,19 @@ function getAllClasses(stylesheet) {
 }
 
 function getBlockFromClass(className) {
+  if (className.indexOf('-container') > -1) {
+    return className.split('-container')[0];
+  }
   const split = className.split(/[(\-))]{2,3}|[(__)]+/);
   return split[0];
 }
 
 function getElementFromClass(className) {
   return className.split('--')[0];
+}
+
+function getContainerFromClass(className) {
+  return className;
 }
 
 function modifierIsOnElement(className) {

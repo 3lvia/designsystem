@@ -11,6 +11,7 @@ import { CodeHighlighterModule } from 'src/app/shared/code-highlighter/code-high
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure/component-subsubsection/component-subsubsection.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
     CopyModule,
+    RouterModule,
   ],
   declarations: [IconDocComponent, IconSearchPipe],
 })
