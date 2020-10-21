@@ -11,10 +11,10 @@
   &-body {
     border: 1px solid var(--e-grey-10);
     border-radius: 8px;
-    padding: 40px 32px;
+    padding: 32px;
     height: 100%;
     @include breakpoint-up(Mobile) {
-      padding: 24px 16px;
+      padding: 24px;
     }
 
     .top-menu {
@@ -104,9 +104,8 @@
     .element {
       display: block;
       height: 100%;
-      &.screens {
-        padding-top: 16px;
-      }
+      overflow-y: auto;
+      padding: 16px 4px;
 
       .hide {
         display: none;

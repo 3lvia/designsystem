@@ -5,7 +5,7 @@
     *ngIf="showPreview"
   >
     <div class="top-menu">
-      <div class="tabs" *ngIf="showIframeScreens && showTabs">
+      <div class="tabs e-mb-24" *ngIf="showIframeScreens && showTabs">
         <div
           class="tab"
           role="button"
@@ -31,7 +31,7 @@
           Phone
         </div>
       </div>
-      <div class="dark-mode-toggle" *ngIf="codeInverted != ''">
+      <div class="dark-mode-toggle e-mb-24" *ngIf="codeInverted != ''">
         <span>Dark</span>
         <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': isInverted }">
           <input class="e-toggle__input" type="checkbox" (click)="toggleInverted()" [checked]="isInverted" />
