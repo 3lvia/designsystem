@@ -17,11 +17,11 @@
     "percy": "cd packages/elvis; npm run percyTest"
   },
   "lint-staged": {
-    "**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
+    "packages/elvis/**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
       "npx prettier --write",
       "git add"
     ],
-    "**/*.+(js|ts|tsx)": [
+    "packages/web/**/*.+(js|ts|tsx)": [
       "./node_modules/.bin/eslint --fix",
       "git add"
     ]
@@ -42,7 +42,7 @@
   "devDependencies": {
     "@percy/script": "^1.1.0",
     "codelyzer": "^5.2.2",
-    "commitizen": "^4.1.2",
+    "commitizen": "^4.2.2",
     "cz-conventional-changelog": "^3.2.0",
     "del": "^5.1.0",
     "eslint": "^7.1.0",
