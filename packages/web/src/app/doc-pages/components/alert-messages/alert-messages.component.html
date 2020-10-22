@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Alert messages
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Alert messages</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-alert e-alert--local e-mt-24">
       <div class="e-alert__icon">
@@ -22,9 +20,7 @@
       <div class="e-alert__content">
         <div class="e-alert__title">Kort tittel.</div>
         <div class="e-alert__text">
-          <div>
-            Kort beskrivelse.
-          </div>
+          <div>Kort beskrivelse.</div>
         </div>
       </div>
     </div>
@@ -66,6 +62,7 @@
             [codeHTML]="globalAlert"
             [showIframeScreens]="true"
             [noTablet]="true"
+            [overwriteHeight]="104"
           ></app-code-block>
           <app-when-to-use [whens]="doesGlobalDefault" [whenNots]="dontsGlobalDefault"></app-when-to-use>
 
@@ -76,13 +73,14 @@
                 [codeHTML]="globalAlertCloseable"
                 [showIframeScreens]="true"
                 [noTablet]="true"
+                [overwriteHeight]="104"
               ></app-code-block>
             </ng-container>
           </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Expandable'">
             <ng-container ngProjectAs="sectionContent">
               Global alerts can also be expandable. Add and remove the clas
-              <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase;">
+              <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
                 e-alert--open
               </span>
               to open and close the alert.
@@ -100,6 +98,7 @@
                 [codeHTML]="globalAlertActions"
                 [showIframeScreens]="true"
                 [noTablet]="true"
+                [overwriteHeight]="90"
               ></app-code-block>
             </ng-container>
           </app-component-subsubsection>
@@ -150,13 +149,13 @@
       provide a consistent and universal user experience.
       <div class="alert-status e-mt-80">
         <div class="alert-icons">
-          <div class="e-bg-red e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%;"></div>
+          <div class="e-bg-red e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
           <div><i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xl"></i></div>
         </div>
         <div>
           <div class="title e-text-caps">
             error
-            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase;">
+            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
               e-alert--error
             </span>
           </div>
@@ -171,13 +170,13 @@
       </div>
       <div class="alert-status">
         <div class="alert-icons">
-          <div class="e-bg-orange e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%;"></div>
+          <div class="e-bg-orange e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
           <div><i class="e-icon e-icon--warning_circle e-icon--color-orange e-icon--xl"></i></div>
         </div>
         <div>
           <div class="title e-text-caps">
             warning
-            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase;">
+            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
               e-alert--warn
             </span>
           </div>
@@ -192,13 +191,13 @@
       </div>
       <div class="alert-status">
         <div class="alert-icons">
-          <div class="e-bg-green e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%;"></div>
+          <div class="e-bg-green e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
           <div><i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xl"></i></div>
         </div>
         <div>
           <div class="title e-text-caps">
             positive
-            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase;">
+            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
               e-alert--toast
             </span>
           </div>
@@ -211,13 +210,13 @@
       </div>
       <div class="alert-status">
         <div class="alert-icons">
-          <div class="e-bg-black e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%;"></div>
+          <div class="e-bg-black e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
           <div><i class="e-icon e-icon--information_circle e-icon--xl"></i></div>
         </div>
         <div>
           <div class="title e-text-caps">
             informative
-            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase;">
+            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
               e-alert--info
             </span>
           </div>

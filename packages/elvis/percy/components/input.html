@@ -1,0 +1,86 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../css/elvis.min.css" />
+    <script src="../../elvis.js"></script>
+  </head>
+  <body>
+    <div class="e-title-sm e-mt-16">Input</div>
+    <div class="e-title-xs e-my-16">Normal Input</div>
+
+    <div class="e-form-field">
+      <label class="e-form-field__label" for="normal">Normal input field</label>
+      <div class="e-input">
+        <input id="normal" type="text" placeholder="Placeholder text" />
+      </div>
+    </div>
+    <div class="e-title-xs e-my-16">Combined Input</div>
+
+    <div class="e-form-field e-form-field--combined">
+      <label class="e-form-field__label" for="phone">Phone</label>
+      <div class="e-form-field__input">
+        <div id="phone" class="e-input e-input--small">
+          <input type="text" value="+47" />
+        </div>
+        <div class="e-input">
+          <input type="text" placeholder="Placeholder text" />
+        </div>
+      </div>
+    </div>
+    <div class="e-title-xs e-my-16">Inlined Input</div>
+    <div class="e-inlined-field">
+      <div class="e-form-field e-form-field--medium">
+        <label class="e-form-field__label" for="zip">Zip code</label>
+        <div class="e-input">
+          <input id="zip" type="text" placeholder="Zip code" />
+        </div>
+      </div>
+      <div class="e-form-field">
+        <label class="e-form-field__label" for="city">City</label>
+        <div class="e-input">
+          <input id="city" type="text" placeholder="City" />
+        </div>
+      </div>
+    </div>
+    <div class="e-title-xs e-my-16">Textarea</div>
+    <div class="e-form-field">
+      <label class="e-form-field__label e-form-field__label--optional" for="textarea">Textarea</label>
+      <div class="e-input">
+        <textarea id="textarea" placeholder="Placeholder text" type="text"></textarea>
+      </div>
+    </div>
+    <div class="e-title-xs e-my-16">Sizing - Normal and Compact</div>
+    <div class="e-form-field">
+      <label class="e-form-field__label" for="normal">Normal input field</label>
+      <div class="e-input">
+        <input id="normal" type="text" placeholder="Placeholder text" />
+      </div>
+    </div>
+
+    <div class="e-mt-16" style="width: 240px">
+      <div class="e-form-field e-form-field--compact">
+        <label class="e-form-field__label" for="compact">Compact input field</label>
+        <div class="e-input">
+          <input id="compact" type="text" placeholder="Placeholder text" />
+        </div>
+      </div>
+    </div>
+    <div class="e-title-xs e-my-16">Validation</div>
+    <div class="e-form-field e-w-50">
+      <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
+      <div class="e-input e-input---invalid">
+        <i *ngIf="!showPassword" class="e-icon e-icon--view_on e-icon--xs" (click)="showMockPassword()"></i>
+        <i *ngIf="showPassword" class="e-icon e-icon--view_off e-icon--xs" (click)="showMockPassword()"></i>
+        <input id="validationExample" type="password" value="Passord" invalid #validationExample />
+      </div>
+      <span class="e-form-field__error e-form-field__error--visible">
+        <span>
+          <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
+        </span>
+        <span>Passord må inneholde både bokstaver og tall</span>
+      </span>
+    </div>
+  </body>
+</html>
