@@ -2,11 +2,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Elvia Percytest</title>
     <link rel="stylesheet" type="text/css" href="../../css/elvis.min.css" />
     <script src="../../elvis.js"></script>
   </head>
   <body>
-    TESTING
+    <div class="e-title-sm e-mt-16">File Upload</div>
+
+    <div class="e-title-xs e-my-16">Normal autcomplete</div>
+    <div class="e-form-field">
+      <label class="e-form-field__label" for="compact">Label</label>
+      <div class="e-input" style="height: 155px">
+        <input placeholder="Placeholder text" value="Aus" />
+        <div class="e-autocomplete">
+          <span class="e-autocomplete__item">Australia</span>
+          <span class="e-autocomplete__item">Austria</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-title-xs e-my-16">Compact autcomplete</div>
+    <div style="width: 240px">
+      <div class="e-form-field e-form-field--compact">
+        <label class="e-form-field__label" for="compact">Label</label>
+        <div class="e-input" style="height: 105px">
+          <input placeholder="Placeholder text" value="Aus" />
+          <div class="e-autocomplete">
+            <span class="e-autocomplete__item">Australia</span>
+            <span class="e-autocomplete__item">Austria</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

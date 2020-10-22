@@ -2,9 +2,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Elvia Percytest</title>
     <link rel="stylesheet" type="text/css" href="../../css/elvis.min.css" />
     <script src="../../elvis.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="e-title-sm e-mt-16">Toggle</div>
+    <div class="e-title-xs e-my-16">States</div>
+    <div>
+      <div class="e-text-label">Off</div>
+      <label class="e-toggle">
+        <input class="e-toggle__input" type="checkbox" />
+        <span class="e-toggle__slider"></span>
+      </label>
+    </div>
+    <div class="e-mt-16">
+      <div class="e-text-label">On</div>
+      <label class="e-toggle">
+        <input class="e-toggle__input" type="checkbox" checked />
+        <span class="e-toggle__slider"></span>
+      </label>
+    </div>
+    <div class="e-mt-16">
+      <div class="e-text-label">Disabled off</div>
+      <label class="e-toggle e-toggle---disabled">
+        <input class="e-toggle__input" type="checkbox" disabled />
+        <span class="e-toggle__slider"></span>
+      </label>
+    </div>
+    <div class="e-mt-16">
+      <div class="e-text-label">Disabled on</div>
+      <label class="e-toggle e-toggle---disabled">
+        <input class="e-toggle__input" type="checkbox" checked disabled />
+        <span class="e-toggle__slider"></span>
+      </label>
+    </div>
+
+    <div class="e-title-xs e-my-16">Inverted</div>
+    <div style="background-color: #262626">
+      <div>
+        <div class="e-text-label e-text-white">Off</div>
+        <label class="e-toggle e-toggle--inverted">
+          <input class="e-toggle__input" type="checkbox" />
+          <span class="e-toggle__slider"></span>
+        </label>
+      </div>
+      <div class="e-mt-16">
+        <div class="e-text-label e-text-white">On</div>
+        <label class="e-toggle e-toggle--inverted">
+          <input class="e-toggle__input" type="checkbox" checked />
+          <span class="e-toggle__slider"></span>
+        </label>
+      </div>
+      <div class="e-mt-16">
+        <div class="e-text-label e-text-white">Disabled off</div>
+        <label class="e-toggle e-toggle---disabled e-toggle--inverted">
+          <input class="e-toggle__input" type="checkbox" disabled />
+          <span class="e-toggle__slider"></span>
+        </label>
+      </div>
+      <div class="e-mt-16">
+        <div class="e-text-label e-text-white">Disabled on</div>
+        <label class="e-toggle e-toggle---disabled e-toggle--inverted">
+          <input class="e-toggle__input" type="checkbox" checked disabled />
+          <span class="e-toggle__slider"></span>
+        </label>
+      </div>
+    </div>
+  </body>
 </html>
