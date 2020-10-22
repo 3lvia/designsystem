@@ -23,6 +23,7 @@ PercyScript.run(async (page, percySnapshot) => {
     await percySnapshot('Cards', { widths: breakpoints });
     //Checkbox
     await page.goto('http://localhost:3333/components/checkbox.html');
+    await page.waitForTimeout(2000)
     await percySnapshot('Checkboxes', { widths: breakpoints });
     //Content-Loader
     await page.goto('http://localhost:3333/components/content-loader.html');
