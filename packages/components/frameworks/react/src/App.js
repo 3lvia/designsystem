@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-      <Popover title="Dette er en React preview">
+      <Popover title="React demo of popover" description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.">
       </Popover>
       <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis massa eu velit egestas bibendum. Vivamus id justo ut eros pellentesque tincidunt in in lectus. Maecenas gravida luctus turpis, quis sodales nunc luctus non. Vivamus mollis, leo eu viverra pretium, eros purus mattis nibh, nec interdum eros dui ut enim. Sed mattis nulla id dignissim aliquam. Duis ornare non lacus ut vehicula. Proin leo urna, aliquet auctor elit id, condimentum vulputate sapien.
 

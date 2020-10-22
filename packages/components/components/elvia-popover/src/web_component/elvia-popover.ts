@@ -6,13 +6,15 @@ const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaPopover extends HTMLElement {
   static get observedAttributes() {
-    return ['title'];
+    return ['title', 'description'];
   }
 
+  // title = '';
+  // description = '';
   mountPoint = document.createElement('span');
 
-  createPopover(title?: string) {
-    const data = { title };
+  createPopover(title?: string, description?: string) {
+    const data = { title, description };
     return React.createElement(ReactPopoverComponent.Popover, data, React.createElement('slot'));
   }
 
@@ -25,16 +27,15 @@ export default class ElviaPopover extends HTMLElement {
     shadowRoot.appendChild(styleTag);
 
     const title = this.getAttribute('title');
-    ReactDOM.render(this.createPopover(title), this.mountPoint);
+    const description = this.getAttribute('description');
+    ReactDOM.render(this.createPopover(title, description), this.mountPoint);
     retargetEvents(shadowRoot);
   }
 
   attributeChangedCallback(name: string, oldValue: any, newValue: any) {
-    console.log("attributeChangedCallback");
-    console.log(oldValue, newValue);
-    if (name === 'title') {
-      ReactDOM.render(this.createPopover(newValue), this.mountPoint);
-    }
+    const title = this.getAttribute('title');
+    const description = this.getAttribute('description');
+    ReactDOM.render(this.createPopover(title, description), this.mountPoint);
   }
 }
 
