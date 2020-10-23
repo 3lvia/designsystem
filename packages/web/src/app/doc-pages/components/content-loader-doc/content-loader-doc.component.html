@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Content Loader
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Content Loader</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,18 +11,18 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
-    <div class="e-w-100" style="display: flex; flex-direction: row;">
-      <div class="e-mr-24" style="display: flex; flex-direction: column;">
-        <div class="e-content-loader" style="width: 170px; height: 170px;"></div>
+    <div class="e-w-100" style="display: flex; flex-direction: row; flex-wrap: wrap">
+      <div class="e-mr-24 e-my-8" style="display: flex; flex-direction: column">
+        <div class="e-content-loader" style="width: 170px; height: 170px"></div>
       </div>
 
-      <div class="e-mr-24" style="display: flex; flex-direction: column;">
-        <div class="e-content-loader e-content-loader--circle" style="width: 170px; height: 170px;"></div>
+      <div class="e-mr-24 e-my-8" style="display: flex; flex-direction: column">
+        <div class="e-content-loader e-content-loader--circle" style="width: 170px; height: 170px"></div>
       </div>
 
-      <div class="e-w-100" style="display: flex; flex-direction: column; justify-content: center;">
+      <div class="e-w-100 e-my-8" style="display: flex; flex-direction: column; justify-content: center">
         <div class="e-content-loader e-content-loader--text"></div>
         <div class="e-content-loader e-content-loader--text e-mt-24"></div>
         <div class="e-content-loader e-content-loader--text e-content-loader--short e-mt-24"></div>

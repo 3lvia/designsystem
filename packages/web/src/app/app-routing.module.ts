@@ -71,17 +71,17 @@ import { ChipsComponent } from './doc-pages/components/chips/chips.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: Pages.Index,
     component: MainComponent,
     children: [
       {
-        path: '',
+        path: Pages.Index,
         pathMatch: 'full',
-        redirectTo: Pages.Home,
+        component: HomeComponent,
       },
       {
         path: Pages.Home,
-        component: HomeComponent,
+        redirectTo: Pages.Index,
       },
       // Get Started section
       {

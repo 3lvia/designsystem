@@ -24,7 +24,7 @@ export class CardDocComponent {
 </div>
 `;
 
-  example1 = `<div style="max-width:600px;margin:40px;">
+  example1 = `<div style="max-width:600px;" class="e-m-24">
   <div class="e-card">
     <div class="e-card__title">
       Strømregningen påvirkes av vinteren
@@ -37,7 +37,7 @@ export class CardDocComponent {
 </div>
 `;
 
-  example2 = `<div style="max-width:600px;margin:40px;">
+  example2 = `<div style="max-width:600px;" class="e-m-24">
   <div class="e-card e-card--on-white">
     <div class="e-card__title">
       Strømregningen påvirkes av vinteren
@@ -49,8 +49,8 @@ export class CardDocComponent {
   </div>
 </div>`;
 
-  example3 = `<div style="max-width:600px;margin:50px;">
-  <div class="e-card">
+  example3 = `<div style="max-width:600px;" class="e-m-24">
+  <div class="e-card e-mt-48">
     <div class="e-card__title e-card__title--above">
       Strømregningen påvirkes av vinteren
     </div>
@@ -62,8 +62,8 @@ export class CardDocComponent {
 </div>
   `;
 
-  exampleShadowSoft = `<div style="max-width:600px;margin:50px;">
-  <div class="e-card e-card--shadow-soft">
+  exampleShadowSoft = `<div style="max-width:600px;" class="e-m-24">
+  <div class="e-card e-card--shadow-soft e-mt-48">
     <div class="e-card__title e-card__title--above">
       Strømregningen påvirkes av vinteren
     </div>
@@ -75,8 +75,8 @@ export class CardDocComponent {
 </div>
 `;
 
-  exampleShadowMedium = `<div style="max-width:600px;margin:50px;">
-  <div class="e-card e-card--shadow-medium">
+  exampleShadowMedium = `<div style="max-width:600px;" class="e-m-24">
+  <div class="e-card e-card--shadow-medium e-mt-48">
     <div class="e-card__title e-card__title--above">
       Strømregningen påvirkes av vinteren
     </div>
@@ -88,8 +88,8 @@ export class CardDocComponent {
 </div>
 `;
 
-  exampleShadowHard = `<div style="max-width:600px;margin:50px;">
-  <div class="e-card e-card--shadow-hard">
+  exampleShadowHard = `<div style="max-width:600px;" class="e-m-24">
+  <div class="e-card e-card--shadow-hard e-mt-48">
     <div class="e-card__title e-card__title--above">
       Strømregningen påvirkes av vinteren
     </div>

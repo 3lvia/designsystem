@@ -25,7 +25,7 @@ function copyReactComponentsToDistFolder() {
 
 // This function is a workaround to bypass the /src folder restriction given by "Create React App"
 function copyReactComponentsToFrameworkFolder() {
-    return gulp.src('../src/components/react/**/*').pipe(header(WARNING))
+    return gulp.src('../components/elvia-popover/src/react/**/*').pipe(header(WARNING))
         .pipe(gulp.dest('../frameworks/react/src/components/'));
 };
 
@@ -120,7 +120,7 @@ gulp.task(
         TSX_to_JS,
         TSX_to_JSX,
         copyReactComponentsToDistFolder,
-        //copyReactComponentsToFrameworkFolder,
+        copyReactComponentsToFrameworkFolder,
         buildWebComponentsToDistributeFolder,
         buildWebComponentsToDistributeJSFolder,
         function (done) {
