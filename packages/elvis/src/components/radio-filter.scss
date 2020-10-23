@@ -24,18 +24,15 @@
     }
   }
 
-  &:hover,
-  &---hover {
+  &---hover,
+  &:hover:not(:disabled) {
     border-color: var(--e-green);
   }
 
-  &:disabled,
-  &---disabled {
+  &---disabled,
+  &:disabled {
     cursor: not-allowed;
     color: var(--e-grey-40);
-    &:hover {
-      border-color: transparent;
-    }
   }
 
   &:focus,

@@ -1977,6 +1977,7 @@ input:focus {
   display: flex;
   flex-direction: row;
   align-items: center;
+  border: none;
   border-radius: 50px;
   padding: 4px 16px;
 }
@@ -2165,14 +2166,19 @@ input:focus {
   border-radius: 50px;
 }
 
-.e-chip:hover {
+.e-chip---hover:not(.e-chip---disabled), .e-chip:hover:not(:disabled) {
   background: #29d305;
   opacity: 1;
   cursor: pointer;
 }
 
-.e-chip:hover::before {
+.e-chip---hover:not(.e-chip---disabled)::before, .e-chip:hover:not(:disabled)::before {
   background: #29d305;
+}
+
+.e-chip---disabled, .e-chip:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .e-content-loader {
@@ -2393,17 +2399,13 @@ input:focus {
   border-color: var(--e-black);
 }
 
-.e-radio-filter:hover, .e-radio-filter---hover {
+.e-radio-filter---hover, .e-radio-filter:hover:not(:disabled) {
   border-color: var(--e-green);
 }
 
-.e-radio-filter:disabled, .e-radio-filter---disabled {
+.e-radio-filter---disabled, .e-radio-filter:disabled {
   cursor: not-allowed;
   color: var(--e-grey-40);
-}
-
-.e-radio-filter:disabled:hover, .e-radio-filter---disabled:hover {
-  border-color: transparent;
 }
 
 .e-radio-filter:focus, .e-radio-filter---focus {

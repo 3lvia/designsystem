@@ -195,6 +195,10 @@
 				"e-chip--purple-plum": {},
 				"e-chip--orange-mango": {},
 				"e-chip--red-tomato": {}
+			},
+			"psuedo": {
+				"e-chip---hover": {},
+				"e-chip---disabled": {}
 			}
 		},
 		"e-content-loader": {
@@ -1103,6 +1107,8 @@
 		"e-chip--purple-plum": {},
 		"e-chip--orange-mango": {},
 		"e-chip--red-tomato": {},
+		"e-chip---hover": {},
+		"e-chip---disabled": {},
 		"e-content-loader": {},
 		"e-content-loader--circle": {},
 		"e-content-loader--text": {},
