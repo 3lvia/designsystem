@@ -43,8 +43,9 @@ export const Popover: React.FC<PopoverProps> = ({ title, description }) => {
             <div className='ewc-popover__close'>
               <button
                 className='e-btn e-btn--icon e-btn--no-border e-btn--sm'
+                onClick={togglePopover}
               >
-                <span className='e-btn__icon' onClick={togglePopover}>X</span>
+                <span className='e-btn__icon'>X</span>
               </button>
             </div>
             <div className='ewc-popover__title'>{title}</div>

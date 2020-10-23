@@ -18,12 +18,20 @@ export default class ElviaPopover extends HTMLElement {
     return React.createElement(ReactPopoverComponent.Popover, data, React.createElement('slot'));
   }
 
+  getFonts() {
+    const link = document.createElement('link');
+    link.setAttribute('href', "https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap");
+    link.setAttribute('rel', 'stylesheet');
+    return link;
+  }
+
   connectedCallback() {
     const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
 
     const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(this.mountPoint);
+    shadowRoot.appendChild(this.getFonts());
     shadowRoot.appendChild(styleTag);
 
     const title = this.getAttribute('title');
