@@ -197,6 +197,7 @@ module.exports = [
   { name: 'subtract_circle-filled', terms: ['minus', '-', 'minimize', 'collapse'] },
   { name: 'subtract_circle-filled-color', terms: ['minus', '-', 'minimize', 'collapse'] },
   { name: 'support', terms: ['customer service', 'help'] },
+  { name: 'sync', terms: ['synchronization', 'refresh', 'reload', 'arrows'] },
   { name: 'tag_add', terms: [] },
   { name: 'tag', terms: [] },
   { name: 'thumbnail', terms: [] },
