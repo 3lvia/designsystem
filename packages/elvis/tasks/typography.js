@@ -6,25 +6,19 @@ const fs = require('fs');
 async function createTypographyScss() {
   let content = `$typography: (`;
 
+
   for (let i = 0; i < typographyConfig.length; i++) {
     const properties = typographyConfig[i].properties;
-    content += `
-  ${typographyConfig[i].name}: (`;
-    for (let j = 0; j < properties.length; j++) {
-      if (properties[j].key === 'family') {
-        content += `
-    ${properties[j].key}: #{${properties[j].value},\n    sans-serif},`;
-      } else {
-        content += `
-    ${properties[j].key}: #{${properties[j].value}},`;
+
+    if(typographyConfig[i].altLabels != undefined){
+      for (let k = 0; k < typographyConfig[i].altLabels.length; k++) {
+        content += addClass(typographyConfig[i].altLabels[k], properties, i);
       }
     }
-    if (i < typographyConfig.length) {
-      content += '\n  ),';
-    } else {
-      content += ')\n';
-    }
+
+    content += addClass(typographyConfig[i].name, properties, i);
   }
+
   content += '\n);';
 
   const template =
@@ -37,6 +31,30 @@ async function createTypographyScss() {
 
   return true;
 }
+
+function addClass(className, properties, i) {
+  let newClass = ``;
+  newClass += `
+  ${className}: (`;
+    for (let j = 0; j < properties.length; j++) {
+      if (properties[j].key === 'family') {
+        newClass += `
+    ${properties[j].key}: #{${properties[j].value},\n    sans-serif},`;
+      } else {
+        newClass += `
+    ${properties[j].key}: #{${properties[j].value}},`;
+      }
+    }
+    if (i < typographyConfig.length) {
+      newClass += '\n  ),';
+    } else {
+      newClass += ')\n';
+    }
+
+  return newClass;
+}
+
+
 
 
 exports.createTypographyScss = createTypographyScss;

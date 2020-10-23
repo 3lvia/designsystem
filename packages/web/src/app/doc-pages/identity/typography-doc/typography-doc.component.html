@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Typography
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Typography</ng-container>
   <ng-container ngProjectAs="headerDescription">
     <div class="e-text-lead">
       Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font
@@ -33,7 +31,7 @@
   <!--Text Styles-->
   <app-component-section [sectionTitle]="'Text styles'">
     <ng-container ngProjectAs="sectionContent">
-      <div class="e-text-body e-mb-72">
+      <div class="e-text-lg e-mb-72">
         All typography can be used through a set of classes. The font-classes sets multiple attributes, like
         font-size, line-height and font-weight.
       </div>
@@ -99,7 +97,7 @@
                 </app-copy>
               </div>
               <div class="typoExample-info">
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[0].properties[0].value }} |
                   {{ typographyClasses[0].properties[3].value | fontWeight }}
                   {{ typographyClasses[0].properties[1].value }} | Lh
@@ -125,7 +123,7 @@
                 </app-copy>
               </div>
               <div class="typoExample-info">
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[0].properties[0].value }} |
                   {{ typographyClasses[0].properties[3].value | fontWeight }}
                   {{ typographyClasses[0].properties[2].value }} | Lh
@@ -156,7 +154,7 @@
                 </app-copy>
               </div>
               <div>
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[1].properties[0].value }} |
                   {{ typographyClasses[1].properties[3].value | fontWeight }}
                   {{ typographyClasses[1].properties[1].value }} | Lh
@@ -182,7 +180,7 @@
                 </app-copy>
               </div>
               <div>
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[1].properties[0].value }} |
                   {{ typographyClasses[1].properties[3].value | fontWeight }}
                   {{ typographyClasses[1].properties[2].value }} | Lh
@@ -212,7 +210,7 @@
                 </app-copy>
               </div>
               <div>
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[2].properties[0].value }} |
                   {{ typographyClasses[2].properties[3].value | fontWeight }}
                   {{ typographyClasses[2].properties[1].value }} | Lh
@@ -238,7 +236,7 @@
                 </app-copy>
               </div>
               <div>
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[2].properties[0].value }} |
                   {{ typographyClasses[2].properties[3].value | fontWeight }}
                   {{ typographyClasses[2].properties[2].value }} | Lh
@@ -256,14 +254,12 @@
               <div>
                 <app-copy [message]="'e-title-xs'">
                   <ng-container ngProjectAs="copyContent">
-                    <div class="e-title-xs">
-                      Title XSmall
-                    </div>
+                    <div class="e-title-xs">Title XSmall</div>
                   </ng-container>
                 </app-copy>
               </div>
               <div>
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[3].properties[0].value }} |
                   {{ typographyClasses[3].properties[2].value | fontWeight }}
                   {{ typographyClasses[3].properties[1].value }} | Lh
@@ -276,18 +272,59 @@
               <div>
                 <app-copy [message]="'e-title-xs'">
                   <ng-container ngProjectAs="copyContent">
-                    <div class="e-title-xs">
-                      Title XSmall
-                    </div>
+                    <div class="e-title-xs">Title XSmall</div>
                   </ng-container>
                 </app-copy>
               </div>
               <div>
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[3].properties[0].value }} |
                   {{ typographyClasses[3].properties[2].value | fontWeight }}
                   {{ typographyClasses[3].properties[1].value }} | Lh
                   {{ typographyClasses[3].properties[3].value }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- text-caps -->
+        <div class="typoContainer">
+          <div class="typoRow">
+            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
+              <div class="example-text">
+                <app-copy [message]="'e-text-caps'">
+                  <ng-container ngProjectAs="copyContent">
+                    <div class="e-text-caps">Text Caps</div>
+                  </ng-container>
+                </app-copy>
+              </div>
+              <div>
+                <span class="e-text-md e-text-grey-80">
+                  {{ typographyClasses[9].properties[0].value }} |
+                  {{ typographyClasses[9].properties[6].value | titlecase }}
+                  {{ typographyClasses[9].properties[1].value }} | Lh
+                  {{ typographyClasses[9].properties[3].value }} | Ls
+                  {{ typographyClasses[9].properties[4].value }}
+                </span>
+              </div>
+            </div>
+            <!-- Mobile -->
+            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+              <div>
+                <app-copy [message]="'e-text-caps'">
+                  <ng-container ngProjectAs="copyContent">
+                    <div class="e-text-caps">Text Caps</div>
+                  </ng-container>
+                </app-copy>
+              </div>
+              <div>
+                <span class="e-text-md e-text-grey-80">
+                  {{ typographyClasses[9].properties[0].value }} |
+                  {{ typographyClasses[9].properties[6].value | titlecase }}
+                  {{ typographyClasses[9].properties[1].value }} | Lh
+                  {{ typographyClasses[9].properties[3].value }} | Ls
+                  {{ typographyClasses[9].properties[4].value }}
                 </span>
               </div>
             </div>
@@ -313,7 +350,7 @@
                 </app-copy>
               </div>
               <div>
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[4].properties[0].value }} |
                   {{ typographyClasses[4].properties[3].value | fontWeight }}
                   {{ typographyClasses[4].properties[1].value }} | Lh
@@ -340,13 +377,152 @@
                   </app-copy>
                 </div>
                 <div>
-                  <span class="e-text-description e-text-grey-80">
+                  <span class="e-text-md e-text-grey-80">
                     {{ typographyClasses[4].properties[0].value }} |
                     {{ typographyClasses[4].properties[3].value | fontWeight }}
                     {{ typographyClasses[4].properties[2].value }} | Lh
                     {{ typographyClasses[4].properties[5].value }}
                   </span>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- text-lg -->
+        <div class="typoContainer">
+          <div class="typoRow">
+            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
+              <div>
+                <app-copy [message]="'e-text-lg'">
+                  <ng-container ngProjectAs="copyContent">
+                    <div
+                      class="e-text-lg"
+                      [ngStyle]="{
+                        'font-size': typographyClasses[6].properties[1].value,
+                        'line-height': typographyClasses[6].properties[4].value
+                      }"
+                    >
+                      Text Large
+                    </div>
+                  </ng-container>
+                </app-copy>
+              </div>
+              <div>
+                <span class="e-text-md e-text-grey-80">
+                  {{ typographyClasses[6].properties[0].value }} |
+                  {{ typographyClasses[6].properties[3].value | fontWeight }}
+                  {{ typographyClasses[6].properties[1].value }} | Lh
+                  {{ typographyClasses[6].properties[4].value }}
+                </span>
+              </div>
+            </div>
+            <!-- Mobile -->
+            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+              <div>
+                <app-copy [message]="'e-text-lg'">
+                  <ng-container ngProjectAs="copyContent">
+                    <div
+                      class="e-text-lg"
+                      [ngStyle]="{
+                        'font-size': typographyClasses[6].properties[2].value,
+                        'line-height': typographyClasses[6].properties[5].value
+                      }"
+                    >
+                      Text Large
+                    </div>
+                  </ng-container>
+                </app-copy>
+              </div>
+              <div>
+                <span class="e-text-md e-text-grey-80">
+                  {{ typographyClasses[6].properties[0].value }} |
+                  {{ typographyClasses[6].properties[3].value | fontWeight }}
+                  {{ typographyClasses[6].properties[2].value }} | Lh
+                  {{ typographyClasses[6].properties[5].value }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- text-md -->
+        <div class="typoContainer">
+          <div class="typoRow">
+            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
+              <div>
+                <app-copy [message]="'e-text-md'">
+                  <ng-container ngProjectAs="copyContent">
+                    <div class="e-text-md">Text Medium</div>
+                  </ng-container>
+                </app-copy>
+              </div>
+              <div>
+                <span class="e-text-md e-text-grey-80">
+                  {{ typographyClasses[8].properties[0].value }} |
+                  {{ typographyClasses[8].properties[2].value | fontWeight }}
+                  {{ typographyClasses[8].properties[1].value }} | Lh
+                  {{ typographyClasses[8].properties[3].value }}
+                </span>
+              </div>
+            </div>
+            <!-- Mobile -->
+            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+              <div>
+                <app-copy [message]="'e-text-md'">
+                  <ng-container ngProjectAs="copyContent">
+                    <div class="e-text-md">Text Medium</div>
+                  </ng-container>
+                </app-copy>
+              </div>
+              <div>
+                <span class="e-text-md e-text-grey-80">
+                  {{ typographyClasses[8].properties[0].value }} |
+                  {{ typographyClasses[8].properties[2].value | fontWeight }}
+                  {{ typographyClasses[8].properties[1].value }} | Lh
+                  {{ typographyClasses[8].properties[3].value }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- text-sm -->
+        <div class="typoContainer">
+          <div class="typoRow">
+            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
+              <div>
+                <app-copy [message]="'e-text-sm'">
+                  <ng-container ngProjectAs="copyContent">
+                    <div class="e-text-sm">Text Small</div>
+                  </ng-container>
+                </app-copy>
+              </div>
+              <div>
+                <span class="e-text-md e-text-grey-80">
+                  {{ typographyClasses[10].properties[0].value }} |
+                  {{ typographyClasses[10].properties[2].value | fontWeight }}
+                  {{ typographyClasses[10].properties[1].value }} | Lh
+                  {{ typographyClasses[10].properties[3].value }}
+                </span>
+              </div>
+            </div>
+            <!-- Mobile -->
+            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+              <div>
+                <app-copy [message]="'e-text-sm'">
+                  <ng-container ngProjectAs="copyContent">
+                    <div class="e-text-sm">Text Small</div>
+                  </ng-container>
+                </app-copy>
+              </div>
+              <div>
+                <span class="e-text-md e-text-grey-80">
+                  {{ typographyClasses[10].properties[0].value }} |
+                  {{ typographyClasses[10].properties[2].value | fontWeight }}
+                  {{ typographyClasses[10].properties[1].value }} | Lh
+                  {{ typographyClasses[10].properties[3].value }}
+                </span>
               </div>
             </div>
           </div>
@@ -372,9 +548,9 @@
                 </app-copy>
               </div>
               <div>
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[5].properties[0].value }} |
-                  {{ typographyClasses[5].properties[6].value }}
+                  {{ typographyClasses[5].properties[7].value | titlecase }}
                   {{ typographyClasses[5].properties[1].value }} | Lh
                   {{ typographyClasses[5].properties[4].value }}
                 </span>
@@ -398,68 +574,11 @@
                 </app-copy>
               </div>
               <div>
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[5].properties[0].value }} |
-                  {{ typographyClasses[5].properties[6].value }}
+                  {{ typographyClasses[5].properties[7].value | titlecase }}
                   {{ typographyClasses[5].properties[2].value }} | Lh
                   {{ typographyClasses[5].properties[5].value }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- text-body -->
-        <div class="typoContainer">
-          <div class="typoRow">
-            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-body'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div
-                      class="e-text-body"
-                      [ngStyle]="{
-                        'font-size': typographyClasses[6].properties[1].value,
-                        'line-height': typographyClasses[6].properties[4].value
-                      }"
-                    >
-                      Text Body
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[6].properties[0].value }} |
-                  {{ typographyClasses[6].properties[3].value | fontWeight }}
-                  {{ typographyClasses[6].properties[1].value }} | Lh
-                  {{ typographyClasses[6].properties[4].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-body'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div
-                      class="e-text-body"
-                      [ngStyle]="{
-                        'font-size': typographyClasses[6].properties[2].value,
-                        'line-height': typographyClasses[6].properties[5].value
-                      }"
-                    >
-                      Text Body
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[6].properties[0].value }} |
-                  {{ typographyClasses[6].properties[3].value | fontWeight }}
-                  {{ typographyClasses[6].properties[2].value }} | Lh
-                  {{ typographyClasses[6].properties[5].value }}
                 </span>
               </div>
             </div>
@@ -486,9 +605,9 @@
                 </app-copy>
               </div>
               <div>
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[7].properties[0].value }} |
-                  {{ typographyClasses[7].properties[7].value }},
+                  {{ typographyClasses[7].properties[8].value | titlecase }},
                   {{ typographyClasses[7].properties[4].value }}
                   {{ typographyClasses[7].properties[1].value }} | Lh
                   {{ typographyClasses[7].properties[5].value }}
@@ -513,239 +632,12 @@
                 </app-copy>
               </div>
               <div>
-                <span class="e-text-description e-text-grey-80">
+                <span class="e-text-md e-text-grey-80">
                   {{ typographyClasses[7].properties[0].value }} |
-                  {{ typographyClasses[7].properties[7].value }},
+                  {{ typographyClasses[7].properties[8].value | titlecase }},
                   {{ typographyClasses[7].properties[4].value }}
                   {{ typographyClasses[7].properties[2].value }} | Lh
                   {{ typographyClasses[7].properties[6].value }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- text-description -->
-        <div class="typoContainer">
-          <div class="typoRow">
-            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-description'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-description">
-                      Text Description
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[8].properties[0].value }} |
-                  {{ typographyClasses[8].properties[2].value | fontWeight }}
-                  {{ typographyClasses[8].properties[1].value }} | Lh
-                  {{ typographyClasses[8].properties[3].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-description'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-description">
-                      Text Description
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[8].properties[0].value }} |
-                  {{ typographyClasses[8].properties[2].value | fontWeight }}
-                  {{ typographyClasses[8].properties[1].value }} | Lh
-                  {{ typographyClasses[8].properties[3].value }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- text-caps -->
-        <div class="typoContainer">
-          <div class="typoRow">
-            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
-              <div class="example-text">
-                <app-copy [message]="'e-text-caps'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-caps">
-                      Text Caps
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[9].properties[0].value }} |
-                  {{ typographyClasses[9].properties[5].value }}
-                  {{ typographyClasses[9].properties[1].value }} | Lh
-                  {{ typographyClasses[9].properties[3].value }} | Ls
-                  {{ typographyClasses[9].properties[4].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-caps'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-caps">
-                      Text Caps
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[9].properties[0].value }} |
-                  {{ typographyClasses[9].properties[5].value }}
-                  {{ typographyClasses[9].properties[1].value }} | Lh
-                  {{ typographyClasses[9].properties[3].value }} | Ls
-                  {{ typographyClasses[9].properties[4].value }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- text-info -->
-        <div class="typoContainer">
-          <div class="typoRow">
-            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-info'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-info">
-                      Text Info
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[10].properties[0].value }} |
-                  {{ typographyClasses[10].properties[2].value | fontWeight }}
-                  {{ typographyClasses[10].properties[1].value }} | Lh
-                  {{ typographyClasses[10].properties[3].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-info'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-info">
-                      Text Info
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[10].properties[0].value }} |
-                  {{ typographyClasses[10].properties[2].value | fontWeight }}
-                  {{ typographyClasses[10].properties[1].value }} | Lh
-                  {{ typographyClasses[10].properties[3].value }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- text-label -->
-        <div class="typoContainer">
-          <div class="typoRow">
-            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-label'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-label">
-                      Text Label
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[11].properties[0].value }} |
-                  {{ typographyClasses[11].properties[2].value | fontWeight }}
-                  {{ typographyClasses[11].properties[1].value }} | Lh
-                  {{ typographyClasses[11].properties[3].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-label'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-label">
-                      Text Label
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[11].properties[0].value }} |
-                  {{ typographyClasses[11].properties[2].value | fontWeight }}
-                  {{ typographyClasses[11].properties[1].value }} | Lh
-                  {{ typographyClasses[11].properties[3].value }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- text-option -->
-        <div class="typoContainer">
-          <div class="typoRow">
-            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-option'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-option">
-                      Text Option
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[12].properties[0].value }} |
-                  {{ typographyClasses[12].properties[2].value | fontWeight }}
-                  {{ typographyClasses[12].properties[1].value }} | Lh
-                  {{ typographyClasses[12].properties[3].value }}
-                </span>
-              </div>
-            </div>
-            <!-- Mobile -->
-            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
-              <div>
-                <app-copy [message]="'e-text-option'">
-                  <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-option">
-                      Text Option
-                    </div>
-                  </ng-container>
-                </app-copy>
-              </div>
-              <div>
-                <span class="e-text-description e-text-grey-80">
-                  {{ typographyClasses[12].properties[0].value }} |
-                  {{ typographyClasses[12].properties[2].value | fontWeight }}
-                  {{ typographyClasses[12].properties[1].value }} | Lh
-                  {{ typographyClasses[12].properties[3].value }}
                 </span>
               </div>
             </div>
@@ -758,87 +650,110 @@
   <!--Usage-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <div class="e-title-sm e-mb-8">
-        Display VS Text
-      </div>
-      <div class="e-text-body e-mb-32">
-        <b>Red Hat Display</b>
-        has denser letter space and higher x-height and is suitable in large sizes, for example in titles.
-        <b>Red Hat Text</b>
-        has a slightly smaller x-height, more space and is designed for good readability in smaller sizes.
-      </div>
-      <div class="e-title-sm e-mb-8">
-        Alternative font
-      </div>
-      <div class="e-text-body">
-        We use
-        <b>Verdana</b>
-        as an alternative system font. It’s only used in the cases where it isn’t possible to use the profile
-        font, for example digital documents and templates that are shared with people outside of Elvia who
-        might not have the profile font installed. Verdana is less dense than Red Hat, but to simulate Red Hat
-        in the best way you can pinch the text by reducing the letter spacing.
-      </div>
+      <app-component-subsection [sectionTitle]="'Red Hat Display VS Red Hat Text'">
+        <ng-container ngProjectAs="sectionContent">
+          <b>Red Hat Display</b>
+          has denser letter space and higher x-height and is suitable in large sizes, for example in titles.
+          <b>Red Hat Text</b>
+          has a slightly smaller x-height, more space and is designed for good readability in smaller sizes.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Alternative font'">
+        <ng-container ngProjectAs="sectionContent">
+          We use
+          <b>Verdana</b>
+          as an alternative system font. It’s only used in the cases where it isn’t possible to use the
+          profile font, for example digital documents and templates that are shared with people outside of
+          Elvia who might not have the profile font installed. Verdana is less dense than Red Hat, but to
+          simulate Red Hat in the best way you can pinch the text by reducing the letter spacing.
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Heading'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>
+            <b>Titles (lg, md, sm, xs)</b>
+            are used as headings for your content. They will stand out from the rest with their heavyweight
+            and enhance visual hierarchy. We have 4 headings in different sizes.
+          </div>
+          <div class="e-mt-16">
+            <b>Text Caps</b>
+            can be used as a small subheading. Caps will not stand out the same way as titles but will enhance
+            visual hierarchy together with text medium or small.
+          </div>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Body text'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>
+            <b>Text Lead</b>
+            is our biggest text option and used for introduction of an article between heading and paragraph
+            as a brief summary of the content.
+          </div>
+          <div class="e-mt-16">
+            <b>Text Large (text body)</b>
+            is our main option for longer text in articles at external webpages.
+          </div>
+          <div class="e-mt-16">
+            <b>Text Medium (text description)</b>
+            is our main option for both long and short text in internal applications.
+          </div>
+          <div class="e-mt-16">
+            <b>Text Small (text info)</b>
+            is the smallest variant of body text and can be used in addition to text large and medium.
+          </div>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Special cases'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>
+            <b>Text Quote</b>
+            is only used when you have quotes in articles.
+          </div>
+          <div class="e-mt-16">
+            <b>Text Image</b>
+            is only used together with an image for caption to provide more context.
+          </div>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
   <!--Implemenation-->
   <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
-      <div>
-        <span class="e-title-sm">Code examples</span>
-      </div>
-      <div class="e-mb-8 e-mt-24">
-        <span class="e-title-xs">Title</span>
-      </div>
-      <app-code-highlighter [codeHTML]="exampleTitles"></app-code-highlighter>
-      <div class="e-mb-8 e-mt-24">
-        <span class="e-title-xs">Text</span>
-      </div>
-      <app-code-highlighter [codeHTML]="exampleText"></app-code-highlighter>
-      <div class="e-mb-8 e-mt-24">
-        <span class="e-title-xs">Label</span>
-      </div>
-      <app-code-highlighter [codeHTML]="exampleLabels"></app-code-highlighter>
+      All typography can be used through a set of classes. The classes sets multiple attributes, like
+      font-size, line-height and font-weight.
 
-      <app-component-subsection [sectionTitle]="'Using Classes'">
+      <app-component-subsection [sectionTitle]="'Code examples'">
         <ng-container ngProjectAs="sectionContent">
-          <p class="e-text-body">
-            All typography can be used through a set of classes. The e-title-lg sets multiple attributes, like
-            font-size, line-height and font-weight.
-          </p>
+          <app-component-subsubsection [sectionTitle]="'Headings'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-code-highlighter [codeHTML]="exampleTitles"></app-code-highlighter>
+            </ng-container>
+          </app-component-subsubsection>
 
-          <p class="e-text-body e-mb-8">Title classes:</p>
-          <ul class="e-list e-list--strong e-mb-32">
-            <li>e-title-lg</li>
-            <li>e-title-md</li>
-            <li>e-title-sm</li>
-            <li>e-title-xs</li>
-          </ul>
+          <app-component-subsubsection [sectionTitle]="'Text body'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-code-highlighter [codeHTML]="exampleText"></app-code-highlighter>
+            </ng-container>
+          </app-component-subsubsection>
 
-          <p class="e-text-body e-mb-8">Text classes:</p>
-          <ul class="e-list e-list--strong e-mb-32">
-            <li>e-text-lead</li>
-            <li>e-text-quote</li>
-            <li>e-text-body</li>
-            <li>e-text-img</li>
-            <li>e-text-description</li>
-            <li>e-text-caps</li>
-            <li>e-text-info</li>
-          </ul>
-          <p class="e-text-body e-mb-8">Label classes:</p>
-          <ul class="e-list e-list--strong">
-            <li>e-text-label</li>
-            <li>e-text-option</li>
-          </ul>
+          <app-component-subsubsection [sectionTitle]="'Special cases'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-code-highlighter [codeHTML]="exampleSpecial"></app-code-highlighter>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
-    </ng-container>
-  </app-component-section>
 
-  <!--Text Alignment-->
-  <app-component-section [sectionTitle]="'Text alignment'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-code-block [codeHTML]="alignmentOfText"></app-code-block>
+      <app-component-subsection [sectionTitle]="'Text alignment'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="alignmentOfText"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 </div>
