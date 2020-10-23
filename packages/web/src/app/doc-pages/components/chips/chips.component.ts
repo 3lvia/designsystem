@@ -18,10 +18,20 @@ export class ChipsComponent {
     'Not to be used alone without inputfield.',
   ];
 
-  exampleOverview = `<button class="e-chip">
-  <div class="e-chip__label">Label</div>
-  <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
-</button>
+  exampleOverview = `<div class="e-chip-container">
+  <button class="e-chip">
+    <div class="e-chip__label">Chip</div>
+    <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
+  </button>
+  <button class="e-chip e-chip--blue-berry">
+    <div class="e-chip__label">Chip</div>
+    <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
+  </button>
+  <button class="e-chip e-chip--violet-grape" disabled>
+    <div class="e-chip__label">Chip</div>
+    <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
+  </button>
+</div>
 `;
 
   exampleStandard = `<div class="e-chip-container">
@@ -59,5 +69,11 @@ export class ChipsComponent {
   </button>
 </div>
 `;
+
+  closeChipsTemporarily(name: string) {
+    const chip = document.getElementById(name);
+    chip.classList.add('e-none');
+    setTimeout(() => { chip.classList.remove('e-none'); }, 3000);
+  }
 
 }
