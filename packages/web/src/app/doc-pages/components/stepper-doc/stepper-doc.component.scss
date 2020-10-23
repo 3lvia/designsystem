@@ -1,3 +1,5 @@
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+
 .e-stepper .e-stepper__content {
   width: 330px;
 }
@@ -8,7 +10,7 @@
   width: 430px;
 }
 
-.container {
+.state-container {
   display: flex;
   flex-direction: column;
   .state {
@@ -25,14 +27,28 @@
       justify-content: center;
       min-width: 150px !important;
       max-width: 150px !important;
-      margin-right: 56px;
+      margin-right: 40px;
       left: 0;
-
       &.e-stepper {
         margin: 0;
-        margin-right: 56px;
+        margin-right: 40px;
         min-width: 150px !important;
         max-width: 150px !important;
+      }
+
+      @include breakpoint-up(Mobile) {
+        min-width: 50px !important;
+        max-width: 50px !important;
+        margin-right: 24px;
+        &.e-stepper {
+          min-width: 50px !important;
+          max-width: 50px !important;
+          margin-right: 24px;
+        }
+        &.collapsed {
+          min-width: 150px !important;
+          max-width: 150px !important;
+        }
       }
 
       .number {

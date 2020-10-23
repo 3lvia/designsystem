@@ -88,7 +88,8 @@ module.exports = [
     ],
   },
   {
-    name: 'text-body',
+    name: 'text-lg',
+    altLabels: ['text-body'],
     properties: [
       { key: 'family', value: 'Red Hat Text' },
       { key: 'size', value: '20px' },
@@ -119,7 +120,8 @@ module.exports = [
     ],
   },
   {
-    name: 'text-description',
+    name: 'text-md',
+    altLabels: ['text-description'],
     properties: [
       { key: 'family', value: 'Red Hat Text' },
       { key: 'size', value: '16px' },
@@ -145,7 +147,8 @@ module.exports = [
     ],
   },
   {
-    name: 'text-info',
+    name: 'text-sm',
+    altLabels: ['text-info'],
     properties: [
       { key: 'family', value: 'Red Hat Text' },
       { key: 'size', value: '14px' },
