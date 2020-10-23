@@ -15,7 +15,14 @@
   $letter-spacing: map.get($map, letter-spacing);
   $transform: map.get($map, transform);
 
+  $alt-labels: map.get($map, altLabels);
   $labels: ($label);
+
+  @if $alt-labels {
+    @each $label in $alt-labels {
+      $labels: list.append($labels, $label);
+    }
+  }
 
   @each $label in $labels {
     .e-#{$label} {
