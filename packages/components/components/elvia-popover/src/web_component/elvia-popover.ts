@@ -9,7 +9,7 @@ export default class ElviaPopover extends HTMLElement {
     return ['title'];
   }
 
-  mountPoint = document.createElement('span');
+
 
   createPopover(title?: string) {
     const data = { title };
@@ -17,6 +17,7 @@ export default class ElviaPopover extends HTMLElement {
   }
 
   connectedCallback() {
+    this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
 
@@ -30,12 +31,11 @@ export default class ElviaPopover extends HTMLElement {
   }
 
   attributeChangedCallback(name: string, oldValue: any, newValue: any) {
-    console.log("attributeChangedCallback");
-    console.log(oldValue, newValue);
     if (name === 'title') {
       ReactDOM.render(this.createPopover(newValue), this.mountPoint);
     }
   }
 }
-
-window.customElements.define('elvia-popover', ElviaPopover);
+export function mount() {
+  window.customElements.define('elvia-popover', ElviaPopover);
+}
