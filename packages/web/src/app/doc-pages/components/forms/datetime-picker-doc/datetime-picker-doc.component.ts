@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./datetime-picker-doc.component.scss'],
 })
 export class DatetimePickerDocComponent {
-  figmaUrl = getComponent('datetime-picker-doc').figmaUrl;
-  description = getComponent('datetime-picker-doc').description;
+  figmaUrl = getComponent('datetime-picker').figmaUrl;
+  description = getComponent('datetime-picker').description;
   does = ['When it\'s more efficient than typing a date in a text field.'];
 
   inputTimeExample = `<p class="e-text-caps">NB!!! This is not a finished component, style has to be applied based on the figma sketches</div>

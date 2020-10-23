@@ -9,8 +9,8 @@ import { getComponent } from 'src/app/shared/e-items';
 export class PopoverDocComponent {
   @ViewChild('popover1') popover1: ElementRef;
 
-  figmaUrl = getComponent('popover-doc').figmaUrl;
-  description = getComponent('popover-doc').description;
+  figmaUrl = getComponent('popover').figmaUrl;
+  description = getComponent('popover').description;
   // tslint:disable-next-line:max-line-length
   does = [
     'When you want to give the user more information about something, and are typically paired with an information or question icon.',

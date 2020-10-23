@@ -8,6 +8,6 @@ import { getTools } from 'src/app/shared/e-items';
 })
 export class PatternsDocComponent {
 
-  description = getTools('patterns-doc').description;
+  description = getTools('patterns').description;
 
 }

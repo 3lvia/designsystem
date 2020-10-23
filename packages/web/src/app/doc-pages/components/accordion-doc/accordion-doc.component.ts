@@ -10,8 +10,8 @@ export class AccordionDocComponent {
 
   @ViewChild('accordionLiveExample') accordionLiveExample: ElementRef;
 
-  figmaUrl = getComponent('accordion-doc').figmaUrl;
-  description = getComponent('accordion-doc').description;
+  figmaUrl = getComponent('accordion').figmaUrl;
+  description = getComponent('accordion').description;
   showCode = false;
 
   doesAccordion = [
