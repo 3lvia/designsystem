@@ -181,9 +181,14 @@
 				"e-chip-container": {}
 			},
 			"element": {
-				"e-chip__label": {}
+				"e-chip__label": {},
+				"e-chip__close": {}
 			},
 			"modifier": {
+				"e-chip--green": {},
+				"e-chip--yellow": {},
+				"e-chip--orange": {},
+				"e-chip--red": {},
 				"e-chip--green-apple": {},
 				"e-chip--violet-grape": {},
 				"e-chip--blue-berry": {},
@@ -1087,6 +1092,11 @@
 		"e-chip-container": {},
 		"e-chip": {},
 		"e-chip__label": {},
+		"e-chip__close": {},
+		"e-chip--green": {},
+		"e-chip--yellow": {},
+		"e-chip--orange": {},
+		"e-chip--red": {},
 		"e-chip--green-apple": {},
 		"e-chip--violet-grape": {},
 		"e-chip--blue-berry": {},

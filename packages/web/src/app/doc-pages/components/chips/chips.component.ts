@@ -11,26 +11,31 @@ export class ChipsComponent {
   figmaUrl = getComponent('chips').figmaUrl;
   description = getComponent('chips').description;
   does = [
-    'Don\'t redirect cards to external sites - use links instead.',
+    'To provide an overview of selected options and allows you to easily remove them',
+    'Use together with an inputfield',
   ];
   donts = [
-    'Don\'t redirect cards to external sites - use links instead.',
+    'Not to be used alone without inputfield.',
   ];
 
   exampleOverview = `<div class="e-chip">
   <div class="e-chip__label">Label</div>
+  <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
 </div>
 `;
 
   exampleStandard = `<div class="e-chip-container">
   <div class="e-chip">
     <div class="e-chip__label">2018</div>
+    <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
   </div>
   <div class="e-chip">
     <div class="e-chip__label">2019</div>
+    <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
   </div>
   <div class="e-chip">
     <div class="e-chip__label">2020</div>
+    <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
   </div>
 </div>
 `;
@@ -38,21 +43,19 @@ export class ChipsComponent {
   exampleColors = `<div class="e-chip-container">
   <div class="e-chip e-chip--purple-plum">
     <div class="e-chip__label">Annleggsbeskrivelse</div>
+    <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
   </div>
   <div class="e-chip e-chip--blue-berry">
     <div class="e-chip__label">Adresse</div>
+    <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
+  </div>
+  <div class="e-chip e-chip--red-tomato">
+    <div class="e-chip__label">Målepunkt-ID</div>
+    <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
   </div>
   <div class="e-chip e-chip--orange-mango">
     <div class="e-chip__label">Målernummer</div>
-  </div>
-  <div class="e-chip e-chip--green-apple">
-    <div class="e-chip__label">Annleggsbeskrivelse</div>
-  </div>
-  <div class="e-chip e-chip--red-tomato">
-    <div class="e-chip__label">Adresse</div>
-  </div>
-  <div class="e-chip e-chip--violet-grape">
-    <div class="e-chip__label">Målepunkt-ID</div>
+    <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
   </div>
 </div>
 `;

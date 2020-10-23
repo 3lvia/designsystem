@@ -131,7 +131,7 @@ export const eComponents: EItems[] = [
   {
     title: 'Chips',
     // tslint:disable-next-line: max-line-length
-    description: 'Checkboxes let users select one or multiple options. It can also be used to toggle on/off when you have a single option available, for example if you want to receive a newsletter or when you have to accept terms.',
+    description: 'Chips are interactive elements that represent an input. They should appear when a user select a filter from an input and can easily be removed by clicking on them. They are often used when the user wants to filter content.',
     docUrl: Pages.Chips,
     absolutePath: '/components/' + Pages.Chips,
     status: ItemStatus.New,
