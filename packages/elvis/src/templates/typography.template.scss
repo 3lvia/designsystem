@@ -21,7 +21,7 @@ $font-family-secondary: 'Red Hat Text', sans-serif;
   }
 
   @if not $typography-map {
-    // @warn 'the typography variable "#{$name}" was not found';
+    @warn 'the typography variable "#{$name}" was not found';
     @return null;
   }
 
