@@ -73,7 +73,7 @@ export class ChipsComponent {
   closeChipsTemporarily(name: string): void {
     const chip = document.getElementById(name);
     chip.classList.add('e-none');
-    setTimeout(() => { chip.classList.remove('e-none'); }, 3000);
+    setTimeout(() => { chip.classList.remove('e-none'); }, 2000);
   }
 
 }
