@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import '../../../../components/elvia-popover/dist/web_component/js/elvia-popover';
-//import { default as PopoverWebComponent } from '@elvia/popover/dist/web_component/js/elvia-popover';
+import { Popover } from '@elvia/popover/web_component';
 import { from } from 'rxjs';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,4 +9,7 @@ import { from } from 'rxjs';
 })
 export class AppComponent {
   title = 'angular';
+  constructor() {
+    Popover();
+  }
 }
