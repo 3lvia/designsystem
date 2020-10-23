@@ -224,16 +224,8 @@
 		},
 		"e-combined-field": {},
 		"e-radio-filter": {
-			"container": {
-				"e-radio-filter-container": {}
-			},
-			"modifier": {
-				"e-radio-filter--selected": {}
-			},
-			"psuedo": {
-				"e-radio-filter---hover": {},
-				"e-radio-filter---disabled": {},
-				"e-radio-filter---focus": {}
+			"element": {
+				"e-radio-filter__label": {}
 			}
 		},
 		"e-header": {
@@ -1122,12 +1114,8 @@
 		"e-input---disabled": {},
 		"e-combined-field": {},
 		"e-dropdown": {},
-		"e-radio-filter-container": {},
 		"e-radio-filter": {},
-		"e-radio-filter--selected": {},
-		"e-radio-filter---hover": {},
-		"e-radio-filter---disabled": {},
-		"e-radio-filter---focus": {},
+		"e-radio-filter__label": {},
 		"e-header": {},
 		"e-header__top-bar": {},
 		"e-header__top-bar-desktop": {},

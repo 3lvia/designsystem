@@ -2365,16 +2365,30 @@ input:focus {
   background-color: #e9e9e9;
 }
 
-.e-radio-filter-container {
+.e-radio-filter {
   display: flex;
   flex-direction: row;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
-.e-radio-filter-container .e-radio-filter:not(:last-of-type) {
+.e-radio-filter label:not(:last-of-type) {
   margin-right: 4px;
 }
 
-.e-radio-filter {
+.e-radio-filter label {
+  padding: 4px 11px;
+  border: 1px solid transparent;
+  border-radius: 32px;
+  background: var(--e-white);
+  cursor: pointer;
+}
+
+.e-radio-filter label .e-radio-filter__label {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 22px;
@@ -2384,33 +2398,32 @@ input:focus {
   letter-spacing: unset;
   text-transform: unset;
   font-weight: 500;
-  padding: 4px 11px;
-  border: 1px solid transparent;
-  border-radius: 32px;
-  background: var(--e-white);
-  cursor: pointer;
 }
 
-.e-radio-filter--selected {
-  border-color: var(--e-black);
+.e-radio-filter input {
+  position: absolute;
+  opacity: 0;
 }
 
-.e-radio-filter--selected:hover {
-  border-color: var(--e-black);
+.e-radio-filter input:focus ~ label:first-of-type {
+  outline: 2px solid #0064fa;
+  outline-offset: 2px;
 }
 
-.e-radio-filter---hover, .e-radio-filter:hover:not(:disabled) {
+.e-radio-filter input:hover:not(:disabled) + label {
   border-color: var(--e-green);
 }
 
-.e-radio-filter---disabled, .e-radio-filter:disabled {
-  cursor: not-allowed;
-  color: var(--e-grey-40);
+.e-radio-filter input:checked:not(:disabled) + label {
+  border-color: var(--e-black);
 }
 
-.e-radio-filter:focus, .e-radio-filter---focus {
-  outline: 2px solid #0064fa;
-  outline-offset: 2px;
+.e-radio-filter input:disabled + label {
+  cursor: not-allowed;
+}
+
+.e-radio-filter input:disabled + label > .e-radio-filter__label {
+  color: var(--e-grey-40);
 }
 
 .e-header {

@@ -1,42 +1,49 @@
 @use "../variables/typography.scss";
 @use "../utilities/outline.scss";
+@use "../utilities/helpers";
 
-.e-radio-filter-container {
+$control-count: 8;
+
+.e-radio-filter {
   display: flex;
   flex-direction: row;
-  .e-radio-filter:not(:last-of-type) {
+  @include helpers.user-select(none);
+
+  label:not(:last-of-type) {
     margin-right: 4px;
   }
-}
-.e-radio-filter {
-  @include typography.typography('text-option');
-  font-weight: 500;
-  padding: 4px 11px;
-  border: 1px solid transparent;
-  border-radius: 32px;
-  background: var(--e-white);
-  cursor: pointer;
 
-  &--selected {
-    border-color: var(--e-black);
-    &:hover {
-      border-color: var(--e-black);
+  label {
+    padding: 4px 11px;
+    border: 1px solid transparent;
+    border-radius: 32px;
+    background: var(--e-white);
+    cursor: pointer;
+
+    .e-radio-filter__label {
+      @include typography.typography('text-option');
+      font-weight: 500;
     }
   }
 
-  &---hover,
-  &:hover:not(:disabled) {
-    border-color: var(--e-green);
-  }
+  input {
+    position: absolute;
+    opacity: 0;
+    &:focus ~ label:first-of-type {
+      @include outline.e-outline();
+    }
 
-  &---disabled,
-  &:disabled {
-    cursor: not-allowed;
-    color: var(--e-grey-40);
-  }
-
-  &:focus,
-  &---focus {
-    @include outline.e-outline();
+    &:hover:not(:disabled) + label {
+      border-color: var(--e-green);
+    }
+    &:checked:not(:disabled) + label {
+      border-color: var(--e-black);
+    }
+    &:disabled + label {
+      cursor: not-allowed;
+      & > .e-radio-filter__label {
+        color: var(--e-grey-40);
+      }
+    }
   }
 }
