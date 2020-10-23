@@ -10,6 +10,7 @@
 }
 .e-radio-filter {
   @include typography.typography('text-option');
+  font-weight: 500;
   padding: 4px 11px;
   border: 1px solid transparent;
   border-radius: 32px;

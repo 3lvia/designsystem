@@ -2300,6 +2300,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  font-weight: 500;
   padding: 4px 11px;
   border: 1px solid transparent;
   border-radius: 32px;
