@@ -36,6 +36,5 @@ export default class ElviaPopover extends HTMLElement {
     }
   }
 }
-export function mount() {
-  window.customElements.define('elvia-popover', ElviaPopover);
-}
+
+window.customElements.define('elvia-popover', ElviaPopover);
