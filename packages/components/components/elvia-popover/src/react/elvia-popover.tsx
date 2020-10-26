@@ -9,7 +9,7 @@ export interface PopoverProps {
 
 export const Popover: React.FC<PopoverProps> = ({ title, description }) => {
   let [visiblePopover, setPopoverVisibility] = useState(false);
-  const togglePopover = (event: any) => {
+  const togglePopover = () => {
     visiblePopover = !visiblePopover;
     setPopoverVisibility(visiblePopover);
   };
