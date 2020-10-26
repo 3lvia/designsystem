@@ -126,9 +126,6 @@ $checkbox-mark-border: 1px solid colors.color('black');
     &:checked ~ #{$this}__mark {
       @extend %checkbox-mark;
       border-color: colors.color('black');
-      @include breakpoints.breakpoint-up(Mobile) {
-        background-color: colors.color('green') !important;
-      }
     }
 
     &:focus ~ #{$this}__mark {
@@ -139,8 +136,16 @@ $checkbox-mark-border: 1px solid colors.color('black');
       background-color: colors.color('green');
       border-color: colors.color('black');
 
+      // No green background after unchecking on mobile
       @include breakpoints.breakpoint-up(Mobile) {
         background-color: colors.color('white');
+      }
+    }
+    // No green background after unchecking on mobile
+    @include breakpoints.breakpoint-up(Mobile) {
+      &:hover:not(:disabled):not(:invalid):checked ~ #{$this}__mark {
+        background-color: colors.color('green');
+        border-color: colors.color('black');
       }
     }
 

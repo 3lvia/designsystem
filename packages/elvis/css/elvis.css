@@ -6638,11 +6638,6 @@ input:focus {
   border-color: #000;
 }
 
-@media (max-width: 767px) {
-  .e-checkbox input:checked ~ .e-checkbox__mark {
-    background-color: #29d305 !important;
-  }
-}
 .e-checkbox input:focus ~ .e-checkbox__mark {
   outline: 2px solid #0064fa;
   outline-offset: 2px;
@@ -6656,6 +6651,12 @@ input:focus {
 @media (max-width: 767px) {
   .e-checkbox input:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
     background-color: #fff;
+  }
+}
+@media (max-width: 767px) {
+  .e-checkbox input:hover:not(:disabled):not(:invalid):checked ~ .e-checkbox__mark {
+    background-color: #29d305;
+    border-color: #000;
   }
 }
 .e-checkbox input:disabled ~ .e-checkbox__mark {
