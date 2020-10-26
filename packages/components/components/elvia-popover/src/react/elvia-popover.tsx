@@ -16,7 +16,7 @@ export const Popover: React.FC<PopoverProps> = ({ title, description }) => {
 
   React.useEffect(() => {
     const link = document.createElement('link');
-    link.href = '//fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
     link.rel = 'stylesheet';
     link.type = 'text/css';
     document.head.appendChild(link);
