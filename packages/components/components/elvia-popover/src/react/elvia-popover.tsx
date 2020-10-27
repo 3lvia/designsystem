@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './style.scss';
 
 export interface PopoverProps {
-  trigger: string;
+  trigger?: string;
   title?: string;
   description?: string;
 }
@@ -26,6 +26,7 @@ export const Popover: React.FC<PopoverProps> = ({ trigger, title, description })
   return (
     <span className='ewc-popover ewc-popover--bottom ewc-popover--right' id='popover'>
       <div onClick={togglePopover} className='ewc-popover__trigger'>{trigger}</div>
+      <slot name="trigger" onClick={togglePopover} className='ewc-popover__trigger'></slot>
 
       {visiblePopover ? (
         <div className='ewc-popover__content' id='popoverContent'>

@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 // import * as Popover from '@elvia/popover/dist/react/tsx/elvia-popover';
 import { Popover } from './components/elvia-popover'
 
@@ -13,9 +13,8 @@ function App() {
         <Popover 
           title="React demo of popover" 
           description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
-          trigger={<button>trigger</button>}
-        >
-        </Popover>
+          trigger={<button className="e-btn">trigger</button>}
+        ></Popover>
       </div>
 
       <p>
