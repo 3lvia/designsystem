@@ -1,0 +1,308 @@
+$checkbox-mark-size: 24px;
+$checkbox-mark-small-size: 16px;
+$checkbox-mark-border-radius: 3px;
+$checkbox-mark-border: 1px solid $black;
+
+// colors
+$black: #000;
+$green: #29d305;
+$grey-05:#f4f4f4;
+$grey-30:#bdbdbd;
+$grey-70:#676767;
+$red: #ff0000;
+$white: #fff;
+
+.e-checkbox {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  box-sizing: border-box;
+  cursor: pointer;
+  // IE hack
+  @media screen and (-ms-high-contrast: none) {
+    width: 100%;
+  }
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+
+  &.e-checkbox--sm {
+    .e-checkbox__mark {
+      min-width: $checkbox-mark-small-size;
+      min-height: $checkbox-mark-small-size;
+      max-width: $checkbox-mark-small-size;
+      max-height: $checkbox-mark-small-size;
+    }
+
+    .e-checkbox__label {
+      font-family: 'Red Hat Text', sans-serif;
+      font-size: 14px;
+      // line-height: 22px;
+      font-weight: 400;
+      font-style: unset;
+      letter-spacing: unset;
+      text-transform: unset;
+      line-height: 16px;
+    }
+
+    input {
+      opacity: 0;
+      position: absolute;
+      z-index: -1;
+
+      &:checked ~ .e-checkbox__mark {
+        @extend %checkbox-mark-small;
+      }
+
+      &:disabled:checked ~ .e-checkbox__mark {
+        border-color: $grey-30;
+        background-color: $grey-05;
+        cursor: not-allowed;
+
+        &:after,
+        &:before {
+          background-color: $grey-30;
+        }
+      }
+    }
+  }
+
+  // pseudo classes to emulate state.
+  &.e-checkbox---checked &__mark {
+    @extend %checkbox-mark;
+  }
+  // extends correct checkbox mark on small checkboxes in pseudoclass
+  &.e-checkbox--sm[class$='e-checkbox---checked'] &__mark {
+    @extend %checkbox-mark-small;
+  }
+
+  &.e-checkbox---focus {
+    .e-checkbox__mark {
+      // TODO
+      @include outline.e-outline-pseudoclass();
+    }
+  }
+
+  &.e-checkbox---hover:not(:disabled):not(:invalid) {
+    .e-checkbox__mark {
+      background-color: $grey-30;
+      border-color: $black;
+    }
+  }
+
+  &.e-checkbox---disabled {
+    .e-checkbox__mark {
+      border-color: $grey-30;
+      background-color: $grey-05;
+      cursor: not-allowed;
+    }
+  }
+  &.e-checkbox---disabled-checked {
+    .e-checkbox__mark {
+      @extend %checkbox-mark;
+      border-color: $grey-30 !important;
+      background-color: $grey-05 !important;
+      cursor: not-allowed;
+
+      &:after,
+      &:before {
+        background-color: $grey-30 !important;
+      }
+    }
+    .e-checkbox__label {
+      color: $grey-70;
+    }
+  }
+  // extends correct checkbox mark on small checkboxes in pseudoclass
+  &.e-checkbox--sm[class$='disabled-checked'] &__mark {
+    @extend %checkbox-mark-small;
+  }
+
+  &.e-checkbox---invalid {
+    .e-checkbox__mark {
+      border-color: $red;
+    }
+  }
+
+  // hides initial checkbox and gives placeholder style according to state
+  input {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+
+    &:checked ~ .e-checkbox__mark {
+      @extend %checkbox-mark;
+      border-color: $black;
+    }
+
+    &:focus ~ .e-checkbox__mark {
+      @include outline.e-outline();
+    }
+
+    &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
+      background-color: $green;
+      border-color: $black;
+    }
+
+    &:disabled ~ .e-checkbox__mark {
+      border-color: $grey-30;
+      background-color: $grey-05;
+      cursor: not-allowed;
+    }
+    &:disabled ~ .e-checkbox__label {
+      color: $grey-70;
+    }
+
+    &:disabled:checked ~ .e-checkbox__mark {
+      border-color: $grey-30;
+      background-color: $grey-05;
+      cursor: not-allowed;
+
+      &:after,
+      &:before {
+        background-color: $grey-30;
+      }
+    }
+    &:disabled ~ .e-checkbox__label {
+      color: $grey-70;
+    }
+
+    &:invalid ~ .e-checkbox__mark {
+      border-color: $red;
+    }
+  }
+
+  // Creating a placeholder to inject a checkbox mark into the checkbox
+  // :before & :after each create a line which we put together to a checkmark.
+  // Position properties top,left,right and bottom positions the lines to look like a checkmark.
+  %checkbox-mark {
+    position: relative;
+    background-color: $green;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 55%;
+      left: -9%;
+      height: 30%;
+      width: 2px;
+      background-color: $black;
+      border-radius: 15px;
+      transform: translateX(10px) rotate(-45deg);
+      transform-origin: left bottom;
+      animation: checkmarkHeight 150ms;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 15%;
+      left: -4%;
+      height: 2px;
+      width: 0%;
+      background-color: $black;
+      border-radius: 15px;
+      transform: translateX(10px) rotate(-55deg);
+      transform-origin: left bottom;
+      animation: checkmarkWidth 150ms 150ms forwards;
+    }
+  }
+
+  %checkbox-mark-small {
+    position: relative;
+    background-color: $green;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -28%;
+      height: 39%;
+      width: 2px;
+      background-color: $black;
+      border-radius: 15px;
+      transform: translateX(10px) rotate(-45deg);
+      transform-origin: left bottom;
+      animation: checkmarkHeightSmall 150ms;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 15%;
+      left: -25%;
+      height: 2px;
+      width: 0%;
+      background-color: $black;
+      border-radius: 15px;
+      transform: translateX(10px) rotate(-55deg);
+      transform-origin: left bottom;
+      animation: checkmarkWidthSmall 150ms 150ms forwards;
+    }
+  }
+
+  &__mark {
+    display: inline-flex;
+    align-self: flex-start;
+
+    min-width: $checkbox-mark-size;
+    min-height: $checkbox-mark-size;
+    max-width: $checkbox-mark-size;
+    max-height: $checkbox-mark-size;
+    transition: background 0.2s animation.$transition-cubic;
+    border: $checkbox-mark-border;
+    border-radius: $checkbox-mark-border-radius;
+    background: $white;
+  }
+
+  &__label {
+    font-size: inherit;
+    margin-left: 8px;
+    line-height: 24px;
+    width: fit-content;
+  }
+}
+
+@keyframes checkmarkHeight {
+  0% {
+    left: -31%;
+    height: 0%;
+  }
+
+  100% {
+    left: -9%;
+    height: 30%;
+  }
+}
+
+@keyframes checkmarkWidth {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 83%;
+  }
+}
+
+@keyframes checkmarkHeightSmall {
+  0% {
+    left: -55%;
+    height: 0%;
+  }
+
+  100% {
+    left: -28%;
+    height: 39%;
+  }
+}
+
+@keyframes checkmarkWidthSmall {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 80%;
+  }
+}
