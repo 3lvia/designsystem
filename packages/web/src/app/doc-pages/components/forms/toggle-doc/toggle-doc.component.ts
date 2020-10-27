@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./toggle-doc.component.scss'],
 })
 export class ToggleDocComponent {
-  figmaUrl = getComponent('toggle-doc').figmaUrl;
-  description = getComponent('toggle-doc').description;
+  figmaUrl = getComponent('toggle').figmaUrl;
+  description = getComponent('toggle').description;
 
   does = ['Single state that is either on or off.'];
   donts = ['Never use a switch in place of a button (actions).'];

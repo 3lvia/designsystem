@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./autocomplete-doc.component.scss'],
 })
 export class AutocompleteDocComponent {
-  figmaUrl = getComponent('autocomplete-doc').figmaUrl;
-  description = getComponent('autocomplete-doc').description;
+  figmaUrl = getComponent('autocomplete').figmaUrl;
+  description = getComponent('autocomplete').description;
   does = ['When you have many options in a list and the input must be validated'];
 
   exampleAutocomplete = `<div class="e-form-field">

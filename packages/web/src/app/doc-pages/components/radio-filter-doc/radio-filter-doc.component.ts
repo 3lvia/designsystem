@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./radio-filter-doc.component.scss'],
 })
 export class RadioFilterDocComponent {
-  figmaUrl = getComponent('radio-filter-doc').figmaUrl;
-  description = getComponent('radio-filter-doc').description;
+  figmaUrl = getComponent('radio-filter').figmaUrl;
+  description = getComponent('radio-filter').description;
   selected = 'label1';
 
   // tslint:disable-next-line: max-line-length

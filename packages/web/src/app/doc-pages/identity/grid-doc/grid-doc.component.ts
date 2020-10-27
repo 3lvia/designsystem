@@ -7,8 +7,8 @@ import { getIdentity } from 'src/app/shared/e-items';
   styleUrls: ['./grid-doc.component.scss'],
 })
 export class GridDocComponent {
-  figmaUrl = getIdentity('grid-doc').figmaUrl;
-  description = getIdentity('grid-doc').description;
+  figmaUrl = getIdentity('grid').figmaUrl;
+  description = getIdentity('grid').description;
 
   example9 = `<div class="e-text-caps e-mt-16 e-mb-8">External example</div>
   <div class="e-grid e-bg-grey-20">
