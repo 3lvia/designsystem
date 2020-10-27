@@ -60,7 +60,9 @@ export class CodeHighlighterComponent implements OnInit, OnChanges, AfterViewChe
   }
 
   copyCode(): void {
-    if (this.activeTab === 'ts') {
+    if (this.isInverted) {
+      this.copyToClipBoard(this.codeInverted);
+    } else if (this.activeTab === 'ts') {
       this.copyToClipBoard(this.codeTS);
     } else if (this.activeTab === 'html') {
       this.copyToClipBoard(this.codeHTML);
