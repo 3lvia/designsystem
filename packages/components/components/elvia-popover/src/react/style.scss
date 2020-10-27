@@ -19,9 +19,15 @@ $green: #29d305;
 }
 
 .ewc-popover {
-  position: relative;
   display: inline-block;
   box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__trigger {
+    display: flex;
+  }
 
   &__content {
     display: block;
@@ -29,7 +35,6 @@ $green: #29d305;
     z-index: 99;
     pointer-events: all;
     position: absolute;
-    width: max-content;
     min-width: $popover-desktop-size;
     max-width: $popover-desktop-size;
     padding: $popover-padding;

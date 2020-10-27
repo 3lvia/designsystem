@@ -3,11 +3,12 @@ import { useState } from 'react';
 import './style.scss';
 
 export interface PopoverProps {
+  trigger: string;
   title?: string;
   description?: string;
 }
 
-export const Popover: React.FC<PopoverProps> = ({ title, description }) => {
+export const Popover: React.FC<PopoverProps> = ({ trigger, title, description }) => {
   let [visiblePopover, setPopoverVisibility] = useState(false);
   const togglePopover = () => {
     visiblePopover = !visiblePopover;
@@ -23,30 +24,25 @@ export const Popover: React.FC<PopoverProps> = ({ title, description }) => {
   }, []);
 
   return (
-    <div style={{display: 'flex', justifyContent: 'center'}}>
-      <span className='ewc-popover ewc-popover--bottom ewc-popover--right' id='popover1'>
+    <span className='ewc-popover ewc-popover--bottom ewc-popover--right' id='popover'>
+      <div onClick={togglePopover} className='ewc-popover__trigger'>{trigger}</div>
 
-        <button className='e-btn' onClick={togglePopover}>
-          Click me
-        </button>
-
-        {visiblePopover ? (
-          <div className='ewc-popover__content' id='popover1Content'>
-            <div className='ewc-popover__close'>
-              <button
-                className='e-btn e-btn--icon e-btn--sm'
-                onClick={togglePopover}
-              >
-                <span className='e-btn__icon'>X</span>
-              </button>
-            </div>
-            <div className='ewc-popover__title'>{title}</div>
-            <div className='ewc-popover__text'>
-              {description}
-            </div>
+      {visiblePopover ? (
+        <div className='ewc-popover__content' id='popoverContent'>
+          <div className='ewc-popover__close'>
+            <button
+              className='e-btn e-btn--icon e-btn--sm'
+              onClick={togglePopover}
+            >
+              <span className='e-btn__icon'>X</span>
+            </button>
           </div>
-        ) : ('')}
-      </span>
-    </div>
+          <div className='ewc-popover__title'>{title}</div>
+          <div className='ewc-popover__text'>
+            {description}
+          </div>
+        </div>
+      ) : ('')}
+    </span>
   );
 };

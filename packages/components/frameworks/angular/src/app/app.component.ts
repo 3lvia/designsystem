@@ -10,4 +10,5 @@ Popover;
 })
 export class AppComponent {
   title = 'angular';
+  trigger = `<button>hello</button>`;
 }
