@@ -14,12 +14,6 @@ $popover-mobile-size: 300px;
 
 $green: #29d305;
 
-$button-sm-padding-y: 8px;
-$button-sm-padding-x: 16px;
-$button-sm-padding: $button-sm-padding-y $button-sm-padding-x;
-$button-sm-font-size: 14px;
-$button-sm-line-height: 16px;
-
 %ewc-popover__widget {
   content: '';
   position: absolute;
@@ -74,25 +68,6 @@ $button-sm-line-height: 16px;
       position: absolute;
       top: 7px;
       right: 7px;
-      .e-btn.e-btn--icon {
-        cursor: pointer;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        border: none;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50px;
-        padding: 8px;
-        background: none;
-        color: black;
-        // SM
-        font-size: $button-sm-font-size;
-        line-height: $button-sm-line-height;
-        padding: calc(#{$button-sm-padding-y} - 1px) calc(#{$button-sm-padding-x} - 1px);
-      }
       i {
         // @include icons.icon-size('xs');
       }
@@ -316,5 +291,169 @@ $button-sm-line-height: 16px;
     &.ewc-popover--w-260.ewc-popover--right-50 .ewc-popover__content {
       transform: translateX(-33%);
     }
+  }
+}
+
+// ICON BTN
+.e-btn.e-btn--icon {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  padding: 8px;
+  background: none;
+  color: black;
+
+  &.e-btn--inverted {
+    .e-btn__icon {
+      i[class*='inverted'],
+      i[class*='color-disabled-light'],
+      i[class*='e-icon--color'],
+      i[class*='e-icon--disabled-inverted'],
+      i:disabled {
+        visibility: visible;
+      }
+    }
+
+    &:disabled {
+      // grey-70
+      color: #676767;
+      background: none;
+      cursor: not-allowed;
+    }
+
+    &:focus {
+      background: none;
+    }
+
+    &:hover:not(:disabled) {
+      .e-btn__icon {
+        i {
+          visibility: visible !important;
+        }
+        i[class*='inverted'],
+        i[class*='color-disabled-light'],
+        i[class*='e-icon--disabled-inverted'] {
+          visibility: hidden !important;
+        }
+      }
+    }
+  }
+
+  .e-btn__icon {
+    width: 24px;
+    height: 24px;
+    i {
+      // @include icons.icon-size('sm');
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      visibility: visible;
+    }
+  }
+
+  &.e-btn--lg .e-btn__icon {
+    width: 32px;
+    height: 32px;
+    i {
+      // @include icons.icon-size('md');
+    }
+  }
+  &.e-btn--sm:not(.e-btn--circled) .e-btn__icon {
+    width: 16px;
+    height: 16px;
+    i {
+      // @include icons.icon-size('xs');
+    }
+  }
+
+  &.e-btn--circled {
+    padding: 0;
+
+    // Hiding hover ikon
+    .e-btn__icon i[class*='filled-color'] {
+      visibility: hidden;
+    }
+
+    &.e-btn---hover,
+    &:hover:not(:disabled),
+    &.e-btn---active,
+    &:active:not(:disabled) {
+      background: transparent;
+      // Showing hover ikon
+      .e-btn__icon i:not([class$='filled-color']),
+      .e-btn__icon i:not([class$='disabled']) {
+        visibility: hidden;
+      }
+      .e-btn__icon i[class*='filled-color'] {
+        visibility: visible;
+      }
+    }
+    &.e-btn---active,
+    &:active:not(:disabled) {
+      transform: scale(0.93);
+    }
+  }
+
+  &.e-btn--danger {
+    width: 40px;
+    height: 40px;
+
+    .e-btn__icon
+      i:not([class$='color-red']):not([class$='e-icon--color-disabled']):not([class$='e-icon--inverted-disabled-grey-70']) {
+      visibility: hidden;
+    }
+
+    &.e-btn--inverted {
+      &:hover:not(:disabled) {
+        .e-btn__icon {
+          i {
+            visibility: visible !important;
+          }
+          i[class*='inverted'],
+          i[class*='color-disabled-light'],
+          i[class*='e-icon--disabled-inverted'] {
+            visibility: hidden !important;
+          }
+        }
+      }
+    }
+
+    &.e-btn---hover,
+    &:hover:not(:disabled),
+    &.e-btn---active,
+    &:active:not(:disabled) {
+      // Showing hover ikon
+      .e-btn__icon i[class*='red'] {
+        visibility: hidden;
+      }
+      .e-btn__icon i:not([class$='red']) {
+        visibility: visible;
+      }
+    }
+  }
+
+  &.e-btn---hover,
+  &:hover:not(:disabled),
+  &.e-btn---active,
+  &:active:not(:disabled) {
+    background: $green;
+    .e-btn__icon i[class$='inverted'] {
+      visibility: visible;
+    }
+  }
+  &.e-btn---active,
+  &:active:not(:disabled) {
+    transform: scale(0.95);
+  }
+  &.e-btn---disabled,
+  &:disabled {
+    cursor: not-allowed;
   }
 }
