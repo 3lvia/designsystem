@@ -1,5 +1,6 @@
 @use "./../variables/typography.scss";
 @use './../variables/colors.scss';
+@use "../utilities/icons.scss";
 
 .e-chip-container {
   display: flex;
@@ -16,20 +17,29 @@
 }
 
 .e-chip {
-  border: 1px solid #000000;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
   border-radius: 50px;
   padding: 4px 16px;
+  @extend .e-chip--green-apple;
 
   &__label {
     @include typography.typography('text-info');
   }
 
-  @each $label, $map in colors.$data-colors {
+  &__close {
+    @include icons.icon-size('xxs');
+    display: flex;
+    margin-left: 8px;
+  }
+
+  @each $label, $map in colors.$just-colors {
     $labels: ($label);
 
     @each $label in $labels {
       &.e-chip--#{$label} {
-        border: none;
         position: relative;
         &::before {
           content: '';
@@ -39,11 +49,26 @@
           width: 100%;
           height: 100%;
           background: colors.color($label);
-          border: 1px solid colors.color($label);
           opacity: 0.25;
           border-radius: 50px;
         }
       }
     }
+  }
+
+  &---hover:not(.e-chip---disabled),
+  &:hover:not(:disabled) {
+    background: colors.color('green');
+    opacity: 1;
+    cursor: pointer;
+    &::before {
+      background: colors.color('green');
+    }
+  }
+
+  &---disabled,
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 }
