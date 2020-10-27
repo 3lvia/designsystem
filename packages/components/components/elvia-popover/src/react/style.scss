@@ -308,7 +308,7 @@ $green: #29d305;
 }
 
 // --- ICON BTN ---
-.e-btn.e-btn--icon {
+.ewc-btn.ewc-btn--icon {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -323,43 +323,7 @@ $green: #29d305;
   background: none;
   color: black;
 
-  &.e-btn--inverted {
-    .e-btn__icon {
-      i[class*='inverted'],
-      i[class*='color-disabled-light'],
-      i[class*='e-icon--color'],
-      i[class*='e-icon--disabled-inverted'],
-      i:disabled {
-        visibility: visible;
-      }
-    }
-
-    &:disabled {
-      // grey-70
-      color: #676767;
-      background: none;
-      cursor: not-allowed;
-    }
-
-    &:focus {
-      background: none;
-    }
-
-    &:hover:not(:disabled) {
-      .e-btn__icon {
-        i {
-          visibility: visible !important;
-        }
-        i[class*='inverted'],
-        i[class*='color-disabled-light'],
-        i[class*='e-icon--disabled-inverted'] {
-          visibility: hidden !important;
-        }
-      }
-    }
-  }
-
-  .e-btn__icon {
+  .ewc-btn__icon {
     width: 24px;
     height: 24px;
     i {
@@ -371,14 +335,14 @@ $green: #29d305;
     }
   }
 
-  &.e-btn--lg .e-btn__icon {
+  &.ewc-btn--lg .ewc-btn__icon {
     width: 32px;
     height: 32px;
     i {
       // @include icons.icon-size('md');
     }
   }
-  &.e-btn--sm:not(.e-btn--circled) .e-btn__icon {
+  &.ewc-btn--sm:not(.ewc-btn--circled) .ewc-btn__icon {
     width: 16px;
     height: 16px;
     i {
@@ -386,86 +350,48 @@ $green: #29d305;
     }
   }
 
-  &.e-btn--circled {
+  &.ewc-btn--circled {
     padding: 0;
 
     // Hiding hover ikon
-    .e-btn__icon i[class*='filled-color'] {
+    .ewc-btn__icon i[class*='filled-color'] {
       visibility: hidden;
     }
 
-    &.e-btn---hover,
+    &.ewc-btn---hover,
     &:hover:not(:disabled),
-    &.e-btn---active,
+    &.ewc-btn---active,
     &:active:not(:disabled) {
       background: transparent;
       // Showing hover ikon
-      .e-btn__icon i:not([class$='filled-color']),
-      .e-btn__icon i:not([class$='disabled']) {
+      .ewc-btn__icon i:not([class$='filled-color']),
+      .ewc-btn__icon i:not([class$='disabled']) {
         visibility: hidden;
       }
-      .e-btn__icon i[class*='filled-color'] {
+      .ewc-btn__icon i[class*='filled-color'] {
         visibility: visible;
       }
     }
-    &.e-btn---active,
+    &.ewc-btn---active,
     &:active:not(:disabled) {
       transform: scale(0.93);
     }
   }
 
-  &.e-btn--danger {
-    width: 40px;
-    height: 40px;
-
-    .e-btn__icon
-      i:not([class$='color-red']):not([class$='e-icon--color-disabled']):not([class$='e-icon--inverted-disabled-grey-70']) {
-      visibility: hidden;
-    }
-
-    &.e-btn--inverted {
-      &:hover:not(:disabled) {
-        .e-btn__icon {
-          i {
-            visibility: visible !important;
-          }
-          i[class*='inverted'],
-          i[class*='color-disabled-light'],
-          i[class*='e-icon--disabled-inverted'] {
-            visibility: hidden !important;
-          }
-        }
-      }
-    }
-
-    &.e-btn---hover,
-    &:hover:not(:disabled),
-    &.e-btn---active,
-    &:active:not(:disabled) {
-      // Showing hover ikon
-      .e-btn__icon i[class*='red'] {
-        visibility: hidden;
-      }
-      .e-btn__icon i:not([class$='red']) {
-        visibility: visible;
-      }
-    }
-  }
-
-  &.e-btn---hover,
+  &.ewc-btn---hover,
   &:hover:not(:disabled),
-  &.e-btn---active,
+  &.ewc-btn---active,
   &:active:not(:disabled) {
     background: $green;
-    .e-btn__icon i[class$='inverted'] {
+    .ewc-btn__icon i[class$='inverted'] {
       visibility: visible;
     }
   }
-  &.e-btn---active,
+  &.ewc-btn---active,
   &:active:not(:disabled) {
     transform: scale(0.95);
   }
-  &.e-btn---disabled,
+  &.ewc-btn---disabled,
   &:disabled {
     cursor: not-allowed;
   }
@@ -489,7 +415,7 @@ $green: #29d305;
 
 $defaultSize: 'md';
 
-.e-icon {
+.ewc-icon {
   @include icon-size($defaultSize);
   background-size: contain;
   background-position: center;
@@ -499,7 +425,7 @@ $defaultSize: 'md';
 
 // Making icon size classes
 @each $label, $size in $sizes {
-  .e-icon--#{$label} {
+  .ewc-icon--#{$label} {
     @include icon-size($label);
   }
 }

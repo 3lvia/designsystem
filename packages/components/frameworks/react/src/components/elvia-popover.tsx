@@ -30,18 +30,18 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, trigger })
 
   return (
     <span className='ewc-popover ewc-popover--bottom ewc-popover--right' id='popover'>
-      <div onClick={togglePopover} className='ewc-popover__trigger'>{trigger}</div>
-      <slot name="trigger" onClick={togglePopover} className='ewc-popover__trigger'></slot>
+      <div className='ewc-popover__trigger' onClick={togglePopover}>{trigger}</div>
+      <slot className='ewc-popover__trigger' name="trigger" onClick={togglePopover}></slot>
 
       {visiblePopover ? (
         <div className='ewc-popover__content' id='popoverContent'>
           <div className='ewc-popover__close'>
             <button
-              className='e-btn e-btn--icon e-btn--sm'
+              className='ewc-btn ewc-btn--icon ewc-btn--sm'
               onClick={togglePopover}
             >
-              <span className='e-btn__icon'>
-                <i className="e-icon e-icon--close-bold e-icon--xs" style={{backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`}} e-id="e-icone-icon--close-bold"></i>
+              <span className='ewc-btn__icon'>
+                <i className="ewc-icon ewc-icon--close-bold ewc-icon--xs" style={{backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`}} e-id="e-icone-icon--close-bold"></i>
               </span>
             </button>
           </div>
