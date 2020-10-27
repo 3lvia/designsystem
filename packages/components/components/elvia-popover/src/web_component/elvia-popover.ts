@@ -7,11 +7,11 @@ const style = `{{INSERT_STYLE_HERE}}`;
 export default class ElviaPopover extends HTMLElement {
   mountPoint!: HTMLSpanElement;
   static get observedAttributes(): string[] {
-    return ['title', 'description', 'trigger'];
+    return ['title', 'description'];
   }
 
-  createPopover(title: string, description: string, trigger?: string): React.ReactElement {
-    const data = { title, description, trigger };
+  createPopover(title: string, description: string): React.ReactElement {
+    const data = { title, description };
     return React.createElement(ReactPopoverComponent.Popover, data, React.createElement('slot'));
   }
 
@@ -35,12 +35,7 @@ export default class ElviaPopover extends HTMLElement {
   renderReactDOM(): void {
     const title = this.getAttribute('title')!;
     const description = this.getAttribute('description')!;
-    const trigger = this.getAttribute('trigger');
-    if (!trigger) {
-      ReactDOM.render(this.createPopover(title, description, undefined), this.mountPoint);
-    } else if (trigger && title && description) {
-      ReactDOM.render(this.createPopover(title, description, trigger), this.mountPoint);
-    }
+    ReactDOM.render(this.createPopover(title, description), this.mountPoint);
   }
 }
 
