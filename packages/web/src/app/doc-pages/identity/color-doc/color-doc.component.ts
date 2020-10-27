@@ -12,8 +12,8 @@ export class ColorDocComponent {
   signalColors = signalColors;
   dataColors = dataColors;
   greysColors = greysColors;
-  figmaUrl = getIdentity('color-doc').figmaUrl;
-  description = getIdentity('color-doc').description;
+  figmaUrl = getIdentity('color').figmaUrl;
+  description = getIdentity('color').description;
   colors: string[] = ['red', 'green'];
 
   doCode = `<div class="e-bg-green"></div>`;

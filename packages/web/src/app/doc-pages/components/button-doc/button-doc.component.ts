@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./button-doc.component.scss'],
 })
 export class ButtonDocComponent {
-  figmaUrl = getComponent('button-doc').figmaUrl;
-  description = getComponent('button-doc').description;
+  figmaUrl = getComponent('button').figmaUrl;
+  description = getComponent('button').description;
   doesExample1 = [
     // tslint:disable-next-line:max-line-length
     'Primary buttons are task oriented buttons, that normally is used for task like save, done, or next actions. It is often the primary positive action of a use case. Can be used alone, or combined with a secondary and link style button.',

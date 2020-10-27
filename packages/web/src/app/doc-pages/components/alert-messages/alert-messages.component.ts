@@ -10,8 +10,8 @@ export class AlertMessagesComponent {
 
   @ViewChild('alertAccordionExample') alertAccordionExample: ElementRef;
 
-  figmaUrl = getComponent('alert-messages-doc').figmaUrl;
-  description = getComponent('alert-messages-doc').description;
+  figmaUrl = getComponent('alert-messages').figmaUrl;
+  description = getComponent('alert-messages').description;
 
   doesAlertDefault = [
     'Message related to the content of the page.',

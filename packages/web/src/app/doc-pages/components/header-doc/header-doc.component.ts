@@ -10,8 +10,8 @@ import { GlobalService } from 'src/app/core/services/global.service';
 export class HeaderDocComponent {
 
   internalHeader = false;
-  figmaUrl = getComponent('header-doc').figmaUrl;
-  description = getComponent('header-doc').description;
+  figmaUrl = getComponent('header').figmaUrl;
+  description = getComponent('header').description;
 
   internalHeaderExample = `<div class="e-header">
   <!--TOP MENU-->

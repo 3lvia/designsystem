@@ -22,8 +22,8 @@ export class IconDocComponent implements OnInit {
   outlinedIcons = [];
   filledIcons = [];
   twoColoredIcons = [];
-  figmaUrl = getIdentity('icon-doc').figmaUrl;
-  description = getIdentity('icon-doc').description;
+  figmaUrl = getIdentity('icon').figmaUrl;
+  description = getIdentity('icon').description;
   inverted = false;
   selected = 'all';
   latestIcon = '';

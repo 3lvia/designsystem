@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./draganddrop-doc.component.scss'],
 })
 export class DraganddropDocComponent {
-  figmaUrl = getComponent('draganddrop-doc').figmaUrl;
-  description = getComponent('draganddrop-doc').description;
+  figmaUrl = getComponent('draganddrop').figmaUrl;
+  description = getComponent('draganddrop').description;
 
   example1 = `<div class="e-dragdrop" style="width:300px; height:150px"></div>
 `;

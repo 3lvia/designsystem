@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./progressbar-doc.component.scss'],
 })
 export class ProgressbarDocComponent {
-  figmaUrl = getComponent('progressbar-doc').figmaUrl;
-  description = getComponent('progressbar-doc').description;
+  figmaUrl = getComponent('progressbar').figmaUrl;
+  description = getComponent('progressbar').description;
 
   exampleOverview = `<div class="e-progress" role="progressbar">
   <div class="e-progress__bar"></div>

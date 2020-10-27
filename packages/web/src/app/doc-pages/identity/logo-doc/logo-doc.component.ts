@@ -7,8 +7,8 @@ import { getIdentity } from 'src/app/shared/e-items';
   styleUrls: ['./logo-doc.component.scss'],
 })
 export class LogoDocComponent {
-  figmaUrl = getIdentity('logo-doc').figmaUrl;
-  description = getIdentity('logo-doc').description;
+  figmaUrl = getIdentity('logo').figmaUrl;
+  description = getIdentity('logo').description;
   isInverted = false;
   isInverted2 = false;
   isInverted3 = false;

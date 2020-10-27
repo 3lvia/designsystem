@@ -10,8 +10,8 @@ export class PositionPickerDocComponent {
   @ViewChild('mapModal') mapModal: ElementRef;
   showPosition = false;
 
-  figmaUrl = getComponent('position-picker-doc').figmaUrl;
-  description = getComponent('position-picker-doc').description;
+  figmaUrl = getComponent('position-picker').figmaUrl;
+  description = getComponent('position-picker').description;
 
   exampleOverview = `<div class="e-position-picker" style="width: 380px;">
   <div class="e-position-picker__icon" *ngIf="!showPosition">

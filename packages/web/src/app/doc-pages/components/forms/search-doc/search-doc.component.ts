@@ -8,8 +8,8 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class SearchDocComponent {
 
-  figmaUrl = getComponent('search-doc').figmaUrl;
-  description = getComponent('search-doc').description;
+  figmaUrl = getComponent('search').figmaUrl;
+  description = getComponent('search').description;
 
   overviewExample = `<div class="e-form-field">
   <label class="e-form-field__label" for="compact">Søk</label>
