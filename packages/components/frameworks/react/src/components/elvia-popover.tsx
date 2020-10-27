@@ -7,12 +7,13 @@ import { useState } from 'react';
 import './style.scss';
 
 export interface PopoverProps {
+  title: string;
+  description: string;
   trigger?: string;
-  title?: string;
-  description?: string;
 }
 
-export const Popover: React.FC<PopoverProps> = ({ trigger, title, description }) => {
+export const Popover: React.FC<PopoverProps> = ({ title, description, trigger }) => {
+  // eslint-disable-next-line prefer-const
   let [visiblePopover, setPopoverVisibility] = useState(false);
   const togglePopover = () => {
     visiblePopover = !visiblePopover;
