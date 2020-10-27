@@ -12341,6 +12341,22 @@ THE SOFTWARE.
     line-height: 29px;
   }
 }
+.e-text-lg {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 20px;
+  line-height: 32px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+}
+
+@media (max-width: 767px) {
+  .e-text-lg {
+    font-size: 18px;
+    line-height: 29px;
+  }
+}
 .e-text-img {
   font-family: Red Hat Text, sans-serif;
   font-size: 18px;
@@ -12368,6 +12384,16 @@ THE SOFTWARE.
   text-transform: unset;
 }
 
+.e-text-md {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+}
+
 .e-text-caps {
   font-family: Red Hat Text, sans-serif;
   font-size: 14px;
@@ -12379,6 +12405,16 @@ THE SOFTWARE.
 }
 
 .e-text-info {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+}
+
+.e-text-sm {
   font-family: Red Hat Text, sans-serif;
   font-size: 14px;
   line-height: 22px;
