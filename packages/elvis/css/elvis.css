@@ -6648,17 +6648,6 @@ input:focus {
   border-color: #000;
 }
 
-@media (max-width: 1023px) {
-  .e-checkbox input:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
-    background-color: #fff;
-  }
-}
-@media (max-width: 1023px) {
-  .e-checkbox input:hover:not(:disabled):not(:invalid):checked ~ .e-checkbox__mark {
-    background-color: #29d305;
-    border-color: #000;
-  }
-}
 .e-checkbox input:disabled ~ .e-checkbox__mark {
   border-color: #bdbdbd;
   background-color: #f4f4f4;

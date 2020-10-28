@@ -3,7 +3,6 @@
 @use '../../variables/animation.scss';
 @use "../../variables/colors";
 @use "../../variables/typography";
-@use "../../utilities/breakpoints";
 
 $checkbox-mark-size: 24px;
 $checkbox-mark-small-size: 16px;
@@ -133,21 +132,6 @@ $checkbox-mark-border: 1px solid colors.color('black');
     &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
       background-color: colors.color('green');
       border-color: colors.color('black');
-
-      // Hover state causes the green background to stick on mobile/Tablet.
-      // Fixes this by making bakground color white here.
-      @include breakpoints.breakpoint-up(Tablet) {
-        background-color: colors.color('white');
-      }
-    }
-    // Hover state here has higher css specificty than checked.
-    // We override this here by adding :checked state on mobile/tablet so the when checkbox
-    // is checked we get the elvia green bakground.
-    @include breakpoints.breakpoint-up(Tablet) {
-      &:hover:not(:disabled):not(:invalid):checked ~ .e-checkbox__mark {
-        background-color: colors.color('green');
-        border-color: colors.color('black');
-      }
     }
 
     &:disabled ~ .e-checkbox__mark {
