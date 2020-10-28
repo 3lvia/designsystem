@@ -6950,9 +6950,12 @@ input:focus {
   font-size: 14px;
 }
 
-.e-form-field.e-form-field--compact .e-search--local .e-input input,
 .e-form-field.e-form-field--compact .e-search--local .e-input input:invalid,
-.e-form-field.e-form-field--compact .e-search--local .e-input input:focus,
+.e-form-field.e-form-field--compact .e-search--local .e-input input:focus {
+  padding: 4px 35px 4px 9px;
+}
+
+.e-form-field.e-form-field--compact .e-search--local .e-input input,
 .e-form-field.e-form-field--compact .e-search--local .e-input input:disabled {
   padding: 5px 36px 5px 10px;
 }
@@ -7014,13 +7017,15 @@ input:focus {
 .e-form-field.e-form-field--compact .e-input.e-input---invalid input, .e-form-field.e-form-field--compact .e-input.e-input---invalid textarea,
 .e-form-field.e-form-field--compact .e-input input:invalid,
 .e-form-field.e-form-field--compact .e-input textarea:invalid {
-  border: 1px solid #ff0000;
+  border: 2px solid #ff0000;
+  padding: 4px 9px;
 }
 
 .e-form-field.e-form-field--compact .e-input.e-input---focus input, .e-form-field.e-form-field--compact .e-input.e-input---focus textarea,
 .e-form-field.e-form-field--compact .e-input > input:focus,
 .e-form-field.e-form-field--compact .e-input > textarea:focus {
-  border: 1px solid #29d305;
+  border: 2px solid #29d305;
+  padding: 4px 9px;
 }
 
 .e-form-field.e-form-field--compact .e-input > i ~ input,
