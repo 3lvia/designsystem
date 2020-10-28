@@ -12,8 +12,8 @@ export class TypographyDocComponent implements OnInit {
   @ViewChildren('mobileTypography') mobileTypography: QueryList<ElementRef>;
 
   typographyClasses = [];
-  figmaUrl = getIdentity('typography-doc').figmaUrl;
-  description = getIdentity('typography-doc').description;
+  figmaUrl = getIdentity('typography').figmaUrl;
+  description = getIdentity('typography').description;
 
   isDesktop = true;
   isMobile = false;

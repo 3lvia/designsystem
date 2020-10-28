@@ -14,15 +14,23 @@
     style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-chip-container">
-      <div class="e-chip">
+      <button class="e-chip" id="chip-1" (click)="closeChipsTemporarily('chip-1')">
         <div class="e-chip__label">Chip</div>
-      </div>
-      <div class="e-chip e-chip--green-apple">
+        <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
+      </button>
+      <button class="e-chip e-chip--blue-berry" id="chip-2" (click)="closeChipsTemporarily('chip-2')">
         <div class="e-chip__label">Chip</div>
-      </div>
-      <div class="e-chip e-chip--violet-grape">
+        <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
+      </button>
+      <button
+        class="e-chip e-chip--violet-grape"
+        disabled
+        id="chip-3"
+        (click)="closeChipsTemporarily('chip-3')"
+      >
         <div class="e-chip__label">Chip</div>
-      </div>
+        <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
+      </button>
     </div>
     <div class="e-w-100">
       <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
@@ -38,8 +46,10 @@
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Colored'">
+      <app-component-subsection [sectionTitle]="'Color variants'">
         <ng-container ngProjectAs="sectionContent">
+          In case you want to categorize chips you can use different colors to distinguish them from each
+          other. All colors can be used!
           <app-code-block [codeHTML]="exampleColors"></app-code-block>
         </ng-container>
       </app-component-subsection>

@@ -14,6 +14,9 @@ export interface Step {
 })
 export class StepperDocComponent implements OnInit {
 
+  figmaUrl = getComponent('stepper').figmaUrl;
+  description = getComponent('stepper').description;
+
   exampleShortHorizontalHTML = `<div class="e-stepper e-stepper--horizontal">
   <div class="e-stepper__steps">
 
@@ -458,9 +461,6 @@ export class StepperDocComponent implements OnInit {
   </div>
 </div>
 `;
-
-  figmaUrl = getComponent('stepper-doc').figmaUrl;
-  description = getComponent('stepper-doc').description;
 
   shortSteps: Step[] = [
     { number: 1, title: 'Create payment', status: 'done' },
