@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./label-doc.component.scss'],
 })
 export class LabelDocComponent {
-  figmaUrl = getComponent('label-doc').figmaUrl;
-  description = getComponent('label-doc').description;
+  figmaUrl = getComponent('label').figmaUrl;
+  description = getComponent('label').description;
   headerDoes = ['When you need to categorize or view the status of items.'];
   headerDonts = [
     'Do not use label alone without pairing it with an item.',

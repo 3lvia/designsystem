@@ -5,18 +5,18 @@ import * as ReactPopoverComponent from '../../react/js/elvia-popover.js';
 const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaPopover extends HTMLElement {
-  static get observedAttributes() {
-    return ['title'];
+  mountPoint!: HTMLSpanElement;
+  static get observedAttributes(): string[] {
+    return ['title', 'description'];
   }
 
-  mountPoint = document.createElement('span');
-
-  createPopover(title?: string) {
-    const data = { title };
+  createPopover(title: string, description: string): React.ReactElement {
+    const data = { title, description };
     return React.createElement(ReactPopoverComponent.Popover, data, React.createElement('slot'));
   }
 
-  connectedCallback() {
+  connectedCallback(): void {
+    this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
 
@@ -24,17 +24,18 @@ export default class ElviaPopover extends HTMLElement {
     shadowRoot.appendChild(this.mountPoint);
     shadowRoot.appendChild(styleTag);
 
-    const title = this.getAttribute('title');
-    ReactDOM.render(this.createPopover(title), this.mountPoint);
+    this.renderReactDOM();
     retargetEvents(shadowRoot);
   }
 
-  attributeChangedCallback(name: string, oldValue: any, newValue: any) {
-    console.log("attributeChangedCallback");
-    console.log(oldValue, newValue);
-    if (name === 'title') {
-      ReactDOM.render(this.createPopover(newValue), this.mountPoint);
-    }
+  attributeChangedCallback(): void {
+    this.renderReactDOM();
+  }
+
+  renderReactDOM(): void {
+    const title = this.getAttribute('title')!;
+    const description = this.getAttribute('description')!;
+    ReactDOM.render(this.createPopover(title, description), this.mountPoint);
   }
 }
 

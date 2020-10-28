@@ -9,7 +9,7 @@ import { getGetStarted } from 'src/app/shared/e-items';
   styleUrls: ['./new-project.component.scss'],
 })
 export class NewProjectComponent implements OnInit {
-  description = getGetStarted('new-project-doc').description;
+  description = getGetStarted('new-project').description;
   linkTagCode = '';
   scriptTagCode = '';
   fullExampleCode = '';

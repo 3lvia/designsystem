@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import '../../../../components/elvia-popover/dist/web_component/js/elvia-popover';
-//import { default as PopoverWebComponent } from '@elvia/popover/dist/web_component/js/elvia-popover';
-import { from } from 'rxjs';
+import { Popover } from '@elvia/popover/web_component';
+
+Popover;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'angular';

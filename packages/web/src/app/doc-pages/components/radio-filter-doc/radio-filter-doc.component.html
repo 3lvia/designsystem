@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Radio Filter
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Radio Filter</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,33 +11,26 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
-    <div class="e-radio-filter-container">
-      <button
-        class="e-radio-filter"
-        (click)="selected = 'label1'"
-        [ngClass]="{ 'e-radio-filter--selected': selected === 'label1' }"
-      >
-        Filter 1
-      </button>
-      <button
-        class="e-radio-filter"
-        (click)="selected = 'label2'"
-        [ngClass]="{ 'e-radio-filter--selected': selected === 'label2' }"
-      >
-        Filter 2
-      </button>
-      <button class="e-radio-filter e-radio-filter---disabled">
-        Filter 3
-      </button>
+    <div class="e-radio-filter">
+      <input type="radio" id="radio-filter-1" name="radio-filter" checked />
+      <label for="radio-filter-1" data-value="Filter 1">
+        <span class="e-radio-filter__label">Filter 1</span>
+      </label>
+
+      <input type="radio" id="radio-filter-2" name="radio-filter" />
+      <label for="radio-filter-2" data-value="Filter 2">
+        <span class="e-radio-filter__label">Filter 2</span>
+      </label>
+
+      <input type="radio" id="radio-filter-3" name="radio-filter" disabled />
+      <label for="radio-filter-3" data-value="Filter 2">
+        <span class="e-radio-filter__label">Filter 3</span>
+      </label>
     </div>
     <div class="e-w-100">
-      <app-code-block
-        [showPreview]="false"
-        [codeHTML]="RadioFilter"
-        [codeTS]="RadioFilterTS"
-      ></app-code-block>
+      <app-code-block [showPreview]="false" [codeHTML]="RadioFilter"></app-code-block>
     </div>
   </div>
 

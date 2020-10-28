@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./content-loader-doc.component.scss'],
 })
 export class ContentLoaderDocComponent {
-  figmaUrl = getComponent('content-loader-doc').figmaUrl;
-  description = getComponent('content-loader-doc').description;
+  figmaUrl = getComponent('content-loader').figmaUrl;
+  description = getComponent('content-loader').description;
 
   exampleOverview = `<div class="e-mt-48 e-mb-72 e-w-100" style="display: flex; flex-direction: row; flex-wrap: wrap">
   <div class="e-mr-24" style="display: flex; flex-direction: column;">

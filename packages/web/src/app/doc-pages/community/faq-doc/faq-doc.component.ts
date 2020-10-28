@@ -12,7 +12,7 @@ export class FaqDocComponent {
   @ViewChild('bugs') bugs: ElementRef;
   @ViewChild('browsers') browsers: ElementRef;
 
-  description = getCommunity('faq-doc').description;
+  description = getCommunity('faq').description;
 
   toggleOpen(id: string): void {
     if (id === 'contribute') {

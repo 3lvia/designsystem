@@ -7,8 +7,8 @@ import { getIdentity } from 'src/app/shared/e-items';
   styleUrls: ['./shadow-doc.component.scss'],
 })
 export class ShadowDocComponent {
-  figmaUrl = getIdentity('shadow-doc').figmaUrl;
-  description = getIdentity('shadow-doc').description;
+  figmaUrl = getIdentity('shadow').figmaUrl;
+  description = getIdentity('shadow').description;
 
   doCodeCSS = `box-shadow: var(--e-shadow-6);
 box-shadow: none;`;

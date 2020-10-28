@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./list-doc.component.scss'],
 })
 export class ListDocComponent {
-  figmaUrl = getComponent('list-doc').figmaUrl;
-  description = getComponent('list-doc').description;
+  figmaUrl = getComponent('list').figmaUrl;
+  description = getComponent('list').description;
   doesExample1 = ['Items that are in no required order.'];
   doesExample3 = [
     'When you need to have a priority or hierarchy between list items',
