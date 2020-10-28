@@ -1,18 +1,19 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events';
-import * as ReactPopoverComponent from '../../react/js/elvia-popover.js';
+import * as ReactCheckboxComponent from '../../react/js/elvia-checkbox.js';
+import { Checkbox } from '@elvia/checkbox/web_component';
 const style = `{{INSERT_STYLE_HERE}}`;
 
-export default class ElviaPopover extends HTMLElement {
+export default class ElviaCheckbox extends HTMLElement {
   mountPoint!: HTMLSpanElement;
   static get observedAttributes(): string[] {
-    return ['title', 'description'];
+    return ['label', 'name', 'value'];
   }
 
-  createPopover(title: string, description: string): React.ReactElement {
-    const data = { title, description };
-    return React.createElement(ReactPopoverComponent.Popover, data, React.createElement('slot'));
+  createCheckbox(label: string, name: string, value: string): React.ReactElement {
+    const data = { label, name, value };
+    return React.createElement(ReactCheckboxComponent.Checkbox, data, React.createElement('slot'));
   }
 
   connectedCallback(): void {
@@ -33,10 +34,11 @@ export default class ElviaPopover extends HTMLElement {
   }
 
   renderReactDOM(): void {
-    const title = this.getAttribute('title')!;
-    const description = this.getAttribute('description')!;
-    ReactDOM.render(this.createPopover(title, description), this.mountPoint);
+    const label = this.getAttribute('label')!;
+    const name = this.getAttribute('name')!;
+    const value = this.getAttribute('value')!;
+    ReactDOM.render(this.createCheckbox(label, name, value), this.mountPoint);
   }
 }
 
-window.customElements.define('elvia-checkbox', ElviaPopover);
+window.customElements.define('elvia-checkbox', ElviaCheckbox);

@@ -1,8 +1,3 @@
-$checkbox-mark-size: 24px;
-$checkbox-mark-small-size: 16px;
-$checkbox-mark-border-radius: 3px;
-$checkbox-mark-border: 1px solid $black;
-
 // colors
 $black: #000;
 $green: #29d305;
@@ -11,6 +6,14 @@ $grey-30:#bdbdbd;
 $grey-70:#676767;
 $red: #ff0000;
 $white: #fff;
+
+$checkbox-mark-size: 24px;
+$checkbox-mark-small-size: 16px;
+$checkbox-mark-border-radius: 3px;
+$checkbox-mark-border: 1px solid $black;
+
+// animation
+$transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
 
 .e-checkbox {
   display: flex;
@@ -79,7 +82,7 @@ $white: #fff;
   &.e-checkbox---focus {
     .e-checkbox__mark {
       // TODO
-      @include outline.e-outline-pseudoclass();
+      // @include outline.e-outline-pseudoclass();
     }
   }
 
@@ -136,7 +139,8 @@ $white: #fff;
     }
 
     &:focus ~ .e-checkbox__mark {
-      @include outline.e-outline();
+      // Finn løsning her
+      // @include outline.e-outline();
     }
 
     &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
@@ -249,7 +253,7 @@ $white: #fff;
     min-height: $checkbox-mark-size;
     max-width: $checkbox-mark-size;
     max-height: $checkbox-mark-size;
-    transition: background 0.2s animation.$transition-cubic;
+    transition: background 0.2s $transition-cubic;
     border: $checkbox-mark-border;
     border-radius: $checkbox-mark-border-radius;
     background: $white;
