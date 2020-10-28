@@ -13,7 +13,8 @@
     "lint-elvis": "npx prettier --write 'packages/elvis/**/*.js'",
     "lint-doc": "npx prettier --write 'packages/web/src/**/*.ts'",
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
-    "lint-all": "npm run lint-elvis && npm run lint-doc && npm run eslint"
+    "lint-all": "npm run lint-elvis && npm run lint-doc && npm run eslint",
+    "percy": "cd packages/elvis; npm run percyTest"
   },
   "lint-staged": {
     "packages/elvis/**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
@@ -41,12 +42,14 @@
     "tslib": "^2.0.0"
   },
   "devDependencies": {
+    "@percy/script": "^1.1.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "codelyzer": "^5.2.2",
     "commitizen": "^4.2.2",
     "cz-conventional-changelog": "^3.2.0",
     "del": "^5.1.0",
     "eslint": "^7.1.0",
+    "express": "^4.17.1",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
     "lint-staged": "^10.2.7",
