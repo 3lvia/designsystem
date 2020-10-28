@@ -7344,6 +7344,10 @@ input:focus {
   height: 16px;
 }
 
+.e-radio:hover .e-radio__mark {
+  background: #29d305;
+}
+
 .e-radio input {
   opacity: 0;
   outline: none;
@@ -7439,10 +7443,6 @@ input:focus {
   border: 1px solid #000;
   border-radius: 14px;
   background: #fff;
-}
-
-.e-radio__mark:hover {
-  background: #29d305;
 }
 
 .e-radio.e-radio---disabled .e-radio__mark {
