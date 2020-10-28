@@ -26,10 +26,13 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, trigger })
 
   return (
     <span className='ewc-popover ewc-popover--bottom ewc-popover--right' id='popover'>
-      <div className='ewc-popover__trigger' onClick={togglePopover}>{trigger}</div>
-      <slot className='ewc-popover__trigger' name="trigger" onClick={togglePopover}></slot>
+      <div className='ewc-popover__trigger'>
+        {trigger && <div onClick={togglePopover}>{trigger}</div>}
+        {!trigger && <slot name="trigger" onClick={togglePopover}></slot>}
+        {visiblePopover && <div className="ewc-popover__arrow"></div>}
+      </div>
 
-      {visiblePopover ? (
+      {visiblePopover &&
         <div className='ewc-popover__content' id='popoverContent'>
           <div className='ewc-popover__close'>
             <button
@@ -46,7 +49,7 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, trigger })
             {description}
           </div>
         </div>
-      ) : ('')}
+      }
     </span>
   );
 };

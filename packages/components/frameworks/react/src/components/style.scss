@@ -17,7 +17,7 @@ $sizes: (
 $popover-border-width: 1px;
 $popover-padding: 24px;
 $popover-arrow-size: 12px;
-$popover-arrow-size-small: calc(#{$popover-arrow-size} - (#{$popover-border-width} * 2));
+$popover-arrow-size-small: calc(#{$popover-arrow-size} - #{$popover-border-width});
 $popover-arrow-offset: 25px; // Midtstilt i forhold til ikon 16X16px (xs)
 $popover-button-offset: -30px;
 
@@ -33,20 +33,54 @@ $green: #29d305;
   height: 0;
   bottom: 0;
 }
+%arrow-after-style {
+  z-index: 100;
+  transform: rotate(45deg);
+  background: white;
+}
 
 .ewc-popover {
-  display: inline-block;
+  display: inline-flex;
   box-sizing: border-box;
   position: relative;
-  display: flex;
   flex-direction: column;
 
   &__trigger {
+    position: relative;
     display: flex;
+    flex-direction: column;
+    .ewc-popover__arrow {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      &::before {
+        @extend %ewc-popover__widget;
+        border: $popover-arrow-size solid;
+      }
+      &::after {
+        @extend %ewc-popover__widget;
+        z-index: 100;
+        transform: rotate(45deg);
+        background: white;
+        border: $popover-arrow-size-small solid;
+      }
+
+      animation: fadeIn 100ms ease-in;
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   &__content {
     display: block;
+    left: 50%;
     opacity: 1;
     z-index: 99;
     pointer-events: all;
@@ -59,7 +93,7 @@ $green: #29d305;
     border: 1px solid $green;
     border-radius: 8px;
     text-align: left;
-    animation: fadeIn 300ms ease-in;
+    animation: fadeIn 200ms ease-in;
 
     @keyframes fadeIn {
       0% {
@@ -104,137 +138,82 @@ $green: #29d305;
       font-size: 14px;
       line-height: 22px;
     }
-
-    &::before {
-      @extend %ewc-popover__widget;
-      border: $popover-arrow-size solid;
-    }
-    &::after {
-      @extend %ewc-popover__widget;
-      border: $popover-arrow-size-small solid;
-    }
   }
 
   // Modifiers for alignment of popover
   // Top aligned (Default)
   &:not(.ewc-popover--bottom) {
     .ewc-popover__content {
-      bottom: 150%;
+      bottom: 36px;
       margin-bottom: 8px;
+    }
+    .ewc-popover__arrow {
       &::before {
-        bottom: calc(#{$popover-arrow-size} * -2);
+        top: -23px;
         border-color: $green transparent transparent transparent;
       }
       &::after {
-        bottom: calc((#{$popover-arrow-size-small} * -2));
+        @extend %arrow-after-style;
+        top: -39px;
         border-color: white transparent transparent transparent;
+      }
+    }
+  }
+  // Bottom aligned
+  &.ewc-popover--bottom {
+    .ewc-popover__content {
+      top: 36px;
+      margin-top: 6px;
+    }
+    .ewc-popover__arrow {
+      &::before {
+        bottom: -22px;
+        border-color: transparent transparent $green transparent;
+      }
+      &::after {
+        bottom: -38px;
+        border-color: transparent transparent white transparent;
+        @extend %arrow-after-style;
       }
     }
   }
   // Center aligned (Default)
   &:not(.ewc-popover--left):not(.ewc-popover--left-50):not(.ewc-popover--right):not(.ewc-popover--right-50) {
     .ewc-popover__content {
-      left: 50%;
       transform: translate(-50%, 0);
+    }
+    .ewc-popover__arrow {
       &::before {
         left: calc(50% - (#{$popover-arrow-offset} / 2));
       }
       &::after {
-        left: calc(50% - (#{$popover-arrow-offset} / 2) + 2px);
+        left: calc(50% - (#{$popover-arrow-offset} / 2) + 1px);
+        @extend %arrow-after-style;
       }
-    }
-  }
-  // Bottom aligned
-  &.ewc-popover--bottom .ewc-popover__content {
-    top: 150%;
-    margin-top: 6px;
-    &::before {
-      top: calc(#{$popover-arrow-size} * -2);
-      border-color: transparent transparent $green transparent;
-    }
-    &::after {
-      top: calc((#{$popover-arrow-size-small} * -2));
-      border-color: transparent transparent white transparent;
     }
   }
   // Left aligned
-  &.ewc-popover--left .ewc-popover__content {
-    transform: translateX(-87%);
-    // adding pixels to center and fit the arrows to relative point
-    &:after {
-      left: calc(100% - #{$popover-arrow-offset} - 24px);
-    }
-    &:before {
-      left: calc(100% - #{$popover-arrow-offset} - 2px - 24px);
-    }
-    @media (max-width: 767px) {
-      transform: translateX(-83.5%);
-      &:after {
-        left: calc(100% - #{$popover-arrow-offset} - 21px);
-      }
-      &:before {
-        left: calc(100% - #{$popover-arrow-offset} - 2px - 21px);
-      }
+  &.ewc-popover--left {
+    .ewc-popover__content {
+      transform: translateX(-87%);
     }
   }
   // Left-50 aligned
-  &.ewc-popover--left-50 .ewc-popover__content {
-    transform: translateX(-62%);
-    // adding pixels to center and fit the arrows to relative point
-    &:after {
-      left: calc(75% - #{$popover-arrow-offset} - 24px);
-    }
-    &:before {
-      left: calc(75% - #{$popover-arrow-offset} - 2px - 24px);
-    }
-    @media (max-width: 767px) {
-      transform: translateX(-58.5%);
-      &:after {
-        left: calc(75% - #{$popover-arrow-offset} - 21px);
-      }
-      &:before {
-        left: calc(75% - #{$popover-arrow-offset} - 2px - 21px);
-      }
+  &.ewc-popover--left-50 {
+    .ewc-popover__content {
+      transform: translateX(-62%);
     }
   }
   // Right aligned
-  &.ewc-popover--right .ewc-popover__content {
-    transform: translateX(-7%);
-    // adding pixels to center and fit the arrows to relative point
-    &:after {
-      left: calc(#{$popover-arrow-offset} + 4px);
-    }
-    &:before {
-      left: calc(#{$popover-arrow-offset} + 2px);
-    }
-    @media (max-width: 767px) {
-      transform: translateX(-8.7%);
-      &:after {
-        left: calc(#{$popover-arrow-offset} + 2px);
-      }
-      &:before {
-        left: #{$popover-arrow-offset};
-      }
+  &.ewc-popover--right {
+    .ewc-popover__content {
+      transform: translateX(-9%);
     }
   }
   // Right-50 aligned
-  &.ewc-popover--right-50 .ewc-popover__content {
-    transform: translateX(-32%);
-    // adding pixels to center and fit the arrows to relative point
-    &:after {
-      left: calc(38% - #{$popover-arrow-offset} + 4px);
-    }
-    &:before {
-      left: calc(38% - #{$popover-arrow-offset} + 2px);
-    }
-    @media (max-width: 767px) {
-      transform: translateX(-33.7%);
-      &:after {
-        left: calc(42% - #{$popover-arrow-offset} + 2px);
-      }
-      &:before {
-        left: calc(42% - #{$popover-arrow-offset});
-      }
+  &.ewc-popover--right-50 {
+    .ewc-popover__content {
+      transform: translateX(-32%);
     }
   }
 
