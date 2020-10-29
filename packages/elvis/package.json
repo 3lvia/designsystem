@@ -6,7 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp",
-    "watch": "gulp watch"
+    "watch": "gulp watch",
+    "percyServer": "node testing/server.js",
+    "percyStart": "percy exec -- node testing/snapshots.js",
+    "percyTest": "npm run percyServer &  npm run percyStart"
   },
   "author": "",
   "license": "ISC",
