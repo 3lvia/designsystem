@@ -31,6 +31,19 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
     margin-bottom: 12px;
   }
 
+  &.is-Touch {
+    input {
+      &:checked ~ .ewc-checkbox__mark {
+        background-color: $green
+      }
+      &:hover:not(:disabled):not(:invalid):not(:checked) ~ .ewc-checkbox__mark {
+        background-color: $white;
+        border-color: $black;
+      }
+    }
+
+  }
+
   &.ewc-checkbox--sm {
     .ewc-checkbox__mark {
       min-width: $checkbox-mark-small-size;
@@ -139,6 +152,8 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
       @extend %checkbox-mark;
       border-color: $black;
     }
+
+  
 
     &:focus ~ .ewc-checkbox__mark {
       // Finn løsning her

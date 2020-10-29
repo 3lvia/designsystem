@@ -1,6 +1,11 @@
 import * as React from 'react';
 import './style.scss';
 
+function isTouchDevice() {
+  return 'ontouchstart' in window;
+}
+const touchDevice =  isTouchDevice();
+
 export interface CheckboxProps {
   label: string;
   name?: string | "";
@@ -10,6 +15,7 @@ export interface CheckboxProps {
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({ label, name, value, id, size }) => {
+
   React.useEffect(() => {
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
@@ -18,8 +24,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({ label, name, value, id, size
     document.head.appendChild(link);
   }, []);
 
+  const classes = ['ewc-checkbox', size === "small" ? 'ewc-checkbox--sm' : '', touchDevice ? 'is-Touch' : ''].join(' ');
+
   return (
-  <label className={size === "small" ? 'ewc-checkbox ewc-checkbox--sm' : 'ewc-checkbox'}>
+  <label className={classes} >
       <input type="checkbox" name={name} value={value || ''} id={id} />
       <span className="ewc-checkbox__mark"></span>
       <span className="ewc-checkbox__label">{label}</span>
