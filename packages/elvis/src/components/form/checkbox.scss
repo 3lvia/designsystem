@@ -10,8 +10,6 @@ $checkbox-mark-border-radius: 3px;
 $checkbox-mark-border: 1px solid colors.color('black');
 
 .e-checkbox {
-  // Variable containing '&' to jump to current parent inside a child class.
-  $this: &;
   display: flex;
   align-items: center;
   width: fit-content;
@@ -43,11 +41,11 @@ $checkbox-mark-border: 1px solid colors.color('black');
       position: absolute;
       z-index: -1;
 
-      &:checked ~ #{$this}__mark {
+      &:checked ~ .e-checkbox__mark {
         @extend %checkbox-mark-small;
       }
 
-      &:disabled:checked ~ #{$this}__mark {
+      &:disabled:checked ~ .e-checkbox__mark {
         border-color: colors.color('grey-30');
         background-color: colors.color('grey-05');
         cursor: not-allowed;
@@ -70,27 +68,27 @@ $checkbox-mark-border: 1px solid colors.color('black');
   }
 
   &.e-checkbox---focus {
-    #{$this}__mark {
+    .e-checkbox__mark {
       @include outline.e-outline-pseudoclass();
     }
   }
 
   &.e-checkbox---hover:not(:disabled):not(:invalid) {
-    #{$this}__mark {
+    .e-checkbox__mark {
       background-color: colors.color('green');
       border-color: colors.color('black');
     }
   }
 
   &.e-checkbox---disabled {
-    #{$this}__mark {
+    .e-checkbox__mark {
       border-color: colors.color('grey-30');
       background-color: colors.color('grey-05');
       cursor: not-allowed;
     }
   }
   &.e-checkbox---disabled-checked {
-    #{$this}__mark {
+    .e-checkbox__mark {
       @extend %checkbox-mark;
       border-color: colors.color('grey-30') !important;
       background-color: colors.color('grey-05') !important;
@@ -101,7 +99,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
         background-color: colors.color('grey-30') !important;
       }
     }
-    #{$this}__label {
+    .e-checkbox__label {
       color: colors.color('grey-70');
     }
   }
@@ -111,7 +109,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
   }
 
   &.e-checkbox---invalid {
-    #{$this}__mark {
+    .e-checkbox__mark {
       border-color: colors.color('red');
     }
   }
@@ -122,30 +120,30 @@ $checkbox-mark-border: 1px solid colors.color('black');
     position: absolute;
     z-index: -1;
 
-    &:checked ~ #{$this}__mark {
+    &:checked ~ .e-checkbox__mark {
       @extend %checkbox-mark;
       border-color: colors.color('black');
     }
 
-    &:focus ~ #{$this}__mark {
+    &:focus ~ .e-checkbox__mark {
       @include outline.e-outline();
     }
 
-    &:hover:not(:disabled):not(:invalid) ~ #{$this}__mark {
+    &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
       background-color: colors.color('green');
       border-color: colors.color('black');
     }
 
-    &:disabled ~ #{$this}__mark {
+    &:disabled ~ .e-checkbox__mark {
       border-color: colors.color('grey-30');
       background-color: colors.color('grey-05');
       cursor: not-allowed;
     }
-    &:disabled ~ #{$this}__label {
+    &:disabled ~ .e-checkbox__label {
       color: colors.color('grey-70');
     }
 
-    &:disabled:checked ~ #{$this}__mark {
+    &:disabled:checked ~ .e-checkbox__mark {
       border-color: colors.color('grey-30');
       background-color: colors.color('grey-05');
       cursor: not-allowed;
@@ -155,11 +153,11 @@ $checkbox-mark-border: 1px solid colors.color('black');
         background-color: colors.color('grey-30');
       }
     }
-    &:disabled ~ #{$this}__label {
+    &:disabled ~ .e-checkbox__label {
       color: colors.color('grey-70');
     }
 
-    &:invalid ~ #{$this}__mark {
+    &:invalid ~ .e-checkbox__mark {
       border-color: colors.color('red');
     }
   }
