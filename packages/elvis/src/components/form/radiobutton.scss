@@ -83,6 +83,10 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
     }
   }
 
+  &:hover &__mark {
+    background: colors.color('green');
+  }
+
   // Hide defualt radiostyle and put in placeholder style
   input {
     opacity: 0;
@@ -173,16 +177,11 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
 
   &__mark {
     display: inline-block;
-
     width: $form-radiobutton-mark-size;
     height: $form-radiobutton-mark-size;
     border: $form-radiobutton-mark-border;
     border-radius: $form-radiobutton-mark-border-radius;
     background: colors.color('white');
-
-    &:hover {
-      background: colors.color('green');
-    }
   }
 
   // pseudoclasses
