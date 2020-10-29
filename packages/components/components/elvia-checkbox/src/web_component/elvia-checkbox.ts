@@ -8,11 +8,11 @@ const style = `{{INSERT_STYLE_HERE}}`;
 export default class ElviaCheckbox extends HTMLElement {
   mountPoint!: HTMLSpanElement;
   static get observedAttributes(): string[] {
-    return ['label', 'name', 'value'];
+    return ['label', 'name', 'value', 'id', 'size'];
   }
 
-  createCheckbox(label: string, name: string, value: string): React.ReactElement {
-    const data = { label, name, value };
+  createCheckbox(label: string, name: string, value: string, id: string, size: string): React.ReactElement {
+    const data = { label, name, value, id, size };
     return React.createElement(ReactCheckboxComponent.Checkbox, data, React.createElement('slot'));
   }
 
@@ -37,7 +37,9 @@ export default class ElviaCheckbox extends HTMLElement {
     const label = this.getAttribute('label')!;
     const name = this.getAttribute('name')!;
     const value = this.getAttribute('value')!;
-    ReactDOM.render(this.createCheckbox(label, name, value), this.mountPoint);
+    const id = this.getAttribute('id')!;
+    const size = this.getAttribute('size')!;
+    ReactDOM.render(this.createCheckbox(label, name, value, id, size), this.mountPoint);
   }
 }
 

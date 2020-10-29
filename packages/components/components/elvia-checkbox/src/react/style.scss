@@ -15,29 +15,31 @@ $checkbox-mark-border: 1px solid $black;
 // animation
 $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
 
-.e-checkbox {
+.ewc-checkbox {
   display: flex;
   align-items: center;
   width: fit-content;
   box-sizing: border-box;
   cursor: pointer;
+  margin-bottom: 12px;
+
   // IE hack
   @media screen and (-ms-high-contrast: none) {
     width: 100%;
   }
-  &:not(:last-child) {
+  &:last-child {
     margin-bottom: 12px;
   }
 
-  &.e-checkbox--sm {
-    .e-checkbox__mark {
+  &.ewc-checkbox--sm {
+    .ewc-checkbox__mark {
       min-width: $checkbox-mark-small-size;
       min-height: $checkbox-mark-small-size;
       max-width: $checkbox-mark-small-size;
       max-height: $checkbox-mark-small-size;
     }
 
-    .e-checkbox__label {
+    .ewc-checkbox__label {
       font-family: 'Red Hat Text', sans-serif;
       font-size: 14px;
       // line-height: 22px;
@@ -53,11 +55,11 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
       position: absolute;
       z-index: -1;
 
-      &:checked ~ .e-checkbox__mark {
+      &:checked ~ .ewc-checkbox__mark {
         @extend %checkbox-mark-small;
       }
 
-      &:disabled:checked ~ .e-checkbox__mark {
+      &:disabled:checked ~ .ewc-checkbox__mark {
         border-color: $grey-30;
         background-color: $grey-05;
         cursor: not-allowed;
@@ -71,37 +73,37 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
   }
 
   // pseudo classes to emulate state.
-  &.e-checkbox---checked &__mark {
+  &.ewc-checkbox---checked &__mark {
     @extend %checkbox-mark;
   }
   // extends correct checkbox mark on small checkboxes in pseudoclass
-  &.e-checkbox--sm[class$='e-checkbox---checked'] &__mark {
+  &.ewc-checkbox--sm[class$='e-checkbox---checked'] &__mark {
     @extend %checkbox-mark-small;
   }
 
-  &.e-checkbox---focus {
-    .e-checkbox__mark {
+  &.ewc-checkbox---focus {
+    .ewc-checkbox__mark {
       // TODO
       // @include outline.e-outline-pseudoclass();
     }
   }
 
-  &.e-checkbox---hover:not(:disabled):not(:invalid) {
-    .e-checkbox__mark {
+  &.ewc-checkbox---hover:not(:disabled):not(:invalid) {
+    .ewc-checkbox__mark {
       background-color: $grey-30;
       border-color: $black;
     }
   }
 
-  &.e-checkbox---disabled {
-    .e-checkbox__mark {
+  &.ewc-checkbox---disabled {
+    .ewc-checkbox__mark {
       border-color: $grey-30;
       background-color: $grey-05;
       cursor: not-allowed;
     }
   }
-  &.e-checkbox---disabled-checked {
-    .e-checkbox__mark {
+  &.ewc-checkbox---disabled-checked {
+    .ewc-checkbox__mark {
       @extend %checkbox-mark;
       border-color: $grey-30 !important;
       background-color: $grey-05 !important;
@@ -112,17 +114,17 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
         background-color: $grey-30 !important;
       }
     }
-    .e-checkbox__label {
+    .ewc-checkbox__label {
       color: $grey-70;
     }
   }
   // extends correct checkbox mark on small checkboxes in pseudoclass
-  &.e-checkbox--sm[class$='disabled-checked'] &__mark {
+  &.ewc-checkbox--sm[class$='disabled-checked'] &__mark {
     @extend %checkbox-mark-small;
   }
 
-  &.e-checkbox---invalid {
-    .e-checkbox__mark {
+  &.ewc-checkbox---invalid {
+    .ewc-checkbox__mark {
       border-color: $red;
     }
   }
@@ -133,31 +135,31 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
     position: absolute;
     z-index: -1;
 
-    &:checked ~ .e-checkbox__mark {
+    &:checked ~ .ewc-checkbox__mark {
       @extend %checkbox-mark;
       border-color: $black;
     }
 
-    &:focus ~ .e-checkbox__mark {
+    &:focus ~ .ewc-checkbox__mark {
       // Finn løsning her
       // @include outline.e-outline();
     }
 
-    &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
+    &:hover:not(:disabled):not(:invalid) ~ .ewc-checkbox__mark {
       background-color: $green;
       border-color: $black;
     }
 
-    &:disabled ~ .e-checkbox__mark {
+    &:disabled ~ .ewc-checkbox__mark {
       border-color: $grey-30;
       background-color: $grey-05;
       cursor: not-allowed;
     }
-    &:disabled ~ .e-checkbox__label {
+    &:disabled ~ .ewc-checkbox__label {
       color: $grey-70;
     }
 
-    &:disabled:checked ~ .e-checkbox__mark {
+    &:disabled:checked ~ .ewc-checkbox__mark {
       border-color: $grey-30;
       background-color: $grey-05;
       cursor: not-allowed;
@@ -167,11 +169,11 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
         background-color: $grey-30;
       }
     }
-    &:disabled ~ .e-checkbox__label {
+    &:disabled ~ .ewc-checkbox__label {
       color: $grey-70;
     }
 
-    &:invalid ~ .e-checkbox__mark {
+    &:invalid ~ .ewc-checkbox__mark {
       border-color: $red;
     }
   }
@@ -248,7 +250,7 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
   &__mark {
     display: inline-flex;
     align-self: flex-start;
-
+    box-sizing: border-box;
     min-width: $checkbox-mark-size;
     min-height: $checkbox-mark-size;
     max-width: $checkbox-mark-size;
