@@ -2381,6 +2381,7 @@ input:focus {
 }
 
 .e-radio-filter label {
+  display: flex;
   padding: 4px 11px;
   border: 1px solid transparent;
   border-radius: 32px;
@@ -2389,14 +2390,11 @@ input:focus {
 }
 
 .e-radio-filter label .e-radio-filter__label {
-  font-family: Red Hat Text, sans-serif;
+  font-family: "Red Hat Display";
+  font-style: normal;
+  font-weight: 500;
   font-size: 16px;
   line-height: 22px;
-  font-weight: 400;
-  color: #000;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
   font-weight: 500;
 }
 
@@ -2405,24 +2403,24 @@ input:focus {
   opacity: 0;
 }
 
-.e-radio-filter input:focus ~ label:first-of-type {
+.e-radio-filter input.e-radio-filter--focus ~ label:first-of-type, .e-radio-filter input:focus ~ label:first-of-type {
   outline: 2px solid #0064fa;
   outline-offset: 2px;
 }
 
-.e-radio-filter input:hover:not(:disabled) + label {
+.e-radio-filter input.e-radio-filter--hover + label, .e-radio-filter input:hover:not(:disabled) + label {
   border-color: var(--e-green);
 }
 
-.e-radio-filter input:checked:not(:disabled) + label {
+.e-radio-filter input.e-radio-filter--checked + label, .e-radio-filter input:checked:not(:disabled) + label {
   border-color: var(--e-black);
 }
 
-.e-radio-filter input:disabled + label {
+.e-radio-filter input.e-radio-filter--disabled + label, .e-radio-filter input:disabled + label {
   cursor: not-allowed;
 }
 
-.e-radio-filter input:disabled + label > .e-radio-filter__label {
+.e-radio-filter input.e-radio-filter--disabled + label > .e-radio-filter__label, .e-radio-filter input:disabled + label > .e-radio-filter__label {
   color: var(--e-grey-40);
 }
 

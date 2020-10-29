@@ -102,37 +102,48 @@
           </div>
         </div>
         <div class="e-radio-filter-container">
-          <button
-            class="e-radio-filter"
-            style="margin-right: 4px"
-            (click)="selectFilter('all')"
-            [ngClass]="{ 'e-radio-filter--selected': selected === 'all' }"
-          >
-            All
-          </button>
-          <button
-            class="e-radio-filter"
-            style="margin-right: 4px"
-            (click)="selectFilter('outline')"
-            [ngClass]="{ 'e-radio-filter--selected': selected === 'outline' }"
-          >
-            Outline
-          </button>
-          <button
-            class="e-radio-filter"
-            style="margin-right: 4px"
-            (click)="selectFilter('filled')"
-            [ngClass]="{ 'e-radio-filter--selected': selected === 'filled' }"
-          >
-            Filled
-          </button>
-          <button
-            class="e-radio-filter"
-            (click)="selectFilter('colored')"
-            [ngClass]="{ 'e-radio-filter--selected': selected === 'colored' }"
-          >
-            Two colored
-          </button>
+          <div class="e-radio-filter">
+            <input
+              type="radio"
+              id="radio-filter-all"
+              name="radio-filter"
+              (click)="selectFilter('all')"
+              checked
+            />
+            <label for="radio-filter-all" data-value="All">
+              <span class="e-radio-filter__label">All</span>
+            </label>
+
+            <input
+              type="radio"
+              id="radio-filter-outline"
+              name="radio-filter"
+              (click)="selectFilter('outline')"
+            />
+            <label for="radio-filter-outline" data-value="Outline">
+              <span class="e-radio-filter__label">Outline</span>
+            </label>
+
+            <input
+              type="radio"
+              id="radio-filter-filled"
+              name="radio-filter"
+              (click)="selectFilter('filled')"
+            />
+            <label for="radio-filter-filled" data-value="Filled">
+              <span class="e-radio-filter__label">Filled</span>
+            </label>
+
+            <input
+              type="radio"
+              id="radio-filter-colored"
+              name="radio-filter"
+              (click)="selectFilter('colored')"
+            />
+            <label for="radio-filter-colored" data-value="Two colored">
+              <span class="e-radio-filter__label">Two colored</span>
+            </label>
+          </div>
         </div>
         <div class="dark-mode-toggle mobile">
           <span class="e-text-description">Dark</span>
