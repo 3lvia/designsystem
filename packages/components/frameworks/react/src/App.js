@@ -19,7 +19,7 @@ function App() {
 
       <Popover 
         title="React demo of popover" 
-        description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+        description="Alle privatkunder må bruke BankID første gang."
         trigger={<button>Long long button</button>}
       ></Popover>
 

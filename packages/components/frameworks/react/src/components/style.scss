@@ -14,15 +14,13 @@ $sizes: (
   'xxl': 56px,
 );
 
+$popover-size: 450px;
 $popover-border-width: 1px;
 $popover-padding: 24px;
 $popover-arrow-size: 12px;
 $popover-arrow-size-small: calc(#{$popover-arrow-size} - #{$popover-border-width});
 $popover-arrow-offset: 25px; // Midtstilt i forhold til ikon 16X16px (xs)
 $popover-button-offset: -30px;
-
-$popover-desktop-size: 400px;
-$popover-mobile-size: 300px;
 
 $green: #29d305;
 
@@ -85,9 +83,9 @@ $green: #29d305;
     z-index: 99;
     pointer-events: all;
     position: absolute;
-    min-width: $popover-desktop-size;
-    max-width: $popover-desktop-size;
+    width: $popover-size;
     padding: $popover-padding;
+    box-sizing: border-box;
     background-color: white;
     color: black;
     border: 1px solid $green;
@@ -102,17 +100,6 @@ $green: #29d305;
       100% {
         opacity: 1;
       }
-    }
-
-    @media (max-width: 767px) {
-      min-width: $popover-mobile-size;
-      max-width: $popover-mobile-size;
-    }
-
-    // for smallest units
-    @media screen and (max-width: 360px) {
-      min-width: 280px;
-      max-width: 280px;
     }
 
     .ewc-popover__close {
@@ -137,6 +124,13 @@ $green: #29d305;
       font-weight: normal;
       font-size: 14px;
       line-height: 22px;
+    }
+  }
+
+  .ewc-popover--hide {
+    visibility: hidden;
+    .ewc-btn .ewc-btn__icon i {
+      visibility: hidden;
     }
   }
 
@@ -180,7 +174,7 @@ $green: #29d305;
   // Center aligned (Default)
   &:not(.ewc-popover--left):not(.ewc-popover--left-50):not(.ewc-popover--right):not(.ewc-popover--right-50) {
     .ewc-popover__content {
-      transform: translate(-50%, 0);
+      transform: translateX(-50%);
     }
     .ewc-popover__arrow {
       &::before {
@@ -193,100 +187,12 @@ $green: #29d305;
     }
   }
   // Left aligned
-  &.ewc-popover--left {
-    .ewc-popover__content {
-      transform: translateX(-87%);
-    }
-  }
-  // Left-50 aligned
-  &.ewc-popover--left-50 {
-    .ewc-popover__content {
-      transform: translateX(-62%);
-    }
+  &.ewc-popover--left .ewc-popover__content {
+    transform: translateX(-87%);
   }
   // Right aligned
-  &.ewc-popover--right {
-    .ewc-popover__content {
-      transform: translateX(-9%);
-    }
-  }
-  // Right-50 aligned
-  &.ewc-popover--right-50 {
-    .ewc-popover__content {
-      transform: translateX(-32%);
-    }
-  }
-
-  // Modifiers sizing of popover
-  @media (max-width: 767px) {
-    &.ewc-popover--w-200 .ewc-popover__content {
-      min-width: 200px;
-      max-width: 200px;
-    }
-    &.ewc-popover--w-220 .ewc-popover__content {
-      min-width: 220px;
-      max-width: 220px;
-    }
-    &.ewc-popover--w-240 .ewc-popover__content {
-      min-width: 240px;
-      max-width: 240px;
-    }
-    &.ewc-popover--w-260 .ewc-popover__content {
-      min-width: 260px;
-      max-width: 260px;
-    }
-  }
-
-  // Adjusting alignment of popover for sizing classes
-  @media (max-width: 767px) {
-    &.ewc-popover--w-200.ewc-popover--left .ewc-popover__content {
-      transform: translateX(-75%);
-    }
-    &.ewc-popover--w-220.ewc-popover--left .ewc-popover__content {
-      transform: translateX(-78%);
-    }
-    &.ewc-popover--w-240.ewc-popover--left .ewc-popover__content {
-      transform: translateX(-80%);
-    }
-    &.ewc-popover--w-260.ewc-popover--left .ewc-popover__content {
-      transform: translateX(-81%);
-    }
-    &.ewc-popover--w-200.ewc-popover--left-50 .ewc-popover__content {
-      transform: translateX(-51%);
-    }
-    &.ewc-popover--w-220.ewc-popover--left-50 .ewc-popover__content {
-      transform: translateX(-53.5%);
-    }
-    &.ewc-popover--w-240.ewc-popover--left-50 .ewc-popover__content {
-      transform: translateX(-55.5%);
-    }
-    &.ewc-popover--w-260.ewc-popover--left-50 .ewc-popover__content {
-      transform: translateX(-56.5%);
-    }
-    &.ewc-popover--w-200.ewc-popover--right .ewc-popover__content {
-      transform: translateX(-13%);
-    }
-    &.ewc-popover--w-220.ewc-popover--right .ewc-popover__content {
-      transform: translateX(-12%);
-    }
-    &.ewc-popover--w-240.ewc-popover--right .ewc-popover__content {
-      transform: translateX(-11%);
-    }
-    &.ewc-popover--w-260.ewc-popover--right .ewc-popover__content {
-      transform: translateX(-10%);
-    }
-    &.ewc-popover--w-200.ewc-popover--right-50 .ewc-popover__content {
-      transform: translateX(-30%);
-    }
-    &.ewc-popover--w-220.ewc-popover--right-50 .ewc-popover__content {
-      transform: translateX(-31%);
-    }
-    &.ewc-popover--w-240.ewc-popover--right-50 .ewc-popover__content {
-      transform: translateX(-32%);
-    }
-    &.ewc-popover--w-260.ewc-popover--right-50 .ewc-popover__content {
-      transform: translateX(-33%);
-    }
+  &.ewc-popover--right .ewc-popover__content {
+    transform: translateX(-9%);
   }
 }
 
