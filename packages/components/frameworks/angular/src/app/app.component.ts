@@ -12,4 +12,6 @@ Checkbox;
 })
 export class AppComponent {
   title = 'angular';
+
+  checkBoxVal = true;
 }
