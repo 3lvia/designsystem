@@ -20,7 +20,8 @@ function App() {
       <Popover 
         title="React demo of popover" 
         description="Alle privatkunder må bruke BankID første gang."
-        trigger={<button>Long long button</button>}
+        trigger={<button>helo</button>}
+        startPos="right"
       ></Popover>
 
       <p>

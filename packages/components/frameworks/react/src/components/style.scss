@@ -138,8 +138,8 @@ $green: #29d305;
   // Top aligned (Default)
   &:not(.ewc-popover--bottom) {
     .ewc-popover__content {
-      bottom: 36px;
-      margin-bottom: 8px;
+      bottom: 100%;
+      margin-bottom: 23px;
     }
     .ewc-popover__arrow {
       &::before {
@@ -156,8 +156,8 @@ $green: #29d305;
   // Bottom aligned
   &.ewc-popover--bottom {
     .ewc-popover__content {
-      top: 36px;
-      margin-top: 6px;
+      top: 100%;
+      margin-top: 22px;
     }
     .ewc-popover__arrow {
       &::before {
@@ -185,14 +185,6 @@ $green: #29d305;
         @extend %arrow-after-style;
       }
     }
-  }
-  // Left aligned
-  &.ewc-popover--left .ewc-popover__content {
-    transform: translateX(-87%);
-  }
-  // Right aligned
-  &.ewc-popover--right .ewc-popover__content {
-    transform: translateX(-9%);
   }
 }
 
