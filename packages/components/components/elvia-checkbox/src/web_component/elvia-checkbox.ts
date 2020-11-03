@@ -3,16 +3,26 @@ import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events';
 import * as ReactCheckboxComponent from '../../react/js/elvia-checkbox.js';
 import { Checkbox } from '@elvia/checkbox/web_component';
+import { check } from '../../../../../elvis/icons';
 const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaCheckbox extends HTMLElement {
   mountPoint!: HTMLSpanElement;
   static get observedAttributes(): any[] {
-    return ['label', 'name', 'value', 'id', 'size', 'checked'];
+    return ['label', 'name', 'id', 'value', 'size', 'checked', 'disabled', 'requiered'];
   }
 
-  createCheckbox(label: string, name: string, value: boolean, id: string, size: string, checked: string): React.ReactElement {
-    const data = { label, name, value, id, size, checked };
+  createCheckbox(
+    label: string,
+    name: string,
+    id: string,
+    value: string,
+    size: string,
+    checked: string,
+    disabled: string,
+    requiered: string,
+  ): React.ReactElement {
+    const data = { label, name, id, value, size, checked, disabled, requiered };
     return React.createElement(ReactCheckboxComponent.Checkbox, data, React.createElement('slot'));
   }
 
@@ -36,11 +46,13 @@ export default class ElviaCheckbox extends HTMLElement {
   renderReactDOM(): void {
     const label = this.getAttribute('label')!;
     const name = this.getAttribute('name')!;
-    const value = this.getAttribute('value')!;
     const id = this.getAttribute('id')!;
+    const value = this.getAttribute('value')!;
     const size = this.getAttribute('size')!;
     const checked = this.getAttribute('checked')!;
-    ReactDOM.render(this.createCheckbox(label, name, value, id, size, checked), this.mountPoint);
+    const disabled = this.getAttribute('disabled')!;
+    const requiered = this.getAttribute('requiered')!;
+    ReactDOM.render(this.createCheckbox(label, name, id, value, size, checked, disabled, requiered), this.mountPoint);
   }
 }
 
