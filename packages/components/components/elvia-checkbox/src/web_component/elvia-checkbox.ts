@@ -2,14 +2,14 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events';
 import * as ReactCheckboxComponent from '../../react/js/elvia-checkbox.js';
+import { check } from '../../../../../elvis/icons';
 const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaCheckbox extends HTMLElement {
   mountPoint!: HTMLSpanElement;
   static get observedAttributes(): any[] {
-    return ['e-label', 'e-name', 'e-value', 'e-id', 'e-size'];
+    return ['e-label', 'e-name', 'e-value', 'e-id', 'e-size', 'e-checked', 'e-disabled', 'e-required'];
   }
-
   _data: any;
 
   constructor() {
@@ -36,8 +36,6 @@ export default class ElviaCheckbox extends HTMLElement {
   }
 
   connectedCallback(): void {
-    console.log("CONNECTED CALLBACK");
-    console.log(JSON.stringify(this.attributes));
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
@@ -51,7 +49,6 @@ export default class ElviaCheckbox extends HTMLElement {
   }
 
   attributeChangedCallback(name: any, oldValue: any, newValue: any): void {
-    console.log(name, oldValue, newValue);
     this.renderReactDOM();
   }
 
@@ -63,7 +60,6 @@ export default class ElviaCheckbox extends HTMLElement {
       const key = this.attributes[i].localName;
 
       if (key.indexOf('e-') > -1) {
-        console.log("KEY!", key);
         const attr = key.substr(2);
         this._data[attr] = this.getAttribute(key);
       }
@@ -71,10 +67,7 @@ export default class ElviaCheckbox extends HTMLElement {
   }
 
   renderReactDOM(): void {
-    console.log("RENDER REACT DOM");
-    console.log(this.attributes);
     this.mapAttributesToData();
-    console.log(this.attributes, this._data);
     ReactDOM.render(this.createCheckbox(this._data), this.mountPoint);
   }
 
