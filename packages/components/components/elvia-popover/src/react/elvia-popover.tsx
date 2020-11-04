@@ -5,8 +5,9 @@ import './style.scss';
 export interface PopoverProps {
   title: string;
   description: string;
+  startPosX?: string;
+  startPosY?: string;
   trigger?: string;
-  startPos?: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -20,42 +21,66 @@ export const throttle = (func: any, limit: number) => {
   }
 }
 
-export const Popover: React.FC<PopoverProps> = ({ title, description, trigger, startPos = 'center' }) => {
+export const Popover: React.FC<PopoverProps> = ({ title, description, startPosX = 'center', startPosY = 'top', trigger }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const [popoverRef, setPopoverRef] = useState(React.createRef<HTMLDivElement>());
   const [popoverTriggerRef, setPopoverTriggerRef] = useState(React.createRef<HTMLDivElement>());
+  const [popoverSlotTriggerRef, setPopoverSlotTriggerRef] = useState(React.createRef<HTMLSlotElement>());
   const [popoverArrowRef, setPopoverArrowRef] = useState(React.createRef<HTMLDivElement>());
   const [popoverContentRef, setPopoverContentRef] = useState(React.createRef<HTMLDivElement>());
+  const [popoverCloseRef, setPopoverCloseRef] = useState(React.createRef<HTMLButtonElement>());
   
+  // Adding font
   React.useEffect(() => {
-    // Adding font
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
     link.rel = 'stylesheet';
     link.type = 'text/css';
     document.head.appendChild(link);
+  }, []); 
 
-    // Listen to changes in dom to update content position
+  // Remove and add outline to button on tab
+  React.useEffect(() => {
+    document.body.addEventListener('keydown', function (e) {
+      if (!popoverCloseRef.current) {return;}
+      if (e.key === 'Tab') {
+        popoverCloseRef.current.classList.remove('e-no-outline');
+      } else if (!popoverCloseRef.current.classList.contains('e-no-outline')) {
+        popoverCloseRef.current.classList.add('e-no-outline');
+      }
+    });
+    return () => {
+      document.removeEventListener('keydown', handleClickOutside, false);
+    };
+  }, []); 
+
+  // Listen to changes to update content position
+  React.useEffect(() => {
+    if (startPosY === 'bottom' && popoverRef.current) {
+      popoverRef.current.classList.add('ewc-popover--bottom');
+    }
     calculatePosition();
-    const throttledCount = throttle(calculatePosition, 150);
+    const throttledCount = throttle(calculatePosition, 200);
     window.addEventListener('resize', throttledCount);
     return () => window.removeEventListener('resize', throttledCount);
   }, []); 
   
-  // React.useEffect(() => {
-  //   // Listen for click outside popover 
-  //   document.addEventListener("click", handleClickOutside, false);
-  //   return () => {
-  //     document.removeEventListener("click", handleClickOutside, false);
-  //   };
-  // }, []);
+  // Listen for click outside popover 
+  React.useEffect(() => {
+    document.addEventListener('click', handleClickOutside, false);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, false);
+    };
+  }, []);
 
   React.useEffect(() => { toggleVisibilityClass(); }, [visiblePopover]);
   React.useEffect(() => { 
     setPopoverRef(prevState => prevState); 
     setPopoverTriggerRef(prevState => prevState); 
+    setPopoverSlotTriggerRef(prevState => prevState); 
     setPopoverArrowRef(prevState => prevState);
     setPopoverContentRef(prevState => prevState);
+    setPopoverCloseRef(prevState => prevState);
   }, [popoverRef, popoverTriggerRef, popoverArrowRef, popoverContentRef]);
 
   // Calculating position and size of content
@@ -73,26 +98,29 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, trigger, s
     const trigger = popoverTriggerRef.current;
     const triggerWidth = trigger.getBoundingClientRect().width;
     const triggerOffsetLeft = trigger.getBoundingClientRect().left;
-    const triggerOffsetRight= window.innerWidth - triggerWidth - triggerOffsetLeft;
+    const triggerOffsetRight = window.innerWidth - triggerWidth - triggerOffsetLeft;
     const arrow = popoverArrowRef.current;
     const arrowWidth = arrow.getBoundingClientRect().width;
+    const arrowHeight = arrow.getBoundingClientRect().height;
     const arrowLeft = arrow.getBoundingClientRect().left;
     const arrowRight = window.innerWidth - arrowWidth - arrowLeft;
+    const arrowOffsetTop = arrow.getBoundingClientRect().top;
+    const arrowOffsetBottom = window.innerHeight - arrowHeight - arrowOffsetTop;
     resize(content);
-    if (startPos === 'center') {
+    if (startPosX === 'center') {
       updatePositionXCenter(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
-    } else if(startPos === 'left') {
+    } else if(startPosX === 'left') {
       updatePositionXLeft(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
-    } else if(startPos === 'right') {
+    } else if(startPosX === 'right') {
       updatePositionXRight(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
     }
-    updatePositionY(offsetTop, offsetBottom);
+    updatePositionY(contentHeight, offsetTop, offsetBottom, arrowOffsetBottom, arrowOffsetTop);
   }
 
   function getTranslateValue(): string {
-    if(startPos === 'left') {
+    if(startPosX === 'left') {
       return 'translateX(-87%)';
-    } else if(startPos === 'right') {
+    } else if(startPosX === 'right') {
       return 'translateX(-9%)';
     }
     return 'translateX(-50%)';
@@ -108,9 +136,9 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, trigger, s
 
   function updatePositionXCenter(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
     if(offsetLeft <= 20 || (triggerOffsetLeft + (triggerWidth/2)) < (20 + (contentWidth/2))){
-      moveToTheLeft(content, arrowLeft);
+      moveFromLeft(content, arrowLeft);
     } else if (offsetRight <= 20 || (triggerOffsetRight + (triggerWidth/2)) < (20 + (contentWidth/2))){
-      moveToTheRight(content, arrowRight);
+      moveFromRight(content, arrowRight);
     } else if (triggerOffsetLeft + (triggerWidth/2) > (20 + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (20 + (contentWidth/2))){
       resetPos(content);
     }
@@ -118,9 +146,9 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, trigger, s
 
   function updatePositionXLeft(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
     if(offsetLeft <= 20 || (triggerOffsetLeft + (triggerWidth/2)) < (20 + (contentWidth - 60))){
-      moveToTheLeft(content, arrowLeft);
+      moveFromLeft(content, arrowLeft);
     } else if (offsetRight <= 20){
-      moveToTheRight(content, arrowRight);
+      moveFromRight(content, arrowRight);
     } else if (triggerOffsetLeft + (triggerWidth/2) > (20 + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (20 + (contentWidth/2))){
       resetPos(content);
     }
@@ -128,24 +156,24 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, trigger, s
 
   function updatePositionXRight(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
     if(offsetLeft <= 20){
-      moveToTheLeft(content, arrowLeft);
+      moveFromLeft(content, arrowLeft);
     } else if (offsetRight <= 20 || (triggerOffsetRight + (triggerWidth/2)) < (20 + (contentWidth - 60))){
-      moveToTheRight(content, arrowRight);
+      moveFromRight(content, arrowRight);
     } else if (triggerOffsetLeft + (triggerWidth/2) > (20 + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (20 + (contentWidth/2))){
       resetPos(content);
     }
   }
 
-  function moveToTheLeft(content: HTMLDivElement, arrowLeft: number){
+  function moveFromLeft(content: HTMLDivElement, arrowLeft: number){
     content.style.transform = 'none' 
     content.style.right = 'unset';
     content.style.left = 'calc(-' + arrowLeft + 'px + 20px)';
   }
 
-  function moveToTheRight(content: HTMLDivElement, arrowRight: number){
+  function moveFromRight(content: HTMLDivElement, arrowRight: number){
     content.style.transform = 'none' 
-    content.style.right = 'unset';
-    content.style.left = 'calc(-' + arrowRight + 'px + 20px)';
+    content.style.left = 'unset';
+    content.style.right = 'calc(-' + arrowRight + 'px + 20px)';
   }
 
   function resetPos(content: HTMLDivElement){
@@ -154,12 +182,12 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, trigger, s
     content.style.right = 'unset';
   }
 
-  function updatePositionY(offsetTop: number, offsetBottom: number) {
-    if(offsetTop <= 20){
+  function updatePositionY(contentHeight: number, offsetTop: number, offsetBottom: number, arrowOffsetBottom: number, arrowOffsetTop: number) {
+    if(offsetTop <= 20 || (startPosY == 'bottom' && (arrowOffsetBottom > contentHeight + 20 + 20))){
       if(popoverRef.current && !popoverRef.current.classList.contains('ewc-popover--bottom')){
         popoverRef.current.classList.add('ewc-popover--bottom');
       }
-    } else if (offsetBottom <= 20 && offsetTop > 20){
+    } else if (offsetBottom <= 20 && offsetTop > 20 || (startPosY == 'top' && (arrowOffsetTop > contentHeight + 20 + 20))){
       if(popoverRef.current && popoverRef.current.classList.contains('ewc-popover--bottom')){
         popoverRef.current.classList.remove('ewc-popover--bottom');
       }
@@ -181,11 +209,12 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, trigger, s
     }
   }
 
-  function handleClickOutside(event: { target: Node | null }) {
-    if (popoverRef.current && !popoverRef.current.contains(event.target)) {
-      console.log(popoverRef.current);
-      console.log(event.target);
-      console.log('You clicked outside of me!');
+  function handleClickOutside(e: any) {
+    if(popoverSlotTriggerRef.current ===  e.path[1] && popoverContentRef.current && !popoverContentRef.current.classList.contains('ewc-popover--hide')){
+      return;
+    }
+    if (popoverRef.current && !popoverRef.current.contains(e.path[0]) && popoverContentRef.current && !popoverContentRef.current.classList.contains('ewc-popover--hide')) {
+      togglePopover();
     }
   }
 
@@ -193,15 +222,16 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, trigger, s
     <span className='ewc-popover' id='ewcPopover' ref={popoverRef}>
       <div className='ewc-popover__trigger' ref={popoverTriggerRef}>
         {trigger && <div onClick={togglePopover}>{trigger}</div>}
-        {!trigger && <slot name="trigger" onClick={togglePopover}></slot>}
+        {!trigger && <slot name="trigger" onClick={togglePopover} ref={popoverSlotTriggerRef}></slot>}
         <div className='ewc-popover__arrow ewc-popover--hide' id='ewcPopoverArrow' ref={popoverArrowRef}></div>
       </div>
       
       <div className='ewc-popover__content ewc-popover--hide' id='ewcPopoverContent' ref={popoverContentRef}>
         <div className='ewc-popover__close'>
           <button
-            className='ewc-btn ewc-btn--icon ewc-btn--sm'
+            className='ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline'
             onClick={togglePopover}
+            ref={popoverCloseRef}
           >
             <span className='ewc-btn__icon'>
               <i className="ewc-icon ewc-icon--close-bold ewc-icon--xs" style={{backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`}} e-id="e-icone-icon--close-bold"></i>

@@ -268,10 +268,20 @@ $green: #29d305;
   &:active:not(:disabled) {
     transform: scale(0.95);
   }
+  &.ewc-btn---focus,
+  &:focus:not(:disabled) {
+    outline: 2px solid #0064fa;
+    outline-offset: 2px;
+  }
   &.ewc-btn---disabled,
   &:disabled {
     cursor: not-allowed;
   }
+}
+
+// -- OUTLINE --
+.e-no-outline {
+  outline: none !important;
 }
 
 // --- ICONS ---
