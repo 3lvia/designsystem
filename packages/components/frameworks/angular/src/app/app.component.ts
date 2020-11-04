@@ -32,6 +32,6 @@ export class AppComponent implements OnInit {
       this.checkbox.nativeElement.data = {
         checked: this.checkBoxVal
       };
-    }, 3000);
+    }, 7000);
   }
 }

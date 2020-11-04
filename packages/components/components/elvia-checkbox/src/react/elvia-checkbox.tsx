@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
 import './style.scss';
-import { check } from '../../../../../elvis/icons';
 
 // Temporary touchDevice check, needs work
 function isTouchDevice() {
