@@ -31,20 +31,7 @@
 
   <div style="display: flex; justify-content: center">
     <div style="display: flex; flex-direction: column">
-      <!-- <elvia-checkbox
-        label="Checkbox Label"
-        name="Nametest"
-        value=""
-        id="CheckboxTest1"
-        size="small"
-      ></elvia-checkbox> -->
-      <elvia-checkbox
-        label="Label Test"
-        name="Nametest"
-        [value]="checkBoxVal"
-        id="CheckboxTest1"
-        size="normal"
-      ></elvia-checkbox>
+      <elvia-checkbox #checkbox1 e-size="small"></elvia-checkbox>
       <div>
         {{ checkBoxVal }}
       </div>

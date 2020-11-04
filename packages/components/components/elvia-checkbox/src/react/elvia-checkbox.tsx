@@ -6,13 +6,13 @@ import { check } from '../../../../../elvis/icons';
 function isTouchDevice() {
   return 'ontouchstart' in window;
 }
-const touchDevice =  isTouchDevice();
+const touchDevice = isTouchDevice();
 
 function propChecked(checkprop: string | undefined) {
-  if(checkprop === "true") {
+  if (checkprop === 'true') {
     return true;
   } else {
-    return false
+    return false;
   }
 }
 
@@ -23,31 +23,29 @@ export interface Checkbox {
 }
 
 export interface CheckboxProps {
-  label: string;
-  name?: string | "";
+  label?: string;
+  name?: string | '';
   value?: boolean;
-  id?: string | "";
-  size?: string | "";
-  checked: string | "";
+  id?: string | '';
+  size?: string | '';
+  checked?: string | '';
   // disabled?: boolean;
-  // requiered?: boolean;
+  // required?: boolean;
 }
 
-
 export const Checkbox: React.FC<CheckboxProps> = ({ label, name, value, id, size, checked }) => {
-
   const [check, setcheck] = useState(() => false);
   function toggleCheck() {
-    setcheck(prevCheck => !prevCheck)
+    setcheck(prevCheck => !prevCheck);
   }
 
   const [disabled, setDisabled] = useState(() => false);
   function toggleDisabled() {
-    setcheck(preDisabled => !preDisabled)
+    setcheck(preDisabled => !preDisabled);
   }
   const [require, setRequre] = useState(() => false);
   function toggleRequire() {
-    setcheck(preRequire => !preRequire)
+    setcheck(preRequire => !preRequire);
   }
 
   // function propCheck(checkprop: string) {
@@ -71,18 +69,25 @@ export const Checkbox: React.FC<CheckboxProps> = ({ label, name, value, id, size
     document.head.appendChild(link);
   }, []);
 
-  const classes = ['ewc-checkbox', size === "small" ? 'ewc-checkbox--sm' : '', touchDevice ? 'is-Touch' : ''].join(' ');
+  const classes = [
+    'ewc-checkbox',
+    size === 'small' ? 'ewc-checkbox--sm' : '',
+    touchDevice ? 'is-Touch' : '',
+  ].join(' ');
 
   return (
-  <label className={classes} >
-      <input type="checkbox" name={name} value={value} id={id} checked={check} onClick={toggleCheck} onChange={toggleCheck}/>
+    <label className={classes}>
+      <input
+        type="checkbox"
+        name={name}
+        value={value}
+        id={id}
+        checked={check}
+        onClick={toggleCheck}
+        onChange={toggleCheck}
+      />
       <span className="ewc-checkbox__mark"></span>
       <span className="ewc-checkbox__label">{label}</span>
-  </label>
+    </label>
   );
 };
-
-
-
-
-

@@ -2,21 +2,42 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events';
 import * as ReactCheckboxComponent from '../../react/js/elvia-checkbox.js';
-import { Checkbox } from '@elvia/checkbox/web_component';
 const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaCheckbox extends HTMLElement {
   mountPoint!: HTMLSpanElement;
   static get observedAttributes(): any[] {
-    return ['label', 'name', 'value', 'id', 'size', 'checked'];
+    return ['e-label', 'e-name', 'e-value', 'e-id', 'e-size'];
   }
 
-  createCheckbox(label: string, name: string, value: boolean, id: string, size: string, checked: string): React.ReactElement {
-    const data = { label, name, value, id, size, checked };
-    return React.createElement(ReactCheckboxComponent.Checkbox, data, React.createElement('slot'));
+  _data: any;
+
+  constructor() {
+    super();
+    this._data = {};
+  }
+
+
+  set data(val: any) {
+    this._data = val;
+    let rand = Math.random() > 0.5 ? true : false;
+    val.checked = rand;
+    this.mountPoint.dispatchEvent(new CustomEvent('data-changed', {
+      bubbles: true,
+      composed: true,
+      detail: this._data
+    }));
+
+    this.renderReactDOM();
+  }
+
+  get data() {
+    return this._data;
   }
 
   connectedCallback(): void {
+    console.log("CONNECTED CALLBACK");
+    console.log(JSON.stringify(this.attributes));
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
@@ -29,18 +50,36 @@ export default class ElviaCheckbox extends HTMLElement {
     retargetEvents(shadowRoot);
   }
 
-  attributeChangedCallback(): void {
+  attributeChangedCallback(name: any, oldValue: any, newValue: any): void {
+    console.log(name, oldValue, newValue);
     this.renderReactDOM();
   }
 
+  /**
+   * Maps the attributes prefixed with "elvia-" to the data object
+   */
+  mapAttributesToData() {
+    for (let i = 0; i < this.attributes.length; i++) {
+      const key = this.attributes[i].localName;
+
+      if (key.indexOf('e-') > -1) {
+        console.log("KEY!", key);
+        const attr = key.substr(2);
+        this._data[attr] = this.getAttribute(key);
+      }
+    }
+  }
+
   renderReactDOM(): void {
-    const label = this.getAttribute('label')!;
-    const name = this.getAttribute('name')!;
-    const value = this.getAttribute('value')!;
-    const id = this.getAttribute('id')!;
-    const size = this.getAttribute('size')!;
-    const checked = this.getAttribute('checked')!;
-    ReactDOM.render(this.createCheckbox(label, name, value, id, size, checked), this.mountPoint);
+    console.log("RENDER REACT DOM");
+    console.log(this.attributes);
+    this.mapAttributesToData();
+    console.log(this.attributes, this._data);
+    ReactDOM.render(this.createCheckbox(this._data), this.mountPoint);
+  }
+
+  createCheckbox(data: any): React.ReactElement {
+    return React.createElement(ReactCheckboxComponent.Checkbox, data, React.createElement('slot'));
   }
 }
 
