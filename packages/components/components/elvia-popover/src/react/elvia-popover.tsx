@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import './style.scss';
 
 export interface PopoverProps {
@@ -23,72 +23,133 @@ export const throttle = (func: any, limit: number) => {
 
 export const Popover: React.FC<PopoverProps> = ({ title, description, startPosX = 'center', startPosY = 'top', trigger }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
-  const [popoverRef, setPopoverRef] = useState(React.createRef<HTMLDivElement>());
-  const [popoverTriggerRef, setPopoverTriggerRef] = useState(React.createRef<HTMLDivElement>());
-  const [popoverSlotTriggerRef, setPopoverSlotTriggerRef] = useState(React.createRef<HTMLSlotElement>());
-  const [popoverArrowRef, setPopoverArrowRef] = useState(React.createRef<HTMLDivElement>());
-  const [popoverContentRef, setPopoverContentRef] = useState(React.createRef<HTMLDivElement>());
-  const [popoverCloseRef, setPopoverCloseRef] = useState(React.createRef<HTMLButtonElement>());
-  
-  // Adding font
-  React.useEffect(() => {
+  const popoverRef = useRef<HTMLSpanElement>(null);
+  const popoverTriggerRef = useRef<HTMLDivElement>(null);
+  const popoverSlotTriggerRef = useRef<HTMLSlotElement>(null);
+  const popoverArrowRef = useRef<HTMLDivElement>(null);
+  const popoverContentRef = useRef<HTMLDivElement>(null);
+  const popoverCloseRef = useRef<HTMLButtonElement>(null);
+  const popoverMargin = 20;
+  const popoverOffsetTrigger = 60;
+
+  // Running on first render only (on mount)
+  useEffect(() => {
+    // Adding font
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
     link.rel = 'stylesheet';
     link.type = 'text/css';
     document.head.appendChild(link);
-  }, []); 
 
-  // Remove and add outline to button on tab
-  React.useEffect(() => {
-    document.body.addEventListener('keydown', function (e) {
+    function toggleOutline(e: KeyboardEvent) {
       if (!popoverCloseRef.current) {return;}
       if (e.key === 'Tab') {
         popoverCloseRef.current.classList.remove('e-no-outline');
       } else if (!popoverCloseRef.current.classList.contains('e-no-outline')) {
         popoverCloseRef.current.classList.add('e-no-outline');
       }
-    });
-    return () => {
-      document.removeEventListener('keydown', handleClickOutside, false);
-    };
-  }, []); 
-
-  // Listen to changes to update content position
-  React.useEffect(() => {
-    if (startPosY === 'bottom' && popoverRef.current) {
-      popoverRef.current.classList.add('ewc-popover--bottom');
     }
-    calculatePosition();
-    const throttledCount = throttle(calculatePosition, 200);
-    window.addEventListener('resize', throttledCount);
-    return () => window.removeEventListener('resize', throttledCount);
-  }, []); 
-  
-  // Listen for click outside popover 
-  React.useEffect(() => {
-    document.addEventListener('click', handleClickOutside, false);
+
+    function handleClickOutside(e: any) {
+      if(popoverSlotTriggerRef.current ===  e.path[1] && popoverContentRef.current && !popoverContentRef.current.classList.contains('ewc-popover--hide')){
+        return;
+      }
+      if (popoverRef.current && !popoverRef.current.contains(e.path[0]) && popoverContentRef.current && !popoverContentRef.current.classList.contains('ewc-popover--hide')) {
+        togglePopover();
+      }
+    }
+
+    // Listen to tab events and add/remove outline
+    document.body.addEventListener('keydown', e => toggleOutline(e));
+    // Listen for click outside popover 
+    document.addEventListener('click', handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside, false);
+      document.body.removeEventListener('keydown', toggleOutline);
+      document.removeEventListener('click', handleClickOutside);
     };
-  }, []);
+  }, []); 
 
-  React.useEffect(() => { toggleVisibilityClass(); }, [visiblePopover]);
-  React.useEffect(() => { 
-    setPopoverRef(prevState => prevState); 
-    setPopoverTriggerRef(prevState => prevState); 
-    setPopoverSlotTriggerRef(prevState => prevState); 
-    setPopoverArrowRef(prevState => prevState);
-    setPopoverContentRef(prevState => prevState);
-    setPopoverCloseRef(prevState => prevState);
-  }, [popoverRef, popoverTriggerRef, popoverArrowRef, popoverContentRef]);
-
+  // Closing and opening popover
+  function togglePopover() {
+    setPopoverVisibility(prevState => !prevState);
+  }
+  
   // Calculating position and size of content
-  function calculatePosition(){
+  const calculatePosition = useCallback(() => {
+    function resize(content: HTMLDivElement) {
+        if ((450 + 40) > window.innerWidth) {
+        content.style.width = 'calc(' + window.innerWidth + 'px - 40px)';
+      } else {
+        content.style.width = '450px';
+      }
+    }
+    function updatePositionXCenter(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
+      if(offsetLeft <= popoverMargin || (triggerOffsetLeft + (triggerWidth/2)) < (popoverMargin + (contentWidth/2))){
+        moveFromLeft(content, arrowLeft);
+      } else if (offsetRight <= popoverMargin || (triggerOffsetRight + (triggerWidth/2)) < (popoverMargin + (contentWidth/2))){
+        moveFromRight(content, arrowRight);
+      } else if (triggerOffsetLeft + (triggerWidth/2) > (popoverMargin + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (popoverMargin + (contentWidth/2))){
+        resetPos(content);
+      }
+    }
+    function updatePositionXLeft(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
+      if(offsetLeft <= popoverMargin || (triggerOffsetLeft + (triggerWidth/2)) < (popoverMargin + (contentWidth - popoverOffsetTrigger))){
+        moveFromLeft(content, arrowLeft);
+      } else if (offsetRight <= popoverMargin){
+        moveFromRight(content, arrowRight);
+      } else if (triggerOffsetLeft + (triggerWidth/2) > (popoverMargin + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (popoverMargin + (contentWidth/2))){
+        resetPos(content);
+      }
+    }
+    function updatePositionXRight(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
+      if(offsetLeft <= popoverMargin){
+        moveFromLeft(content, arrowLeft);
+      } else if (offsetRight <= popoverMargin || (triggerOffsetRight + (triggerWidth/2)) < (popoverMargin + (contentWidth - popoverOffsetTrigger))){
+        moveFromRight(content, arrowRight);
+      } else if (triggerOffsetLeft + (triggerWidth/2) > (popoverMargin + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (popoverMargin + (contentWidth/2))){
+        resetPos(content);
+      }
+    }
+    function updatePositionY(popover: HTMLSpanElement, contentHeight: number, offsetTop: number, offsetBottom: number, arrowOffsetBottom: number, arrowOffsetTop: number) {
+      if((offsetTop <= popoverMargin) || (startPosY === 'bottom' && (arrowOffsetBottom > contentHeight + popoverMargin + popoverMargin))){
+        if(popover && !popover.classList.contains('ewc-popover--bottom')){
+          popover.classList.add('ewc-popover--bottom');
+        }
+      } else if ((offsetBottom <= popoverMargin && offsetTop > popoverMargin) || (startPosY === 'top' && (arrowOffsetTop > contentHeight + popoverMargin + popoverMargin))){
+        if(popover && popover.classList.contains('ewc-popover--bottom')){
+          popover.classList.remove('ewc-popover--bottom');
+        }
+      }
+    }
+    function moveFromLeft(content: HTMLDivElement, arrowLeft: number){
+      content.style.transform = 'none' 
+      content.style.right = 'unset';
+      content.style.left = 'calc(-' + arrowLeft + 'px + ' + popoverMargin + 'px)';
+    }
+    function moveFromRight(content: HTMLDivElement, arrowRight: number){
+      content.style.transform = 'none' 
+      content.style.left = 'unset';
+      content.style.right = 'calc(-' + arrowRight + 'px + ' + popoverMargin + 'px)';
+    }
+    function resetPos(content: HTMLDivElement){
+      content.style.transform = getTranslateValue();
+      content.style.left = '50%';
+      content.style.right = 'unset';
+    }
+    function getTranslateValue(): string {
+      if(startPosX === 'left') {
+        return 'translateX(-87%)';
+      } else if(startPosX === 'right') {
+        return 'translateX(-9%)';
+      }
+      return 'translateX(-50%)';
+    }
+
     if(!popoverRef.current || !popoverArrowRef.current || !popoverContentRef.current || !popoverTriggerRef.current) {
       return;
     }
-    const content = popoverContentRef.current;
+    const popover = popoverRef.current; 
+    const content = popoverContentRef.current; 
     const contentWidth = content.getBoundingClientRect().width;
     const contentHeight = content.getBoundingClientRect().height;
     const offsetLeft = content.getBoundingClientRect().left;
@@ -114,119 +175,45 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, startPosX 
     } else if(startPosX === 'right') {
       updatePositionXRight(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
     }
-    updatePositionY(contentHeight, offsetTop, offsetBottom, arrowOffsetBottom, arrowOffsetTop);
-  }
+    updatePositionY(popover, contentHeight, offsetTop, offsetBottom, arrowOffsetBottom, arrowOffsetTop);
+  }, [startPosY, startPosX]);
 
-  function getTranslateValue(): string {
-    if(startPosX === 'left') {
-      return 'translateX(-87%)';
-    } else if(startPosX === 'right') {
-      return 'translateX(-9%)';
-    }
-    return 'translateX(-50%)';
-  }
 
-  function resize(content: HTMLDivElement) {
-     if ((450 + 40) > window.innerWidth) {
-      content.style.width = 'calc(' + window.innerWidth + 'px - 40px)';
-    } else {
-      content.style.width = '450px';
-    }
-  }
-
-  function updatePositionXCenter(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
-    if(offsetLeft <= 20 || (triggerOffsetLeft + (triggerWidth/2)) < (20 + (contentWidth/2))){
-      moveFromLeft(content, arrowLeft);
-    } else if (offsetRight <= 20 || (triggerOffsetRight + (triggerWidth/2)) < (20 + (contentWidth/2))){
-      moveFromRight(content, arrowRight);
-    } else if (triggerOffsetLeft + (triggerWidth/2) > (20 + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (20 + (contentWidth/2))){
-      resetPos(content);
-    }
-  }
-
-  function updatePositionXLeft(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
-    if(offsetLeft <= 20 || (triggerOffsetLeft + (triggerWidth/2)) < (20 + (contentWidth - 60))){
-      moveFromLeft(content, arrowLeft);
-    } else if (offsetRight <= 20){
-      moveFromRight(content, arrowRight);
-    } else if (triggerOffsetLeft + (triggerWidth/2) > (20 + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (20 + (contentWidth/2))){
-      resetPos(content);
-    }
-  }
-
-  function updatePositionXRight(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
-    if(offsetLeft <= 20){
-      moveFromLeft(content, arrowLeft);
-    } else if (offsetRight <= 20 || (triggerOffsetRight + (triggerWidth/2)) < (20 + (contentWidth - 60))){
-      moveFromRight(content, arrowRight);
-    } else if (triggerOffsetLeft + (triggerWidth/2) > (20 + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (20 + (contentWidth/2))){
-      resetPos(content);
-    }
-  }
-
-  function moveFromLeft(content: HTMLDivElement, arrowLeft: number){
-    content.style.transform = 'none' 
-    content.style.right = 'unset';
-    content.style.left = 'calc(-' + arrowLeft + 'px + 20px)';
-  }
-
-  function moveFromRight(content: HTMLDivElement, arrowRight: number){
-    content.style.transform = 'none' 
-    content.style.left = 'unset';
-    content.style.right = 'calc(-' + arrowRight + 'px + 20px)';
-  }
-
-  function resetPos(content: HTMLDivElement){
-    content.style.transform = getTranslateValue();
-    content.style.left = '50%';
-    content.style.right = 'unset';
-  }
-
-  function updatePositionY(contentHeight: number, offsetTop: number, offsetBottom: number, arrowOffsetBottom: number, arrowOffsetTop: number) {
-    if(offsetTop <= 20 || (startPosY == 'bottom' && (arrowOffsetBottom > contentHeight + 20 + 20))){
-      if(popoverRef.current && !popoverRef.current.classList.contains('ewc-popover--bottom')){
-        popoverRef.current.classList.add('ewc-popover--bottom');
-      }
-    } else if (offsetBottom <= 20 && offsetTop > 20 || (startPosY == 'top' && (arrowOffsetTop > contentHeight + 20 + 20))){
-      if(popoverRef.current && popoverRef.current.classList.contains('ewc-popover--bottom')){
-        popoverRef.current.classList.remove('ewc-popover--bottom');
+  // Toggle visibility 
+  useEffect(() => { 
+    function toggleVisibilityClass() {
+      if(popoverArrowRef.current && popoverContentRef.current && visiblePopover){
+        popoverArrowRef.current.classList.remove('ewc-popover--hide');
+        popoverContentRef.current.classList.remove('ewc-popover--hide');
+      } else if (popoverArrowRef.current && popoverContentRef.current) {
+        popoverArrowRef.current.classList.add('ewc-popover--hide');
+        popoverContentRef.current.classList.add('ewc-popover--hide');
       }
     }
-  }
 
-  // Closing and opening logic
-  function togglePopover() {
-    setPopoverVisibility(prevState => !prevState);
-  }
+    toggleVisibilityClass(); 
+    calculatePosition(); 
+  }, [visiblePopover, calculatePosition]);
 
-  function toggleVisibilityClass() {
-    if(popoverArrowRef.current && popoverContentRef.current && visiblePopover){
-      popoverArrowRef.current.classList.remove('ewc-popover--hide');
-      popoverContentRef.current.classList.remove('ewc-popover--hide');
-    } else if (popoverArrowRef.current && popoverContentRef.current) {
-      popoverArrowRef.current.classList.add('ewc-popover--hide');
-      popoverContentRef.current.classList.add('ewc-popover--hide');
-    }
-  }
-
-  function handleClickOutside(e: any) {
-    if(popoverSlotTriggerRef.current ===  e.path[1] && popoverContentRef.current && !popoverContentRef.current.classList.contains('ewc-popover--hide')){
+  // Listen to resize changes and update content position
+  useEffect(() => {
+    if(!visiblePopover){
       return;
     }
-    if (popoverRef.current && !popoverRef.current.contains(e.path[0]) && popoverContentRef.current && !popoverContentRef.current.classList.contains('ewc-popover--hide')) {
-      togglePopover();
-    }
-  }
+    const throttledCount = throttle(calculatePosition, 150);
+    window.addEventListener('resize', throttledCount);
+    return () => window.removeEventListener('resize', throttledCount);
+  }, [visiblePopover, startPosY, calculatePosition]); 
 
   return (
-    <span className='ewc-popover' id='ewcPopover' ref={popoverRef}>
+    <span className='ewc-popover' ref={popoverRef}>
       <div className='ewc-popover__trigger' ref={popoverTriggerRef}>
         {trigger && <div onClick={togglePopover}>{trigger}</div>}
         {!trigger && <slot name="trigger" onClick={togglePopover} ref={popoverSlotTriggerRef}></slot>}
-        <div className='ewc-popover__arrow ewc-popover--hide' id='ewcPopoverArrow' ref={popoverArrowRef}></div>
+        <div className='ewc-popover__arrow ewc-popover--hide' ref={popoverArrowRef}></div>
       </div>
       
-      <div className='ewc-popover__content ewc-popover--hide' id='ewcPopoverContent' ref={popoverContentRef}>
+      <div className='ewc-popover__content ewc-popover--hide' ref={popoverContentRef}>
         <div className='ewc-popover__close'>
           <button
             className='ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline'
