@@ -1,13 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
 import './style.scss';
-import { check } from '../../../../../elvis/icons';
-
-// Temporary touchDevice check, needs work
-function isTouchDevice() {
-  return 'ontouchstart' in window;
-}
-const touchDevice =  isTouchDevice();
 
 export interface CheckboxProps {
   label: string;
@@ -30,7 +22,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({ label, name, value, id, size
     document.head.appendChild(link);
   }, []);
 
-  const classes = ['ewc-checkbox', size === "small" ? 'ewc-checkbox--sm' : '', touchDevice ? 'is-Touch' : ''].join(' ');
+  const classes = ['ewc-checkbox', size === "small" ? 'ewc-checkbox--sm' : ''].join(' ');
   
   // check and add html5 input modifers 
   const isChecked = (checked === 'true') || (checked === '');
@@ -39,7 +31,15 @@ export const Checkbox: React.FC<CheckboxProps> = ({ label, name, value, id, size
 
   return (
   <label className={classes} >
-      <input type="checkbox" name={name} value={value || ''} id={'ewc'+id} checked={isChecked} disabled={isDisabled} required={isRequired} readOnly/>
+      <input 
+      type="checkbox" 
+      name={name} 
+      value={value || ''}
+      id={'ewc'+id} 
+      checked={isChecked}
+      disabled={isDisabled} 
+      required={isRequired} 
+      readOnly/>
       <span className="ewc-checkbox__mark"></span>
       <span className="ewc-checkbox__label">{label}</span>
   </label>
