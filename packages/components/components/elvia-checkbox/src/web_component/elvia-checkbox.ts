@@ -2,31 +2,40 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events';
 import * as ReactCheckboxComponent from '../../react/js/elvia-checkbox.js';
-import { Checkbox } from '@elvia/checkbox/web_component';
-import { check } from '../../../../../elvis/icons';
 const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaCheckbox extends HTMLElement {
   mountPoint!: HTMLSpanElement;
+
   static get observedAttributes(): any[] {
-    return ['label', 'name', 'id', 'value', 'size', 'checked', 'disabled', 'requiered'];
+    return ['label', 'name', 'value', 'id', 'size', 'checked', 'disabled', 'required'];
+  }
+  _data: any;
+  constructor() {
+    super();
+    this._data = {};
   }
 
-  createCheckbox(
-    label: string,
-    name: string,
-    id: string,
-    value: string,
-    size: string,
-    checked: string,
-    disabled: string,
-    requiered: string,
-  ): React.ReactElement {
-    const data = { label, name, id, value, size, checked, disabled, requiered };
-    return React.createElement(ReactCheckboxComponent.Checkbox, data, React.createElement('slot'));
+
+  set data(val: any) {
+    this._data = val;
+    let rand = Math.random() > 0.5 ? true : false;
+    val.checked = rand;
+    this.mountPoint.dispatchEvent(new CustomEvent('data-changed', {
+      bubbles: true,
+      composed: true,
+      detail: this._data
+    }));
+
+    this.renderReactDOM();
+  }
+
+  get data() {
+    return this._data;
   }
 
   connectedCallback(): void {
+    console.log("CONNECTED CALLBACK")
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
@@ -39,20 +48,26 @@ export default class ElviaCheckbox extends HTMLElement {
     retargetEvents(shadowRoot);
   }
 
-  attributeChangedCallback(): void {
+  attributeChangedCallback(name: any, oldValue: any, newValue: any): void {
     this.renderReactDOM();
   }
 
+  /**
+   * Maps the attributes prefixed with "elvia-" to the data object
+   */
+  mapAttributesToData() {
+    ElviaCheckbox.observedAttributes.forEach((attr: any) => {
+      this._data[attr] = this.getAttribute(attr);
+    });
+  }
+
   renderReactDOM(): void {
-    const label = this.getAttribute('label')!;
-    const name = this.getAttribute('name')!;
-    const id = this.getAttribute('id')!;
-    const value = this.getAttribute('value')!;
-    const size = this.getAttribute('size')!;
-    const checked = this.getAttribute('checked')!;
-    const disabled = this.getAttribute('disabled')!;
-    const requiered = this.getAttribute('requiered')!;
-    ReactDOM.render(this.createCheckbox(label, name, id, value, size, checked, disabled, requiered), this.mountPoint);
+    this.mapAttributesToData();
+    ReactDOM.render(this.createCheckbox(this._data), this.mountPoint);
+  }
+
+  createCheckbox(data: any): React.ReactElement {
+    return React.createElement(ReactCheckboxComponent.Checkbox, data, React.createElement('slot'));
   }
 }
 
