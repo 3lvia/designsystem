@@ -26,16 +26,20 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 }) => {
   let [isChecked, setCheckedState] = useState(false);
 
+  console.log(checked);
   React.useEffect(() => {
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
     link.rel = 'stylesheet';
     link.type = 'text/css';
     document.head.appendChild(link);
+  }, []);
+
+  React.useEffect(() => {
     if (checked === true) {
       toggleChecked();
     }
-  }, []);
+  }, [checked]);
 
   const classes = ['ewc-checkbox', size === 'small' ? 'ewc-checkbox--sm' : ''].join(' ');
   // check and add html5 input modifers
@@ -45,9 +49,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   const toggleChecked = () => {
     isChecked = !!!isChecked;
     setCheckedState(isChecked);
-    webcomponent.updateData({
-      checked: isChecked,
-    });
+    if (webcomponent) {
+      webcomponent.updateData({
+        checked: isChecked,
+      });
+    }
   };
 
   return (

@@ -13,12 +13,21 @@ Checkbox;
 export class AppComponent implements OnInit {
   @ViewChild('checkbox1', { static: true }) checkbox: any;
   title = 'angular';
-  checkBoxVal = false;
+  checkBoxVal = true;
 
   ngOnInit() {
+
+    // LISTEN TO CHANGES ON COMPONENT
     this.checkbox.nativeElement.addEventListener('data-changed', (event: any) => {
       const data = event.detail;
       this.checkBoxVal = data.checked;
     });
+
+    // MAP DATA FROM ANGULAR TO COMPONENT
+    this.checkbox.nativeElement.data = {
+      checked: this.checkBoxVal,
+      size: 'small'
+    };
+
   }
 }
