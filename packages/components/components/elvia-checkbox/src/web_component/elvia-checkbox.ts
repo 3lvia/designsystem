@@ -5,22 +5,20 @@ import * as ReactCheckboxComponent from '../../react/js/elvia-checkbox.js';
 const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaCheckbox extends HTMLElement {
-  mountPoint!: HTMLSpanElement;
+  private mountPoint!: HTMLSpanElement;
 
   static get observedAttributes(): any[] {
     return ['label', 'name', 'value', 'id', 'size', 'checked', 'disabled', 'required'];
   }
-  _data: any;
+
+  private _data: any;
   constructor() {
     super();
     this._data = {};
   }
 
-
   set data(val: any) {
     this._data = val;
-    let rand = Math.random() > 0.5 ? true : false;
-    val.checked = rand;
     this.mountPoint.dispatchEvent(new CustomEvent('data-changed', {
       bubbles: true,
       composed: true,
@@ -35,7 +33,6 @@ export default class ElviaCheckbox extends HTMLElement {
   }
 
   connectedCallback(): void {
-    console.log("CONNECTED CALLBACK")
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
@@ -53,21 +50,40 @@ export default class ElviaCheckbox extends HTMLElement {
   }
 
   /**
-   * Maps the attributes prefixed with "elvia-" to the data object
+   * Maps the attributes prefixed with "elvia-" to the data object, but does not overwrite existing data
    */
-  mapAttributesToData() {
+  private mapAttributesToData() {
     ElviaCheckbox.observedAttributes.forEach((attr: any) => {
-      this._data[attr] = this.getAttribute(attr);
+      if (!this._data[attr]) {
+        this._data[attr] = this.getAttribute(attr);
+      }
     });
   }
 
-  renderReactDOM(): void {
+  private renderReactDOM(): void {
     this.mapAttributesToData();
     ReactDOM.render(this.createCheckbox(this._data), this.mountPoint);
   }
 
-  createCheckbox(data: any): React.ReactElement {
-    return React.createElement(ReactCheckboxComponent.Checkbox, data, React.createElement('slot'));
+  /** Used by the ReactComponent to update _data and dispatch event */
+  updateData(reactData: any) {
+    // Should preferably deep clone each individual property.
+    Object.keys(reactData).forEach(key => {
+      this._data[key] = reactData[key];
+    });
+
+    this.mountPoint.dispatchEvent(new CustomEvent('data-changed', {
+      bubbles: true,
+      composed: true,
+      detail: this._data
+    }));
+  }
+
+  private createCheckbox(data: any): React.ReactElement {
+    // Does not create a reliable deep clone, but is sufficient for v1
+    const reactData = JSON.parse(JSON.stringify(data));
+    reactData.webcomponent = this;
+    return React.createElement(ReactCheckboxComponent.Checkbox, reactData, React.createElement('slot'));
   }
 }
 
