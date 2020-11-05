@@ -38,7 +38,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   }, []);
 
   const classes = ['ewc-checkbox', size === 'small' ? 'ewc-checkbox--sm' : ''].join(' ');
-
   // check and add html5 input modifers
   const isDisabled = disabled === 'true' || disabled === '';
   const isRequired = required === 'true' || required === '';
