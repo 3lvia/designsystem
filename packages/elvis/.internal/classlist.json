@@ -181,15 +181,24 @@
 				"e-chip-container": {}
 			},
 			"element": {
-				"e-chip__label": {}
+				"e-chip__label": {},
+				"e-chip__close": {}
 			},
 			"modifier": {
+				"e-chip--green": {},
+				"e-chip--yellow": {},
+				"e-chip--orange": {},
+				"e-chip--red": {},
 				"e-chip--green-apple": {},
 				"e-chip--violet-grape": {},
 				"e-chip--blue-berry": {},
 				"e-chip--purple-plum": {},
 				"e-chip--orange-mango": {},
 				"e-chip--red-tomato": {}
+			},
+			"psuedo": {
+				"e-chip---hover": {},
+				"e-chip---disabled": {}
 			}
 		},
 		"e-content-loader": {
@@ -215,16 +224,14 @@
 		},
 		"e-combined-field": {},
 		"e-radio-filter": {
-			"container": {
-				"e-radio-filter-container": {}
+			"element": {
+				"e-radio-filter__label": {}
 			},
 			"modifier": {
-				"e-radio-filter--selected": {}
-			},
-			"psuedo": {
-				"e-radio-filter---hover": {},
-				"e-radio-filter---disabled": {},
-				"e-radio-filter---focus": {}
+				"e-radio-filter--focus": {},
+				"e-radio-filter--hover": {},
+				"e-radio-filter--checked": {},
+				"e-radio-filter--disabled": {}
 			}
 		},
 		"e-header": {
@@ -1090,12 +1097,19 @@
 		"e-chip-container": {},
 		"e-chip": {},
 		"e-chip__label": {},
+		"e-chip__close": {},
+		"e-chip--green": {},
+		"e-chip--yellow": {},
+		"e-chip--orange": {},
+		"e-chip--red": {},
 		"e-chip--green-apple": {},
 		"e-chip--violet-grape": {},
 		"e-chip--blue-berry": {},
 		"e-chip--purple-plum": {},
 		"e-chip--orange-mango": {},
 		"e-chip--red-tomato": {},
+		"e-chip---hover": {},
+		"e-chip---disabled": {},
 		"e-content-loader": {},
 		"e-content-loader--circle": {},
 		"e-content-loader--text": {},
@@ -1109,12 +1123,12 @@
 		"e-input---disabled": {},
 		"e-combined-field": {},
 		"e-dropdown": {},
-		"e-radio-filter-container": {},
 		"e-radio-filter": {},
-		"e-radio-filter--selected": {},
-		"e-radio-filter---hover": {},
-		"e-radio-filter---disabled": {},
-		"e-radio-filter---focus": {},
+		"e-radio-filter__label": {},
+		"e-radio-filter--focus": {},
+		"e-radio-filter--hover": {},
+		"e-radio-filter--checked": {},
+		"e-radio-filter--disabled": {},
 		"e-header": {},
 		"e-header__top-bar": {},
 		"e-header__top-bar-desktop": {},

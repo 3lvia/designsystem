@@ -10,8 +10,8 @@ import { spacingItems } from './spacing';
 export class SpacingDocComponent {
 
   spacingItems = spacingItems;
-  figmaUrl = getIdentity('spacing-doc').figmaUrl;
-  description = getIdentity('spacing-doc').description;
+  figmaUrl = getIdentity('spacing').figmaUrl;
+  description = getIdentity('spacing').description;
 
   doCodeCSS = `padding: var(--e-spacing-16);
 margin: var(--e-spacing-48);`;

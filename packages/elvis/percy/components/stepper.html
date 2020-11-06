@@ -1,0 +1,142 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elvia Percytest</title>
+    <link rel="stylesheet" type="text/css" href="../../css/elvis.min.css" />
+    <script src="../../elvis.js"></script>
+  </head>
+  <body>
+    <div class="e-title-sm e-mt-16">Stepper</div>
+    <div class="e-title-xs e-my-16">Horizontal stepper</div>
+    <div class="e-stepper e-stepper--horizontal">
+      <div class="e-stepper__steps">
+        <!--STEP-->
+        <div class="e-stepper__step e-stepper__step--done">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">1</div>
+          </div>
+        </div>
+
+        <!--STEP-->
+        <div class="e-stepper__step e-stepper__step--error">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">2</div>
+          </div>
+        </div>
+
+        <!--STEP-->
+        <div class="e-stepper__step e-stepper__step--active">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">3</div>
+          </div>
+        </div>
+
+        <!--STEP-->
+        <div class="e-stepper__step">
+          <div class="e-stepper__step-line"></div>
+          <div class="e-stepper__step-header">
+            <div class="e-stepper__step-number">4</div>
+          </div>
+        </div>
+      </div>
+
+      <!--CONTENT - PUT DESIRED CONTENT HERE FOR EACH STEP-->
+      <div class="e-stepper__content">
+        <div class="e-stepper__title">Contact</div>
+        <div class="e-form-field e-mb-24">
+          <label class="e-form-field__label" for="normal">Email</label>
+          <div class="e-input">
+            <i class="e-icon e-icon--mail e-icon--xs"></i>
+            <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
+          </div>
+        </div>
+        <div class="e-form-field e-form-field--combined">
+          <label class="e-form-field__label" for="phone">Phone</label>
+          <div class="e-form-field__input">
+            <div id="phone" class="e-input e-input--small">
+              <input type="text" value="+47" />
+            </div>
+            <div class="e-input e-mb-24">
+              <i class="e-icon e-icon--phone e-icon--xs"></i>
+              <input type="text" placeholder="Placeholder text" />
+            </div>
+          </div>
+        </div>
+        <div class="e-stepper__actions">
+          <button class="e-btn e-btn--secondary">Back</button>
+          <button class="e-btn e-btn--primary">Next</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="e-title-xs e-my-16">Vertical stepper</div>
+    <div class="e-stepper e-stepper--vertical">
+      <!--STEP-->
+      <div class="e-stepper__step e-stepper__step--done">
+        <div class="e-stepper__step-line"></div>
+        <div class="e-stepper__step-header">
+          <div class="e-stepper__step-number">1</div>
+          <div class="e-stepper__step-title">Create payment</div>
+        </div>
+      </div>
+
+      <!--STEP-->
+      <div class="e-stepper__step e-stepper__step--error">
+        <div class="e-stepper__step-line"></div>
+        <div class="e-stepper__step-header">
+          <div class="e-stepper__step-number">2</div>
+          <div class="e-stepper__step-title">Card</div>
+        </div>
+      </div>
+
+      <!--STEP-->
+      <div class="e-stepper__step e-stepper__step--active">
+        <div class="e-stepper__step-line"></div>
+        <div class="e-stepper__step-header">
+          <div class="e-stepper__step-number">3</div>
+          <div class="e-stepper__step-title">Contact</div>
+        </div>
+
+        <!--CONTENT - ONLY ONE VISIBLE AT THE TIME-->
+        <div class="e-stepper__content">
+          <div class="e-form-field e-mb-24">
+            <label class="e-form-field__label" for="normal">Email</label>
+            <div class="e-input">
+              <i class="e-icon e-icon--mail e-icon--xs"></i>
+              <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
+            </div>
+          </div>
+          <div class="e-form-field e-form-field--combined">
+            <label class="e-form-field__label" for="phone">Phone</label>
+            <div class="e-form-field__input">
+              <div id="phone" class="e-input e-input--small">
+                <input type="text" value="+47" />
+              </div>
+              <div class="e-input e-mb-24">
+                <i class="e-icon e-icon--phone e-icon--xs"></i>
+                <input type="text" placeholder="Placeholder text" />
+              </div>
+            </div>
+          </div>
+          <div class="e-stepper__actions">
+            <button class="e-btn e-btn--secondary">Back</button>
+            <button class="e-btn e-btn--primary">Next</button>
+          </div>
+        </div>
+      </div>
+
+      <!--STEP-->
+      <div class="e-stepper__step">
+        <!--<div class="e-stepper__step-line"></div>-->
+        <div class="e-stepper__step-header">
+          <div class="e-stepper__step-number">4</div>
+          <div class="e-stepper__step-title">Send</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

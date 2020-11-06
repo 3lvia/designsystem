@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./tooltip-doc.component.scss'],
 })
 export class TooltipDocComponent {
-  figmaUrl = getComponent('tooltip-doc').figmaUrl;
-  description = getComponent('tooltip-doc').description;
+  figmaUrl = getComponent('tooltip').figmaUrl;
+  description = getComponent('tooltip').description;
   does = ['Explain the function of an user interactive element.', 'Showing full version of shortened text.'];
   donts = [
     'If you can\'t think of any particularly useful content in a tooltip.',

@@ -1,44 +1,57 @@
-@use "../variables/typography.scss";
 @use "../utilities/outline.scss";
+@use "../utilities/helpers";
 
-.e-radio-filter-container {
+$control-count: 8;
+
+.e-radio-filter {
   display: flex;
   flex-direction: row;
-  .e-radio-filter:not(:last-of-type) {
+  @include helpers.user-select(none);
+
+  label:not(:last-of-type) {
     margin-right: 4px;
   }
-}
-.e-radio-filter {
-  @include typography.typography('text-option');
-  padding: 4px 11px;
-  border: 1px solid transparent;
-  border-radius: 32px;
-  background: var(--e-white);
-  cursor: pointer;
 
-  &--selected {
-    border-color: var(--e-black);
-    &:hover {
+  label {
+    display: flex;
+    padding: 4px 11px;
+    border: 1px solid transparent;
+    border-radius: 32px;
+    background: var(--e-white);
+    cursor: pointer;
+
+    .e-radio-filter__label {
+      font-family: 'Red Hat Display';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22px;
+      font-weight: 500;
+    }
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+
+    &.e-radio-filter--focus ~ label:first-of-type,
+    &:focus ~ label:first-of-type {
+      @include outline.e-outline();
+    }
+    &.e-radio-filter--hover + label,
+    &:hover:not(:disabled) + label {
+      border-color: var(--e-green);
+    }
+    &.e-radio-filter--checked + label,
+    &:checked:not(:disabled) + label {
       border-color: var(--e-black);
     }
-  }
-
-  &:hover,
-  &---hover {
-    border-color: var(--e-green);
-  }
-
-  &:disabled,
-  &---disabled {
-    cursor: not-allowed;
-    color: var(--e-grey-40);
-    &:hover {
-      border-color: transparent;
+    &.e-radio-filter--disabled + label,
+    &:disabled + label {
+      cursor: not-allowed;
+      & > .e-radio-filter__label {
+        color: var(--e-grey-40);
+      }
     }
-  }
-
-  &:focus,
-  &---focus {
-    @include outline.e-outline();
   }
 }
