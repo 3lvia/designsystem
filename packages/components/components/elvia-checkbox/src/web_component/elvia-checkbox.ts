@@ -17,17 +17,6 @@ export default class ElviaCheckbox extends HTMLElement {
     this._data = {};
   }
 
-  set data(val: any) {
-    this._data = val;
-    this.mountPoint.dispatchEvent(new CustomEvent('data-changed', {
-      bubbles: true,
-      composed: true,
-      detail: this._data
-    }));
-
-    this.renderReactDOM();
-  }
-
   get data() {
     return this._data;
   }
@@ -65,23 +54,37 @@ export default class ElviaCheckbox extends HTMLElement {
     ReactDOM.render(this.createCheckbox(this._data), this.mountPoint);
   }
 
-  /** Used by the ReactComponent to update _data and dispatch event */
-  updateData(reactData: any) {
-    // Should preferably deep clone each individual property.
-    Object.keys(reactData).forEach(key => {
-      this._data[key] = reactData[key];
+  // Does not create a reliable deep clone, but is sufficient for v1
+  private clone(item: any) {
+    return JSON.parse(JSON.stringify(item));
+  }
+
+  getProps() {
+    return this.clone(this._data);
+  }
+
+  /** Used to update _data and dispatch event */
+  setProps(newProps: any, preventRerender?: boolean) {
+    Object.keys(newProps).forEach(key => {
+      this._data[key] = this.clone(newProps[key]);
     });
 
-    this.mountPoint.dispatchEvent(new CustomEvent('data-changed', {
+    // Consider throttling to every 25-50ms and last event
+    this.mountPoint.dispatchEvent(new CustomEvent('props-changed', {
       bubbles: true,
       composed: true,
-      detail: this._data
+      detail: this.clone(this._data)
     }));
+
+    if (!preventRerender) {
+      this.renderReactDOM();
+    }
+
   }
 
   private createCheckbox(data: any): React.ReactElement {
     // Does not create a reliable deep clone, but is sufficient for v1
-    const reactData = JSON.parse(JSON.stringify(data));
+    const reactData = this.clone(data);
     reactData.webcomponent = this;
     return React.createElement(ReactCheckboxComponent.Checkbox, reactData, React.createElement('slot'));
   }

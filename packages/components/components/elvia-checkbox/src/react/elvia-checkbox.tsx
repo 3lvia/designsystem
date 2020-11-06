@@ -26,7 +26,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 }) => {
   let [isChecked, setCheckedState] = useState(false);
 
-  console.log(checked);
   React.useEffect(() => {
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
@@ -50,9 +49,12 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     isChecked = !!!isChecked;
     setCheckedState(isChecked);
     if (webcomponent) {
-      webcomponent.updateData({
-        checked: isChecked,
-      });
+      webcomponent.setProps(
+        {
+          checked: isChecked,
+        },
+        true, // Prevent rerender
+      );
     }
   };
 

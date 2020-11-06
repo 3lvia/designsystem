@@ -18,16 +18,16 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     // LISTEN TO CHANGES ON COMPONENT
-    this.checkbox.nativeElement.addEventListener('data-changed', (event: any) => {
+    this.checkbox.nativeElement.addEventListener('props-changed', (event: any) => {
       const data = event.detail;
       this.checkBoxVal = data.checked;
     });
 
-    // MAP DATA FROM ANGULAR TO COMPONENT
-    this.checkbox.nativeElement.data = {
-      checked: this.checkBoxVal,
-      size: 'small'
-    };
+    this.checkbox.nativeElement.setProps({ checked: true });
+    this.checkbox.nativeElement.getProps();
+
+
+    this.checkbox.nativeElement.data.checked = false;
 
   }
 }
