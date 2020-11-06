@@ -13,24 +13,11 @@ $sizes: (
 $popover-size: 450px;
 $popover-border-width: 1px;
 $popover-padding: 24px;
-$popover-arrow-size: 12px;
-$popover-arrow-size-small: calc(#{$popover-arrow-size} - #{$popover-border-width});
+$popover-arrow-size: 16px;
 $popover-arrow-offset: 25px; // Midtstilt i forhold til ikon 16X16px (xs)
 $popover-button-offset: -30px;
 
 $green: #29d305;
-
-%ewc-popover__widget {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  bottom: 0;
-}
-%arrow-after-style {
-  transform: rotate(45deg);
-  background: white;
-}
 
 .ewc-popover {
   display: inline-flex;
@@ -48,17 +35,18 @@ $green: #29d305;
       justify-content: center;
       z-index: 100;
       opacity: 1;
-      transition: opacity 100ms ease-in;
-      &::before {
-        @extend %ewc-popover__widget;
-        border: $popover-arrow-size solid;
-      }
+      transition: opacity 150ms ease-in;
       &::after {
-        @extend %ewc-popover__widget;
+        content: '';
+        position: absolute;
+        bottom: 0;
         z-index: 100;
         transform: rotate(45deg);
+        border: 1px solid;
+        width: $popover-arrow-size;
+        height: $popover-arrow-size;
         background: white;
-        border: $popover-arrow-size-small solid;
+        border: 1px solid;
       }
 
       animation: fadeIn 100ms ease-in;
@@ -138,14 +126,9 @@ $green: #29d305;
       margin-bottom: 23px;
     }
     .ewc-popover__arrow {
-      &::before {
-        top: -23px;
-        border-color: $green transparent transparent transparent;
-      }
       &::after {
-        @extend %arrow-after-style;
-        top: -39px;
-        border-color: white transparent transparent transparent;
+        top: -33px;
+        border-color: transparent $green $green transparent;
       }
     }
   }
@@ -156,14 +139,9 @@ $green: #29d305;
       margin-top: 22px;
     }
     .ewc-popover__arrow {
-      &::before {
-        bottom: -22px;
-        border-color: transparent transparent $green transparent;
-      }
       &::after {
-        bottom: -38px;
-        border-color: transparent transparent white transparent;
-        @extend %arrow-after-style;
+        bottom: -32px;
+        border-color: $green transparent transparent $green;
       }
     }
   }
@@ -173,12 +151,8 @@ $green: #29d305;
       transform: translateX(-50%);
     }
     .ewc-popover__arrow {
-      &::before {
-        left: calc(50% - (#{$popover-arrow-offset} / 2));
-      }
       &::after {
         left: calc(50% - (#{$popover-arrow-offset} / 2) + 1px);
-        @extend %arrow-after-style;
       }
     }
   }
