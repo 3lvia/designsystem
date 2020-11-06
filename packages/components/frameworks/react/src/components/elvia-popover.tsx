@@ -9,8 +9,8 @@ import './style.scss';
 export interface PopoverProps {
   title: string;
   description: string;
-  startPosX?: string;
-  startPosY?: string;
+  posX?: string;
+  posY?: string;
   trigger?: string;
 }
 
@@ -25,7 +25,7 @@ export const throttle = (func: any, limit: number) => {
   }
 }
 
-export const Popover: React.FC<PopoverProps> = ({ title, description, startPosX = 'center', startPosY = 'top', trigger }) => {
+export const Popover: React.FC<PopoverProps> = ({ title, description, posX = 'center', posY = 'top', trigger }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
@@ -115,11 +115,11 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, startPosX 
       }
     }
     function updatePositionY(popover: HTMLSpanElement, contentHeight: number, offsetTop: number, offsetBottom: number, arrowOffsetBottom: number, arrowOffsetTop: number) {
-      if((offsetTop <= popoverMargin) || (startPosY === 'bottom' && (arrowOffsetBottom > contentHeight + popoverMargin + popoverMargin))){
+      if((offsetTop <= popoverMargin) || (posY === 'bottom' && (arrowOffsetBottom > contentHeight + popoverMargin + popoverMargin))){
         if(popover && !popover.classList.contains('ewc-popover--bottom')){
           popover.classList.add('ewc-popover--bottom');
         }
-      } else if ((offsetBottom <= popoverMargin && offsetTop > popoverMargin) || (startPosY === 'top' && (arrowOffsetTop > contentHeight + popoverMargin + popoverMargin))){
+      } else if ((offsetBottom <= popoverMargin && offsetTop > popoverMargin) || (posY === 'top' && (arrowOffsetTop > contentHeight + popoverMargin + popoverMargin))){
         if(popover && popover.classList.contains('ewc-popover--bottom')){
           popover.classList.remove('ewc-popover--bottom');
         }
@@ -141,9 +141,9 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, startPosX 
       content.style.right = 'unset';
     }
     function getTranslateValue(): string {
-      if(startPosX === 'left') {
+      if(posX === 'left') {
         return 'translateX(-87%)';
-      } else if(startPosX === 'right') {
+      } else if(posX === 'right') {
         return 'translateX(-9%)';
       }
       return 'translateX(-50%)';
@@ -172,15 +172,15 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, startPosX 
     const arrowOffsetTop = arrow.getBoundingClientRect().top;
     const arrowOffsetBottom = window.innerHeight - arrowHeight - arrowOffsetTop;
     resize(content);
-    if (startPosX === 'center') {
+    if (posX === 'center') {
       updatePositionXCenter(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
-    } else if(startPosX === 'left') {
+    } else if(posX === 'left') {
       updatePositionXLeft(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
-    } else if(startPosX === 'right') {
+    } else if(posX === 'right') {
       updatePositionXRight(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
     }
     updatePositionY(popover, contentHeight, offsetTop, offsetBottom, arrowOffsetBottom, arrowOffsetTop);
-  }, [startPosY, startPosX]);
+  }, [posY, posX]);
 
 
   // Toggle visibility 
@@ -207,7 +207,7 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, startPosX 
     const throttledCount = throttle(calculatePosition, 150);
     window.addEventListener('resize', throttledCount);
     return () => window.removeEventListener('resize', throttledCount);
-  }, [visiblePopover, startPosY, calculatePosition]); 
+  }, [visiblePopover, posY, calculatePosition]); 
 
   return (
     <span className='ewc-popover' ref={popoverRef}>

@@ -7,11 +7,11 @@ const style = `{{INSERT_STYLE_HERE}}`;
 export default class ElviaPopover extends HTMLElement {
   mountPoint!: HTMLSpanElement;
   static get observedAttributes(): string[] {
-    return ['title', 'description', 'startPosX', 'startPosY'];
+    return ['title', 'description', 'posX', 'posY'];
   }
 
-  createPopover(title: string, description: string, startPosX: string, startPosY: string): React.ReactElement {
-    const data = { title, description, startPosX, startPosY };
+  createPopover(title: string, description: string, posX: string, posY: string): React.ReactElement {
+    const data = { title, description, posX, posY };
     return React.createElement(ReactPopoverComponent.Popover, data, React.createElement('slot'));
   }
 
@@ -35,9 +35,9 @@ export default class ElviaPopover extends HTMLElement {
   renderReactDOM(): void {
     const title = this.getAttribute('title')!;
     const description = this.getAttribute('description')!;
-    const startPosX = this.getAttribute('startPosX')!;
-    const startPosY = this.getAttribute('startPosY')!;
-    ReactDOM.render(this.createPopover(title, description, startPosX, startPosY), this.mountPoint);
+    const posX = this.getAttribute('posX')!;
+    const posY = this.getAttribute('posY')!;
+    ReactDOM.render(this.createPopover(title, description, posX, posY), this.mountPoint);
   }
 }
 

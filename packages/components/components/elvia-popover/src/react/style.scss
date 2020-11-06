@@ -47,6 +47,8 @@ $green: #29d305;
       width: 100%;
       display: flex;
       justify-content: center;
+      opacity: 1;
+      transition: opacity 100ms ease-in;
       &::before {
         @extend %ewc-popover__widget;
         border: $popover-arrow-size solid;
@@ -87,16 +89,7 @@ $green: #29d305;
     border: 1px solid $green;
     border-radius: 8px;
     text-align: left;
-    animation: fadeIn 200ms ease-in;
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
+    transition: opacity 200ms ease-in;
 
     .ewc-popover__close {
       position: absolute;
@@ -123,11 +116,18 @@ $green: #29d305;
     }
   }
 
-  .ewc-popover--hide {
+  // Hiding content and arrow
+  .ewc-popover__content.ewc-popover--hide {
+    opacity: 0;
     visibility: hidden;
     .ewc-btn .ewc-btn__icon i {
+      opacity: 0;
       visibility: hidden;
     }
+  }
+  .ewc-popover__arrow.ewc-popover--hide {
+    opacity: 0;
+    visibility: hidden;
   }
 
   // Modifiers for alignment of popover
