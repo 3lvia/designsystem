@@ -220,18 +220,29 @@ body {
     line-height: 29px;
   }
 }
-.e-accordion__item .e-accordion__title:hover,
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-accordion__item .e-accordion__title:hover,
 .e-accordion__item .e-accordion__icon:hover {
-  cursor: pointer;
-}
+    cursor: pointer;
+  }
 
-.e-accordion__item .e-accordion__title:hover + .e-accordion__icon i[class*=expand_circle-color],
+  .e-accordion__item .e-accordion__title:hover + .e-accordion__icon i[class*=expand_circle-color],
 .e-accordion__item .e-accordion__icon:hover i[class*=expand_circle-color] {
+    display: none;
+  }
+
+  .e-accordion__item .e-accordion__title:hover + .e-accordion__icon i[class*=expand_circle-filled-color],
+.e-accordion__item .e-accordion__icon:hover i[class*=expand_circle-filled-color] {
+    display: flex;
+  }
+}
+.e-accordion__item .e-accordion__title:active + .e-accordion__icon i[class*=expand_circle-color],
+.e-accordion__item .e-accordion__icon:active i[class*=expand_circle-color] {
   display: none;
 }
 
-.e-accordion__item .e-accordion__title:hover + .e-accordion__icon i[class*=expand_circle-filled-color],
-.e-accordion__item .e-accordion__icon:hover i[class*=expand_circle-filled-color] {
+.e-accordion__item .e-accordion__title:active + .e-accordion__icon i[class*=expand_circle-filled-color],
+.e-accordion__item .e-accordion__icon:active i[class*=expand_circle-filled-color] {
   display: flex;
 }
 
@@ -318,18 +329,19 @@ body {
   width: 100%;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label:hover {
-  cursor: pointer;
-}
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-accordion.e-accordion--group .e-accordion__item .e-accordion__label:hover {
+    cursor: pointer;
+  }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label:hover i[class*=expand_circle-color] {
-  display: none;
-}
+  .e-accordion.e-accordion--group .e-accordion__item .e-accordion__label:hover i[class*=expand_circle-color] {
+    display: none;
+  }
 
-.e-accordion.e-accordion--group .e-accordion__item .e-accordion__label:hover i[class*=expand_circle-filled-color] {
-  display: flex;
+  .e-accordion.e-accordion--group .e-accordion__item .e-accordion__label:hover i[class*=expand_circle-filled-color] {
+    display: flex;
+  }
 }
-
 .e-accordion.e-accordion--group .e-accordion__item .e-accordion__label .e-accordion__title {
   font-family: "Red Hat Display";
   font-weight: 500;
@@ -746,7 +758,12 @@ body {
   text-transform: unset;
 }
 
-.e-autocomplete__item:hover, .e-dropdown__item:hover {
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-autocomplete__item:hover, .e-dropdown__item:hover {
+    background-color: #e9e9e9;
+  }
+}
+.e-autocomplete__item:active, .e-dropdown__item:active {
   background-color: #e9e9e9;
 }
 
@@ -1413,20 +1430,35 @@ input:focus {
   cursor: not-allowed;
 }
 
-.e-btn.e-btn--primary.e-btn---hover, .e-btn.e-btn---hover, .e-btn.e-btn--primary:hover:not(:disabled), .e-btn:hover:not(:disabled), .e-btn.e-btn--primary.e-btn---active, .e-btn.e-btn---active, .e-btn.e-btn--primary:active:not(:disabled), .e-btn:active:not(:disabled) {
+.e-btn.e-btn--primary.e-btn---hover, .e-btn.e-btn---hover, .e-btn.e-btn--primary.e-btn---active, .e-btn.e-btn---active, .e-btn.e-btn--primary:active:not(:disabled), .e-btn:active:not(:disabled) {
   background: #29d305;
   border-color: #29d305;
   color: #000;
 }
 
-.e-btn.e-btn--primary.e-btn---hover .e-btn__icon i[class*=inverted], .e-btn.e-btn---hover .e-btn__icon i[class*=inverted], .e-btn.e-btn--primary:hover:not(:disabled) .e-btn__icon i[class*=inverted], .e-btn:hover:not(:disabled) .e-btn__icon i[class*=inverted], .e-btn.e-btn--primary.e-btn---active .e-btn__icon i[class*=inverted], .e-btn.e-btn---active .e-btn__icon i[class*=inverted], .e-btn.e-btn--primary:active:not(:disabled) .e-btn__icon i[class*=inverted], .e-btn:active:not(:disabled) .e-btn__icon i[class*=inverted] {
+.e-btn.e-btn--primary.e-btn---hover .e-btn__icon i[class*=inverted], .e-btn.e-btn---hover .e-btn__icon i[class*=inverted], .e-btn.e-btn--primary.e-btn---active .e-btn__icon i[class*=inverted], .e-btn.e-btn---active .e-btn__icon i[class*=inverted], .e-btn.e-btn--primary:active:not(:disabled) .e-btn__icon i[class*=inverted], .e-btn:active:not(:disabled) .e-btn__icon i[class*=inverted] {
   visibility: hidden;
 }
 
-.e-btn.e-btn--primary.e-btn---hover .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn---hover .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn--primary:hover:not(:disabled) .e-btn__icon i:not([class$=inverted]), .e-btn:hover:not(:disabled) .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn--primary.e-btn---active .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn---active .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn--primary:active:not(:disabled) .e-btn__icon i:not([class$=inverted]), .e-btn:active:not(:disabled) .e-btn__icon i:not([class$=inverted]) {
+.e-btn.e-btn--primary.e-btn---hover .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn---hover .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn--primary.e-btn---active .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn---active .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn--primary:active:not(:disabled) .e-btn__icon i:not([class$=inverted]), .e-btn:active:not(:disabled) .e-btn__icon i:not([class$=inverted]) {
   visibility: visible;
 }
 
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-btn.e-btn--primary:hover:not(:disabled), .e-btn:hover:not(:disabled) {
+    background: #29d305;
+    border-color: #29d305;
+    color: #000;
+  }
+
+  .e-btn.e-btn--primary:hover:not(:disabled) .e-btn__icon i[class*=inverted], .e-btn:hover:not(:disabled) .e-btn__icon i[class*=inverted] {
+    visibility: hidden;
+  }
+
+  .e-btn.e-btn--primary:hover:not(:disabled) .e-btn__icon i:not([class$=inverted]), .e-btn:hover:not(:disabled) .e-btn__icon i:not([class$=inverted]) {
+    visibility: visible;
+  }
+}
 .e-btn.e-btn--primary.e-btn---active, .e-btn.e-btn---active, .e-btn.e-btn--primary:active:not(:disabled), .e-btn:active:not(:disabled) {
   border-color: transparent;
   background-clip: padding-box;
@@ -1481,16 +1513,27 @@ input:focus {
   cursor: not-allowed;
 }
 
-.e-btn.e-btn--secondary.e-btn---hover, .e-btn.e-btn--secondary:hover:not(:disabled), .e-btn.e-btn--secondary.e-btn---active, .e-btn.e-btn--secondary:active:not(:disabled) {
+.e-btn.e-btn--secondary.e-btn---hover, .e-btn.e-btn--secondary.e-btn---active, .e-btn.e-btn--secondary:active:not(:disabled) {
   background: #29d305;
   border-color: #29d305;
   color: #000;
 }
 
-.e-btn.e-btn--secondary.e-btn---hover .e-btn__icon i, .e-btn.e-btn--secondary:hover:not(:disabled) .e-btn__icon i, .e-btn.e-btn--secondary.e-btn---active .e-btn__icon i, .e-btn.e-btn--secondary:active:not(:disabled) .e-btn__icon i {
+.e-btn.e-btn--secondary.e-btn---hover .e-btn__icon i, .e-btn.e-btn--secondary.e-btn---active .e-btn__icon i, .e-btn.e-btn--secondary:active:not(:disabled) .e-btn__icon i {
   visibility: visible;
 }
 
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-btn.e-btn--secondary:hover:not(:disabled) {
+    background: #29d305;
+    border-color: #29d305;
+    color: #000;
+  }
+
+  .e-btn.e-btn--secondary:hover:not(:disabled) .e-btn__icon i {
+    visibility: visible;
+  }
+}
 .e-btn.e-btn--secondary.e-btn---active, .e-btn.e-btn--secondary:active:not(:disabled) {
   border-color: transparent;
   background-clip: padding-box;
@@ -1560,28 +1603,48 @@ input:focus {
   cursor: not-allowed;
 }
 
-.e-btn.e-btn--tertiary.e-btn---hover, .e-btn.e-btn--tertiary:hover:not(:disabled) {
+.e-btn.e-btn--tertiary.e-btn---hover {
   border-bottom-color: #29d305;
   border-color: #29d305;
   background: none;
 }
 
-.e-btn.e-btn--tertiary.e-btn---hover .e-btn__icon i, .e-btn.e-btn--tertiary:hover:not(:disabled) .e-btn__icon i {
+.e-btn.e-btn--tertiary.e-btn---hover .e-btn__icon i {
   visibility: visible;
 }
 
-.e-btn.e-btn--tertiary.e-btn---hover[class*=e-btn--inverted] .e-btn__icon i, .e-btn.e-btn--tertiary:hover:not(:disabled)[class*=e-btn--inverted] .e-btn__icon i {
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-btn.e-btn--tertiary:hover:not(:disabled) {
+    border-bottom-color: #29d305;
+    border-color: #29d305;
+    background: none;
+  }
+
+  .e-btn.e-btn--tertiary:hover:not(:disabled) .e-btn__icon i {
+    visibility: visible;
+  }
+}
+.e-btn.e-btn--tertiary.e-btn---hover[class*=e-btn--inverted] .e-btn__icon i {
   visibility: hidden;
 }
 
 .e-btn.e-btn--tertiary.e-btn---hover[class*=e-btn--inverted] .e-btn__icon i[class*=inverted],
 .e-btn.e-btn--tertiary.e-btn---hover[class*=e-btn--inverted] .e-btn__icon i[class*=color-disabled-light],
-.e-btn.e-btn--tertiary.e-btn---hover[class*=e-btn--inverted] .e-btn__icon i[class*=e-icon--disabled-inverted], .e-btn.e-btn--tertiary:hover:not(:disabled)[class*=e-btn--inverted] .e-btn__icon i[class*=inverted],
-.e-btn.e-btn--tertiary:hover:not(:disabled)[class*=e-btn--inverted] .e-btn__icon i[class*=color-disabled-light],
-.e-btn.e-btn--tertiary:hover:not(:disabled)[class*=e-btn--inverted] .e-btn__icon i[class*=e-icon--disabled-inverted] {
+.e-btn.e-btn--tertiary.e-btn---hover[class*=e-btn--inverted] .e-btn__icon i[class*=e-icon--disabled-inverted] {
   visibility: visible;
 }
 
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-btn.e-btn--tertiary:hover:not(:disabled)[class*=e-btn--inverted] .e-btn__icon i {
+    visibility: hidden;
+  }
+
+  .e-btn.e-btn--tertiary:hover:not(:disabled)[class*=e-btn--inverted] .e-btn__icon i[class*=inverted],
+.e-btn.e-btn--tertiary:hover:not(:disabled)[class*=e-btn--inverted] .e-btn__icon i[class*=color-disabled-light],
+.e-btn.e-btn--tertiary:hover:not(:disabled)[class*=e-btn--inverted] .e-btn__icon i[class*=e-icon--disabled-inverted] {
+    visibility: visible;
+  }
+}
 .e-btn.e-btn--tertiary.e-btn---active, .e-btn.e-btn--tertiary:active:not(:disabled) {
   padding-bottom: 4.5px;
   border-bottom: 1.5px solid #29d305;
@@ -1626,16 +1689,17 @@ input:focus {
   background: none;
 }
 
-.e-btn.e-btn--icon.e-btn--inverted:hover:not(:disabled) .e-btn__icon i {
-  visibility: visible !important;
-}
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-btn.e-btn--icon.e-btn--inverted:hover:not(:disabled) .e-btn__icon i {
+    visibility: visible !important;
+  }
 
-.e-btn.e-btn--icon.e-btn--inverted:hover:not(:disabled) .e-btn__icon i[class*=inverted],
+  .e-btn.e-btn--icon.e-btn--inverted:hover:not(:disabled) .e-btn__icon i[class*=inverted],
 .e-btn.e-btn--icon.e-btn--inverted:hover:not(:disabled) .e-btn__icon i[class*=color-disabled-light],
 .e-btn.e-btn--icon.e-btn--inverted:hover:not(:disabled) .e-btn__icon i[class*=e-icon--disabled-inverted] {
-  visibility: hidden !important;
+    visibility: hidden !important;
+  }
 }
-
 .e-btn.e-btn--icon .e-btn__icon {
   width: 24px;
   height: 24px;
@@ -1696,22 +1760,35 @@ input:focus {
   visibility: hidden;
 }
 
-.e-btn.e-btn--icon.e-btn--circled.e-btn---hover, .e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled), .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) {
+.e-btn.e-btn--icon.e-btn--circled.e-btn---hover, .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) {
   background: transparent;
 }
 
 .e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i:not([class$=filled-color]),
-.e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i:not([class$=disabled]), .e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled) .e-btn__icon i:not([class$=filled-color]),
-.e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled) .e-btn__icon i:not([class$=disabled]), .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i:not([class$=filled-color]),
+.e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i:not([class$=disabled]), .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i:not([class$=filled-color]),
 .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i:not([class$=disabled]), .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) .e-btn__icon i:not([class$=filled-color]),
 .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) .e-btn__icon i:not([class$=disabled]) {
   visibility: hidden;
 }
 
-.e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i[class*=filled-color], .e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled) .e-btn__icon i[class*=filled-color], .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i[class*=filled-color], .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) .e-btn__icon i[class*=filled-color] {
+.e-btn.e-btn--icon.e-btn--circled.e-btn---hover .e-btn__icon i[class*=filled-color], .e-btn.e-btn--icon.e-btn--circled.e-btn---active .e-btn__icon i[class*=filled-color], .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) .e-btn__icon i[class*=filled-color] {
   visibility: visible;
 }
 
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled) {
+    background: transparent;
+  }
+
+  .e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled) .e-btn__icon i:not([class$=filled-color]),
+.e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled) .e-btn__icon i:not([class$=disabled]) {
+    visibility: hidden;
+  }
+
+  .e-btn.e-btn--icon.e-btn--circled:hover:not(:disabled) .e-btn__icon i[class*=filled-color] {
+    visibility: visible;
+  }
+}
 .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) {
   transform: scale(0.93);
 }
@@ -1725,32 +1802,51 @@ input:focus {
   visibility: hidden;
 }
 
-.e-btn.e-btn--icon.e-btn--danger.e-btn--inverted:hover:not(:disabled) .e-btn__icon i {
-  visibility: visible !important;
-}
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-btn.e-btn--icon.e-btn--danger.e-btn--inverted:hover:not(:disabled) .e-btn__icon i {
+    visibility: visible !important;
+  }
 
-.e-btn.e-btn--icon.e-btn--danger.e-btn--inverted:hover:not(:disabled) .e-btn__icon i[class*=inverted],
+  .e-btn.e-btn--icon.e-btn--danger.e-btn--inverted:hover:not(:disabled) .e-btn__icon i[class*=inverted],
 .e-btn.e-btn--icon.e-btn--danger.e-btn--inverted:hover:not(:disabled) .e-btn__icon i[class*=color-disabled-light],
 .e-btn.e-btn--icon.e-btn--danger.e-btn--inverted:hover:not(:disabled) .e-btn__icon i[class*=e-icon--disabled-inverted] {
-  visibility: hidden !important;
+    visibility: hidden !important;
+  }
 }
-
-.e-btn.e-btn--icon.e-btn--danger.e-btn---hover .e-btn__icon i[class*=red], .e-btn.e-btn--icon.e-btn--danger:hover:not(:disabled) .e-btn__icon i[class*=red], .e-btn.e-btn--icon.e-btn--danger.e-btn---active .e-btn__icon i[class*=red], .e-btn.e-btn--icon.e-btn--danger:active:not(:disabled) .e-btn__icon i[class*=red] {
+.e-btn.e-btn--icon.e-btn--danger.e-btn---hover .e-btn__icon i[class*=red], .e-btn.e-btn--icon.e-btn--danger.e-btn---active .e-btn__icon i[class*=red], .e-btn.e-btn--icon.e-btn--danger:active:not(:disabled) .e-btn__icon i[class*=red] {
   visibility: hidden;
 }
 
-.e-btn.e-btn--icon.e-btn--danger.e-btn---hover .e-btn__icon i:not([class$=red]), .e-btn.e-btn--icon.e-btn--danger:hover:not(:disabled) .e-btn__icon i:not([class$=red]), .e-btn.e-btn--icon.e-btn--danger.e-btn---active .e-btn__icon i:not([class$=red]), .e-btn.e-btn--icon.e-btn--danger:active:not(:disabled) .e-btn__icon i:not([class$=red]) {
+.e-btn.e-btn--icon.e-btn--danger.e-btn---hover .e-btn__icon i:not([class$=red]), .e-btn.e-btn--icon.e-btn--danger.e-btn---active .e-btn__icon i:not([class$=red]), .e-btn.e-btn--icon.e-btn--danger:active:not(:disabled) .e-btn__icon i:not([class$=red]) {
   visibility: visible;
 }
 
-.e-btn.e-btn--icon.e-btn---hover, .e-btn.e-btn--icon:hover:not(:disabled), .e-btn.e-btn--icon.e-btn---active, .e-btn.e-btn--icon:active:not(:disabled) {
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-btn.e-btn--icon.e-btn--danger:hover:not(:disabled) .e-btn__icon i[class*=red] {
+    visibility: hidden;
+  }
+
+  .e-btn.e-btn--icon.e-btn--danger:hover:not(:disabled) .e-btn__icon i:not([class$=red]) {
+    visibility: visible;
+  }
+}
+.e-btn.e-btn--icon.e-btn---hover, .e-btn.e-btn--icon.e-btn---active, .e-btn.e-btn--icon:active:not(:disabled) {
   background: #29d305;
 }
 
-.e-btn.e-btn--icon.e-btn---hover .e-btn__icon i[class$=inverted], .e-btn.e-btn--icon:hover:not(:disabled) .e-btn__icon i[class$=inverted], .e-btn.e-btn--icon.e-btn---active .e-btn__icon i[class$=inverted], .e-btn.e-btn--icon:active:not(:disabled) .e-btn__icon i[class$=inverted] {
+.e-btn.e-btn--icon.e-btn---hover .e-btn__icon i[class$=inverted], .e-btn.e-btn--icon.e-btn---active .e-btn__icon i[class$=inverted], .e-btn.e-btn--icon:active:not(:disabled) .e-btn__icon i[class$=inverted] {
   visibility: visible;
 }
 
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-btn.e-btn--icon:hover:not(:disabled) {
+    background: #29d305;
+  }
+
+  .e-btn.e-btn--icon:hover:not(:disabled) .e-btn__icon i[class$=inverted] {
+    visibility: visible;
+  }
+}
 .e-btn.e-btn--icon.e-btn---active, .e-btn.e-btn--icon:active:not(:disabled) {
   transform: scale(0.95);
 }
@@ -2166,13 +2262,34 @@ input:focus {
   border-radius: 50px;
 }
 
-.e-chip---hover:not(.e-chip---disabled), .e-chip:hover:not(:disabled) {
+.e-chip---hover:not(.e-chip---disabled) {
   background: #29d305;
   opacity: 1;
   cursor: pointer;
 }
 
-.e-chip---hover:not(.e-chip---disabled)::before, .e-chip:hover:not(:disabled)::before {
+.e-chip---hover:not(.e-chip---disabled)::before {
+  background: #29d305;
+}
+
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-chip:hover:not(:disabled) {
+    background: #29d305;
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .e-chip:hover:not(:disabled)::before {
+    background: #29d305;
+  }
+}
+.e-chip:active:not(:disabled) {
+  background: #29d305;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.e-chip:active:not(:disabled)::before {
   background: #29d305;
 }
 
@@ -3420,10 +3537,19 @@ input:focus {
   border-color: #fff;
 }
 
-.e-link.e-link---hover, .e-link:hover {
+.e-link.e-link---hover {
   border-bottom-color: #29d305;
 }
 
+.e-link:active {
+  border-bottom-color: #29d305;
+}
+
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-link:hover {
+    border-bottom-color: #29d305;
+  }
+}
 .e-link.e-link---focus {
   outline: 2px solid #0064fa !important;
   outline-offset: 2px;
@@ -3519,11 +3645,28 @@ input:focus {
   height: 23px;
 }
 
-.e-link.e-link--action.e-link---hover .e-link__icon i[class*=filled-color], .e-link.e-link--action:hover .e-link__icon i[class*=filled-color] {
+.e-link.e-link--action.e-link---hover .e-link__icon i[class*=filled-color] {
   visibility: visible;
 }
 
-.e-link.e-link--action.e-link---hover .e-link__icon i:not([class*=filled-color]), .e-link.e-link--action:hover .e-link__icon i:not([class*=filled-color]) {
+.e-link.e-link--action.e-link---hover .e-link__icon i:not([class*=filled-color]) {
+  visibility: hidden;
+}
+
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-link.e-link--action:hover .e-link__icon i[class*=filled-color] {
+    visibility: visible;
+  }
+
+  .e-link.e-link--action:hover .e-link__icon i:not([class*=filled-color]) {
+    visibility: hidden;
+  }
+}
+.e-link.e-link--action:active .e-link__icon i[class*=filled-color] {
+  visibility: visible;
+}
+
+.e-link.e-link--action:active .e-link__icon i:not([class*=filled-color]) {
   visibility: hidden;
 }
 
@@ -3610,7 +3753,18 @@ input:focus {
     height: 40px;
   }
 }
-.e-link.e-link--jumbo.e-link---hover, .e-link.e-link--jumbo:hover {
+.e-link.e-link--jumbo.e-link---hover {
+  color: #000;
+  border: 2px solid #29d305;
+}
+
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-link.e-link--jumbo:hover {
+    color: #000;
+    border: 2px solid #29d305;
+  }
+}
+.e-link.e-link--jumbo:active {
   color: #000;
   border: 2px solid #29d305;
 }
@@ -3718,37 +3872,100 @@ input:focus {
   letter-spacing: 0.2px;
 }
 
-.e-link.e-link--card:hover {
+.e-link.e-link--card:active {
   box-shadow: 0 0 0 2px #29d305;
   cursor: pointer;
 }
 
-.e-link.e-link--card:hover .e-link__icon {
+.e-link.e-link--card:active .e-link__icon {
   transform: scale(0.9166);
 }
 
-.e-link.e-link--card:hover .e-link__icon i {
+.e-link.e-link--card:active .e-link__icon i {
   visibility: hidden;
   transition: visibility 0.3s ease;
 }
 
-.e-link.e-link--card:hover .e-link__icon i + i {
+.e-link.e-link--card:active .e-link__icon i + i {
   visibility: visible;
   transition: visibility 0.3s ease;
 }
 
-.e-link.e-link--card:hover .e-link__icon.e-link--delay-hover i {
+.e-link.e-link--card:active .e-link__icon.e-link--delay-hover i {
   visibility: hidden;
   transition: visibility 0.3s ease;
   transition-delay: 0.3s;
 }
 
-.e-link.e-link--card:hover .e-link__icon.e-link--delay-hover i + i {
+.e-link.e-link--card:active .e-link__icon.e-link--delay-hover i + i {
   visibility: visible;
   transition: visibility 0.3s ease;
   transition-delay: 0.3s;
 }
 
+.e-link.e-link--card:active {
+  box-shadow: 0 0 0 2px #29d305;
+  cursor: pointer;
+}
+
+.e-link.e-link--card:active .e-link__icon {
+  transform: scale(0.9166);
+}
+
+.e-link.e-link--card:active .e-link__icon i {
+  visibility: hidden;
+  transition: visibility 0.3s ease;
+}
+
+.e-link.e-link--card:active .e-link__icon i + i {
+  visibility: visible;
+  transition: visibility 0.3s ease;
+}
+
+.e-link.e-link--card:active .e-link__icon.e-link--delay-hover i {
+  visibility: hidden;
+  transition: visibility 0.3s ease;
+  transition-delay: 0.3s;
+}
+
+.e-link.e-link--card:active .e-link__icon.e-link--delay-hover i + i {
+  visibility: visible;
+  transition: visibility 0.3s ease;
+  transition-delay: 0.3s;
+}
+
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-link.e-link--card:hover {
+    box-shadow: 0 0 0 2px #29d305;
+    cursor: pointer;
+  }
+
+  .e-link.e-link--card:hover .e-link__icon {
+    transform: scale(0.9166);
+  }
+
+  .e-link.e-link--card:hover .e-link__icon i {
+    visibility: hidden;
+    transition: visibility 0.3s ease;
+  }
+
+  .e-link.e-link--card:hover .e-link__icon i + i {
+    visibility: visible;
+    transition: visibility 0.3s ease;
+  }
+
+  .e-link.e-link--card:hover .e-link__icon.e-link--delay-hover i {
+    visibility: hidden;
+    transition: visibility 0.3s ease;
+    transition-delay: 0.3s;
+  }
+
+  .e-link.e-link--card:hover .e-link__icon.e-link--delay-hover i + i {
+    visibility: visible;
+    transition: visibility 0.3s ease;
+    transition-delay: 0.3s;
+  }
+}
 .e-link.e-link--card.e-link--shortcut {
   box-shadow: none;
   border: none;
@@ -3817,18 +4034,31 @@ input:focus {
   text-transform: unset;
 }
 
-.e-link.e-link--card.e-link--shortcut:hover {
+.e-link.e-link--card.e-link--shortcut:active {
   border-color: #29d305;
 }
 
-.e-link.e-link--card.e-link--shortcut:hover .e-link__icon {
+.e-link.e-link--card.e-link--shortcut:active .e-link__icon {
   transform: scale(1.125);
 }
 
-.e-link.e-link--card.e-link--shortcut:hover .e-link__icon.e-link--delay-hover {
+.e-link.e-link--card.e-link--shortcut:active .e-link__icon.e-link--delay-hover {
   transform: scale(1.125);
 }
 
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-link.e-link--card.e-link--shortcut:hover {
+    border-color: #29d305;
+  }
+
+  .e-link.e-link--card.e-link--shortcut:hover .e-link__icon {
+    transform: scale(1.125);
+  }
+
+  .e-link.e-link--card.e-link--shortcut:hover .e-link__icon.e-link--delay-hover {
+    transform: scale(1.125);
+  }
+}
 .e-p-0 {
   padding: 0px !important;
 }
@@ -5517,13 +5747,19 @@ input:focus {
   border: 1px solid #000;
 }
 
-.e-pagination__choosing-page .e-pagination__number:hover, .e-pagination__choosing-page .e-pagination__number.e-pagination__number---hover, .e-pagination__choosing-page .e-pagination__number.e-pagination__arrow---hover,
-.e-pagination__choosing-page .e-pagination__arrow:hover,
+.e-pagination__choosing-page .e-pagination__number:active, .e-pagination__choosing-page .e-pagination__number.e-pagination__number---hover, .e-pagination__choosing-page .e-pagination__number.e-pagination__arrow---hover,
+.e-pagination__choosing-page .e-pagination__arrow:active,
 .e-pagination__choosing-page .e-pagination__arrow.e-pagination__number---hover,
 .e-pagination__choosing-page .e-pagination__arrow.e-pagination__arrow---hover {
   border: 1px solid #29d305;
 }
 
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-pagination__choosing-page .e-pagination__number:hover,
+.e-pagination__choosing-page .e-pagination__arrow:hover {
+    border: 1px solid #29d305;
+  }
+}
 .e-progress {
   display: flex;
   width: 100%;
@@ -6734,11 +6970,12 @@ input:focus {
   outline-offset: 2px;
 }
 
-.e-checkbox input:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
-  background-color: #29d305;
-  border-color: #000;
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-checkbox input:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
+    background-color: #29d305;
+    border-color: #000;
+  }
 }
-
 .e-checkbox input:disabled ~ .e-checkbox__mark {
   border-color: #bdbdbd;
   background-color: #f4f4f4;
@@ -7193,10 +7430,11 @@ input:focus {
   cursor: not-allowed;
 }
 
-.e-fileupload__input label:hover {
-  border-color: #29d305;
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-fileupload__input label:hover {
+    border-color: #29d305;
+  }
 }
-
 .e-fileupload__input label:active {
   border-bottom: 1.5px solid #29d305;
   padding-bottom: 4.5px;

@@ -1,8 +1,9 @@
 @use '../../utilities/colors.scss' as colors2;
 @use '../../utilities/outline.scss';
 @use '../../variables/animation.scss';
-@use "../../variables/colors";
-@use "../../variables/typography";
+@use '../../utilities/helpers.scss';
+@use '../../variables/colors';
+@use '../../variables/typography';
 
 $checkbox-mark-size: 24px;
 $checkbox-mark-small-size: 16px;
@@ -129,9 +130,11 @@ $checkbox-mark-border: 1px solid colors.color('black');
       @include outline.e-outline();
     }
 
-    &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
-      background-color: colors.color('green');
-      border-color: colors.color('black');
+    @include helpers.hover() {
+      &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
+        background-color: colors.color('green');
+        border-color: colors.color('black');
+      }
     }
 
     &:disabled ~ .e-checkbox__mark {

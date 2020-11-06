@@ -1,6 +1,7 @@
 @use "./../variables/typography.scss";
 @use './../variables/colors.scss';
 @use "../utilities/icons.scss";
+@use "../utilities/helpers.scss";
 
 .e-chip-container {
   display: flex;
@@ -56,8 +57,26 @@
     }
   }
 
-  &---hover:not(.e-chip---disabled),
-  &:hover:not(:disabled) {
+  &---hover:not(.e-chip---disabled) {
+    background: colors.color('green');
+    opacity: 1;
+    cursor: pointer;
+    &::before {
+      background: colors.color('green');
+    }
+  }
+  @include helpers.hover() {
+    &:hover:not(:disabled) {
+      background: colors.color('green');
+      opacity: 1;
+      cursor: pointer;
+      &::before {
+        background: colors.color('green');
+      }
+    }
+  }
+
+  &:active:not(:disabled) {
     background: colors.color('green');
     opacity: 1;
     cursor: pointer;

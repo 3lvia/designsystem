@@ -3,6 +3,7 @@
 @use "../utilities/outline.scss";
 @use "../utilities/icons";
 @use "../variables/typography";
+@use "../utilities/helpers.scss";
 
 $link-lg-font-size: 18px;
 $link-md-font-size: 16px;
@@ -68,9 +69,16 @@ $link-jumbo-phone-width: 287px;
     border-color: colors.color('white');
   }
 
-  &.e-link---hover,
-  &:hover {
+  &.e-link---hover {
     border-bottom-color: colors.color('green');
+  }
+  &:active {
+    border-bottom-color: colors.color('green');
+  }
+  @include helpers.hover() {
+    &:hover {
+      border-bottom-color: colors.color('green');
+    }
   }
   &.e-link---focus {
     @include outline.e-outline-pseudoclass();
@@ -152,8 +160,25 @@ $link-jumbo-phone-width: 287px;
       }
     }
 
-    &.e-link---hover,
-    &:hover {
+    &.e-link---hover {
+      .e-link__icon i[class*='filled-color'] {
+        visibility: visible;
+      }
+      .e-link__icon i:not([class*='filled-color']) {
+        visibility: hidden;
+      }
+    }
+    @include helpers.hover() {
+      &:hover {
+        .e-link__icon i[class*='filled-color'] {
+          visibility: visible;
+        }
+        .e-link__icon i:not([class*='filled-color']) {
+          visibility: hidden;
+        }
+      }
+    }
+    &:active {
       .e-link__icon i[class*='filled-color'] {
         visibility: visible;
       }
@@ -214,8 +239,17 @@ $link-jumbo-phone-width: 287px;
       }
     }
 
-    &.e-link---hover,
-    &:hover {
+    &.e-link---hover {
+      color: colors.color('black');
+      border: 2px solid colors.color('green');
+    }
+    @include helpers.hover() {
+      &:hover {
+        color: colors.color('black');
+        border: 2px solid colors.color('green');
+      }
+    }
+    &:active {
       color: colors.color('black');
       border: 2px solid colors.color('green');
     }
@@ -293,7 +327,8 @@ $link-jumbo-phone-width: 287px;
       line-height: 19px;
       letter-spacing: 0.2px;
     }
-    &:hover {
+
+    &:active {
       box-shadow: 0 0 0 2px colors.color('green');
       cursor: pointer;
       .e-link__icon {
@@ -317,6 +352,64 @@ $link-jumbo-phone-width: 287px;
           visibility: visible;
           transition: visibility 0.3s ease;
           transition-delay: 0.3s;
+        }
+      }
+    }
+
+    &:active {
+      box-shadow: 0 0 0 2px colors.color('green');
+      cursor: pointer;
+      .e-link__icon {
+        transform: scale(0.9166);
+        i {
+          visibility: hidden;
+          transition: visibility 0.3s ease;
+        }
+        i + i {
+          visibility: visible;
+          transition: visibility 0.3s ease;
+        }
+      }
+      .e-link__icon.e-link--delay-hover {
+        i {
+          visibility: hidden;
+          transition: visibility 0.3s ease;
+          transition-delay: 0.3s;
+        }
+        i + i {
+          visibility: visible;
+          transition: visibility 0.3s ease;
+          transition-delay: 0.3s;
+        }
+      }
+    }
+
+    @include helpers.hover() {
+      &:hover {
+        box-shadow: 0 0 0 2px colors.color('green');
+        cursor: pointer;
+        .e-link__icon {
+          transform: scale(0.9166);
+          i {
+            visibility: hidden;
+            transition: visibility 0.3s ease;
+          }
+          i + i {
+            visibility: visible;
+            transition: visibility 0.3s ease;
+          }
+        }
+        .e-link__icon.e-link--delay-hover {
+          i {
+            visibility: hidden;
+            transition: visibility 0.3s ease;
+            transition-delay: 0.3s;
+          }
+          i + i {
+            visibility: visible;
+            transition: visibility 0.3s ease;
+            transition-delay: 0.3s;
+          }
         }
       }
     }
@@ -356,13 +449,24 @@ $link-jumbo-phone-width: 287px;
           @include typography.typography('text-info');
         }
       }
-      &:hover {
+      &:active {
         border-color: colors.color('green');
         .e-link__icon {
           transform: scale(1.125);
         }
         .e-link__icon.e-link--delay-hover {
           transform: scale(1.125);
+        }
+      }
+      @include helpers.hover() {
+        &:hover {
+          border-color: colors.color('green');
+          .e-link__icon {
+            transform: scale(1.125);
+          }
+          .e-link__icon.e-link--delay-hover {
+            transform: scale(1.125);
+          }
         }
       }
     }

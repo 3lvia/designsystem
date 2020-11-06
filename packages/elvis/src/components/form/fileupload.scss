@@ -1,6 +1,7 @@
 @use "../../utilities/icons";
 @use "../../variables/colors";
 @use "../../variables/typography";
+@use '../../utilities/helpers.scss';
 
 .e-fileupload {
   border: 2px dashed colors.color('grey-20');
@@ -58,9 +59,12 @@
         color: colors.color('grey-30');
         cursor: not-allowed;
       }
-      &:hover {
-        border-color: colors.color('green');
+      @include helpers.hover() {
+        &:hover {
+          border-color: colors.color('green');
+        }
       }
+
       &:active {
         border-bottom: 1.5px solid colors.color('green');
         padding-bottom: 4.5px;

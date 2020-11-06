@@ -1,6 +1,7 @@
 @use "../utilities/icons.scss";
 @use "../variables/colors.scss";
 @use "../variables/typography";
+@use '../utilities/helpers.scss';
 
 .e-accordion {
   display: inline-flex;
@@ -82,12 +83,24 @@
       }
     }
 
-    .e-accordion__title:hover,
-    .e-accordion__icon:hover {
-      cursor: pointer;
+    @include helpers.hover() {
+      .e-accordion__title:hover,
+      .e-accordion__icon:hover {
+        cursor: pointer;
+      }
+      .e-accordion__title:hover + .e-accordion__icon,
+      .e-accordion__icon:hover {
+        i[class*='expand_circle-color'] {
+          display: none;
+        }
+        i[class*='expand_circle-filled-color'] {
+          display: flex;
+        }
+      }
     }
-    .e-accordion__title:hover + .e-accordion__icon,
-    .e-accordion__icon:hover {
+
+    .e-accordion__title:active + .e-accordion__icon,
+    .e-accordion__icon:active {
       i[class*='expand_circle-color'] {
         display: none;
       }
@@ -151,16 +164,17 @@
         padding: 20px 16px 19px 16px;
         width: 100%;
 
-        &:hover {
-          cursor: pointer;
-          i[class*='expand_circle-color'] {
-            display: none;
-          }
-          i[class*='expand_circle-filled-color'] {
-            display: flex;
+        @include helpers.hover() {
+          &:hover {
+            cursor: pointer;
+            i[class*='expand_circle-color'] {
+              display: none;
+            }
+            i[class*='expand_circle-filled-color'] {
+              display: flex;
+            }
           }
         }
-
         .e-accordion__title {
           font-family: 'Red Hat Display';
           font-weight: 500;
