@@ -2650,7 +2650,13 @@ input:focus {
   background: #000;
 }
 
-.e-header__top-bar-desktop__app .e-header__top-bar-desktop__app-menu-item .e-header__top-bar-desktop__app-circle:hover {
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-header__top-bar-desktop__app .e-header__top-bar-desktop__app-menu-item .e-header__top-bar-desktop__app-circle:hover {
+    border: 2px solid #29d305;
+    cursor: pointer;
+  }
+}
+.e-header__top-bar-desktop__app .e-header__top-bar-desktop__app-menu-item .e-header__top-bar-desktop__app-circle:active {
   border: 2px solid #29d305;
   cursor: pointer;
 }
@@ -2705,11 +2711,17 @@ input:focus {
   border-radius: 0 0 4px 4px;
 }
 
-.e-header__top-bar-desktop__area .e-header__top-bar-desktop__area-menu-item:hover {
+.e-header__top-bar-desktop__area .e-header__top-bar-desktop__area-menu-item:active {
   background: #e9e9e9;
   cursor: pointer;
 }
 
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-header__top-bar-desktop__area .e-header__top-bar-desktop__area-menu-item:hover {
+    background: #e9e9e9;
+    cursor: pointer;
+  }
+}
 .e-header__top-bar-desktop__logo, .e-header__top-bar-desktop__app, .e-header__top-bar-desktop__title, .e-header__top-bar-desktop__area, .e-header__top-bar-desktop__user, .e-header__top-bar-desktop__hamburger, .e-header__top-bar-desktop__link {
   height: 100%;
   display: flex;
@@ -3229,10 +3241,15 @@ input:focus {
   height: 24px;
 }
 
-.e-header__sidebar__item:hover .e-header__sidebar__icon, .e-header__sidebar__open-close:hover .e-header__sidebar__icon {
+.e-header__sidebar__item:active .e-header__sidebar__icon, .e-header__sidebar__open-close:active .e-header__sidebar__icon {
   border: 1px solid #29d305;
 }
 
+@media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .e-header__sidebar__item:hover .e-header__sidebar__icon, .e-header__sidebar__open-close:hover .e-header__sidebar__icon {
+    border: 1px solid #29d305;
+  }
+}
 .e-header__sidebar__item .e-header__sidebar__icon i[class*=color] {
   visibility: hidden;
 }
