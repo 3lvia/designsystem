@@ -25,7 +25,7 @@ export const throttle = (func: any, limit: number) => {
   }
 }
 
-export const Popover: React.FC<PopoverProps> = ({ title, description, posX = 'center', posY = 'top', trigger }) => {
+export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigger }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
@@ -81,8 +81,8 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX = 'ce
   // Calculating position and size of content
   const calculatePosition = useCallback(() => {
     function resize(content: HTMLDivElement) {
-        if ((450 + 40) > window.innerWidth) {
-        content.style.width = 'calc(' + window.innerWidth + 'px - 40px)';
+        if ((450 + popoverMargin + popoverMargin) > window.innerWidth) {
+        content.style.width = 'calc(' + window.innerWidth + 'px - ' + (popoverMargin + popoverMargin) + 'px)';
       } else {
         content.style.width = '450px';
       }
@@ -119,7 +119,7 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX = 'ce
         if(popover && !popover.classList.contains('ewc-popover--bottom')){
           popover.classList.add('ewc-popover--bottom');
         }
-      } else if ((offsetBottom <= popoverMargin && offsetTop > popoverMargin) || (posY === 'top' && (arrowOffsetTop > contentHeight + popoverMargin + popoverMargin))){
+      } else if ((offsetBottom <= popoverMargin && offsetTop > popoverMargin) || (!posY && (arrowOffsetTop > contentHeight + popoverMargin + popoverMargin))){
         if(popover && popover.classList.contains('ewc-popover--bottom')){
           popover.classList.remove('ewc-popover--bottom');
         }
@@ -171,8 +171,9 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX = 'ce
     const arrowRight = window.innerWidth - arrowWidth - arrowLeft;
     const arrowOffsetTop = arrow.getBoundingClientRect().top;
     const arrowOffsetBottom = window.innerHeight - arrowHeight - arrowOffsetTop;
+
     resize(content);
-    if (posX === 'center') {
+    if (!posX) {
       updatePositionXCenter(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
     } else if(posX === 'left') {
       updatePositionXLeft(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
@@ -199,7 +200,7 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX = 'ce
     calculatePosition(); 
   }, [visiblePopover, calculatePosition]);
 
-  // Listen to resize changes and update content position
+  // Listen to resize changes if popover is open
   useEffect(() => {
     if(!visiblePopover){
       return;

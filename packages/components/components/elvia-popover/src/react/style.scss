@@ -1,4 +1,4 @@
-// Multiples of 8
+// Icon sizes
 $sizes: (
   'xxs': 8px,
   'custom12': 12px,
@@ -28,7 +28,6 @@ $green: #29d305;
   bottom: 0;
 }
 %arrow-after-style {
-  z-index: 100;
   transform: rotate(45deg);
   background: white;
 }
@@ -47,6 +46,7 @@ $green: #29d305;
       width: 100%;
       display: flex;
       justify-content: center;
+      z-index: 100;
       opacity: 1;
       transition: opacity 100ms ease-in;
       &::before {
@@ -89,7 +89,7 @@ $green: #29d305;
     border: 1px solid $green;
     border-radius: 8px;
     text-align: left;
-    transition: opacity 200ms ease-in;
+    transition: opacity 250ms ease-in;
 
     .ewc-popover__close {
       position: absolute;
