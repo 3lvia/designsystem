@@ -63,10 +63,11 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
       }
     }
 
-    // Listen to tab events and add/remove outline
+    // Listen to tab events and click outside popover 
     document.body.addEventListener('keydown', e => toggleOutline(e));
-    // Listen for click outside popover 
     document.addEventListener('click', handleClickOutside);
+
+    // Remove listeners
     return () => {
       document.body.removeEventListener('keydown', toggleOutline);
       document.removeEventListener('click', handleClickOutside);
@@ -78,8 +79,8 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
     setPopoverVisibility(prevState => !prevState);
   }
   
-  // Calculating position and size of content
-  const calculatePosition = useCallback(() => {
+  // Update position and size of content
+  const updateNewPosition = useCallback(() => {
     function resize(content: HTMLDivElement) {
         if ((450 + popoverMargin + popoverMargin) > window.innerWidth) {
         content.style.width = 'calc(' + window.innerWidth + 'px - ' + (popoverMargin + popoverMargin) + 'px)';
@@ -87,31 +88,31 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
         content.style.width = '450px';
       }
     }
-    function updatePositionXCenter(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
+    function updatePositionCenter(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
       if(offsetLeft <= popoverMargin || (triggerOffsetLeft + (triggerWidth/2)) < (popoverMargin + (contentWidth/2))){
-        moveFromLeft(content, arrowLeft);
+        updateStyle(content, 'none' , 'unset', 'calc(-' + arrowLeft + 'px + ' + popoverMargin + 'px)');
       } else if (offsetRight <= popoverMargin || (triggerOffsetRight + (triggerWidth/2)) < (popoverMargin + (contentWidth/2))){
-        moveFromRight(content, arrowRight);
+        updateStyle(content, 'none' , 'calc(-' + arrowRight + 'px + ' + popoverMargin + 'px)', 'unset');
       } else if (triggerOffsetLeft + (triggerWidth/2) > (popoverMargin + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (popoverMargin + (contentWidth/2))){
-        resetPos(content);
+        updateStyle(content, getTranslateValue() , 'unset', '50%');
       }
     }
-    function updatePositionXLeft(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
+    function updatePositionLeft(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
       if(offsetLeft <= popoverMargin || (triggerOffsetLeft + (triggerWidth/2)) < (popoverMargin + (contentWidth - popoverOffsetTrigger))){
-        moveFromLeft(content, arrowLeft);
+        updateStyle(content, 'none' , 'unset', 'calc(-' + arrowLeft + 'px + ' + popoverMargin + 'px)');
       } else if (offsetRight <= popoverMargin){
-        moveFromRight(content, arrowRight);
+        updateStyle(content, 'none' , 'calc(-' + arrowRight + 'px + ' + popoverMargin + 'px)', 'unset');
       } else if (triggerOffsetLeft + (triggerWidth/2) > (popoverMargin + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (popoverMargin + (contentWidth/2))){
-        resetPos(content);
+        updateStyle(content, getTranslateValue() , 'unset', '50%');
       }
     }
-    function updatePositionXRight(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
+    function updatePositionRight(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
       if(offsetLeft <= popoverMargin){
-        moveFromLeft(content, arrowLeft);
+        updateStyle(content, 'none' , 'unset', 'calc(-' + arrowLeft + 'px + ' + popoverMargin + 'px)');
       } else if (offsetRight <= popoverMargin || (triggerOffsetRight + (triggerWidth/2)) < (popoverMargin + (contentWidth - popoverOffsetTrigger))){
-        moveFromRight(content, arrowRight);
+        updateStyle(content, 'none' , 'calc(-' + arrowRight + 'px + ' + popoverMargin + 'px)', 'unset');
       } else if (triggerOffsetLeft + (triggerWidth/2) > (popoverMargin + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (popoverMargin + (contentWidth/2))){
-        resetPos(content);
+        updateStyle(content, getTranslateValue() , 'unset', '50%');
       }
     }
     function updatePositionY(popover: HTMLSpanElement, contentHeight: number, offsetTop: number, offsetBottom: number, arrowOffsetBottom: number, arrowOffsetTop: number) {
@@ -125,20 +126,10 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
         }
       }
     }
-    function moveFromLeft(content: HTMLDivElement, arrowLeft: number){
-      content.style.transform = 'none' 
-      content.style.right = 'unset';
-      content.style.left = 'calc(-' + arrowLeft + 'px + ' + popoverMargin + 'px)';
-    }
-    function moveFromRight(content: HTMLDivElement, arrowRight: number){
-      content.style.transform = 'none' 
-      content.style.left = 'unset';
-      content.style.right = 'calc(-' + arrowRight + 'px + ' + popoverMargin + 'px)';
-    }
-    function resetPos(content: HTMLDivElement){
-      content.style.transform = getTranslateValue();
-      content.style.left = '50%';
-      content.style.right = 'unset';
+    function updateStyle(content: HTMLDivElement, transform: string, right: string, left: string){
+      content.style.transform = transform;
+      content.style.right = right;
+      content.style.left = left;
     }
     function getTranslateValue(): string {
       if(posX === 'left') {
@@ -174,11 +165,11 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
 
     resize(content);
     if (!posX) {
-      updatePositionXCenter(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
+      updatePositionCenter(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
     } else if(posX === 'left') {
-      updatePositionXLeft(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
+      updatePositionLeft(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
     } else if(posX === 'right') {
-      updatePositionXRight(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
+      updatePositionRight(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
     }
     updatePositionY(popover, contentHeight, offsetTop, offsetBottom, arrowOffsetBottom, arrowOffsetTop);
   }, [posY, posX]);
@@ -197,18 +188,18 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
     }
 
     toggleVisibilityClass(); 
-    calculatePosition(); 
-  }, [visiblePopover, calculatePosition]);
+    updateNewPosition(); 
+  }, [visiblePopover, updateNewPosition]);
 
   // Listen to resize changes if popover is open
   useEffect(() => {
     if(!visiblePopover){
       return;
     }
-    const throttledCount = throttle(calculatePosition, 150);
+    const throttledCount = throttle(updateNewPosition, 150);
     window.addEventListener('resize', throttledCount);
     return () => window.removeEventListener('resize', throttledCount);
-  }, [visiblePopover, posY, calculatePosition]); 
+  }, [visiblePopover, posY, updateNewPosition]); 
 
   return (
     <span className='ewc-popover' ref={popoverRef}>
