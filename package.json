@@ -7,7 +7,7 @@
     ]
   },
   "scripts": {
-    "build:web": "npm install && cd packages/elvis && npm install && cd ../web && npm install && npm run build:production",
+    "build:web": "npm install && cd packages/elvis && npm install && cd ../web && npm run build:production",
     "commitizen-unix": "exec < /dev/tty && git cz --hook",
     "commitizen-windows": "winpty git cz --hook || true",
     "lint-elvis": "npx prettier --write 'packages/elvis/**/*.js'",
