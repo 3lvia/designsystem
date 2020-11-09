@@ -30,7 +30,7 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverCloseRef = useRef<HTMLButtonElement>(null);
   const popoverMargin = 20;
-  const popoverOffsetTrigger = 60;
+  const popoverOffsetArrow = 40;
 
   // Running on first render only (on mount)
   useEffect(() => {
@@ -74,68 +74,33 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
   function togglePopover() {
     setPopoverVisibility(prevState => !prevState);
   }
-  
+
+  const getTransformStyleValue = useCallback(() => {
+    if(posX === 'left') {
+      return 'translateX(-91%)';
+    } else if(posX === 'right') {
+      return 'translateX(-9%)';
+    }
+    return 'translateX(-50%)';
+  }, [posX]);
+
+  function updateStyle(content: HTMLDivElement, transform: string, right: string, left: string){
+    content.style.transform = transform;
+    content.style.right = right;
+    content.style.left = left;
+  }
+
+  // Initializing vertical position
+  useEffect(() => {
+    if(posX === 'right' && popoverContentRef.current){
+      updateStyle(popoverContentRef.current, getTransformStyleValue(), 'unset', '50%');
+    } else if(posX === 'left' && popoverContentRef.current) {
+      updateStyle(popoverContentRef.current, 'unset', getTransformStyleValue(), '50%');
+    }
+  }, [posX, getTransformStyleValue]); 
+
   // Update position and size of content
   const updateNewPosition = useCallback(() => {
-    function resize(content: HTMLDivElement) {
-        if ((450 + popoverMargin + popoverMargin) > window.innerWidth) {
-        content.style.width = 'calc(' + window.innerWidth + 'px - ' + (popoverMargin + popoverMargin) + 'px)';
-      } else {
-        content.style.width = '450px';
-      }
-    }
-    function updatePositionCenter(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
-      if(offsetLeft <= popoverMargin || (triggerOffsetLeft + (triggerWidth/2)) < (popoverMargin + (contentWidth/2))){
-        updateStyle(content, 'none' , 'unset', 'calc(-' + arrowLeft + 'px + ' + popoverMargin + 'px)');
-      } else if (offsetRight <= popoverMargin || (triggerOffsetRight + (triggerWidth/2)) < (popoverMargin + (contentWidth/2))){
-        updateStyle(content, 'none' , 'calc(-' + arrowRight + 'px + ' + popoverMargin + 'px)', 'unset');
-      } else if (triggerOffsetLeft + (triggerWidth/2) > (popoverMargin + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (popoverMargin + (contentWidth/2))){
-        updateStyle(content, getTranslateValue() , 'unset', '50%');
-      }
-    }
-    function updatePositionLeft(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
-      if(offsetLeft <= popoverMargin || (triggerOffsetLeft + (triggerWidth/2)) < (popoverMargin + (contentWidth - popoverOffsetTrigger))){
-        updateStyle(content, 'none' , 'unset', 'calc(-' + arrowLeft + 'px + ' + popoverMargin + 'px)');
-      } else if (offsetRight <= popoverMargin){
-        updateStyle(content, 'none' , 'calc(-' + arrowRight + 'px + ' + popoverMargin + 'px)', 'unset');
-      } else if (triggerOffsetLeft + (triggerWidth/2) > (popoverMargin + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (popoverMargin + (contentWidth/2))){
-        updateStyle(content, getTranslateValue() , 'unset', '50%');
-      }
-    }
-    function updatePositionRight(content: HTMLDivElement, contentWidth: number, offsetLeft: number, offsetRight: number, triggerWidth: number, triggerOffsetLeft: number, triggerOffsetRight: number, arrowLeft: number, arrowRight: number) {
-      if(offsetLeft <= popoverMargin){
-        updateStyle(content, 'none' , 'unset', 'calc(-' + arrowLeft + 'px + ' + popoverMargin + 'px)');
-      } else if (offsetRight <= popoverMargin || (triggerOffsetRight + (triggerWidth/2)) < (popoverMargin + (contentWidth - popoverOffsetTrigger))){
-        updateStyle(content, 'none' , 'calc(-' + arrowRight + 'px + ' + popoverMargin + 'px)', 'unset');
-      } else if (triggerOffsetLeft + (triggerWidth/2) > (popoverMargin + (contentWidth/2)) && (triggerOffsetRight + (triggerWidth/2)) > (popoverMargin + (contentWidth/2))){
-        updateStyle(content, getTranslateValue() , 'unset', '50%');
-      }
-    }
-    function updatePositionY(popover: HTMLSpanElement, contentHeight: number, offsetTop: number, offsetBottom: number, arrowOffsetBottom: number, arrowOffsetTop: number) {
-      if((offsetTop <= popoverMargin) || (posY === 'bottom' && (arrowOffsetBottom > contentHeight + popoverMargin + popoverMargin))){
-        if(popover && !popover.classList.contains('ewc-popover--bottom')){
-          popover.classList.add('ewc-popover--bottom');
-        }
-      } else if ((offsetBottom <= popoverMargin && offsetTop > popoverMargin) || (!posY && (arrowOffsetTop > contentHeight + popoverMargin + popoverMargin))){
-        if(popover && popover.classList.contains('ewc-popover--bottom')){
-          popover.classList.remove('ewc-popover--bottom');
-        }
-      }
-    }
-    function updateStyle(content: HTMLDivElement, transform: string, right: string, left: string){
-      content.style.transform = transform;
-      content.style.right = right;
-      content.style.left = left;
-    }
-    function getTranslateValue(): string {
-      if(posX === 'left') {
-        return 'translateX(-87%)';
-      } else if(posX === 'right') {
-        return 'translateX(-9%)';
-      }
-      return 'translateX(-50%)';
-    }
-
     if(!popoverRef.current || !popoverArrowRef.current || !popoverContentRef.current || !popoverTriggerRef.current) {
       return;
     }
@@ -159,16 +124,77 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
     const arrowOffsetTop = arrow.getBoundingClientRect().top;
     const arrowOffsetBottom = window.innerHeight - arrowHeight - arrowOffsetTop;
 
+    function getArrowOffsetContent(arrowOffsetContentConflictSide: string): number {
+      if(arrowOffsetContentConflictSide === 'long') {
+        return contentWidth - popoverOffsetArrow;
+      } else if(arrowOffsetContentConflictSide === 'short') {
+        return popoverOffsetArrow;
+      }
+      return contentWidth/2;
+    }
+    function positionConflictLeft(arrowOffsetContentConflictSide: string): boolean {
+      return offsetLeft <= popoverMargin || (triggerOffsetLeft + (triggerWidth/2)) <= (popoverMargin + getArrowOffsetContent(arrowOffsetContentConflictSide));
+    }
+    function positionConflictRight(arrowOffsetContentConflictSide: string): boolean {
+      return offsetRight <= popoverMargin || (triggerOffsetRight + (triggerWidth/2)) <= (popoverMargin + getArrowOffsetContent(arrowOffsetContentConflictSide));
+    }
+    function resize(content: HTMLDivElement) {
+        if ((450 + popoverMargin + popoverMargin) > window.innerWidth) {
+        content.style.width = 'calc(' + window.innerWidth + 'px - ' + (popoverMargin + popoverMargin) + 'px)';
+      } else {
+        content.style.width = '450px';
+      }
+    }
+    function updateCenterPosition() {
+      if(positionConflictLeft('middle')) {
+        updateStyle(content, 'none' , 'unset', `calc(-${arrowLeft}px + ${popoverMargin}px)`);
+      } else if (positionConflictRight('middle')) {
+        updateStyle(content, 'none' , `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
+      } else if (!positionConflictRight('middle') && !positionConflictLeft('middle')) {
+        updateStyle(content, getTransformStyleValue() , 'unset', '50%');
+      }
+    }
+    function updateLeftPosition() {
+      if(positionConflictLeft('long')){
+        updateStyle(content, 'none' , 'unset', `calc(-${arrowLeft}px + ${popoverMargin}px)`);
+      } else if (positionConflictRight('short')){
+        updateStyle(content, 'none' , `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
+      } else if (!positionConflictRight('middle') && !positionConflictLeft('middle')){
+        updateStyle(content, getTransformStyleValue() , 'unset', '50%');
+      }
+    }
+    function updateRightPosition() {
+      if(positionConflictLeft('short')){
+        updateStyle(content, 'none' , 'unset', 'calc(-' + arrowLeft + 'px + ' + popoverMargin + 'px)');
+      } else if (positionConflictRight('long')){
+        updateStyle(content, 'none' , `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
+      } else if (!positionConflictRight('middle') && !positionConflictLeft('middle')){
+        updateStyle(content, getTransformStyleValue() , 'unset', '50%');
+      }
+    }
+    function updatePositionY() {
+      if((offsetTop <= popoverMargin) || (posY === 'bottom' && (arrowOffsetBottom > contentHeight + popoverMargin + popoverMargin))){
+        if(popover && !popover.classList.contains('ewc-popover--bottom')){
+          popover.classList.add('ewc-popover--bottom');
+        }
+      } else if ((offsetBottom <= popoverMargin && offsetTop > popoverMargin) || (!posY && (arrowOffsetTop > contentHeight + popoverMargin + popoverMargin))){
+        if(popover && popover.classList.contains('ewc-popover--bottom')){
+          popover.classList.remove('ewc-popover--bottom');
+        }
+      }
+    }
+
+    // Calling methods
     resize(content);
     if (!posX) {
-      updatePositionCenter(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
+      updateCenterPosition();
     } else if(posX === 'left') {
-      updatePositionLeft(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
+      updateLeftPosition();
     } else if(posX === 'right') {
-      updatePositionRight(content, contentWidth, offsetLeft, offsetRight, triggerWidth, triggerOffsetLeft, triggerOffsetRight,  arrowLeft, arrowRight);
+      updateRightPosition();
     }
-    updatePositionY(popover, contentHeight, offsetTop, offsetBottom, arrowOffsetBottom, arrowOffsetTop);
-  }, [posY, posX]);
+    updatePositionY();
+  }, [posY, posX, getTransformStyleValue]);
 
 
   // Toggle visibility 
