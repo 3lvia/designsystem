@@ -3374,7 +3374,7 @@ input:focus {
   text-align: inherit;
   position: relative;
   text-decoration: none;
-  font-weight: 500 !important;
+  font-weight: 700;
 }
 
 .e-link__icon {
