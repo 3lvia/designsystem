@@ -5,7 +5,6 @@ import './style.scss';
 export interface CheckboxProps {
   label: string;
   name?: string | '';
-  value: string;
   size?: string | '';
   checked: string | boolean;
   disabled: string;
@@ -17,7 +16,6 @@ export interface CheckboxProps {
 export const Checkbox: React.FC<CheckboxProps> = ({
   label,
   name,
-  value,
   size,
   checked,
   disabled,
@@ -35,7 +33,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   }, []);
 
   React.useEffect(() => {
-    if (checked === true) {
+    if (checked === true || checked === 'true') {
       toggleChecked();
     }
   }, [checked]);
@@ -63,7 +61,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       <input
         type="checkbox"
         name={name}
-        value={value || ''}
         checked={isChecked}
         disabled={isDisabled}
         onClick={toggleChecked}
