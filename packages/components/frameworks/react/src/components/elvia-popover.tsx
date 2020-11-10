@@ -36,6 +36,11 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
   const popoverMargin = 20;
   const popoverOffsetArrow = 40;
 
+  // Closing and opening popover
+  function togglePopover() {
+    setPopoverVisibility(prevState => !prevState);
+  }
+
   // Running on first render only (on mount)
   useEffect(() => {
     // Adding font
@@ -45,6 +50,11 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
     link.type = 'text/css';
     document.head.appendChild(link);
 
+
+    // Listen to tab events and click outside popover 
+    document.body.addEventListener('keydown', e => toggleOutline(e));
+    document.addEventListener('click', handleClickOutside);
+    
     function toggleOutline(e: KeyboardEvent) {
       if (!popoverCloseRef.current) {return;}
       if (e.key === 'Tab') {
@@ -53,19 +63,18 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
         popoverCloseRef.current.classList.add('e-no-outline');
       }
     }
-
     function handleClickOutside(e: any) {
-      if(popoverSlotTriggerRef.current ===  e.path[1] && popoverContentRef.current && !popoverContentRef.current.classList.contains('ewc-popover--hide')){
+      if(!popoverContentRef.current || !popoverRef.current){
         return;
       }
-      if (popoverRef.current && !popoverRef.current.contains(e.path[0]) && popoverContentRef.current && !popoverContentRef.current.classList.contains('ewc-popover--hide')) {
+
+      const slotTriggerIsTargetTrigger = popoverSlotTriggerRef.current ===  e.path[1];
+      const popoverContainsTarget = popoverRef.current.contains(e.path[0]);
+      const contentIsHidden = popoverContentRef.current.classList.contains('ewc-popover--hide');
+      if(!slotTriggerIsTargetTrigger && !popoverContainsTarget && !contentIsHidden) {
         togglePopover();
       }
     }
-
-    // Listen to tab events and click outside popover 
-    document.body.addEventListener('keydown', e => toggleOutline(e));
-    document.addEventListener('click', handleClickOutside);
 
     // Remove listeners
     return () => {
@@ -74,11 +83,7 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
     };
   }, []); 
 
-  // Closing and opening popover
-  function togglePopover() {
-    setPopoverVisibility(prevState => !prevState);
-  }
-
+  // Positioning functions
   const getTransformStyleValue = useCallback(() => {
     if(posX === 'left') {
       return 'translateX(-91%)';
@@ -87,21 +92,34 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
     }
     return 'translateX(-50%)';
   }, [posX]);
-
-  function updateStyle(content: HTMLDivElement, transform: string, right: string, left: string){
-    content.style.transform = transform;
-    content.style.right = right;
-    content.style.left = left;
+  function updateStyle(transform: string, right: string, left: string){
+    if(!popoverContentRef.current){
+      return;
+    }
+    popoverContentRef.current.style.transform = transform;
+    popoverContentRef.current.style.right = right;
+    popoverContentRef.current.style.left = left;
+  }
+  function resize() {
+    if(!popoverContentRef.current){
+      return;
+    }
+    if ((450 + popoverMargin + popoverMargin) > window.innerWidth) {
+      popoverContentRef.current.style.width = 'calc(' + window.innerWidth + 'px - ' + (popoverMargin + popoverMargin) + 'px)';
+    } else {
+      popoverContentRef.current.style.width = '450px';
+    }
   }
 
   // Initializing vertical position
   useEffect(() => {
-    if(posX === 'right' && popoverContentRef.current){
-      updateStyle(popoverContentRef.current, getTransformStyleValue(), 'unset', '50%');
-    } else if(posX === 'left' && popoverContentRef.current) {
-      updateStyle(popoverContentRef.current, 'unset', getTransformStyleValue(), '50%');
+    if(posX === 'right'){
+      updateStyle(getTransformStyleValue(), 'unset', '50%');
+    } else if(posX === 'left') {
+      updateStyle('unset', getTransformStyleValue(), '50%');
     }
   }, [posX, getTransformStyleValue]); 
+
 
   // Update position and size of content
   const updateNewPosition = useCallback(() => {
@@ -109,25 +127,61 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
       return;
     }
     const popover = popoverRef.current; 
-    const content = popoverContentRef.current; 
-    const contentWidth = content.getBoundingClientRect().width;
-    const contentHeight = content.getBoundingClientRect().height;
-    const offsetLeft = content.getBoundingClientRect().left;
+    const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
+    const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
+    const offsetLeft = popoverContentRef.current.getBoundingClientRect().left;
     const offsetRight = window.innerWidth - contentWidth - offsetLeft;
-    const offsetTop = content.getBoundingClientRect().top;
+    const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
     const offsetBottom = window.innerHeight - contentHeight - offsetTop;
-    const trigger = popoverTriggerRef.current;
-    const triggerWidth = trigger.getBoundingClientRect().width;
-    const triggerOffsetLeft = trigger.getBoundingClientRect().left;
+    const triggerWidth = popoverTriggerRef.current.getBoundingClientRect().width;
+    const triggerOffsetLeft = popoverTriggerRef.current.getBoundingClientRect().left;
     const triggerOffsetRight = window.innerWidth - triggerWidth - triggerOffsetLeft;
-    const arrow = popoverArrowRef.current;
-    const arrowWidth = arrow.getBoundingClientRect().width;
-    const arrowHeight = arrow.getBoundingClientRect().height;
-    const arrowLeft = arrow.getBoundingClientRect().left;
+    const arrowWidth = popoverArrowRef.current.getBoundingClientRect().width;
+    const arrowHeight = popoverArrowRef.current.getBoundingClientRect().height;
+    const arrowLeft = popoverArrowRef.current.getBoundingClientRect().left;
     const arrowRight = window.innerWidth - arrowWidth - arrowLeft;
-    const arrowOffsetTop = arrow.getBoundingClientRect().top;
+    const arrowOffsetTop = popoverArrowRef.current.getBoundingClientRect().top;
     const arrowOffsetBottom = window.innerHeight - arrowHeight - arrowOffsetTop;
 
+    resize();
+    updatePositionY();
+    if (!posX) {
+      updateCenterPosition();
+    } else if(posX === 'left') {
+      updateLeftPosition();
+    } else if(posX === 'right') {
+      updateRightPosition();
+    }
+  
+
+    // Update horizontal position 
+    function updateCenterPosition() {
+      if(moveFromLeft('middle')) {
+        updateStyle('none' , 'unset', `calc(-${arrowLeft}px + ${popoverMargin}px)`);
+      } else if (moveFromRight('middle')) {
+        updateStyle('none' , `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
+      } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
+        updateStyle(getTransformStyleValue() , 'unset', '50%');
+      }
+    }
+    function updateLeftPosition() {
+      if(moveFromLeft('long')){
+        updateStyle('none' , 'unset', `calc(-${arrowLeft}px + ${popoverMargin}px)`);
+      } else if (moveFromRight('short')){
+        updateStyle('none' , `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
+      } else if (!moveFromRight('middle') && !moveFromLeft('middle')){
+        updateStyle(getTransformStyleValue() , 'unset', '50%');
+      }
+    }
+    function updateRightPosition() {
+      if(moveFromLeft('short')){
+        updateStyle('none' , 'unset', `calc(-${arrowLeft}px + ${popoverMargin}px)`);
+      } else if (moveFromRight('long')){
+        updateStyle('none' , `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
+      } else if (!moveFromRight('middle') && !moveFromLeft('middle')){
+        updateStyle(getTransformStyleValue() , 'unset', '50%');
+      }
+    }
     function getArrowOffsetContent(arrowOffsetContentConflictSide: string): number {
       if(arrowOffsetContentConflictSide === 'long') {
         return contentWidth - popoverOffsetArrow;
@@ -136,68 +190,42 @@ export const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY
       }
       return contentWidth/2;
     }
-    function positionConflictLeft(arrowOffsetContentConflictSide: string): boolean {
-      return offsetLeft <= popoverMargin || (triggerOffsetLeft + (triggerWidth/2)) <= (popoverMargin + getArrowOffsetContent(arrowOffsetContentConflictSide));
+    function moveFromLeft(arrowOffsetContentConflictSide: string): boolean {
+      const noRoomLeft = offsetLeft <= popoverMargin;
+      const noRoomLeftInsurance = (triggerOffsetLeft + (triggerWidth/2)) <= (popoverMargin + getArrowOffsetContent(arrowOffsetContentConflictSide));
+      return noRoomLeft || noRoomLeftInsurance;
     }
-    function positionConflictRight(arrowOffsetContentConflictSide: string): boolean {
-      return offsetRight <= popoverMargin || (triggerOffsetRight + (triggerWidth/2)) <= (popoverMargin + getArrowOffsetContent(arrowOffsetContentConflictSide));
+    function moveFromRight(arrowOffsetContentConflictSide: string): boolean {
+      const noRoomRight = offsetRight <= popoverMargin;
+      const noRoomLeftInsurance = (triggerOffsetRight + (triggerWidth/2)) <= (popoverMargin + getArrowOffsetContent(arrowOffsetContentConflictSide));
+      return noRoomRight || noRoomLeftInsurance;
     }
-    function resize(content: HTMLDivElement) {
-        if ((450 + popoverMargin + popoverMargin) > window.innerWidth) {
-        content.style.width = 'calc(' + window.innerWidth + 'px - ' + (popoverMargin + popoverMargin) + 'px)';
-      } else {
-        content.style.width = '450px';
-      }
-    }
-    function updateCenterPosition() {
-      if(positionConflictLeft('middle')) {
-        updateStyle(content, 'none' , 'unset', `calc(-${arrowLeft}px + ${popoverMargin}px)`);
-      } else if (positionConflictRight('middle')) {
-        updateStyle(content, 'none' , `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
-      } else if (!positionConflictRight('middle') && !positionConflictLeft('middle')) {
-        updateStyle(content, getTransformStyleValue() , 'unset', '50%');
-      }
-    }
-    function updateLeftPosition() {
-      if(positionConflictLeft('long')){
-        updateStyle(content, 'none' , 'unset', `calc(-${arrowLeft}px + ${popoverMargin}px)`);
-      } else if (positionConflictRight('short')){
-        updateStyle(content, 'none' , `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
-      } else if (!positionConflictRight('middle') && !positionConflictLeft('middle')){
-        updateStyle(content, getTransformStyleValue() , 'unset', '50%');
-      }
-    }
-    function updateRightPosition() {
-      if(positionConflictLeft('short')){
-        updateStyle(content, 'none' , 'unset', 'calc(-' + arrowLeft + 'px + ' + popoverMargin + 'px)');
-      } else if (positionConflictRight('long')){
-        updateStyle(content, 'none' , `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
-      } else if (!positionConflictRight('middle') && !positionConflictLeft('middle')){
-        updateStyle(content, getTransformStyleValue() , 'unset', '50%');
-      }
-    }
+
+    // Update vertical position 
     function updatePositionY() {
-      if((offsetTop <= popoverMargin) || (posY === 'bottom' && (arrowOffsetBottom > contentHeight + popoverMargin + popoverMargin))){
-        if(popover && !popover.classList.contains('ewc-popover--bottom')){
+      if(moveFromTop()){
+        if(!popover.classList.contains('ewc-popover--bottom')){
           popover.classList.add('ewc-popover--bottom');
         }
-      } else if ((offsetBottom <= popoverMargin && offsetTop > popoverMargin) || (!posY && (arrowOffsetTop > contentHeight + popoverMargin + popoverMargin))){
-        if(popover && popover.classList.contains('ewc-popover--bottom')){
+      } else if (moveFromBottom()){
+        if(popover.classList.contains('ewc-popover--bottom')){
           popover.classList.remove('ewc-popover--bottom');
         }
       }
     }
-
-    // Calling methods
-    resize(content);
-    if (!posX) {
-      updateCenterPosition();
-    } else if(posX === 'left') {
-      updateLeftPosition();
-    } else if(posX === 'right') {
-      updateRightPosition();
+    function moveFromTop(): boolean {
+      const noRoomTop = offsetTop <= popoverMargin;
+      const isRoomBottom = arrowOffsetBottom > contentHeight + popoverMargin + popoverMargin;
+      const isBottom = posY === 'bottom';
+      return (noRoomTop) || (isBottom && isRoomBottom);
     }
-    updatePositionY();
+    function moveFromBottom(): boolean {
+      const noRoomBottom = offsetBottom <= popoverMargin;
+      const isRoomTop = offsetTop > popoverMargin;
+      const isRoomTopInsurance = arrowOffsetTop > contentHeight + popoverMargin + popoverMargin;
+      const isTop = !posY;
+      return (noRoomBottom && isRoomTop) || (isTop && isRoomTopInsurance);
+    }
   }, [posY, posX, getTransformStyleValue]);
 
 
