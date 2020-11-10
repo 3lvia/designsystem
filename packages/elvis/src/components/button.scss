@@ -460,19 +460,6 @@ $button-sm-line-height: 16px;
           }
         }
       }
-
-      // &:hover:not(:disabled) {
-      //   .e-btn__icon {
-      //     i {
-      //       visibility: visible !important;
-      //     }
-      //     i[class*='inverted'],
-      //     i[class*='color-disabled-light'],
-      //     i[class*='e-icon--disabled-inverted'] {
-      //       visibility: hidden !important;
-      //     }
-      //   }
-      // }
     }
 
     .e-btn__icon {
