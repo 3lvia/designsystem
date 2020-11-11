@@ -22,6 +22,7 @@ export default class ElviaCheckbox extends HTMLElement {
   }
 
   connectedCallback(): void {
+    this.setAttribute('role', 'checkbox')
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
@@ -47,6 +48,8 @@ export default class ElviaCheckbox extends HTMLElement {
         this._data[attr] = this.getAttribute(attr);
       }
     });
+    this._data.role = 'checkbox';
+    console.log(this._data)
   }
 
   private renderReactDOM(): void {
