@@ -44,7 +44,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     this.setCodePenValue();
     this.displayCode = this.code;
 
-    if (this.showIframeDesktop || this.showIframeScreens) {
+    if (this.showIframeDesktop) {
       this.updateShowIframe()
       window.addEventListener('resize', this.updateShowIframe)
     }
