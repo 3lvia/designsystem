@@ -31,7 +31,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
 
   code = '';
   showTabs = true;
-  screen = 'desktop';
+  screenTabOpen = 'desktop';
   codepen = '';
   displayCode = '';
   isInverted = false;
@@ -62,15 +62,15 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
       });
     }
     if (this.noPhone && this.noTablet) {
-      this.screen = 'desktop';
+      this.screenTabOpen = 'desktop';
       this.showTabs = false;
     }
     if (this.noPhone && this.noDesktop) {
-      this.screen = 'tablet';
+      this.screenTabOpen = 'tablet';
       this.showTabs = false;
     }
     if (this.noTablet && this.noDesktop) {
-      this.screen = 'phone';
+      this.screenTabOpen = 'phone';
       this.showTabs = false;
     }
   }
@@ -89,7 +89,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   }
 
   updateDefaultFrame(): void {
-    if (this.showIframeScreens && window.innerWidth < 1024 || this.screen !== 'desktop' || !this.showPreview) {
+    if (this.showIframeScreens && window.innerWidth < 1024 || this.screenTabOpen !== 'desktop' || !this.showPreview) {
       return;
     }
     this.defaultFrame.nativeElement.innerHTML = this.code;
@@ -109,8 +109,8 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     return window.innerWidth >= 1024;
   }
 
-  setScreenType(screenType: string): void {
-    this.screen = screenType;
+  setScreenTabOpen(screenTabOpen: string): void {
+    this.screenTabOpen = screenTabOpen;
     setTimeout(() => this.updateDefaultFrame(), 10);
   }
 
