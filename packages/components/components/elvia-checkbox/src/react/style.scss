@@ -87,12 +87,6 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
     @extend %checkbox-mark-small;
   }
 
-  &.ewc-checkbox---focus {
-    .ewc-checkbox__mark {
-      // TODO
-      // @include outline.e-outline-pseudoclass();
-    }
-  }
 
   &.ewc-checkbox---hover:not(:disabled):not(:invalid) {
     .ewc-checkbox__mark {
