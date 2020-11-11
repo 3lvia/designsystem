@@ -2,10 +2,15 @@
   "name": "@elvia/popover",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "babel": {
+    "presets": [
+      "@babel/preset-react"
+    ]
+  },
+  "main": "web_component.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }

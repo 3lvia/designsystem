@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.scss';
-// import * as Popover from '@elvia/popover/dist/react/tsx/elvia-popover';
-import { Popover } from './components/elvia-popover'
+import { Popover } from '@elvia/popover/react';
 
 function App() {
-
   return (
     <div className="App">
       <h1>React preview</h1>
-
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis massa eu velit egestas bibendum.
         Vivamus id justo ut eros pellentesque tincidunt in in lectus. Maecenas gravida luctus turpis, quis sodales
@@ -18,53 +15,53 @@ function App() {
       </p>
 
       <div>
-        <Popover 
-        title="React demo of popover" 
-        description="Alle privatkunder må bruke BankID første gang."
-        trigger={<button>Right top</button>}
-        posX="right"
-      ></Popover>
+        <Popover
+          title="React demo of popover"
+          description="Alle privatkunder må bruke BankID første gang."
+          trigger={<button>Right top</button>}
+          posX="right"
+        ></Popover>
       </div>
       <div>
-        <Popover 
-        title="React demo of popover" 
-        description="Alle privatkunder må bruke BankID første gang."
-        trigger={<button>Left top</button>}
-        posX="left"
-      ></Popover>
+        <Popover
+          title="React demo of popover"
+          description="Alle privatkunder må bruke BankID første gang."
+          trigger={<button>Left top</button>}
+          posX="left"
+        ></Popover>
       </div>
       <div>
-        <Popover 
-        title="React demo of popover" 
-        description="Alle privatkunder må bruke BankID første gang."
-        trigger={<button>Center top</button>}
-      ></Popover>
+        <Popover
+          title="React demo of popover"
+          description="Alle privatkunder må bruke BankID første gang."
+          trigger={<button>Center top</button>}
+        ></Popover>
       </div>
       <div>
-        <Popover 
-        title="React demo of popover" 
-        description="Alle privatkunder må bruke BankID første gang."
-        trigger={<button>Center bottom</button>}
-        posY="bottom"
-      ></Popover>
+        <Popover
+          title="React demo of popover"
+          description="Alle privatkunder må bruke BankID første gang."
+          trigger={<button>Center bottom</button>}
+          posY="bottom"
+        ></Popover>
       </div>
       <div>
-        <Popover 
-        title="React demo of popover" 
-        description="Alle privatkunder må bruke BankID første gang."
-        trigger={<button>Right bottom</button>}
-        posY="bottom"
-        posX="right"
-      ></Popover>
+        <Popover
+          title="React demo of popover"
+          description="Alle privatkunder må bruke BankID første gang."
+          trigger={<button>Right bottom</button>}
+          posY="bottom"
+          posX="right"
+        ></Popover>
       </div>
       <div>
-        <Popover 
-        title="React demo of popover" 
-        description="Alle privatkunder må bruke BankID første gang."
-        trigger={<button>Left bottom</button>}
-        posY="bottom"
-        posX="left"
-      ></Popover>
+        <Popover
+          title="React demo of popover"
+          description="Alle privatkunder må bruke BankID første gang."
+          trigger={<button>Left bottom</button>}
+          posY="bottom"
+          posX="left"
+        ></Popover>
       </div>
 
       <p>
