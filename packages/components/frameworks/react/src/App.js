@@ -17,11 +17,55 @@ function App() {
         auctor elit id, condimentum vulputate sapien.
       </p>
 
-      <Popover 
+      <div>
+        <Popover 
         title="React demo of popover" 
-        description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
-        trigger={<button>Long long button</button>}
+        description="Alle privatkunder må bruke BankID første gang."
+        trigger={<button>Right top</button>}
+        posX="right"
       ></Popover>
+      </div>
+      <div>
+        <Popover 
+        title="React demo of popover" 
+        description="Alle privatkunder må bruke BankID første gang."
+        trigger={<button>Left top</button>}
+        posX="left"
+      ></Popover>
+      </div>
+      <div>
+        <Popover 
+        title="React demo of popover" 
+        description="Alle privatkunder må bruke BankID første gang."
+        trigger={<button>Center top</button>}
+      ></Popover>
+      </div>
+      <div>
+        <Popover 
+        title="React demo of popover" 
+        description="Alle privatkunder må bruke BankID første gang."
+        trigger={<button>Center bottom</button>}
+        posY="bottom"
+      ></Popover>
+      </div>
+      <div>
+        <Popover 
+        title="React demo of popover" 
+        description="Alle privatkunder må bruke BankID første gang."
+        trigger={<button>Right bottom</button>}
+        posY="bottom"
+        posX="right"
+      ></Popover>
+      </div>
+      <div>
+        <Popover 
+        title="React demo of popover" 
+        description="Alle privatkunder må bruke BankID første gang."
+        trigger={<button>Left bottom</button>}
+        posY="bottom"
+        posX="left"
+      ></Popover>
+      </div>
 
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis massa eu velit egestas bibendum.

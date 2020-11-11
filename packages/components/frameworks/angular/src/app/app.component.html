@@ -3,18 +3,63 @@
 
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis massa eu velit egestas bibendum.
-    Vivamus id justo ut eros pellentesque tincidunt in in lectus. Maecenas gravida luctus turpis, quis sodales
-    nunc luctus non. Vivamus mollis, leo eu viverra pretium, eros purus mattis nibh, nec interdum eros dui ut
-    enim. Sed mattis nulla id dignissim aliquam. Duis ornare non lacus ut vehicula. Proin leo urna, aliquet
-    auctor elit id, condimentum vulputate sapien.
+    Vivamus id justo ut eros pellentesque tincidunt in in lectus.
   </p>
-
-  <elvia-popover
-    title="Angular demo of popover"
-    description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
-  >
-    <button slot="trigger" class="e-btn">Trigger</button>
-  </elvia-popover>
+  <div style="display: flex; justify-content: flex-end; width: 100%">
+    <elvia-popover
+      title="Angular demo of popover"
+      description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+      posX="right"
+    >
+      <button slot="trigger" class="e-btn">Right top</button>
+    </elvia-popover>
+  </div>
+  <div style="display: flex; justify-content: flex-end; width: 100%">
+    <elvia-popover
+      title="Angular demo of popover"
+      description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+      posX="left"
+    >
+      <button slot="trigger" class="e-btn">Left top</button>
+    </elvia-popover>
+  </div>
+  <div style="display: flex; justify-content: flex-end; width: 100%">
+    <elvia-popover
+      title="Angular demo of popover"
+      description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+    >
+      <button slot="trigger" class="e-btn">Center top</button>
+    </elvia-popover>
+  </div>
+  <div>
+    <elvia-popover
+      title="Angular demo of popover"
+      description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+      posY="bottom"
+    >
+      <button slot="trigger" class="e-btn">Center bottom</button>
+    </elvia-popover>
+  </div>
+  <div>
+    <elvia-popover
+      title="Angular demo of popover"
+      description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+      posY="bottom"
+      posX="left"
+    >
+      <button slot="trigger" class="e-btn">Left bottom</button>
+    </elvia-popover>
+  </div>
+  <div>
+    <elvia-popover
+      title="Angular demo of popover"
+      description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+      posY="bottom"
+      posX="right"
+    >
+      <button slot="trigger" class="e-btn">Right bottom</button>
+    </elvia-popover>
+  </div>
 
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis massa eu velit egestas bibendum.
@@ -22,8 +67,6 @@
     nunc luctus non. Vivamus mollis, leo eu viverra pretium, eros purus mattis nibh, nec interdum eros dui ut
     enim. Sed mattis nulla id dignissim aliquam. Duis ornare non lacus ut vehicula. Proin leo urna, aliquet
     auctor elit id, condimentum vulputate sapien. Phasellus ultricies fermentum dui, id venenatis urna sodales
-    sit amet. Nunc ut nisi id enim vulputate volutpat. Praesent ullamcorper eleifend rhoncus. Aenean ac leo
-    blandit, tristique magna elementum, tempus nulla. Nullam non rhoncus neque. Nulla ultrices ligula lectus,
-    non vehicula dui pellentesque ac.
+    sit amet.
   </p>
 </div>
