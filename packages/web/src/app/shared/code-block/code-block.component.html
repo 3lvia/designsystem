@@ -45,6 +45,7 @@
       *ngIf="!showIframeScreens || (!showIframe && screen == 'desktop')"
       [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
     >
+      DEFAULT Show iframe = {{ showIframe }}
       <div #defaultFrame></div>
     </div>
     <div
@@ -52,6 +53,7 @@
       *ngIf="(showIframeScreens && showIframe) || (showIframeScreens && screen != 'desktop')"
       [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
     >
+      IFRAME Show iframe = {{ showIframe }}
       <div [ngClass]="{ hide: screen !== 'desktop' || noDesktop }">
         <app-iframe-screen
           [codeHTML]="displayCode"

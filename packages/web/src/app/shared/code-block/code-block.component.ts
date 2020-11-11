@@ -36,6 +36,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   displayCode = '';
   isInverted = false;
   showIframe = false;
+  desktopScreenWidth: boolean;
 
   constructor(private versionService: VersionService) { }
 
@@ -44,14 +45,22 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     this.setCodePenValue();
     this.displayCode = this.code;
 
-    if (this.showIframeDesktop || this.showIframeScreens) {
-      this.updateShowIframe()
-      window.addEventListener('resize', this.updateShowIframe)
-    }
     if (!this.showIframeScreens) {
       return;
     }
-
+    if (window.innerWidth >= 1024) {
+      this.desktopScreenWidth = true;
+      this.showIframe = false;
+    } else {
+      this.desktopScreenWidth = false;
+      this.showIframe = true;
+    }
+    if (!this.showIframeDesktop) {
+      this.updateShowIframe();
+      window.addEventListener('resize', () => {
+        this.updateShowIframe();
+      });
+    }
     if (this.noPhone && this.noTablet) {
       this.screen = 'desktop';
       this.showTabs = false;
@@ -80,28 +89,29 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   }
 
   updateDefaultFrame(): void {
-    if (!this.showIframeScreens && this.showPreview || this.showIframeScreens && !this.showIframe && this.showPreview) {
-      this.defaultFrame.nativeElement.innerHTML = this.code;
+    if (this.showIframeScreens && window.innerWidth < 1024 || this.screen !== 'desktop' || !this.showPreview) {
+      return;
     }
+    this.defaultFrame.nativeElement.innerHTML = this.code;
   }
 
-
   updateShowIframe(): void {
-    if (window.innerWidth >= 1024) {
-      this.showIframe = true;
-      console.log('hellos!!');
-    } else {
-      this.showIframe = false;
-      console.log('ShowIframe is false');
+    const isDesk = this.isDesktop();
+    if (isDesk === this.desktopScreenWidth) {
+      return;
     }
+    this.showIframe = !this.showIframe;
+    this.desktopScreenWidth = isDesk;
+    setTimeout(() => { if (this.defaultFrame) { this.defaultFrame.nativeElement.innerHTML = this.code; } }, 0);
+  }
+
+  isDesktop(): boolean {
+    return window.innerWidth >= 1024;
   }
 
   setScreenType(screenType: string): void {
     this.screen = screenType;
-
-    setTimeout(() => {
-      this.updateDefaultFrame();
-    }, 10)
+    setTimeout(() => this.updateDefaultFrame(), 10);
   }
 
   setCodePenValue(): void {
