@@ -48,14 +48,11 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     if (!this.showIframeScreens) {
       return;
     }
-    if (window.innerWidth >= 1024) {
-      this.desktopScreenWidth = true;
-      this.showIframe = false;
-    } else {
-      this.desktopScreenWidth = false;
+    if (this.showIframeDesktop) {
       this.showIframe = true;
-    }
-    if (!this.showIframeDesktop) {
+    } else {
+      this.desktopScreenWidth = this.isDesktop();
+      this.showIframe = !this.isDesktop();
       this.updateShowIframe();
       window.addEventListener('resize', () => {
         this.updateShowIframe();
@@ -89,10 +86,11 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   }
 
   updateDefaultFrame(): void {
-    if (this.showIframeScreens && window.innerWidth < 1024 || this.screenTabOpen !== 'desktop' || !this.showPreview) {
+    if (!this.defaultFrame || this.showIframeScreens && !this.isDesktop() || this.screenTabOpen !== 'desktop' && this.showIframeDesktop || !this.showPreview) {
       return;
     }
     this.defaultFrame.nativeElement.innerHTML = this.code;
+
   }
 
   updateShowIframe(): void {
