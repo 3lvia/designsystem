@@ -10,7 +10,7 @@
           class="tab"
           role="button"
           [ngClass]="{ hide: noDesktop, active: screen === 'desktop' }"
-          (click)="screen = 'desktop'"
+          (click)="setScreenType('desktop')"
         >
           Desktop
         </div>
@@ -18,7 +18,7 @@
           class="tab"
           role="button"
           [ngClass]="{ hide: noTablet, active: screen === 'tablet' }"
-          (click)="screen = 'tablet'"
+          (click)="setScreenType('tablet')"
         >
           Tablet
         </div>
@@ -26,7 +26,7 @@
           class="tab"
           role="button"
           [ngClass]="{ hide: noPhone, active: screen === 'phone' }"
-          (click)="screen = 'phone'"
+          (click)="setScreenType('phone')"
         >
           Phone
         </div>
@@ -42,14 +42,14 @@
 
     <div
       class="element"
-      *ngIf="!showIframeScreens"
+      *ngIf="!showIframeScreens || (!showIframe && screen == 'desktop')"
       [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
     >
       <div #defaultFrame></div>
     </div>
     <div
       class="element screens"
-      *ngIf="showIframeScreens"
+      *ngIf="(showIframeScreens && showIframe) || (showIframeScreens && screen != 'desktop')"
       [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
     >
       <div [ngClass]="{ hide: screen !== 'desktop' || noDesktop }">

@@ -237,7 +237,8 @@ export class GridDocComponent {
 </div>
 `;
 
-  example5 = `<div class="e-grid e-bg-grey-20">
+  example5 = `<div style="margin-left:24px;margin-right:24px">
+  <div class="e-grid e-bg-grey-20">
   <div class="row">
     <div class="col-sm-7 col-md-6 col-lg-8">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
@@ -254,6 +255,7 @@ export class GridDocComponent {
       </div>
     </div>
   </div>
+</div>
 </div>
 `;
 
@@ -318,7 +320,8 @@ export class GridDocComponent {
 </div>
 `;
 
-  example8 = `<div class="e-grid e-bg-grey-20">
+  example8 = `<div style="margin-left:24px;margin-right:24px">
+  <div class="e-grid e-bg-grey-20">
   <div class="row mx-lg-n3 mx-n1">
     <div class="col-6 px-lg-3 px-1">
       <div class="e-bg-grey-70 e-p-16" style="border: 1px solid black;">
@@ -359,6 +362,7 @@ export class GridDocComponent {
       </div>
     </div>
   </div>
+</div>
 </div>
 `;
 }

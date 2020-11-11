@@ -27,6 +27,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() overwriteHeight: number;
   @Input() overwriteHeightTablet: number;
   @Input() overwriteHeightPhone: number;
+  @Input() showIframeDesktop = false;
 
   code = '';
   showTabs = true;
@@ -34,18 +35,23 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   codepen = '';
   displayCode = '';
   isInverted = false;
+  showIframe = false;
 
-  constructor(private versionService: VersionService) {
-  }
+  constructor(private versionService: VersionService) { }
 
   ngOnInit(): void {
     this.code = this.codeTS !== '' ? this.codeTS : (this.codeHTML !== '' ? this.codeHTML : this.codeCSS);
     this.setCodePenValue();
     this.displayCode = this.code;
 
+    if (this.showIframeDesktop || this.showIframeScreens) {
+      this.updateShowIframe()
+      window.addEventListener('resize', this.updateShowIframe)
+    }
     if (!this.showIframeScreens) {
       return;
     }
+
     if (this.noPhone && this.noTablet) {
       this.screen = 'desktop';
       this.showTabs = false;
@@ -61,9 +67,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    if (!this.showIframeScreens && this.showPreview) {
-      this.defaultFrame.nativeElement.innerHTML = this.code;
-    }
+    this.updateDefaultFrame();
     if (this.codeInverted !== '' && this.showPreview) {
       const elements = document.querySelectorAll('.e-toggle__input');
       for (let i = 0; i < elements.length; i++) {
@@ -73,6 +77,31 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
         });
       }
     }
+  }
+
+  updateDefaultFrame(): void {
+    if (!this.showIframeScreens && this.showPreview || this.showIframeScreens && !this.showIframe && this.showPreview) {
+      this.defaultFrame.nativeElement.innerHTML = this.code;
+    }
+  }
+
+
+  updateShowIframe(): void {
+    if (window.innerWidth >= 1024) {
+      this.showIframe = true;
+      console.log('hellos!!');
+    } else {
+      this.showIframe = false;
+      console.log('ShowIframe is false');
+    }
+  }
+
+  setScreenType(screenType: string): void {
+    this.screen = screenType;
+
+    setTimeout(() => {
+      this.updateDefaultFrame();
+    }, 10)
   }
 
   setCodePenValue(): void {
@@ -109,4 +138,11 @@ ${tag}`;
   }
 
 }
+
+
+
+
+
+
+
 
