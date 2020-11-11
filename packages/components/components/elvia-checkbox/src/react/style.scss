@@ -15,6 +15,12 @@ $checkbox-mark-border: 1px solid $black;
 // animation
 $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
 
+.e-no-outline {
+* {
+    outline: none !important;
+  }
+}
+
 .ewc-checkbox {
   display: flex;
   align-items: center;
@@ -142,8 +148,8 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
     }
 
     &:focus ~ .ewc-checkbox__mark {
-      // Finn løsning her
-      // @include outline.e-outline();
+      outline: 2px solid #0064fa;
+      outline-offset: 2px;
     }
 
     // no hover effect on touch devices

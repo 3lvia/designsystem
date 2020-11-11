@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import './style.scss';
 
 export interface CheckboxProps {
@@ -24,6 +24,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 }) => {
   let [isChecked, setCheckedState] = useState(false);
 
+  const checkboxEl = useRef<HTMLLabelElement>(null);
+
   React.useEffect(() => {
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
@@ -38,7 +40,19 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     }
   }, [checked]);
 
-  const classes = ['ewc-checkbox', size === 'small' ? 'ewc-checkbox--sm' : ''].join(' ');
+  document.body.addEventListener('keydown', e => toggleOutline(e));
+
+  function toggleOutline(e: KeyboardEvent) {
+    if (!checkboxEl.current) {
+      return;
+    } else if (e.key === 'Tab') {
+      checkboxEl.current.classList.remove('e-no-outline');
+    } else if (!checkboxEl.current.classList.contains('e-no-outline')) {
+      checkboxEl.current.classList.add('e-no-outline');
+    }
+  }
+
+  const classes = ['ewc-checkbox ', size === 'small' ? 'ewc-checkbox--sm' : '', ' e-no-outline'].join(' ');
   // check and add html5 input modifers
   const isDisabled = disabled === 'true' || disabled === '';
   const isRequired = required === 'true' || required === '';
@@ -56,8 +70,10 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     }
   };
 
+
+
   return (
-    <label className={classes}>
+    <label className={classes} ref={checkboxEl}>
       <input
         type="checkbox"
         name={name}
