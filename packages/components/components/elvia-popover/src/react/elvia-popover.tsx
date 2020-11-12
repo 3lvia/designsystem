@@ -21,6 +21,29 @@ export const throttle = (func: any, limit: number) => {
   };
 };
 
+// Return composedPath if Firefox, Polyfill path if IE11
+const getEventPath = (e: any) => {
+  const polyfill = () => {
+    const element = e.target || null;
+    const pathArr = [element];
+
+    if (!element || !element.parentElement) {
+      return [];
+    }
+
+    while (element.parentElement) {
+      const el = element.parentElement;
+      pathArr.unshift(el);
+    }
+
+    return pathArr;
+  };
+
+  return (
+    e.path || (e.composedPath && e.composedPath()) || polyfill()
+  );
+};
+
 const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigger }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const popoverRef = useRef<HTMLSpanElement>(null);
@@ -65,8 +88,9 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
         return;
       }
 
-      const slotTriggerIsTargetTrigger = popoverSlotTriggerRef.current === e.path[1];
-      const popoverContainsTarget = popoverRef.current.contains(e.path[0]);
+      const path = getEventPath(e);
+      const slotTriggerIsTargetTrigger = popoverSlotTriggerRef.current === path[1];
+      const popoverContainsTarget = popoverRef.current.contains(path[0]);
       const contentIsHidden = popoverContentRef.current.classList.contains('ewc-popover--hide');
       if (!slotTriggerIsTargetTrigger && !popoverContainsTarget && !contentIsHidden) {
         togglePopover();
@@ -114,7 +138,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
     if (posX === 'right') {
       updateStyle(getTransformStyleValue(), 'unset', '50%');
     } else if (posX === 'left') {
-      updateStyle('unset', getTransformStyleValue(), '50%');
+      updateStyle(getTransformStyleValue(), 'unset', '50%');
     }
   }, [posX, getTransformStyleValue]);
 
