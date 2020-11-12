@@ -3,6 +3,7 @@
 @use "../../utilities/icons.scss";
 
 $form-input-padding-compact: 5px 10px;
+$form-input-padding-compact-active: 4px 9px;
 $form-input-padding-compact-with-icon: 5px 36px 5px 10px;
 $autocomplete-padding-item-compact: 6px 16px;
 
@@ -46,9 +47,11 @@ $autocomplete-padding-item-compact: 6px 16px;
     .e-search--local {
       font-size: 14px;
       .e-input {
-        input,
         input:invalid,
-        input:focus,
+        input:focus {
+          padding: 4px 35px 4px 9px;
+        }
+        input,
         input:disabled {
           padding: 5px 36px 5px 10px;
         }
@@ -93,13 +96,15 @@ $autocomplete-padding-item-compact: 6px 16px;
       &.e-input---invalid textarea,
       input:invalid,
       textarea:invalid {
-        border: 1px solid colors.color('red');
+        border: 2px solid colors.color('red');
+        padding: $form-input-padding-compact-active;
       }
       &.e-input---focus input,
       &.e-input---focus textarea,
       > input:focus,
       > textarea:focus {
-        border: 1px solid colors.color('green');
+        border: 2px solid colors.color('green');
+        padding: $form-input-padding-compact-active;
       }
       > i ~ input,
       i ~ input:invalid,

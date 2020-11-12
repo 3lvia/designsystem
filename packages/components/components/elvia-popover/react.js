@@ -1,1 +1,1 @@
-//export { Popover as PopoverReact } from './dist/react/tsx/elvia-popover';
+export { default as Popover } from './dist/react/js/elvia-popover.js';

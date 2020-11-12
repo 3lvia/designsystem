@@ -1,69 +1,83 @@
+// Icon sizes
+$sizes: (
+  'xxs': 8px,
+  'custom12': 12px,
+  'xs': 16px,
+  'sm': 24px,
+  'md': 32px,
+  'lg': 40px,
+  'xl': 48px,
+  'xxl': 56px,
+);
+
+$popover-size: 450px;
 $popover-border-width: 1px;
 $popover-padding: 24px;
-$popover-arrow-size: 12px;
-$popover-arrow-size-small: calc(#{$popover-arrow-size} - (#{$popover-border-width} * 2));
+$popover-arrow-size: 16px;
 $popover-arrow-offset: 25px; // Midtstilt i forhold til ikon 16X16px (xs)
 $popover-button-offset: -30px;
 
-$popover-desktop-size: 400px;
-$popover-mobile-size: 300px;
-
 $green: #29d305;
 
-%ewc-popover__widget {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 0;
-  bottom: 0;
-}
-
 .ewc-popover {
-  display: inline-block;
+  display: inline-flex;
   box-sizing: border-box;
   position: relative;
-  display: flex;
   flex-direction: column;
 
   &__trigger {
+    position: relative;
     display: flex;
+    flex-direction: column;
+    .ewc-popover__arrow {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      z-index: 100;
+      opacity: 1;
+      transition: opacity 150ms ease-in;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        z-index: 100;
+        transform: rotate(45deg);
+        border: 1px solid;
+        width: $popover-arrow-size;
+        height: $popover-arrow-size;
+        background: white;
+        border: 1px solid;
+      }
+
+      animation: fadeIn 100ms ease-in;
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
   }
 
   &__content {
     display: block;
+    left: 50%;
     opacity: 1;
     z-index: 99;
     pointer-events: all;
     position: absolute;
-    min-width: $popover-desktop-size;
-    max-width: $popover-desktop-size;
+    width: $popover-size;
     padding: $popover-padding;
+    box-sizing: border-box;
     background-color: white;
     color: black;
     border: 1px solid $green;
     border-radius: 8px;
     text-align: left;
-    animation: fadeIn 300ms ease-in;
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
-    @media (max-width: 767px) {
-      min-width: $popover-mobile-size;
-      max-width: $popover-mobile-size;
-    }
-
-    // for smallest units
-    @media screen and (max-width: 360px) {
-      min-width: 280px;
-      max-width: 280px;
-    }
+    transition: opacity 250ms ease-in;
 
     .ewc-popover__close {
       position: absolute;
@@ -88,215 +102,64 @@ $green: #29d305;
       font-size: 14px;
       line-height: 22px;
     }
+  }
 
-    &::before {
-      @extend %ewc-popover__widget;
-      border: $popover-arrow-size solid;
+  // Hiding content and arrow
+  .ewc-popover__content.ewc-popover--hide {
+    opacity: 0;
+    visibility: hidden;
+    .ewc-btn .ewc-btn__icon i {
+      opacity: 0;
+      visibility: hidden;
     }
-    &::after {
-      @extend %ewc-popover__widget;
-      border: $popover-arrow-size-small solid;
-    }
+  }
+  .ewc-popover__arrow.ewc-popover--hide {
+    opacity: 0;
+    visibility: hidden;
   }
 
   // Modifiers for alignment of popover
   // Top aligned (Default)
   &:not(.ewc-popover--bottom) {
     .ewc-popover__content {
-      bottom: 150%;
-      margin-bottom: 8px;
-      &::before {
-        bottom: calc(#{$popover-arrow-size} * -2);
-        border-color: $green transparent transparent transparent;
-      }
+      bottom: 100%;
+      margin-bottom: 23px;
+    }
+    .ewc-popover__arrow {
       &::after {
-        bottom: calc((#{$popover-arrow-size-small} * -2));
-        border-color: white transparent transparent transparent;
+        top: -33px;
+        border-color: transparent $green $green transparent;
+      }
+    }
+  }
+  // Bottom aligned
+  &.ewc-popover--bottom {
+    .ewc-popover__content {
+      top: 100%;
+      margin-top: 22px;
+    }
+    .ewc-popover__arrow {
+      &::after {
+        bottom: -32px;
+        border-color: $green transparent transparent $green;
       }
     }
   }
   // Center aligned (Default)
   &:not(.ewc-popover--left):not(.ewc-popover--left-50):not(.ewc-popover--right):not(.ewc-popover--right-50) {
     .ewc-popover__content {
-      left: 50%;
-      transform: translate(-50%, 0);
-      &::before {
-        left: calc(50% - (#{$popover-arrow-offset} / 2));
-      }
+      transform: translateX(-50%);
+    }
+    .ewc-popover__arrow {
       &::after {
-        left: calc(50% - (#{$popover-arrow-offset} / 2) + 2px);
+        left: calc(50% - (#{$popover-arrow-offset} / 2) + 1px);
       }
-    }
-  }
-  // Bottom aligned
-  &.ewc-popover--bottom .ewc-popover__content {
-    top: 150%;
-    margin-top: 6px;
-    &::before {
-      top: calc(#{$popover-arrow-size} * -2);
-      border-color: transparent transparent $green transparent;
-    }
-    &::after {
-      top: calc((#{$popover-arrow-size-small} * -2));
-      border-color: transparent transparent white transparent;
-    }
-  }
-  // Left aligned
-  &.ewc-popover--left .ewc-popover__content {
-    transform: translateX(-87%);
-    // adding pixels to center and fit the arrows to relative point
-    &:after {
-      left: calc(100% - #{$popover-arrow-offset} - 24px);
-    }
-    &:before {
-      left: calc(100% - #{$popover-arrow-offset} - 2px - 24px);
-    }
-    @media (max-width: 767px) {
-      transform: translateX(-83.5%);
-      &:after {
-        left: calc(100% - #{$popover-arrow-offset} - 21px);
-      }
-      &:before {
-        left: calc(100% - #{$popover-arrow-offset} - 2px - 21px);
-      }
-    }
-  }
-  // Left-50 aligned
-  &.ewc-popover--left-50 .ewc-popover__content {
-    transform: translateX(-62%);
-    // adding pixels to center and fit the arrows to relative point
-    &:after {
-      left: calc(75% - #{$popover-arrow-offset} - 24px);
-    }
-    &:before {
-      left: calc(75% - #{$popover-arrow-offset} - 2px - 24px);
-    }
-    @media (max-width: 767px) {
-      transform: translateX(-58.5%);
-      &:after {
-        left: calc(75% - #{$popover-arrow-offset} - 21px);
-      }
-      &:before {
-        left: calc(75% - #{$popover-arrow-offset} - 2px - 21px);
-      }
-    }
-  }
-  // Right aligned
-  &.ewc-popover--right .ewc-popover__content {
-    transform: translateX(-7%);
-    // adding pixels to center and fit the arrows to relative point
-    &:after {
-      left: calc(#{$popover-arrow-offset} + 4px);
-    }
-    &:before {
-      left: calc(#{$popover-arrow-offset} + 2px);
-    }
-    @media (max-width: 767px) {
-      transform: translateX(-8.7%);
-      &:after {
-        left: calc(#{$popover-arrow-offset} + 2px);
-      }
-      &:before {
-        left: #{$popover-arrow-offset};
-      }
-    }
-  }
-  // Right-50 aligned
-  &.ewc-popover--right-50 .ewc-popover__content {
-    transform: translateX(-32%);
-    // adding pixels to center and fit the arrows to relative point
-    &:after {
-      left: calc(38% - #{$popover-arrow-offset} + 4px);
-    }
-    &:before {
-      left: calc(38% - #{$popover-arrow-offset} + 2px);
-    }
-    @media (max-width: 767px) {
-      transform: translateX(-33.7%);
-      &:after {
-        left: calc(42% - #{$popover-arrow-offset} + 2px);
-      }
-      &:before {
-        left: calc(42% - #{$popover-arrow-offset});
-      }
-    }
-  }
-
-  // Modifiers sizing of popover
-  @media (max-width: 767px) {
-    &.ewc-popover--w-200 .ewc-popover__content {
-      min-width: 200px;
-      max-width: 200px;
-    }
-    &.ewc-popover--w-220 .ewc-popover__content {
-      min-width: 220px;
-      max-width: 220px;
-    }
-    &.ewc-popover--w-240 .ewc-popover__content {
-      min-width: 240px;
-      max-width: 240px;
-    }
-    &.ewc-popover--w-260 .ewc-popover__content {
-      min-width: 260px;
-      max-width: 260px;
-    }
-  }
-
-  // Adjusting alignment of popover for sizing classes
-  @media (max-width: 767px) {
-    &.ewc-popover--w-200.ewc-popover--left .ewc-popover__content {
-      transform: translateX(-75%);
-    }
-    &.ewc-popover--w-220.ewc-popover--left .ewc-popover__content {
-      transform: translateX(-78%);
-    }
-    &.ewc-popover--w-240.ewc-popover--left .ewc-popover__content {
-      transform: translateX(-80%);
-    }
-    &.ewc-popover--w-260.ewc-popover--left .ewc-popover__content {
-      transform: translateX(-81%);
-    }
-    &.ewc-popover--w-200.ewc-popover--left-50 .ewc-popover__content {
-      transform: translateX(-51%);
-    }
-    &.ewc-popover--w-220.ewc-popover--left-50 .ewc-popover__content {
-      transform: translateX(-53.5%);
-    }
-    &.ewc-popover--w-240.ewc-popover--left-50 .ewc-popover__content {
-      transform: translateX(-55.5%);
-    }
-    &.ewc-popover--w-260.ewc-popover--left-50 .ewc-popover__content {
-      transform: translateX(-56.5%);
-    }
-    &.ewc-popover--w-200.ewc-popover--right .ewc-popover__content {
-      transform: translateX(-13%);
-    }
-    &.ewc-popover--w-220.ewc-popover--right .ewc-popover__content {
-      transform: translateX(-12%);
-    }
-    &.ewc-popover--w-240.ewc-popover--right .ewc-popover__content {
-      transform: translateX(-11%);
-    }
-    &.ewc-popover--w-260.ewc-popover--right .ewc-popover__content {
-      transform: translateX(-10%);
-    }
-    &.ewc-popover--w-200.ewc-popover--right-50 .ewc-popover__content {
-      transform: translateX(-30%);
-    }
-    &.ewc-popover--w-220.ewc-popover--right-50 .ewc-popover__content {
-      transform: translateX(-31%);
-    }
-    &.ewc-popover--w-240.ewc-popover--right-50 .ewc-popover__content {
-      transform: translateX(-32%);
-    }
-    &.ewc-popover--w-260.ewc-popover--right-50 .ewc-popover__content {
-      transform: translateX(-33%);
     }
   }
 }
 
-// ICON BTN
-.e-btn.e-btn--icon {
+// --- ICON BTN ---
+.ewc-btn.ewc-btn--icon {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -311,43 +174,7 @@ $green: #29d305;
   background: none;
   color: black;
 
-  &.e-btn--inverted {
-    .e-btn__icon {
-      i[class*='inverted'],
-      i[class*='color-disabled-light'],
-      i[class*='e-icon--color'],
-      i[class*='e-icon--disabled-inverted'],
-      i:disabled {
-        visibility: visible;
-      }
-    }
-
-    &:disabled {
-      // grey-70
-      color: #676767;
-      background: none;
-      cursor: not-allowed;
-    }
-
-    &:focus {
-      background: none;
-    }
-
-    &:hover:not(:disabled) {
-      .e-btn__icon {
-        i {
-          visibility: visible !important;
-        }
-        i[class*='inverted'],
-        i[class*='color-disabled-light'],
-        i[class*='e-icon--disabled-inverted'] {
-          visibility: hidden !important;
-        }
-      }
-    }
-  }
-
-  .e-btn__icon {
+  .ewc-btn__icon {
     width: 24px;
     height: 24px;
     i {
@@ -359,14 +186,14 @@ $green: #29d305;
     }
   }
 
-  &.e-btn--lg .e-btn__icon {
+  &.ewc-btn--lg .ewc-btn__icon {
     width: 32px;
     height: 32px;
     i {
       // @include icons.icon-size('md');
     }
   }
-  &.e-btn--sm:not(.e-btn--circled) .e-btn__icon {
+  &.ewc-btn--sm:not(.ewc-btn--circled) .ewc-btn__icon {
     width: 16px;
     height: 16px;
     i {
@@ -374,87 +201,92 @@ $green: #29d305;
     }
   }
 
-  &.e-btn--circled {
+  &.ewc-btn--circled {
     padding: 0;
 
     // Hiding hover ikon
-    .e-btn__icon i[class*='filled-color'] {
+    .ewc-btn__icon i[class*='filled-color'] {
       visibility: hidden;
     }
 
-    &.e-btn---hover,
+    &.ewc-btn---hover,
     &:hover:not(:disabled),
-    &.e-btn---active,
+    &.ewc-btn---active,
     &:active:not(:disabled) {
       background: transparent;
       // Showing hover ikon
-      .e-btn__icon i:not([class$='filled-color']),
-      .e-btn__icon i:not([class$='disabled']) {
+      .ewc-btn__icon i:not([class$='filled-color']),
+      .ewc-btn__icon i:not([class$='disabled']) {
         visibility: hidden;
       }
-      .e-btn__icon i[class*='filled-color'] {
+      .ewc-btn__icon i[class*='filled-color'] {
         visibility: visible;
       }
     }
-    &.e-btn---active,
+    &.ewc-btn---active,
     &:active:not(:disabled) {
       transform: scale(0.93);
     }
   }
 
-  &.e-btn--danger {
-    width: 40px;
-    height: 40px;
-
-    .e-btn__icon
-      i:not([class$='color-red']):not([class$='e-icon--color-disabled']):not([class$='e-icon--inverted-disabled-grey-70']) {
-      visibility: hidden;
-    }
-
-    &.e-btn--inverted {
-      &:hover:not(:disabled) {
-        .e-btn__icon {
-          i {
-            visibility: visible !important;
-          }
-          i[class*='inverted'],
-          i[class*='color-disabled-light'],
-          i[class*='e-icon--disabled-inverted'] {
-            visibility: hidden !important;
-          }
-        }
-      }
-    }
-
-    &.e-btn---hover,
-    &:hover:not(:disabled),
-    &.e-btn---active,
-    &:active:not(:disabled) {
-      // Showing hover ikon
-      .e-btn__icon i[class*='red'] {
-        visibility: hidden;
-      }
-      .e-btn__icon i:not([class$='red']) {
-        visibility: visible;
-      }
-    }
-  }
-
-  &.e-btn---hover,
+  &.ewc-btn---hover,
   &:hover:not(:disabled),
-  &.e-btn---active,
+  &.ewc-btn---active,
   &:active:not(:disabled) {
     background: $green;
-    .e-btn__icon i[class$='inverted'] {
+    .ewc-btn__icon i[class$='inverted'] {
       visibility: visible;
     }
   }
-  &.e-btn---active,
+  &.ewc-btn---active,
   &:active:not(:disabled) {
     transform: scale(0.95);
   }
-  &.e-btn---disabled,
+  &.ewc-btn---focus,
+  &:focus:not(:disabled) {
+    outline: 2px solid #0064fa;
+    outline-offset: 2px;
+  }
+  &.ewc-btn---disabled,
   &:disabled {
     cursor: not-allowed;
+  }
+}
+
+// -- OUTLINE --
+.e-no-outline {
+  outline: none !important;
+}
+
+// --- ICONS ---
+@function get-icon-size($size) {
+  @return map-get($map: $sizes, $key: $size);
+}
+
+@mixin icon-size($icon-size) {
+  $size: get-icon-size($icon-size);
+  width: $size;
+  height: $size;
+  img,
+  i {
+    width: $size;
+    height: $size;
+  }
+}
+
+$defaultSize: 'md';
+
+.ewc-icon {
+  @include icon-size($defaultSize);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+}
+
+// Making icon size classes
+@each $label, $size in $sizes {
+  .ewc-icon--#{$label} {
+    @include icon-size($label);
   }
 }

@@ -1,0 +1,72 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elvia Percytest</title>
+    <link rel="stylesheet" type="text/css" href="../../css/elvis.min.css" />
+    <script src="../../elvis.js"></script>
+  </head>
+  <body>
+    <div class="e-title-sm e-mt-16">Pagination</div>
+
+    <div class="e-pagination">
+      <div class="e-pagination__number-per-page">
+        <span>Viser</span>
+        <span class="e-pagination__dropdown">
+          <div class="e-form-field e-form-field--compact">
+            <div class="e-dropdown">
+              <div class="e-input e-input--centered" (click)="toggleDropdown()">
+                <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown"></i>
+
+                <input type="button" />
+              </div>
+              <div class="e-dropdown__content" *ngIf="showDropdown">
+                <span class="e-dropdown__item" *ngFor="let option of options" (click)="selectOption(option)">
+                  10
+                </span>
+              </div>
+            </div>
+          </div>
+        </span>
+        <span>av 200 bilder</span>
+      </div>
+      <div class="e-pagination__choosing-page">
+        <div class="e-pagination__arrow" *ngIf="leftArrow()" (click)="prev()">
+          <i class="e-icon e-icon--arrow_long_left e-icon--xs"></i>
+        </div>
+        <div
+          *ngFor="let firstNum of firstNums"
+          class="e-pagination__number"
+          [ngClass]="{ 'e-pagination__number--active': activeNumber(firstNum) }"
+          id="element-{{ firstNum }}"
+          (click)="chooseNumber($event)"
+        >
+          1
+        </div>
+        <div class="e-pagination__dots" *ngIf="paginationDotsLeft()">...</div>
+        <div
+          class="e-pagination__number"
+          *ngFor="let centerNum of centerNums"
+          [ngClass]="{ 'e-pagination__number--active': activeNumber(centerNum) }"
+          id="element-{{ centerNum }}"
+          (click)="chooseNumber($event)"
+        >
+          5
+        </div>
+        <div class="e-pagination__dots" *ngIf="paginationDotsRight()">...</div>
+        <div
+          class="e-pagination__number"
+          *ngFor="let lastNum of lastNums"
+          [ngClass]="{ 'e-pagination__number--active': activeNumber(lastNum) }"
+          id="element-{{ lastNum }}"
+          (click)="chooseNumber($event)"
+        >
+          10
+        </div>
+        <div class="e-pagination__arrow" *ngIf="rightArrow()" (click)="next()">
+          <i class="e-icon e-icon--arrow_long e-icon--xs"></i>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
