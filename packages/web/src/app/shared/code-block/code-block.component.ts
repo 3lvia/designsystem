@@ -86,11 +86,9 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   }
 
   updateDefaultFrame(): void {
-    if (!this.defaultFrame || this.showIframeScreens && !this.isDesktop() || this.screenTabOpen !== 'desktop' && this.showIframeDesktop || !this.showPreview) {
-      return;
+    if (this.defaultFrame) {
+      this.defaultFrame.nativeElement.innerHTML = this.code;
     }
-    this.defaultFrame.nativeElement.innerHTML = this.code;
-
   }
 
   updateShowIframe(): void {
