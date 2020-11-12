@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Header
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Header</ng-container>
   <ng-container ngProjectAs="headerDescription">
     <div>
       {{ description }}
@@ -15,7 +13,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <button class="e-btn e-mt-16" *ngIf="!internalHeader" (click)="testInternalHeader()">
       Test internal header
@@ -62,6 +60,7 @@
             [overwriteHeight]="500"
             [overwriteHeightTablet]="640"
             [overwriteHeightPhone]="640"
+            [showIframeDesktop]="true"
           ></app-code-block>
         </ng-container>
       </app-component-subsection>
@@ -80,6 +79,7 @@
             [overwriteHeight]="500"
             [overwriteHeightTablet]="640"
             [overwriteHeightPhone]="640"
+            [showIframeDesktop]="true"
           ></app-code-block>
         </ng-container>
       </app-component-subsection>
@@ -92,6 +92,7 @@
             [overwriteHeight]="500"
             [overwriteHeightTablet]="640"
             [overwriteHeightPhone]="640"
+            [showIframeDesktop]="true"
           ></app-code-block>
         </ng-container>
       </app-component-subsection>

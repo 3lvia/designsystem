@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Grid
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Grid</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -15,7 +13,8 @@
     <ng-container ngProjectAs="sectionContent">
       We use the 12-column grid in our design system. We have two versions of it, one for external use and one
       for internal. They both are responsive and have same number of columns, but they have different gutters
-      and margins.
+      and margins. If used on root level remeber to use the margin classes, or asign margins (24px) to a
+      container for the grid.
       <app-component-subsection [sectionTitle]="'External grid'">
         <ng-container ngProjectAs="sectionContent">
           The external grid are used on elvia.no and design.elvia.io.
@@ -27,7 +26,7 @@
                   <img
                     src="../../../../assets/grid/externalDesktopGrid.svg"
                     alt="External grid desktop"
-                    style="max-width: 100%;"
+                    style="max-width: 100%"
                   />
                 </div>
                 <div class="circles-container">
@@ -39,18 +38,14 @@
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-orange-mango">
-                      M
-                    </div>
+                    <div class="information-circle e-bg-orange-mango">M</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Margin</div>
                       <div class="e-text-info">120px</div>
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-blue-berry">
-                      G
-                    </div>
+                    <div class="information-circle e-bg-blue-berry">G</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Gutter</div>
                       <div class="e-text-info">56px</div>
@@ -67,7 +62,7 @@
                   <img
                     src="../../../../assets/grid/externalTabletGrid.svg"
                     alt="External grid tablet"
-                    style="max-width: 100%;"
+                    style="max-width: 100%"
                   />
                 </div>
                 <div class="circles-container">
@@ -79,18 +74,14 @@
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-orange-mango">
-                      M
-                    </div>
+                    <div class="information-circle e-bg-orange-mango">M</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Margin</div>
                       <div class="e-text-info">32px</div>
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-blue-berry">
-                      G
-                    </div>
+                    <div class="information-circle e-bg-blue-berry">G</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Gutter</div>
                       <div class="e-text-info">32px</div>
@@ -107,7 +98,7 @@
                   <img
                     src="../../../../assets/grid/externalMobileGrid.svg"
                     alt="External grid mobile"
-                    style="max-width: 100%;"
+                    style="max-width: 100%"
                   />
                 </div>
                 <div class="circles-container">
@@ -119,18 +110,14 @@
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-orange-mango">
-                      M
-                    </div>
+                    <div class="information-circle e-bg-orange-mango">M</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Margin</div>
                       <div class="e-text-info">16px</div>
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-blue-berry">
-                      G
-                    </div>
+                    <div class="information-circle e-bg-blue-berry">G</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Gutter</div>
                       <div class="e-text-info">16px</div>
@@ -154,7 +141,7 @@
                   <img
                     src="../../../../assets/grid/internalDesktopGrid.svg"
                     alt="Internal grid desktop"
-                    style="max-width: 100%;"
+                    style="max-width: 100%"
                   />
                 </div>
                 <div class="circles-container">
@@ -166,9 +153,7 @@
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-orange-mango">
-                      M
-                    </div>
+                    <div class="information-circle e-bg-orange-mango">M</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Margin</div>
                       <div class="e-text-info">Left: 88px</div>
@@ -176,9 +161,7 @@
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-blue-berry">
-                      G
-                    </div>
+                    <div class="information-circle e-bg-blue-berry">G</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Gutter</div>
                       <div class="e-text-info">32px</div>
@@ -195,7 +178,7 @@
                   <img
                     src="../../../../assets/grid/internalTabletGrid.svg"
                     alt="Internal grid tablet"
-                    style="max-width: 100%;"
+                    style="max-width: 100%"
                   />
                 </div>
                 <div class="circles-container">
@@ -207,9 +190,7 @@
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-orange-mango">
-                      M
-                    </div>
+                    <div class="information-circle e-bg-orange-mango">M</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Margin</div>
                       <div class="e-text-info">Left: 88px</div>
@@ -217,9 +198,7 @@
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-blue-berry">
-                      G
-                    </div>
+                    <div class="information-circle e-bg-blue-berry">G</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Gutter</div>
                       <div class="e-text-info">24px</div>
@@ -236,7 +215,7 @@
                   <img
                     src="../../../../assets/grid/internalMobileGrid.svg"
                     alt="Internal grid mobile"
-                    style="max-width: 100%;"
+                    style="max-width: 100%"
                   />
                 </div>
                 <div class="circles-container">
@@ -248,18 +227,14 @@
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-orange-mango">
-                      M
-                    </div>
+                    <div class="information-circle e-bg-orange-mango">M</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Margin</div>
                       <div class="e-text-info">16px</div>
                     </div>
                   </div>
                   <div class="information-container">
-                    <div class="information-circle e-bg-blue-berry">
-                      G
-                    </div>
+                    <div class="information-circle e-bg-blue-berry">G</div>
                     <div>
                       <div class="e-text-caps e-mr-8">Gutter</div>
                       <div class="e-text-info">16px</div>
@@ -333,7 +308,7 @@
           <img
             src="../../../../assets/grid/standardLayout.svg"
             alt="Internal grid mobile"
-            style="max-width: 100%; margin-top: 32px;"
+            style="max-width: 100%; margin-top: 32px"
           />
         </ng-container>
       </app-component-subsection>
