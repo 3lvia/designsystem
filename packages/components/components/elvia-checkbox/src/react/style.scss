@@ -15,6 +15,7 @@ $checkbox-mark-border: 1px solid $black;
 // animation
 $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
 
+// class for no outline on click
 .e-no-outline {
 * {
     outline: none !important;
@@ -75,57 +76,6 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
           background-color: $grey-30;
         }
       }
-    }
-  }
-
-  // pseudo classes to emulate state.
-  &.ewc-checkbox---checked &__mark {
-    @extend %checkbox-mark;
-  }
-  // extends correct checkbox mark on small checkboxes in pseudoclass
-  &.ewc-checkbox--sm[class$='e-checkbox---checked'] &__mark {
-    @extend %checkbox-mark-small;
-  }
-
-
-  &.ewc-checkbox---hover:not(:disabled):not(:invalid) {
-    .ewc-checkbox__mark {
-      background-color: $grey-30;
-      border-color: $black;
-    }
-  }
-
-  &.ewc-checkbox---disabled {
-    .ewc-checkbox__mark {
-      border-color: $grey-30;
-      background-color: $grey-05;
-      cursor: not-allowed;
-    }
-  }
-  &.ewc-checkbox---disabled-checked {
-    .ewc-checkbox__mark {
-      @extend %checkbox-mark;
-      border-color: $grey-30 !important;
-      background-color: $grey-05 !important;
-      cursor: not-allowed;
-
-      &:after,
-      &:before {
-        background-color: $grey-30 !important;
-      }
-    }
-    .ewc-checkbox__label {
-      color: $grey-70;
-    }
-  }
-  // extends correct checkbox mark on small checkboxes in pseudoclass
-  &.ewc-checkbox--sm[class$='disabled-checked'] &__mark {
-    @extend %checkbox-mark-small;
-  }
-
-  &.ewc-checkbox---invalid {
-    .ewc-checkbox__mark {
-      border-color: $red;
     }
   }
 
