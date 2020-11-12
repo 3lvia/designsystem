@@ -16,6 +16,7 @@ export default class ElviaPopover extends HTMLElement {
   }
 
   connectedCallback(): void {
+    this.setAttribute('role', 'dialog')
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = style;
