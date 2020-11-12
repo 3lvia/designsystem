@@ -14,21 +14,6 @@ const WARNING = `/*
  * DO NOT MAKE CHANGES TO THIS FILE DIRECTLY
  */
 `
-
-// Distribute React component as is for users
-function copyReactComponentsToDistFolder() {
-    const tasks = components.map((component) => {
-        return gulp.src(`../components/${component.name}/src/react/**/*`).pipe(header(WARNING)).pipe(gulp.dest(`../components/${component.name}/dist/react/tsx`));
-    })
-    return mergeStream(tasks);
-};
-
-// This function is a workaround to bypass the /src folder restriction given by "Create React App"
-function copyReactComponentsToFrameworkFolder() {
-    return gulp.src('../components/elvia-popover/src/react/**/*').pipe(header(WARNING))
-        .pipe(gulp.dest('../frameworks/react/src/components/'));
-};
-
 // Distribute Web component for users
 function buildWebComponentsToDistributeFolder() {
     const tasks = components.map((component) => {
@@ -61,34 +46,11 @@ function TSX_to_JS() {
                     "plugins": [
                         "@babel/plugin-transform-react-jsx",
                     ]
-                }))
+                })).pipe(header(WARNING))
                 .pipe(gulp.dest(`../components/${component.name}/dist/react/js/`)),
 
             gulp.src([`../components/${component.name}/src/react/**/*`, `!../components/${component.name}/src/react/**/*.tsx`]).pipe(
                 gulp.dest(`../components/${component.name}/dist/react/js/`)
-            )
-        );
-    });
-    return mergeStream(tasks);
-}
-
-// Convert Typescript and JSX/TSX to JS 
-function TSX_to_JSX() {
-    const tasks = components.map((component) => {
-        return mergeStream(
-            gulp.src(`../components/${component.name}/src/react/**/*.tsx`)
-                .pipe(babel({
-                    "presets": [
-                        "@babel/preset-typescript"
-                    ],
-                    "plugins": [
-                        "@babel/plugin-transform-typescript",
-                    ]
-                }))
-                .pipe(gulp.dest(`../components/${component.name}/dist/react/jsx/`)),
-
-            gulp.src([`../components/${component.name}/src/react/**/*`, `!../components/${component.name}/src/react/**/*.tsx`]).pipe(
-                gulp.dest(`../components/${component.name}/dist/react/jsx/`)
             )
         );
     });
@@ -108,8 +70,9 @@ function buildWebComponentsToDistributeJSFolder() {
     return mergeStream(tasks);
 }
 
+// TODO: Find a way to do cleanup that does not trigger rebuild
 function cleanup() {
-    return del(['../dist/**/*', '!*cdn/**/*', '../frameworks/react/src/components/**/*'], { force: true });
+    return del(['../components/**/dist/**/*'], { force: true });
 }
 
 gulp.task('cleanup', gulp.series(cleanup, function (done) { done(); console.log("Clean up - Done!") }));
@@ -117,10 +80,8 @@ gulp.task('cleanup', gulp.series(cleanup, function (done) { done(); console.log(
 gulp.task(
     'default',
     gulp.series(
+        //cleanup,
         TSX_to_JS,
-        TSX_to_JSX,
-        copyReactComponentsToDistFolder,
-        copyReactComponentsToFrameworkFolder,
         buildWebComponentsToDistributeFolder,
         buildWebComponentsToDistributeJSFolder,
         function (done) {

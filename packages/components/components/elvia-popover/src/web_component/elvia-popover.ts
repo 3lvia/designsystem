@@ -1,17 +1,17 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events';
-import * as ReactPopoverComponent from '../../react/js/elvia-popover.js';
+import * as ReactPopoverComponent from '../../../react.js';
 const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaPopover extends HTMLElement {
   mountPoint!: HTMLSpanElement;
   static get observedAttributes(): string[] {
-    return ['title', 'description'];
+    return ['title', 'description', 'posX', 'posY'];
   }
 
-  createPopover(title: string, description: string): React.ReactElement {
-    const data = { title, description };
+  createPopover(title: string, description: string, posX: string, posY: string): React.ReactElement {
+    const data = { title, description, posX, posY };
     return React.createElement(ReactPopoverComponent.Popover, data, React.createElement('slot'));
   }
 
@@ -24,18 +24,20 @@ export default class ElviaPopover extends HTMLElement {
     shadowRoot.appendChild(this.mountPoint);
     shadowRoot.appendChild(styleTag);
 
-    this.renderReactDOM();
+    setTimeout(() => this.renderReactDOM());
     retargetEvents(shadowRoot);
   }
 
   attributeChangedCallback(): void {
-    this.renderReactDOM();
+    setTimeout(() => this.renderReactDOM());
   }
 
   renderReactDOM(): void {
     const title = this.getAttribute('title')!;
     const description = this.getAttribute('description')!;
-    ReactDOM.render(this.createPopover(title, description), this.mountPoint);
+    const posX = this.getAttribute('posX')!;
+    const posY = this.getAttribute('posY')!;
+    ReactDOM.render(this.createPopover(title, description, posX, posY), this.mountPoint);
   }
 }
 
