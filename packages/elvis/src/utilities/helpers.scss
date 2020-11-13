@@ -79,6 +79,12 @@
   }
 }
 
+@mixin hover() {
+  @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
 @mixin filter($value) {
   -o-filter: $value;
   -ms-filter: $value;

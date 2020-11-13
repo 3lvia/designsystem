@@ -169,7 +169,6 @@ $button-sm-line-height: 16px;
       cursor: not-allowed;
     }
     &.e-btn---hover,
-    &:hover:not(:disabled),
     &.e-btn---active,
     &:active:not(:disabled) {
       background: colors.color('green');
@@ -183,6 +182,21 @@ $button-sm-line-height: 16px;
         visibility: visible;
       }
     }
+    @include helpers.hover() {
+      &:hover:not(:disabled) {
+        background: colors.color('green');
+        border-color: colors.color('green');
+        color: colors.color('black');
+        // Showing hover ikon
+        .e-btn__icon i[class*='inverted'] {
+          visibility: hidden;
+        }
+        .e-btn__icon i:not([class$='inverted']) {
+          visibility: visible;
+        }
+      }
+    }
+
     &.e-btn---active,
     &:active:not(:disabled) {
       border-color: transparent;
@@ -245,7 +259,6 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn---hover,
-    &:hover:not(:disabled),
     &.e-btn---active,
     &:active:not(:disabled) {
       background: colors.color('green');
@@ -255,6 +268,17 @@ $button-sm-line-height: 16px;
         visibility: visible;
       }
     }
+    @include helpers.hover() {
+      &:hover:not(:disabled) {
+        background: colors.color('green');
+        border-color: colors.color('green');
+        color: colors.color('black');
+        .e-btn__icon i {
+          visibility: visible;
+        }
+      }
+    }
+
     &.e-btn---active,
     &:active:not(:disabled) {
       border-color: transparent;
@@ -329,8 +353,7 @@ $button-sm-line-height: 16px;
       color: colors.color('grey-30');
       cursor: not-allowed;
     }
-    &.e-btn---hover,
-    &:hover:not(:disabled) {
+    &.e-btn---hover {
       border-bottom-color: colors.color('green');
       border-color: colors.color('green');
       background: none;
@@ -338,8 +361,18 @@ $button-sm-line-height: 16px;
         visibility: visible;
       }
     }
-    &.e-btn---hover[class*='e-btn--inverted'],
-    &:hover:not(:disabled)[class*='e-btn--inverted'] {
+    @include helpers.hover() {
+      &:hover:not(:disabled) {
+        border-bottom-color: colors.color('green');
+        border-color: colors.color('green');
+        background: none;
+        .e-btn__icon i {
+          visibility: visible;
+        }
+      }
+    }
+
+    &.e-btn---hover[class*='e-btn--inverted'] {
       .e-btn__icon {
         i {
           visibility: hidden;
@@ -351,6 +384,21 @@ $button-sm-line-height: 16px;
         }
       }
     }
+    @include helpers.hover() {
+      &:hover:not(:disabled)[class*='e-btn--inverted'] {
+        .e-btn__icon {
+          i {
+            visibility: hidden;
+          }
+          i[class*='inverted'],
+          i[class*='color-disabled-light'],
+          i[class*='e-icon--disabled-inverted'] {
+            visibility: visible;
+          }
+        }
+      }
+    }
+
     &.e-btn---active,
     &:active:not(:disabled) {
       padding-bottom: 4.5px;
@@ -398,15 +446,17 @@ $button-sm-line-height: 16px;
         background: none;
       }
 
-      &:hover:not(:disabled) {
-        .e-btn__icon {
-          i {
-            visibility: visible !important;
-          }
-          i[class*='inverted'],
-          i[class*='color-disabled-light'],
-          i[class*='e-icon--disabled-inverted'] {
-            visibility: hidden !important;
+      @include helpers.hover() {
+        &:hover:not(:disabled) {
+          .e-btn__icon {
+            i {
+              visibility: visible !important;
+            }
+            i[class*='inverted'],
+            i[class*='color-disabled-light'],
+            i[class*='e-icon--disabled-inverted'] {
+              visibility: hidden !important;
+            }
           }
         }
       }
@@ -448,7 +498,6 @@ $button-sm-line-height: 16px;
       }
 
       &.e-btn---hover,
-      &:hover:not(:disabled),
       &.e-btn---active,
       &:active:not(:disabled) {
         background: transparent;
@@ -461,6 +510,20 @@ $button-sm-line-height: 16px;
           visibility: visible;
         }
       }
+      @include helpers.hover() {
+        &:hover:not(:disabled) {
+          background: transparent;
+          // Showing hover ikon
+          .e-btn__icon i:not([class$='filled-color']),
+          .e-btn__icon i:not([class$='disabled']) {
+            visibility: hidden;
+          }
+          .e-btn__icon i[class*='filled-color'] {
+            visibility: visible;
+          }
+        }
+      }
+
       &.e-btn---active,
       &:active:not(:disabled) {
         transform: scale(0.93);
@@ -477,22 +540,23 @@ $button-sm-line-height: 16px;
       }
 
       &.e-btn--inverted {
-        &:hover:not(:disabled) {
-          .e-btn__icon {
-            i {
-              visibility: visible !important;
-            }
-            i[class*='inverted'],
-            i[class*='color-disabled-light'],
-            i[class*='e-icon--disabled-inverted'] {
-              visibility: hidden !important;
+        @include helpers.hover() {
+          &:hover:not(:disabled) {
+            .e-btn__icon {
+              i {
+                visibility: visible !important;
+              }
+              i[class*='inverted'],
+              i[class*='color-disabled-light'],
+              i[class*='e-icon--disabled-inverted'] {
+                visibility: hidden !important;
+              }
             }
           }
         }
       }
 
       &.e-btn---hover,
-      &:hover:not(:disabled),
       &.e-btn---active,
       &:active:not(:disabled) {
         // Showing hover ikon
@@ -503,10 +567,20 @@ $button-sm-line-height: 16px;
           visibility: visible;
         }
       }
+      @include helpers.hover() {
+        &:hover:not(:disabled) {
+          // Showing hover ikon
+          .e-btn__icon i[class*='red'] {
+            visibility: hidden;
+          }
+          .e-btn__icon i:not([class$='red']) {
+            visibility: visible;
+          }
+        }
+      }
     }
 
     &.e-btn---hover,
-    &:hover:not(:disabled),
     &.e-btn---active,
     &:active:not(:disabled) {
       background: colors.color('green');
@@ -514,6 +588,15 @@ $button-sm-line-height: 16px;
         visibility: visible;
       }
     }
+    @include helpers.hover() {
+      &:hover:not(:disabled) {
+        background: colors.color('green');
+        .e-btn__icon i[class$='inverted'] {
+          visibility: visible;
+        }
+      }
+    }
+
     &.e-btn---active,
     &:active:not(:disabled) {
       transform: scale(0.95);
