@@ -83,7 +83,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
         popoverCloseRef.current.classList.add('e-no-outline');
       }
     }
-    function handleClickOutside(e: any) {
+    function handleClickOutside(e: MouseEvent) {
       if (!popoverContentRef.current || !popoverRef.current) {
         return;
       }
@@ -113,6 +113,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
     }
     return 'translateX(-50%)';
   }, [posX]);
+
   function updateStyle(transform: string, right: string, left: string) {
     if (!popoverContentRef.current) {
       return;
@@ -121,6 +122,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
     popoverContentRef.current.style.right = right;
     popoverContentRef.current.style.left = left;
   }
+
   function resize() {
     if (!popoverContentRef.current) {
       return;
@@ -135,12 +137,8 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
 
   // Initializing vertical position
   useEffect(() => {
-    if (posX === 'right') {
-      updateStyle(getTransformStyleValue(), 'unset', '50%');
-    } else if (posX === 'left') {
-      updateStyle(getTransformStyleValue(), 'unset', '50%');
-    }
-  }, [posX, getTransformStyleValue]);
+    updateStyle(getTransformStyleValue(), 'unset', '50%');
+  }, [posX]);
 
   // Update position and size of content
   const updateNewPosition = useCallback(() => {
@@ -232,14 +230,10 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
 
     // Update vertical position
     function updatePositionY() {
-      if (moveFromTop()) {
-        if (!popover.classList.contains('ewc-popover--bottom')) {
-          popover.classList.add('ewc-popover--bottom');
-        }
-      } else if (moveFromBottom()) {
-        if (popover.classList.contains('ewc-popover--bottom')) {
-          popover.classList.remove('ewc-popover--bottom');
-        }
+      if (moveFromTop() && !popover.classList.contains('ewc-popover--bottom')) {
+        popover.classList.add('ewc-popover--bottom');
+      } else if (moveFromBottom() && popover.classList.contains('ewc-popover--bottom')) {
+        popover.classList.remove('ewc-popover--bottom');
       }
     }
     function moveFromTop(): boolean {
