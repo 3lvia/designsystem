@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.scss';
 
 export interface CheckboxProps {
@@ -22,58 +22,60 @@ const Checkbox: React.FC<CheckboxProps> = ({
   required,
   webcomponent,
 }) => {
-  let [isChecked, setCheckedState] = useState(false);
-
-  const checkboxEl = useRef<HTMLLabelElement>(null);
-
-  React.useEffect(() => {
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    document.head.appendChild(link);
-  }, []);
-
-  React.useEffect(() => {
-    if (checked === true || checked === 'true') {
-      toggleChecked();
-    }
-  }, [checked]);
-
-  document.body.addEventListener('keydown', e => toggleOutline(e));
-
-  function toggleOutline(e: KeyboardEvent) {
-    if (!checkboxEl.current) {
-      return;
-    } else if (e.key === 'Tab') {
-      checkboxEl.current.classList.remove('e-no-outline');
-    } else if (!checkboxEl.current.classList.contains('e-no-outline')) {
-      checkboxEl.current.classList.add('e-no-outline');
-    }
-  }
-
+  const [isChecked, setCheckedState] = useState(false);
+  const checkboxRef = useRef<HTMLLabelElement>(null);
   const classes = ['ewc-checkbox ', size === 'small' ? 'ewc-checkbox--sm' : '', ' e-no-outline'].join(' ');
   // check and add html5 input modifers
   const isDisabled = disabled === 'true' || disabled === '';
   const isRequired = required === 'true' || required === '';
 
-  const toggleChecked = () => {
-    isChecked = !!!isChecked;
-    setCheckedState(isChecked);
-    if (webcomponent) {
-      webcomponent.setProps(
-        {
-          checked: isChecked,
-        },
-        true, // Prevent rerender
-      );
+  function toggleChecked() {
+    setCheckedState(prevState => !prevState);
+  }
+
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    document.head.appendChild(link);
+
+    document.body.addEventListener('keydown', e => toggleOutline(e));
+
+    return (() => {
+      document.body.removeEventListener('keydown', e => toggleOutline(e));
+    });
+  }, []);
+
+  useEffect(() => {
+    if (checked === true || checked === 'true') {
+      toggleChecked();
     }
-  };
+  }, [checked]);
 
+  useEffect(() => {
+    updateWebcomponent();
+  }, [isChecked]);
 
+  function toggleOutline(e: KeyboardEvent) {
+    if (!checkboxRef.current) {
+      return;
+    } else if (e.key === 'Tab') {
+      checkboxRef.current.classList.remove('e-no-outline');
+    } else if (!checkboxRef.current.classList.contains('e-no-outline')) {
+      checkboxRef.current.classList.add('e-no-outline');
+    }
+  }
+
+  function updateWebcomponent() {
+    if (webcomponent) {
+      // True -> Prevents rerender
+      webcomponent.setProps({ checked: isChecked }, true);
+    }
+  }
 
   return (
-    <label className={classes} ref={checkboxEl}>
+    <label className={classes} ref={checkboxRef}>
       <input
         type="checkbox"
         name={name}
