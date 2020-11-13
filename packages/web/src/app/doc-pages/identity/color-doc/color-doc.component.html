@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Colors
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Colors</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -19,7 +17,7 @@
             <ng-container ngProjectAs="copyContent">
               <div
                 [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]"
-                style="text-align: center; padding: 14px;"
+                style="text-align: center; padding: 14px"
                 class="display-card-circle"
               >
                 <div class="e-text-caps" *ngIf="item.title == 'white'">Elvia On</div>
@@ -141,7 +139,7 @@
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
               <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
-                <div class="e-text-caps" style="text-align: center; padding: 14px;">
+                <div class="e-text-caps" style="text-align: center; padding: 14px">
                   {{ item.titleWithSpace }}
                 </div>
               </div>
@@ -254,15 +252,16 @@
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      All colors should be used in solid 100%. Don’t use a darker shade or lighter tint of a color in the
-      palette. The only shades we have are greys.
+      All colors should be used in solid 100%, with the exception of illustrations, graphs and labels. In
+      these cases, color shades can be used as long as the color isn’t the only visual indication of important
+      data.
 
       <app-component-subsection [sectionTitle]="'Color weight'">
         <ng-container ngProjectAs="sectionContent">
           Elvia is mainly white and dark grey, with some black components and a touch of green in details such
           as icons, illustration and active states.
           <div>
-            <img style="width: calc(20% + 180px);" class="e-p-24" src="assets/color-doc/color-weight.svg" />
+            <img style="width: calc(20% + 180px)" class="e-p-24" src="assets/color-doc/color-weight.svg" />
           </div>
 
           <app-component-subsubsection [sectionTitle]="'Green'">
@@ -274,10 +273,10 @@
               the green light in between all the white and black.
               <app-do-dont-text>
                 <ng-container ngProjectAs="do">
-                  <img src="assets/color-doc/a.svg" style="max-width: 100%;" />
+                  <img src="assets/color-doc/a.svg" style="max-width: 100%" />
                 </ng-container>
                 <ng-container ngProjectAs="dont">
-                  <img src="assets/color-doc/b.svg" style="max-width: 100%;" />
+                  <img src="assets/color-doc/b.svg" style="max-width: 100%" />
                 </ng-container>
               </app-do-dont-text>
             </ng-container>
@@ -354,9 +353,7 @@
           <ul class="e-list">
             <li><code class="code-text">var(--e-name)</code></li>
           </ul>
-          <p>
-            All CSS-variables can be used.
-          </p>
+          <p>All CSS-variables can be used.</p>
           <p>
             <app-do-dont [do]="true" [codeCSS]="doCodeCSS"></app-do-dont>
             <app-do-dont [do]="false" [codeCSS]="dontCodeCSS"></app-do-dont>

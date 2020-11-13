@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Modal
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Modal</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -11,9 +9,7 @@
 <!--BODY-->
 <div class="e-modal e-none" #modal1>
   <div class="e-modal__content">
-    <div class="e-modal__title">
-      Title
-    </div>
+    <div class="e-modal__title">Title</div>
     <div class="e-modal__text">
       Body text comes here and can go over several lines. It looks like this when it is two.
     </div>
@@ -31,7 +27,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <button class="e-btn" (click)="openModal('modal1')">Modal</button>
     <div class="e-w-100">
@@ -53,6 +49,7 @@
             [showIframeScreens]="true"
             [noTablet]="true"
             [overwriteHeight]="400"
+            [showIframeDesktop]="true"
           ></app-code-block>
         </ng-container>
       </app-component-subsection>
@@ -64,6 +61,7 @@
             [showIframeScreens]="true"
             [noTablet]="true"
             [overwriteHeight]="400"
+            [showIframeDesktop]="true"
           ></app-code-block>
         </ng-container>
       </app-component-subsection>
@@ -75,6 +73,7 @@
             [showIframeScreens]="true"
             [noTablet]="true"
             [overwriteHeight]="400"
+            [showIframeDesktop]="true"
           ></app-code-block>
         </ng-container>
       </app-component-subsection>

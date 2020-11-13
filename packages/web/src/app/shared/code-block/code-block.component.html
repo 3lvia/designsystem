@@ -9,24 +9,24 @@
         <div
           class="tab"
           role="button"
-          [ngClass]="{ hide: noDesktop, active: screen === 'desktop' }"
-          (click)="screen = 'desktop'"
+          [ngClass]="{ hide: noDesktop, active: screenTabOpen === 'desktop' }"
+          (click)="setScreenTabOpen('desktop')"
         >
           Desktop
         </div>
         <div
           class="tab"
           role="button"
-          [ngClass]="{ hide: noTablet, active: screen === 'tablet' }"
-          (click)="screen = 'tablet'"
+          [ngClass]="{ hide: noTablet, active: screenTabOpen === 'tablet' }"
+          (click)="setScreenTabOpen('tablet')"
         >
           Tablet
         </div>
         <div
           class="tab"
           role="button"
-          [ngClass]="{ hide: noPhone, active: screen === 'phone' }"
-          (click)="screen = 'phone'"
+          [ngClass]="{ hide: noPhone, active: screenTabOpen === 'phone' }"
+          (click)="setScreenTabOpen('phone')"
         >
           Phone
         </div>
@@ -42,17 +42,17 @@
 
     <div
       class="element"
-      *ngIf="!showIframeScreens"
+      *ngIf="!showIframeScreens || (!showIframe && screenTabOpen == 'desktop')"
       [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
     >
       <div #defaultFrame></div>
     </div>
     <div
       class="element screens"
-      *ngIf="showIframeScreens"
+      *ngIf="(showIframeScreens && showIframe) || (showIframeScreens && screenTabOpen != 'desktop')"
       [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
     >
-      <div [ngClass]="{ hide: screen !== 'desktop' || noDesktop }">
+      <div [ngClass]="{ hide: screenTabOpen !== 'desktop' || noDesktop }">
         <app-iframe-screen
           [codeHTML]="displayCode"
           [overwriteHeight]="overwriteHeight"
@@ -61,10 +61,10 @@
           [screenSize]="'desktop'"
         ></app-iframe-screen>
       </div>
-      <div [ngClass]="{ hide: screen !== 'tablet' || noTablet }">
+      <div [ngClass]="{ hide: screenTabOpen !== 'tablet' || noTablet }">
         <app-iframe-screen [codeHTML]="displayCode" [screenSize]="'tablet'"></app-iframe-screen>
       </div>
-      <div [ngClass]="{ hide: screen !== 'phone' || noPhone }">
+      <div [ngClass]="{ hide: screenTabOpen !== 'phone' || noPhone }">
         <app-iframe-screen [codeHTML]="displayCode" [screenSize]="'phone'"></app-iframe-screen>
       </div>
     </div>
