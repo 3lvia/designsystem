@@ -1,1 +1,1 @@
-//export { Checkbox as CheckboxReact } from './dist/react/tsx/elvia-popover';
+export { default as Checkbox } from './dist/react/js/elvia-checkbox';

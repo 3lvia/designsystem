@@ -1,9 +1,46 @@
 # Elvia Popover
 
+Popover is a non-modal dialog that appears over the content on the screen. Popover is used with a clickable
+trigger element and should position itself relative to where there is free space on the screen.
+
 ## To use with React Component
 
+```
 import { Popover } from '@elvia/popover/react';
+```
+
+```
+<Popover
+    title="title"
+    description="description"
+    trigger={<button>trigger</button>}
+    posX="posX"
+    posY="posY"
+></Popover>
+```
 
 ## To use Web Component (Angular, Vue, etc)
 
+```
 import { Popover } from '@elvia/popover';
+```
+
+```
+<elvia-popover
+    title="title"
+    description="description"
+    posX="posX"
+    posY="posY"
+>
+    <button slot="trigger" class="e-btn">trigger</button>
+</elvia-popover>
+```
+
+## Props
+
+- Title (string) [required] - Title of content
+- Description (string) [required] - Description
+- Trigger element (HTMLElement) [required] - The element triggering opening of popover (pass in as slot, in
+  react as prop)
+- PosX (string) - Position horizontally (left, right, center(default))
+- PosY (string) - Position vertically (bottom, top(default))

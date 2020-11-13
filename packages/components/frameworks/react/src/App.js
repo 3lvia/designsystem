@@ -1,19 +1,31 @@
 import React from 'react';
+import { useRef, useEffect} from 'react';
 import './App.scss';
 import { Popover } from '@elvia/popover/react';
+import { Checkbox } from '@elvia/checkbox/react';
 
 function App() {
+
+  const checkbox = useRef(null);
+  let checkBoxVal = true;
+
+  useEffect(() => {
+    // Listen checkbox changes
+    if(!checkbox.current){
+      return;
+    }
+    checkbox.current.addEventListener('props-changed', (event) => {
+      checkBoxVal = event.detail.checked;
+    });
+    checkbox.current.setProps({ checked: true });
+    checkbox.current.getProps();
+  }, [])
+
   return (
     <div className="App">
       <h1>React preview</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis massa eu velit egestas bibendum.
-        Vivamus id justo ut eros pellentesque tincidunt in in lectus. Maecenas gravida luctus turpis, quis sodales
-        nunc luctus non. Vivamus mollis, leo eu viverra pretium, eros purus mattis nibh, nec interdum eros dui ut
-        enim. Sed mattis nulla id dignissim aliquam. Duis ornare non lacus ut vehicula. Proin leo urna, aliquet
-        auctor elit id, condimentum vulputate sapien.
-      </p>
-
+      
+      <h2>Popover</h2>
       <div>
         <Popover
           title="React demo of popover"
@@ -64,16 +76,20 @@ function App() {
         ></Popover>
       </div>
 
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis massa eu velit egestas bibendum.
-        Vivamus id justo ut eros pellentesque tincidunt in in lectus. Maecenas gravida luctus turpis, quis sodales
-        nunc luctus non. Vivamus mollis, leo eu viverra pretium, eros purus mattis nibh, nec interdum eros dui ut
-        enim. Sed mattis nulla id dignissim aliquam. Duis ornare non lacus ut vehicula. Proin leo urna, aliquet
-        auctor elit id, condimentum vulputate sapien. Phasellus ultricies fermentum dui, id venenatis urna sodales
-        sit amet. Nunc ut nisi id enim vulputate volutpat. Praesent ullamcorper eleifend rhoncus. Aenean ac leo
-        blandit, tristique magna elementum, tempus nulla. Nullam non rhoncus neque. Nulla ultrices ligula lectus,
-        non vehicula dui pellentesque ac.
-      </p>
+      <hr style={{margin: '40px 0'}} />
+
+      <h2>Checkbox</h2>
+      <strong>Initial value:</strong>
+      {/* {{ checkBoxVal }} */}
+      <div>
+        <Checkbox
+          ref={checkbox}
+          label="Label Test"
+          name="Nametest"
+          id="CheckboxTestID"
+          size="normal"
+        ></Checkbox>
+      </div>
     </div >
   );
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import { Popover } from '@elvia/popover/web_component';
 import { Checkbox } from '@elvia/checkbox/web_component';
 import { Popover } from '@elvia/popover';
 
@@ -12,23 +11,15 @@ Checkbox;
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @ViewChild('checkbox1', { static: true }) checkbox: any;
-  title = 'angular';
+  @ViewChild('checkbox1', { static: true }) checkbox: any
   checkBoxVal = true;
 
   ngOnInit() {
-
-    // LISTEN TO CHANGES ON COMPONENT
+    // Listen checkbox changes
     this.checkbox.nativeElement.addEventListener('props-changed', (event: any) => {
-      const data = event.detail;
-      this.checkBoxVal = data.checked;
+      this.checkBoxVal = event.detail.checked;
     });
-
     this.checkbox.nativeElement.setProps({ checked: true });
     this.checkbox.nativeElement.getProps();
-
-
-    this.checkbox.nativeElement.data.checked = false;
-
   }
 }

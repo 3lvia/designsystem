@@ -13,7 +13,7 @@ export interface CheckboxProps {
   webcomponent?: any;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({
+const Checkbox: React.FC<CheckboxProps> = ({
   label,
   name,
   size,
@@ -88,3 +88,5 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     </label>
   );
 };
+
+export default Checkbox;
