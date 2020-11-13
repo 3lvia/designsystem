@@ -63,10 +63,15 @@
         border: 1px solid colors.color('black');
       }
 
-      &:hover,
+      &:active,
       &.e-pagination__number---hover,
       &.e-pagination__arrow---hover {
         border: 1px solid colors.color('green');
+      }
+      @include helpers.hover() {
+        &:hover {
+          border: 1px solid colors.color('green');
+        }
       }
     }
   }

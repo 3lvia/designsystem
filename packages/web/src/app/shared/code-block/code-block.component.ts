@@ -27,16 +27,18 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() overwriteHeight: number;
   @Input() overwriteHeightTablet: number;
   @Input() overwriteHeightPhone: number;
+  @Input() showIframeDesktop = false;
 
   code = '';
   showTabs = true;
-  screen = 'desktop';
+  screenTabOpen = 'desktop';
   codepen = '';
   displayCode = '';
   isInverted = false;
+  showIframe = false;
+  desktopScreenWidth: boolean;
 
-  constructor(private versionService: VersionService) {
-  }
+  constructor(private versionService: VersionService) { }
 
   ngOnInit(): void {
     this.code = this.codeTS !== '' ? this.codeTS : (this.codeHTML !== '' ? this.codeHTML : this.codeCSS);
@@ -46,24 +48,32 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     if (!this.showIframeScreens) {
       return;
     }
+    if (this.showIframeDesktop) {
+      this.showIframe = true;
+    } else {
+      this.desktopScreenWidth = this.isDesktop();
+      this.showIframe = !this.isDesktop();
+      this.updateShowIframe();
+      window.addEventListener('resize', () => {
+        this.updateShowIframe();
+      });
+    }
     if (this.noPhone && this.noTablet) {
-      this.screen = 'desktop';
+      this.screenTabOpen = 'desktop';
       this.showTabs = false;
     }
     if (this.noPhone && this.noDesktop) {
-      this.screen = 'tablet';
+      this.screenTabOpen = 'tablet';
       this.showTabs = false;
     }
     if (this.noTablet && this.noDesktop) {
-      this.screen = 'phone';
+      this.screenTabOpen = 'phone';
       this.showTabs = false;
     }
   }
 
   ngAfterViewInit(): void {
-    if (!this.showIframeScreens && this.showPreview) {
-      this.defaultFrame.nativeElement.innerHTML = this.code;
-    }
+    this.updateDefaultFrame();
     if (this.codeInverted !== '' && this.showPreview) {
       const elements = document.querySelectorAll('.e-toggle__input');
       for (let i = 0; i < elements.length; i++) {
@@ -73,6 +83,31 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
         });
       }
     }
+  }
+
+  updateDefaultFrame(): void {
+    if (this.defaultFrame) {
+      this.defaultFrame.nativeElement.innerHTML = this.code;
+    }
+  }
+
+  updateShowIframe(): void {
+    const isDesk = this.isDesktop();
+    if (isDesk === this.desktopScreenWidth) {
+      return;
+    }
+    this.showIframe = !this.showIframe;
+    this.desktopScreenWidth = isDesk;
+    setTimeout(() => { if (this.defaultFrame) { this.defaultFrame.nativeElement.innerHTML = this.code; } }, 0);
+  }
+
+  isDesktop(): boolean {
+    return window.innerWidth >= 1024;
+  }
+
+  setScreenTabOpen(screenTabOpen: string): void {
+    this.screenTabOpen = screenTabOpen;
+    setTimeout(() => this.updateDefaultFrame(), 10);
   }
 
   setCodePenValue(): void {
@@ -109,4 +144,11 @@ ${tag}`;
   }
 
 }
+
+
+
+
+
+
+
 

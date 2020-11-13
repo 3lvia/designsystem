@@ -56,13 +56,22 @@
       <button slot="trigger" class="e-btn">Right bottom</button>
     </elvia-popover>
   </div>
-
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis massa eu velit egestas bibendum.
-    Vivamus id justo ut eros pellentesque tincidunt in in lectus. Maecenas gravida luctus turpis, quis sodales
-    nunc luctus non. Vivamus mollis, leo eu viverra pretium, eros purus mattis nibh, nec interdum eros dui ut
-    enim. Sed mattis nulla id dignissim aliquam. Duis ornare non lacus ut vehicula. Proin leo urna, aliquet
-    auctor elit id, condimentum vulputate sapien. Phasellus ultricies fermentum dui, id venenatis urna sodales
-    sit amet.
-  </p>
+</div>
+<div class="App">
+  <h2>Checkbox</h2>
+  <strong>Initial value:</strong>
+  {{ checkBoxVal }}
+  <br />
+  <br />
+  <div style="display: flex; justify-content: center">
+    <div style="display: flex; flex-direction: column">
+      <elvia-checkbox
+        #checkbox1
+        label="Label Test"
+        name="Nametest"
+        id="CheckboxTestID"
+        size="normal"
+      ></elvia-checkbox>
+    </div>
+  </div>
 </div>
