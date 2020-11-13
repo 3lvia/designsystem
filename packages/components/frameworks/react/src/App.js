@@ -14,28 +14,30 @@ function App() {
         auctor elit id, condimentum vulputate sapien.
       </p>
 
-      <div>
-        <Popover
-          title="React demo of popover"
-          description="Alle privatkunder må bruke BankID første gang."
-          trigger={<button>Right top</button>}
-          posX="right"
-        ></Popover>
-      </div>
-      <div>
-        <Popover
-          title="React demo of popover"
-          description="Alle privatkunder må bruke BankID første gang."
-          trigger={<button>Left top</button>}
-          posX="left"
-        ></Popover>
-      </div>
-      <div>
-        <Popover
-          title="React demo of popover"
-          description="Alle privatkunder må bruke BankID første gang."
-          trigger={<button>Center top</button>}
-        ></Popover>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end', width: '100%'}}>
+        <div>
+          <Popover
+            title="React demo of popover"
+            description="Alle privatkunder må bruke BankID første gang."
+            trigger={<button>Right top</button>}
+            posX="right"
+          ></Popover>
+        </div>
+        <div>
+          <Popover
+            title="React demo of popover"
+            description="Alle privatkunder må bruke BankID første gang."
+            trigger={<button>Left top</button>}
+            posX="left"
+          ></Popover>
+        </div>
+        <div>
+          <Popover
+            title="React demo of popover"
+            description="Alle privatkunder må bruke BankID første gang."
+            trigger={<button>Center top</button>}
+          ></Popover>
+        </div>
       </div>
       <div>
         <Popover
