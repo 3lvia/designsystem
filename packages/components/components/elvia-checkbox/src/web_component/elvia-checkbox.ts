@@ -48,8 +48,6 @@ export default class ElviaCheckbox extends HTMLElement {
         this._data[attr] = this.getAttribute(attr);
       }
     });
-    this._data.role = 'checkbox';
-    console.log(this._data)
   }
 
   private renderReactDOM(): void {

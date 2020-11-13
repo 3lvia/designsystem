@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-// import { Popover } from '@elvia/popover/web_component';
 import { Checkbox } from '@elvia/checkbox/web_component';
 import { Popover } from '@elvia/popover';
 
