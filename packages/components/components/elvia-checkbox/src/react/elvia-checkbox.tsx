@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, forwardRef } from 'react';
 import './style.scss';
 
 export interface CheckboxProps {
@@ -13,21 +13,15 @@ export interface CheckboxProps {
   webcomponent?: any;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({
-  label,
-  name,
-  size,
-  checked,
-  disabled,
-  required,
-  webcomponent,
-}) => {
+// const {label, name, size, checked, disabled, required, webcomponent} = this.props;
+
+const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
   const [isChecked, setCheckedState] = useState(false);
   const checkboxRef = useRef<HTMLLabelElement>(null);
-  const classes = ['ewc-checkbox ', size === 'small' ? 'ewc-checkbox--sm' : '', ' e-no-outline'].join(' ');
+  const classes = ['ewc-checkbox ', props.size === 'small' ? 'ewc-checkbox--sm' : '', ' e-no-outline'].join(' ');
   // check and add html5 input modifers
-  const isDisabled = disabled === 'true' || disabled === '';
-  const isRequired = required === 'true' || required === '';
+  const isDisabled = props.disabled === 'true' || props.disabled === '';
+  const isRequired = props.required === 'true' || props.required === '';
 
   function toggleChecked() {
     setCheckedState(prevState => !prevState);
@@ -40,6 +34,16 @@ const Checkbox: React.FC<CheckboxProps> = ({
     link.type = 'text/css';
     document.head.appendChild(link);
 
+    function toggleOutline(e: KeyboardEvent) {
+      if (!checkboxRef.current) {
+        return;
+      } else if (e.key === 'Tab') {
+        checkboxRef.current.classList.remove('e-no-outline');
+      } else if (!checkboxRef.current.classList.contains('e-no-outline')) {
+        checkboxRef.current.classList.add('e-no-outline');
+      }
+    }
+
     document.body.addEventListener('keydown', e => toggleOutline(e));
 
     return (() => {
@@ -48,47 +52,39 @@ const Checkbox: React.FC<CheckboxProps> = ({
   }, []);
 
   useEffect(() => {
-    if (checked === true || checked === 'true') {
+    if (props.checked === true || props.checked === 'true') {
       toggleChecked();
     }
-  }, [checked]);
+  }, [props.checked]);
 
   useEffect(() => {
     updateWebcomponent();
   }, [isChecked]);
 
-  function toggleOutline(e: KeyboardEvent) {
-    if (!checkboxRef.current) {
-      return;
-    } else if (e.key === 'Tab') {
-      checkboxRef.current.classList.remove('e-no-outline');
-    } else if (!checkboxRef.current.classList.contains('e-no-outline')) {
-      checkboxRef.current.classList.add('e-no-outline');
-    }
-  }
-
   function updateWebcomponent() {
-    if (webcomponent) {
+    if (props.webcomponent) {
       // True -> Prevents rerender
-      webcomponent.setProps({ checked: isChecked }, true);
+      props.webcomponent.setProps({ checked: isChecked }, true);
     }
   }
 
   return (
-    <label className={classes} ref={checkboxRef}>
-      <input
-        type="checkbox"
-        name={name}
-        checked={isChecked}
-        disabled={isDisabled}
-        onClick={toggleChecked}
-        required={isRequired}
-        readOnly
-      />
-      <span className="ewc-checkbox__mark"></span>
-      <span className="ewc-checkbox__label">{label}</span>
-    </label>
+    <span ref={ref}>
+      <label className={classes} ref={checkboxRef}>
+        <input
+          type="checkbox"
+          name={name}
+          checked={isChecked}
+          disabled={isDisabled}
+          onClick={toggleChecked}
+          required={isRequired}
+          readOnly
+        />
+        <span className="ewc-checkbox__mark"></span>
+        <span className="ewc-checkbox__label">{props.label}</span>
+      </label>
+    </span>
   );
-};
+});
 
 export default Checkbox;
