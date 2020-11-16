@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useEffect, useRef, useState, forwardRef } from 'react';
+import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from 'react';
 import './style.scss';
 
 export interface CheckboxProps {
@@ -13,8 +13,6 @@ export interface CheckboxProps {
   webcomponent?: any;
 }
 
-// const {label, name, size, checked, disabled, required, webcomponent} = this.props;
-
 const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
   const [isChecked, setCheckedState] = useState(false);
   const checkboxRef = useRef<HTMLLabelElement>(null);
@@ -22,10 +20,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
   // check and add html5 input modifers
   const isDisabled = props.disabled === 'true' || props.disabled === '';
   const isRequired = props.required === 'true' || props.required === '';
-
-  function toggleChecked() {
-    setCheckedState(prevState => !prevState);
-  }
+  const didMountRef = useRef(false);
 
   useEffect(() => {
     const link = document.createElement('link');
@@ -51,15 +46,34 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
     });
   }, []);
 
+  function updateCheckedState(checked?: any) {
+    if(checked){
+      setCheckedState(checked);
+    } else {
+      setCheckedState(prevCheckedState => !prevCheckedState);
+    }
+  }
+
   useEffect(() => {
-    if (props.checked === true || props.checked === 'true') {
-      toggleChecked();
+    // If not mounted only update state if it is a change
+    if (didMountRef.current){
+      updateCheckedState(props.checked);
+    } else if (props.checked || props.checked === 'true') {
+      updateCheckedState(props.checked);
+      didMountRef.current = true;
     }
   }, [props.checked]);
 
   useEffect(() => {
+    updateReactComponent()
     updateWebcomponent();
   }, [isChecked]);
+  
+  function updateReactComponent() {
+    if(!props.webcomponent && props.changeHandler){
+      props.changeHandler(isChecked);
+    } 
+  }
 
   function updateWebcomponent() {
     if (props.webcomponent) {
@@ -67,6 +81,16 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
       props.webcomponent.setProps({ checked: isChecked }, true);
     }
   }
+
+  const changeChecked = (checked: boolean) => {
+    setCheckedState(checked);
+  };
+
+  useImperativeHandle(ref, () => {
+     return {
+      changeChecked: changeChecked,
+     }
+  });
 
   return (
     <span ref={ref}>
@@ -76,7 +100,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
           name={name}
           checked={isChecked}
           disabled={isDisabled}
-          onClick={toggleChecked}
+          onClick={() => updateCheckedState()}
           required={isRequired}
           readOnly
         />

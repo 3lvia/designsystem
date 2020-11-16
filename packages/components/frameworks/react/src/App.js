@@ -1,36 +1,41 @@
-import React from 'react';
-import { useRef, useEffect, useState} from 'react';
+import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/popover/react';
 import { Checkbox } from '@elvia/checkbox/react';
 
 function App() {
 
-  const checkbox = useRef(null);
-  const [checkBoxVal, setCheckboxVal] = useState(true);
-
-  function updateCheckboxValue(newValue) {
-    console.log(newValue);
-    setCheckboxVal(newValue)
-  }
-
-  useEffect(() => {
-    // Listen checkbox changes
-    // if(!checkbox.current){
-    //   return;
-    // }
-    // checkbox.current.addEventListener('props-changed', (event) => {
-    //   updateCheckboxValue(event.detail.checked);
-    //   console.log(event);
-    // });
-    // checkbox.current.setProps({ checked: true });
-    // checkbox.current.getProps();
-  }, []);
+  const [trackedState, setTrackedState] = useState(true);
+  const initialState = true;
+  const ref = useRef();
 
   return (
     <div className="App">
       <h1>React preview</h1>
       
+      <h2>Checkbox</h2>
+      <button onClick={() => {ref.current.changeChecked(false)}}>Update state</button>
+      <div>{ trackedState.toString() }</div>
+      <div style={{marginTop: '16px'}}>
+        <Checkbox
+          ref={ref}
+          checked={initialState}
+          label="Normal checkbox"
+          name="Nametest"
+          id="CheckboxTestID"
+          size="normal"
+          changeHandler={setTrackedState}
+        ></Checkbox>
+         <Checkbox
+          label="Small checkbox"
+          name="Nametest"
+          id="CheckboxTestID"
+          size="small"
+        ></Checkbox>
+      </div>
+
+      <hr style={{margin: '40px 0'}} />
+
       <h2>Popover</h2>
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
         <div>
@@ -82,26 +87,6 @@ function App() {
           posY="bottom"
           posX="left"
         ></Popover>
-      </div>
-
-      <hr style={{margin: '40px 0'}} />
-
-      <h2>Checkbox</h2>
-      {/* {{ checkBoxVal }} */}
-      <div style={{marginTop: '16px'}}>
-        <Checkbox
-          ref={checkbox}
-          label="Normal checkbox"
-          name="Nametest"
-          id="CheckboxTestID"
-          size="normal"
-        ></Checkbox>
-         <Checkbox
-          label="Small checkbox"
-          name="Nametest"
-          id="CheckboxTestID"
-          size="small"
-        ></Checkbox>
       </div>
     </div >
   );

@@ -108,7 +108,13 @@ $sidebar-mobile-z-index: -2;
           background: colors.color('black');
         }
       }
-      .e-header__top-bar-desktop__app-circle:hover {
+      @include helpers.hover() {
+        .e-header__top-bar-desktop__app-circle:hover {
+          border: 2px solid colors.color('green');
+          cursor: pointer;
+        }
+      }
+      .e-header__top-bar-desktop__app-circle:active {
         border: 2px solid colors.color('green');
         cursor: pointer;
       }
@@ -147,9 +153,15 @@ $sidebar-mobile-z-index: -2;
         border-radius: 0 0 4px 4px;
       }
       @include typography.typography('text-option');
-      &:hover {
+      &:active {
         background: colors.color('grey-10');
         cursor: pointer;
+      }
+      @include helpers.hover() {
+        &:hover {
+          background: colors.color('grey-10');
+          cursor: pointer;
+        }
       }
     }
   }
@@ -586,9 +598,16 @@ $sidebar-mobile-z-index: -2;
         visibility: visible;
       }
     }
-    &:hover {
+    &:active {
       .e-header__sidebar__icon {
         border: 1px solid colors.color('green');
+      }
+    }
+    @include helpers.hover() {
+      &:hover {
+        .e-header__sidebar__icon {
+          border: 1px solid colors.color('green');
+        }
       }
     }
   }
