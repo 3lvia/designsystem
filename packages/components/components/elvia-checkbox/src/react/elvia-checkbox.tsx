@@ -82,13 +82,9 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
     }
   }
 
-  const changeChecked = (checked: boolean) => {
-    setCheckedState(checked);
-  };
-
   useImperativeHandle(ref, () => {
      return {
-      changeChecked: changeChecked,
+      updateCheckedState: updateCheckedState,
      }
   });
 

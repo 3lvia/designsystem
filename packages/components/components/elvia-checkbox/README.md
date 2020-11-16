@@ -8,8 +8,8 @@
 - size (string) - Size of checkbox (small, normal(default))
 - checked (boolean)[reactOnly] - Initial checked value
 - changeHandler (function) [reactOnly] - Runs the function every time the checked-value is changed
-- ref (ref) [reactOnly] - Links ref to checkbox-component, giving access update function;
-  - ref.current.updateTrue(bool)
+- ref (ref) [reactOnly] - Links ref to checkbox-component, giving access to update function;
+  - ref.current.updateCheckedState(bool?)
 
 ## REACT COMPONENT
 

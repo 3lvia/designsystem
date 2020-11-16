@@ -14,7 +14,7 @@ function App() {
       <h1>React preview</h1>
       
       <h2>Checkbox</h2>
-      <button onClick={() => {ref.current.changeChecked(false)}}>Update state</button>
+      <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button>
       <div>{ trackedState.toString() }</div>
       <div style={{marginTop: '16px'}}>
         <Checkbox
