@@ -47,31 +47,46 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
   }, []);
 
   function updateCheckedState(checked?: any) {
-    if(checked){
+    console.log('updating: ' + checked);
+    if(checked !== undefined){
       setCheckedState(checked);
     } else {
       setCheckedState(prevCheckedState => !prevCheckedState);
     }
+    console.log('updated ' + isChecked);
   }
 
   useEffect(() => {
     // If not mounted only update state if it is a change
-    if (didMountRef.current){
+    console.log(props.checked + ' : ' + isChecked);
+    if(props.checked === isChecked && props.checked === undefined) {
+      return;
+    }
+    if (didMountRef.current) {
       updateCheckedState(props.checked);
-    } else if (props.checked || props.checked === 'true') {
-      updateCheckedState(props.checked);
+    } else if (props.checked || props.checked === 'true'){
+      updateCheckedState(true);
+    }  else {
       didMountRef.current = true;
     }
   }, [props.checked]);
 
   useEffect(() => {
-    updateReactComponent()
+    console.log('after update: ' + isChecked);
+    updateReactComponent();
     updateWebcomponent();
   }, [isChecked]);
   
   function updateReactComponent() {
+    console.log('update react: ' + isChecked);
     if(!props.webcomponent && props.changeHandler){
-      props.changeHandler(isChecked);
+      // Small hack temporarily, because state not reflected correct on mount making infinite loop
+      if(!didMountRef.current) {
+        props.changeHandler(true);
+        didMountRef.current = true;
+      } else {
+        props.changeHandler(isChecked);
+      }
     } 
   }
 
@@ -82,6 +97,7 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
     }
   }
 
+  // Defines methods available with use of ref
   useImperativeHandle(ref, () => {
      return {
       updateCheckedState: updateCheckedState,

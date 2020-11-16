@@ -6,20 +6,24 @@ import { Checkbox } from '@elvia/checkbox/react';
 function App() {
 
   const [trackedState, setTrackedState] = useState(true);
-  const initialState = true;
   const ref = useRef();
+
+  function update() {
+    setTrackedState(false);
+  }
 
   return (
     <div className="App">
       <h1>React preview</h1>
       
       <h2>Checkbox</h2>
-      <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button>
+      {/* <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button> */}
+      <button onClick={update}>Update state</button>
       <div>{ trackedState.toString() }</div>
       <div style={{marginTop: '16px'}}>
         <Checkbox
           ref={ref}
-          checked={initialState}
+          checked={trackedState}
           label="Normal checkbox"
           name="Nametest"
           id="CheckboxTestID"

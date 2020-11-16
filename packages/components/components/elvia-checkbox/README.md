@@ -6,10 +6,9 @@
 - name (string) - Name of checkbox
 - id (string) - Id of checkbox
 - size (string) - Size of checkbox (small, normal(default))
-- checked (boolean)[reactOnly] - Initial checked value
+- checked (boolean)[reactOnly] - Checked value
 - changeHandler (function) [reactOnly] - Runs the function every time the checked-value is changed
-- ref (ref) [reactOnly] - Links ref to checkbox-component, giving access to update function;
-  - ref.current.updateCheckedState(bool?)
+- ref (ref) [reactOnly] - Links ref to checkbox-component
 
 ## REACT COMPONENT
 
@@ -19,11 +18,13 @@ import { Checkbox } from '@elvia/checkbox/react';
 
 ```
 <Checkbox
+    ref={ref}
     checked={checked}
     label="label"
     name="name"
     id="id"
     size="size"
+    changeHandler={changeHandler}
 ></Checkbox>
 ```
 
