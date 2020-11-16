@@ -5,20 +5,21 @@ import * as ReactCheckboxComponent from '../../react/js/elvia-checkbox.js';
 const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaCheckbox extends HTMLElement {
+
   private mountPoint!: HTMLSpanElement;
+  private _data: any;
 
   static get observedAttributes(): any[] {
     return ['label', 'name', 'value', 'id', 'size', 'checked', 'disabled', 'required'];
   }
 
-  private _data: any;
+  get data(): any {
+    return this._data;
+  }
+
   constructor() {
     super();
     this._data = {};
-  }
-
-  get data() {
-    return this._data;
   }
 
   connectedCallback(): void {
@@ -35,8 +36,32 @@ export default class ElviaCheckbox extends HTMLElement {
     retargetEvents(shadowRoot);
   }
 
-  attributeChangedCallback(name: any, oldValue: any, newValue: any): void {
+  attributeChangedCallback(): void {
     this.renderReactDOM();
+  }
+
+  getProps(): any {
+    return this.clone(this._data);
+  }
+
+  /** Used to update _data and dispatch event */
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  setProps(newProps: any, preventRerender?: boolean): void {
+    Object.keys(newProps).forEach(key => {
+      this._data[key] = this.clone(newProps[key]);
+    });
+
+    // Consider throttling to every 25-50ms and last event
+    this.mountPoint.dispatchEvent(new CustomEvent('props-changed', {
+      bubbles: true,
+      composed: true,
+      detail: this.clone(this._data)
+    }));
+
+    if (!preventRerender) {
+      this.renderReactDOM();
+    }
+
   }
 
   /**
@@ -58,29 +83,6 @@ export default class ElviaCheckbox extends HTMLElement {
   // Does not create a reliable deep clone, but is sufficient for v1
   private clone(item: any) {
     return JSON.parse(JSON.stringify(item));
-  }
-
-  getProps() {
-    return this.clone(this._data);
-  }
-
-  /** Used to update _data and dispatch event */
-  setProps(newProps: any, preventRerender?: boolean) {
-    Object.keys(newProps).forEach(key => {
-      this._data[key] = this.clone(newProps[key]);
-    });
-
-    // Consider throttling to every 25-50ms and last event
-    this.mountPoint.dispatchEvent(new CustomEvent('props-changed', {
-      bubbles: true,
-      composed: true,
-      detail: this.clone(this._data)
-    }));
-
-    if (!preventRerender) {
-      this.renderReactDOM();
-    }
-
   }
 
   private createCheckbox(data: any): React.ReactElement {

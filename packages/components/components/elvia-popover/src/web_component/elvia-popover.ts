@@ -25,7 +25,7 @@ export default class ElviaPopover extends HTMLElement {
     shadowRoot.appendChild(this.mountPoint);
     shadowRoot.appendChild(styleTag);
 
-    setTimeout(() => this.renderReactDOM());
+    this.renderReactDOM();
     retargetEvents(shadowRoot);
   }
 
