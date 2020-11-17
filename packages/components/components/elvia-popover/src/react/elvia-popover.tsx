@@ -11,7 +11,7 @@ export interface PopoverProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-export const throttle = (func: any, limit: number) => {
+const throttle = (func: any, limit: number) => {
   let inThrottle: boolean | NodeJS.Timeout;
   return (...args: any) => {
     if (!inThrottle) {

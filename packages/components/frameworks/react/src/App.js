@@ -1,20 +1,47 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/popover/react';
+import { Checkbox } from '@elvia/checkbox/react';
 
 function App() {
+
+  const [trackedState, setTrackedState] = useState(true);
+  const ref = useRef();
+
+  function update() {
+    setTrackedState(false);
+  }
+
   return (
     <div className="App">
       <h1>React preview</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis massa eu velit egestas bibendum.
-        Vivamus id justo ut eros pellentesque tincidunt in in lectus. Maecenas gravida luctus turpis, quis sodales
-        nunc luctus non. Vivamus mollis, leo eu viverra pretium, eros purus mattis nibh, nec interdum eros dui ut
-        enim. Sed mattis nulla id dignissim aliquam. Duis ornare non lacus ut vehicula. Proin leo urna, aliquet
-        auctor elit id, condimentum vulputate sapien.
-      </p>
+      
+      <h2>Checkbox</h2>
+      {/* <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button> */}
+      <button onClick={update}>Update state</button>
+      <div>{ trackedState.toString() }</div>
+      <div style={{marginTop: '16px'}}>
+        <Checkbox
+          ref={ref}
+          checked={trackedState}
+          label="Normal checkbox"
+          name="Nametest"
+          id="CheckboxTestID"
+          size="normal"
+          changeHandler={setTrackedState}
+        ></Checkbox>
+         <Checkbox
+          label="Small checkbox"
+          name="Nametest"
+          id="CheckboxTestID"
+          size="small"
+        ></Checkbox>
+      </div>
 
-      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end', width: '100%'}}>
+      <hr style={{margin: '40px 0'}} />
+
+      <h2>Popover</h2>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
         <div>
           <Popover
             title="React demo of popover"
@@ -65,17 +92,6 @@ function App() {
           posX="left"
         ></Popover>
       </div>
-
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis massa eu velit egestas bibendum.
-        Vivamus id justo ut eros pellentesque tincidunt in in lectus. Maecenas gravida luctus turpis, quis sodales
-        nunc luctus non. Vivamus mollis, leo eu viverra pretium, eros purus mattis nibh, nec interdum eros dui ut
-        enim. Sed mattis nulla id dignissim aliquam. Duis ornare non lacus ut vehicula. Proin leo urna, aliquet
-        auctor elit id, condimentum vulputate sapien. Phasellus ultricies fermentum dui, id venenatis urna sodales
-        sit amet. Nunc ut nisi id enim vulputate volutpat. Praesent ullamcorper eleifend rhoncus. Aenean ac leo
-        blandit, tristique magna elementum, tempus nulla. Nullam non rhoncus neque. Nulla ultrices ligula lectus,
-        non vehicula dui pellentesque ac.
-      </p>
     </div >
   );
 }
