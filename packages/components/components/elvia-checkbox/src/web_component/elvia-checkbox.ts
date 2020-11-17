@@ -2,12 +2,12 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events';
 import * as ReactCheckboxComponent from '../../react/js/elvia-checkbox.js';
+import { ElviaComponent } from '@elvia/component';
 const style = `{{INSERT_STYLE_HERE}}`;
 
-export default class ElviaCheckbox extends HTMLElement {
+export default class ElviaCheckbox extends ElviaComponent {
 
   private mountPoint!: HTMLSpanElement;
-  private _data: any;
 
   static get observedAttributes(): any[] {
     return ['label', 'name', 'value', 'id', 'size', 'checked', 'disabled', 'required'];
@@ -22,6 +22,7 @@ export default class ElviaCheckbox extends HTMLElement {
     this._data = {};
   }
 
+  // CAN REMOVE?
   connectedCallback(): void {
     this.setAttribute('role', 'checkbox')
     this.mountPoint = document.createElement('span');
@@ -36,12 +37,9 @@ export default class ElviaCheckbox extends HTMLElement {
     retargetEvents(shadowRoot);
   }
 
+  // CAN REMOVE?
   attributeChangedCallback(): void {
     this.renderReactDOM();
-  }
-
-  getProps(): any {
-    return this.clone(this._data);
   }
 
   /** Used to update _data and dispatch event */
@@ -78,11 +76,6 @@ export default class ElviaCheckbox extends HTMLElement {
   private renderReactDOM(): void {
     this.mapAttributesToData();
     ReactDOM.render(this.createCheckbox(this._data), this.mountPoint);
-  }
-
-  // Does not create a reliable deep clone, but is sufficient for v1
-  private clone(item: any) {
-    return JSON.parse(JSON.stringify(item));
   }
 
   private createCheckbox(data: any): React.ReactElement {

@@ -29,7 +29,7 @@ function buildWebComponentsToDistributeFolder() {
                 file.contents = new Buffer(String(file.contents)
                     .replace(/{{INSERT_STYLE_HERE}}/, result.css.toString()));
             }))
-            .pipe(gulp.dest(`../components/${component.name}/dist/web_component/ts/`));
+            .pipe(gulp.dest(`../components/${component.name}/dist/web_component/ts/`))
     });
     return mergeStream(tasks);
 };
@@ -70,6 +70,16 @@ function buildWebComponentsToDistributeJSFolder() {
     return mergeStream(tasks);
 }
 
+function buildElviaComponentToJS() {
+    return gulp.src(`../components/elvia-component/src/*.ts`)
+        .pipe(babel({
+            "presets": [
+                "@babel/preset-typescript"
+            ],
+        })).pipe(header(WARNING))
+        .pipe(gulp.dest(`../components/elvia-component/dist/`));
+}
+
 // TODO: Find a way to do cleanup that does not trigger rebuild
 function cleanup() {
     return del(['../components/**/dist/**/*'], { force: true });
@@ -84,6 +94,7 @@ gulp.task(
         TSX_to_JS,
         buildWebComponentsToDistributeFolder,
         buildWebComponentsToDistributeJSFolder,
+        buildElviaComponentToJS,
         function (done) {
             done();
             console.log('Successfully built Elvia Components!');
