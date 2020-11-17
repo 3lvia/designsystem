@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as retargetEvents from 'react-shadow-dom-retarget-events';
-import * as ReactCheckboxComponent from '../../react/js/elvia-checkbox.js';
+import * as retargetEvents from 'react-shadow-dom-retarget-events'
 import { ElviaComponent } from '@elvia/component';
+import * as ReactCheckboxComponent from '../../../react.js';
 const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaCheckbox extends ElviaComponent {

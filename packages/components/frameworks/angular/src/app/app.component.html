@@ -1,10 +1,21 @@
 <div class="App">
   <h1>Angular preview</h1>
 
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mollis massa eu velit egestas bibendum.
-    Vivamus id justo ut eros pellentesque tincidunt in in lectus.
-  </p>
+  <h2>Checkbox</h2>
+  <div style="margin-top: 16px">
+    <elvia-checkbox
+      #checkbox1
+      label="Normal checkbox"
+      name="Nametest"
+      id="CheckboxTestID"
+      size="normal"
+    ></elvia-checkbox>
+    <elvia-checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></elvia-checkbox>
+  </div>
+
+  <hr style="margin: 40px 0" />
+
+  <h2>Popover</h2>
   <div style="display: flex; flex-direction: column; align-items: flex-end; width: 100%">
     <elvia-popover
       title="Angular demo of popover"
@@ -55,23 +66,5 @@
     >
       <button slot="trigger" class="e-btn">Right bottom</button>
     </elvia-popover>
-  </div>
-</div>
-<div class="App">
-  <h2>Checkbox</h2>
-  <strong>Initial value:</strong>
-  {{ checkBoxVal }}
-  <br />
-  <br />
-  <div style="display: flex; justify-content: center">
-    <div style="display: flex; flex-direction: column">
-      <elvia-checkbox
-        #checkbox1
-        label="Label Test"
-        name="Nametest"
-        id="CheckboxTestID"
-        size="normal"
-      ></elvia-checkbox>
-    </div>
   </div>
 </div>
