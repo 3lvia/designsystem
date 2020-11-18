@@ -3721,6 +3721,7 @@ input:focus {
   min-height: 48px;
   height: 40px;
   align-items: center;
+  margin-left: 0;
 }
 
 .e-link.e-link--jumbo .e-link__icon:not(:only-of-type):first-of-type {
@@ -3757,6 +3758,10 @@ input:focus {
   .e-link.e-link--jumbo {
     width: 100%;
     padding: 30px 24px;
+  }
+
+  .e-link.e-link--jumbo .e-link__icon:not(:only-of-type):first-of-type {
+    margin-right: 16px;
   }
 
   .e-link.e-link--jumbo .e-link__icon:first-of-type i {
