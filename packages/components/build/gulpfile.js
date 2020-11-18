@@ -49,7 +49,7 @@ function TSX_to_JS() {
                 })).pipe(header(WARNING))
                 .pipe(gulp.dest(`../components/${component.name}/dist/react/js/`)),
 
-            gulp.src([`../components/${component.name}/src/react/**/*`, `!../components/${component.name}/src/react/**/*.tsx`]).pipe(
+            gulp.src([`../components/${component.name}/src/react/**/*.scss`, `../components/${component.name}/src/react/**/*.d.ts`]).pipe(
                 gulp.dest(`../components/${component.name}/dist/react/js/`)
             )
         );
