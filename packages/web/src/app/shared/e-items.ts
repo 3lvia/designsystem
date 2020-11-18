@@ -571,7 +571,7 @@ export const eCommunity: EItems[] = [
   {
     title: 'Contact',
     // tslint:disable-next-line: max-line-length
-    description: `We at team LEGO will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
+    description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
