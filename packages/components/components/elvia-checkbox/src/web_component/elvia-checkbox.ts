@@ -9,7 +9,7 @@ export default class ElviaCheckbox extends ElviaComponent {
   }
 
   constructor() {
-    super(ElviaCheckbox, ReactCheckboxComponent.Checkbox, style);
+    super(ElviaCheckbox, ReactCheckboxComponent.Checkbox, style, 'checkbox');
   }
 }
 

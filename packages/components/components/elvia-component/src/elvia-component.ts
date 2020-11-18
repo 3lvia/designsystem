@@ -5,17 +5,19 @@ import * as retargetEvents from 'react-shadow-dom-retarget-events'
 export class ElviaComponent extends HTMLElement {
 
   protected _data: any;
-  protected reactComponent;
-  protected webComponent;
+  protected reactComponent: any;
+  protected webComponent: any;
   protected cssStyle: string;
+  protected role: string;
   private mountPoint!: HTMLSpanElement;
 
-  constructor(webComponent: any, reactComponent: any, cssStyle: string) {
+  constructor(webComponent: any, reactComponent: any, cssStyle: string, role: string) {
     super();
     this._data = {};
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
+    this.role = role;
   }
 
 
@@ -28,7 +30,7 @@ export class ElviaComponent extends HTMLElement {
   }
 
   connectedCallback(): void {
-    this.attachStyle('checkbox', this.cssStyle);
+    this.attachStyle();
     this.renderReactDOM();
   }
 
@@ -36,11 +38,11 @@ export class ElviaComponent extends HTMLElement {
     this.renderReactDOM();
   }
 
-  protected attachStyle(role: string, style: string): void {
-    this.setAttribute('role', role)
+  protected attachStyle(): void {
+    this.setAttribute('role', this.role)
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
-    styleTag.innerHTML = style;
+    styleTag.innerHTML = this.cssStyle;
 
     const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(this.mountPoint);

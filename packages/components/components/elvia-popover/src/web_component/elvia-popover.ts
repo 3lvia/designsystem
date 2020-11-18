@@ -8,7 +8,7 @@ export default class ElviaPopover extends ElviaComponent {
   }
 
   constructor() {
-    super(ElviaPopover, ReactPopoverComponent.Popover, style);
+    super(ElviaPopover, ReactPopoverComponent.Popover, style, 'dialog');
   }
 }
 
