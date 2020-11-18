@@ -10,6 +10,8 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-structure/co
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure/component-subsubsection/component-subsubsection.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
+import { CopyModule } from 'src/app/shared/copy/copy.module';
+
 
 @NgModule({
   imports: [
@@ -23,6 +25,8 @@ import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.modul
     ComponentSubsubsectionModule,
     WhenToUseModule,
     DoDontTextModule,
+    CopyModule,
+
   ],
   declarations: [LinkDocComponent],
 })

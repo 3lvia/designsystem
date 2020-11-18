@@ -111,6 +111,16 @@ export class LinkDocComponent {
   <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>
 </a>
 `;
+  example6External = `<a class="e-link e-link--jumbo e-mb-40" href="https://design.elvia.io/components/link-doc#Overview">
+  <span class="e-link__title">External jumbo link</span>
+  <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold e-icon--xs"></i></span>
+</a>
+<a class="e-link e-link--jumbo" href="https://design.elvia.io/components/link-doc#Overview">
+  <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
+  <span class="e-link__title">External jumbo link with icon</span>
+  <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold e-icon--xs"></i></span>
+</a>
+`;
 
   exampleCard = `<h4 class="e-text-label">Standard</h4>
 <div style="width: 150px;">
