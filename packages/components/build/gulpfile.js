@@ -29,7 +29,7 @@ function buildWebComponentsToDistributeFolder() {
                 file.contents = new Buffer(String(file.contents)
                     .replace(/{{INSERT_STYLE_HERE}}/, result.css.toString()));
             }))
-            .pipe(gulp.dest(`../components/${component.name}/dist/web_component/ts/`))
+            .pipe(gulp.dest(`../components/${component.name}/dist/web_component/ts/`));
     });
     return mergeStream(tasks);
 };
