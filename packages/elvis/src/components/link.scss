@@ -224,6 +224,7 @@ $link-jumbo-phone-width: 287px;
     }
     .e-link__icon:last-of-type {
       margin-left: 11px;
+      display: inline-block;
       i {
         @include icons.icon-size('xs');
       }

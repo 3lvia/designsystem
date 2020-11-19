@@ -3741,6 +3741,7 @@ input:focus {
 
 .e-link.e-link--jumbo .e-link__icon:last-of-type {
   margin-left: 11px;
+  display: inline-block;
 }
 
 .e-link.e-link--jumbo .e-link__icon:last-of-type i {
