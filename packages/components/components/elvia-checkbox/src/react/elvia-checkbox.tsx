@@ -47,18 +47,15 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
   }, []);
 
   function updateCheckedState(checked?: any) {
-    console.log('updating: ' + checked);
     if(checked !== undefined){
       setCheckedState(checked);
     } else {
       setCheckedState(prevCheckedState => !prevCheckedState);
     }
-    console.log('updated ' + isChecked);
   }
 
   useEffect(() => {
     // If not mounted only update state if it is a change
-    console.log(props.checked + ' : ' + isChecked);
     if(props.checked === isChecked && props.checked === undefined) {
       return;
     }
@@ -72,13 +69,11 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
   }, [props.checked]);
 
   useEffect(() => {
-    console.log('after update: ' + isChecked);
     updateReactComponent();
     updateWebcomponent();
   }, [isChecked]);
   
   function updateReactComponent() {
-    console.log('update react: ' + isChecked);
     if(!props.webcomponent && props.changeHandler){
       // Small hack temporarily, because state not reflected correct on mount making infinite loop
       if(!didMountRef.current) {
