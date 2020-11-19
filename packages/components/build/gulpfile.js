@@ -49,7 +49,7 @@ function TSX_to_JS() {
                 })).pipe(header(WARNING))
                 .pipe(gulp.dest(`../components/${component.name}/dist/react/js/`)),
 
-            gulp.src([`../components/${component.name}/src/react/**/*`, `!../components/${component.name}/src/react/**/*.tsx`]).pipe(
+            gulp.src([`../components/${component.name}/src/react/**/*.scss`, `../components/${component.name}/src/react/**/*.d.ts`]).pipe(
                 gulp.dest(`../components/${component.name}/dist/react/js/`)
             )
         );
@@ -70,6 +70,16 @@ function buildWebComponentsToDistributeJSFolder() {
     return mergeStream(tasks);
 }
 
+function buildElviaComponentToJS() {
+    return gulp.src(`../components/elvia-component/src/*.ts`)
+        .pipe(babel({
+            "presets": [
+                "@babel/preset-typescript"
+            ],
+        })).pipe(header(WARNING))
+        .pipe(gulp.dest(`../components/elvia-component/dist/`));
+}
+
 // TODO: Find a way to do cleanup that does not trigger rebuild
 function cleanup() {
     return del(['../components/**/dist/**/*'], { force: true });
@@ -84,6 +94,7 @@ gulp.task(
         TSX_to_JS,
         buildWebComponentsToDistributeFolder,
         buildWebComponentsToDistributeJSFolder,
+        buildElviaComponentToJS,
         function (done) {
             done();
             console.log('Successfully built Elvia Components!');

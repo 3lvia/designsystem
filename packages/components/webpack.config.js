@@ -40,7 +40,7 @@ elviaComponents.forEach(component => {
                 ],
             },
             resolve: {
-                extensions: ['.tsx', '.ts', '.js', '.css', '.scss'],
+                extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
             },
             output: {
                 filename: `${component.name}.js`,
