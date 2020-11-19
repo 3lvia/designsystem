@@ -3,7 +3,46 @@
 <!-- 🐝 - BUG FIXES -->
 
 <table>
-<tr class="changelog-row">
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      4.0.0
+    </span>
+    <br>
+    <span>
+      November 19, 2020
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/header-doc#Overview">Header</a>
+        </div>
+        The header structure has changed so that the title is left aligned on desktop and tablet instead of center aligned. 
+        This require that the top menu grid changes a little and that the title is added to the first column as well.
+        <div class="e-mt-8">
+          How to fix:
+          The changes only affect the 'LOGO + APP' section.
+          <ul>
+            <li>
+              Search for the section called 'LOGO + APP' under top menu for desktop and change the first div with classes of column specifications to this: <span class="code-text changelog-code">class="col-xs-2 col-sm-3 col-md-7 col-lg-8</span>. Then add these two lines at the bottom of the column: 
+              <div class="code-text changelog-code">
+                &lt;span class="e-header__top-bar-desktop__line e-mx-32"&gt;&lt;/span&gt;
+                <br />
+                &lt;div class="e-header__top-bar-desktop__title">TITLE&lt;/div&gt;
+              </div>
+            </li>
+            <li>
+              The other way to fix this will be replace the <!--LOGO + APP--> section with the examples showed in the documentation, and then add the information back where you lost it.
+            </li>
+          </ul>
+        </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       3.0.0
@@ -75,7 +114,8 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
-<tr class="changelog-row">
+
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       2.0.0
