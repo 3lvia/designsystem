@@ -238,6 +238,7 @@
 			"element": {
 				"e-header__top-bar": {},
 				"e-header__top-bar-desktop": {},
+				"e-header__top-bar-desktop__title": {},
 				"e-header__top-bar-desktop__app": {
 					"modifier": {
 						"e-header__top-bar-desktop__app--open": {}
@@ -259,7 +260,6 @@
 				"e-header__top-bar-desktop__area-menu": {},
 				"e-header__top-bar-desktop__area-menu-item": {},
 				"e-header__top-bar-desktop__logo": {},
-				"e-header__top-bar-desktop__title": {},
 				"e-header__top-bar-desktop__user": {
 					"modifier": {
 						"e-header__top-bar-desktop__user--open": {}
@@ -1133,6 +1133,7 @@
 		"e-header__top-bar": {},
 		"e-header__top-bar-desktop": {},
 		"e-grid": {},
+		"e-header__top-bar-desktop__title": {},
 		"e-header__top-bar-desktop__app": {},
 		"e-header__top-bar-desktop__app-menu": {},
 		"e-header__top-bar-desktop__app-menu-item": {},
@@ -1143,7 +1144,6 @@
 		"e-header__top-bar-desktop__area-menu": {},
 		"e-header__top-bar-desktop__area-menu-item": {},
 		"e-header__top-bar-desktop__logo": {},
-		"e-header__top-bar-desktop__title": {},
 		"e-header__top-bar-desktop__user": {},
 		"e-header__top-bar-desktop__hamburger": {},
 		"e-header__top-bar-desktop__link": {},

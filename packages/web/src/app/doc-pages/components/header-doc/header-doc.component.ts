@@ -68,8 +68,8 @@ export class HeaderDocComponent {
       <div class="e-grid">
         <div class="row no-gutters">
 
-          <!--LOGO + APP-->
-          <div class="col-xs-2 col-sm-3 col-md-3 col-lg-4">
+          <!--LOGO + APP  + TITLE-->
+          <div class="col-xs-2 col-sm-3 col-md-7 col-lg-8">
             <!--LOGO-->
             <div class="e-header__top-bar-desktop__logo">
               <img src="./../../../assets/logo/elvia_positive_4.svg" alt="Elvia Logo" />
@@ -110,10 +110,17 @@ export class HeaderDocComponent {
                 </div>
               </div>
             </div>
+
+            <span class="e-header__top-bar-desktop__line e-mx-32"></span>
+
+            <!--TITLE DESKTOP-->
+            <div class="e-header__top-bar-desktop__title">
+              Kart og analyse
+            </div>
           </div>
 
           <!--TITTLE-->
-          <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
+          <div class="col-xs-8 col-sm-6">
             <div class="e-header__top-bar-desktop__title">
               Kart og analyse
             </div>
@@ -136,7 +143,9 @@ export class HeaderDocComponent {
                 <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord og Sør</div>
               </div>
             </div>
+
             <span class="e-header__top-bar-desktop__line e-mx-24"></span>
+
             <!--USER-->
             <div class="e-header__top-bar-desktop__user">
               <a class="e-header__top-bar-desktop__link">
@@ -270,8 +279,8 @@ export class HeaderDocComponent {
       <div class="e-grid">
         <div class="row no-gutters">
 
-          <!--LOGO + APP-->
-          <div class="col-xs-2 col-sm-3 col-md-3 col-lg-4">
+          <!--LOGO + APP  + TITLE-->
+          <div class="col-xs-2 col-sm-3 col-md-7 col-lg-8">
             <!--LOGO-->
             <div class="e-header__top-bar-desktop__logo">
               <img src="./../../../assets/logo/elvia_positive_4.svg" alt="Elvia Logo" />
@@ -311,6 +320,13 @@ export class HeaderDocComponent {
                   <div class="e-header__top-bar-desktop__app-title">SV</div>
                 </div>
               </div>
+            </div>
+
+            <span class="e-header__top-bar-desktop__line e-mx-32"></span>
+
+            <!--TITLE DESKTOP-->
+            <div class="e-header__top-bar-desktop__title">
+              Kart og analyse
             </div>
           </div>
 
@@ -472,8 +488,8 @@ export class HeaderDocComponent {
       <div class="e-grid">
         <div class="row no-gutters">
 
-          <!--LOGO + APP-->
-          <div class="col-xs-2 col-sm-3 col-md-3 col-lg-4">
+          <!--LOGO + APP + TITLE-->
+          <div class="col-xs-2 col-sm-3 col-md-7 col-lg-8">
             <!--LOGO-->
             <div class="e-header__top-bar-desktop__logo">
               <img src="./../../../assets/logo/elvia_positive_4.svg" alt="Elvia Logo" />
@@ -513,6 +529,13 @@ export class HeaderDocComponent {
                   <div class="e-header__top-bar-desktop__app-title">SV</div>
                 </div>
               </div>
+            </div>
+
+            <span class="e-header__top-bar-desktop__line e-mx-32"></span>
+
+            <!--TITLE DESKTOP-->
+            <div class="e-header__top-bar-desktop__title">
+              Kart og analyse
             </div>
           </div>
 
