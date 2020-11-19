@@ -213,6 +213,7 @@ $link-jumbo-phone-width: 287px;
       min-height: 48px;
       height: 40px;
       align-items: center;
+      margin-left: 0;
     }
 
     .e-link__icon:not(:only-of-type):first-of-type {
@@ -223,6 +224,7 @@ $link-jumbo-phone-width: 287px;
     }
     .e-link__icon:last-of-type {
       margin-left: 11px;
+      display: inline-block;
       i {
         @include icons.icon-size('xs');
       }
@@ -231,6 +233,10 @@ $link-jumbo-phone-width: 287px;
     @include breakpoints.breakpoint-up(Mobile) {
       width: 100%;
       padding: $link-jumbo-phone-padding;
+
+      .e-link__icon:not(:only-of-type):first-of-type {
+        margin-right: 16px;
+      }
 
       .e-link__icon:first-of-type {
         i {

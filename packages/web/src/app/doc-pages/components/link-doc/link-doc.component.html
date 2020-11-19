@@ -66,6 +66,22 @@
           content cannot exceed two desktop rows in the jumbo link. The desktop version will keep standard
           height while the mobile version will expand for text content according to the desktop limit.
           <app-code-block [codeHTML]="example6" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
+          <app-component-subsubsection [sectionTitle]="'External Jumbo link'">
+            <ng-container ngProjectAs="sectionContent">
+              For external jumbo links just replace the current icon with the
+              <app-copy [message]="'e-icon--arrow_external-bold'" [noAnimation]="true">
+                <ng-container ngProjectAs="copyContent">
+                  <span class="code-text">e-icon--arrow_external-bold</span>
+                </ng-container>
+              </app-copy>
+              icon.
+              <app-code-block
+                [codeHTML]="example6External"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+              ></app-code-block>
+            </ng-container>
+          </app-component-subsubsection>
           <app-when-to-use [whens]="doesExample6" [whenNots]="dontsExample6"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
