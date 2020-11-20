@@ -2770,10 +2770,15 @@ input:focus {
 }
 
 .e-header__top-bar-desktop__title {
-  font-family: "Red Hat Display";
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 22px;
+  font-family: Red Hat Text, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: 400;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  font-weight: 500;
 }
 
 @media (max-width: 1023px) {
