@@ -3,7 +3,7 @@ import { ElviaComponent } from '@elvia/component';
 const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaPopover extends ElviaComponent {
-  static get observedAttributes(): any[] {
+  static get observedAttributes(): string[] {
     return ['title', 'description', 'posX', 'posY'];
   }
 

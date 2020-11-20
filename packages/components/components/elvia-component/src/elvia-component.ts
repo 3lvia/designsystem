@@ -5,13 +5,13 @@ import * as retargetEvents from 'react-shadow-dom-retarget-events'
 export class ElviaComponent extends HTMLElement {
 
   protected _data: any;
-  protected reactComponent: any;
+  protected reactComponent: React.FC<any>;
   protected webComponent: any;
   protected cssStyle: string;
   protected role: string;
   private mountPoint!: HTMLSpanElement;
 
-  constructor(webComponent: any, reactComponent: any, cssStyle: string, role: string) {
+  constructor(webComponent: any, reactComponent: React.FC<any>, cssStyle: string, role: string) {
     super();
     this._data = {};
     this.webComponent = webComponent;
@@ -68,6 +68,10 @@ export class ElviaComponent extends HTMLElement {
 
   }
 
+  protected convertStringToBool(attr: string): boolean {
+    return attr == 'true';
+  }
+
   // Does not create a reliable deep clone, but is sufficient for v1
   protected clone(item: any): any {
     return JSON.parse(JSON.stringify(item));
@@ -84,6 +88,9 @@ export class ElviaComponent extends HTMLElement {
   private mapAttributesToData() {
     this.webComponent.observedAttributes.forEach((attr: any) => {
       if (!this._data[attr]) {
+        if (this.getAttribute(attr) === 'true' || this.getAttribute(attr) === 'false') {
+          this._data[attr] = this.convertStringToBool(this.getAttribute(attr)!);
+        }
         this._data[attr] = this.getAttribute(attr);
       }
     });

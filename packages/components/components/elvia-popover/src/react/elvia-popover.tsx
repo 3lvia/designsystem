@@ -44,7 +44,7 @@ const getEventPath = (e: any) => {
   );
 };
 
-const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigger }) => {
+const Popover: React.FC<PopoverProps> = (props: PopoverProps) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
@@ -54,6 +54,8 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
   const popoverCloseRef = useRef<HTMLButtonElement>(null);
   const popoverMargin = 20;
   const popoverOffsetArrow = 40;
+  const arrowClasses = ['ewc-popover__arrow', visiblePopover ? '' : 'ewc-popover--hide'].join(' ');
+  const contentClasses = ['ewc-popover__content', visiblePopover ? '' : 'ewc-popover--hide'].join(' ');
 
   // Closing and opening popover
   function togglePopover() {
@@ -91,8 +93,8 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
       const path = getEventPath(e);
       const slotTriggerIsTargetTrigger = popoverSlotTriggerRef.current === path[1];
       const popoverContainsTarget = popoverRef.current.contains(path[0]);
-      const contentIsHidden = popoverContentRef.current.classList.contains('ewc-popover--hide');
-      if (!slotTriggerIsTargetTrigger && !popoverContainsTarget && !contentIsHidden) {
+      const popoverIsOpen = popoverContentRef.current.classList.contains('ewc-popover--hide');
+      if (!slotTriggerIsTargetTrigger && !popoverContainsTarget && !popoverIsOpen) {
         togglePopover();
       }
     }
@@ -106,13 +108,13 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
 
   // Positioning functions
   const getTransformStyleValue = useCallback(() => {
-    if (posX === 'left') {
+    if (props.posX === 'left') {
       return 'translateX(-91%)';
-    } else if (posX === 'right') {
+    } else if (props.posX === 'right') {
       return 'translateX(-9%)';
     }
     return 'translateX(-50%)';
-  }, [posX]);
+  }, [props.posX]);
 
   function updateStyle(transform: string, right: string, left: string) {
     if (!popoverContentRef.current) {
@@ -138,7 +140,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
   // Initializing vertical position
   useEffect(() => {
     updateStyle(getTransformStyleValue(), 'unset', '50%');
-  }, [posX]);
+  }, [props.posX]);
 
   // Update position and size of content
   const updateNewPosition = useCallback(() => {
@@ -169,11 +171,11 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
 
     resize();
     updatePositionY();
-    if (!posX) {
+    if (!props.posX) {
       updateCenterPosition();
-    } else if (posX === 'left') {
+    } else if (props.posX === 'left') {
       updateLeftPosition();
-    } else if (posX === 'right') {
+    } else if (props.posX === 'right') {
       updateRightPosition();
     }
 
@@ -239,32 +241,24 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
     function moveFromTop(): boolean {
       const noRoomTop = offsetTop <= popoverMargin;
       const isRoomBottom = arrowOffsetBottom > contentHeight + popoverMargin + popoverMargin;
-      const isBottom = posY === 'bottom';
+      const isBottom = props.posY === 'bottom';
       return noRoomTop || (isBottom && isRoomBottom);
     }
     function moveFromBottom(): boolean {
       const noRoomBottom = offsetBottom <= popoverMargin;
       const isRoomTop = offsetTop > popoverMargin;
       const isRoomTopInsurance = arrowOffsetTop > contentHeight + popoverMargin + popoverMargin;
-      const isTop = !posY;
+      const isTop = !props.posY;
       return (noRoomBottom && isRoomTop) || (isTop && isRoomTopInsurance);
     }
-  }, [posY, posX, getTransformStyleValue]);
+  }, [props.posY, props.posX, getTransformStyleValue]);
 
-  // Toggle visibility
+
+  // Update position if opening popover
   useEffect(() => {
-    function toggleVisibilityClass() {
-      if (popoverArrowRef.current && popoverContentRef.current && visiblePopover) {
-        popoverArrowRef.current.classList.remove('ewc-popover--hide');
-        popoverContentRef.current.classList.remove('ewc-popover--hide');
-      } else if (popoverArrowRef.current && popoverContentRef.current) {
-        popoverArrowRef.current.classList.add('ewc-popover--hide');
-        popoverContentRef.current.classList.add('ewc-popover--hide');
-      }
+    if (visiblePopover){
+      updateNewPosition();
     }
-
-    toggleVisibilityClass();
-    updateNewPosition();
   }, [visiblePopover, updateNewPosition]);
 
   // Listen to resize changes if popover is open
@@ -275,17 +269,17 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
     const throttledCount = throttle(updateNewPosition, 150);
     window.addEventListener('resize', throttledCount);
     return () => window.removeEventListener('resize', throttledCount);
-  }, [visiblePopover, posY, updateNewPosition]);
+  }, [visiblePopover, props.posY, updateNewPosition]);
 
   return (
     <span className="ewc-popover" ref={popoverRef}>
       <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
-        {trigger && <div onClick={togglePopover}>{trigger}</div>}
-        {!trigger && <slot name="trigger" onClick={togglePopover} ref={popoverSlotTriggerRef}></slot>}
-        <div className="ewc-popover__arrow ewc-popover--hide" ref={popoverArrowRef}></div>
+        {props.trigger && <div onClick={togglePopover}>{props.trigger}</div>}
+        {!props.trigger && <slot name="trigger" onClick={togglePopover} ref={popoverSlotTriggerRef}></slot>}
+        <div className={arrowClasses} ref={popoverArrowRef}></div>
       </div>
 
-      <div className="ewc-popover__content ewc-popover--hide" ref={popoverContentRef}>
+      <div className={contentClasses} ref={popoverContentRef}>
         <div className="ewc-popover__close">
           <button
             className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
@@ -303,8 +297,8 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
             </span>
           </button>
         </div>
-        <div className="ewc-popover__title">{title}</div>
-        <div className="ewc-popover__text">{description}</div>
+        <div className="ewc-popover__title">{props.title}</div>
+        <div className="ewc-popover__text">{props.description}</div>
       </div>
     </span>
   );

@@ -4,7 +4,7 @@ const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaCheckbox extends ElviaComponent {
 
-  static get observedAttributes(): any[] {
+  static get observedAttributes(): string[] {
     return ['label', 'name', 'value', 'id', 'size', 'checked', 'disabled', 'required'];
   }
 

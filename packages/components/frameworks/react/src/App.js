@@ -8,33 +8,27 @@ function App() {
   const [trackedState, setTrackedState] = useState(true);
   const ref = useRef();
 
-  function update() {
-    setTrackedState(false);
-  }
-
   return (
     <div className="App">
       <h1>React preview</h1>
       
       <h2>Checkbox</h2>
-      {/* <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button> */}
-      <button onClick={update}>Update state</button>
-      <div>{ trackedState.toString() }</div>
       <div style={{marginTop: '16px'}}>
         <Checkbox
           ref={ref}
           checked={trackedState}
           label="Normal checkbox"
           name="Nametest"
-          id="CheckboxTestID"
+          checkboxId="CheckboxTestID"
           size="normal"
           changeHandler={setTrackedState}
         ></Checkbox>
          <Checkbox
           label="Small checkbox"
           name="Nametest"
-          id="CheckboxTestID"
+          checkboxId="CheckboxTestID"
           size="small"
+          disabled="true"
         ></Checkbox>
       </div>
 
@@ -45,7 +39,7 @@ function App() {
         <div>
           <Popover
             title="React demo of popover"
-            description="Alle privatkunder må bruke BankID første gang."
+            description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
             trigger={<button>Right top</button>}
             posX="right"
           ></Popover>
@@ -53,7 +47,7 @@ function App() {
         <div>
           <Popover
             title="React demo of popover"
-            description="Alle privatkunder må bruke BankID første gang."
+            description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
             trigger={<button>Left top</button>}
             posX="left"
           ></Popover>
@@ -61,7 +55,7 @@ function App() {
         <div>
           <Popover
             title="React demo of popover"
-            description="Alle privatkunder må bruke BankID første gang."
+            description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
             trigger={<button>Center top</button>}
           ></Popover>
         </div>
@@ -69,7 +63,7 @@ function App() {
       <div>
         <Popover
           title="React demo of popover"
-          description="Alle privatkunder må bruke BankID første gang."
+          description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
           trigger={<button>Center bottom</button>}
           posY="bottom"
         ></Popover>
@@ -77,7 +71,7 @@ function App() {
       <div>
         <Popover
           title="React demo of popover"
-          description="Alle privatkunder må bruke BankID første gang."
+          description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
           trigger={<button>Right bottom</button>}
           posY="bottom"
           posX="right"
@@ -86,7 +80,7 @@ function App() {
       <div>
         <Popover
           title="React demo of popover"
-          description="Alle privatkunder må bruke BankID første gang."
+          description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
           trigger={<button>Left bottom</button>}
           posY="bottom"
           posX="left"

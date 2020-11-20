@@ -1,9 +1,9 @@
 // colors
 $black: #000;
 $green: #29d305;
-$grey-05:#f4f4f4;
-$grey-30:#bdbdbd;
-$grey-70:#676767;
+$grey-05: #f4f4f4;
+$grey-30: #bdbdbd;
+$grey-70: #676767;
 $red: #ff0000;
 $white: #fff;
 
@@ -17,7 +17,7 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
 
 // class for no outline on click
 .e-no-outline {
-* {
+  * {
     outline: none !important;
   }
 }
@@ -29,6 +29,7 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
   box-sizing: border-box;
   cursor: pointer;
   margin-bottom: 12px;
+  user-select: none;
 
   // IE hack
   @media screen and (-ms-high-contrast: none) {
@@ -98,12 +99,12 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
 
     // no hover effect on touch devices
     @media (hover: hover) {
-       &:hover:not(:disabled):not(:invalid) ~ .ewc-checkbox__mark {
+      &:hover:not(:disabled):not(:invalid) ~ .ewc-checkbox__mark {
         background-color: $green;
         border-color: $black;
       }
     }
-   
+
     &:disabled ~ .ewc-checkbox__mark {
       border-color: $grey-30;
       background-color: $grey-05;
@@ -125,6 +126,7 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
     }
     &:disabled ~ .ewc-checkbox__label {
       color: $grey-70;
+      cursor: not-allowed;
     }
 
     &:invalid ~ .ewc-checkbox__mark {
