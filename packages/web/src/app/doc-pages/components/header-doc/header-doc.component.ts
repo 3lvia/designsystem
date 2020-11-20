@@ -68,7 +68,7 @@ export class HeaderDocComponent {
       <div class="e-grid">
         <div class="row no-gutters">
 
-          <!--LOGO + APP  + TITLE-->
+          <!--LOGO + APP-->
           <div class="col-xs-2 col-sm-3 col-md-7 col-lg-8">
             <!--LOGO-->
             <div class="e-header__top-bar-desktop__logo">
@@ -279,7 +279,7 @@ export class HeaderDocComponent {
       <div class="e-grid">
         <div class="row no-gutters">
 
-          <!--LOGO + APP  + TITLE-->
+          <!--LOGO + APP-->
           <div class="col-xs-2 col-sm-3 col-md-7 col-lg-8">
             <!--LOGO-->
             <div class="e-header__top-bar-desktop__logo">
@@ -488,7 +488,7 @@ export class HeaderDocComponent {
       <div class="e-grid">
         <div class="row no-gutters">
 
-          <!--LOGO + APP + TITLE-->
+          <!--LOGO + APP-->
           <div class="col-xs-2 col-sm-3 col-md-7 col-lg-8">
             <!--LOGO-->
             <div class="e-header__top-bar-desktop__logo">

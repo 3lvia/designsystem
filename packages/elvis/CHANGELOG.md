@@ -17,7 +17,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/header-doc#Overview">Header</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Header</a>
         </div>
         The header structure has changed so that the title is left aligned on desktop and tablet instead of center aligned. 
         This require that the top menu grid changes a little and that the title is added to the first column as well.
@@ -26,7 +26,9 @@
           The changes only affect the 'LOGO + APP' section.
           <ul>
             <li>
-              Search for the section called 'LOGO + APP' under top menu for desktop and change the first div with classes of column specifications to this: <span class="code-text changelog-code">class="col-xs-2 col-sm-3 col-md-7 col-lg-8</span>. Then add these two lines at the bottom of the column: 
+              The fastest way to fix it if to search for the section called 'LOGO + APP' under the 'TOP MENU ~ DESKTOP'. Change the first div with the 'col' classes to this:
+              <div class="code-text changelog-code">&lt;div class="col-xs-2 col-sm-3 col-md-7 col-lg-8"&gt;</div>
+              Then add these two lines at the bottom inside of the same div: 
               <div class="code-text changelog-code">
                 &lt;span class="e-header__top-bar-desktop__line e-mx-32"&gt;&lt;/span&gt;
                 <br />
@@ -34,7 +36,7 @@
               </div>
             </li>
             <li>
-              The other way to fix this will be replace the <!--LOGO + APP--> section with the examples showed in the documentation, and then add the information back where you lost it.
+              The other way is to replace the entire 'LOGO + APP' section with the examples showed in the documentation, and then add the information back where you lost it.
             </li>
           </ul>
         </div>
@@ -56,7 +58,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover-doc#Overview">Popover</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover#Overview">Popover</a>
         </div>
         The e-popover alignements classes for left and right positions have been renamed and refactored. 
               <div class="e-mt-8">
@@ -80,7 +82,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New features</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover-doc#Overview">Popover</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover#Overview">Popover</a>
           </div>
           <div>
             Classes for aligning 50% to the left or right from the middle.
@@ -129,12 +131,12 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion-doc#Overview">Accordion</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>
         The e-accordion__label has now been renamed to e-accordion__title. The e-accordion__label class is still available, but only in combination with the e-accordion--group modifier, and e-accordion__label is the container class for e-accordion__title and e-accordion__icon in a group accordion. 
         <div class="e-mt-24">
           <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/header-doc#Overview">Header</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Header</a>
           </div>
           <span class="code-text changelog-code">e-header</span> is now added in front of all classes, following the BEM standard. Desktop top-bar classes now include the word 'desktop', like on mobile e.g. <span class="code-text changelog-code">e-header__top-bar-desktop__link</span>. 
           <div class="e-mt-8">
@@ -154,7 +156,7 @@
         </div>
         <div class="e-mt-24">
           <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/table-doc#Overview">Table</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
           </div>
           The design and structure of tables have been updated. Tables with black headers have been removed and a wrapper class has been added.
           <div class="e-mt-8">
@@ -170,7 +172,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New features</div>
            <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table-doc#Overview">Table</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
         </div>
         A class for adding footnotes to the table has been created: <span class="code-text changelog-code">e-table-footnote</span>.
       </div>
@@ -192,17 +194,17 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/card-doc#Overview">Cards</a>,
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/header-doc#Overview">Header</a>,
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/link-doc#Type">Jumbo link</a>,
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/modal-doc#Overview">Modal</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/card#Overview">Cards</a>,
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Header</a>,
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Type">Jumbo link</a>,
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/modal#Overview">Modal</a>
         </div>
         Some of the typography has new font-sizes and line-heights. The changes will affect the appearance of the typography where it is used and may need to be updated. Some components we offer have also changed typography which means some minor visual differences to these components. 
       </div>
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New features</div>
            <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography-doc#Overview">Typography</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
         </div>
         A new smaller title has been added: <span class="code-text changelog-code">e-title-xs</span>.
       </div>
@@ -225,8 +227,8 @@
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>
           Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/modal-doc#Overview">Modal</a>,
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover-doc#Overview">Popover</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/modal#Overview">Modal</a>,
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover#Overview">Popover</a>
         </div>
         All <span class="code-text changelog-code">---visible</span> classes for modal and popover components are removed. New utility classes are added instead for showing and hiding elements. If you are using the modal or popover components you now have to use the new utility classes for hiding and showing. Theses components are by default now always visible.
         <div class="e-mt-8">
@@ -242,7 +244,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/utilities-doc">Utility classes</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/utilities">Utility classes</a>
         </div>
         New utility classes have been added.
       </div>
@@ -264,7 +266,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid-doc#Overview">Grid</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid#Overview">Grid</a>
         </div>
         If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:
         <ul>
@@ -280,7 +282,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid-doc#Overview">Grid</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid#Overview">Grid</a>
         </div>
         New classes have been added for the internal-systems as well as classes for vertical gutters.
       </div>
@@ -345,7 +347,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon-doc#Overview">Icons</a> 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icons</a> 
         </div>
         Major renaming of icons. All icons now follow the correct and desired naming scheme for a maintainable library. Icon names have changed, so some references should be expected to now be broken
       </div>
@@ -367,7 +369,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline"  href="https://design.elvia.io/identity/icon-doc#Overview">Icons</a> 
+          <a class="e-link e-link--inline"  href="https://design.elvia.io/identity/icon#Overview">Icons</a> 
         </div>
         In this update icons are injected as background-images again on the 'i' tags with <span class="code-text changelog-code">e-icon</span> classes. We do not think this will have a large impact on how to use icons.
       </div>
@@ -389,7 +391,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/button-doc#Overview">Buttons</a> 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Buttons</a> 
         </div>
         In this update we provided a solution for icons changing colors on hover. This affected buttons particularly. The structure of a button with icon was changed.
       </div>
@@ -411,7 +413,7 @@
       <div>
         <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/input-doc#Overview">Inputs</a> 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Inputs</a> 
         </div>
         In this update outline was changes to work on IE11 and Firefox. The input field structure had to be updated because of the outline changes.
       </div>
