@@ -1,27 +1,25 @@
 import * as React from 'react';
-import { useEffect, useRef, useState, forwardRef, useImperativeHandle, Ref } from 'react';
+import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from 'react';
 import './style.scss';
-import { ElviaComponent } from '@elvia/component';
 
 export interface CheckboxProps {
   label: string;
-  name?: string;
-  id?: string;
-  size?: string;
-  checked?: boolean;
-  disabled?: boolean;
-  required?: boolean;
-  changeHandler?: (checked: boolean) => void;
-  webcomponent?: ElviaComponent;
+  name?: string | '';
+  size?: string | '';
+  checked: string | boolean;
+  disabled: string;
+  required: string;
+  changeHandler?: any;
+  webcomponent?: any;
 }
 
-const Checkbox: React.FC<CheckboxProps> = forwardRef((props: CheckboxProps, ref: Ref<any>) => {
+const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
   const [isChecked, setCheckedState] = useState(false);
   const checkboxRef = useRef<HTMLLabelElement>(null);
   const classes = ['ewc-checkbox ', props.size === 'small' ? 'ewc-checkbox--sm' : '', ' e-no-outline'].join(' ');
   // check and add html5 input modifers
-  const isDisabled = props.disabled ? true : false;
-  const isRequired = props.required ? true : false;
+  const isDisabled = props.disabled === 'true' || props.disabled === '';
+  const isRequired = props.required === 'true' || props.required === '';
   const didMountRef = useRef(false);
 
   useEffect(() => {
@@ -63,9 +61,9 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props: CheckboxProps, ref:
     }
     if (didMountRef.current) {
       updateCheckedState(props.checked);
-    } else if (props.checked){
-      updateCheckedState(props.checked);
-    } else {
+    } else if (props.checked || props.checked === 'true'){
+      updateCheckedState(true);
+    }  else {
       didMountRef.current = true;
     }
   }, [props.checked]);
@@ -106,16 +104,15 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props: CheckboxProps, ref:
       <label className={classes} ref={checkboxRef}>
         <input
           type="checkbox"
-          name={props.name}
-          id={props.id}
+          name={name}
           checked={isChecked}
           disabled={isDisabled}
-          required={isRequired}
           onClick={() => updateCheckedState()}
+          required={isRequired}
           readOnly
         />
         <span className="ewc-checkbox__mark"></span>
-        <span className="ewc-checkbox__label">{props.label }</span>
+        <span className="ewc-checkbox__label">{props.label}</span>
       </label>
     </span>
   );

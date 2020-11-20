@@ -5,12 +5,12 @@ trigger element and should position itself relative to where there is free space
 
 ## Props
 
-- Title: string [required] - Title of content
-- Description: string [required] - Description
+- Title (string) [required] - Title of content
+- Description (string) [required] - Description
 - Trigger element (HTMLElement) [required] - The element triggering opening of popover (pass in as slot, in
   react as prop)
-- PosX: string - Position horizontally (left, right, center(default))
-- PosY: string - Position vertically (bottom, top(default))
+- PosX (string) - Position horizontally (left, right, center(default))
+- PosY (string) - Position vertically (bottom, top(default))
 
 ## REACT COMPONENT
 

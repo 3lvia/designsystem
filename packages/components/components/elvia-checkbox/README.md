@@ -2,16 +2,13 @@
 
 ## Props
 
-- label: string [required] - Label of checkbox
-- name?: string - Name of checkbox
-- id?: string - Id of checkbox
-- size?: string - Size of checkbox (small, normal(default))
-- disabled?: boolean - Disabled value (true, false(default))
-- required?: boolean - Required value (true, false(default))
-- checked?: boolean [reactOnly] - Checked value (true, false(default))
-- changeHandler?: (checked: boolean) => void [reactOnly] - Runs the function every time the checked-value is
-  changed
-- ref?: ref [reactOnly] - Links ref to checkbox-component
+- label (string) [required] - Label of checkbox
+- name (string) - Name of checkbox
+- id (string) - Id of checkbox
+- size (string) - Size of checkbox (small, normal(default))
+- checked (boolean)[reactOnly] - Checked value
+- changeHandler (function) [reactOnly] - Runs the function every time the checked-value is changed
+- ref (ref) [reactOnly] - Links ref to checkbox-component
 
 ## REACT COMPONENT
 
