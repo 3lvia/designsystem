@@ -42,22 +42,36 @@ $sidebar-mobile-z-index: -2;
     height: 100%;
   }
   div[class^='col'] {
-    display: flex;
+    display: none;
+    justify-content: center;
     align-items: center;
     height: $header-height;
-  }
-  div[class^='col'] {
-    justify-content: center;
+    @include breakpoints.breakpoint-up(Mobile) {
+      display: flex;
+    }
   }
   div[class^='col']:first-of-type {
+    display: flex;
     justify-content: flex-start;
+    @include breakpoints.breakpoint-up(Mobile) {
+      .e-header__top-bar-desktop__title {
+        display: none;
+      }
+    }
   }
   div[class^='col']:nth-last-of-type(2) {
+    display: flex;
     justify-content: flex-end;
+    @include breakpoints.breakpoint-up(Mobile) {
+      display: none;
+    }
   }
   div[class^='col']:last-of-type {
     justify-content: flex-end;
     display: none;
+    @include breakpoints.breakpoint-up(Mobile) {
+      display: flex;
+    }
   }
 }
 
@@ -194,11 +208,8 @@ $sidebar-mobile-z-index: -2;
     @extend %app-menu;
   }
   &__title {
-    // TITLE XSM -> MANGLER I TYPO
-    font-family: 'Red Hat Display';
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 22px;
+    @include typography.typography('text-md');
+    font-weight: 500;
     @include breakpoints.breakpoint-up(Tablet) {
       font-size: 16px;
       line-height: 145%;
@@ -376,9 +387,6 @@ $sidebar-mobile-z-index: -2;
   .e-header .e-header__top-bar {
     div[class^='col']:nth-last-of-type(2) {
       margin-left: -25%;
-    }
-    div[class^='col']:last-of-type {
-      display: flex;
     }
 
     &-desktop {
