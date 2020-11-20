@@ -1,9 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Checkbox } from '@elvia/checkbox';
-import { Popover } from '@elvia/popover';
-
-Popover;
-Checkbox;
 
 @Component({
   selector: 'app-root',
