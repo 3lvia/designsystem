@@ -7,23 +7,25 @@
         just keep it real.
       </div>
     </div>
-    <div class="section" (click)="chooseEmoji('bad')">
-      <div class="emoji e-mb-16">
-        <img src="./../../../assets/feedback/smiley-drop 1.svg" alt="Feedback emoji - sad" />
+    <div class="emojis">
+      <div class="section" (click)="chooseEmoji('bad')">
+        <div class="emoji e-mb-16">
+          <img src="./../../../assets/feedback/smiley-drop 1.svg" alt="Feedback emoji - sad" />
+        </div>
+        <div class="e-text-sm">Bad</div>
       </div>
-      <div class="e-text-sm">Bad</div>
-    </div>
-    <div class="section" (click)="chooseEmoji('neutral')">
-      <div class="emoji e-mb-16">
-        <img src="./../../../assets/feedback/smiley-eyes-only 1.svg" alt="Feedback emoji - neutral" />
+      <div class="section" (click)="chooseEmoji('neutral')">
+        <div class="emoji e-mb-16">
+          <img src="./../../../assets/feedback/smiley-eyes-only 1.svg" alt="Feedback emoji - neutral" />
+        </div>
+        <div class="e-text-sm">Neutral</div>
       </div>
-      <div class="e-text-sm">Neutral</div>
-    </div>
-    <div class="section" (click)="chooseEmoji('good')">
-      <div class="emoji e-mb-16">
-        <img src="./../../../assets/feedback/smiley-in-love 1.svg" alt="Feedback emoji - happy" />
+      <div class="section" (click)="chooseEmoji('good')">
+        <div class="emoji e-mb-16">
+          <img src="./../../../assets/feedback/smiley-in-love 1.svg" alt="Feedback emoji - happy" />
+        </div>
+        <div class="e-text-sm">Good</div>
       </div>
-      <div class="e-text-sm">Good</div>
     </div>
   </div>
   <div class="comment-section" *ngIf="isComment">
