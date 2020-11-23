@@ -59,7 +59,7 @@ export class FeedbackComponent implements OnInit, OnDestroy {
     }
 
     const message = {
-      text: `FEEDBACK: (${pageUrl}) ${this.currentEmoji.toUpperCase()} - ${comment}`
+      text: `${pageUrl}: ${this.currentEmoji.toUpperCase()} - ${comment}`
     }
 
     const options = {
