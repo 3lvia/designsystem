@@ -1,0 +1,53 @@
+.feedback-container {
+  display: flex;
+  border-top: 1px solid #e9e9e9;
+  padding-top: 64px;
+  margin-top: 128px;
+}
+
+.emoji-section {
+  display: flex;
+  flex-direction: row;
+  .text-section {
+    margin-right: 56px;
+    .text-title {
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+  }
+  .section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 16px;
+    &:hover {
+      .emoji {
+        transform: scale(1.08);
+      }
+      cursor: pointer;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+}
+
+.comment-section,
+.thanks-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-section {
+  .e-form-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 366px;
+  }
+}
