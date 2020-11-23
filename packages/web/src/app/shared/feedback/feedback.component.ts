@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RoutesRecognized } from '@angular/router';
+import { Router, RoutesRecognized } from '@angular/router';
 
 @Component({
   selector: 'app-feedback',
@@ -17,7 +17,7 @@ export class FeedbackComponent implements OnInit, OnDestroy {
   currentEmoji: string;
   routerSubscription;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit(): void {
     this.routerSubscription = this.router.events.subscribe(data => {
@@ -36,15 +36,15 @@ export class FeedbackComponent implements OnInit, OnDestroy {
   }
 
   sendFeedback(comment: string): void {
-    this.isComment = false;
-    this.isSent = true;
-    this.postFeedback(comment);
-  }
-
-  postFeedback(comment: string): void {
     if (comment === '') {
       comment = 'No comment';
     }
+    this.isComment = false;
+    this.isSent = true;
+    this.postFeedbackToSlack(comment);
+  }
+
+  postFeedbackToSlack(comment: string): void {
     let pageUrl;
     if (this.router.url.includes('#')) {
       pageUrl = this.router.url.slice(0, this.router.url.lastIndexOf('#'));
