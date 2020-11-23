@@ -30,7 +30,13 @@ export class FeedbackComponent implements OnInit, OnDestroy {
   }
 
   chooseEmoji(emoji: string): void {
-    this.currentEmoji = emoji;
+    if (emoji === 'good') {
+      this.currentEmoji = emoji + ' 😄';
+    } else if (emoji === 'neutral') {
+      this.currentEmoji = emoji + ' 😐';
+    } else {
+      this.currentEmoji = emoji + ' 😞';
+    }
     this.isEmoji = false;
     this.isComment = true;
   }
@@ -53,7 +59,7 @@ export class FeedbackComponent implements OnInit, OnDestroy {
     }
 
     const message = {
-      text: 'FEEDBACK: ' + '(' + pageUrl + ') ' + this.currentEmoji.toUpperCase() + ' - ' + comment
+      text: `FEEDBACK: (${pageUrl}) ${this.currentEmoji.toUpperCase()} - ${comment}`
     }
 
     const options = {
