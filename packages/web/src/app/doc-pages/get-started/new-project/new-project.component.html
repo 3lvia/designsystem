@@ -108,6 +108,21 @@
   </app-component-section>
 
   <!--TALK WITH US-->
+  <app-component-section [sectionTitle]="'Fonts types'">
+    <ng-container ngProjectAs="sectionContent">
+      <div>
+        Elvia Designsystem uses two font types provided by Google;
+        <ol class="e-list">
+          <li>Red Hat Text</li>
+          <li>Red Hat Display</li>
+        </ol>
+
+        The import of these two font types are provied within the compiled CSS of Elvis, and you don´t need
+        any font imports in your project to get the correct font style for Elvia styled components.
+      </div>
+    </ng-container>
+  </app-component-section>
+  <!--TALK WITH US-->
   <app-component-section [sectionTitle]="'Optional: CSS-variables'">
     <ng-container ngProjectAs="sectionContent">
       <div>
