@@ -19,7 +19,6 @@ export class PageStructureComponent {
   constructor(private router: Router, private scrollService: ScrollService) {
     this.routerSubscription = this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {
-        console.log(ev);
         if (
           ev.url === '/community' ||
           ev.url === '/components' ||
