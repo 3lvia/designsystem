@@ -34,9 +34,15 @@
     <div class="comment-section" *ngIf="isComment">
       <div class="top">
         <div class="left">
-          <button class="e-link" (click)="resetFeedback()">
+          <!-- <button class="e-link" (click)="resetFeedback()">
             <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
             <span class="e-link__title">Back</span>
+          </button> -->
+          <button class="e-btn e-btn--tertiary" (click)="resetFeedback()">
+            <span class="e-btn__icon">
+              <i class="e-icon e-icon--arrow_left"></i>
+            </span>
+            <span class="e-btn__title">Back</span>
           </button>
         </div>
         <div class="center">
