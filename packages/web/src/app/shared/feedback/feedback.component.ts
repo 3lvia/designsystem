@@ -22,44 +22,63 @@ export class FeedbackComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.routerSubscription = this.router.events.subscribe(data => {
       if (data instanceof RoutesRecognized) {
-        this.isEmoji = true;
-        this.isComment = false;
-        this.isSent = false;
+        this.resetFeedback();
       }
     });
   }
 
+  resetFeedback(): void {
+    this.isEmoji = true;
+    this.isComment = false;
+    this.isSent = false;
+  }
+
   chooseEmoji(emoji: string): void {
-    if (emoji === 'good') {
-      this.currentEmoji = emoji + ' 😄';
-    } else if (emoji === 'neutral') {
-      this.currentEmoji = emoji + ' 😐';
-    } else {
-      this.currentEmoji = emoji + ' 😞';
-    }
+    this.currentEmoji = emoji;
     this.isEmoji = false;
     this.isComment = true;
   }
 
   sendFeedback(comment: string): void {
-    if (comment === '') {
-      comment = 'No comment';
-    }
     this.isComment = false;
     this.isSent = true;
     this.postFeedbackToSlack(comment);
+    setTimeout(() => this.resetFeedback(), 10000)
   }
 
-  postFeedbackToSlack(comment: string): void {
+  getPageUrl(): string {
     let pageUrl;
     if (this.router.url.includes('#')) {
       pageUrl = this.router.url.slice(0, this.router.url.lastIndexOf('#'));
     } else {
       pageUrl = this.router.url.slice(0);
     }
+    return pageUrl;
+  }
 
+  getEmojiString(): string {
+    let emojiString;
+    if (this.currentEmoji === 'good') {
+      emojiString = this.currentEmoji + ' 🟢';
+    } else if (this.currentEmoji === 'neutral') {
+      emojiString = this.currentEmoji + ' ⚪';
+    } else {
+      emojiString = this.currentEmoji + ' 🔴';
+    }
+    return emojiString
+  }
+
+  getBinder(comment: string): string {
+    let dash = '';
+    if (comment !== '') {
+      dash = '-'
+    }
+    return dash
+  }
+
+  postFeedbackToSlack(comment: string): void {
     const message = {
-      text: `${pageUrl}: ${this.currentEmoji.toUpperCase()} - ${comment}`
+      text: `${this.getPageUrl()}: ${this.getEmojiString().toUpperCase()} ${this.getBinder(comment)} ${comment}`
     }
 
     const options = {

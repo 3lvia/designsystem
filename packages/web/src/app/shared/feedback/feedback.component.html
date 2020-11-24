@@ -1,53 +1,94 @@
 <div class="page-body feedback-container">
-  <div class="emoji-section" *ngIf="isEmoji">
-    <div class="text-section">
-      <div class="text-title e-text-md">Feed us feedback! What do you think?</div>
-      <div class="e-text-sm">
-        All feedback is good feedback. We are always eager to make it better for everyone to use, so let’s
-        just keep it real.
-      </div>
-    </div>
-    <div class="emojis">
-      <div class="section" (click)="chooseEmoji('bad')">
-        <div class="emoji e-mb-16">
-          <img src="./../../../assets/feedback/smiley-drop 1.svg" alt="Feedback emoji - sad" />
+  <div class="feedback-inner-container">
+    <!--CHOOSE EMOJI-->
+    <div class="emoji-section" *ngIf="isEmoji">
+      <div class="text-section">
+        <div class="text-title e-text-md">Feed us feedback! What do you think?</div>
+        <div class="e-text-sm">
+          All feedback is good feedback. We are always eager to make it better for everyone to use, so let’s
+          just keep it real.
         </div>
-        <div class="e-text-sm">Bad</div>
       </div>
-      <div class="section" (click)="chooseEmoji('neutral')">
-        <div class="emoji e-mb-16">
-          <img src="./../../../assets/feedback/smiley-eyes-only 1.svg" alt="Feedback emoji - neutral" />
+      <div class="emojis">
+        <div class="section" (click)="chooseEmoji('bad')">
+          <button class="emoji e-mb-16">
+            <img src="./../../../assets/feedback/smiley-drop 1.svg" alt="Feedback emoji - sad" />
+          </button>
+          <div class="e-text-sm">Bad</div>
         </div>
-        <div class="e-text-sm">Neutral</div>
-      </div>
-      <div class="section" (click)="chooseEmoji('good')">
-        <div class="emoji e-mb-16">
-          <img src="./../../../assets/feedback/smiley-in-love 1.svg" alt="Feedback emoji - happy" />
+        <div class="section" (click)="chooseEmoji('neutral')">
+          <button class="emoji e-mb-16">
+            <img src="./../../../assets/feedback/smiley-eyes-only 1.svg" alt="Feedback emoji - neutral" />
+          </button>
+          <div class="e-text-sm">Neutral</div>
         </div>
-        <div class="e-text-sm">Good</div>
+        <div class="section" (click)="chooseEmoji('good')">
+          <button class="emoji e-mb-16">
+            <img src="./../../../assets/feedback/smiley-in-love 1.svg" alt="Feedback emoji - happy" />
+          </button>
+          <div class="e-text-sm">Good</div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="comment-section" *ngIf="isComment">
-    <div *ngIf="currentEmoji !== 'bad'">Want to add a comment to your feedback?</div>
-    <div *ngIf="currentEmoji === 'bad'">
-      Sorry to hear you did not find it helpful. Would you like to tell us why?
-    </div>
-    <div class="e-form-field e-mt-24">
-      <label class="e-form-field__label" for="textarea">
-        Comment
-        <span class="e-text-grey-80" style="font-weight: 400">(optional)</span>
-      </label>
-      <div class="e-input">
-        <textarea #commentTextArea id="textarea" placeholder="Placeholder text" type="text"></textarea>
+    <!--COMMENT-->
+    <div class="comment-section" *ngIf="isComment">
+      <div class="top">
+        <div class="left">
+          <button class="e-link" (click)="resetFeedback()">
+            <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
+            <span class="e-link__title">Back</span>
+          </button>
+        </div>
+        <div class="center">
+          <div class="emoji-chosen" *ngIf="currentEmoji === 'good'">
+            <img
+              src="./../../../assets/feedback/smiley-in-love 1.svg"
+              class="emoji"
+              alt="Feedback emoji - happy"
+            />
+            <div class="e-text-lg e-ml-8" style="font-weight: 500">Good</div>
+          </div>
+          <div class="emoji-chosen" *ngIf="currentEmoji === 'neutral'">
+            <img
+              src="./../../../assets/feedback/smiley-eyes-only 1.svg"
+              class="emoji"
+              alt="Feedback emoji - neutral"
+            />
+            <div class="e-text-lg e-ml-8" style="font-weight: 500">Neutral</div>
+          </div>
+          <div class="emoji-chosen" *ngIf="currentEmoji === 'bad'">
+            <img
+              src="./../../../assets/feedback/smiley-drop 1.svg"
+              class="emoji"
+              alt="Feedback emoji - sad"
+            />
+            <div class="e-text-lg e-ml-8" style="font-weight: 500">Bad</div>
+          </div>
+        </div>
+        <div class="right"></div>
+      </div>
+
+      <div class="e-text-md" *ngIf="currentEmoji !== 'bad'">Want to add a comment to your feedback?</div>
+      <div class="e-text-md" *ngIf="currentEmoji === 'bad'">
+        Sorry to hear you did not find it helpful. Would you like to tell us why?
+      </div>
+      <div class="e-form-field e-mt-24">
+        <label class="e-form-field__label" for="textarea">
+          Comment
+          <span class="e-text-grey-80" style="font-weight: 400">(optional)</span>
+        </label>
+        <div class="e-input">
+          <textarea #commentTextArea id="textarea" type="text"></textarea>
+        </div>
+      </div>
+      <div class="e-mt-24">
+        <button class="e-btn" (click)="sendFeedback(commentTextArea.value)">Submit</button>
       </div>
     </div>
-    <div class="e-mt-24">
-      <button class="e-btn" (click)="sendFeedback(commentTextArea.value)">Submit</button>
+    <!--THANKS-->
+    <div class="thanks-section" *ngIf="isSent">
+      <div><i class="e-icon e-icon--check_circle-filled-color"></i></div>
+      <div class="e-mt-16 e-text-label">Thanks for your feedback!</div>
     </div>
-  </div>
-  <div class="thanks-section" *ngIf="isSent">
-    <div><i class="e-icon e-icon--check_circle-filled-color"></i></div>
-    <div class="e-mt-16 e-text-label">Thanks for your feedback!</div>
   </div>
 </div>
