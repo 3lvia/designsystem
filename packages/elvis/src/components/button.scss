@@ -505,10 +505,21 @@ $button-sm-line-height: 16px;
 
     &.e-btn--circled {
       padding: 0;
+      width: 24px;
+      height: 24px;
 
       // Hiding hover ikon
       .e-btn__icon i[class*='filled-color'] {
         visibility: hidden;
+      }
+
+      &.e-btn--lg {
+        width: 32px;
+        height: 32px;
+      }
+      &.e-btn--sm {
+        width: 16px;
+        height: 16px;
       }
 
       &.e-btn---hover,

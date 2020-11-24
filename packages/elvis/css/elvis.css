@@ -1769,10 +1769,22 @@ input:focus {
 }
 .e-btn.e-btn--icon.e-btn--circled {
   padding: 0;
+  width: 24px;
+  height: 24px;
 }
 
 .e-btn.e-btn--icon.e-btn--circled .e-btn__icon i[class*=filled-color] {
   visibility: hidden;
+}
+
+.e-btn.e-btn--icon.e-btn--circled.e-btn--lg {
+  width: 32px;
+  height: 32px;
+}
+
+.e-btn.e-btn--icon.e-btn--circled.e-btn--sm {
+  width: 16px;
+  height: 16px;
 }
 
 .e-btn.e-btn--icon.e-btn--circled.e-btn---hover, .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) {
