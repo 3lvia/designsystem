@@ -30,14 +30,14 @@
       display: none;
     }
   }
-  @include breakpoint-up(Mobile) {
+  @include breakpoint-up(Tablet) {
     z-index: 1;
   }
   .link {
     display: flex;
     border-bottom: 2px solid transparent;
     padding-bottom: 3px;
-    @include breakpoint-up(Mobile) {
+    @include breakpoint-up(Tablet) {
       position: absolute;
       margin-top: 4px;
       margin-right: 0px;
