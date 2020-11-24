@@ -1,6 +1,6 @@
 # webcomponents-template
 
-WIP, Maintained by Team Atom
+WIP , Maintained by Team Atom
 
 ```
 npm install
