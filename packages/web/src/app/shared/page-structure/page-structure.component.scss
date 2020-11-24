@@ -1,4 +1,5 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import '@elvia/elvis/src/utilities/colors.scss';
 @import '../../shared/shared-sizes.scss';
 
 .e-grid {
@@ -8,5 +9,48 @@
   }
   @include breakpoint-up(Mobile) {
     margin: 96px 16px 16px 16px;
+  }
+}
+
+.feedback-link {
+  display: flex;
+  justify-content: flex-end;
+
+  display: none;
+  &.desktop {
+    display: flex;
+    position: fixed;
+    right: 16px;
+    margin-top: -24px;
+  }
+  @include breakpoint-up(Tablet) {
+    display: flex;
+    position: relative;
+    &.desktop {
+      display: none;
+    }
+  }
+  @include breakpoint-up(Tablet) {
+    z-index: 1;
+  }
+  .link {
+    display: flex;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 3px;
+    @include breakpoint-up(Tablet) {
+      position: absolute;
+      margin-top: 4px;
+      margin-right: 0px;
+    }
+    &:hover {
+      border-color: #29d305;
+      cursor: pointer;
+    }
+    .feedback-text {
+      font-family: 'Red Hat Display';
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 16px;
+    }
   }
 }
