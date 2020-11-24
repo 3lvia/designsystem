@@ -19,15 +19,13 @@ export class FooterComponent {
       // filter `NavigationEnd` events
       if (event instanceof NavigationEnd) {
         // get current route without leading slash `/`
-        const eventUrl = /(?<=\/).+/.exec(event.urlAfterRedirects);
-        const currentRoute = (eventUrl || []).join('');
+        const eventUrl = event.urlAfterRedirects;
         // set bgClass property with the value of the current route
-        if (currentRoute === 'not-found') {
-          this.bgClass = currentRoute;
+        if (eventUrl === '/not-found') {
+          this.bgClass = 'not-found';
         } else {
           this.bgClass = '';
         }
-
       }
     });
   }
