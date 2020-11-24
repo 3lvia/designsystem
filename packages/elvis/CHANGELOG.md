@@ -417,7 +417,6 @@
         </div>
         In this update outline was changes to work on IE11 and Firefox. The input field structure had to be updated because of the outline changes.
       </div>
-      <div class="changelog-divider"></div>
     </td>
   </tr>
 </table>
