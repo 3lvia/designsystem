@@ -149,6 +149,7 @@ module.exports = [
   { name: 'plus-bold', terms: ['add', 'maximize', 'expand', 'create'] },
   { name: 'position-bold', terms: [] },
   { name: 'position-bold-color', terms: [] },
+  { name: 'position_off-bold', terms: [] },
   { name: 'power', terms: [] },
   { name: 'power_outage', terms: [] },
   { name: 'power_outage-2', terms: [] },

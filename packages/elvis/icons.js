@@ -3751,6 +3751,31 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    export const positionOffBold = {
+      getIcon: function(color) {
+          let icon = '<svg width="25" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.13 0h-2.25v2.465a9.604 9.604 0 00-8.415 8.41H1v2.25h2.465c.199 1.7.84 3.263 1.808 4.573L1.14 21.813a.82.82 0 00-.005 1.16l.751.763c.327.33.865.333 1.296.106l4.093-4.134a9.55 9.55 0 004.604 1.827V24h2.25v-2.466a9.604 9.604 0 008.405-8.409H25v-2.25h-2.465A9.55 9.55 0 0020.65 6.2l4.007-4.046a.82.82 0 00.012-1.15l-.71-.746a.843.843 0 00-1.204-.011l-4.029 4.047a9.55 9.55 0 00-4.596-1.828V0zm2.987 5.91A7.35 7.35 0 006.89 16.086l.18-.18 8.692-8.635 1.355-1.36zM8.88 18.088A7.35 7.35 0 0019.046 7.82L8.88 18.088z" fill="#000"/></svg>'
+          let iconName = 'position_off-bold'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     export const power = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.989 9.628L14.355 0 6.5 14.372h4.511L9.645 24 17.5 9.628h-4.511z" fill="#000"/></svg>'
