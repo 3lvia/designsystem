@@ -1669,6 +1669,73 @@ input:focus {
   padding: 8px;
   background: none;
   color: #000;
+  width: 40px;
+  height: 40px;
+}
+
+.e-btn.e-btn--icon .e-btn__icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.e-btn.e-btn--icon .e-btn__icon i {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+}
+
+.e-btn.e-btn--icon .e-btn__icon i img,
+.e-btn.e-btn--icon .e-btn__icon i i {
+  width: 24px;
+  height: 24px;
+}
+
+.e-btn.e-btn--icon.e-btn--lg {
+  width: 48px;
+  height: 48px;
+}
+
+.e-btn.e-btn--icon.e-btn--lg .e-btn__icon {
+  width: 32px;
+  height: 32px;
+}
+
+.e-btn.e-btn--icon.e-btn--lg .e-btn__icon i {
+  width: 32px;
+  height: 32px;
+}
+
+.e-btn.e-btn--icon.e-btn--lg .e-btn__icon i img,
+.e-btn.e-btn--icon.e-btn--lg .e-btn__icon i i {
+  width: 32px;
+  height: 32px;
+}
+
+.e-btn.e-btn--icon.e-btn--sm {
+  width: 32px;
+  height: 32px;
+}
+
+.e-btn.e-btn--icon.e-btn--sm .e-btn__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.e-btn.e-btn--icon.e-btn--sm .e-btn__icon i {
+  width: 16px;
+  height: 16px;
+}
+
+.e-btn.e-btn--icon.e-btn--sm .e-btn__icon i img,
+.e-btn.e-btn--icon.e-btn--sm .e-btn__icon i i {
+  width: 16px;
+  height: 16px;
 }
 
 .e-btn.e-btn--icon.e-btn--inverted .e-btn__icon i[class*=inverted],
@@ -1700,58 +1767,6 @@ input:focus {
     visibility: hidden !important;
   }
 }
-.e-btn.e-btn--icon .e-btn__icon {
-  width: 24px;
-  height: 24px;
-}
-
-.e-btn.e-btn--icon .e-btn__icon i {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  visibility: visible;
-}
-
-.e-btn.e-btn--icon .e-btn__icon i img,
-.e-btn.e-btn--icon .e-btn__icon i i {
-  width: 24px;
-  height: 24px;
-}
-
-.e-btn.e-btn--icon.e-btn--lg .e-btn__icon {
-  width: 32px;
-  height: 32px;
-}
-
-.e-btn.e-btn--icon.e-btn--lg .e-btn__icon i {
-  width: 32px;
-  height: 32px;
-}
-
-.e-btn.e-btn--icon.e-btn--lg .e-btn__icon i img,
-.e-btn.e-btn--icon.e-btn--lg .e-btn__icon i i {
-  width: 32px;
-  height: 32px;
-}
-
-.e-btn.e-btn--icon.e-btn--sm:not(.e-btn--circled) .e-btn__icon {
-  width: 16px;
-  height: 16px;
-}
-
-.e-btn.e-btn--icon.e-btn--sm:not(.e-btn--circled) .e-btn__icon i {
-  width: 16px;
-  height: 16px;
-}
-
-.e-btn.e-btn--icon.e-btn--sm:not(.e-btn--circled) .e-btn__icon i img,
-.e-btn.e-btn--icon.e-btn--sm:not(.e-btn--circled) .e-btn__icon i i {
-  width: 16px;
-  height: 16px;
-}
-
 .e-btn.e-btn--icon.e-btn--circled {
   padding: 0;
 }
@@ -1791,11 +1806,6 @@ input:focus {
 }
 .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) {
   transform: scale(0.93);
-}
-
-.e-btn.e-btn--icon.e-btn--danger {
-  width: 40px;
-  height: 40px;
 }
 
 .e-btn.e-btn--icon.e-btn--danger .e-btn__icon i:not([class$=color-red]):not([class$=e-icon--color-disabled]):not([class$=e-icon--inverted-disabled-grey-70]) {

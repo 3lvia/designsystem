@@ -163,16 +163,34 @@ export class ButtonDocComponent {
 `;
 
   exampleIcon = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
-  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center;">
+  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8">Flat</div>
+    <button class="e-btn e-btn--icon e-btn--lg">
+      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
+    </button>
     <button class="e-btn e-btn--icon">
+      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--sm">
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
   </div>
 
-  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center;">
+  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8">Danger</div>
+    <button class="e-btn e-btn--icon e-btn--danger e-btn--lg">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--bin e-icon--color-red"></i>
+        <i class="e-icon e-icon--bin"></i>
+      </span>
+    </button>
     <button class="e-btn e-btn--icon e-btn--danger">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--bin e-icon--color-red"></i>
+        <i class="e-icon e-icon--bin"></i>
+      </span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--danger e-btn--sm">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--bin e-icon--color-red"></i>
         <i class="e-icon e-icon--bin"></i>
@@ -180,9 +198,21 @@ export class ButtonDocComponent {
     </button>
   </div>
 
-  <div style="display: flex; flex-direction: column; align-content:center;">
+  <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8">Circled</div>
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--lg">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--information_circle"></i>
+        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      </span>
+    </button>
     <button class="e-btn e-btn--icon e-btn--circled">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--information_circle"></i>
+        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      </span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--sm">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
         <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
@@ -193,9 +223,21 @@ export class ButtonDocComponent {
 `;
 
   exampleIconInverted = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
-  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center;">
+  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8 e-text-white">Flat</div>
     <button class="e-btn e-btn--icon e-btn--inverted">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--upload"></i>
+        <i class="e-icon e-icon--upload e-icon--inverted e-btn--lg"></i>
+      </span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--inverted">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--upload"></i>
+        <i class="e-icon e-icon--upload e-icon--inverted"></i>
+      </span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--inverted e-btn--sm">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--upload"></i>
         <i class="e-icon e-icon--upload e-icon--inverted"></i>
@@ -203,9 +245,21 @@ export class ButtonDocComponent {
     </button>
   </div>
 
-  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center;">
+  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8 e-text-white">Danger</div>
+    <button class="e-btn e-btn--icon e-btn--danger e-btn--inverted e-btn--lg">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--bin e-icon--color-red"></i>
+        <i class="e-icon e-icon--bin"></i>
+      </span>
+    </button>
     <button class="e-btn e-btn--icon e-btn--danger e-btn--inverted">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--bin e-icon--color-red"></i>
+        <i class="e-icon e-icon--bin"></i>
+      </span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--danger e-btn--inverted e-btn--sm">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--bin e-icon--color-red"></i>
         <i class="e-icon e-icon--bin"></i>
@@ -213,9 +267,21 @@ export class ButtonDocComponent {
     </button>
   </div>
 
-  <div style="display: flex; flex-direction: column; align-content:center;">
+  <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8 e-text-white">Circled</div>
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-btn--lg">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--information_circle e-icon--inverted e-btn--lg"></i>
+        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      </span>
+    </button>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--information_circle e-icon--inverted"></i>
+        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      </span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-btn--sm">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle e-icon--inverted"></i>
         <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
