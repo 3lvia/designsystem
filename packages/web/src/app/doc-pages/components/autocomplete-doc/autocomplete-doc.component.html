@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Autocomplete
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Autocomplete</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-form-field">
       <label class="e-form-field__label" for="compact">Country</label>
@@ -23,9 +21,10 @@
           [value]="chosenLand"
           #searchTerm
           (keyup)="onSearch(searchTerm.value)"
+          (click)="onInputClick()"
           id="ChooseCountry"
         />
-        <div class="e-autocomplete" *ngIf="showResults">
+        <div class="e-autocomplete" *ngIf="showResults" id="countreyOptions">
           <span class="e-autocomplete__item" *ngFor="let country of results" (click)="SelectCountry(country)">
             {{ country }}
           </span>

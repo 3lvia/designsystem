@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -39,11 +39,21 @@ export class AutocompleteDocComponent {
 
 
   exampleInHTML = `<div class="e-form-field">
-  <label class="e-form-field__label" for="compact">Label</label>
+  <label class="e-form-field__label" for="compact">Country</label>
   <div class="e-input">
-    <input placeholder="Placeholder text" [value]="chosenLand" #searchTerm (keyup)="onSearch(searchTerm.value)" id="ChooseCountry"/>
-    <div class="e-autocomplete" *ngIf="showResults">
-      <span class="e-autocomplete__item" *ngFor="let country of results" (click)="SelectCountry(country)">
+    <input
+      placeholder="Search for country"
+      [value]="chosenLand"
+      #searchTerm
+      (keyup)="onSearch(searchTerm.value)"
+      (click)="onInputClick()"
+      id="ChooseCountry"
+    />
+    <div class="e-autocomplete" *ngIf="showResults" id="countreyOptions">
+      <span 
+        class="e-autocomplete__item" 
+        *ngFor="let country of results" 
+        (click)="SelectCountry(country)">
         {{ country }}
       </span>
     </div>
@@ -51,26 +61,40 @@ export class AutocompleteDocComponent {
 </div>
 `;
 
-  exampleInTS = `results = [];
+  exampleInTS = `results = this.countries;
 showResults = false;
 chosenLand = '';
 
-onSearch(searchTerm:string) {
-
-  this.results = this.countries.filter(country => country.includes(searchTerm));
-
-  if(searchTerm.length === 0) {
+// for autocomplete options when click on outside of options or input area
+@HostListener('click', ['$event'])
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+onClick(event: any): void {
+  if (event.target.id === 'ChooseCountry' || event.target.id === 'countreyOptions') {
+    return;
+  } else {
     this.showResults = false;
-  } else if(this.results.length === 0) {
+  }
+}
+
+onSearch(searchTerm: string): void {
+  this.results = this.countries.filter((country) => country.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()));
+
+  if (searchTerm.length === 0) {
+    this.showResults = false;
+  } else if (this.results.length === 0) {
     this.showResults = false;
   } else {
     this.showResults = true;
   }
 }
-
-SelectCountry(value:string) {
+// choose countrey from autocomplete options
+SelectCountry(value: string): void {
   this.chosenLand = value;
   this.showResults = false;
+}
+// opens autocomplete options on click
+onInputClick(): void {
+  this.showResults = true;
 }
 
 countries = ["Afghanistan","Albania","Algeria","Andorra", "and so on..."];
@@ -301,9 +325,20 @@ countries = ["Afghanistan","Albania","Algeria","Andorra", "and so on..."];
     'Zimbabwe',
   ];
 
-  results = [];
+  results = this.countries;
   showResults = false;
   chosenLand = '';
+
+  // for autocomplete options when click on outside of options or input area
+  @HostListener('click', ['$event'])
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  onClick(event: any): void {
+    if (event.target.id === 'ChooseCountry' || event.target.id === 'countreyOptions') {
+      return;
+    } else {
+      this.showResults = false;
+    }
+  }
 
   onSearch(searchTerm: string): void {
     this.results = this.countries.filter((country) => country.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()));
@@ -316,9 +351,13 @@ countries = ["Afghanistan","Albania","Algeria","Andorra", "and so on..."];
       this.showResults = true;
     }
   }
-
+  // choose countrey from autocomplete options
   SelectCountry(value: string): void {
     this.chosenLand = value;
     this.showResults = false;
+  }
+  // opens autocomplete options on click
+  onInputClick(): void {
+    this.showResults = true;
   }
 }
