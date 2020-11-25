@@ -94,7 +94,11 @@ SelectCountry(value: string): void {
 }
 // opens autocomplete options on click
 onInputClick(): void {
-  this.showResults = true;
+  if (this.results.length === 0) {
+    this.showResults = false
+  } else {
+    this.showResults = true;
+  }
 }
 
 countries = ["Afghanistan","Albania","Algeria","Andorra", "and so on..."];
@@ -358,6 +362,10 @@ countries = ["Afghanistan","Albania","Algeria","Andorra", "and so on..."];
   }
   // opens autocomplete options on click
   onInputClick(): void {
-    this.showResults = true;
+    if (this.results.length === 0) {
+      this.showResults = false
+    } else {
+      this.showResults = true;
+    }
   }
 }
