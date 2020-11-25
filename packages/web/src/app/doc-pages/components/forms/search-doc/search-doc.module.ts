@@ -7,10 +7,14 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-properties/c
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    BrowserModule,
     ComponentHeaderModule,
     CodeBlockModule,
     ComponentPropertiesModule,

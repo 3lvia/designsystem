@@ -14,19 +14,31 @@
     style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-form-field">
-      <label class="e-form-field__label" for="compact">Søk</label>
-      <div class="e-search e-search--local" style="width: 250px">
+      <label class="e-form-field__label" for="searchExample">Søk</label>
+      <div
+        class="e-search e-search--local"
+        [ngClass]="{ 'e-search--searched': searchString !== '' }"
+        style="width: 250px"
+      >
         <div class="e-input">
-          <input id="compact" type="text" placeholder="Placeholder text" />
+          <input id="searchExample" [(ngModel)]="searchString" type="text" placeholder="Placeholder text" />
         </div>
-        <button class="e-btn e-btn--icon e-btn--lg">
-          <span class="e-btn__icon"><i class="e-icon e-icon--search-bold"></i></span>
-          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        <button class="e-btn e-btn--icon e-btn--lg" (click)="search()">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--search-bold"></i>
+          </span>
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--close-bold"></i>
+          </span>
         </button>
       </div>
     </div>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="overviewExample"></app-code-block>
+      <app-code-block
+        [showPreview]="false"
+        [codeHTML]="overviewExample"
+        [codeTS]="overviewExampleTs"
+      ></app-code-block>
     </div>
   </div>
 
@@ -48,6 +60,25 @@
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
       <app-code-block [codeHTML]="searchSizesExample"></app-code-block>
+    </ng-container>
+  </app-component-section>
+
+  <!--STATUS-->
+  <app-component-section [sectionTitle]="'Status'">
+    <ng-container ngProjectAs="sectionContent">
+      Add the class
+      <span class="code-text">e-search--searched</span>
+      when the search-button has been clicked or when the search has started if it happens on typing.
+      <app-component-subsection [sectionTitle]="'Not searched'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="beforeSearchExample"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Searched'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="afterSearchExample"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
