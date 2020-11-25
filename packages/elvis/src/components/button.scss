@@ -504,9 +504,18 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn--circled {
+      position: relative;
       padding: 0;
       width: 24px;
       height: 24px;
+      // Larger click surface
+      &:after {
+        content: '';
+        padding: 16px;
+        position: absolute;
+        left: -4px;
+        top: -4px;
+      }
 
       // Hiding hover ikon
       .e-btn__icon i[class*='filled-color'] {
@@ -516,10 +525,21 @@ $button-sm-line-height: 16px;
       &.e-btn--lg {
         width: 32px;
         height: 32px;
+        &:after {
+          content: none;
+        }
       }
       &.e-btn--sm {
         width: 16px;
         height: 16px;
+        // Larger click surface
+        &:after {
+          content: '';
+          padding: 16px;
+          position: absolute;
+          left: -8px;
+          top: -8px;
+        }
       }
 
       &.e-btn---hover,

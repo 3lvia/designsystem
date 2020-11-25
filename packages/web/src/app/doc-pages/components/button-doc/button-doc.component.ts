@@ -200,19 +200,19 @@ export class ButtonDocComponent {
 
   <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8">Circled</div>
-    <button class="e-btn e-btn--icon e-btn--circled e-btn--lg">
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-8">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
         <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
       </span>
     </button>
-    <button class="e-btn e-btn--icon e-btn--circled">
+    <button class="e-btn e-btn--icon e-btn--circled e-m-8">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
         <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
       </span>
     </button>
-    <button class="e-btn e-btn--icon e-btn--circled e-btn--sm">
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--sm e-m-8">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle"></i>
         <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
@@ -269,19 +269,19 @@ export class ButtonDocComponent {
 
   <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8 e-text-white">Circled</div>
-    <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-btn--lg">
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-btn--lg e-m-8">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle e-icon--inverted e-btn--lg"></i>
         <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
       </span>
     </button>
-    <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted">
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-m-8">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle e-icon--inverted"></i>
         <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
       </span>
     </button>
-    <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-btn--sm">
+    <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-btn--sm e-m-8">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--information_circle e-icon--inverted"></i>
         <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>

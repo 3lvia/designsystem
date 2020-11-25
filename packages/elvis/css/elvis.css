@@ -1768,9 +1768,18 @@ input:focus {
   }
 }
 .e-btn.e-btn--icon.e-btn--circled {
+  position: relative;
   padding: 0;
   width: 24px;
   height: 24px;
+}
+
+.e-btn.e-btn--icon.e-btn--circled:after {
+  content: "";
+  padding: 16px;
+  position: absolute;
+  left: -4px;
+  top: -4px;
 }
 
 .e-btn.e-btn--icon.e-btn--circled .e-btn__icon i[class*=filled-color] {
@@ -1782,9 +1791,21 @@ input:focus {
   height: 32px;
 }
 
+.e-btn.e-btn--icon.e-btn--circled.e-btn--lg:after {
+  content: none;
+}
+
 .e-btn.e-btn--icon.e-btn--circled.e-btn--sm {
   width: 16px;
   height: 16px;
+}
+
+.e-btn.e-btn--icon.e-btn--circled.e-btn--sm:after {
+  content: "";
+  padding: 16px;
+  position: absolute;
+  left: -8px;
+  top: -8px;
 }
 
 .e-btn.e-btn--icon.e-btn--circled.e-btn---hover, .e-btn.e-btn--icon.e-btn--circled.e-btn---active, .e-btn.e-btn--icon.e-btn--circled:active:not(:disabled) {

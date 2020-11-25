@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Button
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Button</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <button class="e-btn">
       <span class="e-btn__title">Button</span>
@@ -64,6 +62,11 @@
           should be supported by a tooltip.
           <app-code-block [codeHTML]="exampleIcon" [codeInverted]="exampleIconInverted"></app-code-block>
           <app-when-to-use [whens]="doesExampleIcon" [whenNots]="dontsExampleIcon"></app-when-to-use>
+          <app-component-subsubsection [sectionTitle]="'Margin - circled icon buttons'">
+            <ng-container ngProjectAs="sectionContent">
+              Medium should at least have 4px margin, while small should have at least 8px margin.
+            </ng-container>
+          </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Circled icons'">
             <ng-container ngProjectAs="sectionContent">
               Circled Icons that can be used for the circled icon-button.
