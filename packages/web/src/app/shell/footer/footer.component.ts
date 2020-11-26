@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { GithubService } from 'src/app/core/services/github.service';
+import { NavigationEnd, Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-footer',
@@ -8,22 +9,24 @@ import { GithubService } from 'src/app/core/services/github.service';
 })
 export class FooterComponent {
 
-  monthNames = ["January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
+  bgClass = '';
 
-  formattedDate: string;
-
-  constructor(private githubService: GithubService) { }
-
-  // ngOnInit(): void {
-  //   this.getLatestUpdateOfRepo();
-  // }
-
-  // getLatestUpdateOfRepo(): void {
-  //   this.githubService.requestRepo().subscribe(repo => {
-  //     const date = new Date(repo.updated_at);
-  //     this.formattedDate = date.getDate() + ' ' + this.monthNames[date.getMonth()] + ' ' + date.getFullYear();
-  //   });
-  // }
+  constructor(
+    private router: Router,
+  ) {
+    // subscribe to router navigation
+    this.router.events.subscribe(event => {
+      // filter `NavigationEnd` events
+      if (event instanceof NavigationEnd) {
+        // get current route without leading slash `/`
+        const eventUrl = event.urlAfterRedirects;
+        // set bgClass property with the value of the current route
+        if (eventUrl === '/not-found') {
+          this.bgClass = 'not-found';
+        } else {
+          this.bgClass = '';
+        }
+      }
+    });
+  }
 }
