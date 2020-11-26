@@ -62,9 +62,22 @@
           should be supported by a tooltip.
           <app-code-block [codeHTML]="exampleIcon" [codeInverted]="exampleIconInverted"></app-code-block>
           <app-when-to-use [whens]="doesExampleIcon" [whenNots]="dontsExampleIcon"></app-when-to-use>
-          <app-component-subsubsection [sectionTitle]="'Margin - circled icon buttons'">
+          <app-component-subsubsection [sectionTitle]="'Touch target'">
             <ng-container ngProjectAs="sectionContent">
-              Medium should at least have 4px margin, while small should have at least 8px margin.
+              The icon buttons all have at least 32 pixel touch dimensions to ensure that they are
+              user-friendly and accessible to everyone across different devices. It is also important that
+              there is enough space between icon buttons and other elements to decrease the chance of
+              accidentally pressing an incorrect target.
+              <div class="e-mt-24" style="display: flex; flex-direction: row">
+                <img src="../../../../assets/button/Group 846.svg" class="e-mr-16" />
+                <img src="../../../../assets/button/Group 845.svg" class="e-mr-16" />
+                <img src="../../../../assets/button/Group 844.svg" class="e-mr-16" />
+              </div>
+              <h5 class="e-text-caps">Minimum margin</h5>
+              <ul class="e-list e-mt-24">
+                <li>Medium - 4px</li>
+                <li>Small - 8px</li>
+              </ul>
             </ng-container>
           </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Circled icons'">
