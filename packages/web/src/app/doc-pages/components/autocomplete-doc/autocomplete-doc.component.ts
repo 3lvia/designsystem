@@ -49,7 +49,7 @@ export class AutocompleteDocComponent {
       (click)="onInputClick()"
       id="ChooseCountry"
     />
-    <div class="e-autocomplete" *ngIf="showResults" id="countreyOptions">
+    <div class="e-autocomplete" *ngIf="showResults" id="countryOptions">
       <span 
         class="e-autocomplete__item" 
         *ngFor="let country of results" 
@@ -69,7 +69,7 @@ chosenLand = '';
 @HostListener('click', ['$event'])
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 onClick(event: any): void {
-  if (event.target.id === 'ChooseCountry' || event.target.id === 'countreyOptions') {
+  if (event.target.id === 'ChooseCountry' || event.target.id === 'countryOptions') {
     return;
   } else {
     this.showResults = false;
@@ -337,9 +337,7 @@ countries = ["Afghanistan","Albania","Algeria","Andorra", "and so on..."];
   @HostListener('click', ['$event'])
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onClick(event: any): void {
-    if (event.target.id === 'ChooseCountry' || event.target.id === 'countreyOptions') {
-      return;
-    } else {
+    if (event.target.id !== 'ChooseCountry' || event.target.id !== 'countryOptions') {
       this.showResults = false;
     }
   }

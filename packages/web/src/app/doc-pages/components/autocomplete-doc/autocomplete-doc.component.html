@@ -24,7 +24,7 @@
           (click)="onInputClick()"
           id="ChooseCountry"
         />
-        <div class="e-autocomplete" *ngIf="showResults" id="countreyOptions">
+        <div class="e-autocomplete" *ngIf="showResults" id="countryOptions">
           <span class="e-autocomplete__item" *ngFor="let country of results" (click)="SelectCountry(country)">
             {{ country }}
           </span>
