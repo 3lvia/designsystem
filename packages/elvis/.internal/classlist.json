@@ -47,15 +47,15 @@
 				"e-alert__actions": {}
 			},
 			"modifier": {
-				"e-alert--no-title": {},
 				"e-alert--global": {},
 				"e-alert--warn": {},
 				"e-alert--error": {},
 				"e-alert--expandable": {},
 				"e-alert--open": {},
 				"e-alert--local": {},
-				"e-alert--info": {},
 				"e-alert--toast": {},
+				"e-alert--info": {},
+				"e-alert--no-title": {},
 				"e-alert--actions": {}
 			}
 		},
@@ -987,7 +987,6 @@
 		"e-alert__text": {},
 		"e-alert__links": {},
 		"e-alert__close": {},
-		"e-alert--no-title": {},
 		"e-alert--global": {},
 		"e-alert--warn": {},
 		"e-alert--error": {},
@@ -995,8 +994,9 @@
 		"e-alert__accordion": {},
 		"e-alert--open": {},
 		"e-alert--local": {},
-		"e-alert--info": {},
 		"e-alert--toast": {},
+		"e-alert--info": {},
+		"e-alert--no-title": {},
 		"e-alert--actions": {},
 		"e-alert__actions": {},
 		"e-autocomplete": {},

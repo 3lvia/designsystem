@@ -57,9 +57,14 @@ export class AlertMessagesComponent {
     <div class="e-alert__title">Standard alert</div>
     <div class="e-alert__text">
       <div>Description with a list and an <a class="e-link e-link--inline">inline link.</a></div>
+        <ul>
+          <li>Bullet liste punkt</li>
+          <li>Bullet liste punkt</li>
+          <li>Bullet liste punkt</li>
+        </ul>
       <div class="e-alert__links">
-        <a class="e-link" href="https://design.elvia.io">Link 1</a>
-        <a class="e-link" href="https://design.elvia.io">Link 2</a>
+        <a class="e-link e-link--sm" href="https://design.elvia.io">Link 1</a>
+        <a class="e-link e-link--sm" href="https://design.elvia.io">Link 2</a>
       </div>
     </div>
   </div>
@@ -198,7 +203,7 @@ export class AlertMessagesComponent {
       <button class="e-btn e-btn--secondary e-btn--sm">
         <span class="e-btn__title">Secondary</span>
       </button>
-      <button class="e-btn e-ml-24 e-btn--sm">
+      <button class="e-btn e-btn--sm">
         <span class="e-btn__title">Primary</span>
       </button>
     </div>
