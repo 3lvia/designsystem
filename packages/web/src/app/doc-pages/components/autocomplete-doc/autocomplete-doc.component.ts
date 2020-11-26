@@ -337,7 +337,7 @@ countries = ["Afghanistan","Albania","Algeria","Andorra", "and so on..."];
   @HostListener('click', ['$event'])
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onClick(event: any): void {
-    if (event.target.id !== 'ChooseCountry' || event.target.id !== 'countryOptions') {
+    if (event.target.id !== 'ChooseCountry' || event.target.id !== 'countryOptions' && this.results.length === 0) {
       this.showResults = false;
     }
   }
