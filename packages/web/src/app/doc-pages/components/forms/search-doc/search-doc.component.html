@@ -17,7 +17,7 @@
       <label class="e-form-field__label" for="searchExample">Søk</label>
       <div
         class="e-search e-search--local"
-        [ngClass]="{ 'e-search--searched': searchString !== '' }"
+        [ngClass]="{ 'e-search--searched': searched }"
         style="width: 250px"
       >
         <div class="e-input">
@@ -45,12 +45,18 @@
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Local'">
+      <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          Local search is used when the search feature shouldn’t affect the whole application. This could for
+          <!-- Local search is used when the search feature shouldn’t affect the whole application. This could for
           example be in connection to a data table or list. Search results appear when the user presses enter
-          on the keyboard or clicks the magnifying button.
-          <app-code-block [codeHTML]="searchExample"></app-code-block>
+          on the keyboard or clicks the magnifying button. -->
+          <app-code-block [codeHTML]="normalSearch"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Instant'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-code-block [codeHTML]="instantSearch"></app-code-block>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -60,25 +66,6 @@
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
       <app-code-block [codeHTML]="searchSizesExample"></app-code-block>
-    </ng-container>
-  </app-component-section>
-
-  <!--STATUS-->
-  <app-component-section [sectionTitle]="'Status'">
-    <ng-container ngProjectAs="sectionContent">
-      Add the class
-      <span class="code-text">e-search--searched</span>
-      when the search-button has been clicked or when the search has started if it happens on typing.
-      <app-component-subsection [sectionTitle]="'Not searched'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="beforeSearchExample"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Searched'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="afterSearchExample"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

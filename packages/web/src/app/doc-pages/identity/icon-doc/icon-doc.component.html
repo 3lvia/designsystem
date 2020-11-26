@@ -85,19 +85,14 @@
     <ng-container ngProjectAs="sectionContent">
       <div class="overview-search-container">
         <div class="e-form-field">
-          <label class="e-form-field__label" for="compact">Search</label>
-          <div class="e-search e-search--local">
+          <label class="e-form-field__label" for="iconSearch">Search</label>
+          <div class="e-search e-search--instant" [ngClass]="{ 'e-search--searched': term.length > 0 }">
+            <span class="e-search__icon"><i class="e-icon e-icon--search-bold"></i></span>
             <div class="e-input">
-              <i
-                class="e-icon e-icon--search-bold e-icon--xs e-icon--color-grey-60"
-                *ngIf="term.length == 0"
-              ></i>
-              <input type="text" placeholder="Search through all icons" [(ngModel)]="term" />
+              <input type="text" id="iconSearch" placeholder="Search through all icons" [(ngModel)]="term" />
             </div>
-            <button class="e-btn e-btn--icon e-btn--sm" *ngIf="term.length > 0" (click)="removeSearch()">
-              <span class="e-btn__icon">
-                <i class="e-icon e-icon--close-bold" style="left: 0"></i>
-              </span>
+            <button class="e-btn e-btn--icon" (click)="removeSearch()">
+              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
             </button>
           </div>
         </div>

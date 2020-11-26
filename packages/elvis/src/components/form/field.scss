@@ -44,7 +44,7 @@ $autocomplete-padding-item-compact: 6px 16px;
         @include typography.typography('text-info');
       }
     }
-    .e-search--local {
+    .e-search {
       font-size: 14px;
       .e-input {
         input:invalid,
@@ -71,6 +71,12 @@ $autocomplete-padding-item-compact: 6px 16px;
           i[class*='e-icon--close-bold'] {
             left: -6px;
           }
+        }
+      }
+      &.e-search--instant {
+        .e-search__icon {
+          @include icons.icon-size('xs');
+          margin-right: 8px;
         }
       }
     }

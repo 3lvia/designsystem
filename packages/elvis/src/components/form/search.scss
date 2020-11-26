@@ -1,27 +1,33 @@
 @use "../../utilities/icons.scss";
 
+@mixin setPadding($padding, $paddingFocus) {
+  .e-input {
+    input,
+    input:invalid,
+    input:disabled {
+      padding: $padding;
+    }
+    input:focus {
+      padding: $paddingFocus;
+    }
+  }
+}
+
 .e-search {
   position: relative;
-
+  @extend .e-search--normal;
   ::-ms-clear {
     display: none;
   }
-  &.e-search--local {
+
+  &.e-search--normal {
     font-family: 'Red Hat Text';
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 22px;
-    .e-input {
-      input,
-      input:invalid,
-      input:disabled {
-        padding: 12px 48px 12px 15px;
-      }
-      input:focus {
-        padding: 11px 47px 11px 14px;
-      }
-    }
+    @include setPadding((12px 48px 12px 15px), (11px 47px 11px 14px));
+
     .e-btn.e-btn--icon {
       position: absolute;
       top: 8px;
@@ -61,45 +67,28 @@
     }
   }
 
-  &.e-search--global {
+  &.e-search--instant {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    @include setPadding((12px 15px 12px 15px), (11px 14px 11px 14px));
 
-    .e-input {
-      input,
-      input:invalid,
-      input:focus,
-      input:disabled {
-        font-family: 'Red Hat Text';
-        font-size: 24px;
-        line-height: 38px;
-
-        padding: 0;
-        border-radius: 0;
-        border: 1px solid transparent;
-        border-bottom: 1px solid var(--e-black);
-      }
+    .e-search__icon {
+      @include icons.icon-size('sm');
+      margin-right: 14px;
     }
 
     .e-btn.e-btn--icon {
-      display: none;
+      visibility: hidden;
     }
 
     &.e-search--searched {
+      @include setPadding((12px 48px 12px 15px), (11px 47px 11px 14px));
+
       .e-btn.e-btn--icon {
-        display: flex;
-        position: absolute;
-        right: 0;
-        top: 6px;
-        @media screen and (-ms-high-contrast: none) {
-          top: 1px;
-        }
+        visibility: visible;
         .e-btn__icon {
-          @include icons.icon-size('xs');
-          i[class*='e-icon--close-bold'] {
-            position: absolute;
-            display: flex;
-            top: 0px;
+          i[class*='e-icon--search-bold'] {
+            visibility: hidden;
           }
         }
       }
