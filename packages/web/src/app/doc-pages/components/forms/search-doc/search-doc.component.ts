@@ -66,7 +66,6 @@ export class SearchDocComponent {
     </button>
   </div>
 </div>
-
 <div class="e-text-label e-mb-8 e-mt-40">Compact</div>
 <div class="e-form-field e-form-field--compact">
   <label class="e-form-field__label" for="compact">Søk</label>

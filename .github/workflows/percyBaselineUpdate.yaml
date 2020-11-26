@@ -1,0 +1,17 @@
+name: CI Percy Baseline
+on:
+  push:
+    branches:
+      - master
+jobs:
+  percyTest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1.0.0
+      - name: Install
+        run: npm install
+      - name: Percy Test
+        run: npm run percy
+        env:
+          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
