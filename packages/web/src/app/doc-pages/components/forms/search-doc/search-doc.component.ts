@@ -25,8 +25,6 @@ export class SearchDocComponent {
 </div>
 `;
 
-  overviewExampleTs = ``;
-
   searchExample = `<div class="e-form-field">
   <label class="e-form-field__label" for="compact">Søk</label>
   <div class="e-search e-search--local" style="width:400px;">
@@ -68,7 +66,6 @@ export class SearchDocComponent {
     </button>
   </div>
 </div>
-
 <div class="e-text-label e-mb-8 e-mt-40">Compact</div>
 <div class="e-form-field e-form-field--compact">
   <label class="e-form-field__label" for="compact">Søk</label>
@@ -109,9 +106,5 @@ export class SearchDocComponent {
   </button>
 </div>
 `;
-
-  emptySearch(searchExample): void {
-    console.log(searchExample.value);
-  }
 
 }
