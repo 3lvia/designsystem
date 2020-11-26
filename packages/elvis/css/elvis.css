@@ -2432,7 +2432,7 @@ input:focus {
 
 .e-input > input::placeholder,
 .e-input .e-input--placeholder {
-  color: #515151 !important;
+  color: #676767 !important;
 }
 
 .e-input.e-input--centered > input {
@@ -5771,7 +5771,7 @@ input:focus {
   align-items: center;
   margin-right: 24px;
   font-family: "Red Hat Text";
-  color: #515151;
+  color: #676767;
   font-size: 13px;
   line-height: 21px;
 }
@@ -7371,7 +7371,6 @@ input:focus {
 
 .e-form-field__label.e-form-field__label--optional::after {
   content: " (valgfri)";
-  color: #929292;
   font-weight: 400;
 }
 
