@@ -424,6 +424,47 @@ $button-sm-line-height: 16px;
     padding: 8px;
     background: none;
     color: colors.color('black');
+    width: 40px;
+    height: 40px;
+
+    .e-btn__icon {
+      width: 24px;
+      height: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        @include icons.icon-size('sm');
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        visibility: visible;
+      }
+    }
+
+    &.e-btn--lg {
+      width: 48px;
+      height: 48px;
+      .e-btn__icon {
+        width: 32px;
+        height: 32px;
+        i {
+          @include icons.icon-size('md');
+        }
+      }
+    }
+
+    &.e-btn--sm {
+      width: 32px;
+      height: 32px;
+      .e-btn__icon {
+        width: 16px;
+        height: 16px;
+        i {
+          @include icons.icon-size('xs');
+        }
+      }
+    }
 
     &.e-btn--inverted {
       .e-btn__icon {
@@ -462,39 +503,43 @@ $button-sm-line-height: 16px;
       }
     }
 
-    .e-btn__icon {
+    &.e-btn--circled {
+      position: relative;
+      padding: 0;
       width: 24px;
       height: 24px;
-      i {
-        @include icons.icon-size('sm');
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        visibility: visible;
+      // Larger click surface
+      &:after {
+        content: '';
+        padding: 16px;
+        position: absolute;
+        left: -4px;
+        top: -4px;
       }
-    }
-
-    &.e-btn--lg .e-btn__icon {
-      width: 32px;
-      height: 32px;
-      i {
-        @include icons.icon-size('md');
-      }
-    }
-    &.e-btn--sm:not(.e-btn--circled) .e-btn__icon {
-      width: 16px;
-      height: 16px;
-      i {
-        @include icons.icon-size('xs');
-      }
-    }
-
-    &.e-btn--circled {
-      padding: 0;
 
       // Hiding hover ikon
       .e-btn__icon i[class*='filled-color'] {
         visibility: hidden;
+      }
+
+      &.e-btn--lg {
+        width: 32px;
+        height: 32px;
+        &:after {
+          content: none;
+        }
+      }
+      &.e-btn--sm {
+        width: 16px;
+        height: 16px;
+        // Larger click surface
+        &:after {
+          content: '';
+          padding: 16px;
+          position: absolute;
+          left: -8px;
+          top: -8px;
+        }
       }
 
       &.e-btn---hover,
@@ -531,9 +576,6 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn--danger {
-      width: 40px;
-      height: 40px;
-
       .e-btn__icon
         i:not([class$='color-red']):not([class$='e-icon--color-disabled']):not([class$='e-icon--inverted-disabled-grey-70']) {
         visibility: hidden;

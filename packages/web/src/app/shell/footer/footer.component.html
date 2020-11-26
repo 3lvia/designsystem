@@ -1,4 +1,4 @@
-<div class="footer">
+<div class="footer" [ngClass]="bgClass">
   <div class="footer-container">
     <div class="e-grid">
       <div class="row no-gutters justify-content-center">
@@ -35,15 +35,13 @@
               <!--  HUSK! SKAL HENTE DATO FRA GITHUB
               <div>Last updated {{ formattedDate }}</div> 
               -->
-              <div>
-                Copyright © 2020 Elvia
-              </div>
+              <div>Copyright © 2020 Elvia</div>
             </div>
           </div>
         </div>
         <div class="d-xs-none d-sm-none d-md-block col-md-6 col-lg-6 e-text-info">
           <div class="text-align-center">
-            <div class="e-text-center" style="width: 389px; margin: auto;">
+            <div class="e-text-center" style="width: 389px; margin: auto">
               Have questions? Reach out to us on slack
               <a
                 class="e-link e-link--inline e-link--sm e-link--external e-link--inverted"

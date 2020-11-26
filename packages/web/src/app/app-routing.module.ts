@@ -68,6 +68,7 @@ import { ContactComponent } from './doc-pages/community/contact/contact.componen
 import { TheDesignSystemDocComponent } from './doc-pages/get-started/the-design-system-doc/the-design-system-doc.component';
 import { TheConceptComponent } from './doc-pages/identity/the-concept/the-concept.component';
 import { ChipsComponent } from './doc-pages/components/chips/chips.component';
+import { ErrorComponent } from './shared/error/error.component';
 
 const routes: Routes = [
   {
@@ -378,6 +379,8 @@ const routes: Routes = [
           },
         ],
       },
+      { path: 'not-found', component: ErrorComponent },
+      { path: '**', redirectTo: '/not-found' }
     ],
   },
 ];
