@@ -12,6 +12,8 @@
   background: colors.color('white');
   flex-direction: row;
   min-width: 270px;
+  position: relative;
+
   // Local as default
   &:not(.e-alert--global):not(.e-alert--toast) {
     @extend .e-alert--local;
@@ -69,7 +71,7 @@
     justify-content: center;
     align-items: flex-start;
     margin-top: 8px;
-    padding-left: 24px;
+    padding-left: 16px;
     margin-left: auto;
     width: 56px;
 
@@ -86,9 +88,18 @@
     border-color: colors.color('grey');
     padding: 22px; // -2px border
 
+    .e-alert__icon,
+    .e-alert__close {
+      margin-top: 0px;
+      align-items: center;
+    }
+    .e-alert__close {
+      padding-left: 24px;
+    }
     .e-alert__content .e-alert__title {
       @include typography.typography('title-xs');
     }
+
     &.e-alert--warn {
       border-color: colors.color('orange');
     }
@@ -166,6 +177,10 @@
           }
           animation: rotate-center-back 0.2s ease-in-out both;
         }
+        .e-alert__icon {
+          margin-top: 2px;
+          align-items: flex-start;
+        }
         .e-alert__text {
           margin-top: 8px;
           pointer-events: auto;
@@ -200,12 +215,20 @@
       font-weight: 500;
     }
 
+    .e-alert__close {
+      justify-content: flex-end;
+      align-items: flex-start;
+      margin-top: -14px;
+      margin-right: -22px;
+    }
+
     &.e-alert--warn {
       border-color: colors.color('orange');
     }
     &.e-alert--info {
       border-color: colors.color('grey');
     }
+
     @include breakpoints.breakpoint-up(Mobile) {
       display: flex;
       flex-direction: column;
@@ -231,9 +254,11 @@
     padding: 14px 22px 14px 22px; // -2px border
 
     .e-alert__icon {
-      @include icons.icon-size('sm');
-      margin-top: 9px;
+      margin-top: 0px;
       align-items: center;
+      i {
+        @include icons.icon-size('sm');
+      }
     }
     .e-alert__title {
       @include typography.typography('text-sm');
@@ -243,9 +268,12 @@
       @include typography.typography('text-info');
     }
     .e-alert__close {
-      margin-top: 0px;
-      align-items: center;
+      justify-content: flex-end;
+      align-items: flex-start;
+      margin-top: -8px;
+      margin-right: -16px;
     }
+
     &.e-alert--info {
       border-color: colors.color('grey');
     }
@@ -254,12 +282,10 @@
   // NO TITLE
   &.e-alert--no-title {
     .e-alert__icon {
-      margin-top: 0;
+      align-items: center;
     }
+    .e-alert__icon,
     .e-alert__text {
-      margin-top: 0;
-    }
-    .e-alert__close {
       margin-top: 0;
     }
   }

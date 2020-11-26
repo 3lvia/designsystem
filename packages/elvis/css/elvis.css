@@ -399,6 +399,7 @@ body {
   background: #fff;
   flex-direction: row;
   min-width: 270px;
+  position: relative;
 }
 
 .e-alert__icon {
@@ -476,7 +477,7 @@ body {
   justify-content: center;
   align-items: flex-start;
   margin-top: 8px;
-  padding-left: 24px;
+  padding-left: 16px;
   margin-left: auto;
   width: 56px;
 }
@@ -492,6 +493,16 @@ body {
   max-width: unset;
   border-color: #262626;
   padding: 22px;
+}
+
+.e-alert.e-alert--global .e-alert__icon,
+.e-alert.e-alert--global .e-alert__close {
+  margin-top: 0px;
+  align-items: center;
+}
+
+.e-alert.e-alert--global .e-alert__close {
+  padding-left: 24px;
 }
 
 .e-alert.e-alert--global .e-alert__content .e-alert__title {
@@ -601,6 +612,11 @@ body {
     transform: rotate(180deg);
   }
 }
+.e-alert.e-alert--global.e-alert--expandable.e-alert--open .e-alert__icon {
+  margin-top: 2px;
+  align-items: flex-start;
+}
+
 .e-alert.e-alert--global.e-alert--expandable.e-alert--open .e-alert__text {
   margin-top: 8px;
   pointer-events: auto;
@@ -639,6 +655,13 @@ body {
   font-weight: 500;
 }
 
+.e-alert.e-alert--local .e-alert__close, .e-alert:not(.e-alert--global):not(.e-alert--toast) .e-alert__close {
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-top: -14px;
+  margin-right: -22px;
+}
+
 .e-alert.e-alert--local.e-alert--warn, .e-alert.e-alert--warn:not(.e-alert--global):not(.e-alert--toast) {
   border-color: #ffa000;
 }
@@ -674,14 +697,17 @@ body {
 }
 
 .e-alert.e-alert--toast .e-alert__icon {
-  width: 24px;
-  height: 24px;
-  margin-top: 9px;
+  margin-top: 0px;
   align-items: center;
 }
 
-.e-alert.e-alert--toast .e-alert__icon img,
 .e-alert.e-alert--toast .e-alert__icon i {
+  width: 24px;
+  height: 24px;
+}
+
+.e-alert.e-alert--toast .e-alert__icon i img,
+.e-alert.e-alert--toast .e-alert__icon i i {
   width: 24px;
   height: 24px;
 }
@@ -710,8 +736,10 @@ body {
 }
 
 .e-alert.e-alert--toast .e-alert__close {
-  margin-top: 0px;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-start;
+  margin-top: -8px;
+  margin-right: -16px;
 }
 
 .e-alert.e-alert--toast.e-alert--info {
@@ -719,14 +747,11 @@ body {
 }
 
 .e-alert.e-alert--no-title .e-alert__icon {
-  margin-top: 0;
+  align-items: center;
 }
 
+.e-alert.e-alert--no-title .e-alert__icon,
 .e-alert.e-alert--no-title .e-alert__text {
-  margin-top: 0;
-}
-
-.e-alert.e-alert--no-title .e-alert__close {
   margin-top: 0;
 }
 

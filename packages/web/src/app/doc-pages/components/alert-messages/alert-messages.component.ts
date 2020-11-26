@@ -34,22 +34,20 @@ export class AlertMessagesComponent {
     'After an user action',
   ];
 
-  alertOverviewHTML = `<div class="e-alert e-alert--local">
+  alertOverviewHTML = `<div class="e-alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
   </div>
   <div class="e-alert__content">
-    <div class="e-alert__title">Local Alert</div>
+    <div class="e-alert__title">Kort tittel.</div>
     <div class="e-alert__text">
-      <div>
-        Describe what went wrong
-      </div>
+      <div>En beskrivende tekst til local alert.</div>
     </div>
   </div>
 </div>
 `;
 
-  exampleAlertDefault = `<div class="e-alert e-alert--local">
+  exampleAlertDefault = `<div class="e-alert">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
   </div>
@@ -71,54 +69,33 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  errorStatus = `<div>
-  <div class="e-alert e-alert--local">
-    <div class="e-alert__icon">
-      <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
-    </div>
-    <div class="e-alert__content">
-      <div class="e-alert__title">Danger</div>
-      <div class="e-alert__text">Describe what went wrong.</div>
-    </div>
+  localAlertClosable = `<div class="e-alert e-alert--info">
+  <div class="e-alert__icon">
+    <i class="e-icon e-icon--information_circle"></i>
+  </div>
+  <div class="e-alert__content">
+    <div class="e-alert__title">Kort info tittel</div>
+    <div class="e-alert__text">Generell informasjon til alle brukere på tvers. Generell informasjon til alle brukere på tvers.</div>
+  </div>
+  <div class="e-alert__close">
+    <button class="e-btn e-btn--icon e-btn--sm">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    </button>
   </div>
 </div>
 `;
 
-  warnStatus = `<div>
-  <div class="e-alert e-alert--local e-alert--warn">
-    <div class="e-alert__icon">
-      <i class="e-icon e-icon--warning_circle e-icon--color-orange"></i>
-    </div>
-    <div class="e-alert__content">
-      <div class="e-alert__title">Warn</div>
-      <div class="e-alert__text">Describe what went wrong.</div>
-    </div>
+  localAlertNoTitle = `<div class="e-alert e-alert--info e-alert--no-title">
+  <div class="e-alert__icon">
+    <i class="e-icon e-icon--information_circle"></i>
   </div>
-</div>
-`;
-
-  infoStatus = `<div>
-  <div class="e-alert e-alert--local e-alert--info">
-    <div class="e-alert__icon">
-      <i class="e-icon e-icon--information_circle"></i>
-    </div>
-    <div class="e-alert__content">
-      <div class="e-alert__title">Info</div>
-      <div class="e-alert__text">Important information.</div>
-    </div>
+  <div class="e-alert__content">
+    <div class="e-alert__text">Generell informasjon til alle brukere på tvers. Generell informasjon til alle brukere på tvers. Generell informasjon til alle brukere på tvers.</div>
   </div>
-</div>
-`;
-
-  positiveStatus = `<div>
-  <div class="e-alert e-alert--toast">
-    <div class="e-alert__icon">
-      <i class="e-icon e-icon--information_circle"></i>
-    </div>
-    <div class="e-alert__content">
-      <div class="e-alert__title">Positive</div>
-      <div class="e-alert__text">Describe what went right.</div>
-    </div>
+  <div class="e-alert__close">
+    <button class="e-btn e-btn--icon e-btn--sm">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    </button>
   </div>
 </div>
 `;
@@ -129,7 +106,7 @@ export class AlertMessagesComponent {
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Kort info tittel</div>
-    <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+    <div class="e-alert__text">Generell informasjon til alle brukere på tvers. Generell informasjon til alle brukere på tvers.</div>
   </div>
 </div>
 `;
@@ -140,7 +117,7 @@ export class AlertMessagesComponent {
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Kort info tittel</div>
-    <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
+    <div class="e-alert__text">Generell informasjon til alle brukere på tvers. Generell informasjon til alle brukere på tvers. </div>
   </div>
   <div class="e-alert__close">
     <button class="e-btn e-btn--icon e-btn--sm">
@@ -163,7 +140,7 @@ export class AlertMessagesComponent {
       </div>
     </div>
     <div class="e-alert__text">
-      <div>Generell informasjon til alle brukere på tvers.</div>
+      <div>Generell informasjon til alle brukere på tvers. Generell informasjon til alle brukere på tvers.</div>
       <div class="e-alert__links">
         <a class="e-link" href="https://design.elvia.io">Medium link</a>
       </div>
@@ -184,7 +161,7 @@ export class AlertMessagesComponent {
       </div>
     </div>
     <div class="e-alert__text">
-      <div>Generell informasjon til alle brukere på tvers.</div>
+      <div>Generell informasjon til alle brukere på tvers. Generell informasjon til alle brukere på tvers.</div>
       <div class="e-alert__links">
         <a class="e-link" href="https://design.elvia.io">Medium link</a>
       </div>
@@ -193,12 +170,12 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  globalAlertActions = `<div class="e-alert e-alert--global e-alert--no-title e-alert--actions">
+  globalAlertActions = `<div class="e-alert e-alert--global e-alert--actions">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--information_circle"></i>
   </div>
   <div class="e-alert__content">
-    <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen.</div>
+    <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen. Informasjon til alle brukere på tvers av applikasjonen.</div>
     <div class="e-alert__actions">
       <button class="e-btn e-btn--secondary e-btn--sm">
         <span class="e-btn__title">Secondary</span>
@@ -207,6 +184,21 @@ export class AlertMessagesComponent {
         <span class="e-btn__title">Primary</span>
       </button>
     </div>
+  </div>
+</div>
+`;
+
+  globalAlertNoTitle = `<div class="e-alert e-alert--global e-alert--no-title">
+  <div class="e-alert__icon">
+    <i class="e-icon e-icon--information_circle"></i>
+  </div>
+  <div class="e-alert__content">
+    <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen. Informasjon til alle brukere på tvers av applikasjonen. Informasjon til alle brukere på tvers av applikasjonen.</div>
+  </div>
+  <div class="e-alert__close">
+    <button class="e-btn e-btn--icon e-btn--sm">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    </button>
   </div>
 </div>
 `;
@@ -222,12 +214,28 @@ export class AlertMessagesComponent {
 </div>
 `;
 
-  toastAlertClosable = `<div class="e-alert e-alert--toast e-alert--no-title">
+  toastAlertClosable = `<div class="e-alert e-alert--toast">
   <div class="e-alert__icon">
     <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
   </div>
   <div class="e-alert__content">
-    <div class="e-alert__text">En velykket bekreftelses melding en lang og velykket bekreftelse på en lang melding!</div>
+    <div>Kort info tittel</div>
+    <div class="e-alert__text">En velykket bekreftelses melding en lang og velykket bekreftelse på en lang melding! En velykket bekreftelses melding en lang og velykket bekreftelse på en lang melding!</div>
+  </div>
+  <div class="e-alert__close">
+    <button class="e-btn e-btn--icon e-btn--sm">
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    </button>
+  </div>
+</div>
+`;
+
+  toastAlertNoTitle = `<div class="e-alert e-alert--toast e-alert--no-title">
+  <div class="e-alert__icon">
+    <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
+  </div>
+  <div class="e-alert__content">
+    <div class="e-alert__text">En velykket bekreftelses melding en lang og velykket bekreftelse på en lang melding! En velykket bekreftelses melding en lang og velykket bekreftelse på en lang melding!</div>
   </div>
   <div class="e-alert__close">
     <button class="e-btn e-btn--icon e-btn--sm">
@@ -244,6 +252,59 @@ export class AlertMessagesComponent {
   <div class="e-alert__content">
     <div class="e-alert__title">Kort Tittel</div>
     <div class="e-alert__text">En informative melding!</div>
+  </div>
+</div>
+`;
+
+  // STATUSES
+  errorStatus = `<div>
+  <div class="e-alert">
+    <div class="e-alert__icon">
+      <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
+    </div>
+    <div class="e-alert__content">
+      <div class="e-alert__title">Danger</div>
+      <div class="e-alert__text">Describe what went wrong.</div>
+    </div>
+  </div>
+</div>
+`;
+
+  warnStatus = `<div>
+  <div class="e-alert e-alert--warn">
+    <div class="e-alert__icon">
+      <i class="e-icon e-icon--warning_circle e-icon--color-orange"></i>
+    </div>
+    <div class="e-alert__content">
+      <div class="e-alert__title">Warn</div>
+      <div class="e-alert__text">Describe what went wrong.</div>
+    </div>
+  </div>
+</div>
+`;
+
+  infoStatus = `<div>
+  <div class="e-alert e-alert--info">
+    <div class="e-alert__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+    </div>
+    <div class="e-alert__content">
+      <div class="e-alert__title">Info</div>
+      <div class="e-alert__text">Important information.</div>
+    </div>
+  </div>
+</div>
+`;
+
+  positiveStatus = `<div>
+  <div class="e-alert e-alert--toast">
+    <div class="e-alert__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+    </div>
+    <div class="e-alert__content">
+      <div class="e-alert__title">Positive</div>
+      <div class="e-alert__text">Describe what went right.</div>
+    </div>
   </div>
 </div>
 `;
