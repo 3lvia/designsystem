@@ -9,7 +9,7 @@
     .back-link {
       display: none;
       @include breakpoint-up(Tablet) {
-        display: block;
+        display: flex;
       }
     }
     &__title {
