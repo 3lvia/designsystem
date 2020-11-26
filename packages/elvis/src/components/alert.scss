@@ -11,7 +11,6 @@
   border: 2px solid colors.color('red');
   background: colors.color('white');
   flex-direction: row;
-  max-width: 850px;
   min-width: 270px;
   // Local as default
   &:not(.e-alert--global):not(.e-alert--toast) {
@@ -193,6 +192,9 @@
   &.e-alert--local {
     padding: 22px 30px 22px 22px; // -2px for border
     border-radius: 8px;
+    width: 100%;
+    max-width: 650px;
+
     .e-alert__title {
       @include typography.typography('text-md');
       font-weight: 500;
@@ -263,41 +265,43 @@
   }
 
   // ACTIONS
-  &.e-alert--actions .e-alert__content {
-    flex-direction: row;
-    justify-content: flex-start;
-    width: 100%;
+  &.e-alert--actions {
     .e-alert__icon {
       margin-top: 0px;
-    }
-    .e-alert__text {
-      display: flex;
       align-items: center;
-    }
-    .e-alert__actions {
-      margin-left: auto;
-      display: flex;
-      align-items: center;
-      padding-left: 24px;
-      margin-left: auto;
-      button:last-of-type {
-        margin-left: 16px;
+      @include breakpoints.breakpoint-up(Mobile) {
+        align-items: flex-start;
       }
     }
-
-    @include breakpoints.breakpoint-up(Mobile) {
-      flex-direction: column;
-      .e-alert__icon {
-        align-items: flex-start !important;
+    .e-alert__content {
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+      .e-alert__text {
+        display: flex;
+        align-items: center;
       }
       .e-alert__actions {
-        padding-left: 0px;
-        margin-top: 24px;
-        margin-left: -56px;
-        width: calc(100% + 56px);
-        button {
-          width: 100%;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        padding-left: 24px;
+        margin-left: auto;
+        button:last-of-type {
+          margin-left: 16px;
         }
+        @include breakpoints.breakpoint-up(Mobile) {
+          padding-left: 0px;
+          margin-top: 24px;
+          margin-left: -56px;
+          width: calc(100% + 56px);
+          button {
+            width: 100%;
+          }
+        }
+      }
+      @include breakpoints.breakpoint-up(Mobile) {
+        flex-direction: column;
       }
     }
   }
