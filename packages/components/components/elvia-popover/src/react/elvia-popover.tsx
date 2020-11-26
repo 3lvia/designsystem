@@ -71,7 +71,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
 
     // Listen to tab events and click outside popover
     document.body.addEventListener('keydown', (e) => toggleOutline(e));
-    document.addEventListener('click', handleClickOutside);
+    // TODO: handleCLickOutside must be fixed on IE11 before uncommenting document.addEventListener('click', handleClickOutside);
 
     function toggleOutline(e: KeyboardEvent) {
       if (!popoverCloseRef.current) {
