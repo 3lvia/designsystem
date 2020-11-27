@@ -7,4 +7,4 @@ assets which enables us to work together towards an ultimate brand experience.
 
 ## Get started
 
-[Developer documentation - Get started](https://design.elvia.io/get-started/new-project#Get-started-using-CDN---Recommended)
+[Developer documentation - Get started](https://design.elvia.io/get-started/new-project)
