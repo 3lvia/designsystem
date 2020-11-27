@@ -34,7 +34,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: calc(100% - 62px);
     .e-alert__title {
       @include typography.typography('text-caps');
       margin-bottom: 2px;
@@ -296,6 +295,7 @@
       margin-top: 0px;
       align-items: center;
       @include breakpoints.breakpoint-up(Mobile) {
+        margin-top: 16px;
         align-items: flex-start;
       }
     }
