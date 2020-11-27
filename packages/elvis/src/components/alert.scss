@@ -6,7 +6,6 @@
 
 .e-alert {
   display: inline-flex;
-  padding: 22px; // -2px for border
   box-sizing: border-box;
   border: 2px solid colors.color('red');
   background: colors.color('white');
@@ -22,10 +21,10 @@
   &__icon {
     display: flex;
     margin-right: 24px;
-    margin-top: 8px;
     width: 32px;
     @include breakpoints.breakpoint-up(Mobile) {
       align-items: center;
+      margin-right: 16px;
       margin-top: 0px;
     }
   }
@@ -34,13 +33,13 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: calc(100% - 62px); //IE11 fix
     .e-alert__title {
       @include typography.typography('text-caps');
       margin-bottom: 2px;
     }
     .e-alert__text {
       @include typography.typography('text-description');
-      margin-top: 4px;
       font-size: 16px;
       line-height: 28px;
       max-width: 758px;
@@ -58,7 +57,7 @@
     }
     .e-alert__links {
       margin-top: 16px;
-      height: 24px;
+      height: 26px;
       a:not(:last-of-type) {
         margin-right: 24px;
       }
@@ -86,6 +85,10 @@
     max-width: unset;
     border-color: colors.color('grey');
     padding: 22px; // -2px border
+    @include breakpoints.breakpoint-up(Mobile) {
+      padding: 14px; // -2px border
+      padding-top: 22px; // -2px border
+    }
 
     .e-alert__icon,
     .e-alert__close {
@@ -94,6 +97,9 @@
     }
     .e-alert__close {
       padding-left: 24px;
+      @include breakpoints.breakpoint-up(Mobile) {
+        padding-left: 16px;
+      }
     }
     .e-alert__content .e-alert__title {
       @include typography.typography('title-xs');
@@ -180,8 +186,10 @@
           margin-top: 2px;
           align-items: flex-start;
         }
+        .e-alert__title {
+          margin-bottom: 4px;
+        }
         .e-alert__text {
-          margin-top: 8px;
           pointer-events: auto;
           max-height: 10000px;
           opacity: 1;
@@ -204,16 +212,22 @@
 
   // LOCAL
   &.e-alert--local {
-    padding: 22px 30px 22px 22px; // -2px for border
     border-radius: 8px;
     width: 100%;
     max-width: 650px;
+    padding: 22px 30px 22px 22px; // -2px for border
+    @include breakpoints.breakpoint-up(Mobile) {
+      padding: 14px 22px; // -2px for border
+    }
 
+    .e-alert__icon {
+      margin-top: 11px;
+    }
     .e-alert__title {
       @include typography.typography('text-md');
       font-weight: 500;
+      margin-bottom: 0px;
     }
-
     .e-alert__close {
       justify-content: flex-end;
       align-items: flex-start;
@@ -234,7 +248,6 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 14px 22px 22px 22px; // -2px for border
       .e-alert__icon {
         margin-right: 0px;
       }
@@ -255,6 +268,8 @@
     .e-alert__icon {
       margin-top: 0px;
       align-items: center;
+      width: 24px;
+      margin-right: 16px;
       i {
         @include icons.icon-size('sm');
       }
@@ -282,6 +297,17 @@
   &.e-alert--no-title {
     .e-alert__icon {
       align-items: center;
+    }
+    &.e-alert--local {
+      .e-alert__icon {
+        align-items: flex-start;
+        margin-top: 9px;
+      }
+    }
+    &.e-alert--global {
+      @include breakpoints.breakpoint-up(Mobile) {
+        padding: 14px; // -2px border
+      }
     }
     .e-alert__icon,
     .e-alert__text {
@@ -318,7 +344,7 @@
         }
         @include breakpoints.breakpoint-up(Mobile) {
           padding-left: 0px;
-          margin-top: 24px;
+          margin-top: 16px;
           margin-left: -56px;
           width: calc(100% + 56px);
           button {

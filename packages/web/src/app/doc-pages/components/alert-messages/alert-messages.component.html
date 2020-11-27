@@ -63,6 +63,7 @@
             [showIframeScreens]="true"
             [noTablet]="true"
             [overwriteHeight]="104"
+            [noPaddingX]="true"
           ></app-code-block>
           <app-when-to-use [whens]="doesGlobalDefault" [whenNots]="dontsGlobalDefault"></app-when-to-use>
 
@@ -74,6 +75,7 @@
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [overwriteHeight]="104"
+                [noPaddingX]="true"
               ></app-code-block>
             </ng-container>
           </app-component-subsubsection>
@@ -88,6 +90,7 @@
                 [codeHTML]="globalAlertExpandable"
                 [showIframeScreens]="true"
                 [noTablet]="true"
+                [noPaddingX]="true"
               ></app-code-block>
             </ng-container>
           </app-component-subsubsection>
@@ -99,6 +102,7 @@
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [overwriteHeight]="110"
+                [noPaddingX]="true"
               ></app-code-block>
             </ng-container>
           </app-component-subsubsection>
@@ -109,6 +113,7 @@
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [overwriteHeight]="110"
+                [noPaddingX]="true"
               ></app-code-block>
             </ng-container>
           </app-component-subsubsection>
@@ -127,14 +132,19 @@
           ></app-code-block>
           <app-when-to-use [whens]="doesAlertDefault"></app-when-to-use>
 
+          <!-- Venter til design har sett på behov for denne 
           <app-component-subsubsection [sectionTitle]="'Closable'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-block [codeHTML]="localAlertClosable"></app-code-block>
+              <app-code-block [codeHTML]="localAlertClosable" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
             </ng-container>
-          </app-component-subsubsection>
+          </app-component-subsubsection> -->
           <app-component-subsubsection [sectionTitle]="'No title'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-block [codeHTML]="localAlertNoTitle"></app-code-block>
+              <app-code-block
+                [codeHTML]="localAlertNoTitle"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+              ></app-code-block>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>

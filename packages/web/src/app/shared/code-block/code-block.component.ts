@@ -28,6 +28,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() overwriteHeightTablet: number;
   @Input() overwriteHeightPhone: number;
   @Input() showIframeDesktop = false;
+  @Input() noPaddingX = false;
 
   code = '';
   showTabs = true;
