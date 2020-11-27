@@ -18,6 +18,7 @@
   },
   "devDependencies": {
     "del": "^5.1.0",
+    "doiuse": "^4.4.0",
     "fibers": "^4.0.3",
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.2.0",
