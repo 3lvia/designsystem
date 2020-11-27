@@ -474,7 +474,7 @@ $sidebar-mobile-z-index: -2;
         flex-direction: column;
         .e-header__top-bar-mobile__title {
           @include typography.typography('text-info');
-          color: colors.color('grey-80');
+          color: colors.color('grey-70');
         }
         .e-header__top-bar-mobile__link {
           display: flex;
