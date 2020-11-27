@@ -17,4 +17,12 @@
     min-height: calc(100vh - 32px + 71px - #{$footer-height});
     padding-bottom: 72px;
   }
+
+  &.not-found {
+    background-color: var(--e-grey-90);
+    border-color: var(--e-grey-90);
+    padding-bottom: 0px;
+  }
 }
+
+

@@ -18,6 +18,11 @@
   @media screen and (-ms-high-contrast: none) {
     border-top: solid 1.5px var(--e-white);
   }
+  &.not-found {
+    &::before {
+      background-color: var(--e-grey-90);
+    }
+  }
 
   &::before {
     content: '';

@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Spacing
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Spacing</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -39,7 +37,7 @@
         <b>8 point grid</b>
         system - multiples of 8 to define dimensions, padding, and margin of both block and inline elements.
       </div>
-      <div class="e-text-body e-mb-40">
+      <div class="e-text-body e-mb-32">
         You can read more about the 8 point grid system and what its used for in this
         <a
           class="e-link e-link--inline e-link--external"
@@ -49,13 +47,7 @@
           <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
         </a>
       </div>
-
-      <div class="e-mb-40">
-        <img class="padding-example" src="assets/website-icons/identity-images/SpacingUsage.svg" />
-      </div>
-      <div class="e-mb-16">
-        Something to keep in mind when choosing spacing:
-      </div>
+      <div class="e-mb-16">Something to keep in mind when choosing spacing:</div>
       <ul class="e-list">
         <li>
           It's about logic. Related things are closer than unrelated things, so two unrelated things must be
@@ -67,11 +59,14 @@
 
       <app-component-subsection [sectionTitle]="'Help guide'">
         <ng-container ngProjectAs="sectionContent">
-          <div class="e-text-body e-mb-40">
+          <div class="e-text-body e-mb-32">
             We have defined a guide to help you choose the correct spacing. These are not rules so exceptions
             may occur. Spacing will also be used differently depending on which device you are on.
           </div>
-
+          <div class="e-mb-8">
+            <img class="padding-example" src="assets/website-icons/identity-images/SpacingUsage.svg" />
+          </div>
+          <div class="e-text-img e-mb-48">Example of 8px spacing between related and unrelated elements.</div>
           <div class="e-title-xs e-mb-8">Related elements</div>
           <div class="e-text-body e-mb-24">
             Used for spacing between related elements or inside a component. Example:
@@ -177,9 +172,7 @@
 
           <div class="listContainer e-mb-56">
             <div class="listExample">
-              <div class="e-text-body e-mb-16">
-                Padding classes:
-              </div>
+              <div class="e-text-body e-mb-16">Padding classes:</div>
               <ul class="e-list">
                 <li>e-p-0</li>
                 <li>e-p-number</li>
@@ -192,9 +185,7 @@
               </ul>
             </div>
             <div class="listExample">
-              <div class="e-text-body e-mb-16">
-                Margin classes:
-              </div>
+              <div class="e-text-body e-mb-16">Margin classes:</div>
               <ul class="e-list">
                 <li>e-m-0</li>
                 <li>e-m-number</li>
@@ -231,9 +222,7 @@
           <ul class="e-list">
             <li>var(--e-spacing-number)</li>
           </ul>
-          <p>
-            All CSS-variables can be used.
-          </p>
+          <p>All CSS-variables can be used.</p>
           <p>
             <app-do-dont [do]="true" [codeCSS]="doCodeCSS"></app-do-dont>
             <app-do-dont [do]="false" [codeCSS]="dontCodeCSS"></app-do-dont>
