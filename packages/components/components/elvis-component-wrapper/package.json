@@ -1,5 +1,5 @@
 {
-  "name": "@elvia/elvis-component",
+  "name": "@elvia/elvis-component-wrapper",
   "version": "1.0.0",
   "description": "",
   "main": "./dist/elvia-component.js",
