@@ -15,7 +15,7 @@ trigger element and should position itself relative to where there is free space
 ## REACT COMPONENT
 
 ```
-import { Popover } from '@elvia/popover/react';
+import { Popover } from '@elvia/elvis-popover/react';
 ```
 
 ```
@@ -31,7 +31,7 @@ import { Popover } from '@elvia/popover/react';
 ## WEB COMPONENT (Angular, Vue, etc)
 
 ```
-import { Popover } from '@elvia/popover';
+import { Popover } from '@elvia/elvis-popover';
 ```
 
 ```

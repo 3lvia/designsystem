@@ -1,8 +1,8 @@
 import * as ReactCheckboxComponent from '../../../react.js';
-import { ElviaComponent } from '@elvia/component';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 const style = `{{INSERT_STYLE_HERE}}`;
 
-export default class ElviaCheckbox extends ElviaComponent {
+export default class ElviaCheckbox extends ElvisComponentWrapper {
 
   static get observedAttributes(): any[] {
     return ['label', 'name', 'value', 'id', 'size', 'checked', 'disabled', 'required'];
