@@ -5,12 +5,14 @@ trigger element and should position itself relative to where there is free space
 
 ## Props
 
-- Title (string) [required] - Title of content
+- Title (string) - Title of content
 - Description (string) [required] - Description
 - Trigger element (HTMLElement) [required] - The element triggering opening of popover (pass in as slot, in
   react as prop)
 - PosX (string) - Position horizontally (left, right, center(default))
 - PosY (string) - Position vertically (bottom, top(default))
+- noClose (boolean) - Determines if the close button in the upper right corner should be removed (true,
+  false(default))
 
 ## REACT COMPONENT
 

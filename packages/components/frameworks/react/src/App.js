@@ -18,8 +18,8 @@ function App() {
 
       <h2>Checkbox</h2>
       {/* <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button> */}
-      <button onClick={update}>Update state</button>
-      <div>{trackedState.toString()}</div>
+      {/* <button onClick={update}>Update state</button>
+      <div>{trackedState.toString()}</div> */}
       <div style={{ marginTop: '16px' }}>
         <Checkbox
           ref={ref}
@@ -42,7 +42,7 @@ function App() {
 
       <h2>Popover</h2>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-        <div>
+        <div style={{marginTop: '16px'}}>
           <Popover
             title="React demo of popover"
             description="Alle privatkunder må bruke BankID første gang."
@@ -50,23 +50,24 @@ function App() {
             posX="right"
           ></Popover>
         </div>
-        <div>
+        <div style={{marginTop: '16px'}}>
           <Popover
-            title="React demo of popover"
             description="Alle privatkunder må bruke BankID første gang."
             trigger={<button>Left top</button>}
             posX="left"
+            noTitle="true"
           ></Popover>
         </div>
-        <div>
+        <div style={{marginTop: '16px'}}>
           <Popover
             title="React demo of popover"
             description="Alle privatkunder må bruke BankID første gang."
             trigger={<button>Center top</button>}
+            noClose="true"
           ></Popover>
         </div>
       </div>
-      <div>
+      <div style={{marginTop: '16px'}}>
         <Popover
           title="React demo of popover"
           description="Alle privatkunder må bruke BankID første gang."
@@ -74,7 +75,7 @@ function App() {
           posY="bottom"
         ></Popover>
       </div>
-      <div>
+      <div style={{marginTop: '16px'}}>
         <Popover
           title="React demo of popover"
           description="Alle privatkunder må bruke BankID første gang."
@@ -83,7 +84,7 @@ function App() {
           posX="right"
         ></Popover>
       </div>
-      <div>
+      <div style={{marginTop: '16px'}}>
         <Popover
           title="React demo of popover"
           description="Alle privatkunder må bruke BankID første gang."

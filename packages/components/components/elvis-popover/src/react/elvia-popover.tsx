@@ -8,6 +8,7 @@ export interface PopoverProps {
   posX?: string;
   posY?: string;
   trigger?: string;
+  noClose?: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -39,7 +40,7 @@ const getEventPath = (e: any) => {
   );
 };
 
-const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigger }) => {
+const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigger, noClose }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
@@ -282,7 +283,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
 
       <div className="ewc-popover__content ewc-popover--hide" ref={popoverContentRef}>
         <div className="ewc-popover__close">
-          <button
+          {!noClose && <button
             className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
             onClick={togglePopover}
             ref={popoverCloseRef}
@@ -296,7 +297,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
                 e-id="e-icone-icon--close-bold"
               ></i>
             </span>
-          </button>
+          </button>}
         </div>
         <div className="ewc-popover__title">{title}</div>
         <div className="ewc-popover__text">{description}</div>

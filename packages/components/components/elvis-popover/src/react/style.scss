@@ -12,11 +12,11 @@ $sizes: (
 
 $popover-size: 450px;
 $popover-border-width: 1px;
-$popover-padding: 24px;
+$popover-padding: 32px;
 $popover-arrow-size: 16px;
 $popover-arrow-offset: 25px; // Midtstilt i forhold til ikon 16X16px (xs)
 $popover-button-offset: -30px;
-
+$popover-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
 $green: #29d305;
 
 .ewc-popover {
@@ -29,37 +29,37 @@ $green: #29d305;
     position: relative;
     display: flex;
     flex-direction: column;
-    .ewc-popover__arrow {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      z-index: 100;
-      opacity: 1;
-      transition: opacity 150ms ease-in;
-      &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        z-index: 100;
-        transform: rotate(45deg);
-        border: 1px solid;
-        width: $popover-arrow-size;
-        height: $popover-arrow-size;
-        background: white;
-        border: 1px solid;
-      }
+    // .ewc-popover__arrow {
+    //   width: 100%;
+    //   display: flex;
+    //   justify-content: center;
+    //   z-index: 100;
+    //   opacity: 1;
+    //   transition: opacity 150ms ease-in;
+    //   &::after {
+    //     content: '';
+    //     position: absolute;
+    //     bottom: 0;
+    //     z-index: 100;
+    //     transform: rotate(45deg);
+    //     border: 1px solid;
+    //     width: $popover-arrow-size;
+    //     height: $popover-arrow-size;
+    //     background: white;
+    //     border: 1px solid;
+    //   }
 
-      animation: fadeIn 100ms ease-in;
+    //   animation: fadeIn 100ms ease-in;
 
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-    }
+    //   @keyframes fadeIn {
+    //     0% {
+    //       opacity: 0;
+    //     }
+    //     100% {
+    //       opacity: 1;
+    //     }
+    //   }
+    // }
   }
 
   &__content {
@@ -74,7 +74,7 @@ $green: #29d305;
     box-sizing: border-box;
     background-color: white;
     color: black;
-    border: 1px solid $green;
+    box-shadow: $popover-box-shadow;
     border-radius: 8px;
     text-align: left;
     transition: opacity 250ms ease-in;
@@ -113,10 +113,10 @@ $green: #29d305;
       visibility: hidden;
     }
   }
-  .ewc-popover__arrow.ewc-popover--hide {
-    opacity: 0;
-    visibility: hidden;
-  }
+  // .ewc-popover__arrow.ewc-popover--hide {
+  //   opacity: 0;
+  //   visibility: hidden;
+  // }
 
   // Modifiers for alignment of popover
   // Top aligned (Default)
@@ -125,12 +125,12 @@ $green: #29d305;
       bottom: 100%;
       margin-bottom: 23px;
     }
-    .ewc-popover__arrow {
-      &::after {
-        top: -33px;
-        border-color: transparent $green $green transparent;
-      }
-    }
+    // .ewc-popover__arrow {
+    //   &::after {
+    //     top: -33px;
+    //     border-color: transparent $green $green transparent;
+    //   }
+    // }
   }
   // Bottom aligned
   &.ewc-popover--bottom {
@@ -138,23 +138,23 @@ $green: #29d305;
       top: 100%;
       margin-top: 22px;
     }
-    .ewc-popover__arrow {
-      &::after {
-        bottom: -32px;
-        border-color: $green transparent transparent $green;
-      }
-    }
+    // .ewc-popover__arrow {
+    //   &::after {
+    //     bottom: -32px;
+    //     border-color: $green transparent transparent $green;
+    //   }
+    // }
   }
   // Center aligned (Default)
   &:not(.ewc-popover--left):not(.ewc-popover--left-50):not(.ewc-popover--right):not(.ewc-popover--right-50) {
     .ewc-popover__content {
       transform: translateX(-50%);
     }
-    .ewc-popover__arrow {
-      &::after {
-        left: calc(50% - (#{$popover-arrow-offset} / 2) + 1px);
-      }
-    }
+    // .ewc-popover__arrow {
+    //   &::after {
+    //     left: calc(50% - (#{$popover-arrow-offset} / 2) + 1px);
+    //   }
+    // }
   }
 }
 
