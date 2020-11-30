@@ -172,15 +172,5 @@ async function createPNGs() {
   return true;
 }
 
-
-// Optimize PNG icons
-function optimizePNG() {
-  const iconsToInclude = icons.map((i) => {
-    return `src/icons/png/src/${i.name}.png`;
-  });
-  return gulp.src(iconsToInclude).pipe(imagemin()).pipe(gulp.dest('src/icons/png/dist'));
-}
-
-
-const generateIcons = gulp.series(clean, optimizeSVG, createEmbeddedIconsJS, createIconModule, createPNGs, optimizePNG);
+const generateIcons = gulp.series(clean, optimizeSVG, createEmbeddedIconsJS, createIconModule, createPNGs);
 exports.generateIcons = generateIcons;
