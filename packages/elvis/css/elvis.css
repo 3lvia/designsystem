@@ -418,7 +418,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: calc(100% - 62px);
+  width: 100%;
 }
 
 .e-alert__content .e-alert__title {
@@ -644,8 +644,8 @@ body {
 
   .e-alert.e-alert--global.e-alert--expandable.e-alert--open .e-alert__text {
     margin-top: 16px;
-    margin-left: -56px;
-    width: calc(100% + 56px);
+    margin-left: -47px;
+    width: calc(100% + 47px);
   }
 }
 .e-alert.e-alert--local, .e-alert:not(.e-alert--global):not(.e-alert--toast) {
@@ -811,6 +811,7 @@ body {
 }
 
 .e-alert.e-alert--actions .e-alert__content .e-alert__actions {
+  width: 100%;
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -819,15 +820,15 @@ body {
 }
 
 .e-alert.e-alert--actions .e-alert__content .e-alert__actions button:last-of-type {
-  margin-left: 16px;
+  margin-left: 24px;
 }
 
 @media (max-width: 767px) {
   .e-alert.e-alert--actions .e-alert__content .e-alert__actions {
     padding-left: 0px;
     margin-top: 16px;
-    margin-left: -56px;
-    width: calc(100% + 56px);
+    margin-left: -47px;
+    width: calc(100% + 47px);
   }
 
   .e-alert.e-alert--actions .e-alert__content .e-alert__actions button {

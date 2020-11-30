@@ -115,7 +115,7 @@ export class AlertMessagesComponent {
   </div>
   <div class="e-alert__content">
     <div class="e-alert__title">Kort info tittel</div>
-    <div class="e-alert__text">Generell informasjon til alle brukere på tvers. </div>
+    <div class="e-alert__text">Generell informasjon til alle brukere på tvers.</div>
   </div>
   <div class="e-alert__close">
     <button class="e-btn e-btn--icon e-btn--sm">
@@ -173,7 +173,7 @@ export class AlertMessagesComponent {
     <i class="e-icon e-icon--information_circle"></i>
   </div>
   <div class="e-alert__content">
-    <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen.</div>
+    <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen. Informasjon til alle brukere på tvers av applikasjonen.</div>
     <div class="e-alert__actions">
       <button class="e-btn e-btn--secondary e-btn--sm">
         <span class="e-btn__title">Secondary</span>
@@ -191,7 +191,7 @@ export class AlertMessagesComponent {
     <i class="e-icon e-icon--information_circle"></i>
   </div>
   <div class="e-alert__content">
-    <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen.</div>
+    <div class="e-alert__text">Informasjon til alle brukere på tvers av applikasjonen. Informasjon til alle brukere på tvers av applikasjonen. Informasjon til alle brukere på tvers av applikasjonen.</div>
   </div>
 </div>
 `;

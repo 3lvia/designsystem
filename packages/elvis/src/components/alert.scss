@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: calc(100% - 62px); //IE11 fix
+    width: 100%;
     .e-alert__title {
       @include typography.typography('text-caps');
       margin-bottom: 2px;
@@ -203,8 +203,8 @@
         }
         &.e-alert--open .e-alert__text {
           margin-top: 16px;
-          margin-left: -56px;
-          width: calc(100% + 56px);
+          margin-left: -47px;
+          width: calc(100% + 47px);
         }
       }
     }
@@ -334,19 +334,20 @@
         align-items: center;
       }
       .e-alert__actions {
+        width: 100%;
         margin-left: auto;
         display: flex;
         align-items: center;
         padding-left: 24px;
         margin-left: auto;
         button:last-of-type {
-          margin-left: 16px;
+          margin-left: 24px;
         }
         @include breakpoints.breakpoint-up(Mobile) {
           padding-left: 0px;
           margin-top: 16px;
-          margin-left: -56px;
-          width: calc(100% + 56px);
+          margin-left: -47px;
+          width: calc(100% + 47px);
           button {
             width: 100%;
           }
