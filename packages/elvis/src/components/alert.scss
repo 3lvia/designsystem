@@ -4,6 +4,17 @@
 @use "../utilities/breakpoints";
 @use "./../variables/shadows";
 
+$local-padding: 22px 30px 22px 22px; // -2px for border;
+$local-mobile-padding: 14px 22px; // -2px for border;
+$local-max-width: 650px;
+
+$global-padding: 22px;
+$global-mobile-padding: 22px 14px 14px 14px; // -2px border
+$global-mobile-notitle-padding: 14px; // -2px border
+
+$toast-padding: 14px 22px 14px 22px; // -2px border
+$toast-max-width: 400px;
+
 .e-alert {
   display: inline-flex;
   box-sizing: border-box;
@@ -84,10 +95,9 @@
     width: 100%;
     max-width: unset;
     border-color: colors.color('grey');
-    padding: 22px; // -2px border
+    padding: $global-padding;
     @include breakpoints.breakpoint-up(Mobile) {
-      padding: 14px; // -2px border
-      padding-top: 22px; // -2px border
+      padding: $global-mobile-padding;
     }
 
     .e-alert__icon,
@@ -214,10 +224,10 @@
   &.e-alert--local {
     border-radius: 8px;
     width: 100%;
-    max-width: 650px;
-    padding: 22px 30px 22px 22px; // -2px for border
+    max-width: $local-max-width;
+    padding: $local-padding;
     @include breakpoints.breakpoint-up(Mobile) {
-      padding: 14px 22px; // -2px for border
+      padding: $local-mobile-padding;
     }
 
     .e-alert__icon {
@@ -262,8 +272,8 @@
     border-radius: 8px;
     border-color: colors.color('green');
     box-shadow: shadows.$e-shadow-6;
-    max-width: 400px;
-    padding: 14px 22px 14px 22px; // -2px border
+    max-width: $toast-max-width;
+    padding: $toast-padding;
 
     .e-alert__icon {
       margin-top: 0px;
@@ -306,7 +316,7 @@
     }
     &.e-alert--global {
       @include breakpoints.breakpoint-up(Mobile) {
-        padding: 14px; // -2px border
+        padding: $global-mobile-notitle-padding;
       }
     }
     .e-alert__icon,

@@ -495,8 +495,7 @@ body {
 
 @media (max-width: 767px) {
   .e-alert.e-alert--global {
-    padding: 14px;
-    padding-top: 22px;
+    padding: 22px 14px 14px 14px;
   }
 }
 .e-alert.e-alert--global .e-alert__icon,

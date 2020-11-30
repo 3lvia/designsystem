@@ -21,10 +21,6 @@
       text-align: left;
     }
 
-    .e-text-caps {
-      display: flex;
-    }
-
     .type-images {
       display: flex;
 
@@ -66,6 +62,8 @@
     }
   }
   .title {
+    display: flex;
+
     @include breakpoint-up(Mobile) {
       margin-top: 16px;
     }
