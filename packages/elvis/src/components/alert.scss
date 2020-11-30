@@ -310,8 +310,7 @@ $toast-max-width: 400px;
     }
     &.e-alert--local {
       .e-alert__icon {
-        align-items: flex-start;
-        margin-top: 9px;
+        margin-top: 0px;
       }
     }
     &.e-alert--global {

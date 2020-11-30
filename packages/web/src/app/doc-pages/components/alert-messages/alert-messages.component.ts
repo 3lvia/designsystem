@@ -212,7 +212,7 @@ export class AlertMessagesComponent {
     <i class="e-icon e-icon--check_circle e-icon--color-green"></i>
   </div>
   <div class="e-alert__content">
-    <div>Kort tittel</div>
+    <div class="e-alert__title">Kort Tittel</div>
     <div class="e-alert__text">En velykket bekreftelses melding en lang og velykket bekreftelse på en lang melding!</div>
   </div>
   <div class="e-alert__close">

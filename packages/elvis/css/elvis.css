@@ -773,8 +773,7 @@ body {
 }
 
 .e-alert.e-alert--no-title.e-alert--local .e-alert__icon, .e-alert.e-alert--no-title:not(.e-alert--global):not(.e-alert--toast) .e-alert__icon {
-  align-items: flex-start;
-  margin-top: 9px;
+  margin-top: 0px;
 }
 
 @media (max-width: 767px) {
