@@ -334,7 +334,10 @@
         align-items: center;
       }
       .e-alert__actions {
-        width: 100%;
+        // IE hack
+        @media screen and (-ms-high-contrast: none) {
+          width: 100%;
+        }
         margin-left: auto;
         display: flex;
         align-items: center;

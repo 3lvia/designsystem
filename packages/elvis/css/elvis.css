@@ -811,7 +811,6 @@ body {
 }
 
 .e-alert.e-alert--actions .e-alert__content .e-alert__actions {
-  width: 100%;
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -819,6 +818,11 @@ body {
   margin-left: auto;
 }
 
+@media screen and (-ms-high-contrast: none) {
+  .e-alert.e-alert--actions .e-alert__content .e-alert__actions {
+    width: 100%;
+  }
+}
 .e-alert.e-alert--actions .e-alert__content .e-alert__actions button:last-of-type {
   margin-left: 24px;
 }
