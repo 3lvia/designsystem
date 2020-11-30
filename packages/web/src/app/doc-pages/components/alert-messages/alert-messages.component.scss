@@ -21,11 +21,22 @@
       text-align: left;
     }
 
-    img {
-      margin-top: 16px;
-      height: 150px;
-      @include breakpoint-up(MinDesktop) {
-        height: 170px;
+    .type-images {
+      display: flex;
+
+      img {
+        margin-top: 16px;
+        height: 104px;
+        &:last-of-type {
+          margin-left: 16px;
+        }
+        @include breakpoint-up(MinDesktop) {
+          height: 170px;
+        }
+        @include breakpoint-up(Mobile) {
+          margin-left: 0px;
+          height: 130px;
+        }
       }
     }
   }
@@ -51,6 +62,8 @@
     }
   }
   .title {
+    display: flex;
+
     @include breakpoint-up(Mobile) {
       margin-top: 16px;
     }
