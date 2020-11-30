@@ -16,6 +16,7 @@ export class IframeScreenComponent implements OnInit, AfterViewInit, OnChanges {
   @Input() overwriteHeight: number;
   @Input() overwriteHeightTablet: number;
   @Input() overwriteHeightPhone: number;
+  @Input() noPaddingX: boolean;
   now = new Date();
 
   code = '';

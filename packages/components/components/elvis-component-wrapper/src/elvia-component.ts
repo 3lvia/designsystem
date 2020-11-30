@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events'
 
-export class ElviaComponent extends HTMLElement {
+export class ElvisComponentWrapper extends HTMLElement {
 
   protected _data: any;
   protected reactComponent: any;

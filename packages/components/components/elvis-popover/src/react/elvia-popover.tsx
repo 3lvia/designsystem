@@ -31,11 +31,6 @@ const getEventPath = (e: any) => {
       return [];
     }
 
-    while (element.parentElement) {
-      const el = element.parentElement;
-      pathArr.unshift(el);
-    }
-
     return pathArr;
   };
 
@@ -71,7 +66,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
 
     // Listen to tab events and click outside popover
     document.body.addEventListener('keydown', (e) => toggleOutline(e));
-    // TODO: handleCLickOutside must be fixed on IE11 before uncommenting document.addEventListener('click', handleClickOutside);
+    document.addEventListener('click', handleClickOutside);
 
     function toggleOutline(e: KeyboardEvent) {
       if (!popoverCloseRef.current) {

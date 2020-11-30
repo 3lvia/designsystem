@@ -14,5 +14,5 @@
 <circle r="4" transform="matrix(1 0 0 -1 20 10)" fill="#929292"/>
 <circle r="4" transform="matrix(1 0 0 -1 33 10)" fill="#929292"/>
 <circle r="4" transform="matrix(1 0 0 -1 46 10)" fill="#929292"/>
-<rect x="0.5" y="19.5" width="520" height="17" fill="#F4F4F4" stroke="#29D305"/>
+<rect x="0.75" y="19.75" width="519.5" height="16.5" fill="white" stroke="#29D305" stroke-width="1.5"/>
 </svg>

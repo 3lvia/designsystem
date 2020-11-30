@@ -1,5 +1,5 @@
 module.exports = [
-    { name: 'elvia-checkbox' },
-    { name: 'elvia-popover' },
-    { name: 'elvia-component' },
+    { name: 'elvis-checkbox' },
+    { name: 'elvis-popover' },
+    { name: 'elvis-component' },
 ]
