@@ -1,9 +1,9 @@
-# Elvia Progressbar Changelog
-
-## 1.0.0 (13.11.20)
+# Elvia Progresbar Changelog
 
 ### Breaking changes
 
+- Breaking change
+  - Easy fix
 - Breaking change
   - Easy fix
 
