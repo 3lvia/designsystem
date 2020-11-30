@@ -71,13 +71,13 @@ function buildWebComponentsToDistributeJSFolder() {
 }
 
 function buildElviaComponentToJS() {
-    return gulp.src(`../components/elvia-component/src/*.ts`)
+    return gulp.src(`../components/elvis-component-wrapper/src/*.ts`)
         .pipe(babel({
             "presets": [
                 "@babel/preset-typescript"
             ],
         })).pipe(header(WARNING))
-        .pipe(gulp.dest(`../components/elvia-component/dist/`));
+        .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
 }
 
 // TODO: Find a way to do cleanup that does not trigger rebuild
