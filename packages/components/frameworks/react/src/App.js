@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './App.scss';
-import { Popover } from '@elvia/popover/react';
-import { Checkbox } from '@elvia/checkbox/react';
+import { Popover } from '@elvia/elvis-popover/react';
+import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Progressbar } from '@elvia/elvis-progressbar/react';
 
 function App() {

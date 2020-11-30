@@ -1,11 +1,11 @@
 {
-  "name": "@elvia/components-react-preview",
+  "name": "@elvia/elvis-components-react-preview",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@craco/craco": "^5.8.0",
-    "@elvia/popover": "*",
-    "@elvia/checkbox": "*",
+    "@elvia/elvis-popover": "*",
+    "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-progressbar": "*",
     "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^4.2.4",

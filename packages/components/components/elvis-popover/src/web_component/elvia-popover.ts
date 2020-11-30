@@ -1,8 +1,8 @@
 import * as ReactPopoverComponent from '../../../react.js';
-import { ElviaComponent } from '@elvia/component';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 const style = `{{INSERT_STYLE_HERE}}`;
 
-export default class ElviaPopover extends ElviaComponent {
+export default class ElviaPopover extends ElvisComponentWrapper {
   static get observedAttributes(): any[] {
     return ['title', 'description', 'posX', 'posY'];
   }

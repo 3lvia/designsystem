@@ -13,7 +13,7 @@
 ## REACT COMPONENT
 
 ```
-import { Checkbox } from '@elvia/checkbox/react';
+import { Checkbox } from '@elvia/elvis-checkbox/react';
 ```
 
 ```
@@ -31,7 +31,7 @@ import { Checkbox } from '@elvia/checkbox/react';
 ## WEB COMPONENT (Angular, Vue, etc)
 
 ```
-import { Checkbox } from '@elvia/checkbox/web_component';
+import { Checkbox } from '@elvia/elvis-checkbox/web_component';
 ```
 
 ```
