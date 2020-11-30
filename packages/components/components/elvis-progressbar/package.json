@@ -8,7 +8,7 @@
   },
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "@elvia/component": "*"
+  "dependencies": {      
+    "@elvia/elvis-component-wrapper": "*"
   }
 }

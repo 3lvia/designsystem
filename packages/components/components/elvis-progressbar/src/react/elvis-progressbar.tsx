@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import './style.scss';
 
 export interface ProgressbarProps {
+  value: number;
 }
 
 const Progressbar: React.FC<ProgressbarProps> = ({ }) => {
@@ -18,7 +19,9 @@ const Progressbar: React.FC<ProgressbarProps> = ({ }) => {
 
   return (
     <span>
-      <div>Test TEST TEST</div>
+      <div className="ewc-progress">
+        <div className="ewc-progress__bar"></div>
+      </div>
     </span>
   );
 };

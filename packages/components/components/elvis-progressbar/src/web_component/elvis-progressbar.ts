@@ -1,8 +1,8 @@
 import * as ReactProgressbarrComponent from '../../../react.js';
-import { ElviaComponent } from '@elvia/component';
+import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 const style = `{{INSERT_STYLE_HERE}}`;
 
-export default class ElvisProgressbar extends ElviaComponent {
+export default class ElvisProgressbar extends ElvisComponentWrapper {
   static get observedAttributes(): any[] {
     return [];
   }
