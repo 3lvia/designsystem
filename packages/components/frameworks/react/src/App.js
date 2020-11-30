@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import './App.scss';
-import { Popover } from '@elvia/popover/react';
-import { Checkbox } from '@elvia/checkbox/react';
+import { Popover } from '@elvia/elvis-popover/react';
+import { Checkbox } from '@elvia/elvis-checkbox/react';
 
 function App() {
 
@@ -15,12 +15,12 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-      
+
       <h2>Checkbox</h2>
       {/* <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button> */}
       <button onClick={update}>Update state</button>
-      <div>{ trackedState.toString() }</div>
-      <div style={{marginTop: '16px'}}>
+      <div>{trackedState.toString()}</div>
+      <div style={{ marginTop: '16px' }}>
         <Checkbox
           ref={ref}
           checked={trackedState}
@@ -30,7 +30,7 @@ function App() {
           size="normal"
           changeHandler={setTrackedState}
         ></Checkbox>
-         <Checkbox
+        <Checkbox
           label="Small checkbox"
           name="Nametest"
           id="CheckboxTestID"
@@ -38,10 +38,10 @@ function App() {
         ></Checkbox>
       </div>
 
-      <hr style={{margin: '40px 0'}} />
+      <hr style={{ margin: '40px 0' }} />
 
       <h2>Popover</h2>
-      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-end'}}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
         <div>
           <Popover
             title="React demo of popover"
