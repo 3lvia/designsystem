@@ -117,12 +117,15 @@ function App() {
 
       <h2>Progressbar</h2>
 
-      <Progressbar ref={progressRef} rangeValue={progressValue}></Progressbar>
+      <Progressbar ref={progressRef} rangeValue={progressValue} error={true}></Progressbar>
 
       <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
         <button onClick={increaseProgress}>Increase</button>
         <button onClick={decreaseProgress}>Decrease</button>
         <button onClick={resetProgress}>reset</button>
+      </div>
+      <div>
+        {progressValue}
       </div>
 
     </div >

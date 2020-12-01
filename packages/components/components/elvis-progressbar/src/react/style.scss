@@ -24,6 +24,15 @@ $red: #ff0000;
   background-color: $green;
  	transition: width .3s ease-in;
 }
+.ewc-progress--linear__error {
+  border-radius: 50px;
+  align-self: center;
+  height: 6px;
+  width: 100% !important;
+  margin-left: 0;
+  background-color: $red;
+ 	transition: width .3s ease-in;
+}
 
 .toggle-buttons button {
  	margin: 0 10px;
