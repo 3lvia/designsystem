@@ -10,7 +10,28 @@ function App() {
   const ref = useRef();
 
   function update() {
-    setTrackedState(false);
+    setTrackedState(!trackedState);
+  }
+
+  const progressRef = useRef();
+  const [progressValue, setProgressValue] = useState(0)
+
+  function increaseProgress() {
+    if (progressValue >= 100) {
+      return
+    } else {
+      setProgressValue(prevProgValue => prevProgValue + 10)
+    }
+  }
+  function decreaseProgress() {
+    if (progressValue <= 0) {
+      return;
+    } else {
+      setProgressValue(prevProgValue => prevProgValue - 10)
+    }
+  }
+  function resetProgress() {
+    setProgressValue(0)
   }
 
   return (
@@ -96,7 +117,13 @@ function App() {
 
       <h2>Progressbar</h2>
 
-      <Progressbar></Progressbar>
+      <Progressbar ref={progressRef} rangeValue={progressValue}></Progressbar>
+
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
+        <button onClick={increaseProgress}>Increase</button>
+        <button onClick={decreaseProgress}>Decrease</button>
+        <button onClick={resetProgress}>reset</button>
+      </div>
 
     </div >
   );

@@ -1,13 +1,17 @@
 import * as React from 'react';
-import { useEffect, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import './style.scss';
 
 export interface ProgressbarProps {
-  value: number;
+  rangeValue: number;
 }
 
-const Progressbar: React.FC<ProgressbarProps> = ({ }) => {
-  // Running on first render only (on mount)
+const Progressbar: React.FC<ProgressbarProps> = forwardRef((props, ref: any) => {
+  // inital state
+  const [percentRange, setProgress] = useState(0);
+  const progressRef = useRef(null);
+
+
   useEffect(() => {
     // Adding font
     const link = document.createElement('link');
@@ -16,25 +20,35 @@ const Progressbar: React.FC<ProgressbarProps> = ({ }) => {
     link.type = 'text/css';
     document.head.appendChild(link);
   });
-  // inital state
-  const [percentRange, setProgress] = useState(0);
+
+  const updateRangeValue = () => {
+    if(props.rangeValue !== undefined) {
+      setProgress(props.rangeValue)
+    }
+  }
+
+  useEffect(() => {
+      updateRangeValue();
+  }, [props.rangeValue])
+
+
+ useImperativeHandle(ref, () => {
+     return {
+      updateRangeValue: updateRangeValue,
+     }
+  });
 
 
   return (
-    <span>
+    <span ref={progressRef}>
       <div className="ewc-progress--linear">
-          <div className="ewc-progress--linear__range" style={{width: `${percentRange}%`}}></div>
-      </div>
-    
-      <div style={{margin: "20px"}}>
-                  <button onClick={() => setProgress(percentRange > 0 ?
-                    percentRange - 10 : 0)}>Decrease
-                </button>
-                <button onClick={() => setProgress(percentRange < 100 ? percentRange + 10 : 100)}>Increase</button>
-                <button onClick={() => setProgress(0)}>Reset</button>
+          <div 
+            className="ewc-progress--linear__range" 
+            style={{width: `${percentRange}%`}}
+            ></div>
       </div>
     </span>
   );
-};
+});
 
 export default Progressbar;
