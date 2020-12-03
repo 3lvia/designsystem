@@ -4,11 +4,11 @@ const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElvisProgressbar extends ElvisComponentWrapper {
   static get observedAttributes(): any[] {
-    return [];
+    return ['rangeValue', 'indeterminate', 'error'];
   }
 
   constructor() {
-    super(ElvisProgressbar, ReactProgressbarrComponent.Progressbar, style, '');
+    super(ElvisProgressbar, ReactProgressbarrComponent.Progressbar, style, 'progressbar');
   }
 }
 

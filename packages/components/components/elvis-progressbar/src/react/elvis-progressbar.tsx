@@ -14,7 +14,10 @@ const Progressbar: React.FC<ProgressbarProps> = forwardRef((props, ref: any) => 
   // inital state
   const [percentRange, setProgress] = useState(0);
   const progressRef = useRef(null);
-  const classes = [props.error ? 'ewc-progress--linear__error' : 'ewc-progress--linear__range' ].join(' ');
+    const classes = [
+    props.indeterminate === false && props.error === false ? 'ewc-progress--linear__range' : '',
+    props.indeterminate && props.error === false ? 'ewc-progress--linear--indeterminate' : '',
+    props.error ? 'ewc-progress--linear--error' : '' ].join(' ');
 
 
   useEffect(() => {
@@ -27,9 +30,14 @@ const Progressbar: React.FC<ProgressbarProps> = forwardRef((props, ref: any) => 
   });
 
   const updateRangeValue = () => {
-    
     if(props.rangeValue !== undefined) {
-      setProgress(props.rangeValue)
+
+      if(!isValid(props.rangeValue)) {
+        console.error('<elvis-progressbar>: inputRange value ' + props.rangeValue + ' is invalid! Must be between 0 and 100.')
+        return;
+      } else {
+        setProgress(props.rangeValue)
+      }
     }
   }
 

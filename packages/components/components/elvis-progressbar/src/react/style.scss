@@ -24,7 +24,17 @@ $red: #ff0000;
   background-color: $green;
  	transition: width .3s ease-in;
 }
-.ewc-progress--linear__error {
+.ewc-progress--linear--indeterminate {
+  border-radius: 50px;
+  align-self: center;
+  width: 15%;
+  height: 6px;
+  margin-left: 0;
+  background-color: $green;
+  animation: loading 1s infinite;
+}
+
+.ewc-progress--linear--error {
   border-radius: 50px;
   align-self: center;
   height: 6px;
@@ -34,15 +44,22 @@ $red: #ff0000;
  	transition: width .3s ease-in;
 }
 
-.toggle-buttons button {
- 	margin: 0 10px;
- 	padding: 7px 20px;
- 	border-radius: 5px;
- 	outline: 0;
- 	cursor: pointer;
-}
+@keyframes loading {
+  0% {
+    width: 0%;
+    margin-left: 0%;
+  }
+  15% {
+    width: 15%;
+    margin-left: 0%;
+  }
 
-.toggle-buttons button:hover {
- 	color: white;
- 	background: #666;
+  85% {
+    width: 15%;
+  }
+
+  100% {
+    width: 0;
+    margin-left: 100%;
+  }
 }
