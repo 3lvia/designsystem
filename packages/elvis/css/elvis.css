@@ -394,7 +394,7 @@ body {
 .e-alert {
   display: inline-flex;
   box-sizing: border-box;
-  border: 2px solid #ff0000;
+  border: 2px solid purple;
   background: #fff;
   flex-direction: row;
   min-width: 270px;
@@ -1426,7 +1426,7 @@ input:focus {
 .e-btn.e-btn--md, .e-btn {
   font-size: 16px;
   line-height: 20px;
-  padding: calc(10px - 1px) calc(24px - 1px);
+  padding: calc(12px - 1px) calc(24px - 1px);
 }
 
 .e-btn.e-btn--md .e-btn__icon, .e-btn .e-btn__icon {

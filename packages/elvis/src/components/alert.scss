@@ -18,7 +18,8 @@ $toast-max-width: 400px;
 .e-alert {
   display: inline-flex;
   box-sizing: border-box;
-  border: 2px solid colors.color('red');
+  // only to show percy
+  border: 2px solid purple;
   background: colors.color('white');
   flex-direction: row;
   min-width: 270px;
