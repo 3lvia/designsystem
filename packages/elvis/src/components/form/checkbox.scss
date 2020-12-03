@@ -16,7 +16,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
   width: fit-content;
   box-sizing: border-box;
   cursor: pointer;
-  // IE hack
+  // IE specific
   @media screen and (-ms-high-contrast: none) {
     width: 100%;
   }

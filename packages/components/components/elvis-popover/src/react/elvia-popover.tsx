@@ -3,12 +3,14 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import './style.scss';
 
 export interface PopoverProps {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
+  customContent?: string;
   posX?: string;
   posY?: string;
   trigger?: string;
   noClose?: boolean;
+  customWidth?: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -21,6 +23,25 @@ const throttle = (func: any, limit: number) => {
     }
   };
 };
+
+function getInternetExplorerVersion(){
+  let rv = -1;
+  if (navigator.appName == 'Microsoft Internet Explorer')
+  {
+    const ua = navigator.userAgent;
+    const re = new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})");
+    if (re.exec(ua) != null)
+      rv = parseFloat( RegExp.$1 );
+  }
+  else if (navigator.appName == 'Netscape')
+  {
+    const ua = navigator.userAgent;
+    const re  = new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})");
+    if (re.exec(ua) != null)
+      rv = parseFloat( RegExp.$1 );
+  }
+  return rv;
+}
 
 // Return composedPath if Firefox, Polyfill path if IE11
 const getEventPath = (e: any) => {
@@ -40,7 +61,7 @@ const getEventPath = (e: any) => {
   );
 };
 
-const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigger, noClose }) => {
+const Popover: React.FC<PopoverProps> = ({ title, description, customContent, posX, posY, trigger, noClose }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
@@ -50,6 +71,11 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
   const popoverCloseRef = useRef<HTMLButtonElement>(null);
   const popoverMargin = 20;
   const popoverOffsetArrow = 40;
+  const contentClasses = [
+    description && !customContent ? 'text-only' : '', 
+    'ewc-popover__content', 
+  ].join(' ');
+  let maxContentWidth: number | null;
 
   // Closing and opening popover
   function togglePopover() {
@@ -58,6 +84,13 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
 
   // Running on first render only (on mount)
   useEffect(() => {
+    // Defining max content width for popover
+    maxContentWidth = popoverContentRef.current && popoverContentRef.current.getBoundingClientRect().width;
+    // setTimeout(() => {
+    //   maxContentWidth = popoverContentRef.current && popoverContentRef.current.getBoundingClientRect().width;
+    //   console.log(maxContentWidth);
+    // }, 1000);
+
     // Adding font
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
@@ -120,20 +153,21 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
   }
 
   function resize() {
-    if (!popoverContentRef.current) {
+    console.log(maxContentWidth);
+    if (!popoverContentRef.current || !maxContentWidth) {
       return;
     }
-    if (450 + popoverMargin + popoverMargin > window.innerWidth) {
-      popoverContentRef.current.style.width =
-        'calc(' + window.innerWidth + 'px - ' + (popoverMargin + popoverMargin) + 'px)';
+    console.log(maxContentWidth);
+    if (maxContentWidth + popoverMargin + popoverMargin > window.innerWidth) {
+      popoverContentRef.current.style.width = `${window.innerWidth - (2 * popoverMargin)}px`;
     } else {
-      popoverContentRef.current.style.width = '450px';
+      popoverContentRef.current.style.width = maxContentWidth + 'px';
     }
   }
 
   // Initializing vertical position
   useEffect(() => {
-    updateStyle(getTransformStyleValue(), 'unset', '50%');
+    updateStyle(getTransformStyleValue(), 'auto', '50%');
   }, [posX]);
 
   // Update position and size of content
@@ -146,7 +180,10 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
     ) {
       return;
     }
+    // console.log('Updating pos');
+    // console.log(popoverContentRef.current.getBoundingClientRect());
     const popover = popoverRef.current;
+    // console.log(popover.getBoundingClientRect());
     const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
     const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
     const offsetLeft = popoverContentRef.current.getBoundingClientRect().left;
@@ -162,6 +199,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
     const arrowRight = window.innerWidth - arrowWidth - arrowLeft;
     const arrowOffsetTop = popoverArrowRef.current.getBoundingClientRect().top;
     const arrowOffsetBottom = window.innerHeight - arrowHeight - arrowOffsetTop;
+    const unsetValue = getInternetExplorerVersion() != -1 ? 'auto' : 'unset';
 
     resize();
     updatePositionY();
@@ -176,29 +214,29 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
     // Update horizontal position
     function updateCenterPosition() {
       if (moveFromLeft('middle')) {
-        updateStyle('none', 'unset', `calc(-${arrowLeft}px + ${popoverMargin}px)`);
+        updateStyle('none', unsetValue, `${-arrowLeft + popoverMargin}px`);
       } else if (moveFromRight('middle')) {
-        updateStyle('none', `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
+        updateStyle('none', `${-arrowRight + popoverMargin}px`, unsetValue);
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        updateStyle(getTransformStyleValue(), 'unset', '50%');
+        updateStyle(getTransformStyleValue(), unsetValue, '50%');
       }
     }
     function updateLeftPosition() {
       if (moveFromLeft('long')) {
-        updateStyle('none', 'unset', `calc(-${arrowLeft}px + ${popoverMargin}px)`);
+        updateStyle('none', unsetValue, `${-arrowLeft + popoverMargin}px`);
       } else if (moveFromRight('short')) {
-        updateStyle('none', `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
+        updateStyle('none', `${-arrowRight + popoverMargin}px`, unsetValue);
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        updateStyle(getTransformStyleValue(), 'unset', '50%');
+        updateStyle(getTransformStyleValue(), unsetValue, '50%');
       }
     }
     function updateRightPosition() {
       if (moveFromLeft('short')) {
-        updateStyle('none', 'unset', `calc(-${arrowLeft}px + ${popoverMargin}px)`);
+        updateStyle('none', unsetValue, `${-arrowLeft + popoverMargin}px`);
       } else if (moveFromRight('long')) {
-        updateStyle('none', `calc(-${arrowRight}px + ${popoverMargin}px)`, 'unset');
+        updateStyle('none', `${-arrowRight + popoverMargin}px`, unsetValue);
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        updateStyle(getTransformStyleValue(), 'unset', '50%');
+        updateStyle(getTransformStyleValue(), unsetValue, '50%');
       }
     }
     function getArrowOffsetContent(arrowOffsetContentConflictSide: string): number {
@@ -259,7 +297,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
       }
     }
 
-    toggleVisibilityClass();
+    toggleVisibilityClass(); 
     updateNewPosition();
   }, [visiblePopover, updateNewPosition]);
 
@@ -281,7 +319,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
         <div className="ewc-popover__arrow ewc-popover--hide" ref={popoverArrowRef}></div>
       </div>
 
-      <div className="ewc-popover__content ewc-popover--hide" ref={popoverContentRef}>
+      <div className={contentClasses} ref={popoverContentRef}>
         <div className="ewc-popover__close">
           {!noClose && <button
             className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
@@ -299,8 +337,8 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
             </span>
           </button>}
         </div>
-        <div className="ewc-popover__title">{title}</div>
-        <div className="ewc-popover__text">{description}</div>
+        {title && <div className="ewc-popover__title">{title}</div>}
+        <div className="ewc-popover__text">{description ? description : customContent}</div>
       </div>
     </span>
   );

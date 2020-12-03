@@ -43,6 +43,8 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
+    // this.appendChild(this.mountPoint);
+    // this.appendChild(styleTag);
 
     const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(this.mountPoint);

@@ -10,7 +10,6 @@ $sizes: (
   'xxl': 56px,
 );
 
-$popover-size: 450px;
 $popover-border-width: 1px;
 $popover-padding: 32px;
 $popover-arrow-size: 16px;
@@ -29,47 +28,23 @@ $green: #29d305;
     position: relative;
     display: flex;
     flex-direction: column;
-    // .ewc-popover__arrow {
-    //   width: 100%;
-    //   display: flex;
-    //   justify-content: center;
-    //   z-index: 100;
-    //   opacity: 1;
-    //   transition: opacity 150ms ease-in;
-    //   &::after {
-    //     content: '';
-    //     position: absolute;
-    //     bottom: 0;
-    //     z-index: 100;
-    //     transform: rotate(45deg);
-    //     border: 1px solid;
-    //     width: $popover-arrow-size;
-    //     height: $popover-arrow-size;
-    //     background: white;
-    //     border: 1px solid;
-    //   }
-
-    //   animation: fadeIn 100ms ease-in;
-
-    //   @keyframes fadeIn {
-    //     0% {
-    //       opacity: 0;
-    //     }
-    //     100% {
-    //       opacity: 1;
-    //     }
-    //   }
-    // }
   }
 
   &__content {
     display: block;
+    position: absolute;
+    width: max-content;
+    &.text-only {
+      max-width: 450px;
+    }
+    // IE specific
+    @media screen and (-ms-high-contrast: none) {
+      width: 650px;
+    }
     left: 50%;
     opacity: 1;
     z-index: 99;
     pointer-events: all;
-    position: absolute;
-    width: $popover-size;
     padding: $popover-padding;
     box-sizing: border-box;
     background-color: white;
@@ -113,10 +88,6 @@ $green: #29d305;
       visibility: hidden;
     }
   }
-  // .ewc-popover__arrow.ewc-popover--hide {
-  //   opacity: 0;
-  //   visibility: hidden;
-  // }
 
   // Modifiers for alignment of popover
   // Top aligned (Default)
@@ -125,12 +96,6 @@ $green: #29d305;
       bottom: 100%;
       margin-bottom: 23px;
     }
-    // .ewc-popover__arrow {
-    //   &::after {
-    //     top: -33px;
-    //     border-color: transparent $green $green transparent;
-    //   }
-    // }
   }
   // Bottom aligned
   &.ewc-popover--bottom {
@@ -138,23 +103,12 @@ $green: #29d305;
       top: 100%;
       margin-top: 22px;
     }
-    // .ewc-popover__arrow {
-    //   &::after {
-    //     bottom: -32px;
-    //     border-color: $green transparent transparent $green;
-    //   }
-    // }
   }
   // Center aligned (Default)
   &:not(.ewc-popover--left):not(.ewc-popover--left-50):not(.ewc-popover--right):not(.ewc-popover--right-50) {
     .ewc-popover__content {
-      transform: translateX(-50%);
+      // transform: translateX(-50%);
     }
-    // .ewc-popover__arrow {
-    //   &::after {
-    //     left: calc(50% - (#{$popover-arrow-offset} / 2) + 1px);
-    //   }
-    // }
   }
 }
 
