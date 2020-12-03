@@ -4,7 +4,7 @@ const style = `{{INSERT_STYLE_HERE}}`;
 
 export default class ElviaPopover extends ElvisComponentWrapper {
   static get observedAttributes(): any[] {
-    return ['title', 'description', 'customContent', 'posX', 'posY', 'noClose', 'width'];
+    return ['title', 'description', 'customContent', 'posX', 'posY', 'noClose'];
   }
 
   constructor() {

@@ -36,10 +36,10 @@ $green: #29d305;
     width: max-content;
     &.text-only {
       max-width: 450px;
-    }
-    // IE specific
-    @media screen and (-ms-high-contrast: none) {
-      width: 650px;
+      // IE specific
+      @media screen and (-ms-high-contrast: none) {
+        width: 450px;
+      }
     }
     left: 50%;
     opacity: 1;

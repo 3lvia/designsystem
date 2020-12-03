@@ -42,15 +42,15 @@ function App() {
 
       <h2>Popover</h2>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-        <div style={{marginTop: '16px'}}>
+        <span style={{marginTop: '16px'}}>
           <Popover
             title="React demo of popover"
             description="Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang."
             trigger={<button>Right top lang trigger</button>}
             posX="right"
           ></Popover>
-        </div>
-        <div style={{marginTop: '16px'}}>
+        </span>
+        {/* <div style={{marginTop: '16px'}}>
           <Popover
             description="Alle privatkunder må bruke BankID første gang."
             trigger={<button>Left top</button>}
@@ -65,9 +65,9 @@ function App() {
             trigger={<button>Center top</button>}
             noClose="true"
           ></Popover>
-        </div>
+        </div> */}
       </div>
-      <div style={{marginTop: '16px'}}>
+      {/* <div style={{marginTop: '16px'}}>
         <Popover
           description="Alle privatkunder må bruke BankID første gang."
           trigger={<button>Center bottom</button>}
@@ -92,7 +92,7 @@ function App() {
           posY="bottom"
           posX="left"
         ></Popover>
-      </div>
+      </div> */}
     </div >
   );
 }

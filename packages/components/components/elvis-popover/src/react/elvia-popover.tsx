@@ -10,7 +10,6 @@ export interface PopoverProps {
   posY?: string;
   trigger?: string;
   noClose?: boolean;
-  customWidth?: string;
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -24,24 +23,24 @@ const throttle = (func: any, limit: number) => {
   };
 };
 
-function getInternetExplorerVersion(){
-  let rv = -1;
-  if (navigator.appName == 'Microsoft Internet Explorer')
-  {
-    const ua = navigator.userAgent;
-    const re = new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})");
-    if (re.exec(ua) != null)
-      rv = parseFloat( RegExp.$1 );
-  }
-  else if (navigator.appName == 'Netscape')
-  {
-    const ua = navigator.userAgent;
-    const re  = new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})");
-    if (re.exec(ua) != null)
-      rv = parseFloat( RegExp.$1 );
-  }
-  return rv;
-}
+// function getInternetExplorerVersion(){
+//   let rv = -1;
+//   if (navigator.appName == 'Microsoft Internet Explorer')
+//   {
+//     const ua = navigator.userAgent;
+//     const re = new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})");
+//     if (re.exec(ua) != null)
+//       rv = parseFloat( RegExp.$1 );
+//   }
+//   else if (navigator.appName == 'Netscape')
+//   {
+//     const ua = navigator.userAgent;
+//     const re  = new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})");
+//     if (re.exec(ua) != null)
+//       rv = parseFloat( RegExp.$1 );
+//   }
+//   return rv;
+// }
 
 // Return composedPath if Firefox, Polyfill path if IE11
 const getEventPath = (e: any) => {
@@ -63,6 +62,7 @@ const getEventPath = (e: any) => {
 
 const Popover: React.FC<PopoverProps> = ({ title, description, customContent, posX, posY, trigger, noClose }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
+  const [maxContentWidth, setMaxContentWidth] = useState(0);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
   const popoverSlotTriggerRef = useRef<HTMLSlotElement>(null);
@@ -75,21 +75,27 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
     description && !customContent ? 'text-only' : '', 
     'ewc-popover__content', 
   ].join(' ');
-  let maxContentWidth: number | null;
 
-  // Closing and opening popover
+  // Setting popover state
   function togglePopover() {
     setPopoverVisibility((prevState) => !prevState);
+  }
+
+  // Setting max content width
+  function updateMaxContentWidth(maxContentWidth: number) {
+    setMaxContentWidth(maxContentWidth);
   }
 
   // Running on first render only (on mount)
   useEffect(() => {
     // Defining max content width for popover
-    maxContentWidth = popoverContentRef.current && popoverContentRef.current.getBoundingClientRect().width;
-    // setTimeout(() => {
-    //   maxContentWidth = popoverContentRef.current && popoverContentRef.current.getBoundingClientRect().width;
-    //   console.log(maxContentWidth);
-    // }, 1000);
+    setTimeout(() => {
+      if(!popoverContentRef.current) {
+        return;
+      }
+      const maxContent = popoverContentRef.current.getBoundingClientRect().width;
+      updateMaxContentWidth(maxContent);
+    }, 100);
 
     // Adding font
     const link = document.createElement('link');
@@ -133,6 +139,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
     };
   }, []);
 
+
   // Positioning functions
   const getTransformStyleValue = useCallback(() => {
     if (posX === 'left') {
@@ -153,11 +160,15 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
   }
 
   function resize() {
-    console.log(maxContentWidth);
-    if (!popoverContentRef.current || !maxContentWidth) {
+    console.log('resizing: ' + maxContentWidth);
+    if (!popoverContentRef.current) {
+      console.log('popovercontent ref is not');
       return;
     }
-    console.log(maxContentWidth);
+    if (!maxContentWidth) {
+      console.log('maxcontent is not')
+      return;
+    }
     if (maxContentWidth + popoverMargin + popoverMargin > window.innerWidth) {
       popoverContentRef.current.style.width = `${window.innerWidth - (2 * popoverMargin)}px`;
     } else {
@@ -180,10 +191,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
     ) {
       return;
     }
-    // console.log('Updating pos');
-    // console.log(popoverContentRef.current.getBoundingClientRect());
     const popover = popoverRef.current;
-    // console.log(popover.getBoundingClientRect());
     const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
     const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
     const offsetLeft = popoverContentRef.current.getBoundingClientRect().left;
@@ -199,7 +207,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
     const arrowRight = window.innerWidth - arrowWidth - arrowLeft;
     const arrowOffsetTop = popoverArrowRef.current.getBoundingClientRect().top;
     const arrowOffsetBottom = window.innerHeight - arrowHeight - arrowOffsetTop;
-    const unsetValue = getInternetExplorerVersion() != -1 ? 'auto' : 'unset';
+    // const unsetValue = getInternetExplorerVersion() != -1 ? 'auto' : 'unset';
 
     resize();
     updatePositionY();
@@ -214,29 +222,29 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
     // Update horizontal position
     function updateCenterPosition() {
       if (moveFromLeft('middle')) {
-        updateStyle('none', unsetValue, `${-arrowLeft + popoverMargin}px`);
+        updateStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
       } else if (moveFromRight('middle')) {
-        updateStyle('none', `${-arrowRight + popoverMargin}px`, unsetValue);
+        updateStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        updateStyle(getTransformStyleValue(), unsetValue, '50%');
+        updateStyle(getTransformStyleValue(), 'auto', '50%');
       }
     }
     function updateLeftPosition() {
       if (moveFromLeft('long')) {
-        updateStyle('none', unsetValue, `${-arrowLeft + popoverMargin}px`);
+        updateStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
       } else if (moveFromRight('short')) {
-        updateStyle('none', `${-arrowRight + popoverMargin}px`, unsetValue);
+        updateStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        updateStyle(getTransformStyleValue(), unsetValue, '50%');
+        updateStyle(getTransformStyleValue(), 'auto', '50%');
       }
     }
     function updateRightPosition() {
       if (moveFromLeft('short')) {
-        updateStyle('none', unsetValue, `${-arrowLeft + popoverMargin}px`);
+        updateStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
       } else if (moveFromRight('long')) {
-        updateStyle('none', `${-arrowRight + popoverMargin}px`, unsetValue);
+        updateStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        updateStyle(getTransformStyleValue(), unsetValue, '50%');
+        updateStyle(getTransformStyleValue(), 'auto', '50%');
       }
     }
     function getArrowOffsetContent(arrowOffsetContentConflictSide: string): number {
@@ -287,12 +295,11 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
 
   // Toggle visibility
   useEffect(() => {
+    // console.log('hello ' + popoverContentRef.current!.clientWidth );
     function toggleVisibilityClass() {
-      if (popoverArrowRef.current && popoverContentRef.current && visiblePopover) {
-        popoverArrowRef.current.classList.remove('ewc-popover--hide');
+      if (popoverContentRef.current && visiblePopover) {
         popoverContentRef.current.classList.remove('ewc-popover--hide');
-      } else if (popoverArrowRef.current && popoverContentRef.current) {
-        popoverArrowRef.current.classList.add('ewc-popover--hide');
+      } else if (popoverContentRef.current) {
         popoverContentRef.current.classList.add('ewc-popover--hide');
       }
     }
