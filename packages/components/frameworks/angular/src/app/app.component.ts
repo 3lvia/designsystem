@@ -10,9 +10,10 @@ export class AppComponent implements OnInit {
   checkBoxVal = true;
 
   @ViewChild('progressbarExamp', { static: true }) progressbar: any;
-  progressValue = 10;
+  progressValue = 90;
   indeterminate = false;
   progressError = false;
+
 
   ngOnInit(): void {
     // Listen checkbox changes
@@ -25,10 +26,8 @@ export class AppComponent implements OnInit {
     // Listen progressbar changes
     this.progressbar.nativeElement.addEventListener('props-changed', (event: any) => {
       this.progressValue = event.detail.rangeValue;
-      this.indeterminate = event.detail.indeterminate;
-      this.progressError = event.detail.error;
     });
-    this.progressbar.nativeElement.setProps({ indeterminate: true });
+    this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue });
     this.progressbar.nativeElement.getProps();
   }
 }

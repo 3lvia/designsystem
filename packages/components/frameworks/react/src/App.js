@@ -117,7 +117,7 @@ function App() {
 
       <h2>Progressbar</h2>
 
-      <Progressbar ref={progressRef} rangeValue={progressValue} error={false} indeterminate={false}></Progressbar>
+      <Progressbar rangeValue={progressValue} ></Progressbar>
 
       <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
         <button onClick={increaseProgress}>Increase</button>
