@@ -9,14 +9,14 @@
     ]
   },
   "scripts": {
-    "build:web": "npm install && cd packages/elvis && npm install && cd ../web && npm install && npm run build:production",
+    "build:web": "yarn && cd ../web && yarn run build:production",
     "commitizen-unix": "exec < /dev/tty && git cz --hook",
     "commitizen-windows": "winpty git cz --hook || true",
     "lint-elvis": "npx prettier --write 'packages/elvis/**/*.js'",
     "lint-doc": "npx prettier --write 'packages/web/src/**/*.ts'",
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
-    "lint-all": "npm run lint-elvis && npm run lint-doc && npm run eslint",
-    "percy": "cd packages/elvis; npm run percyTest"
+    "lint-all": "yarn run lint-elvis && yarn run lint-doc && yarn run eslint",
+    "percy": "cd packages/elvis; yarn run percyTest"
   },
   "lint-staged": {
     "packages/elvis/**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
