@@ -50,7 +50,7 @@ function App() {
             posX="right"
           ></Popover>
         </span>
-        {/* <div style={{marginTop: '16px'}}>
+        <div style={{marginTop: '16px'}}>
           <Popover
             description="Alle privatkunder må bruke BankID første gang."
             trigger={<button>Left top</button>}
@@ -65,9 +65,9 @@ function App() {
             trigger={<button>Center top</button>}
             noClose="true"
           ></Popover>
-        </div> */}
+        </div>
       </div>
-      {/* <div style={{marginTop: '16px'}}>
+      <div style={{marginTop: '16px'}}>
         <Popover
           description="Alle privatkunder må bruke BankID første gang."
           trigger={<button>Center bottom</button>}
@@ -92,7 +92,7 @@ function App() {
           posY="bottom"
           posX="left"
         ></Popover>
-      </div> */}
+      </div>
     </div >
   );
 }

@@ -23,25 +23,6 @@ const throttle = (func: any, limit: number) => {
   };
 };
 
-// function getInternetExplorerVersion(){
-//   let rv = -1;
-//   if (navigator.appName == 'Microsoft Internet Explorer')
-//   {
-//     const ua = navigator.userAgent;
-//     const re = new RegExp("MSIE ([0-9]{1,}[\\.0-9]{0,})");
-//     if (re.exec(ua) != null)
-//       rv = parseFloat( RegExp.$1 );
-//   }
-//   else if (navigator.appName == 'Netscape')
-//   {
-//     const ua = navigator.userAgent;
-//     const re  = new RegExp("Trident/.*rv:([0-9]{1,}[\\.0-9]{0,})");
-//     if (re.exec(ua) != null)
-//       rv = parseFloat( RegExp.$1 );
-//   }
-//   return rv;
-// }
-
 // Return composedPath if Firefox, Polyfill path if IE11
 const getEventPath = (e: any) => {
   const polyfill = () => {
@@ -62,7 +43,7 @@ const getEventPath = (e: any) => {
 
 const Popover: React.FC<PopoverProps> = ({ title, description, customContent, posX, posY, trigger, noClose }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
-  const [maxContentWidth, setMaxContentWidth] = useState(0);
+  const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
   const popoverSlotTriggerRef = useRef<HTMLSlotElement>(null);
@@ -70,7 +51,6 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverCloseRef = useRef<HTMLButtonElement>(null);
   const popoverMargin = 20;
-  const popoverOffsetArrow = 40;
   const contentClasses = [
     description && !customContent ? 'text-only' : '', 
     'ewc-popover__content', 
@@ -81,21 +61,15 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
     setPopoverVisibility((prevState) => !prevState);
   }
 
-  // Setting max content width
-  function updateMaxContentWidth(maxContentWidth: number) {
-    setMaxContentWidth(maxContentWidth);
-  }
-
   // Running on first render only (on mount)
   useEffect(() => {
     // Defining max content width for popover
-    setTimeout(() => {
+    const maxContentTimeout = setTimeout(() => {
       if(!popoverContentRef.current) {
         return;
       }
-      const maxContent = popoverContentRef.current.getBoundingClientRect().width;
-      updateMaxContentWidth(maxContent);
-    }, 100);
+      maxContentWidth.current = popoverContentRef.current.getBoundingClientRect().width;
+    }, 0);
 
     // Adding font
     const link = document.createElement('link');
@@ -136,21 +110,23 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
     return () => {
       document.body.removeEventListener('keydown', toggleOutline);
       document.removeEventListener('click', handleClickOutside);
+      clearTimeout(maxContentTimeout);
     };
   }, []);
 
-
-  // Positioning functions
-  const getTransformStyleValue = useCallback(() => {
+  // Initializing vertical position
+  const setInitialPositions = useCallback(() => {
     if (posX === 'left') {
-      return 'translateX(-91%)';
+      updateStyle('none', '0', 'auto');
     } else if (posX === 'right') {
-      return 'translateX(-9%)';
+      updateStyle('none', 'auto', '0');
+    } else {
+      updateStyle('translateX(-50%)', 'auto', '50%');
     }
-    return 'translateX(-50%)';
   }, [posX]);
 
   function updateStyle(transform: string, right: string, left: string) {
+    // console.log(transform + ' ' + right + ' ' + left);
     if (!popoverContentRef.current) {
       return;
     }
@@ -160,26 +136,19 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
   }
 
   function resize() {
-    console.log('resizing: ' + maxContentWidth);
-    if (!popoverContentRef.current) {
-      console.log('popovercontent ref is not');
+    // console.log('resizing: ' + maxContentWidth.current);
+    if (!popoverContentRef.current || !maxContentWidth) {
       return;
     }
-    if (!maxContentWidth) {
-      console.log('maxcontent is not')
-      return;
-    }
-    if (maxContentWidth + popoverMargin + popoverMargin > window.innerWidth) {
+    // console.log(window.innerWidth);
+    // console.log(popoverMargin);
+    if (maxContentWidth.current + popoverMargin + popoverMargin > window.innerWidth) {
+      // console.log('larger than window');
       popoverContentRef.current.style.width = `${window.innerWidth - (2 * popoverMargin)}px`;
     } else {
       popoverContentRef.current.style.width = maxContentWidth + 'px';
     }
   }
-
-  // Initializing vertical position
-  useEffect(() => {
-    updateStyle(getTransformStyleValue(), 'auto', '50%');
-  }, [posX]);
 
   // Update position and size of content
   const updateNewPosition = useCallback(() => {
@@ -207,7 +176,6 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
     const arrowRight = window.innerWidth - arrowWidth - arrowLeft;
     const arrowOffsetTop = popoverArrowRef.current.getBoundingClientRect().top;
     const arrowOffsetBottom = window.innerHeight - arrowHeight - arrowOffsetTop;
-    // const unsetValue = getInternetExplorerVersion() != -1 ? 'auto' : 'unset';
 
     resize();
     updatePositionY();
@@ -226,47 +194,49 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
       } else if (moveFromRight('middle')) {
         updateStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        updateStyle(getTransformStyleValue(), 'auto', '50%');
-      }
+        setInitialPositions();
+      } 
     }
     function updateLeftPosition() {
-      if (moveFromLeft('long')) {
+      if (moveFromLeft('nonTriggerSide')) {
         updateStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
-      } else if (moveFromRight('short')) {
+      } else if (moveFromRight('triggerSide')) {
         updateStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        updateStyle(getTransformStyleValue(), 'auto', '50%');
+        setInitialPositions();
       }
     }
     function updateRightPosition() {
-      if (moveFromLeft('short')) {
+      if (moveFromLeft('triggerSide')) {
         updateStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
-      } else if (moveFromRight('long')) {
+      } else if (moveFromRight('nonTriggerSide')) {
         updateStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        updateStyle(getTransformStyleValue(), 'auto', '50%');
+        setInitialPositions();
       }
     }
-    function getArrowOffsetContent(arrowOffsetContentConflictSide: string): number {
-      if (arrowOffsetContentConflictSide === 'long') {
-        return contentWidth - popoverOffsetArrow;
-      } else if (arrowOffsetContentConflictSide === 'short') {
-        return popoverOffsetArrow;
+    function getArrowOffset(conflictSide: string): number {
+      if (conflictSide === 'nonTriggerSide') {
+        return contentWidth;
+      } else if (conflictSide === 'triggerSide') {
+        return 0;
       }
       return contentWidth / 2;
     }
-    function moveFromLeft(arrowOffsetContentConflictSide: string): boolean {
+    function moveFromLeft(conflictSide: string): boolean {
       const noRoomLeft = offsetLeft <= popoverMargin;
+      // Extra check width arrowOffset because first check is not always working
       const noRoomLeftInsurance =
-        triggerOffsetLeft + triggerWidth / 2 <=
-        popoverMargin + getArrowOffsetContent(arrowOffsetContentConflictSide);
+        triggerOffsetLeft + triggerWidth / 2 + 40 <=
+        popoverMargin + getArrowOffset(conflictSide);
       return noRoomLeft || noRoomLeftInsurance;
     }
-    function moveFromRight(arrowOffsetContentConflictSide: string): boolean {
+    function moveFromRight(conflictSide: string): boolean {
       const noRoomRight = offsetRight <= popoverMargin;
+      // Extra check width arrowOffset because first check is not always working
       const noRoomLeftInsurance =
-        triggerOffsetRight + triggerWidth / 2 <=
-        popoverMargin + getArrowOffsetContent(arrowOffsetContentConflictSide);
+        triggerOffsetRight + triggerWidth / 2 + 40  <=
+        popoverMargin + getArrowOffset(conflictSide);
       return noRoomRight || noRoomLeftInsurance;
     }
 
@@ -291,7 +261,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
       const isTop = !posY;
       return (noRoomBottom && isRoomTop) || (isTop && isRoomTopInsurance);
     }
-  }, [posY, posX, getTransformStyleValue]);
+  }, [posY, posX]);
 
   // Toggle visibility
   useEffect(() => {
