@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@craco/craco": "^5.8.0",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-checkbox": "*",
     "@material-ui/core": "^4.11.0",
@@ -15,9 +14,9 @@
     "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

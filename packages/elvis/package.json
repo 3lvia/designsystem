@@ -1,7 +1,7 @@
 {
   "name": "@elvia/elvis",
   "version": "4.2.3",
-  "description": "WIP",
+  "description": "Elvia design system",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
