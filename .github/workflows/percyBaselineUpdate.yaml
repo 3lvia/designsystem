@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+    paths:
+      - 'packages/elvis/**'
 jobs:
   percyTest:
     runs-on: ubuntu-latest
