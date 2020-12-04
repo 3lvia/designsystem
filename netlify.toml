@@ -1,4 +1,4 @@
 [build]
 base = ""
-command = "npm run build:web"
+command = "yarn run build:web"
 publish = "packages/web/dist/elvia-designsystem"
