@@ -29,6 +29,9 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
   box-sizing: border-box;
   cursor: pointer;
   margin-bottom: 12px;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 
   // IE specific
   @media screen and (-ms-high-contrast: none) {
@@ -49,7 +52,6 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
     .ewc-checkbox__label {
       font-family: 'Red Hat Text', sans-serif;
       font-size: 14px;
-      // line-height: 22px;
       font-weight: 400;
       font-style: unset;
       letter-spacing: unset;

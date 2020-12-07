@@ -28,6 +28,9 @@ $green: #29d305;
     position: relative;
     display: flex;
     flex-direction: column;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
   }
 
   &__content {

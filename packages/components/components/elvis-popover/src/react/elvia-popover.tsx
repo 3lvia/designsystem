@@ -136,7 +136,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
   }
 
   function resize() {
-    // console.log('resizing: ' + maxContentWidth.current);
+    console.log('resizing: ' + maxContentWidth.current);
     if (!popoverContentRef.current || !maxContentWidth) {
       return;
     }
@@ -176,6 +176,10 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
     const arrowRight = window.innerWidth - arrowWidth - arrowLeft;
     const arrowOffsetTop = popoverArrowRef.current.getBoundingClientRect().top;
     const arrowOffsetBottom = window.innerHeight - arrowHeight - arrowOffsetTop;
+    console.log('updating position: ' + window.innerWidth);
+    console.log('updating position: ' + contentWidth);
+    console.log('updating position: ' + offsetLeft);
+    console.log('updating position: ' + triggerOffsetLeft);
 
     resize();
     updatePositionY();
@@ -297,25 +301,26 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
       </div>
 
       <div className={contentClasses} ref={popoverContentRef}>
-        <div className="ewc-popover__close">
-          {!noClose && <button
-            className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
-            onClick={togglePopover}
-            ref={popoverCloseRef}
-          >
-            <span className="ewc-btn__icon">
-              <i
-                className="ewc-icon ewc-icon--close-bold ewc-icon--xs"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
-                }}
-                e-id="e-icone-icon--close-bold"
-              ></i>
-            </span>
-          </button>}
-        </div>
+        {!noClose && 
+          <div className="ewc-popover__close">
+            <button
+              className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
+              onClick={togglePopover}
+              ref={popoverCloseRef}
+            >
+              <span className="ewc-btn__icon">
+                <i
+                  className="ewc-icon ewc-icon--close-bold ewc-icon--xs"
+                  style={{ backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")` }}
+                  e-id="e-icone-icon--close-bold"
+                ></i>
+              </span>
+            </button>
+          </div>
+        }
         {title && <div className="ewc-popover__title">{title}</div>}
         <div className="ewc-popover__text">{description ? description : customContent}</div>
+        {!trigger && <slot name="customContent" className="ewc-popover__text"></slot>}
       </div>
     </span>
   );
