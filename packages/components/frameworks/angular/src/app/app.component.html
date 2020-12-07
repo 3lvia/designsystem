@@ -73,6 +73,10 @@
   <h2>Progressbar</h2>
   <div>
     <elvis-progressbar #progressbarExamp1></elvis-progressbar>
+    <div>
+      <button (click)="progressExamp()">Progress Simulation</button>
+      <button (click)="resetProgress()">Reset Simulation</button>
+    </div>
   </div>
   <h2>Progressbar Indeterminite</h2>
   <div>
@@ -82,10 +86,4 @@
   <div>
     <elvis-progressbar #progressbarExamp3></elvis-progressbar>
   </div>
-
-  <!-- <div>
-    <button (click)="IndeterminateLoading()">Indeterminate loading</button>
-    <button (click)="updateErrorState()">WARNING ERROR</button>
-    <button (click)="increaseProgress()">increaseProgress</button>
-  </div> -->
 </div>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.scss';
 
 export interface ProgressbarProps {
@@ -10,7 +10,7 @@ export interface ProgressbarProps {
   webcomponent?: any;
 }
 // validate if progressrange is between 0 & 100
-const isValid = (value: number) => value >= 0 && value <= 100;
+const isValid = (value: number) => value > -1 && value <= 100;
 
 const Progressbar: React.FC<ProgressbarProps> = (props) => {
   // inital state
@@ -22,10 +22,11 @@ const Progressbar: React.FC<ProgressbarProps> = (props) => {
 
   const setClasses = [
     // tslint:disable-next-line:max-line-length
-    !isIndeterminate || isIndeterminate === undefined || isIndeterminate === null  && !isError || isError === undefined || isError === undefined  ? 'ewc-progress--linear__range' : '',
-    isIndeterminate === true && isIndeterminate !== undefined && isIndeterminate !== null &&  !isError ? 'ewc-progress--linear__indeterminate' : '',
-    isError ? 'ewc-progress--linear__error' : '' ,
-    isIndeterminate && isError ? 'ewc-progress--linear__error' : '',
+    // !props.indeterminate || props.indeterminate === undefined || props.indeterminate === null  && !props.error || props.error === undefined || props.error === null  ? 'ewc-progress--linear__range' : '',
+    !props.indeterminate && !props.error ? 'ewc-progress--linear__range' : '',
+    props.indeterminate === true && props.indeterminate !== undefined && props.indeterminate !== null &&  !props.error ? 'ewc-progress--linear__indeterminate' : '',
+    props.error && !props.indeterminate  ? 'ewc-progress--linear__error' : '' ,
+    props.indeterminate && props.error ? 'ewc-progress--linear__error' : '',
   ];
   const classes = [...setClasses].join('');
   const didMountRef = useRef(false);
@@ -39,22 +40,32 @@ const Progressbar: React.FC<ProgressbarProps> = (props) => {
     document.head.appendChild(link);
   }, []);
 
+
+
+
+  // not used
   const updateRangeValue = (progressInput: number | undefined) => {
     if (progressInput !== undefined) {
       if (!isValid(progressInput)) {
         console.error('<elvis-progressbar>: inputRange value ' + props.rangeValue + ' is invalid! Must be between 0 and 100.');
       } else {
-        setProgress(progressInput);
+        if (progressInput === null) {
+          setProgress(0);
+        } else {
+          setProgress(progressInput);
+        }
       }
     }
   };
 
-  const updateErrorState = () => {
-    if (!props.error) {
+  const updateErrorState = (errorInput: boolean | undefined) => {
+
+    if (errorInput && errorInput !== isError) {
+      setErrorState(true);
+    } else if (!errorInput && errorInput !== isError){
       setErrorState(false);
     } else {
-      setErrorState(true);
-      setIndeterminateState(false);
+      return;
     }
   };
 
@@ -69,16 +80,21 @@ const Progressbar: React.FC<ProgressbarProps> = (props) => {
   };
 
   useEffect(() => {
-    if (didMountRef.current && props.rangeValue !== percentRange) {
-        updateRangeValue(props.rangeValue);
-    } else if (didMountRef.current && props.indeterminate !== isIndeterminate){
-      updateIsIndeterminateState(props.indeterminate);
-
-      // få inn error her også
+    if (didMountRef.current) {
+      if (props.error) {
+        updateErrorState(props.error);
+      } else {
+        if (props.indeterminate) {
+          updateIsIndeterminateState(props.indeterminate);
+        } else {
+          updateRangeValue(props.rangeValue);
+        }
+      }
     } else {
-     didMountRef.current = true;
+      didMountRef.current = true;
     }
-  }, [props.rangeValue, props.indeterminate] );
+
+  }, [props.rangeValue, props.indeterminate, props.error] );
 
 
 
@@ -97,8 +113,8 @@ const Progressbar: React.FC<ProgressbarProps> = (props) => {
         didMountRef.current = true;
       } else {
         props.changeHandler(percentRange),
-        props.changeHandler(isError),
-        props.changeHandler(isIndeterminate);
+        props.changeHandler(props.error),
+        props.changeHandler(props.indeterminate);
       }
     }
   }
@@ -107,8 +123,8 @@ const Progressbar: React.FC<ProgressbarProps> = (props) => {
     if (props.webcomponent) {
       // True -> Prevents rerender
       props.webcomponent.setProps({ rangeValue : percentRange }),
-      props.webcomponent.setProps({ error : isError }),
-      props.webcomponent.setProps({ indeterminate : isIndeterminate });
+      props.webcomponent.setProps({ error : props.error }),
+      props.webcomponent.setProps({ indeterminate : props.indeterminate });
     }
   }
 

@@ -12,27 +12,36 @@ export class AppComponent implements OnInit {
   @ViewChild('progressbarExamp1', { static: true }) progressbar: any;
   @ViewChild('progressbarExamp2', { static: true }) progressbarIndeterminite: any;
   @ViewChild('progressbarExamp3', { static: true }) progressbarError: any;
-  progressValue = 19;
+  progressValue = 0;
   indeterminate = false;
   progressError = false;
 
+  timer;
 
-  increaseProgress() {
-    this.progressValue = this.progressValue + 10;
+  progressExamp = () => {
+    if (this.progressValue < 100) {
+      this.progressValue = this.progressValue + 10;
+      this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue });
+      this.timer = setTimeout(this.progressExamp, 500);
+    } else {
+      return;
+    }
+  }
+
+  resetProgress() {
+    clearTimeout(this.timer);
+    this.progressValue = 0;
+    console.log('hello');
     this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue });
     console.log(this.progressbar.nativeElement.getProps());
   }
 
-  IndeterminateLoading() {
-    this.indeterminate = !this.indeterminate;
-    this.progressbar.nativeElement.setProps({ indeterminate: this.indeterminate });
-    console.log(this.progressbar.nativeElement.getProps());
-  }
-
-  updateErrorState() {
-    this.progressError = !this.progressError;
-    this.progressbar.nativeElement.setProps({ error: this.progressError });
-    console.log(this.progressbar.nativeElement.getProps());
+  increaseProgress() {
+    if (this.progressValue < 100) {
+      this.progressValue = this.progressValue + 10;
+      this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue });
+    } else {
+    }
   }
 
   ngOnInit(): void {
@@ -49,18 +58,17 @@ export class AppComponent implements OnInit {
     });
     // tslint:disable-next-line:max-line-length
     this.progressbarIndeterminite.nativeElement.addEventListener('props-changed', (event: any) => {
-      this.progressValue = event.detail.rangeValue;
+      this.indeterminate = event.detail.indeterminate;
     });
     this.progressbarIndeterminite.nativeElement.addEventListener('props-changed', (event: any) => {
-      this.progressValue = event.detail.rangeValue;
+      this.progressError = event.detail.error;
     });
 
-    this.progressbar.nativeElement.setProps({ rangeValue: 50, });
-    this.progressbarIndeterminite.nativeElement.getProps();
+    // this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue, });
     this.progressbarIndeterminite.nativeElement.setProps({ indeterminate: true, });
-    this.progressbarIndeterminite.nativeElement.getProps();
     this.progressbarError.nativeElement.setProps({ error: true, });
-    this.progressbarIndeterminite.nativeElement.getProps();
+
+
 
   }
 }
