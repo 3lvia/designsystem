@@ -13,7 +13,6 @@ function App() {
     setTrackedState(!trackedState);
   }
 
-  const progressRef = useRef();
   const [progressValue, setProgressValue] = useState(0)
 
   function increaseProgress() {
@@ -117,7 +116,7 @@ function App() {
 
       <h2>Progressbar</h2>
 
-      <Progressbar rangeValue={progressValue} ></Progressbar>
+      <Progressbar rangeValue={progressValue} error={false} indeterminate={false}></Progressbar>
 
       <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
         <button onClick={increaseProgress}>Increase</button>
