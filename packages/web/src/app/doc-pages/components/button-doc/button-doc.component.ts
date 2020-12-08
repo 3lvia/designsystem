@@ -230,7 +230,7 @@ export class ButtonDocComponent {
     </button>
   </div>
 
-  <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
+  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8">Circled</div>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-8">
       <span class="e-btn__icon">
@@ -249,6 +249,25 @@ export class ButtonDocComponent {
         <i class="e-icon e-icon--information_circle"></i>
         <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
       </span>
+    </button>
+  </div>
+
+  <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
+    <div class="e-text-label e-mb-8">Loading</div>
+    <button class="e-btn e-btn--icon e-btn--lg e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--sm e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
   </div>
 </div>
@@ -299,7 +318,7 @@ export class ButtonDocComponent {
     </button>
   </div>
 
-  <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
+  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8 e-text-white">Circled</div>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-btn--lg e-m-8">
       <span class="e-btn__icon">
@@ -320,6 +339,26 @@ export class ButtonDocComponent {
       </span>
     </button>
   </div>
+
+    <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
+    <div class="e-text-label e-mb-8">Loading</div>
+    <button class="e-btn e-btn--icon e-btn--lg e-btn--inverted e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--inverted e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--sm e-btn--inverted e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
 </div>
 `;
 

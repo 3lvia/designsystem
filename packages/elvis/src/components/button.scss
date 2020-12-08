@@ -31,6 +31,10 @@ $button-sm-padding: $button-sm-padding-y $button-sm-padding-x;
 $button-sm-font-size: 14px;
 $button-sm-line-height: 16px;
 
+$loading-dot-lg: 10px;
+$loading-dot-md: 8px;
+$loading-dot-sm: 6px;
+
 .e-btn {
   // .e-btn--primary .e-btn--md is the default for any e-button
   @extend .e-btn--primary;
@@ -78,6 +82,12 @@ $button-sm-line-height: 16px;
         @include icons.icon-size('sm');
       }
     }
+    &.e-btn--loading {
+      span {
+        width: $loading-dot-lg;
+        height: $loading-dot-lg;
+      }
+    }
   }
   &.e-btn--md {
     font-size: $button-md-font-size;
@@ -98,6 +108,12 @@ $button-sm-line-height: 16px;
       @include icons.icon-size('xs');
       i {
         @include icons.icon-size('xs');
+      }
+    }
+    &.e-btn--loading {
+      span {
+        width: $loading-dot-sm;
+        height: $loading-dot-sm;
       }
     }
   }
@@ -313,8 +329,8 @@ $button-sm-line-height: 16px;
       vertical-align: middle;
 
       span {
-        width: 8px;
-        height: 8px;
+        width: $loading-dot-md;
+        height: $loading-dot-md;
         background-color: colors.color('black');
         border-radius: 100%;
         display: inline-block;
@@ -375,6 +391,20 @@ $button-sm-line-height: 16px;
 
     &.e-btn--lg {
       padding-bottom: 1.5px;
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-lg;
+          height: $loading-dot-lg;
+        }
+      }
+    }
+    &.e-btn--sm {
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-sm;
+          height: $loading-dot-sm;
+        }
+      }
     }
 
     &.e-btn---disabled,
@@ -456,6 +486,31 @@ $button-sm-line-height: 16px;
     width: 40px;
     height: 40px;
 
+    &.e-btn--loading {
+      display: inline-block;
+      padding: 0px;
+      vertical-align: middle;
+
+      span {
+        width: $loading-dot-md;
+        height: $loading-dot-md;
+        background-color: colors.color('black');
+        border-radius: 100%;
+        display: inline-block;
+        -webkit-animation: sk-bouncedelay 1s infinite ease-in-out both;
+        animation: sk-bouncedelay 1s infinite ease-in-out both;
+      }
+
+      span:nth-of-type(1) {
+        -webkit-animation-delay: -0.32s;
+        animation-delay: -0.32s;
+      }
+      span:nth-of-type(2) {
+        -webkit-animation-delay: -0.16s;
+        animation-delay: -0.16s;
+      }
+    }
+
     .e-btn__icon {
       width: 24px;
       height: 24px;
@@ -481,6 +536,12 @@ $button-sm-line-height: 16px;
           @include icons.icon-size('md');
         }
       }
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-lg;
+          height: $loading-dot-lg;
+        }
+      }
     }
 
     &.e-btn--sm {
@@ -491,6 +552,12 @@ $button-sm-line-height: 16px;
         height: 16px;
         i {
           @include icons.icon-size('xs');
+        }
+      }
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-sm;
+          height: $loading-dot-sm;
         }
       }
     }
@@ -528,6 +595,11 @@ $button-sm-line-height: 16px;
               visibility: hidden !important;
             }
           }
+        }
+      }
+      &.e-btn--loading {
+        span {
+          background-color: colors.color('white');
         }
       }
     }
@@ -682,8 +754,8 @@ $button-sm-line-height: 16px;
     display: inline-block;
 
     span {
-      width: 8px;
-      height: 8px;
+      width: $loading-dot-md;
+      height: $loading-dot-md;
       background-color: colors.color('white');
 
       border-radius: 100%;

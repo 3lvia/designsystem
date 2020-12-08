@@ -1423,6 +1423,11 @@ input:focus {
   height: 24px;
 }
 
+.e-btn.e-btn--lg.e-btn--loading span {
+  width: 10px;
+  height: 10px;
+}
+
 .e-btn.e-btn--md, .e-btn {
   font-size: 16px;
   line-height: 20px;
@@ -1479,6 +1484,11 @@ input:focus {
 .e-btn.e-btn--sm .e-btn__icon i i {
   width: 16px;
   height: 16px;
+}
+
+.e-btn.e-btn--sm.e-btn--loading span {
+  width: 6px;
+  height: 6px;
 }
 
 .e-btn.e-btn--primary, .e-btn {
@@ -1743,6 +1753,16 @@ input:focus {
   padding-bottom: 1.5px;
 }
 
+.e-btn.e-btn--tertiary.e-btn--lg.e-btn--loading span {
+  width: 10px;
+  height: 10px;
+}
+
+.e-btn.e-btn--tertiary.e-btn--sm.e-btn--loading span {
+  width: 6px;
+  height: 6px;
+}
+
 .e-btn.e-btn--tertiary.e-btn---disabled, .e-btn.e-btn--tertiary:disabled {
   color: #bdbdbd;
   cursor: not-allowed;
@@ -1818,6 +1838,32 @@ input:focus {
   height: 40px;
 }
 
+.e-btn.e-btn--icon.e-btn--loading {
+  display: inline-block;
+  padding: 0px;
+  vertical-align: middle;
+}
+
+.e-btn.e-btn--icon.e-btn--loading span {
+  width: 8px;
+  height: 8px;
+  background-color: #000;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1s infinite ease-in-out both;
+  animation: sk-bouncedelay 1s infinite ease-in-out both;
+}
+
+.e-btn.e-btn--icon.e-btn--loading span:nth-of-type(1) {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.e-btn.e-btn--icon.e-btn--loading span:nth-of-type(2) {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
 .e-btn.e-btn--icon .e-btn__icon {
   width: 24px;
   height: 24px;
@@ -1862,6 +1908,11 @@ input:focus {
   height: 32px;
 }
 
+.e-btn.e-btn--icon.e-btn--lg.e-btn--loading span {
+  width: 10px;
+  height: 10px;
+}
+
 .e-btn.e-btn--icon.e-btn--sm {
   width: 32px;
   height: 32px;
@@ -1881,6 +1932,11 @@ input:focus {
 .e-btn.e-btn--icon.e-btn--sm .e-btn__icon i i {
   width: 16px;
   height: 16px;
+}
+
+.e-btn.e-btn--icon.e-btn--sm.e-btn--loading span {
+  width: 6px;
+  height: 6px;
 }
 
 .e-btn.e-btn--icon.e-btn--inverted .e-btn__icon i[class*=inverted],
@@ -1912,6 +1968,10 @@ input:focus {
     visibility: hidden !important;
   }
 }
+.e-btn.e-btn--icon.e-btn--inverted.e-btn--loading span {
+  background-color: #fff;
+}
+
 .e-btn.e-btn--icon.e-btn--circled {
   position: relative;
   padding: 0;
