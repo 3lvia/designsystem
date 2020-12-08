@@ -6,7 +6,8 @@
       "packages/*",
       "packages/components/components/*",
       "packages/components/frameworks/*"
-    ]
+    ],
+    "nohoist": ["**/bootstrap", "**/bootstrap/"]
   },
   "scripts": {
     "build:web": "yarn && cd packages/web && yarn run build:production",
