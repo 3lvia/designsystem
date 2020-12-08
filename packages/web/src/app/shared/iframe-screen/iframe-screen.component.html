@@ -20,7 +20,7 @@
     <div class="tablet__time">{{ now | date: 'hh:mm' }}</div>
     <iframe #iframeTablet src="about:blank"></iframe>
   </div>
-  <div *ngIf="screenSize === 'phone'" class="phone">
+  <div *ngIf="screenSize === 'phone'" class="phone" [ngClass]="{ 'no-padding-x': noPaddingX }">
     <div class="phone__elvia">Elvia</div>
     <div class="phone__notch">
       <div class="speaker"></div>

@@ -13,6 +13,6 @@
 <circle r="4" transform="matrix(1 0 0 -1 20 10)" fill="#929292"/>
 <circle r="4" transform="matrix(1 0 0 -1 33 10)" fill="#929292"/>
 <circle r="4" transform="matrix(1 0 0 -1 46 10)" fill="#929292"/>
-<rect x="271.5" y="224.5" width="96" height="31" rx="7.5" fill="#F4F4F4" stroke="#29D305"/>
+<rect x="271.75" y="224.75" width="95.5" height="30.5" rx="3.25" fill="white" stroke="#29D305" stroke-width="1.5"/>
 <rect x="98" y="64" width="102" height="16" rx="8" fill="#D3D3D3"/>
 </svg>

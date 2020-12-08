@@ -5,8 +5,8 @@
   "main": "server.js",
   "private": "true",
   "scripts": {
-    "start-dev": "concurrently \"webpack-dev-server --config ./webpack.config.js --mode development\" \"webpack --watch --mode development\" \"npm run gulp:watch\"",
-    "build": "npm run build:component && npm run build:loader",
+    "start-dev": "concurrently \"webpack-dev-server --config ./webpack.config.js --mode development\" \"webpack --watch --mode development\" \"yarn run gulp:watch\"",
+    "build": "yarn run build:component && yarn run build:loader",
     "build:components": "webpack --config ./webpack.config.js && gulp --gulpfile build/gulpfile.js",
     "build:loader": "rollup -c rollup.config.loader.js",
     "gulp": "gulp --gulpfile build/gulpfile.js",

@@ -29,6 +29,9 @@ iframe {
   padding: 56px 15px;
   border-radius: 50px;
   border: 12px solid var(--e-grey-80);
+  &.no-padding-x {
+    padding: 56px 0px;
+  }
 
   &:before,
   &:after {
