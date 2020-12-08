@@ -1,0 +1,1 @@
+export { default as Progressbar } from './dist/web_component/js/elvis-progressbar-linear';

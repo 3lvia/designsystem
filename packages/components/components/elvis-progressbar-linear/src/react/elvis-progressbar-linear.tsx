@@ -12,7 +12,7 @@ export interface ProgressbarProps {
 // validate if progressrange is between 0 & 100
 const isValid = (value: number) => value > -1 && value <= 100;
 
-const Progressbar: React.FC<ProgressbarProps> = (props) => {
+const ProgressbarLinear: React.FC<ProgressbarProps> = (props) => {
   // inital state
   const [percentRange, setProgress] = useState(0);
   const [isIndeterminate, setIndeterminateState] = useState(() => {
@@ -22,9 +22,8 @@ const Progressbar: React.FC<ProgressbarProps> = (props) => {
 
   const setClasses = [
     // tslint:disable-next-line:max-line-length
-    // !props.indeterminate || props.indeterminate === undefined || props.indeterminate === null  && !props.error || props.error === undefined || props.error === null  ? 'ewc-progress--linear__range' : '',
     !props.indeterminate && !props.error ? 'ewc-progress--linear__range' : '',
-    props.indeterminate === true && props.indeterminate !== undefined && props.indeterminate !== null &&  !props.error ? 'ewc-progress--linear__indeterminate' : '',
+    props.indeterminate &&  !props.error ? 'ewc-progress--linear__indeterminate' : '',
     props.error && !props.indeterminate  ? 'ewc-progress--linear__error' : '' ,
     props.indeterminate && props.error ? 'ewc-progress--linear__error' : '',
   ];
@@ -40,10 +39,6 @@ const Progressbar: React.FC<ProgressbarProps> = (props) => {
     document.head.appendChild(link);
   }, []);
 
-
-
-
-  // not used
   const updateRangeValue = (progressInput: number | undefined) => {
     if (progressInput !== undefined) {
       if (!isValid(progressInput)) {
@@ -59,7 +54,6 @@ const Progressbar: React.FC<ProgressbarProps> = (props) => {
   };
 
   const updateErrorState = (errorInput: boolean | undefined) => {
-
     if (errorInput && errorInput !== isError) {
       setErrorState(true);
     } else if (!errorInput && errorInput !== isError){
@@ -101,7 +95,6 @@ const Progressbar: React.FC<ProgressbarProps> = (props) => {
   useEffect(() => {
     updateReactComponent(),
     updateWebcomponent();
-    // her må det også legges til sjekker at vi oppdaterer web comp ved endringer på error og indeterminate???
   }, [percentRange]);
 
 
@@ -140,4 +133,4 @@ const Progressbar: React.FC<ProgressbarProps> = (props) => {
   );
 };
 
-export default Progressbar;
+export default ProgressbarLinear;

@@ -29,19 +29,13 @@ export class AppComponent implements OnInit {
   }
 
   resetProgress() {
-    clearTimeout(this.timer);
     this.progressValue = 0;
-    console.log('hello');
-    this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue });
-    console.log(this.progressbar.nativeElement.getProps());
+    this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue, error: false });
+    clearTimeout(this.timer);
   }
 
-  increaseProgress() {
-    if (this.progressValue < 100) {
-      this.progressValue = this.progressValue + 10;
-      this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue });
-    } else {
-    }
+  suddenError() {
+    this.progressbar.nativeElement.setProps({ error: true });
   }
 
   ngOnInit(): void {
@@ -63,12 +57,8 @@ export class AppComponent implements OnInit {
     this.progressbarIndeterminite.nativeElement.addEventListener('props-changed', (event: any) => {
       this.progressError = event.detail.error;
     });
-
     // this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue, });
     this.progressbarIndeterminite.nativeElement.setProps({ indeterminate: true, });
     this.progressbarError.nativeElement.setProps({ error: true, });
-
-
-
   }
 }
