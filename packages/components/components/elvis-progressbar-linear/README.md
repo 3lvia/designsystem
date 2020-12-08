@@ -10,7 +10,7 @@ to the indeterminate boolean property
 ## Props
 
 - rangeValue (number) - The percentage value of completion
-- indeterminate (boolean) - For indeterminite loading style
+- indeterminate (boolean) - For indeterminate loading style
 - error (boolean) - For displaying an error in the progress completion.
 
 ### Hierarchy of props
