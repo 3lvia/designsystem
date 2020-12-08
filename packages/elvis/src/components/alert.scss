@@ -5,14 +5,14 @@
 @use "./../variables/shadows";
 
 $local-padding: 22px 30px 22px 22px; // -2px for border;
-$local-mobile-padding: 14px 22px; // -2px for border;
+$local-mobile-padding: 14px; // -2px for border;
 $local-max-width: 650px;
 
 $global-padding: 22px;
-$global-mobile-padding: 22px 14px 14px 14px; // -2px border
+$global-mobile-padding: 22px 14px; // -2px border
 $global-mobile-notitle-padding: 14px; // -2px border
 
-$toast-padding: 14px 22px 14px 22px; // -2px border
+$toast-padding: 14px; // -2px border
 $toast-max-width: 400px;
 
 .e-alert {
@@ -260,6 +260,7 @@ $toast-max-width: 400px;
       text-align: center;
       .e-alert__icon {
         margin-right: 0px;
+        margin-top: 0px;
       }
       .e-alert__content {
         margin-top: 8px;
