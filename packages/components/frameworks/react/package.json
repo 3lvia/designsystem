@@ -37,6 +37,9 @@
     ]
   },
   "devDependencies": {
-    "react-app-polyfill": "^2.0.0"
+    "react-app-polyfill": "^2.0.0",
+    "node-forge": ">=0.10.0",
+    "object-path": ">=0.11.5",
+    "minimist": "^0.2.1"
   }
 }
