@@ -166,24 +166,19 @@
     <ng-container ngProjectAs="sectionContent">
       Keyboard accessibility is one of the most important aspects of web accessibility. A keyboard user
       typically uses the Tab key to navigate through interactive elements on a web page.
-      <app-component-subsection [sectionTitle]="'Minimal contrast ratio'">
+      <app-component-subsection [sectionTitle]="'Focus'">
         <ng-container ngProjectAs="sectionContent">
-          Version 2.1 of the Web Content Accessibility Guidelines (WCAG) specify a minimal contrast ratio of
-          3:1 against adjacent colour(s) for the parts, which are required to understand the meaning or
-          content of a graphical object.
-          <div>
+          Focus adds an additional outline around the element. Version 2.1 of the Web Content Accessibility
+          Guidelines (WCAG) specify a minimal contrast ratio of 3:1 against adjacent colour(s) for the parts,
+          which are required to understand the meaning or content of a graphical object.
+          <div class="focus-container">
             <img
               src="../../../../assets/accessibility/minimal-contrast-ratio.svg"
               alt="Minimal contrast ratio"
-              class="e-mt-24"
+              class="e-mt-24 image-ratio"
             />
+            <div class="e-mt-24 e-outline"></div>
           </div>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Focus'">
-        <ng-container ngProjectAs="sectionContent">
-          An additional outline around that meets 3:1 contrast.
-          <div class="e-mt-24 e-outline" style="width: 40%; height: 70px"></div>
 
           <app-component-subsubsection [sectionTitle]="'Examples'">
             <ng-container ngProjectAs="sectionContent">
