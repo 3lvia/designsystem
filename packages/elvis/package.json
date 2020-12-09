@@ -1,15 +1,13 @@
 {
   "name": "@elvia/elvis",
-  "version": "4.2.3",
-  "description": "WIP",
+  "version": "4.3.0",
+  "description": "Elvia design system",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp",
     "watch": "gulp watch",
-    "percyServer": "node testing/server.js",
-    "percyStart": "percy exec -- node testing/snapshots.js",
-    "percyTest": "npm run percyServer &  npm run percyStart"
+    "percy": "node testing/server.js & percy exec -- node testing/snapshots.js"
   },
   "author": "",
   "license": "ISC",
