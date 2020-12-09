@@ -186,7 +186,7 @@ $loading-dot-sm: 8px;
     }
     &.e-btn---hover,
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       background: colors.color('green');
       border-color: colors.color('green');
       color: colors.color('black');
@@ -199,7 +199,7 @@ $loading-dot-sm: 8px;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled):not(.e-btn--loading) {
         background: colors.color('green');
         border-color: colors.color('green');
         color: colors.color('black');
@@ -214,7 +214,7 @@ $loading-dot-sm: 8px;
     }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       border-color: transparent;
       background-clip: padding-box;
     }
@@ -327,6 +327,7 @@ $loading-dot-sm: 8px;
     &.e-btn--loading {
       display: inline-block;
       vertical-align: middle;
+      cursor: progress;
 
       span {
         width: $loading-dot-md;
@@ -490,6 +491,7 @@ $loading-dot-sm: 8px;
       display: inline-block;
       padding-left: 0px;
       padding-right: 0px;
+      cursor: progress;
 
       span {
         width: $loading-dot-md;
@@ -725,14 +727,14 @@ $loading-dot-sm: 8px;
 
     &.e-btn---hover,
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       background: colors.color('green');
       .e-btn__icon i[class$='inverted'] {
         visibility: visible;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled):not(.e-btn--loading) {
         background: colors.color('green');
         .e-btn__icon i[class$='inverted'] {
           visibility: visible;
@@ -741,7 +743,7 @@ $loading-dot-sm: 8px;
     }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       transform: scale(0.95);
     }
     &.e-btn---disabled,
@@ -752,6 +754,7 @@ $loading-dot-sm: 8px;
 
   &.e-btn--loading {
     display: inline-block;
+    cursor: progress;
 
     span {
       width: $loading-dot-md;

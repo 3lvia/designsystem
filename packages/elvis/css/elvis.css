@@ -1556,36 +1556,36 @@ input:focus {
   cursor: not-allowed;
 }
 
-.e-btn.e-btn--primary.e-btn---hover, .e-btn.e-btn---hover, .e-btn.e-btn--primary.e-btn---active, .e-btn.e-btn---active, .e-btn.e-btn--primary:active:not(:disabled), .e-btn:active:not(:disabled) {
+.e-btn.e-btn--primary.e-btn---hover, .e-btn.e-btn---hover, .e-btn.e-btn--primary.e-btn---active, .e-btn.e-btn---active, .e-btn.e-btn--primary:active:not(:disabled):not(.e-btn--loading), .e-btn:active:not(:disabled):not(.e-btn--loading) {
   background: #29d305;
   border-color: #29d305;
   color: #000;
 }
 
-.e-btn.e-btn--primary.e-btn---hover .e-btn__icon i[class*=inverted], .e-btn.e-btn---hover .e-btn__icon i[class*=inverted], .e-btn.e-btn--primary.e-btn---active .e-btn__icon i[class*=inverted], .e-btn.e-btn---active .e-btn__icon i[class*=inverted], .e-btn.e-btn--primary:active:not(:disabled) .e-btn__icon i[class*=inverted], .e-btn:active:not(:disabled) .e-btn__icon i[class*=inverted] {
+.e-btn.e-btn--primary.e-btn---hover .e-btn__icon i[class*=inverted], .e-btn.e-btn---hover .e-btn__icon i[class*=inverted], .e-btn.e-btn--primary.e-btn---active .e-btn__icon i[class*=inverted], .e-btn.e-btn---active .e-btn__icon i[class*=inverted], .e-btn.e-btn--primary:active:not(:disabled):not(.e-btn--loading) .e-btn__icon i[class*=inverted], .e-btn:active:not(:disabled):not(.e-btn--loading) .e-btn__icon i[class*=inverted] {
   visibility: hidden;
 }
 
-.e-btn.e-btn--primary.e-btn---hover .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn---hover .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn--primary.e-btn---active .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn---active .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn--primary:active:not(:disabled) .e-btn__icon i:not([class$=inverted]), .e-btn:active:not(:disabled) .e-btn__icon i:not([class$=inverted]) {
+.e-btn.e-btn--primary.e-btn---hover .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn---hover .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn--primary.e-btn---active .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn---active .e-btn__icon i:not([class$=inverted]), .e-btn.e-btn--primary:active:not(:disabled):not(.e-btn--loading) .e-btn__icon i:not([class$=inverted]), .e-btn:active:not(:disabled):not(.e-btn--loading) .e-btn__icon i:not([class$=inverted]) {
   visibility: visible;
 }
 
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .e-btn.e-btn--primary:hover:not(:disabled), .e-btn:hover:not(:disabled) {
+  .e-btn.e-btn--primary:hover:not(:disabled):not(.e-btn--loading), .e-btn:hover:not(:disabled):not(.e-btn--loading) {
     background: #29d305;
     border-color: #29d305;
     color: #000;
   }
 
-  .e-btn.e-btn--primary:hover:not(:disabled) .e-btn__icon i[class*=inverted], .e-btn:hover:not(:disabled) .e-btn__icon i[class*=inverted] {
+  .e-btn.e-btn--primary:hover:not(:disabled):not(.e-btn--loading) .e-btn__icon i[class*=inverted], .e-btn:hover:not(:disabled):not(.e-btn--loading) .e-btn__icon i[class*=inverted] {
     visibility: hidden;
   }
 
-  .e-btn.e-btn--primary:hover:not(:disabled) .e-btn__icon i:not([class$=inverted]), .e-btn:hover:not(:disabled) .e-btn__icon i:not([class$=inverted]) {
+  .e-btn.e-btn--primary:hover:not(:disabled):not(.e-btn--loading) .e-btn__icon i:not([class$=inverted]), .e-btn:hover:not(:disabled):not(.e-btn--loading) .e-btn__icon i:not([class$=inverted]) {
     visibility: visible;
   }
 }
-.e-btn.e-btn--primary.e-btn---active, .e-btn.e-btn---active, .e-btn.e-btn--primary:active:not(:disabled), .e-btn:active:not(:disabled) {
+.e-btn.e-btn--primary.e-btn---active, .e-btn.e-btn---active, .e-btn.e-btn--primary:active:not(:disabled):not(.e-btn--loading), .e-btn:active:not(:disabled):not(.e-btn--loading) {
   border-color: transparent;
   background-clip: padding-box;
 }
@@ -1692,6 +1692,7 @@ input:focus {
 .e-btn.e-btn--tertiary.e-btn--loading {
   display: inline-block;
   vertical-align: middle;
+  cursor: progress;
 }
 
 .e-btn.e-btn--tertiary.e-btn--loading span {
@@ -1842,6 +1843,7 @@ input:focus {
   display: inline-block;
   padding-left: 0px;
   padding-right: 0px;
+  cursor: progress;
 }
 
 .e-btn.e-btn--icon.e-btn--loading span {
@@ -2078,24 +2080,24 @@ input:focus {
     visibility: visible;
   }
 }
-.e-btn.e-btn--icon.e-btn---hover, .e-btn.e-btn--icon.e-btn---active, .e-btn.e-btn--icon:active:not(:disabled) {
+.e-btn.e-btn--icon.e-btn---hover, .e-btn.e-btn--icon.e-btn---active, .e-btn.e-btn--icon:active:not(:disabled):not(.e-btn--loading) {
   background: #29d305;
 }
 
-.e-btn.e-btn--icon.e-btn---hover .e-btn__icon i[class$=inverted], .e-btn.e-btn--icon.e-btn---active .e-btn__icon i[class$=inverted], .e-btn.e-btn--icon:active:not(:disabled) .e-btn__icon i[class$=inverted] {
+.e-btn.e-btn--icon.e-btn---hover .e-btn__icon i[class$=inverted], .e-btn.e-btn--icon.e-btn---active .e-btn__icon i[class$=inverted], .e-btn.e-btn--icon:active:not(:disabled):not(.e-btn--loading) .e-btn__icon i[class$=inverted] {
   visibility: visible;
 }
 
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .e-btn.e-btn--icon:hover:not(:disabled) {
+  .e-btn.e-btn--icon:hover:not(:disabled):not(.e-btn--loading) {
     background: #29d305;
   }
 
-  .e-btn.e-btn--icon:hover:not(:disabled) .e-btn__icon i[class$=inverted] {
+  .e-btn.e-btn--icon:hover:not(:disabled):not(.e-btn--loading) .e-btn__icon i[class$=inverted] {
     visibility: visible;
   }
 }
-.e-btn.e-btn--icon.e-btn---active, .e-btn.e-btn--icon:active:not(:disabled) {
+.e-btn.e-btn--icon.e-btn---active, .e-btn.e-btn--icon:active:not(:disabled):not(.e-btn--loading) {
   transform: scale(0.95);
 }
 
@@ -2105,6 +2107,7 @@ input:focus {
 
 .e-btn.e-btn--loading {
   display: inline-block;
+  cursor: progress;
 }
 
 .e-btn.e-btn--loading span {
