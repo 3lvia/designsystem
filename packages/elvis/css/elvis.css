@@ -887,6 +887,11 @@ body {
   outline: none !important;
 }
 
+.e-outline {
+  outline: 2px solid #0064fa !important;
+  outline-offset: 2px;
+}
+
 a:focus,
 button:focus,
 input:focus {

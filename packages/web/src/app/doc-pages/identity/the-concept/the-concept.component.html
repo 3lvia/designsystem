@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header>
-  <ng-container ngProjectAs="headerTitle">
-    The concept
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">The concept</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--BRAND CONCEPT-->
   <app-component-section [sectionTitle]="'Brand concept'">
     <ng-container ngProjectAs="sectionContent">
-      <div style="display: flex; justify-content: center;">
+      <div style="display: flex; justify-content: center">
         <img src="../../../../assets/logo/elvia_positive_1.svg" alt="Elvia Logo" />
       </div>
 
@@ -59,18 +57,14 @@
         </li>
         <li>
           <div><b>Fearless</b></div>
-          <div>
-            We are brave, energetic and dare to try. We will always seek improvement.
-          </div>
+          <div>We are brave, energetic and dare to try. We will always seek improvement.</div>
         </li>
       </ul>
 
       <p>
         These values must be a starting point for all communication - both internally and externally - and a
         cornerstone for our
-        <a class="e-link e-link--inline" [routerLink]="['/identity/tone-of-voice']">
-          tone of voice.
-        </a>
+        <a class="e-link e-link--inline" [routerLink]="['/identity/tone-of-voice']">tone of voice.</a>
         The values must be reflected in our corporate culture and be part of our operational work every day.
       </p>
     </ng-container>
@@ -110,7 +104,7 @@
           The Elvia curve stems from our energy ring and is commonly used for content division, such as in
           footers or dividers.
           <!-- Read more about the curve formula and its usage in
-          <a class="e-link e-link--inline" [routerLink]="['/components/divider-doc']">
+          <a class="e-link e-link--inline" [routerLink]="['/components/divider']">
             dividers.
           </a> -->
 
@@ -136,11 +130,11 @@
           </div>
 
           <!-- You can read about text branding in our
-          <a class="e-link e-link--inline" [routerLink]="['/identity/typography-doc']">
+          <a class="e-link e-link--inline" [routerLink]="['/identity/typography']">
             typography documentation
           </a>
           and learn more about color usage in our
-          <a class="e-link e-link--inline" [routerLink]="['/identity/color-doc']" fragment="'usage'">
+          <a class="e-link e-link--inline" [routerLink]="['/identity/color']" fragment="'usage'">
             color guidelines.
           </a> -->
         </ng-container>
