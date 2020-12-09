@@ -1,4 +1,4 @@
-# Elvis Progressvar--linear
+# Elvis Progressbar
 
 The linear progress bar is a display of current completion of an item/data loading. The progressbar is called
 upon by feeding it a rangeValue data, a number between 0 and 100. The Progressbar will not display any

@@ -12,4 +12,4 @@ export default class ElvisProgressbar extends ElvisComponentWrapper {
   }
 }
 
-window.customElements.define('elvis-progressbar-linear', ElvisProgressbar as any);
+window.customElements.define('elvis-progressbar', ElvisProgressbar as any);
