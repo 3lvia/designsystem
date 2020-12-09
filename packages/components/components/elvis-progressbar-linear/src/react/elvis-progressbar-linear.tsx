@@ -22,10 +22,10 @@ const ProgressbarLinear: React.FC<ProgressbarProps> = (props) => {
 
   const setClasses = [
     // tslint:disable-next-line:max-line-length
-    !props.indeterminate && !props.error ? 'ewc-progress--linear__range' : '',
-    props.indeterminate &&  !props.error ? 'ewc-progress--linear__indeterminate' : '',
-    props.error && !props.indeterminate  ? 'ewc-progress--linear__error' : '' ,
-    props.indeterminate && props.error ? 'ewc-progress--linear__error' : '',
+    !props.indeterminate && !props.error ? 'ewc-progress--range' : '',
+    props.indeterminate &&  !props.error ? 'ewc-progress--indeterminate' : '',
+    props.error && !props.indeterminate  ? 'ewc-progress--error' : '' ,
+    props.indeterminate && props.error ? 'ewc-progress--error' : '',
   ];
   const classes = [...setClasses].join('');
   const didMountRef = useRef(false);
@@ -58,8 +58,6 @@ const ProgressbarLinear: React.FC<ProgressbarProps> = (props) => {
       setErrorState(true);
     } else if (!errorInput && errorInput !== isError){
       setErrorState(false);
-    } else {
-      return;
     }
   };
 
@@ -68,8 +66,6 @@ const ProgressbarLinear: React.FC<ProgressbarProps> = (props) => {
       setIndeterminateState(true);
     } else if (!indeterminateInputState && indeterminateInputState !== undefined && isIndeterminate === true) {
       setIndeterminateState(false);
-    } else {
-      return;
     }
   };
 
@@ -123,7 +119,7 @@ const ProgressbarLinear: React.FC<ProgressbarProps> = (props) => {
 
   return (
     <span>
-      <div className='ewc-progress--linear'>
+      <div className='ewc-progress'>
           <div
             className={classes}
             style={{width: `${percentRange}%`}}

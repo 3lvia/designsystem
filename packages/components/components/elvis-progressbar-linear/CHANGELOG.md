@@ -1,4 +1,4 @@
-# Elvia Progresbar Changelog
+# Elvia Progressbar Changelog
 
 ### Breaking changes
 

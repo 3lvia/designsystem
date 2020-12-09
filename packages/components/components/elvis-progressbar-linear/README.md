@@ -42,6 +42,7 @@ import '@elvia/elvis-progressbar';
 ```
 
 ```
+// props are set throug setProp(), see the Data-binding section for an example
 <elvis-progressbar #progressbar ></elvis-progressbar>
 
 ```
