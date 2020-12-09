@@ -1424,8 +1424,8 @@ input:focus {
 }
 
 .e-btn.e-btn--lg.e-btn--loading span {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 
 .e-btn.e-btn--md, .e-btn {
@@ -1487,8 +1487,8 @@ input:focus {
 }
 
 .e-btn.e-btn--sm.e-btn--loading span {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 .e-btn.e-btn--primary, .e-btn {
@@ -1695,13 +1695,13 @@ input:focus {
 }
 
 .e-btn.e-btn--tertiary.e-btn--loading span {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background-color: #000;
   border-radius: 100%;
   display: inline-block;
-  -webkit-animation: sk-bouncedelay 1s infinite ease-in-out both;
-  animation: sk-bouncedelay 1s infinite ease-in-out both;
+  -webkit-animation: loading-dots 1s infinite ease-in-out both;
+  animation: loading-dots 1s infinite ease-in-out both;
 }
 
 .e-btn.e-btn--tertiary.e-btn--loading span:nth-of-type(1) {
@@ -1754,13 +1754,13 @@ input:focus {
 }
 
 .e-btn.e-btn--tertiary.e-btn--lg.e-btn--loading span {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 
 .e-btn.e-btn--tertiary.e-btn--sm.e-btn--loading span {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 .e-btn.e-btn--tertiary.e-btn---disabled, .e-btn.e-btn--tertiary:disabled {
@@ -1840,18 +1840,18 @@ input:focus {
 
 .e-btn.e-btn--icon.e-btn--loading {
   display: inline-block;
-  padding: 0px;
-  vertical-align: middle;
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .e-btn.e-btn--icon.e-btn--loading span {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background-color: #000;
   border-radius: 100%;
   display: inline-block;
-  -webkit-animation: sk-bouncedelay 1s infinite ease-in-out both;
-  animation: sk-bouncedelay 1s infinite ease-in-out both;
+  -webkit-animation: loading-dots 1s infinite ease-in-out both;
+  animation: loading-dots 1s infinite ease-in-out both;
 }
 
 .e-btn.e-btn--icon.e-btn--loading span:nth-of-type(1) {
@@ -1909,8 +1909,8 @@ input:focus {
 }
 
 .e-btn.e-btn--icon.e-btn--lg.e-btn--loading span {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
 }
 
 .e-btn.e-btn--icon.e-btn--sm {
@@ -1935,8 +1935,8 @@ input:focus {
 }
 
 .e-btn.e-btn--icon.e-btn--sm.e-btn--loading span {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 
 .e-btn.e-btn--icon.e-btn--inverted .e-btn__icon i[class*=inverted],
@@ -2108,13 +2108,13 @@ input:focus {
 }
 
 .e-btn.e-btn--loading span {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   background-color: #fff;
   border-radius: 100%;
   display: inline-block;
-  -webkit-animation: sk-bouncedelay 1s infinite ease-in-out both;
-  animation: sk-bouncedelay 1s infinite ease-in-out both;
+  -webkit-animation: loading-dots 1s infinite ease-in-out both;
+  animation: loading-dots 1s infinite ease-in-out both;
 }
 
 .e-btn.e-btn--loading span:nth-of-type(1) {
@@ -2127,7 +2127,7 @@ input:focus {
   animation-delay: -0.16s;
 }
 
-@-webkit-keyframes sk-bouncedelay {
+@-webkit-keyframes loading-dots {
   0%, 80%, 100% {
     -webkit-transform: scale(0);
   }
@@ -2135,7 +2135,7 @@ input:focus {
     -webkit-transform: scale(1);
   }
 }
-@keyframes sk-bouncedelay {
+@keyframes loading-dots {
   0%, 80%, 100% {
     -webkit-transform: scale(0);
     transform: scale(0);
