@@ -275,7 +275,7 @@ $loading-dot-sm: 8px;
 
     &.e-btn---hover,
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       background: colors.color('green');
       border-color: colors.color('green');
       color: colors.color('black');
@@ -284,7 +284,7 @@ $loading-dot-sm: 8px;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled):not(.e-btn--loading) {
         background: colors.color('green');
         border-color: colors.color('green');
         color: colors.color('black');
@@ -295,7 +295,7 @@ $loading-dot-sm: 8px;
     }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       border-color: transparent;
       background-clip: padding-box;
       .e-btn__icon i {
@@ -376,7 +376,7 @@ $loading-dot-sm: 8px;
         border-bottom: none;
       }
 
-      &:active:not(:disabled) {
+      &:active:not(:disabled):not(.e-btn--loading) {
         .e-btn__icon {
           i {
             visibility: hidden;
@@ -422,7 +422,7 @@ $loading-dot-sm: 8px;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled):not(.e-btn--loading) {
         border-bottom-color: colors.color('green');
         border-color: colors.color('green');
         background: none;
@@ -445,7 +445,7 @@ $loading-dot-sm: 8px;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled)[class*='e-btn--inverted'] {
+      &:hover:not(:disabled):not(.e-btn--loading) {
         .e-btn__icon {
           i {
             visibility: hidden;
@@ -460,7 +460,7 @@ $loading-dot-sm: 8px;
     }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       padding-bottom: 4.5px;
       &.e-btn--lg {
         padding-bottom: 2.5px;
