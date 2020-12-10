@@ -495,7 +495,7 @@ body {
 
 @media (max-width: 767px) {
   .e-alert.e-alert--global {
-    padding: 22px 14px 14px 14px;
+    padding: 22px 14px;
   }
 }
 .e-alert.e-alert--global .e-alert__icon,
@@ -656,7 +656,7 @@ body {
 
 @media (max-width: 767px) {
   .e-alert.e-alert--local, .e-alert:not(.e-alert--global):not(.e-alert--toast) {
-    padding: 14px 22px;
+    padding: 14px;
   }
 }
 .e-alert.e-alert--local .e-alert__icon, .e-alert:not(.e-alert--global):not(.e-alert--toast) .e-alert__icon {
@@ -702,6 +702,7 @@ body {
 
   .e-alert.e-alert--local .e-alert__icon, .e-alert:not(.e-alert--global):not(.e-alert--toast) .e-alert__icon {
     margin-right: 0px;
+    margin-top: 0px;
   }
 
   .e-alert.e-alert--local .e-alert__content, .e-alert:not(.e-alert--global):not(.e-alert--toast) .e-alert__content {
@@ -713,7 +714,7 @@ body {
   border-color: #29d305;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06);
   max-width: 400px;
-  padding: 14px 22px 14px 22px;
+  padding: 14px;
 }
 
 .e-alert.e-alert--toast .e-alert__icon {
@@ -761,7 +762,7 @@ body {
   justify-content: flex-end;
   align-items: flex-start;
   margin-top: -8px;
-  margin-right: -16px;
+  margin-right: -8px;
 }
 
 .e-alert.e-alert--toast.e-alert--info {
