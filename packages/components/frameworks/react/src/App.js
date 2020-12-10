@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Checkbox } from '@elvia/elvis-checkbox/react';
+import { Tabs } from '@elvia/elvis-tabs/react';
 
 function App() {
 
@@ -15,6 +16,13 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
+
+      <h2>Tabs</h2>
+      <div style={{ marginTop: '16px' }}>
+        <Tabs label="Hello"></Tabs>
+      </div>
+
+      <hr style={{ margin: '40px 0' }} />
 
       <h2>Checkbox</h2>
       {/* <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button> */}
