@@ -9,7 +9,7 @@
   <div class="tabs">
     <a
       class="tabs-links"
-      style="color: black;"
+      style="color: black"
       [routerLink]="['/get-started']"
       role="tab"
       (click)="closeSearch()"
@@ -18,7 +18,7 @@
     </a>
     <a
       class="tabs-links"
-      style="color: black;"
+      style="color: black"
       [routerLink]="['/identity']"
       role="tab"
       (click)="closeSearch()"
@@ -27,19 +27,19 @@
     </a>
     <a
       class="tabs-links"
-      style="color: black;"
+      style="color: black"
       [routerLink]="['/components']"
       role="tab"
       (click)="closeSearch()"
     >
       Components
     </a>
-    <a class="tabs-links" style="color: black;" [routerLink]="['/tools']" role="tab" (click)="closeSearch()">
+    <a class="tabs-links" style="color: black" [routerLink]="['/tools']" role="tab" (click)="closeSearch()">
       Tools
     </a>
     <a
       class="tabs-links"
-      style="color: black;"
+      style="color: black"
       [routerLink]="['/community']"
       role="tab"
       (click)="closeSearch()"
@@ -90,9 +90,7 @@
       </button>
     </div>
     <div class="elvis-search-header e-mt-8">
-      <h2 class="e-title-md search-title">
-        What are you looking for?
-      </h2>
+      <h2 class="e-title-md search-title">What are you looking for?</h2>
       <div class="e-search e-search--global" [ngClass]="{ 'e-search--searched': searchString !== '' }">
         <div class="e-input">
           <input
@@ -120,6 +118,7 @@
         class="result-item"
         *ngFor="let result of activeResults"
         [routerLink]="[result.absolutePath]"
+        [fragment]="result.fragmentPath"
         (click)="closeSearch()"
       >
         <div class="result-title">
