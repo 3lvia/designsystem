@@ -16,26 +16,19 @@ export class AppComponent implements OnInit {
   indeterminate = false;
   progressError = false;
 
-  timer;
+  increaseProgress() {
+    this.progressValue += 10;
+    this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue });
+  }
 
-  progressExamp = () => {
-    if (this.progressValue < 100) {
-      this.progressValue = this.progressValue + 10;
-      this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue });
-      this.timer = setTimeout(this.progressExamp, 500);
-    } else {
-      return;
-    }
+  decreaseProgress() {
+    this.progressValue -= 10;
+    this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue });
   }
 
   resetProgress() {
     this.progressValue = 0;
-    this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue, error: false });
-    clearTimeout(this.timer);
-  }
-
-  suddenError() {
-    this.progressbar.nativeElement.setProps({ error: true });
+    this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue });
   }
 
   ngOnInit(): void {
@@ -46,18 +39,7 @@ export class AppComponent implements OnInit {
     this.checkbox.nativeElement.setProps({ checked: true });
     this.checkbox.nativeElement.getProps();
 
-    // Listen progressbar changes
-    this.progressbar.nativeElement.addEventListener('props-changed', (event: any) => {
-      this.progressValue = event.detail.rangeValue;
-    });
-    // tslint:disable-next-line:max-line-length
-    this.progressbarIndeterminite.nativeElement.addEventListener('props-changed', (event: any) => {
-      this.indeterminate = event.detail.indeterminate;
-    });
-    this.progressbarIndeterminite.nativeElement.addEventListener('props-changed', (event: any) => {
-      this.progressError = event.detail.error;
-    });
-    // this.progressbar.nativeElement.setProps({ rangeValue: this.progressValue, });
+    // send props to progress-linear components
     this.progressbarIndeterminite.nativeElement.setProps({ indeterminate: true, });
     this.progressbarError.nativeElement.setProps({ error: true, });
   }

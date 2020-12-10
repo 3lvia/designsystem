@@ -122,13 +122,14 @@ function App() {
       <h2>Progressbar indeterminate</h2>
 
       <div>
-        <ProgressLinear indeterminate={true}></ProgressLinear>
+        <ProgressLinear indeterminate={true} error={false}></ProgressLinear>
       </div>
       <h2>Progressbar Error</h2>
 
       <div>
-        <ProgressLinear rangeValue={progressValue} error={true} indeterminate={false}></ProgressLinear>
+        <ProgressLinear rangeValue={progressValue} error={true} indeterminate={true}></ProgressLinear>
       </div>
+
 
     </div >
   );

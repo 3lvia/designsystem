@@ -1,33 +1,61 @@
 import * as React from 'react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import './style.scss';
 
 export interface ProgressbarProps {
-  rangeValue: number;
-  indeterminate?: boolean;
+  rangeValue?: number;
+  indeterminate?: boolean ;
   error?: boolean;
   changeHandler?: any;
   webcomponent?: any;
 }
 // validate if progressrange is between 0 & 100
-const isValid = (value: number) => value > -1 && value <= 100;
+const isValid = (value: number) => value >= 0 && value <= 100 ;
 
 const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
-  // inital state
-  const [percentRange, setProgress] = useState(0);
-  const [isIndeterminate, setIndeterminateState] = useState(() => {
-    return false;
-  });
-  const [isError, setErrorState] = useState(false);
+  // check indeterminate props in case from webcomponent, convert string to boolean
+  let isIndeterminate = false;
+  if (props.indeterminate !== null) {
+    if (props.indeterminate !== undefined) {
+      if (props.indeterminate.toString() === 'false') {
+        isIndeterminate = false;
+      } else {
+        isIndeterminate = props.indeterminate;
+      }
+    }
+  }
+  // check error props in case from webcomponent, convert string to boolean
+  let isError = false;
+  if (props.error !== null) {
+    if (props.error !== undefined) {
+      if (props.error.toString() === 'false') {
+        isError = false;
+      } else {
+        isError = props.error;
+      }
+    }
+  }
 
-  const setClasses = [
-    // tslint:disable-next-line:max-line-length
-    !props.indeterminate && !props.error ? 'ewc-progress--range' : '',
-    props.indeterminate &&  !props.error ? 'ewc-progress--indeterminate' : '',
-    props.error && !props.indeterminate  ? 'ewc-progress--error' : '' ,
-    props.indeterminate && props.error ? 'ewc-progress--error' : '',
+  // set inital class for progress-linear
+  let classes = '';
+  const initialClasses = [
+    !isIndeterminate && !isError ? 'ewc-progress-linear--range' : '',
+    isIndeterminate &&  !isError ? 'ewc-progress-linear--indeterminate' : '',
+    isError && !isIndeterminate  ? 'ewc-progress-linear--error' : '' ,
+    isIndeterminate && isError ? 'ewc-progress-linear--error' : '',
   ];
-  const classes = [...setClasses].join('');
+  classes = [...initialClasses].join('');
+
+  // set new classes
+  const setNewClasses = () => {
+    const newClasses = [
+    !isIndeterminate && !isError ? 'ewc-progress-linear--range' : '',
+    isIndeterminate &&  !isError ? 'ewc-progress-linear--indeterminate' : '',
+    isError && !isIndeterminate  ? 'ewc-progress-linear--error' : '' ,
+    isIndeterminate && isError ? 'ewc-progress-linear--error' : '',
+    ];
+    classes = [...newClasses].join('');
+  };
   const didMountRef = useRef(false);
 
   useEffect(() => {
@@ -39,59 +67,25 @@ const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
     document.head.appendChild(link);
   }, []);
 
-  const updateRangeValue = (progressInput: number | undefined) => {
-    if (progressInput !== undefined) {
-      if (!isValid(progressInput)) {
-        console.error('<elvis-progressbar>: inputRange value ' + props.rangeValue + ' is invalid! Must be between 0 and 100.');
-      } else {
-        if (progressInput === null) {
-          setProgress(0);
-        } else {
-          setProgress(progressInput);
-        }
-      }
-    }
-  };
-
-  const updateErrorState = (errorInput: boolean | undefined) => {
-    if (errorInput && errorInput !== isError) {
-      setErrorState(true);
-    } else if (!errorInput && errorInput !== isError){
-      setErrorState(false);
-    }
-  };
-
-  const updateIsIndeterminateState = (indeterminateInputState: boolean | undefined) => {
-    if (indeterminateInputState) {
-      setIndeterminateState(true);
-    } else if (!indeterminateInputState && indeterminateInputState !== undefined && isIndeterminate === true) {
-      setIndeterminateState(false);
-    }
-  };
-
+  // set new classes on prop change
   useEffect(() => {
-    if (didMountRef.current) {
-      if (props.error) {
-        updateErrorState(props.error);
-      } else {
-        if (props.indeterminate) {
-          updateIsIndeterminateState(props.indeterminate);
-        } else {
-          updateRangeValue(props.rangeValue);
-        }
-      }
-    } else {
-      didMountRef.current = true;
-    }
+   setNewClasses();
+  }, [props.indeterminate, props.error]);
 
-  }, [props.rangeValue, props.indeterminate, props.error] );
-
-
-
+  // update on change from webcomp
   useEffect(() => {
     updateReactComponent(),
     updateWebcomponent();
-  }, [percentRange]);
+  }, [props.rangeValue, props.indeterminate, props.error]);
+
+  // console error message on invalid rangeValue
+  useEffect(() => {
+    if (props.rangeValue !== undefined) {
+      if (!isValid(props.rangeValue)){
+        console.error('<elvis-progressbar>: inputRange value ' + props.rangeValue + ' is invalid! Must be between 0 and 100.');
+      }
+    }
+  }, [props.rangeValue]);
 
 
   function updateReactComponent() {
@@ -101,7 +95,7 @@ const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
         props.changeHandler(true);
         didMountRef.current = true;
       } else {
-        props.changeHandler(percentRange),
+        props.changeHandler(props.rangeValue),
         props.changeHandler(props.error),
         props.changeHandler(props.indeterminate);
       }
@@ -111,7 +105,7 @@ const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
   function updateWebcomponent() {
     if (props.webcomponent) {
       // True -> Prevents rerender
-      props.webcomponent.setProps({ rangeValue : percentRange }),
+      props.webcomponent.setProps({ rangeValue : props.rangeValue }),
       props.webcomponent.setProps({ error : props.error }),
       props.webcomponent.setProps({ indeterminate : props.indeterminate });
     }
@@ -119,10 +113,10 @@ const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
 
   return (
     <span>
-      <div className='ewc-progress'>
+      <div className='ewc-progress-linear'>
           <div
             className={classes}
-            style={{width: `${percentRange}%`}}
+            style={{width: `${props.rangeValue === null ? 0 : props.rangeValue}%`}}
             ></div>
       </div>
     </span>
