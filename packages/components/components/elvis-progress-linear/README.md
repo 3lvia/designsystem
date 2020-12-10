@@ -26,11 +26,11 @@ import { Progressbar } from '@elvia/elvis-progress-linear/react';
 ```
 
 ```
-<Progressbar
-    rangeValue={progressValue}
-    error={false}
-    indeterminate={false}>
-</Progressbar>
+<ProgressLinear
+  rangeValue={progressValue}
+  error={false}
+  indeterminate={false}>
+</ProgressLinear>
 
 ```
 
@@ -42,8 +42,16 @@ import '@elvia/elvis-progress-linear';
 ```
 
 ```
-// props are set throug setProp(), see the Data-binding section for an example
+// props are set throug setProp(), see the Data-binding section for an example with the #progressbar element
 <elvis-progress-linear #progressbar ></elvis-progress-linear>
+
+// In an ea
+<elvis-progress-linear
+  rangeValue="50"
+  error="false"
+  indeterminate="false" >
+</elvis-progress-linear>
+
 
 ```
 
@@ -52,9 +60,6 @@ import '@elvia/elvis-progress-linear';
 - Listen to changes, set and get props
 
 ```
-  this.progressbar.nativeElement.addEventListener('props-changed', (event: any) => {
-      this.progressValue = event.detail.rangeValue;
-    });
 this.progressbar.nativeElement.setProps({ rangeValue: 10, indeterminate: false, error: false });
-this.progressbar.nativeElement.getProps();
+
 ```
