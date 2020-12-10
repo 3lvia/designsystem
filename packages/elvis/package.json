@@ -7,9 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "gulp",
     "watch": "gulp watch",
-    "percyServer": "node testing/server.js",
-    "percyStart": "percy exec -- node testing/snapshots.js",
-    "percyTest": "yarn run percyServer &  yarn run percyStart"
+    "percy": "node testing/server.js & percy exec -- node testing/snapshots.js"
   },
   "author": "",
   "license": "ISC",

@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@elvia/elvis-popover": "*",
     "@elvia/elvis-checkbox": "*",
+    "@elvia/elvis-popover": "*",
     "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "^4.0.1",
+    "minimist": "^0.2.1",
+    "node-forge": ">=0.10.0",
+    "object-path": ">=0.11.5"
   },
   "scripts": {
     "start": "react-scripts start",
