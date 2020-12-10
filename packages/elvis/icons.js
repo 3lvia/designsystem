@@ -178,7 +178,7 @@
     }
     export const arrowCircleColor = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24C5.383 24 0 18.617 0 12S5.383 0 12 0s12 5.383 12 12-5.383 12-12 12zm0-22.5C6.21 1.5 1.5 6.21 1.5 12S6.21 22.5 12 22.5 22.5 17.79 22.5 12 17.79 1.5 12 1.5z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9.201 7.366a1.204 1.204 0 00.034 1.683L12.261 12l-3.026 2.95a1.204 1.204 0 00-.034 1.684c.449.474 1.19.49 1.657.034l3.907-3.81a1.2 1.2 0 000-1.717l-3.907-3.81a1.159 1.159 0 00-1.657.035z" fill="#000"/></svg>'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24C5.383 24 0 18.617 0 12S5.383 0 12 0s12 5.383 12 12-5.383 12-12 12zm0-22.5C6.21 1.5 1.5 6.21 1.5 12S6.21 22.5 12 22.5 22.5 17.79 22.5 12 17.79 1.5 12 1.5z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9.826 7.366a1.204 1.204 0 00.034 1.683L12.886 12 9.86 14.95a1.204 1.204 0 00-.034 1.684c.449.474 1.19.49 1.657.034l3.907-3.81a1.2 1.2 0 000-1.717l-3.907-3.81a1.159 1.159 0 00-1.657.035z" fill="#000"/></svg>'
           let iconName = 'arrow_circle-color'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
@@ -203,8 +203,58 @@
     }
     export const arrowCircleFilledColor = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 12c0 6.617 5.383 12 12 12s12-5.383 12-12S18.617 0 12 0 0 5.383 0 12z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9.201 7.366a1.204 1.204 0 00.034 1.683L12.261 12l-3.026 2.95a1.204 1.204 0 00-.034 1.684c.449.474 1.19.49 1.657.034l3.907-3.81a1.2 1.2 0 000-1.717l-3.907-3.81a1.159 1.159 0 00-1.657.035z" fill="#000"/></svg>'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 12c0 6.617 5.383 12 12 12s12-5.383 12-12S18.617 0 12 0 0 5.383 0 12z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M9.826 7.366a1.204 1.204 0 00.034 1.683L12.886 12 9.86 14.95a1.204 1.204 0 00-.034 1.684c.449.474 1.19.49 1.657.034l3.907-3.81a1.2 1.2 0 000-1.717l-3.907-3.81a1.159 1.159 0 00-1.657.035z" fill="#000"/></svg>'
           let iconName = 'arrow_circle-filled-color'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
+    export const arrowLeftCircleColor = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 24c6.617 0 12-5.383 12-12S18.617 0 12 0 0 5.383 0 12s5.383 12 12 12zm0-22.5c5.79 0 10.5 4.71 10.5 10.5S17.79 22.5 12 22.5 1.5 17.79 1.5 12 6.21 1.5 12 1.5z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14.174 7.366a1.204 1.204 0 01-.034 1.683L11.114 12l3.026 2.95c.467.456.482 1.21.034 1.684-.449.474-1.19.49-1.657.034l-3.907-3.81a1.2 1.2 0 010-1.717l3.907-3.81a1.159 1.159 0 011.657.035z" fill="#000"/></svg>'
+          let iconName = 'arrow_left_circle-color'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
+    export const arrowLeftCircleFilledColor = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 12c0 6.617-5.383 12-12 12S0 18.617 0 12 5.383 0 12 0s12 5.383 12 12z" fill="#29D305"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14.174 7.366a1.204 1.204 0 01-.034 1.683L11.114 12l3.026 2.95c.467.456.482 1.21.034 1.684-.449.474-1.19.49-1.657.034l-3.907-3.81a1.2 1.2 0 010-1.717l3.907-3.81a1.159 1.159 0 011.657.035z" fill="#000"/></svg>'
+          let iconName = 'arrow_left_circle-filled-color'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
