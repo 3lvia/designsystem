@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Checkbox } from '@elvia/elvis-checkbox/react';
-import { Progressbar } from '@elvia/elvis-progressbar/react';
+import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 
 function App() {
 
@@ -108,7 +108,7 @@ function App() {
 
       <h2>Progressbar</h2>
 
-      <Progressbar rangeValue={progressValue} error={false} indeterminate={false}></Progressbar>
+      <ProgressLinear rangeValue={progressValue} error={false} indeterminate={false}></ProgressLinear>
 
       <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
         <button onClick={increaseProgress}>Increase</button>
@@ -122,12 +122,12 @@ function App() {
       <h2>Progressbar indeterminate</h2>
 
       <div>
-        <Progressbar indeterminate={true}></Progressbar>
+        <ProgressLinear indeterminate={true}></ProgressLinear>
       </div>
       <h2>Progressbar Error</h2>
 
       <div>
-        <Progressbar rangeValue={progressValue} error={true} indeterminate={false}></Progressbar>
+        <ProgressLinear rangeValue={progressValue} error={true} indeterminate={false}></ProgressLinear>
       </div>
 
     </div >

@@ -8,8 +8,8 @@ export default class ElvisProgressbar extends ElvisComponentWrapper {
   }
 
   constructor() {
-    super(ElvisProgressbar, ReactProgressbarrComponent.Progressbar, style, 'progressbar');
+    super(ElvisProgressbar, ReactProgressbarrComponent.ProgressLinear, style, 'progressbar');
   }
 }
 
-window.customElements.define('elvis-progressbar', ElvisProgressbar as any);
+window.customElements.define('elvis-progress-linear', ElvisProgressbar as any);

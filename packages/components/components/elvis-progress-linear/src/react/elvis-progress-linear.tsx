@@ -12,7 +12,7 @@ export interface ProgressbarProps {
 // validate if progressrange is between 0 & 100
 const isValid = (value: number) => value > -1 && value <= 100;
 
-const Progressbar: React.FC<ProgressbarProps> = (props) => {
+const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
   // inital state
   const [percentRange, setProgress] = useState(0);
   const [isIndeterminate, setIndeterminateState] = useState(() => {
@@ -129,4 +129,4 @@ const Progressbar: React.FC<ProgressbarProps> = (props) => {
   );
 };
 
-export default Progressbar;
+export default ProgressLinear;

@@ -1,4 +1,4 @@
-# Elvis Progressbar
+# Elvis Progress-linear
 
 The linear progress bar is a display of current completion of an item/data loading. The progressbar is called
 upon by feeding it a rangeValue data, a number between 0 and 100. The Progressbar will not display any
@@ -22,7 +22,7 @@ default progressbar style with range of completion.
 ## REACT COMPONENT
 
 ```
-import { Progressbar } from '@elvia/elvis-progressbar/react';
+import { Progressbar } from '@elvia/elvis-progress-linear/react';
 ```
 
 ```
@@ -38,12 +38,12 @@ import { Progressbar } from '@elvia/elvis-progressbar/react';
 
 ```
 // in app.module.ts
-import '@elvia/elvis-progressbar';
+import '@elvia/elvis-progress-linear';
 ```
 
 ```
 // props are set throug setProp(), see the Data-binding section for an example
-<elvis-progressbar #progressbar ></elvis-progressbar>
+<elvis-progress-linear #progressbar ></elvis-progress-linear>
 
 ```
 
