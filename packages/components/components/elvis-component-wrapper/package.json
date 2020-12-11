@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-component-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "./dist/elvia-component.js",
   "scripts": {
@@ -9,6 +9,8 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "react-shadow-dom-retarget-events": "^1.0.11"
+    "react-shadow-dom-retarget-events": "^1.0.11",
+    "react": "*",
+    "react-dom": "*"
   }
 }
