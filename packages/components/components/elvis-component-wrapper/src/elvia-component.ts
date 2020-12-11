@@ -79,13 +79,11 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   /**
-  * Maps the attributes prefixed with "elvia-" to the data object, but does not overwrite existing data
+  * Maps the attributes prefixed with "elvia-" to the data object, it overwrites existing data
   */
   private mapAttributesToData() {
     this.webComponent.observedAttributes.forEach((attr: any) => {
-      if (!this._data[attr]) {
-        this._data[attr] = this.getAttribute(attr);
-      }
+      this._data[attr] = this.getAttribute(attr);
     });
   }
 

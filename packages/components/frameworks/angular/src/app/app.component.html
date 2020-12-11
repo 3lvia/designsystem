@@ -72,19 +72,17 @@
 
   <h2>Progressbar</h2>
   <div style="margin-bottom: 32px">
-    <elvis-progress-linear #progressbarExamp1></elvis-progress-linear>
+    <elvis-progress-linear
+      [indeterminate]="indeterminate"
+      [range_value]="progressValue"
+      [error]="progressError"
+    ></elvis-progress-linear>
     <div style="display: flex; width: 100%; justify-content: space-between">
-      <button (click)="increaseProgress()">Increase Progress</button>
-      <button (click)="decreaseProgress()">Decrease Progress</button>
-      <button (click)="resetProgress()">Reset Progress</button>
+      <button (click)="progressValue = progressValue + 10">Increase Progress</button>
+      <button (click)="progressValue = progressValue - 10">Decrease Progress</button>
+      <button (click)="progressValue = 0">Reset Progress</button>
+      <button (click)="indeterminate = !indeterminate">Toggle indeterminate</button>
+      <button (click)="progressError = !progressError">Toggle error</button>
     </div>
-  </div>
-  <h2>Progressbar Indeterminite</h2>
-  <div>
-    <elvis-progress-linear #progressbarExamp2></elvis-progress-linear>
-  </div>
-  <h2>Progressbar Error</h2>
-  <div>
-    <elvis-progress-linear #progressbarExamp3></elvis-progress-linear>
   </div>
 </div>

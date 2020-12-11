@@ -3,7 +3,7 @@ import { useEffect, useRef } from 'react';
 import './style.scss';
 
 export interface ProgressbarProps {
-  rangeValue?: number;
+  range_value?: number;
   indeterminate?: boolean ;
   error?: boolean;
   changeHandler?: any;
@@ -76,16 +76,16 @@ const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
   useEffect(() => {
     updateReactComponent(),
     updateWebcomponent();
-  }, [props.rangeValue, props.indeterminate, props.error]);
+  }, [props.range_value, props.indeterminate, props.error]);
 
-  // console error message on invalid rangeValue
+  // console error message on invalid range_value
   useEffect(() => {
-    if (props.rangeValue !== undefined) {
-      if (!isValid(props.rangeValue)){
-        console.error('<elvis-progressbar>: inputRange value ' + props.rangeValue + ' is invalid! Must be between 0 and 100.');
+    if (props.range_value !== undefined) {
+      if (!isValid(props.range_value)){
+        console.error('<elvis-progressbar>: inputRange value ' + props.range_value + ' is invalid! Must be between 0 and 100.');
       }
     }
-  }, [props.rangeValue]);
+  }, [props.range_value]);
 
 
   function updateReactComponent() {
@@ -95,7 +95,7 @@ const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
         props.changeHandler(true);
         didMountRef.current = true;
       } else {
-        props.changeHandler(props.rangeValue),
+        props.changeHandler(props.range_value),
         props.changeHandler(props.error),
         props.changeHandler(props.indeterminate);
       }
@@ -105,7 +105,7 @@ const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
   function updateWebcomponent() {
     if (props.webcomponent) {
       // True -> Prevents rerender
-      props.webcomponent.setProps({ rangeValue : props.rangeValue }),
+      props.webcomponent.setProps({ range_value : props.range_value }),
       props.webcomponent.setProps({ error : props.error }),
       props.webcomponent.setProps({ indeterminate : props.indeterminate });
     }
@@ -116,7 +116,7 @@ const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
       <div className='ewc-progress-linear'>
           <div
             className={classes}
-            style={{width: `${props.rangeValue === null ? 0 : props.rangeValue}%`}}
+            style={{width: `${props.range_value === null ? 0 : props.range_value}%`}}
             ></div>
       </div>
     </span>
