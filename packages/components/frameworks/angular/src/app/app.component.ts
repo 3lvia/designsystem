@@ -8,6 +8,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class AppComponent implements OnInit {
   @ViewChild('checkbox1', { static: true }) checkbox: any;
   checkBoxVal = true;
+  tabLabels = ['Option', 'Option', 'Option'];
+  tabSelected = 0;
+  tabDisabled = 2;
 
   ngOnInit(): void {
     // Listen checkbox changes

@@ -78,13 +78,18 @@ export class ElvisComponentWrapper extends HTMLElement {
     ReactDOM.render(this.createReactElement(this._data), this.mountPoint);
   }
 
-  /**
-  * Maps the attributes prefixed with "elvia-" to the data object, but does not overwrite existing data
-  */
+  // Maps the attributes prefixed with "elvia-" to the data object, it overwrites existing
   private mapAttributesToData() {
     this.webComponent.observedAttributes.forEach((attr: any) => {
-      if (!this._data[attr]) {
-        this._data[attr] = this.getAttribute(attr);
+      this._data[attr] = this.getAttribute(attr);
+      try {
+        const val = this.getAttribute(attr);
+        if (!val) {
+          return;
+        }
+        this._data[attr] = JSON.parse(val);
+      } catch (ex) {
+        console.log(ex);
       }
     });
   }

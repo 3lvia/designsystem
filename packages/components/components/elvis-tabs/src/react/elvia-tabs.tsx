@@ -35,13 +35,16 @@ const Tabs: React.FC<TabsProps> = forwardRef((props: TabsProps, ref: any) => {
     document.body.addEventListener('keydown', e => addOutline(e));
     document.body.addEventListener('click', () => removeOutline());
 
-    console.log(props.labels);
-
     return (() => {
       document.body.removeEventListener('keydown', e => addOutline(e));
       document.body.removeEventListener('keydown', () => removeOutline());
     });
   }, []);
+
+  useEffect(() => {
+    console.log(props.selected);
+    setSelected(props.selected);
+  }, [props.selected]);
 
   function isDisabled(i: number) {
     let disabled = false;
@@ -52,16 +55,16 @@ const Tabs: React.FC<TabsProps> = forwardRef((props: TabsProps, ref: any) => {
   return (
     <span ref={ref}>
       <span className="ewc-tabs ewc-no-outline" ref={tabsRef}>
-        { props.labels && props.labels.map((label, i) => (
+        { (props.labels !== undefined && props.labels !== null) && props.labels.map((label, i) => (
           <button 
             className={`
               ewc-tabs__label 
               ${selected == i && "ewc-tabs__label--selected" } 
-              ${props.disabled.map((index) => (index == i && "ewc-tabs__label--disabled"))}
             `} 
+            // ${isDisabled(i) && "ewc-tabs__label--disabled"}
             key={i} 
             onClick={() => setSelected(i)}
-            disabled={isDisabled(i)}
+            // disabled={isDisabled(i)}
           >
             {label}
           </button>
