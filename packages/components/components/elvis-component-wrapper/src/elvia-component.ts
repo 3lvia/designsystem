@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as retargetEvents from 'react-shadow-dom-retarget-events'
 
 export class ElvisComponentWrapper extends HTMLElement {
 
@@ -47,7 +46,6 @@ export class ElvisComponentWrapper extends HTMLElement {
     const shadowRoot = this.attachShadow({ mode: 'open' });
     shadowRoot.appendChild(this.mountPoint);
     shadowRoot.appendChild(styleTag);
-    retargetEvents(shadowRoot);
   }
 
   protected setProps(newProps: any, preventRerender?: boolean): void {
