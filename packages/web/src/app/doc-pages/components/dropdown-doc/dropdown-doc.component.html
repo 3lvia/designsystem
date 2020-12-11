@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Dropdown
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Dropdown</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -59,11 +57,9 @@
       </p>
       <p>
         To make the dropdown input field you might be able to use our
-        <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">
-          autocomplete classes
-        </a>
+        <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete']">autocomplete classes</a>
         or
-        <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>
+        <a class="e-link e-link--inline" [routerLink]="['/components/input']">input classes</a>
         . These classes have the same styling as the dropdown input designed here. Make sure to asign the
         input type to "button" to not let user type inside the input field
       </p>

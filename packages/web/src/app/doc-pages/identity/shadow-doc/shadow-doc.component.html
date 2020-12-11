@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Shadow
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Shadow</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -95,9 +93,7 @@
 
       <app-component-subsection [sectionTitle]="'Using CSS-variables'">
         <ng-container ngProjectAs="sectionContent">
-          <p class="e-text-body">
-            All shadows can be used through their CSS-variable as well.
-          </p>
+          <p class="e-text-body">All shadows can be used through their CSS-variable as well.</p>
           <ul class="e-list e-list--strong">
             <li>var(--e-shadow-none)</li>
             <li>var(--e-shadow-3)</li>
@@ -109,15 +105,13 @@
             section for how to:
             <a
               class="e-link e-link--inline"
-              [routerLink]="['/get-started/new-project-doc']"
+              [routerLink]="['/get-started/new-project']"
               fragment="Optional:-CSS-variables"
             >
               Get started
             </a>
           </p>
-          <p class="e-text-body">
-            All CSS-variables can be used, except if you want remove shadow.
-          </p>
+          <p class="e-text-body">All CSS-variables can be used, except if you want remove shadow.</p>
           <p>
             <app-do-dont [do]="true" [codeCSS]="doCodeCSS"></app-do-dont>
             <app-do-dont [do]="false" [codeCSS]="dontCodeCSS"></app-do-dont>

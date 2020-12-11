@@ -13,14 +13,14 @@
     class="e-my-48"
     style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
-    <div class="e-alert e-alert--local e-mt-24">
+    <div class="e-alert e-mt-24">
       <div class="e-alert__icon">
         <i class="e-icon e-icon--remove_circle e-icon--color-red"></i>
       </div>
       <div class="e-alert__content">
-        <div class="e-alert__title">Kort tittel.</div>
+        <div class="e-alert__title">Kort tittel</div>
         <div class="e-alert__text">
-          <div>Kort beskrivelse.</div>
+          <div>En beskrivende tekst til local alert.</div>
         </div>
       </div>
     </div>
@@ -35,15 +35,24 @@
       <div class="alert-type-container">
         <div class="alert-type-item">
           <div class="e-text-caps">Global</div>
-          <div><img src="./../../../../assets/alert/Group 856.svg" /></div>
+          <div class="type-images">
+            <img src="./../../../../assets/alert/global.svg" />
+            <img src="./../../../../assets/alert/global-mobile.svg" />
+          </div>
         </div>
         <div class="alert-type-item">
           <div class="e-text-caps">Local</div>
-          <div><img src="./../../../../assets/alert/Group 854.svg" /></div>
+          <div class="type-images">
+            <img src="./../../../../assets/alert/local.svg" />
+            <img src="./../../../../assets/alert/local-mobile.svg" />
+          </div>
         </div>
         <div class="alert-type-item">
           <div class="e-text-caps">Toast</div>
-          <div><img src="./../../../../assets/alert/Group 855.svg" class="e-mr-n8" /></div>
+          <div class="type-images">
+            <img src="./../../../../assets/alert/toast.svg" class="e-mr-n8" />
+            <img src="./../../../../assets/alert/toast-mobile.svg" class="e-mr-n8" />
+          </div>
         </div>
       </div>
 
@@ -63,6 +72,7 @@
             [showIframeScreens]="true"
             [noTablet]="true"
             [overwriteHeight]="104"
+            [noPaddingX]="true"
           ></app-code-block>
           <app-when-to-use [whens]="doesGlobalDefault" [whenNots]="dontsGlobalDefault"></app-when-to-use>
 
@@ -74,6 +84,7 @@
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [overwriteHeight]="104"
+                [noPaddingX]="true"
               ></app-code-block>
             </ng-container>
           </app-component-subsubsection>
@@ -88,6 +99,7 @@
                 [codeHTML]="globalAlertExpandable"
                 [showIframeScreens]="true"
                 [noTablet]="true"
+                [noPaddingX]="true"
               ></app-code-block>
             </ng-container>
           </app-component-subsubsection>
@@ -98,7 +110,19 @@
                 [codeHTML]="globalAlertActions"
                 [showIframeScreens]="true"
                 [noTablet]="true"
-                [overwriteHeight]="90"
+                [overwriteHeight]="110"
+                [noPaddingX]="true"
+              ></app-code-block>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'No title'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-code-block
+                [codeHTML]="globalAlertNoTitle"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+                [overwriteHeight]="110"
+                [noPaddingX]="true"
               ></app-code-block>
             </ng-container>
           </app-component-subsubsection>
@@ -116,6 +140,22 @@
             [noTablet]="true"
           ></app-code-block>
           <app-when-to-use [whens]="doesAlertDefault"></app-when-to-use>
+
+          <!-- Venter til design har sett på behov for denne 
+          <app-component-subsubsection [sectionTitle]="'Closable'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-code-block [codeHTML]="localAlertClosable" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
+            </ng-container>
+          </app-component-subsubsection> -->
+          <app-component-subsubsection [sectionTitle]="'No title'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-code-block
+                [codeHTML]="localAlertNoTitle"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+              ></app-code-block>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
 
@@ -134,6 +174,11 @@
               7 seconds. Long messages are not recommended, but if necessary, the close button can be used to
               close alerts that can't disappear after 7 seconds because of the length of message.
               <app-code-block [codeHTML]="toastAlertClosable"></app-code-block>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'No title'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-code-block [codeHTML]="toastAlertNoTitle"></app-code-block>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
@@ -210,8 +255,8 @@
       </div>
       <div class="alert-status">
         <div class="alert-icons">
-          <div class="e-bg-black e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
-          <div><i class="e-icon e-icon--information_circle e-icon--xl"></i></div>
+          <div class="e-bg-grey e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
+          <div><i class="e-icon e-icon--information_circle e-icon--color-grey e-icon--xl"></i></div>
         </div>
         <div>
           <div class="title e-text-caps">

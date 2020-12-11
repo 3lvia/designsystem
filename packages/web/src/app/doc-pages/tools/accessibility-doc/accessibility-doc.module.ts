@@ -5,6 +5,8 @@ import { ComponentHeaderModule } from 'src/app/shared/component-structure/compon
 import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
 import { RouterModule } from '@angular/router';
+import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
+import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure/component-subsubsection/component-subsubsection.module';
 
 @NgModule({
   imports: [
@@ -12,6 +14,8 @@ import { RouterModule } from '@angular/router';
     ComponentHeaderModule,
     DoDontModule,
     ComponentSectionModule,
+    ComponentSubsectionModule,
+    ComponentSubsubsectionModule,
     RouterModule,
   ],
   declarations: [AccessibilityDocComponent],

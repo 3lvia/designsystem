@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Date & Time picker
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Date & Time picker</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -19,7 +17,7 @@
           <app-code-block [codeHTML]="inputDateExample"></app-code-block>
           <p class="e-mt-40">
             To make the datepicker you might be able to use our
-            <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>
+            <a class="e-link e-link--inline" [routerLink]="['/components/input']">input classes</a>
             .
           </p>
           <p class="image-container">
@@ -27,7 +25,7 @@
           </p>
           <p>
             To make the opened datepicker you might be able use some styling we provide in the
-            <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">
+            <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete']">
               autocomplete classes
             </a>
             . But it is probably necessary to style from scratch.
@@ -44,11 +42,11 @@
           <app-code-block [codeHTML]="inputTimeExample"></app-code-block>
           <p class="e-mt-40">
             To make the timepicker you might be able to use our
-            <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete-doc']">
+            <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete']">
               autocomplete classes
             </a>
             or
-            <a class="e-link e-link--inline" [routerLink]="['/components/input-doc']">input classes</a>
+            <a class="e-link e-link--inline" [routerLink]="['/components/input']">input classes</a>
             . These classes have the same styling as the timepicker designed here.
           </p>
           <p class="image-container">
@@ -95,11 +93,11 @@
           If you need to style the datepicker or timepicker from scratch you can use our identity classes
           which provide styling that can be useful.
           <ul class="e-list">
-            <li><a class="e-link" [routerLink]="['/identity/typography-doc']">Typography</a></li>
-            <li><a class="e-link" [routerLink]="['/identity/spacing-doc']">Spacing</a></li>
-            <li><a class="e-link" [routerLink]="['/identity/shadow-doc']">Shadows</a></li>
-            <li><a class="e-link" [routerLink]="['/identity/color-doc']">Colors</a></li>
-            <li><a class="e-link" [routerLink]="['/identity/icon-doc']">Icons</a></li>
+            <li><a class="e-link" [routerLink]="['/identity/typography']">Typography</a></li>
+            <li><a class="e-link" [routerLink]="['/identity/spacing']">Spacing</a></li>
+            <li><a class="e-link" [routerLink]="['/identity/shadow']">Shadows</a></li>
+            <li><a class="e-link" [routerLink]="['/identity/color']">Colors</a></li>
+            <li><a class="e-link" [routerLink]="['/identity/icon']">Icons</a></li>
           </ul>
         </ng-container>
       </app-component-subsection>

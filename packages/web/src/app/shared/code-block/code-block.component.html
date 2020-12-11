@@ -62,10 +62,18 @@
         ></app-iframe-screen>
       </div>
       <div [ngClass]="{ hide: screenTabOpen !== 'tablet' || noTablet }">
-        <app-iframe-screen [codeHTML]="displayCode" [screenSize]="'tablet'"></app-iframe-screen>
+        <app-iframe-screen
+          [codeHTML]="displayCode"
+          [screenSize]="'tablet'"
+          [noPaddingX]="noPaddingX"
+        ></app-iframe-screen>
       </div>
       <div [ngClass]="{ hide: screenTabOpen !== 'phone' || noPhone }">
-        <app-iframe-screen [codeHTML]="displayCode" [screenSize]="'phone'"></app-iframe-screen>
+        <app-iframe-screen
+          [codeHTML]="displayCode"
+          [screenSize]="'phone'"
+          [noPaddingX]="noPaddingX"
+        ></app-iframe-screen>
       </div>
     </div>
   </div>

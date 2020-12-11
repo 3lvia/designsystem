@@ -5,6 +5,12 @@
   outline-offset: 2px;
 }
 
+// for pseudoclasses :focus
+@mixin e-outline-pseudoclass() {
+  outline: 2px solid colors.internal-color('focus-outline') !important;
+  outline-offset: 2px;
+}
+
 // Using this requires javascript to not fail WCAG criterion 2.4.7
 .e-no-outline {
   * {
@@ -12,8 +18,6 @@
   }
 }
 
-// for pseudoclasses :focus
-@mixin e-outline-pseudoclass() {
-  outline: 2px solid colors.internal-color('focus-outline') !important;
-  outline-offset: 2px;
+.e-outline {
+  @include e-outline-pseudoclass();
 }
