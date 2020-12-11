@@ -9,7 +9,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "react-shadow-dom-retarget-events": "^1.0.11",
+    "react-shadow-dom-retarget-events": "^1.0.11"
+  },
+  "peerDependencies": {
     "react": "*",
     "react-dom": "*"
   }
