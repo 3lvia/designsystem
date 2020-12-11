@@ -50,6 +50,7 @@
     "@rollup/plugin-commonjs": "^15.0.0",
     "@webcomponents/webcomponentsjs": "^2.4.4",
     "classnames": "^2.2.6",
+    "gulp-rename": "^2.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-shadow-dom-retarget-events": "^1.0.11",
