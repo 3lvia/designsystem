@@ -1,0 +1,86 @@
+$selected-color: #29d305;
+$not-selected-color: #e9e9e9;
+
+.ewc-tabs {
+  display: flex;
+  flex-direction: row;
+
+  &__label {
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 150%;
+    text-transform: uppercase;
+
+    display: inline-flex;
+    position: relative;
+    border: none;
+    padding: 0px;
+    padding-bottom: 6px;
+    background: transparent;
+
+    &:not(:last-of-type) {
+      margin-right: 24px;
+    }
+
+    // Underline
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      bottom: 0px;
+      top: 24px;
+      background-color: $not-selected-color;
+      border-radius: 16px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0px;
+      top: 24px;
+      border-radius: 16px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    // States
+    &:focus:not(:disabled) {
+      outline: 2px solid #0064fa;
+      outline-offset: 2px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      &:not(.ewc-tabs__label--selected)::after {
+        background-color: $selected-color;
+        width: 100%;
+      }
+    }
+
+    &.ewc-tabs__label--selected {
+      font-weight: 500;
+      &::after {
+        background-color: $selected-color;
+        width: 100%;
+      }
+    }
+
+    &.ewc-tabs__label--disabled {
+      color: #a8a8a8;
+      cursor: not-allowed;
+      &:hover::after {
+        width: 0;
+      }
+    }
+  }
+}
+
+// class for no outline on click
+.ewc-no-outline,
+.ewc-no-outline * {
+  outline: none !important;
+}

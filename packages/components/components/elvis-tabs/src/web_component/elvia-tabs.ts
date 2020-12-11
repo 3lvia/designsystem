@@ -5,7 +5,7 @@ const style = `{{INSERT_STYLE_HERE}}`;
 export default class ElviaTabs extends ElvisComponentWrapper {
 
   static get observedAttributes(): any[] {
-    return ['label'];
+    return ['labels', 'selected', 'disabled'];
   }
 
   constructor() {

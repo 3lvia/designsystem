@@ -19,7 +19,7 @@ function App() {
 
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px' }}>
-        <Tabs label="Hello"></Tabs>
+        <Tabs labels={['option', 'option', 'option']}  selected="0" disabled={[2]}></Tabs>
       </div>
 
       <hr style={{ margin: '40px 0' }} />
