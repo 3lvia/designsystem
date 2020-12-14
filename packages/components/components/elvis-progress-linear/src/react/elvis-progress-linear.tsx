@@ -3,9 +3,9 @@ import './style.scss';
 import classnames from 'classnames'
 
 export interface ProgressbarProps {
-  rangeValue?: number;
-  indeterminate?: boolean ;
-  error?: boolean;
+  rangeValue: number;
+  indeterminate: boolean ;
+  error: boolean;
 }
 
 const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
