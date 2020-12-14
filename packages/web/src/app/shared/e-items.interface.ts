@@ -3,6 +3,7 @@ export interface EItems {
   description: string;
   imageUrl?: string;
   absolutePath?: string;
+  fragmentPath?: string;
   docUrl?: string;
   externalUrl?: string;
   figmaUrl?: string;

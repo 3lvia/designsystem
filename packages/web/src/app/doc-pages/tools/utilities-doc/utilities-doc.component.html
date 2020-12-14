@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header>
-  <ng-container ngProjectAs="headerTitle">
-    Utility Classes
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Utility Classes</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -15,11 +13,9 @@
     <div>
       <div class="utilityContainer">
         <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
-          <a class="e-link e-link--lg" [routerLink]="['/identity/color-doc']" fragment="Implementation">
-            Colors
-          </a>
+          <a class="e-link e-link--lg" [routerLink]="['/identity/color']" fragment="Implementation">Colors</a>
         </div>
-        <div class="e-text-description" style="width: 100%;">
+        <div class="e-text-description" style="width: 100%">
           <div class="tableRow">
             <span class="class">
               <app-copy [message]="'e-bg-name'">
@@ -32,7 +28,7 @@
               Sets the background to an available color in elvis. Also sets text to contrast color of
               background-color.
             </span>
-            <span class="cssContent">Background-color: #colorname</span>
+            <span class="cssContent">background-color: #colorname</span>
           </div>
           <div class="tableRow">
             <span class="class">
@@ -43,19 +39,17 @@
               </app-copy>
             </span>
             <span class="description">Sets the text to an available color in elvis</span>
-            <span class="cssContent">Color: #colorname</span>
+            <span class="cssContent">color: #colorname</span>
           </div>
         </div>
       </div>
-      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px;"></div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
 
       <div class="utilityContainer">
         <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
-          <a class="e-link e-link--lg" [routerLink]="['/identity/shadow-doc']" fragment="Usage">
-            Shadow
-          </a>
+          <a class="e-link e-link--lg" [routerLink]="['/identity/shadow']" fragment="Usage">Shadow</a>
         </div>
-        <div class="e-text-description" style="width: 100%;">
+        <div class="e-text-description" style="width: 100%">
           <div class="tableRow">
             <span class="class">
               <app-copy [message]="'e-shadow-none'">
@@ -102,14 +96,12 @@
           </div>
         </div>
       </div>
-      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px;"></div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
       <div class="utilityContainer">
         <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
-          <a class="e-link e-link--lg" [routerLink]="['/identity/spacing-doc']" fragment="Usage">
-            Spacing
-          </a>
+          <a class="e-link e-link--lg" [routerLink]="['/identity/spacing']" fragment="Usage">Spacing</a>
         </div>
-        <div class="e-text-description" style="width: 100%;">
+        <div class="e-text-description" style="width: 100%">
           <div class="tableRow">
             <span class="class">
               <app-copy [message]="'e-p-number'">
@@ -278,14 +270,12 @@
           </div>
         </div>
       </div>
-      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px;"></div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
       <div class="utilityContainer">
         <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
-          <a class="e-link e-link--lg" [routerLink]="['/identity/typography-doc']" fragment="Usage">
-            Typography
-          </a>
+          <a class="e-link e-link--lg" [routerLink]="['/identity/typography']" fragment="Usage">Typography</a>
         </div>
-        <div class="e-text-description" style="width: 100%;">
+        <div class="e-text-description" style="width: 100%">
           <div class="tableRow">
             <span class="class">
               <app-copy [message]="'e-title-lg'">
@@ -321,12 +311,32 @@
           </div>
         </div>
       </div>
-      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px;"></div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
       <div class="utilityContainer">
         <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
-          Display
+          <a class="e-link e-link--lg" [routerLink]="['/tools/accessibility']" fragment="Keyboard">Focus</a>
         </div>
-        <div class="e-text-description" style="width: 100%;">
+        <div class="e-text-description" style="width: 100%">
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-outline'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-outline</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Adds outline to elements.</span>
+            <span class="cssContent">
+              <div>outline: 2px solid $focus-color;</div>
+              <div>outline-offset: 2px;</div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
+      <div class="utilityContainer">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">Display</div>
+        <div class="e-text-description" style="width: 100%">
           <div class="tableRow">
             <span class="class">
               <app-copy [message]="'e-none'">
@@ -336,7 +346,7 @@
               </app-copy>
             </span>
             <span class="description">Remove elements from the DOM.</span>
-            <span class="cssContent">Display: none</span>
+            <span class="cssContent">display: none</span>
           </div>
           <div class="tableRow">
             <span class="class">
@@ -347,7 +357,7 @@
               </app-copy>
             </span>
             <span class="description">Display none on element displayed MaxDesktop breakpoints.</span>
-            <span class="cssContent">Display: none</span>
+            <span class="cssContent">display: none</span>
           </div>
           <div class="tableRow">
             <span class="class">
@@ -358,7 +368,7 @@
               </app-copy>
             </span>
             <span class="description">Display none on element displayed MinDesktop breakpoints.</span>
-            <span class="cssContent">Display: none</span>
+            <span class="cssContent">display: none</span>
           </div>
           <div class="tableRow">
             <span class="class">
@@ -369,7 +379,7 @@
               </app-copy>
             </span>
             <span class="description">Display none on element displayed Tablet breakpoints.</span>
-            <span class="cssContent">Display: none</span>
+            <span class="cssContent">display: none</span>
           </div>
           <div class="tableRow">
             <span class="class">
@@ -380,16 +390,14 @@
               </app-copy>
             </span>
             <span class="description">Display none on element displayed Mobile breakpoints.</span>
-            <span class="cssContent">Display: none</span>
+            <span class="cssContent">display: none</span>
           </div>
         </div>
       </div>
-      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px;"></div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
       <div class="utilityContainer">
-        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
-          Visibility
-        </div>
-        <div class="e-text-description" style="width: 100%;">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">Visibility</div>
+        <div class="e-text-description" style="width: 100%">
           <div class="tableRow">
             <span class="class">
               <app-copy [message]="'e-invisible'">
@@ -447,12 +455,10 @@
           </div>
         </div>
       </div>
-      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px;"></div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
       <div class="utilityContainer">
-        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
-          Text
-        </div>
-        <div class="e-text-description" style="width: 100%;">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">Text</div>
+        <div class="e-text-description" style="width: 100%">
           <div class="tableRow">
             <span class="class">
               <app-copy [message]="'e-capitalize'">
@@ -521,13 +527,11 @@
           </div>
         </div>
       </div>
-      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px;"></div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
 
       <div class="utilityContainer">
-        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
-          Width
-        </div>
-        <div class="e-text-description" style="width: 100%;">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">Width</div>
+        <div class="e-text-description" style="width: 100%">
           <div class="tableRow">
             <span class="class">
               <app-copy [message]="'e-w-100'">

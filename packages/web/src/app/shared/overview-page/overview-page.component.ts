@@ -13,7 +13,7 @@ export class OverviewPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.filteredPages = this.pages.filter((page) => {
-      return page.status !== 'Coming';
+      return page.status !== 'Coming' && page.status !== 'Ignore';
     });
   }
 }

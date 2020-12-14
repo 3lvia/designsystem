@@ -888,6 +888,11 @@ body {
   outline: none !important;
 }
 
+.e-outline {
+  outline: 2px solid #0064fa !important;
+  outline-offset: 2px;
+}
+
 a:focus,
 button:focus,
 input:focus {
@@ -1690,30 +1695,8 @@ input:focus {
   visibility: hidden;
 }
 
-.e-btn.e-btn--tertiary.e-btn--loading {
-  display: inline-block;
-  vertical-align: middle;
-  cursor: progress;
-}
-
 .e-btn.e-btn--tertiary.e-btn--loading span {
-  width: 10px;
-  height: 10px;
-  background-color: #000;
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: loading-dots 1s infinite ease-in-out both;
-  animation: loading-dots 1s infinite ease-in-out both;
-}
-
-.e-btn.e-btn--tertiary.e-btn--loading span:nth-of-type(1) {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
-}
-
-.e-btn.e-btn--tertiary.e-btn--loading span:nth-of-type(2) {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
+  background: black;
 }
 
 .e-btn.e-btn--tertiary.e-btn--inverted {
@@ -1841,30 +1824,12 @@ input:focus {
 }
 
 .e-btn.e-btn--icon.e-btn--loading {
-  display: inline-block;
   padding-left: 0px;
   padding-right: 0px;
-  cursor: progress;
 }
 
 .e-btn.e-btn--icon.e-btn--loading span {
-  width: 10px;
-  height: 10px;
   background-color: #000;
-  border-radius: 100%;
-  display: inline-block;
-  -webkit-animation: loading-dots 1s infinite ease-in-out both;
-  animation: loading-dots 1s infinite ease-in-out both;
-}
-
-.e-btn.e-btn--icon.e-btn--loading span:nth-of-type(1) {
-  -webkit-animation-delay: -0.32s;
-  animation-delay: -0.32s;
-}
-
-.e-btn.e-btn--icon.e-btn--loading span:nth-of-type(2) {
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
 }
 
 .e-btn.e-btn--icon .e-btn__icon {
@@ -2106,15 +2071,18 @@ input:focus {
   cursor: not-allowed;
 }
 
-.e-btn.e-btn--loading {
+.e-btn.e-btn--loading span {
+  background-color: #fff;
+}
+
+.e-btn.e-btn--tertiary.e-btn--loading, .e-btn.e-btn--icon.e-btn--loading, .e-btn.e-btn--loading {
   display: inline-block;
   cursor: progress;
 }
 
-.e-btn.e-btn--loading span {
+.e-btn.e-btn--tertiary.e-btn--loading span, .e-btn.e-btn--icon.e-btn--loading span, .e-btn.e-btn--loading span {
   width: 10px;
   height: 10px;
-  background-color: #fff;
   border-radius: 100%;
   display: inline-block;
   -webkit-animation: loading-dots 1s infinite ease-in-out both;

@@ -71,6 +71,7 @@
 			}
 		},
 		"e-no-outline": {},
+		"e-outline": {},
 		"e-text": {},
 		"e-bg": {},
 		"e-text-green": {},
@@ -1004,6 +1005,7 @@
 		"e-autocomplete__item": {},
 		"e-dropdown__item": {},
 		"e-no-outline": {},
+		"e-outline": {},
 		"e-text": {},
 		"e-bg": {},
 		"e-text-green": {},

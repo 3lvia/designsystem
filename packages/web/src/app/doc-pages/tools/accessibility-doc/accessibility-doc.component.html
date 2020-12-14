@@ -86,7 +86,7 @@
           <li>
             All form elements can use the e-form-field classes for label, error messages and alignment of form
             elements (see
-            <a class="e-link e-link--lg" [routerLink]="['/components/input-doc']">input</a>
+            <a class="e-link e-link--lg" [routerLink]="['/components/input']">input</a>
             )
           </li>
           <li>Use background classes (e-bg) to automatically get right text contrasts</li>
@@ -160,6 +160,54 @@
           for more guides to Elvia’s written style and tone.
         </span>
       </div>
+    </ng-container>
+  </app-component-section>
+  <app-component-section [sectionTitle]="'Keyboard'">
+    <ng-container ngProjectAs="sectionContent">
+      Keyboard accessibility is one of the most important aspects of web accessibility. A keyboard user
+      typically uses the Tab key to navigate through interactive elements on a web page.
+      <app-component-subsection [sectionTitle]="'Focus'">
+        <ng-container ngProjectAs="sectionContent">
+          Focus adds an additional outline around the element. Version 2.1 of the Web Content Accessibility
+          Guidelines (WCAG) specify a minimal contrast ratio of 3:1 against adjacent colour(s) for the parts,
+          which are required to understand the meaning or content of a graphical object.
+          <div class="focus-container">
+            <img
+              src="../../../../assets/accessibility/minimal-contrast-ratio.svg"
+              alt="Minimal contrast ratio"
+              class="e-mt-24 image-ratio"
+            />
+            <div class="e-mt-24 e-outline"></div>
+          </div>
+          <p>
+            The outline should not be visible on click. The correct behavior is included on our components
+            when using CDN. If you are not using CDN you have to remember to add the elvis script. Read more
+            on
+            <a
+              class="e-link e-link--inline"
+              [routerLink]="['/get-started/new-project']"
+              fragment="'Get-started-using-CDN---Recommended'"
+            >
+              set up and getting started.
+            </a>
+          </p>
+
+          <app-component-subsubsection [sectionTitle]="'Examples'">
+            <ng-container ngProjectAs="sectionContent">
+              This outline comes with the elements that require focus state in elvis. If you want to add focus
+              to your custom elements you can use the class
+              <span class="code-text">e-outline</span>
+              .
+              <div class="e-my-8 e-mt-24">
+                <button class="e-btn e-outline">Button</button>
+              </div>
+              <div class="e-my-8">
+                <a class="e-link e-outline">Link</a>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
   <app-component-section [sectionTitle]="'Useful links'">
