@@ -9,6 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "lodash.throttle": "^4.1.1",
     "react-shadow-dom-retarget-events": "^1.0.11"
   },
   "peerDependencies": {
