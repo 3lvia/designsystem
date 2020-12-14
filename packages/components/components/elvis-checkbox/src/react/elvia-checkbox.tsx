@@ -29,20 +29,23 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
     link.type = 'text/css';
     document.head.appendChild(link);
 
-    function toggleOutline(e: KeyboardEvent) {
-      if (!checkboxRef.current) {
-        return;
-      } else if (e.key === 'Tab') {
-        checkboxRef.current.classList.remove('e-no-outline');
-      } else if (!checkboxRef.current.classList.contains('e-no-outline')) {
-        checkboxRef.current.classList.add('e-no-outline');
+    function addOutline(e: KeyboardEvent) {
+      if (checkboxRef.current && e.key === 'Tab') {
+        checkboxRef.current.classList.remove('ewc-no-outline');
+      }
+    }
+    function removeOutline() {
+      if (checkboxRef.current &&  !checkboxRef.current.classList.contains('ewc-no-outline')) {
+        checkboxRef.current.classList.add('ewc-no-outline');
       }
     }
 
-    document.body.addEventListener('keydown', e => toggleOutline(e));
+    document.body.addEventListener('keydown', e => addOutline(e));
+    document.body.addEventListener('click', () => removeOutline());
 
     return (() => {
-      document.body.removeEventListener('keydown', e => toggleOutline(e));
+      document.body.removeEventListener('keydown', e => addOutline(e));
+      document.body.removeEventListener('keydown', () => removeOutline());
     });
   }, []);
 
