@@ -11,13 +11,19 @@ export class AppComponent implements OnInit {
   tabLabels = ['Option', 'Option', 'Option'];
   tabSelected = 0;
   tabDisabled = 2;
+  checkBoxVal2 = true;
+
+
+  nativeJSApproach() {
+    // Non-angular approach, not necessary when using angular:
+    this.checkbox.nativeElement.addEventListener('changed', (event: any) => {
+      this.checkBoxVal2 = event.detail.checked;
+    });
+    this.checkbox.nativeElement.setProps({ checked: this.checkBoxVal2 });
+    // If you need to get data at any other time: this.checkbox.nativeElement.getProps();
+  }
 
   ngOnInit(): void {
-    // Listen checkbox changes
-    this.checkbox.nativeElement.addEventListener('props-changed', (event: any) => {
-      this.checkBoxVal = event.detail.checked;
-    });
-    this.checkbox.nativeElement.setProps({ checked: true });
-    this.checkbox.nativeElement.getProps();
+    this.nativeJSApproach();
   }
 }

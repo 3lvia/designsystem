@@ -6,6 +6,28 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      4.5.0
+    </span>
+    <br>
+    <span>
+      December 9, 2020
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">✂️ New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Icon Button</a>
+        </div>
+        <div>
+          The <span class="code-text changelog-code">e-btn--loading</span> modifier for <span class="code-text changelog-code">e-btn</span> has been updated, and can now also be applied to an icon button
+        </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       4.0.0
     </span>
     <br>
