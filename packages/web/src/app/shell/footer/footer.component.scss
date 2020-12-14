@@ -26,35 +26,13 @@
 
   &::before {
     content: '';
-    left: -45%;
-    border-radius: 50%;
+    border-radius: 100%;
     position: absolute;
     background-color: var(--e-white);
     z-index: -1;
-    width: 190vw;
-    height: calc(280% + 8px);
-    bottom: 157px;
-    @media screen and (-ms-high-contrast: none) {
-      bottom: 140px;
-    }
-    @include breakpoint-up(Tablet) {
-      left: -65%;
-      width: 230vw;
-      height: calc(280% + 8px);
-      bottom: 171px;
-      @media screen and (-ms-high-contrast: none) {
-        bottom: 150px;
-      }
-    }
-    @include breakpoint-up(Mobile) {
-      left: -30%;
-      width: 160vw;
-      height: calc(100% + 8px);
-      bottom: 199px;
-      @media screen and (-ms-high-contrast: none) {
-        bottom: 175px;
-      }
-    }
+    width: 685vw;
+    height: 685vw;
+    bottom: calc(100% - 3.7vw);
   }
 
   .footer-container {

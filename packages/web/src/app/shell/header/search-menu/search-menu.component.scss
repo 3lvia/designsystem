@@ -43,15 +43,15 @@
 
   &::before {
     content: '';
-    left: -30%;
-    border-radius: 50%;
+    border-radius: 100%;
     position: absolute;
     background-color: var(--e-white);
-    width: 160vw;
-    height: calc(100% + 75px);
     z-index: -1;
+    width: 685vw;
+    height: 685vw;
+    bottom: -14.7%;
     @include breakpoint-up(Mobile) {
-      height: 1100px;
+      bottom: -650px;
       overflow: hidden;
     }
   }
