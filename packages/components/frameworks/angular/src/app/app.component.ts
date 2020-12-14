@@ -8,9 +8,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class AppComponent implements OnInit {
   @ViewChild('checkbox1', { static: true }) checkbox: any;
   checkBoxVal = true;
-  tabLabels = ['Option', 'Option', 'Option'];
-  tabSelected = 0;
-  tabDisabled = [2];
+  tabLabels = ['Option', 'Option', 'Option', 'option', 'Option'];
+  tabSelected = 2;
+  tabDisabled = [3, 4];
   checkBoxVal2 = true;
 
 
@@ -25,5 +25,11 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.nativeJSApproach();
+  }
+
+  updateSelected(sel) {
+    if (sel !== undefined) {
+      this.tabSelected = sel;
+    }
   }
 }

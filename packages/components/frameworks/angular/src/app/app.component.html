@@ -3,7 +3,13 @@
 
   <h2>Tabs</h2>
   <div style="margin-top: 16px">
-    <elvia-tabs [labels]="tabLabels" [selected]="tabSelected" [disabled]="tabDisabled"></elvia-tabs>
+    <elvia-tabs
+      [labels]="tabLabels"
+      [selectedTab]="tabSelected"
+      (changed)="updateSelected($event.detail.selectedTab)"
+      [disabledTabs]="tabDisabled"
+    ></elvia-tabs>
+    {{ tabSelected }}
   </div>
 
   <hr style="margin: 40px 0" />

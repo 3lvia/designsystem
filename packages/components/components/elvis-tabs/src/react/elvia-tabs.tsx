@@ -4,12 +4,14 @@ import './style.scss';
 
 export interface TabsProps {
   labels: string[];
-  selected: number;
-  disabled: number[];
+  selectedTab: number;
+  disabledTabs?: number[];
+  changeHandler?: any;
+  webcomponent?: any;
 }
 
 const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
-  const [selected, setSelected] = useState(props.selected);
+  const [selectedTab, setSelectedTab] = useState(props.selectedTab);
   const tabsRef = useRef<HTMLSpanElement>(null);
 
   // Running on first render only (on mount)
@@ -35,14 +37,43 @@ const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
   }, []);
 
   useEffect(() => {
-    setSelected(props.selected);
-  }, [props.selected]);
+    console.log("selected : "+selectedTab);
+    console.log("selected prop : "+props.selectedTab);
+    setSelectedTab(props.selectedTab);
+  }, [props.selectedTab]);
+  useEffect(() => {
+    console.log("disabled prop : "+props.disabledTabs);
+  }, [props.disabledTabs]);
+
+  useEffect(() => {
+    console.log("selected : "+selectedTab);
+    console.log("selected prop : "+props.selectedTab);
+    updateReactComponent();
+    updateWebcomponent();
+  }, [selectedTab]);
+  
+  function updateReactComponent() {
+    if(!props.webcomponent && props.changeHandler){
+      props.changeHandler(selectedTab);
+    } 
+  }
+
+  function updateWebcomponent() {
+    if (props.webcomponent) {
+      // True -> Prevents rerender
+      props.webcomponent.setProps({ selectedTab: selectedTab }, true);
+    }
+  }
 
   function isDisabled(i: number): boolean {
-    if(props.disabled === undefined) { return false; }
+    if(props.disabledTabs === undefined) { return false; }
     let isDisabled = false;
-    props.disabled.map((index) => {isDisabled = index == i});
+    props.disabledTabs.forEach((index) => {if(index === i) { isDisabled = true}});
     return isDisabled;
+  }
+
+  function isSelected(i: number): boolean {
+    return selectedTab === i;
   }
 
   return (
@@ -51,11 +82,11 @@ const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
         <button 
           className={`
             ewc-tabs__label 
-            ${selected == i && "ewc-tabs__label--selected" } 
+            ${isSelected(i) && "ewc-tabs__label--selected" } 
             ${isDisabled(i) && "ewc-tabs__label--disabled"}
           `} 
           key={i} 
-          onClick={() => setSelected(i)}
+          onClick={() => setSelectedTab(i)}
           disabled={isDisabled(i)}
         >
           {label}

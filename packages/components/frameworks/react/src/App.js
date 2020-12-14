@@ -7,6 +7,7 @@ import { Tabs } from '@elvia/elvis-tabs/react';
 function App() {
 
   const [trackedState, setTrackedState] = useState(true);
+  const [selectedState, setSelectedState] = useState(1);
   const ref = useRef();
 
   function update() {
@@ -19,7 +20,13 @@ function App() {
 
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px' }}>
-        <Tabs labels={['option', 'option', 'option']}  selected="0" disabled={[2]}></Tabs>
+        <Tabs 
+          labels={['option', 'option', 'option', 'option', 'option']}  
+          selectedTab={selectedState} 
+          disabledTabs={[3, 4]}
+          changeHandler={setSelectedState}
+        ></Tabs>
+        <div>{selectedState.toString()}</div>
       </div>
 
       <hr style={{ margin: '40px 0' }} />
