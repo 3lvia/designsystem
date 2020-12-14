@@ -26,7 +26,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   getProps(): any {
-    return this.clone(this._data);
+    return this._data;
   }
 
   connectedCallback(): void {
@@ -35,7 +35,6 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   attributeChangedCallback(): void {
-    console.log('attributeChangedCallback', this.getProps());
     this.renderReactDOM();
   }
 
@@ -52,9 +51,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected setProps(newProps: any, preventRerender?: boolean): void {
-
     Object.keys(newProps).forEach(key => {
-      console.log(newProps[key])
       this._data[key] = newProps[key];
     });
 
@@ -71,35 +68,27 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   }
 
-  // Does not create a reliable deep clone, but is sufficient for v1
-  protected clone(item: any): any {
-    return JSON.parse(JSON.stringify(item));
-  }
 
+  // Consider throttling to every 25-50ms and last event
   protected renderReactDOM(): void {
     this.mapAttributesToData();
     ReactDOM.render(this.createReactElement(this._data), this.mountPoint);
   }
 
-  // TODO
-  protected snakeCaseToCamelCase() {
-
-  }
-
   /**
-  * Maps the attributes prefixed with "elvia-" to the data object, it does not overwrite existing data
+  * Maps the attributes prefixed with "elvia-" to the data object unless data is set
   */
   private mapAttributesToData() {
     this.webComponent.observedAttributes.forEach((attr: any) => {
+      const val = this.getAttribute(attr);
       if (!this._data[attr]) {
-        this._data[attr] = this.getAttribute(attr);
+        this._data[attr] = val;
       }
     });
   }
 
   private createReactElement(data: any): React.ReactElement {
-    // Does not create a reliable deep clone, but is sufficient for v1
-    const reactData = this.clone(data);
+    const reactData = data;
     reactData.webcomponent = this;
     return React.createElement(this.reactComponent, reactData, React.createElement('slot'));
   }

@@ -1,6 +1,7 @@
 import * as ReactComponent from '../../../react.js';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 const style = `{{INSERT_STYLE_HERE}}`;
+//{{INSERT_COMPONENT_DATA}}
 
 export default class ElviaComponent extends ElvisComponentWrapper {
     static get observedAttributes(): any[] {

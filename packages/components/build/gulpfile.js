@@ -59,6 +59,9 @@ function buildWebComponentsMagically() {
                 file.contents = new Buffer(String(file.contents)
                     .replace(/\/\/{{INSERT_SETTERS_AND_GETTERS}}/, setGetList(component.attributes)));
 
+                file.contents = new Buffer(String(file.contents)
+                    .replace(/\/\/{{INSERT_COMPONENT_DATA}}/, `const componentData = ${JSON.stringify(component)}`));
+
             }))
             .pipe(rename(function (path) {
                 path.basename = component.elementName;
@@ -130,7 +133,6 @@ gulp.task(
 
 
 gulp.task('watch', function () {
-
     gulp.watch(
         ['../components/*/src/**/*'], { ignoreInitial: false },
         gulp.series('default'),
