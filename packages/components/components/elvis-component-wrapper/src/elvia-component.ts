@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events'
+import * as throttle from 'lodash.throttle';
 
 export class ElvisComponentWrapper extends HTMLElement {
 
@@ -9,6 +10,8 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected webComponent: any;
   protected cssStyle: string;
   protected role: string;
+  protected throttleRenderReactDOM;
+  protected throttleChangedEvent;
   private mountPoint!: HTMLSpanElement;
 
   constructor(webComponent: any, reactComponent: any, cssStyle: string, role: string) {
@@ -18,6 +21,14 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
     this.role = role;
+    this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { 'trailing': true });
+    this.throttleChangedEvent = throttle(() => {
+      this.mountPoint.dispatchEvent(new CustomEvent('changed', {
+        bubbles: false,
+        composed: true,
+        detail: this._data
+      }));
+    }, 50, { 'trailing': true });
   }
 
 
@@ -35,7 +46,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   attributeChangedCallback(): void {
-    this.renderReactDOM();
+    this.throttleRenderReactDOM();
   }
 
   protected attachStyle(): void {
@@ -55,15 +66,10 @@ export class ElvisComponentWrapper extends HTMLElement {
       this._data[key] = newProps[key];
     });
 
-    // Consider throttling to every 25-50ms and last event
-    this.mountPoint.dispatchEvent(new CustomEvent('changed', {
-      bubbles: false,
-      composed: true,
-      detail: this._data
-    }));
+    this.throttleChangedEvent();
 
     if (!preventRerender) {
-      this.renderReactDOM();
+      this.throttleRenderReactDOM();
     }
   }
 
@@ -82,8 +88,6 @@ export class ElvisComponentWrapper extends HTMLElement {
     })
   }
 
-
-  // Consider throttling to every 25-50ms and last event
   protected renderReactDOM(): void {
     this.mapAttributesToData();
     ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
@@ -95,7 +99,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   private mapAttributesToData() {
     this.webComponent.observedAttributes.forEach((attr: any) => {
       const val = this.getAttribute(attr);
-      if (!this._data[attr]) {
+      if (this._data[attr] === null) {
         this._data[attr] = val;
       }
     });

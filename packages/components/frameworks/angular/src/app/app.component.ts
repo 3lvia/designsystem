@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
     // If you need to get data at any other time: this.checkbox.nativeElement.getProps();
   }
 
-
   ngOnInit(): void {
     this.nativeJSApproach();
   }
