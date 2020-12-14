@@ -1,17 +1,19 @@
 import * as ReactComponent from '../../../react.js';
 import { ElvisComponentWrapper } from '@elvia/elvis-component-wrapper';
 const style = `{{INSERT_STYLE_HERE}}`;
-//{{INSERT_COMPONENT_DATA}}
+
 
 export default class ElviaComponent extends ElvisComponentWrapper {
     static get observedAttributes(): any[] {
         return ['{{INSERT_ATTRIBUTES}}'];
     }
 
-    //{{INSERT_SETTERS_AND_GETTERS}}
+    //{{INSERT_COMPONENT_DATA}}
 
+    //{{INSERT_SETTERS_AND_GETTERS}}
     constructor() {
         super(ElviaComponent, ReactComponent['{{INSERT_REACT_NAME}}'], style, `{{INSERT_ROLE}}`);
+
     }
 }
 

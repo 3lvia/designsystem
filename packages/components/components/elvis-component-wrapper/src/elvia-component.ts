@@ -65,18 +65,32 @@ export class ElvisComponentWrapper extends HTMLElement {
     if (!preventRerender) {
       this.renderReactDOM();
     }
+  }
 
+  protected createReactData() {
+    const reactData = {}
+    Object.keys(this._data).forEach((key: string) => {
+      reactData[this.mapNameToLowercaseName(key)] = this._data[key];
+    });
+    return reactData;
+  }
+
+  // Finds the real name of an attribute
+  protected mapNameToLowercaseName(attr: string): string {
+    return this.webComponent.getComponentData().attributes.find((compAttr: string) => {
+      return compAttr.toLowerCase() === attr
+    })
   }
 
 
   // Consider throttling to every 25-50ms and last event
   protected renderReactDOM(): void {
     this.mapAttributesToData();
-    ReactDOM.render(this.createReactElement(this._data), this.mountPoint);
+    ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
   }
 
   /**
-  * Maps the attributes prefixed with "elvia-" to the data object unless data is set
+  * Maps the attributes to the data object unless data is set
   */
   private mapAttributesToData() {
     this.webComponent.observedAttributes.forEach((attr: any) => {

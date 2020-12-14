@@ -19,15 +19,27 @@ const WARNING = `/*
 function setGetList(attributes) {
     list = "";
     attributes.forEach(name => {
+        const lowercase = name.toLowerCase();
+
         list += `
         set ${name}(newValue: any) {
-            super.setProps({'${name}': newValue});
+            super.setProps({'${lowercase}': newValue});
         }
-
         get ${name}() {
-            super.getProps()['${name}'];
+            super.getProps()['${lowercase}'];
         }
         `
+        // At least 1 uppercase in name
+        if (lowercase !== name) {
+            list += `
+            set ${lowercase}(newValue: any) {
+                super.setProps({'${lowercase}': newValue});
+            }
+            get ${lowercase}() {
+                super.getProps()['${lowercase}'];
+            }
+            `
+        }
     });
     return list;
 }
@@ -43,11 +55,12 @@ function buildWebComponentsMagically() {
 
                 const result = sass.renderSync({ file: `../components/${component.name}/src/react/style.scss` });
 
+                const lowercaseAttr = component.attributes.map(attr => attr.toLowerCase());
 
                 file.contents = new Buffer(String(file.contents)
                     .replace(/{{INSERT_STYLE_HERE}}/, result.css.toString()));
                 file.contents = new Buffer(String(file.contents)
-                    .replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(component.attributes)));
+                    .replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(lowercaseAttr))); // Observed attributes has to be lowercase to meet spec
                 file.contents = new Buffer(String(file.contents)
                     .replace(/{{INSERT_COMPONENT_NAME}}/, component.elementName));
 
@@ -60,7 +73,11 @@ function buildWebComponentsMagically() {
                     .replace(/\/\/{{INSERT_SETTERS_AND_GETTERS}}/, setGetList(component.attributes)));
 
                 file.contents = new Buffer(String(file.contents)
-                    .replace(/\/\/{{INSERT_COMPONENT_DATA}}/, `const componentData = ${JSON.stringify(component)}`));
+                    .replace(/\/\/{{INSERT_COMPONENT_DATA}}/, `
+                    static getComponentData() {
+                        return ${JSON.stringify(component)}
+                    }    
+                    `));
 
             }))
             .pipe(rename(function (path) {
