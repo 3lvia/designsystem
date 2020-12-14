@@ -286,7 +286,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
       <div className="ewc-popover__content ewc-popover--hide" ref={popoverContentRef}>
         <div className="ewc-popover__close">
           <button
-            className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
+            className="ewc-btn ewc-btn--icon ewc-btn--sm ewc-no-outline"
             onClick={togglePopover}
             ref={popoverCloseRef}
           >

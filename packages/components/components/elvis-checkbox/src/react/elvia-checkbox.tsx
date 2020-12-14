@@ -16,7 +16,7 @@ export interface CheckboxProps {
 const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
   const [isChecked, setCheckedState] = useState(false);
   const checkboxRef = useRef<HTMLLabelElement>(null);
-  const classes = ['ewc-checkbox ', props.size === 'small' ? 'ewc-checkbox--sm' : '', ' e-no-outline'].join(' ');
+  const classes = ['ewc-checkbox ', props.size === 'small' ? 'ewc-checkbox--sm' : '', ' ewc-no-outline'].join(' ');
   // check and add html5 input modifers
   const isDisabled = props.disabled === 'true' || props.disabled === '';
   const isRequired = props.required === 'true' || props.required === '';
