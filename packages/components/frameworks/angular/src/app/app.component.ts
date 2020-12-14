@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   checkBoxVal = true;
   tabLabels = ['Option', 'Option', 'Option'];
   tabSelected = 0;
-  tabDisabled = 2;
+  tabDisabled = [2];
   checkBoxVal2 = true;
 
 

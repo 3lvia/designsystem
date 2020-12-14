@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { forwardRef, useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './style.scss';
 
 export interface TabsProps {
@@ -8,19 +8,12 @@ export interface TabsProps {
   disabled: number[];
 }
 
-const Tabs: React.FC<TabsProps> = forwardRef((props: TabsProps, ref: any) => {
+const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
   const [selected, setSelected] = useState(props.selected);
   const tabsRef = useRef<HTMLSpanElement>(null);
 
   // Running on first render only (on mount)
   useEffect(() => {
-    // Adding font
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    document.head.appendChild(link);
-
     function addOutline(e: KeyboardEvent) {
       if (tabsRef.current && e.key === 'Tab') {
         tabsRef.current.classList.remove('ewc-no-outline');
@@ -42,36 +35,34 @@ const Tabs: React.FC<TabsProps> = forwardRef((props: TabsProps, ref: any) => {
   }, []);
 
   useEffect(() => {
-    console.log(props.selected);
     setSelected(props.selected);
   }, [props.selected]);
 
-  function isDisabled(i: number) {
-    let disabled = false;
-    props.disabled.map((index) => {disabled = index == i});
-    return disabled;
+  function isDisabled(i: number): boolean {
+    if(props.disabled === undefined) { return false; }
+    let isDisabled = false;
+    props.disabled.map((index) => {isDisabled = index == i});
+    return isDisabled;
   }
 
   return (
-    <span ref={ref}>
-      <span className="ewc-tabs ewc-no-outline" ref={tabsRef}>
-        { (props.labels !== undefined && props.labels !== null) && props.labels.map((label, i) => (
-          <button 
-            className={`
-              ewc-tabs__label 
-              ${selected == i && "ewc-tabs__label--selected" } 
-            `} 
-            // ${isDisabled(i) && "ewc-tabs__label--disabled"}
-            key={i} 
-            onClick={() => setSelected(i)}
-            // disabled={isDisabled(i)}
-          >
-            {label}
-          </button>
-        ))}
-      </span>
+    <span className="ewc-tabs ewc-no-outline" ref={tabsRef}>
+      { (props.labels !== undefined && props.labels !== null) && props.labels.map((label, i) => (
+        <button 
+          className={`
+            ewc-tabs__label 
+            ${selected == i && "ewc-tabs__label--selected" } 
+            ${isDisabled(i) && "ewc-tabs__label--disabled"}
+          `} 
+          key={i} 
+          onClick={() => setSelected(i)}
+          disabled={isDisabled(i)}
+        >
+          {label}
+        </button>
+      ))}
     </span>
   );
-});
+};
 
 export default Tabs;
