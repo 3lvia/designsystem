@@ -9,8 +9,10 @@
       name="Nametest"
       id="CheckboxTestID"
       size="normal"
+      [checked]="checkBoxVal"
+      (changed)="checkBoxVal = $event.detail.checked"
     ></elvia-checkbox>
-    <elvia-checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></elvia-checkbox>
+    {{ checkBoxVal }}
   </div>
 
   <hr style="margin: 40px 0" />

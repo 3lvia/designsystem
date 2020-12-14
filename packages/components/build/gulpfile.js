@@ -21,11 +21,11 @@ function setGetList(attributes) {
     attributes.forEach(name => {
         list += `
         set ${name}(newValue: any) {
-            super.setAttribute('${name}', newValue);
+            super.setProps({'${name}': newValue});
         }
 
         get ${name}() {
-            super.getAttribute('${name}');
+            super.getProps()['${name}'];
         }
         `
     });

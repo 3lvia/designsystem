@@ -35,6 +35,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   attributeChangedCallback(): void {
+    console.log('attributeChangedCallback', this.getProps());
     this.renderReactDOM();
   }
 
@@ -51,15 +52,17 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected setProps(newProps: any, preventRerender?: boolean): void {
+
     Object.keys(newProps).forEach(key => {
-      this._data[key] = this.clone(newProps[key]);
+      console.log(newProps[key])
+      this._data[key] = newProps[key];
     });
 
     // Consider throttling to every 25-50ms and last event
-    this.mountPoint.dispatchEvent(new CustomEvent('props-changed', {
-      bubbles: true,
+    this.mountPoint.dispatchEvent(new CustomEvent('changed', {
+      bubbles: false,
       composed: true,
-      detail: this.clone(this._data)
+      detail: this._data
     }));
 
     if (!preventRerender) {
@@ -78,8 +81,13 @@ export class ElvisComponentWrapper extends HTMLElement {
     ReactDOM.render(this.createReactElement(this._data), this.mountPoint);
   }
 
+  // TODO
+  protected snakeCaseToCamelCase() {
+
+  }
+
   /**
-  * Maps the attributes prefixed with "elvia-" to the data object, but does not overwrite existing data
+  * Maps the attributes prefixed with "elvia-" to the data object, it does not overwrite existing data
   */
   private mapAttributesToData() {
     this.webComponent.observedAttributes.forEach((attr: any) => {
