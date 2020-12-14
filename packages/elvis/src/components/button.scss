@@ -325,27 +325,10 @@ $loading-dot-sm: 8px;
     }
 
     &.e-btn--loading {
-      display: inline-block;
-      vertical-align: middle;
-      cursor: progress;
+      @extend %e-btn--loading;
 
       span {
-        width: $loading-dot-md;
-        height: $loading-dot-md;
-        background-color: colors.color('black');
-        border-radius: 100%;
-        display: inline-block;
-        -webkit-animation: loading-dots 1s infinite ease-in-out both;
-        animation: loading-dots 1s infinite ease-in-out both;
-      }
-
-      span:nth-of-type(1) {
-        -webkit-animation-delay: -0.32s;
-        animation-delay: -0.32s;
-      }
-      span:nth-of-type(2) {
-        -webkit-animation-delay: -0.16s;
-        animation-delay: -0.16s;
+        background: black;
       }
     }
 
@@ -488,28 +471,14 @@ $loading-dot-sm: 8px;
     height: 40px;
 
     &.e-btn--loading {
-      display: inline-block;
+
+      @extend %e-btn--loading;
+
       padding-left: 0px;
       padding-right: 0px;
-      cursor: progress;
 
       span {
-        width: $loading-dot-md;
-        height: $loading-dot-md;
         background-color: colors.color('black');
-        border-radius: 100%;
-        display: inline-block;
-        -webkit-animation: loading-dots 1s infinite ease-in-out both;
-        animation: loading-dots 1s infinite ease-in-out both;
-      }
-
-      span:nth-of-type(1) {
-        -webkit-animation-delay: -0.32s;
-        animation-delay: -0.32s;
-      }
-      span:nth-of-type(2) {
-        -webkit-animation-delay: -0.16s;
-        animation-delay: -0.16s;
       }
     }
 
@@ -753,14 +722,21 @@ $loading-dot-sm: 8px;
   }
 
   &.e-btn--loading {
+    @extend %e-btn--loading;
+
+    span{
+      background-color: colors.color('white');
+    }
+  }
+}
+
+%e-btn--loading {
     display: inline-block;
     cursor: progress;
 
     span {
       width: $loading-dot-md;
       height: $loading-dot-md;
-      background-color: colors.color('white');
-
       border-radius: 100%;
       display: inline-block;
       -webkit-animation: loading-dots 1s infinite ease-in-out both;
@@ -775,7 +751,6 @@ $loading-dot-sm: 8px;
       -webkit-animation-delay: -0.16s;
       animation-delay: -0.16s;
     }
-  }
 }
 
 @-webkit-keyframes loading-dots {

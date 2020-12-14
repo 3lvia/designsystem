@@ -6,7 +6,7 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
-      4.4.0
+      4.5.0
     </span>
     <br>
     <span>
