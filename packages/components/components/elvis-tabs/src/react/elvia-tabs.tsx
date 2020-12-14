@@ -37,17 +37,10 @@ const Tabs: React.FC<TabsProps> = (props: TabsProps) => {
   }, []);
 
   useEffect(() => {
-    console.log("selected : "+selectedTab);
-    console.log("selected prop : "+props.selectedTab);
     setSelectedTab(props.selectedTab);
   }, [props.selectedTab]);
-  useEffect(() => {
-    console.log("disabled prop : "+props.disabledTabs);
-  }, [props.disabledTabs]);
 
   useEffect(() => {
-    console.log("selected : "+selectedTab);
-    console.log("selected prop : "+props.selectedTab);
     updateReactComponent();
     updateWebcomponent();
   }, [selectedTab]);
