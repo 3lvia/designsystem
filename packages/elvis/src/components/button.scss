@@ -31,6 +31,10 @@ $button-sm-padding: $button-sm-padding-y $button-sm-padding-x;
 $button-sm-font-size: 14px;
 $button-sm-line-height: 16px;
 
+$loading-dot-lg: 12px;
+$loading-dot-md: 10px;
+$loading-dot-sm: 8px;
+
 .e-btn {
   // .e-btn--primary .e-btn--md is the default for any e-button
   @extend .e-btn--primary;
@@ -78,6 +82,12 @@ $button-sm-line-height: 16px;
         @include icons.icon-size('sm');
       }
     }
+    &.e-btn--loading {
+      span {
+        width: $loading-dot-lg;
+        height: $loading-dot-lg;
+      }
+    }
   }
   &.e-btn--md {
     font-size: $button-md-font-size;
@@ -98,6 +108,12 @@ $button-sm-line-height: 16px;
       @include icons.icon-size('xs');
       i {
         @include icons.icon-size('xs');
+      }
+    }
+    &.e-btn--loading {
+      span {
+        width: $loading-dot-sm;
+        height: $loading-dot-sm;
       }
     }
   }
@@ -129,7 +145,7 @@ $button-sm-line-height: 16px;
       }
 
       &.e-btn--loading span {
-        animation: dark 1000ms linear infinite;
+        background-color: colors.color('black');
       }
     }
 
@@ -170,7 +186,7 @@ $button-sm-line-height: 16px;
     }
     &.e-btn---hover,
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       background: colors.color('green');
       border-color: colors.color('green');
       color: colors.color('black');
@@ -183,7 +199,7 @@ $button-sm-line-height: 16px;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled):not(.e-btn--loading) {
         background: colors.color('green');
         border-color: colors.color('green');
         color: colors.color('black');
@@ -198,7 +214,7 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       border-color: transparent;
       background-clip: padding-box;
     }
@@ -216,7 +232,7 @@ $button-sm-line-height: 16px;
 
     &.e-btn--loading {
       span {
-        animation: dark 1000ms linear infinite;
+        background-color: colors.color('black');
       }
     }
 
@@ -244,9 +260,8 @@ $button-sm-line-height: 16px;
       }
       &.e-btn--loading {
         span {
-          animation: light 1000ms linear infinite;
+          background-color: colors.color('white');
         }
-        @extend %spanAnimation;
       }
     }
 
@@ -260,7 +275,7 @@ $button-sm-line-height: 16px;
 
     &.e-btn---hover,
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       background: colors.color('green');
       border-color: colors.color('green');
       color: colors.color('black');
@@ -269,7 +284,7 @@ $button-sm-line-height: 16px;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled):not(.e-btn--loading) {
         background: colors.color('green');
         border-color: colors.color('green');
         color: colors.color('black');
@@ -280,7 +295,7 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       border-color: transparent;
       background-clip: padding-box;
       .e-btn__icon i {
@@ -309,8 +324,22 @@ $button-sm-line-height: 16px;
       }
     }
 
+    &.e-btn--loading {
+      @extend %e-btn--loading;
+
+      span {
+        background: black;
+      }
+    }
+
     &.e-btn--inverted {
       color: colors.color('white');
+
+      &.e-btn--loading {
+        span {
+          background-color: white;
+        }
+      }
 
       .e-btn__icon {
         i {
@@ -330,7 +359,7 @@ $button-sm-line-height: 16px;
         border-bottom: none;
       }
 
-      &:active:not(:disabled) {
+      &:active:not(:disabled):not(.e-btn--loading) {
         .e-btn__icon {
           i {
             visibility: hidden;
@@ -346,6 +375,20 @@ $button-sm-line-height: 16px;
 
     &.e-btn--lg {
       padding-bottom: 1.5px;
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-lg;
+          height: $loading-dot-lg;
+        }
+      }
+    }
+    &.e-btn--sm {
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-sm;
+          height: $loading-dot-sm;
+        }
+      }
     }
 
     &.e-btn---disabled,
@@ -362,7 +405,7 @@ $button-sm-line-height: 16px;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled):not(.e-btn--loading) {
         border-bottom-color: colors.color('green');
         border-color: colors.color('green');
         background: none;
@@ -385,7 +428,7 @@ $button-sm-line-height: 16px;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled)[class*='e-btn--inverted'] {
+      &:hover:not(:disabled):not(.e-btn--loading) {
         .e-btn__icon {
           i {
             visibility: hidden;
@@ -400,7 +443,7 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       padding-bottom: 4.5px;
       &.e-btn--lg {
         padding-bottom: 2.5px;
@@ -427,6 +470,18 @@ $button-sm-line-height: 16px;
     width: 40px;
     height: 40px;
 
+    &.e-btn--loading {
+
+      @extend %e-btn--loading;
+
+      padding-left: 0px;
+      padding-right: 0px;
+
+      span {
+        background-color: colors.color('black');
+      }
+    }
+
     .e-btn__icon {
       width: 24px;
       height: 24px;
@@ -452,6 +507,12 @@ $button-sm-line-height: 16px;
           @include icons.icon-size('md');
         }
       }
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-lg;
+          height: $loading-dot-lg;
+        }
+      }
     }
 
     &.e-btn--sm {
@@ -462,6 +523,12 @@ $button-sm-line-height: 16px;
         height: 16px;
         i {
           @include icons.icon-size('xs');
+        }
+      }
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-sm;
+          height: $loading-dot-sm;
         }
       }
     }
@@ -499,6 +566,11 @@ $button-sm-line-height: 16px;
               visibility: hidden !important;
             }
           }
+        }
+      }
+      &.e-btn--loading {
+        span {
+          background-color: colors.color('white');
         }
       }
     }
@@ -624,14 +696,14 @@ $button-sm-line-height: 16px;
 
     &.e-btn---hover,
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       background: colors.color('green');
       .e-btn__icon i[class$='inverted'] {
         visibility: visible;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
+      &:hover:not(:disabled):not(.e-btn--loading) {
         background: colors.color('green');
         .e-btn__icon i[class$='inverted'] {
           visibility: visible;
@@ -640,7 +712,7 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       transform: scale(0.95);
     }
     &.e-btn---disabled,
@@ -650,43 +722,57 @@ $button-sm-line-height: 16px;
   }
 
   &.e-btn--loading {
-    display: inline-block;
+    @extend %e-btn--loading;
 
-    span {
-      background: transparent;
-      border-radius: 50%;
-      display: inline-block;
-      line-height: 24px;
-      height: 9px;
-      width: 9px;
-      animation: light 1000ms linear infinite;
+    span{
+      background-color: colors.color('white');
     }
-
-    @extend %spanAnimation;
   }
 }
 
-// Animation for loading button
-@include animations.dotAnimation(light, #ffffff);
-@include animations.dotAnimation(dark, #000000);
+%e-btn--loading {
+    display: inline-block;
+    cursor: progress;
 
-%spanAnimation {
-  span:nth-child(2) {
-    animation-delay: 0.2s;
+    span {
+      width: $loading-dot-md;
+      height: $loading-dot-md;
+      border-radius: 100%;
+      display: inline-block;
+      -webkit-animation: loading-dots 1s infinite ease-in-out both;
+      animation: loading-dots 1s infinite ease-in-out both;
+    }
+
+    span:nth-of-type(1) {
+      -webkit-animation-delay: -0.32s;
+      animation-delay: -0.32s;
+    }
+    span:nth-of-type(2) {
+      -webkit-animation-delay: -0.16s;
+      animation-delay: -0.16s;
+    }
+}
+
+@-webkit-keyframes loading-dots {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
   }
-  span:nth-child(1) {
-    animation-delay: 0.8s;
+  40% {
+    -webkit-transform: scale(1);
   }
-  span:nth-child(3) {
-    animation-delay: 0.4s;
+}
+
+@keyframes loading-dots {
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
   }
-  span:nth-child(4) {
-    animation-delay: 0.4s;
-  }
-  span:nth-child(5) {
-    animation-delay: 0.2s;
-  }
-  span:nth-child(1) {
-    animation-delay: 0s;
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
