@@ -8,7 +8,7 @@
 dist
 
 #eslintchache
-.eslintchache
+.eslintcache
 
 # dependencies
 node_modules
