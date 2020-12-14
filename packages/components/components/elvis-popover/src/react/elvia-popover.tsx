@@ -65,19 +65,21 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
     document.head.appendChild(link);
 
     // Listen to tab events and click outside popover
-    document.body.addEventListener('keydown', (e) => toggleOutline(e));
+    document.body.addEventListener('keydown', e => addOutline(e));
+    document.body.addEventListener('click', () => removeOutline());
     document.addEventListener('click', handleClickOutside);
 
-    function toggleOutline(e: KeyboardEvent) {
-      if (!popoverCloseRef.current) {
-        return;
-      }
-      if (e.key === 'Tab') {
-        popoverCloseRef.current.classList.remove('e-no-outline');
-      } else if (!popoverCloseRef.current.classList.contains('e-no-outline')) {
-        popoverCloseRef.current.classList.add('e-no-outline');
+    function addOutline(e: KeyboardEvent) {
+      if (popoverCloseRef.current && e.key === 'Tab') {
+        popoverCloseRef.current.classList.remove('ewc-no-outline');
       }
     }
+    function removeOutline() {
+      if (popoverCloseRef.current &&  !popoverCloseRef.current.classList.contains('ewc-no-outline')) {
+        popoverCloseRef.current.classList.add('ewc-no-outline');
+      }
+    }
+
     function handleClickOutside(e: MouseEvent) {
       if (!popoverContentRef.current || !popoverRef.current) {
         return;
@@ -94,7 +96,8 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
 
     // Remove listeners
     return () => {
-      document.body.removeEventListener('keydown', toggleOutline);
+      document.body.removeEventListener('keydown', e => addOutline(e));
+      document.body.removeEventListener('keydown', () => removeOutline());
       document.removeEventListener('click', handleClickOutside);
     };
   }, []);
@@ -283,7 +286,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, posX, posY, trigg
       <div className="ewc-popover__content ewc-popover--hide" ref={popoverContentRef}>
         <div className="ewc-popover__close">
           <button
-            className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
+            className="ewc-btn ewc-btn--icon ewc-btn--sm ewc-no-outline"
             onClick={togglePopover}
             ref={popoverCloseRef}
           >

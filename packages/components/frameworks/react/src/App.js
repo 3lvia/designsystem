@@ -108,7 +108,7 @@ function App() {
 
       <h2>Progressbar</h2>
 
-      <ProgressLinear range_value={progressValue} error={false} indeterminate={false}></ProgressLinear>
+      <ProgressLinear rangeValue={progressValue} error={false} indeterminate={false}></ProgressLinear>
 
       <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
         <button onClick={increaseProgress}>Increase</button>
@@ -127,7 +127,7 @@ function App() {
       <h2>Progressbar Error</h2>
 
       <div>
-        <ProgressLinear range_value={progressValue} error={true} indeterminate={true}></ProgressLinear>
+        <ProgressLinear rangeValue={progressValue} error={true} indeterminate={true}></ProgressLinear>
       </div>
 
 

@@ -146,25 +146,57 @@ export class ButtonDocComponent {
 </div>
 `;
 
-  example3 = `<button class="e-btn e-btn--tertiary">
+  example3 = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
+<button class="e-btn e-btn--tertiary e-m-8">
+  <span class="e-btn__title">Tertiary</span>
+</button>
+<button class="e-btn e-btn--tertiary e-m-8">
   <span class="e-btn__icon">
     <i class="e-icon e-icon--download"></i>
   </span>
   <span class="e-btn__title">Tertiary</span>
 </button>
+<button class="e-btn e-btn--tertiary e-m-8">
+  <span class="e-btn__title">Tertiary</span>
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--download"></i>
+  </span>
+</button>
+ <button class="e-btn e-btn--tertiary e-btn--loading e-m-8">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
 `;
 
-  example3Inverted = `<button class="e-btn e-btn--tertiary e-btn--inverted">
-  <span class="e-btn__icon">
-    <i class="e-icon e-icon--download e-icon--inverted"></i>
-  </span>
-  <span class="e-btn__title">Tertiary</span>
-</button>
+  example3Inverted = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
+  <button class="e-btn e-btn--tertiary e-btn--inverted e-m-8">
+    <span class="e-btn__title">Tertiary</span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-btn--inverted e-m-8">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--inverted"></i>
+    </span>
+    <span class="e-btn__title">Tertiary</span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-btn--inverted e-m-8">
+    <span class="e-btn__title">Tertiary</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--inverted"></i>
+    </span>
+  </button>
+ <button class="e-btn e-btn--tertiary e-btn--loading e-btn--inverted e-m-8">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</div>
 `;
 
   exampleIcon = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
   <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
-    <div class="e-text-label e-mb-8">Flat</div>
+    <div class="e-text-label e-mb-8">Transparent</div>
     <button class="e-btn e-btn--icon e-btn--lg" style="margin: 4px">
       <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
     </button>
@@ -198,6 +230,25 @@ export class ButtonDocComponent {
     </button>
   </div>
 
+  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
+    <div class="e-text-label e-mb-8">Loading</div>
+    <button class="e-btn e-btn--icon e-btn--lg e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--sm e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
   <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8">Circled</div>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-8">
@@ -219,12 +270,13 @@ export class ButtonDocComponent {
       </span>
     </button>
   </div>
+
 </div>
 `;
 
   exampleIconInverted = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
   <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
-    <div class="e-text-label e-mb-8 e-text-white">Flat</div>
+    <div class="e-text-label e-mb-8 e-text-white">Transparent</div>
     <button class="e-btn e-btn--icon e-btn--inverted" style="margin: 4px">
       <span class="e-btn__icon">
         <i class="e-icon e-icon--upload"></i>
@@ -267,6 +319,25 @@ export class ButtonDocComponent {
     </button>
   </div>
 
+  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
+    <div class="e-text-label e-mb-8">Loading</div>
+    <button class="e-btn e-btn--icon e-btn--lg e-btn--inverted e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--inverted e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="e-btn e-btn--icon e-btn--sm e-btn--inverted e-btn--loading" style="margin: 4px">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
   <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8 e-text-white">Circled</div>
     <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-btn--lg e-m-8">
@@ -288,6 +359,7 @@ export class ButtonDocComponent {
       </span>
     </button>
   </div>
+
 </div>
 `;
 

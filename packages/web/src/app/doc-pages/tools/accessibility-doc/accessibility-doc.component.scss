@@ -54,3 +54,16 @@
     }
   }
 }
+
+.focus-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .image-ratio {
+    width: 40%;
+  }
+  .e-outline {
+    width: 40%;
+    height: 70px;
+  }
+}

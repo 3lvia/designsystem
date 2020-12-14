@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-component-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "",
   "main": "./dist/elvia-component.js",
   "scripts": {
@@ -8,7 +8,12 @@
   },
   "author": "",
   "license": "MIT",
-   "dependencies": {
-    "@elvia/elvis-component-wrapper": "*"
+  "dependencies": {
+    "lodash.throttle": "^4.1.1",
+    "react-shadow-dom-retarget-events": "^1.0.11"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-dom": "*"
   }
 }

@@ -528,6 +528,15 @@ export const eTools: EItems[] = [
     imageUrl: 'assets/website-icons/tools-images/designProcess.svg',
     type: 'Tool',
   },
+  // JUST TO BE INCLUDED IN SEARCH BEFORE WE EXTEND SEARCH
+  {
+    title: 'Focus',
+    description: 'Keyboard accessibility is one of the most important aspects of web accessibility. A keyboard user typically uses the Tab key to navigate through interactive elements on a web page. Focus adds an additional outline around the element.',
+    absolutePath: '/tools/' + Pages.Accessibility,
+    fragmentPath: 'Keyboard',
+    status: ItemStatus.Ignore,
+    type: 'Tool',
+  },
   {
     title: 'Patterns',
     // tslint:disable-next-line:max-line-length

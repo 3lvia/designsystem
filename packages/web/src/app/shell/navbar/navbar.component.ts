@@ -90,7 +90,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.filteredPages = this.navbarItems.filter((page) => {
-      return page.status !== 'Coming';
+      return page.status !== 'Coming' && page.status !== 'Ignore';
     });
   }
 
