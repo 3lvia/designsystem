@@ -1,15 +1,18 @@
 # Elvis Progress-linear
 
-The linear progress bar is a display of current completion of an item/data loading. The progressbar is called
-upon by feeding it a rangeValue data, a number between 0 and 100. The Progressbar will not display any
-progress beyond these limits, and will notify your system by an error message in the console. In the instance
-of a failure you can pass an error boolean property to display a failed progress. Instead of a displaying a
-progress range from 0 - 100, you can also use the progress bar in its indeterminate style. Simply pass "true"
-to the indeterminate boolean property
+The progress-linear component is a display of current completion of an item/data loading. The progressbar is
+called upon by feeding it a value, a number between 0 and 100. The Progressbar will not display any progress
+beyond these limits.
+
+Instead of a displaying a progress range from 0 - 100, you can also use the progress linear to represent an
+indeterminate amount. Simply pass "true" to the indeterminate boolean property, and the progress-linear
+componenent will have a undetermninate loading style, and not visualising any value input given.
+
+In the instance of a failure you can pass an error boolean property to display a failed progress.
 
 ## Props
 
-- rangeValue (number) - The percentage value of completion
+- value (number) - The percentage value of completion
 - indeterminate (boolean) - For indeterminate loading style
 - error (boolean) - For displaying an error in the progress completion.
 

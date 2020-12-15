@@ -3,7 +3,7 @@ import './style.scss';
 import classnames from 'classnames'
 
 export interface ProgressbarProps {
-  rangeValue: number;
+  value: number;
   indeterminate: boolean ;
   error: boolean;
 }
@@ -16,14 +16,12 @@ const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
   });
 
   return (
-    <span>
       <div className='ewc-progress-linear'>
           <div
             className={classes}
-            style={{width: `${props.rangeValue === null ? 0 : props.rangeValue}%`}}
+            style={{width: `${props.value}%`}}
             ></div>
       </div>
-    </span>
   );
 };
 
