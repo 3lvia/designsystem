@@ -79,9 +79,9 @@
   <h2>Progressbar</h2>
   <div style="margin-bottom: 32px">
     <elvia-progress-linear
-      [indeterminate]="indeterminate"
+      [isIndeterminate]="indeterminate"
       [value]="progressValue"
-      [error]="progressError"
+      [isError]="progressError"
     ></elvia-progress-linear>
     <div style="display: flex; width: 100%; justify-content: space-between">
       <button (click)="progressValue = progressValue + 10">Increase Progress</button>

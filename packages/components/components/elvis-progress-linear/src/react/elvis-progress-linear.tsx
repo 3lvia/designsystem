@@ -4,22 +4,22 @@ import classnames from 'classnames'
 
 export interface ProgressbarProps {
   value: number;
-  indeterminate: boolean ;
-  error: boolean;
+  isIndeterminate: boolean ;
+  isError: boolean;
 }
 
-const ProgressLinear: React.FC<ProgressbarProps> = (props) => {
+const ProgressLinear: React.FC<ProgressbarProps> = ({ value , isIndeterminate , isError }) => {
   const classes = classnames({
-    ['ewc-progress-linear--range']: !props.indeterminate && !props.error,
-    ['ewc-progress-linear--indeterminate']: props.indeterminate &&  !props.error,
-    ['ewc-progress-linear--error']: props.error,
+    ['ewc-progress-linear--range']: !isIndeterminate && !isError,
+    ['ewc-progress-linear--indeterminate']: isIndeterminate &&  !isError,
+    ['ewc-progress-linear--error']: isError,
   });
 
   return (
       <div className='ewc-progress-linear'>
           <div
             className={classes}
-            style={{width: `${props.value}%`}}
+            style={{width: `${value}%`}}
             ></div>
       </div>
   );
