@@ -5,16 +5,15 @@ called upon by feeding it a value, a number between 0 and 100. The Progressbar w
 beyond these limits.
 
 Instead of a displaying a progress range from 0 - 100, you can also use the progress linear to represent an
-indeterminate amount. Simply pass "true" to the indeterminate boolean property, and the progress-linear
-componenent will have a undetermninate loading style, and not visualising any value input given.
+indeterminate amount. Simply pass "true" to the Isindeterminate boolean property.
 
-In the instance of a failure you can pass an error boolean property to display a failed progress.
+In the instance of a failure you can pass true to the isError boolean property to display a failed progress.
 
 ## Props
 
 - value (number) - The percentage value of completion
-- indeterminate (boolean) - For indeterminate loading style
-- error (boolean) - For displaying an error in the progress completion.
+- isIndeterminate (boolean) - For indeterminate loading
+- isError (boolean) - For displaying an error in the progress completion.
 
 ### Hierarchy of props
 
@@ -30,9 +29,9 @@ import { Progressbar } from '@elvia/elvis-progress-linear/react';
 
 ```
 <ProgressLinear
-  rangeValue={progressValue}
-  error={false}
-  indeterminate={false}>
+  value={progressValue}
+  isError={false}
+  isIndeterminate={false}>
 </ProgressLinear>
 
 ```
@@ -45,24 +44,19 @@ import '@elvia/elvis-progress-linear';
 ```
 
 ```
-// props are set throug setProp(), see the Data-binding section for an example with the #progressbar element
-<elvis-progress-linear #progressbar ></elvis-progress-linear>
+// In an angular:
 
-// In an ea
-<elvis-progress-linear
-  rangeValue="50"
-  error="false"
-  indeterminate="false" >
-</elvis-progress-linear>
+// app.component.ts
+  progressValue = 0;
+  indeterminate = false;
+  progressError = false;
 
+// app.component.html
 
-```
-
-### Data-binding in web component
-
-- Listen to changes, set and get props
-
-```
-this.progressbar.nativeElement.setProps({ rangeValue: 10, indeterminate: false, error: false });
+<elvia-progress-linear
+  [value]="progressValue"
+  [isIndeterminate]="indeterminate"
+  [isError]="progressError">
+</elvia-progress-linear>
 
 ```
