@@ -99,7 +99,9 @@ export class ElvisComponentWrapper extends HTMLElement {
   private mapAttributesToData() {
     this.webComponent.observedAttributes.forEach((attr: any) => {
       const val = this.getAttribute(attr);
-      if (this._data[attr] === null) {
+      if (val !== null && (this._data[attr] === null || typeof this._data[attr] === 'undefined')) {
+        console.log(this.webComponent.getComponentData().name + ": set this._data[" + attr + "] = " + val);
+        console.log(typeof this._data[attr] === 'undefined');
         this._data[attr] = val;
       }
     });

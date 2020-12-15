@@ -15,7 +15,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ New Feature</div>
+        <div class="changelog-section-title">💥 New Feature</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Icon Button</a>
         </div>
