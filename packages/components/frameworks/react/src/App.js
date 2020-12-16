@@ -9,6 +9,13 @@ function App() {
   const [trackedState, setTrackedState] = useState(true);
   const [selectedState, setSelectedState] = useState(1);
   const ref = useRef();
+  const items = [
+    {label: 'option'},
+    {label: 'option'},
+    {label: 'option'},
+    {label: 'option', disabled: true},
+    {label: 'option'},
+  ]
 
   function update() {
     setTrackedState(false);
@@ -21,10 +28,9 @@ function App() {
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px' }}>
         <Tabs 
-          labels={['option', 'option', 'option', 'option', 'option']}  
-          selectedTab={selectedState} 
-          disabledTabs={[3, 4]}
-          changeHandler={setSelectedState}
+          items={items}  
+          value={selectedState} 
+          valueOnChange={setSelectedState}
         ></Tabs>
         <div>{selectedState.toString()}</div>
       </div>
