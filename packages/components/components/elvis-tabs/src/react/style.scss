@@ -27,20 +27,18 @@ $sizes: (
 .ewc-tabs {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: baseline;
 
-  // @media screen and (max-width: 767px) {
-  overflow-x: auto;
-  padding-bottom: 2px;
-  padding-top: 6px;
-  // }
+  @media screen and (max-width: 767px) {
+    overflow-x: auto;
+    padding-bottom: 2px;
+    padding-top: 6px;
+  }
 
   &__icon {
-    // display: none;
-    // @media screen and (max-width: 767px) {
-    //   display: flex;
-    // }
+    display: flex;
     padding: 18px 8px;
+    margin: 4px 0px;
     i {
       // @include icons.icon-size('xxs');
       display: flex;
@@ -51,6 +49,18 @@ $sizes: (
 
     &:hover {
       cursor: pointer;
+    }
+  }
+
+  &__items {
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 4px;
+
+    &::-webkit-scrollbar {
+      width: 0px; /* Remove scrollbar space */
+      background: transparent; /* Optional: just make scrollbar invisible */
     }
   }
 
