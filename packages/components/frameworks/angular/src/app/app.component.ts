@@ -11,13 +11,13 @@ export class AppComponent implements OnInit {
   checkBoxVal2 = true;
 
   items = [
-    { label: 'Option' },
-    { label: 'Option', disabled: true },
-    { label: 'Option' },
-    { label: 'Option', disabled: true },
-    { label: 'Option' }
+    { label: 'Option 1' },
+    { label: 'Option 2', disabled: true },
+    { label: 'Option 3' },
+    { label: 'Option 4', disabled: true },
+    { label: 'Option 5' }
   ];
-  value = 2;
+  value = 0;
 
 
   nativeJSApproach() {

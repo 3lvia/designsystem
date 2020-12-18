@@ -7,14 +7,15 @@ import { Tabs } from '@elvia/elvis-tabs/react';
 function App() {
 
   const [trackedState, setTrackedState] = useState(true);
-  const [selectedState, setSelectedState] = useState(1);
+  const [selectedState, setSelectedState] = useState(0);
   const ref = useRef();
   const items = [
-    {label: 'option'},
-    {label: 'option'},
-    {label: 'option'},
-    {label: 'option', disabled: true},
-    {label: 'option'},
+    {label: 'option 1'},
+    {label: 'option 2'},
+    {label: 'option 3'},
+    {label: 'option 4', disabled: true},
+    {label: 'option 5'},
+    {label: 'option 6'},
   ]
 
   function update() {

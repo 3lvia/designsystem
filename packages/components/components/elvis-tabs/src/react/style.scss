@@ -2,6 +2,7 @@ $green: #29d305;
 $grey-10: #e9e9e9;
 $grey-40: #a8a8a8;
 $hover-blue: #0064fa;
+$icon-btn-width: 24px;
 // Icon sizes
 $sizes: (
   'xxs': 8px,
@@ -30,7 +31,6 @@ $sizes: (
   align-items: baseline;
 
   @media screen and (max-width: 767px) {
-    overflow-x: auto;
     padding-bottom: 2px;
     padding-top: 6px;
   }
@@ -39,6 +39,16 @@ $sizes: (
     display: flex;
     padding: 18px 8px;
     margin: 4px 0px;
+    width: 8px;
+    &.hide {
+      visibility: hidden;
+      i {
+        visibility: hidden;
+      }
+    }
+    &.remove {
+      display: none;
+    }
     i {
       // @include icons.icon-size('xxs');
       display: flex;
@@ -53,6 +63,58 @@ $sizes: (
   }
 
   &__items {
+    position: relative;
+    display: flex;
+    @media screen and (max-width: 767px) {
+      width: calc(100% - (2 * #{$icon-btn-width}));
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 51px;
+      z-index: 1;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      transition: all linear 0.3s;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 51px;
+      background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      transition: all linear 0.3s;
+    }
+
+    &.hide-left {
+      &::before {
+        background-image: none;
+      }
+    }
+    &.hide-right {
+      &::after {
+        background-image: none;
+      }
+    }
+
+    &.scrolled-right {
+      &::after {
+        background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+      }
+    }
+    &.scrolled-left {
+      &::before {
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      }
+    }
+  }
+
+  &__scroll {
     display: flex;
     white-space: nowrap;
     overflow-x: auto;
