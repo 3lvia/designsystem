@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Checkbox } from '@elvia/elvis-checkbox/react';
+import { Slider } from '@elvia/elvis-slider/react';
 
 function App() {
 
@@ -15,6 +16,9 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
+
+      <h2>Slider</h2>
+      <Slider test="heiehiehi"></Slider>
 
       <h2>Checkbox</h2>
       {/* <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button> */}

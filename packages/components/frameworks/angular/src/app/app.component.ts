@@ -10,6 +10,8 @@ export class AppComponent implements OnInit {
   checkBoxVal = true;
   checkBoxVal2 = true;
 
+  testSLider = "This is simply a test"
+
   nativeJSApproach() {
     // Non-angular approach, not necessary when using angular:
     this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {
