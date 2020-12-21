@@ -20,10 +20,9 @@ export class AppComponent implements OnInit {
   ];
   value = 0;
 
-
   nativeJSApproach() {
     // Non-angular approach, not necessary when using angular:
-    this.checkbox.nativeElement.addEventListener('changed', (event: any) => {
+    this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {
       this.checkBoxVal2 = event.detail.checked;
     });
     this.checkbox.nativeElement.setProps({ checked: this.checkBoxVal2 });

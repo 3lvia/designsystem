@@ -333,7 +333,7 @@ $loading-dot-sm: 8px;
     }
 
     &.e-btn--inverted {
-      color: colors.color('white');
+      color: colors.color('white') !important;
 
       &.e-btn--loading {
         span {
@@ -357,6 +357,24 @@ $loading-dot-sm: 8px;
         background: none;
         cursor: not-allowed;
         border-bottom: none;
+      }
+
+      @include helpers.hover() {
+        &:hover:not(:disabled):not(.e-btn--loading) {
+          border-bottom-color: colors.color('green');
+          border-color: colors.color('green');
+          background: none;
+          .e-btn__icon {
+            i {
+              visibility: hidden;
+            }
+            i[class*='inverted'],
+            i[class*='color-disabled-light'],
+            i[class*='e-icon--disabled-inverted'] {
+              visibility: visible;
+            }
+          }
+        }
       }
 
       &:active:not(:disabled):not(.e-btn--loading) {
@@ -427,20 +445,6 @@ $loading-dot-sm: 8px;
         }
       }
     }
-    @include helpers.hover() {
-      &:hover:not(:disabled):not(.e-btn--loading) {
-        .e-btn__icon {
-          i {
-            visibility: hidden;
-          }
-          i[class*='inverted'],
-          i[class*='color-disabled-light'],
-          i[class*='e-icon--disabled-inverted'] {
-            visibility: visible;
-          }
-        }
-      }
-    }
 
     &.e-btn---active,
     &:active:not(:disabled):not(.e-btn--loading) {
@@ -471,7 +475,6 @@ $loading-dot-sm: 8px;
     height: 40px;
 
     &.e-btn--loading {
-
       @extend %e-btn--loading;
 
       padding-left: 0px;
@@ -724,33 +727,33 @@ $loading-dot-sm: 8px;
   &.e-btn--loading {
     @extend %e-btn--loading;
 
-    span{
+    span {
       background-color: colors.color('white');
     }
   }
 }
 
 %e-btn--loading {
+  display: inline-block;
+  cursor: progress;
+
+  span {
+    width: $loading-dot-md;
+    height: $loading-dot-md;
+    border-radius: 100%;
     display: inline-block;
-    cursor: progress;
+    -webkit-animation: loading-dots 1s infinite ease-in-out both;
+    animation: loading-dots 1s infinite ease-in-out both;
+  }
 
-    span {
-      width: $loading-dot-md;
-      height: $loading-dot-md;
-      border-radius: 100%;
-      display: inline-block;
-      -webkit-animation: loading-dots 1s infinite ease-in-out both;
-      animation: loading-dots 1s infinite ease-in-out both;
-    }
-
-    span:nth-of-type(1) {
-      -webkit-animation-delay: -0.32s;
-      animation-delay: -0.32s;
-    }
-    span:nth-of-type(2) {
-      -webkit-animation-delay: -0.16s;
-      animation-delay: -0.16s;
-    }
+  span:nth-of-type(1) {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
+  span:nth-of-type(2) {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
 }
 
 @-webkit-keyframes loading-dots {
