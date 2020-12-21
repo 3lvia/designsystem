@@ -12,10 +12,11 @@ export class AppComponent implements OnInit {
 
   items = [
     { label: 'Option 1' },
-    { label: 'Option 2', disabled: true },
+    { label: 'Option 2' },
     { label: 'Option 3' },
-    { label: 'Option 4', disabled: true },
-    { label: 'Option 5' }
+    { label: 'Option 4' },
+    { label: 'Option 5', disabled: true },
+    { label: 'Option 6' }
   ];
   value = 0;
 

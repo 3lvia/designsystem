@@ -32,6 +32,9 @@ const Tabs: React.FC<TabsProps> = ({items, value, valueOnChange, webcomponent}) 
   const [onTheLeftEnd, setOnTheLeftEnd] = useState(true);
   const tabsRef = useRef<HTMLSpanElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
+  const iconClassesLeft = ['ewc-tabs__icon', onTheLeftEnd ? 'hide' : '', onTheRightEnd && onTheLeftEnd ? 'remove' : ''].join(' ');
+  const iconClassesRight = ['ewc-tabs__icon', onTheRightEnd ? 'hide' : '', onTheRightEnd && onTheLeftEnd ? 'remove' : ''].join(' ');
+  const itemsClasses = ['ewc-tabs__items', onTheRightEnd ? 'hide-right' : '', onTheLeftEnd ? 'hide-left' : ''].join(' ');
 
   // Running on first render only (on mount)
   useEffect(() => {
@@ -101,7 +104,7 @@ const Tabs: React.FC<TabsProps> = ({items, value, valueOnChange, webcomponent}) 
       return;
     }
     itemsRef.current.scrollTo({
-      left: itemsRef.current.scrollLeft -= 50,
+      left: itemsRef.current.scrollLeft -= 70,
       behavior: 'smooth',
     });
     updateScrollPosition();
@@ -112,13 +115,13 @@ const Tabs: React.FC<TabsProps> = ({items, value, valueOnChange, webcomponent}) 
       return;
     }
     itemsRef.current.scrollTo({
-      left: itemsRef.current.scrollLeft += 50,
+      left: itemsRef.current.scrollLeft += 70,
       behavior: 'smooth',
     });
     updateScrollPosition();
   }
 
-  // Listen to resize changes
+  // Listen to resize & scroll
   useEffect(() => {
     if(!itemsRef.current){
       return;
@@ -136,10 +139,6 @@ const Tabs: React.FC<TabsProps> = ({items, value, valueOnChange, webcomponent}) 
       itemsRef.current.removeEventListener("scroll", throttledScrollCount);
     }
   }, [updateScrollPosition]);
-
-  const iconClassesLeft = ['ewc-tabs__icon', onTheLeftEnd ? 'hide' : '', onTheRightEnd && onTheLeftEnd ? 'remove' : ''].join(' ');
-  const iconClassesRight = ['ewc-tabs__icon', onTheRightEnd ? 'hide' : '', onTheRightEnd && onTheLeftEnd ? 'remove' : ''].join(' ');
-  const itemsClasses = ['ewc-tabs__items', onTheRightEnd ? 'hide-right' : '', onTheLeftEnd ? 'hide-left' : ''].join(' ');
 
   return (
     <span className="ewc-tabs ewc-no-outline" ref={tabsRef}>

@@ -13,8 +13,8 @@ function App() {
     {label: 'option 1'},
     {label: 'option 2'},
     {label: 'option 3'},
-    {label: 'option 4', disabled: true},
-    {label: 'option 5'},
+    {label: 'option 4'},
+    {label: 'option 5', disabled: true},
     {label: 'option 6'},
   ]
 
