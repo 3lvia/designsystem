@@ -113,6 +113,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
 
   setCodePenValue(): void {
     let html;
+    const css = 'body {margin: 0}';
     this.versionService.getCodePenTag().subscribe(tag => {
       if (this.codeInverted !== '' && this.isInverted) {
         html = `${this.codeInverted}
@@ -121,7 +122,7 @@ ${tag}`;
         html = `${this.code}
 ${tag}`;
       }
-      this.codepen = JSON.stringify({ title: 'Elvis', html });
+      this.codepen = JSON.stringify({ title: 'Elvis', html, css });
     });
 
   }
