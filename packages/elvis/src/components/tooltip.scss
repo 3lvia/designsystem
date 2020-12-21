@@ -38,7 +38,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
     font-weight: 400;
     line-height: 19px;
     letter-spacing: 0.002em;
-    color: colors.color('white');
+    color: colors.color('elvia-on');
 
     // Defaults .e-tooltip_content---top if no direction class is applied.
     &:not(.e-tooltip__content--bottom) {

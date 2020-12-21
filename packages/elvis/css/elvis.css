@@ -1696,7 +1696,7 @@ input:focus {
 }
 
 .e-btn.e-btn--tertiary.e-btn--loading span {
-  background: black;
+  background: #000;
 }
 
 .e-btn.e-btn--tertiary.e-btn--inverted {
@@ -1704,7 +1704,7 @@ input:focus {
 }
 
 .e-btn.e-btn--tertiary.e-btn--inverted.e-btn--loading span {
-  background-color: white;
+  background-color: #fff;
 }
 
 .e-btn.e-btn--tertiary.e-btn--inverted .e-btn__icon i {
@@ -2644,7 +2644,7 @@ input:focus {
   padding: 4px 11px;
   border: 1px solid transparent;
   border-radius: 32px;
-  background: var(--e-white);
+  background: #fff;
   cursor: pointer;
 }
 
@@ -2668,11 +2668,11 @@ input:focus {
 }
 
 .e-radio-filter input.e-radio-filter--hover + label, .e-radio-filter input:hover:not(:disabled) + label {
-  border-color: var(--e-green);
+  border-color: #29d305;
 }
 
 .e-radio-filter input.e-radio-filter--checked + label, .e-radio-filter input:checked:not(:disabled) + label {
-  border-color: var(--e-black);
+  border-color: #000;
 }
 
 .e-radio-filter input.e-radio-filter--disabled + label, .e-radio-filter input:disabled + label {
@@ -2680,7 +2680,7 @@ input:focus {
 }
 
 .e-radio-filter input.e-radio-filter--disabled + label > .e-radio-filter__label, .e-radio-filter input:disabled + label > .e-radio-filter__label {
-  color: var(--e-grey-40);
+  color: #a8a8a8;
 }
 
 .e-header {
@@ -3021,7 +3021,7 @@ input:focus {
   height: 2px;
   bottom: -2px;
   left: 0;
-  background-color: var(--e-green);
+  background-color: #29d305;
   border-radius: 16px;
   visibility: hidden;
   transition: all 0.3s ease-in-out;
@@ -3095,7 +3095,7 @@ input:focus {
   height: 2px;
   bottom: 0px;
   left: 0;
-  background-color: var(--e-green);
+  background-color: #29d305;
   border-radius: 16px;
   visibility: hidden;
   transition: all 0.3s ease-in-out;
@@ -3175,7 +3175,7 @@ input:focus {
     content: "";
     border-radius: 50%;
     position: absolute;
-    background-color: var(--e-white);
+    background-color: #fff;
     width: 245vw;
     height: 502px;
     top: -30px;
@@ -6488,7 +6488,7 @@ input:focus {
 
 .e-stepper .e-stepper__step.e-stepper__step--active .e-stepper__step-number {
   color: #000;
-  border-color: var(--e-green);
+  border-color: #29d305;
 }
 
 .e-stepper .e-stepper__step.e-stepper__step--active ~ .e-stepper__step .e-stepper__step-line {
@@ -6524,7 +6524,7 @@ input:focus {
   -ms-user-select: none;
   color: transparent;
   background: #000;
-  border-color: var(--e-green);
+  border-color: #29d305;
 }
 
 .e-stepper .e-stepper__step.e-stepper__step--active-done ~ .e-stepper__step .e-stepper__step-line {
@@ -6601,7 +6601,7 @@ input:focus {
   text-align: left;
   width: 100%;
   box-sizing: border-box;
-  background: white;
+  background: #fff;
   white-space: nowrap;
   border-collapse: separate;
   border-spacing: 0;
@@ -6736,7 +6736,7 @@ input:focus {
   border-radius: 8px;
   border-spacing: 0;
   box-shadow: 0px 0px 0px 1px #e9e9e9;
-  background: white;
+  background: #fff;
 }
 
 .e-table-mobile th,
@@ -6845,7 +6845,7 @@ input:focus {
   padding: 10px;
   border-radius: 4px;
   background: #29d305;
-  color: black;
+  color: #000;
   letter-spacing: 0.15px;
 }
 
@@ -8107,7 +8107,7 @@ input:focus {
 
 .e-segmented-controls > input:nth-child(1):checked ~ label:nth-of-type(1) .e-segmented-controls__title {
   transition-delay: calc(0.35s / 2);
-  color: white;
+  color: #fff;
   font-weight: 500;
   z-index: 11;
 }
@@ -8142,7 +8142,7 @@ input:focus {
 
 .e-segmented-controls > input:nth-child(2):checked ~ label:nth-of-type(2) .e-segmented-controls__title {
   transition-delay: calc(0.35s / 2);
-  color: white;
+  color: #fff;
   font-weight: 500;
   z-index: 11;
 }
@@ -8173,7 +8173,7 @@ input:focus {
 
 .e-segmented-controls > input:nth-child(3):checked ~ label:nth-of-type(3) .e-segmented-controls__title {
   transition-delay: calc(0.35s / 2);
-  color: white;
+  color: #fff;
   font-weight: 500;
   z-index: 11;
 }

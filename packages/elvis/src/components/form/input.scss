@@ -23,7 +23,7 @@ $form-input-border: 1px solid colors.color('grey');
     border: $form-input-border;
     border-radius: $form-input-border-radius;
     box-sizing: border-box;
-    background: colors.color('white');
+    background: colors.color('elvia-on');
     max-width: 448px;
     width: 100%;
     padding: $form-input-padding;
@@ -71,7 +71,7 @@ $form-input-border: 1px solid colors.color('grey');
   > input:focus,
   > textarea:focus {
     @include outline.e-outline();
-    border: 2px solid colors.color('green');
+    border: 2px solid colors.color('elvia-charge');
     padding: $form-input-padding-active;
   }
   > i ~ input:focus {
