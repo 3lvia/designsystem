@@ -3,14 +3,20 @@
 
   <h2>Checkbox</h2>
   <div style="margin-top: 16px">
+    <h2>Angular approach</h2>
+    <button (click)="checkBoxVal = !checkBoxVal">Toggle checked</button>
     <elvia-checkbox
-      #checkbox1
       label="Normal checkbox"
       name="Nametest"
-      id="CheckboxTestID"
       size="normal"
+      [checked]="checkBoxVal"
+      (checkedOnChange)="checkBoxVal = $event.detail.checked"
     ></elvia-checkbox>
-    <elvia-checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></elvia-checkbox>
+    {{ checkBoxVal }}
+
+    <h2>Native JS approach</h2>
+    <elvia-checkbox #checkbox1 label="Normal checkbox" name="Nametest" size="small"></elvia-checkbox>
+    {{ checkBoxVal2 }}
   </div>
 
   <hr style="margin: 40px 0" />

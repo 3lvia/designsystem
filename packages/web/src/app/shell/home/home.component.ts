@@ -10,8 +10,13 @@ export class HomeComponent implements OnInit {
   overviewTitle = 'Elvia design system';
   pages = eHomes;
 
+  date = new Date();
+  christmasMonth = 11;
+  christmas = false;
+
   ngOnInit(): void {
     this.findEndOfRow();
+    this.christmas = this.date.getMonth() === this.christmasMonth ? true : false;
   }
 
   findEndOfRow(): void {
