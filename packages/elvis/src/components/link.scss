@@ -22,6 +22,9 @@ $link-jumbo-desktop-width: 545px;
 $link-jumbo-phone-padding: 30px 24px;
 $link-jumbo-phone-width: 287px;
 
+$grey10: colors.color('grey-10');
+$green: colors.color('green');
+
 .e-link {
   // Default for links is md
   @extend .e-link--md;
@@ -270,7 +273,7 @@ $link-jumbo-phone-width: 287px;
     background: colors.color('white');
     box-sizing: border-box;
     border: none;
-    box-shadow: 0 0 0 1px transparent, 0 0 0 1px colors.color('grey-10');
+    @include helpers.box-shadow('0 0 0 1px transparent, 0 0 0 1px #{grey10}');
     border-radius: 8px;
     text-align: center;
     position: relative;
@@ -335,7 +338,7 @@ $link-jumbo-phone-width: 287px;
     }
 
     &:active {
-      box-shadow: 0 0 0 2px colors.color('green');
+      @include helpers.box-shadow('0 0 0 2px #{green}');
       cursor: pointer;
       .e-link__icon {
         transform: scale(0.9166);
@@ -363,7 +366,7 @@ $link-jumbo-phone-width: 287px;
     }
 
     &:active {
-      box-shadow: 0 0 0 2px colors.color('green');
+      @include helpers.box-shadow('0 0 0 2px #{green}');
       cursor: pointer;
       .e-link__icon {
         transform: scale(0.9166);
@@ -392,7 +395,7 @@ $link-jumbo-phone-width: 287px;
 
     @include helpers.hover() {
       &:hover {
-        box-shadow: 0 0 0 2px colors.color('green');
+        @include helpers.box-shadow('0 0 0 2px #{green}');
         cursor: pointer;
         .e-link__icon {
           transform: scale(0.9166);
@@ -421,7 +424,7 @@ $link-jumbo-phone-width: 287px;
     }
 
     &.e-link--shortcut {
-      box-shadow: none;
+      @include helpers.box-shadow('none');
       border: none;
       border-radius: 50%;
       border: 2px solid transparent;

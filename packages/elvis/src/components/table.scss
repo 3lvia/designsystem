@@ -1,11 +1,14 @@
 @use "../variables/colors";
 @use "../variables/typography";
 @use "../utilities/icons";
+@use "../utilities/helpers";
 
 $table-padding: 10px 16px;
 $table-compact-padding: 9px 16px;
 $table-phone-padding: 6px 8px;
 $table-border-radius: 8px;
+
+$grey10: colors.color('grey-10');
 
 %header-style {
   background: colors.color('white');
@@ -152,7 +155,7 @@ $table-border-radius: 8px;
   overflow: hidden;
   border-radius: $table-border-radius;
   border-spacing: 0;
-  box-shadow: 0px 0px 0px 1px colors.color('grey-10');
+  @include helpers.box-shadow('0 0 0 1px #{$grey10}');
   background: white;
 
   th,

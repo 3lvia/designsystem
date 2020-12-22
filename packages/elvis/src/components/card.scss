@@ -2,6 +2,7 @@
 @use "./../variables/shadows";
 @use "./../variables/typography";
 @use "../utilities/breakpoints";
+@use "../utilities/helpers";
 
 $card-radius: 8px;
 $card-padding: 40px;
@@ -14,7 +15,7 @@ $card-actions-button-spacing: 25px;
 
 .e-card {
   border-radius: $card-radius;
-  box-shadow: shadows.$e-shadow-3;
+  @include helpers.box-shadow(shadows.$e-shadow-3);
   display: inline-flex;
   width: 100%;
   flex-direction: column;
@@ -28,19 +29,19 @@ $card-actions-button-spacing: 25px;
   }
 
   &--shadow-soft {
-    box-shadow: shadows.$e-shadow-3;
+    @include helpers.box-shadow(shadows.$e-shadow-3);
   }
 
   &--shadow-medium {
-    box-shadow: shadows.$e-shadow-6;
+    @include helpers.box-shadow(shadows.$e-shadow-6);
   }
 
   &--shadow-hard {
-    box-shadow: shadows.$e-shadow-8;
+    @include helpers.box-shadow(shadows.$e-shadow-8);
   }
 
   &--on-white {
-    box-shadow: shadows.$e-shadow-6;
+    @include helpers.box-shadow(shadows.$e-shadow-6);
   }
 
   &__title {

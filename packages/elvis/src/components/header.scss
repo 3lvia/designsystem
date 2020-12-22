@@ -80,7 +80,7 @@ $sidebar-mobile-z-index: -2;
     display: none;
     position: absolute;
     top: $header-height;
-    box-shadow: shadows.$e-shadow-6;
+    @include helpers.box-shadow(shadows.$e-shadow-6);
     border-radius: 4px;
     background: colors.color('white');
     justify-content: center;
@@ -112,7 +112,7 @@ $sidebar-mobile-z-index: -2;
         border-radius: 50%;
         margin-bottom: 8px;
         background: colors.color('grey-60');
-        box-shadow: shadows.$e-shadow-8;
+        @include helpers.box-shadow(shadows.$e-shadow-8);
         @include typography.typography('title-xs');
         color: colors.color('white');
         border: 2px solid colors.color('white');
@@ -148,7 +148,7 @@ $sidebar-mobile-z-index: -2;
     right: 0;
     align-items: center;
     flex-direction: column;
-    box-shadow: shadows.$e-shadow-6;
+    @include helpers.box-shadow(shadows.$e-shadow-6);
     border-radius: 4px;
     background: colors.color('white');
     width: 156px;
@@ -236,7 +236,7 @@ $sidebar-mobile-z-index: -2;
     .e-header__top-bar-desktop__user-menu {
       display: none;
       flex-direction: column;
-      box-shadow: shadows.$e-shadow-6;
+      @include helpers.box-shadow(shadows.$e-shadow-6);
       border-radius: 4px;
       background: colors.color('white');
       position: absolute;
@@ -542,7 +542,7 @@ $sidebar-mobile-z-index: -2;
     margin: calc((100vw - 443px) / 2);
     margin-top: 78px;
     height: 254px;
-    box-shadow: shadows.$e-shadow-8;
+    @include helpers.box-shadow(shadows.$e-shadow-8);
   }
   .e-header.e-header--open
     .e-header__top-bar-mobile.e-header__top-bar-mobile__area--open
@@ -554,7 +554,7 @@ $sidebar-mobile-z-index: -2;
     left: calc((1% * 50) - 144px);
     margin-top: 184px;
     width: 289px;
-    box-shadow: shadows.$e-shadow-8;
+    @include helpers.box-shadow(shadows.$e-shadow-8);
   }
   .e-header__top-bar-mobile.e-header__top-bar-mobile__app--open .e-header__top-bar-mobile__app,
   .e-header__top-bar-mobile.e-header__top-bar-mobile__area--open .e-header__top-bar-mobile__area {

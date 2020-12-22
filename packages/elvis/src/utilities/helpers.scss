@@ -1,17 +1,5 @@
 @use "../variables/shared-sizes";
 
-@mixin linear-gradient($angle, $gradient1, $gradient2) {
-  background-color: $gradient2;
-  /* Fallback Color */
-  background-image: -webkit-gradient(linear, $angle, from($gradient1), to($gradient2));
-  /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient($angle, $gradient1, $gradient2);
-  /* Chrome 10+, Saf5.1+, iOS 5+ */
-  background-image: -moz-linear-gradient($angle, $gradient1, $gradient2);
-  /* FF3.6 */
-  background-image: -ms-linear-gradient($angle, $gradient1, $gradient2);
-}
-
 @mixin box-shadow($value) {
   box-shadow: $value;
   -webkit-box-shadow: $value;
