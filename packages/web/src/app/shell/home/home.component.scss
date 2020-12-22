@@ -18,17 +18,13 @@
   width: 100%;
   &::before {
     content: '';
-    left: -291.5%;
+    left: -40%;
     border-radius: 50%;
     position: absolute;
     background-color: var(--e-grey);
-    bottom: 64.8%;
-    width: 683vw;
-    height: 685vw;
+    width: 180vw;
+    height: 565px;
     z-index: -1;
-    @media (min-width: 1851px) {
-      bottom: 63.8%;
-    }
   }
   .image-div {
     display: flex;
@@ -42,6 +38,9 @@
   }
   @media (min-width: 1851px) {
     height: 520px;
+    &::before {
+      height: 571px;
+    }
     img {
       width: 1000px;
       height: auto;
@@ -49,6 +48,9 @@
   }
   @media (max-width: 1850px) {
     height: 496px;
+    &::before {
+      height: 542px;
+    }
     .image-div {
       height: 660px;
       img {
@@ -62,6 +64,9 @@
   }
   @media (max-width: 1550px) {
     height: 477px;
+    &::before {
+      height: 522px;
+    }
     .image-div {
       height: 620px;
       img {
@@ -97,26 +102,12 @@
   width: 100%;
   &::before {
     content: '';
-    left: -291.5%;
+    left: -40%;
     border-radius: 50%;
     position: absolute;
     background-color: var(--e-grey);
-    bottom: 77%;
-    width: 683vw;
-    height: 685vw;
+    width: 180vw;
     z-index: -1;
-    @include breakpoint-up(Mobile) {
-      bottom: 83%;
-    }
-    @media (max-width: 650px) {
-      bottom: 84%;
-    }
-    @media (max-width: 450px) {
-      bottom: 88%;
-    }
-    @media (max-width: 380px) {
-      bottom: 89%;
-    }
   }
   .image-div {
     display: flex;
@@ -126,6 +117,9 @@
     display: flex;
     height: 378px;
     margin-top: 0px;
+    &::before {
+      height: 417px;
+    }
     .image-div {
       align-items: center;
       height: 535px;
@@ -140,6 +134,9 @@
   @include breakpoint-up(Mobile) {
     height: 286px;
     margin-top: 0px;
+    &::before {
+      height: 313px;
+    }
     .image-div img {
       margin-top: -128px;
       width: 541px;
@@ -148,6 +145,9 @@
   }
   @media (max-width: 450px) {
     height: 196px;
+    &::before {
+      height: 214px;
+    }
     .image-div img {
       margin-top: -216px;
       width: 410px;
@@ -156,6 +156,9 @@
   }
   @media (max-width: 380px) {
     height: 196px;
+    &::before {
+      height: 214px;
+    }
     .image-div img {
       margin-top: -245px;
       width: 353px;
