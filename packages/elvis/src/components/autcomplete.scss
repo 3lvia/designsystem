@@ -4,6 +4,7 @@
 @use '../utilities/helpers.scss';
 
 $autocomplete-padding-item: 12px 16px;
+$autocomplete-padding-item-compact: 6px 10px;
 
 .e-autocomplete {
   position: absolute;
@@ -35,6 +36,18 @@ $autocomplete-padding-item: 12px 16px;
     }
     &:active {
       background-color: colors.color('grey-10');
+    }
+  }
+}
+
+// form field adujustments for autocomplete
+.e-form-field {
+  &.e-form-field--compact {
+    .e-autocomplete {
+      &__item {
+        padding: $autocomplete-padding-item-compact;
+        @include typography.typography('text-info');
+      }
     }
   }
 }
