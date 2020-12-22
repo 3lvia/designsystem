@@ -23,7 +23,7 @@ $form-select-icon-margin: 14px;
   border-radius: $form-select-border-radius;
   box-sizing: border-box;
 
-  background: colors.color('white');
+  background: colors.color('elvia-on');
 
   select {
     flex-grow: 1;
@@ -45,17 +45,17 @@ $form-select-icon-margin: 14px;
   }
 
   &.is-focus {
-    border-color: colors.color('green');
+    border-color: colors.color('elvia-charge');
 
     select {
-      color: colors.color('green');
+      color: colors.color('elvia-charge');
     }
 
     #{$this}_icon,
     > svg,
     > i {
       opacity: 1;
-      color: colors.color('green');
+      color: colors.color('elvia-charge');
     }
   }
 
@@ -73,7 +73,7 @@ $form-select-icon-margin: 14px;
   }
 
   &.is-disabled {
-    background: colors.color('grey-30');
+    background: colors.color('disabled');
     cursor: default;
   }
 
@@ -89,7 +89,7 @@ $form-select-icon-margin: 14px;
     transition: color animation.$medium-transition animation.$transition-cubic,
       opacity animation.$medium-transition animation.$transition-cubic;
     opacity: 0.44;
-    color: colors.color('black');
+    color: colors.color('font-color');
 
     &:first-child {
       left: $form-select-icon-margin;
