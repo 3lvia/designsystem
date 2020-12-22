@@ -80,7 +80,13 @@ export class LinkDocComponent {
   <div class="e-mt-16 e-mr-16">
     <a class="e-link e-link--inverted" href="https://design.elvia.io/components/link-doc#Overview">
       <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold e-icon--inverted"></i></span>
-      <span class="e-link__title">Tilbake</span>
+      <span class="e-link__title">Back</span>
+    </a>
+  </div>
+  <div class="e-mt-16 e-mr-16">
+    <a class="e-link e-link--inverted" href="https://design.elvia.io/components/link-doc#Overview">
+      <span class="e-link__title">Forward</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--inverted"></i></span>
     </a>
   </div>
   <div class="e-mt-16 e-mr-16">
