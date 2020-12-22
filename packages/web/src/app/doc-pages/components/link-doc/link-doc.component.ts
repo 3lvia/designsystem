@@ -52,7 +52,13 @@ export class LinkDocComponent {
   <div class="e-mt-16 e-mr-16">
     <a class="e-link" href="https://design.elvia.io/components/link-doc#Overview">
       <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
-      <span class="e-link__title">Tilbake</span>
+      <span class="e-link__title">Back</span>
+    </a>
+  </div>
+  <div class="e-mt-16 e-mr-16">
+    <a class="e-link" href="https://design.elvia.io/components/link-doc#Overview">
+      <span class="e-link__title">Forward</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold"></i></span>
     </a>
   </div>
   <div class="e-mt-16 e-mr-16">
