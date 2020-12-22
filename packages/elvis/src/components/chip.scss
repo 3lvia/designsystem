@@ -1,7 +1,7 @@
-@use "./../variables/typography.scss";
-@use './../variables/colors.scss';
-@use "../utilities/icons.scss";
-@use "../utilities/helpers.scss";
+@use "../variables/typography";
+@use '../variables/colors';
+@use "../utilities/icons";
+@use "../utilities/helpers";
 
 .e-chip-container {
   display: flex;
@@ -22,7 +22,8 @@
   flex-direction: row;
   align-items: center;
   border: none;
-  border-radius: 50px;
+  @include helpers.border-radius(50px);
+
   padding: 4px 16px;
   @extend .e-chip--green-apple;
 
@@ -51,7 +52,7 @@
           height: 100%;
           background: colors.color($label);
           opacity: 0.25;
-          border-radius: 50px;
+          @include helpers.border-radius(50px);
         }
       }
     }

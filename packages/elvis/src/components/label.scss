@@ -1,6 +1,7 @@
-@use '../variables/colors.scss';
-@use '../variables/borders.scss';
-@use '../utilities/breakpoints.scss';
+@use '../variables/colors';
+@use '../variables/borders';
+@use '../utilities/breakpoints';
+@use '../utilities/helpers';
 
 $label-padding: 4px 11px;
 $label-padding-mobile: 2px 7px;
@@ -9,7 +10,7 @@ $label-font-size: 11px;
 
 %status-content {
   display: inline-flex;
-  border-radius: 50%;
+  @include helpers.border-radius(50%);
   height: 8px;
   width: 8px;
   left: 11px;
@@ -36,7 +37,7 @@ $label-font-size: 11px;
   display: inline-flex;
   align-items: center;
   padding: $label-padding;
-  border-radius: $label-radius;
+  @include helpers.border-radius($label-radius);
   font-size: $label-font-size;
   line-height: 18px;
   letter-spacing: 0.5px;

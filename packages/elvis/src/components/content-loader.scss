@@ -1,4 +1,5 @@
-@use './../variables/colors.scss';
+@use '../variables/colors';
+@use '../utilities/helpers';
 
 .e-content-loader {
   display: flex;
@@ -10,13 +11,13 @@
     width: 100%;
     height: 100%;
     background: colors.color('grey-10');
-    border-radius: 16px;
+    @include helpers.border-radius(16px);
     animation: 1s wave infinite alternate;
   }
 
   &.e-content-loader--circle {
     &:after {
-      border-radius: 50%;
+      @include helpers.border-radius(50%);
     }
   }
 
@@ -26,7 +27,7 @@
     &:after {
       width: 100%;
       height: 24px;
-      border-radius: 8px;
+      @include helpers.border-radius(8px);
     }
     &.e-content-loader--short {
       width: 100%;

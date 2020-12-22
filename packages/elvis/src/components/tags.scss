@@ -1,4 +1,6 @@
-@use '../variables/colors.scss';
+@use '../variables/colors';
+@use '../utilities/helpers';
+
 $tag-padding: 10px;
 $tag-border-radius: 4px;
 
@@ -14,7 +16,7 @@ $tag-border-radius: 4px;
     min-width: 45px;
     margin-left: 16px;
     padding: $tag-padding;
-    border-radius: $tag-border-radius;
+    @include helpers.border-radius($tag-border-radius);
     background: colors.color('green');
     color: black;
     letter-spacing: 0.15px;

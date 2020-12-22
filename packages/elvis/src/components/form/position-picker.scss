@@ -1,11 +1,12 @@
 @use '../../variables/typography.scss';
 @use "../../variables/colors";
+@use "../../utilities/helpers";
 
 .e-position-picker {
   display: flex;
   flex-wrap: wrap;
   border: 1px solid colors.color('black');
-  border-radius: 4px;
+  @include helpers.border-radius(4px);
   padding: 32px 0;
   max-width: 375px;
 

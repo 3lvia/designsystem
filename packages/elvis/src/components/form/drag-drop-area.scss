@@ -1,8 +1,9 @@
-@use '../../variables/colors.scss';
+@use '../../variables/colors';
+@use '../../utilities/helpers';
 
 .e-dragdrop {
   border: 2px dashed colors.color('grey-20');
-  border-radius: 8px;
+  @include helpers.border-radius(8px);
   display: flex;
   justify-content: center;
   align-items: center;

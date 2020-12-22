@@ -24,7 +24,7 @@ $grey10: colors.color('grey-10');
   width: 100%;
   overflow: auto;
   border: 1px solid colors.color('grey-10');
-  border-radius: $table-border-radius;
+  @include helpers.border-radius($table-border-radius);
 }
 .e-table-footnote {
   margin-top: 8px;
@@ -153,7 +153,7 @@ $grey10: colors.color('grey-10');
   table-layout: auto;
   width: 100%;
   overflow: hidden;
-  border-radius: $table-border-radius;
+  @include helpers.border-radius($table-border-radius);
   border-spacing: 0;
   @include helpers.box-shadow('0 0 0 1px #{$grey10}');
   background: white;

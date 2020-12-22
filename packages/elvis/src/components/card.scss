@@ -1,6 +1,6 @@
-@use "./../variables/colors";
-@use "./../variables/shadows";
-@use "./../variables/typography";
+@use "../variables/colors";
+@use "../variables/shadows";
+@use "../variables/typography";
 @use "../utilities/breakpoints";
 @use "../utilities/helpers";
 
@@ -14,7 +14,7 @@ $card-actions-action-padding: 13px 0;
 $card-actions-button-spacing: 25px;
 
 .e-card {
-  border-radius: $card-radius;
+  @include helpers.border-radius($card-radius);
   @include helpers.box-shadow(shadows.$e-shadow-3);
   display: inline-flex;
   width: 100%;

@@ -1,8 +1,9 @@
-@use "../../variables/colors.scss";
-@use "../../variables/animation.scss";
-@use "../../utilities/outline.scss";
+@use "../../variables/colors";
+@use "../../variables/animation";
 @use "../../variables/shared-sizes";
 @use "../../variables/typography";
+@use "../../utilities/outline";
+@use "../../utilities/helpers";
 
 $form-input-padding: 12px 16px;
 $form-input-padding-active: 11px 15px;
@@ -21,7 +22,7 @@ $form-input-border: 1px solid colors.color('grey');
     display: flex;
     align-items: center;
     border: $form-input-border;
-    border-radius: $form-input-border-radius;
+    @include helpers.border-radius($form-input-border-radius);
     box-sizing: border-box;
     background: colors.color('white');
     max-width: 448px;

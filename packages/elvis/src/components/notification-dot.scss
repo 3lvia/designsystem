@@ -1,4 +1,5 @@
-@import './../variables/colors';
+@import '../variables/colors';
+@import '../utilities/helpers';
 
 $notification-dot-size: 10px;
 $notification-dot-border: 2px solid color('white');
@@ -12,7 +13,7 @@ $notification-dot-border: 2px solid color('white');
   height: $notification-dot-size;
 
   border: $notification-dot-border;
-  border-radius: 100%;
+  @include helpers.border-radius(100%);
 
   // Default colors
   background: color('red');

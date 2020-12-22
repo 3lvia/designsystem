@@ -28,7 +28,7 @@
       justify-content: center;
       align-items: center;
       border: 2px solid colors.color('black');
-      border-radius: 50%;
+      @include helpers.border-radius(50%);
     }
     &-line {
       display: flex;
@@ -38,7 +38,7 @@
       width: 58px;
       height: 2px;
       background: colors.color('black');
-      border-radius: 50px;
+      @include helpers.border-radius(50px);
       &:not(:first-of-type) {
         display: none;
       }
@@ -226,7 +226,7 @@
     height: 8px;
     width: 2px;
     background-color: colors.color('white');
-    border-radius: 15px;
+    @include helpers.border-radius(15px);
     transform: translateX(10px) rotate(-43deg);
     transform-origin: left bottom;
   }
@@ -239,7 +239,7 @@
     height: 15px;
     width: 2px;
     background-color: colors.color('white');
-    border-radius: 15px;
+    @include helpers.border-radius(15px);
     transform: translateX(10px) rotate(43deg);
     transform-origin: left bottom;
   }

@@ -1,8 +1,9 @@
-@use "./../variables/typography.scss";
+@use "../variables/typography.scss";
 @use "../variables/colors";
+@use "../variables/shadows";
 @use "../utilities/icons.scss";
 @use "../utilities/breakpoints";
-@use "./../variables/shadows";
+@use "../utilities/helpers";
 
 $local-padding: 22px 30px 22px 22px; // -2px for border;
 $local-mobile-padding: 14px; // -2px for border;
@@ -222,7 +223,7 @@ $toast-max-width: 400px;
 
   // LOCAL
   &.e-alert--local {
-    border-radius: 8px;
+    @include helpers.border-radius(8px);
     width: 100%;
     max-width: $local-max-width;
     padding: $local-padding;
@@ -270,7 +271,7 @@ $toast-max-width: 400px;
 
   // TOAST
   &.e-alert--toast {
-    border-radius: 8px;
+    @include helpers.border-radius(8px);
     border-color: colors.color('green');
     box-shadow: shadows.$e-shadow-6;
     max-width: $toast-max-width;
