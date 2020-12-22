@@ -123,7 +123,7 @@ $loading-dot-sm: 8px;
     border: 1px solid colors.color('elvia-off');
     border-radius: $button-radius;
     background: colors.color('elvia-off');
-    color: colors.color('elvia-on');
+    color: colors.color('font-color-light');
 
     &.e-btn--inverted {
       border: 1px solid colors.color('elvia-on');
@@ -239,7 +239,7 @@ $loading-dot-sm: 8px;
     &.e-btn--inverted {
       border: 1px solid colors.color('elvia-on');
       background: colors.color('grey');
-      color: colors.color('elvia-on');
+      color: colors.color('font-color-light');
 
       &:disabled {
         background: transparent;

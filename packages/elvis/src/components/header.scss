@@ -114,7 +114,7 @@ $sidebar-mobile-z-index: -2;
         background: colors.color('grey-60');
         box-shadow: shadows.$e-shadow-8;
         @include typography.typography('title-xs');
-        color: colors.color('elvia-on');
+        color: colors.color('font-color-light');
         border: 2px solid colors.color('elvia-on');
       }
       &.e-header__top-bar-desktop__app-menu-item--active {

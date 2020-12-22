@@ -58,7 +58,7 @@ $transition-duration: 0.35s;
         ~ label:nth-of-type(#{$i}) {
           .e-segmented-controls__title {
             transition-delay: calc(#{$transition-duration} / 2);
-            color: colors.color('elvia-on');
+            color: colors.color('font-color-light');
             font-weight: 500;
             z-index: 11;
           }

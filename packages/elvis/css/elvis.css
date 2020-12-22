@@ -1260,6 +1260,19 @@ input:focus {
 }
 
 :root {
+  --e-font-color-light: #fff;
+}
+
+.e-text-font-color-light {
+  color: #fff !important;
+}
+
+.e-bg-font-color-light {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+:root {
   --e-black: #000;
 }
 
