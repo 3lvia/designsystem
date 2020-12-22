@@ -17,8 +17,14 @@ function App() {
     <div className="App">
       <h1>React preview</h1>
 
-      <h2>Slider</h2>
-      <Slider test="heiehiehi"></Slider>
+      <h2>Slider - simple</h2>
+
+      <Slider value={10}></Slider>
+
+      <h2>Slider - range</h2>
+      <Slider value={[25, 75]}></Slider>
+
+
 
       <h2>Checkbox</h2>
       {/* <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button> */}
