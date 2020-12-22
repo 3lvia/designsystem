@@ -1,5 +1,6 @@
 @use "../utilities/outline.scss";
 @use "../utilities/helpers";
+@use "../variables/colors.scss";
 
 $control-count: 8;
 
@@ -17,7 +18,7 @@ $control-count: 8;
     padding: 4px 11px;
     border: 1px solid transparent;
     border-radius: 32px;
-    background: var(--e-white);
+    background: colors.color('elvia-on');
     cursor: pointer;
 
     .e-radio-filter__label {
@@ -40,17 +41,17 @@ $control-count: 8;
     }
     &.e-radio-filter--hover + label,
     &:hover:not(:disabled) + label {
-      border-color: var(--e-green);
+      border-color: colors.color('elvia-charge');
     }
     &.e-radio-filter--checked + label,
     &:checked:not(:disabled) + label {
-      border-color: var(--e-black);
+      border-color: colors.color('elvia-off');
     }
     &.e-radio-filter--disabled + label,
     &:disabled + label {
       cursor: not-allowed;
       & > .e-radio-filter__label {
-        color: var(--e-grey-40);
+        color: colors.color('grey-40');
       }
     }
   }

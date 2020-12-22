@@ -14,7 +14,7 @@
   .e-input {
     > input {
       cursor: pointer;
-      color: colors.color('black');
+      color: colors.color('font-color');
     }
     i {
       @include icons.icon-size('xxs');

@@ -46,7 +46,7 @@
       border-radius: 0px;
       padding: 0px;
       padding-bottom: 3.5px;
-      color: colors.color('black');
+      color: colors.color('font-color');
       cursor: pointer;
 
       font-family: 'Red Hat Display';
@@ -56,17 +56,17 @@
       line-height: 24px;
 
       &:disabled {
-        color: colors.color('grey-30');
+        color: colors.color('disabled');
         cursor: not-allowed;
       }
       @include helpers.hover() {
         &:hover {
-          border-color: colors.color('green');
+          border-color: colors.color('elvia-charge');
         }
       }
 
       &:active {
-        border-bottom: 1.5px solid colors.color('green');
+        border-bottom: 1.5px solid colors.color('elvia-charge');
         padding-bottom: 4.5px;
       }
 
@@ -79,6 +79,6 @@
   }
 
   &---hover {
-    border-color: colors.color('green');
+    border-color: colors.color('elvia-charge');
   }
 }

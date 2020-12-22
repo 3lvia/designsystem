@@ -19,7 +19,7 @@ $toast-max-width: 400px;
   display: inline-flex;
   box-sizing: border-box;
   border: 2px solid colors.color('red');
-  background: colors.color('white');
+  background: colors.color('elvia-on');
   flex-direction: row;
   min-width: 270px;
   position: relative;
@@ -271,7 +271,7 @@ $toast-max-width: 400px;
   // TOAST
   &.e-alert--toast {
     border-radius: 8px;
-    border-color: colors.color('green');
+    border-color: colors.color('elvia-charge');
     box-shadow: shadows.$e-shadow-6;
     max-width: $toast-max-width;
     padding: $toast-padding;

@@ -22,7 +22,7 @@ $form-input-padding-compact-with-icon: 5px 36px 5px 10px;
       z-index: 1;
       top: -5px;
       left: 8px;
-      background: colors.color('white');
+      background: colors.color('elvia-on');
       padding: 0 3px;
 
       font-family: 'Red Hat Text';
@@ -55,7 +55,7 @@ $form-input-padding-compact-with-icon: 5px 36px 5px 10px;
       &.e-input---focus textarea,
       > input:focus,
       > textarea:focus {
-        border: 2px solid colors.color('green');
+        border: 2px solid colors.color('elvia-charge');
         padding: $form-input-padding-compact-active;
       }
       > i ~ input,

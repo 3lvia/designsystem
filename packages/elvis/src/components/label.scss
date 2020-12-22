@@ -42,7 +42,7 @@ $label-font-size: 11px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   background: colors.color('grey-10');
-  color: colors.color('black');
+  color: colors.color('font-color');
 
   @include breakpoints.breakpoint-up(Mobile) {
     padding: $label-padding-mobile;
