@@ -33,7 +33,7 @@ $sidebar-mobile-z-index: -2;
 .e-header__top-bar {
   height: $header-height;
   width: 100%;
-  background: colors.color('white');
+  background: colors.color('elvia-on');
   border-bottom: 2px solid colors.color('grey-05');
   .e-header__top-bar-desktop,
   .e-grid,
@@ -82,7 +82,7 @@ $sidebar-mobile-z-index: -2;
     top: $header-height;
     box-shadow: shadows.$e-shadow-6;
     border-radius: 4px;
-    background: colors.color('white');
+    background: colors.color('elvia-on');
     justify-content: center;
     flex-wrap: wrap;
     flex: 1 1 30%;
@@ -114,22 +114,22 @@ $sidebar-mobile-z-index: -2;
         background: colors.color('grey-60');
         box-shadow: shadows.$e-shadow-8;
         @include typography.typography('title-xs');
-        color: colors.color('white');
-        border: 2px solid colors.color('white');
+        color: colors.color('font-color-light');
+        border: 2px solid colors.color('elvia-on');
       }
       &.e-header__top-bar-desktop__app-menu-item--active {
         .e-header__top-bar-desktop__app-circle {
-          background: colors.color('black');
+          background: colors.color('elvia-off');
         }
       }
       @include helpers.hover() {
         .e-header__top-bar-desktop__app-circle:hover {
-          border: 2px solid colors.color('green');
+          border: 2px solid colors.color('elvia-charge');
           cursor: pointer;
         }
       }
       .e-header__top-bar-desktop__app-circle:active {
-        border: 2px solid colors.color('green');
+        border: 2px solid colors.color('elvia-charge');
         cursor: pointer;
       }
       .e-header__top-bar-desktop__app-title {
@@ -150,7 +150,7 @@ $sidebar-mobile-z-index: -2;
     flex-direction: column;
     box-shadow: shadows.$e-shadow-6;
     border-radius: 4px;
-    background: colors.color('white');
+    background: colors.color('elvia-on');
     width: 156px;
     margin-top: 10px;
     z-index: $area-menu-open-z-index;
@@ -238,7 +238,7 @@ $sidebar-mobile-z-index: -2;
       flex-direction: column;
       box-shadow: shadows.$e-shadow-6;
       border-radius: 4px;
-      background: colors.color('white');
+      background: colors.color('elvia-on');
       position: absolute;
       top: $header-height;
       right: 0;
@@ -289,7 +289,7 @@ $sidebar-mobile-z-index: -2;
           height: 2px;
           bottom: -2px;
           left: 0;
-          background-color: var(--e-green);
+          background-color: colors.color('elvia-charge');
           border-radius: 16px;
           visibility: hidden;
           transition: all 0.3s ease-in-out;
@@ -342,7 +342,7 @@ $sidebar-mobile-z-index: -2;
       height: 2px;
       bottom: 0px;
       left: 0;
-      background-color: var(--e-green);
+      background-color: colors.color('elvia-charge');
       border-radius: 16px;
       visibility: hidden;
       transition: all 0.3s ease-in-out;
@@ -426,7 +426,7 @@ $sidebar-mobile-z-index: -2;
         content: '';
         border-radius: 50%;
         position: absolute;
-        background-color: var(--e-white);
+        background-color: colors.color('elvia-on');
         width: 245vw;
         height: 502px;
         top: -30px;
@@ -577,7 +577,7 @@ $sidebar-mobile-z-index: -2;
   bottom: 0;
   height: calc(100vh - #{$header-height});
   width: $sidebar-width;
-  background: colors.color('white');
+  background: colors.color('elvia-on');
   overflow: hidden;
   border-right: 2px solid colors.color('grey-05');
 
@@ -596,7 +596,7 @@ $sidebar-mobile-z-index: -2;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 16px 7px;
+      margin: 12px 7px;
       height: 48px;
       width: 48px;
       border-radius: 50%;
@@ -608,13 +608,13 @@ $sidebar-mobile-z-index: -2;
     }
     &:active {
       .e-header__sidebar__icon {
-        border: 1px solid colors.color('green');
+        border: 1px solid colors.color('elvia-charge');
       }
     }
     @include helpers.hover() {
       &:hover {
         .e-header__sidebar__icon {
-          border: 1px solid colors.color('green');
+          border: 1px solid colors.color('elvia-charge');
         }
       }
     }
@@ -627,7 +627,7 @@ $sidebar-mobile-z-index: -2;
     }
     &--active {
       .e-header__sidebar__icon {
-        border: 1px solid colors.color('black');
+        border: 1px solid colors.color('elvia-off');
         i {
           visibility: hidden;
         }
@@ -674,7 +674,7 @@ $sidebar-mobile-z-index: -2;
     height: $sidebar-width;
     top: calc(100vh - #{$header-height});
     width: 100vw;
-    background: colors.color('white');
+    background: colors.color('elvia-on');
 
     display: flex;
     align-items: center;
