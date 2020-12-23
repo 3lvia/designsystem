@@ -3419,7 +3419,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 16px 7px;
+  margin: 12px 7px;
   height: 48px;
   width: 48px;
   border-radius: 50%;
