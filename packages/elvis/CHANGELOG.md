@@ -3,6 +3,28 @@
 <!-- 🐝 - BUG FIXES -->
 
 <table>
+<tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      4.6.0
+    </span>
+    <br>
+    <span>
+      December 22, 2020
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
+        </div>
+        <div>
+          Added alignment to typography.
+        </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
