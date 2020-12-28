@@ -1,7 +1,7 @@
-@use "../utilities/icons.scss";
-@use "../variables/colors.scss";
+@use "../utilities/icons";
+@use "../variables/colors";
 @use "../variables/typography";
-@use '../utilities/helpers.scss';
+@use '../utilities/helpers';
 
 .e-accordion {
   display: inline-flex;
@@ -47,9 +47,9 @@
       max-height: 0;
       opacity: 0;
       padding-top: 0;
-      transition: max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1),
-        opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
-
+      @include helpers.transition(max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1));
+      @include helpers.transition(opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1));
+      @include helpers.transition(padding-top 0.18s cubic-bezier(0, 0.18, 1, 1));
       display: flex;
       width: 100%;
       flex-direction: column;
@@ -77,7 +77,10 @@
         max-height: 10000px;
         opacity: 1;
         padding-top: 24px;
-        transition: 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
+        transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32),
+          opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
+        -webkit-transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32),
+          opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
         font-size: inherit;
         @include typography.typography('text-body');
       }
@@ -190,6 +193,8 @@
       .e-accordion__content {
         padding-left: 19px;
         transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1),
+          padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
+        -webkit-transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1),
           padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
       }
     }

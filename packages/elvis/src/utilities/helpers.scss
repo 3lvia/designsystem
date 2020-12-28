@@ -23,7 +23,24 @@
   transition: $value;
   -webkit-transition: $value;
 }
+@mixin transition-property($value) {
+  transition-property: $value;
+  -webkit-transition-property: $value;
+}
+@mixin transition-duration($value) {
+  transition-duration: $value;
+  -webkit-transition-duration: $value;
+}
+@mixin transition-timing-function($value) {
+  transition-timing-function: $value;
+  -webkit-transition-timing-function: $value;
+}
+@mixin transition-delay($value) {
+  transition-delay: $value;
+  -webkit-transition-delay: $value;
+}
 
+// not using
 @mixin transform($value) {
   transform: $value;
   -o-transform: $value;

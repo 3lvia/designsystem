@@ -242,7 +242,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
     min-height: $checkbox-mark-size;
     max-width: $checkbox-mark-size;
     max-height: $checkbox-mark-size;
-    transition: background 0.2s animation.$transition-cubic;
+    @include helpers.transition(background 0.2s animation.$transition-cubic);
     border: $checkbox-mark-border;
     @include helpers.border-radius($checkbox-mark-border-radius);
     background: colors.color('white');

@@ -55,7 +55,7 @@ $toggle-mobile-negative-slider-padding: calc(
     left: 0;
     right: 0;
     bottom: 0;
-    transition: 0.15s;
+    @include helpers.transition(0.15s);
     @include helpers.border-radius($toggle-border-radius);
   }
   &__slider::before {
@@ -66,7 +66,7 @@ $toggle-mobile-negative-slider-padding: calc(
     left: $toggle-desktop-slider-padding;
     bottom: $toggle-desktop-slider-padding;
     background-color: colors.color('white');
-    transition: 0.1s;
+    @include helpers.transition(0.1s);
     @include helpers.border-radius(50%);
 
     @include breakpoints.breakpoint-up(Mobile) {

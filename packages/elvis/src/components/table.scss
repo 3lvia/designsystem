@@ -155,7 +155,7 @@ $grey10: colors.color('grey-10');
   overflow: hidden;
   @include helpers.border-radius($table-border-radius);
   border-spacing: 0;
-  @include helpers.box-shadow('0 0 0 1px #{$grey10}');
+  @include helpers.box-shadow(0 0 0 1px $grey10);
   background: white;
 
   th,

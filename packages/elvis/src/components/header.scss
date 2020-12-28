@@ -292,7 +292,7 @@ $sidebar-mobile-z-index: -2;
           background-color: var(--e-green);
           @include helpers.border-radius(16px);
           visibility: hidden;
-          transition: all 0.3s ease-in-out;
+          @include helpers.transition(all 0.3s ease-in-out);
         }
         &:hover::before {
           visibility: visible;
@@ -345,7 +345,7 @@ $sidebar-mobile-z-index: -2;
       background-color: var(--e-green);
       @include helpers.border-radius(16px);
       visibility: hidden;
-      transition: all 0.3s ease-in-out;
+      @include helpers.transition(all 0.3s ease-in-out);
     }
   }
 }

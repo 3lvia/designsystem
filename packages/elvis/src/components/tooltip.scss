@@ -32,7 +32,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
     background-color: colors.color('grey-80');
     padding: 6px 8px;
     @include helpers.border-radius(4px);
-    transition: 200ms;
+    @include helpers.transition(200ms);
     // tooltip spesific font style
     font-family: 'Red Hat Text';
     font-size: 14px;

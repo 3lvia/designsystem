@@ -18,8 +18,7 @@ $transition-duration: 0.35s;
   position: relative;
   @include helpers.user-select(none);
 
-  transition-duration: $transition-duration;
-  transition-timing-function: $transition-timing-function;
+  @include helpers.transition($transition-duration $transition-timing-function);
 
   > input {
     position: absolute;
@@ -29,7 +28,7 @@ $transition-duration: 0.35s;
     }
 
     &[type='checkbox'] ~ label {
-      transition-duration: 0;
+      @include helpers.transition(0s);
 
       &:before {
         opacity: 0;
@@ -41,23 +40,23 @@ $transition-duration: 0.35s;
         ~ label:nth-of-type(#{$i}) {
           .e-segmented-controls__title {
             font-weight: 400;
-            transition: font-weight 0s 0;
+            @include helpers.transition(font-weight 0s 0);
           }
           .e-segmented-controls__title {
             color: black;
-            transition: color 0s calc(#{$transition-duration} / 2);
+            @include helpers.transition(color 0s calc(#{$transition-duration} / 2));
             z-index: 11;
           }
           &:hover .e-segmented-controls__title {
             font-weight: 500;
-            transition-delay: 0s;
+            @include helpers.transition($transition-timing-function 0s);
           }
         }
       }
       &:nth-child(#{$i}):checked {
         ~ label:nth-of-type(#{$i}) {
           .e-segmented-controls__title {
-            transition-delay: calc(#{$transition-duration} / 2);
+            @include helpers.transition($transition-timing-function calc(#{$transition-duration} / 2));
             color: white;
             font-weight: 500;
             z-index: 11;
@@ -83,9 +82,9 @@ $transition-duration: 0.35s;
     float: left;
     height: 49px;
 
-    transition-property: none;
-    transition-duration: inherit;
-    transition-timing-function: inherit;
+    @include helpers.transition-property(none);
+    @include helpers.transition-duration(inherit);
+    @include helpers.transition-timing-function(inherit);
 
     .e-segmented-controls__title {
       position: absolute;
@@ -118,18 +117,18 @@ $transition-duration: 0.35s;
       opacity: 0;
       font-weight: 500;
 
-      transition-property: (left);
-      transition-duration: inherit;
-      transition-timing-function: inherit;
+      @include helpers.transition-property((left));
+      @include helpers.transition-duration(inherit);
+      @include helpers.transition-timing-function(inherit);
     }
 
     &:before {
       content: '';
       background: black;
 
-      transition-property: left;
-      transition-duration: inherit;
-      transition-timing-function: inherit;
+      @include helpers.transition-property(left);
+      @include helpers.transition-duration(inherit);
+      @include helpers.transition-timing-function(inherit);
     }
 
     @for $i from 1 through $control-count {
