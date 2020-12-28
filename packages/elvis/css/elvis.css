@@ -134,10 +134,10 @@ body {
 }
 
 .e-accordion__item .e-accordion__icon {
-  animation: rotate-center-forward 0.2s ease-in-out both;
   -o-animation: rotate-center-forward 0.2s ease-in-out both;
   -moz-animation: rotate-center-forward 0.2s ease-in-out both;
   -webkit-animation: rotate-center-forward 0.2s ease-in-out both;
+  animation: rotate-center-forward 0.2s ease-in-out both;
   display: flex;
   width: 24px;
   height: 24px;
@@ -241,10 +241,10 @@ body {
   }
 }
 .e-accordion__item.e-accordion__item--open .e-accordion__icon {
-  animation: rotate-center-back 0.2s ease-in-out both;
   -o-animation: rotate-center-back 0.2s ease-in-out both;
   -moz-animation: rotate-center-back 0.2s ease-in-out both;
   -webkit-animation: rotate-center-back 0.2s ease-in-out both;
+  animation: rotate-center-back 0.2s ease-in-out both;
 }
 
 @-webkit-keyframes rotate-center-back {
@@ -308,8 +308,8 @@ body {
   max-height: 10000px;
   opacity: 1;
   padding-top: 24px;
-  transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
   -webkit-transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
+  transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
   font-size: inherit;
   font-family: Red Hat Text, sans-serif;
   font-size: 20px;
@@ -470,8 +470,8 @@ body {
 
 .e-accordion.e-accordion--group .e-accordion__item .e-accordion__content {
   padding-left: 19px;
-  transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
   -webkit-transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
+  transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
 }
 
 .e-accordion.e-accordion--group .e-accordion__item--open .e-accordion__item__row {
@@ -660,10 +660,10 @@ body {
   width: 24px;
   height: 24px;
   margin-left: 24px;
-  animation: rotate-center-forward 0.2s ease-in-out both;
   -o-animation: rotate-center-forward 0.2s ease-in-out both;
   -moz-animation: rotate-center-forward 0.2s ease-in-out both;
   -webkit-animation: rotate-center-forward 0.2s ease-in-out both;
+  animation: rotate-center-forward 0.2s ease-in-out both;
   display: flex;
   width: 24px;
   height: 24px;
@@ -757,8 +757,8 @@ body {
   max-height: 0;
   opacity: 0;
   margin-top: 0;
-  transition: max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1), opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), margin-top 0.17s cubic-bezier(0, 0.18, 1, 1);
   -webkit-transition: max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1), opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), margin-top 0.17s cubic-bezier(0, 0.18, 1, 1);
+  transition: max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1), opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), margin-top 0.17s cubic-bezier(0, 0.18, 1, 1);
   width: 100%;
   pointer-events: none;
   overflow: hidden;
@@ -837,8 +837,8 @@ body {
   pointer-events: auto;
   max-height: 10000px;
   opacity: 1;
-  transition: 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97), margin-top 0.1s cubic-bezier(0, 0.3, 0.83, 0.97);
   -webkit-transition: 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97), margin-top 0.1s cubic-bezier(0, 0.3, 0.83, 0.97);
+  transition: 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97), margin-top 0.1s cubic-bezier(0, 0.3, 0.83, 0.97);
 }
 
 @media (max-width: 767px) {
@@ -1095,6 +1095,18 @@ body {
 }
 .e-autocomplete__item:active, .e-dropdown__item:active {
   background-color: #e9e9e9;
+}
+
+.e-form-field.e-form-field--compact .e-autocomplete__item, .e-form-field.e-form-field--compact .e-dropdown__item {
+  padding: 6px 10px;
+  font-family: Red Hat Text, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  color: #000;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
 }
 
 .e-no-outline * {
@@ -1468,6 +1480,19 @@ input:focus {
 }
 
 .e-bg-elvia-on {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+:root {
+  --e-font-color-light: #fff;
+}
+
+.e-text-font-color-light {
+  color: #fff !important;
+}
+
+.e-bg-font-color-light {
   background: #fff !important;
   color: #000 !important;
 }
@@ -1915,7 +1940,7 @@ input:focus {
 }
 
 .e-btn.e-btn--tertiary.e-btn--loading span {
-  background: black;
+  background: #000;
 }
 
 .e-btn.e-btn--tertiary.e-btn--inverted {
@@ -1923,7 +1948,7 @@ input:focus {
 }
 
 .e-btn.e-btn--tertiary.e-btn--inverted.e-btn--loading span {
-  background-color: white;
+  background-color: #fff;
 }
 
 .e-btn.e-btn--tertiary.e-btn--inverted .e-btn__icon i {
@@ -2320,10 +2345,10 @@ input:focus {
   -webkit-radius: 100%;
   border-radius: 100%;
   display: inline-block;
-  animation: loading-dots 1s infinite ease-in-out both;
   -o-animation: loading-dots 1s infinite ease-in-out both;
   -moz-animation: loading-dots 1s infinite ease-in-out both;
   -webkit-animation: loading-dots 1s infinite ease-in-out both;
+  animation: loading-dots 1s infinite ease-in-out both;
 }
 
 .e-btn.e-btn--loading span:nth-of-type(1) {
@@ -2784,10 +2809,10 @@ input:focus {
   -moz-border-radius: 16px;
   -webkit-radius: 16px;
   border-radius: 16px;
-  animation: wave 1s infinite alternate;
   -o-animation: wave 1s infinite alternate;
   -moz-animation: wave 1s infinite alternate;
   -webkit-animation: wave 1s infinite alternate;
+  animation: wave 1s infinite alternate;
 }
 
 .e-content-loader.e-content-loader--circle:after {
@@ -2975,6 +3000,17 @@ input:focus {
   background-color: #e9e9e9;
 }
 
+.e-form-field.e-form-field--compact .e-dropdown .e-input i {
+  right: 10px;
+}
+
+.e-form-field.e-form-field--compact .e-dropdown .e-dropdown__content .e-dropdown__item {
+  display: flex;
+  align-items: center;
+  line-height: 22px;
+  padding: 6px 16px;
+}
+
 .e-radio-filter {
   display: flex;
   flex-direction: row;
@@ -2997,7 +3033,7 @@ input:focus {
   -moz-border-radius: 32px;
   -webkit-radius: 32px;
   border-radius: 32px;
-  background: var(--e-white);
+  background: #fff;
   cursor: pointer;
 }
 
@@ -3021,11 +3057,11 @@ input:focus {
 }
 
 .e-radio-filter input.e-radio-filter--hover + label, .e-radio-filter input:hover:not(:disabled) + label {
-  border-color: var(--e-green);
+  border-color: #29d305;
 }
 
 .e-radio-filter input.e-radio-filter--checked + label, .e-radio-filter input:checked:not(:disabled) + label {
-  border-color: var(--e-black);
+  border-color: #000;
 }
 
 .e-radio-filter input.e-radio-filter--disabled + label, .e-radio-filter input:disabled + label {
@@ -3033,7 +3069,7 @@ input:focus {
 }
 
 .e-radio-filter input.e-radio-filter--disabled + label > .e-radio-filter__label, .e-radio-filter input:disabled + label > .e-radio-filter__label {
-  color: var(--e-grey-40);
+  color: #a8a8a8;
 }
 
 .e-header {
@@ -3394,7 +3430,7 @@ input:focus {
   height: 2px;
   bottom: -2px;
   left: 0;
-  background-color: var(--e-green);
+  background-color: #29d305;
   -moz-border-radius: 16px;
   -webkit-radius: 16px;
   border-radius: 16px;
@@ -3471,7 +3507,7 @@ input:focus {
   height: 2px;
   bottom: 0px;
   left: 0;
-  background-color: var(--e-green);
+  background-color: #29d305;
   -moz-border-radius: 16px;
   -webkit-radius: 16px;
   border-radius: 16px;
@@ -3556,7 +3592,7 @@ input:focus {
     -webkit-radius: 50%;
     border-radius: 50%;
     position: absolute;
-    background-color: var(--e-white);
+    background-color: #fff;
     width: 245vw;
     height: 502px;
     top: -30px;
@@ -3768,7 +3804,7 @@ input:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 16px 7px;
+  margin: 12px 7px;
   height: 48px;
   width: 48px;
   -moz-border-radius: 50%;
@@ -4356,9 +4392,9 @@ input:focus {
   background: #fff;
   box-sizing: border-box;
   border: none;
-  box-shadow: 0 0 0 1px transparent, 0 0 0 1px #e9e9e9;
   -webkit-box-shadow: 0 0 0 1px transparent, 0 0 0 1px #e9e9e9;
   --moz-box-shadow: 0 0 0 1px transparent, 0 0 0 1px $grey-ten;
+  box-shadow: 0 0 0 1px transparent, 0 0 0 1px #e9e9e9;
   -moz-border-radius: 8px;
   -webkit-radius: 8px;
   border-radius: 8px;
@@ -6205,10 +6241,10 @@ input:focus {
   pointer-events: auto;
   box-sizing: border-box;
   opacity: 1;
-  animation: fadeIn 300ms ease-in;
   -o-animation: fadeIn 300ms ease-in;
   -moz-animation: fadeIn 300ms ease-in;
   -webkit-animation: fadeIn 300ms ease-in;
+  animation: fadeIn 300ms ease-in;
 }
 
 @-webkit-keyframes fadeIn {
@@ -6455,20 +6491,20 @@ input:focus {
   height: 6px;
   margin-left: 0;
   background-color: #29d305;
-  animation: loading 1s infinite;
   -o-animation: loading 1s infinite;
   -moz-animation: loading 1s infinite;
   -webkit-animation: loading 1s infinite;
+  animation: loading 1s infinite;
 }
 
 .e-progress__bar.e-progress__bar--error {
   width: 100%;
   height: 6px;
   background-color: #ff0000;
-  animation: none;
   -o-animation: none;
   -moz-animation: none;
   -webkit-animation: none;
+  animation: none;
 }
 
 @-webkit-keyframes loading {
@@ -6570,10 +6606,10 @@ input:focus {
   -webkit-radius: 8px;
   border-radius: 8px;
   text-align: left;
-  animation: fadeIn 300ms ease-in;
   -o-animation: fadeIn 300ms ease-in;
   -moz-animation: fadeIn 300ms ease-in;
   -webkit-animation: fadeIn 300ms ease-in;
+  animation: fadeIn 300ms ease-in;
 }
 
 @-webkit-keyframes fadeIn {
@@ -7147,7 +7183,7 @@ input:focus {
 
 .e-stepper .e-stepper__step.e-stepper__step--active .e-stepper__step-number {
   color: #000;
-  border-color: var(--e-green);
+  border-color: #29d305;
 }
 
 .e-stepper .e-stepper__step.e-stepper__step--active ~ .e-stepper__step .e-stepper__step-line {
@@ -7183,7 +7219,7 @@ input:focus {
   user-select: none;
   color: transparent;
   background: #000;
-  border-color: var(--e-green);
+  border-color: #29d305;
 }
 
 .e-stepper .e-stepper__step.e-stepper__step--active-done ~ .e-stepper__step .e-stepper__step-line {
@@ -7278,7 +7314,7 @@ input:focus {
   text-align: left;
   width: 100%;
   box-sizing: border-box;
-  background: white;
+  background: #fff;
   white-space: nowrap;
   border-collapse: separate;
   border-spacing: 0;
@@ -7417,7 +7453,7 @@ input:focus {
   -webkit-box-shadow: 0 0 0 1px #e9e9e9;
   -moz-box-shadow: 0 0 0 1px #e9e9e9;
   box-shadow: 0 0 0 1px #e9e9e9;
-  background: white;
+  background: #fff;
 }
 
 .e-table-mobile th,
@@ -7528,7 +7564,7 @@ input:focus {
   -webkit-radius: 4px;
   border-radius: 4px;
   background: #29d305;
-  color: black;
+  color: #000;
   letter-spacing: 0.15px;
 }
 
@@ -7913,10 +7949,10 @@ input:focus {
   -ms-transform-origin: left bottom;
   -webkit-transform-origin: left bottom;
   transform-origin: left bottom;
-  animation: checkmarkHeight 150ms;
   -o-animation: checkmarkHeight 150ms;
   -moz-animation: checkmarkHeight 150ms;
   -webkit-animation: checkmarkHeight 150ms;
+  animation: checkmarkHeight 150ms;
 }
 
 .e-checkbox.e-checkbox---checked .e-checkbox__mark::after, .e-checkbox.e-checkbox---disabled-checked .e-checkbox__mark::after, .e-checkbox input:checked ~ .e-checkbox__mark::after {
@@ -7938,10 +7974,10 @@ input:focus {
   -ms-transform-origin: left bottom;
   -webkit-transform-origin: left bottom;
   transform-origin: left bottom;
-  animation: checkmarkWidth 150ms 150ms forwards;
   -o-animation: checkmarkWidth 150ms 150ms forwards;
   -moz-animation: checkmarkWidth 150ms 150ms forwards;
   -webkit-animation: checkmarkWidth 150ms 150ms forwards;
+  animation: checkmarkWidth 150ms 150ms forwards;
 }
 
 .e-checkbox.e-checkbox--sm input:checked ~ .e-checkbox__mark, .e-checkbox.e-checkbox--sm[class$=e-checkbox---checked] .e-checkbox__mark, .e-checkbox.e-checkbox--sm[class$=disabled-checked] .e-checkbox__mark {
@@ -7968,10 +8004,10 @@ input:focus {
   -ms-transform-origin: left bottom;
   -webkit-transform-origin: left bottom;
   transform-origin: left bottom;
-  animation: checkmarkHeightSmall 150ms;
   -o-animation: checkmarkHeightSmall 150ms;
   -moz-animation: checkmarkHeightSmall 150ms;
   -webkit-animation: checkmarkHeightSmall 150ms;
+  animation: checkmarkHeightSmall 150ms;
 }
 
 .e-checkbox.e-checkbox--sm input:checked ~ .e-checkbox__mark::after, .e-checkbox.e-checkbox--sm[class$=e-checkbox---checked] .e-checkbox__mark::after, .e-checkbox.e-checkbox--sm[class$=disabled-checked] .e-checkbox__mark::after {
@@ -7993,10 +8029,10 @@ input:focus {
   -ms-transform-origin: left bottom;
   -webkit-transform-origin: left bottom;
   transform-origin: left bottom;
-  animation: checkmarkWidthSmall 150ms 150ms forwards;
   -o-animation: checkmarkWidthSmall 150ms 150ms forwards;
   -moz-animation: checkmarkWidthSmall 150ms 150ms forwards;
   -webkit-animation: checkmarkWidthSmall 150ms 150ms forwards;
+  animation: checkmarkWidthSmall 150ms 150ms forwards;
 }
 
 .e-checkbox__mark {
@@ -8209,73 +8245,6 @@ input:focus {
   font-family: "Red Hat Text";
   font-size: 12px;
   line-height: 16px;
-}
-
-.e-form-field.e-form-field--compact .e-autocomplete__item {
-  padding: 6px 10px;
-  font-family: Red Hat Text, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
-  font-weight: 400;
-  color: #000;
-  font-style: unset;
-  letter-spacing: unset;
-  text-transform: unset;
-}
-
-.e-form-field.e-form-field--compact .e-search--local {
-  font-size: 14px;
-}
-
-.e-form-field.e-form-field--compact .e-search--local .e-input input:invalid,
-.e-form-field.e-form-field--compact .e-search--local .e-input input:focus {
-  padding: 4px 35px 4px 9px;
-}
-
-.e-form-field.e-form-field--compact .e-search--local .e-input input,
-.e-form-field.e-form-field--compact .e-search--local .e-input input:disabled {
-  padding: 5px 36px 5px 10px;
-}
-
-.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon {
-  top: 5px;
-  width: 24px;
-  height: 24px;
-}
-
-@media screen and (-ms-high-contrast: none) {
-  .e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon {
-    top: 3px;
-  }
-}
-.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon {
-  width: 12px;
-  height: 12px;
-}
-
-.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon img,
-.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon i {
-  width: 12px;
-  height: 12px;
-}
-
-.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--search-bold] {
-  left: -2px;
-}
-
-.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--close-bold] {
-  left: -6px;
-}
-
-.e-form-field.e-form-field--compact .e-dropdown .e-input i {
-  right: 10px;
-}
-
-.e-form-field.e-form-field--compact .e-dropdown .e-dropdown__content .e-dropdown__item {
-  display: flex;
-  align-items: center;
-  line-height: 22px;
-  padding: 6px 16px;
 }
 
 .e-form-field.e-form-field--compact .e-input input,
@@ -8952,6 +8921,50 @@ input:focus {
   top: 0px;
 }
 
+.e-form-field.e-form-field--compact .e-search--local {
+  font-size: 14px;
+}
+
+.e-form-field.e-form-field--compact .e-search--local .e-input input:invalid,
+.e-form-field.e-form-field--compact .e-search--local .e-input input:focus {
+  padding: 4px 35px 4px 9px;
+}
+
+.e-form-field.e-form-field--compact .e-search--local .e-input input,
+.e-form-field.e-form-field--compact .e-search--local .e-input input:disabled {
+  padding: 5px 36px 5px 10px;
+}
+
+.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon {
+  top: 5px;
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (-ms-high-contrast: none) {
+  .e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon {
+    top: 3px;
+  }
+}
+.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon {
+  width: 12px;
+  height: 12px;
+}
+
+.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon img,
+.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon i {
+  width: 12px;
+  height: 12px;
+}
+
+.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--search-bold] {
+  left: -2px;
+}
+
+.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--close-bold] {
+  left: -6px;
+}
+
 .e-segmented-controls {
   display: inline-flex;
   border: 1px solid #000;
@@ -9013,9 +9026,9 @@ input:focus {
 }
 
 .e-segmented-controls > input:nth-child(1):checked ~ label:nth-of-type(1) .e-segmented-controls__title {
-  -webkit-transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
-  transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
-  color: white;
+  -webkit-transition-delay: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
+  transition-delay: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
+  color: #fff;
   font-weight: 500;
   z-index: 11;
 }
@@ -9052,9 +9065,9 @@ input:focus {
 }
 
 .e-segmented-controls > input:nth-child(2):checked ~ label:nth-of-type(2) .e-segmented-controls__title {
-  -webkit-transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
-  transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
-  color: white;
+  -webkit-transition-delay: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
+  transition-delay: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
+  color: #fff;
   font-weight: 500;
   z-index: 11;
 }
@@ -9087,9 +9100,9 @@ input:focus {
 }
 
 .e-segmented-controls > input:nth-child(3):checked ~ label:nth-of-type(3) .e-segmented-controls__title {
-  -webkit-transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
-  transition: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
-  color: white;
+  -webkit-transition-delay: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
+  transition-delay: cubic-bezier(0.445, 0.05, 0.55, 0.95) calc(0.35s / 2);
+  color: #fff;
   font-weight: 500;
   z-index: 11;
 }
@@ -13612,6 +13625,7 @@ THE SOFTWARE.
 .e-title-lg {
   font-family: Red Hat Display, sans-serif;
   font-size: 44px;
+  text-align: left;
   line-height: 53px;
   font-weight: 900;
   font-style: unset;
@@ -13628,6 +13642,7 @@ THE SOFTWARE.
 .e-title-md {
   font-family: Red Hat Display, sans-serif;
   font-size: 30px;
+  text-align: left;
   line-height: 36px;
   font-weight: 700;
   font-style: unset;
@@ -13644,6 +13659,7 @@ THE SOFTWARE.
 .e-title-sm {
   font-family: Red Hat Display, sans-serif;
   font-size: 24px;
+  text-align: left;
   line-height: 29px;
   font-weight: 700;
   font-style: unset;
@@ -13660,6 +13676,7 @@ THE SOFTWARE.
 .e-title-xs {
   font-family: Red Hat Display, sans-serif;
   font-size: 18px;
+  text-align: left;
   line-height: 22px;
   font-weight: 700;
   font-style: unset;
@@ -13670,6 +13687,7 @@ THE SOFTWARE.
 .e-text-lead {
   font-family: Red Hat Text, sans-serif;
   font-size: 24px;
+  text-align: left;
   line-height: 39px;
   font-weight: 400;
   font-style: unset;
@@ -13686,6 +13704,7 @@ THE SOFTWARE.
 .e-text-quote {
   font-family: Red Hat Text, sans-serif;
   font-size: 26px;
+  text-align: left;
   line-height: 42px;
   font-weight: 400;
   font-style: italic;
@@ -13702,6 +13721,7 @@ THE SOFTWARE.
 .e-text-body {
   font-family: Red Hat Text, sans-serif;
   font-size: 20px;
+  text-align: left;
   line-height: 32px;
   font-weight: 400;
   font-style: unset;
@@ -13718,6 +13738,7 @@ THE SOFTWARE.
 .e-text-lg {
   font-family: Red Hat Text, sans-serif;
   font-size: 20px;
+  text-align: left;
   line-height: 32px;
   font-weight: 400;
   font-style: unset;
@@ -13751,6 +13772,7 @@ THE SOFTWARE.
 .e-text-description {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
+  text-align: left;
   line-height: 28px;
   font-weight: 400;
   font-style: unset;
@@ -13761,6 +13783,7 @@ THE SOFTWARE.
 .e-text-md {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
+  text-align: left;
   line-height: 28px;
   font-weight: 400;
   font-style: unset;
@@ -13771,6 +13794,7 @@ THE SOFTWARE.
 .e-text-caps {
   font-family: Red Hat Text, sans-serif;
   font-size: 14px;
+  text-align: left;
   line-height: 17px;
   font-weight: 500;
   font-style: unset;
@@ -13781,6 +13805,7 @@ THE SOFTWARE.
 .e-text-info {
   font-family: Red Hat Text, sans-serif;
   font-size: 14px;
+  text-align: left;
   line-height: 22px;
   font-weight: 400;
   font-style: unset;
@@ -13791,6 +13816,7 @@ THE SOFTWARE.
 .e-text-sm {
   font-family: Red Hat Text, sans-serif;
   font-size: 14px;
+  text-align: left;
   line-height: 22px;
   font-weight: 400;
   font-style: unset;
@@ -13801,6 +13827,7 @@ THE SOFTWARE.
 .e-text-label {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
+  text-align: left;
   line-height: 23px;
   font-weight: 500;
   font-style: unset;
@@ -13811,6 +13838,7 @@ THE SOFTWARE.
 .e-text-option {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
+  text-align: left;
   line-height: 22px;
   font-weight: 400;
   font-style: unset;

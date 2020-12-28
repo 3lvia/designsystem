@@ -47,7 +47,7 @@ $modal-mobile-padding: 32px;
     width: auto;
     height: auto;
     @include helpers.border-radius($modal-border-radius);
-    background: colors.color('white');
+    background: colors.color('elvia-on');
 
     @include breakpoints.breakpoint-up(Mobile) {
       padding: $modal-mobile-padding;
@@ -63,7 +63,7 @@ $modal-mobile-padding: 32px;
     }
     .e-modal__text {
       @include typography.typography('text-body');
-      color: colors.color('black');
+      color: colors.color('font-color');
       padding-top: 32px;
     }
     .e-modal__actions {

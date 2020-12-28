@@ -17,8 +17,8 @@ $tag-border-radius: 4px;
     margin-left: 16px;
     padding: $tag-padding;
     @include helpers.border-radius($tag-border-radius);
-    background: colors.color('green');
-    color: black;
+    background: colors.color('elvia-charge');
+    color: colors.color('font-color');
     letter-spacing: 0.15px;
     &:first-child {
       margin-left: 0;

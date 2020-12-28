@@ -59,30 +59,30 @@
   }
 
   &---hover:not(.e-chip---disabled) {
-    background: colors.color('green');
+    background: colors.color('elvia-charge');
     opacity: 1;
     cursor: pointer;
     &::before {
-      background: colors.color('green');
+      background: colors.color('elvia-charge');
     }
   }
   @include helpers.hover() {
     &:hover:not(:disabled) {
-      background: colors.color('green');
+      background: colors.color('elvia-charge');
       opacity: 1;
       cursor: pointer;
       &::before {
-        background: colors.color('green');
+        background: colors.color('elvia-charge');
       }
     }
   }
 
   &:active:not(:disabled) {
-    background: colors.color('green');
+    background: colors.color('elvia-charge');
     opacity: 1;
     cursor: pointer;
     &::before {
-      background: colors.color('green');
+      background: colors.color('elvia-charge');
     }
   }
 

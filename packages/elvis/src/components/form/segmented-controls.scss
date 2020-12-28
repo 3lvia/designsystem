@@ -8,7 +8,7 @@ $transition-duration: 0.35s;
 
 .e-segmented-controls {
   display: inline-flex;
-  border: 1px solid colors.color('black');
+  border: 1px solid colors.color('elvia-off');
   @include helpers.border-radius(38px);
   width: 100%;
   max-width: 442px;
@@ -56,8 +56,8 @@ $transition-duration: 0.35s;
       &:nth-child(#{$i}):checked {
         ~ label:nth-of-type(#{$i}) {
           .e-segmented-controls__title {
-            @include helpers.transition($transition-timing-function calc(#{$transition-duration} / 2));
-            color: white;
+            @include helpers.transition-delay($transition-timing-function calc(#{$transition-duration} / 2));
+            color: colors.color('font-color-light');
             font-weight: 500;
             z-index: 11;
           }

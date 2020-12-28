@@ -23,14 +23,13 @@ $link-jumbo-phone-padding: 30px 24px;
 $link-jumbo-phone-width: 287px;
 
 $grey-ten: colors.color('grey-10');
-$green: colors.color('green');
 
 .e-link {
   // Default for links is md
   @extend .e-link--md;
   display: inline;
   box-sizing: border-box;
-  border-bottom: 2px solid colors.color('black');
+  border-bottom: 2px solid colors.color('elvia-off');
   cursor: pointer;
   color: colors.color('font-color');
   text-align: inherit;
@@ -57,7 +56,7 @@ $green: colors.color('green');
   &.e-link--lg {
     font-size: $link-lg-font-size;
     line-height: $link-lg-line-height;
-    border-bottom: 2.5px solid colors.color('black');
+    border-bottom: 2.5px solid colors.color('elvia-off');
   }
   &.e-link--md {
     font-size: $link-md-font-size;
@@ -68,19 +67,19 @@ $green: colors.color('green');
     line-height: $link-sm-line-height;
   }
   &.e-link--inverted {
-    color: colors.color('white');
-    border-color: colors.color('white');
+    color: colors.color('font-color-light');
+    border-color: colors.color('elvia-on');
   }
 
   &.e-link---hover {
-    border-bottom-color: colors.color('green');
+    border-bottom-color: colors.color('elvia-charge');
   }
   &:active {
-    border-bottom-color: colors.color('green');
+    border-bottom-color: colors.color('elvia-charge');
   }
   @include helpers.hover() {
     &:hover {
-      border-bottom-color: colors.color('green');
+      border-bottom-color: colors.color('elvia-charge');
     }
   }
   &.e-link---focus {
@@ -195,14 +194,14 @@ $green: colors.color('green');
     @include typography.typography('title-xs');
     display: inline-flex;
     align-items: center;
-    border: 2px solid colors.color('black');
+    border: 2px solid colors.color('elvia-off');
     @include helpers.border-radius(64px);
     padding: $link-jumbo-desktop-padding;
     width: 100%;
     max-width: $link-jumbo-desktop-width;
     line-height: 24px;
-    background: colors.color('white');
-    color: colors.color('black');
+    background: colors.color('elvia-on');
+    color: colors.color('font-color');
     box-sizing: border-box;
     cursor: pointer;
 
@@ -249,18 +248,18 @@ $green: colors.color('green');
     }
 
     &.e-link---hover {
-      color: colors.color('black');
-      border: 2px solid colors.color('green');
+      color: colors.color('font-color');
+      border: 2px solid colors.color('elvia-charge');
     }
     @include helpers.hover() {
       &:hover {
-        color: colors.color('black');
-        border: 2px solid colors.color('green');
+        color: colors.color('font-color');
+        border: 2px solid colors.color('elvia-charge');
       }
     }
     &:active {
-      color: colors.color('black');
-      border: 2px solid colors.color('green');
+      color: colors.color('font-color');
+      border: 2px solid colors.color('elvia-charge');
     }
   }
 
@@ -270,7 +269,7 @@ $green: colors.color('green');
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: colors.color('white');
+    background: colors.color('elvia-on');
     box-sizing: border-box;
     border: none;
     -webkit-box-shadow: 0 0 0 1px transparent, 0 0 0 1px $grey-ten;
@@ -340,7 +339,8 @@ $green: colors.color('green');
     }
 
     &:active {
-      @include helpers.box-shadow(0 0 0 2px $green);
+      @include helpers.box-shadow(0 0 0 2px colors.color('elvia-charge'));
+
       cursor: pointer;
       .e-link__icon {
         @include helpers.transform(scale(0.9166));
@@ -368,7 +368,7 @@ $green: colors.color('green');
     }
 
     &:active {
-      @include helpers.box-shadow(0 0 0 2px $green);
+      @include helpers.box-shadow(0 0 0 2px colors.color('elvia-charge'));
       cursor: pointer;
       .e-link__icon {
         @include helpers.transform(scale(0.9166));
@@ -397,7 +397,7 @@ $green: colors.color('green');
 
     @include helpers.hover() {
       &:hover {
-        @include helpers.box-shadow(0 0 0 2px $green);
+        @include helpers.box-shadow(0 0 0 2px colors.color('elvia-charge'));
         cursor: pointer;
         .e-link__icon {
           @include helpers.transform(scale(0.9166));
@@ -461,7 +461,7 @@ $green: colors.color('green');
         }
       }
       &:active {
-        border-color: colors.color('green');
+        border-color: colors.color('elvia-charge');
         .e-link__icon {
           @include helpers.transform(scale(1.125));
         }
@@ -471,7 +471,7 @@ $green: colors.color('green');
       }
       @include helpers.hover() {
         &:hover {
-          border-color: colors.color('green');
+          border-color: colors.color('elvia-charge');
           .e-link__icon {
             @include helpers.transform(scale(1.125));
           }

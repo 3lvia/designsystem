@@ -6,7 +6,7 @@
 $form-radiobutton-mark-size: 24px;
 $form-radiobutton-small-mark-size: 16px;
 $form-radiobutton-mark-border-radius: 14px;
-$form-radiobutton-mark-border: 1px solid colors.color('black');
+$form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
 
 .e-radio {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -41,7 +41,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
       // states styles for input
       &:checked ~ #{$this}__mark {
         @extend %radiobutton-mark--small;
-        border-color: colors.color('black');
+        border-color: colors.color('elvia-off');
       }
 
       &:focus ~ #{$this}__mark {
@@ -53,8 +53,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
       }
 
       &:disabled ~ #{$this}__mark {
-        border-color: colors.color('grey-30');
-        background: colors.color('grey-05');
+        border-color: colors.color('disabled');
+        background: colors.color('disabled-light');
         cursor: not-allowed;
       }
       &:disabled ~ #{$this}__label {
@@ -63,8 +63,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
       }
 
       &:disabled:checked ~ #{$this}__mark {
-        border-color: colors.color('grey-30');
-        background: colors.color('grey-05');
+        border-color: colors.color('disabled');
+        background: colors.color('disabled-light');
         cursor: not-allowed;
 
         &:before,
@@ -85,7 +85,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
   }
 
   &:hover &__mark {
-    background: colors.color('green');
+    background: colors.color('elvia-charge');
   }
 
   // Hide defualt radiostyle and put in placeholder style
@@ -98,7 +98,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
     // states styles for input
     &:checked ~ #{$this}__mark {
       @extend %radiobutton-mark;
-      border-color: colors.color('black');
+      border-color: colors.color('elvia-off');
     }
 
     &:focus ~ #{$this}__mark {
@@ -110,8 +110,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
     }
 
     &:disabled ~ #{$this}__mark {
-      border-color: colors.color('grey-30');
-      background: colors.color('grey-05');
+      border-color: colors.color('disabled');
+      background: colors.color('disabled-light');
       cursor: not-allowed;
     }
     &:disabled ~ #{$this}__label {
@@ -120,8 +120,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
     }
 
     &:disabled:checked ~ #{$this}__mark {
-      border-color: colors.color('grey-30');
-      background: colors.color('grey-05');
+      border-color: colors.color('disabled');
+      background: colors.color('disabled-light');
       cursor: not-allowed;
 
       &:before,
@@ -136,7 +136,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
   }
   // Creating placeholder to inject style into radiobutton mutations.
   %radiobutton-mark {
-    background-color: colors.color('green');
+    background-color: colors.color('elvia-charge');
     display: flex;
     align-items: center;
     justify-content: center;
@@ -144,7 +144,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
       content: '';
       height: 14px;
       width: 14px;
-      background-color: colors.color('black');
+      background-color: colors.color('elvia-off');
       @include helpers.border-radius(50%);
       opacity: 1;
       @include helpers.animation(fadeIn, 250ms, linear, both);
@@ -152,7 +152,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
   }
 
   %radiobutton-mark--small {
-    background-color: colors.color('green');
+    background-color: colors.color('elvia-charge');
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,7 +160,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
       content: '';
       height: 8px;
       width: 8px;
-      background-color: colors.color('black');
+      background-color: colors.color('elvia-off');
       @include helpers.border-radius(50%);
       opacity: 1;
       @include helpers.animation(fadeIn, 250ms, linear, both);
@@ -182,7 +182,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
     height: $form-radiobutton-mark-size;
     border: $form-radiobutton-mark-border;
     @include helpers.border-radius($form-radiobutton-mark-border-radius);
-    background: colors.color('white');
+    background: colors.color('elvia-on');
   }
 
   // pseudoclasses
@@ -199,8 +199,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
 
   &.e-radio---disabled {
     .e-radio__mark {
-      border-color: colors.color('grey-30');
-      background: colors.color('grey-05');
+      border-color: colors.color('disabled');
+      background: colors.color('disabled-light');
       cursor: not-allowed;
     }
     .e-radio__label {
@@ -212,8 +212,8 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
   &.e-radio---disabled-checked {
     .e-radio__mark {
       @extend %radiobutton-mark;
-      border-color: colors.color('grey-30') !important;
-      background: colors.color('grey-05') !important;
+      border-color: colors.color('disabled') !important;
+      background: colors.color('disabled-light') !important;
       cursor: not-allowed;
 
       &:before,
@@ -239,7 +239,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
 
   &.e-radio---hover {
     .e-radio__mark {
-      background: colors.color('green');
+      background: colors.color('elvia-charge');
     }
   }
 

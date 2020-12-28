@@ -37,9 +37,9 @@ $popover-mobile-size: 300px;
     min-width: $popover-desktop-size;
     max-width: $popover-desktop-size;
     padding: $popover-padding;
-    background-color: colors.color('white');
+    background-color: colors.color('elvia-on');
     color: colors.color('font-color');
-    border: 1px solid colors.color('green');
+    border: 1px solid colors.color('elvia-charge');
     @include helpers.border-radius(8px);
     text-align: left;
     -o-animation: fadeIn 300ms ease-in;
@@ -104,11 +104,11 @@ $popover-mobile-size: 300px;
       margin-bottom: 8px;
       &::before {
         bottom: calc(#{$popover-arrow-size} * -2);
-        border-color: colors.color('green') transparent transparent transparent;
+        border-color: colors.color('elvia-charge') transparent transparent transparent;
       }
       &::after {
         bottom: calc((#{$popover-arrow-size-small} * -2));
-        border-color: colors.color('white') transparent transparent transparent;
+        border-color: colors.color('elvia-on') transparent transparent transparent;
       }
     }
   }
@@ -131,11 +131,11 @@ $popover-mobile-size: 300px;
     margin-top: 6px;
     &::before {
       top: calc(#{$popover-arrow-size} * -2);
-      border-color: transparent transparent colors.color('green') transparent;
+      border-color: transparent transparent colors.color('elvia-charge') transparent;
     }
     &::after {
       top: calc((#{$popover-arrow-size-small} * -2));
-      border-color: transparent transparent colors.color('white') transparent;
+      border-color: transparent transparent colors.color('elvia-on') transparent;
     }
   }
   // Left aligned

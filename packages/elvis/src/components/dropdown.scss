@@ -14,7 +14,7 @@
   .e-input {
     > input {
       cursor: pointer;
-      color: colors.color('black');
+      color: colors.color('font-color');
     }
     i {
       @include icons.icon-size('xxs');
@@ -33,6 +33,23 @@
 
     &:hover {
       background-color: colors.color('grey-10');
+    }
+  }
+}
+
+// form field adujustments for dropdown
+.e-form-field {
+  &.e-form-field--compact {
+    .e-dropdown {
+      .e-input i {
+        right: 10px;
+      }
+      .e-dropdown__content .e-dropdown__item {
+        display: flex;
+        align-items: center;
+        line-height: 22px;
+        padding: 6px 16px;
+      }
     }
   }
 }
