@@ -756,7 +756,7 @@ $loading-dot-sm: 8px;
   }
 }
 
-@keyframes loading-dots {
+@include helpers.keyframes(loading-dots) {
   0%,
   80%,
   100% {

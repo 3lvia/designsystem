@@ -139,7 +139,7 @@ $toast-max-width: 400px;
         .e-alert__accordion {
           @include icons.icon-size('sm');
           margin-left: 24px;
-          @keyframes rotate-center-forward {
+          @include helpers.keyframes(rotate-center-forward) {
             0% {
               @include helpers.transform(rotate(180deg));
             }
@@ -183,7 +183,7 @@ $toast-max-width: 400px;
       }
       &.e-alert--open {
         .e-alert__accordion {
-          @keyframes rotate-center-back {
+          @include helpers.keyframes(rotate-center-back) {
             0% {
               @include helpers.transform(rotate(0));
             }

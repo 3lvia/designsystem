@@ -36,7 +36,7 @@
   }
 }
 
-@keyframes loading {
+@include helpers.keyframes(loading) {
   0% {
     width: 0%;
     margin-left: 0%;

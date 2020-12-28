@@ -40,7 +40,11 @@ $form-input-border: 1px solid colors.color('grey');
     overflow-y: auto;
   }
 
-  > input::placeholder,
+  > input {
+    @include helpers.placeholder() {
+      color: colors.color('grey-70') !important;
+    }
+  }
   .e-input--placeholder {
     color: colors.color('grey-70') !important;
   }

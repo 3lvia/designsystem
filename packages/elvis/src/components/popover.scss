@@ -47,7 +47,7 @@ $popover-mobile-size: 300px;
     -moz-animation: fadeIn 300ms ease-in;
     -webkit-animation: fadeIn 300ms ease-in;
 
-    @keyframes fadeIn {
+    @include helpers.keyframes(fadeIn) {
       0% {
         opacity: 0;
       }

@@ -1,72 +1,80 @@
 @use "../variables/shared-sizes";
 
 @mixin box-shadow($value) {
-  box-shadow: $value;
   -webkit-box-shadow: $value;
   -moz-box-shadow: $value;
+  box-shadow: $value;
 }
 
 @mixin border-radius($value) {
-  border-radius: $value;
   -moz-border-radius: $value;
   -webkit-radius: $value;
+  border-radius: $value;
 }
 
 @mixin background-size($value) {
-  background-size: $value;
   -o-background-size: $value;
   -webkit-background-size: $value;
   -moz-background-size: $value;
+  background-size: $value;
 }
 
 @mixin transition($value) {
-  transition: $value;
   -webkit-transition: $value;
+  transition: $value;
 }
 @mixin transition-property($value) {
-  transition-property: $value;
   -webkit-transition-property: $value;
+  transition-property: $value;
 }
 @mixin transition-duration($value) {
-  transition-duration: $value;
   -webkit-transition-duration: $value;
+  transition-duration: $value;
 }
 @mixin transition-timing-function($value) {
-  transition-timing-function: $value;
   -webkit-transition-timing-function: $value;
+  transition-timing-function: $value;
 }
 @mixin transition-delay($value) {
-  transition-delay: $value;
   -webkit-transition-delay: $value;
+  transition-delay: $value;
 }
 
 @mixin transform($value) {
-  transform: $value;
   -o-transform: $value;
   -ms-transform: $value;
   -webkit-transform: $value;
+  transform: $value;
 }
 
 @mixin transform-origin($value) {
-  transform-origin: $value;
   -o-transform-origin: $value;
   -ms-transform-origin: $value;
   -webkit-transform-origin: $value;
+  transform-origin: $value;
 }
 
 @mixin animation($name, $duration, $timing, $type) {
-  animation: $name $duration $timing $type;
   -o-animation: $name $duration $timing $type;
   -moz-animation: $name $duration $timing $type;
   -webkit-animation: $name $duration $timing $type;
+  animation: $name $duration $timing $type;
 }
 
-// not using
 @mixin animation-delay($value) {
-  animation-delay: $value;
   -o-animation-delay: $value;
   -moz-animation-delay: $value;
   -webkit-animation-delay: $value;
+  animation-delay: $value;
+}
+
+@mixin user-select($value) {
+  -webkit-touch-callout: $value;
+  -webkit-user-select: $value;
+  -khtml-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value;
 }
 
 @mixin keyframes($value) {
@@ -82,35 +90,6 @@
   @keyframes #{$value} {
     @content;
   }
-}
-
-@mixin hover() {
-  @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    @content;
-  }
-}
-
-@mixin filter($value) {
-  -o-filter: $value;
-  -ms-filter: $value;
-  -webkit-filter: $value;
-  -moz-filter: $value;
-  filter: $value;
-}
-
-@mixin appearance($value) {
-  -moz-appearance: $value;
-  -webkit-appearance: $value;
-  appearance: $value;
-}
-
-@mixin user-select($value) {
-  user-select: $value;
-  -webkit-touch-callout: $value;
-  -webkit-user-select: $value;
-  -khtml-user-select: $value;
-  -moz-user-select: $value;
-  -ms-user-select: $value;
 }
 
 @mixin placeholder() {
@@ -131,43 +110,8 @@
   }
 }
 
-@mixin top-arrow($size: 5px, $color: #ffffff) {
-  content: '';
-
-  display: block;
-
-  position: absolute;
-
-  top: -$size;
-  right: 0;
-  left: 0;
-
-  width: 0;
-  height: 0;
-
-  margin: auto;
-
-  border-right: $size solid transparent;
-  border-bottom: $size solid var(--hdd-color-white);
-  border-left: $size solid transparent;
-
-  color: $color;
-}
-
-@mixin custom-scroll() {
-  ::-webkit-scrollbar {
-    width: shared-sizes.$scroll-bar-width;
-  }
-
-  ::-webkit-scrollbar-track {
-    background: var(--hdd-color-grey-light);
-  }
-
-  ::-webkit-scrollbar-thumb {
-    width: shared-sizes.$scroll-bar-width;
-    border-radius: 5px;
-    background: var(--hdd-color-grey);
-    border-left: 2px solid var(--hdd-color-grey-light);
-    border-right: 2px solid var(--hdd-color-grey-light);
+@mixin hover() {
+  @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
   }
 }

@@ -24,7 +24,7 @@
       max-width: 80%;
     }
     .e-accordion__icon {
-      @keyframes rotate-center-forward {
+      @include helpers.keyframes(rotate-center-forward) {
         0% {
           @include helpers.transform(rotate(180deg));
         }
@@ -61,7 +61,7 @@
 
     &.e-accordion__item--open {
       .e-accordion__icon {
-        @keyframes rotate-center-back {
+        @include helpers.keyframes(rotate-center-back) {
           0% {
             @include helpers.transform(rotate(0));
           }

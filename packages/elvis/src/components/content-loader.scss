@@ -6,7 +6,7 @@
   width: 260px;
   height: 260px;
 
-  @keyframes wave {
+  @include helpers.keyframes(wave) {
     to {
       opacity: 0.3;
     }

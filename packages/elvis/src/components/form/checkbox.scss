@@ -268,7 +268,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
   }
 }
 
-@keyframes checkmarkHeight {
+@include helpers.keyframes(checkmarkHeight) {
   0% {
     left: -31%;
     height: 0%;
@@ -280,7 +280,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
   }
 }
 
-@keyframes checkmarkWidth {
+@include helpers.keyframes(checkmarkWidth) {
   0% {
     width: 0%;
   }
@@ -290,7 +290,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
   }
 }
 
-@keyframes checkmarkHeightSmall {
+@include helpers.keyframes(checkmarkHeightSmall) {
   0% {
     left: -55%;
     height: 0%;
@@ -302,7 +302,7 @@ $checkbox-mark-border: 1px solid colors.color('black');
   }
 }
 
-@keyframes checkmarkWidthSmall {
+@include helpers.keyframes(checkmarkWidthSmall) {
   0% {
     width: 0%;
   }
