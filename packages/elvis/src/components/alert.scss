@@ -148,6 +148,9 @@ $toast-max-width: 400px;
             }
           }
           animation: rotate-center-forward 0.2s ease-in-out both;
+          -o-animation: rotate-center-forward 0.2s ease-in-out both;
+          -moz-animation: rotate-center-forward 0.2s ease-in-out both;
+          -webkit-animation: rotate-center-forward 0.2s ease-in-out both;
 
           display: flex;
           @include icons.icon-size('sm');

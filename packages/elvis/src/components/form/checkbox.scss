@@ -184,6 +184,9 @@ $checkbox-mark-border: 1px solid colors.color('black');
       @include helpers.transform(translateX(10px) rotate(-45deg));
       @include helpers.transform-origin(left bottom);
       animation: checkmarkHeight 150ms;
+      -o-animation: checkmarkHeight 150ms;
+      -moz-animation: checkmarkHeight 150ms;
+      -webkit-animation: checkmarkHeight 150ms;
     }
 
     &::after {
@@ -198,6 +201,9 @@ $checkbox-mark-border: 1px solid colors.color('black');
       @include helpers.transform(translateX(10px) rotate(-55deg));
       @include helpers.transform-origin(left bottom);
       animation: checkmarkWidth 150ms 150ms forwards;
+      -o-animation: checkmarkWidth 150ms 150ms forwards;
+      -moz-animation: checkmarkWidth 150ms 150ms forwards;
+      -webkit-animation: checkmarkWidth 150ms 150ms forwards;
     }
   }
 
@@ -217,6 +223,9 @@ $checkbox-mark-border: 1px solid colors.color('black');
       @include helpers.transform(translateX(10px) rotate(-45deg));
       @include helpers.transform-origin(left bottom);
       animation: checkmarkHeightSmall 150ms;
+      -o-animation: checkmarkHeightSmall 150ms;
+      -moz-animation: checkmarkHeightSmall 150ms;
+      -webkit-animation: checkmarkHeightSmall 150ms;
     }
 
     &::after {
@@ -231,6 +240,9 @@ $checkbox-mark-border: 1px solid colors.color('black');
       @include helpers.transform(translateX(10px) rotate(-55deg));
       @include helpers.transform-origin(left bottom);
       animation: checkmarkWidthSmall 150ms 150ms forwards;
+      -o-animation: checkmarkWidthSmall 150ms 150ms forwards;
+      -moz-animation: checkmarkWidthSmall 150ms 150ms forwards;
+      -webkit-animation: checkmarkWidthSmall 150ms 150ms forwards;
     }
   }
 

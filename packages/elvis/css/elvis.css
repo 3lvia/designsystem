@@ -6850,6 +6850,9 @@ input:focus {
   -ms-transform: translateX(10px) rotate(-43deg);
   -webkit-transform: translateX(10px) rotate(-43deg);
   transform-origin: left bottom;
+  -o-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  -webkit-transform-origin: left bottom;
 }
 
 .e-stepper .e-stepper__step.e-stepper__step--done .e-stepper__step-number::after, .e-stepper .e-stepper__step.e-stepper__step--active-done .e-stepper__step-number::after {
@@ -6868,6 +6871,9 @@ input:focus {
   -ms-transform: translateX(10px) rotate(43deg);
   -webkit-transform: translateX(10px) rotate(43deg);
   transform-origin: left bottom;
+  -o-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  -webkit-transform-origin: left bottom;
 }
 
 .e-table-mobile thead, .e-table thead, .e-table.e-table--compact thead {
@@ -7535,6 +7541,9 @@ input:focus {
   -ms-transform: translateX(10px) rotate(-45deg);
   -webkit-transform: translateX(10px) rotate(-45deg);
   transform-origin: left bottom;
+  -o-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  -webkit-transform-origin: left bottom;
   animation: checkmarkHeight 150ms;
 }
 
@@ -7554,6 +7563,9 @@ input:focus {
   -ms-transform: translateX(10px) rotate(-55deg);
   -webkit-transform: translateX(10px) rotate(-55deg);
   transform-origin: left bottom;
+  -o-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  -webkit-transform-origin: left bottom;
   animation: checkmarkWidth 150ms 150ms forwards;
 }
 
@@ -7578,6 +7590,9 @@ input:focus {
   -ms-transform: translateX(10px) rotate(-45deg);
   -webkit-transform: translateX(10px) rotate(-45deg);
   transform-origin: left bottom;
+  -o-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  -webkit-transform-origin: left bottom;
   animation: checkmarkHeightSmall 150ms;
 }
 
@@ -7597,6 +7612,9 @@ input:focus {
   -ms-transform: translateX(10px) rotate(-55deg);
   -webkit-transform: translateX(10px) rotate(-55deg);
   transform-origin: left bottom;
+  -o-transform-origin: left bottom;
+  -ms-transform-origin: left bottom;
+  -webkit-transform-origin: left bottom;
   animation: checkmarkWidthSmall 150ms 150ms forwards;
 }
 

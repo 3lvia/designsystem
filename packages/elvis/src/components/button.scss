@@ -742,8 +742,10 @@ $loading-dot-sm: 8px;
     height: $loading-dot-md;
     @include helpers.border-radius(100%);
     display: inline-block;
-    -webkit-animation: loading-dots 1s infinite ease-in-out both;
     animation: loading-dots 1s infinite ease-in-out both;
+    -o-animation: loading-dots 1s infinite ease-in-out both;
+    -moz-animation: loading-dots 1s infinite ease-in-out both;
+    -webkit-animation: loading-dots 1s infinite ease-in-out both;
   }
 
   span:nth-of-type(1) {

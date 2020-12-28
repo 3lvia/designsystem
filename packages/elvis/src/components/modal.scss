@@ -25,6 +25,9 @@ $modal-mobile-padding: 32px;
   box-sizing: border-box;
   opacity: 1;
   animation: fadeIn 300ms ease-in;
+  -o-animation: fadeIn 300ms ease-in;
+  -moz-animation: fadeIn 300ms ease-in;
+  -webkit-animation: fadeIn 300ms ease-in;
 
   @keyframes fadeIn {
     0% {

@@ -6,13 +6,21 @@
   width: 260px;
   height: 260px;
 
+  @keyframes wave {
+    to {
+      opacity: 0.3;
+    }
+  }
   &::after {
     content: '';
     width: 100%;
     height: 100%;
     background: colors.color('grey-10');
     @include helpers.border-radius(16px);
-    animation: 1s wave infinite alternate;
+    animation: wave 1s infinite alternate;
+    -o-animation: wave 1s infinite alternate;
+    -moz-animation: wave 1s infinite alternate;
+    -webkit-animation: wave 1s infinite alternate;
   }
 
   &.e-content-loader--circle {
@@ -35,11 +43,5 @@
         width: 70%;
       }
     }
-  }
-}
-
-@keyframes wave {
-  to {
-    opacity: 0.3;
   }
 }

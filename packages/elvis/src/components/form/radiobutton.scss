@@ -147,7 +147,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
       background-color: colors.color('black');
       @include helpers.border-radius(50%);
       opacity: 1;
-      animation: fadeIn 250ms;
+      @include helpers.animation(fadeIn, 250ms, linear, both);
     }
   }
 
@@ -163,7 +163,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('black');
       background-color: colors.color('black');
       @include helpers.border-radius(50%);
       opacity: 1;
-      animation: fadeIn 250ms;
+      @include helpers.animation(fadeIn, 250ms, linear, both);
     }
   }
 

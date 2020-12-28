@@ -47,7 +47,6 @@
   -webkit-transform: $value;
 }
 
-// not using
 @mixin transform-origin($value) {
   transform-origin: $value;
   -o-transform-origin: $value;
@@ -55,6 +54,7 @@
   -webkit-transform-origin: $value;
 }
 
+// not using
 @mixin animation($name, $duration, $timing, $type) {
   animation: $name $duration $timing $type;
   -o-animation: $name $duration $timing $type;
