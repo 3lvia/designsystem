@@ -749,12 +749,10 @@ $loading-dot-sm: 8px;
   }
 
   span:nth-of-type(1) {
-    -webkit-animation-delay: -0.32s;
-    animation-delay: -0.32s;
+    @include helpers.animation-delay(-0.32s);
   }
   span:nth-of-type(2) {
-    -webkit-animation-delay: -0.16s;
-    animation-delay: -0.16s;
+    @include helpers.animation-delay(-0.16s);
   }
 }
 

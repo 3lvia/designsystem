@@ -54,7 +54,6 @@
   -webkit-transform-origin: $value;
 }
 
-// not using
 @mixin animation($name, $duration, $timing, $type) {
   animation: $name $duration $timing $type;
   -o-animation: $name $duration $timing $type;
@@ -62,11 +61,12 @@
   -webkit-animation: $name $duration $timing $type;
 }
 
+// not using
 @mixin animation-delay($value) {
-  animation: $value;
-  -o-animation: $value;
-  -moz-animation: $value;
-  -webkit-animation: $value;
+  animation-delay: $value;
+  -o-animation-delay: $value;
+  -moz-animation-delay: $value;
+  -webkit-animation-delay: $value;
 }
 
 @mixin keyframes($value) {
