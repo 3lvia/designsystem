@@ -17,10 +17,10 @@
     height: 100%;
     background: colors.color('grey-10');
     @include helpers.border-radius(16px);
-    animation: wave 1s infinite alternate;
     -o-animation: wave 1s infinite alternate;
     -moz-animation: wave 1s infinite alternate;
     -webkit-animation: wave 1s infinite alternate;
+    animation: wave 1s infinite alternate;
   }
 
   &.e-content-loader--circle {

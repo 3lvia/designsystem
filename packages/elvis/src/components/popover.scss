@@ -42,10 +42,10 @@ $popover-mobile-size: 300px;
     border: 1px solid colors.color('green');
     @include helpers.border-radius(8px);
     text-align: left;
-    animation: fadeIn 300ms ease-in;
     -o-animation: fadeIn 300ms ease-in;
     -moz-animation: fadeIn 300ms ease-in;
     -webkit-animation: fadeIn 300ms ease-in;
+    animation: fadeIn 300ms ease-in;
 
     @include helpers.keyframes(fadeIn) {
       0% {

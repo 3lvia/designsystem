@@ -24,10 +24,10 @@ $modal-mobile-padding: 32px;
   pointer-events: auto;
   box-sizing: border-box;
   opacity: 1;
-  animation: fadeIn 300ms ease-in;
   -o-animation: fadeIn 300ms ease-in;
   -moz-animation: fadeIn 300ms ease-in;
   -webkit-animation: fadeIn 300ms ease-in;
+  animation: fadeIn 300ms ease-in;
 
   @include helpers.keyframes(fadeIn) {
     0% {
