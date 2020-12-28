@@ -2720,9 +2720,9 @@ input:focus {
 }
 
 .e-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  height: 100%;
+  width: 100%;
   box-sizing: border-box;
   z-index: 99;
   user-select: none;
