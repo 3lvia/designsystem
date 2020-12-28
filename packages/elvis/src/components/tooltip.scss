@@ -50,7 +50,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
       top: 100%;
       left: 50%;
       margin-top: $tooltop-margin-horizontal-offset;
-      transform: $tooltip-vertical-transform;
+      @include helpers.transform($tooltip-vertical-transform);
 
       &::after {
         content: '';
@@ -67,7 +67,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
       bottom: 100%;
       left: 50%;
       margin-bottom: $tooltop-margin-horizontal-offset;
-      transform: $tooltip-vertical-transform;
+      @include helpers.transform($tooltip-vertical-transform);
 
       &::after {
         content: '';

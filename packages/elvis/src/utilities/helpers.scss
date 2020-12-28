@@ -40,7 +40,6 @@
   -webkit-transition-delay: $value;
 }
 
-// not using
 @mixin transform($value) {
   transform: $value;
   -o-transform: $value;
@@ -48,6 +47,7 @@
   -webkit-transform: $value;
 }
 
+// not using
 @mixin transform-origin($value) {
   transform-origin: $value;
   -o-transform-origin: $value;

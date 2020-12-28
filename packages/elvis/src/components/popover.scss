@@ -113,7 +113,7 @@ $popover-mobile-size: 300px;
   &:not(.e-popover--left):not(.e-popover--left-50):not(.e-popover--right):not(.e-popover--right-50) {
     .e-popover__content {
       left: 50%;
-      transform: translate(-50%, 0);
+      @include helpers.transform(translate(-50%, 0));
       &::before {
         left: calc(50% - (#{$popover-arrow-offset} / 2));
       }
@@ -137,7 +137,7 @@ $popover-mobile-size: 300px;
   }
   // Left aligned
   &.e-popover--left .e-popover__content {
-    transform: translateX(-87%);
+    @include helpers.transform(translateX(-87%));
     // adding pixels to center and fit the arrows to relative point
     &:after {
       left: calc(100% - #{$popover-arrow-offset} - 24px);
@@ -146,7 +146,7 @@ $popover-mobile-size: 300px;
       left: calc(100% - #{$popover-arrow-offset} - 2px - 24px);
     }
     @include breakpoints.breakpoint-up(Mobile) {
-      transform: translateX(-83.5%);
+      @include helpers.transform(translateX(-83.5%));
       &:after {
         left: calc(100% - #{$popover-arrow-offset} - 21px);
       }
@@ -157,7 +157,7 @@ $popover-mobile-size: 300px;
   }
   // Left-50 aligned
   &.e-popover--left-50 .e-popover__content {
-    transform: translateX(-62%);
+    @include helpers.transform(translateX(-62%));
     // adding pixels to center and fit the arrows to relative point
     &:after {
       left: calc(75% - #{$popover-arrow-offset} - 24px);
@@ -166,7 +166,7 @@ $popover-mobile-size: 300px;
       left: calc(75% - #{$popover-arrow-offset} - 2px - 24px);
     }
     @include breakpoints.breakpoint-up(Mobile) {
-      transform: translateX(-58.5%);
+      @include helpers.transform(translateX(-58.5%));
       &:after {
         left: calc(75% - #{$popover-arrow-offset} - 21px);
       }
@@ -177,7 +177,7 @@ $popover-mobile-size: 300px;
   }
   // Right aligned
   &.e-popover--right .e-popover__content {
-    transform: translateX(-7%);
+    @include helpers.transform(translateX(-7%));
     // adding pixels to center and fit the arrows to relative point
     &:after {
       left: calc(#{$popover-arrow-offset} + 4px);
@@ -186,7 +186,7 @@ $popover-mobile-size: 300px;
       left: calc(#{$popover-arrow-offset} + 2px);
     }
     @include breakpoints.breakpoint-up(Mobile) {
-      transform: translateX(-8.7%);
+      @include helpers.transform(translateX(-8.7%));
       &:after {
         left: calc(#{$popover-arrow-offset} + 2px);
       }
@@ -197,7 +197,7 @@ $popover-mobile-size: 300px;
   }
   // Right-50 aligned
   &.e-popover--right-50 .e-popover__content {
-    transform: translateX(-32%);
+    @include helpers.transform(translateX(-32%));
     // adding pixels to center and fit the arrows to relative point
     &:after {
       left: calc(38% - #{$popover-arrow-offset} + 4px);
@@ -206,7 +206,7 @@ $popover-mobile-size: 300px;
       left: calc(38% - #{$popover-arrow-offset} + 2px);
     }
     @include breakpoints.breakpoint-up(Mobile) {
-      transform: translateX(-33.7%);
+      @include helpers.transform(translateX(-33.7%));
       &:after {
         left: calc(42% - #{$popover-arrow-offset} + 2px);
       }
@@ -239,52 +239,52 @@ $popover-mobile-size: 300px;
   // Adjusting alignment of popover for sizing classes
   @include breakpoints.breakpoint-up(Mobile) {
     &.e-popover--w-200.e-popover--left .e-popover__content {
-      transform: translateX(-75%);
+      @include helpers.transform(translateX(-75%));
     }
     &.e-popover--w-220.e-popover--left .e-popover__content {
-      transform: translateX(-78%);
+      @include helpers.transform(translateX(-78%));
     }
     &.e-popover--w-240.e-popover--left .e-popover__content {
-      transform: translateX(-80%);
+      @include helpers.transform(translateX(-80%));
     }
     &.e-popover--w-260.e-popover--left .e-popover__content {
-      transform: translateX(-81%);
+      @include helpers.transform(translateX(-81%));
     }
     &.e-popover--w-200.e-popover--left-50 .e-popover__content {
-      transform: translateX(-51%);
+      @include helpers.transform(translateX(-51%));
     }
     &.e-popover--w-220.e-popover--left-50 .e-popover__content {
-      transform: translateX(-53.5%);
+      @include helpers.transform(translateX(-53.5%));
     }
     &.e-popover--w-240.e-popover--left-50 .e-popover__content {
-      transform: translateX(-55.5%);
+      @include helpers.transform(translateX(-55.5%));
     }
     &.e-popover--w-260.e-popover--left-50 .e-popover__content {
-      transform: translateX(-56.5%);
+      @include helpers.transform(translateX(-56.5%));
     }
     &.e-popover--w-200.e-popover--right .e-popover__content {
-      transform: translateX(-13%);
+      @include helpers.transform(translateX(-13%));
     }
     &.e-popover--w-220.e-popover--right .e-popover__content {
-      transform: translateX(-12%);
+      @include helpers.transform(translateX(-12%));
     }
     &.e-popover--w-240.e-popover--right .e-popover__content {
-      transform: translateX(-11%);
+      @include helpers.transform(translateX(-11%));
     }
     &.e-popover--w-260.e-popover--right .e-popover__content {
-      transform: translateX(-10%);
+      @include helpers.transform(translateX(-10%));
     }
     &.e-popover--w-200.e-popover--right-50 .e-popover__content {
-      transform: translateX(-30%);
+      @include helpers.transform(translateX(-30%));
     }
     &.e-popover--w-220.e-popover--right-50 .e-popover__content {
-      transform: translateX(-31%);
+      @include helpers.transform(translateX(-31%));
     }
     &.e-popover--w-240.e-popover--right-50 .e-popover__content {
-      transform: translateX(-32%);
+      @include helpers.transform(translateX(-32%));
     }
     &.e-popover--w-260.e-popover--right-50 .e-popover__content {
-      transform: translateX(-33%);
+      @include helpers.transform(translateX(-33%));
     }
   }
 }

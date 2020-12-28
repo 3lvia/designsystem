@@ -646,7 +646,7 @@ $loading-dot-sm: 8px;
 
       &.e-btn---active,
       &:active:not(:disabled) {
-        transform: scale(0.93);
+        @include helpers.transform(rotate(0.93));
       }
     }
 
@@ -716,7 +716,7 @@ $loading-dot-sm: 8px;
 
     &.e-btn---active,
     &:active:not(:disabled):not(.e-btn--loading) {
-      transform: scale(0.95);
+      @include helpers.transform(rotate(0.95));
     }
     &.e-btn---disabled,
     &:disabled {
@@ -756,26 +756,13 @@ $loading-dot-sm: 8px;
   }
 }
 
-@-webkit-keyframes loading-dots {
-  0%,
-  80%,
-  100% {
-    -webkit-transform: scale(0);
-  }
-  40% {
-    -webkit-transform: scale(1);
-  }
-}
-
 @keyframes loading-dots {
   0%,
   80%,
   100% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
+    @include helpers.transform(scale(0));
   }
   40% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
+    @include helpers.transform(scale(1));
   }
 }

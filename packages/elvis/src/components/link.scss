@@ -295,7 +295,7 @@ $green: colors.color('green');
       padding: 6%;
 
       .e-link__icon {
-        transform: scale(0.8333);
+        @include helpers.transform(scale(0.8333));
         @include helpers.transition(transform 0.3s ease-in-out);
         position: relative;
         display: flex;
@@ -343,7 +343,7 @@ $green: colors.color('green');
       @include helpers.box-shadow(0 0 0 2px $green);
       cursor: pointer;
       .e-link__icon {
-        transform: scale(0.9166);
+        @include helpers.transform(scale(0.9166));
         i {
           visibility: hidden;
           @include helpers.transition(visibility 0.3s ease);
@@ -371,7 +371,7 @@ $green: colors.color('green');
       @include helpers.box-shadow(0 0 0 2px $green);
       cursor: pointer;
       .e-link__icon {
-        transform: scale(0.9166);
+        @include helpers.transform(scale(0.9166));
         i {
           visibility: hidden;
           @include helpers.transition(visibility 0.3s ease);
@@ -400,7 +400,7 @@ $green: colors.color('green');
         @include helpers.box-shadow(0 0 0 2px $green);
         cursor: pointer;
         .e-link__icon {
-          transform: scale(0.9166);
+          @include helpers.transform(scale(0.9166));
           i {
             visibility: hidden;
             @include helpers.transition(visibility 0.3s ease);
@@ -446,7 +446,7 @@ $green: colors.color('green');
         align-items: center;
         justify-content: center;
         .e-link__icon {
-          transform: scale(1);
+          @include helpers.transform(scale(1));
           @include icons.icon-size('md');
           i {
             @include icons.icon-size('md');
@@ -463,20 +463,20 @@ $green: colors.color('green');
       &:active {
         border-color: colors.color('green');
         .e-link__icon {
-          transform: scale(1.125);
+          @include helpers.transform(scale(1.125));
         }
         .e-link__icon.e-link--delay-hover {
-          transform: scale(1.125);
+          @include helpers.transform(scale(1.125));
         }
       }
       @include helpers.hover() {
         &:hover {
           border-color: colors.color('green');
           .e-link__icon {
-            transform: scale(1.125);
+            @include helpers.transform(scale(1.125));
           }
           .e-link__icon.e-link--delay-hover {
-            transform: scale(1.125);
+            @include helpers.transform(scale(1.125));
           }
         }
       }

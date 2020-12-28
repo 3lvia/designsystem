@@ -53,7 +53,7 @@ $card-actions-button-spacing: 25px;
     &.e-card__title--above {
       @include typography.typography('text-caps');
       position: absolute;
-      transform: translateY(-100%);
+      @include helpers.transform(translateY(-100%));
       top: -8px;
       left: 8px;
     }
