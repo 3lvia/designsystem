@@ -1,4 +1,5 @@
 module.exports = [
+  { name: 'aa_test', terms: ['test'], deprecated: true, newIconName: 'add_powermeter' },
   { name: 'add_circle', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-color', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-filled', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
