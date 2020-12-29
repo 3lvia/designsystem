@@ -108,11 +108,13 @@ export class IconDocComponent implements OnInit {
       if (icon.name.indexOf('figma') > -1) {
         continue;
       }
-      this.allIcons.push({
-        pretty: this.getShortIconName(icon.name),
-        title: icon.name,
-        terms: icon.terms,
-      });
+      if (icon.deprecated !== true) {
+        this.allIcons.push({
+          pretty: this.getShortIconName(icon.name),
+          title: icon.name,
+          terms: icon.terms,
+        });
+      }
     }
 
     this.allIcons.sort((icon: any, icon2: any) => {
