@@ -108,7 +108,7 @@ export class IconDocComponent implements OnInit {
       if (icon.name.indexOf('figma') > -1) {
         continue;
       }
-      if (icon.deprecated !== true) {
+      if (!icon.deprecated) {
         this.allIcons.push({
           pretty: this.getShortIconName(icon.name),
           title: icon.name,

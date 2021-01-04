@@ -4,6 +4,9 @@ document.addEventListener('DOMContentLoaded', function () {
     DEBUG = true;
   }
 
+  let localhost = window.location.href.indexOf('localhost') > -1;
+
+
   function outlineFix() {
     if (DEBUG) {
       return;
@@ -95,15 +98,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
       icon = setCorrectColor(classList, icon);
 
-      for (let x = 0; x < deprecated.length; x++) {
-        if (classList[i] === deprecated[x].name)
-          console.warn('WARNING: The icon ' + deprecated[x].name + ' is deprecated from version : ' + deprecated[x].version + '. ' + deprecated[x].name + ' now refers to the icon: ' + deprecated[x].newIconName)
-      }
+      checkDeprecatedIcon(classList[i]);
 
       return icon;
     }
-    console.error('Elvis - No icon found for classes: ', classList);
+    if (localhost) {
+      console.error('Elvis - No icon found for classes: ', classList);
+    }
     return 'No icon found!';
+  }
+
+  function checkDeprecatedIcon(classList) {
+    if (localhost) {
+      for (let x = 0; x < deprecated.length; x++) {
+        if (classList === deprecated[x].name)
+          console.warn('WARNING: The icon ' + deprecated[x].name + ' is deprecated from version : ' + deprecated[x].version + '. ' + deprecated[x].name + ' now refers to the icon: ' + deprecated[x].newIconName)
+      }
+    }
   }
 
   function setCorrectColor(classList, icon) {

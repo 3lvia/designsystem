@@ -1,7 +1,6 @@
 /*
 for renaming/deprecating icons add the following:
-- deprecated: true
-- version: 'version number' e.g 4.6.0
+- deprecated: 'version number' e.g 4.6.0
 - newIconName : reference to new icon to be displayed
 
 example:
@@ -15,9 +14,9 @@ module.exports = [
   { name: 'add_powermeter', terms: [] },
   { name: 'add_powermeter-color', terms: [] },
   { name: 'agreements-color', terms: [] },
-  { name: 'arrow_circle-color', deprecated: true, version: '4.7.0', newIconName: 'arrow_right_circle-color' },
+  { name: 'arrow_circle-color', deprecated: '4.7.0', newIconName: 'arrow_right_circle-color' },
   { name: 'arrow_right_circle-color', terms: ['next', 'right', 'forward'] },
-  { name: 'arrow_circle-filled-color', deprecated: true, version: '4.7.0', newIconName: 'arrow_right_circle-filled-color' },
+  { name: 'arrow_circle-filled-color', deprecated: '4.7.0', newIconName: 'arrow_right_circle-filled-color' },
   { name: 'arrow_right_circle-filled-color', terms: ['next', 'right', 'forward'] },
   { name: 'arrow_left_circle-color', terms: ['next', 'left', 'backward'] },
   { name: 'arrow_left_circle-filled-color', terms: ['next', 'left', 'backward'] },
