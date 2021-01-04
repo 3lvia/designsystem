@@ -16,8 +16,8 @@ $autocomplete-padding-item-compact: 6px 10px;
   overflow-y: auto;
   margin-top: 4px;
   border: 1px solid colors.color('grey-10');
-  @include helpers.border-radius(4px);
-  @include helpers.box-shadow(shadows.$e-shadow-6);
+  border-radius: 4px;
+  box-shadow: shadows.$e-shadow-6;
   z-index: 1;
 
   &__item {

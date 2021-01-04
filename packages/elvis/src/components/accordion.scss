@@ -48,9 +48,9 @@
       max-height: 0;
       opacity: 0;
       padding-top: 0;
-      @include helpers.transition(max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1));
-      @include helpers.transition(opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1));
-      @include helpers.transition(padding-top 0.18s cubic-bezier(0, 0.18, 1, 1));
+      transition: max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1);
+      transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1);
+      transition: padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
       display: flex;
       width: 100%;
       flex-direction: column;

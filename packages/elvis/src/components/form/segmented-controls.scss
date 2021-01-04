@@ -9,7 +9,7 @@ $transition-duration: 0.35s;
 .e-segmented-controls {
   display: inline-flex;
   border: 1px solid colors.color('elvia-off');
-  @include helpers.border-radius(38px);
+  border-radius: 38px;
   width: 100%;
   max-width: 442px;
   text-align: center;
@@ -18,7 +18,7 @@ $transition-duration: 0.35s;
   position: relative;
   @include helpers.user-select(none);
 
-  @include helpers.transition($transition-duration $transition-timing-function);
+  transition: $transition-duration $transition-timing-function;
 
   > input {
     position: absolute;
@@ -28,7 +28,7 @@ $transition-duration: 0.35s;
     }
 
     &[type='checkbox'] ~ label {
-      @include helpers.transition(0s);
+      transition: 0s;
 
       &:before {
         opacity: 0;
@@ -40,16 +40,16 @@ $transition-duration: 0.35s;
         ~ label:nth-of-type(#{$i}) {
           .e-segmented-controls__title {
             font-weight: 400;
-            @include helpers.transition(font-weight 0s 0);
+            transition: font-weight 0s 0;
           }
           .e-segmented-controls__title {
             color: black;
-            @include helpers.transition(color 0s calc(#{$transition-duration} / 2));
+            transition: color 0s calc(#{$transition-duration} / 2);
             z-index: 11;
           }
           &:hover .e-segmented-controls__title {
             font-weight: 500;
-            @include helpers.transition($transition-timing-function 0s);
+            transition: $transition-timing-function 0s;
           }
         }
       }
@@ -141,7 +141,7 @@ $transition-duration: 0.35s;
             display: flex;
             justify-content: center;
             width: percentage(1 / $i);
-            @include helpers.border-radius(36px);
+            border-radius: 36px;
           }
         }
       }

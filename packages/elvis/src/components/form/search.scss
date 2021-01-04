@@ -76,7 +76,7 @@
         line-height: 38px;
 
         padding: 0;
-        @include helpers.border-radius(0);
+        border-radius: 0;
         border: 1px solid transparent;
         border-bottom: 1px solid var(--e-black);
       }

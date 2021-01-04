@@ -16,7 +16,7 @@
     width: 100%;
     height: 100%;
     background: colors.color('grey-10');
-    @include helpers.border-radius(16px);
+    border-radius: 16px;
     -o-animation: wave 1s infinite alternate;
     -moz-animation: wave 1s infinite alternate;
     -webkit-animation: wave 1s infinite alternate;
@@ -25,7 +25,7 @@
 
   &.e-content-loader--circle {
     &:after {
-      @include helpers.border-radius(50%);
+      border-radius: 50%;
     }
   }
 
@@ -35,7 +35,7 @@
     &:after {
       width: 100%;
       height: 24px;
-      @include helpers.border-radius(8px);
+      border-radius: 8px;
     }
     &.e-content-loader--short {
       width: 100%;

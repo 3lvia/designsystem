@@ -14,8 +14,8 @@ $card-actions-action-padding: 13px 0;
 $card-actions-button-spacing: 25px;
 
 .e-card {
-  @include helpers.border-radius($card-radius);
-  @include helpers.box-shadow(shadows.$e-shadow-3);
+  border-radius: $card-radius;
+  box-shadow: shadows.$e-shadow-3;
   display: inline-flex;
   width: 100%;
   flex-direction: column;
@@ -29,19 +29,19 @@ $card-actions-button-spacing: 25px;
   }
 
   &--shadow-soft {
-    @include helpers.box-shadow(shadows.$e-shadow-3);
+    box-shadow: shadows.$e-shadow-3;
   }
 
   &--shadow-medium {
-    @include helpers.box-shadow(shadows.$e-shadow-6);
+    box-shadow: shadows.$e-shadow-6;
   }
 
   &--shadow-hard {
-    @include helpers.box-shadow(shadows.$e-shadow-8);
+    box-shadow: shadows.$e-shadow-8;
   }
 
   &--on-white {
-    @include helpers.box-shadow(shadows.$e-shadow-6);
+    box-shadow: shadows.$e-shadow-6;
   }
 
   &__title {

@@ -40,7 +40,7 @@ $popover-mobile-size: 300px;
     background-color: colors.color('elvia-on');
     color: colors.color('font-color');
     border: 1px solid colors.color('elvia-charge');
-    @include helpers.border-radius(8px);
+    border-radius: 8px;
     text-align: left;
     -o-animation: fadeIn 300ms ease-in;
     -moz-animation: fadeIn 300ms ease-in;

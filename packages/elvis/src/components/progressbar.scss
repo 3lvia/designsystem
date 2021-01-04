@@ -7,13 +7,13 @@
   height: 2px;
   margin: 0;
   background-color: colors.color('grey-10');
-  @include helpers.border-radius(50px);
+  border-radius: 50px;
 
   &__bar {
     @extend .e-progress__bar--loading;
 
     &.e-progress__bar--loading {
-      @include helpers.border-radius(50px);
+      border-radius: 50px;
       align-self: center;
       width: 15%;
       height: 6px;

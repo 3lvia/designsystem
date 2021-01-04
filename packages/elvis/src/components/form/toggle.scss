@@ -33,7 +33,7 @@ $toggle-mobile-negative-slider-padding: calc(
   height: $toggle-desktop-height;
   width: $toggle-desktop-width;
   background-color: colors.color('grey');
-  @include helpers.border-radius($toggle-border-radius);
+  border-radius: $toggle-border-radius;
   cursor: pointer;
   box-sizing: border-box;
 
@@ -55,8 +55,8 @@ $toggle-mobile-negative-slider-padding: calc(
     left: 0;
     right: 0;
     bottom: 0;
-    @include helpers.transition(0.15s);
-    @include helpers.border-radius($toggle-border-radius);
+    transition: 0.15s;
+    border-radius: $toggle-border-radius;
   }
   &__slider::before {
     position: absolute;
@@ -66,8 +66,8 @@ $toggle-mobile-negative-slider-padding: calc(
     left: $toggle-desktop-slider-padding;
     bottom: $toggle-desktop-slider-padding;
     background-color: colors.color('elvia-on');
-    @include helpers.transition(0.1s);
-    @include helpers.border-radius(50%);
+    transition: 0.1s;
+    border-radius: 50%;
 
     @include breakpoints.breakpoint-up(Mobile) {
       height: $toggle-mobile-slider-size;

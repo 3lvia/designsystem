@@ -1,17 +1,5 @@
 @use "../variables/shared-sizes";
 
-@mixin box-shadow($value) {
-  -webkit-box-shadow: $value;
-  -moz-box-shadow: $value;
-  box-shadow: $value;
-}
-
-@mixin border-radius($value) {
-  -moz-border-radius: $value;
-  -webkit-radius: $value;
-  border-radius: $value;
-}
-
 @mixin background-size($value) {
   -o-background-size: $value;
   -webkit-background-size: $value;
@@ -19,10 +7,6 @@
   background-size: $value;
 }
 
-@mixin transition($value) {
-  -webkit-transition: $value;
-  transition: $value;
-}
 @mixin transition-property($value) {
   -webkit-transition-property: $value;
   transition-property: $value;
@@ -46,7 +30,6 @@
   -webkit-transform: $value;
   transform: $value;
 }
-
 @mixin transform-origin($value) {
   -o-transform-origin: $value;
   -ms-transform-origin: $value;
@@ -60,7 +43,6 @@
   -webkit-animation: $name $duration $timing $type;
   animation: $name $duration $timing $type;
 }
-
 @mixin animation-delay($value) {
   -o-animation-delay: $value;
   -moz-animation-delay: $value;

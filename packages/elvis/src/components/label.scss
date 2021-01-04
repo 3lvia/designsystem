@@ -10,7 +10,7 @@ $label-font-size: 11px;
 
 %status-content {
   display: inline-flex;
-  @include helpers.border-radius(50%);
+  border-radius: 50%;
   height: 8px;
   width: 8px;
   left: 11px;
@@ -37,7 +37,7 @@ $label-font-size: 11px;
   display: inline-flex;
   align-items: center;
   padding: $label-padding;
-  @include helpers.border-radius($label-radius);
+  border-radius: $label-radius;
   font-size: $label-font-size;
   line-height: 18px;
   letter-spacing: 0.5px;

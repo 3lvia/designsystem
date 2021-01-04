@@ -145,7 +145,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
       height: 14px;
       width: 14px;
       background-color: colors.color('elvia-off');
-      @include helpers.border-radius(50%);
+      border-radius: 50%;
       opacity: 1;
       @include helpers.animation(fadeIn, 250ms, linear, both);
     }
@@ -161,7 +161,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
       height: 8px;
       width: 8px;
       background-color: colors.color('elvia-off');
-      @include helpers.border-radius(50%);
+      border-radius: 50%;
       opacity: 1;
       @include helpers.animation(fadeIn, 250ms, linear, both);
     }
@@ -181,7 +181,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     width: $form-radiobutton-mark-size;
     height: $form-radiobutton-mark-size;
     border: $form-radiobutton-mark-border;
-    @include helpers.border-radius($form-radiobutton-mark-border-radius);
+    border-radius: $form-radiobutton-mark-border-radius;
     background: colors.color('elvia-on');
   }
 

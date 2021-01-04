@@ -13,7 +13,7 @@ $notification-dot-border: 2px solid color('elvia-on');
   height: $notification-dot-size;
 
   border: $notification-dot-border;
-  @include helpers.border-radius(100%);
+  border-radius: 100%;
 
   // Default colors
   background: color('red');

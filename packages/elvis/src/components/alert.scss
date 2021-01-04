@@ -225,7 +225,7 @@ $toast-max-width: 400px;
 
   // LOCAL
   &.e-alert--local {
-    @include helpers.border-radius(8px);
+    border-radius: 8px;
     width: 100%;
     max-width: $local-max-width;
     padding: $local-padding;
@@ -273,7 +273,7 @@ $toast-max-width: 400px;
 
   // TOAST
   &.e-alert--toast {
-    @include helpers.border-radius(8px);
+    border-radius: 8px;
     border-color: colors.color('elvia-charge');
     box-shadow: shadows.$e-shadow-6;
     max-width: $toast-max-width;

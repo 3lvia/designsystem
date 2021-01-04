@@ -17,7 +17,7 @@ $control-count: 8;
     display: flex;
     padding: 4px 11px;
     border: 1px solid transparent;
-    @include helpers.border-radius(32px);
+    border-radius: 32px;
     background: colors.color('elvia-on');
     cursor: pointer;
 

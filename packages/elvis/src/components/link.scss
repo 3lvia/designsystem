@@ -195,7 +195,7 @@ $grey-ten: colors.color('grey-10');
     display: inline-flex;
     align-items: center;
     border: 2px solid colors.color('elvia-off');
-    @include helpers.border-radius(64px);
+    border-radius: 64px;
     padding: $link-jumbo-desktop-padding;
     width: 100%;
     max-width: $link-jumbo-desktop-width;
@@ -275,7 +275,7 @@ $grey-ten: colors.color('grey-10');
     -webkit-box-shadow: 0 0 0 1px transparent, 0 0 0 1px $grey-ten;
     --moz-box-shadow: 0 0 0 1px transparent, 0 0 0 1px $grey-ten;
     box-shadow: 0 0 0 1px transparent, 0 0 0 1px $grey-ten;
-    @include helpers.border-radius(8px);
+    border-radius: 8px;
     text-align: center;
     position: relative;
     width: 100%;
@@ -295,7 +295,7 @@ $grey-ten: colors.color('grey-10');
 
       .e-link__icon {
         @include helpers.transform(scale(0.8333));
-        @include helpers.transition(transform 0.3s ease-in-out);
+        transition: transform 0.3s ease-in-out;
         position: relative;
         display: flex;
         align-items: center;
@@ -309,12 +309,12 @@ $grey-ten: colors.color('grey-10');
 
           // Hiding hover ikon
           visibility: visible;
-          @include helpers.transition(visibility 0s);
+          transition: visibility 0s;
           @include helpers.transition-delay(0s);
         }
         i + i {
           visibility: hidden;
-          @include helpers.transition(visibility 0s);
+          transition: visibility 0s;
           @include helpers.transition-delay(0s);
         }
       }
@@ -339,57 +339,57 @@ $grey-ten: colors.color('grey-10');
     }
 
     &:active {
-      @include helpers.box-shadow(0 0 0 2px colors.color('elvia-charge'));
+      box-shadow: 0 0 0 2px colors.color('elvia-charge');
 
       cursor: pointer;
       .e-link__icon {
         @include helpers.transform(scale(0.9166));
         i {
           visibility: hidden;
-          @include helpers.transition(visibility 0.3s ease);
+          transition: visibility 0.3s ease;
         }
         i + i {
           visibility: visible;
-          @include helpers.transition(visibility 0.3s ease);
+          transition: visibility 0.3s ease;
         }
       }
       .e-link__icon.e-link--delay-hover {
         i {
           visibility: hidden;
-          @include helpers.transition(visibility 0.3s ease);
+          transition: visibility 0.3s ease;
           @include helpers.transition-delay(0.3s);
         }
         i + i {
           visibility: visible;
-          @include helpers.transition(visibility 0.3s ease);
+          transition: visibility 0.3s ease;
           @include helpers.transition-delay(0.3s);
         }
       }
     }
 
     &:active {
-      @include helpers.box-shadow(0 0 0 2px colors.color('elvia-charge'));
+      box-shadow: 0 0 0 2px colors.color('elvia-charge');
       cursor: pointer;
       .e-link__icon {
         @include helpers.transform(scale(0.9166));
         i {
           visibility: hidden;
-          @include helpers.transition(visibility 0.3s ease);
+          transition: visibility 0.3s ease;
         }
         i + i {
           visibility: visible;
-          @include helpers.transition(visibility 0.3s ease);
+          transition: visibility 0.3s ease;
         }
       }
       .e-link__icon.e-link--delay-hover {
         i {
           visibility: hidden;
-          @include helpers.transition(visibility 0.3s ease);
+          transition: visibility 0.3s ease;
           @include helpers.transition-delay(0.3s);
         }
         i + i {
           visibility: visible;
-          @include helpers.transition(visibility 0.3s ease);
+          transition: visibility 0.3s ease;
           @include helpers.transition-delay(0.3s);
         }
       }
@@ -397,28 +397,28 @@ $grey-ten: colors.color('grey-10');
 
     @include helpers.hover() {
       &:hover {
-        @include helpers.box-shadow(0 0 0 2px colors.color('elvia-charge'));
+        box-shadow: 0 0 0 2px colors.color('elvia-charge');
         cursor: pointer;
         .e-link__icon {
           @include helpers.transform(scale(0.9166));
           i {
             visibility: hidden;
-            @include helpers.transition(visibility 0.3s ease);
+            transition: visibility 0.3s ease;
           }
           i + i {
             visibility: visible;
-            @include helpers.transition(visibility 0.3s ease);
+            transition: visibility 0.3s ease;
           }
         }
         .e-link__icon.e-link--delay-hover {
           i {
             visibility: hidden;
-            @include helpers.transition(visibility 0.3s ease);
+            transition: visibility 0.3s ease;
             @include helpers.transition-delay(0.3s);
           }
           i + i {
             visibility: visible;
-            @include helpers.transition(visibility 0.3s ease);
+            transition: visibility 0.3s ease;
             @include helpers.transition-delay(0.3s);
           }
         }
@@ -426,9 +426,9 @@ $grey-ten: colors.color('grey-10');
     }
 
     &.e-link--shortcut {
-      @include helpers.box-shadow(none);
+      box-shadow: none;
       border: none;
-      @include helpers.border-radius(50%);
+      border-radius: 50%;
       border: 2px solid transparent;
       position: relative;
       width: 100%;

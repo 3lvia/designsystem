@@ -3,16 +3,16 @@
 
 .e-shadow {
   &-none {
-    @include helpers.box-shadow('none');
+    box-shadow: 'none';
   }
   &-3 {
-    @include helpers.box-shadow(shadows.$e-shadow-3);
+    box-shadow: shadows.$e-shadow-3;
   }
   &-6 {
-    @include helpers.box-shadow(shadows.$e-shadow-6);
+    box-shadow: shadows.$e-shadow-6;
   }
   &-8 {
-    @include helpers.box-shadow(shadows.$e-shadow-8);
+    box-shadow: shadows.$e-shadow-8;
   }
 }
 

@@ -22,7 +22,7 @@
   flex-direction: row;
   align-items: center;
   border: none;
-  @include helpers.border-radius(50px);
+  border-radius: 50px;
 
   padding: 4px 16px;
   @extend .e-chip--green-apple;
@@ -52,7 +52,7 @@
           height: 100%;
           background: colors.color($label);
           opacity: 0.25;
-          @include helpers.border-radius(50px);
+          border-radius: 50px;
         }
       }
     }

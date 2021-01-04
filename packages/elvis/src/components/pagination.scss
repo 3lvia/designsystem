@@ -54,7 +54,7 @@
       cursor: pointer;
       width: 36px;
       height: 36px;
-      @include helpers.border-radius(50%);
+      border-radius: 50%;
       &:not(:last-of-type) {
         margin-right: 4px;
       }

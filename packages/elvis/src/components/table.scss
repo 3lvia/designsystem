@@ -24,7 +24,7 @@ $grey10: colors.color('grey-10');
   width: 100%;
   overflow: auto;
   border: 1px solid colors.color('grey-10');
-  @include helpers.border-radius($table-border-radius);
+  border-radius: $table-border-radius;
 }
 .e-table-footnote {
   margin-top: 8px;
@@ -153,9 +153,9 @@ $grey10: colors.color('grey-10');
   table-layout: auto;
   width: 100%;
   overflow: hidden;
-  @include helpers.border-radius($table-border-radius);
+  border-radius: $table-border-radius;
   border-spacing: 0;
-  @include helpers.box-shadow(0 0 0 1px $grey10);
+  box-shadow: 0 0 0 1px $grey10;
   background: colors.color('elvia-on');
 
   th,

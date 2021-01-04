@@ -121,7 +121,7 @@ $loading-dot-sm: 8px;
   // PRIMARY BTM
   &.e-btn--primary {
     border: 1px solid colors.color('elvia-off');
-    @include helpers.border-radius($button-radius);
+    border-radius: $button-radius;
     background: colors.color('elvia-off');
     color: colors.color('font-color-light');
 
@@ -223,7 +223,7 @@ $loading-dot-sm: 8px;
   // SECONDARY BTN
   &.e-btn--secondary {
     border: 1px solid colors.color('elvia-off');
-    @include helpers.border-radius($button-radius);
+    border-radius: $button-radius;
     background: colors.color('elvia-on');
     color: colors.color('font-color');
     .e-btn__icon i {
@@ -308,7 +308,7 @@ $loading-dot-sm: 8px;
   &.e-btn--tertiary {
     border: none;
     border-bottom: 2.5px solid transparent;
-    @include helpers.border-radius(0px);
+    border-radius: 0px;
     padding: 0px;
     padding-bottom: 3.5px;
     background: none;
@@ -467,7 +467,7 @@ $loading-dot-sm: 8px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    @include helpers.border-radius(50px);
+    border-radius: 50px;
     padding: 8px;
     background: none;
     color: colors.color('font-color');
@@ -740,7 +740,7 @@ $loading-dot-sm: 8px;
   span {
     width: $loading-dot-md;
     height: $loading-dot-md;
-    @include helpers.border-radius(100%);
+    border-radius: 100%;
     display: inline-block;
     -o-animation: loading-dots 1s infinite ease-in-out both;
     -moz-animation: loading-dots 1s infinite ease-in-out both;
