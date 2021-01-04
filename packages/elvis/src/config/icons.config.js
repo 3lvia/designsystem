@@ -4,7 +4,7 @@ for renaming/deprecating icons add the following:
 - newIconName : reference to new icon to be displayed
 
 example:
-    { name: 'add_circle', deprecated: true, newIconName: 'add_circle_new', version: '4.6.0' },
+    { name: 'add_circle', deprecated: '4.6.0', newIconName: 'add_circle_new' },
 */
 module.exports = [
   { name: 'add_circle', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
