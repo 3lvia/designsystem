@@ -1,5 +1,13 @@
+/*
+for renaming/deprecating icons add the following:
+- deprecated: true
+- version: 'version number' e.g 4.6.0
+- newIconName : reference to new icon to be displayed
+
+example:
+    { name: 'add_circle', deprecated: true, newIconName: 'add_circle_new', version: '4.6.0' },
+*/
 module.exports = [
-  { name: 'aa_test', terms: ['test'], deprecated: true, newIconName: 'add_powermeter' },
   { name: 'add_circle', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-color', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-filled', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
@@ -7,8 +15,10 @@ module.exports = [
   { name: 'add_powermeter', terms: [] },
   { name: 'add_powermeter-color', terms: [] },
   { name: 'agreements-color', terms: [] },
-  { name: 'arrow_circle-color', terms: ['next', 'right', 'forward'] },
-  { name: 'arrow_circle-filled-color', terms: ['next', 'right', 'forward'] },
+  { name: 'arrow_circle-color', deprecated: true, version: '4.7.0', newIconName: 'arrow_right_circle-color' },
+  { name: 'arrow_right_circle-color', terms: ['next', 'right', 'forward'] },
+  { name: 'arrow_circle-filled-color', deprecated: true, version: '4.7.0', newIconName: 'arrow_right_circle-filled-color' },
+  { name: 'arrow_right_circle-filled-color', terms: ['next', 'right', 'forward'] },
   { name: 'arrow_left_circle-color', terms: ['next', 'left', 'backward'] },
   { name: 'arrow_left_circle-filled-color', terms: ['next', 'left', 'backward'] },
   { name: 'arrow_down', terms: ['expand', 'open'] },

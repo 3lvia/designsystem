@@ -94,6 +94,12 @@ document.addEventListener('DOMContentLoaded', function () {
       let icon = icons[classList[i]];
 
       icon = setCorrectColor(classList, icon);
+
+      for (let x = 0; x < deprecated.length; x++) {
+        if (classList[i] === deprecated[x].name)
+          console.warn('WARNING: The icon ' + deprecated[x].name + ' is deprecated from version : ' + deprecated[x].version + '. ' + deprecated[x].name + ' now refers to the icon: ' + deprecated[x].newIconName)
+      }
+
       return icon;
     }
     console.error('Elvis - No icon found for classes: ', classList);
