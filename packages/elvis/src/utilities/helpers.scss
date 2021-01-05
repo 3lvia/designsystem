@@ -7,23 +7,6 @@
   background-size: $value;
 }
 
-@mixin transition-property($value) {
-  -webkit-transition-property: $value;
-  transition-property: $value;
-}
-@mixin transition-duration($value) {
-  -webkit-transition-duration: $value;
-  transition-duration: $value;
-}
-@mixin transition-timing-function($value) {
-  -webkit-transition-timing-function: $value;
-  transition-timing-function: $value;
-}
-@mixin transition-delay($value) {
-  -webkit-transition-delay: $value;
-  transition-delay: $value;
-}
-
 @mixin transform($value) {
   -o-transform: $value;
   -ms-transform: $value;

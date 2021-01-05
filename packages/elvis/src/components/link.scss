@@ -310,12 +310,12 @@ $grey-ten: colors.color('grey-10');
           // Hiding hover ikon
           visibility: visible;
           transition: visibility 0s;
-          @include helpers.transition-delay(0s);
+          transition-delay: (0s);
         }
         i + i {
           visibility: hidden;
           transition: visibility 0s;
-          @include helpers.transition-delay(0s);
+          transition-delay: (0s);
         }
       }
     }
@@ -357,12 +357,12 @@ $grey-ten: colors.color('grey-10');
         i {
           visibility: hidden;
           transition: visibility 0.3s ease;
-          @include helpers.transition-delay(0.3s);
+          transition-delay: (0.3s);
         }
         i + i {
           visibility: visible;
           transition: visibility 0.3s ease;
-          @include helpers.transition-delay(0.3s);
+          transition-delay: (0.3s);
         }
       }
     }
@@ -385,12 +385,12 @@ $grey-ten: colors.color('grey-10');
         i {
           visibility: hidden;
           transition: visibility 0.3s ease;
-          @include helpers.transition-delay(0.3s);
+          transition-delay: (0.3s);
         }
         i + i {
           visibility: visible;
           transition: visibility 0.3s ease;
-          @include helpers.transition-delay(0.3s);
+          transition-delay: (0.3s);
         }
       }
     }
@@ -414,12 +414,12 @@ $grey-ten: colors.color('grey-10');
           i {
             visibility: hidden;
             transition: visibility 0.3s ease;
-            @include helpers.transition-delay(0.3s);
+            transition-delay: (0.3s);
           }
           i + i {
             visibility: visible;
             transition: visibility 0.3s ease;
-            @include helpers.transition-delay(0.3s);
+            transition-delay: (0.3s);
           }
         }
       }
