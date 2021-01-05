@@ -23,7 +23,7 @@
           New icon structure, enabling elvis to deprecate and rename old icons. Use of deprecated icons will also be warned in console with reference to in which version of elvis the icon was deprecated, and what new icon should be used instead. 
         </div>
         <div>
-          New icons from figma has also been added to elvis!
+          New icons from figma has also been added to elvis and search icons had been updated!
         </div>
       <div class="changelog-divider"></div>
     </td>

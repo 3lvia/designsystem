@@ -4853,7 +4853,7 @@
     }
     export const search = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.162 13.064A8.313 8.313 0 1117.464 6.56a8.313 8.313 0 01-15.302 6.503zm14.041 4.199a9.81 9.81 0 01-2.552 1.58c-4.988 2.12-10.75-.205-12.87-5.193C-1.337 8.663.988 2.9 5.976.781c4.988-2.12 10.75.205 12.87 5.193a9.813 9.813 0 01-1.581 10.228l6.516 6.518a.75.75 0 01-1.06 1.06l-6.517-6.517z" fill="#000"/></g><defs><clipPath id="clip0"><path d="M0 0h24v24H0V0z" fill="#fff"/></clipPath></defs></svg>'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)" fill-rule="evenodd" clip-rule="evenodd" fill="#000"><path d="M2.165 13.067a8.313 8.313 0 1115.301-6.503 8.313 8.313 0 01-15.301 6.503zm14.04 4.2a9.81 9.81 0 01-2.551 1.58c-4.988 2.12-10.75-.206-12.87-5.193C-1.336 8.666.99 2.904 5.977.784c4.988-2.12 10.75.206 12.87 5.193a9.813 9.813 0 01-1.581 10.228l6.517 6.518a.75.75 0 01-1.06 1.06l-6.517-6.517z"/><path d="M4.25 9a.75.75 0 01.75.75C5 12.65 7.35 15 10.25 15a.75.75 0 010 1.5A6.75 6.75 0 013.5 9.75.75.75 0 014.25 9z"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>'
           let iconName = 'search'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
@@ -4878,7 +4878,7 @@
     }
     export const searchColor = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.162 13.064A8.313 8.313 0 1117.464 6.56a8.313 8.313 0 01-15.302 6.503zm14.041 4.199a9.81 9.81 0 01-2.552 1.58c-4.988 2.12-10.75-.205-12.87-5.193C-1.337 8.663.988 2.9 5.976.781c4.988-2.12 10.75.205 12.87 5.193a9.813 9.813 0 01-1.581 10.228l6.516 6.518a.75.75 0 01-1.06 1.06l-6.517-6.517z" fill="#000"/><path d="M4.25 9a.75.75 0 01.75.75C5 12.65 7.35 15 10.25 15a.75.75 0 010 1.5A6.75 6.75 0 013.5 9.75.75.75 0 014.25 9z" fill="#29D305"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)" fill-rule="evenodd" clip-rule="evenodd"><path d="M2.162 13.064A8.313 8.313 0 1117.464 6.56a8.313 8.313 0 01-15.302 6.503zm14.041 4.199a9.807 9.807 0 01-2.552 1.58c-4.988 2.12-10.75-.205-12.87-5.193C-1.337 8.663.988 2.9 5.976.781c4.988-2.12 10.75.205 12.87 5.193a9.813 9.813 0 01-1.581 10.228l6.516 6.518a.75.75 0 01-1.06 1.06l-6.517-6.517z" fill="#000"/><path d="M4.25 9a.75.75 0 01.75.75C5 12.65 7.35 15 10.25 15a.75.75 0 010 1.5A6.75 6.75 0 013.5 9.75.75.75 0 014.25 9z" fill="#29D305"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>'
           let iconName = 'search-color'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
@@ -4903,8 +4903,33 @@
     }
     export const searchBold = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.69 15.883l-.14.21 4.94 4.942a1.744 1.744 0 01.001 2.463 1.767 1.767 0 01-2.466 0h-.002l-4.937-4.94-.21.141a10.2 10.2 0 01-13.558-2.01 10.214 10.214 0 01.67-13.697 10.202 10.202 0 0117.311 5.72 10.215 10.215 0 01-1.608 7.17zm-8.476-13.41a7.745 7.745 0 00-5.47 2.271 7.753 7.753 0 00-2.269 5.473 7.747 7.747 0 004.778 7.153 7.735 7.735 0 0010.551-5.643 7.747 7.747 0 00-3.29-7.948 7.736 7.736 0 00-4.3-1.305z" fill="#000"/></g><defs><clipPath id="clip0"><path d="M0 0h24v24H0V0z" fill="#fff"/></clipPath></defs></svg>'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.02.79c5.023-2.135 10.825.207 12.96 5.23a9.88 9.88 0 01-1.364 10.023l6.057 6.058a1.113 1.113 0 01-1.573 1.573l-6.057-6.057a9.896 9.896 0 01-2.293 1.363C8.727 21.114 2.925 18.773.79 13.75-1.345 8.727.997 2.925 6.02.79zm10.912 6.1a7.657 7.657 0 10-14.094 5.99 7.657 7.657 0 0014.093-5.99z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M5 8a1 1 0 00-1 1 7 7 0 007 7 1 1 0 100-2 5 5 0 01-5-5 1 1 0 00-1-1z" fill="#000"/></svg>'
           let iconName = 'search-bold'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
+    export const searchBoldColor = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.02.79c5.023-2.135 10.825.207 12.96 5.23a9.88 9.88 0 01-1.364 10.023l6.057 6.058a1.113 1.113 0 01-1.573 1.573l-6.057-6.057a9.896 9.896 0 01-2.293 1.363C8.727 21.114 2.925 18.773.79 13.75-1.345 8.727.997 2.925 6.02.79zm10.912 6.1a7.657 7.657 0 10-14.094 5.99 7.657 7.657 0 0014.093-5.99z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M5 8a1 1 0 00-1 1 7 7 0 007 7 1 1 0 100-2 5 5 0 01-5-5 1 1 0 00-1-1z" fill="#29D305"/></svg>'
+          let iconName = 'search-bold-color'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
