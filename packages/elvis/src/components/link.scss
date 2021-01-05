@@ -1,9 +1,9 @@
-@use "../variables/colors.scss";
-@use "../utilities/breakpoints.scss";
-@use "../utilities/outline.scss";
-@use "../utilities/icons";
+@use "../variables/colors";
 @use "../variables/typography";
-@use "../utilities/helpers.scss";
+@use "../utilities/breakpoints";
+@use "../utilities/outline";
+@use "../utilities/icons";
+@use "../utilities/helpers";
 
 $link-lg-font-size: 18px;
 $link-md-font-size: 16px;
@@ -21,6 +21,8 @@ $link-jumbo-desktop-padding: 30px 40px;
 $link-jumbo-desktop-width: 545px;
 $link-jumbo-phone-padding: 30px 24px;
 $link-jumbo-phone-width: 287px;
+
+$grey-ten: colors.color('grey-10');
 
 .e-link {
   // Default for links is md
@@ -270,7 +272,7 @@ $link-jumbo-phone-width: 287px;
     background: colors.color('elvia-on');
     box-sizing: border-box;
     border: none;
-    box-shadow: 0 0 0 1px transparent, 0 0 0 1px colors.color('grey-10');
+    box-shadow: 0 0 0 1px transparent, 0 0 0 1px $grey-ten;
     border-radius: 8px;
     text-align: center;
     position: relative;
@@ -290,7 +292,7 @@ $link-jumbo-phone-width: 287px;
       padding: 6%;
 
       .e-link__icon {
-        transform: scale(0.8333);
+        @include helpers.transform(scale(0.8333));
         transition: transform 0.3s ease-in-out;
         position: relative;
         display: flex;
@@ -306,12 +308,12 @@ $link-jumbo-phone-width: 287px;
           // Hiding hover ikon
           visibility: visible;
           transition: visibility 0s;
-          transition-delay: 0s;
+          transition-delay: (0s);
         }
         i + i {
           visibility: hidden;
           transition: visibility 0s;
-          transition-delay: 0s;
+          transition-delay: (0s);
         }
       }
     }
@@ -336,9 +338,10 @@ $link-jumbo-phone-width: 287px;
 
     &:active {
       box-shadow: 0 0 0 2px colors.color('elvia-charge');
+
       cursor: pointer;
       .e-link__icon {
-        transform: scale(0.9166);
+        @include helpers.transform(scale(0.9166));
         i {
           visibility: hidden;
           transition: visibility 0.3s ease;
@@ -352,12 +355,12 @@ $link-jumbo-phone-width: 287px;
         i {
           visibility: hidden;
           transition: visibility 0.3s ease;
-          transition-delay: 0.3s;
+          transition-delay: (0.3s);
         }
         i + i {
           visibility: visible;
           transition: visibility 0.3s ease;
-          transition-delay: 0.3s;
+          transition-delay: (0.3s);
         }
       }
     }
@@ -366,7 +369,7 @@ $link-jumbo-phone-width: 287px;
       box-shadow: 0 0 0 2px colors.color('elvia-charge');
       cursor: pointer;
       .e-link__icon {
-        transform: scale(0.9166);
+        @include helpers.transform(scale(0.9166));
         i {
           visibility: hidden;
           transition: visibility 0.3s ease;
@@ -380,12 +383,12 @@ $link-jumbo-phone-width: 287px;
         i {
           visibility: hidden;
           transition: visibility 0.3s ease;
-          transition-delay: 0.3s;
+          transition-delay: (0.3s);
         }
         i + i {
           visibility: visible;
           transition: visibility 0.3s ease;
-          transition-delay: 0.3s;
+          transition-delay: (0.3s);
         }
       }
     }
@@ -395,7 +398,7 @@ $link-jumbo-phone-width: 287px;
         box-shadow: 0 0 0 2px colors.color('elvia-charge');
         cursor: pointer;
         .e-link__icon {
-          transform: scale(0.9166);
+          @include helpers.transform(scale(0.9166));
           i {
             visibility: hidden;
             transition: visibility 0.3s ease;
@@ -409,12 +412,12 @@ $link-jumbo-phone-width: 287px;
           i {
             visibility: hidden;
             transition: visibility 0.3s ease;
-            transition-delay: 0.3s;
+            transition-delay: (0.3s);
           }
           i + i {
             visibility: visible;
             transition: visibility 0.3s ease;
-            transition-delay: 0.3s;
+            transition-delay: (0.3s);
           }
         }
       }
@@ -441,7 +444,7 @@ $link-jumbo-phone-width: 287px;
         align-items: center;
         justify-content: center;
         .e-link__icon {
-          transform: scale(1);
+          @include helpers.transform(scale(1));
           @include icons.icon-size('md');
           i {
             @include icons.icon-size('md');
@@ -458,20 +461,20 @@ $link-jumbo-phone-width: 287px;
       &:active {
         border-color: colors.color('elvia-charge');
         .e-link__icon {
-          transform: scale(1.125);
+          @include helpers.transform(scale(1.125));
         }
         .e-link__icon.e-link--delay-hover {
-          transform: scale(1.125);
+          @include helpers.transform(scale(1.125));
         }
       }
       @include helpers.hover() {
         &:hover {
           border-color: colors.color('elvia-charge');
           .e-link__icon {
-            transform: scale(1.125);
+            @include helpers.transform(scale(1.125));
           }
           .e-link__icon.e-link--delay-hover {
-            transform: scale(1.125);
+            @include helpers.transform(scale(1.125));
           }
         }
       }

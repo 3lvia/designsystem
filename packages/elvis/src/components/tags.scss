@@ -1,4 +1,6 @@
-@use '../variables/colors.scss';
+@use '../variables/colors';
+@use '../utilities/helpers';
+
 $tag-padding: 10px;
 $tag-border-radius: 4px;
 
