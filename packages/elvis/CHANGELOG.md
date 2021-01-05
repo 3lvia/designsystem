@@ -6,6 +6,31 @@
 <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      4.7.0
+    </span>
+    <br>
+    <span>
+      January 05, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icons</a>
+        </div>
+        <div>
+          New icon structure, enabling elvis to deprecate and rename old icons. Use of deprecated icons will also be warned in console with reference to in which version of elvis the icon was deprecated, and what new icon should be used instead. 
+        </div>
+        <div>
+          New icons from figma has also been added to elvis!
+        </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+<tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       4.6.0
     </span>
     <br>
