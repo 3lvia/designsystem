@@ -79,8 +79,6 @@
         max-height: 10000px;
         opacity: 1;
         padding-top: 24px;
-        -webkit-transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32),
-          opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
         transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32),
           opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
         font-size: inherit;
@@ -194,8 +192,6 @@
 
       .e-accordion__content {
         padding-left: 19px;
-        -webkit-transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1),
-          padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
         transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1),
           padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
       }

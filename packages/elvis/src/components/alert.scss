@@ -173,8 +173,6 @@ $toast-max-width: 400px;
         max-height: 0;
         opacity: 0;
         margin-top: 0;
-        -webkit-transition: max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1),
-          opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), margin-top 0.17s cubic-bezier(0, 0.18, 1, 1);
         transition: max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1),
           opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), margin-top 0.17s cubic-bezier(0, 0.18, 1, 1);
         width: 100%;
@@ -204,8 +202,6 @@ $toast-max-width: 400px;
           pointer-events: auto;
           max-height: 10000px;
           opacity: 1;
-          -webkit-transition: 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32),
-            opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97), margin-top 0.1s cubic-bezier(0, 0.3, 0.83, 0.97);
           transition: 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97),
             margin-top 0.1s cubic-bezier(0, 0.3, 0.83, 0.97);
         }

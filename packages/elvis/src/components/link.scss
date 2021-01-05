@@ -272,8 +272,6 @@ $grey-ten: colors.color('grey-10');
     background: colors.color('elvia-on');
     box-sizing: border-box;
     border: none;
-    -webkit-box-shadow: 0 0 0 1px transparent, 0 0 0 1px $grey-ten;
-    --moz-box-shadow: 0 0 0 1px transparent, 0 0 0 1px $grey-ten;
     box-shadow: 0 0 0 1px transparent, 0 0 0 1px $grey-ten;
     border-radius: 8px;
     text-align: center;
