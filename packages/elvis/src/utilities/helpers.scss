@@ -1,12 +1,5 @@
 @use "../variables/shared-sizes";
 
-@mixin background-size($value) {
-  -o-background-size: $value;
-  -webkit-background-size: $value;
-  -moz-background-size: $value;
-  background-size: $value;
-}
-
 @mixin transform($value) {
   -o-transform: $value;
   -ms-transform: $value;

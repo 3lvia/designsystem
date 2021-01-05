@@ -3,9 +3,6 @@
 .e-icon {
   width: 32px;
   height: 32px;
-  -o-background-size: contain;
-  -webkit-background-size: contain;
-  -moz-background-size: contain;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;

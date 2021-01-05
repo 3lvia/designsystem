@@ -31,7 +31,7 @@ $defaultSize: 'md';
 
 .e-icon {
   @include icon-size($defaultSize);
-  @include helpers.background-size(contain);
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   display: inline-block;
