@@ -30,7 +30,7 @@
       height: 40px;
       @media screen and (-ms-high-contrast: none) {
         // CHECK IE11
-        top: 7px;
+        top: 4px;
       }
       .e-btn__icon {
         @include icons.icon-size('sm');
@@ -45,7 +45,7 @@
           position: absolute;
           display: flex;
           top: 0px;
-          left: -9px;
+          left: -9.5px;
         }
       }
     }
@@ -94,7 +94,7 @@
         right: 0;
         bottom: 1px;
         @media screen and (-ms-high-contrast: none) {
-          top: 1px;
+          top: 0px;
         }
         .e-btn__icon {
           @include icons.icon-size('xs');
@@ -130,7 +130,7 @@
         width: 32px;
         height: 32px;
         @media screen and (-ms-high-contrast: none) {
-          top: 3px;
+          top: 1px;
         }
         .e-btn__icon {
           @include icons.icon-size('xs');
