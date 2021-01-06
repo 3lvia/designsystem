@@ -11,11 +11,11 @@ export class AppComponent implements OnInit {
   checkBoxVal2 = true;
 
   items = [
-    { label: 'Option 1' },
-    { label: 'Option 2' },
-    { label: 'Option 3' },
-    { label: 'Option 4' },
-    { label: 'Option 5', disabled: true },
+    { label: 'Epler' },
+    { label: 'Appelsin' },
+    { label: 'Klase med bananer' },
+    { label: 'Druer' },
+    { label: 'Kiwi', disabled: true },
   ];
   value = 0;
 

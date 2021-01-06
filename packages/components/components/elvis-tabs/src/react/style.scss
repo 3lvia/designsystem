@@ -156,9 +156,10 @@ $sizes: (
     }
 
     &::-webkit-scrollbar {
-      width: 0px; /* Remove scrollbar space */
-      background: transparent; /* Optional: just make scrollbar invisible */
+      display: none;
     }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 
     &::after {
       content: '';
