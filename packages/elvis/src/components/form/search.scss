@@ -24,16 +24,17 @@
     }
     .e-btn.e-btn--icon {
       position: absolute;
-      top: 8px;
+      top: 4px;
       right: 8px;
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       @media screen and (-ms-high-contrast: none) {
+        // CHECK IE11
         top: 7px;
       }
       .e-btn__icon {
-        @include icons.icon-size('xs');
-        i[class*='e-icon--search-bold'] {
+        @include icons.icon-size('sm');
+        i[class*='e-icon--search-color'] {
           visibility: visible;
           position: absolute;
           display: flex;
@@ -44,14 +45,15 @@
           position: absolute;
           display: flex;
           top: 0px;
-          left: -8px;
+          left: -9px;
         }
       }
     }
 
     &.e-search--searched {
       .e-btn.e-btn--icon .e-btn__icon {
-        i[class*='e-icon--search-bold'] {
+        @include icons.icon-size('custom19');
+        i[class*='e-icon--search-color'] {
           visibility: hidden;
         }
         i[class*='e-icon--close-bold'] {
@@ -90,7 +92,7 @@
         display: flex;
         position: absolute;
         right: 0;
-        top: 6px;
+        bottom: 1px;
         @media screen and (-ms-high-contrast: none) {
           top: 1px;
         }
@@ -123,20 +125,15 @@
         }
       }
       .e-btn.e-btn--icon {
-        top: 5px;
-        width: 24px;
-        height: 24px;
+        top: 1px;
+        right: 4px;
+        width: 32px;
+        height: 32px;
         @media screen and (-ms-high-contrast: none) {
           top: 3px;
         }
         .e-btn__icon {
-          @include icons.icon-size('custom12');
-          i[class*='e-icon--search-bold'] {
-            left: -2px;
-          }
-          i[class*='e-icon--close-bold'] {
-            left: -6px;
-          }
+          @include icons.icon-size('xs');
         }
       }
     }
