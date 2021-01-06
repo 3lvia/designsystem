@@ -40,7 +40,7 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
   const itemsClasses = classNames('ewc-tabs__items', {
     ['ewc-tabs--hide-fade-right']: onTheRightEnd,
     ['ewc-tabs--hide-fade-left']: onTheLeftEnd,
-    ['ewc-tabs--scrolling']: !onTheLeftEnd || !onTheRightEnd, // Funker ikke nå! Må skje på overflowing
+    ['ewc-tabs--scrolling']: !onTheLeftEnd || !onTheRightEnd,
   });
 
   // Selected value
@@ -109,7 +109,6 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
       return;
     }
     const throttledResizeCount = throttle(updateScrollPosition, 150);
-    // const throttledScrollCount = throttle(updateScrollPosition, 10);
 
     window.addEventListener('resize', throttledResizeCount);
     itemsRef.current.addEventListener('scroll', updateScrollPosition);

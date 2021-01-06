@@ -29,8 +29,13 @@ $sizes: (
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  // Firefox specific
   @-moz-document url-prefix() {
     align-items: flex-end;
+  }
+  // IE specific
+  @media screen and (-ms-high-contrast: none) {
+    align-items: flex-start;
   }
 
   @media screen and (max-width: 767px) {
@@ -44,6 +49,10 @@ $sizes: (
     margin: 4px 0px;
     width: 8px;
     transition: visibility 0.5s ease-in;
+    // IE specific
+    @media screen and (-ms-high-contrast: none) {
+      margin-top: -4px;
+    }
 
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -78,6 +87,7 @@ $sizes: (
   &__items {
     position: relative;
     display: flex;
+    width: 100%;
     &.ewc-tabs--scrolling {
       width: calc(100% - (2 * #{$icon-btn-width}));
     }
@@ -136,9 +146,13 @@ $sizes: (
     white-space: nowrap;
     overflow-x: auto;
     padding: 4px;
-
+    // Firefox specific
     @-moz-document url-prefix() {
       padding-bottom: 8px;
+    }
+    // IE specific
+    @media screen and (-ms-high-contrast: none) {
+      display: block;
     }
 
     &::-webkit-scrollbar {
