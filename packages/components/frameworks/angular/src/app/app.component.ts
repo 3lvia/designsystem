@@ -31,10 +31,4 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.nativeJSApproach();
   }
-
-  updateSelected(selected: number): void {
-    if (selected !== undefined) {
-      this.value = selected;
-    }
-  }
 }

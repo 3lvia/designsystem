@@ -4,12 +4,12 @@ import classNames from 'classnames';
 import './style.scss';
 export interface TabItem {
   label: string;
-  disabled?: boolean;
+  isDisabled?: boolean;
 }
 export interface TabsProps {
   items: TabItem[];
   value: number;
-  valueOnChange?: any;
+  valueOnChange?: (value: number) => void;
   webcomponent?: any;
 }
 
@@ -42,11 +42,6 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
     ['ewc-tabs--hide-fade-left']: onTheLeftEnd,
     ['ewc-tabs--scrolling']: !onTheLeftEnd || !onTheRightEnd,
   });
-
-  // Selected value
-  useEffect(() => {
-    setValue(value);
-  }, [value]);
 
   useEffect(() => {
     updateReactComponent();
@@ -138,7 +133,7 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
                 className={`ewc-tabs__label ${value === i && 'ewc-tabs__label--selected'}`}
                 key={i}
                 onClick={() => setValue(i)}
-                disabled={item.disabled}
+                disabled={item.isDisabled}
               >
                 {item.label}
               </button>
