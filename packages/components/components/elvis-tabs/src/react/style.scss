@@ -29,30 +29,33 @@ $sizes: (
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  @-moz-document url-prefix() {
+    align-items: flex-end;
+  }
 
   @media screen and (max-width: 767px) {
     padding-bottom: 2px;
     padding-top: 6px;
   }
 
-  &__icon {
+  &__arrow {
     display: flex;
     padding: 18px 8px;
     margin: 4px 0px;
     width: 8px;
     transition: visibility 0.5s ease-in;
 
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
-    &.hide {
+    &.ewc-tabs__arrow--hide {
       visibility: hidden;
       i {
         visibility: hidden;
       }
     }
-    &.remove {
+    &.ewc-tabs__arrow--remove {
       display: none;
     }
     i {
@@ -75,7 +78,7 @@ $sizes: (
   &__items {
     position: relative;
     display: flex;
-    @media screen and (max-width: 767px) {
+    &.ewc-tabs--scrolling {
       width: calc(100% - (2 * #{$icon-btn-width}));
     }
 
@@ -103,13 +106,13 @@ $sizes: (
       transition: all linear 0.3s;
     }
 
-    &.hide-left {
+    &.ewc-tabs--hide-fade-left {
       &::before {
         background-image: none;
         z-index: -1;
       }
     }
-    &.hide-right {
+    &.ewc-tabs--hide-fade-right {
       &::after {
         background-image: none;
         z-index: -1;
@@ -134,9 +137,18 @@ $sizes: (
     overflow-x: auto;
     padding: 4px;
 
+    @-moz-document url-prefix() {
+      padding-bottom: 8px;
+    }
+
     &::-webkit-scrollbar {
       width: 0px; /* Remove scrollbar space */
       background: transparent; /* Optional: just make scrollbar invisible */
+    }
+
+    &::after {
+      content: '';
+      flex: 0 0 4px;
     }
   }
 
@@ -219,12 +231,6 @@ $sizes: (
       }
     }
   }
-}
-
-// class for no outline on click
-.ewc-no-outline,
-.ewc-no-outline * {
-  outline: none !important;
 }
 
 // --- ICONS ---

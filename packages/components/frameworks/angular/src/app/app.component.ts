@@ -16,7 +16,6 @@ export class AppComponent implements OnInit {
     { label: 'Option 3' },
     { label: 'Option 4' },
     { label: 'Option 5', disabled: true },
-    { label: 'Option 6' }
   ];
   value = 0;
 
