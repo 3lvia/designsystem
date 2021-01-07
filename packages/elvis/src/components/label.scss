@@ -1,6 +1,7 @@
-@use '../variables/colors.scss';
-@use '../variables/borders.scss';
-@use '../utilities/breakpoints.scss';
+@use '../variables/colors';
+@use '../variables/borders';
+@use '../utilities/breakpoints';
+@use '../utilities/helpers';
 
 $label-padding: 4px 11px;
 $label-padding-mobile: 2px 7px;

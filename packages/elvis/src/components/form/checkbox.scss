@@ -1,9 +1,9 @@
-@use '../../utilities/colors.scss' as colors2;
-@use '../../utilities/outline.scss';
-@use '../../variables/animation.scss';
-@use '../../utilities/helpers.scss';
+@use '../../variables/animation';
 @use '../../variables/colors';
 @use '../../variables/typography';
+@use '../../utilities/colors' as colors2;
+@use '../../utilities/outline';
+@use '../../utilities/helpers';
 
 $checkbox-mark-size: 24px;
 $checkbox-mark-small-size: 16px;
@@ -181,8 +181,11 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
       width: 2px;
       background-color: colors.color('elvia-off');
       border-radius: 15px;
-      transform: translateX(10px) rotate(-45deg);
-      transform-origin: left bottom;
+      @include helpers.transform(translateX(10px) rotate(-45deg));
+      @include helpers.transform-origin(left bottom);
+      -o-animation: checkmarkHeight 150ms;
+      -moz-animation: checkmarkHeight 150ms;
+      -webkit-animation: checkmarkHeight 150ms;
       animation: checkmarkHeight 150ms;
     }
 
@@ -195,8 +198,11 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
       width: 0%;
       background-color: colors.color('elvia-off');
       border-radius: 15px;
-      transform: translateX(10px) rotate(-55deg);
-      transform-origin: left bottom;
+      @include helpers.transform(translateX(10px) rotate(-55deg));
+      @include helpers.transform-origin(left bottom);
+      -o-animation: checkmarkWidth 150ms 150ms forwards;
+      -moz-animation: checkmarkWidth 150ms 150ms forwards;
+      -webkit-animation: checkmarkWidth 150ms 150ms forwards;
       animation: checkmarkWidth 150ms 150ms forwards;
     }
   }
@@ -214,8 +220,11 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
       width: 2px;
       background-color: colors.color('elvia-off');
       border-radius: 15px;
-      transform: translateX(10px) rotate(-45deg);
-      transform-origin: left bottom;
+      @include helpers.transform(translateX(10px) rotate(-45deg));
+      @include helpers.transform-origin(left bottom);
+      -o-animation: checkmarkHeightSmall 150ms;
+      -moz-animation: checkmarkHeightSmall 150ms;
+      -webkit-animation: checkmarkHeightSmall 150ms;
       animation: checkmarkHeightSmall 150ms;
     }
 
@@ -228,8 +237,11 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
       width: 0%;
       background-color: colors.color('elvia-off');
       border-radius: 15px;
-      transform: translateX(10px) rotate(-55deg);
-      transform-origin: left bottom;
+      @include helpers.transform(translateX(10px) rotate(-55deg));
+      @include helpers.transform-origin(left bottom);
+      -o-animation: checkmarkWidthSmall 150ms 150ms forwards;
+      -moz-animation: checkmarkWidthSmall 150ms 150ms forwards;
+      -webkit-animation: checkmarkWidthSmall 150ms 150ms forwards;
       animation: checkmarkWidthSmall 150ms 150ms forwards;
     }
   }
@@ -256,7 +268,7 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
   }
 }
 
-@keyframes checkmarkHeight {
+@include helpers.keyframes(checkmarkHeight) {
   0% {
     left: -31%;
     height: 0%;
@@ -268,7 +280,7 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
   }
 }
 
-@keyframes checkmarkWidth {
+@include helpers.keyframes(checkmarkWidth) {
   0% {
     width: 0%;
   }
@@ -278,7 +290,7 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
   }
 }
 
-@keyframes checkmarkHeightSmall {
+@include helpers.keyframes(checkmarkHeightSmall) {
   0% {
     left: -55%;
     height: 0%;
@@ -290,7 +302,7 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
   }
 }
 
-@keyframes checkmarkWidthSmall {
+@include helpers.keyframes(checkmarkWidthSmall) {
   0% {
     width: 0%;
   }

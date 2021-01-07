@@ -164,7 +164,7 @@ $sidebar-mobile-z-index: -2;
         border-radius: 4px 4px 0 0;
       }
       &:last-of-type {
-        border-radius: 0 0 4px 4px;
+        border-radius: 4px 4px 0 0;
       }
       @include typography.typography('text-option');
       &:active {
