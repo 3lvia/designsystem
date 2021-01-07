@@ -15,13 +15,6 @@ $checkbox-mark-border: 1px solid $black;
 // animation
 $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
 
-// class for no outline on click
-.e-no-outline {
-  * {
-    outline: none !important;
-  }
-}
-
 .ewc-checkbox {
   display: flex;
   align-items: center;
@@ -267,4 +260,10 @@ $transition-cubic: cubic-bezier(0.55, 0, 0.1, 1);
   100% {
     width: 80%;
   }
+}
+
+// class for no outline on click
+.ewc-no-outline,
+.ewc-no-outline * {
+  outline: none !important;
 }

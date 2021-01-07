@@ -1,6 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events'
+import * as throttle from 'lodash.throttle';
+import * as isEqual from 'lodash.isequal';
 
 export class ElvisComponentWrapper extends HTMLElement {
 
@@ -9,6 +11,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected webComponent: any;
   protected cssStyle: string;
   protected role: string;
+  protected throttleRenderReactDOM;
   private mountPoint!: HTMLSpanElement;
 
   constructor(webComponent: any, reactComponent: any, cssStyle: string, role: string) {
@@ -18,6 +21,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
     this.role = role;
+    this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { 'trailing': true });
   }
 
 
@@ -26,7 +30,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   getProps(): any {
-    return this.clone(this._data);
+    return this._data;
   }
 
   connectedCallback(): void {
@@ -35,7 +39,15 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   attributeChangedCallback(): void {
-    this.renderReactDOM();
+    this.throttleRenderReactDOM();
+  }
+
+  private changedEvent(propName: string) {
+    this.mountPoint.dispatchEvent(new CustomEvent(propName + 'OnChange', {
+      bubbles: false,
+      composed: true,
+      detail: this._data
+    }));
   }
 
   protected attachStyle(): void {
@@ -54,46 +66,54 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected setProps(newProps: any, preventRerender?: boolean): void {
     Object.keys(newProps).forEach(key => {
-      this._data[key] = this.clone(newProps[key]);
+      if (!isEqual(this._data[key], newProps[key])) {
+        this._data[key] = newProps[key];
+        this.changedEvent(key);
+        this.changedEvent(this.mapNameToRealName(key));
+      }
     });
 
-    // Consider throttling to every 25-50ms and last event
-    this.mountPoint.dispatchEvent(new CustomEvent('props-changed', {
-      bubbles: true,
-      composed: true,
-      detail: this.clone(this._data)
-    }));
+
 
     if (!preventRerender) {
-      this.renderReactDOM();
+      this.throttleRenderReactDOM();
     }
-
   }
 
-  // Does not create a reliable deep clone, but is sufficient for v1
-  protected clone(item: any): any {
-    return JSON.parse(JSON.stringify(item));
+  protected createReactData() {
+    const reactData = {}
+    Object.keys(this._data).forEach((key: string) => {
+      reactData[this.mapNameToRealName(key)] = this._data[key];
+    });
+    return reactData;
+  }
+
+  // Finds the real name of an attribute
+  protected mapNameToRealName(attr: string): string {
+    return this.webComponent.getComponentData().attributes.find((compAttr: string) => {
+      return compAttr.toLowerCase() === attr
+    })
   }
 
   protected renderReactDOM(): void {
     this.mapAttributesToData();
-    ReactDOM.render(this.createReactElement(this._data), this.mountPoint);
+    ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
   }
 
   /**
-  * Maps the attributes prefixed with "elvia-" to the data object, but does not overwrite existing data
+  * Maps the attributes to the data object unless data is set
   */
   private mapAttributesToData() {
     this.webComponent.observedAttributes.forEach((attr: any) => {
-      if (!this._data[attr]) {
-        this._data[attr] = this.getAttribute(attr);
+      const val = this.getAttribute(attr);
+      if (val !== null && (this._data[attr] === null || typeof this._data[attr] === 'undefined')) {
+        this._data[attr] = val;
       }
     });
   }
 
   private createReactElement(data: any): React.ReactElement {
-    // Does not create a reliable deep clone, but is sufficient for v1
-    const reactData = this.clone(data);
+    const reactData = data;
     reactData.webcomponent = this;
     return React.createElement(this.reactComponent, reactData, React.createElement('slot'));
   }

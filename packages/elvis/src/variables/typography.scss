@@ -64,6 +64,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   title-md: (
     family: #{Red Hat Display,
@@ -77,6 +78,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   title-sm: (
     family: #{Red Hat Display,
@@ -90,6 +92,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   title-xs: (
     family: #{Red Hat Display,
@@ -101,6 +104,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   text-lead: (
     family: #{Red Hat Text,
@@ -114,6 +118,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   text-quote: (
     family: #{Red Hat Text,
@@ -127,6 +132,7 @@ $typography: (
     style: #{italic},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   text-body: (
     family: #{Red Hat Text,
@@ -140,6 +146,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   text-lg: (
     family: #{Red Hat Text,
@@ -153,6 +160,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   text-img: (
     family: #{Red Hat Text,
@@ -160,13 +168,13 @@ $typography: (
     size: #{18px},
     size-m: #{16px},
     weight: #{400},
-    align: #{center},
     height: #{29px},
     height-m: #{26px},
     letter-spacing: #{unset},
     style: #{italic},
     transform: #{unset},
     color: #{#000},
+    align: #{center},
   ),
   text-description: (
     family: #{Red Hat Text,
@@ -178,6 +186,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   text-md: (
     family: #{Red Hat Text,
@@ -189,6 +198,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   text-caps: (
     family: #{Red Hat Text,
@@ -200,6 +210,7 @@ $typography: (
     style: #{unset},
     transform: #{uppercase},
     color: #{#000},
+    align: #{left},
   ),
   text-info: (
     family: #{Red Hat Text,
@@ -211,6 +222,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   text-sm: (
     family: #{Red Hat Text,
@@ -222,6 +234,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   text-label: (
     family: #{Red Hat Text,
@@ -233,6 +246,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
   text-option: (
     family: #{Red Hat Text,
@@ -244,6 +258,7 @@ $typography: (
     style: #{unset},
     transform: #{unset},
     color: #{#000},
+    align: #{left},
   ),
 );
 

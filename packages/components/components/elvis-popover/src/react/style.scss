@@ -210,8 +210,9 @@ $green: #29d305;
   }
 }
 
-// -- OUTLINE --
-.e-no-outline {
+// class for no outline on click
+.ewc-no-outline,
+.ewc-no-outline * {
   outline: none !important;
 }
 

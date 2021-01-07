@@ -1,6 +1,6 @@
 # Elvia design system (Elvis)
 
-![Decorative image of the designsystem](https://design.elvia.io/assets/DSIllustration.png)
+![Decorative image of the designsystem](https://design.elvia.io/assets/HomeIllustration.png)
 
 </br> </br>
 

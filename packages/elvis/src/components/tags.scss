@@ -1,4 +1,6 @@
-@use '../variables/colors.scss';
+@use '../variables/colors';
+@use '../utilities/helpers';
+
 $tag-padding: 10px;
 $tag-border-radius: 4px;
 
@@ -15,8 +17,8 @@ $tag-border-radius: 4px;
     margin-left: 16px;
     padding: $tag-padding;
     border-radius: $tag-border-radius;
-    background: colors.color('green');
-    color: black;
+    background: colors.color('elvia-charge');
+    color: colors.color('font-color');
     letter-spacing: 0.15px;
     &:first-child {
       margin-left: 0;

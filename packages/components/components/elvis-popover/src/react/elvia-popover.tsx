@@ -36,12 +36,18 @@ const getEventPath = (e: any) => {
     return pathArr;
   };
 
-  return (
-    e.path || (e.composedPath && e.composedPath()) || polyfill()
-  );
+  return e.path || (e.composedPath && e.composedPath()) || polyfill();
 };
 
-const Popover: React.FC<PopoverProps> = ({ title, description, customContent, posX, posY, trigger, noClose }) => {
+const Popover: React.FC<PopoverProps> = ({
+  title,
+  description,
+  customContent,
+  posX,
+  posY,
+  trigger,
+  noClose,
+}) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLSpanElement>(null);
@@ -51,10 +57,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverCloseRef = useRef<HTMLButtonElement>(null);
   const popoverMargin = 20;
-  const contentClasses = [
-    description && !customContent ? 'text-only' : '', 
-    'ewc-popover__content', 
-  ].join(' ');
+  const contentClasses = [description && !customContent ? 'text-only' : '', 'ewc-popover__content'].join(' ');
 
   // Setting popover state
   function togglePopover() {
@@ -65,33 +68,28 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
   useEffect(() => {
     // Defining max content width for popover
     const maxContentTimeout = setTimeout(() => {
-      if(!popoverContentRef.current) {
+      if (!popoverContentRef.current) {
         return;
       }
       maxContentWidth.current = popoverContentRef.current.getBoundingClientRect().width;
     }, 0);
 
-    // Adding font
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    document.head.appendChild(link);
-
     // Listen to tab events and click outside popover
-    document.body.addEventListener('keydown', (e) => toggleOutline(e));
+    document.body.addEventListener('keydown', (e) => addOutline(e));
+    document.body.addEventListener('click', () => removeOutline());
     document.addEventListener('click', handleClickOutside);
 
-    function toggleOutline(e: KeyboardEvent) {
-      if (!popoverCloseRef.current) {
-        return;
-      }
-      if (e.key === 'Tab') {
-        popoverCloseRef.current.classList.remove('e-no-outline');
-      } else if (!popoverCloseRef.current.classList.contains('e-no-outline')) {
-        popoverCloseRef.current.classList.add('e-no-outline');
+    function addOutline(e: KeyboardEvent) {
+      if (popoverCloseRef.current && e.key === 'Tab') {
+        popoverCloseRef.current.classList.remove('ewc-no-outline');
       }
     }
+    function removeOutline() {
+      if (popoverCloseRef.current && !popoverCloseRef.current.classList.contains('ewc-no-outline')) {
+        popoverCloseRef.current.classList.add('ewc-no-outline');
+      }
+    }
+
     function handleClickOutside(e: MouseEvent) {
       if (!popoverContentRef.current || !popoverRef.current) {
         return;
@@ -108,7 +106,8 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
 
     // Remove listeners
     return () => {
-      document.body.removeEventListener('keydown', toggleOutline);
+      document.body.removeEventListener('keydown', (e) => addOutline(e));
+      document.body.removeEventListener('keydown', () => removeOutline());
       document.removeEventListener('click', handleClickOutside);
       clearTimeout(maxContentTimeout);
     };
@@ -126,7 +125,6 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
   }, [posX]);
 
   function updateStyle(transform: string, right: string, left: string) {
-    // console.log(transform + ' ' + right + ' ' + left);
     if (!popoverContentRef.current) {
       return;
     }
@@ -136,15 +134,11 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
   }
 
   function resize() {
-    console.log('resizing: ' + maxContentWidth.current);
     if (!popoverContentRef.current || !maxContentWidth) {
       return;
     }
-    // console.log(window.innerWidth);
-    // console.log(popoverMargin);
     if (maxContentWidth.current + popoverMargin + popoverMargin > window.innerWidth) {
-      // console.log('larger than window');
-      popoverContentRef.current.style.width = `${window.innerWidth - (2 * popoverMargin)}px`;
+      popoverContentRef.current.style.width = `${window.innerWidth - 2 * popoverMargin}px`;
     } else {
       popoverContentRef.current.style.width = maxContentWidth + 'px';
     }
@@ -176,10 +170,6 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
     const arrowRight = window.innerWidth - arrowWidth - arrowLeft;
     const arrowOffsetTop = popoverArrowRef.current.getBoundingClientRect().top;
     const arrowOffsetBottom = window.innerHeight - arrowHeight - arrowOffsetTop;
-    console.log('updating position: ' + window.innerWidth);
-    console.log('updating position: ' + contentWidth);
-    console.log('updating position: ' + offsetLeft);
-    console.log('updating position: ' + triggerOffsetLeft);
 
     resize();
     updatePositionY();
@@ -199,7 +189,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
         updateStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
         setInitialPositions();
-      } 
+      }
     }
     function updateLeftPosition() {
       if (moveFromLeft('nonTriggerSide')) {
@@ -231,16 +221,14 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
       const noRoomLeft = offsetLeft <= popoverMargin;
       // Extra check width arrowOffset because first check is not always working
       const noRoomLeftInsurance =
-        triggerOffsetLeft + triggerWidth / 2 + 40 <=
-        popoverMargin + getArrowOffset(conflictSide);
+        triggerOffsetLeft + triggerWidth / 2 + 40 <= popoverMargin + getArrowOffset(conflictSide);
       return noRoomLeft || noRoomLeftInsurance;
     }
     function moveFromRight(conflictSide: string): boolean {
       const noRoomRight = offsetRight <= popoverMargin;
       // Extra check width arrowOffset because first check is not always working
       const noRoomLeftInsurance =
-        triggerOffsetRight + triggerWidth / 2 + 40  <=
-        popoverMargin + getArrowOffset(conflictSide);
+        triggerOffsetRight + triggerWidth / 2 + 40 <= popoverMargin + getArrowOffset(conflictSide);
       return noRoomRight || noRoomLeftInsurance;
     }
 
@@ -269,7 +257,6 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
 
   // Toggle visibility
   useEffect(() => {
-    // console.log('hello ' + popoverContentRef.current!.clientWidth );
     function toggleVisibilityClass() {
       if (popoverContentRef.current && visiblePopover) {
         popoverContentRef.current.classList.remove('ewc-popover--hide');
@@ -278,7 +265,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
       }
     }
 
-    toggleVisibilityClass(); 
+    toggleVisibilityClass();
     updateNewPosition();
   }, [visiblePopover, updateNewPosition]);
 
@@ -301,7 +288,7 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
       </div>
 
       <div className={contentClasses} ref={popoverContentRef}>
-        {!noClose && 
+        {!noClose && (
           <div className="ewc-popover__close">
             <button
               className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
@@ -311,13 +298,15 @@ const Popover: React.FC<PopoverProps> = ({ title, description, customContent, po
               <span className="ewc-btn__icon">
                 <i
                   className="ewc-icon ewc-icon--close-bold ewc-icon--xs"
-                  style={{ backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")` }}
+                  style={{
+                    backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
+                  }}
                   e-id="e-icone-icon--close-bold"
                 ></i>
               </span>
             </button>
           </div>
-        }
+        )}
         {title && <div className="ewc-popover__title">{title}</div>}
         <div className="ewc-popover__text">{description ? description : customContent}</div>
         {!trigger && <slot name="customContent" className="ewc-popover__text"></slot>}

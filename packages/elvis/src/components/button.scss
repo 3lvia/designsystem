@@ -1,9 +1,9 @@
 @use "../variables/colors.scss";
 @use "../variables/shadows.scss";
 @use "../variables/shared-sizes.scss";
+@use "../variables/spacing";
 @use "../utilities/animations.scss";
 @use "../utilities/helpers.scss";
-@use "../variables/spacing";
 @use "../utilities/breakpoints.scss";
 @use "../utilities/outline.scss";
 @use "../utilities/icons.scss";
@@ -31,6 +31,10 @@ $button-sm-padding: $button-sm-padding-y $button-sm-padding-x;
 $button-sm-font-size: 14px;
 $button-sm-line-height: 16px;
 
+$loading-dot-lg: 12px;
+$loading-dot-md: 10px;
+$loading-dot-sm: 8px;
+
 .e-btn {
   // .e-btn--primary .e-btn--md is the default for any e-button
   @extend .e-btn--primary;
@@ -55,9 +59,9 @@ $button-sm-line-height: 16px;
     @include outline.e-outline-pseudoclass();
 
     &.e-btn--inverted {
-      border: 1px solid colors.color('white');
-      background: colors.color('white');
-      color: colors.color('black');
+      border: 1px solid colors.color('elvia-on');
+      background: colors.color('elvia-on');
+      color: colors.color('font-color');
     }
   }
 
@@ -76,6 +80,12 @@ $button-sm-line-height: 16px;
       @include icons.icon-size('sm');
       i {
         @include icons.icon-size('sm');
+      }
+    }
+    &.e-btn--loading {
+      span {
+        width: $loading-dot-lg;
+        height: $loading-dot-lg;
       }
     }
   }
@@ -100,19 +110,25 @@ $button-sm-line-height: 16px;
         @include icons.icon-size('xs');
       }
     }
+    &.e-btn--loading {
+      span {
+        width: $loading-dot-sm;
+        height: $loading-dot-sm;
+      }
+    }
   }
 
   // PRIMARY BTM
   &.e-btn--primary {
-    border: 1px solid colors.color('black');
+    border: 1px solid colors.color('elvia-off');
     border-radius: $button-radius;
-    background: colors.color('black');
-    color: colors.color('white');
+    background: colors.color('elvia-off');
+    color: colors.color('font-color-light');
 
     &.e-btn--inverted {
-      border: 1px solid colors.color('white');
-      background: colors.color('white');
-      color: colors.color('black');
+      border: 1px solid colors.color('elvia-on');
+      background: colors.color('elvia-on');
+      color: colors.color('font-color');
 
       &.e-btn---disabled,
       &:disabled {
@@ -129,7 +145,7 @@ $button-sm-line-height: 16px;
       }
 
       &.e-btn--loading span {
-        animation: dark 1000ms linear infinite;
+        background-color: colors.color('elvia-off');
       }
     }
 
@@ -158,22 +174,22 @@ $button-sm-line-height: 16px;
       }
       background: colors.color('red');
       border-color: colors.color('red');
-      color: colors.color('black');
+      color: colors.color('font-color');
     }
 
     &.e-btn---disabled,
     &:disabled {
-      background: colors.color('grey-30');
-      border-color: colors.color('grey-30');
-      color: colors.color('grey-05');
+      background: colors.color('disabled');
+      border-color: colors.color('disabled');
+      color: colors.color('disabled-light');
       cursor: not-allowed;
     }
     &.e-btn---hover,
     &.e-btn---active,
-    &:active:not(:disabled) {
-      background: colors.color('green');
-      border-color: colors.color('green');
-      color: colors.color('black');
+    &:active:not(:disabled):not(.e-btn--loading) {
+      background: colors.color('elvia-charge');
+      border-color: colors.color('elvia-charge');
+      color: colors.color('font-color');
       // Showing hover ikon
       .e-btn__icon i[class*='inverted'] {
         visibility: hidden;
@@ -183,10 +199,10 @@ $button-sm-line-height: 16px;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
-        background: colors.color('green');
-        border-color: colors.color('green');
-        color: colors.color('black');
+      &:hover:not(:disabled):not(.e-btn--loading) {
+        background: colors.color('elvia-charge');
+        border-color: colors.color('elvia-charge');
+        color: colors.color('font-color');
         // Showing hover ikon
         .e-btn__icon i[class*='inverted'] {
           visibility: hidden;
@@ -198,7 +214,7 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       border-color: transparent;
       background-clip: padding-box;
     }
@@ -206,24 +222,24 @@ $button-sm-line-height: 16px;
 
   // SECONDARY BTN
   &.e-btn--secondary {
-    border: 1px solid colors.color('black');
+    border: 1px solid colors.color('elvia-off');
     border-radius: $button-radius;
-    background: colors.color('white');
-    color: colors.color('black');
+    background: colors.color('elvia-on');
+    color: colors.color('font-color');
     .e-btn__icon i {
       visibility: visible;
     }
 
     &.e-btn--loading {
       span {
-        animation: dark 1000ms linear infinite;
+        background-color: colors.color('elvia-off');
       }
     }
 
     &.e-btn--inverted {
-      border: 1px solid colors.color('white');
+      border: 1px solid colors.color('elvia-on');
       background: colors.color('grey');
-      color: colors.color('white');
+      color: colors.color('font-color-light');
 
       &:disabled {
         background: transparent;
@@ -244,35 +260,34 @@ $button-sm-line-height: 16px;
       }
       &.e-btn--loading {
         span {
-          animation: light 1000ms linear infinite;
+          background-color: colors.color('elvia-on');
         }
-        @extend %spanAnimation;
       }
     }
 
     &.e-btn---disabled,
     &:disabled {
       background: transparent;
-      border-color: colors.color('grey-30');
-      color: colors.color('grey-30');
+      border-color: colors.color('disabled');
+      color: colors.color('disabled');
       cursor: not-allowed;
     }
 
     &.e-btn---hover,
     &.e-btn---active,
-    &:active:not(:disabled) {
-      background: colors.color('green');
-      border-color: colors.color('green');
-      color: colors.color('black');
+    &:active:not(:disabled):not(.e-btn--loading) {
+      background: colors.color('elvia-charge');
+      border-color: colors.color('elvia-charge');
+      color: colors.color('font-color');
       .e-btn__icon i {
         visibility: visible;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
-        background: colors.color('green');
-        border-color: colors.color('green');
-        color: colors.color('black');
+      &:hover:not(:disabled):not(.e-btn--loading) {
+        background: colors.color('elvia-charge');
+        border-color: colors.color('elvia-charge');
+        color: colors.color('font-color');
         .e-btn__icon i {
           visibility: visible;
         }
@@ -280,7 +295,7 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       border-color: transparent;
       background-clip: padding-box;
       .e-btn__icon i {
@@ -297,7 +312,7 @@ $button-sm-line-height: 16px;
     padding: 0px;
     padding-bottom: 3.5px;
     background: none;
-    color: colors.color('black');
+    color: colors.color('font-color');
     .e-btn__icon {
       i {
         visibility: visible;
@@ -309,8 +324,22 @@ $button-sm-line-height: 16px;
       }
     }
 
+    &.e-btn--loading {
+      @extend %e-btn--loading;
+
+      span {
+        background: colors.color('elvia-off');
+      }
+    }
+
     &.e-btn--inverted {
-      color: colors.color('white');
+      color: colors.color('elvia-on') !important;
+
+      &.e-btn--loading {
+        span {
+          background-color: colors.color('elvia-on');
+        }
+      }
 
       .e-btn__icon {
         i {
@@ -330,7 +359,25 @@ $button-sm-line-height: 16px;
         border-bottom: none;
       }
 
-      &:active:not(:disabled) {
+      @include helpers.hover() {
+        &:hover:not(:disabled):not(.e-btn--loading) {
+          border-bottom-color: colors.color('elvia-charge');
+          border-color: colors.color('elvia-charge');
+          background: none;
+          .e-btn__icon {
+            i {
+              visibility: hidden;
+            }
+            i[class*='inverted'],
+            i[class*='color-disabled-light'],
+            i[class*='e-icon--disabled-inverted'] {
+              visibility: visible;
+            }
+          }
+        }
+      }
+
+      &:active:not(:disabled):not(.e-btn--loading) {
         .e-btn__icon {
           i {
             visibility: hidden;
@@ -346,25 +393,39 @@ $button-sm-line-height: 16px;
 
     &.e-btn--lg {
       padding-bottom: 1.5px;
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-lg;
+          height: $loading-dot-lg;
+        }
+      }
+    }
+    &.e-btn--sm {
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-sm;
+          height: $loading-dot-sm;
+        }
+      }
     }
 
     &.e-btn---disabled,
     &:disabled {
-      color: colors.color('grey-30');
+      color: colors.color('disabled');
       cursor: not-allowed;
     }
     &.e-btn---hover {
-      border-bottom-color: colors.color('green');
-      border-color: colors.color('green');
+      border-bottom-color: colors.color('elvia-charge');
+      border-color: colors.color('elvia-charge');
       background: none;
       .e-btn__icon i {
         visibility: visible;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
-        border-bottom-color: colors.color('green');
-        border-color: colors.color('green');
+      &:hover:not(:disabled):not(.e-btn--loading) {
+        border-bottom-color: colors.color('elvia-charge');
+        border-color: colors.color('elvia-charge');
         background: none;
         .e-btn__icon i {
           visibility: visible;
@@ -384,29 +445,15 @@ $button-sm-line-height: 16px;
         }
       }
     }
-    @include helpers.hover() {
-      &:hover:not(:disabled)[class*='e-btn--inverted'] {
-        .e-btn__icon {
-          i {
-            visibility: hidden;
-          }
-          i[class*='inverted'],
-          i[class*='color-disabled-light'],
-          i[class*='e-icon--disabled-inverted'] {
-            visibility: visible;
-          }
-        }
-      }
-    }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
+    &:active:not(:disabled):not(.e-btn--loading) {
       padding-bottom: 4.5px;
       &.e-btn--lg {
         padding-bottom: 2.5px;
       }
-      border-bottom: 1.5px solid colors.color('green');
-      border-color: colors.color('green');
+      border-bottom: 1.5px solid colors.color('elvia-charge');
+      border-color: colors.color('elvia-charge');
       background: none;
       .e-btn__icon i {
         visibility: visible;
@@ -423,9 +470,20 @@ $button-sm-line-height: 16px;
     border-radius: 50px;
     padding: 8px;
     background: none;
-    color: colors.color('black');
+    color: colors.color('font-color');
     width: 40px;
     height: 40px;
+
+    &.e-btn--loading {
+      @extend %e-btn--loading;
+
+      padding-left: 0px;
+      padding-right: 0px;
+
+      span {
+        background-color: colors.color('elvia-off');
+      }
+    }
 
     .e-btn__icon {
       width: 24px;
@@ -452,6 +510,12 @@ $button-sm-line-height: 16px;
           @include icons.icon-size('md');
         }
       }
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-lg;
+          height: $loading-dot-lg;
+        }
+      }
     }
 
     &.e-btn--sm {
@@ -462,6 +526,12 @@ $button-sm-line-height: 16px;
         height: 16px;
         i {
           @include icons.icon-size('xs');
+        }
+      }
+      &.e-btn--loading {
+        span {
+          width: $loading-dot-sm;
+          height: $loading-dot-sm;
         }
       }
     }
@@ -499,6 +569,11 @@ $button-sm-line-height: 16px;
               visibility: hidden !important;
             }
           }
+        }
+      }
+      &.e-btn--loading {
+        span {
+          background-color: colors.color('elvia-on');
         }
       }
     }
@@ -571,7 +646,7 @@ $button-sm-line-height: 16px;
 
       &.e-btn---active,
       &:active:not(:disabled) {
-        transform: scale(0.93);
+        @include helpers.transform(rotate(0.93));
       }
     }
 
@@ -624,15 +699,15 @@ $button-sm-line-height: 16px;
 
     &.e-btn---hover,
     &.e-btn---active,
-    &:active:not(:disabled) {
-      background: colors.color('green');
+    &:active:not(:disabled):not(.e-btn--loading) {
+      background: colors.color('elvia-charge');
       .e-btn__icon i[class$='inverted'] {
         visibility: visible;
       }
     }
     @include helpers.hover() {
-      &:hover:not(:disabled) {
-        background: colors.color('green');
+      &:hover:not(:disabled):not(.e-btn--loading) {
+        background: colors.color('elvia-charge');
         .e-btn__icon i[class$='inverted'] {
           visibility: visible;
         }
@@ -640,8 +715,8 @@ $button-sm-line-height: 16px;
     }
 
     &.e-btn---active,
-    &:active:not(:disabled) {
-      transform: scale(0.95);
+    &:active:not(:disabled):not(.e-btn--loading) {
+      @include helpers.transform(rotate(0.95));
     }
     &.e-btn---disabled,
     &:disabled {
@@ -650,43 +725,44 @@ $button-sm-line-height: 16px;
   }
 
   &.e-btn--loading {
-    display: inline-block;
+    @extend %e-btn--loading;
 
     span {
-      background: transparent;
-      border-radius: 50%;
-      display: inline-block;
-      line-height: 24px;
-      height: 9px;
-      width: 9px;
-      animation: light 1000ms linear infinite;
+      background-color: colors.color('elvia-on');
     }
-
-    @extend %spanAnimation;
   }
 }
 
-// Animation for loading button
-@include animations.dotAnimation(light, #ffffff);
-@include animations.dotAnimation(dark, #000000);
+%e-btn--loading {
+  display: inline-block;
+  cursor: progress;
 
-%spanAnimation {
-  span:nth-child(2) {
-    animation-delay: 0.2s;
+  span {
+    width: $loading-dot-md;
+    height: $loading-dot-md;
+    border-radius: 100%;
+    display: inline-block;
+    -o-animation: loading-dots 1s infinite ease-in-out both;
+    -moz-animation: loading-dots 1s infinite ease-in-out both;
+    -webkit-animation: loading-dots 1s infinite ease-in-out both;
+    animation: loading-dots 1s infinite ease-in-out both;
   }
-  span:nth-child(1) {
-    animation-delay: 0.8s;
+
+  span:nth-of-type(1) {
+    @include helpers.animation-delay(-0.32s);
   }
-  span:nth-child(3) {
-    animation-delay: 0.4s;
+  span:nth-of-type(2) {
+    @include helpers.animation-delay(-0.16s);
   }
-  span:nth-child(4) {
-    animation-delay: 0.4s;
+}
+
+@include helpers.keyframes(loading-dots) {
+  0%,
+  80%,
+  100% {
+    @include helpers.transform(scale(0));
   }
-  span:nth-child(5) {
-    animation-delay: 0.2s;
-  }
-  span:nth-child(1) {
-    animation-delay: 0s;
+  40% {
+    @include helpers.transform(scale(1));
   }
 }

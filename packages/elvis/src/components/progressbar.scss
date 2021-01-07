@@ -1,4 +1,5 @@
 @use "../variables/colors";
+@use "../utilities/helpers";
 
 .e-progress {
   display: flex;
@@ -17,19 +18,25 @@
       width: 15%;
       height: 6px;
       margin-left: 0;
-      background-color: colors.color('green');
+      background-color: colors.color('elvia-charge');
+      -o-animation: loading 1s infinite;
+      -moz-animation: loading 1s infinite;
+      -webkit-animation: loading 1s infinite;
       animation: loading 1s infinite;
     }
     &.e-progress__bar--error {
       width: 100%;
       height: 6px;
       background-color: colors.color('red');
+      -o-animation: none;
+      -moz-animation: none;
+      -webkit-animation: none;
       animation: none;
     }
   }
 }
 
-@keyframes loading {
+@include helpers.keyframes(loading) {
   0% {
     width: 0%;
     margin-left: 0%;
