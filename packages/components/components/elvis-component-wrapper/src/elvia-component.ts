@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events'
 import * as throttle from 'lodash.throttle';
+import * as isEqual from 'lodash.isequal';
 
 export class ElvisComponentWrapper extends HTMLElement {
 
@@ -11,7 +12,6 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected cssStyle: string;
   protected role: string;
   protected throttleRenderReactDOM;
-  protected throttleChangedEvent;
   private mountPoint!: HTMLSpanElement;
 
   constructor(webComponent: any, reactComponent: any, cssStyle: string, role: string) {
@@ -22,13 +22,6 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.cssStyle = cssStyle;
     this.role = role;
     this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { 'trailing': true });
-    this.throttleChangedEvent = throttle(() => {
-      this.mountPoint.dispatchEvent(new CustomEvent('changed', {
-        bubbles: false,
-        composed: true,
-        detail: this._data
-      }));
-    }, 50, { 'trailing': true });
   }
 
 
@@ -49,6 +42,14 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.throttleRenderReactDOM();
   }
 
+  private changedEvent(propName: string) {
+    this.mountPoint.dispatchEvent(new CustomEvent(propName + 'OnChange', {
+      bubbles: false,
+      composed: true,
+      detail: this._data
+    }));
+  }
+
   protected attachStyle(): void {
     this.setAttribute('role', this.role)
     this.mountPoint = document.createElement('span');
@@ -63,10 +64,14 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected setProps(newProps: any, preventRerender?: boolean): void {
     Object.keys(newProps).forEach(key => {
-      this._data[key] = newProps[key];
+      if (!isEqual(this._data[key], newProps[key])) {
+        this._data[key] = newProps[key];
+        this.changedEvent(key);
+        this.changedEvent(this.mapNameToRealName(key));
+      }
     });
 
-    this.throttleChangedEvent();
+
 
     if (!preventRerender) {
       this.throttleRenderReactDOM();
@@ -76,13 +81,13 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected createReactData() {
     const reactData = {}
     Object.keys(this._data).forEach((key: string) => {
-      reactData[this.mapNameToLowercaseName(key)] = this._data[key];
+      reactData[this.mapNameToRealName(key)] = this._data[key];
     });
     return reactData;
   }
 
   // Finds the real name of an attribute
-  protected mapNameToLowercaseName(attr: string): string {
+  protected mapNameToRealName(attr: string): string {
     return this.webComponent.getComponentData().attributes.find((compAttr: string) => {
       return compAttr.toLowerCase() === attr
     })
@@ -99,7 +104,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   private mapAttributesToData() {
     this.webComponent.observedAttributes.forEach((attr: any) => {
       const val = this.getAttribute(attr);
-      if (this._data[attr] === null) {
+      if (val !== null && (this._data[attr] === null || typeof this._data[attr] === 'undefined')) {
         this._data[attr] = val;
       }
     });

@@ -1,4 +1,4 @@
-@use '../../variables/colors.scss';
+@use '../../variables/colors';
 
 .e-dragdrop {
   border: 2px dashed colors.color('grey-20');
@@ -8,6 +8,6 @@
   align-items: center;
 
   &--dragover {
-    border-color: colors.color('green');
+    border-color: colors.color('elvia-charge');
   }
 }

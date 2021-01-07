@@ -10,7 +10,7 @@
       name="Nametest"
       size="normal"
       [checked]="checkBoxVal"
-      (changed)="checkBoxVal = $event.detail.checked"
+      (checkedOnChange)="checkBoxVal = $event.detail.checked"
     ></elvia-checkbox>
     {{ checkBoxVal }}
 

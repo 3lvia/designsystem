@@ -60,17 +60,17 @@
       }
 
       &.e-pagination__number--active {
-        border: 1px solid colors.color('black');
+        border: 1px solid colors.color('elvia-off');
       }
 
       &:active,
       &.e-pagination__number---hover,
       &.e-pagination__arrow---hover {
-        border: 1px solid colors.color('green');
+        border: 1px solid colors.color('elvia-charge');
       }
       @include helpers.hover() {
         &:hover {
-          border: 1px solid colors.color('green');
+          border: 1px solid colors.color('elvia-charge');
         }
       }
     }

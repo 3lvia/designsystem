@@ -6,7 +6,6 @@
   $family: map.get($map, family);
   $size: map.get($map, size);
   $size-m: map.get($map, size-m);
-  $align: map.get($map, align);
   $height: map.get($map, height);
   $height-m: map.get($map, height-m);
   $weight: map.get($map, weight);
@@ -14,6 +13,7 @@
   $style: map.get($map, style);
   $letter-spacing: map.get($map, letter-spacing);
   $transform: map.get($map, transform);
+  $align: map.get($map, align);
 
   $alt-labels: map.get($map, altLabels);
   $labels: ($label);

@@ -1,6 +1,7 @@
-@use '../variables/colors.scss';
-@use '../variables/borders.scss';
-@use '../utilities/breakpoints.scss';
+@use '../variables/colors';
+@use '../variables/borders';
+@use '../utilities/breakpoints';
+@use '../utilities/helpers';
 
 $label-padding: 4px 11px;
 $label-padding-mobile: 2px 7px;
@@ -42,7 +43,7 @@ $label-font-size: 11px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   background: colors.color('grey-10');
-  color: colors.color('black');
+  color: colors.color('font-color');
 
   @include breakpoints.breakpoint-up(Mobile) {
     padding: $label-padding-mobile;

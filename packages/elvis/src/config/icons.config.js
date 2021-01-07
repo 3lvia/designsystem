@@ -1,3 +1,11 @@
+/*
+for renaming/deprecating icons add the following:
+- deprecated: 'version number' e.g 4.6.0
+- newIconName : reference to new icon to be displayed
+
+example:
+    { name: 'add_circle', deprecated: '4.6.0', newIconName: 'add_circle_new' },
+*/
 module.exports = [
   { name: 'add_circle', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-color', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
@@ -6,8 +14,11 @@ module.exports = [
   { name: 'add_powermeter', terms: [] },
   { name: 'add_powermeter-color', terms: [] },
   { name: 'agreements-color', terms: [] },
-  { name: 'arrow_circle-color', terms: ['next', 'right', 'forward'] },
-  { name: 'arrow_circle-filled-color', terms: ['next', 'right', 'forward'] },
+  { name: 'analytics_bars', terms: ['data', 'effect', 'board', 'wave', 'measure'] },
+  { name: 'arrow_circle-color', deprecated: '4.7.0', newIconName: 'arrow_right_circle-color' },
+  { name: 'arrow_right_circle-color', terms: ['next', 'right', 'forward'] },
+  { name: 'arrow_circle-filled-color', deprecated: '4.7.0', newIconName: 'arrow_right_circle-filled-color' },
+  { name: 'arrow_right_circle-filled-color', terms: ['next', 'right', 'forward'] },
   { name: 'arrow_left_circle-color', terms: ['next', 'left', 'backward'] },
   { name: 'arrow_left_circle-filled-color', terms: ['next', 'left', 'backward'] },
   { name: 'arrow_down', terms: ['expand', 'open'] },
@@ -29,6 +40,7 @@ module.exports = [
   { name: 'bookmark', terms: [] },
   { name: 'bookmark-filled', terms: [] },
   { name: 'business-color', terms: [] },
+  { name: 'cabin', terms: ['cottage', 'house', 'outside', 'woods'] },
   { name: 'calendar', terms: [] },
   { name: 'calendar_clock-color', terms: [] },
   { name: 'calendar-color', terms: [] },
@@ -54,6 +66,7 @@ module.exports = [
   { name: 'collapse_circle-color', terms: [] },
   { name: 'collapse_circle-filled-color', terms: [] },
   { name: 'copy', terms: [] },
+  { name: 'crane', terms: ['hook', 'building', 'tower'] },
   { name: 'credit_card', terms: [] },
   { name: 'cut_electricity_pillar', terms: [] },
   { name: 'cut_electricity_pillar-color', terms: [] },
@@ -74,6 +87,7 @@ module.exports = [
   { name: 'electricity_pillar', terms: [] },
   { name: 'electricity_safety', terms: [] },
   { name: 'electricity_safety-color', terms: [] },
+  { name: 'electricity_tower', terms: ['energy', 'high tension', 'tower', 'power'] },
   { name: 'elsmart-color', terms: [] },
   { name: 'expand_circle-color', terms: [] },
   { name: 'expand_circle-filled-color', terms: [] },
@@ -114,6 +128,7 @@ module.exports = [
   { name: 'list_bullets-bold', terms: [] },
   { name: 'loading', terms: [] },
   { name: 'lock', terms: [] },
+  { name: 'lock_hierarchy', terms: ['lock', 'hierarchy', 'closed', 'nodes'] },
   { name: 'logout', terms: [] },
   { name: 'long_circle_left', terms: ['arrow', 'long', 'circle', 'left', 'back'] },
   { name: 'long_circle_right', terms: ['arrow', 'long', 'circle', 'right', 'forward'] },
@@ -127,6 +142,7 @@ module.exports = [
   { name: 'minus', terms: ['subtract', 'minimize', 'collapse'] },
   { name: 'minus-bold', terms: ['subtract', 'minimize', 'collapse'] },
   { name: 'money-color', terms: ['finance', 'cash', 'coins', 'payment', 'pay', 'cost'] },
+  { name: 'move_circle', terms: ['move', 'transfer'] },
   { name: 'move_truck-color', terms: [] },
   { name: 'new_tab-bold', terms: ['external', 'open', 'link'] },
   { name: 'note_approved-color', terms: [] },
@@ -185,9 +201,10 @@ module.exports = [
   { name: 'reset', terms: [] },
   { name: 'rss-bold', terms: ['feed', 'connection', 'internet', 'online'] },
   { name: 'figma', terms: [] },
-  { name: 'search', terms: [] },
-  { name: 'search-color', terms: [] },
-  { name: 'search-bold', terms: [] },
+  { name: 'search', terms: ['find', 'navigation', 'explore', 'inspect', 'look'] },
+  { name: 'search-color', terms: ['find', 'navigation', 'explore', 'inspect', 'look'] },
+  { name: 'search-bold', terms: ['find', 'navigation', 'explore', 'inspect', 'look'] },
+  { name: 'search-bold-color', terms: ['find', 'navigation', 'explore', 'inspect', 'look'] },
   { name: 'smart_city', terms: [] },
   { name: 'smart_city-color', terms: [] },
   { name: 'solar_panel', terms: [] },
