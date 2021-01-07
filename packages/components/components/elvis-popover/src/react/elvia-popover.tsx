@@ -59,6 +59,11 @@ const Popover: React.FC<PopoverProps> = ({
   const popoverMargin = 20;
   const contentClasses = [description && !customContent ? 'text-only' : '', 'ewc-popover__content'].join(' ');
 
+  Popover.defaultProps = {
+    posX: 'center',
+    posY: 'top',
+  };
+
   // Setting popover state
   function togglePopover() {
     setPopoverVisibility((prevState) => !prevState);
@@ -75,20 +80,7 @@ const Popover: React.FC<PopoverProps> = ({
     }, 0);
 
     // Listen to tab events and click outside popover
-    document.body.addEventListener('keydown', (e) => addOutline(e));
-    document.body.addEventListener('click', () => removeOutline());
     document.addEventListener('click', handleClickOutside);
-
-    function addOutline(e: KeyboardEvent) {
-      if (popoverCloseRef.current && e.key === 'Tab') {
-        popoverCloseRef.current.classList.remove('ewc-no-outline');
-      }
-    }
-    function removeOutline() {
-      if (popoverCloseRef.current && !popoverCloseRef.current.classList.contains('ewc-no-outline')) {
-        popoverCloseRef.current.classList.add('ewc-no-outline');
-      }
-    }
 
     function handleClickOutside(e: MouseEvent) {
       if (!popoverContentRef.current || !popoverRef.current) {
@@ -106,8 +98,6 @@ const Popover: React.FC<PopoverProps> = ({
 
     // Remove listeners
     return () => {
-      document.body.removeEventListener('keydown', (e) => addOutline(e));
-      document.body.removeEventListener('keydown', () => removeOutline());
       document.removeEventListener('click', handleClickOutside);
       clearTimeout(maxContentTimeout);
     };
@@ -173,12 +163,12 @@ const Popover: React.FC<PopoverProps> = ({
 
     resize();
     updatePositionY();
-    if (!posX) {
-      updateCenterPosition();
-    } else if (posX === 'left') {
+    if (posX === 'left') {
       updateLeftPosition();
     } else if (posX === 'right') {
       updateRightPosition();
+    } else {
+      updateCenterPosition();
     }
 
     // Update horizontal position
@@ -250,23 +240,29 @@ const Popover: React.FC<PopoverProps> = ({
       const noRoomBottom = offsetBottom <= popoverMargin;
       const isRoomTop = offsetTop > popoverMargin;
       const isRoomTopInsurance = arrowOffsetTop > contentHeight + popoverMargin + popoverMargin;
-      const isTop = !posY;
+      const isTop = posY === 'top';
       return (noRoomBottom && isRoomTop) || (isTop && isRoomTopInsurance);
     }
   }, [posY, posX]);
 
   // Toggle visibility
   useEffect(() => {
+    console.log('Popover visibility: ' + visiblePopover);
     function toggleVisibilityClass() {
       if (popoverContentRef.current && visiblePopover) {
+        console.log('hello');
         popoverContentRef.current.classList.remove('ewc-popover--hide');
       } else if (popoverContentRef.current) {
+        console.log('Adding class!');
+        console.log(popoverContentRef.current.classList);
         popoverContentRef.current.classList.add('ewc-popover--hide');
+        console.log(popoverContentRef.current.classList);
       }
     }
 
-    toggleVisibilityClass();
+    console.log(visiblePopover);
     updateNewPosition();
+    toggleVisibilityClass();
   }, [visiblePopover, updateNewPosition]);
 
   // Listen to resize changes if popover is open
