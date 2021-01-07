@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 
 import '@elvia/elvis-checkbox';
 import '@elvia/elvis-popover';
+import '@elvia/elvis-progress-linear';
 import '@elvia/elvis-slider';
 
 @NgModule({

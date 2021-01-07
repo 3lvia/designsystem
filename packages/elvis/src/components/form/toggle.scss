@@ -1,5 +1,5 @@
-@use '../../variables/colors.scss';
-@use '../../utilities/outline.scss';
+@use '../../variables/colors';
+@use '../../utilities/outline';
 @use "../../utilities/breakpoints";
 @use "../../utilities/helpers";
 
@@ -65,7 +65,7 @@ $toggle-mobile-negative-slider-padding: calc(
     width: $toggle-desktop-slider-size;
     left: $toggle-desktop-slider-padding;
     bottom: $toggle-desktop-slider-padding;
-    background-color: colors.color('white');
+    background-color: colors.color('elvia-on');
     transition: 0.1s;
     border-radius: 50%;
 
@@ -82,7 +82,7 @@ $toggle-mobile-negative-slider-padding: calc(
   }
 
   input:checked + .e-toggle__slider::before {
-    background-color: colors.color('green');
+    background-color: colors.color('elvia-charge');
     $transX: calc(
       #{$toggle-desktop-width} - (#{$toggle-desktop-slider-padding} * 2) - #{$toggle-desktop-slider-size}
     );
@@ -101,7 +101,7 @@ $toggle-mobile-negative-slider-padding: calc(
   }
 
   &.e-toggle--inverted {
-    border: 1px solid colors.color('white');
+    border: 1px solid colors.color('elvia-on');
     box-sizing: content-box;
 
     height: $toggle-desktop-negative-height;
@@ -131,7 +131,7 @@ $toggle-mobile-negative-slider-padding: calc(
         background-color: colors.color('grey');
       }
       input:checked + .e-toggle__slider::before {
-        background-color: colors.color('grey-30');
+        background-color: colors.color('disabled');
       }
     }
   }
@@ -139,12 +139,12 @@ $toggle-mobile-negative-slider-padding: calc(
   &.e-toggle---disabled,
   &:disabled {
     cursor: not-allowed;
-    background-color: colors.color('grey-30');
+    background-color: colors.color('disabled');
     .e-toggle__slider::before {
       background-color: colors.color('grey-10');
     }
     input:checked + .e-toggle__slider {
-      background-color: colors.color('grey-30');
+      background-color: colors.color('disabled');
     }
     input:checked + .e-toggle__slider::before {
       background-color: colors.color('grey-70');

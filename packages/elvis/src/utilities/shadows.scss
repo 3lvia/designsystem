@@ -1,8 +1,9 @@
 @use "../variables/shadows";
+@use "../utilities/helpers";
 
 .e-shadow {
   &-none {
-    box-shadow: none;
+    box-shadow: 'none';
   }
   &-3 {
     box-shadow: shadows.$e-shadow-3;
