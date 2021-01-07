@@ -3229,6 +3229,12 @@ input:focus {
 }
 
 .e-header__top-bar-desktop__title {
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 28px;

@@ -208,6 +208,7 @@ $sidebar-mobile-z-index: -2;
     @extend %app-menu;
   }
   &__title {
+    @include helpers.user-select(text);
     @include typography.typography('text-md');
     font-weight: 500;
     @include breakpoints.breakpoint-up(Tablet) {
