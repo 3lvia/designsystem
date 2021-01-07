@@ -26,7 +26,7 @@ const throttle = (func: any, limit: number) => {
 
 const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
   const [currValue, setValue] = useState(value);
-  const [onTheRightEnd, setOnTheRightEnd] = useState(false);
+  const [onTheRightEnd, setOnTheRightEnd] = useState(true);
   const [onTheLeftEnd, setOnTheLeftEnd] = useState(true);
   const itemsRef = useRef<HTMLDivElement>(null);
   const arrowLeftClasses = classNames('ewc-tabs__arrow', {
@@ -43,6 +43,7 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
     ['ewc-tabs--scrolling']: !onTheLeftEnd || !onTheRightEnd,
   });
 
+  // Updating selected value
   useEffect(() => {
     updateReactComponent();
     updateWebcomponent();
@@ -61,33 +62,32 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
     }
   }
 
-  // Scroll position
-  function updateScrollPosition() {
-    if (!itemsRef.current) {
-      return;
-    }
-    const endOfItem = itemsRef.current.scrollWidth - itemsRef.current.getBoundingClientRect().width;
-    setOnTheRightEnd(itemsRef.current.scrollLeft >= endOfItem - 1);
-    setOnTheLeftEnd(itemsRef.current.scrollLeft <= 1);
-  }
+  // Update scroll position on init
+  useEffect(() => {
+    setTimeout(() => updateScrolledPosition());
+  }, []);
 
+  // Listen to resize & scroll and update scrolled positions
   useEffect(() => {
     if (!itemsRef.current) {
       return;
     }
-    if (itemsRef.current && itemsRef.current.getBoundingClientRect().width < 9) {
-      // 8px is initial size because of padding
-      return;
-    }
-    updateScrollPosition();
-  }, [itemsRef]);
+    const throttledResizeCount = throttle(updateScrolledPosition, 150);
+
+    window.addEventListener('resize', throttledResizeCount);
+    itemsRef.current.addEventListener('scroll', updateScrolledPosition);
+    return () => {
+      window.removeEventListener('resize', throttledResizeCount);
+      if (itemsRef.current) itemsRef.current.removeEventListener('scroll', updateScrolledPosition);
+    };
+  }, [updateScrolledPosition]);
 
   function scrollToLeft() {
     if (!itemsRef.current) {
       return;
     }
     itemsRef.current.scrollLeft -= 70;
-    updateScrollPosition();
+    updateScrolledPosition();
   }
 
   function scrollToRight() {
@@ -95,23 +95,17 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
       return;
     }
     itemsRef.current.scrollLeft += 70;
-    updateScrollPosition();
+    updateScrolledPosition();
   }
 
-  // Listen to resize & scroll
-  useEffect(() => {
+  function updateScrolledPosition() {
     if (!itemsRef.current) {
       return;
     }
-    const throttledResizeCount = throttle(updateScrollPosition, 150);
-
-    window.addEventListener('resize', throttledResizeCount);
-    itemsRef.current.addEventListener('scroll', updateScrollPosition);
-    return () => {
-      window.removeEventListener('resize', throttledResizeCount);
-      if (itemsRef.current) itemsRef.current.removeEventListener('scroll', updateScrollPosition);
-    };
-  }, [updateScrollPosition]);
+    const endOfItem = itemsRef.current.scrollWidth - itemsRef.current.getBoundingClientRect().width;
+    setOnTheRightEnd(itemsRef.current.scrollLeft >= endOfItem - 1);
+    setOnTheLeftEnd(itemsRef.current.scrollLeft <= 1);
+  }
 
   return (
     <div className="ewc-tabs">

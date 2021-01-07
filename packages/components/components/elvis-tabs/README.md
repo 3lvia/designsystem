@@ -1,4 +1,16 @@
-# Elvia Checkbox
+# Elvia Tabs
+
+Tabs are used to divide content into sections and let the user navigate between one section at a time. Use
+tabs when the content is at the same level of the hierarchy and are related. It should always be one tab
+selected by default.
+
+### Number of tabs
+
+Tabs with more than 6 options should be avoided and never fewer than 2 tabs.
+
+### Option label
+
+Keep the option label name of a tab short, descriptive and unique. Should not be any longer than two words.
 
 ## Props
 
