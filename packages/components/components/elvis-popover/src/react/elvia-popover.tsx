@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import './style.scss';
+import classnames from 'classnames';
 
 export interface PopoverProps {
   title?: string;
@@ -63,11 +64,10 @@ const Popover: React.FC<PopoverProps> = ({
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverCloseRef = useRef<HTMLButtonElement>(null);
   const popoverMargin = 20;
-  const contentClasses = [
-    description && !customContent ? 'ewc-popover--text-only' : '',
-    'ewc-popover__content',
-    popoverContentRef.current && !visiblePopover ? 'ewc-popover--hide' : '',
-  ].join(' ');
+  const contentClasses = classnames('ewc-popover__content', {
+    ['ewc-popover--text-only']: description && !customContent,
+    ['ewc-popover--hide']: !visiblePopover,
+  });
 
   // Toggling popover state
   function togglePopover() {
