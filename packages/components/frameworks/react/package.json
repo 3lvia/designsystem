@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@elvia/elvis-checkbox": "*",
+    "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-popover": "*",
     "@material-ui/core": "^4.11.0",
     "@testing-library/jest-dom": "^4.2.4",

@@ -77,4 +77,22 @@
       <button slot="trigger" class="e-btn">Left bottom</button>
     </elvia-popover>
   </div>
+
+  <hr style="margin: 40px 0" />
+
+  <h2>Progressbar</h2>
+  <div style="margin-bottom: 32px">
+    <elvia-progress-linear
+      [isIndeterminate]="indeterminate"
+      [value]="progressValue"
+      [isError]="progressError"
+    ></elvia-progress-linear>
+    <div style="display: flex; width: 100%; justify-content: space-between">
+      <button (click)="progressValue = progressValue + 10">Increase Progress</button>
+      <button (click)="progressValue = progressValue - 10">Decrease Progress</button>
+      <button (click)="progressValue = 0">Reset Progress</button>
+      <button (click)="indeterminate = !indeterminate">Toggle indeterminate</button>
+      <button (click)="progressError = !progressError">Toggle error</button>
+    </div>
+  </div>
 </div>

@@ -21,6 +21,8 @@
     "@angular/router": "~8.2.14",
     "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-popover": "*",
+    "@elvia/elvis-progress-linear": "*",
+    "@elvia/elvis-component-wrapper": "*",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
