@@ -3001,9 +3001,9 @@ input:focus {
 }
 
 .e-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  height: 100%;
+  width: 100%;
   box-sizing: border-box;
   z-index: 99;
   -webkit-touch-callout: none;
@@ -3229,6 +3229,12 @@ input:focus {
 }
 
 .e-header__top-bar-desktop__title {
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
   line-height: 28px;
