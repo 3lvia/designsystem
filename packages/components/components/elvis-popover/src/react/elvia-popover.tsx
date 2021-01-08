@@ -48,6 +48,12 @@ const Popover: React.FC<PopoverProps> = ({
   trigger,
   noClose,
 }) => {
+  Popover.defaultProps = {
+    posX: 'center',
+    posY: 'top',
+    noClose: false,
+  };
+
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLSpanElement>(null);
@@ -57,14 +63,13 @@ const Popover: React.FC<PopoverProps> = ({
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverCloseRef = useRef<HTMLButtonElement>(null);
   const popoverMargin = 20;
-  const contentClasses = [description && !customContent ? 'text-only' : '', 'ewc-popover__content'].join(' ');
+  const contentClasses = [
+    description && !customContent ? 'ewc-popover--text-only' : '',
+    'ewc-popover__content',
+    popoverContentRef.current && !visiblePopover ? 'ewc-popover--hide' : '',
+  ].join(' ');
 
-  Popover.defaultProps = {
-    posX: 'center',
-    posY: 'top',
-  };
-
-  // Setting popover state
+  // Toggling popover state
   function togglePopover() {
     setPopoverVisibility((prevState) => !prevState);
   }
@@ -79,7 +84,7 @@ const Popover: React.FC<PopoverProps> = ({
       maxContentWidth.current = popoverContentRef.current.getBoundingClientRect().width;
     }, 0);
 
-    // Listen to tab events and click outside popover
+    // Listen to click outside popover
     document.addEventListener('click', handleClickOutside);
 
     function handleClickOutside(e: MouseEvent) {
@@ -103,18 +108,18 @@ const Popover: React.FC<PopoverProps> = ({
     };
   }, []);
 
-  // Initializing vertical position
+  // Initializing horizontal positions
   const setInitialPositions = useCallback(() => {
     if (posX === 'left') {
-      updateStyle('none', '0', 'auto');
+      updatePosStyle('none', '0', 'auto');
     } else if (posX === 'right') {
-      updateStyle('none', 'auto', '0');
+      updatePosStyle('none', 'auto', '0');
     } else {
-      updateStyle('translateX(-50%)', 'auto', '50%');
+      updatePosStyle('translateX(-50%)', 'auto', '50%');
     }
   }, [posX]);
 
-  function updateStyle(transform: string, right: string, left: string) {
+  function updatePosStyle(transform: string, right: string, left: string) {
     if (!popoverContentRef.current) {
       return;
     }
@@ -144,6 +149,7 @@ const Popover: React.FC<PopoverProps> = ({
     ) {
       return;
     }
+
     const popover = popoverRef.current;
     const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
     const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
@@ -174,27 +180,27 @@ const Popover: React.FC<PopoverProps> = ({
     // Update horizontal position
     function updateCenterPosition() {
       if (moveFromLeft('middle')) {
-        updateStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
+        updatePosStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
       } else if (moveFromRight('middle')) {
-        updateStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
+        updatePosStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
         setInitialPositions();
       }
     }
     function updateLeftPosition() {
       if (moveFromLeft('nonTriggerSide')) {
-        updateStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
+        updatePosStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
       } else if (moveFromRight('triggerSide')) {
-        updateStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
+        updatePosStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
         setInitialPositions();
       }
     }
     function updateRightPosition() {
       if (moveFromLeft('triggerSide')) {
-        updateStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
+        updatePosStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
       } else if (moveFromRight('nonTriggerSide')) {
-        updateStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
+        updatePosStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
         setInitialPositions();
       }
@@ -245,35 +251,20 @@ const Popover: React.FC<PopoverProps> = ({
     }
   }, [posY, posX]);
 
-  // Toggle visibility
-  useEffect(() => {
-    console.log('Popover visibility: ' + visiblePopover);
-    function toggleVisibilityClass() {
-      if (popoverContentRef.current && visiblePopover) {
-        console.log('hello');
-        popoverContentRef.current.classList.remove('ewc-popover--hide');
-      } else if (popoverContentRef.current) {
-        console.log('Adding class!');
-        console.log(popoverContentRef.current.classList);
-        popoverContentRef.current.classList.add('ewc-popover--hide');
-        console.log(popoverContentRef.current.classList);
-      }
-    }
-
-    console.log(visiblePopover);
-    updateNewPosition();
-    toggleVisibilityClass();
-  }, [visiblePopover, updateNewPosition]);
-
   // Listen to resize changes if popover is open
   useEffect(() => {
+    // Update position and size when opening popover
+    updateNewPosition();
+    resize();
+
+    // Listen to window resizing if popover is open
     if (!visiblePopover) {
       return;
     }
-    const throttledCount = throttle(updateNewPosition, 150);
-    window.addEventListener('resize', throttledCount);
-    return () => window.removeEventListener('resize', throttledCount);
-  }, [visiblePopover, posY, updateNewPosition]);
+    const throttledUpdateNewPosition = throttle(updateNewPosition, 150);
+    window.addEventListener('resize', throttledUpdateNewPosition);
+    return () => window.removeEventListener('resize', throttledUpdateNewPosition);
+  }, [visiblePopover, updateNewPosition]);
 
   return (
     <span className="ewc-popover" ref={popoverRef}>

@@ -37,7 +37,7 @@ $green: #29d305;
     display: block;
     position: absolute;
     width: max-content;
-    &.text-only {
+    &.ewc-popover--text-only {
       max-width: 450px;
       // IE specific
       @media screen and (-ms-high-contrast: none) {
@@ -110,7 +110,7 @@ $green: #29d305;
   // Center aligned (Default)
   &:not(.ewc-popover--left):not(.ewc-popover--left-50):not(.ewc-popover--right):not(.ewc-popover--right-50) {
     .ewc-popover__content {
-      // transform: translateX(-50%);
+      transform: translateX(-50%);
     }
   }
 }
