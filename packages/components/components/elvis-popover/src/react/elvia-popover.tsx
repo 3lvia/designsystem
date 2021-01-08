@@ -128,12 +128,26 @@ const Popover: React.FC<PopoverProps> = ({
     popoverContentRef.current.style.left = left;
   }
 
+  function getCorrectInnerWidth() {
+    if (navigator.userAgent.toLowerCase().includes('android')) {
+      return window.visualViewport.width;
+    }
+    return window.innerWidth;
+  }
+
+  function getCorrectInnerHeight() {
+    if (navigator.userAgent.toLowerCase().includes('android')) {
+      return window.visualViewport.height;
+    }
+    return window.innerHeight;
+  }
+
   function resize() {
     if (!popoverContentRef.current || !maxContentWidth) {
       return;
     }
-    if (maxContentWidth.current + popoverMargin + popoverMargin > window.innerWidth) {
-      popoverContentRef.current.style.width = `${window.innerWidth - 2 * popoverMargin}px`;
+    if (maxContentWidth.current + popoverMargin + popoverMargin > getCorrectInnerWidth()) {
+      popoverContentRef.current.style.width = `${getCorrectInnerWidth() - 2 * popoverMargin}px`;
     } else {
       popoverContentRef.current.style.width = maxContentWidth + 'px';
     }
@@ -154,18 +168,18 @@ const Popover: React.FC<PopoverProps> = ({
     const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
     const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
     const offsetLeft = popoverContentRef.current.getBoundingClientRect().left;
-    const offsetRight = window.innerWidth - contentWidth - offsetLeft;
+    const offsetRight = getCorrectInnerWidth() - contentWidth - offsetLeft;
     const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
-    const offsetBottom = window.innerHeight - contentHeight - offsetTop;
+    const offsetBottom = getCorrectInnerHeight() - contentHeight - offsetTop;
     const triggerWidth = popoverTriggerRef.current.getBoundingClientRect().width;
     const triggerOffsetLeft = popoverTriggerRef.current.getBoundingClientRect().left;
-    const triggerOffsetRight = window.innerWidth - triggerWidth - triggerOffsetLeft;
+    const triggerOffsetRight = getCorrectInnerWidth() - triggerWidth - triggerOffsetLeft;
     const arrowWidth = popoverArrowRef.current.getBoundingClientRect().width;
     const arrowHeight = popoverArrowRef.current.getBoundingClientRect().height;
     const arrowLeft = popoverArrowRef.current.getBoundingClientRect().left;
-    const arrowRight = window.innerWidth - arrowWidth - arrowLeft;
+    const arrowRight = getCorrectInnerWidth() - arrowWidth - arrowLeft;
     const arrowOffsetTop = popoverArrowRef.current.getBoundingClientRect().top;
-    const arrowOffsetBottom = window.innerHeight - arrowHeight - arrowOffsetTop;
+    const arrowOffsetBottom = getCorrectInnerHeight() - arrowHeight - arrowOffsetTop;
 
     resize();
     updatePositionY();
@@ -199,9 +213,11 @@ const Popover: React.FC<PopoverProps> = ({
     function updateRightPosition() {
       if (moveFromLeft('triggerSide')) {
         updatePosStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
-      } else if (moveFromRight('nonTriggerSide')) {
+      }
+      if (moveFromRight('nonTriggerSide')) {
         updatePosStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
-      } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
+      }
+      if (!moveFromRight('middle') && !moveFromLeft('middle')) {
         setInitialPositions();
       }
     }
@@ -251,7 +267,7 @@ const Popover: React.FC<PopoverProps> = ({
     }
   }, [posY, posX]);
 
-  // Listen to resize changes if popover is open
+  // Update position when popover is opened and when window is resized
   useEffect(() => {
     // Update position and size when opening popover
     updateNewPosition();
