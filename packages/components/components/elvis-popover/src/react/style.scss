@@ -97,14 +97,14 @@ $green: #29d305;
   &:not(.ewc-popover--bottom) {
     .ewc-popover__content {
       bottom: 100%;
-      margin-bottom: 23px;
+      margin-bottom: 17px;
     }
   }
   // Bottom aligned
   &.ewc-popover--bottom {
     .ewc-popover__content {
       top: 100%;
-      margin-top: 22px;
+      margin-top: 16px;
     }
   }
   // Center aligned (Default)

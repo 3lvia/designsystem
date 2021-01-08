@@ -63,7 +63,7 @@ const Popover: React.FC<PopoverProps> = ({
   const popoverArrowRef = useRef<HTMLDivElement>(null);
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverCloseRef = useRef<HTMLButtonElement>(null);
-  const popoverMargin = 20;
+  const popoverMargin = 16;
   const contentClasses = classnames('ewc-popover__content', {
     ['ewc-popover--text-only']: description && !customContent,
     ['ewc-popover--hide']: !visiblePopover,

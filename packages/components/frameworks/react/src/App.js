@@ -30,9 +30,6 @@ function App() {
       <h1>React preview</h1>
 
       <h2>Checkbox</h2>
-      {/* <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button> */}
-      {/* <button onClick={update}>Update state</button>
-      <div>{trackedState.toString()}</div> */}
       <div style={{ marginTop: '16px' }}>
         <Checkbox
           ref={ref}
@@ -99,7 +96,6 @@ function App() {
       </div>
       <div style={{marginTop: '16px'}}>
         <Popover
-          title="BankID"
           customContent={<div style={{boxSizing: 'border-box', padding: '50px', width: '100%', border: '2px dashed lightgray'}}>Custom content custom content custom content custom content</div>}
           trigger={<button>Left bottom</button>}
           posY="bottom"
