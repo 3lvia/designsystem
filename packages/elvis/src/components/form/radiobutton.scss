@@ -1,6 +1,7 @@
-@use '../../variables/colors.scss';
-@use '../../utilities/outline.scss';
+@use '../../variables/colors';
 @use "../../variables/typography";
+@use '../../utilities/outline';
+@use '../../utilities/helpers';
 
 $form-radiobutton-mark-size: 24px;
 $form-radiobutton-small-mark-size: 16px;
@@ -146,7 +147,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
       background-color: colors.color('elvia-off');
       border-radius: 50%;
       opacity: 1;
-      animation: fadeIn 250ms;
+      @include helpers.animation(fadeIn, 250ms, linear, both);
     }
   }
 
@@ -162,11 +163,11 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
       background-color: colors.color('elvia-off');
       border-radius: 50%;
       opacity: 1;
-      animation: fadeIn 250ms;
+      @include helpers.animation(fadeIn, 250ms, linear, both);
     }
   }
 
-  @keyframes fadeIn {
+  @include helpers.keyframes(fadeIn) {
     0% {
       opacity: 0;
     }

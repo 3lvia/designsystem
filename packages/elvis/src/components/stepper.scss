@@ -227,8 +227,8 @@
     width: 2px;
     background-color: colors.color('elvia-on');
     border-radius: 15px;
-    transform: translateX(10px) rotate(-43deg);
-    transform-origin: left bottom;
+    @include helpers.transform(translateX(10px) rotate(-43deg));
+    @include helpers.transform-origin(left bottom);
   }
 
   &::after {
@@ -240,7 +240,7 @@
     width: 2px;
     background-color: colors.color('elvia-on');
     border-radius: 15px;
-    transform: translateX(10px) rotate(43deg);
-    transform-origin: left bottom;
+    @include helpers.transform(translateX(10px) rotate(43deg));
+    @include helpers.transform-origin(left bottom);
   }
 }

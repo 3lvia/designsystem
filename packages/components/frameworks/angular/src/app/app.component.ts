@@ -9,6 +9,7 @@ export class AppComponent implements OnInit {
   @ViewChild('checkbox1', { static: true }) checkbox: any;
   checkBoxVal = true;
   checkBoxVal2 = true;
+  progressValue = 0;
 
   nativeJSApproach() {
     // Non-angular approach, not necessary when using angular:

@@ -1,8 +1,9 @@
-@use "../../variables/colors.scss";
-@use "../../variables/animation.scss";
-@use "../../utilities/outline.scss";
+@use "../../variables/colors";
+@use "../../variables/animation";
 @use "../../variables/shared-sizes";
 @use "../../variables/typography";
+@use "../../utilities/outline";
+@use "../../utilities/helpers";
 
 $form-input-padding: 12px 16px;
 $form-input-padding-active: 11px 15px;
@@ -39,7 +40,11 @@ $form-input-border: 1px solid colors.color('grey');
     overflow-y: auto;
   }
 
-  > input::placeholder,
+  > input {
+    @include helpers.placeholder() {
+      color: colors.color('grey-70') !important;
+    }
+  }
   .e-input--placeholder {
     color: colors.color('grey-70') !important;
   }

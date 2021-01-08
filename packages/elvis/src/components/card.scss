@@ -1,7 +1,8 @@
-@use "./../variables/colors";
-@use "./../variables/shadows";
-@use "./../variables/typography";
+@use "../variables/colors";
+@use "../variables/shadows";
+@use "../variables/typography";
 @use "../utilities/breakpoints";
+@use "../utilities/helpers";
 
 $card-radius: 8px;
 $card-padding: 40px;
@@ -52,7 +53,7 @@ $card-actions-button-spacing: 25px;
     &.e-card__title--above {
       @include typography.typography('text-caps');
       position: absolute;
-      transform: translateY(-100%);
+      @include helpers.transform(translateY(-100%));
       top: -8px;
       left: 8px;
     }
