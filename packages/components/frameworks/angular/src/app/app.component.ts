@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   items = [
     { label: 'Epler' },
     { label: 'Appelsin' },
-    { label: 'Klase med bananer' },
+    { label: 'Bananer' },
     { label: 'Druer' },
     { label: 'Kiwi', disabled: true },
   ];

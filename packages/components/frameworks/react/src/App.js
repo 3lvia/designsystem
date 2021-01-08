@@ -10,12 +10,12 @@ function App() {
   const [selectedState, setSelectedState] = useState(0);
   const ref = useRef();
   const items = [
-    {label: 'option 1'},
-    {label: 'option 2'},
-    {label: 'option 3'},
-    {label: 'option 4'},
-    {label: 'option 5', isDisabled: true},
-    {label: 'option 6'},
+    {label: 'Statistikk'},
+    {label: 'Siste kall'},
+    {label: 'HAN-port'},
+    {label: 'Feilkategorisering'},
+    // {label: '', isDisabled: true},
+    // {label: ''},
   ]
 
   function update() {

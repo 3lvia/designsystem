@@ -29,6 +29,7 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
   const [onTheRightEnd, setOnTheRightEnd] = useState(true);
   const [onTheLeftEnd, setOnTheLeftEnd] = useState(true);
   const itemsRef = useRef<HTMLDivElement>(null);
+  const lengthToScroll = useRef(140);
   const arrowLeftClasses = classNames('ewc-tabs__arrow', {
     ['ewc-tabs__arrow--hide']: onTheLeftEnd,
     ['ewc-tabs__arrow--remove']: onTheRightEnd && onTheLeftEnd,
@@ -78,7 +79,9 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
     itemsRef.current.addEventListener('scroll', updateScrolledPosition);
     return () => {
       window.removeEventListener('resize', throttledResizeCount);
-      if (itemsRef.current) itemsRef.current.removeEventListener('scroll', updateScrolledPosition);
+      if (itemsRef.current) {
+        itemsRef.current.removeEventListener('scroll', updateScrolledPosition);
+      }
     };
   }, [updateScrolledPosition]);
 
@@ -86,7 +89,7 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
     if (!itemsRef.current) {
       return;
     }
-    itemsRef.current.scrollLeft -= 70;
+    itemsRef.current.scrollLeft -= lengthToScroll.current;
     updateScrolledPosition();
   }
 
@@ -94,7 +97,7 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
     if (!itemsRef.current) {
       return;
     }
-    itemsRef.current.scrollLeft += 70;
+    itemsRef.current.scrollLeft += lengthToScroll.current;
     updateScrolledPosition();
   }
 
