@@ -7,7 +7,6 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./accordion-doc.component.scss'],
 })
 export class AccordionDocComponent {
-
   @ViewChild('accordionLiveExample') accordionLiveExample: ElementRef;
 
   figmaUrl = getComponent('accordion').figmaUrl;
@@ -144,7 +143,6 @@ export class AccordionDocComponent {
 </div>
 `;
 
-
   liveCodeHTML = `<div class="e-accordion e-accordion--md e-accordion--center">
   <div class="e-accordion__item" #accordionLiveExample>
     <div class="e-accordion__icon" (click)="toggleOpen()">
@@ -180,4 +178,3 @@ export class AccordionDocComponent {
     }
   }
 }
-

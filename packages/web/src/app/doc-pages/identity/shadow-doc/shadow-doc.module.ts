@@ -22,4 +22,4 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [ShadowDocComponent],
 })
-export class ShadowDocModule { }
+export class ShadowDocModule {}

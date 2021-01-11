@@ -9,7 +9,6 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -23,4 +22,4 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
   ],
   declarations: [AutocompleteDocComponent],
 })
-export class AutocompleteDocModule { }
+export class AutocompleteDocModule {}

@@ -20,4 +20,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [SegmentedControlsDocComponent],
 })
-export class SegmentedControlsDocModule { }
+export class SegmentedControlsDocModule {}

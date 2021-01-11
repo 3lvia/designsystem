@@ -10,7 +10,7 @@ export class GithubService {
   // Need to add the key, and find a way to store it
   API_KEY = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   requestRepo(): Observable<any> {
     const url = `https://api.github.com/repositories/` + this.ELVIA_DESIGNSYSTEM_ID;

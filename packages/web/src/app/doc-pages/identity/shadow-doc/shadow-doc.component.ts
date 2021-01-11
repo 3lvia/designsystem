@@ -14,9 +14,7 @@ export class ShadowDocComponent {
 box-shadow: none;`;
   dontCodeCSS = `box-shadow: var(--e-shadow-none);`;
 
-  doesExample = [
-    'Behind a solid surface (for example together with cards).',
-  ];
+  doesExample = ['Behind a solid surface (for example together with cards).'];
   dontsExample = [
     'Should not be applied to typography or icons.',
     'Don’t use a lot of shadows on the same surface, since we want our visual profile to be have a more flat expression.',

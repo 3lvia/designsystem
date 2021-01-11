@@ -9,17 +9,15 @@ import { UserFeedbackDocModule } from './user-feedback-doc/user-feedback-doc.mod
 import { PatternsDocModule } from './patterns-doc/patterns-doc.module';
 
 @NgModule({
-    imports: [
-        ToolsStartModule,
-        AccessibilityDocModule,
-        OverviewToolsModule,
-        GetStartedModule,
-        UtilitiesDocModule,
-        DesignProcessDocModule,
-        UserFeedbackDocModule,
-        PatternsDocModule,
-    ],
+  imports: [
+    ToolsStartModule,
+    AccessibilityDocModule,
+    OverviewToolsModule,
+    GetStartedModule,
+    UtilitiesDocModule,
+    DesignProcessDocModule,
+    UserFeedbackDocModule,
+    PatternsDocModule,
+  ],
 })
-export class ToolsModule { }
-
-
+export class ToolsModule {}

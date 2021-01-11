@@ -20,4 +20,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [RadiobuttonDocComponent],
 })
-export class RadiobuttonDocModule { }
+export class RadiobuttonDocModule {}

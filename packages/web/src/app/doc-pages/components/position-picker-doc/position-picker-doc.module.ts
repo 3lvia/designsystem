@@ -22,4 +22,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [PositionPickerDocComponent],
 })
-export class PositionPickerDocModule { }
+export class PositionPickerDocModule {}

@@ -22,4 +22,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [SpacingDocComponent],
 })
-export class SpacingDocModule { }
+export class SpacingDocModule {}

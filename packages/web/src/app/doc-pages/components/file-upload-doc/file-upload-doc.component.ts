@@ -7,7 +7,6 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./file-upload-doc.component.scss'],
 })
 export class FileUploadDocComponent {
-
   figmaUrl = getComponent('fileUpload').figmaUrl;
   description = getComponent('fileUpload').description;
 
@@ -76,5 +75,4 @@ export class DndDirective {
         alert('Files got dropped! Don´t worry, we do not store anything that you dropped here =)');
     }
 }`;
-
 }

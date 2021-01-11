@@ -8,7 +8,6 @@ import { spacingItems } from './spacing';
   styleUrls: ['./spacing-doc.component.scss'],
 })
 export class SpacingDocComponent {
-
   spacingItems = spacingItems;
   figmaUrl = getIdentity('spacing').figmaUrl;
   description = getIdentity('spacing').description;

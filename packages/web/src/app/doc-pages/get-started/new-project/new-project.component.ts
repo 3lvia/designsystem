@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { VersionService } from 'src/app/core/services/version.service';
 import { getGetStarted } from 'src/app/shared/e-items';
 
-
 @Component({
   selector: 'app-new-project',
   templateUrl: './new-project.component.html',
@@ -28,9 +27,7 @@ cssVars({
 
   bodyScriptMessage = `<body><script src="assets/js/elvis.js"></script></body>`;
 
-  constructor(private versionService: VersionService) {
-
-  }
+  constructor(private versionService: VersionService) {}
 
   ngOnInit(): void {
     this.updateCodeExamples();

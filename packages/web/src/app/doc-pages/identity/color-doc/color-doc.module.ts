@@ -26,4 +26,4 @@ import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.modul
   ],
   declarations: [ColorDocComponent],
 })
-export class ColorDocModule { }
+export class ColorDocModule {}

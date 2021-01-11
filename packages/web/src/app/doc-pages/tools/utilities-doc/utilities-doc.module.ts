@@ -22,4 +22,4 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-structure/co
   ],
   declarations: [UtilitiesDocComponent],
 })
-export class UtilitiesDocModule { }
+export class UtilitiesDocModule {}

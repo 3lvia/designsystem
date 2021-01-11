@@ -6,12 +6,7 @@ import { RouterModule } from '@angular/router';
 import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    OverviewPageModule,
-    RouterModule,
-    MarkdownModule.forRoot(),
-  ],
+  imports: [CommonModule, OverviewPageModule, RouterModule, MarkdownModule.forRoot()],
   declarations: [HomeComponent],
 })
-export class HomeModule { }
+export class HomeModule {}

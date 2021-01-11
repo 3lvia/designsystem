@@ -6,7 +6,7 @@ import { HighlightService } from './highlight.service';
 describe('Service: Highlight', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [HighlightService]
+      providers: [HighlightService],
     });
   });
 

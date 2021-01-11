@@ -126,7 +126,7 @@ showMockPassword() {
 </div>
 `;
 
-  showMockPassword() {
+  showMockPassword(): void {
     if (this.validationExample.nativeElement.type === 'password') {
       this.validationExample.nativeElement.type = 'text';
       this.showPassword = true;

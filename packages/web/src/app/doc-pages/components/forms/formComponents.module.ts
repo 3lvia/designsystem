@@ -10,17 +10,16 @@ import { DatetimePickerDocModule } from './datetime-picker-doc/datetime-picker-d
 import { SearchDocModule } from './search-doc/search-doc.module';
 
 @NgModule({
-    imports: [
-        CheckboxDocModule,
-        ToggleDocModule,
-        DatetimePickerDocModule,
-        DraganddropDocModule,
-        InputDocModule,
-        RadiobuttonDocModule,
-        SegmentedControlsDocModule,
-        SelectDocModule,
-        SearchDocModule,
-    ],
+  imports: [
+    CheckboxDocModule,
+    ToggleDocModule,
+    DatetimePickerDocModule,
+    DraganddropDocModule,
+    InputDocModule,
+    RadiobuttonDocModule,
+    SegmentedControlsDocModule,
+    SelectDocModule,
+    SearchDocModule,
+  ],
 })
-export class FormComponentsModule { }
-
+export class FormComponentsModule {}

@@ -5,7 +5,6 @@ import { Subject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class GlobalService {
-
   sideBar = {
     show: true,
   };
@@ -17,5 +16,4 @@ export class GlobalService {
   toggleShowInternalHeader(show: boolean): void {
     this.showInternalHeaderSubject.next(show);
   }
-
 }

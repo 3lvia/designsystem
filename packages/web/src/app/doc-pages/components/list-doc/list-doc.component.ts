@@ -33,7 +33,6 @@ export class ListDocComponent {
 </ul>
 `;
 
-
   example3 = `<ol class="e-list e-list--numbers">
   <li><strong>Describing title :</strong> After, one or multiple sentences could follow with more information.
     These sentences can span over multiple rows, but shouldn’t be too long.</li>

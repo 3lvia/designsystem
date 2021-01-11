@@ -22,4 +22,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [TableDocComponent],
 })
-export class TableDocModule { }
+export class TableDocModule {}

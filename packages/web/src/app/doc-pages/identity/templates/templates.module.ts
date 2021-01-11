@@ -5,11 +5,7 @@ import { ComponentHeaderModule } from 'src/app/shared/component-structure/compon
 import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    CodeBlockModule,
-  ],
-  declarations: [TemplatesComponent]
+  imports: [CommonModule, ComponentHeaderModule, CodeBlockModule],
+  declarations: [TemplatesComponent],
 })
-export class TemplatesModule { }
+export class TemplatesModule {}

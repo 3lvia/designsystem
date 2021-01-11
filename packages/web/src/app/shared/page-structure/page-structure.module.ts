@@ -5,12 +5,8 @@ import { NavbarModule } from 'src/app/shell/navbar/navbar.module';
 import { FeedbackModule } from '../feedback/feedback.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    NavbarModule,
-    FeedbackModule,
-  ],
+  imports: [CommonModule, NavbarModule, FeedbackModule],
   declarations: [PageStructureComponent],
   exports: [PageStructureComponent],
 })
-export class PageStructureModule { }
+export class PageStructureModule {}

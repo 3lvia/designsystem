@@ -29,4 +29,4 @@ import { TheConceptModule } from './the-concept/the-concept.module';
     TheConceptModule,
   ],
 })
-export class IdentityModule { }
+export class IdentityModule {}

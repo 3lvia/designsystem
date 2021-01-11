@@ -4,11 +4,8 @@ import { ComponentPropertiesComponent } from './component-properties.component';
 import { CopyModule } from '../copy/copy.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    CopyModule,
-  ],
+  imports: [CommonModule, CopyModule],
   declarations: [ComponentPropertiesComponent],
   exports: [ComponentPropertiesComponent],
 })
-export class ComponentPropertiesModule { }
+export class ComponentPropertiesModule {}

@@ -6,12 +6,7 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    CopyModule,
-    ComponentSectionModule,
-  ],
+  imports: [CommonModule, ComponentHeaderModule, CopyModule, ComponentSectionModule],
   declarations: [PatternsDocComponent],
 })
-export class PatternsDocModule { }
+export class PatternsDocModule {}

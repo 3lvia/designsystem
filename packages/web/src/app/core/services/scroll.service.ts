@@ -5,7 +5,6 @@ import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
 @Injectable({
   providedIn: 'root',
 })
-
 export class ScrollService {
   private subjectScroll = new Subject<any>();
   private subjectAnchorScrollTo = new Subject<any>();
@@ -40,11 +39,9 @@ export class ScrollService {
     this.subjectAnchorsNew.next(anchors);
   }
 
-
   scrollToElement(offsetPos: number): void {
     // Check if browser is IE11
-    if (navigator.userAgent.indexOf('MSIE') !== -1
-      || navigator.appVersion.indexOf('Trident/') > -1) {
+    if (navigator.userAgent.indexOf('MSIE') !== -1 || navigator.appVersion.indexOf('Trident/') > -1) {
       window.scrollTo(0, offsetPos);
     } else {
       window.scrollTo({
@@ -125,12 +122,11 @@ export class ScrollService {
       return;
     }
     navbarAnchors.forEach((anchor) => {
-      if ((window.scrollY + window.innerHeight) === document.body.scrollHeight) {
+      if (window.scrollY + window.innerHeight === document.body.scrollHeight) {
         this.newAnchorAtCurrPos(navbarAnchors[navbarAnchors.length - 1]);
-      } else if (currentPos > anchor.top && currentPos < (anchor.top + anchor.height)) {
+      } else if (currentPos > anchor.top && currentPos < anchor.top + anchor.height) {
         this.newAnchorAtCurrPos(anchor);
       }
     });
   }
-
 }

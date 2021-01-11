@@ -5,11 +5,7 @@ import { ComponentHeaderModule } from 'src/app/shared/component-structure/compon
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    ComponentSubsectionModule,
-  ],
+  imports: [CommonModule, ComponentHeaderModule, ComponentSubsectionModule],
   declarations: [ContributeComponent],
 })
-export class ContributeModule { }
+export class ContributeModule {}

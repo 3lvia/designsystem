@@ -22,4 +22,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [PopoverDocComponent],
 })
-export class PopoverDocModule { }
+export class PopoverDocModule {}

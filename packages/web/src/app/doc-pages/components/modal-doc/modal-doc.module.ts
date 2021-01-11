@@ -22,4 +22,4 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
   ],
   declarations: [ModalDocComponent],
 })
-export class ModalDocModule { }
+export class ModalDocModule {}

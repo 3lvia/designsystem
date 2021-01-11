@@ -20,4 +20,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [TooltipDocComponent],
 })
-export class TooltipDocModule { }
+export class TooltipDocModule {}
