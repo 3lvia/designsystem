@@ -274,7 +274,6 @@ likely necessary for implementing a functioning popover in your project.
     popupContentElement.classList.add('e-none');
   }`;
 
-
   // Js example implementation
 
   showPopover = false;
@@ -307,7 +306,7 @@ likely necessary for implementing a functioning popover in your project.
     // store inital classes of popover
     const initialClasses = popOverElement.classList;
     const initialClassesArray = [];
-    initialClasses.forEach(element => {
+    initialClasses.forEach((element) => {
       initialClassesArray.push(element.toString());
     });
 
@@ -318,12 +317,11 @@ likely necessary for implementing a functioning popover in your project.
     this.addAlignment(popoverContentElement, popOverElement, initialClassesArray);
     // check if new alignements make the popover exceed window and remove if so to center popover
     this.removeAlignment(popoverContentElement, popOverElement);
-
   }
   // check to see if any current alignment classes make popover exceed the window
   removeAlignClasses(element: HTMLElement): void {
     const alignClasses = ['e-popover--left', 'e-popover--left-50', 'e-popover--right', 'e-popover--right-50'];
-    alignClasses.forEach(cssClass => {
+    alignClasses.forEach((cssClass) => {
       if (element.classList.contains(cssClass)) {
         element.classList.remove(cssClass);
       }
@@ -345,7 +343,7 @@ likely necessary for implementing a functioning popover in your project.
     }
     if (!changes) {
       element.classList.remove('e-popover');
-      initialClasses.forEach(initalClass => {
+      initialClasses.forEach((initalClass) => {
         element.classList.add(initalClass);
       });
     }
@@ -364,7 +362,7 @@ likely necessary for implementing a functioning popover in your project.
     return windowWidth;
   }
   // Get DOM position of content area of popover
-  getElementPosition(element: HTMLElement) {
+  getElementPosition(element: HTMLElement): any {
     return element.getBoundingClientRect();
   }
   // closes the popover class
@@ -373,5 +371,3 @@ likely necessary for implementing a functioning popover in your project.
     popupContentElement.classList.add('e-none');
   }
 }
-
-

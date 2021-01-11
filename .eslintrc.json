@@ -2,7 +2,7 @@
   "root": true,
   "plugins": ["@typescript-eslint"],
   "rules": {
-    "no-console": "warn",
+    "no-console": "off",
     "func-names": "off"
   },
   "env": {
@@ -11,7 +11,11 @@
   },
   "parserOptions": {
     "ecmaVersion": 8,
-    "sourceType": "module"
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
   },
   "overrides": [
     {
@@ -21,25 +25,27 @@
         "node": true,
         "es6": true
       },
+      "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module"
       },
-      "parser": "@typescript-eslint/parser",
-      "plugins": ["@typescript-eslint"],
+      "plugins": ["react", "@typescript-eslint"],
       "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended"
       ],
       "rules": {
-        "no-console": "warn",
+        "no-console": "off",
         "func-names": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/member-delimiter-style": "error",
         "@typescript-eslint/member-ordering": "error",
-        "@typescript-eslint/type-annotation-spacing": "error"
+        "@typescript-eslint/type-annotation-spacing": "error",
+        "react/prop-types": "off"
       }
     }
   ]

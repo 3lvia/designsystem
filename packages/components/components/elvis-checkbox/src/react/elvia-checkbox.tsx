@@ -16,7 +16,9 @@ export interface CheckboxProps {
 const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
   const [isChecked, setCheckedState] = useState(false);
   const checkboxRef = useRef<HTMLLabelElement>(null);
-  const classes = ['ewc-checkbox ', props.size === 'small' ? 'ewc-checkbox--sm' : '', ' ewc-no-outline'].join(' ');
+  const classes = ['ewc-checkbox ', props.size === 'small' ? 'ewc-checkbox--sm' : '', ' ewc-no-outline'].join(
+    ' ',
+  );
   // check and add html5 input modifers
   const isDisabled = props.disabled === 'true' || props.disabled === '';
   const isRequired = props.required === 'true' || props.required === '';
@@ -35,38 +37,38 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
       }
     }
     function removeOutline() {
-      if (checkboxRef.current &&  !checkboxRef.current.classList.contains('ewc-no-outline')) {
+      if (checkboxRef.current && !checkboxRef.current.classList.contains('ewc-no-outline')) {
         checkboxRef.current.classList.add('ewc-no-outline');
       }
     }
 
-    document.body.addEventListener('keydown', e => addOutline(e));
+    document.body.addEventListener('keydown', (e) => addOutline(e));
     document.body.addEventListener('click', () => removeOutline());
 
-    return (() => {
-      document.body.removeEventListener('keydown', e => addOutline(e));
+    return () => {
+      document.body.removeEventListener('keydown', (e) => addOutline(e));
       document.body.removeEventListener('keydown', () => removeOutline());
-    });
+    };
   }, []);
 
   function updateCheckedState(checked?: any) {
-    if(checked !== undefined){
+    if (checked !== undefined) {
       setCheckedState(checked);
     } else {
-      setCheckedState(prevCheckedState => !prevCheckedState);
+      setCheckedState((prevCheckedState) => !prevCheckedState);
     }
   }
 
   useEffect(() => {
     // If not mounted only update state if it is a change
-    if(props.checked === isChecked && props.checked === undefined) {
+    if (props.checked === isChecked && props.checked === undefined) {
       return;
     }
     if (didMountRef.current) {
       updateCheckedState(props.checked);
-    } else if (props.checked || props.checked === 'true'){
+    } else if (props.checked || props.checked === 'true') {
       updateCheckedState(true);
-    }  else {
+    } else {
       didMountRef.current = true;
     }
   }, [props.checked]);
@@ -75,17 +77,17 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
     updateReactComponent();
     updateWebcomponent();
   }, [isChecked]);
-  
+
   function updateReactComponent() {
-    if(!props.webcomponent && props.changeHandler){
+    if (!props.webcomponent && props.changeHandler) {
       // Small hack temporarily, because state not reflected correct on mount making infinite loop
-      if(!didMountRef.current) {
+      if (!didMountRef.current) {
         props.changeHandler(true);
         didMountRef.current = true;
       } else {
         props.changeHandler(isChecked);
       }
-    } 
+    }
   }
 
   function updateWebcomponent() {
@@ -97,9 +99,9 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
 
   // Defines methods available with use of ref
   useImperativeHandle(ref, () => {
-     return {
+    return {
       updateCheckedState: updateCheckedState,
-     }
+    };
   });
 
   return (
@@ -121,4 +123,5 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
   );
 });
 
+Checkbox.displayName = 'Checkbox';
 export default Checkbox;
