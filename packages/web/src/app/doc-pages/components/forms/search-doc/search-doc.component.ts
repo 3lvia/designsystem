@@ -8,13 +8,11 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./search-doc.component.scss'],
 })
 export class SearchDocComponent {
-
   @ViewChild('exampleSearch') exampleSearch: ElementRef;
   @ViewChild('exampleInput') exampleInput: ElementRef;
 
   figmaUrl = getComponent('search').figmaUrl;
   description = getComponent('search').description;
-
 
   isExampleInput = false;
 

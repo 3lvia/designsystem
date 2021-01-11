@@ -20,10 +20,10 @@ export class CodeHighlighterComponent implements OnInit, OnChanges, AfterViewChe
   activeTab = 'ts';
   copyMessage = '';
 
-  constructor(private highlightService: HighlightService, private copyService: CopyToClipboardService) { }
+  constructor(private highlightService: HighlightService, private copyService: CopyToClipboardService) {}
 
   ngOnInit(): void {
-    this.activeTab = this.codeTS !== '' ? 'ts' : (this.codeHTML !== '' ? 'html' : 'css');
+    this.activeTab = this.codeTS !== '' ? 'ts' : this.codeHTML !== '' ? 'html' : 'css';
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -34,17 +34,17 @@ export class CodeHighlighterComponent implements OnInit, OnChanges, AfterViewChe
     if (changes.codeTS) {
       this.codeTS = changes.codeTS.currentValue;
       this.highlighted = false;
-      this.activeTab = this.codeTS !== '' ? 'ts' : (this.codeHTML !== '' ? 'html' : 'css');
+      this.activeTab = this.codeTS !== '' ? 'ts' : this.codeHTML !== '' ? 'html' : 'css';
     }
     if (changes.codeHTML) {
       this.codeHTML = changes.codeHTML.currentValue;
       this.highlighted = false;
-      this.activeTab = this.codeTS !== '' ? 'ts' : (this.codeHTML !== '' ? 'html' : 'css');
+      this.activeTab = this.codeTS !== '' ? 'ts' : this.codeHTML !== '' ? 'html' : 'css';
     }
     if (changes.codeCSS) {
       this.codeCSS = changes.codeCSS.currentValue;
       this.highlighted = false;
-      this.activeTab = this.codeTS !== '' ? 'ts' : (this.codeHTML !== '' ? 'html' : 'css');
+      this.activeTab = this.codeTS !== '' ? 'ts' : this.codeHTML !== '' ? 'html' : 'css';
     }
   }
 

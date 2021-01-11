@@ -7,14 +7,6 @@ import { FooterModule } from './footer/footer.module';
 import { SearchMenuModule } from './header/search-menu/search-menu.module';
 
 @NgModule({
-  imports: [
-    HeaderModule,
-    SearchMenuModule,
-    HomeModule,
-    MainModule,
-    NavbarModule,
-    FooterModule,
-  ],
+  imports: [HeaderModule, SearchMenuModule, HomeModule, MainModule, NavbarModule, FooterModule],
 })
-export class ShellModule { }
-
+export class ShellModule {}

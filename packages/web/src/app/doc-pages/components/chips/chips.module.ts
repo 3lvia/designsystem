@@ -18,6 +18,6 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-structure/co
     ComponentSubsectionModule,
     WhenToUseModule,
   ],
-  declarations: [ChipsComponent]
+  declarations: [ChipsComponent],
 })
-export class ChipsModule { }
+export class ChipsModule {}

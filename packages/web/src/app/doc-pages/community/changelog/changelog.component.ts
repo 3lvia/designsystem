@@ -7,8 +7,6 @@ import { getCommunity } from 'src/app/shared/e-items';
   styleUrls: ['./changelog.component.scss'],
 })
 export class ChangelogComponent {
-
   externalUrl = getCommunity('changelog').externalUrl;
   description = getCommunity('changelog').description;
-
 }

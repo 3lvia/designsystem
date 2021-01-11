@@ -14,14 +14,13 @@ export class OverviewIdentityComponent implements OnInit {
   loadedImg = false;
 
   ngOnInit(): void {
-    this.brandPages = this.pages.filter(page => {
+    this.brandPages = this.pages.filter((page) => {
       return page.title === 'Typography' || page.title === 'Icons' || page.title === 'Logo';
     });
-    this.layoutPages = this.pages.filter(page => {
+    this.layoutPages = this.pages.filter((page) => {
       return page.title === 'Grid' || page.title === 'Spacing' || page.title === 'Shadow';
     });
   }
-
 
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   hideContentLoader(evt: any): void {

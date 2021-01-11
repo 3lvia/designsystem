@@ -1,4 +1,4 @@
 export interface TypographyClass {
-    name: string;
-    properties: string[];
+  name: string;
+  properties: string[];
 }

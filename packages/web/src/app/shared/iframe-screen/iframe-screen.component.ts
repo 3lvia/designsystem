@@ -22,7 +22,7 @@ export class IframeScreenComponent implements OnInit, AfterViewInit, OnChanges {
   code = '';
 
   ngOnInit(): void {
-    this.code = this.codeTS !== '' ? this.codeTS : (this.codeHTML !== '' ? this.codeHTML : this.codeCSS);
+    this.code = this.codeTS !== '' ? this.codeTS : this.codeHTML !== '' ? this.codeHTML : this.codeCSS;
   }
 
   ngAfterViewInit(): void {

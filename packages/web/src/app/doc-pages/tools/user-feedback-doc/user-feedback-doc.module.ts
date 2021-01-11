@@ -5,15 +5,8 @@ import { ComponentHeaderModule } from 'src/app/shared/component-structure/compon
 import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
 
-
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    DoDontModule,
-    ComponentSectionModule,
-
-  ],
+  imports: [CommonModule, ComponentHeaderModule, DoDontModule, ComponentSectionModule],
   declarations: [UserFeedbackDocComponent],
 })
-export class UserFeedbackDocModule { }
+export class UserFeedbackDocModule {}

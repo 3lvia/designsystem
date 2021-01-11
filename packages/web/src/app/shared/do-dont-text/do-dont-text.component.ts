@@ -5,5 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './do-dont-text.component.html',
   styleUrls: ['./do-dont-text.component.scss'],
 })
-export class DoDontTextComponent {
-}
+export class DoDontTextComponent {}

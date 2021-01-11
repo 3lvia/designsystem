@@ -10,7 +10,10 @@ export class TableDocComponent {
   figmaUrl = getComponent('table').figmaUrl;
   description = getComponent('table').description;
   does = ['Tables should be used when displaying large amounts of data to the user.'];
-  donts = ['Don’t use a table when you can use a data visualization.', 'Don’t mix different styles of tables on the same page.'];
+  donts = [
+    'Don’t use a table when you can use a data visualization.',
+    'Don’t mix different styles of tables on the same page.',
+  ];
 
   exampleOverview = `<div class="e-table-container">
   <table class="e-table">
@@ -424,7 +427,6 @@ export class TableDocComponent {
   </table>
 </div>
 `;
-
 
   example8 = `<div class="e-table-container">
   <table class="e-table">

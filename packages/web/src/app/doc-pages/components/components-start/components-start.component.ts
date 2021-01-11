@@ -11,7 +11,6 @@ import { Subscription, fromEvent } from 'rxjs';
   styleUrls: ['./components-start.component.scss'],
 })
 export class ComponentsStartComponent implements OnDestroy {
-
   listenOnScrollSubscription: Subscription;
   routerSubscription: Subscription;
   pages = eComponents;
@@ -20,22 +19,27 @@ export class ComponentsStartComponent implements OnDestroy {
   startedScrollSub = false;
 
   constructor(private router: Router, private scrollService: ScrollService) {
-    this.scrollService.listenAnchorToScrollTo()
-      .subscribe((anchor: NavbarAnchor) => {
-        this.onScrollToAnchor(anchor);
-      });
+    this.scrollService.listenAnchorToScrollTo().subscribe((anchor: NavbarAnchor) => {
+      this.onScrollToAnchor(anchor);
+    });
     this.routerSubscription = this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {
         if (ev.url !== '/components') {
-          setTimeout(() => { this.getNavbarAnchors(); }, 50);
+          setTimeout(() => {
+            this.getNavbarAnchors();
+          }, 50);
         }
       }
     });
   }
 
   ngOnDestroy(): void {
-    if (this.listenOnScrollSubscription) { this.listenOnScrollSubscription.unsubscribe(); }
-    if (this.routerSubscription) { this.routerSubscription.unsubscribe(); }
+    if (this.listenOnScrollSubscription) {
+      this.listenOnScrollSubscription.unsubscribe();
+    }
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
   }
 
   startScrollSubscription(): void {
@@ -59,7 +63,9 @@ export class ComponentsStartComponent implements OnDestroy {
   }
 
   onScrollToAnchor(anchor: NavbarAnchor): void {
-    if (this.listenOnScrollSubscription) { this.listenOnScrollSubscription.unsubscribe(); }
+    if (this.listenOnScrollSubscription) {
+      this.listenOnScrollSubscription.unsubscribe();
+    }
     this.scrollService.scrollToElement(anchor.top);
     clearTimeout(this.scrollEventTimeout);
     this.scrollEventTimeout = setTimeout(() => {
@@ -69,6 +75,5 @@ export class ComponentsStartComponent implements OnDestroy {
 
   findAnchorAtScrollPosition = (): void => {
     this.scrollService.findAnchorAtScrollPosition(this.navbarAnchors);
-  }
-
+  };
 }

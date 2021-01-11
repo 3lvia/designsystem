@@ -20,4 +20,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [CheckboxDocComponent],
 })
-export class CheckboxDocModule { }
+export class CheckboxDocModule {}

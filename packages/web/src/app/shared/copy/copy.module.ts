@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CopyComponent } from './copy.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   exports: [CopyComponent],
   declarations: [CopyComponent],
 })
-export class CopyModule { }
+export class CopyModule {}

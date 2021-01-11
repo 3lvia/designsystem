@@ -22,4 +22,4 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure
   ],
   declarations: [AlertMessagesComponent],
 })
-export class AlertMessagesModule { }
+export class AlertMessagesModule {}

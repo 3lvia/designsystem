@@ -16,4 +16,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [LogoDocComponent],
 })
-export class LogoDocModule { }
+export class LogoDocModule {}

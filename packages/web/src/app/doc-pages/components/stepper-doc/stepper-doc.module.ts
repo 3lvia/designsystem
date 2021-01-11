@@ -22,4 +22,4 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-structure/co
   ],
   declarations: [StepperDocComponent],
 })
-export class StepperDocModule { }
+export class StepperDocModule {}

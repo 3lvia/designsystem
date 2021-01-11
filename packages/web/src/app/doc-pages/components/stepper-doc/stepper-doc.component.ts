@@ -13,7 +13,6 @@ export interface Step {
   styleUrls: ['./stepper-doc.component.scss'],
 })
 export class StepperDocComponent implements OnInit {
-
   figmaUrl = getComponent('stepper').figmaUrl;
   description = getComponent('stepper').description;
 
@@ -494,26 +493,29 @@ export class StepperDocComponent implements OnInit {
   lastSteps: Step[] = [];
 
   // tslint:disable-next-line: max-line-length
-  does = ['Use a stepper in a process that’s split up in clear steps, where the user could benefit from a overview and/or navigation between the steps'];
+  does = [
+    'Use a stepper in a process that’s split up in clear steps, where the user could benefit from a overview and/or navigation between the steps',
+  ];
   donts = [
     'If the process consists of less than three steps',
     'If the process consists of more than ten steps (in this case, consider the possibility of using less steps by changing the flow)',
-    'If it is not a step-by-step process, for example a list'];
+    'If it is not a step-by-step process, for example a list',
+  ];
 
   ngOnInit(): void {
-    this.steps.forEach(element => {
+    this.steps.forEach((element) => {
       if (element.status === 'active') {
         this.chosenNum = element.number;
         this.activeTitle = element.title;
       }
     });
-    this.forcedSteps.forEach(element => {
+    this.forcedSteps.forEach((element) => {
       if (element.status === 'active') {
         this.forcedChosenNum = element.number;
         this.forcedActiveTitle = element.title;
       }
     });
-    this.shortSteps.forEach(element => {
+    this.shortSteps.forEach((element) => {
       if (element.status === 'active') {
         this.shortChosenNum = element.number;
         this.shortActiveTitle = element.title;
@@ -523,14 +525,14 @@ export class StepperDocComponent implements OnInit {
   }
 
   chooseShortStep(step: Step): void {
-    this.shortSteps.forEach(s => {
+    this.shortSteps.forEach((s) => {
       if (this.shortChosenNum === s.number && s.status !== 'activeDone') {
         s.status = 'none';
       } else if (this.shortChosenNum === s.number && s.status === 'activeDone') {
         s.status = 'done';
       }
     });
-    this.shortSteps.forEach(s => {
+    this.shortSteps.forEach((s) => {
       if (step.number === s.number && s.status !== 'done') {
         s.status = 'active';
         this.shortActiveTitle = s.title;
@@ -546,14 +548,14 @@ export class StepperDocComponent implements OnInit {
     if (step.number > 3) {
       return;
     }
-    this.forcedSteps.forEach(s => {
+    this.forcedSteps.forEach((s) => {
       if (this.forcedChosenNum === s.number && s.status !== 'activeDone') {
         s.status = 'none';
       } else if (this.forcedChosenNum === s.number && s.status === 'activeDone') {
         s.status = 'done';
       }
     });
-    this.forcedSteps.forEach(s => {
+    this.forcedSteps.forEach((s) => {
       if (step.number === s.number && s.status !== 'done') {
         s.status = 'active';
         this.forcedActiveTitle = s.title;
@@ -567,14 +569,14 @@ export class StepperDocComponent implements OnInit {
 
   // LONG STEPPERS
   chooseStep(step: Step): void {
-    this.steps.forEach(s => {
+    this.steps.forEach((s) => {
       if (this.chosenNum === s.number && s.status !== 'activeDone') {
         s.status = 'none';
       } else if (this.chosenNum === s.number && s.status === 'activeDone') {
         s.status = 'done';
       }
     });
-    this.steps.forEach(s => {
+    this.steps.forEach((s) => {
       if (step.number === s.number && s.status !== 'done') {
         s.status = 'active';
         this.activeTitle = s.title;
@@ -605,12 +607,15 @@ export class StepperDocComponent implements OnInit {
     }
 
     if (chosenNumber > 3 && chosenNumber < this.steps.length - 2) {
-      this.centerSteps = this.steps.slice(this.steps[chosenNumber - 3].number, this.steps[chosenNumber].number);
+      this.centerSteps = this.steps.slice(
+        this.steps[chosenNumber - 3].number,
+        this.steps[chosenNumber].number,
+      );
     }
   }
 
   linesBottom(): boolean {
-    return this.chosenNum > 3 && this.chosenNum < (this.steps.length - 2);
+    return this.chosenNum > 3 && this.chosenNum < this.steps.length - 2;
   }
 
   lastLine(step: Step): boolean {
@@ -619,14 +624,14 @@ export class StepperDocComponent implements OnInit {
 
   newShortStep(chosenNumber: number): void {
     if (chosenNumber < 5 && chosenNumber > 0) {
-      this.shortSteps.forEach(s => {
+      this.shortSteps.forEach((s) => {
         if (this.shortChosenNum === s.number && s.status !== 'activeDone') {
           s.status = 'none';
         } else if (this.shortChosenNum === s.number && s.status === 'activeDone') {
           s.status = 'done';
         }
       });
-      this.shortSteps.forEach(s => {
+      this.shortSteps.forEach((s) => {
         if (chosenNumber === s.number && s.status !== 'done') {
           s.status = 'active';
           this.shortActiveTitle = s.title;
@@ -645,14 +650,14 @@ export class StepperDocComponent implements OnInit {
       return;
     }
     if (chosenNumber < 5 && chosenNumber > 0) {
-      this.forcedSteps.forEach(s => {
+      this.forcedSteps.forEach((s) => {
         if (this.forcedChosenNum === s.number && s.status !== 'activeDone') {
           s.status = 'none';
         } else if (this.forcedChosenNum === s.number && s.status === 'activeDone') {
           s.status = 'done';
         }
       });
-      this.forcedSteps.forEach(s => {
+      this.forcedSteps.forEach((s) => {
         if (chosenNumber === s.number && s.status !== 'done') {
           s.status = 'active';
           this.forcedActiveTitle = s.title;
@@ -668,14 +673,14 @@ export class StepperDocComponent implements OnInit {
 
   newStep(newNum: number): void {
     if (newNum < 8 && newNum > 0) {
-      this.steps.forEach(s => {
+      this.steps.forEach((s) => {
         if (this.chosenNum === s.number && s.status !== 'activeDone') {
           s.status = 'none';
         } else if (this.chosenNum === s.number && s.status === 'activeDone') {
           s.status = 'done';
         }
       });
-      this.steps.forEach(s => {
+      this.steps.forEach((s) => {
         if (newNum === s.number && s.status !== 'done') {
           s.status = 'active';
           this.activeTitle = s.title;

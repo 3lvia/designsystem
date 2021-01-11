@@ -7,7 +7,6 @@ import { getCommunity } from 'src/app/shared/e-items';
   styleUrls: ['./faq-doc.component.scss'],
 })
 export class FaqDocComponent {
-
   @ViewChild('contribute') contribute: ElementRef;
   @ViewChild('bugs') bugs: ElementRef;
   @ViewChild('browsers') browsers: ElementRef;

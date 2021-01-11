@@ -10,7 +10,8 @@ import { EItems } from 'src/app/shared/e-items.interface';
 export class OverviewToolsComponent implements OnInit {
   overviewTitle = 'Tools';
   // tslint:disable-next-line:max-line-length
-  description = 'Whether you need inspiration or concrete advice, our library of tools gather methods and information for both designers and developers to help in your project.';
+  description =
+    'Whether you need inspiration or concrete advice, our library of tools gather methods and information for both designers and developers to help in your project.';
   pages = eTools;
   loadedImg = false;
 

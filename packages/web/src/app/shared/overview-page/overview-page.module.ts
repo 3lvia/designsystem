@@ -9,4 +9,4 @@ import { NavbarModule } from 'src/app/shell/navbar/navbar.module';
   declarations: [OverviewPageComponent],
   exports: [OverviewPageComponent],
 })
-export class OverviewPageModule { }
+export class OverviewPageModule {}

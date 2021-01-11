@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FeedbackComponent } from './feedback.component';
 
 @NgModule({
-  imports: [
-    CommonModule
-  ],
+  imports: [CommonModule],
   declarations: [FeedbackComponent],
   exports: [FeedbackComponent],
 })
-export class FeedbackModule { }
+export class FeedbackModule {}

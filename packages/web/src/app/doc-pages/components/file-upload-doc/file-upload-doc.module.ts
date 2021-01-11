@@ -9,7 +9,6 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-properties/c
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -22,4 +21,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [FileUploadDocComponent, DndDirective],
 })
-export class FileUploadDocModule { }
+export class FileUploadDocModule {}

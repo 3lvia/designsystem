@@ -4,10 +4,7 @@ import { OverviewComponent } from './overview-comp.component';
 import { OverviewPageModule } from 'src/app/shared/overview-page/overview-page.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    OverviewPageModule
-  ],
-  declarations: [OverviewComponent]
+  imports: [CommonModule, OverviewPageModule],
+  declarations: [OverviewComponent],
 })
-export class OverviewModule { }
+export class OverviewModule {}

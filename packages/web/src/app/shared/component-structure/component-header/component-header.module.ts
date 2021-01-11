@@ -4,11 +4,8 @@ import { ComponentHeaderComponent } from './component-header.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-  ],
+  imports: [CommonModule, RouterModule],
   exports: [ComponentHeaderComponent],
   declarations: [ComponentHeaderComponent],
 })
-export class ComponentHeaderModule { }
+export class ComponentHeaderModule {}

@@ -18,4 +18,4 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure
   ],
   declarations: [GridDocComponent],
 })
-export class GridDocModule { }
+export class GridDocModule {}

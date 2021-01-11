@@ -7,14 +7,8 @@ import { NavbarModule } from '../navbar/navbar.module';
 import { FooterModule } from '../footer/footer.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    HeaderModule,
-    NavbarModule,
-    FooterModule,
-  ],
+  imports: [CommonModule, RouterModule, HeaderModule, NavbarModule, FooterModule],
   declarations: [MainComponent],
   exports: [MainComponent],
 })
-export class MainModule { }
+export class MainModule {}

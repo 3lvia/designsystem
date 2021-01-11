@@ -22,4 +22,4 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-structure/co
   ],
   declarations: [ContentLoaderDocComponent],
 })
-export class ContentLoaderDocModule { }
+export class ContentLoaderDocModule {}

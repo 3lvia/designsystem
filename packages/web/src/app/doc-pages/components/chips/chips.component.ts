@@ -4,19 +4,16 @@ import { getComponent } from 'src/app/shared/e-items';
 @Component({
   selector: 'app-chips',
   templateUrl: './chips.component.html',
-  styleUrls: ['./chips.component.scss']
+  styleUrls: ['./chips.component.scss'],
 })
 export class ChipsComponent {
-
   figmaUrl = getComponent('chips').figmaUrl;
   description = getComponent('chips').description;
   does = [
     'To provide an overview of selected options and allows you to easily remove them',
     'Use together with an inputfield',
   ];
-  donts = [
-    'Not to be used alone without inputfield.',
-  ];
+  donts = ['Not to be used alone without inputfield.'];
 
   exampleOverview = `<div class="e-chip-container">
   <button class="e-chip">
@@ -73,7 +70,8 @@ export class ChipsComponent {
   closeChipsTemporarily(name: string): void {
     const chip = document.getElementById(name);
     chip.classList.add('e-none');
-    setTimeout(() => { chip.classList.remove('e-none'); }, 1000);
+    setTimeout(() => {
+      chip.classList.remove('e-none');
+    }, 1000);
   }
-
 }

@@ -24,4 +24,4 @@ import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.modul
   ],
   declarations: [ButtonDocComponent],
 })
-export class ButtonDocModule { }
+export class ButtonDocModule {}

@@ -4,11 +4,8 @@ import { MobileMenuComponent } from './mobile-menu.component';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-    imports: [
-        CommonModule,
-        RouterModule,
-    ],
-    declarations: [MobileMenuComponent],
-    exports: [MobileMenuComponent],
+  imports: [CommonModule, RouterModule],
+  declarations: [MobileMenuComponent],
+  exports: [MobileMenuComponent],
 })
-export class HeaderModule { }
+export class HeaderModule {}

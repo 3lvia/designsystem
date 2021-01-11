@@ -1,11 +1,10 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as retargetEvents from 'react-shadow-dom-retarget-events'
+import * as retargetEvents from 'react-shadow-dom-retarget-events';
 import * as throttle from 'lodash.throttle';
 import * as isEqual from 'lodash.isequal';
 
 export class ElvisComponentWrapper extends HTMLElement {
-
   protected _data: any;
   protected reactComponent: any;
   protected webComponent: any;
@@ -21,9 +20,8 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
     this.role = role;
-    this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { 'trailing': true });
+    this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { trailing: true });
   }
-
 
   get data(): any {
     return this._data;
@@ -43,7 +41,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected attachStyle(): void {
-    this.setAttribute('role', this.role)
+    this.setAttribute('role', this.role);
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
@@ -55,7 +53,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected setProps(newProps: any, preventRerender?: boolean): void {
-    Object.keys(newProps).forEach(key => {
+    Object.keys(newProps).forEach((key) => {
       if (!isEqual(this._data[key], newProps[key])) {
         this._data[key] = newProps[key];
         this.changedEvent(key);
@@ -63,14 +61,13 @@ export class ElvisComponentWrapper extends HTMLElement {
       }
     });
 
-
     if (!preventRerender) {
       this.throttleRenderReactDOM();
     }
   }
 
   protected createReactData() {
-    const reactData = {}
+    const reactData = {};
     Object.keys(this._data).forEach((key: string) => {
       reactData[this.mapNameToRealName(key)] = this._data[key];
     });
@@ -80,8 +77,8 @@ export class ElvisComponentWrapper extends HTMLElement {
   // Finds the real name of an attribute
   protected mapNameToRealName(attr: string): string {
     return this.webComponent.getComponentData().attributes.find((compAttr: string) => {
-      return compAttr.toLowerCase() === attr
-    })
+      return compAttr.toLowerCase() === attr;
+    });
   }
 
   protected renderReactDOM(): void {
@@ -89,18 +86,19 @@ export class ElvisComponentWrapper extends HTMLElement {
     ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
   }
 
-
   private changedEvent(propName: string) {
-    this.mountPoint.dispatchEvent(new CustomEvent(propName + 'OnChange', {
-      bubbles: false,
-      composed: true,
-      detail: this._data
-    }));
+    this.mountPoint.dispatchEvent(
+      new CustomEvent(propName + 'OnChange', {
+        bubbles: false,
+        composed: true,
+        detail: this._data,
+      }),
+    );
   }
 
   /**
-  * Maps the attributes to the data object unless data is set
-  */
+   * Maps the attributes to the data object unless data is set
+   */
   private mapAttributesToData() {
     this.webComponent.observedAttributes.forEach((attr: any) => {
       const val = this.getAttribute(attr);

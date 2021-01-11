@@ -30,8 +30,9 @@ export class LinkDocComponent {
     'Shortcurts on the front page',
     'Overview pages for content selection',
   ];
-  dontsExampleCard = ['Do not use both standard and shortcut on the same page. The same goes for the description version, use description on all or none.'];
-
+  dontsExampleCard = [
+    'Do not use both standard and shortcut on the same page. The same goes for the description version, use description on all or none.',
+  ];
 
   previewLinkHTML = `<a class="e-link" href="https://design.elvia.io/components/link-doc#Overview">Link</a>`;
 

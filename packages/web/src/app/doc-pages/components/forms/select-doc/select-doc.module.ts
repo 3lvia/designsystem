@@ -6,12 +6,7 @@ import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 import { ComponentPropertiesModule } from 'src/app/shared/component-properties/component-properties.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    CodeBlockModule,
-    ComponentPropertiesModule,
-  ],
+  imports: [CommonModule, ComponentHeaderModule, CodeBlockModule, ComponentPropertiesModule],
   declarations: [SelectDocComponent],
 })
-export class SelectDocModule { }
+export class SelectDocModule {}
