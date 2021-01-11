@@ -15,8 +15,6 @@ function App() {
     {label: 'Siste kall'},
     {label: 'HAN-port'},
     {label: 'Feilkategorisering'},
-    // {label: '', isDisabled: true},
-    // {label: ''},
   ]
 
   function update() {
