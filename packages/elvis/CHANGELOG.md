@@ -3,6 +3,77 @@
 <!-- 🐝 - BUG FIXES -->
 
 <table>
+ <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      5.0.0
+    </span>
+    <br>
+    <span>
+      January 06, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/search#Overview">Search</a>
+        </div>
+        The search bar component has changed the default search icon. The size of the search and close icons has also been adjusted for both local and global search. 
+        <div class="e-mt-8">
+          How to fix:
+          The changes only affect icon used to display a search bar. The only thing needed to fix this is to replace the <span class="code-text">e-icon--search-bold</span> icon with the new  <span class="code-text">e-icon--search-color</span>
+        </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+<tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      4.7.0
+    </span>
+    <br>
+    <span>
+      January 05, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icons</a>
+        </div>
+        <div>
+          New icon structure, enabling elvis to deprecate and rename old icons. Use of deprecated icons will also be warned in console with reference to in which version of elvis the icon was deprecated, and what new icon should be used instead. 
+        </div>
+        <div>
+          New icons from figma has also been added to elvis and search icons had been updated!
+        </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+<tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      4.6.0
+    </span>
+    <br>
+    <span>
+      December 22, 2020
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
+        </div>
+        <div>
+          Added alignment to typography.
+        </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">

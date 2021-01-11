@@ -12,6 +12,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
   {
@@ -27,6 +28,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
   {
@@ -42,6 +44,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
   {
@@ -55,6 +58,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
   {
@@ -70,6 +74,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
   {
@@ -85,6 +90,7 @@ module.exports = [
       { key: 'style', value: 'italic' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
   {
@@ -101,6 +107,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
   {
@@ -110,13 +117,13 @@ module.exports = [
       { key: 'size', value: '18px' },
       { key: 'size-m', value: '16px' },
       { key: 'weight', value: '400' },
-      { key: 'align', value: 'center' },
       { key: 'height', value: '29px' },
       { key: 'height-m', value: '26px' },
       { key: 'letter-spacing', value: 'unset' },
       { key: 'style', value: 'italic' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'center' },
     ],
   },
   {
@@ -131,6 +138,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
   {
@@ -144,6 +152,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'uppercase' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
   {
@@ -158,6 +167,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
   {
@@ -171,6 +181,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
   {
@@ -184,6 +195,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
+      { key: 'align', value: 'left'},
     ],
   },
 ];

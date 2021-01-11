@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@elvia/elvis-checkbox": "*",
+    "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-tabs": "*",
     "@material-ui/core": "^4.11.0",

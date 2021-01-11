@@ -3,8 +3,8 @@
 		"e-icon": {
 			"modifier": {
 				"e-icon--xxs": {},
-				"e-icon--custom12": {},
 				"e-icon--xs": {},
+				"e-icon--custom19": {},
 				"e-icon--sm": {},
 				"e-icon--md": {},
 				"e-icon--lg": {},
@@ -70,6 +70,27 @@
 				"e-dropdown__item": {}
 			}
 		},
+		"e-form-field": {
+			"modifier": {
+				"e-form-field--compact": {},
+				"e-form-field--combined": {},
+				"e-form-field--small": {},
+				"e-form-field--medium": {}
+			},
+			"element": {
+				"e-form-field__label": {
+					"modifier": {
+						"e-form-field__label--optional": {}
+					}
+				},
+				"e-form-field__error": {
+					"modifier": {
+						"e-form-field__error--visible": {}
+					}
+				},
+				"e-form-field__input": {}
+			}
+		},
 		"e-no-outline": {},
 		"e-outline": {},
 		"e-text": {},
@@ -128,6 +149,8 @@
 		"e-bg-white": {},
 		"e-text-elvia-on": {},
 		"e-bg-elvia-on": {},
+		"e-text-font-color-light": {},
+		"e-bg-font-color-light": {},
 		"e-text-black": {},
 		"e-bg-black": {},
 		"e-text-font-color": {},
@@ -835,34 +858,6 @@
 				"e-dragdrop--dragover": {}
 			}
 		},
-		"e-form-field": {
-			"modifier": {
-				"e-form-field--compact": {},
-				"e-form-field--combined": {},
-				"e-form-field--small": {},
-				"e-form-field--medium": {}
-			},
-			"element": {
-				"e-form-field__label": {
-					"modifier": {
-						"e-form-field__label--optional": {}
-					}
-				},
-				"e-form-field__error": {
-					"modifier": {
-						"e-form-field__error--visible": {}
-					}
-				},
-				"e-form-field__input": {}
-			}
-		},
-		"e-search": {
-			"modifier": {
-				"e-search--local": {},
-				"e-search--searched": {},
-				"e-search--global": {}
-			}
-		},
 		"e-inlined-field": {},
 		"e-fileupload": {
 			"element": {
@@ -898,12 +893,18 @@
 				"e-radio---invalid": {}
 			}
 		},
+		"e-search": {
+			"modifier": {
+				"e-search--local": {},
+				"e-search--searched": {},
+				"e-search--global": {}
+			}
+		},
 		"e-segmented-controls": {
 			"element": {
 				"e-segmented-controls__title": {}
 			}
 		},
-		"e-select": {},
 		"e-border-none": {},
 		"e-border": {},
 		"e-border-t": {},
@@ -959,8 +960,8 @@
 	"flat": {
 		"e-icon": {},
 		"e-icon--xxs": {},
-		"e-icon--custom12": {},
 		"e-icon--xs": {},
+		"e-icon--custom19": {},
 		"e-icon--sm": {},
 		"e-icon--md": {},
 		"e-icon--lg": {},
@@ -1004,6 +1005,8 @@
 		"e-dropdown__content": {},
 		"e-autocomplete__item": {},
 		"e-dropdown__item": {},
+		"e-form-field": {},
+		"e-form-field--compact": {},
 		"e-no-outline": {},
 		"e-outline": {},
 		"e-text": {},
@@ -1062,6 +1065,8 @@
 		"e-bg-white": {},
 		"e-text-elvia-on": {},
 		"e-bg-elvia-on": {},
+		"e-text-font-color-light": {},
+		"e-bg-font-color-light": {},
 		"e-text-black": {},
 		"e-bg-black": {},
 		"e-text-font-color": {},
@@ -1615,11 +1620,8 @@
 		"e-checkbox---checked": {},
 		"e-dragdrop": {},
 		"e-dragdrop--dragover": {},
-		"e-form-field": {},
-		"e-form-field--compact": {},
 		"e-form-field__label": {},
 		"e-form-field__error": {},
-		"e-search--local": {},
 		"e-form-field__label--optional": {},
 		"e-form-field__error--visible": {},
 		"e-form-field--combined": {},
@@ -1649,12 +1651,11 @@
 		"e-radio---hover": {},
 		"e-radio---invalid": {},
 		"e-search": {},
+		"e-search--local": {},
 		"e-search--searched": {},
 		"e-search--global": {},
 		"e-segmented-controls": {},
 		"e-segmented-controls__title": {},
-		"e-select": {},
-		"e-select_icon": {},
 		"e-border-none": {},
 		"e-border": {},
 		"e-border-t": {},

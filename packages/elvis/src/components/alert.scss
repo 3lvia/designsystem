@@ -1,8 +1,9 @@
-@use "./../variables/typography.scss";
+@use "../variables/typography.scss";
 @use "../variables/colors";
+@use "../variables/shadows";
 @use "../utilities/icons.scss";
 @use "../utilities/breakpoints";
-@use "./../variables/shadows";
+@use "../utilities/helpers";
 
 $local-padding: 22px 30px 22px 22px; // -2px for border;
 $local-mobile-padding: 14px; // -2px for border;
@@ -19,7 +20,7 @@ $toast-max-width: 400px;
   display: inline-flex;
   box-sizing: border-box;
   border: 2px solid colors.color('red');
-  background: colors.color('white');
+  background: colors.color('elvia-on');
   flex-direction: row;
   min-width: 270px;
   position: relative;
@@ -138,16 +139,17 @@ $toast-max-width: 400px;
         .e-alert__accordion {
           @include icons.icon-size('sm');
           margin-left: 24px;
-          @keyframes rotate-center-forward {
+          @include helpers.keyframes(rotate-center-forward) {
             0% {
-              -webkit-transform: rotate(180deg);
-              transform: rotate(180deg);
+              @include helpers.transform(rotate(180deg));
             }
             100% {
-              -webkit-transform: rotate(0);
-              transform: rotate(0);
+              @include helpers.transform(rotate(0));
             }
           }
+          -o-animation: rotate-center-forward 0.2s ease-in-out both;
+          -moz-animation: rotate-center-forward 0.2s ease-in-out both;
+          -webkit-animation: rotate-center-forward 0.2s ease-in-out both;
           animation: rotate-center-forward 0.2s ease-in-out both;
 
           display: flex;
@@ -173,21 +175,18 @@ $toast-max-width: 400px;
         margin-top: 0;
         transition: max-height 0.18s cubic-bezier(0, 0.18, 0.9, 1),
           opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1), margin-top 0.17s cubic-bezier(0, 0.18, 1, 1);
-
         width: 100%;
         pointer-events: none;
         overflow: hidden;
       }
       &.e-alert--open {
         .e-alert__accordion {
-          @keyframes rotate-center-back {
+          @include helpers.keyframes(rotate-center-back) {
             0% {
-              -webkit-transform: rotate(0);
-              transform: rotate(0);
+              @include helpers.transform(rotate(0));
             }
             100% {
-              -webkit-transform: rotate(180deg);
-              transform: rotate(180deg);
+              @include helpers.transform(rotate(180deg));
             }
           }
           animation: rotate-center-back 0.2s ease-in-out both;
@@ -271,7 +270,7 @@ $toast-max-width: 400px;
   // TOAST
   &.e-alert--toast {
     border-radius: 8px;
-    border-color: colors.color('green');
+    border-color: colors.color('elvia-charge');
     box-shadow: shadows.$e-shadow-6;
     max-width: $toast-max-width;
     padding: $toast-padding;

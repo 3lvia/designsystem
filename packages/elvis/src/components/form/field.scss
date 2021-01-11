@@ -5,7 +5,6 @@
 $form-input-padding-compact: 5px 10px;
 $form-input-padding-compact-active: 4px 9px;
 $form-input-padding-compact-with-icon: 5px 36px 5px 10px;
-$autocomplete-padding-item-compact: 6px 10px;
 
 .e-form-field {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -23,7 +22,7 @@ $autocomplete-padding-item-compact: 6px 10px;
       z-index: 1;
       top: -5px;
       left: 8px;
-      background: colors.color('white');
+      background: colors.color('elvia-on');
       padding: 0 3px;
 
       font-family: 'Red Hat Text';
@@ -33,58 +32,11 @@ $autocomplete-padding-item-compact: 6px 10px;
     }
     .e-form-field__error {
       margin-top: 4px;
-
       font-family: 'Red Hat Text';
       font-size: 12px;
       line-height: 16px;
     }
-    .e-autocomplete {
-      &__item {
-        padding: $autocomplete-padding-item-compact;
-        @include typography.typography('text-info');
-      }
-    }
-    .e-search--local {
-      font-size: 14px;
-      .e-input {
-        input:invalid,
-        input:focus {
-          padding: 4px 35px 4px 9px;
-        }
-        input,
-        input:disabled {
-          padding: 5px 36px 5px 10px;
-        }
-      }
-      .e-btn.e-btn--icon {
-        top: 5px;
-        width: 24px;
-        height: 24px;
-        @media screen and (-ms-high-contrast: none) {
-          top: 3px;
-        }
-        .e-btn__icon {
-          @include icons.icon-size('custom12');
-          i[class*='e-icon--search-bold'] {
-            left: -2px;
-          }
-          i[class*='e-icon--close-bold'] {
-            left: -6px;
-          }
-        }
-      }
-    }
-    .e-dropdown {
-      .e-input i {
-        right: 10px;
-      }
-      .e-dropdown__content .e-dropdown__item {
-        display: flex;
-        align-items: center;
-        line-height: 22px;
-        padding: 6px 16px;
-      }
-    }
+
     .e-input {
       input,
       textarea {
@@ -103,7 +55,7 @@ $autocomplete-padding-item-compact: 6px 10px;
       &.e-input---focus textarea,
       > input:focus,
       > textarea:focus {
-        border: 2px solid colors.color('green');
+        border: 2px solid colors.color('elvia-charge');
         padding: $form-input-padding-compact-active;
       }
       > i ~ input,

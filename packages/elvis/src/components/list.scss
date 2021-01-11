@@ -33,7 +33,7 @@ $list-border-radius: 50%;
       top: 12px;
       width: $list-dot-size;
       height: $list-dot-size;
-      background-color: colors.color('green');
+      background-color: colors.color('elvia-charge');
       border-radius: $list-border-radius;
     }
   }
@@ -57,7 +57,7 @@ $list-border-radius: 50%;
         height: 30px;
         top: 2px;
         background: transparent;
-        border: 2px solid colors.color('green');
+        border: 2px solid colors.color('elvia-charge');
         border-radius: $list-border-radius;
       }
     }

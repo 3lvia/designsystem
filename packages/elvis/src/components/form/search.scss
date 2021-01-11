@@ -1,4 +1,5 @@
-@use "../../utilities/icons.scss";
+@use "../../utilities/icons";
+@use "../../utilities/helpers";
 
 .e-search {
   position: relative;
@@ -24,16 +25,17 @@
     }
     .e-btn.e-btn--icon {
       position: absolute;
-      top: 8px;
+      top: 4px;
       right: 8px;
-      width: 32px;
-      height: 32px;
+      width: 40px;
+      height: 40px;
       @media screen and (-ms-high-contrast: none) {
-        top: 7px;
+        // CHECK IE11
+        top: 4px;
       }
       .e-btn__icon {
-        @include icons.icon-size('xs');
-        i[class*='e-icon--search-bold'] {
+        @include icons.icon-size('sm');
+        i[class*='e-icon--search-color'] {
           visibility: visible;
           position: absolute;
           display: flex;
@@ -44,14 +46,15 @@
           position: absolute;
           display: flex;
           top: 0px;
-          left: -8px;
+          left: -9px;
         }
       }
     }
 
     &.e-search--searched {
       .e-btn.e-btn--icon .e-btn__icon {
-        i[class*='e-icon--search-bold'] {
+        @include icons.icon-size('custom19');
+        i[class*='e-icon--search-color'] {
           visibility: hidden;
         }
         i[class*='e-icon--close-bold'] {
@@ -83,6 +86,8 @@
 
     .e-btn.e-btn--icon {
       display: none;
+      width: 32px;
+      height: 32px;
     }
 
     &.e-search--searched {
@@ -90,9 +95,9 @@
         display: flex;
         position: absolute;
         right: 0;
-        top: 6px;
+        bottom: 1px;
         @media screen and (-ms-high-contrast: none) {
-          top: 1px;
+          top: 0px;
         }
         .e-btn__icon {
           @include icons.icon-size('xs');
@@ -101,6 +106,37 @@
             display: flex;
             top: 0px;
           }
+        }
+      }
+    }
+  }
+}
+
+// form field adujustments for search
+.e-form-field {
+  &.e-form-field--compact {
+    .e-search--local {
+      font-size: 14px;
+      .e-input {
+        input:invalid,
+        input:focus {
+          padding: 4px 35px 4px 9px;
+        }
+        input,
+        input:disabled {
+          padding: 5px 36px 5px 10px;
+        }
+      }
+      .e-btn.e-btn--icon {
+        top: 1px;
+        right: 4px;
+        width: 32px;
+        height: 32px;
+        @media screen and (-ms-high-contrast: none) {
+          top: 1px;
+        }
+        .e-btn__icon {
+          @include icons.icon-size('xs');
         }
       }
     }

@@ -3,6 +3,7 @@ import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
+import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 
 function App() {
 
@@ -19,7 +20,19 @@ function App() {
   ]
 
   function update() {
-    setTrackedState(false);
+    setTrackedState(!trackedState);
+  }
+
+  const [progressValue, setProgressValue] = useState(0)
+
+  function increaseProgress() {
+    setProgressValue(prevProgValue => prevProgValue + 10)
+  }
+  function decreaseProgress() {
+    setProgressValue(prevProgValue => prevProgValue - 10)
+  }
+  function resetProgress() {
+    setProgressValue(0)
   }
 
   return (
@@ -114,6 +127,32 @@ function App() {
           posX="left"
         ></Popover>
       </div>
+
+      <h2>Progressbar</h2>
+
+      <ProgressLinear value={progressValue}></ProgressLinear>
+
+      <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
+        <button onClick={increaseProgress}>Increase</button>
+        <button onClick={decreaseProgress}>Decrease</button>
+        <button onClick={resetProgress}>reset</button>
+      </div>
+      <div>
+        {progressValue}
+      </div>
+
+      <h2>Progressbar indeterminate</h2>
+
+      <div>
+        <ProgressLinear isIndeterminate></ProgressLinear>
+      </div>
+      <h2>Progressbar Error</h2>
+
+      <div>
+        <ProgressLinear isError></ProgressLinear>
+      </div>
+
+
     </div >
   );
 }
