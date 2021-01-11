@@ -2,11 +2,19 @@ import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Checkbox } from '@elvia/elvis-checkbox/react';
+import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 
 function App() {
   const [trackedState, setTrackedState] = useState(true);
+  const [selectedState, setSelectedState] = useState(0);
   const ref = useRef();
+  const items = [
+    { label: 'Statistikk' },
+    { label: 'Siste kall' },
+    { label: 'HAN-port' },
+    { label: 'Feilkategorisering' },
+  ];
 
   function update() {
     setTrackedState(!trackedState);
@@ -27,6 +35,14 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
+
+      <h2>Tabs</h2>
+      <div style={{ marginTop: '16px' }}>
+        <Tabs items={items} value={selectedState} valueOnChange={setSelectedState}></Tabs>
+        <div>{selectedState.toString()}</div>
+      </div>
+
+      <hr style={{ margin: '40px 0' }} />
 
       <h2>Checkbox</h2>
       <div style={{ marginTop: '16px' }}>

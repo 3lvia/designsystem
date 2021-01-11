@@ -7,6 +7,13 @@ module.exports = [
     reactName: 'Checkbox',
   },
   {
+    name: 'elvis-tabs',
+    role: 'tabs',
+    elementName: 'elvia-tabs',
+    attributes: ['items', 'value'],
+    reactName: 'Tabs',
+  },
+  {
     name: 'elvis-popover',
     role: 'checkbox',
     elementName: 'elvia-popover',
