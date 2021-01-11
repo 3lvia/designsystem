@@ -7,3 +7,8 @@ export const throttle = (func: any, limit: number) => {
         }
     };
 };
+export class a11y {
+    outline = (id: string) => {
+
+    }
+}
