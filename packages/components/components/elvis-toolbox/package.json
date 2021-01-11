@@ -1,0 +1,8 @@
+{
+  "name": "@elvia/elvis-toolbox",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/elvis-toolbox.js",
+  "author": "",
+  "license": "MIT"
+}

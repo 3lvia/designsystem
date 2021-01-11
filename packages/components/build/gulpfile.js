@@ -127,6 +127,16 @@ function buildElviaComponentToJS() {
         .pipe(gulp.dest(`../components/elvis-component-wrapper/dist/`));
 }
 
+function buildToolboxComponentToJS() {
+    return gulp.src(`../components/elvis-toolbox/src/*.ts`)
+        .pipe(babel({
+            "presets": [
+                "@babel/preset-typescript"
+            ],
+        })).pipe(header(WARNING))
+        .pipe(gulp.dest(`../components/elvis-toolbox/dist/`));
+}
+
 // TODO: Find a way to do cleanup that does not trigger rebuild
 function cleanup() {
     return del(['../components/**/dist/**/*'], { force: true });
@@ -141,6 +151,7 @@ gulp.task(
         TSX_to_JS,
         buildWebComponentsMagically,
         buildElviaComponentToJS,
+        buildToolboxComponentToJS,
         function (done) {
             done();
             console.log('Successfully built Elvia Components!');
