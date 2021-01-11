@@ -42,14 +42,6 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.throttleRenderReactDOM();
   }
 
-  private changedEvent(propName: string) {
-    this.mountPoint.dispatchEvent(new CustomEvent(propName + 'OnChange', {
-      bubbles: false,
-      composed: true,
-      detail: this._data
-    }));
-  }
-
   protected attachStyle(): void {
     this.setAttribute('role', this.role)
     this.mountPoint = document.createElement('span');
@@ -70,7 +62,6 @@ export class ElvisComponentWrapper extends HTMLElement {
         this.changedEvent(this.mapNameToRealName(key));
       }
     });
-
 
 
     if (!preventRerender) {
@@ -96,6 +87,15 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected renderReactDOM(): void {
     this.mapAttributesToData();
     ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
+  }
+
+
+  private changedEvent(propName: string) {
+    this.mountPoint.dispatchEvent(new CustomEvent(propName + 'OnChange', {
+      bubbles: false,
+      composed: true,
+      detail: this._data
+    }));
   }
 
   /**
