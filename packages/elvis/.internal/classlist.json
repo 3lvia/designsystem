@@ -836,7 +836,6 @@
 				"e-toggle---disabled": {}
 			}
 		},
-		"e-slider": {},
 		"e-checkbox": {
 			"modifier": {
 				"e-checkbox--sm": {}
@@ -1607,7 +1606,6 @@
 		"e-toggle": {},
 		"e-toggle__slider": {},
 		"e-toggle__checkmark": {},
-		"e-slider": {},
 		"e-toggle--inverted": {},
 		"e-toggle---disabled": {},
 		"e-checkbox": {},

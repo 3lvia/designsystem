@@ -7551,7 +7551,7 @@ input:focus {
   transform: translateX(16px);
 }
 
-.e-toggle input:focus + .e-slider {
+.e-toggle input:focus + .e-toggle__slider {
   outline: 2px solid #0064fa;
   outline-offset: 2px;
 }
