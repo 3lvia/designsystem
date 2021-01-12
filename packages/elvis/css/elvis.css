@@ -7545,10 +7545,10 @@ input:focus {
 
 .e-toggle input:checked + .e-toggle__slider::before {
   background-color: #29d305;
-  -o-transform: translateX(calc(32px - (calc((16px - 10px) / 2) * 2) - 10px));
-  -ms-transform: translateX(calc(32px - (calc((16px - 10px) / 2) * 2) - 10px));
-  -webkit-transform: translateX(calc(32px - (calc((16px - 10px) / 2) * 2) - 10px));
-  transform: translateX(calc(32px - (calc((16px - 10px) / 2) * 2) - 10px));
+  -o-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  -webkit-transform: translateX(16px);
+  transform: translateX(16px);
 }
 
 .e-toggle input:focus + .e-slider {

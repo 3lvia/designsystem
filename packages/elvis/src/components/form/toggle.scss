@@ -84,8 +84,7 @@ $toggle-negative-slider-padding: calc((#{$toggle-negative-height} - #{$toggle-sl
 
   input:checked + .e-toggle__slider::before {
     background-color: colors.color('elvia-charge');
-    $transX: calc(#{$toggle-width} - (#{$toggle-slider-padding} * 2) - #{$toggle-slider-size});
-    @include helpers.transform(translateX(#{$transX}));
+    @include helpers.transform(translateX(16px));
   }
 
   input:focus + .e-slider {
