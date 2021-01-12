@@ -1,17 +1,15 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Logo
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Logo</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
 </app-component-header>
 
 <div class="page-body">
-  <div style="display: flex; justify-content: center;">
+  <div style="display: flex; justify-content: center">
     <img
-      style="display: flex; width: 400px; max-width: 90%;"
+      style="display: flex; width: 400px; max-width: 90%"
       src="../../../../assets/logo/animation_640_keva0d1n.gif"
     />
   </div>
@@ -31,6 +29,7 @@
                 [checked]="isInverted"
               />
               <span class="e-toggle__slider"></span>
+              <span class="e-toggle__checkmark"></span>
             </label>
           </div>
         </div>
@@ -71,6 +70,7 @@
                 [checked]="isInverted2"
               />
               <span class="e-toggle__slider"></span>
+              <span class="e-toggle__checkmark"></span>
             </label>
           </div>
         </div>
@@ -111,6 +111,7 @@
                 [checked]="isInverted3"
               />
               <span class="e-toggle__slider"></span>
+              <span class="e-toggle__checkmark"></span>
             </label>
           </div>
         </div>
@@ -241,7 +242,7 @@
         <ng-container ngProjectAs="sectionContent">
           There should always be sufficient space around the logo to avoid conflict with other visual
           elements. Recommended padding around the logo is 50% of the height.
-          <div style="margin-top: 8px; display: flex; flex-direction: row; flex-wrap: wrap;">
+          <div style="margin-top: 8px; display: flex; flex-direction: row; flex-wrap: wrap">
             <img class="e-mr-40 e-mt-16" src="assets/logo/logoWithMargin.svg" />
             <img class="e-mt-16" src="assets/logo/simpleLogoWithMargin.svg" />
           </div>
@@ -258,7 +259,7 @@
           can also use Elvia's icon for better clarity. The logo should have a
           <b>height of at least 25px.</b>
 
-          <div style="margin-top: 8px; display: flex; flex-direction: row; flex-wrap: wrap;">
+          <div style="margin-top: 8px; display: flex; flex-direction: row; flex-wrap: wrap">
             <img class="e-mr-40 e-mt-16" src="assets/logo/elviaLogo25.svg" />
             <img class="e-mt-16" src="assets/logo/simpleElviaLogo25.svg" />
           </div>

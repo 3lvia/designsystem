@@ -64,28 +64,18 @@ $toggle-negative-slider-padding: calc((#{$toggle-negative-height} - #{$toggle-sl
   }
 
   &__checkmark {
+    display: none;
+    position: absolute;
+    @include helpers.transform(rotate(45deg));
+    height: 7px;
+    width: 4px;
+    top: 4px;
+    left: 22px;
+    border-bottom: 1px solid colors.color('elvia-off');
+    border-right: 1px solid colors.color('elvia-off');
+  }
+  input:checked ~ .e-toggle__checkmark {
     display: inline-block;
-    width: 22px;
-    height: 22px;
-    @include helpers.transform(rotate(38deg));
-
-    .checkmark_stem {
-      background-color: colors.color('elvia-off');
-      position: absolute;
-      width: 1px;
-      height: 6px;
-      left: 15px;
-      top: 1px;
-    }
-
-    .checkmark_kick {
-      background-color: colors.color('elvia-off');
-      position: absolute;
-      width: 4px;
-      height: 1px;
-      left: 12px;
-      top: 7px;
-    }
   }
 
   input:checked + .e-toggle__slider {
@@ -113,18 +103,26 @@ $toggle-negative-slider-padding: calc((#{$toggle-negative-height} - #{$toggle-sl
       bottom: $toggle-negative-slider-padding;
     }
 
+    .e-toggle__checkmark {
+      height: 6px;
+      width: 3px;
+      top: 3px;
+      left: 21px;
+    }
+
     &.e-toggle---disabled,
     &:disabled {
       background-color: colors.color('grey');
       border: 1px solid colors.color('grey-70');
-      .e-toggle__slider::before {
+      .e-toggle__slider::before,
+      input:checked + .e-toggle__slider::before {
         background-color: colors.color('grey-70');
       }
       input:checked + .e-toggle__slider {
         background-color: colors.color('grey');
       }
-      input:checked + .e-toggle__slider::before {
-        background-color: colors.color('disabled');
+      input:checked ~ .e-toggle__checkmark {
+        border-color: colors.color('grey');
       }
     }
   }
@@ -133,14 +131,15 @@ $toggle-negative-slider-padding: calc((#{$toggle-negative-height} - #{$toggle-sl
   &:disabled {
     cursor: not-allowed;
     background-color: colors.color('disabled');
-    .e-toggle__slider::before {
+    .e-toggle__slider::before,
+    input:checked + .e-toggle__slider::before {
       background-color: colors.color('grey-10');
     }
     input:checked + .e-toggle__slider {
       background-color: colors.color('disabled');
     }
-    input:checked + .e-toggle__slider::before {
-      background-color: colors.color('grey-70');
+    input:checked ~ .e-toggle__checkmark {
+      border-color: colors.color('disabled');
     }
   }
 }
