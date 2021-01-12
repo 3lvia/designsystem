@@ -1,16 +1,14 @@
 const typographyConfig = require('./../src/config/typography.config');
 const fs = require('fs');
 
-
 // Creating typography.scss
 async function createTypographyScss() {
   let content = `$typography: (`;
 
-
   for (let i = 0; i < typographyConfig.length; i++) {
     const properties = typographyConfig[i].properties;
 
-    if(typographyConfig[i].altLabels != undefined){
+    if (typographyConfig[i].altLabels != undefined) {
       for (let k = 0; k < typographyConfig[i].altLabels.length; k++) {
         content += addClass(typographyConfig[i].altLabels[k], properties, i);
       }
@@ -36,25 +34,23 @@ function addClass(className, properties, i) {
   let newClass = ``;
   newClass += `
   ${className}: (`;
-    for (let j = 0; j < properties.length; j++) {
-      if (properties[j].key === 'family') {
-        newClass += `
+  for (let j = 0; j < properties.length; j++) {
+    if (properties[j].key === 'family') {
+      newClass += `
     ${properties[j].key}: #{${properties[j].value},\n    sans-serif},`;
-      } else {
-        newClass += `
-    ${properties[j].key}: #{${properties[j].value}},`;
-      }
-    }
-    if (i < typographyConfig.length) {
-      newClass += '\n  ),';
     } else {
-      newClass += ')\n';
+      newClass += `
+    ${properties[j].key}: #{${properties[j].value}},`;
     }
+  }
+  if (i < typographyConfig.length) {
+    newClass += '\n  ),';
+  } else {
+    newClass += ')\n';
+  }
 
+  console.log(newClass);
   return newClass;
 }
-
-
-
 
 exports.createTypographyScss = createTypographyScss;

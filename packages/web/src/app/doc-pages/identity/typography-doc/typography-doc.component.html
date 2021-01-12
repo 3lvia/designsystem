@@ -40,10 +40,10 @@
         <div class="typoContainer e-mb-16 e-none-sm">
           <div class="typoRow">
             <div class="typoExample">
-              <div class="e-text-caps">Desktop & tablet</div>
+              <div class="e-title-caps">Desktop & tablet</div>
             </div>
             <div class="typoExample">
-              <div class="e-text-caps">Mobile</div>
+              <div class="e-title-caps">Mobile</div>
             </div>
           </div>
         </div>
@@ -293,9 +293,9 @@
           <div class="typoRow">
             <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
               <div class="example-text">
-                <app-copy [message]="'e-text-caps'">
+                <app-copy [message]="'e-title-caps'">
                   <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-caps">Text Caps</div>
+                    <div class="e-title-caps">Title Caps</div>
                   </ng-container>
                 </app-copy>
               </div>
@@ -312,9 +312,9 @@
             <!-- Mobile -->
             <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
               <div>
-                <app-copy [message]="'e-text-caps'">
+                <app-copy [message]="'e-title-caps'">
                   <ng-container ngProjectAs="copyContent">
-                    <div class="e-text-caps">Text Caps</div>
+                    <div class="e-title-caps">Title Caps</div>
                   </ng-container>
                 </app-copy>
               </div>
@@ -643,6 +643,65 @@
             </div>
           </div>
         </div>
+
+        <!-- text-micro -->
+        <div class="typoContainer">
+          <div class="typoRow">
+            <div class="typoExample" [ngClass]="[isDesktop ? '' : 'hideOnMobile']">
+              <div>
+                <app-copy [message]="'e-text-micro'">
+                  <ng-container ngProjectAs="copyContent">
+                    <div
+                      class="e-text-micro"
+                      [ngStyle]="{
+                        'font-size': typographyClasses[8].properties[1].value,
+                        'line-height': typographyClasses[8].properties[5].value
+                      }"
+                    >
+                      Text Micro
+                    </div>
+                  </ng-container>
+                </app-copy>
+              </div>
+              <div>
+                <span class="e-text-md e-text-grey-80">
+                  {{ typographyClasses[8].properties[0].value }} |
+                  {{ typographyClasses[8].properties[8].value | titlecase }},
+                  {{ typographyClasses[8].properties[4].value }}
+                  {{ typographyClasses[8].properties[1].value }} | Lh
+                  {{ typographyClasses[8].properties[5].value }}
+                </span>
+              </div>
+            </div>
+            <!-- Mobile -->
+            <div class="typoExample" [ngClass]="[isMobile ? '' : 'hideOnMobile']">
+              <div>
+                <app-copy [message]="'e-text-micro'">
+                  <ng-container ngProjectAs="copyContent">
+                    <div
+                      class="e-text-micro"
+                      [ngStyle]="{
+                        'font-size': typographyClasses[8].properties[2].value,
+                        'line-height': typographyClasses[8].properties[6].value
+                      }"
+                    >
+                      Text Micro
+                    </div>
+                  </ng-container>
+                </app-copy>
+              </div>
+              <div>
+                <span class="e-text-md e-text-grey-80">
+                  {{ typographyClasses[8].properties[0].value }} |
+                  {{ typographyClasses[8].properties[8].value | titlecase }},
+                  {{ typographyClasses[8].properties[4].value }}
+                  {{ typographyClasses[8].properties[2].value }} | Lh
+                  {{ typographyClasses[8].properties[6].value }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </ng-container>
   </app-component-section>
@@ -677,7 +736,7 @@
             and enhance visual hierarchy. We have 4 headings in different sizes.
           </div>
           <div class="e-mt-16">
-            <b>Text Caps</b>
+            <b>Title Caps</b>
             can be used as a small subheading. Caps will not stand out the same way as titles but will enhance
             visual hierarchy together with text medium or small.
           </div>
@@ -716,6 +775,11 @@
             <b>Text Image</b>
             is only used together with an image for caption to provide more context.
           </div>
+          <div class="e-mt-16">
+            <b>Text micro</b>
+            is used as small descriptive text such as dates and values. Should not be used in long paragraphs,
+            as it is very small.
+          </div>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -731,19 +795,19 @@
         <ng-container ngProjectAs="sectionContent">
           <app-component-subsubsection [sectionTitle]="'Headings'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-highlighter [codeHTML]="exampleTitles"></app-code-highlighter>
+              <app-code-block [codeHTML]="exampleTitles"></app-code-block>
             </ng-container>
           </app-component-subsubsection>
 
-          <app-component-subsubsection [sectionTitle]="'Text body'">
+          <app-component-subsubsection [sectionTitle]="'Text'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-highlighter [codeHTML]="exampleText"></app-code-highlighter>
+              <app-code-block [codeHTML]="exampleText"></app-code-block>
             </ng-container>
           </app-component-subsubsection>
 
           <app-component-subsubsection [sectionTitle]="'Special cases'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-highlighter [codeHTML]="exampleSpecial"></app-code-highlighter>
+              <app-code-block [codeHTML]="exampleSpecial"></app-code-block>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>

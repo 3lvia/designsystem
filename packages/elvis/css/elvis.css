@@ -222,10 +222,10 @@ body {
   font-size: 20px;
   line-height: 32px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -308,10 +308,10 @@ body {
   font-size: 20px;
   line-height: 32px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -526,10 +526,10 @@ body {
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
-  color: #000;
   font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+  color: #000;
   margin-bottom: 2px;
 }
 
@@ -538,10 +538,10 @@ body {
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   font-size: 16px;
   line-height: 28px;
   max-width: 758px;
@@ -618,10 +618,10 @@ body {
   font-size: 18px;
   line-height: 22px;
   font-weight: 700;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-alert.e-alert--global.e-alert--warn {
@@ -863,10 +863,10 @@ body {
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   font-weight: 500;
   margin-bottom: 0px;
 }
@@ -935,10 +935,10 @@ body {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   font-weight: 500;
 }
 
@@ -947,10 +947,10 @@ body {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-alert.e-alert--toast .e-alert__close {
@@ -1064,10 +1064,10 @@ body {
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -1085,10 +1085,10 @@ body {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-no-outline * {
@@ -2431,10 +2431,10 @@ input:focus {
   font-size: 18px;
   line-height: 22px;
   font-weight: 700;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   line-height: 24px;
   margin-bottom: 16px;
 }
@@ -2444,10 +2444,10 @@ input:focus {
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
-  color: #000;
   font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+  color: #000;
   position: absolute;
   -o-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
@@ -2463,10 +2463,10 @@ input:focus {
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-chip-container {
@@ -2498,10 +2498,10 @@ input:focus {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-chip__close {
@@ -2803,10 +2803,10 @@ input:focus {
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-input > i ~ input {
@@ -3116,10 +3116,10 @@ input:focus {
   font-size: 18px;
   line-height: 22px;
   font-weight: 700;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   color: #fff;
   border: 2px solid #fff;
 }
@@ -3144,10 +3144,10 @@ input:focus {
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
-  color: #000;
   font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+  color: #000;
 }
 
 .e-header__top-bar-desktop__area .e-header__top-bar-desktop__area-menu {
@@ -3175,10 +3175,10 @@ input:focus {
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-header__top-bar-desktop__area .e-header__top-bar-desktop__area-menu-item:first-of-type {
@@ -3222,10 +3222,10 @@ input:focus {
   font-size: 14px;
   line-height: 17px;
   font-weight: 500;
-  color: #000;
   font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+  color: #000;
 }
 
 .e-header__top-bar-desktop__title {
@@ -3239,10 +3239,10 @@ input:focus {
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   font-weight: 500;
 }
 
@@ -3302,10 +3302,10 @@ input:focus {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-header__top-bar-desktop__user .e-header__top-bar-desktop__user-menu-settings {
@@ -3559,10 +3559,10 @@ input:focus {
     font-size: 14px;
     line-height: 22px;
     font-weight: 400;
-    color: #000;
     font-style: unset;
     letter-spacing: unset;
     text-transform: unset;
+    color: #000;
     color: #676767;
   }
 
@@ -3609,10 +3609,10 @@ input:focus {
     font-size: 14px;
     line-height: 22px;
     font-weight: 400;
-    color: #000;
     font-style: unset;
     letter-spacing: unset;
     text-transform: unset;
+    color: #000;
     letter-spacing: 0.2px;
   }
 
@@ -3695,10 +3695,10 @@ input:focus {
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-header__sidebar__item .e-header__sidebar__icon, .e-header__sidebar__open-close .e-header__sidebar__icon {
@@ -4177,10 +4177,10 @@ input:focus {
   font-size: 18px;
   line-height: 22px;
   font-weight: 700;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   display: inline-flex;
   align-items: center;
   border: 2px solid #000;
@@ -4357,10 +4357,10 @@ input:focus {
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;
@@ -4373,10 +4373,10 @@ input:focus {
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   font-weight: 400;
   font-size: 12px;
   line-height: 19px;
@@ -4539,10 +4539,10 @@ input:focus {
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   font-size: 16px;
 }
 
@@ -4551,10 +4551,10 @@ input:focus {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-link.e-link--card.e-link--shortcut:active {
@@ -6163,10 +6163,10 @@ input:focus {
   font-size: 30px;
   line-height: 36px;
   font-weight: 700;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -6180,10 +6180,10 @@ input:focus {
   font-size: 20px;
   line-height: 32px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   color: #000;
   padding-top: 32px;
 }
@@ -6523,10 +6523,10 @@ input:focus {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   font-weight: 500 !important;
   padding-bottom: 8px;
   margin-right: 16px;
@@ -6537,10 +6537,10 @@ input:focus {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-popover__content::before {
@@ -7219,10 +7219,10 @@ input:focus {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   padding: 9px 16px;
   line-height: 21px;
 }
@@ -7237,10 +7237,10 @@ input:focus {
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   text-align: left;
   padding: 10px 16px;
 }
@@ -7261,10 +7261,10 @@ input:focus {
   font-size: 18px;
   line-height: 22px;
   font-weight: 700;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-table thead th,
@@ -7293,10 +7293,10 @@ input:focus {
   font-size: 16px;
   line-height: 28px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   line-height: 27px;
   padding: 10px 16px;
   text-align: left;
@@ -7326,10 +7326,10 @@ input:focus {
   font-size: 18px;
   line-height: 22px;
   font-weight: 700;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-table-mobile tbody tr:first-of-type th {
@@ -7355,10 +7355,10 @@ input:focus {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   padding: 9px 16px;
   line-height: 21px;
 }
@@ -7637,10 +7637,10 @@ input:focus {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   line-height: 16px;
 }
 
@@ -8059,10 +8059,10 @@ input:focus {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-form-field.e-form-field--compact .e-input.e-input---invalid input, .e-form-field.e-form-field--compact .e-input.e-input---invalid textarea,
@@ -8093,10 +8093,10 @@ input:focus {
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-form-field__label.e-form-field__label--optional::after {
@@ -8113,10 +8113,10 @@ input:focus {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   color: #262626;
 }
 
@@ -8200,10 +8200,10 @@ input:focus {
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -8293,10 +8293,10 @@ input:focus {
   font-size: 16px;
   line-height: 23px;
   font-weight: 500;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   color: #333333;
   display: flex;
   width: 100%;
@@ -8316,10 +8316,10 @@ input:focus {
   font-size: 16px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -8339,10 +8339,10 @@ input:focus {
   font-size: 14px;
   line-height: 22px;
   font-weight: 400;
-  color: #000;
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-radio.e-radio--sm:not(:last-child) {
@@ -13389,6 +13389,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -13406,6 +13407,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -13423,6 +13425,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -13440,6 +13443,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-text-lead {
@@ -13451,6 +13455,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -13468,6 +13473,7 @@ THE SOFTWARE.
   font-style: italic;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -13485,6 +13491,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -13502,6 +13509,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -13519,6 +13527,7 @@ THE SOFTWARE.
   font-style: italic;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 @media (max-width: 767px) {
@@ -13536,6 +13545,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-text-md {
@@ -13547,6 +13557,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-text-caps {
@@ -13558,6 +13569,19 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+  color: #000;
+}
+
+.e-title-caps {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 14px;
+  text-align: left;
+  line-height: 17px;
+  font-weight: 500;
+  font-style: unset;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #000;
 }
 
 .e-text-info {
@@ -13569,6 +13593,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-text-sm {
@@ -13580,6 +13605,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-text-label {
@@ -13591,6 +13617,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
 }
 
 .e-text-option {
@@ -13602,6 +13629,133 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
+  color: #000;
+}
+
+.e-text-micro {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 11px;
+  text-align: left;
+  line-height: 14px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: 0.2px;
+  text-transform: unset;
+  color: #000;
+}
+
+.e-text-micro-strong {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 11px;
+  text-align: left;
+  line-height: 14px;
+  font-weight: 500;
+  font-style: unset;
+  letter-spacing: 0.2px;
+  text-transform: unset;
+  color: #000;
+}
+
+.e-text-lead-strong {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 24px;
+  text-align: left;
+  line-height: 39px;
+  font-weight: 500;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: #000;
+}
+
+@media (max-width: 767px) {
+  .e-text-lead-strong {
+    font-size: 22px;
+    line-height: 36px;
+  }
+}
+.e-text-lg-strong {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 20px;
+  text-align: left;
+  line-height: 32px;
+  font-weight: 500;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: #000;
+}
+
+@media (max-width: 767px) {
+  .e-text-lg-strong {
+    font-size: 18px;
+    line-height: 29px;
+  }
+}
+.e-text-lg-light {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 20px;
+  text-align: left;
+  line-height: 32px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: #515151;
+}
+
+@media (max-width: 767px) {
+  .e-text-lg-light {
+    font-size: 18px;
+    line-height: 29px;
+  }
+}
+.e-text-md-strong {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 16px;
+  text-align: left;
+  line-height: 28px;
+  font-weight: 500;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: #000;
+}
+
+.e-text-md-light {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 16px;
+  text-align: left;
+  line-height: 28px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: #515151;
+}
+
+.e-text-sm-strong {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 14px;
+  text-align: left;
+  line-height: 22px;
+  font-weight: 500;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: #000;
+}
+
+.e-text-sm-light {
+  font-family: Red Hat Text, sans-serif;
+  font-size: 14px;
+  text-align: left;
+  line-height: 22px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: #515151;
 }
 
 .e-text-right {

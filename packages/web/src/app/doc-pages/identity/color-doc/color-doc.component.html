@@ -20,20 +20,20 @@
                 style="text-align: center; padding: 14px"
                 class="display-card-circle"
               >
-                <div class="e-text-caps" *ngIf="item.title == 'white'">Elvia On</div>
-                <div class="e-text-caps" *ngIf="item.title == 'green'">Elvia Charge</div>
-                <div class="e-text-caps" *ngIf="item.title == 'black'">Elvia Off</div>
-                <div class="e-text-caps" *ngIf="item.title == 'grey'">Elvia Dark</div>
+                <div class="e-title-caps" *ngIf="item.title == 'white'">Elvia On</div>
+                <div class="e-title-caps" *ngIf="item.title == 'green'">Elvia Charge</div>
+                <div class="e-title-caps" *ngIf="item.title == 'black'">Elvia Off</div>
+                <div class="e-title-caps" *ngIf="item.title == 'grey'">Elvia Dark</div>
               </div>
             </ng-container>
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-info">
-              <div class="sub-title e-text-caps">Hex</div>
+              <div class="sub-title e-title-caps">Hex</div>
               <div class="sub-content">{{ item.hex }}</div>
             </div>
             <div class="display-card-sub-title e-text-info">
-              <div class="sub-title e-text-caps">RGB</div>
+              <div class="sub-title e-title-caps">RGB</div>
               <div class="sub-content">{{ item.rgba }}</div>
             </div>
             <div
@@ -45,7 +45,7 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-text-caps e-text-black">wcag</div>
+              <div class="sub-title e-title-caps e-text-black">wcag</div>
               <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
                 <div class="contrast-container">
                   <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
@@ -81,17 +81,17 @@
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
               <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
-                <div class="e-text-caps">{{ item.title }}</div>
+                <div class="e-title-caps">{{ item.title }}</div>
               </div>
             </ng-container>
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-info">
-              <div class="sub-title e-text-caps">Hex</div>
+              <div class="sub-title e-title-caps">Hex</div>
               <div class="sub-content">{{ item.hex }}</div>
             </div>
             <div class="display-card-sub-title e-text-info">
-              <div class="sub-title e-text-caps">RGB</div>
+              <div class="sub-title e-title-caps">RGB</div>
               <div class="sub-content">{{ item.rgba }}</div>
             </div>
             <div
@@ -103,7 +103,7 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-text-caps e-text-black">wcag</div>
+              <div class="sub-title e-title-caps e-text-black">wcag</div>
               <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
                 <div class="contrast-container">
                   <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
@@ -139,7 +139,7 @@
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
               <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
-                <div class="e-text-caps" style="text-align: center; padding: 14px">
+                <div class="e-title-caps" style="text-align: center; padding: 14px">
                   {{ item.titleWithSpace }}
                 </div>
               </div>
@@ -147,11 +147,11 @@
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-info">
-              <div class="sub-title e-text-caps">Hex</div>
+              <div class="sub-title e-title-caps">Hex</div>
               <div class="sub-content">{{ item.hex }}</div>
             </div>
             <div class="display-card-sub-title e-text-info">
-              <div class="sub-title e-text-caps">RGB</div>
+              <div class="sub-title e-title-caps">RGB</div>
               <div class="sub-content">{{ item.rgba }}</div>
             </div>
             <div
@@ -163,7 +163,7 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-text-caps e-text-black">wcag</div>
+              <div class="sub-title e-title-caps e-text-black">wcag</div>
               <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
                 <div class="contrast-container">
                   <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
@@ -199,17 +199,17 @@
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
               <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
-                <div class="e-text-caps">{{ item.title }}</div>
+                <div class="e-title-caps">{{ item.title }}</div>
               </div>
             </ng-container>
           </app-copy>
           <div class="display-text-content">
             <div class="display-card-sub-title e-text-info">
-              <div class="sub-title e-text-caps">Hex</div>
+              <div class="sub-title e-title-caps">Hex</div>
               <div class="sub-content">{{ item.hex }}</div>
             </div>
             <div class="display-card-sub-title e-text-info">
-              <div class="sub-title e-text-caps">RGB</div>
+              <div class="sub-title e-title-caps">RGB</div>
               <div class="sub-content">{{ item.rgba }}</div>
             </div>
             <div
@@ -221,7 +221,7 @@
                 align-items: flex-start;
               "
             >
-              <div class="sub-title e-text-caps e-text-black">wcag</div>
+              <div class="sub-title e-title-caps e-text-black">wcag</div>
               <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
                 <div class="contrast-container">
                   <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
