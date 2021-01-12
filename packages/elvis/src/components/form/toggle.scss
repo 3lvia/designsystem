@@ -1,45 +1,38 @@
 @use '../../variables/colors';
+@use '../../variables/animation';
 @use '../../utilities/outline';
 @use "../../utilities/breakpoints";
 @use "../../utilities/helpers";
 
 $toggle-border-radius: 50px;
 
-$toggle-desktop-height: 14px;
-$toggle-desktop-width: 30px;
-$toggle-desktop-slider-size: 8px;
-$toggle-desktop-slider-padding: calc((#{$toggle-desktop-height} - #{$toggle-desktop-slider-size}) / 2);
+$toggle-height: 16px;
+$toggle-width: 32px;
+$toggle-slider-size: 10px;
+$toggle-slider-padding: calc((#{$toggle-height} - #{$toggle-slider-size}) / 2);
 
-$toggle-desktop-negative-height: 12px;
-$toggle-desktop-negative-width: 28px;
-$toggle-desktop-negative-slider-padding: calc(
-  (#{$toggle-desktop-negative-height} - #{$toggle-desktop-slider-size}) / 2
-);
-
-$toggle-mobile-height: 20px;
-$toggle-mobile-width: 42px;
-$toggle-mobile-slider-size: 12px;
-$toggle-mobile-slider-padding: calc((#{$toggle-mobile-height} - #{$toggle-mobile-slider-size}) / 2);
-
-$toggle-mobile-negative-height: 18px;
-$toggle-mobile-negative-width: 40px;
-$toggle-mobile-negative-slider-padding: calc(
-  (#{$toggle-mobile-negative-height} - #{$toggle-mobile-slider-size}) / 2
-);
+$toggle-negative-height: 14px;
+$toggle-negative-width: 30px;
+$toggle-negative-slider-padding: calc((#{$toggle-negative-height} - #{$toggle-slider-size}) / 2);
 
 .e-toggle {
   position: relative;
   display: inline-block;
-  height: $toggle-desktop-height;
-  width: $toggle-desktop-width;
+  height: $toggle-height;
+  width: $toggle-width;
   background-color: colors.color('grey');
   border-radius: $toggle-border-radius;
   cursor: pointer;
   box-sizing: border-box;
 
-  @include breakpoints.breakpoint-up(Mobile) {
-    height: $toggle-mobile-height;
-    width: $toggle-mobile-width;
+  // Larger click surface
+  &:after {
+    content: '';
+    padding: 20px;
+    position: absolute;
+    left: -4px;
+    top: -12px;
+    border-radius: 50%;
   }
 
   // hide initial input
@@ -61,19 +54,37 @@ $toggle-mobile-negative-slider-padding: calc(
   &__slider::before {
     position: absolute;
     content: '';
-    height: $toggle-desktop-slider-size;
-    width: $toggle-desktop-slider-size;
-    left: $toggle-desktop-slider-padding;
-    bottom: $toggle-desktop-slider-padding;
+    height: $toggle-slider-size;
+    width: $toggle-slider-size;
+    left: $toggle-slider-padding;
+    bottom: $toggle-slider-padding;
     background-color: colors.color('elvia-on');
     transition: 0.1s;
     border-radius: 50%;
+  }
 
-    @include breakpoints.breakpoint-up(Mobile) {
-      height: $toggle-mobile-slider-size;
-      width: $toggle-mobile-slider-size;
-      left: $toggle-mobile-slider-padding;
-      bottom: $toggle-mobile-slider-padding;
+  &__checkmark {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    @include helpers.transform(rotate(38deg));
+
+    .checkmark_stem {
+      background-color: colors.color('elvia-off');
+      position: absolute;
+      width: 1px;
+      height: 6px;
+      left: 15px;
+      top: 1px;
+    }
+
+    .checkmark_kick {
+      background-color: colors.color('elvia-off');
+      position: absolute;
+      width: 4px;
+      height: 1px;
+      left: 12px;
+      top: 7px;
     }
   }
 
@@ -83,17 +94,8 @@ $toggle-mobile-negative-slider-padding: calc(
 
   input:checked + .e-toggle__slider::before {
     background-color: colors.color('elvia-charge');
-    $transX: calc(
-      #{$toggle-desktop-width} - (#{$toggle-desktop-slider-padding} * 2) - #{$toggle-desktop-slider-size}
-    );
+    $transX: calc(#{$toggle-width} - (#{$toggle-slider-padding} * 2) - #{$toggle-slider-size});
     @include helpers.transform(translateX(#{$transX}));
-
-    @include breakpoints.breakpoint-up(Mobile) {
-      $transX: calc(
-        #{$toggle-mobile-width} - (#{$toggle-mobile-slider-padding} * 2) - #{$toggle-mobile-slider-size}
-      );
-      @include helpers.transform(translateX(#{$transX}));
-    }
   }
 
   input:focus + .e-slider {
@@ -104,20 +106,11 @@ $toggle-mobile-negative-slider-padding: calc(
     border: 1px solid colors.color('elvia-on');
     box-sizing: content-box;
 
-    height: $toggle-desktop-negative-height;
-    width: $toggle-desktop-negative-width;
-    @include breakpoints.breakpoint-up(Mobile) {
-      height: $toggle-mobile-negative-height;
-      width: $toggle-mobile-negative-width;
-    }
+    height: $toggle-negative-height;
+    width: $toggle-negative-width;
     .e-toggle__slider::before {
-      left: $toggle-desktop-negative-slider-padding;
-      bottom: $toggle-desktop-negative-slider-padding;
-
-      @include breakpoints.breakpoint-up(Mobile) {
-        left: $toggle-mobile-negative-slider-padding;
-        bottom: $toggle-mobile-negative-slider-padding;
-      }
+      left: $toggle-negative-slider-padding;
+      bottom: $toggle-negative-slider-padding;
     }
 
     &.e-toggle---disabled,

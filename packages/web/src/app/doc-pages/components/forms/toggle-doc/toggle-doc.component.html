@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Toggle
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Toggle</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,11 +11,15 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <label class="e-toggle">
       <input class="e-toggle__input" type="checkbox" />
       <span class="e-toggle__slider"></span>
+      <span class="e-toggle__checkmark">
+        <div class="checkmark_stem"></div>
+        <div class="checkmark_kick"></div>
+      </span>
     </label>
     <div class="e-w-100">
       <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>

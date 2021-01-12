@@ -12,7 +12,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
   {
@@ -28,7 +28,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
   {
@@ -44,7 +44,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
   {
@@ -58,7 +58,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
   {
@@ -74,7 +74,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
   {
@@ -90,7 +90,7 @@ module.exports = [
       { key: 'style', value: 'italic' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
   {
@@ -107,7 +107,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
   {
@@ -138,7 +138,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
   {
@@ -152,7 +152,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'uppercase' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
   {
@@ -167,7 +167,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
   {
@@ -181,7 +181,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
   {
@@ -195,7 +195,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#000' },
-      { key: 'align', value: 'left'},
+      { key: 'align', value: 'left' },
     ],
   },
 ];

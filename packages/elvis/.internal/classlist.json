@@ -826,7 +826,8 @@
 		},
 		"e-toggle": {
 			"element": {
-				"e-toggle__slider": {}
+				"e-toggle__slider": {},
+				"e-toggle__checkmark": {}
 			},
 			"modifier": {
 				"e-toggle--inverted": {}
@@ -1605,6 +1606,7 @@
 		"e-tooltip__content--top": {},
 		"e-toggle": {},
 		"e-toggle__slider": {},
+		"e-toggle__checkmark": {},
 		"e-slider": {},
 		"e-toggle--inverted": {},
 		"e-toggle---disabled": {},
