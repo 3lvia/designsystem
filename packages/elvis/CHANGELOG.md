@@ -3,7 +3,7 @@
 <!-- 🐝 - BUG FIXES -->
 
 <table>
- <tr class="changelog-row">
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       5.0.0
@@ -27,7 +27,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
-<tr class="changelog-row">
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       4.7.0

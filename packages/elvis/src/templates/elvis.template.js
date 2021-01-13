@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let localhost = window.location.href.indexOf('localhost') > -1;
 
-
   function outlineFix() {
     if (DEBUG) {
       return;
@@ -23,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
       function (event) {
         document.body.classList.add('e-no-outline');
       },
-      false
+      false,
     );
   }
   outlineFix();
@@ -35,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function injectIconIfEligible(node, mutation) {
-
     if (mutation.addedNodes.length > 0) {
       for (let i = 0; i < mutation.addedNodes.length; i++) {
         let addedNode = mutation.addedNodes[i];
@@ -112,7 +110,16 @@ document.addEventListener('DOMContentLoaded', function () {
     if (localhost) {
       for (let x = 0; x < deprecated.length; x++) {
         if (classList === deprecated[x].name)
-          console.warn('WARNING: The icon ' + deprecated[x].name + ' is deprecated from version : ' + deprecated[x].version + '. ' + deprecated[x].name + ' now refers to the icon: ' + deprecated[x].newIconName)
+          console.warn(
+            'WARNING: The icon ' +
+              deprecated[x].name +
+              ' is deprecated from version : ' +
+              deprecated[x].version +
+              '. ' +
+              deprecated[x].name +
+              ' now refers to the icon: ' +
+              deprecated[x].newIconName,
+          );
       }
     }
   }

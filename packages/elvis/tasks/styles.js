@@ -9,13 +9,11 @@ const postcss = require('gulp-postcss');
 const cssvariables = require('postcss-css-variables');
 const doiuse = require('doiuse');
 
-
 // Delete old css
 function clean() {
   let filesToDelete = ['css/'];
   return del(filesToDelete);
 }
-
 
 // Generate elvis.css from scss files
 function generateElvisStyle() {
@@ -30,13 +28,28 @@ function generateElvisStyle() {
 
 // Check for browsersupport
 function browserSupport() {
-  return gulp.src('./css/elvis.css').pipe(postcss([doiuse({
-    browsers: ['>1%, last 2 versions, Firefox ESR, not dead, IE 11, not IE 10, not op_mini all, not op_mob > 0'],
-    ignore: ["css-unset-value", "calc", "flexbox", "outline", "viewport-units", "pointer-events", "user-select-none", "css3-cursors", "css-appearance"], // Optional things to ignore
-    ignoreFiles: [],
-  })]));
+  return gulp.src('./css/elvis.css').pipe(
+    postcss([
+      doiuse({
+        browsers: [
+          '>1%, last 2 versions, Firefox ESR, not dead, IE 11, not IE 10, not op_mini all, not op_mob > 0',
+        ],
+        ignore: [
+          'css-unset-value',
+          'calc',
+          'flexbox',
+          'outline',
+          'viewport-units',
+          'pointer-events',
+          'user-select-none',
+          'css3-cursors',
+          'css-appearance',
+        ], // Optional things to ignore
+        ignoreFiles: [],
+      }),
+    ]),
+  );
 }
-
 
 // Create minified version of elvis.css
 function minifyElvisStyle() {
@@ -55,7 +68,6 @@ function minifyElvisStyle() {
     )
     .pipe(gulp.dest('./css/'));
 }
-
 
 const generateCSS = gulp.series(clean, generateElvisStyle, minifyElvisStyle, browserSupport);
 exports.generateCSS = generateCSS;
