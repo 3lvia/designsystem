@@ -3,7 +3,7 @@
 <!-- 🐝 - BUG FIXES -->
 
 <table>
- <tr class="changelog-row">
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       5.1.0
