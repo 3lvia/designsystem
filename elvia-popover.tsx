@@ -48,12 +48,6 @@ const Popover: React.FC<PopoverProps> = ({
   trigger,
   noClose,
 }) => {
-  Popover.defaultProps = {
-    posX: 'center',
-    posY: 'top',
-    noClose: false,
-  };
-
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLSpanElement>(null);
@@ -108,7 +102,7 @@ const Popover: React.FC<PopoverProps> = ({
   };
 
   // Initializing horizontal positions
-  const setInitialPositions = useCallback(() => {
+  const setInitialPosition = useCallback(() => {
     if (posX === 'left') {
       updatePosStyle('none', '0', 'auto');
     } else if (posX === 'right') {
@@ -183,19 +177,19 @@ const Popover: React.FC<PopoverProps> = ({
     // Update horizontal position
     const updatePositionX = () => {
       if (
-        (posX === 'center' && moveFromLeft('middle')) ||
+        (posX === undefined && moveFromLeft('middle')) ||
         (posX === 'left' && moveFromLeft('nonTriggerSide')) ||
         (posX === 'right' && moveFromLeft('triggerSide'))
       ) {
         updatePosStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
       } else if (
-        (posX === 'center' && moveFromRight('middle')) ||
+        (posX === undefined && moveFromRight('middle')) ||
         (posX === 'left' && moveFromRight('triggerSide')) ||
         (posX === 'right' && moveFromRight('nonTriggerSide'))
       ) {
         updatePosStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        setInitialPositions();
+        setInitialPosition();
       }
     };
     const getArrowOffset = (conflictSide: string): number => {
@@ -208,16 +202,16 @@ const Popover: React.FC<PopoverProps> = ({
     };
     const moveFromLeft = (conflictSide: string): boolean => {
       const noRoomLeft = offsetLeft <= popoverMargin;
-      // Extra check width arrowOffset because first check is not always working
       const noRoomLeftInsurance =
-        triggerOffsetLeft + triggerWidth / 2 + 40 <= popoverMargin + getArrowOffset(conflictSide);
+        triggerOffsetLeft + triggerWidth / (2 + popoverMargin * 2) <=
+        popoverMargin + getArrowOffset(conflictSide);
       return noRoomLeft || noRoomLeftInsurance;
     };
     const moveFromRight = (conflictSide: string): boolean => {
       const noRoomRight = offsetRight <= popoverMargin;
-      // Extra check width arrowOffset because first check is not always working
       const noRoomLeftInsurance =
-        triggerOffsetRight + triggerWidth / 2 + 40 <= popoverMargin + getArrowOffset(conflictSide);
+        triggerOffsetRight + triggerWidth / (2 + popoverMargin * 2) <=
+        popoverMargin + getArrowOffset(conflictSide);
       return noRoomRight || noRoomLeftInsurance;
     };
 
@@ -239,7 +233,7 @@ const Popover: React.FC<PopoverProps> = ({
       const noRoomBottom = offsetBottom <= popoverMargin;
       const isRoomTop = offsetTop > popoverMargin;
       const isRoomTopInsurance = arrowOffsetTop > contentHeight + popoverMargin + popoverMargin;
-      const isTop = posY === 'top';
+      const isTop = posY === undefined;
       return (noRoomBottom && isRoomTop) || (isTop && isRoomTopInsurance);
     };
 
