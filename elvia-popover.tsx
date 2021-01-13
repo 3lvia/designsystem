@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import React, { FC, useState, useEffect, useRef, useCallback } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 
@@ -39,15 +38,7 @@ const getEventPath = (e: any) => {
   return e.path || (e.composedPath && e.composedPath()) || polyfill();
 };
 
-const Popover: React.FC<PopoverProps> = ({
-  title,
-  description,
-  customContent,
-  posX,
-  posY,
-  trigger,
-  noClose,
-}) => {
+const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, posY, trigger, noClose }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLSpanElement>(null);
