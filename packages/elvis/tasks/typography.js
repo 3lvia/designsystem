@@ -48,7 +48,6 @@ function addClass(className, properties, i) {
   } else {
     newClass += ')\n';
   }
-
   return newClass;
 }
 

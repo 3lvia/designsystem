@@ -64,7 +64,38 @@
   opacity: 0;
 }
 
-.headerImg {
+.typography-img {
+  width: 110%;
+  @media screen and (max-width: 1200px) {
+    display: none;
+  }
+  @include breakpoint-up(Tablet) {
+    display: block;
+    width: 100%;
+  }
+  @include breakpoint-up(Mobile) {
+    display: none;
+  }
+}
+.typography-mobile-img {
+  display: none;
+  @media screen and (max-width: 1200px) {
+    display: block;
+  }
+  @include breakpoint-up(Tablet) {
+    display: none;
+    width: 100%;
+  }
+  @include breakpoint-up(Mobile) {
+    display: block;
+    width: 85%;
+  }
+  @media screen and (max-width: 550px) {
+    width: 100%;
+  }
+}
+
+.header-img {
   display: block;
   width: 80%;
   margin: auto;

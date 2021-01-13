@@ -34,6 +34,7 @@
       font-style: $style;
       letter-spacing: $letter-spacing;
       text-transform: $transform;
+      color: $color;
       @include breakpoints.breakpoint-up(Mobile) {
         font-size: $size-m;
         line-height: $height-m;
