@@ -13,7 +13,6 @@ export interface PopoverProps {
   noClose?: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const throttle = (func: any, limit: number) => {
   let inThrottle: boolean | NodeJS.Timeout;
   return (...args: any) => {
@@ -69,11 +68,6 @@ const Popover: React.FC<PopoverProps> = ({
     ['ewc-popover--hide']: !visiblePopover,
   });
 
-  // Toggling popover state
-  function togglePopover() {
-    setPopoverVisibility((prevState) => !prevState);
-  }
-
   // Running on first render only (on mount)
   useEffect(() => {
     // Defining max content width for popover
@@ -108,6 +102,11 @@ const Popover: React.FC<PopoverProps> = ({
     };
   }, []);
 
+  // Toggling popover state
+  const togglePopover = () => {
+    setPopoverVisibility((prevState) => !prevState);
+  };
+
   // Initializing horizontal positions
   const setInitialPositions = useCallback(() => {
     if (posX === 'left') {
@@ -119,30 +118,30 @@ const Popover: React.FC<PopoverProps> = ({
     }
   }, [posX]);
 
-  function updatePosStyle(transform: string, right: string, left: string) {
+  const updatePosStyle = (transform: string, right: string, left: string) => {
     if (!popoverContentRef.current) {
       return;
     }
     popoverContentRef.current.style.transform = transform;
     popoverContentRef.current.style.right = right;
     popoverContentRef.current.style.left = left;
-  }
+  };
 
-  function getCorrectInnerWidth() {
+  const getCorrectInnerWidth = () => {
     if (navigator.userAgent.toLowerCase().includes('android')) {
       return window.visualViewport.width;
     }
     return window.innerWidth;
-  }
+  };
 
-  function getCorrectInnerHeight() {
+  const getCorrectInnerHeight = () => {
     if (navigator.userAgent.toLowerCase().includes('android')) {
       return window.visualViewport.height;
     }
     return window.innerHeight;
-  }
+  };
 
-  function resize() {
+  const resize = () => {
     if (!popoverContentRef.current || !maxContentWidth) {
       return;
     }
@@ -151,7 +150,7 @@ const Popover: React.FC<PopoverProps> = ({
     } else {
       popoverContentRef.current.style.width = maxContentWidth + 'px';
     }
-  }
+  };
 
   // Update position and size of content
   const updateNewPosition = useCallback(() => {
@@ -181,106 +180,88 @@ const Popover: React.FC<PopoverProps> = ({
     const arrowOffsetTop = popoverArrowRef.current.getBoundingClientRect().top;
     const arrowOffsetBottom = getCorrectInnerHeight() - arrowHeight - arrowOffsetTop;
 
-    resize();
-    updatePositionY();
-    if (posX === 'left') {
-      updateLeftPosition();
-    } else if (posX === 'right') {
-      updateRightPosition();
-    } else {
-      updateCenterPosition();
-    }
-
     // Update horizontal position
-    function updateCenterPosition() {
-      if (moveFromLeft('middle')) {
+    const updatePositionX = () => {
+      if (
+        (posX === 'center' && moveFromLeft('middle')) ||
+        (posX === 'left' && moveFromLeft('nonTriggerSide')) ||
+        (posX === 'right' && moveFromLeft('triggerSide'))
+      ) {
         updatePosStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
-      } else if (moveFromRight('middle')) {
+      } else if (
+        (posX === 'center' && moveFromRight('middle')) ||
+        (posX === 'left' && moveFromRight('triggerSide')) ||
+        (posX === 'right' && moveFromRight('nonTriggerSide'))
+      ) {
         updatePosStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
       } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
         setInitialPositions();
       }
-    }
-    function updateLeftPosition() {
-      if (moveFromLeft('nonTriggerSide')) {
-        updatePosStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
-      } else if (moveFromRight('triggerSide')) {
-        updatePosStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
-      } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        setInitialPositions();
-      }
-    }
-    function updateRightPosition() {
-      if (moveFromLeft('triggerSide')) {
-        updatePosStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
-      }
-      if (moveFromRight('nonTriggerSide')) {
-        updatePosStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
-      }
-      if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        setInitialPositions();
-      }
-    }
-    function getArrowOffset(conflictSide: string): number {
+    };
+    const getArrowOffset = (conflictSide: string): number => {
       if (conflictSide === 'nonTriggerSide') {
         return contentWidth;
       } else if (conflictSide === 'triggerSide') {
         return 0;
       }
       return contentWidth / 2;
-    }
-    function moveFromLeft(conflictSide: string): boolean {
+    };
+    const moveFromLeft = (conflictSide: string): boolean => {
       const noRoomLeft = offsetLeft <= popoverMargin;
       // Extra check width arrowOffset because first check is not always working
       const noRoomLeftInsurance =
         triggerOffsetLeft + triggerWidth / 2 + 40 <= popoverMargin + getArrowOffset(conflictSide);
       return noRoomLeft || noRoomLeftInsurance;
-    }
-    function moveFromRight(conflictSide: string): boolean {
+    };
+    const moveFromRight = (conflictSide: string): boolean => {
       const noRoomRight = offsetRight <= popoverMargin;
       // Extra check width arrowOffset because first check is not always working
       const noRoomLeftInsurance =
         triggerOffsetRight + triggerWidth / 2 + 40 <= popoverMargin + getArrowOffset(conflictSide);
       return noRoomRight || noRoomLeftInsurance;
-    }
+    };
 
     // Update vertical position
-    function updatePositionY() {
+    const updatePositionY = () => {
       if (moveFromTop() && !popover.classList.contains('ewc-popover--bottom')) {
         popover.classList.add('ewc-popover--bottom');
       } else if (moveFromBottom() && popover.classList.contains('ewc-popover--bottom')) {
         popover.classList.remove('ewc-popover--bottom');
       }
-    }
-    function moveFromTop(): boolean {
+    };
+    const moveFromTop = (): boolean => {
       const noRoomTop = offsetTop <= popoverMargin;
       const isRoomBottom = arrowOffsetBottom > contentHeight + popoverMargin + popoverMargin;
       const isBottom = posY === 'bottom';
       return noRoomTop || (isBottom && isRoomBottom);
-    }
-    function moveFromBottom(): boolean {
+    };
+    const moveFromBottom = (): boolean => {
       const noRoomBottom = offsetBottom <= popoverMargin;
       const isRoomTop = offsetTop > popoverMargin;
       const isRoomTopInsurance = arrowOffsetTop > contentHeight + popoverMargin + popoverMargin;
       const isTop = posY === 'top';
       return (noRoomBottom && isRoomTop) || (isTop && isRoomTopInsurance);
-    }
+    };
+
+    // Calling position functions
+    resize();
+    updatePositionY();
+    updatePositionX();
   }, [posY, posX]);
 
   // Update position when popover is opened and when window is resized
   useEffect(() => {
-    // Update position and size when opening popover
-    updateNewPosition();
-    resize();
-
-    // Listen to window resizing if popover is open
     if (!visiblePopover) {
       return;
     }
+    // Update position and size when opening popover
+    updateNewPosition();
+    resize();
+    // Listen to resize while open
     const throttledUpdateNewPosition = throttle(updateNewPosition, 150);
     window.addEventListener('resize', throttledUpdateNewPosition);
     return () => window.removeEventListener('resize', throttledUpdateNewPosition);
-  }, [visiblePopover, updateNewPosition]);
+  }, [visiblePopover]);
 
   return (
     <span className="ewc-popover" ref={popoverRef}>
