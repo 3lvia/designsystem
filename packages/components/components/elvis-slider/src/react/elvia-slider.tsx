@@ -5,13 +5,24 @@ import { withStyles } from '@material-ui/core/styles';
 import { useState, useEffect } from 'react';
 import './style.scss';
 
+export interface SliderInput {
+  step?: number;
+  min: number;
+  max: number;
+  // vurder type: string om det er andre ting enn numbers som kan brukes
+}
+
 export interface SliderProps {
   value: number | number[];
+  inputField?: SliderInput;
+  valueOnChange?: (value: number | number[]) => void;
+  webcomponent?: any;
 }
 
 const ElvisSlider = withStyles({
   root: {
     color: 'black',
+    display: 'inline-block !important'
   },
   thumb: {
     height: 17,
@@ -49,18 +60,38 @@ const ElvisSlider = withStyles({
   },
 })(Slider);
 
-const ElviaSlider: React.FC<SliderProps> = ({ value }) => {
+const ElviaSlider: React.FC<SliderProps> = ({ value, inputField, valueOnChange, webcomponent }) => {
 
   const [rangeValue, setValue] = useState(value);
+  const [isInput, setInputfield] = useState(inputField ? true : false);
+
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue);
   };
 
+  // Updating selected value
   useEffect(() => {
-    setValue(value);
+    updateReactComponent();
+    updateWebcomponent();
+  }, [rangeValue]);
 
-  }, [value])
+  function updateReactComponent() {
+    if (!webcomponent && valueOnChange) {
+      valueOnChange(rangeValue);
+    }
+  }
+
+  function updateWebcomponent() {
+    if (webcomponent) {
+      // True -> Prevents rerender
+      webcomponent.setProps({ value: rangeValue }, true);
+    }
+  }
+
+  // useEffect(() => {
+  //   setValue(value);
+  // }, [value])
 
   // todo
   // - send date back

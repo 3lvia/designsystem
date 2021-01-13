@@ -34,6 +34,10 @@ function App() {
 
       <Slider value={10}></Slider>
 
+      <h3>Slider - With input field</h3>
+      {/* 
+      <Slider value={10}></Slider> */}
+
       <h2>Slider - range</h2>
       <Slider value={[25, 75]}></Slider>
 
