@@ -6,36 +6,6 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
-      6.0.0
-    </span>
-    <br>
-    <span>
-      January 12, 2021
-    </span>
-    </td>
-    <td class="changelog-content">
-      <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
-        <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/toggle#Overview">Toggle</a>
-        </div>
-        The search bar component has changed the default search icon. The size of the search and close icons has also been adjusted for both local and global search. 
-        <div class="e-mt-8">
-          How to fix:
-          Add the an element under with the class:
-          <span class="code-text">
-              e-toggle__checkmark
-          </span> under the element with the class:
-          <span class="code-text">
-              e-toggle__slider
-          </span>. See <a class="e-link e-link--inline" href="https://design.elvia.io/components/toggle#Overview">toggle doc</a> for examples.
-        </div>
-      <div class="changelog-divider"></div>
-    </td>
-  </tr>
-  <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
-    <span class="e-title-sm">
       5.0.0
     </span>
     <br>

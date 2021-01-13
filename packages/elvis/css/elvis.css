@@ -7520,25 +7520,6 @@ input:focus {
   border-radius: 50%;
 }
 
-.e-toggle__checkmark {
-  display: none;
-  position: absolute;
-  -o-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-  height: 7px;
-  width: 4px;
-  top: 4px;
-  left: 22px;
-  border-bottom: 1px solid #000;
-  border-right: 1px solid #000;
-}
-
-.e-toggle input:checked ~ .e-toggle__checkmark {
-  display: inline-block;
-}
-
 .e-toggle input:checked + .e-toggle__slider {
   background-color: #262626;
 }
@@ -7568,13 +7549,6 @@ input:focus {
   bottom: calc((14px - 10px) / 2);
 }
 
-.e-toggle.e-toggle--inverted .e-toggle__checkmark {
-  height: 6px;
-  width: 3px;
-  top: 3px;
-  left: 21px;
-}
-
 .e-toggle.e-toggle--inverted.e-toggle---disabled, .e-toggle.e-toggle--inverted:disabled {
   background-color: #262626;
   border: 1px solid #676767;
@@ -7590,10 +7564,6 @@ input:focus {
   background-color: #262626;
 }
 
-.e-toggle.e-toggle--inverted.e-toggle---disabled input:checked ~ .e-toggle__checkmark, .e-toggle.e-toggle--inverted:disabled input:checked ~ .e-toggle__checkmark {
-  border-color: #262626;
-}
-
 .e-toggle.e-toggle---disabled, .e-toggle:disabled {
   cursor: not-allowed;
   background-color: #bdbdbd;
@@ -7607,10 +7577,6 @@ input:focus {
 
 .e-toggle.e-toggle---disabled input:checked + .e-toggle__slider, .e-toggle:disabled input:checked + .e-toggle__slider {
   background-color: #bdbdbd;
-}
-
-.e-toggle.e-toggle---disabled input:checked ~ .e-toggle__checkmark, .e-toggle:disabled input:checked ~ .e-toggle__checkmark {
-  border-color: #bdbdbd;
 }
 
 .e-checkbox {

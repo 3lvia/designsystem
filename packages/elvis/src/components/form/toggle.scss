@@ -63,21 +63,6 @@ $toggle-negative-slider-padding: calc((#{$toggle-negative-height} - #{$toggle-sl
     border-radius: 50%;
   }
 
-  &__checkmark {
-    display: none;
-    position: absolute;
-    @include helpers.transform(rotate(45deg));
-    height: 7px;
-    width: 4px;
-    top: 4px;
-    left: 22px;
-    border-bottom: 1px solid colors.color('elvia-off');
-    border-right: 1px solid colors.color('elvia-off');
-  }
-  input:checked ~ .e-toggle__checkmark {
-    display: inline-block;
-  }
-
   input:checked + .e-toggle__slider {
     background-color: colors.color('grey');
   }
@@ -102,13 +87,6 @@ $toggle-negative-slider-padding: calc((#{$toggle-negative-height} - #{$toggle-sl
       bottom: $toggle-negative-slider-padding;
     }
 
-    .e-toggle__checkmark {
-      height: 6px;
-      width: 3px;
-      top: 3px;
-      left: 21px;
-    }
-
     &.e-toggle---disabled,
     &:disabled {
       background-color: colors.color('grey');
@@ -119,9 +97,6 @@ $toggle-negative-slider-padding: calc((#{$toggle-negative-height} - #{$toggle-sl
       }
       input:checked + .e-toggle__slider {
         background-color: colors.color('grey');
-      }
-      input:checked ~ .e-toggle__checkmark {
-        border-color: colors.color('grey');
       }
     }
   }
@@ -136,9 +111,6 @@ $toggle-negative-slider-padding: calc((#{$toggle-negative-height} - #{$toggle-sl
     }
     input:checked + .e-toggle__slider {
       background-color: colors.color('disabled');
-    }
-    input:checked ~ .e-toggle__checkmark {
-      border-color: colors.color('disabled');
     }
   }
 }
