@@ -63,7 +63,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   title-md: (
@@ -77,7 +77,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   title-sm: (
@@ -91,7 +91,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   title-xs: (
@@ -103,7 +103,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-lead: (
@@ -117,7 +117,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-quote: (
@@ -131,7 +131,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{italic},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-body: (
@@ -145,7 +145,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-lg: (
@@ -159,7 +159,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-img: (
@@ -173,7 +173,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{italic},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{center},
   ),
   text-description: (
@@ -185,7 +185,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-md: (
@@ -197,7 +197,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-caps: (
@@ -209,7 +209,7 @@ $typography: (
     letter-spacing: #{0.8px},
     style: #{unset},
     transform: #{uppercase},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   title-caps: (
@@ -221,7 +221,7 @@ $typography: (
     letter-spacing: #{0.8px},
     style: #{unset},
     transform: #{uppercase},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-info: (
@@ -233,7 +233,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-sm: (
@@ -245,7 +245,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-label: (
@@ -257,7 +257,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-option: (
@@ -269,7 +269,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-micro: (
@@ -281,7 +281,7 @@ $typography: (
     letter-spacing: #{0.2px},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-micro-strong: (
@@ -293,7 +293,7 @@ $typography: (
     letter-spacing: #{0.2px},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-lead-strong: (
@@ -307,7 +307,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-lg-strong: (
@@ -321,7 +321,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-lg-light: (
@@ -347,7 +347,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-md-light: (
@@ -371,7 +371,7 @@ $typography: (
     letter-spacing: #{unset},
     style: #{unset},
     transform: #{unset},
-    color: #{#000},
+    color: #{inherit},
     align: #{left},
   ),
   text-sm-light: (

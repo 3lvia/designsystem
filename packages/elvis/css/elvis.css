@@ -225,7 +225,7 @@ body {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -311,7 +311,7 @@ body {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -529,7 +529,7 @@ body {
   font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: #000;
+  color: inherit;
   margin-bottom: 2px;
 }
 
@@ -541,7 +541,7 @@ body {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   font-size: 16px;
   line-height: 28px;
   max-width: 758px;
@@ -621,7 +621,7 @@ body {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-alert.e-alert--global.e-alert--warn {
@@ -866,7 +866,7 @@ body {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   font-weight: 500;
   margin-bottom: 0px;
 }
@@ -938,7 +938,7 @@ body {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   font-weight: 500;
 }
 
@@ -950,7 +950,7 @@ body {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-alert.e-alert--toast .e-alert__close {
@@ -1067,7 +1067,7 @@ body {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -1088,7 +1088,7 @@ body {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-no-outline * {
@@ -2434,7 +2434,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   line-height: 24px;
   margin-bottom: 16px;
 }
@@ -2447,7 +2447,7 @@ input:focus {
   font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: #000;
+  color: inherit;
   position: absolute;
   -o-transform: translateY(-100%);
   -ms-transform: translateY(-100%);
@@ -2466,7 +2466,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-chip-container {
@@ -2501,7 +2501,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-chip__close {
@@ -2806,7 +2806,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-input > i ~ input {
@@ -3119,7 +3119,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   color: #fff;
   border: 2px solid #fff;
 }
@@ -3147,7 +3147,7 @@ input:focus {
   font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: #000;
+  color: inherit;
 }
 
 .e-header__top-bar-desktop__area .e-header__top-bar-desktop__area-menu {
@@ -3178,7 +3178,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-header__top-bar-desktop__area .e-header__top-bar-desktop__area-menu-item:first-of-type {
@@ -3225,7 +3225,7 @@ input:focus {
   font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: #000;
+  color: inherit;
 }
 
 .e-header__top-bar-desktop__title {
@@ -3242,7 +3242,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   font-weight: 500;
 }
 
@@ -3305,7 +3305,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-header__top-bar-desktop__user .e-header__top-bar-desktop__user-menu-settings {
@@ -3562,7 +3562,7 @@ input:focus {
     font-style: unset;
     letter-spacing: unset;
     text-transform: unset;
-    color: #000;
+    color: inherit;
     color: #676767;
   }
 
@@ -3612,7 +3612,7 @@ input:focus {
     font-style: unset;
     letter-spacing: unset;
     text-transform: unset;
-    color: #000;
+    color: inherit;
     letter-spacing: 0.2px;
   }
 
@@ -3698,7 +3698,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-header__sidebar__item .e-header__sidebar__icon, .e-header__sidebar__open-close .e-header__sidebar__icon {
@@ -4180,7 +4180,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   display: inline-flex;
   align-items: center;
   border: 2px solid #000;
@@ -4360,7 +4360,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   font-weight: 500;
   font-size: 13px;
   line-height: 16px;
@@ -4376,7 +4376,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   font-weight: 400;
   font-size: 12px;
   line-height: 19px;
@@ -4542,7 +4542,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   font-size: 16px;
 }
 
@@ -4554,7 +4554,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-link.e-link--card.e-link--shortcut:active {
@@ -6166,7 +6166,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -6183,7 +6183,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   color: #000;
   padding-top: 32px;
 }
@@ -6526,7 +6526,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   font-weight: 500 !important;
   padding-bottom: 8px;
   margin-right: 16px;
@@ -6540,7 +6540,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-popover__content::before {
@@ -7222,7 +7222,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   padding: 9px 16px;
   line-height: 21px;
 }
@@ -7240,7 +7240,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   text-align: left;
   padding: 10px 16px;
 }
@@ -7264,7 +7264,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-table thead th,
@@ -7296,7 +7296,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   line-height: 27px;
   padding: 10px 16px;
   text-align: left;
@@ -7329,7 +7329,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-table-mobile tbody tr:first-of-type th {
@@ -7358,7 +7358,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   padding: 9px 16px;
   line-height: 21px;
 }
@@ -7611,7 +7611,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   line-height: 16px;
 }
 
@@ -8033,7 +8033,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-form-field.e-form-field--compact .e-input.e-input---invalid input, .e-form-field.e-form-field--compact .e-input.e-input---invalid textarea,
@@ -8067,7 +8067,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-form-field__label.e-form-field__label--optional::after {
@@ -8087,7 +8087,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   color: #262626;
 }
 
@@ -8174,7 +8174,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -8267,7 +8267,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   color: #333333;
   display: flex;
   width: 100%;
@@ -8290,7 +8290,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -8313,7 +8313,7 @@ input:focus {
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-radio.e-radio--sm:not(:last-child) {
@@ -13360,7 +13360,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -13378,7 +13378,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -13396,7 +13396,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -13414,7 +13414,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-lead {
@@ -13426,7 +13426,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -13444,7 +13444,7 @@ THE SOFTWARE.
   font-style: italic;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -13462,7 +13462,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -13480,7 +13480,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -13498,7 +13498,7 @@ THE SOFTWARE.
   font-style: italic;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -13516,7 +13516,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-md {
@@ -13528,7 +13528,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-caps {
@@ -13540,7 +13540,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: #000;
+  color: inherit;
 }
 
 .e-title-caps {
@@ -13552,7 +13552,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-info {
@@ -13564,7 +13564,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-sm {
@@ -13576,7 +13576,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-label {
@@ -13588,7 +13588,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-option {
@@ -13600,7 +13600,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-micro {
@@ -13612,7 +13612,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: 0.2px;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-micro-strong {
@@ -13624,7 +13624,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: 0.2px;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-lead-strong {
@@ -13636,7 +13636,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -13654,7 +13654,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 @media (max-width: 767px) {
@@ -13690,7 +13690,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-md-light {
@@ -13714,7 +13714,7 @@ THE SOFTWARE.
   font-style: unset;
   letter-spacing: unset;
   text-transform: unset;
-  color: #000;
+  color: inherit;
 }
 
 .e-text-sm-light {
