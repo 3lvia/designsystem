@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ComponentSubsectionComponent } from './component-subsection.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   declarations: [ComponentSubsectionComponent],
   exports: [ComponentSubsectionComponent],
 })
-export class ComponentSubsectionModule { }
+export class ComponentSubsectionModule {}

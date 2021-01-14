@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './user-feedback-doc.component.html',
   styleUrls: ['./user-feedback-doc.component.scss'],
 })
-export class UserFeedbackDocComponent {
-
-}
+export class UserFeedbackDocComponent {}

@@ -4,10 +4,7 @@ import { ContactComponent } from './contact.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-structure/component-header/component-header.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-  ],
-  declarations: [ContactComponent]
+  imports: [CommonModule, ComponentHeaderModule],
+  declarations: [ContactComponent],
 })
-export class ContactModule { }
+export class ContactModule {}

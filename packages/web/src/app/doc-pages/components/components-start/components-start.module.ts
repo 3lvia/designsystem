@@ -5,13 +5,8 @@ import { RouterModule } from '@angular/router';
 import { PageStructureModule } from 'src/app/shared/page-structure/page-structure.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    PageStructureModule
-  ],
+  imports: [CommonModule, RouterModule, PageStructureModule],
   declarations: [ComponentsStartComponent],
-  exports: [ComponentsStartComponent]
-
+  exports: [ComponentsStartComponent],
 })
-export class ComponentsStartModule { }
+export class ComponentsStartModule {}

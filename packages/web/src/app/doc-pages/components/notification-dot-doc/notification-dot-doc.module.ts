@@ -5,11 +5,7 @@ import { ComponentHeaderModule } from 'src/app/shared/component-structure/compon
 import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    CodeBlockModule
-  ],
-  declarations: [NotificationDotDocComponent]
+  imports: [CommonModule, ComponentHeaderModule, CodeBlockModule],
+  declarations: [NotificationDotDocComponent],
 })
-export class NotificationDotDocModule { }
+export class NotificationDotDocModule {}

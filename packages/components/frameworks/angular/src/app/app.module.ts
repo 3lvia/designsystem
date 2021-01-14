@@ -5,18 +5,15 @@ import { AppComponent } from './app.component';
 
 import '@elvia/elvis-checkbox';
 import '@elvia/elvis-popover';
+import '@elvia/elvis-tabs';
 import '@elvia/elvis-progress-linear';
 import '@elvia/elvis-slider';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

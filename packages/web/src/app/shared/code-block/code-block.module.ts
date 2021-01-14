@@ -5,15 +5,9 @@ import { CodeHighlighterModule } from '../code-highlighter/code-highlighter.modu
 import { IframeScreenModule } from '../iframe-screen/iframe-screen.module';
 import { CodeBlockAccordionModule } from '../code-block-accordion/code-block-accordion.module';
 
-
 @NgModule({
-  imports: [
-    CommonModule,
-    CodeHighlighterModule,
-    IframeScreenModule,
-    CodeBlockAccordionModule,
-  ],
+  imports: [CommonModule, CodeHighlighterModule, IframeScreenModule, CodeBlockAccordionModule],
   declarations: [CodeBlockComponent],
   exports: [CodeBlockComponent],
 })
-export class CodeBlockModule { }
+export class CodeBlockModule {}

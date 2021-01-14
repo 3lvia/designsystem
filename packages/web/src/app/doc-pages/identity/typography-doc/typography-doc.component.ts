@@ -23,19 +23,38 @@ export class TypographyDocComponent implements OnInit {
 <div class="e-text-right e-m-16">Right aligned text</div>
 `;
 
-  exampleTitles = `<h1 class="e-title-lg">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h1>
-<h2 class="e-title-md">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h2>
-<h3 class="e-title-sm">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h3>
-<h4 class="e-title-xs">Du åt ca fire wienerpølser og tok taxi hjem fra byen</h4>
-<h5 class="e-text-caps">AV PETTER JENSEN</h5>
+  exampleTitles = `<h1 class="e-title-lg">Title Large</h1>
+<h2 class="e-title-md">Title Medium</h2>
+<h3 class="e-title-sm">Title Small</h3>
+<h4 class="e-title-xs">Title XSmall</h4>
+<h5 class="e-title-caps">Title Caps</h5>
 `;
-  exampleText = `<p class="e-text-lead">En tørr sommer i tillegg til en kald vinter, gjør at mange vil få høyere strømregning.</p>
-<p class="e-text-lg">Du åt ca fire wienerpølser og tok taxi hjem fra byen. Du åt ca fire wienerpølser og tok taxi hjem fra byen.</p>
-<p class="e-text-md">Ved å legge til e-post på din bruker</p>
-<p class="e-text-sm">Tekst i en tabell</p>
+  exampleText = `<p>
+  <span class="e-text-lead e-mr-16">Text Lead</span>
+  <span class="e-text-lead-strong e-mr-16">Text Lead Strong</span>
+</p>
+<p>
+  <span class="e-text-lg e-mr-16">Text Large</span>
+  <span class="e-text-lg-strong e-mr-16">Text Large Strong</span>
+  <span class="e-text-lg-light">Text Large Light</span>
+</p>
+<p>
+  <span class="e-text-md e-mr-16">Text Medium</span>
+  <span class="e-text-md-strong e-mr-16">Text Medium Strong</span>
+  <span class="e-text-md-light">Text Medium Light</span>
+</p>
+<p>
+  <span class="e-text-sm e-mr-16">Text Small</span>
+  <span class="e-text-sm-strong e-mr-16">Text Small Strong</span>
+  <span class="e-text-sm-light">Text Small Light</span>
+</p>
 `;
-  exampleSpecial = `<p class="e-text-quote">En hjemmeladestasjon for elbilen er smart! Ladingen går raskere og den blir tryggere.</p>
-<p class="e-text-img">Jordfeil er en samlebetegnelse på situasjoner der du har feil eller isolasjonssvikt i det elektriske anlegget eller tilknyttet utstyr. </p>
+  exampleSpecial = `<p class="e-text-quote">Text Quote</p>
+<p class="e-text-img">Text Image</p>
+<p>
+  <span class="e-text-micro e-mr-16">Text Micro</span>
+  <span class="e-text-micro-strong">Text Micro Strong</span>
+</p>
 `;
 
   ngOnInit(): void {

@@ -7,7 +7,6 @@ const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
 
-
 // Delete unused icons + generated icons
 function clean() {
   let filesToDelete = ['src/icons/svg/dist/'];
@@ -33,7 +32,6 @@ function findUnusedIconFiles() {
   return remove;
 }
 
-
 // Optimize SVG icons
 function optimizeSVG() {
   const iconsToInclude = icons.map((i) => {
@@ -41,7 +39,6 @@ function optimizeSVG() {
   });
   return gulp.src(iconsToInclude, { allowEmpty: true }).pipe(svgo()).pipe(gulp.dest('src/icons/svg/dist'));
 }
-
 
 // Create embedded icons in elvis.js
 async function createEmbeddedIconsJS() {
@@ -55,7 +52,7 @@ async function createEmbeddedIconsJS() {
   const deprecatedIcons = [];
   for (let i = 0; i < icons.length; i++) {
     if (icons[i].deprecated) {
-      deprecatedIcons.push(icons[i])
+      deprecatedIcons.push(icons[i]);
     }
   }
 
@@ -85,7 +82,7 @@ async function createEmbeddedIconsJS() {
     embeddedJs +
     `
     let deprecated = [
-    `
+    `;
 
   for (let i = 0; i < deprecatedIcons.length; i++) {
     embeddedJs =
@@ -95,14 +92,13 @@ async function createEmbeddedIconsJS() {
         version: "${deprecatedIcons[i].deprecated.toString()}",
         newIconName: "e-icon--${deprecatedIcons[i].newIconName.toString()}"
       }
-    `
+    `;
     if (i < deprecatedIcons.length - 1) {
       embeddedJs += ',';
     } else {
       embeddedJs += `];`;
     }
   }
-
 
   const template = fs.readFileSync('./src/templates/elvis.template.js').toString();
   const newContent = template.replace('//[[INJECT_ICONS]]', embeddedJs);
@@ -112,11 +108,9 @@ async function createEmbeddedIconsJS() {
   return true;
 }
 
-
 // Create icon module in icons.js and icons.d.ts
 async function createIconModule() {
   const iconsToInclude = icons.map((i) => {
-
     if (i.deprecated) {
       return {
         name: i.name,
@@ -195,7 +189,6 @@ function createCamelCase(original) {
   }
   return newText;
 }
-
 
 // Create png-files from svg-files
 async function createPNGs() {

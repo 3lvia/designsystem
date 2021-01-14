@@ -5,11 +5,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    FormsModule,
-  ],
+  imports: [CommonModule, RouterModule, FormsModule],
   declarations: [SearchMenuComponent],
 })
-export class SearchMenuModule { }
+export class SearchMenuModule {}

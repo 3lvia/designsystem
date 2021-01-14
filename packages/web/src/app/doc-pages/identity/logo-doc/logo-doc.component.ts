@@ -37,7 +37,6 @@ handleMode(darkMode) {
   faviconHTML = `<link id="favicon" rel="icon" href="/favicon.ico" type="image/x-icon">
 `;
 
-
   toggleInverted(asset: string): void {
     if (asset === 'isInverted') {
       this.isInverted = !this.isInverted;

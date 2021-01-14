@@ -6,17 +6,14 @@ import { FaqDocModule } from './faq-doc/faq-doc.module';
 import { ChangelogModule } from './changelog/changelog.module';
 import { ContactModule } from './contact/contact.module';
 
-
 @NgModule({
-    imports: [
-        CommunityStartModule,
-        OverviewCommunityModule,
-        ContributeModule,
-        FaqDocModule,
-        ChangelogModule,
-        ContactModule,
-    ],
+  imports: [
+    CommunityStartModule,
+    OverviewCommunityModule,
+    ContributeModule,
+    FaqDocModule,
+    ChangelogModule,
+    ContactModule,
+  ],
 })
-export class CommunityModule { }
-
-
+export class CommunityModule {}

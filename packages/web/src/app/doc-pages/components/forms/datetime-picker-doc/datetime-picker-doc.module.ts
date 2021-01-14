@@ -20,4 +20,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [DatetimePickerDocComponent],
 })
-export class DatetimePickerDocModule { }
+export class DatetimePickerDocModule {}

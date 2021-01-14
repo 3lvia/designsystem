@@ -5,11 +5,7 @@ import { ComponentHeaderModule } from 'src/app/shared/component-structure/compon
 import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    MarkdownModule.forRoot(),
-  ],
+  imports: [CommonModule, ComponentHeaderModule, MarkdownModule.forRoot()],
   declarations: [ChangelogComponent],
 })
-export class ChangelogModule { }
+export class ChangelogModule {}

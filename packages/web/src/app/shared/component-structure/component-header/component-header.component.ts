@@ -67,5 +67,4 @@ export class ComponentHeaderComponent implements AfterViewInit {
     element.innerHTML = '';
     element.appendChild(this.createHTMLElement(newInner));
   }
-
 }

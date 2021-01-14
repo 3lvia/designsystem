@@ -8,4 +8,4 @@ import { RouterModule } from '@angular/router';
   imports: [CommonModule, ComponentHeaderModule, RouterModule],
   declarations: [FaqDocComponent],
 })
-export class FaqDocModule { }
+export class FaqDocModule {}

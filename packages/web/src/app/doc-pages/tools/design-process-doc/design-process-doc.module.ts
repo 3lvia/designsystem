@@ -16,4 +16,4 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [DesignProcessDocComponent],
 })
-export class DesignProcessDocModule { }
+export class DesignProcessDocModule {}

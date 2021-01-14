@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { CodeHighlighterComponent } from './code-highlighter.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   declarations: [CodeHighlighterComponent],
-  exports: [CodeHighlighterComponent]
+  exports: [CodeHighlighterComponent],
 })
-export class CodeHighlighterModule { }
+export class CodeHighlighterModule {}

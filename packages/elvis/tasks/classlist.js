@@ -1,6 +1,5 @@
 const fs = require('fs');
 
-
 // Creating classlist.json
 async function createClassListOverview() {
   const elvisCSS = fs.readFileSync('./css/elvis.css').toString();
@@ -30,13 +29,13 @@ function getAllClasses(stylesheet) {
       style.block[classBlock] = {};
     }
     const block = style.block[classBlock]; // Get block element by rule
-    
+
     // Container
-    if(rule.indexOf('-container') > -1) {
+    if (rule.indexOf('-container') > -1) {
       const container = getContainerFromClass(rule);
       block.container = block.container ? block.container : {};
       block.container[container] = block.container[container] ? block.container[container] : {};
-      
+
       return;
     }
 
@@ -109,6 +108,5 @@ function psuedoIsOnElement(className) {
   }
   return true;
 }
-
 
 exports.createClassListOverview = createClassListOverview;

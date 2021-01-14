@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
   @ViewChild('checkbox1', { static: true }) checkbox: any;
@@ -11,9 +11,18 @@ export class AppComponent implements OnInit {
   checkBoxVal2 = true;
   progressValue = 0;
 
-  testSLider = "This is simply a test"
+  testSLider = 'This is simply a test';
 
-  nativeJSApproach() {
+  items = [
+    { label: 'Epler' },
+    { label: 'Appelsin' },
+    { label: 'Bananer' },
+    { label: 'Druer' },
+    { label: 'Kiwi', disabled: true },
+  ];
+  value = 0;
+
+  nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
     this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {
       this.checkBoxVal2 = event.detail.checked;

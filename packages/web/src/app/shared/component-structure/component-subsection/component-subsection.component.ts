@@ -6,7 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./component-subsection.component.scss'],
 })
 export class ComponentSubsectionComponent {
-
   @Input() sectionTitle = '';
-
 }

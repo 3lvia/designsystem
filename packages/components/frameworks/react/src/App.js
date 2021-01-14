@@ -2,28 +2,35 @@ import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Checkbox } from '@elvia/elvis-checkbox/react';
+import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { Slider } from '@elvia/elvis-slider/react';
 
 function App() {
-
   const [trackedState, setTrackedState] = useState(true);
+  const [selectedState, setSelectedState] = useState(0);
   const ref = useRef();
+  const items = [
+    { label: 'Statistikk' },
+    { label: 'Siste kall' },
+    { label: 'HAN-port' },
+    { label: 'Feilkategorisering' },
+  ];
 
   function update() {
     setTrackedState(!trackedState);
   }
 
-  const [progressValue, setProgressValue] = useState(0)
+  const [progressValue, setProgressValue] = useState(0);
 
   function increaseProgress() {
-    setProgressValue(prevProgValue => prevProgValue + 10)
+    setProgressValue((prevProgValue) => prevProgValue + 10);
   }
   function decreaseProgress() {
-    setProgressValue(prevProgValue => prevProgValue - 10)
+    setProgressValue((prevProgValue) => prevProgValue - 10);
   }
   function resetProgress() {
-    setProgressValue(0)
+    setProgressValue(0);
   }
 
   return (
@@ -39,12 +46,15 @@ function App() {
       <h2>Slider - range</h2>
       <Slider value={[25, 75]}></Slider>
 
+      <h2>Tabs</h2>
+      <div style={{ marginTop: '16px' }}>
+        <Tabs items={items} value={selectedState} valueOnChange={setSelectedState}></Tabs>
+        <div>{selectedState.toString()}</div>
+      </div>
 
+      <hr style={{ margin: '40px 0' }} />
 
       <h2>Checkbox</h2>
-      {/* <button onClick={() => {ref.current.updateCheckedState(false)}}>Update state</button> */}
-      <button onClick={update}>Update state</button>
-      <div>{trackedState.toString()}</div>
       <div style={{ marginTop: '16px' }}>
         <Checkbox
           ref={ref}
@@ -55,63 +65,69 @@ function App() {
           size="normal"
           changeHandler={setTrackedState}
         ></Checkbox>
-        <Checkbox
-          label="Small checkbox"
-          name="Nametest"
-          id="CheckboxTestID"
-          size="small"
-        ></Checkbox>
+        <Checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></Checkbox>
       </div>
 
       <hr style={{ margin: '40px 0' }} />
 
       <h2>Popover</h2>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
-        <div>
+        <span style={{ marginTop: '16px' }}>
           <Popover
-            title="React demo of popover"
-            description="Alle privatkunder må bruke BankID første gang."
+            title="BankID"
+            description="Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang."
             trigger={<button>Right top</button>}
             posX="right"
           ></Popover>
-        </div>
-        <div>
+        </span>
+        <div style={{ marginTop: '16px' }}>
           <Popover
-            title="React demo of popover"
-            description="Alle privatkunder må bruke BankID første gang."
+            description="Alle privatkunder må bruke BankID."
             trigger={<button>Left top</button>}
             posX="left"
+            noTitle="true"
           ></Popover>
         </div>
-        <div>
+        <div style={{ marginTop: '16px' }}>
           <Popover
-            title="React demo of popover"
-            description="Alle privatkunder må bruke BankID første gang."
+            title="BankID"
+            description="Alle privatkunder må bruke BankID første gang de logger inn på Min side."
             trigger={<button>Center top</button>}
+            noClose="true"
           ></Popover>
         </div>
       </div>
-      <div>
+      <div style={{ marginTop: '16px' }}>
         <Popover
-          title="React demo of popover"
           description="Alle privatkunder må bruke BankID første gang."
           trigger={<button>Center bottom</button>}
+          noClose="true"
           posY="bottom"
         ></Popover>
       </div>
-      <div>
+      <div style={{ marginTop: '16px' }}>
         <Popover
-          title="React demo of popover"
+          title="BankID"
           description="Alle privatkunder må bruke BankID første gang."
           trigger={<button>Right bottom</button>}
           posY="bottom"
           posX="right"
         ></Popover>
       </div>
-      <div>
+      <div style={{ marginTop: '16px' }}>
         <Popover
-          title="React demo of popover"
-          description="Alle privatkunder må bruke BankID første gang."
+          customContent={
+            <div
+              style={{
+                boxSizing: 'border-box',
+                padding: '50px',
+                width: '100%',
+                border: '2px dashed lightgray',
+              }}
+            >
+              Custom content custom content custom content custom content
+            </div>
+          }
           trigger={<button>Left bottom</button>}
           posY="bottom"
           posX="left"
@@ -127,9 +143,7 @@ function App() {
         <button onClick={decreaseProgress}>Decrease</button>
         <button onClick={resetProgress}>reset</button>
       </div>
-      <div>
-        {progressValue}
-      </div>
+      <div>{progressValue}</div>
 
       <h2>Progressbar indeterminate</h2>
 
@@ -141,9 +155,7 @@ function App() {
       <div>
         <ProgressLinear isError></ProgressLinear>
       </div>
-
-
-    </div >
+    </div>
   );
 }
 

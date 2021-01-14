@@ -7,14 +7,12 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./dropdown-doc.component.scss'],
 })
 export class DropdownDocComponent {
-
   figmaUrl = getComponent('dropdown').figmaUrl;
   description = getComponent('dropdown').description;
-  headerDoes = ['Use sparingly: use dropdowns only when the user have 5-10 options and you have limited space to display it all open.'];
-  headerDonts = [
-    'Fewer than 5 options',
-    'More than 15 options',
+  headerDoes = [
+    'Use sparingly: use dropdowns only when the user have 5-10 options and you have limited space to display it all open.',
   ];
+  headerDonts = ['Fewer than 5 options', 'More than 15 options'];
 
   // Commented out earlier solution with own style
 

@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./templates.component.scss'],
 })
 export class TemplatesComponent {
-
   isDesktop = true;
   does = 'Follow standards for external and internal sites.';
   donts = 'Create new layouts for existing structures such as articles, factboxes etc.';

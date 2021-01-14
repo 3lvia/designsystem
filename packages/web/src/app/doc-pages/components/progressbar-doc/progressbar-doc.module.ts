@@ -20,4 +20,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [ProgressbarDocComponent],
 })
-export class ProgressbarDocModule { }
+export class ProgressbarDocModule {}

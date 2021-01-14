@@ -1,5 +1,5 @@
 export interface NavbarAnchor {
-    title: string;
-    top: number;
-    height: number;
+  title: string;
+  top: number;
+  height: number;
 }

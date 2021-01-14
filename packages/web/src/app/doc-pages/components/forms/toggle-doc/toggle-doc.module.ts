@@ -20,4 +20,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [ToggleDocComponent],
 })
-export class ToggleDocModule { }
+export class ToggleDocModule {}

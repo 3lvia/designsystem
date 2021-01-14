@@ -15,19 +15,26 @@
     "build:web": "yarn && cd packages/web && yarn run build:production",
     "commitizen-unix": "exec < /dev/tty && git cz --hook",
     "commitizen-windows": "winpty git cz --hook || true",
-    "lint-elvis": "npx prettier --write 'packages/elvis/**/*.js'",
-    "lint-doc": "npx prettier --write 'packages/web/src/**/*.ts'",
+    "prettier-elvis": "yarn prettier --write 'packages/elvis/**/*.js'",
+    "prettier-doc": "yarn prettier --write 'packages/web/src/**/*.ts'",
+    "prettier-comp": "yarn prettier --write 'packages/components/**/*.{js,ts,tsx}'",
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
-    "lint-all": "yarn run lint-elvis && yarn run lint-doc && yarn run eslint",
+    "lint-all": "yarn run prettier-elvis && yarn run prettier-doc && yarn run prettier-comp && yarn run eslint",
     "percy": "cd packages/elvis; yarn run percy"
   },
   "lint-staged": {
     "packages/elvis/**/*.+(md|css|sass|less|graphql|yml|yaml|scss|json|vue)": [
-      "npx prettier --write",
+      "yarn run prettier-elvis",
       "git add"
     ],
     "packages/web/**/*.+(js|ts|tsx)": [
-      "./node_modules/.bin/eslint --fix",
+      "yarn run prettier-doc",
+      "yarn run eslint",
+      "git add"
+    ],
+    "packages/components/**/*.+(js|ts|tsx)": [
+      "yarn run prettier-comp",
+      "yarn run eslint",
       "git add"
     ]
   },
@@ -41,6 +48,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
+    "babel-eslint": "^10.1.0",
     "prettier": "^2.0.5",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "tslib": "^2.0.0"
@@ -52,7 +60,8 @@
     "commitizen": "^4.2.2",
     "cz-conventional-changelog": "^3.2.0",
     "del": "^5.1.0",
-    "eslint": "^7.1.0",
+    "eslint": "^7.17.0",
+    "eslint-plugin-react": "^7.22.0",
     "express": "^4.17.1",
     "husky": "^4.2.5",
     "lerna": "^3.22.1",
@@ -72,3 +81,4 @@
     "minimist": "^0.2.1"
   }
 }
+

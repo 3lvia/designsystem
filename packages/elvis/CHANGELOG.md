@@ -3,7 +3,51 @@
 <!-- 🐝 - BUG FIXES -->
 
 <table>
-<tr class="changelog-row">
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      5.1.0
+    </span>
+    <br>
+    <span>
+      January 13, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/indentity/Typography#Overview"></a>
+        </div>
+        Strong and light versions of body text have been added, as well as on special text called 'micro'. 
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      5.0.0
+    </span>
+    <br>
+    <span>
+      January 06, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/search#Overview">Search</a>
+        </div>
+        The search bar component has changed the default search icon. The size of the search and close icons has also been adjusted for both local and global search. 
+        <div class="e-mt-8">
+          How to fix:
+          The changes only affect icon used to display a search bar. The only thing needed to fix this is to replace the <span class="code-text">e-icon--search-bold</span> icon with the new  <span class="code-text">e-icon--search-color</span>
+        </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       4.7.0

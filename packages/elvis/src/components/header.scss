@@ -21,9 +21,9 @@ $sidebar-mobile-z-index: -2;
 
 // HEADER
 .e-header {
-  position: sticky;
+  position: fixed;
   top: 0;
-  height: 100%;
+  width: 100%;
   box-sizing: border-box;
   z-index: $header-z-index;
   @include helpers.user-select(none);
@@ -208,6 +208,7 @@ $sidebar-mobile-z-index: -2;
     @extend %app-menu;
   }
   &__title {
+    @include helpers.user-select(text);
     @include typography.typography('text-md');
     font-weight: 500;
     @include breakpoints.breakpoint-up(Tablet) {

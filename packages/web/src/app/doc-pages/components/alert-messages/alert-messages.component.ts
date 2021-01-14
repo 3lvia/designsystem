@@ -7,7 +7,6 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./alert-messages.component.scss'],
 })
 export class AlertMessagesComponent {
-
   @ViewChild('alertAccordionExample') alertAccordionExample: ElementRef;
 
   figmaUrl = getComponent('alert-messages').figmaUrl;
@@ -19,20 +18,11 @@ export class AlertMessagesComponent {
     'After a user operation.',
   ];
 
-  doesToastDefault = [
-    'Confirmation message after an user action',
-    'Notification message',
-  ];
-  dontsToastDefault = [
-    'Error messages',
-  ];
+  doesToastDefault = ['Confirmation message after an user action', 'Notification message'];
+  dontsToastDefault = ['Error messages'];
 
-  doesGlobalDefault = [
-    'Give a general message to all users across the pages',
-  ];
-  dontsGlobalDefault = [
-    'After an user action',
-  ];
+  doesGlobalDefault = ['Give a general message to all users across the pages'];
+  dontsGlobalDefault = ['After an user action'];
 
   alertOverviewHTML = `<div class="e-alert">
   <div class="e-alert__icon">

@@ -10,7 +10,7 @@ export class CardDocComponent {
   figmaUrl = getComponent('card').figmaUrl;
   description = getComponent('card').description;
   donts = [
-    'Don\'t redirect cards to external sites - use links instead.',
+    "Don't redirect cards to external sites - use links instead.",
     'Do not combine "title outside card" and "title inside card" on the same front.',
   ];
 

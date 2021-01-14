@@ -10,7 +10,7 @@ export class GridDocComponent {
   figmaUrl = getIdentity('grid').figmaUrl;
   description = getIdentity('grid').description;
 
-  example9 = `<div class="e-text-caps e-mt-16 e-mb-8">External example</div>
+  example9 = `<div class="e-title-caps e-mt-16 e-mb-8">External example</div>
   <div class="e-grid e-bg-grey-20">
     <div class="row e-grid-margin-ext e-grid-gutters-ext e-grid-gutters-vertical">
       <div class="col-4">
@@ -35,7 +35,7 @@ export class GridDocComponent {
       </div>
     </div>
   </div>
-  <div class="e-text-caps e-mt-16 e-mb-8">Internal example</div>
+  <div class="e-title-caps e-mt-16 e-mb-8">Internal example</div>
   <div class="e-grid e-bg-grey-20">
     <div class="row e-grid-margin-int e-grid-gutters-int e-grid-gutters-vertical">
       <div class="col-4">
@@ -63,7 +63,7 @@ export class GridDocComponent {
   `;
 
   exampleGutterExternal = `<div style="margin-left:24px;margin-right:24px">
-  <div class="e-text-caps e-mt-16 e-mb-8">Without vertical gutters</div>
+  <div class="e-title-caps e-mt-16 e-mb-8">Without vertical gutters</div>
     <div class="e-grid e-bg-grey-20">
       <div class="row e-grid-gutters-ext">
         <div class="col">
@@ -84,7 +84,7 @@ export class GridDocComponent {
       </div>
     </div>
 
-    <div class="e-text-caps e-mt-16 e-mb-8">With vertical gutters</div>
+    <div class="e-title-caps e-mt-16 e-mb-8">With vertical gutters</div>
     <div class="e-grid e-bg-grey-20">
       <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
         <div class="col">
@@ -108,7 +108,7 @@ export class GridDocComponent {
 `;
 
   exampleGutterInternal = `<div style="margin-left:24px;margin-right:24px">
-  <div class="e-text-caps e-mt-16 e-mb-8">Without vertical gutters</div>
+  <div class="e-title-caps e-mt-16 e-mb-8">Without vertical gutters</div>
     <div class="e-grid e-bg-grey-20">
       <div class="row e-grid-gutters-int">
         <div class="col">
@@ -129,7 +129,7 @@ export class GridDocComponent {
       </div>
     </div>
 
-    <div class="e-text-caps e-mt-16 e-mb-8">With vertical gutters</div>
+    <div class="e-title-caps e-mt-16 e-mb-8">With vertical gutters</div>
     <div class="e-grid e-bg-grey-20">
       <div class="row e-grid-gutters-int e-grid-gutters-vertical">
         <div class="col">

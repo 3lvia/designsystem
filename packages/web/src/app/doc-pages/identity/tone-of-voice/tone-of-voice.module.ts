@@ -18,4 +18,4 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [ToneOfVoiceComponent],
 })
-export class ToneOfVoiceModule { }
+export class ToneOfVoiceModule {}

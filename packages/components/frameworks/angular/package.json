@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.14",
     "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-popover": "*",
+    "@elvia/elvis-tabs": "*",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-component-wrapper": "*",
     "@elvia/elvis-slider": "*",

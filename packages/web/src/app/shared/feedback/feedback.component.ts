@@ -5,10 +5,9 @@ import { Router, RoutesRecognized } from '@angular/router';
 @Component({
   selector: 'app-feedback',
   templateUrl: './feedback.component.html',
-  styleUrls: ['./feedback.component.scss']
+  styleUrls: ['./feedback.component.scss'],
 })
 export class FeedbackComponent implements OnInit, OnDestroy {
-
   webHook = 'https://hooks.slack.com/services/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';
 
   isEmoji = true;
@@ -17,10 +16,10 @@ export class FeedbackComponent implements OnInit, OnDestroy {
   currentEmoji: string;
   routerSubscription;
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.routerSubscription = this.router.events.subscribe(data => {
+    this.routerSubscription = this.router.events.subscribe((data) => {
       if (data instanceof RoutesRecognized) {
         this.resetFeedback();
       }
@@ -43,7 +42,7 @@ export class FeedbackComponent implements OnInit, OnDestroy {
     this.isComment = false;
     this.isSent = true;
     this.postFeedbackToSlack(comment);
-    setTimeout(() => this.resetFeedback(), 10000)
+    setTimeout(() => this.resetFeedback(), 10000);
   }
 
   getPageUrl(): string {
@@ -65,26 +64,26 @@ export class FeedbackComponent implements OnInit, OnDestroy {
     } else {
       emojiString = this.currentEmoji + ' 🔴';
     }
-    return emojiString
+    return emojiString;
   }
 
   getBinder(comment: string): string {
     let dash = '';
     if (comment !== '') {
-      dash = '-'
+      dash = '-';
     }
-    return dash
+    return dash;
   }
 
   postFeedbackToSlack(comment: string): void {
     const message = {
-      text: `${this.getPageUrl()}: ${this.getEmojiString().toUpperCase()} ${this.getBinder(comment)} ${comment}`
-    }
+      text: `${this.getPageUrl()}: ${this.getEmojiString().toUpperCase()} ${this.getBinder(
+        comment,
+      )} ${comment}`,
+    };
 
     const options = {
-      headers: new HttpHeaders(
-        { 'Content-Type': 'application/x-www-form-urlencoded' }
-      )
+      headers: new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' }),
     };
 
     this.http.post(this.webHook, JSON.stringify(message), { ...options, responseType: 'text' }).subscribe();

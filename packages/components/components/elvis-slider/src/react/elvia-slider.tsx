@@ -14,7 +14,7 @@ export interface SliderInput {
 
 export interface SliderProps {
   value: number | number[];
-  inputField?: SliderInput;
+  // inputField?: SliderInput;
   valueOnChange?: (value: number | number[]) => void;
   webcomponent?: any;
 }
@@ -22,7 +22,7 @@ export interface SliderProps {
 const ElvisSlider = withStyles({
   root: {
     color: 'black',
-    display: 'inline-block !important'
+    display: 'inline-block !important',
   },
   thumb: {
     height: 17,
@@ -37,8 +37,7 @@ const ElvisSlider = withStyles({
       backgroundColor: '#29d305',
       // Reset on touch devices, it doesn't add specificity
       // Todo, check hover states on tablets and phone
-      '@media (hover: none)': {
-      },
+      '@media (hover: none)': {},
     },
     '&:active': {
       boxShadow: 'none',
@@ -46,8 +45,7 @@ const ElvisSlider = withStyles({
     },
     '&:focus': {
       boxShadow: 'none',
-    }
-
+    },
   },
   track: {
     height: 5,
@@ -60,11 +58,8 @@ const ElvisSlider = withStyles({
   },
 })(Slider);
 
-const ElviaSlider: React.FC<SliderProps> = ({ value, inputField, valueOnChange, webcomponent }) => {
-
+const ElviaSlider: React.FC<SliderProps> = ({ value, valueOnChange, webcomponent }) => {
   const [rangeValue, setValue] = useState(value);
-  const [isInput, setInputfield] = useState(inputField ? true : false);
-
 
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue);
@@ -96,12 +91,15 @@ const ElviaSlider: React.FC<SliderProps> = ({ value, inputField, valueOnChange, 
   // todo
   // - send date back
   // - states: disbaled, invalid ++
-  // check react ui -API if there is more we want to offer in the elvia component. 
-
+  // check react ui -API if there is more we want to offer in the elvia component.
 
   return (
     <div>
-      <ElvisSlider value={rangeValue} onChange={handleChange} aria-labelledby="continuous-slider"></ElvisSlider>
+      <ElvisSlider
+        value={rangeValue}
+        onChange={handleChange}
+        aria-labelledby="continuous-slider"
+      ></ElvisSlider>
     </div>
   );
 };

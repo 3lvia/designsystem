@@ -7,7 +7,5 @@ import { getCommunity } from 'src/app/shared/e-items';
   styleUrls: ['./contribute.component.scss'],
 })
 export class ContributeComponent {
-
   description = getCommunity('contribute').description;
 }
-

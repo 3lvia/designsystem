@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 import { IframeScreenComponent } from './iframe-screen.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-  ],
+  imports: [CommonModule],
   declarations: [IframeScreenComponent],
-  exports: [IframeScreenComponent]
+  exports: [IframeScreenComponent],
 })
-export class IframeScreenModule { }
+export class IframeScreenModule {}

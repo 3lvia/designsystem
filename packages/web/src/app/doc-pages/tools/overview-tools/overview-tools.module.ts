@@ -5,11 +5,7 @@ import { OverviewPageModule } from 'src/app/shared/overview-page/overview-page.m
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    OverviewPageModule,
-    RouterModule,
-  ],
+  imports: [CommonModule, OverviewPageModule, RouterModule],
   declarations: [OverviewToolsComponent],
 })
-export class OverviewToolsModule { }
+export class OverviewToolsModule {}

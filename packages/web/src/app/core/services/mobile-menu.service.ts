@@ -6,11 +6,7 @@ import { ComponentPortal, ComponentType } from '@angular/cdk/portal';
   providedIn: 'root',
 })
 export class MobileMenuService {
-
-  constructor(
-    private overlay: Overlay,
-    private injector: Injector,
-  ) { }
+  constructor(private overlay: Overlay, private injector: Injector) {}
 
   setupOverlay(): OverlayRef {
     return this.overlay.create({
