@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Checkbox } from '@elvia/elvis-checkbox/react';
@@ -17,12 +17,8 @@ function App() {
     { label: 'Feilkategorisering' },
   ];
 
-  function update() {
-    setTrackedState(!trackedState);
-  }
-
+  // progress-linear state and handling for demo
   const [progressValue, setProgressValue] = useState(0);
-
   function increaseProgress() {
     setProgressValue((prevProgValue) => prevProgValue + 10);
   }
@@ -33,18 +29,71 @@ function App() {
     setProgressValue(0);
   }
 
+  // slider state and handling
+  const [sliderValue, setSliderValue] = useState(10);
+
+  const [rangeSliderValue, setRangeSliderValue] = useState([15, 75]);
+
+  const handleSliderChange = (event, newValue) => {
+    setSliderValue(newValue);
+  };
+
+  const handleInputChange = (event) => {
+    setSliderValue(parseInt(event.target.value));
+  };
+
   return (
     <div className="App">
       <h1>React preview</h1>
 
       <h2>Slider - simple</h2>
 
-      <Slider value={10}></Slider>
+      <Slider
+        value={sliderValue}
+        valueOnChange={setSliderValue}
+        minValue={10}
+        maxValue={90}
+        name="hiddenSliderInput"
+      ></Slider>
 
-      <h3>Slider - With input field</h3>
+      <div>
+        <p>Slider Value is now : {sliderValue}</p>
+      </div>
+
+      <h2>Slider - simple with attached input field!</h2>
+      <div className="exampleContainer">
+        <div className="slider">
+          <Slider
+            value={sliderValue}
+            valueOnChange={setSliderValue}
+            minValue={0}
+            maxValue={90}
+            name="hiddenSliderInput"
+          ></Slider>
+        </div>
+        <div className="exampleInput">
+          <input
+            type="number"
+            placeholder="insert some number"
+            value={sliderValue}
+            onChange={handleInputChange}
+          />
+        </div>
+      </div>
+      <div>
+        <p>Slider Value is now : {sliderValue}</p>
+      </div>
 
       <h2>Slider - range</h2>
-      <Slider value={[25, 75]}></Slider>
+      <Slider
+        value={rangeSliderValue}
+        valueOnChange={setRangeSliderValue}
+        minValue={0}
+        maxValue={90}
+      ></Slider>
+      <div>
+        <p>Slider Value is now : {rangeSliderValue[0] + ' and ' + rangeSliderValue[1]}</p>
+      </div>
 
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px' }}>

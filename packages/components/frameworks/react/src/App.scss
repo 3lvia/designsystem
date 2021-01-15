@@ -6,3 +6,14 @@ $green: #29d305;
   padding: 20px;
   font-family: "Red Hat Text";
 }
+
+.exampleContainer {
+  display: flex;
+  .slider {
+    width: 100%;
+    margin-right: 24px;
+  }
+  .exampleInput {
+    width: 10%;
+  }
+}

@@ -1,24 +1,13 @@
 import * as React from 'react';
 import Slider from '@material-ui/core/Slider';
 import { withStyles } from '@material-ui/core/styles';
-
-import { useState, useEffect } from 'react';
 import './style.scss';
+import { useState, useEffect } from 'react';
 
-export interface SliderInput {
-  step?: number;
-  min: number;
-  max: number;
-  // vurder type: string om det er andre ting enn numbers som kan brukes
-}
-
-export interface SliderProps {
-  value: number | number[];
-  // inputField?: SliderInput;
-  valueOnChange?: (value: number | number[]) => void;
-  webcomponent?: any;
-}
-
+// style override of default react ui slider
+// TODO: check if we can do this in a more elequent way ;)
+// YESYESYEYS THIS EXIST! : https://material-ui.com/api/slider/#css
+// create classes and send them in with classnames to the classes prop to react ui slider
 const ElvisSlider = withStyles({
   root: {
     color: 'black',
@@ -45,6 +34,7 @@ const ElvisSlider = withStyles({
     },
     '&:focus': {
       boxShadow: 'none',
+      backgroundColor: '#29d305',
     },
   },
   track: {
@@ -58,7 +48,27 @@ const ElvisSlider = withStyles({
   },
 })(Slider);
 
-const ElviaSlider: React.FC<SliderProps> = ({ value, valueOnChange, webcomponent }) => {
+export interface SliderProps {
+  value: number | number[];
+  step: number;
+  name: string;
+  minValue: number;
+  maxValue: number;
+  isDisabled: boolean;
+  valueOnChange?: (value: number | number[]) => void;
+  webcomponent?: any;
+}
+
+const ElviaSlider: React.FC<SliderProps> = ({
+  value,
+  step,
+  name,
+  minValue,
+  maxValue,
+  isDisabled,
+  valueOnChange,
+  webcomponent,
+}) => {
   const [rangeValue, setValue] = useState(value);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
@@ -70,6 +80,16 @@ const ElviaSlider: React.FC<SliderProps> = ({ value, valueOnChange, webcomponent
     updateReactComponent();
     updateWebcomponent();
   }, [rangeValue]);
+
+  useEffect(() => {
+    componentWillReceiveProps(value);
+    handleChange;
+  }, [value]);
+
+  // for handling new value props from input fields
+  const componentWillReceiveProps = (newValue: any) => {
+    setValue(newValue);
+  };
 
   function updateReactComponent() {
     if (!webcomponent && valueOnChange) {
@@ -84,20 +104,16 @@ const ElviaSlider: React.FC<SliderProps> = ({ value, valueOnChange, webcomponent
     }
   }
 
-  // useEffect(() => {
-  //   setValue(value);
-  // }, [value])
-
-  // todo
-  // - send date back
-  // - states: disbaled, invalid ++
-  // check react ui -API if there is more we want to offer in the elvia component.
-
   return (
     <div>
       <ElvisSlider
         value={rangeValue}
         onChange={handleChange}
+        disabled={isDisabled}
+        min={minValue}
+        max={maxValue}
+        step={step}
+        name={name}
         aria-labelledby="continuous-slider"
       ></ElvisSlider>
     </div>
