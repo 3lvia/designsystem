@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useEffect, useState, useRef } from 'react';
 import classNames from 'classnames';
+import toolbox from '@elvia/elvis-toolbox';
 import './style.scss';
 export interface TabItem {
   label: string;
@@ -12,16 +13,6 @@ export interface TabsProps {
   valueOnChange?: (value: number) => void;
   webcomponent?: any;
 }
-
-const throttle = (func: any, limit: number) => {
-  let inThrottle: boolean | NodeJS.Timeout;
-  return (...args: any) => {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = setTimeout(() => (inThrottle = false), limit);
-    }
-  };
-};
 
 const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
   const [currValue, setValue] = useState(value);
@@ -72,7 +63,7 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
     if (!itemsRef.current) {
       return;
     }
-    const throttledResizeCount = throttle(updateScrolledPosition, 150);
+    const throttledResizeCount = toolbox.throttle(updateScrolledPosition, 150);
 
     window.addEventListener('resize', throttledResizeCount);
     itemsRef.current.addEventListener('scroll', updateScrolledPosition);
