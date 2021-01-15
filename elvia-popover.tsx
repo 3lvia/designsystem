@@ -41,6 +41,7 @@ const getEventPath = (e: any) => {
 
 const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, posY, trigger, noClose }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
+  const [isSsr, setIsSsr] = useState(true);
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
@@ -56,13 +57,11 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
     ['ewc-popover--hide']: !visiblePopover,
   });
 
-  // Toggling popover state
-  function togglePopover() {
-    setPopoverVisibility((prevState) => !prevState);
-  }
-
   // Running on first render only (on mount)
   useEffect(() => {
+    // Server side rendering will be false if useEffect is running
+    setIsSsr(false);
+
     // Defining max content width for popover
     const maxContentTimeout = setTimeout(() => {
       if (!popoverContentRef.current) {
@@ -72,9 +71,7 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
     }, 0);
 
     // Listen to click outside popover
-    document.addEventListener('click', handleClickOutside);
-
-    function handleClickOutside(e: MouseEvent) {
+    const handleClickOutside = (e: MouseEvent) => {
       if (!popoverContentRef.current || !popoverRef.current) {
         return;
       }
@@ -86,14 +83,20 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
       if (!slotTriggerIsTargetTrigger && !popoverContainsTarget && !contentIsHidden) {
         togglePopover();
       }
-    }
+    };
+    document.addEventListener('click', handleClickOutside);
 
-    // Remove listeners
+    // Cleanup
     return () => {
       document.removeEventListener('click', handleClickOutside);
       clearTimeout(maxContentTimeout);
     };
   }, []);
+
+  // Toggling popover state
+  const togglePopover = () => {
+    setPopoverVisibility((prevState) => !prevState);
+  };
 
   // Initializing horizontal positions
   const setInitialPosition = useCallback(() => {
@@ -106,43 +109,52 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
     }
   }, [posX]);
 
-  function updatePosStyle(transform: string, right: string, left: string) {
+  const updatePosStyle = (transform: string, right: string, left: string) => {
     if (!popoverContentRef.current) {
       return;
     }
     popoverContentRef.current.style.transform = transform;
     popoverContentRef.current.style.right = right;
     popoverContentRef.current.style.left = left;
-  }
+  };
 
-  function getCorrectInnerWidth() {
+  const getCorrectInnerWidth = () => {
     if (navigator.userAgent.toLowerCase().includes('android')) {
-      return window.visualViewport.width;
+      return isSsr ? null : window.visualViewport.width;
     }
-    return window.innerWidth;
-  }
+    return isSsr ? null : window.innerWidth;
+  };
 
-  function getCorrectInnerHeight() {
+  const getCorrectInnerHeight = () => {
     if (navigator.userAgent.toLowerCase().includes('android')) {
-      return window.visualViewport.height;
+      return isSsr ? null : window.visualViewport.height;
     }
-    return window.innerHeight;
-  }
+    return isSsr ? null : window.innerHeight;
+  };
 
-  function resize() {
-    if (!popoverContentRef.current || !maxContentWidth) {
+  const resize = () => {
+    const correctInnerWidth = getCorrectInnerWidth();
+    if (!popoverContentRef.current || !maxContentWidth || correctInnerWidth === null) {
       return;
     }
-    if (maxContentWidth.current + popoverMargin + popoverMargin > getCorrectInnerWidth()) {
-      popoverContentRef.current.style.width = `${getCorrectInnerWidth() - 2 * popoverMargin}px`;
+    if (maxContentWidth.current + popoverMargin + popoverMargin > correctInnerWidth) {
+      popoverContentRef.current.style.width = `${correctInnerWidth - 2 * popoverMargin}px`;
     } else {
       popoverContentRef.current.style.width = maxContentWidth + 'px';
     }
-  }
+  };
 
   // Update position and size of content
-  const updateNewPosition = useCallback(() => {
-    if (!popoverRef.current || !popoverContentRef.current || !popoverTriggerRef.current) {
+  const updatePosition = useCallback(() => {
+    const correctInnerWidth = getCorrectInnerWidth();
+    const correctInnerHeight = getCorrectInnerHeight();
+    if (
+      !popoverRef.current ||
+      !popoverContentRef.current ||
+      !popoverTriggerRef.current ||
+      correctInnerWidth === null ||
+      correctInnerHeight === null
+    ) {
       return;
     }
 
@@ -150,10 +162,10 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
     const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
     const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
     const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
-    const offsetBottom = getCorrectInnerHeight() - contentHeight - offsetTop;
+    const offsetBottom = correctInnerHeight - contentHeight - offsetTop;
     const triggerWidth = popoverTriggerRef.current.getBoundingClientRect().width;
     const triggerOffsetLeft = popoverTriggerRef.current.getBoundingClientRect().left;
-    const triggerOffsetRight = getCorrectInnerWidth() - triggerWidth - triggerOffsetLeft;
+    const triggerOffsetRight = correctInnerWidth - triggerWidth - triggerOffsetLeft;
 
     // Update horizontal position
     const updatePositionX = () => {
@@ -207,17 +219,19 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
   // Update position when popover is opened and when window is resized
   useEffect(() => {
     // Update position and size when opening popover
-    updateNewPosition();
+    updatePosition();
     resize();
 
     // Listen to window resizing if popover is open
     if (!visiblePopover) {
       return;
     }
-    const throttledUpdateNewPosition = throttle(updateNewPosition, 250);
-    window.addEventListener('resize', throttledUpdateNewPosition);
-    return () => window.removeEventListener('resize', throttledUpdateNewPosition);
-  }, [visiblePopover, updateNewPosition]);
+    const throttledUpdatePosition = throttle(updatePosition, 250);
+    window.addEventListener('resize', throttledUpdatePosition);
+
+    // Cleanup
+    return () => window.removeEventListener('resize', throttledUpdatePosition);
+  }, [visiblePopover]);
 
   return (
     <span className={popoverClasses} ref={popoverRef}>
