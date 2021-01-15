@@ -1,0 +1,51 @@
+$black: #000;
+$green: #29d305;
+$grey-20: #d3d3d3;
+$grey-30: #bdbdbd;
+
+.ewc-elvis-slider {
+    .MuiSlider-root {
+        color: $black;
+        display: inline-block !important;
+    }
+
+    .MuiSlider-rail {
+        height: 3px;
+        border-radius: 25px;
+        background-color: $grey-20;
+    }
+    .MuiSlider-track {
+        height: 5px;
+        margin-top: -1px;
+        background-color: $black;
+        border-radius: 25px;
+    }
+    .MuiSlider-thumb {
+        height: 17px;
+        width: 17px;
+        margin-top: -7px;
+
+        &:hover {
+            box-shadow: none;
+            height: 20px;
+            width: 20px;
+            margin-top: -8.5px;
+            background-color: $green;
+        }
+        &:active,
+        &:focus {
+            box-shadow: none;
+            background-color: $green;
+        }
+    }
+    .Mui-disabled {
+        .MuiSlider-track {
+            background-color: $grey-30;
+        }
+        .MuiSlider-thumb {
+            height: 17px;
+            width: 17px;
+            margin-top: -7px;
+        }
+    }
+}

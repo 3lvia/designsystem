@@ -31,15 +31,12 @@ function App() {
 
   // slider state and handling
   const [sliderValue, setSliderValue] = useState(10);
+  const [sliderAndInputValue, setsliderAndInputValue] = useState(10);
 
   const [rangeSliderValue, setRangeSliderValue] = useState([15, 75]);
 
-  const handleSliderChange = (event, newValue) => {
-    setSliderValue(newValue);
-  };
-
   const handleInputChange = (event) => {
-    setSliderValue(parseInt(event.target.value));
+    setsliderAndInputValue(parseInt(event.target.value));
   };
 
   return (
@@ -51,8 +48,9 @@ function App() {
       <Slider
         value={sliderValue}
         valueOnChange={setSliderValue}
-        minValue={10}
-        maxValue={90}
+        minValue={0}
+        maxValue={100}
+        isDisabled={true}
         name="hiddenSliderInput"
       ></Slider>
 
@@ -64,8 +62,8 @@ function App() {
       <div className="exampleContainer">
         <div className="slider">
           <Slider
-            value={sliderValue}
-            valueOnChange={setSliderValue}
+            value={sliderAndInputValue}
+            valueOnChange={setsliderAndInputValue}
             minValue={0}
             maxValue={90}
             name="hiddenSliderInput"
@@ -75,13 +73,13 @@ function App() {
           <input
             type="number"
             placeholder="insert some number"
-            value={sliderValue}
+            value={sliderAndInputValue}
             onChange={handleInputChange}
           />
         </div>
       </div>
       <div>
-        <p>Slider Value is now : {sliderValue}</p>
+        <p>Slider Value is now : {sliderAndInputValue}</p>
       </div>
 
       <h2>Slider - range</h2>

@@ -1,52 +1,12 @@
 import * as React from 'react';
-import Slider from '@material-ui/core/Slider';
-import { withStyles } from '@material-ui/core/styles';
 import './style.scss';
+import Slider from '@material-ui/core/Slider';
 import { useState, useEffect } from 'react';
 
 // style override of default react ui slider
 // TODO: check if we can do this in a more elequent way ;)
 // YESYESYEYS THIS EXIST! : https://material-ui.com/api/slider/#css
 // create classes and send them in with classnames to the classes prop to react ui slider
-const ElvisSlider = withStyles({
-  root: {
-    color: 'black',
-    display: 'inline-block !important',
-  },
-  thumb: {
-    height: 17,
-    width: 17,
-    backgroundColor: 'black',
-    marginTop: -7,
-    '&:hover': {
-      boxShadow: 'none',
-      height: 20,
-      width: 20,
-      marginTop: -8.5,
-      backgroundColor: '#29d305',
-      // Reset on touch devices, it doesn't add specificity
-      // Todo, check hover states on tablets and phone
-      '@media (hover: none)': {},
-    },
-    '&:active': {
-      boxShadow: 'none',
-      backgroundColor: '#29d305',
-    },
-    '&:focus': {
-      boxShadow: 'none',
-      backgroundColor: '#29d305',
-    },
-  },
-  track: {
-    height: 5,
-    marginTop: -1,
-    borderRadius: 25,
-  },
-  rail: {
-    height: 3,
-    backgroundColor: 'grey',
-  },
-})(Slider);
 
 export interface SliderProps {
   value: number | number[];
@@ -105,8 +65,8 @@ const ElviaSlider: React.FC<SliderProps> = ({
   }
 
   return (
-    <div>
-      <ElvisSlider
+    <div className="ewc-elvis-slider">
+      <Slider
         value={rangeValue}
         onChange={handleChange}
         disabled={isDisabled}
@@ -115,7 +75,7 @@ const ElviaSlider: React.FC<SliderProps> = ({
         step={step}
         name={name}
         aria-labelledby="continuous-slider"
-      ></ElvisSlider>
+      ></Slider>
     </div>
   );
 };
