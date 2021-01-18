@@ -139,7 +139,7 @@ export const eComponents: EItems[] = [
     title: 'Chips',
     // tslint:disable-next-line: max-line-length
     description:
-      'Chips are interactive elements that represent an input. They should appear when a user select a filter from an input and can easily be removed by clicking on them.',
+      'Chips are interactive elements that represent an input. These are triggered by the user and can easily be removed by clicking on them. These are often used when you are going to filter content.',
     docUrl: Pages.Chips,
     absolutePath: '/components/' + Pages.Chips,
     status: ItemStatus.New,

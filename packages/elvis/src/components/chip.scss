@@ -3,6 +3,8 @@
 @use "../utilities/icons";
 @use "../utilities/helpers";
 
+$chips-padding: 5px 16px;
+
 .e-chip-container {
   display: flex;
   flex-direction: row;
@@ -23,8 +25,7 @@
   align-items: center;
   border: none;
   border-radius: 50px;
-
-  padding: 4px 16px;
+  padding: $chips-padding;
   @extend .e-chip--green-apple;
 
   &__label {

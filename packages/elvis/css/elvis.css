@@ -2490,7 +2490,7 @@ input:focus {
   align-items: center;
   border: none;
   border-radius: 50px;
-  padding: 4px 16px;
+  padding: 5px 16px;
 }
 
 .e-chip__label {
