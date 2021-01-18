@@ -2,6 +2,10 @@
 @use "../../variables/typography";
 @use "../../utilities/icons.scss";
 
+$form-input-padding-compact: 5px 10px;
+$form-input-padding-compact-active: 4px 9px;
+$form-input-padding-compact-with-icon: 5px 36px 5px 10px;
+
 .e-form-field {
   // Variable containing '&' to jump to current parent inside a child class.
   $this: &;
@@ -31,6 +35,35 @@
       font-family: 'Red Hat Text';
       font-size: 12px;
       line-height: 16px;
+    }
+
+    .e-input {
+      input,
+      textarea {
+        padding: $form-input-padding-compact;
+        @include typography.typography('text-info');
+      }
+
+      &.e-input---invalid input,
+      &.e-input---invalid textarea,
+      input:invalid,
+      textarea:invalid {
+        border: 2px solid colors.color('red');
+        padding: $form-input-padding-compact-active;
+      }
+      &.e-input---focus input,
+      &.e-input---focus textarea,
+      > input:focus,
+      > textarea:focus {
+        border: 2px solid colors.color('elvia-charge');
+        padding: $form-input-padding-compact-active;
+      }
+      > i ~ input,
+      i ~ input:invalid,
+      > i ~ input:focus,
+      i ~ input:disabled {
+        padding: $form-input-padding-compact-with-icon;
+      }
     }
   }
 
