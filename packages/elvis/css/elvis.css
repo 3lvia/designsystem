@@ -2519,197 +2519,121 @@ input:focus {
 
 .e-chip.e-chip--green {
   position: relative;
+  background: rgba(41, 211, 5, 0.25);
 }
 
-.e-chip.e-chip--green::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: #29d305;
-  opacity: 0.25;
-  border-radius: 50px;
+.e-chip.e-chip--green.e-chip---disabled, .e-chip.e-chip--green:disabled {
+  cursor: not-allowed;
+  background: rgba(41, 211, 5, 0.065);
 }
 
 .e-chip.e-chip--yellow {
   position: relative;
+  background: rgba(255, 255, 0, 0.25);
 }
 
-.e-chip.e-chip--yellow::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: #ffff00;
-  opacity: 0.25;
-  border-radius: 50px;
+.e-chip.e-chip--yellow.e-chip---disabled, .e-chip.e-chip--yellow:disabled {
+  cursor: not-allowed;
+  background: rgba(255, 255, 0, 0.065);
 }
 
 .e-chip.e-chip--orange {
   position: relative;
+  background: rgba(255, 160, 0, 0.25);
 }
 
-.e-chip.e-chip--orange::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: #ffa000;
-  opacity: 0.25;
-  border-radius: 50px;
+.e-chip.e-chip--orange.e-chip---disabled, .e-chip.e-chip--orange:disabled {
+  cursor: not-allowed;
+  background: rgba(255, 160, 0, 0.065);
 }
 
 .e-chip.e-chip--red {
   position: relative;
+  background: rgba(255, 0, 0, 0.25);
 }
 
-.e-chip.e-chip--red::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: #ff0000;
-  opacity: 0.25;
-  border-radius: 50px;
+.e-chip.e-chip--red.e-chip---disabled, .e-chip.e-chip--red:disabled {
+  cursor: not-allowed;
+  background: rgba(255, 0, 0, 0.065);
 }
 
 .e-chip.e-chip--green-apple, .e-chip {
   position: relative;
+  background: rgba(33, 172, 4, 0.25);
 }
 
-.e-chip.e-chip--green-apple::before, .e-chip::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: #21ac04;
-  opacity: 0.25;
-  border-radius: 50px;
+.e-chip.e-chip--green-apple.e-chip---disabled, .e-chip.e-chip---disabled, .e-chip.e-chip--green-apple:disabled, .e-chip:disabled {
+  cursor: not-allowed;
+  background: rgba(33, 172, 4, 0.065);
 }
 
 .e-chip.e-chip--violet-grape {
   position: relative;
+  background: rgba(73, 1, 146, 0.25);
 }
 
-.e-chip.e-chip--violet-grape::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: #490192;
-  opacity: 0.25;
-  border-radius: 50px;
+.e-chip.e-chip--violet-grape.e-chip---disabled, .e-chip.e-chip--violet-grape:disabled {
+  cursor: not-allowed;
+  background: rgba(73, 1, 146, 0.065);
 }
 
 .e-chip.e-chip--blue-berry {
   position: relative;
+  background: rgba(0, 109, 219, 0.25);
 }
 
-.e-chip.e-chip--blue-berry::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: #006ddb;
-  opacity: 0.25;
-  border-radius: 50px;
+.e-chip.e-chip--blue-berry.e-chip---disabled, .e-chip.e-chip--blue-berry:disabled {
+  cursor: not-allowed;
+  background: rgba(0, 109, 219, 0.065);
 }
 
 .e-chip.e-chip--purple-plum {
   position: relative;
+  background: rgba(182, 109, 255, 0.25);
 }
 
-.e-chip.e-chip--purple-plum::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: #b66dff;
-  opacity: 0.25;
-  border-radius: 50px;
+.e-chip.e-chip--purple-plum.e-chip---disabled, .e-chip.e-chip--purple-plum:disabled {
+  cursor: not-allowed;
+  background: rgba(182, 109, 255, 0.065);
 }
 
 .e-chip.e-chip--orange-mango {
   position: relative;
+  background: rgba(219, 109, 0, 0.25);
 }
 
-.e-chip.e-chip--orange-mango::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: #db6d00;
-  opacity: 0.25;
-  border-radius: 50px;
+.e-chip.e-chip--orange-mango.e-chip---disabled, .e-chip.e-chip--orange-mango:disabled {
+  cursor: not-allowed;
+  background: rgba(219, 109, 0, 0.065);
 }
 
 .e-chip.e-chip--red-tomato {
   position: relative;
+  background: rgba(185, 2, 2, 0.25);
 }
 
-.e-chip.e-chip--red-tomato::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background: #b90202;
-  opacity: 0.25;
-  border-radius: 50px;
+.e-chip.e-chip--red-tomato.e-chip---disabled, .e-chip.e-chip--red-tomato:disabled {
+  cursor: not-allowed;
+  background: rgba(185, 2, 2, 0.065);
 }
 
 .e-chip---hover:not(.e-chip---disabled) {
   background: #29d305;
-  opacity: 1;
   cursor: pointer;
-}
-
-.e-chip---hover:not(.e-chip---disabled)::before {
-  background: #29d305;
 }
 
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .e-chip:hover:not(:disabled) {
     background: #29d305;
-    opacity: 1;
     cursor: pointer;
   }
-
-  .e-chip:hover:not(:disabled)::before {
-    background: #29d305;
-  }
 }
-.e-chip:active:not(:disabled) {
-  background: #29d305;
-  opacity: 1;
-  cursor: pointer;
-}
-
-.e-chip:active:not(:disabled)::before {
-  background: #29d305;
-}
-
 .e-chip---disabled, .e-chip:disabled {
   cursor: not-allowed;
+  background: rgba(33, 172, 4, 0.065);
+}
+
+.e-chip---disabled .e-chip__close, .e-chip:disabled .e-chip__close {
   opacity: 0.5;
 }
 

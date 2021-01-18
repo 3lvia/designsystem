@@ -221,8 +221,8 @@
 				"e-chip--red-tomato": {}
 			},
 			"psuedo": {
-				"e-chip---hover": {},
-				"e-chip---disabled": {}
+				"e-chip---disabled": {},
+				"e-chip---hover": {}
 			}
 		},
 		"e-content-loader": {
@@ -1115,6 +1115,7 @@
 		"e-chip__label": {},
 		"e-chip__close": {},
 		"e-chip--green": {},
+		"e-chip---disabled": {},
 		"e-chip--yellow": {},
 		"e-chip--orange": {},
 		"e-chip--red": {},
@@ -1125,7 +1126,6 @@
 		"e-chip--orange-mango": {},
 		"e-chip--red-tomato": {},
 		"e-chip---hover": {},
-		"e-chip---disabled": {},
 		"e-content-loader": {},
 		"e-content-loader--circle": {},
 		"e-content-loader--text": {},

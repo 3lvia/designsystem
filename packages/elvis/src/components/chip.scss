@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../variables/typography";
 @use '../variables/colors';
 @use "../utilities/icons";
@@ -40,20 +41,17 @@ $chips-padding: 5px 16px;
 
   @each $label, $map in colors.$just-colors {
     $labels: ($label);
+    $rgb: map.get($map, rgb);
 
     @each $label in $labels {
       &.e-chip--#{$label} {
         position: relative;
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0px;
-          left: 0px;
-          width: 100%;
-          height: 100%;
-          background: colors.color($label);
-          opacity: 0.25;
-          border-radius: 50px;
+        background: rgba($rgb, 0.25);
+
+        &.e-chip---disabled,
+        &:disabled {
+          cursor: not-allowed;
+          background: rgba($rgb, 0.065);
         }
       }
     }
@@ -61,35 +59,21 @@ $chips-padding: 5px 16px;
 
   &---hover:not(.e-chip---disabled) {
     background: colors.color('elvia-charge');
-    opacity: 1;
     cursor: pointer;
-    &::before {
-      background: colors.color('elvia-charge');
-    }
   }
   @include helpers.hover() {
     &:hover:not(:disabled) {
       background: colors.color('elvia-charge');
-      opacity: 1;
       cursor: pointer;
-      &::before {
-        background: colors.color('elvia-charge');
-      }
-    }
-  }
-
-  &:active:not(:disabled) {
-    background: colors.color('elvia-charge');
-    opacity: 1;
-    cursor: pointer;
-    &::before {
-      background: colors.color('elvia-charge');
     }
   }
 
   &---disabled,
   &:disabled {
     cursor: not-allowed;
-    opacity: 0.5;
+    background: rgba(colors.color('green-apple'), 0.065);
+    .e-chip__close {
+      opacity: 0.5;
+    }
   }
 }
