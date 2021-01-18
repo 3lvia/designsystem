@@ -7417,7 +7417,7 @@ input:focus {
   bottom: 100%;
   left: 50%;
   margin-left: -5px;
-  border: 5px solid;
+  border: 7px solid;
   border-color: transparent transparent #515151 transparent;
 }
 
@@ -7437,7 +7437,7 @@ input:focus {
   top: 100%;
   left: 50%;
   margin-left: -5px;
-  border: 5px solid;
+  border: 7px solid;
   border-color: #515151 transparent transparent transparent;
 }
 
