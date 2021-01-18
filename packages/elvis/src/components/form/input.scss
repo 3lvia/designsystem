@@ -4,6 +4,7 @@
 @use "../../variables/typography";
 @use "../../utilities/outline";
 @use "../../utilities/helpers";
+@use "../../utilities/icons";
 
 $form-input-padding: 12px 16px;
 $form-input-padding-active: 11px 15px;
@@ -11,6 +12,9 @@ $form-input-padding-with-icon: 12px 44px 12px 16px;
 $form-input-padding-with-icon-active: 11px 43px 11px 15px;
 $form-input-border-radius: shared-sizes.$border-radius;
 $form-input-border: 1px solid colors.color('grey');
+
+$form-input-padding-compact: 5px 10px;
+$form-input-padding-compact-active: 4px 9px;
 
 .e-input {
   max-width: 448px;
@@ -30,9 +34,7 @@ $form-input-border: 1px solid colors.color('grey');
     padding: $form-input-padding;
     @include typography.typography('text-option');
   }
-  > i ~ input {
-    padding: $form-input-padding-with-icon;
-  }
+
   > textarea {
     min-height: 16px;
     height: 91px;
@@ -53,10 +55,10 @@ $form-input-border: 1px solid colors.color('grey');
     justify-content: center;
   }
 
-  i {
+  .e-btn.e-btn--icon {
     position: absolute;
-    right: 16px;
-    top: calc(50% - (16px / 2));
+    right: 4px;
+    top: 4px;
     cursor: pointer;
   }
 
@@ -67,9 +69,6 @@ $form-input-border: 1px solid colors.color('grey');
     border: 2px solid colors.color('red');
     padding: $form-input-padding-active;
   }
-  i ~ input:invalid {
-    padding: $form-input-padding-with-icon-active;
-  }
 
   &.e-input---focus > input,
   &.e-input---focus > textarea,
@@ -78,9 +77,6 @@ $form-input-border: 1px solid colors.color('grey');
     @include outline.e-outline();
     border: 2px solid colors.color('elvia-charge');
     padding: $form-input-padding-active;
-  }
-  > i ~ input:focus {
-    padding: $form-input-padding-with-icon-active;
   }
 
   &.e-input---disabled > input,
@@ -92,9 +88,6 @@ $form-input-border: 1px solid colors.color('grey');
     border-color: colors.color('grey-20');
     cursor: not-allowed;
   }
-  i ~ input:disabled {
-    padding: $form-input-padding-with-icon-active;
-  }
 
   // removes default time&date icons in input fields
   input[type='date']::-webkit-calendar-picker-indicator,
@@ -103,8 +96,44 @@ $form-input-border: 1px solid colors.color('grey');
   }
 }
 
-.e-combined-field {
-  .e-input:not(:last-of-type) {
-    margin-right: 8px;
+.e-form-field.e-combined-field .e-input:not(:last-of-type) {
+  margin-right: 8px;
+}
+
+.e-form-field.e-form-field--compact .e-input {
+  input,
+  textarea {
+    padding: $form-input-padding-compact;
+    @include typography.typography('text-info');
+  }
+
+  &.e-input---invalid input,
+  &.e-input---invalid textarea,
+  input:invalid,
+  textarea:invalid {
+    border: 2px solid colors.color('red');
+    padding: $form-input-padding-compact-active;
+  }
+  &.e-input---focus input,
+  &.e-input---focus textarea,
+  > input:focus,
+  > textarea:focus {
+    border: 2px solid colors.color('elvia-charge');
+    padding: $form-input-padding-compact-active;
+  }
+
+  .e-btn.e-btn--icon {
+    top: 3px;
+    right: 3px;
+    width: 28px;
+    height: 28px;
+    .e-btn__icon {
+      width: 16px;
+      height: 16px;
+      i {
+        left: -2px;
+        @include icons.icon-size('xs');
+      }
+    }
   }
 }

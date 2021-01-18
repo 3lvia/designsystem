@@ -79,28 +79,21 @@ export class InputDocComponent {
 </div>
 `;
 
-  example4 = `<div class="e-form-field e-w-50">
+  example4 = ` <div class="e-form-field">
   <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
   <div class="e-input e-input---invalid">
-    <i
-      *ngIf="!showPassword"
-      class="e-icon e-icon--view_on e-icon--xs"
-      (click)="showMockPassword()"
-    ></i>
-    <i
-      *ngIf="showPassword"
-      class="e-icon e-icon--view_off e-icon--xs"
-      (click)="showMockPassword()"
-    ></i>
+    <button class="e-btn e-btn--icon" (click)="showMockPassword()">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--view_on"></i>
+      </span>
+    </button>
     <input id="validationExample" type="password" value="Passord" invalid #validationExample />
   </div>
   <span class="e-form-field__error e-form-field__error--visible">
     <span>
       <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
     </span>
-    <span>
-      Passord må inneholde både bokstaver og tall
-    </span>
+    <span>Passord må inneholde både bokstaver og tall</span>
   </span>
 </div>
 `;
@@ -122,6 +115,31 @@ showMockPassword() {
   <label class="e-form-field__label e-form-field__label--optional" for="textarea">Textarea</label>
   <div class="e-input">
     <textarea id="textarea" placeholder="Placeholder text" type="text"></textarea>
+  </div>
+</div>
+`;
+
+  exampleIcon = ` <div class="e-form-field">
+  <label class="e-form-field__label" for="iconExample">Input field with icon</label>
+  <div class="e-input">
+    <button class="e-btn e-btn--icon">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--view_on"></i>
+      </span>
+    </button>
+    <input id="iconExample" type="password" value="Passord" />
+  </div>
+</div>
+
+<div class="e-form-field e-form-field--compact e-mt-16">
+  <label class="e-form-field__label" for="iconExample">Input field with icon</label>
+  <div class="e-input">
+    <button class="e-btn e-btn--icon">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--view_on"></i>
+      </span>
+    </button>
+    <input id="iconExample" type="password" value="Passord" />
   </div>
 </div>
 `;

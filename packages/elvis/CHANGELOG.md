@@ -6,6 +6,26 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      6.0.0
+    </span>
+    <br>
+    <span>
+      January 18, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/indentity/input#Overview">Input</a>
+        </div>
+        Input with icons are now using icon buttons instead of just icons. Replace the icons with the button in the <a class="e-link e-link--inline" href="https://design.elvia.io/indentity/input#Overview">input doc</a>.
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       5.1.0
     </span>
     <br>
