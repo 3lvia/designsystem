@@ -29,10 +29,6 @@ const ElviaSlider: React.FC<SliderProps> = ({
 
   const [rangeValue, setValue] = useState(value);
 
-  const handleChange = (event: Event, newValue: number | number[]) => {
-    setValue(newValue);
-  };
-
   // Updating selected value
   useEffect(() => {
     updateReactComponent();
@@ -40,12 +36,10 @@ const ElviaSlider: React.FC<SliderProps> = ({
   }, [rangeValue]);
 
   useEffect(() => {
-    componentWillReceiveProps(value);
-    handleChange;
+    setValue(value);
   }, [value]);
 
-  // for handling new value props from input fields
-  const componentWillReceiveProps = (newValue: any) => {
+  const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue);
   };
 
