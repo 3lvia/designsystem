@@ -2809,7 +2809,7 @@ input:focus {
   color: inherit;
 }
 
-.e-input > i ~ input {
+.e-input > .e-btn.e-btn--icon ~ input {
   padding: 12px 44px 12px 16px;
 }
 
@@ -2844,7 +2844,7 @@ input:focus {
   justify-content: center;
 }
 
-.e-input i {
+.e-input .e-btn.e-btn--icon {
   position: absolute;
   right: 16px;
   top: calc(50% - (16px / 2));
@@ -2858,7 +2858,7 @@ input:focus {
   padding: 11px 15px;
 }
 
-.e-input i ~ input:invalid {
+.e-input .e-btn.e-btn--icon ~ input:invalid {
   padding: 11px 43px 11px 15px;
 }
 
@@ -2871,7 +2871,7 @@ input:focus {
   padding: 11px 15px;
 }
 
-.e-input > i ~ input:focus {
+.e-input > .e-btn.e-btn--icon ~ input:focus {
   padding: 11px 43px 11px 15px;
 }
 
@@ -2884,7 +2884,7 @@ input:focus {
   cursor: not-allowed;
 }
 
-.e-input i ~ input:disabled {
+.e-input .e-btn.e-btn--icon ~ input:disabled {
   padding: 11px 43px 11px 15px;
 }
 

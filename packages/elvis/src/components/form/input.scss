@@ -30,7 +30,7 @@ $form-input-border: 1px solid colors.color('grey');
     padding: $form-input-padding;
     @include typography.typography('text-option');
   }
-  > i ~ input {
+  > .e-btn.e-btn--icon ~ input {
     padding: $form-input-padding-with-icon;
   }
   > textarea {
@@ -53,7 +53,7 @@ $form-input-border: 1px solid colors.color('grey');
     justify-content: center;
   }
 
-  i {
+  .e-btn.e-btn--icon {
     position: absolute;
     right: 16px;
     top: calc(50% - (16px / 2));
@@ -67,7 +67,7 @@ $form-input-border: 1px solid colors.color('grey');
     border: 2px solid colors.color('red');
     padding: $form-input-padding-active;
   }
-  i ~ input:invalid {
+  .e-btn.e-btn--icon ~ input:invalid {
     padding: $form-input-padding-with-icon-active;
   }
 
@@ -79,7 +79,7 @@ $form-input-border: 1px solid colors.color('grey');
     border: 2px solid colors.color('elvia-charge');
     padding: $form-input-padding-active;
   }
-  > i ~ input:focus {
+  > .e-btn.e-btn--icon ~ input:focus {
     padding: $form-input-padding-with-icon-active;
   }
 
@@ -92,7 +92,7 @@ $form-input-border: 1px solid colors.color('grey');
     border-color: colors.color('grey-20');
     cursor: not-allowed;
   }
-  i ~ input:disabled {
+  .e-btn.e-btn--icon ~ input:disabled {
     padding: $form-input-padding-with-icon-active;
   }
 
