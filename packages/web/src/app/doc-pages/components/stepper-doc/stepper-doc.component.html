@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Stepper
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Stepper</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-stepper e-stepper--horizontal">
       <div class="e-stepper__steps">
@@ -156,9 +154,7 @@
             </span>
             <span class="number collapsed">7</span>
           </div>
-          <div class="e-text-description">
-            Collapsed steps are used when you have more than 4 steps.
-          </div>
+          <div class="e-text-description">Collapsed steps are used when you have more than 4 steps.</div>
         </div>
       </div>
     </ng-container>
@@ -258,12 +254,7 @@
                       <input id="city" type="text" value="" />
                     </div>
                     <span class="e-form-field__error e-form-field__error--visible">
-                      <span>
-                        <i class="e-icon e-icon--warning_circle e-icon--color-red e-icon--xs"></i>
-                      </span>
-                      <span>
-                        Invalid
-                      </span>
+                      <span>Invalid</span>
                     </span>
                   </div>
                 </div>
@@ -271,7 +262,6 @@
               <div class="e-form-field e-mb-24" *ngIf="shortChosenNum == 3">
                 <label class="e-form-field__label" for="normal">Email</label>
                 <div class="e-input">
-                  <i class="e-icon e-icon--mail e-icon--xs"></i>
                   <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                 </div>
               </div>
@@ -282,7 +272,6 @@
                     <input type="text" value="+47" />
                   </div>
                   <div class="e-input e-mb-24">
-                    <i class="e-icon e-icon--phone e-icon--xs"></i>
                     <input type="text" placeholder="48484848" />
                   </div>
                 </div>
@@ -388,7 +377,6 @@
               <div class="e-form-field e-mb-24" *ngIf="forcedChosenNum == 3">
                 <label class="e-form-field__label" for="normal">Email</label>
                 <div class="e-input">
-                  <i class="e-icon e-icon--mail e-icon--xs"></i>
                   <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                 </div>
               </div>
@@ -399,7 +387,6 @@
                     <input type="text" value="+47" />
                   </div>
                   <div class="e-input e-mb-24">
-                    <i class="e-icon e-icon--phone e-icon--xs"></i>
                     <input type="text" placeholder="48484848" />
                   </div>
                 </div>
@@ -552,12 +539,7 @@
                       <input id="city" type="text" value="" />
                     </div>
                     <span class="e-form-field__error e-form-field__error--visible">
-                      <span>
-                        <i class="e-icon e-icon--warning_circle e-icon--color-red e-icon--xs"></i>
-                      </span>
-                      <span>
-                        Invalid
-                      </span>
+                      <span>Invalid</span>
                     </span>
                   </div>
                 </div>
@@ -565,7 +547,6 @@
               <div class="e-form-field e-mb-24" *ngIf="chosenNum == 3">
                 <label class="e-form-field__label" for="normal">Email</label>
                 <div class="e-input">
-                  <i class="e-icon e-icon--mail e-icon--xs"></i>
                   <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                 </div>
               </div>
@@ -576,7 +557,6 @@
                     <input type="text" value="+47" />
                   </div>
                   <div class="e-input e-mb-24">
-                    <i class="e-icon e-icon--phone e-icon--xs"></i>
                     <input type="text" placeholder="48484848" />
                   </div>
                 </div>
@@ -688,12 +668,8 @@
                         <input id="city" type="text" value="" />
                       </div>
                       <span class="e-form-field__error e-form-field__error--visible">
-                        <span>
-                          <i class="e-icon e-icon--warning_circle e-icon--color-red e-icon--xs"></i>
-                        </span>
-                        <span>
-                          Invalid
-                        </span>
+                        <span></span>
+                        <span>Invalid</span>
                       </span>
                     </div>
                   </div>
@@ -701,7 +677,6 @@
                 <div class="e-form-field e-mb-24" *ngIf="step.number == 3">
                   <label class="e-form-field__label" for="normal">Email</label>
                   <div class="e-input">
-                    <i class="e-icon e-icon--mail e-icon--xs"></i>
                     <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                   </div>
                 </div>
@@ -712,7 +687,6 @@
                       <input type="text" value="+47" />
                     </div>
                     <div class="e-input e-mb-24">
-                      <i class="e-icon e-icon--phone e-icon--xs"></i>
                       <input type="text" placeholder="48484848" />
                     </div>
                   </div>
@@ -815,7 +789,6 @@
                 <div class="e-form-field e-mb-24" *ngIf="step.number == 3">
                   <label class="e-form-field__label" for="normal">Email</label>
                   <div class="e-input">
-                    <i class="e-icon e-icon--mail e-icon--xs"></i>
                     <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                   </div>
                 </div>
@@ -826,7 +799,6 @@
                       <input type="text" value="+47" />
                     </div>
                     <div class="e-input e-mb-24">
-                      <i class="e-icon e-icon--phone e-icon--xs"></i>
                       <input type="text" placeholder="48484848" />
                     </div>
                   </div>
@@ -925,12 +897,8 @@
                         <input id="city" type="text" value="" />
                       </div>
                       <span class="e-form-field__error e-form-field__error--visible">
-                        <span>
-                          <i class="e-icon e-icon--warning_circle e-icon--color-red e-icon--xs"></i>
-                        </span>
-                        <span>
-                          Invalid
-                        </span>
+                        <span></span>
+                        <span>Invalid</span>
                       </span>
                     </div>
                   </div>
@@ -938,7 +906,6 @@
                 <div class="e-form-field e-mb-24" *ngIf="step.number == 3">
                   <label class="e-form-field__label" for="normal">Email</label>
                   <div class="e-input">
-                    <i class="e-icon e-icon--mail e-icon--xs"></i>
                     <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
                   </div>
                 </div>
@@ -949,7 +916,6 @@
                       <input type="text" value="+47" />
                     </div>
                     <div class="e-input e-mb-24">
-                      <i class="e-icon e-icon--phone e-icon--xs"></i>
                       <input type="text" placeholder="48484848" />
                     </div>
                   </div>

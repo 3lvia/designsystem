@@ -58,7 +58,6 @@ export class StepperDocComponent implements OnInit {
     <div class="e-form-field e-mb-24">
       <label class="e-form-field__label" for="normal">Email</label>
       <div class="e-input">
-        <i class="e-icon e-icon--mail e-icon--xs"></i>
         <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
       </div>
     </div>
@@ -69,7 +68,6 @@ export class StepperDocComponent implements OnInit {
           <input type="text" value="+47" />
         </div>
         <div class="e-input e-mb-24">
-          <i class="e-icon e-icon--phone e-icon--xs"></i>
           <input type="text" placeholder="Placeholder text" />
         </div>
       </div>
@@ -124,7 +122,6 @@ export class StepperDocComponent implements OnInit {
     <div class="e-form-field e-mb-24">
       <label class="e-form-field__label" for="normal">Email</label>
       <div class="e-input">
-        <i class="e-icon e-icon--mail e-icon--xs"></i>
         <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
       </div>
     </div>
@@ -135,7 +132,6 @@ export class StepperDocComponent implements OnInit {
           <input type="text" value="+47" />
         </div>
         <div class="e-input e-mb-24">
-          <i class="e-icon e-icon--phone e-icon--xs"></i>
           <input type="text" placeholder="Placeholder text" />
         </div>
       </div>
@@ -216,7 +212,6 @@ export class StepperDocComponent implements OnInit {
     <div class="e-form-field e-mb-24">
       <label class="e-form-field__label" for="normal">Email</label>
       <div class="e-input">
-        <i class="e-icon e-icon--mail e-icon--xs"></i>
         <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
       </div>
     </div>
@@ -227,7 +222,6 @@ export class StepperDocComponent implements OnInit {
           <input type="text" value="+47" />
         </div>
         <div class="e-input e-mb-24">
-          <i class="e-icon e-icon--phone e-icon--xs"></i>
           <input type="text" placeholder="Placeholder text" />
         </div>
       </div>
@@ -272,7 +266,6 @@ export class StepperDocComponent implements OnInit {
       <div class="e-form-field e-mb-24">
         <label class="e-form-field__label" for="normal">Email</label>
         <div class="e-input">
-          <i class="e-icon e-icon--mail e-icon--xs"></i>
           <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
         </div>
       </div>
@@ -283,7 +276,6 @@ export class StepperDocComponent implements OnInit {
             <input type="text" value="+47" />
           </div>
           <div class="e-input e-mb-24">
-            <i class="e-icon e-icon--phone e-icon--xs"></i>
             <input type="text" placeholder="Placeholder text" />
           </div>
         </div>
@@ -329,7 +321,6 @@ export class StepperDocComponent implements OnInit {
       <div class="e-form-field e-mb-24">
         <label class="e-form-field__label" for="normal">Email</label>
         <div class="e-input">
-          <i class="e-icon e-icon--mail e-icon--xs"></i>
           <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
         </div>
       </div>
@@ -340,7 +331,6 @@ export class StepperDocComponent implements OnInit {
             <input type="text" value="+47" />
           </div>
           <div class="e-input e-mb-24">
-            <i class="e-icon e-icon--phone e-icon--xs"></i>
             <input type="text" placeholder="Placeholder text" />
           </div>
         </div>
@@ -411,7 +401,6 @@ export class StepperDocComponent implements OnInit {
       <div class="e-form-field e-mb-24">
         <label class="e-form-field__label" for="normal">Email</label>
         <div class="e-input">
-          <i class="e-icon e-icon--mail e-icon--xs"></i>
           <input id="normal" type="text" placeholder="ole.norman@gmail.com" />
         </div>
       </div>
@@ -422,7 +411,6 @@ export class StepperDocComponent implements OnInit {
             <input type="text" value="+47" />
           </div>
           <div class="e-input e-mb-24">
-            <i class="e-icon e-icon--phone e-icon--xs"></i>
             <input type="text" placeholder="Placeholder text" />
           </div>
         </div>
