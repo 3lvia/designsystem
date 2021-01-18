@@ -8806,7 +8806,7 @@ input:focus {
 .e-segmented-controls > label {
   cursor: pointer;
   float: left;
-  height: 49px;
+  height: 46px;
   transition-property: none;
   transition-duration: inherit;
   transition-timing-function: inherit;
