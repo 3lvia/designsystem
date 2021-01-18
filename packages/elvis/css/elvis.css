@@ -7356,7 +7356,7 @@ input:focus {
   z-index: -1;
   width: auto;
   background-color: #515151;
-  padding: 6px 8px;
+  padding: 8px 10px;
   border-radius: 4px;
   transition: 200ms;
   font-family: "Red Hat Text";

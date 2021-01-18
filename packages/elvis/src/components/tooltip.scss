@@ -5,6 +5,7 @@ $tooltip-border-style: 5px solid;
 $tooltip-margin-offset: -5px;
 $tooltop-margin-horizontal-offset: 14px;
 $tooltip-vertical-transform: translate(-50%, 0);
+$tooltip-padding: 8px 10px;
 
 .e-tooltip {
   // Variable containing '&' to jump to current parent inside a child class.
@@ -30,7 +31,7 @@ $tooltip-vertical-transform: translate(-50%, 0);
     z-index: -1;
     width: auto;
     background-color: colors.color('grey-80');
-    padding: 6px 8px;
+    padding: $tooltip-padding;
     border-radius: 4px;
     transition: 200ms;
     // tooltip spesific font style
