@@ -2,11 +2,7 @@ import * as React from 'react';
 import './style.scss';
 import Slider from '@material-ui/core/Slider';
 import { useState, useEffect } from 'react';
-
-// style override of default react ui slider
-// TODO: check if we can do this in a more elequent way ;)
-// YESYESYEYS THIS EXIST! : https://material-ui.com/api/slider/#css
-// create classes and send them in with classnames to the classes prop to react ui slider
+import classnames from 'classnames';
 
 export interface SliderProps {
   value: number | number[];
@@ -29,6 +25,8 @@ const ElviaSlider: React.FC<SliderProps> = ({
   valueOnChange,
   webcomponent,
 }) => {
+  const classes = classnames(['ewc-elvis-slider']);
+
   const [rangeValue, setValue] = useState(value);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
@@ -65,7 +63,7 @@ const ElviaSlider: React.FC<SliderProps> = ({
   }
 
   return (
-    <div className="ewc-elvis-slider">
+    <div className={classes}>
       <Slider
         value={rangeValue}
         onChange={handleChange}

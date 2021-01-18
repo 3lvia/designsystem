@@ -32,11 +32,26 @@ function App() {
   // slider state and handling
   const [sliderValue, setSliderValue] = useState(10);
   const [sliderAndInputValue, setsliderAndInputValue] = useState(10);
-
   const [rangeSliderValue, setRangeSliderValue] = useState([15, 75]);
+  const [rangeSliderInputValue, setRangeSliderInputValue] = useState([10, 80]);
 
   const handleInputChange = (event) => {
     setsliderAndInputValue(parseInt(event.target.value));
+  };
+
+  const handleRangeInputOne = (event) => {
+    // parseIn eventtarget number to number
+    let newvalue = parseInt(event.target.value);
+
+    let newRangeValue = [newvalue, rangeSliderInputValue[1]];
+    setRangeSliderInputValue(newRangeValue);
+  };
+  const handleRangeInputTwo = (event) => {
+    // parseIn eventtarget number to number
+    let newvalue = parseInt(event.target.value);
+
+    let newRangeValue = [rangeSliderInputValue[0], newvalue];
+    setRangeSliderInputValue(newRangeValue);
   };
 
   return (
@@ -44,13 +59,11 @@ function App() {
       <h1>React preview</h1>
 
       <h2>Slider - simple</h2>
-
       <Slider
         value={sliderValue}
         valueOnChange={setSliderValue}
         minValue={0}
         maxValue={100}
-        isDisabled={true}
         name="hiddenSliderInput"
       ></Slider>
 
@@ -58,7 +71,7 @@ function App() {
         <p>Slider Value is now : {sliderValue}</p>
       </div>
 
-      <h2>Slider - simple with attached input field!</h2>
+      <h2>Slider - simple with attached input field</h2>
       <div className="exampleContainer">
         <div className="slider">
           <Slider
@@ -82,6 +95,9 @@ function App() {
         <p>Slider Value is now : {sliderAndInputValue}</p>
       </div>
 
+      <h2>Slider - simple disabled</h2>
+      <Slider value={24} isDisabled={true}></Slider>
+
       <h2>Slider - range</h2>
       <Slider
         value={rangeSliderValue}
@@ -91,6 +107,34 @@ function App() {
       ></Slider>
       <div>
         <p>Slider Value is now : {rangeSliderValue[0] + ' and ' + rangeSliderValue[1]}</p>
+      </div>
+
+      <h2>Slider - range with input fields</h2>
+      <div className="exampleContainer">
+        <div className="exampleInput">
+          <input
+            type="number"
+            placeholder="insert some number"
+            value={rangeSliderInputValue[0]}
+            onChange={handleRangeInputOne}
+          />
+        </div>
+        <div className="slider">
+          <Slider
+            value={rangeSliderInputValue}
+            valueOnChange={setRangeSliderInputValue}
+            minValue={0}
+            maxValue={90}
+          ></Slider>
+        </div>
+        <div className="exampleInput">
+          <input
+            type="number"
+            placeholder="insert some number"
+            value={rangeSliderInputValue[1]}
+            onChange={handleRangeInputTwo}
+          />
+        </div>
       </div>
 
       <h2>Tabs</h2>

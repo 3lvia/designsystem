@@ -10,10 +10,10 @@ $green: #29d305;
 .exampleContainer {
   display: flex;
   .slider {
-    width: 100%;
-    margin-right: 24px;
+    width: 80%;
+    margin: 0px 16px;
   }
   .exampleInput {
-    width: 10%;
+    display: inline-block;
   }
 }
