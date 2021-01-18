@@ -2909,10 +2909,10 @@ input:focus {
 }
 
 .e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon {
-  top: 3px;
-  right: 3px;
-  width: 28px;
-  height: 28px;
+  top: 1px;
+  right: 1px;
+  width: 32px;
+  height: 32px;
 }
 
 .e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon .e-btn__icon {
@@ -2921,7 +2921,6 @@ input:focus {
 }
 
 .e-form-field.e-form-field--compact .e-input .e-btn.e-btn--icon .e-btn__icon i {
-  left: -2px;
   width: 16px;
   height: 16px;
 }
