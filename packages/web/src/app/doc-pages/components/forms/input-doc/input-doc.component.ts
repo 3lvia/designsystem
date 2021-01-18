@@ -130,18 +130,6 @@ showMockPassword() {
     <input id="iconExample" type="password" value="Passord" />
   </div>
 </div>
-
-<div class="e-form-field e-form-field--compact e-mt-16">
-  <label class="e-form-field__label" for="iconExample">Input field with icon</label>
-  <div class="e-input">
-    <button class="e-btn e-btn--icon">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--view_on"></i>
-      </span>
-    </button>
-    <input id="iconExample" type="password" value="Passord" />
-  </div>
-</div>
 `;
 
   showMockPassword(): void {
