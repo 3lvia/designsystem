@@ -32,50 +32,46 @@
   <h2>Popover</h2>
   <div style="display: flex; flex-direction: column; align-items: flex-end">
     <div style="margin-top: 16px">
-      <elvia-popover title="BankID" posX="right">
+      <elvia-popover title="BankID" posX="right" hasCustomContent="true">
         <button slot="trigger" class="e-btn">Right top</button>
-        <div slot="customContent">Alle privatkunder må bruke BankID.</div>
+        <div slot="content">
+          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle
+          privatkunder må bruke BankID første gang.
+        </div>
       </elvia-popover>
     </div>
     <div style="margin-top: 16px">
-      <elvia-popover
-        title="BankID"
-        description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
-        posX="left"
-        hasCloseBtn="false"
-      >
+      <elvia-popover title="BankID" posX="left" hasCloseBtn="false">
         <button slot="trigger" class="e-btn">Left top</button>
+        <div slot="content">
+          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle
+          privatkunder må bruke BankID første gang.
+        </div>
       </elvia-popover>
     </div>
     <div style="margin-top: 16px">
-      <elvia-popover title="BankID" description="Alle privatkunder må bruke BankID.">
+      <elvia-popover title="BankID">
         <button slot="trigger" class="e-btn">Center top</button>
+        <div slot="content">Alle privatkunder må bruke BankID.</div>
       </elvia-popover>
     </div>
   </div>
   <div style="margin-top: 16px">
-    <elvia-popover title="BankID" description="Alle privatkunder må bruke BankID." posY="bottom">
+    <elvia-popover title="BankID" posY="bottom">
       <button slot="trigger" class="e-btn">Center bottom</button>
+      <div slot="content">Alle privatkunder må bruke BankID.</div>
     </elvia-popover>
   </div>
   <div style="margin-top: 16px">
-    <elvia-popover
-      title="BankID"
-      description="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
-      posY="bottom"
-      posX="right"
-    >
+    <elvia-popover title="BankID" posY="bottom" posX="right">
       <button slot="trigger" class="e-btn">Right bottom</button>
+      <div slot="content">Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.</div>
     </elvia-popover>
   </div>
   <div style="margin-top: 16px">
-    <elvia-popover
-      title="BankID"
-      description="Alle privatkunder må bruke BankID første gang de skal logge inn."
-      posY="bottom"
-      posX="left"
-    >
+    <elvia-popover title="BankID" posY="bottom" posX="left">
       <button slot="trigger" class="e-btn">Left bottom</button>
+      <div slot="content">Alle privatkunder må bruke BankID første gang de skal logge inn på Min side.</div>
     </elvia-popover>
   </div>
 

@@ -6,14 +6,15 @@ trigger element and should position itself relative to where there is free space
 ## Props
 
 - title (string) - Title of content
-- description (string) - Text content
-- customContent (HTMLElement) - If content that is not only text (text, images, tables etc.)
+- content (HTMLElement) [required] - Text, images, tables or any other content
+- hasCustomContent (boolean) - Set to true if the content is not only text (images, tables etc.) (true, false
+  (default))
 - trigger (HTMLElement) [required] - The element the user clicks to open the popover (pass in as slot, in
   react as prop)
 - posX (string) - Position horizontally (left, right, center(default))
 - posY (string) - Position vertically (bottom, top(default))
-- hasCloseBtn (boolean) - Determines if the close button in the upper right corner is visible (true(default),
-  false)
+- noClose (boolean) - Determines if the close button in the upper right corner should be removed (true,
+  false(default))
 - width (string) - For setting a custom width
 
 ## REACT COMPONENT

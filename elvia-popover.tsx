@@ -4,8 +4,8 @@ import classnames from 'classnames';
 
 export interface PopoverProps {
   title?: string;
-  description?: string;
-  customContent?: string;
+  content?: string;
+  hasCustomContent?: boolean;
   posX?: string;
   posY?: string;
   trigger?: string;
@@ -41,8 +41,8 @@ const getEventPath = (e: any) => {
 
 const Popover: FC<PopoverProps> = ({
   title,
-  description,
-  customContent,
+  content,
+  hasCustomContent = false,
   posX = 'center',
   posY,
   trigger,
@@ -136,7 +136,7 @@ const Popover: FC<PopoverProps> = ({
     if (maxContentWidth.current + popoverMargin + popoverMargin > correctInnerWidth) {
       popoverContentRef.current.style.width = `${correctInnerWidth - 2 * popoverMargin}px`;
     } else {
-      popoverContentRef.current.style.width = maxContentWidth.current + 'px';
+      popoverContentRef.current.style.width = maxContentWidth + 'px';
     }
   };
 
@@ -224,7 +224,7 @@ const Popover: FC<PopoverProps> = ({
     ['ewc-popover--bottom']: (posY === 'bottom' && !conflictBottom()) || conflictTop(),
   });
   const contentClasses = classnames('ewc-popover__content', {
-    ['ewc-popover--text-only']: description && !customContent,
+    ['ewc-popover--text-only']: hasCustomContent == false,
     ['ewc-popover--hide']: !visiblePopover,
   });
 
@@ -255,8 +255,8 @@ const Popover: FC<PopoverProps> = ({
           </div>
         )}
         {title && <div className="ewc-popover__title">{title}</div>}
-        <div className="ewc-popover__text">{description ? description : customContent}</div>
-        {!trigger && <slot name="customContent" className="ewc-popover__text"></slot>}
+        <div className="ewc-popover__text">{content}</div>
+        {!content && <slot name="content" className="ewc-popover__text"></slot>}
       </div>
     </span>
   );
