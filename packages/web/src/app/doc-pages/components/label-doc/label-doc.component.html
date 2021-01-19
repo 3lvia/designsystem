@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Labels
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Labels</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <label class="e-label">Label</label>
     <div class="e-w-100">
@@ -26,13 +24,13 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example1" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
+          <app-code-block [codeHTML]="example1"></app-code-block>
         </ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Colored'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example2" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
+          <app-code-block [codeHTML]="example2"></app-code-block>
         </ng-container>
       </app-component-subsection>
     </ng-container>

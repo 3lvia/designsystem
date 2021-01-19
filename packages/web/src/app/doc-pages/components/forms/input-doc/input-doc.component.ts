@@ -107,7 +107,6 @@ export class InputDocComponent {
 
   example4TS = `@ViewChild('validationExample') validationExample: ElementRef;
 showPassword = false;
-
 showMockPassword() {
   if (this.validationExample.nativeElement.type === 'password') {
     this.validationExample.nativeElement.type = 'text';

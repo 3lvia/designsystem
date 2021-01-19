@@ -79,6 +79,7 @@ $primary-colors: (
 $signal-colors: (
   'green': (
     color: #29d305,
+    rgb: rgb(41, 211, 5),
     alt-labels: (
       elvia-charge,
     ),
@@ -86,14 +87,17 @@ $signal-colors: (
   ),
   'yellow': (
     color: #ffff00,
+    rgb: rgb(255, 255, 0),
     contrastText: #000,
   ),
   'orange': (
     color: #ffa000,
+    rgb: rgb(255, 160, 0),
     contrastText: #000,
   ),
   'red': (
     color: #ff0000,
+    rgb: rgb(255, 0, 0),
     contrastText: #000,
   ),
 );
@@ -101,26 +105,32 @@ $signal-colors: (
 $data-colors: (
   'green-apple': (
     color: #21ac04,
+    rgb: rgb(33, 172, 4),
     contrastText: #000,
   ),
   'violet-grape': (
     color: #490192,
+    rgb: rgb(73, 1, 146),
     contrastText: #fff,
   ),
   'blue-berry': (
     color: #006ddb,
+    rgb: rgb(0, 109, 219),
     contrastText: #fff,
   ),
   'purple-plum': (
     color: #b66dff,
+    rgb: rgb(182, 109, 255),
     contrastText: #000,
   ),
   'orange-mango': (
     color: #db6d00,
+    rgb: rgb(219, 109, 0),
     contrastText: #000,
   ),
   'red-tomato': (
     color: #b90202,
+    rgb: rgb(185, 2, 2),
     contrastText: #fff,
   ),
 );
