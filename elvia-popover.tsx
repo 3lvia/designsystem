@@ -39,29 +39,25 @@ const getEventPath = (e: any) => {
   return e.path || (e.composedPath && e.composedPath()) || polyfill();
 };
 
-const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, posY, trigger, noClose }) => {
+const Popover: FC<PopoverProps> = ({
+  title,
+  description,
+  customContent,
+  posX = 'center',
+  posY,
+  trigger,
+  noClose,
+}) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
-  const [isSsr, setIsSsr] = useState(true);
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
   const popoverSlotTriggerRef = useRef<HTMLSlotElement>(null);
   const popoverContentRef = useRef<HTMLDivElement>(null);
-  const popoverCloseRef = useRef<HTMLButtonElement>(null);
   const popoverMargin = 16;
-  const popoverClasses = classnames('ewc-popover', {
-    ['ewc-popover--bottom']: posY === 'bottom',
-  });
-  const contentClasses = classnames('ewc-popover__content', {
-    ['ewc-popover--text-only']: description && !customContent,
-    ['ewc-popover--hide']: !visiblePopover,
-  });
 
   // Running on first render only (on mount)
   useEffect(() => {
-    // Server side rendering will be false if useEffect is running
-    setIsSsr(false);
-
     // Defining max content width for popover
     const maxContentTimeout = setTimeout(() => {
       if (!popoverContentRef.current) {
@@ -81,7 +77,7 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
       const popoverContainsTarget = popoverRef.current.contains(path[0]);
       const contentIsHidden = popoverContentRef.current.classList.contains('ewc-popover--hide');
       if (!slotTriggerIsTargetTrigger && !popoverContainsTarget && !contentIsHidden) {
-        togglePopover();
+        setPopoverVisibility(false);
       }
     };
     document.addEventListener('click', handleClickOutside);
@@ -95,7 +91,7 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
 
   // Toggling popover state
   const togglePopover = () => {
-    setPopoverVisibility((prevState) => !prevState);
+    setPopoverVisibility(!visiblePopover);
   };
 
   // Initializing horizontal positions
@@ -119,55 +115,65 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
   };
 
   const getCorrectInnerWidth = () => {
-    if (navigator.userAgent.toLowerCase().includes('android')) {
-      return isSsr ? null : window.visualViewport.width;
+    if (typeof navigator !== 'undefined' && navigator.userAgent.toLowerCase().includes('android')) {
+      return typeof window === 'undefined' ? null : window.visualViewport.width;
     }
-    return isSsr ? null : window.innerWidth;
+    return typeof window === 'undefined' ? null : window.innerWidth;
   };
 
   const getCorrectInnerHeight = () => {
     if (navigator.userAgent.toLowerCase().includes('android')) {
-      return isSsr ? null : window.visualViewport.height;
+      return typeof window === 'undefined' ? null : window.visualViewport.height;
     }
-    return isSsr ? null : window.innerHeight;
+    return typeof window === 'undefined' ? null : window.innerHeight;
   };
 
   const resize = () => {
     const correctInnerWidth = getCorrectInnerWidth();
-    if (!popoverContentRef.current || !maxContentWidth || correctInnerWidth === null) {
+    if (!popoverContentRef.current || !maxContentWidth.current || correctInnerWidth === null) {
       return;
     }
     if (maxContentWidth.current + popoverMargin + popoverMargin > correctInnerWidth) {
       popoverContentRef.current.style.width = `${correctInnerWidth - 2 * popoverMargin}px`;
     } else {
-      popoverContentRef.current.style.width = maxContentWidth + 'px';
+      popoverContentRef.current.style.width = maxContentWidth.current + 'px';
     }
   };
 
-  // Update position and size of content
-  const updatePosition = useCallback(() => {
-    const correctInnerWidth = getCorrectInnerWidth();
-    const correctInnerHeight = getCorrectInnerHeight();
-    if (
-      !popoverRef.current ||
-      !popoverContentRef.current ||
-      !popoverTriggerRef.current ||
-      correctInnerWidth === null ||
-      correctInnerHeight === null
-    ) {
-      return;
+  const conflictTop = (): boolean => {
+    if (!popoverContentRef.current || !visiblePopover) {
+      return false;
     }
+    const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
+    const isRoomTop = offsetTop > popoverMargin;
+    return !isRoomTop;
+  };
 
-    const popover = popoverRef.current;
-    const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
+  const conflictBottom = (): boolean => {
+    const correctInnerHeight = getCorrectInnerHeight();
+    if (!popoverContentRef.current || correctInnerHeight === null || !visiblePopover) {
+      return false;
+    }
     const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
     const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
     const offsetBottom = correctInnerHeight - contentHeight - offsetTop;
+    const isRoomBottom = offsetBottom > popoverMargin;
+    const isRoomTop = offsetTop > popoverMargin;
+    return !isRoomBottom && isRoomTop;
+  };
+
+  // Update position horizontally and size of content
+  const updatePosition = useCallback(() => {
+    const correctInnerWidth = getCorrectInnerWidth();
+    if (!popoverContentRef.current || !popoverTriggerRef.current || correctInnerWidth === null) {
+      return;
+    }
+
+    const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
     const triggerWidth = popoverTriggerRef.current.getBoundingClientRect().width;
     const triggerOffsetLeft = popoverTriggerRef.current.getBoundingClientRect().left;
     const triggerOffsetRight = correctInnerWidth - triggerWidth - triggerOffsetLeft;
 
-    // Update horizontal position
     const updatePositionX = () => {
       if (conflictLeft()) {
         updatePosStyle('none', 'auto', `${-triggerOffsetLeft + popoverMargin}px`);
@@ -181,40 +187,21 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
       const conflictLeftLeft =
         posX === 'left' && contentWidth + popoverMargin >= triggerWidth + triggerOffsetLeft;
       const conflictLeftCenter =
-        posX === undefined && contentWidth / 2 + popoverMargin >= triggerWidth / 2 + triggerOffsetLeft;
+        posX === 'center' && contentWidth / 2 + popoverMargin >= triggerWidth / 2 + triggerOffsetLeft;
       return conflictLeftLeft || conflictLeftCenter;
     };
     const conflictRight = (): boolean => {
       const conflictRightRight =
         posX === 'right' && contentWidth + popoverMargin >= triggerWidth + triggerOffsetRight;
       const conflictRightCenter =
-        posX === undefined && contentWidth / 2 + popoverMargin >= triggerWidth / 2 + triggerOffsetRight;
+        posX === 'center' && contentWidth / 2 + popoverMargin >= triggerWidth / 2 + triggerOffsetRight;
       return conflictRightRight || conflictRightCenter;
-    };
-
-    // Update vertical position
-    const updatePositionY = () => {
-      if (conflictTop() && !popover.classList.contains('ewc-popover--bottom')) {
-        popover.classList.add('ewc-popover--bottom');
-      } else if (conflictBottom() && popover.classList.contains('ewc-popover--bottom')) {
-        popover.classList.remove('ewc-popover--bottom');
-      }
-    };
-    const conflictTop = (): boolean => {
-      const isRoomTop = offsetTop > popoverMargin;
-      return !isRoomTop;
-    };
-    const conflictBottom = (): boolean => {
-      const isRoomBottom = offsetBottom > popoverMargin;
-      const isRoomTop = offsetTop > popoverMargin;
-      return !isRoomBottom && isRoomTop;
     };
 
     // Calling position functions
     resize();
-    updatePositionY();
     updatePositionX();
-  }, [posY, posX]);
+  }, [posX]);
 
   // Update position when popover is opened and when window is resized
   useEffect(() => {
@@ -233,6 +220,14 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
     return () => window.removeEventListener('resize', throttledUpdatePosition);
   }, [visiblePopover]);
 
+  const popoverClasses = classnames('ewc-popover', {
+    ['ewc-popover--bottom']: (posY === 'bottom' && !conflictBottom()) || conflictTop(),
+  });
+  const contentClasses = classnames('ewc-popover__content', {
+    ['ewc-popover--text-only']: description && !customContent,
+    ['ewc-popover--hide']: !visiblePopover,
+  });
+
   return (
     <span className={popoverClasses} ref={popoverRef}>
       <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
@@ -243,11 +238,7 @@ const Popover: FC<PopoverProps> = ({ title, description, customContent, posX, po
       <div className={contentClasses} ref={popoverContentRef}>
         {!noClose && (
           <div className="ewc-popover__close">
-            <button
-              className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
-              onClick={togglePopover}
-              ref={popoverCloseRef}
-            >
+            <button className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline" onClick={togglePopover}>
               <span className="ewc-btn__icon">
                 <i
                   className="ewc-icon ewc-icon--close-bold ewc-icon--xs"
