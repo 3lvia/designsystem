@@ -51,6 +51,12 @@
           <app-code-block [codeHTML]="example5"></app-code-block>
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'With button'">
+        <ng-container ngProjectAs="sectionContent">
+          The view_on icon button should be used when showing and hiding a password.
+          <app-code-block [codeHTML]="exampleIcon"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
@@ -88,16 +94,11 @@
             <div class="e-form-field">
               <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
               <div class="e-input e-input---invalid">
-                <i
-                  *ngIf="!showPassword"
-                  class="e-icon e-icon--view_on e-icon--xs"
-                  (click)="showMockPassword()"
-                ></i>
-                <i
-                  *ngIf="showPassword"
-                  class="e-icon e-icon--view_off e-icon--xs"
-                  (click)="showMockPassword()"
-                ></i>
+                <button class="e-btn e-btn--icon" (click)="showMockPassword()">
+                  <span class="e-btn__icon">
+                    <i class="e-icon e-icon--view_on"></i>
+                  </span>
+                </button>
                 <input id="validationExample" type="password" value="Passord" invalid #validationExample />
               </div>
               <span class="e-form-field__error e-form-field__error--visible">
