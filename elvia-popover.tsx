@@ -9,7 +9,7 @@ export interface PopoverProps {
   posX?: string;
   posY?: string;
   trigger?: string;
-  noClose?: boolean;
+  hasCloseBtn?: boolean;
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
@@ -46,7 +46,7 @@ const Popover: FC<PopoverProps> = ({
   posX = 'center',
   posY,
   trigger,
-  noClose,
+  hasCloseBtn = true,
 }) => {
   const [visiblePopover, setPopoverVisibility] = useState(false);
   const maxContentWidth = useRef(0);
@@ -91,7 +91,7 @@ const Popover: FC<PopoverProps> = ({
 
   // Toggling popover state
   const togglePopover = () => {
-    setPopoverVisibility(!visiblePopover);
+    setPopoverVisibility((visiblePopover) => !visiblePopover);
   };
 
   // Initializing horizontal positions
@@ -236,9 +236,12 @@ const Popover: FC<PopoverProps> = ({
       </div>
 
       <div className={contentClasses} ref={popoverContentRef}>
-        {!noClose && (
+        {hasCloseBtn == true && (
           <div className="ewc-popover__close">
-            <button className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline" onClick={togglePopover}>
+            <button
+              className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
+              onClick={() => setPopoverVisibility(false)}
+            >
               <span className="ewc-btn__icon">
                 <i
                   className="ewc-icon ewc-icon--close-bold ewc-icon--xs"

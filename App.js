@@ -83,7 +83,7 @@ function App() {
             title="BankID"
             description="Alle privatkunder må bruke BankID første gang de logger inn på Min side."
             trigger={<button>Center top</button>}
-            noClose="true"
+            hasCloseBtn="false"
           ></Popover>
         </div>
       </div>
@@ -91,7 +91,7 @@ function App() {
         <Popover
           description="Alle privatkunder må bruke BankID første gang."
           trigger={<button>Center bottom</button>}
-          noClose="true"
+          hasCloseBtn="false"
           posY="bottom"
         ></Popover>
       </div>

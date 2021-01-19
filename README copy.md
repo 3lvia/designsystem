@@ -12,8 +12,8 @@ trigger element and should position itself relative to where there is free space
   react as prop)
 - posX (string) - Position horizontally (left, right, center(default))
 - posY (string) - Position vertically (bottom, top(default))
-- noClose (boolean) - Determines if the close button in the upper right corner should be removed (true,
-  false(default))
+- hasCloseBtn (boolean) - Determines if the close button in the upper right corner is visible (true(default),
+  false)
 - width (string) - For setting a custom width
 
 ## REACT COMPONENT
