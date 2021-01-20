@@ -27,7 +27,7 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
   const [onTheRightEnd, setOnTheRightEnd] = useState(true);
   const [onTheLeftEnd, setOnTheLeftEnd] = useState(true);
   const itemsRef = useRef<HTMLDivElement>(null);
-  const lengthToScroll = useRef(140);
+  const lengthToScroll = 140;
   const arrowLeftClasses = classNames('ewc-tabs__arrow', {
     ['ewc-tabs__arrow--hide']: onTheLeftEnd,
     ['ewc-tabs__arrow--remove']: onTheRightEnd && onTheLeftEnd,
@@ -44,20 +44,20 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
 
   useEffect(() => {
     // Update scroll position on init
-    setTimeout(() => updateScrolledPosition());
+    setTimeout(() => updateArrowButtonsVisibility());
 
     // Listen to resize & scroll and update scrolled positions
     if (!itemsRef.current) {
       return;
     }
-    const throttledResizeCount = throttle(updateScrolledPosition, 150);
+    const throttledResizeCount = throttle(updateArrowButtonsVisibility, 150);
 
     window.addEventListener('resize', throttledResizeCount);
-    itemsRef.current.addEventListener('scroll', updateScrolledPosition);
+    itemsRef.current.addEventListener('scroll', updateArrowButtonsVisibility);
     return () => {
       window.removeEventListener('resize', throttledResizeCount);
       if (itemsRef.current) {
-        itemsRef.current.removeEventListener('scroll', updateScrolledPosition);
+        itemsRef.current.removeEventListener('scroll', updateArrowButtonsVisibility);
       }
     };
   }, []);
@@ -85,19 +85,19 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
     if (!itemsRef.current) {
       return;
     }
-    itemsRef.current.scrollLeft -= lengthToScroll.current;
-    updateScrolledPosition();
+    itemsRef.current.scrollLeft -= lengthToScroll;
+    updateArrowButtonsVisibility();
   };
 
   const scrollToRight = () => {
     if (!itemsRef.current) {
       return;
     }
-    itemsRef.current.scrollLeft += lengthToScroll.current;
-    updateScrolledPosition();
+    itemsRef.current.scrollLeft += lengthToScroll;
+    updateArrowButtonsVisibility();
   };
 
-  const updateScrolledPosition = () => {
+  const updateArrowButtonsVisibility = () => {
     if (!itemsRef.current) {
       return;
     }
