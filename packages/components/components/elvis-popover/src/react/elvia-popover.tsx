@@ -122,7 +122,7 @@ const Popover: FC<PopoverProps> = ({
   };
 
   const getCorrectInnerHeight = () => {
-    if (navigator.userAgent.toLowerCase().includes('android')) {
+    if (typeof navigator !== 'undefined' && navigator.userAgent.toLowerCase().includes('android')) {
       return typeof window === 'undefined' ? null : window.visualViewport.height;
     }
     return typeof window === 'undefined' ? null : window.innerHeight;
