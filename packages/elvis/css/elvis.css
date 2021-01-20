@@ -2699,11 +2699,36 @@ input:focus {
 }
 
 .e-divider {
-  border: 1px solid #262626;
+  display: block;
+  margin: 0;
+  width: 100%;
+  border-bottom: 1px solid #e9e9e9;
 }
 
-.e-divider.is-light {
-  border-color: #bdbdbd;
+.e-divider.e-divider--title {
+  border-color: #000;
+}
+
+.e-divider.e-divider--title .e-divider__title {
+  font-family: Red Hat Display, sans-serif;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 700;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: inherit;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 767px) {
+  .e-divider.e-divider--title .e-divider__title {
+    font-size: 24px;
+    line-height: 29px;
+  }
+}
+.e-divider.e-divider--curved {
+  border-color: #d3d3d3;
 }
 
 .e-input {

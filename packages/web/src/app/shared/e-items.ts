@@ -205,6 +205,17 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
+    title: 'Divider',
+    // tslint:disable-next-line: max-line-length
+    description: 'Dividers are used to group or section off content.',
+    docUrl: Pages.Divider,
+    absolutePath: '/components/' + Pages.Divider,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Divider.svg',
+    figmaUrl: 'https://www.figma.com/file/F4ycCcM9cGf9T12EhzbN3F/Dividers?node-id=1%3A2',
+    type: 'Component',
+  },
+  {
     title: 'Dropdown',
     // tslint:disable-next-line: max-line-length
     description:

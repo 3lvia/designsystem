@@ -1,0 +1,58 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Chip</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div
+    class="e-my-48"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
+  >
+    <div class="e-divider"></div>
+    <div class="e-w-100">
+      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+    </div>
+  </div>
+
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Simple'">
+        <ng-container ngProjectAs="sectionContent">
+          The simple divider is used as a discrete divider between related content. It’s in a slightly lighter
+          grey tone to appear less powerful than the curved divider and should be used when the division is
+          subtle.
+          <app-code-block [codeHTML]="exampleSimple"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Title'">
+        <ng-container ngProjectAs="sectionContent">
+          Title divider is used to divide content, often text-based-, into sections with headlines. They
+          should be used to group content on similar hierarchy levels.
+          <app-code-block [codeHTML]="exampleTitle"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Curved'">
+        <ng-container ngProjectAs="sectionContent">
+          The curved divider is used to section parts of a page. It is always used in full width and scales
+          over screens after the Elvia curve formula. The curved divider is used to clearly divide content.
+          <app-code-block [codeHTML]="exampleCurved"></app-code-block>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-divider'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties [componentName]="'e-divider'"></app-component-properties>
+    </ng-container>
+  </app-component-section>
+</div>

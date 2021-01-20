@@ -1,9 +1,21 @@
-@use '../variables/colors.scss';
+@use '../variables/colors';
+@use "../variables/typography";
 
 .e-divider {
-  border: 1px solid colors.color('grey');
+  display: block;
+  margin: 0;
+  width: 100%;
+  border-bottom: 1px solid colors.color('grey-10');
 
-  &.is-light {
-    border-color: colors.color('grey-30');
+  &.e-divider--title {
+    border-color: colors.color('elvia-off');
+    .e-divider__title {
+      @include typography.typography('title-md');
+      margin-bottom: 24px;
+    }
+  }
+
+  &.e-divider--curved {
+    border-color: colors.color('grey-20');
   }
 }
