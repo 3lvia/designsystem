@@ -4,6 +4,7 @@ import { Popover } from '@elvia/elvis-popover/react';
 import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
+import { Dropdown } from '@elvia/elvis-dropdown/react';
 
 function App() {
   const [trackedState, setTrackedState] = useState(true);
@@ -35,6 +36,11 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
+
+      <h2>Dropdown</h2>
+      <div>
+        <Dropdown></Dropdown>
+      </div>
 
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px' }}>
