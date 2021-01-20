@@ -17,7 +17,7 @@ module.exports = [
     name: 'elvis-popover',
     role: 'checkbox',
     elementName: 'elvia-popover',
-    attributes: ['title', 'description', 'customContent', 'posX', 'posY', 'noClose'],
+    attributes: ['title', 'content', 'hasCustomContent', 'posX', 'posY', 'hasCloseBtn'],
     reactName: 'Popover',
   },
   {
