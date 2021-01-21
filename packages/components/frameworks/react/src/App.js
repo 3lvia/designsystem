@@ -118,7 +118,6 @@ function App() {
               Custom content custom content custom content custom content
             </div>
           }
-          hasCustomContent={true}
           trigger={<button>Left bottom</button>}
           posY="bottom"
           posX="left"

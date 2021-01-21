@@ -4,11 +4,10 @@ import classnames from 'classnames';
 
 export interface PopoverProps {
   title?: string;
-  content?: string;
-  hasCustomContent?: boolean;
-  posX?: string;
-  posY?: string;
-  trigger?: string;
+  content?: string | HTMLElement;
+  posX?: 'left' | 'right' | 'center';
+  posY?: 'top' | 'bottom';
+  trigger?: HTMLElement;
   hasCloseBtn?: boolean;
 }
 
@@ -42,7 +41,6 @@ const getEventPath = (e: any) => {
 const Popover: FC<PopoverProps> = ({
   title,
   content,
-  hasCustomContent = false,
   posX = 'center',
   posY,
   trigger,
@@ -224,7 +222,7 @@ const Popover: FC<PopoverProps> = ({
     ['ewc-popover--bottom']: (posY === 'bottom' && !conflictBottom()) || conflictTop(),
   });
   const contentClasses = classnames('ewc-popover__content', {
-    ['ewc-popover--text-only']: hasCustomContent == false,
+    ['ewc-popover--text-only']: typeof content === 'string',
     ['ewc-popover--hide']: !visiblePopover,
   });
 
@@ -255,7 +253,7 @@ const Popover: FC<PopoverProps> = ({
           </div>
         )}
         {title && <div className="ewc-popover__title">{title}</div>}
-        <div className="ewc-popover__text">{content}</div>
+        {content && <div className="ewc-popover__text">{content}</div>}
         {!content && <slot name="content" className="ewc-popover__text"></slot>}
       </div>
     </span>
