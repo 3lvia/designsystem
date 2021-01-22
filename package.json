@@ -80,7 +80,8 @@
     "node-sass": "npm:sass",
     "minimist": "^0.2.1",
     "ini": "^1.3.6",
-    "axios": "^0.21.1"
+    "axios": "^0.21.1",
+    "immer": "^8.0.1"
   }
 }
 
