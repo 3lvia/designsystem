@@ -16,6 +16,23 @@
   }
 
   &.e-divider--curved {
-    border-color: colors.color('grey-20');
+    border: none;
+    height: 4vw;
+    position: relative;
+    overflow: hidden;
+    background-color: inherit;
+    width: 100%;
+
+    &::after {
+      content: '';
+      border: 2px solid colors.color('grey-20');
+      border-radius: 100%;
+      position: absolute;
+      bottom: 0;
+      margin: auto;
+      height: 775%;
+      width: 150%;
+      left: -25%;
+    }
   }
 }

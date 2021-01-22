@@ -2728,7 +2728,24 @@ input:focus {
   }
 }
 .e-divider.e-divider--curved {
-  border-color: #d3d3d3;
+  border: none;
+  height: 4vw;
+  position: relative;
+  overflow: hidden;
+  background-color: inherit;
+  width: 100%;
+}
+
+.e-divider.e-divider--curved::after {
+  content: "";
+  border: 2px solid #d3d3d3;
+  border-radius: 100%;
+  position: absolute;
+  bottom: 0;
+  margin: auto;
+  height: 775%;
+  width: 150%;
+  left: -25%;
 }
 
 .e-input {

@@ -1,7 +1,7 @@
 <div class="component-body__example">
   <div
     class="component-body__example-body"
-    [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+    [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg, 'no-padding-desk': noPaddingDesk }"
     *ngIf="showPreview"
   >
     <div class="top-menu">
@@ -43,7 +43,7 @@
     <div
       class="element"
       *ngIf="!showIframeScreens || (!showIframe && screenTabOpen == 'desktop')"
-      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg, 'no-padding-desk': noPaddingDesk }"
     >
       <div #defaultFrame></div>
     </div>
