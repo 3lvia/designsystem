@@ -43,7 +43,7 @@
       left: -25%;
     }
 
-    &.e-divider--inverted &::after {
+    &.e-divider--inverted::after {
       border-color: colors.color('grey-70');
     }
   }

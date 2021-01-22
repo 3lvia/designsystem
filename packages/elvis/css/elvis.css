@@ -2756,7 +2756,7 @@ input:focus {
   left: -25%;
 }
 
-.e-divider.e-divider--curved.e-divider--inverted .e-divider.e-divider--curved::after {
+.e-divider.e-divider--curved.e-divider--inverted::after {
   border-color: #676767;
 }
 
