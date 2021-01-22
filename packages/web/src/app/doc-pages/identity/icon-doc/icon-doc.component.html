@@ -15,7 +15,10 @@
   >
     <div class="e-alert e-alert--local e-alert--info">
       <div class="e-alert__icon">
-        <i class="e-icon" [ngClass]="'e-icon--' + icon.title"></i>
+        <i
+          class="e-icon"
+          [ngClass]="'e-icon--' + icon.title"
+        ></i>
       </div>
       <div class="e-alert__content e-w-100">
         <div style="display: flex; justify-content: space-between">
@@ -85,18 +88,34 @@
     <ng-container ngProjectAs="sectionContent">
       <div class="overview-search-container">
         <div class="e-form-field">
-          <label class="e-form-field__label" for="compact">Search</label>
+          <label
+            class="e-form-field__label"
+            for="compact"
+          >Search</label>
           <div class="e-search e-search--local">
             <div class="e-input">
-              <i
-                class="e-icon e-icon--search-bold e-icon--xs e-icon--color-grey-60"
-                *ngIf="term.length == 0"
-              ></i>
-              <input type="text" placeholder="Search through all icons" [(ngModel)]="term" />
+              <input
+                type="text"
+                placeholder="Search through all icons"
+                [(ngModel)]="term"
+              />
             </div>
-            <button class="e-btn e-btn--icon e-btn--sm" *ngIf="term.length > 0" (click)="removeSearch()">
+            <button
+              class="e-btn e-btn--icon e-btn--sm"
+              *ngIf="term.length == 0"
+            >
+              <i class="e-icon e-icon--search-bold-color e-icon--xs"></i>
+            </button>
+            <button
+              class="e-btn e-btn--icon e-btn--sm"
+              *ngIf="term.length > 0"
+              (click)="removeSearch()"
+            >
               <span class="e-btn__icon">
-                <i class="e-icon e-icon--close-bold" style="left: 0"></i>
+                <i
+                  class="e-icon e-icon--close-bold "
+                  style="left: 0;"
+                ></i>
               </span>
             </button>
           </div>
@@ -110,7 +129,10 @@
               (click)="selectFilter('all')"
               checked
             />
-            <label for="radio-filter-all" data-value="All">
+            <label
+              for="radio-filter-all"
+              data-value="All"
+            >
               <span class="e-radio-filter__label">All</span>
             </label>
 
@@ -120,7 +142,10 @@
               name="radio-filter"
               (click)="selectFilter('outline')"
             />
-            <label for="radio-filter-outline" data-value="Outline">
+            <label
+              for="radio-filter-outline"
+              data-value="Outline"
+            >
               <span class="e-radio-filter__label">Outline</span>
             </label>
 
@@ -130,7 +155,10 @@
               name="radio-filter"
               (click)="selectFilter('filled')"
             />
-            <label for="radio-filter-filled" data-value="Filled">
+            <label
+              for="radio-filter-filled"
+              data-value="Filled"
+            >
               <span class="e-radio-filter__label">Filled</span>
             </label>
 
@@ -140,7 +168,10 @@
               name="radio-filter"
               (click)="selectFilter('colored')"
             />
-            <label for="radio-filter-colored" data-value="Two colored">
+            <label
+              for="radio-filter-colored"
+              data-value="Two colored"
+            >
               <span class="e-radio-filter__label">Two colored</span>
             </label>
           </div>
@@ -148,14 +179,24 @@
         <div class="dark-mode-toggle mobile">
           <span class="e-text-description">Dark</span>
           <label class="e-toggle">
-            <input class="e-toggle__input" type="checkbox" (click)="invert()" [checked]="inverted" />
+            <input
+              class="e-toggle__input"
+              type="checkbox"
+              (click)="invert()"
+              [checked]="inverted"
+            />
             <span class="e-toggle__slider"></span>
           </label>
         </div>
         <div class="dark-mode-toggle">
           <span class="e-text-info">Dark</span>
           <label class="e-toggle">
-            <input class="e-toggle__input" type="checkbox" (click)="invert()" [checked]="inverted" />
+            <input
+              class="e-toggle__input"
+              type="checkbox"
+              (click)="invert()"
+              [checked]="inverted"
+            />
             <span class="e-toggle__slider"></span>
           </label>
         </div>
@@ -170,11 +211,18 @@
             *ngFor="let icon of visibleIcons | iconSearchPipe: term; let i = index"
             [class.margin-auto]="icon === -1"
           >
-            <div *ngIf="icon === -1" class="no-results" [class.e-text-white]="inverted">
+            <div
+              *ngIf="icon === -1"
+              class="no-results"
+              [class.e-text-white]="inverted"
+            >
               <div>Oh snap 😕</div>
               <div>We can’t find the icon you are looking for!</div>
               <div>
-                <a class="e-link e-link--inline" [routerLink]="['/community/contact']">Contact us</a>
+                <a
+                  class="e-link e-link--inline"
+                  [routerLink]="['/community/contact']"
+                >Contact us</a>
                 if you want to add an icon
               </div>
             </div>
@@ -192,14 +240,20 @@
                       [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
                     ></i>
                   </div>
-                  <div class="e-text-info e-text-center" [style.color]="inverted ? 'white' : 'black'">
+                  <div
+                    class="e-text-info e-text-center"
+                    [style.color]="inverted ? 'white' : 'black'"
+                  >
                     {{ icon.pretty }}
                   </div>
                 </div>
               </div>
             </div>
             <div class="mobile-copy">
-              <app-copy [message]="'e-icon e-icon--' + icon.title + ' e-icon--sm'" [noAnimation]="true">
+              <app-copy
+                [message]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
+                [noAnimation]="true"
+              >
                 <ng-container ngProjectAs="copyContent">
                   <div
                     *ngIf="icon !== -1"
@@ -214,7 +268,10 @@
                           [class]="'e-icon e-icon--' + icon.title + ' e-icon--sm'"
                         ></i>
                       </div>
-                      <div class="e-text-info e-text-center" [style.color]="inverted ? 'white' : 'black'">
+                      <div
+                        class="e-text-info e-text-center"
+                        [style.color]="inverted ? 'white' : 'black'"
+                      >
                         {{ icon.pretty }}
                       </div>
                     </div>
@@ -304,7 +361,10 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Method 1: Easiest'">
         <ng-container ngProjectAs="sectionContent">
-          <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
+          <a
+            href="https://www.npmjs.com/package/@elvia/elvis"
+            class="e-link"
+          >Elvis npm package</a>
           <p class="e-mb-0">
             Download the npm package and use Elvis.js from inside the npm package like this:
           </p>
@@ -369,14 +429,20 @@
 
       <app-component-subsection [sectionTitle]="'Disabled + Inverted'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example3" [codeInverted]="example3Inverted"></app-code-block>
+          <app-code-block
+            [codeHTML]="example3"
+            [codeInverted]="example3Inverted"
+          ></app-code-block>
         </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-icon'">
+  <app-component-section
+    [sectionTitle]="'Properties'"
+    [propertiesClass]="'e-icon'"
+  >
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties [componentName]="'e-icon'"></app-component-properties>
     </ng-container>
