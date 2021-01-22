@@ -27,7 +27,7 @@
           The simple divider is used as a discrete divider between related content. It’s in a slightly lighter
           grey tone to appear less powerful than the curved divider and should be used when the division is
           subtle.
-          <app-code-block [codeHTML]="exampleSimple"></app-code-block>
+          <app-code-block [codeHTML]="exampleSimple" [codeInverted]="exampleSimpleInverted"></app-code-block>
         </ng-container>
       </app-component-subsection>
 
@@ -35,7 +35,7 @@
         <ng-container ngProjectAs="sectionContent">
           Title divider is used to divide content, often text-based-, into sections with headlines. They
           should be used to group content on similar hierarchy levels.
-          <app-code-block [codeHTML]="exampleTitle"></app-code-block>
+          <app-code-block [codeHTML]="exampleTitle" [codeInverted]="exampleTitleInverted"></app-code-block>
         </ng-container>
       </app-component-subsection>
 
@@ -43,7 +43,11 @@
         <ng-container ngProjectAs="sectionContent">
           The curved divider is used to section parts of a page. It is always used in full width and scales
           over screens after the Elvia curve formula. The curved divider is used to clearly divide content.
-          <app-code-block [codeHTML]="exampleCurved" [noPaddingDesk]="true"></app-code-block>
+          <app-code-block
+            [codeHTML]="exampleCurved"
+            [codeInverted]="exampleCurvedInverted"
+            [noPaddingDesk]="true"
+          ></app-code-block>
         </ng-container>
       </app-component-subsection>
     </ng-container>

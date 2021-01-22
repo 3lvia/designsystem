@@ -14,9 +14,6 @@
     padding: 32px;
     height: 100%;
 
-    &.no-padding-desk {
-      padding: 32px 0px;
-    }
     @include breakpoint-up(Mobile) {
       padding: 24px;
     }
@@ -112,6 +109,7 @@
       padding: 16px 4px;
       &.no-padding-desk {
         padding: 16px 0px;
+        margin: 0px -32px;
       }
 
       .hide {

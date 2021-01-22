@@ -234,6 +234,7 @@
 		},
 		"e-divider": {
 			"modifier": {
+				"e-divider--inverted": {},
 				"e-divider--title": {},
 				"e-divider--curved": {}
 			},
@@ -1139,6 +1140,7 @@
 		"e-content-loader--text": {},
 		"e-content-loader--short": {},
 		"e-divider": {},
+		"e-divider--inverted": {},
 		"e-divider--title": {},
 		"e-divider__title": {},
 		"e-divider--curved": {},

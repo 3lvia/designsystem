@@ -16,4 +16,9 @@ export class DividerDocComponent {
   <div class="e-divider__title">Title</div>
 </div>`;
   exampleCurved = `<div class="e-divider e-divider--curved"></div>`;
+  exampleSimpleInverted = `<div class="e-divider e-divider--inverted"></div>`;
+  exampleTitleInverted = `<div class="e-divider e-divider--title e-divider--inverted">
+  <div class="e-divider__title">Title</div>
+</div>`;
+  exampleCurvedInverted = `<div class="e-divider e-divider--curved e-divider--inverted"></div>`;
 }

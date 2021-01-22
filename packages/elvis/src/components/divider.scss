@@ -7,11 +7,19 @@
   width: 100%;
   border-bottom: 1px solid colors.color('grey-10');
 
+  &.e-divider--inverted {
+    border-color: colors.color('grey-80');
+  }
+
   &.e-divider--title {
     border-color: colors.color('elvia-off');
     .e-divider__title {
       @include typography.typography('title-md');
       margin-bottom: 24px;
+    }
+
+    &.e-divider--inverted {
+      border-color: colors.color('elvia-on');
     }
   }
 
@@ -33,6 +41,10 @@
       height: 775%;
       width: 150%;
       left: -25%;
+    }
+
+    &.e-divider--inverted &::after {
+      border-color: colors.color('grey-70');
     }
   }
 }
