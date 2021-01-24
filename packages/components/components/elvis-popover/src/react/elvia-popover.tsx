@@ -11,7 +11,7 @@ export interface PopoverProps {
   hasCloseBtn?: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+// Going to be replaced
 const throttle = (func: any, limit: number) => {
   let inThrottle: boolean | NodeJS.Timeout;
   return (...args: any) => {
@@ -22,10 +22,10 @@ const throttle = (func: any, limit: number) => {
   };
 };
 
-// Return composedPath if Firefox, Polyfill path if IE11
-const getEventPath = (e: any) => {
+// Return composedPath and Polyfill path if IE11
+const getEventPath = (e: MouseEvent) => {
   const polyfill = () => {
-    const element = e.target || null;
+    const element = (e.target as HTMLElement) || null;
     const pathArr = [element];
 
     if (!element || !element.parentElement) {
@@ -35,7 +35,7 @@ const getEventPath = (e: any) => {
     return pathArr;
   };
 
-  return e.path || (e.composedPath && e.composedPath()) || polyfill();
+  return (e.composedPath && e.composedPath()) || polyfill();
 };
 
 const Popover: FC<PopoverProps> = ({
@@ -46,7 +46,7 @@ const Popover: FC<PopoverProps> = ({
   trigger,
   hasCloseBtn = true,
 }) => {
-  const [visiblePopover, setPopoverVisibility] = useState(false);
+  const [popoverVisibility, setPopoverVisibility] = useState(false);
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
@@ -73,8 +73,8 @@ const Popover: FC<PopoverProps> = ({
       const path = getEventPath(e);
       const slotTriggerIsTargetTrigger = popoverSlotTriggerRef.current === path[1];
       const popoverContainsTarget = popoverRef.current.contains(path[0]);
-      const contentIsHidden = popoverContentRef.current.classList.contains('ewc-popover--hide');
-      if (!slotTriggerIsTargetTrigger && !popoverContainsTarget && !contentIsHidden) {
+      const isContentHidden = popoverContentRef.current.classList.contains('ewc-popover--hide');
+      if (!slotTriggerIsTargetTrigger && !popoverContainsTarget && !isContentHidden) {
         setPopoverVisibility(false);
       }
     };
@@ -89,7 +89,7 @@ const Popover: FC<PopoverProps> = ({
 
   // Toggling popover state
   const togglePopover = () => {
-    setPopoverVisibility((visiblePopover) => !visiblePopover);
+    setPopoverVisibility((popoverVisibility) => !popoverVisibility);
   };
 
   // Initializing horizontal positions
@@ -112,34 +112,32 @@ const Popover: FC<PopoverProps> = ({
     popoverContentRef.current.style.left = left;
   };
 
-  const getCorrectInnerWidth = () => {
-    if (typeof navigator !== 'undefined' && navigator.userAgent.toLowerCase().includes('android')) {
-      return typeof window === 'undefined' ? null : window.visualViewport.width;
+  const getCorrectDimensions = () => {
+    if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+      return null;
     }
-    return typeof window === 'undefined' ? null : window.innerWidth;
-  };
-
-  const getCorrectInnerHeight = () => {
-    if (typeof navigator !== 'undefined' && navigator.userAgent.toLowerCase().includes('android')) {
-      return typeof window === 'undefined' ? null : window.visualViewport.height;
+    if (navigator.userAgent.toLowerCase().includes('android')) {
+      return { screenHeight: window.visualViewport.height, screenWidth: window.visualViewport.width };
+    } else {
+      return { screenHeight: window.innerHeight, screenWidth: window.innerWidth };
     }
-    return typeof window === 'undefined' ? null : window.innerHeight;
   };
 
   const resize = () => {
-    const correctInnerWidth = getCorrectInnerWidth();
-    if (!popoverContentRef.current || !maxContentWidth.current || correctInnerWidth === null) {
+    const dimensions = getCorrectDimensions();
+    if (!popoverContentRef.current || !maxContentWidth.current || dimensions === null) {
       return;
     }
-    if (maxContentWidth.current + popoverMargin + popoverMargin > correctInnerWidth) {
-      popoverContentRef.current.style.width = `${correctInnerWidth - 2 * popoverMargin}px`;
+    const { screenWidth } = dimensions;
+    if (maxContentWidth.current + popoverMargin + popoverMargin > screenWidth) {
+      popoverContentRef.current.style.width = `${screenWidth - 2 * popoverMargin}px`;
     } else {
-      popoverContentRef.current.style.width = maxContentWidth + 'px';
+      popoverContentRef.current.style.width = `${maxContentWidth}px`;
     }
   };
 
   const conflictTop = (): boolean => {
-    if (!popoverContentRef.current || !visiblePopover) {
+    if (!popoverContentRef.current || !popoverVisibility) {
       return false;
     }
     const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
@@ -148,13 +146,14 @@ const Popover: FC<PopoverProps> = ({
   };
 
   const conflictBottom = (): boolean => {
-    const correctInnerHeight = getCorrectInnerHeight();
-    if (!popoverContentRef.current || correctInnerHeight === null || !visiblePopover) {
+    const dimensions = getCorrectDimensions();
+    if (!popoverContentRef.current || dimensions === null || !popoverVisibility) {
       return false;
     }
+    const { screenHeight } = dimensions;
     const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
     const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
-    const offsetBottom = correctInnerHeight - contentHeight - offsetTop;
+    const offsetBottom = screenHeight - contentHeight - offsetTop;
     const isRoomBottom = offsetBottom > popoverMargin;
     const isRoomTop = offsetTop > popoverMargin;
     return !isRoomBottom && isRoomTop;
@@ -162,38 +161,37 @@ const Popover: FC<PopoverProps> = ({
 
   // Update position horizontally and size of content
   const updatePosition = useCallback(() => {
-    const correctInnerWidth = getCorrectInnerWidth();
-    if (!popoverContentRef.current || !popoverTriggerRef.current || correctInnerWidth === null) {
+    const dimensions = getCorrectDimensions();
+    if (!popoverContentRef.current || !popoverTriggerRef.current || dimensions === null) {
       return;
     }
-
+    const { screenWidth } = dimensions;
     const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
     const triggerWidth = popoverTriggerRef.current.getBoundingClientRect().width;
     const triggerOffsetLeft = popoverTriggerRef.current.getBoundingClientRect().left;
-    const triggerOffsetRight = correctInnerWidth - triggerWidth - triggerOffsetLeft;
+    const triggerOffsetRight = screenWidth - triggerWidth - triggerOffsetLeft;
 
     const updatePositionX = () => {
-      if (conflictLeft()) {
+      if (posX !== 'right' && isConflict(posX === 'center', 'left')) {
         updatePosStyle('none', 'auto', `${-triggerOffsetLeft + popoverMargin}px`);
-      } else if (conflictRight()) {
+      } else if (posX !== 'left' && isConflict(posX === 'center', 'right')) {
         updatePosStyle('none', `${-triggerOffsetRight + popoverMargin}px`, 'auto');
-      } else if (!conflictRight() && !conflictLeft()) {
+      } else {
         setInitialPosition();
       }
     };
-    const conflictLeft = (): boolean => {
-      const conflictLeftLeft =
-        posX === 'left' && contentWidth + popoverMargin >= triggerWidth + triggerOffsetLeft;
-      const conflictLeftCenter =
-        posX === 'center' && contentWidth / 2 + popoverMargin >= triggerWidth / 2 + triggerOffsetLeft;
-      return conflictLeftLeft || conflictLeftCenter;
-    };
-    const conflictRight = (): boolean => {
-      const conflictRightRight =
-        posX === 'right' && contentWidth + popoverMargin >= triggerWidth + triggerOffsetRight;
-      const conflictRightCenter =
-        posX === 'center' && contentWidth / 2 + popoverMargin >= triggerWidth / 2 + triggerOffsetRight;
-      return conflictRightRight || conflictRightCenter;
+    const isConflict = (isPosXCenter: boolean, conflictSide: string): boolean => {
+      const contentSpace = isPosXCenter ? contentWidth / 2 : contentWidth;
+      const triggerSpace = isPosXCenter ? triggerWidth / 2 : triggerWidth;
+      let triggerOffset;
+      if (conflictSide === 'right') {
+        triggerOffset = triggerOffsetRight;
+      } else {
+        triggerOffset = triggerOffsetLeft;
+      }
+      const popoverMinSpace = contentSpace + popoverMargin;
+      const popoverActualSpace = triggerSpace + triggerOffset;
+      return popoverMinSpace >= popoverActualSpace;
     };
 
     // Calling position functions
@@ -208,7 +206,7 @@ const Popover: FC<PopoverProps> = ({
     resize();
 
     // Listen to window resizing if popover is open
-    if (!visiblePopover) {
+    if (!popoverVisibility) {
       return;
     }
     const throttledUpdatePosition = throttle(updatePosition, 250);
@@ -216,14 +214,14 @@ const Popover: FC<PopoverProps> = ({
 
     // Cleanup
     return () => window.removeEventListener('resize', throttledUpdatePosition);
-  }, [visiblePopover]);
+  }, [popoverVisibility]);
 
   const popoverClasses = classnames('ewc-popover', {
     ['ewc-popover--bottom']: (posY === 'bottom' && !conflictBottom()) || conflictTop(),
   });
   const contentClasses = classnames('ewc-popover__content', {
     ['ewc-popover--text-only']: typeof content === 'string',
-    ['ewc-popover--hide']: !visiblePopover,
+    ['ewc-popover--hide']: !popoverVisibility,
   });
 
   return (
