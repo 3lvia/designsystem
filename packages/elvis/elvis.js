@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function checkDeprecatedIcon(classList) {
     if (localhost) {
       for (let x = 0; x < deprecated.length; x++) {
-        if (classList === deprecated[x].name)
+        if (classList === deprecated[x].name) {
           console.warn(
             'WARNING: The icon ' +
               deprecated[x].name +
@@ -120,6 +120,7 @@ document.addEventListener('DOMContentLoaded', function () {
               ' now refers to the icon: ' +
               deprecated[x].newIconName,
           );
+        }
       }
     }
   }
