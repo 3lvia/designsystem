@@ -6,12 +6,7 @@ import { NavbarModule } from 'src/app/shell/navbar/navbar.module';
 import { PageStructureModule } from 'src/app/shared/page-structure/page-structure.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    RouterModule,
-    NavbarModule,
-    PageStructureModule,
-  ],
+  imports: [CommonModule, RouterModule, NavbarModule, PageStructureModule],
   declarations: [IdentityStartComponent],
 })
-export class IdentityStartModule { }
+export class IdentityStartModule {}

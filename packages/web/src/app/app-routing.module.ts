@@ -69,6 +69,7 @@ import { TheDesignSystemDocComponent } from './doc-pages/get-started/the-design-
 import { TheConceptComponent } from './doc-pages/identity/the-concept/the-concept.component';
 import { ChipsComponent } from './doc-pages/components/chips/chips.component';
 import { ErrorComponent } from './shared/error/error.component';
+import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
 
 const routes: Routes = [
   {
@@ -210,6 +211,10 @@ const routes: Routes = [
           {
             path: Pages.ContentLoader,
             component: ContentLoaderDocComponent,
+          },
+          {
+            path: Pages.Divider,
+            component: DividerDocComponent,
           },
           {
             path: Pages.Dropdown,
@@ -380,7 +385,7 @@ const routes: Routes = [
         ],
       },
       { path: 'not-found', component: ErrorComponent },
-      { path: '**', redirectTo: '/not-found' }
+      { path: '**', redirectTo: '/not-found' },
     ],
   },
 ];
@@ -390,4 +395,4 @@ const routes: Routes = [
   exports: [RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

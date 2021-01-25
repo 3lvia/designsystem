@@ -7,7 +7,5 @@ import { getTools } from 'src/app/shared/e-items';
   styleUrls: ['./patterns-doc.component.scss'],
 })
 export class PatternsDocComponent {
-
   description = getTools('patterns').description;
-
 }

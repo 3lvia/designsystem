@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CopyToClipboardService {
-
   copyToClipBoard(val: string): void {
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
@@ -18,5 +17,4 @@ export class CopyToClipboardService {
     document.execCommand('copy');
     document.body.removeChild(selBox);
   }
-
 }

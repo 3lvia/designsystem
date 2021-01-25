@@ -23,8 +23,6 @@ import { FontWeightPipe } from './fontWeight.pipe';
     ComponentSubsubsectionModule,
     CodeHighlighterModule,
   ],
-  declarations: [TypographyDocComponent,
-    FontWeightPipe
-  ],
+  declarations: [TypographyDocComponent, FontWeightPipe],
 })
-export class TypographyDocModule { }
+export class TypographyDocModule {}

@@ -6,7 +6,6 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./code-block-accordion.component.scss'],
 })
 export class CodeBlockAccordionComponent {
-
   @ViewChild('accordionItem') accordionItem: ElementRef;
 
   showCode = false;
@@ -18,5 +17,4 @@ export class CodeBlockAccordionComponent {
       this.accordionItem.nativeElement.classList.add('e-accordion__item--open');
     }
   }
-
 }

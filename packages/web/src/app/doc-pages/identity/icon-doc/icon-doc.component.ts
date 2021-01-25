@@ -10,7 +10,6 @@ import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.
   styleUrls: ['./icon-doc.component.scss'],
 })
 export class IconDocComponent implements OnInit {
-
   @ViewChild('accordionIconsDesktop') accordionIconsDesktop: ElementRef;
   @ViewChild('accordionIconsMobile') accordionIconsMobile: ElementRef;
   @ViewChild('icons') icons: ElementRef;
@@ -55,7 +54,6 @@ export class IconDocComponent implements OnInit {
 <i class="e-icon e-icon--chat e-icon--color-disabled e-icon--inverted"></i>
 `;
 
-
   importCodeTS = `import { addCircle } from '@elvia/elvis/icons'`;
   scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>;`;
   iconExample = `<i class="e-icon e-icon--chat e-icon--md"></i>`;
@@ -63,7 +61,7 @@ export class IconDocComponent implements OnInit {
   term = '';
   IconClassList: Icon[] = [];
 
-  constructor(private copyService: CopyToClipboardService) { }
+  constructor(private copyService: CopyToClipboardService) {}
 
   @HostListener('document:click', ['$event', '$event.target'])
   onClick(event: MouseEvent, targetElement: HTMLElement): void {
@@ -125,17 +123,17 @@ export class IconDocComponent implements OnInit {
   }
 
   setOutlineIcons(): void {
-    this.outlinedIcons = this.allIcons.filter(icon => {
+    this.outlinedIcons = this.allIcons.filter((icon) => {
       return !icon.title.includes('-filled') && !icon.title.includes('-color');
     });
   }
   setFilledIcons(): void {
-    this.filledIcons = this.allIcons.filter(icon => {
+    this.filledIcons = this.allIcons.filter((icon) => {
       return icon.title.includes('-filled');
     });
   }
   setTwoColoredIcons(): void {
-    this.twoColoredIcons = this.allIcons.filter(icon => {
+    this.twoColoredIcons = this.allIcons.filter((icon) => {
       return icon.title.includes('-color');
     });
   }
@@ -203,7 +201,6 @@ export class IconDocComponent implements OnInit {
       if (element) {
         element.classList.add('e-none');
       }
-
     }
   }
 

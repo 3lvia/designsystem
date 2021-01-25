@@ -7,10 +7,11 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./pagination-doc.component.scss'],
 })
 export class PaginationDocComponent implements OnInit {
-
   figmaUrl = getComponent('pagination').figmaUrl;
   description = getComponent('pagination').description;
-  does = ['When there’s a lot of content to process and the user is looking for specific information. Often used in tables.'];
+  does = [
+    'When there’s a lot of content to process and the user is looking for specific information. Often used in tables.',
+  ];
 
   paginationExample = `<h3>Start</h3>
 <div class="e-pagination">
@@ -290,14 +291,7 @@ paginationDotsRight(): boolean {
   chosenNum = 1;
   showDropdown = false;
   currentValue = '10';
-  options = [
-    '10',
-    '20',
-    '30',
-    '40',
-    '50',
-    'Alle',
-  ];
+  options = ['10', '20', '30', '40', '50', 'Alle'];
 
   ngOnInit(): void {
     this.getVisibleNumbers();
@@ -330,7 +324,10 @@ paginationDotsRight(): boolean {
     }
 
     if (this.chosenNum > 5 && this.chosenNum < this.allNums.length - 4) {
-      this.centerNums = this.allNums.slice(this.allNums[this.chosenNum - 4], this.allNums[this.chosenNum + 1]);
+      this.centerNums = this.allNums.slice(
+        this.allNums[this.chosenNum - 4],
+        this.allNums[this.chosenNum + 1],
+      );
     }
   }
 
@@ -368,6 +365,6 @@ paginationDotsRight(): boolean {
     return this.chosenNum > 0;
   }
   paginationDotsRight(): boolean {
-    return this.chosenNum > 5 && this.chosenNum < (this.allNums.length - 4);
+    return this.chosenNum > 5 && this.chosenNum < this.allNums.length - 4;
   }
 }

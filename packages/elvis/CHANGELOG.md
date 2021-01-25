@@ -3,7 +3,66 @@
 <!-- 🐝 - BUG FIXES -->
 
 <table>
- <tr class="changelog-row">
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      6.1.0
+    </span>
+    <br>
+    <span>
+      January 21, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/divider#Overview">Divider</a>
+        </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      6.0.0
+    </span>
+    <br>
+    <span>
+      January 18, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Input</a>
+        </div>
+        Input with icons are now using icon buttons instead of just icons. Replace the icons with the button in the <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">input doc</a>. If you have been using the same structure in a date- or time-picker you may also need to replace this part with the button.
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      5.1.0
+    </span>
+    <br>
+    <span>
+      January 13, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/indentity/Typography#Overview"></a>
+        </div>
+        Strong and light versions of body text have been added, as well as on special text called 'micro'. 
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       5.0.0
@@ -27,7 +86,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
-<tr class="changelog-row">
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       4.7.0

@@ -9,14 +9,10 @@ import '@elvia/elvis-tabs';
 import '@elvia/elvis-progress-linear';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
+  declarations: [AppComponent],
+  imports: [BrowserModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

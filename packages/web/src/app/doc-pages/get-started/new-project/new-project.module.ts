@@ -20,4 +20,4 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [NewProjectComponent],
 })
-export class NewProjectModule { }
+export class NewProjectModule {}

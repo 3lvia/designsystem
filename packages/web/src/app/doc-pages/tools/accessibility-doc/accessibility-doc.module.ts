@@ -20,4 +20,4 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-structure
   ],
   declarations: [AccessibilityDocComponent],
 })
-export class AccessibilityDocModule { }
+export class AccessibilityDocModule {}

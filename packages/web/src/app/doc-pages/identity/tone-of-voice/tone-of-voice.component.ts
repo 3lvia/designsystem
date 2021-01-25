@@ -7,7 +7,6 @@ import { getIdentity } from 'src/app/shared/e-items';
   styleUrls: ['./tone-of-voice.component.scss'],
 })
 export class ToneOfVoiceComponent {
-
   figmaUrl = getIdentity('tone-of-voice').figmaUrl;
   description = getIdentity('tone-of-voice').description;
 
@@ -21,5 +20,4 @@ export class ToneOfVoiceComponent {
       }
     }
   }
-
 }

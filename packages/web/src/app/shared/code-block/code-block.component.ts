@@ -29,6 +29,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() overwriteHeightPhone: number;
   @Input() showIframeDesktop = false;
   @Input() noPaddingX = false;
+  @Input() noPaddingDesk = false;
 
   code = '';
   showTabs = true;
@@ -39,10 +40,10 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   showIframe = false;
   desktopScreenWidth: boolean;
 
-  constructor(private versionService: VersionService) { }
+  constructor(private versionService: VersionService) {}
 
   ngOnInit(): void {
-    this.code = this.codeTS !== '' ? this.codeTS : (this.codeHTML !== '' ? this.codeHTML : this.codeCSS);
+    this.code = this.codeTS !== '' ? this.codeTS : this.codeHTML !== '' ? this.codeHTML : this.codeCSS;
     this.setCodePenValue();
     this.displayCode = this.code;
 
@@ -99,7 +100,11 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
     }
     this.showIframe = !this.showIframe;
     this.desktopScreenWidth = isDesk;
-    setTimeout(() => { if (this.defaultFrame) { this.defaultFrame.nativeElement.innerHTML = this.code; } }, 0);
+    setTimeout(() => {
+      if (this.defaultFrame) {
+        this.defaultFrame.nativeElement.innerHTML = this.code;
+      }
+    }, 0);
   }
 
   isDesktop(): boolean {
@@ -114,7 +119,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   setCodePenValue(): void {
     let html;
     const css = 'body {margin: 0}';
-    this.versionService.getCodePenTag().subscribe(tag => {
+    this.versionService.getCodePenTag().subscribe((tag) => {
       if (this.codeInverted !== '' && this.isInverted) {
         html = `${this.codeInverted}
 ${tag}`;
@@ -124,7 +129,6 @@ ${tag}`;
       }
       this.codepen = JSON.stringify({ title: 'Elvis', html, css });
     });
-
   }
 
   toggleInverted(): void {
@@ -144,13 +148,4 @@ ${tag}`;
       }
     }
   }
-
 }
-
-
-
-
-
-
-
-

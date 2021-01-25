@@ -20,4 +20,4 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
   ],
   declarations: [CardDocComponent],
 })
-export class CardDocModule { }
+export class CardDocModule {}

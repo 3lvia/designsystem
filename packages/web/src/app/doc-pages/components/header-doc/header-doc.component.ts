@@ -8,7 +8,6 @@ import { GlobalService } from 'src/app/core/services/global.service';
   styleUrls: ['./header-doc.component.scss'],
 })
 export class HeaderDocComponent {
-
   internalHeader = false;
   figmaUrl = getComponent('header').figmaUrl;
   description = getComponent('header').description;
@@ -642,7 +641,7 @@ export class HeaderDocComponent {
 </div>
 `;
 
-  constructor(private globalService: GlobalService) { }
+  constructor(private globalService: GlobalService) {}
 
   testInternalHeader(): void {
     this.globalService.toggleShowInternalHeader(true);

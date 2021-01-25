@@ -83,5 +83,4 @@ export class HeaderComponent {
       element[0].classList.remove(elClass);
     }
   }
-
 }

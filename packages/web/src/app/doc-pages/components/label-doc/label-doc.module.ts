@@ -20,4 +20,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [LabelDocComponent],
 })
-export class LabelDocModule { }
+export class LabelDocModule {}

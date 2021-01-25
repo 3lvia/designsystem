@@ -3,8 +3,7 @@
 @use '../utilities/breakpoints';
 @use '../utilities/helpers';
 
-$label-padding: 4px 11px;
-$label-padding-mobile: 2px 7px;
+$label-padding: 4px 8px;
 $label-radius: 4px;
 $label-font-size: 11px;
 
@@ -13,17 +12,11 @@ $label-font-size: 11px;
   border-radius: 50%;
   height: 8px;
   width: 8px;
-  left: 11px;
-  @include breakpoints.breakpoint-up(Mobile) {
-    left: 7px;
-  }
+  left: 8px;
 }
 
 @mixin circle($color) {
-  padding: 4px 11px 4px (11px + 8px + 8px);
-  @include breakpoints.breakpoint-up(Mobile) {
-    padding: 2px 7px 2px (7px + 8px + 6px);
-  }
+  padding: 4px 8px 4px 24px;
   &::before {
     content: ' ';
     position: absolute;
@@ -39,15 +32,11 @@ $label-font-size: 11px;
   padding: $label-padding;
   border-radius: $label-radius;
   font-size: $label-font-size;
-  line-height: 18px;
+  line-height: 16px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   background: colors.color('grey-10');
   color: colors.color('font-color');
-
-  @include breakpoints.breakpoint-up(Mobile) {
-    padding: $label-padding-mobile;
-  }
 
   @each $label, $map in colors.$just-colors {
     $color: colors.color($label);

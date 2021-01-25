@@ -37,7 +37,6 @@ export class AutocompleteDocComponent {
 </div>
 `;
 
-
   exampleInHTML = `<div class="e-form-field">
   <label class="e-form-field__label" for="compact">Country</label>
   <div class="e-input">
@@ -303,7 +302,7 @@ countries = ["Afghanistan","Albania","Algeria","Andorra", "and so on..."];
     'Tajikistan',
     'Tanzania',
     'Thailand',
-    'Timor L\'Este',
+    "Timor L'Este",
     'Togo',
     'Tonga',
     'Trinidad &amp; Tobago',
@@ -337,13 +336,18 @@ countries = ["Afghanistan","Albania","Algeria","Andorra", "and so on..."];
   @HostListener('click', ['$event'])
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   onClick(event: any): void {
-    if (event.target.id !== 'ChooseCountry' || event.target.id !== 'countryOptions' && this.results.length === 0) {
+    if (
+      event.target.id !== 'ChooseCountry' ||
+      (event.target.id !== 'countryOptions' && this.results.length === 0)
+    ) {
       this.showResults = false;
     }
   }
 
   onSearch(searchTerm: string): void {
-    this.results = this.countries.filter((country) => country.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()));
+    this.results = this.countries.filter((country) =>
+      country.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()),
+    );
 
     if (searchTerm.length === 0) {
       this.showResults = false;
@@ -361,7 +365,7 @@ countries = ["Afghanistan","Albania","Algeria","Andorra", "and so on..."];
   // opens autocomplete options on click
   onInputClick(): void {
     if (this.results.length === 0) {
-      this.showResults = false
+      this.showResults = false;
     } else {
       this.showResults = true;
     }

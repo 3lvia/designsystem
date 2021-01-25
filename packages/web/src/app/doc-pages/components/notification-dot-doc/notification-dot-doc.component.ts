@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./notification-dot-doc.component.scss'],
 })
 export class NotificationDotDocComponent {
-
   example1 = `<div class="example-margin">
   <i class="fal fa-cog"><span class="e-notification-dot"></span></i>
 </div>

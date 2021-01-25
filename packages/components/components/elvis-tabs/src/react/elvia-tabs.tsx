@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useEffect, useState, useRef } from 'react';
+import React, { FC, useEffect, useState, useRef } from 'react';
 import classNames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
 import './style.scss';
@@ -14,7 +13,7 @@ export interface TabsProps {
   webcomponent?: any;
 }
 
-const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
+const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
   const [currValue, setValue] = useState(value);
   const [onTheRightEnd, setOnTheRightEnd] = useState(true);
   const [onTheLeftEnd, setOnTheLeftEnd] = useState(true);
@@ -34,32 +33,11 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
     ['ewc-tabs--scrolling']: !onTheLeftEnd || !onTheRightEnd,
   });
 
-  // Updating selected value
   useEffect(() => {
-    updateReactComponent();
-    updateWebcomponent();
-  }, [currValue]);
-
-  function updateReactComponent() {
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(currValue);
-    }
-  }
-
-  function updateWebcomponent() {
-    if (webcomponent) {
-      // True -> Prevents rerender
-      webcomponent.setProps({ value: currValue }, true);
-    }
-  }
-
-  // Update scroll position on init
-  useEffect(() => {
+    // Update scroll position on init
     setTimeout(() => updateScrolledPosition());
-  }, []);
 
-  // Listen to resize & scroll and update scrolled positions
-  useEffect(() => {
+    // Listen to resize & scroll and update scrolled positions
     if (!itemsRef.current) {
       return;
     }
@@ -73,32 +51,51 @@ const Tabs: React.FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }
         itemsRef.current.removeEventListener('scroll', updateScrolledPosition);
       }
     };
-  }, [updateScrolledPosition]);
+  }, []);
 
-  function scrollToLeft() {
+  // Updating selected value
+  useEffect(() => {
+    updateReactComponent();
+    updateWebcomponent();
+  }, [currValue]);
+
+  const updateReactComponent = () => {
+    if (!webcomponent && valueOnChange) {
+      valueOnChange(currValue);
+    }
+  };
+
+  const updateWebcomponent = () => {
+    if (webcomponent) {
+      // True -> Prevents rerender
+      webcomponent.setProps({ value: currValue }, true);
+    }
+  };
+
+  const scrollToLeft = () => {
     if (!itemsRef.current) {
       return;
     }
     itemsRef.current.scrollLeft -= lengthToScroll.current;
     updateScrolledPosition();
-  }
+  };
 
-  function scrollToRight() {
+  const scrollToRight = () => {
     if (!itemsRef.current) {
       return;
     }
     itemsRef.current.scrollLeft += lengthToScroll.current;
     updateScrolledPosition();
-  }
+  };
 
-  function updateScrolledPosition() {
+  const updateScrolledPosition = () => {
     if (!itemsRef.current) {
       return;
     }
     const endOfItem = itemsRef.current.scrollWidth - itemsRef.current.getBoundingClientRect().width;
     setOnTheRightEnd(itemsRef.current.scrollLeft >= endOfItem - 1);
     setOnTheLeftEnd(itemsRef.current.scrollLeft <= 1);
-  }
+  };
 
   return (
     <div className="ewc-tabs">

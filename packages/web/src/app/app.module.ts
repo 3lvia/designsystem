@@ -15,9 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorModule } from './shared/error/error.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -30,11 +28,9 @@ import { ErrorModule } from './shared/error/error.module';
     OverlayModule,
     CommunityModule,
     HttpClientModule,
-    ErrorModule
+    ErrorModule,
   ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA,
-  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

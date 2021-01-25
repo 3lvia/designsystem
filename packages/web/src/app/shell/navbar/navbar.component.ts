@@ -37,13 +37,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.scrollPosSubscription = this.scrollService.listenNewScrollPosition().subscribe(() => {
       this.updateNavbarHeight();
     });
-    this.anchorPosSubscription = this.scrollService.listenAnchorAtCurrPos().subscribe((anchor: NavbarAnchor) => {
-      if (this.prevActiveAnchor !== anchor) {
-        this.updateAnchorRoute(anchor);
-      }
-      this.prevActiveAnchor = this.activeAnchor;
-      this.activeAnchor = anchor;
-    });
+    this.anchorPosSubscription = this.scrollService
+      .listenAnchorAtCurrPos()
+      .subscribe((anchor: NavbarAnchor) => {
+        if (this.prevActiveAnchor !== anchor) {
+          this.updateAnchorRoute(anchor);
+        }
+        this.prevActiveAnchor = this.activeAnchor;
+        this.activeAnchor = anchor;
+      });
 
     this.anchorSubscription = this.scrollService.listenAnchors().subscribe((anchors: NavbarAnchor[]) => {
       this.navbarAnchors = anchors;
@@ -58,13 +60,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
         }
       });
 
-      this.fragmentSubscription = this.route.fragment.subscribe(fragment => {
+      this.fragmentSubscription = this.route.fragment.subscribe((fragment) => {
         if (!fragment) {
           this.activeAnchor = this.navbarAnchors[0];
           this.updateAnchorRoute(this.activeAnchor);
           return;
         }
-        const fragmentExists = this.navbarAnchors.find(anchor => {
+        const fragmentExists = this.navbarAnchors.find((anchor) => {
           const anchorRoute = anchor.title.toLocaleLowerCase().split(' ').join('-');
           const fragmentRoute = fragment.toLocaleLowerCase().split(' ').join('-');
           return anchorRoute === fragmentRoute;
@@ -74,7 +76,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
           this.updateAnchorRoute(this.activeAnchor);
           return;
         }
-        this.navbarAnchors.forEach(anchor => {
+        this.navbarAnchors.forEach((anchor) => {
           const anchorRoute = anchor.title.toLocaleLowerCase().split(' ').join('-');
           const fragmentRoute = fragment.toLocaleLowerCase().split(' ').join('-');
           if (anchorRoute === fragmentRoute) {
@@ -86,7 +88,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
       });
     });
   }
-
 
   ngOnInit(): void {
     this.filteredPages = this.navbarItems.filter((page) => {
@@ -108,10 +109,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
     const scrollHeight = document.documentElement.scrollHeight;
     const el = document.getElementById('side-navbar') as HTMLElement;
     if (fromTop >= scrollHeight) {
-      const newHeight = (scrollHeight - document.documentElement.scrollTop - 60 - 64 - 60 - 200);
-      el.style.height = (newHeight) + 'px';
+      const newHeight = scrollHeight - document.documentElement.scrollTop - 60 - 64 - 60 - 200;
+      el.style.height = newHeight + 'px';
     } else {
-      el.style.height = (window.innerHeight - 64 - 60) + 'px';
+      el.style.height = window.innerHeight - 64 - 60 + 'px';
     }
   }
 

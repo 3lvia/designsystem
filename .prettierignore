@@ -4,10 +4,11 @@ e2e
 node_modules
 coverage
 build
+packages/web/src/assets/*
 packages/elvis/.internal/classlist.json
 packages/elvis/css/*.css
 packages/elvis/elvis.js
 packages/elvis/icons.js
 packages/elvis/icons.d.ts
-src/assets/js/elvis.js
+
 

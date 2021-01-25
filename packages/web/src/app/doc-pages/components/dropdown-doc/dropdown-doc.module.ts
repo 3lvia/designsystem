@@ -10,7 +10,6 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -25,4 +24,4 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
   ],
   declarations: [DropdownDocComponent],
 })
-export class DropdownDocModule { }
+export class DropdownDocModule {}

@@ -13,7 +13,6 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-structure/co
 import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
 import { RouterModule } from '@angular/router';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -31,4 +30,4 @@ import { RouterModule } from '@angular/router';
   ],
   declarations: [IconDocComponent, IconSearchPipe],
 })
-export class IconDocModule { }
+export class IconDocModule {}

@@ -18,4 +18,4 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-structure/co
   ],
   declarations: [HeaderDocComponent],
 })
-export class HeaderDocModule { }
+export class HeaderDocModule {}

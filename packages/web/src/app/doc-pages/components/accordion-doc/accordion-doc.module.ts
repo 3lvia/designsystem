@@ -24,4 +24,4 @@ import { CodeBlockAccordionModule } from 'src/app/shared/code-block-accordion/co
   ],
   declarations: [AccordionDocComponent],
 })
-export class AccordionDocModule { }
+export class AccordionDocModule {}

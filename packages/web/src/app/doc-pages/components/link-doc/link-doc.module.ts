@@ -12,7 +12,6 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
 
-
 @NgModule({
   imports: [
     CommonModule,
@@ -26,8 +25,7 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
     WhenToUseModule,
     DoDontTextModule,
     CopyModule,
-
   ],
   declarations: [LinkDocComponent],
 })
-export class LinkDocModule { }
+export class LinkDocModule {}

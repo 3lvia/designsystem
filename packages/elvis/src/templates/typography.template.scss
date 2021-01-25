@@ -33,10 +33,10 @@ $font-family-secondary: 'Red Hat Text', sans-serif;
   font-size: getValue($name, size);
   line-height: getValue($name, height);
   font-weight: getValue($name, weight);
-  color: getValue($name, color);
   font-style: getValue($name, style);
   letter-spacing: getValue($name, letter-spacing);
   text-transform: getValue($name, transform);
+  color: getValue($name, color);
   @include breakpoints.breakpoint-up(Mobile) {
     font-size: getValue($name, size-m);
     line-height: getValue($name, height-m);

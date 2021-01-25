@@ -1,10 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'fontWeight'
+  name: 'fontWeight',
 })
 export class FontWeightPipe implements PipeTransform {
-
   transform(fontWeight: string): string {
     switch (fontWeight) {
       case '900': {
@@ -25,5 +24,4 @@ export class FontWeightPipe implements PipeTransform {
       }
     }
   }
-
 }

@@ -18,4 +18,4 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
   ],
   declarations: [RadioFilterDocComponent],
 })
-export class RadioFilterDocModule { }
+export class RadioFilterDocModule {}

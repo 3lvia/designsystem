@@ -14,6 +14,6 @@ import { RouterModule } from '@angular/router';
     ComponentSubsectionModule,
     RouterModule,
   ],
-  declarations: [TheConceptComponent]
+  declarations: [TheConceptComponent],
 })
-export class TheConceptModule { }
+export class TheConceptModule {}

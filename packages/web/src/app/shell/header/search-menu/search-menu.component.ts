@@ -22,13 +22,11 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   maxTotalCharacters = 0;
   charactersBeforeEllipses = 0;
 
-
   private onDestroy = new Subject();
 
   private onDestroy$ = this.onDestroy.asObservable();
 
   private subscriptions: Subscription = new Subscription();
-
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
@@ -50,21 +48,25 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()),
     );
     // Adding all descriptions that contain searchString to results
-    this.activeResults = this.activeResults.concat(this.elvisItems.filter((item: any) =>
-      this.containsSearchString(item),
-    ));
+    this.activeResults = this.activeResults.concat(
+      this.elvisItems.filter((item: any) => this.containsSearchString(item)),
+    );
 
     if (this.activeResults.length !== 0 && this.searchString.length !== 0) {
       this.showResults = true;
-      setTimeout(() => { this.highlightResultGreen(); });
+      setTimeout(() => {
+        this.highlightResultGreen();
+      });
     } else {
       this.showResults = false;
     }
   }
 
-  containsSearchString(item): boolean {
-    return !item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()) &&
-      item.description.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase());
+  containsSearchString(item: EItems): boolean {
+    return (
+      !item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()) &&
+      item.description.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase())
+    );
   }
 
   removeSearch(): void {
@@ -88,7 +90,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   highlightResultGreen(): void {
-    this.activeResults.forEach(resultItem => {
+    this.activeResults.forEach((resultItem) => {
       this.replaceTitleString(resultItem);
       this.replaceDescriptionString(resultItem);
     });
@@ -99,9 +101,12 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     if (indexOfResult < 0) {
       return;
     }
-    const newTitleString = resultItem.title.substring(0, indexOfResult) +
-      '<span style=\'background: #29d305\'>' + resultItem.title.substring(indexOfResult, indexOfResult + this.searchString.length) +
-      '</span>' + resultItem.title.substring(indexOfResult + this.searchString.length);
+    const newTitleString =
+      resultItem.title.substring(0, indexOfResult) +
+      "<span style='background: #29d305'>" +
+      resultItem.title.substring(indexOfResult, indexOfResult + this.searchString.length) +
+      '</span>' +
+      resultItem.title.substring(indexOfResult + this.searchString.length);
     const title = document.getElementById('search_' + resultItem.title);
     title.innerHTML = newTitleString;
   }
@@ -111,7 +116,9 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     const description = document.getElementById(this.encodeHTML(resultItem.description));
     description.innerHTML = '';
     if (this.indexOfResultDescription < 0) {
-      description.appendChild(this.createHTMLElement(resultItem.description.substring(0, this.maxTotalCharacters)));
+      description.appendChild(
+        this.createHTMLElement(resultItem.description.substring(0, this.maxTotalCharacters)),
+      );
       return;
     }
     const newDescriptionString = this.constructHighlightedString(resultItem);
@@ -130,9 +137,12 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       startOfString = this.indexOfResultDescription - this.charactersBeforeEllipses;
       endOfString = this.indexOfResultDescription + this.maxTotalCharacters - this.charactersBeforeEllipses;
     }
-    newDescriptionString = newDescriptionString +
+    newDescriptionString =
+      newDescriptionString +
       resultItem.description.substring(startOfString, startOfColor) +
-      '<span style=\'background: #29d305\'>' + resultItem.description.substring(startOfColor, endOfColor) + '</span>' +
+      "<span style='background: #29d305'>" +
+      resultItem.description.substring(startOfColor, endOfColor) +
+      '</span>' +
       resultItem.description.substring(endOfColor, endOfString);
     if (resultItem.description.length > endOfString) {
       newDescriptionString = newDescriptionString + '...';
@@ -147,7 +157,9 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     const indexOfLinkEnd = resultItem.description.toLocaleLowerCase().indexOf('>', indexOfLinkStart);
     const numberOfLinkCharacter = indexOfLinkEnd - indexOfLinkStart;
 
-    this.indexOfResultDescription = resultItem.description.toLocaleLowerCase().indexOf(this.searchString.toLocaleLowerCase());
+    this.indexOfResultDescription = resultItem.description
+      .toLocaleLowerCase()
+      .indexOf(this.searchString.toLocaleLowerCase());
     this.indexStartLimit = 50;
     this.maxTotalCharacters = 165 + numberOfLinkCharacter;
     this.charactersBeforeEllipses = 48 + numberOfLinkCharacter;
@@ -162,7 +174,9 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     // If the search result is in the link skip marking inside the link
     if (this.indexOfResultDescription > indexOfLinkStart && this.indexOfResultDescription < indexOfLinkEnd) {
       // tslint:disable-next-line: max-line-length
-      this.indexOfResultDescription = resultItem.description.toLocaleLowerCase().indexOf(this.searchString.toLocaleLowerCase(), indexOfLinkEnd);
+      this.indexOfResultDescription = resultItem.description
+        .toLocaleLowerCase()
+        .indexOf(this.searchString.toLocaleLowerCase(), indexOfLinkEnd);
       if (screen.width < 770) {
         this.charactersBeforeEllipses = 28 + numberOfLinkCharacter + this.searchString.length;
       } else {
@@ -170,5 +184,4 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
       }
     }
   }
-
 }

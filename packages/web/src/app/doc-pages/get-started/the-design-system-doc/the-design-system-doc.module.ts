@@ -6,12 +6,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-structure/compo
 import { RouterModule } from '@angular/router';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    ComponentHeaderModule,
-    ComponentSectionModule,
-    RouterModule,
-  ],
-  declarations: [TheDesignSystemDocComponent]
+  imports: [CommonModule, ComponentHeaderModule, ComponentSectionModule, RouterModule],
+  declarations: [TheDesignSystemDocComponent],
 })
-export class TheDesignSystemDocModule { }
+export class TheDesignSystemDocModule {}

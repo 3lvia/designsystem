@@ -6,4 +6,3 @@ import '@webcomponents/webcomponentsjs/webcomponents-bundle.js';
 
 /* Dynamically inject required components */
 import './elvia-components.js';
-

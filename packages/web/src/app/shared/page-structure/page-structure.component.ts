@@ -11,7 +11,6 @@ import { NavigationEnd, Router } from '@angular/router';
   animations: [SectionAnimation, slideIn],
 })
 export class PageStructureComponent {
-
   @Input() pages: EItems[] = [];
   routerSubscription;
   loadFeedbackComponent = true;
@@ -26,21 +25,22 @@ export class PageStructureComponent {
           ev.url === '/identity' ||
           ev.url === '/tools'
         ) {
-          this.loadFeedbackComponent = false
+          this.loadFeedbackComponent = false;
         } else {
-          this.loadFeedbackComponent = true
+          this.loadFeedbackComponent = true;
         }
       }
     });
   }
 
   ngOnDestroy(): void {
-    if (this.routerSubscription) { this.routerSubscription.unsubscribe(); }
+    if (this.routerSubscription) {
+      this.routerSubscription.unsubscribe();
+    }
   }
 
   scrollToFeedback(): void {
     const offsetTop = document.body.scrollHeight;
     this.scrollService.scrollToElement(offsetTop);
   }
-
 }

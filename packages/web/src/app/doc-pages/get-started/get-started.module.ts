@@ -5,7 +5,6 @@ import { NewProjectModule } from './new-project/new-project.module';
 import { GetStartedDesignersModule } from './get-started-designers/get-started-designers.module';
 import { TheDesignSystemDocModule } from './the-design-system-doc/the-design-system-doc.module';
 
-
 @NgModule({
   imports: [
     GetStartedStartModule,
@@ -15,4 +14,4 @@ import { TheDesignSystemDocModule } from './the-design-system-doc/the-design-sys
     TheDesignSystemDocModule,
   ],
 })
-export class GetStartedModule { }
+export class GetStartedModule {}

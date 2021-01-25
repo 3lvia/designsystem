@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./select-doc.component.scss'],
 })
 export class SelectDocComponent {
-
   example1 = `<div class="e-form_field">
   <label class="e-form_field_label" for="select-alt1">Select Option</label>
   <div class="e-form_select">
