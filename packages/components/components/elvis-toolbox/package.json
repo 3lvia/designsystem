@@ -4,5 +4,8 @@
   "description": "",
   "main": "./dist/elvis-toolbox.js",
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "lodash.throttle": "^4.1.1"
+  }
 }

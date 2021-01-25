@@ -1,14 +1,7 @@
-// import throttle from 'lodash/throttle';
-// import debounce from 'lodash/debounce';
+import * as lodashThrottle from 'lodash.throttle';
 
-const throttle = (func: any, limit: number) => {
-  let inThrottle: boolean | NodeJS.Timeout;
-  return (...args: any) => {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = setTimeout(() => (inThrottle = false), limit);
-    }
-  };
+const throttle = (func: () => void, limit: number, options: { trailing: boolean }): void => {
+  return lodashThrottle(func, limit, options);
 };
 
 export default { throttle: throttle };
