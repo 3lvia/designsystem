@@ -41,6 +41,12 @@ elviaComponents.forEach((component) => {
                 },
             ],
         },
+        externals: {
+            'react': 'react', // Case matters here 
+            'react-dom': 'reactDOM', // Case matters here 
+            'classnames': 'classnames'
+        },
+
         resolve: {
             extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
         },
@@ -52,6 +58,18 @@ elviaComponents.forEach((component) => {
             contentBase: 'dist',
         },
     });
+});
+
+builds.push({
+    entry: './loader/src/elvia-loader.js',
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
+    },
+    output: {
+        filename: `elvia-loader.js`,
+        path: path.resolve(__dirname, `./loader/dist/`),
+    },
+
 });
 
 module.exports = builds;

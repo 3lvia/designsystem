@@ -5,25 +5,26 @@ components = require('../../elvia-components.config');
 document.addEventListener('DOMContentLoaded', function () {
   const componentList = [];
   for (var i = 0; i < components.length; i++) {
-    componentList.push(components[i].name);
+    componentList.push(components[i]);
   }
 
   for (var i = 0; i < componentList.length; i++) {
-    const elements = document.querySelectorAll(componentList[i]);
+    console.log(componentList[i].name);
+    const elements = document.querySelectorAll(componentList[i].elementName);
     if (elements && elements.length > 0) {
-      console.log('[Success] Detected webcomponent: ' + componentList[i]);
+      console.log('[Success] Detected webcomponent: ' + componentList[i].name);
       injectScript(componentList[i]);
     }
   }
 
-  function injectScript(name) {
+  function injectScript(component) {
     // Only inject legacy script on IE11;
     if (!!window.MSInputMethodContext && !!document.documentMode) {
-      document.body.appendChild(createScript(name));
+      document.body.appendChild(createScript(component));
       //document.body.appendChild(createLegacyScript(name));
     } else {
       //document.body.appendChild(createLegacyScript(name));
-      document.body.appendChild(createScript(name));
+      document.body.appendChild(createScript(component));
     }
   }
 
@@ -34,10 +35,18 @@ document.addEventListener('DOMContentLoaded', function () {
         return scriptTag;
     }*/
 
-  function createScript(name) {
+  function createScript(component) {
     const scriptTag = document.createElement('script');
-    scriptTag.src = '/cdn/components/' + name + '.js';
+    scriptTag.src = 'components/' + component.name + '/dist/cdn/' + component.elementName + '.js';
     //scriptTag.setAttribute('type', 'module');
     return scriptTag;
   }
+  //<script src="components/elvis-popover/dist/cdn/elvia-popover.js"></script>
+  /*
+    function createScript(name) {
+      const scriptTag = document.createElement('script');
+      scriptTag.src = '/cdn/components/' + name + '.js';
+      //scriptTag.setAttribute('type', 'module');
+      return scriptTag;
+    }*/
 });
