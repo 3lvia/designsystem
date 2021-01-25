@@ -61,7 +61,7 @@ export class IconDocComponent implements OnInit {
   term = '';
   IconClassList: Icon[] = [];
 
-  constructor(private copyService: CopyToClipboardService) {}
+  constructor(private copyService: CopyToClipboardService) { }
 
   @HostListener('document:click', ['$event', '$event.target'])
   onClick(event: MouseEvent, targetElement: HTMLElement): void {
