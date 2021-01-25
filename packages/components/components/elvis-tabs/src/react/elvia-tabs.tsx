@@ -12,6 +12,7 @@ export interface TabsProps {
   webcomponent?: any;
 }
 
+// Will be replaced
 const throttle = (func: any, limit: number) => {
   let inThrottle: boolean | NodeJS.Timeout;
   return (...args: any) => {
@@ -23,24 +24,11 @@ const throttle = (func: any, limit: number) => {
 };
 
 const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
-  const [currValue, setValue] = useState(value);
-  const [onTheRightEnd, setOnTheRightEnd] = useState(true);
-  const [onTheLeftEnd, setOnTheLeftEnd] = useState(true);
+  const [currValue, setCurrValue] = useState(value);
+  const [isOnRightEnd, setIsOnRightEnd] = useState(true);
+  const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
   const itemsRef = useRef<HTMLDivElement>(null);
   const lengthToScroll = 140;
-  const arrowLeftClasses = classNames('ewc-tabs__arrow', {
-    ['ewc-tabs__arrow--hide']: onTheLeftEnd,
-    ['ewc-tabs__arrow--remove']: onTheRightEnd && onTheLeftEnd,
-  });
-  const arrowRightClasses = classNames('ewc-tabs__arrow', {
-    ['ewc-tabs__arrow--hide']: onTheRightEnd,
-    ['ewc-tabs__arrow--remove']: onTheRightEnd && onTheLeftEnd,
-  });
-  const itemsClasses = classNames('ewc-tabs__items', {
-    ['ewc-tabs--hide-fade-right']: onTheRightEnd,
-    ['ewc-tabs--hide-fade-left']: onTheLeftEnd,
-    ['ewc-tabs--scrolling']: !onTheLeftEnd || !onTheRightEnd,
-  });
 
   useEffect(() => {
     // Update scroll position on init
@@ -102,9 +90,25 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
       return;
     }
     const endOfItem = itemsRef.current.scrollWidth - itemsRef.current.getBoundingClientRect().width;
-    setOnTheRightEnd(itemsRef.current.scrollLeft >= endOfItem - 1);
-    setOnTheLeftEnd(itemsRef.current.scrollLeft <= 1);
+    const isOnRight = itemsRef.current.scrollLeft >= endOfItem - 1;
+    const isOnLeft = itemsRef.current.scrollLeft <= 1;
+    setIsOnRightEnd(isOnRight);
+    setIsOnLeftEnd(isOnLeft);
   };
+
+  const arrowLeftClasses = classNames('ewc-tabs__arrow', {
+    ['ewc-tabs__arrow--hide']: isOnLeftEnd,
+    ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
+  });
+  const arrowRightClasses = classNames('ewc-tabs__arrow', {
+    ['ewc-tabs__arrow--hide']: isOnRightEnd,
+    ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
+  });
+  const itemsClasses = classNames('ewc-tabs__items', {
+    ['ewc-tabs--hide-fade-right']: isOnRightEnd,
+    ['ewc-tabs--hide-fade-left']: isOnLeftEnd,
+    ['ewc-tabs--scrolling']: !isOnLeftEnd || !isOnRightEnd,
+  });
 
   return (
     <div className="ewc-tabs">
@@ -125,7 +129,7 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
               <button
                 className={`ewc-tabs__label ${value === i && 'ewc-tabs__label--selected'}`}
                 key={i}
-                onClick={() => setValue(i)}
+                onClick={() => setCurrValue(i)}
                 disabled={item.isDisabled}
               >
                 {item.label}
