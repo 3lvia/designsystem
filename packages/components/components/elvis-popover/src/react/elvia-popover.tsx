@@ -42,7 +42,7 @@ const Popover: FC<PopoverProps> = ({
   title,
   content,
   posX = 'center',
-  posY,
+  posY = 'top',
   trigger,
   hasCloseBtn = true,
 }) => {
@@ -72,7 +72,7 @@ const Popover: FC<PopoverProps> = ({
 
       const path = getEventPath(e);
       const slotTriggerIsTargetTrigger = popoverSlotTriggerRef.current === path[1];
-      const popoverContainsTarget = popoverRef.current.contains(path[0]);
+      const popoverContainsTarget = popoverRef.current.contains(path[0] as Node);
       const isContentHidden = popoverContentRef.current.classList.contains('ewc-popover--hide');
       if (!slotTriggerIsTargetTrigger && !popoverContainsTarget && !isContentHidden) {
         setPopoverVisibility(false);
@@ -89,7 +89,7 @@ const Popover: FC<PopoverProps> = ({
 
   // Toggling popover state
   const togglePopover = () => {
-    setPopoverVisibility((popoverVisibility) => !popoverVisibility);
+    setPopoverVisibility((prePopoverVisibility) => !prePopoverVisibility);
   };
 
   // Initializing horizontal positions
@@ -123,7 +123,7 @@ const Popover: FC<PopoverProps> = ({
     }
   };
 
-  const resize = () => {
+  const resizePopover = () => {
     const dimensions = getCorrectDimensions();
     if (!popoverContentRef.current || !maxContentWidth.current || dimensions === null) {
       return;
@@ -136,7 +136,7 @@ const Popover: FC<PopoverProps> = ({
     }
   };
 
-  const conflictTop = (): boolean => {
+  const isConflictTop = (): boolean => {
     if (!popoverContentRef.current || !popoverVisibility) {
       return false;
     }
@@ -145,7 +145,7 @@ const Popover: FC<PopoverProps> = ({
     return !isRoomTop;
   };
 
-  const conflictBottom = (): boolean => {
+  const isConflictBottom = (): boolean => {
     const dimensions = getCorrectDimensions();
     if (!popoverContentRef.current || dimensions === null || !popoverVisibility) {
       return false;
@@ -195,7 +195,7 @@ const Popover: FC<PopoverProps> = ({
     };
 
     // Calling position functions
-    resize();
+    resizePopover();
     updatePositionX();
   }, [posX]);
 
@@ -203,7 +203,7 @@ const Popover: FC<PopoverProps> = ({
   useEffect(() => {
     // Update position and size when opening popover
     updatePosition();
-    resize();
+    resizePopover();
 
     // Listen to window resizing if popover is open
     if (!popoverVisibility) {
@@ -217,7 +217,7 @@ const Popover: FC<PopoverProps> = ({
   }, [popoverVisibility]);
 
   const popoverClasses = classnames('ewc-popover', {
-    ['ewc-popover--bottom']: (posY === 'bottom' && !conflictBottom()) || conflictTop(),
+    ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
   });
   const contentClasses = classnames('ewc-popover__content', {
     ['ewc-popover--text-only']: typeof content === 'string',
