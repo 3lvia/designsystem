@@ -3,9 +3,9 @@ import filesize from 'rollup-plugin-filesize'; // Prints filesize
 import commonjs from '@rollup/plugin-commonjs';
 
 export default {
-  input: 'src/loader/elvia-loader.js',
+  input: 'loader/src/elvia-loader.js',
   output: {
-    file: 'dist/cdn/elvia-loader.js',
+    file: 'loader/dist/elvia-loader.js',
     format: 'esm',
   },
   onwarn(warn) {
