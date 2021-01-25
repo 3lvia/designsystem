@@ -232,7 +232,16 @@
 				"e-content-loader--short": {}
 			}
 		},
-		"e-divider": {},
+		"e-divider": {
+			"modifier": {
+				"e-divider--inverted": {},
+				"e-divider--title": {},
+				"e-divider--curved": {}
+			},
+			"element": {
+				"e-divider__title": {}
+			}
+		},
 		"e-input": {
 			"modifier": {
 				"e-input--placeholder": {},
@@ -1131,6 +1140,10 @@
 		"e-content-loader--text": {},
 		"e-content-loader--short": {},
 		"e-divider": {},
+		"e-divider--inverted": {},
+		"e-divider--title": {},
+		"e-divider__title": {},
+		"e-divider--curved": {},
 		"e-input": {},
 		"e-input--placeholder": {},
 		"e-input--centered": {},
