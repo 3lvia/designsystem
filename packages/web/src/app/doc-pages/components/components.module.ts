@@ -26,6 +26,7 @@ import { StepperDocModule } from './stepper-doc/stepper-doc.module';
 import { ContentLoaderDocModule } from './content-loader-doc/content-loader-doc.module';
 import { RadioFilterDocModule } from './radio-filter-doc/radio-filter-doc.module';
 import { ChipsModule } from './chips/chips.module';
+import { DividerDocModule } from './divider-doc/divider-doc.module';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { ChipsModule } from './chips/chips.module';
     ChipsModule,
     ComponentsStartModule,
     ContentLoaderDocModule,
+    DividerDocModule,
     DropdownDocModule,
     FileUploadDocModule,
     RadioFilterDocModule,

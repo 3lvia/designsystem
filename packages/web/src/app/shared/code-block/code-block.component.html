@@ -43,7 +43,7 @@
     <div
       class="element"
       *ngIf="!showIframeScreens || (!showIframe && screenTabOpen == 'desktop')"
-      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg, 'no-padding-desk': noPaddingDesk }"
     >
       <div #defaultFrame></div>
     </div>
