@@ -1,5 +1,5 @@
 /* This file is going to be a part of the designsystem and elvis-bundle.js in the future */
-components = require('../../elvia-components.config');
+components = require('../../../elvia-components.config');
 
 /** TODO: Replace with mutationobserver implementation */
 document.addEventListener('DOMContentLoaded', function () {
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function createScript(component) {
     const scriptTag = document.createElement('script');
-    scriptTag.src = 'components/' + component.name + '/dist/cdn/' + component.elementName + '.js';
+    scriptTag.src = '../../' + component.name + '/dist/cdn/' + component.elementName + '.js';
     //scriptTag.setAttribute('type', 'module');
     return scriptTag;
   }
