@@ -65,8 +65,6 @@ function buildWebComponentsMagically() {
                     .replace(/{{INSERT_COMPONENT_NAME}}/, component.elementName));
 
                 file.contents = new Buffer(String(file.contents)
-                    .replace(/{{INSERT_ROLE}}/, component.role ? components.role : ''));
-                file.contents = new Buffer(String(file.contents)
                     .replace(/{{INSERT_REACT_NAME}}/, component.reactName));
 
                 file.contents = new Buffer(String(file.contents)

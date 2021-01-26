@@ -9,17 +9,15 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected reactComponent: any;
   protected webComponent: any;
   protected cssStyle: string;
-  protected role: string;
   protected throttleRenderReactDOM;
   private mountPoint!: HTMLSpanElement;
 
-  constructor(webComponent: any, reactComponent: any, cssStyle: string, role: string) {
+  constructor(webComponent: any, reactComponent: any, cssStyle: string) {
     super();
     this._data = {};
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
-    this.role = role;
     this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { trailing: true });
   }
 
@@ -41,7 +39,6 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected attachStyle(): void {
-    this.setAttribute('role', this.role);
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;

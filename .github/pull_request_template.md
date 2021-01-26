@@ -10,10 +10,6 @@ Remember to publish the new version after merge
 
 ## UU checks for webcomps
 
-### Have you set role on webcomponent?
-
-- If not, see overview of roles here: https://www.w3.org/TR/wai-aria-1.2/#role_definitions
-
 ### Can you navigate with keyboard?
 
 - WCAG standards for keyboard navigation: https://www.w3.org/TR/wai-aria-practices-1.1/#aria_ex
