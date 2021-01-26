@@ -12,9 +12,8 @@ trigger element and should position itself relative to where there is free space
   react as prop)
 - posX (string) - Position horizontally (left, right, center(default))
 - posY (string) - Position vertically (bottom, top(default))
-- noClose (boolean) - Determines if the close button in the upper right corner should be removed (true,
-  false(default))
-- width (string) - For setting a custom width
+- hasCloseBth (boolean) - Determines if the close button in the upper right corner should be visible (true
+  (default), false)
 
 ## REACT COMPONENT
 
@@ -25,7 +24,7 @@ import { Popover } from '@elvia/elvis-popover/react';
 ```
 <Popover
     title="title"
-    description="description"
+    content="content"
     trigger={<button>trigger</button>}
     posX="posX"
     posY="posY"
@@ -41,7 +40,7 @@ import { Popover } from '@elvia/elvis-popover';
 ```
 <Popover
     title="title"
-    description="description"
+    content="content"
     posX="posX"
     posY="posY"
 >
