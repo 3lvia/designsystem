@@ -40,10 +40,19 @@ import { Popover } from '@elvia/elvis-popover';
 ```
 <Popover
     title="title"
-    content="content"
+    content="text"
     posX="posX"
     posY="posY"
 >
     <button slot="trigger">trigger</button>
+</Popover>
+
+<Popover
+    title="title"
+    posX="posX"
+    posY="posY"
+>
+    <button slot="trigger">trigger</button>
+    <button slot="content">custom content</button>
 </Popover>
 ```
