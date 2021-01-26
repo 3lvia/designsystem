@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect, useRef, useCallback } from 'react';
 import './style.scss';
 import classnames from 'classnames';
+import toolbox from '@elvia/elvis-toolbox';
 
 export interface PopoverProps {
   title?: string;
@@ -10,17 +11,6 @@ export interface PopoverProps {
   trigger?: HTMLElement;
   hasCloseBtn?: boolean;
 }
-
-// Going to be replaced
-const throttle = (func: any, limit: number) => {
-  let inThrottle: boolean | NodeJS.Timeout;
-  return (...args: any) => {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = setTimeout(() => (inThrottle = false), limit);
-    }
-  };
-};
 
 // Return composedPath and Polyfill path if IE11
 const getEventPath = (e: MouseEvent) => {
@@ -209,12 +199,10 @@ const Popover: FC<PopoverProps> = ({
     if (!popoverVisibility) {
       return;
     }
-    const throttledUpdatePosition = throttle(updatePosition, 250);
-    window.addEventListener('resize', throttledUpdatePosition);
-
-    // Cleanup
-    return () => window.removeEventListener('resize', throttledUpdatePosition);
-  }, [popoverVisibility]);
+    const throttledUpdateNewPosition = toolbox.throttle(updatePosition, 150);
+    window.addEventListener('resize', throttledUpdateNewPosition);
+    return () => window.removeEventListener('resize', throttledUpdateNewPosition);
+  }, [popoverVisibility, updatePosition]);
 
   const popoverClasses = classnames('ewc-popover', {
     ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
