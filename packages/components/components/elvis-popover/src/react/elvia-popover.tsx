@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import './style.scss';
 import classnames from 'classnames';
+import toolbox from '@elvia/elvis-toolbox';
 
 export interface PopoverProps {
   title?: string;
@@ -12,17 +13,6 @@ export interface PopoverProps {
   trigger?: string;
   noClose?: boolean;
 }
-
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const throttle = (func: any, limit: number) => {
-  let inThrottle: boolean | NodeJS.Timeout;
-  return (...args: any) => {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = setTimeout(() => (inThrottle = false), limit);
-    }
-  };
-};
 
 // Return composedPath if Firefox, Polyfill path if IE11
 const getEventPath = (e: any) => {
@@ -277,7 +267,7 @@ const Popover: React.FC<PopoverProps> = ({
     if (!visiblePopover) {
       return;
     }
-    const throttledUpdateNewPosition = throttle(updateNewPosition, 150);
+    const throttledUpdateNewPosition = toolbox.throttle(updateNewPosition, 150);
     window.addEventListener('resize', throttledUpdateNewPosition);
     return () => window.removeEventListener('resize', throttledUpdateNewPosition);
   }, [visiblePopover, updateNewPosition]);
