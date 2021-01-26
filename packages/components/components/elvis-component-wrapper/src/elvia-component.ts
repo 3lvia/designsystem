@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as retargetEvents from 'react-shadow-dom-retarget-events';
-import * as throttle from 'lodash.throttle';
 import * as isEqual from 'lodash.isequal';
+import toolbox from '@elvia/elvis-toolbox';
 
 export class ElvisComponentWrapper extends HTMLElement {
   protected _data: any;
@@ -18,7 +18,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
-    this.throttleRenderReactDOM = throttle(this.renderReactDOM, 50, { trailing: true });
+    this.throttleRenderReactDOM = toolbox.throttle(this.renderReactDOM, 50, { trailing: true });
   }
 
   get data(): any {

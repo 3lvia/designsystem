@@ -1,0 +1,11 @@
+{
+  "name": "@elvia/elvis-toolbox",
+  "version": "1.0.1",
+  "description": "",
+  "main": "./dist/elvis-toolbox.js",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "lodash.throttle": "^4.1.1"
+  }
+}
