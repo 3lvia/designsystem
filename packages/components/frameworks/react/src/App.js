@@ -166,14 +166,14 @@ function App() {
         <span style={{ marginTop: '16px' }}>
           <Popover
             title="BankID"
-            description="Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang."
+            content="Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang."
             trigger={<button>Right top</button>}
             posX="right"
           ></Popover>
         </span>
         <div style={{ marginTop: '16px' }}>
           <Popover
-            description="Alle privatkunder må bruke BankID."
+            content="Alle privatkunder må bruke BankID."
             trigger={<button>Left top</button>}
             posX="left"
             noTitle="true"
@@ -182,24 +182,24 @@ function App() {
         <div style={{ marginTop: '16px' }}>
           <Popover
             title="BankID"
-            description="Alle privatkunder må bruke BankID første gang de logger inn på Min side."
+            content="Alle privatkunder må bruke BankID første gang de logger inn på Min side."
             trigger={<button>Center top</button>}
-            noClose="true"
+            hasCloseBtn={false}
           ></Popover>
         </div>
       </div>
       <div style={{ marginTop: '16px' }}>
         <Popover
-          description="Alle privatkunder må bruke BankID første gang."
+          content="Alle privatkunder må bruke BankID første gang."
           trigger={<button>Center bottom</button>}
-          noClose="true"
+          hasCloseBtn={false}
           posY="bottom"
         ></Popover>
       </div>
       <div style={{ marginTop: '16px' }}>
         <Popover
           title="BankID"
-          description="Alle privatkunder må bruke BankID første gang."
+          content="Alle privatkunder må bruke BankID første gang."
           trigger={<button>Right bottom</button>}
           posY="bottom"
           posX="right"
@@ -207,7 +207,7 @@ function App() {
       </div>
       <div style={{ marginTop: '16px' }}>
         <Popover
-          customContent={
+          content={
             <div
               style={{
                 boxSizing: 'border-box',

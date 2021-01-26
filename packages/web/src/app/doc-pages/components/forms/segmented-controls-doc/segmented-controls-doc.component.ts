@@ -9,9 +9,9 @@ import { getComponent } from 'src/app/shared/e-items';
 export class SegmentedControlsDocComponent {
   figmaUrl = getComponent('segmented-control').figmaUrl;
   description = getComponent('segmented-control').description;
-  does = ['To display different views.', 'Instead of radio buttons.'];
+  does = ['To display different views.'];
   donts = [
-    'Do not use segmented controls if there are more than three options or the option texts are too long.',
+    'Do not use segmented controls if there are more than three options or the option texts are too long (then use dropdown instead)',
   ];
 
   exampleOverview = `<div class="e-segmented-controls">

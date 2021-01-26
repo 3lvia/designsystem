@@ -139,7 +139,7 @@ export const eComponents: EItems[] = [
     title: 'Chips',
     // tslint:disable-next-line: max-line-length
     description:
-      'Chips are interactive elements that represent an input. They should appear when a user select a filter from an input and can easily be removed by clicking on them.',
+      'Chips are interactive elements that represent an input. These are triggered by the user and can easily be removed by clicking on them. These are often used when you are going to filter content.',
     docUrl: Pages.Chips,
     absolutePath: '/components/' + Pages.Chips,
     status: ItemStatus.New,
@@ -202,6 +202,17 @@ export const eComponents: EItems[] = [
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Drag & drop.svg',
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=1811%3A1080',
+    type: 'Component',
+  },
+  {
+    title: 'Divider',
+    // tslint:disable-next-line: max-line-length
+    description: 'Dividers are used to group or section off content.',
+    docUrl: Pages.Divider,
+    absolutePath: '/components/' + Pages.Divider,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Divider.svg',
+    figmaUrl: 'https://www.figma.com/file/F4ycCcM9cGf9T12EhzbN3F/Dividers?node-id=1%3A2',
     type: 'Component',
   },
   {
@@ -360,7 +371,7 @@ export const eComponents: EItems[] = [
     title: 'Radio Filter',
     // tslint:disable-next-line: max-line-length
     description:
-      'Radio Filters are buttons you can toggle between to select different views of same content. An example is an email inbox and you want to toggle between “all”, “read” and “unread” for all mails.',
+      'Radio filters are buttons you can toggle between to filter out different properties of same content. It should always be an “all” option(shows all content) in radio filter. An example is an email inbox and you want to toggle between “all”, “read” and “unread” for all mails.',
     docUrl: Pages.RadioFilter,
     absolutePath: '/components/' + Pages.RadioFilter,
     status: ItemStatus.New,
@@ -383,7 +394,7 @@ export const eComponents: EItems[] = [
     title: 'Segmented Control',
     // tslint:disable-next-line: max-line-length
     description:
-      'Segmented controls are a horizontal set of two or more segments, each of which functions as a mutually exclusive button. Segments should be kept short and clear, and try to keep the segment size consistent.',
+      'Segmented controls are a horizontal set of two or three segments to display different views of same content, each of which functions as a mutually exclusive button. Segments should be kept short and clear, and try to keep the segment size consistent.',
     docUrl: Pages.SegmentedControl,
     absolutePath: '/components/' + Pages.SegmentedControl,
     status: ItemStatus.Done,

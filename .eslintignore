@@ -9,5 +9,6 @@ packages/web/src/assets/*
 packages/elvis/.internal/classlist.json
 packages/elvis/css/*.js
 packages/elvis/elvis.js
+packages/elvis/src/templates/elvis.template.js
 packages/elvis/icons.js
 packages/elvis/icons.d.ts

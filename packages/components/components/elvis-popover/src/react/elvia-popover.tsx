@@ -1,33 +1,21 @@
-import * as React from 'react';
-import { useState, useEffect, useRef, useCallback } from 'react';
+import React, { FC, useState, useEffect, useRef, useCallback } from 'react';
 import './style.scss';
 import classnames from 'classnames';
+import toolbox from '@elvia/elvis-toolbox';
 
 export interface PopoverProps {
   title?: string;
-  description?: string;
-  customContent?: string;
-  posX?: string;
-  posY?: string;
-  trigger?: string;
-  noClose?: boolean;
+  content?: string | HTMLElement;
+  posX?: 'left' | 'right' | 'center';
+  posY?: 'top' | 'bottom';
+  trigger?: HTMLElement;
+  hasCloseBtn?: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-const throttle = (func: any, limit: number) => {
-  let inThrottle: boolean | NodeJS.Timeout;
-  return (...args: any) => {
-    if (!inThrottle) {
-      func(...args);
-      inThrottle = setTimeout(() => (inThrottle = false), limit);
-    }
-  };
-};
-
-// Return composedPath if Firefox, Polyfill path if IE11
-const getEventPath = (e: any) => {
+// Return composedPath and Polyfill path if IE11
+const getEventPath = (e: MouseEvent) => {
   const polyfill = () => {
-    const element = e.target || null;
+    const element = (e.target as HTMLElement) || null;
     const pathArr = [element];
 
     if (!element || !element.parentElement) {
@@ -37,42 +25,24 @@ const getEventPath = (e: any) => {
     return pathArr;
   };
 
-  return e.path || (e.composedPath && e.composedPath()) || polyfill();
+  return (e.composedPath && e.composedPath()) || polyfill();
 };
 
-const Popover: React.FC<PopoverProps> = ({
+const Popover: FC<PopoverProps> = ({
   title,
-  description,
-  customContent,
-  posX,
-  posY,
+  content,
+  posX = 'center',
+  posY = 'top',
   trigger,
-  noClose,
+  hasCloseBtn = true,
 }) => {
-  Popover.defaultProps = {
-    posX: 'center',
-    posY: 'top',
-    noClose: false,
-  };
-
-  const [visiblePopover, setPopoverVisibility] = useState(false);
+  const [popoverVisibility, setPopoverVisibility] = useState(false);
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
   const popoverSlotTriggerRef = useRef<HTMLSlotElement>(null);
-  const popoverArrowRef = useRef<HTMLDivElement>(null);
   const popoverContentRef = useRef<HTMLDivElement>(null);
-  const popoverCloseRef = useRef<HTMLButtonElement>(null);
   const popoverMargin = 16;
-  const contentClasses = classnames('ewc-popover__content', {
-    ['ewc-popover--text-only']: description && !customContent,
-    ['ewc-popover--hide']: !visiblePopover,
-  });
-
-  // Toggling popover state
-  function togglePopover() {
-    setPopoverVisibility((prevState) => !prevState);
-  }
 
   // Running on first render only (on mount)
   useEffect(() => {
@@ -85,31 +55,35 @@ const Popover: React.FC<PopoverProps> = ({
     }, 0);
 
     // Listen to click outside popover
-    document.addEventListener('click', handleClickOutside);
-
-    function handleClickOutside(e: MouseEvent) {
+    const handleClickOutside = (e: MouseEvent) => {
       if (!popoverContentRef.current || !popoverRef.current) {
         return;
       }
 
       const path = getEventPath(e);
       const slotTriggerIsTargetTrigger = popoverSlotTriggerRef.current === path[1];
-      const popoverContainsTarget = popoverRef.current.contains(path[0]);
-      const contentIsHidden = popoverContentRef.current.classList.contains('ewc-popover--hide');
-      if (!slotTriggerIsTargetTrigger && !popoverContainsTarget && !contentIsHidden) {
-        togglePopover();
+      const popoverContainsTarget = popoverRef.current.contains(path[0] as Node);
+      const isContentHidden = popoverContentRef.current.classList.contains('ewc-popover--hide');
+      if (!slotTriggerIsTargetTrigger && !popoverContainsTarget && !isContentHidden) {
+        setPopoverVisibility(false);
       }
-    }
+    };
+    document.addEventListener('click', handleClickOutside);
 
-    // Remove listeners
+    // Cleanup
     return () => {
       document.removeEventListener('click', handleClickOutside);
       clearTimeout(maxContentTimeout);
     };
   }, []);
 
+  // Toggling popover state
+  const togglePopover = () => {
+    setPopoverVisibility((prePopoverVisibility) => !prePopoverVisibility);
+  };
+
   // Initializing horizontal positions
-  const setInitialPositions = useCallback(() => {
+  const setInitialPosition = useCallback(() => {
     if (posX === 'left') {
       updatePosStyle('none', '0', 'auto');
     } else if (posX === 'right') {
@@ -119,184 +93,138 @@ const Popover: React.FC<PopoverProps> = ({
     }
   }, [posX]);
 
-  function updatePosStyle(transform: string, right: string, left: string) {
+  const updatePosStyle = (transform: string, right: string, left: string) => {
     if (!popoverContentRef.current) {
       return;
     }
     popoverContentRef.current.style.transform = transform;
     popoverContentRef.current.style.right = right;
     popoverContentRef.current.style.left = left;
-  }
+  };
 
-  function getCorrectInnerWidth() {
+  const getCorrectDimensions = () => {
+    if (typeof window === 'undefined' || typeof navigator === 'undefined') {
+      return null;
+    }
     if (navigator.userAgent.toLowerCase().includes('android')) {
-      return window.visualViewport.width;
-    }
-    return window.innerWidth;
-  }
-
-  function getCorrectInnerHeight() {
-    if (navigator.userAgent.toLowerCase().includes('android')) {
-      return window.visualViewport.height;
-    }
-    return window.innerHeight;
-  }
-
-  function resize() {
-    if (!popoverContentRef.current || !maxContentWidth) {
-      return;
-    }
-    if (maxContentWidth.current + popoverMargin + popoverMargin > getCorrectInnerWidth()) {
-      popoverContentRef.current.style.width = `${getCorrectInnerWidth() - 2 * popoverMargin}px`;
+      return { screenHeight: window.visualViewport.height, screenWidth: window.visualViewport.width };
     } else {
-      popoverContentRef.current.style.width = maxContentWidth + 'px';
+      return { screenHeight: window.innerHeight, screenWidth: window.innerWidth };
     }
-  }
+  };
 
-  // Update position and size of content
-  const updateNewPosition = useCallback(() => {
-    if (
-      !popoverRef.current ||
-      !popoverArrowRef.current ||
-      !popoverContentRef.current ||
-      !popoverTriggerRef.current
-    ) {
+  const resizePopover = () => {
+    const dimensions = getCorrectDimensions();
+    if (!popoverContentRef.current || !maxContentWidth.current || dimensions === null) {
       return;
     }
+    const { screenWidth } = dimensions;
+    if (maxContentWidth.current + popoverMargin + popoverMargin > screenWidth) {
+      popoverContentRef.current.style.width = `${screenWidth - 2 * popoverMargin}px`;
+    } else {
+      popoverContentRef.current.style.width = `${maxContentWidth}px`;
+    }
+  };
 
-    const popover = popoverRef.current;
-    const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
-    const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
-    const offsetLeft = popoverContentRef.current.getBoundingClientRect().left;
-    const offsetRight = getCorrectInnerWidth() - contentWidth - offsetLeft;
+  const isConflictTop = (): boolean => {
+    if (!popoverContentRef.current || !popoverVisibility) {
+      return false;
+    }
     const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
-    const offsetBottom = getCorrectInnerHeight() - contentHeight - offsetTop;
+    const isRoomTop = offsetTop > popoverMargin;
+    return !isRoomTop;
+  };
+
+  const isConflictBottom = (): boolean => {
+    const dimensions = getCorrectDimensions();
+    if (!popoverContentRef.current || dimensions === null || !popoverVisibility) {
+      return false;
+    }
+    const { screenHeight } = dimensions;
+    const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
+    const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
+    const offsetBottom = screenHeight - contentHeight - offsetTop;
+    const isRoomBottom = offsetBottom > popoverMargin;
+    const isRoomTop = offsetTop > popoverMargin;
+    return !isRoomBottom && isRoomTop;
+  };
+
+  // Update position horizontally and size of content
+  const updatePosition = useCallback(() => {
+    const dimensions = getCorrectDimensions();
+    if (!popoverContentRef.current || !popoverTriggerRef.current || dimensions === null) {
+      return;
+    }
+    const { screenWidth } = dimensions;
+    const contentWidth = popoverContentRef.current.getBoundingClientRect().width;
     const triggerWidth = popoverTriggerRef.current.getBoundingClientRect().width;
     const triggerOffsetLeft = popoverTriggerRef.current.getBoundingClientRect().left;
-    const triggerOffsetRight = getCorrectInnerWidth() - triggerWidth - triggerOffsetLeft;
-    const arrowWidth = popoverArrowRef.current.getBoundingClientRect().width;
-    const arrowHeight = popoverArrowRef.current.getBoundingClientRect().height;
-    const arrowLeft = popoverArrowRef.current.getBoundingClientRect().left;
-    const arrowRight = getCorrectInnerWidth() - arrowWidth - arrowLeft;
-    const arrowOffsetTop = popoverArrowRef.current.getBoundingClientRect().top;
-    const arrowOffsetBottom = getCorrectInnerHeight() - arrowHeight - arrowOffsetTop;
+    const triggerOffsetRight = screenWidth - triggerWidth - triggerOffsetLeft;
 
-    resize();
-    updatePositionY();
-    if (posX === 'left') {
-      updateLeftPosition();
-    } else if (posX === 'right') {
-      updateRightPosition();
-    } else {
-      updateCenterPosition();
-    }
+    const updatePositionX = () => {
+      if (posX !== 'right' && isConflict(posX === 'center', 'left')) {
+        updatePosStyle('none', 'auto', `${-triggerOffsetLeft + popoverMargin}px`);
+      } else if (posX !== 'left' && isConflict(posX === 'center', 'right')) {
+        updatePosStyle('none', `${-triggerOffsetRight + popoverMargin}px`, 'auto');
+      } else {
+        setInitialPosition();
+      }
+    };
+    const isConflict = (isPosXCenter: boolean, conflictSide: string): boolean => {
+      const contentSpace = isPosXCenter ? contentWidth / 2 : contentWidth;
+      const triggerSpace = isPosXCenter ? triggerWidth / 2 : triggerWidth;
+      let triggerOffset;
+      if (conflictSide === 'right') {
+        triggerOffset = triggerOffsetRight;
+      } else {
+        triggerOffset = triggerOffsetLeft;
+      }
+      const popoverMinSpace = contentSpace + popoverMargin;
+      const popoverActualSpace = triggerSpace + triggerOffset;
+      return popoverMinSpace >= popoverActualSpace;
+    };
 
-    // Update horizontal position
-    function updateCenterPosition() {
-      if (moveFromLeft('middle')) {
-        updatePosStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
-      } else if (moveFromRight('middle')) {
-        updatePosStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
-      } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        setInitialPositions();
-      }
-    }
-    function updateLeftPosition() {
-      if (moveFromLeft('nonTriggerSide')) {
-        updatePosStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
-      } else if (moveFromRight('triggerSide')) {
-        updatePosStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
-      } else if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        setInitialPositions();
-      }
-    }
-    function updateRightPosition() {
-      if (moveFromLeft('triggerSide')) {
-        updatePosStyle('none', 'auto', `${-arrowLeft + popoverMargin}px`);
-      }
-      if (moveFromRight('nonTriggerSide')) {
-        updatePosStyle('none', `${-arrowRight + popoverMargin}px`, 'auto');
-      }
-      if (!moveFromRight('middle') && !moveFromLeft('middle')) {
-        setInitialPositions();
-      }
-    }
-    function getArrowOffset(conflictSide: string): number {
-      if (conflictSide === 'nonTriggerSide') {
-        return contentWidth;
-      } else if (conflictSide === 'triggerSide') {
-        return 0;
-      }
-      return contentWidth / 2;
-    }
-    function moveFromLeft(conflictSide: string): boolean {
-      const noRoomLeft = offsetLeft <= popoverMargin;
-      // Extra check width arrowOffset because first check is not always working
-      const noRoomLeftInsurance =
-        triggerOffsetLeft + triggerWidth / 2 + 40 <= popoverMargin + getArrowOffset(conflictSide);
-      return noRoomLeft || noRoomLeftInsurance;
-    }
-    function moveFromRight(conflictSide: string): boolean {
-      const noRoomRight = offsetRight <= popoverMargin;
-      // Extra check width arrowOffset because first check is not always working
-      const noRoomLeftInsurance =
-        triggerOffsetRight + triggerWidth / 2 + 40 <= popoverMargin + getArrowOffset(conflictSide);
-      return noRoomRight || noRoomLeftInsurance;
-    }
-
-    // Update vertical position
-    function updatePositionY() {
-      if (moveFromTop() && !popover.classList.contains('ewc-popover--bottom')) {
-        popover.classList.add('ewc-popover--bottom');
-      } else if (moveFromBottom() && popover.classList.contains('ewc-popover--bottom')) {
-        popover.classList.remove('ewc-popover--bottom');
-      }
-    }
-    function moveFromTop(): boolean {
-      const noRoomTop = offsetTop <= popoverMargin;
-      const isRoomBottom = arrowOffsetBottom > contentHeight + popoverMargin + popoverMargin;
-      const isBottom = posY === 'bottom';
-      return noRoomTop || (isBottom && isRoomBottom);
-    }
-    function moveFromBottom(): boolean {
-      const noRoomBottom = offsetBottom <= popoverMargin;
-      const isRoomTop = offsetTop > popoverMargin;
-      const isRoomTopInsurance = arrowOffsetTop > contentHeight + popoverMargin + popoverMargin;
-      const isTop = posY === 'top';
-      return (noRoomBottom && isRoomTop) || (isTop && isRoomTopInsurance);
-    }
-  }, [posY, posX]);
+    // Calling position functions
+    resizePopover();
+    updatePositionX();
+  }, [posX]);
 
   // Update position when popover is opened and when window is resized
   useEffect(() => {
     // Update position and size when opening popover
-    updateNewPosition();
-    resize();
+    updatePosition();
+    resizePopover();
 
     // Listen to window resizing if popover is open
-    if (!visiblePopover) {
+    if (!popoverVisibility) {
       return;
     }
-    const throttledUpdateNewPosition = throttle(updateNewPosition, 150);
+    const throttledUpdateNewPosition = toolbox.throttle(updatePosition, 150);
     window.addEventListener('resize', throttledUpdateNewPosition);
     return () => window.removeEventListener('resize', throttledUpdateNewPosition);
-  }, [visiblePopover, updateNewPosition]);
+  }, [popoverVisibility, updatePosition]);
+
+  const popoverClasses = classnames('ewc-popover', {
+    ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
+  });
+  const contentClasses = classnames('ewc-popover__content', {
+    ['ewc-popover--text-only']: typeof content === 'string',
+    ['ewc-popover--hide']: !popoverVisibility,
+  });
 
   return (
-    <span className="ewc-popover" ref={popoverRef}>
+    <span className={popoverClasses} ref={popoverRef}>
       <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
         {trigger && <div onClick={togglePopover}>{trigger}</div>}
         {!trigger && <slot name="trigger" onClick={togglePopover} ref={popoverSlotTriggerRef}></slot>}
-        <div className="ewc-popover__arrow ewc-popover--hide" ref={popoverArrowRef}></div>
       </div>
 
       <div className={contentClasses} ref={popoverContentRef}>
-        {!noClose && (
+        {hasCloseBtn == true && (
           <div className="ewc-popover__close">
             <button
               className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
-              onClick={togglePopover}
-              ref={popoverCloseRef}
+              onClick={() => setPopoverVisibility(false)}
             >
               <span className="ewc-btn__icon">
                 <i
@@ -311,8 +239,8 @@ const Popover: React.FC<PopoverProps> = ({
           </div>
         )}
         {title && <div className="ewc-popover__title">{title}</div>}
-        <div className="ewc-popover__text">{description ? description : customContent}</div>
-        {!trigger && <slot name="customContent" className="ewc-popover__text"></slot>}
+        {content && <div className="ewc-popover__text">{content}</div>}
+        {!content && <slot name="content" className="ewc-popover__text"></slot>}
       </div>
     </span>
   );
