@@ -29,23 +29,24 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
   const itemsRef = useRef<HTMLDivElement>(null);
   const lengthToScroll = 140;
+  const scrollSteps = 12;
 
   useEffect(() => {
     // Update scroll position on init
-    setTimeout(() => updateArrowButtonsVisibility());
+    setTimeout(() => updateArrowVisibility());
 
     // Listen to resize & scroll and update scrolled positions
     if (!itemsRef.current) {
       return;
     }
-    const throttledResizeCount = throttle(updateArrowButtonsVisibility, 150);
+    const throttledResizeCount = throttle(updateArrowVisibility, 150);
 
     window.addEventListener('resize', throttledResizeCount);
-    itemsRef.current.addEventListener('scroll', updateArrowButtonsVisibility);
+    itemsRef.current.addEventListener('scroll', updateArrowVisibility);
     return () => {
       window.removeEventListener('resize', throttledResizeCount);
       if (itemsRef.current) {
-        itemsRef.current.removeEventListener('scroll', updateArrowButtonsVisibility);
+        itemsRef.current.removeEventListener('scroll', updateArrowVisibility);
       }
     };
   }, []);
@@ -69,23 +70,7 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
     }
   };
 
-  const scrollToLeft = () => {
-    if (!itemsRef.current) {
-      return;
-    }
-    itemsRef.current.scrollLeft -= lengthToScroll;
-    updateArrowButtonsVisibility();
-  };
-
-  const scrollToRight = () => {
-    if (!itemsRef.current) {
-      return;
-    }
-    itemsRef.current.scrollLeft += lengthToScroll;
-    updateArrowButtonsVisibility();
-  };
-
-  const updateArrowButtonsVisibility = () => {
+  const updateArrowVisibility = () => {
     if (!itemsRef.current) {
       return;
     }
@@ -94,6 +79,23 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
     const isOnLeft = itemsRef.current.scrollLeft <= 1;
     setIsOnRightEnd(isOnRight);
     setIsOnLeftEnd(isOnLeft);
+  };
+
+  const scrollSideways = (direction: string) => {
+    let scrollAmount = 0;
+    function slideTimer() {
+      if (!itemsRef.current) {
+        return;
+      }
+      direction === 'left'
+        ? (itemsRef.current.scrollLeft -= scrollSteps)
+        : (itemsRef.current.scrollLeft += scrollSteps);
+      scrollAmount += scrollSteps;
+      if (scrollAmount < lengthToScroll) {
+        requestAnimationFrame(slideTimer);
+      }
+    }
+    slideTimer();
   };
 
   const arrowLeftClasses = classNames('ewc-tabs__arrow', {
@@ -112,7 +114,12 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
 
   return (
     <div className="ewc-tabs">
-      <div className={arrowLeftClasses} onClick={() => scrollToLeft()}>
+      <div
+        className={arrowLeftClasses}
+        onClick={() => {
+          scrollSideways('left');
+        }}
+      >
         <i
           className="ewc-icon ewc-icon--arrow_left-bold ewc-icon--xxs"
           style={{
@@ -138,7 +145,12 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
         </div>
       </div>
 
-      <div className={arrowRightClasses} onClick={() => scrollToRight()}>
+      <div
+        className={arrowRightClasses}
+        onClick={() => {
+          scrollSideways('right');
+        }}
+      >
         <i
           className="ewc-icon ewc-icon--arrow_right-bold ewc-icon--xxs"
           style={{

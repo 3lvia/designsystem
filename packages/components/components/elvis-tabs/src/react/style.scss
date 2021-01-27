@@ -231,7 +231,13 @@ $sizes: (
     }
 
     &.ewc-tabs__label--selected {
-      font-weight: 500;
+      // text-shadow: 0 0 1px black, 0 0 1px black;
+      -webkit-text-stroke: 1px black;
+      text-stroke: 1px black;
+      // padding: 0 7px;
+      // padding-right: 6px;
+      // padding-bottom: 11px;
+
       &::after {
         background-color: $green;
         width: 100%;
