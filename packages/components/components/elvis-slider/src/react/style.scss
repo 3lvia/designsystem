@@ -6,39 +6,26 @@ $grey-30: #bdbdbd;
 .ewc-elvis-slider {
     .MuiSlider-root {
         color: $black;
-        display: inline-block !important;
+        width: 100%;
+        cursor: pointer;
+        height: 2px;
+        display: inline-block;
+        padding: 13px 0;
+        position: relative;
+        box-sizing: content-box;
+        touch-action: none;
+        -webkit-tap-highlight-color: transparent;
     }
 
-    .MuiSlider-rail {
-        height: 3px;
-        border-radius: 25px;
-        background-color: $grey-20;
-    }
-    .MuiSlider-track {
-        height: 5px;
-        margin-top: -1px;
-        background-color: $black;
-        border-radius: 25px;
-    }
-    .MuiSlider-thumb {
-        height: 17px;
-        width: 17px;
-        margin-top: -7px;
+    // if marks is implemented
+    // .MuiSlider-marked {
+    // }
 
-        &:hover {
-            box-shadow: none;
-            height: 20px;
-            width: 20px;
-            margin-top: -8.5px;
-            background-color: $green;
-        }
-        &:active,
-        &:focus {
-            box-shadow: none;
-            background-color: $green;
-        }
-    }
     .Mui-disabled {
+        color: #bdbdbd;
+        cursor: default;
+        pointer-events: none;
+
         .MuiSlider-track {
             background-color: $grey-30;
         }
@@ -48,4 +35,84 @@ $grey-30: #bdbdbd;
             margin-top: -7px;
         }
     }
+
+    .MuiSlider-rail {
+        width: 100%;
+        height: 3px;
+        display: block;
+        opacity: 0.38;
+        position: absolute;
+        border-radius: 25px;
+        background-color: $grey-20;
+    }
+
+    .MuiSlider-track {
+        height: 5px;
+        margin-top: -1px;
+        display: block;
+        position: absolute;
+        border-radius: 25px;
+        background-color: $black;
+    }
+    .MuiSlider-thumb {
+        width: 17px;
+        height: 17px;
+        display: flex;
+        outline: 0;
+        position: absolute;
+        box-sizing: border-box;
+        margin-top: -7px;
+        transition: box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        align-items: center;
+        margin-left: -6px;
+        border-radius: 50%;
+        justify-content: center;
+        background-color: currentColor;
+
+        &:hover {
+            box-shadow: none;
+            height: 20px;
+            width: 20px;
+            margin-top: -8.5px;
+            background-color: $green;
+            transition: all 150ms;
+        }
+        &:active,
+        &:focus {
+            box-shadow: none;
+            background-color: $green;
+        }
+    }
+
+    // standard theme classes from material
+    // .MuiSlider-thumbColorPrimary {
+    // }
+
+    // .MuiSlider-thumbColorSecondary {
+    // }
+
+    .MuiSlider-active {
+        box-shadow: none;
+    }
+
+    .Mui-focusVisible {
+        box-shadow: none;
+    }
+
+    // only if we implement valuelabel
+    // .MuiSlider-valueLabel {
+    // }
+
+    // only if we implement marks in the slider we offer
+    // .MuiSlider-mark {
+    // }
+
+    // .MuiSlider-markActive {
+    // }
+
+    // .MuiSlider-markLabel {
+    // }
+
+    // .MuiSlider-markLabel {
+    // }
 }
