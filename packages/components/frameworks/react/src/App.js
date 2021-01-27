@@ -57,7 +57,7 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-
+      {/* 
       <h2>Slider - simple</h2>
       <Slider
         value={sliderValue}
@@ -69,7 +69,7 @@ function App() {
 
       <div>
         <p>Slider Value is now : {sliderValue}</p>
-      </div>
+      </div> */}
 
       <h2>Slider - simple with attached input field</h2>
       <div className="exampleContainer">
@@ -95,7 +95,7 @@ function App() {
         <p>Slider Value is now : {sliderAndInputValue}</p>
       </div>
 
-      <h2>Slider - simple disabled</h2>
+      {/* <h2>Slider - simple disabled</h2>
       <Slider value={24} isDisabled={true}></Slider>
 
       <h2>Slider - range</h2>
@@ -107,9 +107,9 @@ function App() {
       ></Slider>
       <div>
         <p>Slider Value is now : {rangeSliderValue[0] + ' and ' + rangeSliderValue[1]}</p>
-      </div>
+      </div> */}
 
-      <h2>Slider - range with input fields</h2>
+      {/* <h2>Slider - range with input fields</h2>
       <div className="exampleContainer">
         <div className="exampleInput">
           <input
@@ -135,7 +135,7 @@ function App() {
             onChange={handleRangeInputTwo}
           />
         </div>
-      </div>
+      </div> */}
 
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px' }}>
