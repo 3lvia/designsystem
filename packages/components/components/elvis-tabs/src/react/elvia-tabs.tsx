@@ -30,13 +30,14 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
       return;
     }
     const throttledResizeCount = toolbox.throttle(updateArrowVisibility, 500);
+    const throttledScrollCount = toolbox.throttle(updateArrowVisibility, 250);
 
     window.addEventListener('resize', throttledResizeCount);
-    itemsRef.current.addEventListener('scroll', updateArrowVisibility);
+    itemsRef.current.addEventListener('scroll', throttledScrollCount);
     return () => {
       window.removeEventListener('resize', throttledResizeCount);
       if (itemsRef.current) {
-        itemsRef.current.removeEventListener('scroll', updateArrowVisibility);
+        itemsRef.current.removeEventListener('scroll', throttledScrollCount);
       }
     };
   }, []);
