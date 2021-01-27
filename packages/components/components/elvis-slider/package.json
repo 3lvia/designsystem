@@ -9,8 +9,9 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "*",
+    "@elvia/elvis-component-wrapper": "^1.0.6",
     "@material-ui/core": "^4.11.2",
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "@elvia/elvis-toolbox": "^1.0.1"
   }
 }

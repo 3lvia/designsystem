@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.scss';
 import Slider from '@material-ui/core/Slider';
-import { useState, useEffect } from 'react';
 import classnames from 'classnames';
+import toolbox from '@elvia/elvis-toolbox';
 
 export interface SliderProps {
   value: number | number[];
@@ -35,13 +35,16 @@ const ElviaSlider: React.FC<SliderProps> = ({
     updateWebcomponent();
   }, [rangeValue]);
 
+  // TODO: make slider update on other way than on value, creates too many rerenders in some cases
   useEffect(() => {
     setValue(value);
   }, [value]);
 
-  const handleChange = (event: Event, newValue: number | number[]) => {
+  const onSliderChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue);
   };
+
+  const handleChange = toolbox.throttle(onSliderChange, 100);
 
   function updateReactComponent() {
     if (!webcomponent && valueOnChange) {
