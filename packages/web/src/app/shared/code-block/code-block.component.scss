@@ -13,6 +13,7 @@
     border-radius: 8px;
     padding: 32px;
     height: 100%;
+
     @include breakpoint-up(Mobile) {
       padding: 24px;
     }
@@ -106,6 +107,10 @@
       height: 100%;
       overflow-y: auto;
       padding: 16px 4px;
+      &.no-padding-desk {
+        padding: 16px 0px;
+        margin: 0px -32px;
+      }
 
       .hide {
         display: none;

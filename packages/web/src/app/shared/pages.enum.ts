@@ -40,6 +40,7 @@ export enum Pages {
   Chips = 'chips',
   Checkbox = 'checkbox',
   ContentLoader = 'content-loader',
+  Divider = 'divider',
   Dropdown = 'dropdown',
   Toggle = 'toggle',
   DateTimePicker = 'datetime-picker',

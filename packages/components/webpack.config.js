@@ -4,7 +4,7 @@ const builds = [];
 
 elviaComponents.forEach((component) => {
   builds.push({
-    entry: `./components/${component.name}/src/web_component/${component.name}.ts`,
+    entry: `./components/${component.name}/dist/web_component/js/${component.elementName}.js`,
     module: {
       rules: [
         {
@@ -19,14 +19,7 @@ elviaComponents.forEach((component) => {
         },
         {
           test: /\.s[ac]ss$/i,
-          use: [
-            // Creates `style` nodes from JS strings
-            'style-loader',
-            // Translates CSS into CommonJS
-            'css-loader',
-            // Compiles Sass to CSS
-            'sass-loader',
-          ],
+          use: ['style-loader', 'css-loader', 'sass-loader'],
         },
         {
           test: /\.css$/i,
@@ -41,17 +34,34 @@ elviaComponents.forEach((component) => {
         },
       ],
     },
+    externals: {
+      react: 'react',
+      'react-dom': 'reactDOM',
+      classnames: 'classnames',
+    },
+
     resolve: {
       extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
     },
     output: {
-      filename: `${component.name}.js`,
+      filename: `${component.elementName}.js`,
       path: path.resolve(__dirname, `./components/${component.name}/dist/cdn/`),
     },
     devServer: {
       contentBase: 'dist',
     },
   });
+});
+
+builds.push({
+  entry: './components/elvis-loader/src/elvia-loader.js',
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.css', '.scss'],
+  },
+  output: {
+    filename: `elvia-loader.js`,
+    path: path.resolve(__dirname, `./components/elvis-loader/dist/`),
+  },
 });
 
 module.exports = builds;
