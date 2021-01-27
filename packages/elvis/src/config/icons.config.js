@@ -76,6 +76,7 @@ module.exports = [
   { name: 'design_process-color', terms: [] },
   { name: 'digging-color', terms: [] },
   { name: 'download', terms: [] },
+  { name: 'drag_handle', terms: ['drop', 'grab', 'sort', 'move'] },
   { name: 'edit', terms: ['pencil', 'pen'] },
   { name: 'electric_cabinet', terms: [] },
   { name: 'electric_cabinet-color', terms: [] },
@@ -142,6 +143,7 @@ module.exports = [
   { name: 'minus', terms: ['subtract', 'minimize', 'collapse'] },
   { name: 'minus-bold', terms: ['subtract', 'minimize', 'collapse'] },
   { name: 'money-color', terms: ['finance', 'cash', 'coins', 'payment', 'pay', 'cost'] },
+  { name: 'more_menu', terms: ['actions', 'contextual', 'kebab', 'dots'] },
   { name: 'move_circle', terms: ['move', 'transfer'] },
   { name: 'move_truck-color', terms: [] },
   { name: 'new_tab-bold', terms: ['external', 'open', 'link'] },
@@ -245,4 +247,6 @@ module.exports = [
   { name: 'work_under_line-color', terms: [] },
   { name: 'worker-color', terms: [] },
   { name: 'wrench', terms: ['working', 'in progress', 'tool'] },
+  { name: 'zoom_in', terms: [] },
+  { name: 'zoom_out', terms: [] },
 ];
