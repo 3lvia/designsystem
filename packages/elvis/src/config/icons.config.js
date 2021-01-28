@@ -214,6 +214,8 @@ module.exports = [
   { name: 'smart_city-color', terms: [] },
   { name: 'solar_panel', terms: [] },
   { name: 'solar_panel-color', terms: [] },
+  { name: 'sorting_ascending-bold', terms: ['sort', 'sorting', 'order', 'up'] },
+  { name: 'sorting_descending-bold', terms: ['sort', 'sorting', 'order', 'down'] },
   { name: 'sorting-bold', terms: ['sort', 'sorting', 'order'] },
   { name: 'star-filled', terms: ['favorite', 'favourite'] },
   { name: 'star', terms: ['favorite', 'favourite'] },

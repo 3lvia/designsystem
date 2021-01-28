@@ -5176,6 +5176,56 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    export const sortingAscendingBold = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.165 7.672a1.133 1.133 0 010-1.665l5.91-5.644a1.36 1.36 0 011.85 0l5.91 5.644c.486.465.486 1.201 0 1.665a1.36 1.36 0 01-1.85 0L13.29 4.143v18.661C13.29 23.43 12.747 24 12 24s-1.29-.57-1.29-1.196V4.144L7.015 7.671a1.36 1.36 0 01-1.85 0z" fill="#000"/></svg>'
+          let iconName = 'sorting_ascending-bold'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
+    export const sortingDescendingBold = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.835 16.328c.486.464.486 1.2 0 1.665l-5.91 5.644a1.36 1.36 0 01-1.85 0l-5.91-5.644a1.133 1.133 0 010-1.665 1.36 1.36 0 011.85 0l3.695 3.529V1.196C10.71.57 11.253 0 12 0s1.29.57 1.29 1.196v18.66l3.695-3.528a1.36 1.36 0 011.85 0z" fill="#000"/></svg>'
+          let iconName = 'sorting_descending-bold'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     export const sortingBold = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.25 23.999c-.69 0-1.25-.56-1.25-1.25V1.25a1.25 1.25 0 112.5 0v21.499c0 .69-.56 1.25-1.25 1.25z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M23.634 6.634a1.25 1.25 0 01-1.768 0L18.25 3.018l-3.616 3.616a1.25 1.25 0 01-1.768-1.768l4.5-4.5a1.25 1.25 0 011.768 0l4.5 4.5a1.25 1.25 0 010 1.768zM5.75 0C6.44 0 7 .56 7 1.25v21.499a1.25 1.25 0 11-2.5 0V1.25C4.5.56 5.06 0 5.75 0z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M.366 17.365a1.25 1.25 0 011.768 0l3.616 3.616 3.616-3.616a1.25 1.25 0 011.768 1.768l-4.5 4.5a1.25 1.25 0 01-1.768 0l-4.5-4.5a1.25 1.25 0 010-1.768z" fill="#000"/></svg>'
