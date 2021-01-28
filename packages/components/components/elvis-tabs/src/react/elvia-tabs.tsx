@@ -17,6 +17,7 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
   const [currValue, setValue] = useState(value);
   const [onTheRightEnd, setOnTheRightEnd] = useState(true);
   const [onTheLeftEnd, setOnTheLeftEnd] = useState(true);
+  const tabsRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
   const lengthToScroll = useRef(140);
   const arrowLeftClasses = classNames('ewc-tabs__arrow', {
@@ -34,6 +35,9 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
   });
 
   useEffect(() => {
+    // Start outline listener
+    toolbox.outlineListener(tabsRef.current);
+
     // Update scroll position on init
     setTimeout(() => updateScrolledPosition());
 
@@ -45,7 +49,11 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
 
     window.addEventListener('resize', throttledResizeCount);
     itemsRef.current.addEventListener('scroll', updateScrolledPosition);
+
     return () => {
+      // Remove outline listener
+      toolbox.outlineListener(tabsRef.current, true);
+
       window.removeEventListener('resize', throttledResizeCount);
       if (itemsRef.current) {
         itemsRef.current.removeEventListener('scroll', updateScrolledPosition);
@@ -98,7 +106,7 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
   };
 
   return (
-    <div className="ewc-tabs">
+    <div className="ewc-tabs" ref={tabsRef}>
       <div className={arrowLeftClasses} onClick={() => scrollToLeft()}>
         <i
           className="ewc-icon ewc-icon--arrow_left-bold ewc-icon--xxs"

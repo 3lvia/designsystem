@@ -18,6 +18,11 @@ $popover-button-offset: -30px;
 $popover-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
 $green: #29d305;
 
+.ewc-no-outline,
+.ewc-no-outline * {
+  outline: none !important;
+}
+
 .ewc-popover {
   display: inline-flex;
   box-sizing: border-box;

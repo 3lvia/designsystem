@@ -25,6 +25,11 @@ $sizes: (
   height: 100%;
 }
 
+.ewc-no-outline,
+.ewc-no-outline * {
+  outline: none !important;
+}
+
 .ewc-tabs {
   display: flex;
   flex-direction: row;
