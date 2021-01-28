@@ -301,6 +301,31 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    export const arrowRightCircle = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.4 12a.8.8 0 01.8-.8h9.6a.8.8 0 010 1.6H7.2a.8.8 0 01-.8-.8z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12.234 7.434a.8.8 0 011.132 0l4 4a.8.8 0 010 1.132l-4 4a.8.8 0 01-1.132-1.132L15.67 12l-3.435-3.434a.8.8 0 010-1.132z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.6C6.256 1.6 1.6 6.256 1.6 12c0 5.744 4.656 10.4 10.4 10.4 5.744 0 10.4-4.656 10.4-10.4 0-5.744-4.656-10.4-10.4-10.4zM0 12C0 5.373 5.373 0 12 0s12 5.373 12 12-5.373 12-12 12S0 18.627 0 12z" fill="#000"/></svg>'
+          let iconName = 'arrow_right_circle'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     export const arrowLeftCircle = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.4 12a.8.8 0 01.8-.8h9.6a.8.8 0 110 1.6H7.2a.8.8 0 01-.8-.8z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11.766 7.434a.8.8 0 010 1.132L8.33 12l3.435 3.434a.8.8 0 01-1.132 1.132l-4-4a.8.8 0 010-1.132l4-4a.8.8 0 011.132 0z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.6C6.256 1.6 1.6 6.256 1.6 12c0 5.744 4.656 10.4 10.4 10.4 5.744 0 10.4-4.656 10.4-10.4 0-5.744-4.656-10.4-10.4-10.4zM0 12C0 5.373 5.373 0 12 0s12 5.373 12 12-5.373 12-12 12S0 18.627 0 12z" fill="#000"/></svg>'
@@ -3155,56 +3180,6 @@
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.28 7.724a.75.75 0 10-1.06 1.06l2.47 2.47H.75a.75.75 0 000 1.5h13.94l-2.47 2.47a.75.75 0 001.06 1.06l3.75-3.75a.748.748 0 000-1.06l-3.75-3.75z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.233 1.7a11.25 11.25 0 11-5.601 15.228.75.75 0 011.348-.656 9.75 9.75 0 10.167-8.86.75.75 0 01-1.324-.707 11.25 11.25 0 015.41-5.006z" fill="#000"/></svg>'
           let iconName = 'logout'
-          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
-          if(!color) {
-              return icon;
-          }
-          if(color==='inverted') {
-            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
-                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
-            }
-            // -full-color check can be removed when new icons have been added
-            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
-                icon = icon.replace(/fill="#000"/g, "fillBlack'");
-            }
-            icon = icon.replace(/fill="#fff"/g, "fillBlack");
-            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
-            icon = icon.replace(/fillBlack/g, "fill='black'");
-            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
-            return icon;
-          }
-          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
-      }
-    }
-    export const longCircleLeft = {
-      getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.581 12c0-.442.355-.8.792-.8h9.501c.438 0 .792.358.792.8 0 .442-.355.8-.792.8h-9.5a.796.796 0 01-.793-.8z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11.892 7.434c.309.313.309.82 0 1.132L8.492 12l3.4 3.434c.309.313.309.82 0 1.132a.786.786 0 01-1.12 0l-3.959-4a.804.804 0 010-1.132l3.96-4a.786.786 0 011.119 0z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12.124 1.6C6.439 1.6 1.83 6.256 1.83 12c0 5.744 4.608 10.4 10.293 10.4 5.684 0 10.292-4.656 10.292-10.4 0-5.744-4.608-10.4-10.292-10.4zM.247 12c0-6.627 5.318-12 11.877-12C18.683 0 24 5.373 24 12s-5.317 12-11.876 12C5.564 24 .247 18.627.247 12z" fill="#000"/></svg>'
-          let iconName = 'long_circle_left'
-          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
-          if(!color) {
-              return icon;
-          }
-          if(color==='inverted') {
-            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
-                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
-            }
-            // -full-color check can be removed when new icons have been added
-            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
-                icon = icon.replace(/fill="#000"/g, "fillBlack'");
-            }
-            icon = icon.replace(/fill="#fff"/g, "fillBlack");
-            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
-            icon = icon.replace(/fillBlack/g, "fill='black'");
-            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
-            return icon;
-          }
-          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
-      }
-    }
-    export const longCircleRight = {
-      getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.6 12a.8.8 0 01-.8.8H7.2a.8.8 0 110-1.6h9.6a.8.8 0 01.8.8z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12.234 16.566a.8.8 0 010-1.132L15.67 12l-3.435-3.434a.8.8 0 011.132-1.132l4 4a.8.8 0 010 1.132l-4 4a.8.8 0 01-1.132 0z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 22.4c5.744 0 10.4-4.656 10.4-10.4 0-5.744-4.656-10.4-10.4-10.4C6.256 1.6 1.6 6.256 1.6 12c0 5.744 4.656 10.4 10.4 10.4zM24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12z" fill="#000"/></svg>'
-          let iconName = 'long_circle_right'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
