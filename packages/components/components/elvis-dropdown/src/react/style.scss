@@ -123,12 +123,52 @@
         -webkit-transition: color 150ms;
         transition: color 150ms;
         box-sizing: border-box;
+        border: 10px solid red;
+        width: 100%;
       }
     }
   }
   .react-select__menu {
+    top: 100%;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px hsl(0deg 0% 0% / 10%), 0 4px 11px hsl(0deg 0% 0% / 10%);
+    margin-bottom: 8px;
+    margin-top: 8px;
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+    box-sizing: border-box;
     .react-select__menu-list {
+      max-height: 300px;
+      overflow-y: auto;
+      padding-bottom: 4px;
+      padding-top: 4px;
+      position: relative;
+      -webkit-overflow-scrolling: touch;
+      box-sizing: border-box;
       .react-select__option {
+        background-color: transparent;
+        color: inherit;
+        cursor: default;
+        display: block;
+        font-size: inherit;
+        padding: 8px 12px;
+        width: 100%;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        box-sizing: border-box;
+
+        &:hover {
+          background-color: crimson;
+        }
+
+        &--is-selected {
+          background-color: chocolate;
+        }
       }
     }
   }

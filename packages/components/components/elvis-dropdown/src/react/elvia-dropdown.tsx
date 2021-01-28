@@ -21,6 +21,7 @@ const Dropdown: React.FC<DropdownProps> = ({ isSearchable = false, options }) =>
       options={options}
       className={'react-select-container'}
       classNamePrefix="react-select"
+      // menuIsOpen
     ></Select>
   );
 };
