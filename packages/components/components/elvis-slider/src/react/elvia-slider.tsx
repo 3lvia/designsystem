@@ -6,6 +6,7 @@ import toolbox from '@elvia/elvis-toolbox';
 
 export interface SliderProps {
   value: number | number[];
+  inputValue: number | number[];
   step: number;
   name: string;
   minValue: number;
@@ -17,6 +18,7 @@ export interface SliderProps {
 
 const ElviaSlider: React.FC<SliderProps> = ({
   value,
+  inputValue,
   step,
   name,
   minValue,
@@ -35,17 +37,19 @@ const ElviaSlider: React.FC<SliderProps> = ({
     updateWebcomponent();
   }, [rangeValue]);
 
-  // TODO: make slider update on other way than on value, creates too many rerenders in some cases
+  // OLD = TODO: make slider update on other way than on value, creates too many rerenders in some cases
+  // New solution: seperated value and external input values. Now only updates prop value on input changes.
   useEffect(() => {
-    setValue(value);
-  }, [value]);
+    setValue(inputValue);
+    console.log('I RAN!');
+  }, [inputValue]);
 
   const onSliderChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue);
   };
 
-  const handleChange = toolbox.throttle(onSliderChange, 100);
-
+  // throttling to ease some of the renders on sliderchange
+  const handleChange = toolbox.throttle(onSliderChange, 10);
   function updateReactComponent() {
     if (!webcomponent && valueOnChange) {
       valueOnChange(rangeValue);

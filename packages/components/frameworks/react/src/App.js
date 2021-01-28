@@ -32,11 +32,13 @@ function App() {
   // slider state and handling
   const [sliderValue, setSliderValue] = useState(10);
   const [sliderAndInputValue, setsliderAndInputValue] = useState(10);
+  const [testInputvalue, settestInputvalue] = useState(sliderAndInputValue);
+
   const [rangeSliderValue, setRangeSliderValue] = useState([15, 75]);
   const [rangeSliderInputValue, setRangeSliderInputValue] = useState([10, 80]);
 
   const handleInputChange = (event) => {
-    setsliderAndInputValue(parseInt(event.target.value));
+    settestInputvalue(parseInt(event.target.value));
   };
 
   const handleRangeInputOne = (event) => {
@@ -76,6 +78,7 @@ function App() {
         <div className="slider">
           <Slider
             value={sliderAndInputValue}
+            inputValue={testInputvalue}
             valueOnChange={setsliderAndInputValue}
             minValue={0}
             maxValue={90}
