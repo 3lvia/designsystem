@@ -12,8 +12,7 @@ export default class ElviaComponent extends ElvisComponentWrapper {
 
     //{{INSERT_SETTERS_AND_GETTERS}}
     constructor() {
-        super(ElviaComponent, ReactComponent['{{INSERT_REACT_NAME}}'], style, `{{INSERT_ROLE}}`);
-
+        super(ElviaComponent, ReactComponent['{{INSERT_REACT_NAME}}'], style);
     }
 }
 
