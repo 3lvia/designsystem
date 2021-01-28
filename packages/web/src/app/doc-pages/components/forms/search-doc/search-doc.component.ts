@@ -18,16 +18,44 @@ export class SearchDocComponent {
 
   overviewExample = `<div class="e-form-field">
   <label class="e-form-field__label" for="compact">Søk</label>
-  <div class="e-search e-search--local" style="width:400px;">
+  <div class="e-search e-search--local" style="width: 250px" #exampleSearch>
     <div class="e-input">
-      <input id="compact" type="text" placeholder="Placeholder text">
+      <input
+        id="compact"
+        type="text"
+        placeholder="Placeholder text"
+        #exampleInput
+        (keyup)="onInput(exampleInput.value)"
+        />
     </div>
-    <button class="e-btn e-btn--icon e-btn--lg">
+    <button class="e-btn e-btn--icon e-btn--lg" (click)="clearExample()">
       <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
       <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
     </button>
   </div>
 </div>
+`;
+
+  overviewExampleTS = `@ViewChild('exampleSearch') exampleSearch: ElementRef;
+@ViewChild('exampleInput') exampleInput: ElementRef;
+
+onInput(input: string): void {
+  if (input.length > 0) {
+    this.exampleSearch.nativeElement.classList.add('e-search--searched');
+    this.isExampleInput = true;
+  } else {
+    this.exampleSearch.nativeElement.classList.remove('e-search--searched');
+    this.isExampleInput = false;
+  }
+}
+
+clearExample(): void {
+  if (this.isExampleInput === true) {
+    this.exampleInput.nativeElement.value = null;
+    this.exampleSearch.nativeElement.classList.remove('e-search--searched');
+    this.isExampleInput = false;
+  }
+}
 `;
 
   searchExample = `<div class="e-form-field">

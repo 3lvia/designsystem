@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
       function (event) {
         document.body.classList.add('e-no-outline');
       },
-      false,
+      false
     );
   }
   outlineFix();
@@ -109,17 +109,18 @@ document.addEventListener('DOMContentLoaded', function () {
   function checkDeprecatedIcon(classList) {
     if (localhost) {
       for (let x = 0; x < deprecated.length; x++) {
-        if (classList === deprecated[x].name)
+        if (classList === deprecated[x].name) {
           console.warn(
             'WARNING: The icon ' +
-              deprecated[x].name +
-              ' is deprecated from version : ' +
-              deprecated[x].version +
-              '. ' +
-              deprecated[x].name +
-              ' now refers to the icon: ' +
-              deprecated[x].newIconName,
-          );
+            deprecated[x].name +
+            ' is deprecated from version : ' +
+            deprecated[x].version +
+            '. ' +
+            deprecated[x].name +
+            ' now refers to the icon: ' +
+            deprecated[x].newIconName
+          )
+        }
       }
     }
   }

@@ -646,7 +646,7 @@ $loading-dot-sm: 8px;
 
       &.e-btn---active,
       &:active:not(:disabled) {
-        @include helpers.transform(rotate(0.93));
+        @include helpers.transform(scale(0.93));
       }
     }
 
@@ -716,7 +716,7 @@ $loading-dot-sm: 8px;
 
     &.e-btn---active,
     &:active:not(:disabled):not(.e-btn--loading) {
-      @include helpers.transform(rotate(0.95));
+      @include helpers.transform(scale(0.95));
     }
     &.e-btn---disabled,
     &:disabled {

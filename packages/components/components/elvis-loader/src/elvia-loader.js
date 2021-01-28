@@ -4,5 +4,8 @@
 import '@webcomponents/webcomponentsjs/custom-elements-es5-adapter'; // Can not be transpiled / compiled without breaking functionality
 import '@webcomponents/webcomponentsjs/webcomponents-bundle.js';
 
+/* Load common dependencies */
+import './common-dependencies.js';
+
 /* Dynamically inject required components */
 import './elvia-components.js';

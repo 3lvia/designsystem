@@ -15,7 +15,11 @@ export class DatetimePickerDocComponent {
 <div class="e-form-field" style="width:140px">
   <label class="e-form-field__label" for="normal">Velg tid</label>
   <div class="e-input">
-    <i class="e-icon e-icon--clock e-icon--xs"></i>
+    <button class="e-btn e-btn--icon">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--clock"></i>
+      </span>
+    </button>
     <input id="normal" type="time" placeholder="">
   </div>
 </div>`;
@@ -24,7 +28,11 @@ export class DatetimePickerDocComponent {
 <div class="e-form-field" style="width:250px">
   <label class="e-form-field__label" for="normal">Velg dato</label>
   <div class="e-input">
-    <i class="e-icon e-icon--calendar e-icon--xs"></i>
+    <button class="e-btn e-btn--icon">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--calendar"></i>
+      </span>
+    </button>
     <input id="normal" type="date" placeholder="">
   </div>
 </div>`;
