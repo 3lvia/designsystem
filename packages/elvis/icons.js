@@ -301,6 +301,31 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    export const arrowLeftCircle = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.4 12a.8.8 0 01.8-.8h9.6a.8.8 0 110 1.6H7.2a.8.8 0 01-.8-.8z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11.766 7.434a.8.8 0 010 1.132L8.33 12l3.435 3.434a.8.8 0 01-1.132 1.132l-4-4a.8.8 0 010-1.132l4-4a.8.8 0 011.132 0z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.6C6.256 1.6 1.6 6.256 1.6 12c0 5.744 4.656 10.4 10.4 10.4 5.744 0 10.4-4.656 10.4-10.4 0-5.744-4.656-10.4-10.4-10.4zM0 12C0 5.373 5.373 0 12 0s12 5.373 12 12-5.373 12-12 12S0 18.627 0 12z" fill="#000"/></svg>'
+          let iconName = 'arrow_left_circle'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     export const arrowLeftCircleColor = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.4 12a.8.8 0 01.8-.8h9.6a.8.8 0 110 1.6H7.2a.8.8 0 01-.8-.8z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M11.766 7.434a.8.8 0 010 1.132L8.33 12l3.435 3.434a.8.8 0 11-1.132 1.132l-4-4a.8.8 0 010-1.132l4-4a.8.8 0 011.132 0z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.6C6.256 1.6 1.6 6.256 1.6 12c0 5.744 4.656 10.4 10.4 10.4 5.744 0 10.4-4.656 10.4-10.4 0-5.744-4.656-10.4-10.4-10.4zM0 12C0 5.373 5.373 0 12 0s12 5.373 12 12-5.373 12-12 12S0 18.627 0 12z" fill="#29D305"/></svg>'
@@ -551,10 +576,60 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    export const arrowLongRight = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.693 12.213a.748.748 0 00-.163-.243l-10.5-10.5a.75.75 0 10-1.06 1.06l9.22 9.22H1a.75.75 0 000 1.5h20.19l-9.22 9.22a.75.75 0 101.06 1.06l10.5-10.5a.747.747 0 00.163-.817z" fill="#000"/></svg>'
+          let iconName = 'arrow_long_right'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     export const arrowLong = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.693 12.213a.748.748 0 00-.163-.243l-10.5-10.5a.75.75 0 10-1.06 1.06l9.22 9.22H1a.75.75 0 000 1.5h20.19l-9.22 9.22a.75.75 0 101.06 1.06l10.5-10.5a.747.747 0 00.163-.817z" fill="#000"/></svg>'
-          let iconName = 'arrow_long'
+          let iconName = 'arrow_long_right'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
+    export const arrowLongRightBold = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.447.914a1.514 1.514 0 10-2.141 2.14l7.424 7.425H1.414a1.514 1.514 0 100 3.029H18.73l-7.424 7.424a1.514 1.514 0 002.141 2.141l10.01-10.009a1.511 1.511 0 00.319-1.667l-.303-.455a.098.098 0 00-.008-.01l-.004-.005-.005-.005L13.447.914z" fill="#000"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>'
+          let iconName = 'arrow_long_right-bold'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
@@ -579,7 +654,7 @@
     export const arrowLongBold = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.447.914a1.514 1.514 0 10-2.141 2.14l7.424 7.425H1.414a1.514 1.514 0 100 3.029H18.73l-7.424 7.424a1.514 1.514 0 002.141 2.141l10.01-10.009a1.511 1.511 0 00.319-1.667l-.303-.455a.098.098 0 00-.008-.01l-.004-.005-.005-.005L13.447.914z" fill="#000"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>'
-          let iconName = 'arrow_long-bold'
+          let iconName = 'arrow_long_right-bold'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
