@@ -33,13 +33,28 @@ function App() {
     setProgressValue(0);
   }
 
+  const options = [
+    {
+      value: 'norge',
+      label: 'Norge',
+    },
+    {
+      value: 'sverige',
+      label: 'Sverige',
+    },
+    {
+      value: 'danmark',
+      label: 'Danmark',
+    },
+  ];
+
   return (
     <div className="App">
       <h1>React preview</h1>
 
       <h2>Dropdown</h2>
       <div>
-        <Dropdown menuIsOpen></Dropdown>
+        <Dropdown options={options}></Dropdown>
       </div>
 
       <h2>Tabs</h2>

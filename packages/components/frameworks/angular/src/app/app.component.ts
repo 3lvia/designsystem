@@ -20,6 +20,21 @@ export class AppComponent implements OnInit {
   ];
   value = 0;
 
+  dropdownOptions = [
+    {
+      value: 'norge',
+      label: 'Norge',
+    },
+    {
+      value: 'sverige',
+      label: 'Sverige',
+    },
+    {
+      value: 'danmark',
+      label: 'Danmark',
+    },
+  ];
+
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
     this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {
