@@ -22,6 +22,8 @@ export class AppComponent implements OnInit {
   ];
   value = 0;
 
+  sliderValue = 10;
+
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
     this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {

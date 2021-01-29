@@ -31,7 +31,7 @@ module.exports = [
     name: 'elvis-slider',
     role: 'slider',
     elementName: 'elvia-slider',
-    attributes: ['value'],
+    attributes: ['value', 'inputValue'],
     reactName: 'Slider',
   },
 ];

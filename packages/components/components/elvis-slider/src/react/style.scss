@@ -68,6 +68,7 @@ $grey-30: #bdbdbd;
         border-radius: 50%;
         justify-content: center;
         background-color: currentColor;
+        pointer-events: none;
 
         &:hover {
             box-shadow: none;
@@ -81,6 +82,17 @@ $grey-30: #bdbdbd;
         &:focus {
             box-shadow: none;
             background-color: $green;
+        }
+
+        .MuiSlider-valueLabel {
+            display: none;
+        }
+        .MuiSlider-markLabelActive {
+            display: none;
+        }
+
+        .MuiSlider-markActive {
+            display: none;
         }
     }
 

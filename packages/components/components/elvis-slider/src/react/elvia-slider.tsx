@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './style.scss';
 import Slider from '@material-ui/core/Slider';
 import classnames from 'classnames';
@@ -17,8 +17,8 @@ export interface SliderProps {
 }
 
 const ElviaSlider: React.FC<SliderProps> = ({
-  value,
-  inputValue,
+  value = 0,
+  inputValue = 0,
   step,
   name,
   minValue,
@@ -27,9 +27,18 @@ const ElviaSlider: React.FC<SliderProps> = ({
   valueOnChange,
   webcomponent,
 }) => {
-  const classes = classnames(['ewc-elvis-slider']);
+  // Set default props
+  ElviaSlider.defaultProps = {
+    value: 0,
+    inputValue: 0,
+  };
 
+  const classes = classnames(['ewc-elvis-slider']);
   const [rangeValue, setValue] = useState(value);
+  const sliderRef = useRef<HTMLElement>(null);
+
+  console.log('value is :' + value);
+  console.log('Inputvalue is :' + inputValue);
 
   // Updating selected value
   useEffect(() => {
@@ -37,19 +46,18 @@ const ElviaSlider: React.FC<SliderProps> = ({
     updateWebcomponent();
   }, [rangeValue]);
 
-  // OLD = TODO: make slider update on other way than on value, creates too many rerenders in some cases
-  // New solution: seperated value and external input values. Now only updates prop value on input changes.
+  // listen to value changes from input fields. Seperated from value due to amount of rerenders if value is in dependecy array of useEffect
   useEffect(() => {
     setValue(inputValue);
-    console.log('I RAN!');
   }, [inputValue]);
 
-  const onSliderChange = (event: Event, newValue: number | number[]) => {
+  const onSliderChange = (event: React.ChangeEvent, newValue: number | number[]) => {
     setValue(newValue);
   };
 
   // throttling to ease some of the renders on sliderchange
   const handleChange = toolbox.throttle(onSliderChange, 10);
+
   function updateReactComponent() {
     if (!webcomponent && valueOnChange) {
       valueOnChange(rangeValue);
@@ -66,6 +74,7 @@ const ElviaSlider: React.FC<SliderProps> = ({
   return (
     <div className={classes}>
       <Slider
+        ref={sliderRef}
         value={rangeValue}
         onChange={handleChange}
         disabled={isDisabled}
@@ -74,6 +83,8 @@ const ElviaSlider: React.FC<SliderProps> = ({
         step={step}
         name={name}
         aria-labelledby="continuous-slider"
+        valueLabelDisplay={'off'}
+        marks={false}
       ></Slider>
     </div>
   );
