@@ -15,14 +15,22 @@ export interface DropdownProps {
 }
 
 const Dropdown: React.FC<DropdownProps> = ({ isSearchable = false, options }) => {
+  // necessary for clickevents on dropdown in webcomps
+  // const [openMenu, setOpenMenu] = useState(false);
+  // const handleOnclick = () => {
+  //   setOpenMenu(prevState => !prevState);
+  // }
+
   return (
+    // might need listeners outside also with this if the click event does noe work in webcomps.
+    // <span onClick={handleOnclick}>
     <Select
       isSearchable={isSearchable}
       options={options}
       className={'react-select-container'}
       classNamePrefix="react-select"
-      // menuIsOpen
     ></Select>
+    // </span>
   );
 };
 
