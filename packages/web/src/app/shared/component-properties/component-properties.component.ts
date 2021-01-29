@@ -19,6 +19,10 @@ export class ComponentPropertiesComponent implements OnInit {
     this.makePropertyLists();
   }
 
+  isCustom(componentName: string): boolean {
+    return componentName.includes('custom');
+  }
+
   makePropertyLists(): void {
     Object.keys(data.block).forEach((block) => {
       if (block === this.componentName) {
@@ -44,7 +48,9 @@ export class ComponentPropertiesComponent implements OnInit {
         const elementModifiers = [];
         if (data.block[this.componentName].element[el].modifier) {
           Object.keys(data.block[this.componentName].element[el].modifier).forEach((el2) => {
-            elementModifiers.push(el2);
+            if (this.isCustom(el2)) {
+              return;
+            }
             this.allElementModifiers.push(el2);
           });
         }
@@ -57,6 +63,9 @@ export class ComponentPropertiesComponent implements OnInit {
   getAllModifiers(): void {
     if (data.block[this.componentName].modifier) {
       Object.keys(data.block[this.componentName].modifier).forEach((mod) => {
+        if (this.isCustom(mod)) {
+          return;
+        }
         this.modifiers.push(mod);
       });
     }
@@ -65,6 +74,9 @@ export class ComponentPropertiesComponent implements OnInit {
   getAllPsuedo(): void {
     if (data.block[this.componentName].psuedo) {
       Object.keys(data.block[this.componentName].psuedo).forEach((psu) => {
+        if (this.isCustom(psu)) {
+          return;
+        }
         this.psuedos.push(psu);
       });
     }

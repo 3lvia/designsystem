@@ -3,6 +3,8 @@
 		"e-icon": {
 			"modifier": {
 				"e-icon--xxs": {},
+				"e-icon--custom12": {},
+				"e-icon--custom14": {},
 				"e-icon--xs": {},
 				"e-icon--custom19": {},
 				"e-icon--sm": {},
@@ -978,6 +980,8 @@
 	"flat": {
 		"e-icon": {},
 		"e-icon--xxs": {},
+		"e-icon--custom12": {},
+		"e-icon--custom14": {},
 		"e-icon--xs": {},
 		"e-icon--custom19": {},
 		"e-icon--sm": {},

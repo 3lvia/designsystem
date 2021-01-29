@@ -14,8 +14,10 @@ $link-sm-line-height: 20px;
 
 $link-action-lg-line-height: 26px;
 $link-action-md-line-height: 24px;
+$link-action-sm-line-height: 21px;
 $link-action-lg-font-size: 20px;
 $link-action-md-font-size: 18px;
+$link-action-sm-font-size: 16px;
 
 $link-jumbo-desktop-padding: 30px 40px;
 $link-jumbo-desktop-width: 545px;
@@ -107,7 +109,7 @@ $grey-ten: colors.color('grey-10');
 
   &.e-link--new-tab {
     .e-link__icon {
-      @include icons.icon-size('xs');
+      @include icons.icon-size('custom14');
       margin-left: 8px;
       display: inline-block;
     }
@@ -116,9 +118,16 @@ $grey-ten: colors.color('grey-10');
         bottom: 3px;
       }
     }
+    &.e-link--sm {
+      .e-link__icon {
+        @include icons.icon-size('custom12');
+      }
+    }
   }
 
   &.e-link--action {
+    display: inline-flex;
+    align-items: center;
     border: transparent;
 
     .e-link__icon i[class*='filled-color'] {
@@ -126,7 +135,6 @@ $grey-ten: colors.color('grey-10');
     }
     .e-link__icon {
       position: relative;
-      top: 5px;
       @media screen and (-ms-high-contrast: none) {
         top: -5px;
       }
@@ -144,21 +152,22 @@ $grey-ten: colors.color('grey-10');
     &.e-link--lg {
       line-height: $link-action-lg-line-height;
       font-size: $link-action-lg-font-size;
-      .e-link__icon,
-      i,
-      img {
-        width: 24px;
-        height: 24px;
+      .e-link__icon {
+        @include icons.icon-size('sm');
       }
     }
     &.e-link--md {
       line-height: $link-action-md-line-height;
       font-size: $link-action-md-font-size;
-      .e-link__icon,
-      i,
-      img {
-        width: 23px;
-        height: 23px;
+      .e-link__icon {
+        @include icons.icon-size('sm');
+      }
+    }
+    &.e-link--sm {
+      line-height: $link-action-sm-line-height;
+      font-size: $link-action-sm-font-size;
+      .e-link__icon {
+        @include icons.icon-size('xs');
       }
     }
 

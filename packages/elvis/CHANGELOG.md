@@ -6,6 +6,26 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      6.2.0
+    </span>
+    <br>
+    <span>
+      January 29, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>
+        </div>
+        Updated action links and usage documentation. Back and forward links should be action-links.
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       6.1.0
     </span>
     <br>

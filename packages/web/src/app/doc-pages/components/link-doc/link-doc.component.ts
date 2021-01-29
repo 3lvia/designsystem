@@ -50,68 +50,83 @@ export class LinkDocComponent {
 `;
 
   exampleLinksWithIcon = `<div style="display: flex; align-items: center; flex-wrap: wrap;">
-  <div class="e-mt-16 e-mr-16">
-    <a class="e-link" href="https://design.elvia.io/components/link-doc#Overview">
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
-      <span class="e-link__title">Back</span>
-    </a>
-  </div>
-  <div class="e-mt-16 e-mr-16">
-    <a class="e-link" href="https://design.elvia.io/components/link-doc#Overview">
-      <span class="e-link__title">Forward</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold"></i></span>
-    </a>
-  </div>
-  <div class="e-mt-16 e-mr-16">
-    <a class="e-link e-link--external" href="https://www.elvia.no/">
-      <span class="e-link__title">External</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
-    </a>
-  </div>
-  <div class="e-mt-16">
-    <a class="e-link e-link--new-tab" href="https://design.elvia.io/components/link-doc#Overview">
-      <span class="e-link__title">New tab</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-    </a>
-  </div>
+  <a class="e-link e-link--external e-mr-16" href="https://www.elvia.no/">
+    <span class="e-link__title">External</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+  </a>
+  <a class="e-link e-link--new-tab e-link--lg e-mr-16" href="https://design.elvia.io/components/link-doc#Overview">
+    <span class="e-link__title">New tab</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+  </a>
+  <a class="e-link e-link--new-tab e-mr-16" href="https://design.elvia.io/components/link-doc#Overview">
+    <span class="e-link__title">New tab</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+  </a>
+  <a class="e-link e-link--new-tab e-link--sm" href="https://design.elvia.io/components/link-doc#Overview">
+    <span class="e-link__title">New tab</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+  </a>
 </div>
 `;
 
   exampleLinksWithIconInverted = `<div style="display: flex; align-items: center; flex-wrap: wrap;">
-  <div class="e-mt-16 e-mr-16">
-    <a class="e-link e-link--inverted" href="https://design.elvia.io/components/link-doc#Overview">
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold e-icon--inverted"></i></span>
-      <span class="e-link__title">Back</span>
-    </a>
-  </div>
-  <div class="e-mt-16 e-mr-16">
-    <a class="e-link e-link--inverted" href="https://design.elvia.io/components/link-doc#Overview">
-      <span class="e-link__title">Forward</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--inverted"></i></span>
-    </a>
-  </div>
-  <div class="e-mt-16 e-mr-16">
-    <a class="e-link e-link--external e-link--inverted" href="https://www.elvia.no/">
-      <span class="e-link__title">External</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold e-icon--inverted"></i></span>
-    </a>
-  </div>
-  <div class="e-mt-16">
-    <a class="e-link e-link--new-tab e-link--inverted" href="https://design.elvia.io/components/link-doc#Overview">
-      <span class="e-link__title">New tab</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold e-icon--inverted"></i></span>
-    </a>
-  </div>
+  <a class="e-link e-link--external e-link--inverted e-mr-16" href="https://www.elvia.no/">
+    <span class="e-link__title">External</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold e-icon--inverted"></i></span>
+  </a>
+  <a class="e-link e-link--new-tab e-link--inverted" href="https://design.elvia.io/components/link-doc#Overview">
+    <span class="e-link__title">New tab</span>
+    <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold e-icon--inverted"></i></span>
+  </a>
 </div>
 `;
 
-  example5 = `<a class="e-link e-link--action" href="https://design.elvia.io/components/link-doc#Overview">
-  <span class="e-link__title">Action link</span>
-  <span class="e-link__icon">
-    <i class="e-icon e-icon--arrow_circle-color"></i>
-    <i class="e-icon e-icon--arrow_circle-filled-color"></i>
-  </span>
-</a>
+  example5 = `<div style="display: flex; align-items: center; flex-wrap: wrap;">
+  <a class="e-link e-link--action e-link--lg e-mr-16" href="https://design.elvia.io/components/link-doc#Overview">
+    <span class="e-link__icon">
+      <i class="e-icon e-icon--arrow_left_circle-color"></i>
+      <i class="e-icon e-icon--arrow_left_circle-filled-color"></i>
+    </span>  
+    <span class="e-link__title">Back action</span>
+  </a>
+  <a class="e-link e-link--action e-mr-16" href="https://design.elvia.io/components/link-doc#Overview">
+    <span class="e-link__icon">
+      <i class="e-icon e-icon--arrow_left_circle-color"></i>
+      <i class="e-icon e-icon--arrow_left_circle-filled-color"></i>
+    </span>  
+    <span class="e-link__title">Back action</span>
+  </a>
+  <a class="e-link e-link--action e-link--sm e-mr-16" href="https://design.elvia.io/components/link-doc#Overview">
+    <span class="e-link__icon">
+      <i class="e-icon e-icon--arrow_left_circle-color"></i>
+      <i class="e-icon e-icon--arrow_left_circle-filled-color"></i>
+    </span>  
+    <span class="e-link__title">Back action</span>
+  </a>
+</div>
+<div style="display: flex; align-items: center; flex-wrap: wrap; margin-top: 16px">
+  <a class="e-link e-link--action e-link--lg e-mr-16" href="https://design.elvia.io/components/link-doc#Overview">
+    <span class="e-link__title">Forward action</span>  
+    <span class="e-link__icon">
+      <i class="e-icon e-icon--arrow_right_circle-color"></i>
+      <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+    </span>  
+  </a>
+  <a class="e-link e-link--action e-mr-16" href="https://design.elvia.io/components/link-doc#Overview">
+    <span class="e-link__title">Forward action</span>
+    <span class="e-link__icon">
+      <i class="e-icon e-icon--arrow_right_circle-color"></i>
+      <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+    </span>  
+  </a>
+  <a class="e-link e-link--action e-link--sm" href="https://design.elvia.io/components/link-doc#Overview">
+    <span class="e-link__title">Forward action</span>
+    <span class="e-link__icon">
+      <i class="e-icon e-icon--arrow_right_circle-color"></i>
+      <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+    </span>
+  </a>
+</div>  
 `;
 
   example6 = `<a class="e-link e-link--jumbo e-mb-40" href="https://design.elvia.io/components/link-doc#Overview">
