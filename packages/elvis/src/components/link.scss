@@ -135,9 +135,6 @@ $grey-ten: colors.color('grey-10');
     }
     .e-link__icon {
       position: relative;
-      @media screen and (-ms-high-contrast: none) {
-        top: -5px;
-      }
       right: 0;
       i {
         position: absolute;
