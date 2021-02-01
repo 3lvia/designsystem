@@ -27,7 +27,7 @@ export class ComponentPropertiesComponent implements OnInit {
     Object.keys(data.block).forEach((block) => {
       if (block === this.componentName) {
         this.getContainer();
-        this.getAllElement();
+        this.getAllElements();
         this.getAllModifiers();
         this.getAllPsuedo();
       }
@@ -42,7 +42,7 @@ export class ComponentPropertiesComponent implements OnInit {
     }
   }
 
-  getAllElement(): void {
+  getAllElements(): void {
     if (data.block[this.componentName].element) {
       Object.keys(data.block[this.componentName].element).forEach((el) => {
         const elementModifiers = [];
@@ -54,7 +54,9 @@ export class ComponentPropertiesComponent implements OnInit {
           });
         }
         const el1 = { name: el, elementModifiers };
-        this.elements.push(el1);
+        if (!this.isCustom(el1.name)) {
+          this.elements.push(el1);
+        }
       });
     }
   }
