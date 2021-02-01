@@ -2607,7 +2607,7 @@ input:focus {
   background: rgba(185, 2, 2, 0.065);
 }
 
-.e-chip---hover:not(.e-chip---disabled) {
+.e-chip:active, .e-chip---hover:not(.e-chip---disabled) {
   background: #29d305;
   cursor: pointer;
 }
@@ -3986,7 +3986,7 @@ input:focus {
   border-color: #fff;
 }
 
-.e-link.e-link---hover {
+.e-link:active, .e-link.e-link---hover {
   border-bottom-color: #29d305;
 }
 
@@ -4085,11 +4085,11 @@ input:focus {
   height: 23px;
 }
 
-.e-link.e-link--action.e-link---hover .e-link__icon i[class*=filled-color] {
+.e-link.e-link--action:active .e-link__icon i[class*=filled-color], .e-link.e-link--action.e-link---hover .e-link__icon i[class*=filled-color] {
   visibility: visible;
 }
 
-.e-link.e-link--action.e-link---hover .e-link__icon i:not([class*=filled-color]) {
+.e-link.e-link--action:active .e-link__icon i:not([class*=filled-color]), .e-link.e-link--action.e-link---hover .e-link__icon i:not([class*=filled-color]) {
   visibility: hidden;
 }
 
@@ -4191,7 +4191,7 @@ input:focus {
     height: 40px;
   }
 }
-.e-link.e-link--jumbo.e-link---hover {
+.e-link.e-link--jumbo:active, .e-link.e-link--jumbo.e-link---hover {
   color: #000;
   border: 2px solid #29d305;
 }
@@ -4308,35 +4308,35 @@ input:focus {
   letter-spacing: 0.2px;
 }
 
-.e-link.e-link--card.e-link---hover {
+.e-link.e-link--card:active, .e-link.e-link--card.e-link---hover {
   box-shadow: 0 0 0 2px #29d305;
   cursor: pointer;
 }
 
-.e-link.e-link--card.e-link---hover .e-link__icon {
+.e-link.e-link--card:active .e-link__icon, .e-link.e-link--card.e-link---hover .e-link__icon {
   -o-transform: scale(0.9166);
   -ms-transform: scale(0.9166);
   -webkit-transform: scale(0.9166);
   transform: scale(0.9166);
 }
 
-.e-link.e-link--card.e-link---hover .e-link__icon i {
+.e-link.e-link--card:active .e-link__icon i, .e-link.e-link--card.e-link---hover .e-link__icon i {
   visibility: hidden;
   transition: visibility 0.3s ease;
 }
 
-.e-link.e-link--card.e-link---hover .e-link__icon i + i {
+.e-link.e-link--card:active .e-link__icon i + i, .e-link.e-link--card.e-link---hover .e-link__icon i + i {
   visibility: visible;
   transition: visibility 0.3s ease;
 }
 
-.e-link.e-link--card.e-link---hover .e-link__icon.e-link--delay-hover i {
+.e-link.e-link--card:active .e-link__icon.e-link--delay-hover i, .e-link.e-link--card.e-link---hover .e-link__icon.e-link--delay-hover i {
   visibility: hidden;
   transition: visibility 0.3s ease;
   transition-delay: 0.3s;
 }
 
-.e-link.e-link--card.e-link---hover .e-link__icon.e-link--delay-hover i + i {
+.e-link.e-link--card:active .e-link__icon.e-link--delay-hover i + i, .e-link.e-link--card.e-link---hover .e-link__icon.e-link--delay-hover i + i {
   visibility: visible;
   transition: visibility 0.3s ease;
   transition-delay: 0.3s;
@@ -7509,7 +7509,7 @@ input:focus {
   outline-offset: 2px;
 }
 
-.e-checkbox.e-checkbox---hover:not(:disabled):not(:invalid) .e-checkbox__mark {
+.e-checkbox:active .e-checkbox__mark, .e-checkbox.e-checkbox---hover:not(:disabled):not(:invalid) .e-checkbox__mark {
   background-color: #29d305;
   border-color: #000;
 }
@@ -8372,7 +8372,7 @@ input:focus {
   outline-offset: 2px;
 }
 
-.e-radio.e-radio---hover .e-radio__mark {
+.e-radio:active .e-radio__mark, .e-radio.e-radio---hover .e-radio__mark {
   background: #29d305;
 }
 

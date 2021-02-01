@@ -56,6 +56,7 @@ $chips-padding: 5px 16px;
     }
   }
 
+  &:active,
   &---hover:not(.e-chip---disabled) {
     background: colors.color('elvia-charge');
     cursor: pointer;
