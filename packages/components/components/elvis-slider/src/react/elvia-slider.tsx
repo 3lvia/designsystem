@@ -31,9 +31,6 @@ const ElviaSlider: React.FC<SliderProps> = ({
   const [rangeValue, setValue] = useState(0);
   const sliderRef = useRef<HTMLElement>(null);
 
-  console.log('value is :' + value);
-  console.log('Inputvalue is :' + inputValue);
-
   //initate value and slider
   useEffect(() => {
     setValue(value);
