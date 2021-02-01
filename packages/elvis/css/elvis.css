@@ -4070,27 +4070,28 @@ input:focus {
   height: 12px;
 }
 
-.e-link.e-link--action {
+.e-link.e-link--back, .e-link.e-link--action {
   display: inline-flex;
   align-items: center;
   border: transparent;
 }
 
-.e-link.e-link--action .e-link__title + .e-link__icon,
+.e-link.e-link--back .e-link__title + .e-link__icon,
+.e-link.e-link--back .e-link__icon + .e-link__title, .e-link.e-link--action .e-link__title + .e-link__icon,
 .e-link.e-link--action .e-link__icon + .e-link__title {
   margin-left: 8px;
 }
 
-.e-link.e-link--action .e-link__icon i[class*=filled-color] {
+.e-link.e-link--back .e-link__icon i[class*=filled-color], .e-link.e-link--action .e-link__icon i[class*=filled-color] {
   visibility: hidden;
 }
 
-.e-link.e-link--action .e-link__icon {
+.e-link.e-link--back .e-link__icon, .e-link.e-link--action .e-link__icon {
   position: relative;
   right: 0;
 }
 
-.e-link.e-link--action .e-link__icon i {
+.e-link.e-link--back .e-link__icon i, .e-link.e-link--action .e-link__icon i {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -4099,77 +4100,81 @@ input:focus {
   display: flex;
 }
 
-.e-link.e-link--action.e-link--lg {
+.e-link.e-link--back.e-link--lg, .e-link.e-link--action.e-link--lg {
   line-height: 26px;
   font-size: 20px;
 }
 
-.e-link.e-link--action.e-link--lg .e-link__icon {
+.e-link.e-link--back.e-link--lg .e-link__icon, .e-link.e-link--action.e-link--lg .e-link__icon {
   width: 24px;
   height: 24px;
 }
 
-.e-link.e-link--action.e-link--lg .e-link__icon img,
+.e-link.e-link--back.e-link--lg .e-link__icon img,
+.e-link.e-link--back.e-link--lg .e-link__icon i, .e-link.e-link--action.e-link--lg .e-link__icon img,
 .e-link.e-link--action.e-link--lg .e-link__icon i {
   width: 24px;
   height: 24px;
 }
 
-.e-link.e-link--action.e-link--md, .e-link.e-link--action {
+.e-link.e-link--back.e-link--md, .e-link.e-link--back, .e-link.e-link--action.e-link--md, .e-link.e-link--action {
   line-height: 24px;
   font-size: 18px;
 }
 
-.e-link.e-link--action.e-link--md .e-link__icon, .e-link.e-link--action .e-link__icon {
+.e-link.e-link--back.e-link--md .e-link__icon, .e-link.e-link--back .e-link__icon, .e-link.e-link--action.e-link--md .e-link__icon, .e-link.e-link--action .e-link__icon {
   width: 24px;
   height: 24px;
 }
 
-.e-link.e-link--action.e-link--md .e-link__icon img, .e-link.e-link--action .e-link__icon img,
+.e-link.e-link--back.e-link--md .e-link__icon img, .e-link.e-link--back .e-link__icon img,
+.e-link.e-link--back.e-link--md .e-link__icon i,
+.e-link.e-link--back .e-link__icon i, .e-link.e-link--action.e-link--md .e-link__icon img, .e-link.e-link--action .e-link__icon img,
 .e-link.e-link--action.e-link--md .e-link__icon i,
 .e-link.e-link--action .e-link__icon i {
   width: 24px;
   height: 24px;
 }
 
-.e-link.e-link--action.e-link--sm {
+.e-link.e-link--back.e-link--sm, .e-link.e-link--action.e-link--sm {
   line-height: 21px;
   font-size: 16px;
 }
 
-.e-link.e-link--action.e-link--sm .e-link__icon {
+.e-link.e-link--back.e-link--sm .e-link__icon, .e-link.e-link--action.e-link--sm .e-link__icon {
   width: 16px;
   height: 16px;
 }
 
-.e-link.e-link--action.e-link--sm .e-link__icon img,
+.e-link.e-link--back.e-link--sm .e-link__icon img,
+.e-link.e-link--back.e-link--sm .e-link__icon i, .e-link.e-link--action.e-link--sm .e-link__icon img,
 .e-link.e-link--action.e-link--sm .e-link__icon i {
   width: 16px;
   height: 16px;
 }
 
-.e-link.e-link--action.e-link---hover .e-link__icon i[class*=filled-color] {
+.e-link.e-link--back.e-link---hover .e-link__icon i[class*=filled-color], .e-link.e-link--action.e-link---hover .e-link__icon i[class*=filled-color] {
   visibility: visible;
 }
 
-.e-link.e-link--action.e-link---hover .e-link__icon i:not([class*=filled-color]) {
+.e-link.e-link--back.e-link---hover .e-link__icon i:not([class*=filled-color]), .e-link.e-link--action.e-link---hover .e-link__icon i:not([class*=filled-color]) {
   visibility: hidden;
 }
 
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .e-link.e-link--action:hover .e-link__icon i[class*=filled-color] {
+  .e-link.e-link--back:hover .e-link__icon i[class*=filled-color], .e-link.e-link--action:hover .e-link__icon i[class*=filled-color] {
     visibility: visible;
   }
 
-  .e-link.e-link--action:hover .e-link__icon i:not([class*=filled-color]) {
+  .e-link.e-link--back:hover .e-link__icon i:not([class*=filled-color]), .e-link.e-link--action:hover .e-link__icon i:not([class*=filled-color]) {
     visibility: hidden;
   }
 }
-.e-link.e-link--action:active .e-link__icon i[class*=filled-color] {
+.e-link.e-link--back:active .e-link__icon i[class*=filled-color], .e-link.e-link--action:active .e-link__icon i[class*=filled-color] {
   visibility: visible;
 }
 
-.e-link.e-link--action:active .e-link__icon i:not([class*=filled-color]) {
+.e-link.e-link--back:active .e-link__icon i:not([class*=filled-color]), .e-link.e-link--action:active .e-link__icon i:not([class*=filled-color]) {
   visibility: hidden;
 }
 
