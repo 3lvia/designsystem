@@ -6,20 +6,23 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
-      6.2.0
+      7.0.0
     </span>
     <br>
     <span>
-      January 29, 2021
+      February 1, 2021
     </span>
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">✂️ BREAKING CHANGE</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>
         </div>
-        Updated back link, action links and usage documentation.
+        Documentation on links is updated and usage of different links made clearer. Breaking changes are; back links now uses the --action modifier and jumbo links uses a new icon.
+        <div class="e-mt-8">
+          How to fix:
+          Read the documentation with examples to replace old links. Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>
       <div class="changelog-divider"></div>
     </td>
   </tr>

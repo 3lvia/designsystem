@@ -93,12 +93,12 @@ export class LinkDocComponent {
 
   example6 = `<a class="e-link e-link--jumbo e-mb-40" href="https://design.elvia.io/components/link-doc#Overview">
   <span class="e-link__title">Jumbo link</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>
+  <span class="e-link__icon"><i class="e-icon e-icon--arrow_long_right-bold e-icon--xs"></i></span>
 </a>
 <a class="e-link e-link--jumbo" href="https://design.elvia.io/components/link-doc#Overview">
   <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
   <span class="e-link__title">Jumbo link with icon</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--arrow_right-bold e-icon--xs"></i></span>
+  <span class="e-link__icon"><i class="e-icon e-icon--arrow_long_right-bold e-icon--xs"></i></span>
 </a>
 `;
   example6External = `<a class="e-link e-link--jumbo e-mb-40" href="https://design.elvia.io/components/link-doc#Overview">
