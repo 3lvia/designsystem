@@ -34,7 +34,7 @@ module.exports = [
   { name: 'arrow_long_right', terms: ['next', 'forward'] },
   { name: 'arrow_long', deprecated: '6.2.0', newIconName: 'arrow_long_right' },
   { name: 'arrow_long_right-bold', terms: ['next', 'forward'] },
-  { name: 'arrow_long-bold', deprecated: '6.2.0', newIconName: 'arrow_long_right-bold'  },
+  { name: 'arrow_long-bold', deprecated: '6.2.0', newIconName: 'arrow_long_right-bold' },
   { name: 'arrow_right', terms: ['open'] },
   { name: 'arrow_right-bold', terms: ['open'] },
   { name: 'arrow_up', terms: ['collapse', 'close'] },

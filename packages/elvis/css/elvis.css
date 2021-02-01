@@ -3995,21 +3995,12 @@ input:focus {
   border-bottom-color: #29d305;
 }
 
-.e-link:active {
-  border-bottom-color: #29d305;
-}
-
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .e-link:hover {
     border-bottom-color: #29d305;
   }
 }
-.e-link.e-link---focus {
-  outline: 2px solid #0064fa !important;
-  outline-offset: 2px;
-}
-
-.e-link:focus {
+.e-link.e-link---focus, .e-link:focus {
   outline: 2px solid #0064fa;
   outline-offset: 2px;
   overflow: auto;
@@ -4116,14 +4107,6 @@ input:focus {
     visibility: hidden;
   }
 }
-.e-link.e-link--action:active .e-link__icon i[class*=filled-color] {
-  visibility: visible;
-}
-
-.e-link.e-link--action:active .e-link__icon i:not([class*=filled-color]) {
-  visibility: hidden;
-}
-
 .e-link.e-link--jumbo {
   font-family: Red Hat Display, sans-serif;
   font-size: 18px;
@@ -4224,11 +4207,6 @@ input:focus {
     border: 2px solid #29d305;
   }
 }
-.e-link.e-link--jumbo:active {
-  color: #000;
-  border: 2px solid #29d305;
-}
-
 .e-link.e-link--card {
   width: unset;
   display: inline-flex;
@@ -4335,69 +4313,35 @@ input:focus {
   letter-spacing: 0.2px;
 }
 
-.e-link.e-link--card:active {
+.e-link.e-link--card.e-link---hover {
   box-shadow: 0 0 0 2px #29d305;
   cursor: pointer;
 }
 
-.e-link.e-link--card:active .e-link__icon {
+.e-link.e-link--card.e-link---hover .e-link__icon {
   -o-transform: scale(0.9166);
   -ms-transform: scale(0.9166);
   -webkit-transform: scale(0.9166);
   transform: scale(0.9166);
 }
 
-.e-link.e-link--card:active .e-link__icon i {
+.e-link.e-link--card.e-link---hover .e-link__icon i {
   visibility: hidden;
   transition: visibility 0.3s ease;
 }
 
-.e-link.e-link--card:active .e-link__icon i + i {
+.e-link.e-link--card.e-link---hover .e-link__icon i + i {
   visibility: visible;
   transition: visibility 0.3s ease;
 }
 
-.e-link.e-link--card:active .e-link__icon.e-link--delay-hover i {
+.e-link.e-link--card.e-link---hover .e-link__icon.e-link--delay-hover i {
   visibility: hidden;
   transition: visibility 0.3s ease;
   transition-delay: 0.3s;
 }
 
-.e-link.e-link--card:active .e-link__icon.e-link--delay-hover i + i {
-  visibility: visible;
-  transition: visibility 0.3s ease;
-  transition-delay: 0.3s;
-}
-
-.e-link.e-link--card:active {
-  box-shadow: 0 0 0 2px #29d305;
-  cursor: pointer;
-}
-
-.e-link.e-link--card:active .e-link__icon {
-  -o-transform: scale(0.9166);
-  -ms-transform: scale(0.9166);
-  -webkit-transform: scale(0.9166);
-  transform: scale(0.9166);
-}
-
-.e-link.e-link--card:active .e-link__icon i {
-  visibility: hidden;
-  transition: visibility 0.3s ease;
-}
-
-.e-link.e-link--card:active .e-link__icon i + i {
-  visibility: visible;
-  transition: visibility 0.3s ease;
-}
-
-.e-link.e-link--card:active .e-link__icon.e-link--delay-hover i {
-  visibility: hidden;
-  transition: visibility 0.3s ease;
-  transition-delay: 0.3s;
-}
-
-.e-link.e-link--card:active .e-link__icon.e-link--delay-hover i + i {
+.e-link.e-link--card.e-link---hover .e-link__icon.e-link--delay-hover i + i {
   visibility: visible;
   transition: visibility 0.3s ease;
   transition-delay: 0.3s;
@@ -4507,24 +4451,6 @@ input:focus {
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
-}
-
-.e-link.e-link--card.e-link--shortcut:active {
-  border-color: #29d305;
-}
-
-.e-link.e-link--card.e-link--shortcut:active .e-link__icon {
-  -o-transform: scale(1.125);
-  -ms-transform: scale(1.125);
-  -webkit-transform: scale(1.125);
-  transform: scale(1.125);
-}
-
-.e-link.e-link--card.e-link--shortcut:active .e-link__icon.e-link--delay-hover {
-  -o-transform: scale(1.125);
-  -ms-transform: scale(1.125);
-  -webkit-transform: scale(1.125);
-  transform: scale(1.125);
 }
 
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {

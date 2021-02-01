@@ -74,17 +74,12 @@ $grey-ten: colors.color('grey-10');
   &.e-link---hover {
     border-bottom-color: colors.color('elvia-charge');
   }
-  &:active {
-    border-bottom-color: colors.color('elvia-charge');
-  }
   @include helpers.hover() {
     &:hover {
       border-bottom-color: colors.color('elvia-charge');
     }
   }
-  &.e-link---focus {
-    @include outline.e-outline-pseudoclass();
-  }
+  &.e-link---focus,
   &:focus {
     @include outline.e-outline();
     overflow: auto;
@@ -180,14 +175,6 @@ $grey-ten: colors.color('grey-10');
         }
       }
     }
-    &:active {
-      .e-link__icon i[class*='filled-color'] {
-        visibility: visible;
-      }
-      .e-link__icon i:not([class*='filled-color']) {
-        visibility: hidden;
-      }
-    }
   }
 
   &.e-link--jumbo {
@@ -256,10 +243,6 @@ $grey-ten: colors.color('grey-10');
         color: colors.color('font-color');
         border: 2px solid colors.color('elvia-charge');
       }
-    }
-    &:active {
-      color: colors.color('font-color');
-      border: 2px solid colors.color('elvia-charge');
     }
   }
 
@@ -336,37 +319,9 @@ $grey-ten: colors.color('grey-10');
       letter-spacing: 0.2px;
     }
 
-    &:active {
+    &.e-link---hover {
       box-shadow: 0 0 0 2px colors.color('elvia-charge');
 
-      cursor: pointer;
-      .e-link__icon {
-        @include helpers.transform(scale(0.9166));
-        i {
-          visibility: hidden;
-          transition: visibility 0.3s ease;
-        }
-        i + i {
-          visibility: visible;
-          transition: visibility 0.3s ease;
-        }
-      }
-      .e-link__icon.e-link--delay-hover {
-        i {
-          visibility: hidden;
-          transition: visibility 0.3s ease;
-          transition-delay: (0.3s);
-        }
-        i + i {
-          visibility: visible;
-          transition: visibility 0.3s ease;
-          transition-delay: (0.3s);
-        }
-      }
-    }
-
-    &:active {
-      box-shadow: 0 0 0 2px colors.color('elvia-charge');
       cursor: pointer;
       .e-link__icon {
         @include helpers.transform(scale(0.9166));
@@ -456,15 +411,6 @@ $grey-ten: colors.color('grey-10');
         }
         .e-link__description {
           @include typography.typography('text-info');
-        }
-      }
-      &:active {
-        border-color: colors.color('elvia-charge');
-        .e-link__icon {
-          @include helpers.transform(scale(1.125));
-        }
-        .e-link__icon.e-link--delay-hover {
-          @include helpers.transform(scale(1.125));
         }
       }
       @include helpers.hover() {
