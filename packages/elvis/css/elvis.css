@@ -3989,6 +3989,11 @@ input:focus {
 
 .e-link__title + .e-link__icon, .e-link__icon + .e-link__title {
   position: relative;
+  margin-left: 4px;
+}
+
+.e-link--action .e-link__title + .e-link__icon,
+.e-link--action .e-link__icon + .e-link__title {
   margin-left: 8px;
 }
 
@@ -4045,26 +4050,18 @@ input:focus {
 }
 
 .e-link.e-link--external .e-link__icon {
-  margin-left: 8px;
-  display: inline-block;
   vertical-align: super;
 }
 
 .e-link.e-link--new-tab .e-link__icon {
   width: 14px;
   height: 14px;
-  margin-left: 8px;
-  display: inline-block;
 }
 
 .e-link.e-link--new-tab .e-link__icon img,
 .e-link.e-link--new-tab .e-link__icon i {
   width: 14px;
   height: 14px;
-}
-
-.e-link.e-link--new-tab.e-link--lg .e-link__icon {
-  bottom: 3px;
 }
 
 .e-link.e-link--new-tab.e-link--sm .e-link__icon {

@@ -370,10 +370,10 @@
 				"e-link__description": {}
 			},
 			"modifier": {
+				"e-link--action": {},
 				"e-link--lg": {},
 				"e-link--md": {},
 				"e-link--sm": {},
-				"e-link--action": {},
 				"e-link--inverted": {},
 				"e-link--inline": {},
 				"e-link--external": {},
@@ -1226,10 +1226,10 @@
 		"e-link": {},
 		"e-link__icon": {},
 		"e-link__title": {},
+		"e-link--action": {},
 		"e-link--lg": {},
 		"e-link--md": {},
 		"e-link--sm": {},
-		"e-link--action": {},
 		"e-link--inverted": {},
 		"e-link---hover": {},
 		"e-link---focus": {},

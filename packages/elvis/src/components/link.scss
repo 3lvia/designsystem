@@ -52,7 +52,13 @@ $grey-ten: colors.color('grey-10');
   &__title + &__icon,
   &__icon + &__title {
     position: relative;
-    margin-left: 8px;
+    margin-left: 4px; // Inline -> space between elements => 8px - 4px space = 4px
+  }
+  &--action {
+    .e-link__title + .e-link__icon,
+    .e-link__icon + .e-link__title {
+      margin-left: 8px;
+    }
   }
 
   &.e-link--lg {
@@ -101,8 +107,6 @@ $grey-ten: colors.color('grey-10');
 
   &.e-link--external {
     .e-link__icon {
-      margin-left: 8px;
-      display: inline-block;
       vertical-align: super;
     }
   }
@@ -110,13 +114,6 @@ $grey-ten: colors.color('grey-10');
   &.e-link--new-tab {
     .e-link__icon {
       @include icons.icon-size('custom14');
-      margin-left: 8px;
-      display: inline-block;
-    }
-    &.e-link--lg {
-      .e-link__icon {
-        bottom: 3px;
-      }
     }
     &.e-link--sm {
       .e-link__icon {
