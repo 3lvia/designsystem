@@ -18,7 +18,7 @@ export interface SliderProps {
 
 const ElviaSlider: React.FC<SliderProps> = ({
   value = 0,
-  inputValue = 0,
+  inputValue,
   step,
   name,
   minValue,
@@ -27,18 +27,17 @@ const ElviaSlider: React.FC<SliderProps> = ({
   valueOnChange,
   webcomponent,
 }) => {
-  // Set default props
-  ElviaSlider.defaultProps = {
-    value: 0,
-    inputValue: 0,
-  };
-
   const classes = classnames(['ewc-elvis-slider']);
-  const [rangeValue, setValue] = useState(value);
+  const [rangeValue, setValue] = useState(0);
   const sliderRef = useRef<HTMLElement>(null);
 
   console.log('value is :' + value);
   console.log('Inputvalue is :' + inputValue);
+
+  //initate value and slider
+  useEffect(() => {
+    setValue(value);
+  }, []);
 
   // Updating selected value
   useEffect(() => {
@@ -48,7 +47,9 @@ const ElviaSlider: React.FC<SliderProps> = ({
 
   // listen to value changes from input fields. Seperated from value due to amount of rerenders if value is in dependecy array of useEffect
   useEffect(() => {
-    setValue(inputValue);
+    if (inputValue) {
+      setValue(inputValue);
+    }
   }, [inputValue]);
 
   const onSliderChange = (event: React.ChangeEvent, newValue: number | number[]) => {

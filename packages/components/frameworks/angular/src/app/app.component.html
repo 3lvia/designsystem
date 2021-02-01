@@ -5,20 +5,20 @@
   <div class="exampleContainer">
     <div class="slider">
       <elvia-slider
-        [value]="sliderValue"
-        [inputValue]="sliderValue"
-        (valueOnChange)="sliderValue = $event.detail.value"
+        [value]="testSliderVal"
+        [inputValue]="testSliderVal"
+        (valueOnChange)="testSliderVal = $event.detail.value"
       ></elvia-slider>
     </div>
     <div class="exampleInput">
       <input
         type="number"
-        value='sliderValue'
-        [(ngModel)]="sliderValue"
+        value='testSliderVal'
+        [(ngModel)]="testSliderVal"
       >
     </div>
   </div>
-  <div>{{ sliderValue }}</div>
+  <!-- <div>{{ sliderValue }}</div> -->
 
   <h2>Tabs</h2>
   <div style="margin-top: 16px">

@@ -98,7 +98,7 @@ function App() {
         <p>Slider Value is now : {sliderAndInputValue}</p>
       </div>
 
-      {/* <h2>Slider - simple disabled</h2>
+      <h2>Slider - simple disabled</h2>
       <Slider value={24} isDisabled={true}></Slider>
 
       <h2>Slider - range</h2>
@@ -110,7 +110,7 @@ function App() {
       ></Slider>
       <div>
         <p>Slider Value is now : {rangeSliderValue[0] + ' and ' + rangeSliderValue[1]}</p>
-      </div> */}
+      </div>
 
       {/* <h2>Slider - range with input fields</h2>
       <div className="exampleContainer">

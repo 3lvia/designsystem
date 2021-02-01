@@ -11,8 +11,6 @@ export class AppComponent implements OnInit {
   checkBoxVal2 = true;
   progressValue = 0;
 
-  testSLider = 'This is simply a test';
-
   items = [
     { label: 'Epler' },
     { label: 'Appelsin' },
@@ -21,8 +19,7 @@ export class AppComponent implements OnInit {
     { label: 'Kiwi', disabled: true },
   ];
   value = 0;
-
-  sliderValue = 10;
+  testSliderVal = 101;
 
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
@@ -35,5 +32,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.nativeJSApproach();
+    console.log('testSlider value is : ' + this.testSliderVal);
   }
 }
