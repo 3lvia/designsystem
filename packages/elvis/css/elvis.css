@@ -2523,7 +2523,6 @@ input:focus {
 }
 
 .e-chip.e-chip--green.e-chip---disabled, .e-chip.e-chip--green:disabled {
-  cursor: not-allowed;
   background: rgba(41, 211, 5, 0.065);
 }
 
@@ -2533,7 +2532,6 @@ input:focus {
 }
 
 .e-chip.e-chip--yellow.e-chip---disabled, .e-chip.e-chip--yellow:disabled {
-  cursor: not-allowed;
   background: rgba(255, 255, 0, 0.065);
 }
 
@@ -2543,7 +2541,6 @@ input:focus {
 }
 
 .e-chip.e-chip--orange.e-chip---disabled, .e-chip.e-chip--orange:disabled {
-  cursor: not-allowed;
   background: rgba(255, 160, 0, 0.065);
 }
 
@@ -2553,7 +2550,6 @@ input:focus {
 }
 
 .e-chip.e-chip--red.e-chip---disabled, .e-chip.e-chip--red:disabled {
-  cursor: not-allowed;
   background: rgba(255, 0, 0, 0.065);
 }
 
@@ -2563,7 +2559,6 @@ input:focus {
 }
 
 .e-chip.e-chip--green-apple.e-chip---disabled, .e-chip.e-chip---disabled, .e-chip.e-chip--green-apple:disabled, .e-chip:disabled {
-  cursor: not-allowed;
   background: rgba(33, 172, 4, 0.065);
 }
 
@@ -2573,7 +2568,6 @@ input:focus {
 }
 
 .e-chip.e-chip--violet-grape.e-chip---disabled, .e-chip.e-chip--violet-grape:disabled {
-  cursor: not-allowed;
   background: rgba(73, 1, 146, 0.065);
 }
 
@@ -2583,7 +2577,6 @@ input:focus {
 }
 
 .e-chip.e-chip--blue-berry.e-chip---disabled, .e-chip.e-chip--blue-berry:disabled {
-  cursor: not-allowed;
   background: rgba(0, 109, 219, 0.065);
 }
 
@@ -2593,7 +2586,6 @@ input:focus {
 }
 
 .e-chip.e-chip--purple-plum.e-chip---disabled, .e-chip.e-chip--purple-plum:disabled {
-  cursor: not-allowed;
   background: rgba(182, 109, 255, 0.065);
 }
 
@@ -2603,7 +2595,6 @@ input:focus {
 }
 
 .e-chip.e-chip--orange-mango.e-chip---disabled, .e-chip.e-chip--orange-mango:disabled {
-  cursor: not-allowed;
   background: rgba(219, 109, 0, 0.065);
 }
 
@@ -2613,7 +2604,6 @@ input:focus {
 }
 
 .e-chip.e-chip--red-tomato.e-chip---disabled, .e-chip.e-chip--red-tomato:disabled {
-  cursor: not-allowed;
   background: rgba(185, 2, 2, 0.065);
 }
 
@@ -2631,6 +2621,11 @@ input:focus {
 .e-chip---disabled, .e-chip:disabled {
   cursor: not-allowed;
   background: rgba(33, 172, 4, 0.065);
+}
+
+.e-chip---disabled .e-chip__label, .e-chip:disabled .e-chip__label {
+  color: black;
+  opacity: 0.5;
 }
 
 .e-chip---disabled .e-chip__close, .e-chip:disabled .e-chip__close {
