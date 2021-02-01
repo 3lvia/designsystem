@@ -48,10 +48,9 @@ export class ComponentPropertiesComponent implements OnInit {
         const elementModifiers = [];
         if (data.block[this.componentName].element[el].modifier) {
           Object.keys(data.block[this.componentName].element[el].modifier).forEach((el2) => {
-            if (this.isCustom(el2)) {
-              return;
+            if (!this.isCustom(el2)) {
+              this.allElementModifiers.push(el2);
             }
-            this.allElementModifiers.push(el2);
           });
         }
         const el1 = { name: el, elementModifiers };
@@ -63,10 +62,9 @@ export class ComponentPropertiesComponent implements OnInit {
   getAllModifiers(): void {
     if (data.block[this.componentName].modifier) {
       Object.keys(data.block[this.componentName].modifier).forEach((mod) => {
-        if (this.isCustom(mod)) {
-          return;
+        if (!this.isCustom(mod)) {
+          this.modifiers.push(mod);
         }
-        this.modifiers.push(mod);
       });
     }
   }
@@ -74,10 +72,9 @@ export class ComponentPropertiesComponent implements OnInit {
   getAllPsuedo(): void {
     if (data.block[this.componentName].psuedo) {
       Object.keys(data.block[this.componentName].psuedo).forEach((psu) => {
-        if (this.isCustom(psu)) {
-          return;
+        if (!this.isCustom(psu)) {
+          this.psuedos.push(psu);
         }
-        this.psuedos.push(psu);
       });
     }
   }

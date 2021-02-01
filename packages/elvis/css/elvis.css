@@ -3992,11 +3992,6 @@ input:focus {
   margin-left: 4px;
 }
 
-.e-link--action .e-link__title + .e-link__icon,
-.e-link--action .e-link__icon + .e-link__title {
-  margin-left: 8px;
-}
-
 .e-link.e-link--lg {
   font-size: 18px;
   line-height: 24px;
@@ -4008,7 +4003,7 @@ input:focus {
   line-height: 22px;
 }
 
-.e-link.e-link--sm:not(.e-link--action) {
+.e-link.e-link--sm {
   font-size: 14px;
   line-height: 20px;
 }
@@ -4079,6 +4074,11 @@ input:focus {
   display: inline-flex;
   align-items: center;
   border: transparent;
+}
+
+.e-link.e-link--action .e-link__title + .e-link__icon,
+.e-link.e-link--action .e-link__icon + .e-link__title {
+  margin-left: 8px;
 }
 
 .e-link.e-link--action .e-link__icon i[class*=filled-color] {

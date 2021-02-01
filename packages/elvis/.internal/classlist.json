@@ -370,7 +370,6 @@
 				"e-link__description": {}
 			},
 			"modifier": {
-				"e-link--action": {},
 				"e-link--lg": {},
 				"e-link--md": {},
 				"e-link--sm": {},
@@ -378,6 +377,7 @@
 				"e-link--inline": {},
 				"e-link--external": {},
 				"e-link--new-tab": {},
+				"e-link--action": {},
 				"e-link--jumbo": {},
 				"e-link--card": {},
 				"e-link--delay-hover": {},
@@ -1226,7 +1226,6 @@
 		"e-link": {},
 		"e-link__icon": {},
 		"e-link__title": {},
-		"e-link--action": {},
 		"e-link--lg": {},
 		"e-link--md": {},
 		"e-link--sm": {},
@@ -1236,6 +1235,7 @@
 		"e-link--inline": {},
 		"e-link--external": {},
 		"e-link--new-tab": {},
+		"e-link--action": {},
 		"e-link--jumbo": {},
 		"e-link--card": {},
 		"e-link__content": {},

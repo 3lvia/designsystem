@@ -54,12 +54,6 @@ $grey-ten: colors.color('grey-10');
     position: relative;
     margin-left: 4px; // Inline -> space between elements => 8px - 4px space = 4px
   }
-  &--action {
-    .e-link__title + .e-link__icon,
-    .e-link__icon + .e-link__title {
-      margin-left: 8px;
-    }
-  }
 
   &.e-link--lg {
     font-size: $link-lg-font-size;
@@ -70,7 +64,7 @@ $grey-ten: colors.color('grey-10');
     font-size: $link-md-font-size;
     line-height: $link-md-line-height;
   }
-  &.e-link--sm:not(.e-link--action) {
+  &.e-link--sm {
     font-size: $link-sm-font-size;
     line-height: $link-sm-line-height;
   }
@@ -126,6 +120,11 @@ $grey-ten: colors.color('grey-10');
     display: inline-flex;
     align-items: center;
     border: transparent;
+
+    .e-link__title + .e-link__icon,
+    .e-link__icon + .e-link__title {
+      margin-left: 8px;
+    }
 
     .e-link__icon i[class*='filled-color'] {
       visibility: hidden;

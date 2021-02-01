@@ -19,7 +19,7 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>
         </div>
-        Updated action links and usage documentation. Back and forward links should be action-links.
+        Updated back link, action links and usage documentation.
       <div class="changelog-divider"></div>
     </td>
   </tr>
