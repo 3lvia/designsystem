@@ -13,12 +13,12 @@ export class VersionService {
   private styleFile = new BehaviorSubject<string>('');
   private codePenTag = new BehaviorSubject<string>('');
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   updateVersionFromCDN(): void {
     this.http.get<any[]>('https://cdn.elvia.io/npm/filelist.json').subscribe(
       (data) => {
-        const elvis = data.filter((file) => file.filename.indexOf('elvis') > -1);
+        const elvis = data.filter((file) => file.filename.indexOf('elvis.min.css') > -1 || file.filename.indexOf('elvis.js') > -1);
         const elvisSorted = elvis.sort((fileA, fileB) => {
           if (fileA.filename > fileB.filename) {
             return -1;
