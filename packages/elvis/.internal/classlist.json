@@ -260,11 +260,11 @@
 			"element": {
 				"e-radio-filter__label": {}
 			},
-			"modifier": {
-				"e-radio-filter--focus": {},
-				"e-radio-filter--hover": {},
-				"e-radio-filter--checked": {},
-				"e-radio-filter--disabled": {}
+			"psuedo": {
+				"e-radio-filter---focus": {},
+				"e-radio-filter---hover": {},
+				"e-radio-filter---checked": {},
+				"e-radio-filter---disabled": {}
 			}
 		},
 		"e-header": {
@@ -1154,10 +1154,10 @@
 		"e-dropdown": {},
 		"e-radio-filter": {},
 		"e-radio-filter__label": {},
-		"e-radio-filter--focus": {},
-		"e-radio-filter--hover": {},
-		"e-radio-filter--checked": {},
-		"e-radio-filter--disabled": {},
+		"e-radio-filter---focus": {},
+		"e-radio-filter---hover": {},
+		"e-radio-filter---checked": {},
+		"e-radio-filter---disabled": {},
 		"e-header": {},
 		"e-header__top-bar": {},
 		"e-header__top-bar-desktop": {},

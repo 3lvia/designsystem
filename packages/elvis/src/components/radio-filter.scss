@@ -35,19 +35,19 @@ $control-count: 8;
     position: absolute;
     opacity: 0;
 
-    &.e-radio-filter--focus ~ label:first-of-type,
+    &.e-radio-filter---focus ~ label:first-of-type,
     &:focus ~ label:first-of-type {
       @include outline.e-outline();
     }
-    &.e-radio-filter--hover + label,
+    &.e-radio-filter---hover + label,
     &:hover:not(:disabled) + label {
       border-color: colors.color('elvia-charge');
     }
-    &.e-radio-filter--checked + label,
+    &.e-radio-filter---checked + label,
     &:checked:not(:disabled) + label {
       border-color: colors.color('elvia-off');
     }
-    &.e-radio-filter--disabled + label,
+    &.e-radio-filter---disabled + label,
     &:disabled + label {
       cursor: not-allowed;
       & > .e-radio-filter__label {
