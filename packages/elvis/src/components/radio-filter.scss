@@ -31,12 +31,14 @@ $control-count: 8;
     }
   }
 
+  &.e-radio-filter---focus input + label:first-of-type {
+    @include outline.e-outline-pseudoclass();
+  }
   input {
     position: absolute;
     opacity: 0;
 
-    &.e-radio-filter---focus ~ label:first-of-type,
-    &:focus ~ label:first-of-type {
+    &:focus + label {
       @include outline.e-outline();
     }
     &.e-radio-filter---hover + label,

@@ -80,10 +80,11 @@ $grey-ten: colors.color('grey-10');
       border-bottom-color: colors.color('elvia-charge');
     }
   }
-  &.e-link---focus,
+  &.e-link---focus {
+    @include outline.e-outline-pseudoclass();
+  }
   &:focus {
     @include outline.e-outline();
-    overflow: auto;
   }
 
   &.e-link--inline {
