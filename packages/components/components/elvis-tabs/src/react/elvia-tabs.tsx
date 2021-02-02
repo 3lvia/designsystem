@@ -44,6 +44,17 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
 
   // Updating selected value
   useEffect(() => {
+    setCurrValue(value);
+  }, [value]);
+
+  const updateCurrValue = (value: number) => {
+    if (items[value].isDisabled) {
+      return;
+    }
+    setCurrValue(value);
+  };
+
+  useEffect(() => {
     updateReactComponent();
     updateWebcomponent();
   }, [currValue]);
@@ -121,17 +132,30 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
       </div>
 
       <div className={itemsClasses}>
-        <div className="ewc-tabs__scroll" ref={itemsRef}>
+        <div className="ewc-tabs__scroll" ref={itemsRef} role="tablist">
           {items &&
             items.map((item, i) => (
-              <button
-                className={`ewc-tabs__label ${value === i && 'ewc-tabs__label--selected'}`}
+              <div
                 key={i}
-                onClick={() => setCurrValue(i)}
-                disabled={item.isDisabled}
+                className="ewc-tabs__tab"
+                onClick={() => updateCurrValue(i)}
+                aria-hidden={item.isDisabled}
               >
-                {item.label}
-              </button>
+                <input
+                  type="radio"
+                  name="ewc_tab-group"
+                  role="tab"
+                  id={'tab_' + i}
+                  value={currValue}
+                  aria-label={item.label}
+                  aria-checked={i === currValue}
+                  disabled={item.isDisabled}
+                ></input>
+                <label className={`ewc-tabs__label ${currValue === i && 'ewc-tabs__label--selected'}`}>
+                  {item.isDisabled}
+                  {item.label}
+                </label>
+              </div>
             ))}
         </div>
       </div>

@@ -7,13 +7,6 @@ $icon-btn-width: 24px;
 // Icon sizes
 $sizes: (
   'xxs': 8px,
-  'custom12': 12px,
-  'xs': 16px,
-  'sm': 24px,
-  'md': 32px,
-  'lg': 40px,
-  'xl': 48px,
-  'xxl': 56px,
 );
 
 %fade {
@@ -168,6 +161,34 @@ $sizes: (
     }
   }
 
+  &__tab {
+    &:not(:last-of-type) {
+      margin-right: 24px;
+      @media screen and (max-width: 767px) {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  // Handeling radiobutton
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    &:focus ~ label {
+      outline: 2px solid $hover-blue;
+      outline-offset: 2px;
+    }
+    &:disabled ~ label {
+      color: $grey-40;
+      cursor: not-allowed;
+      &:hover::after {
+        width: 0;
+      }
+    }
+  }
+
   &__label {
     font-family: 'Red Hat Text';
     font-style: normal;
@@ -184,13 +205,6 @@ $sizes: (
     padding: 0 8px;
     padding-bottom: 11px;
     background: transparent;
-
-    &:not(:last-of-type) {
-      margin-right: 24px;
-      @media screen and (max-width: 767px) {
-        margin-right: 16px;
-      }
-    }
 
     // Underline
     &::before {
@@ -218,12 +232,6 @@ $sizes: (
       transition: all 0.3s ease-in-out;
     }
 
-    // States
-    &:focus:not(:disabled) {
-      outline: 2px solid $hover-blue;
-      outline-offset: 2px;
-    }
-
     &:hover {
       cursor: pointer;
       &:not(.ewc-tabs__label--selected)::after {
@@ -239,14 +247,6 @@ $sizes: (
       &::after {
         background-color: $green;
         width: 100%;
-      }
-    }
-
-    &:disabled {
-      color: $grey-40;
-      cursor: not-allowed;
-      &:hover::after {
-        width: 0;
       }
     }
   }

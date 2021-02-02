@@ -27,8 +27,8 @@ import { Tabs } from '@elvia/elvis-tabs/react';
 ```
 <Tabs
     items={items}
-    value={selectedState}
-    valueOnChange={setSelectedState}
+    value={selectedValue}
+    valueOnChange={setSelectedValue}
 ></Tabs>
 ```
 
