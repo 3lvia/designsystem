@@ -14,41 +14,30 @@ export interface TabsProps {
 }
 
 const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
-  const [currValue, setValue] = useState(value);
-  const [onTheRightEnd, setOnTheRightEnd] = useState(true);
-  const [onTheLeftEnd, setOnTheLeftEnd] = useState(true);
+  const [currValue, setCurrValue] = useState(value);
+  const [isOnRightEnd, setIsOnRightEnd] = useState(true);
+  const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
   const tabsRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
-  const lengthToScroll = useRef(140);
-  const arrowLeftClasses = classNames('ewc-tabs__arrow', {
-    ['ewc-tabs__arrow--hide']: onTheLeftEnd,
-    ['ewc-tabs__arrow--remove']: onTheRightEnd && onTheLeftEnd,
-  });
-  const arrowRightClasses = classNames('ewc-tabs__arrow', {
-    ['ewc-tabs__arrow--hide']: onTheRightEnd,
-    ['ewc-tabs__arrow--remove']: onTheRightEnd && onTheLeftEnd,
-  });
-  const itemsClasses = classNames('ewc-tabs__items', {
-    ['ewc-tabs--hide-fade-right']: onTheRightEnd,
-    ['ewc-tabs--hide-fade-left']: onTheLeftEnd,
-    ['ewc-tabs--scrolling']: !onTheLeftEnd || !onTheRightEnd,
-  });
+  const lengthToScroll = 140;
+  const scrollSteps = 12;
 
   useEffect(() => {
     // Start outline listener
     toolbox.outlineListener(tabsRef.current);
 
     // Update scroll position on init
-    setTimeout(() => updateScrolledPosition());
+    setTimeout(() => updateArrowVisibility());
 
     // Listen to resize & scroll and update scrolled positions
     if (!itemsRef.current) {
       return;
     }
-    const throttledResizeCount = toolbox.throttle(updateScrolledPosition, 500);
+    const throttledResizeCount = toolbox.throttle(updateArrowVisibility, 500);
+    const throttledScrollCount = toolbox.throttle(updateArrowVisibility, 250);
 
     window.addEventListener('resize', throttledResizeCount);
-    itemsRef.current.addEventListener('scroll', updateScrolledPosition);
+    itemsRef.current.addEventListener('scroll', throttledScrollCount);
 
     return () => {
       // Remove outline listener
@@ -56,12 +45,23 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
 
       window.removeEventListener('resize', throttledResizeCount);
       if (itemsRef.current) {
-        itemsRef.current.removeEventListener('scroll', updateScrolledPosition);
+        itemsRef.current.removeEventListener('scroll', throttledScrollCount);
       }
     };
   }, []);
 
   // Updating selected value
+  useEffect(() => {
+    setCurrValue(value);
+  }, [value]);
+
+  const updateCurrValue = (value: number) => {
+    if (items[value].isDisabled) {
+      return;
+    }
+    setCurrValue(value);
+  };
+
   useEffect(() => {
     updateReactComponent();
     updateWebcomponent();
@@ -80,34 +80,56 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
     }
   };
 
-  const scrollToLeft = () => {
-    if (!itemsRef.current) {
-      return;
-    }
-    itemsRef.current.scrollLeft -= lengthToScroll.current;
-    updateScrolledPosition();
-  };
-
-  const scrollToRight = () => {
-    if (!itemsRef.current) {
-      return;
-    }
-    itemsRef.current.scrollLeft += lengthToScroll.current;
-    updateScrolledPosition();
-  };
-
-  const updateScrolledPosition = () => {
+  const updateArrowVisibility = () => {
     if (!itemsRef.current) {
       return;
     }
     const endOfItem = itemsRef.current.scrollWidth - itemsRef.current.getBoundingClientRect().width;
-    setOnTheRightEnd(itemsRef.current.scrollLeft >= endOfItem - 1);
-    setOnTheLeftEnd(itemsRef.current.scrollLeft <= 1);
+    const isOnRight = itemsRef.current.scrollLeft >= endOfItem - 1;
+    const isOnLeft = itemsRef.current.scrollLeft <= 1;
+    setIsOnRightEnd(isOnRight);
+    setIsOnLeftEnd(isOnLeft);
   };
+
+  const scrollSideways = (direction: string) => {
+    let scrollAmount = 0;
+    function slideTimer() {
+      if (!itemsRef.current) {
+        return;
+      }
+      direction === 'left'
+        ? (itemsRef.current.scrollLeft -= scrollSteps)
+        : (itemsRef.current.scrollLeft += scrollSteps);
+      scrollAmount += scrollSteps;
+      if (scrollAmount < lengthToScroll) {
+        requestAnimationFrame(slideTimer);
+      }
+    }
+    slideTimer();
+  };
+
+  const arrowLeftClasses = classNames('ewc-tabs__arrow', {
+    ['ewc-tabs__arrow--hide']: isOnLeftEnd,
+    ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
+  });
+  const arrowRightClasses = classNames('ewc-tabs__arrow', {
+    ['ewc-tabs__arrow--hide']: isOnRightEnd,
+    ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
+  });
+  const itemsClasses = classNames('ewc-tabs__items', {
+    ['ewc-tabs--hide-fade-right']: isOnRightEnd,
+    ['ewc-tabs--hide-fade-left']: isOnLeftEnd,
+    ['ewc-tabs--scrolling']: !isOnLeftEnd || !isOnRightEnd,
+  });
 
   return (
     <div className="ewc-tabs" ref={tabsRef}>
-      <div className={arrowLeftClasses} onClick={() => scrollToLeft()}>
+      <div
+        className={arrowLeftClasses}
+        onClick={() => {
+          scrollSideways('left');
+        }}
+      >
         <i
           className="ewc-icon ewc-icon--arrow_left-bold ewc-icon--xxs"
           style={{
@@ -118,22 +140,40 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
       </div>
 
       <div className={itemsClasses}>
-        <div className="ewc-tabs__scroll" ref={itemsRef}>
+        <div className="ewc-tabs__scroll" ref={itemsRef} role="tablist">
           {items &&
             items.map((item, i) => (
-              <button
-                className={`ewc-tabs__label ${value === i && 'ewc-tabs__label--selected'}`}
+              <div
                 key={i}
-                onClick={() => setValue(i)}
-                disabled={item.isDisabled}
+                className="ewc-tabs__tab"
+                onClick={() => updateCurrValue(i)}
+                aria-hidden={item.isDisabled}
               >
-                {item.label}
-              </button>
+                <input
+                  type="radio"
+                  name="ewc_tab-group"
+                  role="tab"
+                  id={'tab_' + i}
+                  value={currValue}
+                  aria-label={item.label}
+                  aria-checked={i === currValue}
+                  disabled={item.isDisabled}
+                ></input>
+                <label className={`ewc-tabs__label ${currValue === i && 'ewc-tabs__label--selected'}`}>
+                  {item.isDisabled}
+                  {item.label}
+                </label>
+              </div>
             ))}
         </div>
       </div>
 
-      <div className={arrowRightClasses} onClick={() => scrollToRight()}>
+      <div
+        className={arrowRightClasses}
+        onClick={() => {
+          scrollSideways('right');
+        }}
+      >
         <i
           className="ewc-icon ewc-icon--arrow_right-bold ewc-icon--xxs"
           style={{
