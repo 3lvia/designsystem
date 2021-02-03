@@ -4,6 +4,9 @@ Tabs are used to divide content into sections and let the user navigate between 
 tabs when the content is at the same level of the hierarchy and are related. It should always be one tab
 selected by default.
 
+Tabs are built up as radio-buttons to inherit the same behavior and keyboard-accessibility. We have chosen not
+to make tabs anchors as there can be different use-cases where tabs are not rerouting.
+
 ### Number of tabs
 
 Tabs with more than 6 options should be avoided and never fewer than 2 tabs.
