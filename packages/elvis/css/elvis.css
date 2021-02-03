@@ -2607,13 +2607,13 @@ input:focus {
   background: rgba(185, 2, 2, 0.065);
 }
 
-.e-chip:active, .e-chip---hover:not(.e-chip---disabled) {
+.e-chip:active, .e-chip---hover:not(:disabled):not(.e-chip---disabled) {
   background: #29d305;
   cursor: pointer;
 }
 
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .e-chip:hover:not(:disabled) {
+  .e-chip:hover:not(:disabled):not(.e-chip---disabled) {
     background: #29d305;
     cursor: pointer;
   }
