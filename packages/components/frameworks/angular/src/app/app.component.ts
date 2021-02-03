@@ -33,6 +33,14 @@ export class AppComponent implements OnInit {
       value: 'danmark',
       label: 'Danmark',
     },
+    {
+      value: 'finland',
+      label: 'Finland',
+    },
+    {
+      value: 'island',
+      label: 'Island',
+    },
   ];
 
   nativeJSApproach(): void {
