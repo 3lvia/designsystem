@@ -12,13 +12,13 @@ export class AppComponent implements OnInit {
   progressValue = 0;
 
   items = [
-    { label: 'Epler' },
+    { label: 'Epler', isDisabled: true },
     { label: 'Appelsin' },
     { label: 'Bananer' },
     { label: 'Druer' },
-    { label: 'Kiwi', disabled: true },
+    { label: 'Kiwi', isDisabled: true },
   ];
-  value = 0;
+  value = 2;
 
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
