@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { ComponentProp } from 'src/app/shared/component-prop.interface';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -8,6 +9,33 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class PopoverDocComponent {
   @ViewChild('popover1') popover1: ElementRef;
+
+  popoverProperties: ComponentProp[] = [
+    { name: 'title', type: 'string', description: 'Title of content', default: '-' },
+    {
+      name: 'content',
+      type: 'string | HTMLElement',
+      description: 'Text, images, tables or any other content',
+    },
+    {
+      name: 'trigger',
+      type: 'HTMLElement',
+      description: 'The element the user clicks to open the popover',
+    },
+    {
+      name: 'posX',
+      type: '“left” | “right” | “center”',
+      description: 'Position horizontally',
+      default: '“center”',
+    },
+    { name: 'posY', type: '“bottom” | “top”', description: 'Position vertically', default: '“top”' },
+    {
+      name: 'hasCloseBtn',
+      type: 'boolean',
+      description: 'Determines if the close button in the upper right corner should be visible',
+      default: 'true',
+    },
+  ];
 
   figmaUrl = getComponent('popover').figmaUrl;
   description = getComponent('popover').description;

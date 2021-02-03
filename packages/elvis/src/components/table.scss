@@ -121,6 +121,11 @@ $grey10: colors.color('grey-10');
       white-space: pre-wrap;
       width: 450px;
     }
+    &.e-table__cell--multiline-small {
+      display: inline-block;
+      white-space: pre-wrap;
+      width: 250px;
+    }
   }
 
   thead {

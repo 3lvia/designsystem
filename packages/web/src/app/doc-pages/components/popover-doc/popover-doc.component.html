@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Popover
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Popover</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <span class="e-popover" id="popover1">
       <button class="e-btn e-btn--icon e-btn--circled" (click)="togglePopup('popover1', 'popover1Content')">
@@ -114,7 +112,8 @@
   <!--PROPERTIES-->
   <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-popover'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-popover'"></app-component-properties>
+      <!-- <app-component-properties [componentName]="'e-popover'"></app-component-properties> -->
+      <app-component-properties-table [componentProps]="popoverProperties"></app-component-properties-table>
     </ng-container>
   </app-component-section>
 </div>

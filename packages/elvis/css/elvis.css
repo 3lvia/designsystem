@@ -7140,6 +7140,13 @@ input:focus {
   width: 450px;
 }
 
+.e-table td.e-table__cell--multiline-small,
+.e-table th.e-table__cell--multiline-small {
+  display: inline-block;
+  white-space: pre-wrap;
+  width: 250px;
+}
+
 .e-table thead tr {
   height: 56px;
 }
