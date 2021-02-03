@@ -71,7 +71,11 @@ $form-input-padding-compact-active: 4px 9px;
   }
 
   &.e-input---focus > input,
-  &.e-input---focus > textarea,
+  &.e-input---focus > textarea {
+    @include outline.e-outline-pseudoclass();
+    border: 2px solid colors.color('elvia-charge');
+    padding: $form-input-padding-active;
+  }
   > input:focus,
   > textarea:focus {
     @include outline.e-outline();

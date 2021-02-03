@@ -74,6 +74,7 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
     }
   }
 
+  &:active,
   &.e-checkbox---hover:not(:disabled):not(:invalid) {
     .e-checkbox__mark {
       background-color: colors.color('elvia-charge');

@@ -72,6 +72,9 @@ $toggle-negative-slider-padding: calc((#{$toggle-negative-height} - #{$toggle-sl
     @include helpers.transform(translateX(16px));
   }
 
+  &.e-toggle---focus input + .e-toggle__slider {
+    @include outline.e-outline-pseudoclass();
+  }
   input:focus + .e-toggle__slider {
     @include outline.e-outline();
   }
