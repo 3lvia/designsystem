@@ -46,6 +46,22 @@ function App() {
       value: 'danmark',
       label: 'Danmark',
     },
+    {
+      value: 'danmark',
+      label: 'Danmark',
+    },
+    {
+      value: 'danmark',
+      label: 'Danmark',
+    },
+    {
+      value: 'danmark',
+      label: 'Danmark',
+    },
+    {
+      value: 'danmark',
+      label: 'Danmark',
+    },
   ];
 
   return (

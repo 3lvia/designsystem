@@ -41,6 +41,26 @@ export class AppComponent implements OnInit {
       value: 'island',
       label: 'Island',
     },
+    {
+      value: 'island1',
+      label: 'Island',
+    },
+    {
+      value: 'islan2d',
+      label: 'Island',
+    },
+    {
+      value: 'island3',
+      label: 'Island',
+    },
+    {
+      value: 'islan4d',
+      label: 'Island',
+    },
+    {
+      value: 'islan5d',
+      label: 'Island',
+    },
   ];
 
   nativeJSApproach(): void {

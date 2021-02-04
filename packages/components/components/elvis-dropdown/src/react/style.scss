@@ -18,12 +18,12 @@ $sizes: (
   "xxl": 56px,
 );
 
-.react-select-container {
+.ewc-dropdown-container {
   position: relative;
   box-sizing: border-box;
   max-width: 400px;
 
-  .react-select__control {
+  .ewc-dropdown__control {
     align-items: center;
     background-color: white;
     border: 1px solid $black;
@@ -39,6 +39,7 @@ $sizes: (
     outline: 0 !important;
     position: relative;
     transition: all 100ms;
+    box-sizing: border-box;
 
     &:hover {
       border: 2px solid $green;
@@ -54,12 +55,12 @@ $sizes: (
       }
     }
 
-    &.react-select__control--menu-is-open {
+    &.ewc-dropdown__control--menu-is-open {
       border: 2px solid $green;
       padding: 0px;
 
-      .react-select__indicators {
-        .react-select__indicator {
+      .ewc-dropdown__indicators {
+        .ewc-dropdown__indicator {
           .ewc-dropdown__icon {
             transform: rotate(180deg);
             transition: transform 250ms;
@@ -67,11 +68,11 @@ $sizes: (
         }
       }
     }
-    &.react-select__control--is-focused {
+    &.ewc-dropdown__control--is-focused {
       box-shadow: none;
     }
 
-    .react-select__value-container {
+    .ewc-dropdown__value-container {
       align-items: center;
       box-sizing: border-box;
       display: flex;
@@ -82,13 +83,26 @@ $sizes: (
       position: relative;
       overflow: hidden;
 
-      .react-select__placeholder {
+      .ewc-dropdown__placeholder {
         color: $grey-70;
         position: absolute;
         top: 50%;
         left: 0;
         margin-left: 16px;
         transform: translateY(-50%);
+      }
+
+      .ewc-dropdown__single-value {
+        color: $black;
+        margin-left: 16px;
+        max-width: calc(100% - 8px);
+        overflow: hidden;
+        position: absolute;
+        text-overflow: ellipsis;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        box-sizing: border-box;
       }
 
       input {
@@ -105,17 +119,17 @@ $sizes: (
         transform: scale(0);
       }
     }
-    .react-select__indicators {
+    .ewc-dropdown__indicators {
       align-items: center;
       align-self: stretch;
       display: flex;
       flex-shrink: 0;
 
-      .react-select__indicator-separator {
+      .ewc-dropdown__indicator-separator {
         display: none;
       }
 
-      .react-select__indicator {
+      .ewc-dropdown__indicator {
         position: absolute;
         height: 100%;
         width: 100%;
@@ -144,7 +158,7 @@ $sizes: (
       }
     }
   }
-  .react-select__menu {
+  .ewc-dropdown__menu {
     background-color: $white;
     box-shadow: $e-shadow-6;
     margin-top: 5px;
@@ -153,16 +167,23 @@ $sizes: (
     top: 100%;
     z-index: 1;
 
-    .react-select__menu-list {
+    .ewc-dropdown__menu-list {
       max-height: 241px;
       overflow-y: auto;
       padding-bottom: 0px;
       padding-top: 0px;
       position: relative;
       -webkit-overflow-scrolling: touch;
-      overflow: hidden;
+      overflow: scroll;
 
-      .react-select__option {
+      // hide scrollbar in menulist
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .ewc-dropdown__option {
         font-family: "Red Hat Text";
         font-size: 16px;
         font-style: normal;

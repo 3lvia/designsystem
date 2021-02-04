@@ -23,7 +23,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isDisabled = false,
 }) => {
 
-  const DropdownIndicator = (
+  const ElviaDropdownIndicator = (
     props: ElementConfig<typeof components.DropdownIndicator>
   ) => {
     return (
@@ -43,9 +43,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
 
     <Select
-      className={'react-select-container'}
-      classNamePrefix="react-select"
-      components={{ DropdownIndicator }}
+      className={'ewc-dropdown-container'}
+      classNamePrefix="ewc-dropdown"
+      components={{ DropdownIndicator: ElviaDropdownIndicator }}
       options={options}
       placeholder={placeholder}
       isDisabled={isDisabled}
