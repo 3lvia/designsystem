@@ -7,4 +7,4 @@ import { ComponentExampleCodeComponent } from './component-example-code.componen
   declarations: [ComponentExampleCodeComponent],
   exports: [ComponentExampleCodeComponent],
 })
-export class CodeHighlighterModule {}
+export class ComponentExampleCodeModule {}

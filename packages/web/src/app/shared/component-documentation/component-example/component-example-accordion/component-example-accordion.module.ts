@@ -7,4 +7,4 @@ import { ComponentExampleAccordionComponent } from './component-example-accordio
   exports: [ComponentExampleAccordionComponent],
   declarations: [ComponentExampleAccordionComponent],
 })
-export class CodeBlockAccordionModule {}
+export class ComponentExampleAccordionModule {}

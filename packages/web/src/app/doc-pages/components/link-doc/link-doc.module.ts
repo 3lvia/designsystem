@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LinkDocComponent } from './link-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
-import { CodeBlockModule } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
+import { ComponentExampleV1Module } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
 import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
 import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
@@ -16,7 +16,7 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
   imports: [
     CommonModule,
     ComponentHeaderModule,
-    CodeBlockModule,
+    ComponentExampleV1Module,
     DoDontModule,
     ComponentPropertiesModule,
     ComponentSectionModule,
