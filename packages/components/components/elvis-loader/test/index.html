@@ -3,14 +3,37 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <!--<script>
+      window.ELVIS_CONFIG = {
+        'elvis-progress-linear': '1.0.2',
+        'elvis-popover': '1.0.2',
+      };
+    </script>-->
+
+    <script>
+      function addProgressLinear() {
+        var elem = document.createElement('elvia-progress-linear');
+        elem.setAttribute('isIndeterminate', 'true');
+        document.body.appendChild(elem);
+      }
+      function addPopover() {
+        var elem = document.createElement('elvia-popover');
+        var trigger = document.createElement('button');
+        trigger.innerHTML = 'Trigger';
+        trigger.setAttribute('slot', 'trigger');
+        elem.setAttribute('posX', 'right');
+        elem.setAttribute('content', 'Dette er en test');
+        elem.appendChild(trigger);
+        document.body.appendChild(elem);
+      }
+    </script>
   </head>
 
   <body style="max-width: 800px">
-    <elvia-popover title="BankID" posX="right">
-      <button slot="trigger" class="e-btn">Right top</button>
-      <div slot="customContent">Alle privatkunder må bruke BankID.</div>
-    </elvia-popover>
-    <elvia-progress-linear isIndeterminate="true"></elvia-progress-linear>
+    <button onclick="addProgressLinear()">Add progress-linear</button>
+    <button onclick="addPopover()">Add popover</button>
+    <br />
+    <br />
     <script src="../dist/elvia-loader.js"></script>
   </body>
 </html>
