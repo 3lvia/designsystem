@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ColorDocComponent } from './color-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
 import { DoDontModule } from 'src/app/shared/do-dont/do-dont.module';
-import { CodeBlockModule } from 'src/app/shared/component-documentation/component-example/code-block/code-block.module';
+import { CodeBlockModule } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
 import { RouterModule } from '@angular/router';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';

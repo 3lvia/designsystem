@@ -17,7 +17,7 @@
       <span class="e-btn__title">Button</span>
     </button>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
     </div>
   </div>
 
@@ -30,7 +30,10 @@
           are design to stand out and take the most attention of all the buttons. Primary button are often
           used for saving, sending, submitting, registering and so on. It can be used alone or together with
           secondary and tertiary.
-          <app-code-block [codeHTML]="example1" [codeInverted]="example1Inverted"></app-code-block>
+          <app-component-example-v1
+            [codeHTML]="example1"
+            [codeInverted]="example1Inverted"
+          ></app-component-example-v1>
           <app-when-to-use [whens]="doesExample1"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
@@ -40,7 +43,10 @@
           Secondary buttons are the alternative we give users to the primary action and should be used in less
           important actions. Secondary are often used for canceling, declining, go back and so on. It can be
           used alone or together to support primary or link style button.'
-          <app-code-block [codeHTML]="example2" [codeInverted]="example2Inverted"></app-code-block>
+          <app-component-example-v1
+            [codeHTML]="example2"
+            [codeInverted]="example2Inverted"
+          ></app-component-example-v1>
           <app-when-to-use [whens]="doesExample2"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
@@ -51,7 +57,10 @@
           for to do right then. Tertiary are designed to be less striking than primary and secondary. Example
           of use is download and edit. It can be used isolated alone or paired together with primary or
           secondary.
-          <app-code-block [codeHTML]="example3" [codeInverted]="example3Inverted"></app-code-block>
+          <app-component-example-v1
+            [codeHTML]="example3"
+            [codeInverted]="example3Inverted"
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
@@ -60,7 +69,10 @@
           Icon buttons are used for well-known and simple actions such as close, edit, delete etc. They are
           ideal for task based actions where the button should not attract to much attention. Icon button
           should be supported by a tooltip.
-          <app-code-block [codeHTML]="exampleIcon" [codeInverted]="exampleIconInverted"></app-code-block>
+          <app-component-example-v1
+            [codeHTML]="exampleIcon"
+            [codeInverted]="exampleIconInverted"
+          ></app-component-example-v1>
           <app-when-to-use [whens]="doesExampleIcon" [whenNots]="dontsExampleIcon"></app-when-to-use>
           <app-component-subsubsection [sectionTitle]="'Touch target'">
             <ng-container ngProjectAs="sectionContent">
@@ -102,7 +114,10 @@
       <app-component-subsection [sectionTitle]="'Links with button style'">
         <ng-container ngProjectAs="sectionContent">
           The e-btn class can also be used on anchor tags to make links appear like buttons.
-          <app-code-block [codeHTML]="buttonLinks" [codeInverted]="buttonLinksInverted"></app-code-block>
+          <app-component-example-v1
+            [codeHTML]="buttonLinks"
+            [codeInverted]="buttonLinksInverted"
+          ></app-component-example-v1>
           <app-when-to-use [whenNots]="dontsExample7"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
@@ -112,7 +127,7 @@
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-code-block [codeHTML]="sizesHTML"></app-code-block>
+      <app-component-example-v1 [codeHTML]="sizesHTML"></app-component-example-v1>
       <p class="e-mt-24">
         There are three different sizes of buttons: small, medium, and large. The choice of button size
         depends on how important the button is and how much attention it should have. It can also depend on

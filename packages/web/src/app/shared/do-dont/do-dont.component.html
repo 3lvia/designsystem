@@ -1,12 +1,12 @@
 <div class="doDont-container">
   <div class="doDo" *ngIf="do">
     <div class="code-highlighter">
-      <app-code-highlighter
+      <app-component-example-code
         [codeTS]="codeTS"
         [codeHTML]="codeHTML"
         [codeCSS]="codeCSS"
         [doDontComp]="true"
-      ></app-code-highlighter>
+      ></app-component-example-code>
     </div>
     <div class="instructions do">
       <span style="display: flex; align-items: center">
@@ -17,12 +17,12 @@
   </div>
   <div class="doDont" *ngIf="!do">
     <div class="code-highlighter">
-      <app-code-highlighter
+      <app-component-example-code
         [codeTS]="codeTS"
         [codeHTML]="codeHTML"
         [codeCSS]="codeCSS"
         [doDontComp]="true"
-      ></app-code-highlighter>
+      ></app-component-example-code>
     </div>
     <div class="instructions dont">
       <span style="display: flex; align-items: center">

@@ -3,11 +3,11 @@ import { HighlightService } from 'src/app/core/services/highlight.service';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 
 @Component({
-  selector: 'app-code-highlighter',
-  templateUrl: './code-highlighter.component.html',
-  styleUrls: ['./code-highlighter.component.scss'],
+  selector: 'app-component-example-code',
+  templateUrl: './component-example-code.component.html',
+  styleUrls: ['./component-example-code.component.scss'],
 })
-export class CodeHighlighterComponent implements OnInit, OnChanges, AfterViewChecked {
+export class ComponentExampleCodeComponent implements OnInit, OnChanges, AfterViewChecked {
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';

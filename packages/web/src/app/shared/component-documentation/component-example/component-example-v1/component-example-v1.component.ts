@@ -3,12 +3,12 @@ import { heightDown } from 'src/app/shared/animations';
 import { VersionService } from 'src/app/core/services/version.service';
 
 @Component({
-  selector: 'app-code-block',
-  templateUrl: './code-block.component.html',
-  styleUrls: ['./code-block.component.scss'],
+  selector: 'app-component-example-v1',
+  templateUrl: './component-example-v1.component.html',
+  styleUrls: ['./component-example-v1.component.scss'],
   animations: [heightDown],
 })
-export class CodeBlockComponent implements OnInit, AfterViewInit {
+export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   @ViewChild('toggle') toggle: ElementRef;
   @ViewChild('defaultFrame') defaultFrame;
   @Input() does = [];
@@ -47,7 +47,7 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     if (this.codeInstallation) {
-      this.code = '';
+      this.showPreview = false;
     } else {
       this.code = this.codeTS !== '' ? this.codeTS : this.codeHTML !== '' ? this.codeHTML : this.codeCSS;
     }

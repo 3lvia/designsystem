@@ -1,4 +1,5 @@
 <div class="component-body__example">
+  <!--Example preview-->
   <div
     class="component-body__example-body"
     [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
@@ -83,11 +84,11 @@
   <!--Code block-->
   <div class="show-code e-mt-16">
     <div class="e-w-100">
-      <app-code-block-accordion>
+      <app-component-example-accordion>
         <ng-container ngProjectAs="accordionContent">
           <div class="code e-w-100">
             <div class="code-highlight">
-              <app-code-highlighter
+              <app-component-example-code
                 [codeTS]="codeTS"
                 [codeHTML]="codeHTML"
                 [codeCSS]="codeCSS"
@@ -97,7 +98,7 @@
                 [isJS]="isJS"
                 [codeInverted]="codeInverted"
                 [isInverted]="isInverted"
-              ></app-code-highlighter>
+              ></app-component-example-code>
             </div>
 
             <!--Codepen-->
@@ -125,7 +126,7 @@
             </div>
           </div>
         </ng-container>
-      </app-code-block-accordion>
+      </app-component-example-accordion>
     </div>
   </div>
 </div>

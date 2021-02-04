@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
     </div>
   </div>
 
@@ -38,17 +38,17 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Box'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="exampleContentLoader"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleContentLoader"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Circle'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="exampleContentLoaderCircle"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleContentLoaderCircle"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Text'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="exampleContentLoaderText"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleContentLoaderText"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -61,7 +61,7 @@
       <span class="code-text">e-content-loader</span>
       . Place the loader where the content is loading and add size with width and height on the element to
       match the content that is loading.
-      <app-code-block [codeHTML]="exampleContentLoaderExample"></app-code-block>
+      <app-component-example-v1 [codeHTML]="exampleContentLoaderExample"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 

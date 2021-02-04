@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Pagination
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Pagination</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-pagination">
       <div class="e-pagination__number-per-page">
@@ -76,11 +74,11 @@
     </div>
 
     <div class="e-w-100">
-      <app-code-block
+      <app-component-example-v1
         [showPreview]="false"
         [codeHTML]="exampleInHTML"
         [codeTS]="exampleInTS"
-      ></app-code-block>
+      ></app-component-example-v1>
     </div>
   </div>
 

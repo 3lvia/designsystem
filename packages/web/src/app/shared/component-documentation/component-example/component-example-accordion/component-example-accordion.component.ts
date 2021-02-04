@@ -1,11 +1,11 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-code-block-accordion',
-  templateUrl: './code-block-accordion.component.html',
-  styleUrls: ['./code-block-accordion.component.scss'],
+  selector: 'app-component-example-accordion',
+  templateUrl: './component-example-accordion.component.html',
+  styleUrls: ['./component-example-accordion.component.scss'],
 })
-export class CodeBlockAccordionComponent {
+export class ComponentExampleAccordionComponent {
   @ViewChild('accordionItem') accordionItem: ElementRef;
 
   showCode = false;
