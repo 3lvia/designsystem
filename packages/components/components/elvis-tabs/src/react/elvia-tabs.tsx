@@ -34,7 +34,7 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
       return;
     }
     const throttledResizeCount = toolbox.throttle(updateArrowVisibility, 500);
-    const throttledScrollCount = toolbox.throttle(updateArrowVisibility, 250);
+    const throttledScrollCount = toolbox.throttle(updateArrowVisibility, 150);
 
     window.addEventListener('resize', throttledResizeCount);
     itemsRef.current.addEventListener('scroll', throttledScrollCount);
