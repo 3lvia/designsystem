@@ -4,6 +4,7 @@
     [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
     *ngIf="showPreview"
   >
+    <!--Screen tabs-->
     <div class="top-menu">
       <div class="tabs e-mb-24" *ngIf="showIframeScreens && showTabs">
         <div
@@ -40,6 +41,7 @@
       </div>
     </div>
 
+    <!--Visual example-->
     <div
       class="element"
       *ngIf="!showIframeScreens || (!showIframe && screenTabOpen == 'desktop')"
@@ -78,6 +80,7 @@
     </div>
   </div>
 
+  <!--Code block-->
   <div class="show-code e-mt-16">
     <div class="e-w-100">
       <app-code-block-accordion>
@@ -88,12 +91,16 @@
                 [codeTS]="codeTS"
                 [codeHTML]="codeHTML"
                 [codeCSS]="codeCSS"
+                [codeInstallation]="codeInstallation"
+                [codeWebComponent]="codeWebComponent"
+                [codeReact]="codeReact"
                 [isJS]="isJS"
                 [codeInverted]="codeInverted"
                 [isInverted]="isInverted"
               ></app-code-highlighter>
             </div>
 
+            <!--Codepen-->
             <div class="codepen-link">
               <form
                 class="codepen"

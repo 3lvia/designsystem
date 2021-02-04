@@ -35,20 +35,24 @@ pre {
         font-family: 'Red Hat Display';
         font-size: 14px;
         line-height: 32px;
+        text-transform: uppercase;
+        color: var(--e-grey-20);
+
         cursor: pointer;
 
         display: flex;
         align-items: center;
         width: 100%;
         letter-spacing: 0.2px;
+        white-space: nowrap;
 
         position: relative;
         border-bottom: 2px solid transparent;
-        color: var(--e-white);
         margin-left: 12px;
 
         &.active {
-          font-weight: 700;
+          color: var(--e-white);
+          text-shadow: 0 0 0 var(--e-white), 0 0 0.5px var(--e-white);
           &:before {
             content: '';
             visibility: visible;

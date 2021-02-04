@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SelectDocComponent } from './select-doc.component';
-import { ComponentHeaderModule } from 'src/app/shared/component-structure/component-header/component-header.module';
-import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
-import { ComponentPropertiesModule } from 'src/app/shared/component-properties/component-properties.module';
+import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
+import { CodeBlockModule } from 'src/app/shared/component-documentation/component-example/code-block/code-block.module';
+import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
 
 @NgModule({
   imports: [CommonModule, ComponentHeaderModule, CodeBlockModule, ComponentPropertiesModule],

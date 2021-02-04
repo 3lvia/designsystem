@@ -118,8 +118,7 @@
     }
   }
 
-  .show-code,
-  .hide-code {
+  .show-code {
     display: flex;
     justify-content: center;
     .e-accordion__item {
@@ -130,9 +129,6 @@
   .code {
     background: var(--e-grey);
     border-radius: 8px;
-
-    .code-highlight {
-    }
 
     .codepen-link {
       display: flex;

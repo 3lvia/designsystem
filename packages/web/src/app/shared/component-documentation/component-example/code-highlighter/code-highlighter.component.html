@@ -1,6 +1,31 @@
 <div class="highlight-container" [ngClass]="{ 'do-dont-comp': doDontComp }">
   <div class="top-menu">
+    <!--Tabs - Tabs component can replace when published-->
     <div class="tabs">
+      <div
+        class="tab"
+        *ngIf="codeInstallation !== ''"
+        [ngClass]="{ active: activeTab === 'installation' }"
+        (click)="changeActiveTab('installation')"
+      >
+        Installation
+      </div>
+      <div
+        class="tab"
+        *ngIf="codeReact !== ''"
+        [ngClass]="{ active: activeTab === 'react' }"
+        (click)="changeActiveTab('react')"
+      >
+        React
+      </div>
+      <div
+        class="tab"
+        *ngIf="codeWebComponent !== ''"
+        [ngClass]="{ active: activeTab === 'webcomponent' }"
+        (click)="changeActiveTab('webcomponent')"
+      >
+        Web Component
+      </div>
       <div
         class="tab"
         *ngIf="!isJS && codeTS != ''"
@@ -34,6 +59,8 @@
         CSS
       </div>
     </div>
+
+    <!--Copy code-->
     <div class="copy-code">
       <div class="e-mr-8">
         {{ copyMessage }}
@@ -46,6 +73,24 @@
       </button>
     </div>
   </div>
+
+  <!--Components v2-->
+  <pre
+    *ngIf="codeInstallation != '' && activeTab === 'installation'"
+    class="language-typescript"
+  ><code>{{ codeInstallation }}</code></pre>
+
+  <pre
+    *ngIf="codeReact != '' && activeTab === 'react'"
+    class="language-jsx"
+  ><code>{{ codeReact }}</code></pre>
+
+  <pre
+    *ngIf="codeWebComponent != '' && activeTab === 'webcomponent'"
+    class="language-html"
+  ><code>{{ codeWebComponent }}</code></pre>
+
+  <!--CSS components-->
   <pre
     *ngIf="codeTS != '' && activeTab === 'ts' && isInverted !== true"
     class="language-typescript"

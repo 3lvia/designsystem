@@ -17,6 +17,9 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
+  @Input() codeInstallation = '';
+  @Input() codeWebComponent = '';
+  @Input() codeReact = '';
   @Input() isJS = false;
   @Input() codeInverted = '';
   @Input() showIframeScreens = false;
@@ -43,7 +46,11 @@ export class CodeBlockComponent implements OnInit, AfterViewInit {
   constructor(private versionService: VersionService) {}
 
   ngOnInit(): void {
-    this.code = this.codeTS !== '' ? this.codeTS : this.codeHTML !== '' ? this.codeHTML : this.codeCSS;
+    if (this.codeInstallation) {
+      this.code = '';
+    } else {
+      this.code = this.codeTS !== '' ? this.codeTS : this.codeHTML !== '' ? this.codeHTML : this.codeCSS;
+    }
     this.setCodePenValue();
     this.displayCode = this.code;
 
