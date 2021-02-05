@@ -47,20 +47,32 @@ function App() {
       label: 'Danmark',
     },
     {
-      value: 'danmark',
-      label: 'Danmark',
+      value: 'finland',
+      label: 'Finland',
     },
     {
-      value: 'danmark',
-      label: 'Danmark',
+      value: 'island',
+      label: 'Island',
     },
     {
-      value: 'danmark',
-      label: 'Danmark',
+      value: 'island1',
+      label: 'Island',
     },
     {
-      value: 'danmark',
-      label: 'Danmark',
+      value: 'islan2d',
+      label: 'Island',
+    },
+    {
+      value: 'island3',
+      label: 'Island',
+    },
+    {
+      value: 'islan4d',
+      label: 'Island',
+    },
+    {
+      value: 'islan5d',
+      label: 'Island',
     },
   ];
 
@@ -70,7 +82,7 @@ function App() {
 
       <h2>Dropdown</h2>
       <div>
-        <Dropdown options={options}></Dropdown>
+        <Dropdown options={options} ></Dropdown>
       </div>
 
       <h2>Tabs</h2>
