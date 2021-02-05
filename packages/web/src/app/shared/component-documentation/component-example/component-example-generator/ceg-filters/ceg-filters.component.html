@@ -7,7 +7,7 @@
         *ngFor="let label of prop.options; let i = index"
         class="e-radio e-radio--sm"
         for="{{ label }}-radio"
-        (click)="changeCode(prop)"
+        (click)="changeCode(prop, label)"
       >
         <input *ngIf="i === 0" type="radio" id="{{ label }}-radio" name="{{ prop.name }} radio" checked />
         <input type="radio" id="{{ label }}-radio" name="{{ prop.name }} radio" />

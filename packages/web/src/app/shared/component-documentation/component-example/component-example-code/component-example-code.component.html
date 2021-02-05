@@ -74,8 +74,10 @@
     </div>
   </div>
 
+  <pre *ngIf="myCode"><code [innerHtml]="myCode"></code></pre>
+
   <!--Components v2-->
-  <pre
+  <!-- <pre
     *ngIf="codeInstallation != '' && activeTab === 'installation'"
     class="language-typescript"
   ><code>{{ codeInstallation }}</code></pre>
@@ -88,10 +90,10 @@
   <pre
     *ngIf="codeWebComponent != '' && activeTab === 'webcomponent'"
     class="language-html"
-  ><code>{{ codeWebComponent }}</code></pre>
+  ><code>{{ codeWebComponent }}</code></pre> -->
 
   <!--CSS components-->
-  <pre
+  <!-- <pre
     *ngIf="codeTS != '' && activeTab === 'ts' && isInverted !== true"
     class="language-typescript"
   ><code>{{ codeTS }}</code></pre>
@@ -117,7 +119,7 @@
   <pre
     *ngIf="codeInverted != '' && activeTab === 'css' && isInverted === true"
     class="language-scss"
-  ><code>{{ codeInverted }}</code></pre>
+  ><code>{{ codeInverted }}</code></pre> -->
 
   <!--Codepen-->
   <div class="codepen-link" *ngIf="this.codeHTML !== ''">

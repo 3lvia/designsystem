@@ -22,7 +22,9 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, AfterVi
   copyMessage = '';
   highlighted = false;
   activeTab = '';
+  activeLanguage = '';
   activeCode = '';
+  myCode = '';
   codepen = '';
 
   constructor(
@@ -46,6 +48,28 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, AfterVi
 
   changeActiveTab(type: string): void {
     this.activeTab = type;
+    if (this.isInverted) {
+      this.activeCode = this.codeInverted;
+      this.activeLanguage = 'html';
+    } else if (this.activeTab === 'ts') {
+      this.activeCode = this.codeTS;
+      this.activeLanguage = 'ts';
+    } else if (this.activeTab === 'html') {
+      this.activeCode = this.codeHTML;
+      this.activeLanguage = 'html';
+    } else if (this.activeTab === 'css') {
+      this.activeCode = this.codeCSS;
+      this.activeLanguage = 'scss';
+    } else if (this.activeTab === 'installation') {
+      this.activeCode = this.codeInstallation;
+      this.activeLanguage = 'js';
+    } else if (this.activeTab === 'react') {
+      this.activeCode = this.codeReact;
+      this.activeLanguage = 'jsx';
+    } else {
+      this.activeCode = this.codeWebComponent;
+      this.activeLanguage = 'html';
+    }
     this.highlighted = false;
   }
 
@@ -75,28 +99,15 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, AfterVi
   }
 
   ngAfterViewChecked(): void {
-    if (!this.highlighted) {
-      this.highlightService.highlightAll();
-      this.highlighted = true;
-    }
+    setTimeout(() => {
+      if (!this.highlighted) {
+        this.myCode = this.highlightService.highlight(this.activeCode, this.activeLanguage);
+        this.highlighted = true;
+      }
+    });
   }
 
   copyCode(): void {
-    if (this.isInverted) {
-      this.activeCode = this.codeInverted;
-    } else if (this.activeTab === 'ts') {
-      this.activeCode = this.codeTS;
-    } else if (this.activeTab === 'html') {
-      this.activeCode = this.codeHTML;
-    } else if (this.activeTab === 'css') {
-      this.activeCode = this.codeCSS;
-    } else if (this.activeTab === 'installation') {
-      this.activeCode = this.codeInstallation;
-    } else if (this.activeTab === 'react') {
-      this.activeCode = this.codeReact;
-    } else {
-      this.activeCode = this.codeWebComponent;
-    }
     this.copyService.copyToClipBoard(this.activeCode);
     this.copyMessage = 'Copied!';
     setTimeout(() => {

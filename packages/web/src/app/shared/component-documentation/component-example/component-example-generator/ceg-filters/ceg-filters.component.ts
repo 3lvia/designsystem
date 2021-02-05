@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ExampleCodeService } from '../../../example-code.service';
 
 @Component({
   selector: 'app-ceg-filters',
@@ -10,6 +11,8 @@ export class CegFiltersComponent implements OnInit {
   @Input() codeReact;
   @Input() codeWebComponent;
   props = [];
+
+  constructor(private codeService: ExampleCodeService) {}
 
   ngOnInit(): void {
     this.getComponentVariables();
@@ -30,6 +33,6 @@ export class CegFiltersComponent implements OnInit {
     console.log(label);
     console.log(this.codeReact);
     console.log(this.codeWebComponent);
-    this.codeReact = `helo`;
+    this.codeService.UpdateCodeReact('helo');
   }
 }
