@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   progressValue = 0;
 
   items = [
-    { label: 'Epler', isDisabled: true },
+    { label: 'Epler' },
     { label: 'Appelsin' },
     { label: 'Bananer' },
     { label: 'Druer' },
