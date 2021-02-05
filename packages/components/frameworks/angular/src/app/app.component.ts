@@ -31,11 +31,5 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.nativeJSApproach();
-
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500&display=swap';
-    link.rel = 'stylesheet';
-    link.type = 'text/css';
-    document.head.appendChild(link);
   }
 }
