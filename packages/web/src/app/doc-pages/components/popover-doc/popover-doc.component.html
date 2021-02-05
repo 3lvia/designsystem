@@ -8,28 +8,13 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--CEG (coming)-->
-  <div
-    class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
-  >
-    <elvia-popover title="Popover title" content="Test av popover component.">
-      <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
-        <span class="e-btn__icon">
-          <i class="e-icon e-icon--information_circle"></i>
-          <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-        </span>
-      </button>
-    </elvia-popover>
-    <div class="e-w-100">
-      <app-component-example-v1
-        [showPreview]="false"
-        [codeInstallation]="codeInstallation"
-        [codeReact]="codeReact"
-        [codeWebComponent]="codeWebComponent"
-      ></app-component-example-v1>
-    </div>
-  </div>
+  <!--CEG-->
+  <app-component-example-generator
+    [codeInstallation]="codeInstallation"
+    [codeReact]="codeReact"
+    [codeWebComponent]="codeWebComponent"
+    [componentData]="componentData"
+  ></app-component-example-generator>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">

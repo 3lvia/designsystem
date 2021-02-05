@@ -118,31 +118,8 @@
     }
   }
 
-  .show-code {
+  .component-code {
     display: flex;
     justify-content: center;
-    .e-accordion__item {
-      justify-content: center;
-    }
-  }
-
-  .code {
-    background: var(--e-grey);
-    border-radius: 8px;
-
-    .codepen-link {
-      display: flex;
-      justify-content: flex-end;
-      padding-bottom: 24px;
-      padding-right: 24px;
-
-      a {
-        color: var(--e-white);
-        border-color: var(--e-white);
-        &:hover {
-          border-color: var(--e-green);
-        }
-      }
-    }
   }
 }

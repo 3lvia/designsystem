@@ -1,0 +1,14 @@
+.ceg-side-filters {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  //   margin-top: $top-filter-height;
+  margin-left: 24px;
+  .ceg-side-filter:not(:last-of-type) {
+    margin-bottom: 24px;
+  }
+
+  .e-radio.e-radio--sm:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}

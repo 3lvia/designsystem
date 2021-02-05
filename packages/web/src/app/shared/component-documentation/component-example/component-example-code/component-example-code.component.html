@@ -118,4 +118,21 @@
     *ngIf="codeInverted != '' && activeTab === 'css' && isInverted === true"
     class="language-scss"
   ><code>{{ codeInverted }}</code></pre>
+
+  <!--Codepen-->
+  <div class="codepen-link" *ngIf="this.codeHTML !== ''">
+    <form class="codepen" #codepenForm action="https://codepen.io/pen/define" method="POST" target="_blank">
+      <input type="hidden" name="data" [value]="codepen" />
+      <a
+        href="javascript:void(0)"
+        (click)="codepenForm.submit()"
+        class="e-link e-link--new-tab e-link--inverted e-link--sm"
+      >
+        <span class="e-link__title">Try in codepen</span>
+        <span class="e-link__icon">
+          <i class="e-icon e-icon--new_tab-bold e-icon--inverted"></i>
+        </span>
+      </a>
+    </form>
+  </div>
 </div>

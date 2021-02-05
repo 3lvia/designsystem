@@ -1,7 +1,7 @@
 import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
 import { ComponentProp } from 'src/app/shared/component-prop.interface';
 import { getComponent } from 'src/app/shared/e-items';
-
+import * as componentData from './popover-data.js';
 @Component({
   selector: 'app-popover-doc',
   templateUrl: './popover-doc.component.html',
@@ -9,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class PopoverDocComponent {
   @ViewChild('popover1') popover1: ElementRef;
-
+  componentData = componentData;
   popoverProperties: ComponentProp[] = [
     { name: 'title', type: 'string', description: 'Title of content', default: '-' },
     {

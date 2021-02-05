@@ -82,51 +82,21 @@
   </div>
 
   <!--Code block-->
-  <div class="show-code e-mt-16">
-    <div class="e-w-100">
-      <app-component-example-accordion>
-        <ng-container ngProjectAs="accordionContent">
-          <div class="code e-w-100">
-            <div class="code-highlight">
-              <app-component-example-code
-                [codeTS]="codeTS"
-                [codeHTML]="codeHTML"
-                [codeCSS]="codeCSS"
-                [codeInstallation]="codeInstallation"
-                [codeWebComponent]="codeWebComponent"
-                [codeReact]="codeReact"
-                [isJS]="isJS"
-                [codeInverted]="codeInverted"
-                [isInverted]="isInverted"
-              ></app-component-example-code>
-            </div>
-
-            <!--Codepen-->
-            <div class="codepen-link">
-              <form
-                class="codepen"
-                #codepenForm
-                *ngIf="this.codeHTML !== ''"
-                action="https://codepen.io/pen/define"
-                method="POST"
-                target="_blank"
-              >
-                <input type="hidden" name="data" [value]="codepen" />
-                <a
-                  href="javascript:void(0)"
-                  (click)="codepenForm.submit()"
-                  class="e-link e-link--new-tab e-link--sm"
-                >
-                  <span class="e-link__title">Try in codepen</span>
-                  <span class="e-link__icon">
-                    <i class="e-icon e-icon--new_tab-bold e-icon--inverted"></i>
-                  </span>
-                </a>
-              </form>
-            </div>
-          </div>
-        </ng-container>
-      </app-component-example-accordion>
-    </div>
+  <div class="component-code e-mt-16">
+    <app-component-example-accordion>
+      <ng-container ngProjectAs="accordionContent">
+        <app-component-example-code
+          [codeTS]="codeTS"
+          [codeHTML]="codeHTML"
+          [codeCSS]="codeCSS"
+          [codeInstallation]="codeInstallation"
+          [codeWebComponent]="codeWebComponent"
+          [codeReact]="codeReact"
+          [isJS]="isJS"
+          [codeInverted]="codeInverted"
+          [isInverted]="isInverted"
+        ></app-component-example-code>
+      </ng-container>
+    </app-component-example-accordion>
   </div>
 </div>

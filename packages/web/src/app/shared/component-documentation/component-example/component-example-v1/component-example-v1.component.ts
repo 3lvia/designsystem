@@ -1,6 +1,5 @@
 import { Component, Input, AfterViewInit, ViewChild, OnInit, ElementRef } from '@angular/core';
 import { heightDown } from 'src/app/shared/animations';
-import { VersionService } from 'src/app/core/services/version.service';
 
 @Component({
   selector: 'app-component-example-v1',
@@ -43,15 +42,12 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   showIframe = false;
   desktopScreenWidth: boolean;
 
-  constructor(private versionService: VersionService) {}
-
   ngOnInit(): void {
     if (this.codeInstallation) {
       this.showPreview = false;
     } else {
       this.code = this.codeTS !== '' ? this.codeTS : this.codeHTML !== '' ? this.codeHTML : this.codeCSS;
     }
-    this.setCodePenValue();
     this.displayCode = this.code;
 
     if (!this.showIframeScreens) {
@@ -123,24 +119,8 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
     setTimeout(() => this.updateDefaultFrame(), 10);
   }
 
-  setCodePenValue(): void {
-    let html;
-    const css = 'body {margin: 0}';
-    this.versionService.getCodePenTag().subscribe((tag) => {
-      if (this.codeInverted !== '' && this.isInverted) {
-        html = `${this.codeInverted}
-${tag}`;
-      } else {
-        html = `${this.code}
-${tag}`;
-      }
-      this.codepen = JSON.stringify({ title: 'Elvis', html, css });
-    });
-  }
-
   toggleInverted(): void {
     this.isInverted = !this.isInverted;
-    this.setCodePenValue();
     if (this.displayCode === this.code && this.isInverted) {
       if (this.defaultFrame) {
         this.defaultFrame.nativeElement.innerHTML = this.codeInverted;

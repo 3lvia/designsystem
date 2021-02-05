@@ -1,6 +1,7 @@
 import { Component, Input, AfterViewChecked, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { HighlightService } from 'src/app/core/services/highlight.service';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
+import { VersionService } from 'src/app/core/services/version.service';
 
 @Component({
   selector: 'app-component-example-code',
@@ -22,11 +23,17 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, AfterVi
   highlighted = false;
   activeTab = '';
   activeCode = '';
+  codepen = '';
 
-  constructor(private highlightService: HighlightService, private copyService: CopyToClipboardService) {}
+  constructor(
+    private highlightService: HighlightService,
+    private copyService: CopyToClipboardService,
+    private versionService: VersionService,
+  ) {}
 
   ngOnInit(): void {
     this.initializeActiveTab();
+    this.setCodePenValue();
   }
 
   initializeActiveTab(): void {
@@ -95,5 +102,20 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, AfterVi
     setTimeout(() => {
       this.copyMessage = '';
     }, 3000);
+  }
+
+  setCodePenValue(): void {
+    let html;
+    const css = 'body {margin: 0}';
+    this.versionService.getCodePenTag().subscribe((tag) => {
+      if (this.codeInverted !== '' && this.isInverted) {
+        html = `${this.codeInverted}
+${tag}`;
+      } else {
+        html = `${this.activeCode}
+${tag}`;
+      }
+      this.codepen = JSON.stringify({ title: 'Elvis', html, css });
+    });
   }
 }
