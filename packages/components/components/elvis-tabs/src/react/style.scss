@@ -4,10 +4,6 @@ $grey-40: #a8a8a8;
 $grey-80: #515151;
 $hover-blue: #0064fa;
 $icon-btn-width: 24px;
-// Icon sizes
-$sizes: (
-  'xxs': 8px,
-);
 
 %fade {
   content: '';
@@ -67,11 +63,17 @@ $sizes: (
     &.ewc-tabs__arrow--remove {
       display: none;
     }
-    i {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      visibility: visible;
+    .ewc-icon {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      i {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     &:hover {
@@ -255,38 +257,5 @@ $sizes: (
         width: 100%;
       }
     }
-  }
-}
-
-// --- ICONS ---
-@function get-icon-size($size) {
-  @return map-get($map: $sizes, $key: $size);
-}
-
-@mixin icon-size($icon-size) {
-  $size: get-icon-size($icon-size);
-  width: $size;
-  height: $size;
-  img,
-  i {
-    width: $size;
-    height: $size;
-  }
-}
-
-$defaultSize: 'md';
-
-.ewc-icon {
-  @include icon-size($defaultSize);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: inline-block;
-}
-
-// Making icon size classes
-@each $label, $size in $sizes {
-  .ewc-icon--#{$label} {
-    @include icon-size($label);
   }
 }
