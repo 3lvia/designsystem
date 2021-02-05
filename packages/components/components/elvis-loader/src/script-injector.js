@@ -42,13 +42,16 @@ function getComponentVersion(componentName) {
 }
 
 function getVersionFromConfig(componentName) {
-  if (!window.ELVIS_CONFIG || window.ELVIS_CONFIG[componentName]) {
+  if (!window.ELVIS_CONFIG || !window.ELVIS_CONFIG[componentName]) {
     return;
   }
   return window.ELVIS_CONFIG[componentName];
 }
 
 function createScript(componentName, version) {
+  if (window.location.href.indexOf('?cdn_dev=true') > -1) {
+    return createDevScript(componentName);
+  }
   const integrityComponent = integrity[componentName].versions[version];
   const scriptTag = document.createElement('script');
   scriptTag.src = 'https://cdn.elvia.io/npm/' + componentName + '-' + version + integrityComponent.cdn;
@@ -56,6 +59,13 @@ function createScript(componentName, version) {
   scriptTag.crossOrigin = "anonymous";
   return scriptTag;
 }
+
+function createDevScript(componentName) {
+  const scriptTag = document.createElement('script');
+  scriptTag.src = '../../' + componentName + '/dist/cdn/elvia-' + componentName.substr(6) + '.js';
+  return scriptTag;
+}
+
 
 
 module.exports = injectScript

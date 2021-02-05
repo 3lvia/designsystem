@@ -3,12 +3,18 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <!--<script>
+    <script>
       window.ELVIS_CONFIG = {
         'elvis-progress-linear': '1.0.2',
         'elvis-popover': '1.0.2',
       };
-    </script>-->
+    </script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.elvia.io/npm/elvis-6.2.1/css/elvis.min.css"
+      integrity="sha512-4rTEaRxb05RLjg06sOjiQ7iopePciesS1IrJfEz0H63dQHr5mjNFF6qLFVx33Hqi5inodr9FiF9ADNKS7o5kDg=="
+      crossorigin="anonymous"
+    />
 
     <script>
       function addProgressLinear() {
@@ -30,10 +36,38 @@
   </head>
 
   <body style="max-width: 800px">
-    <button onclick="addProgressLinear()">Add progress-linear</button>
-    <button onclick="addPopover()">Add popover</button>
+    <h1 class="e-title-lg">CDN Testing</h1>
+    <p>Use ?cdn_dev=true for local dev</p>
+    <button class="e-btn e-m-8" onclick="addProgressLinear()">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--download e-icon--inverted"></i>
+        <i class="e-icon e-icon--download"></i>
+      </span>
+      <span class="e-btn__title">Add progress-linear</span>
+    </button>
+    <button class="e-btn e-m-8" onclick="addPopover()">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--download e-icon--inverted"></i>
+        <i class="e-icon e-icon--download"></i>
+      </span>
+      <span class="e-btn__title">Add popover</span>
+    </button>
+    <elvia-popover posx="right" content="Dette er en test">
+      <button slot="trigger">Trigger</button>
+    </elvia-popover>
     <br />
     <br />
+    <!--<script
+      src="https://cdn.elvia.io/npm/elvis-loader-1.0.1/dist/elvia-loader.js"
+      integrity="sha512-1dfxc7nDKvgBkAAe7QVpVaAcWj+os/K4Y5h7gS9vQVNQT3kJfS9lPuiN6AxrA73sRqPtcbjPk1NcuHQuGdOdWg=="
+      crossorigin="anonymous"
+    ></script>-->
     <script src="../dist/elvia-loader.js"></script>
+
+    <script
+      src="https://cdn.elvia.io/npm/elvis-6.2.1/elvis.js"
+      integrity="sha512-TrSQGT+d+B4HWjUudWA1E2UmvK5EEYc06XGK9AmqgeAc0Cai6C6M/n1igkEeascWU3bmVpHJJWG67VFpT7LFQw=="
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
