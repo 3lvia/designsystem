@@ -22,17 +22,58 @@ export class CegFiltersComponent implements OnInit {
     Object.keys(this.componentData.attributes).forEach((attribute) => {
       Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
         if (value === 'formType') {
-          this.props.push(this.componentData.attributes[attribute]);
+          const newObject = {
+            attribute,
+            ...this.componentData.attributes[attribute],
+          };
+          this.props.push(newObject);
         }
       });
     });
+    +'';
   }
 
-  changeCode(prop: Array<string>, label: string): void {
-    console.log(prop);
-    console.log(label);
-    console.log(this.codeReact);
-    console.log(this.codeWebComponent);
-    this.codeService.UpdateCodeReact('helo');
+  updateRadioProp(prop: string, label: string): void {
+    if (this.codeWebComponent.includes(prop)) {
+      // Replaces old prop in code
+      const customRegex = new RegExp(prop + '=".*?"', 'gi');
+      this.codeReact = this.codeReact.replace(customRegex, prop + '="' + label + '"');
+      this.codeWebComponent = this.codeWebComponent.replace(customRegex, prop + '="' + label + '"');
+      this.codeService.updateCodeReact(this.codeReact);
+      this.codeService.updateCodeWebComponent(this.codeWebComponent);
+    } else {
+      // Adds new prop to code
+      const customRegexW = new RegExp('<' + this.componentData.elementNameW, 'gi');
+      const newStringW = '<' + this.componentData.elementNameW + '\n  ' + prop + '="' + label + '"';
+      const customRegexR = new RegExp('<' + this.componentData.elementNameR, 'gi');
+      const newStringR = '<' + this.componentData.elementNameR + '\n  ' + prop + '="' + label + '"';
+      this.codeWebComponent = this.codeWebComponent.replace(customRegexW, newStringW);
+      this.codeReact = this.codeReact.replace(customRegexR, newStringR);
+      this.codeService.updateCodeReact(this.codeReact);
+      this.codeService.updateCodeWebComponent(this.codeWebComponent);
+    }
+  }
+
+  updateToggleProp(prop: string, label: string): void {
+    if (this.codeWebComponent.includes(prop)) {
+      // Removes old prop in code
+      const customRegex = new RegExp(prop + '=".*', 'gi');
+      this.codeReact = this.codeReact.replace(customRegex, '');
+      this.codeReact = this.codeReact.replace(/^\s*[\r\n]/gm, '');
+      this.codeWebComponent = this.codeWebComponent.replace(customRegex, '');
+      this.codeWebComponent = this.codeWebComponent.replace(/^\s*[\r\n]/gm, '');
+      this.codeService.updateCodeReact(this.codeReact);
+      this.codeService.updateCodeWebComponent(this.codeWebComponent);
+    } else {
+      // Adds new prop in code
+      const customRegexW = new RegExp('<' + this.componentData.elementNameW, 'gi');
+      const newStringW = '<' + this.componentData.elementNameW + '\n  ' + prop + '="' + label + '"';
+      const customRegexR = new RegExp('<' + this.componentData.elementNameR, 'gi');
+      const newStringR = '<' + this.componentData.elementNameR + '\n  ' + prop + '="' + label + '"';
+      this.codeWebComponent = this.codeWebComponent.replace(customRegexW, newStringW);
+      this.codeReact = this.codeReact.replace(customRegexR, newStringR);
+      this.codeService.updateCodeReact(this.codeReact);
+      this.codeService.updateCodeWebComponent(this.codeWebComponent);
+    }
   }
 }

@@ -1,6 +1,7 @@
 module.exports = {
   name: 'elvis-popover',
-  elementName: 'elvia-popover',
+  elementNameW: 'elvia-popover',
+  elementNameR: 'Popover',
   attributes: {
     title: {
       type: 'string',

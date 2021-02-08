@@ -1,4 +1,5 @@
 import { Component, Input, ViewChild } from '@angular/core';
+import { ExampleCodeService } from '../../example-code.service';
 
 @Component({
   selector: 'app-component-example-generator',
@@ -15,6 +16,14 @@ export class ComponentExampleGeneratorComponent {
   showTypeDropdown = false;
   showBgDropdown = false;
   currentBackground = 'White';
+
+  constructor(private codeService: ExampleCodeService) {}
+
+  ngOnInit(): void {
+    this.codeService.listenCodeWebComponent().subscribe((code: string) => {
+      this.cegFrame.nativeElement.innerHTML = code;
+    });
+  }
 
   ngAfterViewInit(): void {
     this.cegFrame.nativeElement.innerHTML = this.codeWebComponent;

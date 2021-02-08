@@ -7,12 +7,11 @@
         *ngFor="let label of prop.options; let i = index"
         class="e-radio e-radio--sm"
         for="{{ label }}-radio"
-        (click)="changeCode(prop, label)"
       >
         <input *ngIf="i === 0" type="radio" id="{{ label }}-radio" name="{{ prop.name }} radio" checked />
         <input type="radio" id="{{ label }}-radio" name="{{ prop.name }} radio" />
-        <span class="e-radio__mark"></span>
-        <span class="e-radio__label">{{ label }}</span>
+        <span class="e-radio__mark" (click)="updateRadioProp(prop.attribute, label)"></span>
+        <span class="e-radio__label" (click)="updateRadioProp(prop.attribute, label)">{{ label }}</span>
       </label>
     </div>
 
@@ -20,7 +19,12 @@
     <div *ngIf="prop.formType === 'toggle'">
       <label class="e-form-field__label">{{ prop.name }}</label>
       <label class="e-toggle">
-        <input class="e-toggle__input" type="checkbox" checked />
+        <input
+          class="e-toggle__input"
+          type="checkbox"
+          checked
+          (click)="updateToggleProp(prop.attribute, prop.name)"
+        />
         <span class="e-toggle__slider"></span>
       </label>
     </div>

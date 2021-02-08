@@ -16,11 +16,11 @@ export class ExampleCodeService {
     return this.subjectCodeWebComponent.asObservable();
   }
 
-  UpdateCodeReact(newCode: string): void {
+  updateCodeReact(newCode: string): void {
     this.subjectCodeReact.next(newCode);
   }
 
-  UpdateCodeWebComponent(newCode: string): void {
+  updateCodeWebComponent(newCode: string): void {
     this.subjectCodeWebComponent.next(newCode);
   }
 }

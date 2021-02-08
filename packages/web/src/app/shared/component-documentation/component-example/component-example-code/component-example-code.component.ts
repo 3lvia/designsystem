@@ -2,6 +2,7 @@ import { Component, Input, AfterViewChecked, OnInit, OnChanges, SimpleChanges } 
 import { HighlightService } from 'src/app/core/services/highlight.service';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { VersionService } from 'src/app/core/services/version.service';
+import { ExampleCodeService } from '../../example-code.service';
 
 @Component({
   selector: 'app-component-example-code',
@@ -31,11 +32,21 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, AfterVi
     private highlightService: HighlightService,
     private copyService: CopyToClipboardService,
     private versionService: VersionService,
+    private codeService: ExampleCodeService,
   ) {}
 
   ngOnInit(): void {
     this.initializeActiveTab();
     this.setCodePenValue();
+    this.codeService.listenCodeWebComponent().subscribe((newCode: string) => {
+      this.codeWebComponent = newCode;
+      this.highlighted = false;
+      this.changeActiveTab(this.activeTab);
+    });
+    this.codeService.listenCodeReact().subscribe((newCode: string) => {
+      this.codeReact = newCode;
+      this.highlighted = false;
+    });
   }
 
   initializeActiveTab(): void {
