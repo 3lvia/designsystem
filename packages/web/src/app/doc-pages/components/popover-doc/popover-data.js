@@ -8,7 +8,15 @@ module.exports = {
       description: 'Title of content',
       name: 'Title',
       formType: 'toggle',
-      options: ['title'],
+      option: 'Title',
+    },
+    hasCloseBtn: {
+      type: 'boolean',
+      description: 'Determines if the close button in the upper right corner should be visible',
+      default: 'true',
+      name: 'Close button',
+      formType: 'toggle',
+      option: 'false',
     },
     content: {
       type: 'string | HTMLElement',
@@ -33,11 +41,6 @@ module.exports = {
       name: 'Vertical position',
       formType: 'radio',
       options: ['top', 'bottom'],
-    },
-    hasCloseBtn: {
-      type: 'boolean',
-      description: 'Determines if the close button in the upper right corner should be visible',
-      default: 'true',
     },
   },
   codeInstallation: ``,
