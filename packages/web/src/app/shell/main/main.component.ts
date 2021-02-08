@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
+import { Subscription, fromEvent } from 'rxjs';
+import { ScrollService } from 'src/app/core/services/scroll.service';
 
 @Component({
   selector: 'app-main',
@@ -9,7 +11,9 @@ import { NavigationEnd, Router } from '@angular/router';
 export class MainComponent {
   bgClass = '';
 
-  constructor(private router: Router) {
+  listenOnScrollSubscription: Subscription;
+
+  constructor(private router: Router, private scrollService: ScrollService) {
     // subscribe to router navigation
     this.router.events.subscribe((event) => {
       // filter `NavigationEnd` events
@@ -24,5 +28,14 @@ export class MainComponent {
         }
       }
     });
+  }
+
+  @HostListener('window:scroll', ['$event']) // for window scroll events
+  onScroll(): void {
+    this.findNewNavbarHeight()
+  }
+
+  findNewNavbarHeight(): void {
+    this.scrollService.newScrollPosition();
   }
 }
