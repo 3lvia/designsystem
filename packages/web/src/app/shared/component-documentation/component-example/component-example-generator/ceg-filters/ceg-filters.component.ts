@@ -30,7 +30,6 @@ export class CegFiltersComponent implements OnInit {
         }
       });
     });
-    +'';
   }
 
   updateRadioProp(prop: string, label: string): void {
