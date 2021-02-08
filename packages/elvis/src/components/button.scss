@@ -19,10 +19,10 @@ $button-lg-padding: $button-lg-padding-y $button-lg-padding-x;
 $button-lg-font-size: 18px;
 $button-lg-line-height: 24px;
 
-$button-md-padding-y: 10px;
-$button-md-padding-x: 24px;
+$button-md-padding-y: 12px;
+$button-md-padding-x: 26px;
 $button-md-padding: $button-md-padding-y $button-md-padding-x;
-$button-md-font-size: 16px;
+$button-md-font-size: 20px;
 $button-md-line-height: 20px;
 
 $button-sm-padding-y: 8px;
@@ -42,7 +42,7 @@ $loading-dot-sm: 8px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  font-family: 'Red Hat Display', sans-serif;
+  font-family: "Red Hat Display", sans-serif;
   font-weight: $button-font-weight;
   justify-content: center;
   text-decoration: none;
@@ -59,9 +59,9 @@ $loading-dot-sm: 8px;
     @include outline.e-outline-pseudoclass();
 
     &.e-btn--inverted {
-      border: 1px solid colors.color('elvia-on');
-      background: colors.color('elvia-on');
-      color: colors.color('font-color');
+      border: 1px solid colors.color("elvia-on");
+      background: colors.color("elvia-on");
+      color: colors.color("font-color");
     }
   }
 
@@ -77,9 +77,9 @@ $loading-dot-sm: 8px;
     line-height: $button-lg-line-height;
     padding: calc(#{$button-lg-padding-y} - 1px) calc(#{$button-lg-padding-x} - 1px);
     .e-btn__icon {
-      @include icons.icon-size('sm');
+      @include icons.icon-size("sm");
       i {
-        @include icons.icon-size('sm');
+        @include icons.icon-size("sm");
       }
     }
     &.e-btn--loading {
@@ -94,9 +94,9 @@ $loading-dot-sm: 8px;
     line-height: $button-md-line-height;
     padding: calc(#{$button-md-padding-y} - 1px) calc(#{$button-md-padding-x} - 1px);
     .e-btn__icon {
-      @include icons.icon-size('xs');
+      @include icons.icon-size("xs");
       i {
-        @include icons.icon-size('xs');
+        @include icons.icon-size("xs");
       }
     }
   }
@@ -105,9 +105,9 @@ $loading-dot-sm: 8px;
     line-height: $button-sm-line-height;
     padding: calc(#{$button-sm-padding-y} - 1px) calc(#{$button-sm-padding-x} - 1px);
     .e-btn__icon {
-      @include icons.icon-size('xs');
+      @include icons.icon-size("xs");
       i {
-        @include icons.icon-size('xs');
+        @include icons.icon-size("xs");
       }
     }
     &.e-btn--loading {
@@ -120,21 +120,21 @@ $loading-dot-sm: 8px;
 
   // PRIMARY BTM
   &.e-btn--primary {
-    border: 1px solid colors.color('elvia-off');
+    border: 1px solid colors.color("elvia-off");
     border-radius: $button-radius;
-    background: colors.color('elvia-off');
-    color: colors.color('font-color-light');
+    background: colors.color("elvia-off");
+    color: colors.color("font-color-light");
 
     &.e-btn--inverted {
-      border: 1px solid colors.color('elvia-on');
-      background: colors.color('elvia-on');
-      color: colors.color('font-color');
+      border: 1px solid colors.color("elvia-on");
+      background: colors.color("elvia-on");
+      color: colors.color("font-color");
 
       &.e-btn---disabled,
       &:disabled {
-        background: colors.color('grey-70');
-        border-color: colors.color('grey-70');
-        color: colors.color('grey');
+        background: colors.color("grey-70");
+        border-color: colors.color("grey-70");
+        color: colors.color("grey");
         cursor: not-allowed;
       }
 
@@ -145,7 +145,7 @@ $loading-dot-sm: 8px;
       }
 
       &.e-btn--loading span {
-        background-color: colors.color('elvia-off');
+        background-color: colors.color("elvia-off");
       }
     }
 
@@ -162,8 +162,8 @@ $loading-dot-sm: 8px;
         // Hiding hover ikon (only show inverted ikon)
         visibility: hidden;
       }
-      i[class*='inverted'],
-      i[class*='color-disabled-light'] {
+      i[class*="inverted"],
+      i[class*="color-disabled-light"] {
         visibility: visible;
       }
     }
@@ -172,42 +172,42 @@ $loading-dot-sm: 8px;
       .e-btn__icon i {
         visibility: visible;
       }
-      background: colors.color('red');
-      border-color: colors.color('red');
-      color: colors.color('font-color');
+      background: colors.color("red");
+      border-color: colors.color("red");
+      color: colors.color("font-color");
     }
 
     &.e-btn---disabled,
     &:disabled {
-      background: colors.color('disabled');
-      border-color: colors.color('disabled');
-      color: colors.color('disabled-light');
+      background: colors.color("disabled");
+      border-color: colors.color("disabled");
+      color: colors.color("disabled-light");
       cursor: not-allowed;
     }
     &.e-btn---hover,
     &.e-btn---active,
     &:active:not(:disabled):not(.e-btn--loading) {
-      background: colors.color('elvia-charge');
-      border-color: colors.color('elvia-charge');
-      color: colors.color('font-color');
+      background: colors.color("elvia-charge");
+      border-color: colors.color("elvia-charge");
+      color: colors.color("font-color");
       // Showing hover ikon
-      .e-btn__icon i[class*='inverted'] {
+      .e-btn__icon i[class*="inverted"] {
         visibility: hidden;
       }
-      .e-btn__icon i:not([class$='inverted']) {
+      .e-btn__icon i:not([class$="inverted"]) {
         visibility: visible;
       }
     }
     @include helpers.hover() {
       &:hover:not(:disabled):not(.e-btn--loading) {
-        background: colors.color('elvia-charge');
-        border-color: colors.color('elvia-charge');
-        color: colors.color('font-color');
+        background: colors.color("elvia-charge");
+        border-color: colors.color("elvia-charge");
+        color: colors.color("font-color");
         // Showing hover ikon
-        .e-btn__icon i[class*='inverted'] {
+        .e-btn__icon i[class*="inverted"] {
           visibility: hidden;
         }
-        .e-btn__icon i:not([class$='inverted']) {
+        .e-btn__icon i:not([class$="inverted"]) {
           visibility: visible;
         }
       }
@@ -222,29 +222,29 @@ $loading-dot-sm: 8px;
 
   // SECONDARY BTN
   &.e-btn--secondary {
-    border: 1px solid colors.color('elvia-off');
+    border: 1px solid colors.color("elvia-off");
     border-radius: $button-radius;
-    background: colors.color('elvia-on');
-    color: colors.color('font-color');
+    background: colors.color("elvia-on");
+    color: colors.color("font-color");
     .e-btn__icon i {
       visibility: visible;
     }
 
     &.e-btn--loading {
       span {
-        background-color: colors.color('elvia-off');
+        background-color: colors.color("elvia-off");
       }
     }
 
     &.e-btn--inverted {
-      border: 1px solid colors.color('elvia-on');
-      background: colors.color('grey');
-      color: colors.color('font-color-light');
+      border: 1px solid colors.color("elvia-on");
+      background: colors.color("grey");
+      color: colors.color("font-color-light");
 
       &:disabled {
         background: transparent;
-        border-color: colors.color('grey-70');
-        color: colors.color('grey-70');
+        border-color: colors.color("grey-70");
+        color: colors.color("grey-70");
         cursor: not-allowed;
       }
 
@@ -252,15 +252,15 @@ $loading-dot-sm: 8px;
         i {
           visibility: hidden;
         }
-        i[class*='inverted'],
-        i[class*='color-disabled-light'],
-        i[class*='e-icon--disabled-inverted'] {
+        i[class*="inverted"],
+        i[class*="color-disabled-light"],
+        i[class*="e-icon--disabled-inverted"] {
           visibility: visible;
         }
       }
       &.e-btn--loading {
         span {
-          background-color: colors.color('elvia-on');
+          background-color: colors.color("elvia-on");
         }
       }
     }
@@ -268,26 +268,26 @@ $loading-dot-sm: 8px;
     &.e-btn---disabled,
     &:disabled {
       background: transparent;
-      border-color: colors.color('disabled');
-      color: colors.color('disabled');
+      border-color: colors.color("disabled");
+      color: colors.color("disabled");
       cursor: not-allowed;
     }
 
     &.e-btn---hover,
     &.e-btn---active,
     &:active:not(:disabled):not(.e-btn--loading) {
-      background: colors.color('elvia-charge');
-      border-color: colors.color('elvia-charge');
-      color: colors.color('font-color');
+      background: colors.color("elvia-charge");
+      border-color: colors.color("elvia-charge");
+      color: colors.color("font-color");
       .e-btn__icon i {
         visibility: visible;
       }
     }
     @include helpers.hover() {
       &:hover:not(:disabled):not(.e-btn--loading) {
-        background: colors.color('elvia-charge');
-        border-color: colors.color('elvia-charge');
-        color: colors.color('font-color');
+        background: colors.color("elvia-charge");
+        border-color: colors.color("elvia-charge");
+        color: colors.color("font-color");
         .e-btn__icon i {
           visibility: visible;
         }
@@ -312,14 +312,14 @@ $loading-dot-sm: 8px;
     padding: 0px;
     padding-bottom: 3.5px;
     background: none;
-    color: colors.color('font-color');
+    color: colors.color("font-color");
     .e-btn__icon {
       i {
         visibility: visible;
       }
-      i[class*='inverted'],
-      i[class*='color-disabled-light'],
-      i[class*='e-icon--disabled-inverted'] {
+      i[class*="inverted"],
+      i[class*="color-disabled-light"],
+      i[class*="e-icon--disabled-inverted"] {
         visibility: hidden;
       }
     }
@@ -328,16 +328,16 @@ $loading-dot-sm: 8px;
       @extend %e-btn--loading;
 
       span {
-        background: colors.color('elvia-off');
+        background: colors.color("elvia-off");
       }
     }
 
     &.e-btn--inverted {
-      color: colors.color('elvia-on') !important;
+      color: colors.color("elvia-on") !important;
 
       &.e-btn--loading {
         span {
-          background-color: colors.color('elvia-on');
+          background-color: colors.color("elvia-on");
         }
       }
 
@@ -345,15 +345,15 @@ $loading-dot-sm: 8px;
         i {
           visibility: hidden;
         }
-        i[class*='inverted'],
-        i[class*='color-disabled-light'],
-        i[class*='e-icon--disabled-inverted'] {
+        i[class*="inverted"],
+        i[class*="color-disabled-light"],
+        i[class*="e-icon--disabled-inverted"] {
           visibility: visible;
         }
       }
 
       &:disabled {
-        color: colors.color('grey-70') !important;
+        color: colors.color("grey-70") !important;
         background: none;
         cursor: not-allowed;
         border-bottom: none;
@@ -361,16 +361,16 @@ $loading-dot-sm: 8px;
 
       @include helpers.hover() {
         &:hover:not(:disabled):not(.e-btn--loading) {
-          border-bottom-color: colors.color('elvia-charge');
-          border-color: colors.color('elvia-charge');
+          border-bottom-color: colors.color("elvia-charge");
+          border-color: colors.color("elvia-charge");
           background: none;
           .e-btn__icon {
             i {
               visibility: hidden;
             }
-            i[class*='inverted'],
-            i[class*='color-disabled-light'],
-            i[class*='e-icon--disabled-inverted'] {
+            i[class*="inverted"],
+            i[class*="color-disabled-light"],
+            i[class*="e-icon--disabled-inverted"] {
               visibility: visible;
             }
           }
@@ -382,9 +382,9 @@ $loading-dot-sm: 8px;
           i {
             visibility: hidden;
           }
-          i[class*='inverted'],
-          i[class*='color-disabled-light'],
-          i[class*='e-icon--disabled-inverted'] {
+          i[class*="inverted"],
+          i[class*="color-disabled-light"],
+          i[class*="e-icon--disabled-inverted"] {
             visibility: visible;
           }
         }
@@ -411,12 +411,12 @@ $loading-dot-sm: 8px;
 
     &.e-btn---disabled,
     &:disabled {
-      color: colors.color('disabled');
+      color: colors.color("disabled");
       cursor: not-allowed;
     }
     &.e-btn---hover {
-      border-bottom-color: colors.color('elvia-charge');
-      border-color: colors.color('elvia-charge');
+      border-bottom-color: colors.color("elvia-charge");
+      border-color: colors.color("elvia-charge");
       background: none;
       .e-btn__icon i {
         visibility: visible;
@@ -424,8 +424,8 @@ $loading-dot-sm: 8px;
     }
     @include helpers.hover() {
       &:hover:not(:disabled):not(.e-btn--loading) {
-        border-bottom-color: colors.color('elvia-charge');
-        border-color: colors.color('elvia-charge');
+        border-bottom-color: colors.color("elvia-charge");
+        border-color: colors.color("elvia-charge");
         background: none;
         .e-btn__icon i {
           visibility: visible;
@@ -433,14 +433,14 @@ $loading-dot-sm: 8px;
       }
     }
 
-    &.e-btn---hover[class*='e-btn--inverted'] {
+    &.e-btn---hover[class*="e-btn--inverted"] {
       .e-btn__icon {
         i {
           visibility: hidden;
         }
-        i[class*='inverted'],
-        i[class*='color-disabled-light'],
-        i[class*='e-icon--disabled-inverted'] {
+        i[class*="inverted"],
+        i[class*="color-disabled-light"],
+        i[class*="e-icon--disabled-inverted"] {
           visibility: visible;
         }
       }
@@ -452,8 +452,8 @@ $loading-dot-sm: 8px;
       &.e-btn--lg {
         padding-bottom: 2.5px;
       }
-      border-bottom: 1.5px solid colors.color('elvia-charge');
-      border-color: colors.color('elvia-charge');
+      border-bottom: 1.5px solid colors.color("elvia-charge");
+      border-color: colors.color("elvia-charge");
       background: none;
       .e-btn__icon i {
         visibility: visible;
@@ -470,7 +470,7 @@ $loading-dot-sm: 8px;
     border-radius: 50px;
     padding: 8px;
     background: none;
-    color: colors.color('font-color');
+    color: colors.color("font-color");
     width: 40px;
     height: 40px;
 
@@ -481,7 +481,7 @@ $loading-dot-sm: 8px;
       padding-right: 0px;
 
       span {
-        background-color: colors.color('elvia-off');
+        background-color: colors.color("elvia-off");
       }
     }
 
@@ -492,7 +492,7 @@ $loading-dot-sm: 8px;
       justify-content: center;
       align-items: center;
       i {
-        @include icons.icon-size('sm');
+        @include icons.icon-size("sm");
         display: flex;
         justify-content: center;
         align-items: center;
@@ -507,7 +507,7 @@ $loading-dot-sm: 8px;
         width: 32px;
         height: 32px;
         i {
-          @include icons.icon-size('md');
+          @include icons.icon-size("md");
         }
       }
       &.e-btn--loading {
@@ -525,7 +525,7 @@ $loading-dot-sm: 8px;
         width: 16px;
         height: 16px;
         i {
-          @include icons.icon-size('xs');
+          @include icons.icon-size("xs");
         }
       }
       &.e-btn--loading {
@@ -538,17 +538,17 @@ $loading-dot-sm: 8px;
 
     &.e-btn--inverted {
       .e-btn__icon {
-        i[class*='inverted'],
-        i[class*='color-disabled-light'],
-        i[class*='e-icon--color'],
-        i[class*='e-icon--disabled-inverted'],
+        i[class*="inverted"],
+        i[class*="color-disabled-light"],
+        i[class*="e-icon--color"],
+        i[class*="e-icon--disabled-inverted"],
         i:disabled {
           visibility: visible;
         }
       }
 
       &:disabled {
-        color: colors.color('grey-70');
+        color: colors.color("grey-70");
         background: none;
         cursor: not-allowed;
       }
@@ -563,9 +563,9 @@ $loading-dot-sm: 8px;
             i {
               visibility: visible !important;
             }
-            i[class*='inverted'],
-            i[class*='color-disabled-light'],
-            i[class*='e-icon--disabled-inverted'] {
+            i[class*="inverted"],
+            i[class*="color-disabled-light"],
+            i[class*="e-icon--disabled-inverted"] {
               visibility: hidden !important;
             }
           }
@@ -573,7 +573,7 @@ $loading-dot-sm: 8px;
       }
       &.e-btn--loading {
         span {
-          background-color: colors.color('elvia-on');
+          background-color: colors.color("elvia-on");
         }
       }
     }
@@ -585,7 +585,7 @@ $loading-dot-sm: 8px;
       height: 24px;
       // Larger click surface
       &:after {
-        content: '';
+        content: "";
         padding: 16px;
         position: absolute;
         left: -4px;
@@ -593,7 +593,7 @@ $loading-dot-sm: 8px;
       }
 
       // Hiding hover ikon
-      .e-btn__icon i[class*='filled-color'] {
+      .e-btn__icon i[class*="filled-color"] {
         visibility: hidden;
       }
 
@@ -609,7 +609,7 @@ $loading-dot-sm: 8px;
         height: 16px;
         // Larger click surface
         &:after {
-          content: '';
+          content: "";
           padding: 16px;
           position: absolute;
           left: -8px;
@@ -622,11 +622,11 @@ $loading-dot-sm: 8px;
       &:active:not(:disabled) {
         background: transparent;
         // Showing hover ikon
-        .e-btn__icon i:not([class$='filled-color']),
-        .e-btn__icon i:not([class$='disabled']) {
+        .e-btn__icon i:not([class$="filled-color"]),
+        .e-btn__icon i:not([class$="disabled"]) {
           visibility: hidden;
         }
-        .e-btn__icon i[class*='filled-color'] {
+        .e-btn__icon i[class*="filled-color"] {
           visibility: visible;
         }
       }
@@ -634,11 +634,11 @@ $loading-dot-sm: 8px;
         &:hover:not(:disabled) {
           background: transparent;
           // Showing hover ikon
-          .e-btn__icon i:not([class$='filled-color']),
-          .e-btn__icon i:not([class$='disabled']) {
+          .e-btn__icon i:not([class$="filled-color"]),
+          .e-btn__icon i:not([class$="disabled"]) {
             visibility: hidden;
           }
-          .e-btn__icon i[class*='filled-color'] {
+          .e-btn__icon i[class*="filled-color"] {
             visibility: visible;
           }
         }
@@ -652,7 +652,7 @@ $loading-dot-sm: 8px;
 
     &.e-btn--danger {
       .e-btn__icon
-        i:not([class$='color-red']):not([class$='e-icon--color-disabled']):not([class$='e-icon--inverted-disabled-grey-70']) {
+        i:not([class$="color-red"]):not([class$="e-icon--color-disabled"]):not([class$="e-icon--inverted-disabled-grey-70"]) {
         visibility: hidden;
       }
 
@@ -663,9 +663,9 @@ $loading-dot-sm: 8px;
               i {
                 visibility: visible !important;
               }
-              i[class*='inverted'],
-              i[class*='color-disabled-light'],
-              i[class*='e-icon--disabled-inverted'] {
+              i[class*="inverted"],
+              i[class*="color-disabled-light"],
+              i[class*="e-icon--disabled-inverted"] {
                 visibility: hidden !important;
               }
             }
@@ -677,20 +677,20 @@ $loading-dot-sm: 8px;
       &.e-btn---active,
       &:active:not(:disabled) {
         // Showing hover ikon
-        .e-btn__icon i[class*='red'] {
+        .e-btn__icon i[class*="red"] {
           visibility: hidden;
         }
-        .e-btn__icon i:not([class$='red']) {
+        .e-btn__icon i:not([class$="red"]) {
           visibility: visible;
         }
       }
       @include helpers.hover() {
         &:hover:not(:disabled) {
           // Showing hover ikon
-          .e-btn__icon i[class*='red'] {
+          .e-btn__icon i[class*="red"] {
             visibility: hidden;
           }
-          .e-btn__icon i:not([class$='red']) {
+          .e-btn__icon i:not([class$="red"]) {
             visibility: visible;
           }
         }
@@ -700,15 +700,15 @@ $loading-dot-sm: 8px;
     &.e-btn---hover,
     &.e-btn---active,
     &:active:not(:disabled):not(.e-btn--loading) {
-      background: colors.color('elvia-charge');
-      .e-btn__icon i[class$='inverted'] {
+      background: colors.color("elvia-charge");
+      .e-btn__icon i[class$="inverted"] {
         visibility: visible;
       }
     }
     @include helpers.hover() {
       &:hover:not(:disabled):not(.e-btn--loading) {
-        background: colors.color('elvia-charge');
-        .e-btn__icon i[class$='inverted'] {
+        background: colors.color("elvia-charge");
+        .e-btn__icon i[class$="inverted"] {
           visibility: visible;
         }
       }
@@ -728,7 +728,7 @@ $loading-dot-sm: 8px;
     @extend %e-btn--loading;
 
     span {
-      background-color: colors.color('elvia-on');
+      background-color: colors.color("elvia-on");
     }
   }
 }
