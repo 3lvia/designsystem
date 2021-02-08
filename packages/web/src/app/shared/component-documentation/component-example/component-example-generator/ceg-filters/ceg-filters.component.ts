@@ -57,11 +57,12 @@ export class CegFiltersComponent implements OnInit {
   updateToggleProp(prop: string, label: string): void {
     if (this.codeWebComponent.includes(prop)) {
       // Removes old prop in code
-      const customRegex = new RegExp(prop + '=".*', 'gi');
-      this.codeReact = this.codeReact.replace(customRegex, '');
-      this.codeReact = this.codeReact.replace(/^\s*[\r\n]/gm, '');
-      this.codeWebComponent = this.codeWebComponent.replace(customRegex, '');
-      this.codeWebComponent = this.codeWebComponent.replace(/^\s*[\r\n]/gm, '');
+      this.codeReact = this.codeReact
+        .replace(new RegExp(prop + '=".*', 'gi'), '')
+        .replace(/^\s*[\r\n]/gm, '');
+      this.codeWebComponent = this.codeWebComponent
+        .replace(new RegExp(prop + '=".*', 'gi'), '')
+        .replace(/^\s*[\r\n]/gm, '');
       this.codeService.updateCodeReact(this.codeReact);
       this.codeService.updateCodeWebComponent(this.codeWebComponent);
     } else {

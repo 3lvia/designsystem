@@ -12,7 +12,7 @@
     ]
   },
   "scripts": {
-    "build:web": "yarn && cd packages/web && yarn run build:production",
+    "build:web": "yarn && cd packages/components && yarn run gulp && cd ../web && yarn run build:production",
     "commitizen-unix": "exec < /dev/tty && git cz --hook",
     "commitizen-windows": "winpty git cz --hook || true",
     "prettier-elvis": "yarn prettier --write 'packages/elvis/**/*.js'",
