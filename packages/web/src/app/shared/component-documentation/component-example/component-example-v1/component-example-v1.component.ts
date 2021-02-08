@@ -16,9 +16,6 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
-  @Input() codeInstallation = '';
-  @Input() codeWebComponent = '';
-  @Input() codeReact = '';
   @Input() isJS = false;
   @Input() codeInverted = '';
   @Input() showIframeScreens = false;
@@ -43,11 +40,7 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   desktopScreenWidth: boolean;
 
   ngOnInit(): void {
-    if (this.codeInstallation) {
-      this.showPreview = false;
-    } else {
-      this.code = this.codeTS !== '' ? this.codeTS : this.codeHTML !== '' ? this.codeHTML : this.codeCSS;
-    }
+    this.code = this.codeTS !== '' ? this.codeTS : this.codeHTML !== '' ? this.codeHTML : this.codeCSS;
     this.displayCode = this.code;
 
     if (!this.showIframeScreens) {

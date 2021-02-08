@@ -1,4 +1,5 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../example-code.service';
 
 @Component({
@@ -6,7 +7,7 @@ import { ExampleCodeService } from '../../example-code.service';
   templateUrl: './component-example-generator.component.html',
   styleUrls: ['./component-example-generator.component.scss'],
 })
-export class ComponentExampleGeneratorComponent {
+export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('cegFrame') cegFrame;
   @Input() codeInstallation = '';
   @Input() codeReact = '';
@@ -16,16 +17,21 @@ export class ComponentExampleGeneratorComponent {
   showTypeDropdown = false;
   showBgDropdown = false;
   currentBackground = 'White';
+  codeWebComponentSub: Subscription;
 
   constructor(private codeService: ExampleCodeService) {}
 
   ngOnInit(): void {
-    this.codeService.listenCodeWebComponent().subscribe((code: string) => {
+    this.codeWebComponentSub = this.codeService.listenCodeWebComponent().subscribe((code: string) => {
       this.cegFrame.nativeElement.innerHTML = code;
     });
   }
 
   ngAfterViewInit(): void {
     this.cegFrame.nativeElement.innerHTML = this.codeWebComponent;
+  }
+
+  ngOnDestroy(): void {
+    this.codeWebComponentSub.unsubscribe();
   }
 }

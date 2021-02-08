@@ -10,7 +10,10 @@
     </thead>
     <tbody>
       <tr *ngFor="let prop of componentProps">
-        <th scope="row" class="table-code-text">{{ prop.attribute }}</th>
+        <th scope="row" class="table-code-text">
+          <span>{{ prop.attribute }}</span>
+          <span *ngIf="prop.isRequired">*</span>
+        </th>
         <td class="table-code-text">{{ prop.type }}</td>
         <td class="e-table__cell--multiline-small">{{ prop.description }}</td>
         <td class="table-code-text" *ngIf="prop.default">{{ prop.default }}</td>
@@ -19,3 +22,4 @@
     </tbody>
   </table>
 </div>
+<div class="e-table-footnote">* Required properties</div>

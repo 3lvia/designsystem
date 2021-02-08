@@ -10,7 +10,6 @@ export class ComponentPropertiesTableComponent implements OnInit {
   componentProps = [];
 
   ngOnInit(): void {
-    console.log(this.componentData);
     this.createPropArray();
   }
 
@@ -21,15 +20,6 @@ export class ComponentPropertiesTableComponent implements OnInit {
         ...this.componentData.attributes[attribute],
       };
       this.componentProps.push(newObject);
-      // Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
-      //   if (value === 'formType') {
-      //     const newObject = {
-      //       attribute,
-      //       ...this.componentData.attributes[attribute],
-      //     };
-      //     this.props.push(newObject);
-      //   }
-      // });
     });
   }
 }

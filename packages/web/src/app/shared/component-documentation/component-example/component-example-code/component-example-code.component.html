@@ -74,7 +74,7 @@
     </div>
   </div>
 
-  <pre *ngIf="myCode"><code [innerHtml]="myCode" class="active-code"></code></pre>
+  <pre *ngIf="highlightedCode"><code [innerHtml]="highlightedCode" class="active-code"></code></pre>
 
   <!--Codepen-->
   <div class="codepen-link" *ngIf="this.codeHTML !== ''">

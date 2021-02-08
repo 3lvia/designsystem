@@ -1,15 +1,16 @@
-import { Component, Input, AfterViewChecked, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { HighlightService } from 'src/app/core/services/highlight.service';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import { VersionService } from 'src/app/core/services/version.service';
 import { ExampleCodeService } from '../../example-code.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-component-example-code',
   templateUrl: './component-example-code.component.html',
   styleUrls: ['./component-example-code.component.scss'],
 })
-export class ComponentExampleCodeComponent implements OnInit, OnChanges, AfterViewChecked {
+export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
@@ -21,12 +22,14 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, AfterVi
   @Input() isJS = false;
   @Input() doDontComp = false;
   copyMessage = '';
-  highlighted = false;
   activeTab = '';
   activeLanguage = '';
   activeCode = '';
+  highlightedCode = '';
   myCode = '';
   codepen = '';
+  codeWebComponentSub: Subscription;
+  codeReactSub: Subscription;
 
   constructor(
     private highlightService: HighlightService,
@@ -38,15 +41,49 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, AfterVi
   ngOnInit(): void {
     this.initializeActiveTab();
     this.setCodePenValue();
-    this.codeService.listenCodeWebComponent().subscribe((newCode: string) => {
+    this.codeWebComponentSub = this.codeService.listenCodeWebComponent().subscribe((newCode: string) => {
       this.codeWebComponent = newCode;
-      this.highlighted = false;
+      this.highlightCode();
       this.changeActiveTab(this.activeTab);
     });
-    this.codeService.listenCodeReact().subscribe((newCode: string) => {
+    this.codeReactSub = this.codeService.listenCodeReact().subscribe((newCode: string) => {
       this.codeReact = newCode;
-      this.highlighted = false;
+      this.highlightCode();
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.isInverted && !changes.isInverted.firstChange) {
+      this.isInverted = changes.isInverted.currentValue;
+    }
+    if (changes.codeTS) {
+      this.codeTS = changes.codeTS.currentValue;
+    }
+    if (changes.codeHTML) {
+      this.codeHTML = changes.codeHTML.currentValue;
+    }
+    if (changes.codeCSS) {
+      this.codeCSS = changes.codeCSS.currentValue;
+    }
+    if (changes.codeInstallation) {
+      this.codeInstallation = changes.codeInstallation.currentValue;
+    }
+    if (changes.codeWebComponent) {
+      this.codeWebComponent = changes.codeWebComponent.currentValue;
+    }
+    if (changes.codeReact) {
+      this.codeReact = changes.codeReact.currentValue;
+    }
+    this.initializeActiveTab();
+  }
+
+  ngOnDestroy(): void {
+    this.codeWebComponentSub.unsubscribe();
+    this.codeReactSub.unsubscribe();
+  }
+
+  highlightCode(): void {
+    this.highlightedCode = this.highlightService.highlight(this.activeCode, this.activeLanguage);
   }
 
   initializeActiveTab(): void {
@@ -81,48 +118,15 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges, AfterVi
       this.activeCode = this.codeWebComponent;
       this.activeLanguage = 'html';
     }
-    this.highlighted = false;
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.isInverted && !changes.isInverted.firstChange) {
-      this.isInverted = changes.isInverted.currentValue;
-    }
-    if (changes.codeTS) {
-      this.codeTS = changes.codeTS.currentValue;
-    }
-    if (changes.codeHTML) {
-      this.codeHTML = changes.codeHTML.currentValue;
-    }
-    if (changes.codeCSS) {
-      this.codeCSS = changes.codeCSS.currentValue;
-    }
-    if (changes.codeInstallation) {
-      this.codeInstallation = changes.codeInstallation.currentValue;
-    }
-    if (changes.codeWebComponent) {
-      this.codeWebComponent = changes.codeWebComponent.currentValue;
-    }
-    if (changes.codeReact) {
-      this.codeReact = changes.codeReact.currentValue;
-    }
-    this.initializeActiveTab();
-  }
-
-  ngAfterViewChecked(): void {
-    setTimeout(() => {
-      if (!this.highlighted) {
-        this.myCode = this.highlightService.highlight(this.activeCode, this.activeLanguage);
-        this.highlighted = true;
-      }
-    });
+    this.highlightCode();
   }
 
   copyCode(): void {
     this.copyService.copyToClipBoard(this.activeCode);
     this.copyMessage = 'Copied!';
-    setTimeout(() => {
+    const copyTimeout = setTimeout(() => {
       this.copyMessage = '';
+      clearTimeout(copyTimeout);
     }, 3000);
   }
 

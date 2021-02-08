@@ -15,10 +15,10 @@ export class CegFiltersComponent implements OnInit {
   constructor(private codeService: ExampleCodeService) {}
 
   ngOnInit(): void {
-    this.getComponentVariables();
+    this.initializeComponentProps();
   }
 
-  getComponentVariables(): void {
+  initializeComponentProps(): void {
     Object.keys(this.componentData.attributes).forEach((attribute) => {
       Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
         if (value === 'formType') {
@@ -38,8 +38,6 @@ export class CegFiltersComponent implements OnInit {
       const customRegex = new RegExp(prop + '=".*?"', 'gi');
       this.codeReact = this.codeReact.replace(customRegex, prop + '="' + label + '"');
       this.codeWebComponent = this.codeWebComponent.replace(customRegex, prop + '="' + label + '"');
-      this.codeService.updateCodeReact(this.codeReact);
-      this.codeService.updateCodeWebComponent(this.codeWebComponent);
     } else {
       // Adds new prop to code
       const customRegexW = new RegExp('<' + this.componentData.elementNameW, 'gi');
@@ -48,9 +46,9 @@ export class CegFiltersComponent implements OnInit {
       const newStringR = '<' + this.componentData.elementNameR + '\n  ' + prop + '="' + label + '"';
       this.codeWebComponent = this.codeWebComponent.replace(customRegexW, newStringW);
       this.codeReact = this.codeReact.replace(customRegexR, newStringR);
-      this.codeService.updateCodeReact(this.codeReact);
-      this.codeService.updateCodeWebComponent(this.codeWebComponent);
     }
+    this.codeService.updateCodeReact(this.codeReact);
+    this.codeService.updateCodeWebComponent(this.codeWebComponent);
   }
 
   updateToggleProp(prop: string, label: string): void {
@@ -62,8 +60,6 @@ export class CegFiltersComponent implements OnInit {
       this.codeWebComponent = this.codeWebComponent
         .replace(new RegExp(prop + '=".*', 'gi'), '')
         .replace(/^\s*[\r\n]/gm, '');
-      this.codeService.updateCodeReact(this.codeReact);
-      this.codeService.updateCodeWebComponent(this.codeWebComponent);
     } else {
       // Adds new prop in code
       const customRegexW = new RegExp('<' + this.componentData.elementNameW, 'gi');
@@ -72,8 +68,8 @@ export class CegFiltersComponent implements OnInit {
       const newStringR = '<' + this.componentData.elementNameR + '\n  ' + prop + '="' + label + '"';
       this.codeWebComponent = this.codeWebComponent.replace(customRegexW, newStringW);
       this.codeReact = this.codeReact.replace(customRegexR, newStringR);
-      this.codeService.updateCodeReact(this.codeReact);
-      this.codeService.updateCodeWebComponent(this.codeWebComponent);
     }
+    this.codeService.updateCodeReact(this.codeReact);
+    this.codeService.updateCodeWebComponent(this.codeWebComponent);
   }
 }
