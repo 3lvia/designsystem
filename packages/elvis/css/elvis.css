@@ -7031,6 +7031,10 @@ input:focus {
   line-height: 26px;
 }
 
+.e-table-footnote.e-table-footnote--compact {
+  font-size: 14px;
+}
+
 .e-table {
   display: table;
   overflow: auto;

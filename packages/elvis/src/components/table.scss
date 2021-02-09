@@ -28,10 +28,12 @@ $grey10: colors.color('grey-10');
 }
 .e-table-footnote {
   margin-top: 8px;
-
   font-family: 'Red Hat Text';
   font-size: 16px;
   line-height: 26px;
+  &.e-table-footnote--compact {
+    font-size: 14px;
+  }
 }
 .e-table {
   display: table;

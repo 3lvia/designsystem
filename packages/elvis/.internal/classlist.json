@@ -822,7 +822,11 @@
 				}
 			}
 		},
-		"e-table-footnote": {},
+		"e-table-footnote": {
+			"modifier": {
+				"e-table-footnote--compact": {}
+			}
+		},
 		"e-tags": {},
 		"e-tooltip": {
 			"element": {
@@ -1618,6 +1622,7 @@
 		"e-table--compact": {},
 		"e-table-container": {},
 		"e-table-footnote": {},
+		"e-table-footnote--compact": {},
 		"e-table__sort-header": {},
 		"e-table__sort-icon": {},
 		"e-table__sort-icon--up": {},
