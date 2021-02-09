@@ -58,9 +58,6 @@ PercyScript.run(async (page, percySnapshot) => {
   //Pagination
   await page.goto('http://localhost:3333/components/pagination.html');
   await percySnapshot('Pagination', { widths: breakpoints });
-  //Popover
-  await page.goto('http://localhost:3333/components/popover.html');
-  await percySnapshot('Popover', { widths: breakpoints });
   //Position-Picker
   await page.goto('http://localhost:3333/components/position-picker.html');
   await percySnapshot('Position-Picker', { widths: breakpoints });
