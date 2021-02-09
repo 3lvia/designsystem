@@ -21,6 +21,8 @@
   .ceg-row-1 {
     display: flex;
     flex-direction: row;
+    min-height: 340px;
+
     .ceg-col-1 {
       display: flex;
       flex-direction: column;
