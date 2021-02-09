@@ -8,8 +8,8 @@ import { ExampleCodeService } from '../../../example-code.service';
 })
 export class CegFiltersComponent implements OnInit {
   @Input() componentData;
-  @Input() codeReact;
-  @Input() codeWebComponent;
+  codeReact;
+  codeWebComponent;
   props = [];
 
   emptyLineRegex = /^\s*[\r\n]/gm;
@@ -17,6 +17,8 @@ export class CegFiltersComponent implements OnInit {
   constructor(private codeService: ExampleCodeService) {}
 
   ngOnInit(): void {
+    this.codeReact = this.componentData.codeReact;
+    this.codeWebComponent = this.componentData.codeWebComponent;
     this.initializeComponentProps();
   }
 

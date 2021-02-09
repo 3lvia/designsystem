@@ -9,9 +9,6 @@ import { ExampleCodeService } from '../../example-code.service';
 })
 export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('cegFrame') cegFrame;
-  @Input() codeInstallation = '';
-  @Input() codeReact = '';
-  @Input() codeWebComponent = '';
   @Input() componentData;
   codeWebComponentSub: Subscription;
 
@@ -24,7 +21,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
   }
 
   ngAfterViewInit(): void {
-    this.cegFrame.nativeElement.innerHTML = this.codeWebComponent;
+    this.cegFrame.nativeElement.innerHTML = this.componentData.codeWebComponent;
   }
 
   ngOnDestroy(): void {
