@@ -4,7 +4,6 @@ import toolbox from '@elvia/elvis-toolbox';
 import './style.scss';
 export interface TabItem {
   label: string;
-  isDisabled?: boolean;
 }
 export interface TabsProps {
   items: TabItem[];
@@ -14,7 +13,6 @@ export interface TabsProps {
 }
 
 const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
-  const [currValue, setCurrValue] = useState(value);
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
   const tabsRef = useRef<HTMLDivElement>(null);
@@ -50,33 +48,12 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
     };
   }, []);
 
-  // Updating selected value
-  useEffect(() => {
-    setCurrValue(value);
-  }, [value]);
-
   const updateCurrValue = (value: number) => {
-    if (items[value].isDisabled) {
-      return;
-    }
-    setCurrValue(value);
-  };
-
-  useEffect(() => {
-    updateReactComponent();
-    updateWebcomponent();
-  }, [currValue]);
-
-  const updateReactComponent = () => {
     if (!webcomponent && valueOnChange) {
-      valueOnChange(currValue);
-    }
-  };
-
-  const updateWebcomponent = () => {
-    if (webcomponent) {
+      valueOnChange(value);
+    } else if (webcomponent) {
       // True -> Prevents rerender
-      webcomponent.setProps({ value: currValue }, true);
+      webcomponent.setProps({ value: value }, true);
     }
   };
 
@@ -93,7 +70,7 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
 
   const scrollSideways = (direction: string) => {
     let scrollAmount = 0;
-    function slideTimer() {
+    const slideTimer = () => {
       if (!itemsRef.current) {
         return;
       }
@@ -104,7 +81,7 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
       if (scrollAmount < lengthToScroll) {
         requestAnimationFrame(slideTimer);
       }
-    }
+    };
     slideTimer();
   };
 
@@ -143,24 +120,17 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
         <div className="ewc-tabs__scroll" ref={itemsRef} role="tablist">
           {items &&
             items.map((item, i) => (
-              <div
-                key={i}
-                className="ewc-tabs__tab"
-                onClick={() => updateCurrValue(i)}
-                aria-hidden={item.isDisabled}
-              >
+              <div key={i} className="ewc-tabs__tab" onClick={() => updateCurrValue(i)}>
                 <input
                   type="radio"
                   name="ewc_tab-group"
                   role="tab"
                   id={'tab_' + i}
-                  value={currValue}
+                  value={value}
                   aria-label={item.label}
-                  aria-checked={i === currValue}
-                  disabled={item.isDisabled}
+                  aria-checked={i === value}
                 ></input>
-                <label className={`ewc-tabs__label ${currValue === i && 'ewc-tabs__label--selected'}`}>
-                  {item.isDisabled}
+                <label className={`ewc-tabs__label ${value === i && 'ewc-tabs__label--selected'}`}>
                   {item.label}
                 </label>
               </div>

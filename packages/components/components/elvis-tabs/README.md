@@ -14,7 +14,7 @@ Keep the option label name of a tab short, descriptive and unique. Should not be
 
 ## Props
 
-- items (TabItem[label: string, isDisabled: boolean]) [required] - Items getting converted to tabs.
+- items (TabItem[label: string]) [required] - Items getting converted to tabs.
 - value (number) [required] - Index of selected tab.
 - valueOnChange (function) - Gets called every time the value is changed.
 

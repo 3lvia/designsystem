@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
     { label: 'Appelsin' },
     { label: 'Bananer' },
     { label: 'Druer' },
-    { label: 'Kiwi', isDisabled: true },
+    { label: 'Kiwi' },
   ];
   value = 2;
 
