@@ -5,11 +5,17 @@
   margin-left: 24px;
   text-transform: capitalize;
 
-  .ceg-side-filter:not(:last-of-type) {
-    margin-bottom: 24px;
+  .ceg-filter-margin {
+    padding-bottom: 24px;
   }
 
   .e-radio.e-radio--sm:not(:last-child) {
     margin-bottom: 8px;
+  }
+
+  .counter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 }

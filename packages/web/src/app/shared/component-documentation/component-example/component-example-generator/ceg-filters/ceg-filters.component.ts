@@ -10,7 +10,9 @@ export class CegFiltersComponent implements OnInit {
   @Input() componentData;
   @Input() codeReact;
   @Input() codeWebComponent;
+  counterNumber: number;
   props = [];
+  isString = true;
 
   emptyLineRegex = /^\s*[\r\n]/gm;
 
@@ -35,15 +37,24 @@ export class CegFiltersComponent implements OnInit {
   }
 
   getPropRegex(prop: string): RegExp {
-    return new RegExp(prop + '=".*', 'gi');
+    if (this.codeReact.includes(prop + '={')) {
+      this.isString = false;
+    } else {
+      this.isString = true;
+    }
+    return new RegExp(prop + '=("|{).*', 'gi');
   }
 
   getNewLineRegex(elementName: string): RegExp {
     return new RegExp('<' + elementName, 'gi');
   }
 
-  getReplaceValueString(prop: string, newValue: string): string {
-    return prop + '="' + newValue + '"';
+  getReplaceValueString(prop: string, newValue: string, isReact: boolean): string {
+    if (!this.isString && isReact) {
+      return prop + '={' + newValue + '}';
+    } else {
+      return prop + '="' + newValue + '"';
+    }
   }
 
   getNewPropStringW(prop: string, newValue: string): string {
@@ -51,7 +62,16 @@ export class CegFiltersComponent implements OnInit {
   }
 
   getNewPropStringR(prop: string, newValue: string): string {
-    return '<' + this.componentData.elementNameR + '\n  ' + prop + '="' + newValue + '"';
+    if (this.isString) {
+      return '<' + this.componentData.elementNameR + '\n  ' + prop + '="' + newValue + '"';
+    } else {
+      return '<' + this.componentData.elementNameR + '\n  ' + prop + '={' + newValue + '}';
+    }
+  }
+
+  updateProps(): void {
+    this.codeService.updateCodeReact(this.codeReact);
+    this.codeService.updateCodeWebComponent(this.codeWebComponent);
   }
 
   updateRadioProp(prop: string, newValue: string): void {
@@ -59,11 +79,11 @@ export class CegFiltersComponent implements OnInit {
       // Replaces old value for prop
       this.codeReact = this.codeReact.replace(
         this.getPropRegex(prop),
-        this.getReplaceValueString(prop, newValue),
+        this.getReplaceValueString(prop, newValue, true),
       );
       this.codeWebComponent = this.codeWebComponent.replace(
         this.getPropRegex(prop),
-        this.getReplaceValueString(prop, newValue),
+        this.getReplaceValueString(prop, newValue, false),
       );
     } else {
       // Adds new prop to code
@@ -75,8 +95,7 @@ export class CegFiltersComponent implements OnInit {
       const newStringR = this.getNewPropStringR(prop, newValue);
       this.codeReact = this.codeReact.replace(newLineRegexR, newStringR);
     }
-    this.codeService.updateCodeReact(this.codeReact);
-    this.codeService.updateCodeWebComponent(this.codeWebComponent);
+    this.updateProps();
   }
 
   updateToggleProp(prop: string, newValue: string): void {
@@ -96,7 +115,32 @@ export class CegFiltersComponent implements OnInit {
       const newStringR = this.getNewPropStringR(prop, newValue);
       this.codeReact = this.codeReact.replace(newLineRegexR, newStringR);
     }
-    this.codeService.updateCodeReact(this.codeReact);
-    this.codeService.updateCodeWebComponent(this.codeWebComponent);
+    this.updateProps();
+  }
+
+  updateCounterProp(prop: string, cegCounterMax: number, cegDefault: number, newValue: number): void {
+    if (
+      this.counterNumber !== undefined &&
+      (this.counterNumber + newValue > cegCounterMax || this.counterNumber + newValue < 0)
+    ) {
+      return;
+    } else if (this.counterNumber === undefined) {
+      this.counterNumber = cegDefault + newValue;
+    } else {
+      this.counterNumber += newValue;
+    }
+
+    if (this.codeWebComponent.includes(prop)) {
+      // Replaces old value for prop
+      this.codeReact = this.codeReact.replace(
+        this.getPropRegex(prop),
+        this.getReplaceValueString(prop, this.counterNumber.toString(), true),
+      );
+      this.codeWebComponent = this.codeWebComponent.replace(
+        this.getPropRegex(prop),
+        this.getReplaceValueString(prop, this.counterNumber.toString(), false),
+      );
+    }
+    this.updateProps();
   }
 }

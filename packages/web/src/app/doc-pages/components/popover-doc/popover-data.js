@@ -9,6 +9,7 @@ module.exports = {
       description: 'Title of content',
       displayName: 'Title',
       cegFormType: 'toggle',
+      cegDefault: 'true',
       cegOption: 'Title',
     },
     hasCloseBtn: {
@@ -18,6 +19,7 @@ module.exports = {
       default: 'true',
       displayName: 'Close button',
       cegFormType: 'toggle',
+      cegDefault: 'true',
       cegOption: 'false',
     },
     content: {

@@ -8,40 +8,27 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div
-    class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
-  >
-    <div class="e-progress" role="progressbar">
-      <div class="e-progress__bar"></div>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
-    </div>
-  </div>
+  <!--CEG-->
+  <app-component-example-generator
+    [codeInstallation]="codeInstallation"
+    [codeReact]="codeReact"
+    [codeWebComponent]="codeWebComponent"
+    [componentData]="componentData"
+  ></app-component-example-generator>
 
-  <!--STATE-->
-  <app-component-section [sectionTitle]="'State'">
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Progressbar loading'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Progressbar error'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
-        </ng-container>
+      <app-component-subsection [sectionTitle]="'Error'">
+        <ng-container ngProjectAs="sectionContent">Maybe?</ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-progress'">
+  <app-component-section [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-progress'"></app-component-properties>
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
 </div>

@@ -1,9 +1,14 @@
 <div class="ceg-container e-mt-64">
-  <div class="ceg-row-1">
+  <div class="ceg-row-0">
+    <!--CEG top filter-->
+    <div class="ceg-code-dropdown">dropdown</div>
+  </div>
+
+  <div class="ceg-row-1 e-mt-24">
     <div class="ceg-col-1">
       <!--CEG code preview-->
       <div class="ceg-code-preview">
-        <div #cegFrame></div>
+        <div #cegFrame class="ceg-frame"></div>
       </div>
     </div>
 
@@ -18,7 +23,7 @@
   </div>
 
   <!--CEG code-->
-  <div class="ceg-code e-mt-16">
+  <div class="ceg-row-2 e-mt-16">
     <app-component-example-accordion>
       <ng-container ngProjectAs="accordionContent">
         <app-component-example-code
