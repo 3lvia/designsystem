@@ -7024,14 +7024,16 @@ input:focus {
   border-radius: 8px;
 }
 
-.e-table-footnote {
+.e-table-footnote,
+.e-table__footnote {
   margin-top: 8px;
   font-family: "Red Hat Text";
   font-size: 16px;
   line-height: 26px;
 }
 
-.e-table-footnote.e-table-footnote--compact {
+.e-table-footnote.e-table__footnote--compact,
+.e-table__footnote.e-table__footnote--compact {
   font-size: 14px;
 }
 
