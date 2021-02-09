@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-component-example-accordion',
@@ -6,15 +6,5 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
   styleUrls: ['./component-example-accordion.component.scss'],
 })
 export class ComponentExampleAccordionComponent {
-  @ViewChild('accordionItem') accordionItem: ElementRef;
-
   showCode = false;
-
-  toggleOpen(): void {
-    if (this.accordionItem.nativeElement.classList.contains('e-accordion__item--open')) {
-      this.accordionItem.nativeElement.classList.remove('e-accordion__item--open');
-    } else {
-      this.accordionItem.nativeElement.classList.add('e-accordion__item--open');
-    }
-  }
 }

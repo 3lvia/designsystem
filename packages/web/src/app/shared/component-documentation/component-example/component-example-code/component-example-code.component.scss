@@ -28,7 +28,9 @@ pre {
     flex-direction: row;
     align-items: center;
     width: 100%;
-    margin-bottom: 24px;
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+    overflow: auto;
 
     .tabs {
       display: flex;
@@ -37,19 +39,17 @@ pre {
         display: flex;
         align-items: center;
         margin: 0 12px;
+        padding: 0 8px;
+        width: 100%;
+
         font-family: 'Red Hat Display';
         font-size: 14px;
         line-height: 32px;
         text-transform: uppercase;
         color: var(--e-grey-20);
-
-        cursor: pointer;
-
-        display: flex;
-        align-items: center;
-        width: 100%;
-        letter-spacing: 0.2px;
+        letter-spacing: 0.8px;
         white-space: nowrap;
+        cursor: pointer;
 
         position: relative;
         border-bottom: 2px solid transparent;
@@ -104,27 +104,18 @@ pre {
       align-items: center;
       width: 100%;
       color: var(--e-white);
-      i[class*='e-icon--copy'] {
-        display: none;
-      }
-      i[class*='e-icon--inverted'] {
-        display: flex;
-      }
-      .e-btn:hover {
-        i[class*='e-icon--copy'] {
-          display: flex;
-        }
-        i[class*='e-icon--inverted'] {
-          display: none;
-        }
-      }
     }
   }
 }
 
-.active-code {
-  font-family: 'Fira mono';
-  color: white;
+.higlighted-code {
+  overflow: auto;
+  padding-bottom: 16px;
+  margin-bottom: -16px;
+  .active-code {
+    font-family: 'Fira mono';
+    color: white;
+  }
 }
 
 .codepen-link {

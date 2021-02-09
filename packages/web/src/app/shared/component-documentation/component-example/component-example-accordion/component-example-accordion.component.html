@@ -1,14 +1,10 @@
 <div class="e-accordion e-accordion--single e-accordion--center">
-  <div class="e-accordion__item" #accordionItem>
-    <div class="e-accordion__title" (click)="toggleOpen()">
-      <div role="button" *ngIf="!showCode" (click)="showCode = !showCode">
-        View code
-      </div>
-      <div role="button" *ngIf="showCode" (click)="showCode = !showCode">
-        Hide code
-      </div>
+  <div class="e-accordion__item" #accordionItem [ngClass]="{ 'e-accordion__item--open': showCode }">
+    <div class="e-accordion__title" (click)="showCode = !showCode">
+      <div role="button" *ngIf="!showCode">View code</div>
+      <div role="button" *ngIf="showCode">Hide code</div>
     </div>
-    <div class="e-accordion__icon" (click)="toggleOpen()">
+    <div class="e-accordion__icon" (click)="showCode = !showCode">
       <i class="e-icon e-icon--expand_circle-color"></i>
       <i class="e-icon e-icon--expand_circle-filled-color"></i>
     </div>

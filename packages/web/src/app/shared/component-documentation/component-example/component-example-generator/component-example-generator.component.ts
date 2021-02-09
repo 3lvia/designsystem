@@ -13,10 +13,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
   @Input() codeReact = '';
   @Input() codeWebComponent = '';
   @Input() componentData;
-
-  showTypeDropdown = false;
-  showBgDropdown = false;
-  currentBackground = 'White';
   codeWebComponentSub: Subscription;
 
   constructor(private codeService: ExampleCodeService) {}

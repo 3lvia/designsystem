@@ -1,32 +1,32 @@
 <div class="ceg-container e-mt-64">
-  <div class="ceg-col-1">
-    <!--CEG top filter-->
-
-    <!--CEG code preview-->
-    <div class="ceg-code-preview" [ngClass]="currentBackground === 'White' ? 'e-bg-white' : 'e-bg-grey'">
-      <div #cegFrame></div>
+  <div class="ceg-row-1">
+    <div class="ceg-col-1">
+      <!--CEG code preview-->
+      <div class="ceg-code-preview">
+        <div #cegFrame></div>
+      </div>
     </div>
 
-    <!--CEG code-->
-    <div class="ceg-code e-mt-16">
-      <app-component-example-accordion>
-        <ng-container ngProjectAs="accordionContent">
-          <app-component-example-code
-            [codeInstallation]="codeInstallation"
-            [codeReact]="codeReact"
-            [codeWebComponent]="codeWebComponent"
-          ></app-component-example-code>
-        </ng-container>
-      </app-component-example-accordion>
+    <!--CEG side filters-->
+    <div class="ceg-col-2">
+      <app-ceg-filters
+        [componentData]="componentData"
+        [codeReact]="codeReact"
+        [codeWebComponent]="codeWebComponent"
+      ></app-ceg-filters>
     </div>
   </div>
 
-  <!--CEG side filters-->
-  <div class="ceg-col-2">
-    <app-ceg-filters
-      [componentData]="componentData"
-      [(codeReact)]="codeReact"
-      [(codeWebComponent)]="codeWebComponent"
-    ></app-ceg-filters>
+  <!--CEG code-->
+  <div class="ceg-code e-mt-16">
+    <app-component-example-accordion>
+      <ng-container ngProjectAs="accordionContent">
+        <app-component-example-code
+          [codeInstallation]="codeInstallation"
+          [codeReact]="codeReact"
+          [codeWebComponent]="codeWebComponent"
+        ></app-component-example-code>
+      </ng-container>
+    </app-component-example-accordion>
   </div>
 </div>

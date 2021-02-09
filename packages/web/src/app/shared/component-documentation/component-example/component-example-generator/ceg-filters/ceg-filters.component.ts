@@ -12,6 +12,8 @@ export class CegFiltersComponent implements OnInit {
   @Input() codeWebComponent;
   props = [];
 
+  emptyLineRegex = /^\s*[\r\n]/gm;
+
   constructor(private codeService: ExampleCodeService) {}
 
   ngOnInit(): void {
@@ -21,7 +23,7 @@ export class CegFiltersComponent implements OnInit {
   initializeComponentProps(): void {
     Object.keys(this.componentData.attributes).forEach((attribute) => {
       Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
-        if (value === 'formType') {
+        if (value === 'cegFormType') {
           const newObject = {
             attribute,
             ...this.componentData.attributes[attribute],
@@ -32,42 +34,67 @@ export class CegFiltersComponent implements OnInit {
     });
   }
 
-  updateRadioProp(prop: string, label: string): void {
+  getPropRegex(prop: string): RegExp {
+    return new RegExp(prop + '=".*', 'gi');
+  }
+
+  getNewLineRegex(elementName: string): RegExp {
+    return new RegExp('<' + elementName, 'gi');
+  }
+
+  getReplaceValueString(prop: string, newValue: string): string {
+    return prop + '="' + newValue + '"';
+  }
+
+  getNewPropStringW(prop: string, newValue: string): string {
+    return '<' + this.componentData.elementNameW + '\n  ' + prop + '="' + newValue + '"';
+  }
+
+  getNewPropStringR(prop: string, newValue: string): string {
+    return '<' + this.componentData.elementNameR + '\n  ' + prop + '="' + newValue + '"';
+  }
+
+  updateRadioProp(prop: string, newValue: string): void {
     if (this.codeWebComponent.includes(prop)) {
-      // Replaces old prop in code
-      const customRegex = new RegExp(prop + '=".*?"', 'gi');
-      this.codeReact = this.codeReact.replace(customRegex, prop + '="' + label + '"');
-      this.codeWebComponent = this.codeWebComponent.replace(customRegex, prop + '="' + label + '"');
+      // Replaces old value for prop
+      this.codeReact = this.codeReact.replace(
+        this.getPropRegex(prop),
+        this.getReplaceValueString(prop, newValue),
+      );
+      this.codeWebComponent = this.codeWebComponent.replace(
+        this.getPropRegex(prop),
+        this.getReplaceValueString(prop, newValue),
+      );
     } else {
       // Adds new prop to code
-      const customRegexW = new RegExp('<' + this.componentData.elementNameW, 'gi');
-      const newStringW = '<' + this.componentData.elementNameW + '\n  ' + prop + '="' + label + '"';
-      const customRegexR = new RegExp('<' + this.componentData.elementNameR, 'gi');
-      const newStringR = '<' + this.componentData.elementNameR + '\n  ' + prop + '="' + label + '"';
-      this.codeWebComponent = this.codeWebComponent.replace(customRegexW, newStringW);
-      this.codeReact = this.codeReact.replace(customRegexR, newStringR);
+      const newLineRegexW = this.getNewLineRegex(this.componentData.elementNameW);
+      const newStringW = this.getNewPropStringW(prop, newValue);
+      this.codeWebComponent = this.codeWebComponent.replace(newLineRegexW, newStringW);
+
+      const newLineRegexR = this.getNewLineRegex(this.componentData.elementNameR);
+      const newStringR = this.getNewPropStringR(prop, newValue);
+      this.codeReact = this.codeReact.replace(newLineRegexR, newStringR);
     }
     this.codeService.updateCodeReact(this.codeReact);
     this.codeService.updateCodeWebComponent(this.codeWebComponent);
   }
 
-  updateToggleProp(prop: string, label: string): void {
+  updateToggleProp(prop: string, newValue: string): void {
     if (this.codeWebComponent.includes(prop)) {
       // Removes old prop and line in code
-      this.codeReact = this.codeReact
-        .replace(new RegExp(prop + '=".*', 'gi'), '')
-        .replace(/^\s*[\r\n]/gm, '');
+      this.codeReact = this.codeReact.replace(this.getPropRegex(prop), '').replace(this.emptyLineRegex, '');
       this.codeWebComponent = this.codeWebComponent
-        .replace(new RegExp(prop + '=".*', 'gi'), '')
-        .replace(/^\s*[\r\n]/gm, '');
+        .replace(this.getPropRegex(prop), '')
+        .replace(this.emptyLineRegex, '');
     } else {
       // Adds new prop in code
-      const customRegexW = new RegExp('<' + this.componentData.elementNameW, 'gi');
-      const newStringW = '<' + this.componentData.elementNameW + '\n  ' + prop + '="' + label + '"';
-      const customRegexR = new RegExp('<' + this.componentData.elementNameR, 'gi');
-      const newStringR = '<' + this.componentData.elementNameR + '\n  ' + prop + '="' + label + '"';
-      this.codeWebComponent = this.codeWebComponent.replace(customRegexW, newStringW);
-      this.codeReact = this.codeReact.replace(customRegexR, newStringR);
+      const newLineRegexW = this.getNewLineRegex(this.componentData.elementNameW);
+      const newStringW = this.getNewPropStringW(prop, newValue);
+      this.codeWebComponent = this.codeWebComponent.replace(newLineRegexW, newStringW);
+
+      const newLineRegexR = this.getNewLineRegex(this.componentData.elementNameR);
+      const newStringR = this.getNewPropStringR(prop, newValue);
+      this.codeReact = this.codeReact.replace(newLineRegexR, newStringR);
     }
     this.codeService.updateCodeReact(this.codeReact);
     this.codeService.updateCodeWebComponent(this.codeWebComponent);

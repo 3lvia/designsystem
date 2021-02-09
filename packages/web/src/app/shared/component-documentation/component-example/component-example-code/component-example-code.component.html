@@ -65,16 +65,19 @@
       <div class="e-mr-8">
         {{ copyMessage }}
       </div>
-      <button class="e-btn e-btn--icon e-btn--sm" (click)="copyCode()">
+      <button class="e-btn e-btn--icon e-btn--sm e-btn--inverted" (click)="copyCode()">
         <span class="e-btn__icon">
-          <i class="e-icon e-icon--copy e-icon--inverted"></i>
           <i class="e-icon e-icon--copy"></i>
+          <i class="e-icon e-icon--copy e-icon--inverted"></i>
         </span>
       </button>
     </div>
   </div>
 
-  <pre *ngIf="highlightedCode"><code [innerHtml]="highlightedCode" class="active-code"></code></pre>
+  <pre
+    *ngIf="highlightedCode"
+    class="higlighted-code"
+  ><code [innerHtml]="highlightedCode" class="active-code"></code></pre>
 
   <!--Codepen-->
   <div class="codepen-link" *ngIf="this.codeHTML !== ''">
