@@ -10,7 +10,7 @@
     </span>
     <br>
     <span>
-      February 1, 2021
+      TBA
     </span>
     </td>
     <td class="changelog-content">
@@ -23,7 +23,30 @@
         <div class="e-mt-8">
           How to fix:
           Read the documentation with examples to replace old links. Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>
-      <div class="changelog-divider"></div>
+        </div>
+        <div class="changelog-divider"></div>
+      </div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      6.2.0
+    </span>
+    <br>
+    <span>
+      January 28, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icons#Overview">Icons</a>
+        </div>
+        Icons have been updated, some have been deprecated and new icons have been added.
+        <div class="changelog-divider"></div>
+      </div>
     </td>
   </tr>
   <tr class="changelog-row">

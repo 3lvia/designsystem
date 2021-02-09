@@ -237,6 +237,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     }
   }
 
+  &:active,
   &.e-radio---hover {
     .e-radio__mark {
       background: colors.color('elvia-charge');

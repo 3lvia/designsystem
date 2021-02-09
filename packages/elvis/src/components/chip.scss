@@ -50,19 +50,19 @@ $chips-padding: 5px 16px;
 
         &.e-chip---disabled,
         &:disabled {
-          cursor: not-allowed;
           background: rgba($rgb, 0.065);
         }
       }
     }
   }
 
-  &---hover:not(.e-chip---disabled) {
+  &:active,
+  &---hover:not(:disabled):not(.e-chip---disabled) {
     background: colors.color('elvia-charge');
     cursor: pointer;
   }
   @include helpers.hover() {
-    &:hover:not(:disabled) {
+    &:hover:not(:disabled):not(.e-chip---disabled) {
       background: colors.color('elvia-charge');
       cursor: pointer;
     }
@@ -72,6 +72,10 @@ $chips-padding: 5px 16px;
   &:disabled {
     cursor: not-allowed;
     background: rgba(colors.color('green-apple'), 0.065);
+    .e-chip__label {
+      color: black;
+      opacity: 0.5;
+    }
     .e-chip__close {
       opacity: 0.5;
     }

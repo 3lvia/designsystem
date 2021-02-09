@@ -1,4 +1,4 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import "@elvia/elvis/src/utilities/breakpoints.scss";
 
 .component-section {
   margin-top: 104px;
@@ -51,15 +51,6 @@
     }
     &.anchor-copied .icons .normal-img {
       display: none;
-    }
-
-    .prop-element-title {
-      font-family: 'Fira Mono';
-      font-size: 14px;
-      line-height: 22px;
-      background: var(--e-grey-05);
-      padding: 0 2px;
-      border-radius: 2px;
     }
   }
 }
