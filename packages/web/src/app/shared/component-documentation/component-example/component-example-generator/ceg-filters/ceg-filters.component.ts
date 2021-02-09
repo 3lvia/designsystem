@@ -8,9 +8,9 @@ import { ExampleCodeService } from '../../../example-code.service';
 })
 export class CegFiltersComponent implements OnInit {
   @Input() componentData;
-  @Input() codeReact;
-  @Input() codeWebComponent;
   counterNumber: number;
+  codeReact;
+  codeWebComponent;
   props = [];
   isString = true;
 
@@ -19,6 +19,8 @@ export class CegFiltersComponent implements OnInit {
   constructor(private codeService: ExampleCodeService) {}
 
   ngOnInit(): void {
+    this.codeReact = this.componentData.codeReact;
+    this.codeWebComponent = this.componentData.codeWebComponent;
     this.initializeComponentProps();
   }
 

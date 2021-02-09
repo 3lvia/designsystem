@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./component-example-code.component.scss'],
 })
 export class ComponentExampleCodeComponent implements OnInit, OnChanges {
+  @Input() componentData;
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
@@ -39,6 +40,11 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   ) {}
 
   ngOnInit(): void {
+    if (this.componentData) {
+      this.codeInstallation = this.componentData.codeInstallation;
+      this.codeReact = this.componentData.codeReact;
+      this.codeWebComponent = this.componentData.codeWebComponent;
+    }
     this.initializeActiveTab();
     this.setCodePenValue();
     this.codeWebComponentSub = this.codeService.listenCodeWebComponent().subscribe((newCode: string) => {

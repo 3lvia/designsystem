@@ -11,7 +11,4 @@ export class ProgressbarDocComponent {
   figmaUrl = getComponent('progressbar').figmaUrl;
   description = getComponent('progressbar').description;
   componentData = componentData;
-  codeInstallation = componentData.codeInstallation;
-  codeReact = componentData.codeReact;
-  codeWebComponent = componentData.codeWebComponent;
 }

@@ -9,9 +9,6 @@ import * as componentData from './popover-data.js';
 export class PopoverDocComponent {
   @ViewChild('popover1') popover1: ElementRef;
   componentData = componentData;
-  codeInstallation = componentData.codeInstallation;
-  codeReact = componentData.codeReact;
-  codeWebComponent = componentData.codeWebComponent;
 
   figmaUrl = getComponent('popover').figmaUrl;
   description = getComponent('popover').description;

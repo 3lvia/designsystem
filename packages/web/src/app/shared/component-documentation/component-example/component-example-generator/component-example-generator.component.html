@@ -14,11 +14,7 @@
 
     <!--CEG side filters-->
     <div class="ceg-col-2">
-      <app-ceg-filters
-        [componentData]="componentData"
-        [codeReact]="codeReact"
-        [codeWebComponent]="codeWebComponent"
-      ></app-ceg-filters>
+      <app-ceg-filters [componentData]="componentData"></app-ceg-filters>
     </div>
   </div>
 
@@ -26,11 +22,7 @@
   <div class="ceg-row-2 e-mt-16">
     <app-component-example-accordion>
       <ng-container ngProjectAs="accordionContent">
-        <app-component-example-code
-          [codeInstallation]="codeInstallation"
-          [codeReact]="codeReact"
-          [codeWebComponent]="codeWebComponent"
-        ></app-component-example-code>
+        <app-component-example-code [componentData]="componentData"></app-component-example-code>
       </ng-container>
     </app-component-example-accordion>
   </div>
