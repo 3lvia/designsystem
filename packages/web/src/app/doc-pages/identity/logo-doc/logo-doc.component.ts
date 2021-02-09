@@ -15,6 +15,8 @@ export class LogoDocComponent {
   isInverted4 = false;
   isInvertedFav = false;
 
+  loadedLogo = false;
+
   faviconTS = `isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').addListener(
   e => e.matches && this.handleMode(e.matches)
 );
@@ -52,6 +54,14 @@ handleMode(darkMode) {
     }
     if (asset === 'isInvertedFav') {
       this.isInvertedFav = !this.isInvertedFav;
+    }
+  }
+
+  hideContentLoader(evt: any): void {
+    if (evt && evt.target) {
+      this.loadedLogo = true;
+      const toolsIllustration = document.getElementById('elvia-logo');
+      toolsIllustration.classList.remove('e-none');
     }
   }
 }

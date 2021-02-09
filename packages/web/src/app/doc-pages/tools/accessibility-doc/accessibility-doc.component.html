@@ -21,11 +21,22 @@
       different people in similar circumstances and makes it better for many.
     </div>
     <div class="headerSection--illustration">
+      <div
+        class="e-content-loader"
+        *ngIf="!loadedImg"
+        style="height: 360px; width: 259px;"
+      ></div>
       <img
+        class="e-none"
         src="../../../../assets/website-icons/tools-images/inclusive_toolkit.svg"
         alt="Illustration from Microsoft inclusive toolkit"
+        id="acessibility-illustration"
+        (load)="hideContentLoader($event)"
       />
-      <span class="e-text-img e-mt-16" style="display: flex">
+      <span
+        class="e-text-img e-mt-16"
+        style="display: flex"
+      >
         <span class="e-text-img">
           From Microsoft’s
           <a
@@ -67,7 +78,10 @@
           <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
         </a>
         , or read a summary of the new additions to 2.1 on the Norwegian Digitization Directorate
-        <a class="e-link e-link--inline e-link--external" href="https://uu.difi.no/">
+        <a
+          class="e-link e-link--inline e-link--external"
+          href="https://uu.difi.no/"
+        >
           <span class="e-link__title">Norwegian Digitization Directorate</span>
           <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
         </a>
@@ -86,7 +100,10 @@
           <li>
             All form elements can use the e-form-field classes for label, error messages and alignment of form
             elements (see
-            <a class="e-link e-link--lg" [routerLink]="['/components/input']">input</a>
+            <a
+              class="e-link e-link--lg"
+              [routerLink]="['/components/input']"
+            >input</a>
             )
           </li>
           <li>Use background classes (e-bg) to automatically get right text contrasts</li>
@@ -94,8 +111,14 @@
       </div>
       <h3 class="e-title-sm">Examples</h3>
       <p>
-        <app-do-dont [do]="true" [codeHTML]="doCode"></app-do-dont>
-        <app-do-dont [do]="false" [codeHTML]="dontCode"></app-do-dont>
+        <app-do-dont
+          [do]="true"
+          [codeHTML]="doCode"
+        ></app-do-dont>
+        <app-do-dont
+          [do]="false"
+          [codeHTML]="dontCode"
+        ></app-do-dont>
       </p>
     </ng-container>
   </app-component-section>
@@ -114,7 +137,10 @@
         <div class="e-title-sm e-mt-24">Examples</div>
         <div class="contentExamples e-mt-24">
           <div class="e-mr-32">
-            <a href="" class="e-link">Les våre beste tips for elsikkerhet</a>
+            <a
+              href=""
+              class="e-link"
+            >Les våre beste tips for elsikkerhet</a>
             <div class="exampleRow">
               <span class="exampleRowItem">
                 <i class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"></i>
@@ -123,7 +149,10 @@
             </div>
           </div>
           <div class="examplesItemTwo">
-            <a href="" class="e-link">Les mer</a>
+            <a
+              href=""
+              class="e-link"
+            >Les mer</a>
             <div class="exampleRow">
               <span class="exampleRowItem">
                 <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-red"></i>
@@ -156,7 +185,10 @@
       <div class="e-mt-72">
         <span class="e-text-body">
           See our
-          <a class="e-link e-link--lg" [routerLink]="['/identity/tone-of-voice']">tone of voice</a>
+          <a
+            class="e-link e-link--lg"
+            [routerLink]="['/identity/tone-of-voice']"
+          >tone of voice</a>
           for more guides to Elvia’s written style and tone.
         </span>
       </div>
@@ -236,7 +268,11 @@
             </a>
           </li>
           <li>
-            <a class="e-link e-link--external" href="https://uu.difi.no/" target="_blank">
+            <a
+              class="e-link e-link--external"
+              href="https://uu.difi.no/"
+              target="_blank"
+            >
               <span class="e-link__title">Norwegian Digitization Directorate</span>
               <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
             </a>

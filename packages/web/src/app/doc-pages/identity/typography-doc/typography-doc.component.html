@@ -22,10 +22,20 @@
 <div class="page-body">
   <!-- Red Hat illustration -->
   <div class="e-mt-72 e-mb-24">
+    <div
+      style="display: flex; justify-content: center; width: 100%;"
+      *ngIf="!loadedImg"
+    >
+      <div
+        class="e-content-loader"
+        style="width: 80%;"
+      ></div>
+    </div>
     <img
       class="header-img"
       src="../../../../assets/website-icons/identity-images/RedHat.jpeg"
       alt="Confirmation page illustration"
+      (load)="hideContentLoader($event)"
     />
   </div>
   <!--Text Styles-->
