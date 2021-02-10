@@ -14,8 +14,6 @@ export class ContributeComponent {
   hideContentLoader(evt: any): void {
     if (evt && evt.target) {
       this.loadedFigmaModel = true;
-      const toolsIllustration = document.getElementById('figma-contribution-model');
-      toolsIllustration.classList.remove('e-none');
     }
   }
 }

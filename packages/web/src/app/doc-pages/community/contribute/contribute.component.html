@@ -22,7 +22,7 @@
           ></div>
         </div>
         <iframe
-          class="e-none"
+          [ngClass]="!loadedFigmaModel ? 'e-none' : '' "
           id="figma-contribution-model"
           style="border: none"
           width="100%"

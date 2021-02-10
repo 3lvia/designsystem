@@ -27,10 +27,9 @@
         style="height: 360px; width: 259px;"
       ></div>
       <img
-        class="e-none"
+        [ngClass]="!loadedImg ? 'e-none' : '' "
         src="../../../../assets/website-icons/tools-images/inclusive_toolkit.svg"
         alt="Illustration from Microsoft inclusive toolkit"
-        id="acessibility-illustration"
         (load)="hideContentLoader($event)"
       />
       <span

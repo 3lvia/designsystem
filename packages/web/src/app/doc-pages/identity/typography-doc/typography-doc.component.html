@@ -33,7 +33,7 @@
     </div>
     <img
       class="header-img"
-      id="typography-illustration"
+      [ngClass]="!loadedImg ? 'e-none' : '' "
       src="../../../../assets/website-icons/identity-images/RedHat.jpeg"
       alt="Confirmation page illustration"
       (load)="hideContentLoader($event)"

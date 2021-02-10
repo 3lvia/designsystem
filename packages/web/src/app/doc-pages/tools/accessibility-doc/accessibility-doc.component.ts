@@ -13,8 +13,6 @@ export class AccessibilityDocComponent {
   hideContentLoader(evt: any): void {
     if (evt && evt.target) {
       this.loadedImg = true;
-      const toolsIllustration = document.getElementById('acessibility-illustration');
-      toolsIllustration.classList.remove('e-none');
     }
   }
 }

@@ -77,8 +77,6 @@ export class TypographyDocComponent implements OnInit {
   hideContentLoader(evt: any): void {
     if (evt && evt.target) {
       this.loadedImg = true;
-      const toolsIllustration = document.getElementById('typography-illustration');
-      toolsIllustration.classList.remove('e-none');
     }
   }
 }

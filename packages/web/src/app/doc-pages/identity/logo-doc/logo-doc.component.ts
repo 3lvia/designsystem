@@ -60,8 +60,6 @@ handleMode(darkMode) {
   hideContentLoader(evt: any): void {
     if (evt && evt.target) {
       this.loadedLogo = true;
-      const toolsIllustration = document.getElementById('elvia-logo');
-      toolsIllustration.classList.remove('e-none');
     }
   }
 }
