@@ -8,4 +8,11 @@ import { Component } from '@angular/core';
 export class AccessibilityDocComponent {
   doCode = `<div class="e-bg-green"></div>`;
   dontCode = `<div class="e-bg-green e-text-grey"></div>`;
+  loadedImg = false;
+
+  hideContentLoader(evt: any): void {
+    if (evt && evt.target) {
+      this.loadedImg = true;
+    }
+  }
 }
