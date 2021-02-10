@@ -14,8 +14,12 @@
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Error'">
-        <ng-container ngProjectAs="sectionContent">Maybe?</ng-container>
+      <app-component-subsection [sectionTitle]="'Hierarchy of props'">
+        <ng-container ngProjectAs="sectionContent">
+          Note that if error is set to true the style of the progressbar will be in the error format and
+          override any default style with range or indeterminate style. If indeterminate is set to true, this
+          will always override default progressbar style with range of completion.
+        </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>

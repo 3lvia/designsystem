@@ -16,8 +16,10 @@
           checked
         />
         <input type="radio" id="{{ label }}-radio" name="{{ prop.displayName }} radio" />
-        <span class="e-radio__mark" (click)="updateRadioProp(prop.attribute, label)"></span>
-        <span class="e-radio__label" (click)="updateRadioProp(prop.attribute, label)">{{ label }}</span>
+        <span class="e-radio__mark" (click)="updateRadioProp(prop, label)"></span>
+        <span class="e-radio__label" (click)="updateRadioProp(prop, label)">
+          {{ label }}
+        </span>
       </label>
     </div>
 
@@ -30,13 +32,13 @@
           class="e-toggle__input"
           type="checkbox"
           checked
-          (click)="updateToggleCheckboxProp(prop.attribute, prop.cegOption)"
+          (click)="updateToggleCheckboxProp(prop)"
         />
         <input
           *ngIf="prop.cegDefault === 'false'"
           class="e-toggle__input"
           type="checkbox"
-          (click)="updateToggleCheckboxProp(prop.attribute, prop.cegOption)"
+          (click)="updateToggleCheckboxProp(prop)"
         />
         <span class="e-toggle__slider"></span>
       </label>
@@ -52,7 +54,7 @@
               type="checkbox"
               id="{{ checkboxProp.displayName }}-checkbox"
               name="{{ checkboxProp.displayName }} checkbox"
-              (click)="updateToggleCheckboxProp(checkboxProp.attribute, checkboxProp.cegOption)"
+              (click)="updateToggleCheckboxProp(checkboxProp)"
             />
             <span class="e-checkbox__mark"></span>
             <span class="e-checkbox__label">{{ checkboxProp.displayName }}</span>
@@ -67,7 +69,7 @@
       <div class="counter">
         <button
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-8"
-          (click)="updateCounterProp(prop.attribute, prop.cegCounterMax, prop.cegDefault, -prop.cegStepValue)"
+          (click)="updateCounterProp(prop, -prop.cegStepValue)"
           type="button"
         >
           <span class="e-btn__icon">
@@ -83,7 +85,7 @@
         </span>
         <button
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8"
-          (click)="updateCounterProp(prop.attribute, prop.cegCounterMax, prop.cegDefault, prop.cegStepValue)"
+          (click)="updateCounterProp(prop, prop.cegStepValue)"
           type="button"
         >
           <span class="e-btn__icon">
