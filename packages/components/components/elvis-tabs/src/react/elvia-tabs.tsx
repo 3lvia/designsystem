@@ -48,7 +48,7 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
     };
   }, []);
 
-  const updateCurrValue = (value: number) => {
+  const updateValue = (value: number) => {
     if (!webcomponent && valueOnChange) {
       valueOnChange(value);
     } else if (webcomponent) {
@@ -120,7 +120,7 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
         <div className="ewc-tabs__scroll" ref={itemsRef} role="tablist">
           {items &&
             items.map((item, i) => (
-              <div key={i} className="ewc-tabs__tab" onClick={() => updateCurrValue(i)}>
+              <div key={i} className="ewc-tabs__tab" onClick={() => updateValue(i)}>
                 <input
                   type="radio"
                   name="ewc_tab-group"
