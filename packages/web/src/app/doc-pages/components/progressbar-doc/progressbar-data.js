@@ -12,7 +12,8 @@ module.exports = {
       cegFormType: 'counter',
       cegDefault: 20,
       cegCounterMax: 100,
-      cegTypeDependency: 'normal',
+      cegStepValue: 10,
+      cegTypeDependency: 'Normal',
     },
     isIndeterminate: {
       isRequired: false,
@@ -20,8 +21,9 @@ module.exports = {
       description: 'For indeterminate loading',
       default: 'false',
       displayName: 'Indeterminate',
-      cegFormType: 'type',
-      cegOption: 'Title',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Modifiers',
     },
     isError: {
       isRequired: false,
@@ -29,16 +31,16 @@ module.exports = {
       description: 'For displaying an error in the progress completion.',
       default: 'false',
       displayName: 'Error',
-      cegFormType: 'toggle',
-      cegDefault: 'false',
+      cegFormType: 'checkbox',
       cegOption: 'true',
+      cegDisplayGroup: 'Modifiers',
     },
   },
   codeInstallation: `//REACT
 import { Progressbar } from '@elvia/elvis-progress-linear/react';
 
 // WEBCOMPONENT
-import { Progressbar } from  '@elvia/elvis-progress-linear';`,
+import '@elvia/elvis-progress-linear';`,
   codeReact: `<ProgressLinear 
   value={20}
 ></ProgressLinear>`,

@@ -8,11 +8,13 @@ import { ExampleCodeService } from '../../../example-code.service';
 })
 export class CegFiltersComponent implements OnInit {
   @Input() componentData;
+  @Input() chosenType;
   counterNumber: number;
   codeReact;
   codeWebComponent;
   props = [];
   isString = true;
+  modifiers = [];
 
   emptyLineRegex = /^\s*[\r\n]/gm;
 
@@ -32,10 +34,19 @@ export class CegFiltersComponent implements OnInit {
             attribute,
             ...this.componentData.attributes[attribute],
           };
-          this.props.push(newObject);
+          if (this.componentData.attributes[attribute].cegFormType === 'checkbox') {
+            this.modifiers.push(newObject);
+          } else {
+            this.props.push(newObject);
+          }
         }
       });
     });
+    const modifiersObject = {
+      cegFormType: 'checkbox',
+      modifiers: this.modifiers,
+    };
+    this.props.push(modifiersObject);
   }
 
   getPropRegex(prop: string): RegExp {
@@ -100,7 +111,7 @@ export class CegFiltersComponent implements OnInit {
     this.updateProps();
   }
 
-  updateToggleProp(prop: string, newValue: string): void {
+  updateToggleCheckboxProp(prop: string, newValue: string): void {
     if (this.codeWebComponent.includes(prop)) {
       // Removes old prop and line in code
       this.codeReact = this.codeReact.replace(this.getPropRegex(prop), '').replace(this.emptyLineRegex, '');

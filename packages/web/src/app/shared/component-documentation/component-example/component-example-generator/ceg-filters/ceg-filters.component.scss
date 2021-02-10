@@ -9,7 +9,8 @@
     padding-bottom: 24px;
   }
 
-  .e-radio.e-radio--sm:not(:last-child) {
+  .e-checkbox:last-child,
+  .e-radio:last-child {
     margin-bottom: 8px;
   }
 

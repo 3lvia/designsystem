@@ -1,9 +1,4 @@
 <div class="ceg-container e-mt-64">
-  <div class="ceg-row-0">
-    <!--CEG top filter-->
-    <div class="ceg-code-dropdown">dropdown</div>
-  </div>
-
   <div class="ceg-row-1 e-mt-24">
     <div class="ceg-col-1">
       <!--CEG code preview-->
@@ -14,7 +9,7 @@
 
     <!--CEG side filters-->
     <div class="ceg-col-2">
-      <app-ceg-filters [componentData]="componentData"></app-ceg-filters>
+      <app-ceg-filters [componentData]="componentData" [chosenType]="chosenType"></app-ceg-filters>
     </div>
   </div>
 
