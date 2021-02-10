@@ -9,6 +9,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import '@elvia/elvis-popover';
+import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import '@elvia/elvis-popover';
     ComponentPropertiesModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
+    ComponentSubsubsectionModule,
     WhenToUseModule,
     ComponentPropertiesTableModule,
     ComponentExampleGeneratorModule,

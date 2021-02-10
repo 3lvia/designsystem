@@ -324,7 +324,7 @@ export const eComponents: EItems[] = [
     title: 'Popover',
     // tslint:disable-next-line: max-line-length
     description:
-      'A popover is a non-modal dialog that appears above the content on the screen without losing the context of their original view. It can contain rich data such as text, selection controls, and buttons. A popover is opened with a clickable trigger element and will position itself where there is free space. The popover can be closed by clicking “x”, ESC key, or outside the component.',
+      'We offer popover as a shell with options like close button, title and text. Popover displays additional information or operations without leaving the page. It is triggered by a button and layered on top of all other content.',
     docUrl: Pages.Popover,
     absolutePath: '/components/' + Pages.Popover,
     status: ItemStatus.New,
