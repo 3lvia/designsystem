@@ -1670,7 +1670,7 @@ input:focus {
 .e-btn.e-btn--md, .e-btn {
   font-size: 16px;
   line-height: 20px;
-  padding: calc(10x - 1px) calc(26px - 1px);
+  padding: calc(10px - 1px) calc(26px - 1px);
 }
 
 .e-btn.e-btn--md .e-btn__icon, .e-btn .e-btn__icon {
