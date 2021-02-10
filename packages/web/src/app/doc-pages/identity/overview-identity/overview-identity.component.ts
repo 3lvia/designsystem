@@ -26,8 +26,6 @@ export class OverviewIdentityComponent implements OnInit {
   hideContentLoader(evt: any): void {
     if (evt && evt.target) {
       this.loadedImg = true;
-      const indentityIllustration = document.getElementById('identity-illustration');
-      indentityIllustration.classList.remove('e-none');
     }
   }
 }
