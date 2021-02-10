@@ -7,6 +7,7 @@
         *ngFor="let label of prop.cegOptions; let i = index"
         class="e-radio e-radio--sm"
         for="{{ label }}-radio"
+        (change)="updateRadioProp(prop, label)"
       >
         <input
           *ngIf="i === 0"
@@ -15,9 +16,9 @@
           name="{{ prop.displayName }} radio"
           checked
         />
-        <input type="radio" id="{{ label }}-radio" name="{{ prop.displayName }} radio" />
-        <span class="e-radio__mark" (click)="updateRadioProp(prop, label)"></span>
-        <span class="e-radio__label" (click)="updateRadioProp(prop, label)">
+        <input *ngIf="i !== 0" type="radio" id="{{ label }}-radio" name="{{ prop.displayName }} radio" />
+        <span class="e-radio__mark"></span>
+        <span class="e-radio__label">
           {{ label }}
         </span>
       </label>
@@ -26,20 +27,9 @@
     <!--Toggle-->
     <div *ngIf="prop.cegFormType === 'toggle'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }">
       <label class="e-form-field__label">{{ prop.displayName }}</label>
-      <label class="e-toggle">
-        <input
-          *ngIf="prop.cegDefault === 'true'"
-          class="e-toggle__input"
-          type="checkbox"
-          checked
-          (click)="updateToggleCheckboxProp(prop)"
-        />
-        <input
-          *ngIf="prop.cegDefault === 'false'"
-          class="e-toggle__input"
-          type="checkbox"
-          (click)="updateToggleCheckboxProp(prop)"
-        />
+      <label class="e-toggle" (change)="updateToggleCheckboxProp(prop)">
+        <input *ngIf="prop.cegDefault === 'true'" class="e-toggle__input" type="checkbox" checked />
+        <input *ngIf="prop.cegDefault === 'false'" class="e-toggle__input" type="checkbox" />
         <span class="e-toggle__slider"></span>
       </label>
     </div>
@@ -49,12 +39,15 @@
       <div *ngFor="let checkboxProp of prop.modifiers; let i = index">
         <label class="e-form-field__label" *ngIf="i === 0">{{ checkboxProp.cegDisplayGroup }}</label>
         <div *ngIf="checkboxProp.cegDisplayGroup === 'Modifiers'">
-          <label class="e-checkbox e-checkbox--sm" for="{{ checkboxProp.displayName }}-checkbox">
+          <label
+            class="e-checkbox e-checkbox--sm"
+            for="{{ checkboxProp.displayName }}-checkbox"
+            (change)="updateToggleCheckboxProp(checkboxProp)"
+          >
             <input
               type="checkbox"
               id="{{ checkboxProp.displayName }}-checkbox"
               name="{{ checkboxProp.displayName }} checkbox"
-              (click)="updateToggleCheckboxProp(checkboxProp)"
             />
             <span class="e-checkbox__mark"></span>
             <span class="e-checkbox__label">{{ checkboxProp.displayName }}</span>

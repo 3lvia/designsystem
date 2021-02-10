@@ -79,6 +79,7 @@ export class CegFiltersComponent implements OnInit {
   }
 
   updateProps(): void {
+    console.log('props updating');
     this.codeService.updateCodeReact(this.codeReact);
     this.codeService.updateCodeWebComponent(this.codeWebComponent);
   }
