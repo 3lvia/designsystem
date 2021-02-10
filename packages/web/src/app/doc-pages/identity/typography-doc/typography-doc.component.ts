@@ -11,6 +11,8 @@ export class TypographyDocComponent implements OnInit {
   @ViewChildren('toCopy') toCopy: QueryList<ElementRef>;
   @ViewChildren('mobileTypography') mobileTypography: QueryList<ElementRef>;
 
+  loadedImg = false;
+
   typographyClasses = [];
   figmaUrl = getIdentity('typography').figmaUrl;
   description = getIdentity('typography').description;
@@ -71,5 +73,10 @@ export class TypographyDocComponent implements OnInit {
   changeListView(): void {
     this.isDesktop = !this.isDesktop;
     this.isMobile = !this.isMobile;
+  }
+  hideContentLoader(evt: any): void {
+    if (evt && evt.target) {
+      this.loadedImg = true;
+    }
   }
 }

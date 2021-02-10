@@ -15,6 +15,44 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+
+      <app-component-subsection [sectionTitle]="'Structure'">
+        <ng-container ngProjectAs="sectionContent">
+          <img
+            src="./../../../../assets/popover/Group 2791.svg"
+            class="usage-image-desktop e-mb-32 e-w-100"
+          />
+          <div class="usage-image-mobile e-w-100">
+            <app-component-subsubsection [sectionTitle]="'Title'">
+              <ng-container ngProjectAs="sectionContent">
+                The title should be short and clear. The title is optional.
+              </ng-container>
+            </app-component-subsubsection>
+            <app-component-subsubsection [sectionTitle]="'Content'">
+              <ng-container ngProjectAs="sectionContent">
+                You can have different type of content like text, buttons, input etc. The content will have
+                100% width, unless the content only consists of text, then the max-width is 450px.
+              </ng-container>
+            </app-component-subsubsection>
+            <app-component-subsubsection [sectionTitle]="'Trigger'">
+              <ng-container ngProjectAs="sectionContent">The trigger can be any kind of button.</ng-container>
+            </app-component-subsubsection>
+            <app-component-subsubsection [sectionTitle]="'Close button'">
+              <ng-container ngProjectAs="sectionContent">
+                The popover will close if you click outside, ESC key, or the button connected to it. The close
+                button is optional and can be removed in special cases like in a menu list.
+              </ng-container>
+            </app-component-subsubsection>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Responsive'">
+        <ng-container ngProjectAs="sectionContent">
+          The popover include responsive functionality and is suited for all devices. However you should keep
+          in mind that it can be overwhelming on mobile if the popover has a lot of content.
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

@@ -11,12 +11,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
   @ViewChild('cegFrame') cegFrame;
   @Input() componentData;
   codeWebComponentSub: Subscription;
-  // Dropdown
-  hasTypeDropdown = false;
-  types = [];
-  results = [];
-  chosenType = '';
-  showResults = false;
 
   constructor(private codeService: ExampleCodeService) {}
 

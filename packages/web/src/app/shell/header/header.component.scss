@@ -1,5 +1,5 @@
-@import '../../shared/shared-sizes';
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import "../../shared/shared-sizes";
+@import "@elvia/elvis/src/utilities/breakpoints.scss";
 
 .header {
   position: fixed;
@@ -44,7 +44,7 @@
     }
 
     &-links {
-      font-family: 'Red Hat Text';
+      font-family: "Red Hat Text";
       font-weight: 500;
       font-size: 12px;
       line-height: 14px;
@@ -65,7 +65,7 @@
       &.active {
         color: var(--e-white);
         &:before {
-          content: '';
+          content: "";
           visibility: visible;
           position: absolute;
           width: 100%;
@@ -81,7 +81,7 @@
       }
 
       &:before {
-        content: '';
+        content: "";
         position: absolute;
         width: 0;
         height: 2px;
@@ -111,7 +111,7 @@
       cursor: pointer;
       .elvis-search__title {
         color: var(--e-white);
-        font-family: 'Red Hat Display';
+        font-family: "Red Hat Display";
         font-style: normal;
         text-transform: none;
         font-weight: 500;
@@ -126,13 +126,14 @@
     }
 
     .version {
-      font-family: 'Red Hat Text';
+      font-family: "Red Hat Text";
       font-weight: 500;
       font-size: 12px;
       line-height: 14px;
       text-align: right;
       letter-spacing: 0.2px;
       color: var(--e-white);
+      cursor: pointer;
     }
   }
 
@@ -156,7 +157,7 @@
       cursor: pointer;
       .elvis-search__title {
         color: var(--e-white);
-        font-family: 'Red Hat Display';
+        font-family: "Red Hat Display";
         font-style: normal;
         text-transform: none;
         font-weight: 500;

@@ -8,7 +8,6 @@ import { ExampleCodeService } from '../../../example-code.service';
 })
 export class CegFiltersComponent implements OnInit {
   @Input() componentData;
-  @Input() chosenType;
   counterNumber: number;
   codeReact;
   codeWebComponent;

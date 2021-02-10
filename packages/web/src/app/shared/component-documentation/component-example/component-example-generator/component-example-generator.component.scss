@@ -18,9 +18,6 @@
   flex-direction: column;
   width: 100%;
 
-  .ceg-row-0 {
-    @include first-col;
-  }
   .ceg-row-1 {
     display: flex;
     flex-direction: row;

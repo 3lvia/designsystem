@@ -9,6 +9,10 @@
     padding-bottom: 24px;
   }
 
+  .ceg-side-filter:not(:last-of-type) {
+    margin-bottom: 24px;
+  }
+
   .e-checkbox:last-child,
   .e-radio:last-child {
     margin-bottom: 8px;
@@ -19,4 +23,5 @@
     flex-direction: row;
     align-items: center;
   }
+
 }

@@ -27,8 +27,6 @@ export class OverviewToolsComponent implements OnInit {
   hideContentLoader(evt: any): void {
     if (evt && evt.target) {
       this.loadedImg = true;
-      const toolsIllustration = document.getElementById('tools-illustration');
-      toolsIllustration.classList.remove('e-none');
     }
   }
 }
