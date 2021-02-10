@@ -14,7 +14,17 @@
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
+      <img src="./../../../../assets/popover/Group 2783.svg" class="usage-image-desktop e-mb-32 e-w-100" />
+      <img src="./../../../../assets/popover/Group 2789.svg" class="usage-image-mobile e-mb-32 e-w-100" />
+
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+
+      <app-component-subsection [sectionTitle]="'Responsive'">
+        <ng-container ngProjectAs="sectionContent">
+          The popover include responsive functionality and is suited for all devices. However you should keep
+          in mind that it can be overwhelming on mobile if the popover has a lot of content.
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

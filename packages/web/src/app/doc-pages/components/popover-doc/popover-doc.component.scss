@@ -1,0 +1,13 @@
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+
+.usage-image-desktop {
+  @media (max-width: 500px) {
+    display: none;
+  }
+}
+.usage-image-mobile {
+  display: none;
+  @media (max-width: 500px) {
+    display: flex;
+  }
+}
