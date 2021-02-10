@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 
 import { IdentityStartModule } from './identity-start/identity-start.module';
-import { BorderDocModule } from './border-doc/border-doc.module';
 import { ColorDocModule } from './color-doc/color-doc.module';
 import { IconDocModule } from './icon-doc/icon-doc.module';
 import { OverviewIdentityModule } from './overview-identity/overview-identity.module';
@@ -16,7 +15,6 @@ import { TheConceptModule } from './the-concept/the-concept.module';
 @NgModule({
   imports: [
     IdentityStartModule,
-    BorderDocModule,
     ColorDocModule,
     IconDocModule,
     OverviewIdentityModule,
