@@ -291,6 +291,7 @@ paginationDotsRight(): boolean {
   chosenNum = 1;
   showDropdown = false;
   currentValue = '10';
+  showAll = false;
   options = ['10', '20', '30', '40', '50', 'Alle'];
 
   ngOnInit(): void {
@@ -302,6 +303,36 @@ paginationDotsRight(): boolean {
   }
 
   selectOption(value: string): void {
+    switch (value) {
+      case '10':
+        this.allNums = Array.from(Array(30), (_, i) => i + 1);
+        this.getVisibleNumbers();
+        break;
+      case '20':
+        this.allNums = Array.from(Array(15), (_, i) => i + 1);
+        this.getVisibleNumbers();
+
+        break;
+      case '30':
+        this.allNums = Array.from(Array(12), (_, i) => i + 1);
+        this.getVisibleNumbers();
+        break;
+      case '40':
+        this.allNums = Array.from(Array(8), (_, i) => i + 1);
+        this.getVisibleNumbers();
+        break;
+      case '50':
+        this.allNums = Array.from(Array(6), (_, i) => i + 1);
+        this.getVisibleNumbers();
+        break;
+      case 'Alle':
+        this.showAll = true;
+        break;
+    }
+
+    if (value !== 'Alle') {
+      this.showAll = false;
+    }
     this.currentValue = value;
     this.showDropdown = false;
   }

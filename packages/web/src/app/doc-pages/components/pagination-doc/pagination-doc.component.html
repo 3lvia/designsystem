@@ -21,13 +21,32 @@
         <span class="e-pagination__dropdown">
           <div class="e-form-field e-form-field--compact">
             <div class="e-dropdown">
-              <div class="e-input e-input--centered" (click)="toggleDropdown()">
-                <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown"></i>
-                <i class="e-icon e-icon--arrow_down-bold" *ngIf="!showDropdown"></i>
-                <input type="button" [value]="currentValue" />
+              <div
+                class="e-input e-input--centered"
+                (click)="toggleDropdown()"
+              >
+                <i
+                  class="e-icon e-icon--arrow_up-bold"
+                  *ngIf="showDropdown"
+                ></i>
+                <i
+                  class="e-icon e-icon--arrow_down-bold"
+                  *ngIf="!showDropdown"
+                ></i>
+                <input
+                  type="button"
+                  [value]="currentValue"
+                />
               </div>
-              <div class="e-dropdown__content" *ngIf="showDropdown">
-                <span class="e-dropdown__item" *ngFor="let option of options" (click)="selectOption(option)">
+              <div
+                class="e-dropdown__content"
+                *ngIf="showDropdown"
+              >
+                <span
+                  class="e-dropdown__item"
+                  *ngFor="let option of options"
+                  (click)="selectOption(option)"
+                >
                   {{ option }}
                 </span>
               </div>
@@ -36,8 +55,15 @@
         </span>
         <span>av 200 bilder</span>
       </div>
-      <div class="e-pagination__choosing-page">
-        <div class="e-pagination__arrow" *ngIf="leftArrow()" (click)="prev()">
+      <div
+        class="e-pagination__choosing-page"
+        *ngIf=!showAll
+      >
+        <div
+          class="e-pagination__arrow"
+          *ngIf="leftArrow()"
+          (click)="prev()"
+        >
           <i class="e-icon e-icon--arrow_long_left e-icon--xs"></i>
         </div>
         <div
@@ -49,7 +75,10 @@
         >
           {{ firstNum }}
         </div>
-        <div class="e-pagination__dots" *ngIf="paginationDotsLeft()">...</div>
+        <div
+          class="e-pagination__dots"
+          *ngIf="paginationDotsLeft()"
+        >...</div>
         <div
           class="e-pagination__number"
           *ngFor="let centerNum of centerNums"
@@ -59,7 +88,10 @@
         >
           {{ centerNum }}
         </div>
-        <div class="e-pagination__dots" *ngIf="paginationDotsRight()">...</div>
+        <div
+          class="e-pagination__dots"
+          *ngIf="paginationDotsRight()"
+        >...</div>
         <div
           class="e-pagination__number"
           *ngFor="let lastNum of lastNums"
@@ -69,7 +101,11 @@
         >
           {{ lastNum }}
         </div>
-        <div class="e-pagination__arrow" *ngIf="rightArrow()" (click)="next()">
+        <div
+          class="e-pagination__arrow"
+          *ngIf="rightArrow()"
+          (click)="next()"
+        >
           <i class="e-icon e-icon--arrow_long e-icon--xs"></i>
         </div>
       </div>
@@ -92,7 +128,10 @@
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-pagination'">
+  <app-component-section
+    [sectionTitle]="'Properties'"
+    [propertiesClass]="'e-pagination'"
+  >
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties [componentName]="'e-pagination'"></app-component-properties>
     </ng-container>

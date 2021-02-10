@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { Subscription, fromEvent } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 
 @Component({
@@ -32,7 +32,7 @@ export class MainComponent {
 
   @HostListener('window:scroll', ['$event']) // for window scroll events
   onScroll(): void {
-    this.findNewNavbarHeight()
+    this.findNewNavbarHeight();
   }
 
   findNewNavbarHeight(): void {
