@@ -19,7 +19,7 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>
         </div>
-        Documentation on links is updated and usage of different links made clearer. Breaking changes are; back links now uses the --action modifier and jumbo links uses a new icon.
+        Documentation on links is updated and usage of different links made clearer. Forward links should be replaced by Action links. Breaking changes are; back links now uses the --back modifier and jumbo links uses a new icon.
         <div class="e-mt-8">
           How to fix:
           Read the documentation with examples to replace old links. Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>
