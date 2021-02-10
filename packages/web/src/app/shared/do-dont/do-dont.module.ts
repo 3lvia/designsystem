@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DoDontComponent } from './do-dont.component';
-import { CodeHighlighterModule } from '../code-highlighter/code-highlighter.module';
+import { ComponentExampleCodeModule } from '../component-documentation/component-example/component-example-code/component-example-code.module';
 
 @NgModule({
-  imports: [CommonModule, CodeHighlighterModule],
+  imports: [CommonModule, ComponentExampleCodeModule],
   exports: [DoDontComponent],
   declarations: [DoDontComponent],
 })

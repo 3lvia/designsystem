@@ -21,7 +21,6 @@ import { SelectDocComponent } from './doc-pages/components/forms/select-doc/sele
 import { ShadowDocComponent } from './doc-pages/identity/shadow-doc/shadow-doc.component';
 import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
 import { SpacingDocComponent } from './doc-pages/identity/spacing-doc/spacing-doc.component';
-import { BorderDocComponent } from './doc-pages/identity/border-doc/border-doc.component';
 import { OverviewToolsComponent } from './doc-pages/tools/overview-tools/overview-tools.component';
 import { OverviewIdentityComponent } from './doc-pages/identity/overview-identity/overview-identity.component';
 import { OverviewComponent } from './doc-pages/components/overview-comp/overview-comp.component';
@@ -124,10 +123,6 @@ const routes: Routes = [
           {
             path: Pages.OverviewIdentity,
             component: OverviewIdentityComponent,
-          },
-          {
-            path: Pages.Border,
-            component: BorderDocComponent,
           },
           {
             path: Pages.Color,

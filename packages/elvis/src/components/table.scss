@@ -26,12 +26,15 @@ $grey10: colors.color('grey-10');
   border: 1px solid colors.color('grey-10');
   border-radius: $table-border-radius;
 }
-.e-table-footnote {
+.e-table-footnote,
+.e-table__footnote {
   margin-top: 8px;
-
   font-family: 'Red Hat Text';
   font-size: 16px;
   line-height: 26px;
+  &.e-table__footnote--compact {
+    font-size: 14px;
+  }
 }
 .e-table {
   display: table;
@@ -120,6 +123,11 @@ $grey10: colors.color('grey-10');
       display: inline-block;
       white-space: pre-wrap;
       width: 450px;
+    }
+    &.e-table__cell--multiline-small {
+      display: inline-block;
+      white-space: pre-wrap;
+      width: 250px;
     }
   }
 

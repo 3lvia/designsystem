@@ -149,19 +149,19 @@
         <ng-container ngProjectAs="sectionContent">
           <app-component-subsubsection [sectionTitle]="'Titles'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-block [codeHTML]="exampleTitles"></app-code-block>
+              <app-component-example-v1 [codeHTML]="exampleTitles"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
 
           <app-component-subsubsection [sectionTitle]="'Body text'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-block [codeHTML]="exampleText"></app-code-block>
+              <app-component-example-v1 [codeHTML]="exampleText"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
 
           <app-component-subsubsection [sectionTitle]="'Special text'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-block [codeHTML]="exampleSpecial"></app-code-block>
+              <app-component-example-v1 [codeHTML]="exampleSpecial"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
@@ -169,7 +169,7 @@
 
       <app-component-subsection [sectionTitle]="'Text alignment'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="alignmentOfText"></app-code-block>
+          <app-component-example-v1 [codeHTML]="alignmentOfText"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
