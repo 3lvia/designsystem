@@ -1,0 +1,99 @@
+<div class="component-body__example">
+  <!--Example preview-->
+  <div
+    class="component-body__example-body"
+    [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+    *ngIf="showPreview"
+  >
+    <!--Screen tabs-->
+    <div class="top-menu">
+      <div class="tabs e-mb-24" *ngIf="showIframeScreens && showTabs">
+        <div
+          class="tab"
+          role="button"
+          [ngClass]="{ hide: noDesktop, active: screenTabOpen === 'desktop' }"
+          (click)="setScreenTabOpen('desktop')"
+        >
+          Desktop
+        </div>
+        <div
+          class="tab"
+          role="button"
+          [ngClass]="{ hide: noTablet, active: screenTabOpen === 'tablet' }"
+          (click)="setScreenTabOpen('tablet')"
+        >
+          Tablet
+        </div>
+        <div
+          class="tab"
+          role="button"
+          [ngClass]="{ hide: noPhone, active: screenTabOpen === 'phone' }"
+          (click)="setScreenTabOpen('phone')"
+        >
+          Phone
+        </div>
+      </div>
+      <div class="dark-mode-toggle e-mb-24" *ngIf="codeInverted != ''">
+        <span>Dark</span>
+        <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': isInverted }">
+          <input class="e-toggle__input" type="checkbox" (click)="toggleInverted()" [checked]="isInverted" />
+          <span class="e-toggle__slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!--Visual example-->
+    <div
+      class="element"
+      *ngIf="!showIframeScreens || (!showIframe && screenTabOpen == 'desktop')"
+      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg, 'no-padding-desk': noPaddingDesk }"
+    >
+      <div #defaultFrame></div>
+    </div>
+    <div
+      class="element screens"
+      *ngIf="(showIframeScreens && showIframe) || (showIframeScreens && screenTabOpen != 'desktop')"
+      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+    >
+      <div [ngClass]="{ hide: screenTabOpen !== 'desktop' || noDesktop }">
+        <app-iframe-screen
+          [codeHTML]="displayCode"
+          [overwriteHeight]="overwriteHeight"
+          [overwriteHeightTablet]="overwriteHeightTablet"
+          [overwriteHeightPhone]="overwriteHeightPhone"
+          [screenSize]="'desktop'"
+        ></app-iframe-screen>
+      </div>
+      <div [ngClass]="{ hide: screenTabOpen !== 'tablet' || noTablet }">
+        <app-iframe-screen
+          [codeHTML]="displayCode"
+          [screenSize]="'tablet'"
+          [noPaddingX]="noPaddingX"
+        ></app-iframe-screen>
+      </div>
+      <div [ngClass]="{ hide: screenTabOpen !== 'phone' || noPhone }">
+        <app-iframe-screen
+          [codeHTML]="displayCode"
+          [screenSize]="'phone'"
+          [noPaddingX]="noPaddingX"
+        ></app-iframe-screen>
+      </div>
+    </div>
+  </div>
+
+  <!--Code block-->
+  <div class="component-code e-mt-16">
+    <app-component-example-accordion>
+      <ng-container ngProjectAs="accordionContent">
+        <app-component-example-code
+          [codeTS]="codeTS"
+          [codeHTML]="codeHTML"
+          [codeCSS]="codeCSS"
+          [isJS]="isJS"
+          [codeInverted]="codeInverted"
+          [isInverted]="isInverted"
+        ></app-component-example-code>
+      </ng-container>
+    </app-component-example-accordion>
+  </div>
+</div>

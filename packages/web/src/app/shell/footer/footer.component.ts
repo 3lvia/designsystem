@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -6,8 +6,11 @@ import { NavigationEnd, Router } from '@angular/router';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
   bgClass = '';
+
+  date = new Date();
+  currentYear;
 
   constructor(private router: Router) {
     // subscribe to router navigation
@@ -24,5 +27,8 @@ export class FooterComponent {
         }
       }
     });
+  }
+  ngOnInit(): void {
+    this.currentYear = this.date.getFullYear();
   }
 }

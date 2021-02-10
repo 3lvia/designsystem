@@ -14,15 +14,8 @@
     style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-form-field">
-      <label
-        class="e-form-field__label"
-        for="compact"
-      >Søk</label>
-      <div
-        class="e-search e-search--local"
-        style="width: 250px"
-        #exampleSearch
-      >
+      <label class="e-form-field__label" for="compact">Søk</label>
+      <div class="e-search e-search--local" style="width: 250px" #exampleSearch>
         <div class="e-input">
           <input
             id="compact"
@@ -32,21 +25,18 @@
             (keyup)="onInput(exampleInput.value)"
           />
         </div>
-        <button
-          class="e-btn e-btn--icon e-btn--lg"
-          (click)="clearExample()"
-        >
+        <button class="e-btn e-btn--icon e-btn--lg" (click)="clearExample()">
           <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
           <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
         </button>
       </div>
     </div>
     <div class="e-w-100">
-      <app-code-block
+      <app-component-example-v1
         [showPreview]="false"
         [codeHTML]="overviewExample"
         [codeTS]="overviewExampleTS"
-      ></app-code-block>
+      ></app-component-example-v1>
     </div>
   </div>
 
@@ -58,12 +48,13 @@
           Local search is used when the search feature shouldn’t affect the whole application. This could for
           example be in connection to a data table or list. Search results appear when the user presses enter
           on the keyboard or clicks the magnifying button.
-          <app-code-block [codeHTML]="searchExample"></app-code-block>
+          <app-component-example-v1 [codeHTML]="searchExample"></app-component-example-v1>
           <div class="e-mt-40">
-            Use the <span class="code-text">e-search--searched</span> class when the search input field has a valid
-            search input.
+            Use the
+            <span class="code-text">e-search--searched</span>
+            class when the search input field has a valid search input.
           </div>
-          <app-code-block [codeHTML]="afterSearchExample"></app-code-block>
+          <app-component-example-v1 [codeHTML]="afterSearchExample"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -72,15 +63,12 @@
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-code-block [codeHTML]="searchSizesExample"></app-code-block>
+      <app-component-example-v1 [codeHTML]="searchSizesExample"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section
-    [sectionTitle]="'Properties'"
-    [propertiesClass]="'e-search'"
-  >
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-search'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties [componentName]="'e-search'"></app-component-properties>
     </ng-container>

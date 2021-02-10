@@ -49,11 +49,11 @@
       </div>
     </div>
     <div class="e-w-100">
-      <app-code-block
+      <app-component-example-v1
         [showPreview]="false"
         [codeTS]="exampleTSCode"
         [codeHTML]="exampleOverview"
-      ></app-code-block>
+      ></app-component-example-v1>
     </div>
   </div>
 
@@ -65,14 +65,14 @@
           The position picker component consist mainly of container classes. Where each element is assigned
           for it intended purpose as icons, description text of picked position and action area for placing
           tertiary buttons.
-          <app-code-block [codeHTML]="example1"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'After position picked'">
         <ng-container ngProjectAs="sectionContent">
           When position is chosen replace the icon container with the description container along with the
           chosen position or information.
-          <app-code-block [codeHTML]="example2"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>

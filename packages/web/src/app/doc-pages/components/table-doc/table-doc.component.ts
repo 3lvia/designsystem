@@ -494,6 +494,6 @@ export class TableDocComponent {
   </tbody>
 </table>
 </div>
-<div class="e-table-footnote">*If you include a footnote to your table, it should look like this</div>
+<div class="e-table__footnote">*If you include a footnote to your table, it should look like this</div>
 `;
 }

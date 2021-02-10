@@ -7024,11 +7024,17 @@ input:focus {
   border-radius: 8px;
 }
 
-.e-table-footnote {
+.e-table-footnote,
+.e-table__footnote {
   margin-top: 8px;
   font-family: "Red Hat Text";
   font-size: 16px;
   line-height: 26px;
+}
+
+.e-table-footnote.e-table__footnote--compact,
+.e-table__footnote.e-table__footnote--compact {
+  font-size: 14px;
 }
 
 .e-table {
@@ -7138,6 +7144,13 @@ input:focus {
   display: inline-block;
   white-space: pre-wrap;
   width: 450px;
+}
+
+.e-table td.e-table__cell--multiline-small,
+.e-table th.e-table__cell--multiline-small {
+  display: inline-block;
+  white-space: pre-wrap;
+  width: 250px;
 }
 
 .e-table thead tr {
