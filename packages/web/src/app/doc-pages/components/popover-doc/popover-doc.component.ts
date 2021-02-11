@@ -9,6 +9,7 @@ import * as componentData from './popover-data.js';
 export class PopoverDocComponent {
   @ViewChild('popover1') popover1: ElementRef;
   componentData = componentData;
+  loadedPopoverStructure = false;
 
   figmaUrl = getComponent('popover').figmaUrl;
   description = getComponent('popover').description;
@@ -19,4 +20,10 @@ export class PopoverDocComponent {
   donts = [
     'Should not be used if the information in popover is necessary for the user to complete their task.',
   ];
+
+  hideContentLoader(evt: any): void {
+    if (evt && evt.target) {
+      this.loadedPopoverStructure = true;
+    }
+  }
 }

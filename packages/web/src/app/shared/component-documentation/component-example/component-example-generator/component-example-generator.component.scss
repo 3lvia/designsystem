@@ -21,17 +21,18 @@
   .ceg-row-1 {
     display: flex;
     flex-direction: row;
+    width: 100%;
     min-height: 340px;
 
     .ceg-col-1 {
-      display: flex;
-      flex-direction: column;
       @include first-col;
     }
-
     .ceg-col-2 {
       @include second-col;
     }
+  }
+  .ceg-row-2 {
+    @include first-col;
   }
 
   .ceg-code-preview {
@@ -43,11 +44,10 @@
     padding: 40px;
     border: 1px solid var(--e-grey-10);
     border-radius: 8px;
-  }
-
-  .ceg-code {
-    display: flex;
-    justify-content: center;
-    @include first-col;
+    .ceg-frame {
+      text-align: center;
+      width: 100%;
+      height: 0;
+    }
   }
 }
