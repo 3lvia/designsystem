@@ -347,7 +347,7 @@ export const eComponents: EItems[] = [
   {
     title: 'Progressbar',
     // tslint:disable-next-line: max-line-length
-    description: `The progess bar is used to show loading, both locally and for full page actions where the <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.ContentLoader}">Content loader</a> isn’t suitable. It is for example used in <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a>, where it shows progress or error for each file.`,
+    description: `Graphical indication of the progress of an operation.`,
     docUrl: Pages.Progressbar,
     absolutePath: '/components/' + Pages.Progressbar,
     status: ItemStatus.Done,

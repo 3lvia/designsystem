@@ -10,10 +10,12 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import '@elvia/elvis-progress-linear';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     ComponentHeaderModule,
     ComponentExampleV1Module,
     ComponentPropertiesModule,

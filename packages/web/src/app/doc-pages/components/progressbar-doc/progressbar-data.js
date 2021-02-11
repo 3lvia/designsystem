@@ -13,6 +13,7 @@ module.exports = {
       cegFormType: 'counter',
       cegDefault: 20,
       cegCounterMax: 100,
+      cegCounterMin: 0,
       cegStepValue: 10,
       cegTypeDependency: 'Normal',
     },

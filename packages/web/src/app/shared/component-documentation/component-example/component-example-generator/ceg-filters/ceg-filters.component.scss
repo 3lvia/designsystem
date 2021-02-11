@@ -18,5 +18,10 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    .counter__number {
+      width: 40px;
+      display: flex;
+      justify-content: center;
+    }
   }
 }

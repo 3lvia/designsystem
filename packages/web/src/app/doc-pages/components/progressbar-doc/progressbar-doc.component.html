@@ -1,6 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">Progress</ng-container>
+  <ng-container ngProjectAs="headerTitle">Progressbar</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -9,11 +9,20 @@
 <!--BODY-->
 <div class="page-body">
   <!--CEG-->
-  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+  <app-component-example-generator
+    [componentData]="componentData"
+    width="70"
+  ></app-component-example-generator>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
+      The progessbar is used to show loading, both locally and for full page actions where the
+      <a class="e-link e-link--inline" [routerLink]="['/components/contentLoader']">Content loader</a>
+      isn't suitable. It is for example used in
+      <a class="e-link e-link--inline" [routerLink]="['/components/fileUpload']">File Upload</a>
+      , where it shows progress or error for each file.
+
       <app-component-subsection [sectionTitle]="'Hierarchy of props'">
         <ng-container ngProjectAs="sectionContent">
           Note that if error is set to true the style of the progressbar will be in the error format and
