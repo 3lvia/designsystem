@@ -24,7 +24,7 @@ default progressbar style with range of completion.
 ## REACT COMPONENT
 
 ```
-import { Progressbar } from '@elvia/elvis-progress-linear/react';
+import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 ```
 
 ```

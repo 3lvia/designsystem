@@ -59,7 +59,7 @@ module.exports = {
 import { Popover } from '@elvia/elvis-popover/react';
 
 // WEBCOMPONENT
-import { Popover } from '@elvia/elvis-popover';`,
+import '@elvia/elvis-popover';`,
   codeReact: `<Popover
   title="About login"
   content="All private customers must use BankID the first time they log in to My page. BankID ensures safe and easy login to customer information and consumption data. Once logged in, you can choose to add an email as your login method. Then you can choose the login method you want for later visits to the My page."

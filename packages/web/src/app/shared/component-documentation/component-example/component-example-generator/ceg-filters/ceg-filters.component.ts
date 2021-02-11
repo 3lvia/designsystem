@@ -130,12 +130,16 @@ export class CegFiltersComponent implements OnInit {
     this.updateProps();
   }
 
-  updateCounterProp(prop: any, newValue: number): void {
-    if (
+  isAcceptedCounterValue(prop: any, newValue: number): boolean {
+    return (
       this.counterNumber !== undefined &&
       (this.counterNumber + newValue > prop.cegCounterMax ||
         this.counterNumber + newValue < prop.cegCounterMin)
-    ) {
+    );
+  }
+
+  updateCounterProp(prop: any, newValue: number): void {
+    if (this.isAcceptedCounterValue(prop, newValue)) {
       return;
     } else if (this.counterNumber === undefined) {
       this.counterNumber = prop.cegDefault + newValue;

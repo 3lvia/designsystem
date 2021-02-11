@@ -41,7 +41,7 @@ module.exports = {
     },
   },
   codeInstallation: `//REACT
-import { Progressbar } from '@elvia/elvis-progress-linear/react';
+import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 
 // WEBCOMPONENT
 import '@elvia/elvis-progress-linear';`,
