@@ -15,8 +15,6 @@ export class OverviewCommunityComponent {
   hideContentLoader(evt: any): void {
     if (evt && evt.target) {
       this.loadedImg = true;
-      const communityIllustration = document.getElementById('community-illustration');
-      communityIllustration.classList.remove('e-none');
     }
   }
 }

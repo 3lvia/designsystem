@@ -20,7 +20,7 @@
       </div>
     </div>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="overviewExample"></app-code-block>
+      <app-component-example-v1 [showPreview]="false" [codeHTML]="overviewExample"></app-component-example-v1>
     </div>
   </div>
 
@@ -29,32 +29,32 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example1"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Combined'">
         <ng-container ngProjectAs="sectionContent">
           Use the e-combined-field class on the form-field element to keep two inputs for the same label.
-          <app-code-block [codeHTML]="example2"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Inlined'">
         <ng-container ngProjectAs="sectionContent">
           Use the e-inlined-field class outside the form-field element to align inputs on the same line. When
           the zip code is filled in, the post office should be filled in automatically.
-          <app-code-block [codeHTML]="example3"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example3"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Textarea'">
         <ng-container ngProjectAs="sectionContent">
           The e-form-field__label--optional class should be added to the label when the input is not required.
-          <app-code-block [codeHTML]="example5"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example5"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'With button'">
         <ng-container ngProjectAs="sectionContent">
           The view_on icon button should be used when showing and hiding a password.
-          <app-code-block [codeHTML]="exampleIcon"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleIcon"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -67,7 +67,7 @@
       expected user input and can be changes by setting the width on the container of the input.
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example1"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Compact'">
@@ -75,7 +75,7 @@
           Compact text fields are typically used in Elvia’s internal systems, where screen real estate is an
           important factor. Regardless of which style you use for text fields, you should always stick with
           the same type throughout the page and never mix the two.
-          <app-code-block [codeHTML]="exampleCompactInput"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleCompactInput"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -109,7 +109,11 @@
               </span>
             </div>
           </div>
-          <app-code-block [showPreview]="false" [codeHTML]="example4" [codeTS]="example4TS"></app-code-block>
+          <app-component-example-v1
+            [showPreview]="false"
+            [codeHTML]="example4"
+            [codeTS]="example4TS"
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>

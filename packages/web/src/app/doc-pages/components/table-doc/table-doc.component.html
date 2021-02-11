@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Table
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Table</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-table-container overview-example">
       <table class="e-table">
@@ -44,7 +42,7 @@
       </table>
     </div>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
     </div>
   </div>
 
@@ -59,7 +57,7 @@
           be perceived as easy to read and provide a better experience for new users.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-block [codeHTML]="example1"></app-code-block>
+              <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
 
@@ -68,12 +66,12 @@
               The Elvia design system does not include table functionality, which means the design for mobiles
               included here will not automatically appear when switching to smaller screens. The text in the
               last column will always be aligned to the right on phones.
-              <app-code-block
+              <app-component-example-v1
                 [codeHTML]="example6"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [noDesktop]="true"
-              ></app-code-block>
+              ></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
@@ -86,7 +84,7 @@
           that’s typically easier for the user to navigate in.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-block [codeHTML]="example2"></app-code-block>
+              <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
 
@@ -95,12 +93,12 @@
               The Elvia design system does not include table functionality, which means the design for mobiles
               included here will not automatically appear when switching to smaller screens. The text in the
               last column will always be aligned to the right on phones.
-              <app-code-block
+              <app-component-example-v1
                 [codeHTML]="example7"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [noDesktop]="true"
-              ></app-code-block>
+              ></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
@@ -114,7 +112,7 @@
       Sorting is another way to ease user's search process in tables. The sorting functionality could either
       be in a sorting dropdown outside of the table, or as a table sorting in the table header. Here we
       provide the classes for table sorting, but the logic needs to be added.
-      <app-code-block [codeHTML]="exampleSorting"></app-code-block>
+      <app-component-example-v1 [codeHTML]="exampleSorting"></app-component-example-v1>
 
       <app-component-subsection [sectionTitle]="'Functionality'">
         <ng-container ngProjectAs="sectionContent">
@@ -150,7 +148,7 @@
           The first column should always be left aligned no matter the content of that column. By default all
           content is aligned to the left. There are however helper classes available for aligning content to
           the center or to the right. The table header should alway follow the alignment of the column.
-          <app-code-block [codeHTML]="example8"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example8"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
@@ -161,7 +159,7 @@
           can then be added to ensure width of column and text wrap. Use
           <span class="code-text">e-text-right</span>
           to align numbers to the right.
-          <app-code-block [codeHTML]="example5"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example5"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
@@ -169,9 +167,9 @@
         <ng-container ngProjectAs="sectionContent">
           If you include a footnote to your table, it should be positioned at the bottom outside the table
           using the class
-          <span class="code-text">e-table-footnote</span>
+          <span class="code-text">e-table__footnote</span>
           .
-          <app-code-block [codeHTML]="exampleFootnote"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleFootnote"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 

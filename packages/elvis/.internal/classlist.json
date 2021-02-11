@@ -810,6 +810,11 @@
 				"e-table-container": {}
 			},
 			"element": {
+				"e-table__footnote": {
+					"modifier": {
+						"e-table__footnote--compact": {}
+					}
+				},
 				"e-table__sort-header": {},
 				"e-table__sort-icon": {
 					"modifier": {
@@ -819,7 +824,8 @@
 				},
 				"e-table__cell": {
 					"modifier": {
-						"e-table__cell--multiline": {}
+						"e-table__cell--multiline": {},
+						"e-table__cell--multiline-small": {}
 					}
 				}
 			}
@@ -1623,11 +1629,14 @@
 		"e-table--compact": {},
 		"e-table-container": {},
 		"e-table-footnote": {},
+		"e-table__footnote": {},
+		"e-table__footnote--compact": {},
 		"e-table__sort-header": {},
 		"e-table__sort-icon": {},
 		"e-table__sort-icon--up": {},
 		"e-table__sort-icon--inactive": {},
 		"e-table__cell--multiline": {},
+		"e-table__cell--multiline-small": {},
 		"e-table-mobile--compact": {},
 		"e-tags": {},
 		"e-tags_item": {},

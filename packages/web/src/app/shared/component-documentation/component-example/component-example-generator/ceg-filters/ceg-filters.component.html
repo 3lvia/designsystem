@@ -1,0 +1,42 @@
+<div class="ceg-side-filters">
+  <form class="ceg-side-filter e-form_field e-w-100" *ngFor="let prop of props">
+    <!--Radios-->
+    <div *ngIf="prop.cegFormType === 'radio'">
+      <label class="e-form-field__label">{{ prop.displayName }}</label>
+      <label
+        *ngFor="let label of prop.cegOptions; let i = index"
+        class="e-radio e-radio--sm"
+        for="{{ label }}-radio"
+      >
+        <input
+          *ngIf="i === 0"
+          type="radio"
+          id="{{ label }}-radio"
+          name="{{ prop.displayName }} radio"
+          checked
+        />
+        <input type="radio" id="{{ label }}-radio" name="{{ prop.displayName }} radio" />
+        <span class="e-radio__mark" (click)="updateRadioProp(prop.attribute, label)"></span>
+        <span class="e-radio__label" (click)="updateRadioProp(prop.attribute, label)">{{ label }}</span>
+      </label>
+    </div>
+
+    <!--Toggle-->
+    <div *ngIf="prop.cegFormType === 'toggle'">
+      <label class="e-form-field__label">{{ prop.displayName }}</label>
+      <label class="e-toggle">
+        <input
+          class="e-toggle__input"
+          type="checkbox"
+          checked
+          (click)="updateToggleProp(prop.attribute, prop.cegOption)"
+        />
+        <span class="e-toggle__slider"></span>
+      </label>
+    </div>
+
+    <!--Checkbox-->
+
+    <!--Counter-->
+  </form>
+</div>

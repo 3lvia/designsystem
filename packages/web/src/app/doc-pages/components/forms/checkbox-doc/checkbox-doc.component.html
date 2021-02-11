@@ -26,21 +26,21 @@
       </label>
     </div>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
     </div>
   </div>
 
   <!-- SIZE -->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-code-block [codeHTML]="exampleSizes"></app-code-block>
+      <app-component-example-v1 [codeHTML]="exampleSizes"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 
   <!-- STATES -->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
-      <app-code-block [codeHTML]="exampleStates"></app-code-block>
+      <app-component-example-v1 [codeHTML]="exampleStates"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 

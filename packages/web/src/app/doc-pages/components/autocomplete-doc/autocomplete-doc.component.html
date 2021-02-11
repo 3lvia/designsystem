@@ -32,11 +32,11 @@
       </div>
     </div>
     <div class="e-w-100">
-      <app-code-block
+      <app-component-example-v1
         [showPreview]="false"
         [codeHTML]="exampleInHTML"
         [codeTS]="exampleInTS"
-      ></app-code-block>
+      ></app-component-example-v1>
     </div>
   </div>
 
@@ -45,7 +45,7 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="[exampleAutocomplete]"></app-code-block>
+          <app-component-example-v1 [codeHTML]="[exampleAutocomplete]"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
@@ -53,7 +53,7 @@
         <ng-container ngProjectAs="sectionContent">
           Much like compact text fields, the compact autocomplete is a version of the text field that’s
           primarily designed for internal systems, and shouldn’t be mixed with the other input styles.
-          <app-code-block [codeHTML]="[exampleCompact]"></app-code-block>
+          <app-component-example-v1 [codeHTML]="[exampleCompact]"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>

@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Accordion
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Accordion</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-accordion e-accordion--lg e-accordion--center">
       <div class="e-accordion__item" #accordionLiveExample>
@@ -30,7 +28,11 @@
       </div>
     </div>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="liveCodeHTML" [codeTS]="liveCodeTS"></app-code-block>
+      <app-component-example-v1
+        [showPreview]="false"
+        [codeHTML]="liveCodeHTML"
+        [codeTS]="liveCodeTS"
+      ></app-component-example-v1>
     </div>
   </div>
 
@@ -45,7 +47,7 @@
           . to define the hidden information. To get the open state add the class
           <span class="code-text">e-accordion--open</span>
           .
-          <app-code-block [codeHTML]="exampleAccordionSingle"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleAccordionSingle"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
@@ -56,7 +58,7 @@
           class
           <span class="code-text">e-accordion__item--open</span>
           .
-          <app-code-block [codeHTML]="exampleAccordionGroup"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleAccordionGroup"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -65,7 +67,7 @@
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-code-block [codeHTML]="exampleAccordionSizes"></app-code-block>
+      <app-component-example-v1 [codeHTML]="exampleAccordionSizes"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 

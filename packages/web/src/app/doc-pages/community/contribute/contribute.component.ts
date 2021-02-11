@@ -8,4 +8,12 @@ import { getCommunity } from 'src/app/shared/e-items';
 })
 export class ContributeComponent {
   description = getCommunity('contribute').description;
+
+  loadedFigmaModel = false;
+
+  hideContentLoader(evt: any): void {
+    if (evt && evt.target) {
+      this.loadedFigmaModel = true;
+    }
+  }
 }

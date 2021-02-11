@@ -32,10 +32,9 @@ function getAllClasses(stylesheet) {
 
     // Container
     if (rule.indexOf('-container') > -1) {
-      const container = getContainerFromClass(rule);
+      const container = rule;
       block.container = block.container ? block.container : {};
       block.container[container] = block.container[container] ? block.container[container] : {};
-
       return;
     }
 
@@ -89,10 +88,6 @@ function getBlockFromClass(className) {
 
 function getElementFromClass(className) {
   return className.split('--')[0];
-}
-
-function getContainerFromClass(className) {
-  return className;
 }
 
 function modifierIsOnElement(className) {

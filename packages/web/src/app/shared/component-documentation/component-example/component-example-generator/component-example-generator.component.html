@@ -1,0 +1,24 @@
+<div class="ceg-container e-mt-64">
+  <div class="ceg-row-1">
+    <div class="ceg-col-1">
+      <!--CEG code preview-->
+      <div class="ceg-code-preview">
+        <div #cegFrame></div>
+      </div>
+    </div>
+
+    <!--CEG side filters-->
+    <div class="ceg-col-2">
+      <app-ceg-filters [componentData]="componentData"></app-ceg-filters>
+    </div>
+  </div>
+
+  <!--CEG code-->
+  <div class="ceg-code e-mt-16">
+    <app-component-example-accordion>
+      <ng-container ngProjectAs="accordionContent">
+        <app-component-example-code [componentData]="componentData"></app-component-example-code>
+      </ng-container>
+    </app-component-example-accordion>
+  </div>
+</div>

@@ -25,10 +25,10 @@
       </div>
     </div>
     <div class="e-w-100">
-      <app-code-block
+      <app-component-example-v1
         [showPreview]="false"
         [codeHTML]="alertOverviewHTML"
-      ></app-code-block>
+      ></app-component-example-v1>
     </div>
   </div>
 
@@ -53,14 +53,8 @@
         <div class="alert-type-item">
           <div class="e-title-caps">Toast</div>
           <div class="type-images">
-            <img
-              src="./../../../../assets/alert/toast.svg"
-              class="e-mr-n8"
-            />
-            <img
-              src="./../../../../assets/alert/toast-mobile.svg"
-              class="e-mr-n8"
-            />
+            <img src="./../../../../assets/alert/toast.svg" class="e-mr-n8" />
+            <img src="./../../../../assets/alert/toast-mobile.svg" class="e-mr-n8" />
           </div>
         </div>
       </div>
@@ -76,69 +70,63 @@
             NB: Remember to make the global alert fixed to the top of your application and make sure that it
             extends the full length of the page!
           </p>
-          <app-code-block
+          <app-component-example-v1
             [codeHTML]="globalAlert"
             [showIframeScreens]="true"
             [noTablet]="true"
             [overwriteHeight]="104"
             [noPaddingX]="true"
-          ></app-code-block>
-          <app-when-to-use
-            [whens]="doesGlobalDefault"
-            [whenNots]="dontsGlobalDefault"
-          ></app-when-to-use>
+          ></app-component-example-v1>
+          <app-when-to-use [whens]="doesGlobalDefault" [whenNots]="dontsGlobalDefault"></app-when-to-use>
 
           <app-component-subsubsection [sectionTitle]="'Closable'">
             <ng-container ngProjectAs="sectionContent">
               Global alerts can also have a close button.
-              <app-code-block
+              <app-component-example-v1
                 [codeHTML]="globalAlertCloseable"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [overwriteHeight]="104"
                 [noPaddingX]="true"
-              ></app-code-block>
+              ></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Expandable'">
             <ng-container ngProjectAs="sectionContent">
               Global alerts can also be expandable. Add and remove the clas
-              <span
-                class="code-text e-ml-8 e-text-desription"
-                style="text-transform: lowercase"
-              >
+              <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
                 e-alert--open
               </span>
               to open and close the alert.
-              <app-code-block
+              <app-component-example-v1
                 [codeHTML]="globalAlertExpandable"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [noPaddingX]="true"
-              ></app-code-block>
+              ></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Actions'">
             <ng-container ngProjectAs="sectionContent">
               Global alerts can also have actions.
-              <app-code-block
+              <app-component-example-v1
                 [codeHTML]="globalAlertActions"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [overwriteHeight]="110"
                 [noPaddingX]="true"
-              ></app-code-block>
+              ></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Without title'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-block
+              <app-component-example-v1
                 [codeHTML]="globalAlertNoTitle"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [overwriteHeight]="110"
                 [noPaddingX]="true"
-              ></app-code-block>
+              ></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
@@ -149,26 +137,26 @@
           Local alerts are messages related to the site and the content. It can be placed anywhere between the
           header and footer, but close to the content it is related to. Local messages can also be used for
           feedback after a user actions. The maximum width is 850px.
-          <app-code-block
+          <app-component-example-v1
             [codeHTML]="exampleAlertDefault"
             [showIframeScreens]="true"
             [noTablet]="true"
-          ></app-code-block>
+          ></app-component-example-v1>
           <app-when-to-use [whens]="doesAlertDefault"></app-when-to-use>
 
           <!-- Venter til design har sett på behov for denne 
           <app-component-subsubsection [sectionTitle]="'Closable'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-block [codeHTML]="localAlertClosable" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
+              <app-component-example-v1 [codeHTML]="localAlertClosable" [showIframeScreens]="true" [noTablet]="true"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection> -->
           <app-component-subsubsection [sectionTitle]="'Without title'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-block
+              <app-component-example-v1
                 [codeHTML]="localAlertNoTitle"
                 [showIframeScreens]="true"
                 [noTablet]="true"
-              ></app-code-block>
+              ></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
@@ -180,23 +168,20 @@
           when you want to confirm to the user after a user action (positive or informative). Toast pops up
           the top right corner, above the content, and disappears after 7 seconds. On mobile, the toast will
           show at the bottom center.
-          <app-code-block [codeHTML]="toastAlert"></app-code-block>
-          <app-when-to-use
-            [whens]="doesToastDefault"
-            [whenNots]="dontsToastDefault"
-          ></app-when-to-use>
+          <app-component-example-v1 [codeHTML]="toastAlert"></app-component-example-v1>
+          <app-when-to-use [whens]="doesToastDefault" [whenNots]="dontsToastDefault"></app-when-to-use>
 
           <app-component-subsubsection [sectionTitle]="'Closable'">
             <ng-container ngProjectAs="sectionContent">
               The close button can be used when you want to give the user the chance to close the alert before
               7 seconds. Long messages are not recommended, but if necessary, the close button can be used to
               close alerts that can't disappear after 7 seconds because of the length of message.
-              <app-code-block [codeHTML]="toastAlertClosable"></app-code-block>
+              <app-component-example-v1 [codeHTML]="toastAlertClosable"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Without title'">
             <ng-container ngProjectAs="sectionContent">
-              <app-code-block [codeHTML]="toastAlertNoTitle"></app-code-block>
+              <app-component-example-v1 [codeHTML]="toastAlertNoTitle"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
@@ -212,19 +197,13 @@
       provide a consistent and universal user experience.
       <div class="alert-status e-mt-80">
         <div class="alert-icons">
-          <div
-            class="e-bg-red e-mr-24"
-            style="padding: 24px; height: 24px; border-radius: 50%"
-          ></div>
+          <div class="e-bg-red e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
           <div><i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xl"></i></div>
         </div>
         <div>
           <div class="title e-title-caps">
             error
-            <span
-              class="code-text e-ml-8 e-text-desription"
-              style="text-transform: lowercase"
-            >
+            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
               e-alert--error
             </span>
           </div>
@@ -239,19 +218,13 @@
       </div>
       <div class="alert-status">
         <div class="alert-icons">
-          <div
-            class="e-bg-orange e-mr-24"
-            style="padding: 24px; height: 24px; border-radius: 50%"
-          ></div>
+          <div class="e-bg-orange e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
           <div><i class="e-icon e-icon--warning_circle e-icon--color-orange e-icon--xl"></i></div>
         </div>
         <div>
           <div class="title e-title-caps">
             warning
-            <span
-              class="code-text e-ml-8 e-text-desription"
-              style="text-transform: lowercase"
-            >
+            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
               e-alert--warn
             </span>
           </div>
@@ -266,19 +239,13 @@
       </div>
       <div class="alert-status">
         <div class="alert-icons">
-          <div
-            class="e-bg-green e-mr-24"
-            style="padding: 24px; height: 24px; border-radius: 50%"
-          ></div>
+          <div class="e-bg-green e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
           <div><i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xl"></i></div>
         </div>
         <div>
           <div class="title e-title-caps">
             positive
-            <span
-              class="code-text e-ml-8 e-text-desription"
-              style="text-transform: lowercase"
-            >
+            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
               e-alert--toast
             </span>
           </div>
@@ -291,19 +258,13 @@
       </div>
       <div class="alert-status">
         <div class="alert-icons">
-          <div
-            class="e-bg-grey e-mr-24"
-            style="padding: 24px; height: 24px; border-radius: 50%"
-          ></div>
+          <div class="e-bg-grey e-mr-24" style="padding: 24px; height: 24px; border-radius: 50%"></div>
           <div><i class="e-icon e-icon--information_circle e-icon--color-grey e-icon--xl"></i></div>
         </div>
         <div>
           <div class="title e-title-caps">
             informative
-            <span
-              class="code-text e-ml-8 e-text-desription"
-              style="text-transform: lowercase"
-            >
+            <span class="code-text e-ml-8 e-text-desription" style="text-transform: lowercase">
               e-alert--info
             </span>
           </div>
@@ -318,10 +279,7 @@
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section
-    [sectionTitle]="'Properties'"
-    [propertiesClass]="'e-alert'"
-  >
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-alert'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties [componentName]="'e-alert'"></app-component-properties>
     </ng-container>

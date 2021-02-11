@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Popover
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Popover</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -10,111 +8,58 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div
-    class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
-  >
-    <span class="e-popover" id="popover1">
-      <button class="e-btn e-btn--icon e-btn--circled" (click)="togglePopup('popover1', 'popover1Content')">
-        <span class="e-btn__icon">
-          <i class="e-icon e-icon--information_circle"></i>
-          <i class="e-icon e-icon e-icon--information_circle-filled-color" id="popoverIcon"></i>
-        </span>
-      </button>
-      <div class="e-popover__content e-none" id="popover1Content">
-        <div class="e-popover__close">
-          <button
-            class="e-btn e-btn--icon e-btn--no-border e-btn--sm"
-            (click)="closePopover('popover1Content')"
-          >
-            <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-          </button>
-        </div>
-        <div class="e-popover__title">Om innlogging</div>
-        <div class="e-popover__text">
-          Alle privatkunder må bruke BankID første gang de skal logge inn på Min side. BankID sikrer trygg og
-          enkel pålogging til kundeinformasjon og forbruksdata. Når du først har logget inn, kan du velge å
-          legge til e-post som innloggingsmåte. Da kan du selv velge den påloggingsmåten du vil ved senere
-          besøk på Min side.
-        </div>
-      </div>
-    </span>
-    <div class="e-w-100">
-      <app-code-block
-        [showPreview]="false"
-        [codeHTML]="exampleOverview"
-        [codeTS]="popupLiveCode"
-        [isJS]="true"
-      ></app-code-block>
-    </div>
-  </div>
-
-  <!--POSITION-->
-  <app-component-section [sectionTitle]="'Position'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Top center'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example1" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Bottom center'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example2" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Left and right'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example3" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Left-50 and right-50'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="e-text-description">
-            For use cases where you only want the popover to move 50% from the center to left or right.
-          </div>
-          <app-code-block [codeHTML]="example4" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Sizing for mobile'">
-        <ng-container ngProjectAs="sectionContent">
-          <div class="e-text-description">
-            To ease the implementation of the popover on mobile displays we offer sizing classes.The sizing
-            options are 200px, 220px, 240px and 260px that are only applied on mobile breakpoints.
-          </div>
-          <app-code-block
-            [codeHTML]="example5"
-            [showIframeScreens]="true"
-            [noDesktop]="true"
-            [noTablet]="true"
-          ></app-code-block>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
+  <!--CEG-->
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Show and hide'">
+
+      <app-component-subsection [sectionTitle]="'Structure'">
         <ng-container ngProjectAs="sectionContent">
-          The popover is by default always visible, to remove it or hide it apply the utility class
-          <span class="code-text">e-none.</span>
-          The popup will align to the top left position by default.
+          <img
+            src="./../../../../assets/popover/Group 2791.svg"
+            class="usage-image-desktop e-mb-32 e-w-100"
+          />
+          <div class="usage-image-mobile e-w-100">
+            <app-component-subsubsection [sectionTitle]="'Title'">
+              <ng-container ngProjectAs="sectionContent">
+                The title should be short and clear. The title is optional.
+              </ng-container>
+            </app-component-subsubsection>
+            <app-component-subsubsection [sectionTitle]="'Content'">
+              <ng-container ngProjectAs="sectionContent">
+                You can have different type of content like text, buttons, input etc. The content will have
+                100% width, unless the content only consists of text, then the max-width is 450px.
+              </ng-container>
+            </app-component-subsubsection>
+            <app-component-subsubsection [sectionTitle]="'Trigger'">
+              <ng-container ngProjectAs="sectionContent">The trigger can be any kind of button.</ng-container>
+            </app-component-subsubsection>
+            <app-component-subsubsection [sectionTitle]="'Close button'">
+              <ng-container ngProjectAs="sectionContent">
+                The popover will close if you click outside, ESC key, or the button connected to it. The close
+                button is optional and can be removed in special cases like in a menu list.
+              </ng-container>
+            </app-component-subsubsection>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Responsive'">
+        <ng-container ngProjectAs="sectionContent">
+          The popover include responsive functionality and is suited for all devices. However you should keep
+          in mind that it can be overwhelming on mobile if the popover has a lot of content.
         </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-popover'">
+  <app-component-section [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-popover'"></app-component-properties>
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
 </div>

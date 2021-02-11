@@ -31,11 +31,11 @@
   >
     <button class="e-btn" (click)="openModal('modal1')">Modal</button>
     <div class="e-w-100">
-      <app-code-block
+      <app-component-example-v1
         [showPreview]="false"
         [codeHTML]="overviewExample"
         [codeTS]="modalLiveCode"
-      ></app-code-block>
+      ></app-component-example-v1>
     </div>
   </div>
 
@@ -44,37 +44,37 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Actions'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block
+          <app-component-example-v1
             [codeHTML]="example1"
             [showIframeScreens]="true"
             [noTablet]="true"
             [overwriteHeight]="400"
             [showIframeDesktop]="true"
-          ></app-code-block>
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Danger'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block
+          <app-component-example-v1
             [codeHTML]="example2"
             [showIframeScreens]="true"
             [noTablet]="true"
             [overwriteHeight]="400"
             [showIframeDesktop]="true"
-          ></app-code-block>
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Info'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block
+          <app-component-example-v1
             [codeHTML]="example3"
             [showIframeScreens]="true"
             [noTablet]="true"
             [overwriteHeight]="400"
             [showIframeDesktop]="true"
-          ></app-code-block>
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>

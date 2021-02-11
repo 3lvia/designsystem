@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    List
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">List</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <ul class="e-list">
       <li>List with bullet points</li>
@@ -21,7 +19,7 @@
       <li>List with bullet points</li>
     </ul>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="overviewExample"></app-code-block>
+      <app-component-example-v1 [showPreview]="false" [codeHTML]="overviewExample"></app-component-example-v1>
     </div>
   </div>
 
@@ -31,7 +29,7 @@
       <app-component-subsection [sectionTitle]="'Bullet list'">
         <ng-container ngProjectAs="sectionContent">
           Green elvis dots for regular unordered list.
-          <app-code-block [codeHTML]="example1"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
           <app-when-to-use [whens]="doesExample1"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
@@ -39,7 +37,7 @@
       <app-component-subsection [sectionTitle]="'Numbered list'">
         <ng-container ngProjectAs="sectionContent">
           Ordered list with generated elvis styled bullet point
-          <app-code-block [codeHTML]="example3"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example3"></app-component-example-v1>
           <app-when-to-use [whens]="doesExample3"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
@@ -47,7 +45,7 @@
       <app-component-subsection [sectionTitle]="'Icon list'">
         <ng-container ngProjectAs="sectionContent">
           List with icons as bullet point
-          <app-code-block [codeHTML]="example4"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example4"></app-component-example-v1>
           <app-when-to-use [whens]="doesExample4"></app-when-to-use>
         </ng-container>
       </app-component-subsection>

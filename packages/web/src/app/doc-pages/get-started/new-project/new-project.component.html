@@ -38,14 +38,14 @@
         <li>
           <strong>Put the following in &lt;head></strong>
           <div *ngIf="loadedStyle">
-            <app-code-highlighter [codeHTML]="linkTagCode"></app-code-highlighter>
+            <app-component-example-code [codeHTML]="linkTagCode"></app-component-example-code>
           </div>
           <div *ngIf="!loadedStyle" class="e-content-loader" style="width: 100%; height: 127px"></div>
         </li>
         <li>
           <strong>Put the following at the bottom of &lt;body></strong>
           <div *ngIf="loadedScript">
-            <app-code-highlighter [codeHTML]="scriptTagCode"></app-code-highlighter>
+            <app-component-example-code [codeHTML]="scriptTagCode"></app-component-example-code>
           </div>
           <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
         </li>
@@ -53,7 +53,7 @@
 
       <p>The result should look like this:</p>
       <div *ngIf="loadedFullExample">
-        <app-code-highlighter [codeHTML]="fullExampleCode"></app-code-highlighter>
+        <app-component-example-code [codeHTML]="fullExampleCode"></app-component-example-code>
       </div>
       <div *ngIf="!loadedFullExample" class="e-content-loader" style="width: 100%; height: 337px"></div>
     </ng-container>
@@ -99,7 +99,7 @@
           </app-copy>
           <p><strong>or use the CDN for elvis.js:</strong></p>
           <div *ngIf="loadedScript">
-            <app-code-highlighter [codeHTML]="scriptTagCode"></app-code-highlighter>
+            <app-component-example-code [codeHTML]="scriptTagCode"></app-component-example-code>
           </div>
           <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
         </li>
@@ -149,7 +149,7 @@
             this library is offered as a ponyfill, not a polyfill, meaning that the code below needs to be
             added to your project, in your main.js/ts file, for processing to take place:
           </p>
-          <p><app-code-highlighter [codeTS]="cssVarsCode"></app-code-highlighter></p>
+          <p><app-component-example-code [codeTS]="cssVarsCode"></app-component-example-code></p>
           <p>
             You can read more on the
             <span>
