@@ -8,10 +8,12 @@ import { ExampleCodeService } from '../../../example-code.service';
 })
 export class CegFiltersComponent implements OnInit {
   @Input() componentData;
+  counterNumber: number;
   codeReact;
   codeWebComponent;
   props = [];
-
+  modifiers = [];
+  hasCheckboxes = false;
   emptyLineRegex = /^\s*[\r\n]/gm;
 
   constructor(private codeService: ExampleCodeService) {}
@@ -30,75 +32,132 @@ export class CegFiltersComponent implements OnInit {
             attribute,
             ...this.componentData.attributes[attribute],
           };
-          this.props.push(newObject);
+          if (this.componentData.attributes[attribute].cegFormType === 'checkbox') {
+            this.hasCheckboxes = true;
+            this.modifiers.push(newObject);
+          } else {
+            this.props.push(newObject);
+          }
         }
       });
     });
+    if (this.hasCheckboxes) {
+      const modifiersObject = {
+        cegFormType: 'checkbox',
+        modifiers: this.modifiers,
+      };
+      this.props.push(modifiersObject);
+    }
   }
 
   getPropRegex(prop: string): RegExp {
-    return new RegExp(prop + '=".*', 'gi');
+    return new RegExp(prop + '=("|{).*', 'gi');
   }
 
   getNewLineRegex(elementName: string): RegExp {
     return new RegExp('<' + elementName, 'gi');
   }
 
-  getReplaceValueString(prop: string, newValue: string): string {
-    return prop + '="' + newValue + '"';
+  getReplaceValueString(prop: string, newValue: string, isReact: boolean, type: string): string {
+    if (type !== 'string' && isReact) {
+      return prop + '={' + newValue + '}';
+    } else {
+      return prop + '="' + newValue + '"';
+    }
   }
 
   getNewPropStringW(prop: string, newValue: string): string {
     return '<' + this.componentData.elementNameW + '\n  ' + prop + '="' + newValue + '"';
   }
 
-  getNewPropStringR(prop: string, newValue: string): string {
-    return '<' + this.componentData.elementNameR + '\n  ' + prop + '="' + newValue + '"';
+  getNewPropStringR(prop: string, newValue: string, type: string): string {
+    if (type === 'string') {
+      return '<' + this.componentData.elementNameR + '\n  ' + prop + '="' + newValue + '"';
+    } else {
+      return '<' + this.componentData.elementNameR + '\n  ' + prop + '={' + newValue + '}';
+    }
   }
 
-  updateRadioProp(prop: string, newValue: string): void {
-    if (this.codeWebComponent.includes(prop)) {
+  updateProps(): void {
+    console.log('props updating');
+    this.codeService.updateCodeReact(this.codeReact);
+    this.codeService.updateCodeWebComponent(this.codeWebComponent);
+  }
+
+  updateRadioProp(prop: any, newValue: string): void {
+    if (this.codeWebComponent.includes(prop.attribute)) {
       // Replaces old value for prop
       this.codeReact = this.codeReact.replace(
-        this.getPropRegex(prop),
-        this.getReplaceValueString(prop, newValue),
+        this.getPropRegex(prop.attribute),
+        this.getReplaceValueString(prop.attribute, newValue, true, prop.cegType),
       );
       this.codeWebComponent = this.codeWebComponent.replace(
-        this.getPropRegex(prop),
-        this.getReplaceValueString(prop, newValue),
+        this.getPropRegex(prop.attribute),
+        this.getReplaceValueString(prop.attribute, newValue, false, prop.cegType),
       );
     } else {
       // Adds new prop to code
       const newLineRegexW = this.getNewLineRegex(this.componentData.elementNameW);
-      const newStringW = this.getNewPropStringW(prop, newValue);
+      const newStringW = this.getNewPropStringW(prop.attribute, newValue);
       this.codeWebComponent = this.codeWebComponent.replace(newLineRegexW, newStringW);
 
       const newLineRegexR = this.getNewLineRegex(this.componentData.elementNameR);
-      const newStringR = this.getNewPropStringR(prop, newValue);
+      const newStringR = this.getNewPropStringR(prop.attribute, newValue, prop.cegType);
       this.codeReact = this.codeReact.replace(newLineRegexR, newStringR);
     }
-    this.codeService.updateCodeReact(this.codeReact);
-    this.codeService.updateCodeWebComponent(this.codeWebComponent);
+    this.updateProps();
   }
 
-  updateToggleProp(prop: string, newValue: string): void {
-    if (this.codeWebComponent.includes(prop)) {
+  updateToggleCheckboxProp(prop: any): void {
+    if (this.codeWebComponent.includes(prop.attribute)) {
       // Removes old prop and line in code
-      this.codeReact = this.codeReact.replace(this.getPropRegex(prop), '').replace(this.emptyLineRegex, '');
+      this.codeReact = this.codeReact
+        .replace(this.getPropRegex(prop.attribute), '')
+        .replace(this.emptyLineRegex, '');
       this.codeWebComponent = this.codeWebComponent
-        .replace(this.getPropRegex(prop), '')
+        .replace(this.getPropRegex(prop.attribute), '')
         .replace(this.emptyLineRegex, '');
     } else {
       // Adds new prop in code
       const newLineRegexW = this.getNewLineRegex(this.componentData.elementNameW);
-      const newStringW = this.getNewPropStringW(prop, newValue);
+      const newStringW = this.getNewPropStringW(prop.attribute, prop.cegOption);
       this.codeWebComponent = this.codeWebComponent.replace(newLineRegexW, newStringW);
 
       const newLineRegexR = this.getNewLineRegex(this.componentData.elementNameR);
-      const newStringR = this.getNewPropStringR(prop, newValue);
+      const newStringR = this.getNewPropStringR(prop.attribute, prop.cegOption, prop.cegType);
       this.codeReact = this.codeReact.replace(newLineRegexR, newStringR);
     }
-    this.codeService.updateCodeReact(this.codeReact);
-    this.codeService.updateCodeWebComponent(this.codeWebComponent);
+    this.updateProps();
+  }
+
+  isAcceptedCounterValue(prop: any, newValue: number): boolean {
+    return (
+      this.counterNumber !== undefined &&
+      (this.counterNumber + newValue > prop.cegCounterMax ||
+        this.counterNumber + newValue < prop.cegCounterMin)
+    );
+  }
+
+  updateCounterProp(prop: any, newValue: number): void {
+    if (this.isAcceptedCounterValue(prop, newValue)) {
+      return;
+    } else if (this.counterNumber === undefined) {
+      this.counterNumber = prop.cegDefault + newValue;
+    } else {
+      this.counterNumber += newValue;
+    }
+
+    if (this.codeWebComponent.includes(prop.attribute)) {
+      // Replaces old value for prop
+      this.codeReact = this.codeReact.replace(
+        this.getPropRegex(prop.attribute),
+        this.getReplaceValueString(prop.attribute, this.counterNumber.toString(), true, prop.cegType),
+      );
+      this.codeWebComponent = this.codeWebComponent.replace(
+        this.getPropRegex(prop.attribute),
+        this.getReplaceValueString(prop.attribute, this.counterNumber.toString(), false, prop.cegType),
+      );
+    }
+    this.updateProps();
   }
 }
