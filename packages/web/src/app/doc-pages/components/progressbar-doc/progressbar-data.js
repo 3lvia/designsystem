@@ -15,6 +15,7 @@ module.exports = {
       cegCounterMax: 100,
       cegCounterMin: 0,
       cegStepValue: 10,
+      cegCounterType: '%',
       cegTypeDependency: 'Normal',
     },
     isIndeterminate: {

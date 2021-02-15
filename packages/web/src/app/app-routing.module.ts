@@ -69,6 +69,7 @@ import { TheConceptComponent } from './doc-pages/identity/the-concept/the-concep
 import { ChipsComponent } from './doc-pages/components/chips/chips.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
+import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
 
 const routes: Routes = [
   {
@@ -214,6 +215,10 @@ const routes: Routes = [
           {
             path: Pages.Dropdown,
             component: DropdownDocComponent,
+          },
+          {
+            path: Pages.Tabs,
+            component: TabsDocComponent,
           },
           {
             path: Pages.Toggle,

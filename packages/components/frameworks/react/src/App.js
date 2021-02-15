@@ -9,12 +9,7 @@ function App() {
   const [trackedState, setTrackedState] = useState(true);
   const [selectedState, setSelectedState] = useState(2);
   const ref = useRef();
-  const items = [
-    { label: 'Statistikk' },
-    { label: 'Siste kall' },
-    { label: 'HAN-port' },
-    { label: 'Feilkategorisering' },
-  ];
+  const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
 
   function update() {
     setTrackedState(!trackedState);

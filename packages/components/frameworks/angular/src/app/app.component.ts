@@ -11,15 +11,6 @@ export class AppComponent implements OnInit {
   checkBoxVal2 = true;
   progressValue = 0;
 
-  items = [
-    { label: 'Epler' },
-    { label: 'Appelsin' },
-    { label: 'Bananer' },
-    { label: 'Druer' },
-    { label: 'Kiwi' },
-  ];
-  value = 2;
-
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
     this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {

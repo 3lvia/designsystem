@@ -2,17 +2,14 @@ import React, { FC, useEffect, useState, useRef } from 'react';
 import classNames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
 import './style.scss';
-export interface TabItem {
-  label: string;
-}
 export interface TabsProps {
-  items: TabItem[];
+  items: string[];
   value: number;
   valueOnChange?: (value: number) => void;
   webcomponent?: any;
 }
 
-const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
+const Tabs: FC<TabsProps> = ({ items, value = 0, valueOnChange, webcomponent }) => {
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
   const tabsRef = useRef<HTMLDivElement>(null);
@@ -127,11 +124,11 @@ const Tabs: FC<TabsProps> = ({ items, value, valueOnChange, webcomponent }) => {
                   role="tab"
                   id={'tab_' + i}
                   value={value}
-                  aria-label={item.label}
+                  aria-label={item}
                   aria-checked={i === value}
                 ></input>
                 <label className={`ewc-tabs__label ${value === i && 'ewc-tabs__label--selected'}`}>
-                  {item.label}
+                  {item}
                 </label>
               </div>
             ))}

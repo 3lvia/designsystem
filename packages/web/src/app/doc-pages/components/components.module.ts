@@ -27,6 +27,7 @@ import { ContentLoaderDocModule } from './content-loader-doc/content-loader-doc.
 import { RadioFilterDocModule } from './radio-filter-doc/radio-filter-doc.module';
 import { ChipsModule } from './chips/chips.module';
 import { DividerDocModule } from './divider-doc/divider-doc.module';
+import { TabsDocModule } from './tabs-doc/tabs-doc.module';
 
 @NgModule({
   imports: [
@@ -54,6 +55,7 @@ import { DividerDocModule } from './divider-doc/divider-doc.module';
     PopoverDocModule,
     PaginationDocModule,
     StepperDocModule,
+    TabsDocModule,
     TableDocModule,
     TagsDocModule,
     TooltipDocModule,

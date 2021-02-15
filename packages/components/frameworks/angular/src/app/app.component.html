@@ -3,7 +3,11 @@
 
   <h2>Tabs</h2>
   <div style="margin-top: 16px">
-    <elvia-tabs [items]="items" [value]="value" (valueOnChange)="value = $event.detail.value"></elvia-tabs>
+    <elvia-tabs
+      [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
+      [value]="1"
+      (valueOnChange)="value = $event.detail.value"
+    ></elvia-tabs>
     {{ value }}
   </div>
 
