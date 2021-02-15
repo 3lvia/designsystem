@@ -6,6 +6,32 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      7.0.0
+    </span>
+    <br>
+    <span>
+      TBA
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">✂️ BREAKING CHANGE</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>
+        </div>
+        Documentation on links is updated and usage of different links made clearer. Forward links should be replaced by Action links. Breaking changes are; back links now uses the --back modifier and jumbo links uses a new icon.
+        <div class="e-mt-8">
+          How to fix:
+          Read the documentation with examples to replace old links. Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>
+        </div>
+        <div class="changelog-divider"></div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       6.3.0
     </span>
     <br>
@@ -40,7 +66,8 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icons#Overview">Icons</a>
         </div>
         Icons have been updated, some have been deprecated and new icons have been added.
-      <div class="changelog-divider"></div>
+        <div class="changelog-divider"></div>
+      </div>
     </td>
   </tr>
   <tr class="changelog-row">
