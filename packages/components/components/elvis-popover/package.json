@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-popover",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "web_component.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^1.0.8",
-    "@elvia/elvis-toolbox": "^1.0.1"
+    "@elvia/elvis-toolbox": "^1.0.1",
+    "classnames": "^2.2.6"
   }
 }
