@@ -5133,7 +5133,7 @@ ansi-colors@^1.0.1:
   dependencies:
     ansi-wrap "^0.1.0"
 
-ansi-colors@^3.0.0:
+ansi-colors@^3.0.0, ansi-colors@^3.0.5:
   version "3.2.4"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
   integrity sha512-hHUXGagefjN2iRrID63xckIvotOXOojhQKWIPUZ4mNUZ9nLZW+7FMNoE1lOkEhNWYsx/7ysGIuJYCiMAA9FnrA==
@@ -11828,6 +11828,18 @@ gulp-tap@^2.0.0:
   integrity sha512-U5/v1bTozx672QHzrvzPe6fPl2io7Wqyrx2y30AG53eMU/idH4BrY/b2yikOkdyhjDqGgPoMUMnpBg9e9LK8Nw==
   dependencies:
     through2 "^3.0.1"
+
+gulp-typescript@^5.0.0:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/gulp-typescript/-/gulp-typescript-5.0.1.tgz#96c6565a6eb31e08c2aae1c857b1a079e6226d94"
+  integrity sha512-YuMMlylyJtUSHG1/wuSVTrZp60k1dMEFKYOvDf7OvbAJWrDtxxD4oZon4ancdWwzjj30ztiidhe4VXJniF0pIQ==
+  dependencies:
+    ansi-colors "^3.0.5"
+    plugin-error "^1.0.1"
+    source-map "^0.7.3"
+    through2 "^3.0.0"
+    vinyl "^2.1.0"
+    vinyl-fs "^3.0.3"
 
 gulp@^4.0.2:
   version "4.0.2"
@@ -22458,7 +22470,7 @@ vfile-location@^3.2.0:
   resolved "https://registry.yarnpkg.com/vfile-location/-/vfile-location-3.2.0.tgz#d8e41fbcbd406063669ebf6c33d56ae8721d0f3c"
   integrity sha512-aLEIZKv/oxuCDZ8lkJGhuhztf/BW4M+iHdCwglA/eWc+vtuRFJj8EtgceYFX4LRjOhCAAiNHsKGssC6onJ+jbA==
 
-vinyl-fs@^3.0.0:
+vinyl-fs@^3.0.0, vinyl-fs@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/vinyl-fs/-/vinyl-fs-3.0.3.tgz#c85849405f67428feabbbd5c5dbdd64f47d31bc7"
   integrity sha512-vIu34EkyNyJxmP0jscNzWBSygh7VWhqun6RmqVfXePrOwi9lhvRs//dOaGOTRUQr4tx7/zd26Tk5WeSVZitgng==
@@ -22501,7 +22513,7 @@ vinyl-sourcemaps-apply@0.2.1, vinyl-sourcemaps-apply@^0.2.0, vinyl-sourcemaps-ap
   dependencies:
     source-map "^0.5.1"
 
-vinyl@^2.0.0:
+vinyl@^2.0.0, vinyl@^2.1.0:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/vinyl/-/vinyl-2.2.1.tgz#23cfb8bbab5ece3803aa2c0a1eb28af7cbba1974"
   integrity sha512-LII3bXRFBZLlezoG5FfZVcXflZgWP/4dCwKtxd5ky9+LOtM4CS3bIRQsmR1KMnMW07jpE8fqR2lcxPZ+8sJIcw==
