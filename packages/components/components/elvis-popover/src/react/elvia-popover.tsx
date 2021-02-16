@@ -214,8 +214,8 @@ const Popover: FC<PopoverProps> = ({
     ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
   });
   const contentClasses = classnames('ewc-popover__content', {
-    ['ewc-popover--hide']: !popoverVisibility,
     ['ewc-popover--text-only']: typeof content === 'string',
+    ['ewc-popover--hide']: !popoverVisibility,
   });
 
   return (
