@@ -5,7 +5,7 @@ import { Directive, Output, EventEmitter, HostBinding, HostListener } from '@ang
   selector: '[appDnd]',
 })
 export class DndDirective {
-  @HostBinding('class.e-fileupload---hover') fileOver: boolean;
+  @HostBinding('class.e-fileupload--dragover') fileOver: boolean;
   @Output() fileDropped = new EventEmitter<unknown>();
 
   // Dragover listener

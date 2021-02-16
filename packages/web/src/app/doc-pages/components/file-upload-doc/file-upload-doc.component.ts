@@ -24,7 +24,7 @@ export class FileUploadDocComponent {
 </div>
 `;
 
-  example2 = `<div class="e-fileupload e-fileupload---hover" style="width:380px">
+  example2 = `<div class="e-fileupload e-fileupload--dragover" style="width:380px">
   <div class="e-fileupload__icon">
     <i class="e-icon e-icon--image_add-color"></i>
   </div>
@@ -50,7 +50,7 @@ export class FileUploadDocComponent {
     selector: '[appDnd]'
 })
 export class DndDirective {
-    @HostBinding('class.e-fileupload---hover') fileOver: boolean;
+    @HostBinding('class.e-fileupload--dragover') fileOver: boolean;
     @Output() fileDropped = new EventEmitter<any>();
 
     // Dragover listener
