@@ -98,6 +98,7 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/divider#Overview">Divider</a>
         </div>
+        Divider component has been added.
       <div class="changelog-divider"></div>
     </td>
   </tr>
@@ -135,7 +136,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Feature</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/indentity/Typography#Overview"></a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/Typography#Overview">Typography</a>
         </div>
         Strong and light versions of body text have been added, as well as on special text called 'micro'. 
       <div class="changelog-divider"></div>
