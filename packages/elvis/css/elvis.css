@@ -8165,7 +8165,7 @@ input:focus {
   height: 24px;
 }
 
-.e-fileupload---hover {
+.e-fileupload--dragover {
   border-color: #29d305;
 }
 
@@ -13285,7 +13285,6 @@ THE SOFTWARE.
 .e-title-lg {
   font-family: Red Hat Display, sans-serif;
   font-size: 44px;
-  text-align: inherit;
   line-height: 53px;
   font-weight: 900;
   font-style: unset;
@@ -13303,7 +13302,6 @@ THE SOFTWARE.
 .e-title-md {
   font-family: Red Hat Display, sans-serif;
   font-size: 30px;
-  text-align: inherit;
   line-height: 36px;
   font-weight: 700;
   font-style: unset;
@@ -13321,7 +13319,6 @@ THE SOFTWARE.
 .e-title-sm {
   font-family: Red Hat Display, sans-serif;
   font-size: 24px;
-  text-align: inherit;
   line-height: 29px;
   font-weight: 700;
   font-style: unset;
@@ -13339,7 +13336,6 @@ THE SOFTWARE.
 .e-title-xs {
   font-family: Red Hat Display, sans-serif;
   font-size: 18px;
-  text-align: inherit;
   line-height: 22px;
   font-weight: 700;
   font-style: unset;
@@ -13351,7 +13347,6 @@ THE SOFTWARE.
 .e-text-lead {
   font-family: Red Hat Text, sans-serif;
   font-size: 24px;
-  text-align: inherit;
   line-height: 39px;
   font-weight: 400;
   font-style: unset;
@@ -13369,7 +13364,6 @@ THE SOFTWARE.
 .e-text-quote {
   font-family: Red Hat Text, sans-serif;
   font-size: 26px;
-  text-align: inherit;
   line-height: 42px;
   font-weight: 400;
   font-style: italic;
@@ -13387,7 +13381,6 @@ THE SOFTWARE.
 .e-text-body {
   font-family: Red Hat Text, sans-serif;
   font-size: 20px;
-  text-align: inherit;
   line-height: 32px;
   font-weight: 400;
   font-style: unset;
@@ -13405,7 +13398,6 @@ THE SOFTWARE.
 .e-text-lg {
   font-family: Red Hat Text, sans-serif;
   font-size: 20px;
-  text-align: inherit;
   line-height: 32px;
   font-weight: 400;
   font-style: unset;
@@ -13441,7 +13433,6 @@ THE SOFTWARE.
 .e-text-description {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
-  text-align: inherit;
   line-height: 28px;
   font-weight: 400;
   font-style: unset;
@@ -13453,7 +13444,6 @@ THE SOFTWARE.
 .e-text-md {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
-  text-align: inherit;
   line-height: 28px;
   font-weight: 400;
   font-style: unset;
@@ -13465,7 +13455,6 @@ THE SOFTWARE.
 .e-text-caps {
   font-family: Red Hat Text, sans-serif;
   font-size: 14px;
-  text-align: inherit;
   line-height: 17px;
   font-weight: 500;
   font-style: unset;
@@ -13477,7 +13466,6 @@ THE SOFTWARE.
 .e-title-caps {
   font-family: Red Hat Text, sans-serif;
   font-size: 14px;
-  text-align: inherit;
   line-height: 17px;
   font-weight: 500;
   font-style: unset;
@@ -13489,7 +13477,6 @@ THE SOFTWARE.
 .e-text-info {
   font-family: Red Hat Text, sans-serif;
   font-size: 14px;
-  text-align: inherit;
   line-height: 22px;
   font-weight: 400;
   font-style: unset;
@@ -13501,7 +13488,6 @@ THE SOFTWARE.
 .e-text-sm {
   font-family: Red Hat Text, sans-serif;
   font-size: 14px;
-  text-align: inherit;
   line-height: 22px;
   font-weight: 400;
   font-style: unset;
@@ -13513,7 +13499,6 @@ THE SOFTWARE.
 .e-text-label {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
-  text-align: inherit;
   line-height: 23px;
   font-weight: 500;
   font-style: unset;
@@ -13525,7 +13510,6 @@ THE SOFTWARE.
 .e-text-option {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
-  text-align: inherit;
   line-height: 22px;
   font-weight: 400;
   font-style: unset;
@@ -13537,7 +13521,6 @@ THE SOFTWARE.
 .e-text-micro {
   font-family: Red Hat Text, sans-serif;
   font-size: 11px;
-  text-align: inherit;
   line-height: 14px;
   font-weight: 400;
   font-style: unset;
@@ -13549,7 +13532,6 @@ THE SOFTWARE.
 .e-text-micro-strong {
   font-family: Red Hat Text, sans-serif;
   font-size: 11px;
-  text-align: inherit;
   line-height: 14px;
   font-weight: 500;
   font-style: unset;
@@ -13561,7 +13543,6 @@ THE SOFTWARE.
 .e-text-lead-strong {
   font-family: Red Hat Text, sans-serif;
   font-size: 24px;
-  text-align: inherit;
   line-height: 39px;
   font-weight: 500;
   font-style: unset;
@@ -13579,7 +13560,6 @@ THE SOFTWARE.
 .e-text-lg-strong {
   font-family: Red Hat Text, sans-serif;
   font-size: 20px;
-  text-align: inherit;
   line-height: 32px;
   font-weight: 500;
   font-style: unset;
@@ -13597,7 +13577,6 @@ THE SOFTWARE.
 .e-text-lg-light {
   font-family: Red Hat Text, sans-serif;
   font-size: 20px;
-  text-align: inherit;
   line-height: 32px;
   font-weight: 400;
   font-style: unset;
@@ -13615,7 +13594,6 @@ THE SOFTWARE.
 .e-text-md-strong {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
-  text-align: inherit;
   line-height: 28px;
   font-weight: 500;
   font-style: unset;
@@ -13627,7 +13605,6 @@ THE SOFTWARE.
 .e-text-md-light {
   font-family: Red Hat Text, sans-serif;
   font-size: 16px;
-  text-align: inherit;
   line-height: 28px;
   font-weight: 400;
   font-style: unset;
@@ -13639,7 +13616,6 @@ THE SOFTWARE.
 .e-text-sm-strong {
   font-family: Red Hat Text, sans-serif;
   font-size: 14px;
-  text-align: inherit;
   line-height: 22px;
   font-weight: 500;
   font-style: unset;
@@ -13651,7 +13627,6 @@ THE SOFTWARE.
 .e-text-sm-light {
   font-family: Red Hat Text, sans-serif;
   font-size: 14px;
-  text-align: inherit;
   line-height: 22px;
   font-weight: 400;
   font-style: unset;

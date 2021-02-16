@@ -18,8 +18,20 @@
         <div class="changelog-section-title">✂️ BREAKING CHANGE</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Typography</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Fileupload</a>
         </div>
-        Documentation on links is updated and usage of different links made clearer. Forward links should be replaced by Action links. Breaking changes are; back links now uses the --back modifier and jumbo links uses a new icon.
+        <ul>
+          <li>
+            Documentation on links is updated and usage of different links made clearer. Forward links should be replaced by Action links. Breaking changes are; back links now uses the --back modifier and jumbo links uses a new icon.
+          </li>
+          <li>
+            Typography now has no specified text-align except those with text-align center.
+          </li>
+          <li>
+            Fileupload class <span class="code-text">e-filupload---hover</span> -> <span class="code-text">e-fileupload--dragover</span>
+          </li>
+        </ul>
         <div class="e-mt-8">
           How to fix:
           Read the documentation with examples to replace old links. Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>

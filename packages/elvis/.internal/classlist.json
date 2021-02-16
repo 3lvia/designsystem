@@ -883,8 +883,8 @@
 				"e-fileupload__description": {},
 				"e-fileupload__input": {}
 			},
-			"psuedo": {
-				"e-fileupload---hover": {}
+			"modifier": {
+				"e-fileupload--dragover": {}
 			}
 		},
 		"e-position-picker": {
@@ -1676,7 +1676,7 @@
 		"e-fileupload__icon": {},
 		"e-fileupload__description": {},
 		"e-fileupload__input": {},
-		"e-fileupload---hover": {},
+		"e-fileupload--dragover": {},
 		"e-position-picker": {},
 		"e-position-picker__icon": {},
 		"e-position-picker__description": {},
