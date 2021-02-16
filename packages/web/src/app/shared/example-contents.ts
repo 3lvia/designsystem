@@ -49,12 +49,12 @@ export const exampleContents = {
     },
     md2: {
       'nob-NOR': {
-        title: 'Strømregningen påvirkes av vinteren',
+        title: 'Strømregningen på vinteren',
         description:
           'Hovedårsaken til at du får høyere strømregning på vinteren er at temperaturen ute synker, mens de fleste holder en jevn temperatur på rundt 20 grader inne...',
       },
       'eng-GBR': {
-        title: 'The electricity bill is affected by winter',
+        title: 'Electricity bill in winter',
         description:
           'The main reason why you get a higher electricity bill in the winter is that the temperature outside drops, while most keep an even temperature of around 20 degrees inside ...',
       },
@@ -94,6 +94,10 @@ export const exampleContents = {
     categories: {
       'nob-NOR': ['Skjema', 'Artikkel', 'Rapport'],
       'eng-GBR': ['Form', 'Article', 'Report'],
+    },
+    filters: {
+      'nob-NOR': ['Alle', 'Ulest', 'Lest'],
+      'eng-GBR': ['All', 'Unread', 'Read'],
     },
   },
 };

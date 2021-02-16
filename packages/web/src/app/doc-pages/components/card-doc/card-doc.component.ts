@@ -8,6 +8,7 @@ import { exampleContents } from 'src/app/shared/example-contents';
   styleUrls: ['./card-doc.component.scss'],
 })
 export class CardDocComponent {
+  examples = exampleContents;
   figmaUrl = getComponent('card').figmaUrl;
   description = getComponent('card').description;
   donts = [
@@ -15,12 +16,17 @@ export class CardDocComponent {
     'Do not combine "title outside card" and "title inside card" on the same front.',
   ];
 
-  exampleOverview = `<div class="e-card e-card--on-white">
+  exampleOverview =
+    `<div class="e-card e-card--on-white">
   <div class="e-card__title">
-    Short card title
+    ` +
+    exampleContents.texts.md2['eng-GBR'].title +
+    `
   </div>
   <div class="e-card__content">
-    Description for card.
+    ` +
+    exampleContents.texts.md2['eng-GBR'].description +
+    `
   </div>
 </div>
 `;
