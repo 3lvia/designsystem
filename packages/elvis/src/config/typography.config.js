@@ -12,7 +12,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -28,7 +28,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -44,7 +44,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -58,7 +58,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -74,7 +74,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -90,7 +90,7 @@ module.exports = [
       { key: 'style', value: 'italic' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -107,7 +107,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -138,7 +138,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -153,7 +153,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'uppercase' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -168,7 +168,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -182,7 +182,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -196,7 +196,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -210,7 +210,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -224,7 +224,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -240,7 +240,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -256,7 +256,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -272,7 +272,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#515151' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -286,7 +286,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -300,7 +300,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#515151' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -314,7 +314,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
   {
@@ -328,7 +328,7 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: '#515151' },
-      { key: 'align', value: 'left' },
+      { key: 'align', value: 'inherit' },
     ],
   },
 ];
