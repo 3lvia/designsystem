@@ -16,24 +16,34 @@ export class SearchDocComponent {
 
   isExampleInput = false;
 
-  overviewExample = `<div class="e-form-field">
-  <label class="e-form-field__label" for="compact">Søk</label>
-  <div class="e-search e-search--local" style="width: 250px" #exampleSearch>
-    <div class="e-input">
-      <input
-        id="compact"
-        type="text"
-        placeholder="Placeholder text"
-        #exampleInput
-        (keyup)="onInput(exampleInput.value)"
-        />
+  overviewExample = `    <div class="e-form-field">
+      <label
+        class="e-form-field__label"
+        for="compact"
+      >Søk</label>
+      <div
+        class="e-search e-search--local--instant"
+        style="width: 250px"
+        #exampleSearch
+      >
+        <div class="e-input">
+          <input
+            id="compact"
+            type="text"
+            placeholder="Placeholder text"
+            #exampleInput
+            (keyup)="onInput(exampleInput.value)"
+          />
+        </div>
+        <i class="e-icon e-icon--search-color"></i>
+        <button
+          class="e-btn e-btn--icon e-btn--lg"
+          (click)="clearExample()"
+        >
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
     </div>
-    <button class="e-btn e-btn--icon e-btn--lg" (click)="clearExample()">
-      <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-    </button>
-  </div>
-</div>
 `;
 
   overviewExampleTS = `@ViewChild('exampleSearch') exampleSearch: ElementRef;
@@ -58,32 +68,64 @@ clearExample(): void {
 }
 `;
 
-  searchExample = `<div class="e-form-field">
-  <label class="e-form-field__label" for="compact">Søk</label>
-  <div class="e-search e-search--local" style="width:400px;">
-    <div class="e-input">
-      <input id="compact" type="text" placeholder="Placeholder text">
+  searchExample = `    <div class="e-form-field">
+      <label
+        class="e-form-field__label"
+        for="compact"
+      >Søk</label>
+      <div
+        class="e-search e-search--local--instant"
+        style="width: 250px"
+        #exampleSearch
+      >
+        <div class="e-input">
+          <input
+            id="compact"
+            type="text"
+            placeholder="Placeholder text"
+            #exampleInput
+            (keyup)="onInput(exampleInput.value)"
+          />
+        </div>
+        <i class="e-icon e-icon--search-color"></i>
+        <button
+          class="e-btn e-btn--icon e-btn--lg"
+          (click)="clearExample()"
+        >
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
     </div>
-    <button class="e-btn e-btn--icon e-btn--lg">
-      <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-    </button>
-  </div>
-</div>
 `;
 
-  afterSearchExample = `<div class="e-form-field">
-  <label class="e-form-field__label" for="compact">Søk</label>
-  <div class="e-search e-search--local e-search--searched" style="width:400px;">
-    <div class="e-input">
-      <input id="compact" type="text" placeholder="Placeholder text" value="Search text input">
+  afterSearchExample = `    <div class="e-form-field">
+      <label
+        class="e-form-field__label"
+        for="compact"
+      >Søk</label>
+      <div
+        class="e-search e-search--local--instant e-search--searched"
+        style="width: 250px"
+        #exampleSearch
+      >
+        <div class="e-input">
+          <input
+            id="compact"
+            type="text"
+            placeholder="Placeholder text"
+            #exampleInput
+            (keyup)="onInput(exampleInput.value)"
+          />
+        </div>
+        <i class="e-icon e-icon--search-color"></i>
+        <button
+          class="e-btn e-btn--icon e-btn--lg"
+          (click)="clearExample()"
+        >
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
     </div>
-    <button class="e-btn e-btn--icon e-btn--lg">
-      <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-    </button>
-  </div>
-</div>
 `;
 
   searchSizesExample = `<div class="e-text-label e-mb-8">Normal</div>

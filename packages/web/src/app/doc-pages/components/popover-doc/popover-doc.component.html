@@ -8,13 +8,35 @@
 
 <!--BODY-->
 <div class="page-body">
+
+
+  <elvia-popover
+    posX="center"
+    title="About login"
+    content="All private customers must use BankID the first time they log in to My page. BankID ensures safe and easy login to customer information and consumption data. Once logged in, you can choose to add an email as your login method."
+    posY="top"
+  >
+    <button
+      slot="trigger"
+      class="e-btn e-btn--icon e-btn--circled"
+    >
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--information_circle"></i>
+        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+      </span>
+    </button>
+  </elvia-popover>
+
   <!--CEG-->
   <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+      <app-when-to-use
+        [whens]="does"
+        [whenNots]="donts"
+      ></app-when-to-use>
 
       <app-component-subsection [sectionTitle]="'Structure'">
         <ng-container ngProjectAs="sectionContent">
