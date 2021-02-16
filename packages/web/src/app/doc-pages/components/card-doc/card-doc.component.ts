@@ -8,7 +8,6 @@ import { exampleContents } from 'src/app/shared/example-contents';
   styleUrls: ['./card-doc.component.scss'],
 })
 export class CardDocComponent {
-  examples = exampleContents;
   figmaUrl = getComponent('card').figmaUrl;
   description = getComponent('card').description;
   donts = [
@@ -31,12 +30,12 @@ export class CardDocComponent {
   <div class="e-card">
     <div class="e-card__title">
       ` +
-    this.examples.texts.md2['eng-GBR'].title +
+    exampleContents.texts.md2['eng-GBR'].title +
     `
     </div>
     <div class="e-card__content">
       ` +
-    this.examples.texts.md2['eng-GBR'].description +
+    exampleContents.texts.md2['eng-GBR'].description +
     `
     </div>
   </div>
@@ -48,12 +47,12 @@ export class CardDocComponent {
   <div class="e-card e-card--on-white">
     <div class="e-card__title">
       ` +
-    this.examples.texts.md2['eng-GBR'].title +
+    exampleContents.texts.md2['eng-GBR'].title +
     `
     </div>
     <div class="e-card__content">
       ` +
-    this.examples.texts.md2['eng-GBR'].description +
+    exampleContents.texts.md2['eng-GBR'].description +
     `
     </div>
   </div>
@@ -64,12 +63,12 @@ export class CardDocComponent {
   <div class="e-card e-mt-48">
     <div class="e-card__title e-card__title--above">
       ` +
-    this.examples.texts.md2['eng-GBR'].title +
+    exampleContents.texts.md2['eng-GBR'].title +
     `
     </div>
     <div class="e-card__content">
       ` +
-    this.examples.texts.md2['eng-GBR'].description +
+    exampleContents.texts.md2['eng-GBR'].description +
     `
     </div>
   </div>
@@ -81,12 +80,12 @@ export class CardDocComponent {
   <div class="e-card e-card--shadow-soft e-mt-48">
     <div class="e-card__title e-card__title--above">
       ` +
-    this.examples.texts.md2['eng-GBR'].title +
+    exampleContents.texts.md2['eng-GBR'].title +
     `
     </div>
     <div class="e-card__content">
       ` +
-    this.examples.texts.md2['eng-GBR'].description +
+    exampleContents.texts.md2['eng-GBR'].description +
     `
     </div>
   </div>
@@ -98,12 +97,12 @@ export class CardDocComponent {
   <div class="e-card e-card--shadow-medium e-mt-48">
     <div class="e-card__title e-card__title--above">
       ` +
-    this.examples.texts.md2['eng-GBR'].title +
+    exampleContents.texts.md2['eng-GBR'].title +
     `
     </div>
     <div class="e-card__content">
       ` +
-    this.examples.texts.md2['eng-GBR'].description +
+    exampleContents.texts.md2['eng-GBR'].description +
     `
     </div>
   </div>
@@ -115,12 +114,12 @@ export class CardDocComponent {
   <div class="e-card e-card--shadow-hard e-mt-48">
     <div class="e-card__title e-card__title--above">
       ` +
-    this.examples.texts.md2['eng-GBR'].title +
+    exampleContents.texts.md2['eng-GBR'].title +
     `
     </div>
     <div class="e-card__content">
       ` +
-    this.examples.texts.md2['eng-GBR'].description +
+    exampleContents.texts.md2['eng-GBR'].description +
     `
     </div>
   </div>

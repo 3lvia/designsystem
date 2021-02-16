@@ -1,4 +1,4 @@
-module.exports = {
+export const progressbarData = {
   name: 'elvis-progress-linear',
   elementNameW: 'elvia-progress-linear',
   elementNameR: 'ProgressLinear',

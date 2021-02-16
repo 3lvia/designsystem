@@ -9,7 +9,6 @@ import { exampleContents } from 'src/app/shared/example-contents';
 })
 export class AccordionDocComponent {
   @ViewChild('accordionLiveExample') accordionLiveExample: ElementRef;
-
   examples = exampleContents;
   figmaUrl = getComponent('accordion').figmaUrl;
   description = getComponent('accordion').description;
@@ -50,7 +49,7 @@ export class AccordionDocComponent {
     </div>
     <div class="e-accordion__content">
       ` +
-    this.examples.texts.sm['eng-GBR'].description +
+    exampleContents.texts.sm['eng-GBR'].description +
     `
     </div>
   </div>
@@ -63,7 +62,7 @@ export class AccordionDocComponent {
     <div class="e-accordion__label">
       <div class="e-accordion__title">
         ` +
-    this.examples.texts.xs['eng-GBR'].title +
+    exampleContents.texts.xs['eng-GBR'].title +
     `
       </div>
       <div class="e-accordion__icon">
@@ -79,7 +78,7 @@ export class AccordionDocComponent {
     <div class="e-accordion__label">
       <div class="e-accordion__title">
         ` +
-    this.examples.questions.sm['eng-GBR'].question +
+    exampleContents.questions.sm['eng-GBR'].question +
     `
       </div>
       <div class="e-accordion__icon">
@@ -89,7 +88,7 @@ export class AccordionDocComponent {
     </div>
     <div class="e-accordion__content">
       ` +
-    this.examples.questions.sm['eng-GBR'].answer +
+    exampleContents.questions.sm['eng-GBR'].answer +
     `
     </div>
   </div>
@@ -97,7 +96,7 @@ export class AccordionDocComponent {
     <div class="e-accordion__label">
       <div class="e-accordion__title">
         ` +
-    this.examples.texts.sm['eng-GBR'].title +
+    exampleContents.texts.sm['eng-GBR'].title +
     `
       </div>
       <div class="e-accordion__icon">
@@ -113,7 +112,7 @@ export class AccordionDocComponent {
     <div class="e-accordion__label">
       <div class="e-accordion__title">
         ` +
-    this.examples.texts.md['eng-GBR'].title +
+    exampleContents.texts.md['eng-GBR'].title +
     `
       </div>
       <div class="e-accordion__icon">

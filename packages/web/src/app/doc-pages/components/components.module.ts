@@ -6,7 +6,6 @@ import { ComponentsStartModule } from './components-start/components-start.modul
 import { FormComponentsModule } from './forms/formComponents.module';
 import { LinkDocModule } from './link-doc/link-doc.module';
 import { ListDocModule } from './list-doc/list-doc.module';
-import { NotificationDotDocModule } from './notification-dot-doc/notification-dot-doc.module';
 import { OverviewModule } from './overview-comp/overview-comp.module';
 import { TableDocModule } from './table-doc/table-doc.module';
 import { TagsDocModule } from './tags-doc/tags-doc.module';
@@ -47,7 +46,6 @@ import { DividerDocModule } from './divider-doc/divider-doc.module';
     LinkDocModule,
     ListDocModule,
     ModalDocModule,
-    NotificationDotDocModule,
     OverviewModule,
     ProgressbarDocModule,
     PositionPickerDocModule,

@@ -19,7 +19,6 @@ import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-
 import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
 import { ShadowDocComponent } from './doc-pages/identity/shadow-doc/shadow-doc.component';
-import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
 import { SpacingDocComponent } from './doc-pages/identity/spacing-doc/spacing-doc.component';
 import { OverviewToolsComponent } from './doc-pages/tools/overview-tools/overview-tools.component';
 import { OverviewIdentityComponent } from './doc-pages/identity/overview-identity/overview-identity.component';
@@ -258,10 +257,6 @@ const routes: Routes = [
           {
             path: Pages.Modal,
             component: ModalDocComponent,
-          },
-          {
-            path: Pages.Notification,
-            component: NotificationDotDocComponent,
           },
           {
             path: Pages.Pagination,

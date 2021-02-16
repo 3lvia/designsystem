@@ -8,7 +8,6 @@ import { exampleContents } from 'src/app/shared/example-contents';
   styleUrls: ['./label-doc.component.scss'],
 })
 export class LabelDocComponent {
-  examples = exampleContents;
   figmaUrl = getComponent('label').figmaUrl;
   description = getComponent('label').description;
   headerDoes = ['When you need to categorize or view the status of items.'];
@@ -22,13 +21,13 @@ export class LabelDocComponent {
 
   example1 =
     `<label class="e-label e-m-8">` +
-    this.examples.words.categories['eng-GBR'][0] +
+    exampleContents.words.categories['eng-GBR'][0] +
     `</label>
 <label class="e-label e-m-8">` +
-    this.examples.words.categories['eng-GBR'][1] +
+    exampleContents.words.categories['eng-GBR'][1] +
     `</label>
 <label class="e-label e-m-8">` +
-    this.examples.words.categories['eng-GBR'][2] +
+    exampleContents.words.categories['eng-GBR'][2] +
     `</label>
 `;
 

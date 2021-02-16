@@ -24,6 +24,17 @@ export const exampleContents = {
           'The new AMS meters give you the opportunity to monitor your own consumption, analyze your own consumption pattern and get help for smarter power use.',
       },
     },
+    sm2: {
+      'nob-NOR': {
+        title: 'Slik fungerer strømmåleren',
+        description: 'Gjelder etablering og montering av nye målere og ved bytte av eksisterende målere.',
+      },
+      'eng-GBR': {
+        title: 'This is how the electricity meter works',
+        description:
+          'Applies to the establishment and installation of new meters and when replacing existing meters.',
+      },
+    },
     md: {
       'nob-NOR': {
         title: 'Om innlogging',
