@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
+import { exampleContents } from 'src/app/shared/example-contents';
 
 @Component({
   selector: 'app-label-doc',
@@ -7,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./label-doc.component.scss'],
 })
 export class LabelDocComponent {
+  examples = exampleContents;
   figmaUrl = getComponent('label').figmaUrl;
   description = getComponent('label').description;
   headerDoes = ['When you need to categorize or view the status of items.'];
@@ -18,14 +20,21 @@ export class LabelDocComponent {
   exampleOverview = `<label class="e-label">Label</label>
 `;
 
-  example1 = `<label class="e-label e-m-8">Skjema</label>
-<label class="e-label e-m-8">Artikkel</label>
-<label class="e-label e-m-8">Rapport</label>
+  example1 =
+    `<label class="e-label e-m-8">` +
+    this.examples.words.categories['eng-GBR'][0] +
+    `</label>
+<label class="e-label e-m-8">` +
+    this.examples.words.categories['eng-GBR'][1] +
+    `</label>
+<label class="e-label e-m-8">` +
+    this.examples.words.categories['eng-GBR'][2] +
+    `</label>
 `;
 
-  example2 = `<label class="e-label e-label--green e-m-8">Ny</label>
-<label class="e-label e-label--red e-m-8">Farlig</label>
-<label class="e-label e-label--orange e-m-8">Advarsel</label>
+  example2 = `<label class="e-label e-label--green e-m-8">New</label>
+<label class="e-label e-label--red e-m-8">Dangerous</label>
+<label class="e-label e-label--orange e-m-8">Warning</label>
 <label class="e-label e-label--blue-berry e-m-8">Info</label>
 `;
 }

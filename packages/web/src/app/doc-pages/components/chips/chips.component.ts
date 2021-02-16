@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
+import { exampleContents } from 'src/app/shared/example-contents';
 
 @Component({
   selector: 'app-chips',
@@ -7,6 +8,7 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./chips.component.scss'],
 })
 export class ChipsComponent {
+  examples = exampleContents;
   figmaUrl = getComponent('chips').figmaUrl;
   description = getComponent('chips').description;
   does = [
@@ -47,21 +49,30 @@ export class ChipsComponent {
 </div>
 `;
 
-  exampleColors = `<div class="e-chip-container">
+  exampleColors =
+    `<div class="e-chip-container">
   <button class="e-chip e-chip--purple-plum">
-    <div class="e-chip__label">Annleggsbeskrivelse</div>
+    <div class="e-chip__label">` +
+    this.examples.words.random['eng-GBR'][0] +
+    `</div>
     <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
   </button>
   <button class="e-chip e-chip--blue-berry">
-    <div class="e-chip__label">Adresse</div>
+    <div class="e-chip__label">` +
+    this.examples.words.random['eng-GBR'][1] +
+    `</div>
     <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
   </button>
   <button class="e-chip e-chip--red-tomato">
-    <div class="e-chip__label">Målepunkt-ID</div>
+    <div class="e-chip__label">` +
+    this.examples.words.random['eng-GBR'][2] +
+    `</div>
     <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
   </button>
   <button class="e-chip e-chip--orange-mango">
-    <div class="e-chip__label">Målernummer</div>
+    <div class="e-chip__label">` +
+    this.examples.words.random['eng-GBR'][3] +
+    `</div>
     <div class="e-chip__close"><i class="e-icon e-icon--close-bold"></i></div>
   </button>
 </div>
