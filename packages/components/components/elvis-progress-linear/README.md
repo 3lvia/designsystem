@@ -1,7 +1,7 @@
 # Elvis Progress-linear
 
 The progress-linear component is a display of current completion of an item/data loading. The progressbar is
-called upon by feeding it a value, a number between 0 and 100. The Progressbar will not display any progress
+called upon by supplying it a value, a number between 0 and 100. The Progressbar will not display any progress
 beyond these limits.
 
 Instead of a displaying a progress range from 0 - 100, you can also use the progress linear to represent an

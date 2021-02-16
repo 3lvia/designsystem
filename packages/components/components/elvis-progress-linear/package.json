@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-progress-linear",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "web_component.js",
   "scripts": {
