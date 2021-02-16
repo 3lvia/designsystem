@@ -8,7 +8,9 @@ module.exports = {
       type: 'string',
       description: 'Title of content',
       displayName: 'Title',
+      cegType: 'string',
       cegFormType: 'toggle',
+      cegDefault: 'true',
       cegOption: 'Title',
     },
     hasCloseBtn: {
@@ -17,7 +19,9 @@ module.exports = {
       description: 'Determines if the close button in the upper right corner should be visible',
       default: 'true',
       displayName: 'Close button',
+      cegType: 'boolean',
       cegFormType: 'toggle',
+      cegDefault: 'true',
       cegOption: 'false',
     },
     content: {
@@ -36,6 +40,7 @@ module.exports = {
       description: 'Position vertically',
       default: '“top”',
       displayName: 'Vertical position',
+      cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['top', 'bottom'],
     },
@@ -45,6 +50,7 @@ module.exports = {
       description: 'Position horizontally',
       default: '“center”',
       displayName: 'Horizontal position',
+      cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['center', 'left', 'right'],
     },
@@ -53,7 +59,7 @@ module.exports = {
 import { Popover } from '@elvia/elvis-popover/react';
 
 // WEBCOMPONENT
-import { Popover } from '@elvia/elvis-popover';`,
+import '@elvia/elvis-popover';`,
   codeReact: `<Popover
   title="About login"
   content="All private customers must use BankID the first time they log in to My page. BankID ensures safe and easy login to customer information and consumption data. Once logged in, you can choose to add an email as your login method. Then you can choose the login method you want for later visits to the My page."

@@ -7,16 +7,23 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-documentatio
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
+import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
+import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
+import '@elvia/elvis-progress-linear';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     ComponentHeaderModule,
     ComponentExampleV1Module,
     ComponentPropertiesModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
     WhenToUseModule,
+    ComponentPropertiesTableModule,
+    ComponentExampleGeneratorModule,
   ],
   declarations: [ProgressbarDocComponent],
 })
