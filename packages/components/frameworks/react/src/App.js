@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
-import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 
@@ -40,22 +39,6 @@ function App() {
       <div style={{ marginTop: '16px' }}>
         <Tabs items={items} value={selectedState} valueOnChange={setSelectedState}></Tabs>
         <div>{selectedState.toString()}</div>
-      </div>
-
-      <hr style={{ margin: '40px 0' }} />
-
-      <h2>Checkbox</h2>
-      <div style={{ marginTop: '16px' }}>
-        <Checkbox
-          ref={ref}
-          checked={trackedState}
-          label="Normal checkbox"
-          name="Nametest"
-          id="CheckboxTestID"
-          size="normal"
-          changeHandler={setTrackedState}
-        ></Checkbox>
-        <Checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></Checkbox>
       </div>
 
       <hr style={{ margin: '40px 0' }} />

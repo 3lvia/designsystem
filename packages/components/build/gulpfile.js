@@ -152,10 +152,10 @@ gulp.task(
     'default',
     gulp.series(
         //cleanup,
-        TSX_to_JS,
         buildToolboxComponentToJS,
         buildElviaComponentToJS,
         buildWebComponentsMagically,
+        TSX_to_JS,
         function (done) {
             done();
             console.log('Successfully built Elvia Components!');
