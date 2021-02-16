@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 import { exampleContents } from 'src/app/shared/example-contents';
 
@@ -7,7 +7,7 @@ import { exampleContents } from 'src/app/shared/example-contents';
   templateUrl: './accordion-doc.component.html',
   styleUrls: ['./accordion-doc.component.scss'],
 })
-export class AccordionDocComponent implements OnInit {
+export class AccordionDocComponent {
   @ViewChild('accordionLiveExample') accordionLiveExample: ElementRef;
 
   examples = exampleContents;
@@ -191,10 +191,6 @@ export class AccordionDocComponent implements OnInit {
     }
   }
 `;
-
-  ngOnInit(): void {
-    console.log(this.examples.texts.xs['eng-GBR'].description);
-  }
 
   toggleOpen(): void {
     if (this.accordionLiveExample.nativeElement.classList.contains('e-accordion__item--open')) {
