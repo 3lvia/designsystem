@@ -1,27 +1,34 @@
 import * as React from 'react';
-import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './style.scss';
 
 export interface CheckboxProps {
   label: string;
-  name?: string | '';
-  size?: string | '';
-  checked: string | boolean;
+  name: string;
+  size: string;
+  checked: boolean;
   disabled: string;
   required: string;
   changeHandler?: any;
   webcomponent?: any;
 }
 
-const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
+const Checkbox: React.FC<CheckboxProps> = ({
+  label,
+  name,
+  size,
+  checked,
+  disabled,
+  required,
+  changeHandler,
+  webcomponent,
+}) => {
   const [isChecked, setCheckedState] = useState(false);
   const checkboxRef = useRef<HTMLLabelElement>(null);
-  const classes = ['ewc-checkbox ', props.size === 'small' ? 'ewc-checkbox--sm' : '', ' ewc-no-outline'].join(
-    ' ',
-  );
+  const classes = ['ewc-checkbox ', size === 'small' ? 'ewc-checkbox--sm' : '', ' ewc-no-outline'].join(' ');
   // check and add html5 input modifers
-  const isDisabled = props.disabled === 'true' || props.disabled === '';
-  const isRequired = props.required === 'true' || props.required === '';
+  const isDisabled = disabled === 'true' || disabled === '';
+  const isRequired = required === 'true' || required === '';
   const didMountRef = useRef(false);
 
   useEffect(() => {
@@ -61,17 +68,17 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
 
   useEffect(() => {
     // If not mounted only update state if it is a change
-    if (props.checked === isChecked && props.checked === undefined) {
+    if (checked === isChecked && checked === undefined) {
       return;
     }
     if (didMountRef.current) {
-      updateCheckedState(props.checked);
-    } else if (props.checked || props.checked === 'true') {
+      updateCheckedState(checked);
+    } else if (checked) {
       updateCheckedState(true);
     } else {
       didMountRef.current = true;
     }
-  }, [props.checked]);
+  }, [checked]);
 
   useEffect(() => {
     updateReactComponent();
@@ -79,33 +86,33 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
   }, [isChecked]);
 
   function updateReactComponent() {
-    if (!props.webcomponent && props.changeHandler) {
+    if (!webcomponent && changeHandler) {
       // Small hack temporarily, because state not reflected correct on mount making infinite loop
       if (!didMountRef.current) {
-        props.changeHandler(true);
+        changeHandler(true);
         didMountRef.current = true;
       } else {
-        props.changeHandler(isChecked);
+        changeHandler(isChecked);
       }
     }
   }
 
   function updateWebcomponent() {
-    if (props.webcomponent) {
+    if (webcomponent) {
       // True -> Prevents rerender
-      props.webcomponent.setProps({ checked: isChecked }, true);
+      webcomponent.setProps({ checked: isChecked }, true);
     }
   }
 
   // Defines methods available with use of ref
-  useImperativeHandle(ref, () => {
-    return {
-      updateCheckedState: updateCheckedState,
-    };
-  });
+  // useImperativeHandle(ref, () => {
+  //   return {
+  //     updateCheckedState: updateCheckedState,
+  //   };
+  // });
 
   return (
-    <span ref={ref}>
+    <span>
       <label className={classes} ref={checkboxRef}>
         <input
           type="checkbox"
@@ -117,11 +124,11 @@ const Checkbox: React.FC<CheckboxProps> = forwardRef((props, ref: any) => {
           readOnly
         />
         <span className="ewc-checkbox__mark"></span>
-        <span className="ewc-checkbox__label">{props.label}</span>
+        <span className="ewc-checkbox__label">{label}</span>
       </label>
     </span>
   );
-});
+};
 
 Checkbox.displayName = 'Checkbox';
 export default Checkbox;

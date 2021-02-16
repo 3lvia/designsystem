@@ -122,7 +122,7 @@ function TSX_to_JS() {
 
 
 function buildElviaComponentToJS() {
-    return gulp.src(`../ components / elvis - component - wrapper / src/*.ts`)
+    return gulp.src(`../components/elvis-component-wrapper/src/*.ts`)
         .pipe(babel({
             "presets": [
                 "@babel/preset-typescript"
