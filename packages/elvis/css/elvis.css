@@ -2469,6 +2469,10 @@ input:focus {
   color: inherit;
 }
 
+.e-card.e-card--text-only {
+  max-width: 450px;
+}
+
 .e-chip-container {
   display: flex;
   flex-direction: row;

@@ -6,6 +6,26 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      6.4.0
+    </span>
+    <br>
+    <span>
+      February 17, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/card#Overview">Card</a>
+        </div>
+        New modifier class added for cards that only contain text: <span class="code-text">e-card--text-only</span>.
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       6.3.0
     </span>
     <br>

@@ -17,7 +17,7 @@ export class CardDocComponent {
   ];
 
   exampleOverview =
-    `<div class="e-card e-card--on-white">
+    `<div class="e-card e-card--on-white e-card--text-only">
   <div class="e-card__title">
     ` +
     exampleContents.texts.md2['eng-GBR'].title +
@@ -33,7 +33,7 @@ export class CardDocComponent {
 
   example1 =
     `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card">
+  <div class="e-card e-card--text-only">
     <div class="e-card__title">
       ` +
     exampleContents.texts.md2['eng-GBR'].title +
@@ -50,7 +50,7 @@ export class CardDocComponent {
 
   example2 =
     `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card e-card--on-white">
+  <div class="e-card e-card--on-white e-card--text-only">
     <div class="e-card__title">
       ` +
     exampleContents.texts.md2['eng-GBR'].title +
@@ -66,7 +66,7 @@ export class CardDocComponent {
 
   example3 =
     `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card e-mt-48">
+  <div class="e-card e-card--text-only e-mt-48">
     <div class="e-card__title e-card__title--above">
       ` +
     exampleContents.texts.md2['eng-GBR'].title +
@@ -83,7 +83,7 @@ export class CardDocComponent {
 
   exampleShadowSoft =
     `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card e-card--shadow-soft e-mt-48">
+  <div class="e-card e-card--text-only e-card--shadow-soft e-mt-48">
     <div class="e-card__title e-card__title--above">
       ` +
     exampleContents.texts.md2['eng-GBR'].title +
@@ -100,7 +100,7 @@ export class CardDocComponent {
 
   exampleShadowMedium =
     `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card e-card--shadow-medium e-mt-48">
+  <div class="e-card e-card--text-only e-card--shadow-medium e-mt-48">
     <div class="e-card__title e-card__title--above">
       ` +
     exampleContents.texts.md2['eng-GBR'].title +
@@ -117,7 +117,7 @@ export class CardDocComponent {
 
   exampleShadowHard =
     `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card e-card--shadow-hard e-mt-48">
+  <div class="e-card e-card--text-only e-card--shadow-hard e-mt-48">
     <div class="e-card__title e-card__title--above">
       ` +
     exampleContents.texts.md2['eng-GBR'].title +

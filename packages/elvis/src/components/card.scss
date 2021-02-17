@@ -63,4 +63,8 @@ $card-actions-button-spacing: 25px;
     display: block;
     @include typography.typography('text-description');
   }
+
+  &.e-card--text-only {
+    max-width: 450px;
+  }
 }

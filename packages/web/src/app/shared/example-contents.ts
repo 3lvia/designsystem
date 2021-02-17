@@ -96,8 +96,8 @@ export const exampleContents = {
       'eng-GBR': ['Form', 'Article', 'Report'],
     },
     filters: {
-      'nob-NOR': ['Alle', 'Ulest', 'Lest'],
-      'eng-GBR': ['All', 'Unread', 'Read'],
+      'nob-NOR': ['Alle', 'Lest', 'Ulest'],
+      'eng-GBR': ['All', 'Read', 'Unread'],
     },
   },
 };

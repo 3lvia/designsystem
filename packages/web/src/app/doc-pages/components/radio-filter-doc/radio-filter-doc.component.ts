@@ -35,7 +35,7 @@ export class RadioFilterDocComponent {
     `</span>
   </label>
 
-  <input type="radio" id="radio-filter-3" name="radio-filter" disabled />
+  <input type="radio" id="radio-filter-3" name="radio-filter" />
   <label for="radio-filter-3" data-value="Filter 2">
     <span class="e-radio-filter__label">` +
     exampleContents.words.filters['eng-GBR'][2] +
