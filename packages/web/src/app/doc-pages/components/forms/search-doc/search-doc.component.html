@@ -14,10 +14,6 @@
     style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-form-field">
-      <label
-        class="e-form-field__label"
-        for="compact"
-      >Search Label</label>
       <div
         class="e-search e-search--instant"
         style="width: 250px"
@@ -25,9 +21,8 @@
       >
         <div class="e-input">
           <input
-            id="compact"
-            type="text"
-            placeholder="Placeholder text"
+            type="search"
+            placeholder="Search"
             #exampleInput
             (keyup)="onInput(exampleInput.value)"
           />
@@ -53,13 +48,12 @@
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      Local search is used when the search feature shouldn’t affect the whole application. This could for
-      example be in connection to a data table or list. Search results appear when the user presses enter
-      on the keyboard or clicks the magnifying button. Elvis offers two variants of local search, "instant" and "on
-      submit".
+      Instant and search "on submit" is used when the search feature shouldn’t affect the whole application. This could
+      for
+      example be in connection to a data table or list.
       <app-component-subsection [sectionTitle]="'Instant'">
         <ng-container ngProjectAs="sectionContent">
-          For use cases were the search result should appear "Instant" on keyboard interactions.
+          For use cases were the search result should appear "Instant".
           <app-component-example-v1 [codeHTML]="searchExample"></app-component-example-v1>
           <div class="e-mt-40">
             Use the
@@ -71,13 +65,14 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'On Submit'">
         <ng-container ngProjectAs="sectionContent">
-          For use cases were the search result should appear "Instant" on keyboard interactions.
 
-          <p>
-            On submit searches relies on search execution from a button. In normal size, group the search input with an
-            elvis button with icon in size large.
-            For a compact version, group the search field with a size small button.
-          </p>
+          On submit searches relies on search execution from a button. For normal size use a large button, and for
+          compact use small button size.
+          You can find Elvia button classes here:
+          <a
+            class="e-link e-link--inline"
+            [routerLink]="['/components/button']"
+          >button classes</a>
           <app-component-example-v1 [codeHTML]="searhOnSubmitExample"></app-component-example-v1>
           <div class="e-mt-40">
             Use the

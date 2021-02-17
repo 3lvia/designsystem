@@ -17,10 +17,6 @@ export class SearchDocComponent {
   isExampleInput = false;
 
   overviewExample = `    <div class="e-form-field">
-      <label
-        class="e-form-field__label"
-        for="compact"
-      >Search</label>
       <div
         class="e-search e-search--local--instant"
         style="width: 250px"
@@ -28,9 +24,8 @@ export class SearchDocComponent {
       >
         <div class="e-input">
           <input
-            id="compact"
-            type="text"
-            placeholder="Placeholder text"
+            type="search"
+            placeholder="Search"
             #exampleInput
             (keyup)="onInput(exampleInput.value)"
           />
@@ -69,19 +64,14 @@ clearExample(): void {
 `;
 
   searchExample = `<div class="e-form-field">
-<label
-  class="e-form-field__label"
-  for="compact"
->Search</label>
 <div
   class="e-search e-search--instant"
   style="width: 250px"
 >
   <div class="e-input">
     <input
-      id="compact"
-      type="text"
-      placeholder="Placeholder text"
+      type="search"
+      placeholder="Search"
     />
   </div>
   <i class="e-icon e-icon--search-color"></i>
@@ -95,19 +85,15 @@ clearExample(): void {
 `;
 
   afterSearchExample = `<div class="e-form-field">
-<label
-  class="e-form-field__label"
-  for="compact"
->Search</label>
 <div
   class="e-search e-search--instant e-search--searched"
   style="width: 250px"
 >
   <div class="e-input">
     <input
-      id="compact"
-      type="text"
-      placeholder="Placeholder text"
+      type="search"
+      placeholder="Search"
+      value="Elvia"
     />
   </div>
   <i class="e-icon e-icon--search-color"></i>
@@ -123,19 +109,14 @@ clearExample(): void {
 
   searhOnSubmitExample = `<div style="display: flex; justify-content: center; align-items: flex-end;">
 <div class="e-form-field">
-  <label
-    class="e-form-field__label"
-    for="compact"
-  >Search</label>
   <div
     class="e-search e-search--on-submit"
     style="width: 250px"
   >
     <div class="e-input">
       <input
-        id="compact"
-        type="text"
-        placeholder="Placeholder text"
+        type="search"
+        placeholder="Search"
       />
     </div>
     <button
@@ -157,19 +138,15 @@ clearExample(): void {
 `;
   searhOnSubmitAfterExample = `<div style="display: flex; justify-content: center; align-items: flex-end;">
 <div class="e-form-field">
-  <label
-    class="e-form-field__label"
-    for="compact"
-  >Search</label>
   <div
     class="e-search e-search--on-submit e-search--searched"
     style="width: 250px"
   >
     <div class="e-input">
       <input
-        id="compact"
-        type="text"
-        placeholder="Placeholder text"
+        type="search"
+        placeholder="Search"
+        value="Elvia"
       />
     </div>
     <button
@@ -191,44 +168,34 @@ clearExample(): void {
 
   searchSizesInstantExample = `<div class="e-text-label e-mb-16">Instant</div>
 <div class="e-form-field">
-<label
-  class="e-form-field__label"
-  for="compact"
->Search</label>
-<div
-  class="e-search e-search--instant e-search--searched"
-  style="width: 250px"
->
-  <div class="e-input">
-    <input
-      id="compact"
-      type="text"
-      placeholder="Placeholder text"
-    />
-  </div>
-  <i class="e-icon e-icon--search-color"></i>
-  <button
-    class="e-btn e-btn--icon"
-  >
-    <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-  </button>
-</div>
-</div>
-
-<div class="e-form-field e-form-field--compact e-mt-24">
-  <label
-    class="e-form-field__label"
-    for="compact"
-  >Search</label>
   <div
     class="e-search e-search--instant e-search--searched"
     style="width: 250px"
   >
     <div class="e-input">
       <input
-        id="compact"
-        type="text"
-        placeholder="Placeholder text"
+        type="search"
+        placeholder="Search"
+      />
+    </div>
+    <i class="e-icon e-icon--search-color"></i>
+    <button
+      class="e-btn e-btn--icon"
+    >
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    </button>
+  </div>
+</div>
+
+<div class="e-form-field e-form-field--compact e-mt-24">
+  <div
+    class="e-search e-search--instant e-search--searched"
+    style="width: 250px"
+  >
+    <div class="e-input">
+      <input
+        type="search"
+        placeholder="Search"
       />
     </div>
     <i class="e-icon e-icon--search-color"></i>
@@ -244,19 +211,14 @@ clearExample(): void {
   searchSizesOnSubmitExample = `<div class="e-text-label e-mb-16">On Submit</div>
 <div style="display: flex; justify-content: start; align-items: flex-end;">
   <div class="e-form-field">
-    <label
-      class="e-form-field__label"
-      for="compact"
-    >Search</label>
     <div
       class="e-search e-search--on-submit e-search--searched"
       style="width: 250px"
     >
       <div class="e-input">
         <input
-          id="compact"
-          type="text"
-          placeholder="Placeholder text"
+          type="search"
+          placeholder="Search"
         />
       </div>
       <button class="e-btn e-btn--icon">
@@ -275,19 +237,14 @@ clearExample(): void {
 
 <div class="e-mt-24" style="display: flex; justify-content: start; align-items: flex-end;">
   <div class="e-form-field e-form-field--compact">
-    <label
-      class="e-form-field__label"
-      for="compact"
-    >Search</label>
     <div
       class="e-search e-search--on-submit e-search--searched"
       style="width: 250px"
     >
       <div class="e-input">
         <input
-          id="compact"
-          type="text"
-          placeholder="Placeholder text"
+          type="search"
+          placeholder="Search"
         />
       </div>
       <button
@@ -311,7 +268,7 @@ clearExample(): void {
 <div class="e-search e-search--global" style="width:340px;">
   <div class="e-input">
     <input
-      type="text"
+      type="search"
       placeholder="Search"
     />
   </div>
@@ -323,7 +280,7 @@ clearExample(): void {
 <div class="e-search e-search--global e-search--searched" style="width:340px;">
   <div class="e-input">
     <input
-      type="text"
+      type="search"
       placeholder="Search"
     />
   </div>

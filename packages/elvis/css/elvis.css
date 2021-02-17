@@ -2856,6 +2856,13 @@ input:focus {
   display: none;
 }
 
+.e-input input[type=search]::-webkit-search-decoration,
+.e-input input[type=search]::-webkit-search-cancel-button,
+.e-input input[type=search]::-webkit-search-results-button,
+.e-input input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
 .e-form-field.e-combined-field .e-input:not(:last-of-type) {
   margin-right: 8px;
 }
