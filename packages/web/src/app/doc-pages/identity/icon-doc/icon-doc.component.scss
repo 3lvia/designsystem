@@ -91,26 +91,20 @@ $maxIconContainerMobile: 450px;
       min-height: $maxIconContainerMobile;
       max-height: $maxIconContainerMobile;
     }
-
-    // &::after {
-    //   content: "";
-    //   position: sticky;
-    //   bottom: calc(0% - 8px);
-    //   width: 100%;
-    //   height: 35px;
-    //   background-color: transparent;
-    //   box-shadow: inset 0px -20px 35px 0px #ffffff;
-    // }
     .bottom-blur {
       position: sticky;
       bottom: calc(0% - 8px);
       width: 100%;
       height: 35px;
       background-color: transparent;
-      box-shadow: inset 0px -20px 35px 0px #ffffff;
+      box-shadow: inset 0px -20px 35px 0px var(--e-white);
 
       @include breakpoint-up(Mobile) {
         bottom: calc(0% - 50px);
+      }
+
+      &.bottom-blur--inverted {
+        box-shadow: inset 0px -20px 35px 0px var(--e-grey);
       }
     }
 
