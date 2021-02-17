@@ -910,10 +910,9 @@
 		},
 		"e-search": {
 			"modifier": {
-				"e-search--local": {},
-				"e-search--local--instant": {},
+				"e-search--instant": {},
 				"e-search--searched": {},
-				"e-search--local--on-submit": {},
+				"e-search--on-submit": {},
 				"e-search--global": {}
 			}
 		},
@@ -1688,10 +1687,9 @@
 		"e-radio---hover": {},
 		"e-radio---invalid": {},
 		"e-search": {},
-		"e-search--local": {},
-		"e-search--local--instant": {},
+		"e-search--instant": {},
 		"e-search--searched": {},
-		"e-search--local--on-submit": {},
+		"e-search--on-submit": {},
 		"e-search--global": {},
 		"e-segmented-controls": {},
 		"e-segmented-controls---focus": {},

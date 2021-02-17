@@ -17,36 +17,9 @@
       <label
         class="e-form-field__label"
         for="compact"
-      >Søk</label>
+      >Search Label</label>
       <div
-        class="e-search e-search--local--on-submit"
-        style="width: 250px"
-        #exampleSearch
-      >
-        <div class="e-input">
-          <input
-            id="compact"
-            type="text"
-            placeholder="Placeholder text"
-            #exampleInput
-            (keyup)="onInput(exampleInput.value)"
-          />
-        </div>
-        <button
-          class="e-btn e-btn--icon e-btn--lg"
-          (click)="clearExample()"
-        >
-          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-        </button>
-      </div>
-    </div>
-    <!-- <div class="e-form-field">
-      <label
-        class="e-form-field__label"
-        for="compact"
-      >Søk</label>
-      <div
-        class="e-search e-search--local--instant"
+        class="e-search e-search--instant"
         style="width: 250px"
         #exampleSearch
       >
@@ -61,13 +34,13 @@
         </div>
         <i class="e-icon e-icon--search-color"></i>
         <button
-          class="e-btn e-btn--icon e-btn--lg"
+          class="e-btn e-btn--icon"
           (click)="clearExample()"
         >
           <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
         </button>
       </div>
-    </div> -->
+    </div>
     <div class="e-w-100">
       <app-component-example-v1
         [showPreview]="false"
@@ -80,11 +53,14 @@
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
+      Local search is used when the search feature shouldn’t affect the whole application. This could for
+      example be in connection to a data table or list. Search results appear when the user presses enter
+      on the keyboard or clicks the magnifying button. Elvis offers two variants of local search, "instant" and "on
+      submit".
       <app-component-subsection [sectionTitle]="'Instant'">
         <ng-container ngProjectAs="sectionContent">
-          Local search is used when the search feature shouldn’t affect the whole application. This could for
-          example be in connection to a data table or list. Search results appear when the user presses enter
-          on the keyboard or clicks the magnifying button.
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A eum vitae assumenda et. Deserunt nihil quos eius
+          voluptas eligendi. In fugiat consequuntur aliquam delectus facere quidem, labore minus quis quam!
           <app-component-example-v1 [codeHTML]="searchExample"></app-component-example-v1>
           <div class="e-mt-40">
             Use the
@@ -96,16 +72,20 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'On Submit'">
         <ng-container ngProjectAs="sectionContent">
-          Local search is used when the search feature shouldn’t affect the whole application. This could for
-          example be in connection to a data table or list. Search results appear when the user presses enter
-          on the keyboard or clicks the magnifying button.
-          <app-component-example-v1 [codeHTML]="searchExample"></app-component-example-v1>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab velit id corrupti quo optio deserunt asperiores
+          quos vitae dolores blanditiis tempore facilis impedit facere architecto fugit amet fuga, veritatis quis.
+          <p>
+            On submit searches relies on search execution from a button. In normal size group the search input with an
+            elvis button with icon in size large.
+            For a compact version, group the search field with a size small button.
+          </p>
+          <app-component-example-v1 [codeHTML]="searhOnSubmitExample"></app-component-example-v1>
           <div class="e-mt-40">
             Use the
             <span class="code-text">e-search--searched</span>
             class when the search input field has a valid search input.
           </div>
-          <app-component-example-v1 [codeHTML]="afterSearchExample"></app-component-example-v1>
+          <app-component-example-v1 [codeHTML]="searhOnSubmitAfterExample"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -114,9 +94,11 @@
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-example-v1 [codeHTML]="searchSizesExample"></app-component-example-v1>
+      <app-component-example-v1 [codeHTML]="searchSizesInstantExample"></app-component-example-v1>
+      <app-component-example-v1 [codeHTML]="searchSizesOnSubmitExample"></app-component-example-v1>
     </ng-container>
   </app-component-section>
+
 
   <!--PROPERTIES-->
   <app-component-section

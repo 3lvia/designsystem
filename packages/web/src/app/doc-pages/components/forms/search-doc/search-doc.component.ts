@@ -20,7 +20,7 @@ export class SearchDocComponent {
       <label
         class="e-form-field__label"
         for="compact"
-      >Søk</label>
+      >Search</label>
       <div
         class="e-search e-search--local--instant"
         style="width: 250px"
@@ -68,91 +68,246 @@ clearExample(): void {
 }
 `;
 
-  searchExample = `    <div class="e-form-field">
-      <label
-        class="e-form-field__label"
-        for="compact"
-      >Søk</label>
-      <div
-        class="e-search e-search--local--instant"
-        style="width: 250px"
-        #exampleSearch
-      >
-        <div class="e-input">
-          <input
-            id="compact"
-            type="text"
-            placeholder="Placeholder text"
-            #exampleInput
-            (keyup)="onInput(exampleInput.value)"
-          />
-        </div>
-        <i class="e-icon e-icon--search-color"></i>
-        <button
-          class="e-btn e-btn--icon e-btn--lg"
-          (click)="clearExample()"
-        >
-          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-        </button>
-      </div>
-    </div>
-`;
-
-  afterSearchExample = `    <div class="e-form-field">
-      <label
-        class="e-form-field__label"
-        for="compact"
-      >Søk</label>
-      <div
-        class="e-search e-search--local--instant e-search--searched"
-        style="width: 250px"
-        #exampleSearch
-      >
-        <div class="e-input">
-          <input
-            id="compact"
-            type="text"
-            placeholder="Placeholder text"
-            #exampleInput
-            (keyup)="onInput(exampleInput.value)"
-          />
-        </div>
-        <i class="e-icon e-icon--search-color"></i>
-        <button
-          class="e-btn e-btn--icon e-btn--lg"
-          (click)="clearExample()"
-        >
-          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-        </button>
-      </div>
-    </div>
-`;
-
-  searchSizesExample = `<div class="e-text-label e-mb-8">Normal</div>
-<div class="e-form-field">
-  <label class="e-form-field__label" for="normal">Søk</label>
-  <div class="e-search e-search--local" style="width:240px;">
-    <div class="e-input">
-      <input id="normal" type="text" placeholder="Placeholder text">
-    </div>
-    <button class="e-btn e-btn--icon">
-      <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
-      <span class="e-btn__icon"><i class="e-icon e-icon--bold"></i></span>
-    </button>
+  searchExample = `<div class="e-form-field">
+<label
+  class="e-form-field__label"
+  for="compact"
+>Search</label>
+<div
+  class="e-search e-search--instant"
+  style="width: 250px"
+>
+  <div class="e-input">
+    <input
+      id="compact"
+      type="text"
+      placeholder="Placeholder text"
+    />
   </div>
+  <i class="e-icon e-icon--search-color"></i>
+  <button
+    class="e-btn e-btn--icon"
+  >
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+  </button>
 </div>
-<div class="e-text-label e-mb-8 e-mt-40">Compact</div>
-<div class="e-form-field e-form-field--compact">
-  <label class="e-form-field__label" for="compact">Søk</label>
-  <div class="e-search e-search--local" style="width:240px;">
+</div>
+`;
+
+  afterSearchExample = `<div class="e-form-field">
+<label
+  class="e-form-field__label"
+  for="compact"
+>Search</label>
+<div
+  class="e-search e-search--instant e-search--searched"
+  style="width: 250px"
+>
+  <div class="e-input">
+    <input
+      id="compact"
+      type="text"
+      placeholder="Placeholder text"
+    />
+  </div>
+  <i class="e-icon e-icon--search-color"></i>
+  <button
+    class="e-btn e-btn--icon"
+    (click)="clearExample()"
+  >
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+  </button>
+</div>
+</div>
+`;
+
+  searhOnSubmitExample = `<div style="display: flex; justify-content: center; align-items: flex-end;">
+<div class="e-form-field">
+  <label
+    class="e-form-field__label"
+    for="compact"
+  >Search</label>
+  <div
+    class="e-search e-search--on-submit"
+    style="width: 250px"
+  >
     <div class="e-input">
-      <input id="compact" type="text" placeholder="Placeholder text">
+      <input
+        id="compact"
+        type="text"
+        placeholder="Placeholder text"
+      />
     </div>
-    <button class="e-btn e-btn--icon">
-      <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
+    <button
+      class="e-btn e-btn--icon"
+    >
       <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
     </button>
   </div>
+</div>
+<button class="e-btn e-btn--lg e-ml-16">
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--search-color e-icon--inverted"></i>
+    <i class="e-icon e-icon--search-color"></i>
+  </span>
+  <span class="e-btn__title">Search</span>
+</button>
+</div>
+
+`;
+  searhOnSubmitAfterExample = `<div style="display: flex; justify-content: center; align-items: flex-end;">
+<div class="e-form-field">
+  <label
+    class="e-form-field__label"
+    for="compact"
+  >Search</label>
+  <div
+    class="e-search e-search--on-submit e-search--searched"
+    style="width: 250px"
+  >
+    <div class="e-input">
+      <input
+        id="compact"
+        type="text"
+        placeholder="Placeholder text"
+      />
+    </div>
+    <button
+      class="e-btn e-btn--icon"
+    >
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    </button>
+  </div>
+</div>
+<button class="e-btn e-btn--lg e-ml-16">
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--search-color e-icon--inverted"></i>
+    <i class="e-icon e-icon--search-color"></i>
+  </span>
+  <span class="e-btn__title">Search</span>
+</button>
+</div>
+`;
+
+  searchSizesInstantExample = `<div class="e-text-label e-mb-16">Instant</div>
+<div class="e-form-field">
+<label
+  class="e-form-field__label"
+  for="compact"
+>Search</label>
+<div
+  class="e-search e-search--instant e-search--searched"
+  style="width: 250px"
+>
+  <div class="e-input">
+    <input
+      id="compact"
+      type="text"
+      placeholder="Placeholder text"
+    />
+  </div>
+  <i class="e-icon e-icon--search-color"></i>
+  <button
+    class="e-btn e-btn--icon"
+  >
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+  </button>
+</div>
+</div>
+
+<div class="e-text-label e-mb-16 e-mt-40">Compact</div>
+
+<div class="e-form-field e-form-field--compact">
+  <label
+    class="e-form-field__label"
+    for="compact"
+  >Search</label>
+  <div
+    class="e-search e-search--instant e-search--searched"
+    style="width: 250px"
+  >
+    <div class="e-input">
+      <input
+        id="compact"
+        type="text"
+        placeholder="Placeholder text"
+      />
+    </div>
+    <i class="e-icon e-icon--search-color"></i>
+    <button
+      class="e-btn e-btn--icon"
+    >
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    </button>
+  </div>
+</div>
+`;
+
+  searchSizesOnSubmitExample = `<div class="e-text-label e-mb-16">On Submit</div>
+<div style="display: flex; justify-content: start; align-items: flex-end;">
+  <div class="e-form-field">
+    <label
+      class="e-form-field__label"
+      for="compact"
+    >Search</label>
+    <div
+      class="e-search e-search--on-submit e-search--searched"
+      style="width: 250px"
+    >
+      <div class="e-input">
+        <input
+          id="compact"
+          type="text"
+          placeholder="Placeholder text"
+        />
+      </div>
+      <button class="e-btn e-btn--icon">
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+      </button>
+    </div>
+  </div>
+  <button class="e-btn e-btn--lg e-ml-16">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--search-color e-icon--inverted"></i>
+      <i class="e-icon e-icon--search-color"></i>
+    </span>
+    <span class="e-btn__title">Search</span>
+  </button>
+</div>
+
+<div class="e-text-label e-mb-16 e-mt-40">Compact</div>
+
+<div style="display: flex; justify-content: start; align-items: flex-end;">
+  <div class="e-form-field e-form-field--compact">
+    <label
+      class="e-form-field__label"
+      for="compact"
+    >Search</label>
+    <div
+      class="e-search e-search--on-submit e-search--searched"
+      style="width: 250px"
+    >
+      <div class="e-input">
+        <input
+          id="compact"
+          type="text"
+          placeholder="Placeholder text"
+        />
+      </div>
+      <button
+        class="e-btn e-btn--icon"
+      >
+        <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+      </button>
+    </div>
+  </div>
+  <button class="e-btn e-btn--sm e-ml-16">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--search-color e-icon--inverted"></i>
+      <i class="e-icon e-icon--search-color"></i>
+    </span>
+    <span class="e-btn__title">Search</span>
+  </button>
 </div>
 `;
 
