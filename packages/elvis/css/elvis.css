@@ -8476,7 +8476,7 @@ input:focus {
   visibility: hidden;
   position: absolute;
   top: 8px;
-  right: 8px;
+  right: 12px;
   width: 32px;
   height: 32px;
 }
@@ -8515,7 +8515,7 @@ input:focus {
   visibility: hidden;
   position: absolute;
   top: 8px;
-  right: 8px;
+  right: 12px;
   width: 32px;
   height: 32px;
 }
@@ -8602,6 +8602,7 @@ input:focus {
 .e-form-field.e-form-field--compact .e-search--instant .e-input input,
 .e-form-field.e-form-field--compact .e-search--instant .e-input input:invalid,
 .e-form-field.e-form-field--compact .e-search--instant .e-input input:disabled {
+  max-height: 34px;
   padding: 6px 32px 6px 32px;
 }
 
@@ -8620,13 +8621,13 @@ input:focus {
 }
 
 .e-form-field.e-form-field--compact .e-search--instant .e-btn {
-  top: 2px;
-  right: 2px;
+  top: 1px;
+  right: 4px;
 }
 
 @media screen and (-ms-high-contrast: none) {
   .e-form-field.e-form-field--compact .e-search--instant .e-btn.e-btn--icon {
-    top: 2px;
+    top: 1px;
   }
 }
 .e-form-field.e-form-field--compact .e-search--on-submit {
@@ -8636,6 +8637,7 @@ input:focus {
 .e-form-field.e-form-field--compact .e-search--on-submit .e-input input,
 .e-form-field.e-form-field--compact .e-search--on-submit .e-input input:invalid,
 .e-form-field.e-form-field--compact .e-search--on-submit .e-input input:disabled {
+  max-height: 34px;
   padding: 6px 32px 6px 10px;
 }
 
@@ -8644,13 +8646,13 @@ input:focus {
 }
 
 .e-form-field.e-form-field--compact .e-search--on-submit .e-btn {
-  top: 2px;
-  right: 2px;
+  top: 1px;
+  right: 4px;
 }
 
 @media screen and (-ms-high-contrast: none) {
   .e-form-field.e-form-field--compact .e-search--on-submit .e-btn.e-btn--icon {
-    top: 2px;
+    top: 1px;
   }
 }
 .e-segmented-controls {

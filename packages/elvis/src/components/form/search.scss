@@ -53,7 +53,7 @@
       visibility: hidden;
       position: absolute;
       top: 8px;
-      right: 8px;
+      right: 12px;
       width: 32px;
       height: 32px;
       &.e-btn--icon {
@@ -90,7 +90,7 @@
       visibility: hidden;
       position: absolute;
       top: 8px;
-      right: 8px;
+      right: 12px;
       width: 32px;
       height: 32px;
       &.e-btn--icon {
@@ -165,6 +165,7 @@
         input,
         input:invalid,
         input:disabled {
+          max-height: 34px;
           padding: 6px 32px 6px 32px;
         }
         input:focus {
@@ -181,12 +182,12 @@
         width: 16px;
       }
       .e-btn {
-        top: 2px;
-        right: 2px;
+        top: 1px;
+        right: 4px;
         &.e-btn--icon {
           @media screen and (-ms-high-contrast: none) {
             // CHECK IE11
-            top: 2px;
+            top: 1px;
           }
         }
       }
@@ -197,6 +198,7 @@
         input,
         input:invalid,
         input:disabled {
+          max-height: 34px;
           padding: 6px 32px 6px 10px;
         }
         input:focus {
@@ -204,12 +206,12 @@
         }
       }
       .e-btn {
-        top: 2px;
-        right: 2px;
+        top: 1px;
+        right: 4px;
         &.e-btn--icon {
           @media screen and (-ms-high-contrast: none) {
             // CHECK IE11
-            top: 2px;
+            top: 1px;
           }
         }
       }

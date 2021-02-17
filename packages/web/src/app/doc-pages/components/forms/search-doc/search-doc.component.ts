@@ -215,9 +215,7 @@ clearExample(): void {
 </div>
 </div>
 
-<div class="e-text-label e-mb-16 e-mt-40">Compact</div>
-
-<div class="e-form-field e-form-field--compact">
+<div class="e-form-field e-form-field--compact e-mt-24">
   <label
     class="e-form-field__label"
     for="compact"
@@ -275,9 +273,7 @@ clearExample(): void {
   </button>
 </div>
 
-<div class="e-text-label e-mb-16 e-mt-40">Compact</div>
-
-<div style="display: flex; justify-content: start; align-items: flex-end;">
+<div class="e-mt-24" style="display: flex; justify-content: start; align-items: flex-end;">
   <div class="e-form-field e-form-field--compact">
     <label
       class="e-form-field__label"
