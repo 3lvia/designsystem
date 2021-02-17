@@ -8440,18 +8440,8 @@ input:focus {
   line-height: 22px;
 }
 
-.e-search ::-ms-clear {
+.e-search::-ms-clear {
   display: none;
-}
-
-.e-search .e-input input,
-.e-search .e-input input:invalid,
-.e-search .e-input input:disabled {
-  padding: 12px 48px 12px 15px;
-}
-
-.e-search .e-input input:focus {
-  padding: 11px 47px 11px 14px;
 }
 
 .e-search--instant .e-input input,
