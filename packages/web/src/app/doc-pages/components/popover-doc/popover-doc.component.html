@@ -40,9 +40,14 @@
 
       <app-component-subsection [sectionTitle]="'Structure'">
         <ng-container ngProjectAs="sectionContent">
+          <div
+            class="e-content-loader e-mb-32 e-w-100 responsive-height"
+            *ngIf="!loadedPopoverStructure"
+          ></div>
           <img
             src="./../../../../assets/popover/Group 2791.svg"
-            class="usage-image-desktop e-mb-32 e-w-100"
+            class="usage-image-desktop e-mb-32 e-w-100 responsive-height"
+            (load)="hideContentLoader($event)"
           />
           <div class="usage-image-mobile e-w-100">
             <app-component-subsubsection [sectionTitle]="'Title'">

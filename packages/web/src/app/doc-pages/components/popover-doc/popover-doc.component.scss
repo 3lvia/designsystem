@@ -5,9 +5,19 @@
     display: none;
   }
 }
-.usage-image-mobile {
-  display: none;
+
+.responsive-height {
+  height: 400px;
+  @media (max-width: 1300px) {
+    height: 300px;
+  }
+  @include breakpoint-up(Tablet) {
+    height: 400px;
+  }
+}
+
+.e-content-loader {
   @include breakpoint-up(Mobile) {
-    display: block;
+    display: none;
   }
 }

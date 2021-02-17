@@ -10,6 +10,7 @@ import { ExampleCodeService } from '../../example-code.service';
 export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('cegFrame') cegFrame;
   @Input() componentData;
+  @Input() width = 100;
   codeWebComponentSub: Subscription;
 
   constructor(private codeService: ExampleCodeService) {}

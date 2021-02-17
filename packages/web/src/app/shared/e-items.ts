@@ -347,7 +347,7 @@ export const eComponents: EItems[] = [
   {
     title: 'Progressbar',
     // tslint:disable-next-line: max-line-length
-    description: `Progressbar is typically used in <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a> to show file progress.`,
+    description: `Graphical indication of the progress of an operation.`,
     docUrl: Pages.Progressbar,
     absolutePath: '/components/' + Pages.Progressbar,
     status: ItemStatus.Done,
