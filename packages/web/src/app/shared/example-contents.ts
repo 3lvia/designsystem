@@ -99,5 +99,9 @@ export const exampleContents = {
       'nob-NOR': ['Alle', 'Lest', 'Ulest'],
       'eng-GBR': ['All', 'Read', 'Unread'],
     },
+    views: {
+      'nob-NOR': ['Ukentlig', 'Månedlig', 'Årlig'],
+      'eng-GBR': ['Weekly', 'Monthly', 'Yearly'],
+    },
   },
 };

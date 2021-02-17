@@ -2410,6 +2410,10 @@ input:focus {
     padding: 24px;
   }
 }
+.e-card--text-only {
+  max-width: 450px;
+}
+
 .e-card--shadow-soft {
   box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.03);
 }
@@ -2467,10 +2471,6 @@ input:focus {
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
-}
-
-.e-card.e-card--text-only {
-  max-width: 450px;
 }
 
 .e-chip-container {

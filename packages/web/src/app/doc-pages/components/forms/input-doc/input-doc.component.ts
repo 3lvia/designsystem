@@ -57,7 +57,7 @@ export class InputDocComponent {
       <input type="text" value="+47">
     </div>
     <div class="e-input">
-      <input type="text" placeholder="Placeholder text">
+      <input type="text" placeholder="99 99 99 99">
     </div>
   </div>
 </div>
