@@ -2,6 +2,7 @@ export const progressbarData = {
   name: 'elvis-progress-linear',
   elementNameW: 'elvia-progress-linear',
   elementNameR: 'ProgressLinear',
+  package: 'npm install @elvia/elvis-progress-linear',
   attributes: {
     value: {
       isRequired: false,

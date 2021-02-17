@@ -4,6 +4,7 @@ const popoverData = {
   name: 'elvis-popover',
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',
+  package: 'npm install @elvia/elvis-popover',
   attributes: {
     title: {
       isRequired: false,

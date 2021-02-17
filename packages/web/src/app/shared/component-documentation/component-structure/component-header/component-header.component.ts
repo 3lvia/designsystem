@@ -14,6 +14,7 @@ export class ComponentHeaderComponent implements AfterViewInit {
 
   @Input() componentStatus = '';
   @Input() figmaUrl: string;
+  @Input() package: string;
   @Output() selectedChange = new EventEmitter();
 
   itemStatus = ItemStatus;

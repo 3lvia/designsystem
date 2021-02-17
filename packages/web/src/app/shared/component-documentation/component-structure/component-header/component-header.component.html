@@ -30,6 +30,13 @@
           <ng-content select="headerDescription"></ng-content>
         </span>
       </div>
+      <div class="code-text e-mt-24" style="display: inline-block; font-size: 20px" *ngIf="package != ''">
+        <app-copy [message]="package" [noAnimation]="true">
+          <ng-container ngProjectAs="copyContent">
+            <span class="code-text" style="line-height: 26px">{{ package }}</span>
+          </ng-container>
+        </app-copy>
+      </div>
       <div class="anchors e-mb-16" *ngIf="navbarAnchors.length != 0">
         <div class="link" *ngFor="let anchor of navbarAnchors">
           <a
