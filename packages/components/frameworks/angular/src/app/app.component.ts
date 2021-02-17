@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   checkBoxVal = true;
   checkBoxVal2 = true;
   progressValue = 0;
+  value = 2;
 
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:

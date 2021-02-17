@@ -10,6 +10,7 @@ export interface TabsProps {
 }
 
 const Tabs: FC<TabsProps> = ({ items, value = 0, valueOnChange, webcomponent }) => {
+  const [currValue, setCurrValue] = useState(value);
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
   const tabsRef = useRef<HTMLDivElement>(null);
@@ -45,7 +46,12 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, valueOnChange, webcomponent }) 
     };
   }, []);
 
+  useEffect(() => {
+    setCurrValue(value);
+  }, [value]);
+
   const updateValue = (value: number) => {
+    setCurrValue(value);
     if (!webcomponent && valueOnChange) {
       valueOnChange(value);
     } else if (webcomponent) {
@@ -123,11 +129,11 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, valueOnChange, webcomponent }) 
                   name="ewc_tab-group"
                   role="tab"
                   id={'tab_' + i}
-                  value={value}
+                  value={currValue}
                   aria-label={item}
-                  aria-checked={i === value}
+                  aria-checked={i === currValue}
                 ></input>
-                <label className={`ewc-tabs__label ${value === i && 'ewc-tabs__label--selected'}`}>
+                <label className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
                   {item}
                 </label>
               </div>

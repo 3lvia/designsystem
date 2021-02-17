@@ -1,4 +1,5 @@
-import { Component, ViewChild, Renderer2 } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { getComponent } from 'src/app/shared/e-items';
 import { componentData } from './tabs-data';
 
@@ -8,19 +9,18 @@ import { componentData } from './tabs-data';
   styleUrls: ['./tabs-doc.component.scss'],
 })
 export class TabsDocComponent {
-  @ViewChild('cegFrame') cegFrame;
+  @ViewChild('safeHtml') safeHtml;
 
   componentData = componentData;
   figmaUrl = getComponent('tabs').figmaUrl;
   description = getComponent('tabs').description;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private sanitizer: DomSanitizer) {}
 
   ngAfterViewInit(): void {
-    this.cegFrame.nativeElement.insertAdjacentHTML('beforeend', this.componentData.codeWebComponent);
-    this.renderer.insertBefore(this.cegFrame.nativeElement, 'insertAdjacentHTML', [
+    this.safeHtml.nativeElement.insertAdjacentHTML(
       'beforeend',
-      this.componentData.codeWebComponent,
-    ]);
+      this.sanitizer.bypassSecurityTrustHtml(this.componentData.codeWebComponent),
+    );
   }
 }

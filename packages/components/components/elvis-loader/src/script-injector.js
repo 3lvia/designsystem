@@ -18,22 +18,22 @@ const injectScript = function (componentName) {
     INJECTED_COMPONENTS[componentName] = true;
     document.body.appendChild(script);
   }
-}
+};
 
 function getComponentVersion(componentName) {
   if (!integrity[componentName]) {
-    console.error("Elvis - Found no component with the name!", componentName);
+    console.error('Elvis - Found no component with the name!', componentName);
     return false;
   }
 
   const sorted = Object.keys(integrity[componentName].versions).sort((v1, v2) => {
     return semver.gt(v2, v1);
-  })
+  });
 
   const configVersion = getVersionFromConfig(componentName);
   let version;
   if (!configVersion) {
-    console.warn("Elvis - No specified version for component, using latest", componentName);
+    console.warn('Elvis - No specified version for component, using latest', componentName);
     version = sorted[0];
   } else {
     version = configVersion;
@@ -56,7 +56,7 @@ function createScript(componentName, version) {
   const scriptTag = document.createElement('script');
   scriptTag.src = 'https://cdn.elvia.io/npm/' + componentName + '-' + version + integrityComponent.cdn;
   scriptTag.integrity = integrityComponent.hash;
-  scriptTag.crossOrigin = "anonymous";
+  scriptTag.crossOrigin = 'anonymous';
   return scriptTag;
 }
 
@@ -66,6 +66,4 @@ function createDevScript(componentName) {
   return scriptTag;
 }
 
-
-
-module.exports = injectScript
+module.exports = injectScript;

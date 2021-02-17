@@ -37,7 +37,7 @@ function App() {
 
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px' }}>
-        <Tabs items={items} value={selectedState} valueOnChange={setSelectedState}></Tabs>
+        <Tabs items={items} value={2} valueOnChange={setSelectedState}></Tabs>
         <div>{selectedState.toString()}</div>
       </div>
 

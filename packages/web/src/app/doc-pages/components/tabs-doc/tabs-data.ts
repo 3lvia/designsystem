@@ -34,6 +34,10 @@ import { Tabs } from '@elvia/elvis-tabs/react';
 import '@elvia/elvis-tabs';`,
   codeReact: `<Tabs 
   items={'items', 'item2'}
+  value={1}
 ></Tabs>`,
-  codeWebComponent: ` <elvia-tabs [items]="['items', 'items', 'items']" [value]="1"></elvia-tabs>`,
+  codeWebComponent: `<elvia-tabs 
+  [items]="['items', 'items', 'items']" 
+  value="1"
+></elvia-tabs>`,
 };
