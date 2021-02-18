@@ -22,7 +22,7 @@
         </div>
         <ul>
           <li>
-            Documentation on links is updated and usage of different links made clearer. Breaking changes are; Forward links should be replaced by Action links, back links should be replaced and now uses the --back modifier and jumbo links uses a new icon.
+            Documentation on links is updated and usage of different links made clearer. Breaking changes are; Forward links should be replaced by action links, back links should be replaced and now uses the --back modifier, and jumbo links uses a new icon.
           </li>
           <li>
             Typography now has no specified text-align except those with text-align center.
@@ -30,7 +30,14 @@
         </ul>
         <div class="e-mt-8">
           How to fix:
-          Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>. Otherwise read the documentation with examples to replace back or forward links.
+          <ul>
+          <li>
+            Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>. 
+          </li>
+          <li>
+            For back and forward links read the documentation with examples to replace these.
+          </li>
+        </ul>
         </div>
         <div class="changelog-divider"></div>
       </div>
@@ -53,7 +60,7 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
         </div>
-        Compact class for table-footnote, <span class="code-text">e-table__footnote--compact</span>, and smaller table-cell class, <span class="code-text">e-table__cell--multiline--small</span>, added.
+        Compact class for table-footnote, <span class="code-text">e-table__footnote--compact</span>, and smaller table-cell class, <span class="code-text">e-table__cell--multiline-small</span>, added.
       <div class="changelog-divider"></div>
     </td>
   </tr>
