@@ -39,7 +39,6 @@
           </li>
         </ul>
         </div>
-        <div class="changelog-divider"></div>
       </div>
       <div class="changelog-divider"></div>
     </td>
