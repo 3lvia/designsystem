@@ -86,6 +86,7 @@ $maxIconContainerMobile: 450px;
     margin-top: 24px;
     padding: 8px;
     border-radius: 8px;
+    border: 1px solid var(--e-grey-10);
     @include breakpoint-up(Mobile) {
       padding: 50px 8px;
       min-height: $maxIconContainerMobile;
