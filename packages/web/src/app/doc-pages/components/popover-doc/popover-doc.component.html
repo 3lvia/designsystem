@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [package]="componentData.package">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">Popover</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -58,6 +58,13 @@
           in mind that it can be overwhelming on mobile if the popover has a lot of content.
         </ng-container>
       </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
     </ng-container>
   </app-component-section>
 

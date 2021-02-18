@@ -58,11 +58,8 @@ const popoverData = {
       cegOptions: ['center', 'left', 'right'],
     },
   },
-  codeInstallation: `//REACT
-import { Popover } from '@elvia/elvis-popover/react';
-
-// WEBCOMPONENT
-import '@elvia/elvis-popover';`,
+  codeImportReact: `import { Popover } from '@elvia/elvis-popover/react';`,
+  codeImportWebComponent: `import '@elvia/elvis-popover';`,
   codeReact:
     `<Popover
   title="` +

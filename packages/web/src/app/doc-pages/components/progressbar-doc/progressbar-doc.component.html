@@ -1,5 +1,5 @@
 <!--HEADER-->
-<app-component-header [figmaUrl]="figmaUrl" [package]="componentData.package">
+<app-component-header [figmaUrl]="figmaUrl">
   <ng-container ngProjectAs="headerTitle">Progressbar</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
@@ -17,7 +17,7 @@
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      The progessbar is used to show loading, both locally and for full page actions where the
+      The progressbar is used to show loading, both locally and for full page actions where the
       <a class="e-link e-link--inline" [routerLink]="['/components/contentLoader']">Content loader</a>
       isn't suitable. It is for example used in
       <a class="e-link e-link--inline" [routerLink]="['/components/fileUpload']">File Upload</a>
@@ -30,6 +30,13 @@
           will always override default progressbar style with range of completion.
         </ng-container>
       </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
     </ng-container>
   </app-component-section>
 

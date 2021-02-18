@@ -1,0 +1,35 @@
+<ol class="e-list e-list--numbers">
+  <li>
+    <strong>Install package:</strong>
+    <div class="code-text e-mt-16">
+      <app-copy [message]="componentData.package" [noAnimation]="true">
+        <ng-container ngProjectAs="copyContent">
+          <span class="code-text" style="line-height: 26px">{{ componentData.package }}</span>
+        </ng-container>
+      </app-copy>
+    </div>
+  </li>
+  <li>
+    <strong>Import package:</strong>
+    <h4 class="e-title-caps e-mt-16 e-mb-8">React</h4>
+    <div class="code-text">
+      <app-copy [message]="componentData.codeImportReact" [noAnimation]="true">
+        <ng-container ngProjectAs="copyContent">
+          <span class="code-text" style="line-height: 26px">
+            {{ componentData.codeImportReact }}
+          </span>
+        </ng-container>
+      </app-copy>
+    </div>
+    <h4 class="e-title-caps e-mt-24 e-mb-8">Web component</h4>
+    <div class="code-text">
+      <app-copy [message]="componentData.codeImportWebComponent" [noAnimation]="true">
+        <ng-container ngProjectAs="copyContent">
+          <span class="code-text" style="line-height: 26px">
+            {{ componentData.codeImportWebComponent }}
+          </span>
+        </ng-container>
+      </app-copy>
+    </div>
+  </li>
+</ol>
