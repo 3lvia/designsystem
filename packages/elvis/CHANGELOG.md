@@ -18,8 +18,7 @@
         <div class="changelog-section-title">✂️ BREAKING CHANGE</div>
         <div>Components: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>,
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a>,
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/fileUpload#Overview">Fileupload</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a>
         </div>
         <ul>
           <li>
@@ -28,13 +27,10 @@
           <li>
             Typography now has no specified text-align except those with text-align center.
           </li>
-          <li>
-            Fileupload class <span class="code-text">e-filupload---hover</span> -> <span class="code-text">e-fileupload--dragover</span>
-          </li>
         </ul>
         <div class="e-mt-8">
           How to fix:
-          Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>. Otherwise read the documentation with examples to replace back or forward links. Fileupload change should just be to replace new class with old. 
+          Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>. Otherwise read the documentation with examples to replace back or forward links.
         </div>
         <div class="changelog-divider"></div>
       </div>
