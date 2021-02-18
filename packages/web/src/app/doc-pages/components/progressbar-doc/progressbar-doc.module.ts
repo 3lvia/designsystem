@@ -11,6 +11,7 @@ import { ComponentPropertiesTableModule } from 'src/app/shared/component-documen
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import '@elvia/elvis-progress-linear';
 import { RouterModule } from '@angular/router';
+import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
     WhenToUseModule,
     ComponentPropertiesTableModule,
     ComponentExampleGeneratorModule,
+    ComponentInstallationModule,
   ],
   declarations: [ProgressbarDocComponent],
 })

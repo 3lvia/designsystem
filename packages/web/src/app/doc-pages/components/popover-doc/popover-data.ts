@@ -1,7 +1,10 @@
-module.exports = {
+import { exampleContents } from 'src/app/shared/example-contents';
+
+const popoverData = {
   name: 'elvis-popover',
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',
+  package: 'npm install @elvia/elvis-popover',
   attributes: {
     title: {
       isRequired: false,
@@ -55,14 +58,16 @@ module.exports = {
       cegOptions: ['center', 'left', 'right'],
     },
   },
-  codeInstallation: `//REACT
-import { Popover } from '@elvia/elvis-popover/react';
-
-// WEBCOMPONENT
-import '@elvia/elvis-popover';`,
-  codeReact: `<Popover
-  title="About login"
-  content="All private customers must use BankID the first time they log in to My page. BankID ensures safe and easy login to customer information and consumption data. Once logged in, you can choose to add an email as your login method. Then you can choose the login method you want for later visits to the My page."
+  codeImportReact: `import { Popover } from '@elvia/elvis-popover/react';`,
+  codeImportWebComponent: `import '@elvia/elvis-popover';`,
+  codeReact:
+    `<Popover
+  title="` +
+    exampleContents.texts.md['eng-GBR'].title +
+    `"
+  content="` +
+    exampleContents.texts.md['eng-GBR'].description +
+    `"
   posY="top"
   trigger={
     <button class="e-btn e-btn--icon e-btn--circled">
@@ -73,9 +78,14 @@ import '@elvia/elvis-popover';`,
     </button>
   }
 ></Popover>`,
-  codeWebComponent: `<elvia-popover 
-  title="About login" 
-  content="All private customers must use BankID the first time they log in to My page. BankID ensures safe and easy login to customer information and consumption data. Once logged in, you can choose to add an email as your login method." 
+  codeWebComponent:
+    `<elvia-popover 
+  title="` +
+    exampleContents.texts.md['eng-GBR'].title +
+    `" 
+  content="` +
+    exampleContents.texts.md['eng-GBR'].description +
+    `" 
   posY="top"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
@@ -86,3 +96,5 @@ import '@elvia/elvis-popover';`,
   </button>
 </elvia-popover>`,
 };
+
+export { popoverData };
