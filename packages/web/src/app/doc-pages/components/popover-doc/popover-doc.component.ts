@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
-import * as componentData from './popover-data.js';
+import { popoverData } from './popover-data';
 @Component({
   selector: 'app-popover-doc',
   templateUrl: './popover-doc.component.html',
@@ -8,9 +8,8 @@ import * as componentData from './popover-data.js';
 })
 export class PopoverDocComponent {
   @ViewChild('popover1') popover1: ElementRef;
-  componentData = componentData;
+  componentData = popoverData;
   loadedPopoverStructure = false;
-
   figmaUrl = getComponent('popover').figmaUrl;
   description = getComponent('popover').description;
   // tslint:disable-next-line:max-line-length

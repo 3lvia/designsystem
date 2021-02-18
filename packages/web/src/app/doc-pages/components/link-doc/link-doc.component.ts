@@ -42,11 +42,11 @@ export class LinkDocComponent {
   example1Inverted = `<a class="e-link e-link--inverted" href="https://design.elvia.io/components/link#Overview">Standard link</a>
 `;
 
-  example2 = `<div style="font-size: 20px;">Dette er en <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
+  example2 = `<div style="font-size: 20px;">This is an <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
 `;
 
   // tslint:disable-next-line: max-line-length
-  example2Inverted = `<div style="font-size: 20px; e-text-white">Dette er en <a class="e-link e-link--inline e-link--inverted" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
+  example2Inverted = `<div style="font-size: 20px; e-text-white">This is an <a class="e-link e-link--inline e-link--inverted" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
 `;
 
   exampleExternal = `<a class="e-link e-link--external" href="https://www.elvia.no/">

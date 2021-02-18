@@ -14,7 +14,7 @@ export class AutocompleteDocComponent {
   exampleAutocomplete = `<div class="e-form-field">
   <label class="e-form-field__label" for="compact">Label</label>
   <div class="e-input" style="height:155px">
-    <input placeholder="Placeholder text" value="Aus"/>
+    <input placeholder="Country" value="Aus"/>
     <div class="e-autocomplete">
       <span class="e-autocomplete__item">Australia</span>
       <span class="e-autocomplete__item">Austria</span>
@@ -27,7 +27,7 @@ export class AutocompleteDocComponent {
   <div class="e-form-field e-form-field--compact">
     <label class="e-form-field__label" for="compact">Label</label>
     <div class="e-input" style="height:105px">
-      <input placeholder="Placeholder text" value="Aus"/>
+      <input placeholder="Country" value="Aus"/>
       <div class="e-autocomplete">
         <span class="e-autocomplete__item">Australia</span>
         <span class="e-autocomplete__item">Austria</span>

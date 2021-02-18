@@ -15,7 +15,6 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
-  @Input() codeInstallation = '';
   @Input() codeWebComponent = '';
   @Input() codeReact = '';
   @Input() codeInverted = '';
@@ -41,7 +40,6 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     if (this.componentData) {
-      this.codeInstallation = this.componentData.codeInstallation;
       this.codeReact = this.componentData.codeReact;
       this.codeWebComponent = this.componentData.codeWebComponent;
     }
@@ -71,9 +69,6 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     if (changes.codeCSS) {
       this.codeCSS = changes.codeCSS.currentValue;
     }
-    if (changes.codeInstallation) {
-      this.codeInstallation = changes.codeInstallation.currentValue;
-    }
     if (changes.codeWebComponent) {
       this.codeWebComponent = changes.codeWebComponent.currentValue;
     }
@@ -93,8 +88,8 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   }
 
   initializeActiveTab(): void {
-    if (this.codeInstallation !== '') {
-      this.changeActiveTab('installation');
+    if (this.codeReact !== '') {
+      this.changeActiveTab('react');
     } else {
       this.changeActiveTab(this.codeTS !== '' ? 'ts' : this.codeHTML !== '' ? 'html' : 'css');
     }
@@ -114,9 +109,6 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     } else if (this.activeTab === 'css') {
       this.activeCode = this.codeCSS;
       this.activeLanguage = 'scss';
-    } else if (this.activeTab === 'installation') {
-      this.activeCode = this.codeInstallation;
-      this.activeLanguage = 'js';
     } else if (this.activeTab === 'react') {
       this.activeCode = this.codeReact;
       this.activeLanguage = 'jsx';

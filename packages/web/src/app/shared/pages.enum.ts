@@ -53,7 +53,6 @@ export enum Pages {
   Link = 'link',
   List = 'list',
   Modal = 'modal',
-  Notification = 'notification-dot',
   Pagination = 'pagination',
   Popover = 'popover',
   PositionPicker = 'position-picker',
