@@ -37,6 +37,9 @@
           <li>
             For back and forward links read the documentation with examples to replace these.
           </li>
+          <li>
+            Typography should fix itself where there were problems with the previous change. Otherwise this change should not change any layout behavior.
+          </li>
         </ul>
         </div>
       </div>
