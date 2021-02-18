@@ -107,7 +107,7 @@ clearExample(): void {
 </div>
 `;
 
-  searhOnSubmitExample = `<div style="display: flex; justify-content: center; align-items: flex-end;">
+  searhOnSubmitExample = `<div style="display: flex; justify-content: start; align-items: flex-end;">
 <div class="e-form-field">
   <div
     class="e-search e-search--on-submit"
@@ -136,7 +136,7 @@ clearExample(): void {
 </div>
 
 `;
-  searhOnSubmitAfterExample = `<div style="display: flex; justify-content: center; align-items: flex-end;">
+  searhOnSubmitAfterExample = `<div style="display: flex; justify-content: start; align-items: flex-end;">
 <div class="e-form-field">
   <div
     class="e-search e-search--on-submit e-search--searched"
@@ -169,7 +169,7 @@ clearExample(): void {
   searchSizesInstantExample = `<div class="e-text-label e-mb-16">Normal</div>
 <div class="e-form-field">
   <div
-    class="e-search e-search--instant e-search--searched"
+    class="e-search e-search--instant"
     style="width: 250px"
   >
     <div class="e-input">
@@ -191,7 +191,7 @@ clearExample(): void {
 
 <div class="e-form-field e-form-field--compact e-mt-24">
   <div
-    class="e-search e-search--instant e-search--searched"
+    class="e-search e-search--instant"
     style="width: 250px"
   >
     <div class="e-input">
@@ -214,7 +214,7 @@ clearExample(): void {
 <div style="display: flex; justify-content: start; align-items: flex-end;">
   <div class="e-form-field">
     <div
-      class="e-search e-search--on-submit e-search--searched"
+      class="e-search e-search--on-submit"
       style="width: 250px"
     >
       <div class="e-input">
@@ -242,7 +242,7 @@ clearExample(): void {
 <div class="e-mt-24" style="display: flex; justify-content: start; align-items: flex-end;">
   <div class="e-form-field e-form-field--compact">
     <div
-      class="e-search e-search--on-submit e-search--searched"
+      class="e-search e-search--on-submit "
       style="width: 250px"
     >
       <div class="e-input">

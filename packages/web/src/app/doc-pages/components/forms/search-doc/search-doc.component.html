@@ -48,12 +48,11 @@
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      Instant and search "on submit" is used when the search feature shouldn’t affect the whole application. This could
-      for
-      example be in connection to a data table or list.
+      We have two types of search: instant and on submit. These are typically used in connection to a data table or
+      list.
       <app-component-subsection [sectionTitle]="'Instant'">
         <ng-container ngProjectAs="sectionContent">
-          For use cases were the search result should appear "Instant".
+          For use cases were the search result should appear "instant".
           <app-component-example-v1 [codeHTML]="searchExample"></app-component-example-v1>
           <div class="e-mt-40">
             Use the
@@ -66,13 +65,13 @@
       <app-component-subsection [sectionTitle]="'On Submit'">
         <ng-container ngProjectAs="sectionContent">
 
-          On submit searches relies on search execution from a button. For normal size use a large button, and for
-          compact use small button size.
-          You can find Elvia button classes here:
+          For use cases where the search result should appear "on submit".
+          Use a large button for normal search, and a small button for compact. You can find button documentation
           <a
             class="e-link e-link--inline"
             [routerLink]="['/components/button']"
-          >button classes</a>
+          >here</a>.
+
           <app-component-example-v1 [codeHTML]="searhOnSubmitExample"></app-component-example-v1>
           <div class="e-mt-40">
             Use the
@@ -82,6 +81,27 @@
           <app-component-example-v1 [codeHTML]="searhOnSubmitAfterExample"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <div class="usage-container">
+        <div class="usage-container--info e-mr-48">
+          <div class="e-title-sm">Label</div>
+          <div class="e-text-md e-mt-8">You don’t need to show label in search, but add an aria-label as an explicit
+            invisable label to the
+            search form code
+            that can accommodate screen reader users.</div>
+        </div>
+        <div class="usage-container--info">
+          <div class="e-title-sm">Placeholder</div>
+          <div class="e-text-md e-mt-8">
+            Include a placeholder to suggest to users what they can search for, but try to keep it short.
+          </div>
+        </div>
+      </div>
     </ng-container>
   </app-component-section>
 

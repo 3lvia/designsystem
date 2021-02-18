@@ -1,0 +1,17 @@
+@import "@elvia/elvis/src/utilities/breakpoints.scss";
+
+.usage-container {
+    display: flex;
+    @include breakpoint-up(Mobile) {
+        flex-direction: column;
+    }
+    .usage-container--info {
+        width: 50%;
+        @include breakpoint-up(Mobile) {
+            width: 80%;
+            &:nth-last-child(1) {
+                margin-top: 24px;
+            }
+        }
+    }
+}
