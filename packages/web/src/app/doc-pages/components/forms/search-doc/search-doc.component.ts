@@ -24,6 +24,7 @@ export class SearchDocComponent {
       >
         <div class="e-input">
           <input
+            aria-label="Search"
             type="search"
             placeholder="Search"
             #exampleInput
@@ -70,6 +71,7 @@ clearExample(): void {
 >
   <div class="e-input">
     <input
+      aria-label="Search"
       type="search"
       placeholder="Search"
     />
@@ -91,6 +93,7 @@ clearExample(): void {
 >
   <div class="e-input">
     <input
+      aria-label="Search"
       type="search"
       placeholder="Search"
       value="Elvia"
@@ -115,6 +118,7 @@ clearExample(): void {
   >
     <div class="e-input">
       <input
+        aria-label="Search"
         type="search"
         placeholder="Search"
       />
@@ -144,6 +148,7 @@ clearExample(): void {
   >
     <div class="e-input">
       <input
+        aria-label="Search"
         type="search"
         placeholder="Search"
         value="Elvia"
@@ -174,6 +179,7 @@ clearExample(): void {
   >
     <div class="e-input">
       <input
+        aria-label="Search"
         type="search"
         placeholder="Search"
       />
@@ -196,6 +202,7 @@ clearExample(): void {
   >
     <div class="e-input">
       <input
+        aria-label="Search"
         type="search"
         placeholder="Search"
       />
@@ -219,6 +226,7 @@ clearExample(): void {
     >
       <div class="e-input">
         <input
+          aria-label="Search"
           type="search"
           placeholder="Search"
         />
@@ -247,6 +255,7 @@ clearExample(): void {
     >
       <div class="e-input">
         <input
+          aria-label="Search"
           type="search"
           placeholder="Search"
         />
@@ -272,6 +281,7 @@ clearExample(): void {
 <div class="e-search e-search--global" style="width:340px;">
   <div class="e-input">
     <input
+      aria-label="Search"
       type="search"
       placeholder="Search"
     />
@@ -284,6 +294,7 @@ clearExample(): void {
 <div class="e-search e-search--global e-search--searched" style="width:340px;">
   <div class="e-input">
     <input
+      aria-label="Search"
       type="search"
       placeholder="Search"
     />
