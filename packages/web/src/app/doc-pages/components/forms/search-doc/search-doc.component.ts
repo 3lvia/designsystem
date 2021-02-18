@@ -166,7 +166,7 @@ clearExample(): void {
 </div>
 `;
 
-  searchSizesInstantExample = `<div class="e-text-label e-mb-16">Instant</div>
+  searchSizesInstantExample = `<div class="e-text-label e-mb-16">Normal</div>
 <div class="e-form-field">
   <div
     class="e-search e-search--instant e-search--searched"
@@ -186,6 +186,8 @@ clearExample(): void {
     </button>
   </div>
 </div>
+
+<div class="e-text-label e-mb-16 e-mt-24">Compact</div>
 
 <div class="e-form-field e-form-field--compact e-mt-24">
   <div
@@ -208,7 +210,7 @@ clearExample(): void {
 </div>
 `;
 
-  searchSizesOnSubmitExample = `<div class="e-text-label e-mb-16">On Submit</div>
+  searchSizesOnSubmitExample = `<div class="e-text-label e-mb-16">Normal</div>
 <div style="display: flex; justify-content: start; align-items: flex-end;">
   <div class="e-form-field">
     <div
@@ -234,6 +236,8 @@ clearExample(): void {
     <span class="e-btn__title">Search</span>
   </button>
 </div>
+
+<div class="e-text-label e-mb-16 e-mt-24">Compact</div>
 
 <div class="e-mt-24" style="display: flex; justify-content: start; align-items: flex-end;">
   <div class="e-form-field e-form-field--compact">
