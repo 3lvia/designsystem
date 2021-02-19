@@ -100,10 +100,6 @@ $maxIconContainerMobile: 450px;
       background-color: transparent;
       box-shadow: inset 0px -20px 35px 0px var(--e-white);
 
-      @include breakpoint-up(Mobile) {
-        bottom: calc(0% - 8px);
-      }
-
       &.bottom-blur--inverted {
         box-shadow: inset 0px -20px 35px 0px var(--e-grey);
       }
