@@ -89,7 +89,6 @@ $maxIconContainerMobile: 450px;
     border-radius: 8px;
     border: 1px solid var(--e-grey-10);
     @include breakpoint-up(Mobile) {
-      padding: 50px 8px;
       min-height: $maxIconContainerMobile;
       max-height: $maxIconContainerMobile;
     }
@@ -102,7 +101,7 @@ $maxIconContainerMobile: 450px;
       box-shadow: inset 0px -20px 35px 0px var(--e-white);
 
       @include breakpoint-up(Mobile) {
-        bottom: calc(0% - 50px);
+        bottom: calc(0% - 8px);
       }
 
       &.bottom-blur--inverted {
