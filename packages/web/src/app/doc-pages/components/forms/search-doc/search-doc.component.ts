@@ -110,8 +110,8 @@ clearExample(): void {
 </div>
 `;
 
-  searhOnSubmitExample = `<div style="display: flex; justify-content: start; align-items: flex-end;">
-  <div class="e-form-field">
+  searhOnSubmitExample = `<div class="e-inlined-field">
+  <div class="e-form-field--search">
     <div
     class="e-search e-search--on-submit"
     style="width: 250px"
@@ -137,8 +137,8 @@ clearExample(): void {
   </button>
 </div>
 `;
-  searhOnSubmitAfterExample = `<div style="display: flex; justify-content: start; align-items: flex-end;">
-  <div class="e-form-field">
+  searhOnSubmitAfterExample = `<div class="e-inlined-field">
+  <div class="e-form-field--search">
     <div
       class="e-search e-search--on-submit e-search--searched"
       style="width: 250px"
@@ -215,8 +215,8 @@ clearExample(): void {
 `;
 
   searchSizesOnSubmitExample = `<div class="e-text-label e-mb-16">Normal</div>
-<div style="display: flex; justify-content: start; align-items: flex-end;">
-  <div class="e-form-field">
+<div class="e-inlined-field">
+  <div class="e-form-field--search">
     <div
       class="e-search e-search--on-submit"
       style="width: 250px"
@@ -244,8 +244,8 @@ clearExample(): void {
 
 <div class="e-text-label e-mb-16 e-mt-24">Compact</div>
 
-<div style="display: flex; justify-content: start; align-items: flex-end;">
-  <div class="e-form-field e-form-field--compact">
+<div class="e-inlined-field">
+  <div class="e-form-field--search e-form-field--compact">
     <div
       class="e-search e-search--on-submit "
       style="width: 250px"

@@ -8017,6 +8017,10 @@ input:focus {
   margin-bottom: 0;
 }
 
+.e-inlined-field .e-form-field--search {
+  width: auto;
+}
+
 .e-inlined-field .e-form-field:not(:last-of-type) {
   margin-right: 8px;
 }
@@ -8539,22 +8543,28 @@ input:focus {
   display: flex;
 }
 
-.e-form-field.e-form-field--compact .e-search--instant {
+.e-form-field.e-form-field--compact .e-search--instant,
+.e-form-field--search.e-form-field--compact .e-search--instant {
   font-size: 14px;
 }
 
 .e-form-field.e-form-field--compact .e-search--instant .e-input input,
 .e-form-field.e-form-field--compact .e-search--instant .e-input input:invalid,
-.e-form-field.e-form-field--compact .e-search--instant .e-input input:disabled {
+.e-form-field.e-form-field--compact .e-search--instant .e-input input:disabled,
+.e-form-field--search.e-form-field--compact .e-search--instant .e-input input,
+.e-form-field--search.e-form-field--compact .e-search--instant .e-input input:invalid,
+.e-form-field--search.e-form-field--compact .e-search--instant .e-input input:disabled {
   max-height: 34px;
   padding: 6px 32px 6px 32px;
 }
 
-.e-form-field.e-form-field--compact .e-search--instant .e-input input:focus {
+.e-form-field.e-form-field--compact .e-search--instant .e-input input:focus,
+.e-form-field--search.e-form-field--compact .e-search--instant .e-input input:focus {
   padding: 5px 31px 5px 31px;
 }
 
-.e-form-field.e-form-field--compact .e-search--instant i[class*=e-icon--search-color] {
+.e-form-field.e-form-field--compact .e-search--instant i[class*=e-icon--search-color],
+.e-form-field--search.e-form-field--compact .e-search--instant i[class*=e-icon--search-color] {
   visibility: visible;
   position: absolute;
   display: flex;
@@ -8564,27 +8574,34 @@ input:focus {
   width: 16px;
 }
 
-.e-form-field.e-form-field--compact .e-search--instant .e-btn {
+.e-form-field.e-form-field--compact .e-search--instant .e-btn,
+.e-form-field--search.e-form-field--compact .e-search--instant .e-btn {
   top: 1px;
   right: 4px;
 }
 
-.e-form-field.e-form-field--compact .e-search--on-submit {
+.e-form-field.e-form-field--compact .e-search--on-submit,
+.e-form-field--search.e-form-field--compact .e-search--on-submit {
   font-size: 14px;
 }
 
 .e-form-field.e-form-field--compact .e-search--on-submit .e-input input,
 .e-form-field.e-form-field--compact .e-search--on-submit .e-input input:invalid,
-.e-form-field.e-form-field--compact .e-search--on-submit .e-input input:disabled {
+.e-form-field.e-form-field--compact .e-search--on-submit .e-input input:disabled,
+.e-form-field--search.e-form-field--compact .e-search--on-submit .e-input input,
+.e-form-field--search.e-form-field--compact .e-search--on-submit .e-input input:invalid,
+.e-form-field--search.e-form-field--compact .e-search--on-submit .e-input input:disabled {
   max-height: 34px;
   padding: 6px 32px 6px 10px;
 }
 
-.e-form-field.e-form-field--compact .e-search--on-submit .e-input input:focus {
+.e-form-field.e-form-field--compact .e-search--on-submit .e-input input:focus,
+.e-form-field--search.e-form-field--compact .e-search--on-submit .e-input input:focus {
   padding: 5px 31px 5px 9px;
 }
 
-.e-form-field.e-form-field--compact .e-search--on-submit .e-btn {
+.e-form-field.e-form-field--compact .e-search--on-submit .e-btn,
+.e-form-field--search.e-form-field--compact .e-search--on-submit .e-btn {
   top: 1px;
   right: 4px;
 }
