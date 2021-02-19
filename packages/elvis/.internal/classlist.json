@@ -74,7 +74,7 @@
 			"modifier": {
 				"e-form-field--compact": {},
 				"e-form-field--combined": {},
-				"e-form-field--search": {},
+				"e-form-field--inline": {},
 				"e-form-field--small": {},
 				"e-form-field--medium": {}
 			},
@@ -1665,7 +1665,7 @@
 		"e-input--small": {},
 		"e-input--medium": {},
 		"e-inlined-field": {},
-		"e-form-field--search": {},
+		"e-form-field--inline": {},
 		"e-form-field--small": {},
 		"e-form-field--medium": {},
 		"e-fileupload": {},
