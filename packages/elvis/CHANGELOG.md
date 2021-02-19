@@ -6,6 +6,27 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      7.0.0
+    </span>
+    <br>
+    <span>
+      TBD
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+      <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/search#Overview">Search</a>
+        </div>
+        <span class="code-text">e-search--local</span> have been replaced by two new search variants; <span class="code-text">e-search--instant</span> & <span class="code-text">e-search--on-submit</span>.
+        The class <span class="code-text">e-search--global</span> has also been removed and is no longer supported in Elvis. 
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       6.4.0
     </span>
     <br>
