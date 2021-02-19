@@ -832,7 +832,6 @@
 			}
 		},
 		"e-table-footnote": {},
-		"e-tags": {},
 		"e-tooltip": {
 			"element": {
 				"e-tooltip__content": {
@@ -1640,8 +1639,6 @@
 		"e-table__cell--multiline": {},
 		"e-table__cell--multiline-small": {},
 		"e-table-mobile--compact": {},
-		"e-tags": {},
-		"e-tags_item": {},
 		"e-tooltip": {},
 		"e-tooltip__content": {},
 		"e-tooltip__content--bottom": {},
