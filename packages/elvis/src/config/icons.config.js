@@ -7,7 +7,7 @@ example:
     { name: 'add_circle', deprecated: '4.6.0', newIconName: 'add_circle_new' },
 */
 module.exports = [
-  { name: 'add_circle', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
+  { name: 'add_circle', terms: ['plus', '+', 'maximize', 'expand', 'create'], thirdparty: { streamline: true } },
   { name: 'add_circle-color', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-filled', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
   { name: 'add_circle-filled-color', terms: ['plus', '+', 'maximize', 'expand', 'create'] },
