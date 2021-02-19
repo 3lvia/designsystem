@@ -912,8 +912,7 @@
 			"modifier": {
 				"e-search--instant": {},
 				"e-search--searched": {},
-				"e-search--on-submit": {},
-				"e-search--global": {}
+				"e-search--on-submit": {}
 			}
 		},
 		"e-segmented-controls": {
@@ -1690,7 +1689,6 @@
 		"e-search--instant": {},
 		"e-search--searched": {},
 		"e-search--on-submit": {},
-		"e-search--global": {},
 		"e-segmented-controls": {},
 		"e-segmented-controls---focus": {},
 		"e-segmented-controls__title": {},
