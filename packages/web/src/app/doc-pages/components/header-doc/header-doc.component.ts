@@ -21,7 +21,7 @@ export class HeaderDocComponent {
 
       <!--APP-->
       <div class="e-header__top-bar-mobile__app">
-        <div class="e-header__top-bar-mobile__title">Applikasjon</div>
+        <div class="e-header__top-bar-mobile__title">Applications</div>
         <a class="e-header__top-bar-mobile__link">
           <span>DROPS</span>
           <span class="e-header__top-bar-mobile__link-icon">
@@ -34,9 +34,9 @@ export class HeaderDocComponent {
 
       <!--AREA-->
       <div class="e-header__top-bar-mobile__area">
-        <div class="e-header__top-bar-mobile__title">Område</div>
+        <div class="e-header__top-bar-mobile__title">Area</div>
         <a class="e-header__top-bar-mobile__link">
-          <span>Sør</span>
+          <span>South</span>
           <span class="e-header__top-bar-mobile__link-icon">
             <i class="e-icon e-icon--arrow_down-bold"></i>
             <i class="e-icon e-icon--arrow_up-bold"></i>
@@ -47,16 +47,16 @@ export class HeaderDocComponent {
 
       <!--USER-->
       <div class="e-header__top-bar-mobile__user">
-        <div class="e-header__top-bar-mobile__title">Innlogget som:</div>
+        <div class="e-header__top-bar-mobile__title">Loged in as:</div>
         <div class="e-header__top-bar-mobile__user-menu">
           <div class="e-header__top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
           <div class="e-header__top-bar-mobile__user-menu-settings">
             <i class="e-icon e-icon--cog e-icon--xs"></i>
-            Instillinger
+            Settings
           </div>
           <div class="e-header__top-bar-mobile__user-menu-logout">
             <i class="e-icon e-icon--logout e-icon--xs"></i>
-            Logg ut
+            Log out
           </div>
         </div>
       </div>
@@ -114,14 +114,14 @@ export class HeaderDocComponent {
 
             <!--TITLE DESKTOP-->
             <div class="e-header__top-bar-desktop__title">
-              Kart og analyse
+              Map and analysis
             </div>
           </div>
 
           <!--TITTLE-->
           <div class="col-xs-8 col-sm-6">
             <div class="e-header__top-bar-desktop__title">
-              Kart og analyse
+              Map and analysis
             </div>
           </div>
 
@@ -130,16 +130,16 @@ export class HeaderDocComponent {
             <!--AREA-->
             <div class="e-header__top-bar-desktop__area">
               <a class="e-header__top-bar-desktop__link">
-                <span>Elvia Sør</span>
+                <span>Elvia South</span>
                 <span class="e-header__top-bar-desktop__link-icon">
                   <i class="e-icon e-icon--arrow_down-bold"></i>
                   <i class="e-icon e-icon--arrow_up-bold"></i>
                 </span>
               </a>
               <div class="e-header__top-bar-desktop__area-menu">
-                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord</div>
-                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Sør</div>
-                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord og Sør</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia North</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia South</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia North and South</div>
               </div>
             </div>
 
@@ -156,11 +156,11 @@ export class HeaderDocComponent {
                 <div class="e-header__top-bar-desktop__user-menu-mail">e55717@hafslund.no</div>
                 <div class="e-header__top-bar-desktop__user-menu-settings">
                   <i class="e-icon e-icon--cog e-icon--xs"></i>
-                  Instillinger
+                  Settings
                 </div>
                 <div class="e-header__top-bar-desktop__user-menu-logout">
                   <i class="e-icon e-icon--logout e-icon--xs"></i>
-                  Logg ut
+                  Log out
                 </div>
               </div>
             </div>
@@ -187,28 +187,28 @@ export class HeaderDocComponent {
         <i class="e-icon e-icon--dashboard"></i>
         <i class="e-icon e-icon--dashboard-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Oversikt</span>
+      <span class="e-header__sidebar__text">Overview</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--search"></i>
         <i class="e-icon e-icon--search-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Målepunksøk</span>
+      <span class="e-header__sidebar__text">Search</span>
     </div>
     <div class="e-header__sidebar__item e-header__sidebar__item--active">
       <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--pin"></i>
         <i class="e-icon e-icon--pin-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Analyse</span>
+      <span class="e-header__sidebar__text">Analysis</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--graph_bar"></i>
         <i class="e-icon e-icon--graph_bar-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Statistikk</span>
+      <span class="e-header__sidebar__text">Statistics</span>
     </div>
 
     <!--OPEN/CLOSE BTN-->
@@ -217,7 +217,7 @@ export class HeaderDocComponent {
         <i class="e-icon e-icon--open_menu"></i>
         <i class="e-icon e-icon--close_menu"></i>
       </span>
-      <span class="e-header__sidebar__text">Minimer</span>
+      <span class="e-header__sidebar__text">Minimize</span>
     </div>
   </div>
 </div>
@@ -232,7 +232,7 @@ export class HeaderDocComponent {
 
       <!--APP-->
       <div class="e-header__top-bar-mobile__app">
-        <div class="e-header__top-bar-mobile__title">Applikasjon</div>
+        <div class="e-header__top-bar-mobile__title">Applications</div>
         <a class="e-header__top-bar-mobile__link">
           <span>DROPS</span>
           <span class="e-header__top-bar-mobile__link-icon">
@@ -245,9 +245,9 @@ export class HeaderDocComponent {
 
       <!--AREA-->
       <div class="e-header__top-bar-mobile__area">
-        <div class="e-header__top-bar-mobile__title">Område</div>
+        <div class="e-header__top-bar-mobile__title">Area</div>
         <a class="e-header__top-bar-mobile__link">
-          <span>Sør</span>
+          <span>South</span>
           <span class="e-header__top-bar-mobile__link-icon">
             <i class="e-icon e-icon--arrow_down-bold"></i>
             <i class="e-icon e-icon--arrow_up-bold"></i>
@@ -258,16 +258,16 @@ export class HeaderDocComponent {
 
       <!--USER-->
       <div class="e-header__top-bar-mobile__user">
-        <div class="e-header__top-bar-mobile__title">Innlogget som:</div>
+        <div class="e-header__top-bar-mobile__title">Logged in as:</div>
         <div class="e-header__top-bar-mobile__user-menu">
           <div class="e-header__top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
           <div class="e-header__top-bar-mobile__user-menu-settings">
             <i class="e-icon e-icon--cog e-icon--xs"></i>
-            Instillinger
+            Settings
           </div>
           <div class="e-header__top-bar-mobile__user-menu-logout">
             <i class="e-icon e-icon--logout e-icon--xs"></i>
-            Logg ut
+            Log out
           </div>
         </div>
       </div>
@@ -325,14 +325,14 @@ export class HeaderDocComponent {
 
             <!--TITLE DESKTOP-->
             <div class="e-header__top-bar-desktop__title">
-              Kart og analyse
+              Map and analysis
             </div>
           </div>
 
           <!--TITTLE-->
           <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
             <div class="e-header__top-bar-desktop__title">
-              Kart og analyse
+              Map and analysis
             </div>
           </div>
 
@@ -341,16 +341,16 @@ export class HeaderDocComponent {
             <!--AREA-->
             <div class="e-header__top-bar-desktop__area">
               <a class="e-header__top-bar-desktop__link">
-                <span>Elvia Sør</span>
+                <span>Elvia South</span>
                 <span class="e-header__top-bar-desktop__link-icon">
                   <i class="e-icon e-icon--arrow_down-bold"></i>
                   <i class="e-icon e-icon--arrow_up-bold"></i>
                 </span>
               </a>
               <div class="e-header__top-bar-desktop__area-menu">
-                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord</div>
-                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Sør</div>
-                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord og Sør</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia North</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia South</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia North and South</div>
               </div>
             </div>
             <span class="e-header__top-bar-desktop__line e-mx-24"></span>
@@ -365,11 +365,11 @@ export class HeaderDocComponent {
                 <div class="e-header__top-bar-desktop__user-menu-mail">e55717@hafslund.no</div>
                 <div class="e-header__top-bar-desktop__user-menu-settings">
                   <i class="e-icon e-icon--cog e-icon--xs"></i>
-                  Instillinger
+                  Settings
                 </div>
                 <div class="e-header__top-bar-desktop__user-menu-logout">
                   <i class="e-icon e-icon--logout e-icon--xs"></i>
-                  Logg ut
+                  Log out
                 </div>
               </div>
             </div>
@@ -396,28 +396,28 @@ export class HeaderDocComponent {
         <i class="e-icon e-icon--dashboard"></i>
         <i class="e-icon e-icon--dashboard-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Oversikt</span>
+      <span class="e-header__sidebar__text">Overview</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--search"></i>
         <i class="e-icon e-icon--search-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Målepunksøk</span>
+      <span class="e-header__sidebar__text">Search</span>
     </div>
     <div class="e-header__sidebar__item e-header__sidebar__item--active">
       <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--pin"></i>
         <i class="e-icon e-icon--pin-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Analyse</span>
+      <span class="e-header__sidebar__text">Analysis</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--graph_bar"></i>
         <i class="e-icon e-icon--graph_bar-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Statistikk</span>
+      <span class="e-header__sidebar__text">Statistics</span>
     </div>
 
     <!--OPEN/CLOSE BTN-->
@@ -426,7 +426,7 @@ export class HeaderDocComponent {
         <i class="e-icon e-icon--open_menu"></i>
         <i class="e-icon e-icon--close_menu"></i>
       </span>
-      <span class="e-header__sidebar__text">Minimer</span>
+      <span class="e-header__sidebar__text">Minimize</span>
     </div>
   </div>
 </div>
@@ -441,7 +441,7 @@ export class HeaderDocComponent {
 
       <!--APP-->
       <div class="e-header__top-bar-mobile__app">
-        <div class="e-header__top-bar-mobile__title">Applikasjon</div>
+        <div class="e-header__top-bar-mobile__title">Applications</div>
         <a class="e-header__top-bar-mobile__link">
           <span>DROPS</span>
           <span class="e-header__top-bar-mobile__link-icon">
@@ -454,9 +454,9 @@ export class HeaderDocComponent {
 
       <!--AREA-->
       <div class="e-header__top-bar-mobile__area">
-        <div class="e-header__top-bar-mobile__title">Område</div>
+        <div class="e-header__top-bar-mobile__title">Area</div>
         <a class="e-header__top-bar-mobile__link">
-          <span>Sør</span>
+          <span>South</span>
           <span class="e-header__top-bar-mobile__link-icon">
             <i class="e-icon e-icon--arrow_down-bold"></i>
             <i class="e-icon e-icon--arrow_up-bold"></i>
@@ -467,16 +467,16 @@ export class HeaderDocComponent {
 
       <!--USER-->
       <div class="e-header__top-bar-mobile__user">
-        <div class="e-header__top-bar-mobile__title">Innlogget som:</div>
+        <div class="e-header__top-bar-mobile__title">Logged in as:</div>
         <div class="e-header__top-bar-mobile__user-menu">
           <div class="e-header__top-bar-mobile__user-menu-name">Ragna Nordmann (e55717@hafslund.no)</div>
           <div class="e-header__top-bar-mobile__user-menu-settings">
             <i class="e-icon e-icon--cog e-icon--xs"></i>
-            Instillinger
+            Settings
           </div>
           <div class="e-header__top-bar-mobile__user-menu-logout">
             <i class="e-icon e-icon--logout e-icon--xs"></i>
-            Logg ut
+            Log out
           </div>
         </div>
       </div>
@@ -534,14 +534,14 @@ export class HeaderDocComponent {
 
             <!--TITLE DESKTOP-->
             <div class="e-header__top-bar-desktop__title">
-              Kart og analyse
+              Map and analysis
             </div>
           </div>
 
           <!--TITTLE-->
           <div class="col-xs-8 col-sm-6 col-md-4 col-lg-4">
             <div class="e-header__top-bar-desktop__title">
-              Kart og analyse
+              Map and analysis
             </div>
           </div>
 
@@ -550,16 +550,16 @@ export class HeaderDocComponent {
             <!--AREA-->
             <div class="e-header__top-bar-desktop__area">
               <a class="e-header__top-bar-desktop__link">
-                <span>Elvia Sør</span>
+                <span>Elvia South</span>
                 <span class="e-header__top-bar-desktop__link-icon">
                   <i class="e-icon e-icon--arrow_down-bold"></i>
                   <i class="e-icon e-icon--arrow_up-bold"></i>
                 </span>
               </a>
               <div class="e-header__top-bar-desktop__area-menu">
-                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord</div>
-                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Sør</div>
-                <div class="e-header__top-bar-desktop__area-menu-item">Elvia Nord og Sør</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia North</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia South</div>
+                <div class="e-header__top-bar-desktop__area-menu-item">Elvia North and South</div>
               </div>
             </div>
             <span class="e-header__top-bar-desktop__line e-mx-24"></span>
@@ -574,11 +574,11 @@ export class HeaderDocComponent {
                 <div class="e-header__top-bar-desktop__user-menu-mail">e55717@hafslund.no</div>
                 <div class="e-header__top-bar-desktop__user-menu-settings">
                   <i class="e-icon e-icon--cog e-icon--xs"></i>
-                  Instillinger
+                  Settings
                 </div>
                 <div class="e-header__top-bar-desktop__user-menu-logout">
                   <i class="e-icon e-icon--logout e-icon--xs"></i>
-                  Logg ut
+                  Log out
                 </div>
               </div>
             </div>
@@ -605,28 +605,28 @@ export class HeaderDocComponent {
         <i class="e-icon e-icon--dashboard"></i>
         <i class="e-icon e-icon--dashboard-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Oversikt</span>
+      <span class="e-header__sidebar__text">Overview</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--search"></i>
         <i class="e-icon e-icon--search-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Målepunksøk</span>
+      <span class="e-header__sidebar__text">Search</span>
     </div>
     <div class="e-header__sidebar__item e-header__sidebar__item--active">
       <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--pin"></i>
         <i class="e-icon e-icon--pin-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Analyse</span>
+      <span class="e-header__sidebar__text">Analysis</span>
     </div>
     <div class="e-header__sidebar__item">
       <span class="e-header__sidebar__icon">
         <i class="e-icon e-icon--graph_bar"></i>
         <i class="e-icon e-icon--graph_bar-color"></i>
       </span>
-      <span class="e-header__sidebar__text">Statistikk</span>
+      <span class="e-header__sidebar__text">Statistics</span>
     </div>
 
     <!--OPEN/CLOSE BTN-->
@@ -635,7 +635,7 @@ export class HeaderDocComponent {
         <i class="e-icon e-icon--open_menu"></i>
         <i class="e-icon e-icon--close_menu"></i>
       </span>
-      <span class="e-header__sidebar__text">Minimer</span>
+      <span class="e-header__sidebar__text">Minimize</span>
     </div>
   </div>
 </div>

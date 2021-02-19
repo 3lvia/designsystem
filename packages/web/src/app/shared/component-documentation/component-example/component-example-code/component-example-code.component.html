@@ -4,14 +4,6 @@
     <div class="tabs">
       <div
         class="tab"
-        *ngIf="codeInstallation !== ''"
-        [ngClass]="{ active: activeTab === 'installation' }"
-        (click)="changeActiveTab('installation')"
-      >
-        Installation
-      </div>
-      <div
-        class="tab"
         *ngIf="codeReact !== ''"
         [ngClass]="{ active: activeTab === 'react' }"
         (click)="changeActiveTab('react')"

@@ -29,11 +29,11 @@ export class ModalDocComponent {
       Title
     </div>
     <div class="e-modal__text">
-      Body text comes here and can go over several lines. It looks like this when it is two.
+      Body text comes here and can go over several lines. It looks like this when it is two lines.
     </div>
     <div class="e-modal__actions">
       <button class="e-btn e-btn--secondary e-btn--lg" (click)="closeModal('modal1')">
-        <span class="e-btn__title">Avbryt</span>
+        <span class="e-btn__title">Cancel</span>
       </button>
       <button class="e-btn e-btn--primary e-btn--lg" (click)="closeModal('modal1')">
         <span class="e-btn__title">Primary action</span>
@@ -50,12 +50,12 @@ export class ModalDocComponent {
     </div>
     <div class="e-modal__text">
       <div>
-        Body text comes here and can go over several lines. It looks like this when it is two.
+        Body text comes here and can go over several lines. It looks like this when it is two lines.
       </div>
     </div>
     <div class="e-modal__actions">
       <button class="e-btn e-btn--secondary e-btn--lg">
-        <span class="e-btn__title">Avbryt</span>
+        <span class="e-btn__title">Cancel</span>
       </button>
       <button class="e-btn e-btn--primary e-btn--lg">
         <span class="e-btn__title">Primary action</span>
@@ -68,17 +68,17 @@ export class ModalDocComponent {
   example2 = ` <div class="e-modal">
   <div class="e-modal__content">
     <div class="e-modal__title">
-      Er du sikker på at du vil slette brukeren din?
+      Are you sure you want to remove your profile?
     </div>
     <div class="e-modal__text">
-      Body text comes here and can go over several lines. It looks like this when it is two.
+      Body text comes here and can go over several lines. It looks like this when it is two lines.
     </div>
     <div class="e-modal__actions">
       <button class="e-btn e-btn--secondary e-btn--lg">
-        <span class="e-btn__title">Avbryt</span>
+        <span class="e-btn__title">Cancel</span>
       </button>
       <button class="e-btn e-btn--primary e-btn--danger e-btn--lg">
-        <span class="e-btn__title">Slett bruker</span>
+        <span class="e-btn__title">Remove profile</span>
       </button>
     </div>
   </div>
@@ -91,7 +91,7 @@ export class ModalDocComponent {
       Title of content comes here
     </div>
     <div class="e-modal__text">
-      Body text comes here and can go over several lines. It looks like this when it is two.
+      Body text comes here and can go over several lines. It looks like this when it is two lines.
     </div>
     <div class="e-modal__actions">
       <button class="e-btn e-btn--primary e-btn--lg">

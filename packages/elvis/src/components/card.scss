@@ -28,6 +28,10 @@ $card-actions-button-spacing: 25px;
     padding: $card-padding-mobile;
   }
 
+  &--text-only {
+    max-width: 450px;
+  }
+
   &--shadow-soft {
     box-shadow: shadows.$e-shadow-3;
   }
