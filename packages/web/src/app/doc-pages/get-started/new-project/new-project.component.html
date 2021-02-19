@@ -14,7 +14,10 @@
     <ng-container ngProjectAs="sectionContent">
       <p>
         If you have any issues at all, please don't hesitate to
-        <a class="e-link e-link--inline" [routerLink]="['/community/contact']">contact us!</a>
+        <a
+          class="e-link e-link--inline"
+          [routerLink]="['/community/contact']"
+        >contact us!</a>
         Any friction you experience in the onboarding process, or during use is valuable feedback for us.
         Reach out on slack in
         <span class="e-link__title">
@@ -40,14 +43,22 @@
           <div *ngIf="loadedStyle">
             <app-component-example-code [codeHTML]="linkTagCode"></app-component-example-code>
           </div>
-          <div *ngIf="!loadedStyle" class="e-content-loader" style="width: 100%; height: 127px"></div>
+          <div
+            *ngIf="!loadedStyle"
+            class="e-content-loader"
+            style="width: 100%; height: 127px"
+          ></div>
         </li>
         <li>
           <strong>Put the following at the bottom of &lt;body></strong>
           <div *ngIf="loadedScript">
             <app-component-example-code [codeHTML]="scriptTagCode"></app-component-example-code>
           </div>
-          <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
+          <div
+            *ngIf="!loadedScript"
+            class="e-content-loader"
+            style="width: 100%; height: 127px"
+          ></div>
         </li>
       </ol>
 
@@ -55,7 +66,11 @@
       <div *ngIf="loadedFullExample">
         <app-component-example-code [codeHTML]="fullExampleCode"></app-component-example-code>
       </div>
-      <div *ngIf="!loadedFullExample" class="e-content-loader" style="width: 100%; height: 337px"></div>
+      <div
+        *ngIf="!loadedFullExample"
+        class="e-content-loader"
+        style="width: 100%; height: 337px"
+      ></div>
     </ng-container>
   </app-component-section>
 
@@ -74,7 +89,10 @@
       <ol class="e-list e-list--numbers">
         <li>
           <strong class="e-mr-16">Install the package</strong>
-          <app-copy [message]="'npm i @elvia/elvis'" [noAnimation]="true">
+          <app-copy
+            [message]="'npm i @elvia/elvis'"
+            [noAnimation]="true"
+          >
             <ng-container ngProjectAs="copyContent">
               <code class="code-text">npm i @elvia/elvis</code>
             </ng-container>
@@ -82,7 +100,10 @@
         </li>
         <li>
           <strong class="e-mr-16">Import src/main.scss or elvis.min.css in your stylesheet</strong>
-          <app-copy [message]="'@import \'~@elvia/elvis/src/main.scss\';'" [noAnimation]="true">
+          <app-copy
+            [message]="'@import \'~@elvia/elvis/src/main.scss\';'"
+            [noAnimation]="true"
+          >
             <ng-container ngProjectAs="copyContent">
               <code class="code-text">@import '~@elvia/elvis/src/main.scss';</code>
             </ng-container>
@@ -90,7 +111,10 @@
         </li>
         <li>
           <strong class="e-mr-16">Add elvis.js from the NPM package in &#x3C;body&#x3E;</strong>
-          <app-copy [message]="bodyScriptMessage" [noAnimation]="true">
+          <app-copy
+            [message]="bodyScriptMessage"
+            [noAnimation]="true"
+          >
             <ng-container ngProjectAs="copyContent">
               <code class="code-text">
                 &lt;body&gt; &lt;script src="assets/js/elvis.js"&gt;&lt;/script&gt; &lt;/body&gt;
@@ -101,7 +125,11 @@
           <div *ngIf="loadedScript">
             <app-component-example-code [codeHTML]="scriptTagCode"></app-component-example-code>
           </div>
-          <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
+          <div
+            *ngIf="!loadedScript"
+            class="e-content-loader"
+            style="width: 100%; height: 127px"
+          ></div>
         </li>
       </ol>
     </ng-container>
@@ -123,6 +151,16 @@
     </ng-container>
   </app-component-section>
 
+  <!--ICON USAGE-->
+  <app-component-section [sectionTitle]="'Icons'">
+    <ng-container ngProjectAs="sectionContent">
+      Our icon library is based on Streamline icons. This license includes royalty free usage in an unlimited number of
+      projects without the need to credit the source. If used in open source projects, you need to make it clear that
+      they are
+      still the property of Webalys LLC and can only be used in the context of the open source project.
+    </ng-container>
+  </app-component-section>
+
   <!--CSS VARIABLES-->
   <app-component-section [sectionTitle]="'Optional: CSS-variables'">
     <ng-container ngProjectAs="sectionContent">
@@ -138,7 +176,10 @@
       <app-component-subsection [sectionTitle]="'Internet Explorer Support'">
         <ng-container ngProjectAs="sectionContent">
           <p>
-            <app-copy [message]="'npm install css-vars-ponyfill'" [noAnimation]="true">
+            <app-copy
+              [message]="'npm install css-vars-ponyfill'"
+              [noAnimation]="true"
+            >
               <ng-container ngProjectAs="copyContent">
                 <code class="code-text">npm install css-vars-ponyfill</code>
               </ng-container>
@@ -149,7 +190,9 @@
             this library is offered as a ponyfill, not a polyfill, meaning that the code below needs to be
             added to your project, in your main.js/ts file, for processing to take place:
           </p>
-          <p><app-component-example-code [codeTS]="cssVarsCode"></app-component-example-code></p>
+          <p>
+            <app-component-example-code [codeTS]="cssVarsCode"></app-component-example-code>
+          </p>
           <p>
             You can read more on the
             <span>
