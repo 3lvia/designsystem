@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
-import * as componentData from './progressbar-data.js';
+import { progressbarData } from './progressbar-data';
 
 @Component({
   selector: 'app-progressbar-doc',
@@ -10,5 +10,5 @@ import * as componentData from './progressbar-data.js';
 export class ProgressbarDocComponent {
   figmaUrl = getComponent('progressbar').figmaUrl;
   description = getComponent('progressbar').description;
-  componentData = componentData;
+  componentData = progressbarData;
 }

@@ -1,7 +1,8 @@
-module.exports = {
+export const progressbarData = {
   name: 'elvis-progress-linear',
   elementNameW: 'elvia-progress-linear',
   elementNameR: 'ProgressLinear',
+  package: 'npm install @elvia/elvis-progress-linear',
   attributes: {
     value: {
       isRequired: false,
@@ -40,11 +41,8 @@ module.exports = {
       cegDisplayGroup: 'Modifiers',
     },
   },
-  codeInstallation: `//REACT
-import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
-
-// WEBCOMPONENT
-import '@elvia/elvis-progress-linear';`,
+  codeImportReact: `import { ProgressLinear } from '@elvia/elvis-progress-linear/react';`,
+  codeImportWebComponent: `import '@elvia/elvis-progress-linear';`,
   codeReact: `<ProgressLinear 
   value={20}
 ></ProgressLinear>`,

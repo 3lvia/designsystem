@@ -187,6 +187,7 @@
 		},
 		"e-card": {
 			"modifier": {
+				"e-card--text-only": {},
 				"e-card--shadow-soft": {},
 				"e-card--shadow-medium": {},
 				"e-card--shadow-hard": {},
@@ -1123,6 +1124,7 @@
 		"e-btn--icon": {},
 		"e-btn--circled": {},
 		"e-card": {},
+		"e-card--text-only": {},
 		"e-card--shadow-soft": {},
 		"e-card--shadow-medium": {},
 		"e-card--shadow-hard": {},
