@@ -57,10 +57,6 @@
       width: 32px;
       height: 32px;
       &.e-btn--icon {
-        @media screen and (-ms-high-contrast: none) {
-          // CHECK IE11
-          top: 8px;
-        }
         .e-btn__icon {
           @include icons.icon-size('xs');
           i[class*='e-icon--close-bold'] {
@@ -94,10 +90,6 @@
       width: 32px;
       height: 32px;
       &.e-btn--icon {
-        @media screen and (-ms-high-contrast: none) {
-          // CHECK IE11
-          top: 8px;
-        }
         .e-btn__icon {
           @include icons.icon-size('xs');
           i[class*='e-icon--close-bold'] {
@@ -184,12 +176,6 @@
       .e-btn {
         top: 1px;
         right: 4px;
-        &.e-btn--icon {
-          @media screen and (-ms-high-contrast: none) {
-            // CHECK IE11
-            top: 1px;
-          }
-        }
       }
     }
     .e-search--on-submit {
@@ -208,12 +194,6 @@
       .e-btn {
         top: 1px;
         right: 4px;
-        &.e-btn--icon {
-          @media screen and (-ms-high-contrast: none) {
-            // CHECK IE11
-            top: 1px;
-          }
-        }
       }
     }
   }

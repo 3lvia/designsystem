@@ -16,30 +16,30 @@ export class SearchDocComponent {
 
   isExampleInput = false;
 
-  overviewExample = `    <div class="e-form-field">
-      <div
-        class="e-search e-search--local--instant"
-        style="width: 250px"
-        #exampleSearch
-      >
-        <div class="e-input">
-          <input
-            aria-label="Search"
-            type="search"
-            placeholder="Search"
-            #exampleInput
-            (keyup)="onInput(exampleInput.value)"
-          />
-        </div>
-        <i class="e-icon e-icon--search-color"></i>
-        <button
-          class="e-btn e-btn--icon e-btn--lg"
-          (click)="clearExample()"
-        >
-          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-        </button>
-      </div>
-    </div>
+  overviewExample = `<div class="e-form-field">
+<div
+  class="e-search e-search--local--instant"
+  style="width: 250px"
+  #exampleSearch
+>
+  <div class="e-input">
+    <input
+      aria-label="Search"
+      type="search"
+      placeholder="Search"
+      #exampleInput
+      (keyup)="onInput(exampleInput.value)"
+    />
+  </div>
+  <i class="e-icon e-icon--search-color"></i>
+  <button
+    class="e-btn e-btn--icon e-btn--lg"
+    (click)="clearExample()"
+  >
+    <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+  </button>
+</div>
+</div>
 `;
 
   overviewExampleTS = `@ViewChild('exampleSearch') exampleSearch: ElementRef;
@@ -113,32 +113,29 @@ clearExample(): void {
   searhOnSubmitExample = `<div style="display: flex; justify-content: start; align-items: flex-end;">
 <div class="e-form-field">
   <div
-    class="e-search e-search--on-submit"
-    style="width: 250px"
+  class="e-search e-search--on-submit"
+  style="width: 250px"
   >
     <div class="e-input">
       <input
-        aria-label="Search"
-        type="search"
-        placeholder="Search"
+      aria-label="Search"
+      type="search"
+      placeholder="Search"
       />
     </div>
-    <button
-      class="e-btn e-btn--icon"
-    >
+    <button class="e-btn e-btn--icon">
       <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
     </button>
   </div>
 </div>
-<button class="e-btn e-btn--lg e-ml-16">
-  <span class="e-btn__icon">
-    <i class="e-icon e-icon--search-color e-icon--inverted"></i>
-    <i class="e-icon e-icon--search-color"></i>
-  </span>
-  <span class="e-btn__title">Search</span>
-</button>
+  <button class="e-btn e-btn--lg e-ml-16">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--search-color e-icon--inverted"></i>
+      <i class="e-icon e-icon--search-color"></i>
+    </span>
+    <span class="e-btn__title">Search</span>
+  </button>
 </div>
-
 `;
   searhOnSubmitAfterExample = `<div style="display: flex; justify-content: start; align-items: flex-end;">
 <div class="e-form-field">
@@ -247,7 +244,7 @@ clearExample(): void {
 
 <div class="e-text-label e-mb-16 e-mt-24">Compact</div>
 
-<div class="e-mt-24" style="display: flex; justify-content: start; align-items: flex-end;">
+<div style="display: flex; justify-content: start; align-items: flex-end;">
   <div class="e-form-field e-form-field--compact">
     <div
       class="e-search e-search--on-submit "
