@@ -107,8 +107,16 @@
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-example-v1 [codeHTML]="searchSizesInstantExample"></app-component-example-v1>
-      <app-component-example-v1 [codeHTML]="searchSizesOnSubmitExample"></app-component-example-v1>
+      <app-component-subsection [sectionTitle]="'Instant'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="searchSizesInstantExample"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'On submit'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="searchSizesOnSubmitExample"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

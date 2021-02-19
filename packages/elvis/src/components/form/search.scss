@@ -37,66 +37,58 @@
     }
 
     &.e-search--searched {
-      .e-btn {
+      .e-btn.e-btn--icon {
         visibility: visible;
-        &.e-btn--icon {
-          .e-btn__icon {
-            i[class*='e-icon--close-bold'] {
-              visibility: visible;
-            }
+        .e-btn__icon {
+          i[class*='e-icon--close-bold'] {
+            visibility: visible;
           }
         }
       }
     }
 
-    .e-btn {
+    .e-btn.e-btn--icon {
       visibility: hidden;
       position: absolute;
       top: 8px;
       right: 12px;
       width: 32px;
       height: 32px;
-      &.e-btn--icon {
-        .e-btn__icon {
-          @include icons.icon-size('xs');
-          i[class*='e-icon--close-bold'] {
-            visibility: hidden;
-            position: absolute;
-            display: flex;
-          }
+      .e-btn__icon {
+        @include icons.icon-size('xs');
+        i[class*='e-icon--close-bold'] {
+          visibility: hidden;
+          position: absolute;
+          display: flex;
         }
       }
     }
   }
   &--on-submit {
     &.e-search--searched {
-      .e-btn {
+      .e-btn.e-btn--icon {
         visibility: visible;
-        &.e-btn--icon {
-          .e-btn__icon {
-            i[class*='e-icon--close-bold'] {
-              visibility: visible;
-            }
+        .e-btn__icon {
+          i[class*='e-icon--close-bold'] {
+            visibility: visible;
           }
         }
       }
     }
 
-    .e-btn {
+    .e-btn.e-btn--icon {
       visibility: hidden;
       position: absolute;
       top: 8px;
       right: 12px;
       width: 32px;
       height: 32px;
-      &.e-btn--icon {
-        .e-btn__icon {
-          @include icons.icon-size('xs');
-          i[class*='e-icon--close-bold'] {
-            visibility: hidden;
-            position: absolute;
-            display: flex;
-          }
+      .e-btn__icon {
+        @include icons.icon-size('xs');
+        i[class*='e-icon--close-bold'] {
+          visibility: hidden;
+          position: absolute;
+          display: flex;
         }
       }
     }

@@ -8471,7 +8471,7 @@ input:focus {
   width: 24px;
 }
 
-.e-search--instant.e-search--searched .e-btn {
+.e-search--instant.e-search--searched .e-btn.e-btn--icon {
   visibility: visible;
 }
 
@@ -8479,7 +8479,7 @@ input:focus {
   visibility: visible;
 }
 
-.e-search--instant .e-btn {
+.e-search--instant .e-btn.e-btn--icon {
   visibility: hidden;
   position: absolute;
   top: 8px;
@@ -8505,7 +8505,7 @@ input:focus {
   display: flex;
 }
 
-.e-search--on-submit.e-search--searched .e-btn {
+.e-search--on-submit.e-search--searched .e-btn.e-btn--icon {
   visibility: visible;
 }
 
@@ -8513,7 +8513,7 @@ input:focus {
   visibility: visible;
 }
 
-.e-search--on-submit .e-btn {
+.e-search--on-submit .e-btn.e-btn--icon {
   visibility: hidden;
   position: absolute;
   top: 8px;
