@@ -2882,6 +2882,13 @@ input:focus {
   display: none;
 }
 
+.e-input input[type=search]::-webkit-search-decoration,
+.e-input input[type=search]::-webkit-search-cancel-button,
+.e-input input[type=search]::-webkit-search-results-button,
+.e-input input[type=search]::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+}
+
 .e-form-field.e-combined-field .e-input:not(:last-of-type) {
   margin-right: 8px;
 }
@@ -8068,6 +8075,10 @@ input:focus {
   margin-bottom: 0;
 }
 
+.e-inlined-field .e-form-field.e-form-field--width-auto {
+  width: auto;
+}
+
 .e-inlined-field .e-form-field:not(:last-of-type) {
   margin-right: 8px;
 }
@@ -8491,13 +8502,6 @@ input:focus {
 
 .e-search {
   position: relative;
-}
-
-.e-search ::-ms-clear {
-  display: none;
-}
-
-.e-search.e-search--local {
   font-family: "Red Hat Text";
   font-style: normal;
   font-weight: 400;
@@ -8505,162 +8509,146 @@ input:focus {
   line-height: 22px;
 }
 
-.e-search.e-search--local .e-input input,
-.e-search.e-search--local .e-input input:invalid,
-.e-search.e-search--local .e-input input:disabled {
-  padding: 12px 48px 12px 15px;
-}
-
-.e-search.e-search--local .e-input input:focus {
-  padding: 11px 47px 11px 14px;
-}
-
-.e-search.e-search--local .e-btn.e-btn--icon {
-  position: absolute;
-  top: 4px;
-  right: 8px;
-  width: 40px;
-  height: 40px;
-}
-
-@media screen and (-ms-high-contrast: none) {
-  .e-search.e-search--local .e-btn.e-btn--icon {
-    top: 4px;
-  }
-}
-.e-search.e-search--local .e-btn.e-btn--icon .e-btn__icon {
-  width: 24px;
-  height: 24px;
-}
-
-.e-search.e-search--local .e-btn.e-btn--icon .e-btn__icon img,
-.e-search.e-search--local .e-btn.e-btn--icon .e-btn__icon i {
-  width: 24px;
-  height: 24px;
-}
-
-.e-search.e-search--local .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--search-color] {
-  visibility: visible;
-  position: absolute;
-  display: flex;
-  top: 0px;
-}
-
-.e-search.e-search--local .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--close-bold] {
-  visibility: hidden;
-  position: absolute;
-  display: flex;
-  top: 0px;
-  left: -9px;
-}
-
-.e-search.e-search--local.e-search--searched .e-btn.e-btn--icon .e-btn__icon {
-  width: 19px;
-  height: 19px;
-}
-
-.e-search.e-search--local.e-search--searched .e-btn.e-btn--icon .e-btn__icon img,
-.e-search.e-search--local.e-search--searched .e-btn.e-btn--icon .e-btn__icon i {
-  width: 19px;
-  height: 19px;
-}
-
-.e-search.e-search--local.e-search--searched .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--search-color] {
-  visibility: hidden;
-}
-
-.e-search.e-search--local.e-search--searched .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--close-bold] {
-  visibility: visible;
-}
-
-.e-search.e-search--global {
-  display: flex;
-  flex-direction: row;
-}
-
-.e-search.e-search--global .e-input input,
-.e-search.e-search--global .e-input input:invalid,
-.e-search.e-search--global .e-input input:focus,
-.e-search.e-search--global .e-input input:disabled {
-  font-family: "Red Hat Text";
-  font-size: 24px;
-  line-height: 38px;
-  padding: 0;
-  border-radius: 0;
-  border: 1px solid transparent;
-  border-bottom: 1px solid var(--e-black);
-}
-
-.e-search.e-search--global .e-btn.e-btn--icon {
+.e-search::-ms-clear {
   display: none;
+}
+
+.e-search--instant .e-input input,
+.e-search--instant .e-input input:invalid,
+.e-search--instant .e-input input:disabled {
+  padding: 12px 12px 12px 56px;
+}
+
+.e-search--instant .e-input input:focus {
+  padding: 11px 11px 11px 55px;
+}
+
+.e-search--instant i[class*=e-icon--search-color] {
+  visibility: visible;
+  position: absolute;
+  display: flex;
+  top: 12px;
+  left: 16px;
+  height: 24px;
+  width: 24px;
+}
+
+.e-search--instant.e-search--searched .e-btn.e-btn--icon {
+  visibility: visible;
+}
+
+.e-search--instant.e-search--searched .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--close-bold] {
+  visibility: visible;
+}
+
+.e-search--instant .e-btn.e-btn--icon {
+  visibility: hidden;
+  position: absolute;
+  top: 8px;
+  right: 12px;
   width: 32px;
   height: 32px;
 }
 
-.e-search.e-search--global.e-search--searched .e-btn.e-btn--icon {
-  display: flex;
-  position: absolute;
-  right: 0;
-  bottom: 1px;
-}
-
-@media screen and (-ms-high-contrast: none) {
-  .e-search.e-search--global.e-search--searched .e-btn.e-btn--icon {
-    top: 0px;
-  }
-}
-.e-search.e-search--global.e-search--searched .e-btn.e-btn--icon .e-btn__icon {
+.e-search--instant .e-btn.e-btn--icon .e-btn__icon {
   width: 16px;
   height: 16px;
 }
 
-.e-search.e-search--global.e-search--searched .e-btn.e-btn--icon .e-btn__icon img,
-.e-search.e-search--global.e-search--searched .e-btn.e-btn--icon .e-btn__icon i {
+.e-search--instant .e-btn.e-btn--icon .e-btn__icon img,
+.e-search--instant .e-btn.e-btn--icon .e-btn__icon i {
   width: 16px;
   height: 16px;
 }
 
-.e-search.e-search--global.e-search--searched .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--close-bold] {
+.e-search--instant .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--close-bold] {
+  visibility: hidden;
   position: absolute;
   display: flex;
-  top: 0px;
 }
 
-.e-form-field.e-form-field--compact .e-search--local {
+.e-search--on-submit.e-search--searched .e-btn.e-btn--icon {
+  visibility: visible;
+}
+
+.e-search--on-submit.e-search--searched .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--close-bold] {
+  visibility: visible;
+}
+
+.e-search--on-submit .e-btn.e-btn--icon {
+  visibility: hidden;
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+}
+
+.e-search--on-submit .e-btn.e-btn--icon .e-btn__icon {
+  width: 16px;
+  height: 16px;
+}
+
+.e-search--on-submit .e-btn.e-btn--icon .e-btn__icon img,
+.e-search--on-submit .e-btn.e-btn--icon .e-btn__icon i {
+  width: 16px;
+  height: 16px;
+}
+
+.e-search--on-submit .e-btn.e-btn--icon .e-btn__icon i[class*=e-icon--close-bold] {
+  visibility: hidden;
+  position: absolute;
+  display: flex;
+}
+
+.e-form-field.e-form-field--compact .e-search--instant {
   font-size: 14px;
 }
 
-.e-form-field.e-form-field--compact .e-search--local .e-input input:invalid,
-.e-form-field.e-form-field--compact .e-search--local .e-input input:focus {
-  padding: 4px 35px 4px 9px;
+.e-form-field.e-form-field--compact .e-search--instant .e-input input,
+.e-form-field.e-form-field--compact .e-search--instant .e-input input:invalid,
+.e-form-field.e-form-field--compact .e-search--instant .e-input input:disabled {
+  max-height: 34px;
+  padding: 6px 32px 6px 32px;
 }
 
-.e-form-field.e-form-field--compact .e-search--local .e-input input,
-.e-form-field.e-form-field--compact .e-search--local .e-input input:disabled {
-  padding: 5px 36px 5px 10px;
+.e-form-field.e-form-field--compact .e-search--instant .e-input input:focus {
+  padding: 5px 31px 5px 31px;
 }
 
-.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon {
+.e-form-field.e-form-field--compact .e-search--instant i[class*=e-icon--search-color] {
+  visibility: visible;
+  position: absolute;
+  display: flex;
+  top: 10px;
+  left: 8px;
+  height: 16px;
+  width: 16px;
+}
+
+.e-form-field.e-form-field--compact .e-search--instant .e-btn {
   top: 1px;
   right: 4px;
-  width: 32px;
-  height: 32px;
 }
 
-@media screen and (-ms-high-contrast: none) {
-  .e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon {
-    top: 1px;
-  }
-}
-.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon {
-  width: 16px;
-  height: 16px;
+.e-form-field.e-form-field--compact .e-search--on-submit {
+  font-size: 14px;
 }
 
-.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon img,
-.e-form-field.e-form-field--compact .e-search--local .e-btn.e-btn--icon .e-btn__icon i {
-  width: 16px;
-  height: 16px;
+.e-form-field.e-form-field--compact .e-search--on-submit .e-input input,
+.e-form-field.e-form-field--compact .e-search--on-submit .e-input input:invalid,
+.e-form-field.e-form-field--compact .e-search--on-submit .e-input input:disabled {
+  max-height: 34px;
+  padding: 6px 32px 6px 10px;
+}
+
+.e-form-field.e-form-field--compact .e-search--on-submit .e-input input:focus {
+  padding: 5px 31px 5px 9px;
+}
+
+.e-form-field.e-form-field--compact .e-search--on-submit .e-btn {
+  top: 1px;
+  right: 4px;
 }
 
 .e-segmented-controls {
