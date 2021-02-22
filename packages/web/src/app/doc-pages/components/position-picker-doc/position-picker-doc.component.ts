@@ -23,7 +23,7 @@ export class PositionPickerDocComponent {
   <div class="e-position-picker__action">
     <button class="e-btn e-btn--tertiary" (click)="openMapExample('mapModal')">
       <span class="e-btn__icon"><i class="e-icon e-icon--pin"></i></span>
-      <span class="e-btn__title">Velg plassering</span>
+      <span class="e-btn__title">Choose position</span>
     </button>
   </div>
 </div>
@@ -44,7 +44,7 @@ export class PositionPickerDocComponent {
     ></iframe>
     <div class="e-form-field" id="exampleInput">
       <div class="e-input">
-        <input id="normal" type="text" placeholder="Velg Adresse" />
+        <input id="normal" type="text" placeholder="Choose Address" />
         <i class="e-icon e-icon--search e-icon--xs"></i>
       </div>
     </div>
@@ -59,7 +59,7 @@ export class PositionPickerDocComponent {
   <div class="e-position-picker__action">
     <button class="e-btn e-btn--tertiary">
       <span class="e-btn__icon"><i class="e-icon e-icon--pin"></i></span>
-      <span class="e-btn__title">Velg plassering</span>
+      <span class="e-btn__title">Choose position</span>
     </button>
   </div>
 </div>
@@ -72,7 +72,7 @@ export class PositionPickerDocComponent {
   <div class="e-position-picker__action">
     <button class="e-btn e-btn--tertiary">
       <span class="e-btn__icon"><i class="e-icon e-icon e-icon--pin"></i></span>
-      <span class="e-btn__title">Endre plassering</span>
+      <span class="e-btn__title">Change position</span>
     </button>
   </div>
 </div>
@@ -106,7 +106,7 @@ closeModal(modal: string): void {
 <div class="e-position-picker__action">
   <button class="e-btn e-btn--tertiary e-btn--lg e-m-16" (click)="openMapExample('mapModal')">
     <span class="e-btn__icon"><i class="e-icon e-icon--pin"></i></span>
-    <span class="e-btn__title">Velg plassering</span>
+    <span class="e-btn__title">Choose position</span>
   </button>
 </div>
 </div>
@@ -126,7 +126,7 @@ closeModal(modal: string): void {
   tabindex="0">
 </iframe>  <div class="e-form-field" id="exampleInput">
     <div class="e-input">
-      <input id="normal" type="text" placeholder="Velg Adresse">
+      <input id="normal" type="text" placeholder="Choose Address">
       <i class="e-icon e-icon--search e-icon--xs"></i>
     </div>
   </div>

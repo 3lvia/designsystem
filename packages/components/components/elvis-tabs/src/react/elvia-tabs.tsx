@@ -46,6 +46,7 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, valueOnChange, webcomponent }) 
     };
   }, []);
 
+  // Is necessary since the web component does not send all props at once
   useEffect(() => {
     setCurrValue(value);
   }, [value]);

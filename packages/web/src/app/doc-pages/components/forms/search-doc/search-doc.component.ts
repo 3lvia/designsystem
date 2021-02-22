@@ -17,13 +17,13 @@ export class SearchDocComponent {
   isExampleInput = false;
 
   overviewExample = `<div class="e-form-field">
-  <label class="e-form-field__label" for="compact">Søk</label>
+  <label class="e-form-field__label" for="compact">Search</label>
   <div class="e-search e-search--local" style="width: 250px" #exampleSearch>
     <div class="e-input">
       <input
         id="compact"
         type="text"
-        placeholder="Placeholder text"
+        placeholder="Search"
         #exampleInput
         (keyup)="onInput(exampleInput.value)"
         />
@@ -59,10 +59,10 @@ clearExample(): void {
 `;
 
   searchExample = `<div class="e-form-field">
-  <label class="e-form-field__label" for="compact">Søk</label>
+  <label class="e-form-field__label" for="compact">Search</label>
   <div class="e-search e-search--local" style="width:400px;">
     <div class="e-input">
-      <input id="compact" type="text" placeholder="Placeholder text">
+      <input id="compact" type="text" placeholder="Search">
     </div>
     <button class="e-btn e-btn--icon e-btn--lg">
       <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
@@ -73,10 +73,10 @@ clearExample(): void {
 `;
 
   afterSearchExample = `<div class="e-form-field">
-  <label class="e-form-field__label" for="compact">Søk</label>
+  <label class="e-form-field__label" for="compact">Search</label>
   <div class="e-search e-search--local e-search--searched" style="width:400px;">
     <div class="e-input">
-      <input id="compact" type="text" placeholder="Placeholder text" value="Search text input">
+      <input id="compact" type="text" placeholder="Search" value="Search text input">
     </div>
     <button class="e-btn e-btn--icon e-btn--lg">
       <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
@@ -88,10 +88,10 @@ clearExample(): void {
 
   searchSizesExample = `<div class="e-text-label e-mb-8">Normal</div>
 <div class="e-form-field">
-  <label class="e-form-field__label" for="normal">Søk</label>
+  <label class="e-form-field__label" for="normal">Search</label>
   <div class="e-search e-search--local" style="width:240px;">
     <div class="e-input">
-      <input id="normal" type="text" placeholder="Placeholder text">
+      <input id="normal" type="text" placeholder="Search">
     </div>
     <button class="e-btn e-btn--icon">
       <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
@@ -101,10 +101,10 @@ clearExample(): void {
 </div>
 <div class="e-text-label e-mb-8 e-mt-40">Compact</div>
 <div class="e-form-field e-form-field--compact">
-  <label class="e-form-field__label" for="compact">Søk</label>
+  <label class="e-form-field__label" for="compact">Search</label>
   <div class="e-search e-search--local" style="width:240px;">
     <div class="e-input">
-      <input id="compact" type="text" placeholder="Placeholder text">
+      <input id="compact" type="text" placeholder="Search">
     </div>
     <button class="e-btn e-btn--icon">
       <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>

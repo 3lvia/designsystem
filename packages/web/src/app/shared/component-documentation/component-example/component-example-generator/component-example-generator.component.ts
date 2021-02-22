@@ -12,6 +12,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
   @Input() componentData;
   @Input() width = 100;
   codeWebComponentSub: Subscription;
+  hasCegAttributes = false;
 
   constructor(private codeService: ExampleCodeService) {}
 
@@ -23,6 +24,14 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
 
   ngAfterViewInit(): void {
     this.cegFrame.nativeElement.innerHTML = this.componentData.codeWebComponent;
+    Object.keys(this.componentData.attributes).forEach((attribute) => {
+      Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
+        if (value === 'cegFormType') {
+          this.hasCegAttributes = true;
+          return;
+        }
+      });
+    });
   }
 
   ngOnDestroy(): void {

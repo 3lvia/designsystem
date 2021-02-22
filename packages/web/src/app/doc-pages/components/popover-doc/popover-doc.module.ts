@@ -9,6 +9,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
+import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
     ComponentPropertiesTableModule,
     ComponentExampleGeneratorModule,
     WhenToUseModule,
+    ComponentInstallationModule,
   ],
   declarations: [PopoverDocComponent],
 })

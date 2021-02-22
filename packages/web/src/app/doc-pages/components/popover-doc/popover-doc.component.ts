@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
-import * as componentData from './popover-data.js';
+import { popoverData } from './popover-data';
 @Component({
   selector: 'app-popover-doc',
   templateUrl: './popover-doc.component.html',
   styleUrls: ['./popover-doc.component.scss'],
 })
 export class PopoverDocComponent {
-  componentData = componentData;
+  componentData = popoverData;
   loadedPopoverStructure = false;
   figmaUrl = getComponent('popover').figmaUrl;
   description = getComponent('popover').description;

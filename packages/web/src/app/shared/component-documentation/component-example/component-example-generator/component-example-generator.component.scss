@@ -35,6 +35,11 @@
     @include first-col;
   }
 
+  &.full-width .ceg-row-2,
+  &.full-width .ceg-col-1 {
+    width: 100% !important;
+  }
+
   .ceg-code-preview {
     display: flex;
     justify-content: center;

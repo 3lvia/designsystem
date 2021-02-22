@@ -11,6 +11,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { RouterModule } from '@angular/router';
+import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { RouterModule } from '@angular/router';
     WhenToUseModule,
     ComponentPropertiesTableModule,
     ComponentExampleGeneratorModule,
+    ComponentInstallationModule,
   ],
   declarations: [ProgressbarDocComponent],
 })

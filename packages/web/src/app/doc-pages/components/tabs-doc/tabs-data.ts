@@ -1,4 +1,4 @@
-export const componentData = {
+export const tabsData = {
   name: 'elvis-tabs',
   elementNameW: 'elvia-tabs',
   elementNameR: 'Tabs',
@@ -27,11 +27,9 @@ export const componentData = {
       description: 'Gets called every time the value is changed.',
     },
   },
-  codeInstallation: `//REACT
-import { Tabs } from '@elvia/elvis-tabs/react';
-
-// WEBCOMPONENT
-import '@elvia/elvis-tabs';`,
+  package: 'npm install @elvia/elvis-tabs',
+  codeImportReact: `import { Tabs } from '@elvia/elvis-tabs/react';`,
+  codeImportWebComponent: `import '@elvia/elvis-tabs';`,
   codeReact: `<Tabs 
   items={'items', 'item2'}
   value={1}
@@ -40,4 +38,10 @@ import '@elvia/elvis-tabs';`,
   [items]="['items', 'items', 'items']" 
   value="1"
 ></elvia-tabs>`,
+  does: ['If you have sub-sections of a page and can not display everything at once'],
+  donts: [
+    'If the content can be displayed at once.',
+    'Don’t use tab in tab.',
+    'Primary navigation that links to other pages',
+  ],
 };

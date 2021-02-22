@@ -1,4 +1,4 @@
-<div class="ceg-container e-mt-64">
+<div class="ceg-container e-mt-64" [ngClass]="{ 'full-width': !hasCegAttributes }">
   <div class="ceg-row-1">
     <div class="ceg-col-1">
       <!--CEG code preview-->
@@ -8,7 +8,7 @@
     </div>
 
     <!--CEG side filters-->
-    <div class="ceg-col-2">
+    <div class="ceg-col-2" *ngIf="hasCegAttributes">
       <app-ceg-filters [componentData]="componentData"></app-ceg-filters>
     </div>
   </div>

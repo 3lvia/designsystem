@@ -16,7 +16,7 @@ export class PaginationDocComponent implements OnInit {
   paginationExample = `<h3>Start</h3>
 <div class="e-pagination">
   <div class="e-pagination__number-per-page">
-    <span>Viser</span>
+    <span>Shows</span>
     <span class="e-pagination__dropdown">
       <div class="e-form-field e-form-field--compact">
         <div class="e-dropdown">
@@ -33,7 +33,7 @@ export class PaginationDocComponent implements OnInit {
         </div>
       </div>
     </span>
-    <span>av 200 bilder</span>
+    <span>of 200 images</span>
   </div>
   <div class="e-pagination__choosing-page">
     <div class="e-pagination__number e-pagination__number--active">1</div>
@@ -54,7 +54,7 @@ export class PaginationDocComponent implements OnInit {
   <h3>Middle</h3>
   <div class="e-pagination">
     <div class="e-pagination__number-per-page">
-      <span>Viser</span>
+      <span>Shows</span>
       <span class="e-pagination__dropdown">
         <div class="e-form-field e-form-field--compact">
           <div class="e-dropdown">
@@ -71,7 +71,7 @@ export class PaginationDocComponent implements OnInit {
           </div>
         </div>
       </span>
-      <span>av 200 bilder</span>
+      <span>of 200 images</span>
     </div>
     <div class="e-pagination__choosing-page">
       <div class="e-pagination__arrow">
@@ -97,7 +97,7 @@ export class PaginationDocComponent implements OnInit {
   <h3>End</h3>
   <div class="e-pagination">
     <div class="e-pagination__number-per-page">
-      <span>Viser</span>
+      <span>Shows</span>
       <span class="e-pagination__dropdown">
         <div class="e-form-field e-form-field--compact">
           <div class="e-dropdown">
@@ -114,7 +114,7 @@ export class PaginationDocComponent implements OnInit {
           </div>
         </div>
       </span>
-      <span>av 200 bilder</span>
+      <span>of 200 images</span>
     </div>
     <div class="e-pagination__choosing-page">
     <div class="e-pagination__arrow">
@@ -136,7 +136,7 @@ export class PaginationDocComponent implements OnInit {
 
   exampleInHTML = `<div class="e-pagination">
   <div class="e-pagination__number-per-page">
-    <span>Viser</span>
+    <span>Shows</span>
     <span class="e-pagination__dropdown">
       <div class="e-form-field e-form-field--compact">
         <div class="e-dropdown">
@@ -153,7 +153,7 @@ export class PaginationDocComponent implements OnInit {
         </div>
       </div>
     </span>
-    <span>av 200 bilder</span>
+    <span>of 200 images</span>
   </div>
   <div class="e-pagination__choosing-page">
     <div class="e-pagination__arrow" *ngIf="leftArrow()" (click)="prev()">

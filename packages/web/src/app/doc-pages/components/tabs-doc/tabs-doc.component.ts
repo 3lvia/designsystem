@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { getComponent } from 'src/app/shared/e-items';
-import { componentData } from './tabs-data';
+import { tabsData } from './tabs-data';
 
 @Component({
   selector: 'app-tabs-doc',
@@ -11,16 +11,18 @@ import { componentData } from './tabs-data';
 export class TabsDocComponent {
   @ViewChild('safeHtml') safeHtml;
 
-  componentData = componentData;
+  componentData = tabsData;
+  does = tabsData.does;
+  donts = tabsData.donts;
   figmaUrl = getComponent('tabs').figmaUrl;
   description = getComponent('tabs').description;
 
   constructor(private sanitizer: DomSanitizer) {}
 
-  ngAfterViewInit(): void {
-    this.safeHtml.nativeElement.insertAdjacentHTML(
-      'beforeend',
-      this.sanitizer.bypassSecurityTrustHtml(this.componentData.codeWebComponent),
-    );
-  }
+  // ngAfterViewInit(): void {
+  //   this.safeHtml.nativeElement.insertAdjacentHTML(
+  //     'beforeend',
+  //     this.sanitizer.bypassSecurityTrustHtml(tabsData.codeWebComponent),
+  //   );
+  // }
 }

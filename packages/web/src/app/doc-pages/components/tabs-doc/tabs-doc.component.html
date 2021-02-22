@@ -8,15 +8,29 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!-- <elvia-tabs [items]="['items', 'items', 'items']" value="1"></elvia-tabs> -->
-  <!-- <ng-template #safeHtml></ng-template> -->
-  <div [innerHtml]="safeHtml"></div>
+  <elvia-tabs [items]="['items', 'items', 'items']" value="1"></elvia-tabs>
+  <!-- <div [innerHtml]="safeHtml"></div> -->
+
   <!--CEG-->
   <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
-    <ng-container ngProjectAs="sectionContent">Usage</ng-container>
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+      <app-component-subsection [sectionTitle]="'Responsive'">
+        <ng-container ngProjectAs="sectionContent">
+          Tabs in mobile will stay the same but work like a carousel (tabs with horizontal scroll).
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->

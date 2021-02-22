@@ -68,7 +68,7 @@ export class StepperDocComponent implements OnInit {
           <input type="text" value="+47" />
         </div>
         <div class="e-input e-mb-24">
-          <input type="text" placeholder="Placeholder text" />
+          <input type="text" placeholder="99 99 99 99" />
         </div>
       </div>
     </div>
@@ -132,7 +132,7 @@ export class StepperDocComponent implements OnInit {
           <input type="text" value="+47" />
         </div>
         <div class="e-input e-mb-24">
-          <input type="text" placeholder="Placeholder text" />
+          <input type="text" placeholder="99 99 99 99" />
         </div>
       </div>
     </div>
@@ -222,7 +222,7 @@ export class StepperDocComponent implements OnInit {
           <input type="text" value="+47" />
         </div>
         <div class="e-input e-mb-24">
-          <input type="text" placeholder="Placeholder text" />
+          <input type="text" placeholder="99 99 99 99" />
         </div>
       </div>
     </div>
@@ -276,7 +276,7 @@ export class StepperDocComponent implements OnInit {
             <input type="text" value="+47" />
           </div>
           <div class="e-input e-mb-24">
-            <input type="text" placeholder="Placeholder text" />
+            <input type="text" placeholder="99 99 99 99" />
           </div>
         </div>
       </div>
@@ -331,7 +331,7 @@ export class StepperDocComponent implements OnInit {
             <input type="text" value="+47" />
           </div>
           <div class="e-input e-mb-24">
-            <input type="text" placeholder="Placeholder text" />
+            <input type="text" placeholder="99 99 99 99" />
           </div>
         </div>
       </div>
@@ -411,7 +411,7 @@ export class StepperDocComponent implements OnInit {
             <input type="text" value="+47" />
           </div>
           <div class="e-input e-mb-24">
-            <input type="text" placeholder="Placeholder text" />
+            <input type="text" placeholder="99 99 99 99" />
           </div>
         </div>
       </div>
