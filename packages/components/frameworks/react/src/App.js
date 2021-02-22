@@ -41,8 +41,6 @@ function App() {
         <div>{selectedState.toString()}</div>
       </div>
 
-      <button onClick={update}>update</button>
-
       <hr style={{ margin: '40px 0' }} />
 
       <h2>Checkbox</h2>

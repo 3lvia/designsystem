@@ -8,7 +8,14 @@
 
 <!--BODY-->
 <div class="page-body">
-  <elvia-tabs [items]="['items', 'items', 'items']" value="1"></elvia-tabs>
+  <elvia-tabs
+    [items]="[
+      exampleContents.words.random['eng-GBR'][0],
+      exampleContents.words.random['eng-GBR'][1],
+      exampleContents.words.random['eng-GBR'][2]
+    ]"
+    value="1"
+  ></elvia-tabs>
   <!-- <div [innerHtml]="safeHtml"></div> -->
 
   <!--CEG-->

@@ -1,3 +1,5 @@
+import { exampleContents } from 'src/app/shared/example-contents';
+
 export const tabsData = {
   name: 'elvis-tabs',
   elementNameW: 'elvia-tabs',
@@ -30,12 +32,26 @@ export const tabsData = {
   package: 'npm install @elvia/elvis-tabs',
   codeImportReact: `import { Tabs } from '@elvia/elvis-tabs/react';`,
   codeImportWebComponent: `import '@elvia/elvis-tabs';`,
-  codeReact: `<Tabs 
-  items={'items', 'item2'}
+  codeReact:
+    `<Tabs 
+  items={'` +
+    exampleContents.words.random['eng-GBR'][0] +
+    `', '` +
+    exampleContents.words.random['eng-GBR'][1] +
+    `', '` +
+    exampleContents.words.random['eng-GBR'][2] +
+    `'}
   value={1}
 ></Tabs>`,
-  codeWebComponent: `<elvia-tabs 
-  [items]="['items', 'items', 'items']" 
+  codeWebComponent:
+    `<elvia-tabs 
+  [items]="['` +
+    exampleContents.words.random['eng-GBR'][0] +
+    `', '` +
+    exampleContents.words.random['eng-GBR'][1] +
+    `', '` +
+    exampleContents.words.random['eng-GBR'][2] +
+    `']" 
   value="1"
 ></elvia-tabs>`,
   does: ['If you have sub-sections of a page and can not display everything at once'],

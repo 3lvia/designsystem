@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { getComponent } from 'src/app/shared/e-items';
 import { tabsData } from './tabs-data';
+import { exampleContents } from 'src/app/shared/example-contents';
 
 @Component({
   selector: 'app-tabs-doc',
@@ -10,7 +11,7 @@ import { tabsData } from './tabs-data';
 })
 export class TabsDocComponent {
   @ViewChild('safeHtml') safeHtml;
-
+  exampleContents = exampleContents;
   componentData = tabsData;
   does = tabsData.does;
   donts = tabsData.donts;
