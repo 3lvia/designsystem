@@ -15,6 +15,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Components: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>,
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a> & 
@@ -50,18 +51,17 @@
         </ul>
         </div>
       </div>
-      <div class="changelog-divider"></div>
-    </td>
-    <td class="changelog-content">
-      <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+      <div class="changelog-content">
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/card#Overview">Card</a>
         </div>
         New modifier class added for cards that only contain text: <span class="code-text">e-card--text-only</span>.
+      </div>
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -74,7 +74,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
         </div>
@@ -82,6 +82,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -94,7 +95,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icons#Overview">Icons</a>
         </div>
@@ -103,6 +104,7 @@
       </div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -115,7 +117,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/divider#Overview">Divider</a>
         </div>
@@ -123,6 +125,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -143,6 +146,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -155,7 +159,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/Typography#Overview">Typography</a>
         </div>
@@ -163,6 +167,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -187,6 +192,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -199,7 +205,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icons</a>
         </div>
@@ -212,7 +218,8 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
-<tr class="changelog-row">
+
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       4.6.0
@@ -224,7 +231,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
         </div>
@@ -234,6 +241,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -246,7 +254,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Icon Button</a>
         </div>
@@ -256,6 +264,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
