@@ -111,7 +111,7 @@ clearExample(): void {
 `;
 
   searhOnSubmitExample = `<div class="e-inlined-field">
-  <div class="e-form-field--inline">
+  <div class="e-form-field e-form-field--width-auto">
     <div
     class="e-search e-search--on-submit"
     style="width: 250px"
@@ -138,7 +138,7 @@ clearExample(): void {
 </div>
 `;
   searhOnSubmitAfterExample = `<div class="e-inlined-field">
-  <div class="e-form-field--inline">
+  <div class="e-form-field e-form-field--width-auto">
     <div
       class="e-search e-search--on-submit e-search--searched"
       style="width: 250px"
@@ -216,7 +216,7 @@ clearExample(): void {
 
   searchSizesOnSubmitExample = `<div class="e-text-label e-mb-16">Normal</div>
 <div class="e-inlined-field">
-  <div class="e-form-field--inline">
+  <div class="e-form-field e-form-field--width-auto">
     <div
       class="e-search e-search--on-submit"
       style="width: 250px"
@@ -245,7 +245,7 @@ clearExample(): void {
 <div class="e-text-label e-mb-16 e-mt-24">Compact</div>
 
 <div class="e-inlined-field">
-  <div class="e-form-field--inline e-form-field--compact">
+  <div class="e-form-field e-form-field--width-auto e-form-field--compact">
     <div
       class="e-search e-search--on-submit "
       style="width: 250px"
