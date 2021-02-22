@@ -7,6 +7,7 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-documentatio
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
     ComponentSectionModule,
     ComponentSubsectionModule,
     WhenToUseModule,
+    RouterModule,
   ],
   declarations: [SearchDocComponent],
 })
