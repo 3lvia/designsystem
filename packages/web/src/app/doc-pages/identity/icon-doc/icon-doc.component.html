@@ -92,8 +92,7 @@
             class="e-form-field__label"
             for="searchIcons"
           >Search</label>
-          <!-- Todo: replace with instant search class -->
-          <div class="e-search e-search--local e-search--searched">
+          <div class="e-search e-search--instant e-search--searched">
             <div class="e-input">
               <input
                 id="searchIcons"
@@ -102,17 +101,13 @@
                 [(ngModel)]="term"
               />
             </div>
+            <i class="e-icon e-icon--search-color"></i>
             <button
-              class="e-btn e-btn--icon e-btn--lg"
+              class="e-btn e-btn--icon"
               *ngIf="term.length > 0"
               (click)="removeSearch()"
             >
-              <!-- left: 35% due to instant search class not available yet -->
-              <span
-                class="e-btn__icon"
-                asdsd
-                style="left: 35%"
-              >
+              <span class="e-btn__icon">
                 <i class="e-icon e-icon--close-bold"></i>
               </span>
             </button>

@@ -19,6 +19,7 @@
       font-weight: 500;
       font-size: 14px;
       line-height: 24px;
+      text-align: left;
 
       padding-right: 8px;
       max-width: 80%;
@@ -57,6 +58,7 @@
       pointer-events: none;
       overflow: hidden;
       @include typography.typography('text-body');
+      text-align: left;
     }
 
     &.e-accordion__item--open {

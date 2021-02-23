@@ -19,11 +19,15 @@ export class ComponentPropertiesComponent implements OnInit {
     this.makePropertyLists();
   }
 
+  isCustom(componentName: string): boolean {
+    return componentName.includes('custom');
+  }
+
   makePropertyLists(): void {
     Object.keys(data.block).forEach((block) => {
       if (block === this.componentName) {
         this.getContainer();
-        this.getAllElement();
+        this.getAllElements();
         this.getAllModifiers();
         this.getAllPsuedo();
       }
@@ -38,18 +42,21 @@ export class ComponentPropertiesComponent implements OnInit {
     }
   }
 
-  getAllElement(): void {
+  getAllElements(): void {
     if (data.block[this.componentName].element) {
       Object.keys(data.block[this.componentName].element).forEach((el) => {
         const elementModifiers = [];
         if (data.block[this.componentName].element[el].modifier) {
           Object.keys(data.block[this.componentName].element[el].modifier).forEach((el2) => {
-            elementModifiers.push(el2);
-            this.allElementModifiers.push(el2);
+            if (!this.isCustom(el2)) {
+              this.allElementModifiers.push(el2);
+            }
           });
         }
         const el1 = { name: el, elementModifiers };
-        this.elements.push(el1);
+        if (!this.isCustom(el1.name)) {
+          this.elements.push(el1);
+        }
       });
     }
   }
@@ -57,7 +64,9 @@ export class ComponentPropertiesComponent implements OnInit {
   getAllModifiers(): void {
     if (data.block[this.componentName].modifier) {
       Object.keys(data.block[this.componentName].modifier).forEach((mod) => {
-        this.modifiers.push(mod);
+        if (!this.isCustom(mod)) {
+          this.modifiers.push(mod);
+        }
       });
     }
   }
@@ -65,7 +74,9 @@ export class ComponentPropertiesComponent implements OnInit {
   getAllPsuedo(): void {
     if (data.block[this.componentName].psuedo) {
       Object.keys(data.block[this.componentName].psuedo).forEach((psu) => {
-        this.psuedos.push(psu);
+        if (!this.isCustom(psu)) {
+          this.psuedos.push(psu);
+        }
       });
     }
   }

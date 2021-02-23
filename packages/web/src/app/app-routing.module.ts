@@ -8,7 +8,6 @@ import { LabelDocComponent } from './doc-pages/components/label-doc/label-doc.co
 import { CardDocComponent } from './doc-pages/components/card-doc/card-doc.component';
 import { LinkDocComponent } from './doc-pages/components/link-doc/link-doc.component';
 import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.component';
-import { TagsDocComponent } from './doc-pages/components/tags-doc/tags-doc.component';
 import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
 import { ColorDocComponent } from './doc-pages/identity/color-doc/color-doc.component';
 import { IconDocComponent } from './doc-pages/identity/icon-doc/icon-doc.component';
@@ -297,10 +296,6 @@ const routes: Routes = [
           {
             path: Pages.Table,
             component: TableDocComponent,
-          },
-          {
-            path: Pages.Tags,
-            component: TagsDocComponent,
           },
           {
             path: Pages.Tooltip,

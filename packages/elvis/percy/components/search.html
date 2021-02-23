@@ -17,15 +17,11 @@
 
 <body>
   <div class="e-title-sm e-mt-16">Search</div>
-  <div class="e-title-xs e-my-16">Local Search</div>
+  <div class="e-title-xs e-my-16">Instant Search</div>
   <div class="e-form-field">
-    <label
-      class="e-form-field__label"
-      for="compact"
-    >Søk</label>
     <div
-      class="e-search e-search--local"
-      style="width: 400px"
+      class="e-search e-search--instant"
+      style="width: 250px"
     >
       <div class="e-input">
         <input
@@ -34,20 +30,17 @@
           placeholder="Placeholder text"
         />
       </div>
-      <button class="e-btn e-btn--icon e-btn--lg">
-        <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
+      <i class="e-icon e-icon--search-color"></i>
+      <button class="e-btn e-btn--icon">
         <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
       </button>
     </div>
   </div>
-  <div class="e-form-field e-mt-16">
-    <label
-      class="e-form-field__label"
-      for="compact"
-    >Søk</label>
+
+  <div class="e-form-field e-form-field--compact e-mt-24">
     <div
-      class="e-search e-search--local e-search--searched"
-      style="width: 400px"
+      class="e-search e-search--instant"
+      style="width: 250px"
     >
       <div class="e-input">
         <input
@@ -56,20 +49,17 @@
           placeholder="Placeholder text"
         />
       </div>
-      <button class="e-btn e-btn--icon e-btn--lg">
-        <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
+      <i class="e-icon e-icon--search-color"></i>
+      <button class="e-btn e-btn--icon">
         <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
       </button>
     </div>
   </div>
-  <div class="e-form-field e-form-field--compact e-mt-16">
-    <label
-      class="e-form-field__label"
-      for="compact"
-    >Søk</label>
+
+  <div class="e-form-field e-my-16">
     <div
-      class="e-search e-search--local"
-      style="width: 400px"
+      class="e-search e-search--instant e-search--searched"
+      style="width: 250px"
     >
       <div class="e-input">
         <input
@@ -78,20 +68,17 @@
           placeholder="Placeholder text"
         />
       </div>
-      <button class="e-btn e-btn--icon e-btn--lg">
-        <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
+      <i class="e-icon e-icon--search-color"></i>
+      <button class="e-btn e-btn--icon">
         <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
       </button>
     </div>
   </div>
-  <div class="e-form-field e-form-field--compact e-mt-16">
-    <label
-      class="e-form-field__label"
-      for="compact"
-    >Søk</label>
+
+  <div class="e-form-field e-form-field--compact e-mt-24">
     <div
-      class="e-search e-search--local e-search--searched"
-      style="width: 400px"
+      class="e-search e-search--instant e-search--searched"
+      style="width: 250px"
     >
       <div class="e-input">
         <input
@@ -100,12 +87,123 @@
           placeholder="Placeholder text"
         />
       </div>
-      <button class="e-btn e-btn--icon e-btn--lg">
-        <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
+      <i class="e-icon e-icon--search-color"></i>
+      <button class="e-btn e-btn--icon">
         <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
       </button>
     </div>
   </div>
+  <div class="e-title-xs e-my-16">On Submit Search</div>
+  <div class="e-inlined-field">
+    <div class="e-form-field e-form-field--width-auto">
+      <div
+        class="e-search e-search--on-submit"
+        style="width: 250px"
+      >
+        <div class="e-input">
+          <input
+            aria-label="Search"
+            type="search"
+            placeholder="Search"
+          />
+        </div>
+        <button class="e-btn e-btn--icon">
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
+    </div>
+    <button class="e-btn e-btn--lg e-ml-16">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--search-color e-icon--inverted"></i>
+        <i class="e-icon e-icon--search-color"></i>
+      </span>
+      <span class="e-btn__title">Search</span>
+    </button>
+  </div>
+
+
+  <div class="e-inlined-field e-my-16">
+    <div class="e-form-field e-form-field--width-auto e-form-field--compact">
+      <div
+        class="e-search e-search--on-submit "
+        style="width: 250px"
+      >
+        <div class="e-input">
+          <input
+            aria-label="Search"
+            type="search"
+            placeholder="Search"
+          />
+        </div>
+        <button class="e-btn e-btn--icon">
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
+    </div>
+    <button class="e-btn e-btn--sm e-ml-16">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--search-color e-icon--inverted"></i>
+        <i class="e-icon e-icon--search-color"></i>
+      </span>
+      <span class="e-btn__title">Search</span>
+    </button>
+  </div>
+
+  <div class="e-inlined-field">
+    <div class="e-form-field e-form-field--width-auto">
+      <div
+        class="e-search e-search--on-submit e-search--searched"
+        style="width: 250px"
+      >
+        <div class="e-input">
+          <input
+            aria-label="Search"
+            type="search"
+            placeholder="Search"
+          />
+        </div>
+        <button class="e-btn e-btn--icon">
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
+    </div>
+    <button class="e-btn e-btn--lg e-ml-16">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--search-color e-icon--inverted"></i>
+        <i class="e-icon e-icon--search-color"></i>
+      </span>
+      <span class="e-btn__title">Search</span>
+    </button>
+  </div>
+
+
+  <div class="e-inlined-field e-my-16">
+    <div class="e-form-field e-form-field--width-auto e-form-field--compact">
+      <div
+        class="e-search e-search--on-submit e-search--searched"
+        style="width: 250px"
+      >
+        <div class="e-input">
+          <input
+            aria-label="Search"
+            type="search"
+            placeholder="Search"
+          />
+        </div>
+        <button class="e-btn e-btn--icon">
+          <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+        </button>
+      </div>
+    </div>
+    <button class="e-btn e-btn--sm e-ml-16">
+      <span class="e-btn__icon">
+        <i class="e-icon e-icon--search-color e-icon--inverted"></i>
+        <i class="e-icon e-icon--search-color"></i>
+      </span>
+      <span class="e-btn__title">Search</span>
+    </button>
+  </div>
+
 </body>
 
 </html>

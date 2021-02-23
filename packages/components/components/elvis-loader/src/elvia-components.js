@@ -5,9 +5,9 @@ const injector = require('./script-injector');
 document.addEventListener('DOMContentLoaded', function () {
   const elementNames = {};
 
-  components.forEach(comp => {
+  components.forEach((comp) => {
     elementNames[comp.elementName] = comp;
-  })
+  });
 
   function searchForComponents(domElement) {
     for (var i = 0; i < components.length; i++) {
@@ -21,8 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
   // Initial Load
   searchForComponents(document);
   startMutationObserver();
-
-
 
   function startMutationObserver() {
     let mo = new MutationObserver(function (mutations) {
