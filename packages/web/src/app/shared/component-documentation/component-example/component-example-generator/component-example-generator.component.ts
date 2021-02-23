@@ -11,6 +11,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
   @ViewChild('cegFrame') cegFrame;
   @Input() componentData;
   @Input() width = 100;
+  @Input() hasPreview = true;
   codeWebComponentSub: Subscription;
   hasCegAttributes = false;
 

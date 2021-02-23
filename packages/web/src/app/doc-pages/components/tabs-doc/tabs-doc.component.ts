@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { DomSanitizer } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 import { tabsData } from './tabs-data';
 import { exampleContents } from 'src/app/shared/example-contents';
@@ -10,20 +9,10 @@ import { exampleContents } from 'src/app/shared/example-contents';
   styleUrls: ['./tabs-doc.component.scss'],
 })
 export class TabsDocComponent {
-  @ViewChild('safeHtml') safeHtml;
   exampleContents = exampleContents;
   componentData = tabsData;
   does = tabsData.does;
   donts = tabsData.donts;
   figmaUrl = getComponent('tabs').figmaUrl;
   description = getComponent('tabs').description;
-
-  constructor(private sanitizer: DomSanitizer) {}
-
-  // ngAfterViewInit(): void {
-  //   this.safeHtml.nativeElement.insertAdjacentHTML(
-  //     'beforeend',
-  //     this.sanitizer.bypassSecurityTrustHtml(tabsData.codeWebComponent),
-  //   );
-  // }
 }

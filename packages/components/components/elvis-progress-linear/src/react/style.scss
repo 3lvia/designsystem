@@ -2,6 +2,10 @@ $grey-10: #e9e9e9;
 $green: #29d305;
 $red: #ff0000;
 
+:host {
+  width: 100%;
+}
+
 .ewc-progress-linear {
   display: flex;
   width: 100%;
@@ -10,17 +14,17 @@ $red: #ff0000;
   background-color: $grey-10;
   margin: 0;
   margin-bottom: 40px;
-   
-   &--range {
+
+  &--range {
     border-radius: 50px;
     align-self: center;
     height: 6px;
     margin-left: 0;
     background-color: $green;
-    transition: width .3s ease-in;
-   }
+    transition: width 0.3s ease-in;
+  }
 
-   &--indeterminate {
+  &--indeterminate {
     border-radius: 50px;
     align-self: center;
     height: 6px;
@@ -28,17 +32,17 @@ $red: #ff0000;
     margin-left: 0;
     background-color: $green;
     animation: loading 1s infinite;
-   }
+  }
 
-   &--error {
+  &--error {
     border-radius: 50px;
     align-self: center;
     height: 6px;
     width: 100% !important;
     margin-left: 0;
     background-color: $red;
-    transition: width .3s ease-in;
-   }
+    transition: width 0.3s ease-in;
+  }
 }
 
 @keyframes loading {
