@@ -10,6 +10,7 @@ export class AppComponent implements OnInit {
   checkBoxVal = true;
   checkBoxVal2 = true;
   progressValue = 0;
+  counterValue = 2;
 
   items = [
     { label: 'Epler' },
