@@ -26,7 +26,7 @@
             Documentation on links is updated and usage of different links made clearer. Breaking changes are; Forward links should be replaced by action links, back links should be replaced and now uses the --back modifier, and jumbo links uses a new icon.
           </li>
           <li>
-            Typography now has no specified text-align except those with text-align center.
+            Typography now has no specified text-align except those with text-align center. All components now also include left-alignment inside the component itself.
           </li>
           <li>
           <span class="code-text">e-search--local</span> have been replaced by two new search variants; <span class="code-text">e-search--instant</span> & <span class="code-text">e-search--on-submit</span>.
