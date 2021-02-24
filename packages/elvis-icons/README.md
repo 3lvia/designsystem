@@ -12,7 +12,9 @@ color: 'inverted' -> Inverts the icon correctly <br> color: 'red' -> Makes the i
 
 ### Example
 
-`icons['add_circle'].getIcon(red)`
+- `icons['add_circle-filled']`
+- `icons['add_circle'].getIcon(red)`
+- `icons['add_circle-filled'].getIcon('inverted')`
 
 ## Icon usage
 
