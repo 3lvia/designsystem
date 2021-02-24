@@ -51,6 +51,13 @@ $text-line-height: 32px;
     .navbar-item {
       margin-left: 4px;
       margin-bottom: 16px;
+      @extend %scale-down-ver-top;
+
+      @for $i from 1 through 35 {
+        &:nth-child(#{$i}) {
+          animation-delay: 30ms * $i;
+        }
+      }
 
       a {
         cursor: pointer;
