@@ -64,7 +64,6 @@ export enum Pages {
   Stepper = 'stepper',
   Table = 'table',
   Tabs = 'tabs',
-  Tags = 'tags',
   Tooltip = 'tooltip',
 
   // Tools Pages

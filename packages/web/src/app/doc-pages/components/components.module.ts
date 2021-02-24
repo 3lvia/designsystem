@@ -8,7 +8,6 @@ import { LinkDocModule } from './link-doc/link-doc.module';
 import { ListDocModule } from './list-doc/list-doc.module';
 import { OverviewModule } from './overview-comp/overview-comp.module';
 import { TableDocModule } from './table-doc/table-doc.module';
-import { TagsDocModule } from './tags-doc/tags-doc.module';
 import { TooltipDocModule } from './tooltip-doc/tooltip-doc.module';
 import { FileUploadDocModule } from './file-upload-doc/file-upload-doc.module';
 import { ProgressbarDocModule } from './progressbar-doc/progressbar-doc.module';
@@ -55,7 +54,6 @@ import { TabsDocModule } from './tabs-doc/tabs-doc.module';
     StepperDocModule,
     TabsDocModule,
     TableDocModule,
-    TagsDocModule,
     TooltipDocModule,
     HeaderDocModule,
   ],

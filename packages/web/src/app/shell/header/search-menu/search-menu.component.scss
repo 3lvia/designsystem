@@ -1,5 +1,5 @@
-@import '../header.component.scss';
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import "../header.component.scss";
+@import "@elvia/elvis/src/utilities/breakpoints.scss";
 
 .header {
   position: fixed;
@@ -42,7 +42,7 @@
   }
 
   &::before {
-    content: '';
+    content: "";
     border-radius: 100%;
     position: absolute;
     background-color: var(--e-white);
@@ -110,15 +110,79 @@
       }
     }
 
-    .e-search.e-search--global {
-      margin-top: 40px;
-      width: 365px;
-      @include breakpoint-up(Tablet) {
-        margin-top: 32px;
+    .e-search {
+      position: relative;
+
+      &::-ms-clear {
+        display: none;
       }
-      @include breakpoint-up(Mobile) {
-        margin-top: 24px;
-        width: auto;
+
+      font-family: "Red Hat Text";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 22px;
+
+      &.e-search--global {
+        display: flex;
+        flex-direction: row;
+        margin-top: 40px;
+        width: 365px;
+
+        @include breakpoint-up(Tablet) {
+          margin-top: 32px;
+        }
+        @include breakpoint-up(Mobile) {
+          margin-top: 24px;
+          width: auto;
+        }
+
+        .e-input {
+          input,
+          input:invalid,
+          input:focus,
+          input:disabled {
+            font-family: "Red Hat Text";
+            font-size: 24px;
+            line-height: 38px;
+            padding: 0;
+            border-radius: 0;
+            border: 1px solid transparent;
+            border-bottom: 1px solid var(--e-black);
+          }
+        }
+
+        .e-btn.e-btn--icon {
+          display: none;
+          width: 32px;
+          height: 32px;
+        }
+
+        &.e-search--searched {
+          .e-btn.e-btn--icon {
+            display: flex;
+            position: absolute;
+            right: 0;
+            bottom: 1px;
+            @media screen and (-ms-high-contrast: none) {
+              top: 0px;
+            }
+            .e-btn__icon {
+              width: 16px;
+              height: 16px;
+              img,
+              i {
+                width: 16px;
+                height: 16px;
+              }
+              i[class*="e-icon--close-bold"] {
+                position: absolute;
+                display: flex;
+                top: 0px;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -130,7 +194,7 @@
     align-items: center;
     margin-top: 64px;
 
-    font-family: 'Red Hat Text';
+    font-family: "Red Hat Text";
     font-size: 20px;
     line-height: 32px;
   }
@@ -172,7 +236,7 @@
         flex-direction: row;
         justify-content: space-between;
         .title {
-          font-family: 'Red Hat Display';
+          font-family: "Red Hat Display";
           font-weight: 700;
           font-size: 18px;
           line-height: 22px;
@@ -185,7 +249,7 @@
       .result-content {
         margin-top: 8px;
 
-        font-family: 'Red Hat Text';
+        font-family: "Red Hat Text";
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
