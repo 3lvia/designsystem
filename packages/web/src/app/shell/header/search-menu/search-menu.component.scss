@@ -1,5 +1,5 @@
-@import "../header.component.scss";
-@import "@elvia/elvis/src/utilities/breakpoints.scss";
+@import '../header.component.scss';
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .header {
   position: fixed;
@@ -15,6 +15,7 @@
   .elvis-search__title,
   .version {
     color: var(--e-black) !important;
+    text-transform: lowercase;
   }
 
   .external-links .vertical-line {
@@ -42,7 +43,7 @@
   }
 
   &::before {
-    content: "";
+    content: '';
     border-radius: 100%;
     position: absolute;
     background-color: var(--e-white);
@@ -117,7 +118,7 @@
         display: none;
       }
 
-      font-family: "Red Hat Text";
+      font-family: 'Red Hat Text';
       font-style: normal;
       font-weight: 400;
       font-size: 16px;
@@ -142,7 +143,7 @@
           input:invalid,
           input:focus,
           input:disabled {
-            font-family: "Red Hat Text";
+            font-family: 'Red Hat Text';
             font-size: 24px;
             line-height: 38px;
             padding: 0;
@@ -175,7 +176,7 @@
                 width: 16px;
                 height: 16px;
               }
-              i[class*="e-icon--close-bold"] {
+              i[class*='e-icon--close-bold'] {
                 position: absolute;
                 display: flex;
                 top: 0px;
@@ -194,7 +195,7 @@
     align-items: center;
     margin-top: 64px;
 
-    font-family: "Red Hat Text";
+    font-family: 'Red Hat Text';
     font-size: 20px;
     line-height: 32px;
   }
@@ -236,7 +237,7 @@
         flex-direction: row;
         justify-content: space-between;
         .title {
-          font-family: "Red Hat Display";
+          font-family: 'Red Hat Display';
           font-weight: 700;
           font-size: 18px;
           line-height: 22px;
@@ -249,7 +250,7 @@
       .result-content {
         margin-top: 8px;
 
-        font-family: "Red Hat Text";
+        font-family: 'Red Hat Text';
         font-style: normal;
         font-weight: 400;
         font-size: 16px;

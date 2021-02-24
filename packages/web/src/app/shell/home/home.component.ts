@@ -9,7 +9,7 @@ import { eHomes } from 'src/app/shared/e-items';
 export class HomeComponent implements OnInit {
   overviewTitle = 'Elvia design system';
   pages = eHomes;
-
+  fontLoaded = false;
   date = new Date();
   christmasMonth = 11;
   christmas = false;
@@ -17,6 +17,10 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.findEndOfRow();
     this.christmas = this.date.getMonth() === this.christmasMonth ? true : false;
+    (document as any).fonts.ready.then(() => {
+      console.log((document as any).fonts.check('16px Red Hat Display'));
+      this.fontLoaded = true;
+    });
   }
 
   findEndOfRow(): void {

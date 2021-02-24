@@ -181,6 +181,20 @@
           padding: 12px;
         }
       }
+      .content-loader-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 134px;
+        @media (min-width: 1326px) {
+          height: 74px;
+        }
+        .e-content-loader--text.e-w-50 {
+          @media (min-width: 1326px) {
+            display: none;
+          }
+        }
+      }
       .dot {
         display: inline-block;
         content: ' ';
@@ -191,6 +205,12 @@
         border-radius: 50%;
         background: var(--e-green);
       }
+    }
+    .content-loader-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 117px;
     }
   }
 }

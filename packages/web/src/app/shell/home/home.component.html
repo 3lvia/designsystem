@@ -5,17 +5,27 @@
         <div class="col-lg-6 desktop-col">
           <div class="home-header">
             <h1 class="big-header">
-              <span class="title">{{ overviewTitle }}</span>
-              <span class="dot"></span>
+              <div *ngIf="fontLoaded">
+                <span class="title">{{ overviewTitle }}</span>
+                <span class="dot"></span>
+              </div>
+              <div *ngIf="!fontLoaded" class="content-loader-title">
+                <span class="e-content-loader e-content-loader--text e-w-75"></span>
+                <span class="e-content-loader e-content-loader--text e-w-50 e-mt-24"></span>
+              </div>
             </h1>
             <div class="e-text-lead e-mt-32">
-              A scalable system of visual language, components and design assets so we can work together
-              towards an ultimate brand experience.
+              <div *ngIf="fontLoaded">
+                A scalable system of visual language, components and design assets so we can work together
+                towards an ultimate brand experience.
+              </div>
+              <div *ngIf="!fontLoaded" class="content-loader-text">
+                <span class="e-content-loader e-content-loader--text"></span>
+                <span class="e-content-loader e-content-loader--text e-mt-24"></span>
+                <span class="e-content-loader e-content-loader--text e-w-75 e-mt-24"></span>
+              </div>
             </div>
-            <a
-              class="e-btn e-btn--lg e-mt-48"
-              [routerLink]="['/get-started']"
-            >
+            <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
               <span class="e-btn__title">Get started</span>
             </a>
           </div>
@@ -23,14 +33,8 @@
 
         <div class="col-lg-6">
           <div class="image-div">
-            <img
-              *ngIf="christmas"
-              src="assets/ChristmasIllustration.svg"
-            />
-            <img
-              *ngIf="!christmas"
-              src="assets/HomeIllustration.png"
-            />
+            <img *ngIf="christmas" src="assets/ChristmasIllustration.svg" />
+            <img *ngIf="!christmas" src="assets/HomeIllustration.png" />
           </div>
         </div>
       </div>
@@ -38,14 +42,8 @@
       <div class="home-top-mobile">
         <div class="col-md-12">
           <div class="image-div">
-            <img
-              *ngIf="christmas"
-              src="assets/ChristmasIllustration.svg"
-            />
-            <img
-              *ngIf="!christmas"
-              src="assets/HomeIllustration.png"
-            />
+            <img *ngIf="christmas" src="assets/ChristmasIllustration.svg" />
+            <img *ngIf="!christmas" src="assets/HomeIllustration.png" />
           </div>
         </div>
       </div>
@@ -63,10 +61,7 @@
             A scalable system of visual language, components and design assets so we can work together towards
             an ultimate brand experience.
           </div>
-          <a
-            class="e-btn e-btn--lg e-mt-48"
-            [routerLink]="['/get-started']"
-          >
+          <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
             <span class="e-btn__title">Get started</span>
           </a>
         </div>
@@ -74,10 +69,7 @@
     </div>
     <div class="row no-gutters">
       <div class="col-12 card-links">
-        <div
-          class="card-link"
-          *ngFor="let page of pages"
-        >
+        <div class="card-link" *ngFor="let page of pages">
           <a
             class="e-link e-link--card e-link--shortcut"
             *ngIf="page.absolutePath"
@@ -85,16 +77,8 @@
           >
             <div class="e-link__content">
               <div class="e-link__icon e-link--delay-hover">
-                <img
-                  src="{{ page.imageUrl }}"
-                  class="shortcut-off"
-                  alt=""
-                />
-                <img
-                  src="{{ page.imageUrlOn }}"
-                  class="shortcut-on"
-                  alt=""
-                />
+                <img src="{{ page.imageUrl }}" class="shortcut-off" alt="" />
+                <img src="{{ page.imageUrlOn }}" class="shortcut-on" alt="" />
               </div>
               <div class="e-link__title">{{ page.title }}</div>
               <div class="e-link__description">{{ page.description }}</div>
@@ -104,31 +88,14 @@
       </div>
     </div>
 
-    <div
-      class="row no-gutters"
-      style="margin-top: 80px"
-    >
+    <div class="row no-gutters" style="margin-top: 80px">
       <div class="home-whats-new">
-        <div
-          class="e-title-md e-mb-56"
-          style="display: flex; justify-content: center"
-        >What's new?</div>
+        <div class="e-title-md e-mb-56" style="display: flex; justify-content: center">What's new?</div>
         <div>
-          <div
-            class="e-mt-n48"
-            style="padding-top: 0px"
-            markdown
-            [src]="'assets/elvis/CHANGELOG.md'"
-          ></div>
+          <div class="e-mt-n48" style="padding-top: 0px" markdown [src]="'assets/elvis/CHANGELOG.md'"></div>
         </div>
-        <div
-          class="e-mt-48"
-          style="display: flex; justify-content: center"
-        >
-          <a
-            class="e-link e-link--action"
-            [routerLink]="['/community/changelog']"
-          >
+        <div class="e-mt-48" style="display: flex; justify-content: center">
+          <a class="e-link e-link--action" [routerLink]="['/community/changelog']">
             <span class="e-link__title">View changelog</span>
             <span class="e-link__icon">
               <i class="e-icon e-icon--arrow_right_circle-color"></i>

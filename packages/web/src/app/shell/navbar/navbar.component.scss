@@ -8,7 +8,7 @@ $text-line-height: 32px;
   position: relative;
 }
 .navbar {
-  height: calc(100% - 64px - #{$header-height});
+  height: calc(100% - 64px - 48px - #{$header-height});
   top: $header-height + 64px;
   width: 18%;
   bottom: $footer-height;
@@ -51,6 +51,9 @@ $text-line-height: 32px;
     .navbar-item {
       margin-left: 4px;
       margin-bottom: 16px;
+      // &:last-of-type {
+      //   margin-bottom: 54px;
+      // }
 
       a {
         cursor: pointer;
@@ -148,5 +151,15 @@ $text-line-height: 32px;
         }
       }
     }
+    position: relative;
+  }
+  .bottom-blur {
+    // bottom blur
+    position: sticky;
+    bottom: 0px;
+    width: 100%;
+    height: 45px;
+    background-color: transparent;
+    box-shadow: inset 0px -25px 45px 0px var(--e-white);
   }
 }
