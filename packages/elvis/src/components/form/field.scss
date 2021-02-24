@@ -96,6 +96,10 @@
     width: 100%;
     margin-bottom: 0;
 
+    &.e-form-field--width-auto {
+      width: auto;
+    }
+
     &:not(:last-of-type) {
       margin-right: 8px;
     }

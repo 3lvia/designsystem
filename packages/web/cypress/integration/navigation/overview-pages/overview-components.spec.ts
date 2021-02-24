@@ -68,28 +68,12 @@ describe('Elvis Components overview page navigation Test', () => {
         cy.url().should('eq', 'http://localhost:4200/components/radiobutton-doc');
     });
 
-    it('Navigates to Select doc page when clicking card link', () => {
-        cy.get('.e-card_title').contains('Select')
-            .parent('.e-card_header_text')
-            .parent('.e-card_header')
-            .siblings('.e-card_actions').children().contains('View component').click();
-        cy.url().should('eq', 'http://localhost:4200/components/select-doc');
-    });
-
     it('Navigates to Table doc page when clicking card link', () => {
         cy.get('.e-card_title').contains('Table')
             .parent('.e-card_header_text')
             .parent('.e-card_header')
             .siblings('.e-card_actions').children().contains('View component').click();
         cy.url().should('eq', 'http://localhost:4200/components/table-doc');
-    });
-
-    it('Navigates to Tags doc page when clicking card link', () => {
-        cy.get('.e-card_title').contains('Tags')
-            .parent('.e-card_header_text')
-            .parent('.e-card_header')
-            .siblings('.e-card_actions').children().contains('View component').click();
-        cy.url().should('eq', 'http://localhost:4200/components/tags-doc');
     });
 
     it('Navigates to Tooltip doc page when clicking card link', () => {

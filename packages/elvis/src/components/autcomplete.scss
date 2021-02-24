@@ -19,6 +19,7 @@ $autocomplete-padding-item-compact: 6px 10px;
   border-radius: 4px;
   box-shadow: shadows.$e-shadow-6;
   z-index: 1;
+  text-align: left;
 
   &__item {
     cursor: pointer;
