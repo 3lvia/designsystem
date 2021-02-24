@@ -3,6 +3,12 @@ for renaming/deprecating icons add the following:
 - deprecated: 'version number' e.g 4.6.0
 - newIconName : reference to new icon to be displayed
 
+for keeping licensing in order
+- thidpary {
+  name: name of which thirdparty supplier of icons we use, f.ex "streamline" 
+  duplicate: If we modify an icon with a valid license, refernce to which icon we modified and has a valid license
+}
+
 example:
     { name: 'add_circle', deprecated: '4.6.0', newIconName: 'add_circle_new' },
 */
