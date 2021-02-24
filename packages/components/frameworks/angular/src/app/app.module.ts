@@ -7,6 +7,7 @@ import '@elvia/elvis-checkbox';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-tabs';
 import '@elvia/elvis-progress-linear';
+import '@elvia/elvis-testing';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,4 +16,4 @@ import '@elvia/elvis-progress-linear';
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
