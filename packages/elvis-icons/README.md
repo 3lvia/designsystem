@@ -18,7 +18,9 @@ color: 'inverted' -> Inverts the icon correctly <br> color: 'red' -> Makes the i
 
 ## Icon usage
 
-Our icon library is based on Streamline icons. This license includes royalty free usage in an unlimited number
-of projects without the need to credit the source. If used in open source projects, you need to make it clear
-that they are still the property of Webalys LLC and can only be used in the context of the open source
-project. Streamline licence information: https://help.streamlineicons.com/license-premium.
+Our icon library is based on Streamline icons. The icons that are from Streamline is not made accessible under
+the same license as this npm package. Those icons are still the property of Webablys LLC. Elvia has bought a
+license for the use of these icons in the organization. They can also be used in open source projects as long
+as you follow their license.
+
+Streamline license information: https://help.streamlineicons.com/license-premium

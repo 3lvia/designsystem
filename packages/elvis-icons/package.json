@@ -9,7 +9,7 @@
     "watch": "gulp watch"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "gulp": "^4.0.2",
     "gulp-svgo": "^2.1.1",
