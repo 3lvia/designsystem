@@ -1,7 +1,7 @@
 @import "../../../shared/shared-animations";
 @import "@elvia/elvis/src/utilities/breakpoints.scss";
 
-$maxIconContainer: 520px;
+$maxIconContainer: 600px;
 $maxIconContainerMobile: 450px;
 
 .sizes-container {
@@ -75,7 +75,9 @@ $maxIconContainerMobile: 450px;
 
   &-icons-container {
     min-height: $maxIconContainer;
+    height: $maxIconContainer;
     max-height: $maxIconContainer;
+    width: calc(100% + 2px);
     overflow-y: auto;
     display: flex;
     flex-direction: row;
@@ -85,10 +87,22 @@ $maxIconContainerMobile: 450px;
     margin-top: 24px;
     padding: 8px;
     border-radius: 8px;
+    border: 1px solid var(--e-grey-10);
     @include breakpoint-up(Mobile) {
-      padding: 50px 8px;
       min-height: $maxIconContainerMobile;
       max-height: $maxIconContainerMobile;
+    }
+    .bottom-blur {
+      position: sticky;
+      bottom: calc(0% - 8px);
+      width: 100%;
+      height: 35px;
+      background-color: transparent;
+      box-shadow: inset 0px -20px 35px 0px var(--e-white);
+
+      &.bottom-blur--inverted {
+        box-shadow: inset 0px -20px 35px 0px var(--e-grey);
+      }
     }
 
     .desktop-copy {

@@ -14,8 +14,10 @@ $link-sm-line-height: 20px;
 
 $link-action-lg-line-height: 26px;
 $link-action-md-line-height: 24px;
+$link-action-sm-line-height: 21px;
 $link-action-lg-font-size: 20px;
 $link-action-md-font-size: 18px;
+$link-action-sm-font-size: 16px;
 
 $link-jumbo-desktop-padding: 30px 40px;
 $link-jumbo-desktop-width: 545px;
@@ -50,7 +52,7 @@ $grey-ten: colors.color('grey-10');
   &__title + &__icon,
   &__icon + &__title {
     position: relative;
-    margin-left: 8px;
+    margin-left: 4px; // Inline -> space between elements => 8px - 4px space = 4px
   }
 
   &.e-link--lg {
@@ -62,7 +64,7 @@ $grey-ten: colors.color('grey-10');
     font-size: $link-md-font-size;
     line-height: $link-md-line-height;
   }
-  &.e-link--sm:not(.e-link--action) {
+  &.e-link--sm {
     font-size: $link-sm-font-size;
     line-height: $link-sm-line-height;
   }
@@ -96,37 +98,37 @@ $grey-ten: colors.color('grey-10');
 
   &.e-link--external {
     .e-link__icon {
-      margin-left: 8px;
-      display: inline-block;
       vertical-align: super;
     }
   }
 
   &.e-link--new-tab {
     .e-link__icon {
-      @include icons.icon-size('xs');
-      margin-left: 8px;
-      display: inline-block;
+      @include icons.icon-size('custom14');
     }
-    &.e-link--lg {
+    &.e-link--sm {
       .e-link__icon {
-        bottom: 3px;
+        @include icons.icon-size('custom12');
       }
     }
   }
 
+  &.e-link--back,
   &.e-link--action {
+    display: inline-flex;
+    align-items: center;
     border: transparent;
+
+    .e-link__title + .e-link__icon,
+    .e-link__icon + .e-link__title {
+      margin-left: 8px;
+    }
 
     .e-link__icon i[class*='filled-color'] {
       visibility: hidden;
     }
     .e-link__icon {
       position: relative;
-      top: 5px;
-      @media screen and (-ms-high-contrast: none) {
-        top: -5px;
-      }
       right: 0;
       i {
         position: absolute;
@@ -141,21 +143,22 @@ $grey-ten: colors.color('grey-10');
     &.e-link--lg {
       line-height: $link-action-lg-line-height;
       font-size: $link-action-lg-font-size;
-      .e-link__icon,
-      i,
-      img {
-        width: 24px;
-        height: 24px;
+      .e-link__icon {
+        @include icons.icon-size('sm');
       }
     }
     &.e-link--md {
       line-height: $link-action-md-line-height;
       font-size: $link-action-md-font-size;
-      .e-link__icon,
-      i,
-      img {
-        width: 23px;
-        height: 23px;
+      .e-link__icon {
+        @include icons.icon-size('sm');
+      }
+    }
+    &.e-link--sm {
+      line-height: $link-action-sm-line-height;
+      font-size: $link-action-sm-font-size;
+      .e-link__icon {
+        @include icons.icon-size('xs');
       }
     }
 

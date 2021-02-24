@@ -15,11 +15,11 @@ export class FileUploadDocComponent {
     <i class="e-icon e-icon--image_add-color"></i>
   </div>
   <div class="e-fileupload__description">
-    Dra og slipp eller
+    Drag and drop or
   </div>
   <div class="e-fileupload__input">
     <input type="file" id="fileUploadTemplate">
-    <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i> Velg fil</label>
+    <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i>Choose file</label>
   </div>
 </div>
 `;
@@ -29,11 +29,11 @@ export class FileUploadDocComponent {
     <i class="e-icon e-icon--image_add-color"></i>
   </div>
   <div class="e-fileupload__description">
-    Dra og slipp eller
+    Drag and drop or
   </div>
   <div class="e-fileupload__input">
     <input type="file" id="fileUploadTemplate">
-    <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i> Velg fil</label>
+    <label for="fileUploadTemplate"> <i class="e-icon e-icon--download"></i>Choose file</label>
   </div>
 </div>`;
 

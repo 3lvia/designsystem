@@ -6,6 +6,13 @@
   }
 }
 
+.usage-image-mobile {
+  display: none;
+  @include breakpoint-up(Mobile) {
+    display: block;
+  }
+}
+
 .responsive-height {
   height: 400px;
   @media (max-width: 1300px) {

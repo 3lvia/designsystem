@@ -14,19 +14,25 @@
     style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-form-field">
-      <label class="e-form-field__label" for="compact">Søk</label>
-      <div class="e-search e-search--local" style="width: 250px" #exampleSearch>
+      <div
+        class="e-search e-search--instant"
+        style="width: 250px"
+        #exampleSearch
+      >
         <div class="e-input">
           <input
-            id="compact"
-            type="text"
-            placeholder="Placeholder text"
+            aria-label="Search"
+            type="search"
+            placeholder="Search"
             #exampleInput
             (keyup)="onInput(exampleInput.value)"
           />
         </div>
-        <button class="e-btn e-btn--icon e-btn--lg" (click)="clearExample()">
-          <span class="e-btn__icon"><i class="e-icon e-icon--search-color"></i></span>
+        <i class="e-icon e-icon--search-color"></i>
+        <button
+          class="e-btn e-btn--icon"
+          (click)="clearExample()"
+        >
           <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
         </button>
       </div>
@@ -43,11 +49,11 @@
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Local'">
+      We have two types of search: instant and on submit. These are typically used in connection to a data table or
+      list.
+      <app-component-subsection [sectionTitle]="'Instant'">
         <ng-container ngProjectAs="sectionContent">
-          Local search is used when the search feature shouldn’t affect the whole application. This could for
-          example be in connection to a data table or list. Search results appear when the user presses enter
-          on the keyboard or clicks the magnifying button.
+          For use cases were the search result should appear "instant".
           <app-component-example-v1 [codeHTML]="searchExample"></app-component-example-v1>
           <div class="e-mt-40">
             Use the
@@ -57,18 +63,69 @@
           <app-component-example-v1 [codeHTML]="afterSearchExample"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'On Submit'">
+        <ng-container ngProjectAs="sectionContent">
+
+          For use cases where the search result should appear "on submit".
+          Use a large button for normal search, and a small button for compact. You can find button documentation
+          <a
+            class="e-link e-link--inline"
+            [routerLink]="['/components/button']"
+          >here</a>.
+
+          <app-component-example-v1 [codeHTML]="searhOnSubmitExample"></app-component-example-v1>
+          <div class="e-mt-40">
+            Use the
+            <span class="code-text">e-search--searched</span>
+            class when the search input field has a valid search input.
+          </div>
+          <app-component-example-v1 [codeHTML]="searhOnSubmitAfterExample"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Label'">
+        <ng-container ngProjectAs="sectionContent">
+          You don’t need to show label in search, but add an aria-label as an explicit
+          invisable label to the
+          search form code
+          that can accommodate screen reader users
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Placeholder'">
+        <ng-container ngProjectAs="sectionContent">
+          Include a placeholder to suggest to users what they can search for, but try to keep it short.
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
   <!--SIZE-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-example-v1 [codeHTML]="searchSizesExample"></app-component-example-v1>
+      <app-component-subsection [sectionTitle]="'Instant'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="searchSizesInstantExample"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'On submit'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="searchSizesOnSubmitExample"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
+
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-search'">
+  <app-component-section
+    [sectionTitle]="'Properties'"
+    [propertiesClass]="'e-search'"
+  >
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties [componentName]="'e-search'"></app-component-properties>
     </ng-container>
