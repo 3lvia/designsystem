@@ -5,11 +5,12 @@ import './style.scss';
 export interface TabsProps {
   items: string[];
   value: number;
+  isInverted: boolean;
   valueOnChange?: (value: number) => void;
   webcomponent?: any;
 }
 
-const Tabs: FC<TabsProps> = ({ items, value = 0, valueOnChange, webcomponent }) => {
+const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webcomponent }) => {
   const [currValue, setCurrValue] = useState(value);
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
@@ -89,6 +90,9 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, valueOnChange, webcomponent }) 
     slideTimer();
   };
 
+  const tabsClasses = classNames('ewc-tabs', {
+    ['ewc-tabs--inverted']: isInverted,
+  });
   const arrowLeftClasses = classNames('ewc-tabs__arrow', {
     ['ewc-tabs__arrow--hide']: isOnLeftEnd,
     ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
@@ -104,7 +108,7 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, valueOnChange, webcomponent }) 
   });
 
   return (
-    <div className="ewc-tabs" ref={tabsRef}>
+    <div className={tabsClasses} ref={tabsRef}>
       <div
         className={arrowLeftClasses}
         onClick={() => {

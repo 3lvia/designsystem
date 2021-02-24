@@ -8,7 +8,7 @@ module.exports = [
   {
     name: 'elvis-tabs',
     elementName: 'elvia-tabs',
-    attributes: ['items', 'value'],
+    attributes: ['items', 'value', 'isInverted'],
     reactName: 'Tabs',
   },
   {

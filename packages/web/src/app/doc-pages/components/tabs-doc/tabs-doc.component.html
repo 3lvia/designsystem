@@ -20,6 +20,17 @@
       value="1"
     ></elvia-tabs>
   </div>
+  <div class="tabs-container e-bg-grey e-py-24">
+    <elvia-tabs
+      [items]="[
+        exampleContents.words.random['eng-GBR'][0],
+        exampleContents.words.random['eng-GBR'][1],
+        exampleContents.words.random['eng-GBR'][2]
+      ]"
+      value="1"
+      isInverted="true"
+    ></elvia-tabs>
+  </div>
   <app-component-example-generator
     [componentData]="componentData"
     [hasPreview]="false"

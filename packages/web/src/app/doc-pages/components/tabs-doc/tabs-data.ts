@@ -23,6 +23,12 @@ export const tabsData = {
       description: 'Index of selected tab.',
       default: '0',
     },
+    isInverted: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Decides if tabs should be inverted',
+      default: 'false',
+    },
     valueOnChange: {
       isRequired: false,
       type: '(value: number) => void',

@@ -2,10 +2,11 @@
   <h1>Angular preview</h1>
 
   <h2>Tabs</h2>
-  <div style="margin-top: 16px">
+  <div style="margin-top: 16px; background: #262626">
     <elvia-tabs
       [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
       [value]="1"
+      [isInverted]="true"
       (valueOnChange)="value = $event.detail.value"
     ></elvia-tabs>
     {{ value }}

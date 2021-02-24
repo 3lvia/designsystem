@@ -253,4 +253,23 @@ $icon-btn-width: 24px;
       }
     }
   }
+
+  &--inverted {
+    .ewc-tabs__label {
+      color: white;
+      &::before {
+        background: $grey-80;
+      }
+
+      &.ewc-tabs__label--selected {
+        text-shadow: 0 0 0 white, 0 0 0.5px white;
+        color: white;
+
+        &::after {
+          background-color: $green;
+          width: 100%;
+        }
+      }
+    }
+  }
 }
