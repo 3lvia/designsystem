@@ -26,7 +26,12 @@
               </div>
             </div>
             <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
-              <span class="e-btn__title">Get started</span>
+              <span class="e-btn__title">
+                <div *ngIf="fontLoaded">Get started</div>
+                <div *ngIf="!fontLoaded">
+                  <span class="e-content-loader e-content-loader--text"></span>
+                </div>
+              </span>
             </a>
           </div>
         </div>
@@ -80,8 +85,13 @@
                 <img src="{{ page.imageUrl }}" class="shortcut-off" alt="" />
                 <img src="{{ page.imageUrlOn }}" class="shortcut-on" alt="" />
               </div>
-              <div class="e-link__title">{{ page.title }}</div>
-              <div class="e-link__description">{{ page.description }}</div>
+              <div *ngIf="fontLoaded">
+                <div class="e-link__title">{{ page.title }}</div>
+                <div class="e-link__description">{{ page.description }}</div>
+              </div>
+              <div *ngIf="!fontLoaded" class="e-w-100 e-mt-24">
+                <span class="e-content-loader e-content-loader--text"></span>
+              </div>
             </div>
           </a>
         </div>
