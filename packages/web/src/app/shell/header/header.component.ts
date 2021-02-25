@@ -17,6 +17,7 @@ export class HeaderComponent {
   internalHeader = false;
   searchMenuOpen = false;
   searchOverlay: OverlayRef;
+  headerLogoLoaded = false;
 
   constructor(
     private globalService: GlobalService,
@@ -36,6 +37,13 @@ export class HeaderComponent {
         this.hideInternalHeader();
       }
     });
+  }
+
+  hideContentLoader(evt: any): void {
+    console.log('helo');
+    if (evt && evt.target) {
+      this.headerLogoLoaded = true;
+    }
   }
 
   openMobileMenu(): void {

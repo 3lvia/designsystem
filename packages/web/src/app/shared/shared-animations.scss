@@ -85,17 +85,28 @@
   animation: scale-down-ver-top 0.2s linear both;
 }
 
-@mixin fade-in($duration, $delay) {
-  @keyframes slide-in-top {
+@mixin ease-in-out-opacity($duration, $delay) {
+  @keyframes opacity-0-1 {
     0% {
-      // transform: translateY(-60px);
       opacity: 0;
     }
     100% {
-      // transform: translateY(0);
       opacity: 1;
     }
   }
-  animation: slide-in-top $duration cubic-bezier(0.42, 0, 0.58, 1) both;
+  animation: opacity-0-1 $duration cubic-bezier(0.42, 0, 0.58, 1) both;
+  animation-delay: $delay;
+}
+
+@mixin ease-in-opacity($duration, $delay) {
+  @keyframes opacity-0-1 {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  animation: opacity-0-1 $duration cubic-bezier(1, 0.13, 1, 0.67) both;
   animation-delay: $delay;
 }

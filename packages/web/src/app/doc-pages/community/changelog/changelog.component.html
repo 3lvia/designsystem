@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header>
-  <ng-container ngProjectAs="headerTitle">
-    What's new?
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">What's new?</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -10,5 +8,5 @@
 
 <!--BODY-->
 <div class="page-body">
-  <div class="e-mt-24" markdown [src]="'assets/elvis/CHANGELOG.md'"></div>
+  <div class="documentation-section-animation e-mt-24" markdown [src]="'assets/elvis/CHANGELOG.md'"></div>
 </div>

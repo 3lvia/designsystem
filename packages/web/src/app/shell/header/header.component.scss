@@ -30,6 +30,13 @@
     img {
       height: 26px;
     }
+
+    .header-logo-link {
+      display: none;
+    }
+    .header-logo-link.show {
+      display: block;
+    }
   }
 
   .tabs {

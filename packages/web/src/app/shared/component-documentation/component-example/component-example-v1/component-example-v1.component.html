@@ -43,40 +43,42 @@
     </div>
 
     <!--Visual example-->
-    <div
-      class="element"
-      *ngIf="!showIframeScreens || (!showIframe && screenTabOpen == 'desktop')"
-      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg, 'no-padding-desk': noPaddingDesk }"
-    >
-      <div #defaultFrame></div>
-    </div>
-    <div
-      class="element screens"
-      *ngIf="(showIframeScreens && showIframe) || (showIframeScreens && screenTabOpen != 'desktop')"
-      [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
-    >
-      <div [ngClass]="{ hide: screenTabOpen !== 'desktop' || noDesktop }">
-        <app-iframe-screen
-          [codeHTML]="displayCode"
-          [overwriteHeight]="overwriteHeight"
-          [overwriteHeightTablet]="overwriteHeightTablet"
-          [overwriteHeightPhone]="overwriteHeightPhone"
-          [screenSize]="'desktop'"
-        ></app-iframe-screen>
+    <div class="component-preview component-preview-animation">
+      <div
+        class="element"
+        *ngIf="!showIframeScreens || (!showIframe && screenTabOpen == 'desktop')"
+        [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg, 'no-padding-desk': noPaddingDesk }"
+      >
+        <div #defaultFrame></div>
       </div>
-      <div [ngClass]="{ hide: screenTabOpen !== 'tablet' || noTablet }">
-        <app-iframe-screen
-          [codeHTML]="displayCode"
-          [screenSize]="'tablet'"
-          [noPaddingX]="noPaddingX"
-        ></app-iframe-screen>
-      </div>
-      <div [ngClass]="{ hide: screenTabOpen !== 'phone' || noPhone }">
-        <app-iframe-screen
-          [codeHTML]="displayCode"
-          [screenSize]="'phone'"
-          [noPaddingX]="noPaddingX"
-        ></app-iframe-screen>
+      <div
+        class="element screens"
+        *ngIf="(showIframeScreens && showIframe) || (showIframeScreens && screenTabOpen != 'desktop')"
+        [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+      >
+        <div [ngClass]="{ hide: screenTabOpen !== 'desktop' || noDesktop }">
+          <app-iframe-screen
+            [codeHTML]="displayCode"
+            [overwriteHeight]="overwriteHeight"
+            [overwriteHeightTablet]="overwriteHeightTablet"
+            [overwriteHeightPhone]="overwriteHeightPhone"
+            [screenSize]="'desktop'"
+          ></app-iframe-screen>
+        </div>
+        <div [ngClass]="{ hide: screenTabOpen !== 'tablet' || noTablet }">
+          <app-iframe-screen
+            [codeHTML]="displayCode"
+            [screenSize]="'tablet'"
+            [noPaddingX]="noPaddingX"
+          ></app-iframe-screen>
+        </div>
+        <div [ngClass]="{ hide: screenTabOpen !== 'phone' || noPhone }">
+          <app-iframe-screen
+            [codeHTML]="displayCode"
+            [screenSize]="'phone'"
+            [noPaddingX]="noPaddingX"
+          ></app-iframe-screen>
+        </div>
       </div>
     </div>
   </div>
