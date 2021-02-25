@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
     this.findEndOfRow();
     this.christmas = this.date.getMonth() === this.christmasMonth ? true : false;
     (document as any).fonts.ready.then(() => {
-      console.log((document as any).fonts.check('16px Red Hat Display'));
       this.fontLoaded = true;
     });
   }
