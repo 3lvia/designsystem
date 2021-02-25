@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as retargetEvents from 'react-shadow-dom-retarget-events';
 import * as isEqual from 'lodash.isequal';
 import toolbox from '@elvia/elvis-toolbox';
 
@@ -30,6 +29,9 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   connectedCallback(): void {
+    this.style.width = 'auto'
+    this.style.display = 'inline-block';
+
     this.attachStyle();
     this.renderReactDOM();
   }
@@ -42,11 +44,8 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
-
-    const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.appendChild(this.mountPoint);
-    shadowRoot.appendChild(styleTag);
-    retargetEvents(shadowRoot);
+    this.appendChild(styleTag);
+    this.appendChild(this.mountPoint);
   }
 
   protected setProps(newProps: any, preventRerender?: boolean): void {
@@ -86,7 +85,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   private changedEvent(propName: string) {
-    this.mountPoint.dispatchEvent(
+    this.dispatchEvent(
       new CustomEvent(propName + 'OnChange', {
         bubbles: false,
         composed: true,

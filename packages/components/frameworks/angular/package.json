@@ -22,6 +22,7 @@
     "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-tabs": "*",
+    "@elvia/elvis-testing": "*",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-component-wrapper": "*",
     "rxjs": "~6.4.0",

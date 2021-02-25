@@ -13,6 +13,10 @@
   </div>
 
   <hr style="margin: 40px 0" />
+  <elvia-testing [value]="counterValue" (valueOnChange)="counterValue = $event.detail.value"></elvia-testing>
+  {{ counterValue }}
+  <button (click)="counterValue = counterValue + 1">++</button>
+  <hr style="margin: 40px 0" />
 
   <h2>Checkbox</h2>
   <div style="margin-top: 16px">
@@ -34,6 +38,10 @@
 
   <hr style="margin: 40px 0" />
 
+  <p style="color: red">
+    Slot fungerer ikke uten shadowDOM virker det som, dette problemet bør løses i selve popover komponenten.
+    Er rimelig sikker på at problemet ligger der :)
+  </p>
   <h2>Popover</h2>
   <div style="display: flex; flex-direction: column; align-items: flex-end">
     <div style="margin-top: 16px">
@@ -91,7 +99,7 @@
   <hr style="margin: 40px 0" />
 
   <h2>Progressbar</h2>
-  <div style="margin-bottom: 32px">
+  <div style="margin-bottom: 32px; display: flex">
     <elvia-progress-linear
       [isIndeterminate]="indeterminate"
       [value]="progressValue"

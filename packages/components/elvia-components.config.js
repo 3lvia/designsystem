@@ -23,4 +23,10 @@ module.exports = [
     attributes: ['value', 'isIndeterminate', 'isError'],
     reactName: 'ProgressLinear',
   },
+  {
+    name: 'elvis-testing',
+    elementName: 'elvia-testing',
+    attributes: ['value'],
+    reactName: 'TestingComponent',
+  },
 ];
