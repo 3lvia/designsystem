@@ -3,6 +3,8 @@
 		"e-icon": {
 			"modifier": {
 				"e-icon--xxs": {},
+				"e-icon--custom12": {},
+				"e-icon--custom14": {},
 				"e-icon--xs": {},
 				"e-icon--custom19": {},
 				"e-icon--sm": {},
@@ -74,6 +76,7 @@
 			"modifier": {
 				"e-form-field--compact": {},
 				"e-form-field--combined": {},
+				"e-form-field--width-auto": {},
 				"e-form-field--small": {},
 				"e-form-field--medium": {}
 			},
@@ -186,6 +189,7 @@
 		},
 		"e-card": {
 			"modifier": {
+				"e-card--text-only": {},
 				"e-card--shadow-soft": {},
 				"e-card--shadow-medium": {},
 				"e-card--shadow-hard": {},
@@ -260,11 +264,11 @@
 			"element": {
 				"e-radio-filter__label": {}
 			},
-			"modifier": {
-				"e-radio-filter--focus": {},
-				"e-radio-filter--hover": {},
-				"e-radio-filter--checked": {},
-				"e-radio-filter--disabled": {}
+			"psuedo": {
+				"e-radio-filter---focus": {},
+				"e-radio-filter---hover": {},
+				"e-radio-filter---checked": {},
+				"e-radio-filter---disabled": {}
 			}
 		},
 		"e-header": {
@@ -371,11 +375,12 @@
 				"e-link--lg": {},
 				"e-link--md": {},
 				"e-link--sm": {},
-				"e-link--action": {},
 				"e-link--inverted": {},
 				"e-link--inline": {},
 				"e-link--external": {},
 				"e-link--new-tab": {},
+				"e-link--back": {},
+				"e-link--action": {},
 				"e-link--jumbo": {},
 				"e-link--card": {},
 				"e-link--delay-hover": {},
@@ -807,6 +812,11 @@
 				"e-table-container": {}
 			},
 			"element": {
+				"e-table__footnote": {
+					"modifier": {
+						"e-table__footnote--compact": {}
+					}
+				},
 				"e-table__sort-header": {},
 				"e-table__sort-icon": {
 					"modifier": {
@@ -816,13 +826,13 @@
 				},
 				"e-table__cell": {
 					"modifier": {
-						"e-table__cell--multiline": {}
+						"e-table__cell--multiline": {},
+						"e-table__cell--multiline-small": {}
 					}
 				}
 			}
 		},
 		"e-table-footnote": {},
-		"e-tags": {},
 		"e-tooltip": {
 			"element": {
 				"e-tooltip__content": {
@@ -837,11 +847,12 @@
 			"element": {
 				"e-toggle__slider": {}
 			},
+			"psuedo": {
+				"e-toggle---focus": {},
+				"e-toggle---disabled": {}
+			},
 			"modifier": {
 				"e-toggle--inverted": {}
-			},
-			"psuedo": {
-				"e-toggle---disabled": {}
 			}
 		},
 		"e-checkbox": {
@@ -903,12 +914,15 @@
 		},
 		"e-search": {
 			"modifier": {
-				"e-search--local": {},
+				"e-search--instant": {},
 				"e-search--searched": {},
-				"e-search--global": {}
+				"e-search--on-submit": {}
 			}
 		},
 		"e-segmented-controls": {
+			"psuedo": {
+				"e-segmented-controls---focus": {}
+			},
 			"element": {
 				"e-segmented-controls__title": {}
 			}
@@ -978,6 +992,8 @@
 	"flat": {
 		"e-icon": {},
 		"e-icon--xxs": {},
+		"e-icon--custom12": {},
+		"e-icon--custom14": {},
 		"e-icon--xs": {},
 		"e-icon--custom19": {},
 		"e-icon--sm": {},
@@ -1112,6 +1128,7 @@
 		"e-btn--icon": {},
 		"e-btn--circled": {},
 		"e-card": {},
+		"e-card--text-only": {},
 		"e-card--shadow-soft": {},
 		"e-card--shadow-medium": {},
 		"e-card--shadow-hard": {},
@@ -1154,10 +1171,10 @@
 		"e-dropdown": {},
 		"e-radio-filter": {},
 		"e-radio-filter__label": {},
-		"e-radio-filter--focus": {},
-		"e-radio-filter--hover": {},
-		"e-radio-filter--checked": {},
-		"e-radio-filter--disabled": {},
+		"e-radio-filter---focus": {},
+		"e-radio-filter---hover": {},
+		"e-radio-filter---checked": {},
+		"e-radio-filter---disabled": {},
 		"e-header": {},
 		"e-header__top-bar": {},
 		"e-header__top-bar-desktop": {},
@@ -1225,13 +1242,14 @@
 		"e-link--lg": {},
 		"e-link--md": {},
 		"e-link--sm": {},
-		"e-link--action": {},
 		"e-link--inverted": {},
 		"e-link---hover": {},
 		"e-link---focus": {},
 		"e-link--inline": {},
 		"e-link--external": {},
 		"e-link--new-tab": {},
+		"e-link--back": {},
+		"e-link--action": {},
 		"e-link--jumbo": {},
 		"e-link--card": {},
 		"e-link__content": {},
@@ -1613,20 +1631,22 @@
 		"e-table--compact": {},
 		"e-table-container": {},
 		"e-table-footnote": {},
+		"e-table__footnote": {},
+		"e-table__footnote--compact": {},
 		"e-table__sort-header": {},
 		"e-table__sort-icon": {},
 		"e-table__sort-icon--up": {},
 		"e-table__sort-icon--inactive": {},
 		"e-table__cell--multiline": {},
+		"e-table__cell--multiline-small": {},
 		"e-table-mobile--compact": {},
-		"e-tags": {},
-		"e-tags_item": {},
 		"e-tooltip": {},
 		"e-tooltip__content": {},
 		"e-tooltip__content--bottom": {},
 		"e-tooltip__content--top": {},
 		"e-toggle": {},
 		"e-toggle__slider": {},
+		"e-toggle---focus": {},
 		"e-toggle--inverted": {},
 		"e-toggle---disabled": {},
 		"e-checkbox": {},
@@ -1650,6 +1670,7 @@
 		"e-input--small": {},
 		"e-input--medium": {},
 		"e-inlined-field": {},
+		"e-form-field--width-auto": {},
 		"e-form-field--small": {},
 		"e-form-field--medium": {},
 		"e-fileupload": {},
@@ -1672,10 +1693,11 @@
 		"e-radio---hover": {},
 		"e-radio---invalid": {},
 		"e-search": {},
-		"e-search--local": {},
+		"e-search--instant": {},
 		"e-search--searched": {},
-		"e-search--global": {},
+		"e-search--on-submit": {},
 		"e-segmented-controls": {},
+		"e-segmented-controls---focus": {},
 		"e-segmented-controls__title": {},
 		"e-border-none": {},
 		"e-border": {},

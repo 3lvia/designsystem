@@ -1,0 +1,25 @@
+<div class="e-table-container">
+  <table class="e-table e-table--compact" *ngIf="componentProps">
+    <thead>
+      <tr>
+        <th scope="col">Prop</th>
+        <th scope="col">Type</th>
+        <th scope="col">Description</th>
+        <th scope="col">Default</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let prop of componentProps">
+        <th scope="row" class="table-code-text">
+          <span>{{ prop.attribute }}</span>
+          <span *ngIf="prop.isRequired">*</span>
+        </th>
+        <td class="table-code-text">{{ prop.type }}</td>
+        <td class="e-table__cell--multiline-small">{{ prop.description }}</td>
+        <td class="table-code-text" *ngIf="prop.default">{{ prop.default }}</td>
+        <td class="table-code-text" *ngIf="!prop.default">-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="e-table__footnote e-table__footnote--compact">* Required - Properties that must be present</div>

@@ -8,9 +8,12 @@
 
 <div class="page-body">
   <div style="display: flex; justify-content: center">
+    <div class="e-content-loader" *ngIf="!loadedLogo" style="height: 400px; width: 400px"></div>
     <img
+      [ngClass]="!loadedLogo ? 'e-none' : ''"
       style="display: flex; width: 400px; max-width: 90%"
       src="../../../../assets/logo/animation_640_keva0d1n.gif"
+      (load)="hideContentLoader($event)"
     />
   </div>
 
@@ -276,7 +279,10 @@
           The favicon should change from black to white on dark-themed browsers. Take a look at the example
           below for a solution to changing favicon when dark-theme is used:
           <div class="e-mt-24">
-            <app-code-highlighter [codeTS]="faviconTS" [codeHTML]="faviconHTML"></app-code-highlighter>
+            <app-component-example-code
+              [codeTS]="faviconTS"
+              [codeHTML]="faviconHTML"
+            ></app-component-example-code>
           </div>
         </ng-container>
       </app-component-subsection>

@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
+import { exampleContents } from 'src/app/shared/example-contents';
 
 @Component({
   selector: 'app-accordion-doc',
@@ -8,7 +9,7 @@ import { getComponent } from 'src/app/shared/e-items';
 })
 export class AccordionDocComponent {
   @ViewChild('accordionLiveExample') accordionLiveExample: ElementRef;
-
+  examples = exampleContents;
   figmaUrl = getComponent('accordion').figmaUrl;
   description = getComponent('accordion').description;
   showCode = false;
@@ -22,7 +23,8 @@ export class AccordionDocComponent {
     'Don’t use it for navigation elements.',
   ];
 
-  exampleAccordionSingle = `<div class="e-accordion e-accordion--single">
+  exampleAccordionSingle =
+    `<div class="e-accordion e-accordion--single">
   <div class="e-accordion__item">
     <div class="e-accordion__title">
       Closed Accordion
@@ -46,17 +48,22 @@ export class AccordionDocComponent {
       <i class="e-icon e-icon--expand_circle-filled-color"></i>
     </div>
     <div class="e-accordion__content">
-      Hidden information
+      ` +
+    exampleContents.texts.sm['eng-GBR'].description +
+    `
     </div>
   </div>
 </div>
 `;
 
-  exampleAccordionGroup = `<div class="e-accordion e-accordion--group">
+  exampleAccordionGroup =
+    `<div class="e-accordion e-accordion--group">
   <div class="e-accordion__item">
     <div class="e-accordion__label">
       <div class="e-accordion__title">
-        Hvor ofte kommer fakturaen?
+        ` +
+    exampleContents.texts.xs['eng-GBR'].title +
+    `
       </div>
       <div class="e-accordion__icon">
         <i class="e-icon e-icon--expand_circle-color"></i>
@@ -70,7 +77,27 @@ export class AccordionDocComponent {
   <div class="e-accordion__item e-accordion__item--open">
     <div class="e-accordion__label">
       <div class="e-accordion__title">
-        Kan jeg bestille på vegne av andre?
+        ` +
+    exampleContents.questions.sm['eng-GBR'].question +
+    `
+      </div>
+      <div class="e-accordion__icon">
+        <i class="e-icon e-icon--expand_circle-color"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      </div>
+    </div>
+    <div class="e-accordion__content">
+      ` +
+    exampleContents.questions.sm['eng-GBR'].answer +
+    `
+    </div>
+  </div>
+  <div class="e-accordion__item">
+    <div class="e-accordion__label">
+      <div class="e-accordion__title">
+        ` +
+    exampleContents.texts.sm['eng-GBR'].title +
+    `
       </div>
       <div class="e-accordion__icon">
         <i class="e-icon e-icon--expand_circle-color"></i>
@@ -84,23 +111,17 @@ export class AccordionDocComponent {
   <div class="e-accordion__item">
     <div class="e-accordion__label">
       <div class="e-accordion__title">
-        Hva kan jeg gjøre for å spare strøm?
+        ` +
+    exampleContents.texts.md['eng-GBR'].title +
+    `
       </div>
       <div class="e-accordion__icon">
         <i class="e-icon e-icon--expand_circle-color"></i>
         <i class="e-icon e-icon--expand_circle-filled-color"></i>
       </div>
     </div>
-  </div>
-  <div class="e-accordion__item">
-    <div class="e-accordion__label">
-      <div class="e-accordion__title">
-        Hva kan jeg gjøre for å spare strøm?
-      </div>
-      <div class="e-accordion__icon">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
-      </div>
+    <div class="e-accordion__content">
+      Hidden information
     </div>
   </div>
 </div>

@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Radiobutton
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Radiobutton</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,7 +11,7 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <form class="e-form_field">
       <label class="e-radio" for="option1">
@@ -28,7 +26,7 @@
       </label>
     </form>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="overviewExample"></app-code-block>
+      <app-component-example-v1 [showPreview]="false" [codeHTML]="overviewExample"></app-component-example-v1>
     </div>
   </div>
 
@@ -37,12 +35,12 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Medium'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example1"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Small'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example2"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -51,7 +49,7 @@
   <!--STATES-->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
-      <app-code-block [codeHTML]="example3"></app-code-block>
+      <app-component-example-v1 [codeHTML]="example3"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 

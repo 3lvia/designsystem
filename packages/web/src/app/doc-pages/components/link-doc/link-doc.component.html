@@ -13,9 +13,9 @@
     class="e-my-48"
     style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
-    <a class="e-link" href="https://design.elvia.io/components/link-doc#Overview">Link</a>
+    <a class="e-link" href="https://design.elvia.io/components/link#Overview">Link</a>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="previewLinkHTML"></app-code-block>
+      <app-component-example-v1 [showPreview]="false" [codeHTML]="previewLinkHTML"></app-component-example-v1>
     </div>
   </div>
 
@@ -24,62 +24,83 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Standard link'">
         <ng-container ngProjectAs="sectionContent">
-          Default links stands alone and should not be used within sentences. You can also pair a default link
-          with an icon.
-          <app-code-block [codeHTML]="example1" [codeInverted]="example1Inverted"></app-code-block>
+          Standard links stand alone and direct you to another page.
+          <app-component-example-v1
+            [codeHTML]="example1"
+            [codeInverted]="example1Inverted"
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Inline Link'">
+      <app-component-subsection [sectionTitle]="'Inline'">
         <ng-container ngProjectAs="sectionContent">
           Inline link are used within sentences and text blocks, and will always carry the font size of the
-          text block. The e-link--inline modifier is used for these links.
-          <app-code-block [codeHTML]="example2" [codeInverted]="example2Inverted"></app-code-block>
+          text block.
+          <app-component-example-v1
+            [codeHTML]="example2"
+            [codeInverted]="example2Inverted"
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Links with icon'">
+      <app-component-subsection [sectionTitle]="'External'">
         <ng-container ngProjectAs="sectionContent">
-          The element-classes e-link__icon and e-link__title will place icons correctly on either sides. The
-          e-link--external modifier is used for links navigating to external sites. The e-link--new-tab
-          modifier is used for links navigating to new tabs.
-          <app-code-block
-            [codeHTML]="exampleLinksWithIcon"
-            [codeInverted]="exampleLinksWithIconInverted"
-          ></app-code-block>
+          External link are used when the user are directed to a page not produced by Elvia.
+          <app-component-example-v1
+            [codeHTML]="exampleExternal"
+            [codeInverted]="exampleExternalInverted"
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Action Link'">
+      <app-component-subsection [sectionTitle]="'New tab'">
+        <ng-container ngProjectAs="sectionContent">
+          New tab link is used when the page you are linking to opens in a new window or tab.
+          <app-component-example-v1
+            [codeHTML]="exampleNewTab"
+            [codeInverted]="exampleNewTabInverted"
+          ></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Action'">
         <ng-container ngProjectAs="sectionContent">
           Action link are mostly used when you link to another page to do an action. It can also be used when
-          you have a link alone and want it to take more attention than a regular link. Action link have an
-          arrow icon next to it.
-          <app-code-block [codeHTML]="example5"></app-code-block>
-          <app-when-to-use [whens]="['Internal action links']"></app-when-to-use>
+          you have a link alone and want it to take more attention than a regular link.
+          <app-component-example-v1 [codeHTML]="exampleAction"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Jumbo link'">
+      <app-component-subsection [sectionTitle]="'Back'">
+        <ng-container ngProjectAs="sectionContent">
+          Back link are used to navigate the user to a previous page or take the user to the start page. Back
+          links have a green arrow next to it to make it stand out more and to clarify that you will be sent
+          back.
+          <app-component-example-v1 [codeHTML]="exampleBack"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Jumbo'">
         <ng-container ngProjectAs="sectionContent">
           Jumbo link is used to create a clear overview of multiple links within the same category. The text
           content cannot exceed two desktop rows in the jumbo link. The desktop version will keep standard
           height while the mobile version will expand for text content according to the desktop limit.
-          <app-code-block [codeHTML]="example6" [showIframeScreens]="true" [noTablet]="true"></app-code-block>
-          <app-component-subsubsection [sectionTitle]="'External Jumbo link'">
+          <app-component-subsubsection [sectionTitle]="'Internal'">
             <ng-container ngProjectAs="sectionContent">
-              For external jumbo links just replace the current icon with the
-              <app-copy [message]="'e-icon--arrow_external-bold'" [noAnimation]="true">
-                <ng-container ngProjectAs="copyContent">
-                  <span class="code-text">e-icon--arrow_external-bold</span>
-                </ng-container>
-              </app-copy>
-              icon.
-              <app-code-block
+              <app-component-example-v1
+                [codeHTML]="example6"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'External'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
                 [codeHTML]="example6External"
                 [showIframeScreens]="true"
                 [noTablet]="true"
-              ></app-code-block>
+              ></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
           <app-when-to-use [whens]="doesExample6" [whenNots]="dontsExample6"></app-when-to-use>
@@ -90,12 +111,11 @@
         <ng-container ngProjectAs="sectionContent">
           Card links have an icon, label, and alternatively a description text. The entire card link is
           clickable and are useful for grouping several related pieces of information together. Card links
-          work best when they provide summaries of many different kinds of content to choose from. Use the
-          class
+          work best when they provide summaries of many different kinds of content to choose from.
           <span class="code-text">e-link--delay-hover</span>
           if you want the ikon on hover to appear after scaling has happened.
 
-          <app-code-block [codeHTML]="exampleCard"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleCard"></app-component-example-v1>
 
           <app-when-to-use [whens]="doesExampleCard" [whenNots]="dontsExampleCard"></app-when-to-use>
 
@@ -138,7 +158,7 @@
       <app-component-subsection [sectionTitle]="'Links with button style'">
         <ng-container ngProjectAs="sectionContent">
           The e-btn class can also be used on anchor tags to make links appear like buttons.
-          <app-code-block [codeHTML]="example8" [donts]="dontsExample8"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example8" [donts]="dontsExample8"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -147,7 +167,7 @@
   <!--SIZES-->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-code-block [codeHTML]="[exampleSizes]"></app-code-block>
+      <app-component-example-v1 [codeHTML]="[exampleSizes]"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 
@@ -160,10 +180,10 @@
           unnecessary words. Try to reflect the content user will find when clicking on the link.
           <app-do-dont-text>
             <ng-container ngProjectAs="do">
-              <a class="e-link" href="https://design.elvia.io">Se vårt strømsbruddskart</a>
+              <a class="e-link" href="https://design.elvia.io">See our power outage map</a>
             </ng-container>
             <ng-container ngProjectAs="dont">
-              <a class="e-link" href="https://design.elvia.io">Klikk her</a>
+              <a class="e-link" href="https://design.elvia.io">Click here</a>
             </ng-container>
           </app-do-dont-text>
         </ng-container>

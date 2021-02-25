@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Pagination
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Pagination</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,11 +11,11 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="e-pagination">
       <div class="e-pagination__number-per-page">
-        <span>Viser</span>
+        <span>Shows</span>
         <span class="e-pagination__dropdown">
           <div class="e-form-field e-form-field--compact">
             <div class="e-dropdown">
@@ -34,9 +32,9 @@
             </div>
           </div>
         </span>
-        <span>av 200 bilder</span>
+        <span>of 200 images</span>
       </div>
-      <div class="e-pagination__choosing-page">
+      <div class="e-pagination__choosing-page" *ngIf="!showAll">
         <div class="e-pagination__arrow" *ngIf="leftArrow()" (click)="prev()">
           <i class="e-icon e-icon--arrow_long_left e-icon--xs"></i>
         </div>
@@ -76,11 +74,11 @@
     </div>
 
     <div class="e-w-100">
-      <app-code-block
+      <app-component-example-v1
         [showPreview]="false"
         [codeHTML]="exampleInHTML"
         [codeTS]="exampleInTS"
-      ></app-code-block>
+      ></app-component-example-v1>
     </div>
   </div>
 

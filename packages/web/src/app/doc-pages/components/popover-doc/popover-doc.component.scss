@@ -1,0 +1,30 @@
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+
+.usage-image-desktop {
+  @include breakpoint-up(Mobile) {
+    display: none;
+  }
+}
+
+.usage-image-mobile {
+  display: none;
+  @include breakpoint-up(Mobile) {
+    display: block;
+  }
+}
+
+.responsive-height {
+  height: 400px;
+  @media (max-width: 1300px) {
+    height: 300px;
+  }
+  @include breakpoint-up(Tablet) {
+    height: 400px;
+  }
+}
+
+.e-content-loader {
+  @include breakpoint-up(Mobile) {
+    display: none;
+  }
+}

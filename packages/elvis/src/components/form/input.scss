@@ -20,6 +20,7 @@ $form-input-padding-compact-active: 4px 9px;
   max-width: 448px;
   width: 100%;
   position: relative;
+  text-align: left;
 
   > input,
   > textarea {
@@ -71,7 +72,11 @@ $form-input-padding-compact-active: 4px 9px;
   }
 
   &.e-input---focus > input,
-  &.e-input---focus > textarea,
+  &.e-input---focus > textarea {
+    @include outline.e-outline-pseudoclass();
+    border: 2px solid colors.color('elvia-charge');
+    padding: $form-input-padding-active;
+  }
   > input:focus,
   > textarea:focus {
     @include outline.e-outline();
@@ -93,6 +98,12 @@ $form-input-padding-compact-active: 4px 9px;
   input[type='date']::-webkit-calendar-picker-indicator,
   input[type='time']::-webkit-calendar-picker-indicator {
     display: none;
+  }
+  input[type='search']::-webkit-search-decoration,
+  input[type='search']::-webkit-search-cancel-button,
+  input[type='search']::-webkit-search-results-button,
+  input[type='search']::-webkit-search-results-decoration {
+    -webkit-appearance: none;
   }
 }
 

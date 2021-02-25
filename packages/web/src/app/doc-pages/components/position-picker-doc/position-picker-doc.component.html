@@ -21,7 +21,7 @@
       <div class="e-position-picker__action">
         <button class="e-btn e-btn--tertiary" (click)="openMapExample('mapModal')">
           <span class="e-btn__icon"><i class="e-icon e-icon--pin"></i></span>
-          <span class="e-btn__title">Velg plassering</span>
+          <span class="e-btn__title">Choose position</span>
         </button>
       </div>
     </div>
@@ -42,18 +42,18 @@
         ></iframe>
         <div class="e-form-field" id="exampleInput">
           <div class="e-input">
-            <input id="normal" type="text" placeholder="Velg Adresse" />
+            <input id="normal" type="text" placeholder="Choose Address" />
             <i class="e-icon e-icon--search e-icon--xs"></i>
           </div>
         </div>
       </div>
     </div>
     <div class="e-w-100">
-      <app-code-block
+      <app-component-example-v1
         [showPreview]="false"
         [codeTS]="exampleTSCode"
         [codeHTML]="exampleOverview"
-      ></app-code-block>
+      ></app-component-example-v1>
     </div>
   </div>
 
@@ -65,14 +65,14 @@
           The position picker component consist mainly of container classes. Where each element is assigned
           for it intended purpose as icons, description text of picked position and action area for placing
           tertiary buttons.
-          <app-code-block [codeHTML]="example1"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'After position picked'">
         <ng-container ngProjectAs="sectionContent">
           When position is chosen replace the icon container with the description container along with the
           chosen position or information.
-          <app-code-block [codeHTML]="example2"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>

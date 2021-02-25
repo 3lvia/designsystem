@@ -16,6 +16,8 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
   width: fit-content;
   box-sizing: border-box;
   cursor: pointer;
+  text-align: left;
+
   // IE specific
   @media screen and (-ms-high-contrast: none) {
     width: 100%;
@@ -74,6 +76,7 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
     }
   }
 
+  &:active,
   &.e-checkbox---hover:not(:disabled):not(:invalid) {
     .e-checkbox__mark {
       background-color: colors.color('elvia-charge');

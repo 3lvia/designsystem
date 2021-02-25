@@ -9,15 +9,14 @@
   <body>
     <div class="e-title-sm e-mt-16">Input</div>
     <div class="e-title-xs e-my-16">Normal Input</div>
-
     <div class="e-form-field">
       <label class="e-form-field__label" for="normal">Normal input field</label>
       <div class="e-input">
         <input id="normal" type="text" placeholder="Placeholder text" />
       </div>
     </div>
-    <div class="e-title-xs e-my-16">Combined Input</div>
 
+    <div class="e-title-xs e-my-16">Combined Input</div>
     <div class="e-form-field e-form-field--combined">
       <label class="e-form-field__label" for="phone">Phone</label>
       <div class="e-form-field__input">
@@ -29,6 +28,7 @@
         </div>
       </div>
     </div>
+
     <div class="e-title-xs e-my-16">Inlined Input</div>
     <div class="e-inlined-field">
       <div class="e-form-field e-form-field--medium">
@@ -44,6 +44,7 @@
         </div>
       </div>
     </div>
+
     <div class="e-title-xs e-my-16">Textarea</div>
     <div class="e-form-field">
       <label class="e-form-field__label e-form-field__label--optional" for="textarea">Textarea</label>
@@ -51,6 +52,7 @@
         <textarea id="textarea" placeholder="Placeholder text" type="text"></textarea>
       </div>
     </div>
+
     <div class="e-title-xs e-my-16">Sizing - Normal and Compact</div>
     <div class="e-form-field">
       <label class="e-form-field__label" for="normal">Normal input field</label>
@@ -67,7 +69,9 @@
         </div>
       </div>
     </div>
-    <div class="e-title-xs e-my-16">Validation</div>
+
+    <div class="e-title-sm e-mt-16">States</div>
+    <div class="e-title-xs e-my-16">Invalid</div>
     <div class="e-form-field e-w-50">
       <label class="e-form-field__label" for="invalid">Invalid input field with error-message</label>
       <div class="e-input e-input---invalid">
@@ -84,6 +88,22 @@
         </span>
         <span>Passord må inneholde både bokstaver og tall</span>
       </span>
+    </div>
+
+    <div class="e-title-xs e-my-16">Focus</div>
+    <div class="e-form-field">
+      <label class="e-form-field__label" for="normal">Normal input field</label>
+      <div class="e-input e-input---focus">
+        <input id="normal" type="text" placeholder="Placeholder text" />
+      </div>
+    </div>
+
+    <div class="e-title-xs e-my-16">Disabled</div>
+    <div class="e-form-field">
+      <label class="e-form-field__label" for="normal">Normal input field</label>
+      <div class="e-input e-input---disabled">
+        <input id="normal" type="text" placeholder="Placeholder text" />
+      </div>
     </div>
   </body>
 </html>

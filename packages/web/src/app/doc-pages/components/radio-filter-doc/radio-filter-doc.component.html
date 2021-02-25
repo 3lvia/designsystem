@@ -16,21 +16,21 @@
     <div class="e-radio-filter">
       <input type="radio" id="radio-filter-1" name="radio-filter" checked />
       <label for="radio-filter-1" data-value="Filter 1">
-        <span class="e-radio-filter__label">Filter 1</span>
+        <span class="e-radio-filter__label">{{ examples.words.filters['eng-GBR'][0] }}</span>
       </label>
 
       <input type="radio" id="radio-filter-2" name="radio-filter" />
       <label for="radio-filter-2" data-value="Filter 2">
-        <span class="e-radio-filter__label">Filter 2</span>
+        <span class="e-radio-filter__label">{{ examples.words.filters['eng-GBR'][1] }}</span>
       </label>
 
-      <input type="radio" id="radio-filter-3" name="radio-filter" disabled />
+      <input type="radio" id="radio-filter-3" name="radio-filter" />
       <label for="radio-filter-3" data-value="Filter 2">
-        <span class="e-radio-filter__label">Filter 3</span>
+        <span class="e-radio-filter__label">{{ examples.words.filters['eng-GBR'][2] }}</span>
       </label>
     </div>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="RadioFilter"></app-code-block>
+      <app-component-example-v1 [showPreview]="false" [codeHTML]="RadioFilter"></app-component-example-v1>
     </div>
   </div>
 

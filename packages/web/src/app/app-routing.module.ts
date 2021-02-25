@@ -8,7 +8,6 @@ import { LabelDocComponent } from './doc-pages/components/label-doc/label-doc.co
 import { CardDocComponent } from './doc-pages/components/card-doc/card-doc.component';
 import { LinkDocComponent } from './doc-pages/components/link-doc/link-doc.component';
 import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.component';
-import { TagsDocComponent } from './doc-pages/components/tags-doc/tags-doc.component';
 import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
 import { ColorDocComponent } from './doc-pages/identity/color-doc/color-doc.component';
 import { IconDocComponent } from './doc-pages/identity/icon-doc/icon-doc.component';
@@ -19,9 +18,7 @@ import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-
 import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
 import { ShadowDocComponent } from './doc-pages/identity/shadow-doc/shadow-doc.component';
-import { NotificationDotDocComponent } from './doc-pages/components/notification-dot-doc/notification-dot-doc.component';
 import { SpacingDocComponent } from './doc-pages/identity/spacing-doc/spacing-doc.component';
-import { BorderDocComponent } from './doc-pages/identity/border-doc/border-doc.component';
 import { OverviewToolsComponent } from './doc-pages/tools/overview-tools/overview-tools.component';
 import { OverviewIdentityComponent } from './doc-pages/identity/overview-identity/overview-identity.component';
 import { OverviewComponent } from './doc-pages/components/overview-comp/overview-comp.component';
@@ -124,10 +121,6 @@ const routes: Routes = [
           {
             path: Pages.OverviewIdentity,
             component: OverviewIdentityComponent,
-          },
-          {
-            path: Pages.Border,
-            component: BorderDocComponent,
           },
           {
             path: Pages.Color,
@@ -265,10 +258,6 @@ const routes: Routes = [
             component: ModalDocComponent,
           },
           {
-            path: Pages.Notification,
-            component: NotificationDotDocComponent,
-          },
-          {
             path: Pages.Pagination,
             component: PaginationDocComponent,
           },
@@ -307,10 +296,6 @@ const routes: Routes = [
           {
             path: Pages.Table,
             component: TableDocComponent,
-          },
-          {
-            path: Pages.Tags,
-            component: TagsDocComponent,
           },
           {
             path: Pages.Tooltip,

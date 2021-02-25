@@ -14,8 +14,10 @@ $link-sm-line-height: 20px;
 
 $link-action-lg-line-height: 26px;
 $link-action-md-line-height: 24px;
+$link-action-sm-line-height: 21px;
 $link-action-lg-font-size: 20px;
 $link-action-md-font-size: 18px;
+$link-action-sm-font-size: 16px;
 
 $link-jumbo-desktop-padding: 30px 40px;
 $link-jumbo-desktop-width: 545px;
@@ -50,7 +52,7 @@ $grey-ten: colors.color('grey-10');
   &__title + &__icon,
   &__icon + &__title {
     position: relative;
-    margin-left: 8px;
+    margin-left: 4px; // Inline -> space between elements => 8px - 4px space = 4px
   }
 
   &.e-link--lg {
@@ -62,7 +64,7 @@ $grey-ten: colors.color('grey-10');
     font-size: $link-md-font-size;
     line-height: $link-md-line-height;
   }
-  &.e-link--sm:not(.e-link--action) {
+  &.e-link--sm {
     font-size: $link-sm-font-size;
     line-height: $link-sm-line-height;
   }
@@ -71,10 +73,8 @@ $grey-ten: colors.color('grey-10');
     border-color: colors.color('elvia-on');
   }
 
+  &:active,
   &.e-link---hover {
-    border-bottom-color: colors.color('elvia-charge');
-  }
-  &:active {
     border-bottom-color: colors.color('elvia-charge');
   }
   @include helpers.hover() {
@@ -87,7 +87,6 @@ $grey-ten: colors.color('grey-10');
   }
   &:focus {
     @include outline.e-outline();
-    overflow: auto;
   }
 
   &.e-link--inline {
@@ -99,37 +98,37 @@ $grey-ten: colors.color('grey-10');
 
   &.e-link--external {
     .e-link__icon {
-      margin-left: 8px;
-      display: inline-block;
       vertical-align: super;
     }
   }
 
   &.e-link--new-tab {
     .e-link__icon {
-      @include icons.icon-size('xs');
-      margin-left: 8px;
-      display: inline-block;
+      @include icons.icon-size('custom14');
     }
-    &.e-link--lg {
+    &.e-link--sm {
       .e-link__icon {
-        bottom: 3px;
+        @include icons.icon-size('custom12');
       }
     }
   }
 
+  &.e-link--back,
   &.e-link--action {
+    display: inline-flex;
+    align-items: center;
     border: transparent;
+
+    .e-link__title + .e-link__icon,
+    .e-link__icon + .e-link__title {
+      margin-left: 8px;
+    }
 
     .e-link__icon i[class*='filled-color'] {
       visibility: hidden;
     }
     .e-link__icon {
       position: relative;
-      top: 5px;
-      @media screen and (-ms-high-contrast: none) {
-        top: -5px;
-      }
       right: 0;
       i {
         position: absolute;
@@ -144,24 +143,26 @@ $grey-ten: colors.color('grey-10');
     &.e-link--lg {
       line-height: $link-action-lg-line-height;
       font-size: $link-action-lg-font-size;
-      .e-link__icon,
-      i,
-      img {
-        width: 24px;
-        height: 24px;
+      .e-link__icon {
+        @include icons.icon-size('sm');
       }
     }
     &.e-link--md {
       line-height: $link-action-md-line-height;
       font-size: $link-action-md-font-size;
-      .e-link__icon,
-      i,
-      img {
-        width: 23px;
-        height: 23px;
+      .e-link__icon {
+        @include icons.icon-size('sm');
+      }
+    }
+    &.e-link--sm {
+      line-height: $link-action-sm-line-height;
+      font-size: $link-action-sm-font-size;
+      .e-link__icon {
+        @include icons.icon-size('xs');
       }
     }
 
+    &:active,
     &.e-link---hover {
       .e-link__icon i[class*='filled-color'] {
         visibility: visible;
@@ -178,14 +179,6 @@ $grey-ten: colors.color('grey-10');
         .e-link__icon i:not([class*='filled-color']) {
           visibility: hidden;
         }
-      }
-    }
-    &:active {
-      .e-link__icon i[class*='filled-color'] {
-        visibility: visible;
-      }
-      .e-link__icon i:not([class*='filled-color']) {
-        visibility: hidden;
       }
     }
   }
@@ -247,6 +240,7 @@ $grey-ten: colors.color('grey-10');
       }
     }
 
+    &:active,
     &.e-link---hover {
       color: colors.color('font-color');
       border: 2px solid colors.color('elvia-charge');
@@ -256,10 +250,6 @@ $grey-ten: colors.color('grey-10');
         color: colors.color('font-color');
         border: 2px solid colors.color('elvia-charge');
       }
-    }
-    &:active {
-      color: colors.color('font-color');
-      border: 2px solid colors.color('elvia-charge');
     }
   }
 
@@ -336,37 +326,10 @@ $grey-ten: colors.color('grey-10');
       letter-spacing: 0.2px;
     }
 
-    &:active {
+    &:active,
+    &.e-link---hover {
       box-shadow: 0 0 0 2px colors.color('elvia-charge');
 
-      cursor: pointer;
-      .e-link__icon {
-        @include helpers.transform(scale(0.9166));
-        i {
-          visibility: hidden;
-          transition: visibility 0.3s ease;
-        }
-        i + i {
-          visibility: visible;
-          transition: visibility 0.3s ease;
-        }
-      }
-      .e-link__icon.e-link--delay-hover {
-        i {
-          visibility: hidden;
-          transition: visibility 0.3s ease;
-          transition-delay: (0.3s);
-        }
-        i + i {
-          visibility: visible;
-          transition: visibility 0.3s ease;
-          transition-delay: (0.3s);
-        }
-      }
-    }
-
-    &:active {
-      box-shadow: 0 0 0 2px colors.color('elvia-charge');
       cursor: pointer;
       .e-link__icon {
         @include helpers.transform(scale(0.9166));
@@ -456,15 +419,6 @@ $grey-ten: colors.color('grey-10');
         }
         .e-link__description {
           @include typography.typography('text-info');
-        }
-      }
-      &:active {
-        border-color: colors.color('elvia-charge');
-        .e-link__icon {
-          @include helpers.transform(scale(1.125));
-        }
-        .e-link__icon.e-link--delay-hover {
-          @include helpers.transform(scale(1.125));
         }
       }
       @include helpers.hover() {

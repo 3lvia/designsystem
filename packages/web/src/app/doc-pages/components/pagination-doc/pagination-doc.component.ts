@@ -16,7 +16,7 @@ export class PaginationDocComponent implements OnInit {
   paginationExample = `<h3>Start</h3>
 <div class="e-pagination">
   <div class="e-pagination__number-per-page">
-    <span>Viser</span>
+    <span>Shows</span>
     <span class="e-pagination__dropdown">
       <div class="e-form-field e-form-field--compact">
         <div class="e-dropdown">
@@ -33,7 +33,7 @@ export class PaginationDocComponent implements OnInit {
         </div>
       </div>
     </span>
-    <span>av 200 bilder</span>
+    <span>of 200 images</span>
   </div>
   <div class="e-pagination__choosing-page">
     <div class="e-pagination__number e-pagination__number--active">1</div>
@@ -54,7 +54,7 @@ export class PaginationDocComponent implements OnInit {
   <h3>Middle</h3>
   <div class="e-pagination">
     <div class="e-pagination__number-per-page">
-      <span>Viser</span>
+      <span>Shows</span>
       <span class="e-pagination__dropdown">
         <div class="e-form-field e-form-field--compact">
           <div class="e-dropdown">
@@ -71,7 +71,7 @@ export class PaginationDocComponent implements OnInit {
           </div>
         </div>
       </span>
-      <span>av 200 bilder</span>
+      <span>of 200 images</span>
     </div>
     <div class="e-pagination__choosing-page">
       <div class="e-pagination__arrow">
@@ -97,7 +97,7 @@ export class PaginationDocComponent implements OnInit {
   <h3>End</h3>
   <div class="e-pagination">
     <div class="e-pagination__number-per-page">
-      <span>Viser</span>
+      <span>Shows</span>
       <span class="e-pagination__dropdown">
         <div class="e-form-field e-form-field--compact">
           <div class="e-dropdown">
@@ -114,7 +114,7 @@ export class PaginationDocComponent implements OnInit {
           </div>
         </div>
       </span>
-      <span>av 200 bilder</span>
+      <span>of 200 images</span>
     </div>
     <div class="e-pagination__choosing-page">
     <div class="e-pagination__arrow">
@@ -136,7 +136,7 @@ export class PaginationDocComponent implements OnInit {
 
   exampleInHTML = `<div class="e-pagination">
   <div class="e-pagination__number-per-page">
-    <span>Viser</span>
+    <span>Shows</span>
     <span class="e-pagination__dropdown">
       <div class="e-form-field e-form-field--compact">
         <div class="e-dropdown">
@@ -153,7 +153,7 @@ export class PaginationDocComponent implements OnInit {
         </div>
       </div>
     </span>
-    <span>av 200 bilder</span>
+    <span>of 200 images</span>
   </div>
   <div class="e-pagination__choosing-page">
     <div class="e-pagination__arrow" *ngIf="leftArrow()" (click)="prev()">
@@ -220,6 +220,37 @@ toggleDropdown(): void {
 }
 
 selectOption(value: string): void {
+// this solution is only to illustrate how the pagination should appear visually
+switch (value) {
+  case '10':
+    this.allNums = Array.from(Array(30), (_, i) => i + 1);
+    this.getVisibleNumbers();
+    break;
+  case '20':
+    this.allNums = Array.from(Array(15), (_, i) => i + 1);
+    this.getVisibleNumbers();
+
+    break;
+  case '30':
+    this.allNums = Array.from(Array(12), (_, i) => i + 1);
+    this.getVisibleNumbers();
+    break;
+  case '40':
+    this.allNums = Array.from(Array(8), (_, i) => i + 1);
+    this.getVisibleNumbers();
+    break;
+  case '50':
+    this.allNums = Array.from(Array(6), (_, i) => i + 1);
+    this.getVisibleNumbers();
+    break;
+  case 'Alle':
+    this.showAll = true;
+    break;
+}
+
+if (value !== 'Alle') {
+  this.showAll = false;
+}
   this.currentValue = value;
   this.showDropdown = false;
 }
@@ -291,6 +322,7 @@ paginationDotsRight(): boolean {
   chosenNum = 1;
   showDropdown = false;
   currentValue = '10';
+  showAll = false;
   options = ['10', '20', '30', '40', '50', 'Alle'];
 
   ngOnInit(): void {
@@ -302,6 +334,36 @@ paginationDotsRight(): boolean {
   }
 
   selectOption(value: string): void {
+    switch (value) {
+      case '10':
+        this.allNums = Array.from(Array(30), (_, i) => i + 1);
+        this.getVisibleNumbers();
+        break;
+      case '20':
+        this.allNums = Array.from(Array(15), (_, i) => i + 1);
+        this.getVisibleNumbers();
+
+        break;
+      case '30':
+        this.allNums = Array.from(Array(12), (_, i) => i + 1);
+        this.getVisibleNumbers();
+        break;
+      case '40':
+        this.allNums = Array.from(Array(8), (_, i) => i + 1);
+        this.getVisibleNumbers();
+        break;
+      case '50':
+        this.allNums = Array.from(Array(6), (_, i) => i + 1);
+        this.getVisibleNumbers();
+        break;
+      case 'Alle':
+        this.showAll = true;
+        break;
+    }
+
+    if (value !== 'Alle') {
+      this.showAll = false;
+    }
     this.currentValue = value;
     this.showDropdown = false;
   }

@@ -52,7 +52,10 @@
       <div class="e-stepper__content"></div>
     </div>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="exampleShortHorizontalHTML"></app-code-block>
+      <app-component-example-v1
+        [showPreview]="false"
+        [codeHTML]="exampleShortHorizontalHTML"
+      ></app-component-example-v1>
     </div>
   </div>
 
@@ -61,13 +64,13 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Horizontal stepper'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="exampleShortHorizontalHTML"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleShortHorizontalHTML"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Vertical stepper'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="exampleVerticalShortHTML"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleVerticalShortHTML"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -169,7 +172,7 @@
           In a forced stepper the user has to complete a step before continuing to the next one. They can
           always step backwards to an earlier step. If a field is not filled and the user tries to go forward
           an error message should appear.
-          <app-code-block [codeHTML]="exampleForcedHorizontalHTML"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleForcedHorizontalHTML"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
@@ -177,7 +180,7 @@
         <ng-container ngProjectAs="sectionContent">
           When there are more than 4 steps the stepper should collapse. Be cautious of adding more than 4
           steps as a lot of steps can be overwhelming for the user.
-          <app-code-block [codeHTML]="exampleHorizontalHTML"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleHorizontalHTML"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -272,7 +275,7 @@
                     <input type="text" value="+47" />
                   </div>
                   <div class="e-input e-mb-24">
-                    <input type="text" placeholder="48484848" />
+                    <input type="text" placeholder="99 99 99 99" />
                   </div>
                 </div>
               </div>
@@ -387,7 +390,7 @@
                     <input type="text" value="+47" />
                   </div>
                   <div class="e-input e-mb-24">
-                    <input type="text" placeholder="48484848" />
+                    <input type="text" placeholder="99 99 99 99" />
                   </div>
                 </div>
               </div>
@@ -557,7 +560,7 @@
                     <input type="text" value="+47" />
                   </div>
                   <div class="e-input e-mb-24">
-                    <input type="text" placeholder="48484848" />
+                    <input type="text" placeholder="99 99 99 99" />
                   </div>
                 </div>
               </div>
@@ -687,7 +690,7 @@
                       <input type="text" value="+47" />
                     </div>
                     <div class="e-input e-mb-24">
-                      <input type="text" placeholder="48484848" />
+                      <input type="text" placeholder="99 99 99 99" />
                     </div>
                   </div>
                 </div>
@@ -799,7 +802,7 @@
                       <input type="text" value="+47" />
                     </div>
                     <div class="e-input e-mb-24">
-                      <input type="text" placeholder="48484848" />
+                      <input type="text" placeholder="99 99 99 99" />
                     </div>
                   </div>
                 </div>
@@ -916,7 +919,7 @@
                       <input type="text" value="+47" />
                     </div>
                     <div class="e-input e-mb-24">
-                      <input type="text" placeholder="48484848" />
+                      <input type="text" placeholder="99 99 99 99" />
                     </div>
                   </div>
                 </div>

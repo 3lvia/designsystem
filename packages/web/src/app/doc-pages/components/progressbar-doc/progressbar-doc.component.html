@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    Progress
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">Progressbar</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -10,40 +8,42 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div
-    class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
-  >
-    <div class="e-progress" role="progressbar">
-      <div class="e-progress__bar"></div>
-    </div>
-    <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
-    </div>
-  </div>
+  <!--CEG-->
+  <app-component-example-generator
+    [componentData]="componentData"
+    width="70"
+  ></app-component-example-generator>
 
-  <!--STATE-->
-  <app-component-section [sectionTitle]="'State'">
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Progressbar loading'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example1"></app-code-block>
-        </ng-container>
-      </app-component-subsection>
+      The progressbar is used to show loading, both locally and for full page actions where the
+      <a class="e-link e-link--inline" [routerLink]="['/components/contentLoader']">Content loader</a>
+      isn't suitable. It is for example used in
+      <a class="e-link e-link--inline" [routerLink]="['/components/fileUpload']">File Upload</a>
+      , where it shows progress or error for each file.
 
-      <app-component-subsection [sectionTitle]="'Progressbar error'">
+      <app-component-subsection [sectionTitle]="'Hierarchy of props'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example2"></app-code-block>
+          Note that if error is set to true the style of the progressbar will be in the error format and
+          override any default style with range or indeterminate style. If indeterminate is set to true, this
+          will always override default progressbar style with range of completion.
         </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>
 
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-progress'">
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-progress'"></app-component-properties>
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
 </div>

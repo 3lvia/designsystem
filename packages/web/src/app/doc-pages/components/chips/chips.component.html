@@ -33,7 +33,7 @@
       </button>
     </div>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="exampleOverview"></app-code-block>
+      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
     </div>
   </div>
 
@@ -42,7 +42,7 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Standard'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="exampleStandard"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleStandard"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
@@ -50,7 +50,7 @@
         <ng-container ngProjectAs="sectionContent">
           In case you want to categorize chips you can use different colors to distinguish them from each
           other. All colors can be used!
-          <app-code-block [codeHTML]="exampleColors"></app-code-block>
+          <app-component-example-v1 [codeHTML]="exampleColors"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>

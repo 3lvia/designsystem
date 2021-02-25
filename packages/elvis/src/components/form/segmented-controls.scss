@@ -22,6 +22,10 @@ $segmented-controls-border: 1px solid colors.color('elvia-off');
 
   transition: $transition-duration $transition-timing-function;
 
+  &.e-segmented-controls---focus > input ~ label:first-of-type {
+    @include outline.e-outline-pseudoclass();
+  }
+
   > input {
     position: absolute;
     opacity: 0;

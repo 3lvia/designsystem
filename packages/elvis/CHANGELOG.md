@@ -6,6 +6,108 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      7.0.0
+    </span>
+    <br>
+    <span>
+      February 23, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div>Components: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>,
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a> & 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/search#Overview">Search</a>
+        </div>
+        <ul>
+          <li>
+            Documentation on links is updated and usage of different links made clearer. Breaking changes are; Forward links should be replaced by action links, back links should be replaced and now uses the --back modifier, and jumbo links uses a new icon.
+          </li>
+          <li>
+            Typography now has no specified text-align except those with text-align center. All components now also include left-alignment inside the component itself.
+          </li>
+          <li>
+          <span class="code-text">e-search--local</span> have been replaced by two new search variants; <span class="code-text">e-search--instant</span> & <span class="code-text">e-search--on-submit</span>.
+          The class <span class="code-text">e-search--global</span> has also been removed and is no longer supported in Elvis. 
+          </li>
+        </ul>
+        <div class="e-mt-8">
+          How to fix:
+          <ul>
+          <li>
+            Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>. 
+          </li>
+          <li>
+            For back and forward links read the documentation with examples to replace these.
+          </li>
+          <li>
+            Typography should fix itself where there were problems with the previous change. Otherwise this change should not change any layout behavior.
+          </li>
+          <li>
+            Search classes must be replaced by the new classes, see documentation for examples. 
+          </li>
+        </ul>
+        </div>
+      </div>
+      <div class="changelog-content">
+        <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/card#Overview">Card</a>
+        </div>
+        New modifier class added for cards that only contain text: <span class="code-text">e-card--text-only</span>.
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      6.3.0
+    </span>
+    <br>
+    <span>
+      February 10, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
+        </div>
+        Compact class for table-footnote, <span class="code-text">e-table__footnote--compact</span>, and smaller table-cell class, <span class="code-text">e-table__cell--multiline-small</span>, added.
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      6.2.0
+    </span>
+    <br>
+    <span>
+      January 28, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icons#Overview">Icons</a>
+        </div>
+        Icons have been updated, some have been deprecated and new icons have been added.
+        <div class="changelog-divider"></div>
+      </div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       6.1.0
     </span>
     <br>
@@ -15,13 +117,15 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/divider#Overview">Divider</a>
         </div>
+        Divider component has been added.
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -42,6 +146,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -54,14 +159,15 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/indentity/Typography#Overview"></a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/Typography#Overview">Typography</a>
         </div>
         Strong and light versions of body text have been added, as well as on special text called 'micro'. 
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -86,6 +192,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -98,7 +205,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icons</a>
         </div>
@@ -111,7 +218,8 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
-<tr class="changelog-row">
+
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       4.6.0
@@ -123,7 +231,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
         </div>
@@ -133,6 +241,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -145,7 +254,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Feature</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Icon Button</a>
         </div>
@@ -155,6 +264,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">

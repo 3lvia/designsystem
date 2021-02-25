@@ -23,9 +23,14 @@ $card-actions-button-spacing: 25px;
   box-sizing: border-box;
   padding: $card-padding;
   position: relative;
+  text-align: left;
 
   @include breakpoints.breakpoint-up(Tablet) {
     padding: $card-padding-mobile;
+  }
+
+  &--text-only {
+    max-width: 450px;
   }
 
   &--shadow-soft {

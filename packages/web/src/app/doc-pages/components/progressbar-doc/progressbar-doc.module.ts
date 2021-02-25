@@ -1,22 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProgressbarDocComponent } from './progressbar-doc.component';
-import { ComponentHeaderModule } from 'src/app/shared/component-structure/component-header/component-header.module';
-import { CodeBlockModule } from 'src/app/shared/code-block/code-block.module';
-import { ComponentPropertiesModule } from 'src/app/shared/component-properties/component-properties.module';
+import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
+import { ComponentExampleV1Module } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
+import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
-import { ComponentSubsectionModule } from 'src/app/shared/component-structure/component-subsection/component-subsection.module';
-import { ComponentSectionModule } from 'src/app/shared/component-structure/component-section/component-section.module';
+import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
+import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
+import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
+import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
+import '@elvia/elvis-progress-linear';
+import { RouterModule } from '@angular/router';
+import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     ComponentHeaderModule,
-    CodeBlockModule,
+    ComponentExampleV1Module,
     ComponentPropertiesModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
     WhenToUseModule,
+    ComponentPropertiesTableModule,
+    ComponentExampleGeneratorModule,
+    ComponentInstallationModule,
   ],
   declarations: [ProgressbarDocComponent],
 })

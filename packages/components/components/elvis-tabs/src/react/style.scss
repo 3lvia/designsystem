@@ -1,19 +1,9 @@
 $green: #29d305;
 $grey-10: #e9e9e9;
 $grey-40: #a8a8a8;
+$grey-80: #515151;
 $hover-blue: #0064fa;
 $icon-btn-width: 24px;
-// Icon sizes
-$sizes: (
-  'xxs': 8px,
-  'custom12': 12px,
-  'xs': 16px,
-  'sm': 24px,
-  'md': 32px,
-  'lg': 40px,
-  'xl': 48px,
-  'xxl': 56px,
-);
 
 %fade {
   content: '';
@@ -23,6 +13,11 @@ $sizes: (
   top: 0;
   width: 10%;
   height: 100%;
+}
+
+.ewc-no-outline,
+.ewc-no-outline * {
+  outline: none !important;
 }
 
 .ewc-tabs {
@@ -48,6 +43,7 @@ $sizes: (
     padding: 18px 8px;
     margin: 4px 0px;
     width: 8px;
+    z-index: 1;
     transition: visibility 0.5s ease-in;
     // IE specific
     @media screen and (-ms-high-contrast: none) {
@@ -67,11 +63,17 @@ $sizes: (
     &.ewc-tabs__arrow--remove {
       display: none;
     }
-    i {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      visibility: visible;
+    .ewc-icon {
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      i {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     &:hover {
@@ -167,6 +169,34 @@ $sizes: (
     }
   }
 
+  &__tab {
+    &:not(:last-of-type) {
+      margin-right: 24px;
+      @media screen and (max-width: 767px) {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  // Handeling radiobutton
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    &:focus ~ label {
+      outline: 2px solid $hover-blue;
+      outline-offset: 2px;
+    }
+    &:disabled ~ label {
+      color: $grey-40;
+      cursor: not-allowed;
+      &:hover::after {
+        width: 0;
+      }
+    }
+  }
+
   &__label {
     font-family: 'Red Hat Text';
     font-style: normal;
@@ -175,6 +205,7 @@ $sizes: (
     line-height: 21px;
     letter-spacing: 0.8px;
     text-transform: uppercase;
+    color: $grey-80;
 
     display: inline-block;
     position: relative;
@@ -182,13 +213,6 @@ $sizes: (
     padding: 0 8px;
     padding-bottom: 11px;
     background: transparent;
-
-    &:not(:last-of-type) {
-      margin-right: 24px;
-      @media screen and (max-width: 767px) {
-        margin-right: 16px;
-      }
-    }
 
     // Underline
     &::before {
@@ -216,12 +240,6 @@ $sizes: (
       transition: all 0.3s ease-in-out;
     }
 
-    // States
-    &:focus:not(:disabled) {
-      outline: 2px solid $hover-blue;
-      outline-offset: 2px;
-    }
-
     &:hover {
       cursor: pointer;
       &:not(.ewc-tabs__label--selected)::after {
@@ -231,52 +249,13 @@ $sizes: (
     }
 
     &.ewc-tabs__label--selected {
-      font-weight: 500;
+      text-shadow: 0 0 0 black, 0 0 0.5px black;
+      color: black;
+
       &::after {
         background-color: $green;
         width: 100%;
       }
     }
-
-    &:disabled {
-      color: $grey-40;
-      cursor: not-allowed;
-      &:hover::after {
-        width: 0;
-      }
-    }
-  }
-}
-
-// --- ICONS ---
-@function get-icon-size($size) {
-  @return map-get($map: $sizes, $key: $size);
-}
-
-@mixin icon-size($icon-size) {
-  $size: get-icon-size($icon-size);
-  width: $size;
-  height: $size;
-  img,
-  i {
-    width: $size;
-    height: $size;
-  }
-}
-
-$defaultSize: 'md';
-
-.ewc-icon {
-  @include icon-size($defaultSize);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: inline-block;
-}
-
-// Making icon size classes
-@each $label, $size in $sizes {
-  .ewc-icon--#{$label} {
-    @include icon-size($label);
   }
 }

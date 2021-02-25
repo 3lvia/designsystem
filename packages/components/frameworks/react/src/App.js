@@ -5,6 +5,7 @@ import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
+import { TestingComponent } from '@elvia/elvis-testing/react';
 
 function App() {
   const [trackedState, setTrackedState] = useState(true);
@@ -79,10 +80,11 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
+      <TestingComponent></TestingComponent>
 
       <h2>Dropdown</h2>
       <div>
-        <Dropdown options={options} ></Dropdown>
+        <Dropdown options={options}></Dropdown>
       </div>
 
       <h2>Tabs</h2>

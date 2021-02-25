@@ -1,6 +1,5 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import * as retargetEvents from 'react-shadow-dom-retarget-events';
 import * as isEqual from 'lodash.isequal';
 import toolbox from '@elvia/elvis-toolbox';
 
@@ -9,17 +8,15 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected reactComponent: any;
   protected webComponent: any;
   protected cssStyle: string;
-  protected role: string;
   protected throttleRenderReactDOM;
   private mountPoint!: HTMLSpanElement;
 
-  constructor(webComponent: any, reactComponent: any, cssStyle: string, role: string) {
+  constructor(webComponent: any, reactComponent: any, cssStyle: string) {
     super();
     this._data = {};
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
-    this.role = role;
     this.throttleRenderReactDOM = toolbox.throttle(this.renderReactDOM, 50, { trailing: true });
   }
 
@@ -41,15 +38,11 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected attachStyle(): void {
-    this.setAttribute('role', this.role);
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
-
-    const shadowRoot = this.attachShadow({ mode: 'open' });
-    shadowRoot.appendChild(this.mountPoint);
-    shadowRoot.appendChild(styleTag);
-    retargetEvents(shadowRoot);
+    this.appendChild(styleTag);
+    this.appendChild(this.mountPoint);
   }
 
   protected setProps(newProps: any, preventRerender?: boolean): void {
@@ -83,11 +76,13 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected renderReactDOM(): void {
     this.mapAttributesToData();
-    ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
+    if (this.mountPoint) {
+      ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
+    }
   }
 
   private changedEvent(propName: string) {
-    this.mountPoint.dispatchEvent(
+    this.dispatchEvent(
       new CustomEvent(propName + 'OnChange', {
         bubbles: false,
         composed: true,

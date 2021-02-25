@@ -1,8 +1,6 @@
 <!--HEADER-->
 <app-component-header [figmaUrl]="figmaUrl">
-  <ng-container ngProjectAs="headerTitle">
-    File Upload
-  </ng-container>
+  <ng-container ngProjectAs="headerTitle">File Upload</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
@@ -13,27 +11,29 @@
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div
     class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center;"
+    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
   >
     <div class="liveExample e-mt-40">
-      <div class="e-fileupload" style="width: 380px;" appDnd>
+      <div class="e-fileupload" style="width: 380px" appDnd>
         <div class="e-fileupload__icon">
           <i class="e-icon e-icon--image_add-color"></i>
         </div>
-        <div class="e-fileupload__description">
-          Dra og slipp eller
-        </div>
+        <div class="e-fileupload__description">Drag and drop or</div>
         <div class="e-fileupload__input">
           <input type="file" id="fileUploadTemplate" />
           <label for="fileUploadTemplate">
             <i class="e-icon e-icon--download"></i>
-            Velg fil
+            Choose file
           </label>
         </div>
       </div>
     </div>
     <div class="e-w-100">
-      <app-code-block [showPreview]="false" [codeHTML]="example1" [codeTS]="dndDirective"></app-code-block>
+      <app-component-example-v1
+        [showPreview]="false"
+        [codeHTML]="example1"
+        [codeTS]="dndDirective"
+      ></app-component-example-v1>
     </div>
   </div>
 
@@ -42,7 +42,7 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Before hover'">
         <ng-container ngProjectAs="sectionContent">
-          <app-code-block [codeHTML]="example1"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'When hovering'">
@@ -50,7 +50,7 @@
           Use the class modifier
           <span class="code-text">e-fileupload---hover</span>
           on dragging over.
-          <app-code-block [codeHTML]="example2"></app-code-block>
+          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>

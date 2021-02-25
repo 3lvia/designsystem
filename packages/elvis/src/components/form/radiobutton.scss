@@ -19,6 +19,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
   width: fit-content;
   position: relative;
   line-height: 24px;
+  text-align: left;
   cursor: pointer;
 
   &:not(:last-child) {
@@ -237,6 +238,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     }
   }
 
+  &:active,
   &.e-radio---hover {
     .e-radio__mark {
       background: colors.color('elvia-charge');

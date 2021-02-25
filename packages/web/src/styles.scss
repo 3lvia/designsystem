@@ -39,6 +39,18 @@ p {
 }
 
 // Shared classes
+.code-text {
+  font-family: 'Fira Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: inherit;
+
+  background: var(--e-grey-05);
+  border-radius: 4px;
+  padding: 0 2px;
+}
+
 .page-body {
   margin-left: 10%;
   width: 90%;
@@ -138,6 +150,7 @@ p {
   }
 }
 
+// Changelog
 .changelog-row {
   font-family: 'Red Hat Text';
   font-style: normal;
@@ -175,67 +188,6 @@ p {
     margin-left: -33.7%;
     background: var(--e-grey-10);
     margin-top: 48px;
-  }
-}
-
-.code-text {
-  font-family: 'Fira Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: inherit;
-
-  background: var(--e-grey-05);
-  border-radius: 2px;
-  padding: 0 2px;
-}
-.code-block {
-  display: block;
-  width: 100%;
-  background: var(--e-grey-10);
-  padding: 4px 8px;
-  margin: 16px 0;
-  line-height: 180%;
-}
-
-.factbox {
-  display: flex;
-  padding: 10px 10px;
-  border: 2px solid var(--e-grey-30);
-  border-radius: 4px;
-  margin: 10px 0;
-
-  &.is-info {
-    background-color: var(--e-yellow);
-  }
-
-  &.is-warn {
-    background: var(--e-orange);
-  }
-
-  &_icon {
-    display: inline-flex;
-    align-self: center;
-    margin-right: 10px;
-    line-height: 24px;
-    vertical-align: top;
-  }
-
-  &-content {
-    display: flex;
-    margin-left: 20px;
-  }
-}
-
-// Code examples
-.example-box {
-  display: block;
-  box-sizing: border-box;
-  width: 100%;
-  height: 50px;
-
-  &.unset {
-    height: unset;
   }
 }
 

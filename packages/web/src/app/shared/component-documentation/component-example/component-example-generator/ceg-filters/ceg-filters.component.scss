@@ -1,0 +1,27 @@
+.ceg-side-filters {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 24px;
+  text-transform: capitalize;
+
+  .ceg-filter-margin {
+    padding-bottom: 24px;
+  }
+
+  .e-checkbox:last-child,
+  .e-radio:last-child {
+    margin-bottom: 8px;
+  }
+
+  .counter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .counter__number {
+      width: 40px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

@@ -46,6 +46,9 @@ const Popover: FC<PopoverProps> = ({
 
   // Running on first render only (on mount)
   useEffect(() => {
+    // Start outline listener
+    toolbox.outlineListener(popoverRef.current);
+
     // Defining max content width for popover
     const maxContentTimeout = setTimeout(() => {
       if (!popoverContentRef.current) {
@@ -72,6 +75,9 @@ const Popover: FC<PopoverProps> = ({
 
     // Cleanup
     return () => {
+      // Remove outline listener
+      toolbox.outlineListener(popoverRef.current, true);
+
       document.removeEventListener('click', handleClickOutside);
       clearTimeout(maxContentTimeout);
     };
@@ -215,6 +221,7 @@ const Popover: FC<PopoverProps> = ({
   return (
     <span className={popoverClasses} ref={popoverRef}>
       <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
+        <button onClick={togglePopover}>This button works</button>
         {trigger && <div onClick={togglePopover}>{trigger}</div>}
         {!trigger && <slot name="trigger" onClick={togglePopover} ref={popoverSlotTriggerRef}></slot>}
       </div>

@@ -17,8 +17,6 @@ export interface DropdownProps {
   isCompact: boolean;
 }
 
-
-
 const Dropdown: React.FC<DropdownProps> = ({
   options,
   placeholder = 'Placeholder',
@@ -26,15 +24,12 @@ const Dropdown: React.FC<DropdownProps> = ({
   label = 'Label',
   isCompact = false,
 }) => {
-
   const classes = classnames({
     ['ewc-dropdown']: !isCompact,
     ['ewc-dropdown ewc-dropdown--compact']: isCompact,
   });
 
-  const ElviaDropdownIndicator = (
-    props: ElementConfig<typeof components.DropdownIndicator>
-  ) => {
+  const ElviaDropdownIndicator = (props: ElementConfig<typeof components.DropdownIndicator>) => {
     return (
       <components.DropdownIndicator {...props}>
         <span className="ewc-dropdown__icon">
@@ -50,9 +45,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   return (
-
     <span>
-
       <div className={classes}>
         <label className="ewc-dropdown__label">{label} </label>
         {/* <Label /> */}
@@ -63,11 +56,9 @@ const Dropdown: React.FC<DropdownProps> = ({
           options={options}
           placeholder={placeholder}
           isDisabled={isDisabled}
-
-        ></Select >
+        ></Select>
       </div>
     </span>
-
   );
 };
 

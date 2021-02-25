@@ -324,10 +324,11 @@ export const eComponents: EItems[] = [
     title: 'Popover',
     // tslint:disable-next-line: max-line-length
     description:
-      'Popover is a non-modal dialog that appears over the content on the screen. Popover is used with a clickable trigger element and should position itself relative to where there is free space on the screen. ',
+      'We offer popover as a shell with options like close button, title and text. Popover displays additional information or operations without leaving the page. It is triggered by a button and layered on top of all other content.',
     docUrl: Pages.Popover,
     absolutePath: '/components/' + Pages.Popover,
-    status: ItemStatus.New,
+    //status: ItemStatus.New,
+    status: ItemStatus.Coming,
     imageUrl: 'assets/website-icons/component-images/Popover.svg',
     figmaUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover?node-id=1%3A10',
     type: 'Component',
@@ -347,7 +348,7 @@ export const eComponents: EItems[] = [
   {
     title: 'Progressbar',
     // tslint:disable-next-line: max-line-length
-    description: `Progressbar is typically used in <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a> to show file progress.`,
+    description: `Graphical indication of the progress of an operation.`,
     docUrl: Pages.Progressbar,
     absolutePath: '/components/' + Pages.Progressbar,
     status: ItemStatus.Done,
