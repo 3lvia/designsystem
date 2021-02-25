@@ -154,10 +154,30 @@
   <!--ICON USAGE-->
   <app-component-section [sectionTitle]="'Icons'">
     <ng-container ngProjectAs="sectionContent">
-      Our icon library is based on Streamline icons. The icons that are from Streamline is not made accessible under
-      the same license as this npm package. Those icons are still the property of Webablys LLC. Elvia has bought a
-      license for the use of these icons in the organization. They can also be used in open source projects as long
-      as you follow their license.
+
+      <div>
+        Icons and how to implement them is available through @elvia/elvis package or CDN, take a look at the icon
+        documentation page
+        on how: <a
+          class="e-link e-link--inline"
+          [routerLink]="['/identity/icon']"
+        >Icons</a>.
+      </div>
+
+      <div class="e-mt-16">
+        We also offer all elvia icons as
+        a seperate package <a
+          class="e-link e-link--inline"
+          href="https://www.npmjs.com/package/@elvia/elvis-assets-icons"
+        >@elvia/elvis-asseets-icons</a>.
+      </div>
+      <div class="e-mt-16">
+        Our icon library is based on Streamline icons. The icons that are from Streamline is not made accessible under
+        the same license as this npm package. Those icons are still the property of Webablys LLC. Elvia has bought a
+        license for the use of these icons in the organization. They can also be used in open source projects as long
+        as you follow their license.
+      </div>
+
       <div>
         Streamline license information:
         <a
