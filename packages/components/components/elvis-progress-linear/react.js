@@ -1,1 +1,1 @@
-export { default as ProgressLinear } from './dist/react/js/elvis-progress-linear';
+export { default as ProgressLinear } from './dist/react/js/elvia-progress-linear';
