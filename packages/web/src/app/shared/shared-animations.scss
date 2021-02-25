@@ -85,7 +85,7 @@
   animation: scale-down-ver-top 0.2s linear both;
 }
 
-%fade-in {
+@mixin fade-in($duration, $delay) {
   @keyframes slide-in-top {
     0% {
       // transform: translateY(-60px);
@@ -96,5 +96,6 @@
       opacity: 1;
     }
   }
-  animation: slide-in-top 0.4s cubic-bezier(0.42, 0, 0.58, 1) both;
+  animation: slide-in-top $duration cubic-bezier(0.42, 0, 0.58, 1) both;
+  animation-delay: $delay;
 }
