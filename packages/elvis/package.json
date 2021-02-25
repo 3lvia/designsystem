@@ -12,7 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.5.3"
+    "bootstrap": "^4.5.3",
+    "@elvia/elvis-assets-icons": "*"
   },
   "devDependencies": {
     "del": "^5.1.0",
