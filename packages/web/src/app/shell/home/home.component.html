@@ -9,9 +9,12 @@
                 <span class="title">{{ overviewTitle }}</span>
                 <span class="dot"></span>
               </div>
-              <div *ngIf="!fontLoaded" class="content-loader-title">
-                <span class="e-content-loader e-content-loader--text e-w-75"></span>
-                <span class="e-content-loader e-content-loader--text e-w-50 e-mt-24"></span>
+              <div class="content-loader-title" *ngIf="!fontLoaded">
+                <span class="e-content-loader e-content-loader--inverted e-w-75" style="height: 60px"></span>
+                <span
+                  class="e-content-loader e-content-loader--inverted e-w-50 e-mt-24"
+                  style="height: 60px"
+                ></span>
               </div>
             </h1>
             <div class="e-text-lead e-mt-32">
@@ -20,19 +23,26 @@
                 towards an ultimate brand experience.
               </div>
               <div *ngIf="!fontLoaded" class="content-loader-text">
-                <span class="e-content-loader e-content-loader--text"></span>
-                <span class="e-content-loader e-content-loader--text e-mt-24"></span>
-                <span class="e-content-loader e-content-loader--text e-w-75 e-mt-24"></span>
+                <span class="e-content-loader e-content-loader--text e-content-loader--inverted"></span>
+                <span
+                  class="e-content-loader e-content-loader--text e-content-loader--inverted e-mt-24"
+                ></span>
+                <span
+                  class="e-content-loader e-content-loader--text e-content-loader--inverted e-w-75 e-mt-24"
+                ></span>
               </div>
             </div>
-            <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
+            <a *ngIf="fontLoaded" class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
               <span class="e-btn__title">
-                <div *ngIf="fontLoaded">Get started</div>
-                <div *ngIf="!fontLoaded">
-                  <span class="e-content-loader e-content-loader--text"></span>
-                </div>
+                <div>Get started</div>
               </span>
             </a>
+            <div class="e-mt-48" *ngIf="!fontLoaded">
+              <span
+                class="e-content-loader e-content-loader--inverted"
+                style="width: 160px; height: 48px"
+              ></span>
+            </div>
           </div>
         </div>
 

@@ -231,6 +231,7 @@
 		},
 		"e-content-loader": {
 			"modifier": {
+				"e-content-loader--inverted": {},
 				"e-content-loader--circle": {},
 				"e-content-loader--text": {},
 				"e-content-loader--short": {}
@@ -1153,6 +1154,7 @@
 		"e-chip--red-tomato": {},
 		"e-chip---hover": {},
 		"e-content-loader": {},
+		"e-content-loader--inverted": {},
 		"e-content-loader--circle": {},
 		"e-content-loader--text": {},
 		"e-content-loader--short": {},

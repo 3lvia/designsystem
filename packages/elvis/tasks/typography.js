@@ -37,7 +37,7 @@ function addClass(className, properties, i) {
   for (let j = 0; j < properties.length; j++) {
     if (properties[j].key === 'family') {
       newClass += `
-    ${properties[j].key}: #{${properties[j].value},\n    sans-serif},`;
+    ${properties[j].key}: #{${properties[j].value},\n    Verdana},`;
     } else {
       newClass += `
     ${properties[j].key}: #{${properties[j].value}},`;

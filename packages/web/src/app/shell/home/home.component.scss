@@ -7,7 +7,7 @@
   overflow: hidden;
   padding-bottom: 40px;
   padding-top: 64px;
-  @extend %slide-in-top;
+  @extend %fade-in;
 }
 
 // IMAGE SIZING
@@ -189,7 +189,7 @@
         @media (min-width: 1326px) {
           height: 74px;
         }
-        .e-content-loader--text.e-w-50 {
+        .e-content-loader.e-w-50 {
           @media (min-width: 1326px) {
             display: none;
           }

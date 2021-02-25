@@ -51,13 +51,6 @@ $text-line-height: 32px;
     .navbar-item {
       margin-left: 4px;
       margin-bottom: 16px;
-      @extend %scale-down-ver-top;
-
-      @for $i from 1 through 35 {
-        &:nth-child(#{$i}) {
-          animation-delay: 30ms * $i;
-        }
-      }
 
       a {
         cursor: pointer;
@@ -66,7 +59,7 @@ $text-line-height: 32px;
           overflow: hidden;
           padding-left: 16px;
 
-          font-family: 'Red Hat Text';
+          font-family: 'Red Hat Text', Verdana;
           font-style: normal;
           font-weight: 500;
           font-size: 14px;
@@ -114,7 +107,7 @@ $text-line-height: 32px;
           a {
             width: 100%;
             justify-self: flex-start;
-            font-family: 'Red Hat Text';
+            font-family: 'Red Hat Text', Verdana;
             font-style: normal;
             font-weight: 400;
             font-size: 13px;

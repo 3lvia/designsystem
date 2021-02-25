@@ -22,6 +22,7 @@
 
 body {
   margin: 0;
+  font-family: 'Red Hat Text', 'Verdana';
 }
 
 html {
@@ -65,7 +66,7 @@ p {
   @include breakpoint-up(MinDesktop) {
     margin: 0 auto;
   }
-  @extend %slide-in-top;
+  @extend %fade-in;
 }
 
 .overview-page {
@@ -124,7 +125,7 @@ p {
   }
   .overview-description {
     text-align: center;
-    font-family: 'Red Hat Text';
+    font-family: 'Red Hat Text', Verdana;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -152,7 +153,7 @@ p {
 
 // Changelog
 .changelog-row {
-  font-family: 'Red Hat Text';
+  font-family: 'Red Hat Text', Verdana;
   font-style: normal;
   font-size: 16px;
   line-height: 32px;
@@ -285,7 +286,7 @@ p {
 
 // Typography - specific for doc
 .big-header {
-  font-family: 'Red Hat Display';
+  font-family: 'Red Hat Display', Verdana;
   font-style: normal;
   font-weight: 900;
   font-size: 56px;

@@ -2,8 +2,8 @@
 @use './colors.scss';
 @use '../utilities/breakpoints.scss';
 
-$font-family: 'Red Hat Display', sans-serif;
-$font-family-secondary: 'Red Hat Text', sans-serif;
+$font-family: 'Red Hat Display', Verdana;
+$font-family-secondary: 'Red Hat Text', Verdana;
 
 @function getValue($name, $value) {
   $typography-map: null;
