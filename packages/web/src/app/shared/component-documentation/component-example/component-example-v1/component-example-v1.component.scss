@@ -31,7 +31,7 @@
           align-items: center;
           margin: 0 12px;
           cursor: pointer;
-          font-family: 'Red Hat Display', Verdana;
+          font-family: 'Red Hat Display', Verdana, sans-serif;
           font-size: 14px;
           line-height: 32px;
 
@@ -89,7 +89,7 @@
         align-items: center;
         width: 100%;
 
-        font-family: 'Red Hat Text', Verdana;
+        font-family: 'Red Hat Text', Verdana, sans-serif;
         font-size: 14px;
         line-height: 160%;
         .e-toggle {
