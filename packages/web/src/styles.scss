@@ -312,14 +312,14 @@ p {
   @include ease-in-out-opacity(0.4s, 0.4s);
 }
 // Home page
-.home-text-animation {
-  @include ease-in-out-opacity(0.6s, 0.5s);
-}
 .home-image-animation {
-  @include ease-in-out-opacity(0.6s, 0.7s);
+  @include ease-in-out-opacity(0.6s, 0.28s);
+}
+.home-text-animation {
+  @include ease-in-out-opacity(0.6s, 0.6s);
 }
 .home-card-links-animation {
-  @include ease-in-out-opacity(0.6s, 0.9s);
+  @include ease-in-out-opacity(0.6s, 0.8s);
 }
 
 // Typography - specific for doc
