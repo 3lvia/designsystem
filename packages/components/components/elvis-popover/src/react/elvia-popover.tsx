@@ -221,6 +221,7 @@ const Popover: FC<PopoverProps> = ({
   return (
     <span className={popoverClasses} ref={popoverRef}>
       <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
+        <button onClick={togglePopover}>This button works</button>
         {trigger && <div onClick={togglePopover}>{trigger}</div>}
         {!trigger && <slot name="trigger" onClick={togglePopover} ref={popoverSlotTriggerRef}></slot>}
       </div>

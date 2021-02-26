@@ -51,7 +51,7 @@
     }
 
     &-links {
-      font-family: 'Red Hat Text', Verdana;
+      font-family: 'Red Hat Text', Verdana, sans-serif;
       font-weight: 500;
       font-size: 12px;
       line-height: 14px;
@@ -118,7 +118,7 @@
       cursor: pointer;
       .elvis-search__title {
         color: var(--e-white);
-        font-family: 'Red Hat Display', Verdana;
+        font-family: 'Red Hat Display', Verdana, sans-serif;
         font-style: normal;
         text-transform: none;
         font-weight: 500;
@@ -133,7 +133,7 @@
     }
 
     .version {
-      font-family: 'Red Hat Text', Verdana;
+      font-family: 'Red Hat Text', Verdana, sans-serif;
       font-weight: 500;
       font-size: 12px;
       line-height: 14px;
@@ -165,7 +165,7 @@
       cursor: pointer;
       .elvis-search__title {
         color: var(--e-white);
-        font-family: 'Red Hat Display', Verdana;
+        font-family: 'Red Hat Display', Verdana, sans-serif;
         font-style: normal;
         text-transform: none;
         font-weight: 500;

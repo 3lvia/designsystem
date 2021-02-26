@@ -22,7 +22,7 @@
 
 body {
   margin: 0;
-  font-family: 'Red Hat Text', 'Verdana';
+  font-family: 'Red Hat Text', 'Verdana, sans-serif';
 }
 
 html {
@@ -131,7 +131,7 @@ p {
   }
   .overview-description {
     text-align: center;
-    font-family: 'Red Hat Text', Verdana;
+    font-family: 'Red Hat Text', Verdana, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -159,7 +159,7 @@ p {
 
 // Changelog
 .changelog-row {
-  font-family: 'Red Hat Text', Verdana;
+  font-family: 'Red Hat Text', Verdana, sans-serif;
   font-style: normal;
   font-size: 16px;
   line-height: 32px;
@@ -324,7 +324,7 @@ p {
 
 // Typography - specific for doc
 .big-header {
-  font-family: 'Red Hat Display', Verdana;
+  font-family: 'Red Hat Display', Verdana, sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 56px;

@@ -5,8 +5,8 @@
 @use './colors.scss';
 @use '../utilities/breakpoints.scss';
 
-$font-family: 'Red Hat Display', Verdana;
-$font-family-secondary: 'Red Hat Text', Verdana;
+$font-family: 'Red Hat Display', Verdana, sans-serif;
+$font-family-secondary: 'Red Hat Text', Verdana, sans-serif;
 
 @function getValue($name, $value) {
   $typography-map: null;
@@ -54,7 +54,8 @@ body {
 $typography: (
   title-lg: (
     family: #{Red Hat Display,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{44px},
     size-m: #{32px},
     weight: #{900},
@@ -67,7 +68,8 @@ $typography: (
   ),
   title-md: (
     family: #{Red Hat Display,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{30px},
     size-m: #{24px},
     weight: #{700},
@@ -80,7 +82,8 @@ $typography: (
   ),
   title-sm: (
     family: #{Red Hat Display,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{24px},
     size-m: #{20px},
     weight: #{700},
@@ -93,7 +96,8 @@ $typography: (
   ),
   title-xs: (
     family: #{Red Hat Display,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{18px},
     weight: #{700},
     height: #{22px},
@@ -104,7 +108,8 @@ $typography: (
   ),
   text-lead: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{24px},
     size-m: #{22px},
     weight: #{400},
@@ -117,7 +122,8 @@ $typography: (
   ),
   text-quote: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{26px},
     size-m: #{20px},
     weight: #{400},
@@ -130,7 +136,8 @@ $typography: (
   ),
   text-body: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{20px},
     size-m: #{18px},
     weight: #{400},
@@ -143,7 +150,8 @@ $typography: (
   ),
   text-lg: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{20px},
     size-m: #{18px},
     weight: #{400},
@@ -156,7 +164,8 @@ $typography: (
   ),
   text-img: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{18px},
     size-m: #{16px},
     weight: #{400},
@@ -170,7 +179,8 @@ $typography: (
   ),
   text-description: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{16px},
     weight: #{400},
     height: #{28px},
@@ -181,7 +191,8 @@ $typography: (
   ),
   text-md: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{16px},
     weight: #{400},
     height: #{28px},
@@ -192,7 +203,8 @@ $typography: (
   ),
   text-caps: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{14px},
     weight: #{500},
     height: #{17px},
@@ -203,7 +215,8 @@ $typography: (
   ),
   title-caps: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{14px},
     weight: #{500},
     height: #{17px},
@@ -214,7 +227,8 @@ $typography: (
   ),
   text-info: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{14px},
     weight: #{400},
     height: #{22px},
@@ -225,7 +239,8 @@ $typography: (
   ),
   text-sm: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{14px},
     weight: #{400},
     height: #{22px},
@@ -236,7 +251,8 @@ $typography: (
   ),
   text-label: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{16px},
     weight: #{500},
     height: #{23px},
@@ -247,7 +263,8 @@ $typography: (
   ),
   text-option: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{16px},
     weight: #{400},
     height: #{22px},
@@ -258,7 +275,8 @@ $typography: (
   ),
   text-micro: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{11px},
     weight: #{400},
     height: #{14px},
@@ -269,7 +287,8 @@ $typography: (
   ),
   text-micro-strong: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{11px},
     weight: #{500},
     height: #{14px},
@@ -280,7 +299,8 @@ $typography: (
   ),
   text-lead-strong: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{24px},
     size-m: #{22px},
     weight: #{500},
@@ -293,7 +313,8 @@ $typography: (
   ),
   text-lg-strong: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{20px},
     size-m: #{18px},
     weight: #{500},
@@ -306,7 +327,8 @@ $typography: (
   ),
   text-lg-light: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{20px},
     size-m: #{18px},
     weight: #{400},
@@ -319,7 +341,8 @@ $typography: (
   ),
   text-md-strong: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{16px},
     weight: #{500},
     height: #{28px},
@@ -330,7 +353,8 @@ $typography: (
   ),
   text-md-light: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{16px},
     weight: #{400},
     height: #{28px},
@@ -341,7 +365,8 @@ $typography: (
   ),
   text-sm-strong: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{14px},
     weight: #{500},
     height: #{22px},
@@ -352,7 +377,8 @@ $typography: (
   ),
   text-sm-light: (
     family: #{Red Hat Text,
-    Verdana},
+    Verdana,
+    sans-serif},
     size: #{14px},
     weight: #{400},
     height: #{22px},
