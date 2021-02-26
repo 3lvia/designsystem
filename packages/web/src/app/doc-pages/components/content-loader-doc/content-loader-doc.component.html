@@ -35,17 +35,26 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Box'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleContentLoader"></app-component-example-v1>
+          <app-component-example-v1
+            [codeHTML]="exampleContentLoader"
+            [codeInverted]="exampleContentLoaderInverted"
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Circle'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleContentLoaderCircle"></app-component-example-v1>
+          <app-component-example-v1
+            [codeHTML]="exampleContentLoaderCircle"
+            [codeInverted]="exampleContentLoaderCircleInverted"
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Text'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleContentLoaderText"></app-component-example-v1>
+          <app-component-example-v1
+            [codeHTML]="exampleContentLoaderText"
+            [codeInverted]="exampleContentLoaderTextInverted"
+          ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
