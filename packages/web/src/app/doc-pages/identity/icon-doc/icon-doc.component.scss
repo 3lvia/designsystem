@@ -1,5 +1,5 @@
-@import "../../../shared/shared-animations";
-@import "@elvia/elvis/src/utilities/breakpoints.scss";
+@import '../../../shared/shared-animations';
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 $maxIconContainer: 600px;
 $maxIconContainerMobile: 450px;
@@ -228,7 +228,7 @@ $maxIconContainerMobile: 450px;
         justify-content: center;
         width: 58px;
 
-        font-family: "Red Hat Display";
+        font-family: 'Red Hat Display', Verdana, sans-serif;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;

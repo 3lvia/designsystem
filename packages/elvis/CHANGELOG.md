@@ -3,6 +3,35 @@
 <!-- 🐝 - BUG FIXES -->
 
 <table>
+ <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      7.1.0
+    </span>
+    <br>
+    <span>
+      February 26, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a>
+        </div>
+        Content loader for dark backgrounds added: <span class="code-text">e-content-loader--inverted</span>.
+      </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug fixes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
+        </div>
+        Typography now has Verdana as fallback font.
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
