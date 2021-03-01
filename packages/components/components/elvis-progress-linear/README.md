@@ -48,7 +48,7 @@ import '@elvia/elvis-progress-linear';
 
 // app.component.ts
   progressValue = 0;
-  indeterminate = false;
+  isIndeterminate = false;
   progressError = false;
 
 // app.component.html
