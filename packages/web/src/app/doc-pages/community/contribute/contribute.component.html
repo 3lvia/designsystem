@@ -14,15 +14,13 @@
       This model was made to help you know when to contact Elvis about potential new components for the design
       system.
       <div class="e-mt-40">
-        <div>
-          <div
-            class="e-content-loader"
-            *ngIf="!loadedFigmaModel"
-            style="width: 880px; height: 600px"
-          ></div>
-        </div>
+        <div
+          class="e-content-loader e-w-100"
+          *ngIf="!loadedFigmaModel"
+          style="width: 880px; height: 600px"
+        ></div>
         <iframe
-          [ngClass]="!loadedFigmaModel ? 'e-none' : '' "
+          [ngClass]="!loadedFigmaModel ? 'e-none' : ''"
           id="figma-contribution-model"
           style="border: none"
           width="100%"
