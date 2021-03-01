@@ -22,6 +22,9 @@ const StyledDivider = styled.div`
 export const TestingComponent: React.FC<DividerProps> = ({ className, style }) => {
   const [open, setOpen] = React.useState(false);
 
+  className;
+  style;
+
   const handleClickOpen = () => {
     setOpen(true);
   };
