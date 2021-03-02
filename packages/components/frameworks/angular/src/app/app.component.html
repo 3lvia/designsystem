@@ -33,14 +33,10 @@
 
   <hr style="margin: 40px 0" />
 
-  <p style="color: red">
-    Slot fungerer ikke uten shadowDOM virker det som, dette problemet bør løses i selve popover komponenten.
-    Er rimelig sikker på at problemet ligger der :)
-  </p>
   <h2>Popover</h2>
   <div style="display: flex; flex-direction: column; align-items: flex-end">
     <div style="margin-top: 16px">
-      <elvia-popover title="BankID" posX="right">
+      <elvia-popover header="BankID" posX="right" width="200">
         <button slot="trigger" class="e-btn">Right top</button>
         <div slot="content">
           Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle
@@ -50,9 +46,9 @@
     </div>
     <div style="margin-top: 16px">
       <elvia-popover
-        title="BankID"
+        header="BankID"
         content="Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle
-      privatkunder må bruke BankID første gang."
+        privatkunder må bruke BankID første gang."
         posX="left"
         hasCloseBtn="false"
       >
@@ -60,19 +56,19 @@
       </elvia-popover>
     </div>
     <div style="margin-top: 16px">
-      <elvia-popover title="BankID" content="Alle privatkunder må bruke BankID.">
+      <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID.">
         <button slot="trigger" class="e-btn">Center top</button>
       </elvia-popover>
     </div>
   </div>
   <div style="margin-top: 16px">
-    <elvia-popover title="BankID" content="Alle privatkunder må bruke BankID." posY="bottom">
+    <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID." posY="bottom">
       <button slot="trigger" class="e-btn">Center bottom</button>
     </elvia-popover>
   </div>
   <div style="margin-top: 16px">
     <elvia-popover
-      title="BankID"
+      header="BankID"
       content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
       posY="bottom"
       posX="right"
@@ -82,7 +78,7 @@
   </div>
   <div style="margin-top: 16px">
     <elvia-popover
-      title="BankID"
+      header="BankID"
       content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
       posY="bottom"
       posX="left"

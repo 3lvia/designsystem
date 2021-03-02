@@ -6,15 +6,15 @@ const popoverData = {
   elementNameR: 'Popover',
   package: 'npm install @elvia/elvis-popover',
   attributes: {
-    title: {
+    header: {
       isRequired: false,
       type: 'string',
-      description: 'Title of content',
-      displayName: 'Title',
+      description: 'Header of content',
+      displayName: 'Header',
       cegType: 'string',
       cegFormType: 'toggle',
       cegDefault: 'true',
-      cegOption: 'Title',
+      cegOption: 'Header',
     },
     hasCloseBtn: {
       isRequired: false,
@@ -62,7 +62,7 @@ const popoverData = {
   codeImportWebComponent: `import '@elvia/elvis-popover';`,
   codeReact:
     `<Popover
-  title="` +
+  header="` +
     exampleContents.texts.md['eng-GBR'].title +
     `"
   content="` +
@@ -80,7 +80,7 @@ const popoverData = {
 ></Popover>`,
   codeWebComponent:
     `<elvia-popover 
-  title="` +
+  header="` +
     exampleContents.texts.md['eng-GBR'].title +
     `" 
   content="` +

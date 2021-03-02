@@ -44,6 +44,9 @@ $green: #29d305;
     width: max-content;
     &.ewc-popover--text-only {
       max-width: 450px;
+      .ewc-popover__text {
+        padding-right: 8px;
+      }
       // IE specific
       @media screen and (-ms-high-contrast: none) {
         width: 450px;
@@ -54,7 +57,7 @@ $green: #29d305;
     z-index: 99;
     pointer-events: all;
     padding: $popover-padding;
-    box-sizing: border-box;
+    box-sizing: content-box;
     background-color: white;
     color: black;
     box-shadow: $popover-box-shadow;
@@ -68,7 +71,7 @@ $green: #29d305;
       right: 7px;
     }
 
-    .ewc-popover__title {
+    .ewc-popover__header {
       font-family: 'Red Hat Text', Verdana, sans-serif;
       font-size: 14px;
       line-height: 22px;

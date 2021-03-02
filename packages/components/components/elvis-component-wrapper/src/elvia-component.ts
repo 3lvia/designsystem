@@ -59,8 +59,8 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
-  protected createReactData() {
-    const reactData = {};
+  protected createReactData(): Record<string, unknown> {
+    const reactData: { [key: string]: boolean } = {};
     Object.keys(this._data).forEach((key: string) => {
       reactData[this.mapNameToRealName(key)] = this._data[key];
     });

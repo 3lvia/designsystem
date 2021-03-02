@@ -14,7 +14,7 @@ module.exports = [
   {
     name: 'elvis-popover',
     elementName: 'elvia-popover',
-    attributes: ['title', 'content', 'posX', 'posY', 'hasCloseBtn'],
+    attributes: ['header', 'content', 'posX', 'posY', 'hasCloseBtn'],
     reactName: 'Popover',
   },
   {
