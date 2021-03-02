@@ -1,6 +1,6 @@
 import React, { ElementConfig } from 'react';
-import './style.scss';
-import classnames from 'classnames';
+// import './style.scss';
+// import classnames from 'classnames';
 import Select, { components } from 'react-select';
 
 export interface DropdownOptions {
@@ -13,7 +13,8 @@ export interface DropdownProps {
   placeholder: string;
   isDisabled: boolean;
   label: string;
-  isCompact?: boolean;
+  // Todo: bring iscompact classes with props
+  // isCompact?: boolean;
   isMulti: boolean;
 }
 
@@ -22,14 +23,21 @@ const Dropdown: React.FC<DropdownProps> = ({
   placeholder = 'Placeholder',
   isDisabled = false,
   label = 'Label',
-  isCompact,
+  // Todo: bring iscompact classes with props
+  // isCompact,
   isMulti = false,
 }) => {
-  const classes = classnames({
-    ['ewc-dropdown']: !isCompact,
-    ['ewc-dropdown ewc-dropdown--compact']: isCompact,
-  });
+  // Custom styling
+  const customElviaStyles = {
+    option: (provided: any, state: any) => ({
+      ...provided,
+      borderBottom: '1px dotted pink',
+      color: state.isSelected ? 'red' : 'blue',
+      padding: 20,
+    }),
+  };
 
+  // Custom components for Elvia dropdown
   const ElviaDropdownIndicator = (props: ElementConfig<typeof components.DropdownIndicator>) => {
     return (
       <components.DropdownIndicator {...props}>
@@ -46,18 +54,13 @@ const Dropdown: React.FC<DropdownProps> = ({
       </components.DropdownIndicator>
     );
   };
-  // const ElviaMultiSelectOption = (props: ElementConfig<typeof components.Option>) => {
-  //   return (
-  //     <components.Option {...props}>
-  //       <label className="e-checkbox">
-  //         <input type="checkbox" />
-  //         <span className="e-checkbox__mark"></span>
-  //         <span className="e-checkbox__label"> label and value for prop</span>
-  //       </label>
 
-  //     </components.Option>
-  //   );
-  // };
+  // const ELviaInput = ({children, ...props}) => {
+  //   return (
+  //     <components.Input
+
+  //   )
+  // }
 
   const ElviaOption = ({ children, ...props }) => {
     if (!isMulti) {
@@ -66,7 +69,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       return (
         <components.Option {...props}>
           <label className="e-checkbox">
-            <input type="checkbox" />
+            <input type="checkbox" readOnly />
             <span className="e-checkbox__mark"></span>
             <span className="e-checkbox__label"> {children}</span>
           </label>
@@ -75,42 +78,39 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
-  const ElviaValueContainer = ({ children, getValue, ...props }) => {
+  const newValueContainer = ({ children, ...props }) => {
     if (!isMulti) {
       return <components.ValueContainer {...props}>{children}</components.ValueContainer>;
     } else {
-      const valueLength = getValue().length;
-      // var optionsLength = props.selectProps.options.length;
+      const { getValue } = props;
+      const selectedOtions = getValue().length;
 
-      // Check if values are equal to options and display `All` instead of number.
-      // var valueLength = optionsLength === valueLength ? "All" : valueLength;
-
-      return (
-        <components.ValueContainer {...props}>
-          {!props.selectProps.inputValue && `${valueLength} valgt`}
-          {React.Children.map(children, (child) => {
-            return child.type === components.Input ? child : null;
-          })}
-        </components.ValueContainer>
-      );
+      if (selectedOtions <= 1) {
+        return <components.ValueContainer {...props}>{children}</components.ValueContainer>;
+      } else {
+        return <components.ValueContainer {...props}>{`${selectedOtions} valgte`}</components.ValueContainer>;
+      }
     }
   };
 
+  // Object containing all components overriden in react-select by Elvis dropdown
   const overRideComponents = {
     DropdownIndicator: ElviaDropdownIndicator,
     Option: ElviaOption,
-    ValueContainer: ElviaValueContainer,
+    ValueContainer: newValueContainer,
     IndicatorSeparator: () => null,
     ClearIndicator: () => null,
   };
 
   return (
     <span>
-      <div className={classes}>
-        <label className="ewc-dropdown__label">{label} </label>
+      <div>
+        {/* <div className={classes}> */}
+        {/* <label className="ewc-dropdown__label">{label} </label> */}
+        <label>{label} </label>
         <Select
-          className={'ewc-dropdown-container'}
-          classNamePrefix="ewc-dropdown"
+          styles={customElviaStyles}
+          isSearchable={false}
           components={overRideComponents}
           options={options}
           placeholder={placeholder}
