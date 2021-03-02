@@ -442,7 +442,7 @@ body {
   width: 100%;
 }
 
-.e-accordion.e-accordion--group .e-accordion__item {
+.e-accordion.e-accordion--group .e-accordion__item:not(:last-of-type) {
   border-bottom: 1px solid #e9e9e9;
 }
 
