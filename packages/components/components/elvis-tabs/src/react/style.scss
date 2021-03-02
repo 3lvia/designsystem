@@ -2,6 +2,7 @@ $green: #29d305;
 $grey-10: #e9e9e9;
 $grey-40: #a8a8a8;
 $grey-80: #515151;
+$grey: #262626;
 $hover-blue: #0064fa;
 $icon-btn-width: 24px;
 
@@ -45,6 +46,7 @@ $icon-btn-width: 24px;
     width: 24px;
     z-index: 1;
     transition: visibility 0.5s ease-in;
+    box-sizing: border-box;
     // IE specific
     @media screen and (-ms-high-contrast: none) {
       margin-top: -4px;
@@ -193,7 +195,7 @@ $icon-btn-width: 24px;
   }
 
   &__label {
-    font-family: 'Red Hat Text';
+    font-family: 'Red Hat Text', Verdana, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
@@ -269,6 +271,14 @@ $icon-btn-width: 24px;
           background-color: $green;
           width: 100%;
         }
+      }
+    }
+    .ewc-tabs__items {
+      &::before {
+        background-image: linear-gradient(to right, $grey, rgba(255, 255, 255, 0));
+      }
+      &::after {
+        background-image: linear-gradient(to left, $grey, rgba(255, 255, 255, 0));
       }
     }
   }

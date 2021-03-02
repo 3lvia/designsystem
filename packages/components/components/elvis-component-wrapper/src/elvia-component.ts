@@ -29,7 +29,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   connectedCallback(): void {
-    this.style.width = 'auto'
+    this.style.width = 'auto';
     this.style.display = 'inline-block';
 
     this.attachStyle();
@@ -41,6 +41,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected attachStyle(): void {
+    this.style.cssText = this.webComponent.getComponentData().elementStyle;
     this.mountPoint = document.createElement('span');
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;

@@ -218,7 +218,7 @@ $sidebar-mobile-z-index: -2;
   }
   &__area {
     position: relative;
-    font-family: 'Red Hat Display';
+    font-family: 'Red Hat Display', Verdana, sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -230,7 +230,7 @@ $sidebar-mobile-z-index: -2;
   }
   &__user {
     margin-right: 19px;
-    font-family: 'Red Hat Display';
+    font-family: 'Red Hat Display', Verdana, sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
@@ -248,7 +248,7 @@ $sidebar-mobile-z-index: -2;
       margin-right: 19px;
       padding: 24px;
       &-name {
-        font-family: 'Red Hat Text';
+        font-family: 'Red Hat Text', Verdana, sans-serif;
         font-weight: 500;
         font-size: 14px;
         line-height: 120%;
@@ -275,7 +275,7 @@ $sidebar-mobile-z-index: -2;
         cursor: pointer;
         display: inline-flex;
         align-items: center;
-        font-family: 'Red Hat Display';
+        font-family: 'Red Hat Display', Verdana, sans-serif;
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
@@ -482,7 +482,7 @@ $sidebar-mobile-z-index: -2;
           justify-content: space-between;
           padding: 8px;
           padding-bottom: 0;
-          font-family: 'Red Hat Text';
+          font-family: 'Red Hat Text', Verdana, sans-serif;
           font-weight: 500;
           font-size: 14px;
           line-height: 170%;
@@ -512,7 +512,7 @@ $sidebar-mobile-z-index: -2;
           align-items: center;
           margin-top: 16px;
           padding: 0 8px;
-          font-family: 'Red Hat Display';
+          font-family: 'Red Hat Display', Verdana, sans-serif;
           font-weight: 500;
           font-size: 14px;
           line-height: 115%;

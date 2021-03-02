@@ -15,7 +15,7 @@
     flex-direction: row;
 
     &-number {
-      font-family: 'Red Hat Display';
+      font-family: 'Red Hat Display', Verdana, sans-serif;
       font-weight: 700;
       font-size: 18px;
       line-height: 22px;
@@ -70,7 +70,7 @@
   }
 
   &__title {
-    font-family: 'Red Hat Display';
+    font-family: 'Red Hat Display', Verdana, sans-serif;
     font-weight: 700;
     font-size: 24px;
     line-height: 29px;
@@ -102,7 +102,7 @@
 
         .e-stepper__step-title {
           display: flex;
-          font-family: 'Red Hat Text';
+          font-family: 'Red Hat Text', Verdana, sans-serif;
           font-size: 16px;
           line-height: 28px;
 
@@ -116,7 +116,7 @@
         padding: 28px 30px;
       }
       &.e-stepper__step--active .e-stepper__step-title {
-        font-family: 'Red Hat Display';
+        font-family: 'Red Hat Display', Verdana, sans-serif;
         font-weight: 700;
         font-size: 24px;
         line-height: 29px;

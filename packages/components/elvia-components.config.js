@@ -10,6 +10,9 @@ module.exports = [
     elementName: 'elvia-tabs',
     attributes: ['items', 'value', 'isInverted'],
     reactName: 'Tabs',
+    elementStyle: `
+      width:100%;
+      display:inline-block;`,
   },
   {
     name: 'elvis-popover',
@@ -22,6 +25,15 @@ module.exports = [
     elementName: 'elvia-progress-linear',
     attributes: ['value', 'isIndeterminate', 'isError'],
     reactName: 'ProgressLinear',
+    elementStyle: `
+      width:100%;
+      display:inline-block;`,
+  },
+  {
+    name: 'elvis-testing',
+    elementName: 'elvia-testing',
+    attributes: ['value'],
+    reactName: 'TestingComponent',
   },
   {
     name: 'elvis-testing',
