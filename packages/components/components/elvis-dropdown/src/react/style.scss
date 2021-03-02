@@ -59,6 +59,8 @@ $e-shadow-6: 0px 0px 40px rgba(0, 0, 0, 0.06);
                         line-height: 22px;
                         padding-left: 8px;
                         height: 36px;
+                        max-height: 36px;
+                        min-height: 36px;
                     }
                 }
             }
@@ -86,8 +88,9 @@ $e-shadow-6: 0px 0px 40px rgba(0, 0, 0, 0.06);
             cursor: default;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            // justify-content: space-between;
             min-height: 48px;
+            max-height: 48px;
             outline: 0 !important;
             position: relative;
             transition: all 100ms;
@@ -267,5 +270,329 @@ $e-shadow-6: 0px 0px 40px rgba(0, 0, 0, 0.06);
     i {
         width: 16px;
         height: 16px;
+    }
+}
+
+// checkbox styles for multiselect
+$checkbox-mark-size: 24px;
+$checkbox-mark-small-size: 16px;
+$checkbox-mark-border-radius: 3px;
+$checkbox-mark-border: 1px solid #000000;
+
+.ewc-dropdown__option--is-selected {
+    .e-checkbox {
+        .e-checkbox__mark {
+            @extend %checkbox-mark;
+        }
+    }
+}
+
+.e-checkbox {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: left;
+    pointer-events: none;
+
+    // IE specific
+    @media screen and (-ms-high-contrast: none) {
+        width: 100%;
+    }
+    &:not(:last-child) {
+        margin-bottom: 12px;
+    }
+
+    &.e-checkbox--sm {
+        .e-checkbox__mark {
+            min-width: $checkbox-mark-small-size;
+            min-height: $checkbox-mark-small-size;
+            max-width: $checkbox-mark-small-size;
+            max-height: $checkbox-mark-small-size;
+        }
+
+        .e-checkbox__label {
+            //   @include typography.typography('text-info');
+            // TODO: get font properties for 'text-info' here
+            line-height: 16px;
+        }
+
+        input {
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+
+            &:checked ~ .e-checkbox__mark {
+                @extend %checkbox-mark-small;
+            }
+
+            &:disabled:checked ~ .e-checkbox__mark {
+                border-color: #bdbdbd;
+                background-color: #f4f4f4;
+                cursor: not-allowed;
+
+                &:after,
+                &:before {
+                    background-color: #bdbdbd;
+                }
+            }
+        }
+    }
+
+    // pseudo classes to emulate state.
+    &.e-checkbox---checked &__mark {
+        @extend %checkbox-mark;
+    }
+    // extends correct checkbox mark on small checkboxes in pseudoclass
+    &.e-checkbox--sm[class$="e-checkbox---checked"] &__mark {
+        @extend %checkbox-mark-small;
+    }
+
+    &.e-checkbox---focus {
+        .e-checkbox__mark {
+            // TODO: CHECK THIS, REMOVED OUTLINE MIXIN ONLY
+            outline: none;
+        }
+    }
+
+    &:active,
+    &.e-checkbox---hover:not(:disabled):not(:invalid) {
+        .e-checkbox__mark {
+            background-color: #29d305;
+            border-color: #000;
+        }
+    }
+
+    &.e-checkbox---disabled {
+        .e-checkbox__mark {
+            border-color: #bdbdbd;
+            background-color: #f4f4f4;
+            cursor: not-allowed;
+        }
+    }
+    &.e-checkbox---disabled-checked {
+        .e-checkbox__mark {
+            @extend %checkbox-mark;
+            border-color: #bdbdbd !important;
+            background-color: #f4f4f4 !important;
+            cursor: not-allowed;
+
+            &:after,
+            &:before {
+                background-color: #bdbdbd !important;
+            }
+        }
+        .e-checkbox__label {
+            color: #676767;
+        }
+    }
+    // extends correct checkbox mark on small checkboxes in pseudoclass
+    &.e-checkbox--sm[class$="disabled-checked"] &__mark {
+        @extend %checkbox-mark-small;
+    }
+
+    &.e-checkbox---invalid {
+        .e-checkbox__mark {
+            border-color: #ff0000;
+        }
+    }
+
+    // hides initial checkbox and gives placeholder style according to state
+    input {
+        opacity: 0;
+        position: absolute;
+        z-index: -1;
+
+        &:checked ~ .e-checkbox__mark {
+            @extend %checkbox-mark;
+            border-color: #000;
+        }
+
+        &:focus ~ .e-checkbox__mark {
+            // @include outline.e-outline();
+            //TODO:
+            outline: none;
+        }
+
+        // @include helpers.hover() {
+        //     &:hover:not(:disabled):not(:invalid) ~ .e-checkbox__mark {
+        //         background-color: colors.color("elvia-charge");
+        //         border-color: colors.color("elvia-off");
+        //     }
+        // }
+
+        // &:disabled ~ .e-checkbox__mark {
+        //     border-color: colors.color("disabled");
+        //     background-color: colors.color("disabled-light");
+        //     cursor: not-allowed;
+        // }
+        // &:disabled ~ .e-checkbox__label {
+        //     color: colors.color("grey-70");
+        // }
+
+        // &:disabled:checked ~ .e-checkbox__mark {
+        //     border-color: colors.color("disabled");
+        //     background-color: colors.color("disabled-light");
+        //     cursor: not-allowed;
+
+        //     &:after,
+        //     &:before {
+        //         background-color: colors.color("disabled");
+        //     }
+        // }
+        // &:disabled ~ .e-checkbox__label {
+        //     color: colors.color("grey-70");
+        // }
+
+        // &:invalid ~ .e-checkbox__mark {
+        //     border-color: colors.color("red");
+        // }
+    }
+
+    // Creating a placeholder to inject a checkbox mark into the checkbox
+    // :before & :after each create a line which we put together to a checkmark.
+    // Position properties top,left,right and bottom positions the lines to look like a checkmark.
+    %checkbox-mark {
+        position: relative;
+        background-color: #29d305;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 55%;
+            left: -9%;
+            height: 30%;
+            width: 2px;
+            background-color: #000;
+            border-radius: 15px;
+            transform: (translateX(10px) rotate(-45deg));
+            transform-origin: (left bottom);
+            -o-animation: checkmarkHeight 150ms;
+            -moz-animation: checkmarkHeight 150ms;
+            -webkit-animation: checkmarkHeight 150ms;
+            animation: checkmarkHeight 150ms;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 15%;
+            left: -4%;
+            height: 2px;
+            width: 0%;
+            background-color: #000;
+            border-radius: 15px;
+            transform: (translateX(10px) rotate(-55deg));
+            transform-origin: left bottom;
+            -o-animation: checkmarkWidth 150ms 150ms forwards;
+            -moz-animation: checkmarkWidth 150ms 150ms forwards;
+            -webkit-animation: checkmarkWidth 150ms 150ms forwards;
+            animation: checkmarkWidth 150ms 150ms forwards;
+        }
+    }
+
+    %checkbox-mark-small {
+        position: relative;
+        background-color: #29d305;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -28%;
+            height: 39%;
+            width: 2px;
+            background-color: "#000";
+            border-radius: 15px;
+            // @include helpers.transform(translateX(10px) rotate(-45deg));
+            // @include helpers.transform-origin(left bottom);
+            -o-animation: checkmarkHeightSmall 150ms;
+            -moz-animation: checkmarkHeightSmall 150ms;
+            -webkit-animation: checkmarkHeightSmall 150ms;
+            animation: checkmarkHeightSmall 150ms;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 15%;
+            left: -25%;
+            height: 2px;
+            width: 0%;
+            background-color: "#000";
+            border-radius: 15px;
+            // @include helpers.transform(translateX(10px) rotate(-55deg));
+            // @include helpers.transform-origin(left bottom);
+            -o-animation: checkmarkWidthSmall 150ms 150ms forwards;
+            -moz-animation: checkmarkWidthSmall 150ms 150ms forwards;
+            -webkit-animation: checkmarkWidthSmall 150ms 150ms forwards;
+            animation: checkmarkWidthSmall 150ms 150ms forwards;
+        }
+    }
+
+    &__mark {
+        display: inline-flex;
+        align-self: flex-start;
+
+        min-width: $checkbox-mark-size;
+        min-height: $checkbox-mark-size;
+        max-width: $checkbox-mark-size;
+        max-height: $checkbox-mark-size;
+        // transition: background 0.2s animation.$transition-cubic;
+        border: $checkbox-mark-border;
+        border-radius: $checkbox-mark-border-radius;
+        background: #fff;
+    }
+
+    &__label {
+        font-size: inherit;
+        margin-left: 8px;
+        line-height: 24px;
+        width: fit-content;
+    }
+}
+
+@keyframes checkmarkHeight {
+    0% {
+        left: -31%;
+        height: 0%;
+    }
+
+    100% {
+        left: -9%;
+        height: 30%;
+    }
+}
+
+@keyframes checkmarkWidth {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 83%;
+    }
+}
+
+@keyframes checkmarkHeightSmall {
+    0% {
+        left: -55%;
+        height: 0%;
+    }
+
+    100% {
+        left: -28%;
+        height: 39%;
+    }
+}
+
+@keyframes checkmarkWidthSmall {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 80%;
     }
 }

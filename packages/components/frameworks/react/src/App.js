@@ -63,18 +63,6 @@ function App() {
       value: 'islan2d',
       label: 'Island',
     },
-    {
-      value: 'island3',
-      label: 'Island',
-    },
-    {
-      value: 'islan4d',
-      label: 'Island',
-    },
-    {
-      value: 'islan5d',
-      label: 'Island',
-    },
   ];
 
   return (
@@ -84,7 +72,7 @@ function App() {
 
       <h2>Dropdown</h2>
       <div>
-        <Dropdown options={options}></Dropdown>
+        <Dropdown options={options} isMulti></Dropdown>
       </div>
 
       <h2>Tabs</h2>

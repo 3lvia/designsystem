@@ -12,6 +12,8 @@ export class AppComponent implements OnInit {
   progressValue = 0;
   counterValue = 2;
 
+  isCompactDropdown = true;
+
   items = [
     { label: 'Epler' },
     { label: 'Appelsin' },

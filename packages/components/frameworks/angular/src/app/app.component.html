@@ -4,7 +4,10 @@
 
   <h2>Dropdown</h2>
   <div style="margin-top: 16px">
-    <elvia-dropdown [options]='dropdownOptions'></elvia-dropdown>
+    <elvia-dropdown
+      [options]='dropdownOptions'
+      [isCompact]='isCompactDropdown'
+    ></elvia-dropdown>
   </div>
 
   <h2>Tabs</h2>
@@ -18,7 +21,10 @@
   </div>
 
   <hr style="margin: 40px 0" />
-  <elvia-testing [value]="counterValue" (valueOnChange)="counterValue = $event.detail.value"></elvia-testing>
+  <elvia-testing
+    [value]="counterValue"
+    (valueOnChange)="counterValue = $event.detail.value"
+  ></elvia-testing>
   {{ counterValue }}
   <button (click)="counterValue = counterValue + 1">++</button>
   <hr style="margin: 40px 0" />
