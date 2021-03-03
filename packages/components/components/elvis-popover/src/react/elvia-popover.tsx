@@ -156,8 +156,8 @@ const Popover: FC<PopoverProps> = ({
       return;
     }
     const { screenWidth } = dimensions;
-    if (maxContentWidth.current + popoverMargin + popoverMargin > screenWidth) {
-      popoverContentRef.current.style.width = `${screenWidth - 2 * popoverMargin}px`;
+    if (maxContentWidth.current + popoverMargin * 6 > screenWidth) {
+      popoverContentRef.current.style.width = `${screenWidth - popoverMargin * 6}px`;
     } else {
       popoverContentRef.current.style.width = `${maxContentWidth}px`;
     }
