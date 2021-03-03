@@ -2,6 +2,7 @@ $green: #29d305;
 $grey-10: #e9e9e9;
 $grey-40: #a8a8a8;
 $grey-80: #515151;
+$grey-90: #3b3b3b;
 $grey: #262626;
 $hover-blue: #0064fa;
 $icon-btn-width: 24px;
@@ -83,7 +84,7 @@ $icon-btn-width: 24px;
     }
 
     &:active {
-      background: #e9e9e9;
+      background: $grey-10;
       border-radius: 100px;
     }
   }
@@ -279,6 +280,11 @@ $icon-btn-width: 24px;
       }
       &::after {
         background-image: linear-gradient(to left, $grey, rgba(255, 255, 255, 0));
+      }
+    }
+    .ewc-tabs__arrow {
+      &:active {
+        background: $grey-90;
       }
     }
   }
