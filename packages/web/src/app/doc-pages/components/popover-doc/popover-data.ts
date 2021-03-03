@@ -14,7 +14,7 @@ const popoverData = {
       cegType: 'string',
       cegFormType: 'toggle',
       cegDefault: 'true',
-      cegOption: 'Header',
+      cegOption: exampleContents.texts.md['eng-GBR'].title,
     },
     hasCloseBtn: {
       isRequired: false,

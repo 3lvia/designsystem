@@ -44,6 +44,7 @@ const Popover: FC<PopoverProps> = ({
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverText = useRef<HTMLDivElement>(null);
   const popoverMargin = 16;
+  const popoverPadding = 32;
 
   // Running on first render only (on mount)
   useEffect(() => {
@@ -156,8 +157,8 @@ const Popover: FC<PopoverProps> = ({
       return;
     }
     const { screenWidth } = dimensions;
-    if (maxContentWidth.current + popoverMargin * 6 > screenWidth) {
-      popoverContentRef.current.style.width = `${screenWidth - popoverMargin * 6}px`;
+    if (maxContentWidth.current + (popoverMargin * 2 + popoverPadding * 2) > screenWidth) {
+      popoverContentRef.current.style.width = `${screenWidth - (popoverMargin * 2 + popoverPadding * 2)}px`;
     } else {
       popoverContentRef.current.style.width = `${maxContentWidth}px`;
     }
@@ -242,11 +243,9 @@ const Popover: FC<PopoverProps> = ({
   }, [popoverVisibility, updatePosition]);
 
   const popoverClasses = classnames('ewc-popover', {
-    ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
-  });
-  const contentClasses = classnames('ewc-popover__content', {
-    ['ewc-popover--text-only']: typeof content === 'string',
     ['ewc-popover--hide']: !popoverVisibility,
+    ['ewc-popover--text-only']: typeof content === 'string',
+    ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
   });
 
   return (
@@ -256,7 +255,7 @@ const Popover: FC<PopoverProps> = ({
         {!trigger && <div onClick={togglePopover} ref={popoverSlotTriggerRef}></div>}
       </div>
 
-      <div className={contentClasses} ref={popoverContentRef}>
+      <div className="ewc-popover__content" ref={popoverContentRef}>
         {hasCloseBtn == true && (
           <div className="ewc-popover__close">
             <button className="ewc-btn ewc-btn--icon ewc-btn--sm" onClick={() => setPopoverVisibility(false)}>
