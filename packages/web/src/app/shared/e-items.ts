@@ -159,16 +159,6 @@ export const eComponents: EItems[] = [
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A452',
     type: 'Component',
   },
-  // Not implemented yet
-  // {
-  //   title: 'Chips',
-  //   description: 'Some useful component with amazing features',
-  //   docUrl: Pages.Tags, // Dette må endres
-  //   absolutePath: '/components/' + Pages.Tags, // Dette må endres
-  //   status: ItemStatus.Coming,
-  //   imageUrl: 'assets/website-icons/component-images/Chip.svg',
-  //   type: 'Component',
-  // },
   {
     title: 'Content Loader',
     // tslint:disable-next-line: max-line-length

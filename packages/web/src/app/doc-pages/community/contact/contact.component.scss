@@ -1,4 +1,5 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import '../../../shared/shared-animations';
 
 .page-body {
   margin-top: 104px;
@@ -6,6 +7,11 @@
     margin-top: 72px;
   }
   .contact-profile-container {
+    @for $i from 1 through 5 {
+      &:nth-child(#{$i}) {
+        @include ease-in-out-opacity(0.4s, 0.2s * $i);
+      }
+    }
     display: flex;
     height: 479px;
     position: relative;
