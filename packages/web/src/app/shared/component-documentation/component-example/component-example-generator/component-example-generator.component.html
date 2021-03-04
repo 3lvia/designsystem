@@ -18,7 +18,7 @@
   </div>
 
   <!--CEG code-->
-  <div class="ceg-row-2 e-w-100">
+  <div [ngClass]="hasPreview ? 'ceg-row-2' : 'ceg-full-row'">
     <app-component-example-accordion>
       <ng-container ngProjectAs="accordionContent">
         <app-component-example-code [componentData]="componentData"></app-component-example-code>

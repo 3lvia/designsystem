@@ -26,6 +26,7 @@ $icon-btn-width: 24px;
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  overflow: auto;
   // Firefox specific
   @-moz-document url-prefix() {
     align-items: flex-end;

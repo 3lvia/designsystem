@@ -11,7 +11,7 @@ module.exports = [
     attributes: ['items', 'value', 'isInverted'],
     reactName: 'Tabs',
     elementStyle: `
-      display:inline-block;`,
+      display:grid;`,
   },
   {
     name: 'elvis-popover',

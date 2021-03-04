@@ -38,7 +38,7 @@ function App() {
       <TestingComponent></TestingComponent>
 
       <h2>Tabs</h2>
-      <div style={{ marginTop: '16px' }}>
+      <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
         <Tabs items={items} value={2} valueOnChange={setSelectedState}></Tabs>
         <div>{selectedState.toString()}</div>
       </div>
