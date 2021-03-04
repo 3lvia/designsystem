@@ -1,9 +1,18 @@
 <!-- Header  -->
 <div class="header" *ngIf="!internalHeader">
   <div class="logo">
-    <a class="header-top_logo" [routerLink]="['', 'home']">
-      <img src="./../../../assets/logo/elvia_negative_1.svg" alt="Elvia Logo" />
+    <a [ngClass]="{ show: headerLogoLoaded }" class="header-logo-link" [routerLink]="['', 'home']">
+      <img
+        src="./../../../assets/logo/elvia_negative_1.svg"
+        alt="Elvia Logo"
+        (load)="hideContentLoader($event)"
+      />
     </a>
+    <div
+      *ngIf="!headerLogoLoaded"
+      class="e-content-loader e-content-loader--inverted"
+      style="width: 86px; height: 32px"
+    ></div>
   </div>
 
   <div class="tabs">
