@@ -22,6 +22,7 @@ module.exports = [
     elementName: 'elvia-progress-linear',
     attributes: ['value', 'isIndeterminate', 'isError'],
     reactName: 'ProgressLinear',
+    elementStyle: `width: 100%`,
   },
   {
     name: 'elvis-testing',

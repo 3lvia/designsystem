@@ -86,19 +86,15 @@ const Popover: FC<PopoverProps> = ({
     document.addEventListener('keydown', closeOnEscape, false);
 
     // Web component - Placing slots at the right place
-    if (
-      popoverRef.current &&
-      popoverRef.current.parentElement &&
-      popoverRef.current.parentElement.parentElement
-    ) {
-      popoverRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((e: any) => {
-        if (popoverSlotTriggerRef.current && e.slot === 'trigger') {
+    if (popoverRef.current && popoverRef.current.parentElement) {
+      popoverRef.current.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
+        if (popoverSlotTriggerRef.current && element.slot === 'trigger') {
           popoverSlotTriggerRef.current.innerHTML = '';
-          popoverSlotTriggerRef.current.appendChild(e);
+          popoverSlotTriggerRef.current.appendChild(element);
         }
-        if (popoverText.current && e.slot === 'content') {
+        if (popoverText.current && element.slot === 'content') {
           popoverText.current.innerHTML = '';
-          popoverText.current.appendChild(e);
+          popoverText.current.appendChild(element);
         }
       });
     }
