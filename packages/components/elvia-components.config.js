@@ -11,7 +11,6 @@ module.exports = [
     attributes: ['items', 'value', 'isInverted'],
     reactName: 'Tabs',
     elementStyle: `
-      width:100%;
       display:inline-block;`,
   },
   {

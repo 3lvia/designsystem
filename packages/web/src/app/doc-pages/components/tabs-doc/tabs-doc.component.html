@@ -10,7 +10,7 @@
 <div class="page-body">
   <!--CEG-->
   <!--Temporary until ceg-code-block supports angular syntax-->
-  <div class="tabs-container" style="display: flex">
+  <div class="component-preview-temp component-preview-animation">
     <elvia-tabs
       [items]="[
         exampleContents.words.random['eng-GBR'][0],
@@ -19,22 +19,22 @@
       ]"
       value="1"
     ></elvia-tabs>
+    <div class="tabs-container e-bg-grey e-py-24">
+      <elvia-tabs
+        [items]="[
+          exampleContents.words.random['eng-GBR'][0],
+          exampleContents.words.random['eng-GBR'][1],
+          exampleContents.words.random['eng-GBR'][2]
+        ]"
+        value="1"
+        isInverted="true"
+      ></elvia-tabs>
+    </div>
+    <app-component-example-generator
+      [componentData]="componentData"
+      [hasPreview]="false"
+    ></app-component-example-generator>
   </div>
-  <div class="tabs-container e-bg-grey e-py-24">
-    <elvia-tabs
-      [items]="[
-        exampleContents.words.random['eng-GBR'][0],
-        exampleContents.words.random['eng-GBR'][1],
-        exampleContents.words.random['eng-GBR'][2]
-      ]"
-      value="1"
-      isInverted="true"
-    ></elvia-tabs>
-  </div>
-  <app-component-example-generator
-    [componentData]="componentData"
-    [hasPreview]="false"
-  ></app-component-example-generator>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
