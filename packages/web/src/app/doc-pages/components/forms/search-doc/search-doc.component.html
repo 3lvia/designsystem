@@ -9,16 +9,9 @@
 <!--BODY-->
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div
-    class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
-  >
+  <div class="e-my-48" class="component-preview-temp component-preview-animation">
     <div class="e-form-field">
-      <div
-        class="e-search e-search--instant"
-        style="width: 250px"
-        #exampleSearch
-      >
+      <div class="e-search e-search--instant" style="width: 250px" #exampleSearch>
         <div class="e-input">
           <input
             aria-label="Search"
@@ -29,10 +22,7 @@
           />
         </div>
         <i class="e-icon e-icon--search-color"></i>
-        <button
-          class="e-btn e-btn--icon"
-          (click)="clearExample()"
-        >
+        <button class="e-btn e-btn--icon" (click)="clearExample()">
           <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
         </button>
       </div>
@@ -49,8 +39,8 @@
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      We have two types of search: instant and on submit. These are typically used in connection to a data table or
-      list.
+      We have two types of search: instant and on submit. These are typically used in connection to a data
+      table or list.
       <app-component-subsection [sectionTitle]="'Instant'">
         <ng-container ngProjectAs="sectionContent">
           For use cases were the search result should appear "instant".
@@ -65,13 +55,10 @@
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'On Submit'">
         <ng-container ngProjectAs="sectionContent">
-
-          For use cases where the search result should appear "on submit".
-          Use a large button for normal search, and a small button for compact. You can find button documentation
-          <a
-            class="e-link e-link--inline"
-            [routerLink]="['/components/button']"
-          >here</a>.
+          For use cases where the search result should appear "on submit". Use a large button for normal
+          search, and a small button for compact. You can find button documentation
+          <a class="e-link e-link--inline" [routerLink]="['/components/button']">here</a>
+          .
 
           <app-component-example-v1 [codeHTML]="searhOnSubmitExample"></app-component-example-v1>
           <div class="e-mt-40">
@@ -90,10 +77,8 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Label'">
         <ng-container ngProjectAs="sectionContent">
-          You don’t need to show label in search, but add an aria-label as an explicit
-          invisable label to the
-          search form code
-          that can accommodate screen reader users
+          You don’t need to show label in search, but add an aria-label as an explicit invisable label to the
+          search form code that can accommodate screen reader users
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Placeholder'">
@@ -120,12 +105,8 @@
     </ng-container>
   </app-component-section>
 
-
   <!--PROPERTIES-->
-  <app-component-section
-    [sectionTitle]="'Properties'"
-    [propertiesClass]="'e-search'"
-  >
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-search'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties [componentName]="'e-search'"></app-component-properties>
     </ng-container>

@@ -8,46 +8,50 @@
 
 <!--BODY-->
 <div class="page-body">
-  <div>
-    <div class="shadowCardContainer e-mt-72">
-      <div class="shadowCardExample">
-        <app-copy [message]="'e-shadow-3'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="shadowCardCircle e-shadow-3 e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="shadowCardInfo">
-          <div class="shadowCardInfo__title e-title-caps">SOFT</div>
-          <div class="shadowCardInfo__info e-text-info">E-SHADOW-3</div>
-          <div class="shadowCardInfo__info e-text-info">#000000-0.03</div>
+  <!--PREVIEW-->
+  <app-component-subsection>
+    <ng-container ngProjectAs="sectionContent">
+      <div class="shadowCardContainer e-mt-72">
+        <div class="shadowCardExample">
+          <app-copy [message]="'e-shadow-3'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="shadowCardCircle e-shadow-3 e-bg-white"></div>
+            </ng-container>
+          </app-copy>
+          <div class="shadowCardInfo">
+            <div class="shadowCardInfo__title e-title-caps">SOFT</div>
+            <div class="shadowCardInfo__info e-text-info">E-SHADOW-3</div>
+            <div class="shadowCardInfo__info e-text-info">#000000-0.03</div>
+          </div>
+        </div>
+        <div class="shadowCardExample">
+          <app-copy [message]="'e-shadow-6'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="shadowCardCircle shadowCardCircle--overlap e-shadow-6 e-bg-white"></div>
+            </ng-container>
+          </app-copy>
+          <div class="shadowCardInfo shadowCardInfo--overlap">
+            <div class="shadowCardInfo__title e-title-caps">MEDIUM</div>
+            <div class="shadowCardInfo__info e-text-info">E-SHADOW-6</div>
+            <div class="shadowCardInfo__info e-text-info">#000000-0.06</div>
+          </div>
+        </div>
+        <div class="shadowCardExample">
+          <app-copy [message]="'e-shadow-8'">
+            <ng-container ngProjectAs="copyContent">
+              <div class="shadowCardCircle shadowCardCircle--overlap e-shadow-8 e-bg-white"></div>
+            </ng-container>
+          </app-copy>
+          <div class="shadowCardInfo shadowCardInfo--overlap">
+            <div class="shadowCardInfo__title e-title-caps">HARD</div>
+            <div class="shadowCardInfo__info e-text-info">E-SHADOW-8</div>
+            <div class="shadowCardInfo__info e-text-info">#000000-0.08</div>
+          </div>
         </div>
       </div>
-      <div class="shadowCardExample">
-        <app-copy [message]="'e-shadow-6'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="shadowCardCircle shadowCardCircle--overlap e-shadow-6 e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="shadowCardInfo shadowCardInfo--overlap">
-          <div class="shadowCardInfo__title e-title-caps">MEDIUM</div>
-          <div class="shadowCardInfo__info e-text-info">E-SHADOW-6</div>
-          <div class="shadowCardInfo__info e-text-info">#000000-0.06</div>
-        </div>
-      </div>
-      <div class="shadowCardExample">
-        <app-copy [message]="'e-shadow-8'">
-          <ng-container ngProjectAs="copyContent">
-            <div class="shadowCardCircle shadowCardCircle--overlap e-shadow-8 e-bg-white"></div>
-          </ng-container>
-        </app-copy>
-        <div class="shadowCardInfo shadowCardInfo--overlap">
-          <div class="shadowCardInfo__title e-title-caps">HARD</div>
-          <div class="shadowCardInfo__info e-text-info">E-SHADOW-8</div>
-          <div class="shadowCardInfo__info e-text-info">#000000-0.08</div>
-        </div>
-      </div>
-    </div>
-  </div>
+    </ng-container>
+  </app-component-subsection>
+
   <!--SOFT MEDIUM HARD-->
   <app-component-section [sectionTitle]="'Style'">
     <ng-container ngProjectAs="sectionContent">

@@ -7,7 +7,6 @@
   overflow: hidden;
   padding-bottom: 40px;
   padding-top: 64px;
-  @extend %fade-in;
 }
 
 // IMAGE SIZING
@@ -16,6 +15,8 @@
   flex-direction: row;
   height: 517px;
   width: 100%;
+  position: relative;
+
   &::before {
     content: '';
     left: -40%;

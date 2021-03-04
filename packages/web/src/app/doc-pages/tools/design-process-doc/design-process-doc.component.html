@@ -13,41 +13,35 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!-- Intro section -->
-  <div>
-    <div class="headerIllustration e-mt-72 e-mb-24">
-      <div
-        class="e-content-loader"
-        *ngIf="!loadedImgOne"
-        style="height: 162px; width: 303px;"
-      ></div>
-      <img
-        [ngClass]="!loadedImgOne ? 'e-none' : '' "
-        src="../../../../assets/website-icons/tools-images/doubleDiamond.svg"
-        alt="Double diamond design process ilustration"
-        (load)="hideContentLoaderOne($event)"
-      />
-    </div>
-    <div class="e-text-body">
-      The diamonds represent a recurring switch of focus from divergent thinking to convergent thinking.
-      Although each stage is well defined, the process is highly iterative and always adaptable depending on
-      context.
-    </div>
-    <div class="e-mt-24">
-      <div
-        class="e-content-loader"
-        *ngIf="!loadedImgTwo"
-        style="height: 183px; width: 100%;"
-      ></div>
-      <img
-        class="DDProcessIllustration"
-        [ngClass]="!loadedImgTwo ? 'e-none' : '' "
-        src="../../../../assets/website-icons/tools-images/doubeDiamondProcess.svg"
-        alt="Double diamond design process ilustration"
-        (load)="hideContentLoaderTwo($event)"
-      />
-    </div>
-  </div>
+  <!--INTRO-->
+  <app-component-subsection>
+    <ng-container ngProjectAs="sectionContent">
+      <div class="headerIllustration e-mt-72 e-mb-24">
+        <div class="e-content-loader" *ngIf="!loadedImgOne" style="height: 162px; width: 303px"></div>
+        <img
+          [ngClass]="!loadedImgOne ? 'e-none' : ''"
+          src="../../../../assets/website-icons/tools-images/doubleDiamond.svg"
+          alt="Double diamond design process ilustration"
+          (load)="hideContentLoaderOne($event)"
+        />
+      </div>
+      <div class="e-text-body">
+        The diamonds represent a recurring switch of focus from divergent thinking to convergent thinking.
+        Although each stage is well defined, the process is highly iterative and always adaptable depending on
+        context.
+      </div>
+      <div class="e-mt-24">
+        <div class="e-content-loader" *ngIf="!loadedImgTwo" style="height: 183px; width: 100%"></div>
+        <img
+          class="DDProcessIllustration"
+          [ngClass]="!loadedImgTwo ? 'e-none' : ''"
+          src="../../../../assets/website-icons/tools-images/doubeDiamondProcess.svg"
+          alt="Double diamond design process ilustration"
+          (load)="hideContentLoaderTwo($event)"
+        />
+      </div>
+    </ng-container>
+  </app-component-subsection>
 
   <app-component-section [sectionTitle]="'Discover'">
     <ng-container ngProjectAs="headerIcon">
@@ -77,11 +71,7 @@
             Google Analytics
           </a>
           and
-          <a
-            class="e-link e-link--inline"
-            [routerLink]="['/tools/user-feedback']"
-            fragment="HotJar"
-          >
+          <a class="e-link e-link--inline" [routerLink]="['/tools/user-feedback']" fragment="HotJar">
             Hotjar
           </a>
           )
@@ -153,11 +143,7 @@
         <li>High-fidelity prototyping</li>
         <li>
           User testing, A/B testing (see
-          <a
-            class="e-link e-link--inline"
-            [routerLink]="['/tools/user-feedback']"
-            fragment="Teston"
-          >
+          <a class="e-link e-link--inline" [routerLink]="['/tools/user-feedback']" fragment="Teston">
             Teston
           </a>
           )
@@ -168,10 +154,7 @@
       </ul>
     </ng-container>
   </app-component-section>
-  <app-component-section
-    [sectionTitle]="'Design in Elvia'"
-    class="e-mb-72"
-  >
+  <app-component-section [sectionTitle]="'Design in Elvia'" class="e-mb-72">
     <ng-container ngProjectAs="sectionContent">
       To help each other deliver the best solutions, we frequently meet to discuss, inspire and grow together.
       <p>
