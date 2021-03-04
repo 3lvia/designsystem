@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   counterValue = 2;
 
   isCompactDropdown = true;
+  isMultiDropdown = true;
 
   items = [
     { label: 'Epler' },

@@ -42,25 +42,26 @@ $checkbox-mark-border-radius: 3px;
 $checkbox-mark-border: 1px solid #000000;
 
 .ewc-dropdown__option--is-selected {
-    .ewc-checkbox {
-        .ewc-checkbox__mark {
+    .ewc-dropdown-checkbox {
+        .ewc-dropdown-checkbox__mark {
             @extend %checkbox-mark;
         }
     }
-    .ewc-checkbox.ewc-checkbox--sm {
-        .ewc-checkbox__mark {
+    .ewc-dropdown-checkbox.ewc-dropdown-checkbox--sm {
+        .ewc-dropdown-checkbox__mark {
             @extend %checkbox-mark-small;
         }
     }
 }
 
-.ewc-checkbox {
+.ewc-dropdown-checkbox {
     display: flex;
     align-items: center;
     width: fit-content;
     box-sizing: border-box;
     text-align: left;
     pointer-events: none;
+    outline: none;
 
     // IE specific
     @media screen and (-ms-high-contrast: none) {
@@ -74,15 +75,15 @@ $checkbox-mark-border: 1px solid #000000;
         z-index: -1;
     }
 
-    &.eewc-checkbox--sm {
-        .ewc-checkbox__mark {
+    &.ewc-dropdown-checkbox--sm {
+        .ewc-dropdown-checkbox__mark {
             min-width: $checkbox-mark-small-size;
             min-height: $checkbox-mark-small-size;
             max-width: $checkbox-mark-small-size;
             max-height: $checkbox-mark-small-size;
         }
 
-        .ewc-checkbox__label {
+        .ewc-dropdown-checkbox__label {
             font-family: "Red Hat Text", Verdana, sans-serif;
             font-weight: 400;
             font-style: normal;

@@ -6,13 +6,13 @@ import { useState } from 'react';
 
 export interface DropdownOptions {
   value: string;
-  label?: string;
+  label: string;
 }
 
 export interface DropdownProps {
   options: DropdownOptions[];
   placeholder: string;
-  label: string;
+  label?: string;
   isDisabled: boolean;
   isCompact: boolean;
   isMulti: boolean;
@@ -23,7 +23,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   options,
   placeholder = 'Placeholder',
   isDisabled = false,
-  label = 'Label',
+  label,
   isCompact = false,
   isMulti = false,
   isError = false,
@@ -167,10 +167,14 @@ const Dropdown: React.FC<DropdownProps> = ({
     } else {
       return (
         <components.Option {...props}>
-          <label className={isCompact ? 'ewc-checkbox ewc-checkbox--sm' : 'ewc-checkbox'}>
+          <label
+            className={
+              isCompact ? 'ewc-dropdown-checkbox ewc-dropdown-checkbox--sm' : 'ewc-dropdown-checkbox '
+            }
+          >
             <input type="checkbox" readOnly />
-            <span className="ewc-checkbox__mark"></span>
-            <span className="ewc-checkbox__label"> {children}</span>
+            <span className="ewc-dropdown-checkbox__mark"></span>
+            <span className="ewc-dropdown-checkbox__label"> {children}</span>
           </label>
         </components.Option>
       );
@@ -220,6 +224,8 @@ const Dropdown: React.FC<DropdownProps> = ({
         onMenuOpen={() => setMenuOpen(true)}
         onMenuClose={() => setMenuOpen(false)}
         noOptionsMessage={() => 'Ingen tilgjengelige valg'}
+        // for testing
+        // menuIsOpen
       ></Select>
     </span>
   );
