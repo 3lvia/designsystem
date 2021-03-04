@@ -12,11 +12,11 @@ export interface DropdownOptions {
 export interface DropdownProps {
   options: DropdownOptions[];
   placeholder: string;
-  isDisabled: boolean;
   label: string;
-  // Todo: bring iscompact classes with props
+  isDisabled: boolean;
   isCompact: boolean;
   isMulti: boolean;
+  isError: boolean;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -24,9 +24,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   placeholder = 'Placeholder',
   isDisabled = false,
   label = 'Label',
-  // Todo: bring iscompact classes with props
   isCompact = false,
   isMulti = false,
+  isError = false,
 }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
 
@@ -67,12 +67,12 @@ const Dropdown: React.FC<DropdownProps> = ({
       boxSizing: 'border-box',
       display: 'flex',
       alignItems: 'center',
-      border: '1px solid black',
+      border: !isError ? '1px solid black' : '2px solid #FF0000',
       maxHeight: isCompact ? '33px' : '48px',
       minHeight: isCompact ? '33px' : '48px',
       minWidth: '264px',
       marginBottom: '0px',
-      padding: '1px',
+      padding: !isError ? '1px' : '0px',
       boxShadow: '0',
       '&:hover': {
         border: '2px solid #29d305',
@@ -87,6 +87,11 @@ const Dropdown: React.FC<DropdownProps> = ({
     valueContainer: () => ({
       display: 'flex',
       paddingLeft: '15px',
+      fontFamily: 'Red Hat Text',
+      fontWeight: '400',
+      fontStyle: 'normal',
+      fontSize: '16px',
+      lineHeight: '22px',
     }),
 
     menu: (provided: any) => ({
@@ -94,7 +99,11 @@ const Dropdown: React.FC<DropdownProps> = ({
       boxShadow: '0px 0px 40px rgba(0, 0, 0, 0.06);',
     }),
 
-    multiValue: () => ({}),
+    multiValue: (provided: any) => ({
+      ...provided,
+      margin: '0px',
+      background: '#ffffff',
+    }),
 
     multiValueLabel: () => ({
       fontFamily: 'Red Hat Text',
@@ -123,6 +132,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
       color: '#676767',
+      margin: '0px',
     }),
 
     singleValue: (provided: any) => ({
@@ -157,10 +167,10 @@ const Dropdown: React.FC<DropdownProps> = ({
     } else {
       return (
         <components.Option {...props}>
-          <label className={isCompact ? 'e-checkbox e-checkbox--sm' : 'e-checkbox'}>
+          <label className={isCompact ? 'ewc-checkbox ewc-checkbox--sm' : 'ewc-checkbox'}>
             <input type="checkbox" readOnly />
-            <span className="e-checkbox__mark"></span>
-            <span className="e-checkbox__label"> {children}</span>
+            <span className="ewc-checkbox__mark"></span>
+            <span className="ewc-checkbox__label"> {children}</span>
           </label>
         </components.Option>
       );
@@ -190,7 +200,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     IndicatorSeparator: () => null,
     ClearIndicator: () => null,
     MultiValueRemove: () => null,
-    multiValue: () => null,
+    // multiValue: () => null,
   };
 
   return (
@@ -209,8 +219,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         styles={customElviaStyles}
         onMenuOpen={() => setMenuOpen(true)}
         onMenuClose={() => setMenuOpen(false)}
-        // for testing
-        menuIsOpen={true}
+        noOptionsMessage={() => 'Ingen tilgjengelige valg'}
       ></Select>
     </span>
   );

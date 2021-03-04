@@ -72,7 +72,7 @@ function App() {
 
       <h2>Dropdown</h2>
       <div>
-        <Dropdown options={options} isMulti>
+        <Dropdown options={options} isMulti isCompact>
           {' '}
         </Dropdown>
       </div>
