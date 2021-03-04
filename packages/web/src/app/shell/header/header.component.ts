@@ -40,7 +40,6 @@ export class HeaderComponent {
   }
 
   hideContentLoader(evt: any): void {
-    console.log('helo');
     if (evt && evt.target) {
       this.headerLogoLoaded = true;
     }
