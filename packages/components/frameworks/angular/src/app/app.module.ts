@@ -3,12 +3,11 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
-import '@elvia/elvis-checkbox';
-import '@elvia/elvis-dropdown';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-tabs';
 import '@elvia/elvis-progress-linear';
 import '@elvia/elvis-testing';
+import '@elvia/elvis-dropdown';
 
 @NgModule({
   declarations: [AppComponent],

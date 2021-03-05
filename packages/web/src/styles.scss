@@ -22,6 +22,7 @@
 
 body {
   margin: 0;
+  font-family: 'Red Hat Text', 'Verdana, sans-serif';
 }
 
 html {
@@ -39,6 +40,13 @@ p {
 }
 
 // Shared classes
+.component-preview-temp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 56px;
+}
 .code-text {
   font-family: 'Fira Mono';
   font-style: normal;
@@ -65,7 +73,6 @@ p {
   @include breakpoint-up(MinDesktop) {
     margin: 0 auto;
   }
-  @extend %slide-in-top;
 }
 
 .overview-page {
@@ -124,7 +131,7 @@ p {
   }
   .overview-description {
     text-align: center;
-    font-family: 'Red Hat Text';
+    font-family: 'Red Hat Text', Verdana, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -152,7 +159,7 @@ p {
 
 // Changelog
 .changelog-row {
-  font-family: 'Red Hat Text';
+  font-family: 'Red Hat Text', Verdana, sans-serif;
   font-style: normal;
   font-size: 16px;
   line-height: 32px;
@@ -283,9 +290,41 @@ p {
   }
 }
 
+// Page Animations - Fade in
+// Components
+.component-header-description-animation {
+  @include ease-in-opacity(0.2s, 0.1s);
+}
+.component-preview-animation {
+  @include ease-in-opacity(0.2s, 0.2s);
+}
+.documentation-section-animation {
+  @include ease-in-opacity(0.3s, 0.2s);
+}
+// Overview pages
+.components-overview-cards-animation {
+  @include ease-in-out-opacity(0.4s, 0.2s);
+}
+.overview-illustration-animation {
+  @include ease-in-out-opacity(0.4s, 0.2s);
+}
+.overview-description-animation {
+  @include ease-in-out-opacity(0.4s, 0.4s);
+}
+// Home page
+.home-image-animation {
+  @include ease-in-out-opacity(0.6s, 0.28s);
+}
+.home-text-animation {
+  @include ease-in-out-opacity(0.6s, 0.6s);
+}
+.home-card-links-animation {
+  @include ease-in-out-opacity(0.6s, 0.8s);
+}
+
 // Typography - specific for doc
 .big-header {
-  font-family: 'Red Hat Display';
+  font-family: 'Red Hat Display', Verdana, sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 56px;

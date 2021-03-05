@@ -29,8 +29,8 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   connectedCallback(): void {
-    this.attachStyle();
     this.renderReactDOM();
+    this.attachStyle();
   }
 
   attributeChangedCallback(): void {
@@ -38,11 +38,10 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected attachStyle(): void {
-    this.mountPoint = document.createElement('span');
+    this.style.cssText = this.webComponent.getComponentData().elementStyle;
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
     this.appendChild(styleTag);
-    this.appendChild(this.mountPoint);
   }
 
   protected setProps(newProps: any, preventRerender?: boolean): void {
@@ -76,9 +75,7 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected renderReactDOM(): void {
     this.mapAttributesToData();
-    if (this.mountPoint) {
-      ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
-    }
+    ReactDOM.render(this.createReactElement(this.createReactData()), this);
   }
 
   private changedEvent(propName: string) {

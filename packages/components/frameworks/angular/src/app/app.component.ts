@@ -50,15 +50,16 @@ export class AppComponent implements OnInit {
   ];
 
   nativeJSApproach(): void {
+    // old approach for checkboxes
     // Non-angular approach, not necessary when using angular:
-    this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {
-      this.checkBoxVal2 = event.detail.checked;
-    });
-    this.checkbox.nativeElement.setProps({ checked: this.checkBoxVal2 });
+    // this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {
+    //   this.checkBoxVal2 = event.detail.checked;
+    // });
+    // this.checkbox.nativeElement.setProps({ checked: this.checkBoxVal2 });
     // If you need to get data at any other time: this.checkbox.nativeElement.getProps();
   }
 
   ngOnInit(): void {
-    this.nativeJSApproach();
+    // this.nativeJSApproach();
   }
 }

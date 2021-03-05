@@ -68,7 +68,7 @@ function App() {
 
       <h2>Dropdown</h2>
       <div>
-        <Dropdown options={options} isCompact valueOnChange={setSelectedOption}></Dropdown>
+        <Dropdown options={options} valueOnChange={setSelectedOption}></Dropdown>
       </div>
 
       <h2>Tabs</h2>
