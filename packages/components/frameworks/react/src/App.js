@@ -34,6 +34,10 @@ function App() {
     setProgressValue(0);
   }
 
+  const [selectedOption, setSelectedOption] = useState([]);
+
+  console.log(selectedOption);
+
   const options = [
     {
       value: 'norge',
@@ -55,14 +59,6 @@ function App() {
       value: 'island',
       label: 'Island',
     },
-    {
-      value: 'island1',
-      label: 'Island',
-    },
-    {
-      value: 'islan2d',
-      label: 'Island',
-    },
   ];
 
   return (
@@ -72,7 +68,7 @@ function App() {
 
       <h2>Dropdown</h2>
       <div>
-        <Dropdown options={options} isCompact isMulti></Dropdown>
+        <Dropdown options={options} isCompact valueOnChange={setSelectedOption}></Dropdown>
       </div>
 
       <h2>Tabs</h2>

@@ -1,4 +1,4 @@
-import React, { ElementConfig } from 'react';
+import React, { ElementConfig, useEffect } from 'react';
 import Select, { components } from 'react-select';
 import './style.scss';
 import classnames from 'classnames';
@@ -17,6 +17,8 @@ export interface DropdownProps {
   isCompact: boolean;
   isMulti: boolean;
   isError: boolean;
+  valueOnChange: (selectedOptions: DropdownOptions | Array<DropdownOptions> | undefined) => void;
+  webcomponent?: any;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
@@ -27,9 +29,14 @@ const Dropdown: React.FC<DropdownProps> = ({
   isCompact = false,
   isMulti = false,
   isError = false,
+  valueOnChange,
+  webcomponent,
 }) => {
+  // handle rotation of dropdown arrow
+  const [currentVal, setCurrentVal] = useState();
   const [isMenuOpen, setMenuOpen] = useState(false);
 
+  // styling for custom Elvia labels
   const classes = classnames({
     ['ewc-dropdown']: !isCompact,
     ['ewc-dropdown ewc-dropdown--compact']: isCompact,
@@ -204,13 +211,37 @@ const Dropdown: React.FC<DropdownProps> = ({
     IndicatorSeparator: () => null,
     ClearIndicator: () => null,
     MultiValueRemove: () => null,
-    // multiValue: () => null,
   };
+
+  // set  selected options as current values
+  const onChangeHandler = (event: any) => {
+    setCurrentVal(event);
+  };
+
+  // update react component to emit selected values
+  const updateReactComponent = () => {
+    if (!webcomponent && valueOnChange) {
+      valueOnChange(currentVal);
+    }
+  };
+  // update currentvalue to be emited to webcomp
+  const updateWebcomponent = () => {
+    if (webcomponent) {
+      // True -> Prevents rerender
+      webcomponent.setProps({ value: currentVal }, true);
+    }
+  };
+
+  useEffect(() => {
+    updateReactComponent();
+    updateWebcomponent();
+  }, [currentVal]);
 
   return (
     <span className={classes}>
       <label className="ewc-dropdown__label">{label}</label>
       <Select
+        onChange={onChangeHandler}
         classNamePrefix={'ewc-dropdown'}
         components={overRideComponents}
         closeMenuOnSelect={!isMulti}
@@ -224,8 +255,6 @@ const Dropdown: React.FC<DropdownProps> = ({
         onMenuOpen={() => setMenuOpen(true)}
         onMenuClose={() => setMenuOpen(false)}
         noOptionsMessage={() => 'Ingen tilgjengelige valg'}
-        // for testing
-        // menuIsOpen
       ></Select>
     </span>
   );

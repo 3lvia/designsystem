@@ -4,19 +4,12 @@
 
   <h2>Dropdown</h2>
   <div style="margin-top: 16px">
+    <div style="margin-bottom: 16px;padding: 12px">
+      Selected options: {{ selectedOptions | json }}
+    </div>
     <elvia-dropdown
       [options]='dropdownOptions'
-      [isCompact]='isCompactDropdown'
-    ></elvia-dropdown>
-  </div>
-  <div style="margin-top: 16px; width: 250px;">
-    <elvia-dropdown [options]='dropdownOptions'></elvia-dropdown>
-  </div>
-  <div style="margin-top: 16px; width: 250px;">
-    <elvia-dropdown
-      [options]='dropdownOptions'
-      [isMulti]="isMultiDropdown"
-      [isCompact]="isCompactDropdown"
+      (valueOnChange)="selectedOptions = $event.detail.value"
     ></elvia-dropdown>
   </div>
 
