@@ -26,9 +26,9 @@ module.exports = [
     elementName: 'elvia-popover',
     attributes: ['title', 'content', 'posX', 'posY', 'hasCloseBtn'],
     reactName: 'Popover',
-    elementStyle: `border: 1px dotted blue`,
+    elementStyle: `border: 1px dotted blue; width:100%; min-width:50px;`,
     useWrapper: true,
-    wrapperStyle: `border:1px dotted red`
+    wrapperStyle: `border:1px dotted red;`
   },
   {
     name: 'elvis-progress-linear',

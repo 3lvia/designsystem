@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-component-wrapper",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "./dist/elvia-component.js",
   "scripts": {
