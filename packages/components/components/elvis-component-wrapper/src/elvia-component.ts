@@ -82,12 +82,13 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected renderReactDOM(): void {
     this.mapAttributesToData();
-    if (this.webComponent.getComponentData().useWrapper) {
-      ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
+    if (!this.webComponent.getComponentData().useWrapper) {
+      ReactDOM.render(this.createReactElement(this.createReactData()), this);
       return;
     }
-    ReactDOM.render(this.createReactElement(this.createReactData()), this);
-
+    if (this.mountPoint) {
+      ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
+    }
   }
 
   private changedEvent(propName: string) {
