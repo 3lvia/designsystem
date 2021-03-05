@@ -16,6 +16,7 @@ simple string value(s).
 - isDisabled (boolean) - Set dropdown to a disabled state.
 - isError (boolean) - Set the dropdown to have a 2px red border style to indicate an error.
 - isMulti (boolean) - Set the dropdown to accept multiple values.
+- valueOnChange (function) - Gets called every time an option(s) is selected and return array of objects.
 
 ## REACT COMPONENT
 
@@ -24,24 +25,61 @@ import { Dropdown } from '@elvia/elvis-dropdown/react';
 
 const options = [
     {
-        value: '',
-        label: '',
-    }
+      value: 'norge',
+      label: 'Norge',
+    },
+    {
+      value: 'sverige',
+      label: 'Sverige',
+    },
+    {
+      value: 'danmark',
+      label: 'Danmark',
+    },
 ]
 
 ```
 
 ```
-<Dropdown options={options} isMulti isCompact> </Dropdown>
+const [selectedOptions, setSelectedOptions] = useState([]);
+
+
+<Dropdown options={options} isMulti isCompact valueOnChange={setSelectedOptions}> </Dropdown>
 ```
 
 ## WEB COMPONENT (Angular, Vue, etc)
 
 ```
-import { Dropdown } from '@elvia/elvis-dropdown';
+// in module
+import '@elvia/elvis-dropdown';
 ```
 
 ```
+// ts file
 
-SHOW CODE
+  dropdownOptions = [
+    {
+      value: 'norge',
+      label: 'Norge',
+    },
+    {
+      value: 'sverige',
+      label: 'Sverige',
+    },
+    {
+      value: 'danmark',
+      label: 'Danmark',
+    },
+  ];
+
+  isCompactDropdown = true;
+  isMultiDropdown = true;
+
+// html template
+<elvia-dropdown
+  [options]='dropdownOptions'
+  [isCompact]='isCompactDropdown'
+  [isMulti]='isMultiDropdown'
+  (valueOnChange)="selectedOptions = $event.detail.value"
+></elvia-dropdown>
 ```

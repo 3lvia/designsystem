@@ -1,8 +1,7 @@
-import React, { ElementConfig, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Select, { components } from 'react-select';
 import './style.scss';
 import classnames from 'classnames';
-import { useState } from 'react';
 
 export interface DropdownOptions {
   value: string;
@@ -149,7 +148,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   // Custom components for Elvia dropdown
-  const ElviaDropdownIndicator = (props: ElementConfig<typeof components.DropdownIndicator>) => {
+  const ElviaDropdownIndicator = ({ ...props }) => {
     return (
       <components.DropdownIndicator {...props}>
         <i
