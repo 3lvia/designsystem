@@ -60,13 +60,25 @@ export class CheckboxDocComponent {
 <label class="e-checkbox e-checkbox---disabled-checked" for="elvis-pseudo-checkbox-disabled-checked">
   <input type="checkbox" id="elvis-pseudo-checkbox-disabled-checked">
   <span class="e-checkbox__mark"></span>
-  <span class="e-checkbox__label">Disabled</span>
+  <span class="e-checkbox__label">Disabled checked</span>
 </label>
 
 <label class="e-checkbox e-checkbox---invalid" for="elvis-pseudo-checkbox-invalid">
   <input type="checkbox" id="elvis-pseudo-checkbox-invalid">
   <span class="e-checkbox__mark"></span>
   <span class="e-checkbox__label">Invalid</span>
+</label>
+`;
+
+  exampleIndeterminate = `<label class="e-checkbox e-checkbox--indeterminate" for="elvis-pseudo-checkbox-indeterminate">
+  <input type="checkbox" id="elvis-pseudo-checkbox-indeterminate">
+  <span class="e-checkbox__mark"></span>
+  <span class="e-checkbox__label">Indeterminate</span>
+</label>
+<label class="e-checkbox e-checkbox--sm e-checkbox--indeterminate" for="elvis-pseudo-checkbox-indeterminate-sm">
+  <input type="checkbox" id="elvis-pseudo-checkbox-indeterminate-sm">
+  <span class="e-checkbox__mark"></span>
+  <span class="e-checkbox__label">Indeterminate small</span>
 </label>
 `;
 }

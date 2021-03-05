@@ -26,6 +26,27 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
     margin-bottom: 12px;
   }
 
+  &__mark {
+    display: inline-flex;
+    align-self: flex-start;
+
+    min-width: $checkbox-mark-size;
+    min-height: $checkbox-mark-size;
+    max-width: $checkbox-mark-size;
+    max-height: $checkbox-mark-size;
+    transition: background 0.2s animation.$transition-cubic;
+    border: $checkbox-mark-border;
+    border-radius: $checkbox-mark-border-radius;
+    background: colors.color('elvia-on');
+  }
+
+  &__label {
+    font-size: inherit;
+    margin-left: 8px;
+    line-height: 24px;
+    width: fit-content;
+  }
+
   &.e-checkbox--sm {
     .e-checkbox__mark {
       min-width: $checkbox-mark-small-size;
@@ -58,6 +79,27 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
           background-color: colors.color('disabled');
         }
       }
+    }
+  }
+
+  &.e-checkbox--indeterminate {
+    .e-checkbox__mark {
+      position: relative;
+      background: colors.color('elvia-charge');
+      &::before {
+        content: '';
+        position: absolute;
+        top: calc(50% - 1px);
+        left: calc(50% - 6px);
+        width: 12px;
+        height: 2px;
+        border-radius: 1px;
+        background: black;
+      }
+    }
+    &.e-checkbox--sm .e-checkbox__mark::before {
+      left: calc(50% - 4px);
+      width: 8px;
     }
   }
 
@@ -247,27 +289,6 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
       -webkit-animation: checkmarkWidthSmall 150ms 150ms forwards;
       animation: checkmarkWidthSmall 150ms 150ms forwards;
     }
-  }
-
-  &__mark {
-    display: inline-flex;
-    align-self: flex-start;
-
-    min-width: $checkbox-mark-size;
-    min-height: $checkbox-mark-size;
-    max-width: $checkbox-mark-size;
-    max-height: $checkbox-mark-size;
-    transition: background 0.2s animation.$transition-cubic;
-    border: $checkbox-mark-border;
-    border-radius: $checkbox-mark-border-radius;
-    background: colors.color('elvia-on');
-  }
-
-  &__label {
-    font-size: inherit;
-    margin-left: 8px;
-    line-height: 24px;
-    width: fit-content;
   }
 }
 

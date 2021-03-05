@@ -38,6 +38,14 @@
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-example-v1 [codeHTML]="exampleStates"></app-component-example-v1>
+
+      <app-component-subsection [sectionTitle]="'Indeterminate'">
+        <ng-container ngProjectAs="sectionContent">
+          The indeterminate state should be used when a group of checkboxes can all be checked off at once. If
+          only some of the checkboxes are checked in this scenario, the indeterminate state should be used.
+          <app-component-example-v1 [codeHTML]="exampleIndeterminate"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

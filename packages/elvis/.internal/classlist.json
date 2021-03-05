@@ -857,12 +857,13 @@
 			}
 		},
 		"e-checkbox": {
-			"modifier": {
-				"e-checkbox--sm": {}
-			},
 			"element": {
 				"e-checkbox__mark": {},
 				"e-checkbox__label": {}
+			},
+			"modifier": {
+				"e-checkbox--sm": {},
+				"e-checkbox--indeterminate": {}
 			},
 			"psuedo": {
 				"e-checkbox---focus": {},
@@ -1652,9 +1653,10 @@
 		"e-toggle--inverted": {},
 		"e-toggle---disabled": {},
 		"e-checkbox": {},
-		"e-checkbox--sm": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
+		"e-checkbox--sm": {},
+		"e-checkbox--indeterminate": {},
 		"e-checkbox---focus": {},
 		"e-checkbox---hover": {},
 		"e-checkbox---disabled": {},
