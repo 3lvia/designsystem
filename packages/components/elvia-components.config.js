@@ -1,3 +1,13 @@
+/*
+name: String - Package name
+elementName: String - Name of DOM element
+attributes: String[] - What attributes DOM element listens for
+reactName: String - The name of the component in React
+elementStyle: String Styling for the DOM element itself
+useWrapper: Boolean - If the React element should be injected into a wrapper instead of directly into the element
+wrapperStyle: String - Styling for the React wrapper - This requires useWrapper to be true.
+*/
+
 module.exports = [
   {
     name: 'elvis-checkbox',
@@ -16,6 +26,9 @@ module.exports = [
     elementName: 'elvia-popover',
     attributes: ['title', 'content', 'posX', 'posY', 'hasCloseBtn'],
     reactName: 'Popover',
+    elementStyle: `border: 1px dotted blue`,
+    useWrapper: true,
+    wrapperStyle: `border:1px dotted red`
   },
   {
     name: 'elvis-progress-linear',
