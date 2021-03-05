@@ -10,7 +10,7 @@ module.exports = [
     elementName: 'elvia-tabs',
     attributes: ['items', 'value', 'isInverted'],
     reactName: 'Tabs',
-    elementStyle: `overflow: hidden; max-width: 100%`,
+    elementStyle: `display: grid`,
   },
   {
     name: 'elvis-popover',
