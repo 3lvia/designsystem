@@ -1,4 +1,8 @@
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import "@elvia/elvis/src/utilities/breakpoints.scss";
+
+:host {
+  width: 100%;
+}
 
 @mixin first-col {
   width: 80%;
@@ -33,6 +37,14 @@
   }
   .ceg-row-2 {
     @include first-col;
+  }
+  .ceg-full-row {
+    width: 100%;
+  }
+
+  &.full-width .ceg-row-2,
+  &.full-width .ceg-col-1 {
+    width: 100% !important;
   }
 
   .ceg-code-preview {

@@ -1,7 +1,13 @@
 <div class="ceg-side-filters">
-  <form class="ceg-side-filter e-form_field e-w-100" *ngFor="let prop of props; let i = index">
+  <form
+    class="ceg-side-filter e-form_field e-w-100"
+    *ngFor="let prop of props; let i = index"
+  >
     <!--Radios-->
-    <div *ngIf="prop.cegFormType === 'radio'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }">
+    <div
+      *ngIf="prop.cegFormType === 'radio'"
+      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+    >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
       <label
         *ngFor="let label of prop.cegOptions; let i = index"
@@ -16,7 +22,12 @@
           name="{{ prop.displayName }} radio"
           checked
         />
-        <input *ngIf="i !== 0" type="radio" id="{{ label }}-radio" name="{{ prop.displayName }} radio" />
+        <input
+          *ngIf="i !== 0"
+          type="radio"
+          id="{{ label }}-radio"
+          name="{{ prop.displayName }} radio"
+        />
         <span class="e-radio__mark"></span>
         <span class="e-radio__label">
           {{ label }}
@@ -25,19 +36,40 @@
     </div>
 
     <!--Toggle-->
-    <div *ngIf="prop.cegFormType === 'toggle'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }">
+    <div
+      *ngIf="prop.cegFormType === 'toggle'"
+      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+    >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
-      <label class="e-toggle" (change)="updateToggleCheckboxProp(prop)">
-        <input *ngIf="prop.cegDefault === 'true'" class="e-toggle__input" type="checkbox" checked />
-        <input *ngIf="prop.cegDefault === 'false'" class="e-toggle__input" type="checkbox" />
+      <label
+        class="e-toggle"
+        (change)="updateToggleCheckboxProp(prop)"
+      >
+        <input
+          *ngIf="prop.cegDefault === 'true'"
+          class="e-toggle__input"
+          type="checkbox"
+          checked
+        />
+        <input
+          *ngIf="prop.cegDefault === 'false'"
+          class="e-toggle__input"
+          type="checkbox"
+        />
         <span class="e-toggle__slider"></span>
       </label>
     </div>
 
     <!--Checkbox-->
-    <div *ngIf="prop.cegFormType === 'checkbox'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }">
+    <div
+      *ngIf="prop.cegFormType === 'checkbox'"
+      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+    >
       <div *ngFor="let checkboxProp of prop.modifiers; let i = index">
-        <label class="e-form-field__label" *ngIf="i === 0">{{ checkboxProp.cegDisplayGroup }}</label>
+        <label
+          class="e-form-field__label"
+          *ngIf="i === 0"
+        >{{ checkboxProp.cegDisplayGroup }}</label>
         <div *ngIf="checkboxProp.cegDisplayGroup === 'Modifiers'">
           <label
             class="e-checkbox e-checkbox--sm"
@@ -57,7 +89,10 @@
     </div>
 
     <!--Counter-->
-    <div *ngIf="prop.cegFormType === 'counter'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }">
+    <div
+      *ngIf="prop.cegFormType === 'counter'"
+      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+    >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
       <div class="counter">
         <button
@@ -74,11 +109,19 @@
             <i class="e-icon e-icon e-icon--subtract_circle-filled-color"></i>
           </span>
         </button>
-        <span class="counter__number e-text-md" *ngIf="counterNumber !== undefined">
-          {{ counterNumber }}%
+        <span
+          class="counter__number e-text-md"
+          [ngClass]="{ small: prop.cegCounterMax < 10 }"
+          *ngIf="counterNumber !== undefined"
+        >
+          {{ counterNumber }}{{ prop.cegCounterType }}
         </span>
-        <span class="counter__number e-text-md" *ngIf="counterNumber === undefined">
-          {{ prop.cegDefault }}%
+        <span
+          class="counter__number e-text-md"
+          [ngClass]="{ small: prop.cegCounterMax < 10 }"
+          *ngIf="counterNumber === undefined"
+        >
+          {{ prop.cegDefault }}{{ prop.cegCounterType }}
         </span>
         <button
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8"

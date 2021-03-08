@@ -1,20 +1,34 @@
-<div class="ceg-container component-preview-animation e-mt-64">
-  <div class="ceg-row-1">
+<div
+  class="ceg-container component-preview-animation"
+  [ngClass]="{ 'full-width': !hasCegAttributes }"
+  [ngClass]="hasPreview ? 'e-mt-64' : 'e-mt-40'"
+>
+  <div
+    class="ceg-row-1 e-mb-16"
+    *ngIf="hasPreview"
+  >
     <div class="ceg-col-1">
       <!--CEG code preview-->
       <div class="ceg-code-preview">
-        <div #cegFrame class="ceg-frame" [style.width.%]="width"></div>
+        <div
+          #cegFrame
+          class="ceg-frame"
+          style="display: flex"
+        ></div>
       </div>
     </div>
 
     <!--CEG side filters-->
-    <div class="ceg-col-2">
+    <div
+      class="ceg-col-2"
+      *ngIf="hasCegAttributes"
+    >
       <app-ceg-filters [componentData]="componentData"></app-ceg-filters>
     </div>
   </div>
 
   <!--CEG code-->
-  <div class="ceg-row-2 e-mt-16">
+  <div [ngClass]="hasPreview ? 'ceg-row-2' : 'ceg-full-row'">
     <app-component-example-accordion>
       <ng-container ngProjectAs="accordionContent">
         <app-component-example-code [componentData]="componentData"></app-component-example-code>

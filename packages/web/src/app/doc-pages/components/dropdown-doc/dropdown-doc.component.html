@@ -6,18 +6,41 @@
   </ng-container>
 </app-component-header>
 
+
 <!--BODY-->
 <div class="page-body">
+  <!--CEG-->
+  <!--Temporary until ceg-code-block supports angular syntax-->
+  <div class="component-preview-temp component-preview-animation">
+
+    <elvia-dropdown [options]="exampleOptions">
+
+    </elvia-dropdown>
+    <app-component-example-generator
+      [componentData]="componentData"
+      [hasPreview]="false"
+    ></app-component-example-generator>
+  </div>
+
+
+
+  <!-- Olde documentation -->
   <!-- SIZE -->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
           <div class="image-container">
-            <img class="e-m-16 image-size" src="assets/dropdown/dropdown-inputs.png" />
+            <img
+              class="e-m-16 image-size"
+              src="assets/dropdown/dropdown-inputs.png"
+            />
           </div>
           <div class="image-container">
-            <img class="e-m-16 image-size" src="assets/dropdown/dropdown-content.png" />
+            <img
+              class="e-m-16 image-size"
+              src="assets/dropdown/dropdown-content.png"
+            />
           </div>
         </ng-container>
       </app-component-subsection>
@@ -31,7 +54,10 @@
             />
           </div>
           <div class="image-container">
-            <img class="e-m-16 image-size" src="assets/dropdown/compact/dropdown-compact-content.png" />
+            <img
+              class="e-m-16 image-size"
+              src="assets/dropdown/compact/dropdown-compact-content.png"
+            />
           </div>
         </ng-container>
       </app-component-subsection>
@@ -42,7 +68,10 @@
   <app-component-section [sectionTitle]="'Styling dropdown'">
     <ng-container ngProjectAs="sectionContent">
       <p>
-        <a class="e-link" href="{{ figmaUrl }}">Figma sketches</a>
+        <a
+          class="e-link"
+          href="{{ figmaUrl }}"
+        >Figma sketches</a>
       </p>
       <p>
         This documentation shows how you should style your dropdown. We do not currently provide styling
@@ -52,14 +81,23 @@
       </p>
       <p>
         Take a look in
-        <a class="e-link e-link--inline" href="{{ figmaUrl }}">figma</a>
+        <a
+          class="e-link e-link--inline"
+          href="{{ figmaUrl }}"
+        >figma</a>
         to get the detailed view where you can inspect properties of the design.
       </p>
       <p>
         To make the dropdown input field you might be able to use our
-        <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete']">autocomplete classes</a>
+        <a
+          class="e-link e-link--inline"
+          [routerLink]="['/components/autocomplete']"
+        >autocomplete classes</a>
         or
-        <a class="e-link e-link--inline" [routerLink]="['/components/input']">input classes</a>
+        <a
+          class="e-link e-link--inline"
+          [routerLink]="['/components/input']"
+        >input classes</a>
         . These classes have the same styling as the dropdown input designed here. Make sure to asign the
         input type to "button" to not let user type inside the input field
       </p>
@@ -67,9 +105,12 @@
   </app-component-section>
 
   <!-- USAGE -->
-  <app-component-section [sectionTitle]="'Usage'">
+  <!-- <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="headerDoes" [whenNots]="headerDonts"></app-when-to-use>
+      <app-when-to-use
+        [whens]="headerDoes"
+        [whenNots]="headerDonts"
+      ></app-when-to-use>
     </ng-container>
-  </app-component-section>
+  </app-component-section> -->
 </div>

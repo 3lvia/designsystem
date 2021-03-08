@@ -123,11 +123,11 @@ const Dropdown: React.FC<DropdownProps> = ({
       ...provided,
       paddingTop: isCompact ? '7px' : '11px',
       paddingBottom: isCompact ? '7px' : '11px',
+      paddingRight: isCompact ? '11px' : '15px',
     }),
     dropdownIndicator: () => ({
       height: isCompact ? '16px' : '24px',
       width: isCompact ? '16px' : '24px',
-      paddingRight: isCompact ? '11px' : '15px',
     }),
 
     placeholder: (provided: any) => ({

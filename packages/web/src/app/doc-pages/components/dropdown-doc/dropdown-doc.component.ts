@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
+import { dropdownData } from './dropdown-data';
+import { exampleContents } from 'src/app/shared/example-contents';
 
 @Component({
   selector: 'app-dropdown-doc',
@@ -7,14 +9,42 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./dropdown-doc.component.scss'],
 })
 export class DropdownDocComponent {
+  exampleContents = exampleContents;
+  componentData = dropdownData;
+  does = dropdownData.does;
+  donts = dropdownData.donts;
   figmaUrl = getComponent('dropdown').figmaUrl;
   description = getComponent('dropdown').description;
-  headerDoes = [
-    'Use sparingly: use dropdowns only when the user have 5-10 options and you have limited space to display it all open.',
+
+  exampleOptions = [
+    {
+      value: 'norge',
+      label: 'Norge',
+    },
+    {
+      value: 'sverige',
+      label: 'Sverige',
+    },
+    {
+      value: 'danmark',
+      label: 'Danmark',
+    },
+    {
+      value: 'finland',
+      label: 'Finland',
+    },
+    {
+      value: 'island',
+      label: 'Island',
+    },
   ];
-  headerDonts = ['Fewer than 5 options', 'More than 15 options'];
 
   // Commented out earlier solution with own style
+
+  // headerDoes = [
+  //   'Use sparingly: use dropdowns only when the user have 5-10 options and you have limited space to display it all open.',
+  // ];
+  // headerDonts = ['Fewer than 5 options', 'More than 15 options'];
 
   //   example1 = `<div style="height:350px">
   //   <div class="e-form-field">
