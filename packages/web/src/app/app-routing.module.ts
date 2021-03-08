@@ -70,6 +70,7 @@ import { TheConceptComponent } from './doc-pages/identity/the-concept/the-concep
 import { ChipsComponent } from './doc-pages/components/chips/chips.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
+import { ContentfulExampleComponent } from './doc-pages/community/contentful-example/contentful-example.component';
 
 const routes: Routes = [
   {
@@ -382,6 +383,10 @@ const routes: Routes = [
             path: Pages.Faq,
             component: FaqDocComponent,
           },
+          {
+            path: Pages.ContentfulExample,
+            component: ContentfulExampleComponent,
+          },
         ],
       },
       { path: 'not-found', component: ErrorComponent },
@@ -395,4 +400,4 @@ const routes: Routes = [
   exports: [RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
