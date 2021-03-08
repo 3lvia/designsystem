@@ -14,23 +14,22 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
   const [currValue, setCurrValue] = useState(value);
   const [isOnRightEnd, setIsOnRightEnd] = useState(true);
   const [isOnLeftEnd, setIsOnLeftEnd] = useState(true);
+  const [hasMounted, setHasMounted] = useState(false);
   const tabsRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
   const lengthToScroll = 140;
   const scrollSteps = 12;
+  const group = Math.random();
 
   useEffect(() => {
     // Start outline listener
     toolbox.outlineListener(tabsRef.current);
 
-    // Update scroll position on init
-    setTimeout(() => updateArrowVisibility());
-
     // Listen to resize & scroll and update scrolled positions
     if (!itemsRef.current) {
       return;
     }
-    const throttledResizeCount = toolbox.throttle(updateArrowVisibility, 250);
+    const throttledResizeCount = toolbox.throttle(updateArrowVisibility, 50);
     const throttledScrollCount = toolbox.throttle(updateArrowVisibility, 50);
 
     window.addEventListener('resize', throttledResizeCount);
@@ -47,12 +46,20 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
     };
   }, []);
 
+  useEffect(() => {
+    // Update scroll position on init
+    updateArrowVisibility();
+  });
+
   // Is necessary since the web component does not send all props at once
   useEffect(() => {
     setCurrValue(value);
   }, [value]);
 
   const updateValue = (value: number) => {
+    if (!hasMounted) {
+      setHasMounted(true);
+    }
     setCurrValue(value);
     if (!webcomponent && valueOnChange) {
       valueOnChange(value);
@@ -140,12 +147,14 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
               <div key={i} className="ewc-tabs__tab" onClick={() => updateValue(i)}>
                 <input
                   type="radio"
-                  name="ewc_tab-group"
                   role="tab"
-                  id={'tab_' + i}
+                  name={'tab-group-' + group}
+                  id={'tab-id-' + i}
                   value={currValue}
                   aria-label={item}
-                  aria-checked={i === currValue}
+                  aria-checked={currValue == i}
+                  onChange={() => updateValue(i)}
+                  defaultChecked={currValue == i}
                 ></input>
                 <label className={`ewc-tabs__label ${currValue == i && 'ewc-tabs__label--selected'}`}>
                   {item}
