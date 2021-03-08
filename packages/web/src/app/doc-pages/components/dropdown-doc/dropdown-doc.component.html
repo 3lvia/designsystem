@@ -13,7 +13,12 @@
   <!--Temporary until ceg-code-block supports angular syntax-->
   <div class="component-preview-temp component-preview-animation">
 
-    <elvia-dropdown [options]="exampleOptions">
+    <elvia-dropdown
+      [options]="exampleOptions"
+      placeholder="Velg land"
+      label="Norden"
+    >
+
 
     </elvia-dropdown>
     <app-component-example-generator
@@ -21,6 +26,29 @@
       [hasPreview]="false"
     ></app-component-example-generator>
   </div>
+
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use
+        [whens]="does"
+        [whenNots]="donts"
+      ></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
 
 
 

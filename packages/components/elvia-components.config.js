@@ -9,7 +9,16 @@ module.exports = [
     name: 'elvis-dropdown',
     role: 'select',
     elementName: 'elvia-dropdown',
-    attributes: ['options', 'isCompact', 'isDisabled', 'isError', 'isMulti'],
+    attributes: [
+      'options',
+      'placeholder',
+      'label',
+      'isCompact',
+      'isDisabled',
+      'isError',
+      'isMulti',
+      'valueOnChange',
+    ],
     reactName: 'Dropdown',
   },
   {

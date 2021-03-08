@@ -11,13 +11,13 @@ export const dropdownData = {
       description: 'Options available in the dropdown menu',
       displayName: 'Options',
     },
-    value: {
+    placeholder: {
       isRequired: false,
-      type: 'number',
-      description: 'Index of selected tab.',
-      default: '0',
+      type: 'string',
+      description: 'Placeholder in dropdown input field.',
+      default: 'Placeholder',
     },
-    isInverted: {
+    label: {
       isRequired: false,
       type: 'boolean',
       description: 'Decides if tabs should be inverted',
@@ -54,10 +54,8 @@ export const dropdownData = {
     `']" 
   value="1"
 ></elvia-tabs>`,
-  does: ['If you have sub-sections of a page and can not display everything at once'],
-  donts: [
-    'If the content can be displayed at once.',
-    'Don’t use tab in tab.',
-    'Primary navigation that links to other pages',
+  does: [
+    'Use sparingly: use dropdowns only when the user have 5-10 options and you have limited space to display it all open.',
   ],
+  donts: ['Fewer than 5 options', 'More than 15 options'],
 };
