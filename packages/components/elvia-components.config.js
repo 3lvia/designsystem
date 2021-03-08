@@ -24,17 +24,16 @@ module.exports = [
   {
     name: 'elvis-popover',
     elementName: 'elvia-popover',
-    attributes: ['title', 'content', 'posX', 'posY', 'hasCloseBtn'],
+    attributes: ['header', 'content', 'posX', 'posY', 'hasCloseBtn'],
     reactName: 'Popover',
-    elementStyle: `border: 1px dotted blue; width:100%; min-width:50px;`,
     useWrapper: true,
-    wrapperStyle: `border:1px dotted red;`
   },
   {
     name: 'elvis-progress-linear',
     elementName: 'elvia-progress-linear',
     attributes: ['value', 'isIndeterminate', 'isError'],
     reactName: 'ProgressLinear',
+    elementStyle: `width: 100%`,
   },
   {
     name: 'elvis-testing',
