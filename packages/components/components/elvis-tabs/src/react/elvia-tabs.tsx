@@ -17,9 +17,9 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
   const [hasMounted, setHasMounted] = useState(false);
   const tabsRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
+  const tabGroup = Math.random();
   const lengthToScroll = 140;
   const scrollSteps = 12;
-  const group = Math.random();
 
   useEffect(() => {
     // Start outline listener
@@ -148,7 +148,7 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
                 <input
                   type="radio"
                   role="tab"
-                  name={'tab-group-' + group}
+                  name={'tab-tabGroup-' + tabGroup}
                   id={'tab-id-' + i}
                   value={currValue}
                   aria-label={item}
