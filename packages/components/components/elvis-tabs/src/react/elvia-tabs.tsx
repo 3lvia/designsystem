@@ -93,11 +93,11 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
   const tabsClasses = classNames('ewc-tabs', {
     ['ewc-tabs--inverted']: isInverted,
   });
-  const arrowLeftClasses = classNames('ewc-tabs__arrow', {
+  const arrowLeftClasses = classNames('ewc-tabs__arrow-left', {
     ['ewc-tabs__arrow--hide']: isOnLeftEnd,
     ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
   });
-  const arrowRightClasses = classNames('ewc-tabs__arrow', {
+  const arrowRightClasses = classNames('ewc-tabs__arrow-right', {
     ['ewc-tabs__arrow--hide']: isOnRightEnd,
     ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
   });

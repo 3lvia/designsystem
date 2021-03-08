@@ -88,15 +88,8 @@ export const exampleContents = {
   },
   words: {
     random: {
-      'nob-NOR': ['Elbil', 'AMS-måler', 'HAN-port', 'Adresse'],
-      'eng-GBR': [
-        'Electric car',
-        'AMS-meter',
-        'HAN-gate',
-        'Power failure map',
-        'Address',
-        'Invoice overview',
-      ],
+      'nob-NOR': ['Elbil', 'AMS-måler', 'HAN-port', 'Power outage', 'Faktura oversikt'],
+      'eng-GBR': ['Electric car', 'AMS-meter', 'HAN-gate', 'Power outage', 'Invoice overview'],
     },
     categories: {
       'nob-NOR': ['Skjema', 'Artikkel', 'Rapport'],

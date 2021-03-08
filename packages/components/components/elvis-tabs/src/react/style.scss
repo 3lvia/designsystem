@@ -3,7 +3,6 @@ $grey-10: #e9e9e9;
 $grey-40: #a8a8a8;
 $grey-80: #515151;
 $grey-90: #3b3b3b;
-$grey: #262626;
 $hover-blue: #0064fa;
 $icon-btn-width: 24px;
 
@@ -27,6 +26,7 @@ $icon-btn-width: 24px;
   flex-direction: row;
   align-items: baseline;
   overflow: auto;
+  position: relative;
 
   // Firefox specific
   @-moz-document url-prefix() {
@@ -42,22 +42,33 @@ $icon-btn-width: 24px;
     padding-top: 6px;
   }
 
-  &__arrow {
+  &__arrow-left {
+    left: 0px;
+    padding: 16px 28px 16px 8px;
+  }
+  &__arrow-right {
+    right: 0px;
+    padding: 16px 8px 16px 28px;
+  }
+
+  &__arrow-left,
+  &__arrow-right {
     display: flex;
-    padding: 18px 8px;
-    margin: 4px 0px;
-    width: 24px;
-    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    width: 8px;
+    z-index: 10;
     transition: visibility 0.5s ease-in;
-    box-sizing: border-box;
+    box-sizing: content-box;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     // IE specific
     @media screen and (-ms-high-contrast: none) {
       margin-top: -4px;
     }
-
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 
     &.ewc-tabs__arrow--hide {
       visibility: hidden;
@@ -84,11 +95,6 @@ $icon-btn-width: 24px;
     &:hover {
       cursor: pointer;
     }
-
-    &:active {
-      background: $grey-10;
-      border-radius: 100px;
-    }
   }
 
   &__items {
@@ -101,6 +107,8 @@ $icon-btn-width: 24px;
 
     &.ewc-tabs--scrolling {
       width: calc(100% - (2 * #{$icon-btn-width}));
+      left: $icon-btn-width;
+      padding: 4px 0;
     }
 
     // Fade
@@ -109,10 +117,10 @@ $icon-btn-width: 24px;
       position: absolute;
       top: 0;
       left: 0;
-      height: 36px;
-      width: 51px;
+      height: 40px;
+      width: 26px;
       z-index: 1;
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2));
       transition: all linear 0.3s;
     }
     &::after {
@@ -120,10 +128,10 @@ $icon-btn-width: 24px;
       position: absolute;
       top: 0;
       right: 0;
-      height: 36px;
-      width: 51px;
+      height: 40px;
+      width: 26px;
       z-index: 1;
-      background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2));
       transition: all linear 0.3s;
     }
 
@@ -142,12 +150,12 @@ $icon-btn-width: 24px;
 
     &.scrolled-right {
       &::after {
-        background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+        background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
       }
     }
     &.scrolled-left {
       &::before {
-        background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2));
       }
     }
   }
@@ -278,15 +286,20 @@ $icon-btn-width: 24px;
     }
     .ewc-tabs__items {
       &::before {
-        background-image: linear-gradient(to right, $grey, rgba(255, 255, 255, 0));
+        background-image: linear-gradient(to right, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
       }
       &::after {
-        background-image: linear-gradient(to left, $grey, rgba(255, 255, 255, 0));
+        background-image: linear-gradient(to left, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
       }
-    }
-    .ewc-tabs__arrow {
-      &:active {
-        background: $grey-90;
+      &.scrolled-right {
+        &::after {
+          background-image: linear-gradient(to left, rgba(38, 38, 38, 0), rgba(38, 38, 38, 0.2));
+        }
+      }
+      &.scrolled-left {
+        &::before {
+          background-image: linear-gradient(to right, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
+        }
       }
     }
   }

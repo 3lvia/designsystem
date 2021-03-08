@@ -9,13 +9,13 @@
       [isInverted]="true"
       (valueOnChange)="value = $event.detail.value"
     ></elvia-tabs>
-    {{ value }}
   </div>
   <elvia-tabs
     [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
     [value]="1"
     (valueOnChange)="value = $event.detail.value"
   ></elvia-tabs>
+  {{ value }}
 
   <hr style="margin: 40px 0" />
   <elvia-testing [value]="counterValue" (valueOnChange)="counterValue = $event.detail.value"></elvia-testing>
