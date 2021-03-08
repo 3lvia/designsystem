@@ -36,6 +36,7 @@ function App() {
 
   const [selectedOption, setSelectedOption] = useState([]);
 
+  // to display choosen data
   console.log(selectedOption);
 
   const options = [

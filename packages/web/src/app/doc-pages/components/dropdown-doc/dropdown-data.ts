@@ -1,5 +1,3 @@
-import { exampleContents } from 'src/app/shared/example-contents';
-
 export const dropdownData = {
   name: 'elvis-dropdown',
   elementNameW: 'elvia-dropdown',
@@ -14,46 +12,90 @@ export const dropdownData = {
     placeholder: {
       isRequired: false,
       type: 'string',
-      description: 'Placeholder in dropdown input field.',
+      description: 'Placeholder value for the dropdown menu',
       default: 'Placeholder',
     },
     label: {
       isRequired: false,
+      type: 'string',
+      description: 'Label value for the dropdown element',
+      default: 'false',
+    },
+    isCompact: {
+      isRequired: false,
       type: 'boolean',
-      description: 'Decides if tabs should be inverted',
+      description: 'Set the dropdown to a smaller elvia compact style',
+      default: 'false',
+    },
+    isDisabled: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Set dropdown to a disabled state',
+      default: 'false',
+    },
+    isError: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Set the dropdown to have a 2px red border style to indicate an error',
+      default: 'false',
+    },
+    isMulti: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Set the dropdown to accept multiple values',
       default: 'false',
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: number) => void',
-      description: 'Gets called every time the value is changed.',
+      type: ' function',
+      description: `Gets called every time an option(s) is selected and return an array of objects`,
     },
   },
   package: 'npm install @elvia/elvis-dropdown',
   codeImportReact: `import { Dropdown } from '@elvia/elvis-dropdown/react';`,
   codeImportWebComponent: `import '@elvia/elvis-dropdown';`,
-  codeReact:
-    `<Tabs 
-  items={'` +
-    exampleContents.words.random['eng-GBR'][0] +
-    `', '` +
-    exampleContents.words.random['eng-GBR'][1] +
-    `', '` +
-    exampleContents.words.random['eng-GBR'][2] +
-    `'}
-  value={1}
-></Tabs>`,
-  codeWebComponent:
-    `<elvia-tabs 
-  [items]="['` +
-    exampleContents.words.random['eng-GBR'][0] +
-    `', '` +
-    exampleContents.words.random['eng-GBR'][1] +
-    `', '` +
-    exampleContents.words.random['eng-GBR'][2] +
-    `']" 
-  value="1"
-></elvia-tabs>`,
+  codeReact: `const [selectedOption, setSelectedOption] = useState([]);
+
+const options = [
+    {
+        value: 'norge',
+        label: 'Norge',
+    },
+    {
+        value: 'sverige',
+        label: 'Sverige',
+    },
+    {
+        value: 'danmark',
+        label: 'Danmark',
+    },
+];
+
+<Dropdown options={options} valueOnChange={setSelectedOption}></Dropdown>`,
+  codeWebComponent: `<!-- in HTML -->
+<elvia-dropdown
+    [options]='dropdownOptions'
+    (valueOnChange)="selectedOptions = $event.detail.value"
+></elvia-dropdown>
+
+
+<!-- in TS -->
+selectedOptions = [];
+
+dropdownOptions = [
+    {
+        value: 'norge',
+        label: 'Norge',
+    },
+    {
+        value: 'sverige',
+        label: 'Sverige',
+    },
+    {
+        value: 'danmark',
+        label: 'Danmark',
+    },
+];`,
   does: [
     'Use sparingly: use dropdowns only when the user have 5-10 options and you have limited space to display it all open.',
   ],

@@ -16,7 +16,7 @@ simple string value(s).
 - isDisabled (boolean) - Set dropdown to a disabled state.
 - isError (boolean) - Set the dropdown to have a 2px red border style to indicate an error.
 - isMulti (boolean) - Set the dropdown to accept multiple values.
-- valueOnChange (function) - Gets called every time an option(s) is selected and return array of objects.
+- valueOnChange (function) - Gets called every time an option(s) is selected and return an array of objects.
 
 ## REACT COMPONENT
 
