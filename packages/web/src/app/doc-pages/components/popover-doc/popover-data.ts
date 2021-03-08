@@ -78,14 +78,23 @@ const popoverData = {
     </button>
   }
 ></Popover>`,
-  codeWebComponent: `<elvia-popover header="helo" content="wienfowienrowineroiwe row erowe orweo" posY="top">
-    <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--information_circle"></i>
-        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-      </span>
-    </button>
-  </elvia-popover>`,
+  codeWebComponent:
+    `<elvia-popover 
+  header="` +
+    exampleContents.texts.md['eng-GBR'].title +
+    `"
+  content="` +
+    exampleContents.texts.md['eng-GBR'].description +
+    `"
+  posY="top"
+>
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    </span>
+  </button>
+</elvia-popover>`,
 };
 
 export { popoverData };
