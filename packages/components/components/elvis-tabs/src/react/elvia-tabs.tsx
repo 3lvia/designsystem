@@ -70,12 +70,18 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
   };
 
   const updateArrowVisibility = () => {
+    console.log('heloo arrow');
     if (!itemsRef.current) {
       return;
     }
     const endOfItem = itemsRef.current.scrollWidth - itemsRef.current.getBoundingClientRect().width;
+    console.log(itemsRef.current.scrollWidth);
+    console.log(itemsRef.current.getBoundingClientRect().width);
+    console.log(endOfItem);
     const isOnRight = itemsRef.current.scrollLeft >= endOfItem - 1;
     const isOnLeft = itemsRef.current.scrollLeft <= 1;
+    console.log(isOnRight);
+    console.log(isOnLeft);
     setIsOnRightEnd(isOnRight);
     setIsOnLeftEnd(isOnLeft);
   };
@@ -100,11 +106,11 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
   const tabsClasses = classNames('ewc-tabs', {
     ['ewc-tabs--inverted']: isInverted,
   });
-  const arrowLeftClasses = classNames('ewc-tabs__arrow-left', {
+  const arrowLeftClasses = classNames('ewc-tabs__arrow', 'ewc-tabs__arrow--left', {
     ['ewc-tabs__arrow--hide']: isOnLeftEnd,
     ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
   });
-  const arrowRightClasses = classNames('ewc-tabs__arrow-right', {
+  const arrowRightClasses = classNames('ewc-tabs__arrow', 'ewc-tabs__arrow--right', {
     ['ewc-tabs__arrow--hide']: isOnRightEnd,
     ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
   });
@@ -141,10 +147,10 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
       </div>
 
       <div className={itemsClasses}>
-        <div className="ewc-tabs__scroll" ref={itemsRef} role="tablist">
+        <div className="ewc-tabs__items-scroll" ref={itemsRef} role="tablist">
           {items &&
             items.map((item, i) => (
-              <div key={i} className="ewc-tabs__tab" onClick={() => updateValue(i)}>
+              <div key={i} className="ewc-tabs__item" onClick={() => updateValue(i)}>
                 <input
                   type="radio"
                   role="tab"
