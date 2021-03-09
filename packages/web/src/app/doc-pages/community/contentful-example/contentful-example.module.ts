@@ -7,4 +7,4 @@ import { ComponentHeaderModule } from 'src/app/shared/component-structure/compon
   imports: [CommonModule, ComponentHeaderModule],
   declarations: [ContentfulExampleComponent],
 })
-export class ContactModule { }
+export class ContentfulExampleModule { }

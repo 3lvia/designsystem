@@ -5,7 +5,7 @@ import { ContributeModule } from './contribute/contribute.module';
 import { FaqDocModule } from './faq-doc/faq-doc.module';
 import { ChangelogModule } from './changelog/changelog.module';
 import { ContactModule } from './contact/contact.module';
-
+import { ContentfulExampleModule } from './contentful-example/contentful-example.module';
 @NgModule({
   imports: [
     CommunityStartModule,
@@ -14,6 +14,7 @@ import { ContactModule } from './contact/contact.module';
     FaqDocModule,
     ChangelogModule,
     ContactModule,
+    ContentfulExampleModule
   ],
 })
-export class CommunityModule {}
+export class CommunityModule { }
