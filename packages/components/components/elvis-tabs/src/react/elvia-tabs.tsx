@@ -29,7 +29,7 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
     if (!itemsRef.current) {
       return;
     }
-    const throttledResizeCount = toolbox.throttle(updateArrowVisibility, 50);
+    const throttledResizeCount = toolbox.throttle(updateArrowVisibility, 100);
     const throttledScrollCount = toolbox.throttle(updateArrowVisibility, 50);
 
     window.addEventListener('resize', throttledResizeCount);
@@ -70,20 +70,19 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
   };
 
   const updateArrowVisibility = () => {
-    console.log('heloo arrow');
-    if (!itemsRef.current) {
+    if (!itemsRef.current || !tabsRef.current) {
       return;
     }
-    const endOfItem = itemsRef.current.scrollWidth - itemsRef.current.getBoundingClientRect().width;
-    console.log(itemsRef.current.scrollWidth);
-    console.log(itemsRef.current.getBoundingClientRect().width);
-    console.log(endOfItem);
-    const isOnRight = itemsRef.current.scrollLeft >= endOfItem - 1;
-    const isOnLeft = itemsRef.current.scrollLeft <= 1;
-    console.log(isOnRight);
-    console.log(isOnLeft);
-    setIsOnRightEnd(isOnRight);
-    setIsOnLeftEnd(isOnLeft);
+    const overflowing = itemsRef.current.scrollWidth - tabsRef.current.getBoundingClientRect().width;
+    if (overflowing < 1) {
+      setIsOnRightEnd(true);
+      setIsOnLeftEnd(true);
+    } else {
+      const isOnRight = itemsRef.current.scrollLeft >= overflowing;
+      const isOnLeft = itemsRef.current.scrollLeft <= 0;
+      setIsOnRightEnd(isOnRight);
+      setIsOnLeftEnd(isOnLeft);
+    }
   };
 
   const scrollSideways = (direction: string) => {
@@ -154,8 +153,8 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
                 <input
                   type="radio"
                   role="tab"
-                  name={'tab-tabGroup-' + tabGroup}
-                  id={'tab-id-' + i}
+                  name={'ewc-tab-group-' + tabGroup}
+                  id={'ewc-tab-id-' + i}
                   value={currValue}
                   aria-label={item}
                   aria-checked={currValue == i}
