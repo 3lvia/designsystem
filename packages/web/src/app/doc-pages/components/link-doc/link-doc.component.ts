@@ -53,10 +53,6 @@ export class LinkDocComponent {
   <span class="e-link__title">New tab link</span>
   <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
 </a>
-<a class="e-link e-link--new-tab e-link--lg" href="https://design.elvia.io/components/link#Overview">
-  <span class="e-link__title">New tab link</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-</a>
 `;
 
   exampleNewTabInverted = `<a class="e-link e-link--new-tab e-link--inverted" href="https://design.elvia.io/components/link#Overview">

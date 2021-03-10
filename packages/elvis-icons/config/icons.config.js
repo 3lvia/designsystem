@@ -81,7 +81,7 @@ module.exports = [
   },
   { name: 'arrow_external', terms: ['link'], thirdparty: { name: ['streamline'] } },
   {
-    name: 'new_tab-bold',
+    name: 'arrow_external-bold',
     terms: ['link'],
     thirdparty: { name: ['streamline'], duplicate: ['arrow_external'] },
   },
