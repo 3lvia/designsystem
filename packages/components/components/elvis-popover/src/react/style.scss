@@ -13,10 +13,8 @@ $green: #29d305;
   display: inline-flex;
   box-sizing: border-box;
   position: relative;
-  flex-direction: column;
 
   &__trigger {
-    position: relative;
     display: flex;
     flex-direction: column;
     -webkit-user-select: none;
@@ -25,7 +23,8 @@ $green: #29d305;
   }
 
   &__content {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     box-sizing: content-box;
     width: max-content;
@@ -62,6 +61,7 @@ $green: #29d305;
       font-weight: normal;
       font-size: 14px;
       line-height: 22px;
+      
     }
   }
 
@@ -87,7 +87,7 @@ $green: #29d305;
 
   &.ewc-popover--bottom .ewc-popover__content {
     top: 100%;
-    bottom: unset;
+    bottom: auto;
     margin-top: 16px;
   }
 }
