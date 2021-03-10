@@ -3,7 +3,29 @@
 <!-- 🐝 - BUG FIXES -->
 
 <table>
- <tr class="changelog-row">
+<tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      7.2.0
+    </span>
+    <br>
+    <span>
+      March 10, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a>
+        </div>
+        Using <span class="code-text">b</span> and <span class="code-text">strong</span> elements togheter with our text-classes (not title classes), will now give <span class="code-text">font-weight: 500</span>, to make it easier to use bold versions of our typography in all types of applications.
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       7.1.0

@@ -40,5 +40,13 @@
         line-height: $height-m;
       }
     }
+    @if (str-index($label, 'text-')) {
+      b.e-#{$label},
+      .e-#{$label} b,
+      strong.e-#{$label},
+      .e-#{$label} strong {
+        font-weight: 500;
+      }
+    }
   }
 }
