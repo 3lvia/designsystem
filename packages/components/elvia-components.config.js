@@ -18,8 +18,9 @@ module.exports = [
   {
     name: 'elvis-tabs',
     elementName: 'elvia-tabs',
-    attributes: ['items', 'value'],
+    attributes: ['items', 'value', 'isInverted'],
     reactName: 'Tabs',
+    elementStyle: `display: grid; overflow: hidden;`,
   },
   {
     name: 'elvis-popover',
@@ -33,6 +34,13 @@ module.exports = [
     elementName: 'elvia-progress-linear',
     attributes: ['value', 'isIndeterminate', 'isError'],
     reactName: 'ProgressLinear',
+    elementStyle: `width: 100%;`,
+  },
+  {
+    name: 'elvis-testing',
+    elementName: 'elvia-testing',
+    attributes: ['value'],
+    reactName: 'TestingComponent',
     elementStyle: `width: 100%`,
   },
   {

@@ -4,7 +4,6 @@ const popoverData = {
   name: 'elvis-popover',
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',
-  package: 'npm install @elvia/elvis-popover',
   attributes: {
     header: {
       isRequired: false,
@@ -58,6 +57,7 @@ const popoverData = {
       cegOptions: ['center', 'left', 'right'],
     },
   },
+  package: 'npm install @elvia/elvis-popover',
   codeImportReact: `import { Popover } from '@elvia/elvis-popover/react';`,
   codeImportWebComponent: `import '@elvia/elvis-popover';`,
   codeReact:

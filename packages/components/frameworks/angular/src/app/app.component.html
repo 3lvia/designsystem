@@ -2,10 +2,20 @@
   <h1>Angular preview</h1>
 
   <h2>Tabs</h2>
-  <div style="margin-top: 16px">
-    <elvia-tabs [items]="items" [value]="value" (valueOnChange)="value = $event.detail.value"></elvia-tabs>
-    {{ value }}
+  <div style="margin-top: 16px; background: #262626">
+    <elvia-tabs
+      [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
+      [value]="1"
+      [isInverted]="true"
+      (valueOnChange)="value = $event.detail.value"
+    ></elvia-tabs>
   </div>
+  <elvia-tabs
+    [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
+    [value]="1"
+    (valueOnChange)="value = $event.detail.value"
+  ></elvia-tabs>
+  {{ value }}
 
   <hr style="margin: 40px 0" />
   <elvia-testing [value]="counterValue" (valueOnChange)="counterValue = $event.detail.value"></elvia-testing>
@@ -70,7 +80,7 @@
   <hr style="margin: 40px 0" />
 
   <h2>Progressbar</h2>
-  <div style="margin-bottom: 32px">
+  <div style="margin-bottom: 32px; display: flex">
     <elvia-progress-linear
       [isIndeterminate]="indeterminate"
       [value]="progressValue"
