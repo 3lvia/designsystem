@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-tabs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "web_component.js",
   "scripts": {
