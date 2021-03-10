@@ -34,6 +34,7 @@ $tabs-height: 44px;
 
 .ewc-tabs {
   display: flex;
+  flex-direction: row;
   align-items: center;
   overflow: hidden;
   position: relative;
@@ -66,9 +67,9 @@ $tabs-height: 44px;
     }
 
     // IE specific
-    // @media screen and (-ms-high-contrast: none) {
-    //   margin-top: -4px;
-    // }
+    @media screen and (-ms-high-contrast: none) {
+      margin-top: -20px;
+    }
 
     &:hover {
       cursor: pointer;
@@ -135,7 +136,9 @@ $tabs-height: 44px;
 
   &__items-scroll {
     display: flex;
+    flex-direction: row;
     white-space: nowrap;
+    width: 100%;
     overflow-x: auto;
     padding: 4px;
     height: $tabs-height;
@@ -143,14 +146,6 @@ $tabs-height: 44px;
     scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
-    }
-    &::after {
-      content: '';
-      flex: 0 0 4px;
-    }
-    // IE specific
-    @media screen and (-ms-high-contrast: none) {
-      display: block;
     }
   }
 
