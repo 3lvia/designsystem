@@ -49,22 +49,14 @@ export class LinkDocComponent {
   example2Inverted = `<div style="font-size: 20px; e-text-white">This is an <a class="e-link e-link--inline e-link--inverted" href="https://design.elvia.io/components/link#Overview">inline link</a></div>
 `;
 
-  exampleExternal = `<a class="e-link e-link--external" href="https://www.elvia.no/">
-    <span class="e-link__title">External link</span>
-    <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
-  </a>
-`;
-
-  exampleExternalInverted = `<a class="e-link e-link--external e-link--inverted" href="https://www.elvia.no/">
-  <span class="e-link__title">External link</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold e-icon--inverted"></i></span>
-</a>
-`;
-
   exampleNewTab = `<a class="e-link e-link--new-tab" href="https://design.elvia.io/components/link#Overview">
-    <span class="e-link__title">New tab link</span>
-    <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-  </a>
+  <span class="e-link__title">New tab link</span>
+  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+</a>
+<a class="e-link e-link--new-tab e-link--lg" href="https://design.elvia.io/components/link#Overview">
+  <span class="e-link__title">New tab link</span>
+  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+</a>
 `;
 
   exampleNewTabInverted = `<a class="e-link e-link--new-tab e-link--inverted" href="https://design.elvia.io/components/link#Overview">
@@ -101,14 +93,14 @@ export class LinkDocComponent {
   <span class="e-link__icon"><i class="e-icon e-icon--arrow_long_right-bold e-icon--xs"></i></span>
 </a>
 `;
-  example6External = `<a class="e-link e-link--jumbo e-mb-40" href="https://design.elvia.io/components/link#Overview">
-  <span class="e-link__title">External jumbo link</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold e-icon--xs"></i></span>
+  example6NewTab = `<a class="e-link e-link--jumbo e-mb-40" href="https://design.elvia.io/components/link#Overview">
+  <span class="e-link__title">New tab jumbo link</span>
+  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold e-icon--xs"></i></span>
 </a>
 <a class="e-link e-link--jumbo" href="https://design.elvia.io/components/link#Overview">
   <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
-  <span class="e-link__title">External jumbo link with icon</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold e-icon--xs"></i></span>
+  <span class="e-link__title">New tab jumbo link with icon</span>
+  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold e-icon--xs"></i></span>
 </a>
 `;
 

@@ -468,7 +468,7 @@ export const eIdentity: EItems[] = [
     title: 'Grid',
     // tslint:disable-next-line: max-line-length
     description:
-      'Our grid-system is based off of Bootstraps grid-system and works almost the same. Read the  <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://getbootstrap.com/docs/4.4/layout/grid/"><span class="e-link__title">Bootstrap documentation</span><span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span></a> . All the Bootstrap grid-system classes are available for use. To use the grid-system add the e-grid class on a wrapper element. The bootstrap-classes will only work inside this wrapper, and will therefore not break any other potential grid-systems.',
+      'Our grid-system is based off of Bootstraps grid-system and works almost the same. Read the  <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://getbootstrap.com/docs/4.4/layout/grid/"><span class="e-link__title">Bootstrap documentation</span><span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span></a> . All the Bootstrap grid-system classes are available for use. To use the grid-system add the e-grid class on a wrapper element. The bootstrap-classes will only work inside this wrapper, and will therefore not break any other potential grid-systems.',
     docUrl: Pages.Grid,
     absolutePath: '/identity/' + Pages.Grid,
     status: ItemStatus.Done,
@@ -636,7 +636,7 @@ export const eCommunity: EItems[] = [
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
     docUrl: Pages.Contact,
     absolutePath: '/community/' + Pages.Contact,
@@ -650,7 +650,7 @@ export const eCommunity: EItems[] = [
     description: `To contribute, or if you have any question, you can contact us on slack:
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
     docUrl: Pages.Contribute,
     absolutePath: '/community/' + Pages.Contribute,
@@ -664,7 +664,7 @@ export const eCommunity: EItems[] = [
     description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--external" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
     docUrl: Pages.Faq,
     absolutePath: '/community/' + Pages.Faq,
