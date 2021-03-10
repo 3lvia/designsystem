@@ -19,6 +19,13 @@ export class CheckboxDocComponent {
 </label>
 `;
 
+  exampleStandard = `<label class="e-checkbox" for="elvis-checkbox-standard">
+  <input type="checkbox" id="elvis-checkbox-standard">
+  <span class="e-checkbox__mark"></span>
+  <span class="e-checkbox__label">Standard</span>
+</label>
+`;
+
   exampleNested = `<div class="e-form-field">
   <label class="e-form-field__label" for="nested">Nested checkboxes</label>
   <label class="e-checkbox e-checkbox--indeterminate" for="elvis-checkbox-indeterminate">
@@ -39,7 +46,7 @@ export class CheckboxDocComponent {
     </label>
   </div>
 </div>
-<div class="e-form-field e-mt-32">
+<div class="e-form-field e-mt-40">
   <label class="e-form-field__label" for="nested-sm">Small nested checkboxes</label>
   <label class="e-checkbox e-checkbox--sm e-checkbox--indeterminate" for="elvis-checkbox-indeterminate-sm">
     <input type="checkbox" id="elvis-checkbox-indeterminate-sm">
