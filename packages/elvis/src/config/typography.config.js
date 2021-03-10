@@ -269,6 +269,8 @@ module.exports = [
       { key: 'align', value: 'center' },
     ],
   },
+  // Depracted - Not removed as might still be in use by some applications
+  // The design system should not use these but instead define the typography directly in those components
   {
     name: 'text-label',
     properties: [
@@ -280,7 +282,6 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'deprecated', value: 'true' },
     ],
   },
   {
@@ -294,7 +295,6 @@ module.exports = [
       { key: 'style', value: 'unset' },
       { key: 'transform', value: 'unset' },
       { key: 'color', value: 'inherit' },
-      { key: 'deprecated', value: 'true' },
     ],
   },
 ];
