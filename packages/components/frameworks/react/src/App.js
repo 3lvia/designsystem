@@ -65,7 +65,7 @@ function App() {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
         <span style={{ marginTop: '16px' }}>
           <Popover
-            title="BankID"
+            header="BankID"
             content="Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang."
             trigger={<button>Right top</button>}
             posX="right"
@@ -81,7 +81,7 @@ function App() {
         </div>
         <div style={{ marginTop: '16px' }}>
           <Popover
-            title="BankID"
+            header="BankID"
             content="Alle privatkunder må bruke BankID første gang de logger inn på Min side."
             trigger={<button>Center top</button>}
             hasCloseBtn={false}
@@ -98,7 +98,7 @@ function App() {
       </div>
       <div style={{ marginTop: '16px' }}>
         <Popover
-          title="BankID"
+          header="BankID"
           content="Alle privatkunder må bruke BankID første gang."
           trigger={<button>Right bottom</button>}
           posY="bottom"
