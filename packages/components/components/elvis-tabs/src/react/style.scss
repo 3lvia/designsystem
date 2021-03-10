@@ -55,7 +55,7 @@ $tabs-height: 44px;
     -ms-user-select: none;
     user-select: none;
 
-    i {
+    .ewc-tabs__icon {
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -86,7 +86,7 @@ $tabs-height: 44px;
 
     &.ewc-tabs__arrow--hide {
       visibility: hidden;
-      i {
+      .ewc-tabs__icon {
         visibility: hidden;
       }
     }
