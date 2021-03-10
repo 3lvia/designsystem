@@ -91,6 +91,11 @@
 						"e-form-field__error--visible": {}
 					}
 				},
+				"e-form-field__nested": {
+					"modifier": {
+						"e-form-field__nested--sm": {}
+					}
+				},
 				"e-form-field__input": {}
 			}
 		},
@@ -1666,9 +1671,11 @@
 		"e-dragdrop": {},
 		"e-dragdrop--dragover": {},
 		"e-form-field__label": {},
-		"e-form-field__error": {},
 		"e-form-field__label--optional": {},
+		"e-form-field__error": {},
 		"e-form-field__error--visible": {},
+		"e-form-field__nested": {},
+		"e-form-field__nested--sm": {},
 		"e-form-field--combined": {},
 		"e-form-field__input": {},
 		"e-input--small": {},

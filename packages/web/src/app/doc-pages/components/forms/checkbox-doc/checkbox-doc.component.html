@@ -27,6 +27,31 @@
     </div>
   </div>
 
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Standard'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="exampleOverview"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Nested'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="exampleNested"></app-component-example-v1>
+
+          <app-component-subsubsection [sectionTitle]="'Indeterminate'">
+            <ng-container ngProjectAs="sectionContent">
+              This class has to be applied using logic. The indeterminate state should be used when a group of
+              checkboxes can all be checked off at once. If only some of the checkboxes are checked in this
+              scenario, the indeterminate state should be used.
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!-- SIZE -->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
@@ -38,14 +63,6 @@
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-example-v1 [codeHTML]="exampleStates"></app-component-example-v1>
-
-      <app-component-subsection [sectionTitle]="'Indeterminate'">
-        <ng-container ngProjectAs="sectionContent">
-          The indeterminate state should be used when a group of checkboxes can all be checked off at once. If
-          only some of the checkboxes are checked in this scenario, the indeterminate state should be used.
-          <app-component-example-v1 [codeHTML]="exampleIndeterminate"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

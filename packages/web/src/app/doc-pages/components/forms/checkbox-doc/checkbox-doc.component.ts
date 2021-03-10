@@ -15,8 +15,50 @@ export class CheckboxDocComponent {
   exampleOverview = `<label class="e-checkbox" for="elvis-checkbox">
   <input type="checkbox" id="elvis-checkbox">
   <span class="e-checkbox__mark"></span>
-  <span class="e-checkbox__label">Normal</span>
+  <span class="e-checkbox__label">Standard</span>
 </label>
+`;
+
+  exampleNested = `<div class="e-form-field">
+  <label class="e-form-field__label" for="nested">Nested checkboxes</label>
+  <label class="e-checkbox e-checkbox--indeterminate" for="elvis-checkbox-indeterminate">
+    <input type="checkbox" id="elvis-checkbox-indeterminate">
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Indeterminate</span>
+  </label>
+  <div class="e-form-field__nested">
+    <label class="e-checkbox" for="elvis-checkbox-nested-checked">
+      <input type="checkbox" id="elvis-checkbox-nested-checked" checked>
+      <span class="e-checkbox__mark"></span>
+      <span class="e-checkbox__label">Checked</span>
+    </label>
+    <label class="e-checkbox" for="elvis-checkbox-nested">
+      <input type="checkbox" id="elvis-checkbox-nested">
+      <span class="e-checkbox__mark"></span>
+      <span class="e-checkbox__label">Not checked</span>
+    </label>
+  </div>
+</div>
+<div class="e-form-field e-mt-32">
+  <label class="e-form-field__label" for="nested-sm">Small nested checkboxes</label>
+  <label class="e-checkbox e-checkbox--sm e-checkbox--indeterminate" for="elvis-checkbox-indeterminate-sm">
+    <input type="checkbox" id="elvis-checkbox-indeterminate-sm">
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Indeterminate</span>
+  </label>
+  <div class="e-form-field__nested e-form-field__nested--sm">
+    <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-nested-checked-sm">
+      <input type="checkbox" id="elvis-checkbox-nested-checked-sm" checked>
+      <span class="e-checkbox__mark"></span>
+      <span class="e-checkbox__label">Checked</span>
+    </label>
+    <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-nested-sm">
+      <input type="checkbox" id="elvis-checkbox-nested-sm">
+      <span class="e-checkbox__mark"></span>
+      <span class="e-checkbox__label">Not checked</span>
+    </label>
+  </div>
+</div>
 `;
 
   exampleSizes = `<form>
@@ -68,17 +110,11 @@ export class CheckboxDocComponent {
   <span class="e-checkbox__mark"></span>
   <span class="e-checkbox__label">Invalid</span>
 </label>
-`;
 
-  exampleIndeterminate = `<label class="e-checkbox e-checkbox--indeterminate" for="elvis-pseudo-checkbox-indeterminate">
+<label class="e-checkbox e-checkbox--indeterminate" for="elvis-pseudo-checkbox-indeterminate">
   <input type="checkbox" id="elvis-pseudo-checkbox-indeterminate">
   <span class="e-checkbox__mark"></span>
   <span class="e-checkbox__label">Indeterminate</span>
-</label>
-<label class="e-checkbox e-checkbox--sm e-checkbox--indeterminate" for="elvis-pseudo-checkbox-indeterminate-sm">
-  <input type="checkbox" id="elvis-pseudo-checkbox-indeterminate-sm">
-  <span class="e-checkbox__mark"></span>
-  <span class="e-checkbox__label">Indeterminate small</span>
 </label>
 `;
 }

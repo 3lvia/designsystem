@@ -11,29 +11,6 @@
   text-align: left;
   box-sizing: border-box;
 
-  &.e-form-field--compact {
-    position: relative;
-    .e-form-field__label {
-      position: absolute;
-      z-index: 1;
-      top: -5px;
-      left: 8px;
-      background: colors.color('elvia-on');
-      padding: 0 3px;
-
-      font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-weight: 500;
-      font-size: 10px;
-      line-height: 100%;
-    }
-    .e-form-field__error {
-      margin-top: 4px;
-      font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-size: 12px;
-      line-height: 16px;
-    }
-  }
-
   &__label {
     display: block;
     margin-bottom: 5px;
@@ -64,7 +41,14 @@
     }
   }
 
-  &--combined {
+  &__nested {
+    margin-left: 24px;
+    &.e-form-field__nested--sm {
+      margin-left: 16px;
+    }
+  }
+
+  &.e-form-field--combined {
     width: 100%;
     margin-bottom: 0;
     .e-form-field__input {
@@ -82,6 +66,29 @@
       .e-input--medium {
         width: 150px;
       }
+    }
+  }
+
+  &.e-form-field--compact {
+    position: relative;
+    .e-form-field__label {
+      position: absolute;
+      z-index: 1;
+      top: -5px;
+      left: 8px;
+      background: colors.color('elvia-on');
+      padding: 0 3px;
+
+      font-family: 'Red Hat Text', Verdana, sans-serif;
+      font-weight: 500;
+      font-size: 10px;
+      line-height: 100%;
+    }
+    .e-form-field__error {
+      margin-top: 4px;
+      font-family: 'Red Hat Text', Verdana, sans-serif;
+      font-size: 12px;
+      line-height: 16px;
     }
   }
 }
