@@ -13351,9 +13351,7 @@ THE SOFTWARE.
   color: inherit;
 }
 
-b.e-text-caps,
 .e-text-caps b,
-strong.e-text-caps,
 .e-text-caps strong {
   font-weight: 500;
 }
@@ -13386,9 +13384,7 @@ strong.e-text-caps,
     line-height: 36px;
   }
 }
-b.e-text-lead,
 .e-text-lead b,
-strong.e-text-lead,
 .e-text-lead strong {
   font-weight: 500;
 }
@@ -13410,9 +13406,7 @@ strong.e-text-lead,
     line-height: 29px;
   }
 }
-b.e-text-body,
 .e-text-body b,
-strong.e-text-body,
 .e-text-body strong {
   font-weight: 500;
 }
@@ -13434,9 +13428,7 @@ strong.e-text-body,
     line-height: 29px;
   }
 }
-b.e-text-lg,
 .e-text-lg b,
-strong.e-text-lg,
 .e-text-lg strong {
   font-weight: 500;
 }
@@ -13458,9 +13450,7 @@ strong.e-text-lg,
     line-height: 29px;
   }
 }
-b.e-text-lg-strong,
 .e-text-lg-strong b,
-strong.e-text-lg-strong,
 .e-text-lg-strong strong {
   font-weight: 500;
 }
@@ -13482,9 +13472,7 @@ strong.e-text-lg-strong,
     line-height: 29px;
   }
 }
-b.e-text-lg-light,
 .e-text-lg-light b,
-strong.e-text-lg-light,
 .e-text-lg-light strong {
   font-weight: 500;
 }
@@ -13500,9 +13488,7 @@ strong.e-text-lg-light,
   color: inherit;
 }
 
-b.e-text-description,
 .e-text-description b,
-strong.e-text-description,
 .e-text-description strong {
   font-weight: 500;
 }
@@ -13518,9 +13504,7 @@ strong.e-text-description,
   color: inherit;
 }
 
-b.e-text-md,
 .e-text-md b,
-strong.e-text-md,
 .e-text-md strong {
   font-weight: 500;
 }
@@ -13536,9 +13520,7 @@ strong.e-text-md,
   color: inherit;
 }
 
-b.e-text-md-strong,
 .e-text-md-strong b,
-strong.e-text-md-strong,
 .e-text-md-strong strong {
   font-weight: 500;
 }
@@ -13554,9 +13536,7 @@ strong.e-text-md-strong,
   color: #515151;
 }
 
-b.e-text-md-light,
 .e-text-md-light b,
-strong.e-text-md-light,
 .e-text-md-light strong {
   font-weight: 500;
 }
@@ -13572,9 +13552,7 @@ strong.e-text-md-light,
   color: inherit;
 }
 
-b.e-text-info,
 .e-text-info b,
-strong.e-text-info,
 .e-text-info strong {
   font-weight: 500;
 }
@@ -13590,9 +13568,7 @@ strong.e-text-info,
   color: inherit;
 }
 
-b.e-text-sm,
 .e-text-sm b,
-strong.e-text-sm,
 .e-text-sm strong {
   font-weight: 500;
 }
@@ -13608,9 +13584,7 @@ strong.e-text-sm,
   color: inherit;
 }
 
-b.e-text-sm-strong,
 .e-text-sm-strong b,
-strong.e-text-sm-strong,
 .e-text-sm-strong strong {
   font-weight: 500;
 }
@@ -13626,9 +13600,7 @@ strong.e-text-sm-strong,
   color: #515151;
 }
 
-b.e-text-sm-light,
 .e-text-sm-light b,
-strong.e-text-sm-light,
 .e-text-sm-light strong {
   font-weight: 500;
 }
@@ -13644,9 +13616,7 @@ strong.e-text-sm-light,
   color: inherit;
 }
 
-b.e-text-micro,
 .e-text-micro b,
-strong.e-text-micro,
 .e-text-micro strong {
   font-weight: 500;
 }
@@ -13662,9 +13632,7 @@ strong.e-text-micro,
   color: inherit;
 }
 
-b.e-text-micro-strong,
 .e-text-micro-strong b,
-strong.e-text-micro-strong,
 .e-text-micro-strong strong {
   font-weight: 500;
 }
@@ -13686,9 +13654,7 @@ strong.e-text-micro-strong,
     line-height: 32px;
   }
 }
-b.e-text-quote,
 .e-text-quote b,
-strong.e-text-quote,
 .e-text-quote strong {
   font-weight: 500;
 }
@@ -13711,9 +13677,7 @@ strong.e-text-quote,
     line-height: 26px;
   }
 }
-b.e-text-img,
 .e-text-img b,
-strong.e-text-img,
 .e-text-img strong {
   font-weight: 500;
 }
@@ -13729,9 +13693,7 @@ strong.e-text-img,
   color: inherit;
 }
 
-b.e-text-label,
 .e-text-label b,
-strong.e-text-label,
 .e-text-label strong {
   font-weight: 500;
 }
@@ -13747,9 +13709,7 @@ strong.e-text-label,
   color: inherit;
 }
 
-b.e-text-option,
 .e-text-option b,
-strong.e-text-option,
 .e-text-option strong {
   font-weight: 500;
 }

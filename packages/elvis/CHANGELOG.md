@@ -19,7 +19,15 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a>
         </div>
-        Using <span class="code-text">b</span> and <span class="code-text">strong</span> elements togheter with our text-classes (not title classes), will now give <span class="code-text">font-weight: 500</span>, to make it easier to use bold versions of our typography in all types of applications.
+        Using <span class="code-text">b</span> and <span class="code-text">strong</span> elements inside our text-classes (not title classes), will now give <span class="code-text">font-weight: 500</span>, to make it easier to use bold versions of our typography in all types of applications. Example:
+        <div class="e-text-sm">
+          <span class="code-text">&lt;p class="e-text-sm"&gt;</span>
+            <div class="changelog-section-margin">
+              <div>Text styled as text sm.</div>
+              <b><span class="code-text">&lt;b&gt;</span>This text will have e-text-sm style, but with font-weight 500 <span class="code-text">&lt;/b&gt;</span></b>
+            </div>
+          <span class="code-text">&lt;/p&gt;</span>
+        </div>
       </div>
       <div class="changelog-divider"></div>
     </td>
