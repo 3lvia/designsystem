@@ -544,7 +544,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     ,{
         name: "e-icon--arrow_external-bold",
-        version: "7.3.0",
+        version: "7.4.0",
         newIconName: "e-icon--new_tab-bold"
       }
     ,{

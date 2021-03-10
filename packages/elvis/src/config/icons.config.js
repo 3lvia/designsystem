@@ -89,7 +89,7 @@ module.exports = [
   {
     name: 'arrow_external-bold',
     terms: ['link'],
-    deprecated: '7.3.0',
+    deprecated: '7.4.0',
     newIconName: 'new_tab-bold',
     thirdparty: { name: ['streamline'], duplicate: ['arrow_external'] },
   },
