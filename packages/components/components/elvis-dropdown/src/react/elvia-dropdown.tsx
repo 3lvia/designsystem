@@ -20,6 +20,17 @@ export interface DropdownProps {
   webcomponent?: any;
 }
 
+// custom ValueContainer for Elvia Dropdown
+// defined outside of Dropdown due to focus issues with react-select package
+const ElviaValueContainer = ({ ...props }) => {
+  const length = props.children[0].length;
+  const selectedOptions = [...props.children];
+  if (length >= 2) {
+    selectedOptions[0] = `${length} valgte`;
+  }
+  return <components.ValueContainer {...props}>{selectedOptions}</components.ValueContainer>;
+};
+
 const Dropdown: React.FC<DropdownProps> = ({
   options,
   placeholder = 'Placeholder',
@@ -31,7 +42,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   valueOnChange,
   webcomponent,
 }) => {
-  // handle rotation of dropdown arrow
   const [currentVal, setCurrentVal] = useState();
   const [isMenuOpen, setMenuOpen] = useState(false);
 
@@ -45,7 +55,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   const customElviaStyles = {
     option: (provided: any, state: any) => ({
       ...provided,
-      background: state.isSelected ? '#E9E9E9' : state.isFocused ? '#F4F4F4' : '#ffffff',
+      backgroundColor:
+        '#ffffff' && state.isFocused ? '#F4F4F4' : '#ffffff' && state.isSelected ? '#E9E9E9' : '#ffffff',
       height: isCompact ? '36px' : '48px',
       color: '#000000',
       paddingLeft: '16px',
@@ -90,7 +101,8 @@ const Dropdown: React.FC<DropdownProps> = ({
       },
     }),
 
-    valueContainer: () => ({
+    valueContainer: (provided: any) => ({
+      ...provided,
       display: 'flex',
       paddingLeft: '15px',
       fontFamily: 'Red Hat Text',
@@ -111,23 +123,25 @@ const Dropdown: React.FC<DropdownProps> = ({
       background: '#ffffff',
     }),
 
-    multiValueLabel: () => ({
+    multiValueLabel: (provided: any) => ({
+      ...provided,
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',
       fontSize: '16px',
       lineHeight: '22px',
+      padding: '0px',
     }),
 
     indicatorsContainer: (provided: any) => ({
       ...provided,
-      paddingTop: isCompact ? '7px' : '11px',
-      paddingBottom: isCompact ? '7px' : '11px',
+      paddingTop: isCompact ? '7px' : '13px',
+      paddingBottom: isCompact ? '7px' : '13px',
       paddingRight: isCompact ? '11px' : '15px',
     }),
     dropdownIndicator: () => ({
-      height: isCompact ? '16px' : '24px',
-      width: isCompact ? '16px' : '24px',
+      height: isCompact ? '16px' : '20px',
+      width: isCompact ? '16px' : '20px',
     }),
 
     placeholder: (provided: any) => ({
@@ -154,8 +168,8 @@ const Dropdown: React.FC<DropdownProps> = ({
         <i
           style={{
             backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.476 5.994a.75.75 0 011.06.012L12 16.707 22.464 6.006a.75.75 0 011.072 1.048l-10.481 10.72A1.483 1.483 0 0112 18.22a1.469 1.469 0 01-1.055-.445L.464 7.054a.75.75 0 01.012-1.061z' fill='black'/%3e%3c/svg%3e")`,
-            height: isCompact ? '16px' : '24px',
-            width: isCompact ? '16px' : '24px',
+            height: isCompact ? '16px' : '20px',
+            width: isCompact ? '16px' : '20px',
             backgroundSize: 'contain',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -167,10 +181,8 @@ const Dropdown: React.FC<DropdownProps> = ({
     );
   };
 
-  const ElviaOption = ({ children, ...props }) => {
-    if (!isMulti) {
-      return <components.Option {...props}>{children}</components.Option>;
-    } else {
+  const ElviaOption = ({ ...props }) => {
+    if (isMulti) {
       return (
         <components.Option {...props}>
           <label
@@ -180,33 +192,20 @@ const Dropdown: React.FC<DropdownProps> = ({
           >
             <input type="checkbox" readOnly />
             <span className="ewc-dropdown-checkbox__mark"></span>
-            <span className="ewc-dropdown-checkbox__label"> {children}</span>
+            <span className="ewc-dropdown-checkbox__label"> {props.children}</span>
           </label>
+          <div></div>
         </components.Option>
       );
     }
-  };
-
-  const newValueContainer = ({ children, ...props }) => {
-    if (!isMulti) {
-      return <components.ValueContainer {...props}>{children}</components.ValueContainer>;
-    } else {
-      const { getValue } = props;
-      const selectedOtions = getValue().length;
-
-      if (selectedOtions <= 1) {
-        return <components.ValueContainer {...props}>{children}</components.ValueContainer>;
-      } else {
-        return <components.ValueContainer {...props}>{`${selectedOtions} valgte`}</components.ValueContainer>;
-      }
-    }
+    return <components.Option {...props}>{props.children}</components.Option>;
   };
 
   // Object containing all components overriden in react-select by Elvis dropdown
   const overRideComponents = {
     DropdownIndicator: ElviaDropdownIndicator,
     Option: ElviaOption,
-    ValueContainer: newValueContainer,
+    ValueContainer: ElviaValueContainer,
     IndicatorSeparator: () => null,
     ClearIndicator: () => null,
     MultiValueRemove: () => null,
@@ -240,20 +239,21 @@ const Dropdown: React.FC<DropdownProps> = ({
     <span className={classes}>
       <label className="ewc-dropdown__label">{label}</label>
       <Select
-        onChange={onChangeHandler}
         classNamePrefix={'ewc-dropdown'}
-        components={overRideComponents}
         closeMenuOnSelect={!isMulti}
+        components={overRideComponents}
+        hasValue={false}
         hideSelectedOptions={false}
         isDisabled={isDisabled}
-        isSearchable={false}
         isMulti={isMulti}
-        options={options}
-        placeholder={placeholder}
-        styles={customElviaStyles}
-        onMenuOpen={() => setMenuOpen(true)}
-        onMenuClose={() => setMenuOpen(false)}
+        isSearchable={false}
         noOptionsMessage={() => 'Ingen tilgjengelige valg'}
+        placeholder={placeholder}
+        onChange={onChangeHandler}
+        onMenuClose={() => setMenuOpen(false)}
+        onMenuOpen={() => setMenuOpen(true)}
+        options={options}
+        styles={customElviaStyles}
       ></Select>
     </span>
   );

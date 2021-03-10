@@ -9,6 +9,13 @@ $green: #29d305;
     text-align: left;
     box-sizing: border-box;
 
+    &:focus-within {
+        .ewc-dropdown__control {
+            border: 2px solid $green;
+            padding: 0px;
+        }
+    }
+
     .ewc-dropdown__label {
         font-family: "Red Hat Text";
         font-size: 16px;
@@ -110,10 +117,6 @@ $checkbox-mark-border: 1px solid #000000;
             border-radius: 15px;
             transform: (translateX(10px) rotate(-45deg));
             transform-origin: (left bottom);
-            -o-animation: checkmarkHeight 150ms;
-            -moz-animation: checkmarkHeight 150ms;
-            -webkit-animation: checkmarkHeight 150ms;
-            animation: checkmarkHeight 150ms;
         }
 
         &::after {
@@ -122,15 +125,11 @@ $checkbox-mark-border: 1px solid #000000;
             bottom: 15%;
             left: -4%;
             height: 2px;
-            width: 0%;
+            width: 83%;
             background-color: #000;
             border-radius: 15px;
             transform: (translateX(10px) rotate(-55deg));
             transform-origin: left bottom;
-            -o-animation: checkmarkWidth 150ms 150ms forwards;
-            -moz-animation: checkmarkWidth 150ms 150ms forwards;
-            -webkit-animation: checkmarkWidth 150ms 150ms forwards;
-            animation: checkmarkWidth 150ms 150ms forwards;
         }
     }
 
@@ -149,10 +148,6 @@ $checkbox-mark-border: 1px solid #000000;
             border-radius: 15px;
             transform: translateX(10px) rotate(-45deg);
             transform-origin: [left bottom];
-            -o-animation: checkmarkHeightSmall 150ms;
-            -moz-animation: checkmarkHeightSmall 150ms;
-            -webkit-animation: checkmarkHeightSmall 150ms;
-            animation: checkmarkHeightSmall 150ms;
         }
 
         &::after {
@@ -161,15 +156,11 @@ $checkbox-mark-border: 1px solid #000000;
             bottom: 15%;
             left: -25%;
             height: 2px;
-            width: 0%;
+            width: 80%;
             background-color: "#000";
             border-radius: 15px;
             transform: translateX(10px) rotate(-55deg);
             transform-origin: [left bottom];
-            -o-animation: checkmarkWidthSmall 150ms 150ms forwards;
-            -moz-animation: checkmarkWidthSmall 150ms 150ms forwards;
-            -webkit-animation: checkmarkWidthSmall 150ms 150ms forwards;
-            animation: checkmarkWidthSmall 150ms 150ms forwards;
         }
     }
 
@@ -190,49 +181,5 @@ $checkbox-mark-border: 1px solid #000000;
         margin-left: 8px;
         line-height: 24px;
         width: fit-content;
-    }
-}
-
-@keyframes checkmarkHeight {
-    0% {
-        left: -31%;
-        height: 0%;
-    }
-
-    100% {
-        left: -9%;
-        height: 30%;
-    }
-}
-
-@keyframes checkmarkWidth {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 83%;
-    }
-}
-
-@keyframes checkmarkHeightSmall {
-    0% {
-        left: -55%;
-        height: 0%;
-    }
-
-    100% {
-        left: -28%;
-        height: 39%;
-    }
-}
-
-@keyframes checkmarkWidthSmall {
-    0% {
-        width: 0%;
-    }
-
-    100% {
-        width: 80%;
     }
 }
