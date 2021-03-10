@@ -479,7 +479,7 @@
     export const arrowExternalBold = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.73 4.844H4.145a2.422 2.422 0 010-4.844h17.434a2.41 2.41 0 011.712.71c.439.438.71 1.043.71 1.712v17.434a2.422 2.422 0 11-4.843 0V8.268L4.134 23.29a2.421 2.421 0 11-3.425-3.426l15.022-15.02z" fill="#000"/></svg>'
-          let iconName = 'new_tab-bold'
+          let iconName = 'arrow_external-bold'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
