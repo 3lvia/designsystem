@@ -41,6 +41,7 @@ p {
 
 // Shared classes
 .component-preview-temp {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -184,6 +185,9 @@ p {
 
   .changelog-section-title {
     font-weight: 500;
+  }
+  .changelog-section-margin {
+    margin-left: 16px;
   }
   .changelog-code {
     font-size: 14px !important;

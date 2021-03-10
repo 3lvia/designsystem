@@ -317,8 +317,7 @@ export const eComponents: EItems[] = [
       'We offer popover as a shell with options like close button, title and text. Popover displays additional information or operations without leaving the page. It is triggered by a button and layered on top of all other content.',
     docUrl: Pages.Popover,
     absolutePath: '/components/' + Pages.Popover,
-    //status: ItemStatus.New,
-    status: ItemStatus.Coming,
+    status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Popover.svg',
     figmaUrl: 'https://www.figma.com/file/9dvKKozGL4AEU0mSkN40Ul/Popover?node-id=1%3A10',
     type: 'Component',
@@ -403,6 +402,18 @@ export const eComponents: EItems[] = [
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Stepper.svg',
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=622%3A0',
+  },
+  {
+    title: 'Tabs',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'Tabs are used to divide content into sections and let the user navigate between one section at a time. Use tabs when the content is at the same level of the hierarchy and are related. It should always be one tab selected by default.',
+    docUrl: Pages.Tabs,
+    absolutePath: '/components/' + Pages.Tabs,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/component-images/Tabs.svg',
+    figmaUrl: 'https://www.figma.com/file/v0KlQT8eAWiNN1ORHsmNjt/Tabs?node-id=1%3A72',
+    type: 'Component',
   },
   {
     title: 'Table',
