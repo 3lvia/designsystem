@@ -18,6 +18,76 @@
       placeholder="Velg land"
     >
     </elvia-dropdown>
+
+    <h2>Preview for QA</h2>
+    <div>
+      <h3>Compact single</h3>
+      <elvia-dropdown
+        [options]="exampleOptions"
+        placeholder="Velg land"
+        [isCompact]="isCompact"
+      >
+      </elvia-dropdown>
+    </div>
+    <div>
+      <h3>Multi Normal</h3>
+      <elvia-dropdown
+        [options]="exampleOptions"
+        placeholder="Velg land"
+        [isMulti]="isMulti"
+      >
+      </elvia-dropdown>
+    </div>
+    <div>
+      <h3>Multi Compact</h3>
+      <elvia-dropdown
+        [options]="exampleOptions"
+        placeholder="Velg land"
+        [isCompact]="isCompact"
+        [isMulti]="isMulti"
+      >
+      </elvia-dropdown>
+    </div>
+    <div>
+      <h3>Labels</h3>
+      <elvia-dropdown
+        [options]="exampleOptions"
+        placeholder="Velg land"
+        label='Velg land'
+      >
+      </elvia-dropdown>
+    </div>
+    <div class="e-mt-24">
+      <elvia-dropdown
+        [options]="exampleOptions"
+        placeholder="Velg land"
+        [isCompact]="isCompact"
+        label='Velg land'
+      >
+      </elvia-dropdown>
+    </div>
+    <div class="e-mt-24">
+      <h2>Error</h2>
+      <div>
+        <elvia-dropdown
+          [options]="exampleOptions"
+          placeholder="Velg land"
+          [isError]="isError"
+          label='Velg land'
+        >
+        </elvia-dropdown>
+      </div>
+      <div class="e-mt-24">
+        <elvia-dropdown
+          [options]="exampleOptions"
+          placeholder="Velg land"
+          [isCompact]="isCompact"
+          [isError]="isError"
+          label='Velg land'
+        >
+        </elvia-dropdown>
+      </div>
+    </div>
     <app-component-example-generator
       [componentData]="componentData"
       [hasPreview]="false"

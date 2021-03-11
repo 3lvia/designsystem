@@ -130,7 +130,9 @@ const Dropdown: React.FC<DropdownProps> = ({
       fontStyle: 'normal',
       fontSize: '16px',
       lineHeight: '22px',
-      padding: '0px',
+      paddingTop: '0px',
+      paddingBottom: '0px',
+      paddingLeft: '0px',
     }),
 
     indicatorsContainer: (provided: any) => ({

@@ -15,6 +15,11 @@ export class DropdownDocComponent {
   donts = dropdownData.donts;
   figmaUrl = getComponent('dropdown').figmaUrl;
   description = getComponent('dropdown').description;
+
+  isCompact = true;
+  isMulti = true;
+  isError = true;
+
   exampleOptions = [
     {
       value: 'norge',
