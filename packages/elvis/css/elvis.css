@@ -7646,7 +7646,7 @@ input:focus {
 .e-checkbox.e-checkbox--indeterminate.e-checkbox--sm .e-checkbox__mark::before {
   left: calc(50% - 4px);
   width: 8px;
-  top: calc(50% - 0.5px);
+  top: calc(50%);
   height: 1px;
 }
 
@@ -7822,7 +7822,7 @@ input:focus {
   content: "";
   position: absolute;
   bottom: 15%;
-  left: -25%;
+  left: -27%;
   height: 1px;
   width: 0%;
   background-color: #000;
