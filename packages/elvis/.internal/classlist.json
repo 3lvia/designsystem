@@ -91,6 +91,11 @@
 						"e-form-field__error--visible": {}
 					}
 				},
+				"e-form-field__nested": {
+					"modifier": {
+						"e-form-field__nested--sm": {}
+					}
+				},
 				"e-form-field__input": {}
 			}
 		},
@@ -857,12 +862,13 @@
 			}
 		},
 		"e-checkbox": {
-			"modifier": {
-				"e-checkbox--sm": {}
-			},
 			"element": {
 				"e-checkbox__mark": {},
 				"e-checkbox__label": {}
+			},
+			"modifier": {
+				"e-checkbox--sm": {},
+				"e-checkbox--indeterminate": {}
 			},
 			"psuedo": {
 				"e-checkbox---focus": {},
@@ -1651,9 +1657,10 @@
 		"e-toggle--inverted": {},
 		"e-toggle---disabled": {},
 		"e-checkbox": {},
-		"e-checkbox--sm": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
+		"e-checkbox--sm": {},
+		"e-checkbox--indeterminate": {},
 		"e-checkbox---focus": {},
 		"e-checkbox---hover": {},
 		"e-checkbox---disabled": {},
@@ -1663,9 +1670,11 @@
 		"e-dragdrop": {},
 		"e-dragdrop--dragover": {},
 		"e-form-field__label": {},
-		"e-form-field__error": {},
 		"e-form-field__label--optional": {},
+		"e-form-field__error": {},
 		"e-form-field__error--visible": {},
+		"e-form-field__nested": {},
+		"e-form-field__nested--sm": {},
 		"e-form-field--combined": {},
 		"e-form-field__input": {},
 		"e-input--small": {},
