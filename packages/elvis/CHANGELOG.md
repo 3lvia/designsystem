@@ -1,6 +1,6 @@
-<!-- ✂️ - BREAKING CHANGE -->
-<!-- 💥 - NEW FEATURES -->
-<!-- 🐝 - BUG FIXES -->
+<!-- ✂️ Breaking Changes -->
+<!-- 💥 New Features -->
+<!-- 🐝 Bug Fixes -->
 
 <table>
   <tr class="changelog-row">
@@ -20,6 +20,13 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/checkbox#Overview">Checkbox</a>
         </div>
         Added documentation for nested checkboxes and added the new state indeterminate.
+      </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/checkbox#Overview">Checkbox</a>
+        </div>
+        Normal sized checkboxes now has font-size 16px, instead of inheriting their font-size.
       </div>
       <div class="changelog-divider"></div>
     </td>
@@ -74,7 +81,7 @@
         Content loader for dark backgrounds added: <span class="code-text">e-content-loader--inverted</span>.
       </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">🐝 Bug fixes</div>
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
         </div>
@@ -96,7 +103,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Components: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>,
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a> & 
@@ -219,7 +226,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Input</a>
         </div>
@@ -261,7 +268,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/search#Overview">Search</a>
         </div>
@@ -358,7 +365,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Header</a>
         </div>
@@ -399,7 +406,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover#Overview">Popover</a>
         </div>
@@ -423,7 +430,7 @@
           </div>
         </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New features</div>
+        <div class="changelog-section-title">💥 New Features</div>
           <div>Component: 
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover#Overview">Popover</a>
           </div>
@@ -472,7 +479,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>
@@ -513,7 +520,7 @@
           </div>
         </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New features</div>
+        <div class="changelog-section-title">💥 New Features</div>
            <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
         </div>
@@ -535,7 +542,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/card#Overview">Cards</a>,
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Header</a>,
@@ -545,7 +552,7 @@
         Some of the typography has new font-sizes and line-heights. The changes will affect the appearance of the typography where it is used and may need to be updated. Some components we offer have also changed typography which means some minor visual differences to these components. 
       </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New features</div>
+        <div class="changelog-section-title">💥 New Features</div>
            <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
         </div>
@@ -567,7 +574,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>
           Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/modal#Overview">Modal</a>,
@@ -585,7 +592,7 @@
         </div>
       </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New features</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/utilities">Utility classes</a>
         </div>
@@ -607,7 +614,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid#Overview">Grid</a>
         </div>
@@ -623,7 +630,7 @@
         </ul>
       </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New features</div>
+        <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid#Overview">Grid</a>
         </div>
@@ -645,7 +652,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         Switched from @import to @use. The @use rule is the primary replacement for @import, which will be deprecated in near future (2022 latest). @use is currently not supported by the node-sass compiler. Dart-sass is the primary implementation of Sass and do support the use of @use. Read more about the advantages of @use here: 
         <a class="e-link e-link--inline" href="https://sass-lang.com/blog/the-module-system-is-launched">Sass module system</a>
         <div class="e-mt-8">
@@ -669,7 +676,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         Switched from node-sass compiler to dart-sass compiler. Dart-sass is the primary implementation of Sass, which means it gets new features before any other implementation and at current time node-sass do not support the use of @use, which is the module system replacing @import. This might not affect you as a user.
       </div>
       <div class="changelog-divider"></div>
@@ -688,7 +695,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icons</a> 
         </div>
@@ -710,7 +717,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
           <a class="e-link e-link--inline"  href="https://design.elvia.io/identity/icon#Overview">Icons</a> 
         </div>
@@ -732,7 +739,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Buttons</a> 
         </div>
@@ -754,7 +761,7 @@
     </td>
     <td class="changelog-content">
       <div>
-        <div class="changelog-section-title">✂️ Breaking changes</div>
+        <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Inputs</a> 
         </div>
