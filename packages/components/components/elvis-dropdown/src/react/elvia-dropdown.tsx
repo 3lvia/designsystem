@@ -72,6 +72,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       ...provided,
       maxHeight: isCompact ? '181px' : '241px',
       padding: '0',
+      zIndex: 10,
     }),
 
     container: (provided: any) => ({
@@ -120,6 +121,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     menu: (provided: any) => ({
       ...provided,
       boxShadow: '0px 0px 40px rgba(0, 0, 0, 0.06);',
+      zIndex: 10,
     }),
 
     multiValue: (provided: any) => ({

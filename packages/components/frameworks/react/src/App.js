@@ -69,7 +69,10 @@ function App() {
 
       <h2>Dropdown</h2>
       <div>
-        <Dropdown options={options} isDisabled valueOnChange={setSelectedOption}></Dropdown>
+        <Dropdown options={options} label="test" valueOnChange={setSelectedOption}></Dropdown>
+      </div>
+      <div style={{ marginTop: '24px' }}>
+        <Dropdown options={options} isCompact label="test" valueOnChange={setSelectedOption}></Dropdown>
       </div>
 
       <h2>Tabs</h2>
