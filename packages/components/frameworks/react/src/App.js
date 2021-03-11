@@ -4,6 +4,7 @@ import { Popover } from '@elvia/elvis-popover/react';
 import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
+import { DatePicker } from '@elvia/elvis-date-picker/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
 
 function App() {
@@ -36,6 +37,13 @@ function App() {
     <div className="App">
       <h1>React preview</h1>
       <TestingComponent></TestingComponent>
+
+      <h2>DatePicker</h2>
+      <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
+        <DatePicker value="1"></DatePicker>
+      </div>
+
+      <hr style={{ margin: '40px 0' }} />
 
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>

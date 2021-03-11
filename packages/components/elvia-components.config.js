@@ -37,11 +37,10 @@ module.exports = [
     elementStyle: `width: 100%;`,
   },
   {
-    name: 'elvis-testing',
-    elementName: 'elvia-testing',
-    attributes: ['value'],
-    reactName: 'TestingComponent',
-    elementStyle: `width: 100%`,
+    name: 'elvis-date-picker',
+    elementName: 'elvia-date-picker',
+    attributes: ['value', 'isNorwegian'],
+    reactName: 'DatePicker',
   },
   {
     name: 'elvis-testing',

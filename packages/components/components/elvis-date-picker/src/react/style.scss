@@ -1,0 +1,172 @@
+$text-light: #515151;
+$grey-10: #E9E9E9;
+$grey-05: #F4F4F4;
+$green: #29d305;
+
+// Input field
+.MuiInputBase-root {
+  width: 320px;
+
+  font-family: 'Red Hat Text', Verdana, sans-serif;;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: normal;
+
+  height: 48px;
+  border-radius: 4px;
+  border: 1px solid black;
+}
+.MuiInput-underline:before,
+.MuiInput-underline:after,
+.MuiInput-underline:hover:not(.Mui-disabled):before {
+  border: 0;
+}
+.MuiInput-underline.Mui-focused:after {
+  border: 2px solid #29D305;
+  border-radius: 4px;
+  top: -1px;
+  left: -1px;
+  height: 44px;
+  width: 316px;
+  transition: none;
+}
+.MuiInputBase-input {
+  padding-left: 16px;
+}
+
+// Datepicker
+.MuiPopover-paper {
+  margin-top: 16px;
+  margin-left: 28px;
+}
+.MuiPickersBasePicker-pickerView {
+  min-width: 320px;
+  min-height: 344px;
+}
+.MuiPaper-elevation8 {
+  box-shadow: 0px 0px 40px rgb(0 0 0 / 6%);
+}
+
+// Label 
+.MuiFormLabel-root {
+  margin: -8px 0;
+
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: black;
+  letter-spacing: normal;
+}
+.MuiFormLabel-root.Mui-focused {
+  color: black;
+}
+.MuiIconButton-label .MuiSvgIcon-root path {
+  display: none;
+}
+.MuiInputAdornment-root .MuiIconButton-root {
+  width: 40px;
+  height: 40px;
+  margin-right: 7px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+}
+
+// Header
+.MuiPickersCalendarHeader-switchHeader {
+  margin-top: -32px;
+  margin-bottom: 0;
+  padding: 8px;
+}
+.MuiPickersCalendarHeader-iconButton {
+  width: 32px;
+  height: 32px;
+  // .MuiSvgIcon-root {
+    // display: none;
+  // }
+}
+
+// Mon - Sun
+.MuiPickersCalendarHeader-daysHeader {
+  max-height: 32px;
+  padding-top: 8px;
+  border-top: 1px solid $grey-10;
+}
+.MuiPickersCalendarHeader-dayLabel {
+  width: 32px;
+  height: 32px;
+  margin: 0 4px;
+}
+
+// Containers
+.MuiPickersCalendar-transitionContainer {
+  margin-top: 8px;
+}
+.MuiPickersCalendarHeader-transitionContainer {
+  height: 16px;
+}
+
+// Numbers
+.MuiPickersDay-day {
+  width: 32px;
+  height: 32px;
+  margin: 4px;
+}
+.MuiPickersDay-daySelected {
+  background: #E9E9E9;
+  .MuiTypography-body2{
+    font-weight: 500;
+  }
+}
+.MuiPickersDay-day.MuiIconButton-root:hover {
+  background: $grey-05;
+}
+
+// Typography
+.MuiTypography-body1 {
+  font-family: 'Red Hat Display', Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+}
+.MuiTypography-caption {
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: $text-light;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.MuiTypography-body2 {
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 22px;
+  color: black;
+}
+
+// EWC
+.ewc-date-picker {
+  position: relative;
+}
+.ewc-date-picker__icon {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 43px;
+  right: 16px;
+  z-index: -1;
+}
