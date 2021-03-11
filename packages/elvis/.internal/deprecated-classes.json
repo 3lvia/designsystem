@@ -1,11 +1,12 @@
 /*
-All deprecated classes should be documented in Figma with reasons. For renaming/deprecating classes add the following:
-- deprecated: 'version number' e.g 4.6.0
+All deprecated classes should be documented and justified in the changelog and in Figma. 
+For renaming/deprecating classes add the following:
+- version: 'version number' deprecated from e.g 4.6.0
 - replacedBy: reference to new class that replaces the old
 */
 {
   "e-link--external": {
-    "deprecated": "7.4.0",
+    "version": "7.4.0",
     "replacedBy": "e-link--new-tab"
   }
 }

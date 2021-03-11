@@ -20,7 +20,7 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a> &
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
         </div>
-        External links and icons have been replaced with New tab links and icons.
+        External links and icons have been replaced with New tab links and icons. After discussions and research about External link VS New tab link, it is now clear that we only need one of them, which can stand for both uses.
         <ul>
           <li>
             External links have been deprecated and replaced by New tab links. <span class="code-text">e-link--external</span> will automatically work as <span class="code-text">e-link--new-tab</span> instead.
