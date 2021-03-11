@@ -84,7 +84,12 @@ const Dropdown: React.FC<DropdownProps> = ({
       boxSizing: 'border-box',
       display: 'flex',
       alignItems: 'center',
-      border: !isError ? '1px solid black' : '2px solid #FF0000',
+      border: isDisabled
+        ? '1px solid #BDBDBD'
+        : '1px solid #000000' && !isError
+        ? '2px solid #FF0000'
+        : '1px solid #000000',
+      backgroundColor: isDisabled ? '#FFFFFF' : '#FFFFFF',
       maxHeight: isCompact ? '33px' : '48px',
       minHeight: isCompact ? '33px' : '48px',
       minWidth: '264px',
@@ -153,7 +158,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       fontStyle: 'normal',
       fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
-      color: '#676767',
+      color: isDisabled ? '#BDBDBD' : '#676767',
       margin: '0px',
     }),
 
@@ -239,7 +244,9 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <span className={classes}>
-      <label className="ewc-dropdown__label">{label}</label>
+      <label className="ewc-dropdown__label" style={{ color: isDisabled ? '#BDBDBD' : '#000000' }}>
+        {label}
+      </label>
       <Select
         classNamePrefix={'ewc-dropdown'}
         closeMenuOnSelect={!isMulti}

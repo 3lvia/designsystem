@@ -19,7 +19,6 @@ export const dropdownData = {
       isRequired: false,
       type: 'string',
       description: 'Label value for the dropdown element',
-      default: 'false',
     },
     isCompact: {
       isRequired: false,

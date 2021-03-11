@@ -87,6 +87,26 @@
         >
         </elvia-dropdown>
       </div>
+      <h2>Disabled</h2>
+      <div class="e-mt-24">
+        <elvia-dropdown
+          [options]="exampleOptions"
+          placeholder="Velg land"
+          [isDisabled]="isError"
+          label='Velg land'
+        >
+        </elvia-dropdown>
+      </div>
+      <div class="e-mt-24">
+        <elvia-dropdown
+          [options]="exampleOptions"
+          placeholder="Velg land"
+          [isCompact]="isCompact"
+          [isDisabled]="isError"
+          label='Velg land'
+        >
+        </elvia-dropdown>
+      </div>
     </div>
     <app-component-example-generator
       [componentData]="componentData"
