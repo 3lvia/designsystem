@@ -38,13 +38,18 @@
 
       <app-component-subsection [sectionTitle]="'Nested'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleNested"></app-component-example-v1>
+          <app-component-subsubsection>
+            <ng-container ngProjectAs="sectionContent">
+              This example is not interactable and logic for adding the indeterminate state should be applied as described below.
+
+              <app-component-example-v1 [codeHTML]="exampleNested" [interactable]="false"></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
 
           <app-component-subsubsection [sectionTitle]="'Indeterminate'">
             <ng-container ngProjectAs="sectionContent">
-              This class has to be applied using logic. The indeterminate state should be used when a group of
-              checkboxes can all be checked off at once. If only some of the checkboxes are checked in this
-              scenario, the indeterminate state should be used.
+              Use the indeterminate state, <span class="code-text">e-checkbox--indeterminate</span>, when you have sublist of checkboxes, where only some of them are
+              checked. This class has to be applied using logic.
             </ng-container>
           </app-component-subsubsection>
         </ng-container>

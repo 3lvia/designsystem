@@ -102,6 +102,10 @@
       }
     }
 
+    .no-interaction {
+      pointer-events: none;
+    }
+
     .element {
       display: block;
       height: 100%;

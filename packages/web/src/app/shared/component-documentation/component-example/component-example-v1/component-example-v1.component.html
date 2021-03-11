@@ -43,7 +43,7 @@
     </div>
 
     <!--Visual example-->
-    <div class="component-preview component-preview-animation">
+    <div class="component-preview component-preview-animation" [ngClass]="{ 'no-interaction': !interactable }">
       <div
         class="element"
         *ngIf="!showIframeScreens || (!showIframe && screenTabOpen == 'desktop')"
