@@ -38,13 +38,8 @@
 
       <app-component-subsection [sectionTitle]="'Nested'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-subsubsection>
-            <ng-container ngProjectAs="sectionContent">
-              This example is not interactable and logic for adding the indeterminate state should be applied as described below.
-
-              <app-component-example-v1 [codeHTML]="exampleNested" [interactable]="false"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
+          This example is not interactable and logic for adding the indeterminate state should be applied as described below.
+          <app-component-example-v1 [codeHTML]="exampleNested" [interactable]="false"></app-component-example-v1>
 
           <app-component-subsubsection [sectionTitle]="'Indeterminate'">
             <ng-container ngProjectAs="sectionContent">
