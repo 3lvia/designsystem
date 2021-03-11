@@ -86,7 +86,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       alignItems: 'center',
       border: isDisabled
         ? '1px solid #BDBDBD'
-        : '1px solid #000000' && !isError
+        : '1px solid #000000' && isError
         ? '2px solid #FF0000'
         : '1px solid #000000',
       backgroundColor: isDisabled ? '#FFFFFF' : '#FFFFFF',
