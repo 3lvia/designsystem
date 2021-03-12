@@ -43,7 +43,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   webcomponent,
 }) => {
   const [currentVal, setCurrentVal] = useState();
-  const [isMenuOpen, setMenuOpen] = useState(false);
 
   // styling for custom Elvia labels
   const classes = classnames({
@@ -51,7 +50,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     ['ewc-dropdown ewc-dropdown--compact']: isCompact,
   });
 
-  // Custom styling
+  // Custom styling for react-select
   const customElviaStyles = {
     option: (provided: any, state: any) => ({
       ...provided,
@@ -59,14 +58,16 @@ const Dropdown: React.FC<DropdownProps> = ({
         '#ffffff' && state.isFocused ? '#F4F4F4' : '#ffffff' && state.isSelected ? '#E9E9E9' : '#ffffff',
       height: isCompact ? '36px' : '48px',
       color: '#000000',
-      paddingLeft: '16px',
-      display: 'flex',
+      paddingLeft: isCompact ? '9px' : '15px',
       alignItems: 'center',
       fontSize: isCompact ? '14px' : '16px',
       border: '1px solid transparent',
       '&:hover': {
         backgroundColor: '#F4F4F4',
       },
+      cursor: 'pointer',
+      overflowX: 'hidden',
+      textOverflow: 'ellipsis',
     }),
     menuList: (provided: any) => ({
       ...provided,
@@ -91,6 +92,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         ? '2px solid #FF0000'
         : '1px solid #000000',
       backgroundColor: isDisabled ? '#FFFFFF' : '#FFFFFF',
+      cursor: isDisabled ? 'not-allowed' : 'pointer',
       maxHeight: isCompact ? '33px' : '48px',
       minHeight: isCompact ? '33px' : '48px',
       minWidth: '264px',
@@ -110,12 +112,13 @@ const Dropdown: React.FC<DropdownProps> = ({
     valueContainer: (provided: any) => ({
       ...provided,
       display: 'flex',
-      paddingLeft: '15px',
+      color: '#000',
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',
       fontSize: '16px',
       lineHeight: '22px',
+      paddingLeft: isCompact ? '8px' : '15px',
     }),
 
     menu: (provided: any) => ({
@@ -137,6 +140,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       fontStyle: 'normal',
       fontSize: '16px',
       lineHeight: '22px',
+      color: '#000',
       paddingTop: '0px',
       paddingBottom: '0px',
       paddingLeft: '0px',
@@ -148,9 +152,13 @@ const Dropdown: React.FC<DropdownProps> = ({
       paddingBottom: isCompact ? '7px' : '13px',
       paddingRight: isCompact ? '11px' : '15px',
     }),
-    dropdownIndicator: () => ({
+    dropdownIndicator: (provided: any, state: any) => ({
+      ...provided,
       height: isCompact ? '16px' : '20px',
       width: isCompact ? '16px' : '20px',
+      padding: '0px',
+      transform: state.selectProps.menuIsOpen && 'rotate(180deg)',
+      transition: 'transform 250ms',
     }),
 
     placeholder: (provided: any) => ({
@@ -167,23 +175,27 @@ const Dropdown: React.FC<DropdownProps> = ({
     singleValue: (provided: any) => ({
       ...provided,
       margin: '0px',
+      color: '#000',
+      maxWidth: 'calc(100% - 20px)',
     }),
   };
 
   // Custom components for Elvia dropdown
   const ElviaDropdownIndicator = ({ ...props }) => {
+    const Icon = isDisabled
+      ? `url("data:image/svg+xml,%3csvg width='24' height='24' fill=' % 23BDBDBD' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.476 5.994a.75.75 0 011.06.012L12 16.707 22.464 6.006a.75.75 0 011.072 1.048l-10.481 10.72A1.483 1.483 0 0112 18.22a1.469 1.469 0 01-1.055-.445L.464 7.054a.75.75 0 01.012-1.061z' fill='%23BDBDBD'/%3e%3c/svg%3e")`
+      : `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.476 5.994a.75.75 0 011.06.012L12 16.707 22.464 6.006a.75.75 0 011.072 1.048l-10.481 10.72A1.483 1.483 0 0112 18.22a1.469 1.469 0 01-1.055-.445L.464 7.054a.75.75 0 01.012-1.061z' fill='black'/%3e%3c/svg%3e")`;
     return (
       <components.DropdownIndicator {...props}>
         <i
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.476 5.994a.75.75 0 011.06.012L12 16.707 22.464 6.006a.75.75 0 011.072 1.048l-10.481 10.72A1.483 1.483 0 0112 18.22a1.469 1.469 0 01-1.055-.445L.464 7.054a.75.75 0 01.012-1.061z' fill='black'/%3e%3c/svg%3e")`,
+            backgroundImage: Icon,
             height: isCompact ? '16px' : '20px',
             width: isCompact ? '16px' : '20px',
             backgroundSize: 'contain',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             display: 'inline-block',
-            transform: isMenuOpen ? 'rotate(180deg)' : 'none',
           }}
         ></i>
       </components.DropdownIndicator>
@@ -261,8 +273,6 @@ const Dropdown: React.FC<DropdownProps> = ({
         noOptionsMessage={() => 'Ingen tilgjengelige valg'}
         placeholder={placeholder}
         onChange={onChangeHandler}
-        onMenuClose={() => setMenuOpen(false)}
-        onMenuOpen={() => setMenuOpen(true)}
         options={options}
         styles={customElviaStyles}
       ></Select>
