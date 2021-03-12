@@ -165,7 +165,7 @@ exports.${createCamelCase(iconsToInclude[i].name)}: Icon;`;
     iconNameType = iconNameType + `"${createCamelCase(iconsToInclude[i].name)}" | `;
   }
 
-  fs.writeFileSync('./icons.cjs', jsModule);
+  fs.writeFileSync('./icons.cjs.js', jsModule);
   return true;
 }
 
