@@ -48,6 +48,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const classes = classnames({
     ['ewc-dropdown']: !isCompact,
     ['ewc-dropdown ewc-dropdown--compact']: isCompact,
+    ['ewc-dropdown ewc-dropdown--disabled']: isDisabled,
   });
 
   // Custom styling for react-select
@@ -92,7 +93,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         ? '2px solid #FF0000'
         : '1px solid #000000',
       backgroundColor: isDisabled ? '#FFFFFF' : '#FFFFFF',
-      cursor: isDisabled ? 'not-allowed' : 'pointer',
+      cursor: 'pointer',
       maxHeight: isCompact ? '33px' : '48px',
       minHeight: isCompact ? '33px' : '48px',
       minWidth: '264px',

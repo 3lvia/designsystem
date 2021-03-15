@@ -9,6 +9,10 @@ $green: #29d305;
     text-align: left;
     box-sizing: border-box;
 
+    &.ewc-dropdown--disabled {
+        cursor: not-allowed;
+    }
+
     &:focus-within {
         .ewc-dropdown__control {
             border: 2px solid $green;
