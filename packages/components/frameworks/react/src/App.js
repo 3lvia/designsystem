@@ -6,12 +6,25 @@ import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { DatePicker } from '@elvia/elvis-date-picker/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
+import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
+import moment from 'moment';
+import MomentUtils from '@date-io/moment';
+moment.updateLocale('en', {
+  week: {
+    dow: 1,
+  },
+});
 
 function App() {
   const [trackedState, setTrackedState] = useState(true);
   const [selectedState, setSelectedState] = useState(2);
+  const [selectedDate, setSelectedDate] = React.useState(new Date());
   const ref = useRef();
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+  };
 
   function update() {
     setTrackedState(!trackedState);
@@ -37,6 +50,23 @@ function App() {
     <div className="App">
       <h1>React preview</h1>
       <TestingComponent></TestingComponent>
+
+      <MuiPickersUtilsProvider utils={MomentUtils}>
+        <KeyboardDatePicker
+          disableToolbar
+          variant="inline"
+          format="DD/MM/yyyy"
+          margin="normal"
+          id="date-picker-inline"
+          minDate={new Date()}
+          label="Label"
+          value={selectedDate}
+          onChange={handleDateChange}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />
+      </MuiPickersUtilsProvider>
 
       <h2>DatePicker</h2>
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>

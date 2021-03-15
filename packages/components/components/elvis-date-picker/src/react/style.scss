@@ -1,157 +1,174 @@
 $text-light: #515151;
+$text-disabled: #bdbdbd;
+$grey-30: #bdbdbd;
 $grey-10: #E9E9E9;
 $grey-05: #F4F4F4;
 $green: #29d305;
 
 // Input field
-.MuiInputBase-root {
-  width: 320px;
+.ewc-date-picker {
+  // // Label 
+  // .MuiFormLabel-root {
+  //   margin: -8px 0;
 
-  font-family: 'Red Hat Text', Verdana, sans-serif;;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 22px;
-  letter-spacing: normal;
+  //   font-family: 'Red Hat Text', Verdana, sans-serif;
+  //   font-style: normal;
+  //   font-weight: 500;
+  //   font-size: 20px;
+  //   line-height: 23px;
+  //   color: black;
+  //   letter-spacing: normal;
+  // }
+  // .MuiFormLabel-root.Mui-focused {
+  //   color: black;
+  // }
+  // .MuiFormLabel-root.Mui-focusVisible {
+  //   outline: 2px solid #0064fa;
+  //   outline-offset: 2px;
+  // }
+  // .MuiInputAdornment-root .MuiIconButton-root {
+  //   width: 40px;
+  //   height: 40px;
+  //   margin-right: 7px;
+  //   &:hover {
+  //     background-color: rgba(0, 0, 0, 0.04);
+  //   }
+  // }
+  // // Input
+  // .MuiInputBase-root {
+  //   width: 320px;
 
-  height: 48px;
-  border-radius: 4px;
-  border: 1px solid black;
-}
-.MuiInput-underline:before,
-.MuiInput-underline:after,
-.MuiInput-underline:hover:not(.Mui-disabled):before {
-  border: 0;
-}
-.MuiInput-underline.Mui-focused:after {
-  border: 2px solid #29D305;
-  border-radius: 4px;
-  top: -1px;
-  left: -1px;
-  height: 44px;
-  width: 316px;
-  transition: none;
-}
-.MuiInputBase-input {
-  padding-left: 16px;
+  //   font-family: 'Red Hat Text', Verdana, sans-serif;;
+  //   font-style: normal;
+  //   font-weight: normal;
+  //   font-size: 16px;
+  //   line-height: 22px;
+  //   letter-spacing: normal;
+
+  //   height: 48px;
+  //   border-radius: 4px;
+  //   border: 1px solid black;
+  //   // Button
+  //   .MuiButtonBase-root {
+  //     &:hover {
+  //       background-color: $green;
+  //     }
+  //     .MuiIconButton-label .MuiSvgIcon-root path {
+  //       display: none;
+  //     }
+  //   }
+  // }
+  // .MuiInput-underline:before,
+  // .MuiInput-underline:after,
+  // .MuiInput-underline:hover:not(.Mui-disabled):before {
+  //   border: 0;
+  // }
+  // .MuiInput-underline.Mui-focused:after {
+  //   border: 2px solid #29D305;
+  //   border-radius: 4px;
+  //   top: -1px;
+  //   left: -1px;
+  //   height: 44px;
+  //   width: 316px;
+  //   transition: none;
+  // }
+  // input.MuiInputBase-input {
+  //   padding-left: 16px;
+  // }
 }
 
 // Datepicker
 .MuiPopover-paper {
   margin-top: 16px;
   margin-left: 28px;
-}
-.MuiPickersBasePicker-pickerView {
-  min-width: 320px;
-  min-height: 344px;
-}
-.MuiPaper-elevation8 {
-  box-shadow: 0px 0px 40px rgb(0 0 0 / 6%);
-}
-
-// Label 
-.MuiFormLabel-root {
-  margin: -8px 0;
-
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 23px;
-  color: black;
-  letter-spacing: normal;
-}
-.MuiFormLabel-root.Mui-focused {
-  color: black;
-}
-.MuiIconButton-label .MuiSvgIcon-root path {
-  display: none;
-}
-.MuiInputAdornment-root .MuiIconButton-root {
-  width: 40px;
-  height: 40px;
-  margin-right: 7px;
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.04);
+  &.MuiPaper-elevation8 {
+    box-shadow: 0px 0px 40px rgb(0 0 0 / 6%);
+  }
+  .MuiPickersBasePicker-pickerView {
+    min-width: 320px;
+    min-height: 344px;
   }
 }
 
-// Header
-.MuiPickersCalendarHeader-switchHeader {
-  margin-top: -32px;
-  margin-bottom: 0;
-  padding: 8px;
-}
-.MuiPickersCalendarHeader-iconButton {
-  width: 32px;
-  height: 32px;
-  // .MuiSvgIcon-root {
-    // display: none;
-  // }
-}
-
-// Mon - Sun
-.MuiPickersCalendarHeader-daysHeader {
-  max-height: 32px;
-  padding-top: 8px;
-  border-top: 1px solid $grey-10;
-}
-.MuiPickersCalendarHeader-dayLabel {
-  width: 32px;
-  height: 32px;
-  margin: 0 4px;
-}
-
-// Containers
-.MuiPickersCalendar-transitionContainer {
-  margin-top: 8px;
-}
-.MuiPickersCalendarHeader-transitionContainer {
-  height: 16px;
-}
-
-// Numbers
-.MuiPickersDay-day {
-  width: 32px;
-  height: 32px;
-  margin: 4px;
-}
-.MuiPickersDay-daySelected {
-  background: #E9E9E9;
-  .MuiTypography-body2{
-    font-weight: 500;
+.MuiPaper-root {
+  // Header
+  .MuiPickersCalendarHeader-switchHeader {
+    margin-top: -32px;
+    margin-bottom: 0;
+    padding: 8px;
+    .MuiPickersCalendarHeader-transitionContainer {
+      height: 16px;
+    }
+    .MuiPickersCalendarHeader-iconButton {
+      width: 32px;
+      height: 32px;
+    }
+    .MuiTypography-body1 {
+      font-family: 'Red Hat Display', Verdana, sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 16px;
+    }
+    .MuiIconButton-root:hover {
+      background-color: $green;
+    }
+    .MuiIconButton-root.Mui-disabled {
+      opacity: 0.3;
+    }
   }
-}
-.MuiPickersDay-day.MuiIconButton-root:hover {
-  background: $grey-05;
-}
 
-// Typography
-.MuiTypography-body1 {
-  font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
-}
-.MuiTypography-caption {
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 22px;
-  color: $text-light;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.MuiTypography-body2 {
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 22px;
-  color: black;
+  // Mon - Sun
+  .MuiPickersCalendarHeader-daysHeader {
+    max-height: 32px;
+    padding-top: 8px;
+    border-top: 1px solid $grey-10;
+    .MuiPickersCalendarHeader-dayLabel {
+      width: 32px;
+      height: 32px;
+      margin: 0 4px;
+    }
+    .MuiTypography-caption {
+      font-family: 'Red Hat Text', Verdana, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 22px;
+      color: $text-light;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  // Numbers
+  .MuiPickersCalendar-week {
+    .MuiPickersDay-day {
+      width: 32px;
+      height: 32px;
+      margin: 4px;
+    }
+    .MuiTypography-body2 {
+      font-family: 'Red Hat Text', Verdana, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 22px;
+      color: black;
+    }
+    .MuiPickersDay-daySelected {
+      background: #E9E9E9;
+      .MuiTypography-body2 {
+        font-weight: 500;
+      }
+    }
+    .MuiPickersDay-dayDisabled .MuiTypography-body2 {
+      color: $text-disabled;
+    }
+    .MuiPickersDay-day.MuiIconButton-root:hover {
+      background: $grey-05;
+    }
+  }
 }
 
 // EWC
@@ -166,7 +183,8 @@ $green: #29d305;
   position: absolute;
   width: 24px;
   height: 24px;
-  top: 43px;
-  right: 16px;
-  z-index: -1;
+  &.ewc-date-picker__icon--arrow {
+    width: 16px;
+    height: 16px;
+  }
 }
