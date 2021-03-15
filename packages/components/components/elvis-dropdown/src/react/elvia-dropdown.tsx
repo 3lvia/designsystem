@@ -43,6 +43,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   webcomponent,
 }) => {
   const [currentVal, setCurrentVal] = useState();
+  // custom handling for opening dropdown with keydown on "Enter"
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   // styling for custom Elvia labels
   const classes = classnames({
@@ -274,6 +276,14 @@ const Dropdown: React.FC<DropdownProps> = ({
         noOptionsMessage={() => 'Ingen tilgjengelige valg'}
         placeholder={placeholder}
         onChange={onChangeHandler}
+        menuIsOpen={menuIsOpen}
+        onKeyDown={(event) => {
+          if (event.code === 'Enter' && !menuIsOpen) {
+            setMenuIsOpen(true);
+          }
+        }}
+        onMenuClose={() => setMenuIsOpen(false)}
+        onMenuOpen={() => setMenuIsOpen(true)}
         options={options}
         styles={customElviaStyles}
       ></Select>
