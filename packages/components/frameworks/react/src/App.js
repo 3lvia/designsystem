@@ -37,12 +37,12 @@ function App() {
   const [selectedOption, setSelectedOption] = useState([]);
 
   // to display choosen data
-  console.log(selectedOption);
+  // console.log(selectedOption);
 
   const options = [
     {
       value: 'norge',
-      label: 'Norgenorgenorgenorgenorgenorgenorgenorgenorgenorgenorgenorgenorgenorgenorgenorgenorge',
+      label: 'Norge',
     },
     {
       value: 'sverige',
@@ -59,6 +59,26 @@ function App() {
     {
       value: 'island',
       label: 'Island',
+    },
+    {
+      value: 'norge1',
+      label: 'Norge1',
+    },
+    {
+      value: 'sverige1',
+      label: 'Sverige1',
+    },
+    {
+      value: 'danmark1',
+      label: 'Danmark1',
+    },
+    {
+      value: 'finland1',
+      label: 'Finland1',
+    },
+    {
+      value: 'island1',
+      label: 'Island1',
     },
   ];
 
