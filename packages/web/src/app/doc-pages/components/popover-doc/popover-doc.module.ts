@@ -25,4 +25,4 @@ import { ComponentInstallationModule } from 'src/app/shared/component-documentat
   ],
   declarations: [PopoverDocComponent],
 })
-export class PopoverDocModule {}
+export class PopoverDocModule { }

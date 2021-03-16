@@ -8,12 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'elvia-designsystem';
 
+  /*TODO: Add support for this, or remove if not necessary
   isDarkMode = window
     .matchMedia('(prefers-color-scheme: dark)')
     .addListener((e) => e.matches && this.handleMode(e.matches));
   isLightMode = window
     .matchMedia('(prefers-color-scheme: light)')
-    .addListener((e) => e.matches && this.handleMode(!e.matches));
+    .addListener((e) => e.matches && this.handleMode(!e.matches));*/
 
   ngOnInit(): void {
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');

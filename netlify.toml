@@ -1,4 +1,4 @@
 [build]
 base = ""
 command = "yarn run build:web"
-publish = "packages/web/dist/elvia-designsystem"
+publish = "packages/web/dist/elvia-designsystem/browser"

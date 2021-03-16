@@ -17,7 +17,7 @@ import { ErrorModule } from './shared/error/error.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,
     RouterModule,

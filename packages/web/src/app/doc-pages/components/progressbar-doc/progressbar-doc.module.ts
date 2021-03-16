@@ -29,4 +29,4 @@ import { ComponentInstallationModule } from 'src/app/shared/component-documentat
   ],
   declarations: [ProgressbarDocComponent],
 })
-export class ProgressbarDocModule {}
+export class ProgressbarDocModule { }
