@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Select, { components } from 'react-select';
-import './style.scss';
 import classnames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
+import './style.scss';
 
 export interface DropdownOptions {
   value: string;
@@ -10,13 +10,13 @@ export interface DropdownOptions {
 }
 
 export interface DropdownProps {
+  isCompact: boolean;
+  isDisabled: boolean;
+  isError: boolean;
+  isMulti: boolean;
+  label?: string;
   options: DropdownOptions[];
   placeholder: string;
-  label?: string;
-  isDisabled: boolean;
-  isCompact: boolean;
-  isMulti: boolean;
-  isError: boolean;
   valueOnChange: (selectedOptions: DropdownOptions | Array<DropdownOptions> | undefined) => void;
   webcomponent?: any;
 }
@@ -33,20 +33,18 @@ const ElviaValueContainer = ({ ...props }) => {
 };
 
 const Dropdown: React.FC<DropdownProps> = ({
+  isCompact = false,
+  isDisabled = false,
+  isError = false,
+  isMulti = false,
+  label,
   options,
   placeholder = 'Placeholder',
-  isDisabled = false,
-  label,
-  isCompact = false,
-  isMulti = false,
-  isError = false,
   valueOnChange,
   webcomponent,
 }) => {
   const [currentVal, setCurrentVal] = useState();
-  // custom handling for opening dropdown with keydown on "Enter"
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
   // handle focus on dropdown, running on first render only (on mount)
@@ -69,52 +67,28 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   // Custom styling for react-select
   const customElviaStyles = {
-    option: (provided: any, state: any) => ({
-      ...provided,
-      backgroundColor:
-        '#ffffff' && state.isFocused ? '#F4F4F4' : '#ffffff' && state.isSelected ? '#E9E9E9' : '#ffffff',
-      height: isCompact ? '36px' : '48px',
-      color: '#000000',
-      paddingLeft: isCompact ? '9px' : '15px',
-      alignItems: 'center',
-      fontSize: isCompact ? '14px' : '16px',
-      border: '1px solid transparent',
-      '&:hover': {
-        backgroundColor: '#F4F4F4',
-      },
-      cursor: 'pointer',
-      overflowX: 'hidden',
-      textOverflow: 'ellipsis',
-    }),
-    menuList: (provided: any) => ({
-      ...provided,
-      maxHeight: isCompact ? '181px' : '241px',
-      padding: '0',
-      zIndex: 10,
-    }),
-
     container: (provided: any) => ({
       ...provided,
       maxWidth: '400px',
     }),
 
     control: () => ({
-      borderRadius: '4px',
       boxSizing: 'border-box',
       display: 'flex',
       alignItems: 'center',
+      backgroundColor: isDisabled ? '#FFFFFF' : '#FFFFFF',
+      borderRadius: '4px',
       border: isDisabled
         ? '1px solid #BDBDBD'
         : '1px solid #000000' && isError
         ? '2px solid #FF0000'
         : '1px solid #000000',
-      backgroundColor: isDisabled ? '#FFFFFF' : '#FFFFFF',
-      cursor: 'pointer',
       maxHeight: isCompact ? '33px' : '48px',
       minHeight: isCompact ? '33px' : '48px',
       minWidth: '264px',
       marginBottom: '0px',
       padding: !isError ? '1px' : '0px',
+      cursor: 'pointer',
       boxShadow: '0',
       '&:hover': {
         border: '2px solid #29d305',
@@ -122,16 +96,20 @@ const Dropdown: React.FC<DropdownProps> = ({
       },
     }),
 
-    valueContainer: (provided: any) => ({
+    dropdownIndicator: (provided: any, state: any) => ({
       ...provided,
-      display: 'flex',
-      color: '#000',
-      fontFamily: 'Red Hat Text',
-      fontWeight: '400',
-      fontStyle: 'normal',
-      fontSize: '16px',
-      lineHeight: '22px',
-      paddingLeft: isCompact ? '8px' : '15px',
+      height: isCompact ? '16px' : '20px',
+      width: isCompact ? '16px' : '20px',
+      padding: '0px',
+      transform: state.selectProps.menuIsOpen && 'rotate(180deg)',
+      transition: 'transform 250ms',
+    }),
+
+    indicatorsContainer: (provided: any) => ({
+      ...provided,
+      paddingTop: isCompact ? '7px' : '13px',
+      paddingBottom: isCompact ? '7px' : '13px',
+      paddingRight: isCompact ? '11px' : '15px',
     }),
 
     menu: (provided: any) => ({
@@ -140,10 +118,17 @@ const Dropdown: React.FC<DropdownProps> = ({
       zIndex: 10,
     }),
 
+    menuList: (provided: any) => ({
+      ...provided,
+      maxHeight: isCompact ? '181px' : '241px',
+      padding: '0',
+      zIndex: 10,
+    }),
+
     multiValue: (provided: any) => ({
       ...provided,
-      margin: '0px',
       background: '#ffffff',
+      margin: '0px',
     }),
 
     multiValueLabel: (provided: any) => ({
@@ -159,19 +144,21 @@ const Dropdown: React.FC<DropdownProps> = ({
       paddingLeft: '0px',
     }),
 
-    indicatorsContainer: (provided: any) => ({
+    option: (provided: any, state: any) => ({
       ...provided,
-      paddingTop: isCompact ? '7px' : '13px',
-      paddingBottom: isCompact ? '7px' : '13px',
-      paddingRight: isCompact ? '11px' : '15px',
-    }),
-    dropdownIndicator: (provided: any, state: any) => ({
-      ...provided,
-      height: isCompact ? '16px' : '20px',
-      width: isCompact ? '16px' : '20px',
-      padding: '0px',
-      transform: state.selectProps.menuIsOpen && 'rotate(180deg)',
-      transition: 'transform 250ms',
+      backgroundColor:
+        '#ffffff' && state.isFocused ? '#F4F4F4' : '#ffffff' && state.isSelected ? '#E9E9E9' : '#ffffff',
+      color: '#000000',
+      height: isCompact ? '36px' : '48px',
+      paddingLeft: isCompact ? '9px' : '15px',
+      fontSize: isCompact ? '14px' : '16px',
+      border: '1px solid transparent',
+      cursor: 'pointer',
+      overflowX: 'hidden',
+      textOverflow: 'ellipsis',
+      '&:hover': {
+        backgroundColor: '#F4F4F4',
+      },
     }),
 
     placeholder: (provided: any) => ({
@@ -187,9 +174,21 @@ const Dropdown: React.FC<DropdownProps> = ({
 
     singleValue: (provided: any) => ({
       ...provided,
-      margin: '0px',
       color: '#000',
+      margin: '0px',
       maxWidth: 'calc(100% - 20px)',
+    }),
+
+    valueContainer: (provided: any) => ({
+      ...provided,
+      display: 'flex',
+      color: '#000',
+      fontFamily: 'Red Hat Text',
+      fontWeight: '400',
+      fontStyle: 'normal',
+      fontSize: '16px',
+      lineHeight: '22px',
+      paddingLeft: isCompact ? '8px' : '15px',
     }),
   };
 
