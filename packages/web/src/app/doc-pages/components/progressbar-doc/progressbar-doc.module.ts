@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import '@elvia/elvis-progress-linear';
 import { ProgressbarDocComponent } from './progressbar-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
 import { ComponentExampleV1Module } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
@@ -29,4 +28,4 @@ import { ComponentInstallationModule } from 'src/app/shared/component-documentat
   ],
   declarations: [ProgressbarDocComponent],
 })
-export class ProgressbarDocModule {}
+export class ProgressbarDocModule { }

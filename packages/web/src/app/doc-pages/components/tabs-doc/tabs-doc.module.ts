@@ -1,6 +1,5 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import '@elvia/elvis-tabs';
 import { TabsDocComponent } from './tabs-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
@@ -24,4 +23,4 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [TabsDocComponent],
 })
-export class TabsDocModule {}
+export class TabsDocModule { }
