@@ -2,6 +2,11 @@ $white: #ffffff;
 $black: #000000;
 $green: #29d305;
 
+.ewc-no-outline,
+.ewc-no-outline * {
+    outline: none !important;
+}
+
 // Styles to enable labels in compact version
 .ewc-dropdown {
     display: block;
@@ -17,6 +22,8 @@ $green: #29d305;
         .ewc-dropdown__control {
             border: 2px solid $green;
             padding: 0px;
+            outline: 2px solid #0064fa;
+            outline-offset: 2px;
         }
     }
 

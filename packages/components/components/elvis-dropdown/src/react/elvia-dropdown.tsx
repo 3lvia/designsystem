@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Select, { components } from 'react-select';
 import './style.scss';
 import classnames from 'classnames';
+import toolbox from '@elvia/elvis-toolbox';
 
 export interface DropdownOptions {
   value: string;
@@ -46,6 +47,19 @@ const Dropdown: React.FC<DropdownProps> = ({
   // custom handling for opening dropdown with keydown on "Enter"
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
+  const dropdownRef = useRef<HTMLSpanElement>(null);
+
+  // handle focus on dropdown, running on first render only (on mount)
+  useEffect(() => {
+    // Start outline listener
+    toolbox.outlineListener(dropdownRef.current);
+
+    return () => {
+      // Remove outline listener
+      toolbox.outlineListener(dropdownRef.current, true);
+    };
+  }, []);
+
   // styling for custom Elvia labels
   const classes = classnames({
     ['ewc-dropdown']: !isCompact,
@@ -84,8 +98,8 @@ const Dropdown: React.FC<DropdownProps> = ({
       maxWidth: '400px',
     }),
 
-    control: (provided: any) => ({
-      ...provided,
+    control: () => ({
+      borderRadius: '4px',
       boxSizing: 'border-box',
       display: 'flex',
       alignItems: 'center',
@@ -103,10 +117,6 @@ const Dropdown: React.FC<DropdownProps> = ({
       padding: !isError ? '1px' : '0px',
       boxShadow: '0',
       '&:hover': {
-        border: '2px solid #29d305',
-        padding: '0px',
-      },
-      '&:focus': {
         border: '2px solid #29d305',
         padding: '0px',
       },
@@ -240,6 +250,11 @@ const Dropdown: React.FC<DropdownProps> = ({
     setCurrentVal(event);
   };
 
+  useEffect(() => {
+    updateReactComponent();
+    updateWebcomponent();
+  }, [currentVal]);
+
   // update react component to emit selected values
   const updateReactComponent = () => {
     if (!webcomponent && valueOnChange) {
@@ -254,13 +269,8 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
   };
 
-  useEffect(() => {
-    updateReactComponent();
-    updateWebcomponent();
-  }, [currentVal]);
-
   return (
-    <span className={classes}>
+    <span className={classes} ref={dropdownRef}>
       <label className="ewc-dropdown__label" style={{ color: isDisabled ? '#BDBDBD' : '#000000' }}>
         {label}
       </label>
