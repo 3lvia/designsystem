@@ -15,7 +15,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
   codeWebComponentSub: Subscription;
   hasCegAttributes = false;
 
-  constructor(private codeService: ExampleCodeService) {}
+  constructor(private codeService: ExampleCodeService) { }
 
   ngOnInit(): void {
     this.codeWebComponentSub = this.codeService.listenCodeWebComponent().subscribe((code: string) => {
