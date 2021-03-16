@@ -4,6 +4,10 @@
   width: 100%;
 }
 
+:host {
+  width: 100%;
+}
+
 @mixin first-col {
   width: 80%;
   @include breakpoint-up(Mobile) {
@@ -57,7 +61,8 @@
     border: 1px solid var(--e-grey-10);
     border-radius: 8px;
     .ceg-frame {
-      text-align: center;
+      display: flex;
+      justify-content: center;
       width: 100%;
       height: 0;
     }

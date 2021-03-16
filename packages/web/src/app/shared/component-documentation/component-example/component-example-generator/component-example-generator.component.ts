@@ -24,6 +24,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
   }
 
   ngAfterViewInit(): void {
+    if (!this.hasPreview) {
+      return;
+    }
     this.cegFrame.nativeElement.innerHTML = this.componentData.codeWebComponent;
     Object.keys(this.componentData.attributes).forEach((attribute) => {
       Object.keys(this.componentData.attributes[attribute]).forEach((value) => {

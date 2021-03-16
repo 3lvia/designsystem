@@ -1,19 +1,5 @@
-// Icon sizes
-$sizes: (
-  'xxs': 8px,
-  'custom12': 12px,
-  'xs': 16px,
-  'sm': 24px,
-  'md': 32px,
-  'lg': 40px,
-  'xl': 48px,
-  'xxl': 56px,
-);
-
 $popover-border-width: 1px;
 $popover-padding: 32px;
-$popover-arrow-size: 16px;
-$popover-arrow-offset: 25px; // Midtstilt i forhold til ikon 16X16px (xs)
 $popover-button-offset: -30px;
 $popover-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
 $green: #29d305;
@@ -27,10 +13,8 @@ $green: #29d305;
   display: inline-flex;
   box-sizing: border-box;
   position: relative;
-  flex-direction: column;
 
   &__trigger {
-    position: relative;
     display: flex;
     flex-direction: column;
     -webkit-user-select: none;
@@ -39,36 +23,32 @@ $green: #29d305;
   }
 
   &__content {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: absolute;
+    box-sizing: content-box;
     width: max-content;
-    &.ewc-popover--text-only {
-      max-width: 450px;
-      // IE specific
-      @media screen and (-ms-high-contrast: none) {
-        width: 450px;
-      }
-    }
     left: 50%;
     opacity: 1;
     z-index: 99;
     pointer-events: all;
     padding: $popover-padding;
-    box-sizing: border-box;
     background-color: white;
     color: black;
+    text-align: left;
     box-shadow: $popover-box-shadow;
     border-radius: 8px;
-    text-align: left;
     transition: opacity 250ms ease-in;
+    // Top aligned
+    bottom: 100%;
+    margin-bottom: 16px;
 
     .ewc-popover__close {
       position: absolute;
       top: 7px;
       right: 7px;
     }
-
-    .ewc-popover__title {
+    .ewc-popover__header {
       font-family: 'Red Hat Text', Verdana, sans-serif;
       font-size: 14px;
       line-height: 22px;
@@ -81,11 +61,11 @@ $green: #29d305;
       font-weight: normal;
       font-size: 14px;
       line-height: 22px;
+      
     }
   }
 
-  // Hiding content and arrow
-  .ewc-popover__content.ewc-popover--hide {
+  &.ewc-popover--hide .ewc-popover__content {
     opacity: 0;
     visibility: hidden;
     .ewc-btn .ewc-btn__icon i {
@@ -94,24 +74,25 @@ $green: #29d305;
     }
   }
 
-  // Modifiers for alignment of popover
-  // Top aligned (Default)
-  &:not(.ewc-popover--bottom) .ewc-popover__content {
-    bottom: 100%;
-    margin-bottom: 16px;
+  &.ewc-popover--text-only .ewc-popover__content {
+    max-width: 450px - $popover-padding * 2;
+    .ewc-popover__text {
+      padding-right: 8px;
+    }
+    // IE specific
+    @media screen and (-ms-high-contrast: none) {
+      width: 450px;
+    }
   }
-  // Bottom aligned
+
   &.ewc-popover--bottom .ewc-popover__content {
     top: 100%;
+    bottom: auto;
     margin-top: 16px;
-  }
-  // Center aligned (Default)
-  &:not(.ewc-popover--left):not(.ewc-popover--left-50):not(.ewc-popover--right):not(.ewc-popover--right-50)
-    .ewc-popover__content {
-    transform: translateX(-50%);
   }
 }
 
+// Should be moved out at some point
 // --- ICON BTN ---
 .ewc-btn.ewc-btn--icon {
   cursor: pointer;
@@ -197,41 +178,16 @@ $green: #29d305;
   }
 }
 
-// class for no outline on click
-.ewc-no-outline,
-.ewc-no-outline * {
-  outline: none !important;
-}
-
 // --- ICONS ---
-@function get-icon-size($size) {
-  @return map-get($map: $sizes, $key: $size);
-}
-
-@mixin icon-size($icon-size) {
-  $size: get-icon-size($icon-size);
-  width: $size;
-  height: $size;
-  img,
-  i {
-    width: $size;
-    height: $size;
-  }
-}
-
-$defaultSize: 'md';
-
 .ewc-icon {
-  @include icon-size($defaultSize);
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   display: inline-block;
-}
-
-// Making icon size classes
-@each $label, $size in $sizes {
-  .ewc-icon--#{$label} {
-    @include icon-size($label);
+  width: 16px;
+  height: 16px;
+  i {
+    width: 16px;
+    height: 16px;
   }
 }
