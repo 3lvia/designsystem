@@ -250,22 +250,18 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   useEffect(() => {
-    updateReactComponent();
-    updateWebcomponent();
+    updateValue();
   }, [currentVal]);
 
-  // update react component to emit selected values
-  const updateReactComponent = () => {
+  const updateValue = () => {
     if (!webcomponent && valueOnChange) {
       valueOnChange(currentVal);
     }
-  };
-  // update currentvalue to be emited to webcomp
-  const updateWebcomponent = () => {
     if (webcomponent) {
       // True -> Prevents rerender
       webcomponent.setProps({ value: currentVal }, true);
     }
+    return;
   };
 
   return (
