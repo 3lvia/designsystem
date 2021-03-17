@@ -453,8 +453,8 @@
     }
     export const arrowExternal = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M24.062.129a1.056 1.056 0 00-1.5-.244H2.493a1.055 1.055 0 100 2.11h17.945L.56 21.873a1.055 1.055 0 101.493 1.492l20.28-20.28v18.749a1.055 1.055 0 102.11 0V.94c0-.326-.148-.618-.38-.811z" fill="#000"/></g><defs><clipPath id="clip0"><path d="M0 0h24v24H0V0z" fill="#fff"/></clipPath></defs></svg>'
-          let iconName = 'arrow_external'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.142 2.26l-7.811 7.811a1.13 1.13 0 001.597 1.598l7.813-7.812v6.138a1.13 1.13 0 102.259 0V1.13a1.125 1.125 0 00-.412-.872A1.123 1.123 0 0022.87 0h-8.865a1.13 1.13 0 000 2.26h6.137zM.05 6.209c0-2.296 1.899-4.159 4.243-4.159H8.26c.62 0 1.12.492 1.12 1.098 0 .605-.5 1.098-1.12 1.098H4.293c-1.105 0-2.002.878-2.002 1.963V19.79c0 1.085.897 1.963 2.002 1.963h13.414c1.105 0 2.002-.878 2.002-1.963v-4.033c0-.605.5-1.098 1.12-1.098.62 0 1.121.493 1.121 1.098v4.033c0 2.296-1.899 4.159-4.243 4.159H4.293C1.949 23.95.05 22.087.05 19.791V6.21z" fill="#000"/></svg>'
+          let iconName = 'new_tab-bold'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
@@ -478,8 +478,8 @@
     }
     export const arrowExternalBold = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.73 4.844H4.145a2.422 2.422 0 010-4.844h17.434a2.41 2.41 0 011.712.71c.439.438.71 1.043.71 1.712v17.434a2.422 2.422 0 11-4.843 0V8.268L4.134 23.29a2.421 2.421 0 11-3.425-3.426l15.022-15.02z" fill="#000"/></svg>'
-          let iconName = 'arrow_external-bold'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.142 2.26l-7.811 7.811a1.13 1.13 0 001.597 1.598l7.813-7.812v6.138a1.13 1.13 0 102.259 0V1.13a1.125 1.125 0 00-.412-.872A1.123 1.123 0 0022.87 0h-8.865a1.13 1.13 0 000 2.26h6.137zM.05 6.209c0-2.296 1.899-4.159 4.243-4.159H8.26c.62 0 1.12.492 1.12 1.098 0 .605-.5 1.098-1.12 1.098H4.293c-1.105 0-2.002.878-2.002 1.963V19.79c0 1.085.897 1.963 2.002 1.963h13.414c1.105 0 2.002-.878 2.002-1.963v-4.033c0-.605.5-1.098 1.12-1.098.62 0 1.121.493 1.121 1.098v4.033c0 2.296-1.899 4.159-4.243 4.159H4.293C1.949 23.95.05 22.087.05 19.791V6.21z" fill="#000"/></svg>'
+          let iconName = 'new_tab-bold'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
@@ -3528,7 +3528,7 @@
     }
     export const newTabBold = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.875 0a1.125 1.125 0 000 2.25h3.284l-5.58 5.58a1.125 1.125 0 001.591 1.59l5.58-5.579v3.284a1.125 1.125 0 002.25 0v-6C24 .504 23.496 0 22.875 0h-6z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M3.125 4.5a.875.875 0 00-.875.875v15.5a.875.875 0 00.875.875h15.5a.875.875 0 00.875-.875v-9a1.125 1.125 0 012.25 0v9A3.125 3.125 0 0118.625 24h-15.5A3.125 3.125 0 010 20.875v-15.5A3.125 3.125 0 013.125 2.25h9a1.125 1.125 0 010 2.25h-9z" fill="#000"/></svg>'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.142 2.26l-7.811 7.811a1.13 1.13 0 001.597 1.598l7.813-7.812v6.138a1.13 1.13 0 102.259 0V1.13a1.125 1.125 0 00-.412-.872A1.123 1.123 0 0022.87 0h-8.865a1.13 1.13 0 000 2.26h6.137zM.05 6.209c0-2.296 1.899-4.159 4.243-4.159H8.26c.62 0 1.12.492 1.12 1.098 0 .605-.5 1.098-1.12 1.098H4.293c-1.105 0-2.002.878-2.002 1.963V19.79c0 1.085.897 1.963 2.002 1.963h13.414c1.105 0 2.002-.878 2.002-1.963v-4.033c0-.605.5-1.098 1.12-1.098.62 0 1.121.493 1.121 1.098v4.033c0 2.296-1.899 4.159-4.243 4.159H4.293C1.949 23.95.05 22.087.05 19.791V6.21z" fill="#000"/></svg>'
           let iconName = 'new_tab-bold'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
