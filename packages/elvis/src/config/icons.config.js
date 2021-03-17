@@ -435,8 +435,8 @@ module.exports = [
   { name: 'powermeter_old', terms: [] },
   { name: 'powermeter-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'profile', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'profile-2', terms: [], thirdparty: { name: ['streamline'], duplicate: ['profile'] } },
-  { name: 'profile-2-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['profile'] } },
+  { name: 'profile-2', deprecated: '7.5.0', newIconName: 'profile' },
+  { name: 'profile-2-color', deprecated: '7.5.0', newIconName: 'profile' },
   { name: 'profile-bold', terms: [], thirdparty: { name: ['streamline'], duplicate: ['profile'] } },
   { name: 'question_circle', terms: ['?', 'help', 'answer'], thirdparty: { name: ['streamline'] } },
   {

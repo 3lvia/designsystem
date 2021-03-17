@@ -4753,8 +4753,8 @@
     }
     export const profile2 = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.624 14.416a.75.75 0 10-1.248-.832l1.248.832zm-2.854 2.93l-.624-.416.624.416zM7.908 14.46l2.648 3.405 1.184-.92-2.648-3.405-1.184.92zm5.486 3.302l2.23-3.346-1.248-.832-2.23 3.346 1.248.832zm-2.838.103a1.75 1.75 0 002.838-.103l-1.248-.832a.25.25 0 01-.406.014l-1.184.921z" fill="#000"/><path d="M12 11.25a5.25 5.25 0 100-10.5 5.25 5.25 0 000 10.5zM2.25 23.25a9.75 9.75 0 1119.5 0" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-          let iconName = 'profile-2'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c-3.308 0-6-2.692-6-6s2.692-6 6-6 6 2.692 6 6-2.692 6-6 6zm0-10.5A4.505 4.505 0 007.5 6c0 2.481 2.019 4.5 4.5 4.5s4.5-2.019 4.5-4.5-2.019-4.5-4.5-4.5zM21.75 24a.75.75 0 01-.75-.75c0-4.963-4.037-9-9-9s-9 4.037-9 9a.75.75 0 01-1.5 0c0-5.79 4.71-10.5 10.5-10.5s10.5 4.71 10.5 10.5a.75.75 0 01-.75.75z" fill="#000"/></svg>'
+          let iconName = 'profile'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
@@ -4778,8 +4778,8 @@
     }
     export const profile2Color = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.624 14.416a.75.75 0 10-1.248-.832l1.248.832zm-2.854 2.93l-.624-.416.624.416zM7.908 14.46l2.648 3.405 1.184-.92-2.648-3.405-1.184.92zm5.486 3.302l2.23-3.346-1.248-.832-2.23 3.346 1.248.832zm-2.838.103a1.75 1.75 0 002.838-.103l-1.248-.832a.25.25 0 01-.406.014l-1.184.921z" fill="#29D305"/><path d="M12 11.25a5.25 5.25 0 100-10.5 5.25 5.25 0 000 10.5zM2.25 23.25a9.75 9.75 0 1119.5 0" stroke="#000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>'
-          let iconName = 'profile-2-color'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 12c-3.308 0-6-2.692-6-6s2.692-6 6-6 6 2.692 6 6-2.692 6-6 6zm0-10.5A4.505 4.505 0 007.5 6c0 2.481 2.019 4.5 4.5 4.5s4.5-2.019 4.5-4.5-2.019-4.5-4.5-4.5zM21.75 24a.75.75 0 01-.75-.75c0-4.963-4.037-9-9-9s-9 4.037-9 9a.75.75 0 01-1.5 0c0-5.79 4.71-10.5 10.5-10.5s10.5 4.71 10.5 10.5a.75.75 0 01-.75.75z" fill="#000"/></svg>'
+          let iconName = 'profile'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
@@ -4803,7 +4803,7 @@
     }
     export const profileBold = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 0a6.5 6.5 0 00-6.492 6.492 6.5 6.5 0 003.702 5.862C4.736 13.613 1.45 17.82 1.45 22.79c0 .624.496 1.15 1.13 1.15a1.14 1.14 0 001.13-1.15c0-4.709 3.73-8.521 8.29-8.521 4.56 0 8.29 3.812 8.29 8.52 0 .625.496 1.15 1.13 1.15a1.14 1.14 0 001.13-1.15c0-4.969-3.287-9.177-7.76-10.436a6.5 6.5 0 003.702-5.862A6.5 6.5 0 0012 0zM7.84 6.492A4.165 4.165 0 0112 2.333a4.165 4.165 0 014.16 4.16A4.165 4.165 0 0112 10.65a4.165 4.165 0 01-4.16-4.159z" fill="#000"/></g><defs><clipPath id="clip0"><path d="M0 0h24v24H0V0z" fill="#fff"/></clipPath></defs></svg>'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.96 6.17a4.032 4.032 0 118.065 0 4.032 4.032 0 01-8.065 0zM11.992 0a6.17 6.17 0 100 12.34 6.17 6.17 0 000-12.34zM6.05 16.988a8.405 8.405 0 0114.348 5.943 1.069 1.069 0 102.138 0 10.542 10.542 0 10-21.085 0 1.069 1.069 0 002.138 0c0-2.229.885-4.367 2.461-5.943z" fill="#000"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>'
           let iconName = 'profile-bold'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
