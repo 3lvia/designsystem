@@ -1,4 +1,22 @@
-<ol class="e-list e-list--numbers">
+<div class="e-alert e-alert--info">
+  <div class="e-alert__icon">
+    <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+  </div>
+  <div class="e-alert__content">
+    <div class="e-alert__title">First setup (Web components)</div>
+    <div class="e-alert__text">
+      <div>
+        For Angular users CUSTOM_ELEMENTS_SCHEMA needs to be added to src/app/app.module.ts to enable the web
+        components.
+      </div>
+      <div class="e-mt-16">
+        <span class="code-text">schemas: [ CUSTOM_ELEMENTS_SCHEMA ]</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ol class="e-list e-list--numbers e-mt-56">
   <li>
     <strong>Install package:</strong>
     <div class="code-text e-mt-16">
@@ -31,5 +49,6 @@
         </ng-container>
       </app-copy>
     </div>
+    <div>(Should be imported in module.ts not component.ts)</div>
   </li>
 </ol>
