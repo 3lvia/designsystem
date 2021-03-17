@@ -3,7 +3,7 @@
     <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
   </div>
   <div class="e-alert__content">
-    <div class="e-alert__title">First setup (Web components)</div>
+    <div class="e-alert__title">First setup (Angular)</div>
     <div class="e-alert__text">
       <div>
         For Angular users CUSTOM_ELEMENTS_SCHEMA needs to be added to src/app/app.module.ts to enable the web
@@ -29,16 +29,6 @@
   </li>
   <li>
     <strong>Import package:</strong>
-    <h4 class="e-title-caps e-mt-16 e-mb-8">React</h4>
-    <div class="code-text">
-      <app-copy [message]="componentData.codeImportReact" [noAnimation]="true">
-        <ng-container ngProjectAs="copyContent">
-          <span class="code-text" style="line-height: 26px">
-            {{ componentData.codeImportReact }}
-          </span>
-        </ng-container>
-      </app-copy>
-    </div>
     <h4 class="e-title-caps e-mt-24 e-mb-8">Web component</h4>
     <div class="code-text">
       <app-copy [message]="componentData.codeImportWebComponent" [noAnimation]="true">
@@ -49,6 +39,16 @@
         </ng-container>
       </app-copy>
     </div>
-    <div>(Should be imported in module.ts not component.ts)</div>
+    <div class="e-text-md">(Should be imported in module.ts not component.ts)</div>
+    <h4 class="e-title-caps e-mt-16 e-mb-8">React</h4>
+    <div class="code-text">
+      <app-copy [message]="componentData.codeImportReact" [noAnimation]="true">
+        <ng-container ngProjectAs="copyContent">
+          <span class="code-text" style="line-height: 26px">
+            {{ componentData.codeImportReact }}
+          </span>
+        </ng-container>
+      </app-copy>
+    </div>
   </li>
 </ol>
