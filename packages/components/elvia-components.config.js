@@ -43,10 +43,4 @@ module.exports = [
     reactName: 'TestingComponent',
     elementStyle: `width: 100%`,
   },
-  {
-    name: 'elvis-testing',
-    elementName: 'elvia-testing',
-    attributes: ['value'],
-    reactName: 'TestingComponent',
-  },
 ];
