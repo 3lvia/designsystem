@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
 
 export interface PopoverProps {
-  title?: string;
+  header?: string;
   content?: string | HTMLElement;
   posX?: 'left' | 'right' | 'center';
   posY?: 'top' | 'bottom';
@@ -29,7 +29,7 @@ const getEventPath = (e: MouseEvent) => {
 };
 
 const Popover: FC<PopoverProps> = ({
-  title,
+  header,
   content,
   posX = 'center',
   posY = 'top',
@@ -40,29 +40,22 @@ const Popover: FC<PopoverProps> = ({
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLSpanElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
-  const popoverSlotTriggerRef = useRef<HTMLSlotElement>(null);
+  const popoverSlotTriggerRef = useRef<HTMLDivElement>(null);
   const popoverContentRef = useRef<HTMLDivElement>(null);
+  const popoverText = useRef<HTMLDivElement>(null);
   const popoverMargin = 16;
+  const popoverPadding = 32;
 
   // Running on first render only (on mount)
   useEffect(() => {
     // Start outline listener
     toolbox.outlineListener(popoverRef.current);
 
-    // Defining max content width for popover
-    const maxContentTimeout = setTimeout(() => {
-      if (!popoverContentRef.current) {
-        return;
-      }
-      maxContentWidth.current = popoverContentRef.current.getBoundingClientRect().width;
-    }, 0);
-
     // Listen to click outside popover
     const handleClickOutside = (e: MouseEvent) => {
       if (!popoverContentRef.current || !popoverRef.current) {
         return;
       }
-
       const path = getEventPath(e);
       const slotTriggerIsTargetTrigger = popoverSlotTriggerRef.current === path[1];
       const popoverContainsTarget = popoverRef.current.contains(path[0] as Node);
@@ -79,9 +72,48 @@ const Popover: FC<PopoverProps> = ({
       toolbox.outlineListener(popoverRef.current, true);
 
       document.removeEventListener('click', handleClickOutside);
-      clearTimeout(maxContentTimeout);
     };
   }, []);
+
+  // Running like componentDidMount
+  useEffect(() => {
+    // Close on escape
+    const closeOnEscape = (keydown: KeyboardEvent) => {
+      if (keydown.key === 'Escape') {
+        setPopoverVisibility(false);
+      }
+    };
+    document.addEventListener('keydown', closeOnEscape, false);
+
+    // Web component - Placing slots at the right place
+    if (
+      popoverRef.current &&
+      popoverRef.current.parentElement &&
+      popoverRef.current.parentElement.parentElement
+    ) {
+      popoverRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
+        if (popoverSlotTriggerRef.current && element.slot === 'trigger') {
+          popoverSlotTriggerRef.current.innerHTML = '';
+          popoverSlotTriggerRef.current.appendChild(element);
+        }
+        if (popoverText.current && element.slot === 'content') {
+          popoverText.current.innerHTML = '';
+          popoverText.current.appendChild(element);
+        }
+      });
+    }
+
+    // Defining max content width for popover
+    if (popoverContentRef.current) {
+      maxContentWidth.current = popoverContentRef.current.getBoundingClientRect().width;
+    }
+
+    // Cleanup
+    return () => {
+      // Remove outline listener
+      document.removeEventListener('keydown', closeOnEscape, false);
+    };
+  });
 
   // Toggling popover state
   const togglePopover = () => {
@@ -125,8 +157,8 @@ const Popover: FC<PopoverProps> = ({
       return;
     }
     const { screenWidth } = dimensions;
-    if (maxContentWidth.current + popoverMargin + popoverMargin > screenWidth) {
-      popoverContentRef.current.style.width = `${screenWidth - 2 * popoverMargin}px`;
+    if (maxContentWidth.current + (popoverMargin * 2 + popoverPadding * 2) > screenWidth) {
+      popoverContentRef.current.style.width = `${screenWidth - (popoverMargin * 2 + popoverPadding * 2)}px`;
     } else {
       popoverContentRef.current.style.width = `${maxContentWidth}px`;
     }
@@ -211,28 +243,22 @@ const Popover: FC<PopoverProps> = ({
   }, [popoverVisibility, updatePosition]);
 
   const popoverClasses = classnames('ewc-popover', {
-    ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
-  });
-  const contentClasses = classnames('ewc-popover__content', {
-    ['ewc-popover--text-only']: typeof content === 'string',
     ['ewc-popover--hide']: !popoverVisibility,
+    ['ewc-popover--text-only']: typeof content === 'string',
+    ['ewc-popover--bottom']: (posY === 'bottom' && !isConflictBottom()) || isConflictTop(),
   });
 
   return (
     <span className={popoverClasses} ref={popoverRef}>
       <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
-        <button onClick={togglePopover}>This button works</button>
         {trigger && <div onClick={togglePopover}>{trigger}</div>}
-        {!trigger && <slot name="trigger" onClick={togglePopover} ref={popoverSlotTriggerRef}></slot>}
+        {!trigger && <div onClick={togglePopover} ref={popoverSlotTriggerRef}></div>}
       </div>
 
-      <div className={contentClasses} ref={popoverContentRef}>
+      <div className="ewc-popover__content" ref={popoverContentRef}>
         {hasCloseBtn == true && (
           <div className="ewc-popover__close">
-            <button
-              className="ewc-btn ewc-btn--icon ewc-btn--sm e-no-outline"
-              onClick={() => setPopoverVisibility(false)}
-            >
+            <button className="ewc-btn ewc-btn--icon ewc-btn--sm" onClick={() => setPopoverVisibility(false)}>
               <span className="ewc-btn__icon">
                 <i
                   className="ewc-icon ewc-icon--close-bold ewc-icon--xs"
@@ -245,9 +271,9 @@ const Popover: FC<PopoverProps> = ({
             </button>
           </div>
         )}
-        {title && <div className="ewc-popover__title">{title}</div>}
+        {header && <div className="ewc-popover__header">{header}</div>}
         {content && <div className="ewc-popover__text">{content}</div>}
-        {!content && <slot name="content" className="ewc-popover__text"></slot>}
+        {!content && <div className="ewc-popover__text" ref={popoverText} />}
       </div>
     </span>
   );

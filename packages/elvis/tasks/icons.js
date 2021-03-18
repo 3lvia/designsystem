@@ -8,9 +8,9 @@ const svgIcons = require('@elvia/elvis-assets-icons/icons.cjs.js');
 async function createEmbeddedIconsJS() {
   const iconsToInclude = icons.map((i) => {
     if (i.deprecated) {
-      return { name: i.name, svg: svgIcons[createCamelCase(i.newIconName)].getIcon() }  // `src/icons/svg/dist/${i.newIconName}.svg`;
+      return { name: i.name, svg: svgIcons[createCamelCase(i.newIconName)].getIcon() }; // `src/icons/svg/dist/${i.newIconName}.svg`;
     } else {
-      return { name: i.name, svg: svgIcons[createCamelCase(i.name)].getIcon() } //`src/icons/svg/dist/${i.name}.svg`;
+      return { name: i.name, svg: svgIcons[createCamelCase(i.name)].getIcon() }; //`src/icons/svg/dist/${i.name}.svg`;
     }
   });
   const deprecatedIcons = [];
@@ -26,9 +26,8 @@ async function createEmbeddedIconsJS() {
   let icons = {`;
 
   for (let i = 0; i < iconsToInclude.length; i++) {
-
     const fileContent = svgIcons[createCamelCase(iconsToInclude[i].name)].getIcon(); //fs.readFileSync(iconsToInclude[i]).toString();
-    const iconName = iconsToInclude[i].name // icons[i].name;
+    const iconName = iconsToInclude[i].name; // icons[i].name;
     const optimizedSVGDataURI = svgToMiniDataURI(fileContent);
     embeddedJs =
       embeddedJs +
@@ -65,8 +64,6 @@ async function createEmbeddedIconsJS() {
     }
   }
 
-
-
   const template = fs.readFileSync('./src/templates/elvis.template.js').toString();
   const newContent = template.replace('//[[INJECT_ICONS]]', embeddedJs);
   fs.writeFileSync('elvis.js', newContent);
@@ -88,7 +85,6 @@ function createCamelCase(original) {
   }
   return newText;
 }
-
 
 const generateIcons = gulp.series(createEmbeddedIconsJS);
 exports.generateIcons = generateIcons;

@@ -9,10 +9,7 @@
 <!--BODY-->
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div
-    class="e-my-48"
-    style="display: flex; flex-direction: column; align-items: center; justify-content: center"
-  >
+  <div class="e-my-48" class="component-preview-temp component-preview-animation">
     <div class="e-text-body" style="display: flex; flex-direction: column; justify-content: flex-start">
       <label class="e-checkbox" for="elvis-checkbox">
         <input type="checkbox" id="elvis-checkbox" />
@@ -29,6 +26,31 @@
       <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
     </div>
   </div>
+
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Standard'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="exampleStandard"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Nested'">
+        <ng-container ngProjectAs="sectionContent">
+          This example is not interactable and logic for adding the indeterminate state should be applied as described below.
+          <app-component-example-v1 [codeHTML]="exampleNested" [interactable]="false"></app-component-example-v1>
+
+          <app-component-subsubsection [sectionTitle]="'Indeterminate'">
+            <ng-container ngProjectAs="sectionContent">
+              Use the indeterminate state, <span class="code-text">e-checkbox--indeterminate</span>, when you have sublist of checkboxes, where only some of them are
+              checked. This class has to be applied using logic.
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
 
   <!-- SIZE -->
   <app-component-section [sectionTitle]="'Size'">

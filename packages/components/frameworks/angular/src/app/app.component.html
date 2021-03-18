@@ -2,57 +2,43 @@
   <h1>Angular preview</h1>
 
   <h2>Tabs</h2>
-  <div style="margin-top: 16px">
-    <elvia-tabs [items]="items" [value]="value" (valueOnChange)="value = $event.detail.value"></elvia-tabs>
-    {{ value }}
+  <div style="margin-top: 16px; background: #262626">
+    <elvia-tabs
+      [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
+      [value]="1"
+      [isInverted]="true"
+      (valueOnChange)="value = $event.detail.value"
+    ></elvia-tabs>
   </div>
+  <elvia-tabs
+    [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
+    [value]="1"
+    (valueOnChange)="value = $event.detail.value"
+  ></elvia-tabs>
+  {{ value }}
 
   <hr style="margin: 40px 0" />
   <elvia-testing [value]="counterValue" (valueOnChange)="counterValue = $event.detail.value"></elvia-testing>
   {{ counterValue }}
   <button (click)="counterValue = counterValue + 1">++</button>
-  <hr style="margin: 40px 0" />
-
-  <h2>Checkbox</h2>
-  <div style="margin-top: 16px">
-    <h2>Angular approach</h2>
-    <button (click)="checkBoxVal = !checkBoxVal">Toggle checked</button>
-    <elvia-checkbox
-      label="Normal checkbox"
-      name="Nametest"
-      size="normal"
-      [checked]="checkBoxVal"
-      (checkedOnChange)="checkBoxVal = $event.detail.checked"
-    ></elvia-checkbox>
-    {{ checkBoxVal }}
-
-    <h2>Native JS approach</h2>
-    <elvia-checkbox #checkbox1 label="Normal checkbox" name="Nametest" size="small"></elvia-checkbox>
-    {{ checkBoxVal2 }}
-  </div>
 
   <hr style="margin: 40px 0" />
 
-  <p style="color: red">
-    Slot fungerer ikke uten shadowDOM virker det som, dette problemet bør løses i selve popover komponenten.
-    Er rimelig sikker på at problemet ligger der :)
-  </p>
   <h2>Popover</h2>
   <div style="display: flex; flex-direction: column; align-items: flex-end">
     <div style="margin-top: 16px">
-      <elvia-popover title="BankID" posX="right">
+      <elvia-popover header="BankID" posX="right" width="200">
         <button slot="trigger" class="e-btn">Right top</button>
         <div slot="content">
-          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle
-          privatkunder må bruke BankID første gang.
+          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
         </div>
       </elvia-popover>
     </div>
     <div style="margin-top: 16px">
       <elvia-popover
-        title="BankID"
+        header="BankID"
         content="Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle
-      privatkunder må bruke BankID første gang."
+        privatkunder må bruke BankID første gang."
         posX="left"
         hasCloseBtn="false"
       >
@@ -60,19 +46,19 @@
       </elvia-popover>
     </div>
     <div style="margin-top: 16px">
-      <elvia-popover title="BankID" content="Alle privatkunder må bruke BankID.">
+      <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID.">
         <button slot="trigger" class="e-btn">Center top</button>
       </elvia-popover>
     </div>
   </div>
   <div style="margin-top: 16px">
-    <elvia-popover title="BankID" content="Alle privatkunder må bruke BankID." posY="bottom">
+    <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID." posY="bottom">
       <button slot="trigger" class="e-btn">Center bottom</button>
     </elvia-popover>
   </div>
   <div style="margin-top: 16px">
     <elvia-popover
-      title="BankID"
+      header="BankID"
       content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
       posY="bottom"
       posX="right"
@@ -82,7 +68,7 @@
   </div>
   <div style="margin-top: 16px">
     <elvia-popover
-      title="BankID"
+      header="BankID"
       content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
       posY="bottom"
       posX="left"
@@ -94,7 +80,7 @@
   <hr style="margin: 40px 0" />
 
   <h2>Progressbar</h2>
-  <div style="margin-bottom: 32px">
+  <div style="margin-bottom: 32px; display: flex">
     <elvia-progress-linear
       [isIndeterminate]="indeterminate"
       [value]="progressValue"

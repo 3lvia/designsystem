@@ -8,14 +8,9 @@ import { TestingComponent } from '@elvia/elvis-testing/react';
 
 function App() {
   const [trackedState, setTrackedState] = useState(true);
-  const [selectedState, setSelectedState] = useState(0);
+  const [selectedState, setSelectedState] = useState(2);
   const ref = useRef();
-  const items = [
-    { label: 'Statistikk' },
-    { label: 'Siste kall' },
-    { label: 'HAN-port' },
-    { label: 'Feilkategorisering' },
-  ];
+  const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
 
   function update() {
     setTrackedState(!trackedState);
@@ -33,14 +28,18 @@ function App() {
     setProgressValue(0);
   }
 
+  function update() {
+    setSelectedState(0);
+  }
+
   return (
     <div className="App">
       <h1>React preview</h1>
       <TestingComponent></TestingComponent>
 
       <h2>Tabs</h2>
-      <div style={{ marginTop: '16px' }}>
-        <Tabs items={items} value={selectedState} valueOnChange={setSelectedState}></Tabs>
+      <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
+        <Tabs items={items} value={2} valueOnChange={setSelectedState}></Tabs>
         <div>{selectedState.toString()}</div>
       </div>
 
@@ -66,7 +65,7 @@ function App() {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
         <span style={{ marginTop: '16px' }}>
           <Popover
-            title="BankID"
+            header="BankID"
             content="Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang."
             trigger={<button>Right top</button>}
             posX="right"
@@ -82,7 +81,7 @@ function App() {
         </div>
         <div style={{ marginTop: '16px' }}>
           <Popover
-            title="BankID"
+            header="BankID"
             content="Alle privatkunder må bruke BankID første gang de logger inn på Min side."
             trigger={<button>Center top</button>}
             hasCloseBtn={false}
@@ -99,7 +98,7 @@ function App() {
       </div>
       <div style={{ marginTop: '16px' }}>
         <Popover
-          title="BankID"
+          header="BankID"
           content="Alle privatkunder må bruke BankID første gang."
           trigger={<button>Right bottom</button>}
           posY="bottom"

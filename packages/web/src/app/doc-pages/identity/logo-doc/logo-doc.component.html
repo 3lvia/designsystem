@@ -7,15 +7,20 @@
 </app-component-header>
 
 <div class="page-body">
-  <div style="display: flex; justify-content: center">
-    <div class="e-content-loader" *ngIf="!loadedLogo" style="height: 400px; width: 400px"></div>
-    <img
-      [ngClass]="!loadedLogo ? 'e-none' : ''"
-      style="display: flex; width: 400px; max-width: 90%"
-      src="../../../../assets/logo/animation_640_keva0d1n.gif"
-      (load)="hideContentLoader($event)"
-    />
-  </div>
+  <!--PREVIEW-->
+  <app-component-subsection>
+    <ng-container ngProjectAs="sectionContent">
+      <div style="display: flex; justify-content: center">
+        <div class="e-content-loader" *ngIf="!loadedLogo" style="height: 400px; width: 400px"></div>
+        <img
+          [ngClass]="!loadedLogo ? 'e-none' : ''"
+          style="display: flex; width: 400px; max-width: 90%"
+          src="../../../../assets/logo/animation_640_keva0d1n.gif"
+          (load)="hideContentLoader($event)"
+        />
+      </div>
+    </ng-container>
+  </app-component-subsection>
 
   <!--ASSETS-->
   <app-component-section [sectionTitle]="'Assets'">
@@ -23,7 +28,7 @@
       <div class="asset-container" [ngClass]="{ 'e-bg-grey': isInverted }">
         <div class="e-text-right">
           <div class="dark-mode-toggle">
-            <span>Dark</span>
+            <span>Inverted</span>
             <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': isInverted }">
               <input
                 class="e-toggle__input"
@@ -43,18 +48,18 @@
         <div class="e-text-right">
           <a href="assets/logo/elvia_positive_1.svg" download *ngIf="!isInverted">
             <button class="e-btn e-btn--tertiary e-btn--md">
-              <span class="e-btn__title">Download svg</span>
               <span class="e-btn__icon">
                 <i class="e-icon e-icon--download"></i>
               </span>
+              <span class="e-btn__title">Svg</span>
             </button>
           </a>
           <a href="assets/logo/elvia_negative_1.svg" download *ngIf="isInverted">
             <button class="e-btn e-btn--tertiary e-btn--md e-btn--inverted">
-              <span class="e-btn__title">Download svg</span>
               <span class="e-btn__icon">
                 <i class="e-icon e-icon--download e-icon--inverted"></i>
               </span>
+              <span class="e-btn__title">Svg</span>
             </button>
           </a>
         </div>
@@ -63,7 +68,7 @@
       <div class="asset-container e-mt-40" [ngClass]="{ 'e-bg-grey': isInverted2 }">
         <div class="e-text-right">
           <div class="dark-mode-toggle">
-            <span>Dark</span>
+            <span>Inverted</span>
             <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': isInverted2 }">
               <input
                 class="e-toggle__input"
@@ -83,18 +88,18 @@
         <div class="e-text-right">
           <a href="assets/logo/elvia_positive_2.svg" download *ngIf="!isInverted2">
             <button class="e-btn e-btn--tertiary e-btn--md">
-              <span class="e-btn__title">Download svg</span>
               <span class="e-btn__icon">
                 <i class="e-icon e-icon--download"></i>
               </span>
+              <span class="e-btn__title">Svg</span>
             </button>
           </a>
           <a href="assets/logo/elvia_negative_2.svg" download *ngIf="isInverted2">
             <button class="e-btn e-btn--tertiary e-btn--md e-btn--inverted">
-              <span class="e-btn__title">Download svg</span>
               <span class="e-btn__icon">
                 <i class="e-icon e-icon--download e-icon--inverted"></i>
               </span>
+              <span class="e-btn__title">Svg</span>
             </button>
           </a>
         </div>
@@ -103,7 +108,7 @@
       <div class="asset-container e-mt-40" [ngClass]="{ 'e-bg-grey': isInverted3 }">
         <div class="e-text-right">
           <div class="dark-mode-toggle">
-            <span>Dark</span>
+            <span>Inverted</span>
             <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': isInverted3 }">
               <input
                 class="e-toggle__input"
@@ -123,18 +128,18 @@
         <div class="e-text-right">
           <a href="assets/logo/elvia_positive_3.svg" download *ngIf="!isInverted3">
             <button class="e-btn e-btn--tertiary e-btn--md">
-              <span class="e-btn__title">Download svg</span>
               <span class="e-btn__icon">
                 <i class="e-icon e-icon--download"></i>
               </span>
+              <span class="e-btn__title">Svg</span>
             </button>
           </a>
           <a href="assets/logo/elvia_negative_3.svg" download *ngIf="isInverted3">
             <button class="e-btn e-btn--tertiary e-btn--md e-btn--inverted">
-              <span class="e-btn__title">Download svg</span>
               <span class="e-btn__icon">
                 <i class="e-icon e-icon--download e-icon--inverted"></i>
               </span>
+              <span class="e-btn__title">Svg</span>
             </button>
           </a>
         </div>
@@ -143,7 +148,7 @@
       <div class="asset-container e-mt-40" [ngClass]="{ 'e-bg-grey': isInverted4 }">
         <div class="e-text-right">
           <div class="dark-mode-toggle">
-            <span>Dark</span>
+            <span>Inverted</span>
             <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': isInverted4 }">
               <input
                 class="e-toggle__input"
@@ -163,18 +168,18 @@
         <div class="e-text-right">
           <a href="assets/logo/elvia_positive_4.svg" download *ngIf="!isInverted4">
             <button class="e-btn e-btn--tertiary e-btn--md">
-              <span class="e-btn__title">Download svg</span>
               <span class="e-btn__icon">
                 <i class="e-icon e-icon--download"></i>
               </span>
+              <span class="e-btn__title">Svg</span>
             </button>
           </a>
           <a href="assets/logo/elvia_negative_4.svg" download *ngIf="isInverted4">
             <button class="e-btn e-btn--tertiary e-btn--md e-btn--inverted">
-              <span class="e-btn__title">Download svg</span>
               <span class="e-btn__icon">
                 <i class="e-icon e-icon--download e-icon--inverted"></i>
               </span>
+              <span class="e-btn__title">Svg</span>
             </button>
           </a>
         </div>
@@ -186,7 +191,7 @@
           <div class="asset-container fav" [ngClass]="{ 'e-bg-grey': isInvertedFav }">
             <div class="e-text-right">
               <div class="dark-mode-toggle">
-                <span>Dark</span>
+                <span>Inverted</span>
                 <label class="e-toggle" [ngClass]="{ 'e-toggle--inverted': isInvertedFav }">
                   <input
                     class="e-toggle__input"
@@ -214,18 +219,18 @@
             <div class="e-text-right">
               <a href="assets/favicon/favicon_final_black.zip" download *ngIf="!isInvertedFav">
                 <button class="e-btn e-btn--tertiary e-btn--md">
-                  <span class="e-btn__title">Download zip</span>
                   <span class="e-btn__icon">
                     <i class="e-icon e-icon--download"></i>
                   </span>
+                  <span class="e-btn__title">Zip</span>
                 </button>
               </a>
               <a href="assets/favicon/favicon_final_white/favicon.ico" download *ngIf="isInvertedFav">
                 <button class="e-btn e-btn--tertiary e-btn--md e-btn--inverted">
-                  <span class="e-btn__title">Download zip</span>
                   <span class="e-btn__icon">
                     <i class="e-icon e-icon--download e-icon--inverted"></i>
                   </span>
+                  <span class="e-btn__title">Zip</span>
                 </button>
               </a>
             </div>

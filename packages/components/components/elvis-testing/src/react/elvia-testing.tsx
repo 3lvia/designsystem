@@ -18,6 +18,7 @@ const StyledDivider = styled.div`
   height: 100%;
 `;
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const TestingComponent: React.FC<DividerProps> = ({ className, style }) => {
   const [open, setOpen] = React.useState(false);
 

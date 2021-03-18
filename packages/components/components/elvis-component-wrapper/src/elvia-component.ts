@@ -29,8 +29,12 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   connectedCallback(): void {
-    this.attachStyle();
+    if (this.webComponent.getComponentData().useWrapper) {
+      this.mountPoint = document.createElement('span');
+      this.appendChild(this.mountPoint);
+    }
     this.renderReactDOM();
+    this.attachStyle();
   }
 
   attributeChangedCallback(): void {
@@ -38,11 +42,13 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected attachStyle(): void {
-    this.mountPoint = document.createElement('span');
+    this.style.cssText = this.webComponent.getComponentData().elementStyle;
+    if (this.webComponent.getComponentData().wrapperStyle) {
+      this.mountPoint.style.cssText = this.webComponent.getComponentData().wrapperStyle;
+    }
     const styleTag = document.createElement('style');
     styleTag.innerHTML = this.cssStyle;
     this.appendChild(styleTag);
-    this.appendChild(this.mountPoint);
   }
 
   protected setProps(newProps: any, preventRerender?: boolean): void {
@@ -59,8 +65,8 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
-  protected createReactData() {
-    const reactData = {};
+  protected createReactData(): Record<string, any> {
+    const reactData: { [key: string]: boolean } = {};
     Object.keys(this._data).forEach((key: string) => {
       reactData[this.mapNameToRealName(key)] = this._data[key];
     });
@@ -76,6 +82,10 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected renderReactDOM(): void {
     this.mapAttributesToData();
+    if (!this.webComponent.getComponentData().useWrapper) {
+      ReactDOM.render(this.createReactElement(this.createReactData()), this);
+      return;
+    }
     if (this.mountPoint) {
       ReactDOM.render(this.createReactElement(this.createReactData()), this.mountPoint);
     }
