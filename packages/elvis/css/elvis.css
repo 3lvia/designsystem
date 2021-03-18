@@ -3801,12 +3801,12 @@ input:focus {
 }
 
 .e-header__sidebar__item:active .e-header__sidebar__icon, .e-header__sidebar__open-close:active .e-header__sidebar__icon {
-  border: 1px solid #29d305;
+  border: 1.5px solid #29d305;
 }
 
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
   .e-header__sidebar__item:hover .e-header__sidebar__icon, .e-header__sidebar__open-close:hover .e-header__sidebar__icon {
-    border: 1px solid #29d305;
+    border: 1.5px solid #29d305;
   }
 }
 .e-header__sidebar__item .e-header__sidebar__icon i[class*=color] {
@@ -3814,7 +3814,7 @@ input:focus {
 }
 
 .e-header__sidebar__item--active .e-header__sidebar__icon {
-  border: 1px solid #000;
+  border: 1.5px solid #000;
 }
 
 .e-header__sidebar__item--active .e-header__sidebar__icon i {

@@ -9,20 +9,44 @@
 <!--BODY-->
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <span class="e-tooltip" tabindex="0">
-      <i class="e-icon e-icon--edit e-icon--sm"></i>
-      <span class="e-tooltip__content">Tooltip</span>
-    </span>
+  <div
+    class="e-my-48"
+    class="component-preview-temp component-preview-animation"
+  >
+    <div>
+      <span
+        class="e-tooltip e-mr-72"
+        tabindex="0"
+      >
+        <i class="e-icon e-icon--edit e-icon--sm"></i>
+        <span class="e-tooltip__content">Tooltip</span>
+      </span>
+
+      <span
+        class="e-tooltip e-ml-72"
+        tabindex="0"
+      >
+        <i class="e-icon e-icon--edit e-icon--sm"></i>
+        <span class="e-tooltip__content e-tooltip__content--right">Tooltip</span>
+      </span>
+    </div>
+
+
     <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="example1"></app-component-example-v1>
+      <app-component-example-v1
+        [showPreview]="false"
+        [codeHTML]="example1"
+      ></app-component-example-v1>
     </div>
   </div>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+      <app-when-to-use
+        [whens]="does"
+        [whenNots]="donts"
+      ></app-when-to-use>
 
       <app-component-subsection [sectionTitle]="'Alignment'">
         <ng-container ngProjectAs="sectionContent">
@@ -44,7 +68,10 @@
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-tooltip'">
+  <app-component-section
+    [sectionTitle]="'Properties'"
+    [propertiesClass]="'e-tooltip'"
+  >
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties [componentName]="'e-tooltip'"></app-component-properties>
     </ng-container>
