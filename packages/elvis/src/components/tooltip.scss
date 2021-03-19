@@ -120,7 +120,7 @@ $tooltip-padding: 8px 10px;
     }
 
     &.is-active {
-      animation: TooltipFadeIn 500ms 750ms forwards;
+      animation: TooltipFadeIn 200ms 500ms forwards;
     }
   }
 }

@@ -7488,7 +7488,7 @@ input:focus {
 }
 
 .e-tooltip__content.is-active, .e-tooltip:hover .e-tooltip__content, .e-tooltip:focus .e-tooltip__content {
-  animation: TooltipFadeIn 500ms 750ms forwards;
+  animation: TooltipFadeIn 200ms 500ms forwards;
 }
 
 @keyframes TooltipFadeIn {
