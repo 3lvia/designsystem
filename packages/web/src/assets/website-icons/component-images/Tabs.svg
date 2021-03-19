@@ -4,5 +4,4 @@
 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 8.5H3C2.72386 8.5 2.5 8.72386 2.5 9V13.5H12.5V8.5ZM3 6C1.34315 6 0 7.34315 0 9V13.5H15V6H3Z" fill="black"/>
 <path d="M2.5 13.5H12.5V16H2.5V13.5Z" fill="white"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M25 8.5H15V13.5H25V8.5ZM12.5 6V14C12.5 15.1046 13.3954 16 14.5 16H27.5V6H12.5Z" fill="black"/>
-<path d="M6 12.5H9" stroke="#29D305" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

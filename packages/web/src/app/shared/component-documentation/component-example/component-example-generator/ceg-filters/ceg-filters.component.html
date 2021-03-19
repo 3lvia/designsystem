@@ -74,19 +74,11 @@
             <i class="e-icon e-icon e-icon--subtract_circle-filled-color"></i>
           </span>
         </button>
-        <span
-          class="counter__number e-text-md"
-          [ngClass]="{ small: prop.cegCounterMax < 10 }"
-          *ngIf="counterNumber !== undefined"
-        >
-          {{ counterNumber }}{{ prop.cegCounterType }}
+        <span class="counter__number e-text-md" *ngIf="counterNumber !== undefined">
+          {{ counterNumber }}%
         </span>
-        <span
-          class="counter__number e-text-md"
-          [ngClass]="{ small: prop.cegCounterMax < 10 }"
-          *ngIf="counterNumber === undefined"
-        >
-          {{ prop.cegDefault }}{{ prop.cegCounterType }}
+        <span class="counter__number e-text-md" *ngIf="counterNumber === undefined">
+          {{ prop.cegDefault }}%
         </span>
         <button
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8"

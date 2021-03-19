@@ -208,10 +208,10 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
   },
   { name: 'elsmart-color', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'expand_circle-color', terms: ['arrow'], thirdparty: { name: ['streamline'] } },
+  { name: 'expand_circle-color', terms: [], thirdparty: { name: ['streamline'] } },
   {
     name: 'expand_circle-filled-color',
-    terms: ['arrow'],
+    terms: [],
     thirdparty: { name: ['streamline'], duplicate: ['expand_circle-color'] },
   },
   { name: 'filter', terms: [], thirdparty: { name: ['streamline'] } },

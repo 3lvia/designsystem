@@ -15,77 +15,21 @@ export class CheckboxDocComponent {
   exampleOverview = `<label class="e-checkbox" for="elvis-checkbox">
   <input type="checkbox" id="elvis-checkbox">
   <span class="e-checkbox__mark"></span>
-  <span class="e-checkbox__label">Standard</span>
+  <span class="e-checkbox__label">Normal</span>
 </label>
-`;
-
-  exampleStandard = `<label class="e-checkbox" for="elvis-checkbox-standard">
-  <input type="checkbox" id="elvis-checkbox-standard">
-  <span class="e-checkbox__mark"></span>
-  <span class="e-checkbox__label">Standard</span>
-</label>
-`;
-
-  exampleNested = `<div class="e-form-field">
-  <label class="e-checkbox e-checkbox--indeterminate" for="elvis-checkbox-indeterminate">
-    <input type="checkbox" id="elvis-checkbox-indeterminate">
-    <span class="e-checkbox__mark"></span>
-    <span class="e-checkbox__label">Indeterminate</span>
-  </label>
-  <div class="e-form-field__nested">
-    <label class="e-checkbox" for="elvis-checkbox-nested-checked">
-      <input type="checkbox" id="elvis-checkbox-nested-checked" checked>
-      <span class="e-checkbox__mark"></span>
-      <span class="e-checkbox__label">Checked</span>
-    </label>
-    <label class="e-checkbox" for="elvis-checkbox-nested">
-      <input type="checkbox" id="elvis-checkbox-nested">
-      <span class="e-checkbox__mark"></span>
-      <span class="e-checkbox__label">Not checked</span>
-    </label>
-  </div>
-</div>
 `;
 
   exampleSizes = `<form>
-  <label class="e-form-field__label" for="nested-sm">Medium</label>
-  <label class="e-checkbox e-checkbox--indeterminate" for="elvis-checkbox-indeterminate-md">
-    <input type="checkbox" id="elvis-checkbox-indeterminate-md">
+  <label class="e-checkbox" for="elvis-checkbox-md">
+    <input type="checkbox" id="elvis-checkbox-md">
     <span class="e-checkbox__mark"></span>
-    <span class="e-checkbox__label">Indeterminate</span>
+    <span class="e-checkbox__label">Medium</span>
   </label>
-  <div class="e-form-field__nested">
-    <label class="e-checkbox" for="elvis-checkbox-nested-checked-md">
-      <input type="checkbox" id="elvis-checkbox-nested-checked-md" checked>
-      <span class="e-checkbox__mark"></span>
-      <span class="e-checkbox__label">Checked</span>
-    </label>
-    <label class="e-checkbox" for="elvis-checkbox-nested-md">
-      <input type="checkbox" id="elvis-checkbox-nested-md">
-      <span class="e-checkbox__mark"></span>
-      <span class="e-checkbox__label">Not checked</span>
-    </label>
-  </div>
-  <div class="e-form-field e-mt-40">
-  <label class="e-form-field__label" for="nested-sm">Small</label>
-  <label class="e-checkbox e-checkbox--sm e-checkbox--indeterminate" for="elvis-checkbox-indeterminate-sm">
-    <input type="checkbox" id="elvis-checkbox-indeterminate-sm">
+  <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-sm">
+    <input type="checkbox" id="elvis-checkbox-sm">
     <span class="e-checkbox__mark"></span>
-    <span class="e-checkbox__label">Indeterminate</span>
+    <span class="e-checkbox__label">Small</span>
   </label>
-  <div class="e-form-field__nested e-form-field__nested--sm">
-    <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-nested-checked-sm">
-      <input type="checkbox" id="elvis-checkbox-nested-checked-sm" checked>
-      <span class="e-checkbox__mark"></span>
-      <span class="e-checkbox__label">Checked</span>
-    </label>
-    <label class="e-checkbox e-checkbox--sm" for="elvis-checkbox-nested-sm">
-      <input type="checkbox" id="elvis-checkbox-nested-sm">
-      <span class="e-checkbox__mark"></span>
-      <span class="e-checkbox__label">Not checked</span>
-    </label>
-  </div>
-</div>
 <form>
 `;
 
@@ -116,19 +60,13 @@ export class CheckboxDocComponent {
 <label class="e-checkbox e-checkbox---disabled-checked" for="elvis-pseudo-checkbox-disabled-checked">
   <input type="checkbox" id="elvis-pseudo-checkbox-disabled-checked">
   <span class="e-checkbox__mark"></span>
-  <span class="e-checkbox__label">Disabled checked</span>
+  <span class="e-checkbox__label">Disabled</span>
 </label>
 
 <label class="e-checkbox e-checkbox---invalid" for="elvis-pseudo-checkbox-invalid">
   <input type="checkbox" id="elvis-pseudo-checkbox-invalid">
   <span class="e-checkbox__mark"></span>
   <span class="e-checkbox__label">Invalid</span>
-</label>
-
-<label class="e-checkbox e-checkbox--indeterminate" for="elvis-pseudo-checkbox-indeterminate">
-  <input type="checkbox" id="elvis-pseudo-checkbox-indeterminate">
-  <span class="e-checkbox__mark"></span>
-  <span class="e-checkbox__label">Indeterminate</span>
 </label>
 `;
 }

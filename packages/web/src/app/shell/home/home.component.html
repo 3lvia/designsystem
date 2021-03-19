@@ -3,62 +3,49 @@
     <div class="row no-gutters e-bg-grey">
       <div class="home-top-desktop">
         <div class="col-lg-6 desktop-col">
-          <div class="home-header home-text-animation">
+          <div class="home-header">
             <h1 class="big-header">
-              <div *ngIf="fontLoaded">
-                <span class="title">{{ overviewTitle }}</span>
-                <span class="dot"></span>
-              </div>
-              <div class="content-loader-title" *ngIf="!fontLoaded">
-                <span class="e-content-loader e-content-loader--inverted e-w-75" style="height: 60px"></span>
-                <span
-                  class="e-content-loader e-content-loader--inverted e-w-50 e-mt-24"
-                  style="height: 60px"
-                ></span>
-              </div>
+              <span class="title">{{ overviewTitle }}</span>
+              <span class="dot"></span>
             </h1>
             <div class="e-text-lead e-mt-32">
-              <div *ngIf="fontLoaded">
-                A scalable system of visual language, components and design assets so we can work together
-                towards an ultimate brand experience.
-              </div>
-              <div *ngIf="!fontLoaded" class="content-loader-text">
-                <span class="e-content-loader e-content-loader--text e-content-loader--inverted"></span>
-                <span
-                  class="e-content-loader e-content-loader--text e-content-loader--inverted e-mt-24"
-                ></span>
-                <span
-                  class="e-content-loader e-content-loader--text e-content-loader--inverted e-w-75 e-mt-24"
-                ></span>
-              </div>
+              A scalable system of visual language, components and design assets so we can work together
+              towards an ultimate brand experience.
             </div>
-            <a *ngIf="fontLoaded" class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
-              <span class="e-btn__title">
-                <div>Get started</div>
-              </span>
+            <a
+              class="e-btn e-btn--lg e-mt-48"
+              [routerLink]="['/get-started']"
+            >
+              <span class="e-btn__title">Get started</span>
             </a>
-            <div class="e-mt-48" *ngIf="!fontLoaded">
-              <span
-                class="e-content-loader e-content-loader--inverted"
-                style="width: 160px; height: 48px"
-              ></span>
-            </div>
           </div>
         </div>
 
         <div class="col-lg-6">
-          <div class="image-div home-image-animation">
-            <img *ngIf="christmas" src="assets/ChristmasIllustration.svg" />
-            <img *ngIf="!christmas" src="assets/HomeIllustration.png" />
+          <div class="image-div">
+            <img
+              *ngIf="christmas"
+              src="assets/ChristmasIllustration.svg"
+            />
+            <img
+              *ngIf="!christmas"
+              src="assets/HomeIllustration.png"
+            />
           </div>
         </div>
       </div>
 
       <div class="home-top-mobile">
         <div class="col-md-12">
-          <div class="image-div home-image-animation">
-            <img *ngIf="christmas" src="assets/ChristmasIllustration.svg" />
-            <img *ngIf="!christmas" src="assets/HomeIllustration.png" />
+          <div class="image-div">
+            <img
+              *ngIf="christmas"
+              src="assets/ChristmasIllustration.svg"
+            />
+            <img
+              *ngIf="!christmas"
+              src="assets/HomeIllustration.png"
+            />
           </div>
         </div>
       </div>
@@ -76,15 +63,21 @@
             A scalable system of visual language, components and design assets so we can work together towards
             an ultimate brand experience.
           </div>
-          <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
+          <a
+            class="e-btn e-btn--lg e-mt-48"
+            [routerLink]="['/get-started']"
+          >
             <span class="e-btn__title">Get started</span>
           </a>
         </div>
       </div>
     </div>
     <div class="row no-gutters">
-      <div class="col-12 card-links home-card-links-animation">
-        <div class="card-link" *ngFor="let page of pages">
+      <div class="col-12 card-links">
+        <div
+          class="card-link"
+          *ngFor="let page of pages"
+        >
           <a
             class="e-link e-link--card e-link--shortcut"
             *ngIf="page.absolutePath"
@@ -92,30 +85,50 @@
           >
             <div class="e-link__content">
               <div class="e-link__icon e-link--delay-hover">
-                <img src="{{ page.imageUrl }}" class="shortcut-off" alt="" />
-                <img src="{{ page.imageUrlOn }}" class="shortcut-on" alt="" />
+                <img
+                  src="{{ page.imageUrl }}"
+                  class="shortcut-off"
+                  alt=""
+                />
+                <img
+                  src="{{ page.imageUrlOn }}"
+                  class="shortcut-on"
+                  alt=""
+                />
               </div>
-              <div *ngIf="fontLoaded">
-                <div class="e-link__title">{{ page.title }}</div>
-                <div class="e-link__description">{{ page.description }}</div>
-              </div>
-              <div *ngIf="!fontLoaded" class="e-w-100 e-mt-24">
-                <span class="e-content-loader e-content-loader--text"></span>
-              </div>
+              <div class="e-link__title">{{ page.title }}</div>
+              <div class="e-link__description">{{ page.description }}</div>
             </div>
           </a>
         </div>
       </div>
     </div>
 
-    <div class="row no-gutters" style="margin-top: 80px">
+    <div
+      class="row no-gutters"
+      style="margin-top: 80px"
+    >
       <div class="home-whats-new">
-        <div class="e-title-md e-mb-56" style="display: flex; justify-content: center">What's new?</div>
+        <div
+          class="e-title-md e-mb-56"
+          style="display: flex; justify-content: center"
+        >What's new?</div>
         <div>
-          <div class="e-mt-n48" style="padding-top: 0px" markdown [src]="'assets/elvis/CHANGELOG.md'"></div>
+          <div
+            class="e-mt-n48"
+            style="padding-top: 0px"
+            markdown
+            [src]="'assets/elvis/CHANGELOG.md'"
+          ></div>
         </div>
-        <div class="e-mt-48" style="display: flex; justify-content: center">
-          <a class="e-link e-link--action" [routerLink]="['/community/changelog']">
+        <div
+          class="e-mt-48"
+          style="display: flex; justify-content: center"
+        >
+          <a
+            class="e-link e-link--action"
+            [routerLink]="['/community/changelog']"
+          >
             <span class="e-link__title">View changelog</span>
             <span class="e-link__icon">
               <i class="e-icon e-icon--arrow_right_circle-color"></i>

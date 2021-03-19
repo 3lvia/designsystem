@@ -4,16 +4,17 @@ const popoverData = {
   name: 'elvis-popover',
   elementNameW: 'elvia-popover',
   elementNameR: 'Popover',
+  package: 'npm install @elvia/elvis-popover',
   attributes: {
-    header: {
+    title: {
       isRequired: false,
       type: 'string',
-      description: 'Header of content',
-      displayName: 'Header',
+      description: 'Title of content',
+      displayName: 'Title',
       cegType: 'string',
       cegFormType: 'toggle',
       cegDefault: 'true',
-      cegOption: exampleContents.texts.md['eng-GBR'].title,
+      cegOption: 'Title',
     },
     hasCloseBtn: {
       isRequired: false,
@@ -57,12 +58,11 @@ const popoverData = {
       cegOptions: ['center', 'left', 'right'],
     },
   },
-  package: 'npm install @elvia/elvis-popover',
   codeImportReact: `import { Popover } from '@elvia/elvis-popover/react';`,
   codeImportWebComponent: `import '@elvia/elvis-popover';`,
   codeReact:
     `<Popover
-  header="` +
+  title="` +
     exampleContents.texts.md['eng-GBR'].title +
     `"
   content="` +
@@ -80,12 +80,12 @@ const popoverData = {
 ></Popover>`,
   codeWebComponent:
     `<elvia-popover 
-  header="` +
+  title="` +
     exampleContents.texts.md['eng-GBR'].title +
-    `"
+    `" 
   content="` +
     exampleContents.texts.md['eng-GBR'].description +
-    `"
+    `" 
   posY="top"
 >
   <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">

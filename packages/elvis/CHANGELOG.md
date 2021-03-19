@@ -1,127 +1,8 @@
-<!-- ✂️ Breaking Changes -->
-<!-- 💥 New Features -->
-<!-- 🐝 Bug Fixes -->
+<!-- ✂️ - BREAKING CHANGE -->
+<!-- 💥 - NEW FEATURES -->
+<!-- 🐝 - BUG FIXES -->
 
 <table>
-  <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
-    <span class="e-title-sm">
-      7.4.0
-    </span>
-    <br>
-    <span>
-      March 12, 2021
-    </span>
-    </td>
-    <td class="changelog-content">
-      <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Features</div>
-        <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a> &
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
-        </div>
-        External links and icons have been replaced with New tab links and icons. After discussions and research about External link VS New tab link, it is now clear that we only need one of them, which can stand for both uses.
-        <ul>
-          <li>
-            External links have been deprecated and replaced by New tab links. <span class="code-text">e-link--external</span> will automatically work as <span class="code-text">e-link--new-tab</span> instead.
-          </li>
-          <li>
-            External icons have also been deprecated in this context: <span class="code-text">arrow_external</span> and <span class="code-text">arrow_external-bold</span> now points to the new tab icon <span class="code-text">new_tab-bold</span>.
-          </li>
-        </ul>
-      </div>
-      <div class="changelog-divider"></div>
-    </td>
-  </tr>
-
-  <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
-    <span class="e-title-sm">
-      7.3.0
-    </span>
-    <br>
-    <span>
-      March 11, 2021
-    </span>
-    </td>
-    <td class="changelog-content">
-      <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Features</div>
-        <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/checkbox#Overview">Checkbox</a>
-        </div>
-        Added documentation for nested checkboxes and added the new state indeterminate.
-      </div>
-      <div class="changelog-section">
-        <div class="changelog-section-title">🐝 Bug Fixes</div>
-        <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/checkbox#Overview">Checkbox</a>
-        </div>
-        Normal sized checkboxes now has font-size 16px, instead of inheriting their font-size.
-      </div>
-      <div class="changelog-divider"></div>
-    </td>
-  </tr>
-
-  <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
-    <span class="e-title-sm">
-      7.2.0
-    </span>
-    <br>
-    <span>
-      March 10, 2021
-    </span>
-    </td>
-    <td class="changelog-content">
-      <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Features</div>
-        <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a>
-        </div>
-        Using <span class="code-text">b</span> and <span class="code-text">strong</span> elements inside our text-classes (not title classes), will now give <span class="code-text">font-weight: 500</span>, to make it easier to use bold versions of our typography in all types of applications. Example:
-        <div class="e-text-sm">
-          <span class="code-text">&lt;p class="e-text-sm"&gt;</span>
-            <div class="changelog-section-margin">
-              <div>Text styled as text sm.</div>
-              <b><span class="code-text">&lt;b&gt;</span>This text will have e-text-sm style, but with font-weight 500 <span class="code-text">&lt;/b&gt;</span></b>
-            </div>
-          <span class="code-text">&lt;/p&gt;</span>
-        </div>
-      </div>
-      <div class="changelog-divider"></div>
-    </td>
-  </tr>
-
-  <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
-    <span class="e-title-sm">
-      7.1.0
-    </span>
-    <br>
-    <span>
-      February 26, 2021
-    </span>
-    </td>
-    <td class="changelog-content">
-      <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Features</div>
-        <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a>
-        </div>
-        Content loader for dark backgrounds added: <span class="code-text">e-content-loader--inverted</span>.
-      </div>
-      <div class="changelog-section">
-        <div class="changelog-section-title">🐝 Bug Fixes</div>
-        <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
-        </div>
-        Typography now has Verdana as fallback font.
-      </div>
-      <div class="changelog-divider"></div>
-    </td>
-  </tr>
-
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
@@ -134,7 +15,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Components: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>,
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a> & 
@@ -257,7 +138,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Input</a>
         </div>
@@ -299,7 +180,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/search#Overview">Search</a>
         </div>
@@ -396,7 +277,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Header</a>
         </div>
@@ -437,7 +318,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover#Overview">Popover</a>
         </div>
@@ -461,7 +342,7 @@
           </div>
         </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Features</div>
+        <div class="changelog-section-title">💥 New features</div>
           <div>Component: 
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/popover#Overview">Popover</a>
           </div>
@@ -510,7 +391,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>
@@ -551,7 +432,7 @@
           </div>
         </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Features</div>
+        <div class="changelog-section-title">💥 New features</div>
            <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
         </div>
@@ -573,7 +454,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/card#Overview">Cards</a>,
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/header#Overview">Header</a>,
@@ -583,7 +464,7 @@
         Some of the typography has new font-sizes and line-heights. The changes will affect the appearance of the typography where it is used and may need to be updated. Some components we offer have also changed typography which means some minor visual differences to these components. 
       </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Features</div>
+        <div class="changelog-section-title">💥 New features</div>
            <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/typography#Overview">Typography</a>
         </div>
@@ -605,7 +486,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>
           Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/modal#Overview">Modal</a>,
@@ -623,7 +504,7 @@
         </div>
       </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Features</div>
+        <div class="changelog-section-title">💥 New features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/utilities">Utility classes</a>
         </div>
@@ -645,7 +526,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid#Overview">Grid</a>
         </div>
@@ -661,7 +542,7 @@
         </ul>
       </div>
       <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Features</div>
+        <div class="changelog-section-title">💥 New features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid#Overview">Grid</a>
         </div>
@@ -683,7 +564,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         Switched from @import to @use. The @use rule is the primary replacement for @import, which will be deprecated in near future (2022 latest). @use is currently not supported by the node-sass compiler. Dart-sass is the primary implementation of Sass and do support the use of @use. Read more about the advantages of @use here: 
         <a class="e-link e-link--inline" href="https://sass-lang.com/blog/the-module-system-is-launched">Sass module system</a>
         <div class="e-mt-8">
@@ -707,7 +588,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         Switched from node-sass compiler to dart-sass compiler. Dart-sass is the primary implementation of Sass, which means it gets new features before any other implementation and at current time node-sass do not support the use of @use, which is the module system replacing @import. This might not affect you as a user.
       </div>
       <div class="changelog-divider"></div>
@@ -726,7 +607,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icons</a> 
         </div>
@@ -748,7 +629,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline"  href="https://design.elvia.io/identity/icon#Overview">Icons</a> 
         </div>
@@ -770,7 +651,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Buttons</a> 
         </div>
@@ -792,7 +673,7 @@
     </td>
     <td class="changelog-content">
       <div>
-        <div class="changelog-section-title">✂️ Breaking Changes</div>
+        <div class="changelog-section-title">✂️ Breaking changes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Inputs</a> 
         </div>

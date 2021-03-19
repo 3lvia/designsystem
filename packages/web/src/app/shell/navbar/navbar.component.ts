@@ -106,13 +106,13 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   updateNavbarHeight(): void {
     const fromTop = document.documentElement.scrollTop + window.innerHeight + 200 + 60;
-    const scrollHeight = document.documentElement.scrollHeight + 48;
+    const scrollHeight = document.documentElement.scrollHeight;
     const el = document.getElementById('side-navbar') as HTMLElement;
     if (fromTop >= scrollHeight) {
-      const newHeight = scrollHeight - document.documentElement.scrollTop - 60 - 64 - 48 - 60 - 200;
+      const newHeight = scrollHeight - document.documentElement.scrollTop - 60 - 64 - 60 - 200;
       el.style.height = newHeight + 'px';
     } else {
-      el.style.height = window.innerHeight - 64 - 48 - 60 + 'px';
+      el.style.height = window.innerHeight - 64 - 60 + 'px';
     }
   }
 

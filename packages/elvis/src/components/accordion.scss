@@ -15,7 +15,7 @@
 
     .e-accordion__title {
       display: flex;
-      font-family: 'Red Hat Display', Verdana, sans-serif;
+      font-family: 'Red Hat Display';
       font-weight: 500;
       font-size: 14px;
       line-height: 24px;
@@ -162,9 +162,7 @@
     width: 100%;
 
     .e-accordion__item {
-      &:not(:last-of-type) {
-        border-bottom: 1px solid colors.color('grey-10');
-      }
+      border-bottom: 1px solid colors.color('grey-10');
       .e-accordion__label {
         display: flex;
         justify-content: space-between;
@@ -183,7 +181,7 @@
           }
         }
         .e-accordion__title {
-          font-family: 'Red Hat Display', Verdana, sans-serif;
+          font-family: 'Red Hat Display';
           font-weight: 500;
           font-size: 20px;
           line-height: 32px;

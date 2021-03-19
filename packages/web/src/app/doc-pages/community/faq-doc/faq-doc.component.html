@@ -1,6 +1,8 @@
 <!--HEADER-->
 <app-component-header>
-  <ng-container ngProjectAs="headerTitle">FAQ</ng-container>
+  <ng-container ngProjectAs="headerTitle">
+    FAQ
+  </ng-container>
   <ng-container ngProjectAs="headerDescription">
     <span class="e-text-lead">
       {{ description }}
@@ -10,87 +12,83 @@
 
 <!--BODY-->
 <div class="page-body">
-  <app-component-subsubsection>
-    <ng-container ngProjectAs="sectionContent">
-      <div class="e-accordion e-accordion--group e-mt-72">
-        <div class="e-accordion__item" #contribute>
-          <div class="e-accordion__label" (click)="toggleOpen('contribute')">
-            <div class="e-accordion__title">How do I contribute or propose new components/ideas?</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            <span class="e-text-body">
-              Check out the
-              <a class="e-link e-text-body" [routerLink]="['/community/contribute']">contribution model</a>
-              .
-            </span>
-          </div>
+  <div class="e-accordion e-accordion--group e-mt-72">
+    <div class="e-accordion__item" #contribute>
+      <div class="e-accordion__label" (click)="toggleOpen('contribute')">
+        <div class="e-accordion__title">
+          How do I contribute or propose new components/ideas?
         </div>
-        <div class="e-accordion__item" #bugs>
-          <div class="e-accordion__label" (click)="toggleOpen('bugs')">
-            <div class="e-accordion__title">How do I report bugs?</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            <span class="e-text-body">
-              Come in contact with us with any requests or reports of bugs and issues on slack
-              <a
-                class="e-link e-link--new-tab e-link--inline"
-                href="https://hafslundnett.slack.com/archives/C01302LBTC2"
-                target="_blank"
-              >
-                <span class="e-link__title">#designsystemet</span>
-                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-              </a>
-              . If you are a developer at Elvia you can also send requests or report bugs and issues through
-              this
-              <a class="e-link e-link--new-tab e-link--inline" href="https://github.com/3lvia/designsystem/issues/new/choose" target="_blank">
-                <span class="e-link__title">github form</span>
-                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-              </a>
-              . If these methods are unavailable to you, send a mail to
-              <a class="e-link e-link--new-tab e-link--inline" href="mailto:michael.pande@eidsiva.no" target="_blank">
-                <span class="e-link__title">michael.pande@eidsiva.no</span>
-                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-              </a>
-              .
-            </span>
-          </div>
-        </div>
-        <div class="e-accordion__item" #browsers>
-          <div class="e-accordion__label" (click)="toggleOpen('browsers')">
-            <div class="e-accordion__title">Which browsers are supported?</div>
-            <div class="e-accordion__icon">
-              <i class="e-icon e-icon--expand_circle-color"></i>
-              <i class="e-icon e-icon--expand_circle-filled-color"></i>
-            </div>
-          </div>
-          <div class="e-accordion__content">
-            <p class="e-text-body">
-              Components are actively tested for these browsers and only minor visual differences should
-              occur:
-            </p>
-            <ul class="e-list e-text-body">
-              <li>Chrome - latest</li>
-              <li>Firefox - latest</li>
-              <li>Safari - latest</li>
-              <li>MS Edge - latest</li>
-              <li>MS Internet Explorer - 11 *</li>
-            </ul>
-            <p class="e-text-body">
-              * FYI: Even though the design system have to support Internet Explorer 11, you might not have
-              to. If you are developing on a internal system for usage by Elvia employees only, you do not
-              have to support IE11. Don't forget to give a warning to the user if the browser is IE11.
-            </p>
-          </div>
+        <div class="e-accordion__icon">
+          <i class="e-icon e-icon--expand_circle-color"></i>
+          <i class="e-icon e-icon--expand_circle-filled-color"></i>
         </div>
       </div>
-    </ng-container>
-  </app-component-subsubsection>
+      <div class="e-accordion__content">
+        <span class="e-text-body">
+          Check out the
+          <a class="e-link e-text-body" [routerLink]="['/community/contribute']">contribution model</a>
+          .
+        </span>
+      </div>
+    </div>
+    <div class="e-accordion__item" #bugs>
+      <div class="e-accordion__label" (click)="toggleOpen('bugs')">
+        <div class="e-accordion__title">
+          How do I report bugs?
+        </div>
+        <div class="e-accordion__icon">
+          <i class="e-icon e-icon--expand_circle-color"></i>
+          <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        </div>
+      </div>
+      <div class="e-accordion__content">
+        <span class="e-text-body">
+          Come in contact with us with any requests or reports of bugs and issues on slack
+          <a
+            class="e-link e-link--external e-link--inline"
+            href="https://hafslundnett.slack.com/archives/C01302LBTC2"
+            target="_blank"
+          >
+            <span class="e-link__title">#designsystemet</span>
+            <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
+          </a>
+          . If you are a developer at Elvia you can also send requests or report bugs and issues through this
+          <a class="e-link e-text-body" href="https://github.com/3lvia/designsystem/issues/new/choose">
+            github form
+          </a>
+          . If these methods are unavailable to you, send a mail to
+          <a class="e-link e-text-body" href="mailto:michael.pande@eidsiva.no">michael.pande@eidsiva.no</a>
+          .
+        </span>
+      </div>
+    </div>
+    <div class="e-accordion__item" #browsers>
+      <div class="e-accordion__label" (click)="toggleOpen('browsers')">
+        <div class="e-accordion__title">
+          Which browsers are supported?
+        </div>
+        <div class="e-accordion__icon">
+          <i class="e-icon e-icon--expand_circle-color"></i>
+          <i class="e-icon e-icon--expand_circle-filled-color"></i>
+        </div>
+      </div>
+      <div class="e-accordion__content">
+        <p class="e-text-body">
+          Components are actively tested for these browsers and only minor visual differences should occur:
+        </p>
+        <ul class="e-list e-text-body">
+          <li>Chrome - latest</li>
+          <li>Firefox - latest</li>
+          <li>Safari - latest</li>
+          <li>MS Edge - latest</li>
+          <li>MS Internet Explorer - 11 *</li>
+        </ul>
+        <p class="e-text-body">
+          * FYI: Even though the design system have to support Internet Explorer 11, you might not have to. If
+          you are developing on a internal system for usage by Elvia employees only, you do not have to
+          support IE11. Don't forget to give a warning to the user if the browser is IE11.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

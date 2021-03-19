@@ -1,9 +1,5 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
-:host {
-  width: 100%;
-}
-
 @mixin first-col {
   width: 80%;
   @include breakpoint-up(Mobile) {
@@ -38,14 +34,6 @@
   .ceg-row-2 {
     @include first-col;
   }
-  .ceg-full-row {
-    width: 100%;
-  }
-
-  &.full-width .ceg-row-2,
-  &.full-width .ceg-col-1 {
-    width: 100% !important;
-  }
 
   .ceg-code-preview {
     display: flex;
@@ -57,8 +45,7 @@
     border: 1px solid var(--e-grey-10);
     border-radius: 8px;
     .ceg-frame {
-      display: flex;
-      justify-content: center;
+      text-align: center;
       width: 100%;
       height: 0;
     }

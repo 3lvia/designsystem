@@ -6,12 +6,12 @@
       Elvia has a profile font called Red Hat that should be used throughout all material. The Red Hat font
       family inlcudes two optical sizes: Display and Text, and can be dowloaded here
       <a
-        class="e-link e-link--inline e-link--new-tab"
+        class="e-link e-link--inline e-link--external"
         href="https://fonts.google.com/?query=red+hat"
         target="_blank"
       >
         <span class="e-link__title">dowloaded here</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        <span class="e-link__icon"><i class="e-icon e-icon--arrow_external-bold"></i></span>
       </a>
       via Google Fonts.
     </div>
@@ -20,25 +20,26 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--PREVIEW-->
-  <app-component-subsection>
-    <ng-container ngProjectAs="sectionContent">
-      <div class="e-mt-72 e-mb-24">
-        <div style="display: flex; justify-content: center; width: 100%" *ngIf="!loadedImg">
-          <div class="e-content-loader" style="width: 80%"></div>
-        </div>
-        <img
-          class="header-img"
-          [ngClass]="!loadedImg ? 'e-none' : ''"
-          src="../../../../assets/website-icons/identity-images/RedHat.jpeg"
-          alt="Confirmation page illustration"
-          (load)="hideContentLoader($event)"
-        />
-      </div>
-    </ng-container>
-  </app-component-subsection>
-
-  <!--TEXT STYLES-->
+  <!-- Red Hat illustration -->
+  <div class="e-mt-72 e-mb-24">
+    <div
+      style="display: flex; justify-content: center; width: 100%;"
+      *ngIf="!loadedImg"
+    >
+      <div
+        class="e-content-loader"
+        style="width: 80%;"
+      ></div>
+    </div>
+    <img
+      class="header-img"
+      [ngClass]="!loadedImg ? 'e-none' : '' "
+      src="../../../../assets/website-icons/identity-images/RedHat.jpeg"
+      alt="Confirmation page illustration"
+      (load)="hideContentLoader($event)"
+    />
+  </div>
+  <!--Text Styles-->
   <app-component-section [sectionTitle]="'Text styles'">
     <ng-container ngProjectAs="sectionContent">
       <div class="e-text-lg e-mb-72">
@@ -59,7 +60,7 @@
     </ng-container>
   </app-component-section>
 
-  <!--USAGE-->
+  <!--Usage-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Red Hat Display VS Red Hat Text'">

@@ -1,14 +1,18 @@
 # Elvia Popover Changelog
 
-## 2.0.0 (04.03.21)
+## 1.0.0 (13.11.20)
 
-### Bug fixes
+### Breaking changes
 
-- Popover safari box-sizing bug
-- Popover without shadow dom
-
-## 1.0.0 (03.02.21)
+- Breaking change
+  - Easy fix
 
 ### New features
 
-- First version of popover
+- New feature
+- New feature
+
+### Bug fixes
+
+- Bug fix
+- Bug fix

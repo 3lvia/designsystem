@@ -5,7 +5,7 @@ trigger element and should position itself relative to where there is free space
 
 ## Props
 
-- header (string) - Header of content
+- title (string) - Title of content
 - content (string | HTMLElement) [required] - Text, images, tables or any other content (use slot in angular
   if not just text)
 - trigger (HTMLElement) [required] - The element the user clicks to open the popover (pass in as slot, in
@@ -23,7 +23,7 @@ import { Popover } from '@elvia/elvis-popover/react';
 
 ```
 <Popover
-    header="header"
+    title="title"
     content="content"
     trigger={<button>trigger</button>}
     posX="posX"
@@ -39,7 +39,7 @@ import { Popover } from '@elvia/elvis-popover';
 
 ```
 <Popover
-    header="header"
+    title="title"
     content="text"
     posX="posX"
     posY="posY"
@@ -48,7 +48,7 @@ import { Popover } from '@elvia/elvis-popover';
 </Popover>
 
 <Popover
-    header="header"
+    title="title"
     posX="posX"
     posY="posY"
 >

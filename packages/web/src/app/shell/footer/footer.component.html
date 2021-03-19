@@ -1,21 +1,22 @@
-<div class="footer" [ngClass]="bgClass">
+<div
+  class="footer"
+  [ngClass]="bgClass"
+>
   <div class="footer-container">
     <div class="e-grid">
       <div class="row no-gutters justify-content-center">
-        <div
-          class="d-md-none d-lg-none d-xl-none d-sm-block col-xs-12 col-sm-8 col-sm-8-custom e-text-info e-mb-40"
-        >
+        <div class="d-md-none d-lg-none d-xl-none d-sm-block col-xs-12 col-sm-8 col-sm-8-custom e-text-info e-mb-40">
           <div class="text-align-center">
             <div class="e-text-center">
               Have questions? Reach out to us on slack
               <a
-                class="e-link e-link--inline e-link--new-tab e-link--sm e-link--inverted"
+                class="e-link e-link--inline e-link--external e-link--sm e-link--inverted"
                 href="https://hafslundnett.slack.com/archives/C01302LBTC2"
                 target="_blank"
               >
                 <span class="e-link__title">#designsystemet</span>
                 <span class="e-link__icon">
-                  <i class="e-icon e-icon--new_tab-bold e-icon--inverted"></i>
+                  <i class="e-icon e-icon--arrow_external-bold e-icon--inverted"></i>
                 </span>
               </a>
               or
@@ -35,22 +36,25 @@
               <!--  HUSK! SKAL HENTE DATO FRA GITHUB
               <div>Last updated {{ formattedDate }}</div> 
               -->
-              <div>Copyright © {{ currentYear }} Elvia</div>
+              <div>Copyright © {{currentYear}} Elvia</div>
             </div>
           </div>
         </div>
         <div class="d-xs-none d-sm-none d-md-block col-md-6 col-lg-6 e-text-info">
           <div class="text-align-center">
-            <div class="e-text-center" style="width: 389px; margin: auto">
+            <div
+              class="e-text-center"
+              style="width: 389px; margin: auto"
+            >
               Have questions? Reach out to us on slack
               <a
-                class="e-link e-link--inline e-link--sm e-link--new-tab e-link--inverted"
+                class="e-link e-link--inline e-link--sm e-link--external e-link--inverted"
                 href="https://hafslundnett.slack.com/archives/C01302LBTC2"
                 target="_blank"
               >
                 <span class="e-link__title">#designsystemet</span>
                 <span class="e-link__icon">
-                  <i class="e-icon e-icon--new_tab-bold e-icon--inverted"></i>
+                  <i class="e-icon e-icon--arrow_external-bold e-icon--inverted"></i>
                 </span>
               </a>
               or
@@ -83,8 +87,12 @@
                 </a>
               </span> -->
               <span class="links e-ml-16">
-                <a href="https://github.com/3lvia/designsystem" target="_blank">
-                  <img class="default-img" src="../../../assets/icons/github-header.svg" alt="Github icon" />
+                <a href="https://github.com/3lvia/designsystem">
+                  <img
+                    class="default-img"
+                    src="../../../assets/icons/github-header.svg"
+                    alt="Github icon"
+                  />
                   <img
                     class="inverted-img"
                     src="../../../assets/icons/github-header_inverted.svg"

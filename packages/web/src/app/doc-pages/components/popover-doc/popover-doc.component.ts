@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 import { popoverData } from './popover-data';
 @Component({
@@ -7,6 +7,7 @@ import { popoverData } from './popover-data';
   styleUrls: ['./popover-doc.component.scss'],
 })
 export class PopoverDocComponent {
+  @ViewChild('popover1') popover1: ElementRef;
   componentData = popoverData;
   loadedPopoverStructure = false;
   figmaUrl = getComponent('popover').figmaUrl;

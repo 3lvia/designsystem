@@ -29,7 +29,7 @@ $grey10: colors.color('grey-10');
 .e-table-footnote,
 .e-table__footnote {
   margin-top: 8px;
-  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-family: 'Red Hat Text';
   font-size: 16px;
   line-height: 26px;
   &.e-table__footnote--compact {
@@ -225,7 +225,7 @@ $grey10: colors.color('grey-10');
         height: 40px;
       }
       th {
-        font-family: 'Red Hat Display', Verdana, sans-serif;
+        font-family: 'Red Hat Display';
         font-weight: 700;
         font-size: 15px;
         line-height: 19px;

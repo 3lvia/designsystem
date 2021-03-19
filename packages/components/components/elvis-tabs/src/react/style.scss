@@ -2,29 +2,17 @@ $green: #29d305;
 $grey-10: #e9e9e9;
 $grey-40: #a8a8a8;
 $grey-80: #515151;
-$grey-90: #3b3b3b;
 $hover-blue: #0064fa;
 $icon-btn-width: 24px;
-$tabs-height: 44px;
 
 %fade {
   content: '';
   position: absolute;
-  top: 0;
-  height: 40px;
-  width: 26px;
+  pointer-events: none;
   z-index: 1;
-  transition: all linear 0.3s;
-}
-
-%underline {
-  content: '';
-  position: absolute;
-  height: 3px;
-  bottom: 0px;
-  top: 28px;
-  left: 0px;
-  border-radius: 50px;
+  top: 0;
+  width: 10%;
+  height: 100%;
 }
 
 .ewc-no-outline,
@@ -35,63 +23,66 @@ $tabs-height: 44px;
 .ewc-tabs {
   display: flex;
   flex-direction: row;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-  height: $tabs-height;
-  &,
-  * {
-    box-sizing: border-box;
+  align-items: baseline;
+  // Firefox specific
+  @-moz-document url-prefix() {
+    align-items: flex-end;
+  }
+  // IE specific
+  @media screen and (-ms-high-contrast: none) {
+    align-items: flex-start;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding-bottom: 2px;
+    padding-top: 6px;
   }
 
   &__arrow {
-    position: absolute;
+    display: flex;
+    padding: 18px 8px;
+    margin: 4px 0px;
     width: 8px;
-    height: $tabs-height - (16px * 2);
-    z-index: 10;
+    z-index: 1;
     transition: visibility 0.5s ease-in;
-    box-sizing: content-box;
+    // IE specific
+    @media screen and (-ms-high-contrast: none) {
+      margin-top: -4px;
+    }
+
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
 
-    .ewc-tabs__icon {
+    &.ewc-tabs__arrow--hide {
+      visibility: hidden;
+      i {
+        visibility: hidden;
+      }
+    }
+    &.ewc-tabs__arrow--remove {
+      display: none;
+    }
+    .ewc-icon {
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
       display: inline-block;
-      position: absolute;
-      top: 11px;
-      width: 8px;
-      height: 8px;
-    }
-
-    // IE specific
-    @media screen and (-ms-high-contrast: none) {
-      margin-top: -20px;
+      width: 16px;
+      height: 16px;
+      i {
+        width: 16px;
+        height: 16px;
+      }
     }
 
     &:hover {
       cursor: pointer;
     }
 
-    &.ewc-tabs__arrow--left {
-      left: 0px;
-      padding: 16px 28px 16px 8px;
-    }
-    &.ewc-tabs__arrow--right {
-      right: 0px;
-      padding: 16px 8px 16px 28px;
-    }
-
-    &.ewc-tabs__arrow--hide {
-      visibility: hidden;
-      .ewc-tabs__icon {
-        visibility: hidden;
-      }
-    }
-    &.ewc-tabs__arrow--remove {
-      display: none;
+    &:active {
+      background: #e9e9e9;
+      border-radius: 100px;
     }
   }
 
@@ -99,25 +90,32 @@ $tabs-height: 44px;
     position: relative;
     display: flex;
     width: 100%;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    height: $tabs-height;
-
-    &::before {
-      @extend %fade;
-      left: 0;
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2));
-    }
-    &::after {
-      @extend %fade;
-      right: 0;
-      background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2));
-    }
-
     &.ewc-tabs--scrolling {
       width: calc(100% - (2 * #{$icon-btn-width}));
-      left: $icon-btn-width;
+    }
+
+    // Fade
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 36px;
+      width: 51px;
+      z-index: 1;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      transition: all linear 0.3s;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 36px;
+      width: 51px;
+      z-index: 1;
+      background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      transition: all linear 0.3s;
     }
 
     &.ewc-tabs--hide-fade-left {
@@ -132,115 +130,131 @@ $tabs-height: 44px;
         z-index: -1;
       }
     }
-  }
 
-  &__items-scroll {
-    display: flex;
-    flex-direction: row;
-    white-space: nowrap;
-    width: 100%;
-    overflow-x: auto;
-    padding: 4px;
-    height: $tabs-height;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
+    &.scrolled-right {
+      &::after {
+        background-image: linear-gradient(to left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+      }
+    }
+    &.scrolled-left {
+      &::before {
+        background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
+      }
     }
   }
 
-  &__item {
+  &__scroll {
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 4px;
+    // Firefox specific
+    @-moz-document url-prefix() {
+      padding-bottom: 8px;
+    }
+    // IE specific
+    @media screen and (-ms-high-contrast: none) {
+      display: block;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::after {
+      content: '';
+      flex: 0 0 4px;
+    }
+  }
+
+  &__tab {
     &:not(:last-of-type) {
       margin-right: 24px;
       @media screen and (max-width: 767px) {
         margin-right: 16px;
       }
     }
+  }
 
-    // Hiding radiobutton and adding focus
-    input {
-      position: absolute;
-      opacity: 0;
-      &:focus ~ label {
-        outline: 2px solid $hover-blue;
-        outline-offset: 2px;
-      }
+  // Handeling radiobutton
+  input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    &:focus ~ label {
+      outline: 2px solid $hover-blue;
+      outline-offset: 2px;
     }
-
-    .ewc-tabs__label {
-      font-family: 'Red Hat Text', Verdana, sans-serif;
-      font-style: normal;
-      font-weight: normal;
-      font-size: 14px;
-      line-height: 21px;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: $grey-80;
-
-      display: inline-block;
-      position: relative;
-      border: none;
-      padding: 0px 8px;
-      padding-bottom: 11px;
-      background: transparent;
-
-      // Underline
-      &::before {
-        @extend %underline;
-        width: 100%;
-        background-color: $grey-10;
-      }
-
-      &::after {
-        @extend %underline;
-        display: block;
+    &:disabled ~ label {
+      color: $grey-40;
+      cursor: not-allowed;
+      &:hover::after {
         width: 0;
-        transition: all 0.3s ease-in-out;
-      }
-
-      &:hover {
-        cursor: pointer;
-        &:not(.ewc-tabs__label--selected)::after {
-          background-color: $green;
-          width: 100%;
-        }
-      }
-
-      &.ewc-tabs__label--selected {
-        text-shadow: 0 0 0 black, 0 0 0.5px black;
-        color: black;
-
-        &::after {
-          background-color: $green;
-          width: 100%;
-        }
       }
     }
   }
 
-  &--inverted {
-    .ewc-tabs__label {
-      color: white;
-      &::before {
-        background: $grey-80;
-      }
+  &__label {
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: $grey-80;
 
-      &.ewc-tabs__label--selected {
-        text-shadow: 0 0 0 white, 0 0 0.5px white;
-        color: white;
+    display: inline-block;
+    position: relative;
+    border: none;
+    padding: 0 8px;
+    padding-bottom: 11px;
+    background: transparent;
 
-        &::after {
-          background-color: $green;
-          width: 100%;
-        }
+    // Underline
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 3px;
+      bottom: 0px;
+      top: 28px;
+      left: 0px;
+      background-color: $grey-10;
+      border-radius: 233px;
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 3px;
+      bottom: 0px;
+      top: 28px;
+      left: 0px;
+      border-radius: 50px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      cursor: pointer;
+      &:not(.ewc-tabs__label--selected)::after {
+        background-color: $green;
+        width: 100%;
       }
     }
-    .ewc-tabs__items {
-      &::before {
-        background-image: linear-gradient(to right, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
-      }
+
+    &.ewc-tabs__label--selected {
+      text-shadow: 0 0 0 black, 0 0 0.5px black;
+      color: black;
+
       &::after {
-        background-image: linear-gradient(to left, rgba(38, 38, 38, 1), rgba(38, 38, 38, 0.2));
+        background-color: $green;
+        width: 100%;
       }
     }
   }

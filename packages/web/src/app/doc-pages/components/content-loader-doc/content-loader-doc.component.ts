@@ -29,19 +29,12 @@ export class ContentLoaderDocComponent {
 
   exampleContentLoader = `<div class="e-content-loader"></div>
 `;
-  exampleContentLoaderInverted = `<div class="e-content-loader e-content-loader--inverted"></div>
-`;
   exampleContentLoaderCircle = `<div class="e-content-loader e-content-loader--circle"></div>`;
-  exampleContentLoaderCircleInverted = `<div class="e-content-loader e-content-loader--circle e-content-loader--inverted"></div>`;
-  exampleContentLoaderText = `<div class="e-content-loader e-content-loader--text"></div>
-<div class="e-content-loader e-content-loader--text e-mt-24"></div>
-<div class="e-content-loader e-content-loader--text e-mt-24"></div>
-<div class="e-content-loader e-content-loader--text e-content-loader--short e-mt-24"></div>
-`;
-  exampleContentLoaderTextInverted = `<div class="e-content-loader e-content-loader--text e-content-loader--inverted"></div>
-<div class="e-content-loader e-content-loader--text e-content-loader--inverted e-mt-24"></div>
-<div class="e-content-loader e-content-loader--text e-content-loader--inverted e-mt-24"></div>
-<div class="e-content-loader e-content-loader--text e-content-loader--short e-content-loader--inverted e-mt-24"></div>
+  exampleContentLoaderText = `
+  <div class="e-content-loader e-content-loader--text e-mt-24"></div>
+  <div class="e-content-loader e-content-loader--text e-mt-24"></div>
+  <div class="e-content-loader e-content-loader--text e-mt-24"></div>
+  <div class="e-content-loader e-content-loader--text e-content-loader--short e-mt-24"></div>
 `;
   exampleContentLoaderExample = `<div class="e-grid">
   <!-- SMALL CIRCLES -->

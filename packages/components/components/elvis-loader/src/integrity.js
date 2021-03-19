@@ -15,11 +15,6 @@ module.exports = {
         hash:
           'sha512-Jyyj+ZjmIf1xAmSAkxQ+qAqmskHhMhBJ4dTuC4LEHdmWiXM9NN2GZ1FNdrPuZ7CmYL6rUgxjBOd75pnNhCUmYA==',
       },
-      '2.0.1': {
-        cdn: '/dist/cdn/elvia-popover.js',
-        hash:
-          'sha512-uUg8m7pZo4kvnHHfuvYhnWJVvNvGm+yoZ6i3R2Hee2M9WoiFxvmZYG7xylF4SMyfYL+uyd0iTHghr+gU/Z+ZcQ==',
-      },
     },
   },
 };

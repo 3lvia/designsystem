@@ -96,8 +96,12 @@ $grey-ten: colors.color('grey-10');
     line-height: 100%;
   }
 
-  // External is deprecated. External -> New tab
-  &.e-link--external,
+  &.e-link--external {
+    .e-link__icon {
+      vertical-align: super;
+    }
+  }
+
   &.e-link--new-tab {
     .e-link__icon {
       @include icons.icon-size('custom14');
@@ -105,11 +109,6 @@ $grey-ten: colors.color('grey-10');
     &.e-link--sm {
       .e-link__icon {
         @include icons.icon-size('custom12');
-      }
-    }
-    &.e-link--lg {
-      .e-link__icon {
-        @include icons.icon-size('xs');
       }
     }
   }

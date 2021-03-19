@@ -5,9 +5,8 @@ import { ComponentHeaderModule } from 'src/app/shared/component-documentation/co
 import { ComponentExampleV1Module } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
 import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
-import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
-import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
+import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 
 @NgModule({
   imports: [
@@ -17,7 +16,6 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
     ComponentPropertiesModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
-    ComponentSubsubsectionModule,
     WhenToUseModule,
   ],
   declarations: [CheckboxDocComponent],

@@ -29,7 +29,6 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   @Input() showIframeDesktop = false;
   @Input() noPaddingX = false;
   @Input() noPaddingDesk = false;
-  @Input() interactable = true;
 
   code = '';
   showTabs = true;
