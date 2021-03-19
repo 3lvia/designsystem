@@ -7488,10 +7488,19 @@ input:focus {
 }
 
 .e-tooltip__content.is-active, .e-tooltip:hover .e-tooltip__content, .e-tooltip:focus .e-tooltip__content {
-  opacity: 1;
-  z-index: 90;
+  animation: TooltipFadeIn 500ms 750ms forwards;
 }
 
+@keyframes TooltipFadeIn {
+  0% {
+    opacity: 0;
+    z-index: -1;
+  }
+  100% {
+    opacity: 1;
+    z-index: 90;
+  }
+}
 .e-toggle {
   position: relative;
   display: inline-block;
