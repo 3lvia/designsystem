@@ -35,28 +35,28 @@ export class DropdownDocComponent {
       label: 'Danmark',
     },
     {
-      value: 'norge',
-      label: 'Norge',
+      value: 'island',
+      label: 'Island',
     },
     {
-      value: 'sverige',
-      label: 'Sverige',
+      value: 'finland',
+      label: 'Finland',
     },
     {
-      value: 'danmark',
-      label: 'Danmark',
+      value: 'england',
+      label: 'England',
     },
     {
-      value: 'norge',
-      label: 'Norge',
+      value: 'tyskland',
+      label: 'Tyskland',
     },
     {
-      value: 'sverige',
-      label: 'Sverige',
+      value: 'frankrike',
+      label: 'Frankrike',
     },
     {
-      value: 'danmark',
-      label: 'Danmark',
+      value: 'italia',
+      label: 'Italia',
     },
   ];
 }

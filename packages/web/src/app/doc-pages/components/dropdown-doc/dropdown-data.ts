@@ -13,7 +13,7 @@ export const dropdownData = {
       isRequired: false,
       type: 'string',
       description: 'Placeholder value for the dropdown menu',
-      default: 'Placeholder',
+      default: `'Placeholder'`,
     },
     label: {
       isRequired: false,
