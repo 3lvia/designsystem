@@ -84,5 +84,6 @@ PercyScript.run(async (page, percySnapshot) => {
   await percySnapshot('Toggle', { widths: breakpoints });
   //Tooltip
   await page.goto('http://localhost:3333/components/tooltip.html');
+  await page.waitForTimeout(2000);
   await percySnapshot('Tooltip', { widths: breakpoints });
 });
