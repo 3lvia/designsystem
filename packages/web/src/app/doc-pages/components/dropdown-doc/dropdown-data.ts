@@ -74,12 +74,17 @@ const options = [
   codeWebComponent: `<!-- in HTML -->
 <elvia-dropdown
     [options]='dropdownOptions'
+    [isError]='isDropdownError'
+    [isCompact]='isDropdownSmall'
     (valueOnChange)="selectedOptions = $event.detail.value"
 ></elvia-dropdown>
 
 
 <!-- in TS -->
 selectedOptions = [];
+
+isDropdownError = false;
+isDropdownSmall = false;
 
 dropdownOptions = [
     {

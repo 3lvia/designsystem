@@ -13,9 +13,16 @@
   <!--Temporary until ceg-code-block supports angular syntax-->
   <div class="component-preview-temp component-preview-animation">
 
+    <h2>Demo</h2>
+    <div style="margin-bottom: 16px;padding: 12px">
+      Selected options: {{ isSelected | json }}
+    </div>
+
+
     <elvia-dropdown
       [options]="exampleOptions"
       placeholder="Velg land"
+      (valueOnChange)="isSelected = $event.detail.value"
     >
     </elvia-dropdown>
 
@@ -35,6 +42,7 @@
         [options]="exampleOptions"
         placeholder="Velg land"
         [isMulti]="isMulti"
+        (valueOnChange)="isSelected = $event.detail.value"
       >
       </elvia-dropdown>
     </div>

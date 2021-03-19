@@ -21,6 +21,8 @@ export class DropdownDocComponent {
   isError = true;
   isDisabled = true;
 
+  isSelected;
+
   exampleOptions = [
     {
       value: 'norge',
