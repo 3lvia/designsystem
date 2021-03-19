@@ -18,8 +18,8 @@ module.exports = {
       '2.0.1': {
         cdn: '/dist/cdn/elvia-popover.js',
         hash:
-          'sha512-uUg8m7pZo4kvnHHfuvYhnWJVvNvGm+yoZ6i3R2Hee2M9WoiFxvmZYG7xylF4SMyfYL+uyd0iTHghr+gU/Z+ZcQ=='
-      }
+          'sha512-uUg8m7pZo4kvnHHfuvYhnWJVvNvGm+yoZ6i3R2Hee2M9WoiFxvmZYG7xylF4SMyfYL+uyd0iTHghr+gU/Z+ZcQ==',
+      },
     },
   },
 };
