@@ -89,7 +89,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
 
   initializeActiveTab(): void {
     if (this.codeWebComponent !== '') {
-      this.changeActiveTab('webcomponent');
+      this.changeActiveTab('angular');
     } else {
       this.changeActiveTab(this.codeTS !== '' ? 'ts' : this.codeHTML !== '' ? 'html' : 'css');
     }
@@ -109,7 +109,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     } else if (this.activeTab === 'css') {
       this.activeCode = this.codeCSS;
       this.activeLanguage = 'scss';
-    } else if (this.activeTab === 'webcomponent') {
+    } else if (this.activeTab === 'angular') {
       this.activeCode = this.codeWebComponent;
       this.activeLanguage = 'html';
     } else {
