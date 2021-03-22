@@ -34,6 +34,11 @@ function App() {
   // to display choosen data
   console.log(selectedOption);
 
+  const defaultValue = {
+    value: 'norge',
+    label: 'Norge',
+  };
+
   const options = [
     {
       value: 'norge',
@@ -90,7 +95,13 @@ function App() {
         <Dropdown options={options} label="test" valueOnChange={setSelectedOption}></Dropdown>
       </div> */}
       <div style={{ marginTop: '24px' }}>
-        <Dropdown options={options} isMulti label="test" valueOnChange={setSelectedOption}></Dropdown>
+        <Dropdown
+          options={options}
+          defaultValue={defaultValue}
+          isMulti
+          label="test"
+          valueOnChange={setSelectedOption}
+        ></Dropdown>
       </div>
 
       <h2>Tabs</h2>

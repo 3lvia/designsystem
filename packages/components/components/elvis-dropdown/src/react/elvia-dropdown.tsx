@@ -10,6 +10,7 @@ export interface DropdownOptions {
 }
 
 export interface DropdownProps {
+  defaultValue: DropdownOptions;
   isCompact: boolean;
   isDisabled: boolean;
   isError: boolean;
@@ -33,6 +34,7 @@ const ElviaValueContainer = ({ ...props }) => {
 };
 
 const Dropdown: React.FC<DropdownProps> = ({
+  defaultValue = undefined,
   isCompact = false,
   isDisabled = false,
   isError = false,
@@ -43,7 +45,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   valueOnChange,
   webcomponent,
 }) => {
-  const [currentVal, setCurrentVal] = useState();
+  const [currentVal, setCurrentVal] = useState(defaultValue);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
@@ -273,6 +275,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         classNamePrefix={'ewc-dropdown'}
         closeMenuOnSelect={!isMulti}
         components={overRideComponents}
+        defaultValue={defaultValue}
         hasValue={false}
         hideSelectedOptions={false}
         isDisabled={isDisabled}
@@ -290,6 +293,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         onMenuClose={() => setMenuIsOpen(false)}
         onMenuOpen={() => setMenuIsOpen(true)}
         options={options}
+        value={currentVal}
         styles={customElviaStyles}
       ></Select>
     </span>
