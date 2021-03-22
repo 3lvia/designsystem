@@ -21,6 +21,7 @@ module.exports = [
     elementName: 'elvia-dropdown',
     attributes: [
       'options',
+      'defaultValue',
       'placeholder',
       'label',
       'isCompact',
