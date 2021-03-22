@@ -4,19 +4,19 @@
     <div class="tabs">
       <div
         class="tab"
+        *ngIf="codeWebComponent !== ''"
+        [ngClass]="{ active: activeTab === 'angular' }"
+        (click)="changeActiveTab('angular')"
+      >
+        Angular
+      </div>
+      <div
+        class="tab"
         *ngIf="codeReact !== ''"
         [ngClass]="{ active: activeTab === 'react' }"
         (click)="changeActiveTab('react')"
       >
         React
-      </div>
-      <div
-        class="tab"
-        *ngIf="codeWebComponent !== ''"
-        [ngClass]="{ active: activeTab === 'webcomponent' }"
-        (click)="changeActiveTab('webcomponent')"
-      >
-        Web Component
       </div>
       <div
         class="tab"
@@ -79,6 +79,7 @@
         href="javascript:void(0)"
         (click)="codepenForm.submit()"
         class="e-link e-link--new-tab e-link--inverted e-link--sm"
+        target="_blank"
       >
         <span class="e-link__title">Try in codepen</span>
         <span class="e-link__icon">

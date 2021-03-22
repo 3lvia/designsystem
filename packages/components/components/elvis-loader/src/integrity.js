@@ -18,8 +18,17 @@ module.exports = {
       '2.0.1': {
         cdn: '/dist/cdn/elvia-popover.js',
         hash:
-          'sha512-uUg8m7pZo4kvnHHfuvYhnWJVvNvGm+yoZ6i3R2Hee2M9WoiFxvmZYG7xylF4SMyfYL+uyd0iTHghr+gU/Z+ZcQ=='
-      }
+          'sha512-uUg8m7pZo4kvnHHfuvYhnWJVvNvGm+yoZ6i3R2Hee2M9WoiFxvmZYG7xylF4SMyfYL+uyd0iTHghr+gU/Z+ZcQ==',
+      },
+    },
+  },
+  'elvis-tabs': {
+    versions: {
+      '1.0.2': {
+        cdn: '/dist/cdn/elvia-tabs.js',
+        hash:
+          'sha512-if6xJLkp3usFEp5XWoJsxnYPBxbdRtLOFlAtj+AeXYCSdPH6L7IvDM03Dq/zuvr8Hnqf+AdqAFg7sXRcf872OA==',
+      },
     },
   },
 };
