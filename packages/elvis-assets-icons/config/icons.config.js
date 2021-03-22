@@ -128,6 +128,7 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['attachment'] },
   },
   { name: 'bin', terms: ['delete', 'trash'], thirdparty: { name: ['streamline'] } },
+  { name: 'box', terms: ['package', 'shipment', 'box', 'cardboard'], thirdparty: { name: ['streamline'] } },
   { name: 'bookmark', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'bookmark-filled', terms: [], thirdparty: { name: ['streamline'], duplicate: ['bookmark'] } },
   { name: 'bookshelf', terms: ['library', 'bookcase'], thirdparty: { name: ['streamline'] } },
@@ -347,7 +348,6 @@ module.exports = [
   { name: 'note_check-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'notification-bold', terms: ['alarm', 'bell', 'alert'], thirdparty: { name: ['streamline'] } },
   { name: 'open_menu', terms: [], thirdparty: { name: ['streamline'] } },
-  { name: 'package', terms: ['shipment', 'box', 'cardboard'], thirdparty: { name: ['streamline'] } },
   { name: 'paper_plane', terms: ['send', 'message'], thirdparty: { name: ['streamline'] } },
   { name: 'pause_circle-color', terms: ['stop'], thirdparty: { name: ['streamline'] } },
   {
