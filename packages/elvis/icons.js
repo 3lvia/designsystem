@@ -5178,7 +5178,7 @@
     }
     export const sortingAscendingBold = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.165 7.672a1.133 1.133 0 010-1.665l5.91-5.644a1.36 1.36 0 011.85 0l5.91 5.644c.486.465.486 1.201 0 1.665a1.36 1.36 0 01-1.85 0L13.29 4.143v18.661C13.29 23.43 12.747 24 12 24s-1.29-.57-1.29-1.196V4.144L7.015 7.671a1.36 1.36 0 01-1.85 0z" fill="#000"/></svg>'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.6 23.92a1.045 1.045 0 001.143-.228l4.76-4.76a1.048 1.048 0 00-1.481-1.482l-2.974 2.973V1.048a1.048 1.048 0 10-2.095 0v19.375L7.979 17.45a1.048 1.048 0 00-1.481 1.481l4.762 4.762c.1.1.216.176.34.227z" fill="#000"/></svg>'
           let iconName = 'sorting_ascending-bold'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
@@ -5203,7 +5203,7 @@
     }
     export const sortingDescendingBold = {
       getIcon: function(color) {
-          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.835 16.328c.486.464.486 1.2 0 1.665l-5.91 5.644a1.36 1.36 0 01-1.85 0l-5.91-5.644a1.133 1.133 0 010-1.665 1.36 1.36 0 011.85 0l3.695 3.529V1.196C10.71.57 11.253 0 12 0s1.29.57 1.29 1.196v18.66l3.695-3.528a1.36 1.36 0 011.85 0z" fill="#000"/></svg>'
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.596.08a1.043 1.043 0 00-.339.228l-4.76 4.76A1.048 1.048 0 107.978 6.55l2.974-2.973v19.375a1.048 1.048 0 102.095 0V3.577l2.974 2.973a1.048 1.048 0 101.481-1.481L12.74.307A1.044 1.044 0 0011.596.08z" fill="#000"/></svg>'
           let iconName = 'sorting_descending-bold'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {

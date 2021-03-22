@@ -7,6 +7,7 @@
 				"e-icon--custom14": {},
 				"e-icon--xs": {},
 				"e-icon--custom19": {},
+				"e-icon--custom20": {},
 				"e-icon--sm": {},
 				"e-icon--md": {},
 				"e-icon--lg": {},
@@ -256,6 +257,7 @@
 			"modifier": {
 				"e-input--placeholder": {},
 				"e-input--centered": {},
+				"e-input--compact": {},
 				"e-input--small": {},
 				"e-input--medium": {}
 			},
@@ -806,6 +808,15 @@
 			}
 		},
 		"e-table-mobile": {
+			"element": {
+				"e-table-mobile__buttons": {},
+				"e-table-mobile__select": {
+					"modifier": {
+						"e-table-mobile__select--selected": {}
+					}
+				},
+				"e-table-mobile__link": {}
+			},
 			"modifier": {
 				"e-table-mobile--compact": {}
 			}
@@ -835,10 +846,36 @@
 						"e-table__cell--multiline": {},
 						"e-table__cell--multiline-small": {}
 					}
-				}
+				},
+				"e-table__input": {},
+				"e-table__buttons": {},
+				"e-table__select": {
+					"modifier": {
+						"e-table__select--selected": {}
+					}
+				},
+				"e-table__link": {}
 			}
 		},
 		"e-table-footnote": {},
+		"e-checkbox": {
+			"element": {
+				"e-checkbox__mark": {},
+				"e-checkbox__label": {}
+			},
+			"modifier": {
+				"e-checkbox--sm": {},
+				"e-checkbox--indeterminate": {}
+			},
+			"psuedo": {
+				"e-checkbox---focus": {},
+				"e-checkbox---hover": {},
+				"e-checkbox---disabled": {},
+				"e-checkbox---disabled-checked": {},
+				"e-checkbox---invalid": {},
+				"e-checkbox---checked": {}
+			}
+		},
 		"e-tooltip": {
 			"element": {
 				"e-tooltip__content": {
@@ -859,24 +896,6 @@
 			},
 			"modifier": {
 				"e-toggle--inverted": {}
-			}
-		},
-		"e-checkbox": {
-			"element": {
-				"e-checkbox__mark": {},
-				"e-checkbox__label": {}
-			},
-			"modifier": {
-				"e-checkbox--sm": {},
-				"e-checkbox--indeterminate": {}
-			},
-			"psuedo": {
-				"e-checkbox---focus": {},
-				"e-checkbox---hover": {},
-				"e-checkbox---disabled": {},
-				"e-checkbox---disabled-checked": {},
-				"e-checkbox---invalid": {},
-				"e-checkbox---checked": {}
 			}
 		},
 		"e-dragdrop": {
@@ -1002,6 +1021,7 @@
 		"e-icon--custom14": {},
 		"e-icon--xs": {},
 		"e-icon--custom19": {},
+		"e-icon--custom20": {},
 		"e-icon--sm": {},
 		"e-icon--md": {},
 		"e-icon--lg": {},
@@ -1175,6 +1195,7 @@
 		"e-input---focus": {},
 		"e-input---disabled": {},
 		"e-combined-field": {},
+		"e-input--compact": {},
 		"e-dropdown": {},
 		"e-radio-filter": {},
 		"e-radio-filter__label": {},
@@ -1646,6 +1667,16 @@
 		"e-table__sort-icon--inactive": {},
 		"e-table__cell--multiline": {},
 		"e-table__cell--multiline-small": {},
+		"e-table__input": {},
+		"e-table__buttons": {},
+		"e-table__select": {},
+		"e-checkbox": {},
+		"e-table__select--selected": {},
+		"e-table__link": {},
+		"e-table-mobile__buttons": {},
+		"e-table-mobile__select": {},
+		"e-table-mobile__select--selected": {},
+		"e-table-mobile__link": {},
 		"e-table-mobile--compact": {},
 		"e-tooltip": {},
 		"e-tooltip__content": {},
@@ -1656,7 +1687,6 @@
 		"e-toggle---focus": {},
 		"e-toggle--inverted": {},
 		"e-toggle---disabled": {},
-		"e-checkbox": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
 		"e-checkbox--sm": {},
