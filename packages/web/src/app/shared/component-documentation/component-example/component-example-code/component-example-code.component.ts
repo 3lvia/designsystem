@@ -40,8 +40,8 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     if (this.componentData) {
-      this.codeReact = this.componentData.codeReact;
       this.codeWebComponent = this.componentData.codeWebComponent;
+      this.codeReact = this.componentData.codeReact;
     }
     this.initializeActiveTab();
     this.setCodePenValue();
@@ -88,8 +88,8 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   }
 
   initializeActiveTab(): void {
-    if (this.codeReact !== '') {
-      this.changeActiveTab('react');
+    if (this.codeWebComponent !== '') {
+      this.changeActiveTab('angular');
     } else {
       this.changeActiveTab(this.codeTS !== '' ? 'ts' : this.codeHTML !== '' ? 'html' : 'css');
     }
@@ -109,12 +109,12 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     } else if (this.activeTab === 'css') {
       this.activeCode = this.codeCSS;
       this.activeLanguage = 'scss';
-    } else if (this.activeTab === 'react') {
-      this.activeCode = this.codeReact;
-      this.activeLanguage = 'jsx';
-    } else {
+    } else if (this.activeTab === 'angular') {
       this.activeCode = this.codeWebComponent;
       this.activeLanguage = 'html';
+    } else {
+      this.activeCode = this.codeReact;
+      this.activeLanguage = 'jsx';
     }
     this.highlightCode();
   }
