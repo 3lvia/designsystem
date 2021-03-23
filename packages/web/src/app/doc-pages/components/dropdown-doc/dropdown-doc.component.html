@@ -18,13 +18,14 @@
     <div style="margin-bottom: 16px;padding: 12px">
       Selected options: {{ isSelected | json }}
     </div>
-
-    <elvia-dropdown
-      [options]="exampleOptions"
-      placeholder="Velg land"
-      (valueOnChange)="isSelected = $event.detail.value"
-    >
-    </elvia-dropdown>
+    <div style="width: 120px;">
+      <elvia-dropdown
+        [options]="exampleOptions"
+        placeholder="Velg land fra listen"
+        (valueOnChange)="isSelected = $event.detail.value"
+      >
+      </elvia-dropdown>
+    </div>
 
 
 

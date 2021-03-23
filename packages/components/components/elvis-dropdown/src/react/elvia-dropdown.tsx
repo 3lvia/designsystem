@@ -174,6 +174,11 @@ const Dropdown: React.FC<DropdownProps> = ({
       lineHeight: '22px',
       color: isDisabled ? '#BDBDBD' : '#676767',
       margin: '0px',
+      display: 'block',
+      overflowX: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+      maxWidth: 'calc(100% - 20px)',
     }),
 
     singleValue: (provided: any) => ({
