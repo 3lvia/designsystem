@@ -13,23 +13,20 @@ export class AppComponent implements OnInit {
   }
 
   listenToModeChanges(): void {
+    // Necessary due to SSR
     if (!window || !window.matchMedia) {
       return;
     }
+
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
     this.handleMode(darkMode.matches);
 
+    window.matchMedia('(prefers-color-scheme: dark)')
+      .addListener((e) => e.matches && this.handleMode(e.matches));
 
-    if (window.matchMedia('(prefers-color-scheme: dark)')) {
-      window
-        .matchMedia('(prefers-color-scheme: dark)')
-        .addListener((e) => e.matches && this.handleMode(e.matches));
-    }
-    if (window.matchMedia('(prefers-color-scheme: light)')) {
-      window
-        .matchMedia('(prefers-color-scheme: light)')
-        .addListener((e) => e.matches && this.handleMode(!e.matches));
-    }
+    window.matchMedia('(prefers-color-scheme: light)')
+      .addListener((e) => e.matches && this.handleMode(!e.matches));
+
   }
 
   handleMode(darkMode: boolean): void {
