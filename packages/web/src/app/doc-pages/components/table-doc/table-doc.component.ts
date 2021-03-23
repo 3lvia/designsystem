@@ -386,64 +386,38 @@ export class TableDocComponent {
   <table class="e-table">
     <thead>
       <tr>
+        <th scope="col">CaseID</th>
         <th scope="col">Address</th>
-        <th scope="col">Status</th>
+        <th scope="col">Created</th>
       </tr>
     </thead>
     <tbody>
       <tr>
+        <td>243113222</td>
         <td class="e-table__input">
           <div class="e-input e-input--compact">
             <input id="normal" type="address1" placeholder="Address" />
           </div>
         </td>
-        <td>
-          Payed
-        </td>
+        <td>15.01.2021</td>
       </tr>
       <tr>
+        <td>243113222</td>
         <td class="e-table__input">
           <div class="e-input e-input--compact">
             <input id="normal" type="address1" placeholder="Address" />
           </div>
         </td>
-        <td>
-          Payed
-        </td>
+        <td>15.01.2021</td>
       </tr>
-    </tbody>
-  </table>
-</div>
-`;
-
-  exampleInputCompact = `<div class="e-table-container">
-  <table class="e-table e-table--compact">
-    <thead>
       <tr>
-        <th scope="col">Address</th>
-        <th scope="col">Status</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
+        <td>243113222</td>
         <td class="e-table__input">
           <div class="e-input e-input--compact">
             <input id="normal" type="address1" placeholder="Address" />
           </div>
         </td>
-        <td>
-          Payed
-        </td>
-      </tr>
-      <tr>
-        <td class="e-table__input">
-          <div class="e-input e-input--compact">
-            <input id="normal" type="address1" placeholder="Address" />
-          </div>
-        </td>
-        <td>
-          Payed
-        </td>
+        <td>15.01.2021</td>
       </tr>
     </tbody>
   </table>
@@ -454,14 +428,16 @@ export class TableDocComponent {
   <table class="e-table">
     <thead>
       <tr>
+        <th scope="col">CaseID</th>
         <th scope="col">Address</th>
-        <th scope="col">Opprettet</th>
-        <th scope="col" class="e-text-center">Handling</th>
+        <th scope="col">Created</th>
+        <th scope="col" class="e-text-center">Actions</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
+        <td>243113222</td>
+        <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
         <td class="e-table__buttons">
           <button class="e-btn e-btn--icon">
@@ -473,34 +449,8 @@ export class TableDocComponent {
         </td>
       </tr>
       <tr>
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
-        <td>15.01.2021</td>
-        <td class="e-table__buttons">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
-          </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-`;
-
-  exampleButtonCompact = `<div class="e-table-container">
-  <table class="e-table e-table--compact">
-    <thead>
-      <tr>
-        <th scope="col">Address</th>
-        <th scope="col">Opprettet</th>
-        <th scope="col" class="e-text-center">Handling</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
+        <td>243113222</td>
+        <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
         <td class="e-table__buttons">
           <button class="e-btn e-btn--icon">
@@ -512,7 +462,8 @@ export class TableDocComponent {
         </td>
       </tr>
       <tr>
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
+        <td>243113222</td>
+        <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
         <td class="e-table__buttons">
           <button class="e-btn e-btn--icon">
@@ -532,21 +483,25 @@ export class TableDocComponent {
   <table class="e-table-mobile">
     <thead>
       <tr>
-        <th class="e-table-mobile__cell" scope="col">Period</th>
+        <th class="e-table-mobile__cell" scope="col">CaseID</th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th class="e-table-mobile__cell" scope="col">January 2020</th>
+        <th class="e-table-mobile__cell" scope="col">243113222</th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Sent</td>
+        <th class="e-table-mobile__cell" scope="row">Address</th>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Action</th>
+        <th class="e-table-mobile__cell" scope="row">Created</th>
+        <td class="e-table-mobile__cell">15.01.2021</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Actions</th>
         <td class="e-table-mobile__cell e-table-mobile__buttons">
           <button class="e-btn e-btn--icon">
             <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
@@ -559,68 +514,19 @@ export class TableDocComponent {
     </tbody>
     <tbody>
       <tr>
-        <th class="e-table-mobile__cell" scope="col">February 2020</th>
+        <th class="e-table-mobile__cell" scope="col">243113222</th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Paid</td>
+        <th class="e-table-mobile__cell" scope="row">Address</th>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Action</th>
-        <td class="e-table-mobile__cell e-table-mobile__buttons">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
-          </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-`;
-  exampleButtonMobileCompact = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile e-table-mobile--compact">
-    <thead>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">Period</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">January 2020</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
+        <th class="e-table-mobile__cell" scope="row">Created</th>
+        <td class="e-table-mobile__cell">15.01.2021</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Sent</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">Action</th>
-        <td class="e-table-mobile__cell e-table-mobile__buttons">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
-          </button>
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">February 2020</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Paid</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">Action</th>
+        <th class="e-table-mobile__cell" scope="row">Actions</th>
         <td class="e-table-mobile__cell e-table-mobile__buttons">
           <button class="e-btn e-btn--icon">
             <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
@@ -645,8 +551,9 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </th>
+        <th scope="col">CaseID</th>
         <th scope="col">Address</th>
-        <th scope="col">Opprettet</th>
+        <th scope="col">Created</th>
       </tr>
     </thead>
     <tbody>
@@ -657,7 +564,8 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
+        <td>243113222</td>
+        <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
       </tr>
       <tr class="e-table__select">
@@ -667,47 +575,19 @@ export class TableDocComponent {
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
-        <td>15.01.2021</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-`;
-
-  exampleSelectCompact = `<div class="e-table-container">
-  <table class="e-table e-table--compact">
-    <thead>
-      <tr class="e-table__select">
-        <th scope="col">
-          <label class="e-checkbox e-checkbox--sm e-checkbox--indeterminate" for="overall-checkbox-compact">
-            <input type="checkbox" id="overall-checkbox-compact">
-            <span class="e-checkbox__mark"></span>
-          </label>
-        </th>
-        <th scope="col">Address</th>
-        <th scope="col">Opprettet</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="e-table__select e-table__select--selected">
-        <td>
-          <label class="e-checkbox e-checkbox--sm" for="checkbox-first-cell-compact">
-            <input type="checkbox" id="checkbox-first-cell-compact" checked>
-            <span class="e-checkbox__mark"></span>
-          </label>
-        </td>
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
+        <td>243113222</td>
+        <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
       </tr>
       <tr class="e-table__select">
         <td>
-          <label class="e-checkbox e-checkbox--sm" for="checkbox-second-cell-compact">
-            <input type="checkbox" id="checkbox-second-cell-compact">
+          <label class="e-checkbox e-checkbox--sm" for="checkbox-second-cell">
+            <input type="checkbox" id="checkbox-second-cell">
             <span class="e-checkbox__mark"></span>
           </label>
         </td>
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
+        <td>243113222</td>
+        <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
       </tr>
     </tbody>
@@ -719,7 +599,7 @@ export class TableDocComponent {
   <table class="e-table-mobile">
     <thead>
       <tr>
-        <th class="e-table-mobile__cell" scope="col">Period</th>
+        <th class="e-table-mobile__cell" scope="col">CaseID</th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
     </thead>
@@ -730,21 +610,17 @@ export class TableDocComponent {
             <input type="checkbox" id="checkbox-first-row-mb" checked>
             <span class="e-checkbox__mark"></span>
           </label>
-          January 2020
+          243113222
         </th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Sent</td>
+        <th class="e-table-mobile__cell" scope="row">Address</th>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Action</th>
-        <td class="e-table-mobile__cell e-table-mobile__buttons">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
-          </button>
-        </td>
+        <th class="e-table-mobile__cell" scope="row">Created</th>
+        <td class="e-table-mobile__cell">15.01.2021</td>
       </tr>
     </tbody>
     <tbody>
@@ -754,80 +630,17 @@ export class TableDocComponent {
             <input type="checkbox" id="checkbox-second-row-mb">
             <span class="e-checkbox__mark"></span>
           </label>
-          February 2020
+          243113222
         </th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Paid</td>
+        <th class="e-table-mobile__cell" scope="row">Address</th>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Action</th>
-        <td class="e-table-mobile__cell e-table-mobile__buttons">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-`;
-  exampleSelectMobileCompact = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile e-table-mobile--compact">
-    <thead>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">Period</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="e-table-mobile__select e-table-mobile__select--selected">
-        <th class="e-table-mobile__cell" scope="col">
-          <label class="e-checkbox" for="checkbox-first-row-mb-compact">
-            <input type="checkbox" id="checkbox-first-row-mb-compact" checked>
-            <span class="e-checkbox__mark"></span>
-          </label>
-          January 2020
-        </th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Sent</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">Action</th>
-        <td class="e-table-mobile__cell e-table-mobile__buttons">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr class="e-table-mobile__select">
-        <th class="e-table-mobile__cell" scope="col">
-          <label class="e-checkbox" for="checkbox-second-row-mb-compact">
-            <input type="checkbox" id="checkbox-second-row-mb-compact">
-            <span class="e-checkbox__mark"></span>
-          </label>
-          February 2020
-        </th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Paid</td>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">Action</th>
-        <td class="e-table-mobile__cell e-table-mobile__buttons">
-          <button class="e-btn e-btn--icon">
-            <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
-          </button>
-        </td>
+        <th class="e-table-mobile__cell" scope="row">Created</th>
+        <td class="e-table-mobile__cell">15.01.2021</td>
       </tr>
     </tbody>
   </table>
@@ -838,14 +651,16 @@ export class TableDocComponent {
   <table class="e-table">
     <thead>
       <tr>
+        <th scope="col">CaseID</th>
         <th scope="col">Address</th>
-        <th scope="col">Opprettet</th>
+        <th scope="col">Created</th>
         <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr class="e-table__link" [routerLink]="['/components/table']">
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
+        <td>243113222</td>
+        <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
         <td>
           <a class="e-link e-link--action">
@@ -857,34 +672,8 @@ export class TableDocComponent {
         </td>
       </tr>
       <tr class="e-table__link" [routerLink]="['/components/table']">
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
-        <td>15.01.2021</td>
-        <td>
-          <a class="e-link e-link--action">
-            <span class="e-link__icon">
-              <i class="e-icon e-icon--arrow_right_circle-color"></i>
-              <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
-            </span>  
-          </a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-`;
-
-  exampleLinkCompact = `<div class="e-table-container">
-  <table class="e-table e-table--compact">
-    <thead>
-      <tr>
-        <th scope="col">Address</th>
-        <th scope="col">Opprettet</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="e-table__link" [routerLink]="['/components/table']">
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
+        <td>243113222</td>
+        <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
         <td>
           <a class="e-link e-link--action">
@@ -896,7 +685,8 @@ export class TableDocComponent {
         </td>
       </tr>
       <tr class="e-table__link" [routerLink]="['/components/table']">
-        <td>Elvia Elviaveien 3, 1234 Oslo</td>
+        <td>243113222</td>
+        <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
         <td>
           <a class="e-link e-link--action">
@@ -916,13 +706,13 @@ export class TableDocComponent {
   <table class="e-table-mobile">
     <thead>
       <tr>
-        <th class="e-table-mobile__cell" scope="col">Period</th>
+        <th class="e-table-mobile__cell" scope="col">CaseID</th>
         <th class="e-table-mobile__cell" scope="col"></th>
       </tr>
     </thead>
     <tbody>
       <tr class="e-table-mobile__link" [routerLink]="['/components/table']">
-        <th class="e-table-mobile__cell" scope="col">January 2020</th>
+        <th class="e-table-mobile__cell" scope="col">243113222</th>
         <th class="e-table-mobile__cell" scope="col">
           <a class="e-link e-link--action">
             <span class="e-link__icon">
@@ -933,13 +723,17 @@ export class TableDocComponent {
         </th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Sent</td>
+        <th class="e-table-mobile__cell" scope="row">Address</th>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Created</th>
+        <td class="e-table-mobile__cell">15.01.2021</td>
       </tr>
     </tbody>
     <tbody>
       <tr class="e-table-mobile__link" [routerLink]="['/components/table']">
-        <th class="e-table-mobile__cell" scope="col">February 2020</th>
+        <th class="e-table-mobile__cell" scope="col">243113222</th>
         <th class="e-table-mobile__cell" scope="col">
           <a class="e-link e-link--action">
             <span class="e-link__icon">
@@ -950,54 +744,12 @@ export class TableDocComponent {
         </th>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Paid</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-`;
-
-  exampleLinkMobileCompact = `<div style="width: 305px; margin: 16px;">
-  <table class="e-table-mobile e-table-mobile--compact">
-    <thead>
-      <tr>
-        <th class="e-table-mobile__cell" scope="col">Period</th>
-        <th class="e-table-mobile__cell" scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="e-table-mobile__link" [routerLink]="['/components/table']">
-        <th class="e-table-mobile__cell" scope="col">January 2020</th>
-        <th class="e-table-mobile__cell" scope="col">
-          <a class="e-link e-link--action">
-            <span class="e-link__icon">
-              <i class="e-icon e-icon--arrow_right_circle-color"></i>
-              <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
-            </span>  
-          </a>
-        </th>
+        <th class="e-table-mobile__cell" scope="row">Address</th>
+        <td class="e-table-mobile__cell">Elviaveien 3, 1234 Oslo</td>
       </tr>
       <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Sent</td>
-      </tr>
-    </tbody>
-    <tbody>
-      <tr class="e-table-mobile__link" [routerLink]="['/components/table']">
-        <th class="e-table-mobile__cell" scope="col">February 2020</th>
-        <th class="e-table-mobile__cell" scope="col">
-          <a class="e-link e-link--action">
-            <span class="e-link__icon">
-              <i class="e-icon e-icon--arrow_right_circle-color"></i>
-              <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
-            </span>  
-          </a>
-        </th>
-      </tr>
-      <tr>
-        <th class="e-table-mobile__cell" scope="row">Status</th>
-        <td class="e-table-mobile__cell">Paid</td>
+        <th class="e-table-mobile__cell" scope="row">Created</th>
+        <td class="e-table-mobile__cell">15.01.2021</td>
       </tr>
     </tbody>
   </table>
@@ -1054,18 +806,16 @@ export class TableDocComponent {
   <table class="e-table">
     <thead>
       <tr>
-        <th scope="col" class="e-text-left">Text left</th>
-        <th scope="col" class="e-text-center">Icons centered</th>
-        <th scope="col" class="e-text-right">Numbers right</th>
+        <th scope="col" class="e-text-left">Left-aligned text</th>
+        <th scope="col" class="e-text-center">Centered text</th>
+        <th scope="col" class="e-text-right">Right-aligned text</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td class="e-text-left">Text left aligned</td>
-        <td class="e-text-center">
-          <i class="e-icon e-icon--download e-icon--sm"></i>
-        </td>
-        <td class="e-text-right">123456789</td>
+        <td class="e-text-left">Left</td>
+        <td class="e-text-center">Center</td>
+        <td class="e-text-right">Right</td>
       </tr>
     </tbody>
   </table>

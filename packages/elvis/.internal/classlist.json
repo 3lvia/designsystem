@@ -844,11 +844,12 @@
 				"e-table__cell": {
 					"modifier": {
 						"e-table__cell--multiline": {},
-						"e-table__cell--multiline-small": {}
+						"e-table__cell--multiline-small": {},
+						"e-table__cell--multiline-sm": {}
 					}
 				},
 				"e-table__input": {},
-				"e-table__buttons": {},
+				"e-table__button": {},
 				"e-table__select": {
 					"modifier": {
 						"e-table__select--selected": {}
@@ -1667,8 +1668,9 @@
 		"e-table__sort-icon--inactive": {},
 		"e-table__cell--multiline": {},
 		"e-table__cell--multiline-small": {},
+		"e-table__cell--multiline-sm": {},
 		"e-table__input": {},
-		"e-table__buttons": {},
+		"e-table__button": {},
 		"e-table__select": {},
 		"e-checkbox": {},
 		"e-table__select--selected": {},

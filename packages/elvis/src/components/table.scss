@@ -123,7 +123,8 @@ $grey10: colors.color('grey-10');
       white-space: pre-wrap;
       width: 450px;
     }
-    &.e-table__cell--multiline-small {
+    &.e-table__cell--multiline-small,
+    &.e-table__cell--multiline-sm {
       display: inline-block;
       white-space: pre-wrap;
       width: 250px;
@@ -142,20 +143,28 @@ $grey10: colors.color('grey-10');
   // Component specific
   .e-table__input {
     padding: 7px;
-    .e-input input {
-      background: transparent;
-      border-color: colors.color('grey-60');
+    .e-input {
+      input {
+        background: transparent;
+        border-color: colors.color('grey-60');
+      }
+      .e-input---focus > input,
+      .e-input---focus > textarea,
+      > input:focus,
+      > textarea:focus {
+        border-color: colors.color('elvia-charge');
+      }
     }
   }
-  .e-table__buttons {
+  .e-table__button {
     text-align: center;
-    padding: 6px 16px;
+    padding: 4px 16px;
     .e-btn:not(:last-of-type) {
       margin-right: 8px;
     }
     .e-btn.e-btn--icon {
-      width: 34px;
-      height: 34px;
+      width: 40px;
+      height: 40px;
       padding: 7px;
       .e-btn__icon {
         @include icons.icon-size('custom20');
@@ -194,7 +203,7 @@ $grey10: colors.color('grey-10');
     }
     td:last-of-type {
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
       height: 48px;
     }
@@ -248,8 +257,8 @@ $grey10: colors.color('grey-10');
     .e-table__input {
       padding: 3px;
     }
-    .e-table__buttons {
-      padding: 2px 16px;
+    .e-table__button {
+      padding: 0px 16px;
     }
     .e-table__select {
       th:first-of-type,
@@ -328,14 +337,14 @@ $grey10: colors.color('grey-10');
 
   // Component specific
   td.e-table-mobile__buttons {
-    padding: 6px 16px;
+    padding: 4px 16px;
     height: 48px;
     .e-btn:not(:last-of-type) {
       margin-right: 8px;
     }
     .e-btn.e-btn--icon {
-      width: 34px;
-      height: 34px;
+      width: 40px;
+      height: 40px;
       padding: 7px;
       .e-btn__icon {
         @include icons.icon-size('custom20');
@@ -396,7 +405,7 @@ $grey10: colors.color('grey-10');
 
     // Components specific
     td.e-table-mobile__buttons {
-      padding: 2px 16px;
+      padding: 0px 16px;
       height: 40px;
     }
     tr.e-table-mobile__select {

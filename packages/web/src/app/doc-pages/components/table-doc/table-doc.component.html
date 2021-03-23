@@ -113,10 +113,10 @@
           provide the classes for table sorting, but the logic needs to be added.
           <ul class="e-list e-mt-24">
             <li>
-              <b>Sketches:&nbsp;</b>
               <a
-                class="e-link e-link--new-tab"
+                class="e-link e-link--inline e-link--new-tab"
                 href="https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=2927%3A24058"
+                target="_blank"
               >
                 <span class="e-link__title">Figma</span>
                 <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
@@ -175,10 +175,10 @@
           decides when to close/open).
           <ul class="e-list e-mt-24">
             <li>
-              <b>Sketches:&nbsp;</b>
               <a
-                class="e-link e-link--new-tab"
+                class="e-link e-link--inline e-link--new-tab"
                 href="https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=2927%3A24058"
+                target="_blank"
               >
                 <span class="e-link__title">Figma</span>
                 <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
@@ -222,47 +222,22 @@
 
       <app-component-subsection [sectionTitle]="'Input'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-subsubsection [sectionTitle]="'Normal'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleInput"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Compact'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleInputCompact"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
+          <app-component-example-v1 [codeHTML]="exampleInput"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Button'">
         <ng-container ngProjectAs="sectionContent">
-          Use icon button when you need actions in your table. The default and recommended size for icon is
-          20px (with a 48 x 48px hover area).
-          <app-component-subsubsection [sectionTitle]="'Desktop - Normal'">
+          Use icon button when you need actions in your table.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
               <app-component-example-v1 [codeHTML]="exampleButton"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Desktop - Compact'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleButtonCompact"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile - Normal'">
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
             <ng-container ngProjectAs="sectionContent">
               <app-component-example-v1
                 [codeHTML]="exampleButtonMobile"
-                [showIframeScreens]="true"
-                [noTablet]="true"
-                [noDesktop]="true"
-              ></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile - Compact'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1
-                [codeHTML]="exampleButtonMobileCompact"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [noDesktop]="true"
@@ -283,31 +258,16 @@
           <span class="code-text">e-table__select--selected</span>
           or
           <span class="code-text">e-table-mobile__select-selected</span>
-          to all selected elements.
-          <app-component-subsubsection [sectionTitle]="'Desktop - Normal'">
+          to all selected rows.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
               <app-component-example-v1 [codeHTML]="exampleSelect"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Desktop - Compact'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleSelectCompact"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile - Normal'">
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
             <ng-container ngProjectAs="sectionContent">
               <app-component-example-v1
                 [codeHTML]="exampleSelectMobile"
-                [showIframeScreens]="true"
-                [noTablet]="true"
-                [noDesktop]="true"
-              ></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile - Compact'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1
-                [codeHTML]="exampleSelectMobileCompact"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [noDesktop]="true"
@@ -319,30 +279,15 @@
 
       <app-component-subsection [sectionTitle]="'Link'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-subsubsection [sectionTitle]="'Desktop - Normal'">
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
               <app-component-example-v1 [codeHTML]="exampleLink"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Desktop - Compact'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleLinkCompact"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile - Normal'">
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
             <ng-container ngProjectAs="sectionContent">
               <app-component-example-v1
                 [codeHTML]="exampleLinkMobile"
-                [showIframeScreens]="true"
-                [noTablet]="true"
-                [noDesktop]="true"
-              ></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile - Compact'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1
-                [codeHTML]="exampleLinkMobileCompact"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [noDesktop]="true"
@@ -363,6 +308,7 @@
           The first column should always be left aligned no matter the content of that column. By default all
           content is aligned to the left. There are however helper classes available for aligning content to
           the center or to the right. The table header should alway follow the alignment of the column.
+          Besides the first column, any type of content can be center aligned or right aligned.
           <app-component-example-v1 [codeHTML]="example8"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
@@ -373,7 +319,9 @@
           <span class="code-text">e-table__cell--multiline</span>
           can then be added to ensure width of column and text wrap. Use
           <span class="code-text">e-text-right</span>
-          to align numbers to the right.
+          to align numbers to the right. The class
+          <span class="code-text">e-table__cell--multiline-sm</span>
+          can be used when the column should have a max-width of 250px.
           <app-component-example-v1 [codeHTML]="example5"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
