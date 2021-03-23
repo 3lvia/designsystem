@@ -32,7 +32,7 @@ module.exports = [
       'valueOnChange',
     ],
     reactName: 'Dropdown',
-    elementStyle: `width: 100%`,
+    elementStyle: `width: 100%; max-width: 400px`,
   },
   {
     name: 'elvis-tabs',
