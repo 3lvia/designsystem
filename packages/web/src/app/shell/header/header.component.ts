@@ -79,7 +79,10 @@ export class HeaderComponent {
   hideInternalHeader(): void {
     this.internalHeader = false;
     const element = document.querySelectorAll('.main-content')[0] as HTMLElement;
-    element.classList.remove('e-bg-grey-05');
+    if (element) {
+      element.classList.remove('e-bg-grey-05');
+    }
+
   }
 
   toggleElement(el: string, elClass: string): void {

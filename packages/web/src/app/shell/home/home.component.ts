@@ -17,9 +17,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.findEndOfRow();
     this.christmas = this.date.getMonth() === this.christmasMonth ? true : false;
-    (document as any).fonts.ready.then(() => {
-      this.fontLoaded = true;
-    });
+    if (document && (document as any).fonts) {
+      (document as any).fonts.ready.then(() => {
+        this.fontLoaded = true;
+      });
+    }
   }
 
   findEndOfRow(): void {

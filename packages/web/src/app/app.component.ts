@@ -8,17 +8,28 @@ import { Component, OnInit } from '@angular/core';
 export class AppComponent implements OnInit {
   title = 'elvia-designsystem';
 
-  /*TODO: Add support for this, or remove if not necessary
-  isDarkMode = window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addListener((e) => e.matches && this.handleMode(e.matches));
-  isLightMode = window
-    .matchMedia('(prefers-color-scheme: light)')
-    .addListener((e) => e.matches && this.handleMode(!e.matches));*/
-
   ngOnInit(): void {
+    this.listenToModeChanges();
+  }
+
+  listenToModeChanges(): void {
+    if (!window || !window.matchMedia) {
+      return;
+    }
     const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
     this.handleMode(darkMode.matches);
+
+
+    if (window.matchMedia('(prefers-color-scheme: dark)')) {
+      window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addListener((e) => e.matches && this.handleMode(e.matches));
+    }
+    if (window.matchMedia('(prefers-color-scheme: light)')) {
+      window
+        .matchMedia('(prefers-color-scheme: light)')
+        .addListener((e) => e.matches && this.handleMode(!e.matches));
+    }
   }
 
   handleMode(darkMode: boolean): void {
