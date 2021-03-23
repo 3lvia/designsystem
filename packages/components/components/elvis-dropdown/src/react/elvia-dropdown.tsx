@@ -119,6 +119,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     menu: (provided: any) => ({
       ...provided,
       boxShadow: '0px 0px 40px rgba(0, 0, 0, 0.06);',
+      minWidth: '150px',
       zIndex: 100,
     }),
 

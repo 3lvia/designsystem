@@ -11,26 +11,20 @@
 <div class="page-body">
   <!--CEG-->
   <!--Temporary until ceg-code-block supports angular syntax-->
-  <!-- <div class="component-preview-temp component-preview-animation"> -->
-  <div>
+  <div class="component-preview-temp component-preview-animation">
+
 
     <h2>Demo</h2>
     <div style="margin-bottom: 16px;padding: 12px">
       Selected options: {{ isSelected | json }}
     </div>
-    <div style="width: 120px;">
-      <elvia-dropdown
-        [options]="exampleOptions"
-        placeholder="Velg land fra listen"
-        (valueOnChange)="isSelected = $event.detail.value"
-      >
-      </elvia-dropdown>
-    </div>
 
-
-
-
-
+    <elvia-dropdown
+      [options]="exampleOptions"
+      placeholder="Velg land"
+      (valueOnChange)="isSelected = $event.detail.value"
+    >
+    </elvia-dropdown>
 
     <h2>Preview for QA</h2>
 
@@ -68,15 +62,14 @@
       label='Velg land'
     >
     </elvia-dropdown>
-
     <elvia-dropdown
+      class="e-mt-24"
       [options]="exampleOptions"
       placeholder="Velg land"
       [isCompact]="isCompact"
       label='Velg land'
     >
     </elvia-dropdown>
-
     <h2>Error</h2>
 
     <elvia-dropdown
@@ -89,6 +82,7 @@
 
 
     <elvia-dropdown
+      class="e-mt-24"
       [options]="exampleOptions"
       placeholder="Velg land"
       [isCompact]="isCompact"
@@ -107,8 +101,8 @@
     >
     </elvia-dropdown>
 
-
     <elvia-dropdown
+      class="e-mt-24"
       [options]="exampleOptions"
       placeholder="Velg land"
       [isCompact]="isCompact"
@@ -116,7 +110,6 @@
       label='Velg land'
     >
     </elvia-dropdown>
-
 
     <app-component-example-generator
       [componentData]="componentData"
