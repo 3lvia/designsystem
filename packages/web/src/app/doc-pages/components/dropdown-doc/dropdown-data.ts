@@ -9,6 +9,13 @@ export const dropdownData = {
       description: 'Options available in the dropdown menu',
       displayName: 'Options',
     },
+    defaultValue: {
+      isRequired: false,
+      type: 'object',
+      description:
+        'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string}',
+      displayName: 'defaultValue',
+    },
     placeholder: {
       isRequired: false,
       type: 'string',
@@ -19,6 +26,12 @@ export const dropdownData = {
       isRequired: false,
       type: 'string',
       description: 'Label value for the dropdown element',
+    },
+    errormsg: {
+      isRequired: false,
+      type: 'string',
+      description: 'Error message that appears if isError prop is set to true',
+      default: `'Help text'`,
     },
     isCompact: {
       isRequired: false,

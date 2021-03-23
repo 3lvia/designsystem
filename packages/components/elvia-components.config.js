@@ -24,6 +24,7 @@ module.exports = [
       'defaultValue',
       'placeholder',
       'label',
+      'errormsg',
       'isCompact',
       'isDisabled',
       'isError',
@@ -31,6 +32,7 @@ module.exports = [
       'valueOnChange',
     ],
     reactName: 'Dropdown',
+    elementStyle: `width: 100%`,
   },
   {
     name: 'elvis-tabs',

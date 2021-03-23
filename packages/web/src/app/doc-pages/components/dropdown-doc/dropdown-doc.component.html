@@ -11,13 +11,13 @@
 <div class="page-body">
   <!--CEG-->
   <!--Temporary until ceg-code-block supports angular syntax-->
-  <div class="component-preview-temp component-preview-animation">
+  <!-- <div class="component-preview-temp component-preview-animation"> -->
+  <div>
 
     <h2>Demo</h2>
     <div style="margin-bottom: 16px;padding: 12px">
       Selected options: {{ isSelected | json }}
     </div>
-
 
     <elvia-dropdown
       [options]="exampleOptions"
@@ -26,96 +26,97 @@
     >
     </elvia-dropdown>
 
+
+
+
+
+
     <h2>Preview for QA</h2>
-    <div>
-      <h3>Compact single</h3>
-      <elvia-dropdown
-        [options]="exampleOptions"
-        placeholder="Velg land"
-        [isCompact]="isCompact"
-      >
-      </elvia-dropdown>
-    </div>
-    <div>
-      <h3>Multi Normal</h3>
-      <elvia-dropdown
-        [options]="exampleOptions"
-        placeholder="Velg land"
-        [isMulti]="isMulti"
-        (valueOnChange)="isSelected = $event.detail.value"
-      >
-      </elvia-dropdown>
-    </div>
-    <div>
-      <h3>Multi Compact</h3>
-      <elvia-dropdown
-        [options]="exampleOptions"
-        placeholder="Velg land"
-        [isCompact]="isCompact"
-        [isMulti]="isMulti"
-      >
-      </elvia-dropdown>
-    </div>
-    <div>
-      <h3>Labels</h3>
-      <elvia-dropdown
-        [options]="exampleOptions"
-        placeholder="Velg land"
-        label='Velg land'
-      >
-      </elvia-dropdown>
-    </div>
-    <div class="e-mt-24">
-      <elvia-dropdown
-        [options]="exampleOptions"
-        placeholder="Velg land"
-        [isCompact]="isCompact"
-        label='Velg land'
-      >
-      </elvia-dropdown>
-    </div>
-    <div class="e-mt-24">
-      <h2>Error</h2>
-      <div>
-        <elvia-dropdown
-          [options]="exampleOptions"
-          placeholder="Velg land"
-          [isError]="isError"
-          label='Velg land'
-        >
-        </elvia-dropdown>
-      </div>
-      <div class="e-mt-24">
-        <elvia-dropdown
-          [options]="exampleOptions"
-          placeholder="Velg land"
-          [isCompact]="isCompact"
-          [isError]="isError"
-          label='Velg land'
-        >
-        </elvia-dropdown>
-      </div>
-      <h2>Disabled</h2>
-      <div class="e-mt-24">
-        <elvia-dropdown
-          [options]="exampleOptions"
-          placeholder="Velg land"
-          [isDisabled]="isError"
-          label='Velg land'
-        >
-        </elvia-dropdown>
-      </div>
-      <div class="e-mt-24">
-        <elvia-dropdown
-          [options]="exampleOptions"
-          placeholder="Velg land"
-          [isCompact]="isCompact"
-          [isDisabled]="isError"
-          label='Velg land'
-        >
-        </elvia-dropdown>
-      </div>
-    </div>
+
+    <h3>Compact single</h3>
+    <elvia-dropdown
+      [options]="exampleOptions"
+      placeholder="Velg land"
+      [isCompact]="isCompact"
+    >
+    </elvia-dropdown>
+
+
+    <h3>Multi Normal</h3>
+    <elvia-dropdown
+      [options]="exampleOptions"
+      placeholder="Velg land"
+      [isMulti]="isMulti"
+      (valueOnChange)="isSelected = $event.detail.value"
+    >
+    </elvia-dropdown>
+
+    <h3>Multi Compact</h3>
+    <elvia-dropdown
+      [options]="exampleOptions"
+      placeholder="Velg land"
+      [isCompact]="isCompact"
+      [isMulti]="isMulti"
+    >
+    </elvia-dropdown>
+
+    <h3>Labels</h3>
+    <elvia-dropdown
+      [options]="exampleOptions"
+      placeholder="Velg land"
+      label='Velg land'
+    >
+    </elvia-dropdown>
+
+    <elvia-dropdown
+      [options]="exampleOptions"
+      placeholder="Velg land"
+      [isCompact]="isCompact"
+      label='Velg land'
+    >
+    </elvia-dropdown>
+
+    <h2>Error</h2>
+
+    <elvia-dropdown
+      [options]="exampleOptions"
+      placeholder="Velg land"
+      [isError]="isError"
+      label='Velg land'
+    >
+    </elvia-dropdown>
+
+
+    <elvia-dropdown
+      [options]="exampleOptions"
+      placeholder="Velg land"
+      [isCompact]="isCompact"
+      [isError]="isError"
+      label='Velg land'
+    >
+    </elvia-dropdown>
+
+    <h2>Disabled</h2>
+
+    <elvia-dropdown
+      [options]="exampleOptions"
+      placeholder="Velg land"
+      [isDisabled]="isError"
+      label='Velg land'
+    >
+    </elvia-dropdown>
+
+
+    <elvia-dropdown
+      [options]="exampleOptions"
+      placeholder="Velg land"
+      [isCompact]="isCompact"
+      [isDisabled]="isError"
+      label='Velg land'
+    >
+    </elvia-dropdown>
+
+
     <app-component-example-generator
       [componentData]="componentData"
       [hasPreview]="false"
