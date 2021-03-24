@@ -808,17 +808,18 @@
 			}
 		},
 		"e-table-mobile": {
+			"modifier": {
+				"e-table-mobile--compact": {}
+			},
 			"element": {
-				"e-table-mobile__buttons": {},
+				"e-table-mobile__input": {},
+				"e-table-mobile__button": {},
 				"e-table-mobile__select": {
 					"modifier": {
 						"e-table-mobile__select--selected": {}
 					}
 				},
 				"e-table-mobile__link": {}
-			},
-			"modifier": {
-				"e-table-mobile--compact": {}
 			}
 		},
 		"e-table": {
@@ -832,13 +833,6 @@
 				"e-table__footnote": {
 					"modifier": {
 						"e-table__footnote--compact": {}
-					}
-				},
-				"e-table__sort-header": {},
-				"e-table__sort-icon": {
-					"modifier": {
-						"e-table__sort-icon--up": {},
-						"e-table__sort-icon--inactive": {}
 					}
 				},
 				"e-table__cell": {
@@ -855,7 +849,14 @@
 						"e-table__select--selected": {}
 					}
 				},
-				"e-table__link": {}
+				"e-table__link": {},
+				"e-table__sort-header": {},
+				"e-table__sort-icon": {
+					"modifier": {
+						"e-table__sort-icon--up": {},
+						"e-table__sort-icon--inactive": {}
+					}
+				}
 			}
 		},
 		"e-table-footnote": {},
@@ -1662,24 +1663,25 @@
 		"e-table-footnote": {},
 		"e-table__footnote": {},
 		"e-table__footnote--compact": {},
+		"e-table__cell--multiline": {},
+		"e-table__cell--multiline-small": {},
+		"e-table__cell--multiline-sm": {},
+		"e-table-mobile--compact": {},
+		"e-table__input": {},
+		"e-table-mobile__input": {},
+		"e-table__button": {},
+		"e-table-mobile__button": {},
+		"e-table__select": {},
+		"e-checkbox": {},
+		"e-table-mobile__select": {},
+		"e-table__select--selected": {},
+		"e-table-mobile__select--selected": {},
+		"e-table__link": {},
+		"e-table-mobile__link": {},
 		"e-table__sort-header": {},
 		"e-table__sort-icon": {},
 		"e-table__sort-icon--up": {},
 		"e-table__sort-icon--inactive": {},
-		"e-table__cell--multiline": {},
-		"e-table__cell--multiline-small": {},
-		"e-table__cell--multiline-sm": {},
-		"e-table__input": {},
-		"e-table__button": {},
-		"e-table__select": {},
-		"e-checkbox": {},
-		"e-table__select--selected": {},
-		"e-table__link": {},
-		"e-table-mobile__buttons": {},
-		"e-table-mobile__select": {},
-		"e-table-mobile__select--selected": {},
-		"e-table-mobile__link": {},
-		"e-table-mobile--compact": {},
 		"e-tooltip": {},
 		"e-tooltip__content": {},
 		"e-tooltip__content--bottom": {},

@@ -54,7 +54,7 @@
           be perceived as easy to read and provide a better experience for new users.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
+              <app-component-example-v1 [codeHTML]="exampleDesktop"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
 
@@ -64,7 +64,7 @@
               included here will not automatically appear when switching to smaller screens. The text in the
               last column will always be aligned to the right on phones.
               <app-component-example-v1
-                [codeHTML]="example6"
+                [codeHTML]="exampleMobile"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [noDesktop]="true"
@@ -81,7 +81,7 @@
           that’s typically easier for the user to navigate in.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
+              <app-component-example-v1 [codeHTML]="exampleCompact"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
 
@@ -91,7 +91,7 @@
               included here will not automatically appear when switching to smaller screens. The text in the
               last column will always be aligned to the right on phones.
               <app-component-example-v1
-                [codeHTML]="example7"
+                [codeHTML]="exampleCompactMobile"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [noDesktop]="true"
@@ -103,9 +103,167 @@
     </ng-container>
   </app-component-section>
 
-  <!--ACTIONS-->
-  <app-component-section [sectionTitle]="'Actions'">
+  <!--OPTIONS-->
+  <app-component-section [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Accordion'" [figmaOnly]="true">
+        <ng-container ngProjectAs="sectionContent">
+          Accordion in a table is used when you need to have additional information to the row. An accordion
+          (20x20px) is placed all the way to the right with the possibility to expand/collapse on the whole
+          row. Keep the header title above empty. You can have multiple rows open at the same time (the user
+          decides when to close/open).
+          <ul class="e-list e-mt-24">
+            <li>
+              <a
+                class="e-link e-link--inline e-link--new-tab"
+                href="https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=2927%3A24058"
+                target="_blank"
+              >
+                <span class="e-link__title">Figma</span>
+                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+              </a>
+            </li>
+            <li>
+              <b>Icons:&nbsp;</b>
+              <span class="code-text">e-icon--expand_circle-color</span>
+              &
+              <span class="code-text">e-icon--expand_circle-filled-color</span>
+            </li>
+          </ul>
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <div width="100%" style="width: 100; overflow-x: auto">
+                <iframe
+                  style="border: 1px solid rgba(0, 0, 0, 0.1)"
+                  width="500"
+                  height="450"
+                  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3199%253A212"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <div width="100%" style="width: 100; overflow-x: auto">
+                <iframe
+                  style="border: 1px solid rgba(0, 0, 0, 0.1)"
+                  width="500"
+                  height="450"
+                  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3582%253A44807"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Button'">
+        <ng-container ngProjectAs="sectionContent">
+          Use icon button when you need actions in your table.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1 [codeHTML]="exampleButton"></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleButtonMobile"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+                [noDesktop]="true"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Input'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1 [codeHTML]="exampleInput"></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleInputMobile"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+                [noDesktop]="true"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Footnote'">
+        <ng-container ngProjectAs="sectionContent">
+          If you include a footnote to your table, it should be positioned at the bottom outside the table
+          using the class
+          <span class="code-text">e-table__footnote</span>
+          .
+          <app-component-example-v1 [codeHTML]="exampleFootnote"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Link'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1 [codeHTML]="exampleLink"></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleLinkMobile"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+                [noDesktop]="true"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Select'">
+        <ng-container ngProjectAs="sectionContent">
+          The first checkbox, in table header, should check and uncheck all checkboxes that are in the same
+          column. Read about nested checkboxes and the indeterminate state in the
+          <a class="e-link e-link--inline" [routerLink]="['/components/checkbox']" fragment="'Type'">
+            checkbox documentation
+          </a>
+          . Add the class
+          <span class="code-text">e-table__select--selected</span>
+          or
+          <span class="code-text">e-table-mobile__select-selected</span>
+          to all selected rows.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleSelect"
+                [interactable]="false"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleSelectMobile"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+                [noDesktop]="true"
+                [interactable]="false"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
       <app-component-subsection [sectionTitle]="'Sorting'" [figmaOnly]="true">
         <ng-container ngProjectAs="sectionContent">
           Sorting is another way to ease user's search process in tables. The sorting functionality can either
@@ -166,136 +324,6 @@
           </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Accordion'" [figmaOnly]="true">
-        <ng-container ngProjectAs="sectionContent">
-          Accordion in a table is used when you need to have additional information to the row. An accordion
-          (20x20px) is placed all the way to the right with the possibility to expand/collapse on the whole
-          row. Keep the header title above empty. You can have multiple rows open at the same time (the user
-          decides when to close/open).
-          <ul class="e-list e-mt-24">
-            <li>
-              <a
-                class="e-link e-link--inline e-link--new-tab"
-                href="https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=2927%3A24058"
-                target="_blank"
-              >
-                <span class="e-link__title">Figma</span>
-                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-              </a>
-            </li>
-            <li>
-              <b>Icons:&nbsp;</b>
-              <span class="code-text">e-icon--expand_circle-color</span>
-              &
-              <span class="code-text">e-icon--expand_circle-filled-color</span>
-            </li>
-          </ul>
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
-            <ng-container ngProjectAs="sectionContent">
-              <div width="100%" style="width: 100; overflow-x: auto">
-                <iframe
-                  style="border: 1px solid rgba(0, 0, 0, 0.1)"
-                  width="500"
-                  height="450"
-                  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3199%253A212"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
-            <ng-container ngProjectAs="sectionContent">
-              <div width="100%" style="width: 100; overflow-x: auto">
-                <iframe
-                  style="border: 1px solid rgba(0, 0, 0, 0.1)"
-                  width="500"
-                  height="450"
-                  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3582%253A44807"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Input'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleInput"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Button'">
-        <ng-container ngProjectAs="sectionContent">
-          Use icon button when you need actions in your table.
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleButton"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1
-                [codeHTML]="exampleButtonMobile"
-                [showIframeScreens]="true"
-                [noTablet]="true"
-                [noDesktop]="true"
-              ></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Select'">
-        <ng-container ngProjectAs="sectionContent">
-          The first checkbox, in table header, should check and uncheck all checkboxes that are in the same
-          column. Read about nested checkboxes and the indeterminate state in the
-          <a class="e-link e-link--inline" [routerLink]="['/components/checkbox']" fragment="'Type'">
-            checkbox documentation
-          </a>
-          . Add the class
-          <span class="code-text">e-table__select--selected</span>
-          or
-          <span class="code-text">e-table-mobile__select-selected</span>
-          to all selected rows.
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleSelect"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1
-                [codeHTML]="exampleSelectMobile"
-                [showIframeScreens]="true"
-                [noTablet]="true"
-                [noDesktop]="true"
-              ></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Link'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleLink"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1
-                [codeHTML]="exampleLinkMobile"
-                [showIframeScreens]="true"
-                [noTablet]="true"
-                [noDesktop]="true"
-              ></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-        </ng-container>
-      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
@@ -309,10 +337,15 @@
           content is aligned to the left. There are however helper classes available for aligning content to
           the center or to the right. The table header should alway follow the alignment of the column.
           Besides the first column, any type of content can be center aligned or right aligned.
-          <app-component-example-v1 [codeHTML]="example8"></app-component-example-v1>
+          <app-component-example-v1 [codeHTML]="exampleAlignment"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
+    </ng-container>
+  </app-component-section>
 
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Long column'">
         <ng-container ngProjectAs="sectionContent">
           If the table requires scrolling the max-width for a column is 450px, the class
@@ -322,17 +355,7 @@
           to align numbers to the right. The class
           <span class="code-text">e-table__cell--multiline-sm</span>
           can be used when the column should have a max-width of 250px.
-          <app-component-example-v1 [codeHTML]="example5"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Footnote'">
-        <ng-container ngProjectAs="sectionContent">
-          If you include a footnote to your table, it should be positioned at the bottom outside the table
-          using the class
-          <span class="code-text">e-table__footnote</span>
-          .
-          <app-component-example-v1 [codeHTML]="exampleFootnote"></app-component-example-v1>
+          <app-component-example-v1 [codeHTML]="exampleLongColumn"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
