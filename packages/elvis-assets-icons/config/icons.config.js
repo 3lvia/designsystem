@@ -480,7 +480,6 @@ module.exports = [
     terms: ['feed', 'connection', 'internet', 'online'],
     thirdparty: { name: ['streamline'] },
   },
-  { name: 'figma', terms: [] },
   {
     name: 'search',
     terms: ['find', 'navigation', 'explore', 'inspect', 'look'],
