@@ -14,26 +14,26 @@
       <table class="e-table">
         <thead>
           <tr>
-            <th scope="col">Column header</th>
-            <th scope="col">Column header</th>
-            <th scope="col">Column header</th>
+            <th scope="col">Column 1</th>
+            <th scope="col">Column 2</th>
+            <th scope="col">Column 3</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Table Row</td>
-            <td>Table Row</td>
-            <td>Table Row</td>
+            <td>Row 1</td>
+            <td>Row 1</td>
+            <td>Row 1</td>
           </tr>
           <tr>
-            <td>Table Row</td>
-            <td>Table Row</td>
-            <td>Table Row</td>
+            <td>Row 2</td>
+            <td>Row 2</td>
+            <td>Row 2</td>
           </tr>
           <tr>
-            <td>Table Row</td>
-            <td>Table Row</td>
-            <td>Table Row</td>
+            <td>Row 3</td>
+            <td>Row 3</td>
+            <td>Row 3</td>
           </tr>
         </tbody>
       </table>
@@ -180,8 +180,44 @@
         </ng-container>
       </app-component-subsection>
 
+      <app-component-subsection [sectionTitle]="'Checkbox'">
+        <ng-container ngProjectAs="sectionContent">
+          Use checkbox when you need to multiselect rows to perform actions. The first checkbox, in table
+          header, should check and uncheck all checkboxes that are in the same column. Read about nested
+          checkboxes and the indeterminate state in the
+          <a class="e-link e-link--inline" [routerLink]="['/components/checkbox']" fragment="'Type'">
+            checkbox documentation
+          </a>
+          . Add the class
+          <span class="code-text">e-table__checkbox--selected</span>
+          or
+          <span class="code-text">e-table-mobile__checkbox-selected</span>
+          to all selected rows.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleCheckbox"
+                [interactable]="false"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleCheckboxMobile"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+                [noDesktop]="true"
+                [interactable]="false"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
       <app-component-subsection [sectionTitle]="'Input'">
         <ng-container ngProjectAs="sectionContent">
+          Use an input field when the user can edit values in the table.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
               <app-component-example-v1 [codeHTML]="exampleInput"></app-component-example-v1>
@@ -202,52 +238,18 @@
 
       <app-component-subsection [sectionTitle]="'Footnote'">
         <ng-container ngProjectAs="sectionContent">
-          If you include a footnote to your table, it should be positioned at the bottom outside the table
-          using the class
-          <span class="code-text">e-table__footnote</span>
-          .
+          Use footnote when you need to clarify information. Use an asterix (*) to connect the data to the
+          description.
           <app-component-example-v1 [codeHTML]="exampleFootnote"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Link'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleLink"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1
-                [codeHTML]="exampleLinkMobile"
-                [showIframeScreens]="true"
-                [noTablet]="true"
-                [noDesktop]="true"
-              ></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Select'">
         <ng-container ngProjectAs="sectionContent">
-          The first checkbox, in table header, should check and uncheck all checkboxes that are in the same
-          column. Read about nested checkboxes and the indeterminate state in the
-          <a class="e-link e-link--inline" [routerLink]="['/components/checkbox']" fragment="'Type'">
-            checkbox documentation
-          </a>
-          . Add the class
-          <span class="code-text">e-table__select--selected</span>
-          or
-          <span class="code-text">e-table-mobile__select-selected</span>
-          to all selected rows.
+          Use select when navigating forward from the selected row.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1
-                [codeHTML]="exampleSelect"
-                [interactable]="false"
-              ></app-component-example-v1>
+              <app-component-example-v1 [codeHTML]="exampleSelect"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Mobile'">
@@ -257,7 +259,6 @@
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [noDesktop]="true"
-                [interactable]="false"
               ></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>

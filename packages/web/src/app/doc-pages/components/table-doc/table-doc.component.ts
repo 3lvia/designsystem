@@ -19,25 +19,26 @@ export class TableDocComponent {
   <table class="e-table">
     <thead>
       <tr>
-        <th scope="col">Table column 1</th>
-        <th scope="col">Table column 2</th>
+        <th scope="col">Column 1</th>
+        <th scope="col">Column 2</th>
+        <th scope="col">Column 3</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td>Table row 1 column 1</td>
-        <td>Table row 1 column 2</td>
-        <td>Table row 1 column 3</td>
+        <td>Row 1</td>
+        <td>Row 1</td>
+        <td>Row 1</td>
       </tr>
       <tr>
-        <td>Table row 2 column 1</td>
-        <td>Table row 2 column 2</td>
-        <td>Table row 2 column 3</td>
+        <td>Row 2</td>
+        <td>Row 2</td>
+        <td>Row 2</td>
       </tr>
       <tr>
-        <td>Table row 3 column 1</td>
-        <td>Table row 3 column 2</td>
-        <td>Table row 3 column 3</td>
+        <td>Row 3</td>
+        <td>Row 3</td>
+        <td>Row 3</td>
       </tr>
     </tbody>
   </table>
@@ -547,10 +548,10 @@ export class TableDocComponent {
 </div>
 `;
 
-  exampleSelect = `<div class="e-table-container">
+  exampleCheckbox = `<div class="e-table-container">
   <table class="e-table">
     <thead>
-      <tr class="e-table__select">
+      <tr class="e-table__checkbox">
         <th scope="col">
           <label class="e-checkbox e-checkbox--sm e-checkbox--indeterminate" for="overall-checkbox">
             <input type="checkbox" id="overall-checkbox">
@@ -563,7 +564,7 @@ export class TableDocComponent {
       </tr>
     </thead>
     <tbody>
-      <tr class="e-table__select e-table__select--selected">
+      <tr class="e-table__checkbox e-table__checkbox--selected">
         <td>
           <label class="e-checkbox e-checkbox--sm" for="checkbox-first-cell">
             <input type="checkbox" id="checkbox-first-cell" checked>
@@ -574,7 +575,7 @@ export class TableDocComponent {
         <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
       </tr>
-      <tr class="e-table__select">
+      <tr class="e-table__checkbox">
         <td>
           <label class="e-checkbox e-checkbox--sm" for="checkbox-second-cell">
             <input type="checkbox" id="checkbox-second-cell">
@@ -585,7 +586,7 @@ export class TableDocComponent {
         <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
       </tr>
-      <tr class="e-table__select">
+      <tr class="e-table__checkbox">
         <td>
           <label class="e-checkbox e-checkbox--sm" for="checkbox-second-cell">
             <input type="checkbox" id="checkbox-second-cell">
@@ -601,7 +602,7 @@ export class TableDocComponent {
 </div>
 `;
 
-  exampleSelectMobile = `<div style="width: 305px; margin: 16px;">
+  exampleCheckboxMobile = `<div style="width: 305px; margin: 16px;">
   <table class="e-table-mobile">
     <thead>
       <tr>
@@ -610,7 +611,7 @@ export class TableDocComponent {
       </tr>
     </thead>
     <tbody>
-      <tr class="e-table-mobile__select e-table-mobile__select--selected">
+      <tr class="e-table-mobile__checkbox e-table-mobile__checkbox--selected">
         <th class="e-table-mobile__cell" scope="col">
           <label class="e-checkbox" for="checkbox-first-row-mb">
             <input type="checkbox" id="checkbox-first-row-mb" checked>
@@ -630,7 +631,7 @@ export class TableDocComponent {
       </tr>
     </tbody>
     <tbody>
-      <tr class="e-table-mobile__select">
+      <tr class="e-table-mobile__checkbox">
         <th class="e-table-mobile__cell" scope="col">
           <label class="e-checkbox" for="checkbox-second-row-mb">
             <input type="checkbox" id="checkbox-second-row-mb">
@@ -653,7 +654,7 @@ export class TableDocComponent {
 </div>
 `;
 
-  exampleLink = `<div class="e-table-container">
+  exampleSelect = `<div class="e-table-container">
   <table class="e-table">
     <thead>
       <tr>
@@ -664,7 +665,7 @@ export class TableDocComponent {
       </tr>
     </thead>
     <tbody>
-      <tr class="e-table__link" [routerLink]="['/components/table']">
+      <tr class="e-table__select" [routerLink]="['/components/table']">
         <td>243113222</td>
         <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
@@ -677,7 +678,7 @@ export class TableDocComponent {
           </a>
         </td>
       </tr>
-      <tr class="e-table__link" [routerLink]="['/components/table']">
+      <tr class="e-table__select" [routerLink]="['/components/table']">
         <td>243113222</td>
         <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
@@ -690,7 +691,7 @@ export class TableDocComponent {
           </a>
         </td>
       </tr>
-      <tr class="e-table__link" [routerLink]="['/components/table']">
+      <tr class="e-table__select" [routerLink]="['/components/table']">
         <td>243113222</td>
         <td>Elviaveien 3, 1234 Oslo</td>
         <td>15.01.2021</td>
@@ -708,7 +709,7 @@ export class TableDocComponent {
 </div>
 `;
 
-  exampleLinkMobile = `<div style="width: 305px; margin: 16px;">
+  exampleSelectMobile = `<div style="width: 305px; margin: 16px;">
   <table class="e-table-mobile">
     <thead>
       <tr>
@@ -717,7 +718,7 @@ export class TableDocComponent {
       </tr>
     </thead>
     <tbody>
-      <tr class="e-table-mobile__link" [routerLink]="['/components/table']">
+      <tr class="e-table-mobile__select" [routerLink]="['/components/table']">
         <th class="e-table-mobile__cell" scope="col">243113222</th>
         <th class="e-table-mobile__cell" scope="col">
           <a class="e-link e-link--action">
@@ -738,7 +739,7 @@ export class TableDocComponent {
       </tr>
     </tbody>
     <tbody>
-      <tr class="e-table-mobile__link" [routerLink]="['/components/table']">
+      <tr class="e-table-mobile__select" [routerLink]="['/components/table']">
         <th class="e-table-mobile__cell" scope="col">243113222</th>
         <th class="e-table-mobile__cell" scope="col">
           <a class="e-link e-link--action">
