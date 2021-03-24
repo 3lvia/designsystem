@@ -437,7 +437,7 @@ export class TableDocComponent {
         <th scope="col">CaseID</th>
         <th scope="col">Address</th>
         <th scope="col">Created</th>
-        <th scope="col">Actions</th>
+        <th scope="col" class="e-text-center">Actions</th>
       </tr>
     </thead>
     <tbody>
