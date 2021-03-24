@@ -76,12 +76,14 @@ $grey10: colors.color('grey-10');
       display: inline-block;
       white-space: pre-wrap;
       width: 450px;
+      height: auto;
     }
     &.e-table__cell--multiline-small,
     &.e-table__cell--multiline-sm {
       display: inline-block;
       white-space: pre-wrap;
       width: 250px;
+      height: auto;
     }
   }
 

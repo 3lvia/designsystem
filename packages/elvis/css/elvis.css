@@ -7219,6 +7219,7 @@ input:focus {
   display: inline-block;
   white-space: pre-wrap;
   width: 450px;
+  height: auto;
 }
 
 .e-table td.e-table__cell--multiline-small, .e-table td.e-table__cell--multiline-sm,
@@ -7227,6 +7228,7 @@ input:focus {
   display: inline-block;
   white-space: pre-wrap;
   width: 250px;
+  height: auto;
 }
 
 .e-table tbody:not(.no-zebra) tr:nth-of-type(odd) {
