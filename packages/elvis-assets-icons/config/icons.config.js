@@ -232,6 +232,7 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['expand_circle-color'] },
   },
   { name: 'feedback', terms: ['smiley'], thirdparty: { name: ['streamline'] } },
+  { name: 'figma', terms: [] },
   { name: 'filter', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'filter-filled', terms: [], thirdparty: { name: ['streamline'], duplicate: ['filter'] } },
   { name: 'flag', terms: [], thirdparty: { name: ['streamline'] } },
