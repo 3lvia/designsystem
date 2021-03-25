@@ -1,5 +1,5 @@
 declare type Icon = {
-    getIcon: (color: string) => string;
+    getIcon: (color: string) => string
 }
 export declare const addCircle: Icon;
 export declare const addCircleColor: Icon;
