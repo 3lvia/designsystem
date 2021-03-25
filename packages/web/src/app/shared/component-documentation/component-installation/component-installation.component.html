@@ -1,4 +1,19 @@
-<ol class="e-list e-list--numbers">
+<div class="e-alert e-alert--info">
+  <div class="e-alert__icon">
+    <i class="e-icon e-icon--information_circle e-icon--color-grey"></i>
+  </div>
+  <div class="e-alert__content">
+    <div class="e-alert__title">Angular</div>
+    <div class="e-alert__text">
+      <div>Add CUSTOM_ELEMENTS_SCHEMA to the component module to enable support for web components.</div>
+      <div class="e-mt-16">
+        <span class="code-text">schemas: [ CUSTOM_ELEMENTS_SCHEMA ]</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ol class="e-list e-list--numbers e-mt-56">
   <li>
     <strong>Install package:</strong>
     <div class="code-text e-mt-16">
@@ -11,22 +26,23 @@
   </li>
   <li>
     <strong>Import package:</strong>
-    <h4 class="e-title-caps e-mt-16 e-mb-8">React</h4>
-    <div class="code-text">
-      <app-copy [message]="componentData.codeImportReact" [noAnimation]="true">
-        <ng-container ngProjectAs="copyContent">
-          <span class="code-text" style="line-height: 26px">
-            {{ componentData.codeImportReact }}
-          </span>
-        </ng-container>
-      </app-copy>
-    </div>
     <h4 class="e-title-caps e-mt-24 e-mb-8">Web component</h4>
     <div class="code-text">
       <app-copy [message]="componentData.codeImportWebComponent" [noAnimation]="true">
         <ng-container ngProjectAs="copyContent">
           <span class="code-text" style="line-height: 26px">
             {{ componentData.codeImportWebComponent }}
+          </span>
+        </ng-container>
+      </app-copy>
+    </div>
+    <div class="e-text-md">(Angular - Should be imported in module.ts not component.ts)</div>
+    <h4 class="e-title-caps e-mt-16 e-mb-8">React</h4>
+    <div class="code-text">
+      <app-copy [message]="componentData.codeImportReact" [noAnimation]="true">
+        <ng-container ngProjectAs="copyContent">
+          <span class="code-text" style="line-height: 26px">
+            {{ componentData.codeImportReact }}
           </span>
         </ng-container>
       </app-copy>

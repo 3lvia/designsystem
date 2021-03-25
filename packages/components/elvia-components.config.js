@@ -42,10 +42,4 @@ module.exports = [
     attributes: ['value', 'isNorwegian'],
     reactName: 'DatePicker',
   },
-  {
-    name: 'elvis-testing',
-    elementName: 'elvia-testing',
-    attributes: ['value'],
-    reactName: 'TestingComponent',
-  },
 ];

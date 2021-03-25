@@ -609,13 +609,13 @@ $sidebar-mobile-z-index: -2;
     }
     &:active {
       .e-header__sidebar__icon {
-        border: 1px solid colors.color('elvia-charge');
+        border: 1.5px solid colors.color('elvia-charge');
       }
     }
     @include helpers.hover() {
       &:hover {
         .e-header__sidebar__icon {
-          border: 1px solid colors.color('elvia-charge');
+          border: 1.5px solid colors.color('elvia-charge');
         }
       }
     }
@@ -628,7 +628,7 @@ $sidebar-mobile-z-index: -2;
     }
     &--active {
       .e-header__sidebar__icon {
-        border: 1px solid colors.color('elvia-off');
+        border: 1.5px solid colors.color('elvia-off');
         i {
           visibility: hidden;
         }
