@@ -7235,6 +7235,10 @@ input:focus {
   background: #f4f4f4;
 }
 
+.e-table.e-table--compact tr {
+  height: 40px;
+}
+
 .e-table.e-table--compact td,
 .e-table.e-table--compact th {
   font-family: Red Hat Text, Verdana, sans-serif;

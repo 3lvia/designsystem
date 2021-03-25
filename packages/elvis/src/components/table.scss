@@ -100,6 +100,9 @@ $grey10: colors.color('grey-10');
     thead {
       @extend %header-style;
     }
+    tr {
+      height: $table-compact-min-height;
+    }
     td,
     th {
       @include typography.typography('text-info');

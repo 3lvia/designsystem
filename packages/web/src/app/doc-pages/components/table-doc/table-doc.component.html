@@ -50,8 +50,8 @@
       of density and style on all tables throughout the page.
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          Less compact tables should be used in most external systems when displaying information that should
-          be perceived as easy to read and provide a better experience for new users.
+          Used when displaying information that should be perceived as easy to read and provides good
+          scanability with more space than the compact version. Normal is most used in external systems.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
               <app-component-example-v1 [codeHTML]="exampleDesktop"></app-component-example-v1>
@@ -77,7 +77,7 @@
       <app-component-subsection [sectionTitle]="'Compact'">
         <ng-container ngProjectAs="sectionContent">
           Compact tables should be used when you need to show more data in less space, typically in internal
-          systems. They could also provide a better overview when used to show lots of similar type of data
+          systems. They could also provide a better overview when used to show lots of similar types of data
           that’s typically easier for the user to navigate in.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
@@ -108,10 +108,10 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Accordion'" [figmaOnly]="true">
         <ng-container ngProjectAs="sectionContent">
-          Accordion in a table is used when you need to have additional information to the row. An accordion
-          (20x20px) is placed all the way to the right with the possibility to expand/collapse on the whole
-          row. Keep the header title above empty. You can have multiple rows open at the same time (the user
-          decides when to close/open).
+          Accordion is used when you need to have additional information to the row. An accordion (20x20px) is
+          placed all the way to the right with the possibility to expand/collapse on the whole row. Keep the
+          header title above empty. You can have multiple rows open at the same time (the user decides when to
+          close/open).
           <ul class="e-list e-mt-24">
             <li>
               <a
@@ -161,7 +161,7 @@
 
       <app-component-subsection [sectionTitle]="'Button'">
         <ng-container ngProjectAs="sectionContent">
-          Use icon button when you need actions in your table.
+          Use icon buttons when you need actions in your table.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
               <app-component-example-v1 [codeHTML]="exampleButton"></app-component-example-v1>
@@ -182,7 +182,7 @@
 
       <app-component-subsection [sectionTitle]="'Checkbox'">
         <ng-container ngProjectAs="sectionContent">
-          Use checkbox when you need to multiselect rows to perform actions. The first checkbox, in table
+          Use checkboxes when you need to multiselect rows to perform actions. The first checkbox, in table
           header, should check and uncheck all checkboxes that are in the same column. Read about nested
           checkboxes and the indeterminate state in the
           <a class="e-link e-link--inline" [routerLink]="['/components/checkbox']" fragment="'Type'">
@@ -238,7 +238,7 @@
 
       <app-component-subsection [sectionTitle]="'Footnote'">
         <ng-container ngProjectAs="sectionContent">
-          Use footnote when you need to clarify information. Use an asterix (*) to connect the data to the
+          Use a footnote when you need to clarify information. Use an asterix (*) to connect the data to the
           description.
           <app-component-example-v1 [codeHTML]="exampleFootnote"></app-component-example-v1>
         </ng-container>
@@ -362,10 +362,11 @@
 
       <app-component-subsection [sectionTitle]="'Accessibility'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-subsubsection [sectionTitle]="'Row headers'">
+          Here are some accessibility rules to be aware of when setting up tables.
+          <app-component-subsubsection [sectionTitle]="'Headers for rows'">
             <ng-container ngProjectAs="sectionContent">
-              When the first column represents headers for the first row the column should be 'th', not 'td',
-              and scoped with row:
+              When the first cells for each row in a table can be seen as headers for the rows, the column
+              cell should be 'th' elements and not 'td' elements. Example:
               <div>
                 <span class="code-text">&lt;th scope="row"&gt; January 2020 &lt;/th&gt;</span>
               </div>
