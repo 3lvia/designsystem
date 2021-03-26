@@ -54,14 +54,14 @@ export class IconDocComponent implements OnInit {
 <i class="e-icon e-icon--chat e-icon--color-disabled e-icon--inverted"></i>
 `;
 
-  importCodeTS = `import { addCircle } from '@elvia/elvis/icons'`;
+  importCodeTS = `import { addCircle } from '@elvia/elvis-assets-icons/icons'`;
   scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>;`;
   iconExample = `<i class="e-icon e-icon--chat e-icon--md"></i>`;
 
   term = '';
   IconClassList: Icon[] = [];
 
-  constructor(private copyService: CopyToClipboardService) {}
+  constructor(private copyService: CopyToClipboardService) { }
 
   @HostListener('document:click', ['$event', '$event.target'])
   onClick(event: MouseEvent, targetElement: HTMLElement): void {
