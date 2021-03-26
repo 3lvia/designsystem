@@ -4,13 +4,27 @@ const svgToMiniDataURI = require('mini-svg-data-uri');
 const fs = require('fs');
 const svgIcons = require('@elvia/elvis-assets-icons/icons.cjs.js');
 
+
+async function copyIconsConfig() {
+  let iconsConfig = fs.readFileSync('node_modules/@elvia/elvis-assets-icons/config/icons.config.js');
+  iconsConfig = `
+// THIS FILE IS AN EXACT COPY OF THE FILE FOUND IN @elvia/elvis-assets-icons. 
+// DO NOT CHANGE THIS ICON LIST MANUALLY.
+// ADD OR REMOVE ICONS IN icons.config.js in @elvia/elvis-assets-icons
+
+  ${iconsConfig}`
+  fs.writeFileSync('src/config/icons.config.js', iconsConfig);
+  return true;
+}
+
+
 // Create embedded icons in elvis.js
 async function createEmbeddedIconsJS() {
   const iconsToInclude = icons.map((i) => {
     if (i.deprecated) {
-      return { name: i.name, svg: svgIcons[createCamelCase(i.newIconName)].getIcon() }; // `src/icons/svg/dist/${i.newIconName}.svg`;
+      return { name: i.name, svg: svgIcons[createCamelCase(i.newIconName)].getIcon() };
     } else {
-      return { name: i.name, svg: svgIcons[createCamelCase(i.name)].getIcon() }; //`src/icons/svg/dist/${i.name}.svg`;
+      return { name: i.name, svg: svgIcons[createCamelCase(i.name)].getIcon() };
     }
   });
   const deprecatedIcons = [];
@@ -26,8 +40,8 @@ async function createEmbeddedIconsJS() {
   let icons = {`;
 
   for (let i = 0; i < iconsToInclude.length; i++) {
-    const fileContent = svgIcons[createCamelCase(iconsToInclude[i].name)].getIcon(); //fs.readFileSync(iconsToInclude[i]).toString();
-    const iconName = iconsToInclude[i].name; // icons[i].name;
+    const fileContent = svgIcons[createCamelCase(iconsToInclude[i].name)].getIcon();
+    const iconName = iconsToInclude[i].name;
 
     const optimizedSVGDataURI = svgToMiniDataURI(fileContent);
     embeddedJs =
@@ -87,5 +101,5 @@ function createCamelCase(original) {
   return newText;
 }
 
-const generateIcons = gulp.series(createEmbeddedIconsJS);
+const generateIcons = gulp.series(copyIconsConfig, createEmbeddedIconsJS);
 exports.generateIcons = generateIcons;

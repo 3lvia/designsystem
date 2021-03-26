@@ -8,7 +8,8 @@
       "packages/components/frameworks/*"
     ],
     "nohoist": [
-      "**/bootstrap"
+      "**/bootstrap",
+      "**/@elvia/elvis-assets-icons"
     ]
   },
   "scripts": {
