@@ -6,6 +6,7 @@ $tooltip-border-style: $tooltip-border-width solid;
 $tooltip-margin-offset: -($tooltip-border-width);
 $tooltop-margin-horizontal-offset: 14px;
 $tooltip-vertical-transform: translate(-50%, 0);
+$tooltip-horizontal-transform: translate(0, -50%);
 $tooltip-padding: 8px 10px;
 
 .e-tooltip {
@@ -15,7 +16,6 @@ $tooltip-padding: 8px 10px;
   display: inline-block;
   box-sizing: border-box;
   line-height: 0;
-  cursor: pointer;
   // only focus effect is currently a visible toooltip.
   outline: none;
 
@@ -34,7 +34,7 @@ $tooltip-padding: 8px 10px;
     background-color: colors.color('grey-80');
     padding: $tooltip-padding;
     border-radius: 4px;
-    transition: 200ms;
+    transition: 250ms;
     // tooltip spesific font style
     font-family: 'Red Hat Text', Verdana, sans-serif;
     font-size: 14px;
@@ -82,9 +82,56 @@ $tooltip-padding: 8px 10px;
       }
     }
 
-    &.is-active {
-      opacity: 1;
-      z-index: 90;
+    &.e-tooltip__content--left {
+      top: 50%;
+      right: 150%;
+      bottom: auto;
+      left: auto;
+      @include helpers.transform($tooltip-horizontal-transform);
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 7px);
+        margin-top: $tooltip-margin-offset;
+        border: $tooltip-border-style;
+        border-color: transparent transparent transparent colors.color('grey-80');
+      }
     }
+
+    &.e-tooltip__content--right {
+      top: 50%;
+      left: 150%;
+      bottom: auto;
+      right: auto;
+      @include helpers.transform($tooltip-horizontal-transform);
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: calc(0% - 7px);
+        margin-top: $tooltip-margin-offset;
+        border: $tooltip-border-style;
+        border-color: transparent colors.color('grey-80') transparent transparent;
+      }
+    }
+
+    &.is-active {
+      animation: TooltipFadeIn 200ms 500ms forwards;
+    }
+  }
+}
+
+@keyframes TooltipFadeIn {
+  0% {
+    opacity: 0;
+    z-index: -1;
+  }
+
+  100% {
+    opacity: 1;
+    z-index: 90;
   }
 }
