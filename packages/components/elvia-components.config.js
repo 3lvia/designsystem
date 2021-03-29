@@ -28,6 +28,7 @@ module.exports = [
       'isCompact',
       'isDisabled',
       'isError',
+      'menuPosition',
       'isMulti',
       'valueOnChange',
     ],

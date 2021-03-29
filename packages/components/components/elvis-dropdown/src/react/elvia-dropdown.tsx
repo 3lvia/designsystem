@@ -16,6 +16,7 @@ export interface DropdownProps {
   isError: boolean;
   errormsg: string;
   isMulti: boolean;
+  menuPosition: string | 'auto';
   label?: string;
   options: DropdownOptions[];
   placeholder: string;
@@ -41,6 +42,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isError = false,
   errormsg = 'Help text',
   isMulti = false,
+  menuPosition,
   label,
   options,
   placeholder = 'Placeholder',
@@ -293,6 +295,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         placeholder={placeholder}
         onChange={onChangeHandler}
         menuIsOpen={menuIsOpen}
+        menuPlacement={menuPosition}
         onKeyDown={(event) => {
           if (event.code === 'Enter' && !menuIsOpen) {
             setMenuIsOpen(true);

@@ -57,6 +57,12 @@ export const dropdownData = {
       description: 'Set the dropdown to accept multiple values',
       default: 'false',
     },
+    menuPosition: {
+      isRequired: false,
+      type: 'string',
+      description: `'Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto'`,
+      default: `'Placeholder'`,
+    },
     valueOnChange: {
       isRequired: false,
       type: ' function',
