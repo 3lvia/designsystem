@@ -91,7 +91,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         : '1px solid #000000',
       maxHeight: isCompact ? '33px' : '48px',
       minHeight: isCompact ? '33px' : '48px',
-      minWidth: '150px',
+      minWidth: '72px',
       marginBottom: '0px',
       padding: !isError ? '1px' : '0px',
       cursor: 'pointer',
@@ -121,7 +121,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     menu: (provided: any) => ({
       ...provided,
       boxShadow: '0px 0px 40px rgba(0, 0, 0, 0.06);',
-      minWidth: '150px',
+      minWidth: '72px',
       zIndex: 100,
     }),
 
