@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, HostListener } from '@angular/core';
 import { Icon } from 'src/app/shared/icon.interface';
 import { getIdentity } from 'src/app/shared/e-items';
-import * as icons from '@elvia/elvis/src/config/icons.config';
+import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 
 @Component({
@@ -54,7 +54,7 @@ export class IconDocComponent implements OnInit {
 <i class="e-icon e-icon--chat e-icon--color-disabled e-icon--inverted"></i>
 `;
 
-  importCodeTS = `import { addCircle } from '@elvia/elvis/icons'`;
+  importCodeTS = `import { addCircle } from '@elvia/elvis-assets-icons/icons'`;
   scriptCodeHTML = `<script src="path_to_file/elvis.js"></script>;`;
   iconExample = `<i class="e-icon e-icon--chat e-icon--md"></i>`;
 

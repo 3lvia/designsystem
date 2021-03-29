@@ -52,7 +52,7 @@
               </button>
             </div>
             <a
-              [href]="'/assets/elvis/icons/svg/src/' + icon.title + '.svg'"
+              [href]="'/assets/elvis/icons/svg/dist/' + icon.title + '.svg'"
               download
               class="e-btn e-btn--tertiary e-btn--sm e-mr-24"
             >
@@ -62,7 +62,7 @@
               <span class="e-btn__title">Svg</span>
             </a>
             <a
-              [href]="'/assets/elvis/icons/png/src/' + icon.title + '.png'"
+              [href]="'/assets/elvis/icons/png/dist/' + icon.title + '.png'"
               download
               class="e-btn e-btn--tertiary e-btn--sm e-mr-24"
             >
@@ -350,8 +350,13 @@
 
       <app-component-subsection [sectionTitle]="'Method 2: Using JS Module / SVGs'">
         <ng-container ngProjectAs="sectionContent">
-          All icons are accessible as SVGs within a JS module. Import the required icon individually where you
-          need them:
+          <a href="https://www.npmjs.com/package/@elvia/elvis-assets-icons" class="e-link">
+            Elvis-assets-icons npm package
+          </a>
+          <p class="e-mb-0">
+            All icons are accessible in a seperate package from Elvis (@elvia/elvis-assets-icons) as SVGs
+            within a JS module. Import the required icon individually where you need them:
+          </p>
           <div class="e-mt-16">
             <app-component-example-code [codeTS]="importCodeTS"></app-component-example-code>
           </div>

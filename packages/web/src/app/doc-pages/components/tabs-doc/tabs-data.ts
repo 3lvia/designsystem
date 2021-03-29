@@ -47,7 +47,6 @@ export const tabsData = {
     `', '` +
     exampleContents.words.random['eng-GBR'][2] +
     `'}
-  value={2}
 ></Tabs>`,
   codeWebComponent:
     `<elvia-tabs 
@@ -58,7 +57,6 @@ export const tabsData = {
     `', '` +
     exampleContents.words.random['eng-GBR'][2] +
     `']" 
-  value="2"
 ></elvia-tabs>`,
   does: ['If you have sub-sections of a page and can not display everything at once'],
   donts: [

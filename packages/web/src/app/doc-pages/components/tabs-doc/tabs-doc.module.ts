@@ -21,7 +21,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     ComponentInstallationModule,
     WhenToUseModule,
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [TabsDocComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class TabsDocModule {}

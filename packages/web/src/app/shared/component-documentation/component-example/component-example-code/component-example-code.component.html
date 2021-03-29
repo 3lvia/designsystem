@@ -4,19 +4,19 @@
     <div class="tabs">
       <div
         class="tab"
+        *ngIf="codeWebComponent !== ''"
+        [ngClass]="{ active: activeTab === 'angular' }"
+        (click)="changeActiveTab('angular')"
+      >
+        Angular
+      </div>
+      <div
+        class="tab"
         *ngIf="codeReact !== ''"
         [ngClass]="{ active: activeTab === 'react' }"
         (click)="changeActiveTab('react')"
       >
         React
-      </div>
-      <div
-        class="tab"
-        *ngIf="codeWebComponent !== ''"
-        [ngClass]="{ active: activeTab === 'webcomponent' }"
-        (click)="changeActiveTab('webcomponent')"
-      >
-        Web Component
       </div>
       <div
         class="tab"

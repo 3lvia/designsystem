@@ -2376,6 +2376,31 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    export const figma = {
+      getIcon: function(color) {
+          let icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="32" height="32"><path d="M50 300c27.6 0 50-22.4 50-50v-50H50c-27.6 0-50 22.4-50 50s22.4 50 50 50z" fill="#0acf83"/><path d="M0 150c0-27.6 22.4-50 50-50h50v100H50c-27.6 0-50-22.4-50-50z" fill="#a259ff"/><path d="M0 50C0 22.4 22.4 0 50 0h50v100H50C22.4 100 0 77.6 0 50z" fill="#f24e1e"/><path d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50h-50V0z" fill="#ff7262"/><path d="M200 150c0 27.6-22.4 50-50 50s-50-22.4-50-50 22.4-50 50-50 50 22.4 50 50z" fill="#1abcfe"/></svg>'
+          let iconName = 'figma'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     export const filter = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)"><path d="M10.495 24c-.828 0-1.504-.698-1.504-1.555v-9.622C4.048 11.497.37 6.952.003 1.663.001 1.625 0 1.591 0 1.556c0-.414.157-.805.44-1.1A1.47 1.47 0 011.502 0h20.994a1.473 1.473 0 011.13.53c.264.312.396.712.37 1.128l-.001.01c-.37 5.288-4.049 9.832-8.992 11.155v7.03c.001.463-.197.898-.542 1.195l-3.005 2.591c-.27.232-.61.361-.96.361zM1.503 1.555c.348 4.852 3.795 8.916 8.39 9.888a.774.774 0 01.601.762v10.24l3.006-2.593v-7.647c0-.368.253-.689.601-.762 4.605-.972 8.057-5.039 8.395-9.89l-20.993.002z" fill="#000"/></g><defs><clipPath id="clip0"><path d="M0 0h24v24H0V0z" fill="#fff"/></clipPath></defs></svg>'
@@ -5155,31 +5180,6 @@
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0)" fill-rule="evenodd" clip-rule="evenodd" fill="#000"><path d="M8.353 19.291a3.642 3.642 0 11-7.285.001 3.642 3.642 0 017.285 0z"/><path d="M6.896 9.722a9.843 9.843 0 00-5.421.285A1.112 1.112 0 11.75 7.903a12.067 12.067 0 0115.692 8.7 12.074 12.074 0 01-.349 6.646 1.112 1.112 0 11-2.103-.724A9.849 9.849 0 006.896 9.722z"/><path d="M9.64 2.95a17.047 17.047 0 00-8.306-.384A1.112 1.112 0 11.89.386a19.27 19.27 0 0122.287 13.322c.919 3.047 1.07 6.273.44 9.392a1.112 1.112 0 11-2.18-.441A17.056 17.056 0 009.64 2.949z"/></g><defs><clipPath id="clip0"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>'
           let iconName = 'rss-bold'
-          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
-          if(!color) {
-              return icon;
-          }
-          if(color==='inverted') {
-            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
-                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
-            }
-            // -full-color check can be removed when new icons have been added
-            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
-                icon = icon.replace(/fill="#000"/g, "fillBlack'");
-            }
-            icon = icon.replace(/fill="#fff"/g, "fillBlack");
-            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
-            icon = icon.replace(/fillBlack/g, "fill='black'");
-            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
-            return icon;
-          }
-          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
-      }
-    }
-    export const figma = {
-      getIcon: function(color) {
-          let icon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="1667" height="2500"><path d="M50 300c27.6 0 50-22.4 50-50v-50H50c-27.6 0-50 22.4-50 50s22.4 50 50 50z" fill="#0acf83"/><path d="M0 150c0-27.6 22.4-50 50-50h50v100H50c-27.6 0-50-22.4-50-50z" fill="#a259ff"/><path d="M0 50C0 22.4 22.4 0 50 0h50v100H50C22.4 100 0 77.6 0 50z" fill="#f24e1e"/><path d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50h-50V0z" fill="#ff7262"/><path d="M200 150c0 27.6-22.4 50-50 50s-50-22.4-50-50 22.4-50 50-50 50 22.4 50 50z" fill="#1abcfe"/></svg>'
-          let iconName = 'figma'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;
