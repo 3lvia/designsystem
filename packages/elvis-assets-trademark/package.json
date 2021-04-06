@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-assets-trademark",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Trademarked logos etc, for use in Elvia applications only.",
   "main": "index.js",
   "scripts": {
