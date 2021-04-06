@@ -10,6 +10,12 @@ wrapperStyle: String - Styling for the React wrapper - This requires useWrapper 
 
 module.exports = [
   {
+    name: 'elvis-accordion',
+    elementName: 'elvia-accordion',
+    attributes: [],
+    reactName: 'Accordion',
+  },
+  {
     name: 'elvis-checkbox',
     elementName: 'elvia-checkbox',
     attributes: ['label', 'name', 'value', 'id', 'size', 'checked', 'disabled', 'required'],

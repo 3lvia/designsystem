@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@elvia/elvis-accordion": "*",
     "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-popover": "*",
