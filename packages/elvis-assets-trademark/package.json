@@ -1,0 +1,11 @@
+{
+  "name": "@elvia/elvis-assets-trademark",
+  "version": "1.0.0",
+  "description": "Trademarked logos etc, for use in Elvia applications only.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE file"
+}
