@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
+    "@elvia/elvis-accordion": "*",
     "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-tabs": "*",

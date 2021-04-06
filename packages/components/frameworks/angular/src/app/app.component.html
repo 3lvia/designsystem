@@ -1,6 +1,15 @@
 <div class="App">
   <h1>Angular preview</h1>
 
+  <h2>Accordion</h2>
+  <elvia-accordion
+    [content]="accordionContent"
+    [label]="accordionLabels"
+    type="overflow"
+  >
+
+  </elvia-accordion>
+
   <h2>Tabs</h2>
   <div style="margin-top: 16px; background: #262626">
     <elvia-tabs
@@ -18,7 +27,10 @@
   {{ value }}
 
   <hr style="margin: 40px 0" />
-  <elvia-testing [value]="counterValue" (valueOnChange)="counterValue = $event.detail.value"></elvia-testing>
+  <elvia-testing
+    [value]="counterValue"
+    (valueOnChange)="counterValue = $event.detail.value"
+  ></elvia-testing>
   {{ counterValue }}
   <button (click)="counterValue = counterValue + 1">++</button>
 
@@ -27,8 +39,15 @@
   <h2>Popover</h2>
   <div style="display: flex; flex-direction: column; align-items: flex-end">
     <div style="margin-top: 16px">
-      <elvia-popover header="BankID" posX="right" width="200">
-        <button slot="trigger" class="e-btn">Right top</button>
+      <elvia-popover
+        header="BankID"
+        posX="right"
+        width="200"
+      >
+        <button
+          slot="trigger"
+          class="e-btn"
+        >Right top</button>
         <div slot="content">
           Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
         </div>
@@ -42,18 +61,34 @@
         posX="left"
         hasCloseBtn="false"
       >
-        <button slot="trigger" class="e-btn">Left top</button>
+        <button
+          slot="trigger"
+          class="e-btn"
+        >Left top</button>
       </elvia-popover>
     </div>
     <div style="margin-top: 16px">
-      <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID.">
-        <button slot="trigger" class="e-btn">Center top</button>
+      <elvia-popover
+        header="BankID"
+        content="Alle privatkunder må bruke BankID."
+      >
+        <button
+          slot="trigger"
+          class="e-btn"
+        >Center top</button>
       </elvia-popover>
     </div>
   </div>
   <div style="margin-top: 16px">
-    <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID." posY="bottom">
-      <button slot="trigger" class="e-btn">Center bottom</button>
+    <elvia-popover
+      header="BankID"
+      content="Alle privatkunder må bruke BankID."
+      posY="bottom"
+    >
+      <button
+        slot="trigger"
+        class="e-btn"
+      >Center bottom</button>
     </elvia-popover>
   </div>
   <div style="margin-top: 16px">
@@ -63,7 +98,10 @@
       posY="bottom"
       posX="right"
     >
-      <button slot="trigger" class="e-btn">Right bottom</button>
+      <button
+        slot="trigger"
+        class="e-btn"
+      >Right bottom</button>
     </elvia-popover>
   </div>
   <div style="margin-top: 16px">
@@ -73,7 +111,10 @@
       posY="bottom"
       posX="left"
     >
-      <button slot="trigger" class="e-btn">Left bottom</button>
+      <button
+        slot="trigger"
+        class="e-btn"
+      >Left bottom</button>
     </elvia-popover>
   </div>
 

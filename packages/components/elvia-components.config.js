@@ -12,7 +12,7 @@ module.exports = [
   {
     name: 'elvis-accordion',
     elementName: 'elvia-accordion',
-    attributes: [],
+    attributes: ['content', 'label', 'position', 'size', 'type'],
     reactName: 'Accordion',
   },
   {

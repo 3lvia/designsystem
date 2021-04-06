@@ -52,6 +52,7 @@ const AccordionLabel = styled.label`
       : '16px'};
   line-height: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
   text-align: left;
+  cursor: pointer;
 
   padding-right: 8px;
   max-width: 80%;
@@ -71,7 +72,7 @@ const AccordionButton = styled.button`
   display: inline-block;
   height: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
   width: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
-  outline: none;
+  cursor: pointer;
 
   &:hover {
     background-image: ${(props: { isContentOpen: boolean }) =>
@@ -79,6 +80,9 @@ const AccordionButton = styled.button`
         ? `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0 12c0 6.617 5.383 12 12 12s12-5.383 12-12S18.617 0 12 0 0 5.383 0 12z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M11.187 9.106a1.149 1.149 0 011.626 0l4.237 4.237a.853.853 0 11-1.207 1.207L12 10.707 8.157 14.55a.853.853 0 01-1.207-1.207l4.237-4.237z' fill='black'/%3e%3c/svg%3e")`
         : `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12 24C5.383 24 0 18.617 0 12S5.383 0 12 0s12 5.383 12 12-5.383 12-12 12z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.813 15.393a1.149 1.149 0 01-1.626 0L6.95 11.157A.853.853 0 118.157 9.95L12 13.793l3.843-3.843a.853.853 0 011.207 1.207l-4.237 4.236z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.813 15.393a1.149 1.149 0 01-1.626 0L6.95 11.157A.853.853 0 118.157 9.95L12 13.793l3.843-3.843a.853.853 0 011.207 1.207l-4.237 4.236z' fill='black'/%3e%3c/svg%3e")`};
   }
+
+  // TODO TOOLBOX
+  outline: none;
 `;
 
 const AccordionContent = styled.div`
@@ -106,7 +110,7 @@ const AccordionContent = styled.div`
   transition: ${(props: { isContentOpen: boolean; type: string }) =>
     (props.type === 'normal' && 'all 0.3s ease-out') ||
     (props.isContentOpen === false && props.type === 'overflow' && 'none') ||
-    (props.isContentOpen === true && props.type === 'overflow' && 'max-height 1s ease-in')};
+    (props.isContentOpen === true && props.type === 'overflow' && 'max-height 2s ease-in')};
 `;
 
 const Accordion: FC<AccordionProps> = ({
@@ -125,7 +129,9 @@ const Accordion: FC<AccordionProps> = ({
         </AccordionContent>
       ) : null}
       <AccordionButtonArea position={position} type={type}>
-        <AccordionLabel size={size}>{contentOpen ? label[1] : label[0]}</AccordionLabel>
+        <AccordionLabel size={size} onClick={() => setContentOpen((contentOpen) => !contentOpen)}>
+          {contentOpen ? label[1] : label[0]}
+        </AccordionLabel>
         <AccordionButton
           isContentOpen={contentOpen}
           size={size}
