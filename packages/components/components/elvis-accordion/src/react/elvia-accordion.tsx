@@ -4,10 +4,11 @@ import './style.scss';
 import styled from 'styled-components';
 
 export interface AccordionProps {
-  label: string;
+  label: string[];
   position: string;
   size: string;
   content: string;
+  type: string;
 }
 
 const ElviaColors = {
@@ -24,9 +25,17 @@ const AccordionArea = styled.div`
 
 const AccordionButtonArea = styled.div`
   display: inline-flex;
-  justify-content: ${(props: { position: string }) => props.position};
+  justify-content: ${(props: { position: string }) =>
+    props.position !== 'center'
+      ? props.position === 'end'
+        ? 'flex-end'
+        : props.position === 'start'
+        ? 'start'
+        : 'center'
+      : 'center'};
   width: 100%;
   flex-direction: row;
+  margin-top: ${(props: { type: string }) => (props.type !== 'overflow' ? '0' : '16px')};
 `;
 
 const AccordionLabel = styled.label`
@@ -74,30 +83,60 @@ const AccordionButton = styled.button`
 
 const AccordionContent = styled.div`
   display: flex;
+  background: white;
   width: 100%;
+  font-size: 16px;
+  line-height:inherit;
   // open
-  padding-top: ${(props: { isContentOpen: boolean }) => (props.isContentOpen ? '24px' : '0')};
+  padding-top: ${(props: { isContentOpen: boolean; type: string }) =>
+    props.isContentOpen && props.type === 'normal' ? '24px' : '0'};
   pointer-events: ${(props: { isContentOpen: boolean }) => (props.isContentOpen ? 'auto' : 'none')};
-  max-height: ${(props: { isContentOpen: boolean }) => (props.isContentOpen ? '10000px' : '0')};
-  opacity: ${(props: { isContentOpen: boolean }) => (props.isContentOpen ? '1' : '0')};
-
-  transition: all 0.25s cubic-bezier(0.4, 0.01, 0.12, 0.32), opacity 0.3s cubic-bezier(0, 0.3, 0.83, 0.97);
+  height:auto;
+  max-height: ${(props: { isContentOpen: boolean; type: string }) =>
+    (props.isContentOpen === true && props.type === 'normal' && '10000px;') ||
+    (props.isContentOpen === false && props.type === 'normal' && '0;') ||
+    (props.isContentOpen === true && props.type === 'overflow' && '10000px;') ||
+    (props.isContentOpen === false && props.type === 'overflow' && 'calc(2em * 1.2);')}
+  opacity: ${(props: { isContentOpen: boolean; type: string }) =>
+    props.isContentOpen ? '1' : props.type === 'overflow' ? '1' : '0'};
+  overflow-y: ${(props: { isContentOpen: boolean; type: string }) =>
+    (props.type === 'normal' && 'auto') ||
+    (props.isContentOpen === false && props.type === 'overflow' && 'hidden') ||
+    (props.isContentOpen === true && props.type === 'overflow' && 'auto')};
+  transition: ${(props: { isContentOpen: boolean; type: string }) =>
+    (props.type === 'normal' && 'all 0.3s ease-out') ||
+    (props.isContentOpen === false && props.type === 'overflow' && 'none') ||
+    (props.isContentOpen === true && props.type === 'overflow' && 'max-height 1s ease-in')};
 `;
 
-const Accordion: FC<AccordionProps> = ({ label, position = 'center', size = 'medium', content }) => {
+const Accordion: FC<AccordionProps> = ({
+  content,
+  label = ['Show more', 'Hide content'],
+  position = 'center',
+  size = 'medium',
+  type = 'normal',
+}) => {
   const [contentOpen, setContentOpen] = useState(false);
-
   return (
     <AccordionArea>
-      <AccordionButtonArea position={position}>
-        <AccordionLabel size={size}>{label}</AccordionLabel>
+      {type === 'overflow' ? (
+        <AccordionContent isContentOpen={contentOpen} type={type}>
+          {content}
+        </AccordionContent>
+      ) : null}
+      <AccordionButtonArea position={position} type={type}>
+        <AccordionLabel size={size}>{contentOpen ? label[1] : label[0]}</AccordionLabel>
         <AccordionButton
           isContentOpen={contentOpen}
           size={size}
           onClick={() => setContentOpen((contentOpen) => !contentOpen)}
         ></AccordionButton>
       </AccordionButtonArea>
-      <AccordionContent isContentOpen={contentOpen}>{content}</AccordionContent>
+      {type === 'normal' ? (
+        <AccordionContent isContentOpen={contentOpen} type={type}>
+          {content}
+        </AccordionContent>
+      ) : null}
     </AccordionArea>
   );
 };
