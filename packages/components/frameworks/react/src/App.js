@@ -5,11 +5,11 @@ import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { DatePicker } from '@elvia/elvis-date-picker/react';
-import { TestingComponent } from '@elvia/elvis-testing/react';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import moment from 'moment';
 import MomentUtils from '@date-io/moment';
-moment.updateLocale('en', {
+import 'moment/locale/nb';
+moment.updateLocale('nb', {
   week: {
     dow: 1,
   },
@@ -49,11 +49,9 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-      <TestingComponent></TestingComponent>
 
       <MuiPickersUtilsProvider utils={MomentUtils}>
         <KeyboardDatePicker
-          disableToolbar
           variant="inline"
           format="DD/MM/yyyy"
           margin="normal"
@@ -70,7 +68,7 @@ function App() {
 
       <h2>DatePicker</h2>
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
-        <DatePicker value="1"></DatePicker>
+        <DatePicker value="1" isNorwegian={true}></DatePicker>
       </div>
 
       <hr style={{ margin: '40px 0' }} />

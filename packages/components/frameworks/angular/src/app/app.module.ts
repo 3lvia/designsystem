@@ -7,7 +7,6 @@ import '@elvia/elvis-popover';
 import '@elvia/elvis-tabs';
 import '@elvia/elvis-progress-linear';
 import '@elvia/elvis-date-picker';
-import '@elvia/elvis-testing';
 
 @NgModule({
   declarations: [AppComponent],
