@@ -117,10 +117,10 @@
 
   &.e-accordion--lg {
     .e-accordion__icon {
-      @include icons.icon-size('md');
+      @include icons.icon-size('sm');
     }
     .e-accordion__title {
-      font-size: 18px;
+      font-size: 20px;
     }
   }
   &.e-accordion--md {

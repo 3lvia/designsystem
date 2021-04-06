@@ -4,7 +4,6 @@ const svgToMiniDataURI = require('mini-svg-data-uri');
 const fs = require('fs');
 const svgIcons = require('@elvia/elvis-assets-icons/icons.cjs.js');
 
-
 async function copyIconsConfig() {
   let iconsConfig = fs.readFileSync('node_modules/@elvia/elvis-assets-icons/config/icons.config.js');
   iconsConfig = `
@@ -12,11 +11,10 @@ async function copyIconsConfig() {
 // DO NOT CHANGE THIS ICON LIST MANUALLY.
 // ADD OR REMOVE ICONS IN icons.config.js in @elvia/elvis-assets-icons
 
-  ${iconsConfig}`
+  ${iconsConfig}`;
   fs.writeFileSync('src/config/icons.config.js', iconsConfig);
   return true;
 }
-
 
 // Create embedded icons in elvis.js
 async function createEmbeddedIconsJS() {

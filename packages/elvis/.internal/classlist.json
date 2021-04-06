@@ -844,7 +844,9 @@
 				"e-tooltip__content": {
 					"modifier": {
 						"e-tooltip__content--bottom": {},
-						"e-tooltip__content--top": {}
+						"e-tooltip__content--top": {},
+						"e-tooltip__content--left": {},
+						"e-tooltip__content--right": {}
 					}
 				}
 			}
@@ -1651,6 +1653,8 @@
 		"e-tooltip__content": {},
 		"e-tooltip__content--bottom": {},
 		"e-tooltip__content--top": {},
+		"e-tooltip__content--left": {},
+		"e-tooltip__content--right": {},
 		"e-toggle": {},
 		"e-toggle__slider": {},
 		"e-toggle---focus": {},
