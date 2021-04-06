@@ -17,7 +17,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes / Patches</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/tooltip#Overview">Accordion</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>
         Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions. 
       </div>
