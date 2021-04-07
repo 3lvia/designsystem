@@ -8,30 +8,72 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-accordion e-accordion--lg e-accordion--center">
-      <div class="e-accordion__item" #accordionLiveExample>
-        <div class="e-accordion__icon" (click)="toggleOpen()">
-          <i class="e-icon e-icon--expand_circle-color"></i>
-          <i class="e-icon e-icon--expand_circle-filled-color"></i>
+
+  <!--CEG-->
+  <app-component-example-generator
+    [componentData]="componentData"
+    flexAlignStart="true"
+  ></app-component-example-generator>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Accordion properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
+  <app-component-section [sectionTitle]="'Accordion CSS classes'">
+    <ng-container ngProjectAs="sectionContent">
+      <div>
+        Elvis also offers the accordion as a css class. Using css classes the generate accordions require you to
+        implement
+        javascript/typescipt solutions for opening and closing the accordion. See below for an example of how this can
+        be achieved.
+      </div>
+      <!--Accordion example with css classes -->
+      <div
+        class="e-my-48"
+        class="component-preview-temp component-preview-animation"
+      >
+        <div class="e-accordion e-accordion--lg e-accordion--center">
+          <div
+            class="e-accordion__item"
+            #accordionLiveExample
+          >
+            <div
+              class="e-accordion__icon"
+              (click)="toggleOpen()"
+            >
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+            <div class="e-accordion__content">
+              <div>{{ examples.texts.sm['eng-GBR'].description }}</div>
+            </div>
+          </div>
         </div>
-        <div class="e-accordion__content">
-          <div>{{ examples.texts.sm['eng-GBR'].description }}</div>
+        <div class="e-w-100">
+          <app-component-example-v1
+            [showPreview]="false"
+            [codeHTML]="liveCodeHTML"
+            [codeTS]="liveCodeTS"
+          ></app-component-example-v1>
         </div>
       </div>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1
-        [showPreview]="false"
-        [codeHTML]="liveCodeHTML"
-        [codeTS]="liveCodeTS"
-      ></app-component-example-v1>
-    </div>
-  </div>
+    </ng-container>
+  </app-component-section>
+
+
 
   <!--TYPE-->
-  <app-component-section [sectionTitle]="'Type'">
+  <app-component-section [sectionTitle]="'CSS - Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Single Accordion'">
         <ng-container ngProjectAs="sectionContent">
@@ -59,14 +101,17 @@
   </app-component-section>
 
   <!--SIZE-->
-  <app-component-section [sectionTitle]="'Size'">
+  <app-component-section [sectionTitle]="'CSS - Size'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-example-v1 [codeHTML]="exampleAccordionSizes"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-accordion'">
+  <app-component-section
+    [sectionTitle]="'CSS - Properties'"
+    [propertiesClass]="'e-accordion'"
+  >
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties [componentName]="'e-accordion'"></app-component-properties>
     </ng-container>

@@ -56,6 +56,12 @@
     padding: 40px;
     border: 1px solid var(--e-grey-10);
     border-radius: 8px;
+
+    &--start {
+      margin-top: 56px;
+      align-items: flex-start;
+    }
+
     .ceg-frame {
       display: flex;
       justify-content: center;
