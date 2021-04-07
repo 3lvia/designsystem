@@ -1,13 +1,13 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
-import './style.scss';
 import toolbox from '@elvia/elvis-toolbox';
 import styled from 'styled-components';
+import './style.scss';
 
 export interface AccordionProps {
+  content: string | HTMLElement;
   label: string[];
   position: string;
   size: string;
-  content: string | HTMLElement;
   type: string;
 }
 
@@ -26,15 +26,11 @@ const AccordionArea = styled.div`
 const AccordionButtonArea = styled.div`
   display: inline-flex;
   justify-content: ${(props: { position: string }) =>
-    props.position !== 'center'
-      ? props.position === 'end'
-        ? 'flex-end'
-        : props.position === 'start'
-        ? 'start'
-        : 'center'
-      : 'center'};
-  width: 100%;
+    (props.position === 'center' && 'center;') ||
+    (props.position === 'end' && 'flex-end;') ||
+    (props.position === 'start' && 'start;')}
   flex-direction: row;
+  width: 100%;
   margin-top: ${(props: { type: string }) => (props.type !== 'overflow' ? '0' : '16px')};
 `;
 
@@ -43,13 +39,9 @@ const AccordionLabel = styled.label`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
   font-size: ${(props: { size: string }) =>
-    props.size !== 'medium'
-      ? props.size === 'small'
-        ? '14px'
-        : props.size === 'large'
-        ? '20px'
-        : '16px'
-      : '16px'};
+    (props.size === 'medium' && '16px;') ||
+    (props.size === 'large' && '20px;') ||
+    (props.size === 'small' && '14px;')}
   line-height: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
   text-align: left;
   cursor: pointer;
