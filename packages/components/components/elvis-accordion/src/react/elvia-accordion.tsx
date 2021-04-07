@@ -141,7 +141,7 @@ const Accordion: FC<AccordionProps> = ({
         }
       });
     }
-  }, []);
+  });
 
   return (
     <span ref={accordionRef}>
