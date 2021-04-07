@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import './style.scss';
-// import toolbox from '@elvia/elvis-toolbox';
+import toolbox from '@elvia/elvis-toolbox';
 import styled from 'styled-components';
 
 export interface AccordionProps {
@@ -53,7 +53,6 @@ const AccordionLabel = styled.label`
   line-height: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
   text-align: left;
   cursor: pointer;
-
   padding-right: 8px;
   max-width: 80%;
 `;
@@ -82,7 +81,7 @@ const AccordionButton = styled.button`
   }
 
   // TODO TOOLBOX
-  outline: none;
+  // outline: none;
 `;
 
 const AccordionContent = styled.div`
@@ -100,7 +99,7 @@ const AccordionContent = styled.div`
     (props.isContentOpen === true && props.type === 'normal' && '10000px;') ||
     (props.isContentOpen === false && props.type === 'normal' && '0;') ||
     (props.isContentOpen === true && props.type === 'overflow' && '10000px;') ||
-    (props.isContentOpen === false && props.type === 'overflow' && 'calc(2em * 1.2);')}
+    (props.isContentOpen === false && props.type === 'overflow' && 'calc(2.2em * 1.2);')}
   opacity: ${(props: { isContentOpen: boolean; type: string }) =>
     props.isContentOpen ? '1' : props.type === 'overflow' ? '1' : '0'};
   overflow-y: ${(props: { isContentOpen: boolean; type: string }) =>
@@ -125,6 +124,17 @@ const Accordion: FC<AccordionProps> = ({
   const accordionRef = useRef<HTMLSpanElement>(null);
   const accordionText = useRef<HTMLDivElement>(null);
 
+  // Outline listener for focus only on tab
+  useEffect(() => {
+    // Start outline listener
+    toolbox.outlineListener(accordionRef.current);
+
+    return () => {
+      // Remove outline listener
+      toolbox.outlineListener(accordionRef.current, true);
+    };
+  }, []);
+
   useEffect(() => {
     // Web component - Placing slots at the right place
     if (
@@ -139,7 +149,7 @@ const Accordion: FC<AccordionProps> = ({
         }
       });
     }
-  });
+  }, []);
 
   return (
     <span ref={accordionRef}>
