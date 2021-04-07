@@ -7,6 +7,28 @@
     [label]="accordionLabels"
     type="overflow"
   >
+  </elvia-accordion>
+
+  <h3>Accordion Custom Content</h3>
+  <elvia-accordion
+    [label]="accordionLabels"
+    type="normal"
+  >
+
+    <div slot="content">
+      <h3>Hello there</h3>
+      <p>An important paragraph</p>
+      <div>
+        <button>A button</button>
+      </div>
+      <h4>Textarea</h4>
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+      ></textarea>
+    </div>
 
   </elvia-accordion>
 

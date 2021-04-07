@@ -16,6 +16,14 @@ export class AppComponent implements OnInit {
     Bacon ipsum dolor amet pork loin bacon jowl turkey. Biltong sausage swine, shankle venison hamburger alcatra spare ribs bacon ham ribeye strip steak. Swine capicola picanha kevin drumstick. Chuck landjaeger pastrami, cow shoulder boudin short loin leberkas t-bone turkey prosciutto jowl. Turkey tail tongue cow shankle chicken tri-tip swine. Prosciutto pig ball tip kielbasa hamburger picanha pork chop tongue chicken shankle short loin filet mignon. T-bone shankle capicola, shoulder hamburger pancetta cupim chuck meatloaf turducken porchetta rump sausage strip steak ribeye.
   `;
 
+  accordionHtmlContent = `
+  <div>
+    <h3>Testheader</h3>
+    <p>Some paragraph with some important information</p>
+    <button>Button</button>
+  <div>
+  `;
+
   accordionLabels = ['Vis mer', 'Få det vekk'];
 
   items = [

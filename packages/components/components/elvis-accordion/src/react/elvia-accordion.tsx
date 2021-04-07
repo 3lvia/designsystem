@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import './style.scss';
 // import toolbox from '@elvia/elvis-toolbox';
 import styled from 'styled-components';
@@ -7,7 +7,7 @@ export interface AccordionProps {
   label: string[];
   position: string;
   size: string;
-  content: string;
+  content: string | HTMLElement;
   type: string;
 }
 
@@ -121,29 +121,53 @@ const Accordion: FC<AccordionProps> = ({
   type = 'normal',
 }) => {
   const [contentOpen, setContentOpen] = useState(false);
+
+  const accordionRef = useRef<HTMLSpanElement>(null);
+  const accordionText = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Web component - Placing slots at the right place
+    if (
+      accordionRef.current &&
+      accordionRef.current.parentElement &&
+      accordionRef.current.parentElement.parentElement
+    ) {
+      accordionRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
+        if (accordionText.current && element.slot === 'content') {
+          accordionText.current.innerHTML = '';
+          accordionText.current.appendChild(element);
+        }
+      });
+    }
+  });
+
   return (
-    <AccordionArea>
-      {type === 'overflow' ? (
-        <AccordionContent isContentOpen={contentOpen} type={type}>
-          {content}
-        </AccordionContent>
-      ) : null}
-      <AccordionButtonArea position={position} type={type}>
-        <AccordionLabel size={size} onClick={() => setContentOpen((contentOpen) => !contentOpen)}>
-          {contentOpen ? label[1] : label[0]}
-        </AccordionLabel>
-        <AccordionButton
-          isContentOpen={contentOpen}
-          size={size}
-          onClick={() => setContentOpen((contentOpen) => !contentOpen)}
-        ></AccordionButton>
-      </AccordionButtonArea>
-      {type === 'normal' ? (
-        <AccordionContent isContentOpen={contentOpen} type={type}>
-          {content}
-        </AccordionContent>
-      ) : null}
-    </AccordionArea>
+    <span ref={accordionRef}>
+      <AccordionArea>
+        {type === 'overflow' ? (
+          <AccordionContent isContentOpen={contentOpen} type={type}>
+            {content && <div>{content}</div>}
+            {!content && <div ref={accordionText} />}
+          </AccordionContent>
+        ) : null}
+        <AccordionButtonArea position={position} type={type}>
+          <AccordionLabel size={size} onClick={() => setContentOpen((contentOpen) => !contentOpen)}>
+            {contentOpen ? label[1] : label[0]}
+          </AccordionLabel>
+          <AccordionButton
+            isContentOpen={contentOpen}
+            size={size}
+            onClick={() => setContentOpen((contentOpen) => !contentOpen)}
+          ></AccordionButton>
+        </AccordionButtonArea>
+        {type === 'normal' ? (
+          <AccordionContent isContentOpen={contentOpen} type={type}>
+            {content && <div>{content}</div>}
+            {!content && <div ref={accordionText} />}
+          </AccordionContent>
+        ) : null}
+      </AccordionArea>
+    </span>
   );
 };
 

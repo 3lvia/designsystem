@@ -14,6 +14,7 @@ module.exports = [
     elementName: 'elvia-accordion',
     attributes: ['content', 'label', 'position', 'size', 'type'],
     reactName: 'Accordion',
+    useWrapper: true,
   },
   {
     name: 'elvis-checkbox',

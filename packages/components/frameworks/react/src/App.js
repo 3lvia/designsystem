@@ -37,11 +37,31 @@ function App() {
     <div className="App">
       <h1>React preview</h1>
 
+      <h2>Accordion</h2>
       <div style={{ marginTop: '24px', marginBottom: '24px' }}>
         <Accordion
           type="overflow"
           position="center"
           content="Bacon ipsum dolor amet pork loin bacon jowl turkey. Biltong sausage swine, shankle venison hamburger alcatra spare ribs bacon ham ribeye strip steak. Swine capicola picanha kevin drumstick. Chuck landjaeger pastrami, cow shoulder boudin short loin leberkas t-bone turkey prosciutto jowl. Turkey tail tongue cow shankle chicken tri-tip swine. Prosciutto pig ball tip kielbasa hamburger picanha pork chop tongue chicken shankle short loin filet mignon. T-bone shankle capicola, shoulder hamburger pancetta cupim chuck meatloaf turducken porchetta rump sausage strip steak ribeye."
+        ></Accordion>
+      </div>
+
+      <h3>Custom Accordion content</h3>
+      <div style={{ marginTop: '24px', marginBottom: '24px' }}>
+        <Accordion
+          type="normal"
+          position="center"
+          content={
+            <div>
+              <div style={{ color: 'white' }}>Hello!</div>
+              <div style={{ color: 'green' }}>Is</div>
+              <div style={{ color: 'black' }}>It</div>
+              <div style={{ color: 'purple' }}>Me</div>
+              <div style={{ color: 'yellow' }}>You´re</div>
+              <div style={{ color: 'blue' }}>Looking</div>
+              <div style={{ color: 'red' }}>For</div>
+            </div>
+          }
         ></Accordion>
       </div>
 
