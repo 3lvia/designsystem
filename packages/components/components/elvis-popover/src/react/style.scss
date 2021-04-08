@@ -22,6 +22,14 @@ $green: #29d305;
     user-select: none;
   }
 
+  &__backdrop {
+    z-index: 99;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+  }
   &__content {
     display: flex;
     flex-direction: column;
@@ -30,7 +38,7 @@ $green: #29d305;
     width: max-content;
     left: 50%;
     opacity: 1;
-    z-index: 99;
+    z-index: 100;
     pointer-events: all;
     padding: $popover-padding;
     background-color: white;
@@ -61,11 +69,11 @@ $green: #29d305;
       font-weight: normal;
       font-size: 14px;
       line-height: 22px;
-      
     }
   }
 
-  &.ewc-popover--hide .ewc-popover__content {
+  &.ewc-popover--hide .ewc-popover__content,
+  &.ewc-popover--hide .ewc-popover__backdrop {
     opacity: 0;
     visibility: hidden;
     .ewc-btn .ewc-btn__icon i {

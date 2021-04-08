@@ -1,5 +1,12 @@
 # Elvia Popover Changelog
 
+## 2.0.1 (09.04.21)
+
+### Bug fixes
+
+- Fix so that clicks inside and outside the popover works as expected in all scenarios.
+- Outline bug fix.
+
 ## 2.0.0 (04.03.21)
 
 ### Bug fixes
