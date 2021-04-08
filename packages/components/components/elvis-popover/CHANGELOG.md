@@ -1,6 +1,6 @@
 # Elvia Popover Changelog
 
-## 2.0.1 (09.04.21)
+## 2.0.3 (09.04.21)
 
 ### Bug fixes
 

@@ -28,6 +28,7 @@ const Popover: FC<PopoverProps> = ({
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverText = useRef<HTMLDivElement>(null);
   const popoverBackdropRef = useRef<HTMLDivElement>(null);
+  const triggerHeight = 21;
   const popoverMargin = 16;
   const popoverPadding = 32;
 
@@ -145,22 +146,28 @@ const Popover: FC<PopoverProps> = ({
   };
 
   const isConflictTop = (): boolean => {
-    if (!popoverContentRef.current || !popoverVisibility) {
+    if (!popoverContentRef.current || !popoverTriggerRef.current || !popoverVisibility) {
       return false;
     }
-    const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
+    const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
+    const offsetTop = popoverTriggerRef.current.getBoundingClientRect().top - contentHeight;
     const isRoomTop = offsetTop > popoverMargin;
     return !isRoomTop;
   };
 
   const isConflictBottom = (): boolean => {
     const dimensions = getCorrectDimensions();
-    if (!popoverContentRef.current || dimensions === null || !popoverVisibility) {
+    if (
+      !popoverContentRef.current ||
+      !popoverTriggerRef.current ||
+      dimensions === null ||
+      !popoverVisibility
+    ) {
       return false;
     }
     const { screenHeight } = dimensions;
     const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
-    const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
+    const offsetTop = popoverTriggerRef.current.getBoundingClientRect().top + triggerHeight;
     const offsetBottom = screenHeight - contentHeight - offsetTop;
     const isRoomBottom = offsetBottom > popoverMargin;
     const isRoomTop = offsetTop > popoverMargin;
