@@ -5,22 +5,36 @@ $grey-10: #e9e9e9;
 $grey-05: #f4f4f4;
 $green: #29d305;
 
+// -> Override in js (fjerne dobbelt opp)
+// .MuiIconButton-root:hover,
+// .MuiIconButton-root.Mui-focusVisible {
+//   background-color: $green;
+// }
+// .MuiIconButton-root:active {
+//   transform: scale(0.93);
+// }
+
 .ewc-date-picker {
+  position: relative;
   // Input field
-  // Label
+  // Fjerne alt med label her??
   .MuiFormLabel-root {
     margin: -8px 0;
 
-    font-family: 'Red Hat Text', Verdana, sans-serif;
+    font-family: 'Red Hat Text';
     font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 23px;
-    color: black;
-    letter-spacing: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+
+    &.Mui-disabled {
+      color: $grey-30;
+      cursor: not-allowed;
+    }
   }
-  .MuiFormLabel-root.Mui-focused {
-    color: black;
+  .MuiFormLabel-root.Mui-focused,
+  .MuiFormLabel-root.MuiFormLabel-filled {
+    display: none;
   }
   .MuiFormLabel-root.Mui-focusVisible {
     outline: 2px solid #0064fa;
@@ -40,7 +54,7 @@ $green: #29d305;
   }
   // Input
   .MuiInputBase-root {
-    width: 304px;
+    // width: 304px;
     max-width: 448px;
 
     font-family: 'Red Hat Text', Verdana, sans-serif;
@@ -53,6 +67,11 @@ $green: #29d305;
     height: 48px;
     border-radius: 4px;
     border: 1px solid black;
+
+    &.Mui-disabled {
+      border: 1px solid $grey-30;
+      cursor: not-allowed;
+    }
     // Button
     .MuiButtonBase-root {
       &:hover,
@@ -75,11 +94,15 @@ $green: #29d305;
     top: -1px;
     left: -1px;
     height: 44px;
-    width: 300px;
+    width: calc(100% - 1px);
     transition: none;
   }
   input.MuiInputBase-input {
     padding-left: 16px;
+    &.Mui-disabled {
+      color: $grey-30;
+      cursor: not-allowed;
+    }
   }
   // Helper text
   .MuiFormHelperText-root {
@@ -195,7 +218,7 @@ $green: #29d305;
   .MuiPickersYearSelection-container {
     position: relative;
     height: 306px;
-    margin-bottom: 8px;
+    margin: 8px 0;
     //fade
     &::before {
       content: '';
@@ -204,7 +227,7 @@ $green: #29d305;
       top: -1px;
       width: 100%;
       height: 60px;
-      background-image: linear-gradient(to top, rgba(255, 255, 255, 0.1), #fff);
+      background-image: linear-gradient(to top, rgba(255, 255, 255, 0), #fff);
       pointer-events: none;
     }
     &:after {
@@ -225,6 +248,9 @@ $green: #29d305;
       font-weight: 400;
       color: black;
       margin: 0px;
+      &:first-of-type {
+        margin-top: -20px;
+      }
       &:hover,
       &:focus {
         background: $grey-05;
@@ -238,12 +264,9 @@ $green: #29d305;
     margin-top: -30px;
     margin-bottom: 0;
     padding: 8px 16px 0px 16px;
+    // MONTH
     .MuiPickersCalendarHeader-transitionContainer {
       height: 16px;
-    }
-    .MuiPickersCalendarHeader-iconButton {
-      width: 32px;
-      height: 32px;
     }
     .MuiTypography-body1 {
       font-family: 'Red Hat Display', Verdana, sans-serif;
@@ -253,12 +276,15 @@ $green: #29d305;
       font-size: 14px;
       line-height: 16px;
     }
-    .MuiIconButton-root:hover,
-    .MuiIconButton-root.Mui-focusVisible {
-      background-color: $green;
+
+    // ARROWS
+    .MuiPickersCalendarHeader-iconButton {
+      width: 32px;
+      height: 32px;
     }
-    .MuiIconButton-root.Mui-disabled {
+    .MuiPickersCalendarHeader-iconButton.Mui-disabled {
       opacity: 0.3;
+      cursor: not-allowed;
     }
   }
 
@@ -339,7 +365,34 @@ $green: #29d305;
 
 // EWC
 .ewc-date-picker {
-  position: relative;
+  // Label
+  .ewc-date-picker__label {
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+
+    position: absolute;
+    top: 6px;
+  }
+  // Error
+  .ewc-date-picker__error {
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+
+    margin: 0;
+    margin-top: -4px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    .ewc-date-picker__helper-text {
+      margin-left: 24px;
+    }
+  }
 }
 .ewc-date-picker__icon {
   background-size: contain;
@@ -353,8 +406,8 @@ $green: #29d305;
     width: 16px;
     height: 16px;
   }
-  &.ewc-date-picker__icon-dropdown {
-    width: 16px;
+  &.ewc-date-picker__icon--error {
     height: 16px;
+    width: 16px;
   }
 }

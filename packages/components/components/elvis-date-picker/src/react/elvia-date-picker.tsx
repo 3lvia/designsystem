@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect } from 'react';
+import React, { FC, useRef } from 'react';
 import './style.scss';
 import styled from 'styled-components';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
@@ -10,12 +10,17 @@ moment.updateLocale('en', {
   week: {
     dow: 1,
   },
+  locale: 'nb',
 });
 
 export interface DatePickerProps {
-  value: number;
-  isNorwegian: boolean;
+  value: Date;
+  label: string;
+  minDate: Date;
+  maxDate: Date;
   isDisabled: boolean;
+  isFullWidth: boolean;
+  errorMessage: string;
 }
 
 const Wrapper = styled.div``;
@@ -38,61 +43,94 @@ class LocalizedUtils extends MomentUtils {
   }
 }
 
-const DatePicker: FC<DatePickerProps> = ({ value, isNorwegian = false, isDisabled = false }) => {
-  const [label, setLabel] = useState('Choose date');
+const DatePicker: FC<DatePickerProps> = ({
+  value = null,
+  label = 'Velg dato',
+  minDate = undefined,
+  maxDate = undefined,
+  isDisabled = false,
+  isFullWidth = false,
+  errorMessage = 'Feil datoformat',
+}) => {
   const elvisDatePicker = useRef<KeyboardDatePicker>(null);
-  const [localLanguage, setLocalLanguage] = useState('en');
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
+  const [selectedDate, setSelectedDate] = React.useState(value);
+  const emptyLabel = 'dd.mm.yyyy';
+  const defaultWidth = '304px';
 
   const materialTheme = createMuiTheme({
     props: {
-      // Name of the component
       MuiButtonBase: {
-        // The properties to apply
-        disableRipple: true, // No more ripple, on the whole application!
+        disableRipple: true,
+      },
+    },
+    overrides: {
+      MuiInputBase: {
         root: {
-          '&$focused': {
-            outline: '2px solid #0064fa',
-            outlineOffset: '2px',
+          width: isFullWidth ? '100%' : defaultWidth,
+        },
+      },
+      MuiFormControl: {
+        root: {
+          width: isFullWidth ? '100%' : defaultWidth,
+        },
+      },
+      MuiIconButton: {
+        root: {
+          '&:hover': {
+            backgroundColor: '#29d305',
+          },
+          focusVisible: {
+            backgroundColor: '#29d305',
+          },
+          '&:active': {
+            transform: 'scale(0.93)',
           },
         },
       },
     },
   });
 
-  useEffect(() => {
-    if (isNorwegian) {
-      moment.locale('nb');
-      setLocalLanguage('nb');
-      setLabel('Velg dato');
-    }
-  });
-
-  useEffect(() => {
-    if (elvisDatePicker.current !== null) {
-      const element = elvisDatePicker.current.querySelectorAll('.MuiTypography-subtitle1');
-      console.log(elvisDatePicker.current);
-      console.log(element);
-    }
-  });
-
   const handleDateChange = (date: Date) => {
     setSelectedDate(date);
+  };
+
+  const getKeyboardIcon = () => {
+    if (isDisabled) {
+      return (
+        <i
+          className="ewc-date-picker__icon"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23BDBDBD' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23BDBDBD'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23BDBDBD'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
+          }}
+        ></i>
+      );
+    } else {
+      return (
+        <i
+          className="ewc-date-picker__icon"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='black'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
+          }}
+        ></i>
+      );
+    }
   };
 
   return (
     <Wrapper>
       <div className="ewc-date-picker" ref={elvisDatePicker}>
+        <label className="ewc-date-picker__label">{label}</label>
         <ThemeProvider theme={materialTheme}>
-          <MuiPickersUtilsProvider utils={LocalizedUtils} locale={localLanguage} libInstance={moment}>
+          <MuiPickersUtilsProvider utils={LocalizedUtils} locale={'nb'} libInstance={moment}>
             <KeyboardDatePicker
               views={['year', 'date']}
               variant="inline"
               format="DD.MM.yyyy"
               margin="normal"
               id="date-picker-inline"
-              // minDate={new Date()} -> burde ha egen fade-klasse når man har min date
-              label={label}
+              minDate={minDate}
+              maxDate={maxDate}
+              label={emptyLabel}
               value={selectedDate}
               defaultValue={null}
               onChange={handleDateChange}
@@ -102,14 +140,7 @@ const DatePicker: FC<DatePickerProps> = ({ value, isNorwegian = false, isDisable
                 'aria-label': 'change date',
               }}
               // ToolbarComponent={() => (<div><ToolbarComponentDefault/><OtherComponent /></div>)}
-              keyboardIcon={
-                <i
-                  className="ewc-date-picker__icon"
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='black'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
-                  }}
-                ></i>
-              }
+              keyboardIcon={getKeyboardIcon()}
               leftArrowIcon={
                 <i
                   className="ewc-date-picker__icon ewc-date-picker__icon--arrow"
@@ -130,6 +161,17 @@ const DatePicker: FC<DatePickerProps> = ({ value, isNorwegian = false, isDisable
             <div style={{ display: 'none' }}>{value}</div>
           </MuiPickersUtilsProvider>
         </ThemeProvider>
+        {errorMessage && (
+          <p className="ewc-date-picker__error">
+            <i
+              className="ewc-date-picker__icon ewc-date-picker__icon--error"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23FF0000' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23FF0000'%3e%3cpath d='M12 23.999c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath d='M16.5 17.249a.743.743 0 01-.53-.22L12 13.06l-3.97 3.97a.744.744 0 01-1.06 0 .752.752 0 010-1.061l3.97-3.97-3.97-3.97a.743.743 0 01-.22-.53c0-.2.078-.389.22-.53a.743.743 0 01.53-.22c.2 0 .389.078.53.22l3.97 3.97 3.97-3.97a.744.744 0 011.06 0c.142.141.22.33.22.53s-.078.389-.22.53l-3.97 3.97 3.97 3.97a.752.752 0 010 1.061.746.746 0 01-.53.219z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23FF0000'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
+              }}
+            ></i>
+            <div className="ewc-date-picker__helper-text">{errorMessage}</div>
+          </p>
+        )}
       </div>
     </Wrapper>
   );
