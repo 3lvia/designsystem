@@ -110,7 +110,7 @@ const Accordion: FC<AccordionProps> = ({
   const accordionRef = useRef<HTMLSpanElement>(null);
   const accordionText = useRef<HTMLDivElement>(null);
 
-  // Outline listener for focus only on tab
+  // Outline listener for focus only on tab keydown
   useEffect(() => {
     // Start outline listener
     toolbox.outlineListener(accordionRef.current);

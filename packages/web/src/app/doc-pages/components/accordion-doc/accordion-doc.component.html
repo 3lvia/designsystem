@@ -15,6 +15,16 @@
     flexAlignStart="true"
   ></app-component-example-generator>
 
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use
+        [whens]="doesAccordion"
+        [whenNots]="dontsAccordion"
+      ></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
   <!--INSTALLATION-->
   <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">

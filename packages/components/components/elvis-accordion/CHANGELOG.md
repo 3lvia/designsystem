@@ -1,6 +1,6 @@
 # Elvia Accordion Changelog
 
-## 1.0.0 (TBD)
+## 1.0.0 (09.04.21)
 
 ### New features
 
