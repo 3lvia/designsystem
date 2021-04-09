@@ -23,42 +23,42 @@ export class DropdownDocComponent {
 
   isSelected;
 
+  exampleOverview = `<elvia-dropdown
+  [options]="exampleOptions"
+  placeholder="Placeholder"
+  label="Label"
+  (valueOnChange)="isSelected = $event.detail.value"
+  >
+</elvia-dropdown>`;
+  exampleOverviewTS = `isSelected;
+  
+    exampleOptions = [
+    {
+      value: '1',
+      label: 'Option 1',
+    },
+    {
+      value: '2',
+      label: 'Option 2',
+    },
+    {
+      value: '3',
+      label: 'Option 3',
+    },
+  ];`;
+
   exampleOptions = [
     {
-      value: 'norge',
-      label: 'Norge',
+      value: '1',
+      label: 'Option 1',
     },
     {
-      value: 'sverige',
-      label: 'Sverige',
+      value: '2',
+      label: 'Option 2',
     },
     {
-      value: 'danmark',
-      label: 'Danmark',
-    },
-    {
-      value: 'island',
-      label: 'Island',
-    },
-    {
-      value: 'finland',
-      label: 'Finland',
-    },
-    {
-      value: 'england',
-      label: 'England',
-    },
-    {
-      value: 'tyskland',
-      label: 'Tyskland',
-    },
-    {
-      value: 'frankrike',
-      label: 'Frankrike',
-    },
-    {
-      value: 'italia',
-      label: 'Italia',
+      value: '3',
+      label: 'Option 3',
     },
   ];
 }

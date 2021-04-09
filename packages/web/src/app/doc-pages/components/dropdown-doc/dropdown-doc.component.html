@@ -9,115 +9,27 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--CEG-->
-  <!--Temporary until ceg-code-block supports angular syntax-->
-  <div class="component-preview-temp component-preview-animation">
 
-
-    <h2>Demo</h2>
-    <div style="margin-bottom: 16px;padding: 12px">
-      Selected options: {{ isSelected | json }}
-    </div>
-
+  <div class="exampleDropdown e-mt-56">
     <elvia-dropdown
       [options]="exampleOptions"
-      placeholder="Velg land"
+      placeholder="Placeholder"
+      label="Label"
       (valueOnChange)="isSelected = $event.detail.value"
     >
     </elvia-dropdown>
-
-    <h2>Preview for QA</h2>
-
-    <h3>Compact single</h3>
-    <elvia-dropdown
-      [options]="exampleOptions"
-      placeholder="Velg land"
-      [isCompact]="isCompact"
-    >
-    </elvia-dropdown>
-
-
-    <h3>Multi Normal</h3>
-    <elvia-dropdown
-      [options]="exampleOptions"
-      placeholder="Velg land"
-      [isMulti]="isMulti"
-      (valueOnChange)="isSelected = $event.detail.value"
-    >
-    </elvia-dropdown>
-
-    <h3>Multi Compact</h3>
-    <elvia-dropdown
-      [options]="exampleOptions"
-      placeholder="Velg land"
-      [isCompact]="isCompact"
-      [isMulti]="isMulti"
-    >
-    </elvia-dropdown>
-
-    <h3>Labels</h3>
-    <elvia-dropdown
-      [options]="exampleOptions"
-      placeholder="Velg land"
-      label='Velg land'
-    >
-    </elvia-dropdown>
-    <elvia-dropdown
-      class="e-mt-24"
-      [options]="exampleOptions"
-      placeholder="Velg land"
-      [isCompact]="isCompact"
-      label='Velg land'
-    >
-    </elvia-dropdown>
-    <h2>Error</h2>
-
-    <elvia-dropdown
-      [options]="exampleOptions"
-      placeholder="Velg land"
-      [isError]="isError"
-      label='Velg land'
-    >
-    </elvia-dropdown>
-
-
-    <elvia-dropdown
-      class="e-mt-24"
-      [options]="exampleOptions"
-      placeholder="Velg land"
-      [isCompact]="isCompact"
-      [isError]="isError"
-      label='Velg land'
-    >
-    </elvia-dropdown>
-
-    <h2>Disabled</h2>
-
-    <elvia-dropdown
-      [options]="exampleOptions"
-      placeholder="Velg land"
-      [isDisabled]="isError"
-      label='Velg land'
-    >
-    </elvia-dropdown>
-
-    <elvia-dropdown
-      class="e-mt-24"
-      [options]="exampleOptions"
-      placeholder="Velg land"
-      [isCompact]="isCompact"
-      [isDisabled]="isError"
-      label='Velg land'
-    >
-    </elvia-dropdown>
-
-    <app-component-example-generator
-      [componentData]="componentData"
-      [hasPreview]="false"
-    ></app-component-example-generator>
   </div>
+  <app-component-example-v1
+    [showPreview]="false"
+    [codeHTML]="exampleOverview"
+    [codeTS]="exampleOverviewTS"
+  ></app-component-example-v1>
 
-  <app-component-section [sectionTitle]="'Usage'">
+  <!--USAGE-->
+  <app-component-section
+    [sectionTitle]="'Usage'"
+    noAnimation=true
+  >
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use
         [whens]="does"
@@ -126,17 +38,86 @@
     </ng-container>
   </app-component-section>
 
+  <!--SIZE-->
+  <app-component-section
+    [sectionTitle]="'Size'"
+    noAnimation=true
+  >
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection
+        [sectionTitle]="'Normal'"
+        noAnimation=true
+      >
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-dropdown
+            [options]="exampleOptions"
+            placeholder="Placeholder"
+            label="Label"
+          >
+          </elvia-dropdown>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection
+        [sectionTitle]="'Compact'"
+        noAnimation=true
+      >
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-dropdown
+            [options]="exampleOptions"
+            placeholder="Placeholder"
+            label="Label"
+            [isCompact]="isCompact"
+          >
+          </elvia-dropdown>
+        </ng-container>
+      </app-component-subsection>
+
+    </ng-container>
+  </app-component-section>
+
+
+  <!--OPTIONS-->
+  <app-component-section
+    [sectionTitle]="'Options'"
+    noAnimation=true
+  >
+    <ng-container ngProjectAs="sectionContent">
+
+      <app-component-subsection
+        [sectionTitle]="'Multiselect'"
+        noAnimation=true
+      >
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-dropdown
+            [options]="exampleOptions"
+            placeholder="Placeholder"
+            label="Label"
+            [isMulti]="isMulti"
+          >
+          </elvia-dropdown>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!--INSTALLATION-->
-  <app-component-section [sectionTitle]="'Installation'">
+  <app-component-section
+    [sectionTitle]="'Installation'"
+    noAnimation=true
+  >
     <ng-container ngProjectAs="sectionContent">
       <app-component-installation [componentData]="componentData"></app-component-installation>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'">
+  <app-component-section
+    [sectionTitle]="'Properties'"
+    noAnimation=true
+  >
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
+
 </div>

@@ -6,8 +6,8 @@ import { ComponentHeaderModule } from 'src/app/shared/component-documentation/co
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
-import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
+import { ComponentExampleV1Module } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { RouterModule } from '@angular/router';
 
@@ -18,10 +18,10 @@ import { RouterModule } from '@angular/router';
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentPropertiesTableModule,
-    ComponentExampleGeneratorModule,
     ComponentInstallationModule,
     WhenToUseModule,
     RouterModule,
+    ComponentExampleV1Module,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [DropdownDocComponent],

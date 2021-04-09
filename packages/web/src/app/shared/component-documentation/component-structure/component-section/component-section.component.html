@@ -1,8 +1,18 @@
 <!--COMPONENT SECTION-->
 
-<div class="component-section documentation-section-animation elvis-anchor">
-  <div class="component-section__title" id="{{ sectionTitle }}">
-    <span class="e-tooltip" tabindex="0" (click)="copyAnchor()">
+<div
+  class="component-section elvis-anchor"
+  [ngClass]="{'documentation-section-animation' : !noAnimation}"
+>
+  <div
+    class="component-section__title"
+    id="{{ sectionTitle }}"
+  >
+    <span
+      class="e-tooltip"
+      tabindex="0"
+      (click)="copyAnchor()"
+    >
       <span class="icons">
         <img
           class="component-section__img normal-img"
@@ -15,15 +25,24 @@
           src="assets/hyperlink-3-green.svg"
         />
       </span>
-      <h2 class="e-title-md elvis-anchor-title e-mb-24" style="display: flex">
+      <h2
+        class="e-title-md elvis-anchor-title e-mb-24"
+        style="display: flex"
+      >
         {{ sectionTitle }}
         <ng-content select="headerIcon"></ng-content>
       </h2>
 
       <span class="e-tooltip__content">Copied!</span>
     </span>
-    <span class="e-ml-16" *ngIf="propertiesClass != ''">
-      <app-copy [message]="propertiesClass" [noAnimation]="true">
+    <span
+      class="e-ml-16"
+      *ngIf="propertiesClass != ''"
+    >
+      <app-copy
+        [message]="propertiesClass"
+        [noAnimation]="true"
+      >
         <ng-container ngProjectAs="copyContent">
           <span class="code-text">{{ propertiesClass }}</span>
         </ng-container>
