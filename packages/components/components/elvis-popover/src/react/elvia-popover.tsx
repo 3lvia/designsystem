@@ -12,22 +12,6 @@ export interface PopoverProps {
   hasCloseBtn?: boolean;
 }
 
-// Return composedPath and Polyfill path if IE11
-const getEventPath = (e: MouseEvent) => {
-  const polyfill = () => {
-    const element = (e.target as HTMLElement) || null;
-    const pathArr = [element];
-
-    if (!element || !element.parentElement) {
-      return [];
-    }
-
-    return pathArr;
-  };
-
-  return (e.composedPath && e.composedPath()) || polyfill();
-};
-
 const Popover: FC<PopoverProps> = ({
   header,
   content,
@@ -43,6 +27,8 @@ const Popover: FC<PopoverProps> = ({
   const popoverSlotTriggerRef = useRef<HTMLDivElement>(null);
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverText = useRef<HTMLDivElement>(null);
+  const popoverBackdropRef = useRef<HTMLDivElement>(null);
+  const triggerHeight = 21;
   const popoverMargin = 16;
   const popoverPadding = 32;
 
@@ -51,27 +37,22 @@ const Popover: FC<PopoverProps> = ({
     // Start outline listener
     toolbox.outlineListener(popoverRef.current);
 
-    // Listen to click outside popover
-    const handleClickOutside = (e: MouseEvent) => {
-      if (!popoverContentRef.current || !popoverRef.current) {
-        return;
-      }
-      const path = getEventPath(e);
-      const slotTriggerIsTargetTrigger = popoverSlotTriggerRef.current === path[1];
-      const popoverContainsTarget = popoverRef.current.contains(path[0] as Node);
-      const isContentHidden = popoverContentRef.current.classList.contains('ewc-popover--hide');
-      if (!slotTriggerIsTargetTrigger && !popoverContainsTarget && !isContentHidden) {
-        setPopoverVisibility(false);
-      }
+    // Close on click outside
+    const handleClickOutside = () => {
+      setPopoverVisibility(false);
     };
-    document.addEventListener('click', handleClickOutside);
+    if (popoverBackdropRef.current) {
+      popoverBackdropRef.current.addEventListener('click', handleClickOutside);
+    }
 
     // Cleanup
     return () => {
       // Remove outline listener
       toolbox.outlineListener(popoverRef.current, true);
 
-      document.removeEventListener('click', handleClickOutside);
+      if (popoverBackdropRef.current) {
+        popoverBackdropRef.current.removeEventListener('click', handleClickOutside);
+      }
     };
   }, []);
 
@@ -165,22 +146,28 @@ const Popover: FC<PopoverProps> = ({
   };
 
   const isConflictTop = (): boolean => {
-    if (!popoverContentRef.current || !popoverVisibility) {
+    if (!popoverContentRef.current || !popoverTriggerRef.current || !popoverVisibility) {
       return false;
     }
-    const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
+    const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
+    const offsetTop = popoverTriggerRef.current.getBoundingClientRect().top - contentHeight;
     const isRoomTop = offsetTop > popoverMargin;
     return !isRoomTop;
   };
 
   const isConflictBottom = (): boolean => {
     const dimensions = getCorrectDimensions();
-    if (!popoverContentRef.current || dimensions === null || !popoverVisibility) {
+    if (
+      !popoverContentRef.current ||
+      !popoverTriggerRef.current ||
+      dimensions === null ||
+      !popoverVisibility
+    ) {
       return false;
     }
     const { screenHeight } = dimensions;
     const contentHeight = popoverContentRef.current.getBoundingClientRect().height;
-    const offsetTop = popoverContentRef.current.getBoundingClientRect().top;
+    const offsetTop = popoverTriggerRef.current.getBoundingClientRect().top + triggerHeight;
     const offsetBottom = screenHeight - contentHeight - offsetTop;
     const isRoomBottom = offsetBottom > popoverMargin;
     const isRoomTop = offsetTop > popoverMargin;
@@ -249,31 +236,37 @@ const Popover: FC<PopoverProps> = ({
   });
 
   return (
-    <span className={popoverClasses} ref={popoverRef}>
-      <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
-        {trigger && <div onClick={togglePopover}>{trigger}</div>}
-        {!trigger && <div onClick={togglePopover} ref={popoverSlotTriggerRef}></div>}
-      </div>
+    <span ref={popoverRef}>
+      <div className={popoverClasses}>
+        <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
+          {trigger && <div onClick={togglePopover}>{trigger}</div>}
+          {!trigger && <div onClick={togglePopover} ref={popoverSlotTriggerRef}></div>}
+        </div>
 
-      <div className="ewc-popover__content" ref={popoverContentRef}>
-        {hasCloseBtn == true && (
-          <div className="ewc-popover__close">
-            <button className="ewc-btn ewc-btn--icon ewc-btn--sm" onClick={() => setPopoverVisibility(false)}>
-              <span className="ewc-btn__icon">
-                <i
-                  className="ewc-icon ewc-icon--close-bold ewc-icon--xs"
-                  style={{
-                    backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
-                  }}
-                  e-id="e-icone-icon--close-bold"
-                ></i>
-              </span>
-            </button>
-          </div>
-        )}
-        {header && <div className="ewc-popover__header">{header}</div>}
-        {content && <div className="ewc-popover__text">{content}</div>}
-        {!content && <div className="ewc-popover__text" ref={popoverText} />}
+        <div className="ewc-popover__backdrop" ref={popoverBackdropRef}></div>
+        <div className="ewc-popover__content" ref={popoverContentRef}>
+          {hasCloseBtn == true && (
+            <div className="ewc-popover__close">
+              <button
+                className="ewc-btn ewc-btn--icon ewc-btn--sm"
+                onClick={() => setPopoverVisibility(false)}
+              >
+                <span className="ewc-btn__icon">
+                  <i
+                    className="ewc-icon ewc-icon--close-bold ewc-icon--xs"
+                    style={{
+                      backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
+                    }}
+                    e-id="e-icone-icon--close-bold"
+                  ></i>
+                </span>
+              </button>
+            </div>
+          )}
+          {header && <div className="ewc-popover__header">{header}</div>}
+          {content && <div className="ewc-popover__text">{content}</div>}
+          {!content && <div className="ewc-popover__text" ref={popoverText} />}
+        </div>
       </div>
     </span>
   );
