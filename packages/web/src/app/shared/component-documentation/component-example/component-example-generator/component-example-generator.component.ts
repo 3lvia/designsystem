@@ -9,6 +9,8 @@ import { ExampleCodeService } from '../../example-code.service';
 })
 export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('cegFrame') cegFrame;
+  @ViewChild('cegContent') cegContent;
+  @Input() delayInnerHtml = false;
   @Input() componentData;
   @Input() width = 100;
   @Input() hasPreview = true;
@@ -20,7 +22,15 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
 
   ngOnInit(): void {
     this.codeWebComponentSub = this.codeService.listenCodeWebComponent().subscribe((code: string) => {
+      if (!this.delayInnerHtml) {
+        this.cegFrame.nativeElement.innerHTML = code;
+        return;
+      }
+      this.cegContent.nativeElement.style.visibility = 'hidden';
       this.cegFrame.nativeElement.innerHTML = code;
+      setTimeout(() => {
+        this.cegContent.nativeElement.style.visibility = 'visible';
+      }, 10);
     });
   }
 

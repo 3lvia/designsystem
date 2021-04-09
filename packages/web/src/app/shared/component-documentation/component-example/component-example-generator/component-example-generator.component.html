@@ -7,7 +7,10 @@
     class="ceg-row-1 e-mb-16"
     *ngIf="hasPreview"
   >
-    <div class="ceg-col-1">
+    <div
+      class="ceg-col-1"
+      #cegContent
+    >
       <!--CEG code preview-->
       <div [ngClass]="!flexAlignStart ? 'ceg-code-preview' : 'ceg-code-preview--start'">
         <div
