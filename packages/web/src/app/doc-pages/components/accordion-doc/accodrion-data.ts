@@ -1,3 +1,5 @@
+import { exampleContents } from 'src/app/shared/example-contents';
+
 const accordionData = {
   name: 'elvis-accordion',
   elementNameW: 'elvia-accordion',
@@ -52,25 +54,25 @@ const accordionData = {
   package: 'npm install @elvia/elvis-accordion',
   codeImportReact: `import { Accordion } from '@elvia/elvis-accordion/react';`,
   codeImportWebComponent: `import '@elvia/elvis-accordion';`,
-  codeReact: `<Accordion
+  codeReact:
+    `<Accordion
   type="normal"
   position="center"
   size="medium"
-  content="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pretium leo eget est pellentesque viverra.
-    Nam orci eros, rutrum eget nibh sit amet, volutpat consequat eros. Cras non porttitor nulla, ac consequat dui.
-    Donec tincidunt, elit sit amet consequat pharetra, ante neque molestie lacus, sed mollis quam dolor vitae quam.
-    Nulla malesuada orci ac libero commodo, nec efficitur urna pellentesque. Nulla urna libero, sagittis sit amet fermentum placerat."
+  content="` +
+    exampleContents.texts.lg['eng-GBR'].description +
+    `"
 ></Accordion>`,
-  codeWebComponent: `<elvia-accordion
+  codeWebComponent:
+    `<elvia-accordion
   type="normal"
   position="center"
   size="medium"
   >
   <div slot="content">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer pretium leo eget est pellentesque viverra. 
-    Nam orci eros, rutrum eget nibh sit amet, volutpat consequat eros. Cras non porttitor nulla, ac consequat dui. 
-    Donec tincidunt, elit sit amet consequat pharetra, ante neque molestie lacus, sed mollis quam dolor vitae quam. 
-    Nulla malesuada orci ac libero commodo, nec efficitur urna pellentesque. Nulla urna libero, sagittis sit amet fermentum placerat.
+   ` +
+    exampleContents.texts.lg['eng-GBR'].description +
+    `
   </div>
 </elvia-accordion>`,
 };

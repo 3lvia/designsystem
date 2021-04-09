@@ -14,8 +14,10 @@
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-
+      <app-when-to-use
+        [whens]="does"
+        [whenNots]="donts"
+      ></app-when-to-use>
       <app-component-subsection [sectionTitle]="'Structure'">
         <ng-container ngProjectAs="sectionContent">
           <div

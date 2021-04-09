@@ -87,7 +87,9 @@ const AccordionContent = styled.div`
     (props.isContentOpen === true && props.type === 'overflow' && '10000px;') ||
     (props.isContentOpen === false && props.type === 'overflow' && 'calc(2.2em * 1.2);')}
   opacity: ${(props: { isContentOpen: boolean; type: string }) =>
-    props.isContentOpen ? '1' : props.type === 'overflow' ? '1' : '0'};
+    (props.isContentOpen && '1;') ||
+    (props.isContentOpen === false && props.type === 'overflow' && '1;') ||
+    '0'};
   overflow-y: ${(props: { isContentOpen: boolean; type: string }) =>
     (props.type === 'normal' && 'auto') ||
     (props.isContentOpen === false && props.type === 'overflow' && 'hidden') ||
@@ -96,6 +98,13 @@ const AccordionContent = styled.div`
     (props.type === 'normal' && 'all 0.3s ease-out') ||
     (props.isContentOpen === false && props.type === 'overflow' && 'none') ||
     (props.isContentOpen === true && props.type === 'overflow' && 'max-height 2s ease-in')};
+
+  // remove scrollsbars
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display:none;
+  }
 `;
 
 const Accordion: FC<AccordionProps> = ({
