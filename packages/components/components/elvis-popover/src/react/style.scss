@@ -20,6 +20,12 @@ $green: #29d305;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    cursor: pointer;
+  }
+  &:not(.ewc-popover--hide) {
+    .ewc-popover__trigger {
+      z-index: 100;
+    }
   }
 
   &__backdrop {
