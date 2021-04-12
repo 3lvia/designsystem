@@ -5,7 +5,7 @@ import './style.scss';
 
 export interface AccordionProps {
   content: string | HTMLElement;
-  label: string[];
+  label: string | string[];
   position: string;
   size: string;
   type: string;
@@ -38,6 +38,7 @@ const AccordionButton = styled.button`
   border: none;
   background: transparent;
   display: flex;
+  padding: 0;
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
   font-size: ${(props: { size: string }) =>
@@ -54,7 +55,7 @@ const AccordionButton = styled.button`
   }
   
   i {
-    margin-left: 8px;
+    margin-left: ${(props: { label: string | string[] }) => (props.label === 'none' ? '0px' : '8px')};
     border: none;
     border-radius: 50%;
     background-size: contain;
@@ -73,7 +74,7 @@ const AccordionButton = styled.button`
 
 const AccordionContent = styled.div`
   display: flex;
-  background: white;
+  background: transparent;
   width: 100%;
   font-size: 16px;
   line-height:inherit;
@@ -158,10 +159,11 @@ const Accordion: FC<AccordionProps> = ({
         <AccordionButtonArea position={position} type={type}>
           <AccordionButton
             isContentOpen={contentOpen}
+            label={label}
             size={size}
             onClick={() => setContentOpen((contentOpen) => !contentOpen)}
           >
-            {contentOpen ? label[1] : label[0]}
+            {label === 'none' ? null : contentOpen ? label[1] : label[0]}
             <i></i>
           </AccordionButton>
         </AccordionButtonArea>

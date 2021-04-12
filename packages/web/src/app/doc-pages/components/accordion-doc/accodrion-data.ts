@@ -12,9 +12,9 @@ const accordionData = {
     },
     label: {
       isRequired: false,
-      type: 'string[]',
-      description:
-        'Label for the accordion. Index 0 refers to label while accordion is closed, index 1 refers to label when the accordion is open.',
+      type: `string ('none') | string[]`,
+      description: `Label for the accordion. Index 0 refers to label while accordion is closed,
+  index 1 refers to label when the accordion is open. Pass "none" to remove label.`,
       default: '["Show","Hide"]',
     },
     position: {

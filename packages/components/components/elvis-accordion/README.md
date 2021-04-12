@@ -6,8 +6,8 @@ large amount of content in a small place.
 ## Props
 
 - content (string | HTMLElement) [required] - Header of content
-- label (string[]) - Label for the accordion. Index 0 refers to label while accordion is closed, index 1
-  refers to label when the accordion is open.
+- label (string | string[]) - Label for the accordion. Index 0 refers to label while accordion is closed,
+  index 1 refers to label when the accordion is open. Pass "none" to remove label.
 - position (string) - Horizontal positon of opening button, “left”, “center” or “right”, defualt is "center"
 - size (string) - Size of accordion label & button, “small”, “medium” or “large”, defualt is "medium".
 - type (string) - Variants of accordion, "normal" or "overflow", defualt is "normal"
