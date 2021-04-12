@@ -78,8 +78,10 @@ const AccordionContent = styled.div`
   width: 100%;
   font-size: 16px;
   line-height:inherit;
-  margin-top: ${(props: { isContentOpen: boolean; type: string }) =>
-    props.isContentOpen && props.type === 'normal' ? '24px' : '0'};
+  margin-top: ${(props: { isContentOpen: boolean; type: string; size: string }) =>
+    (props.isContentOpen && props.type === 'normal' && props.size !== 'large' && '16px') ||
+    (props.isContentOpen && props.type === 'normal' && props.size === 'large' && '24px') ||
+    (props.isContentOpen && props.type === 'overflow' && '0px')};
   pointer-events: ${(props: { isContentOpen: boolean }) => (props.isContentOpen ? 'auto' : 'none')};
   height:auto;
   max-height: ${(props: { isContentOpen: boolean; type: string }) =>
@@ -151,7 +153,7 @@ const Accordion: FC<AccordionProps> = ({
     <span ref={accordionRef}>
       <AccordionArea>
         {type === 'overflow' ? (
-          <AccordionContent isContentOpen={contentOpen} type={type}>
+          <AccordionContent isContentOpen={contentOpen} type={type} size={size}>
             {content && <div>{content}</div>}
             {!content && <div ref={accordionText} />}
           </AccordionContent>
@@ -168,7 +170,7 @@ const Accordion: FC<AccordionProps> = ({
           </AccordionButton>
         </AccordionButtonArea>
         {type === 'normal' ? (
-          <AccordionContent isContentOpen={contentOpen} type={type}>
+          <AccordionContent isContentOpen={contentOpen} type={type} size={size}>
             {content && <div>{content}</div>}
             {!content && <div ref={accordionText} />}
           </AccordionContent>
