@@ -40,7 +40,8 @@
     </ng-container>
   </app-component-section>
 
-  <app-component-section [sectionTitle]="'Accordion CSS classes'">
+  <!--CSS Section-->
+  <app-component-section [sectionTitle]="'CSS'">
     <ng-container ngProjectAs="sectionContent">
       <div>
         Elvis also offers the accordion as a css class. Using css classes the generate accordions require you to
@@ -78,53 +79,51 @@
           ></app-component-example-v1>
         </div>
       </div>
-    </ng-container>
-  </app-component-section>
 
-
-
-  <!--TYPE-->
-  <app-component-section [sectionTitle]="'CSS - Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Single Accordion'">
+      <!--TYPE-->
+      <app-component-subsection [sectionTitle]="'Type'">
         <ng-container ngProjectAs="sectionContent">
-          A single accordion icon with a label. Often used in a card or below elements to allow the user to
-          expand for more detailed information. Use the class
-          <span class="code-text">e-accordion__content</span>
-          . to define the hidden information. To get the open state add the class
-          <span class="code-text">e-accordion--open</span>
-          .
-          <app-component-example-v1 [codeHTML]="exampleAccordionSingle"></app-component-example-v1>
+          <app-component-subsubsection [sectionTitle]="'Single Accordion'">
+            <ng-container ngProjectAs="sectionContent">
+              A single accordion icon with a label. Often used in a card or below elements to allow the user to
+              expand for more detailed information. Use the class
+              <span class="code-text">e-accordion__content</span>
+              . to define the hidden information. To get the open state add the class
+              <span class="code-text">e-accordion--open</span>
+              .
+              <app-component-example-v1 [codeHTML]="exampleAccordionSingle"></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Group Accordion'">
+            <ng-container ngProjectAs="sectionContent">
+              A group accordion with titles. Can be used to organize a lot of content and are easy for the user to
+              scan and select what’s relevant. Example of use is as a FAQ section. To get the open state add the
+              class
+              <span class="code-text">e-accordion__item--open</span>
+              .
+              <app-component-example-v1 [codeHTML]="exampleAccordionGroup"></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Group Accordion'">
+      <!--SIZE-->
+      <app-component-subsection [sectionTitle]="'Size'">
         <ng-container ngProjectAs="sectionContent">
-          A group accordion with titles. Can be used to organize a lot of content and are easy for the user to
-          scan and select what’s relevant. Example of use is as a FAQ section. To get the open state add the
-          class
-          <span class="code-text">e-accordion__item--open</span>
-          .
-          <app-component-example-v1 [codeHTML]="exampleAccordionGroup"></app-component-example-v1>
+          <app-component-example-v1 [codeHTML]="exampleAccordionSizes"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <!--CSS PROPERTIES-->
+      <app-component-subsection
+        [sectionTitle]="'Properties'"
+        [propertiesClass]="'e-accordion'"
+      >
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-properties [componentName]="'e-accordion'"></app-component-properties>
         </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>
 
-  <!--SIZE-->
-  <app-component-section [sectionTitle]="'CSS - Size'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-example-v1 [codeHTML]="exampleAccordionSizes"></app-component-example-v1>
-    </ng-container>
-  </app-component-section>
-
-  <!--PROPERTIES-->
-  <app-component-section
-    [sectionTitle]="'CSS - Properties'"
-    [propertiesClass]="'e-accordion'"
-  >
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-accordion'"></app-component-properties>
-    </ng-container>
-  </app-component-section>
 </div>
