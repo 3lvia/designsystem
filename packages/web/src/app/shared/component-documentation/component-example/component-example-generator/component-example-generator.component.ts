@@ -15,6 +15,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
   @Input() width = 100;
   @Input() hasPreview = true;
   @Input() flexAlignStart = false;
+  @Input() overflowY;
   codeWebComponentSub: Subscription;
   hasCegAttributes = false;
 
