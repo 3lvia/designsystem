@@ -385,4 +385,4 @@ const routes: Routes = [
   exports: [RouterModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
