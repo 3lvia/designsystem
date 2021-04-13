@@ -21,6 +21,7 @@ function App() {
   const [selectedDate, setSelectedDate] = React.useState(new Date());
   const ref = useRef();
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
+  const date = new Date();
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -68,7 +69,8 @@ function App() {
 
       <h2>DatePicker</h2>
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
-        <DatePicker value="1" isNorwegian={true}></DatePicker>
+        <DatePicker isCompact={true} valueOnChange={(date) => console.log(date)}></DatePicker>
+        {/* <div>{selectedDate.toString()}</div> */}
       </div>
 
       <hr style={{ margin: '40px 0' }} />

@@ -39,8 +39,18 @@ module.exports = [
   {
     name: 'elvis-date-picker',
     elementName: 'elvia-date-picker',
-    attributes: ['value', 'isNorwegian'],
+    attributes: [
+      'value',
+      'label',
+      'minDate',
+      'maxDate',
+      'startDate',
+      'isCompact',
+      'isDisabled',
+      'isFullWidth',
+      'errorMessage',
+    ],
     reactName: 'DatePicker',
-    elementStyle: `width: 100%; max-width: 448px; display: inline-block;`,
+    elementStyle: `width: 163px; display: inline-block;`,
   },
 ];

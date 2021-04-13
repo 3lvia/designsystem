@@ -20,6 +20,7 @@ export class AppComponent implements OnInit {
     { label: 'Kiwi', isDisabled: true },
   ];
   value = 2;
+  date = null;
 
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
@@ -32,5 +33,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.nativeJSApproach();
+  }
+
+  lol(d) {
+    console.log('hei: ' + d);
   }
 }

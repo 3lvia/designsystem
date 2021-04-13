@@ -1,36 +1,53 @@
-import React, { FC, useRef } from 'react';
+import React, { FC, useState, useRef, useEffect } from 'react';
 import './style.scss';
 import styled from 'styled-components';
+import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import MomentUtils from '@date-io/moment';
 import moment from 'moment';
 import 'moment/locale/nb';
-moment.updateLocale('en', {
+moment.updateLocale('nb', {
   week: {
     dow: 1,
   },
-  locale: 'nb',
+  // locale: 'nb',
+  weekdaysShort: ['sø', 'ma', 'ti', 'on', 'to', 'fr', 'lø'],
+  weekdays: ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'],
+});
+import PickerToolbar from '@material-ui/pickers/_shared/PickerToolbar';
+import ToolbarButton from '@material-ui/pickers/_shared/ToolbarButton';
+import { makeStyles } from '@material-ui/core';
+export const useStyles = makeStyles({
+  toolbar: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
 });
 
 export interface DatePickerProps {
-  value: Date;
+  value: Date | number | null;
   label: string;
   minDate: Date;
   maxDate: Date;
+  startDate: Date;
+  isCompact: boolean;
   isDisabled: boolean;
   isFullWidth: boolean;
   errorMessage: string;
+  valueOnChange?: (value: Date | null) => void;
+  webcomponent?: any;
 }
 
 const Wrapper = styled.div``;
 class LocalizedUtils extends MomentUtils {
-  getDatePickerHeaderText(date: any) {
-    return moment(date).format('dddd Do MMMM');
-  }
-  getCalendarHeaderText(date: any) {
-    return moment(date).format('MMMM');
-  }
+  // getDatePickerHeaderText(date: any) {
+  //   return
+  // }
+  // getCalendarHeaderText(date: any) {
+  //   return moment(date).format('MMMM');
+  // }
   getDropdownIcon() {
     return (
       <i
@@ -45,17 +62,22 @@ class LocalizedUtils extends MomentUtils {
 
 const DatePicker: FC<DatePickerProps> = ({
   value = null,
-  label = 'Velg dato',
+  label = '',
+  isCompact = false,
+  isDisabled = false,
+  errorMessage = '',
+  isFullWidth = false,
   minDate = undefined,
   maxDate = undefined,
-  isDisabled = false,
-  isFullWidth = false,
-  errorMessage = 'Feil datoformat',
+  startDate = undefined,
+  valueOnChange,
+  webcomponent,
 }) => {
   const elvisDatePicker = useRef<KeyboardDatePicker>(null);
-  const [selectedDate, setSelectedDate] = React.useState(value);
-  const emptyLabel = 'dd.mm.yyyy';
-  const defaultWidth = '304px';
+  const emptyLabelString = 'dd.mm.yyyy';
+  const [selectedDate, setSelectedDate] = useState([1, 2, 15]);
+  const [emptyLabel, setEmptyLabel] = useState(emptyLabelString);
+  // const defaultWidth = '163px';
 
   const materialTheme = createMuiTheme({
     props: {
@@ -66,12 +88,12 @@ const DatePicker: FC<DatePickerProps> = ({
     overrides: {
       MuiInputBase: {
         root: {
-          width: isFullWidth ? '100%' : defaultWidth,
+          width: isFullWidth ? '100%' : '230px',
         },
       },
       MuiFormControl: {
         root: {
-          width: isFullWidth ? '100%' : defaultWidth,
+          width: isFullWidth ? '100%' : '230px',
         },
       },
       MuiIconButton: {
@@ -90,15 +112,35 @@ const DatePicker: FC<DatePickerProps> = ({
     },
   });
 
-  const handleDateChange = (date: Date) => {
+  useEffect(() => {
+    if (value == null) {
+      handleDateChange(null);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (selectedDate !== null) {
+      setEmptyLabel('.');
+    } else {
+      setEmptyLabel(emptyLabelString);
+    }
+  }, [selectedDate]);
+
+  const handleDateChange = (date: Date | null) => {
     setSelectedDate(date);
+    if (!webcomponent && valueOnChange) {
+      valueOnChange(date);
+    } else if (webcomponent) {
+      // True -> Prevents rerender
+      webcomponent.setProps({ value: date }, true);
+    }
   };
 
   const getKeyboardIcon = () => {
     if (isDisabled) {
       return (
         <i
-          className="ewc-date-picker__icon"
+          className="ewc-date-picker__icon ewc-date-picker__icon-cal"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23BDBDBD' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23BDBDBD'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23BDBDBD'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
           }}
@@ -107,7 +149,7 @@ const DatePicker: FC<DatePickerProps> = ({
     } else {
       return (
         <i
-          className="ewc-date-picker__icon"
+          className="ewc-date-picker__icon ewc-date-picker__icon-cal"
           style={{
             backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='black'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
           }}
@@ -116,10 +158,36 @@ const DatePicker: FC<DatePickerProps> = ({
     }
   };
 
+  const datePickerClasses = classnames('ewc-date-picker', {
+    ['ewc-date-picker--error']: errorMessage !== '',
+    ['ewc-date-picker--compact']: isCompact !== false,
+  });
+  const datePickerLabelClasses = classnames('ewc-date-picker__label', {
+    ['ewc-date-picker__label--disabled']: isDisabled !== false,
+  });
+
+  const CustomToolbar = function (props: any) {
+    const { date, isLandscape, openView, setOpenView, title } = props;
+    const handleChangeViewClick = (view: any) => () => {
+      setOpenView(view);
+    };
+    return (
+      <PickerToolbar title={title} isLandscape={isLandscape}>
+        <div>{date.format('LL')}</div>
+        <ToolbarButton
+          onClick={handleChangeViewClick('year')}
+          variant="h6"
+          label={date.format('YYYY')}
+          selected={openView === 'year'}
+        />
+      </PickerToolbar>
+    );
+  };
+
   return (
     <Wrapper>
-      <div className="ewc-date-picker" ref={elvisDatePicker}>
-        <label className="ewc-date-picker__label">{label}</label>
+      <div className={datePickerClasses} ref={elvisDatePicker}>
+        <label className={datePickerLabelClasses}>{label}</label>
         <ThemeProvider theme={materialTheme}>
           <MuiPickersUtilsProvider utils={LocalizedUtils} locale={'nb'} libInstance={moment}>
             <KeyboardDatePicker
@@ -128,13 +196,17 @@ const DatePicker: FC<DatePickerProps> = ({
               format="DD.MM.yyyy"
               margin="normal"
               id="date-picker-inline"
-              minDate={minDate}
+              // type="date"
+              // renderDay={} -> Legge inn null fra start
+              minDate={startDate ? startDate : minDate}
               maxDate={maxDate}
               label={emptyLabel}
               value={selectedDate}
-              defaultValue={null}
+              // defaultValue={null}
               onChange={handleDateChange}
               disabled={isDisabled}
+              // onOpen={getElement}
+              ToolbarComponent={CustomToolbar}
               // autoOk={true} -> Skru på når ferdig testet
               KeyboardButtonProps={{
                 'aria-label': 'change date',
@@ -157,6 +229,10 @@ const DatePicker: FC<DatePickerProps> = ({
                   }}
                 ></i>
               }
+              PopoverProps={{
+                anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
+                transformOrigin: { horizontal: 'left', vertical: 'top' },
+              }}
             />
             <div style={{ display: 'none' }}>{value}</div>
           </MuiPickersUtilsProvider>

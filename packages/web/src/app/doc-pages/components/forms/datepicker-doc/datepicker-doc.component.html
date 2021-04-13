@@ -1,0 +1,87 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Datepicker</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--CEG-->
+  <!--Temporary until ceg-code-block supports angular syntax-->
+  <!-- <div class="component-preview-temp component-preview-animation" style="flex-direction: row">
+    <elvia-date-picker (valueOnChange)="lol($event.detail.value)"></elvia-date-picker>
+    <elvia-date-picker (valueOnChange)="lol($event.detail.value)"></elvia-date-picker>
+  </div> -->
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <!-- <app-component-subsection [sectionTitle]="'Full width ???'">
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-date-picker
+            isFullWidth="true"
+            (valueOnChange)="lol($event.detail.value)"
+          ></elvia-date-picker>
+        </ng-container>
+      </app-component-subsection> -->
+      <app-component-subsection [sectionTitle]="'Compact'">
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-date-picker isCompact="true" (valueOnChange)="lol($event.detail.value)"></elvia-date-picker>
+        </ng-container>
+      </app-component-subsection>
+      <!-- <app-component-subsection [sectionTitle]="'Disabled'">
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-date-picker isDisabled="true" (valueOnChange)="lol($event.detail.value)"></elvia-date-picker>
+        </ng-container>
+      </app-component-subsection> -->
+      <!-- <app-component-subsection [sectionTitle]="'Error'">
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-date-picker
+            errorMessage="Error"
+            (valueOnChange)="lol($event.detail.value)"
+          ></elvia-date-picker>
+        </ng-container>
+      </app-component-subsection> -->
+      <!-- <app-component-subsection [sectionTitle]="'Min & max date'">
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-date-picker
+            [minDate]="date"
+            [maxDate]="date2"
+            (valueOnChange)="lol($event.detail.value)"
+          ></elvia-date-picker>
+        </ng-container>
+      </app-component-subsection> -->
+      <!-- <app-component-subsection [sectionTitle]="'Preselected value'">
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-date-picker [value]="date" (valueOnChange)="lol($event.detail.value)"></elvia-date-picker>
+        </ng-container>
+      </app-component-subsection> -->
+    </ng-container>
+  </app-component-section>
+
+  <!-- SIZE -->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      There are two different sizes of the date and time picker; normal and compact. Much like compact text
+      fields, the compact datepicker and timepicker is a version of the text field that’s primarily designed
+      for internal systems, and shouldn’t be mixed with the other input style.
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+</div>

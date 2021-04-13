@@ -27,8 +27,8 @@ module.exports = {
       '1.0.2': {
         cdn: '/dist/cdn/elvia-tabs.js',
         hash:
-          'sha512-if6xJLkp3usFEp5XWoJsxnYPBxbdRtLOFlAtj+AeXYCSdPH6L7IvDM03Dq/zuvr8Hnqf+AdqAFg7sXRcf872OA=='
-      }
-    }
-  }
+          'sha512-if6xJLkp3usFEp5XWoJsxnYPBxbdRtLOFlAtj+AeXYCSdPH6L7IvDM03Dq/zuvr8Hnqf+AdqAFg7sXRcf872OA==',
+      },
+    },
+  },
 };

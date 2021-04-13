@@ -37,7 +37,7 @@ import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-
 import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
 import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 import { ContributeComponent } from './doc-pages/community/contribute/contribute.component';
-import { DatetimePickerDocComponent } from './doc-pages/components/forms/datetime-picker-doc/datetime-picker-doc.component';
+import { DatepickerDocComponent } from './doc-pages/components/forms/datepicker-doc/datepicker-doc.component';
 import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
 import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
 import { FaqDocComponent } from './doc-pages/community/faq-doc/faq-doc.component';
@@ -223,8 +223,8 @@ const routes: Routes = [
             component: ToggleDocComponent,
           },
           {
-            path: Pages.DateTimePicker,
-            component: DatetimePickerDocComponent,
+            path: Pages.Datepicker,
+            component: DatepickerDocComponent,
           },
           {
             path: Pages.DragAndDrop,

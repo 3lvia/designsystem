@@ -172,12 +172,12 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
-    title: 'Date/Time Picker',
+    title: 'Datepicker',
     // tslint:disable-next-line: max-line-length
     description:
-      'Date and time picker is a simple way for the user to quickly select a date and/or time in a calendar dialog. It uses a text field and a visual calendar in a popover. You can also let the user select a range of dates.',
-    docUrl: Pages.DateTimePicker,
-    absolutePath: '/components/' + Pages.DateTimePicker,
+      'Datepicker is a simple way for the user to quickly select a date in a calendar dialog. It uses a text field and a visual calendar in a popover.',
+    docUrl: Pages.Datepicker,
+    absolutePath: '/components/' + Pages.Datepicker,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Date picker.svg',
     figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2193%3A468',
