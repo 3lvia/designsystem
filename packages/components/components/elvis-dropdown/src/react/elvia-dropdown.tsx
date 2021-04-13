@@ -159,6 +159,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       height: isCompact ? '36px' : '48px',
       paddingLeft: isCompact ? '9px' : '15px',
       fontSize: isCompact ? '14px' : '16px',
+      lineHeight: isCompact ? '20px' : '32px',
       border: '1px solid transparent',
       cursor: 'pointer',
       overflowX: 'hidden',
