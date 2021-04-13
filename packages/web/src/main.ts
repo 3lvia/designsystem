@@ -17,7 +17,10 @@ if (environment.production) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-     platformBrowserDynamic()
-  .bootstrapModule(AppModule)
-  .catch((err) => console.error(err));
-   });
+  platformBrowserDynamic()
+    .bootstrapModule(AppModule).then(() => {
+      document.getElementById('flicker-fix').style.display = "block";
+    })
+    .catch((err) => console.error(err));
+
+});

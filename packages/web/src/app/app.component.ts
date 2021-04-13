@@ -9,7 +9,7 @@ export class AppComponent implements OnInit {
   title = 'elvia-designsystem';
 
   ngOnInit(): void {
-    //this.listenToModeChanges();
+    this.listenToModeChanges();
   }
 
   listenToModeChanges(): void {
