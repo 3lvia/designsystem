@@ -1,7 +1,10 @@
 <div class="component page-body">
   <div class="component-header">
     <div class="back-link e-mb-24">
-      <a class="e-link e-link--sm" [routerLink]="'/' + [currentRoute]">
+      <a
+        class="e-link e-link--sm"
+        [routerLink]="'/' + [currentRoute]"
+      >
         <span class="e-link__icon"><i class="e-icon e-icon--arrow_left-bold"></i></span>
         <span class="e-link__title">{{ backBtn | titlecase }}</span>
       </a>
@@ -11,27 +14,46 @@
         <h1 class="big-header">
           <ng-content select="headerTitle"></ng-content>
           <div class="e-pl-16">
-            <a *ngIf="figmaUrl" href="{{ figmaUrl }}" target="_blank">
-              <i class="e-icon e-icon--figma e-icon--md"></i>
+            <a
+              *ngIf="figmaUrl"
+              href="{{ figmaUrl }}"
+              target="_blank"
+            >
+              <img src="../../../assets/icons/figma.svg">
             </a>
           </div>
         </h1>
         <div *ngIf="componentStatus != ''">
-          <span class="e-label e-label--green-apple" *ngIf="componentStatus === itemStatus.New">
+          <span
+            class="e-label e-label--green-apple"
+            *ngIf="componentStatus === itemStatus.New"
+          >
             {{ componentStatus }}
           </span>
-          <span class="e-label e-label--red-tomato" *ngIf="componentStatus === itemStatus.Coming">
+          <span
+            class="e-label e-label--red-tomato"
+            *ngIf="componentStatus === itemStatus.Coming"
+          >
             {{ componentStatus }}
           </span>
         </div>
       </div>
       <div class="component-header__description component-header-description-animation">
-        <span class="e-text-lead" #contentWrapper>
+        <span
+          class="e-text-lead"
+          #contentWrapper
+        >
           <ng-content select="headerDescription"></ng-content>
         </span>
       </div>
-      <div class="anchors e-mb-16" *ngIf="navbarAnchors.length != 0">
-        <div class="link" *ngFor="let anchor of navbarAnchors">
+      <div
+        class="anchors e-mb-16"
+        *ngIf="navbarAnchors.length != 0"
+      >
+        <div
+          class="link"
+          *ngFor="let anchor of navbarAnchors"
+        >
           <a
             (click)="scrollToElement(anchor)"
             class="anchor"

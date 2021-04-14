@@ -16,8 +16,13 @@ export class TooltipDocComponent {
     'Don’t hide necessary information in a tooltip.',
   ];
 
-  example1 = ` <span class="e-tooltip" tabindex="0">
-  <i class="e-icon e-icon--edit e-icon--sm"></i>
+  example1 = `<span class="e-tooltip">
+  <button class="e-btn e-btn--icon e-btn--circled e-btn--lg ">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    </span>
+  </button>
   <span class="e-tooltip__content">Tooltip</span>
 </span>
 `;

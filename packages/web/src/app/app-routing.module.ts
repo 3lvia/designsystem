@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { Pages } from './shared/pages.enum';
 import { MainComponent } from './shell/main/main.component';
@@ -383,6 +383,5 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppRoutingModule {}

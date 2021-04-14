@@ -134,7 +134,19 @@ function App() {
         <span style={{ marginTop: '16px' }}>
           <Popover
             header="BankID"
-            content="Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang."
+            content={
+              <div
+                style={{
+                  boxSizing: 'border-box',
+                  padding: '50px',
+                  width: '100%',
+                  border: '2px dashed lightgray',
+                }}
+              >
+                Custom content custom content custom content custom content
+                <Tabs items={items} value={2} valueOnChange={setSelectedState}></Tabs>
+              </div>
+            }
             trigger={<button>Right top</button>}
             posX="right"
           ></Popover>
@@ -185,6 +197,7 @@ function App() {
               }}
             >
               Custom content custom content custom content custom content
+              <Tabs items={items} value={2} valueOnChange={setSelectedState}></Tabs>
             </div>
           }
           trigger={<button>Left bottom</button>}

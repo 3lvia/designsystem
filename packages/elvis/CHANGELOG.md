@@ -6,6 +6,79 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      7.6.1
+    </span>
+    <br>
+    <span>
+      April 6, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes / Patches</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
+        </div>
+        Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions. 
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      7.6.0
+    </span>
+    <br>
+    <span>
+      March 29, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/tooltip#Overview">Tooltip</a>
+        </div>
+        Tooltips now have left and right alignment classes
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      7.4.0
+    </span>
+    <br>
+    <span>
+      March 12, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+        </div>
+        External links and icons have been replaced with New tab links and icons. After discussions and research about External link VS New tab link, it is now clear that we only need one of them, which can stand for both uses.
+        <ul>
+          <li>
+            External links have been deprecated and replaced by New tab links. <span class="code-text">e-link--external</span> will automatically work as <span class="code-text">e-link--new-tab</span> instead.
+          </li>
+          <li>
+            External icons have also been deprecated in this context: <span class="code-text">arrow_external</span> and <span class="code-text">arrow_external-bold</span> now points to the new tab icon <span class="code-text">new_tab-bold</span>.
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       7.3.0
     </span>
     <br>
