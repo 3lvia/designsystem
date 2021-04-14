@@ -209,7 +209,7 @@ export const eComponents: EItems[] = [
     title: 'Dropdown',
     // tslint:disable-next-line: max-line-length
     description:
-      'Dropdown present a list of options the user can select from and have typically 5-10 options to choose from. Dropdown can be used to submit data, filter, menu and so on. If you have too many options consider using autocomplete instead.',
+      'Dropdown presents a list of options the user can select from and can be used to submit data, filter, in a menu and so on. You can select one or multiple options.',
     docUrl: Pages.Dropdown,
     absolutePath: '/components/' + Pages.Dropdown,
     status: ItemStatus.New,

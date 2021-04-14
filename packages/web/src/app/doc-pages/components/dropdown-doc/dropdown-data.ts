@@ -120,7 +120,7 @@ dropdownOptions = [
     },
 ];`,
   does: [
-    '• Use sparingly - use dropdowns only when the user have 5-10 options and you have limited space to display it all open.',
+    'Use sparingly - use dropdowns only when the user have 5-10 options and you have limited space to display it all open.',
   ],
   donts: ['Fewer than 5 options.', 'More than 15 options.'],
 };
