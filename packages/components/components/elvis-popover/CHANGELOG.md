@@ -1,5 +1,11 @@
 # Elvia Popover Changelog
 
+## 2.0.4 (14.04.21)
+
+### Bug fixes
+
+- Trigger now only takes up the space of it's content.
+
 ## 2.0.3 (09.04.21)
 
 ### Bug fixes
