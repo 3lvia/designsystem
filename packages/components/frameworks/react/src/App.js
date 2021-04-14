@@ -95,14 +95,7 @@ function App() {
         <Dropdown options={options} label="test" valueOnChange={setSelectedOption}></Dropdown>
       </div> */}
       <div style={{ marginTop: '24px' }}>
-        <Dropdown
-          options={options}
-          defaultValue={defaultValue}
-          isMulti
-          label="test"
-          menuPosition="top"
-          valueOnChange={setSelectedOption}
-        ></Dropdown>
+        <Dropdown options={options} label="test" valueOnChange={setSelectedOption}></Dropdown>
       </div>
 
       <h2>Tabs</h2>

@@ -153,7 +153,11 @@ const Dropdown: React.FC<DropdownProps> = ({
     option: (provided: any, state: any) => ({
       ...provided,
       backgroundColor:
-        '#ffffff' && state.isFocused ? '#F4F4F4' : '#ffffff' && state.isSelected ? '#E9E9E9' : '#ffffff',
+        (state.isSelected && state.selectProps.isMulti && '#ffffff') ||
+        (state.isSelected && state.selectProps.isMulti && state.isFocused && '#F4F4F4') ||
+        (state.isSelected && state.isFocused && '#E9E9E9') ||
+        (state.isSelected && !state.isFocused && '#E9E9E9') ||
+        (!state.isSelected && state.isFocused && '#F4F4F4'),
       color: '#000000',
       height: isCompact ? '36px' : '48px',
       paddingLeft: isCompact ? '9px' : '15px',
@@ -164,7 +168,15 @@ const Dropdown: React.FC<DropdownProps> = ({
       overflowX: 'hidden',
       textOverflow: 'ellipsis',
       '&:hover': {
-        backgroundColor: '#F4F4F4',
+        backgroundColor: state.isMulti ? '#ffffff' : state.isSelected ? '#E9E9E9' : '#F4F4F4',
+        '.ewc-dropdown-checkbox': {
+          '.ewc-dropdown-checkbox__mark': {
+            backgroundColor: '#29d305',
+          },
+        },
+      },
+      '.ewc-dropdown-checkbox .ewc-dropdown-checkbox__mark': {
+        background: state.isFocused ? '#29d305' : state.isSelected ? '#29d305' : '##ffffff',
       },
     }),
 
@@ -186,6 +198,11 @@ const Dropdown: React.FC<DropdownProps> = ({
 
     singleValue: (provided: any) => ({
       ...provided,
+      fontFamily: 'Red Hat Text',
+      fontWeight: '400',
+      fontStyle: 'normal',
+      fontSize: isCompact ? '14px' : '16px',
+      lineHeight: '22px',
       color: '#000',
       margin: '0px',
       maxWidth: 'calc(100% - 20px)',
