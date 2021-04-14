@@ -13,6 +13,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { CommunityModule } from './doc-pages/community/community.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorModule } from './shared/error/error.module';
+import { ContentfulService } from './contentful.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +31,9 @@ import { ErrorModule } from './shared/error/error.module';
     CommunityModule,
     HttpClientModule,
     ErrorModule,
+  ],
+  providers: [
+    ContentfulService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],

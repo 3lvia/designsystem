@@ -43,7 +43,8 @@
     "sass": "^1.29.0",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "tslib": "^2.0.0",
-    "zone.js": "^0.10.3"
+    "zone.js": "^0.10.3",
+    "contentful": "^8.1.8"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.1001.1",

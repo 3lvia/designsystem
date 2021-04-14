@@ -84,4 +84,5 @@ export enum Pages {
   Contribute = 'contribute',
   Faq = 'faq',
   Changelog = 'changelog',
+  ContentfulExample = 'contentful-example',
 }

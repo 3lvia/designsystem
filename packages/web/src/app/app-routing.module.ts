@@ -68,6 +68,7 @@ import { ChipsComponent } from './doc-pages/components/chips/chips.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
 import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
+import { ContentfulExampleComponent } from './doc-pages/community/contentful-example/contentful-example.component';
 
 const routes: Routes = [
   {
@@ -371,6 +372,10 @@ const routes: Routes = [
           {
             path: Pages.Faq,
             component: FaqDocComponent,
+          },
+          {
+            path: Pages.ContentfulExample,
+            component: ContentfulExampleComponent,
           },
         ],
       },
