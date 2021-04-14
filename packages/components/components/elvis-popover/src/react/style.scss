@@ -21,6 +21,8 @@ $green: #29d305;
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
+    line-height: initial;
+    font-size: initial;
   }
   &:not(.ewc-popover--hide) {
     .ewc-popover__trigger {
