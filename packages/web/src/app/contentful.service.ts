@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { createClient, Entry } from 'contentful';
+import { AxiosAngularAdapterService } from './axios-angular-adapter.service';
 
 const CONFIG = {
   space: 'wl1z0pal05vy',
@@ -15,13 +16,18 @@ const CONFIG = {
   providedIn: 'root'
 })
 export class ContentfulService {
-
   private cdaClient = createClient({
     space: CONFIG.space,
-    accessToken: CONFIG.accessToken
+    accessToken: CONFIG.accessToken,
+    adapter: (config) => {
+      config.url = config.baseURL + '/' + config.url; // fix for Angular 9
+      return this.axiosAdapter.adapter(config);
+    }
   });
 
-  constructor() { }
+  constructor(private readonly axiosAdapter: AxiosAngularAdapterService) { }
+
+
 
   getProducts(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
