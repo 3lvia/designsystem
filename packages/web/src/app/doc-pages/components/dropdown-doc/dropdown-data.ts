@@ -16,22 +16,28 @@ export const dropdownData = {
         'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string}',
       displayName: 'defaultValue',
     },
-    placeholder: {
+    errormsg: {
       isRequired: false,
       type: 'string',
-      description: 'Placeholder value for the dropdown menu',
-      default: `'Placeholder'`,
+      description: 'Error message that appears if isError prop is set to true',
+      default: `'Help text'`,
     },
     label: {
       isRequired: false,
       type: 'string',
       description: 'Label value for the dropdown element',
     },
-    errormsg: {
+    menuPosition: {
       isRequired: false,
       type: 'string',
-      description: 'Error message that appears if isError prop is set to true',
-      default: `'Help text'`,
+      description: `Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto'`,
+      default: `'auto'`,
+    },
+    placeholder: {
+      isRequired: false,
+      type: 'string',
+      description: 'Placeholder value for the dropdown menu',
+      default: `'Placeholder'`,
     },
     isCompact: {
       isRequired: false,
@@ -56,12 +62,6 @@ export const dropdownData = {
       type: 'boolean',
       description: 'Set the dropdown to accept multiple values',
       default: 'false',
-    },
-    menuPosition: {
-      isRequired: false,
-      type: 'string',
-      description: `'Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto'`,
-      default: `'Placeholder'`,
     },
     valueOnChange: {
       isRequired: false,

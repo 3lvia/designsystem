@@ -100,6 +100,7 @@ function App() {
           defaultValue={defaultValue}
           isMulti
           label="test"
+          menuPosition="top"
           valueOnChange={setSelectedOption}
         ></Dropdown>
       </div>

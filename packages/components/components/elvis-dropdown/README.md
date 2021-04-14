@@ -10,8 +10,13 @@ simple string value(s).
 
 - options (Array<object>) - Array of options that populate the dropdown menu. An option object contains two
   key value pairs, {value: string, label: string}.
-- placeholder (string) - Placeholder value for the dropdown menu.
+- defaultValue (object) - Set a defualt value to the dropdown. Has same key value pairs as an option object:
+  {value: string, label: string}
+- errormsg (string) - Error message that appears if isError prop is set to true.
 - label (string) - Label value for the dropdown element.
+- menuPosition (string) - Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto',
+  defualt value is 'auto'.
+- placeholder (string) - Placeholder value for the dropdown menu.
 - isCompact (boolean) - Set the dropdown to a smaller elvia compact style.
 - isDisabled (boolean) - Set dropdown to a disabled state.
 - isError (boolean) - Set the dropdown to have a 2px red border style to indicate an error.

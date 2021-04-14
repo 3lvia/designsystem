@@ -11,21 +11,21 @@ export interface DropdownOptions {
 
 export interface DropdownProps {
   defaultValue: DropdownOptions;
+  errormsg: string;
   isCompact: boolean;
   isDisabled: boolean;
   isError: boolean;
-  errormsg: string;
   isMulti: boolean;
-  menuPosition: string | 'auto';
   label?: string;
+  menuPosition: string;
   options: DropdownOptions[];
   placeholder: string;
   valueOnChange: (selectedOptions: DropdownOptions | Array<DropdownOptions> | undefined) => void;
   webcomponent?: any;
 }
 
-// custom ValueContainer for Elvia Dropdown
-// defined outside of Dropdown due to focus issues with react-select package
+// Custom ValueContainer for Elvia Dropdown, defined outside of Dropdown due to focus issues with react-select package.
+// Enables multiselect with checkboxes in a dropdown.
 const ElviaValueContainer = ({ ...props }) => {
   const length = props.children[0].length;
   const selectedOptions = [...props.children];
@@ -42,7 +42,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isError = false,
   errormsg = 'Help text',
   isMulti = false,
-  menuPosition,
+  menuPosition = 'auto',
   label,
   options,
   placeholder = 'Placeholder',
@@ -57,7 +57,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   useEffect(() => {
     // Start outline listener
     toolbox.outlineListener(dropdownRef.current);
-
     return () => {
       // Remove outline listener
       toolbox.outlineListener(dropdownRef.current, true);
@@ -71,7 +70,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     ['ewc-dropdown ewc-dropdown--disabled']: isDisabled,
   });
 
-  // Custom styling for react-select
+  // Custom styling for dropdown using emotion from react-select package.
   const customElviaStyles = {
     container: (provided: any) => ({
       ...provided,
@@ -257,7 +256,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     MultiValueRemove: () => null,
   };
 
-  // set  selected options as current values
+  // set selected options as current values
   const onChangeHandler = (event: any) => {
     setCurrentVal(event);
   };
