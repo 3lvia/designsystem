@@ -7211,7 +7211,6 @@ input:focus {
   color: inherit;
   text-align: left;
   padding: 10px 16px;
-  height: 48px;
 }
 
 .e-table td.e-table__cell--multiline,
@@ -7251,7 +7250,6 @@ input:focus {
   color: inherit;
   padding: 9px 16px;
   line-height: 21px;
-  height: 40px;
 }
 
 .e-table-mobile {
@@ -7298,7 +7296,6 @@ input:focus {
   line-height: 27px;
   padding: 10px 16px;
   text-align: left;
-  height: 48px;
 }
 
 .e-table-mobile tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) td,
@@ -7355,7 +7352,6 @@ input:focus {
   color: inherit;
   padding: 9px 16px;
   line-height: 21px;
-  height: 40px;
 }
 
 .e-table-mobile.e-table-mobile--compact tbody tr:first-of-type th {

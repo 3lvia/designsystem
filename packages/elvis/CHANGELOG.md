@@ -31,15 +31,11 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/label#Overview">Label</a> &
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/label#Overview">Label</a>
         </div>
         <ul>
           <li>
             Updated labels with nowrap, font-wight and font-family to avoid inheriting wrong style.
-          </li>
-          <li>
-            Ascending and Descending icons updated so that arrows point the correct way.
           </li>
         </ul>
       </div>

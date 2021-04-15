@@ -7,8 +7,8 @@ $table-padding: 10px 16px;
 $table-compact-padding: 9px 16px;
 $table-phone-padding: 6px 8px;
 $table-border-radius: 8px;
-$table-min-height: 48px;
-$table-compact-min-height: 40px;
+$table-header-height: 56px;
+$table-header-compact-height: 40px;
 
 $grey10: colors.color('grey-10');
 
@@ -55,7 +55,7 @@ $grey10: colors.color('grey-10');
   thead {
     @extend %header-style;
     tr {
-      height: 56px;
+      height: $table-header-height;
     }
     th {
       @include typography.typography('title-xs');
@@ -71,7 +71,6 @@ $grey10: colors.color('grey-10');
     @include typography.typography('text-description');
     text-align: left;
     padding: $table-padding;
-    height: $table-min-height;
     &.e-table__cell--multiline {
       display: inline-block;
       white-space: pre-wrap;
@@ -101,14 +100,13 @@ $grey10: colors.color('grey-10');
       @extend %header-style;
     }
     tr {
-      height: $table-compact-min-height;
+      height: $table-header-compact-height;
     }
     td,
     th {
       @include typography.typography('text-info');
       padding: $table-compact-padding;
       line-height: 21px;
-      height: $table-compact-min-height;
     }
   }
 }
@@ -126,7 +124,7 @@ $grey10: colors.color('grey-10');
 
   thead {
     tr {
-      height: 56px;
+      height: $table-header-height;
     }
     th,
     td {
@@ -144,7 +142,6 @@ $grey10: colors.color('grey-10');
     line-height: 27px;
     padding: $table-padding;
     text-align: left;
-    height: $table-min-height;
   }
 
   tbody:not(:last-of-type) tr:not(:first-of-type):not(:last-of-type) td,
@@ -178,7 +175,7 @@ $grey10: colors.color('grey-10');
   &.e-table-mobile--compact {
     thead {
       tr {
-        height: 40px;
+        height: $table-header-compact-height;
       }
       th {
         font-family: 'Red Hat Display', Verdana, sans-serif;
@@ -192,7 +189,6 @@ $grey10: colors.color('grey-10');
       @include typography.typography('text-info');
       padding: $table-compact-padding;
       line-height: 21px;
-      height: $table-compact-min-height;
     }
     tbody tr:first-of-type th {
       font-size: 15px;
