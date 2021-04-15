@@ -24,39 +24,12 @@
           <elvia-datepicker isFullWidth="true" (valueOnChange)="lol($event.detail.value)"></elvia-datepicker>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Compact'">
-        <ng-container ngProjectAs="sectionContent">
-          <elvia-datepicker
-            label="Velg dato"
-            isCompact="true"
-            (valueOnChange)="lol($event.detail.value)"
-          ></elvia-datepicker>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Disabled'">
-        <ng-container ngProjectAs="sectionContent">
-          <elvia-datepicker
-            label="Velg dato"
-            isDisabled="true"
-            (valueOnChange)="lol($event.detail.value)"
-          ></elvia-datepicker>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Error'">
-        <ng-container ngProjectAs="sectionContent">
-          <elvia-datepicker
-            label="Velg dato"
-            errorMessage="Error"
-            (valueOnChange)="lol($event.detail.value)"
-          ></elvia-datepicker>
-        </ng-container>
-      </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Preselected value'">
         <ng-container ngProjectAs="sectionContent">
           <elvia-datepicker [value]="date" (valueOnChange)="lol($event.detail.value)"></elvia-datepicker>
         </ng-container>
       </app-component-subsection>
-      <!-- <app-component-subsection [sectionTitle]="'Min & max date'">
+      <app-component-subsection [sectionTitle]="'Min & max date'">
         <ng-container ngProjectAs="sectionContent">
           <elvia-datepicker
             [minDate]="date"
@@ -64,7 +37,7 @@
             (valueOnChange)="lol($event.detail.value)"
           ></elvia-datepicker>
         </ng-container>
-      </app-component-subsection> -->
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

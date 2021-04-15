@@ -11,9 +11,9 @@ $datepicker-input-compact-height: 34px;
 
 // -> Override in js (fjerne dobbelt opp)
 // .MuiIconButton-root:hover,
-// .MuiIconButton-root.Mui-focusVisible {
-//   background-color: $green;
-// }
+.MuiIconButton-root.Mui-focusVisible {
+  background-color: $green;
+}
 // .MuiIconButton-root:active {
 //   transform: scale(0.93);
 // }
@@ -27,8 +27,6 @@ $datepicker-input-compact-height: 34px;
   }
   .MuiFormLabel-root {
     margin: -23px 0;
-    // position: absolute;
-    // top: -16px;
 
     font-family: 'Red Hat Text';
     font-style: normal;
@@ -54,9 +52,11 @@ $datepicker-input-compact-height: 34px;
     font-size: 16px;
   }
   .MuiInputAdornment-root .MuiIconButton-root {
-    width: 40px;
-    height: 40px;
-    margin-right: 7px;
+    padding: 8px;
+    margin-right: 8px;
+    @media screen and (-ms-high-contrast: none) {
+      margin-right: 32px;
+    }
     &:hover {
       background-color: rgba(0, 0, 0, 0.04);
     }
@@ -175,9 +175,10 @@ $datepicker-input-compact-height: 34px;
       padding-left: 10px;
     }
     .MuiInputAdornment-root .MuiIconButton-root {
-      width: 32px;
-      height: 32px;
       margin-right: 4px;
+      @media screen and (-ms-high-contrast: none) {
+        margin-right: 24px;
+      }
     }
     .MuiInput-underline:after {
       height: $datepicker-input-compact-height;
@@ -233,17 +234,17 @@ $datepicker-input-compact-height: 34px;
         text-transform: uppercase;
       }
     }
-    .ewc-datepicker--toolbar-year {
+    .ewc-datepicker--toolbar-dropdown {
       display: flex;
       align-items: center;
       position: relative;
       background: none;
+      border: none;
+      outline: none;
       cursor: pointer;
-      .MuiButton-root:hover {
-        background: white;
-      }
+      padding: 0;
 
-      .MuiPickersToolbarText-toolbarTxt {
+      .ewc-datepicker__toolbar-year {
         font-family: 'Red Hat Display';
         font-style: normal;
         font-weight: 500;
@@ -253,17 +254,29 @@ $datepicker-input-compact-height: 34px;
 
         margin-right: 8px;
       }
-      .Mui-focusVisible {
-        &::after {
-          display: block;
-        }
-      }
       .ewc-datepicker__icon-dropdown {
         position: relative;
         height: 16px;
         width: 16px;
+        // @keyframes rotate-backward {
+        //   0% {
+        //     transform: rotate(180deg);
+        //   }
+        //   100% {
+        //     transform: rotate(0);
+        //   }
+        // }
+        // animation: rotate-backward 0.2s ease-in-out both;
         &.rotate-forward {
-          transform: rotate(180deg);
+          @keyframes rotate-forward {
+            0% {
+              transform: rotate(0);
+            }
+            100% {
+              transform: rotate(180deg);
+            }
+          }
+          animation: rotate-forward 0.2s ease-in-out both;
         }
       }
       &::after {
@@ -280,6 +293,10 @@ $datepicker-input-compact-height: 34px;
         &::after {
           display: block;
         }
+      }
+      &:focus {
+        outline: 2px solid #0064fa;
+        outline-offset: 2px;
       }
     }
     .ewc-datepicker--toolbar-today {
@@ -470,7 +487,7 @@ $datepicker-input-compact-height: 34px;
     align-items: center;
     width: 100%;
     .ewc-datepicker__helper-text {
-      margin-left: 24px;
+      margin-left: 8px;
     }
   }
 }
@@ -479,7 +496,6 @@ $datepicker-input-compact-height: 34px;
   background-position: center;
   background-repeat: no-repeat;
   display: inline-block;
-  position: absolute;
   width: 24px;
   height: 24px;
   &.ewc-datepicker__icon--arrow {

@@ -4,7 +4,6 @@ import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import PickerToolbar from '@material-ui/pickers/_shared/PickerToolbar';
-import ToolbarButton from '@material-ui/pickers/_shared/ToolbarButton';
 import MomentUtils from '@date-io/moment';
 import moment from 'moment';
 
@@ -36,7 +35,6 @@ const Datepicker: FC<DatepickerProps> = ({
   webcomponent,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
-  const [yearViewOpen, setYearViewOpen] = useState(false);
   const emptyLabelString = 'dd.mm.yyyy';
   const defaultWidth = '163px';
   const compactWidth = '133px';
@@ -131,30 +129,50 @@ const Datepicker: FC<DatepickerProps> = ({
   const getCustomToolbar = (props: any) => {
     const { date, openView, setOpenView, title } = props;
     const toggleYearView = () => () => {
-      setYearViewOpen(!yearViewOpen);
-      yearViewOpen ? setOpenView('date') : setOpenView('year');
+      openView === 'year' ? setOpenView('date') : setOpenView('year');
     };
     const dropdownIconClasses = classnames('ewc-datepicker__icon ewc-datepicker__icon-dropdown', {
-      ['rotate-forward']: yearViewOpen,
+      ['rotate-forward']: openView === 'year',
     });
     return (
       <PickerToolbar title={title}>
         <div className="ewc-datepicker--toolbar-today">{date.format('dddd DD. MMMM')}</div>
-        <div className="ewc-datepicker--toolbar-year" onClick={toggleYearView()}>
-          <ToolbarButton label={date.format('YYYY')} selected={openView === 'year'} />
+        <button className="ewc-datepicker--toolbar-dropdown" onClick={toggleYearView()}>
+          <div className="ewc-datepicker__toolbar-year">{date.format('YYYY')}</div>
           <i
             className={dropdownIconClasses}
             style={{
               backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.389 5.869a1.328 1.328 0 011.878 0L12 15.6l9.733-9.732a1.328 1.328 0 011.878 1.878L13.443 17.915h-.001a2.04 2.04 0 01-2.885 0L.39 7.747a1.328 1.328 0 010-1.878z' fill='black'/%3e%3c/svg%3e")`,
             }}
           ></i>
-        </div>
+        </button>
       </PickerToolbar>
     );
   };
 
+  const parseDigits = (str: string) => (str.match(/\d+/g) || []).join('');
+
+  const formatDate = (str: string) => {
+    const digits = parseDigits(str);
+    const chars = digits.split('');
+    return chars
+      .reduce((r, v, index) => (index === 2 || index === 4 ? `${r}-${v}` : `${r}${v}`), '')
+      .substr(0, 10);
+  };
+
   const getFormat = (str: string) => {
-    return str;
+    const res = formatDate(str);
+
+    if (str.endsWith('-')) {
+      if (res.length === 2) {
+        return `${res}-`;
+      }
+
+      if (res.length === 5) {
+        return `${res}-`;
+      }
+    }
+    return res;
   };
 
   const datePickerClasses = classnames('ewc-datepicker', {
@@ -180,7 +198,8 @@ const Datepicker: FC<DatepickerProps> = ({
             onChange={handleDateChange}
             format="DD.MM.yyyy"
             rifmFormatter={getFormat}
-            maskChar={' '}
+            // maskChar={' '}
+            // mask={() => [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
             label={emptyLabelString}
             disabled={isDisabled === true || isDisabled === 'true'}
             fullWidth={isFullWidth === true || isFullWidth === 'true'}
@@ -193,6 +212,9 @@ const Datepicker: FC<DatepickerProps> = ({
             PopoverProps={{
               anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
               transformOrigin: { horizontal: 'left', vertical: 'top' },
+            }}
+            KeyboardButtonProps={{
+              'aria-label': 'endre dato',
             }}
           />
         </MuiPickersUtilsProvider>
