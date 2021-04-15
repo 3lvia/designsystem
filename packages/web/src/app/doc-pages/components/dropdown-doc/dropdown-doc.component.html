@@ -11,13 +11,15 @@
 <div class="page-body">
 
   <div class="exampleDropdown e-mt-56">
-    <elvia-dropdown
-      [options]="exampleOptions"
-      placeholder="Placeholder"
-      label="Label"
-      (valueOnChange)="isSelected = $event.detail.value"
-    >
-    </elvia-dropdown>
+    <div style="width: 250px;">
+      <elvia-dropdown
+        [options]="exampleOptions"
+        placeholder="Placeholder"
+        label="Label"
+        (valueOnChange)="isSelected = $event.detail.value"
+      >
+      </elvia-dropdown>
+    </div>
   </div>
   <app-component-example-v1
     [showPreview]="false"
@@ -49,12 +51,14 @@
         noAnimation=true
       >
         <ng-container ngProjectAs="sectionContent">
-          <elvia-dropdown
-            [options]="exampleOptions"
-            placeholder="Placeholder"
-            label="Label"
-          >
-          </elvia-dropdown>
+          <div style="width: 250px;">
+            <elvia-dropdown
+              [options]="exampleOptions"
+              placeholder="Placeholder"
+              label="Label"
+            >
+            </elvia-dropdown>
+          </div>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection
@@ -62,13 +66,15 @@
         noAnimation=true
       >
         <ng-container ngProjectAs="sectionContent">
-          <elvia-dropdown
-            [options]="exampleOptions"
-            placeholder="Placeholder"
-            label="Label"
-            [isCompact]="isCompact"
-          >
-          </elvia-dropdown>
+          <div style="width: 250px;">
+            <elvia-dropdown
+              [options]="exampleOptions"
+              placeholder="Placeholder"
+              label="Label"
+              [isCompact]="isCompact"
+            >
+            </elvia-dropdown>
+          </div>
         </ng-container>
       </app-component-subsection>
 
@@ -88,13 +94,15 @@
         noAnimation=true
       >
         <ng-container ngProjectAs="sectionContent">
-          <elvia-dropdown
-            [options]="exampleOptions"
-            placeholder="Placeholder"
-            label="Label"
-            [isMulti]="isMulti"
-          >
-          </elvia-dropdown>
+          <div style="width: 250px;">
+            <elvia-dropdown
+              [options]="exampleOptions"
+              placeholder="Placeholder"
+              label="Label"
+              [isMulti]="isMulti"
+            >
+            </elvia-dropdown>
+          </div>
         </ng-container>
       </app-component-subsection>
     </ng-container>
