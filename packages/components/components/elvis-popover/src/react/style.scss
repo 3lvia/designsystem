@@ -10,7 +10,7 @@ $green: #29d305;
 }
 
 .ewc-popover {
-  display: inline-flex;
+  display: flex;
   box-sizing: border-box;
   position: relative;
 
@@ -21,8 +21,9 @@ $green: #29d305;
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
-    line-height: initial;
-    font-size: initial;
+    div {
+      display: flex;
+    }
   }
   &:not(.ewc-popover--hide) {
     .ewc-popover__trigger {

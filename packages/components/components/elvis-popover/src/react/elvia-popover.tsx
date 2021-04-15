@@ -22,7 +22,7 @@ const Popover: FC<PopoverProps> = ({
 }) => {
   const [popoverVisibility, setPopoverVisibility] = useState(false);
   const maxContentWidth = useRef(0);
-  const popoverRef = useRef<HTMLSpanElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
   const popoverSlotTriggerRef = useRef<HTMLDivElement>(null);
   const popoverContentRef = useRef<HTMLDivElement>(null);
@@ -236,7 +236,7 @@ const Popover: FC<PopoverProps> = ({
   });
 
   return (
-    <span ref={popoverRef}>
+    <div ref={popoverRef}>
       <div className={popoverClasses}>
         <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
           {trigger && <div onClick={togglePopover}>{trigger}</div>}
@@ -268,7 +268,7 @@ const Popover: FC<PopoverProps> = ({
           {!content && <div className="ewc-popover__text" ref={popoverText} />}
         </div>
       </div>
-    </span>
+    </div>
   );
 };
 
