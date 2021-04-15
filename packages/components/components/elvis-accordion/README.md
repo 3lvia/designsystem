@@ -9,10 +9,10 @@ large amount of content in a small place.
   if not just text).
 - openLabel (string) - Label for opening the accordion.
 - closeLabel (string) - Label for closing the accordion.
-- labelPosition (string) - Horizontal positon of opening button, “left”, “center” or “right”, defualt is
+- labelPosition (string) - Horizontal positon of opening button, “left”, “center” or “right”, default is
   "center".
-- size (string) - Size of accordion label & button, “small”, “medium” or “large”, defualt is "medium".
-- type (string) - Variants of accordion, "normal" or "overflow", defualt is "normal".
+- size (string) - Size of accordion label & button, “small”, “medium” or “large”, default is "medium".
+- type (string) - Variants of accordion, "normal" or "overflow", default is "normal".
 
 ## REACT COMPONENT
 

@@ -43,7 +43,7 @@ const AccordionButtonArea = styled.div`
   margin-top: ${(props: { type: string }) => (props.type !== 'overflow' ? '0' : '16px')};
 `;
 
-const decideFontSize = (prop: string) => {
+const decideButtonFontSize = (prop: string) => {
   if (prop === 'small') {
     return '14px';
   }
@@ -63,7 +63,7 @@ const AccordionButton = styled.button`
   padding: 0;
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
-  font-size: ${(props: { size: string }) => decideFontSize(props.size)};
+  font-size: ${(props: { size: string }) => decideButtonFontSize(props.size)};
   line-height: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
   text-align: left;
   cursor: pointer;
