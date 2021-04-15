@@ -21,7 +21,7 @@ function App() {
   const [selectedDate, setSelectedDate] = React.useState(new Date());
   const ref = useRef();
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
-  const date = new Date();
+  const dateCurr = new Date();
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -50,7 +50,7 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-
+      {/* 
       <MuiPickersUtilsProvider utils={MomentUtils}>
         <KeyboardDatePicker
           variant="inline"
@@ -65,11 +65,38 @@ function App() {
             'aria-label': 'change date',
           }}
         />
-      </MuiPickersUtilsProvider>
+      </MuiPickersUtilsProvider> */}
 
       <h2>DatePicker</h2>
-      <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
-        <DatePicker isCompact={true} valueOnChange={(date) => console.log(date)}></DatePicker>
+      <div
+        style={{
+          marginTop: '16px',
+          display: 'flex',
+          flexDirection: 'column',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+        }}
+      >
+        <div style={{ marginTop: '16px' }}>
+          <DatePicker value={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></DatePicker>
+        </div>
+        <div style={{ marginTop: '16px' }}>
+          <DatePicker
+            id="datepicker1"
+            errorMessage="Error"
+            valueOnChange={(dateCurr) => console.log(dateCurr)}
+          ></DatePicker>
+        </div>
+        {/* <div style={{ marginTop: '16px'}}><DatePicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></DatePicker></div> */}
+        {/* <div style={{ marginTop: '16px'}}><DatePicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></DatePicker></div> */}
+        <div style={{ marginTop: '16px' }}>
+          <DatePicker
+            id="datepicker2"
+            isFullWidth={true}
+            valueOnChange={(dateCurr) => console.log(dateCurr)}
+          ></DatePicker>
+        </div>
+        {/* <div style={{ marginTop: '16px'}}><DatePicker minDate={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></DatePicker></div> */}
         {/* <div>{selectedDate.toString()}</div> */}
       </div>
 

@@ -26,8 +26,13 @@ $datepicker-input-compact-height: 34px;
   position: relative;
   // Input field
   // Empty label/text
+  .MuiFormControl-root {
+    margin: 0;
+  }
   .MuiFormLabel-root {
-    margin: -8px 0;
+    margin: -23px 0;
+    // position: absolute;
+    // top: -16px;
 
     font-family: 'Red Hat Text';
     font-style: normal;
@@ -89,6 +94,9 @@ $datepicker-input-compact-height: 34px;
       }
     }
   }
+  label + .MuiInput-formControl {
+    margin: 0px;
+  }
   .MuiInput-underline:before,
   .MuiInput-underline:hover:not(.Mui-disabled):before {
     border: 0;
@@ -112,6 +120,7 @@ $datepicker-input-compact-height: 34px;
     border: 2px solid #29d305;
   }
   input.MuiInputBase-input {
+    padding: 15px 0 13px;
     padding-left: 16px;
     &.Mui-disabled {
       color: $grey-30;
@@ -131,7 +140,9 @@ $datepicker-input-compact-height: 34px;
       font-size: 10px;
       line-height: 100%;
 
-      top: 26px;
+      display: inline-block;
+      position: absolute;
+      top: -5px;
       background: white;
       margin-left: 7px;
       padding: 0 3px;
@@ -156,13 +167,18 @@ $datepicker-input-compact-height: 34px;
     input.MuiInputBase-input,
     .MuiFormLabel-root,
     .MuiFormLabel-root:not(.MuiFormLabel-filled):not(.Mui-focused) {
-      padding: 6px 10px;
+      padding: 5px 0 7px;
+      padding-left: 10px;
 
       font-family: 'Red Hat Text';
       font-style: normal;
       font-weight: normal;
       font-size: 14px;
       line-height: 160%;
+    }
+    input.MuiInputBase-input {
+      padding: 9px 0 7px;
+      padding-left: 10px;
     }
     .MuiInputAdornment-root .MuiIconButton-root {
       width: 32px;
@@ -210,6 +226,7 @@ $datepicker-input-compact-height: 34px;
     height: 48px;
     border-bottom: 1px solid $grey-10;
     background-color: white;
+    justify-content: space-between;
     .MuiTypography-h4 {
       font-family: 'Red Hat Text';
       font-style: normal;
@@ -221,25 +238,34 @@ $datepicker-input-compact-height: 34px;
         text-transform: uppercase;
       }
     }
-    .MuiPickersToolbarButton-toolbarBtn:first-of-type {
+    .ewc-date-picker--toolbar-year {
+      display: flex;
+      align-items: center;
       position: relative;
-      // border: none;
-      // border-bottom: 2px solid transparent;
-      // border-radius: 0px;
-      // padding: 0px;
-      // padding-bottom: 3.5px;
       background: none;
-      .MuiTypography-subtitle1 {
+      cursor: pointer;
+
+      .MuiPickersToolbarText-toolbarTxt {
         font-family: 'Red Hat Display';
         font-style: normal;
         font-weight: 500;
         font-size: 14px;
         line-height: 16px;
         color: black;
+
+        margin-right: 8px;
       }
-      &.Mui-focusVisible {
+      .Mui-focusVisible {
         &::after {
           display: block;
+        }
+      }
+      .ewc-date-picker__icon-dropwdown {
+        position: relative;
+        height: 16px;
+        width: 16px;
+        &.rotate {
+          transform: rotate(180deg);
         }
       }
       &::after {
@@ -267,25 +293,21 @@ $datepicker-input-compact-height: 34px;
         //   }
         // }
       }
-      transition: none;
       &:active {
         &::after {
           display: block;
           top: 20.5px;
           height: 1.5px;
         }
-        // padding-bottom: 4.5px;
-        // border-bottom: 1.5px solid $green;
-        // border-color: $green;
-        // background: none;
-        // transition: none;
       }
     }
-    .MuiPickersToolbarButton-toolbarBtn:last-of-type {
-      pointer-events: none;
-      .MuiTypography-alignCenter {
-        text-align: left;
-      }
+    .ewc-date-picker--toolbar-today {
+      font-family: 'Red Hat Display';
+      font-size: 16px;
+      line-height: 28px;
+      font-weight: 400;
+      color: black;
+      margin: 0px;
     }
   }
   .MuiPickersYearSelection-container {
@@ -446,8 +468,8 @@ $datepicker-input-compact-height: 34px;
     font-size: 16px;
     line-height: 23px;
 
-    position: absolute;
-    top: 6px;
+    display: block;
+    margin-bottom: 4px;
     &.ewc-date-picker__label--disabled {
       color: $grey-30;
     }
@@ -461,7 +483,7 @@ $datepicker-input-compact-height: 34px;
     line-height: 22px;
 
     margin: 0;
-    margin-top: -4px;
+    margin-top: 4px;
     display: flex;
     align-items: center;
     width: 100%;

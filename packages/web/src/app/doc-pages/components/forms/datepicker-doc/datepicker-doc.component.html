@@ -19,32 +19,46 @@
   <!-- TYPE -->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      <!-- <app-component-subsection [sectionTitle]="'Full width ???'">
+      <app-component-subsection [sectionTitle]="'Full width'">
         <ng-container ngProjectAs="sectionContent">
           <elvia-date-picker
             isFullWidth="true"
             (valueOnChange)="lol($event.detail.value)"
           ></elvia-date-picker>
         </ng-container>
-      </app-component-subsection> -->
+      </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Compact'">
         <ng-container ngProjectAs="sectionContent">
-          <elvia-date-picker isCompact="true" (valueOnChange)="lol($event.detail.value)"></elvia-date-picker>
+          <elvia-date-picker
+            label="Velg dato"
+            isCompact="true"
+            (valueOnChange)="lol($event.detail.value)"
+          ></elvia-date-picker>
         </ng-container>
       </app-component-subsection>
-      <!-- <app-component-subsection [sectionTitle]="'Disabled'">
-        <ng-container ngProjectAs="sectionContent">
-          <elvia-date-picker isDisabled="true" (valueOnChange)="lol($event.detail.value)"></elvia-date-picker>
-        </ng-container>
-      </app-component-subsection> -->
-      <!-- <app-component-subsection [sectionTitle]="'Error'">
+      <app-component-subsection [sectionTitle]="'Disabled'">
         <ng-container ngProjectAs="sectionContent">
           <elvia-date-picker
+            label="Velg dato"
+            isDisabled="true"
+            (valueOnChange)="lol($event.detail.value)"
+          ></elvia-date-picker>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Error'">
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-date-picker
+            label="Velg dato"
             errorMessage="Error"
             (valueOnChange)="lol($event.detail.value)"
           ></elvia-date-picker>
         </ng-container>
-      </app-component-subsection> -->
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Preselected value'">
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-date-picker [value]="date" (valueOnChange)="lol($event.detail.value)"></elvia-date-picker>
+        </ng-container>
+      </app-component-subsection>
       <!-- <app-component-subsection [sectionTitle]="'Min & max date'">
         <ng-container ngProjectAs="sectionContent">
           <elvia-date-picker
@@ -52,11 +66,6 @@
             [maxDate]="date2"
             (valueOnChange)="lol($event.detail.value)"
           ></elvia-date-picker>
-        </ng-container>
-      </app-component-subsection> -->
-      <!-- <app-component-subsection [sectionTitle]="'Preselected value'">
-        <ng-container ngProjectAs="sectionContent">
-          <elvia-date-picker [value]="date" (valueOnChange)="lol($event.detail.value)"></elvia-date-picker>
         </ng-container>
       </app-component-subsection> -->
     </ng-container>
