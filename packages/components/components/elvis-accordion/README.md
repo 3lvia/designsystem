@@ -5,12 +5,14 @@ large amount of content in a small place.
 
 ## Props
 
-- content (string | HTMLElement) [required] - Header of content
-- label (string | string[]) - Label for the accordion. Index 0 refers to label while accordion is closed,
-  index 1 refers to label when the accordion is open. Pass "none" to remove label.
-- position (string) - Horizontal positon of opening button, “left”, “center” or “right”, defualt is "center"
+- content (string | HTMLElement) [required] - Text, images, tables or any other content (use slot in angular
+  if not just text).
+- openLabel (string) - Label for opening the accordion.
+- closeLabel (string) - Label for closing the accordion.
+- labelPosition (string) - Horizontal positon of opening button, “left”, “center” or “right”, defualt is
+  "center".
 - size (string) - Size of accordion label & button, “small”, “medium” or “large”, defualt is "medium".
-- type (string) - Variants of accordion, "normal" or "overflow", defualt is "normal"
+- type (string) - Variants of accordion, "normal" or "overflow", defualt is "normal".
 
 ## REACT COMPONENT
 
@@ -22,14 +24,14 @@ import { Accordion } from '@elvia/elvis-accordion/react';
 // content as string
 <Accordion
   type="overflow"
-  position="center"
+  labelPosition="center"
   content="text string of your choice."
 ></Accordion>
 
 // content as HTML element
 <Accordion
   type="normal"
-  position="center"
+  labelPosition="center"
   content={
     <div>
       <h2>A heading</h2>

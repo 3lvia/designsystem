@@ -10,14 +10,17 @@ const accordionData = {
       type: 'string | HTMLElement',
       description: 'Text, images, tables or any other content (use slot in angular if not just text)',
     },
-    label: {
+    openLabel: {
       isRequired: false,
-      type: `string ('none') | string[]`,
-      description: `Label for the accordion. Index 0 refers to label while accordion is closed,
-  index 1 refers to label when the accordion is open. Pass "none" to remove label.`,
-      default: '["Show","Hide"]',
+      type: `string`,
+      description: `Label for opening the accordion`,
     },
-    position: {
+    closeLabel: {
+      isRequired: false,
+      type: `string`,
+      description: `Label for closing the accordion`,
+    },
+    labelPosition: {
       isRequired: false,
       type: '“left” | “center” | “right”',
       description: 'Horizontal positon of label & button',
@@ -57,7 +60,9 @@ const accordionData = {
   codeReact:
     `<Accordion
   type="normal"
-  position="center"
+  openLabel="Show"
+  closeLabel="Hide"
+  labelPosition="center"
   size="medium"
   content="` +
     exampleContents.texts.lg['eng-GBR'].description +
@@ -66,7 +71,9 @@ const accordionData = {
   codeWebComponent:
     `<elvia-accordion
   type="normal"
-  position="center"
+  openLabel="Show"
+  closeLabel="Hide"
+  labelPosition="center"
   size="medium"
   >
   <div slot="content">

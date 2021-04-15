@@ -24,8 +24,6 @@ export class AppComponent implements OnInit {
   <div>
   `;
 
-  accordionLabels = ['Vis mer', 'Få det vekk'];
-
   items = [
     { label: 'Epler' },
     { label: 'Appelsin' },

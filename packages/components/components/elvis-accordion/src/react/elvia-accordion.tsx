@@ -1,12 +1,12 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
 import styled from 'styled-components';
-import './style.scss';
 
 export interface AccordionProps {
   content: string | HTMLElement;
-  label: string | string[];
-  position: string;
+  openLabel: string;
+  closeLabel: string;
+  labelPosition: string;
   size: string;
   type: string;
 }
@@ -23,16 +23,38 @@ const AccordionArea = styled.div`
   flex-direction: column;
 `;
 
+const decideLabelPosition = (prop: string) => {
+  if (prop === 'center') {
+    return 'center';
+  }
+  if (prop === 'right') {
+    return 'flex-end';
+  }
+  if (prop === 'left') {
+    return 'start';
+  }
+};
+
 const AccordionButtonArea = styled.div`
   display: inline-flex;
-  justify-content: ${(props: { position: string }) =>
-    (props.position === 'center' && 'center;') ||
-    (props.position === 'right' && 'flex-end;') ||
-    (props.position === 'left' && 'start;')}
+  justify-content: ${(props: { labelPosition: string }) => decideLabelPosition(props.labelPosition)};
   flex-direction: row;
   width: 100%;
   margin-top: ${(props: { type: string }) => (props.type !== 'overflow' ? '0' : '16px')};
 `;
+
+const decideFontSize = (prop: string) => {
+  if (prop === 'small') {
+    return '14px';
+  }
+  if (prop === 'medium') {
+    return '16px';
+  }
+  if (prop === 'large') {
+    return '20px';
+  }
+  return '16px';
+};
 
 const AccordionButton = styled.button`
   border: none;
@@ -41,10 +63,7 @@ const AccordionButton = styled.button`
   padding: 0;
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
-  font-size: ${(props: { size: string }) =>
-    (props.size === 'large' && '20px;') ||
-    (props.size === 'medium' && '16px;') ||
-    (props.size === 'small' && '14px;')}
+  font-size: ${(props: { size: string }) => decideFontSize(props.size)};
   line-height: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
   text-align: left;
   cursor: pointer;
@@ -53,9 +72,14 @@ const AccordionButton = styled.button`
       background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12 24C5.383 24 0 18.617 0 12S5.383 0 12 0s12 5.383 12 12-5.383 12-12 12z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.813 15.393a1.149 1.149 0 01-1.626 0L6.95 11.157A.853.853 0 118.157 9.95L12 13.793l3.843-3.843a.853.853 0 011.207 1.207l-4.237 4.236z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.813 15.393a1.149 1.149 0 01-1.626 0L6.95 11.157A.853.853 0 118.157 9.95L12 13.793l3.843-3.843a.853.853 0 011.207 1.207l-4.237 4.236z' fill='black'/%3e%3c/svg%3e");
     }
   }
-  
+
   i {
-    margin-left: ${(props: { label: string | string[] }) => (props.label === 'none' ? '0px' : '8px')};
+    margin-left: ${(props: { openLabel: string; closeLabel: string }) => {
+      if (props.openLabel !== undefined || props.closeLabel !== undefined) {
+        return '8px;';
+      }
+      return '0px;';
+    }};
     border: none;
     border-radius: 50%;
     background-size: contain;
@@ -66,7 +90,7 @@ const AccordionButton = styled.button`
     display: inline-block;
     height: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
     width: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
-    transition: transform 300ms; 
+    transition: transform 300ms;
     transform: ${(props: { isContentOpen: boolean }) =>
       (props.isContentOpen && ' rotate(180deg)') || (props.isContentOpen === false && ' rotate(0deg)')};
   }
@@ -112,8 +136,9 @@ const AccordionContent = styled.div`
 
 const Accordion: FC<AccordionProps> = ({
   content,
-  label = ['Show', 'Hide'],
-  position = 'center',
+  openLabel = undefined,
+  closeLabel = undefined,
+  labelPosition = 'center',
   size = 'medium',
   type = 'normal',
 }) => {
@@ -158,14 +183,15 @@ const Accordion: FC<AccordionProps> = ({
             {!content && <div ref={accordionText} />}
           </AccordionContent>
         ) : null}
-        <AccordionButtonArea position={position} type={type}>
+        <AccordionButtonArea labelPosition={labelPosition} type={type}>
           <AccordionButton
             isContentOpen={contentOpen}
-            label={label}
+            openLabel={openLabel}
+            closeLabel={closeLabel}
             size={size}
             onClick={() => setContentOpen((contentOpen) => !contentOpen)}
           >
-            {label === 'none' ? null : contentOpen ? label[1] : label[0]}
+            {!contentOpen ? openLabel : closeLabel}
             <i></i>
           </AccordionButton>
         </AccordionButtonArea>
