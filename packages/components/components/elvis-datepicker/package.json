@@ -1,5 +1,5 @@
 {
-  "name": "@elvia/elvis-date-picker",
+  "name": "@elvia/elvis-datepicker",
   "version": "1.0.0",
   "description": "",
   "main": "web_component.js",
@@ -9,11 +9,11 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@date-io/moment": "1.x",
     "@elvia/elvis-component-wrapper": "*",
     "@elvia/elvis-toolbox": "*",
     "@material-ui/pickers": "^3.2.10",
     "classnames": "^2.2.6",
+    "@date-io/moment": "1.x",
     "moment": "^2.29.1"
   }
 }

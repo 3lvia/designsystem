@@ -1,6 +1,6 @@
 const datepickerData = {
-  name: 'elvis-date-picker',
-  elementNameW: 'elvia-date-picker',
+  name: 'elvis-datepicker',
+  elementNameW: 'elvia-datepicker',
   elementNameR: 'Datepicker',
   attributes: {
     value: {
@@ -33,7 +33,7 @@ const datepickerData = {
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
-      cegDisplayGroup: 'Modifiers',
+      cegDisplayGroup: 'State',
     },
     isDisabled: {
       isRequired: false,
@@ -44,7 +44,7 @@ const datepickerData = {
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
-      cegDisplayGroup: 'Modifiers',
+      cegDisplayGroup: 'State',
     },
     errorMessage: {
       isRequired: false,
@@ -65,30 +65,30 @@ const datepickerData = {
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
-      cegDisplayGroup: 'Modifiers',
+      cegDisplayGroup: 'State',
     },
     minDate: {
       isRequired: false,
       type: 'Date',
-      description: 'Gives the input 100% width (max = ...)',
+      description: 'Makes date before this date disabled.',
       displayName: 'Min date',
     },
     maxDate: {
       isRequired: false,
       type: 'Date',
-      description: 'Gives the input 100% width (max = ...)',
+      description: 'Makes date after this date disabled.',
       displayName: 'Max date',
     },
   },
   package: 'npm install @elvia/elvis-datepicker',
-  codeImportReact: `import { Popover } from '@elvia/elvis-date-picker/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-date-picker';`,
-  codeReact: `<Date-picker
+  codeImportReact: `import { Datepicker } from '@elvia/elvis-datepicker/react';`,
+  codeImportWebComponent: `import '@elvia/elvis-datepicker';`,
+  codeReact: `<Datepicker
   label="Velg dato"
-></Date-picker>`,
-  codeWebComponent: `<elvia-date-picker
+></Datepicker>`,
+  codeWebComponent: `<elvia-datepicker
   label="Velg dato"
-></elvia-popover>`,
+></elvia-datepicker>`,
 };
 
 export { datepickerData };

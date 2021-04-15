@@ -68,6 +68,7 @@ import { ChipsComponent } from './doc-pages/components/chips/chips.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
 import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
+import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
 
 const routes: Routes = [
   {
@@ -301,6 +302,10 @@ const routes: Routes = [
           {
             path: Pages.Table,
             component: TableDocComponent,
+          },
+          {
+            path: Pages.Timepicker,
+            component: TimepickerDocComponent,
           },
           {
             path: Pages.Tooltip,

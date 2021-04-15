@@ -172,15 +172,15 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
-    title: 'Datepicker',
+    title: 'Date picker',
     // tslint:disable-next-line: max-line-length
     description:
-      'Datepicker is a simple way for the user to quickly select a date in a calendar dialog. It uses a text field and a visual calendar in a popover.',
+      'Date picker is a simple way for the user to quickly select a date in a calendar dialog. It uses a text field and a visual calendar in a popover.',
     docUrl: Pages.Datepicker,
     absolutePath: '/components/' + Pages.Datepicker,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Date picker.svg',
-    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2193%3A468',
+    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
   },
   {
@@ -436,6 +436,17 @@ export const eComponents: EItems[] = [
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Toggle.svg',
     figmaUrl: 'https://www.figma.com/file/3J7QnNCnYx1tTi2h7tVStm/Selection-controls?node-id=1%3A49',
+    type: 'Component',
+  },
+  {
+    title: 'Time picker',
+    description:
+      'Time picker is a simple way for the user to quickly select a time in a dropdown dialog. It uses a text field and a visual dropdown.',
+    docUrl: Pages.Timepicker,
+    absolutePath: '/components/' + Pages.Timepicker,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Date picker.svg',
+    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
   },
   {

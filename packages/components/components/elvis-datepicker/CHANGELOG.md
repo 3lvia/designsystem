@@ -1,4 +1,4 @@
-# Elvia DatePicker Changelog
+# Elvia Date picker Changelog
 
 ## 1.0.0 (13.11.20)
 

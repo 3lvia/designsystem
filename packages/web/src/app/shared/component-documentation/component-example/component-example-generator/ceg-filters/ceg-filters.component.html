@@ -38,7 +38,7 @@
     <div *ngIf="prop.cegFormType === 'checkbox'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }">
       <div *ngFor="let checkboxProp of prop.modifiers; let i = index">
         <label class="e-form-field__label" *ngIf="i === 0">{{ checkboxProp.cegDisplayGroup }}</label>
-        <div *ngIf="checkboxProp.cegDisplayGroup === 'Modifiers'">
+        <div *ngIf="checkboxProp.cegDisplayGroup === 'State'">
           <label
             class="e-checkbox e-checkbox--sm"
             for="{{ checkboxProp.displayName }}-checkbox"

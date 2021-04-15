@@ -4,7 +4,7 @@ import { Popover } from '@elvia/elvis-popover/react';
 import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
-import { DatePicker } from '@elvia/elvis-date-picker/react';
+import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import moment from 'moment';
 import MomentUtils from '@date-io/moment';
@@ -50,14 +50,12 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-      {/* 
-      <MuiPickersUtilsProvider utils={MomentUtils}>
+
+      {/* <MuiPickersUtilsProvider utils={MomentUtils}>
         <KeyboardDatePicker
           variant="inline"
           format="DD/MM/yyyy"
           margin="normal"
-          id="date-picker-inline"
-          minDate={new Date()}
           label="Label"
           value={selectedDate}
           onChange={handleDateChange}
@@ -67,7 +65,7 @@ function App() {
         />
       </MuiPickersUtilsProvider> */}
 
-      <h2>DatePicker</h2>
+      <h2>Date picker</h2>
       <div
         style={{
           marginTop: '16px',
@@ -78,25 +76,25 @@ function App() {
         }}
       >
         <div style={{ marginTop: '16px' }}>
-          <DatePicker value={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></DatePicker>
+          <Datepicker value={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
         </div>
         <div style={{ marginTop: '16px' }}>
-          <DatePicker
-            id="datepicker1"
-            errorMessage="Error"
-            valueOnChange={(dateCurr) => console.log(dateCurr)}
-          ></DatePicker>
+          <Datepicker id="datepicker1" errorMessage="Error"></Datepicker>
         </div>
-        {/* <div style={{ marginTop: '16px'}}><DatePicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></DatePicker></div> */}
-        {/* <div style={{ marginTop: '16px'}}><DatePicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></DatePicker></div> */}
         <div style={{ marginTop: '16px' }}>
-          <DatePicker
+          <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
+        </div>
+        <div style={{ marginTop: '16px' }}>
+          <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
+        </div>
+        <div style={{ marginTop: '16px' }}>
+          <Datepicker
             id="datepicker2"
             isFullWidth={true}
             valueOnChange={(dateCurr) => console.log(dateCurr)}
-          ></DatePicker>
+          ></Datepicker>
         </div>
-        {/* <div style={{ marginTop: '16px'}}><DatePicker minDate={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></DatePicker></div> */}
+        {/* <div style={{ marginTop: '16px'}}><Datepicker minDate={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker></div> */}
         {/* <div>{selectedDate.toString()}</div> */}
       </div>
 

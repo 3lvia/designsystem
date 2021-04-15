@@ -37,8 +37,8 @@ module.exports = [
     elementStyle: `width: 100%;`,
   },
   {
-    name: 'elvis-date-picker',
-    elementName: 'elvia-date-picker',
+    name: 'elvis-datepicker',
+    elementName: 'elvia-datepicker',
     attributes: [
       'value',
       'label',
@@ -50,7 +50,7 @@ module.exports = [
       'isFullWidth',
       'errorMessage',
     ],
-    reactName: 'DatePicker',
-    elementStyle: `display: inline-table;`,
+    reactName: 'Datepicker',
+    elementStyle: `display: block; max-width: 343px;`, // width: 100%;
   },
 ];
