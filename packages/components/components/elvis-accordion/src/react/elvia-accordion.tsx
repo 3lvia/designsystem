@@ -96,41 +96,83 @@ const AccordionButton = styled.button`
   }
 `;
 
+const decideContentMarginTop = (contentOpen: boolean, type: string, size: string) => {
+  if (type === 'overflow') {
+    return '0px';
+  }
+  if (contentOpen) {
+    if (size === 'large') {
+      return '24px';
+    } else {
+      return '16px';
+    }
+  }
+};
+
+const decideContentMaxHeight = (contentOpen: boolean, type: string) => {
+  if (type === 'normal') {
+    if (contentOpen) {
+      return '10000px';
+    } else {
+      return '0px';
+    }
+  }
+  if (type === 'overflow') {
+    if (contentOpen) {
+      return '10000px';
+    } else {
+      return 'calc(2em * 1.2)';
+    }
+  }
+};
+const decideContentOpacity = (contentOpen: boolean, type: string) => {
+  if (contentOpen) {
+    return '1';
+  }
+  if (!contentOpen && type === 'overflow') {
+    return '1';
+  }
+  return '0';
+};
+const decideContentOverflowY = (contentOpen: boolean, type: string) => {
+  if (contentOpen && type === 'overflow') {
+    return 'hidden';
+  }
+  return 'auto';
+};
+const decideContentTransition = (contentOpen: boolean, type: string) => {
+  if (type === 'overflow') {
+    if (contentOpen) {
+      return 'max-height 2s ease-in';
+    } else {
+      return 'none';
+    }
+  }
+  return 'all 0.3s ease-out';
+};
+
 const AccordionContent = styled.div`
   display: flex;
   background: transparent;
   width: 100%;
   font-size: 16px;
-  line-height:inherit;
+  line-height: inherit;
   margin-top: ${(props: { isContentOpen: boolean; type: string; size: string }) =>
-    (props.isContentOpen && props.type === 'normal' && props.size !== 'large' && '16px') ||
-    (props.isContentOpen && props.type === 'normal' && props.size === 'large' && '24px') ||
-    (props.isContentOpen && props.type === 'overflow' && '0px')};
+    decideContentMarginTop(props.isContentOpen, props.type, props.size)};
   pointer-events: ${(props: { isContentOpen: boolean }) => (props.isContentOpen ? 'auto' : 'none')};
-  height:auto;
+  height: auto;
   max-height: ${(props: { isContentOpen: boolean; type: string }) =>
-    (props.isContentOpen === true && props.type === 'normal' && '10000px;') ||
-    (props.isContentOpen === false && props.type === 'normal' && '0;') ||
-    (props.isContentOpen === true && props.type === 'overflow' && '10000px;') ||
-    (props.isContentOpen === false && props.type === 'overflow' && 'calc(2.2em * 1.2);')}
+    decideContentMaxHeight(props.isContentOpen, props.type)};
   opacity: ${(props: { isContentOpen: boolean; type: string }) =>
-    (props.isContentOpen && '1;') ||
-    (props.isContentOpen === false && props.type === 'overflow' && '1;') ||
-    '0'};
+    decideContentOpacity(props.isContentOpen, props.type)};
   overflow-y: ${(props: { isContentOpen: boolean; type: string }) =>
-    (props.type === 'normal' && 'auto') ||
-    (props.isContentOpen === false && props.type === 'overflow' && 'hidden') ||
-    (props.isContentOpen === true && props.type === 'overflow' && 'auto')};
+    decideContentOverflowY(props.isContentOpen, props.type)};
   transition: ${(props: { isContentOpen: boolean; type: string }) =>
-    (props.type === 'normal' && 'all 0.3s ease-out') ||
-    (props.isContentOpen === false && props.type === 'overflow' && 'none') ||
-    (props.isContentOpen === true && props.type === 'overflow' && 'max-height 2s ease-in')};
-
-  // remove scrollsbars
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+    decideContentTransition(props.isContentOpen, props.type)};
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   &::-webkit-scrollbar {
-    display:none;
+    display: none;
   }
 `;
 
