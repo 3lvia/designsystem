@@ -10,12 +10,20 @@
       <div class="title-text e-mb-32">
         <h1 class="big-header e-mb-0">
           <ng-content select="headerTitle"></ng-content>
-          <span class="e-ml-16">
+          <div class="e-pl-16">
             <a *ngIf="figmaUrl" href="{{ figmaUrl }}" target="_blank">
-              <i class="e-icon e-icon--figma e-icon--md"></i>
+              <img src="../../../assets/icons/figma.svg" />
             </a>
-          </span>
+          </div>
         </h1>
+        <div *ngIf="componentStatus != ''">
+          <span class="e-label e-label--green-apple" *ngIf="componentStatus === itemStatus.New">
+            {{ componentStatus }}
+          </span>
+          <span class="e-label e-label--red-tomato" *ngIf="componentStatus === itemStatus.Coming">
+            {{ componentStatus }}
+          </span>
+        </div>
         <div *ngIf="figmaOnly">
           <label class="e-label e-label--orange">Figma only</label>
         </div>

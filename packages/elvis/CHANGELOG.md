@@ -6,16 +6,15 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
-      7.5.0
+      7.7.0
     </span>
     <br>
     <span>
-      March 23, 2021
+      April 15, 2021
     </span>
     </td>
     <td class="changelog-content">
-      <div class="changelog-section">
-        <div class="changelog-section-title">💥 New Features</div>
+      <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a> &
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Input</a> 
@@ -43,6 +42,50 @@
             Ascending and Descending icons updated so that arrows point the correct way.
           </li>
         </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      7.6.1
+    </span>
+    <br>
+    <span>
+      April 6, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes / Patches</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
+        </div>
+        Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions. 
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      7.6.0
+    </span>
+    <br>
+    <span>
+      March 29, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/tooltip#Overview">Tooltip</a>
+        </div>
+        Tooltips now have left and right alignment classes
       </div>
       <div class="changelog-divider"></div>
     </td>
