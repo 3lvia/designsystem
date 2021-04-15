@@ -1,7 +1,12 @@
 <!--COMPONENT SUBSECTION-->
 
 <div class="component-section documentation-section-animation e-my-72">
-  <h3 class="e-title-sm e-mb-16 e-mt-0" *ngIf="sectionTitle.length > 0">{{ sectionTitle }}</h3>
+  <h3 class="e-title-sm e-mb-16 e-mt-0 component-section__header" *ngIf="sectionTitle.length > 0">
+    <span>{{ sectionTitle }}</span>
+    <span *ngIf="figmaOnly" class="e-ml-16 component-section__label">
+      <label class="e-label e-label--orange">Figma only</label>
+    </span>
+  </h3>
   <div class="component-section__content e-text-body">
     <ng-content select="sectionContent"></ng-content>
   </div>

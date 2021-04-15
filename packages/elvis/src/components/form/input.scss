@@ -111,7 +111,8 @@ $form-input-padding-compact-active: 4px 9px;
   margin-right: 8px;
 }
 
-.e-form-field.e-form-field--compact .e-input {
+.e-form-field.e-form-field--compact .e-input,
+.e-input.e-input--compact {
   input,
   textarea {
     padding: $form-input-padding-compact;
