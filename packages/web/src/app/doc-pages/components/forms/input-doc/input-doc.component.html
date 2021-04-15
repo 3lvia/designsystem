@@ -72,7 +72,16 @@
           Compact text fields are typically used in Elvia’s internal systems, where screen real estate is an
           important factor. Regardless of which style you use for text fields, you should always stick with
           the same type throughout the page and never mix the two.
-          <app-component-example-v1 [codeHTML]="exampleCompactInput"></app-component-example-v1>
+          <app-component-subsubsection [sectionTitle]="'With label'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1 [codeHTML]="exampleCompactInput"></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Without label'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1 [codeHTML]="exampleCompactInputNoLabel"></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
     </ng-container>

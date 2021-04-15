@@ -7,6 +7,7 @@
 				"e-icon--custom14": {},
 				"e-icon--xs": {},
 				"e-icon--custom19": {},
+				"e-icon--custom20": {},
 				"e-icon--sm": {},
 				"e-icon--md": {},
 				"e-icon--lg": {},
@@ -256,6 +257,7 @@
 			"modifier": {
 				"e-input--placeholder": {},
 				"e-input--centered": {},
+				"e-input--compact": {},
 				"e-input--small": {},
 				"e-input--medium": {}
 			},
@@ -808,6 +810,16 @@
 		"e-table-mobile": {
 			"modifier": {
 				"e-table-mobile--compact": {}
+			},
+			"element": {
+				"e-table-mobile__input": {},
+				"e-table-mobile__button": {},
+				"e-table-mobile__checkbox": {
+					"modifier": {
+						"e-table-mobile__checkbox--selected": {}
+					}
+				},
+				"e-table-mobile__select": {}
 			}
 		},
 		"e-table": {
@@ -823,44 +835,31 @@
 						"e-table__footnote--compact": {}
 					}
 				},
+				"e-table__cell": {
+					"modifier": {
+						"e-table__cell--multiline": {},
+						"e-table__cell--multiline-small": {},
+						"e-table__cell--multiline-sm": {}
+					}
+				},
+				"e-table__input": {},
+				"e-table__button": {},
+				"e-table__checkbox": {
+					"modifier": {
+						"e-table__checkbox--selected": {}
+					}
+				},
+				"e-table__select": {},
 				"e-table__sort-header": {},
 				"e-table__sort-icon": {
 					"modifier": {
 						"e-table__sort-icon--up": {},
 						"e-table__sort-icon--inactive": {}
 					}
-				},
-				"e-table__cell": {
-					"modifier": {
-						"e-table__cell--multiline": {},
-						"e-table__cell--multiline-small": {}
-					}
 				}
 			}
 		},
 		"e-table-footnote": {},
-		"e-tooltip": {
-			"element": {
-				"e-tooltip__content": {
-					"modifier": {
-						"e-tooltip__content--bottom": {},
-						"e-tooltip__content--top": {}
-					}
-				}
-			}
-		},
-		"e-toggle": {
-			"element": {
-				"e-toggle__slider": {}
-			},
-			"psuedo": {
-				"e-toggle---focus": {},
-				"e-toggle---disabled": {}
-			},
-			"modifier": {
-				"e-toggle--inverted": {}
-			}
-		},
 		"e-checkbox": {
 			"element": {
 				"e-checkbox__mark": {},
@@ -877,6 +876,30 @@
 				"e-checkbox---disabled-checked": {},
 				"e-checkbox---invalid": {},
 				"e-checkbox---checked": {}
+			}
+		},
+		"e-tooltip": {
+			"element": {
+				"e-tooltip__content": {
+					"modifier": {
+						"e-tooltip__content--bottom": {},
+						"e-tooltip__content--top": {},
+						"e-tooltip__content--left": {},
+						"e-tooltip__content--right": {}
+					}
+				}
+			}
+		},
+		"e-toggle": {
+			"element": {
+				"e-toggle__slider": {}
+			},
+			"psuedo": {
+				"e-toggle---focus": {},
+				"e-toggle---disabled": {}
+			},
+			"modifier": {
+				"e-toggle--inverted": {}
 			}
 		},
 		"e-dragdrop": {
@@ -1002,6 +1025,7 @@
 		"e-icon--custom14": {},
 		"e-icon--xs": {},
 		"e-icon--custom19": {},
+		"e-icon--custom20": {},
 		"e-icon--sm": {},
 		"e-icon--md": {},
 		"e-icon--lg": {},
@@ -1175,6 +1199,7 @@
 		"e-input---focus": {},
 		"e-input---disabled": {},
 		"e-combined-field": {},
+		"e-input--compact": {},
 		"e-dropdown": {},
 		"e-radio-filter": {},
 		"e-radio-filter__label": {},
@@ -1640,23 +1665,36 @@
 		"e-table-footnote": {},
 		"e-table__footnote": {},
 		"e-table__footnote--compact": {},
+		"e-table__cell--multiline": {},
+		"e-table__cell--multiline-small": {},
+		"e-table__cell--multiline-sm": {},
+		"e-table-mobile--compact": {},
+		"e-table__input": {},
+		"e-table-mobile__input": {},
+		"e-table__button": {},
+		"e-table-mobile__button": {},
+		"e-table__checkbox": {},
+		"e-checkbox": {},
+		"e-table-mobile__checkbox": {},
+		"e-table__checkbox--selected": {},
+		"e-table-mobile__checkbox--selected": {},
+		"e-table__select": {},
+		"e-table-mobile__select": {},
 		"e-table__sort-header": {},
 		"e-table__sort-icon": {},
 		"e-table__sort-icon--up": {},
 		"e-table__sort-icon--inactive": {},
-		"e-table__cell--multiline": {},
-		"e-table__cell--multiline-small": {},
-		"e-table-mobile--compact": {},
 		"e-tooltip": {},
 		"e-tooltip__content": {},
 		"e-tooltip__content--bottom": {},
 		"e-tooltip__content--top": {},
+		"e-tooltip__content--left": {},
+		"e-tooltip__content--right": {},
 		"e-toggle": {},
 		"e-toggle__slider": {},
 		"e-toggle---focus": {},
 		"e-toggle--inverted": {},
 		"e-toggle---disabled": {},
-		"e-checkbox": {},
 		"e-checkbox__mark": {},
 		"e-checkbox__label": {},
 		"e-checkbox--sm": {},

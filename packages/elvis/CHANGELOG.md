@@ -6,6 +6,90 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      7.7.0
+    </span>
+    <br>
+    <span>
+      April 15, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Input</a> 
+        </div>
+        <ul>
+          <li>
+            Documentation for different actions in tables have been added, like inputs, buttons, selects and links. Sorting for tables is also updated, with new icons and functionality, but old functionality will not break. 
+          </li>
+          <li>
+            Compact inputs without labels are now possible to use.
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/label#Overview">Label</a>
+        </div>
+        <ul>
+          <li>
+            Updated labels with nowrap, font-wight and font-family to avoid inheriting wrong style.
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      7.6.1
+    </span>
+    <br>
+    <span>
+      April 6, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes / Patches</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
+        </div>
+        Update to icons(from 32px to 24px), and font-size(18px to 20px) for large accordions. 
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      7.6.0
+    </span>
+    <br>
+    <span>
+      March 29, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/tooltip#Overview">Tooltip</a>
+        </div>
+        Tooltips now have left and right alignment classes
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       7.4.0
     </span>
     <br>

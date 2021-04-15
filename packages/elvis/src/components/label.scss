@@ -31,12 +31,16 @@ $label-font-size: 11px;
   align-items: center;
   padding: $label-padding;
   border-radius: $label-radius;
+  background: colors.color('grey-10');
+
+  font-family: 'Red Hat Text', 'Verdana, sans-serif';
   font-size: $label-font-size;
+  font-weight: 400;
   line-height: 16px;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  background: colors.color('grey-10');
   color: colors.color('font-color');
+  white-space: nowrap;
 
   @each $label, $map in colors.$just-colors {
     $color: colors.color($label);
