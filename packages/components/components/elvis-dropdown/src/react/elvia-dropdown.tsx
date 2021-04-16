@@ -152,7 +152,12 @@ const Dropdown: React.FC<DropdownProps> = ({
 
     option: (provided: any, state: any) => ({
       ...provided,
-      backgroundColor: (state.isFocused && '#F4F4F4') || (state.isSelected && '#E9E9E9'),
+      display: 'flex',
+      alignContent: 'center',
+      backgroundColor:
+        (state.isFocused && state.isSelected && state.isMulti && '#F4F4F4') ||
+        (state.isFocused && !state.isSelected && '#F4F4F4') ||
+        (state.isSelected && !state.isMulti && '#E9E9E9'),
       color: '#000000',
       height: isCompact ? '36px' : '48px',
       paddingLeft: isCompact ? '9px' : '15px',
@@ -163,7 +168,8 @@ const Dropdown: React.FC<DropdownProps> = ({
       overflowX: 'hidden',
       textOverflow: 'ellipsis',
       '&:hover': {
-        backgroundColor: '#F4F4F4',
+        backgroundColor:
+          (state.isSelected && state.isMulti && '#F4F4F4') || (state.isSelected ? '#E9E9E9' : '#F4F4F4'),
         '.ewc-dropdown-checkbox': {
           '.ewc-dropdown-checkbox__mark': {
             backgroundColor: '#29d305',
@@ -210,7 +216,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',
-      fontSize: '16px',
+      fontSize: isCompact ? '14px' : '16px',
       lineHeight: '22px',
       paddingLeft: isCompact ? '8px' : '15px',
     }),

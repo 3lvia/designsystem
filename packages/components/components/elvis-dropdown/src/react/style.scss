@@ -198,8 +198,6 @@ $checkbox-mark-border: 1px solid #000000;
   }
 
   &__mark {
-    display: inline-flex;
-    align-self: flex-start;
     min-width: $checkbox-mark-size;
     min-height: $checkbox-mark-size;
     max-width: $checkbox-mark-size;
