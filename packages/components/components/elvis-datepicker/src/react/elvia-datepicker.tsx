@@ -35,7 +35,8 @@ const Datepicker: FC<DatepickerProps> = ({
   webcomponent,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
-  const emptyLabelString = 'dd.mm.yyyy';
+  const [pickerState, setPickerState] = useState(false);
+  const placeholderString = 'dd.mm.yyyy';
   const defaultWidth = '163px';
   const compactWidth = '133px';
   const maxWidth = '343px';
@@ -127,12 +128,19 @@ const Datepicker: FC<DatepickerProps> = ({
   };
 
   const getCustomToolbar = (props: any) => {
+    let notFirstRender = false;
+    setTimeout(() => {
+      notFirstRender = true;
+    }, 10);
     const { date, openView, setOpenView, title } = props;
     const toggleYearView = () => () => {
       openView === 'year' ? setOpenView('date') : setOpenView('year');
+      console.log(notFirstRender);
+      console.log(openView);
     };
     const dropdownIconClasses = classnames('ewc-datepicker__icon ewc-datepicker__icon-dropdown', {
       ['rotate-forward']: openView === 'year',
+      ['rotate-back']: notFirstRender && openView === 'date',
     });
     return (
       <PickerToolbar title={title}>
@@ -200,7 +208,6 @@ const Datepicker: FC<DatepickerProps> = ({
             rifmFormatter={getFormat}
             // maskChar={' '}
             // mask={() => [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
-            label={emptyLabelString}
             disabled={isDisabled === true || isDisabled === 'true'}
             fullWidth={isFullWidth === true || isFullWidth === 'true'}
             minDate={startDate ? startDate : minDate}
@@ -209,6 +216,7 @@ const Datepicker: FC<DatepickerProps> = ({
             keyboardIcon={getCalIcon()}
             leftArrowIcon={getArrowIcon(true)}
             rightArrowIcon={getArrowIcon(false)}
+            placeholder={placeholderString} // Styling
             PopoverProps={{
               anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
               transformOrigin: { horizontal: 'left', vertical: 'top' },
@@ -216,6 +224,9 @@ const Datepicker: FC<DatepickerProps> = ({
             KeyboardButtonProps={{
               'aria-label': 'endre dato',
             }}
+            onClick={() => setPickerState(true)}
+            onClose={() => setPickerState(false)}
+            open={pickerState}
           />
         </MuiPickersUtilsProvider>
       </ThemeProvider>

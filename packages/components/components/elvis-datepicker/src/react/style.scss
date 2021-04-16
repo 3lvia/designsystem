@@ -25,32 +25,32 @@ $datepicker-input-compact-height: 34px;
   .MuiFormControl-root {
     margin: 0;
   }
-  .MuiFormLabel-root {
-    margin: -23px 0;
+  // .MuiFormLabel-root {
+  //   margin: -23px 0;
 
-    font-family: 'Red Hat Text';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 22px;
+  //   font-family: 'Red Hat Text';
+  //   font-style: normal;
+  //   font-weight: normal;
+  //   font-size: 16px;
+  //   line-height: 22px;
 
-    &.Mui-disabled {
-      color: $grey-30;
-      cursor: not-allowed;
-    }
-  }
+  //   &.Mui-disabled {
+  //     color: $grey-30;
+  //     cursor: not-allowed;
+  //   }
+  // }
   .MuiFormLabel-root.Mui-focused,
   .MuiFormLabel-root.MuiFormLabel-filled {
     display: none;
   }
-  .MuiFormLabel-root.Mui-focusVisible {
-    outline: 2px solid #0064fa;
-    outline-offset: 2px;
-  }
-  .MuiFormLabel-root:not(.MuiFormLabel-filled):not(.Mui-focused) {
-    padding: 12px 17px;
-    font-size: 16px;
-  }
+  // .MuiFormLabel-root.Mui-focusVisible {
+  //   outline: 2px solid #0064fa;
+  //   outline-offset: 2px;
+  // }
+  // .MuiFormLabel-root:not(.MuiFormLabel-filled):not(.Mui-focused) {
+  //   padding: 12px 17px;
+  //   font-size: 16px;
+  // }
   .MuiInputAdornment-root .MuiIconButton-root {
     padding: 8px;
     margin-right: 8px;
@@ -74,6 +74,9 @@ $datepicker-input-compact-height: 34px;
     line-height: 22px;
     letter-spacing: normal;
 
+    ::placeholder {
+      color: #676767;
+    }
     &.Mui-disabled {
       border: 1px solid $grey-30;
       cursor: not-allowed;
@@ -206,6 +209,7 @@ $datepicker-input-compact-height: 34px;
 }
 
 .MuiPaper-root {
+  margin-left: -1px;
   &.MuiPaper-rounded {
     border-radius: 8px;
   }
@@ -258,26 +262,28 @@ $datepicker-input-compact-height: 34px;
         position: relative;
         height: 16px;
         width: 16px;
-        // @keyframes rotate-backward {
-        //   0% {
-        //     transform: rotate(180deg);
+        // &.rotate-forward {
+        //   @keyframes rotate-forward {
+        //     0% {
+        //       transform: rotate(0);
+        //     }
+        //     100% {
+        //       transform: rotate(180deg);
+        //     }
         //   }
-        //   100% {
-        //     transform: rotate(0);
-        //   }
+        //   animation: rotate-forward 0.2s ease-in-out both;
         // }
-        // animation: rotate-backward 0.2s ease-in-out both;
-        &.rotate-forward {
-          @keyframes rotate-forward {
-            0% {
-              transform: rotate(0);
-            }
-            100% {
-              transform: rotate(180deg);
-            }
-          }
-          animation: rotate-forward 0.2s ease-in-out both;
-        }
+        // &.rotate-back {
+        //   @keyframes rotate-back {
+        //     0% {
+        //       transform: rotate(180deg);
+        //     }
+        //     100% {
+        //       transform: rotate(0);
+        //     }
+        //   }
+        //   animation: rotate-back 0.2s ease-in-out both;
+        // }
       }
       &::after {
         content: '';
