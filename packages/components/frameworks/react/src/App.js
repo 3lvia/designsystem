@@ -75,7 +75,7 @@ function App() {
           justifyContent: 'center',
         }}
       >
-        <div style={{ marginTop: '16px' }}>
+        {/* <div style={{ marginTop: '16px' }}>
           <Datepicker value={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
         </div>
         <div style={{ marginTop: '16px' }}>
@@ -86,12 +86,12 @@ function App() {
         </div>
         <div style={{ marginTop: '16px' }}>
           <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
-        </div>
+        </div> */}
         <div style={{ marginTop: '16px' }}>
           <Datepicker
             id="datepicker2"
             isFullWidth={true}
-            valueOnChange={(dateCurr) => console.log(dateCurr)}
+            // valueOnChange={(dateCurr) => console.log(dateCurr)}
           ></Datepicker>
         </div>
         {/* <div style={{ marginTop: '16px'}}><Datepicker minDate={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker></div> */}

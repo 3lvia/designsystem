@@ -3,9 +3,9 @@
 
   <h2>DatePicker</h2>
   <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
-    <elvia-datepicker (valueOnChange)="lol($event.detail.value)"></elvia-datepicker>
-    {{ date }}
+    <elvia-datepicker (valueOnChange)="date = $event.detail.value"></elvia-datepicker>
   </div>
+  {{ date }}
 
   <h2>Tabs</h2>
   <div style="margin-top: 16px; background: #262626">

@@ -1,71 +1,92 @@
 $text-light: #515151;
 $text-disabled: #bdbdbd;
+$text-placeholder: #676767;
 $grey-30: #bdbdbd;
 $grey-10: #e9e9e9;
 $grey-05: #f4f4f4;
 $green: #29d305;
 $red: #ff0000;
-
 $datepicker-input-height: 48px;
 $datepicker-input-compact-height: 34px;
+$datepicker-width: 163px;
+$datepicker-compact-width: 133px;
+$datepicker-max-width: 382px;
 
-// -> Override in js (fjerne dobbelt opp)
-// .MuiIconButton-root:hover,
-.MuiIconButton-root.Mui-focusVisible {
-  background-color: $green;
+.ewc-no-outline {
+  * {
+    outline: none !important;
+  }
 }
-// .MuiIconButton-root:active {
-//   transform: scale(0.93);
-// }
+%ewc-outline {
+  outline: 2px solid #0064fa;
+  outline-offset: 2px;
+}
+
+// Custom icons
+.ewc-datepicker__icon {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+}
 
 .ewc-datepicker {
   position: relative;
-  // Input field
-  // Empty label/text
-  .MuiFormControl-root {
-    margin: 0;
-  }
-  // .MuiFormLabel-root {
-  //   margin: -23px 0;
-
-  //   font-family: 'Red Hat Text';
-  //   font-style: normal;
-  //   font-weight: normal;
-  //   font-size: 16px;
-  //   line-height: 22px;
-
-  //   &.Mui-disabled {
-  //     color: $grey-30;
-  //     cursor: not-allowed;
-  //   }
-  // }
-  .MuiFormLabel-root.Mui-focused,
-  .MuiFormLabel-root.MuiFormLabel-filled {
+  // Removing mui label and helpertext
+  .MuiFormLabel-root,
+  .MuiFormHelperText-root {
     display: none;
   }
-  // .MuiFormLabel-root.Mui-focusVisible {
-  //   outline: 2px solid #0064fa;
-  //   outline-offset: 2px;
-  // }
-  // .MuiFormLabel-root:not(.MuiFormLabel-filled):not(.Mui-focused) {
-  //   padding: 12px 17px;
-  //   font-size: 16px;
-  // }
-  .MuiInputAdornment-root .MuiIconButton-root {
-    padding: 8px;
-    margin-right: 8px;
-    @media screen and (-ms-high-contrast: none) {
-      margin-right: 32px;
-    }
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.04);
+
+  // LABEL
+  .ewc-datepicker__label {
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 23px;
+
+    display: block;
+    margin-bottom: 4px;
+    &.ewc-datepicker__label--disabled {
+      color: $grey-30;
     }
   }
-  // Input
+
+  // ERROR
+  .ewc-datepicker__error {
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+
+    margin: 0;
+    margin-top: 4px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    .ewc-datepicker__icon--error {
+      height: 16px;
+      width: 16px;
+    }
+    .ewc-datepicker__helper-text {
+      margin-left: 8px;
+    }
+  }
+
+  // INPUT
   .MuiInputBase-root {
     height: $datepicker-input-height;
+    width: $datepicker-width;
+    max-width: $datepicker-max-width;
     border-radius: 4px;
     border: 1px solid black;
+    &.MuiInputBase-fullWidth {
+      width: 100%;
+    }
 
     font-family: 'Red Hat Text', Verdana, sans-serif;
     font-style: normal;
@@ -74,33 +95,37 @@ $datepicker-input-compact-height: 34px;
     line-height: 22px;
     letter-spacing: normal;
 
-    ::placeholder {
-      color: #676767;
+    input {
+      padding: 15px 0 13px;
+      padding-left: 16px;
     }
+
+    ::placeholder {
+      color: $text-placeholder;
+    }
+
+    // Disabled
     &.Mui-disabled {
       border: 1px solid $grey-30;
       cursor: not-allowed;
     }
-    // Button
+    // Calendar button
     .MuiButtonBase-root {
-      &:hover,
-      &.Mui-focusVisible {
-        background-color: #29d305;
-      }
-      .MuiIconButton-label .MuiSvgIcon-root path {
-        display: none;
+      padding: 8px;
+      margin-right: 8px;
+      @media screen and (-ms-high-contrast: none) {
+        margin-right: 32px;
       }
     }
   }
-  label + .MuiInput-formControl {
-    margin: 0px;
-  }
+
+  // INPUT BORDER
+  .MuiInput-underline:after,
   .MuiInput-underline:before,
   .MuiInput-underline:hover:not(.Mui-disabled):before {
     border: 0;
   }
   .MuiInput-underline:after {
-    border: 0;
     border-radius: 4px;
     box-sizing: border-box;
     height: calc(100% + 2px);
@@ -110,28 +135,24 @@ $datepicker-input-compact-height: 34px;
     transition: none;
     transform: scaleX(1);
   }
-  &.ewc-datepicker--error {
-    .MuiInput-underline:after {
-      border: 2px solid $red;
-    }
-  }
+  // Focus
   .MuiInput-underline.Mui-focused:after {
     border: 2px solid #29d305;
   }
-  input.MuiInputBase-input {
-    padding: 15px 0 13px;
-    padding-left: 16px;
-    &.Mui-disabled {
-      color: $grey-30;
-      cursor: not-allowed;
-    }
-  }
-  // Helper text
-  .MuiFormHelperText-root {
-    display: none;
+  .MuiInput-underline.Mui-focused {
+    @extend %ewc-outline;
   }
 
+  // Error
+  &.ewc-datepicker--error {
+    .MuiInput-underline:after {
+      border: 2px solid $red !important;
+    }
+  }
+
+  // COMPACT INPUT
   &.ewc-datepicker--compact {
+    // LABEL
     .ewc-datepicker__label {
       font-family: 'Red Hat Text';
       font-style: normal;
@@ -148,72 +169,55 @@ $datepicker-input-compact-height: 34px;
       z-index: 1;
     }
 
-    .ewc-datepicker__icon.ewc-datepicker__icon {
-      width: 16px;
-      height: 16px;
-    }
-
+    // INPUT
     .MuiInputBase-root {
       height: $datepicker-input-compact-height;
-      font-family: 'Red Hat Text';
-      font-style: normal;
-      font-weight: normal;
-      font-size: 14px;
-      line-height: 160%;
-    }
-    input.MuiInputBase-input,
-    .MuiFormLabel-root,
-    .MuiFormLabel-root:not(.MuiFormLabel-filled):not(.Mui-focused) {
+      width: $datepicker-compact-width;
       padding: 5px 0 7px;
-      padding-left: 10px;
+      &.MuiInputBase-fullWidth {
+        width: 100%;
+      }
 
       font-family: 'Red Hat Text';
       font-style: normal;
       font-weight: normal;
       font-size: 14px;
       line-height: 160%;
-    }
-    input.MuiInputBase-input {
-      padding: 9px 0 7px;
-      padding-left: 10px;
-    }
-    .MuiInputAdornment-root .MuiIconButton-root {
-      margin-right: 4px;
-      @media screen and (-ms-high-contrast: none) {
-        margin-right: 24px;
+
+      input.MuiInputBase-input {
+        padding-left: 10px;
       }
-    }
-    .MuiInput-underline:after {
-      height: $datepicker-input-compact-height;
+
+      // Calendar button
+      .MuiInputAdornment-root .MuiIconButton-root {
+        margin-right: 4px;
+        margin-top: 2px;
+        @media screen and (-ms-high-contrast: none) {
+          margin-right: 24px;
+        }
+        .ewc-datepicker__icon--cal {
+          width: 16px;
+          height: 16px;
+        }
+      }
     }
   }
 }
 
-// Datepicker dropdown
-.MuiPopover-paper {
+// PICKER
+.MuiPaper-root {
   margin-top: 16px;
-  &.MuiPaper-elevation8 {
-    box-shadow: 0px 0px 40px rgb(0 0 0 / 6%);
-  }
-  .MuiPickersBasePicker-pickerView {
-    min-width: 304px;
-    min-height: 316px;
-    max-height: 316px;
-  }
+  margin-left: -1px;
+  box-shadow: 0px 0px 40px rgb(0 0 0 / 6%) !important;
+  border-radius: 8px !important;
   .MuiPickersBasePicker-containerLandscape {
     flex-direction: column;
     .MuiPickersToolbar-toolbarLandscape {
       max-width: 310px;
     }
   }
-}
 
-.MuiPaper-root {
-  margin-left: -1px;
-  &.MuiPaper-rounded {
-    border-radius: 8px;
-  }
-  // Header
+  // TOOLBAR
   .MuiToolbar-regular {
     min-height: 20px;
   }
@@ -227,16 +231,15 @@ $datepicker-input-compact-height: 34px;
     border-bottom: 1px solid $grey-10;
     background-color: white;
     justify-content: space-between;
-    .MuiTypography-h4 {
-      font-family: 'Red Hat Text';
-      font-style: normal;
-      font-weight: normal;
+
+    .ewc-datepicker--toolbar-today {
+      font-family: 'Red Hat Display';
       font-size: 16px;
-      line-height: 16px;
+      line-height: 28px;
+      font-weight: 400;
       color: black;
-      &:first-letter {
-        text-transform: uppercase;
-      }
+      margin: 0px;
+      user-select: none;
     }
     .ewc-datepicker--toolbar-dropdown {
       display: flex;
@@ -244,9 +247,11 @@ $datepicker-input-compact-height: 34px;
       position: relative;
       background: none;
       border: none;
-      outline: none;
       cursor: pointer;
-      padding: 0;
+      padding: 0 0 3.5px 0;
+      border-bottom: 2.5px solid transparent;
+      border-radius: 0;
+      min-width: 0;
 
       .ewc-datepicker__toolbar-year {
         font-family: 'Red Hat Display';
@@ -262,83 +267,44 @@ $datepicker-input-compact-height: 34px;
         position: relative;
         height: 16px;
         width: 16px;
-        // &.rotate-forward {
-        //   @keyframes rotate-forward {
-        //     0% {
-        //       transform: rotate(0);
-        //     }
-        //     100% {
-        //       transform: rotate(180deg);
-        //     }
-        //   }
-        //   animation: rotate-forward 0.2s ease-in-out both;
-        // }
-        // &.rotate-back {
-        //   @keyframes rotate-back {
-        //     0% {
-        //       transform: rotate(180deg);
-        //     }
-        //     100% {
-        //       transform: rotate(0);
-        //     }
-        //   }
-        //   animation: rotate-back 0.2s ease-in-out both;
-        // }
-      }
-      &::after {
-        content: '';
-        display: none;
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        top: 19.5px;
-        background: $green;
-        border-radius: 50px;
-      }
-      &:hover {
-        &::after {
-          display: block;
+        &.rotate-forward {
+          transform: rotate(180deg);
         }
       }
-      &:focus {
-        outline: 2px solid #0064fa;
-        outline-offset: 2px;
+
+      &:hover {
+        border-color: $green;
+      }
+      &.Mui-focusVisible {
+        @extend %ewc-outline;
       }
     }
-    .ewc-datepicker--toolbar-today {
-      font-family: 'Red Hat Display';
-      font-size: 16px;
-      line-height: 28px;
-      font-weight: 400;
-      color: black;
-      margin: 0px;
-      user-select: none;
-    }
   }
+
+  // YEAR SELECTION VIEW
   .MuiPickersYearSelection-container {
     position: relative;
     height: 306px;
     margin: 8px 0;
-    //fade
     &::before {
       content: '';
       display: block;
       position: sticky;
-      top: -1px;
       width: 100%;
       height: 60px;
-      background-image: linear-gradient(to top, rgba(255, 255, 255, 0), #fff);
       pointer-events: none;
+      top: -1px;
+      background-image: linear-gradient(to top, rgba(255, 255, 255, 0), #fff);
     }
     &:after {
       content: '';
       display: block;
       position: sticky;
-      bottom: 0;
       width: 100%;
       height: 60px;
-      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), #fff);
       pointer-events: none;
+      bottom: 0;
+      background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), #fff);
     }
     .MuiTypography-subtitle1,
     .MuiPickersYear-yearSelected {
@@ -351,20 +317,30 @@ $datepicker-input-compact-height: 34px;
       &:first-of-type {
         margin-top: -20px;
       }
-      &:hover,
-      &:focus {
+      &:hover {
         background: $grey-05;
+      }
+      &:focus {
+        @extend %ewc-outline;
       }
     }
     .MuiPickersYear-yearSelected {
       background: $grey-10;
     }
   }
+
+  // DAY SELECTION VIEW
+  .MuiPickersBasePicker-pickerView {
+    min-width: 304px;
+    max-width: 304px;
+    height: 316px;
+  }
+
+  // MONTH SWITCHER
   .MuiPickersCalendarHeader-switchHeader {
     margin-top: -30px;
     margin-bottom: 0;
     padding: 8px 16px 0px 16px;
-    // MONTH
     .MuiPickersCalendarHeader-transitionContainer {
       height: 16px;
     }
@@ -378,9 +354,9 @@ $datepicker-input-compact-height: 34px;
     }
 
     // ARROWS
-    .MuiPickersCalendarHeader-iconButton {
-      width: 32px;
-      height: 32px;
+    .ewc-datepicker__icon--arrow {
+      width: 16px;
+      height: 16px;
     }
     .MuiPickersCalendarHeader-iconButton.Mui-disabled {
       opacity: 0.3;
@@ -388,7 +364,7 @@ $datepicker-input-compact-height: 34px;
     }
   }
 
-  // Mon - Sun
+  // WEEKDAY HEADERS (MA -> SØ)
   .MuiPickersCalendarHeader-daysHeader {
     max-height: 32px;
     padding-top: 8px;
@@ -410,7 +386,7 @@ $datepicker-input-compact-height: 34px;
     }
   }
 
-  // Numbers
+  // DATES (1 -> 31)
   .MuiPickersCalendar-transitionContainer {
     margin-top: 0px;
   }
@@ -428,6 +404,15 @@ $datepicker-input-compact-height: 34px;
       line-height: 22px;
       color: black;
     }
+    // Current date
+    .MuiPickersDay-current {
+      border: 0;
+      background: $grey-05;
+      .MuiTypography-body2 {
+        font-weight: 500;
+      }
+    }
+    // Selected
     .MuiPickersDay-daySelected,
     .MuiPickersDay-current.MuiPickersDay-daySelected {
       background: $green;
@@ -436,80 +421,21 @@ $datepicker-input-compact-height: 34px;
         font-weight: 500;
       }
     }
+    // Hover
+    .MuiPickersDay-day:hover {
+      border: 1px solid $green;
+      background: white;
+      &.MuiPickersDay-current {
+        background: $grey-05;
+      }
+      &.MuiPickersDay-daySelected {
+        background: $green;
+        border: 0;
+      }
+    }
+    // Disabled
     .MuiPickersDay-dayDisabled .MuiTypography-body2 {
       color: $text-disabled;
     }
-    .MuiPickersDay-current {
-      border: 0;
-      background: $grey-05;
-      .MuiTypography-body2 {
-        font-weight: 500;
-      }
-    }
-    .MuiPickersDay-day:hover,
-    .MuiPickersDay-day.Mui-focusVisible {
-      border: 1px solid $green;
-      background: transparent;
-    }
-    .MuiPickersDay-current.MuiPickersDay-day:hover {
-      background: $grey-05;
-    }
-    .MuiPickersDay-current.MuiPickersDay-daySelected:hover,
-    .MuiPickersDay-daySelected.MuiPickersDay-day:hover,
-    .MuiPickersDay-day.Mui-focusVisible.MuiPickersDay-daySelected {
-      background: $green;
-      border: 0;
-    }
-  }
-}
-
-// EWC
-.ewc-datepicker {
-  // Label
-  .ewc-datepicker__label {
-    font-family: 'Red Hat Text';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 23px;
-
-    display: block;
-    margin-bottom: 4px;
-    &.ewc-datepicker__label--disabled {
-      color: $grey-30;
-    }
-  }
-  // Error
-  .ewc-datepicker__error {
-    font-family: 'Red Hat Text';
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 22px;
-
-    margin: 0;
-    margin-top: 4px;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    .ewc-datepicker__helper-text {
-      margin-left: 8px;
-    }
-  }
-}
-.ewc-datepicker__icon {
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  &.ewc-datepicker__icon--arrow {
-    width: 16px;
-    height: 16px;
-  }
-  &.ewc-datepicker__icon--error {
-    height: 16px;
-    width: 16px;
   }
 }

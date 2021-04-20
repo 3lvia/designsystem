@@ -52,6 +52,6 @@ module.exports = [
       'errorMessage',
     ],
     reactName: 'Datepicker',
-    elementStyle: 'display: block; max-width: 343px;',
+    elementStyle: 'display: block; max-width: 383px;',
   },
 ];

@@ -34,8 +34,4 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.nativeJSApproach();
   }
-
-  lol(d) {
-    console.log('hei: ' + d);
-  }
 }

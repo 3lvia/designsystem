@@ -1,11 +1,13 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState, useRef, useEffect } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 import PickerToolbar from '@material-ui/pickers/_shared/PickerToolbar';
 import MomentUtils from '@date-io/moment';
 import moment from 'moment';
+import toolbox from '@elvia/elvis-toolbox';
 
 export interface DatepickerProps {
   value: Date | number | null;
@@ -23,7 +25,7 @@ export interface DatepickerProps {
 
 const Datepicker: FC<DatepickerProps> = ({
   value = null,
-  label = '',
+  label = 'Velg dato',
   isCompact = false,
   isDisabled = false,
   errorMessage = '',
@@ -35,11 +37,9 @@ const Datepicker: FC<DatepickerProps> = ({
   webcomponent,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
-  const [pickerState, setPickerState] = useState(false);
+  const datepickerRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef(null);
   const placeholderString = 'dd.mm.yyyy';
-  const defaultWidth = '163px';
-  const compactWidth = '133px';
-  const maxWidth = '343px';
   const materialTheme = createMuiTheme({
     props: {
       MuiButtonBase: {
@@ -47,26 +47,15 @@ const Datepicker: FC<DatepickerProps> = ({
       },
     },
     overrides: {
-      MuiInputBase: {
-        root: {
-          width: isCompact ? compactWidth : defaultWidth,
-          maxWidth: maxWidth,
-        },
-      },
-      MuiFormControl: {
-        root: {
-          width: isCompact ? compactWidth : defaultWidth,
-          maxWidth: maxWidth,
-        },
-      },
       MuiIconButton: {
         root: {
           padding: '8px',
           '&:hover': {
             backgroundColor: '#29d305',
           },
-          focusVisible: {
-            backgroundColor: '#29d305',
+          '&.Mui-focusVisible': {
+            outline: '2px solid #0064fa !important',
+            outlineOffset: '2px !important',
           },
           '&:active': {
             transform: 'scale(0.93)',
@@ -84,12 +73,25 @@ const Datepicker: FC<DatepickerProps> = ({
       weekdaysShort: ['sø', 'ma', 'ti', 'on', 'to', 'fr', 'lø'],
       weekdays: ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'],
     });
+
+    // Start outline listener
+    toolbox.outlineListener(datepickerRef.current);
+
+    // Cleanup
+    return () => {
+      // Remove outline listener
+      toolbox.outlineListener(datepickerRef.current, true);
+    };
   }, []);
 
   // Needed for webcomponent
   useEffect(() => {
     handleDateChange(value);
   }, [value]);
+
+  useEffect(() => {
+    updateCaretPositionDot();
+  }, [selectedDate]);
 
   const handleDateChange = (date: number | Date | null) => {
     setSelectedDate(date);
@@ -101,12 +103,31 @@ const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
+  const updateCaretPositionDot = () => {
+    const ref = inputRef.current;
+    if (ref.value.length === 3 || ref.value.length === 6) {
+      ref.selectionStart = ref.value.length + 1;
+      ref.selectionEnd = ref.value.length + 1;
+    }
+  };
+
+  const updateCaretPositionSpace = () => {
+    const ref = inputRef.current;
+    const index = ref.value.indexOf(' ');
+    if (index > 0) {
+      setTimeout(() => {
+        ref.selectionStart = index;
+        ref.selectionEnd = index;
+      }, 10);
+    }
+  };
+
   const getCalIcon = () => {
     const calendar = `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='black'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`;
     const disabledCalendar = `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23BDBDBD' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23BDBDBD'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23BDBDBD'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`;
     return (
       <i
-        className="ewc-datepicker__icon ewc-datepicker__icon-cal"
+        className="ewc-datepicker__icon ewc-datepicker__icon--cal"
         style={{
           backgroundImage: isDisabled ? disabledCalendar : calendar,
         }}
@@ -128,24 +149,18 @@ const Datepicker: FC<DatepickerProps> = ({
   };
 
   const getCustomToolbar = (props: any) => {
-    let notFirstRender = false;
-    setTimeout(() => {
-      notFirstRender = true;
-    }, 10);
     const { date, openView, setOpenView, title } = props;
     const toggleYearView = () => () => {
       openView === 'year' ? setOpenView('date') : setOpenView('year');
-      console.log(notFirstRender);
-      console.log(openView);
     };
     const dropdownIconClasses = classnames('ewc-datepicker__icon ewc-datepicker__icon-dropdown', {
       ['rotate-forward']: openView === 'year',
-      ['rotate-back']: notFirstRender && openView === 'date',
+      ['rotate-back']: openView === 'date',
     });
     return (
       <PickerToolbar title={title}>
         <div className="ewc-datepicker--toolbar-today">{date.format('dddd DD. MMMM')}</div>
-        <button className="ewc-datepicker--toolbar-dropdown" onClick={toggleYearView()}>
+        <Button className="ewc-datepicker--toolbar-dropdown" onClick={toggleYearView()}>
           <div className="ewc-datepicker__toolbar-year">{date.format('YYYY')}</div>
           <i
             className={dropdownIconClasses}
@@ -153,33 +168,26 @@ const Datepicker: FC<DatepickerProps> = ({
               backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.389 5.869a1.328 1.328 0 011.878 0L12 15.6l9.733-9.732a1.328 1.328 0 011.878 1.878L13.443 17.915h-.001a2.04 2.04 0 01-2.885 0L.39 7.747a1.328 1.328 0 010-1.878z' fill='black'/%3e%3c/svg%3e")`,
             }}
           ></i>
-        </button>
+        </Button>
       </PickerToolbar>
     );
   };
 
-  const parseDigits = (str: string) => (str.match(/\d+/g) || []).join('');
-
-  const formatDate = (str: string) => {
-    const digits = parseDigits(str);
-    const chars = digits.split('');
-    return chars
-      .reduce((r, v, index) => (index === 2 || index === 4 ? `${r}-${v}` : `${r}${v}`), '')
+  const formatDate = (inputString: string) => {
+    const digits = (inputString.match(/\d+/g) || []).join('');
+    let res = digits
+      .split('')
+      .reduce((num1, num2, index) => (index === 2 || index === 4 ? `${num1}.${num2}` : `${num1}${num2}`), '')
       .substr(0, 10);
-  };
 
-  const getFormat = (str: string) => {
-    const res = formatDate(str);
-
-    if (str.endsWith('-')) {
-      if (res.length === 2) {
-        return `${res}-`;
-      }
-
-      if (res.length === 5) {
-        return `${res}-`;
-      }
+    if (res.length === 2 || res.length === 5) {
+      res = `${res}.`;
     }
+    if (res.length > 6 && res.length < 10) {
+      res += ' ';
+    }
+    // console.log(res);
+    // res = '12.10.2000';
     return res;
   };
 
@@ -192,57 +200,57 @@ const Datepicker: FC<DatepickerProps> = ({
   });
 
   return (
-    <div className={datePickerClasses}>
-      {/* Label */}
-      {label !== '' && <label className={datePickerLabelClasses}>{label}</label>}
+    <div ref={datepickerRef}>
+      <div className={datePickerClasses}>
+        {/* Label */}
+        {label !== '' && <label className={datePickerLabelClasses}>{label}</label>}
 
-      {/* MUI Datepicker */}
-      <ThemeProvider theme={materialTheme}>
-        <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
-          <KeyboardDatePicker
-            variant="inline"
-            // autoOk={true} -> Skru på når ferdig testet
-            value={selectedDate}
-            onChange={handleDateChange}
-            format="DD.MM.yyyy"
-            rifmFormatter={getFormat}
-            // maskChar={' '}
-            // mask={() => [/\d/, /\d/, '.', /\d/, /\d/, '.', /\d/, /\d/, /\d/, /\d/]}
-            disabled={isDisabled === true || isDisabled === 'true'}
-            fullWidth={isFullWidth === true || isFullWidth === 'true'}
-            minDate={startDate ? startDate : minDate}
-            maxDate={maxDate}
-            ToolbarComponent={getCustomToolbar}
-            keyboardIcon={getCalIcon()}
-            leftArrowIcon={getArrowIcon(true)}
-            rightArrowIcon={getArrowIcon(false)}
-            placeholder={placeholderString} // Styling
-            PopoverProps={{
-              anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
-              transformOrigin: { horizontal: 'left', vertical: 'top' },
-            }}
-            KeyboardButtonProps={{
-              'aria-label': 'endre dato',
-            }}
-            onClick={() => setPickerState(true)}
-            onClose={() => setPickerState(false)}
-            open={pickerState}
-          />
-        </MuiPickersUtilsProvider>
-      </ThemeProvider>
+        {/* MUI Datepicker */}
+        <ThemeProvider theme={materialTheme}>
+          <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
+            <KeyboardDatePicker
+              inputProps={{ ref: inputRef }}
+              // autoOk={true} -> Skru på når ferdig testet
+              variant="inline"
+              onFocus={updateCaretPositionSpace}
+              value={selectedDate}
+              onChange={handleDateChange}
+              placeholder={placeholderString}
+              format="DD.MM.yyyy"
+              refuse="([\s]){1,9}"
+              rifmFormatter={formatDate}
+              disabled={isDisabled === true || isDisabled === 'true'}
+              fullWidth={isFullWidth === true || isFullWidth === 'true'}
+              minDate={startDate ? startDate : minDate}
+              maxDate={maxDate}
+              ToolbarComponent={getCustomToolbar}
+              keyboardIcon={getCalIcon()}
+              leftArrowIcon={getArrowIcon(true)}
+              rightArrowIcon={getArrowIcon(false)}
+              PopoverProps={{
+                anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
+                transformOrigin: { horizontal: 'left', vertical: 'top' },
+              }}
+              KeyboardButtonProps={{
+                'aria-label': 'endre dato',
+              }}
+            />
+          </MuiPickersUtilsProvider>
+        </ThemeProvider>
 
-      {/* Helper text */}
-      {errorMessage && (
-        <div className="ewc-datepicker__error">
-          <i
-            className="ewc-datepicker__icon ewc-datepicker__icon--error"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23FF0000' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23FF0000'%3e%3cpath d='M12 23.999c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath d='M16.5 17.249a.743.743 0 01-.53-.22L12 13.06l-3.97 3.97a.744.744 0 01-1.06 0 .752.752 0 010-1.061l3.97-3.97-3.97-3.97a.743.743 0 01-.22-.53c0-.2.078-.389.22-.53a.743.743 0 01.53-.22c.2 0 .389.078.53.22l3.97 3.97 3.97-3.97a.744.744 0 011.06 0c.142.141.22.33.22.53s-.078.389-.22.53l-3.97 3.97 3.97 3.97a.752.752 0 010 1.061.746.746 0 01-.53.219z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23FF0000'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
-            }}
-          ></i>
-          <div className="ewc-datepicker__helper-text">{errorMessage}</div>
-        </div>
-      )}
+        {/* Helper text */}
+        {errorMessage && (
+          <div className="ewc-datepicker__error">
+            <i
+              className="ewc-datepicker__icon ewc-datepicker__icon--error"
+              style={{
+                backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23FF0000' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23FF0000'%3e%3cpath d='M12 23.999c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath d='M16.5 17.249a.743.743 0 01-.53-.22L12 13.06l-3.97 3.97a.744.744 0 01-1.06 0 .752.752 0 010-1.061l3.97-3.97-3.97-3.97a.743.743 0 01-.22-.53c0-.2.078-.389.22-.53a.743.743 0 01.53-.22c.2 0 .389.078.53.22l3.97 3.97 3.97-3.97a.744.744 0 011.06 0c.142.141.22.33.22.53s-.078.389-.22.53l-3.97 3.97 3.97 3.97a.752.752 0 010 1.061.746.746 0 01-.53.219z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23FF0000'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
+              }}
+            ></i>
+            <div className="ewc-datepicker__helper-text">{errorMessage}</div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
