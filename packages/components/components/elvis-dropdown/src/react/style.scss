@@ -54,13 +54,13 @@ $green: #29d305;
     }
   }
 
-  .ewc-dropdown__errormsg {
+  .ewc-dropdown__errorMessage {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-top: 4px;
 
-    .ewc-dropdown__errormsg__text {
+    .ewc-dropdown__errorMessage__text {
       font-family: 'Red Hat Text', Verdana;
       font-size: 14px;
       font-style: normal;

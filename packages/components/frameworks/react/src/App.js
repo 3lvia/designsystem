@@ -91,11 +91,8 @@ function App() {
       <TestingComponent></TestingComponent>
 
       <h2>Dropdown</h2>
-      {/* <div>
-        <Dropdown options={options} label="test" valueOnChange={setSelectedOption}></Dropdown>
-      </div> */}
       <div style={{ marginTop: '24px' }}>
-        <Dropdown options={options} label="test" valueOnChange={setSelectedOption}></Dropdown>
+        <Dropdown options={options} label="test" valueOnChange={setSelectedOption} isMulti></Dropdown>
       </div>
 
       <h2>Tabs</h2>

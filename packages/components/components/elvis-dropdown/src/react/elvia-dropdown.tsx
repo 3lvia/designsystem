@@ -11,7 +11,7 @@ export interface DropdownOptions {
 
 export interface DropdownProps {
   defaultValue: DropdownOptions;
-  errormsg: string;
+  errorMessage: string;
   isCompact: boolean;
   isDisabled: boolean;
   isError: boolean;
@@ -40,7 +40,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isCompact = false,
   isDisabled = false,
   isError = false,
-  errormsg = 'Help text',
+  errorMessage = 'Help text',
   isMulti = false,
   menuPosition = 'auto',
   label,
@@ -70,6 +70,40 @@ const Dropdown: React.FC<DropdownProps> = ({
     ['ewc-dropdown ewc-dropdown--disabled']: isDisabled,
   });
 
+  // styling functions
+  const decideControlBorder = (disabled: boolean, error: boolean) => {
+    if (disabled) {
+      return '1px solid #BDBDBD';
+    }
+    if (error) {
+      return '2px solid #FF0000';
+    }
+    return '1px solid #000000';
+  };
+
+  const decideOptionBg = (focused: boolean, selected: boolean, isMulti: boolean) => {
+    if (focused && selected && isMulti) {
+      return '#F4F4F4';
+    }
+    if (focused && !selected) {
+      return '#F4F4F4';
+    }
+    if (selected && !isMulti) {
+      return '#E9E9E9';
+    }
+    return '#ffffff';
+  };
+
+  const decideOptionHoverBg = (selected: boolean, isMulti: boolean) => {
+    if (selected && isMulti) {
+      return '#F4F4F4';
+    }
+    if (selected && !isMulti) {
+      return '#E9E9E9';
+    }
+    return '#F4F4F4';
+  };
+
   // Custom styling for dropdown using emotion from react-select package.
   const customElviaStyles = {
     container: (provided: any) => ({
@@ -81,13 +115,9 @@ const Dropdown: React.FC<DropdownProps> = ({
       boxSizing: 'border-box',
       display: 'flex',
       alignItems: 'center',
-      backgroundColor: isDisabled ? '#FFFFFF' : '#FFFFFF',
+      backgroundColor: '#FFFFFF',
       borderRadius: '4px',
-      border: isDisabled
-        ? '1px solid #BDBDBD'
-        : '1px solid #000000' && isError
-        ? '2px solid #FF0000'
-        : '1px solid #000000',
+      border: decideControlBorder(isDisabled, isError),
       maxHeight: isCompact ? '33px' : '48px',
       minHeight: isCompact ? '33px' : '48px',
       minWidth: '72px',
@@ -106,7 +136,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       height: isCompact ? '16px' : '20px',
       width: isCompact ? '16px' : '20px',
       padding: '0px',
-      transform: state.selectProps.menuIsOpen && 'rotate(180deg)',
+      transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'none',
       transition: 'transform 250ms',
     }),
 
@@ -154,10 +184,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       ...provided,
       display: 'flex',
       alignContent: 'center',
-      backgroundColor:
-        (state.isFocused && state.isSelected && state.isMulti && '#F4F4F4') ||
-        (state.isFocused && !state.isSelected && '#F4F4F4') ||
-        (state.isSelected && !state.isMulti && '#E9E9E9'),
+      backgroundColor: decideOptionBg(state.isFocused, state.isSelected, state.isMulti),
       color: '#000000',
       height: isCompact ? '36px' : '48px',
       paddingLeft: isCompact ? '9px' : '15px',
@@ -168,8 +195,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       overflowX: 'hidden',
       textOverflow: 'ellipsis',
       '&:hover': {
-        backgroundColor:
-          (state.isSelected && state.isMulti && '#F4F4F4') || (state.isSelected ? '#E9E9E9' : '#F4F4F4'),
+        backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti),
         '.ewc-dropdown-checkbox': {
           '.ewc-dropdown-checkbox__mark': {
             backgroundColor: '#29d305',
@@ -177,7 +203,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         },
       },
       '.ewc-dropdown-checkbox .ewc-dropdown-checkbox__mark': {
-        background: state.isFocused ? '#29d305' : state.isSelected ? '#29d305' : '##ffffff',
+        background: state.isFocused ? '#29d305' : state.isSelected ? '#29d305' : '#ffffff',
       },
     }),
 
@@ -245,27 +271,25 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   const ElviaOption = ({ ...props }) => {
-    if (isMulti) {
-      return (
-        <components.Option {...props}>
-          <label
-            className={
-              isCompact ? 'ewc-dropdown-checkbox ewc-dropdown-checkbox--sm' : 'ewc-dropdown-checkbox '
-            }
-          >
-            <input type="checkbox" readOnly />
-            <span className="ewc-dropdown-checkbox__mark"></span>
-            <span className="ewc-dropdown-checkbox__label"> {props.children}</span>
-          </label>
-          <div></div>
-        </components.Option>
-      );
+    if (!isMulti) {
+      return <components.Option {...props}>{props.children}</components.Option>;
     }
-    return <components.Option {...props}>{props.children}</components.Option>;
+    return (
+      <components.Option {...props}>
+        <label
+          className={isCompact ? 'ewc-dropdown-checkbox ewc-dropdown-checkbox--sm' : 'ewc-dropdown-checkbox '}
+        >
+          <input type="checkbox" readOnly />
+          <span className="ewc-dropdown-checkbox__mark"></span>
+          <span className="ewc-dropdown-checkbox__label"> {props.children}</span>
+        </label>
+        <div></div>
+      </components.Option>
+    );
   };
 
   // Object containing all components overriden in react-select by Elvis dropdown
-  const overRideComponents = {
+  const overrideComponents = {
     DropdownIndicator: ElviaDropdownIndicator,
     Option: ElviaOption,
     ValueContainer: ElviaValueContainer,
@@ -302,7 +326,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       <Select
         classNamePrefix={'ewc-dropdown'}
         closeMenuOnSelect={!isMulti}
-        components={overRideComponents}
+        components={overrideComponents}
         defaultValue={defaultValue}
         hasValue={false}
         hideSelectedOptions={false}
@@ -327,9 +351,9 @@ const Dropdown: React.FC<DropdownProps> = ({
       ></Select>
 
       {isError ? (
-        <div className="ewc-dropdown__errormsg">
+        <div className="ewc-dropdown__errorMessage">
           <i
-            className="ewc-dropdown__errormsg__icon"
+            className="ewc-dropdown__errorMessage__icon"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='%23FF0000' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23FF0000'%3e%3cpath d='M12 23.999c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath d='M16.5 17.249a.743.743 0 01-.53-.22L12 13.06l-3.97 3.97a.744.744 0 01-1.06 0 .752.752 0 010-1.061l3.97-3.97-3.97-3.97a.743.743 0 01-.22-.53c0-.2.078-.389.22-.53a.743.743 0 01.53-.22c.2 0 .389.078.53.22l3.97 3.97 3.97-3.97a.744.744 0 011.06 0c.142.141.22.33.22.53s-.078.389-.22.53l-3.97 3.97 3.97 3.97a.752.752 0 010 1.061.746.746 0 01-.53.219z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23FF0000'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
               height: '16px',
@@ -340,7 +364,7 @@ const Dropdown: React.FC<DropdownProps> = ({
               display: 'inline-block',
             }}
           ></i>
-          <span className="ewc-dropdown__errormsg__text">{errormsg}</span>
+          <span className="ewc-dropdown__errorMessage__text">{errorMessage}</span>
         </div>
       ) : null}
     </span>

@@ -3,19 +3,18 @@
 Dropdown present a list of options the user can select from and have typically 5-10 options to choose from.
 
 The Elvia dropdown is created using the [react-select](https://github.com/JedWatson/react-select) package. It
-is important to note that the value(s) selected, are objects of the same type as the input options, not just
-simple string value(s).
+is important to note that the value(s) selected, are objects of the same type as the input options.
 
 ## Props
 
 - options (Array<object>) - Array of options that populate the dropdown menu. An option object contains two
   key value pairs, {value: string, label: string}.
-- defaultValue (object) - Set a defualt value to the dropdown. Has same key value pairs as an option object:
+- defaultValue (object) - Set a default value to the dropdown. Has same key value pairs as an option object:
   {value: string, label: string}
-- errormsg (string) - Error message that appears if isError prop is set to true.
+- errorMessage (string) - Error message that appears if isError prop is set to true.
 - label (string) - Label value for the dropdown element.
 - menuPosition (string) - Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto',
-  defualt value is 'auto'.
+  default value is 'auto'.
 - placeholder (string) - Placeholder value for the dropdown menu.
 - isCompact (boolean) - Set the dropdown to a smaller elvia compact style.
 - isDisabled (boolean) - Set dropdown to a disabled state.

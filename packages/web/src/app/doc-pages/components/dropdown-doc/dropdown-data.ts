@@ -16,7 +16,7 @@ export const dropdownData = {
         'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string}',
       displayName: 'defaultValue',
     },
-    errormsg: {
+    errorMessage: {
       isRequired: false,
       type: 'string',
       description: 'Error message that appears if isError prop is set to true',
