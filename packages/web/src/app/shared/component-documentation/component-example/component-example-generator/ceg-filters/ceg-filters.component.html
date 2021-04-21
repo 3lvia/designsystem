@@ -35,27 +35,28 @@
     </div>
 
     <!--Checkbox-->
-    <!-- <div *ngIf="prop.cegFormType === 'checkbox'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"> -->
-    <div
-      *ngFor="let checkbox of checkboxGroups | keyvalue; let k = index"
-      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
-    >
-      <label class="e-form-field__label">{{ checkbox.key }}</label>
-      <div [ngClass]="{ 'ceg-filter-margin': k !== checkboxesLength - 1 }">
-        <div *ngFor="let checkbox of checkbox.value">
-          <label
-            class="e-checkbox e-checkbox--sm"
-            for="{{ checkbox.displayName }}-checkbox"
-            (change)="updateToggleCheckboxProp(checkbox)"
-          >
-            <input
-              type="checkbox"
-              id="{{ checkbox.displayName }}-checkbox"
-              name="{{ checkbox.displayName }} checkbox"
-            />
-            <span class="e-checkbox__mark"></span>
-            <span class="e-checkbox__label">{{ checkbox.displayName }}</span>
-          </label>
+    <div *ngIf="prop.cegFormType === 'checkbox'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }">
+      <div
+        *ngFor="let checkbox of checkboxGroups | keyvalue; let k = index"
+        [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+      >
+        <label class="e-form-field__label">{{ checkbox.key }}</label>
+        <div [ngClass]="{ 'ceg-filter-margin': k !== checkboxesLength - 1 }">
+          <div *ngFor="let checkbox of checkbox.value">
+            <label
+              class="e-checkbox e-checkbox--sm"
+              for="{{ checkbox.displayName }}-checkbox"
+              (change)="updateToggleCheckboxProp(checkbox)"
+            >
+              <input
+                type="checkbox"
+                id="{{ checkbox.displayName }}-checkbox"
+                name="{{ checkbox.displayName }} checkbox"
+              />
+              <span class="e-checkbox__mark"></span>
+              <span class="e-checkbox__label">{{ checkbox.displayName }}</span>
+            </label>
+          </div>
         </div>
       </div>
     </div>

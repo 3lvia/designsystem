@@ -269,7 +269,26 @@ $datepicker-max-width: 382px;
         height: 16px;
         width: 16px;
         &.rotate-forward {
-          transform: rotate(180deg);
+          @keyframes rotate-forward {
+            0% {
+              transform: rotate(0);
+            }
+            100% {
+              transform: rotate(180deg);
+            }
+          }
+          animation: rotate-forward 0.2s ease-in-out both;
+        }
+        &.rotate-back {
+          @keyframes rotate-back {
+            0% {
+              transform: rotate(180deg);
+            }
+            100% {
+              transform: rotate(0);
+            }
+          }
+          animation: rotate-back 0.2s ease-in-out both;
         }
       }
 

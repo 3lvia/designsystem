@@ -38,7 +38,8 @@ const Datepicker: FC<DatepickerProps> = ({
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
   const datepickerRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef(null);
+  const datepickerPopoverRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   const placeholderString = 'dd.mm.yyyy';
   const materialTheme = createMuiTheme({
     props: {
@@ -86,13 +87,10 @@ const Datepicker: FC<DatepickerProps> = ({
       weekdays: ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'],
     });
 
-    // Start outline listener
-    toolbox.outlineListener(datepickerRef.current);
+    addOutlineFix(datepickerRef.current);
 
-    // Cleanup
     return () => {
-      // Remove outline listener
-      toolbox.outlineListener(datepickerRef.current, true);
+      removeOutlineFix(datepickerRef.current);
     };
   }, []);
 
@@ -116,22 +114,28 @@ const Datepicker: FC<DatepickerProps> = ({
   };
 
   const updateCaretPositionDot = () => {
-    const ref = inputRef.current;
-    if (ref.value.length === 3 || ref.value.length === 6) {
-      ref.selectionStart = ref.value.length + 1;
-      ref.selectionEnd = ref.value.length + 1;
+    if (inputRef.current.value.length === 3 || inputRef.current.value.length === 6) {
+      inputRef.current.selectionStart = inputRef.current.value.length + 1;
+      inputRef.current.selectionEnd = inputRef.current.value.length + 1;
     }
   };
 
   const updateCaretPositionSpace = () => {
-    const ref = inputRef.current;
-    const index = ref.value.indexOf(' ');
+    const index = inputRef.current.value.indexOf(' ');
     if (index > 0) {
       setTimeout(() => {
-        ref.selectionStart = index;
-        ref.selectionEnd = index;
+        inputRef.current.selectionStart = index;
+        inputRef.current.selectionEnd = index;
       }, 10);
     }
+  };
+
+  const addOutlineFix = (ref: HTMLDivElement | null) => {
+    toolbox.outlineListener(ref);
+  };
+
+  const removeOutlineFix = (ref: HTMLDivElement | null) => {
+    toolbox.outlineListener(ref, true);
   };
 
   const getCalIcon = () => {
@@ -165,10 +169,17 @@ const Datepicker: FC<DatepickerProps> = ({
     const toggleYearView = () => () => {
       openView === 'year' ? setOpenView('date') : setOpenView('year');
     };
+
     const dropdownIconClasses = classnames('ewc-datepicker__icon ewc-datepicker__icon-dropdown', {
       ['rotate-forward']: openView === 'year',
-      ['rotate-back']: openView === 'date',
     });
+
+    if (openView === 'year') {
+      addOutlineFix(datepickerPopoverRef.current);
+    } else {
+      removeOutlineFix(datepickerPopoverRef.current);
+    }
+
     return (
       <PickerToolbar title={title}>
         {selectedDate !== null ? (
@@ -232,7 +243,6 @@ const Datepicker: FC<DatepickerProps> = ({
               onFocus={updateCaretPositionSpace}
               placeholder={placeholderString}
               format="DD.MM.yyyy"
-              refuse="([\s]){1,9}"
               rifmFormatter={formatDate}
               disabled={isDisabled === true || isDisabled === 'true'}
               fullWidth={isFullWidth === true || isFullWidth === 'true'}
@@ -245,6 +255,7 @@ const Datepicker: FC<DatepickerProps> = ({
               PopoverProps={{
                 anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
                 transformOrigin: { horizontal: 'left', vertical: 'top' },
+                ref: datepickerPopoverRef,
               }}
               KeyboardButtonProps={{
                 'aria-label': 'endre dato',
