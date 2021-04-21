@@ -62,6 +62,18 @@ const Datepicker: FC<DatepickerProps> = ({
           },
         },
       },
+      MuiPickersDay: {
+        daySelected: {
+          background: selectedDate === null ? '#f4f4f4 !important' : '#29d305 !important',
+          border: selectedDate === null ? '0 !important' : '1px solid black !important',
+          fontWeight: '500 !important',
+        },
+        current: {
+          background: '#f4f4f4 !important',
+          border: '0 !important',
+          fontWeight: '500 !important',
+        },
+      },
     },
   });
 
@@ -186,14 +198,13 @@ const Datepicker: FC<DatepickerProps> = ({
     if (res.length > 6 && res.length < 10) {
       res += ' ';
     }
-    // console.log(res);
-    // res = '12.10.2000';
     return res;
   };
 
   const datePickerClasses = classnames('ewc-datepicker', {
     ['ewc-datepicker--error']: errorMessage !== '',
     ['ewc-datepicker--compact']: isCompact !== false,
+    ['ewc-datepicker--unselected']: value === null,
   });
   const datePickerLabelClasses = classnames('ewc-datepicker__label', {
     ['ewc-datepicker__label--disabled']: isDisabled,
@@ -209,12 +220,12 @@ const Datepicker: FC<DatepickerProps> = ({
         <ThemeProvider theme={materialTheme}>
           <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
             <KeyboardDatePicker
-              inputProps={{ ref: inputRef }}
               // autoOk={true} -> Skru på når ferdig testet
               variant="inline"
-              onFocus={updateCaretPositionSpace}
+              inputProps={{ ref: inputRef }}
               value={selectedDate}
               onChange={handleDateChange}
+              onFocus={updateCaretPositionSpace}
               placeholder={placeholderString}
               format="DD.MM.yyyy"
               refuse="([\s]){1,9}"

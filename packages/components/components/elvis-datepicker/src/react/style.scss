@@ -252,6 +252,7 @@ $datepicker-max-width: 382px;
       border-bottom: 2.5px solid transparent;
       border-radius: 0;
       min-width: 0;
+      transition: none;
 
       .ewc-datepicker__toolbar-year {
         font-family: 'Red Hat Display';
@@ -408,15 +409,6 @@ $datepicker-max-width: 382px;
     .MuiPickersDay-current {
       border: 0;
       background: $grey-05;
-      .MuiTypography-body2 {
-        font-weight: 500;
-      }
-    }
-    // Selected
-    .MuiPickersDay-daySelected,
-    .MuiPickersDay-current.MuiPickersDay-daySelected {
-      background: $green;
-      border: 1px solid black;
       .MuiTypography-body2 {
         font-weight: 500;
       }
