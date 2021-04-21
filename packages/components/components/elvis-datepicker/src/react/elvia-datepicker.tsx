@@ -171,7 +171,11 @@ const Datepicker: FC<DatepickerProps> = ({
     });
     return (
       <PickerToolbar title={title}>
-        <div className="ewc-datepicker--toolbar-today">{date.format('dddd DD. MMMM')}</div>
+        {selectedDate !== null ? (
+          <div className="ewc-datepicker--toolbar-today">{date.format('dddd DD. MMMM')}</div>
+        ) : (
+          <div></div>
+        )}
         <Button className="ewc-datepicker--toolbar-dropdown" onClick={toggleYearView()}>
           <div className="ewc-datepicker__toolbar-year">{date.format('YYYY')}</div>
           <i
