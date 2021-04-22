@@ -10,12 +10,7 @@ import { datepickerData } from './datepicker-data';
 export class DatepickerDocComponent {
   figmaUrl = getComponent('datepicker').figmaUrl;
   description = getComponent('datepicker').description;
-  does = ["When it's more efficient than typing a date in a text field."];
   date = new Date();
   date2 = new Date(2022, 0, 15);
   componentData = datepickerData;
-
-  lol(e): void {
-    console.log(e);
-  }
 }

@@ -9,33 +9,24 @@
 <!--BODY-->
 <div class="page-body">
   <!--CEG-->
-  <!--Temporary until ceg-code-block supports angular syntax-->
-  <!-- <div class="component-preview-temp component-preview-animation" style="flex-direction: row">
-    <elvia-datepicker (valueOnChange)="lol($event.detail.value)"></elvia-datepicker>
-    <elvia-datepicker (valueOnChange)="lol($event.detail.value)"></elvia-datepicker>
-  </div> -->
   <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
-  <!-- EXAMPLES -->
+  <!-- EXAMPLES - QA -->
   <app-component-section [sectionTitle]="'Examples for QA'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Full width'">
         <ng-container ngProjectAs="sectionContent">
-          <elvia-datepicker isFullWidth="true" (valueOnChange)="lol($event.detail.value)"></elvia-datepicker>
+          <elvia-datepicker isFullWidth="true"></elvia-datepicker>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Preselected value'">
         <ng-container ngProjectAs="sectionContent">
-          <elvia-datepicker [value]="date" (valueOnChange)="lol($event.detail.value)"></elvia-datepicker>
+          <elvia-datepicker [value]="date"></elvia-datepicker>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Min & max date'">
         <ng-container ngProjectAs="sectionContent">
-          <elvia-datepicker
-            [minDate]="date"
-            [maxDate]="date2"
-            (valueOnChange)="lol($event.detail.value)"
-          ></elvia-datepicker>
+          <elvia-datepicker [minDate]="date" [maxDate]="date2"></elvia-datepicker>
         </ng-container>
       </app-component-subsection>
     </ng-container>

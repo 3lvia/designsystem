@@ -67,12 +67,16 @@ const Datepicker: FC<DatepickerProps> = ({
         daySelected: {
           background: selectedDate === null ? '#f4f4f4 !important' : '#29d305 !important',
           border: selectedDate === null ? '0 !important' : '1px solid black !important',
-          fontWeight: '500 !important',
+          '&:hover': {
+            border: selectedDate === null ? '1px solid #29d305 !important' : '0 !important',
+          },
         },
         current: {
           background: '#f4f4f4 !important',
           border: '0 !important',
-          fontWeight: '500 !important',
+          '&:hover': {
+            border: '1px solid #29d305 !important',
+          },
         },
       },
     },

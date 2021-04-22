@@ -424,10 +424,9 @@ $datepicker-max-width: 382px;
       line-height: 22px;
       color: black;
     }
-    // Current date
-    .MuiPickersDay-current {
-      border: 0;
-      background: $grey-05;
+    // Selected + Current day font
+    .MuiPickersDay-current,
+    .MuiPickersDay-daySelected {
       .MuiTypography-body2 {
         font-weight: 500;
       }
@@ -436,13 +435,6 @@ $datepicker-max-width: 382px;
     .MuiPickersDay-day:hover {
       border: 1px solid $green;
       background: white;
-      &.MuiPickersDay-current {
-        background: $grey-05;
-      }
-      &.MuiPickersDay-daySelected {
-        background: $green;
-        border: 0;
-      }
     }
     // Disabled
     .MuiPickersDay-dayDisabled .MuiTypography-body2 {
