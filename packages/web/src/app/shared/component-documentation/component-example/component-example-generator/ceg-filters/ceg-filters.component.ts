@@ -50,7 +50,6 @@ export class CegFiltersComponent implements OnInit {
         cegFormType: 'checkbox',
         ...this.checkboxGroups,
       };
-      console.log(checkboxObject);
       this.props.push(checkboxObject);
       this.checkboxesLength = Object.keys(this.checkboxGroups).length;
     }
