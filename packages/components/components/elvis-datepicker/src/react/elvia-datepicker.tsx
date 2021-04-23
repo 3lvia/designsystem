@@ -23,7 +23,7 @@ export interface DatepickerProps {
   webcomponent?: any;
 }
 
-const Datepicker: FC<DatepickerProps> = ({
+export const Datepicker: FC<DatepickerProps> = ({
   value = null,
   label = 'Velg dato',
   isCompact = false,
