@@ -41,6 +41,16 @@ const Datepicker: FC<DatepickerProps> = ({
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const placeholderString = 'dd.mm.yyyy';
+
+  // Styling
+  const datePickerClasses = classnames('ewc-datepicker', {
+    ['ewc-datepicker--error']: errorMessage !== '',
+    ['ewc-datepicker--compact']: isCompact !== false,
+    ['ewc-datepicker--unselected']: value === null,
+  });
+  const datePickerLabelClasses = classnames('ewc-datepicker__label', {
+    ['ewc-datepicker__label--disabled']: isDisabled,
+  });
   const materialTheme = createMuiTheme({
     props: {
       MuiButtonBase: {
@@ -118,20 +128,23 @@ const Datepicker: FC<DatepickerProps> = ({
   };
 
   const updateCaretPositionDot = () => {
-    if (inputRef.current.value.length === 3 || inputRef.current.value.length === 6) {
+    if (inputRef?.current?.value.length === 3 || inputRef?.current?.value.length === 6) {
       inputRef.current.selectionStart = inputRef.current.value.length + 1;
       inputRef.current.selectionEnd = inputRef.current.value.length + 1;
     }
   };
 
   const updateCaretPositionSpace = () => {
-    const index = inputRef.current.value.indexOf(' ');
-    if (index > 0) {
-      setTimeout(() => {
+    setTimeout(() => {
+      if (!inputRef.current) {
+        return;
+      }
+      const index = inputRef.current.value.indexOf(' ');
+      if (index > 0) {
         inputRef.current.selectionStart = index;
         inputRef.current.selectionEnd = index;
-      }, 10);
-    }
+      }
+    }, 10);
   };
 
   const addOutlineFix = (ref: HTMLDivElement | null) => {
@@ -219,15 +232,6 @@ const Datepicker: FC<DatepickerProps> = ({
     }
     return res;
   };
-
-  const datePickerClasses = classnames('ewc-datepicker', {
-    ['ewc-datepicker--error']: errorMessage !== '',
-    ['ewc-datepicker--compact']: isCompact !== false,
-    ['ewc-datepicker--unselected']: value === null,
-  });
-  const datePickerLabelClasses = classnames('ewc-datepicker__label', {
-    ['ewc-datepicker__label--disabled']: isDisabled,
-  });
 
   return (
     <div ref={datepickerRef}>
