@@ -23,30 +23,6 @@ export class DropdownDocComponent {
 
   isSelected;
 
-  exampleOverview = `<elvia-dropdown
-  [options]="exampleOptions"
-  placeholder="Placeholder"
-  label="Label"
-  (valueOnChange)="isSelected = $event.detail.value"
-  >
-</elvia-dropdown>`;
-  exampleOverviewTS = `isSelected;
-  
-    exampleOptions = [
-    {
-      value: '1',
-      label: 'Option 1',
-    },
-    {
-      value: '2',
-      label: 'Option 2',
-    },
-    {
-      value: '3',
-      label: 'Option 3',
-    },
-  ];`;
-
   exampleOptions = [
     {
       value: '1',

@@ -20,7 +20,7 @@ export interface DropdownProps {
   menuPosition: string;
   options: DropdownOptions[];
   placeholder: string;
-  valueOnChange: (selectedOptions: DropdownOptions | Array<DropdownOptions> | undefined) => void;
+  optionOnChange: (selectedOptions: DropdownOptions | Array<DropdownOptions> | undefined) => void;
   webcomponent?: any;
 }
 
@@ -46,22 +46,12 @@ const Dropdown: React.FC<DropdownProps> = ({
   label,
   options,
   placeholder = 'Placeholder',
-  valueOnChange,
+  optionOnChange,
   webcomponent,
 }) => {
   const [currentVal, setCurrentVal] = useState(defaultValue);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLSpanElement>(null);
-
-  // handle focus on dropdown, running on first render only (on mount)
-  useEffect(() => {
-    // Start outline listener
-    toolbox.outlineListener(dropdownRef.current);
-    return () => {
-      // Remove outline listener
-      toolbox.outlineListener(dropdownRef.current, true);
-    };
-  }, []);
 
   // styling for custom Elvia labels
   const classes = classnames({
@@ -298,18 +288,28 @@ const Dropdown: React.FC<DropdownProps> = ({
     MultiValueRemove: () => null,
   };
 
-  // set selected options as current values
-  const onChangeHandler = (event: any) => {
-    setCurrentVal(event);
-  };
+  // handle focus on dropdown, running on first render only (on mount)
+  useEffect(() => {
+    // Start outline listener
+    toolbox.outlineListener(dropdownRef.current);
+    return () => {
+      // Remove outline listener
+      toolbox.outlineListener(dropdownRef.current, true);
+    };
+  }, []);
 
   useEffect(() => {
     updateValue();
   }, [currentVal]);
 
+  // set selected options as current values
+  const onChangeHandler = (event: any) => {
+    setCurrentVal(event);
+  };
+
   const updateValue = () => {
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(currentVal);
+    if (!webcomponent && optionOnChange) {
+      optionOnChange(currentVal);
     }
     if (webcomponent) {
       // True -> Prevents rerender

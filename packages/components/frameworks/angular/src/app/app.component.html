@@ -9,7 +9,7 @@
     </div>
     <elvia-dropdown
       [options]='dropdownOptions'
-      (valueOnChange)="selectedOptions = $event.detail.value"
+      (optionOnChange)="selectedOptions = $event.detail.value"
     ></elvia-dropdown>
   </div>
 
@@ -138,4 +138,15 @@
       <button (click)="progressError = !progressError">Toggle error</button>
     </div>
   </div>
+</div>
+<h2>Dropdown</h2>
+<div style="margin-top: 16px">
+  <div style="margin-bottom: 16px;padding: 12px">
+    Selected options: {{ selectedOptions | json }}
+  </div>
+  <elvia-dropdown
+    [options]='dropdownOptions'
+    (optionOnChange)="selectedOptions = $event.detail.value"
+    menuPosition="bottom"
+  ></elvia-dropdown>
 </div>

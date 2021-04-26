@@ -63,61 +63,41 @@ export const dropdownData = {
       description: 'Set the dropdown to accept multiple values',
       default: 'false',
     },
-    valueOnChange: {
+    optionOnChange: {
       isRequired: false,
       type: ' function',
-      description: `Gets called every time an option(s) is selected and return an array of objects`,
+      description: `Gets called every time an option(s) is selected and return an array of selected objects`,
     },
   },
   package: 'npm install @elvia/elvis-dropdown',
   codeImportReact: `import { Dropdown } from '@elvia/elvis-dropdown/react';`,
   codeImportWebComponent: `import '@elvia/elvis-dropdown';`,
-  codeReact: `const [selectedOption, setSelectedOption] = useState([]);
-
-const options = [
-    {
-        value: 'norge',
-        label: 'Norge',
-    },
-    {
-        value: 'sverige',
-        label: 'Sverige',
-    },
-    {
-        value: 'danmark',
-        label: 'Danmark',
-    },
-];
-
-<Dropdown options={options} valueOnChange={setSelectedOption}></Dropdown>`,
-  codeWebComponent: `<!-- in HTML -->
-<elvia-dropdown
-    [options]='dropdownOptions'
-    [isError]='isDropdownError'
-    [isCompact]='isDropdownSmall'
-    (valueOnChange)="selectedOptions = $event.detail.value"
+  codeReact: `<Dropdown options={options} optionOnChange={setSelectedOption}></Dropdown>`,
+  codeWebComponent: `<elvia-dropdown
+  [options]='dropdownOptions'
+  [isError]='isDropdownError'
+  [isCompact]='isDropdownSmall'
+  (optionOnChange)="selectedOptions = $event.detail.value"
 ></elvia-dropdown>
-
 
 <!-- in TS -->
 selectedOptions = [];
-
 isDropdownError = false;
 isDropdownSmall = false;
 
-dropdownOptions = [
-    {
-        value: 'norge',
-        label: 'Norge',
-    },
-    {
-        value: 'sverige',
-        label: 'Sverige',
-    },
-    {
-        value: 'danmark',
-        label: 'Danmark',
-    },
+exampleOptions = [
+  {
+    value: '1',
+    label: 'Option 1',
+  },
+  {
+    value: '2',
+    label: 'Option 2',
+  },
+  {
+    value: '3',
+    label: 'Option 3',
+  },
 ];`,
   does: [
     'Use sparingly: use dropdowns only when the user have 5-15 options and you have limited space to display it all open.',

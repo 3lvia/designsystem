@@ -30,7 +30,7 @@ module.exports = [
       'isError',
       'menuPosition',
       'isMulti',
-      'valueOnChange',
+      'optionOnChange',
     ],
     reactName: 'Dropdown',
     elementStyle: `width: 100%; max-width: 400px`,

@@ -21,24 +21,10 @@
       </elvia-dropdown>
     </div>
   </div>
-  <app-component-example-v1
-    [showPreview]="false"
-    [codeHTML]="exampleOverview"
-    [codeTS]="exampleOverviewTS"
-  ></app-component-example-v1>
-
-  <!--USAGE-->
-  <app-component-section
-    [sectionTitle]="'Usage'"
-    noAnimation=true
-  >
-    <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use
-        [whens]="does"
-        [whenNots]="donts"
-      ></app-when-to-use>
-    </ng-container>
-  </app-component-section>
+  <app-component-example-generator
+    [componentData]="componentData"
+    [hasPreview]="false"
+  ></app-component-example-generator>
 
   <!--SIZE-->
   <app-component-section
@@ -105,6 +91,19 @@
           </div>
         </ng-container>
       </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--USAGE-->
+  <app-component-section
+    [sectionTitle]="'Usage'"
+    noAnimation=true
+  >
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use
+        [whens]="does"
+        [whenNots]="donts"
+      ></app-when-to-use>
     </ng-container>
   </app-component-section>
 
