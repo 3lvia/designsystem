@@ -3,7 +3,6 @@ import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import PickerToolbar from '@material-ui/pickers/_shared/PickerToolbar';
 import Button from '@material-ui/core/Button';
 import MomentUtils from '@date-io/moment';
 import moment from 'moment';
@@ -185,7 +184,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   const getCustomToolbar = (props: any) => {
-    const { date, isLandscape, openView, setOpenView, title } = props;
+    const { date, openView, setOpenView } = props;
     const toggleYearView = () => () => {
       openView === 'year' ? setOpenView('date') : setOpenView('year');
     };
@@ -201,23 +200,21 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
 
     return (
-      <div>
-        <PickerToolbar title={title} isLandscape={isLandscape}>
-          {selectedDate !== null ? (
-            <div className="ewc-datepicker--toolbar-today">{date.format('dddd DD. MMMM')}</div>
-          ) : (
-            <div></div>
-          )}
-          <Button className="ewc-datepicker--toolbar-dropdown" onClick={toggleYearView()}>
-            <div className="ewc-datepicker__toolbar-year">{date.format('YYYY')}</div>
-            <i
-              className={dropdownIconClasses}
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.389 5.869a1.328 1.328 0 011.878 0L12 15.6l9.733-9.732a1.328 1.328 0 011.878 1.878L13.443 17.915h-.001a2.04 2.04 0 01-2.885 0L.39 7.747a1.328 1.328 0 010-1.878z' fill='black'/%3e%3c/svg%3e")`,
-              }}
-            ></i>
-          </Button>
-        </PickerToolbar>
+      <div className="ewc-datepicker--toolbar">
+        {selectedDate !== null ? (
+          <div className="ewc-datepicker--toolbar-today">{date.format('dddd DD. MMMM')}</div>
+        ) : (
+          <div></div>
+        )}
+        <Button className="ewc-datepicker--toolbar-dropdown" onClick={toggleYearView()}>
+          <div className="ewc-datepicker__toolbar-year">{date.format('YYYY')}</div>
+          <i
+            className={dropdownIconClasses}
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.389 5.869a1.328 1.328 0 011.878 0L12 15.6l9.733-9.732a1.328 1.328 0 011.878 1.878L13.443 17.915h-.001a2.04 2.04 0 01-2.885 0L.39 7.747a1.328 1.328 0 010-1.878z' fill='black'/%3e%3c/svg%3e")`,
+            }}
+          ></i>
+        </Button>
       </div>
     );
   };

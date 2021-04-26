@@ -218,19 +218,16 @@ $datepicker-max-width: 382px;
   }
 
   // TOOLBAR
-  .MuiToolbar-regular {
-    min-height: 20px;
-  }
-  .MuiPickersDatePickerRoot-toolbar {
-    align-items: center;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-  }
-  .MuiPickersToolbar-toolbar {
+  .ewc-datepicker--toolbar {
     height: 48px;
     border-bottom: 1px solid $grey-10;
     background-color: white;
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    height: 48px;
+    padding: 0 24px;
 
     .ewc-datepicker--toolbar-today {
       font-family: 'Red Hat Display';
@@ -253,6 +250,7 @@ $datepicker-max-width: 382px;
       border-radius: 0;
       min-width: 0;
       transition: none;
+      top: 4px;
 
       .ewc-datepicker__toolbar-year {
         font-family: 'Red Hat Display';
