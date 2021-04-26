@@ -18,7 +18,6 @@ export class DropdownDocComponent {
 
   isCompact = true;
   isMulti = true;
-  isError = true;
   isDisabled = true;
 
   isSelected;
