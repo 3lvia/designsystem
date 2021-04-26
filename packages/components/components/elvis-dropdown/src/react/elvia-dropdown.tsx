@@ -14,7 +14,6 @@ export interface DropdownProps {
   errorMessage: string;
   isCompact: boolean;
   isDisabled: boolean;
-  isError: boolean;
   isMulti: boolean;
   label?: string;
   menuPosition: string;
@@ -37,10 +36,9 @@ const ElviaValueContainer = ({ ...props }) => {
 
 const Dropdown: React.FC<DropdownProps> = ({
   defaultOption = undefined,
+  errorMessage = '',
   isCompact = false,
   isDisabled = false,
-  isError = false,
-  errorMessage = 'Help text',
   isMulti = false,
   menuPosition = 'auto',
   label,
@@ -50,6 +48,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   webcomponent,
 }) => {
   const [currentVal, setCurrentVal] = useState(defaultOption);
+  const [isError, setIsError] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
@@ -301,6 +300,14 @@ const Dropdown: React.FC<DropdownProps> = ({
   useEffect(() => {
     updateValue();
   }, [currentVal]);
+
+  useEffect(() => {
+    if (errorMessage != '') {
+      setIsError(true);
+    } else {
+      setIsError(false);
+    }
+  }, [errorMessage]);
 
   // set selected options as current values
   const onChangeHandler = (event: any) => {
