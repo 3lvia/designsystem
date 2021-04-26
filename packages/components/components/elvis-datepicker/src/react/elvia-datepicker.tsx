@@ -185,7 +185,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   const getCustomToolbar = (props: any) => {
-    const { date, openView, title } = props;
+    const { date, isLandscape, openView, title } = props;
     // const toggleYearView = () => () => {
     //   openView === 'year' ? setOpenView('date') : setOpenView('year');
     // };
@@ -201,7 +201,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
 
     return (
-      <PickerToolbar title={title}>
+      <PickerToolbar title={title} isLandscape={isLandscape}>
         {selectedDate !== null ? (
           <div className="ewc-datepicker--toolbar-today">{date.format('dddd DD. MMMM')}</div>
         ) : (
