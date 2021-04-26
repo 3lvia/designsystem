@@ -25,7 +25,7 @@ export interface DatepickerProps {
 
 export const Datepicker: FC<DatepickerProps> = ({
   value,
-  // label = 'Velg dato',
+  label = 'Velg dato',
   isCompact = false,
   isDisabled = false,
   errorMessage = '',
@@ -48,9 +48,9 @@ export const Datepicker: FC<DatepickerProps> = ({
     ['ewc-datepicker--compact']: isCompact !== false,
     ['ewc-datepicker--unselected']: value === null,
   });
-  // const datePickerLabelClasses = classnames('ewc-datepicker__label', {
-  //   ['ewc-datepicker__label--disabled']: isDisabled,
-  // });
+  const datePickerLabelClasses = classnames('ewc-datepicker__label', {
+    ['ewc-datepicker__label--disabled']: isDisabled,
+  });
   const materialTheme = createMuiTheme({
     props: {
       MuiButtonBase: {
@@ -158,31 +158,31 @@ export const Datepicker: FC<DatepickerProps> = ({
     toolbox.outlineListener(ref, true);
   };
 
-  // const getCalIcon = () => {
-  //   const calendar = `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='black'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`;
-  //   const disabledCalendar = `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23BDBDBD' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23BDBDBD'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23BDBDBD'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`;
-  //   return (
-  //     <i
-  //       className="ewc-datepicker__icon ewc-datepicker__icon--cal"
-  //       style={{
-  //         backgroundImage: isDisabled ? disabledCalendar : calendar,
-  //       }}
-  //     ></i>
-  //   );
-  // };
+  const getCalIcon = () => {
+    const calendar = `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='black'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`;
+    const disabledCalendar = `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23BDBDBD' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23BDBDBD'%3e%3cpath d='M2.251 24a2.252 2.252 0 01-2.25-2.25V5.25A2.252 2.252 0 012.251 3h3.75V.75a.75.75 0 011.5 0V3h9V.75a.75.75 0 011.5 0V3h3.75a2.252 2.252 0 012.25 2.25v16.5a2.252 2.252 0 01-2.25 2.25h-19.5zm-.75-2.25c0 .414.336.75.75.75h19.5a.75.75 0 00.75-.75V10.5h-21v11.25zm21-12.75V5.25a.75.75 0 00-.75-.75h-3.75V6a.75.75 0 01-1.5 0V4.5h-9V6a.75.75 0 01-1.5 0V4.5h-3.75a.75.75 0 00-.75.75V9h21z'/%3e%3crect x='3' y='19.5' width='6' height='1.5' rx='.75'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23BDBDBD'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`;
+    return (
+      <i
+        className="ewc-datepicker__icon ewc-datepicker__icon--cal"
+        style={{
+          backgroundImage: isDisabled ? disabledCalendar : calendar,
+        }}
+      ></i>
+    );
+  };
 
-  // const getArrowIcon = (isLeft: boolean) => {
-  //   const leftArrow = `url("data:image/svg+xml,%3csvg width='24' height='25' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.594 23.776a1.514 1.514 0 01-2.141 0L.443 13.767a1.513 1.513 0 01-.322-1.664c.004-.01.01-.02.018-.028l-.002.002.009-.013a4.894 4.894 0 00.12-.179 32.106 32.106 0 01.165-.243.172.172 0 01.017-.02l.001-.002L10.453 1.617a1.514 1.514 0 112.141 2.141L5.17 11.182h17.316a1.514 1.514 0 110 3.029H5.17l7.424 7.424c.591.591.591 1.55 0 2.141z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath fill='white' transform='matrix(1 0 0 -1 0 24.7)' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`;
-  //   const rightArrow = `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.447.914a1.514 1.514 0 10-2.141 2.14l7.424 7.425H1.414a1.514 1.514 0 100 3.029H18.73l-7.424 7.424a1.514 1.514 0 002.141 2.141l10.01-10.009a1.511 1.511 0 00.319-1.667l-.303-.455a.098.098 0 00-.008-.01l-.004-.005-.005-.005L13.447.914z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath fill='white' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`;
-  //   return (
-  //     <i
-  //       className="ewc-datepicker__icon ewc-datepicker__icon--arrow"
-  //       style={{
-  //         backgroundImage: isLeft ? leftArrow : rightArrow,
-  //       }}
-  //     ></i>
-  //   );
-  // };
+  const getArrowIcon = (isLeft: boolean) => {
+    const leftArrow = `url("data:image/svg+xml,%3csvg width='24' height='25' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.594 23.776a1.514 1.514 0 01-2.141 0L.443 13.767a1.513 1.513 0 01-.322-1.664c.004-.01.01-.02.018-.028l-.002.002.009-.013a4.894 4.894 0 00.12-.179 32.106 32.106 0 01.165-.243.172.172 0 01.017-.02l.001-.002L10.453 1.617a1.514 1.514 0 112.141 2.141L5.17 11.182h17.316a1.514 1.514 0 110 3.029H5.17l7.424 7.424c.591.591.591 1.55 0 2.141z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath fill='white' transform='matrix(1 0 0 -1 0 24.7)' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`;
+    const rightArrow = `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M13.447.914a1.514 1.514 0 10-2.141 2.14l7.424 7.425H1.414a1.514 1.514 0 100 3.029H18.73l-7.424 7.424a1.514 1.514 0 002.141 2.141l10.01-10.009a1.511 1.511 0 00.319-1.667l-.303-.455a.098.098 0 00-.008-.01l-.004-.005-.005-.005L13.447.914z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath fill='white' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`;
+    return (
+      <i
+        className="ewc-datepicker__icon ewc-datepicker__icon--arrow"
+        style={{
+          backgroundImage: isLeft ? leftArrow : rightArrow,
+        }}
+      ></i>
+    );
+  };
 
   // const getCustomToolbar = (props: any) => {
   //   const { date, openView, setOpenView, title } = props;
@@ -240,7 +240,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     <div ref={datepickerRef}>
       <div className={datePickerClasses}>
         {/* Label */}
-        {/* {label !== '' && <label className={datePickerLabelClasses}>{label}</label>} */}
+        {label !== '' && <label className={datePickerLabelClasses}>{label}</label>}
 
         {/* MUI Datepicker */}
         <ThemeProvider theme={materialTheme}>
@@ -260,9 +260,9 @@ export const Datepicker: FC<DatepickerProps> = ({
               minDate={startDate ? startDate : minDate}
               maxDate={maxDate}
               // ToolbarComponent={getCustomToolbar}
-              // keyboardIcon={getCalIcon()}
-              // leftArrowIcon={getArrowIcon(true)}
-              // rightArrowIcon={getArrowIcon(false)}
+              keyboardIcon={getCalIcon()}
+              leftArrowIcon={getArrowIcon(true)}
+              rightArrowIcon={getArrowIcon(false)}
               PopoverProps={{
                 anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
                 transformOrigin: { horizontal: 'left', vertical: 'top' },
@@ -276,7 +276,7 @@ export const Datepicker: FC<DatepickerProps> = ({
         </ThemeProvider>
 
         {/* Helper text */}
-        {/* {errorMessage && (
+        {errorMessage && (
           <div className="ewc-datepicker__error">
             <i
               className="ewc-datepicker__icon ewc-datepicker__icon--error"
@@ -286,7 +286,7 @@ export const Datepicker: FC<DatepickerProps> = ({
             ></i>
             <div className="ewc-datepicker__helper-text">{errorMessage}</div>
           </div>
-        )} */}
+        )}
       </div>
     </div>
   );
