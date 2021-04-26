@@ -51,7 +51,7 @@ function App() {
     <div className="App">
       <h1>React preview</h1>
 
-      {/* <MuiPickersUtilsProvider utils={MomentUtils}>
+      <MuiPickersUtilsProvider utils={MomentUtils}>
         <KeyboardDatePicker
           variant="inline"
           format="DD/MM/yyyy"
@@ -63,7 +63,7 @@ function App() {
             'aria-label': 'change date',
           }}
         />
-      </MuiPickersUtilsProvider> */}
+      </MuiPickersUtilsProvider>
 
       <h2>Date picker</h2>
       <div
