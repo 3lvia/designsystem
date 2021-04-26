@@ -24,7 +24,7 @@ export interface DatepickerProps {
 }
 
 export const Datepicker: FC<DatepickerProps> = ({
-  value,
+  value = null,
   label = 'Velg dato',
   isCompact = false,
   isDisabled = false,
@@ -194,11 +194,11 @@ export const Datepicker: FC<DatepickerProps> = ({
   //     ['rotate-forward']: openView === 'year',
   //   });
 
-  //   if (openView === 'year') {
-  //     addOutlineFix(datepickerPopoverRef.current);
-  //   } else {
-  //     removeOutlineFix(datepickerPopoverRef.current);
-  //   }
+  // if (openView === 'year') {
+  //   addOutlineFix(datepickerPopoverRef.current);
+  // } else {
+  //   removeOutlineFix(datepickerPopoverRef.current);
+  // }
 
   //   return (
   //     <PickerToolbar title={title}>
