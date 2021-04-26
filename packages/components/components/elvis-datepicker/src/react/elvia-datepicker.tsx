@@ -128,7 +128,10 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   const updateCaretPositionDot = () => {
-    if (inputRef?.current?.value.length === 3 || inputRef?.current?.value.length === 6) {
+    if (!inputRef.current) {
+      return;
+    }
+    if (inputRef.current.value.length === 3 || inputRef.current.value.length === 6) {
       inputRef.current.selectionStart = inputRef.current.value.length + 1;
       inputRef.current.selectionEnd = inputRef.current.value.length + 1;
     }
