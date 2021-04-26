@@ -24,7 +24,7 @@ module.exports = [
       'defaultOption',
       'placeholder',
       'label',
-      'errorMessage',
+      'errormsg',
       'isCompact',
       'isDisabled',
       'isError',

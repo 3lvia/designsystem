@@ -19,8 +19,8 @@ export const dropdownData = {
     errorMessage: {
       isRequired: false,
       type: 'string',
-      description: 'Display a error message and red border on dropdown.',
-      default: `''`,
+      description: 'Error message that appears if isError prop is set to true',
+      default: `'Help text'`,
     },
     label: {
       isRequired: false,
@@ -51,6 +51,12 @@ export const dropdownData = {
       description: 'Set dropdown to a disabled state',
       default: 'false',
     },
+    isError: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Set the dropdown to have a 2px red border style to indicate an error',
+      default: 'false',
+    },
     isMulti: {
       isRequired: false,
       type: 'boolean',
@@ -69,12 +75,14 @@ export const dropdownData = {
   codeReact: `<Dropdown options={options} optionOnChange={setSelectedOption}></Dropdown>`,
   codeWebComponent: `<elvia-dropdown
   [options]='dropdownOptions'
+  [isError]='isDropdownError'
   [isCompact]='isDropdownSmall'
   (optionOnChange)="selectedOptions = $event.detail.value"
 ></elvia-dropdown>
 
 <!-- in TS -->
 selectedOptions = [];
+isDropdownError = false;
 isDropdownSmall = false;
 
 exampleOptions = [

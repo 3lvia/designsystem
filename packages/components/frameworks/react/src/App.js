@@ -87,13 +87,7 @@ function App() {
 
       <h2>Dropdown</h2>
       <div style={{ marginTop: '24px' }}>
-        <Dropdown
-          options={options}
-          label="test"
-          errorMessage=""
-          optionOnChange={setSelectedOption}
-          isMulti
-        ></Dropdown>
+        <Dropdown options={options} label="test" optionOnChange={setSelectedOption} isMulti></Dropdown>
       </div>
 
       <h2>Tabs</h2>
