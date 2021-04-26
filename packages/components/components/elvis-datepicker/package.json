@@ -11,8 +11,7 @@
   "dependencies": {
     "@elvia/elvis-component-wrapper": "*",
     "@elvia/elvis-toolbox": "*",
-    "@material-ui/pickers": "^3.2.10",
-    "@material-ui/core": "^4.11.3",
+    "@material-ui/pickers": "^3.3.10",
     "classnames": "^2.2.6",
     "@date-io/moment": "1.x",
     "moment": "^2.29.1"
