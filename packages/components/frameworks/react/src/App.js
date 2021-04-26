@@ -34,11 +34,6 @@ function App() {
   // to display choosen data
   console.log(selectedOption);
 
-  const defaultValue = {
-    value: 'norge',
-    label: 'Norge',
-  };
-
   const options = [
     {
       value: 'norge',
