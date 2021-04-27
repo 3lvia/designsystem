@@ -1,345 +1,345 @@
-/* Elvia Styleguide */
-@import '@elvia/elvis/src/main.scss';
+// /* Elvia Styleguide */
+// @import '@elvia/elvis/src/main.scss';
 
-/* Code highlighter */
-@import '~prismjs/plugins/toolbar/prism-toolbar.css';
-@import '~prismjs/themes/prism-okaidia';
+// /* Code highlighter */
+// @import '~prismjs/plugins/toolbar/prism-toolbar.css';
+// @import '~prismjs/themes/prism-okaidia';
 
-@import './app/shared/shared-sizes';
-@import './app/shared/shared-animations';
+// @import './app/shared/shared-sizes';
+// @import './app/shared/shared-animations';
 
-// Elvia breakpoints for mobile
-@import '@elvia/elvis/src/utilities/breakpoints.scss';
+// // Elvia breakpoints for mobile
+// @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
-// Prebuilt css for enabling use of overlays from @angular/cdk
-@import '@angular/cdk/overlay-prebuilt.css';
+// // Prebuilt css for enabling use of overlays from @angular/cdk
+// @import '@angular/cdk/overlay-prebuilt.css';
 
-// Normalizer for website
-::selection {
-  background: var(--e-green);
-  color: var(--e-black);
-}
+// // Normalizer for website
+// ::selection {
+//   background: var(--e-green);
+//   color: var(--e-black);
+// }
 
-body {
-  margin: 0;
-  font-family: 'Red Hat Text', 'Verdana, sans-serif';
-}
+// body {
+//   margin: 0;
+//   font-family: 'Red Hat Text', 'Verdana, sans-serif';
+// }
 
-html {
-  overflow: -moz-scrollbars-vertical;
-  overflow-y: scroll;
-}
+// html {
+//   overflow: -moz-scrollbars-vertical;
+//   overflow-y: scroll;
+// }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+// a {
+//   color: inherit;
+//   text-decoration: none;
+// }
 
-p {
-  margin: 40px 0;
-}
+// p {
+//   margin: 40px 0;
+// }
 
-// Shared classes
-.component-preview-temp {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin-top: 56px;
-}
-.code-text {
-  font-family: 'Fira Mono';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: inherit;
+// // Shared classes
+// .component-preview-temp {
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   margin-top: 56px;
+// }
+// .code-text {
+//   font-family: 'Fira Mono';
+//   font-style: normal;
+//   font-weight: 400;
+//   font-size: 16px;
+//   line-height: inherit;
 
-  background: var(--e-grey-05);
-  border-radius: 4px;
-  padding: 0 2px;
-}
+//   background: var(--e-grey-05);
+//   border-radius: 4px;
+//   padding: 0 2px;
+// }
 
-.page-body {
-  margin-left: 10%;
-  width: 90%;
-  min-width: 20rem;
-  max-width: 55rem;
-  &.overview {
-    max-width: 65rem;
-    @media (min-width: 1800px) {
-      max-width: 75rem;
-    }
-  }
-  @include breakpoint-up(MinDesktop) {
-    margin: 0 auto;
-  }
-}
+// .page-body {
+//   margin-left: 10%;
+//   width: 90%;
+//   min-width: 20rem;
+//   max-width: 55rem;
+//   &.overview {
+//     max-width: 65rem;
+//     @media (min-width: 1800px) {
+//       max-width: 75rem;
+//     }
+//   }
+//   @include breakpoint-up(MinDesktop) {
+//     margin: 0 auto;
+//   }
+// }
 
-.overview-page {
-  .illustration-placement {
-    margin: -24px 0;
-    @media (min-width: 1600px) {
-      margin-top: 0px;
-      margin-bottom: 40px;
-    }
-    @include breakpoint-up(MinDesktop) {
-      margin: 0;
-    }
-  }
-  .illustration-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+// .overview-page {
+//   .illustration-placement {
+//     margin: -24px 0;
+//     @media (min-width: 1600px) {
+//       margin-top: 0px;
+//       margin-bottom: 40px;
+//     }
+//     @include breakpoint-up(MinDesktop) {
+//       margin: 0;
+//     }
+//   }
+//   .illustration-container {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
 
-    @include breakpoint-up(Mobile) {
-      display: none;
-    }
+//     @include breakpoint-up(Mobile) {
+//       display: none;
+//     }
 
-    .content-loader-padding {
-      width: 100%;
-      padding-bottom: 42.363%;
-      position: relative;
-      @include breakpoint-up(MinDesktop) {
-        padding-bottom: 45.863%;
-      }
-    }
-    .illustration {
-      width: 60.5%;
-      transition: width ease-in 250ms;
+//     .content-loader-padding {
+//       width: 100%;
+//       padding-bottom: 42.363%;
+//       position: relative;
+//       @include breakpoint-up(MinDesktop) {
+//         padding-bottom: 45.863%;
+//       }
+//     }
+//     .illustration {
+//       width: 60.5%;
+//       transition: width ease-in 250ms;
 
-      @include breakpoint-up(MinDesktop) {
-        width: 65.5%;
-        transition: width ease-in 250ms;
-      }
-    }
+//       @include breakpoint-up(MinDesktop) {
+//         width: 65.5%;
+//         transition: width ease-in 250ms;
+//       }
+//     }
 
-    .e-content-loader {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      margin: auto;
-      padding: 56px;
-      padding-top: 72px;
-      @include breakpoint-up(MinDesktop) {
-        padding: 16px;
-        padding-top: 54px;
-      }
-    }
-  }
-  .overview-description {
-    text-align: center;
-    font-family: 'Red Hat Text', Verdana, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    line-height: 160%;
-    @media (min-width: 1450px) {
-      font-size: 24px;
-      line-height: 160%;
-    }
-    @include breakpoint-up(Tablet) {
-      display: none;
-    }
-  }
-  .phone-overview {
-    display: none;
-    @include breakpoint-up(Tablet) {
-      display: block;
-    }
-  }
-  .desktop-overview {
-    @include breakpoint-up(Tablet) {
-      display: none;
-    }
-  }
-}
+//     .e-content-loader {
+//       position: absolute;
+//       top: 0;
+//       bottom: 0;
+//       left: 0;
+//       right: 0;
+//       height: 100%;
+//       margin: auto;
+//       padding: 56px;
+//       padding-top: 72px;
+//       @include breakpoint-up(MinDesktop) {
+//         padding: 16px;
+//         padding-top: 54px;
+//       }
+//     }
+//   }
+//   .overview-description {
+//     text-align: center;
+//     font-family: 'Red Hat Text', Verdana, sans-serif;
+//     font-style: normal;
+//     font-weight: normal;
+//     font-size: 20px;
+//     line-height: 160%;
+//     @media (min-width: 1450px) {
+//       font-size: 24px;
+//       line-height: 160%;
+//     }
+//     @include breakpoint-up(Tablet) {
+//       display: none;
+//     }
+//   }
+//   .phone-overview {
+//     display: none;
+//     @include breakpoint-up(Tablet) {
+//       display: block;
+//     }
+//   }
+//   .desktop-overview {
+//     @include breakpoint-up(Tablet) {
+//       display: none;
+//     }
+//   }
+// }
 
-// Changelog
-.changelog-row {
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 32px;
-}
-.changelog-date {
-  vertical-align: top;
-  padding-bottom: 48px;
-  padding-top: 48px;
-  padding-right: 24px;
-  width: 27%;
-}
-.changelog-dato {
-  color: var(--e-grey-80);
-}
-.changelog-content {
-  padding-top: 48px;
-  width: 75%;
+// // Changelog
+// .changelog-row {
+//   font-family: 'Red Hat Text', Verdana, sans-serif;
+//   font-style: normal;
+//   font-size: 16px;
+//   line-height: 32px;
+// }
+// .changelog-date {
+//   vertical-align: top;
+//   padding-bottom: 48px;
+//   padding-top: 48px;
+//   padding-right: 24px;
+//   width: 27%;
+// }
+// .changelog-dato {
+//   color: var(--e-grey-80);
+// }
+// .changelog-content {
+//   padding-top: 48px;
+//   width: 75%;
 
-  .changelog-section:not(:first-of-type) {
-    margin-top: 32px;
-  }
+//   .changelog-section:not(:first-of-type) {
+//     margin-top: 32px;
+//   }
 
-  .changelog-section-title {
-    font-weight: 500;
-  }
-  .changelog-section-margin {
-    margin-left: 16px;
-  }
-  .changelog-code {
-    font-size: 14px !important;
-    line-height: 21px !important;
-  }
-  .changelog-divider {
-    height: 1px;
-    width: 135.7%;
-    margin-left: -33.7%;
-    background: var(--e-grey-10);
-    margin-top: 48px;
-  }
-}
+//   .changelog-section-title {
+//     font-weight: 500;
+//   }
+//   .changelog-section-margin {
+//     margin-left: 16px;
+//   }
+//   .changelog-code {
+//     font-size: 14px !important;
+//     line-height: 21px !important;
+//   }
+//   .changelog-divider {
+//     height: 1px;
+//     width: 135.7%;
+//     margin-left: -33.7%;
+//     background: var(--e-grey-10);
+//     margin-top: 48px;
+//   }
+// }
 
-// Display examples
-.display-container {
-  display: flex;
-  align-items: baseline;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  margin: 0 -30px;
+// // Display examples
+// .display-container {
+//   display: flex;
+//   align-items: baseline;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   justify-content: flex-start;
+//   margin: 0 -30px;
 
-  .display-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 30px;
-    width: 172px;
-    .display-text-content {
-      width: 100%;
-    }
+//   .display-card {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     margin: 30px;
+//     width: 172px;
+//     .display-text-content {
+//       width: 100%;
+//     }
 
-    .sub-title {
-      width: 40%;
-      color: black;
-    }
-    .sub-content {
-      width: 60%;
-    }
+//     .sub-title {
+//       width: 40%;
+//       color: black;
+//     }
+//     .sub-content {
+//       width: 60%;
+//     }
 
-    &-circle {
-      margin: auto;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 2px solid transparent;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+//     &-circle {
+//       margin: auto;
+//       width: 120px;
+//       height: 120px;
+//       border-radius: 50%;
+//       border: 2px solid transparent;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
 
-      &.primary {
-        width: 160px;
-        height: 160px;
-      }
-    }
+//       &.primary {
+//         width: 160px;
+//         height: 160px;
+//       }
+//     }
 
-    @media (max-width: 494px) {
-      flex-direction: row;
-      width: 100%;
-      .display-text-content {
-        margin-left: 32px;
-      }
-      &-circle.primary {
-        width: 120px;
-        height: 120px;
-      }
-    }
+//     @media (max-width: 494px) {
+//       flex-direction: row;
+//       width: 100%;
+//       .display-text-content {
+//         margin-left: 32px;
+//       }
+//       &-circle.primary {
+//         width: 120px;
+//         height: 120px;
+//       }
+//     }
 
-    &-square {
-      margin: auto;
-      margin-top: 10px;
-      border: 2px solid transparent;
-    }
+//     &-square {
+//       margin: auto;
+//       margin-top: 10px;
+//       border: 2px solid transparent;
+//     }
 
-    &-sub-title {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 12px 0;
-      &:first-of-type {
-        padding-top: 26px;
-      }
-      width: 100%;
-      border-bottom: 1px solid var(--e-grey-10);
-    }
-    &-sub-title {
-      color: var(--e-grey-80);
-    }
+//     &-sub-title {
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       padding: 12px 0;
+//       &:first-of-type {
+//         padding-top: 26px;
+//       }
+//       width: 100%;
+//       border-bottom: 1px solid var(--e-grey-10);
+//     }
+//     &-sub-title {
+//       color: var(--e-grey-80);
+//     }
 
-    .contrast-container {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      .e-icon {
-        margin-right: 8px;
-      }
-    }
+//     .contrast-container {
+//       display: flex;
+//       flex-direction: row;
+//       align-items: center;
+//       .e-icon {
+//         margin-right: 8px;
+//       }
+//     }
 
-    &-variable {
-      height: 15%;
-      margin: 5px 0;
-    }
-  }
-}
+//     &-variable {
+//       height: 15%;
+//       margin: 5px 0;
+//     }
+//   }
+// }
 
-// Page Animations - Fade in
-// Components
-.component-header-description-animation {
-  @include ease-in-opacity(0.2s, 0.1s);
-}
-.component-preview-animation {
-  @include ease-in-opacity(0.2s, 0.2s);
-}
-.documentation-section-animation {
-  @include ease-in-opacity(0.3s, 0.2s);
-}
-// Overview pages
-.components-overview-cards-animation {
-  @include ease-in-out-opacity(0.4s, 0.2s);
-}
-.overview-illustration-animation {
-  @include ease-in-out-opacity(0.4s, 0.2s);
-}
-.overview-description-animation {
-  @include ease-in-out-opacity(0.4s, 0.4s);
-}
-// Home page
-.home-image-animation {
-  @include ease-in-out-opacity(0.6s, 0.28s);
-}
-.home-text-animation {
-  @include ease-in-out-opacity(0.6s, 0.6s);
-}
-.home-card-links-animation {
-  @include ease-in-out-opacity(0.6s, 0.8s);
-}
+// // Page Animations - Fade in
+// // Components
+// .component-header-description-animation {
+//   @include ease-in-opacity(0.2s, 0.1s);
+// }
+// .component-preview-animation {
+//   @include ease-in-opacity(0.2s, 0.2s);
+// }
+// .documentation-section-animation {
+//   @include ease-in-opacity(0.3s, 0.2s);
+// }
+// // Overview pages
+// .components-overview-cards-animation {
+//   @include ease-in-out-opacity(0.4s, 0.2s);
+// }
+// .overview-illustration-animation {
+//   @include ease-in-out-opacity(0.4s, 0.2s);
+// }
+// .overview-description-animation {
+//   @include ease-in-out-opacity(0.4s, 0.4s);
+// }
+// // Home page
+// .home-image-animation {
+//   @include ease-in-out-opacity(0.6s, 0.28s);
+// }
+// .home-text-animation {
+//   @include ease-in-out-opacity(0.6s, 0.6s);
+// }
+// .home-card-links-animation {
+//   @include ease-in-out-opacity(0.6s, 0.8s);
+// }
 
-// Typography - specific for doc
-.big-header {
-  font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 56px;
-  line-height: 120%;
-  @include breakpoint-up(Mobile) {
-    font-size: 32px;
-  }
-}
+// // Typography - specific for doc
+// .big-header {
+//   font-family: 'Red Hat Display', Verdana, sans-serif;
+//   font-style: normal;
+//   font-weight: 900;
+//   font-size: 56px;
+//   line-height: 120%;
+//   @include breakpoint-up(Mobile) {
+//     font-size: 32px;
+//   }
+// }
 
-hr {
-  border: 1px solid black;
-}
+// hr {
+//   border: 1px solid black;
+// }
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Fira+Mono&display=swap');
