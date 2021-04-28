@@ -9,6 +9,7 @@ const mergeStream = require('merge-stream');
 const path = require('path');
 let components = require('../elvia-components.config');
 const rename = require("gulp-rename");
+const fs = require('fs');
 
 
 const WARNING = `/* 
@@ -61,12 +62,17 @@ function buildWebComponentsMagically() {
                     return;
                 }
 
-                const result = sass.renderSync({ file: `../components/${component.name}/src/react/style.scss` });
+                const sassFile = `../components/${component.name}/src/react/style.scss`;
+                let result = '';
+                if (fs.existsSync(sassFile)) {
+                    result = sass.renderSync({ file: sassFile }).css.toString()
+                }
+
 
                 const lowercaseAttr = component.attributes.map(attr => attr.toLowerCase());
 
                 file.contents = new Buffer(String(file.contents)
-                    .replace(/{{INSERT_STYLE_HERE}}/, result.css.toString()));
+                    .replace(/{{INSERT_STYLE_HERE}}/, result));
 
                 const elementStyle = component.elementStyle ? component.elementStyle : `''`;
 
