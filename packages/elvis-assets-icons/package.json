@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-assets-icons",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "Elvia icons",
   "main": "icons.js",
   "scripts": {
