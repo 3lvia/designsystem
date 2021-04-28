@@ -1,6 +1,13 @@
-<div class="App">
-  <h1>Angular preview</h1>
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">v2 - Playground</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
 
+<!--BODY-->
+<div class="page-body">
   <h2>Tabs</h2>
   <div style="margin-top: 16px; background: #262626">
     <elvia-tabs

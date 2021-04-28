@@ -18,6 +18,7 @@ export class HeaderComponent {
   searchMenuOpen = false;
   searchOverlay: OverlayRef;
   headerLogoLoaded = false;
+  devMode = false;
 
   constructor(
     private globalService: GlobalService,
@@ -25,6 +26,11 @@ export class HeaderComponent {
     private searchMenu: MobileMenuService,
     private router: Router,
   ) {
+
+    if (window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('#dev') > -1) {
+      this.devMode = true;
+    }
+
     this.globalService.listenShowInternalHeader().subscribe((show) => {
       if (show) {
         this.testInternalHeader();

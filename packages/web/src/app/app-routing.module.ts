@@ -43,6 +43,7 @@ import { AlertMessagesComponent } from './doc-pages/components/alert-messages/al
 import { FaqDocComponent } from './doc-pages/community/faq-doc/faq-doc.component';
 import { AccessibilityDocComponent } from './doc-pages/tools/accessibility-doc/accessibility-doc.component';
 import { CommunityStartComponent } from './doc-pages/community/community-start/community-start.component';
+import { DevStartComponent } from './doc-pages/dev/dev-start/dev-start.component';
 import { OverviewCommunityComponent } from './doc-pages/community/overview-community/overview-community.component';
 import { OverviewGetStartedComponent } from './doc-pages/get-started/overview-get-started/overview-get-started.component';
 import { GetStartedStartComponent } from './doc-pages/get-started/get-started-start/get-started-start.component';
@@ -68,6 +69,7 @@ import { ChipsComponent } from './doc-pages/components/chips/chips.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
 import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
+import { v2PlaygroundComponent } from './doc-pages/dev/v2-playground/v2-playground.component';
 
 const routes: Routes = [
   {
@@ -374,6 +376,21 @@ const routes: Routes = [
           },
         ],
       },
+
+      // Dev section 
+      {
+        path: Pages.DevelopmentStart,
+        component: DevStartComponent,
+        children: [{
+          path: '',
+          component: v2PlaygroundComponent,
+        },
+        {
+          path: Pages.DevelopmentPlayground,
+          component: v2PlaygroundComponent
+        }
+        ],
+      },
       { path: 'not-found', component: ErrorComponent },
       { path: '**', redirectTo: '/not-found' },
     ],
@@ -384,4 +401,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
