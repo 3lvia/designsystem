@@ -2,13 +2,17 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
 import styled from 'styled-components';
 
+export type AccordionLabelPosition = 'left' | 'center' | 'right';
+export type AccordionSize = 'small' | 'medium' | 'large';
+export type AccordionType = 'normal' | 'overflow';
+
 export interface AccordionProps {
   content: string | HTMLElement;
   openLabel: string;
   closeLabel: string;
-  labelPosition: string;
-  size: string;
-  type: string;
+  labelPosition: AccordionLabelPosition;
+  size: AccordionSize;
+  type: AccordionType;
 }
 
 const ElviaColors = {
@@ -218,7 +222,7 @@ const Accordion: FC<AccordionProps> = ({
 
   return (
     <span ref={accordionRef}>
-      <AccordionArea>
+      <AccordionArea aria-expanded={contentOpen}>
         {type === 'overflow' ? (
           <AccordionContent isContentOpen={contentOpen} type={type} size={size}>
             {content && <div>{content}</div>}
