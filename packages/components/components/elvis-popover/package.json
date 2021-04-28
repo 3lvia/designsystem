@@ -2,12 +2,12 @@
   "name": "@elvia/elvis-popover",
   "version": "3.0.0",
   "description": "",
+  "license": "MIT",
+  "author": "",
   "main": "web_component.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "MIT",
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^1.0.6",
     "@elvia/elvis-toolbox": "^1.0.1"

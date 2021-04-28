@@ -2,9 +2,9 @@
   "name": "@elvia/elvis-toolbox",
   "version": "1.2.0",
   "description": "",
-  "main": "./dist/elvis-toolbox.js",
-  "author": "",
   "license": "MIT",
+  "author": "",
+  "main": "./dist/elvis-toolbox.js",
   "dependencies": {
     "lodash.throttle": "^4.1.1"
   }
