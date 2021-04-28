@@ -2,21 +2,15 @@
 
 <div class="component-section documentation-section-animation e-my-72">
   <h3
-    class="e-title-sm e-mb-16 e-mt-0"
+    class="e-title-sm e-mb-16 e-mt-0 component-section__header"
     *ngIf="sectionTitle.length > 0"
-  >{{ sectionTitle }}
+  >
+    <span>{{ sectionTitle }}</span>
     <span
-      class="e-ml-16"
-      *ngIf="propertiesClass != ''"
+      *ngIf="figmaOnly"
+      class="e-ml-16 component-section__label"
     >
-      <app-copy
-        [message]="propertiesClass"
-        [noAnimation]="true"
-      >
-        <ng-container ngProjectAs="copyContent">
-          <span class="code-text">{{ propertiesClass }}</span>
-        </ng-container>
-      </app-copy>
+      <label class="e-label e-label--orange">Figma only</label>
     </span>
   </h3>
   <div class="component-section__content e-text-body">

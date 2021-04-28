@@ -17,6 +17,9 @@
       </span>
       <h2 class="e-title-md elvis-anchor-title e-mb-24" style="display: flex">
         {{ sectionTitle }}
+        <span *ngIf="figmaOnly" class="e-ml-16">
+          <label class="e-label e-label--orange">Figma only</label>
+        </span>
         <ng-content select="headerIcon"></ng-content>
       </h2>
 

@@ -476,6 +476,7 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['renewable_energy'] },
   },
   { name: 'reset', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'rotate_right', terms: ['pivot', 'revolve', 'spin', 'turn'] },
   {
     name: 'rss-bold',
     terms: ['feed', 'connection', 'internet', 'online'],
@@ -500,6 +501,11 @@ module.exports = [
     name: 'search-bold-color',
     terms: ['find', 'navigation', 'explore', 'inspect', 'look'],
     thirdparty: { name: ['streamline'], duplicate: ['search'] },
+  },
+  {
+    name: 'settings_vertical',
+    terms: ['toggle', 'edit', 'adjust', 'switch'],
+    thirdparty: { name: ['streamline'] },
   },
   { name: 'shovel', terms: ['scoop', 'dig'], thirdparty: { name: ['streamline'] } },
   { name: 'smart_city', terms: [], thirdparty: { name: ['streamline'], duplicate: ['smart_city-color'] } },

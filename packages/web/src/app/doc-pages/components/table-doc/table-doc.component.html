@@ -14,26 +14,26 @@
       <table class="e-table">
         <thead>
           <tr>
-            <th scope="col">Column header</th>
-            <th scope="col">Column header</th>
-            <th scope="col">Column header</th>
+            <th scope="col">Column 1</th>
+            <th scope="col">Column 2</th>
+            <th scope="col">Column 3</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Table Row</td>
-            <td>Table Row</td>
-            <td>Table Row</td>
+            <td>Row 1</td>
+            <td>Row 1</td>
+            <td>Row 1</td>
           </tr>
           <tr>
-            <td>Table Row</td>
-            <td>Table Row</td>
-            <td>Table Row</td>
+            <td>Row 2</td>
+            <td>Row 2</td>
+            <td>Row 2</td>
           </tr>
           <tr>
-            <td>Table Row</td>
-            <td>Table Row</td>
-            <td>Table Row</td>
+            <td>Row 3</td>
+            <td>Row 3</td>
+            <td>Row 3</td>
           </tr>
         </tbody>
       </table>
@@ -50,11 +50,11 @@
       of density and style on all tables throughout the page.
       <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
-          Less compact tables should be used in most external systems when displaying information that should
-          be perceived as easy to read and provide a better experience for new users.
+          Used when displaying information that should be perceived as easy to read and provides good
+          scanability with more space than the compact version. Normal is most used in external systems.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
+              <app-component-example-v1 [codeHTML]="exampleDesktop"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
 
@@ -64,7 +64,7 @@
               included here will not automatically appear when switching to smaller screens. The text in the
               last column will always be aligned to the right on phones.
               <app-component-example-v1
-                [codeHTML]="example6"
+                [codeHTML]="exampleMobile"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [noDesktop]="true"
@@ -77,11 +77,11 @@
       <app-component-subsection [sectionTitle]="'Compact'">
         <ng-container ngProjectAs="sectionContent">
           Compact tables should be used when you need to show more data in less space, typically in internal
-          systems. They could also provide a better overview when used to show lots of similar type of data
+          systems. They could also provide a better overview when used to show lots of similar types of data
           that’s typically easier for the user to navigate in.
           <app-component-subsubsection [sectionTitle]="'Desktop'">
             <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
+              <app-component-example-v1 [codeHTML]="exampleCompact"></app-component-example-v1>
             </ng-container>
           </app-component-subsubsection>
 
@@ -91,7 +91,7 @@
               included here will not automatically appear when switching to smaller screens. The text in the
               last column will always be aligned to the right on phones.
               <app-component-example-v1
-                [codeHTML]="example7"
+                [codeHTML]="exampleCompactMobile"
                 [showIframeScreens]="true"
                 [noTablet]="true"
                 [noDesktop]="true"
@@ -103,34 +103,226 @@
     </ng-container>
   </app-component-section>
 
-  <!--SORTING-->
-  <app-component-section [sectionTitle]="'Sorting'">
+  <!--OPTIONS-->
+  <app-component-section [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
-      Sorting is another way to ease user's search process in tables. The sorting functionality could either
-      be in a sorting dropdown outside of the table, or as a table sorting in the table header. Here we
-      provide the classes for table sorting, but the logic needs to be added.
-      <app-component-example-v1 [codeHTML]="exampleSorting"></app-component-example-v1>
-
-      <app-component-subsection [sectionTitle]="'Functionality'">
+      <app-component-subsection [sectionTitle]="'Accordion'" [figmaOnly]="true">
         <ng-container ngProjectAs="sectionContent">
-          <p>
-            The sorting arrow appears when hovering over any of the sortable top tabs. When clicked, the table
-            will sort according to the chosen column; either ascending (arrow up), descending (arrow down), or
-            original order (no arrow). When active, the arrow will stay visible in the table header until it’s
-            either deactivated or replaced by another column sorting.
-          </p>
-          <p>
-            Add the
-            <span class="code-text">e-table__sort-header</span>
-            to the th-tag on the columns you want to sort. Then add the 2 icons for arrow up and down inside
-            the span with class
-            <span class="code-text">e-table__sort-icon</span>
-            . When toggling between arrow down and up, add or remove the class
-            <span class="code-text">e-table__sort-icon--up</span>
-            . When toggling showing the arrow when active add or remove the class
-            <span class="code-text">e-table__sort-icon--inactive</span>
-            .
-          </p>
+          Accordion is used when you need to have additional information to the row. An accordion (20x20px) is
+          placed all the way to the right with the possibility to expand/collapse on the whole row. Keep the
+          header title above empty. You can have multiple rows open at the same time (the user decides when to
+          close/open).
+          <ul class="e-list e-mt-24">
+            <li>
+              <a
+                class="e-link e-link--inline e-link--new-tab"
+                href="https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=2927%3A24058"
+                target="_blank"
+              >
+                <span class="e-link__title">Figma</span>
+                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+              </a>
+            </li>
+            <li>
+              <b>Icons:&nbsp;</b>
+              <span class="code-text">e-icon--expand_circle-color</span>
+              &
+              <span class="code-text">e-icon--expand_circle-filled-color</span>
+            </li>
+          </ul>
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <div width="100%" style="width: 100; overflow-x: auto">
+                <iframe
+                  style="border: 1px solid rgba(0, 0, 0, 0.1)"
+                  width="500"
+                  height="450"
+                  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3199%253A212"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <div width="100%" style="width: 100; overflow-x: auto">
+                <iframe
+                  style="border: 1px solid rgba(0, 0, 0, 0.1)"
+                  width="500"
+                  height="450"
+                  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3582%253A44807"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Button'">
+        <ng-container ngProjectAs="sectionContent">
+          Use icon buttons when you need actions in your table.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1 [codeHTML]="exampleButton"></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleButtonMobile"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+                [noDesktop]="true"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Checkbox'">
+        <ng-container ngProjectAs="sectionContent">
+          Use checkboxes when you need to multiselect rows to perform actions. The first checkbox, in table
+          header, should check and uncheck all checkboxes that are in the same column. Read about nested
+          checkboxes and the indeterminate state in the
+          <a class="e-link e-link--inline" [routerLink]="['/components/checkbox']" fragment="'Type'">
+            checkbox documentation
+          </a>
+          . Add the class
+          <span class="code-text">e-table__checkbox--selected</span>
+          or
+          <span class="code-text">e-table-mobile__checkbox-selected</span>
+          to all selected rows.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleCheckbox"
+                [interactable]="false"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleCheckboxMobile"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+                [noDesktop]="true"
+                [interactable]="false"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Input'">
+        <ng-container ngProjectAs="sectionContent">
+          Use an input field when the user can edit values in the table.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1 [codeHTML]="exampleInput"></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleInputMobile"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+                [noDesktop]="true"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Footnote'">
+        <ng-container ngProjectAs="sectionContent">
+          Use a footnote when you need to clarify information. Use an asterix (*) to connect the data to the
+          description.
+          <app-component-example-v1 [codeHTML]="exampleFootnote"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Select'">
+        <ng-container ngProjectAs="sectionContent">
+          Use select when navigating forward from the selected row.
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1 [codeHTML]="exampleSelect"></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              <app-component-example-v1
+                [codeHTML]="exampleSelectMobile"
+                [showIframeScreens]="true"
+                [noTablet]="true"
+                [noDesktop]="true"
+              ></app-component-example-v1>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Sorting'" [figmaOnly]="true">
+        <ng-container ngProjectAs="sectionContent">
+          Sorting is another way to ease user's search process in tables. The sorting functionality can either
+          be in a sorting dropdown outside of the table, or as a table sorting in the table header. Here we
+          provide the classes for table sorting, but the logic needs to be added.
+          <ul class="e-list e-mt-24">
+            <li>
+              <a
+                class="e-link e-link--inline e-link--new-tab"
+                href="https://www.figma.com/file/gh5MaG2NWKVODTk1p3cO6s/Tables?node-id=2927%3A24058"
+                target="_blank"
+              >
+                <span class="e-link__title">Figma</span>
+                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+              </a>
+            </li>
+            <li>
+              <b>Icons:&nbsp;</b>
+              <span class="code-text">e-icon--sorting-bold</span>
+              &
+              <span class="code-text">e-icon--sorting_ascending-bold</span>
+              &
+              <span class="code-text">e-icon--sorting_descending-bold</span>
+            </li>
+          </ul>
+
+          <app-component-subsubsection [sectionTitle]="'Desktop'">
+            <ng-container ngProjectAs="sectionContent">
+              On desktop, the sorting arrow appears when hovering over any of the sortable top tabs. When
+              clicked, the table will sort according to the chosen column; ascending (up), descending (down),
+              or original order (no arrow).
+              <div class="e-mt-16" width="100%" style="width: 100; overflow-x: auto">
+                <iframe
+                  style="border: 1px solid rgba(0, 0, 0, 0.1)"
+                  width="500"
+                  height="450"
+                  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3561%253A44676"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+
+          <app-component-subsubsection [sectionTitle]="'Mobile'">
+            <ng-container ngProjectAs="sectionContent">
+              On mobile, the function is displayed in a sorting menu, which also impacts the highlighted
+              title.
+              <div class="e-mt-16" width="100%" style="width: 100; overflow-x: auto">
+                <iframe
+                  style="border: 1px solid rgba(0, 0, 0, 0.1)"
+                  width="500"
+                  height="450"
+                  src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2Fgh5MaG2NWKVODTk1p3cO6s%2FTables%3Fnode-id%3D3575%253A44807"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -145,37 +337,36 @@
           The first column should always be left aligned no matter the content of that column. By default all
           content is aligned to the left. There are however helper classes available for aligning content to
           the center or to the right. The table header should alway follow the alignment of the column.
-          <app-component-example-v1 [codeHTML]="example8"></app-component-example-v1>
+          Besides the first column, any type of content can be center aligned or right aligned.
+          <app-component-example-v1 [codeHTML]="exampleAlignment"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
+    </ng-container>
+  </app-component-section>
 
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Long column'">
         <ng-container ngProjectAs="sectionContent">
           If the table requires scrolling the max-width for a column is 450px, the class
           <span class="code-text">e-table__cell--multiline</span>
           can then be added to ensure width of column and text wrap. Use
           <span class="code-text">e-text-right</span>
-          to align numbers to the right.
-          <app-component-example-v1 [codeHTML]="example5"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Footnote'">
-        <ng-container ngProjectAs="sectionContent">
-          If you include a footnote to your table, it should be positioned at the bottom outside the table
-          using the class
-          <span class="code-text">e-table__footnote</span>
-          .
-          <app-component-example-v1 [codeHTML]="exampleFootnote"></app-component-example-v1>
+          to align numbers to the right. The class
+          <span class="code-text">e-table__cell--multiline-sm</span>
+          can be used when the column should have a max-width of 250px.
+          <app-component-example-v1 [codeHTML]="exampleLongColumn"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Accessibility'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-subsubsection [sectionTitle]="'Row headers'">
+          Here are some accessibility rules to be aware of when setting up tables.
+          <app-component-subsubsection [sectionTitle]="'Headers for rows'">
             <ng-container ngProjectAs="sectionContent">
-              When the first column represents headers for the first row the column should be 'th', not 'td',
-              and scoped with row:
+              When the first cells for each row in a table can be seen as headers for the rows, the column
+              cell should be 'th' elements and not 'td' elements. Example:
               <div>
                 <span class="code-text">&lt;th scope="row"&gt; January 2020 &lt;/th&gt;</span>
               </div>

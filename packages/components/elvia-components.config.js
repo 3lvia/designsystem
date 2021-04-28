@@ -35,6 +35,7 @@ module.exports = [
     attributes: ['header', 'content', 'posX', 'posY', 'hasCloseBtn'],
     reactName: 'Popover',
     useWrapper: true,
+    elementStyle: `display: block;`,
   },
   {
     name: 'elvis-progress-linear',

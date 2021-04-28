@@ -10,6 +10,7 @@ import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.
 export class ComponentSectionComponent {
   @Input() sectionTitle = '';
   @Input() propertiesClass = '';
+  @Input() figmaOnly = false;
 
   constructor(private router: Router, private copyService: CopyToClipboardService) {}
 
