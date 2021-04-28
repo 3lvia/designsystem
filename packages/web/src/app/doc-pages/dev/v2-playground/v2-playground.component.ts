@@ -11,7 +11,7 @@ export class v2PlaygroundComponent implements OnInit {
   checkBoxVal2 = true;
   progressValue = 0;
   counterValue = 2;
-  description = "Playground";
+  description = "";
   progressError;
   indeterminate;
 
