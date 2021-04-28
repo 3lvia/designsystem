@@ -2,6 +2,8 @@
   "name": "@elvia/elvis",
   "version": "7.7.0",
   "description": "Elvia design system",
+  "license": "ISC",
+  "author": "",
   "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,11 +11,9 @@
     "watch": "gulp watch",
     "percy": "node testing/server.js & percy exec -- node testing/snapshots.js"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.5.3",
-    "@elvia/elvis-assets-icons": "*"
+    "@elvia/elvis-assets-icons": "*",
+    "bootstrap": "^4.5.3"
   },
   "devDependencies": {
     "doiuse": "^4.4.0",
