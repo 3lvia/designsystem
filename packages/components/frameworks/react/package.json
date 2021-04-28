@@ -27,17 +27,12 @@
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-tabs": "*",
-    "@material-ui/core": "^4.11.0",
+    "@elvia/elvis-testing": "*",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "node-forge": ">=0.10.0",
-    "object-path": ">=0.11.5",
     "react": "^17.0.0",
+    "react-app-polyfill": "^2.0.0",
     "react-dom": "^17.0.0",
     "react-scripts": "^4.0.1"
-  },
-  "devDependencies": {
-    "react-app-polyfill": "^2.0.0"
   }
 }
