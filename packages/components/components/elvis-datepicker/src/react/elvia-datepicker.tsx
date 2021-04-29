@@ -47,9 +47,6 @@ export const Datepicker: FC<DatepickerProps> = ({
     ['ewc-datepicker--compact']: isCompact !== false,
     ['ewc-datepicker--unselected']: value === null,
   });
-  const datePickerLabelClasses = classnames('ewc-datepicker__label', {
-    ['ewc-datepicker__label--disabled']: isDisabled,
-  });
   const materialTheme = createMuiTheme({
     props: {
       MuiButtonBase: {
@@ -239,7 +236,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     <div ref={datepickerRef}>
       <div className={datePickerClasses}>
         {/* Label */}
-        {label !== '' && <label className={datePickerLabelClasses}>{label}</label>}
+        {label !== '' && <label className="ewc-datepicker__label">{label}</label>}
 
         {/* MUI Datepicker */}
         <ThemeProvider theme={materialTheme}>

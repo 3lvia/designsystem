@@ -1,4 +1,4 @@
-$text-light: #515151;
+$text-light: #676767;
 $text-disabled: #bdbdbd;
 $text-placeholder: #676767;
 $grey-30: #bdbdbd;
@@ -50,9 +50,9 @@ $datepicker-max-width: 382px;
 
     display: block;
     margin-bottom: 4px;
-    &.ewc-datepicker__label--disabled {
-      color: $grey-30;
-    }
+    // &.ewc-datepicker__label--disabled {
+    //   color: $grey-30;
+    // }
   }
 
   // ERROR
@@ -115,6 +115,14 @@ $datepicker-max-width: 382px;
       margin-right: 8px;
       @media screen and (-ms-high-contrast: none) {
         margin-right: 32px;
+      }
+    }
+  }
+  &.ewc-datepicker--compact {
+    .MuiInputBase-root {
+      input {
+        padding: 10px 0 8px;
+        padding-left: 16px;
       }
     }
   }
@@ -206,10 +214,12 @@ $datepicker-max-width: 382px;
 
 // PICKER
 .MuiPaper-root {
-  margin-top: 16px;
+  margin-top: 9px;
   margin-left: -1px;
   box-shadow: 0px 0px 40px rgb(0 0 0 / 6%) !important;
   border-radius: 8px !important;
+  transition: opacity 328ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform: none !important;
   .MuiPickersBasePicker-containerLandscape {
     flex-direction: column;
     .MuiPickersToolbar-toolbarLandscape {
@@ -250,7 +260,7 @@ $datepicker-max-width: 382px;
       border-radius: 0;
       min-width: 0;
       transition: none;
-      top: 4px;
+      top: 5px;
 
       .ewc-datepicker__toolbar-year {
         font-family: 'Red Hat Display';
@@ -360,15 +370,16 @@ $datepicker-max-width: 382px;
     margin-bottom: 0;
     padding: 8px 16px 0px 16px;
     .MuiPickersCalendarHeader-transitionContainer {
-      height: 16px;
+      height: 22.4px;
     }
     .MuiTypography-body1 {
-      font-family: 'Red Hat Display', Verdana, sans-serif;
+      font-family: 'Red Hat Text', Verdana, sans-serif;
       font-style: normal;
       text-transform: capitalize;
       font-weight: 500;
       font-size: 14px;
-      line-height: 16px;
+      line-height: 22.4px;
+      letter-spacing: 0.2px;
     }
 
     // ARROWS
@@ -441,41 +452,18 @@ $datepicker-max-width: 382px;
   }
 }
 
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .MuiPickersBasePicker-pickerView {
-  .MuiPickersSlideTransition-transitionContainer {
-    display: block;
-    position: relative;
-  }
-  .MuiPickersSlideTransition-transitionContainer > * {
-    top: 0;
-    left: 0;
-    right: 0;
-    position: absolute;
-  }
-  .MuiPickersSlideTransition-slideEnter-left {
-    transform: translate(100%);
-    will-change: transform;
-  }
-  .MuiPickersSlideTransition-slideEnter-right {
-    transform: translate(-100%);
-    will-change: transform;
-  }
-  .MuiPickersSlideTransition-slideEnterActive {
-    transition: transform 1350ms ease-in-out;
-    transform: translate(0%);
-    will-change: transform;
-  }
-  .MuiPickersSlideTransition-slideExit {
-    transform: translate(0%);
-  }
-  .MuiPickersSlideTransition-slideExitActiveLeft-left {
-    transform: translate(-200%);
-    transition: transform 1050ms cubic-bezier(0.35, 0.8, 0.4, 1) 0ms;
-    will-change: transform;
-  }
+  .MuiPickersSlideTransition-slideEnterActive,
+  .MuiPickersSlideTransition-slideExitActiveLeft-left,
   .MuiPickersSlideTransition-slideExitActiveLeft-right {
-    transform: translate(200%);
-    transition: transform 1050ms cubic-bezier(0.35, 0.8, 0.4, 1) 0ms;
-    will-change: transform;
+    transition: none;
   }
 }
