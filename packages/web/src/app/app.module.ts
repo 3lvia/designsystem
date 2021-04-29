@@ -13,6 +13,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { CommunityModule } from './doc-pages/community/community.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorModule } from './shared/error/error.module';
+import { devModule } from './doc-pages/dev/dev.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { ErrorModule } from './shared/error/error.module';
     RouterModule,
     ShellModule,
     ToolsModule,
+    devModule,
     ComponentsModule,
     IdentityModule,
     OverlayModule,
@@ -33,4 +35,4 @@ import { ErrorModule } from './shared/error/error.module';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

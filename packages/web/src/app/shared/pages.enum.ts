@@ -85,4 +85,8 @@ export enum Pages {
   Contribute = 'contribute',
   Faq = 'faq',
   Changelog = 'changelog',
+
+  // Dev
+  DevelopmentStart = 'dev',
+  DevelopmentPlayground = 'playground'
 }

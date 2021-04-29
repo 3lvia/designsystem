@@ -54,4 +54,11 @@ module.exports = [
     reactName: 'Datepicker',
     elementStyle: 'display: block; max-width: 383px;',
   },
+  {
+    name: 'elvis-testing',
+    elementName: 'elvia-testing',
+    attributes: ['value'],
+    reactName: 'TestingComponent',
+    elementStyle: 'width: 100%',
+  },
 ];

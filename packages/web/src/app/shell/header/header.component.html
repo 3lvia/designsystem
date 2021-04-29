@@ -21,6 +21,15 @@
     <a class="tabs-links" [routerLink]="['/components']" routerLinkActive="active" role="tab">Components</a>
     <a class="tabs-links" [routerLink]="['/tools']" routerLinkActive="active" role="tab">Tools</a>
     <a class="tabs-links" [routerLink]="['/community']" routerLinkActive="active" role="tab">Community</a>
+    <a
+      class="tabs-links tabs-links-dev"
+      *ngIf="devMode"
+      [routerLink]="['/dev']"
+      routerLinkActive="active"
+      role="tab"
+    >
+      Dev
+    </a>
   </div>
 
   <div class="external-links">
