@@ -440,3 +440,42 @@ $datepicker-max-width: 382px;
     }
   }
 }
+
+.MuiPickersBasePicker-pickerView {
+  .MuiPickersSlideTransition-transitionContainer {
+    display: block;
+    position: relative;
+  }
+  .MuiPickersSlideTransition-transitionContainer > * {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+  }
+  .MuiPickersSlideTransition-slideEnter-left {
+    transform: translate(100%);
+    will-change: transform;
+  }
+  .MuiPickersSlideTransition-slideEnter-right {
+    transform: translate(-100%);
+    will-change: transform;
+  }
+  .MuiPickersSlideTransition-slideEnterActive {
+    transition: transform 1350ms ease-in-out;
+    transform: translate(0%);
+    will-change: transform;
+  }
+  .MuiPickersSlideTransition-slideExit {
+    transform: translate(0%);
+  }
+  .MuiPickersSlideTransition-slideExitActiveLeft-left {
+    transform: translate(-200%);
+    transition: transform 1050ms cubic-bezier(0.35, 0.8, 0.4, 1) 0ms;
+    will-change: transform;
+  }
+  .MuiPickersSlideTransition-slideExitActiveLeft-right {
+    transform: translate(200%);
+    transition: transform 1050ms cubic-bezier(0.35, 0.8, 0.4, 1) 0ms;
+    will-change: transform;
+  }
+}
