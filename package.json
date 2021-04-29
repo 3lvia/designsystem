@@ -14,8 +14,6 @@
   },
   "scripts": {
     "build:web": "yarn && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run gulp && cd ../web && yarn run build:production",
-    "commitizen-unix": "exec < /dev/tty && git cz --hook",
-    "commitizen-windows": "winpty git cz --hook || true",
     "prettier-elvis": "yarn prettier --write 'packages/elvis/**/*.js'",
     "prettier-doc": "yarn prettier --write 'packages/web/src/**/*.ts'",
     "prettier-comp": "yarn prettier --write 'packages/components/**/*.{js,ts,tsx}'",
@@ -26,7 +24,6 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged && ./scripts/pre-commit.sh",
-      "prepare-commit-msg": "./scripts/commitizen.sh",
       "pre-push": "./scripts/pre-push.sh"
     }
   },
@@ -46,11 +43,6 @@
       "git add"
     ]
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "resolutions": {
     "**/optimist/minimist": "0.2.1",
     "**/react-dev-utils/immer": "^8.0.1",
@@ -64,7 +56,6 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "codelyzer": "^5.2.2",
-    "commitizen": "^4.2.2",
     "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.17.0",
     "husky": "^4.2.5",
