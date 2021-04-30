@@ -6,6 +6,47 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
+      7.7.2
+    </span>
+    <br>
+    <span>
+      April 30, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">...</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">...</a> 
+        </div>
+        <ul>
+          <li>
+            ... 
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Button</a>
+        </div>
+        <ul>
+          <li>
+            Subtitles in tables on mobile have updated typography using the design system typographies.
+          </li>
+          <li>
+            Deprecated danger icon button and removed documentation.
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
       7.7.0
     </span>
     <br>

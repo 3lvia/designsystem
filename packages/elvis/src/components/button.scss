@@ -650,6 +650,7 @@ $loading-dot-sm: 8px;
       }
     }
 
+    // DEPRECATED
     &.e-btn--danger {
       .e-btn__icon
         i:not([class$='color-red']):not([class$='e-icon--color-disabled']):not([class$='e-icon--inverted-disabled-grey-70']) {

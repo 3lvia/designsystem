@@ -209,28 +209,6 @@ export class ButtonDocComponent {
   </div>
 
   <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
-    <div class="e-text-label e-mb-8">Danger</div>
-    <button class="e-btn e-btn--icon e-btn--danger e-btn--lg" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--bin e-icon--color-red"></i>
-        <i class="e-icon e-icon--bin"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--danger" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--bin e-icon--color-red"></i>
-        <i class="e-icon e-icon--bin"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--danger e-btn--sm" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--bin e-icon--color-red"></i>
-        <i class="e-icon e-icon--bin"></i>
-      </span>
-    </button>
-  </div>
-
-  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
     <div class="e-text-label e-mb-8">Loading</div>
     <button class="e-btn e-btn--icon e-btn--lg e-btn--loading" style="margin: 4px">
       <span></span>
