@@ -168,7 +168,7 @@
       .e-accordion__label {
         display: flex;
         justify-content: space-between;
-        padding: 20px 16px 0px 16px;
+        padding: 24px 16px;
         width: 100%;
 
         @include helpers.hover() {
@@ -196,6 +196,7 @@
 
       .e-accordion__content {
         padding-left: 19px;
+        padding-top: 0px;
         transition: opacity 0.17s cubic-bezier(0.4, 0.01, 0.78, 1.1),
           padding-top 0.18s cubic-bezier(0, 0.18, 1, 1);
       }
