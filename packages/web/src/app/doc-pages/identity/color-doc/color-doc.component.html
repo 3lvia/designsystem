@@ -13,11 +13,7 @@
   <app-component-subsection [sectionTitle]="'Primary Colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
-        <div
-          class="display-card"
-          *ngFor="let item of primaryColors"
-          [ngClass]="item.lg ? 'primary' : ''"
-        >
+        <div class="display-card" *ngFor="let item of primaryColors" [ngClass]="item.lg ? 'primary' : ''">
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
               <div
@@ -25,22 +21,10 @@
                 style="text-align: center; padding: 14px"
                 class="display-card-circle"
               >
-                <div
-                  class="e-title-caps"
-                  *ngIf="item.title == 'white'"
-                >Elvia On</div>
-                <div
-                  class="e-title-caps"
-                  *ngIf="item.title == 'green'"
-                >Elvia Charge</div>
-                <div
-                  class="e-title-caps"
-                  *ngIf="item.title == 'black'"
-                >Elvia Off</div>
-                <div
-                  class="e-title-caps"
-                  *ngIf="item.title == 'grey'"
-                >Elvia Dark</div>
+                <div class="e-title-caps" *ngIf="item.title == 'white'">Elvia On</div>
+                <div class="e-title-caps" *ngIf="item.title == 'green'">Elvia Charge</div>
+                <div class="e-title-caps" *ngIf="item.title == 'black'">Elvia Off</div>
+                <div class="e-title-caps" *ngIf="item.title == 'grey'">Elvia Dark</div>
               </div>
             </ng-container>
           </app-copy>
@@ -63,30 +47,18 @@
               "
             >
               <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div
-                class="sub-content e-text-info"
-                *ngIf="!item.textColorBlack"
-              >
+              <div class="sub-content e-text-info">
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--check_circle e-icon--xs"></i>
-                  <span>White ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
                 </div>
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle  e-icon--xs"></i>
-                  <span>Black</span>
-                </div>
-              </div>
-              <div
-                class="sub-content e-text-info"
-                *ngIf="item.textColorBlack"
-              >
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs"></i>
-                  <span>White</span>
-                </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--check_circle e-icon--xs"></i>
-                  <span>Black ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
                 </div>
               </div>
             </div>
@@ -100,16 +72,10 @@
   <app-component-subsection [sectionTitle]="'Signal colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
-        <div
-          class="display-card"
-          *ngFor="let item of signalColors"
-        >
+        <div class="display-card" *ngFor="let item of signalColors">
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
-              <div
-                [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]"
-                class="display-card-circle"
-              >
+              <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
                 <div class="e-title-caps">{{ item.title }}</div>
               </div>
             </ng-container>
@@ -133,30 +99,18 @@
               "
             >
               <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div
-                class="sub-content e-text-info"
-                *ngIf="!item.textColorBlack"
-              >
+              <div class="sub-content e-text-info">
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs"></i>
-                  <span>White ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
                 </div>
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs"></i>
-                  <span>Black</span>
-                </div>
-              </div>
-              <div
-                class="sub-content e-text-info"
-                *ngIf="item.textColorBlack"
-              >
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle  e-icon--xs"></i>
-                  <span>White</span>
-                </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--check_circle  e-icon--xs"></i>
-                  <span>Black ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
                 </div>
               </div>
             </div>
@@ -170,20 +124,11 @@
   <app-component-subsection [sectionTitle]="'Data colors'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
-        <div
-          class="display-card"
-          *ngFor="let item of dataColors"
-        >
+        <div class="display-card" *ngFor="let item of dataColors">
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
-              <div
-                [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]"
-                class="display-card-circle"
-              >
-                <div
-                  class="e-title-caps"
-                  style="text-align: center; padding: 14px"
-                >
+              <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
+                <div class="e-title-caps" style="text-align: center; padding: 14px">
                   {{ item.titleWithSpace }}
                 </div>
               </div>
@@ -208,30 +153,18 @@
               "
             >
               <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div
-                class="sub-content e-text-info"
-                *ngIf="!item.textColorBlack"
-              >
+              <div class="sub-content e-text-info">
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--check_circle e-icon--xs"></i>
-                  <span>White ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
                 </div>
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs"></i>
-                  <span>Black</span>
-                </div>
-              </div>
-              <div
-                class="sub-content e-text-info"
-                *ngIf="item.textColorBlack"
-              >
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs"></i>
-                  <span>White</span>
-                </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--check_circle e-icon--xs"></i>
-                  <span>Black ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
                 </div>
               </div>
             </div>
@@ -245,16 +178,10 @@
   <app-component-subsection [sectionTitle]="'Greys'">
     <ng-container ngProjectAs="sectionContent">
       <div class="display-container">
-        <div
-          class="display-card"
-          *ngFor="let item of greysColors"
-        >
+        <div class="display-card" *ngFor="let item of greysColors">
           <app-copy [message]="'e-bg-' + item.title">
             <ng-container ngProjectAs="copyContent">
-              <div
-                [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]"
-                class="display-card-circle"
-              >
+              <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
                 <div class="e-title-caps">{{ item.title }}</div>
               </div>
             </ng-container>
@@ -278,30 +205,18 @@
               "
             >
               <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div
-                class="sub-content e-text-info"
-                *ngIf="!item.textColorBlack"
-              >
+              <div class="sub-content e-text-info">
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--check_circle e-icon--xs"></i>
-                  <span>White ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
                 </div>
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs"></i>
-                  <span>Black</span>
-                </div>
-              </div>
-              <div
-                class="sub-content e-text-info"
-                *ngIf="item.textColorBlack"
-              >
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--xs"></i>
-                  <span>White</span>
-                </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--check_circle e-icon--xs"></i>
-                  <span>Black ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
                 </div>
               </div>
             </div>
@@ -323,11 +238,7 @@
           Elvia is mainly white and dark grey, with some black components and a touch of green in details such
           as icons, illustration and active states.
           <div>
-            <img
-              style="width: calc(20% + 180px)"
-              class="e-p-24"
-              src="assets/color-doc/color-weight.svg"
-            />
+            <img style="width: calc(20% + 180px)" class="e-p-24" src="assets/color-doc/color-weight.svg" />
           </div>
 
           <app-component-subsubsection [sectionTitle]="'Green'">
@@ -339,16 +250,10 @@
               the green light in between all the white and black.
               <app-do-dont-text>
                 <ng-container ngProjectAs="do">
-                  <img
-                    src="assets/color-doc/a.svg"
-                    style="max-width: 100%"
-                  />
+                  <img src="assets/color-doc/a.svg" style="max-width: 100%" />
                 </ng-container>
                 <ng-container ngProjectAs="dont">
-                  <img
-                    src="assets/color-doc/b.svg"
-                    style="max-width: 100%"
-                  />
+                  <img src="assets/color-doc/b.svg" style="max-width: 100%" />
                 </ng-container>
               </app-do-dont-text>
             </ng-container>
@@ -403,14 +308,8 @@
             class is available.
           </p>
           <p>
-            <app-do-dont
-              [do]="true"
-              [codeHTML]="doCode"
-            ></app-do-dont>
-            <app-do-dont
-              [do]="false"
-              [codeHTML]="dontCode"
-            ></app-do-dont>
+            <app-do-dont [do]="true" [codeHTML]="doCode"></app-do-dont>
+            <app-do-dont [do]="false" [codeHTML]="dontCode"></app-do-dont>
           </p>
         </ng-container>
       </app-component-subsection>
@@ -433,14 +332,8 @@
           </ul>
           <p>All CSS-variables can be used.</p>
           <p>
-            <app-do-dont
-              [do]="true"
-              [codeCSS]="doCodeCSS"
-            ></app-do-dont>
-            <app-do-dont
-              [do]="false"
-              [codeCSS]="dontCodeCSS"
-            ></app-do-dont>
+            <app-do-dont [do]="true" [codeCSS]="doCodeCSS"></app-do-dont>
+            <app-do-dont [do]="false" [codeCSS]="dontCodeCSS"></app-do-dont>
           </p>
         </ng-container>
       </app-component-subsection>

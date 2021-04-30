@@ -72,7 +72,7 @@
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Icon buttons'">
+      <app-component-subsection [sectionTitle]="'Icon'">
         <ng-container ngProjectAs="sectionContent">
           Icon buttons are used for well-known and simple actions such as close, edit, delete etc. They are
           ideal for task based actions where the button should not attract to much attention. Icon button
@@ -81,7 +81,27 @@
             [codeHTML]="exampleIcon"
             [codeInverted]="exampleIconInverted"
           ></app-component-example-v1>
-          <app-when-to-use [whens]="doesExampleIcon" [whenNots]="dontsExampleIcon"></app-when-to-use>
+          <app-component-subsubsection [sectionTitle]="'Circled icon'">
+            <ng-container ngProjectAs="sectionContent">
+              The modifier for circled icon button can be added when circled icon buttons are used alone, and
+              results in a different hover effect than in the normal icon button.
+              <app-component-example-v1
+                [codeHTML]="exampleIconCircles"
+                [codeInverted]="exampleIconCirclesInverted"
+              ></app-component-example-v1>
+              The following icons are examples of typical circled icon button usage:
+              <div class="e-mt-16">
+                <i class="e-icon e-icon--information_circle e-icon--sm e-mr-16"></i>
+                <i class="e-icon e-icon--remove_circle e-icon--sm e-mr-16"></i>
+                <i class="e-icon e-icon--question_circle e-icon--sm"></i>
+              </div>
+              <div>
+                <i class="e-icon e-icon--information_circle-filled-color e-icon--sm e-mr-16"></i>
+                <i class="e-icon e-icon--remove_circle-filled-color e-icon--sm e-mr-16"></i>
+                <i class="e-icon e-icon--question_circle-filled-color e-icon--sm"></i>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Touch target'">
             <ng-container ngProjectAs="sectionContent">
               The icon buttons all have at least 32 pixel touch dimensions to ensure that they are
@@ -95,27 +115,7 @@
               </div>
             </ng-container>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Circled icons'">
-            <ng-container ngProjectAs="sectionContent">
-              Circled Icons that can be used for the circled icon-button.
-              <div class="e-mt-16">
-                <i class="e-icon e-icon--information_circle e-icon--sm e-mr-8"></i>
-                <i class="e-icon e-icon--add_circle e-icon--sm e-mr-8"></i>
-                <i class="e-icon e-icon--subtract_circle e-icon--sm e-mr-8"></i>
-                <i class="e-icon e-icon--check_circle e-icon--sm e-mr-8"></i>
-                <i class="e-icon e-icon--warning_circle e-icon--sm e-mr-8"></i>
-                <i class="e-icon e-icon--question_circle e-icon--sm"></i>
-              </div>
-              <div>
-                <i class="e-icon e-icon--information_circle-filled-color e-icon--sm e-mr-8"></i>
-                <i class="e-icon e-icon--add_circle-filled-color e-icon--sm e-mr-8"></i>
-                <i class="e-icon e-icon--subtract_circle-filled-color e-icon--sm e-mr-8"></i>
-                <i class="e-icon e-icon--check_circle-filled-color e-icon--sm e-mr-8"></i>
-                <i class="e-icon e-icon--warning_circle-filled-color e-icon--sm e-mr-8"></i>
-                <i class="e-icon e-icon--question_circle-filled-color e-icon--sm"></i>
-              </div>
-            </ng-container>
-          </app-component-subsubsection>
+          <app-when-to-use [whens]="doesExampleIcon" [whenNots]="dontsExampleIcon"></app-when-to-use>
         </ng-container>
       </app-component-subsection>
 
