@@ -59,9 +59,6 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
   </button>
-  <button class="e-btn e-btn--danger e-m-8">
-    <span class="e-btn__title">Danger</span>
-  </button>
 </div>
 `;
 
@@ -87,9 +84,6 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
     <span></span>
-  </button>
-  <button class="e-btn e-btn--danger e-btn--inverted e-m-8">
-    <span class="e-btn__title">Danger</span>
   </button>
 </div>
 `;
@@ -190,6 +184,36 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
     <span></span>
+  </button>
+</div>
+`;
+
+  exampleDanger = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
+  <button class="e-btn e-btn--danger e-m-8">
+    <span class="e-btn__title">Danger</span>
+  </button>
+  <button class="e-btn e-btn--danger e-btn--loading e-m-8">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button class="e-btn e-btn--danger e-m-8" disabled>
+    <span class="e-btn__title">Danger disabled</span>
+  </button>
+</div>
+`;
+
+  exampleDangerInverted = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
+  <button class="e-btn e-btn--danger e-btn--inverted e-m-8">
+    <span class="e-btn__title">Danger</span>
+  </button>
+  <button class="e-btn e-btn--danger e-btn--loading e-btn--inverted e-m-8">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button class="e-btn e-btn--danger e-btn--inverted e-m-8" disabled>
+    <span class="e-btn__title">Danger disabled</span>
   </button>
 </div>
 `;

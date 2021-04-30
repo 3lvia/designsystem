@@ -168,15 +168,6 @@ $loading-dot-sm: 8px;
       }
     }
 
-    &.e-btn--danger {
-      .e-btn__icon i {
-        visibility: visible;
-      }
-      background: colors.color('red');
-      border-color: colors.color('red');
-      color: colors.color('font-color');
-    }
-
     &.e-btn---disabled,
     &:disabled {
       background: colors.color('disabled');
@@ -458,6 +449,75 @@ $loading-dot-sm: 8px;
       .e-btn__icon i {
         visibility: visible;
       }
+    }
+  }
+
+  // DANGER BTN
+  &.e-btn--danger {
+    .e-btn__icon i {
+      visibility: visible;
+    }
+    background: colors.color('red');
+    border-color: colors.color('red');
+    color: colors.color('font-color-light');
+
+    &.e-btn--inverted {
+      &.e-btn---disabled,
+      &:disabled {
+        color: colors.color('font-color-light');
+      }
+      &.e-btn---hover,
+      &.e-btn---active,
+      &:active:not(:disabled):not(.e-btn--loading) {
+        background: colors.color('elvia-on');
+        border-color: colors.color('elvia-on');
+        color: colors.color('font-color');
+      }
+      @include helpers.hover() {
+        &:hover:not(:disabled):not(.e-btn--loading) {
+          background: colors.color('elvia-on');
+          border-color: colors.color('elvia-on');
+          color: colors.color('font-color');
+        }
+      }
+      &.e-btn---active,
+      &:active:not(:disabled):not(.e-btn--loading) {
+        border-color: transparent;
+        background-clip: padding-box;
+      }
+    }
+
+    &.e-btn--loading {
+      span {
+        background-color: colors.color('elvia-on');
+      }
+    }
+
+    &.e-btn---disabled,
+    &:disabled {
+      background: colors.color('red');
+      border-color: colors.color('red');
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    &.e-btn---hover,
+    &.e-btn---active,
+    &:active:not(:disabled):not(.e-btn--loading) {
+      background: colors.color('elvia-off');
+      border-color: colors.color('elvia-off');
+      color: colors.color('font-color-light');
+    }
+    @include helpers.hover() {
+      &:hover:not(:disabled):not(.e-btn--loading) {
+        background: colors.color('elvia-off');
+        border-color: colors.color('elvia-off');
+        color: colors.color('font-color-light');
+      }
+    }
+    &.e-btn---active,
+    &:active:not(:disabled):not(.e-btn--loading) {
+      border-color: transparent;
+      background-clip: padding-box;
     }
   }
 

@@ -3,6 +3,35 @@
 <!-- 🐝 Bug Fixes -->
 
 <table>
+    <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      7.7.2
+    </span>
+    <br>
+    <span>
+      April 30, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Button</a> 
+        </div>
+        <ul>
+          <li>
+            Content loader has new modifier for grey backgrounds.
+          </li>
+          <li>
+            The danger button hover color has been changed and documentation for more use cases has been updated. Disabled states has also been added to documentation.
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
