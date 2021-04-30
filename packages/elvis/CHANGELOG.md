@@ -14,22 +14,13 @@
     </span>
     </td>
     <td class="changelog-content">
-      <div class="changelog-section-title">💥 New Features</div>
-        <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">...</a> &
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">...</a> 
-        </div>
-        <ul>
-          <li>
-            ... 
-          </li>
-        </ul>
-      </div>
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Button</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Button</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/color#Overview">Color</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>
         <ul>
           <li>
@@ -37,6 +28,12 @@
           </li>
           <li>
             Deprecated danger icon button and removed documentation.
+          </li>
+          <li>
+            Red signal color has been updated, #FF0000 -> #EE0701, for better contrast and validation against both black and white.
+          </li>
+          <li>
+            Group accordion have updated spacing between title and text. 
           </li>
         </ul>
       </div>

@@ -54,7 +54,7 @@ export const signalColors: Color[] = [
   },
   {
     title: 'red',
-    hex: '#FF0000',
+    hex: '#EE0701',
     rgba: '255 / 0 / 0',
     textColorBlack: true,
     contrast: 'AA',

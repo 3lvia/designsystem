@@ -529,7 +529,7 @@ body {
 .e-alert {
   display: inline-flex;
   box-sizing: border-box;
-  border: 2px solid #ff0000;
+  border: 2px solid #ee0701;
   background: #fff;
   flex-direction: row;
   min-width: 270px;
@@ -665,7 +665,7 @@ body {
 }
 
 .e-alert.e-alert--global.e-alert--error {
-  border-color: #ff0000;
+  border-color: #ee0701;
 }
 
 .e-alert.e-alert--global.e-alert--expandable .e-alert__icon {
@@ -1205,15 +1205,15 @@ input:focus {
 }
 
 :root {
-  --e-red: #ff0000;
+  --e-red: #ee0701;
 }
 
 .e-text-red {
-  color: #ff0000 !important;
+  color: #ee0701 !important;
 }
 
 .e-bg-red {
-  background: #ff0000 !important;
+  background: #ee0701 !important;
   color: #000 !important;
 }
 
@@ -1803,8 +1803,8 @@ input:focus {
 }
 
 .e-btn.e-btn--primary.e-btn--danger, .e-btn.e-btn--danger {
-  background: #ff0000;
-  border-color: #ff0000;
+  background: #ee0701;
+  border-color: #ee0701;
   color: #000;
 }
 
@@ -2883,7 +2883,7 @@ input:focus {
 .e-input.e-input---invalid > input, .e-input.e-input---invalid > textarea,
 .e-input > input:invalid,
 .e-input > textarea:invalid {
-  border: 2px solid #ff0000;
+  border: 2px solid #ee0701;
   padding: 11px 15px;
 }
 
@@ -2949,7 +2949,7 @@ input:focus {
 .e-input.e-input--compact.e-input---invalid textarea,
 .e-input.e-input--compact input:invalid,
 .e-input.e-input--compact textarea:invalid {
-  border: 2px solid #ff0000;
+  border: 2px solid #ee0701;
   padding: 4px 9px;
 }
 
@@ -3964,7 +3964,7 @@ input:focus {
 .e-label.e-label--red::before {
   content: " ";
   position: absolute;
-  background-color: #ff0000;
+  background-color: #ee0701;
 }
 
 .e-label.e-label--green-apple {
@@ -6364,7 +6364,7 @@ input:focus {
 .e-progress__bar.e-progress__bar--error {
   width: 100%;
   height: 6px;
-  background-color: #ff0000;
+  background-color: #ee0701;
   -o-animation: none;
   -moz-animation: none;
   -webkit-animation: none;
@@ -7090,7 +7090,7 @@ input:focus {
 
 .e-stepper .e-stepper__step.e-stepper__step--error .e-stepper__step-number {
   color: #000;
-  border-color: #ff0000;
+  border-color: #ee0701;
 }
 
 .e-stepper .e-stepper__step.e-stepper__step--done .e-stepper__step-number, .e-stepper .e-stepper__step.e-stepper__step--active-done .e-stepper__step-number {
@@ -7310,9 +7310,14 @@ input:focus {
 
 .e-table-mobile tbody tr:first-of-type th {
   background: #f4f4f4;
-  font-size: 17px;
-  color: #000;
+  font-family: Red Hat Text, Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 28px;
   font-weight: 500;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: inherit;
 }
 
 .e-table-mobile tbody th,
@@ -7355,7 +7360,14 @@ input:focus {
 }
 
 .e-table-mobile.e-table-mobile--compact tbody tr:first-of-type th {
-  font-size: 15px;
+  font-family: Red Hat Text, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 500;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: inherit;
 }
 
 .e-table .e-table__input,
@@ -7942,7 +7954,7 @@ input:focus {
 }
 
 .e-checkbox.e-checkbox---invalid .e-checkbox__mark {
-  border-color: #ff0000;
+  border-color: #ee0701;
 }
 
 .e-checkbox input {
@@ -7992,7 +8004,7 @@ input:focus {
 }
 
 .e-checkbox input:invalid ~ .e-checkbox__mark {
-  border-color: #ff0000;
+  border-color: #ee0701;
 }
 
 .e-checkbox.e-checkbox---checked .e-checkbox__mark, .e-checkbox.e-checkbox---disabled-checked .e-checkbox__mark, .e-checkbox input:checked ~ .e-checkbox__mark {
@@ -8577,7 +8589,7 @@ input:focus {
 }
 
 .e-radio.e-radio--sm input:invalid ~ .e-radio__mark {
-  border-color: #ff0000;
+  border-color: #ee0701;
 }
 
 .e-radio.e-radio--sm input:disabled ~ .e-radio__mark {
@@ -8632,7 +8644,7 @@ input:focus {
 }
 
 .e-radio input:invalid ~ .e-radio__mark {
-  border-color: #ff0000;
+  border-color: #ee0701;
 }
 
 .e-radio input:disabled ~ .e-radio__mark {
@@ -8778,7 +8790,7 @@ input:focus {
 }
 
 .e-radio.e-radio---invalid .e-radio__mark {
-  border-color: #ff0000;
+  border-color: #ee0701;
 }
 
 .e-radio__mark {
