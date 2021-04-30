@@ -60,6 +60,29 @@
     </ng-container>
   </app-component-section>
 
+  <!-- COLOR -->
+  <app-component-section [sectionTitle]="'Color'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'White background'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1
+            [codeHTML]="exampleContentLoader"
+            [codeInverted]="exampleContentLoaderInverted"
+          ></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Grey background'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1
+            [codeHTML]="exampleContentLoaderGrey"
+            [codeInverted]="exampleContentLoaderGreyInverted"
+            [greyBg]="true"
+          ></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!-- USAGE -->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
