@@ -3,15 +3,15 @@
 <!-- 🐝 Bug Fixes -->
 
 <table>
-    <tr class="changelog-row">
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
-    <span class="e-title-sm">
-      7.7.2
-    </span>
-    <br>
-    <span>
-      April 30, 2021
-    </span>
+      <span class="e-title-sm">
+        7.7.2
+      </span>
+      <br>
+      <span>
+        May 3, 2021
+      </span>
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
@@ -50,6 +50,31 @@
           </li>
           <li>
             Group accordion have updated spacing between title and text. 
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      7.7.1
+    </span>
+    <br>
+    <span>
+      April 30, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+        </div>
+        <ul>
+          <li>
+            New icons added. 
           </li>
         </ul>
       </div>
