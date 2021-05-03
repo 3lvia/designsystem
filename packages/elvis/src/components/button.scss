@@ -470,9 +470,7 @@ $loading-dot-sm: 8px;
       i {
         visibility: hidden;
       }
-      i[class*='inverted'],
-      i[class*='color-white'],
-      i[class*='e-icon--disabled-inverted'] {
+      i[class*='color-white'] {
         visibility: visible;
       }
     }
@@ -488,8 +486,13 @@ $loading-dot-sm: 8px;
         background: colors.color('elvia-on');
         border-color: colors.color('elvia-on');
         color: colors.color('font-color');
-        .e-btn__icon i {
-          visibility: visible;
+        .e-btn__icon {
+          i:not([class*='color-white']) {
+            visibility: visible;
+          }
+          i[class*='color-white'] {
+            visibility: hidden;
+          }
         }
       }
       @include helpers.hover() {
@@ -497,8 +500,13 @@ $loading-dot-sm: 8px;
           background: colors.color('elvia-on');
           border-color: colors.color('elvia-on');
           color: colors.color('font-color');
-          .e-btn__icon i {
-            visibility: visible;
+          .e-btn__icon {
+            i:not([class*='color-white']) {
+              visibility: visible;
+            }
+            i[class*='color-white'] {
+              visibility: hidden;
+            }
           }
         }
       }
@@ -528,12 +536,30 @@ $loading-dot-sm: 8px;
       background: colors.color('elvia-off');
       border-color: colors.color('elvia-off');
       color: colors.color('font-color-light');
+      .e-btn__icon {
+        i,
+        i:not([class$='inverted']) {
+          visibility: hidden;
+        }
+        i[class*='color-white'] {
+          visibility: visible;
+        }
+      }
     }
     @include helpers.hover() {
       &:hover:not(:disabled):not(.e-btn--loading) {
         background: colors.color('elvia-off');
         border-color: colors.color('elvia-off');
         color: colors.color('font-color-light');
+        .e-btn__icon {
+          i,
+          i:not([class*='inverted']) {
+            visibility: hidden;
+          }
+          i[class*='color-white'] {
+            visibility: visible;
+          }
+        }
       }
     }
     &.e-btn---active,

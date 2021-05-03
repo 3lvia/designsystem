@@ -236,7 +236,6 @@ export class ButtonDocComponent {
     <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--bin e-icon--color-white"></i>
-      <i class="e-icon e-icon--bin"></i>
     </span>
   </button>
   <button class="e-btn e-btn--danger e-btn--loading e-m-8">
@@ -248,7 +247,6 @@ export class ButtonDocComponent {
     <span class="e-btn__title">Disabled</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--bin e-icon--color-white"></i>
-      <i class="e-icon e-icon--bin"></i>
     </span>
   </button>
 </div>
