@@ -43,6 +43,11 @@ export class ContentLoaderDocComponent {
 <div class="e-content-loader e-content-loader--text e-content-loader--inverted e-mt-24"></div>
 <div class="e-content-loader e-content-loader--text e-content-loader--short e-content-loader--inverted e-mt-24"></div>
 `;
+  exampleContentLoaderGrey = `<div class="e-content-loader e-content-loader--grey"></div>
+`;
+  exampleContentLoaderDark = `<div class="e-content-loader e-content-loader--inverted"></div>
+`;
+
   exampleContentLoaderExample = `<div class="e-grid">
   <!-- SMALL CIRCLES -->
   <div class="row e-grid-gutters-int e-grid-gutters-vertical">

@@ -45,10 +45,10 @@ export class ButtonDocComponent {
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
     </span>
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
   </button>
   <button class="e-btn e-m-8">
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
@@ -59,8 +59,12 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
   </button>
-  <button class="e-btn e-btn--danger e-m-8">
-    <span class="e-btn__title">Danger</span>
+  <button class="e-btn e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled-light"></i>
+      <i class="e-icon e-icon--download"></i>
+    </span>
   </button>
 </div>
 `;
@@ -74,10 +78,10 @@ export class ButtonDocComponent {
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
     </span>
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
   </button>
   <button class="e-btn e-btn--inverted e-m-8">
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
@@ -88,8 +92,12 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
   </button>
-  <button class="e-btn e-btn--danger e-btn--inverted e-m-8">
-    <span class="e-btn__title">Danger</span>
+  <button class="e-btn e-btn--inverted e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled-light"></i>
+      <i class="e-icon e-icon--download"></i>
+    </span>
   </button>
 </div>
 `;
@@ -103,10 +111,10 @@ export class ButtonDocComponent {
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
     </i></span>
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
   </button>
   <button class="e-btn e-btn--secondary e-m-8">
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
@@ -116,6 +124,13 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
     <span></span>
+  </button>
+  <button class="e-btn e-btn--secondary e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled"></i>
+      <i class="e-icon e-icon--download e-icon--color-disabled"></i>
+    </span>
   </button>
 </div>
 `;
@@ -129,10 +144,10 @@ export class ButtonDocComponent {
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
     </i></span>
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
   </button>
   <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
@@ -143,29 +158,42 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
   </button>
+  <button class="e-btn e-btn--secondary e-btn--inverted e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled-light"></i>
+      <i class="e-icon e-icon--download"></i>
+    </span>
+  </button>
 </div>
 `;
 
   example3 = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
-<button class="e-btn e-btn--tertiary e-m-8">
-  <span class="e-btn__title">Tertiary</span>
-</button>
-<button class="e-btn e-btn--tertiary e-m-8">
-  <span class="e-btn__icon">
-    <i class="e-icon e-icon--download"></i>
-  </span>
-  <span class="e-btn__title">Tertiary</span>
-</button>
-<button class="e-btn e-btn--tertiary e-m-8">
-  <span class="e-btn__title">Tertiary</span>
-  <span class="e-btn__icon">
-    <i class="e-icon e-icon--download"></i>
-  </span>
-</button>
- <button class="e-btn e-btn--tertiary e-btn--loading e-m-8">
+  <button class="e-btn e-btn--tertiary e-m-8">
+    <span class="e-btn__title">Tertiary</span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-m-8">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download"></i>
+    </span>
+    <span class="e-btn__title">Tertiary</span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-m-8">
+    <span class="e-btn__title">Tertiary</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download"></i>
+    </span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-btn--loading e-m-8">
     <span></span>
     <span></span>
     <span></span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled"></i>
+    </span>
   </button>
 </div>
 `;
@@ -186,181 +214,122 @@ export class ButtonDocComponent {
       <i class="e-icon e-icon--download e-icon--inverted"></i>
     </span>
   </button>
- <button class="e-btn e-btn--tertiary e-btn--loading e-btn--inverted e-m-8">
+  <button class="e-btn e-btn--tertiary e-btn--loading e-btn--inverted e-m-8">
     <span></span>
     <span></span>
     <span></span>
   </button>
+  <button class="e-btn e-btn--tertiary e-btn--inverted e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled-light"></i>
+    </span>
+  </button>
 </div>
 `;
 
-  exampleIcon = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
-  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
-    <div class="e-text-label e-mb-8">Transparent</div>
-    <button class="e-btn e-btn--icon e-btn--lg" style="margin: 4px">
-      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
-    </button>
-    <button class="e-btn e-btn--icon" style="margin: 4px">
-      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--sm" style="margin: 4px">
-      <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
-    </button>
-  </div>
-
-  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
-    <div class="e-text-label e-mb-8">Danger</div>
-    <button class="e-btn e-btn--icon e-btn--danger e-btn--lg" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--bin e-icon--color-red"></i>
-        <i class="e-icon e-icon--bin"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--danger" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--bin e-icon--color-red"></i>
-        <i class="e-icon e-icon--bin"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--danger e-btn--sm" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--bin e-icon--color-red"></i>
-        <i class="e-icon e-icon--bin"></i>
-      </span>
-    </button>
-  </div>
-
-  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
-    <div class="e-text-label e-mb-8">Loading</div>
-    <button class="e-btn e-btn--icon e-btn--lg e-btn--loading" style="margin: 4px">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--loading" style="margin: 4px">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--sm e-btn--loading" style="margin: 4px">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-
-  <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
-    <div class="e-text-label e-mb-8">Circled</div>
-    <button class="e-btn e-btn--icon e-btn--circled e-btn--lg e-m-8">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--information_circle"></i>
-        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--circled e-m-8">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--information_circle"></i>
-        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--circled e-btn--sm e-m-8">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--information_circle"></i>
-        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-      </span>
-    </button>
-  </div>
-
+  exampleDanger = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
+  <button class="e-btn e-btn--danger e-m-8">
+    <span class="e-btn__title">Danger</span>
+  </button>
+  <button class="e-btn e-btn--danger e-m-8">
+    <span class="e-btn__title">With icon</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--bin e-icon--color-white"></i>
+    </span>
+  </button>
+  <button class="e-btn e-btn--danger e-btn--loading e-m-8">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button class="e-btn e-btn--danger e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--bin e-icon--color-white"></i>
+    </span>
+  </button>
 </div>
 `;
 
-  exampleIconInverted = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
-  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
-    <div class="e-text-label e-mb-8 e-text-white">Transparent</div>
-    <button class="e-btn e-btn--icon e-btn--inverted" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--upload"></i>
-        <i class="e-icon e-icon--upload e-icon--inverted e-btn--lg"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--inverted" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--upload"></i>
-        <i class="e-icon e-icon--upload e-icon--inverted"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--inverted e-btn--sm" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--upload"></i>
-        <i class="e-icon e-icon--upload e-icon--inverted"></i>
-      </span>
-    </button>
-  </div>
-
-  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
-    <div class="e-text-label e-mb-8 e-text-white">Danger</div>
-    <button class="e-btn e-btn--icon e-btn--danger e-btn--inverted e-btn--lg" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--bin e-icon--color-red"></i>
-        <i class="e-icon e-icon--bin"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--danger e-btn--inverted" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--bin e-icon--color-red"></i>
-        <i class="e-icon e-icon--bin"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--danger e-btn--inverted e-btn--sm" style="margin: 4px">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--bin e-icon--color-red"></i>
-        <i class="e-icon e-icon--bin"></i>
-      </span>
-    </button>
-  </div>
-
-  <div class="e-mr-40" style="display: flex; flex-direction: column; align-content:center; align-items: center;">
-    <div class="e-text-label e-mb-8">Loading</div>
-    <button class="e-btn e-btn--icon e-btn--lg e-btn--inverted e-btn--loading" style="margin: 4px">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--inverted e-btn--loading" style="margin: 4px">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--sm e-btn--inverted e-btn--loading" style="margin: 4px">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-
-  <div style="display: flex; flex-direction: column; align-content:center; align-items: center;">
-    <div class="e-text-label e-mb-8 e-text-white">Circled</div>
-    <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-btn--lg e-m-8">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--information_circle e-icon--inverted e-btn--lg"></i>
-        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-m-8">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--information_circle e-icon--inverted"></i>
-        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-      </span>
-    </button>
-    <button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-btn--sm e-m-8">
-      <span class="e-btn__icon">
-        <i class="e-icon e-icon--information_circle e-icon--inverted"></i>
-        <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
-      </span>
-    </button>
-  </div>
-
+  exampleDangerInverted = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
+  <button class="e-btn e-btn--danger e-btn--inverted e-m-8">
+    <span class="e-btn__title">Danger</span>
+  </button>
+  <button class="e-btn e-btn--danger e-btn--inverted e-m-8">
+    <span class="e-btn__title">With icon</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--bin e-icon--color-white"></i>
+      <i class="e-icon e-icon--bin"></i>
+    </span>
+  </button>
+  <button class="e-btn e-btn--danger e-btn--loading e-btn--inverted e-m-8">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <button class="e-btn e-btn--danger e-btn--inverted e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--bin e-icon--color-white"></i>
+      <i class="e-icon e-icon--bin"></i>
+    </span>
+  </button>
 </div>
+`;
+
+  exampleIcon = `<button class="e-btn e-btn--icon e-mr-8">
+  <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
+</button>
+<button class="e-btn e-btn--icon e-btn--loading">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<button class="e-btn e-btn--icon e-mr-8" disabled>
+  <span class="e-btn__icon"><i class="e-icon e-icon--upload e-icon--color-disabled"></i></span>
+</button>
+`;
+
+  exampleIconInverted = `<button class="e-btn e-btn--icon e-btn--inverted e-mr-8">
+  <span class="e-btn__icon"><i class="e-icon e-icon--upload e-icon--inverted"></i></span>
+</button>
+<button class="e-btn e-btn--icon e-btn--loading e-btn--inverted">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<button class="e-btn e-btn--icon e-btn--inverted" disabled>
+  <span class="e-btn__icon"><i class="e-icon e-icon--upload e-icon--color-disabled"></i></span>
+</button>
+`;
+
+  exampleIconCircles = `<button class="e-btn e-btn--icon e-btn--circled e-mr-8">
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--information_circle"></i>
+    <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+  </span>
+</button>
+<button class="e-btn e-btn--icon e-btn--circled" disabled>
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--information_circle e-icon--color-disabled"></i>
+    <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+  </span>
+</button>
+`;
+
+  exampleIconCirclesInverted = `<button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-mr-8">
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--information_circle e-icon--inverted"></i>
+    <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+  </span>
+</button>
+<button class="e-btn e-btn--icon e-btn--circled e-btn--inverted" disabled>
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--information_circle e-icon--color-disabled"></i>
+    <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+  </span>
+</button>
 `;
 
   sizesHTML = `<div style="display:flex; flex-direction:row; flex-wrap: wrap; align-items: center;">

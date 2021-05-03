@@ -31,6 +31,16 @@
       background: colors.color('grey-90');
     }
   }
+  &.e-content-loader--grey {
+    &::after {
+      background: colors.color('grey-10');
+    }
+    &.e-content-loader--inverted {
+      &::after {
+        background: colors.color('grey-90');
+      }
+    }
+  }
 
   &.e-content-loader--circle {
     &:after {

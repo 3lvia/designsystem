@@ -5,6 +5,6 @@ export interface Color {
   hex: string;
   rgba: string;
   lg?: boolean;
-  textColorBlack: boolean;
-  contrast: string;
+  contrastBlack?: string;
+  contrastWhite?: string;
 }
