@@ -8,8 +8,8 @@ export type AccordionType = 'normal' | 'overflow';
 
 export interface AccordionProps {
   content: string | HTMLElement;
-  openLabel: string;
-  closeLabel: string;
+  openLabel?: string;
+  closeLabel?: string;
   labelPosition: AccordionLabelPosition;
   size: AccordionSize;
   type: AccordionType;
@@ -182,8 +182,8 @@ const AccordionContent = styled.div`
 
 const Accordion: FC<AccordionProps> = ({
   content,
-  openLabel = undefined,
-  closeLabel = undefined,
+  openLabel,
+  closeLabel,
   labelPosition = 'center',
   size = 'medium',
   type = 'normal',
