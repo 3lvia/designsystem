@@ -29,7 +29,7 @@
               Red signal color has been updated, #FF0000 -> #EE0701, for better contrast and validation against both black and white.
             </li>
             <li>
-              The danger button hover color has been changed and documentation for more use cases has been updated. Disabled states has also been added to documentation.
+              The danger button hover color has been changed and documentation for more use cases has been updated. Disabled states have also been added to documentation.
             </li>
           </ul>
         </div>
