@@ -14,6 +14,23 @@
   </div>
   {{ date }}
 
+  <h2>Accordion</h2>
+  <elvia-accordion
+    content="any text of your choice"
+    openLabel="Show"
+    closedLabel="Hide"
+    size="medium"
+    type="normal"
+  ></elvia-accordion>
+
+  <h3>Accordion Custom Content</h3>
+  <elvia-accordion type="normal">
+    <div slot="content">
+      <h3>Hello there</h3>
+      <p>An important paragraph</p>
+      <button>A button</button>
+    </div>
+  </elvia-accordion>
   <h2>Tabs</h2>
   <div style="margin-top: 16px; background: #262626">
     <elvia-tabs
@@ -31,6 +48,13 @@
   {{ value }}
 
   <hr style="margin: 40px 0" />
+  <<<<<<< HEAD =======
+  <elvia-testing [value]="counterValue" (valueOnChange)="counterValue = $event.detail.value"></elvia-testing>
+  {{ counterValue }}
+  <button (click)="counterValue = counterValue + 1">++</button>
+
+  <hr style="margin: 40px 0" />
+  >>>>>>> e3a48e1feac217880a81eb2e55ccb940d7259697
 
   <h2>Popover</h2>
   <div style="display: flex; flex-direction: column; align-items: flex-end">

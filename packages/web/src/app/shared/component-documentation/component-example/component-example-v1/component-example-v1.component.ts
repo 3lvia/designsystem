@@ -23,6 +23,7 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   @Input() noTablet = false;
   @Input() noDesktop = false;
   @Input() greyBg = false;
+  @Input() darkGreyBg = false;
   @Input() overwriteHeight: number;
   @Input() overwriteHeightTablet: number;
   @Input() overwriteHeightPhone: number;

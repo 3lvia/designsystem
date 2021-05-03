@@ -6,7 +6,6 @@ const svgIcons = require('@elvia/elvis-assets-icons/icons.cjs.js');
 const resolve = require('resolve');
 
 async function copyIconsConfig() {
-
   const fileLocation = resolve.sync('@elvia/elvis-assets-icons/config/icons.config.js');
 
   let iconsConfig = fs.readFileSync(fileLocation);

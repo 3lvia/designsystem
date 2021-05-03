@@ -10,4 +10,4 @@ import { PageStructureModule } from 'src/app/shared/page-structure/page-structur
   declarations: [DevStartComponent],
   exports: [DevStartComponent],
 })
-export class DevStartModule { }
+export class DevStartModule {}

@@ -155,9 +155,7 @@ $grey10: colors.color('grey-10');
 
   tbody tr:first-of-type th {
     background: colors.color('grey-05');
-    font-size: 17px;
-    color: colors.color('font-color');
-    font-weight: 500;
+    @include typography.typography('text-md-strong');
   }
   tbody th,
   tbody td {
@@ -191,7 +189,7 @@ $grey10: colors.color('grey-10');
       line-height: 21px;
     }
     tbody tr:first-of-type th {
-      font-size: 15px;
+      @include typography.typography('text-sm-strong');
     }
   }
 }

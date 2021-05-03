@@ -7,5 +7,6 @@ import { Component, Input } from '@angular/core';
 })
 export class ComponentSubsectionComponent {
   @Input() sectionTitle = '';
+  @Input() propertiesClass = '';
   @Input() figmaOnly = false;
 }

@@ -645,7 +645,7 @@ export const eCommunity: EItems[] = [
     title: 'Contact',
     // tslint:disable-next-line: max-line-length
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
@@ -659,7 +659,7 @@ export const eCommunity: EItems[] = [
     title: 'Contribute',
     // tslint:disable-next-line: max-line-length
     description: `To contribute, or if you have any question, you can contact us on slack:
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
@@ -673,7 +673,7 @@ export const eCommunity: EItems[] = [
     title: 'FAQ',
     // tslint:disable-next-line: max-line-length
     description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://hafslundnett.slack.com/archives/C01302LBTC2" target="_blank" >
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,

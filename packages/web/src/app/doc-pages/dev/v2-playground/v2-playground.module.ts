@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 
+import '@elvia/elvis-accordion';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-tabs';
 import '@elvia/elvis-progress-linear';
@@ -27,4 +28,4 @@ import '@elvia/elvis-datepicker';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [v2PlaygroundComponent],
 })
-export class v2PlaygroundModule { }
+export class v2PlaygroundModule {}

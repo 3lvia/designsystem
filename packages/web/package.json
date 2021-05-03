@@ -24,6 +24,7 @@
     "@angular/router": "^10.1.1",
     "@elvia/elvis": "*",
     "@elvia/elvis-assets-icons": "*",
+    "@elvia/elvis-accordion": "*",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-tabs": "*",
