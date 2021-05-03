@@ -237,6 +237,9 @@ $loading-dot-sm: 8px;
         border-color: colors.color('grey-70');
         color: colors.color('grey-70');
         cursor: not-allowed;
+        .e-btn__icon {
+          opacity: 0.3;
+        }
       }
 
       .e-btn__icon {
@@ -348,6 +351,9 @@ $loading-dot-sm: 8px;
         background: none;
         cursor: not-allowed;
         border-bottom: none;
+        .e-btn__icon {
+          opacity: 0.3;
+        }
       }
 
       @include helpers.hover() {
@@ -611,6 +617,9 @@ $loading-dot-sm: 8px;
         color: colors.color('grey-70');
         background: none;
         cursor: not-allowed;
+        .e-btn__icon {
+          opacity: 0.3;
+        }
       }
 
       &:focus {

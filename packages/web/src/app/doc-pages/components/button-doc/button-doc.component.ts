@@ -59,6 +59,13 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
   </button>
+  <button class="e-btn e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled-light"></i>
+      <i class="e-icon e-icon--download"></i>
+    </span>
+  </button>
 </div>
 `;
 
@@ -84,6 +91,13 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
     <span></span>
+  </button>
+  <button class="e-btn e-btn--inverted e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled-light"></i>
+      <i class="e-icon e-icon--download"></i>
+    </span>
   </button>
 </div>
 `;
@@ -111,6 +125,13 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
   </button>
+  <button class="e-btn e-btn--secondary e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled"></i>
+      <i class="e-icon e-icon--download e-icon--color-disabled"></i>
+    </span>
+  </button>
 </div>
 `;
 
@@ -137,29 +158,42 @@ export class ButtonDocComponent {
     <span></span>
     <span></span>
   </button>
+  <button class="e-btn e-btn--secondary e-btn--inverted e-m-8" disabled>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled-light"></i>
+      <i class="e-icon e-icon--download"></i>
+    </span>
+  </button>
 </div>
 `;
 
   example3 = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
-<button class="e-btn e-btn--tertiary e-m-8">
-  <span class="e-btn__title">Tertiary</span>
-</button>
-<button class="e-btn e-btn--tertiary e-m-8">
-  <span class="e-btn__icon">
-    <i class="e-icon e-icon--download"></i>
-  </span>
-  <span class="e-btn__title">Tertiary</span>
-</button>
-<button class="e-btn e-btn--tertiary e-m-8">
-  <span class="e-btn__title">Tertiary</span>
-  <span class="e-btn__icon">
-    <i class="e-icon e-icon--download"></i>
-  </span>
-</button>
- <button class="e-btn e-btn--tertiary e-btn--loading e-m-8">
+  <button class="e-btn e-btn--tertiary e-m-8">
+    <span class="e-btn__title">Tertiary</span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-m-8">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download"></i>
+    </span>
+    <span class="e-btn__title">Tertiary</span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-m-8">
+    <span class="e-btn__title">Tertiary</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download"></i>
+    </span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-btn--loading e-m-8">
     <span></span>
     <span></span>
     <span></span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-m-8" disabled>
+    <span class="e-btn__title">Tertiary</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled"></i>
+    </span>
   </button>
 </div>
 `;
@@ -180,10 +214,16 @@ export class ButtonDocComponent {
       <i class="e-icon e-icon--download e-icon--inverted"></i>
     </span>
   </button>
- <button class="e-btn e-btn--tertiary e-btn--loading e-btn--inverted e-m-8">
+  <button class="e-btn e-btn--tertiary e-btn--loading e-btn--inverted e-m-8">
     <span></span>
     <span></span>
     <span></span>
+  </button>
+  <button class="e-btn e-btn--tertiary e-btn--inverted e-m-8" disabled>
+    <span class="e-btn__title">Tertiary</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--download e-icon--color-disabled-light"></i>
+    </span>
   </button>
 </div>
 `;
@@ -226,6 +266,9 @@ export class ButtonDocComponent {
   <span></span>
   <span></span>
 </button>
+<button class="e-btn e-btn--icon e-mr-8" disabled>
+  <span class="e-btn__icon"><i class="e-icon e-icon--upload e-icon--color-disabled"></i></span>
+</button>
 `;
 
   exampleIconInverted = `<button class="e-btn e-btn--icon e-btn--inverted e-mr-8">
@@ -236,19 +279,34 @@ export class ButtonDocComponent {
   <span></span>
   <span></span>
 </button>
+<button class="e-btn e-btn--icon e-btn--inverted" disabled>
+  <span class="e-btn__icon"><i class="e-icon e-icon--upload e-icon--color-disabled"></i></span>
+</button>
 `;
 
-  exampleIconCircles = `<button class="e-btn e-btn--icon e-btn--circled">
+  exampleIconCircles = `<button class="e-btn e-btn--icon e-btn--circled e-mr-8">
   <span class="e-btn__icon">
     <i class="e-icon e-icon--information_circle"></i>
     <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
   </span>
 </button>
+<button class="e-btn e-btn--icon e-btn--circled" disabled>
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--information_circle e-icon--color-disabled"></i>
+    <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+  </span>
+</button>
 `;
 
-  exampleIconCirclesInverted = `<button class="e-btn e-btn--icon e-btn--circled e-btn--inverted">
+  exampleIconCirclesInverted = `<button class="e-btn e-btn--icon e-btn--circled e-btn--inverted e-mr-8">
   <span class="e-btn__icon">
     <i class="e-icon e-icon--information_circle e-icon--inverted"></i>
+    <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+  </span>
+</button>
+<button class="e-btn e-btn--icon e-btn--circled e-btn--inverted" disabled>
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--information_circle e-icon--color-disabled"></i>
     <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
   </span>
 </button>
