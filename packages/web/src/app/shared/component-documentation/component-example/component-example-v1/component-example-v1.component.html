@@ -2,7 +2,7 @@
   <!--Example preview-->
   <div
     class="component-body__example-body"
-    [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+    [ngClass]="{ 'e-bg-grey': isInverted || darkGreyBg, 'e-bg-grey-05': greyBg }"
     *ngIf="showPreview"
   >
     <!--Screen tabs-->
@@ -43,18 +43,25 @@
     </div>
 
     <!--Visual example-->
-    <div class="component-preview component-preview-animation" [ngClass]="{ 'no-interaction': !interactable }">
+    <div
+      class="component-preview component-preview-animation"
+      [ngClass]="{ 'no-interaction': !interactable }"
+    >
       <div
         class="element"
         *ngIf="!showIframeScreens || (!showIframe && screenTabOpen == 'desktop')"
-        [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg, 'no-padding-desk': noPaddingDesk }"
+        [ngClass]="{
+          'e-bg-grey': isInverted || darkGreyBg,
+          'e-bg-grey-05': greyBg,
+          'no-padding-desk': noPaddingDesk
+        }"
       >
         <div #defaultFrame></div>
       </div>
       <div
         class="element screens"
         *ngIf="(showIframeScreens && showIframe) || (showIframeScreens && screenTabOpen != 'desktop')"
-        [ngClass]="{ 'e-bg-grey': isInverted, 'e-bg-grey-05': greyBg }"
+        [ngClass]="{ 'e-bg-grey': isInverted || darkGreyBg, 'e-bg-grey-05': greyBg }"
       >
         <div [ngClass]="{ hide: screenTabOpen !== 'desktop' || noDesktop }">
           <app-iframe-screen

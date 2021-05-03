@@ -45,7 +45,7 @@ export class ContentLoaderDocComponent {
 `;
   exampleContentLoaderGrey = `<div class="e-content-loader e-content-loader--grey"></div>
 `;
-  exampleContentLoaderGreyInverted = `<div class="e-content-loader e-content-loader--grey e-content-loader--inverted"></div>
+  exampleContentLoaderDark = `<div class="e-content-loader e-content-loader--inverted"></div>
 `;
 
   exampleContentLoaderExample = `<div class="e-grid">

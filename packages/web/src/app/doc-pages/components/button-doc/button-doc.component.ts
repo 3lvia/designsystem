@@ -45,10 +45,10 @@ export class ButtonDocComponent {
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
     </span>
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
   </button>
   <button class="e-btn e-m-8">
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
@@ -78,10 +78,10 @@ export class ButtonDocComponent {
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
     </span>
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
   </button>
   <button class="e-btn e-btn--inverted e-m-8">
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
@@ -111,10 +111,10 @@ export class ButtonDocComponent {
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
     </i></span>
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
   </button>
   <button class="e-btn e-btn--secondary e-m-8">
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
@@ -144,10 +144,10 @@ export class ButtonDocComponent {
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
     </i></span>
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
   </button>
   <button class="e-btn e-btn--secondary e-btn--inverted e-m-8">
-    <span class="e-btn__title">Icon button</span>
+    <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download e-icon--inverted"></i>
       <i class="e-icon e-icon--download"></i>
@@ -190,7 +190,7 @@ export class ButtonDocComponent {
     <span></span>
   </button>
   <button class="e-btn e-btn--tertiary e-m-8" disabled>
-    <span class="e-btn__title">Tertiary</span>
+    <span class="e-btn__title">Disabled</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download e-icon--color-disabled"></i>
     </span>
@@ -220,7 +220,7 @@ export class ButtonDocComponent {
     <span></span>
   </button>
   <button class="e-btn e-btn--tertiary e-btn--inverted e-m-8" disabled>
-    <span class="e-btn__title">Tertiary</span>
+    <span class="e-btn__title">Disabled</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download e-icon--color-disabled-light"></i>
     </span>
@@ -232,13 +232,24 @@ export class ButtonDocComponent {
   <button class="e-btn e-btn--danger e-m-8">
     <span class="e-btn__title">Danger</span>
   </button>
+  <button class="e-btn e-btn--danger e-m-8">
+    <span class="e-btn__title">With icon</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--bin e-icon--color-white"></i>
+      <i class="e-icon e-icon--bin"></i>
+    </span>
+  </button>
   <button class="e-btn e-btn--danger e-btn--loading e-m-8">
     <span></span>
     <span></span>
     <span></span>
   </button>
   <button class="e-btn e-btn--danger e-m-8" disabled>
-    <span class="e-btn__title">Danger disabled</span>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--bin e-icon--color-white"></i>
+      <i class="e-icon e-icon--bin"></i>
+    </span>
   </button>
 </div>
 `;
@@ -247,13 +258,24 @@ export class ButtonDocComponent {
   <button class="e-btn e-btn--danger e-btn--inverted e-m-8">
     <span class="e-btn__title">Danger</span>
   </button>
+  <button class="e-btn e-btn--danger e-btn--inverted e-m-8">
+    <span class="e-btn__title">With icon</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--bin e-icon--color-white"></i>
+      <i class="e-icon e-icon--bin"></i>
+    </span>
+  </button>
   <button class="e-btn e-btn--danger e-btn--loading e-btn--inverted e-m-8">
     <span></span>
     <span></span>
     <span></span>
   </button>
   <button class="e-btn e-btn--danger e-btn--inverted e-m-8" disabled>
-    <span class="e-btn__title">Danger disabled</span>
+    <span class="e-btn__title">Disabled</span>
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--bin e-icon--color-white"></i>
+      <i class="e-icon e-icon--bin"></i>
+    </span>
   </button>
 </div>
 `;

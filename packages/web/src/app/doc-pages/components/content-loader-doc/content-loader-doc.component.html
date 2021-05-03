@@ -65,18 +65,22 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'White background'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1
-            [codeHTML]="exampleContentLoader"
-            [codeInverted]="exampleContentLoaderInverted"
-          ></app-component-example-v1>
+          <app-component-example-v1 [codeHTML]="exampleContentLoader"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Grey background'">
         <ng-container ngProjectAs="sectionContent">
           <app-component-example-v1
             [codeHTML]="exampleContentLoaderGrey"
-            [codeInverted]="exampleContentLoaderGreyInverted"
             [greyBg]="true"
+          ></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Dark background'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1
+            [codeHTML]="exampleContentLoaderDark"
+            [darkGreyBg]="true"
           ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
