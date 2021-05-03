@@ -26,7 +26,6 @@ export class HeaderComponent {
     private searchMenu: MobileMenuService,
     private router: Router,
   ) {
-
     if (window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('#dev') > -1) {
       this.devMode = true;
     }

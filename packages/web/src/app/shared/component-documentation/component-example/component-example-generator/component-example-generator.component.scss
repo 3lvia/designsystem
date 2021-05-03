@@ -56,6 +56,22 @@
     padding: 40px;
     border: 1px solid var(--e-grey-10);
     border-radius: 8px;
+
+    @include breakpoint-up(Mobile) {
+      padding: 24px;
+    }
+
+    &.ceg-code-preview--accordion {
+      align-items: flex-start;
+      padding-top: 80px;
+      @include breakpoint-up(Mobile) {
+        padding-top: 40px;
+      }
+      @include breakpoint-up(Tablet) {
+        padding-top: 48px;
+      }
+    }
+
     .ceg-frame {
       display: flex;
       justify-content: center;
