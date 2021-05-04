@@ -69,22 +69,6 @@ export const Datepicker: FC<DatepickerProps> = ({
           },
         },
       },
-      MuiPickersDay: {
-        daySelected: {
-          background: selectedDate === null ? '#f4f4f4 !important' : '#29d305 !important',
-          border: selectedDate === null ? '0 !important' : '1px solid black !important',
-          '&:hover': {
-            border: selectedDate === null ? '1px solid #29d305 !important' : '0 !important',
-          },
-        },
-        current: {
-          background: '#f4f4f4 !important',
-          border: '0 !important',
-          '&:hover': {
-            border: '1px solid #29d305 !important',
-          },
-        },
-      },
     },
   });
 
@@ -198,11 +182,7 @@ export const Datepicker: FC<DatepickerProps> = ({
 
     return (
       <div className="ewc-datepicker--toolbar">
-        {selectedDate !== null ? (
-          <div className="ewc-datepicker--toolbar-today">{date.format('dddd DD. MMMM')}</div>
-        ) : (
-          <div></div>
-        )}
+        <div className="ewc-datepicker--toolbar-today">{date.format('dddd DD. MMMM')}</div>
         <Button className="ewc-datepicker--toolbar-dropdown" onClick={toggleYearView()}>
           <div className="ewc-datepicker__toolbar-year">{date.format('YYYY')}</div>
           <i
@@ -214,6 +194,12 @@ export const Datepicker: FC<DatepickerProps> = ({
         </Button>
       </div>
     );
+  };
+
+  const fillInput = () => {
+    if (selectedDate == null) {
+      setSelectedDate(new Date());
+    }
   };
 
   const formatDate = (inputString: string) => {
@@ -242,7 +228,7 @@ export const Datepicker: FC<DatepickerProps> = ({
         <ThemeProvider theme={materialTheme}>
           <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
             <KeyboardDatePicker
-              // autoOk={true} -> Skru på når ferdig testet
+              autoOk={true}
               variant="inline"
               inputProps={{ ref: inputRef }}
               value={selectedDate}
@@ -251,6 +237,7 @@ export const Datepicker: FC<DatepickerProps> = ({
               placeholder={placeholderString}
               format="DD.MM.yyyy"
               rifmFormatter={formatDate}
+              onOpen={fillInput}
               disabled={isDisabled === true || isDisabled === 'true'}
               fullWidth={isFullWidth === true || isFullWidth === 'true'}
               minDate={startDate ? startDate : minDate}

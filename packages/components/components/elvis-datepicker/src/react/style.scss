@@ -433,11 +433,41 @@ $datepicker-max-width: 382px;
       line-height: 22px;
       color: black;
     }
-    // Selected + Current day font
-    .MuiPickersDay-current,
-    .MuiPickersDay-daySelected {
+    // Selected day font
+    .MuiPickersDay-daySelected,
+    .MuiPickersDay-current.MuiPickersDay-daySelected {
+      border: 1px solid black !important;
+      background: $green !important;
       .MuiTypography-body2 {
         font-weight: 500;
+      }
+      &:hover {
+        border: 1px solid white !important;
+        background: $green !important;
+      }
+    }
+    // Current day font
+    .MuiPickersDay-current {
+      background: white !important;
+      border: 0 !important;
+      .MuiTypography-body2 {
+        font-weight: 400;
+      }
+      &::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        background: $green;
+        width: 4px;
+        height: 4px;
+        top: 26px;
+        left: 14px;
+      }
+      &:hover {
+        border: 1px solid $green !important;
+        &::after {
+          content: none;
+        }
       }
     }
     // Hover
