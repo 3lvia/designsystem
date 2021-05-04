@@ -182,9 +182,9 @@
 				"e-btn--md": {},
 				"e-btn--sm": {},
 				"e-btn--primary": {},
-				"e-btn--danger": {},
 				"e-btn--secondary": {},
 				"e-btn--tertiary": {},
+				"e-btn--danger": {},
 				"e-btn--icon": {},
 				"e-btn--circled": {}
 			},
@@ -238,6 +238,7 @@
 		"e-content-loader": {
 			"modifier": {
 				"e-content-loader--inverted": {},
+				"e-content-loader--grey": {},
 				"e-content-loader--circle": {},
 				"e-content-loader--text": {},
 				"e-content-loader--short": {}
@@ -1150,11 +1151,11 @@
 		"e-btn--sm": {},
 		"e-btn--primary": {},
 		"e-btn---disabled": {},
-		"e-btn--danger": {},
 		"e-btn---hover": {},
 		"e-btn---active": {},
 		"e-btn--secondary": {},
 		"e-btn--tertiary": {},
+		"e-btn--danger": {},
 		"e-btn--icon": {},
 		"e-btn--circled": {},
 		"e-card": {},
@@ -1184,6 +1185,7 @@
 		"e-chip---hover": {},
 		"e-content-loader": {},
 		"e-content-loader--inverted": {},
+		"e-content-loader--grey": {},
 		"e-content-loader--circle": {},
 		"e-content-loader--text": {},
 		"e-content-loader--short": {},

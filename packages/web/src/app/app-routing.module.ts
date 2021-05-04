@@ -377,18 +377,19 @@ const routes: Routes = [
         ],
       },
 
-      // Dev section 
+      // Dev section
       {
         path: Pages.DevelopmentStart,
         component: DevStartComponent,
-        children: [{
-          path: '',
-          component: v2PlaygroundComponent,
-        },
-        {
-          path: Pages.DevelopmentPlayground,
-          component: v2PlaygroundComponent
-        }
+        children: [
+          {
+            path: '',
+            component: v2PlaygroundComponent,
+          },
+          {
+            path: Pages.DevelopmentPlayground,
+            component: v2PlaygroundComponent,
+          },
         ],
       },
       { path: 'not-found', component: ErrorComponent },
@@ -401,4 +402,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

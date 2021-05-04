@@ -5,6 +5,85 @@
 <table>
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.8.0
+      </span>
+      <br>
+      <span>
+        May 3, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a> &
+              <a class="e-link e-link--inline" href="https://design.elvia.io/identity/color#Overview">Color</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Button</a> 
+          </div>
+          <ul>
+            <li>
+              Content loader has new modifier for grey backgrounds.
+            </li>
+            <li>
+              Red signal color has been updated, #FF0000 -> #EE0701, for better contrast and validation against both black and white.
+            </li>
+            <li>
+              The danger button hover color has been changed and documentation for more use cases has been updated. Disabled states have also been added to documentation.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Button</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
+        </div>
+        <ul>
+          <li>
+            Subtitles in tables on mobile have updated typography using the design system typographies.
+          </li>
+          <li>
+            Deprecated danger icon button and removed documentation.
+          </li>
+          <li>
+            Group accordion have updated spacing between title and text. 
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+    <span class="e-title-sm">
+      7.7.1
+    </span>
+    <br>
+    <span>
+      April 30, 2021
+    </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section-title">💥 New Features</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+        </div>
+        <ul>
+          <li>
+            New icons added. 
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
     <span class="e-title-sm">
       7.7.0
     </span>

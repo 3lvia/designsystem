@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { getComponent } from 'src/app/shared/e-items';
 import { exampleContents } from 'src/app/shared/example-contents';
+import { accordionData } from './accodrion-data';
 
 @Component({
   selector: 'app-accordion-doc',
@@ -9,6 +10,7 @@ import { exampleContents } from 'src/app/shared/example-contents';
 })
 export class AccordionDocComponent {
   @ViewChild('accordionLiveExample') accordionLiveExample: ElementRef;
+  componentData = accordionData;
   examples = exampleContents;
   figmaUrl = getComponent('accordion').figmaUrl;
   description = getComponent('accordion').description;

@@ -8,6 +8,25 @@
 
 <!--BODY-->
 <div class="page-body">
+
+  <h2>Accordion</h2>
+  <elvia-accordion
+    content="any text of your choice"
+    openLabel="Show"
+    closedLabel="Hide"
+    size="medium"
+    type="normal"
+  >
+  </elvia-accordion>
+
+  <h3>Accordion Custom Content</h3>
+  <elvia-accordion type="normal">
+    <div slot="content">
+      <h3>Hello there</h3>
+      <p>An important paragraph</p>
+      <button>A button</button>
+    </div>
+  </elvia-accordion>
   <h2>Tabs</h2>
   <div style="margin-top: 16px; background: #262626">
     <elvia-tabs

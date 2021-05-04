@@ -87,5 +87,5 @@ export enum Pages {
 
   // Dev
   DevelopmentStart = 'dev',
-  DevelopmentPlayground = 'playground'
+  DevelopmentPlayground = 'playground',
 }

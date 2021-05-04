@@ -35,4 +35,4 @@ import { devModule } from './doc-pages/dev/dev.module';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
