@@ -176,10 +176,10 @@ export class ButtonDocComponent {
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download"></i>
     </span>
-    <span class="e-btn__title">Tertiary</span>
+    <span class="e-btn__title">With icon</span>
   </button>
   <button class="e-btn e-btn--tertiary e-m-8">
-    <span class="e-btn__title">Tertiary</span>
+    <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download"></i>
     </span>
@@ -279,7 +279,10 @@ export class ButtonDocComponent {
 `;
 
   exampleIcon = `<button class="e-btn e-btn--icon e-mr-8">
-  <span class="e-btn__icon"><i class="e-icon e-icon--upload"></i></span>
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--upload e-icon--inverted"></i>
+    <i class="e-icon e-icon--upload"></i>
+  </span>
 </button>
 <button class="e-btn e-btn--icon e-btn--loading">
   <span></span>
@@ -292,7 +295,10 @@ export class ButtonDocComponent {
 `;
 
   exampleIconInverted = `<button class="e-btn e-btn--icon e-btn--inverted e-mr-8">
-  <span class="e-btn__icon"><i class="e-icon e-icon--upload e-icon--inverted"></i></span>
+  <span class="e-btn__icon">
+    <i class="e-icon e-icon--upload e-icon--inverted"></i>
+    <i class="e-icon e-icon--upload"></i>
+  </span>
 </button>
 <button class="e-btn e-btn--icon e-btn--loading e-btn--inverted">
   <span></span>
