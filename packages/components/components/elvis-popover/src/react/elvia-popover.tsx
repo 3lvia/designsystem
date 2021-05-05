@@ -248,17 +248,6 @@ const Popover: FC<PopoverProps> = ({
     }
   };
 
-  const removeStylesOnClosed = () => {
-    // if popovervisibility false then return & remove any applied styles.
-    if (!popoverVisibility) {
-      if (popoverFixedAreaRef.current) {
-        popoverFixedAreaRef.current.style.height = '0px';
-        popoverFixedAreaRef.current.style.width = '0px';
-      }
-      return false;
-    }
-  };
-
   const isConflictTopOrBottom = () => {
     // apply top and bottom properties if not enought space above or below popover
     if (isConflictTop() && popoverContentRef.current && popoverTriggerRef.current) {
@@ -276,7 +265,12 @@ const Popover: FC<PopoverProps> = ({
 
   // place fixed area that covers trigger element and works as position anchor for content element
   useEffect(() => {
-    if (!removeStylesOnClosed()) {
+    // if popovervisibility false then return & remove any applied styles.
+    if (!popoverVisibility) {
+      if (popoverFixedAreaRef.current) {
+        popoverFixedAreaRef.current.style.height = '0px';
+        popoverFixedAreaRef.current.style.width = '0px';
+      }
       return;
     }
 

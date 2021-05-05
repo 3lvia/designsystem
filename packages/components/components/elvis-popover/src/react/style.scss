@@ -21,6 +21,7 @@ $green: #29d305;
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
+
     div {
       display: flex;
     }
@@ -42,7 +43,7 @@ $green: #29d305;
 
   &__fixed-content-area {
     position: fixed;
-    z-index: 99;
+    z-index: 1;
 
     .ewc-popover__contentContainer {
       height: 100%;
@@ -59,7 +60,7 @@ $green: #29d305;
     width: max-content;
     left: 50%;
     opacity: 1;
-    z-index: 100;
+    z-index: 101;
     pointer-events: all;
     padding: $popover-padding;
     background-color: white;
