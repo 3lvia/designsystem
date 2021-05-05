@@ -4,7 +4,7 @@
 
 ### Bug fixes
 
-- Popover now uses a fixed position enabling popovers to be used in containers with overflow attributes like
+- Popover now uses a fixed postion enabling popovers to be used in containers with overflow attritbutes like
   auto or hidden.
 
 ## 3.0.0 (15.04.21)
