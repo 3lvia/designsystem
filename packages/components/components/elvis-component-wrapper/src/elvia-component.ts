@@ -39,10 +39,28 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   attributeChangedCallback(): void {
     this.throttleRenderReactDOM();
+    this.addConditionalStyle();
+  }
+
+  protected addConditionalStyle(): void {
+    const conditionalElements = this.webComponent.getComponentData().conditionalElementStyle;
+    const attributeElements = this.webComponent.getComponentData().attributes;
+    this.style.cssText = this.webComponent.getComponentData().elementStyle;
+
+    attributeElements.forEach((attribute: string) => {
+      if (this.getAttribute(attribute) !== 'true') {
+        return;
+      }
+      Object.keys(conditionalElements).forEach((obj) => {
+        if (obj === attribute) {
+          this.style.cssText += conditionalElements[obj];
+        }
+      })
+    });
   }
 
   protected attachStyle(): void {
-    this.style.cssText = this.webComponent.getComponentData().elementStyle;
+    this.addConditionalStyle();
     if (this.webComponent.getComponentData().wrapperStyle) {
       this.mountPoint.style.cssText = this.webComponent.getComponentData().wrapperStyle;
     }
