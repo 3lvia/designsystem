@@ -240,9 +240,7 @@ const Popover: FC<PopoverProps> = ({
     const triggerElementPositionPosition = popoverTriggerRef.current.getBoundingClientRect();
 
     // check for current fixed area
-    if (popoverFixedAreaRef.current === null || popoverContentRef.current === null) {
-      return;
-    } else {
+    if (popoverFixedAreaRef.current != null) {
       // define height and width to fixed area to match trigger element & and set top.
       popoverFixedAreaRef.current.style.top = triggerElementPositionPosition.y + 'px';
       popoverFixedAreaRef.current.style.height = triggerElementPositionPosition.height + 'px';
@@ -250,50 +248,53 @@ const Popover: FC<PopoverProps> = ({
     }
   };
 
-  // place fixed area that covers trigger element and works as position anchor for content element
-  useEffect(() => {
-    // if false then return & remove any applied styles.
+  const removeStylesOnClosed = () => {
+    // if popovervisibility false then return & remove any applied styles.
     if (!popoverVisibility) {
       if (popoverFixedAreaRef.current) {
         popoverFixedAreaRef.current.style.height = '0px';
         popoverFixedAreaRef.current.style.width = '0px';
       }
-      return;
+      return false;
     }
-    // get triggerelement and check that it´s not null
-    const triggerElement = popoverTriggerRef.current;
-    if (triggerElement === null) {
-      return;
-    }
-    // get height of trigger element.
-    const triggerElementPositionHeight = triggerElement.getBoundingClientRect().height;
+  };
 
-    // Check for and define size ffor current fixed container
-    if (popoverFixedAreaRef.current === null || popoverContentRef.current === null) {
-      return;
-    } else {
-      // define height and width to fixed area to match trigger element & and set top.
-      defineFixedArea();
-    }
-    // apply top and bottom properties if not enought space above popover
-    if (isConflictTop()) {
-      popoverContentRef.current.style.top = triggerElementPositionHeight + 'px';
+  const isConflictTopOrBottom = () => {
+    // apply top and bottom properties if not enought space above or below popover
+    if (isConflictTop() && popoverContentRef.current && popoverTriggerRef.current) {
+      popoverContentRef.current.style.top = popoverTriggerRef.current.getBoundingClientRect().height + 'px';
       popoverContentRef.current.style.bottom = 'auto';
     }
-    // apply top property if popver has bottom class
-    if (popoverClasscontainerRef.current?.classList.contains('ewc-popover--bottom')) {
-      if (popoverContentRef.current != null) {
-        popoverContentRef.current.style.top = triggerElementPositionHeight + 'px';
-      }
+    if (
+      popoverClasscontainerRef.current?.classList.contains('ewc-popover--bottom') &&
+      popoverContentRef.current &&
+      popoverTriggerRef.current
+    ) {
+      popoverContentRef.current.style.top = popoverTriggerRef.current.getBoundingClientRect().height + 'px';
     }
+  };
+
+  // place fixed area that covers trigger element and works as position anchor for content element
+  useEffect(() => {
+    if (!removeStylesOnClosed()) {
+      return;
+    }
+
+    // Define size for current fixed container
+    if (popoverFixedAreaRef.current != null || popoverContentRef.current != null) {
+      defineFixedArea();
+    }
+
+    // check if enought space on top or below the popover
+    isConflictTopOrBottom();
+
     // on scroll, reposition fixed area to current triggerelement position
     const UpdateContentPositionOnScroll = () => {
-      if (popoverFixedAreaRef.current != null) {
-        popoverFixedAreaRef.current.style.top = triggerElement.getBoundingClientRect().top + 'px';
+      if (popoverFixedAreaRef.current && popoverTriggerRef.current) {
+        popoverFixedAreaRef.current.style.top = popoverTriggerRef.current.getBoundingClientRect().top + 'px';
       }
     };
     document.addEventListener('scroll', UpdateContentPositionOnScroll, false);
-
     // Cleanup
     return () => {
       // Remove scroll listener
@@ -324,7 +325,7 @@ const Popover: FC<PopoverProps> = ({
         <div className="ewc-popover__backdrop" ref={popoverBackdropRef}></div>
 
         <div className="ewc-popover__fixed-content-area" ref={popoverFixedAreaRef}>
-          <div className="ewx-popover__contentContainer">
+          <div className="ewc-popover__contentContainer">
             <div className="ewc-popover__content" ref={popoverContentRef}>
               {hasCloseBtn == true && (
                 <div className="ewc-popover__close">
