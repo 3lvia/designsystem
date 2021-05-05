@@ -234,13 +234,14 @@ const Popover: FC<PopoverProps> = ({
 
   const removeFixedSizeOnClosed = (isOpen: boolean) => {
     // if isOpen false then remove any applied styles.
-    if (!isOpen) {
-      if (popoverFixedAreaRef.current) {
-        popoverFixedAreaRef.current.style.height = '0px';
-        popoverFixedAreaRef.current.style.width = '0px';
-      }
-      return false;
+    if (isOpen) {
+      return true
     }
+    if (popoverFixedAreaRef.current) {
+      popoverFixedAreaRef.current.style.height = '0px';
+      popoverFixedAreaRef.current.style.width = '0px';
+    }
+    return false;
   };
 
   const defineFixedArea = () => {
@@ -253,7 +254,8 @@ const Popover: FC<PopoverProps> = ({
     // check for current fixed area
     if (popoverFixedAreaRef.current != null) {
       // define height and width to fixed area to match trigger element & and set top.
-      popoverFixedAreaRef.current.style.top = triggerElementPositionPosition.y + 'px';
+      popoverFixedAreaRef.current.style.top = triggerElementPositionPosition.top + 'px';
+      popoverFixedAreaRef.current.style.left = triggerElementPositionPosition.left + 'px';
       popoverFixedAreaRef.current.style.height = triggerElementPositionPosition.height + 'px';
       popoverFixedAreaRef.current.style.width = triggerElementPositionPosition.width + 'px';
     }
