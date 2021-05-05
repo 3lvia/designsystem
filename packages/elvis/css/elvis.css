@@ -2274,6 +2274,10 @@ input:focus {
   height: 8px;
 }
 
+.e-btn.e-btn--icon.e-btn--inverted .e-btn__icon i {
+  visibility: hidden;
+}
+
 .e-btn.e-btn--icon.e-btn--inverted .e-btn__icon i[class*=inverted],
 .e-btn.e-btn--icon.e-btn--inverted .e-btn__icon i[class*=color-disabled-light],
 .e-btn.e-btn--icon.e-btn--inverted .e-btn__icon i[class*=e-icon--color],
