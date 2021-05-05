@@ -646,6 +646,9 @@ $loading-dot-sm: 8px;
 
     &.e-btn--inverted {
       .e-btn__icon {
+        i {
+          visibility: hidden;
+        }
         i[class*='inverted'],
         i[class*='color-disabled-light'],
         i[class*='e-icon--color'],
