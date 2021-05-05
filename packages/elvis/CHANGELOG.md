@@ -15,32 +15,6 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">🐝 Bug Fixes</div>
-        <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Button</a> 
-        </div>
-        <ul>
-          <li>
-            Fixed an hover bug for inverted icon button.
-          </li>
-        </ul>
-      </div>
-      <div class="changelog-divider"></div>
-    </td>
-  </tr>
-
-  <tr class="changelog-row">
-    <td class="e-w-25 changelog-date">
-      <span class="e-title-sm">
-        7.8.0
-      </span>
-      <br>
-      <span>
-        May 3, 2021
-      </span>
-    </td>
-    <td class="changelog-content">
-      <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
           <div>Component: 
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a> &
@@ -72,7 +46,7 @@
             Subtitles in tables on mobile have updated typography using the design system typographies.
           </li>
           <li>
-            Deprecated danger icon button and removed documentation.
+            Deprecated danger icon button, removed documentation, and fixed an hover bug for inverted icon button.
           </li>
           <li>
             Group accordion have updated spacing between title and text. 
