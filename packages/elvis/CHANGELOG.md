@@ -6,11 +6,11 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
-        7.8.0
+        7.8.1
       </span>
       <br>
       <span>
-        May 3, 2021
+        May 5, 2021
       </span>
     </td>
     <td class="changelog-content">
@@ -38,7 +38,7 @@
         <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a> &
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Button</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Button</a> &
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>
         <ul>
@@ -46,7 +46,7 @@
             Subtitles in tables on mobile have updated typography using the design system typographies.
           </li>
           <li>
-            Deprecated danger icon button and removed documentation.
+            Deprecated danger icon button, removed documentation, and fixed an hover bug for inverted icon button.
           </li>
           <li>
             Group accordion have updated spacing between title and text. 
