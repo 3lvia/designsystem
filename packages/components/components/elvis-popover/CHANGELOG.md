@@ -1,5 +1,12 @@
 # Elvia Popover Changelog
 
+## 3.0.1 (15.04.21)
+
+### Bug fixes
+
+- Popover now uses a fixed postion enabling popovers to be used in containers with overflow attritbutes like
+  auto or hidden.
+
 ## 3.0.0 (15.04.21)
 
 ### Bug fixes
