@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
       contrastText: '#000',
     },
     red: {
-      color: '#FF0000',
+      color: '#EE0701',
       contrastText: '#000',
     },
     'green-apple': {

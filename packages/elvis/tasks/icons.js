@@ -3,9 +3,12 @@ const icons = require('@elvia/elvis-assets-icons/config/icons.config');
 const svgToMiniDataURI = require('mini-svg-data-uri');
 const fs = require('fs');
 const svgIcons = require('@elvia/elvis-assets-icons/icons.cjs.js');
+const resolve = require('resolve');
 
 async function copyIconsConfig() {
-  let iconsConfig = fs.readFileSync('node_modules/@elvia/elvis-assets-icons/config/icons.config.js');
+  const fileLocation = resolve.sync('@elvia/elvis-assets-icons/config/icons.config.js');
+
+  let iconsConfig = fs.readFileSync(fileLocation);
   iconsConfig = `
 // THIS FILE IS AN EXACT COPY OF THE FILE FOUND IN @elvia/elvis-assets-icons. 
 // DO NOT CHANGE THIS ICON LIST MANUALLY.

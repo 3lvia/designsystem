@@ -7,12 +7,20 @@
     class="ceg-row-1 e-mb-16"
     *ngIf="hasPreview"
   >
-    <div class="ceg-col-1">
+    <div
+      class="ceg-col-1"
+      #cegContent
+    >
       <!--CEG code preview-->
-      <div class="ceg-code-preview">
+      <div
+        [ngClass]="!accordionCustom ? 'ceg-code-preview' : 'ceg-code-preview ceg-code-preview--accordion'"
+        [style.overflowY]="overflowY"
+      >
         <div
           #cegFrame
           class="ceg-frame"
+          style="display: flex"
+          [style.width.%]="width"
         ></div>
       </div>
     </div>

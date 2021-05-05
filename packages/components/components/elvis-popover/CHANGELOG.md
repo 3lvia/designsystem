@@ -1,5 +1,12 @@
 # Elvia Popover Changelog
 
+## 3.0.0 (15.04.21)
+
+### Bug fixes
+
+- Trigger now only takes up the space of it's content and the popover is now displayed as block and not
+  inline-block!
+
 ## 2.0.3 (09.04.21)
 
 ### Bug fixes

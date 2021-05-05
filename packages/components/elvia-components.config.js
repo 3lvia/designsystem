@@ -10,6 +10,13 @@ wrapperStyle: String - Styling for the React wrapper - This requires useWrapper 
 
 module.exports = [
   {
+    name: 'elvis-accordion',
+    elementName: 'elvia-accordion',
+    attributes: ['content', 'openLabel', 'closeLabel', 'labelPosition', 'size', 'type'],
+    reactName: 'Accordion',
+    useWrapper: true,
+  },
+  {
     name: 'elvis-checkbox',
     elementName: 'elvia-checkbox',
     attributes: ['label', 'name', 'value', 'id', 'size', 'checked', 'disabled', 'required'],
@@ -48,6 +55,7 @@ module.exports = [
     attributes: ['header', 'content', 'posX', 'posY', 'hasCloseBtn'],
     reactName: 'Popover',
     useWrapper: true,
+    elementStyle: `display: block;`,
   },
   {
     name: 'elvis-progress-linear',

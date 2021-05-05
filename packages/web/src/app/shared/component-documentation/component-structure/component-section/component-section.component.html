@@ -30,6 +30,9 @@
         style="display: flex"
       >
         {{ sectionTitle }}
+        <span *ngIf="figmaOnly" class="e-ml-16">
+          <label class="e-label e-label--orange">Figma only</label>
+        </span>
         <ng-content select="headerIcon"></ng-content>
       </h2>
 

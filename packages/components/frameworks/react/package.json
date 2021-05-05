@@ -2,22 +2,6 @@
   "name": "@elvia/elvis-components-react-preview",
   "version": "0.1.0",
   "private": true,
-  "dependencies": {
-    "@elvia/elvis-checkbox": "*",
-    "@elvia/elvis-dropdown": "*",
-    "@elvia/elvis-progress-linear": "*",
-    "@elvia/elvis-popover": "*",
-    "@elvia/elvis-tabs": "*",
-    "@material-ui/core": "^4.11.0",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "react-scripts": "^4.0.1",
-    "node-forge": ">=0.10.0",
-    "object-path": ">=0.11.5"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -38,7 +22,21 @@
       "IE 11"
     ]
   },
+  "dependencies": {
+    "@elvia/elvis-accordion": "*",
+    "@elvia/elvis-checkbox": "*",
+    "@elvia/elvis-popover": "*",
+    "@elvia/elvis-progress-linear": "*",
+    "@elvia/elvis-tabs": "*",
+    "@elvia/elvis-testing": "*",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "react": "^17.0.0",
+    "react-app-polyfill": "^2.0.0",
+    "react-dom": "^17.0.0",
+    "react-scripts": "^4.0.1"
+  },
   "devDependencies": {
-    "react-app-polyfill": "^2.0.0"
+    "eslint-plugin-react": "^7.23.2"
   }
 }

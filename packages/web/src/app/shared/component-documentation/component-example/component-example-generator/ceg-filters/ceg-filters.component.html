@@ -16,17 +16,10 @@
         (change)="updateRadioProp(prop, label)"
       >
         <input
-          *ngIf="i === 0"
           type="radio"
           id="{{ label }}-radio"
           name="{{ prop.displayName }} radio"
-          checked
-        />
-        <input
-          *ngIf="i !== 0"
-          type="radio"
-          id="{{ label }}-radio"
-          name="{{ prop.displayName }} radio"
+          [checked]="label === prop.cegDefault"
         />
         <span class="e-radio__mark"></span>
         <span class="e-radio__label">

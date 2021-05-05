@@ -8,4 +8,6 @@ import { Component, Input } from '@angular/core';
 export class ComponentSubsectionComponent {
   @Input() sectionTitle = '';
   @Input() noAnimation = false;
+  @Input() propertiesClass = '';
+  @Input() figmaOnly = false;
 }

@@ -47,24 +47,18 @@
               "
             >
               <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
+              <div class="sub-content e-text-info">
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
-                  <span>White ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
                 </div>
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
-                  <span>Black</span>
-                </div>
-              </div>
-              <div class="sub-content e-text-info" *ngIf="item.textColorBlack">
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
-                  <span>White</span>
-                </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xs"></i>
-                  <span>Black ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
                 </div>
               </div>
             </div>
@@ -105,24 +99,18 @@
               "
             >
               <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
+              <div class="sub-content e-text-info">
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
-                  <span>White ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
                 </div>
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
-                  <span>Black</span>
-                </div>
-              </div>
-              <div class="sub-content e-text-info" *ngIf="item.textColorBlack">
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
-                  <span>White</span>
-                </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xs"></i>
-                  <span>Black ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
                 </div>
               </div>
             </div>
@@ -165,24 +153,18 @@
               "
             >
               <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
+              <div class="sub-content e-text-info">
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
-                  <span>White ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
                 </div>
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
-                  <span>Black</span>
-                </div>
-              </div>
-              <div class="sub-content e-text-info" *ngIf="item.textColorBlack">
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
-                  <span>White</span>
-                </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xs"></i>
-                  <span>Black ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
                 </div>
               </div>
             </div>
@@ -223,24 +205,18 @@
               "
             >
               <div class="sub-title e-title-caps e-text-black">wcag</div>
-              <div class="sub-content e-text-info" *ngIf="!item.textColorBlack">
+              <div class="sub-content e-text-info">
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-green e-icon--xs"></i>
-                  <span>White ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
                 </div>
                 <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
-                  <span>Black</span>
-                </div>
-              </div>
-              <div class="sub-content e-text-info" *ngIf="item.textColorBlack">
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--remove_circle e-icon--color-red e-icon--xs"></i>
-                  <span>White</span>
-                </div>
-                <div class="contrast-container">
-                  <i class="e-icon e-icon--check_circle e-icon--color-green e-icon--xs"></i>
-                  <span>Black ({{ item.contrast }})</span>
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
                 </div>
               </div>
             </div>

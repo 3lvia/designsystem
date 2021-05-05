@@ -349,5 +349,153 @@
       </table>
     </div>
     <div class="e-table__footnote">*If you include a footnote to your table, it should look like this</div>
+
+    <div class="e-title-xs e-my-16">Input</div>
+    <div class="e-table-container">
+      <table class="e-table">
+        <thead>
+          <tr>
+            <th scope="col">Address</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="e-table__input">
+              <div class="e-input e-input--compact">
+                <input id="normal" type="address1" placeholder="Address" />
+              </div>
+            </td>
+            <td>Payed</td>
+          </tr>
+          <tr>
+            <td class="e-table__input">
+              <div class="e-input e-input--compact">
+                <input id="normal" type="address1" placeholder="Address" />
+              </div>
+            </td>
+            <td>Payed</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="e-title-xs e-my-16">Buttons</div>
+    <div class="e-table-container">
+      <table class="e-table">
+        <thead>
+          <tr>
+            <th scope="col">Address</th>
+            <th scope="col">Opprettet</th>
+            <th scope="col" class="e-text-center">Handling</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Elvia Elviaveien 3, 1234 Oslo</td>
+            <td>15.01.2021</td>
+            <td class="e-table__buttons">
+              <button class="e-btn e-btn--icon">
+                <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
+              </button>
+              <button class="e-btn e-btn--icon">
+                <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>Elvia Elviaveien 3, 1234 Oslo</td>
+            <td>15.01.2021</td>
+            <td class="e-table__buttons">
+              <button class="e-btn e-btn--icon">
+                <span class="e-btn__icon"><i class="e-icon e-icon--edit"></i></span>
+              </button>
+              <button class="e-btn e-btn--icon">
+                <span class="e-btn__icon"><i class="e-icon e-icon--bin"></i></span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="e-title-xs e-my-16">Select</div>
+    <div class="e-table-container">
+      <table class="e-table">
+        <thead>
+          <tr class="e-table__select">
+            <th scope="col">
+              <label class="e-checkbox e-checkbox--sm e-checkbox--indeterminate" for="overall-checkbox">
+                <input type="checkbox" id="overall-checkbox" />
+                <span class="e-checkbox__mark"></span>
+              </label>
+            </th>
+            <th scope="col">Address</th>
+            <th scope="col">Opprettet</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="e-table__select e-table__select--selected">
+            <td>
+              <label class="e-checkbox e-checkbox--sm" for="checkbox-first-cell">
+                <input type="checkbox" id="checkbox-first-cell" checked />
+                <span class="e-checkbox__mark"></span>
+              </label>
+            </td>
+            <td>Elvia Elviaveien 3, 1234 Oslo</td>
+            <td>15.01.2021</td>
+          </tr>
+          <tr class="e-table__select">
+            <td>
+              <label class="e-checkbox e-checkbox--sm" for="checkbox-second-cell">
+                <input type="checkbox" id="checkbox-second-cell" />
+                <span class="e-checkbox__mark"></span>
+              </label>
+            </td>
+            <td>Elvia Elviaveien 3, 1234 Oslo</td>
+            <td>15.01.2021</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="e-title-xs e-my-16">Link</div>
+    <div class="e-table-container">
+      <table class="e-table">
+        <thead>
+          <tr>
+            <th scope="col">Address</th>
+            <th scope="col">Opprettet</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="e-table__link" [routerLink]="['/components/table']">
+            <td>Elvia Elviaveien 3, 1234 Oslo</td>
+            <td>15.01.2021</td>
+            <td>
+              <a class="e-link e-link--action">
+                <span class="e-link__icon">
+                  <i class="e-icon e-icon--arrow_right_circle-color"></i>
+                  <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+                </span>
+              </a>
+            </td>
+          </tr>
+          <tr class="e-table__link" [routerLink]="['/components/table']">
+            <td>Elvia Elviaveien 3, 1234 Oslo</td>
+            <td>15.01.2021</td>
+            <td>
+              <a class="e-link e-link--action">
+                <span class="e-link__icon">
+                  <i class="e-icon e-icon--arrow_right_circle-color"></i>
+                  <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+                </span>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </body>
 </html>
