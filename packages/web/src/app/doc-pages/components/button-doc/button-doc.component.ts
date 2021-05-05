@@ -170,16 +170,13 @@ export class ButtonDocComponent {
 
   example3 = `<div style="display:flex; flex-direction:row; flex-wrap: wrap;">
   <button class="e-btn e-btn--tertiary e-m-8">
-    <span class="e-btn__title">Tertiary</span>
-  </button>
-  <button class="e-btn e-btn--tertiary e-m-8">
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download"></i>
     </span>
-    <span class="e-btn__title">With icon</span>
+    <span class="e-btn__title">Tertiary</span>
   </button>
   <button class="e-btn e-btn--tertiary e-m-8">
-    <span class="e-btn__title">With icon</span>
+    <span class="e-btn__title">Tertiary</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download"></i>
     </span>
@@ -233,10 +230,10 @@ export class ButtonDocComponent {
     <span class="e-btn__title">Danger</span>
   </button>
   <button class="e-btn e-btn--danger e-m-8">
-    <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--bin e-icon--color-white"></i>
     </span>
+    <span class="e-btn__title">With icon</span>
   </button>
   <button class="e-btn e-btn--danger e-btn--loading e-m-8">
     <span></span>
@@ -244,10 +241,10 @@ export class ButtonDocComponent {
     <span></span>
   </button>
   <button class="e-btn e-btn--danger e-m-8" disabled>
-    <span class="e-btn__title">Disabled</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--bin e-icon--color-white"></i>
     </span>
+    <span class="e-btn__title">Disabled</span>
   </button>
 </div>
 `;
@@ -257,11 +254,11 @@ export class ButtonDocComponent {
     <span class="e-btn__title">Danger</span>
   </button>
   <button class="e-btn e-btn--danger e-btn--inverted e-m-8">
-    <span class="e-btn__title">With icon</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--bin e-icon--color-white"></i>
       <i class="e-icon e-icon--bin"></i>
     </span>
+    <span class="e-btn__title">With icon</span>
   </button>
   <button class="e-btn e-btn--danger e-btn--loading e-btn--inverted e-m-8">
     <span></span>
@@ -269,11 +266,11 @@ export class ButtonDocComponent {
     <span></span>
   </button>
   <button class="e-btn e-btn--danger e-btn--inverted e-m-8" disabled>
-    <span class="e-btn__title">Disabled</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--bin e-icon--color-white"></i>
       <i class="e-icon e-icon--bin"></i>
     </span>
+    <span class="e-btn__title">Disabled</span>
   </button>
 </div>
 `;
