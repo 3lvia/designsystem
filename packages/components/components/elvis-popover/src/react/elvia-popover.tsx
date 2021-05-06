@@ -23,11 +23,13 @@ const Popover: FC<PopoverProps> = ({
   const [popoverVisibility, setPopoverVisibility] = useState(false);
   const maxContentWidth = useRef(0);
   const popoverRef = useRef<HTMLDivElement>(null);
+  const popoverClasscontainerRef = useRef<HTMLDivElement>(null);
   const popoverTriggerRef = useRef<HTMLDivElement>(null);
   const popoverSlotTriggerRef = useRef<HTMLDivElement>(null);
   const popoverContentRef = useRef<HTMLDivElement>(null);
   const popoverText = useRef<HTMLDivElement>(null);
   const popoverBackdropRef = useRef<HTMLDivElement>(null);
+  const popoverFixedAreaRef = useRef<HTMLDivElement>(null);
   const triggerHeight = 21;
   const popoverMargin = 16;
   const popoverPadding = 32;
@@ -134,6 +136,7 @@ const Popover: FC<PopoverProps> = ({
 
   const resizePopover = () => {
     const dimensions = getCorrectDimensions();
+    defineFixedArea();
     if (!popoverContentRef.current || !maxContentWidth.current || dimensions === null) {
       return;
     }
@@ -214,19 +217,95 @@ const Popover: FC<PopoverProps> = ({
     updatePositionX();
   }, [posX]);
 
-  // Update position when popover is opened and when window is resized
+  const removeFixedSizeOnClosed = (isOpen: boolean) => {
+    // if isOpen false then remove any applied styles.
+    if (isOpen) {
+      return true;
+    }
+    if (popoverFixedAreaRef.current) {
+      removeFixedAreaStyles();
+    }
+    return false;
+  };
+
+  const defineFixedArea = () => {
+    if (popoverTriggerRef.current === null) {
+      return;
+    }
+    // get trigger position
+    const triggerElementPosition = popoverTriggerRef.current.getBoundingClientRect();
+
+    // check for current fixed area
+    if (popoverFixedAreaRef.current != null) {
+      // define height and width to fixed area to match trigger element & and set top.
+      popoverFixedAreaRef.current.style.top = triggerElementPosition.top + 'px';
+      popoverFixedAreaRef.current.style.left = triggerElementPosition.left + 'px';
+      popoverFixedAreaRef.current.style.height = triggerElementPosition.height + 'px';
+      popoverFixedAreaRef.current.style.width = triggerElementPosition.width + 'px';
+    }
+  };
+
+  const resolvePositionConflicts = () => {
+    // apply top and bottom properties if not enought space above or below popover
+    if (isConflictTop() && popoverContentRef.current && popoverTriggerRef.current) {
+      popoverContentRef.current.style.top = popoverTriggerRef.current.getBoundingClientRect().height + 'px';
+      popoverContentRef.current.style.bottom = 'auto';
+    }
+    if (
+      popoverClasscontainerRef.current?.classList.contains('ewc-popover--bottom') &&
+      popoverContentRef.current &&
+      popoverTriggerRef.current
+    ) {
+      popoverContentRef.current.style.top = popoverTriggerRef.current.getBoundingClientRect().height + 'px';
+    }
+  };
+
+  const removeFixedAreaStyles = () => {
+    if (popoverContentRef.current && popoverFixedAreaRef.current) {
+      popoverContentRef.current.style.top = '';
+      popoverContentRef.current.style.bottom = '';
+      popoverFixedAreaRef.current.style.height = '0px';
+      popoverFixedAreaRef.current.style.width = '0px';
+    }
+  };
+
+  // Update position when popover is opened and when window is resized, and positions
+  // a fixed area that covers trigger element and works as position anchor for content element
   useEffect(() => {
     // Update position and size when opening popover
     updatePosition();
     resizePopover();
 
-    // Listen to window resizing if popover is open
-    if (!popoverVisibility) {
+    // if popovervisibility false then remove applied styles and return .
+    if (removeFixedSizeOnClosed(popoverVisibility) === false) {
       return;
     }
+
+    // Define size for current fixed container
+    if (popoverFixedAreaRef.current != null || popoverContentRef.current != null) {
+      defineFixedArea();
+    }
+
+    // check if enought space on top or below the popover
+    resolvePositionConflicts();
+
+    // on scroll, reposition fixed area to current triggerelement position
+    const updateFixedAreaPositionOnScroll = () => {
+      if (popoverFixedAreaRef.current && popoverTriggerRef.current) {
+        popoverFixedAreaRef.current.style.top = popoverTriggerRef.current.getBoundingClientRect().top + 'px';
+      }
+    };
     const throttledUpdateNewPosition = toolbox.throttle(updatePosition, 150);
     window.addEventListener('resize', throttledUpdateNewPosition);
-    return () => window.removeEventListener('resize', throttledUpdateNewPosition);
+    document.addEventListener('scroll', updateFixedAreaPositionOnScroll, false);
+    // Cleanup
+    return () => {
+      // Remove scroll listener
+      window.removeEventListener('resize', throttledUpdateNewPosition);
+      document.removeEventListener('scroll', updateFixedAreaPositionOnScroll, false);
+      // remove applied styles from resizing & initation on top or bottom conflicts
+      removeFixedAreaStyles();
+    };
   }, [popoverVisibility, updatePosition]);
 
   const popoverClasses = classnames('ewc-popover', {
@@ -237,35 +316,39 @@ const Popover: FC<PopoverProps> = ({
 
   return (
     <div ref={popoverRef}>
-      <div className={popoverClasses}>
+      <div ref={popoverClasscontainerRef} className={popoverClasses}>
         <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
           {trigger && <div onClick={togglePopover}>{trigger}</div>}
           {!trigger && <div onClick={togglePopover} ref={popoverSlotTriggerRef}></div>}
         </div>
-
         <div className="ewc-popover__backdrop" ref={popoverBackdropRef}></div>
-        <div className="ewc-popover__content" ref={popoverContentRef}>
-          {hasCloseBtn == true && (
-            <div className="ewc-popover__close">
-              <button
-                className="ewc-btn ewc-btn--icon ewc-btn--sm"
-                onClick={() => setPopoverVisibility(false)}
-              >
-                <span className="ewc-btn__icon">
-                  <i
-                    className="ewc-icon ewc-icon--close-bold ewc-icon--xs"
-                    style={{
-                      backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
-                    }}
-                    e-id="e-icone-icon--close-bold"
-                  ></i>
-                </span>
-              </button>
+
+        <div className="ewc-popover__fixed-content-area" ref={popoverFixedAreaRef}>
+          <div className="ewc-popover__contentContainer">
+            <div className="ewc-popover__content" ref={popoverContentRef}>
+              {hasCloseBtn == true && (
+                <div className="ewc-popover__close">
+                  <button
+                    className="ewc-btn ewc-btn--icon ewc-btn--sm"
+                    onClick={() => setPopoverVisibility(false)}
+                  >
+                    <span className="ewc-btn__icon">
+                      <i
+                        className="ewc-icon ewc-icon--close-bold ewc-icon--xs"
+                        style={{
+                          backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
+                        }}
+                        e-id="e-icone-icon--close-bold"
+                      ></i>
+                    </span>
+                  </button>
+                </div>
+              )}
+              {header && <div className="ewc-popover__header">{header}</div>}
+              {content && <div className="ewc-popover__text">{content}</div>}
+              {!content && <div className="ewc-popover__text" ref={popoverText} />}
             </div>
-          )}
-          {header && <div className="ewc-popover__header">{header}</div>}
-          {content && <div className="ewc-popover__text">{content}</div>}
-          {!content && <div className="ewc-popover__text" ref={popoverText} />}
+          </div>
         </div>
       </div>
     </div>

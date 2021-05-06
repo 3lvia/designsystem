@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis",
-  "version": "7.8.1",
+  "version": "7.8.2",
   "description": "Elvia design system",
   "license": "ISC",
   "author": "",
@@ -12,8 +12,7 @@
     "percy": "node testing/server.js & percy exec -- node testing/snapshots.js"
   },
   "dependencies": {
-    "@elvia/elvis-assets-icons": "*",
-    "bootstrap": "^4.5.3"
+    "@elvia/elvis-assets-icons": "*"
   },
   "devDependencies": {
     "doiuse": "^4.4.0",
@@ -28,6 +27,7 @@
     "postcss-css-variables": "^0.14.0",
     "resolve": "^1.20.0",
     "sass": "^1.27.0",
-    "yargs-parser": ">=13.1.2"
+    "yargs-parser": ">=13.1.2",
+    "bootstrap": "4.5.3"
   }
 }

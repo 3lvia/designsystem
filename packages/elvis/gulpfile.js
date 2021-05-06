@@ -5,8 +5,6 @@ const icons = require('./tasks/icons.js');
 const classList = require('./tasks/classlist.js');
 const typography = require('./tasks/typography.js');
 const gulp = require('gulp');
-const sass = require('gulp-sass');
-sass.compiler = require('sass');
 
 // Run gulp tasks
 gulp.task(
