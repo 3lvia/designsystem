@@ -217,29 +217,13 @@ const Popover: FC<PopoverProps> = ({
     updatePositionX();
   }, [posX]);
 
-  // Update position when popover is opened and when window is resized
-  useEffect(() => {
-    // Update position and size when opening popover
-    updatePosition();
-    resizePopover();
-
-    // Listen to window resizing if popover is open
-    if (!popoverVisibility) {
-      return;
-    }
-    const throttledUpdateNewPosition = toolbox.throttle(updatePosition, 150);
-    window.addEventListener('resize', throttledUpdateNewPosition);
-    return () => window.removeEventListener('resize', throttledUpdateNewPosition);
-  }, [popoverVisibility, updatePosition]);
-
   const removeFixedSizeOnClosed = (isOpen: boolean) => {
     // if isOpen false then remove any applied styles.
     if (isOpen) {
       return true
     }
     if (popoverFixedAreaRef.current) {
-      popoverFixedAreaRef.current.style.height = '0px';
-      popoverFixedAreaRef.current.style.width = '0px';
+      removeFixedAreaStyles();
     }
     return false;
   };
@@ -261,7 +245,7 @@ const Popover: FC<PopoverProps> = ({
     }
   };
 
-  const isConflictTopOrBottom = () => {
+  const resolvePositionConflicts = () => {
     // apply top and bottom properties if not enought space above or below popover
     if (isConflictTop() && popoverContentRef.current && popoverTriggerRef.current) {
       popoverContentRef.current.style.top = popoverTriggerRef.current.getBoundingClientRect().height + 'px';
@@ -276,9 +260,23 @@ const Popover: FC<PopoverProps> = ({
     }
   };
 
-  // place fixed area that covers trigger element and works as position anchor for content element
+  const removeFixedAreaStyles = () => {
+    if (popoverContentRef.current && popoverFixedAreaRef.current) {
+      popoverContentRef.current.style.top = '';
+      popoverContentRef.current.style.bottom = '';
+      popoverFixedAreaRef.current.style.height = '0px';
+      popoverFixedAreaRef.current.style.width = '0px';
+    }
+  }
+
+  // Update position when popover is opened and when window is resized, and positions
+  // a fixed area that covers trigger element and works as position anchor for content element
   useEffect(() => {
-    // if popovervisibility then remove applied styles and return .
+    // Update position and size when opening popover
+    updatePosition();
+    resizePopover();
+
+    // if popovervisibility false then remove applied styles and return .
     if (removeFixedSizeOnClosed(popoverVisibility) === false) {
       return;
     }
@@ -289,28 +287,28 @@ const Popover: FC<PopoverProps> = ({
     }
 
     // check if enought space on top or below the popover
-    isConflictTopOrBottom();
+    resolvePositionConflicts();
 
     // on scroll, reposition fixed area to current triggerelement position
-    const UpdateContentPositionOnScroll = () => {
+    const updateFixedAreaPositionOnScroll = () => {
       if (popoverFixedAreaRef.current && popoverTriggerRef.current) {
         popoverFixedAreaRef.current.style.top = popoverTriggerRef.current.getBoundingClientRect().top + 'px';
       }
     };
-    document.addEventListener('scroll', UpdateContentPositionOnScroll, false);
+    const throttledUpdateNewPosition = toolbox.throttle(updatePosition, 150);
+    window.addEventListener('resize', throttledUpdateNewPosition);
+    document.addEventListener('scroll', updateFixedAreaPositionOnScroll, false);
     // Cleanup
     return () => {
       // Remove scroll listener
-      document.removeEventListener('scroll', UpdateContentPositionOnScroll, false);
+      window.removeEventListener('resize', throttledUpdateNewPosition)
+      document.removeEventListener('scroll', updateFixedAreaPositionOnScroll, false);
       // remove applied styles from resizing & initation on top or bottom conflicts
-      if (popoverContentRef.current && popoverFixedAreaRef.current) {
-        popoverContentRef.current.style.top = '';
-        popoverContentRef.current.style.bottom = '';
-        popoverFixedAreaRef.current.style.height = '0px';
-        popoverFixedAreaRef.current.style.width = '0px';
-      }
+      removeFixedAreaStyles();
     };
-  }, [popoverVisibility]);
+  }, [popoverVisibility, updatePosition]);
+
+
 
   const popoverClasses = classnames('ewc-popover', {
     ['ewc-popover--hide']: !popoverVisibility,
@@ -321,7 +319,7 @@ const Popover: FC<PopoverProps> = ({
   return (
     <div ref={popoverRef}>
       <div ref={popoverClasscontainerRef} className={popoverClasses}>
-        <div className="ewc-popover__trigger" style={{}} ref={popoverTriggerRef}>
+        <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
           {trigger && <div onClick={togglePopover}>{trigger}</div>}
           {!trigger && <div onClick={togglePopover} ref={popoverSlotTriggerRef}></div>}
         </div>
