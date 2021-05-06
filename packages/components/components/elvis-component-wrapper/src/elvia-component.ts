@@ -39,7 +39,6 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   attributeChangedCallback(): void {
     this.throttleRenderReactDOM();
-    this.addConditionalStyle();
   }
 
   protected addConditionalStyle(): void {
@@ -47,15 +46,16 @@ export class ElvisComponentWrapper extends HTMLElement {
     const attributeElements = this.webComponent.getComponentData().attributes;
     this.style.cssText = this.webComponent.getComponentData().elementStyle;
 
-    attributeElements.forEach((attribute: string) => {
-      if (this.getAttribute(attribute) !== 'true') {
-        return;
-      }
-      Object.keys(conditionalElements).forEach((obj) => {
-        if (obj === attribute) {
-          this.style.cssText += conditionalElements[obj];
+    attributeElements.forEach((attribute: any) => {
+      if (this.getProps()[attribute.toLowerCase()] === 'true' || this.getProps()[attribute.toLowerCase()] === true) {
+        if (conditionalElements) {
+          Object.keys(conditionalElements).forEach((obj) => {
+            if (obj.toLowerCase() === attribute.toLowerCase()) {
+              this.style.cssText += conditionalElements[obj];
+            }
+          });
         }
-      })
+      }
     });
   }
 
@@ -73,6 +73,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     Object.keys(newProps).forEach((key) => {
       if (!isEqual(this._data[key], newProps[key])) {
         this._data[key] = newProps[key];
+        this.addConditionalStyle();
         this.changedEvent(key);
         this.changedEvent(this.mapNameToRealName(key));
       }

@@ -43,13 +43,13 @@
 
   <hr style="margin: 40px 0" />
   <elvia-testing
-    isFullWidth="true"
+    [isFullWidth]="isFullWidth"
     isBlock="true"
     [value]="counterValue"
     (valueOnChange)="counterValue = $event.detail.value"
   ></elvia-testing>
   {{ counterValue }}
-  <button (click)="counterValue = counterValue + 1">++</button>
+  <button (click)="isFullWidth = !isFullWidth">toggle</button>
 
   <hr style="margin: 40px 0" />
 
