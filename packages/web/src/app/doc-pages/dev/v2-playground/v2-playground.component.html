@@ -48,13 +48,17 @@
   {{ value }}
 
   <hr style="margin: 40px 0" />
-  <<<<<<< HEAD =======
   <elvia-testing [value]="counterValue" (valueOnChange)="counterValue = $event.detail.value"></elvia-testing>
+  <elvia-testing
+    [isFullWidth]="isFullWidth"
+    isBlock="true"
+    [value]="counterValue"
+    (valueOnChange)="counterValue = $event.detail.value"
+  ></elvia-testing>
   {{ counterValue }}
-  <button (click)="counterValue = counterValue + 1">++</button>
+  <button (click)="isFullWidth = !isFullWidth">toggle</button>
 
   <hr style="margin: 40px 0" />
-  >>>>>>> e3a48e1feac217880a81eb2e55ccb940d7259697
 
   <h2>Popover</h2>
   <div style="display: flex; flex-direction: column; align-items: flex-end">
@@ -126,4 +130,63 @@
       <button (click)="progressError = !progressError">Toggle error</button>
     </div> -->
   </div>
+  <<<<<<< HEAD =======
+
+  <h2>Popover in overflow:auto element</h2>
+  <div class="e-table-container">
+    <table class="e-table">
+      <thead>
+        <tr>
+          <th scope="col">
+            <elvia-popover
+              header="BankID"
+              content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+              posY="top"
+              posX="center"
+            >
+              <button slot="trigger" class="e-btn">popover top</button>
+            </elvia-popover>
+          </th>
+          <th scope="col">
+            <elvia-popover
+              header="BankID"
+              content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+              posY="top"
+              posX="left"
+            >
+              <button slot="trigger" class="e-btn">top left</button>
+            </elvia-popover>
+          </th>
+          <th scope="col">
+            <elvia-popover
+              header="BankID"
+              content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+              posY="bottom"
+              posX="center"
+            >
+              <button slot="trigger" class="e-btn">bottom</button>
+            </elvia-popover>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Row 1</td>
+          <td>Row 1</td>
+          <td>Row 1</td>
+        </tr>
+        <tr>
+          <td>Row 2</td>
+          <td>Row 2</td>
+          <td>Row 2</td>
+        </tr>
+        <tr>
+          <td>Row 3</td>
+          <td>Row 3</td>
+          <td>Row 3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  >>>>>>> 18c50a32df98f4c17b07b315640d86802a2b387a
 </div>

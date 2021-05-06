@@ -60,12 +60,19 @@ module.exports = [
     ],
     reactName: 'Datepicker',
     elementStyle: 'display: block; max-width: 383px;',
+    conditionalElementStyle: {
+      isFullWidth: `width: 100%`,
+    }
   },
   {
     name: 'elvis-testing',
     elementName: 'elvia-testing',
-    attributes: ['value'],
+    attributes: ['value', 'isFullWidth', 'isBlock'],
     reactName: 'TestingComponent',
-    elementStyle: 'width: 100%',
+    elementStyle: `width: 50%; display: grid;`,
+    conditionalElementStyle: {
+      isFullWidth: `width: 100%`,
+      isBlock: `display: block`,
+    }
   },
 ];

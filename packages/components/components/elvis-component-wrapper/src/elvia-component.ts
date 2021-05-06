@@ -41,8 +41,27 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.throttleRenderReactDOM();
   }
 
-  protected attachStyle(): void {
+  protected addConditionalStyle(): void {
+    const conditionalElementStyle = this.webComponent.getComponentData().conditionalElementStyle;
+    const attributes = this.webComponent.getComponentData().attributes;
     this.style.cssText = this.webComponent.getComponentData().elementStyle;
+
+    if (!conditionalElementStyle) {
+      return;
+    }
+    attributes.forEach((attribute: any) => {
+      if (this.getProps()[attribute.toLowerCase()] === 'true' || this.getProps()[attribute.toLowerCase()] === true) {
+        Object.keys(conditionalElementStyle).forEach((obj) => {
+          if (obj.toLowerCase() === attribute.toLowerCase()) {
+            this.style.cssText += conditionalElementStyle[obj];
+          }
+        });
+      }
+    });
+  }
+
+  protected attachStyle(): void {
+    this.addConditionalStyle();
     if (this.webComponent.getComponentData().wrapperStyle) {
       this.mountPoint.style.cssText = this.webComponent.getComponentData().wrapperStyle;
     }
@@ -55,6 +74,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     Object.keys(newProps).forEach((key) => {
       if (!isEqual(this._data[key], newProps[key])) {
         this._data[key] = newProps[key];
+        this.addConditionalStyle();
         this.changedEvent(key);
         this.changedEvent(this.mapNameToRealName(key));
       }
