@@ -233,15 +233,15 @@ const Popover: FC<PopoverProps> = ({
       return;
     }
     // get trigger position
-    const triggerElementPositionPosition = popoverTriggerRef.current.getBoundingClientRect();
+    const triggerElementPosition = popoverTriggerRef.current.getBoundingClientRect();
 
     // check for current fixed area
     if (popoverFixedAreaRef.current != null) {
       // define height and width to fixed area to match trigger element & and set top.
-      popoverFixedAreaRef.current.style.top = triggerElementPositionPosition.top + 'px';
-      popoverFixedAreaRef.current.style.left = triggerElementPositionPosition.left + 'px';
-      popoverFixedAreaRef.current.style.height = triggerElementPositionPosition.height + 'px';
-      popoverFixedAreaRef.current.style.width = triggerElementPositionPosition.width + 'px';
+      popoverFixedAreaRef.current.style.top = triggerElementPosition.top + 'px';
+      popoverFixedAreaRef.current.style.left = triggerElementPosition.left + 'px';
+      popoverFixedAreaRef.current.style.height = triggerElementPosition.height + 'px';
+      popoverFixedAreaRef.current.style.width = triggerElementPosition.width + 'px';
     }
   };
 
