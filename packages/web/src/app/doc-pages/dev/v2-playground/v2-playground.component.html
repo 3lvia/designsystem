@@ -123,4 +123,61 @@
       <button (click)="progressError = !progressError">Toggle error</button>
     </div>
   </div>
+
+  <h2>Popover in overflow:auto element</h2>
+  <div class="e-table-container">
+    <table class="e-table">
+      <thead>
+        <tr>
+          <th scope="col">
+            <elvia-popover
+              header="BankID"
+              content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+              posY="top"
+              posX="center"
+            >
+              <button slot="trigger" class="e-btn">popover top</button>
+            </elvia-popover>
+          </th>
+          <th scope="col">
+            <elvia-popover
+              header="BankID"
+              content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+              posY="top"
+              posX="left"
+            >
+              <button slot="trigger" class="e-btn">top left</button>
+            </elvia-popover>
+          </th>
+          <th scope="col">
+            <elvia-popover
+              header="BankID"
+              content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+              posY="bottom"
+              posX="center"
+            >
+              <button slot="trigger" class="e-btn">bottom</button>
+            </elvia-popover>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Row 1</td>
+          <td>Row 1</td>
+          <td>Row 1</td>
+        </tr>
+        <tr>
+          <td>Row 2</td>
+          <td>Row 2</td>
+          <td>Row 2</td>
+        </tr>
+        <tr>
+          <td>Row 3</td>
+          <td>Row 3</td>
+          <td>Row 3</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
