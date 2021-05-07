@@ -10,7 +10,7 @@ import { datepickerData } from './datepicker-data';
 export class DatepickerDocComponent {
   figmaUrl = getComponent('datepicker').figmaUrl;
   description = getComponent('datepicker').description;
-  date = new Date();
+  date = new Date(2021, 4, 20);
   date2 = new Date(2022, 0, 15);
   componentData = datepickerData;
 }
