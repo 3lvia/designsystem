@@ -9,7 +9,7 @@ import moment from 'moment';
 import toolbox from '@elvia/elvis-toolbox';
 
 export interface DatepickerProps {
-  value: Date | number | null;
+  value?: Date | number | null;
   label?: string;
   minDate?: Date;
   maxDate?: Date;
