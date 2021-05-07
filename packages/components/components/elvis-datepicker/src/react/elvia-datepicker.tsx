@@ -187,9 +187,9 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
 
     return (
-      <div className="ewc-datepicker--toolbar">
-        <div className="ewc-datepicker--toolbar-today">{date.format('dddd DD. MMMM')}</div>
-        <Button className="ewc-datepicker--toolbar-dropdown" onClick={toggleYearView()}>
+      <div className="ewc-datepicker__toolbar">
+        <div className="ewc-datepicker__toolbar-today">{date.format('dddd DD. MMMM')}</div>
+        <Button className="ewc-datepicker__toolbar-dropdown" onClick={toggleYearView()}>
           <div className="ewc-datepicker__toolbar-year">{date.format('YYYY')}</div>
           <i
             className={dropdownIconClasses}

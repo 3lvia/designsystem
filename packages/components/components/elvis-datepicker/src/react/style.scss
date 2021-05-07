@@ -50,12 +50,9 @@ $datepicker-max-width: 382px;
 
     display: block;
     margin-bottom: 4px;
-    // &.ewc-datepicker__label--disabled {
-    //   color: $grey-30;
-    // }
   }
 
-  // ERROR
+  // ERROR MESSAGE
   .ewc-datepicker__error {
     font-family: 'Red Hat Text';
     font-style: normal;
@@ -84,9 +81,6 @@ $datepicker-max-width: 382px;
     max-width: $datepicker-max-width;
     border-radius: 4px;
     border: 1px solid black;
-    &.MuiInputBase-fullWidth {
-      width: 100%;
-    }
 
     font-family: 'Red Hat Text', Verdana, sans-serif;
     font-style: normal;
@@ -104,11 +98,6 @@ $datepicker-max-width: 382px;
       color: $text-placeholder;
     }
 
-    // Disabled
-    &.Mui-disabled {
-      border: 1px solid $grey-30;
-      cursor: not-allowed;
-    }
     // Calendar button
     .MuiButtonBase-root {
       padding: 8px;
@@ -117,13 +106,13 @@ $datepicker-max-width: 382px;
         margin-right: 32px;
       }
     }
-  }
-  &.ewc-datepicker--compact {
-    .MuiInputBase-root {
-      input {
-        padding: 10px 0 8px;
-        padding-left: 16px;
-      }
+
+    &.MuiInputBase-fullWidth {
+      width: 100%;
+    }
+    &.Mui-disabled {
+      border: 1px solid $grey-30;
+      cursor: not-allowed;
     }
   }
 
@@ -143,6 +132,7 @@ $datepicker-max-width: 382px;
     transition: none;
     transform: scaleX(1);
   }
+
   // Focus
   .MuiInput-underline.Mui-focused:after {
     border: 2px solid #29d305;
@@ -216,10 +206,14 @@ $datepicker-max-width: 382px;
 .MuiPaper-root {
   margin-top: 9px;
   margin-left: -1px;
-  box-shadow: 0px 0px 40px rgb(0 0 0 / 6%) !important;
-  border-radius: 8px !important;
-  transition: opacity 328ms cubic-bezier(0.4, 0, 0.2, 1) !important;
   transform: none !important;
+  transition: opacity 328ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+  &.MuiPaper-elevation8 {
+    box-shadow: 0px 0px 40px rgb(0 0 0 / 6%);
+  }
+  &.MuiPaper-rounded {
+    border-radius: 8px;
+  }
   .MuiPickersBasePicker-containerLandscape {
     flex-direction: column;
     .MuiPickersToolbar-toolbarLandscape {
@@ -228,7 +222,7 @@ $datepicker-max-width: 382px;
   }
 
   // TOOLBAR
-  .ewc-datepicker--toolbar {
+  .ewc-datepicker__toolbar {
     height: 48px;
     border-bottom: 1px solid $grey-10;
     background-color: white;
@@ -239,7 +233,7 @@ $datepicker-max-width: 382px;
     height: 48px;
     padding: 0 24px;
 
-    .ewc-datepicker--toolbar-today {
+    .ewc-datepicker__toolbar-today {
       font-family: 'Red Hat Display';
       font-size: 16px;
       line-height: 28px;
@@ -248,7 +242,7 @@ $datepicker-max-width: 382px;
       margin: 0px;
       user-select: none;
     }
-    .ewc-datepicker--toolbar-dropdown {
+    .ewc-datepicker__toolbar-dropdown {
       display: flex;
       align-items: center;
       position: relative;
@@ -303,6 +297,8 @@ $datepicker-max-width: 382px;
     position: relative;
     height: 306px;
     margin: 8px 0;
+
+    // Fade
     &::before {
       content: '';
       display: block;
@@ -323,6 +319,7 @@ $datepicker-max-width: 382px;
       bottom: 0;
       background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), #fff);
     }
+
     .MuiTypography-subtitle1,
     .MuiPickersYear-yearSelected {
       font-family: 'Red Hat Display';
@@ -371,7 +368,7 @@ $datepicker-max-width: 382px;
       letter-spacing: 0.2px;
     }
 
-    // ARROWS
+    // Arrows
     .ewc-datepicker__icon--arrow {
       width: 16px;
       height: 16px;
@@ -422,7 +419,7 @@ $datepicker-max-width: 382px;
       line-height: 22px;
       color: black;
     }
-    // Selected day font
+    // Selected day
     .MuiPickersDay-daySelected,
     .MuiPickersDay-current.MuiPickersDay-daySelected {
       border: 1px solid black !important;
@@ -435,7 +432,7 @@ $datepicker-max-width: 382px;
         background: $green !important;
       }
     }
-    // Current day font
+    // Current day
     .MuiPickersDay-current {
       background: white !important;
       border: 1px solid transparent !important;
@@ -481,6 +478,8 @@ $datepicker-max-width: 382px;
     opacity: 1;
   }
 }
+
+// Removing datepicker animation
 .MuiPickersBasePicker-pickerView {
   .MuiPickersSlideTransition-slideEnterActive,
   .MuiPickersSlideTransition-slideExitActiveLeft-left,
