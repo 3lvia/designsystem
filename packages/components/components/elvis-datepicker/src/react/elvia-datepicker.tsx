@@ -13,7 +13,6 @@ export interface DatepickerProps {
   label?: string;
   minDate?: Date;
   maxDate?: Date;
-  startDate?: Date;
   isCompact?: boolean | string;
   isDisabled?: boolean | string;
   isFullWidth?: boolean | string;
@@ -31,7 +30,6 @@ export const Datepicker: FC<DatepickerProps> = ({
   isFullWidth = false,
   minDate,
   maxDate,
-  startDate,
   valueOnChange,
   webcomponent,
 }) => {
@@ -238,7 +236,7 @@ export const Datepicker: FC<DatepickerProps> = ({
               onOpen={updateInputWithSelectedDate}
               disabled={isDisabled === true || isDisabled === 'true'}
               fullWidth={isFullWidth === true || isFullWidth === 'true'}
-              minDate={startDate ? startDate : minDate}
+              minDate={minDate}
               maxDate={maxDate}
               ToolbarComponent={getCustomToolbar}
               keyboardIcon={getCalIcon()}
