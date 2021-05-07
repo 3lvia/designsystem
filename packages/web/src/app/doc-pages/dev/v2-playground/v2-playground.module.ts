@@ -9,6 +9,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 
 import '@elvia/elvis-accordion';
+import '@elvia/elvis-dropdown';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-tabs';
 import '@elvia/elvis-progress-linear';

@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Select, { components } from 'react-select';
-import classnames from 'classnames';
+// import classnames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
+import { DropdownWrapperTEST } from './styledComponents';
+// drop denne når styledComponents er ferdig.
 import './style.scss';
 
 export interface DropdownOptions {
@@ -22,6 +24,74 @@ export interface DropdownProps {
   optionOnChange: (selectedOptions: DropdownOptions | Array<DropdownOptions> | undefined) => void;
   webcomponent?: any;
 }
+
+// custom styling for labels and error
+// const ElviaColors = {
+//   elviaCharge: '#29d305',
+//   elviaOn: '#ffffff',
+//   elviaOff: '#000000',
+// };
+
+// const DropdownWrapper = styled.span`${DropdownWrapperTEST}`
+
+// const DropdownWrapper = styled.span`
+//   display: block;
+//   position: relative;
+//   text-align: left;
+//   box-sizing: border-box;
+//   border: 1px solid red;
+//   cursor: ${(props: { isDisabled: boolean }) => (props.isDisabled ? 'not-allowed' : 'pointer')};
+
+//   &:focus-within {
+//     .ewc-dropdown__control {
+//       border: 2px solid ${ElviaColors.elviaCharge};
+//       padding: 0px;
+//       outline: 2px solid #0064fa;
+//       outline-offset: 2px;
+//     }
+//   }
+// `;
+// const DropdownLabel = styled.label`
+
+// // ewc-dropdown__label
+// // spør om disabled
+
+//   display: flex;
+//   margin-bottom: 4px;
+//   font-family: 'Red Hat Text';
+//   font-size: 16px;
+//   font-weight: 500;
+//   line-height: 23px;
+//   letter-spacing: unset;
+//   font-style: unset;
+//   text-transform: unset;
+//   color: $black;
+//   text-align: left;
+
+// `;
+
+// const ErrorWrapper = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   margin-top: 4px;
+// `;
+
+// const ErrorIcon = styled.i`
+// `;
+
+// const ErrorText = styled.span`
+//   font-family: 'Red Hat Text', Verdana;
+//   font-size: 14px;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: 22px;
+//   letter-spacing: 0px;
+//   text-align: left;
+
+//   margin-left: 8px;
+//   width: 100%;
+// `;
 
 // Custom ValueContainer for Elvia Dropdown, defined outside of Dropdown due to focus issues with react-select package.
 // Enables multiselect with checkboxes in a dropdown.
@@ -53,11 +123,11 @@ const Dropdown: React.FC<DropdownProps> = ({
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
   // styling for custom Elvia labels
-  const classes = classnames({
-    ['ewc-dropdown']: !isCompact,
-    ['ewc-dropdown ewc-dropdown--compact']: isCompact,
-    ['ewc-dropdown ewc-dropdown--disabled']: isDisabled,
-  });
+  // const classes = classnames({
+  //   ['ewc-dropdown']: !isCompact,
+  //   ['ewc-dropdown ewc-dropdown--compact']: isCompact,
+  //   ['ewc-dropdown ewc-dropdown--disabled']: isDisabled,
+  // });
 
   // styling functions
   const decideControlBorder = (disabled: boolean, error: boolean) => {
@@ -326,7 +396,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   return (
-    <span className={classes} ref={dropdownRef}>
+    <DropdownWrapperTEST isDisabled={isDisabled} ref={dropdownRef}>
+      {/* 
+    <span className={classes} ref={dropdownRef}> */}
       <label className="ewc-dropdown__label" style={{ color: isDisabled ? '#BDBDBD' : '#000000' }}>
         {label}
       </label>
@@ -374,7 +446,8 @@ const Dropdown: React.FC<DropdownProps> = ({
           <span className="ewc-dropdown__errorMessage__text">{errorMessage}</span>
         </div>
       ) : null}
-    </span>
+      {/* </span> */}
+    </DropdownWrapperTEST>
   );
 };
 
