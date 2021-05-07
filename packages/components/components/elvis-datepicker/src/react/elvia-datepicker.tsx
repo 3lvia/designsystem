@@ -94,7 +94,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   }, [value]);
 
   useEffect(() => {
-    updateCaretPositionDot();
+    updateCaretPositionWhenDotIsAdded();
   }, [selectedDate]);
 
   const handleDateChange = (date: number | Date | null) => {
@@ -107,7 +107,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  const updateCaretPositionDot = () => {
+  const updateCaretPositionWhenDotIsAdded = () => {
     if (!inputRef.current) {
       return;
     }
@@ -117,7 +117,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  const updateCaretPositionSpace = () => {
+  const updateCaretPositionOnFocus = () => {
     setTimeout(() => {
       if (!inputRef.current) {
         return;
@@ -136,6 +136,12 @@ export const Datepicker: FC<DatepickerProps> = ({
 
   const removeOutlineFix = (ref: HTMLDivElement | null) => {
     toolbox.outlineListener(ref, true);
+  };
+
+  const updateInputWithSelectedDate = () => {
+    if (selectedDate === null) {
+      setSelectedDate(new Date());
+    }
   };
 
   const getCalIcon = () => {
@@ -196,13 +202,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     );
   };
 
-  const fillInput = () => {
-    if (selectedDate === null) {
-      setSelectedDate(new Date());
-    }
-  };
-
-  const formatDate = (inputString: string) => {
+  const getDateFormat = (inputString: string) => {
     const digits = (inputString.match(/\d+/g) || []).join('');
     let res = digits
       .split('')
@@ -231,11 +231,11 @@ export const Datepicker: FC<DatepickerProps> = ({
               inputProps={{ ref: inputRef }}
               value={selectedDate}
               onChange={handleDateChange}
-              onFocus={updateCaretPositionSpace}
+              onFocus={updateCaretPositionOnFocus}
               placeholder={placeholderString}
               format="DD.MM.yyyy"
-              rifmFormatter={formatDate}
-              onOpen={fillInput}
+              rifmFormatter={getDateFormat}
+              onOpen={updateInputWithSelectedDate}
               disabled={isDisabled === true || isDisabled === 'true'}
               fullWidth={isFullWidth === true || isFullWidth === 'true'}
               minDate={startDate ? startDate : minDate}

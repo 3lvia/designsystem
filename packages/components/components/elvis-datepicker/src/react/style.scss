@@ -287,17 +287,6 @@ $datepicker-max-width: 382px;
           }
           animation: rotate-forward 0.2s ease-in-out both;
         }
-        &.rotate-back {
-          @keyframes rotate-back {
-            0% {
-              transform: rotate(180deg);
-            }
-            100% {
-              transform: rotate(0);
-            }
-          }
-          animation: rotate-back 0.2s ease-in-out both;
-        }
       }
 
       &:hover {
