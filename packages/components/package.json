@@ -8,7 +8,7 @@
   "main": "server.js",
   "scripts": {
     "start-dev": "concurrently \"webpack-dev-server --config ./webpack.config.js --mode development\" \"webpack --watch --mode development\" \"yarn run gulp:watch\"",
-    "build": "yarn run build:component && yarn run build:loader",
+    "build": "yarn run build:components && yarn run build:loader",
     "build:components": "webpack --mode=production  --config ./webpack.config.js && gulp --gulpfile build/gulpfile.js",
     "build:components:dev": "webpack --mode=\"development\" --config ./webpack.config.js && gulp --gulpfile build/gulpfile.js",
     "build:components:watch": "webpack --mode=production  --config ./webpack.config.js --watch",
