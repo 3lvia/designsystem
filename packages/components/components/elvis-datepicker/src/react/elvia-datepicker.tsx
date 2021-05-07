@@ -170,7 +170,7 @@ export const Datepicker: FC<DatepickerProps> = ({
 
   const getCustomToolbar = (props: any) => {
     const { date, openView, setOpenView } = props;
-    const toggleYearView = () => () => {
+    const toggleYearView = () => {
       openView === 'year' ? setOpenView('date') : setOpenView('year');
     };
 
@@ -187,7 +187,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     return (
       <div className="ewc-datepicker__toolbar">
         <div className="ewc-datepicker__toolbar-today">{date.format('dddd DD. MMMM')}</div>
-        <Button className="ewc-datepicker__toolbar-dropdown" onClick={toggleYearView()}>
+        <Button className="ewc-datepicker__toolbar-dropdown" onClick={toggleYearView}>
           <div className="ewc-datepicker__toolbar-year">{date.format('YYYY')}</div>
           <i
             className={dropdownIconClasses}
