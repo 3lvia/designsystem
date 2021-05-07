@@ -3,6 +3,7 @@ import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { Paper, Grid } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import MomentUtils from '@date-io/moment';
 import moment from 'moment';
@@ -216,6 +217,22 @@ export const Datepicker: FC<DatepickerProps> = ({
     return res;
   };
 
+  const getDayElement = (day: any, selectedDate: any, isInCurrentMonth: any, dayComponent: any) => {
+    console.log(day);
+    console.log(selectedDate);
+    if (selectedDate) {
+      return (
+        <Button className="MuiButtonBase-root MuiIconButton-root MuiPickersDay-day MuiPickersDay-current MuiPickersDay-daySelected">
+          {day.format('D')}
+        </Button>
+      );
+    } else {
+      return (
+        <Button className="MuiButtonBase-root MuiIconButton-root MuiPickersDay-day">{day.format('D')}</Button>
+      );
+    }
+  };
+
   return (
     <div ref={datepickerRef}>
       <div className={datePickerClasses}>
@@ -239,6 +256,9 @@ export const Datepicker: FC<DatepickerProps> = ({
               minDate={minDate}
               maxDate={maxDate}
               ToolbarComponent={getCustomToolbar}
+              // renderDay={(day: any, selectedDate: any, isInCurrentMonth: any, dayComponent: any) =>
+              //   getDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
+              // }
               keyboardIcon={getCalIcon()}
               leftArrowIcon={getArrowIcon(true)}
               rightArrowIcon={getArrowIcon(false)}

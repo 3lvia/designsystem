@@ -92,10 +92,10 @@ $datepicker-max-width: 382px;
     input {
       padding: 15px 0 13px;
       padding-left: 16px;
-    }
-
-    ::placeholder {
-      color: $text-placeholder;
+      &::placeholder {
+        opacity: 1;
+        color: $text-placeholder;
+      }
     }
 
     // Calendar button
@@ -406,6 +406,7 @@ $datepicker-max-width: 382px;
     margin-top: 0px;
   }
   .MuiPickersCalendar-week {
+    .ewc-datepicker__day,
     .MuiPickersDay-day {
       width: 32px;
       height: 32px;
@@ -459,6 +460,7 @@ $datepicker-max-width: 382px;
       }
     }
     // Hover
+    .ewc-datepicker__day:hover,
     .MuiPickersDay-day:hover {
       border: 1px solid $green;
       background: white;

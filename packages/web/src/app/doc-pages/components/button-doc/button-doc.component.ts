@@ -173,10 +173,10 @@ export class ButtonDocComponent {
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download"></i>
     </span>
-    <span class="e-btn__title">With icon</span>
+    <span class="e-btn__title">Tertiary</span>
   </button>
   <button class="e-btn e-btn--tertiary e-m-8">
-    <span class="e-btn__title">With icon</span>
+    <span class="e-btn__title">Tertiary</span>
     <span class="e-btn__icon">
       <i class="e-icon e-icon--download"></i>
     </span>
