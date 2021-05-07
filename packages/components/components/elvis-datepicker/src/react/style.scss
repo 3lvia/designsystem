@@ -449,7 +449,7 @@ $datepicker-max-width: 382px;
     // Current day font
     .MuiPickersDay-current {
       background: white !important;
-      border: 0 !important;
+      border: 1px solid transparent !important;
       .MuiTypography-body2 {
         font-weight: 400;
       }
@@ -460,13 +460,15 @@ $datepicker-max-width: 382px;
         background: $green;
         width: 4px;
         height: 4px;
-        top: 26px;
-        left: 14px;
+        top: 25px;
+        left: 12px;
       }
       &:hover {
         border: 1px solid $green !important;
+      }
+      &.MuiPickersDay-dayDisabled {
         &::after {
-          content: none;
+          background: $text-disabled;
         }
       }
     }

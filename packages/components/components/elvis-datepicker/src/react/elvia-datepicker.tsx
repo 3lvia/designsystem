@@ -197,7 +197,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   const fillInput = () => {
-    if (selectedDate == null) {
+    if (selectedDate === null) {
       setSelectedDate(new Date());
     }
   };
