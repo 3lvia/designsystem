@@ -10,14 +10,14 @@ import toolbox from '@elvia/elvis-toolbox';
 
 export interface DatepickerProps {
   value: Date | number | null;
-  label: string;
-  minDate: Date;
-  maxDate: Date;
-  startDate: Date;
-  isCompact: boolean | string;
-  isDisabled: boolean | string;
-  isFullWidth: boolean | string;
-  errorMessage: string;
+  label?: string;
+  minDate?: Date;
+  maxDate?: Date;
+  startDate?: Date;
+  isCompact?: boolean | string;
+  isDisabled?: boolean | string;
+  isFullWidth?: boolean | string;
+  errorMessage?: string;
   valueOnChange?: (value: number | Date | null) => void;
   webcomponent?: any;
 }
@@ -29,9 +29,9 @@ export const Datepicker: FC<DatepickerProps> = ({
   isDisabled = false,
   errorMessage = '',
   isFullWidth = false,
-  minDate = undefined,
-  maxDate = undefined,
-  startDate = undefined,
+  minDate,
+  maxDate,
+  startDate,
   valueOnChange,
   webcomponent,
 }) => {
@@ -61,8 +61,8 @@ export const Datepicker: FC<DatepickerProps> = ({
             backgroundColor: '#29d305',
           },
           '&.Mui-focusVisible': {
-            outline: '2px solid #0064fa !important',
-            outlineOffset: '2px !important',
+            outline: '2px solid #0064fa',
+            outlineOffset: '2px',
           },
           '&:active': {
             transform: 'scale(0.93)',
@@ -221,10 +221,8 @@ export const Datepicker: FC<DatepickerProps> = ({
   return (
     <div ref={datepickerRef}>
       <div className={datePickerClasses}>
-        {/* Label */}
         {label !== '' && <label className="ewc-datepicker__label">{label}</label>}
 
-        {/* MUI Datepicker */}
         <ThemeProvider theme={materialTheme}>
           <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
             <KeyboardDatePicker
@@ -258,7 +256,6 @@ export const Datepicker: FC<DatepickerProps> = ({
           </MuiPickersUtilsProvider>
         </ThemeProvider>
 
-        {/* Helper text */}
         {errorMessage && (
           <div className="ewc-datepicker__error">
             <i
