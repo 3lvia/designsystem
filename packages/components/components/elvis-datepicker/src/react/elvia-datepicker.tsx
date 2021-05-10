@@ -204,9 +204,14 @@ export const Datepicker: FC<DatepickerProps> = ({
     const dayDate = new Date(day);
     const selDate = new Date(selected);
     const dayClasses = classnames('ewc-datepicker__day', {
-      ['ewc-datepicker__day-selected']: dayDate.getDate() === selDate.getDate(),
+      ['ewc-datepicker__day-selected']:
+        dayDate.getDate() === selDate.getDate() &&
+        dayDate.getMonth() === selDate.getMonth() &&
+        dayDate.getFullYear() === selDate.getFullYear(),
       ['ewc-datepicker__day-current']:
-        dayDate.getDate() === today.getDate() && dayDate.getMonth() === today.getMonth(),
+        dayDate.getDate() === today.getDate() &&
+        dayDate.getMonth() === today.getMonth() &&
+        dayDate.getFullYear() === today.getFullYear(),
       ['ewc-datepicker__day-disabled']: dayComponent.props.disabled,
     });
     if (isInCurrentMonth) {
