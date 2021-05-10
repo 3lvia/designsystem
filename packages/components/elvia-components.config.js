@@ -15,6 +15,11 @@ module.exports = [
     attributes: ['content', 'openLabel', 'closeLabel', 'labelPosition', 'size', 'type'],
     reactName: 'Accordion',
     useWrapper: true,
+  },{
+    name: 'elvis-breadcrumbs',
+    elementName: 'elvia-breadcrumbs',
+    attributes: ['test'],
+    reactName: 'Breadcrumbs',
   },
   {
     name: 'elvis-checkbox',

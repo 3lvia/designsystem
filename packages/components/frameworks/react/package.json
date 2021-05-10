@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "@elvia/elvis-accordion": "*",
+    "@elvia/elvis-breadcrumbs": "*",
     "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-progress-linear": "*",
