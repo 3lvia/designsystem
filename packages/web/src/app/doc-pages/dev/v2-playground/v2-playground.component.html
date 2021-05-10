@@ -10,9 +10,8 @@
 <div class="page-body">
   <h2>DatePicker</h2>
   <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
-    <elvia-datepicker (valueOnChange)="date = $event.detail.value"></elvia-datepicker>
+    <elvia-datepicker [minDate]="date1"></elvia-datepicker>
   </div>
-  {{ date }}
 
   <h2>Accordion</h2>
   <elvia-accordion

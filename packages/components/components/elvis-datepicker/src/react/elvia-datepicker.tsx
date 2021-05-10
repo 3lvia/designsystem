@@ -3,8 +3,6 @@ import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { Paper, Grid } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
 import MomentUtils from '@date-io/moment';
 import moment from 'moment';
 import toolbox from '@elvia/elvis-toolbox';
@@ -12,12 +10,12 @@ import toolbox from '@elvia/elvis-toolbox';
 export interface DatepickerProps {
   value?: Date | number | null;
   label?: string;
-  minDate?: Date;
-  maxDate?: Date;
   isCompact?: boolean | string;
   isDisabled?: boolean | string;
   isFullWidth?: boolean | string;
   errorMessage?: string;
+  minDate?: Date;
+  maxDate?: Date;
   valueOnChange?: (value: number | Date | null) => void;
   webcomponent?: any;
 }
@@ -27,8 +25,8 @@ export const Datepicker: FC<DatepickerProps> = ({
   label = 'Velg dato',
   isCompact = false,
   isDisabled = false,
-  errorMessage = '',
   isFullWidth = false,
+  errorMessage = '',
   minDate,
   maxDate,
   valueOnChange,
@@ -188,7 +186,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     return (
       <div className="ewc-datepicker__toolbar">
         <div className="ewc-datepicker__toolbar-today">{date.format('dddd DD. MMMM')}</div>
-        <Button className="ewc-datepicker__toolbar-dropdown" onClick={toggleYearView}>
+        <button className="ewc-datepicker__toolbar-dropdown" onClick={toggleYearView}>
           <div className="ewc-datepicker__toolbar-year">{date.format('YYYY')}</div>
           <i
             className={dropdownIconClasses}
@@ -196,9 +194,30 @@ export const Datepicker: FC<DatepickerProps> = ({
               backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.389 5.869a1.328 1.328 0 011.878 0L12 15.6l9.733-9.732a1.328 1.328 0 011.878 1.878L13.443 17.915h-.001a2.04 2.04 0 01-2.885 0L.39 7.747a1.328 1.328 0 010-1.878z' fill='black'/%3e%3c/svg%3e")`,
             }}
           ></i>
-        </Button>
+        </button>
       </div>
     );
+  };
+
+  const getDayElement = (day: any, selected: any, isInCurrentMonth: any, dayComponent: any) => {
+    const today = new Date();
+    const dayDate = new Date(day);
+    const selDate = new Date(selected);
+    const dayClasses = classnames('ewc-datepicker__day', {
+      ['ewc-datepicker__day-selected']: dayDate.getDate() === selDate.getDate(),
+      ['ewc-datepicker__day-current']:
+        dayDate.getDate() === today.getDate() && dayDate.getMonth() === today.getMonth(),
+      ['ewc-datepicker__day-disabled']: dayComponent.props.disabled,
+    });
+    if (isInCurrentMonth) {
+      if (!dayComponent.props.disabled) {
+        return <button className={dayClasses}>{day.format('D')}</button>;
+      } else {
+        return <div className={dayClasses}>{day.format('D')}</div>;
+      }
+    } else {
+      return <div className="ewc-datepicker__day-size"></div>;
+    }
   };
 
   const getDateFormat = (inputString: string) => {
@@ -215,22 +234,6 @@ export const Datepicker: FC<DatepickerProps> = ({
       res += ' ';
     }
     return res;
-  };
-
-  const getDayElement = (day: any, selectedDate: any, isInCurrentMonth: any, dayComponent: any) => {
-    console.log(day);
-    console.log(selectedDate);
-    if (selectedDate) {
-      return (
-        <Button className="MuiButtonBase-root MuiIconButton-root MuiPickersDay-day MuiPickersDay-current MuiPickersDay-daySelected">
-          {day.format('D')}
-        </Button>
-      );
-    } else {
-      return (
-        <Button className="MuiButtonBase-root MuiIconButton-root MuiPickersDay-day">{day.format('D')}</Button>
-      );
-    }
   };
 
   return (
@@ -256,9 +259,9 @@ export const Datepicker: FC<DatepickerProps> = ({
               minDate={minDate}
               maxDate={maxDate}
               ToolbarComponent={getCustomToolbar}
-              // renderDay={(day: any, selectedDate: any, isInCurrentMonth: any, dayComponent: any) =>
-              //   getDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
-              // }
+              renderDay={(day: any, selectedDate: any, isInCurrentMonth: any, dayComponent: any) =>
+                getDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
+              }
               keyboardIcon={getCalIcon()}
               leftArrowIcon={getArrowIcon(true)}
               rightArrowIcon={getArrowIcon(false)}
@@ -268,7 +271,7 @@ export const Datepicker: FC<DatepickerProps> = ({
                 ref: datepickerPopoverRef,
               }}
               KeyboardButtonProps={{
-                'aria-label': 'endre dato',
+                'aria-label': 'Velg dato',
               }}
             />
           </MuiPickersUtilsProvider>

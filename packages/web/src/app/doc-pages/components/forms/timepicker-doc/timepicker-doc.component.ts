@@ -9,4 +9,12 @@ import { getComponent } from 'src/app/shared/e-items';
 export class TimepickerDocComponent {
   figmaUrl = getComponent('timepicker').figmaUrl;
   description = getComponent('timepicker').description;
+
+  loadedFigmaModel = false;
+
+  hideContentLoader(evt: any): void {
+    if (evt && evt.target) {
+      this.loadedFigmaModel = true;
+    }
+  }
 }

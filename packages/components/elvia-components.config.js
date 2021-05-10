@@ -52,7 +52,6 @@ module.exports = [
       'label',
       'minDate',
       'maxDate',
-      'startDate',
       'isCompact',
       'isDisabled',
       'isFullWidth',

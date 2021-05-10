@@ -6,31 +6,13 @@ import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
-import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-import moment from 'moment';
-import MomentUtils from '@date-io/moment';
-import 'moment/locale/nb';
-moment.updateLocale('nb', {
-  week: {
-    dow: 1,
-  },
-});
 
 function App() {
   const [trackedState, setTrackedState] = useState(true);
   const [selectedState, setSelectedState] = useState(2);
-  const [selectedDate, setSelectedDate] = React.useState(new Date());
   const ref = useRef();
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
-
-  function update() {
-    setTrackedState(!trackedState);
-  }
 
   const [progressValue, setProgressValue] = useState(0);
 
@@ -44,27 +26,9 @@ function App() {
     setProgressValue(0);
   }
 
-  function update() {
-    setSelectedState(0);
-  }
-
   return (
     <div className="App">
       <h1>React preview</h1>
-
-      <MuiPickersUtilsProvider utils={MomentUtils}>
-        <KeyboardDatePicker
-          variant="inline"
-          format="DD/MM/yyyy"
-          margin="normal"
-          label="Label"
-          value={selectedDate}
-          onChange={handleDateChange}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-      </MuiPickersUtilsProvider>
 
       <h2>Date picker</h2>
       <div
@@ -88,15 +52,6 @@ function App() {
         <div style={{ marginTop: '16px' }}>
           <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
         </div>
-        <div style={{ marginTop: '16px' }}>
-          <Datepicker
-            id="datepicker2"
-            isFullWidth={true}
-            valueOnChange={(dateCurr) => console.log(dateCurr)}
-          ></Datepicker>
-        </div>
-        <div style={{ marginTop: '16px'}}><Datepicker minDate={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker></div>
-        <div>{selectedDate.toString()}</div>
       </div>
 
       <hr style={{ margin: '40px 0' }} />
