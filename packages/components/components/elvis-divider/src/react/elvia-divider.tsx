@@ -10,12 +10,7 @@ export interface DividerProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const DividerComponent: React.FC<DividerProps> = ({
-  isCurved,
-  isInverted,
-  title,
-  titleType = 'md',
-}) => {
+export const Divider: React.FC<DividerProps> = ({ isCurved, isInverted, title, titleType = 'md' }) => {
   const classes = classnames('ewc-divider', {
     ['ewc-divider--curved']: isCurved,
     ['ewc-divider--inverted']: isInverted,
@@ -26,4 +21,4 @@ export const DividerComponent: React.FC<DividerProps> = ({
   return <div className={classes}>{title && <div className="ewc-divider__title">{title}</div>}</div>;
 };
 
-export default DividerComponent;
+export default Divider;
