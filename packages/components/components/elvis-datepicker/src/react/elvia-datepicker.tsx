@@ -50,23 +50,6 @@ export const Datepicker: FC<DatepickerProps> = ({
         disableRipple: true,
       },
     },
-    overrides: {
-      MuiIconButton: {
-        root: {
-          padding: '8px',
-          '&:hover': {
-            backgroundColor: '#29d305',
-          },
-          '&.Mui-focusVisible': {
-            outline: '2px solid #0064fa',
-            outlineOffset: '2px',
-          },
-          '&:active': {
-            transform: 'scale(0.93)',
-          },
-        },
-      },
-    },
   });
 
   useEffect(() => {
@@ -185,7 +168,7 @@ export const Datepicker: FC<DatepickerProps> = ({
 
     return (
       <div className="ewc-datepicker__toolbar">
-        <div className="ewc-datepicker__toolbar-today">{date.format('dddd DD. MMMM')}</div>
+        <div className="ewc-datepicker__toolbar-today">{date.format('dddd D. MMMM')}</div>
         <button className="ewc-datepicker__toolbar-dropdown" onClick={toggleYearView}>
           <div className="ewc-datepicker__toolbar-year">{date.format('YYYY')}</div>
           <i

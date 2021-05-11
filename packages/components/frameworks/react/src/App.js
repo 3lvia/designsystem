@@ -5,6 +5,7 @@ import { Accordion } from '@elvia/elvis-accordion/react';
 import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
+import { TestingComponent } from '@elvia/elvis-testing/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 
 function App() {
@@ -53,6 +54,8 @@ function App() {
           <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
         </div>
       </div>
+
+      <TestingComponent></TestingComponent>
 
       <hr style={{ margin: '40px 0' }} />
       <h2>Accordion</h2>

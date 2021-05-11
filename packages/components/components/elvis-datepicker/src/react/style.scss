@@ -30,6 +30,7 @@ $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
 
 .ewc-datepicker {
   position: relative;
+
   // Removing mui label and helpertext
   .MuiFormLabel-root,
   .MuiFormHelperText-root {
@@ -97,7 +98,18 @@ $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
     // Calendar button
     .MuiButtonBase-root {
       padding: 8px;
+      border-radius: 50%;
       margin-right: 8px;
+      &:hover {
+        background-color: #29d305;
+      }
+      &.Mui-focusVisible {
+        outline: 2px solid #0064fa;
+        outline-offset: 2px;
+      }
+      &:active {
+        transform: scale(0.93);
+      }
       @media screen and (-ms-high-contrast: none) {
         margin-right: 32px;
       }
@@ -367,13 +379,27 @@ $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
     }
 
     // Arrows
-    .ewc-datepicker__icon--arrow {
-      width: 16px;
-      height: 16px;
-    }
-    .MuiPickersCalendarHeader-iconButton.Mui-disabled {
-      opacity: 0.3;
-      cursor: not-allowed;
+    .MuiPickersCalendarHeader-iconButton {
+      padding: 8px;
+      border-radius: 50%;
+      &:hover {
+        background-color: #29d305;
+      }
+      &.Mui-focusVisible {
+        outline: 2px solid #0064fa;
+        outline-offset: 2px;
+      }
+      &:active {
+        transform: scale(0.93);
+      }
+      .ewc-datepicker__icon--arrow {
+        width: 16px;
+        height: 16px;
+      }
+      &.Mui-disabled {
+        opacity: 0.3;
+        cursor: not-allowed;
+      }
     }
   }
 
