@@ -1,97 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Select, { components } from 'react-select';
-// import classnames from 'classnames';
 import toolbox from '@elvia/elvis-toolbox';
-import { DropdownWrapperTEST } from './styledComponents';
-// drop denne når styledComponents er ferdig.
-import './style.scss';
+import * as StyledDropdown from './styledComponents';
 
+export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 export interface DropdownOptions {
   value: string;
   label: string;
 }
 
 export interface DropdownProps {
-  defaultOption: DropdownOptions;
-  errorMessage: string;
-  isCompact: boolean;
-  isDisabled: boolean;
-  isMulti: boolean;
+  defaultOption?: DropdownOptions;
+  errorMessage?: string;
+  isCompact?: boolean;
+  isDisabled?: boolean;
+  isMulti?: boolean;
   label?: string;
-  menuPosition: string;
+  menuPosition?: DropdownMenuPosition;
   options: DropdownOptions[];
-  placeholder: string;
-  optionOnChange: (selectedOptions: DropdownOptions | Array<DropdownOptions> | undefined) => void;
+  placeholder?: string;
+  optionOnChange?: (selectedOptions: DropdownOptions | Array<DropdownOptions> | undefined) => void;
   webcomponent?: any;
 }
-
-// custom styling for labels and error
-// const ElviaColors = {
-//   elviaCharge: '#29d305',
-//   elviaOn: '#ffffff',
-//   elviaOff: '#000000',
-// };
-
-// const DropdownWrapper = styled.span`${DropdownWrapperTEST}`
-
-// const DropdownWrapper = styled.span`
-//   display: block;
-//   position: relative;
-//   text-align: left;
-//   box-sizing: border-box;
-//   border: 1px solid red;
-//   cursor: ${(props: { isDisabled: boolean }) => (props.isDisabled ? 'not-allowed' : 'pointer')};
-
-//   &:focus-within {
-//     .ewc-dropdown__control {
-//       border: 2px solid ${ElviaColors.elviaCharge};
-//       padding: 0px;
-//       outline: 2px solid #0064fa;
-//       outline-offset: 2px;
-//     }
-//   }
-// `;
-// const DropdownLabel = styled.label`
-
-// // ewc-dropdown__label
-// // spør om disabled
-
-//   display: flex;
-//   margin-bottom: 4px;
-//   font-family: 'Red Hat Text';
-//   font-size: 16px;
-//   font-weight: 500;
-//   line-height: 23px;
-//   letter-spacing: unset;
-//   font-style: unset;
-//   text-transform: unset;
-//   color: $black;
-//   text-align: left;
-
-// `;
-
-// const ErrorWrapper = styled.div`
-//   display: flex;
-//   flex-direction: row;
-//   align-items: center;
-//   margin-top: 4px;
-// `;
-
-// const ErrorIcon = styled.i`
-// `;
-
-// const ErrorText = styled.span`
-//   font-family: 'Red Hat Text', Verdana;
-//   font-size: 14px;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: 22px;
-//   letter-spacing: 0px;
-//   text-align: left;
-
-//   margin-left: 8px;
-//   width: 100%;
-// `;
 
 // Custom ValueContainer for Elvia Dropdown, defined outside of Dropdown due to focus issues with react-select package.
 // Enables multiselect with checkboxes in a dropdown.
@@ -121,13 +51,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [isError, setIsError] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLSpanElement>(null);
-
-  // styling for custom Elvia labels
-  // const classes = classnames({
-  //   ['ewc-dropdown']: !isCompact,
-  //   ['ewc-dropdown ewc-dropdown--compact']: isCompact,
-  //   ['ewc-dropdown ewc-dropdown--disabled']: isDisabled,
-  // });
 
   // styling functions
   const decideControlBorder = (disabled: boolean, error: boolean) => {
@@ -190,13 +113,11 @@ const Dropdown: React.FC<DropdownProps> = ({
       },
     }),
 
-    dropdownIndicator: (provided: any, state: any) => ({
+    dropdownIndicator: (provided: any) => ({
       ...provided,
       height: isCompact ? '16px' : '20px',
       width: isCompact ? '16px' : '20px',
       padding: '0px',
-      transform: state.selectProps.menuIsOpen ? 'rotate(180deg)' : 'none',
-      transition: 'transform 250ms',
     }),
 
     indicatorsContainer: (provided: any) => ({
@@ -255,11 +176,12 @@ const Dropdown: React.FC<DropdownProps> = ({
       textOverflow: 'ellipsis',
       '&:hover': {
         backgroundColor: decideOptionHoverBg(state.isSelected, state.isMulti),
-        '.ewc-dropdown-checkbox': {
-          '.ewc-dropdown-checkbox__mark': {
-            backgroundColor: '#29d305',
-          },
+        '#ewc-dropdown-checkbox__mark': {
+          backgroundColor: '#29d305',
         },
+      },
+      '#ewc-dropdown-checkbox__mark': {
+        background: state.isFocused ? '#29d305' : state.isSelected ? '#29d305' : '#ffffff',
       },
       '.ewc-dropdown-checkbox .ewc-dropdown-checkbox__mark': {
         background: state.isFocused ? '#29d305' : state.isSelected ? '#29d305' : '#ffffff',
@@ -309,22 +231,13 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   // Custom components for Elvia dropdown
   const ElviaDropdownIndicator = ({ ...props }) => {
-    const Icon = isDisabled
-      ? `url("data:image/svg+xml,%3csvg width='24' height='24' fill='%23BDBDBD' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.389 5.869a1.328 1.328 0 011.878 0L12 15.6l9.733-9.732a1.328 1.328 0 011.878 1.878L13.443 17.915h-.001a2.04 2.04 0 01-2.885 0L.39 7.747a1.328 1.328 0 010-1.878z' fill='%23BDBDBD'/%3e%3c/svg%3e")`
-      : `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.389 5.869a1.328 1.328 0 011.878 0L12 15.6l9.733-9.732a1.328 1.328 0 011.878 1.878L13.443 17.915h-.001a2.04 2.04 0 01-2.885 0L.39 7.747a1.328 1.328 0 010-1.878z' fill='black'/%3e%3c/svg%3e")`;
     return (
       <components.DropdownIndicator {...props}>
-        <i
-          style={{
-            backgroundImage: Icon,
-            height: isCompact ? '16px' : '20px',
-            width: isCompact ? '16px' : '20px',
-            backgroundSize: 'contain',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-            display: 'inline-block',
-          }}
-        ></i>
+        <StyledDropdown.DropdownIndicatorIcon
+          isDisabled={isDisabled}
+          isCompact={isCompact}
+          menuIsOpen={menuIsOpen}
+        />
       </components.DropdownIndicator>
     );
   };
@@ -335,18 +248,29 @@ const Dropdown: React.FC<DropdownProps> = ({
     }
     return (
       <components.Option {...props}>
-        <label
-          className={isCompact ? 'ewc-dropdown-checkbox ewc-dropdown-checkbox--sm' : 'ewc-dropdown-checkbox '}
-        >
+        <StyledDropdown.DropdownCheckbox>
           <input type="checkbox" readOnly />
-          <span className="ewc-dropdown-checkbox__mark"></span>
-          <span className="ewc-dropdown-checkbox__label"> {props.children}</span>
-        </label>
-        <div></div>
+          <StyledDropdown.DropdownCheckboxMark
+            id="ewc-dropdown-checkbox__mark"
+            isSelected={props.isSelected}
+            isCompact={isCompact}
+          />
+          <StyledDropdown.DropdownCheckboxLabel isCompact={isCompact}>
+            {props.children}
+          </StyledDropdown.DropdownCheckboxLabel>
+        </StyledDropdown.DropdownCheckbox>
       </components.Option>
     );
   };
 
+  const ElviaError = ({ ...props }) => {
+    return (
+      <StyledDropdown.ErrorMessageWrapper {...props}>
+        <StyledDropdown.ErrorMessageIcon />
+        <StyledDropdown.ErrorMessageText>{errorMessage}</StyledDropdown.ErrorMessageText>
+      </StyledDropdown.ErrorMessageWrapper>
+    );
+  };
   // Object containing all components overriden in react-select by Elvis dropdown
   const overrideComponents = {
     DropdownIndicator: ElviaDropdownIndicator,
@@ -396,12 +320,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   };
 
   return (
-    <DropdownWrapperTEST isDisabled={isDisabled} ref={dropdownRef}>
-      {/* 
-    <span className={classes} ref={dropdownRef}> */}
-      <label className="ewc-dropdown__label" style={{ color: isDisabled ? '#BDBDBD' : '#000000' }}>
-        {label}
-      </label>
+    <StyledDropdown.DropdownWrapper isDisabled={isDisabled} ref={dropdownRef}>
+      <StyledDropdown.DropdownLabel isCompact={isCompact}>{label}</StyledDropdown.DropdownLabel>
       <Select
         classNamePrefix={'ewc-dropdown'}
         closeMenuOnSelect={!isMulti}
@@ -429,25 +349,8 @@ const Dropdown: React.FC<DropdownProps> = ({
         styles={customElviaStyles}
       ></Select>
 
-      {isError ? (
-        <div className="ewc-dropdown__errorMessage">
-          <i
-            className="ewc-dropdown__errorMessage__icon"
-            style={{
-              backgroundImage: `url("data:image/svg+xml,%3csvg width='24' height='24' fill='%23FF0000' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23FF0000'%3e%3cpath d='M12 23.999c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath d='M16.5 17.249a.743.743 0 01-.53-.22L12 13.06l-3.97 3.97a.744.744 0 01-1.06 0 .752.752 0 010-1.061l3.97-3.97-3.97-3.97a.743.743 0 01-.22-.53c0-.2.078-.389.22-.53a.743.743 0 01.53-.22c.2 0 .389.078.53.22l3.97 3.97 3.97-3.97a.744.744 0 011.06 0c.142.141.22.33.22.53s-.078.389-.22.53l-3.97 3.97 3.97 3.97a.752.752 0 010 1.061.746.746 0 01-.53.219z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23FF0000'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
-              height: '16px',
-              width: '16px',
-              backgroundSize: 'contain',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
-              display: 'inline-block',
-            }}
-          ></i>
-          <span className="ewc-dropdown__errorMessage__text">{errorMessage}</span>
-        </div>
-      ) : null}
-      {/* </span> */}
-    </DropdownWrapperTEST>
+      {isError ? <ElviaError errorMessage={errorMessage}></ElviaError> : null}
+    </StyledDropdown.DropdownWrapper>
   );
 };
 

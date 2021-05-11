@@ -12,8 +12,10 @@
   <div style="width: 250px;">
     <elvia-dropdown
       [isCompact]="isCompact"
+      [isMulti]="isMulti"
       [options]="exampleOptions"
       placeholder="Placeholder"
+      errorMessage=""
       label="Label"
       (valueOnChange)="isSelected = $event.detail.value"
     >
