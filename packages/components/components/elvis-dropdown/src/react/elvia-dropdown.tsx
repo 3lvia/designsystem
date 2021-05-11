@@ -4,38 +4,38 @@ import toolbox from '@elvia/elvis-toolbox';
 import * as StyledDropdown from './styledComponents';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
-export interface DropdownOptions {
+export interface DropdownOption {
   value: string;
   label: string;
 }
 
 export interface DropdownProps {
-  defaultOption?: DropdownOptions;
+  defaultOption?: DropdownOption;
   errorMessage?: string;
   isCompact?: boolean;
   isDisabled?: boolean;
   isMulti?: boolean;
   label?: string;
   menuPosition?: DropdownMenuPosition;
-  options: DropdownOptions[];
+  options: DropdownOption[];
+  optionOnChange?: (selectedOptions: DropdownOption | Array<DropdownOption> | undefined) => void;
   placeholder?: string;
-  optionOnChange?: (selectedOptions: DropdownOptions | Array<DropdownOptions> | undefined) => void;
   webcomponent?: any;
 }
 
 // Custom ValueContainer for Elvia Dropdown, defined outside of Dropdown due to focus issues with react-select package.
 // Enables multiselect with checkboxes in a dropdown.
 const ElviaValueContainer = ({ ...props }) => {
-  const length = props.children[0].length;
+  const optionsCount = props.children[0].length;
   const selectedOptions = [...props.children];
-  if (length >= 2) {
-    selectedOptions[0] = `${length} valgte`;
+  if (optionsCount >= 2) {
+    selectedOptions[0] = `${optionsCount} valgte`;
   }
   return <components.ValueContainer {...props}>{selectedOptions}</components.ValueContainer>;
 };
 
 const Dropdown: React.FC<DropdownProps> = ({
-  defaultOption = undefined,
+  defaultOption,
   errorMessage = '',
   isCompact = false,
   isDisabled = false,
@@ -43,8 +43,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   menuPosition = 'auto',
   label,
   options,
-  placeholder = 'Placeholder',
   optionOnChange,
+  placeholder = 'Placeholder',
   webcomponent,
 }) => {
   const [currentVal, setCurrentVal] = useState(defaultOption);
@@ -52,7 +52,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
-  // styling functions
+  // styling functions for react select
   const decideControlBorder = (disabled: boolean, error: boolean) => {
     if (disabled) {
       return '1px solid #BDBDBD';
@@ -249,7 +249,6 @@ const Dropdown: React.FC<DropdownProps> = ({
     return (
       <components.Option {...props}>
         <StyledDropdown.DropdownCheckbox>
-          <input type="checkbox" readOnly />
           <StyledDropdown.DropdownCheckboxMark
             id="ewc-dropdown-checkbox__mark"
             isSelected={props.isSelected}
@@ -332,11 +331,10 @@ const Dropdown: React.FC<DropdownProps> = ({
         isDisabled={isDisabled}
         isMulti={isMulti}
         isSearchable={false}
-        noOptionsMessage={() => 'Ingen tilgjengelige valg'}
-        placeholder={placeholder}
-        onChange={onChangeHandler}
         menuIsOpen={menuIsOpen}
         menuPlacement={menuPosition}
+        noOptionsMessage={() => 'Ingen tilgjengelige valg'}
+        onChange={onChangeHandler}
         onKeyDown={(event) => {
           if (event.code === 'Enter' && !menuIsOpen) {
             setMenuIsOpen(true);
@@ -345,6 +343,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         onMenuClose={() => setMenuIsOpen(false)}
         onMenuOpen={() => setMenuIsOpen(true)}
         options={options}
+        placeholder={placeholder}
         value={currentVal}
         styles={customElviaStyles}
       ></Select>

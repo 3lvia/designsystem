@@ -103,13 +103,6 @@ export const DropdownCheckbox = styled.label`
   @media screen and (-ms-high-contrast: none) {
     width: 100%;
   }
-
-  // hides initial checkbox and gives placeholder style according to state
-  input {
-    opacity: 0;
-    position: absolute;
-    z-index: -1;
-  }
 `;
 
 const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed: boolean) => {
