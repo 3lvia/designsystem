@@ -15,10 +15,11 @@ module.exports = [
     attributes: ['content', 'openLabel', 'closeLabel', 'labelPosition', 'size', 'type'],
     reactName: 'Accordion',
     useWrapper: true,
-  },{
+  },
+  {
     name: 'elvis-breadcrumbs',
     elementName: 'elvia-breadcrumbs',
-    attributes: ['test'],
+    attributes: ['breadcrumbs'],
     reactName: 'Breadcrumbs',
   },
   {
@@ -58,6 +59,6 @@ module.exports = [
     conditionalElementStyle: {
       isFullWidth: `width: 100%`,
       isBlock: `display: block`,
-    }
+    },
   },
 ];

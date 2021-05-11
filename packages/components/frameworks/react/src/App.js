@@ -6,7 +6,7 @@ import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
-import {Breadcrumbs} from '@elvia/elvis-breadcrumbs/react'
+import { Breadcrumbs } from '@elvia/elvis-breadcrumbs/react';
 
 function App() {
   const [trackedState, setTrackedState] = useState(true);
@@ -34,12 +34,27 @@ function App() {
     setSelectedState(0);
   }
 
+  const breadcrumbs = [
+    {
+      url: 'https://elvia.no',
+      title: 'Elvia.no',
+    },
+    {
+      url: 'https://www.elvia.no/nettleie',
+      title: 'Nettleie',
+    },
+    {
+      url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
+      title: 'Elvias leveringsplikt',
+    },
+  ];
+
   return (
     <div className="App">
       <h1>React preview</h1>
 
       <h2>Breadcrumbs</h2>
-      <Breadcrumbs breadcrumbs={[{url: "https://elvia.no",title: "elvia.no"},{url: "https://elvia.no/strombruddskart",title: "strømbruddskart"}]}/>
+      <Breadcrumbs breadcrumbs={breadcrumbs} />
 
       <h2>Accordion</h2>
       <div style={{ marginTop: '24px', marginBottom: '24px' }}>

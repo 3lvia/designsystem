@@ -1,5 +1,5 @@
-import React , { useState, useEffect} from 'react';
-import { EWCBreadcrumbs, EWCBreadcrumbsLink, EWCBreadcrumbIconRight, EWCBreadcrumbIconLeft } from './styledComponents'
+import React, { useState, useEffect } from 'react';
+import * as StyledBreadcrum from './styledComponents';
 
 export interface Breadcrumb {
   url: string;
@@ -7,55 +7,56 @@ export interface Breadcrumb {
 }
 
 export interface BreadcrumbsProps {
-  // className?: string;
-  // style?: React.CSSProperties;
-  // isCompact: boolean;
   breadcrumbs: Breadcrumb[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({breadcrumbs}) => {
+export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ breadcrumbs }) => {
   const childrenLength = breadcrumbs.length;
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth ?? 0)
-
-  const getWindowDimensions = () => {
-    setWindowWidth(window.innerWidth)
-  }
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth ?? 0);
 
   useEffect(() => {
+    const getWindowDimensions = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
     window.addEventListener('resize', getWindowDimensions);
     return () => {
       window.removeEventListener('resize', getWindowDimensions);
-    }})
+    };
+  });
 
-  //hvis den er null
-  if(childrenLength === 0) {
+  if (childrenLength === 0) {
     return null;
   }
 
-  console.log({windowWidth})
-  if(windowWidth < 768) {
+  if (windowWidth < 768) {
     return (
-      <EWCBreadcrumbs>
-            <EWCBreadcrumbIconLeft />
-            <EWCBreadcrumbsLink href={breadcrumbs[childrenLength-2].url}>{breadcrumbs[childrenLength-2].title}</EWCBreadcrumbsLink>
-      </EWCBreadcrumbs>
-    )
+      <StyledBreadcrum.EWCBreadcrumbs>
+        <StyledBreadcrum.EWCBreadcrumbIconLeft />
+        <StyledBreadcrum.EWCBreadcrumbsLink href={breadcrumbs[childrenLength - 2].url}>
+          {breadcrumbs[childrenLength - 2].title}
+        </StyledBreadcrum.EWCBreadcrumbsLink>
+      </StyledBreadcrum.EWCBreadcrumbs>
+    );
   }
-    return (
-      <EWCBreadcrumbs>
-        {breadcrumbs.map((breadcrumb, i) =>
-          i < childrenLength - 1 ? (
-            <>
-              <EWCBreadcrumbsLink href={breadcrumb.url}>{breadcrumb.title}</EWCBreadcrumbsLink>
-              <EWCBreadcrumbIconRight />
-            </>
-          ) : (
-            <EWCBreadcrumbsLink href={breadcrumb.url}>{breadcrumb.title}</EWCBreadcrumbsLink>
-          )
-        )}
-      </EWCBreadcrumbs>
-    )
+  return (
+    <StyledBreadcrum.EWCBreadcrumbs>
+      {breadcrumbs.map((breadcrumb, i) =>
+        i < childrenLength - 1 ? (
+          <>
+            <StyledBreadcrum.EWCBreadcrumbsLink href={breadcrumb.url}>
+              {breadcrumb.title}
+            </StyledBreadcrum.EWCBreadcrumbsLink>
+            <StyledBreadcrum.EWCBreadcrumbIconRight />
+          </>
+        ) : (
+          <StyledBreadcrum.EWCBreadcrumbsLink href={breadcrumb.url}>
+            {breadcrumb.title}
+          </StyledBreadcrum.EWCBreadcrumbsLink>
+        ),
+      )}
+    </StyledBreadcrum.EWCBreadcrumbs>
+  );
 };
 
 export default Breadcrumbs;
