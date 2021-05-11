@@ -249,34 +249,34 @@ export const Datepicker: FC<DatepickerProps> = ({
         <ThemeProvider theme={materialTheme}>
           <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
             <KeyboardDatePicker
-              autoOk={true}
               variant="inline"
-              inputProps={{ ref: inputRef }}
+              autoOk={true}
               value={selectedDate}
-              onChange={handleDateChange}
-              onFocus={updateCaretPositionOnFocus}
               placeholder={placeholderString}
               format="DD.MM.yyyy"
               rifmFormatter={getDateFormat}
-              onOpen={updateInputWithSelectedDate}
               disabled={isDisabled === true || isDisabled === 'true'}
               fullWidth={isFullWidth === true || isFullWidth === 'true'}
               minDate={minDate}
               maxDate={maxDate}
+              onChange={handleDateChange}
+              onFocus={updateCaretPositionOnFocus}
+              onOpen={updateInputWithSelectedDate}
+              keyboardIcon={getCalIcon()}
+              leftArrowIcon={getArrowIcon(true)}
+              rightArrowIcon={getArrowIcon(false)}
               ToolbarComponent={getCustomToolbar}
               renderDay={(day: any, selectedDate: any, isInCurrentMonth: any, dayComponent: any) =>
                 getDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
               }
-              keyboardIcon={getCalIcon()}
-              leftArrowIcon={getArrowIcon(true)}
-              rightArrowIcon={getArrowIcon(false)}
+              inputProps={{ ref: inputRef }}
+              KeyboardButtonProps={{
+                'aria-label': 'Velg dato',
+              }}
               PopoverProps={{
                 anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
                 transformOrigin: { horizontal: 'left', vertical: 'top' },
                 ref: datepickerPopoverRef,
-              }}
-              KeyboardButtonProps={{
-                'aria-label': 'Velg dato',
               }}
             />
           </MuiPickersUtilsProvider>
