@@ -74,4 +74,10 @@ module.exports = [
       isBlock: `display: block`,
     },
   },
+  {
+    name: 'elvis-divider',
+    elementName: 'elvia-divider',
+    attributes: ['isCurved', 'isInverted', 'title', 'titleType'],
+    reactName: 'Divider',
+  },
 ];

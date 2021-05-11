@@ -7,6 +7,7 @@ import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
+import { Divider } from '@elvia/elvis-divider/react';
 
 function App() {
   const [trackedState, setTrackedState] = useState(true);
@@ -84,6 +85,11 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
+
+      <h2>Divider</h2>
+      <div>
+        <Divider title="Dette er en tittel" />
+      </div>
 
       <h2>Accordion</h2>
       <div style={{ marginTop: '24px', marginBottom: '24px' }}>
