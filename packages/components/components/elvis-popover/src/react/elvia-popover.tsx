@@ -177,6 +177,11 @@ const Popover: FC<PopoverProps> = ({
     return !isRoomBottom && isRoomTop;
   };
 
+  // get current width of scrollbar if visible
+  const getScrollbarWidth = () => {
+    return window.innerWidth - document.documentElement.clientWidth;
+  };
+
   // Update position horizontally and size of content
   const updatePosition = useCallback(() => {
     const dimensions = getCorrectDimensions();
@@ -193,7 +198,7 @@ const Popover: FC<PopoverProps> = ({
       if (posX !== 'right' && isConflict(posX === 'center', 'left')) {
         updatePosStyle('none', 'auto', `${-triggerOffsetLeft + popoverMargin}px`);
       } else if (posX !== 'left' && isConflict(posX === 'center', 'right')) {
-        updatePosStyle('none', `${-triggerOffsetRight + popoverMargin}px`, 'auto');
+        updatePosStyle('none', `${-triggerOffsetRight + popoverMargin + getScrollbarWidth()}px`, 'auto');
       } else {
         setInitialPosition();
       }
@@ -220,7 +225,7 @@ const Popover: FC<PopoverProps> = ({
   const removeFixedSizeOnClosed = (isOpen: boolean) => {
     // if isOpen false then remove any applied styles.
     if (isOpen) {
-      return true
+      return true;
     }
     if (popoverFixedAreaRef.current) {
       removeFixedAreaStyles();
@@ -267,7 +272,7 @@ const Popover: FC<PopoverProps> = ({
       popoverFixedAreaRef.current.style.height = '0px';
       popoverFixedAreaRef.current.style.width = '0px';
     }
-  }
+  };
 
   // Update position when popover is opened and when window is resized, and positions
   // a fixed area that covers trigger element and works as position anchor for content element
@@ -301,14 +306,12 @@ const Popover: FC<PopoverProps> = ({
     // Cleanup
     return () => {
       // Remove scroll listener
-      window.removeEventListener('resize', throttledUpdateNewPosition)
+      window.removeEventListener('resize', throttledUpdateNewPosition);
       document.removeEventListener('scroll', updateFixedAreaPositionOnScroll, false);
       // remove applied styles from resizing & initation on top or bottom conflicts
       removeFixedAreaStyles();
     };
   }, [popoverVisibility, updatePosition]);
-
-
 
   const popoverClasses = classnames('ewc-popover', {
     ['ewc-popover--hide']: !popoverVisibility,
