@@ -20,18 +20,30 @@ $elvia-on: #fff;
     border-color: $elvia-off;
     .ewc-divider__title {
       font-family: 'Red Hat Display', Verdana, sans-serif;
-      font-size: 30px;
       font-weight: 700;
-      height: 36px;
+      line-height: 28px;
       letter-spacing: unset;
       font-style: unset;
       text-transform: unset;
-      color: inherit;
-      margin-bottom: 24px;
+      color: $elvia-off;
     }
 
+    &.ewc-divider--title-md {
+      font-size: 30px;
+      padding-bottom: 24px;
+    }
+    &.ewc-divider--title-caps {
+      font-size: 14px;
+      line-height: 17px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding-bottom: 8px;
+    }
     &.ewc-divider--inverted {
       border-color: $elvia-on;
+      .ewc-divider__title {
+        color: $elvia-on;
+      }
     }
   }
 

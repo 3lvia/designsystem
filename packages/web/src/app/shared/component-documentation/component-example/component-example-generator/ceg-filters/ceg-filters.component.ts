@@ -16,7 +16,7 @@ export class CegFiltersComponent implements OnInit {
   hasCheckboxes = false;
   emptyLineRegex = /^\s*[\r\n]/gm;
 
-  constructor(private codeService: ExampleCodeService) {}
+  constructor(private codeService: ExampleCodeService) { }
 
   ngOnInit(): void {
     this.codeReact = this.componentData.codeReact;
@@ -51,7 +51,7 @@ export class CegFiltersComponent implements OnInit {
   }
 
   getPropRegex(prop: string): RegExp {
-    return new RegExp(prop + '=("|{).*', 'gi');
+    return new RegExp('  ' + prop + '=("|{).*', 'gi');
   }
 
   getNewLineRegex(elementName: string): RegExp {
@@ -60,9 +60,9 @@ export class CegFiltersComponent implements OnInit {
 
   getReplaceValueString(prop: string, newValue: string, isReact: boolean, type: string): string {
     if (type !== 'string' && isReact) {
-      return prop + '={' + newValue + '}';
+      return '  ' + prop + '={' + newValue + '}';
     } else {
-      return prop + '="' + newValue + '"';
+      return '  ' + prop + '="' + newValue + '"';
     }
   }
 
@@ -84,6 +84,8 @@ export class CegFiltersComponent implements OnInit {
   }
 
   updateRadioProp(prop: any, newValue: string): void {
+    console.log(prop)
+    console.log(newValue)
     if (this.codeWebComponent.includes(prop.attribute)) {
       // Replaces old value for prop
       this.codeReact = this.codeReact.replace(

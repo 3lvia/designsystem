@@ -39,8 +39,16 @@ function App() {
       <h1>React preview</h1>
 
       <h2>Divider</h2>
-      <div>
+      <div style={{ marginBottom: '16px', padding: '8px' }}>
+        <Divider/>
         <Divider title="Dette er en tittel" />
+        <Divider title="Dette er en tittel" titleType="caps" />
+        <Divider isCurved />
+      </div>
+      <div style={{ background: '#262626', padding: '8px'}}>
+        <Divider isInverted/>
+        <Divider title="Dette er en tittel" isInverted />
+        <Divider isCurved isInverted />
       </div>
 
       <h2>Accordion</h2>
