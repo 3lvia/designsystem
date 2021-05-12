@@ -11,27 +11,6 @@
   <!--CEG-->
   <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
-  <!-- EXAMPLES - QA -->
-  <app-component-section [sectionTitle]="'Examples for QA'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Full width'">
-        <ng-container ngProjectAs="sectionContent">
-          <elvia-datepicker isFullWidth="true"></elvia-datepicker>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Preselected value'">
-        <ng-container ngProjectAs="sectionContent">
-          <elvia-datepicker [value]="date"></elvia-datepicker>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Min & max date'">
-        <ng-container ngProjectAs="sectionContent">
-          <elvia-datepicker [minDate]="date" [maxDate]="date2"></elvia-datepicker>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
   <!-- SIZE -->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
