@@ -14,7 +14,6 @@
     "build:components:watch": "webpack --mode=production  --config ./webpack.config.js --watch",
     "gulp": "gulp --gulpfile build/gulpfile.js",
     "gulp:watch": "gulp --gulpfile build/gulpfile.js cleanup && gulp --gulpfile build/gulpfile.js watch",
-    "build:react": "rollup -c build/rollup.config.js"
   },
   "devDependencies": {
     "@elvia/elvis-component-wrapper": "*",
