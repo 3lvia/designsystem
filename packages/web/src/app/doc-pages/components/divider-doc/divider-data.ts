@@ -33,6 +33,13 @@ export const dividerData = {
 			cegFormType: 'radio',
 			cegOptions: ['medium', 'caps'],
 		},
+		isInverted: {
+			isRequired: false,
+			type: 'boolean',
+			description: 'The inverted divider fit for darker backgrounds.',
+			default: 'false',
+			displayName: 'Inverted',
+		},
 	},
 	codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,
 	codeImportWebComponent: `import '@elvia/elvis-divider';`,
