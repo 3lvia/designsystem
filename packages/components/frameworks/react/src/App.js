@@ -37,22 +37,12 @@ function App() {
           marginTop: '16px',
           display: 'flex',
           flexDirection: 'column',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-        }}
-      >
-        <div style={{ marginTop: '16px' }}>
+          alignItems: 'center',
+        }}>
           <Datepicker value={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
-        </div>
-        <div style={{ marginTop: '16px' }}>
-          <Datepicker id="datepicker1" errorMessage="Error"></Datepicker>
-        </div>
-        <div style={{ marginTop: '16px' }}>
+          <Datepicker isFullWidth id="datepicker1" errorMessage="Error"></Datepicker>
           <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
-        </div>
-        <div style={{ marginTop: '16px' }}>
           <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
-        </div>
       </div>
 
       <TestingComponent></TestingComponent>

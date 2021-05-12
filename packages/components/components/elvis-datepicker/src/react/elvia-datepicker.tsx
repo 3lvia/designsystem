@@ -43,6 +43,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     ['ewc-datepicker--error']: errorMessage !== '',
     ['ewc-datepicker--compact']: isCompact !== false,
     ['ewc-datepicker--unselected']: value === null,
+    ['ewc-datepicker--full-width']: isFullWidth,
   });
   const materialTheme = createMuiTheme({
     props: {
@@ -225,58 +226,56 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   return (
-    <div ref={datepickerRef}>
-      <div className={datePickerClasses}>
-        {label !== '' && <label className="ewc-datepicker__label">{label}</label>}
+    <div className={datePickerClasses} ref={datepickerRef}>
+      {label !== '' && <label className="ewc-datepicker__label">{label}</label>}
 
-        <ThemeProvider theme={materialTheme}>
-          <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
-            <KeyboardDatePicker
-              variant="inline"
-              autoOk={true}
-              value={selectedDate}
-              placeholder={placeholderString}
-              format="DD.MM.yyyy"
-              rifmFormatter={getDateFormat}
-              disabled={isDisabled === true || isDisabled === 'true'}
-              fullWidth={isFullWidth === true || isFullWidth === 'true'}
-              minDate={minDate}
-              maxDate={maxDate}
-              onChange={handleDateChange}
-              onFocus={updateCaretPositionOnFocus}
-              onOpen={updateInputWithSelectedDate}
-              keyboardIcon={getCalIcon()}
-              leftArrowIcon={getArrowIcon(true)}
-              rightArrowIcon={getArrowIcon(false)}
-              ToolbarComponent={getCustomToolbar}
-              renderDay={(day: any, selectedDate: any, isInCurrentMonth: any, dayComponent: any) =>
-                getDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
-              }
-              inputProps={{ ref: inputRef }}
-              KeyboardButtonProps={{
-                'aria-label': 'Velg dato',
-              }}
-              PopoverProps={{
-                anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
-                transformOrigin: { horizontal: 'left', vertical: 'top' },
-                ref: datepickerPopoverRef,
-              }}
-            />
-          </MuiPickersUtilsProvider>
-        </ThemeProvider>
+      <ThemeProvider theme={materialTheme}>
+        <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
+          <KeyboardDatePicker
+            variant="inline"
+            autoOk={true}
+            value={selectedDate}
+            placeholder={placeholderString}
+            format="DD.MM.yyyy"
+            rifmFormatter={getDateFormat}
+            disabled={isDisabled === true || isDisabled === 'true'}
+            fullWidth={isFullWidth === true || isFullWidth === 'true'}
+            minDate={minDate}
+            maxDate={maxDate}
+            onChange={handleDateChange}
+            onFocus={updateCaretPositionOnFocus}
+            onOpen={updateInputWithSelectedDate}
+            keyboardIcon={getCalIcon()}
+            leftArrowIcon={getArrowIcon(true)}
+            rightArrowIcon={getArrowIcon(false)}
+            ToolbarComponent={getCustomToolbar}
+            renderDay={(day: any, selectedDate: any, isInCurrentMonth: any, dayComponent: any) =>
+              getDayElement(day, selectedDate, isInCurrentMonth, dayComponent)
+            }
+            inputProps={{ ref: inputRef }}
+            KeyboardButtonProps={{
+              'aria-label': 'Velg dato',
+            }}
+            PopoverProps={{
+              anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
+              transformOrigin: { horizontal: 'left', vertical: 'top' },
+              ref: datepickerPopoverRef,
+            }}
+          />
+        </MuiPickersUtilsProvider>
+      </ThemeProvider>
 
-        {errorMessage && (
-          <div className="ewc-datepicker__error">
-            <i
-              className="ewc-datepicker__icon ewc-datepicker__icon--error"
-              style={{
-                backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23FF0000' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23FF0000'%3e%3cpath d='M12 23.999c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath d='M16.5 17.249a.743.743 0 01-.53-.22L12 13.06l-3.97 3.97a.744.744 0 01-1.06 0 .752.752 0 010-1.061l3.97-3.97-3.97-3.97a.743.743 0 01-.22-.53c0-.2.078-.389.22-.53a.743.743 0 01.53-.22c.2 0 .389.078.53.22l3.97 3.97 3.97-3.97a.744.744 0 011.06 0c.142.141.22.33.22.53s-.078.389-.22.53l-3.97 3.97 3.97 3.97a.752.752 0 010 1.061.746.746 0 01-.53.219z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23FF0000'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
-              }}
-            ></i>
-            <div className="ewc-datepicker__helper-text">{errorMessage}</div>
-          </div>
-        )}
-      </div>
+      {errorMessage && (
+        <div className="ewc-datepicker__error">
+          <i
+            className="ewc-datepicker__icon ewc-datepicker__icon--error"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23FF0000' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23FF0000'%3e%3cpath d='M12 23.999c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath d='M16.5 17.249a.743.743 0 01-.53-.22L12 13.06l-3.97 3.97a.744.744 0 01-1.06 0 .752.752 0 010-1.061l3.97-3.97-3.97-3.97a.743.743 0 01-.22-.53c0-.2.078-.389.22-.53a.743.743 0 01.53-.22c.2 0 .389.078.53.22l3.97 3.97 3.97-3.97a.744.744 0 011.06 0c.142.141.22.33.22.53s-.078.389-.22.53l-3.97 3.97 3.97 3.97a.752.752 0 010 1.061.746.746 0 01-.53.219z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23FF0000'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
+            }}
+          ></i>
+          <div className="ewc-datepicker__helper-text">{errorMessage}</div>
+        </div>
+      )}
     </div>
   );
 };

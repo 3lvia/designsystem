@@ -30,6 +30,8 @@ $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
 
 .ewc-datepicker {
   position: relative;
+  width: 163px;
+  max-width: 382px;
 
   // Removing mui label and helpertext
   .MuiFormLabel-root,
@@ -157,6 +159,11 @@ $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
     .MuiInput-underline:after {
       border: 2px solid $red !important;
     }
+  }
+
+  // Full width
+  &.ewc-datepicker--full-width {
+    width: 100%;
   }
 
   // COMPACT INPUT
