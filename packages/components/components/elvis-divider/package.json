@@ -1,0 +1,16 @@
+{
+  "name": "@elvia/elvis-divider",
+  "version": "0.0.1-alpha",
+  "description": "",
+  "license": "MIT",
+  "author": "",
+  "main": "web_component.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@elvia/elvis-component-wrapper": "*",
+    "@material-ui/core": "^4.11.4",
+    "styled-components": "^5.2.3"
+  }
+}

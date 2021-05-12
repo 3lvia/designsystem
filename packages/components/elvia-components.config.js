@@ -72,6 +72,12 @@ module.exports = [
     conditionalElementStyle: {
       isFullWidth: `width: 100%`,
       isBlock: `display: block`,
-    }
+    },
+  },
+  {
+    name: 'elvis-divider',
+    elementName: 'elvia-divider',
+    attributes: ['isCurved', 'isInverted', 'title', 'titleType'],
+    reactName: 'Divider',
   },
 ];
