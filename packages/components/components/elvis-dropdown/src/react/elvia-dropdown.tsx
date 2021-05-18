@@ -16,6 +16,7 @@ export interface DropdownProps {
   isDisabled?: boolean;
   isMulti?: boolean;
   label?: string;
+  labelId?: string;
   menuPosition?: DropdownMenuPosition;
   options: DropdownOption[];
   optionOnChange?: (selectedOptions: DropdownOption | Array<DropdownOption> | undefined) => void;
@@ -42,6 +43,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isMulti = false,
   menuPosition = 'auto',
   label,
+  labelId,
   options,
   optionOnChange,
   placeholder = 'Placeholder',
@@ -320,8 +322,11 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <StyledDropdown.DropdownWrapper isDisabled={isDisabled} ref={dropdownRef}>
-      <StyledDropdown.DropdownLabel isCompact={isCompact}>{label}</StyledDropdown.DropdownLabel>
+      <StyledDropdown.DropdownLabel id={labelId} aria-label={label} isCompact={isCompact}>
+        {label}
+      </StyledDropdown.DropdownLabel>
       <Select
+        aria-labelledby={labelId}
         classNamePrefix={'ewc-dropdown'}
         closeMenuOnSelect={!isMulti}
         components={overrideComponents}

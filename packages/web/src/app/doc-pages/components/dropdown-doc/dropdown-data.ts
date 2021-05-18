@@ -27,6 +27,12 @@ export const dropdownData = {
       type: 'string',
       description: 'Label value for the dropdown element',
     },
+    labelId: {
+      isRequired: false,
+      type: 'string',
+      description:
+        'For attaching the dropdown to a label, provide an Id for the label. Creating a aria-labelledby tag that corresponds to the id given to the label.',
+    },
     menuPosition: {
       isRequired: false,
       type: 'string',

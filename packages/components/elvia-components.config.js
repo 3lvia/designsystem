@@ -33,6 +33,7 @@ module.exports = [
       'isDisabled',
       'isMulti',
       'label',
+      'labelId',
       'menuPosition',
       'options',
       'optionOnChange',
