@@ -50,7 +50,10 @@ export class ElvisComponentWrapper extends HTMLElement {
       return;
     }
     attributes.forEach((attribute: any) => {
-      if (this.getProps()[attribute.toLowerCase()] === 'true' || this.getProps()[attribute.toLowerCase()] === true) {
+      if (
+        this.getProps()[attribute.toLowerCase()] === 'true' ||
+        this.getProps()[attribute.toLowerCase()] === true
+      ) {
         Object.keys(conditionalElementStyle).forEach((obj) => {
           if (obj.toLowerCase() === attribute.toLowerCase()) {
             this.style.cssText += conditionalElementStyle[obj];
