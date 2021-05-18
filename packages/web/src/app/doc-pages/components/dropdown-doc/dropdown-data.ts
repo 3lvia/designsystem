@@ -39,6 +39,12 @@ export const dropdownData = {
       description: `Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto'`,
       default: `'auto'`,
     },
+    noOptionsMessage: {
+      isRequired: false,
+      type: 'string',
+      description: 'Text to display when there are no options',
+      default: `'Ingen tilgjengelige valg'`,
+    },
     placeholder: {
       isRequired: false,
       type: 'string',

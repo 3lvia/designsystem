@@ -35,6 +35,7 @@ module.exports = [
       'label',
       'labelId',
       'menuPosition',
+      'noOptionsMessage',
       'options',
       'optionOnChange',
       'placeholder',

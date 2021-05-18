@@ -18,6 +18,7 @@ export interface DropdownProps {
   label?: string;
   labelId?: string;
   menuPosition?: DropdownMenuPosition;
+  noOptionsMessage?: string;
   options: DropdownOption[];
   optionOnChange?: (selectedOptions: DropdownOption | Array<DropdownOption> | undefined) => void;
   placeholder?: string;
@@ -42,6 +43,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   isDisabled = false,
   isMulti = false,
   menuPosition = 'auto',
+  noOptionsMessage = 'Ingen tilgjengelige valg',
   label,
   labelId,
   options,
@@ -338,7 +340,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         isSearchable={false}
         menuIsOpen={menuIsOpen}
         menuPlacement={menuPosition}
-        noOptionsMessage={() => 'Ingen tilgjengelige valg'}
+        noOptionsMessage={() => noOptionsMessage}
         onChange={onChangeHandler}
         onKeyDown={(event) => {
           if (event.code === 'Enter' && !menuIsOpen) {
