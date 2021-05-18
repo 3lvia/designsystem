@@ -1,0 +1,74 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Breadcrumb</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <!-- <div class="e-my-48" class="component-preview-temp component-preview-animation">
+    <div class="e-form-field">
+      <label class="e-form-field__label" for="compact">Country</label>
+      <div class="e-input">
+        <input
+          placeholder="Search for country"
+          [value]="chosenLand"
+          #searchTerm
+          (keyup)="onSearch(searchTerm.value)"
+          (click)="onInputClick()"
+          id="ChooseCountry"
+        />
+        <div class="e-autocomplete" *ngIf="showResults" id="countryOptions">
+          <span class="e-autocomplete__item" *ngFor="let country of results" (click)="SelectCountry(country)">
+            {{ country }}
+          </span>
+        </div>
+      </div>
+    </div> -->
+  <!-- <div class="e-w-100">
+      <app-component-example-v1
+        [showPreview]="false"
+        [codeHTML]="exampleInHTML"
+        [codeTS]="exampleInTS"
+      ></app-component-example-v1>
+    </div> -->
+
+  <!-- SIZES -->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Normal'">
+        <ng-container ngProjectAs="sectionContent">
+          <!-- <app-component-example-v1 [codeHTML]="[exampleAutocomplete]"></app-component-example-v1> -->
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Compact'">
+        <ng-container ngProjectAs="sectionContent">
+          <!-- Much like compact text fields, the compact autocomplete is a version of the text field that’s
+          primarily designed for internal systems, and shouldn’t be mixed with the other input styles.
+          <app-component-example-v1 [codeHTML]="[exampleCompact]"></app-component-example-v1> -->
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <!-- <app-when-to-use [whens]="does"></app-when-to-use> -->
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section
+    [sectionTitle]="'Properties'"
+    [propertiesClass]="'e-autocomplete'"
+  >
+    <ng-container ngProjectAs="sectionContent">
+      <!-- <app-component-properties [componentName]="'e-autocomplete'"></app-component-properties> -->
+    </ng-container>
+  </app-component-section>
+</div>

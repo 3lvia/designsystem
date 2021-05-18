@@ -7,7 +7,7 @@ const ElviaColors = {
   elviaGrey70: '#676767',
 };
 
-export const EWCBreadcrumbs = styled.div`
+export const EWCBreadcrumbWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -23,12 +23,16 @@ export const EWCBreadcrumbs = styled.div`
     color: ${ElviaColors.elviaOff};
   }
 `;
+export const EWCBreadcrumbDesktopWrapper = styled.span`
+  display: flex;
+  align-items: center;
+`;
 
 const breadcrumbLinkUnderlineAnimation = keyframes`
  0% { width: 0%; left: 50% }
  100% { width: 100%;left: 0% }`;
 
-export const EWCBreadcrumbsLink = styled.a`
+export const EWCBreadcrumbLink = styled.a`
   position: relative;
   box-sizing: border-box;
   font-family: 'Red Hat Text', Verdana, sans-serif;

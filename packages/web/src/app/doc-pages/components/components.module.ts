@@ -26,6 +26,7 @@ import { RadioFilterDocModule } from './radio-filter-doc/radio-filter-doc.module
 import { ChipsModule } from './chips/chips.module';
 import { DividerDocModule } from './divider-doc/divider-doc.module';
 import { TabsDocModule } from './tabs-doc/tabs-doc.module';
+import { BreadcrumbDocModule } from './breadcrumb-doc/breadcrumb-doc.module';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { TabsDocModule } from './tabs-doc/tabs-doc.module';
     AlertMessagesModule,
     AutocompleteDocModule,
     ButtonDocModule,
+    BreadcrumbDocModule,
     CardDocModule,
     ChipsModule,
     ComponentsStartModule,

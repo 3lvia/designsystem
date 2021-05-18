@@ -17,10 +17,10 @@ module.exports = [
     useWrapper: true,
   },
   {
-    name: 'elvis-breadcrumbs',
-    elementName: 'elvia-breadcrumbs',
+    name: 'elvis-breadcrumb',
+    elementName: 'elvia-breadcrumb',
     attributes: ['breadcrumbs'],
-    reactName: 'Breadcrumbs',
+    reactName: 'Breadcrumb',
   },
   {
     name: 'elvis-checkbox',

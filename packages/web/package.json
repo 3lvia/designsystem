@@ -25,7 +25,7 @@
     "@elvia/elvis": "*",
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-accordion": "*",
-    "@elvia/elvis-breadcrumbs": "*",
+    "@elvia/elvis-breadcrumb": "*",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-tabs": "*",

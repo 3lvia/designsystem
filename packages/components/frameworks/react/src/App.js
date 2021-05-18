@@ -6,7 +6,7 @@ import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
-import { Breadcrumbs } from '@elvia/elvis-breadcrumbs/react';
+import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';
 
 function App() {
   const [trackedState, setTrackedState] = useState(true);
@@ -54,7 +54,7 @@ function App() {
       <h1>React preview</h1>
 
       <h2>Breadcrumbs</h2>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <Breadcrumb breadcrumbs={breadcrumbs} />
 
       <h2>Accordion</h2>
       <div style={{ marginTop: '24px', marginBottom: '24px' }}>
