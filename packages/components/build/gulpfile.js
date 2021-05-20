@@ -26,19 +26,19 @@ function reloadComponentConfig() {
 
 function setGetList(attributes) {
     list = "";
-    attributes.forEach(name => {
-        const lowercase = name.toLowerCase();
+    attributes.forEach(attr => {
+        const lowercase = attr.name.toLowerCase();
 
         list += `
-        set ${name}(newValue: any) {
+        set ${attr.name}(newValue: any) {
             super.setProps({'${lowercase}': newValue});
         }
-        get ${name}() {
+        get ${attr.name}() {
             super.getProps()['${lowercase}'];
         }
         `
-        // At least 1 uppercase in name
-        if (lowercase !== name) {
+        // At least 1 uppercase in attr.name
+        if (lowercase !== attr.name) {
             list += `
             set ${lowercase}(newValue: any) {
                 super.setProps({'${lowercase}': newValue});
@@ -69,7 +69,7 @@ function buildWebComponentsMagically() {
                 }
 
 
-                const lowercaseAttr = component.attributes.map(attr => attr.toLowerCase());
+                const lowercaseAttr = component.attributes.map(attr => attr.name.toLowerCase());
 
                 file.contents = new Buffer(String(file.contents)
                     .replace(/{{INSERT_STYLE_HERE}}/, result));
