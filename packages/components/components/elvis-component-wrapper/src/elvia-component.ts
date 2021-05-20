@@ -50,9 +50,9 @@ export class ElvisComponentWrapper extends HTMLElement {
       return;
     }
     attributes.forEach((attribute: any) => {
-      if (this.getProps()[attribute.toLowerCase()] === 'true' || this.getProps()[attribute.toLowerCase()] === true) {
+      if (this.getProps()[attribute.name.toLowerCase()] === 'true' || this.getProps()[attribute.name.toLowerCase()] === true) {
         Object.keys(conditionalElementStyle).forEach((obj) => {
-          if (obj.toLowerCase() === attribute.toLowerCase()) {
+          if (obj.toLowerCase() === attribute.name.toLowerCase()) {
             this.style.cssText += conditionalElementStyle[obj];
           }
         });
@@ -95,9 +95,9 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   // Finds the real name of an attribute
   protected mapNameToRealName(attr: string): string {
-    return this.webComponent.getComponentData().attributes.find((compAttr: string) => {
-      return compAttr.toLowerCase() === attr;
-    });
+    return this.webComponent.getComponentData().attributes.find((compAttr: any) => {
+      return compAttr.name.toLowerCase() === attr;
+    }).name;
   }
 
   protected renderReactDOM(): void {
@@ -121,14 +121,31 @@ export class ElvisComponentWrapper extends HTMLElement {
     );
   }
 
+  private convertString(stringToConvert: string, attrType: string) {
+    if (attrType === 'string' || attrType.indexOf('|') !== -1) {
+      return stringToConvert;
+    }
+    if (attrType === 'boolean') {
+      return stringToConvert.toLowerCase() === 'true' ? true : false;
+    }
+    if (attrType === 'number') {
+      return parseFloat(stringToConvert);
+    }
+    if (attrType === 'object') {
+      // try catch
+      return JSON.parse(stringToConvert);
+    }
+  }
+
   /**
    * Maps the attributes to the data object unless data is set
    */
   private mapAttributesToData() {
-    this.webComponent.observedAttributes.forEach((attr: any) => {
-      const val = this.getAttribute(attr);
-      if (val !== null && (this._data[attr] === null || typeof this._data[attr] === 'undefined')) {
-        this._data[attr] = val;
+    this.webComponent.getComponentData().attributes.forEach((attr: any) => {
+      const dataAttr = this._data[attr.name.toLowerCase()];
+      const val = this.getAttribute(attr.name.toLowerCase());
+      if (val !== null && (dataAttr === null || typeof dataAttr === 'undefined')) {
+        this._data[attr.name.toLowerCase()] = this.convertString(val, attr.type);
       }
     });
   }
