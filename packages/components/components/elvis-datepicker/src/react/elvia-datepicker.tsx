@@ -37,7 +37,6 @@ export const Datepicker: FC<DatepickerProps> = ({
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const placeholderString = 'dd.mm.yyyy';
-  const labelId = 'Velg dato';
 
   // Styling
   const datePickerClasses = classnames('ewc-datepicker', {
@@ -227,7 +226,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   return (
     <div className={datePickerClasses} ref={datepickerRef}>
       {label !== '' && (
-        <label className="ewc-datepicker__label" id={labelId} aria-label={label}>
+        <label className="ewc-datepicker__label" aria-label={label}>
           {label}
         </label>
       )}
@@ -235,7 +234,6 @@ export const Datepicker: FC<DatepickerProps> = ({
       <ThemeProvider theme={materialTheme}>
         <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
           <KeyboardDatePicker
-            aria-labelledby={labelId}
             variant="inline"
             autoOk={true}
             value={selectedDate}
