@@ -8,15 +8,15 @@ import moment from 'moment';
 import toolbox from '@elvia/elvis-toolbox';
 
 export interface DatepickerProps {
-  value?: Date | number | null;
+  value?: Date | null;
   label?: string;
-  isCompact?: boolean | string;
-  isDisabled?: boolean | string;
-  isFullWidth?: boolean | string;
+  isCompact?: boolean;
+  isDisabled?: boolean;
+  isFullWidth?: boolean;
   errorMessage?: string;
   minDate?: Date;
   maxDate?: Date;
-  valueOnChange?: (value: number | Date | null) => void;
+  valueOnChange?: (value: Date | null) => void;
   webcomponent?: any;
 }
 
@@ -37,6 +37,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const placeholderString = 'dd.mm.yyyy';
+  const labelId = 'Velg dato';
 
   // Styling
   const datePickerClasses = classnames('ewc-datepicker', {
@@ -70,15 +71,13 @@ export const Datepicker: FC<DatepickerProps> = ({
   }, []);
 
   // Needed for webcomponent
-  useEffect(() => {
-    handleDateChange(value);
-  }, [value]);
+  useEffect(() => handleDateChange(value), [value]);
 
   useEffect(() => {
     updateCaretPositionWhenDotIsAdded();
   }, [selectedDate]);
 
-  const handleDateChange = (date: number | Date | null) => {
+  const handleDateChange = (date: Date | null) => {
     setSelectedDate(date);
     if (!webcomponent && valueOnChange) {
       valueOnChange(date);
@@ -227,19 +226,24 @@ export const Datepicker: FC<DatepickerProps> = ({
 
   return (
     <div className={datePickerClasses} ref={datepickerRef}>
-      {label !== '' && <label className="ewc-datepicker__label">{label}</label>}
+      {label !== '' && (
+        <label className="ewc-datepicker__label" id={labelId} aria-label={label}>
+          {label}
+        </label>
+      )}
 
       <ThemeProvider theme={materialTheme}>
         <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
           <KeyboardDatePicker
+            aria-labelledby={labelId}
             variant="inline"
             autoOk={true}
             value={selectedDate}
             placeholder={placeholderString}
             format="DD.MM.yyyy"
             rifmFormatter={getDateFormat}
-            disabled={isDisabled === true || isDisabled === 'true'}
-            fullWidth={isFullWidth === true || isFullWidth === 'true'}
+            disabled={isDisabled === true}
+            fullWidth={isFullWidth === true}
             minDate={minDate}
             maxDate={maxDate}
             onChange={handleDateChange}

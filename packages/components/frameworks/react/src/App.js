@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Accordion } from '@elvia/elvis-accordion/react';
-import { Checkbox } from '@elvia/elvis-checkbox/react';
+// import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
@@ -39,11 +39,12 @@ function App() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-        }}>
-          <Datepicker value={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
-          <Datepicker isFullWidth id="datepicker1" errorMessage="Error"></Datepicker>
-          <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
-          <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
+        }}
+      >
+        <Datepicker value={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
+        <Datepicker isFullWidth id="datepicker1" errorMessage="Error"></Datepicker>
+        <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
+        <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
       </div>
 
       <TestingComponent></TestingComponent>
@@ -93,7 +94,7 @@ function App() {
 
       <hr style={{ margin: '40px 0' }} />
 
-      <h2>Checkbox</h2>
+      {/* <h2>Checkbox</h2>
       <div style={{ marginTop: '16px' }}>
         <Checkbox
           ref={ref}
@@ -105,7 +106,7 @@ function App() {
           changeHandler={setTrackedState}
         ></Checkbox>
         <Checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></Checkbox>
-      </div>
+      </div> */}
 
       <hr style={{ margin: '40px 0' }} />
 
