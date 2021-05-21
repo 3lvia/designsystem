@@ -5,7 +5,7 @@ import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { SearchMenuComponent } from './search-menu/search-menu.component';
-import * as packageJson from '@elvia/elvis/package.json';
+import packageJson from '@elvia/elvis/package.json';
 
 @Component({
   selector: 'app-header',
