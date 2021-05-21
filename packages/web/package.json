@@ -35,7 +35,7 @@
     "prettier": "^2.0.5",
     "prismjs": "^1.21.0",
     "rxjs": "^6.5.5",
-    "sass": "^1.29.0",
+    "sass": "1.33.0",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
