@@ -8,46 +8,17 @@ import { ExampleCodeService } from '../../../example-code.service';
 })
 export class CegFiltersComponent implements OnInit {
   @Input() componentData;
+  @Input() props;
   counterNumber: number;
   codeReact;
   codeWebComponent;
-  props = [];
-  modifiers = [];
-  hasCheckboxes = false;
   emptyLineRegex = /^\s*[\r\n]/gm;
 
-  constructor(private codeService: ExampleCodeService) { }
+  constructor(private codeService: ExampleCodeService) {}
 
   ngOnInit(): void {
     this.codeReact = this.componentData.codeReact;
     this.codeWebComponent = this.componentData.codeWebComponent;
-    this.initializeComponentProps();
-  }
-
-  initializeComponentProps(): void {
-    Object.keys(this.componentData.attributes).forEach((attribute) => {
-      Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
-        if (value === 'cegFormType') {
-          const newObject = {
-            attribute,
-            ...this.componentData.attributes[attribute],
-          };
-          if (this.componentData.attributes[attribute].cegFormType === 'checkbox') {
-            this.hasCheckboxes = true;
-            this.modifiers.push(newObject);
-          } else {
-            this.props.push(newObject);
-          }
-        }
-      });
-    });
-    if (this.hasCheckboxes) {
-      const modifiersObject = {
-        cegFormType: 'checkbox',
-        modifiers: this.modifiers,
-      };
-      this.props.push(modifiersObject);
-    }
   }
 
   getPropRegex(prop: string): RegExp {
@@ -84,8 +55,8 @@ export class CegFiltersComponent implements OnInit {
   }
 
   updateRadioProp(prop: any, newValue: string): void {
-    console.log(prop)
-    console.log(newValue)
+    console.log(prop);
+    console.log(newValue);
     if (this.codeWebComponent.includes(prop.attribute)) {
       // Replaces old value for prop
       this.codeReact = this.codeReact.replace(

@@ -3,6 +3,29 @@
   [ngClass]="{ 'full-width': !hasCegAttributes }"
   [ngClass]="hasPreview ? 'e-mt-64' : 'e-mt-40'"
 >
+  <!--Top filters-->
+  <div *ngIf="hasCegAttributes" class="ceg-top-filters">
+    <div
+      *ngIf="typeObject"
+      class="ceg-dropdown"
+    >
+      <select style="width: 100%" name="pets" id="type-select">
+        <option *ngFor="let type of typeObject.cegOptions" [value]="type">
+          {{ type | titlecase }}
+        </option>
+      </select>
+    </div>
+    <div
+      *ngIf="backgroundObject"
+      class="ceg-dropdown"
+    >
+      <select style="width: 100%" name="pets" id="background-select">
+        <option *ngFor="let bg of backgroundObject.cegOptions" [value]="bg">
+          {{ bg }}
+        </option>
+      </select>
+    </div>
+  </div>
   <div
     class="ceg-row-1 e-mb-16"
     *ngIf="hasPreview"
@@ -11,9 +34,14 @@
       class="ceg-col-1"
       #cegContent
     >
-      <!--CEG code preview-->
+      <!--Preview-->
       <div
-        [ngClass]="!accordionCustom ? 'ceg-code-preview' : 'ceg-code-preview ceg-code-preview--accordion'"
+        class="ceg-code-preview" 
+        [ngClass]="{
+          'ceg-code-preview--accordion': accordionCustom, 
+          'e-bg-white': selectedBg === 'White', 
+          'e-bg-grey': selectedBg === 'Dark grey'
+        }"
         [style.overflowY]="overflowY"
       >
         <div
@@ -25,16 +53,16 @@
       </div>
     </div>
 
-    <!--CEG side filters-->
+    <!--Side filters-->
     <div
       class="ceg-col-2"
       *ngIf="hasCegAttributes"
     >
-      <app-ceg-filters [componentData]="componentData"></app-ceg-filters>
+      <app-ceg-filters [componentData]="componentData" [props]="props"></app-ceg-filters>
     </div>
   </div>
 
-  <!--CEG code-->
+  <!--Code-->
   <div [ngClass]="hasPreview ? 'ceg-row-2' : 'ceg-full-row'">
     <app-component-example-accordion>
       <ng-container ngProjectAs="accordionContent">

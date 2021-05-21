@@ -18,6 +18,12 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
   @Input() overflowY;
   codeWebComponentSub: Subscription;
   hasCegAttributes = false;
+  props = [];
+  modifiers = [];
+  typeObject;
+  backgroundObject;
+  selectedBg;
+  hasCheckboxes = false;
 
   constructor(private codeService: ExampleCodeService) {}
 
@@ -33,6 +39,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
         this.cegContent.nativeElement.style.visibility = 'visible';
       }, 10);
     });
+    this.initializeComponentProps();
   }
 
   ngAfterViewInit(): void {
@@ -52,5 +59,40 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterViewInit
 
   ngOnDestroy(): void {
     this.codeWebComponentSub.unsubscribe();
+  }
+
+  initializeComponentProps(): void {
+    Object.keys(this.componentData.attributes).forEach((attribute) => {
+      Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
+        if (value === 'cegFormType') {
+          const newObject = {
+            attribute,
+            ...this.componentData.attributes[attribute],
+          };
+          if (this.componentData.attributes[attribute].cegFormType === 'checkbox') {
+            this.hasCheckboxes = true;
+            this.modifiers.push(newObject);
+          } else {
+            this.props.push(newObject);
+          }
+          if (this.componentData.attributes[attribute].cegFormType === 'type') {
+            this.typeObject = newObject;
+          }
+          if (this.componentData.attributes[attribute].cegFormType === 'background') {
+            this.backgroundObject = newObject;
+            this.selectedBg = newObject.cegDefault;
+          }
+        }
+      });
+    });
+    if (this.hasCheckboxes) {
+      const modifiersObject = {
+        cegFormType: 'checkbox',
+        modifiers: this.modifiers,
+      };
+      this.props.push(modifiersObject);
+    }
+    console.log(this.typeObject.cegOptions);
+    console.log(this.backgroundObject.cegOptions);
   }
 }
