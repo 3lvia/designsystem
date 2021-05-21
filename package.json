@@ -45,8 +45,7 @@
   },
   "resolutions": {
     "**/optimist/minimist": "0.2.1",
-    "**/react-dev-utils/immer": "^8.0.1",
-    "node-sass": "npm:sass"
+    "**/react-dev-utils/immer": "^8.0.1"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.5.0",
