@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Select, { components } from 'react-select';
 import toolbox from '@elvia/elvis-toolbox';
 import * as StyledDropdown from './styledComponents';
+import uniqueId from 'lodash.uniqueid';
 
 export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
 export interface DropdownOption {
@@ -16,7 +17,6 @@ export interface DropdownProps {
   isDisabled?: boolean;
   isMulti?: boolean;
   label?: string;
-  labelId?: string;
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
   options: DropdownOption[];
@@ -45,7 +45,6 @@ const Dropdown: React.FC<DropdownProps> = ({
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
   label,
-  labelId,
   options,
   optionOnChange,
   placeholder = 'Placeholder',
@@ -54,6 +53,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [currentVal, setCurrentVal] = useState(defaultOption);
   const [isError, setIsError] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [selectId] = useState(() => uniqueId('ewx-dropdown-'))
   const dropdownRef = useRef<HTMLSpanElement>(null);
 
   // styling functions for react select
@@ -324,17 +324,17 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   return (
     <StyledDropdown.DropdownWrapper isDisabled={isDisabled} ref={dropdownRef}>
-      <StyledDropdown.DropdownLabel id={labelId} aria-label={label} isCompact={isCompact}>
+      <StyledDropdown.DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId}>
         {label}
       </StyledDropdown.DropdownLabel>
       <Select
-        aria-labelledby={labelId}
         classNamePrefix={'ewc-dropdown'}
         closeMenuOnSelect={!isMulti}
         components={overrideComponents}
         defaultValue={defaultOption}
         hasValue={false}
         hideSelectedOptions={false}
+        inputId={selectId}
         isDisabled={isDisabled}
         isMulti={isMulti}
         isSearchable={false}

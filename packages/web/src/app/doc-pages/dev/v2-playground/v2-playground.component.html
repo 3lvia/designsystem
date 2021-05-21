@@ -22,6 +22,30 @@
     >
     </elvia-dropdown>
   </div>
+  <div style="width: 250px; margin-top: 24px;">
+    <elvia-dropdown
+      [isCompact]="isCompact"
+      [isMulti]="isMulti"
+      noOptionsMessage="No options availabe"
+      placeholder="Placeholder"
+      errorMessage=""
+      label="Heisann"
+      (valueOnChange)="isSelected = $event.detail.value"
+    >
+    </elvia-dropdown>
+  </div>
+  <div style="width: 250px;margin-top: 24px;">
+    <elvia-dropdown
+      [isCompact]="isCompact"
+      [isMulti]="isMulti"
+      noOptionsMessage="No options availabe"
+      placeholder="Placeholder"
+      errorMessage=""
+      label="ANother label"
+      (valueOnChange)="isSelected = $event.detail.value"
+    >
+    </elvia-dropdown>
+  </div>
 
   <h2>Divider</h2>
   <elvia-divider [isCurved]="true"></elvia-divider>
