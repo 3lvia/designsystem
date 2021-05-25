@@ -1,4 +1,4 @@
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentExampleCodeComponent } from './component-example-code.component';
 
@@ -6,6 +6,5 @@ import { ComponentExampleCodeComponent } from './component-example-code.componen
   imports: [CommonModule],
   declarations: [ComponentExampleCodeComponent],
   exports: [ComponentExampleCodeComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class ComponentExampleCodeModule { }
+export class ComponentExampleCodeModule {}

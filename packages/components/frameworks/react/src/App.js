@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Accordion } from '@elvia/elvis-accordion/react';
-// import { Checkbox } from '@elvia/elvis-checkbox/react';
+import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
@@ -143,7 +143,7 @@ function App() {
 
       <hr style={{ margin: '40px 0' }} />
 
-      {/* <h2>Checkbox</h2>
+      <h2>Checkbox</h2>
       <div style={{ marginTop: '16px' }}>
         <Checkbox
           ref={ref}
@@ -155,7 +155,7 @@ function App() {
           changeHandler={setTrackedState}
         ></Checkbox>
         <Checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></Checkbox>
-      </div> */}
+      </div>
 
       <hr style={{ margin: '40px 0' }} />
 

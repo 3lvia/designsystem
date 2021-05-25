@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { eGetStarted, eComponents, eIdentity, eCommunity, eTools } from 'src/app/shared/e-items';
 import { EItems } from 'src/app/shared/e-items.interface';
-import packageJson from '@elvia/elvis/package.json';
+import * as packageJson from '@elvia/elvis/package.json';
 
 @Component({
   selector: 'app-search-menu',

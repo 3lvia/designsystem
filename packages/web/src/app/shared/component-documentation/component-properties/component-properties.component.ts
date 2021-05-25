@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import data from '@elvia/elvis/.internal/classlist.json';
+import * as data from '@elvia/elvis/.internal/classlist.json';
 
 @Component({
   selector: 'app-component-properties',
