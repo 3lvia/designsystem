@@ -9,6 +9,8 @@
     ],
     "nohoist": [
       "**/bootstrap",
+      "**/babel-loader",
+      "**/webpack",
       "**/@elvia/elvis-assets-icons"
     ]
   },
