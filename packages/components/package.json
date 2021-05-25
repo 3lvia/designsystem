@@ -2,12 +2,19 @@
   "name": "@elvia/elvis-components",
   "version": "0.0.1",
   "private": "true",
-  "description": "",
+  "description": "WIP",
   "license": "ISC",
   "author": "",
+  "main": "server.js",
   "scripts": {
-    "build": "gulp --gulpfile build/gulpfile.js cleanup && gulp --gulpfile build/gulpfile.js && webpack --mode=production  --config ./webpack.config.js",
-    "watch": "gulp --gulpfile build/gulpfile.js cleanup && concurrently \"webpack --watch --mode=production\" \"gulp --gulpfile build/gulpfile.js watch\""
+    "start-dev": "concurrently \"webpack-dev-server --config ./webpack.config.js --mode development\" \"webpack --watch --mode development\" \"yarn run gulp:watch\"",
+    "build": "yarn run build:components && yarn run build:loader",
+    "build:components": "webpack --mode=production  --config ./webpack.config.js && gulp --gulpfile build/gulpfile.js",
+    "build:components:dev": "webpack --mode=\"development\" --config ./webpack.config.js && gulp --gulpfile build/gulpfile.js",
+    "build:components:watch": "webpack --mode=production  --config ./webpack.config.js --watch",
+    "gulp": "gulp --gulpfile build/gulpfile.js",
+    "gulp:watch": "gulp --gulpfile build/gulpfile.js cleanup && gulp --gulpfile build/gulpfile.js watch",
+    "build:react": "rollup -c build/rollup.config.js"
   },
   "devDependencies": {
     "@elvia/elvis-component-wrapper": "*",
@@ -22,7 +29,7 @@
     "gulp-replace": "^1.0.0",
     "gulp-tap": "^2.0.0",
     "merge-stream": "^2.0.0",
-    "sass": "^1.33.0",
+    "sass": "^1.26.11",
     "sass-loader": "^10.0.2",
     "style-loader": "^1.2.1",
     "ts-loader": "^8.0.3",

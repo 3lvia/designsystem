@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.documentElement.addEventListener(
-      'mousedown',
+      'click',
       function (event) {
         document.body.classList.add('e-no-outline');
       },
