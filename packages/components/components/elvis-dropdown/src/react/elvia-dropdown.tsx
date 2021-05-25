@@ -53,8 +53,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   const [currentVal, setCurrentVal] = useState(defaultOption);
   const [isError, setIsError] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
-  const [selectId] = useState(() => uniqueId('ewx-dropdown-'))
   const dropdownRef = useRef<HTMLSpanElement>(null);
+
+  const selectId = uniqueId('ewc-dropdown-');
 
   // styling functions for react select
   const decideControlBorder = (disabled: boolean, error: boolean) => {

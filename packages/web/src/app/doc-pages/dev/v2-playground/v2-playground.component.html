@@ -18,6 +18,7 @@
       placeholder="Placeholder"
       errorMessage=""
       label="Label"
+      [options]="exampleOptions"
       (valueOnChange)="isSelected = $event.detail.value"
     >
     </elvia-dropdown>
@@ -30,6 +31,7 @@
       placeholder="Placeholder"
       errorMessage=""
       label="Heisann"
+      [options]="exampleOptions"
       (valueOnChange)="isSelected = $event.detail.value"
     >
     </elvia-dropdown>
@@ -42,6 +44,7 @@
       placeholder="Placeholder"
       errorMessage=""
       label="ANother label"
+      [options]="exampleOptions"
       (valueOnChange)="isSelected = $event.detail.value"
     >
     </elvia-dropdown>
