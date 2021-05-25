@@ -12,16 +12,23 @@ module.exports = [
   {
     name: 'elvis-accordion',
     elementName: 'elvia-accordion',
-    attributes: ['content', 'openLabel', 'closeLabel', 'labelPosition', 'size', 'type'],
+    attributes: [
+      {name: 'content', type: 'string | HTMLElement'}, 
+      {name: 'openLabel', type: 'string'}, 
+      {name: 'closeLabel', type: 'string'}, 
+      {name: 'labelPosition', type: 'string'}, 
+      {name: 'size', type: 'string'}, 
+      {name: 'type', type: 'string'}, 
+    ],
     reactName: 'Accordion',
     useWrapper: true,
   },
-  {
-    name: 'elvis-checkbox',
-    elementName: 'elvia-checkbox',
-    attributes: ['label', 'name', 'value', 'id', 'size', 'checked', 'disabled', 'required'],
-    reactName: 'Checkbox',
-  },
+  // {
+  //   name: 'elvis-checkbox',
+  //   elementName: 'elvia-checkbox',
+  //   attributes: ['label', 'name', 'value', 'id', 'size', 'checked', 'disabled', 'required'],
+  //   reactName: 'Checkbox',
+  // },
   {
     name: 'elvis-dropdown',
     role: 'select',
@@ -45,14 +52,24 @@ module.exports = [
   {
     name: 'elvis-tabs',
     elementName: 'elvia-tabs',
-    attributes: ['items', 'value', 'isInverted'],
+    attributes: [
+      {name: 'items', type: 'object'}, 
+      {name: 'value', type: 'number'}, 
+      {name: 'isInverted', type: 'boolean'}, 
+    ],
     reactName: 'Tabs',
     elementStyle: `display: grid; overflow: hidden;`,
   },
   {
     name: 'elvis-popover',
     elementName: 'elvia-popover',
-    attributes: ['header', 'content', 'posX', 'posY', 'hasCloseBtn'],
+    attributes: [
+      {name: 'header', type: 'string'}, 
+      {name: 'content', type: 'string | HTMLElement'}, 
+      {name: 'posX', type: 'string'}, 
+      {name: 'posY', type: 'string'}, 
+      {name: 'hasCloseBtn', type: 'boolean'}
+    ],
     reactName: 'Popover',
     useWrapper: true,
     elementStyle: `display: block;`,
@@ -60,14 +77,21 @@ module.exports = [
   {
     name: 'elvis-progress-linear',
     elementName: 'elvia-progress-linear',
-    attributes: ['value', 'isIndeterminate', 'isError'],
+    attributes: [
+      {name: 'value', type: 'number'}, 
+      {name: 'isIndeterminate', type: 'boolean'}, 
+      {name: 'isError', type: 'boolean'}
+    ],
     reactName: 'ProgressLinear',
     elementStyle: `width: 100%;`,
   },
   {
     name: 'elvis-testing',
     elementName: 'elvia-testing',
-    attributes: ['value', 'isFullWidth', 'isBlock'],
+    attributes: [
+      {name: 'isFullWidth', type: 'boolean'}, 
+      {name: 'isBlock', type: 'boolean'}
+    ],
     reactName: 'TestingComponent',
     elementStyle: `width: 50%; display: grid;`,
     conditionalElementStyle: {
@@ -78,7 +102,12 @@ module.exports = [
   {
     name: 'elvis-divider',
     elementName: 'elvia-divider',
-    attributes: ['isCurved', 'isInverted', 'title', 'titleType'],
+    attributes: [
+      {name: 'isCurved', type: 'boolean'}, 
+      {name: 'isInverted', type: 'boolean'}, 
+      {name: 'title', type: 'string'}, 
+      {name: 'titleType', type: 'string'}, 
+    ],
     reactName: 'Divider',
   },
 ];

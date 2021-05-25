@@ -252,7 +252,8 @@ const Popover: FC<PopoverProps> = ({
       popoverContentRef.current.style.bottom = 'auto';
     }
     if (
-      popoverClasscontainerRef.current?.classList.contains('ewc-popover--bottom') &&
+      popoverClasscontainerRef.current &&
+      popoverClasscontainerRef.current.classList.contains('ewc-popover--bottom') &&
       popoverContentRef.current &&
       popoverTriggerRef.current
     ) {
