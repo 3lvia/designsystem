@@ -163,7 +163,11 @@ export const Datepicker: FC<DatepickerProps> = ({
         <div className="ewc-datepicker__toolbar-today">
           {format(date, 'EEEE d. MMMM', { locale: nbLocale })}
         </div>
-        <button className="ewc-datepicker__toolbar-dropdown" onClick={toggleYearView}>
+        <button
+          aria-label="Åpne år-velger"
+          className="ewc-datepicker__toolbar-dropdown"
+          onClick={toggleYearView}
+        >
           <div className="ewc-datepicker__toolbar-year">{format(date, 'yyyy', { locale: nbLocale })}</div>
           <i
             className={dropdownIconClasses}
@@ -193,7 +197,11 @@ export const Datepicker: FC<DatepickerProps> = ({
     });
     if (isInCurrentMonth) {
       if (!dayComponent.props.disabled) {
-        return <button className={dayClasses}>{format(day, 'd')}</button>;
+        return (
+          <button aria-label="Velg dato" className={dayClasses}>
+            {format(day, 'd')}
+          </button>
+        );
       } else {
         return <div className={dayClasses}>{format(day, 'd')}</div>;
       }
@@ -252,6 +260,12 @@ export const Datepicker: FC<DatepickerProps> = ({
             inputProps={{ ref: inputRef }}
             KeyboardButtonProps={{
               'aria-label': 'Velg dato',
+            }}
+            leftArrowButtonProps={{
+              'aria-label': 'Forrige måned',
+            }}
+            rightArrowButtonProps={{
+              'aria-label': 'Neste måned',
             }}
             PopoverProps={{
               anchorOrigin: { horizontal: 'left', vertical: 'bottom' },
