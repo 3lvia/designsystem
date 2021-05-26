@@ -3,9 +3,10 @@ import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import MomentUtils from '@date-io/moment';
-import moment from 'moment';
 import toolbox from '@elvia/elvis-toolbox';
+import DateFnsUtils from '@date-io/date-fns';
+import nbLocale from 'date-fns/locale/nb';
+import format from 'date-fns/format';
 
 export interface DatepickerProps {
   value?: Date | null;
@@ -54,14 +55,6 @@ export const Datepicker: FC<DatepickerProps> = ({
   });
 
   useEffect(() => {
-    moment.updateLocale('nb', {
-      week: {
-        dow: 1,
-      },
-      weekdaysShort: ['sø', 'ma', 'ti', 'on', 'to', 'fr', 'lø'],
-      weekdays: ['Søndag', 'Mandag', 'Tirsdag', 'Onsdag', 'Torsdag', 'Fredag', 'Lørdag'],
-    });
-
     addOutlineFix(datepickerRef.current);
 
     return () => {
@@ -167,9 +160,11 @@ export const Datepicker: FC<DatepickerProps> = ({
 
     return (
       <div className="ewc-datepicker__toolbar">
-        <div className="ewc-datepicker__toolbar-today">{date.format('dddd D. MMMM')}</div>
+        <div className="ewc-datepicker__toolbar-today">
+          {format(date, 'EEEE d. MMMM', { locale: nbLocale })}
+        </div>
         <button className="ewc-datepicker__toolbar-dropdown" onClick={toggleYearView}>
-          <div className="ewc-datepicker__toolbar-year">{date.format('YYYY')}</div>
+          <div className="ewc-datepicker__toolbar-year">{format(date, 'yyyy', { locale: nbLocale })}</div>
           <i
             className={dropdownIconClasses}
             style={{
@@ -198,9 +193,9 @@ export const Datepicker: FC<DatepickerProps> = ({
     });
     if (isInCurrentMonth) {
       if (!dayComponent.props.disabled) {
-        return <button className={dayClasses}>{day.format('D')}</button>;
+        return <button className={dayClasses}>{format(day, 'd')}</button>;
       } else {
-        return <div className={dayClasses}>{day.format('D')}</div>;
+        return <div className={dayClasses}>{format(day, 'd')}</div>;
       }
     } else {
       return <div className="ewc-datepicker__day-size"></div>;
@@ -232,13 +227,13 @@ export const Datepicker: FC<DatepickerProps> = ({
       )}
 
       <ThemeProvider theme={materialTheme}>
-        <MuiPickersUtilsProvider utils={MomentUtils} libInstance={moment}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils} locale={nbLocale}>
           <KeyboardDatePicker
             variant="inline"
             autoOk={true}
             value={selectedDate}
             placeholder={placeholderString}
-            format="DD.MM.yyyy"
+            format="dd.MM.yyyy"
             rifmFormatter={getDateFormat}
             disabled={isDisabled === true}
             fullWidth={isFullWidth === true}

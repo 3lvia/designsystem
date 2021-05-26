@@ -258,6 +258,7 @@ $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
       color: black;
       margin: 0px;
       user-select: none;
+      text-transform: capitalize;
     }
     .ewc-datepicker__toolbar-dropdown {
       display: flex;
