@@ -6,9 +6,11 @@
   "license": "ISC",
   "author": "",
   "scripts": {
-    "test": "mocha \"./components/**/*.test.js\" --require test/setup.js --require @babel/register",
     "build": "gulp --gulpfile build/gulpfile.js cleanup && gulp --gulpfile build/gulpfile.js && webpack --mode=production  --config ./webpack.config.js",
-    "watch": "gulp --gulpfile build/gulpfile.js cleanup && concurrently \"webpack --watch --mode=production\" \"gulp --gulpfile build/gulpfile.js watch\""
+    "watch": "gulp --gulpfile build/gulpfile.js cleanup && concurrently \"webpack --watch --mode=production\" \"gulp --gulpfile build/gulpfile.js watch\"",
+    "test": "jest --config jest.config.js --colors",
+    "test:watch": "jest --config jest.config.js --watch --colors",
+    "test:coverage": "jest --coverage --colors"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
