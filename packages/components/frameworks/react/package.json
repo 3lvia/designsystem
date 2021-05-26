@@ -23,6 +23,8 @@
     ]
   },
   "dependencies": {
+    "@babel/helper-builder-react-jsx": "^7.12.13",
+    "@babel/helper-builder-react-jsx-experimental": "^7.12.11",
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-popover": "*",
