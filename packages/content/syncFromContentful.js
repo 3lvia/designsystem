@@ -4,14 +4,9 @@ const contentful = require('contentful');
 const packageJson = require('./package.json');
 const fs = require('fs');
 
-if (!dotenv.parsed.CONTENTFUL_SPACE || !dotenv.parsed.CONTENTFUL_ACCESS_TOKEN) {
-    console.error(`ERROR: ${packageJson.name} - Missing ENV variable`);
-    return;
-}
-
 const CONFIG = {
-    space: dotenv.parsed.CONTENTFUL_SPACE,
-    accessToken: dotenv.parsed.CONTENTFUL_ACCESS_TOKEN
+    space: dotenv.parsed.CONTENTFUL_SPACE ? dotenv.parsed.CONTENTFUL_SPACE : process.env.CONTENTFUL_SPACE,
+    accessToken: dotenv.parsed.CONTENTFUL_ACCESS_TOKEN ? dotenv.parsed.CONTENTFUL_ACCESS_TOKEN : process.env.CONTENTFUL_ACCESS_TOKEN
 }
 
 contentfulClient = contentful.createClient({
