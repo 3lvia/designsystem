@@ -1,6 +1,6 @@
 <!--HEADER-->
 <app-component-header>
-  <ng-container ngProjectAs="headerTitle">The concept</ng-container>
+  <ng-container ngProjectAs="headerTitle">{{ cmsContent.title? cmsContent.title: ''}}</ng-container>
   <ng-container ngProjectAs="headerDescription">
     {{ description }}
   </ng-container>
