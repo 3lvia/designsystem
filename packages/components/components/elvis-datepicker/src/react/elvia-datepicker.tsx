@@ -45,9 +45,9 @@ export const Datepicker: FC<DatepickerProps> = ({
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const placeholderString = 'dd.mm.yyyy';
-  // This is the unicode character U+0081
+  // This is the unicode character U+00AD
   // Used to avoid date-fns from formatting date before date is valid
-  const unicodeChar = '';
+  const unicodeChar = '­';
 
   // Styling
   const datePickerClasses = classnames('ewc-datepicker', {
