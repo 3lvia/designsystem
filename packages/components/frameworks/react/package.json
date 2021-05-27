@@ -25,6 +25,7 @@
   "dependencies": {
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-checkbox": "*",
+    "@elvia/elvis-dropdown": "*",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-tabs": "*",

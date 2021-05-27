@@ -7,6 +7,7 @@ import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
 import { Divider } from '@elvia/elvis-divider/react';
+import { Dropdown } from '@elvia/elvis-dropdown/react';
 
 function App() {
   const [trackedState, setTrackedState] = useState(true);
@@ -34,9 +35,80 @@ function App() {
     setSelectedState(0);
   }
 
+  const [selectedOption, setSelectedOption] = useState([]);
+
+  // to display choosen data
+  console.log(selectedOption);
+
+  const defOption = [
+    {
+      value: 'norge',
+      label: 'Norge',
+    },
+    {
+      value: 'sverige',
+      label: 'Sverige',
+    },
+  ];
+
+  const options = [
+    {
+      value: 'norge',
+      label: 'Norge',
+    },
+    {
+      value: 'sverige',
+      label: 'Sverige',
+    },
+    {
+      value: 'danmark',
+      label: 'Danmark',
+    },
+    {
+      value: 'finland',
+      label: 'Finland',
+    },
+    {
+      value: 'island',
+      label: 'Island',
+    },
+    {
+      value: 'norge1',
+      label: 'Norge1',
+    },
+    {
+      value: 'sverige1',
+      label: 'Sverige1',
+    },
+    {
+      value: 'danmark1',
+      label: 'Danmark1',
+    },
+    {
+      value: 'finland1',
+      label: 'Finland1',
+    },
+    {
+      value: 'island1',
+      label: 'Island1',
+    },
+  ];
+
   return (
     <div className="App">
       <h1>React preview</h1>
+
+      <h2>Dropdown</h2>
+      <div style={{ marginTop: '24px' }}>
+        <Dropdown
+          options={options}
+          defaultOption={defOption}
+          label="test"
+          errorMessage=""
+          valueOnChange={setSelectedOption}
+          isMulti
+        ></Dropdown>
+      </div>
 
       <h2>Divider</h2>
       <div>

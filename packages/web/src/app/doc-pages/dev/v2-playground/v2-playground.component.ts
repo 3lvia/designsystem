@@ -37,6 +37,38 @@ export class v2PlaygroundComponent implements OnInit {
   ];
   value = 2;
 
+  isCompact = true;
+  isMulti = true;
+  isDisabled = true;
+
+  dropdownValue = undefined;
+
+  defOptions = [
+    {
+      value: '1',
+      label: 'Option 1',
+    },
+    {
+      value: '2',
+      label: 'Option 2',
+    },
+  ];
+
+  exampleOptions = [
+    {
+      value: '1',
+      label: 'Option 1',
+    },
+    {
+      value: '2',
+      label: 'Option 2',
+    },
+    {
+      value: '3',
+      label: 'Option 3',
+    },
+  ];
+
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
     /*this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {
