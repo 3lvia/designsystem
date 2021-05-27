@@ -7,6 +7,7 @@ import toolbox from '@elvia/elvis-toolbox';
 import DateFnsUtils from '@date-io/date-fns';
 import nbLocale from 'date-fns/locale/nb';
 import format from 'date-fns/format';
+import isValid from 'date-fns/isValid';
 
 export interface DatepickerProps {
   value?: Date | null;
@@ -34,14 +35,27 @@ export const Datepicker: FC<DatepickerProps> = ({
   webcomponent,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
+  const [currErrorMessage, setCurrErrorMessage] = useState('');
+  const [hasHadFocus, setHasHadFocus] = useState(false);
+  const [hasFocus, setHasFocus] = useState(false);
+  const customError = errorMessage;
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const placeholderString = 'dd.mm.yyyy';
+  // This is the unicode character U+0081
+  // Used to avoid date-fns from formatting date before date is valid
+  const unicodeChar = '';
+
+  const errorMessages = {
+    invalid: 'Bruk dd.mm.åååå',
+    invalidMin: 'Dato må være etter ',
+    invalidMax: 'Dato må være før ',
+  };
 
   // Styling
   const datePickerClasses = classnames('ewc-datepicker', {
-    ['ewc-datepicker--error']: errorMessage !== '',
+    ['ewc-datepicker--error']: hasHadFocus && !hasFocus && (currErrorMessage !== '' || customError !== ''),
     ['ewc-datepicker--compact']: isCompact !== false,
     ['ewc-datepicker--unselected']: value === null,
     ['ewc-datepicker--full-width']: isFullWidth,
@@ -62,7 +76,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     };
   }, []);
 
-  // Needed for webcomponent
+  // Needed for webcomponent -> To update the default value
   useEffect(() => handleDateChange(value), [value]);
 
   useEffect(() => {
@@ -70,12 +84,33 @@ export const Datepicker: FC<DatepickerProps> = ({
   }, [selectedDate]);
 
   const handleDateChange = (date: Date | null) => {
+    validateDate(date);
     setSelectedDate(date);
-    if (!webcomponent && valueOnChange) {
-      valueOnChange(date);
-    } else if (webcomponent) {
-      // True -> Prevents rerender
-      webcomponent.setProps({ value: date }, true);
+
+    // Updating when date valid
+    if (isValid(date)) {
+      if (!webcomponent && valueOnChange) {
+        valueOnChange(date);
+      } else if (webcomponent) {
+        // True -> Prevents rerender
+        webcomponent.setProps({ value: date }, true);
+      }
+    }
+  };
+
+  const validateDate = (date: Date | null) => {
+    if (customError) {
+      setCurrErrorMessage(customError);
+    } else {
+      if (!isValid(date)) {
+        setCurrErrorMessage(errorMessages.invalid);
+      } else if (date && minDate && date < minDate) {
+        setCurrErrorMessage(errorMessages.invalidMin + format(minDate, 'dd.MM.yyyy'));
+      } else if (date && maxDate && date > maxDate) {
+        setCurrErrorMessage(errorMessages.invalidMax + format(maxDate, 'dd.MM.yyyy'));
+      } else {
+        setCurrErrorMessage('');
+      }
     }
   };
 
@@ -89,12 +124,34 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
+  const onFocus = () => {
+    setHasHadFocus(true);
+    setHasFocus(true);
+    listenForFocus();
+    updateCaretPositionOnFocus();
+  };
+
+  const listenForFocus = () => {
+    const checkIfDatepickerHasFocus = () => {
+      if (
+        datepickerRef.current &&
+        !datepickerRef.current.contains(document.activeElement) &&
+        !datepickerPopoverRef.current
+      ) {
+        setHasFocus(false);
+        window.removeEventListener('focusout', checkIfDatepickerHasFocus);
+      }
+    };
+
+    window.addEventListener('focusout', checkIfDatepickerHasFocus);
+  };
+
   const updateCaretPositionOnFocus = () => {
     setTimeout(() => {
       if (!inputRef.current) {
         return;
       }
-      const index = inputRef.current.value.indexOf(' ');
+      const index = inputRef.current.value.indexOf(unicodeChar);
       if (index > 0) {
         inputRef.current.selectionStart = index;
         inputRef.current.selectionEnd = index;
@@ -108,6 +165,13 @@ export const Datepicker: FC<DatepickerProps> = ({
 
   const removeOutlineFix = (ref: HTMLDivElement | null) => {
     toolbox.outlineListener(ref, true);
+  };
+
+  const onOpen = () => {
+    setHasHadFocus(true);
+    setHasFocus(true);
+    listenForFocus();
+    updateInputWithSelectedDate();
   };
 
   const updateInputWithSelectedDate = () => {
@@ -161,7 +225,8 @@ export const Datepicker: FC<DatepickerProps> = ({
     return (
       <div className="ewc-datepicker__toolbar">
         <div className="ewc-datepicker__toolbar-today">
-          {format(date, 'EEEE d. MMMM', { locale: nbLocale })}
+          <span className="ewc-capitalize">{format(date, 'EEEE', { locale: nbLocale })}&#32;</span>
+          {format(date, 'd. MMMM', { locale: nbLocale })}
         </div>
         <button
           aria-label="Åpne år-velger"
@@ -221,7 +286,7 @@ export const Datepicker: FC<DatepickerProps> = ({
       res = `${res}.`;
     }
     if (res.length > 6 && res.length < 10) {
-      res += ' ';
+      res += unicodeChar;
     }
     return res;
   };
@@ -248,8 +313,8 @@ export const Datepicker: FC<DatepickerProps> = ({
             minDate={minDate}
             maxDate={maxDate}
             onChange={handleDateChange}
-            onFocus={updateCaretPositionOnFocus}
-            onOpen={updateInputWithSelectedDate}
+            onFocus={onFocus}
+            onOpen={onOpen}
             keyboardIcon={getCalIcon()}
             leftArrowIcon={getArrowIcon(true)}
             rightArrowIcon={getArrowIcon(false)}
@@ -276,7 +341,7 @@ export const Datepicker: FC<DatepickerProps> = ({
         </MuiPickersUtilsProvider>
       </ThemeProvider>
 
-      {errorMessage && (
+      {!hasFocus && hasHadFocus && currErrorMessage && (
         <div className="ewc-datepicker__error">
           <i
             className="ewc-datepicker__icon ewc-datepicker__icon--error"
@@ -284,7 +349,7 @@ export const Datepicker: FC<DatepickerProps> = ({
               backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23FF0000' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23FF0000'%3e%3cpath d='M12 23.999c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath d='M16.5 17.249a.743.743 0 01-.53-.22L12 13.06l-3.97 3.97a.744.744 0 01-1.06 0 .752.752 0 010-1.061l3.97-3.97-3.97-3.97a.743.743 0 01-.22-.53c0-.2.078-.389.22-.53a.743.743 0 01.53-.22c.2 0 .389.078.53.22l3.97 3.97 3.97-3.97a.744.744 0 011.06 0c.142.141.22.33.22.53s-.078.389-.22.53l-3.97 3.97 3.97 3.97a.752.752 0 010 1.061.746.746 0 01-.53.219z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23FF0000'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
             }}
           ></i>
-          <div className="ewc-datepicker__helper-text">{errorMessage}</div>
+          <div className="ewc-datepicker__helper-text">{currErrorMessage}</div>
         </div>
       )}
     </div>
