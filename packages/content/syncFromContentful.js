@@ -5,8 +5,8 @@ const packageJson = require('./package.json');
 const fs = require('fs');
 
 const CONFIG = {
-    space: dotenv.parsed.CONTENTFUL_SPACE ? dotenv.parsed.CONTENTFUL_SPACE : process.env.CONTENTFUL_SPACE,
-    accessToken: dotenv.parsed.CONTENTFUL_ACCESS_TOKEN ? dotenv.parsed.CONTENTFUL_ACCESS_TOKEN : process.env.CONTENTFUL_ACCESS_TOKEN
+    space: process.env.CONTENTFUL_SPACE ? process.env.CONTENTFUL_SPACE : dotenv.parsed.CONTENTFUL_SPACE,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN ? process.env.CONTENTFUL_ACCESS_TOKEN : dotenv.parsed.CONTENTFUL_ACCESS_TOKEN
 }
 
 contentfulClient = contentful.createClient({
