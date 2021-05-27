@@ -37,7 +37,14 @@ function syncData() {
 
 function saveEntry(entry, contentfulEntry) {
     console.log(entry, contentfulEntry);
-    fs.writeFileSync(`dist/${entry.path}.json`, JSON.stringify(contentfulEntry));
+    fs.writeFileSync(`dist/${entry.path}.js`, createFileContentFromEntry(contentfulEntry));
+}
+
+function createFileContentFromEntry(entry) {
+    return `
+        module.exports = ${JSON.stringify(entry)}
+    
+    `
 }
 
 function syncEntry(entry, entryId) {
