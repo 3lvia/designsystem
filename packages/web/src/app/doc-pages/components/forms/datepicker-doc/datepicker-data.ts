@@ -56,12 +56,9 @@ const datepickerData = {
     errorMessage: {
       isRequired: false,
       type: 'string',
-      description: 'Determines if the close button in the upper right corner should be visible',
+      description:
+        'Optional prop for adding error message, which is not built-in. This prop will always overwrite built-in errors.',
       displayName: 'Error',
-      cegType: 'boolean',
-      cegFormType: 'checkbox',
-      cegOption: 'Error',
-      cegDisplayGroup: 'State',
     },
     minDate: {
       isRequired: false,

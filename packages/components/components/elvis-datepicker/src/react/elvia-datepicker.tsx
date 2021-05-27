@@ -46,7 +46,6 @@ export const Datepicker: FC<DatepickerProps> = ({
   // This is the unicode character U+0081
   // Used to avoid date-fns from formatting date before date is valid
   const unicodeChar = '';
-
   const errorMessages = {
     invalid: 'Bruk dd.mm.åååå',
     invalidMin: 'Dato må være etter ',
