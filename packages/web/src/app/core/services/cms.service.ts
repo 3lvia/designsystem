@@ -14,16 +14,21 @@ export class CMSService {
       [MARKS.BOLD]: text => `<b>${text}</b>`
     },
     renderNode: {
-      [BLOCKS.HEADING_2]: (node, next) => `<h2 class="e-title-md">${next(node.content)}</h2>`,
+      [BLOCKS.HEADING_2]: (node, next) => `<h2 class="e-title-md elvis-anchor-title e-mb-24">${next(node.content)}</h2>`,
       [BLOCKS.HEADING_3]: (node, next) => `<h3 class="e-title-sm">${next(node.content)}</h3>`,
-      [BLOCKS.PARAGRAPH]: (node, next) => `<p class="e-text-body">${next(node.content)}</p>`,
+      [BLOCKS.PARAGRAPH]: (node, next) => `<p class="e-text-body component-section__content">${next(node.content)}</p>`,
       [BLOCKS.UL_LIST]: (node, next) => `<ul class="e-list">${next(node.content)}</ul>`,
       [INLINES.HYPERLINK]: (node, next) => `<a class="e-link e-link--inline" href="${node.data.uri}">${next(node.content)}</a>`,
-      [BLOCKS.EMBEDDED_ASSET]: (node, next) => `<img class="img-fluid" src="${node.data.target.fields.file.url}"/>`
+      [BLOCKS.EMBEDDED_ASSET]: (node, next) => `<img src="${node.data.target.fields.file.url}"/>`,
+      [BLOCKS.HR]: (node, next) => `<hr class="e-mb-24" style="height:1px !important; border:0;"></hr>`
     }
   }
 
-  getContent(str: String): string {
-    return documentToHtmlString(Content.fields.content, this.options);
+  getContent(str: String): any {
+    return {
+      title: Content.fields.title,
+      pageDescription: Content.fields.pageDescription,
+      content: documentToHtmlString(Content.fields.content, this.options)
+    }
   }
 }

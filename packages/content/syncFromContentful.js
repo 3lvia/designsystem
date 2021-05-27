@@ -36,7 +36,7 @@ function syncData() {
 }
 
 function saveEntry(entry, contentfulEntry) {
-    console.log(entry, contentfulEntry);
+    //console.log(entry, contentfulEntry);
     fs.writeFileSync(`dist/${entry.path}.js`, createFileContentFromEntry(contentfulEntry));
 }
 

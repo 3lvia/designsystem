@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { getIdentity } from 'src/app/shared/e-items';
+import { CMSService } from 'src/app/core/services/cms.service';
 
 @Component({
   selector: 'app-the-concept',
@@ -8,4 +9,12 @@ import { getIdentity } from 'src/app/shared/e-items';
 })
 export class TheConceptComponent {
   description = getIdentity('the-concept').description;
+  cmsContent: any = {};
+
+  constructor(private cmsService: CMSService) {
+    this.cmsContent = cmsService.getContent('concept');
+    if (this.cmsContent.pageDescription) {
+      this.description = this.cmsContent.pageDescription;
+    }
+  }
 }
