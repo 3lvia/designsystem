@@ -8,6 +8,9 @@ import DateFnsUtils from '@date-io/date-fns';
 import nbLocale from 'date-fns/locale/nb';
 import format from 'date-fns/format';
 import isValid from 'date-fns/isValid';
+import isSameDay from 'date-fns/isSameDay';
+import isAfter from 'date-fns/isAfter';
+import isBefore from 'date-fns/isBefore';
 
 export interface DatepickerProps {
   value?: Date | null;
@@ -15,7 +18,7 @@ export interface DatepickerProps {
   isCompact?: boolean;
   isDisabled?: boolean;
   isFullWidth?: boolean;
-  errorMessage?: string;
+  customError?: string;
   minDate?: Date;
   maxDate?: Date;
   valueOnChange?: (value: Date | null) => void;
@@ -28,7 +31,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   isCompact = false,
   isDisabled = false,
   isFullWidth = false,
-  errorMessage = '',
+  customError,
   minDate,
   maxDate,
   valueOnChange,
@@ -38,7 +41,6 @@ export const Datepicker: FC<DatepickerProps> = ({
   const [currErrorMessage, setCurrErrorMessage] = useState('');
   const [hasHadFocus, setHasHadFocus] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
-  const customError = errorMessage;
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -46,15 +48,10 @@ export const Datepicker: FC<DatepickerProps> = ({
   // This is the unicode character U+0081
   // Used to avoid date-fns from formatting date before date is valid
   const unicodeChar = '';
-  const errorMessages = {
-    invalid: 'Bruk dd.mm.åååå',
-    invalidMin: 'Dato må være etter ',
-    invalidMax: 'Dato må være før ',
-  };
 
   // Styling
   const datePickerClasses = classnames('ewc-datepicker', {
-    ['ewc-datepicker--error']: hasHadFocus && !hasFocus && (currErrorMessage !== '' || customError !== ''),
+    ['ewc-datepicker--error']: !hasFocus && (customError || (currErrorMessage !== '' && hasHadFocus)),
     ['ewc-datepicker--compact']: isCompact !== false,
     ['ewc-datepicker--unselected']: value === null,
     ['ewc-datepicker--full-width']: isFullWidth,
@@ -97,40 +94,43 @@ export const Datepicker: FC<DatepickerProps> = ({
     }
   };
 
-  const validateDate = (date: Date | null) => {
-    if (customError) {
-      setCurrErrorMessage(customError);
-    } else {
-      if (!isValid(date)) {
-        setCurrErrorMessage(errorMessages.invalid);
-      } else if (date && minDate && date < minDate) {
-        setCurrErrorMessage(errorMessages.invalidMin + format(minDate, 'dd.MM.yyyy'));
-      } else if (date && maxDate && date > maxDate) {
-        setCurrErrorMessage(errorMessages.invalidMax + format(maxDate, 'dd.MM.yyyy'));
-      } else {
-        setCurrErrorMessage('');
-      }
-    }
+  const addOutlineFix = (ref: HTMLDivElement | null) => {
+    toolbox.outlineListener(ref);
   };
 
-  const updateCaretPositionWhenDotIsAdded = () => {
-    if (!inputRef.current) {
-      return;
-    }
-    if (inputRef.current.value.length === 3 || inputRef.current.value.length === 6) {
-      inputRef.current.selectionStart = inputRef.current.value.length + 1;
-      inputRef.current.selectionEnd = inputRef.current.value.length + 1;
-    }
+  const removeOutlineFix = (ref: HTMLDivElement | null) => {
+    toolbox.outlineListener(ref, true);
   };
 
   const onFocus = () => {
-    setHasHadFocus(true);
-    setHasFocus(true);
-    listenForFocus();
+    updateFocusState();
     updateCaretPositionOnFocus();
   };
 
-  const listenForFocus = () => {
+  const onOpen = () => {
+    updateFocusState();
+    updateInputWithSelectedDate();
+  };
+
+  const validateDate = (date: Date | null) => {
+    if (customError) {
+      return;
+    }
+    if (!isValid(date)) {
+      setCurrErrorMessage('Bruk dd.mm.åååå');
+    } else if (date && minDate && isBefore(date, minDate)) {
+      setCurrErrorMessage('Dato kan ikke være før ' + format(minDate - 1, 'dd.MM.yyyy'));
+    } else if (date && maxDate && isAfter(date, maxDate)) {
+      setCurrErrorMessage('Dato kan ikke være etter ' + format(maxDate, 'dd.MM.yyyy'));
+    } else {
+      setCurrErrorMessage('');
+    }
+  };
+
+  const updateFocusState = () => {
+    setHasHadFocus(true);
+    setHasFocus(true);
+
     const checkIfDatepickerHasFocus = () => {
       if (
         datepickerRef.current &&
@@ -143,6 +143,16 @@ export const Datepicker: FC<DatepickerProps> = ({
     };
 
     window.addEventListener('focusout', checkIfDatepickerHasFocus);
+  };
+
+  const updateCaretPositionWhenDotIsAdded = () => {
+    if (!inputRef.current) {
+      return;
+    }
+    if (inputRef.current.value.length === 3 || inputRef.current.value.length === 6) {
+      inputRef.current.selectionStart = inputRef.current.value.length + 1;
+      inputRef.current.selectionEnd = inputRef.current.value.length + 1;
+    }
   };
 
   const updateCaretPositionOnFocus = () => {
@@ -158,24 +168,9 @@ export const Datepicker: FC<DatepickerProps> = ({
     }, 10);
   };
 
-  const addOutlineFix = (ref: HTMLDivElement | null) => {
-    toolbox.outlineListener(ref);
-  };
-
-  const removeOutlineFix = (ref: HTMLDivElement | null) => {
-    toolbox.outlineListener(ref, true);
-  };
-
-  const onOpen = () => {
-    setHasHadFocus(true);
-    setHasFocus(true);
-    listenForFocus();
-    updateInputWithSelectedDate();
-  };
-
   const updateInputWithSelectedDate = () => {
     if (selectedDate === null) {
-      setSelectedDate(new Date());
+      handleDateChange(new Date());
     }
   };
 
@@ -249,14 +244,8 @@ export const Datepicker: FC<DatepickerProps> = ({
     const dayDate = new Date(day);
     const selDate = new Date(selected);
     const dayClasses = classnames('ewc-datepicker__day', {
-      ['ewc-datepicker__day-selected']:
-        dayDate.getDate() === selDate.getDate() &&
-        dayDate.getMonth() === selDate.getMonth() &&
-        dayDate.getFullYear() === selDate.getFullYear(),
-      ['ewc-datepicker__day-current']:
-        dayDate.getDate() === today.getDate() &&
-        dayDate.getMonth() === today.getMonth() &&
-        dayDate.getFullYear() === today.getFullYear(),
+      ['ewc-datepicker__day-selected']: isSameDay(dayDate, selDate),
+      ['ewc-datepicker__day-current']: isSameDay(dayDate, today),
       ['ewc-datepicker__day-disabled']: dayComponent.props.disabled,
     });
     if (isInCurrentMonth) {
@@ -340,7 +329,7 @@ export const Datepicker: FC<DatepickerProps> = ({
         </MuiPickersUtilsProvider>
       </ThemeProvider>
 
-      {!hasFocus && hasHadFocus && currErrorMessage && (
+      {!hasFocus && (customError || (currErrorMessage !== '' && hasHadFocus)) && (
         <div className="ewc-datepicker__error">
           <i
             className="ewc-datepicker__icon ewc-datepicker__icon--error"
@@ -348,7 +337,10 @@ export const Datepicker: FC<DatepickerProps> = ({
               backgroundImage: `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='%23FF0000' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%23FF0000'%3e%3cpath d='M12 23.999c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath d='M16.5 17.249a.743.743 0 01-.53-.22L12 13.06l-3.97 3.97a.744.744 0 01-1.06 0 .752.752 0 010-1.061l3.97-3.97-3.97-3.97a.743.743 0 01-.22-.53c0-.2.078-.389.22-.53a.743.743 0 01.53-.22c.2 0 .389.078.53.22l3.97 3.97 3.97-3.97a.744.744 0 011.06 0c.142.141.22.33.22.53s-.078.389-.22.53l-3.97 3.97 3.97 3.97a.752.752 0 010 1.061.746.746 0 01-.53.219z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='%23FF0000'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`,
             }}
           ></i>
-          <div className="ewc-datepicker__helper-text">{currErrorMessage}</div>
+          <div className="ewc-datepicker__helper-text">
+            {customError}
+            {currErrorMessage}
+          </div>
         </div>
       )}
     </div>

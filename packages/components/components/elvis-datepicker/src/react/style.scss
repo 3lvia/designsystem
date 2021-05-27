@@ -66,7 +66,7 @@ $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
     width: 100%;
     .ewc-datepicker__icon--error {
       height: 16px;
-      width: 16px;
+      min-width: 16px;
       margin-top: 4px;
     }
     .ewc-datepicker__helper-text {

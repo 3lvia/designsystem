@@ -76,7 +76,7 @@ module.exports = [
       { name: 'isCompact', type: 'boolean' },
       { name: 'isDisabled', type: 'boolean' },
       { name: 'isFullWidth', type: 'boolean' },
-      { name: 'errorMessage', type: 'string' },
+      { name: 'customError', type: 'string' },
     ],
     reactName: 'Datepicker',
     elementStyle: 'display: block; max-width: 383px;',

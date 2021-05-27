@@ -53,11 +53,11 @@ const datepickerData = {
       cegOption: 'true',
       cegDisplayGroup: 'State',
     },
-    errorMessage: {
+    customError: {
       isRequired: false,
       type: 'string',
       description:
-        'Optional prop for adding error message, which is not built-in. This prop will always overwrite built-in errors.',
+        'Optional prop for adding an error-message. This prop will overwrite built-in error-messages.',
       displayName: 'Error',
     },
     minDate: {
@@ -77,10 +77,8 @@ const datepickerData = {
   codeImportReact: `import { Datepicker } from '@elvia/elvis-datepicker/react';`,
   codeImportWebComponent: `import '@elvia/elvis-datepicker';`,
   codeReact: `<Datepicker
-  label="Velg dato"
 ></Datepicker>`,
   codeWebComponent: `<elvia-datepicker
-  label="Velg dato"
 ></elvia-datepicker>`,
 };
 
