@@ -118,14 +118,18 @@ export const Datepicker: FC<DatepickerProps> = ({
     if (customError) {
       return;
     }
+    console.log('Maxdate: ' + maxDate);
+    console.log('Date: ' + date);
     if (!isValid(date)) {
       if (date === null && isRequired) {
         setCurrErrorMessage('Velg en dato');
       } else if (date !== null) {
         setCurrErrorMessage('Bruk dd.mm.åååå');
       }
-    } else if ((date && minDate && isBefore(date, minDate)) || (date && maxDate && isAfter(date, maxDate))) {
-      setCurrErrorMessage('Ugyldig dato');
+    } else if (date && minDate && isBefore(date.setHours(0, 0, 0, 0), minDate.setHours(0, 0, 0, 0))) {
+      setCurrErrorMessage(`Kan ikke være før ${format(minDate, 'dd.MM.yyyy')}`);
+    } else if (date && maxDate && isAfter(date.setHours(0, 0, 0, 0), maxDate.setHours(0, 0, 0, 0))) {
+      setCurrErrorMessage(`Kan ikke være etter ${format(maxDate, 'dd.MM.yyyy')}`);
     } else {
       setCurrErrorMessage('');
     }
