@@ -1,0 +1,11 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">{{ cmsContent.title? cmsContent.title: ''}}</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body" *ngIf="cmsContent.content" [innerHTML]="html">
+</div>

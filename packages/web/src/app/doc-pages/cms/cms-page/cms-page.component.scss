@@ -1,0 +1,15 @@
+.brand {
+  font-family: 'Red Hat Display', Verdana, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 44px;
+  line-height: 120%;
+  text-align: center;
+
+  .brand-text {
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+  }
+}

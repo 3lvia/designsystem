@@ -14,6 +14,7 @@ import { CommunityModule } from './doc-pages/community/community.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ErrorModule } from './shared/error/error.module';
 import { devModule } from './doc-pages/dev/dev.module';
+import { CMSPageModule } from './doc-pages/cms/cms-page/cms-page.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -31,8 +32,9 @@ import { devModule } from './doc-pages/dev/dev.module';
     CommunityModule,
     HttpClientModule,
     ErrorModule,
+    CMSPageModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
