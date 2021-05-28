@@ -66,6 +66,26 @@ module.exports = [
     elementStyle: `width: 100%;`,
   },
   {
+    name: 'elvis-datepicker',
+    elementName: 'elvia-datepicker',
+    attributes: [
+      { name: 'value', type: 'Date' },
+      { name: 'label', type: 'string' },
+      { name: 'minDate', type: 'Date' },
+      { name: 'maxDate', type: 'Date' },
+      { name: 'isCompact', type: 'boolean' },
+      { name: 'isDisabled', type: 'boolean' },
+      { name: 'isFullWidth', type: 'boolean' },
+      { name: 'isRequired', type: 'boolean' },
+      { name: 'customError', type: 'string' },
+    ],
+    reactName: 'Datepicker',
+    elementStyle: 'display: block; max-width: 383px;',
+    conditionalElementStyle: {
+      isFullWidth: `width: 100%`,
+    },
+  },
+  {
     name: 'elvis-testing',
     elementName: 'elvia-testing',
     attributes: [

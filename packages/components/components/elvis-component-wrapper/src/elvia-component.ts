@@ -135,8 +135,10 @@ export class ElvisComponentWrapper extends HTMLElement {
       return parseFloat(stringToConvert);
     }
     if (attrType === 'object') {
-      // try catch
       return JSON.parse(stringToConvert);
+    }
+    if (attrType === 'Date') {
+      return Date.parse(stringToConvert);
     }
   }
 
