@@ -7,6 +7,7 @@
     "start": "ng serve",
     "build": "ng build",
     "build:production": "ng build --configuration production",
+    "contentful": "cd contentful && node syncFromContentful.js",
     "test": "ng test",
     "e2e": "ng e2e",
     "cypress": "cypress open"
@@ -41,7 +42,9 @@
     "sass": "^1.33.0",
     "stylelint-config-sass-guidelines": "^7.0.0",
     "tslib": "^2.0.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "contentful": "^8.3.7",
+    "dotenv": "^10.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^12.0.1",

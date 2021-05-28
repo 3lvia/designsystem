@@ -12,9 +12,11 @@ export class TheConceptComponent {
   cmsContent: any = {};
 
   constructor(private cmsService: CMSService) {
-    this.cmsContent = cmsService.getContent('concept');
-    if (this.cmsContent.pageDescription) {
-      this.description = this.cmsContent.pageDescription;
-    }
+    cmsService.getDocumentationPage('TheConcept').then(content => {
+      this.cmsContent = content;
+      if (this.cmsContent.pageDescription) {
+        this.description = this.cmsContent.pageDescription;
+      }
+    });
   }
 }
