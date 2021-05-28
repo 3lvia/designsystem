@@ -335,6 +335,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         {label}
       </StyledDropdown.DropdownLabel>
       <Select
+        blurInputOnSelect={!isMulti}
         classNamePrefix={'ewc-dropdown'}
         closeMenuOnSelect={!isMulti}
         components={overrideComponents}
