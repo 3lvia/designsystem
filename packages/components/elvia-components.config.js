@@ -94,7 +94,7 @@ module.exports = [
     name: 'elvis-dropdown',
     elementName: 'elvia-dropdown',
     attributes: [
-      { name: 'defaultOption', type: 'object' },
+      { name: 'defaultValue', type: 'object' },
       { name: 'errorMessage', type: 'string' },
       { name: 'isCompact', type: 'boolean' },
       { name: 'isDisabled', type: 'boolean' },

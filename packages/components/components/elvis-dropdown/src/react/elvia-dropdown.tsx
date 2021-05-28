@@ -9,9 +9,10 @@ export interface DropdownOption {
   value: string;
   label: string;
 }
+7;
 
 export interface DropdownProps {
-  defaultOption?: DropdownOption | Array<DropdownOption> | undefined;
+  defaultValue?: DropdownOption | Array<DropdownOption> | undefined;
   errorMessage?: string;
   isCompact: boolean;
   isDisabled: boolean;
@@ -22,7 +23,7 @@ export interface DropdownProps {
   options: DropdownOption[];
   valueOnChange?: (selectedOptions: DropdownOption | Array<DropdownOption> | undefined) => void;
   placeholder?: string;
-  value: DropdownOption | Array<DropdownOption> | undefined;
+  value?: DropdownOption | Array<DropdownOption> | undefined;
   webcomponent?: any;
 }
 
@@ -38,7 +39,7 @@ const ElviaValueContainer = ({ ...props }) => {
 };
 
 const Dropdown: React.FC<DropdownProps> = ({
-  defaultOption = undefined,
+  defaultValue = undefined,
   errorMessage = '',
   isCompact,
   isDisabled,
@@ -53,7 +54,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   valueOnChange,
   webcomponent,
 }) => {
-  const [currentVal, setCurrentVal] = useState(defaultOption);
+  const [currentVal, setCurrentVal] = useState(defaultValue);
   const [isError, setIsError] = useState(false);
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLSpanElement>(null);
@@ -227,7 +228,7 @@ const Dropdown: React.FC<DropdownProps> = ({
     valueContainer: (provided: any) => ({
       ...provided,
       display: 'flex',
-      color: '#000',
+      color: isDisabled ? '#676767' : '#000',
       fontFamily: 'Red Hat Text',
       fontWeight: '400',
       fontStyle: 'normal',
@@ -298,27 +299,24 @@ const Dropdown: React.FC<DropdownProps> = ({
     };
   }, []);
 
+  // Needed for webcomponent -> To update the default value
   useEffect(() => {
-    updateValue();
-  }, [currentVal]);
-
-  useEffect(() => {
-    if (webcomponent) {
-      setCurrentVal(defaultOption);
-    }
-  }, [defaultOption]);
+    setCurrentVal(defaultValue);
+    updateValue(defaultValue);
+  }, [defaultValue]);
 
   const onChangeHandler = (event: any) => {
     setCurrentVal(event);
+    updateValue(event);
   };
 
-  const updateValue = () => {
+  const updateValue = (event: any) => {
     if (!webcomponent && valueOnChange) {
-      valueOnChange(currentVal);
+      valueOnChange(event);
     }
     if (webcomponent) {
       // True -> Prevents rerender
-      webcomponent.setProps({ value: currentVal }, true);
+      webcomponent.setProps({ value: event }, true);
     }
     return;
   };

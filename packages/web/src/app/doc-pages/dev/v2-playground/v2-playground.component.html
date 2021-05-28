@@ -10,13 +10,15 @@
 <div class="page-body">
   <h2>dropdown</h2>
   <div style="width: 250px">
-    <div>dropdown value: {{ dropdownValue | json }}</div>
+    <div class="e-my-24">
+      <button (click)="consoleLogDropdownValue()">Console log dropdown value</button>
+    </div>
     <elvia-dropdown
-      [isMulti]="false"
-      [isCompact]="true"
+      [isMulti]="true"
+      [isCompact]="false"
       [isDisabled]="false"
       label="testing something"
-      [defaultOption]="defOptions"
+      [defaultValue]="defOptions"
       [options]="exampleOptions"
       (valueOnChange)="dropdownValue = $event.detail.value"
     ></elvia-dropdown>

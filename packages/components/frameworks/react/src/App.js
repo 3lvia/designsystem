@@ -35,10 +35,10 @@ function App() {
     setSelectedState(0);
   }
 
-  const [selectedOption, setSelectedOption] = useState([]);
+  // const [selectedOption, setSelectedOption] = useState([]);
 
-  // to display choosen data
-  console.log(selectedOption);
+  // // to display choosen data
+  // console.log(selectedOption);
 
   const defOption = [
     {
@@ -94,18 +94,25 @@ function App() {
     },
   ];
 
+  let dropdownValue;
+
+  const consoleDropdownVal = () => {
+    console.log(dropdownValue);
+  };
+
   return (
     <div className="App">
       <h1>React preview</h1>
 
       <h2>Dropdown</h2>
+      <button onClick={consoleDropdownVal}>Console dropdown value</button>
       <div style={{ marginTop: '24px' }}>
         <Dropdown
           options={options}
-          defaultOption={defOption}
+          defaultValue={defOption}
           label="test"
           errorMessage=""
-          valueOnChange={setSelectedOption}
+          valueOnChange={(event) => (dropdownValue = event)}
           isMulti
         ></Dropdown>
       </div>
