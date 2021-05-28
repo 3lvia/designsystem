@@ -8,6 +8,11 @@
 
 <!--BODY-->
 <div class="page-body">
+  <h2>DatePicker</h2>
+  <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+    <elvia-datepicker [value]="date1"></elvia-datepicker>
+  </div>
+
   <h2>Divider</h2>
   <elvia-divider [isCurved]="true"></elvia-divider>
 
@@ -45,6 +50,7 @@
   {{ value }}
 
   <hr style="margin: 40px 0" />
+  <elvia-testing [value]="counterValue" (valueOnChange)="counterValue = $event.detail.value"></elvia-testing>
   <elvia-testing
     [isFullWidth]="isFullWidth"
     isBlock="true"

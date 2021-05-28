@@ -12,6 +12,7 @@
   "dependencies": {
     "@elvia/elvis-component-wrapper": "*",
     "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
     "styled-components": "^5.2.3"
   }
 }

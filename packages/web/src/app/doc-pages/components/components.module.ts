@@ -26,6 +26,7 @@ import { RadioFilterDocModule } from './radio-filter-doc/radio-filter-doc.module
 import { ChipsModule } from './chips/chips.module';
 import { DividerDocModule } from './divider-doc/divider-doc.module';
 import { TabsDocModule } from './tabs-doc/tabs-doc.module';
+import { TimepickerDocModule } from './forms/timepicker-doc/timepicker-doc.module';
 
 @NgModule({
   imports: [
@@ -54,6 +55,7 @@ import { TabsDocModule } from './tabs-doc/tabs-doc.module';
     StepperDocModule,
     TabsDocModule,
     TableDocModule,
+    TimepickerDocModule,
     TooltipDocModule,
     HeaderDocModule,
   ],

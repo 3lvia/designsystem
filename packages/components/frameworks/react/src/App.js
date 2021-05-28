@@ -6,6 +6,7 @@ import { Accordion } from '@elvia/elvis-accordion/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
+import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 
 function App() {
@@ -13,10 +14,7 @@ function App() {
   const [selectedState, setSelectedState] = useState(2);
   const ref = useRef();
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
-
-  function update() {
-    setTrackedState(!trackedState);
-  }
+  const dateCurr = new Date();
 
   const [progressValue, setProgressValue] = useState(0);
 
@@ -30,14 +28,32 @@ function App() {
     setProgressValue(0);
   }
 
-  function update() {
-    setSelectedState(0);
-  }
-
   return (
     <div className="App">
       <h1>React preview</h1>
 
+      <h2>Date picker</h2>
+      <div
+        style={{
+          marginTop: '16px',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <Datepicker
+          isRequired
+          minDate={dateCurr}
+          valueOnChange={(dateCurr) => console.log(dateCurr)}
+        ></Datepicker>
+        <Datepicker isFullWidth id="datepicker1" customError="Error"></Datepicker>
+        <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
+        <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
+      </div>
+
+      <TestingComponent></TestingComponent>
+
+      <hr style={{ margin: '40px 0' }} />
       <h2>Divider</h2>
       <div>
         <Divider title="Dette er en tittel" />
@@ -73,8 +89,6 @@ function App() {
           }
         ></Accordion>
       </div>
-
-      <TestingComponent></TestingComponent>
 
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
