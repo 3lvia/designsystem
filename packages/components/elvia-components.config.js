@@ -110,4 +110,22 @@ module.exports = [
     ],
     reactName: 'Divider',
   },
+  {
+    name: 'elvis-dropdown',
+    elementName: 'elvia-dropdown',
+    attributes: [
+      { name: 'defaultValue', type: 'object' },
+      { name: 'errorMessage', type: 'string' },
+      { name: 'isCompact', type: 'boolean' },
+      { name: 'isDisabled', type: 'boolean' },
+      { name: 'isMulti', type: 'boolean' },
+      { name: 'menuPosition', type: 'string' },
+      { name: 'noOptionsMessage', type: 'string' },
+      { name: 'options', type: 'object' },
+      { name: 'label', type: 'string' },
+      { name: 'placeholder', type: 'string' },
+      { name: 'value', type: 'object' },
+    ],
+    reactName: 'Dropdown',
+  },
 ];
