@@ -118,8 +118,6 @@ export const Datepicker: FC<DatepickerProps> = ({
     if (customError) {
       return;
     }
-    console.log('Maxdate: ' + maxDate);
-    console.log('Date: ' + date);
     if (!isValid(date)) {
       if (date === null && isRequired) {
         setCurrErrorMessage('Velg en dato');
