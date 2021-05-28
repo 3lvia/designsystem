@@ -120,6 +120,8 @@ function App() {
           minDate={dateCurr}
           valueOnChange={(dateCurr) => console.log(dateCurr)}
         ></Datepicker>
+        <Datepicker maxDate={dateCurr}></Datepicker>
+        <Datepicker minDate={dateCurr}></Datepicker>
         <Datepicker isFullWidth id="datepicker1" customError="Error"></Datepicker>
         <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
         <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
