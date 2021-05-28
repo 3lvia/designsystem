@@ -1,6 +1,9 @@
 <!--COMPONENT SUBSECTION-->
 
-<div class="component-section documentation-section-animation e-my-72">
+<div
+  class="component-section documentation-section-animation e-my-72"
+  [ngClass]="{'documentation-section-animation' : !noAnimation}"
+>
   <h3
     class="e-title-sm e-mb-16 e-mt-0 component-section__header"
     *ngIf="sectionTitle.length > 0"

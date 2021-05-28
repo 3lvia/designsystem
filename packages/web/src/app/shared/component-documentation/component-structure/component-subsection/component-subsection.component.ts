@@ -9,4 +9,5 @@ export class ComponentSubsectionComponent {
   @Input() sectionTitle = '';
   @Input() propertiesClass = '';
   @Input() figmaOnly = false;
+  @Input() noAnimation = false;
 }

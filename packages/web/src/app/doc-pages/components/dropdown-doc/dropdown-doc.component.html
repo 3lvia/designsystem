@@ -6,70 +6,125 @@
   </ng-container>
 </app-component-header>
 
+
 <!--BODY-->
 <div class="page-body">
-  <!-- SIZE -->
-  <app-component-section [sectionTitle]="'Size'">
+
+  <div class="exampleDropdown e-mt-56">
+    <div style="width: 250px;">
+      <elvia-dropdown
+        [options]="exampleOptions"
+        placeholder="Placeholder"
+        label="Label"
+        (valueOnChange)="isSelected = $event.detail.value"
+      >
+      </elvia-dropdown>
+    </div>
+  </div>
+  <app-component-example-generator
+    [componentData]="componentData"
+    [hasPreview]="false"
+  ></app-component-example-generator>
+
+  <!--SIZE-->
+  <app-component-section
+    [sectionTitle]="'Size'"
+    noAnimation=true
+  >
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Normal'">
+      <app-component-subsection
+        [sectionTitle]="'Normal'"
+        noAnimation=true
+      >
         <ng-container ngProjectAs="sectionContent">
-          <div class="image-container">
-            <img class="e-m-16 image-size" src="assets/dropdown/dropdown-inputs.png" />
+          <div style="width: 250px;">
+            <elvia-dropdown
+              [options]="exampleOptions"
+              placeholder="Placeholder"
+              label="Label"
+            >
+            </elvia-dropdown>
           </div>
-          <div class="image-container">
-            <img class="e-m-16 image-size" src="assets/dropdown/dropdown-content.png" />
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection
+        [sectionTitle]="'Compact'"
+        noAnimation=true
+      >
+        <ng-container ngProjectAs="sectionContent">
+          <div style="width: 250px;">
+            <elvia-dropdown
+              [options]="exampleOptions"
+              placeholder="Placeholder"
+              label="Label"
+              [isCompact]="isCompact"
+            >
+            </elvia-dropdown>
           </div>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Compact'">
+    </ng-container>
+  </app-component-section>
+
+
+  <!--OPTIONS-->
+  <app-component-section
+    [sectionTitle]="'Options'"
+    noAnimation=true
+  >
+    <ng-container ngProjectAs="sectionContent">
+
+      <app-component-subsection
+        [sectionTitle]="'Multiselect'"
+        noAnimation=true
+      >
         <ng-container ngProjectAs="sectionContent">
-          <div class="image-container">
-            <img
-              class="e-m-16 image-size-compact"
-              src="assets/dropdown/compact/dropdown-compact-inputs.png"
-            />
-          </div>
-          <div class="image-container">
-            <img class="e-m-16 image-size" src="assets/dropdown/compact/dropdown-compact-content.png" />
+          <div style="width: 250px;">
+            <elvia-dropdown
+              [options]="exampleOptions"
+              placeholder="Placeholder"
+              label="Label"
+              [isMulti]="isMulti"
+            >
+            </elvia-dropdown>
           </div>
         </ng-container>
       </app-component-subsection>
     </ng-container>
   </app-component-section>
 
-  <!-- STYLING DROPDOWN -->
-  <app-component-section [sectionTitle]="'Styling dropdown'">
+  <!--USAGE-->
+  <app-component-section
+    [sectionTitle]="'Usage'"
+    noAnimation=true
+  >
     <ng-container ngProjectAs="sectionContent">
-      <p>
-        <a class="e-link" href="{{ figmaUrl }}">Figma sketches</a>
-      </p>
-      <p>
-        This documentation shows how you should style your dropdown. We do not currently provide styling
-        classes for this, because we understand that it is desirable to use libraries with dropdowns that have
-        all the logic necessary, and works in an accessible way for all users. So in this documentation we
-        have pictures of the design that you should try applying to your dropdown.
-      </p>
-      <p>
-        Take a look in
-        <a class="e-link e-link--inline" href="{{ figmaUrl }}">figma</a>
-        to get the detailed view where you can inspect properties of the design.
-      </p>
-      <p>
-        To make the dropdown input field you might be able to use our
-        <a class="e-link e-link--inline" [routerLink]="['/components/autocomplete']">autocomplete classes</a>
-        or
-        <a class="e-link e-link--inline" [routerLink]="['/components/input']">input classes</a>
-        . These classes have the same styling as the dropdown input designed here. Make sure to asign the
-        input type to "button" to not let user type inside the input field
-      </p>
+      <app-when-to-use
+        [whens]="does"
+        [whenNots]="donts"
+      ></app-when-to-use>
     </ng-container>
   </app-component-section>
 
-  <!-- USAGE -->
-  <app-component-section [sectionTitle]="'Usage'">
+  <!--INSTALLATION-->
+  <app-component-section
+    [sectionTitle]="'Installation'"
+    noAnimation=true
+  >
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whens]="headerDoes" [whenNots]="headerDonts"></app-when-to-use>
+      <app-component-installation [componentData]="componentData"></app-component-installation>
     </ng-container>
   </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section
+    [sectionTitle]="'Properties'"
+    noAnimation=true
+  >
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+
 </div>

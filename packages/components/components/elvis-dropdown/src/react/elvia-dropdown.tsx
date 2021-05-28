@@ -21,8 +21,8 @@ export interface DropdownProps {
   menuPosition?: DropdownMenuPosition;
   noOptionsMessage?: string;
   options: DropdownOption[];
-  valueOnChange?: (selectedOptions: DropdownOption | Array<DropdownOption> | undefined) => void;
   placeholder?: string;
+  valueOnChange?: (selectedOptions: DropdownOption | Array<DropdownOption> | undefined) => void;
   value?: DropdownOption | Array<DropdownOption> | undefined;
   webcomponent?: any;
 }
@@ -44,9 +44,9 @@ const Dropdown: React.FC<DropdownProps> = ({
   isCompact,
   isDisabled,
   isMulti,
+  label,
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
-  label,
   options,
   placeholder = 'Placeholder',
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

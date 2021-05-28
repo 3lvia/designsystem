@@ -3,47 +3,19 @@ export const dropdownData = {
   elementNameW: 'elvia-dropdown',
   elementNameR: 'Dropdown',
   attributes: {
-    options: {
-      isRequired: true,
-      type: 'Array<object>',
-      description: 'Options available in the dropdown menu',
-      displayName: 'Options',
-    },
-    defaultOption: {
+    defaultValue: {
       isRequired: false,
       type: 'object',
       description:
         'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string}',
-      displayName: 'defaultOption',
+      displayName: 'defaultValue',
+      default: 'undefined',
     },
     errorMessage: {
       isRequired: false,
       type: 'string',
       description: 'Display a error message and red border on dropdown.',
       default: `''`,
-    },
-    label: {
-      isRequired: false,
-      type: 'string',
-      description: 'Label value for the dropdown element',
-    },
-    menuPosition: {
-      isRequired: false,
-      type: 'string',
-      description: `Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto'`,
-      default: `'auto'`,
-    },
-    noOptionsMessage: {
-      isRequired: false,
-      type: 'string',
-      description: 'Text to display when there are no options',
-      default: `'Ingen tilgjengelige valg'`,
-    },
-    placeholder: {
-      isRequired: false,
-      type: 'string',
-      description: 'Placeholder value for the dropdown menu',
-      default: `'Placeholder'`,
     },
     isCompact: {
       isRequired: false,
@@ -63,9 +35,38 @@ export const dropdownData = {
       description: 'Set the dropdown to accept multiple values',
       default: 'false',
     },
-    optionOnChange: {
+    label: {
       isRequired: false,
-      type: ' function',
+      type: 'string',
+      description: 'Label value for the dropdown element',
+    },
+    menuPosition: {
+      isRequired: false,
+      type: 'string',
+      description: `Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto'`,
+      default: `'auto'`,
+    },
+    noOptionsMessage: {
+      isRequired: false,
+      type: 'string',
+      description: 'Text to display when there are no options',
+      default: `'Ingen tilgjengelige valg'`,
+    },
+    options: {
+      isRequired: true,
+      type: 'Array<object>',
+      description: 'Options available in the dropdown menu',
+      displayName: 'Options',
+    },
+    placeholder: {
+      isRequired: false,
+      type: 'string',
+      description: 'Placeholder value for the dropdown menu',
+      default: `'Placeholder'`,
+    },
+    valueOnChange: {
+      isRequired: false,
+      type: 'function',
       description: `Gets called every time an option(s) is selected and return an array of selected objects`,
     },
   },
