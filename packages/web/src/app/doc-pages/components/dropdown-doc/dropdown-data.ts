@@ -73,15 +73,14 @@ export const dropdownData = {
   package: 'npm install @elvia/elvis-dropdown',
   codeImportReact: `import { Dropdown } from '@elvia/elvis-dropdown/react';`,
   codeImportWebComponent: `import '@elvia/elvis-dropdown';`,
-  codeReact: `<Dropdown options={options} optionOnChange={setSelectedOption}></Dropdown>`,
+  codeReact: `<Dropdown options={options} label="Label" valueOnchange={setSelectedOption}></Dropdown>`,
   codeWebComponent: `<elvia-dropdown
   [options]='dropdownOptions'
-  [isCompact]='isDropdownSmall'
-  (optionOnChange)="selectedOptions = $event.detail.value"
+  label="Label"
+  (valueOnchange)="selectedOptions = $event.detail.value"
 ></elvia-dropdown>
 <!-- in TS -->
 selectedOptions = [];
-isDropdownSmall = false;
 exampleOptions = [
   {
     value: '1',
