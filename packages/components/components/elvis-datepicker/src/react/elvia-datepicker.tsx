@@ -18,6 +18,7 @@ export interface DatepickerProps {
   isCompact?: boolean;
   isDisabled?: boolean;
   isFullWidth?: boolean;
+  isRequired?: boolean;
   customError?: string;
   minDate?: Date;
   maxDate?: Date;
@@ -31,6 +32,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   isCompact = false,
   isDisabled = false,
   isFullWidth = false,
+  isRequired = false,
   customError,
   minDate,
   maxDate,
@@ -117,11 +119,13 @@ export const Datepicker: FC<DatepickerProps> = ({
       return;
     }
     if (!isValid(date)) {
-      setCurrErrorMessage('Bruk dd.mm.åååå');
-    } else if (date && minDate && isBefore(date, minDate)) {
-      setCurrErrorMessage('Dato kan ikke være før ' + format(minDate - 1, 'dd.MM.yyyy'));
-    } else if (date && maxDate && isAfter(date, maxDate)) {
-      setCurrErrorMessage('Dato kan ikke være etter ' + format(maxDate, 'dd.MM.yyyy'));
+      if (date === null && isRequired) {
+        setCurrErrorMessage('Velg en dato');
+      } else if (date !== null) {
+        setCurrErrorMessage('Bruk dd.mm.åååå');
+      }
+    } else if ((date && minDate && isBefore(date, minDate)) || (date && maxDate && isAfter(date, maxDate))) {
+      setCurrErrorMessage('Ugyldig dato');
     } else {
       setCurrErrorMessage('');
     }
@@ -251,7 +255,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     if (isInCurrentMonth) {
       if (!dayComponent.props.disabled) {
         return (
-          <button aria-label="Velg dato" className={dayClasses}>
+          <button aria-label={`Velg dato, ${format(day, 'd')}`} className={dayClasses}>
             {format(day, 'd')}
           </button>
         );
@@ -315,10 +319,10 @@ export const Datepicker: FC<DatepickerProps> = ({
               'aria-label': 'Velg dato',
             }}
             leftArrowButtonProps={{
-              'aria-label': 'Forrige måned',
+              'aria-label': 'Vis forrige måned',
             }}
             rightArrowButtonProps={{
-              'aria-label': 'Neste måned',
+              'aria-label': 'Vis neste måned',
             }}
             PopoverProps={{
               anchorOrigin: { horizontal: 'left', vertical: 'bottom' },

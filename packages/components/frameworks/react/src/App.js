@@ -41,7 +41,11 @@ function App() {
           alignItems: 'center',
         }}
       >
-        <Datepicker minDate={dateCurr} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
+        <Datepicker
+          isRequired
+          minDate={dateCurr}
+          valueOnChange={(dateCurr) => console.log(dateCurr)}
+        ></Datepicker>
         <Datepicker isFullWidth id="datepicker1" customError="Error"></Datepicker>
         <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
         <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>

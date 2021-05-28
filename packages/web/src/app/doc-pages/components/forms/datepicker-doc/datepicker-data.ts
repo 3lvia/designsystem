@@ -53,6 +53,17 @@ const datepickerData = {
       cegOption: 'true',
       cegDisplayGroup: 'State',
     },
+    isRequired: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Required datepicker-fields cannot be empty',
+      default: 'false',
+      displayName: 'Required',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'State',
+    },
     customError: {
       isRequired: false,
       type: 'string',

@@ -65,8 +65,10 @@ $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
     align-items: flex-start;
     width: 100%;
     .ewc-datepicker__icon--error {
-      height: 16px;
+      min-height: 16px;
       min-width: 16px;
+      max-height: 16px;
+      max-width: 16px;
       margin-top: 4px;
     }
     .ewc-datepicker__helper-text {
@@ -108,7 +110,7 @@ $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
       }
       &.Mui-focusVisible {
         outline: 2px solid #0064fa;
-        outline-offset: 2px;
+        outline-offset: 4px;
       }
       &:active {
         transform: scale(0.93);
