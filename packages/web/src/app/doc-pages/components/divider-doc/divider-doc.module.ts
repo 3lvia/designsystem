@@ -23,4 +23,4 @@ import { ComponentInstallationModule } from 'src/app/shared/component-documentat
   ],
   declarations: [DividerDocComponent],
 })
-export class DividerDocModule { }
+export class DividerDocModule {}
