@@ -35,7 +35,6 @@ export const TestingComponent: React.FC<DividerProps> = ({ className, style }) =
 
   return (
     <StyledDivider>
-      <div></div>
       <div>
         <Button variant="outlined" color="primary" onClick={handleClickOpen}>
           Open alert dialog

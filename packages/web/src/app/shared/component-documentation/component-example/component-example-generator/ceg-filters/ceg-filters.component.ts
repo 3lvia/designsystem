@@ -12,11 +12,14 @@ export class CegFiltersComponent implements OnInit {
   codeReact;
   codeWebComponent;
   props = [];
-  modifiers = [];
+  checkboxesLength = 0;
+  checkboxes = [];
+  checkboxGroups = [];
   hasCheckboxes = false;
   emptyLineRegex = /^\s*[\r\n]/gm;
+  objectKeys = Object.keys;
 
-  constructor(private codeService: ExampleCodeService) { }
+  constructor(private codeService: ExampleCodeService) {}
 
   ngOnInit(): void {
     this.codeReact = this.componentData.codeReact;
@@ -34,7 +37,7 @@ export class CegFiltersComponent implements OnInit {
           };
           if (this.componentData.attributes[attribute].cegFormType === 'checkbox') {
             this.hasCheckboxes = true;
-            this.modifiers.push(newObject);
+            this.checkboxes.push(newObject);
           } else {
             this.props.push(newObject);
           }
@@ -42,12 +45,26 @@ export class CegFiltersComponent implements OnInit {
       });
     });
     if (this.hasCheckboxes) {
-      const modifiersObject = {
+      this.checkboxGroups = this.sortCheckboxArrays(this.checkboxes);
+      const checkboxObject = {
         cegFormType: 'checkbox',
-        modifiers: this.modifiers,
+        ...this.checkboxGroups,
       };
-      this.props.push(modifiersObject);
+      this.props.push(checkboxObject);
+      this.checkboxesLength = Object.keys(this.checkboxGroups).length;
     }
+  }
+
+  sortCheckboxArrays(checkboxGroups: any): [] {
+    const checkboxArrays = checkboxGroups.reduce((obj, value) => {
+      const key = `${value.cegDisplayGroup}`;
+      if (obj[key] == null) {
+        obj[key] = [];
+      }
+      obj[key].push(value);
+      return obj;
+    }, {});
+    return checkboxArrays;
   }
 
   getPropRegex(prop: string): RegExp {
@@ -84,8 +101,8 @@ export class CegFiltersComponent implements OnInit {
   }
 
   updateRadioProp(prop: any, newValue: string): void {
-    console.log(prop)
-    console.log(newValue)
+    console.log(prop);
+    console.log(newValue);
     if (this.codeWebComponent.includes(prop.attribute)) {
       // Replaces old value for prop
       this.codeReact = this.codeReact.replace(

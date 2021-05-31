@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
-import * as packageJson from '@elvia/elvis/package.json';
+import packageJson from '@elvia/elvis/package.json';
 
 @Component({
   selector: 'app-mobile-menu',
