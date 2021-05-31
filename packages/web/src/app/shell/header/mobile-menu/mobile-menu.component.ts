@@ -17,7 +17,7 @@ export class MobileMenuComponent implements OnDestroy {
 
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {}
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();

@@ -15,6 +15,7 @@ export class v2PlaygroundComponent implements OnInit {
   progressError;
   indeterminate;
   isFullWidth = false;
+  date1 = new Date(2021, 4, 20);
 
   accordionContent = `
     Bacon ipsum dolor amet pork loin bacon jowl turkey. Biltong sausage swine, shankle venison hamburger alcatra spare ribs bacon ham ribeye strip steak. Swine capicola picanha kevin drumstick. Chuck landjaeger pastrami, cow shoulder boudin short loin leberkas t-bone turkey prosciutto jowl. Turkey tail tongue cow shankle chicken tri-tip swine. Prosciutto pig ball tip kielbasa hamburger picanha pork chop tongue chicken shankle short loin filet mignon. T-bone shankle capicola, shoulder hamburger pancetta cupim chuck meatloaf turducken porchetta rump sausage strip steak ribeye.
@@ -36,6 +37,39 @@ export class v2PlaygroundComponent implements OnInit {
     { label: 'Kiwi', isDisabled: true },
   ];
   value = 2;
+  date = null;
+
+  isCompact = true;
+  isMulti = true;
+  isDisabled = true;
+
+  dropdownValue = undefined;
+
+  defOptions = [
+    {
+      value: '1',
+      label: 'Option 1',
+    },
+    {
+      value: '2',
+      label: 'Option 2',
+    },
+  ];
+
+  exampleOptions = [
+    {
+      value: '1',
+      label: 'Option 1',
+    },
+    {
+      value: '2',
+      label: 'Option 2',
+    },
+    {
+      value: '3',
+      label: 'Option 3',
+    },
+  ];
 
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
@@ -49,4 +83,8 @@ export class v2PlaygroundComponent implements OnInit {
   ngOnInit(): void {
     this.nativeJSApproach();
   }
+
+  consoleLogDropdownValue = () => {
+    console.log(this.dropdownValue);
+  };
 }

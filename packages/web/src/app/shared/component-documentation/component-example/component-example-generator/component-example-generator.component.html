@@ -3,14 +3,8 @@
   [ngClass]="{ 'full-width': !hasCegAttributes }"
   [ngClass]="hasPreview ? 'e-mt-64' : 'e-mt-40'"
 >
-  <div
-    class="ceg-row-1 e-mb-16"
-    *ngIf="hasPreview"
-  >
-    <div
-      class="ceg-col-1"
-      #cegContent
-    >
+  <div class="ceg-row-1 e-mb-16" *ngIf="hasPreview">
+    <div class="ceg-col-1" #cegContent>
       <!--CEG code preview-->
       <div
         [ngClass]="!accordionCustom ? 'ceg-code-preview' : 'ceg-code-preview ceg-code-preview--accordion'"
@@ -19,6 +13,7 @@
         <div
           #cegFrame
           class="ceg-frame"
+          [ngClass]="{ 'aligned-top': alignedTop }"
           style="display: flex"
           [style.width.%]="width"
         ></div>
@@ -26,10 +21,7 @@
     </div>
 
     <!--CEG side filters-->
-    <div
-      class="ceg-col-2"
-      *ngIf="hasCegAttributes"
-    >
+    <div class="ceg-col-2" *ngIf="hasCegAttributes">
       <app-ceg-filters [componentData]="componentData"></app-ceg-filters>
     </div>
   </div>

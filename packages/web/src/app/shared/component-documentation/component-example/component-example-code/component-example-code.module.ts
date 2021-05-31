@@ -6,6 +6,6 @@ import { ComponentExampleCodeComponent } from './component-example-code.componen
   imports: [CommonModule],
   declarations: [ComponentExampleCodeComponent],
   exports: [ComponentExampleCodeComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ComponentExampleCodeModule { }
+export class ComponentExampleCodeModule {}

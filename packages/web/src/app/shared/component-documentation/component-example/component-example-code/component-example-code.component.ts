@@ -37,8 +37,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     private copyService: CopyToClipboardService,
     private versionService: VersionService,
     private codeService: ExampleCodeService,
-  ) { }
-
+  ) {}
 
   getTabIndex(str: string) {
     this.tabs.indexOf(str);
@@ -57,11 +56,11 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
       this.activeCode = this.codeTS;
     }
     if (selectedTab === 'CSS') {
-      this.activeLanguage = 'scss'
+      this.activeLanguage = 'scss';
       this.activeCode = this.codeCSS;
     }
     if (selectedTab === 'Angular') {
-      this.activeLanguage = 'html'
+      this.activeLanguage = 'html';
       this.activeCode = this.codeWebComponent;
     }
     if (selectedTab === 'React') {
