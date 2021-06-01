@@ -28,6 +28,8 @@
   .ceg-top-filters {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    max-width: 788px;
     margin-top: 24px;
     margin-bottom: 24px;
     @include first-col;
@@ -35,12 +37,13 @@
       @include full-col;
     }
     .ceg-dropdown {
+      // width: 100%;
       width: 50%;
       &:first-of-type {
-        margin-right: 12px;
+        margin-right: 16px;
       }
       &:last-of-type {
-        margin-left: 12px;
+        margin-left: 16px;
       }
     }
   }
@@ -78,6 +81,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    max-width: 788px;
     padding: 40px;
     border: 1px solid var(--e-grey-10);
     border-radius: 8px;
