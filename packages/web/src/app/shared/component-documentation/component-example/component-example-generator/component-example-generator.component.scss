@@ -16,20 +16,45 @@
     width: 30%;
   }
 }
+@mixin full-col {
+  width: 100%;
+}
 
 .ceg-container {
   display: flex;
   flex-direction: column;
   width: 100%;
 
+  .ceg-top-filters {
+    display: flex;
+    flex-direction: row;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    @include first-col;
+    &.no-side-filters {
+      @include full-col;
+    }
+    .ceg-dropdown {
+      width: 50%;
+      &:first-of-type {
+        margin-right: 12px;
+      }
+      &:last-of-type {
+        margin-left: 12px;
+      }
+    }
+  }
+
   .ceg-row-1 {
     display: flex;
     flex-direction: row;
     width: 100%;
     min-height: 340px;
-
     .ceg-col-1 {
       @include first-col;
+      &.no-side-filters {
+        @include full-col;
+      }
     }
     .ceg-col-2 {
       @include second-col;
@@ -37,9 +62,9 @@
   }
   .ceg-row-2 {
     @include first-col;
-  }
-  .ceg-full-row {
-    width: 100%;
+    &.no-side-filters {
+      @include full-col;
+    }
   }
 
   &.full-width .ceg-row-2,

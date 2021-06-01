@@ -12,7 +12,7 @@ export const dividerData = {
       displayName: 'Types',
       cegDefault: 'simple',
       cegType: 'string',
-      cegFormType: 'radio',
+      cegFormType: 'type',
       cegOptions: ['simple', 'title', 'curved'],
     },
     title: {
@@ -32,6 +32,7 @@ export const dividerData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['medium', 'caps'],
+      cegTypeDependency: 'title',
     },
     isInverted: {
       isRequired: false,
@@ -39,6 +40,10 @@ export const dividerData = {
       description: 'The inverted divider fit for darker backgrounds.',
       default: 'false',
       displayName: 'Inverted',
+      cegDefault: 'White',
+      cegType: 'boolean',
+      cegFormType: 'background',
+      cegOptions: ['White', 'Dark grey'],
     },
   },
   codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,

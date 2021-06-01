@@ -1,7 +1,13 @@
 <div class="ceg-side-filters">
   <form class="ceg-side-filter e-form_field e-w-100" *ngFor="let prop of props; let i = index">
     <!--Radios-->
-    <div *ngIf="prop.cegFormType === 'radio'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }">
+    <div
+      *ngIf="
+        prop.cegFormType === 'radio' &&
+        (!prop.cegTypeDependency || prop.cegTypeDependency === selectedType.toLowerCase())
+      "
+      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+    >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
       <label
         *ngFor="let label of prop.cegOptions; let i = index"
@@ -23,7 +29,13 @@
     </div>
 
     <!--Toggle-->
-    <div *ngIf="prop.cegFormType === 'toggle'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }">
+    <div
+      *ngIf="
+        prop.cegFormType === 'toggle' &&
+        (!prop.cegTypeDependency || prop.cegTypeDependency === selectedType.toLowerCase())
+      "
+      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+    >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
       <label class="e-toggle" (change)="updateToggleCheckboxProp(prop)">
         <input *ngIf="prop.cegDefault === 'true'" class="e-toggle__input" type="checkbox" checked />
@@ -33,7 +45,13 @@
     </div>
 
     <!--Checkbox-->
-    <div *ngIf="prop.cegFormType === 'checkbox'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }">
+    <div
+      *ngIf="
+        prop.cegFormType === 'checkbox' &&
+        (!prop.cegTypeDependency || prop.cegTypeDependency === selectedType.toLowerCase())
+      "
+      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+    >
       <div
         *ngFor="let checkbox of checkboxGroups | keyvalue; let k = index"
         [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
@@ -60,7 +78,13 @@
     </div>
 
     <!--Counter-->
-    <div *ngIf="prop.cegFormType === 'counter'" [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }">
+    <div
+      *ngIf="
+        prop.cegFormType === 'counter' &&
+        (!prop.cegTypeDependency || prop.cegTypeDependency === selectedType.toLowerCase())
+      "
+      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+    >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
       <div class="counter">
         <button

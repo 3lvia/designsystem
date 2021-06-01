@@ -17,7 +17,6 @@ export const progressbarData = {
       cegCounterMin: 0,
       cegStepValue: 10,
       cegCounterType: '%',
-      cegTypeDependency: 'Normal',
     },
     isIndeterminate: {
       isRequired: false,
