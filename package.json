@@ -12,7 +12,7 @@
       "**/babel-loader",
       "**/webpack",
       "**/@elvia/elvis-assets-icons",
-      "**/styled-components"
+      "**/@elvia/elvis-dropdown"
     ]
   },
   "scripts": {
