@@ -134,7 +134,7 @@ function App() {
       <div style={{ marginBottom: '16px', padding: '8px' }}>
         <Divider />
         <Divider title="Dette er en tittel" />
-        <Divider title="Dette er en tittel" titleType="caps" />
+        <Divider title="Dette er en tittel" typography="caps" />
         <Divider isCurved />
       </div>
       <div style={{ background: '#262626', padding: '8px' }}>

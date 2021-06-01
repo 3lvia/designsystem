@@ -31,7 +31,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   selectedType;
   codeReact;
   codeWebComponent;
-  sideFiltersVisible = false;
   hasTopFilters = false;
 
   constructor(private cegService: ExampleCodeService) {}
@@ -48,7 +47,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     });
 
     this.initializeComponentProps();
-    this.updateSideFilterVisibility();
   }
 
   ngAfterContentInit(): void {
@@ -124,23 +122,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
-  updateSideFilterVisibility(): void {
-    if (this.props !== []) {
-      if (
-        this.props.some(
-          (element) => this.selectedType && element.cegTypeDependency === this.selectedType.toLowerCase(),
-        ) ||
-        this.props.filter((element) => element.cegTypeDependency).length < this.props.length
-      ) {
-        this.sideFiltersVisible = true;
-      } else {
-        this.sideFiltersVisible = false;
-      }
-    } else {
-      this.sideFiltersVisible = false;
-    }
-  }
-
   updateCegFrame(code: string): void {
     this.cegFrame.nativeElement.innerHTML = code;
   }
@@ -152,7 +133,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   updateSelectedType(selected: { value: any; label: any }): void {
     this.selectedType = selected.label;
-    this.updateSideFilterVisibility();
     const attribute = this.typeObject.attribute;
     const newValue = selected.label.toLowerCase();
     const cegType = this.typeObject.cegType;

@@ -105,7 +105,7 @@ module.exports = [
     attributes: [
       { name: 'type', type: 'string' },
       { name: 'title', type: 'string' },
-      { name: 'titleType', type: 'string' },
+      { name: 'typography', type: 'string' },
       { name: 'isInverted', type: 'boolean' },
     ],
     reactName: 'Divider',

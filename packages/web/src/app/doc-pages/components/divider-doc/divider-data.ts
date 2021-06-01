@@ -22,12 +22,12 @@ export const dividerData = {
       default: '"Title"',
       displayName: 'Title',
     },
-    titleType: {
+    typography: {
       isRequired: false,
       type: '“medium” | “caps”',
       description: 'Type of title',
       default: '“medium”',
-      displayName: 'Title type',
+      displayName: 'Typography',
       cegDefault: 'medium',
       cegType: 'string',
       cegFormType: 'radio',

@@ -4,11 +4,7 @@
   [ngClass]="hasPreview ? 'e-mt-64' : 'e-mt-40'"
 >
   <!--Top filters-->
-  <div
-    *ngIf="hasCegAttributes && hasTopFilters"
-    class="ceg-top-filters"
-    [ngClass]="{ 'no-side-filters': !sideFiltersVisible }"
-  >
+  <div *ngIf="hasCegAttributes && hasTopFilters" class="ceg-top-filters">
     <div *ngIf="typeObject" class="ceg-dropdown">
       <elvia-dropdown
         [options]="typeOptions"
@@ -29,7 +25,7 @@
 
   <div class="ceg-row-1 e-mb-16" *ngIf="hasPreview">
     <!--Preview-->
-    <div class="ceg-col-1" [ngClass]="{ 'no-side-filters': !sideFiltersVisible }" #cegContent>
+    <div class="ceg-col-1" #cegContent>
       <div
         class="ceg-code-preview"
         [ngClass]="{
@@ -50,7 +46,7 @@
     </div>
 
     <!--Side filters-->
-    <div class="ceg-col-2" *ngIf="hasCegAttributes && sideFiltersVisible">
+    <div class="ceg-col-2">
       <app-ceg-filters
         [componentData]="componentData"
         [props]="props"
@@ -60,7 +56,7 @@
   </div>
 
   <!--Code-->
-  <div class="ceg-row-2" [ngClass]="{ 'no-side-filters': hasPreview && !sideFiltersVisible }">
+  <div class="ceg-row-2">
     <app-component-example-accordion>
       <ng-container ngProjectAs="accordionContent">
         <app-component-example-code [componentData]="componentData"></app-component-example-code>

@@ -24,18 +24,15 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: 72px;
 
   .ceg-top-filters {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     max-width: 788px;
-    margin-top: 24px;
     margin-bottom: 24px;
     @include first-col;
-    &.no-side-filters {
-      @include full-col;
-    }
     .ceg-dropdown {
       // width: 100%;
       width: 50%;
@@ -55,9 +52,6 @@
     min-height: 340px;
     .ceg-col-1 {
       @include first-col;
-      &.no-side-filters {
-        @include full-col;
-      }
     }
     .ceg-col-2 {
       @include second-col;
@@ -65,9 +59,6 @@
   }
   .ceg-row-2 {
     @include first-col;
-    &.no-side-filters {
-      @include full-col;
-    }
   }
 
   &.full-width .ceg-row-2,
