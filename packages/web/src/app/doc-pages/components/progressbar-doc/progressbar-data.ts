@@ -28,7 +28,7 @@ export const progressbarData = {
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
-      cegDisplayGroup: 'Modifiers',
+      cegDisplayGroup: 'State',
     },
     isError: {
       isRequired: false,
@@ -39,7 +39,7 @@ export const progressbarData = {
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
-      cegDisplayGroup: 'Modifiers',
+      cegDisplayGroup: 'State',
     },
   },
   codeImportReact: `import { ProgressLinear } from '@elvia/elvis-progress-linear/react';`,

@@ -37,7 +37,7 @@ import { PopoverDocComponent } from './doc-pages/components/popover-doc/popover-
 import { ModalDocComponent } from './doc-pages/components/modal-doc/modal-doc.component';
 import { AutocompleteDocComponent } from './doc-pages/components/autocomplete-doc/autocomplete-doc.component';
 import { ContributeComponent } from './doc-pages/community/contribute/contribute.component';
-import { DatetimePickerDocComponent } from './doc-pages/components/forms/datetime-picker-doc/datetime-picker-doc.component';
+import { DatepickerDocComponent } from './doc-pages/components/forms/datepicker-doc/datepicker-doc.component';
 import { PositionPickerDocComponent } from './doc-pages/components/position-picker-doc/position-picker-doc.component';
 import { AlertMessagesComponent } from './doc-pages/components/alert-messages/alert-messages.component';
 import { FaqDocComponent } from './doc-pages/community/faq-doc/faq-doc.component';
@@ -69,6 +69,7 @@ import { ChipsComponent } from './doc-pages/components/chips/chips.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
 import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
+import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
 import { v2PlaygroundComponent } from './doc-pages/dev/v2-playground/v2-playground.component';
 
 const routes: Routes = [
@@ -225,8 +226,8 @@ const routes: Routes = [
             component: ToggleDocComponent,
           },
           {
-            path: Pages.DateTimePicker,
-            component: DatetimePickerDocComponent,
+            path: Pages.Datepicker,
+            component: DatepickerDocComponent,
           },
           {
             path: Pages.DragAndDrop,
@@ -303,6 +304,10 @@ const routes: Routes = [
           {
             path: Pages.Table,
             component: TableDocComponent,
+          },
+          {
+            path: Pages.Timepicker,
+            component: TimepickerDocComponent,
           },
           {
             path: Pages.Tooltip,
@@ -399,7 +404,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' })],
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled', relativeLinkResolution: 'legacy' }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

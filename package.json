@@ -9,11 +9,14 @@
     ],
     "nohoist": [
       "**/bootstrap",
-      "**/@elvia/elvis-assets-icons"
+      "**/babel-loader",
+      "**/webpack",
+      "**/@elvia/elvis-assets-icons",
+      "**/styled-components"
     ]
   },
   "scripts": {
-    "build:web": "yarn && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run gulp && cd ../web && yarn run build:production",
+    "build:web": "yarn && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build && cd ../web && yarn run build:production",
     "prettier-elvis": "yarn prettier --write 'packages/elvis/**/*.js'",
     "prettier-doc": "yarn prettier --write 'packages/web/src/**/*.ts'",
     "prettier-comp": "yarn prettier --write 'packages/components/**/*.{js,ts,tsx}'",
@@ -45,8 +48,7 @@
   },
   "resolutions": {
     "**/optimist/minimist": "0.2.1",
-    "**/react-dev-utils/immer": "^8.0.1",
-    "node-sass": "npm:sass"
+    "**/react-dev-utils/immer": "^8.0.1"
   },
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.5.0",

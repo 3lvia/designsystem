@@ -172,15 +172,15 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
-    title: 'Date/Time Picker',
+    title: 'Date picker',
     // tslint:disable-next-line: max-line-length
     description:
-      'Date and time picker is a simple way for the user to quickly select a date and/or time in a calendar dialog. It uses a text field and a visual calendar in a popover. You can also let the user select a range of dates.',
-    docUrl: Pages.DateTimePicker,
-    absolutePath: '/components/' + Pages.DateTimePicker,
+      'Date picker is a simple way for the user to quickly select a date in a calendar dialog. It uses a text field and a visual calendar in a popover.',
+    docUrl: Pages.Datepicker,
+    absolutePath: '/components/' + Pages.Datepicker,
     status: ItemStatus.New,
     imageUrl: 'assets/website-icons/component-images/Date picker.svg',
-    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=2193%3A468',
+    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
     type: 'Component',
   },
   {
@@ -439,6 +439,17 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
+    title: 'Time picker',
+    description:
+      'Time picker is a simple way for the user to quickly select a time in a dropdown dialog. It uses a text field and a visual dropdown.',
+    docUrl: Pages.Timepicker,
+    absolutePath: '/components/' + Pages.Timepicker,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/component-images/Date picker.svg',
+    figmaUrl: 'https://www.figma.com/file/0hCktnFvRvSHVDntaaOSEu/Inputs?node-id=4456%3A0',
+    type: 'Component',
+  },
+  {
     title: 'Tooltip',
     description:
       'Tooltip is a light popover for showing additional information upon hover or focus. Keep tooltips short.',
@@ -479,8 +490,11 @@ export const eIdentity: EItems[] = [
   {
     title: 'Icons',
     // tslint:disable-next-line: max-line-length
-    description:
-      'In our icon library, you’ll find all available icons in the design system as well as defined sizes for them. Missing a specific icon? Let us know and we’ll look into if we can add it to the library.',
+    description: `In our icon library, you’ll find all available icons in the design system as well as defined sizes for them. Missing a specific icon? Reach out to us or fill in our 
+      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
+        <span class="e-link__title">request form</span>
+        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+      </a>.`,
     docUrl: Pages.Icon,
     absolutePath: '/identity/' + Pages.Icon,
     status: ItemStatus.Done,
@@ -634,8 +648,12 @@ export const eCommunity: EItems[] = [
     title: 'Contact',
     // tslint:disable-next-line: max-line-length
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" >
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+    </a> or use our
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
+      <span class="e-link__title">request form</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
     docUrl: Pages.Contact,
@@ -648,8 +666,12 @@ export const eCommunity: EItems[] = [
     title: 'Contribute',
     // tslint:disable-next-line: max-line-length
     description: `To contribute, or if you have any question, you can contact us on slack:
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" >
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+    </a> or fill out our 
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
+      <span class="e-link__title">request form</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
     docUrl: Pages.Contribute,
@@ -662,7 +684,7 @@ export const eCommunity: EItems[] = [
     title: 'FAQ',
     // tslint:disable-next-line: max-line-length
     description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank" >
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
