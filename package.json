@@ -11,7 +11,8 @@
       "**/bootstrap",
       "**/babel-loader",
       "**/webpack",
-      "**/@elvia/elvis-assets-icons"
+      "**/@elvia/elvis-assets-icons",
+      "**/@elvia/elvis-dropdown"
     ]
   },
   "scripts": {

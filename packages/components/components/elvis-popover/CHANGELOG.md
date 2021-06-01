@@ -1,5 +1,11 @@
 # Elvia Popover Changelog
 
+## 4.0.1 (15.04.21)
+
+### Bug fixes
+
+- Fixed right margin on popover content if scrollbar is visible.
+
 ## 4.0.0 (15.04.21)
 
 ### Bug fixes
