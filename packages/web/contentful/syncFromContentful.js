@@ -16,7 +16,8 @@ syncData();
 
 // Syncs all entries from contentful
 function syncData() {
-    contentfulClient.getEntries().then(entries => entries.items.forEach(item => {
+    contentfulClient.getEntries({ locale: '*' }).then(entries => entries.items.forEach(item => {
+        console.log(item);
         fs.writeFileSync(`dist/entries/${item.sys.id}.json`, createFileContentFromEntry(item));
     }));
 }

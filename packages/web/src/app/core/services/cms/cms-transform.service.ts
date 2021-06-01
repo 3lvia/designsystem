@@ -7,6 +7,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 })
 
 export class CMSTransformService {
+    private locale = 'en-GB'; // Fallback
     private options = {
         renderMark: {
             [MARKS.BOLD]: text => `<b>${text}</b>`
@@ -18,28 +19,31 @@ export class CMSTransformService {
             [BLOCKS.PARAGRAPH]: (node, next) => `<p>${next(node.content)}</p>`,
             [BLOCKS.UL_LIST]: (node, next) => `<ul class="e-list">${next(node.content)}</ul>`,
             [INLINES.HYPERLINK]: (node, next) => `<a class="e-link e-link--inline" href="${node.data.uri}">${next(node.content)}</a>`,
-            [BLOCKS.EMBEDDED_ASSET]: (node, next) => `<img class="cms-img" src="${node.data.target.fields.file.url}"/>`,
+            [BLOCKS.EMBEDDED_ASSET]: (node, next) => `<img class="cms-img" src="${node.data.target.fields.file[this.locale].url}"/>`,
             [BLOCKS.HR]: (node, next) => `<hr class="cms-hr e-mb-24"></hr>`,
-            [BLOCKS.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node)}`
+            [BLOCKS.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale)}`
         }
     }
 
 
 
 
-    getHTML(data, cachedEntries?): string {
+    getHTML(data, locale, cachedEntries?): string {
+        this.locale = locale;
+        console.log(data);
         if (data.nodeType === 'embedded-entry-block') {
-            return this.embeddedEntryBlock(data);
+            return this.embeddedEntryBlock(data, locale);
         }
 
-        return documentToHtmlString(data.fields.content, this.options);
+        return documentToHtmlString(data.fields.content[locale], this.options);
     }
 
-    private embeddedEntryBlock(node) {
+    private embeddedEntryBlock(node, locale) {
+        console.log(node);
         const type = this.getEntryType(node);
         const data = node.data.target;
         if (type === 'section') {
-            return this.getSection(data);
+            return this.getSection(data, locale);
         }
         return documentToHtmlString(data.fields.content, this.options);
     }
@@ -52,12 +56,17 @@ export class CMSTransformService {
         return node.data.target.sys.contentType.sys.id;
     }
 
-    private getSection(data) {
+    private getSection(data, locale) {
         return `
-        <app-component-subsection>
-            <ng-container ngProjectAs="sectionContent">
-                ${documentToHtmlString(data.fields.content, this.options)}
-            </ng-container>
-        </app-component-subsection>`;
+        <div class="cms-section">
+            <div class="cms-section__title">
+                <h2 class="e-title-md elvis-anchor-title e-mb-24" style="display: flex">
+                ${data.fields.title ? data.fields.title[locale] : ''}
+                </h2>
+            </div>
+            <div class="cms-section__content e-text-body">
+                ${documentToHtmlString(data.fields.content[locale], this.options)}
+            </div>
+        </div>`;
     }
 }

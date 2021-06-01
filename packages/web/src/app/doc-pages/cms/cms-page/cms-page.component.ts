@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer } from '@angular/platform-browser';
 
@@ -6,6 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   selector: 'app-cms-page',
   templateUrl: './cms-page.component.html',
   styleUrls: ['./cms-page.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CMSPageComponent {
   cmsContent: any = {};
@@ -16,6 +17,7 @@ export class CMSPageComponent {
     //TODO: Use routing to decide which page to load, instead of "TheConcept"
     cmsService.getDocumentationPage('TheConcept').then(content => {
       this.cmsContent = content;
+      this.description = content.pageDescription;
       this.html = sanitizer.bypassSecurityTrustHtml(content.content);
       if (this.cmsContent.pageDescription) {
         this.description = this.cmsContent.pageDescription;

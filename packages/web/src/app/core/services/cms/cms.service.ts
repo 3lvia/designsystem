@@ -18,6 +18,7 @@ export class CMSService {
 
 
   getDocumentationPage(pageName: String): Promise<any> {
+    const locale = 'en-GB';//'nb-NO'
     const contentMetadata = ContentConfig[pageName];
 
     if (!contentMetadata) {
@@ -26,9 +27,9 @@ export class CMSService {
 
     return this.getEntry(contentMetadata.contentful.entry_id).then(data => {
       return {
-        title: data.fields.title,
-        pageDescription: data.fields.pageDescription,
-        content: this.cmsTransformService.getHTML(data, this.entries) //documentToHtmlString(data.fields.content, this.options)
+        title: data.fields.title[locale],
+        pageDescription: data.fields.pageDescription[locale],
+        content: this.cmsTransformService.getHTML(data, locale, this.entries) //documentToHtmlString(data.fields.content, this.options)
       }
     });
   }
