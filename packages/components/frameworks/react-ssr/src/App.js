@@ -11,9 +11,11 @@ import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 
 function App() {
+  // old checkbox states
   const [trackedState, setTrackedState] = useState(true);
-  const [selectedState, setSelectedState] = useState(2);
   const ref = useRef();
+  //////////////////////
+  const [selectedState, setSelectedState] = useState(2);
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
 
@@ -92,7 +94,7 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-
+      <h2>HELLO THERE CHANGE!</h2>
       <h2>Dropdown</h2>
       <button onClick={consoleDropdownVal}>Console dropdown value</button>
       <div style={{ marginTop: '24px' }}>
@@ -127,12 +129,16 @@ function App() {
         <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
       </div>
 
-      <TestingComponent></TestingComponent>
+      <div style={{ margin: '40px 0' }}>
+        <TestingComponent></TestingComponent>
+      </div>
 
       <hr style={{ margin: '40px 0' }} />
       <h2>Divider</h2>
       <div>
         <Divider title="Dette er en tittel" />
+        <p>curved divider</p>
+        <Divider isCurved={true} />
       </div>
 
       <h2>Accordion</h2>
