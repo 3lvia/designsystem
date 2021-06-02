@@ -1,6 +1,6 @@
 const del = require('del');
 const gulp = require('gulp');
-const tap = require('gulp-tap')
+const tap = require('gulp-tap');
 const sass = require('sass');
 const cleanCSS = require('gulp-clean-css');
 const rename = require('gulp-rename');
@@ -19,9 +19,13 @@ function generateElvisStyle() {
   return gulp
     .src('./src/main.scss')
     .pipe(postcss([cssvariables()]))
-    .pipe(tap(function (file) {
-      file.contents = Buffer.from(sass.renderSync({ file: file.path, includePaths: ['node_modules'] }).css.toString());
-    }))
+    .pipe(
+      tap(function (file) {
+        file.contents = Buffer.from(
+          sass.renderSync({ file: file.path, includePaths: ['node_modules'] }).css.toString(),
+        );
+      }),
+    )
 
     .pipe(rename('elvis.css'))
     .pipe(gulp.dest('./css/'));

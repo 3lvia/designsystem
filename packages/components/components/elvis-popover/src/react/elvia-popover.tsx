@@ -177,6 +177,11 @@ const Popover: FC<PopoverProps> = ({
     return !isRoomBottom && isRoomTop;
   };
 
+  // get current width of scrollbar if visible
+  const getScrollbarWidth = () => {
+    return window.innerWidth - document.documentElement.clientWidth;
+  };
+
   // Update position horizontally and size of content
   const updatePosition = useCallback(() => {
     const dimensions = getCorrectDimensions();
@@ -193,7 +198,7 @@ const Popover: FC<PopoverProps> = ({
       if (posX !== 'right' && isConflict(posX === 'center', 'left')) {
         updatePosStyle('none', 'auto', `${-triggerOffsetLeft + popoverMargin}px`);
       } else if (posX !== 'left' && isConflict(posX === 'center', 'right')) {
-        updatePosStyle('none', `${-triggerOffsetRight + popoverMargin}px`, 'auto');
+        updatePosStyle('none', `${-triggerOffsetRight + popoverMargin + getScrollbarWidth()}px`, 'auto');
       } else {
         setInitialPosition();
       }
