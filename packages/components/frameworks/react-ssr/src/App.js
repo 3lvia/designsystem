@@ -135,10 +135,23 @@ function App() {
 
       <hr style={{ margin: '40px 0' }} />
       <h2>Divider</h2>
-      <div>
-        <Divider title="Dette er en tittel" />
-        <p>curved divider</p>
-        <Divider isCurved={true} />
+      <div style={{ marginBottom: '16px', padding: '8px' }}>
+        <Divider />
+      </div>
+      <div style={{ marginBottom: '16px', padding: '8px' }}>
+        <Divider title="Dette er en tittel" type="title" typography="caps" />
+      </div>
+      <div style={{ marginBottom: '16px', padding: '8px' }}>
+        <Divider type="curved" />
+      </div>
+      <div style={{ background: '#262626', padding: '8px' }}>
+        <Divider isInverted />
+      </div>
+      <div style={{ background: '#262626', padding: '8px' }}>
+        <Divider title="Dette er en tittel" type="title" isInverted />
+      </div>
+      <div style={{ background: '#262626', padding: '8px' }}>
+        <Divider type="curved" isInverted />
       </div>
 
       <h2>Accordion</h2>

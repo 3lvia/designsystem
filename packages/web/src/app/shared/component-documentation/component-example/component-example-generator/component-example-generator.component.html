@@ -3,11 +3,36 @@
   [ngClass]="{ 'full-width': !hasCegAttributes }"
   [ngClass]="hasPreview ? 'e-mt-64' : 'e-mt-40'"
 >
+  <!--Top filters-->
+  <div *ngIf="hasCegAttributes && hasTopFilters" class="ceg-top-filters">
+    <div *ngIf="typeObject" class="ceg-dropdown">
+      <elvia-dropdown
+        [options]="typeOptions"
+        [defaultValue]="typeOptions[0]"
+        label="Type"
+        (valueOnChange)="updateSelectedType($event.detail.value)"
+      ></elvia-dropdown>
+    </div>
+    <div *ngIf="backgroundObject" class="ceg-dropdown">
+      <elvia-dropdown
+        [options]="bgOptions"
+        [defaultValue]="bgOptions[0]"
+        label="Background"
+        (valueOnChange)="updateSelectedBg($event.detail.value)"
+      ></elvia-dropdown>
+    </div>
+  </div>
+
   <div class="ceg-row-1 e-mb-16" *ngIf="hasPreview">
+    <!--Preview-->
     <div class="ceg-col-1" #cegContent>
-      <!--CEG code preview-->
       <div
-        [ngClass]="!accordionCustom ? 'ceg-code-preview' : 'ceg-code-preview ceg-code-preview--accordion'"
+        class="ceg-code-preview"
+        [ngClass]="{
+          'ceg-code-preview--accordion': accordionCustom,
+          'e-bg-white': selectedBg === 'White',
+          'e-bg-grey': selectedBg === 'Dark grey'
+        }"
         [style.overflowY]="overflowY"
       >
         <div
@@ -20,14 +45,18 @@
       </div>
     </div>
 
-    <!--CEG side filters-->
-    <div class="ceg-col-2" *ngIf="hasCegAttributes">
-      <app-ceg-filters [componentData]="componentData"></app-ceg-filters>
+    <!--Side filters-->
+    <div class="ceg-col-2">
+      <app-ceg-filters
+        [componentData]="componentData"
+        [props]="props"
+        [selectedType]="selectedType"
+      ></app-ceg-filters>
     </div>
   </div>
 
-  <!--CEG code-->
-  <div [ngClass]="hasPreview ? 'ceg-row-2' : 'ceg-full-row'">
+  <!--Code-->
+  <div class="ceg-row-2">
     <app-component-example-accordion>
       <ng-container ngProjectAs="accordionContent">
         <app-component-example-code [componentData]="componentData"></app-component-example-code>

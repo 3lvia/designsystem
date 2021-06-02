@@ -1,24 +1,30 @@
 import * as React from 'react';
-import classnames from 'classnames';
-import './style.scss';
+import * as StyledDivider from './styledComponents';
 
+export type DividerType = 'simple' | 'title' | 'curved';
+export type DividerTypography = 'medium' | 'caps';
 export interface DividerProps {
-  isCurved?: boolean;
-  isInverted?: boolean;
+  type?: DividerType;
   title?: string;
-  titleType?: 'md' | 'caps';
+  typography?: DividerTypography;
+  isInverted?: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const Divider: React.FC<DividerProps> = ({ isCurved, isInverted, title, titleType = 'md' }) => {
-  const classes = classnames('ewc-divider', {
-    ['ewc-divider--curved']: isCurved,
-    ['ewc-divider--inverted']: isInverted,
-    ['ewc-divider--title']: title,
-    ['ewc-divider-title-md']: titleType === 'md',
-  });
-
-  return <div className={classes}>{title && <div className="ewc-divider__title">{title}</div>}</div>;
+export const Divider: React.FC<DividerProps> = ({
+  type = 'simple',
+  typography = 'medium',
+  title = 'Title',
+  isInverted = false,
+}) => {
+  return (
+    <StyledDivider.DividerArea type={type} isInverted={isInverted}>
+      {type === 'title' && (
+        <StyledDivider.DividerTitle typography={typography} isInverted={isInverted}>
+          {title}
+        </StyledDivider.DividerTitle>
+      )}
+    </StyledDivider.DividerArea>
+  );
 };
 
 export default Divider;

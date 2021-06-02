@@ -8,6 +8,25 @@
 
 <!--BODY-->
 <div class="page-body">
+  <h2>Divider</h2>
+  <div style="padding: 8px">
+    <elvia-divider></elvia-divider>
+  </div>
+  <div style="padding: 8px">
+    <elvia-divider type="title" typography="caps"></elvia-divider>
+  </div>
+  <div style="padding: 8px">
+    <elvia-divider type="curved"></elvia-divider>
+  </div>
+  <div style="margin-top: 16px; background: #262626; padding: 8px">
+    <elvia-divider [isInverted]="true"></elvia-divider>
+  </div>
+  <div style="margin-top: 16px; background: #262626; padding: 8px">
+    <elvia-divider type="title" typography="caps" [isInverted]="true"></elvia-divider>
+  </div>
+  <div style="margin-top: 16px; background: #262626; padding: 8px">
+    <elvia-divider type="curved" [isInverted]="true"></elvia-divider>
+  </div>
 
   <h2>dropdown</h2>
   <div style="width: 250px">
@@ -84,15 +103,8 @@
     <h2>Popover</h2>
     <div style="display: flex; flex-direction: column; align-items: flex-end">
       <div style="margin-top: 16px">
-        <elvia-popover
-          header="BankID"
-          posX="right"
-          width="200"
-        >
-          <button
-            slot="trigger"
-            class="e-btn"
-          >Right top</button>
+        <elvia-popover header="BankID" posX="right" width="200">
+          <button slot="trigger" class="e-btn">Right top</button>
           <div slot="content">
             Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
           </div>
@@ -106,34 +118,18 @@
           posX="left"
           hasCloseBtn="false"
         >
-          <button
-            slot="trigger"
-            class="e-btn"
-          >Left top</button>
+          <button slot="trigger" class="e-btn">Left top</button>
         </elvia-popover>
       </div>
       <div style="margin-top: 16px">
-        <elvia-popover
-          header="BankID"
-          content="Alle privatkunder må bruke BankID."
-        >
-          <button
-            slot="trigger"
-            class="e-btn"
-          >Center top</button>
+        <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID.">
+          <button slot="trigger" class="e-btn">Center top</button>
         </elvia-popover>
       </div>
     </div>
     <div style="margin-top: 16px">
-      <elvia-popover
-        header="BankID"
-        content="Alle privatkunder må bruke BankID."
-        posY="bottom"
-      >
-        <button
-          slot="trigger"
-          class="e-btn"
-        >Center bottom</button>
+      <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID." posY="bottom">
+        <button slot="trigger" class="e-btn">Center bottom</button>
       </elvia-popover>
     </div>
     <div style="margin-top: 16px">
@@ -143,10 +139,7 @@
         posY="bottom"
         posX="right"
       >
-        <button
-          slot="trigger"
-          class="e-btn"
-        >Right bottom</button>
+        <button slot="trigger" class="e-btn">Right bottom</button>
       </elvia-popover>
     </div>
     <div style="margin-top: 16px">
@@ -156,10 +149,7 @@
         posY="bottom"
         posX="left"
       >
-        <button
-          slot="trigger"
-          class="e-btn"
-        >Left bottom</button>
+        <button slot="trigger" class="e-btn">Left bottom</button>
       </elvia-popover>
     </div>
 
@@ -193,10 +183,7 @@
                 posY="top"
                 posX="center"
               >
-                <button
-                  slot="trigger"
-                  class="e-btn"
-                >popover top</button>
+                <button slot="trigger" class="e-btn">popover top</button>
               </elvia-popover>
             </th>
             <th scope="col">
@@ -206,10 +193,7 @@
                 posY="top"
                 posX="left"
               >
-                <button
-                  slot="trigger"
-                  class="e-btn"
-                >top left</button>
+                <button slot="trigger" class="e-btn">top left</button>
               </elvia-popover>
             </th>
             <th scope="col">
@@ -219,10 +203,7 @@
                 posY="bottom"
                 posX="center"
               >
-                <button
-                  slot="trigger"
-                  class="e-btn"
-                >bottom</button>
+                <button slot="trigger" class="e-btn">bottom</button>
               </elvia-popover>
             </th>
           </tr>
@@ -247,3 +228,4 @@
       </table>
     </div>
   </div>
+</div>

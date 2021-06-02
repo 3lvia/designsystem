@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import '@elvia/elvis-progress-linear';
 import { ProgressbarDocComponent } from './progressbar-doc.component';
@@ -28,5 +28,6 @@ import { ComponentInstallationModule } from 'src/app/shared/component-documentat
     ComponentInstallationModule,
   ],
   declarations: [ProgressbarDocComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class ProgressbarDocModule {}

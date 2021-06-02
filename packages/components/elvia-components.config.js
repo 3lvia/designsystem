@@ -103,12 +103,13 @@ module.exports = [
     name: 'elvis-divider',
     elementName: 'elvia-divider',
     attributes: [
-      { name: 'isCurved', type: 'boolean' },
-      { name: 'isInverted', type: 'boolean' },
+      { name: 'type', type: 'string' },
       { name: 'title', type: 'string' },
-      { name: 'titleType', type: 'string' },
+      { name: 'typography', type: 'string' },
+      { name: 'isInverted', type: 'boolean' },
     ],
     reactName: 'Divider',
+    elementStyle: `width: 100%;`,
   },
   {
     name: 'elvis-dropdown',
