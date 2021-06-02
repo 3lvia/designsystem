@@ -11,9 +11,12 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
 import '@elvia/elvis-accordion';
 import '@elvia/elvis-breadcrumb';
 import '@elvia/elvis-popover';
+import '@elvia/elvis-dropdown';
 import '@elvia/elvis-tabs';
 import '@elvia/elvis-progress-linear';
 import '@elvia/elvis-testing';
+import '@elvia/elvis-datepicker';
+import '@elvia/elvis-divider';
 
 @NgModule({
   imports: [

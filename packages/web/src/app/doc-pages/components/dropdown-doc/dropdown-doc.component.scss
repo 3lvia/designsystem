@@ -1,11 +1,5 @@
-.image-container {
-  text-align: flex-start;
-  .image-size {
-    max-width: 600px;
-    width: 100%;
-
-    &-compact {
-      max-width: 400px;
-    }
-  }
+.exampleDropdown {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }

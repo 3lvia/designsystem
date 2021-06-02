@@ -22,7 +22,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   @Input() isJS = false;
   @Input() doDontComp = false;
   copyMessage = '';
-  activeTab = '';
+  activeTab = 0;
   activeLanguage = '';
   activeCode = '';
   highlightedCode = '';
@@ -30,6 +30,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   codepen = '';
   codeWebComponentSub: Subscription;
   codeReactSub: Subscription;
+  tabs = [];
 
   constructor(
     private highlightService: HighlightService,
@@ -38,22 +39,95 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     private codeService: ExampleCodeService,
   ) {}
 
+  getTabIndex(str: string) {
+    this.tabs.indexOf(str);
+  }
+
+  changedTab(index) {
+    this.activeTab = index;
+    const selectedTab = this.tabs[index];
+
+    if (selectedTab === 'HTML') {
+      this.activeLanguage = 'html';
+      this.activeCode = this.codeHTML;
+    }
+    if (selectedTab === 'Typescript') {
+      this.activeLanguage = 'ts';
+      this.activeCode = this.codeTS;
+    }
+    if (selectedTab === 'CSS') {
+      this.activeLanguage = 'scss';
+      this.activeCode = this.codeCSS;
+    }
+    if (selectedTab === 'Angular') {
+      this.activeLanguage = 'html';
+      this.activeCode = this.codeWebComponent;
+    }
+    if (selectedTab === 'React') {
+      this.activeLanguage = 'jsx';
+      this.activeCode = this.codeReact;
+    }
+    if (this.isInverted) {
+      this.activeCode = this.codeInverted;
+      this.activeLanguage = 'html';
+    }
+
+    if (this.activeCode && this.activeLanguage) {
+      this.highlightCode();
+    }
+  }
+
+  updateTabs() {
+    this.tabs = this.getTabs();
+    this.changedTab(this.activeTab);
+  }
+
+  getTabs() {
+    const tabs = [];
+
+    if (this.codeWebComponent !== '') {
+      tabs.push('Angular');
+    }
+
+    if (this.codeReact !== '') {
+      tabs.push('React');
+    }
+
+    if (this.codeTS !== '') {
+      tabs.push('Typescript');
+    }
+
+    if (this.isJS && this.codeTS != '') {
+      tabs.push('Javascript');
+    }
+
+    if (this.codeHTML !== '') {
+      tabs.push('HTML');
+    }
+
+    if (this.codeCSS !== '') {
+      tabs.push('CSS');
+    }
+    return tabs;
+  }
+
   ngOnInit(): void {
     if (this.componentData) {
       this.codeWebComponent = this.componentData.codeWebComponent;
       this.codeReact = this.componentData.codeReact;
     }
-    this.initializeActiveTab();
-    this.setCodePenValue();
     this.codeWebComponentSub = this.codeService.listenCodeWebComponent().subscribe((newCode: string) => {
       this.codeWebComponent = newCode;
       this.highlightCode();
-      this.changeActiveTab(this.activeTab);
+      this.updateTabs();
     });
     this.codeReactSub = this.codeService.listenCodeReact().subscribe((newCode: string) => {
       this.codeReact = newCode;
       this.highlightCode();
+      this.updateTabs();
     });
+    this.updateTabs();
+    this.setCodePenValue();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -75,7 +149,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     if (changes.codeReact) {
       this.codeReact = changes.codeReact.currentValue;
     }
-    this.initializeActiveTab();
+    this.updateTabs();
   }
 
   ngOnDestroy(): void {
@@ -85,38 +159,6 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
 
   highlightCode(): void {
     this.highlightedCode = this.highlightService.highlight(this.activeCode, this.activeLanguage);
-  }
-
-  initializeActiveTab(): void {
-    if (this.codeWebComponent !== '') {
-      this.changeActiveTab('angular');
-    } else {
-      this.changeActiveTab(this.codeTS !== '' ? 'ts' : this.codeHTML !== '' ? 'html' : 'css');
-    }
-  }
-
-  changeActiveTab(type: string): void {
-    this.activeTab = type;
-    if (this.isInverted) {
-      this.activeCode = this.codeInverted;
-      this.activeLanguage = 'html';
-    } else if (this.activeTab === 'ts') {
-      this.activeCode = this.codeTS;
-      this.activeLanguage = 'ts';
-    } else if (this.activeTab === 'html') {
-      this.activeCode = this.codeHTML;
-      this.activeLanguage = 'html';
-    } else if (this.activeTab === 'css') {
-      this.activeCode = this.codeCSS;
-      this.activeLanguage = 'scss';
-    } else if (this.activeTab === 'angular') {
-      this.activeCode = this.codeWebComponent;
-      this.activeLanguage = 'html';
-    } else {
-      this.activeCode = this.codeReact;
-      this.activeLanguage = 'jsx';
-    }
-    this.highlightCode();
   }
 
   copyCode(): void {
