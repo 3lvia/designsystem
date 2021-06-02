@@ -25,12 +25,8 @@ export class CMSTransformService {
         }
     }
 
-
-
-
     getHTML(data, locale, cachedEntries?): string {
         this.locale = locale;
-        console.log(data);
         if (data.nodeType === 'embedded-entry-block') {
             return this.embeddedEntryBlock(data, locale);
         }
@@ -39,7 +35,6 @@ export class CMSTransformService {
     }
 
     private embeddedEntryBlock(node, locale) {
-        console.log(node);
         const type = this.getEntryType(node);
         const data = node.data.target;
         if (type === 'section') {

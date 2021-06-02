@@ -2,7 +2,7 @@
 <app-component-header>
   <ng-container ngProjectAs="headerTitle">{{ cmsContent.title? cmsContent.title: ''}}</ng-container>
   <ng-container ngProjectAs="headerDescription">
-    {{ cmsContent.pageDescription ? cmsContent.pageDescription: '' }}
+    <span>{{ cmsContent.pageDescription ? cmsContent.pageDescription: '' }}</span>
   </ng-container>
 </app-component-header>
 <!--BODY-->

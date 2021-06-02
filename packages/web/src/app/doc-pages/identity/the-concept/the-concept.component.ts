@@ -13,11 +13,5 @@ export class TheConceptComponent {
   cmsContent: any = {};
 
   constructor(private cmsService: CMSService, private sanitizer: DomSanitizer) {
-    cmsService.getDocumentationPage('TheConcept').then(content => {
-      this.cmsContent = sanitizer.bypassSecurityTrustHtml(content);
-      if (this.cmsContent.pageDescription) {
-        this.description = this.cmsContent.pageDescription;
-      }
-    });
   }
 }

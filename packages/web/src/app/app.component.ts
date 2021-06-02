@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Locale, LocalizationService } from './core/services/localization.service';
 
 @Component({
   selector: 'app-root',

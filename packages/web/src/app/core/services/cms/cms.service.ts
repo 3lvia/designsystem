@@ -4,6 +4,7 @@ import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { HttpClient } from '@angular/common/http';
 import { CMSTransformService } from './cms-transform.service';
+import { LocalizationService, Locale } from '../localization.service';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +18,11 @@ export class CMSService {
   constructor(private http: HttpClient, private cmsTransformService: CMSTransformService) { }
 
 
-  getDocumentationPage(pageName: String): Promise<any> {
-    const locale = 'en-GB';//'nb-NO'
+  getDocumentationPage(pageName: string, localization: Locale): Promise<any> {
+    let locale = 'en-GB';
+    if (localization === Locale['no-NB']) {
+      locale = 'no-NB';
+    }
     const contentMetadata = ContentConfig[pageName];
 
     if (!contentMetadata) {
@@ -29,7 +33,7 @@ export class CMSService {
       return {
         title: data.fields.title[locale],
         pageDescription: data.fields.pageDescription[locale],
-        content: this.cmsTransformService.getHTML(data, locale, this.entries) //documentToHtmlString(data.fields.content, this.options)
+        content: this.cmsTransformService.getHTML(data, locale, this.entries)
       }
     });
   }
