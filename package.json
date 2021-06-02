@@ -13,7 +13,7 @@
     ]
   },
   "scripts": {
-    "build:web": "yarn && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build && cd ../web && yarn run build:production",
+    "build:web": "yarn && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build && cd ../web && yarn run contentful && yarn run build:production",
     "prettier-elvis": "yarn prettier --write 'packages/elvis/**/*.js'",
     "prettier-doc": "yarn prettier --write 'packages/web/src/**/*.ts'",
     "prettier-comp": "yarn prettier --write 'packages/components/**/*.{js,ts,tsx}'",

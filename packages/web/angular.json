@@ -44,7 +44,7 @@
               {
                 "glob": "**/*",
                 "input": "contentful/dist/",
-                "output": "./assets/contentful/dist/",
+                "output": "./assets/contentful/dist/"
               }
             ],
             "styles": [
