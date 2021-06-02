@@ -12,7 +12,11 @@ interface BreadcrumbProps {
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
   const childrenLength = breadcrumbs.length;
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth ?? 0);
+  const [windowWidth, setWindowWidth] = useState(undefined);
+
+  useEffect(() => {
+    setWindowWidth(window.innerWidth);
+  }, []);
 
   useEffect(() => {
     const getWindowDimensions = () => {
