@@ -19,8 +19,12 @@
             </h1>
             <div class="e-text-lead e-mt-32">
               <div *ngIf="fontLoaded">
-                A scalable system of visual language, components and design assets so we can work together
+                <span *ngIf="locale === 'en-GB'">A scalable system of visual language, components and design assets so we can work together
                 towards an ultimate brand experience.
+                </span>
+                <span *ngIf="locale === 'no-NB'">
+                  Et skalerbart system av visuelt språk, komponenter og designelementer så vi sammen kan jobbe mot den ultimate brand opplevelsen.
+                </span>
               </div>
               <div *ngIf="!fontLoaded" class="content-loader-text">
                 <span class="e-content-loader e-content-loader--text e-content-loader--inverted"></span>
