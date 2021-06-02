@@ -11,9 +11,11 @@ import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 
 function App() {
+  // old checkbox states
   const [trackedState, setTrackedState] = useState(true);
-  const [selectedState, setSelectedState] = useState(2);
   const ref = useRef();
+  //////////////////////
+  const [selectedState, setSelectedState] = useState(2);
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
 
@@ -92,7 +94,7 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-
+      <h2>HELLO THERE CHANGE!</h2>
       <h2>Dropdown</h2>
       <button onClick={consoleDropdownVal}>Console dropdown value</button>
       <div style={{ marginTop: '24px' }}>
@@ -127,20 +129,29 @@ function App() {
         <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
       </div>
 
-      <TestingComponent></TestingComponent>
+      <div style={{ margin: '40px 0' }}>
+        <TestingComponent></TestingComponent>
+      </div>
 
       <hr style={{ margin: '40px 0' }} />
       <h2>Divider</h2>
       <div style={{ marginBottom: '16px', padding: '8px' }}>
         <Divider />
-        <Divider title="Dette er en tittel" />
-        <Divider title="Dette er en tittel" typography="caps" />
-        <Divider isCurved />
+      </div>
+      <div style={{ marginBottom: '16px', padding: '8px' }}>
+        <Divider title="Dette er en tittel" type="title" typography="caps" />
+      </div>
+      <div style={{ marginBottom: '16px', padding: '8px' }}>
+        <Divider type="curved" />
       </div>
       <div style={{ background: '#262626', padding: '8px' }}>
         <Divider isInverted />
-        <Divider title="Dette er en tittel" isInverted />
-        <Divider isCurved isInverted />
+      </div>
+      <div style={{ background: '#262626', padding: '8px' }}>
+        <Divider title="Dette er en tittel" type="title" isInverted />
+      </div>
+      <div style={{ background: '#262626', padding: '8px' }}>
+        <Divider type="curved" isInverted />
       </div>
 
       <h2>Accordion</h2>

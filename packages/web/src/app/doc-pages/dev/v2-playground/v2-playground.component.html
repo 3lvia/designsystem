@@ -11,14 +11,21 @@
   <h2>Divider</h2>
   <div style="padding: 8px">
     <elvia-divider></elvia-divider>
-    <elvia-divider title="Title divider"></elvia-divider>
-    <elvia-divider title="Title divider" typography="caps"></elvia-divider>
-    <elvia-divider [isCurved]="true"></elvia-divider>
+  </div>
+  <div style="padding: 8px">
+    <elvia-divider type="title" typography="caps"></elvia-divider>
+  </div>
+  <div style="padding: 8px">
+    <elvia-divider type="curved"></elvia-divider>
   </div>
   <div style="margin-top: 16px; background: #262626; padding: 8px">
     <elvia-divider [isInverted]="true"></elvia-divider>
-    <elvia-divider title="Title divider" [isInverted]="true"></elvia-divider>
-    <elvia-divider [isCurved]="true" [isInverted]="true"></elvia-divider>
+  </div>
+  <div style="margin-top: 16px; background: #262626; padding: 8px">
+    <elvia-divider type="title" typography="caps" [isInverted]="true"></elvia-divider>
+  </div>
+  <div style="margin-top: 16px; background: #262626; padding: 8px">
+    <elvia-divider type="curved" [isInverted]="true"></elvia-divider>
   </div>
 
   <h2>dropdown</h2>

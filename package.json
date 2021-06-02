@@ -9,7 +9,11 @@
     ],
     "nohoist": [
       "**/bootstrap",
-      "**/@elvia/elvis-assets-icons"
+      "**/babel-loader",
+      "**/webpack",
+      "**/@elvia/elvis-assets-icons",
+      "**/@elvia/elvis-dropdown",
+      "**/@elvia/elvis-divider"
     ]
   },
   "scripts": {

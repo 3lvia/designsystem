@@ -14,7 +14,7 @@ export const Divider: React.FC<DividerProps> = ({
   type = 'simple',
   typography = 'medium',
   title = 'Title',
-  isInverted = 'false',
+  isInverted = false,
 }) => {
   return (
     <StyledDivider.DividerArea type={type} isInverted={isInverted}>
