@@ -77,7 +77,7 @@ export const dropdownData = {
   codeWebComponent: `<elvia-dropdown
   [options]='dropdownOptions'
   label="Label"
-  (valueOnchange)="selectedOptions = $event.detail.value"
+  (valueOnChange)="selectedOptions = $event.detail.value"
 ></elvia-dropdown>
 <!-- in TS -->
 selectedOptions = [];
