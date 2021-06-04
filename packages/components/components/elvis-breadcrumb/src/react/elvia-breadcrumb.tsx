@@ -11,8 +11,13 @@ interface BreadcrumbProps {
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
-  const childrenLength = breadcrumbs.length;
+  const [childrenLength, setChildrenLength] = useState(0);
   const [windowWidth, setWindowWidth] = useState(undefined);
+
+  useEffect(() => {
+    setChildrenLength(breadcrumbs.length);
+    console.log('new breadcrumbs!');
+  }, [breadcrumbs]);
 
   useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -35,12 +40,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
 
   const MovbileBreadcrumb = () => {
     return (
-      <span>
+      <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
         <StyledBreadcrumb.EWCBreadcrumbIconLeft />
-        <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumbs[childrenLength - 2].url}>
+        <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumbs[childrenLength - 2].url} isClickable={true}>
           {breadcrumbs[childrenLength - 2].title}
         </StyledBreadcrumb.EWCBreadcrumbLink>
-      </span>
+      </StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
     );
   };
 
@@ -49,7 +54,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
       if (index < childrenLength - 1) {
         return (
           <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper key={index}>
-            <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumb.url}>
+            <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumb.url} isClickable={true}>
               {breadcrumb.title}
             </StyledBreadcrumb.EWCBreadcrumbLink>
             <StyledBreadcrumb.EWCBreadcrumbIconRight />

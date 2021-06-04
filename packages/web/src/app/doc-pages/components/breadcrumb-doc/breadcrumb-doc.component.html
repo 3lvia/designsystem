@@ -9,66 +9,73 @@
 <!--BODY-->
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <!-- <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-form-field">
-      <label class="e-form-field__label" for="compact">Country</label>
-      <div class="e-input">
-        <input
-          placeholder="Search for country"
-          [value]="chosenLand"
-          #searchTerm
-          (keyup)="onSearch(searchTerm.value)"
-          (click)="onInputClick()"
-          id="ChooseCountry"
-        />
-        <div class="e-autocomplete" *ngIf="showResults" id="countryOptions">
-          <span class="e-autocomplete__item" *ngFor="let country of results" (click)="SelectCountry(country)">
-            {{ country }}
-          </span>
+  <div class="ceg-container">
+    <div class="ceg-row-1">
+      <div class="ceg-col-1">
+        <div class="ceg-code-preview">
+          <elvia-breadcrumb [breadcrumbs]="breadcrumbsTest"></elvia-breadcrumb>
         </div>
       </div>
-    </div> -->
-  <!-- <div class="e-w-100">
-      <app-component-example-v1
-        [showPreview]="false"
-        [codeHTML]="exampleInHTML"
-        [codeTS]="exampleInTS"
-      ></app-component-example-v1>
-    </div> -->
+      <div class="ceg-col-2">
+        <div class="ceg-side-filters">
+          <div class="ceg-side-filter e-form_field e-w-100">
+            <label class="e-form-field__label">Breadcrumbs</label>
+            <div class="counter">
+              <button
+                class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-8"
+                (click)="removeBreadcrumb()"
+              ><span class="e-btn__icon"><i class="e-icon e-icon--subtract_circle"></i><i
+                    class="e-icon e-icon e-icon--subtract_circle-filled-color"
+                  ></i></span></button>
+              <span class="counter__number e-text-md ng-star-inserted">{{breadcrumbsTest.length}}</span>
+              <button
+                class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8"
+                (click)="addBreadcrumb()"
+              >
+                <span class="e-btn__icon">
+                  <i class="e-icon e-icon--add_circle"></i>
+                  <i class="e-icon e-icon e-icon--add_circle_circle-filled-color"></i></span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="e-w-100">
+    <app-component-example-generator
+      [componentData]="componentData"
+      [hasPreview]="false"
+    ></app-component-example-generator>
+  </div>
 
-  <!-- SIZES -->
-  <app-component-section [sectionTitle]="'Size'">
+
+
+  <!-- USAGE -->
+  <app-component-section
+    [sectionTitle]="'Usage'"
+    noAnimation=true
+  >
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Normal'">
-        <ng-container ngProjectAs="sectionContent">
-          <!-- <app-component-example-v1 [codeHTML]="[exampleAutocomplete]"></app-component-example-v1> -->
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Compact'">
-        <ng-container ngProjectAs="sectionContent">
-          <!-- Much like compact text fields, the compact autocomplete is a version of the text field that’s
-          primarily designed for internal systems, and shouldn’t be mixed with the other input styles.
-          <app-component-example-v1 [codeHTML]="[exampleCompact]"></app-component-example-v1> -->
-        </ng-container>
-      </app-component-subsection>
+      <app-when-to-use
+        [whens]="does"
+        [whenNots]="donts"
+      ></app-when-to-use>
     </ng-container>
   </app-component-section>
 
-  <!-- USAGE -->
-  <app-component-section [sectionTitle]="'Usage'">
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
-      <!-- <app-when-to-use [whens]="does"></app-when-to-use> -->
+      <app-component-installation [componentData]="componentData"></app-component-installation>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section
-    [sectionTitle]="'Properties'"
-    [propertiesClass]="'e-autocomplete'"
-  >
+  <app-component-section [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
-      <!-- <app-component-properties [componentName]="'e-autocomplete'"></app-component-properties> -->
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
+
 </div>
