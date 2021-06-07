@@ -64,7 +64,6 @@ import { PatternsDocComponent } from './doc-pages/tools/patterns-doc/patterns-do
 import { GetStartedDesignersComponent } from './doc-pages/get-started/get-started-designers/get-started-designers.component';
 import { ContactComponent } from './doc-pages/community/contact/contact.component';
 import { TheDesignSystemDocComponent } from './doc-pages/get-started/the-design-system-doc/the-design-system-doc.component';
-import { TheConceptComponent } from './doc-pages/identity/the-concept/the-concept.component';
 import { ChipsComponent } from './doc-pages/components/chips/chips.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
@@ -72,6 +71,7 @@ import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.compo
 import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
 import { v2PlaygroundComponent } from './doc-pages/dev/v2-playground/v2-playground.component';
 import { BreadcrumbDocComponent } from './doc-pages/components/breadcrumb-doc/breadcrumb-doc.component';
+import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 
 const routes: Routes = [
   {
@@ -161,7 +161,7 @@ const routes: Routes = [
           },
           {
             path: Pages.TheConcept,
-            component: TheConceptComponent,
+            component: CMSPageComponent,
           },
         ],
       },
@@ -414,4 +414,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

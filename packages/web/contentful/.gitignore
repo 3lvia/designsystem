@@ -1,0 +1,3 @@
+.env
+!dist
+dist/entries/*.json

@@ -64,8 +64,11 @@ export class ComponentHeaderComponent implements AfterViewInit {
 
   getNewInnerHTML(): void {
     const element = this.content.nativeElement;
-    const newInner = this.decodeHTML(element.innerHTML);
-    element.innerHTML = '';
-    element.appendChild(this.createHTMLElement(newInner));
+    // Not necessary to replace content with decoded HTML if it does not contain any encoded HTML
+    if (element.innerHTML.indexOf('&lt;') > -1) {
+      const newInner = this.decodeHTML(element.innerHTML);
+      element.innerHTML = '';
+      element.appendChild(this.createHTMLElement(newInner));
+    }
   }
 }
