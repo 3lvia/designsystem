@@ -1,45 +1,4 @@
-.V1CegRow {
-  display: flex;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  width: 100%;
-  min-height: 340px;
-
-  .v1Ceg {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -ms-flex-align: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    max-width: 788px;
-    padding: 40px;
-    border: 1px solid var(--e-grey-10);
-    border-radius: 8px;
-    min-height: 340px;
-  }
-  .v1CegFilter {
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 100%;
-    max-width: 176px;
-    margin-left: 24px;
-    text-transform: capitalize;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-}
-
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
-
-:host {
-  width: 100%;
-}
 
 @mixin first-col {
   width: 80%;
@@ -53,34 +12,12 @@
     width: 30%;
   }
 }
-@mixin full-col {
-  width: 100%;
-}
 
 .ceg-container {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-top: 72px;
-
-  .ceg-top-filters {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    max-width: 788px;
-    margin-bottom: 24px;
-    @include first-col;
-    .ceg-dropdown {
-      // width: 100%;
-      width: 50%;
-      &:first-of-type {
-        margin-right: 16px;
-      }
-      &:last-of-type {
-        margin-left: 16px;
-      }
-    }
-  }
 
   .ceg-row-1 {
     display: flex;
@@ -93,14 +30,6 @@
     .ceg-col-2 {
       @include second-col;
     }
-  }
-  .ceg-row-2 {
-    @include first-col;
-  }
-
-  &.full-width .ceg-row-2,
-  &.full-width .ceg-col-1 {
-    width: 100% !important;
   }
 
   .ceg-code-preview {
@@ -117,28 +46,6 @@
     @include breakpoint-up(Mobile) {
       padding: 24px;
     }
-
-    &.ceg-code-preview--accordion {
-      align-items: flex-start;
-      padding-top: 80px;
-      @include breakpoint-up(Mobile) {
-        padding-top: 40px;
-      }
-      @include breakpoint-up(Tablet) {
-        padding-top: 48px;
-      }
-    }
-
-    .ceg-frame {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      &.aligned-top {
-        align-items: flex-start;
-      }
-      width: 100%;
-      height: 0;
-    }
   }
 }
 
@@ -150,18 +57,6 @@
   text-transform: capitalize;
   user-select: none;
 
-  .ceg-filter-margin {
-    padding-bottom: 24px;
-  }
-  .ceg-hidden {
-    visibility: hidden;
-  }
-
-  .e-checkbox:last-child,
-  .e-radio:last-child {
-    margin-bottom: 8px;
-  }
-
   .counter {
     display: flex;
     flex-direction: row;
@@ -170,9 +65,6 @@
       width: 40px;
       display: flex;
       justify-content: center;
-      &.small {
-        width: 22px;
-      }
     }
   }
 }
