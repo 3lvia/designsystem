@@ -6,6 +6,44 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.9.0
+      </span>
+      <br>
+      <span>
+        May 7, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+          </div>
+          <ul>
+            <li>
+              Added five new icons.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a> 
+        </div>
+        <ul>
+          <li>
+            Updated sortings icons, ascending is arrow up and descending is arrow down.
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.8.1
       </span>
       <br>
