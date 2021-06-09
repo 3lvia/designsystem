@@ -16,7 +16,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
 
   useEffect(() => {
     setChildrenLength(breadcrumbs.length);
-    console.log('new breadcrumbs!');
   }, [breadcrumbs]);
 
   useEffect(() => {

@@ -98,8 +98,4 @@ export class v2PlaygroundComponent implements OnInit {
   ngOnInit(): void {
     this.nativeJSApproach();
   }
-
-  consoleLogDropdownValue = () => {
-    console.log(this.dropdownValue);
-  };
 }
