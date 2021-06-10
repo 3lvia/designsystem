@@ -84,11 +84,6 @@ export class RadiobuttonDocComponent {
     <span class="e-radio__mark"></span>
     <span class="e-radio__label">Focus</span>
   </label>
-  <label class="e-radio e-radio---invalid">
-    <input type="radio" name="invalid"/>
-    <span class="e-radio__mark"></span>
-    <span class="e-radio__label">Invalid</span>
-  </label>
 </form>
 `;
 }
