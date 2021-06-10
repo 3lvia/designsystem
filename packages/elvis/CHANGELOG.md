@@ -44,6 +44,32 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.8.4
+      </span>
+      <br>
+      <span>
+        June 4, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/radiobutton#Overview">Radiobutton</a> 
+        </div>
+        <ul>
+          <li>
+            Deprecated radiobutton classes for invalid state, because a button should always be selected by default so the state is not necessary.
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.8.1
       </span>
       <br>

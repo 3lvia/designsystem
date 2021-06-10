@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
 import { eHomes } from 'src/app/shared/e-items';
 
 @Component({
@@ -13,6 +14,19 @@ export class HomeComponent implements OnInit {
   date = new Date();
   christmasMonth = 11;
   christmas = false;
+  locale: string;
+
+  constructor(localizationService: LocalizationService) {
+    localizationService.listenLocalization().subscribe((locale) => {
+      if (locale === Locale['en-GB']) {
+        this.overviewTitle = 'Elvia design system'
+        this.locale = 'en-GB';
+      } else {
+        this.overviewTitle = 'Elvia designsystem'
+        this.locale = 'no-NB';
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.findEndOfRow();

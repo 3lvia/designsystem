@@ -71,6 +71,7 @@ import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-
 import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
 import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
 import { v2PlaygroundComponent } from './doc-pages/dev/v2-playground/v2-playground.component';
+import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 
 const routes: Routes = [
   {
@@ -160,7 +161,7 @@ const routes: Routes = [
           },
           {
             path: Pages.TheConcept,
-            component: TheConceptComponent,
+            component: CMSPageComponent,
           },
         ],
       },
@@ -409,4 +410,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
