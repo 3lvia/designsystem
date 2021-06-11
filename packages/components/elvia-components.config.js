@@ -104,7 +104,7 @@ module.exports = [
     elementName: 'elvia-divider',
     attributes: [
       { name: 'type', type: 'string' },
-      { name: 'title', type: 'string' },
+      { name: 'title', type: 'string | HTMLElement' },
       { name: 'typography', type: 'string' },
       { name: 'isInverted', type: 'boolean' },
     ],

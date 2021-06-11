@@ -17,8 +17,8 @@ export const dividerData = {
     },
     title: {
       isRequired: false,
-      type: 'string',
-      description: 'Title displayed together with a divider',
+      type: 'HTMLElement',
+      description: 'Title displayed together with a divider. Send in as slot in Angular and HTMLElement in React.',
       default: '"Title"',
       displayName: 'Title',
     },
@@ -49,7 +49,10 @@ export const dividerData = {
   codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,
   codeImportWebComponent: `import '@elvia/elvis-divider';`,
   codeReact: `<Divider
+  title={<h2>Title</h2>}
 ></Divider>`,
   codeWebComponent: `<elvia-divider
-></elvia-divider>`,
+>
+  <h2 slot="title">Title</h2>
+</elvia-divider>`,
 };
