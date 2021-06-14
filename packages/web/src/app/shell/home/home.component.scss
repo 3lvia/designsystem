@@ -101,6 +101,7 @@
   display: none;
   flex-direction: column;
   width: 100%;
+  position: relative;
   &::before {
     content: '';
     left: -40%;

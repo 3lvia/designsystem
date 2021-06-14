@@ -9,44 +9,22 @@
 <!--BODY-->
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div
-    class="e-my-48"
-    class="component-preview-temp component-preview-animation"
-  >
-    <div
-      class="e-position-picker"
-      style="width: 300px"
-    >
-      <div
-        class="e-position-picker__icon"
-        *ngIf="!showPosition"
-      >
+  <div class="e-my-48" class="component-preview-temp">
+    <div class="e-position-picker" style="width: 300px">
+      <div class="e-position-picker__icon" *ngIf="!showPosition">
         <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>
       </div>
-      <div
-        class="e-position-picker__description"
-        *ngIf="showPosition"
-      >60.026676, 10.798887</div>
+      <div class="e-position-picker__description" *ngIf="showPosition">60.026676, 10.798887</div>
       <div class="e-position-picker__action">
-        <button
-          class="e-btn e-btn--tertiary"
-          (click)="openMapExample('mapModal')"
-        >
+        <button class="e-btn e-btn--tertiary" (click)="openMapExample('mapModal')">
           <span class="e-btn__icon"><i class="e-icon e-icon--pin"></i></span>
           <span class="e-btn__title">Choose position</span>
         </button>
       </div>
     </div>
-    <div
-      class="e-modal e-none"
-      #mapModal
-    >
+    <div class="e-modal e-none" #mapModal>
       <div class="e-modal__content">
-        <button
-          class="e-btn e-btn--icon"
-          (click)="closeModal('mapModal')"
-          id="examplebutton"
-        >
+        <button class="e-btn e-btn--icon" (click)="closeModal('mapModal')" id="examplebutton">
           <span class="e-btn__icon"><i class="e-icon e-icon--remove_circle-color"></i></span>
         </button>
         <iframe
@@ -59,15 +37,8 @@
           aria-hidden="false"
           tabindex="0"
         ></iframe>
-        <div
-          class="e-form-field"
-          id="exampleInput"
-        >
-          <div
-            class="e-search e-search--instant"
-            style="width: 250px"
-            #exampleSearch
-          >
+        <div class="e-form-field" id="exampleInput">
+          <div class="e-search e-search--instant" style="width: 250px" #exampleSearch>
             <div class="e-input">
               <input
                 aria-label="Search"
@@ -78,10 +49,7 @@
               />
             </div>
             <i class="e-icon e-icon--search-color"></i>
-            <button
-              class="e-btn e-btn--icon"
-              (click)="clearExample()"
-            >
+            <button class="e-btn e-btn--icon" (click)="clearExample()">
               <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
             </button>
           </div>
@@ -136,10 +104,7 @@
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section
-    [sectionTitle]="'Properties'"
-    [propertiesClass]="'e-position-picker'"
-  >
+  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-position-picker'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties [componentName]="'e-position-picker'"></app-component-properties>
     </ng-container>
