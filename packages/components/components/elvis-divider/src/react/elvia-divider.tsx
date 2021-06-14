@@ -22,17 +22,18 @@ export const Divider: React.FC<DividerProps> = ({
   useEffect(() => {
     // Web component - Placing slots at the right place
     if (
-      dividerRef.current &&
-      dividerRef.current.parentElement &&
-      dividerRef.current.parentElement.parentElement
+      !dividerRef.current ||
+      !dividerRef.current.parentElement ||
+      !dividerRef.current.parentElement.parentElement
     ) {
-      dividerRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
-        if (dividerTitleRef.current && element.slot === 'title') {
-          dividerTitleRef.current.innerHTML = '';
-          dividerTitleRef.current.appendChild(element);
-        }
-      });
+      return;
     }
+    dividerRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
+      if (dividerTitleRef.current && element.slot === 'title') {
+        dividerTitleRef.current.innerHTML = '';
+        dividerTitleRef.current.appendChild(element);
+      }
+    });
   });
 
   return (
