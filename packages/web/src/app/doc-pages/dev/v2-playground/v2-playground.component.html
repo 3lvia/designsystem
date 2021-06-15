@@ -13,7 +13,9 @@
     <elvia-divider></elvia-divider>
   </div>
   <div style="padding: 8px">
-    <elvia-divider type="title" typography="caps"></elvia-divider>
+    <elvia-divider type="title" typography="caps">
+      <h3 slot="title">Titleee</h3>
+    </elvia-divider>
   </div>
   <div style="padding: 8px">
     <elvia-divider type="curved"></elvia-divider>
@@ -47,9 +49,6 @@
     <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
       <elvia-datepicker [value]="date1"></elvia-datepicker>
     </div>
-
-    <h2>Divider</h2>
-    <elvia-divider [isCurved]="true"></elvia-divider>
 
     <h2>Accordion</h2>
     <elvia-accordion
