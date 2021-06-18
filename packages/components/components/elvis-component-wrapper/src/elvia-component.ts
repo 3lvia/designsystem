@@ -78,7 +78,9 @@ export class ElvisComponentWrapper extends HTMLElement {
       if (!isEqual(this._data[key], newProps[key])) {
         this._data[key] = newProps[key];
         this.addConditionalStyle();
-        this.changedEvent(key);
+        if (key !== this.mapNameToRealName(key)) {
+          this.changedEvent(key);
+        }
         this.changedEvent(this.mapNameToRealName(key));
       }
     });

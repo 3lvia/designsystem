@@ -49,6 +49,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
         @include outline.e-outline();
       }
 
+      // DEPRECATED
       &:invalid ~ #{$this}__mark {
         border-color: colors.color('red');
       }
@@ -106,6 +107,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
       @include outline.e-outline();
     }
 
+    // DEPRECATED
     &:invalid ~ #{$this}__mark {
       border-color: colors.color('red');
     }
@@ -245,6 +247,7 @@ $form-radiobutton-mark-border: 1px solid colors.color('elvia-off');
     }
   }
 
+  // DEPRECATED
   &.e-radio---invalid {
     .e-radio__mark {
       border-color: colors.color('red');
