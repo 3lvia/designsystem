@@ -9,6 +9,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "*"
+    "@elvia/elvis-component-wrapper": "^2.0.0"
   }
 }
