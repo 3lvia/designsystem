@@ -117,16 +117,18 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   private changedEvent(propName: string) {
+    const test = new CustomEvent(propName + 'OnChange', {
+      bubbles: false,
+      composed: true,
+      detail: this._data,
+    });
+    console.log('TEST: ', test);
     this.dispatchEvent(
-      new CustomEvent(propName + 'OnChange', {
-        bubbles: false,
-        composed: true,
-        detail: this._data,
-      }),
+      test
     );
   }
 
-  private convertString(stringToConvert: string, attrType: string) {
+  private convertString(stringToConvert: string, attrType: string, attrName: string) {
     if (attrType === 'string' || attrType.indexOf('|') !== -1) {
       return stringToConvert;
     }
@@ -137,10 +139,14 @@ export class ElvisComponentWrapper extends HTMLElement {
       return parseFloat(stringToConvert);
     }
     if (attrType === 'object') {
-      return JSON.parse(stringToConvert);
+      try {
+        return JSON.parse(stringToConvert);
+      } catch (error) {
+        console.error(this.webComponent.getComponentData().name + ': The property "' + attrName + '" is not a valid JSON object. This is probably because the JSON object is containing single quotes instead of double quotes.')
+      }
     }
     if (attrType === 'Date') {
-      return Date.parse(stringToConvert);
+      return new Date(stringToConvert);
     }
   }
 
@@ -152,7 +158,7 @@ export class ElvisComponentWrapper extends HTMLElement {
       const dataAttr = this._data[attr.name.toLowerCase()];
       const val = this.getAttribute(attr.name.toLowerCase());
       if (val !== null && (dataAttr === null || typeof dataAttr === 'undefined')) {
-        this._data[attr.name.toLowerCase()] = this.convertString(val, attr.type);
+        this._data[attr.name.toLowerCase()] = this.convertString(val, attr.type, attr.name);
       }
     });
   }
