@@ -129,4 +129,10 @@ module.exports = [
     ],
     reactName: 'Dropdown',
   },
+  {
+    name: 'elvis-pagination',
+    elementName: 'elvia-pagination',
+    attributes: [{ name: 'test', type: 'string' }],
+    reactName: 'Pagination',
+  },
 ];

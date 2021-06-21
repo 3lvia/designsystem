@@ -10,6 +10,7 @@
     "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-datepicker": "*",
     "@elvia/elvis-dropdown": "*",
+    "@elvia/elvis-pagination": "*",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-tabs": "*",
