@@ -117,14 +117,12 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   private changedEvent(propName: string) {
-    const test = new CustomEvent(propName + 'OnChange', {
-      bubbles: false,
-      composed: true,
-      detail: this._data,
-    });
-    console.log('TEST: ', test);
     this.dispatchEvent(
-      test
+      new CustomEvent(propName + 'OnChange', {
+        bubbles: false,
+        composed: true,
+        detail: this._data,
+      }),
     );
   }
 
