@@ -129,4 +129,19 @@ module.exports = [
     ],
     reactName: 'Dropdown',
   },
+  {
+    name: 'elvis-modal',
+    elementName: 'elvia-modal',
+    attributes: [
+      { name: 'content', type: 'HTMLElement' },
+      { name: 'isShowing', type: 'boolean' },
+      { name: 'buttons', type: 'HTMLElement' }, // endre
+      { name: 'title', type: 'string' },
+      { name: 'darkMode', type: 'boolean' }, // fjerne?
+      { name: 'noPadding', type: 'boolean' },
+      { name: 'className', type: 'string' }, // fjerne?
+      { name: 'hasCloseBtn', type: 'boolean' } // fjerne og bare bestemme på illustrasjon?
+    ],
+    reactName: 'Modal',
+  },
 ];
