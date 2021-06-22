@@ -97,7 +97,7 @@ function App() {
       <h1>React preview</h1>
       <h2>Pagination!</h2>
 
-      <Pagination items={100} defaultSelection={[1, 10]}></Pagination>
+      <Pagination items={156} defaultSelection={[1, 10]}></Pagination>
 
       <h2>Dropdown</h2>
       <button onClick={consoleDropdownVal}>Console dropdown value</button>

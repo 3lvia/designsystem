@@ -107,10 +107,14 @@ const Pagination: FC<PaginationProps> = ({
     let centerNumbers;
     let lastNumbers;
 
-    let firstNumberSolo = false;
-    let closeToEnd = false;
-    let isfirstDots = false;
-    let isLastDots = false;
+    let firstCenter = false;
+    let middleCenter = false;
+    let lastCenter = false;
+
+    // let firstNumberSolo = false;
+    // let closeToEnd = false;
+    // let isfirstDots = false;
+    // let isLastDots = false;
 
     const getFirstNumbers = () => {
       firstNumbers =
@@ -124,11 +128,16 @@ const Pagination: FC<PaginationProps> = ({
 
     const getCenterNumbers = (currentSelectionNumber: number) => {
 
-      if (currentSelectionNumber === selectionNumbers.length) {
-        console.log('length: ' + selectionNumbers.length)
+
+
+      // første nummer når selection er 1. 
+      if (currentSelectionNumber === 1 || currentSelectionNumber < selectionNumbers.length) {
+        console.log('Ran first center');
         centerNumbers = selectionNumbers.map((number, index) => {
 
-          if (number >= selectionNumbers.length - 4 && number !== selectionNumbers.length && number !== 1) {
+          if (number > 1 && number <= 6 && number !== selectionNumbers.length) {
+            firstCenter = true;
+            // do something with dots booleans here
             return (
               < button
                 className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
@@ -138,17 +147,20 @@ const Pagination: FC<PaginationProps> = ({
               </ button >
 
             )
+          } else {
+            firstCenter = false;
           }
         })
       }
-
-      if (currentSelectionNumber === 1 || currentSelectionNumber < selectionNumbers.length) {
+      // middle numbers
+      if (currentSelectionNumber >= 5 && firstCenter === false) {
         centerNumbers = selectionNumbers.map((number, index) => {
 
-          if (number > 1 && number <= 6 && number !== selectionNumbers.length) {
+          // if (selectionNumbers.length > 6)
+          console.log('MIDDLE:');
 
-            console.log('first centerNumbers: ' + number);
-
+          if (number >= selectedNumber - 2 && number <= selectedNumber + 2 && number !== selectionNumbers.length) {
+            middleCenter = true;
 
             // do something with dots booleans here
             return (
@@ -160,18 +172,18 @@ const Pagination: FC<PaginationProps> = ({
               </ button >
 
             )
+          } else {
+            middleCenter = false;
           }
         })
       }
-      if (currentSelectionNumber >= 5) {
+      // last numbers
+      if (currentSelectionNumber >= selectionNumbers.length - 3 && middleCenter === false) {
         centerNumbers = selectionNumbers.map((number, index) => {
 
           // if (selectionNumbers.length > 6)
 
-          if (number >= selectedNumber - 2 && number <= selectedNumber + 2 && number !== selectionNumbers.length) {
-
-            console.log('second centerNumbers: ' + number);
-
+          if (number >= selectionNumbers.length - 5 && number !== selectionNumbers.length) {
             // do something with dots booleans here
             return (
               < button
