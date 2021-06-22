@@ -30,6 +30,7 @@
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-dropdown": "*",
     "@elvia/elvis-popover": "*",
+    "@elvia/elvis-box": "*",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-tabs": "*",
     "classlist.js": "^1.1.20150312",

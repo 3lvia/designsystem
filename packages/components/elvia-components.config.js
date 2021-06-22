@@ -129,4 +129,17 @@ module.exports = [
     ],
     reactName: 'Dropdown',
   },
+  {
+    name: 'elvis-box',
+    elementName: 'elvia-box',
+    attributes: [
+      { name: 'content', type: 'HTMLElement' },
+      { name: 'title', type: 'string' },
+      { name: 'hasHeader', type: 'boolean' },
+      { name: 'whiteBg', type: 'boolean' },
+    ],
+    reactName: 'Box',
+    useWrapper: true,
+    elementStyle: `width: 100%;`,
+  },
 ];

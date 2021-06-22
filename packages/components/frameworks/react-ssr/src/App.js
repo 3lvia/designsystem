@@ -9,6 +9,7 @@ import { TestingComponent } from '@elvia/elvis-testing/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
+import { Box } from '@elvia/elvis-box/react';
 
 function App() {
   // old checkbox states
@@ -94,7 +95,15 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-      <h2>HELLO THERE CHANGE!</h2>
+
+      <h2>Box</h2>
+      <Box
+        whiteBg={true}
+        hasHeader={true}
+        title={<h1>Title for the box component</h1>}
+        content={<div>Heisann dette er en box component sendt med som node i react</div>}
+      ></Box>
+
       <h2>Dropdown</h2>
       <button onClick={consoleDropdownVal}>Console dropdown value</button>
       <div style={{ marginTop: '24px' }}>

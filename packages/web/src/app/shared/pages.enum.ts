@@ -36,6 +36,7 @@ export enum Pages {
   Alert = 'alert-messages',
   Autocomplete = 'autocomplete',
   Button = 'button',
+  Box = 'box',
   Card = 'card',
   Chips = 'chips',
   Checkbox = 'checkbox',

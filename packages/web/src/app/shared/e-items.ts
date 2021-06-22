@@ -112,6 +112,18 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
+    title: 'Box',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'Box',
+    docUrl: Pages.Box,
+    absolutePath: '/components/' + Pages.Box,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/component-images/Button.svg',
+    figmaUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons?node-id=0%3A1',
+    type: 'Component',
+  },
+  {
     title: 'Button',
     // tslint:disable-next-line: max-line-length
     description:
