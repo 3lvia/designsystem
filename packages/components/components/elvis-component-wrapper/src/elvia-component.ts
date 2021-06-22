@@ -5,6 +5,7 @@ import toolbox from '@elvia/elvis-toolbox';
 
 export class ElvisComponentWrapper extends HTMLElement {
   protected _data: any;
+  protected _slots: any;
   protected reactComponent: any;
   protected webComponent: any;
   protected cssStyle: string;
@@ -14,6 +15,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   constructor(webComponent: any, reactComponent: any, cssStyle: string) {
     super();
     this._data = {};
+    this._slots = {};
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
@@ -29,6 +31,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   connectedCallback(): void {
+    this.storeAllSlots();
     if (this.webComponent.getComponentData().useWrapper) {
       this.mountPoint = document.createElement('span');
       this.appendChild(this.mountPoint);
@@ -116,6 +119,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
+  getSlot(str: string) {
+    return this._slots[str];
+  }
+
   private changedEvent(propName: string) {
     this.dispatchEvent(
       new CustomEvent(propName + 'OnChange', {
@@ -124,6 +131,17 @@ export class ElvisComponentWrapper extends HTMLElement {
         detail: this._data,
       }),
     );
+  }
+
+  private storeAllSlots(): void {
+    this.querySelectorAll('[slot]').forEach((element) => {
+      const slotName = element.getAttribute('slot');
+      if (!slotName) {
+        return;
+      }
+      this._slots[slotName] = element;
+      element.remove();
+    });
   }
 
   private convertString(stringToConvert: string, attrType: string, attrName: string) {
