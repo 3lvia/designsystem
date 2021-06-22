@@ -35,7 +35,6 @@ export const Divider: React.FC<DividerProps> = ({
       }
       setHasSlot(true);
       if (dividerTitleRef.current) {
-        setHasSlot(true);
         dividerTitleRef.current.innerHTML = '';
         dividerTitleRef.current.appendChild(element);
       }
