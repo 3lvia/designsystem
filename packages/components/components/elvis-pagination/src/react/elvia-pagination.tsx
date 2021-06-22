@@ -59,14 +59,19 @@ const Pagination: FC<PaginationProps> = ({
   const [selectedRange, setSelectedRange] = useState([defaultSelection])
 
 
+
   const [currentDisplayAmount, setCurrentDisplayAmount] = useState(itemsPerPage[0]);
   const [currentSelection, setCurrentSelection] = useState(1);
 
-
+  // update selectedNumber based on range and amount of items
   useEffect(() => {
     console.log(selectedNumber)
-  }, [selectedNumber])
+  }, [currentDisplayAmount])
 
+  // for testing
+  // useEffect(() => {
+  //   console.log(selectedNumber)
+  // }, [selectedNumber])
 
   // calculate amount of selection numbers, based on total pages
   const selectorAmount = Math.ceil(items / parseInt(currentDisplayAmount.value));
@@ -81,40 +86,15 @@ const Pagination: FC<PaginationProps> = ({
     setSelectedNumber(prevnumber => prevnumber + 1)
   }
 
-
-  // selectorBtns : numbers and arrows. 
-  // const SelectorBtn = ({ ...props }) => {
-
-  //   //////////////////////////////////////////////////
-  //   // UPDATE LATER
-  //   //////////////////////////////////////////////////
-
-  //   // is NAN, to check for text in dropdown value. if text equals "all", do not return any selection options.
-  //   if (isNaN(parseInt(currentDisplayAmount.value))) {
-  //     console.log('hello there')
-  //     // set selectorBT to display no buttons or arrows. 
-  //   }
-  //   //////////////////////////////////////////////////
-  //   //////////////////////////////////////////////////
-
-  // };
-
-  const Paginators = ({ ...props }) => {
-
-    const showtime = [];
-
+  // Visible numbers in paginator
+  const Paginators = () => {
+    const visibleNumbers = [];
     let firstNumbers;
     let centerNumbers;
     let lastNumbers;
 
     let firstCenter = false;
     let middleCenter = false;
-    let lastCenter = false;
-
-    // let firstNumberSolo = false;
-    // let closeToEnd = false;
-    // let isfirstDots = false;
-    // let isLastDots = false;
 
     const getFirstNumbers = () => {
       firstNumbers =
@@ -127,17 +107,11 @@ const Pagination: FC<PaginationProps> = ({
     }
 
     const getCenterNumbers = (currentSelectionNumber: number) => {
-
-
-
-      // første nummer når selection er 1. 
-      if (currentSelectionNumber === 1 || currentSelectionNumber < selectionNumbers.length) {
-        console.log('Ran first center');
+      // Initiate when selected number is 1 or below 5
+      if (currentSelectionNumber === 1 || currentSelectionNumber < 5) {
         centerNumbers = selectionNumbers.map((number, index) => {
-
           if (number > 1 && number <= 6 && number !== selectionNumbers.length) {
             firstCenter = true;
-            // do something with dots booleans here
             return (
               < button
                 className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
@@ -145,24 +119,17 @@ const Pagination: FC<PaginationProps> = ({
                 onClick={() => setSelectedNumber(number)}
               > {number}
               </ button >
-
             )
           } else {
             firstCenter = false;
           }
         })
       }
-      // middle numbers
+      // if selected numbers is 2+/- away from first or last selectable number
       if (currentSelectionNumber >= 5 && firstCenter === false) {
         centerNumbers = selectionNumbers.map((number, index) => {
-
-          // if (selectionNumbers.length > 6)
-          console.log('MIDDLE:');
-
-          if (number >= selectedNumber - 2 && number <= selectedNumber + 2 && number !== selectionNumbers.length) {
+          if (number >= selectedNumber - 2 && number <= selectedNumber + 2 && number !== selectionNumbers.length && number !== 1) {
             middleCenter = true;
-
-            // do something with dots booleans here
             return (
               < button
                 className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
@@ -170,21 +137,16 @@ const Pagination: FC<PaginationProps> = ({
                 onClick={() => setSelectedNumber(number)}
               > {number}
               </ button >
-
             )
           } else {
             middleCenter = false;
           }
         })
       }
-      // last numbers
+      // If selected number is i proximity of last selectable number
       if (currentSelectionNumber >= selectionNumbers.length - 3 && middleCenter === false) {
         centerNumbers = selectionNumbers.map((number, index) => {
-
-          // if (selectionNumbers.length > 6)
-
-          if (number >= selectionNumbers.length - 5 && number !== selectionNumbers.length) {
-            // do something with dots booleans here
+          if (number >= selectionNumbers.length - 5 && number !== selectionNumbers.length && number !== 1) {
             return (
               < button
                 className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
@@ -192,19 +154,14 @@ const Pagination: FC<PaginationProps> = ({
                 onClick={() => setSelectedNumber(number)}
               > {number}
               </ button >
-
             )
           }
         })
       }
     }
-    const getLastNumbers = (currentSelectionNumber: number) => {
-
-      console.log('ran lastnUM')
-
+    const getLastNumbers = () => {
       lastNumbers = selectionNumbers.map((number, index) => {
         if (number === selectionNumbers.length) {
-          // do something with dots booleans here
           return (
             < button
               className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
@@ -215,20 +172,14 @@ const Pagination: FC<PaginationProps> = ({
           )
         }
       })
-
     }
+    // get visible numbers
     getFirstNumbers();
     getCenterNumbers(selectedNumber);
-    getLastNumbers(selectedNumber);
+    getLastNumbers();
+    visibleNumbers.push(firstNumbers, centerNumbers, lastNumbers);
 
-
-    showtime.push(firstNumbers);
-    showtime.push(centerNumbers);
-    showtime.push(lastNumbers);
-
-
-    return showtime;
-
+    return visibleNumbers;
   }
 
 
@@ -244,6 +195,16 @@ const Pagination: FC<PaginationProps> = ({
     return selectedNumber < selectionNumbers.length;
   }
 
+  const onDropdownChangeHandler = (selectionRange: DropdownOption) => {
+    setCurrentDisplayAmount(selectionRange);
+    // Check if current selection number in avalailable selectionNumbers array
+    const isSelectedInRange = selectionNumbers.includes(selectedNumber);
+    // if not, update selectedNumber to higest
+    if (!isSelectedInRange) {
+      setSelectedNumber(selectionNumbers.length);
+    }
+  }
+
   return (
     <div className="ewc-pagination">
       <div className="ewc-pagination--displayText">Viser</div>
@@ -253,7 +214,7 @@ const Pagination: FC<PaginationProps> = ({
           placeholder=""
           options={itemsPerPage}
           defaultValue={currentDisplayAmount}
-          valueOnChange={setCurrentDisplayAmount}
+          valueOnChange={(event: any) => onDropdownChangeHandler(event)}
         ></Dropdown>
       </div>
       <div className="ewc-pagination--pagesAmount">av {items} bilder</div>
@@ -266,7 +227,7 @@ const Pagination: FC<PaginationProps> = ({
           : null
         }
 
-        <Paginators currentNumber={selectedNumber}></Paginators>
+        <Paginators />
 
         {rightArrow() ?
           <button className="ewc-pagination--selector__arrow_btn" onClick={updateSelectedPageRight}>
@@ -281,14 +242,3 @@ const Pagination: FC<PaginationProps> = ({
 };
 
 export default Pagination;
-
-
-  // const SelectorBtn = ({ ...props }) => {
-  //   return (
-  //     <button className="ewc-pagination--selector-area__selector-btn">1</button>
-  //   );
-  // };
-
-// useEffect(() => {
-//   console.log('change current display amount, is now: ' + currentDisplayAmount)
-// }, [currentDisplayAmount]);
