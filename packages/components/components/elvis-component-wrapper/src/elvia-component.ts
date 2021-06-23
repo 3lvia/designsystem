@@ -5,6 +5,7 @@ import toolbox from '@elvia/elvis-toolbox';
 
 export class ElvisComponentWrapper extends HTMLElement {
   protected _data: any;
+  protected _slots: any;
   protected reactComponent: any;
   protected webComponent: any;
   protected cssStyle: string;
@@ -14,6 +15,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   constructor(webComponent: any, reactComponent: any, cssStyle: string) {
     super();
     this._data = {};
+    this._slots = {};
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
@@ -29,6 +31,10 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   connectedCallback(): void {
+    // Slot items
+    if (this.webComponent.getComponentData().slotItems === true) {
+      this.storeAllSlots();
+    }
     if (this.webComponent.getComponentData().useWrapper) {
       this.mountPoint = document.createElement('span');
       this.appendChild(this.mountPoint);
@@ -116,6 +122,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
+  getSlot(str: string) {
+    return this._slots[str];
+  }
+
   private changedEvent(propName: string) {
     this.dispatchEvent(
       new CustomEvent(propName + 'OnChange', {
@@ -126,7 +136,18 @@ export class ElvisComponentWrapper extends HTMLElement {
     );
   }
 
-  private convertString(stringToConvert: string, attrType: string) {
+  private storeAllSlots(): void {
+    this.querySelectorAll('[slot]').forEach((element) => {
+      const slotName = element.getAttribute('slot');
+      if (!slotName) {
+        return;
+      }
+      this._slots[slotName] = element;
+      element.remove();
+    });
+  }
+
+  private convertString(stringToConvert: string, attrType: string, attrName: string) {
     if (attrType === 'string' || attrType.indexOf('|') !== -1) {
       return stringToConvert;
     }
@@ -137,10 +158,14 @@ export class ElvisComponentWrapper extends HTMLElement {
       return parseFloat(stringToConvert);
     }
     if (attrType === 'object') {
-      return JSON.parse(stringToConvert);
+      try {
+        return JSON.parse(stringToConvert);
+      } catch (error) {
+        console.error(this.webComponent.getComponentData().name + ': The property "' + attrName + '" is not a valid JSON object. This is probably because the JSON object is containing single quotes instead of double quotes.')
+      }
     }
     if (attrType === 'Date') {
-      return Date.parse(stringToConvert);
+      return new Date(stringToConvert);
     }
   }
 
@@ -152,7 +177,7 @@ export class ElvisComponentWrapper extends HTMLElement {
       const dataAttr = this._data[attr.name.toLowerCase()];
       const val = this.getAttribute(attr.name.toLowerCase());
       if (val !== null && (dataAttr === null || typeof dataAttr === 'undefined')) {
-        this._data[attr.name.toLowerCase()] = this.convertString(val, attr.type);
+        this._data[attr.name.toLowerCase()] = this.convertString(val, attr.type, attr.name);
       }
     });
   }

@@ -34,7 +34,7 @@ function setGetList(attributes) {
             super.setProps({'${lowercase}': newValue});
         }
         get ${attr.name}() {
-            super.getProps()['${lowercase}'];
+            return super.getProps()['${lowercase}'];
         }
         `
         // At least 1 uppercase in attr.name
@@ -44,7 +44,7 @@ function setGetList(attributes) {
                 super.setProps({'${lowercase}': newValue});
             }
             get ${lowercase}() {
-                super.getProps()['${lowercase}'];
+                return super.getProps()['${lowercase}'];
             }
             `
         }
