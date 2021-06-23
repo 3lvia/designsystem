@@ -31,7 +31,10 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   connectedCallback(): void {
-    this.storeAllSlots();
+    // Slot items
+    if (this.webComponent.getComponentData().slotItems === true) {
+      this.storeAllSlots();
+    }
     if (this.webComponent.getComponentData().useWrapper) {
       this.mountPoint = document.createElement('span');
       this.appendChild(this.mountPoint);
