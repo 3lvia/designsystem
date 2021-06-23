@@ -64,29 +64,27 @@ export const ModalComponent: FC<ModalProps> = ({
 
   useEffect(() => {
     if (isShowing) {
-      return;
-    }
+      // Get slotted items from web component
+      if (modalText.current && webcomponent.getSlot('content')) {
+        modalText.current.innerHTML = '';
+        modalText.current.appendChild(webcomponent.getSlot('content'));
+      }
 
-    // Get slotted items from web component
-    if (modalText.current && webcomponent.getSlot('content')) {
-      modalText.current.innerHTML = '';
-      modalText.current.appendChild(webcomponent.getSlot('content'));
-    }
+      if (modalIllustration.current && webcomponent.getSlot('illustration')) {
+        hasIllustration = true;
+        modalIllustration.current.innerHTML = '';
+        modalIllustration.current.appendChild(webcomponent.getSlot('illustration'));
+      }
 
-    if (modalIllustration.current && webcomponent.getSlot('illustration')) {
-      hasIllustration = true;
-      modalIllustration.current.innerHTML = '';
-      modalIllustration.current.appendChild(webcomponent.getSlot('illustration'));
-    }
+      if (modalSecondaryBtn.current && webcomponent.getSlot('secondaryButton')) {
+        modalSecondaryBtn.current.innerHTML = '';
+        modalSecondaryBtn.current.appendChild(webcomponent.getSlot('illustration'));
+      }
 
-    if (modalSecondaryBtn.current && webcomponent.getSlot('secondaryButton')) {
-      modalSecondaryBtn.current.innerHTML = '';
-      modalSecondaryBtn.current.appendChild(webcomponent.getSlot('illustration'));
-    }
-
-    if (modalPrimaryBtn.current && webcomponent.getSlot('PrimaryButton')) {
-      modalPrimaryBtn.current.innerHTML = '';
-      modalPrimaryBtn.current.appendChild(webcomponent.getSlot('illustration'));
+      if (modalPrimaryBtn.current && webcomponent.getSlot('PrimaryButton')) {
+        modalPrimaryBtn.current.innerHTML = '';
+        modalPrimaryBtn.current.appendChild(webcomponent.getSlot('illustration'));
+      }
     }
   }, [isShowing]);
 
