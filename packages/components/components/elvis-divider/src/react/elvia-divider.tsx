@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as StyledDivider from './styledComponents';
 
 export type DividerType = 'simple' | 'title' | 'curved';
@@ -16,6 +16,7 @@ export const Divider: React.FC<DividerProps> = ({
   title = 'Title',
   isInverted = false,
 }) => {
+  const [hasSlot, setHasSlot] = useState(false);
   const dividerRef = useRef<HTMLDivElement>(null);
   const dividerTitleRef = useRef<HTMLDivElement>(null);
 
@@ -29,7 +30,11 @@ export const Divider: React.FC<DividerProps> = ({
       return;
     }
     dividerRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
-      if (dividerTitleRef.current && element.slot === 'title') {
+      if (element.slot !== 'title') {
+        return;
+      }
+      setHasSlot(true);
+      if (dividerTitleRef.current) {
         dividerTitleRef.current.innerHTML = '';
         dividerTitleRef.current.appendChild(element);
       }
@@ -38,12 +43,13 @@ export const Divider: React.FC<DividerProps> = ({
 
   return (
     <StyledDivider.DividerArea type={type} isInverted={isInverted} ref={dividerRef}>
-      {title && type === 'title' && (
+      {hasSlot}
+      {!hasSlot && type === 'title' && (
         <StyledDivider.DividerTitle typography={typography} isInverted={isInverted}>
           {title}
         </StyledDivider.DividerTitle>
       )}
-      {!title && type === 'title' && (
+      {hasSlot && type === 'title' && (
         <StyledDivider.DividerTitle
           typography={typography}
           isInverted={isInverted}

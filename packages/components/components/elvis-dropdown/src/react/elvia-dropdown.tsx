@@ -67,7 +67,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       return '1px solid #BDBDBD';
     }
     if (error) {
-      return '2px solid #FF0000';
+      return '2px solid #EE0701';
     }
     return '1px solid #000000';
   };
