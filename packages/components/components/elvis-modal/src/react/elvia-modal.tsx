@@ -39,7 +39,10 @@ export const ModalComponent: FC<ModalProps> = ({
   const modalPrimaryBtn = useRef<HTMLDivElement>(null);
   const modalSecondaryBtn = useRef<HTMLDivElement>(null);
 
-  let hasIllustration = !!illustration;
+  let hasIllustration = !!illustration || !!webcomponent.getSlot('illustration');
+  let hasPrimaryButton = !!primaryButton || !!webcomponent.getSlot('primaryButton');
+  let hasSecondaryButton = !!secondaryButton || !!webcomponent.getSlot('secondaryButton');
+
 
   const handleOnHide = () => {
     if (!webcomponent) {
@@ -63,29 +66,34 @@ export const ModalComponent: FC<ModalProps> = ({
   }, []);
 
   useEffect(() => {
-    if (isShowing) {
-      // Get slotted items from web component
-      if (modalText.current && webcomponent.getSlot('content')) {
-        modalText.current.innerHTML = '';
-        modalText.current.appendChild(webcomponent.getSlot('content'));
-      }
-
-      if (modalIllustration.current && webcomponent.getSlot('illustration')) {
-        hasIllustration = true;
-        modalIllustration.current.innerHTML = '';
-        modalIllustration.current.appendChild(webcomponent.getSlot('illustration'));
-      }
-
-      if (modalSecondaryBtn.current && webcomponent.getSlot('secondaryButton')) {
-        modalSecondaryBtn.current.innerHTML = '';
-        modalSecondaryBtn.current.appendChild(webcomponent.getSlot('illustration'));
-      }
-
-      if (modalPrimaryBtn.current && webcomponent.getSlot('PrimaryButton')) {
-        modalPrimaryBtn.current.innerHTML = '';
-        modalPrimaryBtn.current.appendChild(webcomponent.getSlot('illustration'));
-      }
+    if (!isShowing) {
+      console.log("isShowing")
+      return;
     }
+
+    // Get slotted items from web component
+    if (modalText.current && webcomponent.getSlot('content')) {
+      console.log("content");
+      modalText.current.innerHTML = '';
+      modalText.current.appendChild(webcomponent.getSlot('content'));
+    }
+
+    if (modalIllustration.current && webcomponent.getSlot('illustration')) {
+      hasIllustration = true;
+      modalIllustration.current.innerHTML = '';
+      modalIllustration.current.appendChild(webcomponent.getSlot('illustration'));
+    }
+
+    if (modalSecondaryBtn.current && webcomponent.getSlot('secondaryButton')) {
+      modalSecondaryBtn.current.innerHTML = '';
+      modalSecondaryBtn.current.appendChild(webcomponent.getSlot('secondaryButton'));
+    }
+
+    if (modalPrimaryBtn.current && webcomponent.getSlot('primaryButton')) {
+      modalPrimaryBtn.current.innerHTML = '';
+      modalPrimaryBtn.current.appendChild(webcomponent.getSlot('primaryButton'));
+    }
+    
   }, [isShowing]);
 
   return (
@@ -130,7 +138,7 @@ export const ModalComponent: FC<ModalProps> = ({
           {content && <StyledModal.Text>{content}</StyledModal.Text>}
           {!content && <StyledModal.Text ref={modalText}></StyledModal.Text>}
 
-          {(primaryButton || secondaryButton) && (
+          {(hasPrimaryButton || hasSecondaryButton) && (
             <StyledModal.Actions>
               {secondaryButton ? <>{secondaryButton}</> : <div ref={modalSecondaryBtn}></div>}
               {primaryButton ? <>{primaryButton}</> : <div ref={modalPrimaryBtn}></div>}
