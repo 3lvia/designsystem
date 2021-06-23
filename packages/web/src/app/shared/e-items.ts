@@ -115,7 +115,7 @@ export const eComponents: EItems[] = [
     title: 'Box',
     // tslint:disable-next-line: max-line-length
     description:
-      'Box',
+      'Box are used to group different content. Use a box together with grid and space to make different layouts.',
     docUrl: Pages.Box,
     absolutePath: '/components/' + Pages.Box,
     status: ItemStatus.Done,

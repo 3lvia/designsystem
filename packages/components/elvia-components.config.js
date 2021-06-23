@@ -135,8 +135,9 @@ module.exports = [
     attributes: [
       { name: 'content', type: 'HTMLElement' },
       { name: 'title', type: 'string' },
-      { name: 'hasHeader', type: 'boolean' },
-      { name: 'whiteBg', type: 'boolean' },
+      { name: 'hasBorder', type: 'boolean' },
+      { name: 'isColored', type: 'boolean' },
+      { name: 'isInverted', type: 'boolean' },
     ],
     reactName: 'Box',
     useWrapper: true,

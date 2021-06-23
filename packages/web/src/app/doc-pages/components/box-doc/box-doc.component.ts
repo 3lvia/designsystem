@@ -11,4 +11,5 @@ export class BoxDocComponent {
   componentData = boxData;
   figmaUrl = getComponent('box').figmaUrl;
   description = getComponent('box').description;
+  does = ['Grouping content', 'To separate information from the rest of the page'];
 }

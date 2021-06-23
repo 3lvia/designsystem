@@ -13,26 +13,34 @@ const boxData = {
       type: `HTMLElement`,
       description: `Title for the box`,
     },
-    whiteBg: {
+    isInverted: {
       isRequired: false,
       type: 'boolean',
-      description: 'If the box is set upon a white background this prop should be used.',
+      description: 'If the box is on a dark grey background this prop should be used.',
       default: 'false',
-      displayName: 'White background',
-      cegType: 'boolean',
-      cegFormType: 'toggle',
-      cegDefault: 'true',
-      cegOption: 'true',
+      displayName: 'Dark grey',
+      cegFormType: 'background',
     },
-    hasHeader: {
+    hasBorder: {
       isRequired: false,
       type: 'boolean',
-      description: 'Green line on top of box.',
+      description: 'If the box is on a white background this prop should be used.',
       default: 'false',
-      displayName: 'Header',
+      displayName: 'White',
+      cegDefault: 1,
+      cegType: 'boolean',
+      cegFormType: 'background',
+      cegOptions: ['White', 'Light grey', 'Dark grey'],
+    },
+    isColored: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Green line on top of box. Should be used---',
+      default: 'false',
+      displayName: 'Colored',
       cegType: 'boolean',
       cegFormType: 'toggle',
-      cegDefault: 'true',
+      cegDefault: 'false',
       cegOption: 'true',
     },
   },
@@ -43,13 +51,9 @@ const boxData = {
     `<Box
   title={<h1>Title of box</h1>}
   content={<div>Content of box</div>}
-  whiteBg={true}
-  hasHeader={true}
 ></Box>`,
   codeWebComponent:
     `<elvia-box
-  whiteBg="true"
-  hasHeader="true"
 >
   <h1 slot="title">
     Title of box

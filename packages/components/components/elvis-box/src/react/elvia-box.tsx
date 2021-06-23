@@ -9,8 +9,9 @@ export type AccordionType = 'normal' | 'overflow';
 export interface BoxProps {
   content: string | HTMLElement;
   title?: string;
-  hasHeader?: boolean;
-  whiteBg?: boolean;
+  isColored?: boolean;
+  isInverted?: boolean;
+  hasBorder?: boolean;
 }
 
 const ElviaColors = {
@@ -26,7 +27,7 @@ const BoxArea = styled.div`
   width: 100%;
   box-sizing: border-box;
 `;
-const BoxHeader = styled.div`
+const BoxColoredLine = styled.div`
   position: absolute;
   top: 0px;
   left: 0px;
@@ -44,6 +45,7 @@ const BoxTitle = styled.div`
   line-height: 17px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
+  color: ${(props: { isInverted: boolean }) => (props.isInverted === true ? 'white' : 'black')};
   margin: 0px;
   margin-bottom: 8px;
   * {
@@ -63,14 +65,15 @@ const BoxContent = styled.div`
   width: 100%;
   box-sizing: border-box;
   border-radius: 8px;
-  border: ${(props: { whiteBg: boolean }) => props.whiteBg === true && `1px solid ${ElviaColors.grey10}`};
+  border: ${(props: { hasBorder: boolean }) => props.hasBorder === true && `1px solid ${ElviaColors.grey10}`};
   background: ${ElviaColors.elviaOn};
   padding: 40px;
   text-align: left;
+  color: black;
 `;
 
-const Box: FC<BoxProps> = ({ content, title, hasHeader = false, whiteBg = false }) => {
-  const boxRef = useRef<HTMLSpanElement>(null);
+const Box: FC<BoxProps> = ({ content, title, isColored = false, hasBorder = false, isInverted = false }) => {
+  const boxRef = useRef<HTMLDivElement>(null);
   const boxContent = useRef<HTMLDivElement>(null);
   const boxTitle = useRef<HTMLDivElement>(null);
 
@@ -103,17 +106,17 @@ const Box: FC<BoxProps> = ({ content, title, hasHeader = false, whiteBg = false 
 
   return (
     <BoxArea ref={boxRef}>
-      {title && <BoxTitle>{title}</BoxTitle>}
-      {!title && <BoxTitle ref={boxTitle}></BoxTitle>}
+      {title && <BoxTitle isInverted={isInverted}>{title}</BoxTitle>}
+      {!title && <BoxTitle isInverted={isInverted} ref={boxTitle}></BoxTitle>}
       {content && (
-        <BoxContent whiteBg={whiteBg} hasHeader={hasHeader}>
-          {hasHeader && <BoxHeader></BoxHeader>}
+        <BoxContent hasBorder={hasBorder} isColored={isColored}>
+          {isColored && <BoxColoredLine></BoxColoredLine>}
           {content}
         </BoxContent>
       )}
       {!content && (
-        <BoxContent whiteBg={whiteBg} hasHeader={hasHeader}>
-          {hasHeader && <BoxHeader></BoxHeader>}
+        <BoxContent hasBorder={hasBorder} isColored={isColored}>
+          {isColored && <BoxColoredLine></BoxColoredLine>}
           <div ref={boxContent}></div>
         </BoxContent>
       )}
