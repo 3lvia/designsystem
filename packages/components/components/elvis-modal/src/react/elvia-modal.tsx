@@ -63,25 +63,20 @@ export const ModalComponent: FC<ModalProps> = ({
 
   useEffect(() => {
     if (isShowing) {
-      // Web component - Placing slots at the right place
-      if (
-        modalRef.current &&
-        modalRef.current.parentElement &&
-        modalRef.current.parentElement.parentElement
-      ) {
-        modalRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
-          console.log('test', element);
-          if (modalText.current && element.slot === 'content') {
-            modalText.current.innerHTML = '';
-            modalText.current.appendChild(element);
-          }
-          if (modalIllustration.current && element.slot === 'illustration') {
-            modalIllustration.current.innerHTML = '';
-            modalIllustration.current.appendChild(element);
-          }
-        });
-      }
+      return; 
+    } 
+    
+    // Get slotted items from web component
+    if(modalText.current && webcomponent.getSlot('content')){
+      modalText.current.innerHTML = '';
+      modalText.current.appendChild(webcomponent.getSlot('content'));
     }
+
+    if(modalIllustration.current && webcomponent.getSlot('illustration')) {
+      modalIllustration.current.innerHTML = '';
+      modalIllustration.current.appendChild(webcomponent.getSlot('illustration'));
+    }
+    
   }, [isShowing]);
 
   return (

@@ -153,5 +153,6 @@ module.exports = [
       { name: 'hasCloseBtn', type: 'boolean' } // fjerne og bare bestemme på illustrasjon?
     ],
     reactName: 'Modal',
+    slotItems: true
   },
 ];
