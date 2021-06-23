@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import './style.scss';
 
 export interface DropdownOption {
@@ -9,15 +9,17 @@ export interface DropdownOption {
 }
 
 export interface SelectionNumber {
-  start: string;
-  label: string;
+  start: number;
+  end: number;
 }
 
 export interface PaginationProps {
-  defaultSelection: SelectionNumber;
+  value: SelectionNumber;
   items: number;
   label: string;
   itemsPerPage: Array<DropdownOption>;
+  valueOnChange?: (value: SelectionNumber) => void;
+  webcomponent?: any;
 }
 export const defaultPaginationOptions = [
   {
@@ -50,40 +52,40 @@ export const paginationOptions = [
 ];
 
 const Pagination: FC<PaginationProps> = ({
-  defaultSelection = [1, 10],
+  value = { start: 1, end: 10 },
   items = 0,
-  itemsPerPage = paginationOptions
+  itemsPerPage = paginationOptions,
+  valueOnChange,
+  webcomponent
 }) => {
 
   const [selectedNumber, setSelectedNumber] = useState(1);
-  const [selectedRange, setSelectedRange] = useState([defaultSelection])
-
-
-
   const [currentDisplayAmount, setCurrentDisplayAmount] = useState(itemsPerPage[0]);
-  const [currentSelection, setCurrentSelection] = useState(1);
+  const [showPaginationMenu, setShowPaginationMenu] = useState(true);
+  // use this for something.....
+  // const [currentValue, setCurrentValue] = useState(value);
 
-  // update selectedNumber based on range and amount of items
-  useEffect(() => {
-    console.log(selectedNumber)
-  }, [currentDisplayAmount])
 
-  // for testing
-  // useEffect(() => {
-  //   console.log(selectedNumber)
-  // }, [selectedNumber])
+
 
   // calculate amount of selection numbers, based on total pages
-  const selectorAmount = Math.ceil(items / parseInt(currentDisplayAmount.value));
+
+  let selectorAmount = Math.ceil(items / parseInt(currentDisplayAmount.value));
+  if (isNaN(parseInt(currentDisplayAmount.value))) {
+    selectorAmount = 0;
+    setShowPaginationMenu(false)
+  }
   // create array from numbers
   const selectionNumbers = Array.from(Array(selectorAmount + 1).keys()).slice(1);
 
   // update selected number on arrow click
   const updateSelectedPageLeft = () => {
-    setSelectedNumber(prevnumber => prevnumber - 1)
+    const newSelected = selectedNumber - 1
+    updateValue(newSelected)
   }
   const updateSelectedPageRight = () => {
-    setSelectedNumber(prevnumber => prevnumber + 1)
+    const newSelected = selectedNumber + 1
+    updateValue(newSelected)
   }
 
   // Visible numbers in paginator
@@ -96,12 +98,14 @@ const Pagination: FC<PaginationProps> = ({
     let firstCenter = false;
     let middleCenter = false;
 
+    const isShowAll = false;
+
     const getFirstNumbers = () => {
       firstNumbers =
         < button
           className={`ewc-pagination--selector-area__selector-btn ${activeNumber(1) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
           key={1}
-          onClick={() => setSelectedNumber(1)}
+          onClick={() => updateValue(1)}
         > {1}
         </ button >;
     }
@@ -116,7 +120,7 @@ const Pagination: FC<PaginationProps> = ({
               < button
                 className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
                 key={index}
-                onClick={() => setSelectedNumber(number)}
+                onClick={() => updateValue(number)}
               > {number}
               </ button >
             )
@@ -134,7 +138,7 @@ const Pagination: FC<PaginationProps> = ({
               < button
                 className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
                 key={index}
-                onClick={() => setSelectedNumber(number)}
+                onClick={() => updateValue(number)}
               > {number}
               </ button >
             )
@@ -151,7 +155,7 @@ const Pagination: FC<PaginationProps> = ({
               < button
                 className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
                 key={index}
-                onClick={() => setSelectedNumber(number)}
+                onClick={() => updateValue(number)}
               > {number}
               </ button >
             )
@@ -166,7 +170,7 @@ const Pagination: FC<PaginationProps> = ({
             < button
               className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
               key={index}
-              onClick={() => setSelectedNumber(number)}
+              onClick={() => updateValue(number)}
             > {number}
             </ button >
           )
@@ -174,10 +178,13 @@ const Pagination: FC<PaginationProps> = ({
       })
     }
     // get visible numbers
-    getFirstNumbers();
-    getCenterNumbers(selectedNumber);
-    getLastNumbers();
-    visibleNumbers.push(firstNumbers, centerNumbers, lastNumbers);
+
+    if (!isShowAll) {
+      getFirstNumbers();
+      getCenterNumbers(selectedNumber);
+      getLastNumbers();
+      visibleNumbers.push(firstNumbers, centerNumbers, lastNumbers);
+    }
 
     return visibleNumbers;
   }
@@ -188,20 +195,61 @@ const Pagination: FC<PaginationProps> = ({
   }
 
   const leftArrow = () => {
-    return selectedNumber > 1;
+    if (showPaginationMenu) {
+      return selectedNumber > 1;
+    }
+    return;
   }
 
   const rightArrow = () => {
-    return selectedNumber < selectionNumbers.length;
+    if (showPaginationMenu) {
+      return selectedNumber < selectionNumbers.length;
+    }
+    return;
   }
 
   const onDropdownChangeHandler = (selectionRange: DropdownOption) => {
+
+    if (isNaN(parseInt(selectionRange.value))) {
+      setShowPaginationMenu(false);
+      return
+    }
+    if (!showPaginationMenu) {
+      setShowPaginationMenu(true);
+    }
     setCurrentDisplayAmount(selectionRange);
+
     // Check if current selection number in avalailable selectionNumbers array
     const isSelectedInRange = selectionNumbers.includes(selectedNumber);
     // if not, update selectedNumber to higest
     if (!isSelectedInRange) {
       setSelectedNumber(selectionNumbers.length);
+      updateValue(selectionNumbers.length);
+    }
+
+  }
+
+
+  // change and use currentValue
+
+  const updateValue = (value: number) => {
+    setSelectedNumber(value);
+    // check if one??
+    const startRange = (parseInt(currentDisplayAmount.value) * value) - parseInt(currentDisplayAmount.value);
+
+    let endRange
+    endRange = startRange + parseInt(currentDisplayAmount.value);
+    if (value === selectionNumbers.length) {
+      endRange = items;
+    }
+
+    const newValue = { start: startRange, end: endRange };
+
+    if (!webcomponent && valueOnChange) {
+      valueOnChange(newValue);
+    } else if (webcomponent) {
+      // True -> Prevents rerender
+      webcomponent.setProps({ value: newValue }, true);
     }
   }
 
@@ -227,7 +275,7 @@ const Pagination: FC<PaginationProps> = ({
           : null
         }
 
-        <Paginators />
+        {showPaginationMenu ? <Paginators /> : null}
 
         {rightArrow() ?
           <button className="ewc-pagination--selector__arrow_btn" onClick={updateSelectedPageRight}>
