@@ -67,9 +67,12 @@ const BoxContent = styled.div`
   border-radius: 8px;
   border: ${(props: { hasBorder: boolean }) => props.hasBorder === true && `1px solid ${ElviaColors.grey10}`};
   background: ${ElviaColors.elviaOn};
-  padding: 40px;
   text-align: left;
   color: black;
+  padding: 40px;
+  @media (max-width: 767px) {
+    padding: 24px;
+  }
 `;
 
 const Box: FC<BoxProps> = ({ content, title, isColored = false, hasBorder = false, isInverted = false }) => {

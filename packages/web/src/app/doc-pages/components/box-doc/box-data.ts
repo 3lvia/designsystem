@@ -6,12 +6,12 @@ const boxData = {
     content: {
       isRequired: true,
       type: 'HTMLElement',
-      description: 'Text, images, tables or any other content (use slot in angular if not just text)',
+      description: 'Text, images, tables or any other content (slot in angular)',
     },
     title: {
       isRequired: false,
       type: `HTMLElement`,
-      description: `Title for the box`,
+      description: `Title for the box (slot in angular)`,
     },
     isInverted: {
       isRequired: false,
