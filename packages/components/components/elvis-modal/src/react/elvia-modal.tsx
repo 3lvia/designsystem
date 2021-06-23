@@ -32,13 +32,14 @@ export const ModalComponent: FC<ModalProps> = ({
   webcomponent,
   illustration,
 }) => {
-  console.log('content', content);
-  const ref = useRef<HTMLDivElement>(null);
+  const modalWrapperRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const modalText = useRef<HTMLDivElement>(null);
   const modalIllustration = useRef<HTMLDivElement>(null);
   const modalPrimaryBtn = useRef<HTMLDivElement>(null);
   const modalSecondaryBtn = useRef<HTMLDivElement>(null);
+
+  let hasIllustration = !!illustration;
 
   const handleOnHide = () => {
     if (!webcomponent) {
@@ -48,10 +49,10 @@ export const ModalComponent: FC<ModalProps> = ({
     }
   };
 
-  useClickOutside(ref, () => isShowing && handleOnHide());
+  useClickOutside(modalWrapperRef, () => isShowing && handleOnHide());
   useKeyPress('Escape', handleOnHide);
   useLockBodyScroll();
-  useFocusTrap(ref); // funker ikke
+  useFocusTrap(modalWrapperRef); // funker ikke
 
   useEffect(() => {
     const originalFocusedElement = document.activeElement as HTMLElement;
@@ -76,8 +77,17 @@ export const ModalComponent: FC<ModalProps> = ({
             modalText.current.appendChild(element);
           }
           if (modalIllustration.current && element.slot === 'illustration') {
+            hasIllustration = true;
             modalIllustration.current.innerHTML = '';
             modalIllustration.current.appendChild(element);
+          }
+          if (modalSecondaryBtn.current && element.slot === 'secondaryButton') {
+            modalSecondaryBtn.current.innerHTML = '';
+            modalSecondaryBtn.current.appendChild(element);
+          }
+          if (modalPrimaryBtn.current && element.slot === 'primaryButton') {
+            modalPrimaryBtn.current.innerHTML = '';
+            modalPrimaryBtn.current.appendChild(element);
           }
         });
       }
@@ -93,9 +103,11 @@ export const ModalComponent: FC<ModalProps> = ({
       ref={modalRef}
       isShowing={isShowing}
     >
-      <StyledModal.Wrapper ref={ref} hasIllustration={!!illustration}>
+      <StyledModal.Wrapper ref={modalWrapperRef} hasIllustration={hasIllustration}>
         {illustration && <StyledModal.Illustration>{illustration}</StyledModal.Illustration>}
-        {!illustration && <StyledModal.Illustration ref={modalIllustration}></StyledModal.Illustration>}
+        {!illustration && hasIllustration && (
+          <StyledModal.Illustration ref={modalIllustration}></StyledModal.Illustration>
+        )}
 
         {hasCloseBtn && (
           <StyledModal.CloseButton
@@ -114,16 +126,20 @@ export const ModalComponent: FC<ModalProps> = ({
           </StyledModal.CloseButton>
         )}
 
-        <StyledModal.Content hasIllustration={!!illustration}>
-          {title && <StyledModal.Title>{title}</StyledModal.Title>}
+        <StyledModal.Content hasIllustration={hasIllustration}>
+          {title && (
+            <StyledModal.Title hasIllustration={hasIllustration} noPadding={noPadding}>
+              {title}
+            </StyledModal.Title>
+          )}
 
-          {content && <StyledModal.Text noPadding={noPadding}>{content}</StyledModal.Text>}
-          {!content && <StyledModal.Text noPadding={noPadding} ref={modalText}></StyledModal.Text>}
+          {content && <StyledModal.Text>{content}</StyledModal.Text>}
+          {!content && <StyledModal.Text ref={modalText}></StyledModal.Text>}
 
           {(primaryButton || secondaryButton) && (
             <StyledModal.Actions>
-              <>{secondaryButton}</>
-              <>{primaryButton}</>
+              {secondaryButton ? <>{secondaryButton}</> : <div ref={modalSecondaryBtn}></div>}
+              {primaryButton ? <>{primaryButton}</> : <div ref={modalPrimaryBtn}></div>}
             </StyledModal.Actions>
           )}
         </StyledModal.Content>

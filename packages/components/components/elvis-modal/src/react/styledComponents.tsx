@@ -3,15 +3,28 @@ import styled, { keyframes } from 'styled-components';
 const ElviaColors = {
   elviaOn: '#ffffff',
   elviaOff: '#000000',
+  grey: '#262626',
 };
 
 const mobileMax = '767px';
 const modalBorderRadius = '8px';
 const modalMaxWidth = '704px';
 
-const modalDesktopPadding = '48px';
+const mobileTitleFontSize = '24px';
+const mobileTitleFontWeight = '700';
 const modalMobilePadding = '32px';
-const buttonFontWeight = '500';
+
+const modalDesktopPadding = '48px';
+const modalDesktopTitlePaddingBottom = '32px';
+const modalMobileTitlePaddingBottom = '24px';
+const titleFontSize = '30px';
+const titleFontWeight = '700';
+
+const modalDesktopWithIllustrationPadding = '80px';
+const modalDesktopWithIllustrationTitlePaddingBottom = '24px';
+const modalMobileWithIllustrationTitlePaddingBottom = '8px';
+const modalDesktopWithIllustrationTitleFontSize = '44px';
+const modalDesktopWithIllustrationTitleFontWeight = '900';
 
 const fadeIn = keyframes`0% {opacity: 0;} 100% {opacity: 1;}}`;
 
@@ -59,13 +72,13 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-  padding: ${modalDesktopPadding};
+  padding: ${(props: { hasIllustration: boolean }) =>
+    props.hasIllustration ? modalDesktopWithIllustrationPadding : modalDesktopPadding};
   height: inherit;
   width: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '620px' : 'auto')};
   display: flex;
   flex-direction: column;
   z-index: 5;
-  overflow-y: auto;
 
   @media (max-width: ${mobileMax}) {
     padding: ${modalMobilePadding};
@@ -76,7 +89,7 @@ export const Content = styled.div`
 `;
 
 export const Illustration = styled.div`
-  background: ${ElviaColors.elviaOff};
+  background: ${ElviaColors.grey};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -114,16 +127,31 @@ export const Illustration = styled.div`
 
 export const Title = styled.div`
   font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-size: 30px;
-  font-weight: 700;
+  font-size: ${(props: { hasIllustration: boolean }) =>
+    props.hasIllustration ? modalDesktopWithIllustrationTitleFontSize : titleFontSize};
+  font-weight: ${(props: { hasIllustration: boolean }) =>
+    props.hasIllustration ? modalDesktopWithIllustrationTitleFontWeight : titleFontWeight};
   line-height: 36px;
   letter-spacing: unset;
   font-style: unset;
   text-transform: unset;
   color: inherit;
+  padding-bottom: ${(props: { noPadding: boolean; hasIllustration: boolean }) =>
+    props.noPadding
+      ? '0px'
+      : props.hasIllustration
+      ? modalDesktopWithIllustrationTitlePaddingBottom
+      : modalDesktopTitlePaddingBottom};
 
   @media (max-width: ${mobileMax}) {
-    font-size: 24px;
+    padding-bottom: ${(props: { noPadding: boolean; hasIllustration: boolean }) =>
+      props.noPadding
+        ? '0px'
+        : props.hasIllustration
+        ? modalMobileWithIllustrationTitlePaddingBottom
+        : modalMobileTitlePaddingBottom};
+    font-size: ${mobileTitleFontSize};
+    font-weight: ${mobileTitleFontWeight};
     line-height: 29px;
   }
 `;
@@ -137,29 +165,13 @@ export const Text = styled.div`
   font-style: unset;
   text-transform: unset;
   color: ${ElviaColors.elviaOff};
-  padding-top: ${(props: { noPadding: boolean }) => (props.noPadding ? '0px' : '32px')};
   position: relative;
+  overflow-y: auto;
 
   @media (max-width: ${mobileMax}) {
     font-size: 18px;
     line-height: 29px;
   }
-
-  // ::before {
-  //   content: '';
-  //   position: absolute;
-  //   width: 300px;
-  //   height: 25px;
-  //   background: linear-gradient(rgba(255, 255, 255, 0.001), white);
-  // }
-
-  // ::after {
-  //   content: '';
-  //   position: absolute;
-  //   width: 300px;
-  //   height: 25px;
-  //   background: linear-gradient(rgba(255, 255, 255, 0.001), white);
-  // }
 `;
 
 export const Actions = styled.div`
@@ -186,14 +198,6 @@ export const Actions = styled.div`
       width: 100%;
     }
   }
-
-  // ::before {
-  //   content: '';
-  //   position: absolute;
-  //   width: 300px;
-  //   height: 25px;
-  //   background: linear-gradient(rgba(255, 255, 255, 0.001), white);
-  // }
 `;
 
 export const CloseButton = styled.button`
