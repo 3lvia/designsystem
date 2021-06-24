@@ -62,6 +62,9 @@ const Pagination: FC<PaginationProps> = ({
   const [selectedNumber, setSelectedNumber] = useState(1);
   const [currentDisplayAmount, setCurrentDisplayAmount] = useState(itemsPerPage[0]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
+
+  const [isFirstDots, setIsFirstDots] = useState(false);
+  const [isLasttDots, setIsLasttDots] = useState(false);
   // use this for something.....
   // const [currentValue, setCurrentValue] = useState(value);
 
@@ -95,6 +98,9 @@ const Pagination: FC<PaginationProps> = ({
     let centerNumbers;
     let lastNumbers;
 
+    let firstDots;
+    let lastDots;
+
     let firstCenter = false;
     let middleCenter = false;
 
@@ -107,7 +113,15 @@ const Pagination: FC<PaginationProps> = ({
           key={1}
           onClick={() => updateValue(1)}
         > {1}
-        </ button >;
+        </ button >
+    }
+
+    const getFirstDots = () => {
+      if (selectedNumber >= 5 && selectionNumbers.length >= 8) {
+        firstDots = <div>...</div>;
+      } else {
+        firstDots = <div></div>;
+      }
     }
 
     const getCenterNumbers = (currentSelectionNumber: number) => {
@@ -134,6 +148,7 @@ const Pagination: FC<PaginationProps> = ({
         centerNumbers = selectionNumbers.map((number, index) => {
           if (number >= selectedNumber - 2 && number <= selectedNumber + 2 && number !== selectionNumbers.length && number !== 1) {
             middleCenter = true;
+            console.log('middle center numbers ran')
             return (
               < button
                 className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
@@ -163,6 +178,15 @@ const Pagination: FC<PaginationProps> = ({
         })
       }
     }
+
+    const getLastDots = () => {
+
+      if (selectedNumber < selectionNumbers.length - 3 && selectionNumbers.length > 6) {
+        lastDots = <div>...</div>;
+      } else {
+        lastDots = <div></div>;
+      }
+    }
     const getLastNumbers = () => {
       lastNumbers = selectionNumbers.map((number, index) => {
         if (number === selectionNumbers.length) {
@@ -178,12 +202,13 @@ const Pagination: FC<PaginationProps> = ({
       })
     }
     // get visible numbers
-
     if (!isShowAll) {
       getFirstNumbers();
+      getFirstDots();
       getCenterNumbers(selectedNumber);
+      getLastDots();
       getLastNumbers();
-      visibleNumbers.push(firstNumbers, centerNumbers, lastNumbers);
+      visibleNumbers.push(firstNumbers, firstDots, centerNumbers, lastDots, lastNumbers);
     }
 
     return visibleNumbers;
