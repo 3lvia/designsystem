@@ -78,7 +78,7 @@ export const Content = styled.div`
   width: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '620px' : 'auto')};
   display: flex;
   flex-direction: column;
-  z-index: 5;
+  z-index: 1;
 
   @media (max-width: ${mobileMax}) {
     padding: ${modalMobilePadding};

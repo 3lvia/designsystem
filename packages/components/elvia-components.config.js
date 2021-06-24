@@ -153,7 +153,6 @@ module.exports = [
       { name: 'hasCloseBtn', type: 'boolean' }
     ],
     reactName: 'Modal',
-    slotItems: true // useWrapper?
-    // elementStyle?
+    slotItems: true
   },
 ];

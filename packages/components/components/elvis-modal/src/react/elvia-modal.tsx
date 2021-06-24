@@ -123,12 +123,12 @@ export const ModalComponent: FC<ModalProps> = ({
               {secondaryButton ? (
                 <>{secondaryButton}</>
               ) : (
-                <div className="webComponentBtn" ref={modalSecondaryBtn}></div>
+                <div tabIndex={0} className="webComponentBtn" ref={modalSecondaryBtn}></div>
               )}
               {primaryButton ? (
                 <>{primaryButton}</>
               ) : (
-                <div className="webComponentBtn" ref={modalPrimaryBtn}></div>
+                <div tabIndex={0} className="webComponentBtn" ref={modalPrimaryBtn}></div>
               )}
             </StyledModal.Actions>
           )}
