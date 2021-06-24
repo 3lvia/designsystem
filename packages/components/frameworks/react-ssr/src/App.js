@@ -104,7 +104,7 @@ function App() {
         isShowing={isModalShowing}
         hasCloseBtn
         onHide={() => setIsModalShowingState(false)}
-        title="Title of content comes here"
+        title="Title of content"
         illustration={<svg width="205" height="220" viewBox="0 0 205 220" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path opacity="0.05" d="M204.718 102C204.718 158.333 158.954 204 102.5 204C46.0468 204 0.282227 158.333 0.282227 102C0.282227 45.667 46.0468 0 102.5 0C158.954 0 204.718 45.667 204.718 102Z" fill="white" />
           <path d="M124.547 141V157.8C124.547 160.77 123.412 163.619 121.392 165.72C119.371 167.82 116.631 169 113.774 169H92.228C89.3709 169 86.6307 167.82 84.6104 165.72C82.5901 163.619 81.4551 160.77 81.4551 157.8V141" fill="white" />

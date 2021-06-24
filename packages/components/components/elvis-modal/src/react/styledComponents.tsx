@@ -191,8 +191,14 @@ export const Actions = styled.div`
   button:not(:only-of-type) {
     width: 100%;
   }
+  .webComponentBtn:not(:only-of-type) {
+    width: 100%;
+    button {
+      width: inherit;
+    }
+  }
 
-  button:only-of-type {
+  :not(webComponentBtn) > button:only-of-type {
     width: 50%;
     @media (max-width: ${mobileMax}) {
       width: 100%;

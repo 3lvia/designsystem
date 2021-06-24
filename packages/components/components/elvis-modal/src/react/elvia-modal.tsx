@@ -39,10 +39,9 @@ export const ModalComponent: FC<ModalProps> = ({
   const modalPrimaryBtn = useRef<HTMLDivElement>(null);
   const modalSecondaryBtn = useRef<HTMLDivElement>(null);
 
-  let hasIllustration = !!illustration || !!webcomponent.getSlot('illustration');
-  let hasPrimaryButton = !!primaryButton || !!webcomponent.getSlot('primaryButton');
-  let hasSecondaryButton = !!secondaryButton || !!webcomponent.getSlot('secondaryButton');
-
+  const hasIllustration = !!illustration || (webcomponent && !!webcomponent.getSlot('illustration'));
+  const hasPrimaryButton = !!primaryButton || (webcomponent && !!webcomponent.getSlot('primaryButton'));
+  const hasSecondaryButton = !!secondaryButton || (webcomponent && !!webcomponent.getSlot('secondaryButton'));
 
   const handleOnHide = () => {
     if (!webcomponent) {
@@ -67,19 +66,16 @@ export const ModalComponent: FC<ModalProps> = ({
 
   useEffect(() => {
     if (!isShowing) {
-      console.log("isShowing")
       return;
     }
 
     // Get slotted items from web component
     if (modalText.current && webcomponent.getSlot('content')) {
-      console.log("content");
       modalText.current.innerHTML = '';
       modalText.current.appendChild(webcomponent.getSlot('content'));
     }
 
     if (modalIllustration.current && webcomponent.getSlot('illustration')) {
-      hasIllustration = true;
       modalIllustration.current.innerHTML = '';
       modalIllustration.current.appendChild(webcomponent.getSlot('illustration'));
     }
@@ -93,7 +89,6 @@ export const ModalComponent: FC<ModalProps> = ({
       modalPrimaryBtn.current.innerHTML = '';
       modalPrimaryBtn.current.appendChild(webcomponent.getSlot('primaryButton'));
     }
-    
   }, [isShowing]);
 
   return (
@@ -140,8 +135,16 @@ export const ModalComponent: FC<ModalProps> = ({
 
           {(hasPrimaryButton || hasSecondaryButton) && (
             <StyledModal.Actions>
-              {secondaryButton ? <>{secondaryButton}</> : <div ref={modalSecondaryBtn}></div>}
-              {primaryButton ? <>{primaryButton}</> : <div ref={modalPrimaryBtn}></div>}
+              {secondaryButton ? (
+                <>{secondaryButton}</>
+              ) : (
+                <div className="webComponentBtn" ref={modalSecondaryBtn}></div>
+              )}
+              {primaryButton ? (
+                <>{primaryButton}</>
+              ) : (
+                <div className="webComponentBtn" ref={modalPrimaryBtn}></div>
+              )}
             </StyledModal.Actions>
           )}
         </StyledModal.Content>

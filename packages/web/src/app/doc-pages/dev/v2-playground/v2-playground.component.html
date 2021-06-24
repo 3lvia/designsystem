@@ -9,23 +9,24 @@
 <!--BODY-->
 <div class="page-body">
   <h2>Modal</h2>
-  <button class="e-btn">Primary action</button>
-  <button (click)="isModalShowing = !isModalShowing">Åpne modal</button>
+  <button class="e-btn" (click)="isModalShowing = !isModalShowing">Åpne modal</button>
   <elvia-modal
     (onHide)="isModalShowing = !isModalShowing"
     [isShowing]="isModalShowing"
-    title="Title of content comes here"
+    title="Title of content"
     hasCloseBtn="true"
   >
     <div slot="content">
       <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-            <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-            <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-            <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-            <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-            <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
     </div>
-    <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing = false">Cancel</button>
+    <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing = false">
+      Cancel
+    </button>
     <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
     <div slot="illustration">
       <svg width="205" height="220" viewBox="0 0 205 220" fill="none" xmlns="http://www.w3.org/2000/svg">
