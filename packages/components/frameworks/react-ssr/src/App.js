@@ -102,6 +102,7 @@ function App() {
       <button onClick={() => setIsModalShowingState(true)}>Show modal</button>
       <Modal
         isShowing={isModalShowing}
+        className="test"
         hasCloseBtn
         onHide={() => setIsModalShowingState(false)}
         title="Title of content"

@@ -143,16 +143,17 @@ module.exports = [
     name: 'elvis-modal',
     elementName: 'elvia-modal',
     attributes: [
-      { name: 'content', type: 'HTMLElement' },
       { name: 'isShowing', type: 'boolean' },
-      { name: 'buttons', type: 'HTMLElement' }, // endre
       { name: 'title', type: 'string' },
-      { name: 'darkMode', type: 'boolean' }, // fjerne?
-      { name: 'noPadding', type: 'boolean' },
-      { name: 'className', type: 'string' }, // fjerne?
-      { name: 'hasCloseBtn', type: 'boolean' } // fjerne og bare bestemme på illustrasjon?
+      { name: 'content', type: 'HTMLElement' },
+      { name: 'illustration', type: 'HTMLElement' },
+      { name: 'primaryButton', type: 'HTMLElement' },
+      { name: 'secondaryButton', type: 'HTMLElement' },
+      { name: 'className', type: 'string' },
+      { name: 'hasCloseBtn', type: 'boolean' }
     ],
     reactName: 'Modal',
-    slotItems: true
+    slotItems: true // useWrapper?
+    // elementStyle?
   },
 ];

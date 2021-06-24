@@ -24,6 +24,7 @@
   </div>
 </div>
 <div class="page-body">
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="e-my-48" class="component-preview-temp component-preview-animation">
     <button class="e-btn" (click)="openModal('modal1')">Modal</button>
@@ -37,6 +38,7 @@
   </div>
 
   <!--TYPE-->
+  <!-- should add type with illustration -->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Actions'">
@@ -97,10 +99,17 @@
     </ng-container>
   </app-component-section>
 
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
   <!--PROPERTIES-->
   <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-modal'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-modal'"></app-component-properties>
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
 </div>

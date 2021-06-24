@@ -136,20 +136,12 @@ export const Title = styled.div`
   font-style: unset;
   text-transform: unset;
   color: inherit;
-  padding-bottom: ${(props: { noPadding: boolean; hasIllustration: boolean }) =>
-    props.noPadding
-      ? '0px'
-      : props.hasIllustration
-      ? modalDesktopWithIllustrationTitlePaddingBottom
-      : modalDesktopTitlePaddingBottom};
+  padding-bottom: ${(props: { hasIllustration: boolean }) =>
+    props.hasIllustration ? modalDesktopWithIllustrationTitlePaddingBottom : modalDesktopTitlePaddingBottom};
 
   @media (max-width: ${mobileMax}) {
-    padding-bottom: ${(props: { noPadding: boolean; hasIllustration: boolean }) =>
-      props.noPadding
-        ? '0px'
-        : props.hasIllustration
-        ? modalMobileWithIllustrationTitlePaddingBottom
-        : modalMobileTitlePaddingBottom};
+    padding-bottom: ${(props: { hasIllustration: boolean }) =>
+      props.hasIllustration ? modalMobileWithIllustrationTitlePaddingBottom : modalMobileTitlePaddingBottom};
     font-size: ${mobileTitleFontSize};
     font-weight: ${mobileTitleFontWeight};
     line-height: 29px;

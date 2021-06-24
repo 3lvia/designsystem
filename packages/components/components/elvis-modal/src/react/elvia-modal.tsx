@@ -6,34 +6,31 @@ import { useLockBodyScroll } from './useLockBodyScroll';
 import { useFocusTrap } from './useFocusTrap';
 
 export interface ModalProps {
-  content: HTMLElement;
-  onHide: () => void;
   isShowing: boolean;
+  title?: string;
+  content: HTMLElement;
+  illustration?: HTMLElement;
   primaryButton?: HTMLElement;
   secondaryButton?: HTMLElement;
-  title?: string;
-  darkMode?: boolean;
-  noPadding?: boolean;
   className?: string;
   hasCloseBtn?: boolean;
+  onHide: () => void;
   webcomponent?: any;
-  illustration?: HTMLElement;
 }
 
 export const ModalComponent: FC<ModalProps> = ({
-  primaryButton,
-  secondaryButton,
-  content,
-  onHide,
   isShowing,
   title,
-  noPadding = false,
-  hasCloseBtn = false,
-  webcomponent,
+  content,
   illustration,
+  primaryButton,
+  secondaryButton,
+  className,
+  hasCloseBtn = false,
+  onHide,
+  webcomponent,
 }) => {
   const modalWrapperRef = useRef<HTMLDivElement>(null);
-  const modalRef = useRef<HTMLDivElement>(null);
   const modalText = useRef<HTMLDivElement>(null);
   const modalIllustration = useRef<HTMLDivElement>(null);
   const modalPrimaryBtn = useRef<HTMLDivElement>(null);
@@ -69,7 +66,6 @@ export const ModalComponent: FC<ModalProps> = ({
       return;
     }
 
-    // Get slotted items from web component
     if (modalText.current && webcomponent.getSlot('content')) {
       modalText.current.innerHTML = '';
       modalText.current.appendChild(webcomponent.getSlot('content'));
@@ -80,27 +76,20 @@ export const ModalComponent: FC<ModalProps> = ({
       modalIllustration.current.appendChild(webcomponent.getSlot('illustration'));
     }
 
-    if (modalSecondaryBtn.current && webcomponent.getSlot('secondaryButton')) {
-      modalSecondaryBtn.current.innerHTML = '';
-      modalSecondaryBtn.current.appendChild(webcomponent.getSlot('secondaryButton'));
-    }
-
     if (modalPrimaryBtn.current && webcomponent.getSlot('primaryButton')) {
       modalPrimaryBtn.current.innerHTML = '';
       modalPrimaryBtn.current.appendChild(webcomponent.getSlot('primaryButton'));
     }
+
+    if (modalSecondaryBtn.current && webcomponent.getSlot('secondaryButton')) {
+      modalSecondaryBtn.current.innerHTML = '';
+      modalSecondaryBtn.current.appendChild(webcomponent.getSlot('secondaryButton'));
+    }
   }, [isShowing]);
 
   return (
-    <StyledModal.Modal
-      aria-modal
-      tabIndex={-1}
-      role="dialog"
-      aria-label={title}
-      ref={modalRef}
-      isShowing={isShowing}
-    >
-      <StyledModal.Wrapper ref={modalWrapperRef} hasIllustration={hasIllustration}>
+    <StyledModal.Modal aria-modal tabIndex={-1} role="dialog" aria-label={title} isShowing={isShowing}>
+      <StyledModal.Wrapper ref={modalWrapperRef} hasIllustration={hasIllustration} className={className}>
         {illustration && <StyledModal.Illustration>{illustration}</StyledModal.Illustration>}
         {!illustration && hasIllustration && (
           <StyledModal.Illustration ref={modalIllustration}></StyledModal.Illustration>
@@ -124,11 +113,7 @@ export const ModalComponent: FC<ModalProps> = ({
         )}
 
         <StyledModal.Content hasIllustration={hasIllustration}>
-          {title && (
-            <StyledModal.Title hasIllustration={hasIllustration} noPadding={noPadding}>
-              {title}
-            </StyledModal.Title>
-          )}
+          {title && <StyledModal.Title hasIllustration={hasIllustration}>{title}</StyledModal.Title>}
 
           {content && <StyledModal.Text>{content}</StyledModal.Text>}
           {!content && <StyledModal.Text ref={modalText}></StyledModal.Text>}
