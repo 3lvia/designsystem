@@ -6,6 +6,7 @@ import { Accordion } from '@elvia/elvis-accordion/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
+import { Carousel } from '@elvia/elvis-carousel/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
@@ -91,6 +92,44 @@ function App() {
     console.log(dropdownValue);
   };
 
+  const JSXCarouselElement = () => <div>
+    <p>
+    Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two.
+    </p>
+    <Dropdown
+      options={options}
+      defaultValue={defOption}
+      label="test"
+      errorMessage=""
+      valueOnChange={(event) => (dropdownValue = event)}
+      isMulti
+    ></Dropdown>
+  </div>
+
+  const elements = [
+    {
+      title: 'Dette er nytt',
+      element:
+      <p style={{color: 'red'}}>
+        Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines.
+
+        It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.
+      </p>
+
+    },
+    {
+      title: 'Hei til ny tariff!',
+      element: 'Body text comes here and can go over several lines. It looks like this and when it is two.',
+    },
+    {
+      title: 'Strømbruddsvarsel',
+      element: JSXCarouselElement(),
+    },
+    {
+      element: <img src="https://images.unsplash.com/photo-1533591917057-a0b77b40de75?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="pride" width="300" height="300"/>
+    },
+  ];
+
   return (
     <div className="App">
       <h1>React preview</h1>
@@ -107,8 +146,20 @@ function App() {
           isMulti
         ></Dropdown>
       </div>
+      <div style={{ margin: '40px 0' }}>
+        <Carousel elements={elements}  valueOnChange={setSelectedState} elementsLength={elements.length}>
+        </Carousel>
+        <div>{"Selected page: " + selectedState.toString()}</div>
+        {/* <Carousel elements={['Hello','How you doing',"Very good"]} hideArrows></Carousel> */}
+      </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Without elements</h2>
+        <Carousel elements={elements.length} valueOnChange={setSelectedState}>
+        </Carousel>
+        <div>{"Selected page: " + selectedState.toString()}</div>
+      </div>
 
-      <h2>Date picker</h2>
+      {/* <h2>Date picker</h2>
       <div
         style={{
           marginTop: '16px',
@@ -183,7 +234,7 @@ function App() {
             </div>
           }
         ></Accordion>
-      </div>
+      </div> */}
 
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
@@ -207,6 +258,7 @@ function App() {
         <Checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></Checkbox>
       </div> */}
 
+    {/*
       <hr style={{ margin: '40px 0' }} />
 
       <h2>Popover</h2>
@@ -306,7 +358,7 @@ function App() {
 
       <div>
         <ProgressLinear isError></ProgressLinear>
-      </div>
+      </div>*/}
     </div>
   );
 }

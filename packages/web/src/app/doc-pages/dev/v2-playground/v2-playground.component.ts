@@ -29,6 +29,8 @@ export class v2PlaygroundComponent implements OnInit {
   <div>
   `;
 
+  carouselValue = 0;
+
   items = [
     { label: 'Epler' },
     { label: 'Appelsin' },

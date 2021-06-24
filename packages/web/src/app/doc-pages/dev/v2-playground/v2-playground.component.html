@@ -8,6 +8,12 @@
 
 <!--BODY-->
 <div class="page-body">
+  <h2>Carousel</h2>
+  <div style="padding: 8px">
+    <elvia-carousel [elementsLength]="5"  (valueOnChange)="carouselValue = $event.detail.value ">
+    </elvia-carousel>
+  </div>
+
   <h2>Divider</h2>
   <div style="padding: 8px">
     <elvia-divider></elvia-divider>

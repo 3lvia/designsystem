@@ -25,6 +25,18 @@ module.exports = [
     useWrapper: true,
     slotItems: false,
   },
+  {
+    name: 'elvis-carousel',
+    elementName: 'elvia-carousel',
+    attributes: [
+      { name: 'elements', type: 'string | HTMLElement' },
+      { name: 'elementsLength', type: 'number' },
+      { name: 'hideArrows', type: 'boolean' },
+      { name: 'valueOnChange', type: 'boolean' },
+    ],
+    reactName: 'Carousel',
+    slotItems: false,
+  },
   // {
   //   name: 'elvis-checkbox',
   //   elementName: 'elvia-checkbox',
