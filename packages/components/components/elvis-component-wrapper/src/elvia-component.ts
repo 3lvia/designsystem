@@ -31,16 +31,20 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   connectedCallback(): void {
+    console.log('conntected callback');
     // Slot items
-    if (this.webComponent.getComponentData().slotItems === true) {
-      this.storeAllSlots();
-    }
-    if (this.webComponent.getComponentData().useWrapper) {
-      this.mountPoint = document.createElement('span');
-      this.appendChild(this.mountPoint);
-    }
-    this.renderReactDOM();
-    this.attachStyle();
+    window.setTimeout(() => {
+      console.log('conntected callback 1');
+      if (this.webComponent.getComponentData().slotItems === true) {
+        this.storeAllSlots()
+      }
+      if (this.webComponent.getComponentData().useWrapper) {
+        this.mountPoint = document.createElement('span');
+        this.appendChild(this.mountPoint);
+      }
+      this.renderReactDOM();
+      this.attachStyle();
+    }, 2000);
   }
 
   attributeChangedCallback(): void {
@@ -112,6 +116,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   protected renderReactDOM(): void {
+    console.log('Render react dom')
     this.mapAttributesToData();
     if (!this.webComponent.getComponentData().useWrapper) {
       ReactDOM.render(this.createReactElement(this.createReactData()), this);
@@ -137,14 +142,17 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   private storeAllSlots(): void {
+    console.log('called', this);
     this.querySelectorAll('[slot]').forEach((element) => {
       const slotName = element.getAttribute('slot');
+      console.log('slotName: ', JSON.stringify(slotName));
+      // console.log('Element found: ', JSON.stringify(element))
       if (!slotName) {
         return;
       }
       this._slots[slotName] = element;
       element.remove();
-    });
+    })
   }
 
   private convertString(stringToConvert: string, attrType: string, attrName: string) {
