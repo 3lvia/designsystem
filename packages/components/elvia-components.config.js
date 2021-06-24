@@ -29,8 +29,7 @@ module.exports = [
     name: 'elvis-carousel',
     elementName: 'elvia-carousel',
     attributes: [
-      { name: 'elements', type: 'string | HTMLElement' },
-      { name: 'elementsLength', type: 'number' },
+      { name: 'elements', type: 'number | string | HTMLElement' },
       { name: 'hideArrows', type: 'boolean' },
       { name: 'valueOnChange', type: 'boolean' },
     ],

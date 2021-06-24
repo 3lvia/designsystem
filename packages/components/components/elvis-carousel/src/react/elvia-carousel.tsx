@@ -47,6 +47,7 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, style, elements, hi
   }
 
   useEffect(() => {
+    // comment out this to get the carousel in angular
     updateCallbackValue(index)
   },[])
 
