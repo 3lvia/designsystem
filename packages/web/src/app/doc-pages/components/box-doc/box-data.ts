@@ -27,7 +27,7 @@ const boxData = {
     isColored: {
       isRequired: false,
       type: 'boolean',
-      description: 'Green line on top of box. Should be used---',
+      description: 'Green line on top of box. The box with a colored line should be used if you want the box to take more attention, but not use multiple boxes with colored lines on the same page.',
       default: 'false',
       displayName: 'Colored',
       cegType: 'boolean',

@@ -15,6 +15,13 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does"></app-when-to-use>
+      <app-component-subsection [sectionTitle]="'Type'">
+        <ng-container ngProjectAs="sectionContent">
+          Besides a simple box, we have types with title outside and with a colored line. The box with a
+          colored line should be used if you want the box to take more attention, but not use multiple boxes
+          with colored lines on the same page.
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
