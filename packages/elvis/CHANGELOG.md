@@ -6,6 +6,96 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.9.1
+      </span>
+      <br>
+      <span>
+        June 16, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/card#Overview">Card</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Update positioning of titles in cards with title above, now works together with popover compoent. 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.9.0
+      </span>
+      <br>
+      <span>
+        May 7, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Added five new icons.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a> 
+        </div>
+        <ul class="e-list">
+          <li>
+            Updated sortings icons, ascending is arrow up and descending is arrow down.
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.8.4
+      </span>
+      <br>
+      <span>
+        June 4, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+        <div>Component: 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/radiobutton#Overview">Radiobutton</a> 
+        </div>
+        <ul class="e-list">
+          <li>
+            Deprecated radiobutton classes for invalid state, because a button should always be selected by default so the state is not necessary.
+          </li>
+        </ul>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.8.1
       </span>
       <br>
@@ -21,7 +111,7 @@
               <a class="e-link e-link--inline" href="https://design.elvia.io/identity/color#Overview">Color</a> &
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Button</a> 
           </div>
-          <ul>
+          <ul class="e-list">
             <li>
               Content loader has new modifier for grey backgrounds.
             </li>
@@ -41,7 +131,7 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Button</a> &
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>
-        <ul>
+        <ul class="e-list">
           <li>
             Subtitles in tables on mobile have updated typography using the design system typographies.
           </li>
@@ -72,7 +162,7 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
         </div>
-        <ul>
+        <ul class="e-list">
           <li>
             New icons added. 
           </li>
@@ -98,7 +188,7 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a> &
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/input#Overview">Input</a> 
         </div>
-        <ul>
+        <ul class="e-list">
           <li>
             Documentation for different actions in tables have been added, like inputs, buttons, selects and links. Sorting for tables is also updated, with new icons and functionality, but old functionality will not break. 
           </li>
@@ -112,7 +202,7 @@
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/label#Overview">Label</a>
         </div>
-        <ul>
+        <ul class="e-list">
           <li>
             Updated labels with nowrap, font-wight and font-family to avoid inheriting wrong style.
           </li>
@@ -184,7 +274,7 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
         </div>
         External links and icons have been replaced with New tab links and icons. After discussions and research about External link VS New tab link, it is now clear that we only need one of them, which can stand for both uses.
-        <ul>
+        <ul class="e-list">
           <li>
             External links have been deprecated and replaced by New tab links. <span class="code-text">e-link--external</span> will automatically work as <span class="code-text">e-link--new-tab</span> instead.
           </li>
@@ -303,7 +393,7 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a> & 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/search#Overview">Search</a>
         </div>
-        <ul>
+        <ul class="e-list">
           <li>
             Documentation on links is updated and usage of different links made clearer. Breaking changes are; Forward links should be replaced by action links, back links should be replaced and now uses the --back modifier, and jumbo links uses a new icon.
           </li>
@@ -317,7 +407,7 @@
         </ul>
         <div class="e-mt-8">
           How to fix:
-          <ul>
+          <ul class="e-list">
           <li>
             Jumbo links can be fixed by just changing <span class="code-text">e-icon--arrow_right-bold</span> to <span class="code-text">e-icon--arrow_long_right-bold</span>. 
           </li>
@@ -568,7 +658,7 @@
         <div class="e-mt-8">
           How to fix:
           The changes only affect the 'LOGO + APP' section.
-          <ul>
+          <ul class="e-list">
             <li>
               The fastest way to fix it if to search for the section called 'LOGO + APP' under the 'TOP MENU ~ DESKTOP'. Change the first div with the 'col' classes to this:
               <div class="code-text changelog-code">&lt;div class="col-xs-2 col-sm-3 col-md-7 col-lg-8"&gt;</div>
@@ -607,7 +697,7 @@
         The e-popover alignements classes for left and right positions have been renamed and refactored. 
               <div class="e-mt-8">
             How to fix:
-            <ul>
+            <ul class="e-list">
               <li>
                 <span class="code-text changelog-code">e-popover--top--left</span> -> <span class="code-text changelog-code">e-popover--left</span>
               </li>
@@ -631,7 +721,7 @@
           <div>
             Classes for aligning 50% to the left or right from the middle.
           </div>
-            <ul>
+            <ul class="e-list">
             <li>
               <span class="code-text changelog-code">e-popover--left-50</span>
             </li>
@@ -642,7 +732,7 @@
           <div>
             Classes for sizing popover smaller when is has limited space.
           </div>
-            <ul>
+            <ul class="e-list">
             <li>
               <span class="code-text changelog-code">e-popover--w-200</span>
             </li>
@@ -686,7 +776,7 @@
           <div class="e-mt-8">
           How to fix:
           The easiest way to fix an existing header is to search and replace the classes listed here with the new classes.
-          <ul>
+          <ul class="e-list">
             <li>
               <span class="code-text changelog-code">e-top-bar</span> -> <span class="code-text changelog-code">e-header__top-bar</span>
             </li>
@@ -706,7 +796,7 @@
           <div class="e-mt-8">
             How to fix:
             Add an element with the <span class="code-text changelog-code">e-table-container</span> class outside the element with the <span class="code-text changelog-code">e-table</span> class.
-            <ul>
+            <ul class="e-list">
               <li>
                 <span class="code-text changelog-code">e-table</span> -> <span class="code-text changelog-code">e-table-container e-table</span>
               </li>
@@ -778,7 +868,7 @@
         <div class="e-mt-8">
           How to fix:
           Add the <span class="code-text changelog-code">e-none</span> or <span class="code-text changelog-code">e-invisble</span> utility classes to toggle the components.
-          <ul>
+          <ul class="e-list">
             <li>
               <span class="code-text changelog-code">e-component---visible</span> -> <span class="code-text changelog-code">e-none</span> & <span class="code-text changelog-code">e-invisible</span>
             </li>
@@ -813,7 +903,7 @@
           <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid#Overview">Grid</a>
         </div>
         If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:
-        <ul>
+        <ul class="e-list">
           <li>
             <span class="code-text changelog-code">e-grid-margin</span> -> <span class="code-text changelog-code">e-grid-margin-ext</span> + <span class="code-text changelog-code">e-grid-margin-int</span>
           </li>

@@ -66,4 +66,17 @@ export const DividerTitle = styled.div`
   letter-spacing: ${(props: { typography: string }) => (props.typography === 'medium' ? 'unset' : '0.8px')};
   padding-bottom: ${(props: { typography: string }) => (props.typography === 'medium' ? '24px' : '8px')};
   font-style: unset;
+  * {
+    margin: 0px;
+    font-family: 'Red Hat Display', Verdana, sans-serif;
+    font-weight: 700;
+    line-height: ${(props: { typography: string }) => (props.typography === 'medium' ? '28px' : '17px')};
+    font-size: ${(props: { typography: string }) => (props.typography === 'medium' ? '30px' : '14px')};
+    color: ${(props: { isInverted: boolean }) =>
+      props.isInverted ? ElviaColors.elviaOn : ElviaColors.elviaOff};
+    text-transform: ${(props: { typography: string }) =>
+      props.typography === 'medium' ? 'unset' : 'uppercase'};
+    letter-spacing: ${(props: { typography: string }) => (props.typography === 'medium' ? 'unset' : '0.8px')};
+    font-style: unset;
+  }
 `;
