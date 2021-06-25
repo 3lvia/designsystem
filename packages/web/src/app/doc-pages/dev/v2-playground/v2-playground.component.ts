@@ -87,4 +87,8 @@ export class v2PlaygroundComponent implements OnInit {
   consoleLogDropdownValue = () => {
     console.log(this.dropdownValue);
   };
+
+  showME = (value) => {
+    console.log(value);
+  }
 }

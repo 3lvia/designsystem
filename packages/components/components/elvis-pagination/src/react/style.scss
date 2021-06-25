@@ -36,8 +36,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    // testing
-    // border: 1px red solid;
+    user-select: none;
 
     .ewc-pagination--selector-area__selector-btn {
       display: flex;
@@ -72,6 +71,11 @@
       height: 36px;
       width: 36px;
       border-radius: 50%;
+      visibility: visible;
+
+      &.ewc-pagination--selector__arrow_btn--hide {
+        visibility: hidden;
+      }
 
       &:hover {
         border: 1px solid black;
