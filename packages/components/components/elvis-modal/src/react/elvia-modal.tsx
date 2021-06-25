@@ -51,7 +51,7 @@ export const ModalComponent: FC<ModalProps> = ({
   useClickOutside(modalWrapperRef, () => isShowing && handleOnHide());
   useKeyPress('Escape', handleOnHide);
   useLockBodyScroll();
-  useFocusTrap(modalWrapperRef); // funker ikke
+  useFocusTrap(modalWrapperRef);
 
   useEffect(() => {
     const originalFocusedElement = document.activeElement as HTMLElement;
