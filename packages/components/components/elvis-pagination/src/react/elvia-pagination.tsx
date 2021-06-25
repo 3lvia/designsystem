@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react';
+import React, { FC, useState } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 // import classNames from 'classnames';
 import './style.scss';

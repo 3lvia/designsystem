@@ -96,12 +96,13 @@ function App() {
     <div className="App">
       <h1>React preview</h1>
       <h2>Pagination!</h2>
-
+      {/* 
       <Pagination
         items={156}
         defaultSelection={[1, 10]}
         valueOnChange={(event) => console.log(event)}
-      ></Pagination>
+      ></Pagination> */}
+      <Pagination></Pagination>
 
       <h2>Dropdown</h2>
       <button onClick={consoleDropdownVal}>Console dropdown value</button>

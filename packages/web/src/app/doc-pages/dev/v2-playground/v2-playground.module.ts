@@ -16,6 +16,7 @@ import '@elvia/elvis-progress-linear';
 import '@elvia/elvis-testing';
 import '@elvia/elvis-datepicker';
 import '@elvia/elvis-divider';
+import '@elvia/elvis-pagination';
 
 @NgModule({
   imports: [
@@ -30,4 +31,4 @@ import '@elvia/elvis-divider';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [v2PlaygroundComponent],
 })
-export class v2PlaygroundModule {}
+export class v2PlaygroundModule { }
