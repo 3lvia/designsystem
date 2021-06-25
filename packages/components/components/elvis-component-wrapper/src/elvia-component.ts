@@ -33,7 +33,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   connectedCallback(): void {
     // Slot items
     if (this.webComponent.getComponentData().slotItems === true) {
-      this.storeAllSlots()
+      this.storeAllSlots();
     }
     if (this.webComponent.getComponentData().useWrapper) {
       this.mountPoint = document.createElement('span');
@@ -144,7 +144,7 @@ export class ElvisComponentWrapper extends HTMLElement {
       }
       this._slots[slotName] = element;
       element.remove();
-    })
+    });
   }
 
   private convertString(stringToConvert: string, attrType: string, attrName: string) {
