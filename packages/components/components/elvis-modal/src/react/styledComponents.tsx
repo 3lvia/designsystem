@@ -12,7 +12,7 @@ const modalMaxWidth = '704px';
 
 const mobileTitleFontSize = '24px';
 const mobileTitleFontWeight = '700';
-const modalMobilePadding = '32px';
+const modalMobilePadding = '32px 32px 24px 32px';
 const modalMobileTitlePaddingBottom = '8px';
 
 const modalDesktopPadding = '48px';
