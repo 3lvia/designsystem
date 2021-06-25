@@ -1,17 +1,12 @@
 import React, { FC, useEffect, useRef } from 'react';
-import toolbox from '@elvia/elvis-toolbox';
 import styled from 'styled-components';
-
-export type AccordionLabelPosition = 'left' | 'center' | 'right';
-export type AccordionSize = 'small' | 'medium' | 'large';
-export type AccordionType = 'normal' | 'overflow';
 
 export interface BoxProps {
   content: string | HTMLElement;
   title?: string;
   isColored?: boolean;
-  isInverted?: boolean;
   hasBorder?: boolean;
+  webcomponent: any;
 }
 
 const ElviaColors = {
@@ -33,8 +28,8 @@ const BoxColoredLine = styled.div`
   left: 0px;
   width: 100%;
   height: 4px;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   background: ${ElviaColors.elviaCharge};
 `;
 const BoxTitle = styled.div`
@@ -45,7 +40,7 @@ const BoxTitle = styled.div`
   line-height: 17px;
   letter-spacing: 0.8px;
   text-transform: uppercase;
-  color: ${(props: { isInverted: boolean }) => (props.isInverted === true ? 'white' : 'black')};
+  color: black;
   margin: 0px;
   margin-bottom: 8px;
   * {
@@ -64,7 +59,7 @@ const BoxContent = styled.div`
   display: block;
   width: 100%;
   box-sizing: border-box;
-  border-radius: 8px;
+  border-radius: 5px;
   border: ${(props: { hasBorder: boolean }) => props.hasBorder === true && `1px solid ${ElviaColors.grey10}`};
   background: ${ElviaColors.elviaOn};
   text-align: left;
@@ -75,42 +70,27 @@ const BoxContent = styled.div`
   }
 `;
 
-const Box: FC<BoxProps> = ({ content, title, isColored = false, hasBorder = false, isInverted = false }) => {
-  const boxRef = useRef<HTMLDivElement>(null);
+const Box: FC<BoxProps> = ({ content, title, isColored = false, hasBorder = false, webcomponent }) => {
   const boxContent = useRef<HTMLDivElement>(null);
   const boxTitle = useRef<HTMLDivElement>(null);
 
-  // Outline listener for focus only on tab keydown
   useEffect(() => {
-    // Start outline listener
-    toolbox.outlineListener(boxRef.current);
+    // Get slotted items from web component
+    if (boxContent.current && webcomponent.getSlot('content')) {
+      boxContent.current.innerHTML = '';
+      boxContent.current.appendChild(webcomponent.getSlot('content'));
+    }
 
-    return () => {
-      // Remove outline listener
-      toolbox.outlineListener(boxRef.current, true);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Web component - Placing slots at the right place
-    if (boxRef.current && boxRef.current.parentElement && boxRef.current.parentElement.parentElement) {
-      boxRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
-        if (boxContent.current && element.slot === 'content') {
-          boxContent.current.innerHTML = '';
-          boxContent.current.appendChild(element);
-        }
-        if (boxTitle.current && element.slot === 'title') {
-          boxTitle.current.innerHTML = '';
-          boxTitle.current.appendChild(element);
-        }
-      });
+    if (boxTitle.current && webcomponent.getSlot('title')) {
+      boxTitle.current.innerHTML = '';
+      boxTitle.current.appendChild(webcomponent.getSlot('title'));
     }
   });
 
   return (
-    <BoxArea ref={boxRef}>
-      {title && <BoxTitle isInverted={isInverted}>{title}</BoxTitle>}
-      {!title && <BoxTitle isInverted={isInverted} ref={boxTitle}></BoxTitle>}
+    <BoxArea>
+      {title && <BoxTitle>{title}</BoxTitle>}
+      {!title && <BoxTitle ref={boxTitle}></BoxTitle>}
       {content && (
         <BoxContent hasBorder={hasBorder} isColored={isColored}>
           {isColored && <BoxColoredLine></BoxColoredLine>}

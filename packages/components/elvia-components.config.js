@@ -147,10 +147,8 @@ module.exports = [
       { name: 'title', type: 'string' },
       { name: 'hasBorder', type: 'boolean' },
       { name: 'isColored', type: 'boolean' },
-      { name: 'isInverted', type: 'boolean' },
     ],
+    slotItems: true,
     reactName: 'Box',
-    useWrapper: true,
-    elementStyle: `width: 100%;`,
   },
 ];

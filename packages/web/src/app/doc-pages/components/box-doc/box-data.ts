@@ -13,14 +13,6 @@ const boxData = {
       type: `HTMLElement`,
       description: `Title for the box (slot in angular)`,
     },
-    isInverted: {
-      isRequired: false,
-      type: 'boolean',
-      description: 'If the box is on a dark grey background this prop should be used.',
-      default: 'false',
-      displayName: 'Dark grey',
-      cegFormType: 'background',
-    },
     hasBorder: {
       isRequired: false,
       type: 'boolean',
@@ -30,7 +22,7 @@ const boxData = {
       cegDefault: 1,
       cegType: 'boolean',
       cegFormType: 'background',
-      cegOptions: ['White', 'Light grey', 'Dark grey'],
+      cegOptions: ['White', 'Light grey'],
     },
     isColored: {
       isRequired: false,
@@ -53,7 +45,7 @@ const boxData = {
   content={<div>Content of box</div>}
 ></Box>`,
   codeWebComponent:
-    `<elvia-box
+    `<elvia-box 
 >
   <h1 slot="title">
     Title of box
