@@ -54,6 +54,11 @@ const boxData = {
     Content of box
   </div>
 </elvia-box>`,
+
+  // codeWebComponent: `<elvia-box [hasBorder]="true" [isColored]="true">
+  //       <h2 slot="title">Title</h2>
+  //       <div slot="content">Webcomponentent content for the box component</div>
+  //     </elvia-box>`
 };
 
 export { boxData };
