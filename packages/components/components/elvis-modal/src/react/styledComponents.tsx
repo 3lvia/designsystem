@@ -159,8 +159,8 @@ export const Text = styled.div`
   overflow-y: auto;
 
   @media (max-width: ${mobileMax}) {
-    font-size: 18px;
-    line-height: 29px;
+    font-size: 14px;
+    line-height: 22.4px;
   }
 `;
 
