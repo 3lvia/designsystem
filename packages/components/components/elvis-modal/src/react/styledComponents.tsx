@@ -13,16 +13,15 @@ const modalMaxWidth = '704px';
 const mobileTitleFontSize = '24px';
 const mobileTitleFontWeight = '700';
 const modalMobilePadding = '32px';
+const modalMobileTitlePaddingBottom = '8px';
 
 const modalDesktopPadding = '48px';
 const modalDesktopTitlePaddingBottom = '32px';
-const modalMobileTitlePaddingBottom = '24px';
 const titleFontSize = '30px';
 const titleFontWeight = '700';
 
 const modalDesktopWithIllustrationPadding = '80px';
 const modalDesktopWithIllustrationTitlePaddingBottom = '24px';
-const modalMobileWithIllustrationTitlePaddingBottom = '8px';
 const modalDesktopWithIllustrationTitleFontSize = '44px';
 const modalDesktopWithIllustrationTitleFontWeight = '900';
 
@@ -140,8 +139,7 @@ export const Title = styled.div`
     props.hasIllustration ? modalDesktopWithIllustrationTitlePaddingBottom : modalDesktopTitlePaddingBottom};
 
   @media (max-width: ${mobileMax}) {
-    padding-bottom: ${(props: { hasIllustration: boolean }) =>
-      props.hasIllustration ? modalMobileWithIllustrationTitlePaddingBottom : modalMobileTitlePaddingBottom};
+    padding-bottom: ${modalMobileTitlePaddingBottom};
     font-size: ${mobileTitleFontSize};
     font-weight: ${mobileTitleFontWeight};
     line-height: 29px;
