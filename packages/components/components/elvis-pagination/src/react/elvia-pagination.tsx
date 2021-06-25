@@ -181,7 +181,7 @@ const Pagination: FC<PaginationProps> = ({
 
     const getLastDots = () => {
 
-      if (selectedNumber < selectionNumbers.length - 3 && selectionNumbers.length > 6) {
+      if (selectedNumber < selectionNumbers.length - 3 && selectionNumbers.length > 7) {
         lastDots = <div>...</div>;
       } else {
         lastDots = <div></div>;
