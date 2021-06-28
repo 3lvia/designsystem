@@ -129,6 +129,9 @@ function App() {
     {
       element: <img src="https://images.unsplash.com/photo-1533591917057-a0b77b40de75?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="pride" width="300" height="300"/>
     },
+    {
+      element: <img src="https://animalso.com/wp-content/uploads/2017/11/golden-retriever-husky-mix-4.jpg" alt="pride" width="300" height="300"/>
+    },
   ];
 
   return (
@@ -151,20 +154,18 @@ function App() {
       <h2>Carousel component</h2>
         <Carousel elements={elements}  valueOnChange={setSelectedState}>
         </Carousel>
-        <div>{"Selected page: " + selectedState.toString()}</div>
       </div>
       <div style={{ margin: '40px 0' }}>
         <h2>Carousel component with hidden arrows</h2>
         <Carousel elements={elements} valueOnChange={setSelectedState} hideArrows>
         </Carousel>
-        <div>{"Selected page: " + selectedState.toString()}</div>
       </div>
       <div style={{ margin: '40px 0' }}>
         <h2>Without elements</h2>
         <Carousel elements={elements.length} valueOnChange={setSelectedState}>
         </Carousel>
-        <div>{"Selected page: " + selectedState.toString()}</div>
       </div>
+      <div>{"Selected page: " + selectedState.toString()}</div>
 
       <h2>Date picker</h2>
       <div
