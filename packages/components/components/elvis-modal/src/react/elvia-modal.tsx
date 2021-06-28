@@ -50,7 +50,7 @@ export const ModalComponent: FC<ModalProps> = ({
 
   useClickOutside(modalWrapperRef, () => isShowing && handleOnHide());
   useKeyPress('Escape', handleOnHide);
-  useLockBodyScroll();
+  useLockBodyScroll(isShowing);
   useFocusTrap(modalWrapperRef);
 
   useEffect(() => {

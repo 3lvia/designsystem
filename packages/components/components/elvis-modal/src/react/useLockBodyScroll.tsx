@@ -1,7 +1,10 @@
 import { useLayoutEffect } from 'react';
 
-export function useLockBodyScroll() {
+export function useLockBodyScroll(isShowing: boolean) {
   useLayoutEffect(() => {
+    if (!isShowing) {
+      return;
+    }
     const originalStyle = window.getComputedStyle(document.body).overflow;
 
     document.body.style.overflow = 'hidden';
@@ -9,5 +12,5 @@ export function useLockBodyScroll() {
     return () => {
       document.body.style.overflow = originalStyle;
     };
-  }, []);
+  }, [isShowing]);
 }
