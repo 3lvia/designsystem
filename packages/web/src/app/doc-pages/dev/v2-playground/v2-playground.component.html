@@ -12,6 +12,9 @@
   <div style="padding: 8px">
     <elvia-carousel [elements]="elements"  (valueOnChange)="carouselValue = $event.detail.value ">
     </elvia-carousel>
+    <h3>Carousel component with hidden arrows</h3>
+    <elvia-carousel [elements]="elements" [hideArrows]="true"  (valueOnChange)="carouselValue = $event.detail.value ">
+   </elvia-carousel>
     <h3>Carousel without content</h3>
     <elvia-carousel [elements]="5"  (valueOnChange)="carouselValue = $event.detail.value ">
    </elvia-carousel>

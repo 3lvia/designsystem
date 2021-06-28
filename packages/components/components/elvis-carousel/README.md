@@ -1,3 +1,4 @@
 # Elvia Carousel
 
-Just for debugging and testing new things, do not publish
+For information on use and available props for the Elvia carousel, please visit our documentation at:
+<a href="https://design.elvia.io/components/carousel#Overview">design.elvia.io</a>

@@ -9,19 +9,17 @@ type CarouselElement = {
 
 export interface BaseCarouselProps {
   className?: string;
-  style?: React.CSSProperties;
+  elements: CarouselElement[] | number;
   hideArrows?: boolean;
+  value: number;
   valueOnChange?: (value: number) => void;
   webcomponent?: any;
-  elements: CarouselElement[] | number;
-
 }
 
 // don't know why it says it does not exist
-export const Carousel: FC<BaseCarouselProps> = ({ className, style, elements, hideArrows = false, valueOnChange, webcomponent }) => {
+export const Carousel: FC<BaseCarouselProps> = ({ className, elements, hideArrows = false, value=0, valueOnChange, webcomponent }) => {
   className;
-  style; //why are these just defined like this?
-  const [index, setIndex] = useState(0)
+  const [index, setIndex] = useState(value)
   const [isDown, setIsDown] = useState(false)
   const [startX, setStartX] = useState(0)
   const [slideIn, setSlideIn] = useState(true);

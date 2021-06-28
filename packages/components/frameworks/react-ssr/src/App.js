@@ -166,7 +166,7 @@ function App() {
         <div>{"Selected page: " + selectedState.toString()}</div>
       </div>
 
-      {/* <h2>Date picker</h2>
+      <h2>Date picker</h2>
       <div
         style={{
           marginTop: '16px',
@@ -241,7 +241,7 @@ function App() {
             </div>
           }
         ></Accordion>
-      </div> */}
+      </div>
 
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
@@ -251,7 +251,7 @@ function App() {
 
       <hr style={{ margin: '40px 0' }} />
 
-      {/* <h2>Checkbox</h2>
+{/*       <h2>Checkbox</h2>
       <div style={{ marginTop: '16px' }}>
         <Checkbox
           ref={ref}
@@ -263,9 +263,9 @@ function App() {
           changeHandler={setTrackedState}
         ></Checkbox>
         <Checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></Checkbox>
-      </div> */}
+      </div>
+ */}
 
-    {/*
       <hr style={{ margin: '40px 0' }} />
 
       <h2>Popover</h2>
@@ -365,7 +365,7 @@ function App() {
 
       <div>
         <ProgressLinear isError></ProgressLinear>
-      </div>*/}
+      </div>
     </div>
   );
 }

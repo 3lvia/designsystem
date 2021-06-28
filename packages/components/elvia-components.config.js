@@ -31,7 +31,7 @@ module.exports = [
     attributes: [
       { name: 'elements', type: 'number | string | HTMLElement' },
       { name: 'hideArrows', type: 'boolean' },
-      { name: 'valueOnChange', type: 'boolean' },
+      { name: 'value', type: 'number' },
     ],
     reactName: 'Carousel',
     slotItems: false,

@@ -1,20 +1,8 @@
 # Elvia Carousel Changelog
 
-## 1.0.0 (13.11.20)
-
-### Breaking changes
-
-- Breaking change
-  - Easy fix
-- Breaking change
-  - Easy fix
+## 1.0.0 (28.06.21)
 
 ### New features
 
-- New feature
-- New feature
+- First version of the Carousel component
 
-### Bug fixes
-
-- Bug fix
-- Bug fix
