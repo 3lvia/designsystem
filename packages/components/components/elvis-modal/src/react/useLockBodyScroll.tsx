@@ -1,7 +1,7 @@
-import { useLayoutEffect } from 'react';
+import { useEffect } from 'react';
 
 export function useLockBodyScroll(isShowing: boolean) {
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (!isShowing) {
       return;
     }
