@@ -4,4 +4,4 @@
 
 ### New features
 
-- First version of Modal
+- First version of Modal that should work for React
