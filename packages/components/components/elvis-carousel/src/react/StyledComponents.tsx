@@ -7,16 +7,75 @@ const ElviaColors = {
   elviaBlue: '#0064fa',
 };
 
-const mobileMax = '500px'; //767px
+const mobileMax = '767px'
 
 
 export const CarouselContainer = styled.div`
 display: flex;
 justify-content: center;
 flex-direction: column;
+
+.carousel-enter {
+  transform: ${(props: { slideDirection: string }) =>
+      props.slideDirection === 'left' ? 'translateX(-30%)' : 'translateX(30%)'};
+}
+
+.carousel-enter-active {
+  transform: translateX(0);
+  transition: all 500ms ease-in;
+}
+
+.carousel-exit {
+    transform: translateX(0);
+}
+
+.carousel-exit-active {
+  transform: ${(props: { slideDirection: string }) =>
+      props.slideDirection === 'left' ? 'translateX(-30%)' : 'translateX(30%)'};
+  transition: all 500ms ease-in;
+}
 `;
 
-export const Element = styled.div`
+export const CarouselElementContainer = styled.div`
+    transform: scale(0.98);
+    cursor: pointer;
+
+
+    &:active {
+      cursor: grabbing;
+      cursor: -webkit-grabbing;
+      transform: scale(1);
+      user-select: none;
+    }
+`
+
+export const CarouselTitle = styled.h2`
+  font-family: 'Red Hat Display', Verdana, sans-serif;
+  font-weight: 700;
+  line-height: ${(props: { typography: string }) => (props.typography === 'medium' ? '28px' : '17px')};
+  font-size: ${(props: { typography: string }) => (props.typography === 'medium' ? '30px' : '14px')};
+  color: ${(props: { isInverted: boolean }) =>
+    props.isInverted ? ElviaColors.elviaOn : ElviaColors.elviaOff};
+  text-transform: ${(props: { typography: string }) =>
+    props.typography === 'medium' ? 'unset' : 'uppercase'};
+  letter-spacing: ${(props: { typography: string }) => (props.typography === 'medium' ? 'unset' : '0.8px')};
+  font-style: unset;
+  * {
+    margin: 0px;
+    font-family: 'Red Hat Display', Verdana, sans-serif;
+    font-weight: 700;
+    line-height: ${(props: { typography: string }) => (props.typography === 'medium' ? '28px' : '17px')};
+    font-size: ${(props: { typography: string }) => (props.typography === 'medium' ? '30px' : '14px')};
+    color: ${(props: { isInverted: boolean }) =>
+      props.isInverted ? ElviaColors.elviaOn : ElviaColors.elviaOff};
+    text-transform: ${(props: { typography: string }) =>
+      props.typography === 'medium' ? 'unset' : 'uppercase'};
+    letter-spacing: ${(props: { typography: string }) => (props.typography === 'medium' ? 'unset' : '0.8px')};
+    font-style: unset;
+  }
+`
+
+export const CarouselElement = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -48,10 +107,10 @@ export const Element = styled.div`
 export const NavigationRow = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
 
-  @media (max-width: 700px) {
+  @media (max-width: ${mobileMax}) {
     justify-content: space-between;
   }
 `
@@ -60,8 +119,9 @@ export const LeftCarouselButton = styled.button`
   border: none;
   background: transparent;
   display: flex;
-  padding: 24px 24px 24px 16px;
+  padding: 24px 0px 24px 16px;
   visibility: ${(props: { hidden: boolean }) => ( props.hidden ? 'hidden' : 'visible')};
+  display: ${(props: { hidden: boolean }) => ( props.hidden ? 'none' : 'inline-block')};
 
 
   cursor: pointer;
@@ -91,7 +151,7 @@ export const RightCarouselButton = styled.button`
     border: none;
     background: transparent;
     display: flex;
-    padding: 24px 16px 24px 24px;
+    padding: 24px 16px 24px 0px;
     visibility: ${(props: { hidden: boolean }) => ( props.hidden ? 'hidden' : 'visible')};
     cursor: pointer;
     &:hover {
@@ -112,12 +172,13 @@ export const RightCarouselButton = styled.button`
     }
 `
 
-export const ListOfEllipses = styled.div`
+export const ListOfDots = styled.div`
   display: flex;
   flex-direction: row;
+  padding: 0px 24px;
 `
 
-export const Ellipse = styled.button`
+export const Dot = styled.button`
   border: 1px solid  ${(props: { isSelected: boolean }) => (props.isSelected ?  ElviaColors.elviaCharge : ElviaColors.elviaOff)};
   height: 8px;
   width: 8px;
@@ -129,28 +190,3 @@ export const Ellipse = styled.button`
 `
 
 
-export const CarouselTitle = styled.h2`
-  font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: 700;
-  line-height: ${(props: { typography: string }) => (props.typography === 'medium' ? '28px' : '17px')};
-  font-size: ${(props: { typography: string }) => (props.typography === 'medium' ? '30px' : '14px')};
-  color: ${(props: { isInverted: boolean }) =>
-    props.isInverted ? ElviaColors.elviaOn : ElviaColors.elviaOff};
-  text-transform: ${(props: { typography: string }) =>
-    props.typography === 'medium' ? 'unset' : 'uppercase'};
-  letter-spacing: ${(props: { typography: string }) => (props.typography === 'medium' ? 'unset' : '0.8px')};
-  font-style: unset;
-  * {
-    margin: 0px;
-    font-family: 'Red Hat Display', Verdana, sans-serif;
-    font-weight: 700;
-    line-height: ${(props: { typography: string }) => (props.typography === 'medium' ? '28px' : '17px')};
-    font-size: ${(props: { typography: string }) => (props.typography === 'medium' ? '30px' : '14px')};
-    color: ${(props: { isInverted: boolean }) =>
-      props.isInverted ? ElviaColors.elviaOn : ElviaColors.elviaOff};
-    text-transform: ${(props: { typography: string }) =>
-      props.typography === 'medium' ? 'unset' : 'uppercase'};
-    letter-spacing: ${(props: { typography: string }) => (props.typography === 'medium' ? 'unset' : '0.8px')};
-    font-style: unset;
-  }
-`

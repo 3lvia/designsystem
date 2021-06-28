@@ -118,8 +118,9 @@ function App() {
 
     },
     {
-      title: 'Hei til ny tariff!',
-      element: 'Body text comes here and can go over several lines. It looks like this and when it is two.',
+      title: <h4>Hei til ny tariff!</h4>,
+      element:
+      'Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines.'
     },
     {
       title: 'Strømbruddsvarsel',
@@ -147,10 +148,16 @@ function App() {
         ></Dropdown>
       </div>
       <div style={{ margin: '40px 0' }}>
-        <Carousel elements={elements}  valueOnChange={setSelectedState} elementsLength={elements.length}>
+      <h2>Carousel component</h2>
+        <Carousel elements={elements}  valueOnChange={setSelectedState}>
         </Carousel>
         <div>{"Selected page: " + selectedState.toString()}</div>
-        {/* <Carousel elements={['Hello','How you doing',"Very good"]} hideArrows></Carousel> */}
+      </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Carousel component with hidden arrows</h2>
+        <Carousel elements={elements} valueOnChange={setSelectedState} hideArrows>
+        </Carousel>
+        <div>{"Selected page: " + selectedState.toString()}</div>
       </div>
       <div style={{ margin: '40px 0' }}>
         <h2>Without elements</h2>
