@@ -52,25 +52,21 @@ export const CarouselElementContainer = styled.div`
 export const CarouselTitle = styled.h2`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 700;
-  line-height: ${(props: { typography: string }) => (props.typography === 'medium' ? '28px' : '17px')};
-  font-size: ${(props: { typography: string }) => (props.typography === 'medium' ? '30px' : '14px')};
-  color: ${(props: { isInverted: boolean }) =>
-    props.isInverted ? ElviaColors.elviaOn : ElviaColors.elviaOff};
-  text-transform: ${(props: { typography: string }) =>
-    props.typography === 'medium' ? 'unset' : 'uppercase'};
-  letter-spacing: ${(props: { typography: string }) => (props.typography === 'medium' ? 'unset' : '0.8px')};
+  line-height: '28px';
+  font-size: '30px';
+  color: ${ElviaColors.elviaOff};
+  text-transform: 'unset';
+  letter-spacing: 'unset';
   font-style: unset;
   * {
     margin: 0px;
     font-family: 'Red Hat Display', Verdana, sans-serif;
     font-weight: 700;
-    line-height: ${(props: { typography: string }) => (props.typography === 'medium' ? '28px' : '17px')};
-    font-size: ${(props: { typography: string }) => (props.typography === 'medium' ? '30px' : '14px')};
-    color: ${(props: { isInverted: boolean }) =>
-      props.isInverted ? ElviaColors.elviaOn : ElviaColors.elviaOff};
-    text-transform: ${(props: { typography: string }) =>
-      props.typography === 'medium' ? 'unset' : 'uppercase'};
-    letter-spacing: ${(props: { typography: string }) => (props.typography === 'medium' ? 'unset' : '0.8px')};
+    line-height: '28px';
+    font-size: '30px';
+    color: ${ElviaColors.elviaOff};
+    text-transform: 'unset';
+    letter-spacing: 'unset';
     font-style: unset;
   }
 `
@@ -81,25 +77,21 @@ export const CarouselElement = styled.div`
   flex-direction: column;
 
   font-family: 'Red Hat Text', Verdana, sans-serif;
-  line-height: ${(props: { typography: string }) => (props.typography === 'medium' ? '28px' : '17px')};
-  font-size: ${(props: { typography: string }) => (props.typography === 'medium' ? '16px' : '14px')};
-  color: ${(props: { isInverted: boolean }) =>
-    props.isInverted ? ElviaColors.elviaOn : ElviaColors.elviaOff};
-  text-transform: ${(props: { typography: string }) =>
-    props.typography === 'medium' ? 'unset' : 'uppercase'};
-  letter-spacing: ${(props: { typography: string }) => (props.typography === 'medium' ? 'unset' : '0.8px')};
-  padding-bottom: ${(props: { typography: string }) => (props.typography === 'medium' ? '10px' : '8px')};
+  line-height:'28px';
+  font-size: '16px';
+  color: ${ElviaColors.elviaOff};
+  text-transform: 'unset';
+  letter-spacing: 'unset';
+  padding-bottom: '10px';
   font-style: unset;
   * {
     margin: 0px;
     font-family: 'Red Hat Text', Verdana, sans-serif;
-    line-height: ${(props: { typography: string }) => (props.typography === 'medium' ? '28px' : '17px')};
-    font-size: ${(props: { typography: string }) => (props.typography === 'medium' ? '16px' : '14px')};
-    color: ${(props: { isInverted: boolean }) =>
-      props.isInverted ? ElviaColors.elviaOn : ElviaColors.elviaOff};
-    text-transform: ${(props: { typography: string }) =>
-      props.typography === 'medium' ? 'unset' : 'uppercase'};
-    letter-spacing: ${(props: { typography: string }) => (props.typography === 'medium' ? 'unset' : '0.8px')};
+    line-height: '28px';
+    font-size:'16px';
+    color: ${ElviaColors.elviaOff};
+    text-transform: 'unset';
+    letter-spacing:'unset';
     font-style: unset;
   }
 `

@@ -31,8 +31,8 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, style, elements, hi
 
   const lengthOfElements = typeof elements === 'object'  ? elements.length : elements
 
-  const hideLeftArrow = index === 0
-  const hideRightArrow = index === lengthOfElements - 1
+  const hideLeftArrow = hideArrows && index === 0
+  const hideRightArrow = hideArrows && index === lengthOfElements - 1
 
   const updateValue = (index: number) => {
     setIndex(index)
@@ -70,10 +70,10 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, style, elements, hi
       }
       const x = clientX - itemsRef?.current?.offsetLeft;
       const distance = (x - startX) * 3;
-      if (distance < -400 ) {
+      if (distance < -400 && !hideRightArrow) {
         handleButtonClick(index,'right')
       }
-      if (distance > 400) {
+      if (distance > 400 && !hideLeftArrow) {
         handleButtonClick(index, 'left')
       }
     }
@@ -81,8 +81,8 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, style, elements, hi
 
   const handleButtonClick = (index: number, direction: 'left' | 'right'): void => {
     setIsDown(false)
-    const oppDirection = direction === 'left' ? 'right' : 'left';
-    setSlideDirection(oppDirection);
+    const oppositeDirection = direction === 'left' ? 'right' : 'left';
+    setSlideDirection(oppositeDirection);
     setSlideIn(false);
 
     setTimeout(() => {
@@ -103,10 +103,10 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, style, elements, hi
        }}
        >
       <CarouselElementContainer >
-      <CarouselTitle typography='medium'>
+      <CarouselTitle>
         {elements[index].title}
       </CarouselTitle>
-      <CarouselElement typography='medium' ref={itemsRef}
+      <CarouselElement ref={itemsRef}
           onMouseDown={(e: MouseEvent) => handleMouseDown(e)}
           onMouseUp={() => setIsDown(false)}
           onMouseLeave={() => setIsDown(false)}
@@ -122,7 +122,7 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, style, elements, hi
       </CSSTransition>
       }
       <NavigationRow>
-        <LeftCarouselButton aria-label={`Gå til side ${index + 1}`} hidden={hideArrows && hideLeftArrow} onClick={()=>
+        <LeftCarouselButton aria-label={`Gå til side ${index + 1}`} hidden={hideLeftArrow} onClick={()=>
           handleButtonClick(index,'left')
         }><i/></LeftCarouselButton>
         <ListOfDots>
@@ -132,7 +132,7 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, style, elements, hi
             />
           )}
         </ListOfDots>
-        <RightCarouselButton aria-label={`Gå til side ${index + 1}`} hidden={hideArrows && hideRightArrow} onClick={()=>
+        <RightCarouselButton aria-label={`Gå til side ${index + 1}`} hidden={hideRightArrow} onClick={()=>
           handleButtonClick(index,'right')
         }><i/></RightCarouselButton>
       </NavigationRow>
