@@ -11,14 +11,13 @@ export interface BaseCarouselProps {
   className?: string;
   elements: CarouselElement[] | number;
   hideArrows?: boolean;
-  value: number;
+  value?: number;
   valueOnChange?: (value: number) => void;
   webcomponent?: any;
 }
 
 // don't know why it says it does not exist
 export const Carousel: FC<BaseCarouselProps> = ({ className, elements, hideArrows = false, value=0, valueOnChange, webcomponent }) => {
-  className;
   const [index, setIndex] = useState(value)
   const [isDown, setIsDown] = useState(false)
   const [startX, setStartX] = useState(0)
@@ -92,7 +91,7 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, elements, hideArrow
 
 
   return (
-    <CarouselContainer slideDirection={slideDirection}>
+    <CarouselContainer slideDirection={slideDirection} className={className}>
       {typeof elements === 'object' &&
       <CSSTransition in={slideIn} classNames={'carousel'} timeout={{
         appear: 300,

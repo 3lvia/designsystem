@@ -37,6 +37,7 @@ export enum Pages {
   Autocomplete = 'autocomplete',
   Button = 'button',
   Card = 'card',
+  Carousel = 'carousel',
   Chips = 'chips',
   Checkbox = 'checkbox',
   ContentLoader = 'content-loader',

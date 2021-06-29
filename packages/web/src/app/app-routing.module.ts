@@ -6,6 +6,7 @@ import { HomeComponent } from './shell/home/home.component';
 import { ButtonDocComponent } from './doc-pages/components/button-doc/button-doc.component';
 import { LabelDocComponent } from './doc-pages/components/label-doc/label-doc.component';
 import { CardDocComponent } from './doc-pages/components/card-doc/card-doc.component';
+import { CarouselDocComponent } from './doc-pages/components/carousel-doc/carousel-doc.component';
 import { LinkDocComponent } from './doc-pages/components/link-doc/link-doc.component';
 import { TableDocComponent } from './doc-pages/components/table-doc/table-doc.component';
 import { TooltipDocComponent } from './doc-pages/components/tooltip-doc/tooltip-doc.component';
@@ -197,6 +198,9 @@ const routes: Routes = [
           {
             path: Pages.Card,
             component: CardDocComponent,
+          },          {
+            path: Pages.Carousel,
+            component: CarouselDocComponent,
           },
           {
             path: Pages.Chips,
