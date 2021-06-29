@@ -15,24 +15,24 @@ export const useFocusTrap = (focusTrapContainer: RefObject<HTMLElement>): void =
 
     const handleFirstItemTab = (e: KeyboardEvent) => {
       if (e.key === 'Tab' && e.shiftKey) {
-        lastItem.focus();
+        lastItem?.focus();
         e.preventDefault();
       }
     };
     const handleLastItemTab = (e: KeyboardEvent) => {
       if (e.key === 'Tab' && !e.shiftKey) {
-        firstItem.focus();
+        firstItem?.focus();
         e.preventDefault();
       }
     };
 
-    firstItem.focus();
-    firstItem.addEventListener('keydown', handleFirstItemTab);
-    lastItem.addEventListener('keydown', handleLastItemTab);
+    firstItem?.focus();
+    firstItem?.addEventListener('keydown', handleFirstItemTab);
+    lastItem?.addEventListener('keydown', handleLastItemTab);
 
     return () => {
-      firstItem.removeEventListener('keydown', handleFirstItemTab);
-      lastItem.removeEventListener('keydown', handleLastItemTab);
+      firstItem?.removeEventListener('keydown', handleFirstItemTab);
+      lastItem?.removeEventListener('keydown', handleLastItemTab);
     };
   }, []);
 };
