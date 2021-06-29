@@ -27,7 +27,7 @@
     "@contentful/rich-text-types": "^14.1.2",
     "@elvia/elvis": "*",
     "@elvia/elvis-accordion": "*",
-    "@elvia/elvis-carousel": "0.0.1-beta.1",
+    "@elvia/elvis-carousel": "0.0.1-beta.2",
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-dropdown": "*",
     "@elvia/elvis-popover": "*",
