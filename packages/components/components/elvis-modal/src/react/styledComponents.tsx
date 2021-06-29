@@ -157,6 +157,7 @@ export const Text = styled.div`
   color: ${ElviaColors.elviaOff};
   position: relative;
   overflow-y: auto;
+  height: 100%;
 
   @media (max-width: ${mobileMax}) {
     font-size: 14px;

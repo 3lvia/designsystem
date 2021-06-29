@@ -138,6 +138,8 @@ function App() {
             <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
             <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
             <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+            <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+            <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
           </>
         }
       >

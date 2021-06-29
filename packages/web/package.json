@@ -29,7 +29,7 @@
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-dropdown": "*",
-    "@elvia/elvis-modal": "0.0.1-beta.1",
+    "@elvia/elvis-modal": "*",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-tabs": "*",
