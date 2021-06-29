@@ -127,7 +127,7 @@ function App() {
       element: JSXCarouselElement(),
     },
     {
-      element: <img src="https://images.unsplash.com/photo-1533591917057-a0b77b40de75?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="pride" width="300" height="300"/>
+      element: <img draggable="false" src="https://images.unsplash.com/photo-1533591917057-a0b77b40de75?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="pride" width="300" height="300"/>
     },
     {
       element: <img src="https://animalso.com/wp-content/uploads/2017/11/golden-retriever-husky-mix-4.jpg" alt="pride" width="300" height="300"/>

@@ -40,6 +40,15 @@ export const CarouselElementContainer = styled.div`
     transform: scale(0.98);
     cursor: pointer;
 
+    // Prevent imagine dragging
+    // Note: This does not work for Firefox
+    img {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+    }
 
     &:active {
       cursor: grabbing;

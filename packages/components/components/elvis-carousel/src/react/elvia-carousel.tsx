@@ -54,7 +54,7 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, elements, hideArrow
     if (!itemsRef.current) {
       return;
     }
-    setStartX(clientX -  itemsRef?.current?.offsetLeft);
+    setStartX(clientX -  itemsRef.current.offsetLeft);
     setIsDown(true)
   }
 
@@ -65,7 +65,7 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, elements, hideArrow
       if (!itemsRef.current) {
         return;
       }
-      const x = clientX - itemsRef?.current?.offsetLeft;
+      const x = clientX - itemsRef.current.offsetLeft;
       const distance = (x - startX) * 3;
       if (distance < -400 && !hideRightArrow) {
         handleButtonClick(index,'right')
