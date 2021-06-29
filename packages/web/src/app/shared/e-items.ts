@@ -118,7 +118,7 @@ export const eComponents: EItems[] = [
       'Box are used to group different content. Use a box together with grid and space to make different layouts.',
     docUrl: Pages.Box,
     absolutePath: '/components/' + Pages.Box,
-    status: ItemStatus.Done,
+    status: ItemStatus.Ignore,
     imageUrl: 'assets/website-icons/component-images/Box.svg',
     figmaUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Box?node-id=288%3A0',
     type: 'Component',

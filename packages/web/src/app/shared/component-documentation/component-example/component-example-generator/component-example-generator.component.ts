@@ -57,7 +57,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       if (!this.hasPreview) {
         return;
       }
-      // console.log(this.componentData.codeWebComponent);
       this.cegFrame.nativeElement.innerHTML = this.componentData.codeWebComponent;
       Object.keys(this.componentData.attributes).forEach((attribute) => {
         Object.keys(this.componentData.attributes[attribute]).forEach((value) => {

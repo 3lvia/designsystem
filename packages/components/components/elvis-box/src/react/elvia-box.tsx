@@ -85,7 +85,7 @@ const Box: FC<BoxProps> = ({ content, title, isColored = false, hasBorder = fals
       boxTitle.current.innerHTML = '';
       boxTitle.current.appendChild(webcomponent.getSlot('title'));
     }
-  });
+  }, [webcomponent]);
 
   return (
     <BoxArea>
