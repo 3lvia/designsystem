@@ -31,11 +31,10 @@ Build Elvis: `yarn run build`
 
 **/packages/components**
 
-Develop & Build `yarn run gulp:watch`
+Develop & Build `yarn build` or `yarn watch` (to build every time changes are saved)
 
-Test how components would work for our users by running `yarn run start` at
-`/packages/components/framework/angular` and/or `yarn run start` at `/packages/components/framework/react`
-</br> </br>
+Test how components would work for our users by running `yarn start` at `/packages/web` and/or `yarn start` at
+`/packages/components/frameworks/react-ssr` </br> </br>
 
 ### Web (Design.elvia.io)
 

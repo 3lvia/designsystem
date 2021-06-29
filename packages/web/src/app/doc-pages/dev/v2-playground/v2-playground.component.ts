@@ -15,6 +15,7 @@ export class v2PlaygroundComponent implements OnInit {
   progressError;
   indeterminate;
   isFullWidth = false;
+  isModalShowing = false;
   date1 = new Date(2021, 4, 20);
 
   accordionContent = `

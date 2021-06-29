@@ -1,4 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
+import { modalData } from 'src/app/doc-pages/components/modal-doc/modal-data';
 import { getComponent } from 'src/app/shared/e-items';
 
 @Component({
@@ -11,6 +12,7 @@ export class ModalDocComponent {
   @ViewChild('modal2') modal2: ElementRef;
   @ViewChild('modal3') modal3: ElementRef;
 
+  componentData = modalData;
   figmaUrl = getComponent('modal').figmaUrl;
   description = getComponent('modal').description;
   // tslint:disable-next-line:max-line-length
