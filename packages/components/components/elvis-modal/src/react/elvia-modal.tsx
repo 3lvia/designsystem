@@ -66,6 +66,10 @@ export const ModalComponent: FC<ModalProps> = ({
       return;
     }
 
+    if (!webcomponent) {
+      return;
+    }
+
     if (modalText.current && webcomponent.getSlot('content')) {
       modalText.current.innerHTML = '';
       modalText.current.appendChild(webcomponent.getSlot('content'));

@@ -21,7 +21,7 @@ export const useFocusTrap = (focusTrapContainer: RefObject<HTMLElement>): void =
     };
     const handleLastItemTab = (e: KeyboardEvent) => {
       if (e.key === 'Tab' && !e.shiftKey) {
-        firstItem?.focus();
+        firstItem.focus();
         e.preventDefault();
       }
     };
