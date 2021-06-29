@@ -143,10 +143,11 @@ module.exports = [
     name: 'elvis-pagination',
     elementName: 'elvia-pagination',
     attributes: [
+      { name: 'value', type: 'object' },
       { name: 'items', type: 'number' },
       { name: 'itemsPerPage', type: 'object' },
       { name: 'label', type: 'string' },
-      { name: 'value', type: 'object' },
+      { name: 'labelPostfix', type: 'string' },
     ],
     slotItems: false,
     reactName: 'Pagination',

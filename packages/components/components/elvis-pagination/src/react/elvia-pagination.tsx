@@ -16,17 +16,13 @@ export interface SelectionNumber {
 export interface PaginationProps {
   value: SelectionNumber;
   items: number;
+  paginatorDropdownOptions: Array<DropdownOption>;
+  labelDisplaying: string;
   label: string;
-  itemsPerPage: Array<DropdownOption>;
+  labelOf: string;
   valueOnChange?: (value: SelectionNumber) => void;
   webcomponent?: any;
 }
-export const defaultPaginationOptions = [
-  {
-    value: '10',
-    label: '10'
-  }
-]
 
 export const paginationOptions = [
   {
@@ -45,23 +41,34 @@ export const paginationOptions = [
     value: '40',
     label: '40'
   },
-  {
-    value: 'Alle',
-    label: 'Alle'
-  },
 ];
+
 
 const Pagination: FC<PaginationProps> = ({
   value = { start: undefined, end: undefined },
   items = 0,
-  itemsPerPage = paginationOptions,
+  paginatorDropdownOptions = paginationOptions,
+  label = 'rader',
+  labelDisplaying = 'Viser',
+  labelOf = 'av',
   valueOnChange,
   webcomponent
 }) => {
-
-  const [selectedNumber, setSelectedNumber] = useState(1);
-  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(itemsPerPage[0]);
+  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(paginatorDropdownOptions[0]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
+  const [currentValue, setvCurrentValue] = useState(value);
+  const [selectedNumber, setSelectedNumber] = useState(() => {
+    if (value.start != undefined && value.end != undefined) {
+      const currentDropdownDisplayVal = parseInt(currentDisplayAmount.value);
+      return (value.start / currentDropdownDisplayVal);
+    }
+    return 1;
+  });
+
+  useEffect(() => {
+    updateValue(selectedNumber);
+  }, [selectedNumber, currentDisplayAmount])
+
 
   // calculate amount of selection numbers, based on total pages
   let selectorAmount = Math.ceil(items / parseInt(currentDisplayAmount.value));
@@ -74,12 +81,10 @@ const Pagination: FC<PaginationProps> = ({
 
   // update selected number on arrow click
   const updateSelectedPageLeft = () => {
-    const newSelected = selectedNumber - 1
-    updateValue(newSelected)
+    setSelectedNumber((preSelectedNumn) => preSelectedNumn - 1)
   }
   const updateSelectedPageRight = () => {
-    const newSelected = selectedNumber + 1
-    updateValue(newSelected)
+    setSelectedNumber((preSelectedNumn) => preSelectedNumn + 1)
   }
 
   const activeNumber = (chosenNumber: number) => {
@@ -105,7 +110,7 @@ const Pagination: FC<PaginationProps> = ({
     ['ewc-pagination--selector__arrow_btn--hide']: !isRightArrow(),
   });
 
-  // Visible numbers in paginator
+  // Visible numbers in paginator 
   const Paginators = () => {
     const visibleNumbers = [];
     let firstNumbers;
@@ -120,11 +125,11 @@ const Pagination: FC<PaginationProps> = ({
 
     const isShowAll = false;
 
-    const getFirstNumbers = () => {
+    const getFirstNumber = () => {
       firstNumbers = < button
         className={`ewc-pagination--selector-area__selector-btn ${activeNumber(1) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
         key={'firstPaginationNumb'}
-        onClick={() => updateValue(1)}
+        onClick={() => setSelectedNumber(1)}
       > {1}
       </ button >
     }
@@ -145,7 +150,7 @@ const Pagination: FC<PaginationProps> = ({
               < button
                 className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
                 key={index}
-                onClick={() => updateValue(number)}
+                onClick={() => setSelectedNumber(number)}
               > {number}
               </ button >
             )
@@ -163,7 +168,7 @@ const Pagination: FC<PaginationProps> = ({
               < button
                 className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
                 key={index}
-                onClick={() => updateValue(number)}
+                onClick={() => setSelectedNumber(number)}
               > {number}
               </ button >
             )
@@ -180,7 +185,7 @@ const Pagination: FC<PaginationProps> = ({
               < button
                 className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
                 key={index}
-                onClick={() => updateValue(number)}
+                onClick={() => setSelectedNumber(number)}
               > {number}
               </ button >
             )
@@ -196,32 +201,28 @@ const Pagination: FC<PaginationProps> = ({
         lastDots = <div key={'nolastDots'}></div>;
       }
     }
-    const getLastNumbers = () => {
+    const getLastNumber = () => {
       lastNumbers = <button
         className={`ewc-pagination--selector-area__selector-btn ${activeNumber(selectionNumbers.length) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
         key={'lastPaginationNumb'}
-        onClick={() => updateValue(selectionNumbers.length)}
+        onClick={() => setSelectedNumber(selectionNumbers.length)}
       > {selectionNumbers.length}
       </ button >
     }
 
     // get visible numbers
     if (!isShowAll) {
-      getFirstNumbers();
+      getFirstNumber();
       getFirstDots();
       getCenterNumbers(selectedNumber);
       getLastDots();
-      getLastNumbers();
+      getLastNumber();
       visibleNumbers.push(firstNumbers, firstDots, centerNumbers, lastDots, lastNumbers);
     }
-
     return visibleNumbers;
   }
 
-
-
   const onDropdownChangeHandler = (selectionRange: DropdownOption) => {
-
     if (isNaN(parseInt(selectionRange.value)) || items === 0) {
       setShowPaginationMenu(false);
       return
@@ -230,28 +231,28 @@ const Pagination: FC<PaginationProps> = ({
       setShowPaginationMenu(true);
     }
     setCurrentDisplayAmount(selectionRange);
-
     // Check if current selection number in avalailable selectionNumbers array
     const isSelectedInRange = selectionNumbers.includes(selectedNumber);
     if (!isSelectedInRange) {
       setSelectedNumber(selectionNumbers.length);
-      updateValue(selectionNumbers.length);
     }
   }
 
-  // change and use currentValue
+  // set rangevalue and return in valueOnChange function
   const updateValue = (value: number) => {
-    setSelectedNumber(value);
-    // check if one??
-    const startRange = (parseInt(currentDisplayAmount.value) * value) - parseInt(currentDisplayAmount.value);
+    if (!selectionNumbers.includes(value)) {
+      return;
+    }
 
+    const startRange = (parseInt(currentDisplayAmount.value) * value) - parseInt(currentDisplayAmount.value) + 1;
     let endRange
-    endRange = startRange + parseInt(currentDisplayAmount.value);
+    endRange = startRange + parseInt(currentDisplayAmount.value) - 1;
     if (value === selectionNumbers.length) {
       endRange = items;
     }
 
     const newValue = { start: startRange, end: endRange };
+    setvCurrentValue(newValue)
 
     if (!webcomponent && valueOnChange) {
       valueOnChange(newValue);
@@ -261,19 +262,37 @@ const Pagination: FC<PaginationProps> = ({
     }
   }
 
+  const valueRangeToSelectedNumber = (value: SelectionNumber) => {
+    if (value.start != undefined || value.end != undefined) {
+      const currentDropdownDisplayVal = parseInt(currentDisplayAmount.value);
+      const startNum = value.start;
+      setSelectedNumber(startNum / currentDropdownDisplayVal)
+    }
+  }
+
+  // set rangevalue and return in valueOnChange function
+  useEffect(() => {
+    if (currentValue.start === undefined || currentValue.end === undefined) {
+      updateValue(selectedNumber);
+    }
+    if (value.start != undefined || value.end != undefined) {
+      valueRangeToSelectedNumber(value);
+    }
+  }, [value])
+
   return (
     <div className="ewc-pagination">
-      <div className="ewc-pagination--displayText">Viser</div>
+      <div className="ewc-pagination--displayText">{labelDisplaying}</div>
       <div className="ewc-pagination--dropdown">
         <Dropdown
           isCompact
           placeholder=""
-          options={itemsPerPage}
+          options={paginatorDropdownOptions}
           defaultValue={currentDisplayAmount}
           valueOnChange={(event: any) => onDropdownChangeHandler(event)}
         ></Dropdown>
       </div>
-      <div className="ewc-pagination--pagesAmount">av {items} bilder</div>
+      <div className="ewc-pagination--pagesAmount"> {labelOf} {items} {label}</div>
       <div className="ewc-pagination--selector-area">
         <button className={leftArrow} onClick={updateSelectedPageLeft}>
           <div className="ewc-pagination--selector__arrow--left"></div>

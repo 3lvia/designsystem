@@ -88,6 +88,21 @@ function App() {
 
   let dropdownValue;
 
+  const paginatorOptions = [
+    {
+      value: '10',
+      label: '10',
+    },
+    {
+      value: '20',
+      label: '20',
+    },
+    {
+      value: 'All',
+      label: 'All',
+    },
+  ];
+
   const consoleDropdownVal = () => {
     console.log(dropdownValue);
   };
@@ -98,8 +113,9 @@ function App() {
       <h2>Pagination!</h2>
 
       <Pagination
+        value={{ start: 20, end: 30 }}
         items={156}
-        defaultSelection={[1, 10]}
+        paginatorDropdownOptions={paginatorOptions}
         valueOnChange={(event) => console.log(event)}
       ></Pagination>
 
