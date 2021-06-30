@@ -115,7 +115,6 @@ function App() {
       <Pagination
         value={{ start: 20, end: 30 }}
         items={156}
-        paginatorDropdownOptions={paginatorOptions}
         valueOnChange={(event) => console.log(event)}
       ></Pagination>
 

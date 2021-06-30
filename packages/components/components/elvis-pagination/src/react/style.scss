@@ -4,32 +4,44 @@
   align-items: center;
   height: 36px;
   width: 100%;
-
-  .ewc-pagination--displayText {
-    font-family: 'Red Hat Text';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: 0px;
-    text-align: left;
+  @media (max-width: 767px) {
+    flex-direction: column-reverse;
+    height: auto;
+    justify-content: center;
   }
 
-  .ewc-pagination--dropdown {
-    width: 72px;
-    margin: 0 8px;
-  }
-  .ewc-pagination--pagesAmount {
-    font-family: 'Red Hat Text';
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-    letter-spacing: 0px;
-    text-align: left;
-    white-space: nowrap;
-    // adjust later for mobile
-    margin-right: 24px;
+  .ewc-pagination__info-container {
+    display: flex;
+    align-items: center;
+    @media (max-width: 767px) {
+      margin-top: 24px;
+    }
+
+    .ewc-pagination--displayText {
+      font-family: 'Red Hat Text';
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0px;
+      text-align: left;
+    }
+    .ewc-pagination--dropdown {
+      width: 72px;
+      margin: 0 8px;
+    }
+    .ewc-pagination--pagesAmount {
+      font-family: 'Red Hat Text';
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0px;
+      text-align: left;
+      white-space: nowrap;
+      // adjust later for mobile
+      margin-right: 24px;
+    }
   }
 
   .ewc-pagination--selector-area {
@@ -52,6 +64,11 @@
       &.ewc-pagination--selector-area__selector--selected,
       &:hover {
         border: 1px solid black;
+        border-radius: 50%;
+      }
+
+      &:active {
+        border: 1px solid #29d305;
         border-radius: 50%;
       }
     }
