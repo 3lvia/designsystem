@@ -31,6 +31,7 @@
     "@elvia/elvis-dropdown": "*",
     "@elvia/elvis-modal": "0.0.1-beta.6",
     "@elvia/elvis-popover": "*",
+    "@elvia/elvis-box": "0.0.1-beta.1",
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-tabs": "*",
     "classlist.js": "^1.1.20150312",
