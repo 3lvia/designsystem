@@ -75,6 +75,9 @@ const Box: FC<BoxProps> = ({ content, title, isColored = false, hasBorder = fals
   const boxTitle = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!webcomponent) {
+      return;
+    }
     // Get slotted items from web component
     if (boxContent.current && webcomponent.getSlot('content')) {
       boxContent.current.innerHTML = '';
