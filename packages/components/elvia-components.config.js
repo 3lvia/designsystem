@@ -151,4 +151,20 @@ module.exports = [
     slotItems: true,
     reactName: 'Box',
   },
+  {
+    name: 'elvis-modal',
+    elementName: 'elvia-modal',
+    attributes: [
+      { name: 'isShowing', type: 'boolean' },
+      { name: 'title', type: 'string' },
+      { name: 'content', type: 'HTMLElement' },
+      { name: 'illustration', type: 'HTMLElement' },
+      { name: 'primaryButton', type: 'HTMLElement' },
+      { name: 'secondaryButton', type: 'HTMLElement' },
+      { name: 'className', type: 'string' },
+      { name: 'hasCloseBtn', type: 'boolean' }
+    ],
+    reactName: 'Modal',
+    slotItems: true
+  },
 ];
