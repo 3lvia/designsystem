@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import classNames from 'classnames';
+import * as StyledPaginator from './styledComponents';
 import './style.scss';
 
 export interface DropdownOption {
@@ -58,13 +59,7 @@ const Pagination: FC<PaginationProps> = ({
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
   const [currentValue, setvCurrentValue] = useState(value);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [selectedNumber, setSelectedNumber] = useState(() => {
-    if (value.start != undefined && value.end != undefined) {
-      const currentDropdownDisplayVal = parseInt(currentDisplayAmount.value);
-      return (value.start / currentDropdownDisplayVal);
-    }
-    return 1;
-  });
+  const [selectedNumber, setSelectedNumber] = useState(1);
 
   useEffect(() => {
     updateValue(selectedNumber);
@@ -93,16 +88,15 @@ const Pagination: FC<PaginationProps> = ({
   // create array from numbers
   const selectionNumbers = Array.from(Array(selectorAmount + 1).keys()).slice(1);
 
+  const activeNumber = (chosenNumber: number) => {
+    return selectedNumber === chosenNumber;
+  }
   // update selected number on arrow click
   const updateSelectedPageLeft = () => {
     setSelectedNumber((preSelectedNumn) => preSelectedNumn - 1)
   }
   const updateSelectedPageRight = () => {
     setSelectedNumber((preSelectedNumn) => preSelectedNumn + 1)
-  }
-
-  const activeNumber = (chosenNumber: number) => {
-    return selectedNumber === chosenNumber;
   }
 
   const isLeftArrow = () => {
@@ -142,18 +136,19 @@ const Pagination: FC<PaginationProps> = ({
     const isMobile = windowWidth < 768;
 
     const getFirstNumber = () => {
-      firstNumbers = < button
-        className={`ewc-pagination--selector-area__selector-btn ${activeNumber(1) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
-        key={'firstPaginationNumb'}
-        onClick={() => setSelectedNumber(1)}
-      > {1}
-      </ button >
+      firstNumbers =
+        <StyledPaginator.PaginatorNumber
+          selected={activeNumber(1)}
+          key={'firstPaginationNumb'}
+          onClick={() => setSelectedNumber(1)}>
+          {1}
+        </StyledPaginator.PaginatorNumber>
     }
     const getFirstDots = () => {
       if (selectedNumber >= 5 && selectionNumbers.length >= 8 && !isMobile) {
-        firstDots = <div key={'firstDots'}>...</div>;
-      } else if (selectedNumber >= 3 && selectionNumbers.length >= 6 && isMobile) {
-        firstDots = <div key={'firstDotsMobile'}>...</div>;
+        firstDots = <StyledPaginator.PaginatorDots key={'firstDots'}>...</StyledPaginator.PaginatorDots>;
+      } else if (selectedNumber >= 4 && selectionNumbers.length >= 5 && isMobile) {
+        firstDots = <StyledPaginator.PaginatorDots key={'firstDotsMobile'}>...</StyledPaginator.PaginatorDots>;
       } else {
         firstDots = <div key={'noFirstDots'}></div>;
       }
@@ -165,22 +160,22 @@ const Pagination: FC<PaginationProps> = ({
           if (number > 1 && number <= 6 && number !== selectionNumbers.length && !isMobile) {
             firstCenter = true;
             return (
-              < button
-                className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
+              <StyledPaginator.PaginatorNumber
+                selected={activeNumber(number)}
                 key={index}
-                onClick={() => setSelectedNumber(number)}
-              > {number}
-              </ button >
+                onClick={() => setSelectedNumber(number)}>
+                {number}
+              </StyledPaginator.PaginatorNumber>
             )
           } else if (number > 1 && number <= 4 && number !== selectionNumbers.length && isMobile) {
             firstCenter = true;
             return (
-              < button
-                className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
+              <StyledPaginator.PaginatorNumber
+                selected={activeNumber(number)}
                 key={index}
-                onClick={() => setSelectedNumber(number)}
-              > {number}
-              </ button >
+                onClick={() => setSelectedNumber(number)}>
+                {number}
+              </StyledPaginator.PaginatorNumber>
             )
           } else {
             firstCenter = false;
@@ -188,27 +183,27 @@ const Pagination: FC<PaginationProps> = ({
         })
       }
       // if selected numbers is 2+/- away from first or last selectable number
-      if (currentSelectionNumber >= 5 && firstCenter === false) {
+      if (currentSelectionNumber >= 4 && firstCenter === false) {
         centerNumbers = selectionNumbers.map((number, index) => {
           if (number >= selectedNumber - 2 && number <= selectedNumber + 2 && number !== selectionNumbers.length && number !== 1 && !isMobile) {
             middleCenter = true;
             return (
-              < button
-                className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
+              <StyledPaginator.PaginatorNumber
+                selected={activeNumber(number)}
                 key={index}
-                onClick={() => setSelectedNumber(number)}
-              > {number}
-              </ button >
+                onClick={() => setSelectedNumber(number)}>
+                {number}
+              </StyledPaginator.PaginatorNumber>
             )
           } else if (number >= selectedNumber - 1 && number <= selectedNumber + 1 && number !== selectionNumbers.length && number !== 1 && isMobile) {
             middleCenter = true;
             return (
-              < button
-                className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
+              <StyledPaginator.PaginatorNumber
+                selected={activeNumber(number)}
                 key={index}
-                onClick={() => setSelectedNumber(number)}
-              > {number}
-              </ button >
+                onClick={() => setSelectedNumber(number)}>
+                {number}
+              </StyledPaginator.PaginatorNumber>
             )
           } else {
             middleCenter = false;
@@ -216,25 +211,25 @@ const Pagination: FC<PaginationProps> = ({
         })
       }
       // If selected number is i proximity of last selectable number
-      if (currentSelectionNumber >= selectionNumbers.length - 3 && middleCenter === false) {
+      if (currentSelectionNumber >= selectionNumbers.length - 2 && middleCenter === false) {
         centerNumbers = selectionNumbers.map((number, index) => {
           if (number >= selectionNumbers.length - 5 && number !== selectionNumbers.length && number !== 1 && !isMobile) {
             return (
-              < button
-                className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
+              <StyledPaginator.PaginatorNumber
+                selected={activeNumber(number)}
                 key={index}
-                onClick={() => setSelectedNumber(number)}
-              > {number}
-              </ button >
+                onClick={() => setSelectedNumber(number)}>
+                {number}
+              </StyledPaginator.PaginatorNumber>
             )
           } else if (number >= selectionNumbers.length - 3 && number !== selectionNumbers.length && number !== 1 && isMobile) {
             return (
-              < button
-                className={`ewc-pagination--selector-area__selector-btn ${activeNumber(number) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
+              <StyledPaginator.PaginatorNumber
+                selected={activeNumber(number)}
                 key={index}
-                onClick={() => setSelectedNumber(number)}
-              > {number}
-              </ button >
+                onClick={() => setSelectedNumber(number)}>
+                {number}
+              </StyledPaginator.PaginatorNumber>
             )
           }
         })
@@ -251,12 +246,13 @@ const Pagination: FC<PaginationProps> = ({
       }
     }
     const getLastNumber = () => {
-      lastNumbers = <button
-        className={`ewc-pagination--selector-area__selector-btn ${activeNumber(selectionNumbers.length) ? ' ewc-pagination--selector-area__selector--selected' : ''} `}
-        key={'lastPaginationNumb'}
-        onClick={() => setSelectedNumber(selectionNumbers.length)}
-      > {selectionNumbers.length}
-      </ button >
+      lastNumbers =
+        <StyledPaginator.PaginatorNumber
+          selected={activeNumber(selectionNumbers.length)}
+          key={'lastPaginationNumb'}
+          onClick={() => setSelectedNumber(selectionNumbers.length)}>
+          {selectionNumbers.length}
+        </StyledPaginator.PaginatorNumber>
     }
 
     // get visible numbers
@@ -314,8 +310,8 @@ const Pagination: FC<PaginationProps> = ({
   const valueRangeToSelectedNumber = (value: SelectionNumber) => {
     if (value.start != undefined || value.end != undefined) {
       const currentDropdownDisplayVal = parseInt(currentDisplayAmount.value);
-      const startNum = value.start;
-      setSelectedNumber(startNum / currentDropdownDisplayVal)
+      const endNum = value.end;
+      setSelectedNumber(Math.ceil(endNum / currentDropdownDisplayVal))
     }
   }
 

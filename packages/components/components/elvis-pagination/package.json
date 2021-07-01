@@ -12,6 +12,7 @@
     "@elvia/elvis-component-wrapper": "^2.0.3",
     "@elvia/elvis-toolbox": "^1.2.0",
     "@elvia/elvis-dropdown": "^1.0.3",
-    "classnames": "^2.2.6"
+    "classnames": "^2.2.6",
+    "styled-components": "^5.2.1"
   }
 }

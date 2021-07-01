@@ -71,6 +71,8 @@ export class v2PlaygroundComponent implements OnInit {
     },
   ];
 
+  defaultPaginatioValue = { start: 11, end: 20 }
+
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
     /*this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {

@@ -8,76 +8,13 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-pagination">
-      <div class="e-pagination__number-per-page">
-        <span>Shows</span>
-        <span class="e-pagination__dropdown">
-          <div class="e-form-field e-form-field--compact">
-            <div class="e-dropdown">
-              <div class="e-input e-input--centered" (click)="toggleDropdown()">
-                <i class="e-icon e-icon--arrow_up-bold" *ngIf="showDropdown"></i>
-                <i class="e-icon e-icon--arrow_down-bold" *ngIf="!showDropdown"></i>
-                <input type="button" [value]="currentValue" />
-              </div>
-              <div class="e-dropdown__content" *ngIf="showDropdown">
-                <span class="e-dropdown__item" *ngFor="let option of options" (click)="selectOption(option)">
-                  {{ option }}
-                </span>
-              </div>
-            </div>
-          </div>
-        </span>
-        <span>of 200 images</span>
-      </div>
-      <div class="e-pagination__choosing-page" *ngIf="!showAll">
-        <div class="e-pagination__arrow" *ngIf="leftArrow()" (click)="prev()">
-          <i class="e-icon e-icon--arrow_long_left e-icon--xs"></i>
-        </div>
-        <div
-          *ngFor="let firstNum of firstNums"
-          class="e-pagination__number"
-          [ngClass]="{ 'e-pagination__number--active': activeNumber(firstNum) }"
-          id="element-{{ firstNum }}"
-          (click)="chooseNumber($event)"
-        >
-          {{ firstNum }}
-        </div>
-        <div class="e-pagination__dots" *ngIf="paginationDotsLeft()">...</div>
-        <div
-          class="e-pagination__number"
-          *ngFor="let centerNum of centerNums"
-          [ngClass]="{ 'e-pagination__number--active': activeNumber(centerNum) }"
-          id="element-{{ centerNum }}"
-          (click)="chooseNumber($event)"
-        >
-          {{ centerNum }}
-        </div>
-        <div class="e-pagination__dots" *ngIf="paginationDotsRight()">...</div>
-        <div
-          class="e-pagination__number"
-          *ngFor="let lastNum of lastNums"
-          [ngClass]="{ 'e-pagination__number--active': activeNumber(lastNum) }"
-          id="element-{{ lastNum }}"
-          (click)="chooseNumber($event)"
-        >
-          {{ lastNum }}
-        </div>
-        <div class="e-pagination__arrow" *ngIf="rightArrow()" (click)="next()">
-          <i class="e-icon e-icon--arrow_long e-icon--xs"></i>
-        </div>
-      </div>
-    </div>
-
-    <div class="e-w-100">
-      <app-component-example-v1
-        [showPreview]="false"
-        [codeHTML]="exampleInHTML"
-        [codeTS]="exampleInTS"
-      ></app-component-example-v1>
-    </div>
+  <div class="examplePaginator e-mt-56">
+    <elvia-pagination items="156" labelDisplaying="Displaying" labelOf="of" label="rows"></elvia-pagination>
   </div>
+  <app-component-example-generator
+    [hasPreview]="false"
+    [componentData]="componentData"
+  ></app-component-example-generator>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
@@ -86,10 +23,17 @@
     </ng-container>
   </app-component-section>
 
-  <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-pagination'">
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'" noAnimation="true">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-pagination'"></app-component-properties>
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" noAnimation="true">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
 </div>

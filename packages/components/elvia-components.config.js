@@ -145,11 +145,13 @@ module.exports = [
     attributes: [
       { name: 'value', type: 'object' },
       { name: 'items', type: 'number' },
-      { name: 'itemsPerPage', type: 'object' },
+      { name: 'paginatorDropdownOptions', type: 'object' },
+      { name: 'labelDisplaying', type: 'string' },
       { name: 'label', type: 'string' },
-      { name: 'labelPostfix', type: 'string' },
+      { name: 'labelOf', type: 'string' },
     ],
-    slotItems: false,
+    elementStyle: `width: 100%;`,
     reactName: 'Pagination',
+    slotItems: false,
   },
 ];
