@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-datepicker",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "web_component.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "MIT",
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
-    "@elvia/elvis-component-wrapper": "^2.0.0",
+    "@elvia/elvis-component-wrapper": "^2.0.2",
     "@elvia/elvis-toolbox": "^1.2.0",
     "@material-ui/core": "4.11.3",
     "@material-ui/pickers": "3.2.10",
