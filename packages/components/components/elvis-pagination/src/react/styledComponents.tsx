@@ -69,6 +69,7 @@ export const SelectorArrowBtn = styled.button`
   align-items: center;
   justify-content: center;
   background: transparent;
+  cursor: pointer;
   border: none;
   height: 36px;
   width: 36px;
@@ -76,11 +77,13 @@ export const SelectorArrowBtn = styled.button`
   visibility: ${(props: { visible: boolean }) => (props.visible ? 'visible' : 'hidden')};
 
   &:hover {
-    border: 1px solid black;
-  }
-  &:active {
     border: 1px solid #29d305;
   }
+  
+  // Check if there should be any here.
+  // &:active {
+  //   border: 1px solid #29d305;
+  // }
 `
 export const SelectorArrowLeft = styled.div` 
   height: 16px;
@@ -106,6 +109,14 @@ export const SelectorRighArrow = styled.div`
 
 
 export const PaginatorNumber = styled.button` 
+      font-family: Red Hat Text;
+      font-size: 13px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+      letter-spacing: 0.2px;
+      text-align: center;
+
       display: flex;
       justify-content: center;
       align-items: center;
@@ -118,14 +129,16 @@ export const PaginatorNumber = styled.button`
       margin-left: ${(props: { isFirst: boolean }) => (props.isFirst ? '0px' : '4px')};
       margin-right: ${(props: { isLast: boolean }) => (props.isLast ? '0px' : '4px')};
       border-radius: 50%;
+      cursor: pointer;
 
       &:hover {
-        border: 1px solid #000000
+        border: 1px solid #29d305
       }
 
-      &:active {
-        border: 1px solid #29d305;
-      }
+      // Check if there should be any here. 
+      // &:active {
+      //   border: 1px solid #29d305;
+      // }
 
 `
 export const PaginatorDots = styled.div` 
@@ -136,4 +149,5 @@ export const PaginatorDots = styled.div`
     line-height: 21px;
     letter-spacing: 0.2px;
     text-align: center;
+    width: 20px;
 `
