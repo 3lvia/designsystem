@@ -30,6 +30,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     return this._data;
   }
 
+  getSlot(str: string): any {
+    return this._slots[str];
+  }
+
   connectedCallback(): void {
     // Slot items
     if (this.webComponent.getComponentData().slotItems === true) {
@@ -82,18 +86,19 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected setProps(newProps: any, preventRerender?: boolean): void {
     Object.keys(newProps).forEach((key) => {
       if (!isEqual(this._data[key], newProps[key])) {
-        this._data[key] = newProps[key];
+        this._data[key.toLowerCase()] = newProps[key];
         this.addConditionalStyle();
-        if (key !== this.mapNameToRealName(key)) {
-          this.changedEvent(key);
-        }
-        this.changedEvent(this.mapNameToRealName(key));
+        this.onChangeEvent(this.mapNameToRealName(key));
       }
     });
 
     if (!preventRerender) {
       this.throttleRenderReactDOM();
     }
+  }
+
+  protected triggerEvent(callbackName: string): void {
+    this.onEvent(callbackName);
   }
 
   protected createReactData(): Record<string, any> {
@@ -106,9 +111,18 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   // Finds the real name of an attribute
   protected mapNameToRealName(attr: string): string {
-    return this.webComponent.getComponentData().attributes.find((compAttr: any) => {
-      return compAttr.name.toLowerCase() === attr;
-    }).name;
+    try {
+      return this.webComponent.getComponentData().attributes.find((compAttr: any) => {
+        return compAttr.name.toLowerCase() === attr.toLowerCase();
+      }).name;
+    } catch {
+      this.getErrorMessage('mapNameToRealName', 'Did you forget to define the attribute \'' + attr + '\' in elvia-components.config.js?');
+      return attr;
+    }
+  }
+
+  protected getErrorMessage(functionName: string, error: string): void {
+    console.error('[' + this.webComponent.getComponentData().name + '] elvia-component-wrapper: ' + 'Failed at function \'' + functionName + '\'. ' + error)
   }
 
   protected renderReactDOM(): void {
@@ -122,18 +136,24 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
-  getSlot(str: string) {
-    return this._slots[str];
+  private onEvent(callbackName: string) {
+    this.dispatchEvent(new CustomEvent(callbackName, {
+      bubbles: false,
+      composed: true,
+    }));
   }
 
-  private changedEvent(propName: string) {
-    this.dispatchEvent(
-      new CustomEvent(propName + 'OnChange', {
-        bubbles: false,
-        composed: true,
-        detail: this._data,
-      }),
-    );
+  // Dispatch event function for 'OnChange' events
+  private onChangeEvent(propName: string) {
+    if (this._data[propName.toLowerCase()] === null || this._data[propName.toLowerCase()] === undefined) {
+      console.warn(this.webComponent.getComponentData().name + ': Cannot dispatch OnChange event because no data was found with prop-name: ' + propName + '.');
+      return;
+    }
+    this.dispatchEvent(new CustomEvent(propName + 'OnChange', {
+      bubbles: false,
+      composed: true,
+      detail: { value: this._data[propName.toLowerCase()] },
+    }));
   }
 
   private storeAllSlots(): void {

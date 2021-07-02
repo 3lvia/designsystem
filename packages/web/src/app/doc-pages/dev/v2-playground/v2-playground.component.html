@@ -19,7 +19,8 @@
   <h2>Modal</h2>
   <button class="e-btn" (click)="isModalShowing = !isModalShowing">Åpne modal</button>
   <elvia-modal
-    (onHide)="isModalShowing = !isModalShowing"
+    (onHide)="closeCallback()"
+    (isShowingOnChange)="updatedVisibility($event.detail.value)"
     [isShowing]="isModalShowing"
     title="Title of content"
     hasCloseBtn="true"
