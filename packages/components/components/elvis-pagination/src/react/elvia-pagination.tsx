@@ -1,6 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
-import classNames from 'classnames';
 import * as StyledPaginator from './styledComponents';
 import './style.scss';
 
@@ -111,12 +110,6 @@ const Pagination: FC<PaginationProps> = ({
     }
     return;
   }
-  const leftArrow = classNames('ewc-pagination--selector__arrow_btn', {
-    ['ewc-pagination--selector__arrow_btn--hide']: !isLeftArrow(),
-  });
-  const rightArrow = classNames('ewc-pagination--selector__arrow_btn', {
-    ['ewc-pagination--selector__arrow_btn--hide']: !isRightArrow(),
-  });
 
   // Visible numbers in paginator 
   const Paginators = () => {
@@ -139,6 +132,7 @@ const Pagination: FC<PaginationProps> = ({
       firstNumbers =
         <StyledPaginator.PaginatorNumber
           selected={activeNumber(1)}
+          isFirst={true}
           key={'firstPaginationNumb'}
           onClick={() => setSelectedNumber(1)}>
           {1}
@@ -249,6 +243,7 @@ const Pagination: FC<PaginationProps> = ({
       lastNumbers =
         <StyledPaginator.PaginatorNumber
           selected={activeNumber(selectionNumbers.length)}
+          isLast={true}
           key={'lastPaginationNumb'}
           onClick={() => setSelectedNumber(selectionNumbers.length)}>
           {selectionNumbers.length}
@@ -326,10 +321,10 @@ const Pagination: FC<PaginationProps> = ({
   }, [value])
 
   return (
-    <div className="ewc-pagination">
-      <div className="ewc-pagination__info-container">
-        <div className="ewc-pagination--displayText">{labelDisplaying}</div>
-        <div className="ewc-pagination--dropdown">
+    <StyledPaginator.Pagination>
+      <StyledPaginator.InfoContainer>
+        <StyledPaginator.InfoText>{labelDisplaying}</StyledPaginator.InfoText>
+        <StyledPaginator.InfoDropdown>
           <Dropdown
             isCompact
             placeholder=""
@@ -337,20 +332,26 @@ const Pagination: FC<PaginationProps> = ({
             defaultValue={currentDisplayAmount}
             valueOnChange={(event: any) => onDropdownChangeHandler(event)}
           ></Dropdown>
+        </StyledPaginator.InfoDropdown>
+        <StyledPaginator.InfoAmount>
+          {labelOf} {items} {label}
+        </StyledPaginator.InfoAmount>
+      </StyledPaginator.InfoContainer>
 
-        </div>
-        <div className="ewc-pagination--pagesAmount"> {labelOf} {items} {label}</div>
-      </div>
-      <div className="ewc-pagination--selector-area">
-        <button className={leftArrow} onClick={updateSelectedPageLeft}>
-          <div className="ewc-pagination--selector__arrow--left"></div>
-        </button>
+      <StyledPaginator.SelectorArea>
+
+        <StyledPaginator.SelectorArrowBtn visible={isLeftArrow()} onClick={updateSelectedPageLeft}>
+          <StyledPaginator.SelectorArrowLeft />
+        </StyledPaginator.SelectorArrowBtn>
+
         {showPaginationMenu ? <Paginators /> : null}
-        <button className={rightArrow} onClick={updateSelectedPageRight}>
-          <div className="ewc-pagination--selector__arrow--right"></div>
-        </button>
-      </div>
-    </div>
+
+        <StyledPaginator.SelectorArrowBtn visible={isRightArrow()} onClick={updateSelectedPageRight}>
+          <StyledPaginator.SelectorRighArrow />
+        </StyledPaginator.SelectorArrowBtn>
+      </StyledPaginator.SelectorArea>
+
+    </StyledPaginator.Pagination>
   );
 };
 
