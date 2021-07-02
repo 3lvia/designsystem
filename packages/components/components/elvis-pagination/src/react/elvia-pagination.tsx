@@ -1,7 +1,6 @@
 import React, { FC, useState, useEffect } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import * as StyledPaginator from './styledComponents';
-import './style.scss';
 
 export interface DropdownOption {
   value: string;
