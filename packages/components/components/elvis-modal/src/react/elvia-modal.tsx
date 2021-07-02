@@ -45,6 +45,7 @@ export const ModalComponent: FC<ModalProps> = ({
       onHide();
     } else if (webcomponent) {
       webcomponent.setProps({ isShowing: false }, true);
+      webcomponent.triggerEvent('onHide');
     }
   };
 
