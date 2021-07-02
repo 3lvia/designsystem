@@ -116,13 +116,9 @@ export class ElvisComponentWrapper extends HTMLElement {
         return compAttr.name.toLowerCase() === attr.toLowerCase();
       }).name;
     } catch {
-      this.getErrorMessage('mapNameToRealName', 'Did you forget to define the attribute \'' + attr + '\' in elvia-components.config.js?');
+      this.logWarnMessage('mapNameToRealName', 'Did you forget to define the attribute \'' + attr + '\' in elvia-components.config.js?');
       return attr;
     }
-  }
-
-  protected getErrorMessage(functionName: string, error: string): void {
-    console.error('[' + this.webComponent.getComponentData().name + '] elvia-component-wrapper: ' + 'Failed at function \'' + functionName + '\'. ' + error)
   }
 
   protected renderReactDOM(): void {
@@ -136,6 +132,15 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
+  private logErrorMessage(functionName: string, error: string): void {
+    console.error('[' + this.webComponent.getComponentData().name + '] elvia-component-wrapper: ' + 'Failed at function \'' + functionName + '\'. ' + error)
+  }
+
+  private logWarnMessage(functionName: string, warn: string): void {
+    console.warn('[' + this.webComponent.getComponentData().name + '] elvia-component-wrapper: ' + 'Failed at function \'' + functionName + '\'. ' + warn)
+  }
+
+  // Dispatches event for any type of event
   private onEvent(callbackName: string) {
     this.dispatchEvent(new CustomEvent(callbackName, {
       bubbles: false,
@@ -143,10 +148,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     }));
   }
 
-  // Dispatch event function for 'OnChange' events
+  // Dispatches event and data for 'OnChange' events
   private onChangeEvent(propName: string) {
     if (this._data[propName.toLowerCase()] === null || this._data[propName.toLowerCase()] === undefined) {
-      console.warn(this.webComponent.getComponentData().name + ': Cannot dispatch OnChange event because no data was found with prop-name: ' + propName + '.');
+      this.logWarnMessage('onChangeEvent', ': Cannot dispatch OnChange event because no data was found with prop-name: ' + propName + '.');
       return;
     }
     this.dispatchEvent(new CustomEvent(propName + 'OnChange', {
@@ -181,7 +186,7 @@ export class ElvisComponentWrapper extends HTMLElement {
       try {
         return JSON.parse(stringToConvert);
       } catch (error) {
-        console.error(this.webComponent.getComponentData().name + ': The property "' + attrName + '" is not a valid JSON object. This is probably because the JSON object is containing single quotes instead of double quotes.')
+        this.logErrorMessage('convertString', ': The property "' + attrName + '" is not a valid JSON object. This is probably because the JSON object is containing single quotes instead of double quotes.');
       }
     }
     if (attrType === 'Date') {
