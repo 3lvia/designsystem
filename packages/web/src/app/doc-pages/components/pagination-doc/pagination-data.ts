@@ -18,6 +18,12 @@ export const paginationData = {
       description: 'Total amount of rows/objects in a table that is display',
       default: 0,
     },
+    isRightAligned: {
+      isRequired: true,
+      type: 'boolean',
+      description: 'Align the paginator to the right',
+      default: false,
+    },
     paginatorDropdownOptions: {
       isRequired: true,
       type: 'object',
@@ -45,19 +51,19 @@ export const paginationData = {
       isRequired: false,
       type: 'string',
       description: 'First label in front of dropdown menu',
-      default: 'Viser',
+      default: 'Show',
     },
     labelOf: {
       isRequired: false,
       type: 'string',
       description: 'Label between dropdown menu and amount of items being showed',
-      default: 'av',
+      default: 'of',
     },
     label: {
       isRequired: false,
       type: 'string',
       description: 'Label for describing what kind of data is displayed, eg. rows, items.',
-      default: 'rader',
+      default: 'elements',
     },
     valueOnChange: {
       isRequired: false,

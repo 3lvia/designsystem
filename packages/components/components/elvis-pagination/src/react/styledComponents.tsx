@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const ElviaColors = {
   elviaOn: '#ffffff',
   elviaOff: '#000000',
+  elviaCharge: '#29d305',
   grey10: '#e9e9e9',
   grey20: '#d3d3d3',
   grey80: '#515151',
@@ -12,8 +13,8 @@ const ElviaColors = {
 export const Pagination = styled.div` 
   display: flex;
   align-items: center;
-  width: 100%;
-  min-width: 275px;
+  justify-content: ${(props: { isRightAligned: boolean }) => (props.isRightAligned ? 'flex-end' : 'start')};
+  min-width: 325px;
   user-select: none;
 
   @media (max-width: 767px) {
@@ -38,7 +39,7 @@ export const InfoText = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  letter-spacing: 0px;
+  letter-spacing: 0.2px;
   text-align: left;
 `;
 export const InfoDropdown = styled.div` 
@@ -51,16 +52,14 @@ export const InfoAmount = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 22px;
-  letter-spacing: 0px;
   text-align: left;
   white-space: nowrap;
   // adjust later for mobile
-  margin-right: 24px;
+  margin-right: ${(props: { isMobile: boolean }) => (props.isMobile ? '0px' : '24px')};
 `
 export const SelectorArea = styled.div` 
   display: flex;
   align-items: center;
-  width: 100%;
   user-select: none;
 `
 
@@ -78,7 +77,7 @@ export const SelectorArrowBtn = styled.button`
   visibility: ${(props: { visible: boolean }) => (props.visible ? 'visible' : 'hidden')};
 
   &:hover {
-    border: 1px solid #29d305;
+    border: 1px solid ${ElviaColors.elviaCharge};
   }
   
   &:active {

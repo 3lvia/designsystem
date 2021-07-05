@@ -15,6 +15,7 @@ export interface SelectionNumber {
 export interface PaginationProps {
   value: SelectionNumber;
   items: number;
+  isRightAligned?: boolean;
   paginatorDropdownOptions: Array<DropdownOption>;
   labelDisplaying: string;
   label: string;
@@ -46,10 +47,11 @@ export const paginationOptions = [
 const Pagination: FC<PaginationProps> = ({
   value = { start: undefined, end: undefined },
   items = 0,
+  isRightAligned = false,
   paginatorDropdownOptions = paginationOptions,
-  label = 'rader',
-  labelDisplaying = 'Viser',
-  labelOf = 'av',
+  label = 'elements',
+  labelDisplaying = 'Show',
+  labelOf = 'of',
   valueOnChange,
   webcomponent
 }) => {
@@ -320,7 +322,7 @@ const Pagination: FC<PaginationProps> = ({
   }, [value])
 
   return (
-    <StyledPaginator.Pagination>
+    <StyledPaginator.Pagination isRightAligned={isRightAligned}>
       <StyledPaginator.InfoContainer>
         <StyledPaginator.InfoText>{labelDisplaying}</StyledPaginator.InfoText>
         <StyledPaginator.InfoDropdown>
@@ -332,7 +334,7 @@ const Pagination: FC<PaginationProps> = ({
             valueOnChange={(event: any) => onDropdownChangeHandler(event)}
           ></Dropdown>
         </StyledPaginator.InfoDropdown>
-        <StyledPaginator.InfoAmount>
+        <StyledPaginator.InfoAmount isMobile={windowWidth < 768}>
           {labelOf} {items} {label}
         </StyledPaginator.InfoAmount>
       </StyledPaginator.InfoContainer>
