@@ -150,7 +150,7 @@ module.exports = [
       { name: 'label', type: 'string' },
       { name: 'labelOf', type: 'string' },
     ],
-    elementStyle: `width: 100%; min-width: 275px;`,
+    elementStyle: `width: 100%; min-width: 325px;`,
     reactName: 'Pagination',
     slotItems: false,
   },
