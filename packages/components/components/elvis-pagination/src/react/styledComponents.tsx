@@ -65,6 +65,7 @@ export const SelectorArea = styled.div`
 `
 
 export const SelectorArrowBtn = styled.button` 
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -80,10 +81,9 @@ export const SelectorArrowBtn = styled.button`
     border: 1px solid #29d305;
   }
   
-  // Check if there should be any here.
-  // &:active {
-  //   border: 1px solid #29d305;
-  // }
+  &:active {
+      transform: scale(0.95);
+  }
 `
 export const SelectorArrowLeft = styled.div` 
   height: 16px;
@@ -117,6 +117,7 @@ export const PaginatorNumber = styled.button`
       letter-spacing: 0.2px;
       text-align: center;
 
+      // box-sizing: border-box;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -130,15 +131,15 @@ export const PaginatorNumber = styled.button`
       margin-right: ${(props: { isLast: boolean }) => (props.isLast ? '0px' : '4px')};
       border-radius: 50%;
       cursor: pointer;
+   
 
       &:hover {
         border: 1px solid #29d305
       }
 
-      // Check if there should be any here. 
-      // &:active {
-      //   border: 1px solid #29d305;
-      // }
+      &:active {
+         transform: scale(0.95);
+      }
 
 `
 export const PaginatorDots = styled.div` 
