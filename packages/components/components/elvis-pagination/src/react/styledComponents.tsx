@@ -76,9 +76,12 @@ export const SelectorArrowBtn = styled.button`
   border-radius: 50%;
   visibility: ${(props: { visible: boolean }) => (props.visible ? 'visible' : 'hidden')};
 
-  &:hover {
-    border: 1px solid ${ElviaColors.elviaCharge};
+  @media (hover: hover) {
+    &:hover {
+      border: 1px solid ${ElviaColors.elviaCharge};
+    }
   }
+
   
   &:active {
       transform: scale(0.95);
@@ -116,7 +119,6 @@ export const PaginatorNumber = styled.button`
       letter-spacing: 0.2px;
       text-align: center;
 
-      // box-sizing: border-box;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -132,8 +134,10 @@ export const PaginatorNumber = styled.button`
       cursor: pointer;
    
 
-      &:hover {
-        border: 1px solid #29d305
+      @media (hover: hover) {
+        &:hover {
+          border: 1px solid ${ElviaColors.elviaCharge};
+        }
       }
 
       &:active {
