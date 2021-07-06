@@ -115,7 +115,11 @@ function App() {
       <h1>React preview</h1>
       <h2>Pagination!</h2>
 
-      <Pagination items={156} valueOnChange={(event) => console.log(event)}></Pagination>
+      <Pagination
+        items={156}
+        valueOnChange={(event) => console.log(event)}
+        dropdownMenuPos="top"
+      ></Pagination>
 
       <h2>Box</h2>
       <Box

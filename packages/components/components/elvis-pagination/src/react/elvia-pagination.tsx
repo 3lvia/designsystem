@@ -16,6 +16,7 @@ export interface PaginationProps {
   value: SelectionNumber;
   items: number;
   isRightAligned?: boolean;
+  dropdownMenuPos: string;
   paginatorDropdownOptions: Array<DropdownOption>;
   labelDisplaying: string;
   label: string;
@@ -48,6 +49,7 @@ const Pagination: FC<PaginationProps> = ({
   value = { start: undefined, end: undefined },
   items = 0,
   isRightAligned = false,
+  dropdownMenuPos = "bottom",
   paginatorDropdownOptions = paginationOptions,
   label = 'elements',
   labelDisplaying = 'Show',
@@ -330,6 +332,7 @@ const Pagination: FC<PaginationProps> = ({
             isCompact
             placeholder=""
             options={paginatorDropdownOptions}
+            menuPosition={dropdownMenuPos}
             defaultValue={currentDisplayAmount}
             valueOnChange={(event: any) => onDropdownChangeHandler(event)}
           ></Dropdown>

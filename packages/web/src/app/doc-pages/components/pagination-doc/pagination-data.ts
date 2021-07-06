@@ -18,8 +18,14 @@ export const paginationData = {
       description: 'Total amount of rows/objects in a table that is display',
       default: 0,
     },
+    dropdownMenuPos: {
+      isRequired: false,
+      type: 'string',
+      description: `Set the position of the dropdown menu, can be either 'top', 'bottom' or 'auto'`,
+      default: 'bottom',
+    },
     isRightAligned: {
-      isRequired: true,
+      isRequired: false,
       type: 'boolean',
       description: 'Align the paginator to the right',
       default: false,

@@ -46,6 +46,7 @@ export class v2PlaygroundComponent implements OnInit {
 
   dropdownValue = undefined;
 
+  dropdownMenuTop = true;
   defOptions = [
     {
       value: '1',

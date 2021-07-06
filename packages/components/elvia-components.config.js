@@ -173,6 +173,7 @@ module.exports = [
     attributes: [
       { name: 'value', type: 'object' },
       { name: 'items', type: 'number' },
+      { name: 'dropdownMenuPos', type: 'string' },
       { name: 'paginatorDropdownOptions', type: 'object' },
       { name: 'labelDisplaying', type: 'string' },
       { name: 'label', type: 'string' },
