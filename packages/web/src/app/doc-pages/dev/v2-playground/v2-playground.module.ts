@@ -17,6 +17,8 @@ import '@elvia/elvis-testing';
 import '@elvia/elvis-datepicker';
 import '@elvia/elvis-divider';
 import '@elvia/elvis-pagination';
+import '@elvia/elvis-box';
+import '@elvia/elvis-modal';
 
 @NgModule({
   imports: [

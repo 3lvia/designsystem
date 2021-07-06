@@ -36,10 +36,10 @@
     .ceg-dropdown {
       // width: 100%;
       width: 50%;
-      &:first-of-type {
+      &:not(:last-of-type) {
         margin-right: 16px;
       }
-      &:last-of-type {
+      &:not(:first-of-type) {
         margin-left: 16px;
       }
     }

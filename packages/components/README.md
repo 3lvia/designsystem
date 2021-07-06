@@ -8,7 +8,7 @@
 ## Step 1 - Copy existing component
 
 - Copy a existing component under the /components catalog, for instance `elvis-testing`
-- Rename all occurences of `testing` to `component-name`.
+- Rename all occurrences of `testing` to `component-name`.
 - Remember to also update the package.json
 
 Example: `elvis-testing` -> `elvis-dropdown` `elvia-testing`-> `elvia-dropdown`
@@ -34,7 +34,7 @@ See comment in elvia-components.config.js for description on the meaning of the 
 
 The build tools should watch for file changes automatically
 
-`yarn run build`
+`yarn watch`
 
 > [!IMPORTANT] This has to be started before the Angular and React apps (dev servers), otherwise you will get
 > a lot of errors. If this happens, restart the local dev servers (Angular and React).
@@ -43,7 +43,7 @@ The build tools should watch for file changes automatically
 
 ### 3.1 - React
 
-Go to `/frameworks/react` and run `yarn start`
+Go to `/frameworks/react-ssr` and run `yarn start`
 
 ### 3.2 - Angular
 

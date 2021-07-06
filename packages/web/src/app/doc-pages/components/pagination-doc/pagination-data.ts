@@ -67,17 +67,13 @@ export const paginationData = {
   package: 'npm install @elvia/elvis-pagination',
   codeImportReact: `import { Pagination } from '@elvia/elvis-pagination/react';`,
   codeImportWebComponent: `import '@elvia/elvis-pagination';`,
-  codeReact:
-    `<Pagination 
-  items={156} 
-  labelDisplaying="Displaying" 
-  valueOnChange={(event) => console.log(event)}>
+  codeReact: `<Pagination items={156}
+  valueOnChange="currentRange = $event.detail.value" >
 </Pagination>`,
   codeWebComponent:
     `<elvia-pagination 
   items="156" 
-  labelDisplaying="Displaying" 
-  (valueOnChange)="console.log($event.detail.value)">
+  (valueOnChange)="currentRange = $event.detail.value">
 </elvia-pagination>`,
 };
 

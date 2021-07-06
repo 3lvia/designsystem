@@ -10,9 +10,6 @@ import { paginationData } from './pagination-data';
 export class PaginationDocComponent {
 
   componentData = paginationData;
-  // does = paginationData.does;
-  // donts = paginationData.donts;
-
   figmaUrl = getComponent('pagination').figmaUrl;
   description = getComponent('pagination').description;
   does = [

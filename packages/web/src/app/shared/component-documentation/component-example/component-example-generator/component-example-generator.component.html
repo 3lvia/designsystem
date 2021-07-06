@@ -8,7 +8,7 @@
     <div *ngIf="typeObject" class="ceg-dropdown">
       <elvia-dropdown
         [options]="typeOptions"
-        [defaultValue]="typeOptions[0]"
+        [defaultValue]="typeOptions[typeDefault]"
         label="Type"
         (valueOnChange)="updateSelectedType($event.detail.value)"
       ></elvia-dropdown>
@@ -16,7 +16,7 @@
     <div *ngIf="backgroundObject" class="ceg-dropdown">
       <elvia-dropdown
         [options]="bgOptions"
-        [defaultValue]="bgOptions[0]"
+        [defaultValue]="bgOptions[bgDefault]"
         label="Background"
         (valueOnChange)="updateSelectedBg($event.detail.value)"
       ></elvia-dropdown>
@@ -31,6 +31,7 @@
         [ngClass]="{
           'ceg-code-preview--accordion': accordionCustom,
           'e-bg-white': selectedBg === 'White',
+          'e-bg-grey-05': selectedBg === 'Light grey',
           'e-bg-grey': selectedBg === 'Dark grey'
         }"
         [style.overflowY]="overflowY"
