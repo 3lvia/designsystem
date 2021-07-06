@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 
-import 'clipboard';
-
 import 'prismjs';
 import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-javascript';
