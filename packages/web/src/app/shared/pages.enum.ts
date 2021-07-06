@@ -37,6 +37,7 @@ export enum Pages {
   Autocomplete = 'autocomplete',
   Button = 'button',
   Breadcrumb = 'breadcrumb',
+  Box = 'box',
   Card = 'card',
   Chips = 'chips',
   Checkbox = 'checkbox',

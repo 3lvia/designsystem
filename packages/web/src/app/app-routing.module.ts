@@ -72,6 +72,7 @@ import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-
 import { v2PlaygroundComponent } from './doc-pages/dev/v2-playground/v2-playground.component';
 import { BreadcrumbDocComponent } from './doc-pages/components/breadcrumb-doc/breadcrumb-doc.component';
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
+import { BoxDocComponent } from './doc-pages/components/box-doc/box-doc.component';
 
 const routes: Routes = [
   {
@@ -189,6 +190,10 @@ const routes: Routes = [
           {
             path: Pages.Autocomplete,
             component: AutocompleteDocComponent,
+          },
+          {
+            path: Pages.Box,
+            component: BoxDocComponent,
           },
           {
             path: Pages.Button,

@@ -15,6 +15,7 @@ export class v2PlaygroundComponent implements OnInit {
   progressError;
   indeterminate;
   isFullWidth = false;
+  isModalShowing = false;
   date1 = new Date(2021, 4, 20);
 
   accordionContent = `
@@ -97,5 +98,17 @@ export class v2PlaygroundComponent implements OnInit {
 
   ngOnInit(): void {
     this.nativeJSApproach();
+  }
+
+  consoleLogDropdownValue = () => {
+    console.log(this.dropdownValue);
+  };
+  closeCallback = () => {
+    console.log('Updated: closecallback');
+    this.isModalShowing = !this.isModalShowing
+  };
+
+  updatedVisibility = (event: any) => {
+    console.log('Updated - visibility: ' + event);
   }
 }

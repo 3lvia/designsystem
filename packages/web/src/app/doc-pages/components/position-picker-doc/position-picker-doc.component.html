@@ -9,7 +9,7 @@
 <!--BODY-->
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
+  <div class="e-my-48" class="component-preview-temp">
     <div class="e-position-picker" style="width: 300px">
       <div class="e-position-picker__icon" *ngIf="!showPosition">
         <span class="e-btn__icon"><i class="e-icon e-icon--map_pin-color e-icon--lg"></i></span>
@@ -38,9 +38,20 @@
           tabindex="0"
         ></iframe>
         <div class="e-form-field" id="exampleInput">
-          <div class="e-input">
-            <input id="normal" type="text" placeholder="Choose Address" />
-            <i class="e-icon e-icon--search e-icon--xs"></i>
+          <div class="e-search e-search--instant" style="width: 250px" #exampleSearch>
+            <div class="e-input">
+              <input
+                aria-label="Search"
+                type="search"
+                placeholder="Search"
+                #exampleInput
+                (keyup)="onInput(exampleInput.value)"
+              />
+            </div>
+            <i class="e-icon e-icon--search-color"></i>
+            <button class="e-btn e-btn--icon" (click)="clearExample()">
+              <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+            </button>
           </div>
         </div>
       </div>

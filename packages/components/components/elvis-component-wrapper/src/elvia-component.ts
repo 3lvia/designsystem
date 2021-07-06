@@ -5,6 +5,7 @@ import toolbox from '@elvia/elvis-toolbox';
 
 export class ElvisComponentWrapper extends HTMLElement {
   protected _data: any;
+  protected _slots: any;
   protected reactComponent: any;
   protected webComponent: any;
   protected cssStyle: string;
@@ -14,6 +15,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   constructor(webComponent: any, reactComponent: any, cssStyle: string) {
     super();
     this._data = {};
+    this._slots = {};
     this.webComponent = webComponent;
     this.reactComponent = reactComponent;
     this.cssStyle = cssStyle;
@@ -28,7 +30,15 @@ export class ElvisComponentWrapper extends HTMLElement {
     return this._data;
   }
 
+  getSlot(str: string): any {
+    return this._slots[str];
+  }
+
   connectedCallback(): void {
+    // Slot items
+    if (this.webComponent.getComponentData().slotItems === true) {
+      this.storeAllSlots();
+    }
     if (this.webComponent.getComponentData().useWrapper) {
       this.mountPoint = document.createElement('span');
       this.appendChild(this.mountPoint);
@@ -76,16 +86,19 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected setProps(newProps: any, preventRerender?: boolean): void {
     Object.keys(newProps).forEach((key) => {
       if (!isEqual(this._data[key], newProps[key])) {
-        this._data[key] = newProps[key];
+        this._data[key.toLowerCase()] = newProps[key];
         this.addConditionalStyle();
-        this.changedEvent(key);
-        this.changedEvent(this.mapNameToRealName(key));
+        this.onChangeEvent(this.mapNameToRealName(key));
       }
     });
 
     if (!preventRerender) {
       this.throttleRenderReactDOM();
     }
+  }
+
+  protected triggerEvent(callbackName: string): void {
+    this.onEvent(callbackName);
   }
 
   protected createReactData(): Record<string, any> {
@@ -98,9 +111,14 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   // Finds the real name of an attribute
   protected mapNameToRealName(attr: string): string {
-    return this.webComponent.getComponentData().attributes.find((compAttr: any) => {
-      return compAttr.name.toLowerCase() === attr;
-    }).name;
+    try {
+      return this.webComponent.getComponentData().attributes.find((compAttr: any) => {
+        return compAttr.name.toLowerCase() === attr.toLowerCase();
+      }).name;
+    } catch {
+      this.logWarnMessage('mapNameToRealName', 'Did you forget to define the attribute \'' + attr + '\' in elvia-components.config.js?');
+      return attr;
+    }
   }
 
   protected renderReactDOM(): void {
@@ -114,17 +132,47 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
-  private changedEvent(propName: string) {
-    this.dispatchEvent(
-      new CustomEvent(propName + 'OnChange', {
-        bubbles: false,
-        composed: true,
-        detail: this._data,
-      }),
-    );
+  private logErrorMessage(functionName: string, error: string): void {
+    console.error('[' + this.webComponent.getComponentData().name + '] elvia-component-wrapper: ' + 'Failed at function \'' + functionName + '\'. ' + error)
   }
 
-  private convertString(stringToConvert: string, attrType: string) {
+  private logWarnMessage(functionName: string, warn: string): void {
+    console.warn('[' + this.webComponent.getComponentData().name + '] elvia-component-wrapper: ' + 'Failed at function \'' + functionName + '\'. ' + warn)
+  }
+
+  // Dispatches event for any type of event
+  private onEvent(callbackName: string) {
+    this.dispatchEvent(new CustomEvent(callbackName, {
+      bubbles: false,
+      composed: true,
+    }));
+  }
+
+  // Dispatches event and data for 'OnChange' events
+  private onChangeEvent(propName: string) {
+    if (this._data[propName.toLowerCase()] === null || this._data[propName.toLowerCase()] === undefined) {
+      this.logWarnMessage('onChangeEvent', ': Cannot dispatch OnChange event because no data was found with prop-name: ' + propName + '.');
+      return;
+    }
+    this.dispatchEvent(new CustomEvent(propName + 'OnChange', {
+      bubbles: false,
+      composed: true,
+      detail: { value: this._data[propName.toLowerCase()] },
+    }));
+  }
+
+  private storeAllSlots(): void {
+    this.querySelectorAll('[slot]').forEach((element) => {
+      const slotName = element.getAttribute('slot');
+      if (!slotName) {
+        return;
+      }
+      this._slots[slotName] = element;
+      element.remove();
+    });
+  }
+
+  private convertString(stringToConvert: string, attrType: string, attrName: string) {
     if (attrType === 'string' || attrType.indexOf('|') !== -1) {
       return stringToConvert;
     }
@@ -135,10 +183,14 @@ export class ElvisComponentWrapper extends HTMLElement {
       return parseFloat(stringToConvert);
     }
     if (attrType === 'object') {
-      return JSON.parse(stringToConvert);
+      try {
+        return JSON.parse(stringToConvert);
+      } catch (error) {
+        this.logErrorMessage('convertString', ': The property "' + attrName + '" is not a valid JSON object. This is probably because the JSON object is containing single quotes instead of double quotes.');
+      }
     }
     if (attrType === 'Date') {
-      return Date.parse(stringToConvert);
+      return new Date(stringToConvert);
     }
   }
 
@@ -150,7 +202,7 @@ export class ElvisComponentWrapper extends HTMLElement {
       const dataAttr = this._data[attr.name.toLowerCase()];
       const val = this.getAttribute(attr.name.toLowerCase());
       if (val !== null && (dataAttr === null || typeof dataAttr === 'undefined')) {
-        this._data[attr.name.toLowerCase()] = this.convertString(val, attr.type);
+        this._data[attr.name.toLowerCase()] = this.convertString(val, attr.type, attr.name);
       }
     });
   }

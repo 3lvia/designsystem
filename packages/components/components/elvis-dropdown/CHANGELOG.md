@@ -1,5 +1,11 @@
 # Elvia Dropdown
 
+## 1.0.4 (08.06.21)
+
+### Bug fixes
+
+Updated red validation color to new elvia red (#EE0701)
+
 ## 1.0.2 (28.05.21)
 
 ### Bug fixes

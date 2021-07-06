@@ -2279,11 +2279,7 @@ input:focus {
   text-transform: uppercase;
   color: inherit;
   position: absolute;
-  -o-transform: translateY(-100%);
-  -ms-transform: translateY(-100%);
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
-  top: -8px;
+  top: -25px;
   left: 8px;
 }
 .e-card__content {

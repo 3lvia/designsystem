@@ -10,15 +10,15 @@ export const dividerData = {
       description: 'A curved version of the divider, which follow the Elvia curve formula.',
       default: '"simple"',
       displayName: 'Types',
-      cegDefault: 'simple',
+      cegDefault: 0,
       cegType: 'string',
       cegFormType: 'type',
       cegOptions: ['simple', 'title', 'curved'],
     },
     title: {
       isRequired: false,
-      type: 'string',
-      description: 'Title displayed together with a divider',
+      type: 'HTMLElement',
+      description: 'Title displayed together with a divider. Send in as slot in Angular and HTMLElement in React.',
       default: '"Title"',
       displayName: 'Title',
     },
@@ -37,10 +37,9 @@ export const dividerData = {
     isInverted: {
       isRequired: false,
       type: 'boolean',
-      description: 'The inverted divider fit for darker backgrounds.',
+      description: 'If the divider is on a dark grey background this prop should be used.',
       default: 'false',
-      displayName: 'Inverted',
-      cegDefault: 'White',
+      cegDefault: 0,
       cegType: 'boolean',
       cegFormType: 'background',
       cegOptions: ['White', 'Dark grey'],
@@ -49,7 +48,10 @@ export const dividerData = {
   codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,
   codeImportWebComponent: `import '@elvia/elvis-divider';`,
   codeReact: `<Divider
+  title={<h2>Title</h2>}
 ></Divider>`,
   codeWebComponent: `<elvia-divider
-></elvia-divider>`,
+>
+  <h2 slot="title">Title</h2>
+</elvia-divider>`,
 };

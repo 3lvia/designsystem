@@ -6,6 +6,7 @@ reactName: String - The name of the component in React
 elementStyle: String Styling for the DOM element itself
 useWrapper: Boolean - If the React element should be injected into a wrapper instead of directly into the element
 wrapperStyle: String - Styling for the React wrapper - This requires useWrapper to be true.
+slotItems: Boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all new components
 */
 
 module.exports = [
@@ -22,6 +23,7 @@ module.exports = [
     ],
     reactName: 'Accordion',
     useWrapper: true,
+    slotItems: false,
   },
   {
     name: 'elvis-breadcrumb',
@@ -45,6 +47,7 @@ module.exports = [
     ],
     reactName: 'Tabs',
     elementStyle: `display: grid; overflow: hidden;`,
+    slotItems: false,
   },
   {
     name: 'elvis-popover',
@@ -59,6 +62,7 @@ module.exports = [
     reactName: 'Popover',
     useWrapper: true,
     elementStyle: `display: block;`,
+    slotItems: false,
   },
   {
     name: 'elvis-progress-linear',
@@ -70,6 +74,7 @@ module.exports = [
     ],
     reactName: 'ProgressLinear',
     elementStyle: `width: 100%;`,
+    slotItems: false,
   },
   {
     name: 'elvis-datepicker',
@@ -90,6 +95,8 @@ module.exports = [
     conditionalElementStyle: {
       isFullWidth: `width: 100%`,
     },
+
+    slotItems: false,
   },
   {
     name: 'elvis-testing',
@@ -104,18 +111,20 @@ module.exports = [
       isFullWidth: `width: 100%`,
       isBlock: `display: block`,
     },
+    slotItems: false,
   },
   {
     name: 'elvis-divider',
     elementName: 'elvia-divider',
     attributes: [
       { name: 'type', type: 'string' },
-      { name: 'title', type: 'string' },
+      { name: 'title', type: 'string | HTMLElement' },
       { name: 'typography', type: 'string' },
       { name: 'isInverted', type: 'boolean' },
     ],
     reactName: 'Divider',
     elementStyle: `width: 100%;`,
+    slotItems: false,
   },
   {
     name: 'elvis-dropdown',
@@ -133,6 +142,35 @@ module.exports = [
       { name: 'placeholder', type: 'string' },
       { name: 'value', type: 'object' },
     ],
+    slotItems: false,
     reactName: 'Dropdown',
+  },
+  {
+    name: 'elvis-box',
+    elementName: 'elvia-box',
+    attributes: [
+      { name: 'content', type: 'HTMLElement' },
+      { name: 'title', type: 'string' },
+      { name: 'hasBorder', type: 'boolean' },
+      { name: 'isColored', type: 'boolean' },
+    ],
+    slotItems: true,
+    reactName: 'Box',
+  },
+  {
+    name: 'elvis-modal',
+    elementName: 'elvia-modal',
+    attributes: [
+      { name: 'isShowing', type: 'boolean' },
+      { name: 'title', type: 'string' },
+      { name: 'content', type: 'HTMLElement' },
+      { name: 'illustration', type: 'HTMLElement' },
+      { name: 'primaryButton', type: 'HTMLElement' },
+      { name: 'secondaryButton', type: 'HTMLElement' },
+      { name: 'className', type: 'string' },
+      { name: 'hasCloseBtn', type: 'boolean' }
+    ],
+    reactName: 'Modal',
+    slotItems: true
   },
 ];

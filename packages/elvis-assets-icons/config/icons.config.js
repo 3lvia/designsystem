@@ -121,6 +121,12 @@ module.exports = [
     terms: ['collapse', 'close'],
     thirdparty: { name: ['streamline'], duplicate: ['arrow_up'] },
   },
+  { 
+    name: 'attendance', 
+    terms: ['person', 'check', 'participation'], 
+    thirdparty: { name: ['streamline'] },
+    streamlineIcons: ['single-neutral-actions-check-1']
+  },
   { name: 'attachment', terms: ['link', 'connection', 'file'], thirdparty: { name: ['streamline'] } },
   {
     name: 'attachment-color',
@@ -231,6 +237,12 @@ module.exports = [
     terms: [],
     thirdparty: { name: ['streamline'], duplicate: ['expand_circle-color'] },
   },
+  { 
+    name: 'facebook', 
+    terms: ['smsocial media', 'SoMeiley'],
+    thirdparty: { name: ['streamline'] },
+    streamlineIcons: ['social-media-facebook', 'messages-bubble']
+  },
   { name: 'feedback', terms: ['smiley'], thirdparty: { name: ['streamline'] } },
   { name: 'figma', terms: [] },
   { name: 'filter', terms: [], thirdparty: { name: ['streamline'] } },
@@ -328,6 +340,12 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
   },
   { name: 'map_pin-color', terms: [], thirdparty: { name: ['streamline'] } },
+  { 
+    name: 'media', 
+    terms: ['tv', 'radio'], 
+    thirdparty: { name: ['streamline'] },
+    streamlineIcons: ['video-player-movie-1']
+  },
   { name: 'menu', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'menu-bold', terms: [], thirdparty: { name: ['streamline'], duplicate: ['menu'] } },
   { name: 'minus', deprecated: '7.5.0', newIconName: 'minus-bold' },
@@ -557,6 +575,7 @@ module.exports = [
   },
   { name: 'tag_add', deprecated: '7.5.0', newIconName: 'add_circle' },
   { name: 'tag', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'third_party', terms: ['network'], streamlineIcons: ['user-network'] },
   { name: 'thumbnail', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'touch_finger-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'tree_falling', terms: [], thirdparty: { name: ['streamline'] } },
@@ -602,6 +621,12 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['warning_circle'] },
   },
   { name: 'web_library-color', terms: [], thirdparty: { name: ['streamline'] } },
+  { 
+    name: 'worker', 
+    terms: ['person', 'user', 'professional', 'employee','staff'], 
+    thirdparty: { name: ['streamline'] },
+    duplicate: ['worker-color']
+  },
   { name: 'work_under_line-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'worker-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'wrench', terms: ['working', 'in progress', 'tool'], thirdparty: { name: ['streamline'] } },
