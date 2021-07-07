@@ -162,7 +162,8 @@ module.exports = [
       { name: 'primaryButton', type: 'HTMLElement' },
       { name: 'secondaryButton', type: 'HTMLElement' },
       { name: 'className', type: 'string' },
-      { name: 'hasCloseBtn', type: 'boolean' }
+      { name: 'hasCloseBtn', type: 'boolean' },
+      { name: 'hasLockBodyScroll', type: 'boolean' }
     ],
     reactName: 'Modal',
     slotItems: true
