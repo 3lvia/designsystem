@@ -4,7 +4,7 @@
   "description": "Elvia colors",
   "license": "MIT",
   "author": "",
-  "main": "src/colors.js",
+  "main": "src/elviaColors.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
