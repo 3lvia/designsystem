@@ -103,7 +103,7 @@ export const ModalComponent: FC<ModalProps> = ({
         )}
 
         {hasCloseBtn && (
-          <StyledModal.CloseButton onClick={() => handleOnHide()}>
+          <StyledModal.CloseButton onClick={() => handleOnHide()} aria-label="Lukk modal">
             <i className="ewc-icon"></i>
           </StyledModal.CloseButton>
         )}
