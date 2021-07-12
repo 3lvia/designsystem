@@ -133,10 +133,10 @@ export const Carousel: FC<BaseCarouselProps> = ({
       </CSSTransition>
       }
       <NavigationRow>
-        <LeftCarouselButton aria-label={`Gå til side ${index + 1}`} hidden={hideLeftArrow} onClick={()=>
+        <LeftCarouselButton aria-label={`Gå til side ${index + 1}`} aria-hidden={hideLeftArrow} hidden={hideLeftArrow} onClick={()=>
           handleButtonClick(index,'left')
         }><i/></LeftCarouselButton>
-        <ListOfDots hideRightArrow={hideRightArrow && !showOnboardingCheckmark} hideLeftArrow={hideLeftArrow}>
+        <ListOfDots>
             {Array.from(Array(lengthOfElements), (e, listIndex: number) =>
             <Dot key={listIndex} isSelected={listIndex === index} tabIndex={0} aria-label={listIndex === index ? `Du er på side ${listIndex + 1}` : `Gå til side ${listIndex + 1}`}
             onClick={() => updateValue(listIndex)}
@@ -145,7 +145,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
         </ListOfDots>
         {showOnboardingCheckmark ?
           <CheckButton aria-label={"Introduksjonsstegene er fullført. Lukk introduksjon"} onClick={() => onHide && onHide()}><i/></CheckButton> :
-        <RightCarouselButton aria-label={`Gå til side ${index + 1}`} hidden={hideRightArrow} onClick={()=>
+        <RightCarouselButton aria-label={`Gå til side ${index + 1}`} aria-hidden={hideRightArrow} hidden={hideRightArrow} onClick={()=>
           handleButtonClick(index,'right')
         }><i/></RightCarouselButton>
       }

@@ -122,7 +122,6 @@ export const ListOfDots = styled.div`
   display: flex;
   flex-direction: row;
   padding: 0px 24px;
-  padding: 0px  ${(props: { hideRightArrow: boolean }) => ( props.hideRightArrow ? '64px' : '24px')} 0 ${(props: { hideLeftArrow: boolean }) => ( props.hideLeftArrow ? '64px' : '24px')};
 `
 
 export const Dot = styled.button`
@@ -135,7 +134,7 @@ export const Dot = styled.button`
   cursor: pointer;
   padding: 0;
   &:hover {
-    background-color: #29d305;
+    background-color: ${ElviaColors.elviaCharge};
   }
 `
 
@@ -145,8 +144,6 @@ export const LeftCarouselButton = styled.button`
   display: flex;
   padding: 24px 0px 24px 16px;
   visibility: ${(props: { hidden: boolean }) => ( props.hidden ? 'hidden' : 'visible')};
-  display: ${(props: { hidden: boolean }) => ( props.hidden ? 'none' : 'inline-block')};
-
 
   cursor: pointer;
     &:hover {
@@ -205,7 +202,7 @@ export const CheckButton = styled.button`
     cursor: pointer;
     &:hover {
       i {
-        background-color: #29d305;
+        background-color: ${ElviaColors.elviaCharge};
         }
       }
     i {
