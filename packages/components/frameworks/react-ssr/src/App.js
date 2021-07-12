@@ -10,6 +10,7 @@ import { Carousel } from '@elvia/elvis-carousel/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
+import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
 
 function App() {
@@ -139,7 +140,14 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-      <h2>HELLO THERE CHANGE!</h2>
+
+      <h2>Box</h2>
+      <Box
+        hasBorder={true}
+        isColored={true}
+        title={<h1>Title for the box component</h1>}
+        content={<div>Heisann dette er en box component sendt med som node i react</div>}
+      ></Box>
 
       <h2>Modal</h2>
       <button onClick={() => setIsModalShowingState(true)}>Show modal</button>

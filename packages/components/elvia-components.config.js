@@ -153,6 +153,18 @@ module.exports = [
     reactName: 'Dropdown',
   },
   {
+    name: 'elvis-box',
+    elementName: 'elvia-box',
+    attributes: [
+      { name: 'content', type: 'HTMLElement' },
+      { name: 'title', type: 'string' },
+      { name: 'hasBorder', type: 'boolean' },
+      { name: 'isColored', type: 'boolean' },
+    ],
+    slotItems: true,
+    reactName: 'Box',
+  },
+  {
     name: 'elvis-modal',
     elementName: 'elvia-modal',
     attributes: [
@@ -163,7 +175,8 @@ module.exports = [
       { name: 'primaryButton', type: 'HTMLElement' },
       { name: 'secondaryButton', type: 'HTMLElement' },
       { name: 'className', type: 'string' },
-      { name: 'hasCloseBtn', type: 'boolean' }
+      { name: 'hasCloseBtn', type: 'boolean' },
+      { name: 'hasLockBodyScroll', type: 'boolean' }
     ],
     reactName: 'Modal',
     slotItems: true

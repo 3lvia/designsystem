@@ -83,7 +83,7 @@ export const Content = styled.div`
     padding: ${modalMobilePadding};
     width: 100%;
     height: ${(props: { hasIllustration: boolean }) =>
-      props.hasIllustration ? 'calc(100vh - 250px)' : '100vh'};
+      props.hasIllustration ? 'calc(100% - 250px)' : '100%'};
   }
 `;
 
