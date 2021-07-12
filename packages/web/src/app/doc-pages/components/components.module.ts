@@ -28,12 +28,14 @@ import { ChipsModule } from './chips/chips.module';
 import { DividerDocModule } from './divider-doc/divider-doc.module';
 import { TabsDocModule } from './tabs-doc/tabs-doc.module';
 import { TimepickerDocModule } from './forms/timepicker-doc/timepicker-doc.module';
+import { BoxDocModule } from './box-doc/box-doc.module';
 
 @NgModule({
   imports: [
     AccordionDocModule,
     AlertMessagesModule,
     AutocompleteDocModule,
+    BoxDocModule,
     ButtonDocModule,
     CardDocModule,
     CarouselDocModule,
@@ -62,4 +64,4 @@ import { TimepickerDocModule } from './forms/timepicker-doc/timepicker-doc.modul
     HeaderDocModule,
   ],
 })
-export class ComponentsModule {}
+export class ComponentsModule { }

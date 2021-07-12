@@ -32,8 +32,11 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   codeReact;
   codeWebComponent;
   hasTopFilters = false;
+  typeDefault;
+  bgDefault;
+  bgList = [];
 
-  constructor(private cegService: ExampleCodeService) {}
+  constructor(private cegService: ExampleCodeService) { }
 
   ngOnInit(): void {
     this.codeWebComponent = this.componentData.codeWebComponent;
@@ -86,8 +89,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
             this.typeObject = newObject;
             this.selectedType = newObject.cegOptions[0];
             this.hasTopFilters = true;
+            this.typeDefault = this.componentData.attributes[attribute].cegDefault;
           } else if (this.componentData.attributes[attribute].cegFormType === 'background') {
             this.backgroundObject = newObject;
+            this.bgDefault = newObject.cegDefault;
             this.selectedBg = newObject.cegDefault;
             this.hasTopFilters = true;
           } else {
@@ -95,6 +100,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           }
         }
       });
+      if (this.bgList.filter(object => object === this.backgroundObject).length < 1 && this.backgroundObject) {
+        this.bgList.push(this.backgroundObject);
+      }
     });
     if (this.hasCheckboxes) {
       const modifiersObject = {
@@ -141,10 +149,17 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   updateSelectedBg(selected: { value: any; label: any }): void {
     this.selectedBg = selected.label;
-    const attribute = this.backgroundObject.attribute;
-    const newValue = (selected.label === 'Dark grey').toString();
-    const cegType = this.backgroundObject.cegType;
-    this.updateSelected(attribute, newValue, cegType);
+    const selectedBgObject = this.bgList.find(bg => bg.displayName === selected.label);
+    this.bgList.forEach(bg => {
+      if (selectedBgObject && selectedBgObject.attribute === bg.attribute) {
+        this.updateSelected(bg.attribute, 'true', 'boolean');
+      } else if (selectedBgObject) {
+        this.updateSelected(bg.attribute, 'false', 'boolean');
+      } else {
+        this.updateSelected(bg.attribute, 'false', 'boolean');
+        this.updateSelected(bg.attribute, 'false', 'boolean');
+      }
+    })
   }
 
   updateSelected(attribute: string, newValue: string, cegType: string): void {

@@ -114,4 +114,12 @@ elements  = [
   consoleLogDropdownValue = () => {
     console.log(this.dropdownValue);
   };
+  closeCallback = () => {
+    console.log('Updated: closecallback');
+    this.isModalShowing = !this.isModalShowing
+  };
+
+  updatedVisibility = (event: any) => {
+    console.log('Updated - visibility: ' + event);
+  }
 }

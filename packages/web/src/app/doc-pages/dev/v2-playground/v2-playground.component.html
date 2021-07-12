@@ -19,12 +19,20 @@
     <elvia-carousel [elements]="5"  (valueOnChange)="carouselValue = $event.detail.value ">
    </elvia-carousel>
    {{ carouselValue }}
+    
+  <h2>Box</h2>
+  <div style="padding: 8px">
+    <elvia-box [hasBorder]="true">
+      <h2 slot="title">Title</h2>
+      <div slot="content">Webcomponentent content for the box component</div>
+    </elvia-box>
   </div>
 
   <h2>Modal</h2>
   <button class="e-btn" (click)="isModalShowing = !isModalShowing">Åpne modal</button>
   <elvia-modal
-    (onHide)="isModalShowing = !isModalShowing"
+    (onHide)="closeCallback()"
+    (isShowingOnChange)="updatedVisibility($event.detail.value)"
     [isShowing]="isModalShowing"
     title="Title of content"
     hasCloseBtn="true"
@@ -106,7 +114,7 @@
     <elvia-divider [isInverted]="true"></elvia-divider>
   </div>
   <div style="margin-top: 16px; background: #262626; padding: 8px">
-    <elvia-divider type="title" typography="caps" [isInverted]="true"></elvia-divider>
+    <elvia-divider type="title" title="helo" typography="caps" [isInverted]="true"></elvia-divider>
   </div>
   <div style="margin-top: 16px; background: #262626; padding: 8px">
     <elvia-divider type="curved" [isInverted]="true"></elvia-divider>
