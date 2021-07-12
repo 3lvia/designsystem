@@ -20,23 +20,40 @@ export const carouselData = {
     },
   ],
   attributes: {
+    className: {
+      isRequired: false,
+      type: 'string',
+      description: 'Custom css classes that could be added to the carousel',
+    },
     elements: {
       isRequired: true,
       type: 'CarouselElement[] | number',
       description: 'A collection of related items that should be displayed in a carousel',
       displayName: 'Carousel',
     },
-    value: {
-      isRequired: false,
-      type: 'number',
-      description: 'Index of selected carousel index.',
-      default: '0',
-    },
     hideArrows: {
       isRequired: false,
       type: 'boolean',
       description: 'Decides if arrows should be hidden such that you cannot cycle through elements',
       default: 'false',
+    },
+    onHide: {
+      isRequired: false,
+      type: '() => void',
+      description: 'If useOnboardingCheckmark is used you most likely want a close action implemented for the checkmark button',
+      default: 'false',
+    },
+    useOnboardingCheckmark: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Whether a checkmark button should be used for the last element. Is used in an onboarding situation and requires hideArrows to also be sent in',
+      default: 'false',
+    },
+    value: {
+      isRequired: false,
+      type: 'number',
+      description: 'Index of selected carousel index.',
+      default: '0',
     },
     valueOnChange: {
       isRequired: false,

@@ -1,5 +1,5 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
-import { CarouselContainer, CarouselTitle, CarouselElement, LeftCarouselButton, ListOfDots, Dot, NavigationRow, RightCarouselButton,CarouselElementContainer  } from './StyledComponents';
+import { CarouselContainer, CarouselTitle, CarouselElement, LeftCarouselButton, ListOfDots, Dot, NavigationRow, RightCarouselButton,CarouselElementContainer, CheckButton  } from './StyledComponents';
 import { CSSTransition } from 'react-transition-group';
 
 type CarouselElement = {
@@ -11,13 +11,24 @@ export interface BaseCarouselProps {
   className?: string;
   elements: CarouselElement[] | number;
   hideArrows?: boolean;
+  onHide?: () => void;
+  useOnboardingCheckmark?: boolean;
   value?: number;
   valueOnChange?: (value: number) => void;
   webcomponent?: any;
 }
 
 // don't know why it says it does not exist
-export const Carousel: FC<BaseCarouselProps> = ({ className, elements, hideArrows = false, value=0, valueOnChange, webcomponent }) => {
+export const Carousel: FC<BaseCarouselProps> = ({
+  className,
+  elements,
+  hideArrows = false,
+  onHide,
+  useOnboardingCheckmark,
+  value=0,
+  valueOnChange,
+  webcomponent,
+}) => {
   const [index, setIndex] = useState(value)
   const [isDown, setIsDown] = useState(false)
   const [startX, setStartX] = useState(0)
@@ -30,6 +41,7 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, elements, hideArrow
 
   const hideLeftArrow = hideArrows && index === 0
   const hideRightArrow = hideArrows && index === lengthOfElements - 1
+  const showOnboardingCheckmark = hideRightArrow && useOnboardingCheckmark
 
   const updateValue = (index: number) => {
     setIndex(index)
@@ -48,7 +60,6 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, elements, hideArrow
     setIndex(index);
   }, [index]);
 
-
   const handleMouseDown = (e: MouseEvent | TouchEvent) => {
     const clientX = "changedTouches" in e ? e.changedTouches[0].clientX : e.clientX
     if (!itemsRef.current) {
@@ -60,19 +71,20 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, elements, hideArrow
 
 
   const handleMouseMove = (e: MouseEvent | TouchEvent) => {
-    if (isDown) {
-      const clientX = "changedTouches" in e ? e.changedTouches[0].clientX : e.clientX
-      if (!itemsRef.current) {
-        return;
-      }
-      const x = clientX - itemsRef.current.offsetLeft;
-      const distance = (x - startX) * 3;
-      if (distance < -400 && !hideRightArrow) {
-        handleButtonClick(index,'right')
-      }
-      if (distance > 400 && !hideLeftArrow) {
-        handleButtonClick(index, 'left')
-      }
+    if (!isDown) {
+      return;
+    }
+    const clientX = "changedTouches" in e ? e.changedTouches[0].clientX : e.clientX
+    if (!itemsRef.current) {
+      return;
+    }
+    const x = clientX - itemsRef.current.offsetLeft;
+    const distance = (x - startX) * 3;
+    if (distance < -400 && !hideRightArrow) {
+      handleButtonClick(index,'right')
+    }
+    if (distance > 400 && !hideLeftArrow) {
+      handleButtonClick(index, 'left')
     }
   }
 
@@ -83,6 +95,8 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, elements, hideArrow
     setSlideIn(false);
 
     setTimeout(() => {
+      // Using modulo to be able to carousel to next element
+      // For decrement you have to add the length of elements to prevent negative values
       direction === 'left' ? updateValue((index - 1 + lengthOfElements) % lengthOfElements) : updateValue((index + 1) % lengthOfElements)
       setSlideDirection(direction);
       setSlideIn(true);
@@ -122,16 +136,19 @@ export const Carousel: FC<BaseCarouselProps> = ({ className, elements, hideArrow
         <LeftCarouselButton aria-label={`Gå til side ${index + 1}`} hidden={hideLeftArrow} onClick={()=>
           handleButtonClick(index,'left')
         }><i/></LeftCarouselButton>
-        <ListOfDots>
+        <ListOfDots hideRightArrow={hideRightArrow && !showOnboardingCheckmark} hideLeftArrow={hideLeftArrow}>
             {Array.from(Array(lengthOfElements), (e, listIndex: number) =>
             <Dot key={listIndex} isSelected={listIndex === index} tabIndex={0} aria-label={listIndex === index ? `Du er på side ${listIndex + 1}` : `Gå til side ${listIndex + 1}`}
             onClick={() => updateValue(listIndex)}
             />
           )}
         </ListOfDots>
+        {showOnboardingCheckmark ?
+          <CheckButton aria-label={"Introduksjonsstegene er fullført. Lukk introduksjon"} onClick={() => onHide && onHide()}><i/></CheckButton> :
         <RightCarouselButton aria-label={`Gå til side ${index + 1}`} hidden={hideRightArrow} onClick={()=>
           handleButtonClick(index,'right')
         }><i/></RightCarouselButton>
+      }
       </NavigationRow>
     </CarouselContainer>
   );

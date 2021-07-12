@@ -29,8 +29,10 @@ module.exports = [
     name: 'elvis-carousel',
     elementName: 'elvia-carousel',
     attributes: [
+      { name: 'className', type: 'string' },
       { name: 'elements', type: 'number | string | HTMLElement' },
       { name: 'hideArrows', type: 'boolean' },
+      { name: 'useOnboardingCheckmark', type: 'boolean' },
       { name: 'value', type: 'number' },
     ],
     reactName: 'Carousel',

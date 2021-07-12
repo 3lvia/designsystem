@@ -117,6 +117,28 @@ export const NavigationRow = styled.div`
   }
 `
 
+
+export const ListOfDots = styled.div`
+  display: flex;
+  flex-direction: row;
+  padding: 0px 24px;
+  padding: 0px  ${(props: { hideRightArrow: boolean }) => ( props.hideRightArrow ? '64px' : '24px')} 0 ${(props: { hideLeftArrow: boolean }) => ( props.hideLeftArrow ? '64px' : '24px')};
+`
+
+export const Dot = styled.button`
+  border: 1px solid  ${(props: { isSelected: boolean }) => (props.isSelected ?  ElviaColors.elviaCharge : ElviaColors.elviaOff)};
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: ${(props: { isSelected: boolean }) => (props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOn)};
+  margin: 8px;
+  cursor: pointer;
+  padding: 0;
+  &:hover {
+    background-color: #29d305;
+  }
+`
+
 export const LeftCarouselButton = styled.button`
   border: none;
   background: transparent;
@@ -174,21 +196,30 @@ export const RightCarouselButton = styled.button`
     }
 `
 
-export const ListOfDots = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding: 0px 24px;
+export const CheckButton = styled.button`
+  margin-left: 0;
+    border: none;
+    background: transparent;
+    display: flex;
+    padding: 24px 16px 24px 0px;
+    cursor: pointer;
+    &:hover {
+      i {
+        background-color: #29d305;
+        }
+      }
+    i {
+      border: none;
+      border-radius: 50%;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)' fill='%2329D305'%3e%3cpath d='M12 23.997c-6.617 0-12-5.383-12-12s5.383-12 12-12 12 5.383 12 12-5.383 12-12 12zm0-22.5c-5.79 0-10.5 4.71-10.5 10.5s4.71 10.5 10.5 10.5 10.5-4.71 10.5-10.5-4.71-10.5-10.5-10.5z'/%3e%3cpath  fill='black' fill-rule='evenodd' clip-rule='evenodd' d='M6.53 11.307a.75.75 0 011.061 0l3.005 3.002 6.54-6.534a.75.75 0 011.062 1.06l-7.072 7.063a.75.75 0 01-1.06 0L6.53 12.366a.748.748 0 010-1.06z'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");      display: inline-block;
+      display: inline-block;
+      height:24px;
+      width: 24px;
+    }
 `
 
-export const Dot = styled.button`
-  border: 1px solid  ${(props: { isSelected: boolean }) => (props.isSelected ?  ElviaColors.elviaCharge : ElviaColors.elviaOff)};
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  background-color: ${(props: { isSelected: boolean }) => (props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOn)};
-  margin: 8px;
-  cursor: pointer;
-  padding: 0;
-`
 
 

@@ -206,13 +206,18 @@ function App() {
         </Carousel>
       </div>
       <div style={{ margin: '40px 0' }}>
-        <h2>Carousel component with hidden arrows</h2>
-        <Carousel elements={elements} valueOnChange={setSelectedState} hideArrows>
+        <h2>Carousel component with hidden arrows and onboarding checkmark</h2>
+        <Carousel elements={elements} valueOnChange={setSelectedState} hideArrows useOnboardingCheckmark>
         </Carousel>
       </div>
       <div style={{ margin: '40px 0' }}>
         <h2>Without elements</h2>
         <Carousel elements={elements.length} valueOnChange={setSelectedState}>
+        </Carousel>
+      </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Without elements and hidden arrows</h2>
+        <Carousel elements={elements.length} valueOnChange={setSelectedState} hideArrows>
         </Carousel>
       </div>
       <div>{"Selected page: " + selectedState.toString()}</div>
