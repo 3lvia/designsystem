@@ -7,6 +7,7 @@ const ElviaColors = {
 };
 
 const mobileMax = '767px';
+const desktopMin = '1024px';
 const modalBorderRadius = '8px';
 const modalMaxWidth = '704px';
 
@@ -105,7 +106,10 @@ export const Illustration = styled.div`
     position: absolute;
     height: calc(550px * 6.85);
     width: calc(550px * 6.85);
-    right: calc(100% - 3.7vw);
+    right: calc(100% - 2.7vw);
+    @media (min-width: ${desktopMin}) {
+      right: calc(100% - 1.7vw);
+    }
     z-index: 0;
   }
 
