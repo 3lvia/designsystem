@@ -2,7 +2,8 @@ import { Component, OnDestroy } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import packageJson from '@elvia/elvis/package.json';
-
+import { LocalizationService } from 'src/app/core/services/localization.service';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
 @Component({
   selector: 'app-mobile-menu',
   templateUrl: './mobile-menu.component.html',
@@ -10,6 +11,7 @@ import packageJson from '@elvia/elvis/package.json';
 })
 export class MobileMenuComponent implements OnDestroy {
   version = packageJson.version;
+  mainMenu: any;
 
   private onDestroy = new Subject();
 
@@ -17,7 +19,14 @@ export class MobileMenuComponent implements OnDestroy {
 
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cmsService: CMSService, private localizationService: LocalizationService) {
+    this.localizationService.listenLocalization().subscribe((locale) => {
+      this.cmsService.getMenu(locale).then(data => {
+        this.mainMenu = data;
+      });
+    });
+
+  }
 
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
@@ -27,28 +36,8 @@ export class MobileMenuComponent implements OnDestroy {
     this.onDestroy.next();
   }
 
-  navigateHome(): void {
-    this.router.navigate(['/home']);
-    this.onClose();
-  }
-  navigateGetStarted(): void {
-    this.router.navigate(['/get-started']);
-    this.onClose();
-  }
-  navigateIdentity(): void {
-    this.router.navigate(['/identity']);
-    this.onClose();
-  }
-  navigateComps(): void {
-    this.router.navigate(['/components']);
-    this.onClose();
-  }
-  navigateTools(): void {
-    this.router.navigate(['/tools']);
-    this.onClose();
-  }
-  navigateCommunity(): void {
-    this.router.navigate(['/community']);
+  navigate(path: string): void {
+    this.router.navigate(['/' + path]);
     this.onClose();
   }
 }
