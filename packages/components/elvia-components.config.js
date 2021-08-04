@@ -52,11 +52,12 @@ module.exports = [
       { name: 'posX', type: 'string' },
       { name: 'posY', type: 'string' },
       { name: 'hasCloseBtn', type: 'boolean' },
+      { name: 'isShowing', type: 'boolean' },
     ],
     reactName: 'Popover',
     useWrapper: true,
     elementStyle: `display: block;`,
-    slotItems: false,
+    slotItems: true,
   },
   {
     name: 'elvis-progress-linear',
