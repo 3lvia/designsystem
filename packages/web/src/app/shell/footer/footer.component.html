@@ -3,7 +3,11 @@
     <div class="e-grid">
       <div class="row no-gutters justify-content-center">
         <div
-          class="d-md-none d-lg-none d-xl-none d-sm-block col-xs-12 col-sm-8 col-sm-8-custom e-text-info e-mb-40"
+          class="
+            d-md-none d-lg-none d-xl-none d-sm-block
+            col-xs-12 col-sm-8 col-sm-8-custom
+            e-text-info e-mb-40
+          "
         >
           <div class="text-align-center">
             <div class="e-text-center">
@@ -33,11 +37,27 @@
           <div class="text-align-center">
             <div class="e-text-left">
               <div class="e-mb-24" *ngIf="showLocaleToggle">
-              <a class="e-link e-link--sm e-link--inverted" (click)="setLocale('no-NB')" style="margin-right:4px" [ngClass]="{'e-link---hover': locale === 'no-NB'}" href="javascript:void(0)">NO</a>
-              <span class="e-text-sm">/</span>
-              <a class="e-link e-link--sm e-link--inverted" (click)="setLocale('en-GB')" style="margin-left:4px" [ngClass]="{'e-link---hover': locale === 'en-GB'}"  href="javascript:void(0)">EN</a>
-            </div>
-              <!--  HUSK! SKAL HENTE DATO FRA GITHUB
+                <a
+                  class="e-link e-link--sm e-link--inverted"
+                  (click)="setLocale('nb-NO')"
+                  style="margin-right: 4px"
+                  [ngClass]="{ 'e-link---hover': locale === 'nb-NO' }"
+                  href="javascript:void(0)"
+                >
+                  NO
+                </a>
+                <span class="e-text-sm">/</span>
+                <a
+                  class="e-link e-link--sm e-link--inverted"
+                  (click)="setLocale('en-GB')"
+                  style="margin-left: 4px"
+                  [ngClass]="{ 'e-link---hover': locale === 'en-GB' }"
+                  href="javascript:void(0)"
+                >
+                  EN
+                </a>
+              </div>
+              <!--  TODO: HUSK! SKAL HENTE DATO FRA GITHUB
               <div>Last updated {{ formattedDate }}</div> 
               -->
               <div>Copyright © {{ currentYear }} Elvia</div>

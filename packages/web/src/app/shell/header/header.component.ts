@@ -5,7 +5,9 @@ import { OverlayRef } from '@angular/cdk/overlay';
 import { MobileMenuComponent } from './mobile-menu/mobile-menu.component';
 import { NavigationEnd, Router } from '@angular/router';
 import { SearchMenuComponent } from './search-menu/search-menu.component';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
 import packageJson from '@elvia/elvis/package.json';
+import { LocalizationService } from 'src/app/core/services/localization.service';
 
 @Component({
   selector: 'app-header',
@@ -19,13 +21,22 @@ export class HeaderComponent {
   searchOverlay: OverlayRef;
   headerLogoLoaded = false;
   devMode = false;
+  mainMenu: any;
 
   constructor(
     private globalService: GlobalService,
     private mobileMenu: MobileMenuService,
     private searchMenu: MobileMenuService,
     private router: Router,
+    private cmsService: CMSService,
+    private localizationService: LocalizationService,
   ) {
+    this.localizationService.listenLocalization().subscribe((locale) => {
+      this.cmsService.getMenu(locale).then(data => {
+        this.mainMenu = data;
+      });
+    });
+
     if (window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('#dev') > -1) {
       this.devMode = true;
     }

@@ -69,27 +69,29 @@
       width: 80%;
     }
 
-    .links {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      cursor: pointer;
-
-      .text {
+    .menu-items {
+      .links {
         display: flex;
-        @include typography('text-caps');
+        flex-direction: row;
+        justify-content: space-between;
+        cursor: pointer;
+
+        .text {
+          display: flex;
+          @include typography('text-caps');
+        }
+
+        .links-icon {
+          display: flex;
+          align-items: center;
+        }
       }
 
-      .links-icon {
-        display: flex;
-        align-items: center;
+      .divider {
+        border: 1px solid var(--e-grey-10);
+        width: 100%;
+        border-radius: 25px;
       }
-    }
-
-    .divider {
-      border: 1px solid var(--e-grey-10);
-      width: 100%;
-      border-radius: 25px;
     }
 
     .version {

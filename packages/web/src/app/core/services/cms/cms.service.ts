@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import * as ContentConfig from '../../../../../contentful/content.config';
-import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { HttpClient } from '@angular/common/http';
 import { CMSTransformService } from './cms-transform.service';
-import { LocalizationService, Locale } from '../localization.service';
+import { Locale } from '../localization.service';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +18,8 @@ export class CMSService {
 
   getDocumentationPage(pageName: string, localization: Locale): Promise<any> {
     let locale = 'en-GB';
-    if (localization === Locale['no-NB']) {
-      locale = 'no-NB';
+    if (localization === Locale['nb-NO']) {
+      locale = 'nb-NO';
     }
     const contentMetadata = ContentConfig[pageName];
 
@@ -35,6 +33,29 @@ export class CMSService {
         pageDescription: data.fields.pageDescription[locale],
         content: this.cmsTransformService.getHTML(data, locale, this.entries)
       }
+    });
+  }
+
+  getMenu(localization: Locale) {
+    let locale = 'en-GB';
+    if (localization === Locale['nb-NO']) {
+      locale = 'nb-NO';
+    }
+    return this.getEntry('31WPcyslzeoeVLtVXjXju1').then(data => {
+      const menu = {};
+      menu['title'] = data.fields.title['en-GB'];
+      const submenus = [];
+
+      data.fields.submenus['en-GB'].map(item => { // No localization on submenu list. We show the same things for both languages.
+        submenus.push({
+          title: item.fields.title[locale],
+          entry_id: item.sys.id,
+          path: item.fields.path['en-GB'] // url path - No localization on this field
+        });
+      })
+
+      menu['pages'] = submenus;
+      return menu;
     });
   }
 
