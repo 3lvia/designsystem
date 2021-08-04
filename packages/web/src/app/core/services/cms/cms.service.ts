@@ -18,7 +18,7 @@ export class CMSService {
 
   getDocumentationPage(pageName: string, localization: Locale): Promise<any> {
     let locale = 'en-GB';
-    if (localization === Locale['no-NB']) {
+    if (localization === Locale['nb-NO']) {
       locale = 'nb-NO';
     }
     const contentMetadata = ContentConfig[pageName];
@@ -38,7 +38,7 @@ export class CMSService {
 
   getMenu(localization: Locale) {
     let locale = 'en-GB';
-    if (localization === Locale['no-NB']) {
+    if (localization === Locale['nb-NO']) {
       locale = 'nb-NO';
     }
     return this.getEntry('31WPcyslzeoeVLtVXjXju1').then(data => {

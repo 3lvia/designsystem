@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
         this.locale = 'en-GB';
       } else {
         this.overviewTitle = 'Elvia designsystem'
-        this.locale = 'no-NB';
+        this.locale = 'nb-NO';
       }
     });
   }
