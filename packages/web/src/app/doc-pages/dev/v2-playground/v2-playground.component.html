@@ -245,12 +245,12 @@
     <hr style="margin: 40px 0" />
 
     <h2>Progressbar</h2>
+    <elvia-progress-linear
+      [isIndeterminate]="indeterminate"
+      [value]="progressValue"
+      [isError]="progressError"
+    ></elvia-progress-linear>
     <div style="margin-bottom: 32px; display: flex">
-      <elvia-progress-linear
-        [isIndeterminate]="indeterminate"
-        [value]="progressValue"
-        [isError]="progressError"
-      ></elvia-progress-linear>
       <div style="display: flex; width: 100%; justify-content: space-between">
         <button (click)="progressValue = progressValue + 10">Increase Progress</button>
         <button (click)="progressValue = progressValue - 10">Decrease Progress</button>
