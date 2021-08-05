@@ -17,6 +17,7 @@ export class v2PlaygroundComponent implements OnInit {
   isFullWidth = false;
   isModalShowing = false;
   date1 = new Date(2021, 4, 20);
+  isPopoverShowing = true;
 
   accordionContent = `
     Bacon ipsum dolor amet pork loin bacon jowl turkey. Biltong sausage swine, shankle venison hamburger alcatra spare ribs bacon ham ribeye strip steak. Swine capicola picanha kevin drumstick. Chuck landjaeger pastrami, cow shoulder boudin short loin leberkas t-bone turkey prosciutto jowl. Turkey tail tongue cow shankle chicken tri-tip swine. Prosciutto pig ball tip kielbasa hamburger picanha pork chop tongue chicken shankle short loin filet mignon. T-bone shankle capicola, shoulder hamburger pancetta cupim chuck meatloaf turducken porchetta rump sausage strip steak ribeye.
@@ -88,10 +89,16 @@ export class v2PlaygroundComponent implements OnInit {
   consoleLogDropdownValue = () => {
     console.log(this.dropdownValue);
   };
+
   closeCallback = () => {
     console.log('Updated: closecallback');
     this.isModalShowing = !this.isModalShowing
   };
+
+  updatePopoverVariable = (newValue: boolean) => {
+    console.log('Updated: closecallback ', newValue);
+    this.isPopoverShowing = newValue;
+  }
 
   updatedVisibility = (event: any) => {
     console.log('Updated - visibility: ' + event);

@@ -13,15 +13,15 @@ import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
 
 function App() {
-  // old checkbox states
-  const [trackedState, setTrackedState] = useState(true);
-  const ref = useRef();
+  // Old checkbox states
+  // const [trackedState, setTrackedState] = useState(true);
+  // const ref = useRef();
   //////////////////////
   const [selectedState, setSelectedState] = useState(2);
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
   const [isModalShowing, setIsModalShowingState] = useState(false);
-
+  const [isPopoverShowing, setIsPopoverShowingState] = useState(true);
   const [progressValue, setProgressValue] = useState(0);
 
   function increaseProgress() {
@@ -269,6 +269,27 @@ function App() {
 
       <h2>Popover</h2>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+        <Popover
+          header="BankID"
+          content={
+            <div
+              style={{
+                boxSizing: 'border-box',
+                padding: '50px',
+                width: '100%',
+                border: '2px dashed lightgray',
+              }}
+            >
+              Custom content custom content custom content custom content
+              <Tabs items={items} value={2} valueOnChange={setSelectedState}></Tabs>
+              <button onClick={() => setIsPopoverShowingState(false)}>Close</button>
+            </div>
+          }
+          trigger={<button>Right top</button>}
+          posX="right"
+          isShowing={isPopoverShowing}
+          isShowingOnChange={(value) => setIsPopoverShowingState(value)}
+        ></Popover>
         <span style={{ marginTop: '16px' }}>
           <Popover
             header="BankID"

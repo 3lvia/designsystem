@@ -178,6 +178,19 @@
 
     <h2>Popover</h2>
     <div style="display: flex; flex-direction: column; align-items: flex-end">
+      <elvia-popover
+        header="BankID"
+        posX="right"
+        width="200"
+        [isShowing]="isPopoverShowing"
+        (isShowingOnChange)="updatePopoverVariable($event.detail.value)"
+      >
+        <button slot="trigger" class="e-btn">Right top</button>
+        <div slot="content">
+          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
+          <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
+        </div>
+      </elvia-popover>
       <div style="margin-top: 16px">
         <elvia-popover header="BankID" posX="right" width="200">
           <button slot="trigger" class="e-btn">Right top</button>

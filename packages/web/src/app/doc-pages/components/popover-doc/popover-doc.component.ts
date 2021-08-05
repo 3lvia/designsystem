@@ -13,10 +13,11 @@ export class PopoverDocComponent {
   description = getComponent('popover').description;
   // tslint:disable-next-line:max-line-length
   does = [
-    'When you want to give the user more information about something, and are typically paired with an information or question icon.',
+    'To provide additional information',
+    'Help user complete small actions'
   ];
   donts = [
-    'Should not be used if the information in popover is necessary for the user to complete their task.',
+    'Do not have multiple popover open at the same time',
   ];
 
   hideContentLoader(evt: any): void {
