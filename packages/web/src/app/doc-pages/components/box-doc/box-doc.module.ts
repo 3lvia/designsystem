@@ -20,6 +20,6 @@ import { ComponentExampleGeneratorModule } from 'src/app/shared/component-docume
     ComponentInstallationModule,
     ComponentExampleGeneratorModule,
   ],
-  declarations: [BoxDocComponent]
+  declarations: [BoxDocComponent],
 })
-export class BoxDocModule { }
+export class BoxDocModule {}

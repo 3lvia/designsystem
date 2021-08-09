@@ -147,7 +147,7 @@ export const eComponents: EItems[] = [
     figmaUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Cards?node-id=2%3A9',
     type: 'Component',
   },
-   {
+  {
     title: 'Carousel',
     // tslint:disable-next-line: max-line-length
     description:

@@ -202,7 +202,8 @@ const routes: Routes = [
           {
             path: Pages.Card,
             component: CardDocComponent,
-          },          {
+          },
+          {
             path: Pages.Carousel,
             component: CarouselDocComponent,
           },
@@ -418,4 +419,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

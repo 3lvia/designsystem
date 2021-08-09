@@ -15,7 +15,7 @@ export class ComponentPropertiesComponent implements OnInit {
   modifiers = [];
   psuedos = [];
   allElementModifiers = [];
-  deprecatedClasses = []
+  deprecatedClasses = [];
 
   ngOnInit(): void {
     this.makePropertyLists();
@@ -26,19 +26,19 @@ export class ComponentPropertiesComponent implements OnInit {
   }
 
   isDeprecated(componentClass: string): boolean {
-    return this.deprecatedClasses.includes(componentClass)
+    return this.deprecatedClasses.includes(componentClass);
   }
 
   getDeprecatedClasses(): void {
-    Object.keys(deprecated).forEach(key => {
-      this.deprecatedClasses.push(key)
-    })
+    Object.keys(deprecated).forEach((key) => {
+      this.deprecatedClasses.push(key);
+    });
   }
 
   makePropertyLists(): void {
     Object.keys(data.block).forEach((block) => {
       if (block === this.componentName) {
-        this.getDeprecatedClasses()
+        this.getDeprecatedClasses();
         this.getContainer();
         this.getAllElements();
         this.getAllModifiers();

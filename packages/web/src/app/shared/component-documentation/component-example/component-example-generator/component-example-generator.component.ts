@@ -36,7 +36,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   bgDefault;
   bgList = [];
 
-  constructor(private cegService: ExampleCodeService) { }
+  constructor(private cegService: ExampleCodeService) {}
 
   ngOnInit(): void {
     this.codeWebComponent = this.componentData.codeWebComponent;
@@ -100,7 +100,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           }
         }
       });
-      if (this.bgList.filter(object => object === this.backgroundObject).length < 1 && this.backgroundObject) {
+      if (
+        this.bgList.filter((object) => object === this.backgroundObject).length < 1 &&
+        this.backgroundObject
+      ) {
         this.bgList.push(this.backgroundObject);
       }
     });
@@ -149,8 +152,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   updateSelectedBg(selected: { value: any; label: any }): void {
     this.selectedBg = selected.label;
-    const selectedBgObject = this.bgList.find(bg => bg.displayName === selected.label);
-    this.bgList.forEach(bg => {
+    const selectedBgObject = this.bgList.find((bg) => bg.displayName === selected.label);
+    this.bgList.forEach((bg) => {
       if (selectedBgObject && selectedBgObject.attribute === bg.attribute) {
         this.updateSelected(bg.attribute, 'true', 'boolean');
       } else if (selectedBgObject) {
@@ -159,7 +162,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.updateSelected(bg.attribute, 'false', 'boolean');
         this.updateSelected(bg.attribute, 'false', 'boolean');
       }
-    })
+    });
   }
 
   updateSelected(attribute: string, newValue: string, cegType: string): void {

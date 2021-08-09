@@ -27,7 +27,8 @@ const boxData = {
     isColored: {
       isRequired: false,
       type: 'boolean',
-      description: 'Green line on top of box. The box with a colored line should be used if you want the box to take more attention, but not use multiple boxes with colored lines on the same page.',
+      description:
+        'Green line on top of box. The box with a colored line should be used if you want the box to take more attention, but not use multiple boxes with colored lines on the same page.',
       default: 'false',
       displayName: 'Colored',
       cegType: 'boolean',
@@ -39,13 +40,11 @@ const boxData = {
   package: 'npm install @elvia/elvis-box',
   codeImportReact: `import { Box } from '@elvia/elvis-box/react';`,
   codeImportWebComponent: `import '@elvia/elvis-box';`,
-  codeReact:
-    `<Box
+  codeReact: `<Box
   title={<h1>Title of box</h1>}
   content={<div>Content of box</div>}
 ></Box>`,
-  codeWebComponent:
-    `<elvia-box 
+  codeWebComponent: `<elvia-box 
 >
   <h1 slot="title">
     Title of box

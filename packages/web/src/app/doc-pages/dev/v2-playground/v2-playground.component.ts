@@ -31,19 +31,19 @@ export class v2PlaygroundComponent implements OnInit {
   <div>
   `;
 
-carouselParagraph = `
+  carouselParagraph = `
   Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines.
 
   It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.
-  `
+  `;
 
+  carouselValue = 0;
 
-carouselValue = 0;
-
-elements  = [
+  elements = [
     {
       title: 'Dette er nytt',
-      element: this.carouselParagraph},
+      element: this.carouselParagraph,
+    },
     {
       title: 'Hei til ny tariff!',
       element: this.carouselParagraph,
@@ -53,7 +53,7 @@ elements  = [
       element: this.carouselParagraph,
     },
     {
-      element: this.carouselParagraph
+      element: this.carouselParagraph,
     },
   ];
 
@@ -118,15 +118,15 @@ elements  = [
 
   closeCallback = () => {
     console.log('Updated: closecallback');
-    this.isModalShowing = !this.isModalShowing
+    this.isModalShowing = !this.isModalShowing;
   };
 
   updatePopoverVariable = (newValue: boolean) => {
     console.log('Updated: closecallback ', newValue);
     this.isPopoverShowing = newValue;
-  }
+  };
 
   updatedVisibility = (event: any) => {
     console.log('Updated - visibility: ' + event);
-  }
+  };
 }

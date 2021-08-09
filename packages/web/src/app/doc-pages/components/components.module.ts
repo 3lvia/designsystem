@@ -64,4 +64,4 @@ import { BoxDocModule } from './box-doc/box-doc.module';
     HeaderDocModule,
   ],
 })
-export class ComponentsModule { }
+export class ComponentsModule {}
