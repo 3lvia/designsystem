@@ -15,12 +15,16 @@
     ></div>
   </div>
 
-  <div class="tabs">
-    <a class="tabs-links" [routerLink]="['/get-started']" routerLinkActive="active" role="tab">Get Started</a>
-    <a class="tabs-links" [routerLink]="['/identity']" routerLinkActive="active" role="tab">Identity</a>
-    <a class="tabs-links" [routerLink]="['/components']" routerLinkActive="active" role="tab">Components</a>
-    <a class="tabs-links" [routerLink]="['/tools']" routerLinkActive="active" role="tab">Tools</a>
-    <a class="tabs-links" [routerLink]="['/community']" routerLinkActive="active" role="tab">Community</a>
+  <div class="tabs" *ngIf="mainMenu">
+    <a
+      *ngFor="let menuItem of mainMenu.pages"
+      class="tabs-links"
+      [routerLink]="['/' + menuItem.path]"
+      routerLinkActive="active"
+      role="tab"
+    >
+      {{ menuItem.title }}
+    </a>
     <a
       class="tabs-links tabs-links-dev"
       *ngIf="devMode"
@@ -134,7 +138,9 @@
               </a>
               <div class="e-header__top-bar-desktop__app-menu">
                 <div
-                  class="e-header__top-bar-desktop__app-menu-item e-header__top-bar-desktop__app-menu-item--active"
+                  class="
+                    e-header__top-bar-desktop__app-menu-item e-header__top-bar-desktop__app-menu-item--active
+                  "
                 >
                   <div class="e-header__top-bar-desktop__app-circle">D</div>
                   <div class="e-header__top-bar-desktop__app-title">DROPS</div>

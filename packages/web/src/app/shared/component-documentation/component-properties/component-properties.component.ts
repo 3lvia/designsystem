@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import data from '@elvia/elvis/.internal/classlist.json';
+import deprecated from '@elvia/elvis/.internal/deprecated-classes.json';
 
 @Component({
   selector: 'app-component-properties',
@@ -14,6 +15,7 @@ export class ComponentPropertiesComponent implements OnInit {
   modifiers = [];
   psuedos = [];
   allElementModifiers = [];
+  deprecatedClasses = [];
 
   ngOnInit(): void {
     this.makePropertyLists();
@@ -23,9 +25,20 @@ export class ComponentPropertiesComponent implements OnInit {
     return componentName.includes('custom');
   }
 
+  isDeprecated(componentClass: string): boolean {
+    return this.deprecatedClasses.includes(componentClass);
+  }
+
+  getDeprecatedClasses(): void {
+    Object.keys(deprecated).forEach((key) => {
+      this.deprecatedClasses.push(key);
+    });
+  }
+
   makePropertyLists(): void {
     Object.keys(data.block).forEach((block) => {
       if (block === this.componentName) {
+        this.getDeprecatedClasses();
         this.getContainer();
         this.getAllElements();
         this.getAllModifiers();
@@ -48,13 +61,13 @@ export class ComponentPropertiesComponent implements OnInit {
         const elementModifiers = [];
         if (data.block[this.componentName].element[el].modifier) {
           Object.keys(data.block[this.componentName].element[el].modifier).forEach((el2) => {
-            if (!this.isCustom(el2)) {
+            if (!this.isCustom(el2) && !this.isDeprecated(el2)) {
               this.allElementModifiers.push(el2);
             }
           });
         }
         const el1 = { name: el, elementModifiers };
-        if (!this.isCustom(el1.name)) {
+        if (!this.isCustom(el1.name) && !this.isDeprecated(el1.name)) {
           this.elements.push(el1);
         }
       });
@@ -64,7 +77,7 @@ export class ComponentPropertiesComponent implements OnInit {
   getAllModifiers(): void {
     if (data.block[this.componentName].modifier) {
       Object.keys(data.block[this.componentName].modifier).forEach((mod) => {
-        if (!this.isCustom(mod)) {
+        if (!this.isCustom(mod) && !this.isDeprecated(mod)) {
           this.modifiers.push(mod);
         }
       });
@@ -74,7 +87,7 @@ export class ComponentPropertiesComponent implements OnInit {
   getAllPsuedo(): void {
     if (data.block[this.componentName].psuedo) {
       Object.keys(data.block[this.componentName].psuedo).forEach((psu) => {
-        if (!this.isCustom(psu)) {
+        if (!this.isCustom(psu) && !this.isDeprecated(psu)) {
           this.psuedos.push(psu);
         }
       });
