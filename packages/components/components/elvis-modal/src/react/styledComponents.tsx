@@ -7,6 +7,7 @@ const ElviaColors = {
 };
 
 const mobileMax = '767px';
+const desktopMin = '1024px';
 const modalBorderRadius = '8px';
 const modalMaxWidth = '704px';
 
@@ -81,9 +82,10 @@ export const Content = styled.div`
 
   @media (max-width: ${mobileMax}) {
     padding: ${modalMobilePadding};
+    padding-top: ${(props: { hasIllustration: boolean }) => props.hasIllustration && '24px'};
     width: 100%;
     height: ${(props: { hasIllustration: boolean }) =>
-      props.hasIllustration ? 'calc(100vh - 250px)' : '100vh'};
+      props.hasIllustration ? 'calc(100% - 250px)' : '100%'};
   }
 `;
 
@@ -105,7 +107,10 @@ export const Illustration = styled.div`
     position: absolute;
     height: calc(550px * 6.85);
     width: calc(550px * 6.85);
-    right: calc(100% - 3.7vw);
+    right: calc(100% - 2.7vw);
+    @media (min-width: ${desktopMin}) {
+      right: calc(100% - 1.7vw);
+    }
     z-index: 0;
   }
 
@@ -201,13 +206,20 @@ export const CloseButton = styled.button`
   position: absolute;
   top: 24px;
   right: 24px;
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   z-index: 2;
   background: none;
   border: none;
   border-radius: 200px;
   padding: 8px;
+
+  @media (max-width: ${mobileMax}) {
+    width: 32px;
+    height: 32px;
+    top: 16px;
+    right: 16px;
+  }
 
   :hover {
     background-color: #29d305;
@@ -225,10 +237,5 @@ export const CloseButton = styled.button`
     background-repeat: no-repeat;
     display: inline-block;
     background-image: url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
-  }
-
-  @media (max-width: ${mobileMax}) {
-    top: 16px;
-    right: 16px;
   }
 `;

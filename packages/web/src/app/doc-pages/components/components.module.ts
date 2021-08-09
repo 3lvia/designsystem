@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { LabelDocModule } from './label-doc/label-doc.module';
 import { ButtonDocModule } from './button-doc/button-doc.module';
 import { CardDocModule } from './card-doc/card-doc.module';
+import { CarouselDocModule } from './carousel-doc/carousel-doc.module';
 import { ComponentsStartModule } from './components-start/components-start.module';
 import { FormComponentsModule } from './forms/formComponents.module';
 import { LinkDocModule } from './link-doc/link-doc.module';
@@ -37,6 +38,7 @@ import { BoxDocModule } from './box-doc/box-doc.module';
     BoxDocModule,
     ButtonDocModule,
     CardDocModule,
+    CarouselDocModule,
     ChipsModule,
     ComponentsStartModule,
     ContentLoaderDocModule,

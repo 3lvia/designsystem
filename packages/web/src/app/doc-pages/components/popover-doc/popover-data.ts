@@ -26,6 +26,17 @@ const popoverData = {
       cegDefault: 'true',
       cegOption: 'false',
     },
+    isShowing: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Determines the popover is showing or not.',
+      default: 'false',
+    },
+    isShowingOnChange: {
+      isRequired: false,
+      type: '(isShowing: boolean) => void',
+      description: 'Gets called every time the isShowing value is changed.',
+    },
     content: {
       isRequired: true,
       type: 'string | HTMLElement',

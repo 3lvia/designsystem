@@ -1725,16 +1725,6 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
   integrity sha512-Fxt+AfXgjMoin2maPIYzFZnQjAXjAL0PHscM5pRTtatFqB+vZxAM9tLp2Optnuw3QOQC40jTNeGYFOMvyf7v9g==
 
-"@elvia/elvis-modal@0.0.1-beta.6":
-  version "0.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@elvia/elvis-modal/-/elvis-modal-0.0.1-beta.6.tgz#a0521d571314080cb12f092b4198f7d287438c24"
-  integrity sha512-ohjheQmPoO6cKLRGbRuCNqIZwRBuJLBoSxtF2dvZM3wdYDXA3+nke6iX0vZu9w7mSCiXBfiMc+e+Uk+pGyYipw==
-  dependencies:
-    "@elvia/elvis-component-wrapper" "2.0.3"
-    "@material-ui/core" "^4.11.4"
-    "@material-ui/icons" "^4.11.2"
-    styled-components "^5.2.3"
-
 "@emotion/cache@^11.0.0", "@emotion/cache@^11.4.0":
   version "11.4.0"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-11.4.0.tgz#293fc9d9a7a38b9aad8e9337e5014366c3b09ac0"
@@ -3761,7 +3751,7 @@
     "@types/react-dom" "*"
     "@types/react-transition-group" "*"
 
-"@types/react-transition-group@*", "@types/react-transition-group@^4.2.0":
+"@types/react-transition-group@*", "@types/react-transition-group@^4.2.0", "@types/react-transition-group@^4.4.1":
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.1.tgz#e1a3cb278df7f47f17b5082b1b3da17170bd44b1"
   integrity sha512-vIo69qKKcYoJ8wKCJjwSgCTM+z3chw3g18dkrDfVX665tMH7tmbDxEAnPdey4gTlwZz5QuHGzd+hul0OVZDqqQ==
@@ -16752,7 +16742,7 @@ react-select@4.2.1:
     react-input-autosize "^3.0.0"
     react-transition-group "^4.3.0"
 
-react-transition-group@^4.0.0, react-transition-group@^4.3.0, react-transition-group@^4.4.0:
+react-transition-group@^4.0.0, react-transition-group@^4.3.0, react-transition-group@^4.4.0, react-transition-group@^4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-4.4.2.tgz#8b59a56f09ced7b55cbd53c36768b922890d5470"
   integrity sha512-/RNYfRAMlZwDSr6z4zNKV6xu53/e2BuaBbGhbyYIXTrmgu/bGHzmqOs7mJSJBHy9Ud+ApHx3QjrkKSp1pxvlFg==

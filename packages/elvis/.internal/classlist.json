@@ -276,8 +276,7 @@
 			"psuedo": {
 				"e-radio-filter---focus": {},
 				"e-radio-filter---hover": {},
-				"e-radio-filter---checked": {},
-				"e-radio-filter---disabled": {}
+				"e-radio-filter---checked": {}
 			}
 		},
 		"e-header": {
@@ -1208,7 +1207,6 @@
 		"e-radio-filter---focus": {},
 		"e-radio-filter---hover": {},
 		"e-radio-filter---checked": {},
-		"e-radio-filter---disabled": {},
 		"e-header": {},
 		"e-header__top-bar": {},
 		"e-header__top-bar-desktop": {},

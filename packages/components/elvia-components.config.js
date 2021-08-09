@@ -25,6 +25,19 @@ module.exports = [
     useWrapper: true,
     slotItems: false,
   },
+  {
+    name: 'elvis-carousel',
+    elementName: 'elvia-carousel',
+    attributes: [
+      { name: 'className', type: 'string' },
+      { name: 'elements', type: 'number | string | HTMLElement' },
+      { name: 'hideArrows', type: 'boolean' },
+      { name: 'useOnboardingCheckmark', type: 'boolean' },
+      { name: 'value', type: 'number' },
+    ],
+    reactName: 'Carousel',
+    slotItems: false,
+  },
   // {
   //   name: 'elvis-checkbox',
   //   elementName: 'elvia-checkbox',
@@ -52,11 +65,12 @@ module.exports = [
       { name: 'posX', type: 'string' },
       { name: 'posY', type: 'string' },
       { name: 'hasCloseBtn', type: 'boolean' },
+      { name: 'isShowing', type: 'boolean' },
     ],
     reactName: 'Popover',
     useWrapper: true,
     elementStyle: `display: block;`,
-    slotItems: false,
+    slotItems: true,
   },
   {
     name: 'elvis-progress-linear',

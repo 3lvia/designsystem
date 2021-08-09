@@ -1,0 +1,83 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Carousel</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+
+<!--BODY-->
+<div class="page-body">
+  <!--CEG-->
+  <!--Temporary until ceg-code-block supports angular syntax-->
+  <div class="component-preview-temp component-preview-animation">
+    <elvia-carousel
+      [elements]="elements"
+    ></elvia-carousel>
+    <app-component-example-generator
+      [componentData]="componentData"
+      [hasPreview]="false"
+    ></app-component-example-generator>
+  </div>
+
+  <!--TYPE-->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'With elements list'">
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-carousel
+          [elements]="elements"
+        ></elvia-carousel>
+      </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'With hidden arrows'">
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-carousel
+          [elements]="elements"
+          [hideArrows]="true"
+        ></elvia-carousel>
+      </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Without content'">
+        <ng-container ngProjectAs="sectionContent">
+          <elvia-carousel
+          [elements]="5"
+        ></elvia-carousel>
+      </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+      <app-component-subsection [sectionTitle]="'Elements'">
+        <ng-container ngProjectAs="sectionContent">
+          You can either send a list of elements or send in the number of elements you want in your carousel.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'CarouselElement'">
+        <ng-container ngProjectAs="sectionContent">
+          The CarouselElement consists of two properties. The title property and the element property. Title is a string and is optional.
+          Element can be a JSXElement, HTMLElement or a string and is required.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+</div>

@@ -8,6 +8,18 @@
 
 <!--BODY-->
 <div class="page-body">
+  <h2>Carousel</h2>
+  <div style="padding: 8px">
+    <elvia-carousel [elements]="elements"  (valueOnChange)="carouselValue = $event.detail.value ">
+    </elvia-carousel>
+    <h3>Carousel component with hidden arrows</h3>
+    <elvia-carousel [elements]="elements" [hideArrows]="true"  (valueOnChange)="carouselValue = $event.detail.value ">
+   </elvia-carousel>
+    <h3>Carousel without content</h3>
+    <elvia-carousel [elements]="5"  (valueOnChange)="carouselValue = $event.detail.value ">
+   </elvia-carousel>
+   {{ carouselValue }}
+    
   <h2>Box</h2>
   <div style="padding: 8px">
     <elvia-box [hasBorder]="true">
@@ -85,6 +97,7 @@
       </svg>
     </div>
   </elvia-modal>
+
   <h2>Divider</h2>
   <div style="padding: 8px">
     <elvia-divider></elvia-divider>
@@ -178,6 +191,19 @@
 
     <h2>Popover</h2>
     <div style="display: flex; flex-direction: column; align-items: flex-end">
+      <elvia-popover
+        header="BankID"
+        posX="right"
+        width="200"
+        [isShowing]="isPopoverShowing"
+        (isShowingOnChange)="updatePopoverVariable($event.detail.value)"
+      >
+        <button slot="trigger" class="e-btn">Right top</button>
+        <div slot="content">
+          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
+          <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
+        </div>
+      </elvia-popover>
       <div style="margin-top: 16px">
         <elvia-popover header="BankID" posX="right" width="200">
           <button slot="trigger" class="e-btn">Right top</button>
@@ -232,12 +258,12 @@
     <hr style="margin: 40px 0" />
 
     <h2>Progressbar</h2>
+    <elvia-progress-linear
+      [isIndeterminate]="indeterminate"
+      [value]="progressValue"
+      [isError]="progressError"
+    ></elvia-progress-linear>
     <div style="margin-bottom: 32px; display: flex">
-      <elvia-progress-linear
-        [isIndeterminate]="indeterminate"
-        [value]="progressValue"
-        [isError]="progressError"
-      ></elvia-progress-linear>
       <div style="display: flex; width: 100%; justify-content: space-between">
         <button (click)="progressValue = progressValue + 10">Increase Progress</button>
         <button (click)="progressValue = progressValue - 10">Decrease Progress</button>
