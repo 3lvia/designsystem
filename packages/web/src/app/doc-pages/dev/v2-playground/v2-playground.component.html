@@ -8,6 +8,18 @@
 
 <!--BODY-->
 <div class="page-body">
+  <h2>Carousel</h2>
+  <div style="padding: 8px">
+    <elvia-carousel [elements]="elements"  (valueOnChange)="carouselValue = $event.detail.value ">
+    </elvia-carousel>
+    <h3>Carousel component with hidden arrows</h3>
+    <elvia-carousel [elements]="elements" [hideArrows]="true"  (valueOnChange)="carouselValue = $event.detail.value ">
+   </elvia-carousel>
+    <h3>Carousel without content</h3>
+    <elvia-carousel [elements]="5"  (valueOnChange)="carouselValue = $event.detail.value ">
+   </elvia-carousel>
+   {{ carouselValue }}
+    
   <h2>Box</h2>
   <div style="padding: 8px">
     <elvia-box [hasBorder]="true">
@@ -85,6 +97,7 @@
       </svg>
     </div>
   </elvia-modal>
+
   <h2>Divider</h2>
   <div style="padding: 8px">
     <elvia-divider></elvia-divider>

@@ -16,6 +16,7 @@ import '@elvia/elvis-progress-linear';
 import '@elvia/elvis-testing';
 import '@elvia/elvis-datepicker';
 import '@elvia/elvis-divider';
+import '@elvia/elvis-carousel';
 import '@elvia/elvis-box';
 import '@elvia/elvis-modal';
 
