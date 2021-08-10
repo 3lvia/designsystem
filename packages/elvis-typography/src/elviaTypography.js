@@ -226,8 +226,6 @@ export default {
   // Depracted - Not removed as might still be in use by some applications
   // The design system should not use these but instead define the typography directly in those components
 
-  // should we remove theses from the typography package?
-
   'text-label': {
     fontFamily: 'Red Hat Display',
     fontSize: '16px',
