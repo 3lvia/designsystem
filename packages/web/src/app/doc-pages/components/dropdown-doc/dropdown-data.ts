@@ -75,27 +75,21 @@ export const dropdownData = {
   codeImportReact: `import { Dropdown } from '@elvia/elvis-dropdown/react';`,
   codeImportWebComponent: `import '@elvia/elvis-dropdown';`,
   codeReact: `<Dropdown options={options} label="Label" valueOnchange={setSelectedOption}></Dropdown>`,
-  codeWebComponent: `<elvia-dropdown
-  [options]='exampleOptions'
+  codeWebComponent: ` <elvia-dropdown
+  options="[{
+      value: '1',
+      label: 'Option 1',
+    },
+    {
+      value: '2',
+      label: 'Option 2',
+    },
+    {
+      value: '3',
+      label: 'Option 3',
+    },]"
   label="Label"
-  (valueOnChange)="selectedOptions = $event.detail.value"
-></elvia-dropdown>
-<!-- in TS -->
-selectedOptions = [];
-exampleOptions = [
-  {
-    value: '1',
-    label: 'Option 1',
-  },
-  {
-    value: '2',
-    label: 'Option 2',
-  },
-  {
-    value: '3',
-    label: 'Option 3',
-  },
-];`,
+></elvia-dropdown>`,
   does: [
     'Use sparingly: use dropdowns only when the user have 5-15 options and you have limited space to display it all open.',
   ],

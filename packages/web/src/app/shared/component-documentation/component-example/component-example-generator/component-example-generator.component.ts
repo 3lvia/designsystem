@@ -1,15 +1,13 @@
-import { AfterContentInit, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ExampleCodeService } from '../../example-code.service';
-
+// import { AfterContentInit, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Compiler, Component, ComponentRef, Input, NgModule, ViewChild, ViewContainerRef } from "@angular/core";
+import { Subscription } from "rxjs";
+import { ExampleCodeService } from "../../example-code.service";
 @Component({
   selector: 'app-component-example-generator',
   templateUrl: './component-example-generator.component.html',
   styleUrls: ['./component-example-generator.component.scss'],
 })
-export class ComponentExampleGeneratorComponent implements OnInit, AfterContentInit, OnDestroy {
-  @ViewChild('cegFrame') cegFrame;
-  @ViewChild('cegContent') cegContent;
+export class ComponentExampleGeneratorComponent implements AfterViewInit {
   @Input() delayInnerHtml = false;
   @Input() componentData;
   @Input() width = 100;
@@ -17,6 +15,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() accordionCustom = false;
   @Input() overflowY;
   @Input() alignedTop = false;
+  @ViewChild('cegFrame', { read: ViewContainerRef }) cegFrame: ViewContainerRef;
+  @ViewChild('cegContent') cegContent;
+
+  cmpRef: ComponentRef<any>;
   codeWebComponentSub: Subscription;
   codeReactSub: Subscription;
   hasCegAttributes = false;
@@ -36,7 +38,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   bgDefault;
   bgList = [];
 
-  constructor(private cegService: ExampleCodeService) {}
+  constructor(private cegService: ExampleCodeService, private compiler: Compiler) { }
 
   ngOnInit(): void {
     this.codeWebComponent = this.componentData.codeWebComponent;
@@ -52,12 +54,11 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     this.initializeComponentProps();
   }
 
-  ngAfterContentInit(): void {
+  ngAfterViewInit(): void {
     setTimeout(() => {
       if (!this.hasPreview) {
         return;
       }
-      this.cegFrame.nativeElement.innerHTML = this.componentData.codeWebComponent;
       Object.keys(this.componentData.attributes).forEach((attribute) => {
         Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
           if (value === 'cegFormType') {
@@ -67,9 +68,14 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         });
       });
     }, 200);
+
+    this.updateCegFrame(this.componentData.codeWebComponent);
   }
 
   ngOnDestroy(): void {
+    if (this.cmpRef) {
+      this.cmpRef.destroy();
+    }
     this.codeWebComponentSub.unsubscribe();
     this.codeReactSub.unsubscribe();
   }
@@ -134,7 +140,24 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   }
 
   updateCegFrame(code: string): void {
-    this.cegFrame.nativeElement.innerHTML = code;
+    if (this.cmpRef) {
+      this.cmpRef.destroy();
+      console.log('new instance');
+    }
+    const template = code;
+    const tmpCmp = Component({ template: template })(class { });
+    const tmpModule = NgModule({ declarations: [tmpCmp] })(class { });
+    this.compiler.compileModuleAndAllComponentsAsync(tmpModule)
+      .then((factories) => {
+        const f = factories.componentFactories[0];
+        this.cmpRef = this.cegFrame.createComponent(f);
+        this.cmpRef.instance.name = 'dynamic';
+        this.cmpRef.location.nativeElement.style.width = '100%';
+        this.cmpRef.location.nativeElement.style.height = '100%';
+        this.cmpRef.location.nativeElement.style.display = 'flex';
+        this.cmpRef.location.nativeElement.style.justifyContent = 'center';
+        this.cmpRef.location.nativeElement.style.alignItems = 'center';
+      });
   }
 
   updateProps(): void {

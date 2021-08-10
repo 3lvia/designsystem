@@ -37,12 +37,13 @@
         [style.overflowY]="overflowY"
       >
         <div
-          #cegFrame
           class="ceg-frame"
           [ngClass]="{ 'aligned-top': alignedTop }"
           style="display: flex"
           [style.width.%]="width"
-        ></div>
+        >
+          <div #cegFrame></div>
+        </div>
       </div>
     </div>
 
