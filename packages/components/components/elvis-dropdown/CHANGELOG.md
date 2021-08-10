@@ -1,5 +1,11 @@
 # Elvia Dropdown
 
+## 1.0.5 (10.08.21)
+
+### Bug fixes
+
+Updated styled component version to fix warning about different versions.
+
 ## 1.0.4 (08.06.21)
 
 ### Bug fixes
