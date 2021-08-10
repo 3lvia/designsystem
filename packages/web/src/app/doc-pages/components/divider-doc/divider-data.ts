@@ -49,10 +49,8 @@ export const dividerData = {
   codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,
   codeImportWebComponent: `import '@elvia/elvis-divider';`,
   codeReact: `<Divider
-  title={<h2>Title</h2>}
 ></Divider>`,
   codeWebComponent: `<elvia-divider
 >
-  <h2 slot="title">Title</h2>
 </elvia-divider>`,
 };

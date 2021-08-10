@@ -16,9 +16,8 @@ export class ComponentExampleGeneratorComponent implements AfterViewInit {
   @Input() overflowY;
   @Input() alignedTop = false;
   @ViewChild('cegFrame', { read: ViewContainerRef }) cegFrame: ViewContainerRef;
-  @ViewChild('cegContent') cegContent;
 
-  cmpRef: ComponentRef<any>;
+  componentRef: ComponentRef<any>;
   codeWebComponentSub: Subscription;
   codeReactSub: Subscription;
   hasCegAttributes = false;
@@ -73,8 +72,8 @@ export class ComponentExampleGeneratorComponent implements AfterViewInit {
   }
 
   ngOnDestroy(): void {
-    if (this.cmpRef) {
-      this.cmpRef.destroy();
+    if (this.componentRef) {
+      this.componentRef.destroy();
     }
     this.codeWebComponentSub.unsubscribe();
     this.codeReactSub.unsubscribe();
@@ -140,23 +139,19 @@ export class ComponentExampleGeneratorComponent implements AfterViewInit {
   }
 
   updateCegFrame(code: string): void {
-    if (this.cmpRef) {
-      this.cmpRef.destroy();
-      console.log('new instance');
-    }
-    const template = code;
-    const tmpCmp = Component({ template: template })(class { });
+    const tmpCmp = Component({ template: code })(class { });
     const tmpModule = NgModule({ declarations: [tmpCmp] })(class { });
     this.compiler.compileModuleAndAllComponentsAsync(tmpModule)
       .then((factories) => {
-        const f = factories.componentFactories[0];
-        this.cmpRef = this.cegFrame.createComponent(f);
-        this.cmpRef.instance.name = 'dynamic';
-        this.cmpRef.location.nativeElement.style.width = '100%';
-        this.cmpRef.location.nativeElement.style.height = '100%';
-        this.cmpRef.location.nativeElement.style.display = 'flex';
-        this.cmpRef.location.nativeElement.style.justifyContent = 'center';
-        this.cmpRef.location.nativeElement.style.alignItems = 'center';
+        if (this.componentRef) {
+          this.componentRef.destroy();
+        }
+        const factory = factories.componentFactories[0];
+        this.componentRef = this.cegFrame.createComponent(factory);
+        this.componentRef.instance.name = 'dynamic-ceg-component';
+        this.componentRef.location.nativeElement.style.width = '100%';
+        this.componentRef.location.nativeElement.style.display = 'flex';
+        this.componentRef.location.nativeElement.style.justifyContent = 'center';
       });
   }
 
@@ -182,7 +177,6 @@ export class ComponentExampleGeneratorComponent implements AfterViewInit {
       } else if (selectedBgObject) {
         this.updateSelected(bg.attribute, 'false', 'boolean');
       } else {
-        this.updateSelected(bg.attribute, 'false', 'boolean');
         this.updateSelected(bg.attribute, 'false', 'boolean');
       }
     });

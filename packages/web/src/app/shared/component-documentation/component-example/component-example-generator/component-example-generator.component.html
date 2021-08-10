@@ -25,7 +25,7 @@
 
   <div class="ceg-row-1 e-mb-16" *ngIf="hasPreview">
     <!--Preview-->
-    <div class="ceg-col-1" #cegContent>
+    <div class="ceg-col-1">
       <div
         class="ceg-code-preview"
         [ngClass]="{
@@ -42,7 +42,7 @@
           style="display: flex"
           [style.width.%]="width"
         >
-          <div #cegFrame></div>
+          <div #cegFrame style="visibility: hidden"></div>
         </div>
       </div>
     </div>
