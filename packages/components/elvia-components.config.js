@@ -70,7 +70,7 @@ module.exports = [
     reactName: 'Popover',
     useWrapper: true,
     elementStyle: `display: block;`,
-    slotItems: true,
+    slotItems: false,
   },
   {
     name: 'elvis-progress-linear',

@@ -1,6 +1,18 @@
 # Elvia Popover Changelog
 
-## 4.0.1 (15.04.21)
+## 4.1.2 (9.08.21)
+
+### Bug fixes
+
+- Bug-fix for slotting
+
+## 4.1.0 (5.08.21)
+
+### New features
+
+- Added functionality for controlling opening and closing of the popover.
+
+## 4.0.1
 
 ### Bug fixes
 
@@ -8,7 +20,7 @@
 
 ## 4.0.0 (15.04.21)
 
-### Bug fixes
+### Major
 
 - Popover now uses a fixed position enabling popovers to be used in containers with overflow attributes like
   auto or hidden.
