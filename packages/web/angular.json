@@ -60,6 +60,7 @@
           },
           "configurations": {
             "production": {
+              "aot": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -94,6 +95,7 @@
           },
           "configurations": {
             "production": {
+              "aot": true,
               "browserTarget": "elvia-designsystem:build:production"
             }
           }
