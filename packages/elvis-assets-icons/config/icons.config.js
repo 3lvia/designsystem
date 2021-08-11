@@ -121,11 +121,11 @@ module.exports = [
     terms: ['collapse', 'close'],
     thirdparty: { name: ['streamline'], duplicate: ['arrow_up'] },
   },
-  { 
-    name: 'attendance', 
-    terms: ['person', 'check', 'participation'], 
+  {
+    name: 'attendance',
+    terms: ['person', 'check', 'participation'],
     thirdparty: { name: ['streamline'] },
-    streamlineIcons: ['single-neutral-actions-check-1']
+    streamlineIcons: ['single-neutral-actions-check-1'],
   },
   { name: 'attachment', terms: ['link', 'connection', 'file'], thirdparty: { name: ['streamline'] } },
   {
@@ -237,11 +237,11 @@ module.exports = [
     terms: [],
     thirdparty: { name: ['streamline'], duplicate: ['expand_circle-color'] },
   },
-  { 
-    name: 'facebook', 
+  {
+    name: 'facebook',
     terms: ['smsocial media', 'SoMeiley'],
     thirdparty: { name: ['streamline'] },
-    streamlineIcons: ['social-media-facebook', 'messages-bubble']
+    streamlineIcons: ['social-media-facebook', 'messages-bubble'],
   },
   { name: 'feedback', terms: ['smiley'], thirdparty: { name: ['streamline'] } },
   { name: 'figma', terms: [] },
@@ -340,11 +340,11 @@ module.exports = [
     thirdparty: { name: ['streamline'] },
   },
   { name: 'map_pin-color', terms: [], thirdparty: { name: ['streamline'] } },
-  { 
-    name: 'media', 
-    terms: ['tv', 'radio'], 
+  {
+    name: 'media',
+    terms: ['tv', 'radio'],
     thirdparty: { name: ['streamline'] },
-    streamlineIcons: ['video-player-movie-1']
+    streamlineIcons: ['video-player-movie-1'],
   },
   { name: 'menu', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'menu-bold', terms: [], thirdparty: { name: ['streamline'], duplicate: ['menu'] } },
@@ -367,6 +367,7 @@ module.exports = [
   { name: 'note_check-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'notification-bold', terms: ['alarm', 'bell', 'alert'], thirdparty: { name: ['streamline'] } },
   { name: 'open_menu', terms: [], thirdparty: { name: ['streamline'] } },
+  { name: 'paper_plane_speed_color', terms: ['send', 'message'], thirdparty: { name: ['streamline'] } },
   { name: 'paper_plane', terms: ['send', 'message'], thirdparty: { name: ['streamline'] } },
   { name: 'pause_circle-color', terms: ['stop'], thirdparty: { name: ['streamline'] } },
   {
@@ -415,6 +416,10 @@ module.exports = [
   },
   { name: 'position_off-bold', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'power', terms: [], thirdparty: { name: ['streamline'] } },
+  {
+    name: 'power_2',
+    terms: ['safety concern', 'power blackout, cut', 'failure', 'electricity', 'lightning', 'zap'],
+  },
   { name: 'power_outage', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'power_outage-2', terms: [], thirdparty: { name: ['streamline'] } },
   {
@@ -621,11 +626,11 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['warning_circle'] },
   },
   { name: 'web_library-color', terms: [], thirdparty: { name: ['streamline'] } },
-  { 
-    name: 'worker', 
-    terms: ['person', 'user', 'professional', 'employee','staff'], 
+  {
+    name: 'worker',
+    terms: ['person', 'user', 'professional', 'employee', 'staff'],
     thirdparty: { name: ['streamline'] },
-    duplicate: ['worker-color']
+    duplicate: ['worker-color'],
   },
   { name: 'work_under_line-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'worker-color', terms: [], thirdparty: { name: ['streamline'] } },
