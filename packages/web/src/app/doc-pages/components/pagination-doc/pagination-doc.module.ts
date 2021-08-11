@@ -28,9 +28,9 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-documentatio
     // old modules remove later
     ComponentExampleV1Module,
     ComponentExampleCodeModule,
-    ComponentPropertiesModule
+    ComponentPropertiesModule,
   ],
   declarations: [PaginationDocComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class PaginationDocModule { }
+export class PaginationDocModule {}
