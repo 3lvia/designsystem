@@ -4001,6 +4001,31 @@
           return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
       }
     }
+    exports.paperPlaneSpeedColor = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="25" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.102 2.31a.799.799 0 00-.44.121L3.488 12.541a.8.8 0 00.424 1.479h7.3c.206 0 .4.097.524.262l4.56 6.086s-.001 0 0 0a.8.8 0 001.425-.332l3.15-16.777v-.002a.798.798 0 00-.769-.948zm-1.136-.992a2.112 2.112 0 013.195 2.183v.001l-3.15 16.776a2.113 2.113 0 01-3.766.878l-4.362-5.824h-6.97a2.112 2.112 0 01-1.12-3.904l16.173-10.11z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.367 14.676c0-.363.294-.656.656-.656h2.188c.207 0 .402.097.525.263l2.869 3.831a.657.657 0 01-.156.936l-2.78 1.895a2.112 2.112 0 01-3.302-1.744v-4.525zm1.313.656v3.869a.799.799 0 001.249.66l2.214-1.51-2.26-3.019H9.68z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M21.303 1.386c.288.22.345.631.125.92l-9.695 12.767a.656.656 0 11-1.045-.794l9.695-12.767a.656.656 0 01.92-.126z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.256 21.954a.75.75 0 01.14 1.052l-1.3 1.7a.75.75 0 01-1.192-.912l1.3-1.7a.75.75 0 011.052-.14zM6.556 17.404a.75.75 0 01.14 1.052l-1.3 1.7a.75.75 0 11-1.192-.912l1.3-1.7a.75.75 0 011.052-.14zM13.556 21.404a.75.75 0 01.14 1.052l-1.3 1.7a.75.75 0 11-1.192-.912l1.3-1.7a.75.75 0 011.052-.14z" fill="#29D305"/></svg>'
+          let iconName = 'paper_plane_speed_color'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
     exports.pauseCircleColor = {
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.584 7.317h-.84a.84.84 0 00-.842.84v7.568c0 .464.377.84.841.84h.841a.84.84 0 00.84-.84V8.158a.84.84 0 00-.84-.84zM14.852 7.317h-.84a.84.84 0 00-.841.84v7.568c0 .464.376.84.84.84h.841a.84.84 0 00.841-.84V8.158a.84.84 0 00-.84-.84z" fill="#000"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1.756C6.342 1.756 1.756 6.342 1.756 12c0 5.658 4.586 10.244 10.244 10.244 5.658 0 10.244-4.586 10.244-10.244 0-5.658-4.586-10.244-10.244-10.244zM0 12C0 5.373 5.373 0 12 0s12 5.373 12 12-5.373 12-12 12S0 18.627 0 12z" fill="#29D305"/></svg>'
@@ -4455,6 +4480,31 @@
       getIcon: function(color) {
           let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.989 9.628L14.355 0 6.5 14.372h4.511L9.645 24 17.5 9.628h-4.511z" fill="#000"/></svg>'
           let iconName = 'power'
+          icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
+          if(!color) {
+              return icon;
+          }
+          if(color==='inverted') {
+            if ((iconName.indexOf("-color") > -1) && !(iconName.indexOf("-color-") > -1)) {
+                icon = icon.replace(/fill="#29D305"/g, "fillGreen");
+            }
+            // -full-color check can be removed when new icons have been added
+            if((iconName.indexOf("-filled-color") > -1) || (iconName.indexOf("-full-color") > -1)){
+                icon = icon.replace(/fill="#000"/g, "fillBlack'");
+            }
+            icon = icon.replace(/fill="#fff"/g, "fillBlack");
+            icon = icon.replace(/fill="([^"]*)"/g, "fill='white'");
+            icon = icon.replace(/fillBlack/g, "fill='black'");
+            icon = icon.replace(/fillGreen/g, "fill='#29D305'");
+            return icon;
+          }
+          return icon.replace(/fill="([^"]*)"/g, 'fill="' + color + '"');
+      }
+    }
+    exports.power2 = {
+      getIcon: function(color) {
+          let icon = '<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.61 7l-2.64 3.407-.825 1.227a1.8 1.8 0 00-.281 1.83 1.58 1.58 0 001.166.855l2.404.382a.191.191 0 01.17.222L8.369 23.37a.543.543 0 00.332.593.553.553 0 00.643-.191L15.11 16l2.782-3.602a1.95 1.95 0 00.322-.774 1.76 1.76 0 000-.825 1.609 1.609 0 00-.423-.714 1.287 1.287 0 00-.734-.372l-2.444-.392a.16.16 0 01-.136-.118.16.16 0 01-.005-.063c.147-.896.9-5.684 1.177-7.74l.008-.065.033-.254.002-.015c.038-.3.06-.504.058-.576-.01-.503-.785-.694-1.137-.21L9.61 7zm4.155-3.07l-2.96 3.977-2.618 3.379-.84 1.248-.048.058a.3.3 0 00-.066.233c.01.007.02.01.031.013h.002l2.379.378a1.691 1.691 0 011.443 1.93l-.685 4.681 3.51-4.732 2.763-3.576a.45.45 0 00.061-.16l.008-.043.01-.044a.26.26 0 00.006-.087l-2.37-.38a1.661 1.661 0 01-1.405-1.863l.003-.022.003-.023a546.003 546.003 0 00.773-4.967z" fill="#000"/></svg>'
+          let iconName = 'power_2'
           icon = icon.replace("<svg ", '<svg viewBox="0 0 24 24" aria-hidden="true" ');
           if(!color) {
               return icon;

@@ -50,7 +50,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
 
   const DesktopBreadcrumb = () => {
     const desktopBreadcrumbs = breadcrumbs.map((breadcrumb, index) => {
-
       if (index == childrenLength - 1) {
         return (
           <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumb.url} key={index}>
@@ -67,7 +66,6 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
         </StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
       );
     });
-
 
     return desktopBreadcrumbs;
   };

@@ -7,6 +7,7 @@ import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
 import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';
+import { Carousel } from '@elvia/elvis-carousel/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
@@ -14,15 +15,15 @@ import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
 
 function App() {
-  // old checkbox states
-  const [trackedState, setTrackedState] = useState(true);
-  const ref = useRef();
+  // Old checkbox states
+  // const [trackedState, setTrackedState] = useState(true);
+  // const ref = useRef();
   //////////////////////
   const [selectedState, setSelectedState] = useState(2);
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
   const [isModalShowing, setIsModalShowingState] = useState(false);
-
+  const [isPopoverShowing, setIsPopoverShowingState] = useState(true);
   const [progressValue, setProgressValue] = useState(0);
 
   function increaseProgress() {
@@ -107,6 +108,68 @@ function App() {
     {
       url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
       title: 'Elvias leveringsplikt',
+    },
+  ];
+
+  const JSXCarouselElement = () => (
+    <div>
+      <p>
+        Body text comes here and can go over several lines. It looks like this and when it is two. Body text
+        comes here and can go over several lines. It looks like this and when it is two.Body text comes here
+        and can go over several lines. It looks like this and when it is two.
+      </p>
+      <Dropdown
+        options={options}
+        defaultValue={defOption}
+        label="test"
+        errorMessage=""
+        valueOnChange={(event) => (dropdownValue = event)}
+        isMulti
+      ></Dropdown>
+    </div>
+  );
+
+  const elements = [
+    {
+      title: 'Dette er nytt',
+      element: (
+        <p style={{ color: 'red' }}>
+          Body text comes here and can go over several lines. It looks like this and when it is two. Body text
+          comes here and can go over several lines. It looks like this and when it is two.Body text comes here
+          and can go over several lines. It looks like this and when it is two. Body text comes here and can
+          go over several lines. It looks like this and when it is two.
+        </p>
+      ),
+    },
+    {
+      title: <h4>Hei til ny tariff!</h4>,
+      element:
+        'Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines.',
+    },
+    {
+      title: 'Strømbruddsvarsel',
+      element: JSXCarouselElement(),
+    },
+    {
+      element: (
+        <img
+          draggable="false"
+          src="https://images.unsplash.com/photo-1533591917057-a0b77b40de75?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
+          alt="pride"
+          width="300"
+          height="300"
+        />
+      ),
+    },
+    {
+      element: (
+        <img
+          src="https://animalso.com/wp-content/uploads/2017/11/golden-retriever-husky-mix-4.jpg"
+          alt="pride"
+          width="300"
+          height="300"
+        />
+      ),
     },
   ];
 
@@ -232,6 +295,28 @@ function App() {
           isMulti
         ></Dropdown>
       </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Carousel component</h2>
+        <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
+      </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Carousel component with hidden arrows and onboarding checkmark</h2>
+        <Carousel
+          elements={elements}
+          valueOnChange={setSelectedState}
+          hideArrows
+          useOnboardingCheckmark
+        ></Carousel>
+      </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Without elements</h2>
+        <Carousel elements={elements.length} valueOnChange={setSelectedState}></Carousel>
+      </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Without elements and hidden arrows</h2>
+        <Carousel elements={elements.length} valueOnChange={setSelectedState} hideArrows></Carousel>
+      </div>
+      <div>{'Selected page: ' + selectedState.toString()}</div>
 
       <h2>Date picker</h2>
       <div
@@ -318,7 +403,7 @@ function App() {
 
       <hr style={{ margin: '40px 0' }} />
 
-      {/* <h2>Checkbox</h2>
+      {/*       <h2>Checkbox</h2>
       <div style={{ marginTop: '16px' }}>
         <Checkbox
           ref={ref}
@@ -330,12 +415,34 @@ function App() {
           changeHandler={setTrackedState}
         ></Checkbox>
         <Checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></Checkbox>
-      </div> */}
+      </div>
+ */}
 
       <hr style={{ margin: '40px 0' }} />
 
       <h2>Popover</h2>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
+        <Popover
+          header="BankID"
+          content={
+            <div
+              style={{
+                boxSizing: 'border-box',
+                padding: '50px',
+                width: '100%',
+                border: '2px dashed lightgray',
+              }}
+            >
+              Custom content custom content custom content custom content
+              <Tabs items={items} value={2} valueOnChange={setSelectedState}></Tabs>
+              <button onClick={() => setIsPopoverShowingState(false)}>Close</button>
+            </div>
+          }
+          trigger={<button>Right top</button>}
+          posX="right"
+          isShowing={isPopoverShowing}
+          isShowingOnChange={(value) => setIsPopoverShowingState(value)}
+        ></Popover>
         <span style={{ marginTop: '16px' }}>
           <Popover
             header="BankID"

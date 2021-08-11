@@ -160,6 +160,18 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
+    title: 'Carousel',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'Carousel is used when the user can navigate through a collection of related visual items, for example a collection of images. The collection should have a common theme.',
+    docUrl: Pages.Carousel,
+    absolutePath: '/components/' + Pages.Carousel,
+    status: ItemStatus.Ignore,
+    imageUrl: 'assets/website-icons/component-images/Carousel.svg',
+    figmaUrl: 'https://www.figma.com/file/Um5AotNfUftDorJHGbIy99/Navigational-controls?node-id=1023%3A15726',
+    type: 'Component',
+  },
+  {
     title: 'Chips',
     // tslint:disable-next-line: max-line-length
     description:
@@ -514,7 +526,7 @@ export const eIdentity: EItems[] = [
   {
     title: 'Icons',
     // tslint:disable-next-line: max-line-length
-    description: `In our icon library, you’ll find all available icons in the design system as well as defined sizes for them. Missing a specific icon? Reach out to us or fill in our 
+    description: `In our icon library, you’ll find all available icons in the design system as well as defined sizes for them. Missing a specific icon? Reach out to us or fill in our
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
         <span class="e-link__title">request form</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
@@ -693,7 +705,7 @@ export const eCommunity: EItems[] = [
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-    </a> or fill out our 
+    </a> or fill out our
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
       <span class="e-link__title">request form</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>

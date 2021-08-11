@@ -20,10 +20,9 @@ export class FooterComponent implements OnInit {
       if (locale === Locale['en-GB']) {
         this.locale = 'en-GB';
       } else {
-        this.locale = 'no-NB'
+        this.locale = 'no-NB';
       }
     });
-
 
     // subscribe to router navigation
     this.router.events.subscribe((event) => {

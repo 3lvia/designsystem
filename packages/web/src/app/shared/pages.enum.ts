@@ -39,6 +39,7 @@ export enum Pages {
   Breadcrumb = 'breadcrumb',
   Box = 'box',
   Card = 'card',
+  Carousel = 'carousel',
   Chips = 'chips',
   Checkbox = 'checkbox',
   ContentLoader = 'content-loader',

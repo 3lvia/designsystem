@@ -55,7 +55,8 @@ export const dropdownData = {
     options: {
       isRequired: true,
       type: 'Array<object>',
-      description: 'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string} ',
+      description:
+        'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string} ',
       displayName: 'Options',
     },
     placeholder: {
