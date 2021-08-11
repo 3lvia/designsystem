@@ -14,8 +14,8 @@ import { DynamicModule } from 'ng-dynamic-component';
     ComponentSectionModule,
     ComponentSubsectionModule,
     RouterModule,
-    DynamicModule
+    DynamicModule,
   ],
   declarations: [CMSPageComponent],
 })
-export class CMSPageModule { }
+export class CMSPageModule {}

@@ -2796,17 +2796,11 @@ input:focus {
   outline: 2px solid #0064fa;
   outline-offset: 2px;
 }
-.e-radio-filter input.e-radio-filter---hover + label, .e-radio-filter input:hover:not(:disabled) + label {
+.e-radio-filter input.e-radio-filter---hover + label, .e-radio-filter input:hover + label {
   border-color: #29d305;
 }
-.e-radio-filter input.e-radio-filter---checked + label, .e-radio-filter input:checked:not(:disabled) + label {
+.e-radio-filter input.e-radio-filter---checked + label, .e-radio-filter input:checked + label {
   border-color: #000;
-}
-.e-radio-filter input.e-radio-filter---disabled + label, .e-radio-filter input:disabled + label {
-  cursor: not-allowed;
-}
-.e-radio-filter input.e-radio-filter---disabled + label > .e-radio-filter__label, .e-radio-filter input:disabled + label > .e-radio-filter__label {
-  color: #a8a8a8;
 }
 
 .e-header {

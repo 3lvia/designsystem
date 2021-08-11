@@ -1,5 +1,3 @@
-import { exampleContents } from 'src/app/shared/example-contents';
-
 export const paginationData = {
   name: 'elvis-pagination',
   elementNameW: 'elvia-pagination',
@@ -33,7 +31,8 @@ export const paginationData = {
     paginatorDropdownOptions: {
       isRequired: true,
       type: 'object',
-      description: 'Options available in the pagination dropdown menu, set as array of objects with keys of :  {value: string, label: string}',
+      description:
+        'Options available in the pagination dropdown menu, set as array of objects with keys of :  {value: string, label: string}',
       default: `[
         {
           value: '10',
@@ -76,11 +75,8 @@ export const paginationData = {
   codeReact: `<Pagination items={156}
   valueOnChange="currentRange = $event.detail.value" >
 </Pagination>`,
-  codeWebComponent:
-    `<elvia-pagination 
+  codeWebComponent: `<elvia-pagination 
   items="156" 
   (valueOnChange)="currentRange = $event.detail.value">
 </elvia-pagination>`,
 };
-
-

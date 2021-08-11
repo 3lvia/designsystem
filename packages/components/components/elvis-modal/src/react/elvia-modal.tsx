@@ -14,6 +14,7 @@ export interface ModalProps {
   secondaryButton?: HTMLElement;
   className?: string;
   hasCloseBtn?: boolean;
+  hasLockBodyScroll?: boolean;
   onHide: () => void;
   webcomponent?: any;
 }
@@ -27,6 +28,7 @@ export const ModalComponent: FC<ModalProps> = ({
   secondaryButton,
   className,
   hasCloseBtn = false,
+  hasLockBodyScroll = true,
   onHide,
   webcomponent,
 }) => {
@@ -51,7 +53,7 @@ export const ModalComponent: FC<ModalProps> = ({
 
   useClickOutside(modalWrapperRef, () => isShowing && handleOnHide());
   useKeyPress('Escape', handleOnHide);
-  useLockBodyScroll(isShowing);
+  hasLockBodyScroll && useLockBodyScroll(isShowing);
   useFocusTrap(modalWrapperRef);
 
   useEffect(() => {
@@ -101,7 +103,7 @@ export const ModalComponent: FC<ModalProps> = ({
         )}
 
         {hasCloseBtn && (
-          <StyledModal.CloseButton onClick={() => handleOnHide()}>
+          <StyledModal.CloseButton onClick={() => handleOnHide()} aria-label="Lukk modal">
             <i className="ewc-icon"></i>
           </StyledModal.CloseButton>
         )}

@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorModule } from './shared/error/error.module';
 import { devModule } from './doc-pages/dev/dev.module';
 import { CMSPageModule } from './doc-pages/cms/cms-page/cms-page.module';
+import { MobileHeaderModule } from './shell/header/mobile-menu/mobile-menu.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,9 +33,10 @@ import { CMSPageModule } from './doc-pages/cms/cms-page/cms-page.module';
     CommunityModule,
     HttpClientModule,
     ErrorModule,
-    CMSPageModule
+    CMSPageModule,
+    MobileHeaderModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
