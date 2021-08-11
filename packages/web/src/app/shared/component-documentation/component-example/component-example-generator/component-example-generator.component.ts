@@ -1,7 +1,16 @@
 // import { AfterContentInit, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { AfterViewInit, Compiler, Component, ComponentRef, Input, NgModule, ViewChild, ViewContainerRef } from "@angular/core";
-import { Subscription } from "rxjs";
-import { ExampleCodeService } from "../../example-code.service";
+import {
+  AfterViewInit,
+  Compiler,
+  Component,
+  ComponentRef,
+  Input,
+  NgModule,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ExampleCodeService } from '../../example-code.service';
 @Component({
   selector: 'app-component-example-generator',
   templateUrl: './component-example-generator.component.html',
@@ -37,7 +46,7 @@ export class ComponentExampleGeneratorComponent implements AfterViewInit {
   bgDefault;
   bgList = [];
 
-  constructor(private cegService: ExampleCodeService, private compiler: Compiler) { }
+  constructor(private cegService: ExampleCodeService, private compiler: Compiler) {}
 
   ngOnInit(): void {
     this.codeWebComponent = this.componentData.codeWebComponent;
@@ -139,20 +148,19 @@ export class ComponentExampleGeneratorComponent implements AfterViewInit {
   }
 
   updateCegFrame(code: string): void {
-    const tmpCmp = Component({ template: code })(class { });
-    const tmpModule = NgModule({ declarations: [tmpCmp] })(class { });
-    this.compiler.compileModuleAndAllComponentsAsync(tmpModule)
-      .then((factories) => {
-        if (this.componentRef) {
-          this.componentRef.destroy();
-        }
-        const factory = factories.componentFactories[0];
-        this.componentRef = this.cegFrame.createComponent(factory);
-        this.componentRef.instance.name = 'dynamic-ceg-component';
-        this.componentRef.location.nativeElement.style.width = '100%';
-        this.componentRef.location.nativeElement.style.display = 'flex';
-        this.componentRef.location.nativeElement.style.justifyContent = 'center';
-      });
+    const tmpCmp = Component({ template: code })(class {});
+    const tmpModule = NgModule({ declarations: [tmpCmp] })(class {});
+    this.compiler.compileModuleAndAllComponentsAsync(tmpModule).then((factories) => {
+      if (this.componentRef) {
+        this.componentRef.destroy();
+      }
+      const factory = factories.componentFactories[0];
+      this.componentRef = this.cegFrame.createComponent(factory);
+      this.componentRef.instance.name = 'dynamic-ceg-component';
+      this.componentRef.location.nativeElement.style.width = '100%';
+      this.componentRef.location.nativeElement.style.display = 'flex';
+      this.componentRef.location.nativeElement.style.justifyContent = 'center';
+    });
   }
 
   updateProps(): void {

@@ -17,7 +17,7 @@ export function createCompiler(compilerFactory: CompilerFactory): Compiler {
   providers: [
     { provide: COMPILER_OPTIONS, useValue: {}, multi: true },
     { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
-    { provide: Compiler, useFactory: createCompiler, deps: [CompilerFactory] }
+    { provide: Compiler, useFactory: createCompiler, deps: [CompilerFactory] },
   ],
 })
-export class ComponentExampleGeneratorModule { }
+export class ComponentExampleGeneratorModule {}
