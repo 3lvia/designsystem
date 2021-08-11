@@ -148,7 +148,8 @@
           },
           "configurations": {
             "production": {
-              "devServerTarget": "elvia-designsystem:serve:production"
+              "devServerTarget": "elvia-designsystem:serve:production",
+              "aot": true
             }
           }
         }
