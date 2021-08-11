@@ -148,6 +148,9 @@ export class ComponentExampleGeneratorComponent implements AfterViewInit {
   }
 
   updateCegFrame(code: string): void {
+    if (!this.hasPreview) {
+      return;
+    }
     const tmpCmp = Component({ template: code })(class {});
     const tmpModule = NgModule({ declarations: [tmpCmp] })(class {});
     this.compiler.compileModuleAndAllComponentsAsync(tmpModule).then((factories) => {
