@@ -16,7 +16,7 @@ export const EWCBreadcrumbWrapper = styled.div`
   max-height: 22px;
   a:last-child {
     font-weight: 500;
-    color: #000;
+    color: ${ElviaColors.elviaOff};;
   }
   i:last-child {
     font-weight: 500;

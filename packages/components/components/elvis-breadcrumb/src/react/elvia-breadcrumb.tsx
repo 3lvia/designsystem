@@ -37,7 +37,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
     return null;
   }
 
-  const MovbileBreadcrumb = () => {
+  const MobileBreadcrumb = () => {
     return (
       <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
         <StyledBreadcrumb.EWCBreadcrumbIconLeft />
@@ -50,31 +50,30 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
 
   const DesktopBreadcrumb = () => {
     const desktopBreadcrumbs = breadcrumbs.map((breadcrumb, index) => {
-      if (index < childrenLength - 1) {
+
+      if (index == childrenLength - 1) {
         return (
-          <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper key={index}>
-            <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumb.url} isClickable={true}>
-              {breadcrumb.title}
-            </StyledBreadcrumb.EWCBreadcrumbLink>
-            <StyledBreadcrumb.EWCBreadcrumbIconRight />
-          </StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
+          <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumb.url} key={index}>
+            {breadcrumb.title}
+          </StyledBreadcrumb.EWCBreadcrumbLink>
         );
       }
       return (
-        <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumb.url} key={index}>
-          {breadcrumb.title}
-        </StyledBreadcrumb.EWCBreadcrumbLink>
+        <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper key={index}>
+          <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumb.url} isClickable={true}>
+            {breadcrumb.title}
+          </StyledBreadcrumb.EWCBreadcrumbLink>
+          <StyledBreadcrumb.EWCBreadcrumbIconRight />
+        </StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
       );
     });
+
+
     return desktopBreadcrumbs;
   };
 
-  if (windowWidth < 768) {
-    return (
-      <StyledBreadcrumb.EWCBreadcrumbWrapper>{MovbileBreadcrumb()}</StyledBreadcrumb.EWCBreadcrumbWrapper>
-    );
-  }
-  return <StyledBreadcrumb.EWCBreadcrumbWrapper>{DesktopBreadcrumb()}</StyledBreadcrumb.EWCBreadcrumbWrapper>;
+  const breadcrumb = windowWidth < 768 ? MobileBreadcrumb() : DesktopBreadcrumb();
+  return <StyledBreadcrumb.EWCBreadcrumbWrapper>{breadcrumb}</StyledBreadcrumb.EWCBreadcrumbWrapper>;
 };
 
 export default Breadcrumb;
