@@ -224,6 +224,7 @@
   },
 
   "text-label": {
+    "deprecated": "1.0.0",
     "fontFamily": "Red Hat Display",
     "fontSize": "16px",
     "fontWeight": "500",
@@ -234,6 +235,7 @@
     "color": "inherit"
   },
   "text-option": {
+    "deprecated": "1.0.0",
     "fontFamily": "Red Hat Display",
     "fontSize": "16px",
     "fontWeight": "400",

@@ -223,10 +223,8 @@ export default {
     textAlign: 'center',
   },
 
-  // Depracted - Not removed as might still be in use by some applications
-  // The design system should not use these but instead define the typography directly in those components
-
   'text-label': {
+    deprecated: '1.0.0',
     fontFamily: 'Red Hat Display',
     fontSize: '16px',
     fontWeight: '500',
@@ -237,6 +235,7 @@ export default {
     color: 'inherit',
   },
   'text-option': {
+    deprecated: '1.0.0',
     fontFamily: 'Red Hat Display',
     fontSize: '16px',
     fontWeight: '400',

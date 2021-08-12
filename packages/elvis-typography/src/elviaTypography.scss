@@ -389,6 +389,10 @@
   font-weight: 500;
 }
 
+// Classses below are deprecated from version 1.0.0
+// Not removed as might still be in use by some applications
+// The design system should not use these but instead define the typography directly in those components
+
 .e-text-label {
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 16px;

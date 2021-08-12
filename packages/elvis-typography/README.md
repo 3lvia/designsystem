@@ -8,7 +8,7 @@ Available typography reflect the typography classes availabe at https://design.e
 
 Insert at top of your scss file :<br>
 
-- @use '@@elvia/elvis-typography/src/elviaTypography.scss';
+- @use '@elvia/elvis-typography/src/elviaTypography.scss';
 
 ## Maintaining
 
