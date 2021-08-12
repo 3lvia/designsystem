@@ -154,7 +154,7 @@ export const eComponents: EItems[] = [
       'Carousel is used when the user can navigate through a collection of related visual items, for example a collection of images. The collection should have a common theme.',
     docUrl: Pages.Carousel,
     absolutePath: '/components/' + Pages.Carousel,
-    status: ItemStatus.Ignore,
+    status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Carousel.svg',
     figmaUrl: 'https://www.figma.com/file/Um5AotNfUftDorJHGbIy99/Navigational-controls?node-id=1023%3A15726',
     type: 'Component',
