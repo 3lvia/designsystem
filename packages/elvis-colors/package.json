@@ -1,0 +1,11 @@
+{
+  "name": "@elvia/elvis-colors",
+  "version": "1.0.0",
+  "description": "Elvia colors",
+  "license": "MIT",
+  "author": "",
+  "main": "src/elviaColors.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
