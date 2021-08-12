@@ -12,7 +12,10 @@ import { JitCompilerFactory } from '@angular/platform-browser-dynamic';
   declarations: [ComponentExampleGeneratorComponent],
   exports: [ComponentExampleGeneratorComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [ComponentExampleGeneratorComponent],
   providers: [
+    // Compiler is not included in AOT-compiled bundle.
+    // Must explicitly provide compiler to be able to compile templates at runtime.
     { provide: COMPILER_OPTIONS, useValue: {}, multi: true },
     { provide: CompilerFactory, useClass: JitCompilerFactory, deps: [COMPILER_OPTIONS] },
     { provide: Compiler, useFactory: createCompiler, deps: [CompilerFactory] },
