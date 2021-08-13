@@ -54,7 +54,6 @@ export const InfoAmount = styled.div`
   line-height: 22px;
   text-align: left;
   white-space: nowrap;
-  // adjust later for mobile
   margin-right: ${(props: { isMobile: boolean }) => (props.isMobile ? '0px' : '24px')};
 `;
 export const SelectorArea = styled.div`
