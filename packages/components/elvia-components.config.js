@@ -26,6 +26,12 @@ module.exports = [
     slotItems: false,
   },
   {
+    name: 'elvis-breadcrumb',
+    elementName: 'elvia-breadcrumb',
+    attributes: [{ name: 'breadcrumbs', type: 'object' }],
+    reactName: 'Breadcrumb',
+  },
+  {
     name: 'elvis-carousel',
     elementName: 'elvia-carousel',
     attributes: [

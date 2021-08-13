@@ -6,6 +6,7 @@ import { Accordion } from '@elvia/elvis-accordion/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
+import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';
 import { Carousel } from '@elvia/elvis-carousel/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
@@ -95,6 +96,21 @@ function App() {
     console.log(dropdownValue);
   };
 
+  const breadcrumbs = [
+    {
+      url: 'https://elvia.no',
+      title: 'Elvia.no',
+    },
+    {
+      url: 'https://www.elvia.no/nettleie',
+      title: 'Nettleie',
+    },
+    {
+      url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
+      title: 'Elvias leveringsplikt',
+    },
+  ];
+
   const JSXCarouselElement = () => (
     <div>
       <p>
@@ -160,6 +176,9 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
+
+      <h2>Breadcrumbs</h2>
+      <Breadcrumb breadcrumbs={breadcrumbs} />
 
       <h2>Box</h2>
       <Box

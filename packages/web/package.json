@@ -29,6 +29,7 @@
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-carousel": "0.0.1-beta.6",
     "@elvia/elvis-assets-icons": "*",
+    "@elvia/elvis-breadcrumb": "*",
     "@elvia/elvis-dropdown": "*",
     "@elvia/elvis-modal": "0.0.1-beta.12",
     "@elvia/elvis-popover": "*",
