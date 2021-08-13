@@ -17,5 +17,8 @@
   },
   "e-radio.e-radio--sm input:invalid": {
     "version": "7.8.4"
+  },
+  "e-fileupload---hover": {
+    "version": "7.9.3"
   }
 }
