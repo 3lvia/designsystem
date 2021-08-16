@@ -7,12 +7,27 @@ import { Locale } from '../localization.service';
 @Injectable({
   providedIn: 'root',
 })
+
 export class CMSService {
   private entries = {};
   private entriesToSync = [];
 
-  constructor(private http: HttpClient, private cmsTransformService: CMSTransformService) {}
+  constructor(private http: HttpClient, private cmsTransformService: CMSTransformService) { }
 
+  getDocumentationPageByEntryId(entryId: string, localization: Locale): Promise<any> {
+    let locale = 'en-GB';
+    if (localization === Locale['nb-NO']) {
+      locale = 'nb-NO';
+    }
+
+    return this.getEntry(entryId).then((data) => {
+      return {
+        title: data.fields.title[locale],
+        pageDescription: data.fields.pageDescription[locale],
+        content: this.cmsTransformService.getHTML(data, locale, this.entries),
+      };
+    });
+  }
   getDocumentationPage(pageName: string, localization: Locale): Promise<any> {
     let locale = 'en-GB';
     if (localization === Locale['nb-NO']) {
@@ -33,28 +48,28 @@ export class CMSService {
     });
   }
 
-  getMenu(localization: Locale) {
+  async getMenu(localization: Locale) {
     let locale = 'en-GB';
     if (localization === Locale['nb-NO']) {
       locale = 'nb-NO';
     }
-    return this.getEntry('31WPcyslzeoeVLtVXjXju1').then((data) => {
-      const menu = {};
-      menu['title'] = data.fields.title['en-GB'];
-      const submenus = [];
+    const entryMenu = await this.getEntry('31WPcyslzeoeVLtVXjXju1');
+    const menu = {};
+    menu['title'] = entryMenu.fields.title['en-GB'];
+    menu['pages'] = [];
+    const subMenuEntries = entryMenu.fields.submenus['en-GB'];
+    for (let i = 0; i < subMenuEntries.length; i++) {
+      const subEntry = await this.getEntry(subMenuEntries[i].sys.id);
+      const subMenu = {
+        title: subMenuEntries[i].fields.title[locale],
+        entry_id: subMenuEntries[i].sys.id,
+        entry: subEntry,
+        path: subMenuEntries[i].fields.path['en-GB'], // url path - No localization on this field
+      };
+      menu['pages'].push(subMenu);
 
-      data.fields.submenus['en-GB'].map((item) => {
-        // No localization on submenu list. We show the same things for both languages.
-        submenus.push({
-          title: item.fields.title[locale],
-          entry_id: item.sys.id,
-          path: item.fields.path['en-GB'], // url path - No localization on this field
-        });
-      });
-
-      menu['pages'] = submenus;
-      return menu;
-    });
+    }
+    return menu;
   }
 
   async syncEntries() {

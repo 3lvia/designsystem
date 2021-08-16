@@ -84,7 +84,7 @@ const routes: Routes = [
         pathMatch: 'full',
         component: HomeComponent,
       },
-      {
+      /* {
         path: Pages.Home,
         redirectTo: Pages.Index,
       },
@@ -391,7 +391,7 @@ const routes: Routes = [
           },
         ],
       },
-
+ */
       // Dev section
       {
         path: Pages.DevelopmentStart,
@@ -408,7 +408,11 @@ const routes: Routes = [
         ],
       },
       { path: 'not-found', component: ErrorComponent },
-      { path: '**', redirectTo: '/not-found' },
+
+      {
+        path: '**',
+        component: CMSPageComponent,
+      },
     ],
   },
 ];
@@ -419,4 +423,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

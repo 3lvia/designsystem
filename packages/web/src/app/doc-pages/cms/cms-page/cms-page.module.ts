@@ -6,6 +6,8 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { RouterModule } from '@angular/router';
 import { DynamicModule } from 'ng-dynamic-component';
+import { NavbarModule } from 'src/app/shell/navbar/navbar.module';
+import { PageStructureModule } from 'src/app/shared/page-structure/page-structure.module';
 
 @NgModule({
   imports: [
@@ -15,7 +17,9 @@ import { DynamicModule } from 'ng-dynamic-component';
     ComponentSubsectionModule,
     RouterModule,
     DynamicModule,
+    NavbarModule,
+    PageStructureModule
   ],
   declarations: [CMSPageComponent],
 })
-export class CMSPageModule {}
+export class CMSPageModule { }

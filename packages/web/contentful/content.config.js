@@ -17,25 +17,25 @@ module.exports = {
       entry_id: '5zutchEUJJXKveNcQwxf7v',
     },
   },
-  identity: {
+  'identity': {
     type: 'SubMenu',
     contentful: {
       entry_id: 'XTA5ZXEp0N597d2fGna3P',
     },
   },
-  components: {
+  'components': {
     type: 'SubMenu',
     contentful: {
       entry_id: '6RHCZ59jMvJZjcCMMsjvKk',
     },
   },
-  tools: {
+  'tools': {
     type: 'SubMenu',
     contentful: {
       entry_id: '4S1mOrHTSUvplD1z1G0G8r',
     },
   },
-  community: {
+  'community': {
     type: 'SubMenu',
     contentful: {
       entry_id: '1RlGKc94hQvue73iXjuV1B',
