@@ -2,11 +2,12 @@ import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Accordion } from '@elvia/elvis-accordion/react';
-// import { Checkbox } from '@elvia/elvis-checkbox/react';
+//import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
 import { Carousel } from '@elvia/elvis-carousel/react';
+import { Chips } from '@elvia/elvis-chips/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
@@ -19,6 +20,9 @@ function App() {
   // const ref = useRef();
   //////////////////////
   const [selectedState, setSelectedState] = useState(2);
+  const [chipsValues, setChipsValues] = useState([2018,2019,2020,2021]);
+  const [chip1Value, setChip1Value] = useState([]);
+  const [chip2Value, setChip2Value] = useState([]);
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
   const [isModalShowing, setIsModalShowingState] = useState(false);
@@ -137,6 +141,11 @@ function App() {
     },
   ];
 
+  const handleOnDelete = (event) => {
+    const values = [...chipsValues]
+    setChipsValues(values.filter(value => value !== event))
+  }
+
   return (
     <div className="App">
       <h1>React preview</h1>
@@ -195,6 +204,53 @@ function App() {
         }
       >
       </Modal>
+      <div>
+      <button
+        onClick={() => {
+            setChipsValues(values => [...values, `20${Math.floor(Math.random() * 30) +1}`])
+          }
+        }
+      >
+        Add chip
+      </button>
+      </div>
+      {console.log(chipsValues)}
+      <div style={{display: 'flex', flexDirection: 'row'}}>
+      {chipsValues.map(value => (
+        <Chips value={value} onDelete={handleOnDelete}>
+
+        </Chips>
+      ))
+    }
+    </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Standard chip</h2>
+        <Chips value="Standard" color='blue' valueOnChange={setChip1Value} >
+        </Chips>
+      </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Standard chip disabled</h2>
+        <Chips value="Standard" color='purple' disabled>
+        </Chips>
+      </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Clickable chip without color set</h2>
+        <Chips value="Clickable1" type='clickableDot' valueOnChange={setChip1Value}>
+        </Chips>
+      </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Clickable chip initally selected</h2>
+        <Chips value="Clickable2" color='orange' type='clickableDot' disabled isInitiallySelected valueOnChange={setChip2Value}>
+        </Chips>
+      </div>
+      <div style={{ margin: '40px 0' }}>
+        <h2>Clickable chip initally checkmark</h2>
+        <Chips value="Clickable3" color='red' type='clickableCheckmark'  useCheckmark isInitiallySelected valueOnChange={setChip2Value}>
+        </Chips>
+      </div>
+      <div>{"Selected chip1: " + chip1Value.toString()}</div>
+      <div>{"Selected chip2: " + chip2Value.toString()}</div>
+
 
       <h2>Dropdown</h2>
       <button onClick={consoleDropdownVal}>Console dropdown value</button>

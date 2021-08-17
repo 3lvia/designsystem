@@ -40,6 +40,10 @@ carouselParagraph = `
 
 carouselValue = 0;
 
+chipsValue =2019;
+deleteValue =2010;
+chipsValues = [2011,2012,2013,2014]
+
 elements  = [
     {
       title: 'Dette er nytt',
@@ -128,5 +132,9 @@ elements  = [
 
   updatedVisibility = (event: any) => {
     console.log('Updated - visibility: ' + event);
+  }
+  handleOnDelete = (event: any) => {
+    console.log("HELLO", event);
+    this.deleteValue = event
   }
 }

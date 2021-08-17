@@ -24,7 +24,7 @@ import { AccordionDocModule } from './accordion-doc/accordion-doc.module';
 import { StepperDocModule } from './stepper-doc/stepper-doc.module';
 import { ContentLoaderDocModule } from './content-loader-doc/content-loader-doc.module';
 import { RadioFilterDocModule } from './radio-filter-doc/radio-filter-doc.module';
-import { ChipsModule } from './chips/chips.module';
+import { ChipsDocModule } from './chips-doc/chips-doc.module';
 import { DividerDocModule } from './divider-doc/divider-doc.module';
 import { TabsDocModule } from './tabs-doc/tabs-doc.module';
 import { TimepickerDocModule } from './forms/timepicker-doc/timepicker-doc.module';
@@ -39,7 +39,7 @@ import { BoxDocModule } from './box-doc/box-doc.module';
     ButtonDocModule,
     CardDocModule,
     CarouselDocModule,
-    ChipsModule,
+    ChipsDocModule,
     ComponentsStartModule,
     ContentLoaderDocModule,
     DividerDocModule,

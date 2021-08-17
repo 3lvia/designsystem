@@ -1,0 +1,119 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Chip</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div class="component-preview-temp component-preview-animation">
+      <div style="display: flex; flex-direction: row;">
+      <elvia-chips
+      [value]='2010'
+    ></elvia-chips>
+    <elvia-chips [value]="2010" (valueOnChange)="chipsValue = $event.detail.value " isInitiallySelected="true" type="clickableDot"  color="red"> </elvia-chips>
+        </div>
+        <div>
+          Selected value: {{chipsValue}}
+        </div>
+      <app-component-example-generator
+      [componentData]="componentData"
+      [hasPreview]="false"
+    ></app-component-example-generator>
+  </div>
+
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Standard'">
+        <ng-container ngProjectAs="sectionContent">
+          Standard example
+          <div style="display: flex; flex-direction: row;">
+            <elvia-chips [value]="2019" color="red"> </elvia-chips>
+            <elvia-chips [value]="2019" color="red" disabled='true'>
+            </elvia-chips>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Clickable Dot'">
+        <ng-container ngProjectAs="sectionContent">
+          Can set a prop as initiallySelected or not
+          <div style="display: flex; flex-direction: row;">
+            <elvia-chips [value]="2019" type="clickableDot" color="red"> </elvia-chips>
+            <elvia-chips [value]="2019" isInitiallySelected="true" type="clickableDot"  color="red"> </elvia-chips>
+            <elvia-chips [value]="2019" isInitiallySelected="true" type="clickableDot"  color="red" disabled='true'>
+            </elvia-chips>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Clickable Checkmark'">
+        <ng-container ngProjectAs="sectionContent">
+          Can set a prop as initiallySelected or not
+          <div style="display: flex; flex-direction: row;">
+            <elvia-chips [value]="2019" type="clickableCheckmark" color="red"> </elvia-chips>
+            <elvia-chips [value]="2019" isInitiallySelected="true" type="clickableCheckmark"  color="red"> </elvia-chips>
+            <elvia-chips [value]="2019" isInitiallySelected="true" type="clickableCheckmark"  color="red" disabled='true'>
+            </elvia-chips>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Color variants'">
+        <ng-container ngProjectAs="sectionContent">
+          In case you want to categorize chips you can use different colors to distinguish them from each
+          other.
+          <div style="display: flex; flex-direction: row;">
+            <elvia-chips [value]="2018" color="green">
+            </elvia-chips>
+            <elvia-chips [value]="2019" color="red">
+            </elvia-chips>
+            <elvia-chips [value]="2020" color="blue">
+            </elvia-chips>
+            <elvia-chips [value]="2021" color="orange">
+            </elvia-chips>
+            <elvia-chips [value]="2022" color="purple">
+            </elvia-chips>
+            <elvia-chips [value]="2023" color="violet">
+            </elvia-chips>
+          </div>
+<!--           <elvia-chips [value]="2019" color="red"  (valueOnChange)="chipsValue = $event.detail.value ">
+          </elvia-chips>
+          <elvia-chips [value]="2020" color="blue" disabled='true' (valueOnChange)="chipsValue = $event.detail.value ">
+          </elvia-chips>
+          <elvia-chips [value]="2021" color="orange" isInitiallySelected="true" type="clickableDot" (valueOnChange)="chipsValue = $event.detail.value ">
+          </elvia-chips>
+          <elvia-chips [value]="2022" color="purple"  type="clickableCheckmark" (valueOnChange)="chipsValue = $event.detail.value ">
+          </elvia-chips>
+          <elvia-chips [value]="2023" isInitiallySelected="true" type="clickableDot"  (valueOnChange)="chipsValue = $event.detail.value ">
+          </elvia-chips> -->
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+   <!--INSTALLATION-->
+   <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" >
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+</div>

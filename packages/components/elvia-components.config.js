@@ -38,6 +38,20 @@ module.exports = [
     reactName: 'Carousel',
     slotItems: false,
   },
+  {
+    name: 'elvis-chips',
+    elementName: 'elvia-chips',
+    attributes: [
+      { name: 'className', type: 'string' },
+      { name: 'color', type: 'string' },
+      { name: 'disabled', type: 'boolean' },
+      { name: 'value', type: 'string' },
+      { name: 'type', type: 'string' },
+      { name: 'isInitiallySelected', type: 'boolean' },
+    ],
+    reactName: 'Chips',
+    slotItems: false,
+  },
   // {
   //   name: 'elvis-checkbox',
   //   elementName: 'elvia-checkbox',
