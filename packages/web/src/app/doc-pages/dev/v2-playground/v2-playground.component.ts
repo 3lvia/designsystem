@@ -148,9 +148,9 @@ chipsValues = [2011,2012,2013,2014]
   updatedVisibility = (event: any) => {
     console.log('Updated - visibility: ' + event);
   }
+
   handleOnDelete = (event: any) => {
     console.log("HELLO", event);
     this.deleteValue = event
-  }
   };
 }
