@@ -13,7 +13,8 @@
       "**/webpack",
       "**/@elvia/elvis-assets-icons",
       "**/@elvia/elvis-dropdown",
-      "**/@elvia/elvis-divider"
+      "**/@elvia/elvis-divider",
+      "**/@elvia/elvis-breadcrumb"
     ]
   },
   "scripts": {

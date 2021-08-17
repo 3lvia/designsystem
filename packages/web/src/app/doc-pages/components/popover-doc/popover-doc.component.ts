@@ -12,13 +12,8 @@ export class PopoverDocComponent {
   figmaUrl = getComponent('popover').figmaUrl;
   description = getComponent('popover').description;
   // tslint:disable-next-line:max-line-length
-  does = [
-    'To provide additional information',
-    'Help user complete small actions'
-  ];
-  donts = [
-    'Do not have multiple popover open at the same time',
-  ];
+  does = ['To provide additional information', 'Help user complete small actions'];
+  donts = ['Do not have multiple popover open at the same time'];
 
   hideContentLoader(evt: any): void {
     if (evt && evt.target) {

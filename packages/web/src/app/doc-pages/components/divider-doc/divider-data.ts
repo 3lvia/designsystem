@@ -18,7 +18,8 @@ export const dividerData = {
     title: {
       isRequired: false,
       type: 'HTMLElement',
-      description: 'Title displayed together with a divider. Send in as slot in Angular and HTMLElement in React.',
+      description:
+        'Title displayed together with a divider. Send in as slot in Angular and HTMLElement in React.',
       default: '"Title"',
       displayName: 'Title',
     },

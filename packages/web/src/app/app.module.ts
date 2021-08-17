@@ -34,9 +34,9 @@ import { MobileHeaderModule } from './shell/header/mobile-menu/mobile-menu.modul
     HttpClientModule,
     ErrorModule,
     CMSPageModule,
-    MobileHeaderModule
+    MobileHeaderModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

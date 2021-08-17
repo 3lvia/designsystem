@@ -12,6 +12,5 @@ export class TheConceptComponent {
   description = getIdentity('the-concept').description;
   cmsContent: any = {};
 
-  constructor(private cmsService: CMSService, private sanitizer: DomSanitizer) {
-  }
+  constructor(private cmsService: CMSService, private sanitizer: DomSanitizer) {}
 }

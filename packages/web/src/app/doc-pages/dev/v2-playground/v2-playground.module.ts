@@ -9,6 +9,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 
 import '@elvia/elvis-accordion';
+import '@elvia/elvis-breadcrumb';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-dropdown';
 import '@elvia/elvis-tabs';
@@ -34,4 +35,4 @@ import '@elvia/elvis-modal';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [v2PlaygroundComponent],
 })
-export class v2PlaygroundModule { }
+export class v2PlaygroundModule {}

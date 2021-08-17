@@ -26,6 +26,12 @@ module.exports = [
     slotItems: false,
   },
   {
+    name: 'elvis-breadcrumb',
+    elementName: 'elvia-breadcrumb',
+    attributes: [{ name: 'breadcrumbs', type: 'object' }],
+    reactName: 'Breadcrumb',
+  },
+  {
     name: 'elvis-carousel',
     elementName: 'elvia-carousel',
     attributes: [
@@ -84,7 +90,7 @@ module.exports = [
     reactName: 'Popover',
     useWrapper: true,
     elementStyle: `display: block;`,
-    slotItems: true,
+    slotItems: false,
   },
   {
     name: 'elvis-progress-linear',
@@ -191,9 +197,9 @@ module.exports = [
       { name: 'secondaryButton', type: 'HTMLElement' },
       { name: 'className', type: 'string' },
       { name: 'hasCloseBtn', type: 'boolean' },
-      { name: 'hasLockBodyScroll', type: 'boolean' }
+      { name: 'hasLockBodyScroll', type: 'boolean' },
     ],
     reactName: 'Modal',
-    slotItems: true
+    slotItems: true,
   },
 ];

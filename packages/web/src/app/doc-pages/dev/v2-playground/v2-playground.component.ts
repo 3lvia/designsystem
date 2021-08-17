@@ -31,23 +31,23 @@ export class v2PlaygroundComponent implements OnInit {
   <div>
   `;
 
-carouselParagraph = `
+  carouselParagraph = `
   Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines.
 
   It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.
-  `
+  `;
 
-
-carouselValue = 0;
+  carouselValue = 0;
 
 chipsValue =2019;
 deleteValue =2010;
 chipsValues = [2011,2012,2013,2014]
 
-elements  = [
+ elements = [
     {
       title: 'Dette er nytt',
-      element: this.carouselParagraph},
+      element: this.carouselParagraph,
+    },
     {
       title: 'Hei til ny tariff!',
       element: this.carouselParagraph,
@@ -57,7 +57,7 @@ elements  = [
       element: this.carouselParagraph,
     },
     {
-      element: this.carouselParagraph
+      element: this.carouselParagraph,
     },
   ];
 
@@ -103,6 +103,21 @@ elements  = [
     },
   ];
 
+  breadcrumbsTest = [
+    {
+      url: 'https://elvia.no',
+      title: 'Elvia.no',
+    },
+    {
+      url: 'https://www.elvia.no/nettleie',
+      title: 'Nettleie',
+    },
+    {
+      url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
+      title: 'Elvias leveringsplikt',
+    },
+  ];
+
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
     /*this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {
@@ -122,13 +137,13 @@ elements  = [
 
   closeCallback = () => {
     console.log('Updated: closecallback');
-    this.isModalShowing = !this.isModalShowing
+    this.isModalShowing = !this.isModalShowing;
   };
 
   updatePopoverVariable = (newValue: boolean) => {
     console.log('Updated: closecallback ', newValue);
     this.isPopoverShowing = newValue;
-  }
+  };
 
   updatedVisibility = (event: any) => {
     console.log('Updated - visibility: ' + event);
@@ -137,4 +152,5 @@ elements  = [
     console.log("HELLO", event);
     this.deleteValue = event
   }
+  };
 }

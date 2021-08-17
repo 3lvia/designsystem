@@ -71,6 +71,7 @@ import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-
 import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
 import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
 import { v2PlaygroundComponent } from './doc-pages/dev/v2-playground/v2-playground.component';
+import { BreadcrumbDocComponent } from './doc-pages/components/breadcrumb-doc/breadcrumb-doc.component';
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { BoxDocComponent } from './doc-pages/components/box-doc/box-doc.component';
 
@@ -200,9 +201,14 @@ const routes: Routes = [
             component: ButtonDocComponent,
           },
           {
+            path: Pages.Breadcrumb,
+            component: BreadcrumbDocComponent,
+          },
+          {
             path: Pages.Card,
             component: CardDocComponent,
-          },          {
+          },
+          {
             path: Pages.Carousel,
             component: CarouselDocComponent,
           },
@@ -418,4 +424,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -15,7 +15,10 @@
 
 ### Set up development environment
 
-1. Run `yarn` at `/` </br> </br>
+1. Copy `contentful/.env.template` -> `contentful/.env`
+2. Follow instructions inside of .env file
+3. Run `yarn` at `/` </br> </br>
+4. Run `yarn contentful` at `packages/web`
 
 ### Elvis (CSS library)
 

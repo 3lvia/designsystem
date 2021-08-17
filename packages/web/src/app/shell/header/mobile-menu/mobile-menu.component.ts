@@ -19,13 +19,16 @@ export class MobileMenuComponent implements OnDestroy {
 
   private subscriptions: Subscription = new Subscription();
 
-  constructor(private router: Router, private cmsService: CMSService, private localizationService: LocalizationService) {
+  constructor(
+    private router: Router,
+    private cmsService: CMSService,
+    private localizationService: LocalizationService,
+  ) {
     this.localizationService.listenLocalization().subscribe((locale) => {
-      this.cmsService.getMenu(locale).then(data => {
+      this.cmsService.getMenu(locale).then((data) => {
         this.mainMenu = data;
       });
     });
-
   }
 
   ngOnDestroy(): void {

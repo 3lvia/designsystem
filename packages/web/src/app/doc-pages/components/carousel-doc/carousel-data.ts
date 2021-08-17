@@ -1,4 +1,3 @@
-
 export const carouselData = {
   name: 'elvis-carousel',
   elementNameW: 'elvia-carousel',
@@ -6,17 +5,22 @@ export const carouselData = {
   elements: [
     {
       title: 'Dette er nytt',
-      element: 'Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two.'
-    },{
+      element:
+        'Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two.',
+    },
+    {
       title: 'Hei til ny tariff!',
-      element: 'Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two.'
+      element:
+        'Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two.',
     },
     {
       title: 'Strømbruddsvarsel',
-      element: 'Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two.'
+      element:
+        'Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two.',
     },
     {
-      element: 'Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two.'
+      element:
+        'Body text comes here and can go over several lines. It looks like this and when it is two. Body text comes here and can go over several lines. It looks like this and when it is two.Body text comes here and can go over several lines. It looks like this and when it is two.',
     },
   ],
   attributes: {
@@ -40,13 +44,15 @@ export const carouselData = {
     onHide: {
       isRequired: false,
       type: '() => void',
-      description: 'If useOnboardingCheckmark is used you most likely want a close action implemented for the checkmark button',
+      description:
+        'If useOnboardingCheckmark is used you most likely want a close action implemented for the checkmark button',
       default: 'false',
     },
     useOnboardingCheckmark: {
       isRequired: false,
       type: 'boolean',
-      description: 'Whether a checkmark button should be used for the last element. Is used in an onboarding situation and requires hideArrows to also be sent in',
+      description:
+        'Whether a checkmark button should be used for the last element. Is used in an onboarding situation and requires hideArrows to also be sent in',
       default: 'false',
     },
     value: {
@@ -64,8 +70,7 @@ export const carouselData = {
   package: 'npm install @elvia/elvis-carousel',
   codeImportReact: `import { Carousel } from '@elvia/elvis-carousel/react';`,
   codeImportWebComponent: `import '@elvia/elvis-carousel';`,
-  codeReact:
-    `
+  codeReact: `
     const listOfElements = [
       {
         title: 'Dette er nytt',
@@ -100,14 +105,15 @@ export const carouselData = {
     <Carousel
   elements={listOfElements}
 ></Carousel>`,
-  codeWebComponent:
-    `<elvia-carousel
+  codeWebComponent: `<elvia-carousel
   [elements]="5"
 ></elvia-carousel>`,
-  does: ['Many items to display and the user only needs to focus on a few at once',
-    'Collection of related items'],
+  does: [
+    'Many items to display and the user only needs to focus on a few at once',
+    'Collection of related items',
+  ],
   donts: [
     'Should not be use on non-visual items such as links or paragraphs',
-    'More than 5 frames - It’s unlikely users will engage with more than that (Use a list instead)'
+    'More than 5 frames - It’s unlikely users will engage with more than that (Use a list instead)',
   ],
 };

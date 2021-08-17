@@ -32,7 +32,7 @@ export class HeaderComponent {
     private localizationService: LocalizationService,
   ) {
     this.localizationService.listenLocalization().subscribe((locale) => {
-      this.cmsService.getMenu(locale).then(data => {
+      this.cmsService.getMenu(locale).then((data) => {
         this.mainMenu = data;
       });
     });

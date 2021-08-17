@@ -19,10 +19,10 @@ export class HomeComponent implements OnInit {
   constructor(localizationService: LocalizationService) {
     localizationService.listenLocalization().subscribe((locale) => {
       if (locale === Locale['en-GB']) {
-        this.overviewTitle = 'Elvia design system'
+        this.overviewTitle = 'Elvia design system';
         this.locale = 'en-GB';
       } else {
-        this.overviewTitle = 'Elvia designsystem'
+        this.overviewTitle = 'Elvia designsystem';
         this.locale = 'nb-NO';
       }
     });

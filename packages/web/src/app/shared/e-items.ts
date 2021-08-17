@@ -136,6 +136,18 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
+    title: 'Breadcrumb',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'Breadcrumb is a navigation system that help the user to understand the hierarchy and navigate between levels. It is a secondary navigation scheme used in addition to the primary navigation.',
+    docUrl: Pages.Breadcrumb,
+    absolutePath: '/components/' + Pages.Breadcrumb,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/component-images/Button.svg',
+    figmaUrl: 'https://www.figma.com/file/JNbQmeFGfn7QOybUKbSvks/Breadcrumb?node-id=3%3A2',
+    type: 'Component',
+  },
+  {
     title: 'Card',
     // tslint:disable-next-line: max-line-length
     description:
@@ -147,7 +159,7 @@ export const eComponents: EItems[] = [
     figmaUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Cards?node-id=2%3A9',
     type: 'Component',
   },
-   {
+  {
     title: 'Carousel',
     // tslint:disable-next-line: max-line-length
     description:
