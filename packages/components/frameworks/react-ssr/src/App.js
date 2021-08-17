@@ -13,6 +13,7 @@ import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
+import { ElvisIcon } from '@elvia/elvis-icon/react';
 
 function App() {
   // Old checkbox states
@@ -23,7 +24,7 @@ function App() {
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
   const [isModalShowing, setIsModalShowingState] = useState(false);
-  const [isPopoverShowing, setIsPopoverShowingState] = useState(true);
+  const [isPopoverShowing, setIsPopoverShowingState] = useState(false);
   const [progressValue, setProgressValue] = useState(0);
 
   function increaseProgress() {
@@ -176,10 +177,10 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
-
+      <h2>Elvia ICONS</h2>
+      <ElvisIcon iconName="addCircle" iconColor="green"></ElvisIcon>
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-
       <h2>Box</h2>
       <Box
         hasBorder={true}
@@ -187,7 +188,6 @@ function App() {
         title={<h1>Title for the box component</h1>}
         content={<div>Heisann dette er en box component sendt med som node i react</div>}
       ></Box>
-
       <h2>Modal</h2>
       <button onClick={() => setIsModalShowingState(true)}>Show modal</button>
       <Modal
@@ -282,7 +282,6 @@ function App() {
           </>
         }
       ></Modal>
-
       <h2>Dropdown</h2>
       <button onClick={consoleDropdownVal}>Console dropdown value</button>
       <div style={{ marginTop: '24px' }}>
@@ -317,7 +316,6 @@ function App() {
         <Carousel elements={elements.length} valueOnChange={setSelectedState} hideArrows></Carousel>
       </div>
       <div>{'Selected page: ' + selectedState.toString()}</div>
-
       <h2>Date picker</h2>
       <div
         style={{
@@ -338,11 +336,9 @@ function App() {
         <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
         <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
       </div>
-
       <div style={{ margin: '40px 0' }}>
         <TestingComponent></TestingComponent>
       </div>
-
       <hr style={{ margin: '40px 0' }} />
       <h2>Divider</h2>
       <div style={{ marginBottom: '16px', padding: '8px' }}>
@@ -363,7 +359,6 @@ function App() {
       <div style={{ background: '#262626', padding: '8px' }}>
         <Divider type="curved" isInverted />
       </div>
-
       <h2>Accordion</h2>
       <div style={{ marginTop: '24px', marginBottom: '24px' }}>
         <Accordion
@@ -375,7 +370,6 @@ function App() {
           content="Bacon ipsum dolor amet pork loin bacon jowl turkey. Biltong sausage swine, shankle venison hamburger alcatra spare ribs bacon ham ribeye strip steak. Swine capicola picanha kevin drumstick. Chuck landjaeger pastrami, cow shoulder boudin short loin leberkas t-bone turkey prosciutto jowl. Turkey tail tongue cow shankle chicken tri-tip swine. Prosciutto pig ball tip kielbasa hamburger picanha pork chop tongue chicken shankle short loin filet mignon. T-bone shankle capicola, shoulder hamburger pancetta cupim chuck meatloaf turducken porchetta rump sausage strip steak ribeye."
         ></Accordion>
       </div>
-
       <h3>Custom Accordion content</h3>
       <div style={{ marginTop: '24px', marginBottom: '24px' }}>
         <Accordion
@@ -394,15 +388,12 @@ function App() {
           }
         ></Accordion>
       </div>
-
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
         <Tabs items={items} value={2} valueOnChange={setSelectedState}></Tabs>
         <div>{selectedState.toString()}</div>
       </div>
-
       <hr style={{ margin: '40px 0' }} />
-
       {/*       <h2>Checkbox</h2>
       <div style={{ marginTop: '16px' }}>
         <Checkbox
@@ -417,9 +408,7 @@ function App() {
         <Checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></Checkbox>
       </div>
  */}
-
       <hr style={{ margin: '40px 0' }} />
-
       <h2>Popover</h2>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
         <Popover
@@ -517,25 +506,19 @@ function App() {
           posX="left"
         ></Popover>
       </div>
-
       <h2>Progressbar</h2>
-
       <ProgressLinear value={progressValue}></ProgressLinear>
-
       <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
         <button onClick={increaseProgress}>Increase</button>
         <button onClick={decreaseProgress}>Decrease</button>
         <button onClick={resetProgress}>reset</button>
       </div>
       <div>{progressValue}</div>
-
       <h2>Progressbar indeterminate</h2>
-
       <div>
         <ProgressLinear isIndeterminate></ProgressLinear>
       </div>
       <h2>Progressbar Error</h2>
-
       <div>
         <ProgressLinear isError></ProgressLinear>
       </div>

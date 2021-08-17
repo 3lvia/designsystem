@@ -12,6 +12,7 @@
     "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-datepicker": "*",
     "@elvia/elvis-dropdown": "*",
+    "@elvia/elvis-icon": "*",
     "@elvia/elvis-modal": "0.0.1-beta.12",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-progress-linear": "*",

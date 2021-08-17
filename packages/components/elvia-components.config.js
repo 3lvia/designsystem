@@ -188,4 +188,11 @@ module.exports = [
     reactName: 'Modal',
     slotItems: true,
   },
+  {
+    name: 'elvis-icon',
+    elementName: 'elvia-icon',
+    attributes: [],
+    reactName: 'ElvisIcon',
+    slotItems: false,
+  },
 ];

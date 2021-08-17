@@ -79,11 +79,11 @@ const AccordionButton = styled.button`
 
   i {
     margin-left: ${(props: { openLabel: string; closeLabel: string }) => {
-      if (props.openLabel !== undefined || props.closeLabel !== undefined) {
-        return '8px;';
-      }
-      return '0px;';
-    }};
+    if (props.openLabel !== undefined || props.closeLabel !== undefined) {
+      return '8px;';
+    }
+    return '0px;';
+  }};
     border: none;
     border-radius: 50%;
     background-size: contain;
@@ -96,7 +96,7 @@ const AccordionButton = styled.button`
     width: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
     transition: transform 300ms;
     transform: ${(props: { isContentOpen: boolean }) =>
-      (props.isContentOpen && ' rotate(180deg)') || (props.isContentOpen === false && ' rotate(0deg)')};
+    (props.isContentOpen && ' rotate(180deg)') || (props.isContentOpen === false && ' rotate(0deg)')};
   }
 `;
 
