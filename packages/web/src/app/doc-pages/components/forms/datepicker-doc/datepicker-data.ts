@@ -11,7 +11,7 @@ const datepickerData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: Date) => void',
+      type: '(value: Date) => CustomEvent',
       description: 'Gets called every time the value is changed.',
     },
     label: {
