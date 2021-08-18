@@ -67,7 +67,7 @@ export const dropdownData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: 'function',
+      type: '(options: Array<object>) => CustomEvent',
       description: `Gets called every time an option(s) is selected and return an array of selected objects`,
     },
   },
