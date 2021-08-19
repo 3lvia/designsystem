@@ -19,6 +19,7 @@
     "version": "7.8.4"
   },
   "e-fileupload---hover": {
-    "version": "7.9.3"
+    "version": "7.9.3",
+    "replacedBy": "e-fileupload--dragover"
   }
 }
