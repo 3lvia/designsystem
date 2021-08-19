@@ -204,19 +204,15 @@ function App() {
 
   const [filteredValues, setFilteredValues] = useState([])
 
-  // FIXME: The list should be updated with initially selected value.
-  // Only works on the last element for React?
   const handleOnValueChange = (event) => {
     const values = [...filteredValues]
     if(event.isSelected) {
-      setFilteredValues([...filteredValues, event.value])
+      setFilteredValues(prevState => ([...prevState, event.value]))
     }
     else if(!event.isSelected) {
       setFilteredValues(values.filter(data => data !== event.value))
     }
   }
-
-  console.log(filteredValues)
 
   return (
     <div className="App">
