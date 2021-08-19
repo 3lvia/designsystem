@@ -39,7 +39,7 @@ export const Chips: FC<BaseChipsProps> = ({
   valueOnChange,
   webcomponent,
 }) => {
-  const [isSelected, setIsSelected] = useState(isInitiallySelected ?? false)
+  const [isSelected, setIsSelected] = useState(isInitiallySelected)
   const [isHovering, setIsHovering] = useState(false)
 
   const setHover = (newState: boolean) => () => {
@@ -47,7 +47,7 @@ export const Chips: FC<BaseChipsProps> = ({
   }
 
   useEffect(()=> {
-    updateSelectedState(value, isSelected)
+    isSelected !== undefined && updateSelectedState(value, isSelected)
   },[isSelected])
 
   const handleOnDelete = (value: string) => {

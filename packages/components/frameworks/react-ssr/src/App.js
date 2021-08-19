@@ -30,8 +30,9 @@ function App() {
   const clickableChips = [
     {value: 2022, color: 'green'},
     {value: 2023, color: 'red'},
-    {value: 2024, color: 'blue', isInitiallySelected: true},
-    {value: 2025,color: 'purple'}
+    {value: 2024, color: 'blue', isInitiallySelected: true },
+    {value: 2025,color: 'purple'},
+    {value: 2026,color: 'violet', isInitiallySelected: true, disabled: true}
   ]
 
   const [selectedState, setSelectedState] = useState(2);
@@ -203,7 +204,8 @@ function App() {
 
   const [filteredValues, setFilteredValues] = useState([])
 
-  // FIXME: The list should be updated with initially selected value
+  // FIXME: The list should be updated with initially selected value.
+  // Only works on the last element for React?
   const handleOnValueChange = (event) => {
     const values = [...filteredValues]
     if(event.isSelected) {
@@ -355,32 +357,12 @@ function App() {
     Clickable Chips
      <div style={{display: 'flex', flexDirection: 'row'}}>
       {clickableChips.map(data => (
-        <Chips value={data.value} color={data.color} isInitiallySelected={data.isInitiallySelected ?? false} type='clickable' iconType='dot' valueOnChange={handleOnValueChange}>
+        <Chips value={data.value} color={data.color} isInitiallySelected={data.isInitiallySelected}  disabled={data.disabled} type='clickable' iconType='dot' valueOnChange={handleOnValueChange}>
         </Chips>
       ))
     }
     </div>
     Filters to apply: {filteredValues}
-      <div style={{ margin: '40px 0' }}>
-        <h2>Standard chip</h2>
-        <Chips value="Standard" color='blue' valueOnChange={setChipValue} >
-        </Chips>
-      </div>
-      <div style={{ margin: '40px 0' }}>
-        <h2>Standard chip disabled</h2>
-        <Chips value="Standard" color='purple' disabled>
-        </Chips>
-      </div>
-      <div style={{ margin: '40px 0' }}>
-        <h2>Clickable chip without color set</h2>
-        <Chips value="Clickable1" type='clickable' iconType='dot' valueOnChange={setChipValue}>
-        </Chips>
-      </div>
-      <div style={{ margin: '40px 0' }}>
-        <h2>Clickable chip initally selected</h2>
-        <Chips value="Clickable2" color='orange' type='clickable' iconType='dot' disabled isInitiallySelected valueOnChange={setChipValue}>
-        </Chips>
-      </div>
       <div style={{ margin: '40px 0' }}>
         <h2>Clickable chip initally checkmark</h2>
         <Chips value="Clickable3" color='red' type='clickable' iconType='checkmark'  useCheckmark isInitiallySelected valueOnChange={setChipValue}>
