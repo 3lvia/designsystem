@@ -34,7 +34,7 @@ const popoverData = {
     },
     isShowingOnChange: {
       isRequired: false,
-      type: '(isShowing: boolean) => void',
+      type: '(isShowing: boolean) => CustomEvent',
       description: 'Gets called every time the isShowing value is changed.',
     },
     content: {
