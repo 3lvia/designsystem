@@ -39,9 +39,16 @@ export class v2PlaygroundComponent implements OnInit {
 
   carouselValue = 0;
 
-chipsValue =2019;
-deleteValue =2010;
-chipsValues = [2011,2012,2013,2014]
+deleteValue = 0;
+
+filteredValues = []
+
+deletableChipsList = [
+  {value: 2022, color: 'green'},
+  {value: 2023, color: 'red'},
+  {value: 2024, color: 'blue'},
+  {value: 2025,color: 'purple',disabled: true}
+]
 
  elements = [
     {
@@ -131,26 +138,37 @@ chipsValues = [2011,2012,2013,2014]
     this.nativeJSApproach();
   }
 
-  consoleLogDropdownValue = () => {
+  consoleLogDropdownValue = (): void => {
     console.log(this.dropdownValue);
   };
 
-  closeCallback = () => {
+  closeCallback = (): void => {
     console.log('Updated: closecallback');
     this.isModalShowing = !this.isModalShowing;
   };
 
-  updatePopoverVariable = (newValue: boolean) => {
+  updatePopoverVariable = (newValue: boolean): void => {
     console.log('Updated: closecallback ', newValue);
     this.isPopoverShowing = newValue;
   };
 
-  updatedVisibility = (event: any) => {
+  updatedVisibility = (event: any): void => {
     console.log('Updated - visibility: ' + event);
   }
 
-  handleOnDelete = (event: any) => {
-    console.log("HELLO", event);
+  handleOnChange = (event: any): void => {
+    const values = [...this.filteredValues]
+    if (event.isSelected) {
+      this.filteredValues = [...this.filteredValues,event.value]
+    }
+    else if (!event.isSelected) {
+      this.filteredValues = values.filter(value => value !== event.value);
+    }
+  }
+
+  handleOnDelete = (event: number): void => {
     this.deleteValue = event
+    const values = [...this.deletableChipsList]
+    this.deletableChipsList = values.filter(value => value.value !== event);
   };
 }

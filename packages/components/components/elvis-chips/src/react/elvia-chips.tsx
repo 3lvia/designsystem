@@ -3,33 +3,43 @@ import { CheckmarkIcon, ChipsComponent, CloseIcon, ChipsTitle} from './styledCom
 
 import classnames from 'classnames';
 
-export type ChipsType = 'standard' | 'clickableCheckmark' | 'clickableDot';
+export type ChipsType = 'standard' | 'clickable';
+export type IconType = 'checkmark' | 'dot';
 export type ColorType = 'blue' | 'green' | 'orange' | 'purple' | 'red' | 'violet';
+
+export interface onChangeValue {
+  value: string;
+  isSelected: boolean;
+}
+
+// TODO: Fix correct typing
 
 export interface BaseChipsProps {
   className?: string;
   color?: ColorType;
   disabled?: boolean;
   type?: ChipsType;
+  iconType?: IconType;
   isInitiallySelected?: boolean;
   value: string;
   onDelete?: (event: string) => void;
-  valueOnChange?: (event: string) => void;
+  valueOnChange?: (event: onChangeValue) => void;
   webcomponent?: any;
 }
 
 export const Chips: FC<BaseChipsProps> = ({
   className,
+  iconType,
   color = 'green',
   disabled = false,
-  type='standard',
   isInitiallySelected,
+  type='standard',
   value,
   onDelete,
   valueOnChange,
   webcomponent,
 }) => {
-  const [isSelected, setIsSelected] = useState(isInitiallySelected)
+  const [isSelected, setIsSelected] = useState(isInitiallySelected ?? false)
   const [isHovering, setIsHovering] = useState(false)
 
   const setHover = (newState: boolean) => () => {
@@ -37,28 +47,25 @@ export const Chips: FC<BaseChipsProps> = ({
   }
 
   useEffect(()=> {
-    updateSelectedState(value)
+    updateSelectedState(value, isSelected)
   },[isSelected])
 
   const handleOnDelete = (value: string) => {
     if (!webcomponent) {
-      onDelete(value);
+      onDelete && onDelete(value);
     } else if (webcomponent) {
-      console.log("handleOnDelete")
       webcomponent.setProps({ value: value }, true);
-      webcomponent.triggerEvent('onDelete');
+      webcomponent.triggerEvent('onDelete', {value: value});
     }
   };
 
-  const updateSelectedState = (value: string) => {
+  const updateSelectedState = (value: string, isSelected: boolean) => {
     if (!webcomponent) {
-      if (valueOnChange) {
-        isSelected ? valueOnChange(value) : valueOnChange('');
-      }
+        valueOnChange && valueOnChange({value: value, isSelected: isSelected});
     }
     else if (webcomponent) {
       // True -> Prevents rerender
-      isSelected ? webcomponent.setProps({ value: value }, true) : webcomponent.setProps({ value: '' }, true);
+      webcomponent.setProps({ value: {value: value, isSelected: isSelected} }, true);
     }
   }
 
@@ -70,7 +77,7 @@ export const Chips: FC<BaseChipsProps> = ({
       color={color}
       onClick={() => {
         setIsSelected(!isSelected)
-        onDelete && handleOnDelete(value)
+        type === 'standard' && handleOnDelete(value)
       }
        }
       disabled={disabled}
@@ -79,13 +86,13 @@ export const Chips: FC<BaseChipsProps> = ({
       type={type}
       isSelected={isSelected}
       >
-        {type === 'clickableCheckmark' && <CheckmarkIcon disabled={disabled} className={classnames({
+        {iconType === 'checkmark' && <CheckmarkIcon disabled={disabled} className={classnames({
           ['showCheckmarkIcon']: isHovering || isSelected
         })}><i></i>
         </CheckmarkIcon>}
         <ChipsTitle color={color} className={classnames({
-          ['dot']: type === 'clickableDot',
-          ['clickableDot']: type === 'clickableDot' && (isHovering || isSelected),
+          ['dot']: iconType === 'dot',
+          ['showDot']: iconType === 'dot' && (isHovering || isSelected),
           ['disabledDot'] : disabled
         })} >
         {value}

@@ -20,10 +20,24 @@ function App() {
   // const [trackedState, setTrackedState] = useState(true);
   // const ref = useRef();
   //////////////////////
+
+  const deletableChipsList = [
+    {value: 2022},
+    {value: 2024, color: 'blue'},
+    {value: 2025,color: 'purple',disabled: true}
+  ]
+
+  const clickableChips = [
+    {value: 2022, color: 'green'},
+    {value: 2023, color: 'red'},
+    {value: 2024, color: 'blue', isInitiallySelected: true},
+    {value: 2025,color: 'purple'}
+  ]
+
   const [selectedState, setSelectedState] = useState(2);
   const [chipsValues, setChipsValues] = useState([2018,2019,2020,2021]);
-  const [chip1Value, setChip1Value] = useState([]);
-  const [chip2Value, setChip2Value] = useState([]);
+  const [deletableChips, setDeletableChips] = useState(deletableChipsList);
+  const [chipValue, setChipValue] = useState([]);
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
   const [isModalShowing, setIsModalShowingState] = useState(false);
@@ -177,10 +191,30 @@ function App() {
     },
   ];
 
-  const handleOnDelete = (event) => {
+  const handleOnDelete1 = (event) => {
     const values = [...chipsValues]
     setChipsValues(values.filter(value => value !== event))
   }
+
+  const handleOnDelete2 = (event) => {
+    const values = [...deletableChips]
+    setDeletableChips(values.filter(data => data.value !== event))
+  }
+
+  const [filteredValues, setFilteredValues] = useState([])
+
+  // FIXME: The list should be updated with initially selected value
+  const handleOnValueChange = (event) => {
+    const values = [...filteredValues]
+    if(event.isSelected) {
+      setFilteredValues([...filteredValues, event.value])
+    }
+    else if(!event.isSelected) {
+      setFilteredValues(values.filter(data => data !== event.value))
+    }
+  }
+
+  console.log(filteredValues)
 
   return (
     <div className="App">
@@ -303,18 +337,33 @@ function App() {
         Add chip
       </button>
       </div>
-      {console.log(chipsValues)}
       <div style={{display: 'flex', flexDirection: 'row'}}>
       {chipsValues.map(value => (
-        <Chips value={value} onDelete={handleOnDelete}>
-
+        <Chips value={value} onDelete={handleOnDelete1}>
         </Chips>
       ))
     }
     </div>
+    Deletable Chips
+     <div style={{display: 'flex', flexDirection: 'row'}}>
+      {deletableChips.map(data => (
+        <Chips value={data.value} color={data.color} disabled={data.disabled} onDelete={handleOnDelete2}>
+        </Chips>
+      ))
+    }
+    </div>
+    Clickable Chips
+     <div style={{display: 'flex', flexDirection: 'row'}}>
+      {clickableChips.map(data => (
+        <Chips value={data.value} color={data.color} isInitiallySelected={data.isInitiallySelected ?? false} type='clickable' iconType='dot' valueOnChange={handleOnValueChange}>
+        </Chips>
+      ))
+    }
+    </div>
+    Filters to apply: {filteredValues}
       <div style={{ margin: '40px 0' }}>
         <h2>Standard chip</h2>
-        <Chips value="Standard" color='blue' valueOnChange={setChip1Value} >
+        <Chips value="Standard" color='blue' valueOnChange={setChipValue} >
         </Chips>
       </div>
       <div style={{ margin: '40px 0' }}>
@@ -324,21 +373,21 @@ function App() {
       </div>
       <div style={{ margin: '40px 0' }}>
         <h2>Clickable chip without color set</h2>
-        <Chips value="Clickable1" type='clickableDot' valueOnChange={setChip1Value}>
+        <Chips value="Clickable1" type='clickable' iconType='dot' valueOnChange={setChipValue}>
         </Chips>
       </div>
       <div style={{ margin: '40px 0' }}>
         <h2>Clickable chip initally selected</h2>
-        <Chips value="Clickable2" color='orange' type='clickableDot' disabled isInitiallySelected valueOnChange={setChip2Value}>
+        <Chips value="Clickable2" color='orange' type='clickable' iconType='dot' disabled isInitiallySelected valueOnChange={setChipValue}>
         </Chips>
       </div>
       <div style={{ margin: '40px 0' }}>
         <h2>Clickable chip initally checkmark</h2>
-        <Chips value="Clickable3" color='red' type='clickableCheckmark'  useCheckmark isInitiallySelected valueOnChange={setChip2Value}>
+        <Chips value="Clickable3" color='red' type='clickable' iconType='checkmark'  useCheckmark isInitiallySelected valueOnChange={setChipValue}>
         </Chips>
       </div>
-      <div>{"Selected chip1: " + chip1Value.toString()}</div>
-      <div>{"Selected chip2: " + chip2Value.toString()}</div>
+      <div>{"Selected chip: "}</div>
+      <div>{chipValue.isSelected ? chipValue.value : ''}</div>
 
 
       <h2>Dropdown</h2>

@@ -10,15 +10,12 @@
 <div class="page-body">
   <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
   <div class="component-preview-temp component-preview-animation">
-      <div style="display: flex; flex-direction: row;">
-      <elvia-chips
-      [value]='2010'
-    ></elvia-chips>
-    <elvia-chips [value]="2010" (valueOnChange)="chipsValue = $event.detail.value " isInitiallySelected="true" type="clickableDot"  color="red"> </elvia-chips>
-        </div>
-        <div>
-          Selected value: {{chipsValue}}
-        </div>
+    <div style="display: flex; flex-direction: row">
+      <div *ngFor="let chip of deletableChipsList">
+        <elvia-chips [value]="chip.value" [color]="chip.color" [disabled]="chip.disabled" (onDelete)="handleOnDelete($event.detail.value)">
+        </elvia-chips>
+      </div>
+    </div>
       <app-component-example-generator
       [componentData]="componentData"
       [hasPreview]="false"
@@ -30,37 +27,46 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Standard'">
         <ng-container ngProjectAs="sectionContent">
-          Standard example
-          <div style="display: flex; flex-direction: row;">
-            <elvia-chips [value]="2019" color="red"> </elvia-chips>
-            <elvia-chips [value]="2019" color="red" disabled='true'>
-            </elvia-chips>
+          The standard chip type will require onDelete and a value and should disappear if clicked.
+          <div style="display: flex; flex-direction: row">
+            <div *ngFor="let chip of deletableChipsListInType">
+              <elvia-chips [value]="chip.value" [color]="chip.color" [disabled]="chip.disabled" (onDelete)="handleOnDeleteInType($event.detail.value)">
+              </elvia-chips>
+            </div>
+          </div>
+          <div>
+            Deleted value: {{deleteValue}}
           </div>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Clickable Dot'">
+      <app-component-subsection [sectionTitle]="'Clickable'">
         <ng-container ngProjectAs="sectionContent">
-          Can set a prop as initiallySelected or not
+          Clickable chips will vary between unselected and selected state whether it is clicked or not.
+          You need to choose if a dot or a checkmark icon should be displayed.
+          <app-component-subsubsection [sectionTitle]="'Dot'">
+            <ng-container ngProjectAs="sectionContent">
+            <div style="display: flex; flex-direction: row;">
+              <elvia-chips [value]="2019" type="clickable" iconType="dot" (valueOnChange)="handleOnChange($event.detail.value)"></elvia-chips>
+              <elvia-chips [value]="2020" isInitiallySelected="true" type="clickable" iconType="dot"  color="red" (valueOnChange)="handleOnChange($event.detail.value)"> </elvia-chips>
+              <elvia-chips [value]="2021" isInitiallySelected="true" type="clickable" iconType="dot" color="blue" disabled="true" (valueOnChange)="handleOnChange($event.detail.value)">
+              </elvia-chips>
+            </div>
+          </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Checkmark'">
+            <ng-container ngProjectAs="sectionContent">
           <div style="display: flex; flex-direction: row;">
-            <elvia-chips [value]="2019" type="clickableDot" color="red"> </elvia-chips>
-            <elvia-chips [value]="2019" isInitiallySelected="true" type="clickableDot"  color="red"> </elvia-chips>
-            <elvia-chips [value]="2019" isInitiallySelected="true" type="clickableDot"  color="red" disabled='true'>
+            <elvia-chips [value]="2022" type="clickable" iconType="checkmark"  (valueOnChange)="handleOnChange($event.detail.value)"> </elvia-chips>
+            <elvia-chips [value]="2023" isInitiallySelected="true" type="clickable" iconType="checkmark"  color="red"  (valueOnChange)="handleOnChange($event.detail.value)"> </elvia-chips>
+            <elvia-chips [value]="2024" isInitiallySelected="true" type="clickable" iconType="checkmark"  color="blue" disabled="true"  (valueOnChange)="handleOnChange($event.detail.value)">
             </elvia-chips>
           </div>
+          Selected values: {{filteredValues}}
         </ng-container>
-      </app-component-subsection>
+      </app-component-subsubsection>
+      </ng-container>
 
-      <app-component-subsection [sectionTitle]="'Clickable Checkmark'">
-        <ng-container ngProjectAs="sectionContent">
-          Can set a prop as initiallySelected or not
-          <div style="display: flex; flex-direction: row;">
-            <elvia-chips [value]="2019" type="clickableCheckmark" color="red"> </elvia-chips>
-            <elvia-chips [value]="2019" isInitiallySelected="true" type="clickableCheckmark"  color="red"> </elvia-chips>
-            <elvia-chips [value]="2019" isInitiallySelected="true" type="clickableCheckmark"  color="red" disabled='true'>
-            </elvia-chips>
-          </div>
-        </ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Color variants'">

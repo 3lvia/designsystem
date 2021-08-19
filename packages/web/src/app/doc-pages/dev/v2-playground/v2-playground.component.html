@@ -29,31 +29,27 @@
    {{ carouselValue }}
 
 
+   <h3>Deletable chips</h3>
    <div style="display: flex; flex-direction: row">
-     <elvia-chips [value]="2018" color="red"  (valueOnChange)="chipsValue = $event.detail.value ">
-    </elvia-chips>
-    <elvia-chips [value]="2019" color="red"  (onDelete)="deleteValue = $event.detail.value ">
-    </elvia-chips>
-    <elvia-chips [value]="2020" color="blue" disabled='true' (valueOnChange)="chipsValue = $event.detail.value ">
-    </elvia-chips>
-    <elvia-chips [value]="2021" color="orange" isInitiallySelected="true" type="clickableDot" (valueOnChange)="chipsValue = $event.detail.value ">
-    </elvia-chips>
-    <elvia-chips [value]="2021" color="purple"  type="clickableCheckmark" (valueOnChange)="chipsValue = $event.detail.value ">
-    </elvia-chips>
-    <elvia-chips [value]="2022" isInitiallySelected="true" type="clickableDot"  (valueOnChange)="chipsValue = $event.detail.value ">
-    </elvia-chips>
+    <div *ngFor="let chip of deletableChipsList">
+      <elvia-chips [value]="chip.value" [color]="chip.color" [disabled]="chip.disabled" (onDelete)="handleOnDelete($event.detail.value)">
+      </elvia-chips>
+    </div>
   </div>
-    Selected value: {{chipsValue}}
-   Value to delete: {{deleteValue}}
+  Value deleted: {{deleteValue}}
 
-   Deletable chips
-   <div style="display: flex; flex-direction: row">
-     <div *ngFor="let chip of chipsValues">
-       <elvia-chips [value]="chip" (onDelete)="handleOnDelete($event.detail.value)">
-
-       </elvia-chips>
-     </div>
-   </div>
+  <h3>Clickable chips</h3>
+  <div style="display: flex; flex-direction: row">
+   <elvia-chips [value]="2021" color="orange" type="clickable" iconType="dot"   (valueOnChange)="handleOnChange($event.detail.value)">
+   </elvia-chips>
+   <elvia-chips [value]="2022" color="purple" isInitiallySelected="true" type="clickable" iconType="dot" (valueOnChange)="handleOnChange($event.detail.value)">
+   </elvia-chips>
+   <elvia-chips [value]="2023" isInitiallySelected="true" type="clickable" iconType="checkmark"  (valueOnChange)="handleOnChange($event.detail.value)">
+   </elvia-chips>
+   <elvia-chips [value]="2024" color="violet" disabled="true" isInitiallySelected="true" type="clickable" iconType="checkmark"  (valueOnChange)="handleOnChange($event.detail.value)">
+   </elvia-chips>
+ </div>
+  Selected values: {{filteredValues}}
 
   <h2>Box</h2>
   <div style="padding: 8px">

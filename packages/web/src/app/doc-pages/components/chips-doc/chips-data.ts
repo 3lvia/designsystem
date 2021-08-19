@@ -13,6 +13,7 @@ export const chipsData = {
       isRequired: false,
       type: 'blue |  green | orange | purple | red | violet',
       description: 'Set a background color',
+      default: 'green',
     },
     disabled: {
       isRequired: false,
@@ -23,7 +24,7 @@ export const chipsData = {
     value: {
       isRequired: true,
       type: 'string',
-      description: 'The displayed in the chip',
+      description: 'The value displayed in the chip',
     },
     type: {
       isRequired: false,
@@ -52,13 +53,45 @@ export const chipsData = {
   codeImportWebComponent: `import '@elvia/elvis-chips';`,
   codeReact:
     `
-    const [chip1Value, setChip1Value] = useState([]);
+    const deletableChipsList = [
+      {value: 2022},
+      {value: 2024, color: 'blue'},
+      {value: 2025,color: 'purple',disabled: true}
+    ]
 
-    <Chips value="2010">
-    </Chips>`,
+    const [deletableChips, setDeletableChips] = useState(deletableChipsList);
+
+
+    const handleOnDelete = (event) => {
+      const values = [...deletableChips]
+      setDeletableChips(values.filter(data => data.value !== event))
+    }
+
+  <div style={{display: 'flex', flexDirection: 'row'}}>
+    {deletableChips.map(data => (
+      <Chips value={data.value} color={data.color} disabled={data.disabled} onDelete={handleOnDelete}>
+      </Chips>
+    ))}
+  </div>`,
   codeWebComponent:
-    `<elvia-chips [value]="2010">
-    </elvia-chips>`,
+    `
+    deletableChipsList = [
+      {value: 2022},
+      {value: 2023, color: 'blue'},
+      {value: 2024,color: 'purple',disabled: true}
+    ]
+
+    handleOnDelete = (event: number): void => {
+      const values = [...this.deletableChipsList]
+      this.deletableChipsList = values.filter(value => value.value !== event);
+    };
+
+  <div style="display: flex; flex-direction: row">
+    <div *ngFor="let chip of deletableChipsList">
+      <elvia-chips [value]="chip.value" [color]="chip.color" [disabled]="chip.disabled" (onDelete)="handleOnDelete($event.detail.value)">
+      </elvia-chips>
+    </div>
+  </div>`,
   does: ['To provide an overview of selected options and allows you to easily remove them',
   'Use together with an inputfield'],
   donts: [

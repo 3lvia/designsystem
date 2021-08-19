@@ -18,8 +18,8 @@ const setOpacity = (color: string, opacity: number): string => `${color}${opacit
 
 
 const setBackgroundColor = (color: ColorType, isSelected: boolean, type: string) => {
-  if (type === 'clickableDot' || type === 'clickableCheckmark') {
-    return isSelected ? setOpacity(colors[color], 40) : colors.elviaOn
+  if (type  ==='clickable') {
+    return isSelected ? setOpacity(colors[color], 40) : 'colors.elviaOn'
   }
   else {
     return setOpacity(colors[color], 40)
@@ -34,7 +34,6 @@ export const ChipsComponent = styled.button`
   border: none;
   background-color: ${(props: { color: ColorType; isSelected: boolean; type: string }) =>
     setBackgroundColor(props.color, props.isSelected, props.type)
-
   };
   margin: 8px;
   cursor: ${(props: { disabled: boolean }) =>  props.disabled ? 'not-allowed' : 'pointer'};
@@ -65,7 +64,7 @@ export const ChipsTitle = styled.div`
       margin: 0 8px 0 0;
     }
   }
-  &.clickableDot {
+  &.showDot {
     ::before {
       background-color: ${(props: { color: ColorType }) =>
       colors[props.color]};
@@ -93,16 +92,6 @@ const IconSpan = styled.span`
   }
 `;
 
-/* export const Dot = styled(OpacitySpan)`
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  background-color: ${(props: { color: string; isSelected: boolean; isHovering: boolean }) =>
-    props.isSelected || props.isHovering ? props.color : colors.elviaOn};
-  margin: 0 8px 0 0;
-  padding: 0;
-`;
- */
 
 export const CheckmarkIcon = styled(IconSpan)`
   &.showCheckmarkIcon {
