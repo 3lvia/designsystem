@@ -6,6 +6,32 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.9.3
+      </span>
+      <br>
+      <span>
+        August 13, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://localhost:4200/components/fileUpload#Overview">File Upload</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Deprecated pseudoclass "e-fileupload---hover", now using new modifier "e-fileupload--dragover". 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.9.1
       </span>
       <br>
