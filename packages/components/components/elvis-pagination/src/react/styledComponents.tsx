@@ -114,7 +114,7 @@ export const PaginatorNumber = styled.button`
   letter-spacing: 0.2px;
   text-align: center;
 
-  display: flex;
+  display: ${(props: { noShow: boolean }) => (props.noShow ? 'none' : 'flex')};;
   justify-content: center;
   align-items: center;
   background: transparent;
@@ -146,5 +146,5 @@ export const PaginatorDots = styled.div`
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
-  width: 20px;
+  width: ${(props: { noDots: boolean }) => (props.noDots ? '0px' : '20px')};
 `;
