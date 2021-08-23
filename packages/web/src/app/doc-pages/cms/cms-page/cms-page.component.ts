@@ -26,7 +26,7 @@ export class CMSPageComponent {
 
       const url = route.snapshot.url;
       const menu = await this.cmsService.getMenu(locale);
-
+      console.log(menu);
       const subMenu = menu['pages'].find(sub => sub.path === url[0].path);
       if (!subMenu) {
         console.error("FOUND NO SUBMENU WITH THAT PATH");
