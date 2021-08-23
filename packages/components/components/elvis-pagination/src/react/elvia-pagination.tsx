@@ -50,9 +50,9 @@ const Pagination: FC<PaginationProps> = ({
   isRightAligned = false,
   dropdownMenuPos = 'bottom',
   paginatorDropdownOptions = paginationOptions,
-  label = 'elements',
-  labelDisplaying = 'Show',
-  labelOf = 'of',
+  label = 'elementer',
+  labelDisplaying = 'Viser',
+  labelOf = 'av',
   valueOnChange,
   webcomponent,
 }) => {
@@ -115,11 +115,12 @@ const Pagination: FC<PaginationProps> = ({
 
   // Visible numbers in paginator
   const Paginators = (): JSX.Element => {
+
     const visibleNumbers: JSX.Element[] = [];
     const isShowAll = false;
     const isMobile = windowWidth < 768;
 
-    // helper functions to determine what numbers get added to visible array
+    // helper functions to determine what numbers get added to visible array 
     const getNumbersWhenSelectedBetween1and5 = (selectionNumber: number): boolean => {
       return selectionNumber === 1 || selectionNumber < 5;
     };

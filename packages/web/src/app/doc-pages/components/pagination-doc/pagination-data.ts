@@ -49,19 +49,19 @@ export const paginationData = {
       isRequired: false,
       type: 'string',
       description: 'First label in front of dropdown menu',
-      default: 'Show',
+      default: 'Viser',
     },
     labelOf: {
       isRequired: false,
       type: 'string',
       description: 'Label between dropdown menu and amount of items being showed',
-      default: 'of',
+      default: 'av',
     },
     label: {
       isRequired: false,
       type: 'string',
       description: 'Label for describing what kind of data is displayed, eg. rows, items.',
-      default: 'elements',
+      default: 'elementer',
     },
     valueOnChange: {
       isRequired: false,
