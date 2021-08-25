@@ -12,10 +12,7 @@ export interface onChangeValue {
   isSelected: boolean;
 }
 
-// TODO: Fix correct typing
-
 export interface BaseChipsProps {
-  className?: string;
   color?: ColorType;
   disabled?: boolean;
   type?: ChipsType;
@@ -28,7 +25,6 @@ export interface BaseChipsProps {
 }
 
 export const Chips: FC<BaseChipsProps> = ({
-  className,
   iconType,
   color = 'green',
   disabled = false,
@@ -73,7 +69,6 @@ export const Chips: FC<BaseChipsProps> = ({
       <ChipsComponent
       //aria-label={``}
       aria-selected={isSelected}
-      className={className}
       color={color}
       onClick={() => {
         setIsSelected(!isSelected)

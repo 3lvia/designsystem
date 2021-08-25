@@ -48,7 +48,6 @@ module.exports = [
     name: 'elvis-chips',
     elementName: 'elvia-chips',
     attributes: [
-      { name: 'className', type: 'string' },
       { name: 'color', type: 'string' },
       { name: 'disabled', type: 'boolean' },
       { name: 'value', type: 'string' },
