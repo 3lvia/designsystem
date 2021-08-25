@@ -1,0 +1,111 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Chip</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
+  <div class="component-preview-temp component-preview-animation">
+    <div style="display: flex; flex-direction: row">
+      <div *ngFor="let chip of deletableChipsList">
+        <elvia-chip [value]="chip.value" [color]="chip.color"  [ariaLabel]="'Fjern filtrering for ' + chip.value" [disabled]="chip.disabled" (onDelete)="handleOnDelete($event.detail.value)">
+        </elvia-chip>
+      </div>
+    </div>
+      <app-component-example-generator
+      [componentData]="componentData"
+      [hasPreview]="false"
+    ></app-component-example-generator>
+  </div>
+
+  <!-- TYPE -->
+  <app-component-section [sectionTitle]="'Type'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Removable'">
+        <ng-container ngProjectAs="sectionContent">
+          The Removable chip type is removed when it's clicked
+          <div style="display: flex; flex-direction:ChCrow">
+            <div *ngFor="let chip of deletableChipsListInType">
+              <elvia-chip [value]="chip.value" [color]="chip.color" [disabled]="chip.disabled" (onDelete)="handleOnDeleteInType($event.detail.value)">
+              </elvia-chip>
+            </div>
+          </div>
+          <div>
+            Deleted values: {{deletedValues}}
+          </div>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Legend'">
+        <ng-container ngProjectAs="sectionContent">
+          Legend chips are selectable. It is primarily used for visualization in graphs
+            <div style="display: flex; flex-direction: row;">
+              <elvia-chip [value]="2019" type="legend" (valueOnChange)="handleOnChange($event.detail.value)"></elvia-chip>
+              <elvia-chip [value]="2020" isInitiallySelected="true" type="legend"  color="red" (valueOnChange)="handleOnChange($event.detail.value)"> </elvia-chip>
+              <elvia-chip [value]="2021" isInitiallySelected="true" type="legend"  color="blue" disabled="true" (valueOnChange)="handleOnChange($event.detail.value)">
+              </elvia-chip>
+            </div>
+            </ng-container>
+          </app-component-subsection>
+
+          <app-component-subsection [sectionTitle]="'Choice'">
+            <ng-container ngProjectAs="sectionContent">
+              Choice chips are selectable. It is used for filtration in tables or choice.
+          <div style="display: flex; flex-direction: row;">
+            <elvia-chip [value]="2022" type="choice" iconType="checkmark"  (valueOnChange)="handleOnChange($event.detail.value)"> </elvia-chip>
+            <elvia-chip [value]="2023" isInitiallySelected="true" type="choice" (valueOnChange)="handleOnChange($event.detail.value)"> </elvia-chip>
+            <elvia-chip [value]="2024" isInitiallySelected="true" type="choice" disabled="true"  (valueOnChange)="handleOnChange($event.detail.value)">
+            </elvia-chip>
+          </div>
+          Selected values: {{filteredValues}}
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Color variants'">
+        <ng-container ngProjectAs="sectionContent">
+          In case you want to categorize chips you can use different colors to distinguish them from each
+          other.
+          <div style="display: flex; flex-direction: row;">
+            <elvia-chip value="2018" color="green">
+            </elvia-chip>
+            <elvia-chip value="2019" color="red">
+            </elvia-chip>
+            <elvia-chip value="2020" color="blue">
+            </elvia-chip>
+            <elvia-chip value="2021" color="orange">
+            </elvia-chip>
+            <elvia-chip value="2022" color="purple">
+            </elvia-chip>
+            <elvia-chip value="2023" color="violet">
+            </elvia-chip>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- USAGE -->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+   <!--INSTALLATION-->
+   <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'" >
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+</div>

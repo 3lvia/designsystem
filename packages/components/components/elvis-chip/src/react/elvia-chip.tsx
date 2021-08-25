@@ -1,10 +1,9 @@
 import React, { FC, useState, useEffect } from 'react';
-import { CheckmarkIcon, ChipsComponent, CloseIcon, ChipsTitle} from './styledComponents';
+import { CheckmarkIcon, ChipComponent, CloseIcon, ChipTitle} from './styledComponents';
 
 import classnames from 'classnames';
 
-export type ChipsType = 'standard' | 'clickable';
-export type IconType = 'checkmark' | 'dot';
+export type ChipType = 'removable' | 'legend' | 'choice';
 export type ColorType = 'blue' | 'green' | 'orange' | 'purple' | 'red' | 'violet';
 
 export interface onChangeValue {
@@ -12,11 +11,11 @@ export interface onChangeValue {
   isSelected: boolean;
 }
 
-export interface BaseChipsProps {
+export interface BaseChipProps {
+  ariaLabel?: string;
   color?: ColorType;
   disabled?: boolean;
-  type?: ChipsType;
-  iconType?: IconType;
+  type?: ChipType;
   isInitiallySelected?: boolean;
   value: string;
   onDelete?: (event: string) => void;
@@ -24,12 +23,12 @@ export interface BaseChipsProps {
   webcomponent?: any;
 }
 
-export const Chips: FC<BaseChipsProps> = ({
-  iconType,
+export const Chip: FC<BaseChipProps> = ({
+  ariaLabel,
   color = 'green',
   disabled = false,
   isInitiallySelected,
-  type='standard',
+  type='removable',
   value,
   onDelete,
   valueOnChange,
@@ -50,7 +49,6 @@ export const Chips: FC<BaseChipsProps> = ({
     if (!webcomponent) {
       onDelete && onDelete(value);
     } else if (webcomponent) {
-      webcomponent.setProps({ value: value }, true);
       webcomponent.triggerEvent('onDelete', {value: value});
     }
   };
@@ -66,13 +64,13 @@ export const Chips: FC<BaseChipsProps> = ({
   }
 
   return (
-      <ChipsComponent
-      //aria-label={``}
+      <ChipComponent
+      aria-label={ariaLabel}
       aria-selected={isSelected}
       color={color}
       onClick={() => {
         setIsSelected(!isSelected)
-        type === 'standard' && handleOnDelete(value)
+        type === 'removable' && handleOnDelete(value)
       }
        }
       disabled={disabled}
@@ -81,20 +79,20 @@ export const Chips: FC<BaseChipsProps> = ({
       type={type}
       isSelected={isSelected}
       >
-        {iconType === 'checkmark' && <CheckmarkIcon disabled={disabled} className={classnames({
+        {type === 'choice' && <CheckmarkIcon disabled={disabled} className={classnames({
           ['showCheckmarkIcon']: isHovering || isSelected
         })}><i></i>
         </CheckmarkIcon>}
-        <ChipsTitle color={color} className={classnames({
-          ['dot']: iconType === 'dot',
-          ['showDot']: iconType === 'dot' && (isHovering || isSelected),
+        <ChipTitle color={color} className={classnames({
+          ['dot']: type === 'legend',
+          ['showDot']: type === 'legend' && (isHovering || isSelected),
           ['disabledDot'] : disabled
         })} >
         {value}
-        </ChipsTitle>
-          {type === 'standard' && <CloseIcon disabled={disabled}><i></i></CloseIcon>}
-        </ChipsComponent>
+        </ChipTitle>
+          {type === 'removable' && <CloseIcon disabled={disabled}><i></i></CloseIcon>}
+        </ChipComponent>
   );
 };
 
-export default Chips;
+export default Chip;

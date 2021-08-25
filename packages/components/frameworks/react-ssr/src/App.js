@@ -8,7 +8,7 @@ import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
 import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';
 import { Carousel } from '@elvia/elvis-carousel/react';
-import { Chips } from '@elvia/elvis-chips/react';
+import { Chip } from '@elvia/elvis-chip/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
@@ -337,32 +337,32 @@ function App() {
       </div>
       <div style={{display: 'flex', flexDirection: 'row'}}>
       {chipsValues.map(value => (
-        <Chips value={value} onDelete={handleOnDelete1}>
-        </Chips>
+        <Chip value={value} onDelete={handleOnDelete1}>
+        </Chip>
       ))
     }
     </div>
     Deletable Chips
      <div style={{display: 'flex', flexDirection: 'row'}}>
       {deletableChips.map(data => (
-        <Chips value={data.value} color={data.color} disabled={data.disabled} onDelete={handleOnDelete2}>
-        </Chips>
+        <Chip value={data.value} color={data.color} disabled={data.disabled} ariaLabel={`Fjern filtreringen for ${data.value}`} onDelete={handleOnDelete2}>
+        </Chip>
       ))
     }
     </div>
     Clickable Chips
      <div style={{display: 'flex', flexDirection: 'row'}}>
       {clickableChips.map(data => (
-        <Chips value={data.value} color={data.color} isInitiallySelected={data.isInitiallySelected}  disabled={data.disabled} type='clickable' iconType='dot' valueOnChange={handleOnValueChange}>
-        </Chips>
+        <Chip value={data.value} color={data.color} isInitiallySelected={data.isInitiallySelected}  disabled={data.disabled} type='legend' valueOnChange={handleOnValueChange}>
+        </Chip>
       ))
     }
     </div>
     Filters to apply: {filteredValues}
       <div style={{ margin: '40px 0' }}>
         <h2>Clickable chip initally checkmark</h2>
-        <Chips value="Clickable3" color='red' type='clickable' iconType='checkmark'  useCheckmark isInitiallySelected valueOnChange={setChipValue}>
-        </Chips>
+        <Chip value="Clickable3" type='choice' isInitiallySelected valueOnChange={setChipValue}>
+        </Chip>
       </div>
       <div>{"Selected chip: "}</div>
       <div>{chipValue.isSelected ? chipValue.value : ''}</div>

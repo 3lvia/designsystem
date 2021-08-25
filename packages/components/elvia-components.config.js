@@ -45,9 +45,10 @@ module.exports = [
     slotItems: false,
   },
   {
-    name: 'elvis-chips',
-    elementName: 'elvia-chips',
+    name: 'elvis-chip',
+    elementName: 'elvia-chip',
     attributes: [
+      { name: 'ariaLabel', type: 'string' },
       { name: 'color', type: 'string' },
       { name: 'disabled', type: 'boolean' },
       { name: 'value', type: 'string' },
@@ -55,7 +56,7 @@ module.exports = [
       { name: 'iconType', type: 'string' },
       { name: 'isInitiallySelected', type: 'boolean' },
     ],
-    reactName: 'Chips',
+    reactName: 'Chip',
     slotItems: false,
   },
   // {

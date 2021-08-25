@@ -65,7 +65,7 @@ import { PatternsDocComponent } from './doc-pages/tools/patterns-doc/patterns-do
 import { GetStartedDesignersComponent } from './doc-pages/get-started/get-started-designers/get-started-designers.component';
 import { ContactComponent } from './doc-pages/community/contact/contact.component';
 import { TheDesignSystemDocComponent } from './doc-pages/get-started/the-design-system-doc/the-design-system-doc.component';
-import { ChipsDocComponent } from './doc-pages/components/chips-doc/chips-doc.component';
+import { ChipDocComponent } from './doc-pages/components/chip-doc/chip-doc.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
 import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
@@ -214,7 +214,7 @@ const routes: Routes = [
           },
           {
             path: Pages.Chips,
-            component: ChipsDocComponent,
+            component: ChipDocComponent,
           },
           {
             path: Pages.Checkbox,

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ColorType } from './elvia-chips';
+import { ColorType } from './elvia-chip';
 
 export const colors = {
   elviaCharge:  '#29d305',
@@ -18,7 +18,7 @@ const setOpacity = (color: string, opacity: number): string => `${color}${opacit
 
 
 const setBackgroundColor = (color: ColorType, isSelected: boolean, type: string) => {
-  if (type  ==='clickable') {
+  if (type  !=='removable') {
     return isSelected ? setOpacity(colors[color], 40) : 'colors.elviaOn'
   }
   else {
@@ -26,7 +26,7 @@ const setBackgroundColor = (color: ColorType, isSelected: boolean, type: string)
   }
 }
 
-export const ChipsComponent = styled.button`
+export const ChipComponent = styled.button`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -42,11 +42,11 @@ export const ChipsComponent = styled.button`
   padding: calc(8px - 1px) calc(16px - 1px);
   border-radius: 24px;
   &:hover:not(:disabled) {
-    background-color: ${(props: {type: string}) => props.type === 'standard' ? colors.elviaCharge : 'transparent'};
+    background-color: ${(props: {type: string}) => props.type === 'legend' ? 'transparent' : colors.elviaCharge};
   }
 `;
 
-export const ChipsTitle = styled.div`
+export const ChipTitle = styled.div`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
   text-transform: 'unset';
@@ -77,7 +77,7 @@ export const ChipsTitle = styled.div`
   }
 `;
 
-const IconSpan = styled.span`
+const SpanIcon = styled.span`
   border: none;
   background: transparent;
   display: flex;
@@ -93,7 +93,7 @@ const IconSpan = styled.span`
 `;
 
 
-export const CheckmarkIcon = styled(IconSpan)`
+export const CheckmarkIcon = styled(SpanIcon)`
   &.showCheckmarkIcon {
     visibility: visible;
   }
@@ -106,7 +106,7 @@ export const CheckmarkIcon = styled(IconSpan)`
   }
 `;
 
-export const CloseIcon = styled(IconSpan)`
+export const CloseIcon = styled(SpanIcon)`
   padding-left: 8px;
   i {
     background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M23.636 2.122A1.243 1.243 0 1021.878.364L12 10.242 2.122.364A1.243 1.243 0 00.364 2.122L10.242 12 .364 21.878a1.243 1.243 0 101.758 1.758L12 13.758l9.878 9.878a1.243 1.243 0 101.758-1.758L13.758 12l9.878-9.878z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath fill='white' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
