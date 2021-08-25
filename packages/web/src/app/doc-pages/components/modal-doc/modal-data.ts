@@ -44,7 +44,7 @@ const modalData = {
       isRequired: true,
       type: '() => void',
       description: 'Callback for every time the modal is being closed.',
-    }
+    },
   },
   package: 'npm install @elvia/elvis-modal',
   codeImportReact: `import { Modal } from '@elvia/elvis-modal/react';`,

@@ -23,7 +23,7 @@ function App() {
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
   const [isModalShowing, setIsModalShowingState] = useState(false);
-  const [isPopoverShowing, setIsPopoverShowingState] = useState(true);
+  const [isPopoverShowing, setIsPopoverShowingState] = useState(false);
   const [progressValue, setProgressValue] = useState(0);
 
   function increaseProgress() {
