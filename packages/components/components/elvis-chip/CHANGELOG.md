@@ -1,8 +1,8 @@
-# Elvia Chips Changelog
+# Elvia Chip Changelog
 
-## 1.0.0 (28.06.21)
+## 1.0.0 (25.08.21)
 
 ### New features
 
-- First version of the Chips component
+- First version of the Chip component
 
