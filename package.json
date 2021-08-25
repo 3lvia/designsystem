@@ -55,9 +55,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
-    "prettier": "^2.0.5",
-    "@vue/cli-service": "4.5.13",
-    "@vue/cli-plugin-eslint": "~4.5.0"
+    "prettier": "^2.0.5"
   },
   "devDependencies": {
     "@percy/script": "^1.1.0",
@@ -68,6 +66,8 @@
     "husky": "^4.2.5",
     "lint-staged": "^10.2.7",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "@vue/cli-service": "4.5.13",
+    "@vue/cli-plugin-eslint": "~4.5.0"
   }
 }
