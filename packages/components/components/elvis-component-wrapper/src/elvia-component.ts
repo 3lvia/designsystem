@@ -241,6 +241,8 @@ export class ElvisComponentWrapper extends HTMLElement {
       const val = this.getAttribute(attr.name.toLowerCase());
       if (val !== null && (dataAttr === null || typeof dataAttr === 'undefined')) {
         this._data[attr.name.toLowerCase()] = this.convertString(val, attr.type, attr.name);
+      } else if (attr.type !== 'string' && typeof dataAttr === 'string') {
+        this._data[attr.name.toLowerCase()] = this.convertString(dataAttr, attr.type, attr.name);
       }
     });
   }
