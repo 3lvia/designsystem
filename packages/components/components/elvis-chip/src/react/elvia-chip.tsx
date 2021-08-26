@@ -1,5 +1,5 @@
 import React, { FC, useState, useEffect } from 'react';
-import { CheckmarkIcon, ChipComponent, CloseIcon, ChipTitle} from './styledComponents';
+import { CheckmarkIcon, ChipComponent, CloseIcon, ChipTitle } from './styledComponents';
 
 import classnames from 'classnames';
 
@@ -16,7 +16,7 @@ export interface BaseChipProps {
   color?: ColorType;
   disabled?: boolean;
   type?: ChipType;
-  isInitiallySelected?: boolean;
+  selected?: boolean;
   value: string;
   onDelete?: (event: string) => void;
   valueOnChange?: (event: onChangeValue) => void;
@@ -27,71 +27,83 @@ export const Chip: FC<BaseChipProps> = ({
   ariaLabel,
   color = 'green',
   disabled = false,
-  isInitiallySelected,
-  type='removable',
+  selected,
+  type = 'removable',
   value,
   onDelete,
   valueOnChange,
   webcomponent,
 }) => {
-  const [isSelected, setIsSelected] = useState(isInitiallySelected)
-  const [isHovering, setIsHovering] = useState(false)
+  const [isSelected, setIsSelected] = useState(selected);
+  const [isHovering, setIsHovering] = useState(false);
 
   const setHover = (newState: boolean) => () => {
-    setIsHovering(newState)
-  }
+    setIsHovering(newState);
+  };
 
-  useEffect(()=> {
-    isSelected !== undefined && updateSelectedState(value, isSelected)
-  },[isSelected])
+  useEffect(() => {
+    setIsSelected(selected);
+  }, [selected]);
 
   const handleOnDelete = (value: string) => {
     if (!webcomponent) {
       onDelete && onDelete(value);
     } else if (webcomponent) {
-      webcomponent.triggerEvent('onDelete', {value: value});
+      webcomponent.triggerEvent('onDelete', { value: value });
     }
   };
 
   const updateSelectedState = (value: string, isSelected: boolean) => {
+    setIsSelected(isSelected);
     if (!webcomponent) {
-        valueOnChange && valueOnChange({value: value, isSelected: isSelected});
-    }
-    else if (webcomponent) {
+      valueOnChange && valueOnChange({ value: value, isSelected: isSelected });
+    } else if (webcomponent) {
       // True -> Prevents rerender
-      webcomponent.setProps({ value: {value: value, isSelected: isSelected} }, true);
+      webcomponent.setProps({ value: { value: value, isSelected: isSelected } }, true);
     }
-  }
+  };
 
   return (
-      <ChipComponent
+    <ChipComponent
       aria-label={ariaLabel}
       aria-selected={isSelected}
       color={color}
       onClick={() => {
-        setIsSelected(!isSelected)
-        type === 'removable' && handleOnDelete(value)
-      }
-       }
+        updateSelectedState(value, !isSelected);
+        type === 'removable' && handleOnDelete(value);
+      }}
       disabled={disabled}
       onMouseEnter={setHover(true)}
       onMouseLeave={setHover(false)}
       type={type}
       isSelected={isSelected}
-      >
-        {type === 'choice' && <CheckmarkIcon disabled={disabled} className={classnames({
-          ['showCheckmarkIcon']: isHovering || isSelected
-        })}><i></i>
-        </CheckmarkIcon>}
-        <ChipTitle color={color} className={classnames({
+    >
+      {type === 'choice' && (
+        <CheckmarkIcon
+          disabled={disabled}
+          className={classnames({
+            ['showCheckmarkIcon']: isHovering || isSelected,
+          })}
+        >
+          <i></i>
+        </CheckmarkIcon>
+      )}
+      <ChipTitle
+        color={color}
+        className={classnames({
           ['dot']: type === 'legend',
           ['showDot']: type === 'legend' && (isHovering || isSelected),
-          ['disabledDot'] : disabled
-        })} >
+          ['disabledDot']: disabled,
+        })}
+      >
         {value}
-        </ChipTitle>
-          {type === 'removable' && <CloseIcon disabled={disabled}><i></i></CloseIcon>}
-        </ChipComponent>
+      </ChipTitle>
+      {type === 'removable' && (
+        <CloseIcon disabled={disabled}>
+          <i></i>
+        </CloseIcon>
+      )}
+    </ChipComponent>
   );
 };
 
