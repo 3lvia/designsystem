@@ -28,7 +28,7 @@
     "@elvia/elvis": "*",
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-carousel": "0.0.1-beta.6",
-    "@elvia/elvis-chip": "1.0.1",
+    "@elvia/elvis-chip": "1.0.2",
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-breadcrumb": "*",
     "@elvia/elvis-dropdown": "*",
