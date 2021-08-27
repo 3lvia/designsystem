@@ -19,7 +19,7 @@ const setOpacity = (color: string, opacity: number): string => `${color}${opacit
 
 const setBackgroundColor = (color: ColorType, isSelected: boolean, type: string) => {
   if (type  !=='removable') {
-    return isSelected ? setOpacity(colors[color], 40) : 'colors.elviaOn'
+    return isSelected ? setOpacity(colors[color], 40) : 'transparent'
   }
   else {
     return setOpacity(colors[color], 40)
@@ -60,7 +60,7 @@ export const ChipTitle = styled.div`
       height: 10px;
       width: 10px;
       border-radius: 50%;
-      background-color: ${colors.elviaOn};
+      background-color: transparent;
       margin: 0 8px 0 0;
     }
   }
