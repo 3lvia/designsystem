@@ -9,7 +9,7 @@
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-breadcrumb": "*",
     "@elvia/elvis-carousel": "0.0.1-beta.6",
-    "@elvia/elvis-chip": "1.0.0",
+    "@elvia/elvis-chip": "1.0.1",
     "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-datepicker": "*",
     "@elvia/elvis-dropdown": "*",

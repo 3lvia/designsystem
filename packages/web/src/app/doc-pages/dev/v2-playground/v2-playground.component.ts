@@ -39,18 +39,19 @@ export class v2PlaygroundComponent implements OnInit {
 
   carouselValue = 0;
 
-deleteValue = 0;
+  deleteValue = 0;
 
-filteredValues = []
+  filteredValues = { 2021: false, 2022: true, 2023: true, 2024: true };
+  filteredKeys = Object.keys(this.filteredValues);
 
-deletableChipsList = [
-  {value: 2022, color: 'green'},
-  {value: 2023, color: 'red'},
-  {value: 2024, color: 'blue'},
-  {value: 2025,color: 'purple',disabled: true}
-]
+  deletableChipsList = [
+    { value: 2022, color: 'green' },
+    { value: 2023, color: 'red' },
+    { value: 2024, color: 'blue' },
+    { value: 2025, color: 'purple', disabled: true },
+  ];
 
- elements = [
+  elements = [
     {
       title: 'Dette er nytt',
       element: this.carouselParagraph,
@@ -154,21 +155,15 @@ deletableChipsList = [
 
   updatedVisibility = (event: any): void => {
     console.log('Updated - visibility: ' + event);
-  }
+  };
 
   handleOnChange = (event: any): void => {
-    const values = [...this.filteredValues]
-    if (event.isSelected) {
-      this.filteredValues = [...this.filteredValues,event.value]
-    }
-    else if (!event.isSelected) {
-      this.filteredValues = values.filter(value => value !== event.value);
-    }
-  }
+    this.filteredValues = { ...this.filteredValues, [event.value]: event.isSelected };
+  };
 
   handleOnDelete = (event: number): void => {
-    this.deleteValue = event
-    const values = [...this.deletableChipsList]
-    this.deletableChipsList = values.filter(value => value.value !== event);
+    this.deleteValue = event;
+    const values = [...this.deletableChipsList];
+    this.deletableChipsList = values.filter((value) => value.value !== event);
   };
 }

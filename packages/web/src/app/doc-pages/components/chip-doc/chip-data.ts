@@ -1,4 +1,3 @@
-
 export const chipData = {
   name: 'elvis-chip',
   elementNameW: 'elvia-chip',
@@ -7,7 +6,8 @@ export const chipData = {
     ariaLabel: {
       isRequired: true,
       type: 'string',
-      description: 'Aria label should be added for accessibility. Check out the code example in top for inspiration',
+      description:
+        'Aria label should be added for accessibility. Check out the code example in top for inspiration',
     },
     color: {
       isRequired: false,
@@ -32,10 +32,10 @@ export const chipData = {
       description: 'Which type of chip should be displayed',
       default: 'standard',
     },
-    initiallySelected: {
+    selected: {
       isRequired: false,
       type: 'boolean',
-      description: 'If the chip should be selected initially. Optional on legend and choice types',
+      description: 'If the chip should be selected. Optional on legend and choice types',
     },
     valueOnChange: {
       isRequired: false,
@@ -51,8 +51,7 @@ export const chipData = {
   package: 'npm install @elvia/elvis-chip',
   codeImportReact: `import { Chip } from '@elvia/elvis-chip/react';`,
   codeImportWebComponent: `import '@elvia/elvis-chip';`,
-  codeReact:
-    `
+  codeReact: `
     const deletableChipsList = [
       {value: 2022},
       {value: 2024, color: 'blue'},
@@ -73,8 +72,7 @@ export const chipData = {
       </Chip>
     ))}
   </div>`,
-  codeWebComponent:
-    `
+  codeWebComponent: `
     deletableChipsList = [
       {value: 2022},
       {value: 2023, color: 'blue'},
@@ -92,8 +90,9 @@ export const chipData = {
       </elvia-chip>
     </div>
   </div>`,
-  does: ['To provide an overview of selected options and allows you to easily remove them',
-  'Use together with an inputfield'],
-  donts: [
-    'Not to be used alone without inputfield'  ],
+  does: [
+    'To provide an overview of selected options and allows you to easily remove them',
+    'Use together with an inputfield',
+  ],
+  donts: ['Not to be used alone without inputfield'],
 };

@@ -54,7 +54,7 @@ module.exports = [
       { name: 'value', type: 'string' },
       { name: 'type', type: 'string' },
       { name: 'iconType', type: 'string' },
-      { name: 'isInitiallySelected', type: 'boolean' },
+      { name: 'selected', type: 'boolean' },
     ],
     reactName: 'Chip',
     slotItems: false,
