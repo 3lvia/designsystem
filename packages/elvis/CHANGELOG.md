@@ -25,6 +25,17 @@
             </li>
           </ul>
         </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://localhost:4200/components/accordion#Overview">Modal</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Adjustment of z-index so it is now possible to use a datepicker inside a modal content area.
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="changelog-divider"></div>
     </td>
