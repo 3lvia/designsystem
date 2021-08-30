@@ -6,14 +6,14 @@ const Ajv = require("ajv");
 const ajv = new Ajv();
 const data = require('../elvia-components.config');
 
-function validateElviaComponentsConfig() {
+async function validateElviaComponentsConfig() {
     const schema = {
         type: "array",
         items: {
             type: "object",
             properties: {
-                "name": { type: "string" },
-                "elementName": { type: "string" },
+                "name": { type: "string", pattern: "(elvis-)([a-zA-Z0-9])+" },
+                "elementName": { type: "string", pattern: "(elvia-)([a-zA-Z0-9])+" },
                 "attributes": {
                     type: "array",
                     items: {
@@ -24,7 +24,7 @@ function validateElviaComponentsConfig() {
                         }
                     }
                 },
-                "reactName": { type: "string" },
+                "reactName": { type: "string", pattern: "([A-Z0-9]){1}([a-zA-Z0-9])+" },
                 "useWrapper": { type: "boolean" },
                 "slotItems": { type: "boolean" },
                 "elementStyle": { type: "string" },
@@ -44,11 +44,11 @@ function validateElviaComponentsConfig() {
 
     if (!valid) {
         console.log("\nJSON Validation - Error\n\nErrors elvia-components.config.js:");
-        console.log(validate.errors);
-        return false;
+        console.error(validate.errors);
+        return Promise.resolve(false);
     } else {
         console.log("\nJSON Validation - Successfully validated elvia-components.config.js\n")
-        return true;
+        return Promise.resolve(true);
     }
 }
 

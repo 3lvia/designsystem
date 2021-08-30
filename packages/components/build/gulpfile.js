@@ -10,7 +10,7 @@ const path = require('path');
 let components = require('../elvia-components.config');
 const rename = require("gulp-rename");
 const fs = require('fs');
-const validateElviaComponentsConfig = require('validateConfig.js');
+const validate = require('./validateConfig.js');
 
 
 const WARNING = `/* 
@@ -166,9 +166,10 @@ gulp.task('cleanup', gulp.series(cleanup, function (done) { done(); console.log(
 
 gulp.task(
     'default',
+
     gulp.series(
         //cleanup,
-        validateElviaComponentsConfig,
+        validate.validateElviaComponentsConfig,
         TSX_to_JS,
         buildWebComponentsMagically,
         buildElviaComponentToJS,
