@@ -149,8 +149,25 @@ const Pagination: FC<PaginationProps> = ({
       } else if (
         mobile &&
         NumberInArray > 1 &&
-        NumberInArray <= 4 &&
+        NumberInArray < 5 &&
+        selectedNumber !== 4 &&
         NumberInArray !== SelectionArrayLenght
+      ) {
+        return (
+          <StyledPaginator.PaginatorNumber
+            selected={activeNumber(NumberInArray)}
+            key={indexNumber}
+            onClick={() => setSelectedNumber(NumberInArray)}
+          >
+            {NumberInArray}
+          </StyledPaginator.PaginatorNumber>
+        );
+      } else if (
+        mobile &&
+        selectedNumber === 4 &&
+        NumberInArray >= selectedNumber - 1 &&
+        NumberInArray <= selectedNumber + 1 &&
+        NumberInArray < 6
       ) {
         return (
           <StyledPaginator.PaginatorNumber
