@@ -41,6 +41,8 @@ module.exports = [
     elementName: 'elvia-breadcrumb',
     attributes: [{ name: 'breadcrumbs', type: 'object' }],
     reactName: 'Breadcrumb',
+    useWrapper: false,
+    slotItems: false
   },
   {
     name: 'elvis-carousel',
@@ -54,13 +56,8 @@ module.exports = [
     ],
     reactName: 'Carousel',
     slotItems: false,
+    useWrapper: false,
   },
-  // {
-  //   name: 'elvis-checkbox',
-  //   elementName: 'elvia-checkbox',
-  //   attributes: ['label', 'name', 'value', 'id', 'size', 'checked', 'disabled', 'required'],
-  //   reactName: 'Checkbox',
-  // },
   {
     name: 'elvis-tabs',
     elementName: 'elvia-tabs',
@@ -72,6 +69,7 @@ module.exports = [
     reactName: 'Tabs',
     elementStyle: `display: grid; overflow: hidden;`,
     slotItems: false,
+    useWrapper: false,
   },
   {
     name: 'elvis-popover',
@@ -100,6 +98,7 @@ module.exports = [
     reactName: 'ProgressLinear',
     elementStyle: `width: 100%;`,
     slotItems: false,
+    useWrapper: false,
   },
   {
     name: 'elvis-datepicker',
@@ -120,7 +119,7 @@ module.exports = [
     conditionalElementStyle: {
       isFullWidth: `width: 100%`,
     },
-
+    useWrapper: false,
     slotItems: false,
   },
   {
@@ -137,6 +136,7 @@ module.exports = [
       isBlock: `display: block`,
     },
     slotItems: false,
+    useWrapper: false,
   },
   {
     name: 'elvis-divider',
@@ -150,6 +150,7 @@ module.exports = [
     reactName: 'Divider',
     elementStyle: `width: 100%;`,
     slotItems: false,
+    useWrapper: false,
   },
   {
     name: 'elvis-dropdown',
@@ -169,6 +170,7 @@ module.exports = [
     ],
     slotItems: false,
     reactName: 'Dropdown',
+    useWrapper: false,
   },
   {
     name: 'elvis-box',
@@ -181,6 +183,7 @@ module.exports = [
     ],
     slotItems: true,
     reactName: 'Box',
+    useWrapper: false,
   },
   {
     name: 'elvis-modal',
@@ -198,5 +201,6 @@ module.exports = [
     ],
     reactName: 'Modal',
     slotItems: true,
+    useWrapper: false,
   },
 ];
