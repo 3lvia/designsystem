@@ -6,6 +6,32 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.10.0
+      </span>
+      <br>
+      <span>
+        August 30, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://localhost:4200/components/accordion#Overview">Accordion</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Now possible to disable hover on icons when hovering accordion title, by using the new modifier <span class="code-text">e-accordion__title--noIconHover</span>.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.9.4
       </span>
       <br>
