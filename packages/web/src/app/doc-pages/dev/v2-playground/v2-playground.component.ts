@@ -102,6 +102,21 @@ export class v2PlaygroundComponent implements OnInit {
 
   defaultPaginatioValue = { start: 1, end: 10 };
 
+  breadcrumbsTest = [
+    {
+      url: 'https://elvia.no',
+      title: 'Elvia.no',
+    },
+    {
+      url: 'https://www.elvia.no/nettleie',
+      title: 'Nettleie',
+    },
+    {
+      url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
+      title: 'Elvias leveringsplikt',
+    },
+  ];
+
   nativeJSApproach(): void {
     // Non-angular approach, not necessary when using angular:
     /*this.checkbox.nativeElement.addEventListener('checkedOnChange', (event: any) => {

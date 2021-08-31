@@ -1,0 +1,15 @@
+{
+  "name": "@elvia/elvis-breadcrumb",
+  "version": "1.0.1",
+  "description": "",
+  "license": "MIT",
+  "author": "",
+  "main": "web_component.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@elvia/elvis-component-wrapper": "^2.0.3",
+    "styled-components": "^5.2.1"
+  }
+}

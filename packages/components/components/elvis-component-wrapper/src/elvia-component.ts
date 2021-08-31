@@ -97,8 +97,14 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
-  protected triggerEvent(callbackName: string): void {
-    this.onEvent(callbackName);
+  protected triggerEvent(callbackName: string, newProps?: any): void {
+    if (newProps) {
+      Object.keys(newProps).forEach((key) => {
+        this.onEvent(callbackName, key);
+      });
+    } else {
+      this.onEvent(callbackName);
+    }
   }
 
   protected createReactData(): Record<string, any> {
@@ -160,11 +166,12 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   // Dispatches event for any type of event
-  private onEvent(callbackName: string) {
+  private onEvent(callbackName: string, propName?: string) {
     this.dispatchEvent(
       new CustomEvent(callbackName, {
         bubbles: false,
         composed: true,
+        detail: { value: propName ? this._data[propName.toLowerCase()] : null },
       }),
     );
   }
@@ -234,6 +241,8 @@ export class ElvisComponentWrapper extends HTMLElement {
       const val = this.getAttribute(attr.name.toLowerCase());
       if (val !== null && (dataAttr === null || typeof dataAttr === 'undefined')) {
         this._data[attr.name.toLowerCase()] = this.convertString(val, attr.type, attr.name);
+      } else if (attr.type !== 'string' && typeof dataAttr === 'string') {
+        this._data[attr.name.toLowerCase()] = this.convertString(dataAttr, attr.type, attr.name);
       }
     });
   }

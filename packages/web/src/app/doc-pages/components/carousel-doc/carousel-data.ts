@@ -63,7 +63,7 @@ export const carouselData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: number) => void',
+      type: '(value: number) => CustomEvent',
       description: 'Gets called every time the value is changed.',
     },
   },

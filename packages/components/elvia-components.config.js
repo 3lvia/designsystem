@@ -1,7 +1,18 @@
 /*
 name: String - Package name
 elementName: String - Name of DOM element
-attributes: String[] - What attributes DOM element listens for
+
+attributes: Object[] - 
+
+IMPORTANT! This is what type we will parse the attribute (always string) as. 
+When using Angular / Vue syntax it is not an attribute, but actually a 
+property. This works as intended, but attributes are always handled as strings 
+(as per web spec). Since it is always sent in as a string, we have no way of 
+knowing if it is a number, string, boolean, array etc. All attributes will 
+automatically be treated as a string as per the HTML specification. We parse 
+attributes to the value specified here to make it easier to use the components 
+without a framework. Also there should only be ONE TYPE PER NAME. 
+
 reactName: String - The name of the component in React
 elementStyle: String Styling for the DOM element itself
 useWrapper: Boolean - If the React element should be injected into a wrapper instead of directly into the element
@@ -24,6 +35,12 @@ module.exports = [
     reactName: 'Accordion',
     useWrapper: true,
     slotItems: false,
+  },
+  {
+    name: 'elvis-breadcrumb',
+    elementName: 'elvia-breadcrumb',
+    attributes: [{ name: 'breadcrumbs', type: 'object' }],
+    reactName: 'Breadcrumb',
   },
   {
     name: 'elvis-carousel',

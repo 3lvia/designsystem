@@ -6,6 +6,7 @@ import { Accordion } from '@elvia/elvis-accordion/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
+import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';
 import { Carousel } from '@elvia/elvis-carousel/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
@@ -23,7 +24,7 @@ function App() {
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
   const [isModalShowing, setIsModalShowingState] = useState(false);
-  const [isPopoverShowing, setIsPopoverShowingState] = useState(true);
+  const [isPopoverShowing, setIsPopoverShowingState] = useState(false);
   const [progressValue, setProgressValue] = useState(0);
 
   function increaseProgress() {
@@ -111,6 +112,21 @@ function App() {
     console.log(dropdownValue);
   };
 
+  const breadcrumbs = [
+    {
+      url: 'https://elvia.no',
+      title: 'Elvia.no',
+    },
+    {
+      url: 'https://www.elvia.no/nettleie',
+      title: 'Nettleie',
+    },
+    {
+      url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
+      title: 'Elvias leveringsplikt',
+    },
+  ];
+
   const JSXCarouselElement = () => (
     <div>
       <p>
@@ -183,6 +199,9 @@ function App() {
         valueOnChange={(event) => console.log(event)}
         dropdownMenuPos="top"
       ></Pagination>
+
+      <h2>Breadcrumbs</h2>
+      <Breadcrumb breadcrumbs={breadcrumbs} />
 
       <h2>Box</h2>
       <Box
