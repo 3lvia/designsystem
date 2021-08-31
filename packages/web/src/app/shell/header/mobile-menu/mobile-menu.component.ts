@@ -12,6 +12,7 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 export class MobileMenuComponent implements OnDestroy {
   version = packageJson.version;
   mainMenu: any;
+  devMode = false;
 
   private onDestroy = new Subject();
 
@@ -29,6 +30,10 @@ export class MobileMenuComponent implements OnDestroy {
         this.mainMenu = data;
       });
     });
+
+    if (window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('#dev') > -1) {
+      this.devMode = true;
+    }
   }
 
   ngOnDestroy(): void {
