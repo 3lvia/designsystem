@@ -4,33 +4,27 @@ This file is validated by validateConfig.js when building components
 
 
 ###### Contents  ###### 
-name: String - Package name has to start with "elvis-"
-elementName: String - Name of DOM element has to start with "elvia-"
+name: string - Package name has to start with "elvis-"
+elementName: string - Name of DOM element has to start with "elvia-"
+attributes: object[] - 
+  attributes.name: string - name of supported attribute & property
+  attributes.type: string - 
+  Only one type and one of the following is supported: string, number, object, Date, boolean
+  Attributes on web components are always handled as strings. This value tells us what the components should parse the string
+  value to. This is only to make it easier to use components without bindings value="".
+  When using bindings ([value]="") the value is sent in as a property and not an attribute. We do not parse those.
+  If you use type "object" we parse it with JSON.parse, which supports arrays as well.
 
-attributes: Object[] - 
+  attributes.propType: string - 
+  We allow propType to contain the actually allowed properties by the react component written in a typescript way:
+  "string | number | HTMLElement | Date | object" etc.  
 
-attributes.type (ONE TYPE ONLY): 
-IMPORTANT! This is what type we will parse the attribute (always string) as. 
-When using Angular / Vue syntax it is not an attribute, but actually a 
-property. This works as intended, but attributes are always handled as strings 
-(as per web spec). Since it is always sent in as a string, we have no way of 
-knowing if it is a number, string, boolean, array etc. All attributes will 
-automatically be treated as a string as per the HTML specification. 
-We support parsing the attributes to the value specified here to make it 
-easier to use the components without a framework. 
-Also there should only be ONE TYPE PER ATTRIBUTE, and only one of the following:
-string, number, object, boolean or Date
-
-attributes.propType:
-We allow propType to contain the actually allowed properties by the react component written in a typescript way:
-"string | number | HTMLElement | Date | object" etc.  
-
-
-reactName: String - The name of the component in React
-elementStyle: String Styling for the DOM element itself
-useWrapper: Boolean - If the React element should be injected into a wrapper instead of directly into the element
-wrapperStyle: String - Styling for the React wrapper - This requires useWrapper to be true.
-slotItems: Boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all new components
+reactName: string - The name of the component in React
+elementStyle: string Styling for the DOM element itself
+useWrapper: boolean - If the React element should be injected into a wrapper instead of directly into the element
+wrapperStyle: string - Styling for the React wrapper - This requires useWrapper to be true.
+slotItems: boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all new components
+conditionalElementStyle: object - An object containing javascript version of the CSS style and 
 */
 
 module.exports = [
