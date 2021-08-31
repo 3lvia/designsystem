@@ -15,8 +15,8 @@ export interface SelectionNumber {
 export interface PaginationProps {
   value: SelectionNumber;
   items: number;
-  isRightAligned?: boolean;
   dropdownMenuPos: string;
+  isRightAligned?: boolean;
   paginatorDropdownOptions: Array<DropdownOption>;
   labelDisplaying: string;
   label: string;
@@ -115,8 +115,7 @@ const Pagination: FC<PaginationProps> = ({
 
   // Visible numbers in paginator
   const Paginators = (): JSX.Element => {
-
-    const visibleNumbers: JSX.Element[] = [];
+    const visibleNumbers = [];
     const isShowAll = false;
     const isMobile = windowWidth < 768;
 
@@ -125,6 +124,21 @@ const Pagination: FC<PaginationProps> = ({
       return selectionNumber === 1 || selectionNumber < 5;
     };
 
+    const centerNumbersWhenBetween1And5DisplayCheck = (
+      numberInArray: number,
+      SelectionArrayLenght: number,
+      maxValue: number
+    ): boolean => {
+      if (
+        numberInArray > 1 &&
+        numberInArray <= maxValue &&
+        numberInArray !== SelectionArrayLenght
+      ) {
+        return true;
+      }
+      return false;
+    }
+
     const centerNumbersWhenBetween1And5 = (
       NumberInArray: number,
       SelectionArrayLenght: number,
@@ -132,35 +146,34 @@ const Pagination: FC<PaginationProps> = ({
       indexNumber: number,
     ) => {
       if (
-        !mobile &&
-        NumberInArray > 1 &&
-        NumberInArray <= 6 &&
-        NumberInArray !== SelectionArrayLenght
+        centerNumbersWhenBetween1And5DisplayCheck(NumberInArray, SelectionArrayLenght, 6) && !mobile
       ) {
         return (
-          <StyledPaginator.PaginatorNumber
-            selected={activeNumber(NumberInArray)}
-            key={indexNumber}
-            onClick={() => setSelectedNumber(NumberInArray)}
-          >
-            {NumberInArray}
-          </StyledPaginator.PaginatorNumber>
+          [
+            <StyledPaginator.PaginatorNumber
+              selected={activeNumber(NumberInArray)}
+              key={indexNumber}
+              onClick={() => setSelectedNumber(NumberInArray)}
+            >
+              {NumberInArray}
+            </StyledPaginator.PaginatorNumber>
+          ]
         );
       } else if (
+        centerNumbersWhenBetween1And5DisplayCheck(NumberInArray, SelectionArrayLenght, 4) &&
         mobile &&
-        NumberInArray > 1 &&
-        NumberInArray < 5 &&
-        selectedNumber !== 4 &&
-        NumberInArray !== SelectionArrayLenght
+        selectedNumber !== 4
       ) {
         return (
-          <StyledPaginator.PaginatorNumber
-            selected={activeNumber(NumberInArray)}
-            key={indexNumber}
-            onClick={() => setSelectedNumber(NumberInArray)}
-          >
-            {NumberInArray}
-          </StyledPaginator.PaginatorNumber>
+          [
+            <StyledPaginator.PaginatorNumber
+              selected={activeNumber(NumberInArray)}
+              key={indexNumber}
+              onClick={() => setSelectedNumber(NumberInArray)}
+            >
+              {NumberInArray}
+            </StyledPaginator.PaginatorNumber>
+          ]
         );
       } else if (
         mobile &&
@@ -170,54 +183,67 @@ const Pagination: FC<PaginationProps> = ({
         NumberInArray < 6
       ) {
         return (
-          <StyledPaginator.PaginatorNumber
-            selected={activeNumber(NumberInArray)}
-            key={indexNumber}
-            onClick={() => setSelectedNumber(NumberInArray)}
-          >
-            {NumberInArray}
-          </StyledPaginator.PaginatorNumber>
+          [
+            <StyledPaginator.PaginatorNumber
+              selected={activeNumber(NumberInArray)}
+              key={indexNumber}
+              onClick={() => setSelectedNumber(NumberInArray)}
+            >
+              {NumberInArray}
+            </StyledPaginator.PaginatorNumber>
+          ]
         );
       }
       return [];
     };
+
+    const centerNumbersWhenLeast4OrHigherDisplayCheck = (
+      numberInArray: number,
+      SelectionArrayLenght: number,
+      proximityRange: number,
+    ): boolean => {
+
+      if (
+        numberInArray >= selectedNumber - proximityRange &&
+        numberInArray <= selectedNumber + proximityRange &&
+        numberInArray !== SelectionArrayLenght &&
+        numberInArray !== 1
+      ) {
+        return true;
+      }
+      return false;
+    }
+
     const centerNumbersWhenLeast4OrHigher = (
       NumberInArray: number,
       SelectionArrayLenght: number,
       mobile: boolean,
       indexNumber: number,
     ) => {
-      if (
-        NumberInArray >= selectedNumber - 2 &&
-        NumberInArray <= selectedNumber + 2 &&
-        NumberInArray !== SelectionArrayLenght &&
-        NumberInArray !== 1 &&
-        !mobile
-      ) {
+      if (centerNumbersWhenLeast4OrHigherDisplayCheck(NumberInArray, SelectionArrayLenght, 2) && !mobile) {
         return (
-          <StyledPaginator.PaginatorNumber
-            selected={activeNumber(NumberInArray)}
-            key={indexNumber}
-            onClick={() => setSelectedNumber(NumberInArray)}
-          >
-            {NumberInArray}
-          </StyledPaginator.PaginatorNumber>
+          [
+            <StyledPaginator.PaginatorNumber
+              selected={activeNumber(NumberInArray)}
+              key={indexNumber}
+              onClick={() => setSelectedNumber(NumberInArray)}
+            >
+              {NumberInArray}
+            </StyledPaginator.PaginatorNumber>
+          ]
         );
       } else if (
-        NumberInArray >= selectedNumber - 1 &&
-        NumberInArray <= selectedNumber + 1 &&
-        NumberInArray !== SelectionArrayLenght &&
-        NumberInArray !== 1 &&
-        mobile
-      ) {
+        (centerNumbersWhenLeast4OrHigherDisplayCheck(NumberInArray, SelectionArrayLenght, 1) && mobile)) {
         return (
-          <StyledPaginator.PaginatorNumber
-            selected={activeNumber(NumberInArray)}
-            key={indexNumber}
-            onClick={() => setSelectedNumber(NumberInArray)}
-          >
-            {NumberInArray}
-          </StyledPaginator.PaginatorNumber>
+          [
+            <StyledPaginator.PaginatorNumber
+              selected={activeNumber(NumberInArray)}
+              key={indexNumber}
+              onClick={() => setSelectedNumber(NumberInArray)}
+            >
+              {NumberInArray}
+            </StyledPaginator.PaginatorNumber>
+          ]
         );
       }
       return [];
@@ -227,6 +253,25 @@ const Pagination: FC<PaginationProps> = ({
       return selectionNumber >= selectionNumbers.length - 2;
     };
 
+
+    const getNumbersWhenInProximityOfLastNumberDisplayCheck = (
+      numberInArray: number,
+      SelectionArrayLenght: number,
+      proximityRange: number,
+    ): boolean => {
+
+      if (
+        numberInArray >= SelectionArrayLenght - proximityRange &&
+        numberInArray !== SelectionArrayLenght &&
+        numberInArray !== 1
+      ) {
+        return true;
+      }
+      return false;
+    }
+
+
+
     const getNumbersWhenInProximityOfLastNumber = (
       NumberInArray: number,
       SelectionArrayLenght: number,
@@ -234,34 +279,34 @@ const Pagination: FC<PaginationProps> = ({
       indexNumber: number,
     ) => {
       if (
-        NumberInArray >= SelectionArrayLenght - 5 &&
-        NumberInArray !== SelectionArrayLenght &&
-        NumberInArray !== 1 &&
-        !mobile
+        getNumbersWhenInProximityOfLastNumberDisplayCheck(NumberInArray, SelectionArrayLenght, 5) && !mobile
+
       ) {
         return (
-          <StyledPaginator.PaginatorNumber
-            selected={activeNumber(NumberInArray)}
-            key={indexNumber}
-            onClick={() => setSelectedNumber(NumberInArray)}
-          >
-            {NumberInArray}
-          </StyledPaginator.PaginatorNumber>
+          [
+            <StyledPaginator.PaginatorNumber
+              selected={activeNumber(NumberInArray)}
+              key={indexNumber}
+              onClick={() => setSelectedNumber(NumberInArray)}
+            >
+              {NumberInArray}
+            </StyledPaginator.PaginatorNumber>
+
+          ]
         );
       } else if (
-        NumberInArray >= SelectionArrayLenght - 3 &&
-        NumberInArray !== SelectionArrayLenght &&
-        NumberInArray !== 1 &&
-        mobile
+        getNumbersWhenInProximityOfLastNumberDisplayCheck(NumberInArray, SelectionArrayLenght, 3) && mobile
       ) {
         return (
-          <StyledPaginator.PaginatorNumber
-            selected={activeNumber(NumberInArray)}
-            key={indexNumber}
-            onClick={() => setSelectedNumber(NumberInArray)}
-          >
-            {NumberInArray}
-          </StyledPaginator.PaginatorNumber>
+          [
+            <StyledPaginator.PaginatorNumber
+              selected={activeNumber(NumberInArray)}
+              key={indexNumber}
+              onClick={() => setSelectedNumber(NumberInArray)}
+            >
+              {NumberInArray}
+            </StyledPaginator.PaginatorNumber>
+          ]
         );
       }
       return [];
@@ -295,20 +340,20 @@ const Pagination: FC<PaginationProps> = ({
       // Initiate when selected number is 1 or below 5
       if (getNumbersWhenSelectedBetween1and5(selectedNumber)) {
         return selectionNumbers.map((number, index) => {
-          return centerNumbersWhenBetween1And5(number, selectionNumbers.length, isMobile, index);
+          return [centerNumbersWhenBetween1And5(number, selectionNumbers.length, isMobile, index)];
         });
       }
       // if currentSelection is at least 5 or higher
       if (selectedNumber >= 5 && selectedNumber < selectionNumbers.length - 2) {
         return selectionNumbers.map((number, index) => {
           // if selected numbers is 2+/- away from first or last selectable number
-          return centerNumbersWhenLeast4OrHigher(number, selectionNumbers.length, isMobile, index);
+          return [centerNumbersWhenLeast4OrHigher(number, selectionNumbers.length, isMobile, index)];
         });
       }
       // If selected number is i proximity of last selectable number
       if (isSelectedNumberNearEnd(selectedNumber)) {
         return selectionNumbers.map((number, index) => {
-          return getNumbersWhenInProximityOfLastNumber(number, selectionNumbers.length, isMobile, index);
+          return [getNumbersWhenInProximityOfLastNumber(number, selectionNumbers.length, isMobile, index)];
         });
       }
 
@@ -325,6 +370,7 @@ const Pagination: FC<PaginationProps> = ({
     };
     const getLastNumber = () => {
       return (
+
         <StyledPaginator.PaginatorNumber
           selected={activeNumber(selectionNumbers.length)}
           isLast={true}
@@ -333,6 +379,7 @@ const Pagination: FC<PaginationProps> = ({
         >
           {selectionNumbers.length}
         </StyledPaginator.PaginatorNumber>
+
       );
     };
 
@@ -343,17 +390,19 @@ const Pagination: FC<PaginationProps> = ({
       const centerNumbers = getCenterNumbers();
       const lastDots = getLastDots();
       const lastNumbers = getLastNumber();
-
       visibleNumbers.push(firstNumbers, firstDots);
       centerNumbers.map((paginatorNumbers) => {
-
         if (paginatorNumbers.length != 0) {
           visibleNumbers.push(paginatorNumbers);
         }
       })
       visibleNumbers.push(lastDots, lastNumbers);
     }
-    return visibleNumbers;
+    return (
+      < StyledPaginator.PaginatorNumbersArea>
+        {visibleNumbers}
+      </StyledPaginator.PaginatorNumbersArea>
+    );
   };
 
   const onDropdownChangeHandler = (selectionRange: DropdownOption) => {

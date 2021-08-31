@@ -105,6 +105,13 @@ export const SelectorRighArrow = styled.div`
   background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M23.693 12.213a.748.748 0 00-.163-.243l-10.5-10.5a.75.75 0 10-1.06 1.06l9.22 9.22H1a.75.75 0 000 1.5h20.19l-9.22 9.22a.75.75 0 101.06 1.06l10.5-10.5a.747.747 0 00.163-.817z' fill='black'/%3e%3c/svg%3e");
 `;
 
+export const PaginatorNumbersArea = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  user-select: none;
+`
+
 export const PaginatorNumber = styled.button`
   font-family: Red Hat Text;
   font-size: 13px;
