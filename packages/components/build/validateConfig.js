@@ -1,5 +1,6 @@
 /**
  * Validate JSON for elvia-components.config.js
+ * https://json-schema.org/understanding-json-schema/reference/
  */
 
 const Ajv = require("ajv");
@@ -20,7 +21,8 @@ async function validateElviaComponentsConfig() {
                         type: "object",
                         properties: {
                             "name": { type: "string" },
-                            "type": { type: "string" }
+                            "type": { type: "string", pattern: "^(string|number|object|boolean|Date)$" },
+                            "propType": { type: "string" }
                         }
                     }
                 },
