@@ -4,7 +4,7 @@
  */
 
 const Ajv = require("ajv");
-const ajv = new Ajv();
+const ajv = new Ajv({ allErrors: true });
 const data = require('../elvia-components.config');
 
 async function validateElviaComponentsConfig() {
@@ -12,28 +12,31 @@ async function validateElviaComponentsConfig() {
         type: "array",
         items: {
             type: "object",
+            additionalProperties: false,
             properties: {
-                "name": { type: "string", pattern: "(elvis-)([a-zA-Z0-9])+" },
-                "elementName": { type: "string", pattern: "(elvia-)([a-zA-Z0-9])+" },
-                "attributes": {
+                name: { type: "string", pattern: "(elvis-)([a-zA-Z0-9])+" },
+                elementName: { type: "string", pattern: "(elvia-)([a-zA-Z0-9])+" },
+                attributes: {
                     type: "array",
                     items: {
                         type: "object",
+                        additionalProperties: false,
                         properties: {
-                            "name": { type: "string" },
-                            "type": { type: "string", pattern: "^(string|number|object|boolean|Date)$" },
-                            "propType": { type: "string" }
-                        }
+                            name: { type: "string" },
+                            type: { type: "string", pattern: "^(string|number|object|boolean|Date)$" },
+                            propType: { type: "string" }
+                        },
+                        required: ["name", "type", "propType"]
                     }
                 },
-                "reactName": { type: "string", pattern: "([A-Z0-9]){1}([a-zA-Z0-9])+" },
-                "useWrapper": { type: "boolean" },
-                "slotItems": { type: "boolean" },
-                "elementStyle": { type: "string" },
-                "conditionalElementStyle": {
+                reactName: { type: "string", pattern: "([A-Z0-9]){1}([a-zA-Z0-9])+" },
+                useWrapper: { type: "boolean" },
+                slotItems: { type: "boolean" },
+                elementStyle: { type: "string" },
+                conditionalElementStyle: {
                     type: "object",
                     propertyNames: {
-                        "pattern": "^[A-Za-z_][A-Za-z0-9_]*$"
+                        pattern: "^[A-Za-z_][A-Za-z0-9_]*$"
                     }
                 }
             },
@@ -49,7 +52,6 @@ async function validateElviaComponentsConfig() {
         console.error(validate.errors);
         return Promise.resolve(false);
     } else {
-        console.log("\nJSON Validation - Successfully validated elvia-components.config.js\n")
         return Promise.resolve(true);
     }
 }
