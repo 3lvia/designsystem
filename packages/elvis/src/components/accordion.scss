@@ -24,7 +24,7 @@
       padding-right: 8px;
       max-width: 80%;
 
-      &.e-accordion__title--noIconHover {
+      &.e-accordion__title--no-icon-hover {
         @include helpers.hover() {
           .e-accordion__title:hover,
           .e-accordion__icon:hover {
@@ -112,7 +112,7 @@
       .e-accordion__icon:hover {
         cursor: pointer;
       }
-      .e-accordion__title.e-accordion__title--noIconHover:hover + .e-accordion__icon,
+      .e-accordion__title.e-accordion__title--no-icon-hover:hover + .e-accordion__icon,
       .e-accordion__icon:hover {
         i[class*='expand_circle-color'] {
           display: flex;

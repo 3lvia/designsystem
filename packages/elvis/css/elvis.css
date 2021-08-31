@@ -150,17 +150,17 @@ body {
   max-width: 80%;
 }
 @media (hover: hover), all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-  .e-accordion__item .e-accordion__title.e-accordion__title--noIconHover .e-accordion__title:hover,
-.e-accordion__item .e-accordion__title.e-accordion__title--noIconHover .e-accordion__icon:hover {
+  .e-accordion__item .e-accordion__title.e-accordion__title--no-icon-hover .e-accordion__title:hover,
+.e-accordion__item .e-accordion__title.e-accordion__title--no-icon-hover .e-accordion__icon:hover {
     background-color: red;
     cursor: unset;
   }
-  .e-accordion__item .e-accordion__title.e-accordion__title--noIconHover .e-accordion__title:hover + .e-accordion__icon i[class*=expand_circle-color],
-.e-accordion__item .e-accordion__title.e-accordion__title--noIconHover .e-accordion__icon:hover i[class*=expand_circle-color] {
+  .e-accordion__item .e-accordion__title.e-accordion__title--no-icon-hover .e-accordion__title:hover + .e-accordion__icon i[class*=expand_circle-color],
+.e-accordion__item .e-accordion__title.e-accordion__title--no-icon-hover .e-accordion__icon:hover i[class*=expand_circle-color] {
     display: unset;
   }
-  .e-accordion__item .e-accordion__title.e-accordion__title--noIconHover .e-accordion__title:hover + .e-accordion__icon i[class*=expand_circle-filled-color],
-.e-accordion__item .e-accordion__title.e-accordion__title--noIconHover .e-accordion__icon:hover i[class*=expand_circle-filled-color] {
+  .e-accordion__item .e-accordion__title.e-accordion__title--no-icon-hover .e-accordion__title:hover + .e-accordion__icon i[class*=expand_circle-filled-color],
+.e-accordion__item .e-accordion__title.e-accordion__title--no-icon-hover .e-accordion__icon:hover i[class*=expand_circle-filled-color] {
     display: unset;
   }
 }
@@ -354,11 +354,11 @@ body {
 .e-accordion__item .e-accordion__icon:hover {
     cursor: pointer;
   }
-  .e-accordion__item .e-accordion__title.e-accordion__title--noIconHover:hover + .e-accordion__icon i[class*=expand_circle-color],
+  .e-accordion__item .e-accordion__title.e-accordion__title--no-icon-hover:hover + .e-accordion__icon i[class*=expand_circle-color],
 .e-accordion__item .e-accordion__icon:hover i[class*=expand_circle-color] {
     display: flex;
   }
-  .e-accordion__item .e-accordion__title.e-accordion__title--noIconHover:hover + .e-accordion__icon i[class*=expand_circle-filled-color],
+  .e-accordion__item .e-accordion__title.e-accordion__title--no-icon-hover:hover + .e-accordion__icon i[class*=expand_circle-filled-color],
 .e-accordion__item .e-accordion__icon:hover i[class*=expand_circle-filled-color] {
     display: none;
   }

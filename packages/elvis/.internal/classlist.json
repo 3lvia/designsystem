@@ -24,7 +24,7 @@
 				},
 				"e-accordion__title": {
 					"modifier": {
-						"e-accordion__title--noIconHover": {}
+						"e-accordion__title--no-icon-hover": {}
 					}
 				},
 				"e-accordion__icon": {},
@@ -1041,7 +1041,7 @@
 		"e-accordion": {},
 		"e-accordion__item": {},
 		"e-accordion__title": {},
-		"e-accordion__title--noIconHover": {},
+		"e-accordion__title--no-icon-hover": {},
 		"e-accordion__icon": {},
 		"e-accordion__content": {},
 		"e-accordion__item--open": {},
