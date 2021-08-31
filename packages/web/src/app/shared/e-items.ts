@@ -314,7 +314,7 @@ export const eComponents: EItems[] = [
     title: 'List',
     // tslint:disable-next-line: max-line-length
     description:
-      'Lists are related content grouped vertically. We have different types of lists to suit different needs; bullet, numbered and icon.',
+      'Lists are related content grouped vertically. We have different types of lists to suit different needs; bullet, numbered and icon. Lists should usually inherit the typography from the text surrounding the list.',
     docUrl: Pages.List,
     absolutePath: '/components/' + Pages.List,
     status: ItemStatus.Done,
