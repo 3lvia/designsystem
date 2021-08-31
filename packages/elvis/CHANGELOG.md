@@ -21,7 +21,7 @@
           </div>
           <ul class="e-list">
             <li>
-              Now possible to disable hover on icons when hovering accordion title, by using the new modifier <span class="code-text">e-accordion__title--noIconHover</span>.
+              Now possible to disable hover on icons when hovering accordion title, by using the new modifier <span class="code-text">e-accordion__title--no-icon-hover</span>.
             </li>
           </ul>
         </div>
