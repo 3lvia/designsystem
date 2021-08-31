@@ -11,6 +11,7 @@
       "**/bootstrap",
       "**/babel-loader",
       "**/webpack",
+      "**/webpack-dev-server",
       "**/@elvia/elvis-assets-icons",
       "**/@elvia/elvis-dropdown",
       "**/@elvia/elvis-divider",
