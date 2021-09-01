@@ -23,6 +23,25 @@
 
       padding-right: 8px;
       max-width: 80%;
+
+      &.e-accordion__title--no-icon-hover {
+        @include helpers.hover() {
+          .e-accordion__title:hover,
+          .e-accordion__icon:hover {
+            background-color: red;
+            cursor: unset;
+          }
+          .e-accordion__title:hover + .e-accordion__icon,
+          .e-accordion__icon:hover {
+            i[class*='expand_circle-color'] {
+              display: unset;
+            }
+            i[class*='expand_circle-filled-color'] {
+              display: unset;
+            }
+          }
+        }
+      }
     }
     .e-accordion__icon {
       @include helpers.keyframes(rotate-center-forward) {
@@ -92,6 +111,15 @@
       .e-accordion__title:hover,
       .e-accordion__icon:hover {
         cursor: pointer;
+      }
+      .e-accordion__title.e-accordion__title--no-icon-hover:hover + .e-accordion__icon,
+      .e-accordion__icon:hover {
+        i[class*='expand_circle-color'] {
+          display: flex;
+        }
+        i[class*='expand_circle-filled-color'] {
+          display: none;
+        }
       }
       .e-accordion__title:hover + .e-accordion__icon,
       .e-accordion__icon:hover {

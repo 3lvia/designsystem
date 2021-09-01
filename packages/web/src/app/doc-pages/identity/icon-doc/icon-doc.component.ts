@@ -61,7 +61,7 @@ export class IconDocComponent implements OnInit {
   term = '';
   IconClassList: Icon[] = [];
 
-  constructor(private copyService: CopyToClipboardService) {}
+  constructor(private copyService: CopyToClipboardService) { }
 
   @HostListener('document:click', ['$event', '$event.target'])
   onClick(event: MouseEvent, targetElement: HTMLElement): void {
@@ -136,31 +136,6 @@ export class IconDocComponent implements OnInit {
     this.twoColoredIcons = this.allIcons.filter((icon) => {
       return icon.title.includes('-color');
     });
-  }
-
-  toggleOpenDesktop(): void {
-    if (this.icons.nativeElement.classList.contains('open-accordion')) {
-      this.icons.nativeElement.classList.remove('open-accordion');
-    } else {
-      this.icons.nativeElement.classList.add('open-accordion');
-    }
-    if (this.accordionIconsDesktop.nativeElement.classList.contains('e-accordion__item--open')) {
-      this.accordionIconsDesktop.nativeElement.classList.remove('e-accordion__item--open');
-    } else {
-      this.accordionIconsDesktop.nativeElement.classList.add('e-accordion__item--open');
-    }
-  }
-  toggleOpenMobile(): void {
-    if (this.icons.nativeElement.classList.contains('open-accordion')) {
-      this.icons.nativeElement.classList.remove('open-accordion');
-    } else {
-      this.icons.nativeElement.classList.add('open-accordion');
-    }
-    if (this.accordionIconsMobile.nativeElement.classList.contains('e-accordion__item--open')) {
-      this.accordionIconsMobile.nativeElement.classList.remove('e-accordion__item--open');
-    } else {
-      this.accordionIconsMobile.nativeElement.classList.add('e-accordion__item--open');
-    }
   }
 
   selectFilter(filter: string): void {

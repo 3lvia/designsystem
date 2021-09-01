@@ -31,7 +31,8 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.23.2"
+    "eslint-plugin-react": "^7.23.2",
+    "webpack-dev-server": "3.11.1"
   },
   "scripts": {
     "start": "react-scripts start",
