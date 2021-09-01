@@ -74,8 +74,8 @@
 
   <!--Code block-->
   <div class="component-code e-mt-16">
-    <app-component-example-accordion>
-      <ng-container ngProjectAs="accordionContent">
+    <elvia-accordion openLabel="View code" closeLabel="Hide code" size="small" type="normal">
+      <div slot="content">
         <app-component-example-code
           [codeTS]="codeTS"
           [codeHTML]="codeHTML"
@@ -84,7 +84,7 @@
           [codeInverted]="codeInverted"
           [isInverted]="isInverted"
         ></app-component-example-code>
-      </ng-container>
-    </app-component-example-accordion>
+      </div>
+    </elvia-accordion>
   </div>
 </div>
