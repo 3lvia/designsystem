@@ -40,8 +40,11 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   isInverted = false;
   showIframe = false;
   desktopScreenWidth: boolean;
+  activeTab = 0;
+  tabs = [];
 
   ngOnInit(): void {
+    this.updateVisibleTabs();
     this.code = this.codeTS !== '' ? this.codeTS : this.codeHTML !== '' ? this.codeHTML : this.codeCSS;
     this.displayCode = this.code;
 
@@ -57,18 +60,6 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
       window.addEventListener('resize', () => {
         this.updateShowIframe();
       });
-    }
-    if (this.noPhone && this.noTablet) {
-      this.screenTabOpen = 'desktop';
-      this.showTabs = false;
-    }
-    if (this.noPhone && this.noDesktop) {
-      this.screenTabOpen = 'tablet';
-      this.showTabs = false;
-    }
-    if (this.noTablet && this.noDesktop) {
-      this.screenTabOpen = 'phone';
-      this.showTabs = false;
     }
   }
 
@@ -129,5 +120,45 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
         this.displayCode = this.code;
       }
     }
+  }
+
+  // TABS
+  changeTab(index: number): void {
+    this.activeTab = index;
+    this.screenTabOpen = this.tabs[index];
+    setTimeout(() => this.updateDefaultFrame(), 10);
+  }
+
+  updateVisibleTabs(): void {
+    this.tabs = this.getTabs();
+    this.changeTab(this.activeTab);
+  }
+
+  getTabs(): any {
+    const tabs = [];
+    if (this.noPhone && this.noTablet) {
+      this.screenTabOpen = 'desktop';
+      this.showTabs = false;
+    }
+    if (this.noPhone && this.noDesktop) {
+      this.screenTabOpen = 'tablet';
+      this.showTabs = false;
+    }
+    if (this.noTablet && this.noDesktop) {
+      this.screenTabOpen = 'phone';
+      this.showTabs = false;
+    }
+    if (this.showTabs) {
+      if (!this.noDesktop) {
+        tabs.push('desktop')
+      }
+      if (!this.noTablet) {
+        tabs.push('tablet')
+      }
+      if (!this.noPhone) {
+        tabs.push('phone')
+      }
+    }
+    return tabs;
   }
 }
