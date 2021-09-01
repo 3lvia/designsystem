@@ -20,11 +20,19 @@ attributes: object[] -
   "string | number | HTMLElement | Date | object" etc.  
 
 reactName: string - The name of the component in React
-elementStyle: string Styling for the DOM element itself
-useWrapper: boolean - If the React element should be injected into a wrapper instead of directly into the element
-wrapperStyle: string - Styling for the React wrapper - This requires useWrapper to be true.
+elementStyle: string - Styling for the DOM element (web component HTMLElement) itself
+
+useWrapper: boolean - If the React element should be injected into a wrapper instead of directly into the element. 
+In most cases this should be false, however sometimes we want the React component to be wrapped inside a separate 
+div to prevent overwriting other content within the web component. In those cases useWrapper is useful. 
+
+wrapperStyle: string - Styling for the React wrapper (the div wrapper inside the web component, when using 'useWrapper' 
+- This requires useWrapper to be true.
+
 slotItems: boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all new components
-conditionalElementStyle: object - An object containing javascript version of the CSS style and 
+
+conditionalElementStyle: object - An object containing a key value pair for different CSS styles following the 
+javascript naming of the different CSS styles
 */
 
 module.exports = [
