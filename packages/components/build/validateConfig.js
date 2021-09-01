@@ -31,6 +31,11 @@ async function validateElviaComponentsConfig() {
                 },
                 reactName: { type: "string", pattern: "([A-Z0-9]){1}([a-zA-Z0-9])+" },
                 useWrapper: { type: "boolean" },
+                wrapperStyle: {
+                    type: "object", propertyNames: {
+                        pattern: "^[A-Za-z_][A-Za-z0-9_]*$",
+                    }
+                },
                 slotItems: { type: "boolean" },
                 elementStyle: { type: "string" },
                 conditionalElementStyle: {
