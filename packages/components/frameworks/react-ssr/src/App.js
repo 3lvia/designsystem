@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Accordion } from '@elvia/elvis-accordion/react';
-//import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
@@ -16,10 +15,6 @@ import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
 
 function App() {
-  // Old checkbox states
-  // const [trackedState, setTrackedState] = useState(true);
-  // const ref = useRef();
-  //////////////////////
 
   const deletableChipsList = [
     { value: 2022 },
@@ -44,7 +39,7 @@ function App() {
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
   const [isModalShowing, setIsModalShowingState] = useState(false);
-  const [isPopoverShowing, setIsPopoverShowingState] = useState(true);
+  const [isPopoverShowing, setIsPopoverShowingState] = useState(false);
   const [progressValue, setProgressValue] = useState(0);
 
   function increaseProgress() {
@@ -502,22 +497,6 @@ function App() {
       </div>
 
       <hr style={{ margin: '40px 0' }} />
-
-      {/*       <h2>Checkbox</h2>
-      <div style={{ marginTop: '16px' }}>
-        <Checkbox
-          ref={ref}
-          checked={trackedState}
-          label="Normal checkbox"
-          name="Nametest"
-          id="CheckboxTestID"
-          size="normal"
-          changeHandler={setTrackedState}
-        ></Checkbox>
-        <Checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></Checkbox>
-      </div>
- */}
-
       <hr style={{ margin: '40px 0' }} />
 
       <h2>Popover</h2>

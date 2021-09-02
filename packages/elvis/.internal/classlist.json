@@ -22,7 +22,11 @@
 						"e-accordion__item--open": {}
 					}
 				},
-				"e-accordion__title": {},
+				"e-accordion__title": {
+					"modifier": {
+						"e-accordion__title--no-icon-hover": {}
+					}
+				},
 				"e-accordion__icon": {},
 				"e-accordion__content": {},
 				"e-accordion__label": {},
@@ -916,6 +920,9 @@
 			},
 			"psuedo": {
 				"e-fileupload---hover": {}
+			},
+			"modifier": {
+				"e-fileupload--dragover": {}
 			}
 		},
 		"e-position-picker": {
@@ -1034,6 +1041,7 @@
 		"e-accordion": {},
 		"e-accordion__item": {},
 		"e-accordion__title": {},
+		"e-accordion__title--no-icon-hover": {},
 		"e-accordion__icon": {},
 		"e-accordion__content": {},
 		"e-accordion__item--open": {},
@@ -1726,6 +1734,7 @@
 		"e-fileupload__description": {},
 		"e-fileupload__input": {},
 		"e-fileupload---hover": {},
+		"e-fileupload--dragover": {},
 		"e-position-picker": {},
 		"e-position-picker__icon": {},
 		"e-position-picker__description": {},

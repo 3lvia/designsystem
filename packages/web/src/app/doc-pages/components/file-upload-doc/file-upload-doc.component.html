@@ -37,15 +37,15 @@
   <!--STATUS-->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Before hover'">
+      <app-component-subsection [sectionTitle]="'Before dragover'">
         <ng-container ngProjectAs="sectionContent">
           <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'When hovering'">
+      <app-component-subsection [sectionTitle]="'On dragover'">
         <ng-container ngProjectAs="sectionContent">
           Use the class modifier
-          <span class="code-text">e-fileupload---hover</span>
+          <span class="code-text">e-fileupload--dragover</span>
           on dragging over.
           <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
         </ng-container>

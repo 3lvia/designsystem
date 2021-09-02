@@ -10,7 +10,6 @@
     "@elvia/elvis-breadcrumb": "*",
     "@elvia/elvis-carousel": "0.0.1-beta.6",
     "@elvia/elvis-chip": "1.0.2",
-    "@elvia/elvis-checkbox": "*",
     "@elvia/elvis-datepicker": "*",
     "@elvia/elvis-dropdown": "*",
     "@elvia/elvis-modal": "0.0.1-beta.12",
@@ -32,7 +31,8 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.23.2"
+    "eslint-plugin-react": "^7.23.2",
+    "webpack-dev-server": "3.11.1"
   },
   "scripts": {
     "start": "react-scripts start",

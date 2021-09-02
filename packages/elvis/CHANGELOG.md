@@ -6,6 +6,95 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.10.0
+      </span>
+      <br>
+      <span>
+        August 30, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://localhost:4200/components/accordion#Overview">Accordion</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Now possible to disable hover on icons when hovering accordion title, by using the new modifier <span class="code-text">e-accordion__title--no-icon-hover</span>.
+            </li>
+          </ul>
+        </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://localhost:4200/components/accordion#Overview">Modal</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Adjustment of z-index so it is now possible to use a datepicker inside a modal content area.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.9.4
+      </span>
+      <br>
+      <span>
+        August 25, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://localhost:4200/components/accordion#Overview">Accordion</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Now possible to use a single accordion inside a group accordion content area. 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.9.3
+      </span>
+      <br>
+      <span>
+        August 13, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://localhost:4200/components/fileUpload#Overview">File Upload</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Deprecated pseudoclass "e-fileupload---hover", now using new modifier "e-fileupload--dragover". 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.9.1
       </span>
       <br>
