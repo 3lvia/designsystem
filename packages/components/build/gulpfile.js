@@ -162,13 +162,11 @@ function cleanup() {
     return del(['../components/**/dist/**/*'], { force: true });
 }
 
-gulp.task('cleanup', gulp.series(cleanup, function (done) { done(); console.log("Clean up - Done!") }));
+gulp.task('cleanup', gulp.series(cleanup, function (done) { done(); }));
 
 gulp.task(
     'default',
-
     gulp.series(
-        //cleanup,
         validate.validateElviaComponentsConfig,
         TSX_to_JS,
         buildWebComponentsMagically,
