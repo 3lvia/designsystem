@@ -117,7 +117,7 @@ function TSX_to_JS() {
     reloadComponentConfig();
     const tasks = components.map((component) => {
         return mergeStream(
-            gulp.src(`../components/${component.name}/src/react/**/*.tsx`)
+            gulp.src(`../components/${component.name}/src/react/**/*.ts*`)
                 .pipe(babel({
                     "presets": [
                         "@babel/preset-typescript"
