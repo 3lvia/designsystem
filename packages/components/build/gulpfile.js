@@ -148,13 +148,12 @@ function buildElviaComponentToJS() {
 }
 
 function buildToolboxComponentToJS() {
-    return gulp.src(`../components/elvis-toolbox/src/*.ts`)
-        .pipe(babel({
-            "presets": [
-                "@babel/preset-typescript"
-            ],
-        })).pipe(header(WARNING))
-        .pipe(gulp.dest(`../components/elvis-toolbox/dist/`));
+    const tsConfig = typescript.createProject('../tsconfig.json');
+    const tsResult = gulp.src(['../components/elvis-toolbox/**/*.ts'])
+        .pipe(tsConfig());
+    return mergeStream(tsResult, tsResult.js)
+        .pipe(gulp.dest('../components/elvis-toolbox/dist'));
+
 }
 
 // TODO: Find a way to do cleanup that does not trigger rebuild
@@ -168,10 +167,10 @@ gulp.task(
     'default',
     gulp.series(
         validate.validateElviaComponentsConfig,
+        buildToolboxComponentToJS,
         TSX_to_JS,
         buildWebComponentsMagically,
         buildElviaComponentToJS,
-        buildToolboxComponentToJS,
         function (done) {
             done();
             console.log('Successfully built Elvia Components!');
