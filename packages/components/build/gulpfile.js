@@ -72,25 +72,25 @@ function buildWebComponentsMagically() {
 
                 const lowercaseAttr = component.attributes.map(attr => attr.name.toLowerCase());
 
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/{{INSERT_STYLE_HERE}}/, result));
 
                 const elementStyle = component.elementStyle ? component.elementStyle : `''`;
 
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/{{INSERT_ELEMENTSTYLE_HERE}}/, component.style));
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(lowercaseAttr))); // Observed attributes has to be lowercase to meet spec
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/{{INSERT_COMPONENT_NAME}}/, component.elementName));
 
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/{{INSERT_REACT_NAME}}/, component.reactName));
 
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/\/\/{{INSERT_SETTERS_AND_GETTERS}}/, setGetList(component.attributes)));
 
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/\/\/{{INSERT_COMPONENT_DATA}}/, `
                     static getComponentData() {
                         return ${JSON.stringify(component)}
