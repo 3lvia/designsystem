@@ -15,8 +15,8 @@ export class ChipDocComponent {
   donts = chipData.donts;
   componentData = chipData;
 
-  chipsValues = [2011,2012,2013,2014]
-  filteredValues = []
+  filteredValues = { 2019: false, 2020: true, 2021: true, 2022: false, 2023: true, 2024: true};
+  filteredKeys = Object.keys(this.filteredValues);
   deletedValues = []
 
   deletableChipsList = [
@@ -32,14 +32,9 @@ export class ChipDocComponent {
   ]
 
   handleOnChange = (event: {value: string; isSelected: boolean}): void => {
-    const values = [...this.filteredValues]
-    if (event.isSelected) {
-      this.filteredValues = [...this.filteredValues,event.value]
-    }
-    else if (!event.isSelected) {
-      this.filteredValues = values.filter(value => value !== event.value);
-    }
-  }
+    this.filteredValues = { ...this.filteredValues, [event.value]: event.isSelected };
+
+  };
 
   handleOnDelete = (event: number): void => {
     const values = [...this.deletableChipsList]

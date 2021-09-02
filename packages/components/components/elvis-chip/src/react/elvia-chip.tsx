@@ -69,8 +69,7 @@ export const Chip: FC<BaseChipProps> = ({
       aria-selected={isSelected}
       color={color}
       onClick={() => {
-        updateSelectedState(value, !isSelected);
-        type === 'removable' && handleOnDelete(value);
+        type === 'removable' ? handleOnDelete(value) : updateSelectedState(value, !isSelected);
       }}
       disabled={disabled}
       onMouseEnter={setHover(true)}

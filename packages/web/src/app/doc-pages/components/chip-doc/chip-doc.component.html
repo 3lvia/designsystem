@@ -99,7 +99,10 @@
               (valueOnChange)="handleOnChange($event.detail.value)"
             ></elvia-chip>
           </div>
-          Selected values: {{ filteredValues }}
+          Selected values:
+          <span *ngFor="let key of filteredKeys">
+            <span *ngIf="filteredValues[key]">{{ key }},</span>
+          </span>
         </ng-container>
       </app-component-subsection>
 

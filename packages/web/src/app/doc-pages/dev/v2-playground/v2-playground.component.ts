@@ -157,7 +157,7 @@ export class v2PlaygroundComponent implements OnInit {
     console.log('Updated - visibility: ' + event);
   };
 
-  handleOnChange = (event: any): void => {
+  handleOnChange = (event: {value: string; isSelected: boolean}): void => {
     this.filteredValues = { ...this.filteredValues, [event.value]: event.isSelected };
   };
 

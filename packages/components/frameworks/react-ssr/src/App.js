@@ -341,7 +341,6 @@ function App() {
         <Chip
           type="legend"
           valueOnChange={(e) => {
-            console.log('valueOnChange', chipSelected, e)
             setChipSelected(!chipSelected)
           }}
           selected={chipSelected}
@@ -374,6 +373,7 @@ function App() {
         }
       </div>
       Filters to apply: {`${Object.keys(filteredValues).filter(chip => filteredValues[chip])}`}
+
       <div style={{ margin: '40px 0' }}>
         <h2>Clickable chip initally checkmark</h2>
         <Chip value="Clickable3" type='choice' selected valueOnChange={setChipValue}>
