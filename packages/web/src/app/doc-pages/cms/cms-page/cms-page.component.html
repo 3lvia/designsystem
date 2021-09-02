@@ -8,6 +8,7 @@
 <!--BODY-->
 <app-page-structure [pages]="pages">
   <ng-container ngProjectAs="pageRouterOutlet">
+    Hello
     <div class="page-body" *ngIf="cmsContent.content" [innerHTML]="html"></div>
   </ng-container>
 </app-page-structure>

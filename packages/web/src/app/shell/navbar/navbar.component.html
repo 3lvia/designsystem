@@ -1,17 +1,17 @@
 <div class="wrapper">
   <div class="navbar" id="side-navbar" [ngClass]="toggleMenu ? 'showMenu' : ''">
     <ul class="navbar-list">
-      <li class="navbar-item" *ngFor="let navbarItem of filteredPages">
+      <li class="navbar-item" *ngFor="let navbarItem of navbarItems">
         <a
-          [routerLink]="[navbarItem.docUrl]"
-          routerLinkActive="active-route"
-          (click)="markNewActiveNavbarItem(navbarItem)"
+          [routerLink]="['/' + this.subMenuRoute + '/' + navbarItem.path]"
+          [ngClass]="{ 'active-route': activeNavbarItem === navbarItem }"
+          (click)="markNewActiveNavbarItem()"
         >
           <div class="navbar-item-title">
             {{ navbarItem.title }}
           </div>
         </a>
-        <div class="anchors" *ngIf="navbarAnchors.length > 0">
+        <!-- <div class="anchors" *ngIf="navbarAnchors.length > 0">
           <div *ngIf="navbarItem === prevActiveNavbarItem">
             <div class="link" *ngFor="let anchor of prevNavbarAnchors">
               <a class="anchor" id="navbar-{{ anchor.title }}" href="javascript:void(0)">
@@ -32,7 +32,7 @@
               </a>
             </div>
           </div>
-        </div>
+        </div> -->
       </li>
     </ul>
     <div class="bottom-blur"></div>

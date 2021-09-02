@@ -408,9 +408,12 @@ const routes: Routes = [
         ],
       },
       { path: 'not-found', component: ErrorComponent },
-
       {
-        path: '**',
+        path: ':submenu',
+        component: CMSPageComponent,
+      },
+      {
+        path: ':submenu/:page',
         pathMatch: 'full',
         component: CMSPageComponent,
       },
