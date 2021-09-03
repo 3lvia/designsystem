@@ -7,6 +7,7 @@ import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
 import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';
 import { Carousel } from '@elvia/elvis-carousel/react';
+import { Chip } from '@elvia/elvis-chip/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
@@ -14,7 +15,27 @@ import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
 
 function App() {
+
+  const deletableChipsList = [
+    { value: 2022 },
+    { value: 2024, color: 'blue' },
+    { value: 2025, color: 'purple', disabled: true }
+  ]
+
+  const clickableChips = [
+    { value: 2022, color: 'green' },
+    { value: 2023, color: 'red' },
+    { value: 2024, color: 'blue', selected: true },
+    { value: 2025, color: 'purple' },
+    { value: 2026, color: 'violet', selected: true, disabled: true }
+  ]
+
+  const [chipSelected, setChipSelected] = useState(false)
+
   const [selectedState, setSelectedState] = useState(2);
+  const [chipsValues, setChipsValues] = useState([2018, 2019, 2020, 2021]);
+  const [deletableChips, setDeletableChips] = useState(deletableChipsList);
+  const [chipValue, setChipValue] = useState([]);
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
   const [isModalShowing, setIsModalShowingState] = useState(false);
@@ -168,6 +189,25 @@ function App() {
     },
   ];
 
+  const handleOnDelete1 = (event) => {
+    const values = [...chipsValues]
+    setChipsValues(values.filter(value => value !== event))
+  }
+
+  const handleOnDelete2 = (event) => {
+    const values = [...deletableChips]
+    setDeletableChips(values.filter(data => data.value !== event))
+  }
+
+  const [filteredValues, setFilteredValues] = useState({ 2022: false, 2023: false, 2024: true, 2025: false, 2026: true })
+
+  const handleOnValueChange = (event) => {
+    setFilteredValues(prevState => ({
+      ...prevState,
+      [event.value]: event.isSelected
+    }))
+  }
+
   return (
     <div className="App">
       <h1>React preview</h1>
@@ -276,7 +316,67 @@ function App() {
             </div>
           </>
         }
-      ></Modal>
+      >
+      </Modal>
+
+      <div>
+        <button
+          onClick={() => {
+            setChipsValues(values => [...values, `20${Math.floor(Math.random() * 30) + 1}`])
+          }
+          }
+        >
+          Add chip
+        </button>
+      </div>
+
+      <div>
+        <h1>Test av chip</h1>
+        <button onClick={() => setChipSelected(!chipSelected)}>TEST</button>
+        <Chip
+          type="legend"
+          valueOnChange={(e) => {
+            setChipSelected(!chipSelected)
+          }}
+          selected={chipSelected}
+          value="Test">
+        </Chip>
+        <hr></hr>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        {chipsValues.map(value => (
+          <Chip value={value} onDelete={handleOnDelete1}>
+          </Chip>
+        ))
+        }
+      </div>
+      Deletable Chips
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        {deletableChips.map(data => (
+          <Chip value={data.value} color={data.color} disabled={data.disabled} ariaLabel={`Fjern filtreringen for ${data.value}`} onDelete={handleOnDelete2}>
+          </Chip>
+        ))
+        }
+      </div>
+      Clickable Chips
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        {clickableChips.map(data => (
+          <Chip value={data.value} color={data.color} selected={data.selected} disabled={data.disabled} type='legend' valueOnChange={handleOnValueChange}>
+          </Chip>
+        ))
+        }
+      </div>
+      Filters to apply: {`${Object.keys(filteredValues).filter(chip => filteredValues[chip])}`}
+
+      <div style={{ margin: '40px 0' }}>
+        <h2>Clickable chip initally checkmark</h2>
+        <Chip value="Clickable3" type='choice' selected valueOnChange={setChipValue}>
+        </Chip>
+      </div>
+      <div>{"Selected chip: "}</div>
+      <div>{chipValue.isSelected ? chipValue.value : ''}</div>
+
 
       <h2>Dropdown</h2>
       <button onClick={consoleDropdownVal}>Console dropdown value</button>

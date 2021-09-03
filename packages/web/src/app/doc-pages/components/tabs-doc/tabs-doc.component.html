@@ -10,15 +10,17 @@
 <div class="page-body">
   <!--CEG-->
   <!--Temporary until ceg-code-block supports angular syntax-->
-  <div class="component-preview-temp component-preview-animation">
-    <elvia-tabs
-      [items]="[
-        exampleContents.words.random['eng-GBR'][0],
-        exampleContents.words.random['eng-GBR'][1],
-        exampleContents.words.random['eng-GBR'][2],
-        exampleContents.words.random['eng-GBR'][3]
-      ]"
-    ></elvia-tabs>
+  <div class="component-preview-temp component-preview-animation v2">
+    <div class="component-preview-temp-example">
+      <elvia-tabs
+        [items]="[
+          exampleContents.words.random['eng-GBR'][0],
+          exampleContents.words.random['eng-GBR'][1],
+          exampleContents.words.random['eng-GBR'][2],
+          exampleContents.words.random['eng-GBR'][3]
+        ]"
+      ></elvia-tabs>
+    </div>
     <app-component-example-generator
       [componentData]="componentData"
       [hasPreview]="false"

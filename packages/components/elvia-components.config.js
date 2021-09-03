@@ -3,35 +3,35 @@
 This file is validated by validateConfig.js when building components
 
 
-###### Contents  ###### 
+###### Contents  ######
 name: string - Package name has to start with "elvis-"
 elementName: string - Name of DOM element has to start with "elvia-"
-attributes: object[] - 
+attributes: object[] -
   attributes.name: string - name of supported attribute & property
-  attributes.type: string - 
+  attributes.type: string -
   Only one type and one of the following is supported: string, number, object, Date, boolean
   Attributes on web components are always handled as strings. This value tells us what the components should parse the string
   value to. This is only to make it easier to use components without bindings value="".
   When using bindings ([value]="") the value is sent in as a property and not an attribute. We do not parse those.
   If you use type "object" we parse it with JSON.parse, which supports arrays as well.
 
-  attributes.propType: string - 
+  attributes.propType: string -
   We allow propType to contain the actually allowed properties by the react component written in a typescript way:
-  "string | number | HTMLElement | Date | object" etc.  
+  "string | number | HTMLElement | Date | object" etc.
 
 reactName: string - The name of the component in React
 elementStyle: string - Styling for the DOM element (web component HTMLElement) itself
 
-useWrapper: boolean - If the React element should be injected into a wrapper instead of directly into the element. 
-In most cases this should be false, however sometimes we want the React component to be wrapped inside a separate 
-div to prevent overwriting other content within the web component. In those cases useWrapper is useful. 
+useWrapper: boolean - If the React element should be injected into a wrapper instead of directly into the element.
+In most cases this should be false, however sometimes we want the React component to be wrapped inside a separate
+div to prevent overwriting other content within the web component. In those cases useWrapper is useful.
 
-wrapperStyle: string - Styling for the React wrapper (the div wrapper inside the web component, when using 'useWrapper' 
+wrapperStyle: string - Styling for the React wrapper (the div wrapper inside the web component, when using 'useWrapper'
 - This requires useWrapper to be true.
 
 slotItems: boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all new components
 
-conditionalElementStyle: object - An object containing a key value pair for different CSS styles following the 
+conditionalElementStyle: object - An object containing a key value pair for different CSS styles following the
 javascript naming of the different CSS styles
 */
 
@@ -72,6 +72,21 @@ module.exports = [
     reactName: 'Carousel',
     slotItems: false,
     useWrapper: false,
+  },
+  {
+    name: 'elvis-chip',
+    elementName: 'elvia-chip',
+    attributes: [
+      { name: 'ariaLabel', type: 'string' },
+      { name: 'color', type: 'string' },
+      { name: 'disabled', type: 'boolean' },
+      { name: 'value', type: 'string' },
+      { name: 'type', type: 'string' },
+      { name: 'iconType', type: 'string' },
+      { name: 'selected', type: 'boolean' },
+    ],
+    reactName: 'Chip',
+    slotItems: false,
   },
   {
     name: 'elvis-tabs',
