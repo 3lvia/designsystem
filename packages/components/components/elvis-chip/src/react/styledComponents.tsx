@@ -102,9 +102,14 @@ export const CheckmarkIcon = styled(SpanIcon)`
 
 export const CloseIcon = styled(SpanIcon)`
   margin-left: 8px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: inline-flex;
+  align-items: center;
   i {
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M23.636 2.122A1.243 1.243 0 1021.878.364L12 10.242 2.122.364A1.243 1.243 0 00.364 2.122L10.242 12 .364 21.878a1.243 1.243 0 101.758 1.758L12 13.758l9.878 9.878a1.243 1.243 0 101.758-1.758L13.758 12l9.878-9.878z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath fill='white' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
-    height: 12px;
-    width: 12px;
+    height: 16px;
+    width: 8px;
   }
 `;

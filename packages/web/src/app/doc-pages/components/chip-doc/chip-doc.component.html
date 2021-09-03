@@ -50,12 +50,22 @@
 
       <app-component-subsection [sectionTitle]="'Legend'">
         <ng-container ngProjectAs="sectionContent">
-          Legend chips should be used for filtering, primarily for visualization in graphs.
+          Legend chips should be used for filtering, primarily for visualization in graphs (e.g. colors
+          representing different lines in a graph).
           <div style="display: flex; flex-direction: row" class="e-ml-n8">
-            <div class="e-m-8 e-ml-0">
+            <div class="e-m-8">
+              <elvia-chip
+                [value]="2018"
+                type="legend"
+                selected="true"
+                (valueOnChange)="handleOnChange($event.detail.value)"
+              ></elvia-chip>
+            </div>
+            <div class="e-m-8">
               <elvia-chip
                 [value]="2019"
                 type="legend"
+                color="purple"
                 selected="true"
                 (valueOnChange)="handleOnChange($event.detail.value)"
               ></elvia-chip>
