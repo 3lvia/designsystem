@@ -33,6 +33,7 @@
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.13.12",
     "@babel/preset-typescript": "^7.13.0",
-    "ajv": "^8.6.2"
+    "ajv": "^8.6.2",
+    "babel-plugin-styled-components": "^1.13.2"
   }
 }

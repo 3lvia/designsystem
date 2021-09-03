@@ -2,7 +2,6 @@ const gulp = require('gulp');
 var header = require('gulp-header');
 const babel = require('gulp-babel');
 const tap = require('gulp-tap');
-const replace = require('gulp-replace');
 const sass = require('sass');
 const del = require('del');
 const mergeStream = require('merge-stream');
@@ -123,6 +122,7 @@ function TSX_to_JS() {
                         "@babel/preset-typescript"
                     ],
                     "plugins": [
+                        "babel-plugin-styled-components",
                         "@babel/plugin-transform-react-jsx",
                     ]
                 })).pipe(header(WARNING))
