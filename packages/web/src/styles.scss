@@ -47,6 +47,14 @@ p {
   align-items: center;
   justify-content: center;
   margin-top: 56px;
+  &.v2 {
+    align-items: flex-start;
+    .component-preview-temp-example {
+      display: flex;
+      justify-content: center;
+      width: 80%;
+    }
+  }
 }
 .code-text {
   font-family: 'Fira Mono';
