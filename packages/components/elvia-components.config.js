@@ -50,6 +50,7 @@ module.exports = [
     reactName: 'Accordion',
     useWrapper: true,
     slotItems: false,
+    elementStyle: `width: 100%;`,
   },
   {
     name: 'elvis-breadcrumb',
