@@ -4,7 +4,7 @@
 
 ### New features
 
-- Bug fixes for max-width and positioning of content in the accordion
+- Bug fixes for width and positioning of content in the accordion
 
 ## 1.0.0 (09.04.21)
 
