@@ -5,6 +5,11 @@
     "no-console": "off",
     "func-names": "off"
   },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "env": {
     "node": true,
     "es6": true
