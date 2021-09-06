@@ -156,7 +156,7 @@ const decideContentTransition = (contentOpen: boolean, type: string) => {
 };
 
 const AccordionContent = styled.div`
-  display: flex;
+  display: block;
   background: transparent;
   width: 100%;
   font-size: 16px;
