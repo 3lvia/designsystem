@@ -43,7 +43,7 @@
       "yarn run eslint",
       "git add"
     ],
-    "packages/components/**/*.+(js|ts|tsx)": [
+    "packages/components/components/**/*.+(js|ts|tsx)": [
       "yarn run prettier-comp",
       "yarn run eslint",
       "git add"
