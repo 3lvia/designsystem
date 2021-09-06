@@ -1,10 +1,12 @@
 # Elvia Accordion Changelog
 
-## 1.0.3 (06.09.21)
+## 2.0.0 (06.09.21)
 
-### New features
+### Breaking changes
 
-- Bug fixes for width and positioning of content in the accordion
+- Bug fixes for displaying of content in the accordion. This may change some of the accordion content layout.
+- The web component accordion will now take up 100% width, this was the default in React. This might be
+  breaking for some projects.
 
 ## 1.0.0 (09.04.21)
 
