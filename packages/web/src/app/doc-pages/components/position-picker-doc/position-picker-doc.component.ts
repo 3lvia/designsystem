@@ -14,7 +14,7 @@ export class PositionPickerDocComponent {
 
   figmaUrl = getComponent('position-picker').figmaUrl;
   description = getComponent('position-picker').description;
-
+  loadedFigmaModel = false;
   isExampleInput = false;
 
   exampleOverview = `<div class="e-position-picker" style="width: 380px;">
@@ -222,6 +222,12 @@ class="e-modal e-none"
       this.exampleInput.nativeElement.value = null;
       this.exampleSearch.nativeElement.classList.remove('e-search--searched');
       this.isExampleInput = false;
+    }
+  }
+
+  hideContentLoader(evt: any): void {
+    if (evt && evt.target) {
+      this.loadedFigmaModel = true;
     }
   }
 }
