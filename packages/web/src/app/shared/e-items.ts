@@ -172,7 +172,7 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
-    title: 'Chips',
+    title: 'Chip',
     // tslint:disable-next-line: max-line-length
     description:
       'Chips are interactive elements that represent an input. These are triggered by the user and can easily be removed by clicking on them. These are often used when you are going to filter content.',
@@ -314,7 +314,7 @@ export const eComponents: EItems[] = [
     title: 'List',
     // tslint:disable-next-line: max-line-length
     description:
-      'Lists are related content grouped vertically. We have different types of lists to suit different needs; bullet, numbered and icon.',
+      'Lists are related content grouped vertically. We have different types of lists to suit different needs; bullet, numbered and icon. Lists should usually inherit the typography from the text surrounding the list.',
     docUrl: Pages.List,
     absolutePath: '/components/' + Pages.List,
     status: ItemStatus.Done,

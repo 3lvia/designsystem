@@ -2,7 +2,6 @@ const gulp = require('gulp');
 var header = require('gulp-header');
 const babel = require('gulp-babel');
 const tap = require('gulp-tap');
-const replace = require('gulp-replace');
 const sass = require('sass');
 const del = require('del');
 const mergeStream = require('merge-stream');
@@ -10,6 +9,7 @@ const path = require('path');
 let components = require('../elvia-components.config');
 const rename = require("gulp-rename");
 const fs = require('fs');
+const validate = require('./validateConfig.js');
 
 
 const WARNING = `/* 
@@ -71,25 +71,25 @@ function buildWebComponentsMagically() {
 
                 const lowercaseAttr = component.attributes.map(attr => attr.name.toLowerCase());
 
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/{{INSERT_STYLE_HERE}}/, result));
 
                 const elementStyle = component.elementStyle ? component.elementStyle : `''`;
 
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/{{INSERT_ELEMENTSTYLE_HERE}}/, component.style));
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/\['{{INSERT_ATTRIBUTES}}'\]/, JSON.stringify(lowercaseAttr))); // Observed attributes has to be lowercase to meet spec
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/{{INSERT_COMPONENT_NAME}}/, component.elementName));
 
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/{{INSERT_REACT_NAME}}/, component.reactName));
 
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/\/\/{{INSERT_SETTERS_AND_GETTERS}}/, setGetList(component.attributes)));
 
-                file.contents = new Buffer(String(file.contents)
+                file.contents = Buffer.from(String(file.contents)
                     .replace(/\/\/{{INSERT_COMPONENT_DATA}}/, `
                     static getComponentData() {
                         return ${JSON.stringify(component)}
@@ -116,12 +116,13 @@ function TSX_to_JS() {
     reloadComponentConfig();
     const tasks = components.map((component) => {
         return mergeStream(
-            gulp.src(`../components/${component.name}/src/react/**/*.tsx`)
+            gulp.src([`../components/${component.name}/src/react/**/*.ts*`, '!../components/**/*.d.ts*'])
                 .pipe(babel({
                     "presets": [
                         "@babel/preset-typescript"
                     ],
                     "plugins": [
+                        "babel-plugin-styled-components",
                         "@babel/plugin-transform-react-jsx",
                     ]
                 })).pipe(header(WARNING))
@@ -161,12 +162,12 @@ function cleanup() {
     return del(['../components/**/dist/**/*'], { force: true });
 }
 
-gulp.task('cleanup', gulp.series(cleanup, function (done) { done(); console.log("Clean up - Done!") }));
+gulp.task('cleanup', gulp.series(cleanup, function (done) { done(); }));
 
 gulp.task(
     'default',
     gulp.series(
-        //cleanup,
+        validate.validateElviaComponentsConfig,
         TSX_to_JS,
         buildWebComponentsMagically,
         buildElviaComponentToJS,

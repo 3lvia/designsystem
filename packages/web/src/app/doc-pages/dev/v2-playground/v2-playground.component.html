@@ -62,6 +62,65 @@
     <elvia-carousel [elements]="5" (valueOnChange)="carouselValue = $event.detail.value"></elvia-carousel>
     {{ carouselValue }}
 
+    <h3>Deletable chips</h3>
+    <div style="display: flex; flex-direction: row">
+      <div *ngFor="let chip of deletableChipsList">
+        <elvia-chip
+          [value]="chip.value"
+          [color]="chip.color"
+          [ariaLabel]="'Fjern filtrering for ' + chip.value"
+          [disabled]="chip.disabled"
+          (onDelete)="handleOnDelete($event.detail.value)"
+        ></elvia-chip>
+      </div>
+    </div>
+    Value deleted: {{ deleteValue }}
+
+    <h3>Clickable chips</h3>
+    <div style="display: flex; flex-direction: row">
+      <elvia-chip
+        [value]="2021"
+        color="orange"
+        type="legend"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2022"
+        [selected]="true"
+        type="legend"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2023"
+        [selected]="true"
+        type="choice"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2024"
+        [selected]="true"
+        type="legend"
+        color="violet"
+        disabled="true"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+    </div>
+    Selected values:
+    <span *ngFor="let key of filteredKeys">
+      <span *ngIf="filteredValues[key]">{{ key }},</span>
+    </span>
+
+    <h2>Box</h2>
+    <div style="padding: 8px">
+      <elvia-box [hasBorder]="true">
+        <h2 slot="title">Title</h2>
+        <div slot="content">Webcomponentent content for the box component</div>
+      </elvia-box>
+    </div>
+
+    <elvia-carousel [elements]="5" (valueOnChange)="carouselValue = $event.detail.value"></elvia-carousel>
+    {{ carouselValue }}
+
     <h2>Box</h2>
     <div style="padding: 8px">
       <elvia-box [hasBorder]="true">

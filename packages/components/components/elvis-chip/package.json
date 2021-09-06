@@ -1,6 +1,6 @@
 {
-  "name": "@elvia/elvis-checkbox",
-  "version": "1.0.0",
+  "name": "@elvia/elvis-chip",
+  "version": "1.0.3",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -9,6 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "^2.0.3"
+    "@elvia/elvis-component-wrapper": "^2.0.3",
+    "styled-components": "^5.2.3"
   }
 }

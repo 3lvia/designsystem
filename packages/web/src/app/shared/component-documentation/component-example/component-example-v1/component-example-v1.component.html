@@ -7,31 +7,13 @@
   >
     <!--Screen tabs-->
     <div class="top-menu">
-      <div class="tabs e-mb-24" *ngIf="showIframeScreens && showTabs">
-        <div
-          class="tab"
-          role="button"
-          [ngClass]="{ hide: noDesktop, active: screenTabOpen === 'desktop' }"
-          (click)="setScreenTabOpen('desktop')"
-        >
-          Desktop
-        </div>
-        <div
-          class="tab"
-          role="button"
-          [ngClass]="{ hide: noTablet, active: screenTabOpen === 'tablet' }"
-          (click)="setScreenTabOpen('tablet')"
-        >
-          Tablet
-        </div>
-        <div
-          class="tab"
-          role="button"
-          [ngClass]="{ hide: noPhone, active: screenTabOpen === 'phone' }"
-          (click)="setScreenTabOpen('phone')"
-        >
-          Phone
-        </div>
+      <div class="e-w-100 e-mb-24" *ngIf="showIframeScreens && showTabs">
+        <elvia-tabs
+          (valueOnChange)="changeTab($event.detail.value)"
+          [isInverted]="isInverted || darkGreyBg"
+          [items]="tabs"
+          [value]="activeTab"
+        ></elvia-tabs>
       </div>
       <div class="dark-mode-toggle e-mb-24" *ngIf="codeInverted != ''">
         <span>Inverted</span>
