@@ -140,6 +140,7 @@ module.exports = [
   { name: 'box', terms: ['shipment', 'package', 'cardboard'], thirdparty: { name: ['streamline'] } },
   { name: 'business-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'cabin', terms: ['cottage', 'house', 'outside', 'woods'], thirdparty: { name: ['streamline'] } },
+  { name: 'cable', terms: ['cord', 'wire', 'power line', 'electricity'] },
   { name: 'calendar', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'calendar_clock-color', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'calendar-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['calendar'] } },
@@ -148,6 +149,7 @@ module.exports = [
   { name: 'chainsaw', terms: ['motorized saw', 'electric'] },
   { name: 'chat', terms: ['message', 'text', 'write', 'conversation'], thirdparty: { name: ['streamline'] } },
   { name: 'charging_battery', terms: ['charge', 'load'], thirdparty: { name: ['streamline'] } },
+  { name: 'charge', terms: ['power'] },
   {
     name: 'charging_battery-color',
     terms: ['charge', 'power'],
@@ -237,6 +239,7 @@ module.exports = [
     terms: [],
     thirdparty: { name: ['streamline'], duplicate: ['expand_circle-color'] },
   },
+  { name: 'extension_cord', terms: ['cord', 'wire', 'power line', 'electricity'] },
   {
     name: 'facebook',
     terms: ['smsocial media', 'SoMeiley'],
@@ -284,6 +287,7 @@ module.exports = [
   { name: 'hammer_wrench-color', terms: [] },
   { name: 'han', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'han-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['han'] } },
+  { name: 'heating', terms: ['warm up', 'radiator']},
   { name: 'home', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'home-color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['home'] } },
   { name: 'house_rebuilding-color', terms: [], thirdparty: { name: ['streamline'] } },
@@ -316,6 +320,7 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['invoice'] },
   },
   { name: 'laptop-color', terms: ['computer', 'screen', 'pc', 'mac'] },
+  { name: 'lighting', terms: ['light', 'power'] },
   { name: 'list', terms: [], thirdparty: { name: ['streamline'] } },
   { name: 'list_color', terms: [], thirdparty: { name: ['streamline'], duplicate: ['list'] } },
   { name: 'list_bullets-bold', terms: [], thirdparty: { name: ['streamline'] } },
@@ -557,6 +562,7 @@ module.exports = [
   { name: 'step_3', terms: ['number', 'third', 'three'], thirdparty: { name: ['streamline'] } },
   { name: 'step_4', terms: ['number', 'fourth', 'four'], thirdparty: { name: ['streamline'] } },
   { name: 'step_5', terms: ['number', 'fifth', 'five'], thirdparty: { name: ['streamline'] } },
+  { name: 'stove', terms: ['oven'] },
   {
     name: 'subtract_circle',
     terms: ['minus', '-', 'minimize', 'collapse'],
@@ -625,6 +631,8 @@ module.exports = [
     terms: ['!', 'danger', 'alert', 'caution', 'exclamation'],
     thirdparty: { name: ['streamline'], duplicate: ['warning_circle'] },
   },
+  { name: 'water_heater', terms: ['hot-water tank', 'warmer'] },
+  { name: 'washing_machine', terms: ['washer'] },
   { name: 'web_library-color', terms: [], thirdparty: { name: ['streamline'] } },
   {
     name: 'worker',
