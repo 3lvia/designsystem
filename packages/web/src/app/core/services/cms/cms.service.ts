@@ -7,12 +7,11 @@ import { Locale } from '../localization.service';
 @Injectable({
   providedIn: 'root',
 })
-
 export class CMSService {
   private entries = {};
   private entriesToSync = [];
 
-  constructor(private http: HttpClient, private cmsTransformService: CMSTransformService) { }
+  constructor(private http: HttpClient, private cmsTransformService: CMSTransformService) {}
 
   getDocumentationPageByEntryId(entryId: string, localization: Locale): Promise<any> {
     let locale = 'en-GB';
@@ -21,9 +20,13 @@ export class CMSService {
     }
 
     return this.getEntry(entryId).then((data) => {
+      let pageDescription = '';
+      if (data.fields.pageDescription && data.fields.pageDescription[locale]) {
+        pageDescription = data.fields.pageDescription[locale];
+      }
       return {
         title: data.fields.title[locale],
-        pageDescription: data.fields.pageDescription[locale],
+        pageDescription: pageDescription,
         content: this.cmsTransformService.getHTML(data, locale, this.entries),
       };
     });
@@ -40,9 +43,13 @@ export class CMSService {
     }
 
     return this.getEntry(contentMetadata.contentful.entry_id).then((data) => {
+      let pageDescription = '';
+      if (data.fields.pageDescription && data.fields.pageDescription[locale]) {
+        pageDescription = data.fields.pageDescription[locale];
+      }
       return {
         title: data.fields.title[locale],
-        pageDescription: data.fields.pageDescription[locale],
+        pageDescription: pageDescription,
         content: this.cmsTransformService.getHTML(data, locale, this.entries),
       };
     });
@@ -67,7 +74,6 @@ export class CMSService {
         path: subMenuEntries[i].fields.path['en-GB'], // url path - No localization on this field
       };
       menu['pages'].push(subMenu);
-
     }
     return menu;
   }

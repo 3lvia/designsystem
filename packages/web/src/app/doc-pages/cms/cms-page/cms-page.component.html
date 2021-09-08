@@ -1,14 +1,13 @@
-<!--HEADER-->
-<app-component-header>
-  <ng-container ngProjectAs="headerTitle">{{ cmsContent.title ? cmsContent.title : '' }}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    <span>{{ cmsContent.pageDescription ? cmsContent.pageDescription : '' }}</span>
-  </ng-container>
-</app-component-header>
 <!--BODY-->
 <app-page-structure [pages]="pages">
   <ng-container ngProjectAs="pageRouterOutlet">
-    Hello
+    <!-- HEADER -->
+    <app-component-header>
+      <ng-container ngProjectAs="headerTitle">{{ cmsContent.title ? cmsContent.title : '' }}</ng-container>
+      <ng-container ngProjectAs="headerDescription">
+        <span>{{ cmsContent.pageDescription ? cmsContent.pageDescription : '' }}</span>
+      </ng-container>
+    </app-component-header>
     <div class="page-body" *ngIf="cmsContent.content" [innerHTML]="html"></div>
   </ng-container>
 </app-page-structure>

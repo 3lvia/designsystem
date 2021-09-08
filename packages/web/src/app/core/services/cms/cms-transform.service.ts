@@ -17,6 +17,7 @@ export class CMSTransformService {
       [BLOCKS.HEADING_2]: (node, next) =>
         `<h2 class="e-title-md elvis-anchor-title e-mb-24">${next(node.content)}</h2>`,
       [BLOCKS.HEADING_3]: (node, next) => `<h3 class="e-title-sm">${next(node.content)}</h3>`,
+      [BLOCKS.HEADING_6]: (node, next) => `<p class="e-text-lg">${next(node.content)}</p>`,
       [BLOCKS.PARAGRAPH]: (node, next) => `<p>${next(node.content)}</p>`,
       [BLOCKS.UL_LIST]: (node, next) => `<ul class="e-list">${next(node.content)}</ul>`,
       [INLINES.HYPERLINK]: (node, next) =>
@@ -39,10 +40,15 @@ export class CMSTransformService {
   }
 
   private embeddedEntryBlock(node, locale) {
+    console.log('Entry');
     const type = this.getEntryType(node);
     const data = node.data.target;
     if (type === 'section') {
       return this.getSection(data, locale);
+    }
+    if (type === 'landingPage') {
+      console.log('Landing page');
+      return this.getLandingPage(data, locale);
     }
     return documentToHtmlString(data.fields.content, this.options);
   }
@@ -65,6 +71,18 @@ export class CMSTransformService {
             </div>
             <div class="cms-section__content e-text-body">
                 ${documentToHtmlString(data.fields.content[locale], this.options)}
+            </div>
+        </div>`;
+  }
+
+  private getLandingPage(data, locale) {
+    const srcUrl = 'https:' + data.fields.overviewImage[locale].fields.file[locale].url;
+    console.log(srcUrl);
+    return `
+        <div class="cms-landing-page">
+            <img class="cms-landing-page__img" src="${srcUrl}"></img>
+            <div class="cms-landing-page__description e-text-lg">
+              ${data.fields.description ? data.fields.description[locale] : ''}
             </div>
         </div>`;
   }
