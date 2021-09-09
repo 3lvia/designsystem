@@ -6,6 +6,32 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.11.0
+      </span>
+      <br>
+      <span>
+        September 9, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://localhost:4200/identity/icons#Overview">Icons</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              New icons added and electricity icons updated.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.10.0
       </span>
       <br>
