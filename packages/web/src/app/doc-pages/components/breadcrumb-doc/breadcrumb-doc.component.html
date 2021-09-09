@@ -21,16 +21,34 @@
           <div class="ceg-side-filter e-form_field e-w-100">
             <label class="e-form-field__label">Breadcrumbs</label>
             <div class="counter">
-              <button class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-8" (click)="removeBreadcrumb()">
+              <button
+                class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-8"
+                (click)="removeBreadcrumb()"
+                [disabled]="breadcrumbsTest.length === 2"
+              >
                 <span class="e-btn__icon">
-                  <i class="e-icon e-icon--subtract_circle"></i>
+                  <i
+                    class="e-icon e-icon--subtract_circle"
+                    [ngClass]="{
+                      'e-icon--color-disabled': breadcrumbsTest.length === 2
+                    }"
+                  ></i>
                   <i class="e-icon e-icon e-icon--subtract_circle-filled-color"></i>
                 </span>
               </button>
               <span class="counter__number e-text-md ng-star-inserted">{{ breadcrumbsTest.length }}</span>
-              <button class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8" (click)="addBreadcrumb()">
+              <button
+                class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8"
+                (click)="addBreadcrumb()"
+                [disabled]="breadcrumbsTest.length === 5"
+              >
                 <span class="e-btn__icon">
-                  <i class="e-icon e-icon--add_circle"></i>
+                  <i
+                    class="e-icon e-icon--add_circle"
+                    [ngClass]="{
+                      'e-icon--color-disabled': breadcrumbsTest.length === 5
+                    }"
+                  ></i>
                   <i class="e-icon e-icon e-icon--add_circle-filled-color"></i>
                 </span>
               </button>
