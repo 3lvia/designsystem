@@ -87,10 +87,9 @@ const accordionData = {
   codeNativeHTML:
     `<elvia-accordion
   type="normal"
-  openLabel="Show"
-  closeLabel="Hide"
   labelPosition="center"
   size="medium"
+  id="example-elvia-accordion"
 >
   <div slot="content">
     ` +
@@ -98,6 +97,10 @@ const accordionData = {
     `
   </div>
 </elvia-accordion>
+`,
+  codeNativeScript: `  const accordion = document.getElementById('example-elvia-accordion');
+  accordion.setProps({openLabel: 'Show' });
+  accordion.setProps({closeLabel: 'Hide'});
 `,
 };
 
