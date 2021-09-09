@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BoxDocComponent } from './box-doc.component';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
@@ -21,5 +21,6 @@ import { ComponentExampleGeneratorModule } from 'src/app/shared/component-docume
     ComponentExampleGeneratorModule,
   ],
   declarations: [BoxDocComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class BoxDocModule {}
+export class BoxDocModule { }

@@ -5,6 +5,17 @@ const accordionData = {
   elementNameW: 'elvia-accordion',
   elementNameR: 'Accordion',
   attributes: {
+    type: {
+      isRequired: false,
+      type: '“normal” | “overflow”',
+      description: 'Variants of accordion',
+      default: '"normal"',
+      displayName: 'Variants',
+      cegDefault: 'normal',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['normal', 'overflow'],
+    },
     content: {
       isRequired: true,
       type: 'string | HTMLElement',
@@ -42,46 +53,52 @@ const accordionData = {
       cegFormType: 'radio',
       cegOptions: ['small', 'medium', 'large'],
     },
-    type: {
-      isRequired: false,
-      type: '“normal” | “overflow”',
-      description: 'Variants of accordion',
-      default: '"normal"',
-      displayName: 'Variants',
-      cegDefault: 'normal',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['normal', 'overflow'],
-    },
   },
   package: 'npm install @elvia/elvis-accordion',
   codeImportReact: `import { Accordion } from '@elvia/elvis-accordion/react';`,
   codeImportWebComponent: `import '@elvia/elvis-accordion';`,
   codeReact:
     `<Accordion
-  type="normal"
-  openLabel="Show"
-  closeLabel="Hide"
-  labelPosition="center"
-  size="medium"
-  content="` +
+  type={"normal"}
+  openLabel={"Show"}
+  closeLabel={"Hide"}
+  labelPosition={"center"}
+  size={"medium"}
+  content={"` +
     exampleContents.texts.lg['eng-GBR'].description +
-    `"
-></Accordion>`,
-  codeWebComponent:
+    `"}
+></Accordion>
+`,
+  codeAngular:
+    `<elvia-accordion
+  [type]="'normal'"
+  [openLabel]="'Show'"
+  [closeLabel]="'Hide'"
+  [labelPosition]="'center'"
+  [size]="'medium'"
+>
+  <div slot="content">
+    ` +
+    exampleContents.texts.lg['eng-GBR'].description +
+    `
+  </div>
+</elvia-accordion>
+`,
+  codeNativeHTML:
     `<elvia-accordion
   type="normal"
   openLabel="Show"
   closeLabel="Hide"
   labelPosition="center"
   size="medium"
-  >
+>
   <div slot="content">
-   ` +
+    ` +
     exampleContents.texts.lg['eng-GBR'].description +
     `
   </div>
-</elvia-accordion>`,
+</elvia-accordion>
+`,
 };
 
 export { accordionData };

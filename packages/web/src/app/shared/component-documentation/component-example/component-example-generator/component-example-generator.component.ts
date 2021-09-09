@@ -1,4 +1,5 @@
 import { AfterContentInit, Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../example-code.service';
 
@@ -17,8 +18,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() accordionCustom = false;
   @Input() overflowY;
   @Input() alignedTop = false;
-  codeWebComponentSub: Subscription;
+  codeAngularSub: Subscription;
   codeReactSub: Subscription;
+  codeNativeSub: Subscription;
   hasCegAttributes = false;
   props = [];
   modifiers = [];
@@ -30,23 +32,29 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   selectedBg;
   selectedType;
   codeReact;
-  codeWebComponent;
+  codeNative;
+  codeAngular;
   hasTopFilters = false;
   typeDefault;
   bgDefault;
   bgList = [];
+  dynamicCode;
 
-  constructor(private cegService: ExampleCodeService) {}
+  constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
-    this.codeWebComponent = this.componentData.codeWebComponent;
+    this.codeAngular = this.componentData.codeAngular;
     this.codeReact = this.componentData.codeReact;
-    this.codeWebComponentSub = this.cegService.listenCodeWebComponent().subscribe((code: string) => {
-      this.codeWebComponent = code;
-      this.updateCegFrame(code);
+    this.codeNative = this.componentData.codeNativeHTML;
+    this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code: string) => {
+      this.codeAngular = code;
     });
     this.codeReactSub = this.cegService.listenCodeReact().subscribe((code: string) => {
       this.codeReact = code;
+    });
+    this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code: string) => {
+      this.codeNative = code;
+      this.updateCegFrame(code);
     });
 
     this.initializeComponentProps();
@@ -57,7 +65,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       if (!this.hasPreview) {
         return;
       }
-      this.cegFrame.nativeElement.innerHTML = this.componentData.codeWebComponent;
+      this.dynamicCode = this.domSanitizer.bypassSecurityTrustHtml(this.componentData.codeNativeHTML)
+      if (this.componentData.codeNativeScript) {
+        setTimeout(() => eval(this.componentData.codeNativeScript), 200);
+      }
       Object.keys(this.componentData.attributes).forEach((attribute) => {
         Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
           if (value === 'cegFormType') {
@@ -70,8 +81,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   }
 
   ngOnDestroy(): void {
-    this.codeWebComponentSub.unsubscribe();
+    this.codeAngularSub.unsubscribe();
     this.codeReactSub.unsubscribe();
+    this.codeNativeSub.unsubscribe();
   }
 
   initializeComponentProps(): void {
@@ -134,12 +146,16 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   }
 
   updateCegFrame(code: string): void {
-    this.cegFrame.nativeElement.innerHTML = code;
+    this.dynamicCode = this.domSanitizer.bypassSecurityTrustHtml(code);
+    if (this.componentData.codeNativeScript) {
+      setTimeout(() => eval(this.componentData.codeNativeScript), 200);
+    }
   }
 
   updateProps(): void {
     this.cegService.updateCodeReact(this.codeReact);
-    this.cegService.updateCodeWebComponent(this.codeWebComponent);
+    this.cegService.updateCodeAngular(this.codeAngular);
+    this.cegService.updateCodeNative(this.codeNative);
   }
 
   updateSelectedType(selected: { value: any; label: any }): void {
@@ -152,48 +168,26 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   updateSelectedBg(selected: { value: any; label: any }): void {
     this.selectedBg = selected.label;
-    const selectedBgObject = this.bgList.find((bg) => bg.displayName === selected.label);
     this.bgList.forEach((bg) => {
-      if (selectedBgObject && selectedBgObject.attribute === bg.attribute) {
-        this.updateSelected(bg.attribute, 'true', 'boolean');
-      } else if (selectedBgObject) {
-        this.updateSelected(bg.attribute, 'false', 'boolean');
+      if (bg.cegOptions[bg.cegDefault] === selected.label) {
+        this.updateSelected(bg.attribute, bg.default, 'boolean');
       } else {
-        this.updateSelected(bg.attribute, 'false', 'boolean');
-        this.updateSelected(bg.attribute, 'false', 'boolean');
+        this.updateSelected(bg.attribute, '' + (bg.default == 'false'), 'boolean');
       }
     });
   }
 
   updateSelected(attribute: string, newValue: string, cegType: string): void {
-    if (this.codeWebComponent.includes(attribute)) {
+    if (this.codeAngular.includes(attribute)) {
       // Replaces old value for prop
-      this.codeReact = this.codeReact.replace(
-        this.cegService.getPropRegex(attribute),
-        this.cegService.getReplaceValueString(attribute, newValue, true, cegType),
-      );
-      this.codeWebComponent = this.codeWebComponent.replace(
-        this.cegService.getPropRegex(attribute),
-        this.cegService.getReplaceValueString(attribute, newValue, false, ''),
-      );
+      this.codeReact = this.cegService.replaceOldProp(this.codeReact, attribute, newValue, 'react', cegType);
+      this.codeAngular = this.cegService.replaceOldProp(this.codeAngular, attribute, newValue, 'angular', cegType);
+      this.codeNative = this.cegService.replaceOldProp(this.codeNative, attribute, newValue, 'native', cegType);
     } else {
       // Adds new prop to code
-      const newLineRegexW = this.cegService.getNewLineRegex(this.componentData.elementNameW);
-      const newStringW = this.cegService.getNewPropStringW(
-        this.componentData.elementNameW,
-        attribute,
-        newValue,
-      );
-      this.codeWebComponent = this.codeWebComponent.replace(newLineRegexW, newStringW);
-
-      const newLineRegexR = this.cegService.getNewLineRegex(this.componentData.elementNameR);
-      const newStringR = this.cegService.getNewPropStringR(
-        this.componentData.elementNameR,
-        attribute,
-        newValue,
-        cegType,
-      );
-      this.codeReact = this.codeReact.replace(newLineRegexR, newStringR);
+      this.codeReact = this.cegService.addNewProp(this.codeReact, attribute, newValue, 'react', cegType, this.componentData.elementNameR);
+      this.codeAngular = this.cegService.addNewProp(this.codeAngular, attribute, newValue, 'angular', cegType, this.componentData.elementNameW);
+      this.codeNative = this.cegService.addNewProp(this.codeNative, attribute, newValue, 'native', cegType, this.componentData.elementNameW);
     }
     this.updateProps();
   }

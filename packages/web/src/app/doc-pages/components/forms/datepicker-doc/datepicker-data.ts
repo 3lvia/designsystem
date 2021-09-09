@@ -88,9 +88,24 @@ const datepickerData = {
   codeImportReact: `import { Datepicker } from '@elvia/elvis-datepicker/react';`,
   codeImportWebComponent: `import '@elvia/elvis-datepicker';`,
   codeReact: `<Datepicker
-></Datepicker>`,
-  codeWebComponent: `<elvia-datepicker
-></elvia-datepicker>`,
+  valueOnChange={(event) => handleOnChange(event)}
+></Datepicker>
+`,
+  codeAngular: `<elvia-datepicker
+  (valueOnChange)="handleOnChange(event.detail.value)"
+></elvia-datepicker>
+`,
+  codeNativeHTML: `<elvia-datepicker
+  id="example-elvia-datepicker"
+></elvia-datepicker>
+`,
+  codeNativeScript: `  const datepicker = document.getElementById('example-elvia-datepicker');
+  datepicker.addEventListener('valueOnChange', (event) => {
+    console.log('Do what you want with date: ', event.detail.value)
+  });
+`,
 };
 
 export { datepickerData };
+
+

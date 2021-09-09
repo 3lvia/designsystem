@@ -201,6 +201,7 @@ module.exports = [
       { name: 'value', type: 'object', propType: 'object' },
     ],
     slotItems: false,
+    elementStyle: `min-width: 163px;`,
     reactName: 'Dropdown',
     useWrapper: false,
   },
@@ -208,8 +209,8 @@ module.exports = [
     name: 'elvis-box',
     elementName: 'elvia-box',
     attributes: [
-      { name: 'content', type: 'string', propType: 'HTMLElement' },
-      { name: 'title', type: 'string', propType: 'string' },
+      { name: 'content', type: 'string', propType: 'string | HTMLElement' },
+      { name: 'title', type: 'string', propType: 'string | HTMLElement' },
       { name: 'hasBorder', type: 'boolean', propType: 'boolean' },
       { name: 'isColored', type: 'boolean', propType: 'boolean' },
     ],

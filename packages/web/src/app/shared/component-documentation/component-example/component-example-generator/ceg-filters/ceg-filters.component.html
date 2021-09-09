@@ -37,7 +37,7 @@
       }"
     >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
-      <label class="e-toggle" (change)="updateToggleCheckboxProp(prop)">
+      <label class="e-toggle" (change)="updateToggleCheckboxProp(prop, prop.cegOption)">
         <input *ngIf="prop.cegDefault === 'true'" class="e-toggle__input" type="checkbox" checked />
         <input *ngIf="prop.cegDefault === 'false'" class="e-toggle__input" type="checkbox" />
         <span class="e-toggle__slider"></span>
@@ -62,7 +62,7 @@
             <label
               class="e-checkbox e-checkbox--sm"
               for="{{ checkbox.displayName }}-checkbox"
-              (change)="updateToggleCheckboxProp(checkbox)"
+              (change)="updateToggleCheckboxProp(checkbox, checkbox.cegOption)"
             >
               <input
                 type="checkbox"
