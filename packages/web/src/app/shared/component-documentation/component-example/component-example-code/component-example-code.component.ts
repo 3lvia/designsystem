@@ -27,6 +27,9 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   activeLanguage = '';
   activeCode = '';
   highlightedCode = '';
+  nativeScriptCode = '';
+  startOfScript = ''
+  endOfScript = ''
   myCode = '';
   codepen = '';
   codeAngularSub: Subscription;
@@ -40,11 +43,11 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     private codeService: ExampleCodeService,
   ) { }
 
-  getTabIndex(str: string) {
+  getTabIndex(str: string): void {
     this.tabs.indexOf(str);
   }
 
-  changeTab(index) {
+  changeTab(index: number): void {
     this.activeTab = index;
     const selectedTab = this.tabs[index];
 
@@ -72,7 +75,12 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
       this.activeLanguage = 'html';
       this.activeCode = this.codeNative;
       if (this.componentData && this.componentData.codeNativeScript) {
-        this.activeCode += '\n' + '<script>' + '\n' + this.componentData.codeNativeScript + '</script>'
+        this.startOfScript = `<script>`;
+        this.startOfScript = this.highlightService.highlight(this.startOfScript, 'html');
+        this.endOfScript = `</script>`;
+        this.endOfScript = this.highlightService.highlight(this.endOfScript, 'html');
+        this.nativeScriptCode = this.componentData.codeNativeScript;
+        this.nativeScriptCode = this.highlightService.highlight(this.nativeScriptCode, 'js');
       }
     }
     if (this.isInverted) {
@@ -85,12 +93,12 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     }
   }
 
-  updateTabs() {
+  updateTabs(): void {
     this.tabs = this.getTabs();
     this.changeTab(this.activeTab);
   }
 
-  getTabs() {
+  getTabs(): any[] {
     const tabs = [];
 
     if (this.codeAngular !== '') {
