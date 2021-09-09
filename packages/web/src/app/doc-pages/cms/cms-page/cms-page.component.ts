@@ -3,7 +3,6 @@ import { CMSService } from 'src/app/core/services/cms/cms.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { ActivatedRoute } from '@angular/router';
-import { eGetStarted } from 'src/app/shared/e-items';
 import { combineLatest } from 'rxjs';
 @Component({
   selector: 'app-cms-page',
@@ -15,7 +14,6 @@ export class CMSPageComponent {
   cmsContent: any = {};
   html: any = '';
 
-  pages = eGetStarted;
   constructor(
     private cmsService: CMSService,
     private sanitizer: DomSanitizer,
@@ -25,7 +23,6 @@ export class CMSPageComponent {
     const subscriber1 = this.localizationService.listenLocalization();
     const subscriber2 = this.route.params;
     combineLatest([subscriber1, subscriber2]).subscribe((value) => {
-      console.log(value);
       this.updateContent(value[0]);
     });
   }

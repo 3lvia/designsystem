@@ -23,7 +23,8 @@ export class PageStructureComponent {
           ev.url === '/components' ||
           ev.url === '/get-started' ||
           ev.url === '/identity' ||
-          ev.url === '/tools'
+          ev.url === '/tools' ||
+          ev.url === '/home'
         ) {
           this.loadFeedbackComponent = false;
         } else {

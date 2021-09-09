@@ -40,14 +40,12 @@ export class CMSTransformService {
   }
 
   private embeddedEntryBlock(node, locale) {
-    console.log('Entry');
     const type = this.getEntryType(node);
     const data = node.data.target;
     if (type === 'section') {
       return this.getSection(data, locale);
     }
     if (type === 'landingPage') {
-      console.log('Landing page');
       return this.getLandingPage(data, locale);
     }
     return documentToHtmlString(data.fields.content, this.options);
