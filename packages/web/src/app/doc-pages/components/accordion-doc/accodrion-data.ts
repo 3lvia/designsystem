@@ -10,10 +10,10 @@ const accordionData = {
       type: '“normal” | “overflow”',
       description: 'Variants of accordion',
       default: '"normal"',
-      displayName: 'Variants',
-      cegDefault: 'normal',
+      displayName: 'Types',
+      cegDefault: 0,
       cegType: 'string',
-      cegFormType: 'radio',
+      cegFormType: 'type',
       cegOptions: ['normal', 'overflow'],
     },
     content: {
