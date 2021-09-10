@@ -24,19 +24,33 @@
               <button
                 class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-8"
                 (click)="removeBreadcrumb()"
-              ><span class="e-btn__icon">
-                  <i class="e-icon e-icon--subtract_circle"></i>
+                [disabled]="breadcrumbsTest.length === 2"
+              >
+                <span class="e-btn__icon">
+                  <i
+                    class="e-icon e-icon--subtract_circle"
+                    [ngClass]="{
+                      'e-icon--color-disabled': breadcrumbsTest.length === 2
+                    }"
+                  ></i>
                   <i class="e-icon e-icon e-icon--subtract_circle-filled-color"></i>
                 </span>
               </button>
-              <span class="counter__number e-text-md ng-star-inserted">{{breadcrumbsTest.length}}</span>
+              <span class="counter__number e-text-md ng-star-inserted">{{ breadcrumbsTest.length }}</span>
               <button
                 class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8"
                 (click)="addBreadcrumb()"
+                [disabled]="breadcrumbsTest.length === 5"
               >
                 <span class="e-btn__icon">
-                  <i class="e-icon e-icon--add_circle"></i>
-                  <i class="e-icon e-icon e-icon--add_circle-filled-color"></i></span>
+                  <i
+                    class="e-icon e-icon--add_circle"
+                    [ngClass]="{
+                      'e-icon--color-disabled': breadcrumbsTest.length === 5
+                    }"
+                  ></i>
+                  <i class="e-icon e-icon e-icon--add_circle-filled-color"></i>
+                </span>
               </button>
             </div>
           </div>
@@ -51,18 +65,10 @@
     ></app-component-example-generator>
   </div>
 
-
-
   <!-- USAGE -->
-  <app-component-section
-    [sectionTitle]="'Usage'"
-    noAnimation=true
-  >
+  <app-component-section [sectionTitle]="'Usage'" noAnimation="true">
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use
-        [whens]="does"
-        [whenNots]="donts"
-      ></app-when-to-use>
+      <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
     </ng-container>
   </app-component-section>
 
@@ -79,5 +85,4 @@
       <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
-
 </div>

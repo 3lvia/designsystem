@@ -13,24 +13,23 @@ const breadcrumbData = {
   package: 'npm install @elvia/elvis-breadcrumb',
   codeImportReact: `import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';`,
   codeImportWebComponent: `import '@elvia/elvis-breadcrumb';`,
-  codeReact: `const breadcrumbs = [
-  {
-    url: 'https://design.elvia.io/',
-    title: 'Home',
-  },
-  {
-    url: 'https://design.elvia.io/components',
-    title: 'Components',
-  },
-  {
-    url: 'https://design.elvia.io/components/breadcrumb',
-    title: 'Breadcrumbs',
-  },
-];
-  
-<Breadcrumb breadcrumbs={breadcrumbs}>
-</Breadcrumb>`,
-  codeWebComponent: `// in ts
+  codeReact: `<Breadcrumb 
+  breadcrumbs={[
+    { url: 'https://design.elvia.io/', title: 'Home' },
+    { url: 'https://design.elvia.io/components', title: 'Components' },
+    { url: 'https://design.elvia.io/components/breadcrumb', title: 'Breadcrumbs' }
+  ]}
+></Breadcrumb>`,
+  codeAngular: `<elvia-breadcrumb
+  [breadcrumbs]="[
+    { url: 'https://design.elvia.io/', title: 'Home' },
+    { url: 'https://design.elvia.io/components', title: 'Components' },
+    { url: 'https://design.elvia.io/components/breadcrumb', title: 'Breadcrumbs' }
+  ]"
+></elvia-breadcrumb>`,
+  codeNativeHTML: `<elvia-breadcrumb id="example-elvia-breadcrumb">
+</elvia-breadcrumb>`,
+  codeNativeScript: ` const breadcrumb = document.getElementById('example-elvia-breadcrumb');
   const breadcrumbs = [
     {
       url: 'https://design.elvia.io/',
@@ -45,10 +44,7 @@ const breadcrumbData = {
       title: 'Breadcrumbs',
     },
   ];
-
-// in html
-<elvia-breadcrumb [breadcrumbs]="breadcrumbs">
-</elvia-breadcrumb>`,
+  breadcrumb.setProps({breadcrumbs: breadcrumbs });`
 };
 
 export { breadcrumbData };
