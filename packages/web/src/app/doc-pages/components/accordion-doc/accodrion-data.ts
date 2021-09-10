@@ -34,7 +34,7 @@ const accordionData = {
     labelPosition: {
       isRequired: false,
       type: '“left” | “center” | “right”',
-      description: 'Horizontal positon of label & button',
+      description: 'Horizontal position of label & button',
       default: '"center"',
       displayName: 'position',
       cegDefault: 'center',
