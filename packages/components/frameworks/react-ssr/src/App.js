@@ -199,10 +199,6 @@ function App() {
     setDeletableChips(values.filter(data => data.value !== event))
   }
 
-  const updateSelectedList = (event) => {
-    console.log('hallo: ', event);
-  }
-
   const [filteredValues, setFilteredValues] = useState({ 2022: false, 2023: false, 2024: true, 2025: false, 2026: true })
 
   const handleOnValueChange = (event) => {
@@ -216,10 +212,6 @@ function App() {
     <div className="App">
 
       <h1>React preview</h1>
-
-      {/* <Datepicker
-        valueOnChange={(event)=>handleOnDelete(event)}
-      ></Datepicker> */}
 
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
