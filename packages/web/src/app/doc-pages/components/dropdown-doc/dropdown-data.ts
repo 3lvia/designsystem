@@ -20,7 +20,7 @@ export const dropdownData = {
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
-      cegDisplayGroup: 'Variant',
+      cegDisplayGroup: 'Options',
     },
     errorMessage: {
       isRequired: false,
