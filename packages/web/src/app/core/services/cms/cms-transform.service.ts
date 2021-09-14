@@ -44,6 +44,12 @@ export class CMSTransformService {
     if (type === 'section') {
       return this.getSection(data, locale);
     }
+    if (type === 'subsection') {
+      return this.getSubsection(data, locale);
+    }
+    if (type === 'subsubsection') {
+      return this.getSubsubsection(data, locale);
+    }
     if (type === 'landingPage') {
       return this.getLandingPage(data, locale);
     }
@@ -71,14 +77,40 @@ export class CMSTransformService {
   private getSection(data, locale) {
     return `
       <div class="cms-section elvis-anchor">
-          <div class="cms-section__title">
-              <h2 class="e-title-md elvis-anchor-title e-mb-24" style="display: flex">
-              ${data.fields.title ? data.fields.title[locale] : ''}
-              </h2>
-          </div>
-          <div class="cms-section__content e-text-body">
-              ${documentToHtmlString(data.fields.content[locale], this.options)}
-          </div>
+        <div class="cms-section__title">
+            <h2 class="e-title-md elvis-anchor-title e-mb-24 e-mt-0" style="display: flex">
+            ${data.fields.title ? data.fields.title[locale] : ''}
+            </h2>
+        </div>
+        <div class="cms-section__content e-text-body">
+            ${documentToHtmlString(data.fields.content[locale], this.options)}
+        </div>
+      </div>`;
+  }
+  private getSubsection(data, locale) {
+    return `
+      <div class="cms-subsection e-my-72">
+        <div class="cms-subsection__title">
+          <h3 class="e-title-sm e-mt-0 e-mb-16" style="display: flex">
+            ${data.fields.title ? data.fields.title[locale] : ''}
+          </h3>
+        </div>
+        <div class="cms-subsection__content e-text-body e-my-0">
+          ${documentToHtmlString(data.fields.content[locale], this.options)}
+        </div>
+      </div>`;
+  }
+  private getSubsubsection(data, locale) {
+    return `
+      <div class="cms-subsubsection e-my-48">
+        <div class="cms-subsubsection__title">
+          <h4 class="e-title-xs e-mt-0 e-mb-8" style="display: flex">
+            ${data.fields.title ? data.fields.title[locale] : ''}
+          </h4>
+        </div>
+        <div class="cms-subsubsection__content e-text-body e-my-0">
+          ${documentToHtmlString(data.fields.content[locale], this.options)}
+        </div>
       </div>`;
   }
 
@@ -86,10 +118,10 @@ export class CMSTransformService {
     const srcUrl = 'https:' + data.fields.overviewImage[locale].fields.file[locale].url;
     return `
       <div class="cms-landing-page">
-          <img class="cms-landing-page__img" src="${srcUrl}"></img>
-          <div class="cms-landing-page__description e-text-lg">
-            ${data.fields.description ? data.fields.description[locale] : ''}
-          </div>
+        <img class="cms-landing-page__img" src="${srcUrl}"></img>
+        <div class="cms-landing-page__description e-text-lg">
+          ${data.fields.description ? data.fields.description[locale] : ''}
+        </div>
       </div>`;
   }
 }

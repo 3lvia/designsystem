@@ -108,10 +108,6 @@ export class NavbarComponent implements OnDestroy, OnInit {
       combineLatest([localizationSubscriber, activatedRouteSubscriber]).subscribe((value) => {
         this.updateNavbarList(value[0]);
       });
-      this.router.events.subscribe(() => {
-        this.updateActiveItem();
-        this.updateActiveItemCMS();
-      });
     }
   }
 
