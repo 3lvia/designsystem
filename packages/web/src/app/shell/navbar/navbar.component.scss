@@ -52,6 +52,10 @@ $text-line-height: 32px;
       margin-left: 4px;
       margin-bottom: 16px;
 
+      .navbar-subpages {
+        margin-top: 16px;
+        margin-left: 16px;
+      }
       a {
         cursor: pointer;
         .navbar-item-title {
@@ -97,7 +101,7 @@ $text-line-height: 32px;
         opacity: 0;
         transition: max-height 0.5s cubic-bezier(0, 1.05, 0, 1), opacity 0.4s cubic-bezier(0, 0.77, 0.78, 1.1);
 
-        margin-left: 16px;
+        margin-left: 28px;
         padding-left: 16px;
         border-left: 1px solid var(--e-grey-10);
 

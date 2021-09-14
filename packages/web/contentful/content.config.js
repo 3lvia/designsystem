@@ -11,16 +11,16 @@ module.exports = {
       entry_id: '31WPcyslzeoeVLtVXjXju1',
     },
   },
-  'get-started': {
+  'about': {
     type: 'SubMenu',
     contentful: {
-      entry_id: '5zutchEUJJXKveNcQwxf7v',
+      entry_id: '4QCCWwLq5R3TQZRhFjxT96',
     },
   },
-  'identity': {
+  'brand': {
     type: 'SubMenu',
     contentful: {
-      entry_id: 'XTA5ZXEp0N597d2fGna3P',
+      entry_id: '2p2DsRycYl2iqVBJ8UFMay',
     },
   },
   'components': {
@@ -29,16 +29,16 @@ module.exports = {
       entry_id: '6RHCZ59jMvJZjcCMMsjvKk',
     },
   },
+  'patterns': {
+    type: 'SubMenu',
+    contentful: {
+      entry_id: '5oUsPjHfF6bNDHqub1EaFl',
+    },
+  },
   'tools': {
     type: 'SubMenu',
     contentful: {
-      entry_id: '4S1mOrHTSUvplD1z1G0G8r',
-    },
-  },
-  'community': {
-    type: 'SubMenu',
-    contentful: {
-      entry_id: '1RlGKc94hQvue73iXjuV1B',
+      entry_id: '4FNOIh0eFyU6IKCp4Xl0f2',
     },
   },
 };

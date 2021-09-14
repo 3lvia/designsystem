@@ -45,6 +45,21 @@ import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-
 import { v2PlaygroundComponent } from './doc-pages/dev/v2-playground/v2-playground.component';
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { BoxDocComponent } from './doc-pages/components/box-doc/box-doc.component';
+import { IconDocComponent } from './doc-pages/identity/icon-doc/icon-doc.component';
+import { TheDesignSystemDocComponent } from './doc-pages/get-started/the-design-system-doc/the-design-system-doc.component';
+import { ContributeComponent } from './doc-pages/community/contribute/contribute.component';
+import { FaqDocComponent } from './doc-pages/community/faq-doc/faq-doc.component';
+import { ChangelogComponent } from './doc-pages/community/changelog/changelog.component';
+import { ContactComponent } from './doc-pages/community/contact/contact.component';
+import { ColorDocComponent } from './doc-pages/identity/color-doc/color-doc.component';
+import { LogoDocComponent } from './doc-pages/identity/logo-doc/logo-doc.component';
+import { TypographyDocComponent } from './doc-pages/identity/typography-doc/typography-doc.component';
+import { AccessibilityDocComponent } from './doc-pages/tools/accessibility-doc/accessibility-doc.component';
+import { DesignProcessDocComponent } from './doc-pages/tools/design-process-doc/design-process-doc.component';
+import { UserFeedbackDocComponent } from './doc-pages/tools/user-feedback-doc/user-feedback-doc.component';
+import { UtilitiesDocComponent } from './doc-pages/tools/utilities-doc/utilities-doc.component';
+import { GetStartedDocComponent } from './doc-pages/get-started/get-started-doc/get-started-doc.component';
+import { LayoutDocComponent } from './doc-pages/identity/layout-doc/layout-doc.component';
 
 const routes: Routes = [
   {
@@ -59,6 +74,102 @@ const routes: Routes = [
       {
         path: Pages.Home,
         redirectTo: Pages.Index,
+      },
+      // About section
+      {
+        path: 'about',
+        component: CMSPageComponent,
+        children: [
+          {
+            path: 'the-design-system',
+            pathMatch: 'full',
+            component: TheDesignSystemDocComponent
+          },
+          {
+            path: 'contact',
+            pathMatch: 'full',
+            component: ContactComponent
+          },
+          {
+            path: 'contribute',
+            pathMatch: 'full',
+            component: ContributeComponent
+          },
+          {
+            path: 'faq',
+            pathMatch: 'full',
+            component: FaqDocComponent
+          },
+          {
+            path: 'get-started',
+            pathMatch: 'full',
+            component: GetStartedDocComponent
+          },
+          {
+            path: 'whats-new',
+            pathMatch: 'full',
+            component: ChangelogComponent
+          },
+        ]
+      },
+      // Brand section
+      {
+        path: 'brand',
+        component: CMSPageComponent,
+        children: [
+          {
+            path: 'color',
+            pathMatch: 'full',
+            component: ColorDocComponent
+          },
+          {
+            path: 'icon',
+            pathMatch: 'full',
+            component: IconDocComponent
+          },
+          {
+            path: 'layout',
+            pathMatch: 'full',
+            component: LayoutDocComponent
+          },
+          {
+            path: 'logo',
+            pathMatch: 'full',
+            component: LogoDocComponent
+          },
+          {
+            path: 'typography',
+            pathMatch: 'full',
+            component: TypographyDocComponent
+          },
+        ]
+      },
+      // Tools section
+      {
+        path: 'tools',
+        component: CMSPageComponent,
+        children: [
+          {
+            path: 'accessibility',
+            pathMatch: 'full',
+            component: AccessibilityDocComponent
+          },
+          {
+            path: 'design-process',
+            pathMatch: 'full',
+            component: DesignProcessDocComponent
+          },
+          {
+            path: 'user-feedback',
+            pathMatch: 'full',
+            component: UserFeedbackDocComponent
+          },
+          {
+            path: 'utility-classes',
+            pathMatch: 'full',
+            component: UtilitiesDocComponent
+          },
+        ]
       },
       // Components section
       {
@@ -235,6 +346,7 @@ const routes: Routes = [
         ],
       },
       { path: 'not-found', component: ErrorComponent },
+      // From CMS
       {
         path: ':submenu',
         component: CMSPageComponent,
@@ -254,4 +366,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

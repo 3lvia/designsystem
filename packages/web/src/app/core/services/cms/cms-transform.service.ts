@@ -35,7 +35,6 @@ export class CMSTransformService {
     if (data.nodeType === 'embedded-entry-block') {
       return this.embeddedEntryBlock(data, locale);
     }
-
     return documentToHtmlString(data.fields.content[locale], this.options);
   }
 
@@ -48,6 +47,9 @@ export class CMSTransformService {
     if (type === 'landingPage') {
       return this.getLandingPage(data, locale);
     }
+    if (type === 'centeredContent') {
+      return this.getCenteredContent(data, locale);
+    }
     return documentToHtmlString(data.fields.content, this.options);
   }
 
@@ -59,29 +61,35 @@ export class CMSTransformService {
     return node.data.target.sys.contentType.sys.id;
   }
 
+  private getCenteredContent(data, locale) {
+    return `
+      <div class="cms-centered-content">
+        ${documentToHtmlString(data.fields.content[locale], this.options)}
+      </div>`;
+  }
+
   private getSection(data, locale) {
     return `
-        <div class="cms-section">
-            <div class="cms-section__title">
-                <h2 class="e-title-md elvis-anchor-title e-mb-24" style="display: flex">
-                ${data.fields.title ? data.fields.title[locale] : ''}
-                </h2>
-            </div>
-            <div class="cms-section__content e-text-body">
-                ${documentToHtmlString(data.fields.content[locale], this.options)}
-            </div>
-        </div>`;
+      <div class="cms-section elvis-anchor">
+          <div class="cms-section__title">
+              <h2 class="e-title-md elvis-anchor-title e-mb-24" style="display: flex">
+              ${data.fields.title ? data.fields.title[locale] : ''}
+              </h2>
+          </div>
+          <div class="cms-section__content e-text-body">
+              ${documentToHtmlString(data.fields.content[locale], this.options)}
+          </div>
+      </div>`;
   }
 
   private getLandingPage(data, locale) {
     const srcUrl = 'https:' + data.fields.overviewImage[locale].fields.file[locale].url;
-    console.log(srcUrl);
     return `
-        <div class="cms-landing-page">
-            <img class="cms-landing-page__img" src="${srcUrl}"></img>
-            <div class="cms-landing-page__description e-text-lg">
-              ${data.fields.description ? data.fields.description[locale] : ''}
-            </div>
-        </div>`;
+      <div class="cms-landing-page">
+          <img class="cms-landing-page__img" src="${srcUrl}"></img>
+          <div class="cms-landing-page__description e-text-lg">
+            ${data.fields.description ? data.fields.description[locale] : ''}
+          </div>
+      </div>`;
   }
 }

@@ -2,15 +2,8 @@ import { EItems } from './e-items.interface';
 import { Pages } from './pages.enum';
 import { ItemStatus } from './item-status.enum';
 
+// Used for shortcuts at home page
 export const eHomes: EItems[] = [
-  {
-    title: 'Identity',
-    description: 'Elvis Branding',
-    docUrl: Pages.OverviewIdentity,
-    absolutePath: '/identity/',
-    imageUrl: 'assets/website-icons/shortcut-images/Identity.svg',
-    imageUrlOn: 'assets/website-icons/shortcut-images/IdentityOn.svg',
-  },
   {
     title: 'Components',
     description: 'UI Library',
@@ -20,11 +13,18 @@ export const eHomes: EItems[] = [
     imageUrlOn: 'assets/website-icons/shortcut-images/ComponentOn.svg',
   },
   {
-    title: 'Utility Classes',
-    description: 'Developer Tools',
-    docUrl: Pages.Utilities,
-    absolutePath: '/tools/' + Pages.Utilities,
-    status: ItemStatus.Done,
+    title: 'The concept',
+    description: 'Branding',
+    docUrl: 'the-concept',
+    absolutePath: '/brand/the-concept/',
+    imageUrl: 'assets/website-icons/shortcut-images/Identity.svg',
+    imageUrlOn: 'assets/website-icons/shortcut-images/IdentityOn.svg',
+  },
+  {
+    title: 'Accessibility',
+    description: 'WCAG 2.0',
+    docUrl: 'accessibility',
+    absolutePath: '/tools/accessibility/',
     imageUrl: 'assets/website-icons/shortcut-images/UtilityClasses.svg',
     imageUrlOn: 'assets/website-icons/shortcut-images/UtilityClassesOn.svg',
   },
@@ -32,9 +32,81 @@ export const eHomes: EItems[] = [
     title: 'Contribute',
     description: 'Help us get better',
     docUrl: Pages.Contribute,
-    absolutePath: '/community/' + Pages.Contribute,
+    absolutePath: '/about/' + Pages.Contribute,
     imageUrl: 'assets/website-icons/shortcut-images/Contribute.svg',
     imageUrlOn: 'assets/website-icons/shortcut-images/ContributeOn.svg',
+  },
+];
+
+export const eAbout: EItems[] = [
+  {
+    title: 'The design system',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'Elvia’s design system - or Elvis, for short - is a scalable system of visual language, components and design assets which enables us to work together towards an ultimate brand experience.',
+    docUrl: Pages.TheDesignSystem,
+    status: ItemStatus.New,
+    absolutePath: '/get-started/' + Pages.TheDesignSystem,
+    imageUrl: 'assets/website-icons/get-started-images/the design system.svg',
+    type: 'Get started',
+  },
+  {
+    title: 'Contact',
+    // tslint:disable-next-line: max-line-length
+    description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+      <span class="e-link__title">#designsystemet</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+    </a> or use our
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
+      <span class="e-link__title">request form</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+    </a>`,
+    docUrl: Pages.Contact,
+    absolutePath: '/community/' + Pages.Contact,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/community-images/contact.svg',
+    type: 'Community',
+  },
+  {
+    title: 'Contribute',
+    // tslint:disable-next-line: max-line-length
+    description: `To contribute, or if you have any question, you can contact us on slack:
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+      <span class="e-link__title">#designsystemet</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+    </a> or fill out our
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
+      <span class="e-link__title">request form</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+    </a>`,
+    docUrl: Pages.Contribute,
+    absolutePath: '/community/' + Pages.Contribute,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/community-images/contribute.svg',
+    type: 'Community',
+  },
+  {
+    title: 'FAQ',
+    // tslint:disable-next-line: max-line-length
+    description: `We try to answer the most asked questions. If you can´t find the answers you were looking for, contact us on slack:
+    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
+      <span class="e-link__title">#designsystemet</span>
+      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+    </a>`,
+    docUrl: Pages.Faq,
+    absolutePath: '/community/' + Pages.Faq,
+    status: ItemStatus.New,
+    imageUrl: 'assets/website-icons/community-images/FAQ.svg',
+    type: 'Community',
+  },
+  {
+    title: "What's new?",
+    description: 'The latest news, updates, and changes to the design system.',
+    docUrl: Pages.Changelog,
+    absolutePath: '/community/' + Pages.Changelog,
+    imageUrl: 'assets/website-icons/community-images/Whats-new.svg',
+    type: 'Community',
   },
 ];
 

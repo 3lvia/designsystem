@@ -55,7 +55,7 @@ export class ComponentsStartComponent implements OnDestroy {
   }
 
   getNavbarAnchors(): void {
-    this.navbarAnchors = this.scrollService.getNavbarAnchors(this.navbarAnchors);
+    this.navbarAnchors = this.scrollService.getNavbarAnchors();
     if (this.navbarAnchors && !this.startedScrollSub) {
       this.startScrollSubscription();
       this.startedScrollSub = true;

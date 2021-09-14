@@ -210,16 +210,12 @@
       <app-component-subsection [sectionTitle]="'Using CCS-variables'">
         <ng-container ngProjectAs="sectionContent">
           <p class="e-text-body">
-            All spacing can be used through their CSS-variable as well. To use the CSS-variables you need to
-            install the ponyfill css-vars-ponyfill. Click
-            <a
-              class="e-link e-link--inline"
-              [routerLink]="['/get-started/new-project']"
-              fragment="Optional:-CSS-variables"
-            >
-              here
+            All spacing can be used through their CSS-variable as well. If you are supporting IE11, you need
+            to install the ponyfill css-vars-ponyfill to use the CSS-variables. Read more about
+            <a class="e-link e-link--inline" [routerLink]="['/about/get-started/']" fragment="For-developers">
+              getting started for developers
             </a>
-            more information about how.
+            .
           </p>
           <ul class="e-list">
             <li>var(--e-spacing-number)</li>

@@ -19,10 +19,10 @@ export class PageStructureComponent {
     this.routerSubscription = this.router.events.subscribe((ev) => {
       if (ev instanceof NavigationEnd) {
         if (
-          ev.url === '/community' ||
+          ev.url === '/about' ||
+          ev.url === '/brand' ||
           ev.url === '/components' ||
-          ev.url === '/get-started' ||
-          ev.url === '/identity' ||
+          ev.url === '/patterns' ||
           ev.url === '/tools' ||
           ev.url === '/home'
         ) {

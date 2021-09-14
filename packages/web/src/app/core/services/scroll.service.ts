@@ -67,13 +67,13 @@ export class ScrollService {
     return elementTitles;
   }
 
-  getNavbarAnchors(anchors: NavbarAnchor[]): NavbarAnchor[] {
+  getNavbarAnchors(): NavbarAnchor[] {
     const elements = this.getPageAnchors();
     const elementTitles = this.getPageAnchorTitles();
 
     if (elements && elementTitles) {
       const firstItem = elements.item(0) as HTMLElement;
-      anchors = [{ title: 'Overview', top: 0, height: firstItem.offsetTop }];
+      const anchors = [{ title: 'Overview', top: 0, height: firstItem.offsetTop }];
       for (let i = 0; i < elements.length; i++) {
         const item = elements.item(i) as HTMLElement;
         const elementTitle = elementTitles.item(i) as HTMLElement;

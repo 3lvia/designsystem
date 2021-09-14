@@ -43,7 +43,7 @@ export class FooterComponent implements OnInit {
     this.currentYear = this.date.getFullYear();
   }
 
-  setLocale(str: string) {
+  setLocale(str: string): void {
     this.localizationService.setLocalization(Locale[str]);
   }
 }

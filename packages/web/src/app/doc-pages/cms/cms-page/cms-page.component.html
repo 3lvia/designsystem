@@ -1,13 +1,24 @@
-<!--BODY-->
-<app-page-structure>
-  <ng-container ngProjectAs="pageRouterOutlet">
-    <!-- HEADER -->
-    <app-component-header>
-      <ng-container ngProjectAs="headerTitle">{{ cmsContent.title ? cmsContent.title : '' }}</ng-container>
-      <ng-container ngProjectAs="headerDescription">
-        <span>{{ cmsContent.pageDescription ? cmsContent.pageDescription : '' }}</span>
-      </ng-container>
-    </app-component-header>
-    <div class="page-body" *ngIf="cmsContent.content" [innerHTML]="html"></div>
-  </ng-container>
-</app-page-structure>
+<!--PAGES FROM CMS-->
+<div *ngIf="cmsPage">
+  <app-page-structure>
+    <ng-container ngProjectAs="pageRouterOutlet">
+      <!-- HEADER -->
+      <app-component-header>
+        <ng-container ngProjectAs="headerTitle">{{ cmsContent.title ? cmsContent.title : '' }}</ng-container>
+        <ng-container ngProjectAs="headerDescription">
+          <span>{{ cmsContent.pageDescription ? cmsContent.pageDescription : '' }}</span>
+        </ng-container>
+      </app-component-header>
+      <div class="page-body" *ngIf="cmsContent.content" [innerHTML]="html"></div>
+    </ng-container>
+  </app-page-structure>
+</div>
+
+<!--PAGES NOT FROM CMS-->
+<div *ngIf="!cmsPage">
+  <app-page-structure>
+    <ng-container ngProjectAs="pageRouterOutlet">
+      <router-outlet></router-outlet>
+    </ng-container>
+  </app-page-structure>
+</div>

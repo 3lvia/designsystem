@@ -21,12 +21,11 @@ export class NavbarComponent implements OnDestroy, OnInit {
   activeNavbarItem: any;
   prevActiveNavbarItem: any;
 
-  navbarItemsCMS = [];
   subMenuRoute: string;
   newPath: string;
 
   mainMenu: any;
-  filteredPages: EItems[];
+  filteredPages: any[];
   toggleMenu = false;
   activeAnchor: NavbarAnchor;
   prevActiveAnchor: NavbarAnchor;
@@ -60,12 +59,13 @@ export class NavbarComponent implements OnDestroy, OnInit {
 
     this.anchorSubscription = this.scrollService.listenAnchors().subscribe((anchors: NavbarAnchor[]) => {
       this.navbarAnchors = anchors;
-
-      this.navbarItems.forEach((item) => {
-        if (item.docUrl === this.getCurrentRoute()) {
-          this.activeNavbarItem = item;
-        }
-      });
+      if (this.navbarItems) {
+        this.navbarItems.forEach((item) => {
+          if (item.docUrl === this.getCurrentRoute()) {
+            this.activeNavbarItem = item;
+          }
+        });
+      }
 
       this.fragmentSubscription = this.route.fragment.subscribe((fragment) => {
         if (!fragment) {
@@ -106,7 +106,11 @@ export class NavbarComponent implements OnDestroy, OnInit {
       const localizationSubscriber = this.localizationService.listenLocalization();
       const activatedRouteSubscriber = this.activatedRoute.params;
       combineLatest([localizationSubscriber, activatedRouteSubscriber]).subscribe((value) => {
-        this.updateContent(value[0]);
+        this.updateNavbarList(value[0]);
+      });
+      this.router.events.subscribe(() => {
+        this.updateActiveItem();
+        this.updateActiveItemCMS();
       });
     }
   }
@@ -120,9 +124,10 @@ export class NavbarComponent implements OnDestroy, OnInit {
     }
   }
 
-  async updateContent(locale: Locale): Promise<any> {
+  async updateNavbarList(locale: Locale): Promise<any> {
+    this.setSubMenuRoute();
     this.mainMenu = await this.cmsService.getMenu(locale);
-    this.navbarItemsCMS = [];
+    this.filteredPages = [];
     this.mainMenu.pages.forEach((element) => {
       if (element.path === this.subMenuRoute) {
         if (element.entry.fields.pages === undefined || element.entry.fields.pages === null) {
@@ -133,14 +138,15 @@ export class NavbarComponent implements OnDestroy, OnInit {
         cmsPages.forEach((element) => {
           const navbarItem = {
             title: element.fields.title[localeKey],
-            path: element.fields.path[localeKey],
+            isMainPage: element.fields.isMainPage,
+            docUrl: element.fields.path[localeKey],
             fullPath: this.subMenuRoute + element.fields.path[localeKey],
           };
-          this.navbarItemsCMS.push(navbarItem);
+          this.filteredPages.push(navbarItem);
         });
       }
     });
-    this.updateActiveItem();
+    this.updateActiveItemCMS();
   }
 
   getCurrentRoute(): string {
@@ -151,8 +157,7 @@ export class NavbarComponent implements OnDestroy, OnInit {
     return currentRoute;
   }
   setSubMenuRoute(): void {
-    const url = this.activatedRoute.snapshot.url;
-    this.subMenuRoute = url[0].path;
+    this.subMenuRoute = this.activatedRoute.snapshot.url[0].path;
   }
 
   updateNavbarHeight(): void {
@@ -176,28 +181,34 @@ export class NavbarComponent implements OnDestroy, OnInit {
     this.location.replaceState(currentRoute + '#' + fragment);
   }
 
-  updateActiveItem(): void {
-    this.navbarItemsCMS.forEach((item) => {
-      if (item.path === this.getCurrentRoute()) {
+  updateActiveItemCMS(): void {
+    this.filteredPages.forEach((item) => {
+      if (item.docUrl === this.getCurrentRoute()) {
         this.activeNavbarItem = item;
       }
     });
   }
 
-  markNewActiveNavbarItemCMS(): void {
-    setTimeout(() => {
-      this.updateActiveItem();
-    }, 10);
+  updateActiveItem(): void {
+    if (this.navbarItems) {
+      this.navbarItems.forEach((item) => {
+        if (item.docUrl === this.getCurrentRoute()) {
+          this.activeNavbarItem = item;
+        }
+      });
+    }
   }
 
   markNewActiveNavbarItem(navbarItem: EItems): void {
-    if (navbarItem === this.activeNavbarItem) {
-      return;
-    }
-    this.prevNavbarAnchors = this.navbarAnchors;
-    this.prevActiveNavbarItem = this.activeNavbarItem;
-    this.activeNavbarItem = navbarItem;
-    this.scrollService.getNavbarAnchors([]);
+    setTimeout(() => {
+      if (navbarItem === this.activeNavbarItem) {
+        return;
+      }
+      this.prevNavbarAnchors = this.navbarAnchors;
+      this.prevActiveNavbarItem = this.activeNavbarItem;
+      this.activeNavbarItem = navbarItem;
+      this.scrollService.getNavbarAnchors();
+    }, 100);
   }
 
   scrollToElement(anchor: NavbarAnchor): void {

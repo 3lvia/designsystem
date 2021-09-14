@@ -11,6 +11,7 @@ import { LogoDocModule } from './logo-doc/logo-doc.module';
 import { GridDocModule } from './grid-doc/grid-doc.module';
 import { ToneOfVoiceModule } from './tone-of-voice/tone-of-voice.module';
 import { TheConceptModule } from './the-concept/the-concept.module';
+import { LayoutDocModule } from './layout-doc/layout-doc.module';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { TheConceptModule } from './the-concept/the-concept.module';
     LogoDocModule,
     ToneOfVoiceModule,
     TheConceptModule,
+    LayoutDocModule
   ],
 })
-export class IdentityModule {}
+export class IdentityModule { }

@@ -29,6 +29,10 @@
   }
 }
 
+.cms-centered-content {
+  text-align: center;
+}
+
 .cms-section {
   margin-top: 104px;
   @include breakpoint-up(Mobile) {

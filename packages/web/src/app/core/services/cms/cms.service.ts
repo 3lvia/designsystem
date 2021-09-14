@@ -11,7 +11,7 @@ export class CMSService {
   private entries = {};
   private entriesToSync = [];
 
-  constructor(private http: HttpClient, private cmsTransformService: CMSTransformService) {}
+  constructor(private http: HttpClient, private cmsTransformService: CMSTransformService) { }
 
   getDocumentationPageByEntryId(entryId: string, localization: Locale): Promise<any> {
     let locale = 'en-GB';
@@ -60,7 +60,7 @@ export class CMSService {
     if (localization === Locale['nb-NO']) {
       locale = 'nb-NO';
     }
-    const entryMenu = await this.getEntry('31WPcyslzeoeVLtVXjXju1');
+    const entryMenu = await this.getEntry('4ufFZKPEou3mf9Tg05WZT3');
     const menu = {};
     menu['title'] = entryMenu.fields.title['en-GB'];
     menu['pages'] = [];
