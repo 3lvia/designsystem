@@ -114,8 +114,10 @@
 }
 
 .cms-landing-page {
+  text-align: center;
   &__img {
-    max-width: 100%;
+    width: 100%;
+    max-width: 650px;
   }
   &__description {
     text-align: center;
