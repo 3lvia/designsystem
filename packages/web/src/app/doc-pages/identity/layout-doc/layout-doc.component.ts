@@ -380,6 +380,9 @@ export class LayoutDocComponent {
 </div>
 `;
 
+  egSelectedValue = 0;
+  igSelectedValue = 0;
+
   toggleAccordion(id: string): void {
     const element = document.getElementById(id) as HTMLElement;
     if (element) {

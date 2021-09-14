@@ -22,7 +22,15 @@
         <ng-container ngProjectAs="sectionContent">
           The external grid are used on elvia.no and design.elvia.io.
 
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
+          <div class="e-mt-16">
+            <elvia-tabs
+              id="egTabs"
+              [items]="['Desktop', 'Tablet', 'Mobile']"
+              [value]="0"
+              (valueOnChange)="egSelectedValue = $event.detail.value"
+            ></elvia-tabs>
+          </div>
+          <app-component-subsubsection [sectionTitle]="'Desktop'" *ngIf="egSelectedValue === 0">
             <ng-container ngProjectAs="sectionContent">
               <div class="grid-info">
                 <div>
@@ -58,7 +66,7 @@
               </div>
             </ng-container>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Tablet'">
+          <app-component-subsubsection [sectionTitle]="'Tablet'" *ngIf="egSelectedValue === 1">
             <ng-container ngProjectAs="sectionContent">
               <div class="grid-info">
                 <div>
@@ -94,7 +102,7 @@
               </div>
             </ng-container>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
+          <app-component-subsubsection [sectionTitle]="'Mobile'" *ngIf="egSelectedValue === 2">
             <ng-container ngProjectAs="sectionContent">
               <div class="grid-info">
                 <div>
@@ -136,8 +144,15 @@
       <app-component-subsection [sectionTitle]="'Internal grid'">
         <ng-container ngProjectAs="sectionContent">
           The internal grid is used on internal applications.
-
-          <app-component-subsubsection [sectionTitle]="'Desktop'">
+          <div class="e-mt-24">
+            <elvia-tabs
+              id="igTabs"
+              [items]="['Desktop', 'Tablet', 'Mobile']"
+              [value]="0"
+              (valueOnChange)="igSelectedValue = $event.detail.value"
+            ></elvia-tabs>
+          </div>
+          <app-component-subsubsection [sectionTitle]="'Desktop'" *ngIf="igSelectedValue === 0">
             <ng-container ngProjectAs="sectionContent">
               <div class="grid-info">
                 <div>
@@ -174,7 +189,7 @@
               </div>
             </ng-container>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Tablet'">
+          <app-component-subsubsection [sectionTitle]="'Tablet'" *ngIf="igSelectedValue === 1">
             <ng-container ngProjectAs="sectionContent">
               <div class="grid-info">
                 <div>
@@ -211,7 +226,7 @@
               </div>
             </ng-container>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Mobile'">
+          <app-component-subsubsection [sectionTitle]="'Mobile'" *ngIf="igSelectedValue === 2">
             <ng-container ngProjectAs="sectionContent">
               <div class="grid-info">
                 <div>
