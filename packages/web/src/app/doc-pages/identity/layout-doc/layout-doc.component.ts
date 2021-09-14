@@ -4,7 +4,7 @@ import { spacingItems } from '../spacing-doc/spacing';
 @Component({
   selector: 'app-layout-doc',
   templateUrl: './layout-doc.component.html',
-  styleUrls: ['./layout-doc.component.scss']
+  styleUrls: ['./layout-doc.component.scss'],
 })
 export class LayoutDocComponent {
   spacingItems = spacingItems;

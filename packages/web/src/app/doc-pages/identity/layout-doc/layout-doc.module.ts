@@ -16,9 +16,9 @@ import { RouterModule } from '@angular/router';
     ComponentSectionModule,
     ComponentSubsectionModule,
     ComponentSubsubsectionModule,
-    RouterModule
+    RouterModule,
   ],
   declarations: [LayoutDocComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class LayoutDocModule { }
+export class LayoutDocModule {}

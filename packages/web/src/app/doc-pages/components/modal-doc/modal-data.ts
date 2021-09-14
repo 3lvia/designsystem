@@ -37,10 +37,14 @@ const modalData = {
     hasCloseButton: {
       isRequired: false,
       type: 'boolean',
-      description: 'Show clos icon button inside the modal in the top right corner.',
+      description: 'Show close icon button inside the modal in the top right corner.',
       default: false,
     },
-    // onHide: {isRequired: true, type: },
+    onHide: {
+      isRequired: true,
+      type: '() => void',
+      description: 'Callback for every time the modal is being closed.',
+    },
   },
   package: 'npm install @elvia/elvis-modal',
   codeImportReact: `import { Modal } from '@elvia/elvis-modal/react';`,
@@ -69,10 +73,10 @@ const modalData = {
   }
 >
 </Modal>`,
-  codeWebComponent: `<elvia-modal
+  codeAngular: `<elvia-modal
   (onHide)="isModalShowing = !isModalShowing"
   [isShowing]="isModalShowing"
-  title="Title of content"
+  [title]="'Title of content'"
 >
   <div slot="content">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
@@ -82,6 +86,20 @@ const modalData = {
   </button>
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
 </elvia-modal>`,
+  codeNativeHTML: `<elvia-modal
+  (onHide)="isModalShowing = !isModalShowing"
+  isShowing="isModalShowing"
+  title="Title of content"
+>
+  <div slot="content">
+    <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+  </div>
+  <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing = false">
+    Cancel
+  </button>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+</elvia-modal>
+`,
 };
 
 export { modalData };

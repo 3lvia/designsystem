@@ -11,7 +11,7 @@ export class CMSService {
   private entries = {};
   private entriesToSync = [];
 
-  constructor(private http: HttpClient, private cmsTransformService: CMSTransformService) { }
+  constructor(private http: HttpClient, private cmsTransformService: CMSTransformService) {}
 
   getDocumentationPageByEntryId(entryId: string, localization: Locale): Promise<any> {
     let locale = 'en-GB';

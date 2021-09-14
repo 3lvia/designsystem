@@ -9,6 +9,7 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 
 import '@elvia/elvis-accordion';
+import '@elvia/elvis-breadcrumb';
 import '@elvia/elvis-popover';
 import '@elvia/elvis-dropdown';
 import '@elvia/elvis-tabs';
@@ -17,6 +18,7 @@ import '@elvia/elvis-testing';
 import '@elvia/elvis-datepicker';
 import '@elvia/elvis-divider';
 import '@elvia/elvis-carousel';
+import '@elvia/elvis-chip';
 import '@elvia/elvis-box';
 import '@elvia/elvis-modal';
 

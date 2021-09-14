@@ -29,8 +29,8 @@ export class CMSPageComponent implements OnInit {
     private localizationService: LocalizationService,
     private activatedRoute: ActivatedRoute,
     private router: Router,
-    private scrollService: ScrollService
-  ) { }
+    private scrollService: ScrollService,
+  ) {}
 
   ngOnInit(): void {
     this.checkIfCMSPage();
@@ -48,9 +48,7 @@ export class CMSPageComponent implements OnInit {
     this.routerSubscription = this.router.events.subscribe(() => {
       const url = this.activatedRoute.snapshot.url;
       this.checkIfCMSPage();
-      if (
-        url[1]
-      ) {
+      if (url[1]) {
         this.getNavbarAnchors();
       }
     });
@@ -80,14 +78,18 @@ export class CMSPageComponent implements OnInit {
   }
 
   checkIfCMSPage(): void {
-    const hasSubRoute = this.router.config[0].children.some((subRoute) => subRoute.path === this.activatedRoute.snapshot.url[0].path)
+    const hasSubRoute = this.router.config[0].children.some(
+      (subRoute) => subRoute.path === this.activatedRoute.snapshot.url[0].path,
+    );
     if (hasSubRoute) {
       this.router.config[0].children.forEach((subRoute) => {
         if (subRoute.path === this.activatedRoute.snapshot.url[0].path) {
           const currentPathWithoutAnchor = this.router.url.split('#')[0];
-          this.cmsPage = !subRoute.children.some((childRoute) => ('/' + subRoute.path + '/' + childRoute.path) === currentPathWithoutAnchor)
+          this.cmsPage = !subRoute.children.some(
+            (childRoute) => '/' + subRoute.path + '/' + childRoute.path === currentPathWithoutAnchor,
+          );
         }
-      })
+      });
     } else {
       this.cmsPage = true;
     }

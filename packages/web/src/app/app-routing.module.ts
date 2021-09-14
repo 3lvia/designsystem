@@ -37,20 +37,21 @@ import { AccordionDocComponent } from './doc-pages/components/accordion-doc/acco
 import { StepperDocComponent } from './doc-pages/components/stepper-doc/stepper-doc.component';
 import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
 import { RadioFilterDocComponent } from './doc-pages/components/radio-filter-doc/radio-filter-doc.component';
-import { ChipsComponent } from './doc-pages/components/chips/chips.component';
+import { ContactComponent } from './doc-pages/community/contact/contact.component';
+import { TheDesignSystemDocComponent } from './doc-pages/get-started/the-design-system-doc/the-design-system-doc.component';
+import { ChipDocComponent } from './doc-pages/components/chip-doc/chip-doc.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
 import { TabsDocComponent } from './doc-pages/components/tabs-doc/tabs-doc.component';
 import { TimepickerDocComponent } from './doc-pages/components/forms/timepicker-doc/timepicker-doc.component';
 import { v2PlaygroundComponent } from './doc-pages/dev/v2-playground/v2-playground.component';
+import { BreadcrumbDocComponent } from './doc-pages/components/breadcrumb-doc/breadcrumb-doc.component';
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { BoxDocComponent } from './doc-pages/components/box-doc/box-doc.component';
 import { IconDocComponent } from './doc-pages/identity/icon-doc/icon-doc.component';
-import { TheDesignSystemDocComponent } from './doc-pages/get-started/the-design-system-doc/the-design-system-doc.component';
 import { ContributeComponent } from './doc-pages/community/contribute/contribute.component';
 import { FaqDocComponent } from './doc-pages/community/faq-doc/faq-doc.component';
 import { ChangelogComponent } from './doc-pages/community/changelog/changelog.component';
-import { ContactComponent } from './doc-pages/community/contact/contact.component';
 import { ColorDocComponent } from './doc-pages/identity/color-doc/color-doc.component';
 import { LogoDocComponent } from './doc-pages/identity/logo-doc/logo-doc.component';
 import { TypographyDocComponent } from './doc-pages/identity/typography-doc/typography-doc.component';
@@ -83,34 +84,34 @@ const routes: Routes = [
           {
             path: 'the-design-system',
             pathMatch: 'full',
-            component: TheDesignSystemDocComponent
+            component: TheDesignSystemDocComponent,
           },
           {
             path: 'contact',
             pathMatch: 'full',
-            component: ContactComponent
+            component: ContactComponent,
           },
           {
             path: 'contribute',
             pathMatch: 'full',
-            component: ContributeComponent
+            component: ContributeComponent,
           },
           {
             path: 'faq',
             pathMatch: 'full',
-            component: FaqDocComponent
+            component: FaqDocComponent,
           },
           {
             path: 'get-started',
             pathMatch: 'full',
-            component: GetStartedDocComponent
+            component: GetStartedDocComponent,
           },
           {
             path: 'whats-new',
             pathMatch: 'full',
-            component: ChangelogComponent
+            component: ChangelogComponent,
           },
-        ]
+        ],
       },
       // Brand section
       {
@@ -120,29 +121,29 @@ const routes: Routes = [
           {
             path: 'color',
             pathMatch: 'full',
-            component: ColorDocComponent
+            component: ColorDocComponent,
           },
           {
             path: 'icon',
             pathMatch: 'full',
-            component: IconDocComponent
+            component: IconDocComponent,
           },
           {
             path: 'layout',
             pathMatch: 'full',
-            component: LayoutDocComponent
+            component: LayoutDocComponent,
           },
           {
             path: 'logo',
             pathMatch: 'full',
-            component: LogoDocComponent
+            component: LogoDocComponent,
           },
           {
             path: 'typography',
             pathMatch: 'full',
-            component: TypographyDocComponent
+            component: TypographyDocComponent,
           },
-        ]
+        ],
       },
       // Tools section
       {
@@ -152,24 +153,24 @@ const routes: Routes = [
           {
             path: 'accessibility',
             pathMatch: 'full',
-            component: AccessibilityDocComponent
+            component: AccessibilityDocComponent,
           },
           {
             path: 'design-process',
             pathMatch: 'full',
-            component: DesignProcessDocComponent
+            component: DesignProcessDocComponent,
           },
           {
             path: 'user-feedback',
             pathMatch: 'full',
-            component: UserFeedbackDocComponent
+            component: UserFeedbackDocComponent,
           },
           {
             path: 'utility-classes',
             pathMatch: 'full',
-            component: UtilitiesDocComponent
+            component: UtilitiesDocComponent,
           },
-        ]
+        ],
       },
       // Components section
       {
@@ -205,6 +206,10 @@ const routes: Routes = [
             component: ButtonDocComponent,
           },
           {
+            path: Pages.Breadcrumb,
+            component: BreadcrumbDocComponent,
+          },
+          {
             path: Pages.Card,
             component: CardDocComponent,
           },
@@ -214,7 +219,7 @@ const routes: Routes = [
           },
           {
             path: Pages.Chips,
-            component: ChipsComponent,
+            component: ChipDocComponent,
           },
           {
             path: Pages.Checkbox,
@@ -366,4 +371,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

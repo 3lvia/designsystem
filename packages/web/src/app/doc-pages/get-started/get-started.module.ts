@@ -13,7 +13,7 @@ import { GetStartedDocModule } from './get-started-doc/get-started-doc.module';
     NewProjectModule,
     GetStartedDesignersModule,
     TheDesignSystemDocModule,
-    GetStartedDocModule
+    GetStartedDocModule,
   ],
 })
-export class GetStartedModule { }
+export class GetStartedModule {}

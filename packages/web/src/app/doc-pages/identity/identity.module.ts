@@ -26,7 +26,7 @@ import { LayoutDocModule } from './layout-doc/layout-doc.module';
     LogoDocModule,
     ToneOfVoiceModule,
     TheConceptModule,
-    LayoutDocModule
+    LayoutDocModule,
   ],
 })
-export class IdentityModule { }
+export class IdentityModule {}

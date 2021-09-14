@@ -79,6 +79,24 @@ const Popover: FC<PopoverProps> = ({
       maxContentWidth.current = popoverContentRef.current.getBoundingClientRect().width;
     }
 
+    // Web component - Placing slots at the right place
+    if (
+      popoverRef.current &&
+      popoverRef.current.parentElement &&
+      popoverRef.current.parentElement.parentElement
+    ) {
+      popoverRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
+        if (popoverSlotTriggerRef.current && element.slot === 'trigger') {
+          popoverSlotTriggerRef.current.innerHTML = '';
+          popoverSlotTriggerRef.current.appendChild(element);
+        }
+        if (popoverText.current && element.slot === 'content') {
+          popoverText.current.innerHTML = '';
+          popoverText.current.appendChild(element);
+        }
+      });
+    }
+
     // Cleanup
     return () => {
       // Remove outline listener
@@ -89,21 +107,6 @@ const Popover: FC<PopoverProps> = ({
   useEffect(() => {
     setPopoverVisibility(isShowing);
   }, [isShowing]);
-
-  useEffect(() => {
-    if (!webcomponent) {
-      return;
-    }
-    // Get slotted items from web component
-    if (popoverSlotTriggerRef.current && webcomponent.getSlot('trigger')) {
-      popoverSlotTriggerRef.current.innerHTML = '';
-      popoverSlotTriggerRef.current.appendChild(webcomponent.getSlot('trigger'));
-    }
-    if (popoverText.current && webcomponent.getSlot('content')) {
-      popoverText.current.innerHTML = '';
-      popoverText.current.appendChild(webcomponent.getSlot('content'));
-    }
-  }, [webcomponent]);
 
   // Toggling popover state
   const togglePopover = () => {

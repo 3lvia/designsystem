@@ -34,7 +34,7 @@ const popoverData = {
     },
     isShowingOnChange: {
       isRequired: false,
-      type: '(isShowing: boolean) => void',
+      type: '(isShowing: boolean) => CustomEvent',
       description: 'Gets called every time the isShowing value is changed.',
     },
     content: {
@@ -75,13 +75,14 @@ const popoverData = {
   codeImportWebComponent: `import '@elvia/elvis-popover';`,
   codeReact:
     `<Popover
-  header="` +
+  header={"` +
     exampleContents.texts.md['eng-GBR'].title +
-    `"
-  content="` +
+    `"}
+  content={"` +
     exampleContents.texts.md['eng-GBR'].description +
-    `"
-  posY="top"
+    `"}
+  posY={"top"}
+  isShowingOnChange={(event) => showingChanges(event)}
   trigger={
     <button class="e-btn e-btn--icon e-btn--circled">
       <span class="e-btn__icon">
@@ -90,14 +91,32 @@ const popoverData = {
       </span>
     </button>
   }
-></Popover>`,
-  codeWebComponent:
+></Popover>
+`,
+  codeAngular:
     `<elvia-popover 
+  [header]="'` +
+    exampleContents.texts.md['eng-GBR'].title +
+    `'"
+  [content]="'` +
+    exampleContents.texts.md['eng-GBR'].description +
+    `'"
+  [posY]="'top'"
+  (isShowingOnChange)="showingChanges($event.detail.value)"
+>
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    </span>
+  </button>
+</elvia-popover>
+`,
+  codeNativeHTML:
+    `<elvia-popover 
+  id="example-elvia-popover"
   header="` +
     exampleContents.texts.md['eng-GBR'].title +
-    `"
-  content="` +
-    exampleContents.texts.md['eng-GBR'].description +
     `"
   posY="top"
 >
@@ -107,7 +126,14 @@ const popoverData = {
       <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
     </span>
   </button>
-</elvia-popover>`,
+</elvia-popover>
+`,
+  codeNativeScript: `  const popover = document.getElementById('example-elvia-popover');
+  popover.setProps({content: ${JSON.stringify(exampleContents.texts.md['eng-GBR'].description)}});
+  popover.addEventListener('isShowingOnChange', (event) => {
+    console.log('Do what you want when visibility changes: ', event.detail.value);
+  });
+`,
 };
 
 export { popoverData };

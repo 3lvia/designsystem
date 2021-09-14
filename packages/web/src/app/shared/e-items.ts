@@ -190,7 +190,7 @@ export const eComponents: EItems[] = [
       'Box are used to group different content. Use a box together with grid and space to make different layouts.',
     docUrl: Pages.Box,
     absolutePath: '/components/' + Pages.Box,
-    status: ItemStatus.Ignore,
+    status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Box.svg',
     figmaUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Box?node-id=288%3A0',
     type: 'Component',
@@ -205,6 +205,18 @@ export const eComponents: EItems[] = [
     status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Button.svg',
     figmaUrl: 'https://www.figma.com/file/KtmjuJ1UVpS5pLFrcZK2uJ/Buttons?node-id=0%3A1',
+    type: 'Component',
+  },
+  {
+    title: 'Breadcrumb',
+    // tslint:disable-next-line: max-line-length
+    description:
+      'Breadcrumb is a navigation system that help the user to understand the hierarchy and navigate between levels. It is a secondary navigation scheme used in addition to the primary navigation.',
+    docUrl: Pages.Breadcrumb,
+    absolutePath: '/components/' + Pages.Breadcrumb,
+    status: ItemStatus.Done,
+    imageUrl: 'assets/website-icons/component-images/Button.svg',
+    figmaUrl: 'https://www.figma.com/file/JNbQmeFGfn7QOybUKbSvks/Breadcrumb?node-id=3%3A2',
     type: 'Component',
   },
   {
@@ -232,7 +244,7 @@ export const eComponents: EItems[] = [
     type: 'Component',
   },
   {
-    title: 'Chips',
+    title: 'Chip',
     // tslint:disable-next-line: max-line-length
     description:
       'Chips are interactive elements that represent an input. These are triggered by the user and can easily be removed by clicking on them. These are often used when you are going to filter content.',
@@ -374,7 +386,7 @@ export const eComponents: EItems[] = [
     title: 'List',
     // tslint:disable-next-line: max-line-length
     description:
-      'Lists are related content grouped vertically. We have different types of lists to suit different needs; bullet, numbered and icon.',
+      'Lists are related content grouped vertically. We have different types of lists to suit different needs; bullet, numbered and icon. Lists should usually inherit the typography from the text surrounding the list.',
     docUrl: Pages.List,
     absolutePath: '/components/' + Pages.List,
     status: ItemStatus.Done,
@@ -586,11 +598,7 @@ export const eIdentity: EItems[] = [
   {
     title: 'Icons',
     // tslint:disable-next-line: max-line-length
-    description: `In our icon library, you’ll find all available icons in the design system as well as defined sizes for them. Missing a specific icon? Reach out to us or fill in our
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
-        <span class="e-link__title">request form</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-      </a>.`,
+    description: `In our icon library, you’ll find all available icons in the design system as well as defined sizes for them. Missing a specific icon? Reach out to us.`,
     docUrl: Pages.Icon,
     absolutePath: '/identity/' + Pages.Icon,
     status: ItemStatus.Done,
@@ -747,10 +755,6 @@ export const eCommunity: EItems[] = [
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-    </a> or use our
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
-      <span class="e-link__title">request form</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
     docUrl: Pages.Contact,
     absolutePath: '/community/' + Pages.Contact,
@@ -764,10 +768,6 @@ export const eCommunity: EItems[] = [
     description: `To contribute, or if you have any question, you can contact us on slack:
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-    </a> or fill out our
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
-      <span class="e-link__title">request form</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
     docUrl: Pages.Contribute,

@@ -4,10 +4,9 @@ import { VersionService } from 'src/app/core/services/version.service';
 @Component({
   selector: 'app-get-started',
   templateUrl: './get-started-doc.component.html',
-  styleUrls: ['./get-started-doc.component.scss']
+  styleUrls: ['./get-started-doc.component.scss'],
 })
 export class GetStartedDocComponent implements OnInit {
-
   linkTagCode = '';
   scriptTagCode = '';
   fullExampleCode = '';
@@ -26,7 +25,7 @@ cssVars({
 
   bodyScriptMessage = `<body><script src="assets/js/elvis.js"></script></body>`;
 
-  constructor(private versionService: VersionService) { }
+  constructor(private versionService: VersionService) {}
 
   ngOnInit(): void {
     this.updateCodeExamples();

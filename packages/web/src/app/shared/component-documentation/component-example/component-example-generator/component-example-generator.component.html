@@ -37,7 +37,7 @@
         [style.overflowY]="overflowY"
       >
         <div
-          #cegFrame
+          [innerHTML]="dynamicCode"
           class="ceg-frame"
           [ngClass]="{ 'aligned-top': alignedTop }"
           style="display: flex"
@@ -58,10 +58,10 @@
 
   <!--Code-->
   <div class="ceg-row-2">
-    <app-component-example-accordion>
-      <ng-container ngProjectAs="accordionContent">
+    <elvia-accordion openLabel="View code" closeLabel="Hide code" size="small" type="normal">
+      <div slot="content">
         <app-component-example-code [componentData]="componentData"></app-component-example-code>
-      </ng-container>
-    </app-component-example-accordion>
+      </div>
+    </elvia-accordion>
   </div>
 </div>

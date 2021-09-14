@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-dropdown",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "",
   "main": "web_component.js",
   "scripts": {
@@ -14,6 +14,6 @@
     "@types/react-select": "4.0.2",
     "lodash.uniqueid": "4.0.1",
     "react-select": "4.2.1",
-    "styled-components": "5.2.1"
+    "styled-components": "^5.2.1"
   }
 }

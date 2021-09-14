@@ -63,7 +63,7 @@ export const carouselData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: number) => void',
+      type: '(value: number) => CustomEvent',
       description: 'Gets called every time the value is changed.',
     },
   },
@@ -105,7 +105,10 @@ export const carouselData = {
     <Carousel
   elements={listOfElements}
 ></Carousel>`,
-  codeWebComponent: `<elvia-carousel
+  codeAngular: `<elvia-carousel
+  [elements]="5"
+></elvia-carousel>`,
+  codeNativeHTML: `<elvia-carousel
   [elements]="5"
 ></elvia-carousel>`,
   does: [

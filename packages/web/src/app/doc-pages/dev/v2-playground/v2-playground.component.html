@@ -8,326 +8,433 @@
 
 <!--BODY-->
 <div class="page-body">
+  <h2>Testing Accordion no hover modifier</h2>
+
+  <h3>Single accordions</h3>
+  <div class="e-accordion e-accordion--single">
+    <div class="e-accordion__item">
+      <div class="e-accordion__title e-accordion__title--no-icon-hover">Closed Accordion</div>
+      <div class="e-accordion__icon">
+        <i class="e-icon e-icon--expand_circle-color"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      </div>
+      <div class="e-accordion__content">Hidden information</div>
+    </div>
+  </div>
+  <div class="e-accordion e-accordion--single e-mt-40">
+    <div class="e-accordion__item e-accordion__item--open">
+      <div class="e-accordion__title">Open Accordion</div>
+      <div class="e-accordion__icon">
+        <i class="e-icon e-icon--expand_circle-color"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      </div>
+      <div class="e-accordion__content">
+        The new AMS meters give you the opportunity to monitor your own consumption, analyze your own
+        consumption pattern and get help for smarter power use.
+      </div>
+    </div>
+  </div>
+
+  <h2>Breadcrumbs</h2>
+  <elvia-breadcrumb [breadcrumbs]="breadcrumbsTest"></elvia-breadcrumb>
+
   <h2>Carousel</h2>
   <div style="padding: 8px">
-    <elvia-carousel [elements]="elements"  (valueOnChange)="carouselValue = $event.detail.value ">
-    </elvia-carousel>
+    <elvia-carousel
+      [elements]="elements"
+      (valueOnChange)="carouselValue = $event.detail.value"
+    ></elvia-carousel>
     <h3>Carousel component with hidden arrows</h3>
-    <elvia-carousel [elements]="elements" [hideArrows]="true"  (valueOnChange)="carouselValue = $event.detail.value ">
-   </elvia-carousel>
+    <elvia-carousel
+      [elements]="elements"
+      [hideArrows]="true"
+      (valueOnChange)="carouselValue = $event.detail.value"
+    ></elvia-carousel>
     <h3>Carousel without content</h3>
-    <elvia-carousel [elements]="5"  (valueOnChange)="carouselValue = $event.detail.value ">
-   </elvia-carousel>
-   {{ carouselValue }}
-    
-  <h2>Box</h2>
-  <div style="padding: 8px">
-    <elvia-box [hasBorder]="true">
-      <h2 slot="title">Title</h2>
-      <div slot="content">Webcomponentent content for the box component</div>
-    </elvia-box>
-  </div>
+    <elvia-carousel [elements]="5" (valueOnChange)="carouselValue = $event.detail.value"></elvia-carousel>
+    {{ carouselValue }}
 
-  <h2>Modal</h2>
-  <button class="e-btn" (click)="isModalShowing = !isModalShowing">Åpne modal</button>
-  <elvia-modal
-    (onHide)="closeCallback()"
-    (isShowingOnChange)="updatedVisibility($event.detail.value)"
-    [isShowing]="isModalShowing"
-    title="Title of content"
-    hasCloseBtn="true"
-  >
-    <div slot="content">
-      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-    </div>
-    <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing = false">
-      Cancel
-    </button>
-    <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
-    <div slot="illustration">
-      <svg width="205" height="220" viewBox="0 0 205 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          opacity="0.05"
-          d="M204.718 102C204.718 158.333 158.954 204 102.5 204C46.0468 204 0.282227 158.333 0.282227 102C0.282227 45.667 46.0468 0 102.5 0C158.954 0 204.718 45.667 204.718 102Z"
-          fill="white"
-        />
-        <path
-          d="M124.547 141V157.8C124.547 160.77 123.412 163.619 121.392 165.72C119.371 167.82 116.631 169 113.774 169H92.228C89.3709 169 86.6307 167.82 84.6104 165.72C82.5901 163.619 81.4551 160.77 81.4551 157.8V141"
-          fill="white"
-        />
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M103.001 166C104.385 166 105.507 166.863 105.507 167.929L105.507 218.071C105.507 219.137 104.385 220 103.001 220C101.618 220 100.496 219.137 100.496 218.071L100.496 167.929C100.496 166.863 101.618 166 103.001 166Z"
-          fill="white"
-        />
-        <path
-          d="M124.547 141H81.4552C73.4371 137.037 66.0403 130.9 61.3718 123.295C56.7033 115.691 54.2871 106.928 54.4013 98.0158C54.5711 88.1655 57.6989 78.6627 63.2826 70.6866L81.4618 63L86.7826 71.8296L100.971 63L109.333 95.0389L125.802 71.8296L128.082 88.4798L146.544 77.1482C149.717 83.5832 151.47 90.6894 151.6 97.9871C151.72 106.904 149.307 115.673 144.638 123.283C139.969 130.894 132.57 137.035 124.547 141Z"
-          fill="#E9E9E9"
-        />
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M91.4211 110.816C90.5571 110.454 89.6067 110.36 88.6898 110.544C87.7729 110.728 86.9301 111.183 86.2682 111.852C85.6062 112.52 85.1549 113.373 84.9721 114.302C84.7892 115.23 84.8831 116.193 85.2417 117.068C85.6003 117.942 86.2073 118.689 86.9853 119.214C87.7632 119.739 88.6773 120.019 89.612 120.019H94.343V115.236C94.343 114.289 94.065 113.363 93.5446 112.576C93.0242 111.79 92.2851 111.177 91.4211 110.816ZM97.7689 120.019V115.236C97.7689 113.608 97.2911 112.016 96.3954 110.662C95.4996 109.308 94.2259 108.251 92.7349 107.627C91.2439 107.004 89.603 106.84 88.0199 107.158C86.4367 107.477 84.9831 108.262 83.8427 109.414C82.7022 110.566 81.9261 112.033 81.6117 113.63C81.2973 115.226 81.4586 116.882 82.0754 118.386C82.6923 119.89 83.7371 121.177 85.0786 122.082C86.4201 122.988 87.9978 123.471 89.612 123.471H94.343V141.274C94.343 142.227 95.1099 143 96.056 143C97.002 143 97.7689 142.227 97.7689 141.274V123.471H107.231V141.274C107.231 142.227 107.998 143 108.944 143C109.89 143 110.657 142.227 110.657 141.274V123.471H115.388C117.002 123.471 118.58 122.988 119.921 122.082C121.263 121.177 122.308 119.89 122.924 118.386C123.541 116.882 123.703 115.226 123.388 113.63C123.074 112.033 122.298 110.566 121.157 109.414C120.017 108.262 118.563 107.477 116.98 107.158C115.397 106.84 113.756 107.004 112.265 107.627C110.774 108.251 109.5 109.308 108.605 110.662C107.709 112.016 107.231 113.608 107.231 115.236V120.019H97.7689ZM110.657 120.019H115.388C116.323 120.019 117.237 119.739 118.015 119.214C118.793 118.689 119.4 117.942 119.758 117.068C120.117 116.193 120.211 115.23 120.028 114.302C119.845 113.373 119.394 112.52 118.732 111.852C118.07 111.183 117.227 110.728 116.31 110.544C115.393 110.36 114.443 110.454 113.579 110.816C112.715 111.177 111.976 111.79 111.455 112.576C110.935 113.363 110.657 114.289 110.657 115.236V120.019Z"
-          fill="black"
-        />
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M99.0053 44.2777C99.8637 43.659 101.062 43.8518 101.682 44.7084L107.118 52.2177C107.738 53.0743 107.545 54.2703 106.687 54.8891C105.828 55.5078 104.63 55.315 104.01 54.4584L98.5737 46.9491C97.9537 46.0925 98.1469 44.8965 99.0053 44.2777Z"
-          fill="#29D305"
-        />
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M124.832 41.662C125.847 41.9604 126.428 43.0241 126.129 44.0378L123.607 52.5855C123.308 53.5992 122.242 54.179 121.227 53.8806C120.211 53.5821 119.63 52.5185 119.929 51.5048L122.451 42.9571C122.75 41.9434 123.816 41.3636 124.832 41.662Z"
-          fill="#29D305"
-        />
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M142.585 54.0189C143.236 54.8526 143.086 56.0548 142.251 56.704L135.409 62.0203C134.573 62.6695 133.368 62.5199 132.718 61.6862C132.067 60.8525 132.217 59.6503 133.053 59.0011L139.894 53.6848C140.73 53.0356 141.935 53.1851 142.585 54.0189Z"
-          fill="#29D305"
-        />
-      </svg>
-    </div>
-  </elvia-modal>
-
-  <h2>Divider</h2>
-  <div style="padding: 8px">
-    <elvia-divider></elvia-divider>
-  </div>
-  <div style="padding: 8px">
-    <elvia-divider type="title" typography="caps">
-      <h3 slot="title">Titleee</h3>
-    </elvia-divider>
-  </div>
-  <div style="padding: 8px">
-    <elvia-divider type="curved"></elvia-divider>
-  </div>
-  <div style="margin-top: 16px; background: #262626; padding: 8px">
-    <elvia-divider [isInverted]="true"></elvia-divider>
-  </div>
-  <div style="margin-top: 16px; background: #262626; padding: 8px">
-    <elvia-divider type="title" title="helo" typography="caps" [isInverted]="true"></elvia-divider>
-  </div>
-  <div style="margin-top: 16px; background: #262626; padding: 8px">
-    <elvia-divider type="curved" [isInverted]="true"></elvia-divider>
-  </div>
-
-  <h2>dropdown</h2>
-  <div style="width: 250px">
-    <div class="e-my-24">
-      <button (click)="consoleLogDropdownValue()">Console log dropdown value</button>
-    </div>
-    <elvia-dropdown
-      [isMulti]="true"
-      [isCompact]="false"
-      [isDisabled]="false"
-      label="testing something"
-      [defaultValue]="defOptions"
-      [options]="exampleOptions"
-      (valueOnChange)="dropdownValue = $event.detail.value"
-    ></elvia-dropdown>
-
-    <h2>DatePicker</h2>
-    <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
-      <elvia-datepicker [value]="date1"></elvia-datepicker>
-    </div>
-
-    <h2>Accordion</h2>
-    <elvia-accordion
-      content="any text of your choice"
-      openLabel="Show"
-      closedLabel="Hide"
-      size="medium"
-      type="normal"
-    ></elvia-accordion>
-
-    <h3>Accordion Custom Content</h3>
-    <elvia-accordion type="normal">
-      <div slot="content">
-        <h3>Hello there</h3>
-        <p>An important paragraph</p>
-        <button>A button</button>
+    <h3>Deletable chips</h3>
+    <div style="display: flex; flex-direction: row">
+      <div *ngFor="let chip of deletableChipsList">
+        <elvia-chip
+          [value]="chip.value"
+          [color]="chip.color"
+          [ariaLabel]="'Fjern filtrering for ' + chip.value"
+          [disabled]="chip.disabled"
+          (onDelete)="handleOnDelete($event.detail.value)"
+        ></elvia-chip>
       </div>
-    </elvia-accordion>
-    <h2>Tabs</h2>
-    <div style="margin-top: 16px; background: #262626">
+    </div>
+    Value deleted: {{ deleteValue }}
+
+    <h3>Clickable chips</h3>
+    <div style="display: flex; flex-direction: row">
+      <elvia-chip
+        [value]="2021"
+        color="orange"
+        type="legend"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2022"
+        [selected]="true"
+        type="legend"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2023"
+        [selected]="true"
+        type="choice"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2024"
+        [selected]="true"
+        type="legend"
+        color="violet"
+        disabled="true"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+    </div>
+    Selected values:
+    <span *ngFor="let key of filteredKeys">
+      <span *ngIf="filteredValues[key]">{{ key }},</span>
+    </span>
+
+    <h2>Box</h2>
+    <div style="padding: 8px">
+      <elvia-box [hasBorder]="true">
+        <h2 slot="title">Title</h2>
+        <div slot="content">Webcomponentent content for the box component</div>
+      </elvia-box>
+    </div>
+
+    <elvia-carousel [elements]="5" (valueOnChange)="carouselValue = $event.detail.value"></elvia-carousel>
+    {{ carouselValue }}
+
+    <h2>Box</h2>
+    <div style="padding: 8px">
+      <elvia-box [hasBorder]="true">
+        <h2 slot="title">Title</h2>
+        <div slot="content">Webcomponentent content for the box component</div>
+      </elvia-box>
+    </div>
+
+    <h2>Modal</h2>
+    <button class="e-btn" (click)="isModalShowing = !isModalShowing">Åpne modal</button>
+    <elvia-modal
+      (onHide)="closeCallback()"
+      (isShowingOnChange)="updatedVisibility($event.detail.value)"
+      [isShowing]="isModalShowing"
+      title="Title of content"
+      hasCloseBtn="true"
+    >
+      <div slot="content">
+        <div>
+          Body text comes here and can go over several lines. It looks like this when it is two lines.
+        </div>
+        <div>
+          Body text comes here and can go over several lines. It looks like this when it is two lines.
+        </div>
+        <div>
+          Body text comes here and can go over several lines. It looks like this when it is two lines.
+        </div>
+        <div>
+          Body text comes here and can go over several lines. It looks like this when it is two lines.
+        </div>
+        <div>
+          Body text comes here and can go over several lines. It looks like this when it is two lines.
+        </div>
+        <div>
+          Body text comes here and can go over several lines. It looks like this when it is two lines.
+        </div>
+      </div>
+      <button
+        slot="secondaryButton"
+        class="e-btn e-btn--secondary e-btn--lg"
+        (click)="isModalShowing = false"
+      >
+        Cancel
+      </button>
+      <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+      <div slot="illustration">
+        <svg width="205" height="220" viewBox="0 0 205 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            opacity="0.05"
+            d="M204.718 102C204.718 158.333 158.954 204 102.5 204C46.0468 204 0.282227 158.333 0.282227 102C0.282227 45.667 46.0468 0 102.5 0C158.954 0 204.718 45.667 204.718 102Z"
+            fill="white"
+          />
+          <path
+            d="M124.547 141V157.8C124.547 160.77 123.412 163.619 121.392 165.72C119.371 167.82 116.631 169 113.774 169H92.228C89.3709 169 86.6307 167.82 84.6104 165.72C82.5901 163.619 81.4551 160.77 81.4551 157.8V141"
+            fill="white"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M103.001 166C104.385 166 105.507 166.863 105.507 167.929L105.507 218.071C105.507 219.137 104.385 220 103.001 220C101.618 220 100.496 219.137 100.496 218.071L100.496 167.929C100.496 166.863 101.618 166 103.001 166Z"
+            fill="white"
+          />
+          <path
+            d="M124.547 141H81.4552C73.4371 137.037 66.0403 130.9 61.3718 123.295C56.7033 115.691 54.2871 106.928 54.4013 98.0158C54.5711 88.1655 57.6989 78.6627 63.2826 70.6866L81.4618 63L86.7826 71.8296L100.971 63L109.333 95.0389L125.802 71.8296L128.082 88.4798L146.544 77.1482C149.717 83.5832 151.47 90.6894 151.6 97.9871C151.72 106.904 149.307 115.673 144.638 123.283C139.969 130.894 132.57 137.035 124.547 141Z"
+            fill="#E9E9E9"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M91.4211 110.816C90.5571 110.454 89.6067 110.36 88.6898 110.544C87.7729 110.728 86.9301 111.183 86.2682 111.852C85.6062 112.52 85.1549 113.373 84.9721 114.302C84.7892 115.23 84.8831 116.193 85.2417 117.068C85.6003 117.942 86.2073 118.689 86.9853 119.214C87.7632 119.739 88.6773 120.019 89.612 120.019H94.343V115.236C94.343 114.289 94.065 113.363 93.5446 112.576C93.0242 111.79 92.2851 111.177 91.4211 110.816ZM97.7689 120.019V115.236C97.7689 113.608 97.2911 112.016 96.3954 110.662C95.4996 109.308 94.2259 108.251 92.7349 107.627C91.2439 107.004 89.603 106.84 88.0199 107.158C86.4367 107.477 84.9831 108.262 83.8427 109.414C82.7022 110.566 81.9261 112.033 81.6117 113.63C81.2973 115.226 81.4586 116.882 82.0754 118.386C82.6923 119.89 83.7371 121.177 85.0786 122.082C86.4201 122.988 87.9978 123.471 89.612 123.471H94.343V141.274C94.343 142.227 95.1099 143 96.056 143C97.002 143 97.7689 142.227 97.7689 141.274V123.471H107.231V141.274C107.231 142.227 107.998 143 108.944 143C109.89 143 110.657 142.227 110.657 141.274V123.471H115.388C117.002 123.471 118.58 122.988 119.921 122.082C121.263 121.177 122.308 119.89 122.924 118.386C123.541 116.882 123.703 115.226 123.388 113.63C123.074 112.033 122.298 110.566 121.157 109.414C120.017 108.262 118.563 107.477 116.98 107.158C115.397 106.84 113.756 107.004 112.265 107.627C110.774 108.251 109.5 109.308 108.605 110.662C107.709 112.016 107.231 113.608 107.231 115.236V120.019H97.7689ZM110.657 120.019H115.388C116.323 120.019 117.237 119.739 118.015 119.214C118.793 118.689 119.4 117.942 119.758 117.068C120.117 116.193 120.211 115.23 120.028 114.302C119.845 113.373 119.394 112.52 118.732 111.852C118.07 111.183 117.227 110.728 116.31 110.544C115.393 110.36 114.443 110.454 113.579 110.816C112.715 111.177 111.976 111.79 111.455 112.576C110.935 113.363 110.657 114.289 110.657 115.236V120.019Z"
+            fill="black"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M99.0053 44.2777C99.8637 43.659 101.062 43.8518 101.682 44.7084L107.118 52.2177C107.738 53.0743 107.545 54.2703 106.687 54.8891C105.828 55.5078 104.63 55.315 104.01 54.4584L98.5737 46.9491C97.9537 46.0925 98.1469 44.8965 99.0053 44.2777Z"
+            fill="#29D305"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M124.832 41.662C125.847 41.9604 126.428 43.0241 126.129 44.0378L123.607 52.5855C123.308 53.5992 122.242 54.179 121.227 53.8806C120.211 53.5821 119.63 52.5185 119.929 51.5048L122.451 42.9571C122.75 41.9434 123.816 41.3636 124.832 41.662Z"
+            fill="#29D305"
+          />
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M142.585 54.0189C143.236 54.8526 143.086 56.0548 142.251 56.704L135.409 62.0203C134.573 62.6695 133.368 62.5199 132.718 61.6862C132.067 60.8525 132.217 59.6503 133.053 59.0011L139.894 53.6848C140.73 53.0356 141.935 53.1851 142.585 54.0189Z"
+            fill="#29D305"
+          />
+        </svg>
+      </div>
+    </elvia-modal>
+
+    <h2>Divider</h2>
+    <div style="padding: 8px">
+      <elvia-divider></elvia-divider>
+    </div>
+    <div style="padding: 8px">
+      <elvia-divider type="title" typography="caps">
+        <h3 slot="title">Titleee</h3>
+      </elvia-divider>
+    </div>
+    <div style="padding: 8px">
+      <elvia-divider type="curved"></elvia-divider>
+    </div>
+    <div style="margin-top: 16px; background: #262626; padding: 8px">
+      <elvia-divider [isInverted]="true"></elvia-divider>
+    </div>
+    <div style="margin-top: 16px; background: #262626; padding: 8px">
+      <elvia-divider type="title" title="helo" typography="caps" [isInverted]="true"></elvia-divider>
+    </div>
+    <div style="margin-top: 16px; background: #262626; padding: 8px">
+      <elvia-divider type="curved" [isInverted]="true"></elvia-divider>
+    </div>
+
+    <h2>dropdown</h2>
+    <div style="width: 250px">
+      <elvia-dropdown
+        [isMulti]="true"
+        [isCompact]="false"
+        [isDisabled]="false"
+        label="testing something"
+        [defaultValue]="defOptions"
+        [options]="exampleOptions"
+        (valueOnChange)="dropdownValue = $event.detail.value"
+      ></elvia-dropdown>
+
+      <h2>DatePicker</h2>
+      <div style="display: flex; flex-direction: row; align-items: center; justify-content: center">
+        <elvia-datepicker [value]="date1"></elvia-datepicker>
+      </div>
+
+      <h2>Accordion</h2>
+      <elvia-accordion
+        content="any text of your choice"
+        openLabel="Show"
+        closeLabel="Hide"
+        size="medium"
+        type="normal"
+      ></elvia-accordion>
+
+      <h3>Accordion Custom Content</h3>
+      <elvia-accordion type="normal">
+        <div slot="content">
+          <h3>Hello there</h3>
+          <p>An important paragraph</p>
+          <button>A button</button>
+        </div>
+      </elvia-accordion>
+      <h2>Tabs</h2>
+      <div style="margin-top: 16px; background: #262626">
+        <elvia-tabs
+          [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
+          [value]="1"
+          [isInverted]="true"
+          (valueOnChange)="value = $event.detail.value"
+        ></elvia-tabs>
+      </div>
       <elvia-tabs
         [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
         [value]="1"
-        [isInverted]="true"
         (valueOnChange)="value = $event.detail.value"
       ></elvia-tabs>
-    </div>
-    <elvia-tabs
-      [items]="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
-      [value]="1"
-      (valueOnChange)="value = $event.detail.value"
-    ></elvia-tabs>
-    {{ value }}
+      {{ value }}
 
-    <hr style="margin: 40px 0" />
-    <elvia-testing
-      [value]="counterValue"
-      (valueOnChange)="counterValue = $event.detail.value"
-    ></elvia-testing>
-    <elvia-testing
-      [isFullWidth]="isFullWidth"
-      isBlock="true"
-      [value]="counterValue"
-      (valueOnChange)="counterValue = $event.detail.value"
-    ></elvia-testing>
-    {{ counterValue }}
-    <button (click)="isFullWidth = !isFullWidth">toggle</button>
+      <hr style="margin: 40px 0" />
+      <elvia-testing
+        [value]="counterValue"
+        (valueOnChange)="counterValue = $event.detail.value"
+      ></elvia-testing>
+      <elvia-testing
+        [isFullWidth]="isFullWidth"
+        isBlock="true"
+        [value]="counterValue"
+        (valueOnChange)="counterValue = $event.detail.value"
+      ></elvia-testing>
+      {{ counterValue }}
+      <button (click)="isFullWidth = !isFullWidth">toggle</button>
 
-    <hr style="margin: 40px 0" />
+      <hr style="margin: 40px 0" />
 
-    <h2>Popover</h2>
-    <div style="display: flex; flex-direction: column; align-items: flex-end">
-      <elvia-popover
-        header="BankID"
-        posX="right"
-        width="200"
-        [isShowing]="isPopoverShowing"
-        (isShowingOnChange)="updatePopoverVariable($event.detail.value)"
-      >
-        <button slot="trigger" class="e-btn">Right top</button>
-        <div slot="content">
-          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
-          <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
-        </div>
-      </elvia-popover>
-      <div style="margin-top: 16px">
-        <elvia-popover header="BankID" posX="right" width="200">
+      <h2>Popover</h2>
+      <div style="display: flex; flex-direction: column; align-items: flex-end">
+        <elvia-popover
+          header="BankID"
+          posX="right"
+          width="200"
+          [isShowing]="isPopoverShowing"
+          (isShowingOnChange)="updatePopoverVariable($event.detail.value)"
+        >
           <button slot="trigger" class="e-btn">Right top</button>
           <div slot="content">
             Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
+            <button class="e-btn" (click)="isPopoverShowing = !isPopoverShowing">Lukke popover</button>
           </div>
+        </elvia-popover>
+        <div style="margin-top: 16px">
+          <elvia-popover header="BankID" posX="right" width="200">
+            <button slot="trigger" class="e-btn">Right top</button>
+            <div slot="content">
+              Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
+            </div>
+          </elvia-popover>
+        </div>
+        <div style="margin-top: 16px">
+          <elvia-popover
+            header="BankID"
+            content="Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle
+        privatkunder må bruke BankID første gang."
+            posX="left"
+            hasCloseBtn="false"
+          >
+            <button slot="trigger" class="e-btn">Left top</button>
+          </elvia-popover>
+        </div>
+        <div style="margin-top: 16px">
+          <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID.">
+            <button slot="trigger" class="e-btn">Center top</button>
+          </elvia-popover>
+        </div>
+      </div>
+      <div style="margin-top: 16px">
+        <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID." posY="bottom">
+          <button slot="trigger" class="e-btn">Center bottom</button>
         </elvia-popover>
       </div>
       <div style="margin-top: 16px">
         <elvia-popover
           header="BankID"
-          content="Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang. Alle
-        privatkunder må bruke BankID første gang."
-          posX="left"
-          hasCloseBtn="false"
+          content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+          posY="bottom"
+          posX="right"
         >
-          <button slot="trigger" class="e-btn">Left top</button>
+          <button slot="trigger" class="e-btn">Right bottom</button>
         </elvia-popover>
       </div>
       <div style="margin-top: 16px">
-        <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID.">
-          <button slot="trigger" class="e-btn">Center top</button>
+        <elvia-popover
+          header="BankID"
+          content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+          posY="bottom"
+          posX="left"
+        >
+          <button slot="trigger" class="e-btn">Left bottom</button>
         </elvia-popover>
       </div>
-    </div>
-    <div style="margin-top: 16px">
-      <elvia-popover header="BankID" content="Alle privatkunder må bruke BankID." posY="bottom">
-        <button slot="trigger" class="e-btn">Center bottom</button>
-      </elvia-popover>
-    </div>
-    <div style="margin-top: 16px">
-      <elvia-popover
-        header="BankID"
-        content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
-        posY="bottom"
-        posX="right"
-      >
-        <button slot="trigger" class="e-btn">Right bottom</button>
-      </elvia-popover>
-    </div>
-    <div style="margin-top: 16px">
-      <elvia-popover
-        header="BankID"
-        content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
-        posY="bottom"
-        posX="left"
-      >
-        <button slot="trigger" class="e-btn">Left bottom</button>
-      </elvia-popover>
-    </div>
 
-    <hr style="margin: 40px 0" />
+      <hr style="margin: 40px 0" />
 
-    <h2>Progressbar</h2>
-    <elvia-progress-linear
-      [isIndeterminate]="indeterminate"
-      [value]="progressValue"
-      [isError]="progressError"
-    ></elvia-progress-linear>
-    <div style="margin-bottom: 32px; display: flex">
-      <div style="display: flex; width: 100%; justify-content: space-between">
-        <button (click)="progressValue = progressValue + 10">Increase Progress</button>
-        <button (click)="progressValue = progressValue - 10">Decrease Progress</button>
-        <button (click)="progressValue = 0">Reset Progress</button>
-        <button (click)="indeterminate = !indeterminate">Toggle indeterminate</button>
-        <button (click)="progressError = !progressError">Toggle error</button>
+      <h2>Progressbar</h2>
+      <elvia-progress-linear
+        [isIndeterminate]="indeterminate"
+        [value]="progressValue"
+        [isError]="progressError"
+      ></elvia-progress-linear>
+      <div style="margin-bottom: 32px; display: flex">
+        <div style="display: flex; width: 100%; justify-content: space-between">
+          <button (click)="progressValue = progressValue + 10">Increase Progress</button>
+          <button (click)="progressValue = progressValue - 10">Decrease Progress</button>
+          <button (click)="progressValue = 0">Reset Progress</button>
+          <button (click)="indeterminate = !indeterminate">Toggle indeterminate</button>
+          <button (click)="progressError = !progressError">Toggle error</button>
+        </div>
       </div>
-    </div>
 
-    <h2>Popover in overflow:auto element</h2>
-    <div class="e-table-container">
-      <table class="e-table">
-        <thead>
-          <tr>
-            <th scope="col">
-              <elvia-popover
-                header="BankID"
-                content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
-                posY="top"
-                posX="center"
-              >
-                <button slot="trigger" class="e-btn">popover top</button>
-              </elvia-popover>
-            </th>
-            <th scope="col">
-              <elvia-popover
-                header="BankID"
-                content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
-                posY="top"
-                posX="left"
-              >
-                <button slot="trigger" class="e-btn">top left</button>
-              </elvia-popover>
-            </th>
-            <th scope="col">
-              <elvia-popover
-                header="BankID"
-                content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
-                posY="bottom"
-                posX="center"
-              >
-                <button slot="trigger" class="e-btn">bottom</button>
-              </elvia-popover>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Row 1</td>
-            <td>Row 1</td>
-            <td>Row 1</td>
-          </tr>
-          <tr>
-            <td>Row 2</td>
-            <td>Row 2</td>
-            <td>Row 2</td>
-          </tr>
-          <tr>
-            <td>Row 3</td>
-            <td>Row 3</td>
-            <td>Row 3</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>Popover in overflow:auto element</h2>
+      <div class="e-table-container">
+        <table class="e-table">
+          <thead>
+            <tr>
+              <th scope="col">
+                <elvia-popover
+                  header="BankID"
+                  content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+                  posY="top"
+                  posX="center"
+                >
+                  <button slot="trigger" class="e-btn">popover top</button>
+                </elvia-popover>
+              </th>
+              <th scope="col">
+                <elvia-popover
+                  header="BankID"
+                  content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+                  posY="top"
+                  posX="left"
+                >
+                  <button slot="trigger" class="e-btn">top left</button>
+                </elvia-popover>
+              </th>
+              <th scope="col">
+                <elvia-popover
+                  header="BankID"
+                  content="Alle privatkunder må bruke BankID første gang de skal logge inn på Min side."
+                  posY="bottom"
+                  posX="center"
+                >
+                  <button slot="trigger" class="e-btn">bottom</button>
+                </elvia-popover>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Row 1</td>
+              <td>Row 1</td>
+              <td>Row 1</td>
+            </tr>
+            <tr>
+              <td>Row 2</td>
+              <td>Row 2</td>
+              <td>Row 2</td>
+            </tr>
+            <tr>
+              <td>Row 3</td>
+              <td>Row 3</td>
+              <td>Row 3</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

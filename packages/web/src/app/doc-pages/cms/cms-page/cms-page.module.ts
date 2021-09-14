@@ -18,8 +18,8 @@ import { PageStructureModule } from 'src/app/shared/page-structure/page-structur
     RouterModule,
     DynamicModule,
     NavbarModule,
-    PageStructureModule
+    PageStructureModule,
   ],
   declarations: [CMSPageComponent],
 })
-export class CMSPageModule { }
+export class CMSPageModule {}

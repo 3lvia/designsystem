@@ -20,6 +20,6 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
     ComponentSubsubsectionModule,
     RouterModule,
   ],
-  declarations: [GetStartedDocComponent]
+  declarations: [GetStartedDocComponent],
 })
-export class GetStartedDocModule { }
+export class GetStartedDocModule {}
