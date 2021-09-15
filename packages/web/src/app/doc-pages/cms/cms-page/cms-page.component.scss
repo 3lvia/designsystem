@@ -88,13 +88,6 @@
   }
 }
 .cms-subsection {
-  margin-left: 72px;
-  @include breakpoint-up(Tablet) {
-    margin-left: 0;
-  }
-  @include breakpoint-up(Mobile) {
-    margin-top: 48px;
-  }
   p {
     margin: 0px;
   }
