@@ -211,13 +211,13 @@ function App() {
 
   const radioFilterOptions =  [
     {
-      value: 'All',
+      name: 'All',
     },
     {
-      value: 'Read',
+      name: 'Read',
     },
     {
-      value: 'Unread',
+      name: 'Unread',
     },
   ]
   const [selectedRadioFilter, setSelectedRadioFilter] = useState('Read')
@@ -348,12 +348,12 @@ function App() {
       <div>
       <h1>Radio filter</h1>
       <RadioFilter 
-        options={radioFilterOptions} 
+        items={radioFilterOptions} 
         ariaLabel={`${selectedRadioFilter} filtrering valgt`}
-        onChange={selected => {
+        valueOnChange={selected => {
           setSelectedRadioFilter(selected)
         }}
-        state={selectedRadioFilter}
+        value={selectedRadioFilter}
         name={'radioFilterTest'}
         >
           </RadioFilter>

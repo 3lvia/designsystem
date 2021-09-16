@@ -2,31 +2,30 @@ import React, { FC } from 'react';
 import { RadioFilterGroup, RadioFilterInput ,RadioFilterLabel, RadioFilterTitle } from './styledComponents';
 
 export interface Option {
-  value: string;
-  disabled?: boolean;
+  name: string;
 }
 
 export interface BaseRadioFilterProps {
   name: string;
-  options: Option[];
-  state: string;
+  items: Option[];
+  value: string;
   ariaLabel?: string;
-  onChange?: (value: string) => void;
+  valueOnChange?: (value: string) => void;
   webcomponent?: any;
 }
 
 export const RadioFilter: FC<BaseRadioFilterProps> = ({
   ariaLabel,
   name,
-  options,
-  state,
-  onChange,
+  items,
+  value,
+  valueOnChange,
   webcomponent,
 }) => {
 
   const updateValue = (value: string) => {
     if (!webcomponent) {
-      onChange && onChange(value);
+      valueOnChange && valueOnChange(value);
     } else if (webcomponent) {
       // True -> Prevents rerender
       webcomponent.setProps({ value: value}, true);
@@ -35,20 +34,20 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
 
   return (
     <RadioFilterGroup>
-      {options && options.map(({value}) => (
-        <RadioFilterLabel key={value} isSelected={state === value}>
+      {items && items.map(({name: optionName}) => (
+        <RadioFilterLabel key={optionName} isSelected={optionName === value}>
           <RadioFilterInput
             type="radio"
             name={name}
-            aria-label={ariaLabel ? ariaLabel : value}
-            aria-checked={state === value}
-            checked={state === value}
+            aria-label={ariaLabel ? ariaLabel : optionName}
+            aria-checked={optionName === value}
+            checked={optionName === value}
             onChange={() => 
-              updateValue(value)
+              updateValue(optionName)
             }
           ></RadioFilterInput>
           <RadioFilterTitle>
-          {value}
+            {optionName}
           </RadioFilterTitle>
         </RadioFilterLabel>
           ))}

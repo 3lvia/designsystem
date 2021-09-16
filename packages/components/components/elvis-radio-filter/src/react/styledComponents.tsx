@@ -17,9 +17,9 @@ export const RadioFilterLabel = styled.label`
   border-radius: 32px;
   padding: 4px 12px;
   border: ${(props: { isSelected: boolean }) => (`1px solid ${props.isSelected ? colors.elviaOff : 'transparent'}`)};
+  cursor: pointer;
   
   &:hover:not(:disabled) {
-    cursor: pointer;
     border:${(props: { isSelected: boolean }) => (`1px solid ${props.isSelected ? colors.elviaOff : colors.elviaCharge}`)};
   }
   &:focus-within {
@@ -34,7 +34,7 @@ export const RadioFilterInput = styled.input`
   cursor: pointer;
 `;
 
-export const RadioFilterTitle = styled.div`
+export const RadioFilterTitle = styled.span`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
   text-transform: 'unset';
@@ -42,5 +42,4 @@ export const RadioFilterTitle = styled.div`
   font-style: unset;
   font-size: 16px;
   line-height: 22px;
-  cursor: pointer;
 `;
