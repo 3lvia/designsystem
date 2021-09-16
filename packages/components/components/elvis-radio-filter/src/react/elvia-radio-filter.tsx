@@ -35,7 +35,7 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
 
   return (
     <RadioFilterGroup>
-      {options?.map(({value}) => (
+      {options && options.map(({value}) => (
         <RadioFilterLabel key={value} isSelected={state === value}>
           <RadioFilterInput
             type="radio"
