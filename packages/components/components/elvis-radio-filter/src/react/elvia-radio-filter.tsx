@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { RadioFilterGroup, RadioFilterInput ,RadioFilterLabel, RadioFilterTitle } from './styledComponents';
 
 export interface Option {
-  name: string;
+  label: string;
 }
 
 export interface BaseRadioFilterProps {
@@ -33,21 +33,21 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
   };
 
   return (
-    <RadioFilterGroup>
-      {items && items.map(({name: optionName}) => (
-        <RadioFilterLabel key={optionName} isSelected={optionName === value}>
+    <RadioFilterGroup role="radiogroup">
+      {items && items.map(({label}) => (
+        <RadioFilterLabel key={label} isSelected={label === value}>
           <RadioFilterInput
             type="radio"
             name={name}
-            aria-label={ariaLabel ? ariaLabel : optionName}
-            aria-checked={optionName === value}
-            checked={optionName === value}
+            aria-label={ariaLabel ? ariaLabel : label}
+            aria-checked={label === value}
+            checked={label === value}
             onChange={() => 
-              updateValue(optionName)
+              updateValue(label)
             }
           ></RadioFilterInput>
           <RadioFilterTitle>
-            {optionName}
+            {label}
           </RadioFilterTitle>
         </RadioFilterLabel>
           ))}

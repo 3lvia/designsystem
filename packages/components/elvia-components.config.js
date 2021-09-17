@@ -242,8 +242,8 @@ module.exports = [
     attributes: [
       { name: 'ariaLabel', type: 'string', propType: 'string' },
       { name: 'name', type: 'string', propType: 'string' },
-      { name: 'options', type: 'object', propType: 'object' },
-      { name: 'state', type: 'string', propType: 'string' },
+      { name: 'items', type: 'object', propType: 'object' },
+      { name: 'value', type: 'string', propType: 'string' },
     ],
     reactName: 'RadioFilter',
     slotItems: false,

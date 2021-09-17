@@ -211,19 +211,19 @@ function App() {
 
   const radioFilterOptions =  [
     {
-      name: 'All',
+      label: 'All',
     },
     {
-      name: 'Read',
+      label: 'Read',
     },
     {
-      name: 'Unread',
+      label: 'Unread',
     },
     {
-      name: 'Consumption',
+      label: 'Consumption',
     },
     {
-      name: 'Production',
+      label: 'Production',
     },
   ]
   const [selectedRadioFilter, setSelectedRadioFilter] = useState('Read')
