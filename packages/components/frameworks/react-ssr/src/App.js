@@ -219,6 +219,12 @@ function App() {
     {
       name: 'Unread',
     },
+    {
+      name: 'Consumption',
+    },
+    {
+      name: 'Production',
+    },
   ]
   const [selectedRadioFilter, setSelectedRadioFilter] = useState('Read')
 

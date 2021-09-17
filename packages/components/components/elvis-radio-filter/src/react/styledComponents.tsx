@@ -11,6 +11,7 @@ export const RadioFilterGroup = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
 `
 
 export const RadioFilterLabel = styled.label`
@@ -26,6 +27,7 @@ export const RadioFilterLabel = styled.label`
     outline: 2px solid ${colors.outline};
     outline-offset: 2px;
   }
+  margin: 0 8px 8px 0;
 `
 
 export const RadioFilterInput = styled.input`
