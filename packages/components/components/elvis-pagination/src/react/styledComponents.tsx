@@ -153,5 +153,6 @@ export const PaginatorDots = styled.div`
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
+  display:${(props: { noDots: boolean }) => (props.noDots ? 'none' : 'inherit')};
   width: ${(props: { noDots: boolean }) => (props.noDots ? '0px' : '20px')};
 `;
