@@ -6,45 +6,17 @@
     </a>
   </div>
 
-  <div class="tabs">
+  <div class="tabs" *ngIf="mainMenu">
     <a
+      *ngFor="let menuItem of mainMenu.pages"
       class="tabs-links"
       style="color: black"
-      [routerLink]="['/about/get-started']"
+      [routerLink]="['/' + menuItem.path]"
+      routerLinkActive="active"
       role="tab"
       (click)="closeSearch()"
     >
-      Get Started
-    </a>
-    <a
-      class="tabs-links"
-      style="color: black"
-      [routerLink]="['/identity']"
-      role="tab"
-      (click)="closeSearch()"
-    >
-      Identity
-    </a>
-    <a
-      class="tabs-links"
-      style="color: black"
-      [routerLink]="['/components']"
-      role="tab"
-      (click)="closeSearch()"
-    >
-      Components
-    </a>
-    <a class="tabs-links" style="color: black" [routerLink]="['/tools']" role="tab" (click)="closeSearch()">
-      Tools
-    </a>
-    <a
-      class="tabs-links"
-      style="color: black"
-      [routerLink]="['/community']"
-      role="tab"
-      (click)="closeSearch()"
-    >
-      Community
+      {{ menuItem.title }}
     </a>
   </div>
 
@@ -58,7 +30,7 @@
 
     <span class="vertical-line e-mr-24"></span>
 
-    <a class="version tabs-links e-ml-0" [routerLink]="['/about/changelog']" role="tab">v{{ version }}</a>
+    <a class="version tabs-links e-ml-0" [routerLink]="['/about/whats-new']" role="tab">v{{ version }}</a>
   </div>
   <div class="mobile-menu">
     <div class="closing">

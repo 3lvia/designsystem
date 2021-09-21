@@ -7,7 +7,6 @@ import { ComponentSubsectionModule } from 'src/app/shared/component-documentatio
 import { RouterModule } from '@angular/router';
 import { DynamicModule } from 'ng-dynamic-component';
 import { NavbarModule } from 'src/app/shell/navbar/navbar.module';
-import { PageStructureModule } from 'src/app/shared/page-structure/page-structure.module';
 
 @NgModule({
   imports: [
@@ -18,7 +17,6 @@ import { PageStructureModule } from 'src/app/shared/page-structure/page-structur
     RouterModule,
     DynamicModule,
     NavbarModule,
-    PageStructureModule,
   ],
   declarations: [CMSPageComponent],
 })

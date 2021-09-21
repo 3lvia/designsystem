@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-timepicker-doc',
@@ -12,7 +12,7 @@ export class TimepickerDocComponent {
 
   loadedFigmaModel = false;
 
-  hideContentLoader(evt: any): void {
+  hideContentLoader(evt: Event): void {
     if (evt && evt.target) {
       this.loadedFigmaModel = true;
     }

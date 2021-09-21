@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EItems } from '../e-items.interface';
+import { DocPage } from '../doc-pages.interface';
 
 @Component({
   selector: 'app-overview-page',
@@ -8,8 +8,8 @@ import { EItems } from '../e-items.interface';
 })
 export class OverviewPageComponent implements OnInit {
   @Input() overviewTitle: string;
-  @Input() pages: EItems[];
-  filteredPages: EItems[];
+  @Input() pages: DocPage[];
+  filteredPages: DocPage[];
 
   ngOnInit(): void {
     this.filteredPages = this.pages.filter((page) => {

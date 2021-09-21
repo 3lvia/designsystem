@@ -6,17 +6,9 @@ import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
   providedIn: 'root',
 })
 export class ScrollService {
-  private subjectScroll = new Subject<any>();
   private subjectAnchorScrollTo = new Subject<any>();
   private subjectAnchorAtPositions = new Subject<any>();
   private subjectAnchorsNew = new Subject<any>();
-
-  listenNewScrollPosition(): Observable<any> {
-    return this.subjectScroll.asObservable();
-  }
-  newScrollPosition(): void {
-    this.subjectScroll.next();
-  }
 
   listenAnchorToScrollTo(): Observable<any> {
     return this.subjectAnchorScrollTo.asObservable();
@@ -67,7 +59,7 @@ export class ScrollService {
     return elementTitles;
   }
 
-  getNavbarAnchors(): NavbarAnchor[] {
+  getVisibleAnchors(): NavbarAnchor[] {
     const elements = this.getPageAnchors();
     const elementTitles = this.getPageAnchorTitles();
 
@@ -82,7 +74,7 @@ export class ScrollService {
         const fullHeight = item.offsetHeight;
         const newElement = {
           title: innerText,
-          top: fromTop,
+          top: fromTop - 60, // TODO: 60 is just a temp fix because sometimes the scroll goes past the anchor title
           height: fullHeight,
         };
         anchors.push(newElement);

@@ -1,5 +1,87 @@
 @import '../../shared/shared-sizes.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import '@elvia/elvis/src/utilities/colors.scss';
+@import '../../shared/shared-sizes.scss';
+
+.main-navbar {
+  width: 240px;
+  @include breakpoint-up(Tablet) {
+    width: 100%;
+  }
+  &.hide {
+    display: none;
+  }
+  &.homePage {
+    display: block;
+  }
+}
+.page {
+  margin-left: 240px;
+  max-width: 67rem;
+  width: calc(100% - 240px);
+  @include breakpoint-up(Tablet) {
+    margin-left: 0px;
+  }
+}
+.e-grid {
+  margin: 128px 128px 0 128px;
+  @include breakpoint-up(Tablet) {
+    margin: 96px 32px 32px 32px;
+  }
+  @include breakpoint-up(Mobile) {
+    margin: 96px 16px 16px 16px;
+  }
+}
+
+.row {
+  &.row-reverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+.feedback-link {
+  display: flex;
+  justify-content: flex-end;
+
+  display: none;
+  &.desktop {
+    display: flex;
+    position: fixed;
+    right: 16px;
+    margin-top: -24px;
+  }
+  @include breakpoint-up(Tablet) {
+    display: flex;
+    position: relative;
+    &.desktop {
+      display: none;
+    }
+  }
+  @include breakpoint-up(Tablet) {
+    z-index: 1;
+  }
+  .link {
+    display: flex;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 3px;
+    @include breakpoint-up(Tablet) {
+      position: absolute;
+      margin-top: 4px;
+      margin-right: 0px;
+    }
+    &:hover {
+      border-color: #29d305;
+      cursor: pointer;
+    }
+    .feedback-text {
+      font-family: 'Red Hat Display', Verdana, sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 16px;
+    }
+  }
+}
 
 .main-content {
   min-height: calc(100vh - 40px + 104px - #{$footer-height});
@@ -23,6 +105,22 @@
     border-color: var(--e-grey-90);
     padding-bottom: 0px;
   }
+
+  .landingPageImage {
+    display: none;
+    @include breakpoint-up(Tablet) {
+      display: block;
+      &.hide {
+        display: none;
+      }
+    }
+  }
+  .page-content {
+    display: block;
+    &.hide {
+      @include breakpoint-up(Tablet) {
+        display: none;
+      }
+    }
+  }
 }
-
-

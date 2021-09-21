@@ -16,7 +16,6 @@ import { InputDocComponent } from './doc-pages/components/forms/input-doc/input-
 import { RadiobuttonDocComponent } from './doc-pages/components/forms/radiobutton-doc/radiobutton-doc.component';
 import { SelectDocComponent } from './doc-pages/components/forms/select-doc/select-doc.component';
 import { OverviewComponent } from './doc-pages/components/overview-comp/overview-comp.component';
-import { ComponentsStartComponent } from './doc-pages/components/components-start/components-start.component';
 import { ListDocComponent } from './doc-pages/components/list-doc/list-doc.component';
 import { SegmentedControlsDocComponent } from './doc-pages/components/forms/segmented-controls-doc/segmented-controls-doc.component';
 import { FileUploadDocComponent } from './doc-pages/components/file-upload-doc/file-upload-doc.component';
@@ -37,8 +36,7 @@ import { AccordionDocComponent } from './doc-pages/components/accordion-doc/acco
 import { StepperDocComponent } from './doc-pages/components/stepper-doc/stepper-doc.component';
 import { ContentLoaderDocComponent } from './doc-pages/components/content-loader-doc/content-loader-doc.component';
 import { RadioFilterDocComponent } from './doc-pages/components/radio-filter-doc/radio-filter-doc.component';
-import { ContactComponent } from './doc-pages/community/contact/contact.component';
-import { TheDesignSystemDocComponent } from './doc-pages/get-started/the-design-system-doc/the-design-system-doc.component';
+import { TheDesignSystemDocComponent } from './doc-pages/other-pages/the-design-system-doc/the-design-system-doc.component';
 import { ChipDocComponent } from './doc-pages/components/chip-doc/chip-doc.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { DividerDocComponent } from './doc-pages/components/divider-doc/divider-doc.component';
@@ -48,19 +46,20 @@ import { v2PlaygroundComponent } from './doc-pages/dev/v2-playground/v2-playgrou
 import { BreadcrumbDocComponent } from './doc-pages/components/breadcrumb-doc/breadcrumb-doc.component';
 import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { BoxDocComponent } from './doc-pages/components/box-doc/box-doc.component';
-import { IconDocComponent } from './doc-pages/identity/icon-doc/icon-doc.component';
-import { ContributeComponent } from './doc-pages/community/contribute/contribute.component';
-import { FaqDocComponent } from './doc-pages/community/faq-doc/faq-doc.component';
-import { ChangelogComponent } from './doc-pages/community/changelog/changelog.component';
-import { ColorDocComponent } from './doc-pages/identity/color-doc/color-doc.component';
-import { LogoDocComponent } from './doc-pages/identity/logo-doc/logo-doc.component';
-import { TypographyDocComponent } from './doc-pages/identity/typography-doc/typography-doc.component';
-import { AccessibilityDocComponent } from './doc-pages/tools/accessibility-doc/accessibility-doc.component';
-import { DesignProcessDocComponent } from './doc-pages/tools/design-process-doc/design-process-doc.component';
-import { UserFeedbackDocComponent } from './doc-pages/tools/user-feedback-doc/user-feedback-doc.component';
-import { UtilitiesDocComponent } from './doc-pages/tools/utilities-doc/utilities-doc.component';
-import { GetStartedDocComponent } from './doc-pages/get-started/get-started-doc/get-started-doc.component';
-import { LayoutDocComponent } from './doc-pages/identity/layout-doc/layout-doc.component';
+import { ChangelogComponent } from './doc-pages/other-pages/changelog/changelog.component';
+import { ColorDocComponent } from './doc-pages/other-pages/color-doc/color-doc.component';
+import { AccessibilityDocComponent } from './doc-pages/other-pages/accessibility-doc/accessibility-doc.component';
+import { IconDocComponent } from './doc-pages/other-pages/icon-doc/icon-doc.component';
+import { LayoutDocComponent } from './doc-pages/other-pages/layout-doc/layout-doc.component';
+import { LogoDocComponent } from './doc-pages/other-pages/logo-doc/logo-doc.component';
+import { TypographyDocComponent } from './doc-pages/other-pages/typography-doc/typography-doc.component';
+import { GetStartedDocComponent } from './doc-pages/other-pages/get-started-doc/get-started-doc.component';
+import { ContactComponent } from './doc-pages/other-pages/contact/contact.component';
+import { ContributeComponent } from './doc-pages/other-pages/contribute/contribute.component';
+import { FaqDocComponent } from './doc-pages/other-pages/faq-doc/faq-doc.component';
+import { DesignProcessDocComponent } from './doc-pages/other-pages/design-process-doc/design-process-doc.component';
+import { UserFeedbackDocComponent } from './doc-pages/other-pages/user-feedback-doc/user-feedback-doc.component';
+import { UtilitiesDocComponent } from './doc-pages/other-pages/utilities-doc/utilities-doc.component';
 
 const routes: Routes = [
   {
@@ -83,32 +82,26 @@ const routes: Routes = [
         children: [
           {
             path: 'the-design-system',
-            pathMatch: 'full',
             component: TheDesignSystemDocComponent,
           },
           {
             path: 'contact',
-            pathMatch: 'full',
             component: ContactComponent,
           },
           {
             path: 'contribute',
-            pathMatch: 'full',
             component: ContributeComponent,
           },
           {
             path: 'faq',
-            pathMatch: 'full',
             component: FaqDocComponent,
           },
           {
             path: 'get-started',
-            pathMatch: 'full',
             component: GetStartedDocComponent,
           },
           {
             path: 'whats-new',
-            pathMatch: 'full',
             component: ChangelogComponent,
           },
         ],
@@ -120,27 +113,22 @@ const routes: Routes = [
         children: [
           {
             path: 'color',
-            pathMatch: 'full',
             component: ColorDocComponent,
           },
           {
             path: 'icon',
-            pathMatch: 'full',
             component: IconDocComponent,
           },
           {
             path: 'layout',
-            pathMatch: 'full',
             component: LayoutDocComponent,
           },
           {
             path: 'logo',
-            pathMatch: 'full',
             component: LogoDocComponent,
           },
           {
             path: 'typography',
-            pathMatch: 'full',
             component: TypographyDocComponent,
           },
         ],
@@ -152,22 +140,18 @@ const routes: Routes = [
         children: [
           {
             path: 'accessibility',
-            pathMatch: 'full',
             component: AccessibilityDocComponent,
           },
           {
             path: 'design-process',
-            pathMatch: 'full',
             component: DesignProcessDocComponent,
           },
           {
             path: 'user-feedback',
-            pathMatch: 'full',
             component: UserFeedbackDocComponent,
           },
           {
             path: 'utility-classes',
-            pathMatch: 'full',
             component: UtilitiesDocComponent,
           },
         ],
@@ -175,7 +159,7 @@ const routes: Routes = [
       // Components section
       {
         path: Pages.ComponentsStart,
-        component: ComponentsStartComponent,
+        component: CMSPageComponent,
         children: [
           {
             path: '',
@@ -358,7 +342,6 @@ const routes: Routes = [
       },
       {
         path: ':submenu/:page',
-        pathMatch: 'full',
         component: CMSPageComponent,
       },
     ],

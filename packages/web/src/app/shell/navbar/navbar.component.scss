@@ -7,6 +7,22 @@ $text-line-height: 32px;
   height: 100%;
   position: relative;
 }
+.navbar-phone {
+  display: none;
+  @include breakpoint-up(Tablet) {
+    &.show-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 48px;
+    }
+  }
+  &-box {
+    display: flex;
+    justify-content: center;
+    max-width: 522px;
+  }
+}
 .navbar {
   height: calc(100% - 64px - 48px - #{$header-height});
   top: $header-height + 64px;
@@ -25,12 +41,6 @@ $text-line-height: 32px;
 
   @include breakpoint-up(Tablet) {
     display: none;
-  }
-
-  &.showMenu {
-    @include breakpoint-up(Tablet) {
-      display: block;
-    }
   }
 
   &-toggle-area {
@@ -134,11 +144,14 @@ $text-line-height: 32px;
         margin-bottom: 8px;
 
         .link {
+          // animation-delay: 300ms;
           @extend %scale-down-ver-top;
-
-          @for $i from 1 through 50 {
+          &:nth-child(1) {
+            animation-delay: 300ms;
+          }
+          @for $i from 2 through 50 {
             &:nth-child(#{$i}) {
-              animation-delay: 30ms * $i;
+              animation-delay: 300ms + (30ms * $i);
             }
           }
           a:hover {

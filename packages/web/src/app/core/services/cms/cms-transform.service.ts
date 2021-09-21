@@ -12,10 +12,8 @@ export class CMSTransformService {
       [MARKS.BOLD]: (text) => `<b>${text}</b>`,
     },
     renderNode: {
-      [BLOCKS.HEADING_1]: (node, next) =>
-        `<h2 class="e-title-md elvis-anchor-title e-mb-24">${next(node.content)}</h2>`, // We don't want want to use h1 tags for this purpose
-      [BLOCKS.HEADING_2]: (node, next) =>
-        `<h2 class="e-title-md elvis-anchor-title e-mb-24">${next(node.content)}</h2>`,
+      [BLOCKS.HEADING_1]: (node, next) => `<h2 class="e-title-md e-mb-24">${next(node.content)}</h2>`, // We don't want want to use h1 tags for this purpose
+      [BLOCKS.HEADING_2]: (node, next) => `<h2 class="e-title-md e-mb-24">${next(node.content)}</h2>`,
       [BLOCKS.HEADING_3]: (node, next) => `<h3 class="e-title-sm">${next(node.content)}</h3>`,
       [BLOCKS.HEADING_6]: (node, next) => `<p class="e-text-lg">${next(node.content)}</p>`,
       [BLOCKS.PARAGRAPH]: (node, next) => `<p>${next(node.content)}</p>`,
@@ -26,16 +24,22 @@ export class CMSTransformService {
         `<img class="cms-img" src="${node.data.target.fields.file[this.locale].url}"/>`,
       [BLOCKS.HR]: () => `<hr class="cms-hr e-mb-24"></hr>`,
       [BLOCKS.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale)}`,
+      [INLINES.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale)}`,
     },
   };
 
   // eslint-disable-next-line
-  getHTML(data, locale, cachedEntries?): string {
+  getHTML(data, locale, model?): string {
     this.locale = locale;
-    if (data.nodeType === 'embedded-entry-block') {
+    console.log(data.nodeType);
+    if (data.nodeType === 'embedded-entry-block' || data.nodeType === 'embedded-entry-inline') {
       return this.embeddedEntryBlock(data, locale);
     }
-    return documentToHtmlString(data.fields.content[locale], this.options);
+    if (model === 'content') {
+      return documentToHtmlString(data.fields.content[locale], this.options);
+    } else if (model === 'pageDescription') {
+      return documentToHtmlString(data.fields.pageDescription[locale], this.options);
+    }
   }
 
   private embeddedEntryBlock(node, locale) {
@@ -56,6 +60,9 @@ export class CMSTransformService {
     if (type === 'centeredContent') {
       return this.getCenteredContent(data, locale);
     }
+    if (type === 'internalLink') {
+      return this.getInternalLink(data, locale);
+    }
     return documentToHtmlString(data.fields.content, this.options);
   }
 
@@ -72,6 +79,16 @@ export class CMSTransformService {
       <div class="cms-centered-content">
         ${documentToHtmlString(data.fields.content[locale], this.options)}
       </div>`;
+  }
+
+  private getInternalLink(data, locale) {
+    console.log(data);
+    const href = data.fields.page[locale].fields.path[locale];
+    // const href =
+    return `
+      <a class="e-link e-link--inline" href="${href}">
+        ${data.fields.title ? data.fields.title[locale] : ''}
+      </a>`;
   }
 
   private getSection(data, locale) {

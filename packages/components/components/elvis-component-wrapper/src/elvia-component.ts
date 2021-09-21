@@ -12,6 +12,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected throttleRenderReactDOM;
   private mountPoint!: HTMLSpanElement;
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   constructor(webComponent: any, reactComponent: any, cssStyle: string) {
     super();
     this._data = {};
@@ -87,6 +88,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.appendChild(styleTag);
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   protected setProps(newProps: any, preventRerender?: boolean): void {
     Object.keys(newProps).forEach((key) => {
       if (!isEqual(this._data[key], newProps[key])) {
@@ -101,6 +103,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   protected triggerEvent(callbackName: string, newProps?: any): void {
     if (newProps) {
       Object.keys(newProps).forEach((key) => {

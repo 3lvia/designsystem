@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 import { GlobalService } from 'src/app/core/services/global.service';
 
 @Component({

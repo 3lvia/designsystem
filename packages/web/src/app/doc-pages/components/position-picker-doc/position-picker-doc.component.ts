@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-position-picker-doc',
@@ -225,7 +225,7 @@ class="e-modal e-none"
     }
   }
 
-  hideContentLoader(evt: any): void {
+  hideContentLoader(evt: Event): void {
     if (evt && evt.target) {
       this.loadedFigmaModel = true;
     }

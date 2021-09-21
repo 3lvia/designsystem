@@ -3,6 +3,32 @@
 <!-- 🐝 Bug Fixes -->
 
 <table>
+    <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.11.1
+      </span>
+      <br>
+      <span>
+        September 21, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://localhost:4200/components/content-loader#Overview">Content loader</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Bug fix for text content-loader so that height can be set directly on content-loader element.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
@@ -17,7 +43,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Feature</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/identity/icons#Overview">Icons</a>
+            <a class="e-link e-link--inline" href="http://localhost:4200/brand/icons#Overview">Icons</a>
           </div>
           <ul class="e-list">
             <li>

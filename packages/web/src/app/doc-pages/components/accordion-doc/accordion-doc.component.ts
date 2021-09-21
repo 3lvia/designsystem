@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 import { exampleContents } from 'src/app/shared/example-contents';
 import { accordionData } from './accodrion-data';
 

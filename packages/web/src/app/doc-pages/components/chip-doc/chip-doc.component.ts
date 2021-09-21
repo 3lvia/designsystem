@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 import { chipData } from './chip-data';
 
 @Component({
@@ -52,7 +52,8 @@ export class ChipDocComponent {
     const values = [...this.deletableChipsListInType];
     this.deletableChipsListInType = values.filter((value) => value.value !== event);
   };
-  handleOnDeleteColor = (event: any): void => {
+
+  handleOnDeleteColor = (event: string): void => {
     const values = [...this.colorChips];
     this.colorChips = values.filter((value) => value.value !== event);
   };

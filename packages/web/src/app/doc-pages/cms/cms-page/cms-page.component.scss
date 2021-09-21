@@ -1,5 +1,29 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
+.tablet-size {
+  width: unset;
+  margin-left: 32px;
+  @include breakpoint-up(Tablet) {
+    margin: 0 48px;
+    width: 100%;
+  }
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    width: calc(100% - 48px);
+    .second-wrapper {
+      width: 100%;
+      @include breakpoint-up(Tablet) {
+        max-width: 522px;
+      }
+
+      h1 {
+        margin: 0;
+      }
+    }
+  }
+}
+
 .cms-img {
   max-width: 100%;
   display: block;
@@ -87,11 +111,6 @@
     }
   }
 }
-.cms-subsection {
-  p {
-    margin: 0px;
-  }
-}
 
 .cms-subsubsection {
   margin-left: 72px;
@@ -101,8 +120,25 @@
   @include breakpoint-up(Mobile) {
     margin-top: 48px;
   }
+}
+
+.cms-section,
+.cms-subsection,
+.cms-subsubsection {
   p {
     margin: 0px;
+  }
+  p + p {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  li p {
+    & + p {
+      margin: 0px;
+    }
+    margin-top: 24px;
+    margin-bottom: 8px;
   }
 }
 
@@ -114,5 +150,15 @@
   }
   &__description {
     text-align: center;
+    @include breakpoint-up(Tablet) {
+      display: none;
+    }
+  }
+}
+
+.subpages-content-loader {
+  @include breakpoint-up(Tablet) {
+    margin: 0 40px;
+    margin-top: -24px;
   }
 }

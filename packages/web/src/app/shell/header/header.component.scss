@@ -106,10 +106,10 @@
   }
 
   .external-links {
+    width: 100%;
     display: inline-flex;
     justify-content: flex-end;
     align-items: center;
-    width: 20%;
     @include breakpoint-up(Tablet) {
       display: none;
     }

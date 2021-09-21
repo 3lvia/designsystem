@@ -77,7 +77,7 @@ export class CegFiltersComponent implements OnInit {
     }
   }
 
-  sortCheckboxArrays(checkboxGroups: any): [] {
+  sortCheckboxArrays(checkboxGroups: any[]): [] {
     const checkboxArrays = checkboxGroups.reduce((obj, value) => {
       const key = `${value.cegDisplayGroup}`;
       if (obj[key] == null) {
@@ -115,7 +115,7 @@ export class CegFiltersComponent implements OnInit {
     this.codeNative = this.cegService.removeProp(this.codeNative, attr);
   }
 
-  updateRadioProp(prop: any, newValue: string): void {
+  updateRadioProp(prop: Record<string, any>, newValue: string): void {
     const attr = prop.attribute;
     const type = prop.cegType;
     if (this.codeAngular.includes(prop.attribute)) {
@@ -126,7 +126,7 @@ export class CegFiltersComponent implements OnInit {
     this.updateNewCode();
   }
 
-  updateToggleCheckboxProp(prop: any, newValue: string): void {
+  updateToggleCheckboxProp(prop: Record<string, any>, newValue: string): void {
     const attr = prop.attribute;
     const type = prop.cegType;
     if (this.codeAngular.includes(prop.attribute)) {
@@ -137,7 +137,7 @@ export class CegFiltersComponent implements OnInit {
     this.updateNewCode();
   }
 
-  isAcceptedCounterValue(prop: any, newValue: number): boolean {
+  isAcceptedCounterValue(prop: Record<string, any>, newValue: number): boolean {
     return (
       this.counterNumber !== undefined &&
       (this.counterNumber + newValue > prop.cegCounterMax ||
@@ -145,7 +145,7 @@ export class CegFiltersComponent implements OnInit {
     );
   }
 
-  updateCounterProp(prop: any, newValue: number): void {
+  updateCounterProp(prop: Record<string, any>, newValue: number): void {
     const attr = prop.attribute;
     const type = prop.cegType;
     if (this.isAcceptedCounterValue(prop, newValue)) {
