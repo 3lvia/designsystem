@@ -1,4 +1,4 @@
-import { Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterContentInit, Component, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
@@ -13,7 +13,7 @@ import { componentsDocPages } from 'src/app/shared/doc-pages';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnDestroy, OnInit {
+export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   @Input() navbarItems: any[][];
 
   anchorChangeSubscription: Subscription;
@@ -54,20 +54,6 @@ export class NavbarComponent implements OnDestroy, OnInit {
   }
 
   ngOnInit(): void {
-    const isPageWithNavbar = this.router.url.split('/')[1] !== undefined;
-    const isPageWithAnchors = this.router.url.split('/')[2] !== undefined;
-    this.isLandingPage = this.router.url.split('/')[2] === undefined;
-    this.setSubMenuRoute();
-    this.checkIfPageExistsInProject();
-
-    if (!isPageWithNavbar) {
-      return;
-    }
-    this.updateNavbarList(0);
-    setTimeout(() => {
-      this.updateAnchorList();
-    }, 200);
-
     const localizationSubscriber = this.localizationService.listenLocalization();
     const routerSubscriber = this.router.events;
     this.routerSubscription = combineLatest([localizationSubscriber, routerSubscriber]).subscribe((value) => {
@@ -86,10 +72,6 @@ export class NavbarComponent implements OnDestroy, OnInit {
         }
       }
     });
-
-    if (!isPageWithAnchors) {
-      return;
-    }
     this.contentLoadedSubscription = this.cmsService.listenContentLoadedFromCMS().subscribe(() => {
       this.setNewActiveNavbarItem();
       setTimeout(() => this.updateAnchorList(), 200);
@@ -104,6 +86,21 @@ export class NavbarComponent implements OnDestroy, OnInit {
         this.chooseAnchor(fragment);
       }, 200);
     });
+  }
+
+  ngAfterContentInit(): void {
+    const isPageWithNavbar = this.router.url.split('/')[1] !== undefined;
+    this.isLandingPage = this.router.url.split('/')[2] === undefined;
+    this.setSubMenuRoute();
+    this.checkIfPageExistsInProject();
+
+    if (!isPageWithNavbar) {
+      return;
+    }
+    this.updateNavbarList(0);
+    setTimeout(() => {
+      this.updateAnchorList();
+    }, 200);
   }
 
   ngOnDestroy(): void {
@@ -166,6 +163,10 @@ export class NavbarComponent implements OnDestroy, OnInit {
         this.navbarList.push(element);
         if (element.docUrl === routeWithoutAnchor.split('/')[2]) {
           this.markNewActiveNavbarItem(element);
+          setTimeout(() => {
+            this.setNewActiveNavbarItem();
+            this.updateAnchorList();
+          }, 200);
         }
       });
     }

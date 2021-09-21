@@ -4,34 +4,6 @@
 @import '@elvia/elvis/src/utilities/colors.scss';
 @import '../../shared/shared-sizes.scss';
 
-.main-navbar {
-  width: 240px;
-  @include breakpoint-up(Tablet) {
-    width: 100%;
-  }
-  &.hide {
-    display: none;
-  }
-  &.homePage {
-    display: block;
-  }
-}
-.e-grid {
-  margin: 128px 128px 0 128px;
-  @include breakpoint-up(Tablet) {
-    margin: 96px 32px 32px 32px;
-  }
-  @include breakpoint-up(Mobile) {
-    margin: 96px 16px 16px 16px;
-  }
-}
-
-.row {
-  &.row-reverse {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-}
 .feedback-link {
   display: flex;
   justify-content: flex-end;
@@ -92,26 +64,42 @@
     padding-bottom: 72px;
   }
 
-  &.not-found {
-    background-color: var(--e-grey-90);
-    border-color: var(--e-grey-90);
-    padding-bottom: 0px;
+  .e-grid {
+    margin: 128px 128px 0 128px;
+    @include breakpoint-up(Tablet) {
+      margin: 96px 32px 32px 32px;
+    }
+    @include breakpoint-up(Mobile) {
+      margin: 96px 16px 16px 16px;
+    }
   }
 
-  .landingPageImage {
-    display: none;
+  .row {
+    &.row-reverse {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  .main-navbar {
+    width: 240px;
     @include breakpoint-up(Tablet) {
+      width: 100%;
+    }
+    &.hide {
+      display: none;
+    }
+    &.homePage {
       display: block;
-      &.hide {
-        display: none;
-      }
     }
   }
   .page-content {
     display: block;
-    margin-left: 240px;
     max-width: 67rem;
-    width: calc(100% - 240px);
+    @include breakpoint-up(MinDesktop) {
+      width: calc(100% - 240px);
+      margin-left: 240px;
+    }
     @include breakpoint-up(Tablet) {
       margin: 0 auto;
       width: calc(100% - 48px - 48px);
