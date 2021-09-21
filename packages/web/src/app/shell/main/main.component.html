@@ -5,56 +5,25 @@
       <div class="main-navbar" [ngClass]="{ hide: homePage }">
         <app-navbar></app-navbar>
       </div>
-      <div [ngClass]="{ 'page-body feedback-link desktop': !homePage }" *ngIf="!isLandingPage">
+      <div [ngClass]="{ 'feedback-link desktop': !homePage }" *ngIf="!isLandingPage">
         <div class="link" (click)="scrollToFeedback()">
           <img src="./../../../assets/feedback/smiley.svg" alt="Feedback emoji" />
           <span class="e-ml-8 feedback-text">Give feedback</span>
         </div>
       </div>
-      <div [ngClass]="{ 'page-content page-body': !homePage }">
-        <div class="page-body feedback-link" *ngIf="!isLandingPage">
+      <div [ngClass]="{ 'page-content': !homePage, 'page-body landing-page': isLandingPage && !homePage }">
+        <div class="feedback-link" *ngIf="!isLandingPage">
           <div class="link" (click)="scrollToFeedback()">
             <img src="./../../../assets/feedback/smiley.svg" alt="Feedback emoji" />
             <span class="e-ml-8 feedback-text">Give feedback</span>
           </div>
         </div>
-        <div>
+        <div [ngClass]="{ 'page-body landing-page': isLandingPage && !homePage }">
           <router-outlet></router-outlet>
         </div>
         <app-feedback id="feedback-component" *ngIf="!isLandingPage"></app-feedback>
       </div>
     </div>
   </div>
-  <!-- 
-  <div *ngIf="homePage">
-    <router-outlet></router-outlet>
-  </div>
-
-  <div class="e-grid" *ngIf="!homePage">
-    <div class="row">
-      <div class="col-lg-3 col-xl-2">
-        <div class="landingPageImage e-w-100" [ngClass]="{ hide: !isLandingPage }">
-          <router-outlet></router-outlet>
-        </div>
-        <app-navbar></app-navbar>
-      </div>
-      <div class="page-body feedback-link desktop" *ngIf="!isLandingPage">
-        <div class="link" (click)="scrollToFeedback()">
-          <img src="./../../../assets/feedback/smiley.svg" alt="Feedback emoji" />
-          <span class="e-ml-8 feedback-text">Give feedback</span>
-        </div>
-      </div>
-      <div class="col-lg-9 col-xl-10 page-content" [ngClass]="{ hide: isLandingPage }">
-        <div class="page-body feedback-link" *ngIf="!isLandingPage">
-          <div class="link" (click)="scrollToFeedback()">
-            <img src="./../../../assets/feedback/smiley.svg" alt="Feedback emoji" />
-            <span class="e-ml-8 feedback-text">Give feedback</span>
-          </div>
-        </div>
-        <router-outlet></router-outlet>
-        <app-feedback id="feedback-component" *ngIf="!isLandingPage"></app-feedback>
-      </div>
-    </div>
-  </div> -->
 </div>
 <app-footer></app-footer>
