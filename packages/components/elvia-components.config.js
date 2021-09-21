@@ -235,7 +235,7 @@ module.exports = [
     reactName: 'Modal',
     slotItems: true,
     useWrapper: false,
-  },  
+  },
   {
     name: 'elvis-radio-filter',
     elementName: 'elvia-radio-filter',
@@ -253,13 +253,13 @@ module.exports = [
     name: 'elvis-pagination',
     elementName: 'elvia-pagination',
     attributes: [
-      { name: 'value', type: 'object' },
-      { name: 'items', type: 'number' },
-      { name: 'dropdownMenuPos', type: 'string' },
-      { name: 'paginatorDropdownOptions', type: 'object' },
-      { name: 'labelDisplaying', type: 'string' },
-      { name: 'label', type: 'string' },
-      { name: 'labelOf', type: 'string' },
+      { name: 'value', type: 'object', propType: 'object' },
+      { name: 'items', type: 'number', propType: 'number' },
+      { name: 'dropdownMenuPos', type: 'string', propType: 'string' },
+      { name: 'paginatorDropdownOptions', type: 'object', propType: 'object' },
+      { name: 'labelDisplaying', type: 'string', propType: 'string' },
+      { name: 'label', type: 'string', propType: 'string' },
+      { name: 'labelOf', type: 'string', propType: 'string' },
     ],
     elementStyle: `display:flex; width: 100%; min-width: 325px`,
     conditionalElementStyle: {
@@ -267,5 +267,6 @@ module.exports = [
     },
     reactName: 'Pagination',
     slotItems: false,
+    useWrapper: false,
   },
 ];
