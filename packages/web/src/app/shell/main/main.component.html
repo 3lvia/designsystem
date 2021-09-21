@@ -11,14 +11,14 @@
           <span class="e-ml-8 feedback-text">Give feedback</span>
         </div>
       </div>
-      <div [ngClass]="{ 'page-content': !homePage, 'page-body landing-page': isLandingPage }">
+      <div [ngClass]="{ 'page-content': !homePage, 'page-body landing-page': isLandingPage && !homePage }">
         <div class="feedback-link" *ngIf="!isLandingPage">
           <div class="link" (click)="scrollToFeedback()">
             <img src="./../../../assets/feedback/smiley.svg" alt="Feedback emoji" />
             <span class="e-ml-8 feedback-text">Give feedback</span>
           </div>
         </div>
-        <div [ngClass]="{ 'page-body landing-page': isLandingPage }">
+        <div [ngClass]="{ 'page-body landing-page': isLandingPage && !homePage }">
           <router-outlet></router-outlet>
         </div>
         <app-feedback id="feedback-component" *ngIf="!isLandingPage"></app-feedback>
