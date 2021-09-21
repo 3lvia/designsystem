@@ -163,10 +163,6 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
         this.navbarList.push(element);
         if (element.docUrl === routeWithoutAnchor.split('/')[2]) {
           this.markNewActiveNavbarItem(element);
-          setTimeout(() => {
-            this.setNewActiveNavbarItem();
-            this.updateAnchorList();
-          }, 200);
         }
       });
     }
