@@ -11,7 +11,7 @@
           <span class="e-ml-8 feedback-text">Give feedback</span>
         </div>
       </div>
-      <div [ngClass]="{ 'page page-content page-body': !homePage }">
+      <div [ngClass]="{ 'page-content page-body': !homePage }">
         <div class="page-body feedback-link" *ngIf="!isLandingPage">
           <div class="link" (click)="scrollToFeedback()">
             <img src="./../../../assets/feedback/smiley.svg" alt="Feedback emoji" />

@@ -16,14 +16,6 @@
     display: block;
   }
 }
-.page {
-  margin-left: 240px;
-  max-width: 67rem;
-  width: calc(100% - 240px);
-  @include breakpoint-up(Tablet) {
-    margin-left: 0px;
-  }
-}
 .e-grid {
   margin: 128px 128px 0 128px;
   @include breakpoint-up(Tablet) {
@@ -117,10 +109,12 @@
   }
   .page-content {
     display: block;
-    &.hide {
-      @include breakpoint-up(Tablet) {
-        display: none;
-      }
+    margin-left: 240px;
+    max-width: 67rem;
+    width: calc(100% - 240px);
+    @include breakpoint-up(Tablet) {
+      margin: 0 auto;
+      width: calc(100% - 48px - 48px);
     }
   }
 }

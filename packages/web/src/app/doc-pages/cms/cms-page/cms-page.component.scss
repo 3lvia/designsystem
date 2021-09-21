@@ -2,15 +2,13 @@
 
 .tablet-size {
   width: unset;
-  margin-left: 32px;
   @include breakpoint-up(Tablet) {
-    margin: 0 48px;
     width: 100%;
   }
   .wrapper {
     display: flex;
     justify-content: center;
-    width: calc(100% - 48px);
+    width: 100%;
     .second-wrapper {
       width: 100%;
       @include breakpoint-up(Tablet) {
