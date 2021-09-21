@@ -1,5 +1,12 @@
 # Elvia Popover Changelog
 
+## 4.1.3 (16.09.21)
+
+### Bug fixes
+
+- Use display: none instead of visibility: hidden to remove white space created by the popover in application
+  due to SSR.
+
 ## 4.1.2 (9.08.21)
 
 ### Bug fixes

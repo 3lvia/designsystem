@@ -13,6 +13,7 @@ import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
+import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 
 function App() {
   const deletableChipsList = [
@@ -213,6 +214,25 @@ function App() {
     }));
   };
 
+  const radioFilterOptions =  [
+    {
+      label: 'All',
+    },
+    {
+      label: 'Read',
+    },
+    {
+      label: 'Unread',
+    },
+    {
+      label: 'Consumption',
+    },
+    {
+      label: 'Production',
+    },
+  ]
+  const [selectedRadioFilter, setSelectedRadioFilter] = useState('Read')
+
   return (
     <div className="App">
       <h1>React preview</h1>
@@ -327,6 +347,19 @@ function App() {
         >
           Add chip
         </button>
+      </div>
+      <div>
+      <h1>Radio filter</h1>
+      <RadioFilter 
+        items={radioFilterOptions} 
+        ariaLabel={`${selectedRadioFilter} filtrering valgt`}
+        valueOnChange={selected => {
+          setSelectedRadioFilter(selected)
+        }}
+        value={selectedRadioFilter}
+        name={'radioFilterTest'}
+        >
+          </RadioFilter>
       </div>
       <div>
         <h1>Test av chip</h1>

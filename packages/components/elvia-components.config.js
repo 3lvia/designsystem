@@ -235,5 +235,18 @@ module.exports = [
     reactName: 'Modal',
     slotItems: true,
     useWrapper: false,
+  },  
+  {
+    name: 'elvis-radio-filter',
+    elementName: 'elvia-radio-filter',
+    attributes: [
+      { name: 'ariaLabel', type: 'string', propType: 'string' },
+      { name: 'name', type: 'string', propType: 'string' },
+      { name: 'items', type: 'object', propType: 'object' },
+      { name: 'value', type: 'string', propType: 'string' },
+    ],
+    reactName: 'RadioFilter',
+    slotItems: false,
+    useWrapper: false,
   },
 ];
