@@ -17,7 +17,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/components/content-loader#Overview">Content loader</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/content-loader#Overview">Content loader</a>
           </div>
           <ul class="e-list">
             <li>
@@ -43,7 +43,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Feature</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/brand/icons#Overview">Icons</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/brand/icons#Overview">Icons</a>
           </div>
           <ul class="e-list">
             <li>
@@ -69,7 +69,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Feature</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/components/accordion#Overview">Accordion</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Accordion</a>
           </div>
           <ul class="e-list">
             <li>
@@ -80,7 +80,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/components/accordion#Overview">Modal</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Modal</a>
           </div>
           <ul class="e-list">
             <li>
@@ -106,7 +106,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/components/accordion#Overview">Accordion</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Accordion</a>
           </div>
           <ul class="e-list">
             <li>
@@ -132,7 +132,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/components/fileUpload#Overview">File Upload</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/fileUpload#Overview">File Upload</a>
           </div>
           <ul class="e-list">
             <li>

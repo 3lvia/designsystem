@@ -58,15 +58,18 @@ export class CMSService {
       locale = 'nb-NO';
     }
 
+    const subMenu = await this.getSubMenu(localization);
     const data = await this.getEntry(entryId);
     let subMenuRoute = '';
     if (this.router.url.split('/')[2]) {
       subMenuRoute = this.router.url.split('/')[1] + '/';
     }
     const description = data.fields.pageDescription
-      ? this.cmsTransformService.getHTML(data, locale, 'pageDescription')
+      ? this.cmsTransformService.getHTML(data, locale, subMenu, 'pageDescription')
       : '';
-    const content = data.fields.content ? this.cmsTransformService.getHTML(data, locale, 'content') : '';
+    const content = data.fields.content
+      ? this.cmsTransformService.getHTML(data, locale, subMenu, 'content')
+      : '';
     const figmaUrl = data.fields.figmaUrl ? data.fields.figmaUrl[locale] : '';
     const isMainPage = data.fields.isMainPage ? data.fields.isMainPage : '';
     return {
@@ -78,6 +81,11 @@ export class CMSService {
       docUrl: data.fields.path[locale],
       fullPath: subMenuRoute + data.fields.path[locale],
     };
+  }
+
+  async getSubMenu(localization: Locale): Promise<any> {
+    const mainMenu = await this.getMenu(localization);
+    return mainMenu.pages;
   }
 
   async getSubMenuList(localization: Locale): Promise<any> {

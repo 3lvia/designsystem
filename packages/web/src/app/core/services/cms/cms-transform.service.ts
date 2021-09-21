@@ -7,6 +7,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 })
 export class CMSTransformService {
   private locale = 'en-GB'; // Fallback
+  private subMenu;
   private options = {
     renderMark: {
       [MARKS.BOLD]: (text) => `<b>${text}</b>`,
@@ -23,17 +24,17 @@ export class CMSTransformService {
       [BLOCKS.EMBEDDED_ASSET]: (node) =>
         `<img class="cms-img" src="${node.data.target.fields.file[this.locale].url}"/>`,
       [BLOCKS.HR]: () => `<hr class="cms-hr e-mb-24"></hr>`,
-      [BLOCKS.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale)}`,
-      [INLINES.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale)}`,
+      [BLOCKS.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale, this.subMenu)}`,
+      [INLINES.EMBEDDED_ENTRY]: (node) => `${this.getHTML(node, this.locale, this.subMenu)}`,
     },
   };
 
   // eslint-disable-next-line
-  getHTML(data, locale, model?): string {
+  getHTML(data, locale, subMenu?, model?): string {
+    this.subMenu = subMenu;
     this.locale = locale;
-    console.log(data.nodeType);
     if (data.nodeType === 'embedded-entry-block' || data.nodeType === 'embedded-entry-inline') {
-      return this.embeddedEntryBlock(data, locale);
+      return this.embeddedEntryBlock(data, locale, this.subMenu);
     }
     if (model === 'content') {
       return documentToHtmlString(data.fields.content[locale], this.options);
@@ -42,7 +43,7 @@ export class CMSTransformService {
     }
   }
 
-  private embeddedEntryBlock(node, locale) {
+  private embeddedEntryBlock(node, locale, subMenu) {
     const type = this.getEntryType(node);
     const data = node.data.target;
     if (type === 'section') {
@@ -61,7 +62,7 @@ export class CMSTransformService {
       return this.getCenteredContent(data, locale);
     }
     if (type === 'internalLink') {
-      return this.getInternalLink(data, locale);
+      return this.getInternalLink(data, locale, subMenu);
     }
     return documentToHtmlString(data.fields.content, this.options);
   }
@@ -81,14 +82,39 @@ export class CMSTransformService {
       </div>`;
   }
 
-  private getInternalLink(data, locale) {
-    console.log(data);
-    const href = data.fields.page[locale].fields.path[locale];
-    // const href =
-    return `
-      <a class="e-link e-link--inline" href="${href}">
+  private getInternalLink(data, locale, subMenu) {
+    const subPath = data.fields.page[locale].fields.path[locale];
+    const fullPath = this.getFullPath(subPath, subMenu);
+    if (data.fields.inline) {
+      return `
+      <a class="e-link e-link--inline" href="${fullPath}">
         ${data.fields.title ? data.fields.title[locale] : ''}
       </a>`;
+    } else {
+      return `
+        <a class="e-link" href="${fullPath}">
+          ${data.fields.title ? data.fields.title[locale] : ''}
+        </a>`;
+    }
+  }
+
+  private getFullPath(subPath, subMenu) {
+    let fullPath = '';
+    subMenu.forEach((element) => {
+      if (element.path === subPath) {
+        fullPath = subPath;
+      } else {
+        element.entry.fields.pages[this.locale].forEach((subElement) => {
+          if (subElement.fields.path[this.locale] === subPath) {
+            fullPath = element.path + '/' + subPath;
+          }
+        });
+      }
+    });
+    if (fullPath === '') {
+      console.error('Internal link: ' + subPath + ' is not an existing page that can be referenced.');
+    }
+    return fullPath;
   }
 
   private getSection(data, locale) {
