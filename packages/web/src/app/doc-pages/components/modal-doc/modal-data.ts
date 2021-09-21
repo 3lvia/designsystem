@@ -86,8 +86,7 @@ const modalData = {
   </button>
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
 </elvia-modal>`,
-  codeNativeHTML:
-    `<elvia-modal
+  codeNativeHTML: `<elvia-modal
   (onHide)="isModalShowing = !isModalShowing"
   isShowing="isModalShowing"
   title="Title of content"

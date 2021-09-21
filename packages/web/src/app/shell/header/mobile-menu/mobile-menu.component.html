@@ -25,13 +25,13 @@
       </div>
       <div class="divider"></div>
     </div>
-    <div class="version">v{{ version }}</div>
-  </div>
-  <div class="menu" *ngIf="devMode">
-    <div class="menu-items">
-      <div class="links e-pt-24 e-pb-24">
-        <a class="text" (click)="navigate('dev')">Dev</a>
+    <div class="menu" *ngIf="devMode">
+      <div class="menu-items">
+        <div class="links e-pt-24 e-pb-24">
+          <a class="text" (click)="navigate('dev')">Dev</a>
+        </div>
       </div>
     </div>
+    <div class="version">v{{ version }}</div>
   </div>
 </div>

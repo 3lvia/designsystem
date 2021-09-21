@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { modalData } from 'src/app/doc-pages/components/modal-doc/modal-data';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-modal-doc',

@@ -1,0 +1,255 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">Accessibility</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    <div>
+      We create accessible solutions to enable all users to access an user experience, regardless of
+      permanent, temporary or situational disability.
+    </div>
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--INTRO-->
+  <app-component-subsection>
+    <ng-container ngProjectAs="sectionContent">
+      <div class="headerSection e-mt-48 e-text-body">
+        <div class="headerSection--information">
+          Traditionally, accessibility is often linked with people with disabilities, but when we design
+          services and products for users with a permanent disabilities, someone with a temporary or
+          situational limitation will benefit as well. For example, a solution that works well for someone who
+          is deaf might also benefit any person in a loud environment. Designing inclusive solutions for a
+          spectrum of disabilities connects different people in similar circumstances and makes it better for
+          many.
+        </div>
+        <div class="headerSection--illustration">
+          <div class="e-content-loader" *ngIf="!loadedImg" style="height: 360px; width: 259px"></div>
+          <img
+            [ngClass]="!loadedImg ? 'e-none' : ''"
+            src="../../../../assets/doc-page-icons/pages-icons/inclusive_toolkit.svg"
+            alt="Illustration from Microsoft inclusive toolkit"
+            (load)="hideContentLoader($event)"
+          />
+          <span class="e-text-img e-mt-16" style="display: flex">
+            <span class="e-text-img">
+              From Microsoft’s
+              <a
+                class="e-link e-link--inline e-link--new-tab"
+                href="https://www.microsoft.com/design/inclusive/"
+                target="_blank"
+              >
+                <span class="e-link__title">inclusive toolkit</span>
+                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+              </a>
+            </span>
+          </span>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-subsection>
+
+  <!-- WCAG -->
+  <app-component-section [sectionTitle]="'WCAG'">
+    <ng-container ngProjectAs="sectionContent">
+      Web Content Accessibility Guidelines (WCAG) are a collection of guidelines developed by the Web
+      Accessibility Initiative for making web content more accessible.
+
+      <p>
+        WCAG 2.0 was published in December 2008 and became an ISO standard in October 2012. In 2018, version
+        2.1 was introduced as recommendations, but was as of July 2020 adopted as future requirements with an
+        intended transition period of six months.
+      </p>
+      <p>
+        By January 2021,
+        <b>WCAG 2.1</b>
+        will be applied as legal requirements. It is backwards-compatible with WCAG 2.0 with some additions
+        that, amonst other, takes more consideration to mobile devices than previously. Note that the
+        requirements apply to intranets, extranets, as well as mobile apps.
+      </p>
+      <p>
+        You can read the full set of guidelines on the
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+          target="_blank"
+        >
+          <span class="e-link__title">w3c official site</span>
+          <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        </a>
+        , or read a summary of the new additions to 2.1 on the Norwegian Digitization Directorate
+        <a class="e-link e-link--inline e-link--new-tab" href="https://uu.difi.no/" target="_blank">
+          <span class="e-link__title">Norwegian Digitization Directorate</span>
+          <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        </a>
+        .
+      </p>
+    </ng-container>
+  </app-component-section>
+  <app-component-section [sectionTitle]="'For developers'">
+    <ng-container ngProjectAs="sectionContent">
+      <span class="e-text-body">Here’s a list of recommendations to make sure your code is accessible:</span>
+      <div class="e-mt-24">
+        <ul class="e-list e-mt-24">
+          <li>Use alt text for images</li>
+          <li>Check color contrasts</li>
+          <li>Test your code on screen readers</li>
+          <li>
+            All form elements can use the e-form-field classes for label, error messages and alignment of form
+            elements (see
+            <a class="e-link e-link--lg" [routerLink]="['/components/input']">input</a>
+            )
+          </li>
+          <li>Use background classes (e-bg) to automatically get right text contrasts</li>
+        </ul>
+      </div>
+      <h3 class="e-title-sm">Examples</h3>
+      <p>
+        <app-do-dont [do]="true" [codeHTML]="doCode"></app-do-dont>
+        <app-do-dont [do]="false" [codeHTML]="dontCode"></app-do-dont>
+      </p>
+    </ng-container>
+  </app-component-section>
+  <app-component-section [sectionTitle]="'For content editors'">
+    <ng-container ngProjectAs="sectionContent">
+      <span class="e-text-body">What to think about when writing accessible in digital media:</span>
+      <div class="e-mt-24">
+        <ul class="e-list e-mt-24">
+          <li>Use concise and meaningful titles to make pages easier to scan</li>
+          <li>Use alt text for images, and image descriptions when suitable</li>
+          <li>Use subtitles in videos when possible</li>
+          <li>Use describing phrases rather than “click here” or “read more” for buttons and links</li>
+        </ul>
+      </div>
+      <div>
+        <div class="e-title-sm e-mt-24">Examples</div>
+        <div class="contentExamples e-mt-24">
+          <div class="e-mr-32">
+            <a href="" class="e-link">Les våre beste tips for elsikkerhet</a>
+            <div class="exampleRow">
+              <span class="exampleRowItem">
+                <i class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"></i>
+                <span class="e-title-caps e-ml-16">Do</span>
+              </span>
+            </div>
+          </div>
+          <div class="examplesItemTwo">
+            <a href="" class="e-link">Les mer</a>
+            <div class="exampleRow">
+              <span class="exampleRowItem">
+                <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-red"></i>
+                <span class="e-title-caps e-ml-16">DON´T</span>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="contentExamples e-mt-56">
+          <div class="e-mr-56">
+            <button class="e-btn">Send</button>
+            <div class="exampleRow">
+              <span class="exampleRowItem">
+                <i class="e-icon e-icon--check_circle e-icon--sm e-icon--color-green"></i>
+                <span class="e-title-caps e-ml-16">Do</span>
+              </span>
+            </div>
+          </div>
+          <div class="examplesItemTwo">
+            <button class="e-btn">Click here</button>
+            <div class="exampleRow">
+              <span class="exampleRowItem">
+                <i class="e-icon e-icon--remove_circle e-icon--sm e-icon--color-red"></i>
+                <span class="e-title-caps e-ml-16">DON´T</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="e-mt-72">
+        <span class="e-text-body">
+          See our
+          <a class="e-link e-link--lg" [routerLink]="['/brand/tone-of-voice']">tone of voice</a>
+          for more guides to Elvia’s written style and tone.
+        </span>
+      </div>
+    </ng-container>
+  </app-component-section>
+  <app-component-section [sectionTitle]="'Keyboard'">
+    <ng-container ngProjectAs="sectionContent">
+      Keyboard accessibility is one of the most important aspects of web accessibility. A keyboard user
+      typically uses the Tab key to navigate through interactive elements on a web page.
+      <app-component-subsection [sectionTitle]="'Focus'">
+        <ng-container ngProjectAs="sectionContent">
+          Focus adds an additional outline around the element. Version 2.1 of the Web Content Accessibility
+          Guidelines (WCAG) specify a minimal contrast ratio of 3:1 against adjacent colour(s) for the parts,
+          which are required to understand the meaning or content of a graphical object.
+          <div class="focus-container">
+            <img
+              src="../../../../assets/accessibility/minimal-contrast-ratio.svg"
+              alt="Minimal contrast ratio"
+              class="e-mt-24 image-ratio"
+            />
+            <div class="e-mt-24 e-outline"></div>
+          </div>
+          <p>
+            The outline should not be visible on click. The correct behavior is included on our components
+            when using CDN. If you are not using CDN you have to remember to add the elvis script. Read more
+            on
+            <a class="e-link e-link--inline" [routerLink]="['/about/get-started/']" fragment="For developers">
+              set up and getting started.
+            </a>
+          </p>
+
+          <app-component-subsubsection [sectionTitle]="'Examples'">
+            <ng-container ngProjectAs="sectionContent">
+              This outline comes with the elements that require focus state in elvis. If you want to add focus
+              to your custom elements you can use the class
+              <span class="code-text">e-outline</span>
+              .
+              <div class="e-my-8 e-mt-24">
+                <button class="e-btn e-outline">Button</button>
+              </div>
+              <div class="e-my-8">
+                <a class="e-link e-outline">Link</a>
+              </div>
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+  <app-component-section [sectionTitle]="'Useful links'">
+    <ng-container ngProjectAs="sectionContent">
+      <span class="e-text-body">Interested in learning more? Here’s a few valuable resources:</span>
+      <div class="e-mt-24">
+        <ul class="e-list e-mt-24">
+          <li>
+            <a
+              class="e-link e-link--new-tab"
+              href="https://www.w3.org/WAI/standards-guidelines/wcag/"
+              target="_blank"
+            >
+              <span class="e-link__title">W3C WCAG guidelines</span>
+              <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="e-link e-link--new-tab"
+              href="https://webaim.org/resources/contrastchecker/"
+              target="_blank"
+            >
+              <span class="e-link__title">Webaim contrast checker</span>
+              <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+            </a>
+          </li>
+          <li>
+            <a class="e-link e-link--new-tab" href="https://uu.difi.no/" target="_blank">
+              <span class="e-link__title">Norwegian Digitization Directorate</span>
+              <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </ng-container>
+  </app-component-section>
+</div>

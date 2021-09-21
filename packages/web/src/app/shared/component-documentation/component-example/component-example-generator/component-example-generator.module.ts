@@ -11,4 +11,4 @@ import '@elvia/elvis-dropdown';
   exports: [ComponentExampleGeneratorComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ComponentExampleGeneratorModule { }
+export class ComponentExampleGeneratorModule {}

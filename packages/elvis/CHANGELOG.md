@@ -3,6 +3,32 @@
 <!-- 🐝 Bug Fixes -->
 
 <table>
+    <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.11.1
+      </span>
+      <br>
+      <span>
+        September 21, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/content-loader#Overview">Content loader</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Bug fix for text content-loader so that height can be set directly on content-loader element.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
@@ -17,7 +43,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Feature</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/identity/icons#Overview">Icons</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/brand/icons#Overview">Icons</a>
           </div>
           <ul class="e-list">
             <li>
@@ -43,7 +69,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Feature</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/components/accordion#Overview">Accordion</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Accordion</a>
           </div>
           <ul class="e-list">
             <li>
@@ -54,7 +80,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/components/accordion#Overview">Modal</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Modal</a>
           </div>
           <ul class="e-list">
             <li>
@@ -80,7 +106,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/components/accordion#Overview">Accordion</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Accordion</a>
           </div>
           <ul class="e-list">
             <li>
@@ -106,7 +132,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://localhost:4200/components/fileUpload#Overview">File Upload</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/fileUpload#Overview">File Upload</a>
           </div>
           <ul class="e-list">
             <li>
@@ -158,7 +184,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icon</a>
           </div>
           <ul class="e-list">
             <li>
@@ -170,7 +196,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a> 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icon</a> 
         </div>
         <ul class="e-list">
           <li>
@@ -223,7 +249,7 @@
         <div class="changelog-section-title">💥 New Features</div>
           <div>Component: 
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a> &
-              <a class="e-link e-link--inline" href="https://design.elvia.io/identity/color#Overview">Color</a> &
+              <a class="e-link e-link--inline" href="https://design.elvia.io/brand/color#Overview">Color</a> &
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Button</a> 
           </div>
           <ul class="e-list">
@@ -275,7 +301,7 @@
     <td class="changelog-content">
       <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icon</a>
         </div>
         <ul class="e-list">
           <li>
@@ -386,7 +412,7 @@
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a> &
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icon</a>
         </div>
         External links and icons have been replaced with New tab links and icons. After discussions and research about External link VS New tab link, it is now clear that we only need one of them, which can stand for both uses.
         <ul class="e-list">
@@ -445,7 +471,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography#Overview">Typography</a>
         </div>
         Using <span class="code-text">b</span> and <span class="code-text">strong</span> elements inside our text-classes (not title classes), will now give <span class="code-text">font-weight: 500</span>, to make it easier to use bold versions of our typography in all types of applications. Example:
         <div class="e-text-sm">
@@ -505,7 +531,7 @@
         <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Components: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>,
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a> & 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography#Overview">Typography</a> & 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/search#Overview">Search</a>
         </div>
         <ul class="e-list">
@@ -584,7 +610,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icons#Overview">Icons</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icons#Overview">Icons</a>
         </div>
         Icons have been updated, some have been deprecated and new icons have been added.
         <div class="changelog-divider"></div>
@@ -648,7 +674,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/Typography#Overview">Typography</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/Typography#Overview">Typography</a>
         </div>
         Strong and light versions of body text have been added, as well as on special text called 'micro'. 
       <div class="changelog-divider"></div>
@@ -694,7 +720,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icons</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icons</a>
         </div>
         <div>
           New icon structure, enabling elvis to deprecate and rename old icons. Use of deprecated icons will also be warned in console with reference to in which version of elvis the icon was deprecated, and what new icon should be used instead. 
@@ -993,7 +1019,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/utilities">Utility classes</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/utilities">Utility classes</a>
         </div>
         New utility classes have been added.
       </div>
@@ -1015,7 +1041,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid#Overview">Grid</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/grid#Overview">Grid</a>
         </div>
         If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:
         <ul class="e-list">
@@ -1031,7 +1057,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid#Overview">Grid</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/grid#Overview">Grid</a>
         </div>
         New classes have been added for the internal-systems as well as classes for vertical gutters.
       </div>
@@ -1096,7 +1122,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icons</a> 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icons</a> 
         </div>
         Major renaming of icons. All icons now follow the correct and desired naming scheme for a maintainable library. Icon names have changed, so some references should be expected to now be broken
       </div>
@@ -1118,7 +1144,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline"  href="https://design.elvia.io/identity/icon#Overview">Icons</a> 
+          <a class="e-link e-link--inline"  href="https://design.elvia.io/brand/icon#Overview">Icons</a> 
         </div>
         In this update icons are injected as background-images again on the 'i' tags with <span class="code-text changelog-code">e-icon</span> classes. We do not think this will have a large impact on how to use icons.
       </div>

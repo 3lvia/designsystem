@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
-import { eGetStarted, eComponents, eIdentity, eCommunity, eTools } from 'src/app/shared/e-items';
-import { EItems } from 'src/app/shared/e-items.interface';
+import { docPagesNotFromCMS, componentsDocPages } from 'src/app/shared/doc-pages';
+import { DocPage } from 'src/app/shared/doc-pages.interface';
 import packageJson from '@elvia/elvis/package.json';
+import { LocalizationService } from 'src/app/core/services/localization.service';
+import { CMSService } from 'src/app/core/services/cms/cms.service';
 
 @Component({
   selector: 'app-search-menu',
@@ -10,12 +12,13 @@ import packageJson from '@elvia/elvis/package.json';
   styleUrls: ['./search-menu.component.scss'],
 })
 export class SearchMenuComponent implements OnInit, OnDestroy {
+  mainMenu: any;
   version = packageJson.version;
   showResults = false;
   resultOfMoreThanTwo = false;
   searchString = '';
-  elvisItems: EItems[] = [];
-  activeResults: EItems[] = [];
+  elvisItems: DocPage[] = [];
+  activeResults: DocPage[] = [];
 
   indexOfResultDescription = 0;
   indexStartLimit = 0;
@@ -28,6 +31,14 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
 
   private subscriptions: Subscription = new Subscription();
 
+  constructor(private cmsService: CMSService, private localizationService: LocalizationService) {
+    this.localizationService.listenLocalization().subscribe((locale) => {
+      this.cmsService.getMenu(locale).then((data) => {
+        this.mainMenu = data;
+      });
+    });
+  }
+
   ngOnDestroy(): void {
     this.subscriptions.unsubscribe();
   }
@@ -39,7 +50,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     const search = document.getElementById('search-field');
     search.focus();
-    this.elvisItems = this.elvisItems.concat(eComponents, eGetStarted, eIdentity, eCommunity, eTools);
+    this.elvisItems = this.elvisItems.concat(componentsDocPages, docPagesNotFromCMS);
   }
 
   onSearch(): void {
@@ -62,7 +73,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     }
   }
 
-  containsSearchString(item: EItems): boolean {
+  containsSearchString(item: DocPage): boolean {
     return (
       !item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()) &&
       item.description.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase())
@@ -96,7 +107,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     });
   }
 
-  replaceTitleString(resultItem: EItems): void {
+  replaceTitleString(resultItem: DocPage): void {
     const indexOfResult = resultItem.title.toLocaleLowerCase().indexOf(this.searchString.toLocaleLowerCase());
     if (indexOfResult < 0) {
       return;
@@ -111,7 +122,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     title.innerHTML = newTitleString;
   }
 
-  replaceDescriptionString(resultItem: EItems): void {
+  replaceDescriptionString(resultItem: DocPage): void {
     this.setDescriptionResultStringIndices(resultItem);
     const description = document.getElementById(this.encodeHTML(resultItem.description));
     description.innerHTML = '';
@@ -125,7 +136,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     description.appendChild(this.createHTMLElement(newDescriptionString));
   }
 
-  constructHighlightedString(resultItem: EItems): string {
+  constructHighlightedString(resultItem: DocPage): string {
     let newDescriptionString = '';
     let startOfString = 0;
     let endOfString = this.maxTotalCharacters;
@@ -151,7 +162,7 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
     return newDescriptionString;
   }
 
-  setDescriptionResultStringIndices(resultItem: EItems): void {
+  setDescriptionResultStringIndices(resultItem: DocPage): void {
     // If string contains link, adding all characters of link and not cutting it off
     const indexOfLinkStart = resultItem.description.toLocaleLowerCase().indexOf('<a');
     const indexOfLinkEnd = resultItem.description.toLocaleLowerCase().indexOf('>', indexOfLinkStart);

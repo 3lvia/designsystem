@@ -22,6 +22,7 @@ export class HeaderComponent {
   headerLogoLoaded = false;
   devMode = false;
   mainMenu: any;
+  menuContentLoader = true;
 
   constructor(
     private globalService: GlobalService,
@@ -34,6 +35,7 @@ export class HeaderComponent {
     this.localizationService.listenLocalization().subscribe((locale) => {
       this.cmsService.getMenu(locale).then((data) => {
         this.mainMenu = data;
+        this.menuContentLoader = false;
       });
     });
 
@@ -55,7 +57,7 @@ export class HeaderComponent {
     });
   }
 
-  hideContentLoader(evt: any): void {
+  hideContentLoader(evt: Event): void {
     if (evt && evt.target) {
       this.headerLogoLoaded = true;
     }

@@ -16,22 +16,21 @@ import { Modal } from '@elvia/elvis-modal/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 
 function App() {
-
   const deletableChipsList = [
     { value: 2022 },
     { value: 2024, color: 'blue' },
-    { value: 2025, color: 'purple', disabled: true }
-  ]
+    { value: 2025, color: 'purple', disabled: true },
+  ];
 
   const clickableChips = [
     { value: 2022, color: 'green' },
     { value: 2023, color: 'red' },
     { value: 2024, color: 'blue', selected: true },
     { value: 2025, color: 'purple' },
-    { value: 2026, color: 'violet', selected: true, disabled: true }
-  ]
+    { value: 2026, color: 'violet', selected: true, disabled: true },
+  ];
 
-  const [chipSelected, setChipSelected] = useState(false)
+  const [chipSelected, setChipSelected] = useState(false);
 
   const [selectedState, setSelectedState] = useState(2);
   const [chipsValues, setChipsValues] = useState([2018, 2019, 2020, 2021]);
@@ -191,23 +190,29 @@ function App() {
   ];
 
   const handleOnDelete1 = (event) => {
-    const values = [...chipsValues]
-    setChipsValues(values.filter(value => value !== event))
-  }
+    const values = [...chipsValues];
+    setChipsValues(values.filter((value) => value !== event));
+  };
 
   const handleOnDelete2 = (event) => {
-    const values = [...deletableChips]
-    setDeletableChips(values.filter(data => data.value !== event))
-  }
+    const values = [...deletableChips];
+    setDeletableChips(values.filter((data) => data.value !== event));
+  };
 
-  const [filteredValues, setFilteredValues] = useState({ 2022: false, 2023: false, 2024: true, 2025: false, 2026: true })
+  const [filteredValues, setFilteredValues] = useState({
+    2022: false,
+    2023: false,
+    2024: true,
+    2025: false,
+    2026: true,
+  });
 
   const handleOnValueChange = (event) => {
-    setFilteredValues(prevState => ({
+    setFilteredValues((prevState) => ({
       ...prevState,
-      [event.value]: event.isSelected
-    }))
-  }
+      [event.value]: event.isSelected,
+    }));
+  };
 
   const radioFilterOptions =  [
     {
@@ -230,12 +235,9 @@ function App() {
 
   return (
     <div className="App">
-
       <h1>React preview</h1>
-
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
-
       <h2>Box</h2>
       <Box
         hasBorder={true}
@@ -243,7 +245,6 @@ function App() {
         title={<h1>Title for the box component</h1>}
         content={<div>Heisann dette er en box component sendt med som node i react</div>}
       ></Box>
-
       <h2>Modal</h2>
       <button onClick={() => setIsModalShowingState(true)}>Show modal</button>
       <Modal
@@ -337,20 +338,16 @@ function App() {
             </div>
           </>
         }
-      >
-      </Modal>
-
+      ></Modal>
       <div>
         <button
           onClick={() => {
-            setChipsValues(values => [...values, `20${Math.floor(Math.random() * 30) + 1}`])
-          }
-          }
+            setChipsValues((values) => [...values, `20${Math.floor(Math.random() * 30) + 1}`]);
+          }}
         >
           Add chip
         </button>
       </div>
-      <div>
       <div>
       <h1>Radio filter</h1>
       <RadioFilter 
@@ -364,55 +361,56 @@ function App() {
         >
           </RadioFilter>
       </div>
-      </div>
       <div>
         <h1>Test av chip</h1>
         <button onClick={() => setChipSelected(!chipSelected)}>TEST</button>
         <Chip
           type="legend"
           valueOnChange={(e) => {
-            setChipSelected(!chipSelected)
+            setChipSelected(!chipSelected);
           }}
           selected={chipSelected}
-          value="Test">
-        </Chip>
+          value="Test"
+        ></Chip>
         <hr></hr>
       </div>
-
       <div style={{ display: 'flex', flexDirection: 'row' }}>
-        {chipsValues.map(value => (
-          <Chip value={value} onDelete={handleOnDelete1}>
-          </Chip>
-        ))
-        }
+        {chipsValues.map((value) => (
+          <Chip value={value} onDelete={handleOnDelete1}></Chip>
+        ))}
       </div>
       Deletable Chips
       <div style={{ display: 'flex', flexDirection: 'row' }}>
-        {deletableChips.map(data => (
-          <Chip value={data.value} color={data.color} disabled={data.disabled} ariaLabel={`Fjern filtreringen for ${data.value}`} onDelete={handleOnDelete2}>
-          </Chip>
-        ))
-        }
+        {deletableChips.map((data) => (
+          <Chip
+            value={data.value}
+            color={data.color}
+            disabled={data.disabled}
+            ariaLabel={`Fjern filtreringen for ${data.value}`}
+            onDelete={handleOnDelete2}
+          ></Chip>
+        ))}
       </div>
       Clickable Chips
       <div style={{ display: 'flex', flexDirection: 'row' }}>
-        {clickableChips.map(data => (
-          <Chip value={data.value} color={data.color} selected={data.selected} disabled={data.disabled} type='legend' valueOnChange={handleOnValueChange}>
-          </Chip>
-        ))
-        }
+        {clickableChips.map((data) => (
+          <Chip
+            value={data.value}
+            color={data.color}
+            selected={data.selected}
+            disabled={data.disabled}
+            type="legend"
+            valueOnChange={handleOnValueChange}
+          ></Chip>
+        ))}
       </div>
-      Filters to apply: {`${Object.keys(filteredValues).filter(chip => filteredValues[chip])}`}
-
+      Filters to apply: {`${Object.keys(filteredValues).filter((chip) => filteredValues[chip])}`}
       <div style={{ margin: '40px 0' }}>
         <h2>Clickable chip initally checkmark</h2>
-        <Chip value="Clickable3" type='choice' selected valueOnChange={setChipValue}>
-        </Chip>
+        <Chip value="Clickable3" type="choice" selected valueOnChange={setChipValue}></Chip>
       </div>
-      <div>{"Selected chip: "}</div>
+      <div>{'Selected chip: '}</div>
       <div>{chipValue.isSelected ? chipValue.value : ''}</div>
-
-
       <h2>Dropdown</h2>
       <button onClick={consoleDropdownVal}>Console dropdown value</button>
       <div style={{ marginTop: '24px' }}>
@@ -447,7 +445,6 @@ function App() {
         <Carousel elements={elements.length} valueOnChange={setSelectedState} hideArrows></Carousel>
       </div>
       <div>{'Selected page: ' + selectedState.toString()}</div>
-
       <h2>Date picker</h2>
       <div
         style={{
@@ -468,11 +465,9 @@ function App() {
         <Datepicker isDisabled={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
         <Datepicker isCompact={true} valueOnChange={(dateCurr) => console.log(dateCurr)}></Datepicker>
       </div>
-
       <div style={{ margin: '40px 0' }}>
         <TestingComponent></TestingComponent>
       </div>
-
       <hr style={{ margin: '40px 0' }} />
       <h2>Divider</h2>
       <div style={{ marginBottom: '16px', padding: '8px' }}>
@@ -493,7 +488,6 @@ function App() {
       <div style={{ background: '#262626', padding: '8px' }}>
         <Divider type="curved" isInverted />
       </div>
-
       <h2>Accordion</h2>
       <div style={{ marginTop: '24px', marginBottom: '24px' }}>
         <Accordion
@@ -505,7 +499,6 @@ function App() {
           content="Bacon ipsum dolor amet pork loin bacon jowl turkey. Biltong sausage swine, shankle venison hamburger alcatra spare ribs bacon ham ribeye strip steak. Swine capicola picanha kevin drumstick. Chuck landjaeger pastrami, cow shoulder boudin short loin leberkas t-bone turkey prosciutto jowl. Turkey tail tongue cow shankle chicken tri-tip swine. Prosciutto pig ball tip kielbasa hamburger picanha pork chop tongue chicken shankle short loin filet mignon. T-bone shankle capicola, shoulder hamburger pancetta cupim chuck meatloaf turducken porchetta rump sausage strip steak ribeye."
         ></Accordion>
       </div>
-
       <h3>Custom Accordion content</h3>
       <div style={{ marginTop: '24px', marginBottom: '24px' }}>
         <Accordion
@@ -524,16 +517,13 @@ function App() {
           }
         ></Accordion>
       </div>
-
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
         <Tabs items={items} value={2} valueOnChange={setSelectedState}></Tabs>
         <div>{selectedState.toString()}</div>
       </div>
-
       <hr style={{ margin: '40px 0' }} />
       <hr style={{ margin: '40px 0' }} />
-
       <h2>Popover</h2>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>
         <Popover
@@ -631,25 +621,19 @@ function App() {
           posX="left"
         ></Popover>
       </div>
-
       <h2>Progressbar</h2>
-
       <ProgressLinear value={progressValue}></ProgressLinear>
-
       <div style={{ width: '100%', display: 'flex', justifyContent: 'space-around' }}>
         <button onClick={increaseProgress}>Increase</button>
         <button onClick={decreaseProgress}>Decrease</button>
         <button onClick={resetProgress}>reset</button>
       </div>
       <div>{progressValue}</div>
-
       <h2>Progressbar indeterminate</h2>
-
       <div>
         <ProgressLinear isIndeterminate></ProgressLinear>
       </div>
       <h2>Progressbar Error</h2>
-
       <div>
         <ProgressLinear isError></ProgressLinear>
       </div>

@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { ItemStatus } from '../../../item-status.enum';
+import { DocPageStatus } from '../../../doc-page-status';
 import { NavbarAnchor } from '../../../navbarAnchor.interface';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { Router } from '@angular/router';
@@ -17,7 +17,7 @@ export class ComponentHeaderComponent implements AfterViewInit {
   @Input() figmaOnly = false;
   @Output() selectedChange = new EventEmitter();
 
-  itemStatus = ItemStatus;
+  DocPageStatus = DocPageStatus;
   navbarAnchors: NavbarAnchor[] = [];
   activeAnchor: NavbarAnchor;
   currentRoute: string;

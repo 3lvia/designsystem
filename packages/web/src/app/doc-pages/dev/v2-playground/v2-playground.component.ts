@@ -153,11 +153,11 @@ export class v2PlaygroundComponent implements OnInit {
     this.isPopoverShowing = newValue;
   };
 
-  updatedVisibility = (event: any): void => {
+  updatedVisibility = (event: Event): void => {
     console.log('Updated - visibility: ' + event);
   };
 
-  handleOnChange = (event: {value: string; isSelected: boolean}): void => {
+  handleOnChange = (event: { value: string; isSelected: boolean }): void => {
     this.filteredValues = { ...this.filteredValues, [event.value]: event.isSelected };
   };
 

@@ -28,8 +28,8 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   activeCode = '';
   highlightedCode = '';
   nativeScriptCode = '';
-  startOfScript = ''
-  endOfScript = ''
+  startOfScript = '';
+  endOfScript = '';
   myCode = '';
   codepen = '';
   codeAngularSub: Subscription;
@@ -41,7 +41,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     private copyService: CopyToClipboardService,
     private versionService: VersionService,
     private codeService: ExampleCodeService,
-  ) { }
+  ) {}
 
   getTabIndex(str: string): void {
     this.tabs.indexOf(str);

@@ -23,6 +23,6 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
     ComponentExampleGeneratorModule,
   ],
   declarations: [BoxDocComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class BoxDocModule { }
+export class BoxDocModule {}

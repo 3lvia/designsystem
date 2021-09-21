@@ -40,7 +40,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   bgList = [];
   dynamicCode;
 
-  constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) { }
+  constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     this.codeAngular = this.componentData.codeAngular;
@@ -65,7 +65,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       if (!this.hasPreview) {
         return;
       }
-      this.dynamicCode = this.domSanitizer.bypassSecurityTrustHtml(this.componentData.codeNativeHTML)
+      this.dynamicCode = this.domSanitizer.bypassSecurityTrustHtml(this.componentData.codeNativeHTML);
       if (this.componentData.codeNativeScript) {
         setTimeout(() => eval(this.componentData.codeNativeScript), 200);
       }
@@ -181,13 +181,46 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     if (this.codeAngular.includes(attribute)) {
       // Replaces old value for prop
       this.codeReact = this.cegService.replaceOldProp(this.codeReact, attribute, newValue, 'react', cegType);
-      this.codeAngular = this.cegService.replaceOldProp(this.codeAngular, attribute, newValue, 'angular', cegType);
-      this.codeNative = this.cegService.replaceOldProp(this.codeNative, attribute, newValue, 'native', cegType);
+      this.codeAngular = this.cegService.replaceOldProp(
+        this.codeAngular,
+        attribute,
+        newValue,
+        'angular',
+        cegType,
+      );
+      this.codeNative = this.cegService.replaceOldProp(
+        this.codeNative,
+        attribute,
+        newValue,
+        'native',
+        cegType,
+      );
     } else {
       // Adds new prop to code
-      this.codeReact = this.cegService.addNewProp(this.codeReact, attribute, newValue, 'react', cegType, this.componentData.elementNameR);
-      this.codeAngular = this.cegService.addNewProp(this.codeAngular, attribute, newValue, 'angular', cegType, this.componentData.elementNameW);
-      this.codeNative = this.cegService.addNewProp(this.codeNative, attribute, newValue, 'native', cegType, this.componentData.elementNameW);
+      this.codeReact = this.cegService.addNewProp(
+        this.codeReact,
+        attribute,
+        newValue,
+        'react',
+        cegType,
+        this.componentData.elementNameR,
+      );
+      this.codeAngular = this.cegService.addNewProp(
+        this.codeAngular,
+        attribute,
+        newValue,
+        'angular',
+        cegType,
+        this.componentData.elementNameW,
+      );
+      this.codeNative = this.cegService.addNewProp(
+        this.codeNative,
+        attribute,
+        newValue,
+        'native',
+        cegType,
+        this.componentData.elementNameW,
+      );
     }
     this.updateProps();
   }

@@ -1,10 +1,59 @@
-<!--HEADER-->
-<app-component-header>
-  <ng-container ngProjectAs="headerTitle">{{ cmsContent.title? cmsContent.title: ''}}</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    <span>{{ cmsContent.pageDescription ? cmsContent.pageDescription: '' }}</span>
-  </ng-container>
-</app-component-header>
-<!--BODY-->
-<div class="page-body" *ngIf="cmsContent.content" [innerHTML]="html">
+<!--PAGES FROM CMS-->
+<div *ngIf="isCmsPage">
+  <div *ngIf="landingPage" class="page-body tablet-size">
+    <div class="wrapper">
+      <div class="second-wrapper">
+        <div *ngIf="showContentLoader">
+          <div>
+            <div class="e-content-loader e-content-loader--text e-w-25" style="height: 40px"></div>
+          </div>
+          <div class="e-mt-64">
+            <div class="e-content-loader e-w-100" style="height: 500px"></div>
+          </div>
+        </div>
+        <h1 class="e-title-md">
+          {{ cmsContent.title ? cmsContent.title : '' }}
+        </h1>
+        <div class="content" *ngIf="cmsContent.content" [innerHTML]="contentHTML"></div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!landingPage">
+    <div class="subpages-content-loader page-body" *ngIf="showContentLoader">
+      <div>
+        <div class="e-content-loader e-content-loader--text e-w-50" style="height: 70px"></div>
+      </div>
+      <div class="e-mt-32">
+        <div class="e-content-loader e-content-loader--text e-w-100"></div>
+        <div class="e-content-loader e-content-loader--text e-w-100 e-mt-16"></div>
+        <div class="e-content-loader e-content-loader--text e-w-25 e-mt-16"></div>
+        <div class="e-content-loader e-w-100 e-mt-24" style="height: 300px"></div>
+        <div class="e-content-loader e-content-loader--text e-w-100 e-mt-24"></div>
+        <div class="e-content-loader e-content-loader--text e-w-100 e-mt-16"></div>
+        <div class="e-content-loader e-content-loader--text e-w-50 e-mt-16"></div>
+      </div>
+    </div>
+    <app-component-header>
+      <ng-container ngProjectAs="headerTitle">
+        <span>
+          {{ cmsContent.title ? cmsContent.title : '' }}
+        </span>
+        <span class="e-pl-16">
+          <a *ngIf="cmsContent.figmaUrl" href="{{ cmsContent.figmaUrl }}" target="_blank">
+            <img src="../../../../assets/icons/figma.svg" />
+          </a>
+        </span>
+      </ng-container>
+      <ng-container ngProjectAs="headerDescription">
+        <div *ngIf="cmsContent.pageDescription" [innerHTML]="descriptionHTML"></div>
+      </ng-container>
+    </app-component-header>
+    <div class="page-body" *ngIf="cmsContent.content" [innerHTML]="contentHTML"></div>
+  </div>
+</div>
+
+<!--PAGES NOT FROM CMS-->
+<div *ngIf="!isCmsPage">
+  <router-outlet></router-outlet>
 </div>

@@ -9,6 +9,6 @@ import '@elvia/elvis-accordion';
   imports: [CommonModule, ComponentExampleCodeModule, IframeScreenModule],
   declarations: [ComponentExampleV1Component],
   exports: [ComponentExampleV1Component],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ComponentExampleV1Module { }
+export class ComponentExampleV1Module {}

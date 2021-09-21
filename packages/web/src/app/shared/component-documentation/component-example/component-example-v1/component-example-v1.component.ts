@@ -150,13 +150,13 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
     }
     if (this.showTabs) {
       if (!this.noDesktop) {
-        tabs.push('desktop')
+        tabs.push('desktop');
       }
       if (!this.noTablet) {
-        tabs.push('tablet')
+        tabs.push('tablet');
       }
       if (!this.noPhone) {
-        tabs.push('phone')
+        tabs.push('phone');
       }
     }
     return tabs;

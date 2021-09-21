@@ -1,6 +1,6 @@
 import { ElementRef } from '@angular/core';
 import { Component, ViewChild } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-search-doc',
