@@ -43,14 +43,13 @@
       "yarn run eslint",
       "git add"
     ],
-    "packages/components/**/*.+(js|ts|tsx)": [
+    "packages/components/components/**/*.+(js|ts|tsx)": [
       "yarn run prettier-comp",
       "yarn run eslint",
       "git add"
     ]
   },
   "resolutions": {
-    "**/optimist/minimist": "0.2.1",
     "**/react-dev-utils/immer": "^8.0.1"
   },
   "dependencies": {

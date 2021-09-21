@@ -28,6 +28,10 @@ export const tabsData = {
       type: 'boolean',
       description: 'Decides if tabs should be inverted',
       default: 'false',
+      cegDefault: 0,
+      cegType: 'boolean',
+      cegFormType: 'background',
+      cegOptions: ['White', 'Dark grey'],
     },
     valueOnChange: {
       isRequired: false,
@@ -40,6 +44,7 @@ export const tabsData = {
   codeImportWebComponent: `import '@elvia/elvis-tabs';`,
   codeReact:
     `<Tabs 
+  value={0}
   items={'` +
     exampleContents.words.random['eng-GBR'][0] +
     `', '` +
@@ -47,9 +52,11 @@ export const tabsData = {
     `', '` +
     exampleContents.words.random['eng-GBR'][2] +
     `'}
+  valueOnChange={(event) => handleOnChange(event)}
 ></Tabs>`,
-  codeWebComponent:
+  codeAngular:
     `<elvia-tabs 
+  [value]="0"
   [items]="['` +
     exampleContents.words.random['eng-GBR'][0] +
     `', '` +
@@ -57,7 +64,21 @@ export const tabsData = {
     `', '` +
     exampleContents.words.random['eng-GBR'][2] +
     `']" 
+  (valueOnChange)="handleOnChange(event.detail.value)"
 ></elvia-tabs>`,
+  codeNativeHTML:
+    `<elvia-tabs 
+  id="example-elvia-tabs"
+></elvia-tabs>
+`,
+  codeNativeScript: `  const tabs = document.getElementById('example-elvia-tabs');
+  const items = [${JSON.stringify(exampleContents.words.random['eng-GBR'][0])}, ${JSON.stringify(exampleContents.words.random['eng-GBR'][1])}, ${JSON.stringify(exampleContents.words.random['eng-GBR'][2])}]
+  tabs.setProps({items: items})
+  tabs.setProps({value: 0 });
+  tabs.addEventListener('valueOnChange', (event) => {
+    console.log('Do what you want with selected tab: ', event.detail.value)
+  });
+`,
   does: ['If you have sub-sections of a page and can not display everything at once'],
   donts: [
     'If the content can be displayed at once.',

@@ -14,6 +14,7 @@ import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Pagination } from '@elvia/elvis-pagination/react';
 import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
+import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 
 function App() {
 
@@ -224,8 +225,28 @@ function App() {
     }))
   }
 
+  const radioFilterOptions =  [
+    {
+      label: 'All',
+    },
+    {
+      label: 'Read',
+    },
+    {
+      label: 'Unread',
+    },
+    {
+      label: 'Consumption',
+    },
+    {
+      label: 'Production',
+    },
+  ]
+  const [selectedRadioFilter, setSelectedRadioFilter] = useState('Read')
+
   return (
     <div className="App">
+
       <h1>React preview</h1>
       <h2>Pagination!</h2>
 
@@ -352,7 +373,21 @@ function App() {
           Add chip
         </button>
       </div>
-
+      <div>
+      <div>
+      <h1>Radio filter</h1>
+      <RadioFilter 
+        items={radioFilterOptions} 
+        ariaLabel={`${selectedRadioFilter} filtrering valgt`}
+        valueOnChange={selected => {
+          setSelectedRadioFilter(selected)
+        }}
+        value={selectedRadioFilter}
+        name={'radioFilterTest'}
+        >
+          </RadioFilter>
+      </div>
+      </div>
       <div>
         <h1>Test av chip</h1>
         <button onClick={() => setChipSelected(!chipSelected)}>TEST</button>

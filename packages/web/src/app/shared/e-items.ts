@@ -118,7 +118,7 @@ export const eComponents: EItems[] = [
       'Box are used to group different content. Use a box together with grid and space to make different layouts.',
     docUrl: Pages.Box,
     absolutePath: '/components/' + Pages.Box,
-    status: ItemStatus.Ignore,
+    status: ItemStatus.Done,
     imageUrl: 'assets/website-icons/component-images/Box.svg',
     figmaUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Box?node-id=288%3A0',
     type: 'Component',
@@ -526,11 +526,7 @@ export const eIdentity: EItems[] = [
   {
     title: 'Icons',
     // tslint:disable-next-line: max-line-length
-    description: `In our icon library, you’ll find all available icons in the design system as well as defined sizes for them. Missing a specific icon? Reach out to us or fill in our
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
-        <span class="e-link__title">request form</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-      </a>.`,
+    description: `In our icon library, you’ll find all available icons in the design system as well as defined sizes for them. Missing a specific icon? Reach out to us.`,
     docUrl: Pages.Icon,
     absolutePath: '/identity/' + Pages.Icon,
     status: ItemStatus.Done,
@@ -687,10 +683,6 @@ export const eCommunity: EItems[] = [
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-    </a> or use our
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
-      <span class="e-link__title">request form</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
     docUrl: Pages.Contact,
     absolutePath: '/community/' + Pages.Contact,
@@ -704,10 +696,6 @@ export const eCommunity: EItems[] = [
     description: `To contribute, or if you have any question, you can contact us on slack:
     <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
       <span class="e-link__title">#designsystemet</span>
-      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-    </a> or fill out our
-    <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
-      <span class="e-link__title">request form</span>
       <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
     </a>`,
     docUrl: Pages.Contribute,

@@ -41,17 +41,21 @@ pre {
       justify-content: flex-end;
       align-items: center;
       color: var(--e-white);
+      width: 100px;
     }
   }
 }
 
-.higlighted-code {
+.code-container {
   overflow: auto;
   padding-bottom: 16px;
   margin-bottom: -16px;
   .active-code {
     font-family: 'Fira mono';
     color: white;
+  }
+  .script-tag {
+    height: 18px;
   }
 }
 

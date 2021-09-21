@@ -3,6 +3,17 @@ export const chipData = {
   elementNameW: 'elvia-chip',
   elementNameR: 'Chip',
   attributes: {
+    type: {
+      isRequired: false,
+      type: 'removable | legend | choice',
+      description: 'Which type of chip should be displayed',
+      default: '"removable"',
+      displayName: 'Types',
+      cegDefault: 0,
+      cegType: 'string',
+      cegFormType: 'type',
+      cegOptions: ['removable', 'legend', 'choice'],
+    },
     ariaLabel: {
       isRequired: true,
       type: 'string',
@@ -11,26 +22,30 @@ export const chipData = {
     },
     color: {
       isRequired: false,
-      type: 'blue |  green | orange | purple | red | violet',
+      type: 'blue | green | orange | purple | red | violet',
       description: 'Set a background color of the chip',
       default: 'green',
+      displayName: 'Color',
+      cegDefault: 'green',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['green', 'blue', 'orange', 'purple', 'red', 'violet'],
     },
     disabled: {
       isRequired: false,
       type: 'boolean',
       description: 'Set the chip as disabled',
       default: 'false',
+      displayName: 'Disabled',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'State',
     },
     value: {
       isRequired: true,
       type: 'string',
       description: 'The value displayed in the chip',
-    },
-    type: {
-      isRequired: false,
-      type: 'removable | legend | choice',
-      description: 'Which type of chip should be displayed',
-      default: 'standard',
     },
     selected: {
       isRequired: false,
@@ -39,57 +54,48 @@ export const chipData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: string) => void',
+      type: '(value: string) => CustomEvent',
       description: 'Gets called every time the value is changed. Required on legend and choice types',
     },
     onDelete: {
       isRequired: false,
       type: '(value: string) => void',
-      description: 'Gets called if an item is clicked and it should be deleted. Required on removable type',
+      description: 'Gets called if an item is clicked and it should be deleted. Required on removable type and not necessary on any of the other types.',
     },
   },
   package: 'npm install @elvia/elvis-chip',
   codeImportReact: `import { Chip } from '@elvia/elvis-chip/react';`,
   codeImportWebComponent: `import '@elvia/elvis-chip';`,
-  codeReact: `
-    const deletableChipsList = [
-      {value: 2022},
-      {value: 2024, color: 'blue'},
-      {value: 2025,color: 'purple',disabled: true}
-    ]
-
-    const [deletableChips, setDeletableChips] = useState(deletableChipsList);
-
-
-    const handleOnDelete = (event) => {
-      const values = [...deletableChips]
-      setDeletableChips(values.filter(data => data.value !== event))
-    }
-
-  <div style={{display: 'flex', flexDirection: 'row'}}>
-    {deletableChips.map(data => (
-      <Chip value={data.value} color={data.color} disabled={data.disabled} ariaLabel={\`Fjern filtreringen for \${data.value}\`} onDelete={handleOnDelete}>
-      </Chip>
-    ))}
-  </div>`,
-  codeWebComponent: `
-    deletableChipsList = [
-      {value: 2022},
-      {value: 2023, color: 'blue'},
-      {value: 2024,color: 'purple',disabled: true}
-    ]
-
-    handleOnDelete = (event: number): void => {
-      const values = [...this.deletableChipsList]
-      this.deletableChipsList = values.filter(value => value.value !== event);
-    };
-
-  <div style="display: flex; flex-direction: row">
-    <div *ngFor="let chip of deletableChipsList">
-      <elvia-chip [value]="chip.value" [color]="chip.color" [ariaLabel]="'Fjern filtrering for ' + chip.value" [disabled]="chip.disabled" (onDelete)="handleOnDelete($event.detail.value)">
-      </elvia-chip>
-    </div>
-  </div>`,
+  codeReact: `<Chip 
+  value={2022} 
+  selected={true}
+  ariaLabel={"Fjern filtrering for 2022"}
+  onDelete={handleOnDelete($event.detail.value)}
+>
+</Chip>
+`,
+  codeAngular: `<elvia-chip 
+  [value]="2022" 
+  [selected]="true"
+  [ariaLabel]="'Fjern filtrering for 2022'" 
+  (onDelete)="handleOnDelete($event.detail.value)"
+>
+</elvia-chip>
+  `,
+  codeNativeHTML: `<elvia-chip 
+  id="example-elvia-chip"
+  selected="true"
+>
+</elvia-chip>
+`,
+  codeNativeScript: `  const chip = document.getElementById('example-elvia-chip');
+  chip.setProps({value: 2022 });
+  chip.setProps({ariaLabel: 'Fjern filtrering for 2022' });
+  chip.addEventListener('onDelete', () => {
+    console.log('Remove element from DOM');
+    chip.remove();
+  });
+`,
   does: [
     'To provide an overview of selected options and allows you to easily remove them',
     'Use together with an inputfield',

@@ -105,7 +105,10 @@ export const carouselData = {
     <Carousel
   elements={listOfElements}
 ></Carousel>`,
-  codeWebComponent: `<elvia-carousel
+  codeAngular: `<elvia-carousel
+  [elements]="5"
+></elvia-carousel>`,
+  codeNativeHTML: `<elvia-carousel
   [elements]="5"
 ></elvia-carousel>`,
   does: [

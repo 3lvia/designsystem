@@ -73,10 +73,10 @@ const modalData = {
   }
 >
 </Modal>`,
-  codeWebComponent: `<elvia-modal
+  codeAngular: `<elvia-modal
   (onHide)="isModalShowing = !isModalShowing"
   [isShowing]="isModalShowing"
-  title="Title of content"
+  [title]="'Title of content'"
 >
   <div slot="content">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
@@ -86,6 +86,21 @@ const modalData = {
   </button>
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
 </elvia-modal>`,
+  codeNativeHTML:
+    `<elvia-modal
+  (onHide)="isModalShowing = !isModalShowing"
+  isShowing="isModalShowing"
+  title="Title of content"
+>
+  <div slot="content">
+    <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+  </div>
+  <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing = false">
+    Cancel
+  </button>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+</elvia-modal>
+`,
 };
 
 export { modalData };
