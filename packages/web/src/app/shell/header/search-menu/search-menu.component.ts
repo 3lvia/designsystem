@@ -74,6 +74,9 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   containsSearchString(item: DocPage): boolean {
+    if (!item.description) {
+      return;
+    }
     return (
       !item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()) &&
       item.description.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase())

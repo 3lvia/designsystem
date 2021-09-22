@@ -21,6 +21,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   listenOnScrollSubscription: Subscription;
   routerSubscription: Subscription;
   contentLoadedSubscription: Subscription;
+  anchorToScrollToSubscription: Subscription;
   scrollEventTimeout;
   startedScrollSub = false;
   isLandingPage = false;
@@ -73,6 +74,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       }
     });
     this.contentLoadedSubscription = this.cmsService.listenContentLoadedFromCMS().subscribe(() => {
+      console.log('Content has loaded');
       this.setNewActiveNavbarItem();
       setTimeout(() => this.updateAnchorList(), 200);
     });
@@ -80,6 +82,11 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       .listenAnchorAtCurrPos()
       .subscribe((anchor: NavbarAnchor) => {
         this.setNewActiveAnchor(anchor);
+      });
+    this.anchorToScrollToSubscription = this.scrollService
+      .listenAnchorToScrollTo()
+      .subscribe((anchor: NavbarAnchor) => {
+        this.chooseAnchor(anchor.title);
       });
     this.anchorChangeSubscription = this.route.fragment.subscribe((fragment) => {
       setTimeout(() => {
@@ -108,6 +115,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.anchorPosSubscription && this.anchorPosSubscription.unsubscribe();
     this.anchorChangeSubscription && this.anchorChangeSubscription.unsubscribe();
     this.listenOnScrollSubscription && this.listenOnScrollSubscription.unsubscribe();
+    this.anchorToScrollToSubscription && this.anchorToScrollToSubscription.unsubscribe();
     this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
@@ -163,12 +171,17 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
         this.navbarList.push(element);
         if (element.docUrl === routeWithoutAnchor.split('/')[2]) {
           this.markNewActiveNavbarItem(element);
+          if (!this.isCmsPage) {
+            this.setNewActiveNavbarItem();
+            this.updateAnchorList();
+          }
         }
       });
     }
   }
 
   setNewActiveNavbarItem(): void {
+    console.log('Setting active item');
     this.setSubMenuRoute();
     if (this.activeNavbarItem) {
       if (this.clickedNavbarItem === this.activeNavbarItem) {
@@ -187,6 +200,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   }
 
   markNewActiveNavbarItem(navbarItem: Record<string, unknown>): void {
+    console.log('Marking active item');
     this.clickedNavbarItem = navbarItem;
   }
 

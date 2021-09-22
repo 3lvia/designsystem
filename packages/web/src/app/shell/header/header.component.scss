@@ -39,6 +39,12 @@
     }
   }
 
+  .content-loader-header-titles {
+    @include breakpoint-up(Tablet) {
+      display: none;
+    }
+  }
+
   .tabs {
     display: inline-flex;
     justify-content: flex-start;
