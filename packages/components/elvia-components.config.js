@@ -179,9 +179,9 @@ module.exports = [
       { name: 'typography', type: 'string', propType: 'string' },
       { name: 'isInverted', type: 'boolean', propType: 'boolean' },
     ],
+    slotItems: true,
     reactName: 'Divider',
     elementStyle: `width: 100%;`,
-    slotItems: false,
     useWrapper: false,
   },
   {
