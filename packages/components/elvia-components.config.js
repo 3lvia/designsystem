@@ -235,7 +235,7 @@ module.exports = [
     reactName: 'Modal',
     slotItems: true,
     useWrapper: false,
-  },  
+  },
   {
     name: 'elvis-radio-filter',
     elementName: 'elvia-radio-filter',
