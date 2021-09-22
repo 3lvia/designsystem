@@ -217,21 +217,26 @@ function App() {
   const radioFilterOptions =  [
     {
       label: 'All',
+      value: 'all'
     },
     {
       label: 'Read',
+      value: 'read'
     },
     {
       label: 'Unread',
+      value: 'unread'
     },
     {
       label: 'Consumption',
+      value: 'consumption'
     },
     {
       label: 'Production',
+      value: 'production'
     },
   ]
-  const [selectedRadioFilter, setSelectedRadioFilter] = useState('Read')
+  const [selectedRadioFilter, setSelectedRadioFilter] = useState('read')
 
   return (
     <div className="App">
