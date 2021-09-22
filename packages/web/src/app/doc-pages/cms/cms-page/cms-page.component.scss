@@ -2,6 +2,7 @@
 
 .tablet-size {
   width: unset;
+  max-width: 65rem;
   @include breakpoint-up(Tablet) {
     width: 100%;
   }

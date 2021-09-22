@@ -54,12 +54,10 @@ export class SearchMenuComponent implements OnInit, OnDestroy {
   }
 
   onSearch(): void {
-    console.log(this.elvisItems);
     // Adding all titles that contain searchString to results
     this.activeResults = this.elvisItems.filter((item: any) =>
       item.title.toLocaleLowerCase().includes(this.searchString.toLocaleLowerCase()),
     );
-    console.log(this.activeResults);
     // Adding all descriptions that contain searchString to results
     this.activeResults = this.activeResults.concat(
       this.elvisItems.filter((item: any) => this.containsSearchString(item)),

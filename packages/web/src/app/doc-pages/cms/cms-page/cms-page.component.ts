@@ -31,14 +31,8 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     if (!this.activatedRoute.snapshot.url[1]) {
       this.landingPage = true;
     }
-  }
 
-  ngOnInit(): void {
     this.checkIfPageExistsInProject();
-    // TODO: Not hardcode localization (0)
-    if (this.hasChecked && this.isCmsPage) {
-      this.updateContent(0);
-    }
 
     const localizationSub = this.localizationService.listenLocalization();
     const routerSub = this.router.events;
@@ -54,11 +48,20 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     });
   }
 
+  ngOnInit(): void {
+    // this.checkIfPageExistsInProject();
+    // TODO: Not hardcode localization (0)
+    if (this.hasChecked && this.isCmsPage) {
+      this.updateContent(0);
+    }
+  }
+
   ngOnDestroy(): void {
     this.routerSubscription && this.routerSubscription.unsubscribe();
   }
 
   async updateContent(locale: Locale): Promise<any> {
+    console.log('check');
     if (!this.isCmsPage) {
       return;
     }
@@ -68,6 +71,7 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
     this.showContentLoader = false;
+    console.log('Updating');
     this.cmsService.contentLoadedFromCMS();
   }
 
