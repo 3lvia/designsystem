@@ -95,8 +95,8 @@ export const dropdownData = {
     { value: '2', label: 'Option 2' },
     { value: '3', label: 'Option 3' }
   ]} 
+  label={"Label"}
   valueOnChange={(event) => updateSelectedList(event)}
-  label="Label" 
 ></Dropdown>
 `,
   codeAngular: `<elvia-dropdown
@@ -105,7 +105,7 @@ export const dropdownData = {
     { value: '2', label: 'Option 2' },
     { value: '3', label: 'Option 3' }
   ]"
-  label="Label"
+  [label]="'Label'"
   (valueOnChange)="updateSelectedList($event.detail.value)"
 ></elvia-dropdown>
 `,

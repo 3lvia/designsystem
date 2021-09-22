@@ -240,10 +240,10 @@ module.exports = [
     name: 'elvis-radio-filter',
     elementName: 'elvia-radio-filter',
     attributes: [
-      { name: 'ariaLabel', type: 'string', propType: 'string' },
-      { name: 'name', type: 'string', propType: 'string' },
       { name: 'items', type: 'object', propType: 'object' },
+      { name: 'name', type: 'string', propType: 'string' },
       { name: 'value', type: 'string', propType: 'string' },
+      { name: 'ariaLabel', type: 'string', propType: 'string' },
     ],
     reactName: 'RadioFilter',
     slotItems: false,

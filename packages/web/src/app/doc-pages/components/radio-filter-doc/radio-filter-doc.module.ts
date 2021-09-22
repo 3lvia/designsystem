@@ -6,6 +6,9 @@ import { ComponentExampleV1Module } from 'src/app/shared/component-documentation
 import { ComponentPropertiesModule } from 'src/app/shared/component-documentation/component-properties/component-properties.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
+import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
+import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 
 @NgModule({
   imports: [
@@ -15,6 +18,9 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     ComponentPropertiesModule,
     ComponentSectionModule,
     WhenToUseModule,
+    ComponentExampleGeneratorModule,
+    ComponentPropertiesTableModule,
+    ComponentInstallationModule,
   ],
   declarations: [RadioFilterDocComponent],
 })
