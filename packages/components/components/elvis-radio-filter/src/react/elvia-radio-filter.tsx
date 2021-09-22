@@ -3,6 +3,7 @@ import * as styledRadioFilter from './styledComponents';
 
 export interface Option {
   label: string;
+  value: string;
 }
 
 export interface BaseRadioFilterProps {
@@ -22,6 +23,7 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
   valueOnChange,
   webcomponent,
 }) => {
+
   const updateValue = (value: string) => {
     if (!webcomponent) {
       valueOnChange && valueOnChange(value);
@@ -33,22 +35,25 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
 
   return (
     <styledRadioFilter.RadioFilterGroup role="radiogroup">
-      {items &&
-        items.map(({ label }) => (
-          <styledRadioFilter.RadioFilterLabel key={label} isSelected={label === value}>
-            <styledRadioFilter.RadioFilterInput
-              type="radio"
-              name={name}
-              aria-label={ariaLabel ? ariaLabel : label}
-              aria-checked={label === value}
-              checked={label === value}
-              onChange={() => updateValue(label)}
-            ></styledRadioFilter.RadioFilterInput>
-            <styledRadioFilter.RadioFilterTitle>{label}</styledRadioFilter.RadioFilterTitle>
-          </styledRadioFilter.RadioFilterLabel>
-        ))}
-    </styledRadioFilter.RadioFilterGroup>
-  );
+      {items && items.map(({label, value: optionsValue}) => (
+        <styledRadioFilter.RadioFilterLabel key={optionsValue} isSelected={optionsValue === value}>
+          <styledRadioFilter.RadioFilterInput
+            type="radio"
+            name={name}
+            aria-label={ariaLabel ? ariaLabel : label}
+            aria-checked={optionsValue === value}
+            checked={optionsValue === value}
+            onChange={() => 
+              updateValue(optionsValue)
+            }
+          ></styledRadioFilter.RadioFilterInput>
+          <styledRadioFilter.RadioFilterTitle>
+            {label}
+          </styledRadioFilter.RadioFilterTitle>
+        </styledRadioFilter.RadioFilterLabel>
+          ))}
+        </styledRadioFilter.RadioFilterGroup>
+      );
 };
 
 export default RadioFilter;
