@@ -237,7 +237,6 @@ function App() {
     },
   ]
   const [selectedRadioFilter, setSelectedRadioFilter] = useState('read')
-  console.log(selectedRadioFilter)
 
   return (
     <div className="App">
