@@ -17,7 +17,7 @@ const radioFilterData = {
       displayName: 'Name',
     },
     name: {
-      isRequired: false,
+      isRequired: true,
       type: 'string',
       description: 'Name of inputs',
       displayName: 'Name',
@@ -25,7 +25,8 @@ const radioFilterData = {
     ariaLabel: {
       isRequired: false,
       type: 'string',
-      description: 'Arialabel of inputs',
+      description: 'Arialabel of radiogroup',
+      default: '{value} filtrering valgt',
     },
     valueOnChange: {
       isRequired: true,
@@ -45,7 +46,7 @@ const radioFilterData = {
   ]}
   value={"read"}
   name={"readRadioFilters"}
-  ariaLabel={"value filtrering valgt"}
+  ariaLabel={"{value} filtrering valgt"}
   valueOnChange={(event) => updateSelectedFilter(event)}
 ></RadioFilter>
 `,
@@ -57,7 +58,7 @@ const radioFilterData = {
   ]"
   [value]="'read'"
   [name]="'readRadioFilters'"
-  [ariaLabel]="'value filtrering valgt'"
+  [ariaLabel]="'{value} filtrering valgt'"
   (valueOnChange)="updateSelectedFilter($event.detail.value)"
 ></elvia-radio-filter>
 `,
@@ -77,8 +78,8 @@ const radioFilterData = {
   radioFilter.setProps({name: 'readRadioFilters'});
   radioFilter.setProps({ariaLabel: value + ' filtrering valgt'});
   radioFilter.addEventListener('valueOnChange', (event) => {
-    radioFilter.setProps({value: event.detail.value});
     radioFilter.setProps({ariaLabel: event.detail.value + ' filtrering valgt'});
+    radioFilter.setProps({value: event.detail.value});
   });
 `,
 };

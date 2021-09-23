@@ -40,7 +40,7 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
             <styledRadioFilter.RadioFilterInput
               type="radio"
               name={name}
-              aria-label={ariaLabel ? ariaLabel : label}
+              aria-label={ariaLabel ? ariaLabel : label + ' filtrering valgt'}
               aria-checked={optionsValue === value}
               checked={optionsValue === value}
               onChange={() => updateValue(optionsValue)}
