@@ -15,6 +15,19 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="whens" [whenNots]="whenNots"></app-when-to-use>
+
+      <app-component-subsection [sectionTitle]="'Lack of space'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>
+            <b>On mobile</b>
+            - You can put radio filter in a popover if there is a lack of space or if it should take up less
+            focus. Popover is triggered by a button.
+          </div>
+          <div class="e-mt-24 e-ml-n24">
+            <img alt="Radio filter in popover" src="./../../../../assets/radio-filter/Example popover.svg" />
+          </div>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

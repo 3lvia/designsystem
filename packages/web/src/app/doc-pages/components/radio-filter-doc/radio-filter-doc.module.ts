@@ -9,6 +9,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
+import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { ComponentPropertiesTableModule } from 'src/app/shared/component-documen
     ComponentExampleV1Module,
     ComponentPropertiesModule,
     ComponentSectionModule,
+    ComponentSubsectionModule,
     WhenToUseModule,
     ComponentExampleGeneratorModule,
     ComponentPropertiesTableModule,
