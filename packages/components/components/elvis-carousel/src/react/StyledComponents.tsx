@@ -15,24 +15,30 @@ export const CarouselContainer = styled.div`
   flex-direction: column;
   overflow: hidden;
 
-  .carousel-enter {
-    transform: ${(props: { slideDirection: string }) =>
-      props.slideDirection === 'left' ? 'translateX(-30%)' : 'translateX(30%)'};
+  @keyframes left {
+    0% {
+      transform: translateX(-60%);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
-
-  .carousel-enter-active {
-    transform: translateX(0);
-    transition: all 500ms ease-in;
+  @keyframes right {
+    0% {
+      transform: translateX(60%);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
-
   .carousel-exit {
-    transform: translateX(0);
-  }
-
-  .carousel-exit-active {
     transform: ${(props: { slideDirection: string }) =>
-      props.slideDirection === 'left' ? 'translateX(-30%)' : 'translateX(30%)'};
-    transition: all 500ms ease-in;
+      props.slideDirection === 'left' ? 'translateX(-60%)' : 'translateX(60%)'};
+    transition: all 0.4s ease-in;
+  }
+  .carousel-enter {
+    animation: ${(props: { slideDirection: string }) => (props.slideDirection === 'left' ? 'left' : 'right')}
+      0.4s ease-in;
   }
 `;
 

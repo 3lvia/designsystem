@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-carousel",
-  "version": "0.0.1-beta.6",
+  "version": "1.0.0",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -10,10 +10,6 @@
   },
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^2.0.3",
-    "react-transition-group": "^4.4.2",
     "styled-components": "^5.2.3"
-  },
-  "devDependencies": {
-    "@types/react-transition-group": "^4.4.1"
   }
 }
