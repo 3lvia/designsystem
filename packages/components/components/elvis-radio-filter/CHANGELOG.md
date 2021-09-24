@@ -1,6 +1,10 @@
 # Elvia Radio Filter Changelog
 
-NOTE: Only works for React
+## 1.0.2 (24.09.21)
+
+### Add value prop to Option
+
+- Updated aria-label if not supplied.
 
 ## 1.0.1 (22.09.21)
 

@@ -361,7 +361,7 @@ export const componentsDocPages: DocPage[] = [
     title: 'Radio Filter',
     // tslint:disable-next-line: max-line-length
     description:
-      'Radio filters are buttons you can toggle between to filter out different properties of same content. It should always be an “all” option(shows all content) in radio filter. An example is an email inbox and you want to toggle between “all”, “read” and “unread” for all mails.',
+      'Radio filters are buttons you can toggle between to filter out different properties of same content. It should always be an “all” option (shows all content) in radio filter.',
     docUrl: Pages.RadioFilter,
     absolutePath: '/components/' + Pages.RadioFilter,
     status: DocPageStatus.New,

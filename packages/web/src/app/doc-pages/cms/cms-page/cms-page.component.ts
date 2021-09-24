@@ -61,7 +61,6 @@ export class CMSPageComponent implements OnInit, OnDestroy {
   }
 
   async updateContent(locale: Locale): Promise<any> {
-    console.log('check');
     if (!this.isCmsPage) {
       return;
     }
@@ -71,7 +70,6 @@ export class CMSPageComponent implements OnInit, OnDestroy {
     this.contentHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.content);
     this.descriptionHTML = this.sanitizer.bypassSecurityTrustHtml(docPage.pageDescription);
     this.showContentLoader = false;
-    console.log('Updating');
     this.cmsService.contentLoadedFromCMS();
   }
 
