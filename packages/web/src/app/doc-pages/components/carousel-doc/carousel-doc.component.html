@@ -24,7 +24,7 @@
       <app-component-subsection [sectionTitle]="'Elements'">
         <ng-container ngProjectAs="sectionContent">
           You can either send a list of elements or send in the number of elements you want in your carousel.
-          If you only send a number the carousel will show that number of dots without any content.
+          If you only send a number, the carousel will show that number of dots without any content.
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -40,12 +40,6 @@
   <!--PROPERTIES-->
   <app-component-section [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'CarouselElement'">
-        <ng-container ngProjectAs="sectionContent">
-          The CarouselElement consists of two properties. The title property and the element property. Title
-          is a string and is optional. Element can be a JSXElement, HTMLElement or a string and is required.
-        </ng-container>
-      </app-component-subsection>
       <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
