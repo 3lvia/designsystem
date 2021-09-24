@@ -48,7 +48,8 @@ export const Carousel: FC<BaseCarouselProps> = ({
 
   const itemsRef = useRef<HTMLDivElement>(null);
 
-  const lengthOfElements = typeof elements === 'object' ? elements.length : elements;
+  const lengthOfElements =
+    typeof elements === 'object' ? elements.length : typeof elements === 'string' ? +elements : elements;
 
   const hideLeftArrow = hideArrows && index === 0;
   const hideRightArrow = hideArrows && index === lengthOfElements - 1;
