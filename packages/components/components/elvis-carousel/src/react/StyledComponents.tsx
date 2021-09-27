@@ -15,7 +15,7 @@ export const CarouselContainer = styled.div`
   flex-direction: column;
   overflow: hidden;
 
-  @keyframes left {
+  @keyframes fromLeft {
     0% {
       transform: translateX(-60%);
     }
@@ -23,7 +23,7 @@ export const CarouselContainer = styled.div`
       transform: translateX(0);
     }
   }
-  @keyframes right {
+  @keyframes fromRight {
     0% {
       transform: translateX(60%);
     }
@@ -31,13 +31,30 @@ export const CarouselContainer = styled.div`
       transform: translateX(0);
     }
   }
+  @keyframes toLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-60%);
+    }
+  }
+  @keyframes toRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(60%);
+    }
+  }
   .carousel-exit {
-    transform: ${(props: { slideDirection: string }) =>
-      props.slideDirection === 'left' ? 'translateX(-60%)' : 'translateX(60%)'};
-    transition: all 0.4s ease-in;
+    animation: ${(props: { slideDirection: string }) =>
+        props.slideDirection === 'left' ? 'toLeft' : 'toRight'}
+      0.4s ease-in;
   }
   .carousel-enter {
-    animation: ${(props: { slideDirection: string }) => (props.slideDirection === 'left' ? 'left' : 'right')}
+    animation: ${(props: { slideDirection: string }) =>
+        props.slideDirection === 'left' ? 'fromLeft' : 'fromRight'}
       0.4s ease-in;
   }
 `;
@@ -125,14 +142,15 @@ export const NavigationRow = styled.div`
 export const ListOfDots = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 0px 24px;
 `;
 
 export const Dot = styled.button`
   border: 1px solid
     ${(props: { isSelected: boolean }) => (props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOff)};
-  height: 8px;
-  width: 8px;
+  height: ${(props: { isSelected: boolean }) => (props.isSelected ? '9px' : '8px')};
+  width: ${(props: { isSelected: boolean }) => (props.isSelected ? '9px' : '8px')};
   border-radius: 50%;
   background-color: ${(props: { isSelected: boolean }) =>
     props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOn};

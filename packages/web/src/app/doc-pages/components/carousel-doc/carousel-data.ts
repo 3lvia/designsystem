@@ -14,11 +14,13 @@ export const carouselData = {
     hideArrows: {
       isRequired: false,
       type: 'boolean',
-      description: 'Decides if arrows should be hidden at the ends, disabling cycling through the elements',
+      description:
+        'Decides if looping through the elements should be possible, hides the arrows at the if not.',
       default: 'false',
-      displayName: 'Hide arrows',
+      displayName: 'Loop',
       cegType: 'boolean',
       cegFormType: 'checkbox',
+      cegDefault: 'true',
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
@@ -28,12 +30,13 @@ export const carouselData = {
       description:
         'Whether a checkmark button should be used for the last element. Is used in an onboarding situation and requires hideArrows to also be sent in',
       default: 'false',
-      displayName: 'Checkmark',
+      displayName: 'Confirm button',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegDisplayGroup: 'Options',
       cegTypeDependency: 'hideArrows',
+      cegTypeDependencyValue: 'false',
     },
     onHide: {
       isRequired: false,

@@ -145,7 +145,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
       )}
       <NavigationRow>
         <LeftCarouselButton
-          aria-label={`Gå til side ${index + 1}`}
+          aria-label={`Gå til forrige side`}
           aria-hidden={hideLeftArrow}
           hidden={hideLeftArrow}
           onClick={() => handleButtonClick(index, 'left')}
@@ -174,7 +174,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
           </CheckButton>
         ) : (
           <RightCarouselButton
-            aria-label={`Gå til side ${index + 1}`}
+            aria-label={`Gå til neste side`}
             aria-hidden={hideRightArrow}
             hidden={hideRightArrow}
             onClick={() => handleButtonClick(index, 'right')}
