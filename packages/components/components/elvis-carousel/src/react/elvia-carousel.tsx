@@ -1,5 +1,5 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
-// import classnames from 'classnames';
+import classnames from 'classnames';
 import {
   CarouselContainer,
   CarouselTitle,
@@ -12,7 +12,6 @@ import {
   CarouselElementContainer,
   CheckButton,
 } from './StyledComponents';
-import { CSSTransition } from 'react-transition-group';
 
 type CarouselElement = {
   title?: string;
@@ -120,39 +119,29 @@ export const Carousel: FC<BaseCarouselProps> = ({
     }, 500);
   };
 
-  // const classNameContainer = classnames({
-  //   ['exit-animation']: !slideIn,
-  //   ['enter-animation']: slideIn && componentInitialized,
-  // });
+  const classNameContainer = classnames({
+    ['exit-animation']: !slideIn,
+    ['enter-animation']: slideIn && componentInitialized,
+  });
 
   return (
     <CarouselContainer slideDirection={slideDirection} className={className}>
       {typeof elements === 'object' && (
-        <CSSTransition
-          in={slideIn}
-          classNames={'carousel'}
-          timeout={{
-            appear: 300,
-            enter: 1000,
-            exit: 1000,
-          }}
-        >
-          <CarouselElementContainer>
-            <CarouselTitle>{elements[index].title}</CarouselTitle>
-            <CarouselElement
-              ref={itemsRef}
-              onMouseDown={(e: MouseEvent) => handleMouseDown(e)}
-              onMouseUp={() => setIsDown(false)}
-              onMouseLeave={() => setIsDown(false)}
-              onMouseMove={(e: MouseEvent) => handleMouseMove(e)}
-              onTouchStart={(e: TouchEvent) => handleMouseDown(e)}
-              onTouchMove={(e: TouchEvent) => handleMouseMove(e)}
-              onTouchEnd={() => setIsDown(false)}
-            >
-              {elements[index].element}
-            </CarouselElement>
-          </CarouselElementContainer>
-        </CSSTransition>
+        <CarouselElementContainer className={classNameContainer}>
+          <CarouselTitle>{elements[index].title}</CarouselTitle>
+          <CarouselElement
+            ref={itemsRef}
+            onMouseDown={(e: MouseEvent) => handleMouseDown(e)}
+            onMouseUp={() => setIsDown(false)}
+            onMouseLeave={() => setIsDown(false)}
+            onMouseMove={(e: MouseEvent) => handleMouseMove(e)}
+            onTouchStart={(e: TouchEvent) => handleMouseDown(e)}
+            onTouchMove={(e: TouchEvent) => handleMouseMove(e)}
+            onTouchEnd={() => setIsDown(false)}
+          >
+            {elements[index].element}
+          </CarouselElement>
+        </CarouselElementContainer>
       )}
       <NavigationRow>
         <LeftCarouselButton
