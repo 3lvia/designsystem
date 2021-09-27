@@ -1761,6 +1761,15 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
   integrity sha512-Fxt+AfXgjMoin2maPIYzFZnQjAXjAL0PHscM5pRTtatFqB+vZxAM9tLp2Optnuw3QOQC40jTNeGYFOMvyf7v9g==
 
+"@elvia/elvis-carousel@0.0.1-beta.6":
+  version "0.0.1-beta.6"
+  resolved "https://registry.yarnpkg.com/@elvia/elvis-carousel/-/elvis-carousel-0.0.1-beta.6.tgz#5668825dcb6a116651dc278584cee0fa4e5592ff"
+  integrity sha512-b/mIQa5uOKTc3Y/v/H/B2Qh7cgFV+eQEYZrb2sXjTicgboMLa0nEzxCwOc34CDfwRj2MmVdl6MvVWFuB/WBGdA==
+  dependencies:
+    "@elvia/elvis-component-wrapper" "^2.0.3"
+    react-transition-group "^4.4.2"
+    styled-components "^5.2.3"
+
 "@elvia/elvis-component-wrapper@2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@elvia/elvis-component-wrapper/-/elvis-component-wrapper-2.0.3.tgz#fe37d6165ffab20d61103bbe8277c7d9d814e42d"
@@ -3054,7 +3063,14 @@
     "@types/react-dom" "*"
     "@types/react-transition-group" "*"
 
-"@types/react-transition-group@*", "@types/react-transition-group@^4.2.0", "@types/react-transition-group@^4.4.1":
+"@types/react-transition-group@*":
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.3.tgz#b0994da0a7023d67dbb4a8910a62112bc00d5688"
+  integrity sha512-fUx5muOWSYP8Bw2BUQ9M9RK9+W1XBK/7FLJ8PTQpnpTEkn0ccyMffyEQvan4C3h53gHdx7KE5Qrxi/LnUGQtdg==
+  dependencies:
+    "@types/react" "*"
+
+"@types/react-transition-group@^4.2.0":
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/@types/react-transition-group/-/react-transition-group-4.4.2.tgz#38890fd9db68bf1f2252b99a942998dc7877c5b3"
   integrity sha512-KibDWL6nshuOJ0fu8ll7QnV/LVTo3PzQ9aCPnRUYPfX7eZohHwLIdNHj7pftanREzHNP4/nJa8oeM73uSiavMQ==

@@ -120,8 +120,8 @@ export const Carousel: FC<BaseCarouselProps> = ({
   };
 
   const classNameContainer = classnames({
-    ['carousel-exit']: !slideIn,
-    ['carousel-enter']: slideIn && componentInitialized,
+    ['exit-animation']: !slideIn,
+    ['enter-animation']: slideIn && componentInitialized,
   });
 
   return (
@@ -166,10 +166,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
           ))}
         </ListOfDots>
         {showOnboardingCheckmark ? (
-          <CheckButton
-            aria-label={'Introduksjonsstegene er fullført. Lukk introduksjon'}
-            onClick={() => onHide && onHide()}
-          >
+          <CheckButton aria-label={'Stegene er fullført. Lukk carousel.'} onClick={() => onHide && onHide()}>
             <i />
           </CheckButton>
         ) : (

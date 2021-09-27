@@ -47,12 +47,12 @@ export const CarouselContainer = styled.div`
       transform: translateX(60%);
     }
   }
-  .carousel-exit {
+  .exit-animation {
     animation: ${(props: { slideDirection: string }) =>
         props.slideDirection === 'left' ? 'toLeft' : 'toRight'}
       0.4s ease-in;
   }
-  .carousel-enter {
+  .enter-animation {
     animation: ${(props: { slideDirection: string }) =>
         props.slideDirection === 'left' ? 'fromLeft' : 'fromRight'}
       0.4s ease-in;
