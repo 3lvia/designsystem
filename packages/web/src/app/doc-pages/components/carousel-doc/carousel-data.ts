@@ -73,6 +73,18 @@ export const carouselData = {
   ]} 
 ></Carousel>`,
   codeAngular: `<elvia-carousel
+  <div slot="title-1">
+    <h3>Tile 1</h3>
+  </div>
+  <div slot="element-1">
+    <div>Element 1</div>
+  </div>
+  <div slot="title-2">
+    <h3>Tile 2</h3>
+  </div>
+  <div slot="element-2">
+    <div>Element 2</div>
+  </div>
   [elements]="[
     { title: '${exampleContents.texts.md['eng-GBR'].title}', element: '${exampleContents.texts.md['eng-GBR'].description}' },
     { title: '${exampleContents.texts.xs['eng-GBR'].title}', element: '${exampleContents.texts.xs['eng-GBR'].description}' },
