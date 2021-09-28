@@ -210,7 +210,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       overflowX: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
-      maxWidth: 'calc(100% - 20px)',
+      maxWidth: 'calc(100% - 12px)',
     }),
 
     singleValue: (provided: any) => ({
@@ -222,7 +222,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       lineHeight: '22px',
       color: '#000',
       margin: '0px',
-      maxWidth: 'calc(100% - 20px)',
+      maxWidth: 'calc(100% - 12px)',
     }),
 
     valueContainer: (provided: any) => ({
