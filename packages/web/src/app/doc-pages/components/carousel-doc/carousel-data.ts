@@ -7,8 +7,8 @@ export const carouselData = {
   attributes: {
     elements: {
       isRequired: true,
-      type: 'CarouselElement[] | number',
-      description: 'A collection of related items that should be displayed in a carousel',
+      type: 'CarouselElement[] | number | slot',
+      description: 'A collection of related items that should be displayed in a carousel. If not React, send the elements in by slots. Name the slots "element-1", "title-1", "element-2", "title-2" and so on.',
       displayName: 'No content',
     },
     hideArrows: {
@@ -67,37 +67,35 @@ export const carouselData = {
   codeImportWebComponent: `import '@elvia/elvis-carousel';`,
   codeReact: `<Carousel
   elements={[
-    { title: '${exampleContents.texts.md['eng-GBR'].title}', element: '${exampleContents.texts.md['eng-GBR'].description}' },
-    { title: '${exampleContents.texts.xs['eng-GBR'].title}', element: '${exampleContents.texts.xs['eng-GBR'].description}' },
-    { title: '${exampleContents.texts.sm['eng-GBR'].title}', element: '${exampleContents.texts.sm['eng-GBR'].description}' }
+    { 
+      title: '${exampleContents.texts.xs['eng-GBR'].title}', 
+      element: <img 
+        alt="Carousel example image" 
+        src="../../../../assets/carousel/el1.jpeg"
+        style={{width: '70%', minWidth: '278px'}}
+      />
+    },
+    { 
+      title: '${exampleContents.texts.sm['eng-GBR'].title}', 
+      element: <img 
+        alt="Carousel example image" 
+        src="../../../../assets/carousel/el2.jpeg"
+        style={{width: '70%', minWidth: '278px'}}
+      />
+    },
+    { 
+      title: '${exampleContents.texts.md['eng-GBR'].title}', 
+      element: <img 
+        alt="Carousel example image" 
+        src="../../../../assets/carousel/el3.jpeg"
+        style={{width: '70%', minWidth: '278px'}}
+      />
+    }
   ]} 
 ></Carousel>`,
-  codeAngular: `<elvia-carousel
-  [elements]="[
-    { title: '${exampleContents.texts.md['eng-GBR'].title}', element: '${exampleContents.texts.md['eng-GBR'].description}' },
-    { title: '${exampleContents.texts.xs['eng-GBR'].title}', element: '${exampleContents.texts.xs['eng-GBR'].description}' },
-    { title: '${exampleContents.texts.sm['eng-GBR'].title}', element: '${exampleContents.texts.sm['eng-GBR'].description}' }
-  ]"
->
+  codeAngular: `<elvia-carousel>
   <div slot="title-1">
-    <h3>Tile 1</h3>
-  </div>
-  <div slot="element-1">
-    <div>Element 1</div>
-  </div>
-  <div slot="title-2">
-    <h3>Tile 2</h3>
-  </div>
-  <div slot="element-2">
-    <div>Element 2</div>
-  </div>
-</elvia-carousel>`,
-  codeNativeHTML: `<elvia-carousel
-  <elvia-carousel
-  id="example-elvia-carousel"
->
-  <div slot="title-1">
-    <h3>Tile 1</h3>
+    <h3>${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>
   <div slot="element-1">
     <img 
@@ -107,7 +105,7 @@ export const carouselData = {
     />
   </div>
   <div slot="title-2">
-    <h3>Tile 2</h3>
+    <h3>${exampleContents.texts.sm['eng-GBR'].title}</h3>
   </div>
   <div slot="element-2">
     <img 
@@ -117,7 +115,7 @@ export const carouselData = {
     />
   </div>
   <div slot="title-3">
-    <h3>Title 3</h3>
+    <h3>${exampleContents.texts.md['eng-GBR'].title}</h3>
   </div>
   <div slot="element-3">
     <img 
@@ -127,14 +125,41 @@ export const carouselData = {
     />
   </div>
 </elvia-carousel>`,
-  codeNativeScript: `  const carousel = document.getElementById('example-elvia-carousel');
-  // const elements = [
-  //   { title: "${exampleContents.texts.md['eng-GBR'].title}", element: "${exampleContents.texts.md['eng-GBR'].description}" },
-  //   { title: "${exampleContents.texts.xs['eng-GBR'].title}", element: "${exampleContents.texts.xs['eng-GBR'].description}" },
-  //   { title: "${exampleContents.texts.sm['eng-GBR'].title}", element: "${exampleContents.texts.sm['eng-GBR'].description}" }
-  // ];
-  // carousel.setProps({elements: elements });
-`,
+  codeNativeHTML: `<elvia-carousel
+  <elvia-carousel
+  id="example-elvia-carousel"
+>
+  <div slot="title-1">
+    <h3>${exampleContents.texts.xs['eng-GBR'].title}</h3>
+  </div>
+  <div slot="element-1">
+    <img 
+      alt="Carousel example image" 
+      src="../../../../assets/carousel/el1.jpeg"
+      style="width: 70%; min-width: 278px;" 
+    />
+  </div>
+  <div slot="title-2">
+    <h3>${exampleContents.texts.sm['eng-GBR'].title}</h3>
+  </div>
+  <div slot="element-2">
+    <img 
+      alt="Carousel example image" 
+      src="../../../../assets/carousel/el2.jpeg"
+      style="width: 70%; min-width: 278px;" 
+    />
+  </div>
+  <div slot="title-3">
+    <h3>${exampleContents.texts.md['eng-GBR'].title}</h3>
+  </div>
+  <div slot="element-3">
+    <img 
+      alt="Carousel example image" 
+      src="../../../../assets/carousel/el3.jpeg"
+      style="width: 70%; min-width: 278px;" 
+    />
+  </div>
+</elvia-carousel>`,
   does: [
     'Many items to display and the user only needs to focus on a few at once',
     'Collection of related items',

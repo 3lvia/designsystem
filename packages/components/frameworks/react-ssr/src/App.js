@@ -241,6 +241,34 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
+<Carousel
+  elements={[
+    { 
+      title: 'HAN-gate', 
+      element: <img 
+        alt="Carousel example image" 
+        src="../../../../assets/carousel/el1.jpeg"
+        style={{width: '70%', minWidth: '278px'}}
+      />
+    },
+    { 
+      title: 'AMS-meter', 
+      element: <img 
+        alt="Carousel example image" 
+        src="../../../../assets/carousel/el2.jpeg"
+        style={{width: '70%', minWidth: '278px'}}
+      />
+    },
+    { 
+      title: 'About login', 
+      element: <img 
+        alt="Carousel example image" 
+        src="../../../../assets/carousel/el3.jpeg"
+        style={{width: '70%', minWidth: '278px'}}
+      />
+    }
+  ]} 
+></Carousel>
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <h2>Box</h2>
