@@ -68,60 +68,60 @@ export const carouselData = {
   codeReact: `<Carousel
   elements={[
     { 
-      title: '${exampleContents.texts.xs['eng-GBR'].title}', 
+      title: <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>, 
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el1.jpeg"
-        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
+        style={{width: '70%', minWidth: '278px', borderRadius: '8px', marginBottom: '24px'}}
       />
     },
     { 
-      title: '${exampleContents.texts.sm['eng-GBR'].title}', 
+      title: <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>, 
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el2.jpeg"
-        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
+        style={{width: '70%', minWidth: '278px', borderRadius: '8px', marginBottom: '24px'}}
       />
     },
     { 
-      title: '${exampleContents.texts.md['eng-GBR'].title}', 
+      title: <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>, 
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el3.jpeg"
-        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
+        style={{width: '70%', minWidth: '278px', borderRadius: '8px', marginBottom: '24px'}}
       />
     }
   ]} 
 ></Carousel>`,
   codeAngular: `<elvia-carousel>
   <div slot="title-1">
-    <h3>${exampleContents.texts.xs['eng-GBR'].title}</h3>
+    <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>
   <div slot="element-1">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
-      style="width: 70%; min-width: 278px; border-radius: 8px;" 
+      style="width: 70%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
     />
   </div>
   <div slot="title-2">
-    <h3>${exampleContents.texts.sm['eng-GBR'].title}</h3>
+    <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
   </div>
   <div slot="element-2">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
-      style="width: 70%; min-width: 278px; border-radius: 8px;" 
+      style="width: 70%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
     />
   </div>
   <div slot="title-3">
-    <h3>${exampleContents.texts.md['eng-GBR'].title}</h3>
+    <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
   </div>
   <div slot="element-3">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
-      style="width: 70%; min-width: 278px; border-radius: 8px;" 
+      style="width: 70%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
     />
   </div>
 </elvia-carousel>`,
@@ -130,33 +130,33 @@ export const carouselData = {
   id="example-elvia-carousel"
 >
   <div slot="title-1">
-    <h3>${exampleContents.texts.xs['eng-GBR'].title}</h3>
+    <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>
   <div slot="element-1">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
     />
   </div>
   <div slot="title-2">
-    <h3>${exampleContents.texts.sm['eng-GBR'].title}</h3>
+    <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
   </div>
   <div slot="element-2">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
     />
   </div>
   <div slot="title-3">
-    <h3>${exampleContents.texts.md['eng-GBR'].title}</h3>
+    <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
   </div>
   <div slot="element-3">
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
     />
   </div>
 </elvia-carousel>`,

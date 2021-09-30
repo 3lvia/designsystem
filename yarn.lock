@@ -1761,24 +1761,6 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
   integrity sha512-Fxt+AfXgjMoin2maPIYzFZnQjAXjAL0PHscM5pRTtatFqB+vZxAM9tLp2Optnuw3QOQC40jTNeGYFOMvyf7v9g==
 
-"@elvia/elvis-box@0.0.1-beta.3":
-  version "0.0.1-beta.3"
-  resolved "https://registry.yarnpkg.com/@elvia/elvis-box/-/elvis-box-0.0.1-beta.3.tgz#fde724d9b2321ee9d5ecc8421f64017fd7d192db"
-  integrity sha512-R1obZPJV23UO7k+adCFQezaYpwurGUATQBkpvCVrT0+5PtnXstpz6CrfHwvNTg+nUHiIxok2OWI/4O8Hr7xeDQ==
-  dependencies:
-    "@elvia/elvis-component-wrapper" "^2.0.0"
-    "@elvia/elvis-toolbox" "^1.2.0"
-    styled-components "^5.2.1"
-
-"@elvia/elvis-carousel@0.0.1-beta.6":
-  version "0.0.1-beta.6"
-  resolved "https://registry.yarnpkg.com/@elvia/elvis-carousel/-/elvis-carousel-0.0.1-beta.6.tgz#5668825dcb6a116651dc278584cee0fa4e5592ff"
-  integrity sha512-b/mIQa5uOKTc3Y/v/H/B2Qh7cgFV+eQEYZrb2sXjTicgboMLa0nEzxCwOc34CDfwRj2MmVdl6MvVWFuB/WBGdA==
-  dependencies:
-    "@elvia/elvis-component-wrapper" "^2.0.3"
-    react-transition-group "^4.4.2"
-    styled-components "^5.2.3"
-
 "@elvia/elvis-component-wrapper@2.0.3":
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/@elvia/elvis-component-wrapper/-/elvis-component-wrapper-2.0.3.tgz#fe37d6165ffab20d61103bbe8277c7d9d814e42d"

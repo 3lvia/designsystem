@@ -2,8 +2,8 @@ import React, { FC, useState, useRef, useEffect } from 'react';
 import classnames from 'classnames';
 import {
   CarouselContainer,
-  CarouselTitle,
   CarouselElement,
+  CarouselTitle,
   LeftCarouselButton,
   ListOfDots,
   Dot,
@@ -179,7 +179,14 @@ export const Carousel: FC<BaseCarouselProps> = ({
     <CarouselContainer slideDirection={slideDirection} className={className}>
       {typeof carouselElements === 'object' && (
         <CarouselElementContainer className={classNameContainer}>
-          <CarouselTitle>{carouselElements[index].title}</CarouselTitle>
+          {typeof carouselElements[index].title === 'string' && (
+            <CarouselTitle>
+              <h2 className="e-title-sm">{carouselElements[index].title}</h2>
+            </CarouselTitle>
+          )}
+          {typeof carouselElements[index].title === 'object' && (
+            <CarouselTitle>{carouselElements[index].title}</CarouselTitle>
+          )}
           <CarouselElement
             ref={itemsRef}
             onMouseDown={(e: MouseEvent) => handleMouseDown(e)}

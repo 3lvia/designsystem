@@ -73,28 +73,6 @@ export const CarouselElementContainer = styled.div`
   }
 `;
 
-export const CarouselTitle = styled.h2`
-  font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: 700;
-  line-height: '28px';
-  font-size: '30px';
-  color: ${ElviaColors.elviaOff};
-  text-transform: 'unset';
-  letter-spacing: 'unset';
-  font-style: unset;
-  * {
-    margin: 0px;
-    font-family: 'Red Hat Display', Verdana, sans-serif;
-    font-weight: 700;
-    line-height: '28px';
-    font-size: '30px';
-    color: ${ElviaColors.elviaOff};
-    text-transform: 'unset';
-    letter-spacing: 'unset';
-    font-style: unset;
-  }
-`;
-
 export const CarouselElement = styled.div`
   display: flex;
   align-items: center;
@@ -117,6 +95,13 @@ export const CarouselElement = styled.div`
     text-transform: 'unset';
     letter-spacing: 'unset';
     font-style: unset;
+  }
+`;
+
+export const CarouselTitle = styled.div`
+  margin-top: 0;
+  * {
+    margin-top: 0;
   }
 `;
 
@@ -166,7 +151,7 @@ export const LeftCarouselButton = styled.button`
   border: none;
   background: transparent;
   display: flex;
-  padding: 24px 0px 24px 16px;
+  padding-right: 16px;
   visibility: ${(props: { hidden: boolean }) => (props.hidden ? 'hidden' : 'visible')};
 
   cursor: pointer;
@@ -195,7 +180,7 @@ export const RightCarouselButton = styled.button`
   border: none;
   background: transparent;
   display: flex;
-  padding: 24px 16px 24px 0px;
+  padding-right: 16px;
   visibility: ${(props: { hidden: boolean }) => (props.hidden ? 'hidden' : 'visible')};
   cursor: pointer;
   &:hover {
