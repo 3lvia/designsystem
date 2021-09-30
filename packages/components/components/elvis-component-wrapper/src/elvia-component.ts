@@ -35,6 +35,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     return this._slots[str];
   }
 
+  getAllSlots(): any {
+    return this._slots;
+  }
+
   connectedCallback(): void {
     // Slot items
     if (this.webComponent.getComponentData().slotItems === true) {
@@ -151,24 +155,24 @@ export class ElvisComponentWrapper extends HTMLElement {
   private logErrorMessage(functionName: string, error: string): void {
     console.error(
       '[' +
-        this.webComponent.getComponentData().name +
-        '] elvia-component-wrapper: ' +
-        "Failed at function '" +
-        functionName +
-        "'. " +
-        error,
+      this.webComponent.getComponentData().name +
+      '] elvia-component-wrapper: ' +
+      "Failed at function '" +
+      functionName +
+      "'. " +
+      error,
     );
   }
 
   private logWarnMessage(functionName: string, warn: string): void {
     console.warn(
       '[' +
-        this.webComponent.getComponentData().name +
-        '] elvia-component-wrapper: ' +
-        "Failed at function '" +
-        functionName +
-        "'. " +
-        warn,
+      this.webComponent.getComponentData().name +
+      '] elvia-component-wrapper: ' +
+      "Failed at function '" +
+      functionName +
+      "'. " +
+      warn,
     );
   }
 
@@ -229,8 +233,8 @@ export class ElvisComponentWrapper extends HTMLElement {
         this.logErrorMessage(
           'convertString',
           ': The property "' +
-            attrName +
-            '" is not a valid JSON object. This is probably because the JSON object is containing single quotes instead of double quotes.',
+          attrName +
+          '" is not a valid JSON object. This is probably because the JSON object is containing single quotes instead of double quotes.',
         );
       }
     }

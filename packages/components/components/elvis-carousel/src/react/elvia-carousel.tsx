@@ -14,7 +14,7 @@ import {
 } from './StyledComponents';
 
 type CarouselElement = {
-  title?: string;
+  title?: JSX.Element | string | HTMLElement;
   element: JSX.Element | string | HTMLElement;
 };
 
@@ -40,21 +40,21 @@ export const Carousel: FC<BaseCarouselProps> = ({
   valueOnChange,
   webcomponent,
 }) => {
+  const [carouselElements, setCarouselElements] = useState<CarouselElement[] | number>();
+  const [lengthOfElements, setLengthOfElements] = useState<number>(0);
   const [index, setIndex] = useState(value);
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [slideIn, setSlideIn] = useState(true);
-  const [componentInitialized, setComponentInitialized] = useState(false);
+  const [fadeIn, setFadeIn] = useState(true);
   const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('left');
 
   const itemsRef = useRef<HTMLDivElement>(null);
 
-  const lengthOfElements =
-    typeof elements === 'object' ? elements.length : typeof elements === 'string' ? +elements : elements;
-
   const hideLeftArrow = hideArrows && index === 0;
   const hideRightArrow = hideArrows && index === lengthOfElements - 1;
   const showOnboardingCheckmark = hideRightArrow && useOnboardingCheckmark;
+
+  console.log('Carousel: ', carouselElements, ':', typeof carouselElements);
 
   const updateValue = (index: number) => {
     setIndex(index);
@@ -67,10 +67,59 @@ export const Carousel: FC<BaseCarouselProps> = ({
     }
   };
 
-  // Is necessary since the web component does not send all props at once
+  useEffect(() => {
+    if (!webcomponent) {
+      return;
+    }
+    // Get slotted items from web component
+    const slots = webcomponent.getAllSlots();
+    const slotElements = Object.keys(slots).filter((el) => {
+      return el.includes('element-');
+    });
+    if (!slotElements) {
+      return;
+    }
+
+    const newElements: CarouselElement[] = [];
+    for (let i = 1; i < slotElements.length + 1; i++) {
+      const newEl: CarouselElement = { title: '', element: '' };
+      const title = Object.keys(slots).find((el) => {
+        return el === 'title-' + i;
+      });
+      const element = Object.keys(slots).find((el) => {
+        return el === 'element-' + i;
+      });
+      newEl.title = <div dangerouslySetInnerHTML={{ __html: title ? slots[title].innerHTML : '' }} />;
+      newEl.element = <div dangerouslySetInnerHTML={{ __html: element ? slots[element].innerHTML : '' }} />;
+      newElements.push(newEl);
+    }
+    setCarouselElements(newElements);
+  }, [webcomponent]);
+
+  // Is necessary since the web component
   useEffect(() => {
     setIndex(index);
   }, [index]);
+
+  // Is necessary since the web component
+  useEffect(() => {
+    if (elements !== undefined) {
+      setCarouselElements(elements);
+      setLengthOfElements(
+        typeof elements === 'object' ? elements.length : typeof elements === 'string' ? +elements : elements,
+      );
+    }
+  }, [elements]);
+
+  // Is necessary since the web component
+  useEffect(() => {
+    if (!carouselElements || typeof carouselElements === 'number') {
+      return;
+    }
+    setLengthOfElements(carouselElements.length);
+    console.log(carouselElements);
+    console.log(carouselElements.length);
+  }, [carouselElements]);
 
   const handleMouseDown = (e: MouseEvent | TouchEvent) => {
     const clientX = 'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
@@ -100,13 +149,10 @@ export const Carousel: FC<BaseCarouselProps> = ({
   };
 
   const handleButtonClick = (index: number, direction: 'left' | 'right'): void => {
-    if (!componentInitialized) {
-      setComponentInitialized(true);
-    }
     setIsDown(false);
     const oppositeDirection = direction === 'left' ? 'right' : 'left';
     setSlideDirection(oppositeDirection);
-    setSlideIn(false);
+    setFadeIn(false);
 
     setTimeout(() => {
       // Using modulo to be able to carousel to next element
@@ -115,20 +161,20 @@ export const Carousel: FC<BaseCarouselProps> = ({
         ? updateValue((index - 1 + lengthOfElements) % lengthOfElements)
         : updateValue((index + 1) % lengthOfElements);
       setSlideDirection(direction);
-      setSlideIn(true);
-    }, 500);
+      setFadeIn(true);
+    }, 480);
   };
 
   const classNameContainer = classnames({
-    ['exit-animation']: !slideIn,
-    ['enter-animation']: slideIn && componentInitialized,
+    ['exit-animation']: !fadeIn,
+    ['enter-animation']: fadeIn,
   });
 
   return (
     <CarouselContainer slideDirection={slideDirection} className={className}>
-      {typeof elements === 'object' && (
+      {typeof carouselElements === 'object' && (
         <CarouselElementContainer className={classNameContainer}>
-          <CarouselTitle>{elements[index].title}</CarouselTitle>
+          <CarouselTitle>{carouselElements[index].title}</CarouselTitle>
           <CarouselElement
             ref={itemsRef}
             onMouseDown={(e: MouseEvent) => handleMouseDown(e)}
@@ -139,7 +185,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
             onTouchMove={(e: TouchEvent) => handleMouseMove(e)}
             onTouchEnd={() => setIsDown(false)}
           >
-            {elements[index].element}
+            {carouselElements[index].element}
           </CarouselElement>
         </CarouselElementContainer>
       )}
@@ -167,7 +213,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
         </ListOfDots>
 
         {showOnboardingCheckmark ? (
-          <CheckButton aria-label={'Stegene er fullført. Lukk carousel.'} onClick={() => onHide && onHide()}>
+          <CheckButton aria-label={'Fullfør og lukk.'} onClick={() => onHide && onHide()}>
             <i />
           </CheckButton>
         ) : (

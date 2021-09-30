@@ -73,6 +73,12 @@ export const carouselData = {
   ]} 
 ></Carousel>`,
   codeAngular: `<elvia-carousel
+  [elements]="[
+    { title: '${exampleContents.texts.md['eng-GBR'].title}', element: '${exampleContents.texts.md['eng-GBR'].description}' },
+    { title: '${exampleContents.texts.xs['eng-GBR'].title}', element: '${exampleContents.texts.xs['eng-GBR'].description}' },
+    { title: '${exampleContents.texts.sm['eng-GBR'].title}', element: '${exampleContents.texts.sm['eng-GBR'].description}' }
+  ]"
+>
   <div slot="title-1">
     <h3>Tile 1</h3>
   </div>
@@ -85,22 +91,49 @@ export const carouselData = {
   <div slot="element-2">
     <div>Element 2</div>
   </div>
-  [elements]="[
-    { title: '${exampleContents.texts.md['eng-GBR'].title}', element: '${exampleContents.texts.md['eng-GBR'].description}' },
-    { title: '${exampleContents.texts.xs['eng-GBR'].title}', element: '${exampleContents.texts.xs['eng-GBR'].description}' },
-    { title: '${exampleContents.texts.sm['eng-GBR'].title}', element: '${exampleContents.texts.sm['eng-GBR'].description}' }
-  ]"
-></elvia-carousel>`,
+</elvia-carousel>`,
   codeNativeHTML: `<elvia-carousel
+  <elvia-carousel
   id="example-elvia-carousel"
-></elvia-carousel>`,
+>
+  <div slot="title-1">
+    <h3>Tile 1</h3>
+  </div>
+  <div slot="element-1">
+    <img 
+      alt="Carousel example image" 
+      src="../../../../assets/carousel/el1.jpeg"
+      style="width: 70%; min-width: 278px;" 
+    />
+  </div>
+  <div slot="title-2">
+    <h3>Tile 2</h3>
+  </div>
+  <div slot="element-2">
+    <img 
+      alt="Carousel example image" 
+      src="../../../../assets/carousel/el2.jpeg"
+      style="width: 70%; min-width: 278px;" 
+    />
+  </div>
+  <div slot="title-3">
+    <h3>Title 3</h3>
+  </div>
+  <div slot="element-3">
+    <img 
+      alt="Carousel example image" 
+      src="../../../../assets/carousel/el3.jpeg"
+      style="width: 70%; min-width: 278px;" 
+    />
+  </div>
+</elvia-carousel>`,
   codeNativeScript: `  const carousel = document.getElementById('example-elvia-carousel');
-  const elements = [
-    { title: "${exampleContents.texts.md['eng-GBR'].title}", element: "${exampleContents.texts.md['eng-GBR'].description}" },
-    { title: "${exampleContents.texts.xs['eng-GBR'].title}", element: "${exampleContents.texts.xs['eng-GBR'].description}" },
-    { title: "${exampleContents.texts.sm['eng-GBR'].title}", element: "${exampleContents.texts.sm['eng-GBR'].description}" }
-  ];
-  carousel.setProps({elements: elements });
+  // const elements = [
+  //   { title: "${exampleContents.texts.md['eng-GBR'].title}", element: "${exampleContents.texts.md['eng-GBR'].description}" },
+  //   { title: "${exampleContents.texts.xs['eng-GBR'].title}", element: "${exampleContents.texts.xs['eng-GBR'].description}" },
+  //   { title: "${exampleContents.texts.sm['eng-GBR'].title}", element: "${exampleContents.texts.sm['eng-GBR'].description}" }
+  // ];
+  // carousel.setProps({elements: elements });
 `,
   does: [
     'Many items to display and the user only needs to focus on a few at once',

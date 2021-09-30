@@ -18,6 +18,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() accordionCustom = false;
   @Input() overflowY;
   @Input() alignedTop = false;
+  @Input() height = '340';
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeNativeSub: Subscription;
@@ -40,7 +41,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   bgList = [];
   dynamicCode;
 
-  constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) {}
+  constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.codeAngular = this.componentData.codeAngular;
