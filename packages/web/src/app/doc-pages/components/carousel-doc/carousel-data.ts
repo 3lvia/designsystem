@@ -72,7 +72,7 @@ export const carouselData = {
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el1.jpeg"
-        style={{width: '70%', minWidth: '278px'}}
+        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
       />
     },
     { 
@@ -80,7 +80,7 @@ export const carouselData = {
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el2.jpeg"
-        style={{width: '70%', minWidth: '278px'}}
+        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
       />
     },
     { 
@@ -88,7 +88,7 @@ export const carouselData = {
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el3.jpeg"
-        style={{width: '70%', minWidth: '278px'}}
+        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
       />
     }
   ]} 
@@ -101,7 +101,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
-      style="width: 70%; min-width: 278px;" 
+      style="width: 70%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
   <div slot="title-2">
@@ -111,7 +111,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
-      style="width: 70%; min-width: 278px;" 
+      style="width: 70%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
   <div slot="title-3">
@@ -121,7 +121,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
-      style="width: 70%; min-width: 278px;" 
+      style="width: 70%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
 </elvia-carousel>`,
@@ -136,7 +136,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
-      style="width: 70%; min-width: 278px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
   <div slot="title-2">
@@ -146,7 +146,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
-      style="width: 70%; min-width: 278px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
   <div slot="title-3">
@@ -156,7 +156,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
-      style="width: 70%; min-width: 278px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
 </elvia-carousel>`,

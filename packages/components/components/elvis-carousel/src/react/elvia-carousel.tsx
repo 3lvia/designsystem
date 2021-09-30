@@ -148,7 +148,8 @@ export const Carousel: FC<BaseCarouselProps> = ({
     }
   };
 
-  const handleButtonClick = (index: number, direction: 'left' | 'right'): void => {
+  const handleButtonClick = (index: number, direction: 'left' | 'right', dotClick?: boolean): void => {
+    console.log(index);
     setIsDown(false);
     const oppositeDirection = direction === 'left' ? 'right' : 'left';
     setSlideDirection(oppositeDirection);
@@ -157,9 +158,13 @@ export const Carousel: FC<BaseCarouselProps> = ({
     setTimeout(() => {
       // Using modulo to be able to carousel to next element
       // For decrement you have to add the length of elements to prevent negative values
-      direction === 'left'
-        ? updateValue((index - 1 + lengthOfElements) % lengthOfElements)
-        : updateValue((index + 1) % lengthOfElements);
+      if (dotClick) {
+        updateValue(index);
+      } else {
+        direction === 'left'
+          ? updateValue((index - 1 + lengthOfElements) % lengthOfElements)
+          : updateValue((index + 1) % lengthOfElements);
+      }
       setSlideDirection(direction);
       setFadeIn(true);
     }, 480);
@@ -207,7 +212,10 @@ export const Carousel: FC<BaseCarouselProps> = ({
               aria-label={
                 listIndex === index ? `Du er på side ${listIndex + 1}` : `Gå til side ${listIndex + 1}`
               }
-              onClick={() => updateValue(listIndex)}
+              onClick={() =>
+                listIndex !== index &&
+                handleButtonClick(listIndex, listIndex > index ? 'right' : 'left', true)
+              }
             />
           ))}
         </ListOfDots>

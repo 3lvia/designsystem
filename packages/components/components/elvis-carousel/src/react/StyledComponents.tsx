@@ -50,8 +50,10 @@ export const CarouselContainer = styled.div`
 `;
 
 export const CarouselElementContainer = styled.div`
-  transform: scale(0.98);
-  cursor: pointer;
+  // transform: scale(0.98);
+  @media (hover: none) {
+    transform: scale(0.98);
+  }
 
   // Prevent imagine dragging
   // Note: This does not work for Firefox
@@ -141,6 +143,14 @@ export const Dot = styled.button`
     ${(props: { isSelected: boolean }) => (props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOff)};
   height: ${(props: { isSelected: boolean }) => (props.isSelected ? '9px' : '8px')};
   width: ${(props: { isSelected: boolean }) => (props.isSelected ? '9px' : '8px')};
+  @media (max-width: 767px) {
+    border: 1px solid
+      ${(props: { isSelected: boolean }) =>
+        props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOff};
+    height: ${(props: { isSelected: boolean }) => (props.isSelected ? '13px' : '12px')};
+    width: ${(props: { isSelected: boolean }) => (props.isSelected ? '13px' : '12px')};
+  }
+
   border-radius: 50%;
   background-color: ${(props: { isSelected: boolean }) =>
     props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOn};
