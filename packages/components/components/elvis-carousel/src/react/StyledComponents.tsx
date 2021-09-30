@@ -139,7 +139,7 @@ export const Dot = styled.button`
   border-radius: 50%;
   background-color: ${(props: { isSelected: boolean }) =>
     props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOn};
-  margin: 8px;
+  margin: ${(props: { isSelected: boolean }) => (props.isSelected ? '7.5px' : '8px')};
   cursor: pointer;
   padding: 0;
   &:hover {
