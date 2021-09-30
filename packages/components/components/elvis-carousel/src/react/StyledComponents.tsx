@@ -50,10 +50,7 @@ export const CarouselContainer = styled.div`
 `;
 
 export const CarouselElementContainer = styled.div`
-  // transform: scale(0.98);
-  @media (hover: none) {
-    transform: scale(0.98);
-  }
+  transform: scale(1);
 
   // Prevent imagine dragging
   // Note: This does not work for Firefox
@@ -70,6 +67,9 @@ export const CarouselElementContainer = styled.div`
     cursor: -webkit-grabbing;
     transform: scale(1);
     user-select: none;
+    @media (hover: none) {
+      transform: scale(0.98);
+    }
   }
 `;
 
