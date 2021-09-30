@@ -9,6 +9,7 @@ const path = require('path');
 let components = require('../elvia-components.config');
 const rename = require("gulp-rename");
 const fs = require('fs');
+const typescript = require('gulp-typescript')
 const validate = require('./validateConfig.js');
 
 
@@ -127,11 +128,20 @@ function TSX_to_JS() {
                     ]
                 })).pipe(header(WARNING))
                 .pipe(gulp.dest(`../components/${component.name}/dist/react/js/`)),
-
             gulp.src([`../components/${component.name}/src/react/**/*.scss`, `../components/${component.name}/src/react/**/*.d.ts`]).pipe(
                 gulp.dest(`../components/${component.name}/dist/react/js/`)
             )
         );
+    });
+    return mergeStream(tasks);
+}
+
+function reactTypescriptDeclarations() {
+    reloadComponentConfig();
+    const componentsToCreateDeclarationsFor = components.filter((component) => component.reactTypescriptDeclaration);
+    const tasks = componentsToCreateDeclarationsFor.map((component) => {
+        const tsConfig = typescript.createProject('../tsconfig.json');
+        return gulp.src(`../components/${component.name}/src/react/**/*.ts*`).pipe(tsConfig()).pipe(gulp.dest(`../components/${component.name}/dist/react/js/`));
     });
     return mergeStream(tasks);
 }
@@ -149,7 +159,7 @@ function buildElviaComponentToJS() {
 
 function buildToolboxComponentToJS() {
     const tsConfig = typescript.createProject('../tsconfig.json');
-    const tsResult = gulp.src(['../components/elvis-toolbox/**/*.ts'])
+    const tsResult = gulp.src(['../components/elvis-toolbox/src/*.ts'])
         .pipe(tsConfig());
     return mergeStream(tsResult, tsResult.js)
         .pipe(gulp.dest('../components/elvis-toolbox/dist'));
@@ -169,6 +179,7 @@ gulp.task(
         validate.validateElviaComponentsConfig,
         buildToolboxComponentToJS,
         TSX_to_JS,
+        reactTypescriptDeclarations,
         buildWebComponentsMagically,
         buildElviaComponentToJS,
         function (done) {
