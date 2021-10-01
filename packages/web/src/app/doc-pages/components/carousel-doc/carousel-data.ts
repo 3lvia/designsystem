@@ -73,7 +73,7 @@ export const carouselData = {
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el1.jpeg"
-        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
+        style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
       />
     },
     { 
@@ -81,7 +81,7 @@ export const carouselData = {
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el2.jpeg"
-        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
+        style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
       />
     },
     { 
@@ -89,7 +89,7 @@ export const carouselData = {
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el3.jpeg"
-        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
+        style={{width: '100%', minWidth: '278px', borderRadius: '8px'}}
       />
     }
   ]} 
@@ -102,7 +102,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
-      style="width: 70%; min-width: 278px; border-radius: 8px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
   <div slot="title-2">
@@ -112,7 +112,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
-      style="width: 70%; min-width: 278px; border-radius: 8px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
   <div slot="title-3">
@@ -122,14 +122,11 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
-      style="width: 70%; min-width: 278px; border-radius: 8px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
 </elvia-carousel>`,
-  codeNativeHTML: `<elvia-carousel
-  <elvia-carousel
-  id="example-elvia-carousel"
->
+  codeNativeHTML: `<elvia-carousel>
   <div slot="title-1">
     <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>
