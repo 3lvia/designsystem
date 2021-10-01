@@ -8,7 +8,8 @@ export const carouselData = {
     elements: {
       isRequired: true,
       type: 'CarouselElement[] | number | slot',
-      description: 'A collection of related items that should be displayed in a carousel. If not React, send the elements in by slots. Name the slots "element-1", "title-1", "element-2", "title-2" and so on.',
+      description:
+        'A collection of related items that should be displayed in a carousel. If not React, send the elements in by slots. Name the slots "element-1", "title-1", "element-2", "title-2" and so on.',
       displayName: 'No content',
     },
     hideArrows: {
@@ -72,7 +73,7 @@ export const carouselData = {
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el1.jpeg"
-        style={{width: '70%', minWidth: '278px', borderRadius: '8px', marginBottom: '24px'}}
+        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
       />
     },
     { 
@@ -80,7 +81,7 @@ export const carouselData = {
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el2.jpeg"
-        style={{width: '70%', minWidth: '278px', borderRadius: '8px', marginBottom: '24px'}}
+        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
       />
     },
     { 
@@ -88,7 +89,7 @@ export const carouselData = {
       element: <img 
         alt="Carousel example image" 
         src="../../../../assets/carousel/el3.jpeg"
-        style={{width: '70%', minWidth: '278px', borderRadius: '8px', marginBottom: '24px'}}
+        style={{width: '70%', minWidth: '278px', borderRadius: '8px'}}
       />
     }
   ]} 
@@ -101,7 +102,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
-      style="width: 70%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
+      style="width: 70%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
   <div slot="title-2">
@@ -111,7 +112,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
-      style="width: 70%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
+      style="width: 70%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
   <div slot="title-3">
@@ -121,7 +122,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
-      style="width: 70%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
+      style="width: 70%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
 </elvia-carousel>`,
@@ -136,7 +137,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el1.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
   <div slot="title-2">
@@ -146,7 +147,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el2.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
   <div slot="title-3">
@@ -156,7 +157,7 @@ export const carouselData = {
     <img 
       alt="Carousel example image" 
       src="../../../../assets/carousel/el3.jpeg"
-      style="width: 100%; min-width: 278px; border-radius: 8px; margin-bottom: 24px;" 
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
     />
   </div>
 </elvia-carousel>`,

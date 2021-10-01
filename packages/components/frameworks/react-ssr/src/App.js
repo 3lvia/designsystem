@@ -241,6 +241,7 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
+      <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <h2>Box</h2>
