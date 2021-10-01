@@ -152,7 +152,7 @@ export const LeftCarouselButton = styled.button`
   border: none;
   background: transparent;
   display: flex;
-  padding-right: 16px;
+  padding: 0px;
   visibility: ${(props: { hidden: boolean }) => (props.hidden ? 'hidden' : 'visible')};
 
   cursor: pointer;
@@ -181,7 +181,7 @@ export const RightCarouselButton = styled.button`
   border: none;
   background: transparent;
   display: flex;
-  padding-right: 16px;
+  padding: 0px;
   visibility: ${(props: { hidden: boolean }) => (props.hidden ? 'hidden' : 'visible')};
   cursor: pointer;
   &:hover {
