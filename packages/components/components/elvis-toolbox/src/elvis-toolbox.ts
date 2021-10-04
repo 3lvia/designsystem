@@ -1,7 +1,7 @@
-import throttle from 'lodash.throttle';
+import { throttle } from 'lodash';
 
-const customThrottle = (func: () => void, limit: number, options: { trailing: boolean }): void => {
-  throttle(func, limit, options); // TODO: Fungerer dette fortsatt? 
+const customThrottle = (func: () => void, limit: number, options: { trailing: boolean }): any => {
+  return throttle(func, limit, options);
 };
 
 const outlineListener = (element: HTMLElement, destroy?: boolean): void => {

@@ -143,6 +143,10 @@ function reactTypescriptDeclarations() {
         const tsConfig = typescript.createProject('../tsconfig.json');
         return gulp.src(`../components/${component.name}/src/react/**/*.ts*`).pipe(tsConfig()).pipe(gulp.dest(`../components/${component.name}/dist/react/js/`));
     });
+
+    if (tasks.length === 0) {
+        return Promise.resolve(true);
+    }
     return mergeStream(tasks);
 }
 

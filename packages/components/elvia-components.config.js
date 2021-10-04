@@ -53,7 +53,7 @@ module.exports = [
     useWrapper: true,
     slotItems: false,
     elementStyle: `width: 100%;`,
-    reactTypescriptDeclaration: true,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-breadcrumb',
