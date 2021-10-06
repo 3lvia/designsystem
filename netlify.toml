@@ -1,4 +1,4 @@
 [build]
 base = ""
-command = "yarn run build:web && yarn run react-preview"
+command = "yarn run build:web && yarn run build:react-preview"
 publish = "packages/web/dist/elvia-designsystem"
