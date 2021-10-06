@@ -42,6 +42,7 @@
     "ssr": "yarn build && node server/index.js",
     "production": "yarn build && mv ./build ../../../web/dist/elvia-designsystem/react-preview"
   },
+  "homepage": "./",
   "eslintConfig": {
     "extends": [
       "react-app",
