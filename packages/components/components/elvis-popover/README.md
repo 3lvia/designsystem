@@ -6,8 +6,8 @@ trigger element and should position itself relative to where there is free space
 ## Props
 
 - header (string) - Header of content
-- content (string | HTMLElement) [required] - Text, images, tables or any other content (use slot in angular
-  if not just text)
+- content (string | HTMLElement) [required] - Text, images, tables or any other content (use slot in
+  webcomponent if not just text)
 - trigger (HTMLElement) [required] - The element the user clicks to open the popover (pass in as slot, in
   react as prop)
 - posX (string) - Position horizontally (left, right, center(default))

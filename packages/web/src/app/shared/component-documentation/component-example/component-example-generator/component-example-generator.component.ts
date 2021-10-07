@@ -15,6 +15,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() componentData;
   @Input() width = 100;
   @Input() hasPreview = true;
+  @Input() inlineExample = false;
   @Input() accordionCustom = false;
   @Input() overflowY;
   @Input() alignedTop = false;

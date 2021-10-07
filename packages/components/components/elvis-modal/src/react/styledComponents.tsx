@@ -213,6 +213,7 @@ export const CloseButton = styled.button`
   border: none;
   border-radius: 200px;
   padding: 8px;
+  cursor: pointer;
 
   @media (max-width: ${mobileMax}) {
     width: 32px;

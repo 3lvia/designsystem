@@ -181,7 +181,6 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   }
 
   setNewActiveNavbarItem(): void {
-    console.log('Setting active item');
     this.setSubMenuRoute();
     if (this.activeNavbarItem) {
       if (this.clickedNavbarItem === this.activeNavbarItem) {
@@ -200,7 +199,6 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   }
 
   markNewActiveNavbarItem(navbarItem: Record<string, unknown>): void {
-    console.log('Marking active item');
     this.clickedNavbarItem = navbarItem;
   }
 

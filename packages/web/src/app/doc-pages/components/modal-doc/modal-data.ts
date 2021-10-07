@@ -12,33 +12,44 @@ const modalData = {
     content: {
       isRequired: true,
       type: 'HTMLElement',
-      description: 'Text, images, tables or any other content (slot in angular)',
+      description: 'Text, images, tables or any other content (slot in webcomponent)',
     },
     illustration: {
       isRequired: false,
       type: 'HTMLElement',
-      description: 'Illustration/image to be shown in the modal (slot in angular)',
+      description: 'Illustration/image to be shown in the modal (slot in webcomponent)',
     },
     primaryButton: {
       isRequired: false,
       type: 'HTMLElement',
-      description: 'Primary button placed to the right in the modal (slot in angular)',
+      description: 'Primary button placed to the right in the modal (slot in webcomponent)',
     },
     secondaryButton: {
       isRequired: false,
       type: 'HTMLElement',
-      description: 'Secondary button placed to the right in the modal (slot in angular)',
+      description: 'Secondary button placed to the right in the modal (slot in webcomponent)',
     },
     className: {
       isRequired: false,
       type: 'string',
       description: 'Custom css classes that could be added to the modal',
     },
-    hasCloseButton: {
+    hasCloseBtn: {
       isRequired: false,
       type: 'boolean',
       description: 'Show close icon button inside the modal in the top right corner.',
-      default: false,
+      displayName: 'Close button',
+      default: 'false',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
+    },
+    hasLockBodyScroll: {
+      isRequired: true,
+      type: 'boolean',
+      description: 'Locks the body of your page so that you cant scroll while the modal is open.',
+      default: 'true',
     },
     onHide: {
       isRequired: true,
@@ -65,11 +76,13 @@ const modalData = {
       onClick={() => setIsModalShowingState(false)}
       className="e-btn e-btn--secondary e-btn--lg">
       Cancel
-    </button>}
+    </button>
+  }
   content={
-    <>
-      <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
-    </>
+    <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+  }
+  illustration={
+    <div>illustration</div>
   }
 >
 </Modal>`,
@@ -85,20 +98,40 @@ const modalData = {
     Cancel
   </button>
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+  <div slot="illustration">
+    Illustration
+  </div>
 </elvia-modal>`,
-  codeNativeHTML: `<elvia-modal
-  (onHide)="isModalShowing = !isModalShowing"
-  isShowing="isModalShowing"
-  title="Title of content"
+  codeNativeHTML: `<button id="example-modal-button" class="e-btn">Åpne modal</button>
+<elvia-modal
+  id="example-elvia-modal"
 >
   <div slot="content">
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
   </div>
-  <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing = false">
+  <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg">
     Cancel
   </button>
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+  <div slot="illustration">
+    <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>
+  </div>
 </elvia-modal>
+`,
+  codeNativeScript: `  const modal = document.getElementById('example-elvia-modal');
+  const button = document.getElementById('example-modal-button');
+  let isModalShowing = false;
+
+  modal.setProps({isShowing: isModalShowing });
+  modal.setProps({title: "Title of content" });
+  modal.addEventListener('onHide', () => {
+    modal.setProps({isShowing: !isModalShowing });
+    isModalShowing = !isModalShowing;
+  });
+  button.addEventListener("click", () => {
+    modal.setProps({isShowing: !isModalShowing });
+    isModalShowing = !isModalShowing;
+  });
 `,
 };
 

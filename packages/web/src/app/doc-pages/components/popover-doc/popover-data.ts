@@ -40,7 +40,7 @@ const popoverData = {
     content: {
       isRequired: true,
       type: 'string | HTMLElement',
-      description: 'Text, images, tables or any other content (use slot in angular if not just text)',
+      description: 'Text, images, tables or any other content (use slot in webcomponent if not just text)',
     },
     trigger: {
       isRequired: true,

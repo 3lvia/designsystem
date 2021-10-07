@@ -6,12 +6,14 @@ export function useLockBodyScroll(isShowing: boolean) {
     if (!isShowing) {
       return;
     }
-    const originalStyle = window.getComputedStyle(document.body).overflow;
+    const originalStyleOverflow = window.getComputedStyle(document.body).overflow;
 
     document.body.style.overflow = 'hidden';
+    document.body.style.height = '100vh';
 
     return () => {
-      document.body.style.overflow = originalStyle;
+      document.body.style.overflow = originalStyleOverflow;
+      document.body.style.height = 'unset';
     };
   }, [isShowing]);
 }
