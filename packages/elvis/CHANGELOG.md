@@ -6,6 +6,48 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.12.0
+      </span>
+      <br>
+      <span>
+        October 8, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/radiobutton#Overview">Radiobutton</a>,
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/segmented-control#Overview">Segmented Control</a>,
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/fileUpload#Overview">file Upload</a>,
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/brand/typography#Overview">Typography</a> &
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/brand/typography#Overview">Position Picker</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Radiobutton error state added.
+            </li>
+            <li>
+              Small version of Segmented control added.
+            </li>
+            <li>
+              Documentation for using file upload with more examples.
+            </li>
+            <li>
+              Text micro light typography added.
+            </li>
+            <li>
+              The position-picker states 'normal' and 'picked' have been updated to be more user friendly and text color has been updated.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.11.2
       </span>
       <br>
@@ -29,7 +71,7 @@
       <div class="changelog-divider"></div>
     </td>
   </tr>
-    <tr class="changelog-row">
+  <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
         7.11.1
@@ -274,7 +316,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a>,
               <a class="e-link e-link--inline" href="https://design.elvia.io/brand/color#Overview">Color</a> &
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Button</a> 
           </div>
@@ -294,7 +336,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>,
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Button</a> &
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>
@@ -391,7 +433,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">🐝 Bug Fixes / Patches</div>
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>

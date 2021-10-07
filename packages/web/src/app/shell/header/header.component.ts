@@ -39,7 +39,11 @@ export class HeaderComponent {
       });
     });
 
-    if (window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('elvis-designsystem.netlify.app') > - 1 || window.location.href.indexOf('#dev') > -1) {
+    if (
+      window.location.href.indexOf('localhost') > -1 ||
+      window.location.href.indexOf('elvis-designsystem.netlify.app') > -1 ||
+      window.location.href.indexOf('#dev') > -1
+    ) {
       this.devMode = true;
     }
 

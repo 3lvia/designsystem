@@ -9,9 +9,6 @@
   "e-btn--icon.e-btn--danger": {
     "version": "7.8.0"
   },
-  "e-radio---invalid": {
-    "version": "7.8.4"
-  },
   "e-radio input:invalid": {
     "version": "7.8.4"
   },
