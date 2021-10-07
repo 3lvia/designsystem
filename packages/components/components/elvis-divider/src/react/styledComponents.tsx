@@ -5,6 +5,7 @@ const ElviaColors = {
   elviaOff: '#000000',
   grey10: '#e9e9e9',
   grey20: '#d3d3d3',
+  grey90: '#3B3B3B',
   grey80: '#515151',
   grey70: '#676767',
 };
@@ -20,7 +21,7 @@ const decideBorderColor = (isInverted: boolean, type: string) => {
     if (type === 'title') {
       return ElviaColors.elviaOn;
     } else {
-      return ElviaColors.grey80;
+      return ElviaColors.grey90;
     }
   }
 };
