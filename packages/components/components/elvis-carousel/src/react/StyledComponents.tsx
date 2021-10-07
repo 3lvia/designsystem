@@ -50,7 +50,6 @@ export const CarouselContainer = styled.div`
 `;
 
 export const CarouselElementContainer = styled.div`
-  transform: scale(1);
   margin-bottom: 24px;
 
   // Prevent imagine dragging
@@ -66,7 +65,6 @@ export const CarouselElementContainer = styled.div`
   &:active {
     cursor: grabbing;
     cursor: -webkit-grabbing;
-    transform: scale(1);
     user-select: none;
     @media (hover: none) {
       transform: scale(0.98);
