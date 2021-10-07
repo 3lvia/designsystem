@@ -19,7 +19,7 @@ export class SearchDocComponent {
   overviewExample = `<div class="e-form-field">
   <div
     class="e-search e-search--instant"
-    style="width: 250px"
+    style="width: 300px"
     #exampleSearch
   >
     <div class="e-input">
