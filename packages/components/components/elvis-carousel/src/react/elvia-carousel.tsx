@@ -54,8 +54,6 @@ export const Carousel: FC<BaseCarouselProps> = ({
   const hideRightArrow = hideArrows && index === lengthOfElements - 1;
   const showOnboardingCheckmark = hideRightArrow && useOnboardingCheckmark;
 
-  console.log('Carousel: ', carouselElements, ':', typeof carouselElements);
-
   const updateValue = (index: number) => {
     setIndex(index);
     if (!webcomponent && valueOnChange) {
@@ -117,8 +115,6 @@ export const Carousel: FC<BaseCarouselProps> = ({
       return;
     }
     setLengthOfElements(carouselElements.length);
-    console.log(carouselElements);
-    console.log(carouselElements.length);
   }, [carouselElements]);
 
   const handleMouseDown = (e: MouseEvent | TouchEvent) => {
@@ -149,7 +145,6 @@ export const Carousel: FC<BaseCarouselProps> = ({
   };
 
   const handleButtonClick = (index: number, direction: 'left' | 'right', dotClick?: boolean): void => {
-    console.log(index);
     setIsDown(false);
     const oppositeDirection = direction === 'left' ? 'right' : 'left';
     setSlideDirection(oppositeDirection);
