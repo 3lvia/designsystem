@@ -42,6 +42,7 @@ const BoxTitle = styled.div`
   text-transform: uppercase;
   color: black;
   margin: 0px;
+  margin-left: 8px;
   margin-bottom: 8px;
   * {
     font-family: 'Red Hat Text';
