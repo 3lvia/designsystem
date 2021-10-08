@@ -81,6 +81,9 @@
   }
   .ceg-row-2 {
     @include first-col;
+    @include breakpoint-up(Mobile) {
+      width: 100%;
+    }
   }
 
   &.full-width .ceg-row-2,
