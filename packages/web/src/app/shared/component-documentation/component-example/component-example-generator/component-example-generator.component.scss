@@ -33,6 +33,9 @@
     max-width: 788px;
     margin-bottom: 24px;
     @include first-col;
+    @include breakpoint-up(Mobile) {
+      width: 100%;
+    }
     .ceg-dropdown {
       // width: 100%;
       width: 50%;
@@ -45,13 +48,32 @@
     }
   }
 
+  .ceg-side-filters-desktop {
+    @include breakpoint-up(Mobile) {
+      display: none;
+    }
+  }
+  .ceg-side-filters-mobile {
+    display: none;
+    @include breakpoint-up(Mobile) {
+      display: block;
+      position: absolute;
+      right: 8px;
+      top: 8px;
+    }
+  }
+
   .ceg-row-1 {
     display: flex;
     flex-direction: row;
     width: 100%;
     min-height: 340px;
+    position: relative;
     .ceg-col-1 {
       @include first-col;
+      @include breakpoint-up(Mobile) {
+        width: 100%;
+      }
     }
     .ceg-col-2 {
       @include second-col;
@@ -79,16 +101,14 @@
 
     @include breakpoint-up(Mobile) {
       padding: 24px;
+      padding-top: 56px;
     }
 
     &.ceg-code-preview--accordion {
       align-items: flex-start;
       padding-top: 80px;
-      @include breakpoint-up(Mobile) {
-        padding-top: 40px;
-      }
       @include breakpoint-up(Tablet) {
-        padding-top: 48px;
+        padding-top: 56px;
       }
     }
 

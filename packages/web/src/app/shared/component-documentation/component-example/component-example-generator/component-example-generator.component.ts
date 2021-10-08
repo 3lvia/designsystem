@@ -18,6 +18,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() accordionCustom = false;
   @Input() overflowY;
   @Input() alignedTop = false;
+  typeHasFilter = false;
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeNativeSub: Subscription;
@@ -223,5 +224,11 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       );
     }
     this.updateProps();
+  }
+
+  getDependentFilter(): boolean {
+    return this.props.find((prop) => {
+      return this.selectedType.toLowerCase() === prop.cegTypeDependency.toLowerCase();
+    });
   }
 }
