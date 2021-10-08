@@ -1,12 +1,12 @@
-@use "../variables/colors.scss";
-@use "../variables/shadows.scss";
-@use "../variables/shared-sizes.scss";
-@use "../variables/spacing";
-@use "../utilities/animations.scss";
-@use "../utilities/helpers.scss";
-@use "../utilities/breakpoints.scss";
-@use "../utilities/outline.scss";
-@use "../utilities/icons.scss";
+@use '../variables/colors.scss';
+@use '../variables/shadows.scss';
+@use '../variables/shared-sizes.scss';
+@use '../variables/spacing';
+@use '../utilities/animations.scss';
+@use '../utilities/helpers.scss';
+@use '../utilities/breakpoints.scss';
+@use '../utilities/outline.scss';
+@use '../utilities/icons.scss';
 
 $button-radius: 24px;
 $button-font-weight: 500;
@@ -308,7 +308,9 @@ $loading-dot-sm: 8px;
     background: none;
     color: colors.color('font-color');
     .e-btn__icon {
+      @include icons.icon-size('sm');
       i {
+        @include icons.icon-size('sm');
         visibility: visible;
       }
       i[class*='inverted'],
@@ -398,6 +400,12 @@ $loading-dot-sm: 8px;
       }
     }
     &.e-btn--sm {
+      .e-btn__icon {
+        @include icons.icon-size('xs');
+        i {
+          @include icons.icon-size('xs');
+        }
+      }
       &.e-btn--loading {
         span {
           width: $loading-dot-sm;

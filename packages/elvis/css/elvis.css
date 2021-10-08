@@ -1774,8 +1774,24 @@ input:focus {
   background: none;
   color: #000;
 }
+.e-btn.e-btn--tertiary .e-btn__icon {
+  width: 24px;
+  height: 24px;
+}
+.e-btn.e-btn--tertiary .e-btn__icon img,
 .e-btn.e-btn--tertiary .e-btn__icon i {
+  width: 24px;
+  height: 24px;
+}
+.e-btn.e-btn--tertiary .e-btn__icon i {
+  width: 24px;
+  height: 24px;
   visibility: visible;
+}
+.e-btn.e-btn--tertiary .e-btn__icon i img,
+.e-btn.e-btn--tertiary .e-btn__icon i i {
+  width: 24px;
+  height: 24px;
 }
 .e-btn.e-btn--tertiary .e-btn__icon i[class*=inverted],
 .e-btn.e-btn--tertiary .e-btn__icon i[class*=color-disabled-light],
@@ -1837,6 +1853,24 @@ input:focus {
 .e-btn.e-btn--tertiary.e-btn--lg.e-btn--loading span {
   width: 12px;
   height: 12px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon {
+  width: 16px;
+  height: 16px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon img,
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i {
+  width: 16px;
+  height: 16px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i {
+  width: 16px;
+  height: 16px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i img,
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i i {
+  width: 16px;
+  height: 16px;
 }
 .e-btn.e-btn--tertiary.e-btn--sm.e-btn--loading span {
   width: 8px;
