@@ -229,6 +229,60 @@
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Streamline'">
+        <ng-container ngProjectAs="sectionContent">
+          <p>
+            Our icon library is based on Streamline icons. The icons that are from Streamline are not made
+            accessible under the same license as this npm package. Those icons are still the property of
+            Webablys LLC. Elvia has bought a license for the use of these icons in the organization. They can
+            also be used in open source projects as long as you follow their license.
+          </p>
+          <p>
+            Streamline license information:
+            <a class="e-link e-link--inline" href="https://help.streamlineicons.com/license-premium">
+              Streamline license
+            </a>
+          </p>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--OPTIONS-->
+  <app-component-section [sectionTitle]="'Options'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Sizes'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1
+            [codeHTML]="example"
+            [codeInverted]="exampleInverted"
+          ></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Color'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1
+            [codeHTML]="example2"
+            [codeInverted]="example2Inverted"
+          ></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Disabled'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1
+            [codeHTML]="example3"
+            [codeInverted]="example3Inverted"
+          ></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
       <div>
         All Elvia icons are available through the @elvia/elvis package or CDN, but we also offer all elvia
         icons as a seperate npm package
@@ -237,171 +291,66 @@
         </a>
         .
       </div>
-      <p>
-        Our icon library is based on Streamline icons. The icons that are from Streamline are not made
-        accessible under the same license as this npm package. Those icons are still the property of Webablys
-        LLC. Elvia has bought a license for the use of these icons in the organization. They can also be used
-        in open source projects as long as you follow their license.
-      </p>
-      <p>
-        Streamline license information:
-        <a class="e-link e-link--inline" href="https://help.streamlineicons.com/license-premium">
-          Streamline license
-        </a>
-      </p>
-    </ng-container>
-  </app-component-section>
-
-  <!--SIZES-->
-  <app-component-section [sectionTitle]="'Sizes'">
-    <ng-container ngProjectAs="sectionContent">
-      <div class="sizes-container">
-        <div class="sizes-col">
-          <div>
-            <span><i class="e-icon e-icon--profile e-icon--xxs"></i></span>
-          </div>
-          <div class="e-py-8">
-            <div class="e-title-caps">XXS</div>
-            <div class="e-text-info">8x8</div>
-          </div>
-        </div>
-        <div class="sizes-col">
-          <div>
-            <span><i class="e-icon e-icon--profile e-icon--xs"></i></span>
-          </div>
-          <div class="e-py-8">
-            <div class="e-title-caps">XS</div>
-            <div class="e-text-info">16x16</div>
-          </div>
-        </div>
-        <div class="sizes-col">
-          <div>
-            <span><i class="e-icon e-icon--profile e-icon--sm"></i></span>
-          </div>
-          <div class="e-py-8">
-            <div class="e-title-caps">SM</div>
-            <div class="e-text-info">24x24</div>
-          </div>
-        </div>
-        <div class="sizes-col">
-          <div>
-            <span><i class="e-icon e-icon--profile e-icon--md"></i></span>
-          </div>
-          <div class="e-py-8">
-            <div class="e-title-caps">MD</div>
-            <div class="e-text-info">32x32</div>
-          </div>
-        </div>
-        <div class="sizes-col">
-          <div>
-            <span><i class="e-icon e-icon--profile e-icon--lg"></i></span>
-          </div>
-          <div class="e-py-8">
-            <div class="e-title-caps">LG</div>
-            <div class="e-text-info">40x40</div>
-          </div>
-        </div>
-        <div class="sizes-col">
-          <div>
-            <span><i class="e-icon e-icon--profile e-icon--xl"></i></span>
-          </div>
-          <div class="e-py-8">
-            <div class="e-title-caps">XL</div>
-            <div class="e-text-info">48x48</div>
-          </div>
-        </div>
-        <div class="sizes-col">
-          <div>
-            <span><i class="e-icon e-icon--profile e-icon--xxl"></i></span>
-          </div>
-          <div class="e-py-8">
-            <div class="e-title-caps">XXL</div>
-            <div class="e-text-info">56x56</div>
-          </div>
-        </div>
-      </div>
-    </ng-container>
-  </app-component-section>
-
-  <!--IMPLEMENTATION-->
-  <app-component-section [sectionTitle]="'Implementation'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Method 1: Easiest'">
+      <app-component-subsection [sectionTitle]="'Methods'">
         <ng-container ngProjectAs="sectionContent">
-          <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
-          <p class="e-mb-0">
-            Download the npm package and use Elvis.js from inside the npm package like this:
-          </p>
-          <p class="e-m-0 e-mt-16">
-            <app-component-example-code [codeHTML]="scriptCodeHTML"></app-component-example-code>
-          </p>
-          <p class="e-mb-0">The icons can then be used like this:</p>
-          <p class="e-m-0 e-mt-16">
-            <app-component-example-code [codeHTML]="iconExample"></app-component-example-code>
-          </p>
-          <p>
-            <strong>How it works:</strong>
-            <br />
-            Elvis.js looks for e-icon and similar classes and injects a img tag with the SVG icon at the
-            desired location.
-          </p>
-        </ng-container>
-      </app-component-subsection>
+          <app-component-subsubsection [sectionTitle]="'Method 1: Easiest'">
+            <ng-container ngProjectAs="sectionContent">
+              <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
+              <p class="e-mb-0">
+                Download the npm package and use Elvis.js from inside the npm package like this:
+              </p>
+              <p class="e-m-0 e-mt-16">
+                <app-component-example-code [codeHTML]="scriptCodeHTML"></app-component-example-code>
+              </p>
+              <p class="e-mb-0">The icons can then be used like this:</p>
+              <p class="e-m-0 e-mt-16">
+                <app-component-example-code [codeHTML]="iconExample"></app-component-example-code>
+              </p>
+              <p>
+                <strong>How it works:</strong>
+                <br />
+                Elvis.js looks for e-icon and similar classes and injects a img tag with the SVG icon at the
+                desired location.
+              </p>
+            </ng-container>
+          </app-component-subsubsection>
 
-      <app-component-subsection [sectionTitle]="'Method 2: Using JS Module / SVGs'">
-        <ng-container ngProjectAs="sectionContent">
-          <a href="https://www.npmjs.com/package/@elvia/elvis-assets-icons" class="e-link">
-            Elvis-assets-icons npm package
-          </a>
-          <p class="e-mb-0">
-            All icons are accessible in a seperate package from Elvis (@elvia/elvis-assets-icons) as SVGs
-            within a JS module. Import the required icon individually where you need them:
-          </p>
-          <div class="e-mt-16">
-            <app-component-example-code [codeTS]="importCodeTS"></app-component-example-code>
-          </div>
-          <p>
-            To get the icon you can use the following:
-            <code class="code-text">addCircle.getIcon()</code>
-          </p>
-          <p>
-            If you want a inverted icon use the following:
-            <code class="code-text">addCircle.getIcon('inverted')</code>
-          </p>
-          <p>
-            If you want a color:
-            <code class="code-text">addCircle.getIcon('white')</code>
-          </p>
-          <p>
-            Or set the color yourself with a hex:
-            <code class="code-text">addCircle.getIcon('#bdbdbd')</code>
-          </p>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!--CODE EXAMPLES-->
-  <app-component-section [sectionTitle]="'Code examples'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Icon sizes'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Color'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Disabled + Inverted'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1
-            [codeHTML]="example3"
-            [codeInverted]="example3Inverted"
-          ></app-component-example-v1>
+          <app-component-subsubsection [sectionTitle]="'Method 2: Using JS Module / SVGs'">
+            <ng-container ngProjectAs="sectionContent">
+              <a href="https://www.npmjs.com/package/@elvia/elvis-assets-icons" class="e-link">
+                Elvis-assets-icons npm package
+              </a>
+              <div>
+                All icons are accessible in a seperate package from Elvis (@elvia/elvis-assets-icons) as SVGs
+                within a JS module. Import the required icon individually where you need them:
+              </div>
+              <div class="e-mt-16">
+                <app-component-example-code [codeTS]="importCodeTS"></app-component-example-code>
+              </div>
+              <ul class="e-list e-mt-16">
+                <li>
+                  To get the icon you can use the following:
+                  <code class="code-text">addCircle.getIcon()</code>
+                  .
+                </li>
+                <li>
+                  If you want a inverted icon use the following:
+                  <code class="code-text">addCircle.getIcon('inverted')</code>
+                  .
+                </li>
+                <li>
+                  If you want a color:
+                  <code class="code-text">addCircle.getIcon('white')</code>
+                  .
+                </li>
+                <li>
+                  Or set the color yourself with a hex:
+                  <code class="code-text">addCircle.getIcon('#bdbdbd')</code>
+                  .
+                </li>
+              </ul>
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
     </ng-container>
