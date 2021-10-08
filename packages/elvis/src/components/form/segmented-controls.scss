@@ -1,11 +1,13 @@
-@use "../../utilities/outline";
-@use "../../variables/colors";
-@use "../../utilities/helpers";
+@use '../../variables/colors';
+@use '../../variables/typography';
+@use '../../utilities/outline';
+@use '../../utilities/helpers';
 
 $control-count: 3;
 $transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 $transition-duration: 0.35s;
 $segmented-controls-height: 46px;
+$segmented-controls-height-sm: 38px;
 $segmented-controls-border: 1px solid colors.color('elvia-off');
 
 .e-segmented-controls {
@@ -150,6 +152,16 @@ $segmented-controls-border: 1px solid colors.color('elvia-off');
             border-radius: 36px;
           }
         }
+      }
+    }
+  }
+
+  &.e-segmented-controls--sm {
+    > label {
+      height: $segmented-controls-height-sm;
+
+      .e-segmented-controls__title {
+        @include typography.typography('text-sm');
       }
     }
   }

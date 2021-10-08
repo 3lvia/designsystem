@@ -184,7 +184,6 @@
     "textTransform": "unset",
     "color": "inherit"
   },
-
   "text-micro-strong": {
     "fontFamily": "Red Hat Text",
     "fontSize": "11px",
@@ -194,6 +193,16 @@
     "fontStyle": "unset",
     "textTransform": "unset",
     "color": "inherit"
+  },
+  "text-micro-light": {
+    "fontFamily": "Red Hat Text",
+    "fontSize": "11px",
+    "fontWeight": "400",
+    "lineHeight": "14px",
+    "letterSpacing": "0.2px",
+    "fontStyle": "unset",
+    "textTransform": "unset",
+    "color": "#515151"
   },
 
   "text-quote": {

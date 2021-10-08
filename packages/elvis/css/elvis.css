@@ -1774,8 +1774,24 @@ input:focus {
   background: none;
   color: #000;
 }
+.e-btn.e-btn--tertiary .e-btn__icon {
+  width: 24px;
+  height: 24px;
+}
+.e-btn.e-btn--tertiary .e-btn__icon img,
 .e-btn.e-btn--tertiary .e-btn__icon i {
+  width: 24px;
+  height: 24px;
+}
+.e-btn.e-btn--tertiary .e-btn__icon i {
+  width: 24px;
+  height: 24px;
   visibility: visible;
+}
+.e-btn.e-btn--tertiary .e-btn__icon i img,
+.e-btn.e-btn--tertiary .e-btn__icon i i {
+  width: 24px;
+  height: 24px;
 }
 .e-btn.e-btn--tertiary .e-btn__icon i[class*=inverted],
 .e-btn.e-btn--tertiary .e-btn__icon i[class*=color-disabled-light],
@@ -1837,6 +1853,24 @@ input:focus {
 .e-btn.e-btn--tertiary.e-btn--lg.e-btn--loading span {
   width: 12px;
   height: 12px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon {
+  width: 16px;
+  height: 16px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon img,
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i {
+  width: 16px;
+  height: 16px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i {
+  width: 16px;
+  height: 16px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i img,
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i i {
+  width: 16px;
+  height: 16px;
 }
 .e-btn.e-btn--tertiary.e-btn--sm.e-btn--loading span {
   width: 8px;
@@ -7494,7 +7528,6 @@ input:focus {
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
-  color: #333333;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -8054,7 +8087,19 @@ input:focus {
   width: 33.3333333333%;
   border-radius: 36px;
 }
-
+.e-segmented-controls.e-segmented-controls--sm > label {
+  height: 38px;
+}
+.e-segmented-controls.e-segmented-controls--sm > label .e-segmented-controls__title {
+  font-family: Red Hat Text, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: inherit;
+}
 .e-border-none {
   border: none;
 }
@@ -12782,6 +12827,21 @@ THE SOFTWARE.
 }
 .e-text-micro-strong b,
 .e-text-micro-strong strong {
+  font-weight: 500;
+}
+
+.e-text-micro-light {
+  font-family: Red Hat Text, Verdana, sans-serif;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: 0.2px;
+  text-transform: unset;
+  color: #515151;
+}
+.e-text-micro-light b,
+.e-text-micro-light strong {
   font-weight: 500;
 }
 
