@@ -344,6 +344,21 @@
   font-weight: 500;
 }
 
+.e-text-micro-light {
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: 0.2px;
+  text-transform: unset;
+  color: #515151;
+}
+.e-text-micro-light b,
+.e-text-micro-light strong {
+  font-weight: 500;
+}
+
 .e-text-quote {
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 26px;
