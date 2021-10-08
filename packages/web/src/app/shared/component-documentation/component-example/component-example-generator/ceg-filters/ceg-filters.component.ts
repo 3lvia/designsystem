@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, SimpleChanges, EventEmitter } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../../example-code.service';
 
@@ -12,6 +12,7 @@ export class CegFiltersComponent implements OnInit {
   @Input() props;
   @Input() selectedType;
   @Input() desktop = true;
+  @Output() filterClickEvent = new EventEmitter();
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeNativeSub: Subscription;
@@ -117,6 +118,7 @@ export class CegFiltersComponent implements OnInit {
   }
 
   updateRadioProp(prop: Record<string, any>, newValue: string): void {
+    this.filterClickEvent.emit('clicked');
     const attr = prop.attribute;
     const type = prop.cegType;
     if (this.codeAngular.includes(prop.attribute)) {
@@ -128,6 +130,7 @@ export class CegFiltersComponent implements OnInit {
   }
 
   updateToggleCheckboxProp(prop: Record<string, any>, newValue: string): void {
+    this.filterClickEvent.emit('clicked');
     const attr = prop.attribute;
     const type = prop.cegType;
     if (this.codeAngular.includes(prop.attribute)) {
@@ -147,6 +150,7 @@ export class CegFiltersComponent implements OnInit {
   }
 
   updateCounterProp(prop: Record<string, any>, newValue: number): void {
+    this.filterClickEvent.emit('clicked');
     const attr = prop.attribute;
     const type = prop.cegType;
     if (this.isAcceptedCounterValue(prop, newValue)) {

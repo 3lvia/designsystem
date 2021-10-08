@@ -43,7 +43,7 @@
     <div class="bottom-blur"></div>
   </div>
 
-  <div class="navbar-phone" [ngClass]="{ 'show-block': isLandingPage }">
+  <div class="navbar-phone" [ngClass]="{ 'show-block': isLandingPage && !isComponentPage }">
     <div
       class="navbar-phone-box e-w-100"
       style="border-bottom: 1px solid #e9e9e9"

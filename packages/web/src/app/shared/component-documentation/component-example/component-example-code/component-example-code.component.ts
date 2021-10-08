@@ -173,8 +173,12 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   }
 
   ngOnDestroy(): void {
-    this.codeAngularSub.unsubscribe();
-    this.codeReactSub.unsubscribe();
+    if (this.codeAngularSub) {
+      this.codeAngularSub.unsubscribe();
+    }
+    if (this.codeReactSub) {
+      this.codeReactSub.unsubscribe();
+    }
   }
 
   highlightCode(): void {

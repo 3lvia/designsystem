@@ -19,6 +19,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() overflowY;
   @Input() alignedTop = false;
   typeHasFilter = false;
+  popoverIsShowing = false;
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeNativeSub: Subscription;
@@ -227,11 +228,20 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   }
 
   getDependentFilter(): boolean {
-    if (!this.selectedType) {
+    const hasDependenFilter = this.props.find((prop) => {
+      return prop.cegTypeDependency;
+    });
+    if (!this.selectedType || !hasDependenFilter) {
       return true;
     }
     return this.props.find((prop) => {
-      return this.selectedType.toLowerCase() === prop.cegTypeDependency.toLowerCase();
+      return (
+        prop.cegTypeDependency && this.selectedType.toLowerCase() === prop.cegTypeDependency.toLowerCase()
+      );
     });
+  }
+
+  closePopover(): void {
+    this.popoverIsShowing = false;
   }
 }
