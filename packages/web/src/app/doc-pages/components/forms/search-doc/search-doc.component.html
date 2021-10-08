@@ -72,6 +72,22 @@
     </ng-container>
   </app-component-section>
 
+  <!--SIZE-->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Instant'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="searchSizesInstantExample"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'On submit'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="searchSizesOnSubmitExample"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
   <!-- USAGE -->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
@@ -84,22 +100,6 @@
       <app-component-subsection [sectionTitle]="'Placeholder'">
         <ng-container ngProjectAs="sectionContent">
           Include a placeholder to suggest to users what they can search for, but try to keep it short.
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!--SIZE-->
-  <app-component-section [sectionTitle]="'Size'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Instant'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="searchSizesInstantExample"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'On submit'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="searchSizesOnSubmitExample"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>

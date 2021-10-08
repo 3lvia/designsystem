@@ -68,9 +68,8 @@ export class InputDocComponent {
     </div>
   </div>
 </div>
-`;
 
-  example3 = `<div class="e-inlined-field">
+<div class="e-inlined-field e-mt-24">
   <div class="e-form-field e-form-field--medium">
     <label class="e-form-field__label" for="zip">Zip code</label>
     <div class="e-input">
