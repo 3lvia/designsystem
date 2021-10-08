@@ -227,6 +227,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   }
 
   getDependentFilter(): boolean {
+    if (!this.selectedType) {
+      return true;
+    }
     return this.props.find((prop) => {
       return this.selectedType.toLowerCase() === prop.cegTypeDependency.toLowerCase();
     });
