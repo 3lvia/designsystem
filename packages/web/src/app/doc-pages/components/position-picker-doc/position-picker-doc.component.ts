@@ -23,7 +23,7 @@ export class PositionPickerDocComponent {
   <div class="e-position-picker__action">
     <button class="e-btn e-btn--tertiary" (click)="openMapExample('mapModal')">
       <span class="e-btn__icon"><i class="e-icon e-icon--add_circle"></i></span>
-      <span class="e-btn__title">Choose position</span>
+      <span class="e-btn__title">Add position</span>
     </button>
   </div>
 </div>
@@ -59,7 +59,7 @@ export class PositionPickerDocComponent {
   <div class="e-position-picker__action">
     <button class="e-btn e-btn--tertiary">
       <span class="e-btn__icon"><i class="e-icon e-icon--add_circle"></i></span>
-      <span class="e-btn__title">Choose position</span>
+      <span class="e-btn__title">Add position</span>
     </button>
   </div>
 </div>
@@ -78,7 +78,7 @@ export class PositionPickerDocComponent {
     (click)="openMapExample('mapModal')"
   >
     <span class="e-btn__icon"><i class="e-icon e-icon--add_circle"></i></span>
-    <span class="e-btn__title">Choose position</span>
+    <span class="e-btn__title">Add position</span>
   </button>
 </div>
 </div>
