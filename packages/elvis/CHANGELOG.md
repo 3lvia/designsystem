@@ -20,8 +20,8 @@
             <a class="e-link e-link--inline" href="http://design.elvia.io/components/radiobutton#Overview">Radiobutton</a>,
             <a class="e-link e-link--inline" href="http://design.elvia.io/components/segmented-control#Overview">Segmented Control</a>,
             <a class="e-link e-link--inline" href="http://design.elvia.io/components/fileUpload#Overview">file Upload</a>,
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/brand/typography#Overview">Typography</a> &
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/brand/typography#Overview">Position Picker</a>
+            <a class="e-link e-link--inline" href="http://design.elvia.io/brand/typography#Overview">Typography</a> &
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/position-picker#Overview">Position Picker</a>
           </div>
           <ul class="e-list">
             <li>
