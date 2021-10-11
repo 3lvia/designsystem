@@ -19,6 +19,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() overflowY;
   @Input() alignedTop = false;
   @Input() height = '340';
+  typeHasFilter = false;
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeNativeSub: Subscription;
@@ -224,5 +225,19 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       );
     }
     this.updateProps();
+  }
+
+  getDependentFilter(): boolean {
+    const hasDependenFilter = this.props.find((prop) => {
+      return prop.cegTypeDependency;
+    });
+    if (!this.selectedType || !hasDependenFilter) {
+      return true;
+    }
+    return this.props.find((prop) => {
+      return (
+        prop.cegTypeDependency && this.selectedType.toLowerCase() === prop.cegTypeDependency.toLowerCase()
+      );
+    });
   }
 }

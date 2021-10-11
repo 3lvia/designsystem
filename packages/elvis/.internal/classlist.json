@@ -962,6 +962,9 @@
 			},
 			"element": {
 				"e-segmented-controls__title": {}
+			},
+			"modifier": {
+				"e-segmented-controls--sm": {}
 			}
 		},
 		"e-border-none": {},
@@ -1000,6 +1003,7 @@
 		"e-text-sm-light": {},
 		"e-text-micro": {},
 		"e-text-micro-strong": {},
+		"e-text-micro-light": {},
 		"e-text-quote": {},
 		"e-text-img": {},
 		"e-text-label": {},
@@ -1756,6 +1760,7 @@
 		"e-segmented-controls": {},
 		"e-segmented-controls---focus": {},
 		"e-segmented-controls__title": {},
+		"e-segmented-controls--sm": {},
 		"e-border-none": {},
 		"e-border": {},
 		"e-border-t": {},
@@ -1792,6 +1797,7 @@
 		"e-text-sm-light": {},
 		"e-text-micro": {},
 		"e-text-micro-strong": {},
+		"e-text-micro-light": {},
 		"e-text-quote": {},
 		"e-text-img": {},
 		"e-text-label": {},

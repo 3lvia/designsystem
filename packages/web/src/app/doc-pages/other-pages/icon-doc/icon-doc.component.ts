@@ -36,22 +36,29 @@ export class IconDocComponent implements OnInit {
 <i class="e-icon e-icon--move_truck-color e-icon--xl e-mr-40"></i>
 <i class="e-icon e-icon--move_truck-color e-icon--xxl"></i>
 `;
+  exampleInverted = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-icon--inverted e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xs e-icon--inverted e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--sm e-icon--inverted e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--md e-icon--inverted e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--lg e-icon--inverted e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xl e-icon--inverted e-mr-40"></i>
+<i class="e-icon e-icon--move_truck-color e-icon--xxl e-icon--inverted"></i>
+`;
 
-  example2 = `<i class="e-icon e-icon--cog e-icon--color-red-tomato e-mr-40"></i>
-<i class="e-icon e-icon--cog e-icon--color-orange-mango e-mr-40"></i>
-<i class="e-icon e-icon--cog e-icon--color-green-apple e-mr-40"></i>
-<i class="e-icon e-icon--cog e-icon--color-blue-berry e-mr-40"></i>
-<i class="e-icon e-icon--cog e-icon--color-purple-plum e-mr-40"></i>
-<i class="e-icon e-icon--cog e-icon--color-violet-grape e-mr-40"></i>
-<i class="e-icon e-icon--cog e-icon--color-grey e-mr-40"></i>
-<i class="e-icon e-icon--cog e-icon--color-grey-70"></i>
+  example2 = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40"></i>
+<i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40"></i>
+<i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40"></i>
+`;
+  example2Inverted = `<i class="e-icon e-icon--remove_circle e-icon--color-red e-mr-40"></i>
+<i class="e-icon e-icon--warning_circle e-icon--color-orange e-mr-40"></i>
+<i class="e-icon e-icon--check_circle e-icon--color-green e-mr-40"></i>
 `;
 
   example3 = `<i class="e-icon e-icon--chat e-mr-40"></i>
 <i class="e-icon e-icon--chat e-icon--color-disabled"></i>
 `;
   example3Inverted = `<i class="e-icon e-icon--chat e-icon--inverted e-mr-40"></i>
-<i class="e-icon e-icon--chat e-icon--color-disabled e-icon--inverted"></i>
+<i class="e-icon e-icon--chat e-icon--inverted-disabled-grey-70"></i>
 `;
 
   importCodeTS = `import { addCircle } from '@elvia/elvis-assets-icons/icons'`;

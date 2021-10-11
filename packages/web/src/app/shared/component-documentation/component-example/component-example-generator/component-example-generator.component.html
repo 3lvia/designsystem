@@ -47,12 +47,32 @@
     </div>
 
     <!--Side filters-->
-    <div class="ceg-col-2">
+    <div class="ceg-col-2 ceg-side-filters-desktop">
       <app-ceg-filters
         [componentData]="componentData"
         [props]="props"
         [selectedType]="selectedType"
       ></app-ceg-filters>
+    </div>
+    <div class="ceg-side-filters-mobile" *ngIf="props.length !== 0 && getDependentFilter()">
+      <elvia-popover [posX]="'left'" [posY]="'bottom'">
+        <button slot="trigger" class="e-btn e-btn--icon">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--list" *ngIf="selectedBg !== 'Dark grey'"></i>
+            <i class="e-icon e-icon--list e-icon--inverted" *ngIf="selectedBg === 'Dark grey'"></i>
+          </span>
+        </button>
+        <div slot="content">
+          <div class="e-ml-n24 e-mr-40">
+            <app-ceg-filters
+              [componentData]="componentData"
+              [props]="props"
+              [selectedType]="selectedType"
+              [desktop]="false"
+            ></app-ceg-filters>
+          </div>
+        </div>
+      </elvia-popover>
     </div>
   </div>
 

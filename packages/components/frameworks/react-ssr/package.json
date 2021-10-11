@@ -39,8 +39,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "ssr": "yarn build && node server/index.js"
+    "ssr": "yarn build && node server/index.js",
+    "production": "yarn build && mv ./build ../../../web/dist/elvia-designsystem/react-preview"
   },
+  "homepage": "./",
   "eslintConfig": {
     "extends": [
       "react-app",

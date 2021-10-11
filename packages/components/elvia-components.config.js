@@ -33,6 +33,8 @@ slotItems: boolean (default: false) - Saves all "slot" items to variable. Should
 
 conditionalElementStyle: object - An object containing a key value pair for different CSS styles following the
 javascript naming of the different CSS styles
+
+reactTypescriptDeclaration: boolean (default: true) - Generate typescript declaration for the React component 
 */
 
 module.exports = [
@@ -51,6 +53,7 @@ module.exports = [
     useWrapper: true,
     slotItems: false,
     elementStyle: `width: 100%;`,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-breadcrumb',
@@ -59,6 +62,7 @@ module.exports = [
     reactName: 'Breadcrumb',
     useWrapper: false,
     slotItems: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-carousel',
@@ -73,6 +77,7 @@ module.exports = [
     reactName: 'Carousel',
     slotItems: true,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-chip',
@@ -89,6 +94,7 @@ module.exports = [
     reactName: 'Chip',
     slotItems: false,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-tabs',
@@ -102,6 +108,7 @@ module.exports = [
     elementStyle: `display: grid; overflow: hidden;`,
     slotItems: false,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-popover',
@@ -118,6 +125,7 @@ module.exports = [
     useWrapper: true,
     elementStyle: `display: block;`,
     slotItems: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-progress-linear',
@@ -131,6 +139,7 @@ module.exports = [
     elementStyle: `width: 100%;`,
     slotItems: false,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-datepicker',
@@ -153,6 +162,7 @@ module.exports = [
     },
     useWrapper: false,
     slotItems: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-testing',
@@ -169,6 +179,7 @@ module.exports = [
     },
     slotItems: false,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-divider',
@@ -183,6 +194,7 @@ module.exports = [
     reactName: 'Divider',
     elementStyle: `width: 100%;`,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-dropdown',
@@ -204,6 +216,7 @@ module.exports = [
     elementStyle: `min-width: 163px;`,
     reactName: 'Dropdown',
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-box',
@@ -217,6 +230,7 @@ module.exports = [
     slotItems: true,
     reactName: 'Box',
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-modal',
@@ -235,6 +249,7 @@ module.exports = [
     reactName: 'Modal',
     slotItems: true,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-radio-filter',
@@ -248,5 +263,6 @@ module.exports = [
     reactName: 'RadioFilter',
     slotItems: false,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
 ];

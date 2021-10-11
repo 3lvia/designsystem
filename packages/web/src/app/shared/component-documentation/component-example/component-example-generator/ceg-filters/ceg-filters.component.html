@@ -12,12 +12,12 @@
       <label
         *ngFor="let label of prop.cegOptions; let i = index"
         class="e-radio e-radio--sm"
-        for="{{ label }}-radio"
+        for="{{ label }}-radio-{{ desktop }}"
         (change)="updateRadioProp(prop, label)"
       >
         <input
           type="radio"
-          id="{{ label }}-radio"
+          id="{{ label }}-radio-{{ desktop }}"
           name="{{ prop.displayName }} radio"
           [checked]="label === prop.cegDefault"
         />
@@ -64,14 +64,13 @@
           >
             <label
               class="e-checkbox e-checkbox--sm"
-              for="{{ checkbox.attribute }}-checkbox"
+              for="{{ checkbox.attribute }}-checkbox-{{ desktop }}"
               (change)="updateToggleCheckboxProp(checkbox, checkbox.cegOption)"
             >
               <input
                 type="checkbox"
-                id="{{ checkbox.attribute }}-checkbox"
-                name="{{ checkbox.attribute }} checkbox"
-                checked="{{ checkbox.cegDefault }}"
+                id="{{ checkbox.attribute }}-checkbox-{{ desktop }}"
+                name="{{ checkbox.attribute }} checkbox-{{ desktop }}"
               />
               <span class="e-checkbox__mark"></span>
               <span class="e-checkbox__label">{{ checkbox.displayName }}</span>
