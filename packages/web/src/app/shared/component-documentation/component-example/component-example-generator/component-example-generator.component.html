@@ -58,7 +58,6 @@
       <elvia-popover
         [posX]="'left'"
         [posY]="'bottom'"
-        [hasCloseBtn]="false"
         [isShowing]="popoverIsShowing"
         (isShowingOnChange)="popoverIsShowing = $event.detail.value"
       >
@@ -75,7 +74,6 @@
               [props]="props"
               [selectedType]="selectedType"
               [desktop]="false"
-              (filterClickEvent)="closePopover()"
             ></app-ceg-filters>
           </div>
         </div>
