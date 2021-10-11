@@ -90,6 +90,35 @@ export class CegFiltersComponent implements OnInit {
     return checkboxArrays;
   }
 
+  typeDependencyExists(prop: Record<string, any>): boolean {
+    const dependencyCheckbox = <HTMLInputElement>(
+      document.getElementById(prop.cegTypeDependency + '-checkbox-' + this.desktop)
+    );
+    const checkboxThatHasDependency = <HTMLInputElement>(
+      document.getElementById(prop.attribute + '-checkbox-' + this.desktop)
+    );
+    if (!checkboxThatHasDependency) {
+      return;
+    }
+    if (
+      (prop.cegTypeDependencyValue === 'false' &&
+        checkboxThatHasDependency.checked &&
+        dependencyCheckbox.checked) ||
+      (prop.cegTypeDependencyValue === 'true' &&
+        checkboxThatHasDependency.checked &&
+        !dependencyCheckbox.checked) ||
+      (!prop.cegTypeDependencyValue && checkboxThatHasDependency.checked && !dependencyCheckbox.checked)
+    ) {
+      checkboxThatHasDependency.checked = false;
+      this.updateToggleCheckboxProp(prop, 'false');
+    }
+    return (
+      (prop.cegTypeDependencyValue === 'false' && !dependencyCheckbox.checked) ||
+      (prop.cegTypeDependencyValue === 'true' && dependencyCheckbox.checked) ||
+      (!prop.cegTypeDependencyValue && dependencyCheckbox.checked)
+    );
+  }
+
   updateNewCode(): void {
     this.cegService.updateCodeReact(this.codeReact);
     this.cegService.updateCodeAngular(this.codeAngular);

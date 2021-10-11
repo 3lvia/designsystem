@@ -10,4 +10,4 @@
 
 ### New features
 
-- First version of Box, only working on react
+- First version of Box

@@ -18,6 +18,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() accordionCustom = false;
   @Input() overflowY;
   @Input() alignedTop = false;
+  @Input() height = '340';
   typeHasFilter = false;
   codeAngularSub: Subscription;
   codeReactSub: Subscription;

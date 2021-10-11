@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <div class="ceg-row-1 e-mb-16" *ngIf="hasPreview">
+  <div class="ceg-row-1 e-mb-16" [ngStyle]="{ 'min-height.px': height }" *ngIf="hasPreview">
     <!--Preview-->
     <div class="ceg-col-1" #cegContent>
       <div

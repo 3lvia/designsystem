@@ -8,7 +8,7 @@
     "@babel/register": "^7.13.16",
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-breadcrumb": "*",
-    "@elvia/elvis-carousel": "0.0.1-beta.6",
+    "@elvia/elvis-carousel": "*",
     "@elvia/elvis-chip": "*",
     "@elvia/elvis-datepicker": "*",
     "@elvia/elvis-dropdown": "*",

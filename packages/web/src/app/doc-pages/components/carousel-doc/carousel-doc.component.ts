@@ -13,7 +13,6 @@ export class CarouselDocComponent {
   componentData = carouselData;
   does = carouselData.does;
   donts = carouselData.donts;
-  elements = carouselData.elements;
   figmaUrl = getComponent('carousel').figmaUrl;
   description = getComponent('carousel').description;
 }

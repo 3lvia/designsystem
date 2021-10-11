@@ -98,7 +98,6 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
 
   ngAfterContentInit(): void {
     const isPageWithNavbar = this.router.url.split('/')[1] !== undefined;
-    console.log(this.router.url.split('/')[1]);
     this.isComponentPage = this.router.url.split('/')[1] === 'components';
     this.isLandingPage = this.router.url.split('/')[2] === undefined;
     this.setSubMenuRoute();
