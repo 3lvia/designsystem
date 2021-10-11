@@ -11,9 +11,8 @@ export class ComponentSectionComponent {
   @Input() sectionTitle = '';
   @Input() propertiesClass = '';
   @Input() figmaOnly = false;
-  @Input() noAnimation = false;
 
-  constructor(private router: Router, private copyService: CopyToClipboardService) {}
+  constructor(private router: Router, private copyService: CopyToClipboardService) { }
 
   copyAnchor(): void {
     const anchorTitleElement = document.getElementById(this.sectionTitle);
