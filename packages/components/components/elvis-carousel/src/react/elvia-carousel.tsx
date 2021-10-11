@@ -19,7 +19,6 @@ type CarouselElement = {
 };
 
 export interface BaseCarouselProps {
-  className?: string;
   elements: CarouselElement[] | number;
   hideArrows?: boolean;
   onHide?: () => void;
@@ -31,7 +30,6 @@ export interface BaseCarouselProps {
 
 // don't know why it says it does not exist
 export const Carousel: FC<BaseCarouselProps> = ({
-  className,
   elements,
   hideArrows = false,
   onHide,
@@ -91,15 +89,16 @@ export const Carousel: FC<BaseCarouselProps> = ({
       newEl.element = <div dangerouslySetInnerHTML={{ __html: element ? slots[element].innerHTML : '' }} />;
       newElements.push(newEl);
     }
+    if (newElements && typeof newElements !== 'number') {
+      setLengthOfElements(newElements.length);
+    }
     setCarouselElements(newElements);
   }, [webcomponent]);
 
-  // Is necessary since the web component
   useEffect(() => {
     setIndex(index);
   }, [index]);
 
-  // Is necessary since the web component
   useEffect(() => {
     if (elements !== undefined) {
       setCarouselElements(elements);
@@ -108,14 +107,6 @@ export const Carousel: FC<BaseCarouselProps> = ({
       );
     }
   }, [elements]);
-
-  // Is necessary since the web component
-  useEffect(() => {
-    if (!carouselElements || typeof carouselElements === 'number') {
-      return;
-    }
-    setLengthOfElements(carouselElements.length);
-  }, [carouselElements]);
 
   const handleMouseDown = (e: MouseEvent | TouchEvent) => {
     const clientX = 'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
@@ -171,7 +162,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
   });
 
   return (
-    <CarouselContainer slideDirection={slideDirection} className={className}>
+    <CarouselContainer slideDirection={slideDirection}>
       {typeof carouselElements === 'object' && (
         <CarouselElementContainer className={classNameContainer}>
           {typeof carouselElements[index].title === 'string' && (

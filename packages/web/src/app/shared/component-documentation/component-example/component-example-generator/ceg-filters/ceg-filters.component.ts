@@ -100,6 +100,9 @@ export class CegFiltersComponent implements OnInit {
       depCheckbox.checked = false;
       this.updateToggleCheckboxProp(prop, 'false');
     }
+    if (!checkbox) {
+      return;
+    }
     return (
       (prop.cegTypeDependencyValue === 'false' && !checkbox.checked) ||
       (!prop.cegTypeDependencyValue && checkbox.checked)
