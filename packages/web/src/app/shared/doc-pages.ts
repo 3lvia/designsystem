@@ -130,7 +130,7 @@ export const componentsDocPages: DocPage[] = [
       'Carousel is used when the user can navigate through a collection of related visual items, for example a collection of images. The collection should have a common theme.',
     docUrl: Pages.Carousel,
     absolutePath: '/components/' + Pages.Carousel,
-    status: DocPageStatus.Ignore,
+    status: DocPageStatus.Done,
     imageUrl: 'assets/doc-page-icons/component-icons/Carousel.svg',
     figmaUrl: 'https://www.figma.com/file/Um5AotNfUftDorJHGbIy99/Navigational-controls?node-id=1023%3A15726',
     type: 'Component',
@@ -361,7 +361,7 @@ export const componentsDocPages: DocPage[] = [
     title: 'Radio Filter',
     // tslint:disable-next-line: max-line-length
     description:
-      'Radio filters are buttons you can toggle between to filter out different properties of same content. It should always be an “all” option(shows all content) in radio filter. An example is an email inbox and you want to toggle between “all”, “read” and “unread” for all mails.',
+      'Radio filters are buttons you can toggle between to filter out different properties of same content. It should always be an “all” option (shows all content) in radio filter.',
     docUrl: Pages.RadioFilter,
     absolutePath: '/components/' + Pages.RadioFilter,
     status: DocPageStatus.New,

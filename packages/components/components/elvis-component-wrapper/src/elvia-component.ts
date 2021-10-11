@@ -35,6 +35,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     return this._slots[str];
   }
 
+  getAllSlots(): any {
+    return this._slots;
+  }
+
   connectedCallback(): void {
     // Slot items
     if (this.webComponent.getComponentData().slotItems === true) {

@@ -196,6 +196,17 @@ export default {
     color: 'inherit',
   },
 
+  'text-micro-light': {
+    fontFamily: 'Red Hat Text',
+    fontSize: '11px',
+    fontWeight: '400',
+    lineHeight: '14px',
+    letterSpacing: '0.2px',
+    fontStyle: 'unset',
+    textTransform: 'unset',
+    color: '#515151',
+  },
+
   'text-quote': {
     fontFamily: 'Red Hat Text',
     fontSize: '26px',

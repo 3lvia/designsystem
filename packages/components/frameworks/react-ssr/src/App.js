@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Accordion } from '@elvia/elvis-accordion/react';
@@ -214,33 +214,34 @@ function App() {
     }));
   };
 
-  const radioFilterOptions =  [
+  const radioFilterOptions = [
     {
       label: 'All',
-      value: 'all'
+      value: 'all',
     },
     {
       label: 'Read',
-      value: 'read'
+      value: 'read',
     },
     {
       label: 'Unread',
-      value: 'unread'
+      value: 'unread',
     },
     {
       label: 'Consumption',
-      value: 'consumption'
+      value: 'consumption',
     },
     {
       label: 'Production',
-      value: 'production'
+      value: 'production',
     },
-  ]
-  const [selectedRadioFilter, setSelectedRadioFilter] = useState('read')
+  ];
+  const [selectedRadioFilter, setSelectedRadioFilter] = useState('read');
 
   return (
     <div className="App">
       <h1>React preview</h1>
+      <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <h2>Box</h2>
@@ -354,17 +355,16 @@ function App() {
         </button>
       </div>
       <div>
-      <h1>Radio filter</h1>
-      <RadioFilter 
-        items={radioFilterOptions} 
-        ariaLabel={`${selectedRadioFilter} filtrering valgt`}
-        valueOnChange={selected => {
-          setSelectedRadioFilter(selected)
-        }}
-        value={selectedRadioFilter}
-        name={'radioFilterTest'}
-        >
-          </RadioFilter>
+        <h1>Radio filter</h1>
+        <RadioFilter
+          items={radioFilterOptions}
+          ariaLabel={`${selectedRadioFilter} filtrering valgt`}
+          valueOnChange={(selected) => {
+            setSelectedRadioFilter(selected);
+          }}
+          value={selectedRadioFilter}
+          name={'radioFilterTest'}
+        ></RadioFilter>
       </div>
       <div>
         <h1>Test av chip</h1>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { exampleContents } from 'src/app/shared/example-contents';
+import { radioFilterData } from './radio-filter.data';
 
 @Component({
   selector: 'app-radio-filter-doc',
@@ -8,6 +9,7 @@ import { exampleContents } from 'src/app/shared/example-contents';
   styleUrls: ['./radio-filter-doc.component.scss'],
 })
 export class RadioFilterDocComponent {
+  componentData = radioFilterData;
   examples = exampleContents;
   figmaUrl = getComponent('radio-filter').figmaUrl;
   description = getComponent('radio-filter').description;
@@ -18,29 +20,4 @@ export class RadioFilterDocComponent {
     'When you want to have all options visible at all times and not hidden in a dropdown.',
   ];
   whenNots = ['Toggle between different content (then use tabs or segmented control instead)'];
-
-  RadioFilter =
-    `<div class="e-radio-filter">
-  <input type="radio" id="radio-filter-1" name="radio-filter" checked />
-  <label for="radio-filter-1" data-value="Filter 1">
-    <span class="e-radio-filter__label">` +
-    exampleContents.words.filters['eng-GBR'][0] +
-    `</span>
-  </label>
-
-  <input type="radio" id="radio-filter-2" name="radio-filter" />
-  <label for="radio-filter-2" data-value="Filter 2">
-    <span class="e-radio-filter__label">` +
-    exampleContents.words.filters['eng-GBR'][1] +
-    `</span>
-  </label>
-
-  <input type="radio" id="radio-filter-3" name="radio-filter" />
-  <label for="radio-filter-3" data-value="Filter 2">
-    <span class="e-radio-filter__label">` +
-    exampleContents.words.filters['eng-GBR'][2] +
-    `</span>
-  </label>
-</div>
-`;
 }

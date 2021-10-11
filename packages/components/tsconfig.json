@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-    "outDir": "./dist/",
+      "outDir": "./dist/",
     "jsx": "react",
     "resolveJsonModule": false,  // Our users might not support this
   }

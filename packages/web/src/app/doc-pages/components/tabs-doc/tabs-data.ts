@@ -10,12 +10,6 @@ export const tabsData = {
       type: 'string[]',
       description: 'Items getting converted to tabs.',
       displayName: 'Tabs',
-      // cegType: 'string',
-      // cegFormType: 'counter',
-      // cegDefault: 3,
-      // cegCounterMax: 5,
-      // cegCounterMin: 2,
-      // cegStepValue: 1,
     },
     value: {
       isRequired: false,

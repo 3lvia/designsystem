@@ -25,6 +25,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   scrollEventTimeout;
   startedScrollSub = false;
   isLandingPage = false;
+  isComponentPage = false;
 
   navbarList: any[];
   activeNavbarItem: any;
@@ -60,6 +61,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
     this.routerSubscription = combineLatest([localizationSubscriber, routerSubscriber]).subscribe((value) => {
       if (value[1] instanceof NavigationEnd) {
         this.setSubMenuRoute();
+        this.isComponentPage = this.router.url.split('/')[1] === 'components';
         this.isLandingPage = this.router.url.split('/')[2] === undefined;
         if (this.subMenuRoute !== this.oldSubMenuRoute) {
           this.updateNavbarList(value[0]);
@@ -74,7 +76,6 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
       }
     });
     this.contentLoadedSubscription = this.cmsService.listenContentLoadedFromCMS().subscribe(() => {
-      console.log('Content has loaded');
       this.setNewActiveNavbarItem();
       setTimeout(() => this.updateAnchorList(), 200);
     });
@@ -97,6 +98,7 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
 
   ngAfterContentInit(): void {
     const isPageWithNavbar = this.router.url.split('/')[1] !== undefined;
+    this.isComponentPage = this.router.url.split('/')[1] === 'components';
     this.isLandingPage = this.router.url.split('/')[2] === undefined;
     this.setSubMenuRoute();
     this.checkIfPageExistsInProject();

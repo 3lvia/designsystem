@@ -1774,8 +1774,24 @@ input:focus {
   background: none;
   color: #000;
 }
+.e-btn.e-btn--tertiary .e-btn__icon {
+  width: 24px;
+  height: 24px;
+}
+.e-btn.e-btn--tertiary .e-btn__icon img,
 .e-btn.e-btn--tertiary .e-btn__icon i {
+  width: 24px;
+  height: 24px;
+}
+.e-btn.e-btn--tertiary .e-btn__icon i {
+  width: 24px;
+  height: 24px;
   visibility: visible;
+}
+.e-btn.e-btn--tertiary .e-btn__icon i img,
+.e-btn.e-btn--tertiary .e-btn__icon i i {
+  width: 24px;
+  height: 24px;
 }
 .e-btn.e-btn--tertiary .e-btn__icon i[class*=inverted],
 .e-btn.e-btn--tertiary .e-btn__icon i[class*=color-disabled-light],
@@ -1837,6 +1853,24 @@ input:focus {
 .e-btn.e-btn--tertiary.e-btn--lg.e-btn--loading span {
   width: 12px;
   height: 12px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon {
+  width: 16px;
+  height: 16px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon img,
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i {
+  width: 16px;
+  height: 16px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i {
+  width: 16px;
+  height: 16px;
+}
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i img,
+.e-btn.e-btn--tertiary.e-btn--sm .e-btn__icon i i {
+  width: 16px;
+  height: 16px;
 }
 .e-btn.e-btn--tertiary.e-btn--sm.e-btn--loading span {
   width: 8px;
@@ -2764,7 +2798,7 @@ input:focus {
   height: 8px;
   position: absolute;
   right: 16px;
-  top: calc(50% - (8px / 2));
+  top: calc(50% - 4px);
 }
 .e-dropdown .e-input i img,
 .e-dropdown .e-input i i {
@@ -3420,7 +3454,7 @@ input:focus {
     display: flex;
     position: fixed;
     right: unset;
-    left: calc((1% * 50) - 144px);
+    left: calc(50% - 144px);
     margin-top: 184px;
     width: 289px;
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08);
@@ -3536,7 +3570,7 @@ input:focus {
     justify-content: center;
   }
   .e-header__sidebar__item {
-    margin: 0 calc(((88% - (48px * 4)) / 4) / 2);
+    margin: 0 calc((88% - 192px) / 4 / 2);
   }
   .e-header__sidebar__item .e-header__sidebar__icon {
     margin: 0;
@@ -5784,7 +5818,7 @@ input:focus {
   border-color: #29d305 transparent transparent transparent;
 }
 .e-popover:not(.e-popover--bottom) .e-popover__content::after {
-  bottom: calc((calc(12px - (1px * 2)) * -2));
+  bottom: calc(calc(12px - (1px * 2)) * -2);
   border-color: #fff transparent transparent transparent;
 }
 .e-popover:not(.e-popover--left):not(.e-popover--left-50):not(.e-popover--right):not(.e-popover--right-50) .e-popover__content {
@@ -5809,7 +5843,7 @@ input:focus {
   border-color: transparent transparent #29d305 transparent;
 }
 .e-popover.e-popover--bottom .e-popover__content::after {
-  top: calc((calc(12px - (1px * 2)) * -2));
+  top: calc(calc(12px - (1px * 2)) * -2);
   border-color: transparent transparent #fff transparent;
 }
 .e-popover.e-popover--left .e-popover__content {
@@ -6945,7 +6979,7 @@ input:focus {
 .e-checkbox.e-checkbox--indeterminate.e-checkbox--sm .e-checkbox__mark::before {
   left: calc(50% - 4px);
   width: 8px;
-  top: calc(50%);
+  top: 50%;
   height: 1px;
 }
 .e-checkbox.e-checkbox---focus .e-checkbox__mark {
@@ -7494,7 +7528,6 @@ input:focus {
   letter-spacing: unset;
   text-transform: unset;
   color: inherit;
-  color: #333333;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -7759,10 +7792,10 @@ input:focus {
 .e-search--instant .e-input input,
 .e-search--instant .e-input input:invalid,
 .e-search--instant .e-input input:disabled {
-  padding: 12px 12px 12px 56px;
+  padding: 12px 48px 12px 56px;
 }
 .e-search--instant .e-input input:focus {
-  padding: 11px 11px 11px 55px;
+  padding: 11px 47px 11px 55px;
 }
 .e-search--instant i[class*=e-icon--search-color] {
   visibility: visible;
@@ -7800,6 +7833,14 @@ input:focus {
   visibility: hidden;
   position: absolute;
   display: flex;
+}
+.e-search--on-submit .e-input input,
+.e-search--on-submit .e-input input:invalid,
+.e-search--on-submit .e-input input:disabled {
+  padding: 12px 48px 12px 12px;
+}
+.e-search--on-submit .e-input input:focus {
+  padding: 11px 47px 11px 11px;
 }
 .e-search--on-submit.e-search--searched .e-btn.e-btn--icon {
   visibility: visible;
@@ -8046,7 +8087,19 @@ input:focus {
   width: 33.3333333333%;
   border-radius: 36px;
 }
-
+.e-segmented-controls.e-segmented-controls--sm > label {
+  height: 38px;
+}
+.e-segmented-controls.e-segmented-controls--sm > label .e-segmented-controls__title {
+  font-family: Red Hat Text, Verdana, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: inherit;
+}
 .e-border-none {
   border: none;
 }
@@ -12304,23 +12357,23 @@ THE SOFTWARE.
     margin: 0 calc((56px / 2) * -1) !important;
   }
   .e-grid .row.e-grid-gutters-ext [class^=col] {
-    padding-right: calc((56px / 2)) !important;
-    padding-left: calc((56px / 2)) !important;
+    padding-right: calc(56px / 2) !important;
+    padding-left: calc(56px / 2) !important;
   }
   .e-grid .row.e-grid-gutters-ext.e-grid-gutters-vertical [class^=col] {
-    padding-bottom: calc((56px / 2)) !important;
-    padding-top: calc((56px / 2)) !important;
+    padding-bottom: calc(56px / 2) !important;
+    padding-top: calc(56px / 2) !important;
   }
   .e-grid .row.e-grid-gutters-int {
     margin: 0 calc((24px / 2) * -1) !important;
   }
   .e-grid .row.e-grid-gutters-int [class^=col] {
-    padding-right: calc((24px / 2)) !important;
-    padding-left: calc((24px / 2)) !important;
+    padding-right: calc(24px / 2) !important;
+    padding-left: calc(24px / 2) !important;
   }
   .e-grid .row.e-grid-gutters-int.e-grid-gutters-vertical [class^=col] {
-    padding-bottom: calc((24px / 2)) !important;
-    padding-top: calc((24px / 2)) !important;
+    padding-bottom: calc(24px / 2) !important;
+    padding-top: calc(24px / 2) !important;
   }
   .e-grid .row.e-grid-margin-ext {
     margin: calc(120px - 56px) !important;
@@ -12335,23 +12388,23 @@ THE SOFTWARE.
     margin: 0 calc((56px / 2) * -1) !important;
   }
   .e-grid .row.e-grid-gutters-ext [class^=col] {
-    padding-right: calc((56px / 2)) !important;
-    padding-left: calc((56px / 2)) !important;
+    padding-right: calc(56px / 2) !important;
+    padding-left: calc(56px / 2) !important;
   }
   .e-grid .row.e-grid-gutters-ext.e-grid-gutters-vertical [class^=col] {
-    padding-bottom: calc((56px / 2)) !important;
-    padding-top: calc((56px / 2)) !important;
+    padding-bottom: calc(56px / 2) !important;
+    padding-top: calc(56px / 2) !important;
   }
   .e-grid .row.e-grid-gutters-int {
     margin: 0 calc((24px / 2) * -1) !important;
   }
   .e-grid .row.e-grid-gutters-int [class^=col] {
-    padding-right: calc((24px / 2)) !important;
-    padding-left: calc((24px / 2)) !important;
+    padding-right: calc(24px / 2) !important;
+    padding-left: calc(24px / 2) !important;
   }
   .e-grid .row.e-grid-gutters-int.e-grid-gutters-vertical [class^=col] {
-    padding-bottom: calc((24px / 2)) !important;
-    padding-top: calc((24px / 2)) !important;
+    padding-bottom: calc(24px / 2) !important;
+    padding-top: calc(24px / 2) !important;
   }
   .e-grid .row.e-grid-margin-ext {
     margin: calc(120px - 56px) !important;
@@ -12366,23 +12419,23 @@ THE SOFTWARE.
     margin: 0 calc((32px / 2) * -1) !important;
   }
   .e-grid .row.e-grid-gutters-ext [class^=col] {
-    padding-right: calc((32px / 2)) !important;
-    padding-left: calc((32px / 2)) !important;
+    padding-right: calc(32px / 2) !important;
+    padding-left: calc(32px / 2) !important;
   }
   .e-grid .row.e-grid-gutters-ext.e-grid-gutters-vertical [class^=col] {
-    padding-bottom: calc((32px / 2)) !important;
-    padding-top: calc((32px / 2)) !important;
+    padding-bottom: calc(32px / 2) !important;
+    padding-top: calc(32px / 2) !important;
   }
   .e-grid .row.e-grid-gutters-int {
     margin: 0 calc((24px / 2) * -1) !important;
   }
   .e-grid .row.e-grid-gutters-int [class^=col] {
-    padding-right: calc((24px / 2)) !important;
-    padding-left: calc((24px / 2)) !important;
+    padding-right: calc(24px / 2) !important;
+    padding-left: calc(24px / 2) !important;
   }
   .e-grid .row.e-grid-gutters-int.e-grid-gutters-vertical [class^=col] {
-    padding-bottom: calc((24px / 2)) !important;
-    padding-top: calc((24px / 2)) !important;
+    padding-bottom: calc(24px / 2) !important;
+    padding-top: calc(24px / 2) !important;
   }
   .e-grid .row.e-grid-margin-ext {
     margin: calc(32px - 32px) !important;
@@ -12399,13 +12452,13 @@ THE SOFTWARE.
   }
   .e-grid .row.e-grid-gutters-ext [class^=col],
 .e-grid .row.e-grid-gutters-int [class^=col] {
-    padding-right: calc((16px / 2)) !important;
-    padding-left: calc((16px / 2)) !important;
+    padding-right: calc(16px / 2) !important;
+    padding-left: calc(16px / 2) !important;
   }
   .e-grid .row.e-grid-gutters-ext.e-grid-gutters-vertical [class^=col],
 .e-grid .row.e-grid-gutters-int.e-grid-gutters-vertical [class^=col] {
-    padding-bottom: calc((16px / 2)) !important;
-    padding-top: calc((16px / 2)) !important;
+    padding-bottom: calc(16px / 2) !important;
+    padding-top: calc(16px / 2) !important;
   }
   .e-grid .row.e-grid-margin-ext, .e-grid .row.e-grid-margin-int {
     margin: calc(16px - 16px) !important;
@@ -12774,6 +12827,21 @@ THE SOFTWARE.
 }
 .e-text-micro-strong b,
 .e-text-micro-strong strong {
+  font-weight: 500;
+}
+
+.e-text-micro-light {
+  font-family: Red Hat Text, Verdana, sans-serif;
+  font-size: 11px;
+  line-height: 14px;
+  font-weight: 400;
+  font-style: unset;
+  letter-spacing: 0.2px;
+  text-transform: unset;
+  color: #515151;
+}
+.e-text-micro-light b,
+.e-text-micro-light strong {
   font-weight: 500;
 }
 

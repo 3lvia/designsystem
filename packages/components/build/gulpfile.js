@@ -9,6 +9,7 @@ const path = require('path');
 let components = require('../elvia-components.config');
 const rename = require("gulp-rename");
 const fs = require('fs');
+const typescript = require('gulp-typescript')
 const validate = require('./validateConfig.js');
 
 
@@ -127,12 +128,25 @@ function TSX_to_JS() {
                     ]
                 })).pipe(header(WARNING))
                 .pipe(gulp.dest(`../components/${component.name}/dist/react/js/`)),
-
             gulp.src([`../components/${component.name}/src/react/**/*.scss`, `../components/${component.name}/src/react/**/*.d.ts`]).pipe(
                 gulp.dest(`../components/${component.name}/dist/react/js/`)
             )
         );
     });
+    return mergeStream(tasks);
+}
+
+function reactTypescriptDeclarations() {
+    reloadComponentConfig();
+    const componentsToCreateDeclarationsFor = components.filter((component) => component.reactTypescriptDeclaration);
+    const tasks = componentsToCreateDeclarationsFor.map((component) => {
+        const tsConfig = typescript.createProject('../tsconfig.json');
+        return gulp.src(`../components/${component.name}/src/react/**/*.ts*`).pipe(tsConfig()).pipe(gulp.dest(`../components/${component.name}/dist/react/js/`));
+    });
+
+    if (tasks.length === 0) {
+        return Promise.resolve(true);
+    }
     return mergeStream(tasks);
 }
 
@@ -148,13 +162,12 @@ function buildElviaComponentToJS() {
 }
 
 function buildToolboxComponentToJS() {
-    return gulp.src(`../components/elvis-toolbox/src/*.ts`)
-        .pipe(babel({
-            "presets": [
-                "@babel/preset-typescript"
-            ],
-        })).pipe(header(WARNING))
-        .pipe(gulp.dest(`../components/elvis-toolbox/dist/`));
+    const tsConfig = typescript.createProject('../tsconfig.json');
+    const tsResult = gulp.src(['../components/elvis-toolbox/src/*.ts'])
+        .pipe(tsConfig());
+    return mergeStream(tsResult, tsResult.js)
+        .pipe(gulp.dest('../components/elvis-toolbox/dist'));
+
 }
 
 // TODO: Find a way to do cleanup that does not trigger rebuild
@@ -168,10 +181,11 @@ gulp.task(
     'default',
     gulp.series(
         validate.validateElviaComponentsConfig,
+        buildToolboxComponentToJS,
         TSX_to_JS,
+        reactTypescriptDeclarations,
         buildWebComponentsMagically,
         buildElviaComponentToJS,
-        buildToolboxComponentToJS,
         function (done) {
             done();
             console.log('Successfully built Elvia Components!');
