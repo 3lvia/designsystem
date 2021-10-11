@@ -138,14 +138,17 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
     const tabs = [];
     if (this.noPhone && this.noTablet) {
       this.screenTabOpen = 'desktop';
+      tabs.push('desktop');
       this.showTabs = false;
     }
     if (this.noPhone && this.noDesktop) {
       this.screenTabOpen = 'tablet';
+      tabs.push('tablet');
       this.showTabs = false;
     }
     if (this.noTablet && this.noDesktop) {
       this.screenTabOpen = 'phone';
+      tabs.push('phone');
       this.showTabs = false;
     }
     if (this.showTabs) {
@@ -159,6 +162,7 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
         tabs.push('phone');
       }
     }
+
     return tabs;
   }
 }

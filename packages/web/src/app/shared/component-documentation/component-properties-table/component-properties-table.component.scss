@@ -1,4 +1,20 @@
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+
 .e-table.e-table--compact td.table-code-text,
 .e-table.e-table--compact th.table-code-text {
   font-family: 'Fira Mono';
+}
+
+.e-table-container .e-table {
+  display: block;
+  @include breakpoint-up(Mobile) {
+    display: none;
+  }
+}
+
+.e-table-container .e-table-mobile {
+  display: none;
+  @include breakpoint-up(Mobile) {
+    display: block;
+  }
 }

@@ -11,6 +11,7 @@ export class CegFiltersComponent implements OnInit {
   @Input() componentData;
   @Input() props;
   @Input() selectedType;
+  @Input() desktop = true;
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeNativeSub: Subscription;

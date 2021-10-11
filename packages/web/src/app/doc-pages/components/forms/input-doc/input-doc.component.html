@@ -29,17 +29,14 @@
           <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Combined'">
+      <app-component-subsection [sectionTitle]="'Combined & Inlined'">
         <ng-container ngProjectAs="sectionContent">
           Use the e-combined-field class on the form-field element to keep two inputs for the same label.
+          <p>
+            Use the e-inlined-field class outside the form-field element to align inputs on the same line.
+            When the zip code is filled in, the post office should be filled in automatically.
+          </p>
           <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Inlined'">
-        <ng-container ngProjectAs="sectionContent">
-          Use the e-inlined-field class outside the form-field element to align inputs on the same line. When
-          the zip code is filled in, the post office should be filled in automatically.
-          <app-component-example-v1 [codeHTML]="example3"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Textarea'">
@@ -48,16 +45,28 @@
           <app-component-example-v1 [codeHTML]="example5"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!-- OPTIONS -->
+  <app-component-section [sectionTitle]="'Options'">
+    <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'With button'">
         <ng-container ngProjectAs="sectionContent">
           The view_on icon button should be used when showing and hiding a password.
           <app-component-example-v1 [codeHTML]="exampleIcon"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Without label'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="exampleInputNoLabel"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
-  <!-- Size -->
+  <!-- SIZE -->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
       There are two different sizes of input. The width of the container should be proportional to the
@@ -72,16 +81,7 @@
           Compact text fields are typically used in Elvia’s internal systems, where screen real estate is an
           important factor. Regardless of which style you use for text fields, you should always stick with
           the same type throughout the page and never mix the two.
-          <app-component-subsubsection [sectionTitle]="'With label'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleCompactInput"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Without label'">
-            <ng-container ngProjectAs="sectionContent">
-              <app-component-example-v1 [codeHTML]="exampleCompactInputNoLabel"></app-component-example-v1>
-            </ng-container>
-          </app-component-subsubsection>
+          <app-component-example-v1 [codeHTML]="exampleCompactInput"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>
