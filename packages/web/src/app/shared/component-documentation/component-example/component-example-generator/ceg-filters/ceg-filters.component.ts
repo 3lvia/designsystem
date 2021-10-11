@@ -60,6 +60,9 @@ export class CegFiltersComponent implements OnInit {
   }
 
   initializeComponentProps(): void {
+    if (!this.componentData.attributes) {
+      return;
+    }
     Object.keys(this.componentData.attributes).forEach((attribute) => {
       Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
         if (value === 'cegFormType' && this.componentData.attributes[attribute].cegFormType === 'checkbox') {

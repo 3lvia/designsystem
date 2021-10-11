@@ -72,6 +72,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       if (this.componentData.codeNativeScript) {
         setTimeout(() => eval(this.componentData.codeNativeScript), 200);
       }
+      if (!this.componentData.attributes) {
+        return;
+      }
       Object.keys(this.componentData.attributes).forEach((attribute) => {
         Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
           if (value === 'cegFormType') {
@@ -90,6 +93,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   }
 
   initializeComponentProps(): void {
+    if (!this.componentData.attributes) {
+      return;
+    }
     Object.keys(this.componentData.attributes).forEach((attribute) => {
       Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
         if (value === 'cegFormType') {

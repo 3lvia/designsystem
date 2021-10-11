@@ -15,8 +15,9 @@
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Actions'">
         <ng-container ngProjectAs="sectionContent">
+          Default modal with two buttons.
           <app-component-example-generator
-            [componentData]="componentData"
+            [componentData]="modalActionsCode"
             [inlineExample]="true"
           ></app-component-example-generator>
         </ng-container>
@@ -24,8 +25,9 @@
 
       <app-component-subsection [sectionTitle]="'Danger'">
         <ng-container ngProjectAs="sectionContent">
+          Used for destructive actions.
           <app-component-example-generator
-            [componentData]="componentData"
+            [componentData]="modalDangerCode"
             [inlineExample]="true"
           ></app-component-example-generator>
         </ng-container>
@@ -33,19 +35,23 @@
 
       <app-component-subsection [sectionTitle]="'Info'">
         <ng-container ngProjectAs="sectionContent">
+          General information - user don’t need to take a desicion with only one button.
           <app-component-example-generator
             [componentData]="componentData"
             [inlineExample]="true"
           ></app-component-example-generator>
         </ng-container>
       </app-component-subsection>
+    </ng-container>
+  </app-component-section>
 
+  <!--OPTIONS-->
+  <app-component-section [sectionTitle]="'Options'">
+    <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'With illustration'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-generator
-            [componentData]="componentData"
-            [inlineExample]="true"
-          ></app-component-example-generator>
+          You can add an illustration or image to the modal. The size of the modal then changes to fixed
+          height and width (550 x 1090px).
         </ng-container>
       </app-component-subsection>
     </ng-container>

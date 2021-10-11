@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { modalData } from 'src/app/doc-pages/components/modal-doc/modal-data';
+import { modalActionsCode } from 'src/app/doc-pages/components/modal-doc/modal-actions-code';
+import { modalInfoCode } from 'src/app/doc-pages/components/modal-doc/modal-info-code';
+import { modalDangerCode } from 'src/app/doc-pages/components/modal-doc/modal-danger-code';
 import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
@@ -9,6 +12,9 @@ import { getComponent } from 'src/app/shared/doc-pages';
 })
 export class ModalDocComponent {
   componentData = modalData;
+  modalActionsCode = modalActionsCode;
+  modalDangerCode = modalDangerCode;
+  modalInfoCode = modalInfoCode;
   figmaUrl = getComponent('modal').figmaUrl;
   description = getComponent('modal').description;
   // tslint:disable-next-line:max-line-length

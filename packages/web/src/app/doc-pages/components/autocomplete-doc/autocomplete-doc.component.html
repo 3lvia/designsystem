@@ -46,6 +46,29 @@
         </ng-container>
       </app-component-subsection>
 
+      <div class="e-form-field">
+        <label class="e-form-field__label" for="compact">Country</label>
+        <div class="e-input">
+          <input
+            placeholder="Search for country"
+            [value]="chosenLand"
+            #searchTerm
+            (keyup)="onSearch(searchTerm.value)"
+            (click)="onInputClick()"
+            id="ChooseCountry"
+          />
+          <div class="e-autocomplete" *ngIf="showResults" id="countryOptions">
+            <span
+              class="e-autocomplete__item"
+              *ngFor="let country of results"
+              (click)="SelectCountry(country)"
+            >
+              {{ country }}
+            </span>
+          </div>
+        </div>
+      </div>
+
       <app-component-subsection [sectionTitle]="'Compact'">
         <ng-container ngProjectAs="sectionContent">
           Much like compact text fields, the compact autocomplete is a version of the text field that’s

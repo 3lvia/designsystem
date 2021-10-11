@@ -101,7 +101,8 @@ const modalData = {
   <div slot="illustration">
     Illustration
   </div>
-</elvia-modal>`,
+</elvia-modal>
+`,
   codeNativeHTML: `<button id="example-modal-button" class="e-btn">Åpne modal</button>
 <elvia-modal
   id="example-elvia-modal"
