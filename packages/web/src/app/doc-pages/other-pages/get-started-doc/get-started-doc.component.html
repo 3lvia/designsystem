@@ -103,7 +103,7 @@
             <ol class="e-list e-list--numbers">
               <li>
                 <strong class="e-mr-16">Install the package</strong>
-                <app-copy [message]="'npm i @elvia/elvis'" [noAnimation]="true">
+                <app-copy [message]="'npm i @elvia/elvis'">
                   <ng-container ngProjectAs="copyContent">
                     <code class="code-text">npm i @elvia/elvis</code>
                   </ng-container>
@@ -111,7 +111,7 @@
               </li>
               <li>
                 <strong class="e-mr-16">Import src/main.scss or elvis.min.css in your stylesheet</strong>
-                <app-copy [message]="'@import \'~@elvia/elvis/src/main.scss\';'" [noAnimation]="true">
+                <app-copy [message]="'@import \'~@elvia/elvis/src/main.scss\';'">
                   <ng-container ngProjectAs="copyContent">
                     <code class="code-text">@import '~@elvia/elvis/src/main.scss';</code>
                   </ng-container>
@@ -119,7 +119,7 @@
               </li>
               <li>
                 <strong class="e-mr-16">Add elvis.js from the NPM package in &#x3C;body&#x3E;</strong>
-                <app-copy [message]="bodyScriptMessage" [noAnimation]="true">
+                <app-copy [message]="bodyScriptMessage">
                   <ng-container ngProjectAs="copyContent">
                     <code class="code-text">
                       &lt;body&gt; &lt;script src="assets/js/elvis.js"&gt;&lt;/script&gt; &lt;/body&gt;
@@ -159,7 +159,7 @@
             <app-component-subsubsection [sectionTitle]="'Internet Explorer Support'">
               <ng-container ngProjectAs="sectionContent">
                 <p>
-                  <app-copy [message]="'npm install css-vars-ponyfill'" [noAnimation]="true">
+                  <app-copy [message]="'npm install css-vars-ponyfill'">
                     <ng-container ngProjectAs="copyContent">
                       <code class="code-text">npm install css-vars-ponyfill</code>
                     </ng-container>
