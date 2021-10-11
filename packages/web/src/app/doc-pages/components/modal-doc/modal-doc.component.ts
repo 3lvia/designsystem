@@ -3,6 +3,7 @@ import { modalData } from 'src/app/doc-pages/components/modal-doc/modal-data';
 import { modalActionsCode } from 'src/app/doc-pages/components/modal-doc/modal-actions-code';
 import { modalInfoCode } from 'src/app/doc-pages/components/modal-doc/modal-info-code';
 import { modalDangerCode } from 'src/app/doc-pages/components/modal-doc/modal-danger-code';
+import { modalIllustrationCode } from 'src/app/doc-pages/components/modal-doc/modal-illustration-code';
 import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
@@ -15,6 +16,7 @@ export class ModalDocComponent {
   modalActionsCode = modalActionsCode;
   modalDangerCode = modalDangerCode;
   modalInfoCode = modalInfoCode;
+  modalIllustrationCode = modalIllustrationCode;
   figmaUrl = getComponent('modal').figmaUrl;
   description = getComponent('modal').description;
   // tslint:disable-next-line:max-line-length

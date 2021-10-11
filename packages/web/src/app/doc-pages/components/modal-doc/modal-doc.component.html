@@ -37,7 +37,7 @@
         <ng-container ngProjectAs="sectionContent">
           General information - user don’t need to take a desicion with only one button.
           <app-component-example-generator
-            [componentData]="componentData"
+            [componentData]="modalInfoCode"
             [inlineExample]="true"
           ></app-component-example-generator>
         </ng-container>
@@ -52,6 +52,10 @@
         <ng-container ngProjectAs="sectionContent">
           You can add an illustration or image to the modal. The size of the modal then changes to fixed
           height and width (550 x 1090px).
+          <app-component-example-generator
+            [componentData]="modalIllustrationCode"
+            [inlineExample]="true"
+          ></app-component-example-generator>
         </ng-container>
       </app-component-subsection>
     </ng-container>
