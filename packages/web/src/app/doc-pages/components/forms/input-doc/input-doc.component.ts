@@ -42,8 +42,8 @@ export class InputDocComponent {
 </div>
 `;
 
-  exampleCompactInputNoLabel = `<div style="width: 240px;">
-  <div class="e-input e-input--compact">
+  exampleInputNoLabel = `<div style="width: 240px;">
+  <div class="e-input">
     <input id="compact" type="text" placeholder="Placeholder text">
   </div>
 </div>

@@ -55,12 +55,7 @@
       ></app-ceg-filters>
     </div>
     <div class="ceg-side-filters-mobile" *ngIf="props.length !== 0 && getDependentFilter()">
-      <elvia-popover
-        [posX]="'left'"
-        [posY]="'bottom'"
-        [isShowing]="popoverIsShowing"
-        (isShowingOnChange)="popoverIsShowing = $event.detail.value"
-      >
+      <elvia-popover [posX]="'left'" [posY]="'bottom'">
         <button slot="trigger" class="e-btn e-btn--icon">
           <span class="e-btn__icon">
             <i class="e-icon e-icon--list" *ngIf="selectedBg !== 'Dark grey'"></i>

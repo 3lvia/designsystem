@@ -19,7 +19,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() overflowY;
   @Input() alignedTop = false;
   typeHasFilter = false;
-  popoverIsShowing = false;
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeNativeSub: Subscription;
@@ -239,9 +238,5 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         prop.cegTypeDependency && this.selectedType.toLowerCase() === prop.cegTypeDependency.toLowerCase()
       );
     });
-  }
-
-  closePopover(): void {
-    this.popoverIsShowing = false;
   }
 }
