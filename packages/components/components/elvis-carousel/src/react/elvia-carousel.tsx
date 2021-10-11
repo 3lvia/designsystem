@@ -72,7 +72,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
     const slotElements = Object.keys(slots).filter((el) => {
       return el.includes('element-');
     });
-    if (!slotElements) {
+    if (slotElements.length === 0) {
       return;
     }
 
@@ -89,7 +89,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
       newEl.element = <div dangerouslySetInnerHTML={{ __html: element ? slots[element].innerHTML : '' }} />;
       newElements.push(newEl);
     }
-    if (newElements && typeof newElements !== 'number') {
+    if (newElements.length !== 0) {
       setLengthOfElements(newElements.length);
     }
     setCarouselElements(newElements);

@@ -37,7 +37,7 @@ export const carouselData = {
       cegOption: 'true',
       cegDisplayGroup: 'Options',
       cegTypeDependency: 'hideArrows',
-      cegTypeDependencyValue: 'false',
+      cegTypeDependencyValue: 'true',
     },
     onHide: {
       isRequired: false,
@@ -67,6 +67,7 @@ export const carouselData = {
   codeImportReact: `import { Carousel } from '@elvia/elvis-carousel/react';`,
   codeImportWebComponent: `import '@elvia/elvis-carousel';`,
   codeReact: `<Carousel
+>
   elements={[
     { 
       title: <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>, 
@@ -94,7 +95,8 @@ export const carouselData = {
     }
   ]} 
 ></Carousel>`,
-  codeAngular: `<elvia-carousel>
+  codeAngular: `<elvia-carousel
+>
   <div slot="title-1">
     <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>
@@ -126,7 +128,8 @@ export const carouselData = {
     />
   </div>
 </elvia-carousel>`,
-  codeNativeHTML: `<elvia-carousel>
+  codeNativeHTML: `<elvia-carousel
+>
   <div slot="title-1">
     <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
   </div>

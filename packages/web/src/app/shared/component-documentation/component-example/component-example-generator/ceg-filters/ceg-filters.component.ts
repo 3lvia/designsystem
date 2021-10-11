@@ -91,21 +91,31 @@ export class CegFiltersComponent implements OnInit {
   }
 
   typeDependencyExists(prop: Record<string, any>): boolean {
-    const checkbox = <HTMLInputElement>document.getElementById(prop.cegTypeDependency + '-checkbox');
-    const depCheckbox = <HTMLInputElement>document.getElementById(prop.attribute + '-checkbox');
-    if (prop.cegTypeDependencyValue === 'false' && depCheckbox && depCheckbox.checked && checkbox.checked) {
-      depCheckbox.checked = false;
-      this.updateToggleCheckboxProp(prop, 'false');
-    } else if (!prop.cegTypeDependencyValue && depCheckbox && depCheckbox.checked && !checkbox.checked) {
-      depCheckbox.checked = false;
-      this.updateToggleCheckboxProp(prop, 'false');
-    }
-    if (!checkbox) {
+    const dependencyCheckbox = <HTMLInputElement>(
+      document.getElementById(prop.cegTypeDependency + '-checkbox-' + this.desktop)
+    );
+    const checkboxThatHasDependency = <HTMLInputElement>(
+      document.getElementById(prop.attribute + '-checkbox-' + this.desktop)
+    );
+    if (!checkboxThatHasDependency) {
       return;
     }
+    if (
+      (prop.cegTypeDependencyValue === 'false' &&
+        checkboxThatHasDependency.checked &&
+        dependencyCheckbox.checked) ||
+      (prop.cegTypeDependencyValue === 'true' &&
+        checkboxThatHasDependency.checked &&
+        !dependencyCheckbox.checked) ||
+      (!prop.cegTypeDependencyValue && checkboxThatHasDependency.checked && !dependencyCheckbox.checked)
+    ) {
+      checkboxThatHasDependency.checked = false;
+      this.updateToggleCheckboxProp(prop, 'false');
+    }
     return (
-      (prop.cegTypeDependencyValue === 'false' && !checkbox.checked) ||
-      (!prop.cegTypeDependencyValue && checkbox.checked)
+      (prop.cegTypeDependencyValue === 'false' && !dependencyCheckbox.checked) ||
+      (prop.cegTypeDependencyValue === 'true' && dependencyCheckbox.checked) ||
+      (!prop.cegTypeDependencyValue && dependencyCheckbox.checked)
     );
   }
 
