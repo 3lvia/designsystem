@@ -75,20 +75,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
     if (slotElements.length === 0) {
       return;
     }
-
-    const newElements: CarouselElement[] = [];
-    for (let i = 1; i < slotElements.length + 1; i++) {
-      const newEl: CarouselElement = { title: '', element: '' };
-      const title = Object.keys(slots).find((el) => {
-        return el === 'title-' + i;
-      });
-      const element = Object.keys(slots).find((el) => {
-        return el === 'element-' + i;
-      });
-      newEl.title = <div dangerouslySetInnerHTML={{ __html: title ? slots[title].innerHTML : '' }} />;
-      newEl.element = <div dangerouslySetInnerHTML={{ __html: element ? slots[element].innerHTML : '' }} />;
-      newElements.push(newEl);
-    }
+    const newElements = mapSlottedItems(slots, slotElements);
     if (newElements.length !== 0) {
       setLengthOfElements(newElements.length);
     }
@@ -107,6 +94,23 @@ export const Carousel: FC<BaseCarouselProps> = ({
       );
     }
   }, [elements]);
+
+  const mapSlottedItems = (slots: Record<string, any>, slotElements: string | any[]) => {
+    const newElements: CarouselElement[] = [];
+    for (let i = 1; i < slotElements.length + 1; i++) {
+      const newEl: CarouselElement = { title: '', element: '' };
+      const title = Object.keys(slots).find((el) => {
+        return el === 'title-' + i;
+      });
+      const element = Object.keys(slots).find((el) => {
+        return el === 'element-' + i;
+      });
+      newEl.title = <div dangerouslySetInnerHTML={{ __html: title ? slots[title].innerHTML : '' }} />;
+      newEl.element = <div dangerouslySetInnerHTML={{ __html: element ? slots[element].innerHTML : '' }} />;
+      newElements.push(newEl);
+    }
+    return newElements;
+  };
 
   const handleMouseDown = (e: MouseEvent | TouchEvent) => {
     const clientX = 'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
