@@ -59,6 +59,17 @@
           ></app-component-example-generator>
         </ng-container>
       </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Multiple pages'">
+        <ng-container ngProjectAs="sectionContent">
+          If you need multiple pages in the modal
+          <a class="e-link e-link--inline" [routerLink]="['/components/carousel']">carousel</a>
+          are added to navigate. A close icon button is then added to make it easy to escape the modal.
+          <app-component-example-generator
+            [componentData]="modalMultipageCode"
+            [inlineExample]="true"
+          ></app-component-example-generator>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
@@ -66,12 +77,6 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Be clear'">
-        <ng-container ngProjectAs="sectionContent">
-          Never use a language or word that the user does not understand. It should always be clear to the
-          user what the actions are all about. Use short texts, up to 250 characters in body text.
-        </ng-container>
-      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
