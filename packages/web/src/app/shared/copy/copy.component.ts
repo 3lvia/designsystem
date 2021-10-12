@@ -9,12 +9,11 @@ import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.
 export class CopyComponent {
   @Input() message = '';
   @Input() smallElementAnimation = false;
-  @Input() noAnimation = false;
 
   copyTooltip = 'Copy';
   copyTimeout;
 
-  constructor(private copyService: CopyToClipboardService) {}
+  constructor(private copyService: CopyToClipboardService) { }
 
   copyMessage(copyMessage: string): void {
     this.copyToClipBoard(copyMessage);

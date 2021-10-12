@@ -11,9 +11,9 @@
   <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
   <!--SIZE-->
-  <app-component-section [sectionTitle]="'Size'" noAnimation="true">
+  <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Normal'" noAnimation="true">
+      <app-component-subsection [sectionTitle]="'Normal'">
         <ng-container ngProjectAs="sectionContent">
           <div style="width: 250px">
             <elvia-dropdown
@@ -24,7 +24,7 @@
           </div>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Compact'" noAnimation="true">
+      <app-component-subsection [sectionTitle]="'Compact'">
         <ng-container ngProjectAs="sectionContent">
           <div style="width: 250px">
             <elvia-dropdown
@@ -40,9 +40,9 @@
   </app-component-section>
 
   <!--OPTIONS-->
-  <app-component-section [sectionTitle]="'Options'" noAnimation="true">
+  <app-component-section [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Multiselect'" noAnimation="true">
+      <app-component-subsection [sectionTitle]="'Multiselect'">
         <ng-container ngProjectAs="sectionContent">
           <div style="width: 250px">
             <elvia-dropdown
@@ -58,21 +58,21 @@
   </app-component-section>
 
   <!--USAGE-->
-  <app-component-section [sectionTitle]="'Usage'" noAnimation="true">
+  <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
     </ng-container>
   </app-component-section>
 
   <!--INSTALLATION-->
-  <app-component-section [sectionTitle]="'Installation'" noAnimation="true">
+  <app-component-section [sectionTitle]="'Installation'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-installation [componentData]="componentData"></app-component-installation>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" noAnimation="true">
+  <app-component-section [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
