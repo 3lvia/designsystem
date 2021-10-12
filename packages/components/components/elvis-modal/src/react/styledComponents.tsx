@@ -227,7 +227,7 @@ export const CloseButton = styled.button`
     border-color: #29d305;
 
     .ewc-icon {
-      filter: invert(1);
+      filter: ${(props: { hasIllustration: boolean }) => props.hasIllustration && 'invert(1)'};
     }
   }
   .ewc-icon {
@@ -237,6 +237,9 @@ export const CloseButton = styled.button`
     background-position: center;
     background-repeat: no-repeat;
     display: inline-block;
-    background-image: url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath d='M14.3 12.179a.25.25 0 010-.354l9.263-9.262A1.5 1.5 0 1021.439.442L12.177 9.7a.25.25 0 01-.354 0L2.561.442A1.5 1.5 0 00.439 2.563L9.7 11.825a.25.25 0 010 .354L.439 21.442a1.5 1.5 0 102.122 2.121l9.262-9.263a.25.25 0 01.354 0l9.262 9.263a1.5 1.5 0 002.122-2.121L14.3 12.179z' fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath d='M0 0h24v24H0V0z' fill='white'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e");
+    background-image: ${(props: { hasIllustration: boolean }) =>
+      props.hasIllustration
+        ? `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M23.636 2.122A1.243 1.243 0 1021.878.364L12 10.242 2.122.364A1.243 1.243 0 00.364 2.122L10.242 12 .364 21.878a1.243 1.243 0 101.758 1.758L12 13.758l9.878 9.878a1.243 1.243 0 101.758-1.758L13.758 12l9.878-9.878z' fill='white'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath fill='black' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`
+        : `url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cg clip-path='url(%23clip0)'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M23.636 2.122A1.243 1.243 0 1021.878.364L12 10.242 2.122.364A1.243 1.243 0 00.364 2.122L10.242 12 .364 21.878a1.243 1.243 0 101.758 1.758L12 13.758l9.878 9.878a1.243 1.243 0 101.758-1.758L13.758 12l9.878-9.878z' fill='black'/%3e%3c/g%3e%3cdefs%3e%3cclipPath id='clip0'%3e%3cpath fill='white' d='M0 0h24v24H0z'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e")`};
   }
 `;

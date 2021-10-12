@@ -90,9 +90,15 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   }
 
   ngOnDestroy(): void {
-    this.codeAngularSub.unsubscribe();
-    this.codeReactSub.unsubscribe();
-    this.codeNativeSub.unsubscribe();
+    if (this.codeAngularSub) {
+      this.codeAngularSub.unsubscribe();
+    }
+    if (this.codeReactSub) {
+      this.codeReactSub.unsubscribe();
+    }
+    if (this.codeNativeSub) {
+      this.codeNativeSub.unsubscribe();
+    }
   }
 
   initializeComponentProps(): void {

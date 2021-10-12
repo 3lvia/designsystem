@@ -45,9 +45,15 @@ export class CegFiltersComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.codeAngularSub.unsubscribe();
-    this.codeReactSub.unsubscribe();
-    this.codeNativeSub.unsubscribe();
+    if (this.codeAngularSub) {
+      this.codeAngularSub.unsubscribe();
+    }
+    if (this.codeReactSub) {
+      this.codeReactSub.unsubscribe();
+    }
+    if (this.codeNativeSub) {
+      this.codeNativeSub.unsubscribe();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
