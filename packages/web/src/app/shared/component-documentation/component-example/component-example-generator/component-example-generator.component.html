@@ -1,7 +1,4 @@
-<div
-  class="ceg-container component-preview-animation"
-  [ngClass]="{ 'full-width': !hasCegAttributes, 'no-margin': inlineExample }"
->
+<div class="ceg-container component-preview-animation" [ngClass]="{ 'no-margin': inlineExample }">
   <!--Top filters-->
   <div *ngIf="hasCegAttributes && hasTopFilters" class="ceg-top-filters">
     <div *ngIf="typeObject" class="ceg-dropdown">

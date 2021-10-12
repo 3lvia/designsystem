@@ -12,7 +12,7 @@ export class ComponentSectionComponent {
   @Input() propertiesClass = '';
   @Input() figmaOnly = false;
 
-  constructor(private router: Router, private copyService: CopyToClipboardService) { }
+  constructor(private router: Router, private copyService: CopyToClipboardService) {}
 
   copyAnchor(): void {
     const anchorTitleElement = document.getElementById(this.sectionTitle);

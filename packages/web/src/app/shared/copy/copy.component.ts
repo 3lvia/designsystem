@@ -13,7 +13,7 @@ export class CopyComponent {
   copyTooltip = 'Copy';
   copyTimeout;
 
-  constructor(private copyService: CopyToClipboardService) { }
+  constructor(private copyService: CopyToClipboardService) {}
 
   copyMessage(copyMessage: string): void {
     this.copyToClipBoard(copyMessage);
