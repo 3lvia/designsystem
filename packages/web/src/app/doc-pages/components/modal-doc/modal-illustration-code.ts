@@ -24,7 +24,7 @@ const modalIllustrationCode = {
       <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
     }
     illustration={
-      <div>illustration</div>
+      <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>
     }
   >
   </Modal>`,
@@ -41,7 +41,7 @@ const modalIllustrationCode = {
     </button>
     <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
     <div slot="illustration">
-      Illustration
+      <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>
     </div>
   </elvia-modal>`,
   codeNativeHTML: `<button id="example-modal-button-illustration" class="e-btn">Åpne modal</button>

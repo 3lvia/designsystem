@@ -38,12 +38,12 @@ const modalData = {
       isRequired: false,
       type: 'boolean',
       description: 'Show close icon button inside the modal in the top right corner.',
+      default: 'true',
       displayName: 'Close button',
-      default: 'false',
       cegType: 'boolean',
-      cegFormType: 'checkbox',
+      cegFormType: 'toggle',
+      cegDefault: 'false',
       cegOption: 'true',
-      cegDisplayGroup: 'Options',
     },
     hasLockBodyScroll: {
       isRequired: true,
@@ -60,7 +60,8 @@ const modalData = {
   package: 'npm install @elvia/elvis-modal',
   codeImportReact: `import { Modal } from '@elvia/elvis-modal/react';`,
   codeImportWebComponent: `import '@elvia/elvis-modal';`,
-  codeReact: `<Modal
+  codeReact: `<button onClick={() => setIsModalShowingState(true)} class="e-btn">Åpne modal</button>
+<Modal
   isShowing={isModalShowing}
   onHide={() => setIsModalShowingState(false)}
   title="Title of content"
@@ -81,12 +82,10 @@ const modalData = {
   content={
     <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
   }
-  illustration={
-    <div>illustration</div>
-  }
 >
 </Modal>`,
-  codeAngular: `<elvia-modal
+  codeAngular: `<button (click)="isModalShowing = true" class="e-btn">Åpne modal</button>
+<elvia-modal
   (onHide)="isModalShowing = !isModalShowing"
   [isShowing]="isModalShowing"
   [title]="'Title of content'"
@@ -98,9 +97,6 @@ const modalData = {
     Cancel
   </button>
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
-  <div slot="illustration">
-    Illustration
-  </div>
 </elvia-modal>
 `,
   codeNativeHTML: `<button id="example-modal-button" class="e-btn">Åpne modal</button>
@@ -114,9 +110,6 @@ const modalData = {
     Cancel
   </button>
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
-  <div slot="illustration">
-    <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>
-  </div>
 </elvia-modal>
 `,
   codeNativeScript: `  const modal = document.getElementById('example-elvia-modal');

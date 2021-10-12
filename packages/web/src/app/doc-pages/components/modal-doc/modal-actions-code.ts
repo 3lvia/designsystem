@@ -23,9 +23,6 @@ const modalActionsCode = {
     content={
       <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
     }
-    illustration={
-      <div>illustration</div>
-    }
   >
   </Modal>`,
   codeAngular: `<elvia-modal
@@ -40,9 +37,6 @@ const modalActionsCode = {
       Cancel
     </button>
     <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
-    <div slot="illustration">
-      Illustration
-    </div>
   </elvia-modal>`,
   codeNativeHTML: `<button id="example-modal-button-actions" class="e-btn">Åpne modal</button>
   <elvia-modal
@@ -55,9 +49,6 @@ const modalActionsCode = {
       Cancel
     </button>
     <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
-    <div slot="illustration">
-      <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>
-    </div>
   </elvia-modal>
   `,
   codeNativeScript: `  const modal = document.getElementById('example-elvia-modal-actions');

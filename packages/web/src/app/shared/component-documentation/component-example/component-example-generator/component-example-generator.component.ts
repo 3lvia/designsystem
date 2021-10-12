@@ -49,6 +49,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     this.codeAngular = this.componentData.codeAngular;
     this.codeReact = this.componentData.codeReact;
     this.codeNative = this.componentData.codeNativeHTML;
+    if (this.inlineExample) {
+      return;
+    }
     this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code: string) => {
       this.codeAngular = code;
     });
