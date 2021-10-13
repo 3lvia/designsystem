@@ -15,30 +15,42 @@ export const CarouselContainer = styled.div`
   flex-direction: column;
   overflow: hidden;
 
-  .carousel-enter {
-    transform: ${(props: { slideDirection: string }) =>
-      props.slideDirection === 'left' ? 'translateX(-30%)' : 'translateX(30%)'};
+  @keyframes exitLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
   }
-
-  .carousel-enter-active {
-    transform: translateX(0);
-    transition: all 500ms ease-in;
+  @keyframes exitRight {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
   }
-
-  .carousel-exit {
-    transform: translateX(0);
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
-
-  .carousel-exit-active {
-    transform: ${(props: { slideDirection: string }) =>
-      props.slideDirection === 'left' ? 'translateX(-30%)' : 'translateX(30%)'};
-    transition: all 500ms ease-in;
+  .exit-animation {
+    animation: ${(props: { slideDirection: string }) =>
+        props.slideDirection === 'left' ? 'exitLeft' : 'exitRight'}
+      500ms ease-in;
+  }
+  .enter-animation {
+    animation: fadeInOpacity 0.5s ease-in;
   }
 `;
 
 export const CarouselElementContainer = styled.div`
-  transform: scale(0.98);
-  cursor: pointer;
+  margin-bottom: 24px;
 
   // Prevent imagine dragging
   // Note: This does not work for Firefox
@@ -53,30 +65,10 @@ export const CarouselElementContainer = styled.div`
   &:active {
     cursor: grabbing;
     cursor: -webkit-grabbing;
-    transform: scale(1);
     user-select: none;
-  }
-`;
-
-export const CarouselTitle = styled.h2`
-  font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: 700;
-  line-height: '28px';
-  font-size: '30px';
-  color: ${ElviaColors.elviaOff};
-  text-transform: 'unset';
-  letter-spacing: 'unset';
-  font-style: unset;
-  * {
-    margin: 0px;
-    font-family: 'Red Hat Display', Verdana, sans-serif;
-    font-weight: 700;
-    line-height: '28px';
-    font-size: '30px';
-    color: ${ElviaColors.elviaOff};
-    text-transform: 'unset';
-    letter-spacing: 'unset';
-    font-style: unset;
+    @media (hover: none) {
+      transform: scale(0.98);
+    }
   }
 `;
 
@@ -105,6 +97,13 @@ export const CarouselElement = styled.div`
   }
 `;
 
+export const CarouselTitle = styled.div`
+  margin-top: 0;
+  * {
+    margin-top: 0;
+  }
+`;
+
 export const NavigationRow = styled.div`
   display: flex;
   align-items: center;
@@ -119,18 +118,27 @@ export const NavigationRow = styled.div`
 export const ListOfDots = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 0px 24px;
 `;
 
 export const Dot = styled.button`
   border: 1px solid
     ${(props: { isSelected: boolean }) => (props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOff)};
-  height: 8px;
-  width: 8px;
+  height: ${(props: { isSelected: boolean }) => (props.isSelected ? '9px' : '8px')};
+  width: ${(props: { isSelected: boolean }) => (props.isSelected ? '9px' : '8px')};
+  @media (max-width: 767px) {
+    border: 1px solid
+      ${(props: { isSelected: boolean }) =>
+        props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOff};
+    height: ${(props: { isSelected: boolean }) => (props.isSelected ? '13px' : '12px')};
+    width: ${(props: { isSelected: boolean }) => (props.isSelected ? '13px' : '12px')};
+  }
+
   border-radius: 50%;
   background-color: ${(props: { isSelected: boolean }) =>
     props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOn};
-  margin: 8px;
+  margin: ${(props: { isSelected: boolean }) => (props.isSelected ? '7.5px' : '8px')};
   cursor: pointer;
   padding: 0;
   &:hover {
@@ -142,7 +150,7 @@ export const LeftCarouselButton = styled.button`
   border: none;
   background: transparent;
   display: flex;
-  padding: 24px 0px 24px 16px;
+  padding: 0px;
   visibility: ${(props: { hidden: boolean }) => (props.hidden ? 'hidden' : 'visible')};
 
   cursor: pointer;
@@ -171,7 +179,7 @@ export const RightCarouselButton = styled.button`
   border: none;
   background: transparent;
   display: flex;
-  padding: 24px 16px 24px 0px;
+  padding: 0px;
   visibility: ${(props: { hidden: boolean }) => (props.hidden ? 'hidden' : 'visible')};
   cursor: pointer;
   &:hover {

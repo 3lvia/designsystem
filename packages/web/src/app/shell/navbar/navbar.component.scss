@@ -37,6 +37,7 @@ $text-line-height: 32px;
 
   @include breakpoint-up(MaxDesktop) {
     width: 13%;
+    max-width: 250px;
   }
 
   @include breakpoint-up(Tablet) {
@@ -144,7 +145,6 @@ $text-line-height: 32px;
         margin-bottom: 8px;
 
         .link {
-          // animation-delay: 300ms;
           @extend %scale-down-ver-top;
           &:nth-child(1) {
             animation-delay: 300ms;

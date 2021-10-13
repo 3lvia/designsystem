@@ -55,7 +55,8 @@ export class TypographyDocComponent implements OnInit {
 <p class="e-text-img">Text Image</p>
 <p>
   <span class="e-text-micro e-mr-16">Text Micro</span>
-  <span class="e-text-micro-strong">Text Micro Strong</span>
+  <span class="e-text-micro-strong e-mr-16">Text Micro Strong</span>
+  <span class="e-text-micro-light">Text Micro Light</span>
 </p>
 `;
 

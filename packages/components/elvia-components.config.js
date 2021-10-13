@@ -75,7 +75,7 @@ module.exports = [
       { name: 'value', type: 'number', propType: 'number' },
     ],
     reactName: 'Carousel',
-    slotItems: false,
+    slotItems: true,
     useWrapper: false,
     reactTypescriptDeclaration: false,
   },

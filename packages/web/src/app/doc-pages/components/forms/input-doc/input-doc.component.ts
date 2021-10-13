@@ -42,8 +42,8 @@ export class InputDocComponent {
 </div>
 `;
 
-  exampleCompactInputNoLabel = `<div style="width: 240px;">
-  <div class="e-input e-input--compact">
+  exampleInputNoLabel = `<div style="width: 240px;">
+  <div class="e-input">
     <input id="compact" type="text" placeholder="Placeholder text">
   </div>
 </div>
@@ -68,9 +68,8 @@ export class InputDocComponent {
     </div>
   </div>
 </div>
-`;
 
-  example3 = `<div class="e-inlined-field">
+<div class="e-inlined-field e-mt-24">
   <div class="e-form-field e-form-field--medium">
     <label class="e-form-field__label" for="zip">Zip code</label>
     <div class="e-input">

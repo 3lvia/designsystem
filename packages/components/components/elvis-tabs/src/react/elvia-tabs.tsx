@@ -50,7 +50,6 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
     updateArrowVisibility();
   });
 
-  // Is necessary since the web component does not send all props at once
   useEffect(() => {
     setCurrValue(value);
   }, [value]);

@@ -1,8 +1,9 @@
 import React, { FC, useState, useRef, useEffect } from 'react';
+import classnames from 'classnames';
 import {
   CarouselContainer,
-  CarouselTitle,
   CarouselElement,
+  CarouselTitle,
   LeftCarouselButton,
   ListOfDots,
   Dot,
@@ -11,15 +12,13 @@ import {
   CarouselElementContainer,
   CheckButton,
 } from './StyledComponents';
-import { CSSTransition } from 'react-transition-group';
 
 type CarouselElement = {
-  title?: string;
+  title?: JSX.Element | string | HTMLElement;
   element: JSX.Element | string | HTMLElement;
 };
 
 export interface BaseCarouselProps {
-  className?: string;
   elements: CarouselElement[] | number;
   hideArrows?: boolean;
   onHide?: () => void;
@@ -31,7 +30,6 @@ export interface BaseCarouselProps {
 
 // don't know why it says it does not exist
 export const Carousel: FC<BaseCarouselProps> = ({
-  className,
   elements,
   hideArrows = false,
   onHide,
@@ -40,15 +38,15 @@ export const Carousel: FC<BaseCarouselProps> = ({
   valueOnChange,
   webcomponent,
 }) => {
+  const [carouselElements, setCarouselElements] = useState<CarouselElement[] | number>();
+  const [lengthOfElements, setLengthOfElements] = useState<number>(0);
   const [index, setIndex] = useState(value);
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [slideIn, setSlideIn] = useState(true);
+  const [fadeIn, setFadeIn] = useState(true);
   const [slideDirection, setSlideDirection] = useState<'left' | 'right'>('left');
 
   const itemsRef = useRef<HTMLDivElement>(null);
-
-  const lengthOfElements = typeof elements === 'object' ? elements.length : elements;
 
   const hideLeftArrow = hideArrows && index === 0;
   const hideRightArrow = hideArrows && index === lengthOfElements - 1;
@@ -65,10 +63,54 @@ export const Carousel: FC<BaseCarouselProps> = ({
     }
   };
 
-  // Is necessary since the web component does not send all props at once
+  useEffect(() => {
+    if (!webcomponent) {
+      return;
+    }
+    // Get slotted items from web component
+    const slots = webcomponent.getAllSlots();
+    const slotElements = Object.keys(slots).filter((el) => {
+      return el.includes('element-');
+    });
+    if (slotElements.length === 0) {
+      return;
+    }
+    const newElements = mapSlottedItems(slots, slotElements);
+    if (newElements.length !== 0) {
+      setLengthOfElements(newElements.length);
+    }
+    setCarouselElements(newElements);
+  }, [webcomponent]);
+
   useEffect(() => {
     setIndex(index);
   }, [index]);
+
+  useEffect(() => {
+    if (elements !== undefined) {
+      setCarouselElements(elements);
+      setLengthOfElements(
+        typeof elements === 'object' ? elements.length : typeof elements === 'string' ? +elements : elements,
+      );
+    }
+  }, [elements]);
+
+  const mapSlottedItems = (slots: Record<string, any>, slotElements: string | any[]) => {
+    const newElements: CarouselElement[] = [];
+    for (let i = 1; i < slotElements.length + 1; i++) {
+      const newEl: CarouselElement = { title: '', element: '' };
+      const title = Object.keys(slots).find((el) => {
+        return el === 'title-' + i;
+      });
+      const element = Object.keys(slots).find((el) => {
+        return el === 'element-' + i;
+      });
+      newEl.title = <div dangerouslySetInnerHTML={{ __html: title ? slots[title].innerHTML : '' }} />;
+      newEl.element = <div dangerouslySetInnerHTML={{ __html: element ? slots[element].innerHTML : '' }} />;
+      newElements.push(newEl);
+    }
+    return newElements;
+  };
 
   const handleMouseDown = (e: MouseEvent | TouchEvent) => {
     const clientX = 'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
@@ -97,55 +139,61 @@ export const Carousel: FC<BaseCarouselProps> = ({
     }
   };
 
-  const handleButtonClick = (index: number, direction: 'left' | 'right'): void => {
+  const handleButtonClick = (index: number, direction: 'left' | 'right', dotClick?: boolean): void => {
     setIsDown(false);
     const oppositeDirection = direction === 'left' ? 'right' : 'left';
     setSlideDirection(oppositeDirection);
-    setSlideIn(false);
+    setFadeIn(false);
 
     setTimeout(() => {
       // Using modulo to be able to carousel to next element
       // For decrement you have to add the length of elements to prevent negative values
-      direction === 'left'
-        ? updateValue((index - 1 + lengthOfElements) % lengthOfElements)
-        : updateValue((index + 1) % lengthOfElements);
+      if (dotClick) {
+        updateValue(index);
+      } else {
+        direction === 'left'
+          ? updateValue((index - 1 + lengthOfElements) % lengthOfElements)
+          : updateValue((index + 1) % lengthOfElements);
+      }
       setSlideDirection(direction);
-      setSlideIn(true);
-    }, 500);
+      setFadeIn(true);
+    }, 480);
   };
 
+  const classNameContainer = classnames({
+    ['exit-animation']: !fadeIn,
+    ['enter-animation']: fadeIn,
+  });
+
   return (
-    <CarouselContainer slideDirection={slideDirection} className={className}>
-      {typeof elements === 'object' && (
-        <CSSTransition
-          in={slideIn}
-          classNames={'carousel'}
-          timeout={{
-            appear: 300,
-            enter: 1000,
-            exit: 1000,
-          }}
-        >
-          <CarouselElementContainer>
-            <CarouselTitle>{elements[index].title}</CarouselTitle>
-            <CarouselElement
-              ref={itemsRef}
-              onMouseDown={(e: MouseEvent) => handleMouseDown(e)}
-              onMouseUp={() => setIsDown(false)}
-              onMouseLeave={() => setIsDown(false)}
-              onMouseMove={(e: MouseEvent) => handleMouseMove(e)}
-              onTouchStart={(e: TouchEvent) => handleMouseDown(e)}
-              onTouchMove={(e: TouchEvent) => handleMouseMove(e)}
-              onTouchEnd={() => setIsDown(false)}
-            >
-              {elements[index].element}
-            </CarouselElement>
-          </CarouselElementContainer>
-        </CSSTransition>
+    <CarouselContainer slideDirection={slideDirection}>
+      {typeof carouselElements === 'object' && (
+        <CarouselElementContainer className={classNameContainer}>
+          {typeof carouselElements[index].title === 'string' && (
+            <CarouselTitle>
+              <h2 className="e-title-sm">{carouselElements[index].title}</h2>
+            </CarouselTitle>
+          )}
+          {typeof carouselElements[index].title === 'object' && (
+            <CarouselTitle>{carouselElements[index].title}</CarouselTitle>
+          )}
+          <CarouselElement
+            ref={itemsRef}
+            onMouseDown={(e: MouseEvent) => handleMouseDown(e)}
+            onMouseUp={() => setIsDown(false)}
+            onMouseLeave={() => setIsDown(false)}
+            onMouseMove={(e: MouseEvent) => handleMouseMove(e)}
+            onTouchStart={(e: TouchEvent) => handleMouseDown(e)}
+            onTouchMove={(e: TouchEvent) => handleMouseMove(e)}
+            onTouchEnd={() => setIsDown(false)}
+          >
+            {carouselElements[index].element}
+          </CarouselElement>
+        </CarouselElementContainer>
       )}
       <NavigationRow>
         <LeftCarouselButton
-          aria-label={`Gå til side ${index + 1}`}
+          aria-label={`Gå til forrige side`}
           aria-hidden={hideLeftArrow}
           hidden={hideLeftArrow}
           onClick={() => handleButtonClick(index, 'left')}
@@ -161,20 +209,21 @@ export const Carousel: FC<BaseCarouselProps> = ({
               aria-label={
                 listIndex === index ? `Du er på side ${listIndex + 1}` : `Gå til side ${listIndex + 1}`
               }
-              onClick={() => updateValue(listIndex)}
+              onClick={() =>
+                listIndex !== index &&
+                handleButtonClick(listIndex, listIndex > index ? 'right' : 'left', true)
+              }
             />
           ))}
         </ListOfDots>
+
         {showOnboardingCheckmark ? (
-          <CheckButton
-            aria-label={'Introduksjonsstegene er fullført. Lukk introduksjon'}
-            onClick={() => onHide && onHide()}
-          >
+          <CheckButton aria-label={'Fullfør og lukk.'} onClick={() => onHide && onHide()}>
             <i />
           </CheckButton>
         ) : (
           <RightCarouselButton
-            aria-label={`Gå til side ${index + 1}`}
+            aria-label={`Gå til neste side`}
             aria-hidden={hideRightArrow}
             hidden={hideRightArrow}
             onClick={() => handleButtonClick(index, 'right')}

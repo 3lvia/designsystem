@@ -59,13 +59,13 @@
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Horizontal stepper'">
+      <app-component-subsection [sectionTitle]="'Horizontal'">
         <ng-container ngProjectAs="sectionContent">
           <app-component-example-v1 [codeHTML]="exampleShortHorizontalHTML"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Vertical stepper'">
+      <app-component-subsection [sectionTitle]="'Vertical'">
         <ng-container ngProjectAs="sectionContent">
           <app-component-example-v1 [codeHTML]="exampleVerticalShortHTML"></app-component-example-v1>
         </ng-container>
@@ -73,8 +73,30 @@
     </ng-container>
   </app-component-section>
 
-  <!--STATES-->
-  <app-component-section [sectionTitle]="'States'">
+  <!--OPTIONS-->
+  <app-component-section [sectionTitle]="'Options'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Forced'">
+        <ng-container ngProjectAs="sectionContent">
+          In a forced stepper the user has to complete a step before continuing to the next one. They can
+          always step backwards to an earlier step. If a field is not filled and the user tries to go forward
+          an error message should appear.
+          <app-component-example-v1 [codeHTML]="exampleForcedHorizontalHTML"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Long'">
+        <ng-container ngProjectAs="sectionContent">
+          When there are more than 4 steps the stepper should collapse. Be cautious of adding more than 4
+          steps as a lot of steps can be overwhelming for the user.
+          <app-component-example-v1 [codeHTML]="exampleHorizontalHTML"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--STATE-->
+  <app-component-section [sectionTitle]="'State'">
     <ng-container ngProjectAs="sectionContent">
       <div class="state-container">
         <div class="state">
@@ -164,26 +186,10 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Forced stepper'">
-        <ng-container ngProjectAs="sectionContent">
-          In a forced stepper the user has to complete a step before continuing to the next one. They can
-          always step backwards to an earlier step. If a field is not filled and the user tries to go forward
-          an error message should appear.
-          <app-component-example-v1 [codeHTML]="exampleForcedHorizontalHTML"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Long stepper'">
-        <ng-container ngProjectAs="sectionContent">
-          When there are more than 4 steps the stepper should collapse. Be cautious of adding more than 4
-          steps as a lot of steps can be overwhelming for the user.
-          <app-component-example-v1 [codeHTML]="exampleHorizontalHTML"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
     </ng-container>
   </app-component-section>
 
-  <!--BEHAVIOR EXAMPLES-->
+  <!--EXAMPLES-->
   <app-component-section [sectionTitle]="'Examples'">
     <ng-container ngProjectAs="sectionContent">
       These examples are meant to show how the stepper should behave. Note that the examples do not currently

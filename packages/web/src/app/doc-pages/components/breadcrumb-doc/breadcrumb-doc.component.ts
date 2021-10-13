@@ -40,16 +40,4 @@ export class BreadcrumbDocComponent {
     'To show progress of a journey',
     'Should not replace the primary navigation',
   ];
-
-  addBreadcrumb = (): void => {
-    if (this.breadcrumbsTest.length < 5) {
-      this.breadcrumbsTest = this.breadcrumbsTest.concat(this.exampleBreadcrumb);
-    }
-  };
-
-  removeBreadcrumb = (): void => {
-    if (this.breadcrumbsTest.length > 2) {
-      this.breadcrumbsTest = this.breadcrumbsTest.slice(0, this.breadcrumbsTest.length - 1);
-    }
-  };
 }
