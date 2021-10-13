@@ -194,7 +194,7 @@ module.exports = [
     reactName: 'Divider',
     elementStyle: `width: 100%;`,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-dropdown',

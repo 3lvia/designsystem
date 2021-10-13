@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { DividerType, DividerTypography } from './elvia-divider';
 
 const ElviaColors = {
   elviaOn: '#ffffff',
@@ -24,7 +25,12 @@ const decideBorderColor = (isInverted: boolean, type: string) => {
   }
 };
 
-export const DividerArea = styled.div`
+type DividerArea = {
+  type: DividerType;
+  isInverted: boolean;
+};
+
+export const DividerArea = styled.div<DividerArea>`
   display: block;
   margin: 0;
   width: 100%;
@@ -53,7 +59,12 @@ export const DividerArea = styled.div`
       }`};
 `;
 
-export const DividerTitle = styled.div`
+type DividerTitle = {
+  typography: DividerTypography;
+  isInverted: boolean;
+};
+
+export const DividerTitle = styled.div<DividerTitle>`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 700;
   line-height: ${(props: { typography: string }) => (props.typography === 'medium' ? '28px' : '17px')};
