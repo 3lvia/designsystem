@@ -9,6 +9,7 @@ export interface ModalProps {
   isShowing: boolean;
   title?: string;
   content: HTMLElement;
+  type?: boolean;
   illustration?: HTMLElement;
   primaryButton?: HTMLElement;
   secondaryButton?: HTMLElement;

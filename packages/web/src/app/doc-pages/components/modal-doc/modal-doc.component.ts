@@ -17,6 +17,7 @@ export class ModalDocComponent {
   modalActionsCode = modalActionsCode;
   modalDangerCode = modalDangerCode;
   modalInfoCode = modalInfoCode;
+  typesData = [modalActionsCode, modalDangerCode, modalInfoCode];
   modalMultipageCode = modalMultipageCode;
   modalIllustrationCode = modalIllustrationCode;
   figmaUrl = getComponent('modal').figmaUrl;

@@ -23,14 +23,17 @@ export class ExampleCodeService {
 
   updateCodeReact(newCode: string): void {
     this.subjectCodeReact.next(newCode);
+    console.log('New: ', newCode);
   }
 
   updateCodeAngular(newCode: string): void {
     this.subjectCodeAngular.next(newCode);
+    console.log('New: ', newCode);
   }
 
   updateCodeNative(newCode: string): void {
     this.subjectCodeNative.next(newCode);
+    console.log('New: ', newCode);
   }
 
   getEmptyLineRegex(): RegExp {

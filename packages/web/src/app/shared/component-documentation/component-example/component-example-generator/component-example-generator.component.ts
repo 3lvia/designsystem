@@ -13,6 +13,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @ViewChild('cegContent') cegContent;
   @Input() delayInnerHtml = false;
   @Input() componentData;
+  @Input() typesData;
   @Input() width = 100;
   @Input() hasPreview = true;
   @Input() inlineExample = false;
@@ -148,8 +149,17 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       let i = 0;
       this.typeObject.cegOptions.forEach((option) => {
         const label = option.charAt(0).toUpperCase() + option.slice(1);
-        const type = { value: i, label: label };
-        this.typeOptions.push(type);
+        const newType = { value: i, label: label };
+        this.typeOptions.push(newType);
+        i++;
+      });
+    }
+    if (this.typesData) {
+      let i = 0;
+      this.typesData.forEach((option) => {
+        const label = option.type.charAt(0).toUpperCase() + option.type.slice(1);
+        const newType = { value: i, label: label };
+        this.typeOptions.push(newType);
         i++;
       });
     }
@@ -166,6 +176,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   updateCegFrame(code: string): void {
     this.dynamicCode = this.domSanitizer.bypassSecurityTrustHtml(code);
     if (this.componentData.codeNativeScript) {
+      console.log('UPDATE FRAME!: ', this.componentData.codeNativeScript);
       setTimeout(() => eval(this.componentData.codeNativeScript), 200);
     }
   }
@@ -182,6 +193,20 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     const newValue = selected.label.toLowerCase();
     const cegType = this.typeObject.cegType;
     this.updateSelected(attribute, newValue, cegType);
+  }
+
+  updateSelectedTypeCustom(selected: { value: any; label: any }): void {
+    this.typesData.forEach((element) => {
+      if (element.type === selected.label.toLowerCase()) {
+        this.codeReact = element.codeReact;
+        this.codeAngular = element.codeAngular;
+        this.codeNative = element.codeNativeHTML;
+        console.log(element.codeReact);
+        console.log(element.codeAngular);
+        console.log(element.codeNativeHTML);
+      }
+    });
+    this.updateProps();
   }
 
   updateSelectedBg(selected: { value: any; label: any }): void {

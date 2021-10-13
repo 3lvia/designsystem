@@ -37,16 +37,12 @@ const modalData = {
     hasCloseBtn: {
       isRequired: false,
       type: 'boolean',
-      description: 'Show close icon button inside the modal in the top right corner.',
+      description:
+        'Show close icon button inside the modal in the top right corner. Should only be used inside a multi-page modal.',
       default: 'true',
-      displayName: 'Close button',
-      cegType: 'boolean',
-      cegFormType: 'toggle',
-      cegDefault: 'false',
-      cegOption: 'true',
     },
     hasLockBodyScroll: {
-      isRequired: true,
+      isRequired: false,
       type: 'boolean',
       description: 'Locks the body of your page so that you cant scroll while the modal is open.',
       default: 'true',
