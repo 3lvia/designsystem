@@ -11,6 +11,7 @@ const rename = require("gulp-rename");
 const fs = require('fs');
 const typescript = require('gulp-typescript')
 const validate = require('./validateConfig.js');
+const filter = require('gulp-filter');
 
 
 const WARNING = `/* 
@@ -141,7 +142,8 @@ function reactTypescriptDeclarations() {
     const componentsToCreateDeclarationsFor = components.filter((component) => component.reactTypescriptDeclaration);
     const tasks = componentsToCreateDeclarationsFor.map((component) => {
         const tsConfig = typescript.createProject('../tsconfig.json');
-        return gulp.src(`../components/${component.name}/src/react/**/*.ts*`).pipe(tsConfig()).pipe(gulp.dest(`../components/${component.name}/dist/react/js/`));
+        return gulp.src(`../components/${component.name}/src/react/**/*.ts*`).pipe(tsConfig()).pipe(filter(['*.d.ts']))
+            .pipe(gulp.dest(`../components/${component.name}/dist/react/js/`));
     });
 
     if (tasks.length === 0) {
