@@ -58,7 +58,6 @@ import { ContactComponent } from './doc-pages/other-pages/contact/contact.compon
 import { ContributeComponent } from './doc-pages/other-pages/contribute/contribute.component';
 import { FaqDocComponent } from './doc-pages/other-pages/faq-doc/faq-doc.component';
 import { DesignProcessDocComponent } from './doc-pages/other-pages/design-process-doc/design-process-doc.component';
-import { UserFeedbackDocComponent } from './doc-pages/other-pages/user-feedback-doc/user-feedback-doc.component';
 import { UtilitiesDocComponent } from './doc-pages/other-pages/utilities-doc/utilities-doc.component';
 
 const routes: Routes = [
@@ -145,10 +144,6 @@ const routes: Routes = [
           {
             path: 'design-process',
             component: DesignProcessDocComponent,
-          },
-          {
-            path: 'user-feedback',
-            component: UserFeedbackDocComponent,
           },
           {
             path: 'utility-classes',

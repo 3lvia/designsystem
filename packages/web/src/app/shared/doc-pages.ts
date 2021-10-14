@@ -648,13 +648,14 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/tools/' + Pages.Patterns,
     imageUrl: 'assets/tools/patternsIllustration.svg',
   },
-  {
-    title: 'User Feedback',
-    description: 'Some feedback to the user',
-    docUrl: Pages.UserFeedback,
-    absolutePath: '/tools/' + Pages.UserFeedback,
-    imageUrl: 'assets/doc-page-icons/pages-icons/userFeedback.svg',
-  },
+  // TODO: Remove page and all references
+  // {
+  //   title: 'User Feedback',
+  //   description: 'Some feedback to the user',
+  //   docUrl: Pages.UserFeedback,
+  //   absolutePath: '/tools/' + Pages.UserFeedback,
+  //   imageUrl: 'assets/doc-page-icons/pages-icons/userFeedback.svg',
+  // },
   {
     title: 'Utility Classes',
     // tslint:disable-next-line: max-line-length
