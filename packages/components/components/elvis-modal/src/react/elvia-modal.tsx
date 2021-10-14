@@ -103,7 +103,11 @@ export const ModalComponent: FC<ModalProps> = ({
           <StyledModal.Illustration ref={modalIllustration}></StyledModal.Illustration>
         )}
         {hasCloseBtn && (
-          <StyledModal.CloseButton onClick={() => handleOnHide()} aria-label="Lukk modal">
+          <StyledModal.CloseButton
+            hasIllustration={hasIllustration}
+            onClick={() => handleOnHide()}
+            aria-label="Lukk modal"
+          >
             <i className="ewc-icon"></i>
           </StyledModal.CloseButton>
         )}
@@ -116,16 +120,12 @@ export const ModalComponent: FC<ModalProps> = ({
 
           {(hasPrimaryButton || hasSecondaryButton) && (
             <StyledModal.Actions>
-              {secondaryButton ? (
-                <>{secondaryButton}</>
-              ) : (
+              {secondaryButton && <>{secondaryButton}</>}
+              {webcomponent && hasSecondaryButton && (
                 <div tabIndex={0} className="webComponentBtn" ref={modalSecondaryBtn}></div>
               )}
-              {primaryButton ? (
-                <>{primaryButton}</>
-              ) : (
-                <div tabIndex={0} className="webComponentBtn" ref={modalPrimaryBtn}></div>
-              )}
+              {primaryButton && <>{primaryButton}</>}
+              {webcomponent && <div tabIndex={0} className="webComponentBtn" ref={modalPrimaryBtn}></div>}
             </StyledModal.Actions>
           )}
         </StyledModal.Content>

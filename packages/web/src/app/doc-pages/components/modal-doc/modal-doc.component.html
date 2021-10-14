@@ -40,10 +40,10 @@
         <ng-container ngProjectAs="sectionContent">
           You can add an illustration or image to the modal. The size of the modal then changes to fixed
           height and width (550 x 1090px).
-          <app-component-example-generator
+          <!-- <app-component-example-generator
             [componentData]="modalIllustrationCode"
             [inlineExample]="true"
-          ></app-component-example-generator>
+          ></app-component-example-generator> -->
         </ng-container>
       </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Multiple pages'">
@@ -75,7 +75,7 @@
           <app-component-subsubsection [sectionTitle]="'Closing'">
             <ng-container ngProjectAs="sectionContent">
               The modal requires implementation for closing. Use the callback prop 'onHide' to listen for
-              click outside modal or on close btn and then set the 'isShowing' prop to false.
+              click outside modal or on close button and then set the 'isShowing' prop to false.
             </ng-container>
           </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Other actions'">

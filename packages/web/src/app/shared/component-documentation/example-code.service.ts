@@ -23,29 +23,37 @@ export class ExampleCodeService {
 
   updateCodeReact(newCode: string): void {
     this.subjectCodeReact.next(newCode);
-    console.log('New: ', newCode);
   }
 
   updateCodeAngular(newCode: string): void {
     this.subjectCodeAngular.next(newCode);
-    console.log('New: ', newCode);
   }
 
   updateCodeNative(newCode: string): void {
     this.subjectCodeNative.next(newCode);
-    console.log('New: ', newCode);
   }
 
   getEmptyLineRegex(): RegExp {
     return /^\s*[\r\n]/gm;
   }
 
-  getOldPropRegex(attribute: string): RegExp {
-    return new RegExp('  [\\[]?' + attribute + '[\\]]?=("|{).*', 'gi');
+  getOldPropRegex(attribute: string, type?: string): RegExp {
+    if (type === 'html') {
+      return new RegExp('  ' + attribute + '={.*', 'gi');
+    } else {
+      return new RegExp('  [\\[]?' + attribute + '[\\]]?=("|{).*', 'gi');
+    }
+  }
+  getOldSlotRegex(elementName: string, attribute: string, content: string): RegExp {
+    return new RegExp('  <div slot="' + attribute + '">\n    ' + content + '\n  </div>', 'gi');
   }
 
   getNewPropRegex(elementName: string): RegExp {
     return new RegExp('<' + elementName, 'gi');
+  }
+
+  getNewSlotRegex(elementName: string): RegExp {
+    return new RegExp('</' + elementName + '>', 'gi');
   }
 
   getReplaceString(attribute: string, newValue: string, language: string, propType: string): string {
@@ -96,6 +104,10 @@ export class ExampleCodeService {
     // }
   }
 
+  getNewSlotString(elementName: string, attribute: string, newContent: string): string {
+    return '  <div slot="' + attribute + '">\n    ' + newContent + '\n  </div>\n</' + elementName + '>';
+  }
+
   replaceOldProp(
     stringToReplace: string,
     attribute: string,
@@ -125,5 +137,44 @@ export class ExampleCodeService {
 
   removeProp(stringToReplace: string, attribute: string): string {
     return stringToReplace.replace(this.getOldPropRegex(attribute), '').replace(this.getEmptyLineRegex(), '');
+  }
+
+  addNewSlotAndProp(
+    stringToReplace: string,
+    attribute: string,
+    newValue: string,
+    language: string,
+    elementName: string,
+  ): string {
+    const propType = 'html';
+    if (language === 'react') {
+      return stringToReplace.replace(
+        this.getNewPropRegex(elementName),
+        this.getNewString(elementName, attribute, newValue, language, propType),
+      );
+    } else {
+      return stringToReplace.replace(
+        this.getNewSlotRegex(elementName),
+        this.getNewSlotString(elementName, attribute, newValue),
+      );
+    }
+  }
+
+  removeSlotAndProp(
+    stringToReplace: string,
+    attribute: string,
+    oldValue: string,
+    language: string,
+    elementName: string,
+  ): string {
+    if (language === 'react') {
+      return stringToReplace
+        .replace(this.getOldPropRegex(attribute, 'html'), '')
+        .replace(this.getEmptyLineRegex(), '');
+    } else {
+      return stringToReplace
+        .replace(this.getOldSlotRegex(elementName, attribute, oldValue), '')
+        .replace(this.getEmptyLineRegex(), '');
+    }
   }
 }

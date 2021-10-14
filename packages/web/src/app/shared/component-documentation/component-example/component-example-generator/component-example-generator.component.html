@@ -51,14 +51,14 @@
     </div>
 
     <!--Side filters-->
-    <div class="ceg-col-2 ceg-side-filters-desktop" *ngIf="!inlineExample">
+    <div class="ceg-col-2 ceg-side-filters-desktop" *ngIf="!inlineExample && enableFilters">
       <app-ceg-filters
         [componentData]="componentData"
         [props]="props"
         [selectedType]="selectedType"
       ></app-ceg-filters>
     </div>
-    <div class="ceg-side-filters-mobile" *ngIf="props.length !== 0 && getDependentFilter()">
+    <div class="ceg-side-filters-mobile" *ngIf="props.length !== 0 && getDependentFilter() && enableFilters">
       <elvia-popover [posX]="'left'" [posY]="'bottom'">
         <button slot="trigger" class="e-btn e-btn--icon">
           <span class="e-btn__icon">

@@ -3,7 +3,6 @@ import { modalData } from 'src/app/doc-pages/components/modal-doc/modal-data';
 import { modalActionsCode } from 'src/app/doc-pages/components/modal-doc/modal-actions-code';
 import { modalInfoCode } from 'src/app/doc-pages/components/modal-doc/modal-info-code';
 import { modalDangerCode } from 'src/app/doc-pages/components/modal-doc/modal-danger-code';
-import { modalIllustrationCode } from 'src/app/doc-pages/components/modal-doc/modal-illustration-code';
 import { modalMultipageCode } from 'src/app/doc-pages/components/modal-doc/modal-multipage-code';
 import { getComponent } from 'src/app/shared/doc-pages';
 
@@ -19,7 +18,6 @@ export class ModalDocComponent {
   modalInfoCode = modalInfoCode;
   typesData = [modalActionsCode, modalDangerCode, modalInfoCode];
   modalMultipageCode = modalMultipageCode;
-  modalIllustrationCode = modalIllustrationCode;
   figmaUrl = getComponent('modal').figmaUrl;
   description = getComponent('modal').description;
   // tslint:disable-next-line:max-line-length

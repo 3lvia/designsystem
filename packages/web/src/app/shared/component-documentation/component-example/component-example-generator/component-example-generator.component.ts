@@ -21,6 +21,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() overflowY;
   @Input() alignedTop = false;
   @Input() height = '340';
+  enableFilters = true;
   typeHasFilter = false;
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
@@ -176,7 +177,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   updateCegFrame(code: string): void {
     this.dynamicCode = this.domSanitizer.bypassSecurityTrustHtml(code);
     if (this.componentData.codeNativeScript) {
-      console.log('UPDATE FRAME!: ', this.componentData.codeNativeScript);
       setTimeout(() => eval(this.componentData.codeNativeScript), 200);
     }
   }
@@ -198,15 +198,17 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   updateSelectedTypeCustom(selected: { value: any; label: any }): void {
     this.typesData.forEach((element) => {
       if (element.type === selected.label.toLowerCase()) {
+        this.selectedType = selected.label;
         this.codeReact = element.codeReact;
         this.codeAngular = element.codeAngular;
         this.codeNative = element.codeNativeHTML;
-        console.log(element.codeReact);
-        console.log(element.codeAngular);
-        console.log(element.codeNativeHTML);
       }
     });
     this.updateProps();
+    this.enableFilters = false;
+    setTimeout(() => {
+      this.enableFilters = true;
+    }, 100);
   }
 
   updateSelectedBg(selected: { value: any; label: any }): void {
@@ -276,9 +278,19 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       return true;
     }
     return this.props.find((prop) => {
-      return (
-        prop.cegTypeDependency && this.selectedType.toLowerCase() === prop.cegTypeDependency.toLowerCase()
-      );
+      if (typeof prop.cegTypeDependency === 'string') {
+        return (
+          prop.cegTypeDependency && this.selectedType.toLowerCase() === prop.cegTypeDependency.toLowerCase()
+        );
+      } else {
+        prop.cegTypeDependency.forEach((dep) => {
+          return (
+            prop.cegTypeDependency &&
+            prop.cegTypeDependency &&
+            this.selectedType.toLowerCase() === dep.toLowerCase()
+          );
+        });
+      }
     });
   }
 }

@@ -1,8 +1,5 @@
 const modalDangerCode = {
   type: 'danger',
-  name: 'elvis-modal',
-  elementNameW: 'elvia-modal',
-  elementNameR: 'Modal',
   codeReact: `<Modal
   isShowing={isModalShowing}
   onHide={() => setIsModalShowingState(false)}
