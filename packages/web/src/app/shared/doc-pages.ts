@@ -623,14 +623,13 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/tools/' + Pages.Accessibility,
     imageUrl: 'assets/doc-page-icons/pages-icons/accessibility.svg',
   },
-  // TODO: Remove page and all references
-  // {
-  //   title: 'Design Process',
-  //   description: 'Designprocess',
-  //   docUrl: 'design-process',
-  //   absolutePath: '/tools/design-process',
-  //   imageUrl: 'assets/doc-page-icons/pages-icons/designProcess.svg',
-  // },
+  {
+    title: 'Design Process',
+    description: 'Designprocess',
+    docUrl: 'design-process',
+    absolutePath: '/tools/design-process',
+    imageUrl: 'assets/doc-page-icons/pages-icons/designProcess.svg',
+  },
   // JUST TO BE INCLUDED IN SEARCH BEFORE WE EXTEND SEARCH
   {
     title: 'Focus',
@@ -649,14 +648,13 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/tools/' + Pages.Patterns,
     imageUrl: 'assets/tools/patternsIllustration.svg',
   },
-  // TODO: Remove page and all references
-  // {
-  //   title: 'User Feedback',
-  //   description: 'Some feedback to the user',
-  //   docUrl: Pages.UserFeedback,
-  //   absolutePath: '/tools/' + Pages.UserFeedback,
-  //   imageUrl: 'assets/doc-page-icons/pages-icons/userFeedback.svg',
-  // },
+  {
+    title: 'User Feedback',
+    description: 'Some feedback to the user',
+    docUrl: Pages.UserFeedback,
+    absolutePath: '/tools/' + Pages.UserFeedback,
+    imageUrl: 'assets/doc-page-icons/pages-icons/userFeedback.svg',
+  },
   {
     title: 'Utility Classes',
     // tslint:disable-next-line: max-line-length
