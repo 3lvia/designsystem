@@ -18,4 +18,3 @@ export const heightDown: AnimationTriggerMetadata = trigger('heightDown', [
   transition('void => *', animate(`250ms cubic-bezier(0.6, 0, 0.1, 1)`)),
   transition('* => void', animate(`250ms cubic-bezier(.55, 0, .88, 1)`)),
 ]);
-

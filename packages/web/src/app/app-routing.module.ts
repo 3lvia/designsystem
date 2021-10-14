@@ -57,7 +57,6 @@ import { GetStartedDocComponent } from './doc-pages/other-pages/get-started-doc/
 import { ContactComponent } from './doc-pages/other-pages/contact/contact.component';
 import { ContributeComponent } from './doc-pages/other-pages/contribute/contribute.component';
 import { FaqDocComponent } from './doc-pages/other-pages/faq-doc/faq-doc.component';
-import { DesignProcessDocComponent } from './doc-pages/other-pages/design-process-doc/design-process-doc.component';
 import { UtilitiesDocComponent } from './doc-pages/other-pages/utilities-doc/utilities-doc.component';
 
 const routes: Routes = [
@@ -140,10 +139,6 @@ const routes: Routes = [
           {
             path: 'accessibility',
             component: AccessibilityDocComponent,
-          },
-          {
-            path: 'design-process',
-            component: DesignProcessDocComponent,
           },
           {
             path: 'utility-classes',

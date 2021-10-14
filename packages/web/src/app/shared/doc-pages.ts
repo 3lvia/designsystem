@@ -623,13 +623,14 @@ export const docPagesNotFromCMS: DocPage[] = [
     absolutePath: '/tools/' + Pages.Accessibility,
     imageUrl: 'assets/doc-page-icons/pages-icons/accessibility.svg',
   },
-  {
-    title: 'Design Process',
-    description: 'Designprocess',
-    docUrl: 'design-process',
-    absolutePath: '/tools/design-process',
-    imageUrl: 'assets/doc-page-icons/pages-icons/designProcess.svg',
-  },
+  // TODO: Remove page and all references
+  // {
+  //   title: 'Design Process',
+  //   description: 'Designprocess',
+  //   docUrl: 'design-process',
+  //   absolutePath: '/tools/design-process',
+  //   imageUrl: 'assets/doc-page-icons/pages-icons/designProcess.svg',
+  // },
   // JUST TO BE INCLUDED IN SEARCH BEFORE WE EXTEND SEARCH
   {
     title: 'Focus',
