@@ -1,9 +1,15 @@
 import styled, { keyframes } from 'styled-components';
+import * as ElviaColors from '@elvia/elvis-colors';
+import * as ElviaTypography from '@elvia/elvis-typography';
 
-const ElviaColors = {
-  elviaOn: '#ffffff',
-  elviaOff: '#000000',
-  grey: '#262626',
+export const colors = {
+  elviaOn: ElviaColors.default['primary-colors']['white'].color,
+  elviaOff: ElviaColors.default['primary-colors']['black'].color,
+  grey: ElviaColors.default['primary-colors']['grey'].color,
+};
+export const typography = {
+  titleMd: ElviaTypography.default['title-md'],
+  textLg: ElviaTypography.default['text-lg'],
 };
 
 const mobileMax = '767px';
@@ -59,7 +65,7 @@ export const Wrapper = styled.div`
   max-width: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '1090px' : modalMaxWidth)};
   border-radius: ${modalBorderRadius};
   overflow: hidden;
-  background: ${ElviaColors.elviaOn};
+  background: ${colors.elviaOn};
 
   @media (max-width: ${mobileMax}) {
     flex-direction: column;
@@ -90,7 +96,7 @@ export const Content = styled.div`
 `;
 
 export const Illustration = styled.div`
-  background: ${ElviaColors.grey};
+  background: ${colors.grey};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,7 +108,7 @@ export const Illustration = styled.div`
 
   ::after {
     content: '';
-    background: ${ElviaColors.elviaOn};
+    background: ${colors.elviaOn};
     border-radius: 100%;
     position: absolute;
     height: calc(550px * 6.85);
@@ -130,16 +136,11 @@ export const Illustration = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: 'Red Hat Display', Verdana, sans-serif;
+  ${typography.titleMd}
   font-size: ${(props: { hasIllustration: boolean }) =>
     props.hasIllustration ? modalDesktopWithIllustrationTitleFontSize : titleFontSize};
   font-weight: ${(props: { hasIllustration: boolean }) =>
     props.hasIllustration ? modalDesktopWithIllustrationTitleFontWeight : titleFontWeight};
-  line-height: 36px;
-  letter-spacing: unset;
-  font-style: unset;
-  text-transform: unset;
-  color: inherit;
   padding-bottom: ${(props: { hasIllustration: boolean }) =>
     props.hasIllustration ? modalDesktopWithIllustrationTitlePaddingBottom : modalDesktopTitlePaddingBottom};
 
@@ -152,14 +153,7 @@ export const Title = styled.div`
 `;
 
 export const Text = styled.div`
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 32px;
-  letter-spacing: unset;
-  font-style: unset;
-  text-transform: unset;
-  color: ${ElviaColors.elviaOff};
+  ${typography.textLg}
   position: relative;
   overflow-y: auto;
   height: 100%;

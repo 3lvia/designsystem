@@ -1,6 +1,7 @@
 const modalInfoCode = {
   type: 'info',
-  codeReact: `<Modal
+  codeReact: `<button onClick={() => setIsModalShowingState(true)} class="e-btn">Åpne modal</button>
+<Modal
   isShowing={isModalShowing}
   onHide={() => setIsModalShowingState(false)}
   title="Title of content"
@@ -16,7 +17,8 @@ const modalInfoCode = {
   }
 >
 </Modal>`,
-  codeAngular: `<elvia-modal
+  codeAngular: `<button (click)="isModalShowing = true" class="e-btn">Åpne modal</button>
+<elvia-modal
   (onHide)="isModalShowing = !isModalShowing"
   [isShowing]="isModalShowing"
   [title]="'Title of content'"

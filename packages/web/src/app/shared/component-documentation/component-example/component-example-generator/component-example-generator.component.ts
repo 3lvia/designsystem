@@ -204,10 +204,12 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.codeNative = element.codeNativeHTML;
       }
     });
-    this.updateProps();
     this.enableFilters = false;
     setTimeout(() => {
       this.enableFilters = true;
+      setTimeout(() => {
+        this.updateProps();
+      }, 100);
     }, 100);
   }
 
