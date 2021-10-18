@@ -3,36 +3,38 @@
 This file is validated by validateConfig.js when building components
 
 
-###### Contents  ###### 
+###### Contents  ######
 name: string - Package name has to start with "elvis-"
 elementName: string - Name of DOM element has to start with "elvia-"
-attributes: object[] - 
+attributes: object[] -
   attributes.name: string - name of supported attribute & property
-  attributes.type: string - 
+  attributes.type: string -
   Only one type and one of the following is supported: string, number, object, Date, boolean
   Attributes on web components are always handled as strings. This value tells us what the components should parse the string
   value to. This is only to make it easier to use components without bindings value="".
   When using bindings ([value]="") the value is sent in as a property and not an attribute. We do not parse those.
   If you use type "object" we parse it with JSON.parse, which supports arrays as well.
 
-  attributes.propType: string - 
+  attributes.propType: string -
   We allow propType to contain the actually allowed properties by the react component written in a typescript way:
-  "string | number | HTMLElement | Date | object" etc.  
+  "string | number | HTMLElement | Date | object" etc.
 
 reactName: string - The name of the component in React
 elementStyle: string - Styling for the DOM element (web component HTMLElement) itself
 
-useWrapper: boolean - If the React element should be injected into a wrapper instead of directly into the element. 
-In most cases this should be false, however sometimes we want the React component to be wrapped inside a separate 
-div to prevent overwriting other content within the web component. In those cases useWrapper is useful. 
+useWrapper: boolean - If the React element should be injected into a wrapper instead of directly into the element.
+In most cases this should be false, however sometimes we want the React component to be wrapped inside a separate
+div to prevent overwriting other content within the web component. In those cases useWrapper is useful.
 
-wrapperStyle: string - Styling for the React wrapper (the div wrapper inside the web component, when using 'useWrapper' 
+wrapperStyle: string - Styling for the React wrapper (the div wrapper inside the web component, when using 'useWrapper'
 - This requires useWrapper to be true.
 
 slotItems: boolean (default: false) - Saves all "slot" items to variable. Should be set to true for all new components
 
-conditionalElementStyle: object - An object containing a key value pair for different CSS styles following the 
+conditionalElementStyle: object - An object containing a key value pair for different CSS styles following the
 javascript naming of the different CSS styles
+
+reactTypescriptDeclaration: boolean (default: true) - Generate typescript declaration for the React component 
 */
 
 module.exports = [
@@ -50,6 +52,8 @@ module.exports = [
     reactName: 'Accordion',
     useWrapper: true,
     slotItems: false,
+    elementStyle: `width: 100%;`,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-breadcrumb',
@@ -57,7 +61,8 @@ module.exports = [
     attributes: [{ name: 'breadcrumbs', type: 'object', propType: 'object' }],
     reactName: 'Breadcrumb',
     useWrapper: false,
-    slotItems: false
+    slotItems: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-carousel',
@@ -70,8 +75,26 @@ module.exports = [
       { name: 'value', type: 'number', propType: 'number' },
     ],
     reactName: 'Carousel',
+    slotItems: true,
+    useWrapper: false,
+    reactTypescriptDeclaration: false,
+  },
+  {
+    name: 'elvis-chip',
+    elementName: 'elvia-chip',
+    attributes: [
+      { name: 'ariaLabel', type: 'string', propType: 'string' },
+      { name: 'color', type: 'string', propType: 'string' },
+      { name: 'disabled', type: 'boolean', propType: 'boolean' },
+      { name: 'value', type: 'string', propType: 'string' },
+      { name: 'type', type: 'string', propType: 'string' },
+      { name: 'iconType', type: 'string', propType: 'string' },
+      { name: 'selected', type: 'boolean', propType: 'boolean' },
+    ],
+    reactName: 'Chip',
     slotItems: false,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-tabs',
@@ -85,6 +108,7 @@ module.exports = [
     elementStyle: `display: grid; overflow: hidden;`,
     slotItems: false,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-popover',
@@ -101,6 +125,7 @@ module.exports = [
     useWrapper: true,
     elementStyle: `display: block;`,
     slotItems: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-progress-linear',
@@ -114,6 +139,7 @@ module.exports = [
     elementStyle: `width: 100%;`,
     slotItems: false,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-datepicker',
@@ -136,6 +162,7 @@ module.exports = [
     },
     useWrapper: false,
     slotItems: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-testing',
@@ -152,6 +179,7 @@ module.exports = [
     },
     slotItems: false,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-divider',
@@ -162,10 +190,11 @@ module.exports = [
       { name: 'typography', type: 'string', propType: 'string' },
       { name: 'isInverted', type: 'boolean', propType: 'boolean' },
     ],
+    slotItems: true,
     reactName: 'Divider',
     elementStyle: `width: 100%;`,
-    slotItems: false,
     useWrapper: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-dropdown',
@@ -184,21 +213,24 @@ module.exports = [
       { name: 'value', type: 'object', propType: 'object' },
     ],
     slotItems: false,
+    elementStyle: `min-width: 163px;`,
     reactName: 'Dropdown',
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-box',
     elementName: 'elvia-box',
     attributes: [
-      { name: 'content', type: 'string', propType: 'HTMLElement' },
-      { name: 'title', type: 'string', propType: 'string' },
+      { name: 'content', type: 'string', propType: 'string | HTMLElement' },
+      { name: 'title', type: 'string', propType: 'string | HTMLElement' },
       { name: 'hasBorder', type: 'boolean', propType: 'boolean' },
       { name: 'isColored', type: 'boolean', propType: 'boolean' },
     ],
     slotItems: true,
     reactName: 'Box',
     useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
   {
     name: 'elvis-modal',
@@ -217,5 +249,20 @@ module.exports = [
     reactName: 'Modal',
     slotItems: true,
     useWrapper: false,
+    reactTypescriptDeclaration: false,
+  },
+  {
+    name: 'elvis-radio-filter',
+    elementName: 'elvia-radio-filter',
+    attributes: [
+      { name: 'items', type: 'object', propType: 'object' },
+      { name: 'name', type: 'string', propType: 'string' },
+      { name: 'value', type: 'string', propType: 'string' },
+      { name: 'ariaLabel', type: 'string', propType: 'string' },
+    ],
+    reactName: 'RadioFilter',
+    slotItems: false,
+    useWrapper: false,
+    reactTypescriptDeclaration: false,
   },
 ];

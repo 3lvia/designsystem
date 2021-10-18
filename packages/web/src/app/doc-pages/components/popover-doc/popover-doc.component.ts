@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 import { popoverData } from './popover-data';
 @Component({
   selector: 'app-popover-doc',
@@ -15,7 +15,7 @@ export class PopoverDocComponent {
   does = ['To provide additional information', 'Help user complete small actions'];
   donts = ['Do not have multiple popover open at the same time'];
 
-  hideContentLoader(evt: any): void {
+  hideContentLoader(evt: Event): void {
     if (evt && evt.target) {
       this.loadedPopoverStructure = true;
     }

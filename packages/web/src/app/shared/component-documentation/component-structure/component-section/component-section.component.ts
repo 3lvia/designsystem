@@ -11,7 +11,6 @@ export class ComponentSectionComponent {
   @Input() sectionTitle = '';
   @Input() propertiesClass = '';
   @Input() figmaOnly = false;
-  @Input() noAnimation = false;
 
   constructor(private router: Router, private copyService: CopyToClipboardService) {}
 

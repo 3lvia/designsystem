@@ -22,6 +22,7 @@ export class HeaderComponent {
   headerLogoLoaded = false;
   devMode = false;
   mainMenu: any;
+  menuContentLoader = true;
 
   constructor(
     private globalService: GlobalService,
@@ -34,10 +35,15 @@ export class HeaderComponent {
     this.localizationService.listenLocalization().subscribe((locale) => {
       this.cmsService.getMenu(locale).then((data) => {
         this.mainMenu = data;
+        this.menuContentLoader = false;
       });
     });
 
-    if (window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('#dev') > -1) {
+    if (
+      window.location.href.indexOf('localhost') > -1 ||
+      window.location.href.indexOf('elvis-designsystem.netlify.app') > -1 ||
+      window.location.href.indexOf('#dev') > -1
+    ) {
       this.devMode = true;
     }
 
@@ -55,7 +61,7 @@ export class HeaderComponent {
     });
   }
 
-  hideContentLoader(evt: any): void {
+  hideContentLoader(evt: Event): void {
     if (evt && evt.target) {
       this.headerLogoLoaded = true;
     }

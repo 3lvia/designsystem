@@ -8,33 +8,6 @@
 
 <!--BODY-->
 <div class="page-body">
-  <h2>Testing Accordion no hover modifier</h2>
-
-  <h3>Single accordions</h3>
-  <div class="e-accordion e-accordion--single">
-    <div class="e-accordion__item">
-      <div class="e-accordion__title e-accordion__title--no-icon-hover">Closed Accordion</div>
-      <div class="e-accordion__icon">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
-      </div>
-      <div class="e-accordion__content">Hidden information</div>
-    </div>
-  </div>
-  <div class="e-accordion e-accordion--single e-mt-40">
-    <div class="e-accordion__item e-accordion__item--open">
-      <div class="e-accordion__title">Open Accordion</div>
-      <div class="e-accordion__icon">
-        <i class="e-icon e-icon--expand_circle-color"></i>
-        <i class="e-icon e-icon--expand_circle-filled-color"></i>
-      </div>
-      <div class="e-accordion__content">
-        The new AMS meters give you the opportunity to monitor your own consumption, analyze your own
-        consumption pattern and get help for smarter power use.
-      </div>
-    </div>
-  </div>
-
   <h2>Breadcrumbs</h2>
   <elvia-breadcrumb [breadcrumbs]="breadcrumbsTest"></elvia-breadcrumb>
 
@@ -42,15 +15,100 @@
   <div style="padding: 8px">
     <elvia-carousel
       [elements]="elements"
-      (valueOnChange)="carouselValue = $event.detail.value"
-    ></elvia-carousel>
-    <h3>Carousel component with hidden arrows</h3>
-    <elvia-carousel
-      [elements]="elements"
       [hideArrows]="true"
       (valueOnChange)="carouselValue = $event.detail.value"
     ></elvia-carousel>
     <h3>Carousel without content</h3>
+    <elvia-carousel [elements]="5" (valueOnChange)="carouselValue = $event.detail.value"></elvia-carousel>
+    <elvia-carousel>
+      <div slot="title-1">
+        <h3 class="e-title-sm">title 1</h3>
+      </div>
+      <div slot="element-1">
+        <img
+          alt="Carousel example image"
+          src="../../../../assets/carousel/el1.jpeg"
+          style="width: 100%; min-width: 278px; border-radius: 8px"
+        />
+      </div>
+      <div slot="title-2">
+        <h3 class="e-title-sm">title 2</h3>
+      </div>
+      <div slot="element-2">
+        <img
+          alt="Carousel example image"
+          src="../../../../assets/carousel/el2.jpeg"
+          style="width: 100%; min-width: 278px; border-radius: 8px"
+        />
+      </div>
+      <div slot="title-3">
+        <h3 class="e-title-sm">title 3</h3>
+      </div>
+      <div slot="element-3">
+        <img
+          alt="Carousel example image"
+          src="../../../../assets/carousel/el3.jpeg"
+          style="width: 100%; min-width: 278px; border-radius: 8px"
+        />
+      </div>
+    </elvia-carousel>
+
+    <h3>Deletable chips</h3>
+    <div style="display: flex; flex-direction: row">
+      <div *ngFor="let chip of deletableChipsList">
+        <elvia-chip
+          [value]="chip.value"
+          [color]="chip.color"
+          [ariaLabel]="'Fjern filtrering for ' + chip.value"
+          [disabled]="chip.disabled"
+          (onDelete)="handleOnDelete($event.detail.value)"
+        ></elvia-chip>
+      </div>
+    </div>
+    Value deleted: {{ deleteValue }}
+
+    <h3>Clickable chips</h3>
+    <div style="display: flex; flex-direction: row">
+      <elvia-chip
+        [value]="2021"
+        color="orange"
+        type="legend"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2022"
+        [selected]="true"
+        type="legend"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2023"
+        [selected]="true"
+        type="choice"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2024"
+        [selected]="true"
+        type="legend"
+        color="violet"
+        disabled="true"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+    </div>
+    Selected values:
+    <span *ngFor="let key of filteredKeys">
+      <span *ngIf="filteredValues[key]">{{ key }},</span>
+    </span>
+
+    <h2>Box</h2>
+    <div style="padding: 8px">
+      <elvia-box [hasBorder]="true">
+        <h2 slot="title">Title</h2>
+        <div slot="content">Webcomponentent content for the box component</div>
+      </elvia-box>
+    </div>
+
     <elvia-carousel [elements]="5" (valueOnChange)="carouselValue = $event.detail.value"></elvia-carousel>
     {{ carouselValue }}
 

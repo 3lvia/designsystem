@@ -46,7 +46,10 @@ export const progressbarData = {
   codeReact: `<ProgressLinear
   value={20}
 ></ProgressLinear>`,
-  codeWebComponent: `<elvia-progress-linear
+  codeAngular: `<elvia-progress-linear
+  [value]="20"
+></elvia-progress-linear>`,
+  codeNativeHTML: `<elvia-progress-linear
   value="20"
 ></elvia-progress-linear>`,
 };

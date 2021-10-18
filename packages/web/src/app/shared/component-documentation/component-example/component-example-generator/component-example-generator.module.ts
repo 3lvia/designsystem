@@ -4,6 +4,7 @@ import { ComponentExampleGeneratorComponent } from './component-example-generato
 import { ComponentExampleCodeModule } from '../component-example-code/component-example-code.module';
 import { CegFiltersModule } from './ceg-filters/ceg-filters.module';
 import '@elvia/elvis-dropdown';
+import '@elvia/elvis-popover';
 
 @NgModule({
   imports: [CommonModule, ComponentExampleCodeModule, CegFiltersModule],
@@ -11,4 +12,4 @@ import '@elvia/elvis-dropdown';
   exports: [ComponentExampleGeneratorComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class ComponentExampleGeneratorModule { }
+export class ComponentExampleGeneratorModule {}

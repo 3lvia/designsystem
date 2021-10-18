@@ -52,6 +52,18 @@ $green: #29d305;
     }
   }
 
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    1% {
+      display: block;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
   &__content {
     display: flex;
     flex-direction: column;
@@ -68,7 +80,7 @@ $green: #29d305;
     text-align: left;
     box-shadow: $popover-box-shadow;
     border-radius: 8px;
-    transition: opacity 250ms ease-in;
+    animation: fadeIn 250ms ease-in;
     // Top aligned
     bottom: 100%;
     margin-bottom: 16px;
@@ -98,10 +110,10 @@ $green: #29d305;
   &.ewc-popover--hide .ewc-popover__content,
   &.ewc-popover--hide .ewc-popover__backdrop {
     opacity: 0;
-    visibility: hidden;
+    display: none;
     .ewc-btn .ewc-btn__icon i {
       opacity: 0;
-      visibility: hidden;
+      display: none;
     }
   }
 

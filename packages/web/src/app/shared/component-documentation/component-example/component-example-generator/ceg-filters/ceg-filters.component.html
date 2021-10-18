@@ -12,12 +12,12 @@
       <label
         *ngFor="let label of prop.cegOptions; let i = index"
         class="e-radio e-radio--sm"
-        for="{{ label }}-radio"
+        for="{{ label }}-radio-{{ desktop }}"
         (change)="updateRadioProp(prop, label)"
       >
         <input
           type="radio"
-          id="{{ label }}-radio"
+          id="{{ label }}-radio-{{ desktop }}"
           name="{{ prop.displayName }} radio"
           [checked]="label === prop.cegDefault"
         />
@@ -37,7 +37,7 @@
       }"
     >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
-      <label class="e-toggle" (change)="updateToggleCheckboxProp(prop)">
+      <label class="e-toggle" (change)="updateToggleCheckboxProp(prop, prop.cegOption)">
         <input *ngIf="prop.cegDefault === 'true'" class="e-toggle__input" type="checkbox" checked />
         <input *ngIf="prop.cegDefault === 'false'" class="e-toggle__input" type="checkbox" />
         <span class="e-toggle__slider"></span>
@@ -58,16 +58,19 @@
       >
         <label class="e-form-field__label">{{ checkbox.key }}</label>
         <div [ngClass]="{ 'ceg-filter-margin': k !== checkboxesLength - 1 }">
-          <div *ngFor="let checkbox of checkbox.value">
+          <div
+            *ngFor="let checkbox of checkbox.value"
+            [ngClass]="{ 'ceg-hidden': checkbox.cegTypeDependency && !typeDependencyExists(checkbox) }"
+          >
             <label
               class="e-checkbox e-checkbox--sm"
-              for="{{ checkbox.displayName }}-checkbox"
-              (change)="updateToggleCheckboxProp(checkbox)"
+              for="{{ checkbox.attribute }}-checkbox-{{ desktop }}"
+              (change)="updateToggleCheckboxProp(checkbox, checkbox.cegOption)"
             >
               <input
                 type="checkbox"
-                id="{{ checkbox.displayName }}-checkbox"
-                name="{{ checkbox.displayName }} checkbox"
+                id="{{ checkbox.attribute }}-checkbox-{{ desktop }}"
+                name="{{ checkbox.attribute }} checkbox-{{ desktop }}"
               />
               <span class="e-checkbox__mark"></span>
               <span class="e-checkbox__label">{{ checkbox.displayName }}</span>

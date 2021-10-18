@@ -1,5 +1,12 @@
 # Elvia Popover Changelog
 
+## 4.1.3 (16.09.21)
+
+### Bug fixes
+
+- Use display: none instead of visibility: hidden to remove white space created by the popover in application
+  due to SSR.
+
 ## 4.1.2 (9.08.21)
 
 ### Bug fixes
@@ -23,9 +30,8 @@
 ### Major
 
 - Popover now uses a fixed position enabling popovers to be used in containers with overflow attributes like
-  auto or hidden.
-- Due to the size of the changes and risk for complications we decided to version this update as a major. No
-  changes are required for existing popovers to function.
+  auto or hidden. Due to the size of the changes and risk for complications we decided to version this update
+  as a major. No changes are required for existing popovers to function.
 
 ## 3.0.0 (15.04.21)
 

@@ -8,7 +8,8 @@
     "@babel/register": "^7.13.16",
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-breadcrumb": "*",
-    "@elvia/elvis-carousel": "0.0.1-beta.6",
+    "@elvia/elvis-carousel": "*",
+    "@elvia/elvis-chip": "*",
     "@elvia/elvis-datepicker": "*",
     "@elvia/elvis-dropdown": "*",
     "@elvia/elvis-modal": "0.0.1-beta.12",
@@ -17,7 +18,7 @@
     "@elvia/elvis-tabs": "*",
     "@elvia/elvis-testing": "*",
     "@elvia/elvis-divider": "*",
-    "@elvia/elvis-box": "0.0.1-beta.3",
+    "@elvia/elvis-box": "*",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -38,8 +39,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "ssr": "yarn build && node server/index.js"
+    "ssr": "yarn build && node server/index.js",
+    "production": "yarn build && mv ./build ../../../web/dist/elvia-designsystem/react-preview"
   },
+  "homepage": "./",
   "eslintConfig": {
     "extends": [
       "react-app",

@@ -8,40 +8,40 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-radio-filter">
-      <input type="radio" id="radio-filter-1" name="radio-filter" checked />
-      <label for="radio-filter-1" data-value="Filter 1">
-        <span class="e-radio-filter__label">{{ examples.words.filters['eng-GBR'][0] }}</span>
-      </label>
-
-      <input type="radio" id="radio-filter-2" name="radio-filter" />
-      <label for="radio-filter-2" data-value="Filter 2">
-        <span class="e-radio-filter__label">{{ examples.words.filters['eng-GBR'][1] }}</span>
-      </label>
-
-      <input type="radio" id="radio-filter-3" name="radio-filter" />
-      <label for="radio-filter-3" data-value="Filter 2">
-        <span class="e-radio-filter__label">{{ examples.words.filters['eng-GBR'][2] }}</span>
-      </label>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="RadioFilter"></app-component-example-v1>
-    </div>
-  </div>
+  <!--CEG-->
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
   <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="whens" [whenNots]="whenNots"></app-when-to-use>
+
+      <app-component-subsection [sectionTitle]="'Lack of space'">
+        <ng-container ngProjectAs="sectionContent">
+          <div>
+            <b>On mobile</b>
+            - You can put radio filter in a popover if there is a lack of space or if it should take up less
+            focus. Popover is triggered by a button.
+          </div>
+          <div class="e-mt-24 e-ml-n24">
+            <img alt="Radio filter in popover" src="./../../../../assets/radio-filter/Example popover.svg" />
+          </div>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-radio-filter'">
+  <app-component-section [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-radio-filter'"></app-component-properties>
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
 </div>

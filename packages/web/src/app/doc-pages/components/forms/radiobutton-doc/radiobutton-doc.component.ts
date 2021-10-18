@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-radiobutton-doc',
@@ -83,6 +83,11 @@ export class RadiobuttonDocComponent {
     <input type="radio" name="focus"/>
     <span class="e-radio__mark"></span>
     <span class="e-radio__label">Focus</span>
+  </label>
+  <label class="e-radio e-radio---invalid">
+    <input type="radio" name="invalid"/>
+    <span class="e-radio__mark"></span>
+    <span class="e-radio__label">Invalid</span>
   </label>
 </form>
 `;

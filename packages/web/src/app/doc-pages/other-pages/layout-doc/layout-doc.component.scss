@@ -1,0 +1,188 @@
+@use '@elvia/elvis/src/variables/typography.scss';
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
+
+.ExampleSquare {
+  box-sizing: border-box;
+  border: 1px solid #262626;
+  border-radius: 8%;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: row;
+
+  .listExample {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+}
+
+.display-card {
+  @media (max-width: 494px) {
+    flex-direction: column;
+    width: 30%;
+  }
+
+  @include breakpoint-up(Tablet) {
+    flex-direction: column;
+    width: 40%;
+  }
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+    width: 33%;
+  }
+}
+
+.padding-example {
+  width: 100%;
+}
+
+.exampleContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-start;
+
+  .number {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 20px;
+    color: black;
+  }
+  .square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+
+    &.relElem1 {
+      background: rgb(185, 2, 2, 0.32);
+      height: 8px;
+      width: 8px;
+    }
+    &.relElem2 {
+      background: rgb(185, 2, 2, 0.24);
+      height: 16px;
+      width: 16px;
+    }
+    &.relElem3 {
+      background: rgb(185, 2, 2, 0.16);
+      height: 24px;
+      width: 24px;
+    }
+    &.relElem4 {
+      background: rgb(185, 2, 2, 0.08);
+      height: 32px;
+      width: 32px;
+    }
+    &.UnElem1 {
+      background: rgb(0, 109, 219, 0.4);
+      height: 40px;
+      width: 40px;
+    }
+    &.UnElem2 {
+      background: rgb(0, 109, 219, 0.32);
+      height: 48px;
+      width: 48px;
+    }
+    &.UnElem3 {
+      background: rgb(0, 109, 219, 0.24);
+      height: 56px;
+      width: 56px;
+    }
+    &.UnElem4 {
+      background: rgb(0, 109, 219, 0.16);
+      height: 64px;
+      width: 64px;
+    }
+    &.UnElem5 {
+      background: rgb(0, 109, 219, 0.08);
+      height: 72px;
+      width: 72px;
+    }
+    &.UnSect1 {
+      background: rgb(33, 172, 4, 0.4);
+      height: 80px;
+      width: 80px;
+    }
+    &.UnSect2 {
+      background: rgb(33, 172, 4, 0.36);
+      height: 88px;
+      width: 88px;
+    }
+    &.UnSect3 {
+      background: rgb(33, 172, 4, 0.24);
+      height: 96px;
+      width: 96px;
+    }
+    &.UnSect4 {
+      background: rgb(33, 172, 4, 0.16);
+      height: 104px;
+      width: 104px;
+    }
+    &.UnSect5 {
+      background: rgb(33, 172, 4, 0.08);
+      height: 112px;
+      width: 112px;
+    }
+  }
+}
+
+@include breakpoint-up(Mobile) {
+  img {
+    display: none;
+  }
+}
+.grid-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  @include breakpoint-up(MinDesktop) {
+    flex-direction: column;
+  }
+}
+.circles-container {
+  display: flex;
+  flex-direction: column;
+  @include breakpoint-up(Mobile) {
+    flex-direction: column;
+    .information-container {
+      margin-top: 16px;
+    }
+  }
+  @include breakpoint-up(MinDesktop) {
+    flex-direction: row;
+  }
+
+  .information-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 106px;
+    &:not(:first-of-type) {
+      margin-top: 16px;
+    }
+    @include breakpoint-up(MinDesktop) {
+      margin-left: 0px;
+      &:not(:first-of-type) {
+        margin-top: 0px;
+      }
+      &:not(:last-of-type) {
+        margin-right: 16px;
+      }
+    }
+    .information-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+      @include typography.typography('text-caps');
+    }
+  }
+}

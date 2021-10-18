@@ -1,0 +1,170 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">For designers</ng-container>
+
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--FIGMA-->
+  <app-component-section [sectionTitle]="'Figma'">
+    <ng-container ngProjectAs="sectionContent">
+      <div class="flex-container-figma">
+        <img class="figma-img" src="../../../../assets/get-started-designers/figma.svg" />
+        <div>
+          You can use Figma as an online tool, but we recommend you to
+          <a
+            class="e-link e-link--inline e-link--new-tab"
+            href="https://www.figma.com/downloads/"
+            target="_blank"
+          >
+            <span class="e-link__title">download the app</span>
+            <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+          </a>
+          for the full experience. If you have any issues accessing the
+          <a
+            class="e-link e-link--inline e-link--new-tab"
+            href="https://www.figma.com/files/880078299274452916/team/619061899486461825/ELVIA"
+            target="_blank"
+          >
+            <span class="e-link__title">Elvia library</span>
+            <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+          </a>
+          , just ask someone in the team and we’ll send you an invite. We can of course also help you set up
+          libraries in Figma if you’re new to it.
+        </div>
+      </div>
+
+      <p>
+        There’s a lot of useful information collected throughout this site, but we know you might be eager to
+        get started right away. That’s why we have gathered a short summary of the most important information
+        to help you get started. We do however recommend you to take a look at the rest when you can, to make
+        sure you don’t miss out on anything important.
+      </p>
+    </ng-container>
+  </app-component-section>
+
+  <!--ELVIA BRAND AND DESIGN CONCEPT-->
+  <app-component-section [sectionTitle]="'Elvia brand and design concept'">
+    <ng-container ngProjectAs="sectionContent">
+      Elvia is characterized by being ON as an energy provider. The most important identity marker is Elvia’s
+      logo, which should be used in all visual communication. You can
+      <a class="e-link e-link--inline" [routerLink]="['/brand/logo']">
+        read more and download the logo here.
+      </a>
+
+      <div class="brand-text-container e-mt-24">
+        <div class="principles-text top-text">
+          <div>Energy</div>
+          <div>off.</div>
+        </div>
+        <div class="top-text">
+          <div class="principles-text">Energy</div>
+          <div class="principle">on</div>
+        </div>
+      </div>
+
+      <p>
+        In our design language, we use round forms and circles in combination with our green profile color to
+        symbolize environmentally friendly energy and to show that Elvia is ON, activated and fully charged.
+        You can read more about the brand on
+        <a class="e-link e-link--inline e-link--new-tab" href="https://brand.elvia.io/" target="_blank">
+          <span class="e-link__title">brand.elvia.io.</span>
+          <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        </a>
+      </p>
+    </ng-container>
+  </app-component-section>
+
+  <!--COLORS AND STYLE-->
+  <app-component-section [sectionTitle]="'Colors and style'">
+    <ng-container ngProjectAs="sectionContent">
+      <div class="flex-img-container">
+        <div class="color-text">
+          The main colors we use are black, grey, white and green. The green color specifically should only be
+          used in details and - in the cases where it works - to symbolize that something is on, or active.
+          There’s a bit more tips to help you with color usage in our
+          <a class="e-link e-link--inline" [routerLink]="['/brand/color']">color guidelines.</a>
+        </div>
+        <img class="color-img" src="../../../../assets/get-started-designers/COLOR.svg" />
+      </div>
+
+      <p>
+        The typography we use is available in two optical sizes: Red Hat Text and Red Hat Display. The Display
+        version is most often used in bigger texts, such as titles, while the Text version is used in standard
+        text blocks, to provide better readability. The font family is open-source and
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          href="https://fonts.google.com/specimen/Red+Hat+Display"
+          target="_blank"
+        >
+          <span class="e-link__title">Red Hat can be downloaded here</span>
+          <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        </a>
+        via Google Fonts. You can read more about our usage of it on our
+        <a class="e-link e-link--inline" [routerLink]="['/brand/typography']">typography page.</a>
+      </p>
+
+      <p>
+        For our icon library, we use Streamline as a base. We do however do find ourselves in cases where we
+        need to tailor icons to fit our specific needs, and adjust when we need to. To see the full overview
+        of available icons in Elvia’s design system, see our
+        <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">icons page.</a>
+        We continuously add new ones depending on demand, so if you can’t find what you need for your project,
+        let us know.
+      </p>
+    </ng-container>
+  </app-component-section>
+
+  <!--GRID AND BREAKPOINTS-->
+  <app-component-section [sectionTitle]="'Grid and breakpoints'">
+    <ng-container ngProjectAs="sectionContent">
+      <img class="e-w-100" src="../../../../assets/get-started-designers/GRID.svg" />
+
+      <p>
+        In Elvia, we follow the 8 point grid. If you haven’t worked with it before we recommend you to read
+        <a
+          class="e-link e-link--inline e-link--new-tab"
+          href="https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632"
+          target="_blank"
+        >
+          <span class="e-link__title">an intro to the 8 point grid.</span>
+          <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+        </a>
+        Through the 8 point grid we can ensure higher consistency through using multiples of 8 to space out
+        elements. This helps us define dimensions, paddings and margin to make sure that both components and
+        full pages are scalable for a wide variety of devices.
+      </p>
+
+      <p>
+        We have defined breakpoints for different types of devices that we follow to make sure we create
+        responsive interfaces. You can read more about this in
+        <a class="e-link e-link--inline" [routerLink]="['/brand/grid']" fragment="Breakpoints">
+          the breakpoints section.
+        </a>
+      </p>
+    </ng-container>
+  </app-component-section>
+
+  <!--DESIGN IN ELVIA-->
+  <app-component-section [sectionTitle]="'Design in Elvia'">
+    <ng-container ngProjectAs="sectionContent">
+      In Elvia, designers help each other to create great experiences. You can find information about
+      <a class="e-link e-link--inline" [routerLink]="['/tools/design-process']">Elvia’s design process</a>
+      and some suggested methods on our pages about our design process, as well as important
+      <a class="e-link e-link--inline" [routerLink]="['/tools/accessibility']">accessibility</a>
+      pointers to help you make sure that you deliver solutions that are inclusive.
+
+      <p>
+        You are welcome to
+        <a class="e-link e-link--inline" [routerLink]="['/about/contact']">reach out</a>
+        to any of the designers in the design system team if you have questions or ideas about the design or
+        usage of the design system, or you can join our design recaps each week to get some great input from
+        the full design team.
+      </p>
+    </ng-container>
+  </app-component-section>
+</div>

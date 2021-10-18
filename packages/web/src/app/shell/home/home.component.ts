@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
-import { eHomes } from 'src/app/shared/e-items';
+import { homeMenu } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { eHomes } from 'src/app/shared/e-items';
 })
 export class HomeComponent implements OnInit {
   overviewTitle = 'Elvia design system';
-  pages = eHomes;
+  pages = homeMenu;
   fontLoaded = false;
   date = new Date();
   christmasMonth = 11;

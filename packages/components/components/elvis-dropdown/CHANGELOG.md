@@ -1,5 +1,17 @@
 # Elvia Dropdown
 
+## 1.0.7 (28.09.21)
+
+### Bug fixes
+
+Adjusted max width of placeholders and single value in dropdown.
+
+## 1.0.6 (09.09.21)
+
+### Bug fixes
+
+Fix for width-bug inside a flex-container.
+
 ## 1.0.5 (10.08.21)
 
 ### Bug fixes
