@@ -55,7 +55,6 @@ export const ModalComponent: FC<ModalProps> = ({
   useClickOutside(modalWrapperRef, () => isShowing && handleOnHide());
   useKeyPress('Escape', handleOnHide);
   hasLockBodyScroll && useLockBodyScroll(isShowing);
-  useFocusTrap(modalWrapperRef);
 
   useEffect(() => {
     const originalFocusedElement = document.activeElement as HTMLElement;
@@ -71,6 +70,7 @@ export const ModalComponent: FC<ModalProps> = ({
     }
 
     if (!webcomponent) {
+      useFocusTrap(modalWrapperRef);
       return;
     }
 
@@ -93,6 +93,12 @@ export const ModalComponent: FC<ModalProps> = ({
       modalSecondaryBtn.current.innerHTML = '';
       modalSecondaryBtn.current.appendChild(webcomponent.getSlot('secondaryButton'));
     }
+
+    useFocusTrap(modalWrapperRef);
+
+    return () => {
+      useFocusTrap(modalWrapperRef, true);
+    };
   }, [isShowing]);
 
   return (
@@ -122,10 +128,10 @@ export const ModalComponent: FC<ModalProps> = ({
             <StyledModal.Actions>
               {secondaryButton && <>{secondaryButton}</>}
               {webcomponent && hasSecondaryButton && (
-                <div tabIndex={0} className="webComponentBtn" ref={modalSecondaryBtn}></div>
+                <div className="webComponentBtn" ref={modalSecondaryBtn}></div>
               )}
               {primaryButton && <>{primaryButton}</>}
-              {webcomponent && <div tabIndex={0} className="webComponentBtn" ref={modalPrimaryBtn}></div>}
+              {webcomponent && <div className="webComponentBtn" ref={modalPrimaryBtn}></div>}
             </StyledModal.Actions>
           )}
         </StyledModal.Content>
