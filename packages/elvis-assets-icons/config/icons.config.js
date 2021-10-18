@@ -534,6 +534,11 @@ module.exports = [
     thirdparty: { name: ['streamline'], duplicate: ['search'] },
   },
   {
+    name: 'season',
+    terms: ['winter', 'seasons', 'time'],
+    thirdparty: { name: ['streamline'], duplicate: ['renewable_energy'] },
+  },
+  {
     name: 'settings_vertical',
     terms: ['toggle', 'edit', 'adjust', 'switch'],
     thirdparty: { name: ['streamline'] },
