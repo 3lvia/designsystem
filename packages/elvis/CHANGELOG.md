@@ -6,6 +6,32 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.13.0
+      </span>
+      <br>
+      <span>
+        October 18, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/brand/icons#Overview">icons</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              New icon 'season' and one updated icon.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.12.0
       </span>
       <br>
