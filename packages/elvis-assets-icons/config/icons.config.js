@@ -535,7 +535,7 @@ module.exports = [
   },
   {
     name: 'season',
-    terms: ['winter', 'seasons', 'time'],
+    terms: ['summer', 'winter', 'seasons', 'time'],
     thirdparty: { name: ['streamline'], duplicate: ['renewable_energy'] },
   },
   {
