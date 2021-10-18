@@ -65,7 +65,7 @@ export const paginationData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: 'function',
+      type: '(value: object) => CustomEvent',
       description: `Gets called every time a selection range is updated and return a value object with start and end key value pairs`,
     },
   },
@@ -73,10 +73,20 @@ export const paginationData = {
   codeImportReact: `import { Pagination } from '@elvia/elvis-pagination/react';`,
   codeImportWebComponent: `import '@elvia/elvis-pagination';`,
   codeReact: `<Pagination items={156}
-  valueOnChange="currentRange = $event.detail.value" >
+  valueOnChange={(event) => handleOnChange(event)} >
 </Pagination>`,
-  codeWebComponent: `<elvia-pagination 
-  items="156" 
-  (valueOnChange)="currentRange = $event.detail.value">
+  codeAngular: `<elvia-pagination
+  [items]="156" 
+  (valueOnChange)="handleOnChange(event.detail.value)">
 </elvia-pagination>`,
+  codeNativeHTML: `<elvia-pagination id="example-elvia-pagination">
+</elvia-pagination>`,
+
+  codeNativeScript: `  const tabs = document.getElementById('example-elvia-pagination');
+  const items = 156;
+  tabs.setProps({items: items})
+  tabs.addEventListener('valueOnChange', (event) => {
+    console.log('Current selection range of paginator is : ', event.detail.value)
+  });
+`,
 };

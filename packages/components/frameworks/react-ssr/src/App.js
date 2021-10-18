@@ -109,21 +109,6 @@ function App() {
 
   let dropdownValue;
 
-  const paginatorOptions = [
-    {
-      value: '10',
-      label: '10',
-    },
-    {
-      value: '20',
-      label: '20',
-    },
-    {
-      value: 'All',
-      label: 'All',
-    },
-  ];
-
   const consoleDropdownVal = () => {
     console.log(dropdownValue);
   };

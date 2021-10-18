@@ -110,7 +110,7 @@ export const PaginatorNumbersArea = styled.div`
   flex-direction: row;
   align-items: baseline;
   user-select: none;
-`
+`;
 
 export const PaginatorNumber = styled.button`
   font-family: Red Hat Text;
@@ -121,7 +121,7 @@ export const PaginatorNumber = styled.button`
   letter-spacing: 0.2px;
   text-align: center;
 
-  display: ${(props: { noShow: boolean }) => (props.noShow ? 'none' : 'flex')};;
+  display: ${(props: { noShow: boolean }) => (props.noShow ? 'none' : 'flex')};
   justify-content: center;
   align-items: center;
   background: transparent;
@@ -153,6 +153,6 @@ export const PaginatorDots = styled.div`
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
-  display:${(props: { noDots: boolean }) => (props.noDots ? 'none' : 'inherit')};
+  display: ${(props: { noDots: boolean }) => (props.noDots ? 'none' : 'inherit')};
   width: ${(props: { noDots: boolean }) => (props.noDots ? '0px' : '20px')};
 `;
