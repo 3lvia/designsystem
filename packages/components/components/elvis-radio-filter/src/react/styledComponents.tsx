@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import * as ElviaColors from "@elvia/elvis-colors"
+import * as ElviaColors from '@elvia/elvis-colors';
 
 export const colors = {
-  elviaCharge: ElviaColors.default["primary-colors"]["green"].color,
-  elviaOff: ElviaColors.default["primary-colors"]["black"].color,
-  outline: ElviaColors.default["internal-colors"]["focus-outline"].color,
+  elviaCharge: ElviaColors.default['primary-colors']['green'].color,
+  elviaOff: ElviaColors.default['primary-colors']['black'].color,
+  outline: ElviaColors.default['internal-colors']['focus-outline'].color,
 };
 
 export const RadioFilterGroup = styled.div`
@@ -12,23 +12,25 @@ export const RadioFilterGroup = styled.div`
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
-`
+`;
 
 export const RadioFilterLabel = styled.label`
   border-radius: 32px;
   padding: 4px 12px;
-  border: ${(props: { isSelected: boolean }) => (`1px solid ${props.isSelected ? colors.elviaOff : 'transparent'}`)};
+  border: ${(props: { isSelected: boolean }) =>
+    `1px solid ${props.isSelected ? colors.elviaOff : 'transparent'}`};
   cursor: pointer;
-  
+
   &:hover:not(:disabled) {
-    border:${(props: { isSelected: boolean }) => (`1px solid ${props.isSelected ? colors.elviaOff : colors.elviaCharge}`)};
+    border: ${(props: { isSelected: boolean }) =>
+      `1px solid ${props.isSelected ? colors.elviaOff : colors.elviaCharge}`};
   }
   &:focus-within {
     outline: 2px solid ${colors.outline};
     outline-offset: 2px;
   }
   margin: 0 8px 8px 0;
-`
+`;
 
 export const RadioFilterInput = styled.input`
   position: absolute;

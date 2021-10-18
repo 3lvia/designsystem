@@ -10,12 +10,6 @@ export const tabsData = {
       type: 'string[]',
       description: 'Items getting converted to tabs.',
       displayName: 'Tabs',
-      // cegType: 'string',
-      // cegFormType: 'counter',
-      // cegDefault: 3,
-      // cegCounterMax: 5,
-      // cegCounterMin: 2,
-      // cegStepValue: 1,
     },
     value: {
       isRequired: false,
@@ -66,13 +60,14 @@ export const tabsData = {
     `']" 
   (valueOnChange)="handleOnChange(event.detail.value)"
 ></elvia-tabs>`,
-  codeNativeHTML:
-    `<elvia-tabs 
+  codeNativeHTML: `<elvia-tabs 
   id="example-elvia-tabs"
 ></elvia-tabs>
 `,
   codeNativeScript: `  const tabs = document.getElementById('example-elvia-tabs');
-  const items = [${JSON.stringify(exampleContents.words.random['eng-GBR'][0])}, ${JSON.stringify(exampleContents.words.random['eng-GBR'][1])}, ${JSON.stringify(exampleContents.words.random['eng-GBR'][2])}]
+  const items = [${JSON.stringify(exampleContents.words.random['eng-GBR'][0])}, ${JSON.stringify(
+    exampleContents.words.random['eng-GBR'][1],
+  )}, ${JSON.stringify(exampleContents.words.random['eng-GBR'][2])}]
   tabs.setProps({items: items})
   tabs.setProps({value: 0 });
   tabs.addEventListener('valueOnChange', (event) => {

@@ -8,6 +8,7 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-documentatio
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
+import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { ComponentSectionModule } from 'src/app/shared/component-documentation/c
     ComponentPropertiesModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
+    ComponentSubsubsectionModule,
     WhenToUseModule,
   ],
   declarations: [PositionPickerDocComponent],

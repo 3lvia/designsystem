@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 import { breadcrumbData } from './breadcrumb-data';
 
 @Component({
@@ -40,16 +40,4 @@ export class BreadcrumbDocComponent {
     'To show progress of a journey',
     'Should not replace the primary navigation',
   ];
-
-  addBreadcrumb = () => {
-    if (this.breadcrumbsTest.length < 5) {
-      this.breadcrumbsTest = this.breadcrumbsTest.concat(this.exampleBreadcrumb);
-    }
-  };
-
-  removeBreadcrumb = () => {
-    if (this.breadcrumbsTest.length > 2) {
-      this.breadcrumbsTest = this.breadcrumbsTest.slice(0, this.breadcrumbsTest.length - 1);
-    }
-  };
 }

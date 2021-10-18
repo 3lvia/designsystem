@@ -1,6 +1,6 @@
 # Elvia colors
 
-Available colors reflect the colors illustrated at https://design.elvia.io/identity/color#Overview.
+Available colors reflect the colors illustrated at https://design.elvia.io/brand/color#Overview.
 
 All Color variables are named Elvia< Name > in CamelCase. Eg ElviaBlack, ElviaOrangeMango.
 

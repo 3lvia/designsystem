@@ -1,12 +1,12 @@
 import styled from 'styled-components';
+import { DividerType, DividerTypography } from './elvia-divider';
 
 const ElviaColors = {
   elviaOn: '#ffffff',
   elviaOff: '#000000',
   grey10: '#e9e9e9',
   grey20: '#d3d3d3',
-  grey80: '#515151',
-  grey70: '#676767',
+  grey90: '#3B3B3B',
 };
 
 const decideBorderColor = (isInverted: boolean, type: string) => {
@@ -20,12 +20,17 @@ const decideBorderColor = (isInverted: boolean, type: string) => {
     if (type === 'title') {
       return ElviaColors.elviaOn;
     } else {
-      return ElviaColors.grey80;
+      return ElviaColors.grey90;
     }
   }
 };
 
-export const DividerArea = styled.div`
+type DividerArea = {
+  type: DividerType;
+  isInverted: boolean;
+};
+
+export const DividerArea = styled.div<DividerArea>`
   display: block;
   margin: 0;
   width: 100%;
@@ -43,7 +48,7 @@ export const DividerArea = styled.div`
       &::after {
         content: '';
         border: 2px solid;
-        border-color: ${props.isInverted ? ElviaColors.grey70 : ElviaColors.grey20};
+        border-color: ${props.isInverted ? ElviaColors.grey90 : ElviaColors.grey20};
         border-radius: 100%;
         position: absolute;
         bottom: 0;
@@ -54,7 +59,12 @@ export const DividerArea = styled.div`
       }`};
 `;
 
-export const DividerTitle = styled.div`
+type DividerTitle = {
+  typography: DividerTypography;
+  isInverted: boolean;
+};
+
+export const DividerTitle = styled.div<DividerTitle>`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 700;
   line-height: ${(props: { typography: string }) => (props.typography === 'medium' ? '28px' : '17px')};

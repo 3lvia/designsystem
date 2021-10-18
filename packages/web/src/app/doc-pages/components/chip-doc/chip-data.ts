@@ -60,7 +60,8 @@ export const chipData = {
     onDelete: {
       isRequired: false,
       type: '(value: string) => void',
-      description: 'Gets called if an item is clicked and it should be deleted. Required on removable type and not necessary on any of the other types.',
+      description:
+        'Gets called if an item is clicked and it should be deleted. Required on removable type and not necessary on any of the other types.',
     },
   },
   package: 'npm install @elvia/elvis-chip',

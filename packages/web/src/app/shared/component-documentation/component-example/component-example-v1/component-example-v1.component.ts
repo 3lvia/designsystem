@@ -138,27 +138,31 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
     const tabs = [];
     if (this.noPhone && this.noTablet) {
       this.screenTabOpen = 'desktop';
+      tabs.push('desktop');
       this.showTabs = false;
     }
     if (this.noPhone && this.noDesktop) {
       this.screenTabOpen = 'tablet';
+      tabs.push('tablet');
       this.showTabs = false;
     }
     if (this.noTablet && this.noDesktop) {
       this.screenTabOpen = 'phone';
+      tabs.push('phone');
       this.showTabs = false;
     }
     if (this.showTabs) {
       if (!this.noDesktop) {
-        tabs.push('desktop')
+        tabs.push('desktop');
       }
       if (!this.noTablet) {
-        tabs.push('tablet')
+        tabs.push('tablet');
       }
       if (!this.noPhone) {
-        tabs.push('phone')
+        tabs.push('phone');
       }
     }
+
     return tabs;
   }
 }

@@ -11,6 +11,7 @@ export class CegFiltersComponent implements OnInit {
   @Input() componentData;
   @Input() props;
   @Input() selectedType;
+  @Input() desktop = true;
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeNativeSub: Subscription;
@@ -25,7 +26,7 @@ export class CegFiltersComponent implements OnInit {
   emptyLineRegex = /^\s*[\r\n]/gm;
   objectKeys = Object.keys;
 
-  constructor(private cegService: ExampleCodeService) { }
+  constructor(private cegService: ExampleCodeService) {}
 
   ngOnInit(): void {
     this.codeReact = this.componentData.codeReact;
@@ -77,7 +78,7 @@ export class CegFiltersComponent implements OnInit {
     }
   }
 
-  sortCheckboxArrays(checkboxGroups: any): [] {
+  sortCheckboxArrays(checkboxGroups: any[]): [] {
     const checkboxArrays = checkboxGroups.reduce((obj, value) => {
       const key = `${value.cegDisplayGroup}`;
       if (obj[key] == null) {
@@ -87,6 +88,35 @@ export class CegFiltersComponent implements OnInit {
       return obj;
     }, {});
     return checkboxArrays;
+  }
+
+  typeDependencyExists(prop: Record<string, any>): boolean {
+    const dependencyCheckbox = <HTMLInputElement>(
+      document.getElementById(prop.cegTypeDependency + '-checkbox-' + this.desktop)
+    );
+    const checkboxThatHasDependency = <HTMLInputElement>(
+      document.getElementById(prop.attribute + '-checkbox-' + this.desktop)
+    );
+    if (!checkboxThatHasDependency) {
+      return;
+    }
+    if (
+      (prop.cegTypeDependencyValue === 'false' &&
+        checkboxThatHasDependency.checked &&
+        dependencyCheckbox.checked) ||
+      (prop.cegTypeDependencyValue === 'true' &&
+        checkboxThatHasDependency.checked &&
+        !dependencyCheckbox.checked) ||
+      (!prop.cegTypeDependencyValue && checkboxThatHasDependency.checked && !dependencyCheckbox.checked)
+    ) {
+      checkboxThatHasDependency.checked = false;
+      this.updateToggleCheckboxProp(prop, 'false');
+    }
+    return (
+      (prop.cegTypeDependencyValue === 'false' && !dependencyCheckbox.checked) ||
+      (prop.cegTypeDependencyValue === 'true' && dependencyCheckbox.checked) ||
+      (!prop.cegTypeDependencyValue && dependencyCheckbox.checked)
+    );
   }
 
   updateNewCode(): void {
@@ -115,18 +145,18 @@ export class CegFiltersComponent implements OnInit {
     this.codeNative = this.cegService.removeProp(this.codeNative, attr);
   }
 
-  updateRadioProp(prop: any, newValue: string): void {
+  updateRadioProp(prop: Record<string, any>, newValue: string): void {
     const attr = prop.attribute;
     const type = prop.cegType;
     if (this.codeAngular.includes(prop.attribute)) {
-      this.replaceOldProps(attr, newValue, type)
+      this.replaceOldProps(attr, newValue, type);
     } else {
       this.addNewProps(attr, newValue, type);
     }
     this.updateNewCode();
   }
 
-  updateToggleCheckboxProp(prop: any, newValue: string): void {
+  updateToggleCheckboxProp(prop: Record<string, any>, newValue: string): void {
     const attr = prop.attribute;
     const type = prop.cegType;
     if (this.codeAngular.includes(prop.attribute)) {
@@ -137,7 +167,7 @@ export class CegFiltersComponent implements OnInit {
     this.updateNewCode();
   }
 
-  isAcceptedCounterValue(prop: any, newValue: number): boolean {
+  isAcceptedCounterValue(prop: Record<string, any>, newValue: number): boolean {
     return (
       this.counterNumber !== undefined &&
       (this.counterNumber + newValue > prop.cegCounterMax ||
@@ -145,7 +175,7 @@ export class CegFiltersComponent implements OnInit {
     );
   }
 
-  updateCounterProp(prop: any, newValue: number): void {
+  updateCounterProp(prop: Record<string, any>, newValue: number): void {
     const attr = prop.attribute;
     const type = prop.cegType;
     if (this.isAcceptedCounterValue(prop, newValue)) {

@@ -1,6 +1,6 @@
 # Elvia typography
 
-Available typography reflect the typography classes availabe at https://design.elvia.io/identity/typography
+Available typography reflect the typography classes availabe at https://design.elvia.io/brand/typography
 
 ## Usage SCSS
 

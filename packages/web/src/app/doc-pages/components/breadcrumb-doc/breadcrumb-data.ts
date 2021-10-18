@@ -44,7 +44,7 @@ const breadcrumbData = {
       title: 'Breadcrumbs',
     },
   ];
-  breadcrumb.setProps({breadcrumbs: breadcrumbs });`
+  breadcrumb.setProps({breadcrumbs: breadcrumbs });`,
 };
 
 export { breadcrumbData };

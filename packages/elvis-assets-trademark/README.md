@@ -7,7 +7,7 @@ Contains Elvia logo, favicon and other trademarked assets.
 - Padding
 - Minimum size
 
-https://design.elvia.io/identity/logo
+https://design.elvia.io/brand/logo
 
 > [!WARNING] Not for use outside of Elvia
 

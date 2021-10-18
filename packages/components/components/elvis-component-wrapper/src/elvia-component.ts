@@ -12,6 +12,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected throttleRenderReactDOM;
   private mountPoint!: HTMLSpanElement;
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   constructor(webComponent: any, reactComponent: any, cssStyle: string) {
     super();
     this._data = {};
@@ -32,6 +33,10 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   getSlot(str: string): any {
     return this._slots[str];
+  }
+
+  getAllSlots(): any {
+    return this._slots;
   }
 
   connectedCallback(): void {
@@ -87,6 +92,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.appendChild(styleTag);
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   protected setProps(newProps: any, preventRerender?: boolean): void {
     Object.keys(newProps).forEach((key) => {
       if (!isEqual(this._data[key], newProps[key])) {
@@ -101,6 +107,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   protected triggerEvent(callbackName: string, newProps?: any): void {
     if (newProps) {
       Object.keys(newProps).forEach((key) => {
@@ -148,24 +155,24 @@ export class ElvisComponentWrapper extends HTMLElement {
   private logErrorMessage(functionName: string, error: string): void {
     console.error(
       '[' +
-      this.webComponent.getComponentData().name +
-      '] elvia-component-wrapper: ' +
-      "Failed at function '" +
-      functionName +
-      "'. " +
-      error,
+        this.webComponent.getComponentData().name +
+        '] elvia-component-wrapper: ' +
+        "Failed at function '" +
+        functionName +
+        "'. " +
+        error,
     );
   }
 
   private logWarnMessage(functionName: string, warn: string): void {
     console.warn(
       '[' +
-      this.webComponent.getComponentData().name +
-      '] elvia-component-wrapper: ' +
-      "Failed at function '" +
-      functionName +
-      "'. " +
-      warn,
+        this.webComponent.getComponentData().name +
+        '] elvia-component-wrapper: ' +
+        "Failed at function '" +
+        functionName +
+        "'. " +
+        warn,
     );
   }
 
@@ -226,8 +233,8 @@ export class ElvisComponentWrapper extends HTMLElement {
         this.logErrorMessage(
           'convertString',
           ': The property "' +
-          attrName +
-          '" is not a valid JSON object. This is probably because the JSON object is containing single quotes instead of double quotes.',
+            attrName +
+            '" is not a valid JSON object. This is probably because the JSON object is containing single quotes instead of double quotes.',
         );
       }
     }

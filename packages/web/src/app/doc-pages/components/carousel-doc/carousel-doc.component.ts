@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 import { carouselData } from './carousel-data';
 import { exampleContents } from 'src/app/shared/example-contents';
 
@@ -13,7 +13,6 @@ export class CarouselDocComponent {
   componentData = carouselData;
   does = carouselData.does;
   donts = carouselData.donts;
-  elements = carouselData.elements;
   figmaUrl = getComponent('carousel').figmaUrl;
   description = getComponent('carousel').description;
 }

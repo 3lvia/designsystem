@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
 import { paginationData } from './pagination-data';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-pagination-doc',

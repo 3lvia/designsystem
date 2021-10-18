@@ -30,6 +30,6 @@ import { ComponentInstallationModule } from 'src/app/shared/component-documentat
     ComponentInstallationModule,
   ],
   declarations: [AccordionDocComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AccordionDocModule { }
+export class AccordionDocModule {}

@@ -49,12 +49,12 @@ export class ExampleCodeService {
     let newVal = newValue;
     if (language === 'angular') {
       if (propType === 'string') {
-        newVal = '\'' + newVal + '\''
+        newVal = "'" + newVal + "'";
       }
       return '  [' + attribute + ']="' + newVal + '"';
     } else if (language === 'react') {
       if (propType === 'string') {
-        newVal = '"' + newVal + '"'
+        newVal = '"' + newVal + '"';
       }
       return '  ' + attribute + '={' + newVal + '}';
     } else if (language === 'native') {
@@ -63,19 +63,25 @@ export class ExampleCodeService {
     // TODO: Finne ut hva slags Vue syntax gir mening og legge inn støtte her
     // else if (language === 'vue') {
     //   return '  ' + prop + '={"' + newVal + '"}';
-    // } 
+    // }
   }
 
-  getNewString(elementName: string, prop: string, newValue: string, language: string, propType: string): string {
+  getNewString(
+    elementName: string,
+    prop: string,
+    newValue: string,
+    language: string,
+    propType: string,
+  ): string {
     let newVal = newValue;
     if (language === 'angular') {
       if (propType === 'string') {
-        newVal = '\'' + newVal + '\''
+        newVal = "'" + newVal + "'";
       }
       return '<' + elementName + '\n  [' + prop + ']="' + newVal + '"';
     } else if (language === 'react') {
       if (propType === 'string') {
-        newVal = '"' + newVal + '"'
+        newVal = '"' + newVal + '"';
       }
       return '<' + elementName + '\n  ' + prop + '={' + newVal + '}';
     } else if (language === 'native') {
@@ -84,32 +90,37 @@ export class ExampleCodeService {
     // TODO: Finne ut hva slags Vue syntax gir mening og legge inn støtte her
     // else if (language === 'vue') {
     //   return '  ' + prop + '={"' + newVal + '"}';
-    // } 
+    // }
   }
 
-  replaceOldProp(stringToReplace: string, attribute: string, newValue: string, language: string, type: string): string {
+  replaceOldProp(
+    stringToReplace: string,
+    attribute: string,
+    newValue: string,
+    language: string,
+    type: string,
+  ): string {
     return stringToReplace.replace(
       this.getOldPropRegex(attribute),
       this.getReplaceString(attribute, newValue, language, type),
     );
   }
 
-  addNewProp(stringToReplace: string, attribute: string, newValue: string, language: string, type: string, elementName: string): string {
+  addNewProp(
+    stringToReplace: string,
+    attribute: string,
+    newValue: string,
+    language: string,
+    type: string,
+    elementName: string,
+  ): string {
     return stringToReplace.replace(
       this.getNewPropRegex(elementName),
-      this.getNewString(
-        elementName,
-        attribute,
-        newValue,
-        language,
-        type
-      )
+      this.getNewString(elementName, attribute, newValue, language, type),
     );
   }
 
   removeProp(stringToReplace: string, attribute: string): string {
-    return stringToReplace
-      .replace(this.getOldPropRegex(attribute), '')
-      .replace(this.getEmptyLineRegex(), '');
+    return stringToReplace.replace(this.getOldPropRegex(attribute), '').replace(this.getEmptyLineRegex(), '');
   }
 }

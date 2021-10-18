@@ -43,9 +43,10 @@ async function validateElviaComponentsConfig() {
                     propertyNames: {
                         pattern: "^[A-Za-z_][A-Za-z0-9_]*$"
                     }
-                }
+                },
+                reactTypescriptDeclaration: { type: "boolean" }
             },
-            required: ["name", "elementName", "attributes", "reactName", "useWrapper", "slotItems"]
+            required: ["name", "elementName", "attributes", "reactName", "useWrapper", "slotItems", "reactTypescriptDeclaration"]
         }
     }
 

@@ -50,17 +50,43 @@
   <div style="padding: 8px">
     <elvia-carousel
       [elements]="elements"
-      (valueOnChange)="carouselValue = $event.detail.value"
-    ></elvia-carousel>
-    <h3>Carousel component with hidden arrows</h3>
-    <elvia-carousel
-      [elements]="elements"
       [hideArrows]="true"
       (valueOnChange)="carouselValue = $event.detail.value"
     ></elvia-carousel>
     <h3>Carousel without content</h3>
     <elvia-carousel [elements]="5" (valueOnChange)="carouselValue = $event.detail.value"></elvia-carousel>
-    {{ carouselValue }}
+    <elvia-carousel>
+      <div slot="title-1">
+        <h3 class="e-title-sm">title 1</h3>
+      </div>
+      <div slot="element-1">
+        <img
+          alt="Carousel example image"
+          src="../../../../assets/carousel/el1.jpeg"
+          style="width: 100%; min-width: 278px; border-radius: 8px"
+        />
+      </div>
+      <div slot="title-2">
+        <h3 class="e-title-sm">title 2</h3>
+      </div>
+      <div slot="element-2">
+        <img
+          alt="Carousel example image"
+          src="../../../../assets/carousel/el2.jpeg"
+          style="width: 100%; min-width: 278px; border-radius: 8px"
+        />
+      </div>
+      <div slot="title-3">
+        <h3 class="e-title-sm">title 3</h3>
+      </div>
+      <div slot="element-3">
+        <img
+          alt="Carousel example image"
+          src="../../../../assets/carousel/el3.jpeg"
+          style="width: 100%; min-width: 278px; border-radius: 8px"
+        />
+      </div>
+    </elvia-carousel>
 
     <h3>Deletable chips</h3>
     <div style="display: flex; flex-direction: row">

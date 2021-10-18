@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { eComponents } from 'src/app/shared/e-items';
+import { componentsDocPages } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-overview',
@@ -8,5 +8,5 @@ import { eComponents } from 'src/app/shared/e-items';
 })
 export class OverviewComponent {
   overviewTitle = 'Components';
-  pages = eComponents;
+  pages = componentsDocPages;
 }

@@ -22,6 +22,7 @@ import '@elvia/elvis-carousel';
 import '@elvia/elvis-chip';
 import '@elvia/elvis-box';
 import '@elvia/elvis-modal';
+import '@elvia/elvis-radio-filter';
 
 @NgModule({
   imports: [

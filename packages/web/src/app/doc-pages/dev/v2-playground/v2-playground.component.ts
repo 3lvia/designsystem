@@ -156,7 +156,7 @@ export class v2PlaygroundComponent implements OnInit {
     this.isPopoverShowing = newValue;
   };
 
-  updatedVisibility = (event: any): void => {
+  updatedVisibility = (event: Event): void => {
     console.log('Updated - visibility: ' + event);
   };
 

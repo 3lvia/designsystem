@@ -1,6 +1,6 @@
 import { ElementRef } from '@angular/core';
 import { Component, ViewChild } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-search-doc',
@@ -19,7 +19,7 @@ export class SearchDocComponent {
   overviewExample = `<div class="e-form-field">
   <div
     class="e-search e-search--instant"
-    style="width: 250px"
+    style="width: 300px"
     #exampleSearch
   >
     <div class="e-input">
@@ -168,7 +168,7 @@ clearExample(): void {
 </div>
 `;
 
-  searchSizesInstantExample = `<div class="e-title-caps e-mb-16">Normal</div>
+  searchSizesNormalExample = `<div class="e-title-caps e-mb-16">Instant</div>
 <div class="e-form-field">
   <div
     class="e-search e-search--instant"
@@ -190,31 +190,7 @@ clearExample(): void {
   </div>
 </div>
 
-<div class="e-title-caps e-mb-16 e-mt-24">Compact</div>
-
-<div class="e-form-field e-form-field--compact e-mt-24">
-  <div
-    class="e-search e-search--instant"
-    style="width: 250px"
-  >
-    <div class="e-input">
-      <input
-        aria-label="Search"
-        type="search"
-        placeholder="Search"
-      />
-    </div>
-    <i class="e-icon e-icon--search-color"></i>
-    <button
-      class="e-btn e-btn--icon"
-    >
-      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
-    </button>
-  </div>
-</div>
-`;
-
-  searchSizesOnSubmitExample = `<div class="e-title-caps e-mb-16">Normal</div>
+<div class="e-title-caps e-mb-16 e-mt-24">On submit</div>
 <div class="e-inlined-field">
   <div class="e-form-field e-form-field--width-auto">
     <div
@@ -241,9 +217,31 @@ clearExample(): void {
     <span class="e-btn__title">Search</span>
   </button>
 </div>
+`;
 
-<div class="e-title-caps e-mb-16 e-mt-24">Compact</div>
+  searchSizesCompactExample = `<div class="e-title-caps e-mb-16">Instant</div>
+<div class="e-form-field e-form-field--compact">
+  <div
+    class="e-search e-search--instant"
+    style="width: 250px"
+  >
+    <div class="e-input">
+      <input
+        aria-label="Search"
+        type="search"
+        placeholder="Search"
+      />
+    </div>
+    <i class="e-icon e-icon--search-color"></i>
+    <button
+      class="e-btn e-btn--icon"
+    >
+      <span class="e-btn__icon"><i class="e-icon e-icon--close-bold"></i></span>
+    </button>
+  </div>
+</div>
 
+<div class="e-title-caps e-mb-16 e-mt-24">On submit</div>
 <div class="e-inlined-field">
   <div class="e-form-field e-form-field--width-auto e-form-field--compact">
     <div

@@ -107,5 +107,3 @@ const datepickerData = {
 };
 
 export { datepickerData };
-
-
