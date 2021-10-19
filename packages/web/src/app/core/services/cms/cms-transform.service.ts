@@ -83,7 +83,6 @@ export class CMSTransformService {
   }
 
   private getLink(data, locale, subMenu) {
-    console.log(data);
     let subPath;
     let fullPath;
     if (data.fields.page) {
