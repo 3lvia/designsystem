@@ -8,12 +8,12 @@ const boxData = {
     content: {
       isRequired: true,
       type: 'string | HTMLElement',
-      description: 'Text, images, tables or any other content (slot in angular)',
+      description: 'Text, images, tables or any other content (slot in webcomponent)',
     },
     title: {
       isRequired: false,
       type: `string | HTMLElement`,
-      description: `Title for the box (slot in angular)`,
+      description: `Title for the box (slot in webcomponent)`,
     },
     hasBorder: {
       isRequired: false,

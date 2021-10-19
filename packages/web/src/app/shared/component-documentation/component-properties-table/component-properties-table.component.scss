@@ -5,14 +5,14 @@
   font-family: 'Fira Mono';
 }
 
-.e-table-container .e-table {
+.e-table-container.desktop {
   display: block;
   @include breakpoint-up(Mobile) {
     display: none;
   }
 }
 
-.e-table-container .e-table-mobile {
+.e-table-container.mobile {
   display: none;
   @include breakpoint-up(Mobile) {
     display: block;

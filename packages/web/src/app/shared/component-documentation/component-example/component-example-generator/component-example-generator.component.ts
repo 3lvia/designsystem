@@ -13,12 +13,15 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @ViewChild('cegContent') cegContent;
   @Input() delayInnerHtml = false;
   @Input() componentData;
+  @Input() typesData;
   @Input() width = 100;
   @Input() hasPreview = true;
+  @Input() inlineExample = false;
   @Input() accordionCustom = false;
   @Input() overflowY;
   @Input() alignedTop = false;
   @Input() height = '340';
+  enableFilters = true;
   typeHasFilter = false;
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
@@ -48,6 +51,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     this.codeAngular = this.componentData.codeAngular;
     this.codeReact = this.componentData.codeReact;
     this.codeNative = this.componentData.codeNativeHTML;
+    if (this.inlineExample) {
+      return;
+    }
     this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code: string) => {
       this.codeAngular = code;
     });
@@ -71,6 +77,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       if (this.componentData.codeNativeScript) {
         setTimeout(() => eval(this.componentData.codeNativeScript), 200);
       }
+      if (!this.componentData.attributes) {
+        return;
+      }
       Object.keys(this.componentData.attributes).forEach((attribute) => {
         Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
           if (value === 'cegFormType') {
@@ -83,12 +92,21 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   }
 
   ngOnDestroy(): void {
-    this.codeAngularSub.unsubscribe();
-    this.codeReactSub.unsubscribe();
-    this.codeNativeSub.unsubscribe();
+    if (this.codeAngularSub) {
+      this.codeAngularSub.unsubscribe();
+    }
+    if (this.codeReactSub) {
+      this.codeReactSub.unsubscribe();
+    }
+    if (this.codeNativeSub) {
+      this.codeNativeSub.unsubscribe();
+    }
   }
 
   initializeComponentProps(): void {
+    if (!this.componentData.attributes) {
+      return;
+    }
     Object.keys(this.componentData.attributes).forEach((attribute) => {
       Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
         if (value === 'cegFormType') {
@@ -132,8 +150,17 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       let i = 0;
       this.typeObject.cegOptions.forEach((option) => {
         const label = option.charAt(0).toUpperCase() + option.slice(1);
-        const type = { value: i, label: label };
-        this.typeOptions.push(type);
+        const newType = { value: i, label: label };
+        this.typeOptions.push(newType);
+        i++;
+      });
+    }
+    if (this.typesData) {
+      let i = 0;
+      this.typesData.forEach((option) => {
+        const label = option.type.charAt(0).toUpperCase() + option.type.slice(1);
+        const newType = { value: i, label: label };
+        this.typeOptions.push(newType);
         i++;
       });
     }
@@ -166,6 +193,24 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     const newValue = selected.label.toLowerCase();
     const cegType = this.typeObject.cegType;
     this.updateSelected(attribute, newValue, cegType);
+  }
+
+  updateSelectedTypeCustom(selected: { value: any; label: any }): void {
+    this.typesData.forEach((element) => {
+      if (element.type === selected.label.toLowerCase()) {
+        this.selectedType = selected.label;
+        this.codeReact = element.codeReact;
+        this.codeAngular = element.codeAngular;
+        this.codeNative = element.codeNativeHTML;
+      }
+    });
+    this.enableFilters = false;
+    setTimeout(() => {
+      this.enableFilters = true;
+      setTimeout(() => {
+        this.updateProps();
+      }, 100);
+    }, 100);
   }
 
   updateSelectedBg(selected: { value: any; label: any }): void {
@@ -235,9 +280,19 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       return true;
     }
     return this.props.find((prop) => {
-      return (
-        prop.cegTypeDependency && this.selectedType.toLowerCase() === prop.cegTypeDependency.toLowerCase()
-      );
+      if (typeof prop.cegTypeDependency === 'string') {
+        return (
+          prop.cegTypeDependency && this.selectedType.toLowerCase() === prop.cegTypeDependency.toLowerCase()
+        );
+      } else {
+        prop.cegTypeDependency.forEach((dep) => {
+          return (
+            prop.cegTypeDependency &&
+            prop.cegTypeDependency &&
+            this.selectedType.toLowerCase() === dep.toLowerCase()
+          );
+        });
+      }
     });
   }
 }

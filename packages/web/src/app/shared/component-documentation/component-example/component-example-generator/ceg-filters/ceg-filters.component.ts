@@ -45,9 +45,15 @@ export class CegFiltersComponent implements OnInit {
   }
 
   ngOnDestroy(): void {
-    this.codeAngularSub.unsubscribe();
-    this.codeReactSub.unsubscribe();
-    this.codeNativeSub.unsubscribe();
+    if (this.codeAngularSub) {
+      this.codeAngularSub.unsubscribe();
+    }
+    if (this.codeReactSub) {
+      this.codeReactSub.unsubscribe();
+    }
+    if (this.codeNativeSub) {
+      this.codeNativeSub.unsubscribe();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -60,6 +66,9 @@ export class CegFiltersComponent implements OnInit {
   }
 
   initializeComponentProps(): void {
+    if (!this.componentData.attributes) {
+      return;
+    }
     Object.keys(this.componentData.attributes).forEach((attribute) => {
       Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
         if (value === 'cegFormType' && this.componentData.attributes[attribute].cegFormType === 'checkbox') {
@@ -88,6 +97,19 @@ export class CegFiltersComponent implements OnInit {
       return obj;
     }, {});
     return checkboxArrays;
+  }
+
+  typeDependencyExistsToggle(prop: Record<string, any>): boolean {
+    if (!prop.cegTypeDependency || !this.selectedType) {
+      return;
+    }
+    if (typeof prop.cegTypeDependency === 'string') {
+      return prop.cegTypeDependency.toLowerCase() === this.selectedType.toLowerCase();
+    } else {
+      return prop.cegTypeDependency.find((element) => {
+        return element.toLowerCase() === this.selectedType.toLowerCase();
+      });
+    }
   }
 
   typeDependencyExists(prop: Record<string, any>): boolean {
@@ -156,13 +178,49 @@ export class CegFiltersComponent implements OnInit {
     this.updateNewCode();
   }
 
+  addSlotAndProp(attr: string, newValue: string): void {
+    const elNameR = this.componentData.elementNameR;
+    const elNameW = this.componentData.elementNameW;
+    this.codeReact = this.cegService.addNewSlotAndProp(this.codeReact, attr, newValue, 'react', elNameR);
+    this.codeAngular = this.cegService.addNewSlotAndProp(
+      this.codeAngular,
+      attr,
+      newValue,
+      'angular',
+      elNameW,
+    );
+    this.codeNative = this.cegService.addNewSlotAndProp(this.codeNative, attr, newValue, 'native', elNameW);
+  }
+
+  removeSlotAndProp(attr: string, oldValue: string): void {
+    const elNameR = this.componentData.elementNameR;
+    const elNameW = this.componentData.elementNameW;
+    this.codeReact = this.cegService.removeSlotAndProp(this.codeReact, attr, oldValue, 'react', elNameR);
+    this.codeAngular = this.cegService.removeSlotAndProp(
+      this.codeAngular,
+      attr,
+      oldValue,
+      'angular',
+      elNameW,
+    );
+    this.codeNative = this.cegService.removeSlotAndProp(this.codeNative, attr, oldValue, 'native', elNameW);
+  }
+
   updateToggleCheckboxProp(prop: Record<string, any>, newValue: string): void {
     const attr = prop.attribute;
     const type = prop.cegType;
-    if (this.codeAngular.includes(prop.attribute)) {
-      this.removeProps(attr);
+    if (prop.cegContent) {
+      if (this.codeAngular.includes(attr)) {
+        this.removeSlotAndProp(attr, prop.cegContent);
+      } else {
+        this.addSlotAndProp(attr, prop.cegContent);
+      }
     } else {
-      this.addNewProps(attr, newValue, type);
+      if (this.codeAngular.includes(attr)) {
+        this.removeProps(attr);
+      } else {
+        this.addNewProps(attr, newValue, type);
+      }
     }
     this.updateNewCode();
   }

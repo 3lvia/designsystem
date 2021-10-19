@@ -1,69 +1,5 @@
-const modalData = {
-  name: 'elvis-modal',
-  elementNameW: 'elvia-modal',
-  elementNameR: 'Modal',
-  attributes: {
-    isShowing: { isRequired: true, type: 'boolean', description: 'Controls if the modal is showing or not' },
-    title: {
-      isRequired: false,
-      type: 'string',
-      description: 'Title for the modal',
-    },
-    content: {
-      isRequired: true,
-      type: 'HTMLElement',
-      description: 'Text, images, tables or any other content (slot in webcomponent)',
-    },
-    illustration: {
-      isRequired: false,
-      type: 'HTMLElement',
-      description: 'Illustration/image to be shown in the modal (slot in webcomponent)',
-      displayName: 'Illustration',
-      cegType: 'boolean',
-      cegFormType: 'toggle',
-      cegDefault: 'false',
-      cegOption: 'true',
-      cegContent: '<img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>',
-      cegTypeDependency: ['actions', 'info'],
-      cegTypeDependencyValue: 'true',
-    },
-    primaryButton: {
-      isRequired: false,
-      type: 'HTMLElement',
-      description: 'Primary button placed to the right in the modal (slot in webcomponent)',
-    },
-    secondaryButton: {
-      isRequired: false,
-      type: 'HTMLElement',
-      description: 'Secondary button placed to the right in the modal (slot in webcomponent)',
-    },
-    className: {
-      isRequired: false,
-      type: 'string',
-      description: 'Custom css classes that could be added to the modal',
-    },
-    hasCloseBtn: {
-      isRequired: false,
-      type: 'boolean',
-      description:
-        'Show close icon button inside the modal in the top right corner. Should only be used inside a multi-page modal.',
-      default: 'true',
-    },
-    hasLockBodyScroll: {
-      isRequired: false,
-      type: 'boolean',
-      description: 'Locks the body of your page so that you cant scroll while the modal is open.',
-      default: 'true',
-    },
-    onHide: {
-      isRequired: true,
-      type: '() => void',
-      description: 'Callback for every time the modal is being closed.',
-    },
-  },
-  package: 'npm install @elvia/elvis-modal',
-  codeImportReact: `import { Modal } from '@elvia/elvis-modal/react';`,
-  codeImportWebComponent: `import '@elvia/elvis-modal';`,
+const modalActionsCode = {
+  type: 'actions',
   codeReact: `<button onClick={() => setIsModalShowingState(true)} class="e-btn">Åpne modal</button>
 <Modal
   isShowing={isModalShowing}
@@ -101,8 +37,7 @@ const modalData = {
     Cancel
   </button>
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
-</elvia-modal>
-`,
+</elvia-modal>`,
   codeNativeHTML: `<button id="example-modal-button" class="e-btn">Åpne modal</button>
 <elvia-modal
   id="example-elvia-modal"
@@ -133,4 +68,4 @@ const modalData = {
 `,
 };
 
-export { modalData };
+export { modalActionsCode };

@@ -11,16 +11,20 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
+import { ComponentSubsubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsubsection/component-subsubsection.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     ComponentHeaderModule,
     ComponentExampleV1Module,
     ComponentExampleCodeModule,
     ComponentPropertiesModule,
     ComponentSectionModule,
     ComponentSubsectionModule,
+    ComponentSubsubsectionModule,
     ComponentPropertiesTableModule,
     ComponentInstallationModule,
     ComponentExampleGeneratorModule,

@@ -33,7 +33,7 @@
       *ngIf="prop.cegFormType === 'toggle'"
       [ngClass]="{
         'ceg-filter-margin': i !== props.length - 1,
-        'ceg-hidden': prop.cegTypeDependency && prop.cegTypeDependency !== selectedType.toLowerCase()
+        'ceg-hidden': prop.cegTypeDependency && !typeDependencyExistsToggle(prop)
       }"
     >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
