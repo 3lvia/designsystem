@@ -83,21 +83,28 @@ export class CMSTransformService {
   }
 
   private getLink(data, locale, subMenu) {
-    const subPath = data.fields.page[locale].fields.path[locale];
-    const fullPath = this.getFullPath(subPath, subMenu);
     console.log(data);
+    let subPath;
+    let fullPath;
+    if (data.fields.page) {
+      subPath = data.fields.page[locale].fields.path[locale];
+      fullPath = this.getFullPath(subPath, subMenu);
+    } else if (data.fields.urlNewTab) {
+      subPath = data.fields.urlNewTab[locale];
+      fullPath = data.fields.urlNewTab[locale];
+    }
     return `
       <a 
         href="${fullPath}" 
         ${`class='e-link
-        ${data.fields.inline[locale] ? `e-link--inline` : ''} 
-        ${data.fields.action[locale] ? `e-link--action` : ''} 
-        ${data.fields.newTab[locale] ? `e-link--new-tab` : ''}
-        ${data.fields.size[locale] === 'Large' ? `e-link--lg` : ''}
-        ${data.fields.size[locale] === 'Small' ? `e-link--sm` : ''}
-          '
-        `}
-      ">
+          ${data.fields.inline[locale] ? `e-link--inline` : ''} 
+          ${data.fields.action[locale] ? `e-link--action` : ''} 
+          ${data.fields.newTab[locale] ? `e-link--new-tab` : ''}
+          ${data.fields.size[locale] === 'Large' ? `e-link--lg` : ''}
+          ${data.fields.size[locale] === 'Small' ? `e-link--sm` : ''}
+        '`}
+        ${data.fields.newTab[locale] ? `target="_blank"` : ''}
+      >
         ${data.fields.title[locale] ? `<span class="e-link__title">${data.fields.title[locale]}</span>` : ''}
         ${
           data.fields.action[locale]
