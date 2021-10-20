@@ -62,7 +62,7 @@ export class CMSTransformService {
       return this.getCenteredContent(data, locale);
     }
     if (type === 'internalLink') {
-      return this.getInternalLink(data, locale, subMenu);
+      return this.getLink(data, locale, subMenu);
     }
     return documentToHtmlString(data.fields.content, this.options);
   }
@@ -82,20 +82,43 @@ export class CMSTransformService {
       </div>`;
   }
 
-  private getInternalLink(data, locale, subMenu) {
-    const subPath = data.fields.page[locale].fields.path[locale];
-    const fullPath = this.getFullPath(subPath, subMenu);
-    if (data.fields.inline) {
-      return `
-      <a class="e-link e-link--inline" href="${fullPath}">
-        ${data.fields.title ? data.fields.title[locale] : ''}
-      </a>`;
+  private getLink(data, locale, subMenu) {
+    let fullPath = '';
+    if (data.fields.page) {
+      const subPath = data.fields.page[locale].fields.path[locale];
+      fullPath = this.getFullPath(subPath, subMenu);
+    } else if (data.fields.urlNewTab) {
+      fullPath = data.fields.urlNewTab[locale];
     } else {
-      return `
-        <a class="e-link" href="${fullPath}">
-          ${data.fields.title ? data.fields.title[locale] : ''}
-        </a>`;
+      console.error('Link: Missing either page reference or url.');
     }
+    return `
+      <a 
+        href="${fullPath}" 
+        ${`class='e-link
+          ${data.fields.inline[locale] ? `e-link--inline` : ''} 
+          ${data.fields.action[locale] ? `e-link--action` : ''} 
+          ${data.fields.newTab[locale] ? `e-link--new-tab` : ''}
+          ${data.fields.size[locale] === 'Large' ? `e-link--lg` : ''}
+          ${data.fields.size[locale] === 'Small' ? `e-link--sm` : ''}
+        '`}
+        ${data.fields.newTab[locale] ? `target="_blank"` : ''}
+      >
+        ${data.fields.title[locale] ? `<span class="e-link__title">${data.fields.title[locale]}</span>` : ''}
+        ${
+          data.fields.action[locale]
+            ? `<span class="e-link__icon">
+          <i class="e-icon e-icon--arrow_right_circle-color"></i>
+          <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+        </span>`
+            : ''
+        }
+        ${
+          data.fields.newTab[locale]
+            ? `<span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>`
+            : ''
+        }
+      </a>`;
   }
 
   private getFullPath(subPath, subMenu) {
@@ -112,7 +135,7 @@ export class CMSTransformService {
       }
     });
     if (fullPath === '') {
-      console.error('Internal link: ' + subPath + ' is not an existing page that can be referenced.');
+      console.error('Link: ' + subPath + ' is not an existing page that can be referenced.');
     }
     return fullPath;
   }
