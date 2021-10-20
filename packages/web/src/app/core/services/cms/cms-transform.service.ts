@@ -90,7 +90,7 @@ export class CMSTransformService {
     } else if (data.fields.urlNewTab) {
       fullPath = data.fields.urlNewTab[locale];
     } else {
-      return console.error('Link: Missing either page reference or url.');
+      console.error('Link: Missing either page reference or url.');
     }
     return `
       <a 
