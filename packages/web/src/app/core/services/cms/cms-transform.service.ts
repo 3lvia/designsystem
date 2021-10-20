@@ -83,14 +83,14 @@ export class CMSTransformService {
   }
 
   private getLink(data, locale, subMenu) {
-    let subPath;
-    let fullPath;
+    let fullPath = '';
     if (data.fields.page) {
-      subPath = data.fields.page[locale].fields.path[locale];
+      const subPath = data.fields.page[locale].fields.path[locale];
       fullPath = this.getFullPath(subPath, subMenu);
     } else if (data.fields.urlNewTab) {
-      subPath = data.fields.urlNewTab[locale];
       fullPath = data.fields.urlNewTab[locale];
+    } else {
+      return console.error('Link: Missing either page reference or url.');
     }
     return `
       <a 
@@ -135,7 +135,7 @@ export class CMSTransformService {
       }
     });
     if (fullPath === '') {
-      console.error('Internal link: ' + subPath + ' is not an existing page that can be referenced.');
+      console.error('Link: ' + subPath + ' is not an existing page that can be referenced.');
     }
     return fullPath;
   }
