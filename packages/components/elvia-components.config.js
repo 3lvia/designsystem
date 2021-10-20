@@ -216,7 +216,7 @@ module.exports = [
     elementStyle: `min-width: 163px;`,
     reactName: 'Dropdown',
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-box',
