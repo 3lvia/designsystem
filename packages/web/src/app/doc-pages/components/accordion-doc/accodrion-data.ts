@@ -5,10 +5,21 @@ const accordionData = {
   elementNameW: 'elvia-accordion',
   elementNameR: 'Accordion',
   attributes: {
+    type: {
+      isRequired: false,
+      type: '“normal” | “overflow”',
+      description: 'Variants of accordion',
+      default: '"normal"',
+      displayName: 'Types',
+      cegDefault: 0,
+      cegType: 'string',
+      cegFormType: 'type',
+      cegOptions: ['normal', 'overflow'],
+    },
     content: {
       isRequired: true,
       type: 'string | HTMLElement',
-      description: 'Text, images, tables or any other content (use slot in angular if not just text)',
+      description: 'Text, images, tables or any other content (use slot in webcomponent if not just text)',
     },
     openLabel: {
       isRequired: false,
@@ -23,7 +34,7 @@ const accordionData = {
     labelPosition: {
       isRequired: false,
       type: '“left” | “center” | “right”',
-      description: 'Horizontal positon of label & button',
+      description: 'Horizontal position of label & button',
       default: '"center"',
       displayName: 'position',
       cegDefault: 'center',
@@ -42,46 +53,55 @@ const accordionData = {
       cegFormType: 'radio',
       cegOptions: ['small', 'medium', 'large'],
     },
-    type: {
-      isRequired: false,
-      type: '“normal” | “overflow”',
-      description: 'Variants of accordion',
-      default: '"normal"',
-      displayName: 'Variants',
-      cegDefault: 'normal',
-      cegType: 'string',
-      cegFormType: 'radio',
-      cegOptions: ['normal', 'overflow'],
-    },
   },
   package: 'npm install @elvia/elvis-accordion',
   codeImportReact: `import { Accordion } from '@elvia/elvis-accordion/react';`,
   codeImportWebComponent: `import '@elvia/elvis-accordion';`,
   codeReact:
     `<Accordion
-  type="normal"
-  openLabel="Show"
-  closeLabel="Hide"
-  labelPosition="center"
-  size="medium"
-  content="` +
+  type={"normal"}
+  openLabel={"Show"}
+  closeLabel={"Hide"}
+  labelPosition={"center"}
+  size={"medium"}
+  content={"` +
     exampleContents.texts.lg['eng-GBR'].description +
-    `"
-></Accordion>`,
-  codeWebComponent:
+    `"}
+></Accordion>
+`,
+  codeAngular:
     `<elvia-accordion
-  type="normal"
-  openLabel="Show"
-  closeLabel="Hide"
-  labelPosition="center"
-  size="medium"
-  >
+  [type]="'normal'"
+  [openLabel]="'Show'"
+  [closeLabel]="'Hide'"
+  [labelPosition]="'center'"
+  [size]="'medium'"
+>
   <div slot="content">
-   ` +
+    ` +
     exampleContents.texts.lg['eng-GBR'].description +
     `
   </div>
-</elvia-accordion>`,
+</elvia-accordion>
+`,
+  codeNativeHTML:
+    `<elvia-accordion
+  type="normal"
+  labelPosition="center"
+  size="medium"
+  id="example-elvia-accordion"
+>
+  <div slot="content">
+    ` +
+    exampleContents.texts.lg['eng-GBR'].description +
+    `
+  </div>
+</elvia-accordion>
+`,
+  codeNativeScript: `  const accordion = document.getElementById('example-elvia-accordion');
+  accordion.setProps({openLabel: 'Show' });
+  accordion.setProps({closeLabel: 'Hide'});
+`,
 };
 
 export { accordionData };

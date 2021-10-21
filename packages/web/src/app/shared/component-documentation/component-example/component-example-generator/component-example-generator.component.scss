@@ -6,8 +6,14 @@
 
 @mixin first-col {
   width: 80%;
+  &.full-width {
+    width: 100%;
+  }
   @include breakpoint-up(Mobile) {
     width: 70%;
+    &.full-width {
+      width: 100%;
+    }
   }
 }
 @mixin second-col {
@@ -16,20 +22,70 @@
     width: 30%;
   }
 }
+@mixin full-col {
+  width: 100%;
+}
 
 .ceg-container {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: 72px;
+  &.no-margin {
+    margin-top: 0px;
+  }
+  &.full-width .ceg-row-2,
+  &.full-width .ceg-col-1 {
+    width: 100% !important;
+  }
+
+  .ceg-top-filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 788px;
+    margin-bottom: 24px;
+    @include first-col;
+    @include breakpoint-up(Mobile) {
+      width: 100%;
+    }
+    .ceg-dropdown {
+      width: 50%;
+      &:not(:last-of-type) {
+        margin-right: 16px;
+      }
+      &:not(:first-of-type) {
+        margin-left: 16px;
+      }
+    }
+  }
+
+  .ceg-side-filters-desktop {
+    @include breakpoint-up(Mobile) {
+      display: none;
+    }
+  }
+  .ceg-side-filters-mobile {
+    display: none;
+    @include breakpoint-up(Mobile) {
+      display: block;
+      position: absolute;
+      right: 8px;
+      top: 8px;
+    }
+  }
 
   .ceg-row-1 {
     display: flex;
     flex-direction: row;
     width: 100%;
     min-height: 340px;
-
+    position: relative;
     .ceg-col-1 {
       @include first-col;
+      @include breakpoint-up(Mobile) {
+        width: 100%;
+      }
     }
     .ceg-col-2 {
       @include second-col;
@@ -37,14 +93,9 @@
   }
   .ceg-row-2 {
     @include first-col;
-  }
-  .ceg-full-row {
-    width: 100%;
-  }
-
-  &.full-width .ceg-row-2,
-  &.full-width .ceg-col-1 {
-    width: 100% !important;
+    @include breakpoint-up(Mobile) {
+      width: 100%;
+    }
   }
 
   .ceg-code-preview {
@@ -53,28 +104,31 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    max-width: 788px;
     padding: 40px;
     border: 1px solid var(--e-grey-10);
     border-radius: 8px;
 
     @include breakpoint-up(Mobile) {
       padding: 24px;
+      padding-top: 56px;
     }
 
     &.ceg-code-preview--accordion {
       align-items: flex-start;
       padding-top: 80px;
-      @include breakpoint-up(Mobile) {
-        padding-top: 40px;
-      }
       @include breakpoint-up(Tablet) {
-        padding-top: 48px;
+        padding-top: 56px;
       }
     }
 
     .ceg-frame {
       display: flex;
       justify-content: center;
+      align-items: center;
+      &.aligned-top {
+        align-items: flex-start;
+      }
       width: 100%;
       height: 0;
     }

@@ -1,0 +1,19 @@
+{
+  "name": "@elvia/elvis-dropdown",
+  "version": "1.0.7",
+  "description": "",
+  "main": "web_component.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@elvia/elvis-component-wrapper": "^2.0.0",
+    "@elvia/elvis-toolbox": "^1.2.0",
+    "@types/react-select": "4.0.2",
+    "lodash.uniqueid": "4.0.1",
+    "react-select": "4.2.1",
+    "styled-components": "^5.2.1"
+  }
+}

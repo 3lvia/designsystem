@@ -1,0 +1,19 @@
+{
+  "name": "@elvia/elvis-modal",
+  "version": "1.0.1",
+  "description": "",
+  "license": "MIT",
+  "author": "",
+  "main": "web_component.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@elvia/elvis-component-wrapper": "2.1.2",
+    "@elvia/elvis-colors": "^1.0.1",
+    "@elvia/elvis-typography": "^1.1.0",
+    "@material-ui/core": "^4.11.4",
+    "@material-ui/icons": "^4.11.2",
+    "styled-components": "^5.2.3"
+  }
+}

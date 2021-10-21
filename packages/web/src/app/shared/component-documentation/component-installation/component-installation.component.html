@@ -17,7 +17,7 @@
   <li>
     <strong>Install package:</strong>
     <div class="code-text e-mt-16">
-      <app-copy [message]="componentData.package" [noAnimation]="true">
+      <app-copy [message]="componentData.package">
         <ng-container ngProjectAs="copyContent">
           <span class="code-text" style="line-height: 26px">{{ componentData.package }}</span>
         </ng-container>
@@ -28,7 +28,7 @@
     <strong>Import package:</strong>
     <h4 class="e-title-caps e-mt-24 e-mb-8">Web component</h4>
     <div class="code-text">
-      <app-copy [message]="componentData.codeImportWebComponent" [noAnimation]="true">
+      <app-copy [message]="componentData.codeImportWebComponent">
         <ng-container ngProjectAs="copyContent">
           <span class="code-text" style="line-height: 26px">
             {{ componentData.codeImportWebComponent }}
@@ -39,7 +39,7 @@
     <div class="e-text-md">(Angular - Should be imported in module.ts not component.ts)</div>
     <h4 class="e-title-caps e-mt-16 e-mb-8">React</h4>
     <div class="code-text">
-      <app-copy [message]="componentData.codeImportReact" [noAnimation]="true">
+      <app-copy [message]="componentData.codeImportReact">
         <ng-container ngProjectAs="copyContent">
           <span class="code-text" style="line-height: 26px">
             {{ componentData.codeImportReact }}

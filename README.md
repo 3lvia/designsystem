@@ -15,7 +15,10 @@
 
 ### Set up development environment
 
-1. Run `yarn` at `/` </br> </br>
+1. Copy `contentful/.env.template` -> `contentful/.env`
+2. Follow instructions inside of .env file
+3. Run `yarn` at `/` </br> </br>
+4. Run `yarn contentful` at `packages/web`
 
 ### Elvis (CSS library)
 
@@ -31,11 +34,10 @@ Build Elvis: `yarn run build`
 
 **/packages/components**
 
-Develop & Build `yarn run gulp:watch`
+Develop & Build `yarn build` or `yarn watch` (to build every time changes are saved)
 
-Test how components would work for our users by running `yarn run start` at
-`/packages/components/framework/angular` and/or `yarn run start` at `/packages/components/framework/react`
-</br> </br>
+Test how components would work for our users by running `yarn start` at `/packages/web` and/or `yarn start` at
+`/packages/components/frameworks/react-ssr` </br> </br>
 
 ### Web (Design.elvia.io)
 

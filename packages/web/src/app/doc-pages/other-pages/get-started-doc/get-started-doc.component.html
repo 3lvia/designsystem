@@ -1,0 +1,471 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">Get started</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    We are an open-source design system to be used for Elvia’s external and internal systems to provide a
+    comprehensive and user-friendly experience. We offer classes and variables for styling components, as well
+    as templates, accessibility rules and design principles.
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--FOR DEVELOPERS-->
+  <app-component-section [sectionTitle]="'For developers'">
+    <ng-container ngProjectAs="sectionContent">
+      Elvis helps designers and developers create software with a consistent look and feel and saves time by
+      allowing us to reuse components and design elements across multiple systems and sketches.
+
+      <div class="e-accordion e-accordion--group">
+        <!--Talk with us-->
+        <div class="e-accordion__item" id="talk">
+          <div class="e-accordion__label" (click)="toggleAccordion('talk')">
+            <div class="e-accordion__title">Talk with us</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              If you have any issues at all, please don't hesitate to
+              <a class="e-link e-link--inline" [routerLink]="['/about/contact']">contact us!</a>
+              Any friction you experience in the onboarding process, or during use is valuable feedback for
+              us. Reach out on slack in
+            </div>
+            <span class="e-link__title">
+              <a
+                class="e-link e-link--new-tab e-link--inline"
+                href="https://elvia-group.slack.com/archives/C01C1DU9X1Q"
+                target="_blank"
+              >
+                <span class="e-link__title">#designsystemet</span>
+                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+              </a>
+            </span>
+          </div>
+        </div>
+
+        <!--Get started using CDN-->
+        <div class="e-accordion__item" id="cdn">
+          <div class="e-accordion__label" (click)="toggleAccordion('cdn')">
+            <div class="e-accordion__title">Get started using CDN</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <ol class="e-list e-list--numbers">
+              <li>
+                <strong>Put the following in &lt;head></strong>
+                <div *ngIf="loadedStyle">
+                  <app-component-example-code [codeHTML]="linkTagCode"></app-component-example-code>
+                </div>
+                <div *ngIf="!loadedStyle" class="e-content-loader" style="width: 100%; height: 127px"></div>
+              </li>
+              <li>
+                <strong>Put the following at the bottom of &lt;body></strong>
+                <div *ngIf="loadedScript">
+                  <app-component-example-code [codeHTML]="scriptTagCode"></app-component-example-code>
+                </div>
+                <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
+              </li>
+            </ol>
+
+            <p>The result should look like this:</p>
+            <div *ngIf="loadedFullExample">
+              <app-component-example-code [codeHTML]="fullExampleCode"></app-component-example-code>
+            </div>
+            <div *ngIf="!loadedFullExample" class="e-content-loader" style="width: 100%; height: 337px"></div>
+          </div>
+        </div>
+
+        <!--Alternative: Get started using NPM-->
+        <div class="e-accordion__item" id="npm">
+          <div class="e-accordion__label" (click)="toggleAccordion('npm')">
+            <div class="e-accordion__title">Alternative: Get started using NPM</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div class="e-alert e-alert--local e-alert--warn e-mb-32">
+              <div class="e-alert__icon">
+                <i class="e-icon e-icon--warning_circle e-icon--color-orange"></i>
+              </div>
+              <div class="e-alert__content">
+                <div class="e-alert__title">Not recommended</div>
+                <div class="e-alert__text">This method is not recommended for less advanced users</div>
+              </div>
+            </div>
+            <ol class="e-list e-list--numbers">
+              <li>
+                <strong class="e-mr-16">Install the package</strong>
+                <app-copy [message]="'npm i @elvia/elvis'">
+                  <ng-container ngProjectAs="copyContent">
+                    <code class="code-text">npm i @elvia/elvis</code>
+                  </ng-container>
+                </app-copy>
+              </li>
+              <li>
+                <strong class="e-mr-16">Import src/main.scss or elvis.min.css in your stylesheet</strong>
+                <app-copy [message]="'@import \'~@elvia/elvis/src/main.scss\';'">
+                  <ng-container ngProjectAs="copyContent">
+                    <code class="code-text">@import '~@elvia/elvis/src/main.scss';</code>
+                  </ng-container>
+                </app-copy>
+              </li>
+              <li>
+                <strong class="e-mr-16">Add elvis.js from the NPM package in &#x3C;body&#x3E;</strong>
+                <app-copy [message]="bodyScriptMessage">
+                  <ng-container ngProjectAs="copyContent">
+                    <code class="code-text">
+                      &lt;body&gt; &lt;script src="assets/js/elvis.js"&gt;&lt;/script&gt; &lt;/body&gt;
+                    </code>
+                  </ng-container>
+                </app-copy>
+                <p><strong>or use the CDN for elvis.js:</strong></p>
+                <div *ngIf="loadedScript">
+                  <app-component-example-code [codeHTML]="scriptTagCode"></app-component-example-code>
+                </div>
+                <div *ngIf="!loadedScript" class="e-content-loader" style="width: 100%; height: 127px"></div>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <!--Using CSS-variables-->
+        <div class="e-accordion__item" id="css-vars">
+          <div class="e-accordion__label" (click)="toggleAccordion('css-vars')">
+            <div class="e-accordion__title">Using CSS-variables</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              Sometimes creating your own classes is necessary. For most of the identity like colors, shadows
+              and spacing CSS-variables are also provided. All these variables are available when importing
+              the main.scss file in your stylesheet, meaning you don't need to import any specific files to
+              use them.
+              <p class="e-my-16">
+                <code class="code-text">var(--e-name-of-class)</code>
+              </p>
+            </div>
+
+            <app-component-subsubsection [sectionTitle]="'Internet Explorer Support'">
+              <ng-container ngProjectAs="sectionContent">
+                <p>
+                  <app-copy [message]="'npm install css-vars-ponyfill'">
+                    <ng-container ngProjectAs="copyContent">
+                      <code class="code-text">npm install css-vars-ponyfill</code>
+                    </ng-container>
+                  </app-copy>
+                </p>
+                <p>
+                  The CSS-variables are not supported by IE11 and a ponyfill is therefore added as a
+                  dependency. But this library is offered as a ponyfill, not a polyfill, meaning that the code
+                  below needs to be added to your project, in your main.js/ts file, for processing to take
+                  place:
+                </p>
+                <p>
+                  <app-component-example-code [codeTS]="cssVarsCode"></app-component-example-code>
+                </p>
+                <p>
+                  You can read more on the
+                  <span>
+                    <a
+                      class="e-link e-link--inline e-link--new-tab"
+                      href="https://jhildenbiddle.github.io/css-vars-ponyfill/#/"
+                      target="_blank"
+                    >
+                      <span class="e-link__title">Ponyfill documentation here.</span>
+                      <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+                    </a>
+                  </span>
+                </p>
+              </ng-container>
+            </app-component-subsubsection>
+          </div>
+        </div>
+
+        <!--Font-->
+        <div class="e-accordion__item" id="font">
+          <div class="e-accordion__label" (click)="toggleAccordion('font')">
+            <div class="e-accordion__title">Font</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              Elvia Designsystem uses two fonts provided by Google:
+              <ol class="e-list">
+                <li>Red Hat Text</li>
+                <li>Red Hat Display</li>
+              </ol>
+
+              The import of these two font types are provied within the compiled CSS of Elvis, and you don't
+              need any font imports in your project to get the correct font style for Elvia styled components.
+            </div>
+          </div>
+        </div>
+
+        <!--Icons-->
+        <div class="e-accordion__item" id="icons">
+          <div class="e-accordion__label" (click)="toggleAccordion('icons')">
+            <div class="e-accordion__title">Icons</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              Icons and how to implement them is available through @elvia/elvis package or CDN, take a look at
+              the icon documentation page on how:
+              <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">Icons</a>
+              .
+            </div>
+
+            <div class="e-mt-16">
+              We also offer all elvia icons as a seperate package
+              <a class="e-link e-link--inline" href="https://www.npmjs.com/package/@elvia/elvis-assets-icons">
+                @elvia/elvis-asseets-icons
+              </a>
+              .
+            </div>
+            <div class="e-mt-16">
+              Our icon library is based on Streamline icons. The icons that are from Streamline is not made
+              accessible under the same license as this npm package. Those icons are still the property of
+              Webablys LLC. Elvia has bought a license for the use of these icons in the organization. They
+              can also be used in open source projects as long as you follow their license.
+            </div>
+
+            <div>
+              Streamline license information:
+              <a class="e-link e-link--inline" href="https://help.streamlineicons.com/license-premium">
+                Steamline license
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-section>
+
+  <!--FOR DESIGNERS-->
+  <app-component-section [sectionTitle]="'For designers'">
+    <ng-container ngProjectAs="sectionContent">
+      As a designer, there’s a few resources to gather before getting started with the design system in Elvia.
+      First thing to do is to make sure you have access to the Figma library.
+
+      <div class="e-accordion e-accordion--group">
+        <!--Figma-->
+        <div class="e-accordion__item" id="figma">
+          <div class="e-accordion__label" (click)="toggleAccordion('figma')">
+            <div class="e-accordion__title">Figma</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div class="flex-container-figma">
+              <img class="figma-img" src="../../../../assets/get-started-designers/figma.svg" />
+              <div>
+                You can use Figma as an online tool, but we recommend you to
+                <a
+                  class="e-link e-link--inline e-link--new-tab"
+                  href="https://www.figma.com/downloads/"
+                  target="_blank"
+                >
+                  <span class="e-link__title">download the app</span>
+                  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+                </a>
+                for the full experience. If you have any issues accessing the
+                <a
+                  class="e-link e-link--inline e-link--new-tab"
+                  href="https://www.figma.com/files/880078299274452916/team/619061899486461825/ELVIA"
+                  target="_blank"
+                >
+                  <span class="e-link__title">Elvia library</span>
+                  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+                </a>
+                , just ask someone in the team and we’ll send you an invite. We can of course also help you
+                set up libraries in Figma if you’re new to it.
+              </div>
+            </div>
+
+            <div class="e-mt-24">
+              There’s a lot of useful information collected throughout this site, but we know you might be
+              eager to get started right away. That’s why we have gathered a short summary of the most
+              important information to help you get started. We do however recommend you to take a look at the
+              rest when you can, to make sure you don’t miss out on anything important.
+            </div>
+          </div>
+        </div>
+
+        <!--Elvia brand and design concept-->
+        <div class="e-accordion__item" id="brand-design-concept">
+          <div class="e-accordion__label" (click)="toggleAccordion('brand-design-concept')">
+            <div class="e-accordion__title">Elvia brand and design concept</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              Elvia is characterized by being ON as an energy provider. The most important identity marker is
+              Elvia’s logo, which should be used in all visual communication. You can
+              <a class="e-link e-link--inline" [routerLink]="['/brand/logo']">
+                read more and download the logo here.
+              </a>
+            </div>
+
+            <div class="brand-text-container e-mt-32">
+              <div class="principles-text top-text">
+                <div>Energy</div>
+                <div>off.</div>
+              </div>
+              <div class="top-text">
+                <div class="principles-text">Energy</div>
+                <div class="principle">on</div>
+              </div>
+            </div>
+
+            <div class="e-mt-32">
+              In our design language, we use round forms and circles in combination with our green profile
+              color to symbolize environmentally friendly energy and to show that Elvia is ON, activated and
+              fully charged. You can read more about the brand on
+              <a class="e-link e-link--inline e-link--new-tab" href="https://brand.elvia.io/" target="_blank">
+                <span class="e-link__title">brand.elvia.io.</span>
+                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!--Colors and style-->
+        <div class="e-accordion__item" id="colors-style">
+          <div class="e-accordion__label" (click)="toggleAccordion('colors-style')">
+            <div class="e-accordion__title">Colors and style</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div class="flex-img-container">
+              <div class="color-text">
+                The main colors we use are black, grey, white and green. The green color specifically should
+                only be used in details and - in the cases where it works - to symbolize that something is on,
+                or active. There’s a bit more tips to help you with color usage in our
+                <a class="e-link e-link--inline" [routerLink]="['/brand/color']">color guidelines.</a>
+              </div>
+              <img class="color-img" src="../../../../assets/get-started-designers/COLOR.svg" />
+            </div>
+
+            <div class="e-mt-24">
+              The typography we use is available in two optical sizes: Red Hat Text and Red Hat Display. The
+              Display version is most often used in bigger texts, such as titles, while the Text version is
+              used in standard text blocks, to provide better readability. The font family is open-source and
+              <a
+                class="e-link e-link--inline e-link--new-tab"
+                href="https://fonts.google.com/specimen/Red+Hat+Display"
+                target="_blank"
+              >
+                <span class="e-link__title">Red Hat can be downloaded here</span>
+                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+              </a>
+              via Google Fonts. You can read more about our usage of it on our
+              <a class="e-link e-link--inline" [routerLink]="['/brand/typography']">typography page.</a>
+            </div>
+
+            <div class="e-mt-24">
+              For our icon library, we use Steamline as a base. We do however do find ourselves in cases where
+              we need to tailor icons to fit our specific needs, and adjust when we need to. To see the full
+              overview of available icons in Elvia’s design system, see our
+              <a class="e-link e-link--inline" [routerLink]="['/brand/icon']">icons page.</a>
+              We continuously add new ones depending on demand, so if you can’t find what you need for your
+              project, let us know.
+            </div>
+          </div>
+        </div>
+
+        <!--Grid and breakpoints-->
+        <div class="e-accordion__item" id="grid-breakpoints">
+          <div class="e-accordion__label" (click)="toggleAccordion('grid-breakpoints')">
+            <div class="e-accordion__title">Grid and breakpoints</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <img class="e-w-100" src="../../../../assets/get-started-designers/GRID.svg" />
+
+            <div class="e-mt-24">
+              In Elvia, we follow the 8 point grid. If you haven’t worked with it before we recommend you to
+              read
+              <a
+                class="e-link e-link--inline e-link--new-tab"
+                href="https://builttoadapt.io/intro-to-the-8-point-grid-system-d2573cde8632"
+                target="_blank"
+              >
+                <span class="e-link__title">an intro to the 8 point grid.</span>
+                <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+              </a>
+              Through the 8 point grid we can ensure higher consistency through using multiples of 8 to space
+              out elements. This helps us define dimensions, paddings and margin to make sure that both
+              components and full pages are scalable for a wide variety of devices.
+            </div>
+
+            <div class="e-mt-24">
+              We have defined breakpoints for different types of devices that we follow to make sure we create
+              responsive interfaces. You can read more about this in
+              <a class="e-link e-link--inline" [routerLink]="['/brand/grid']" fragment="Breakpoints">
+                the breakpoints section.
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!--Design in Elvia-->
+        <div class="e-accordion__item" id="design-elvia">
+          <div class="e-accordion__label" (click)="toggleAccordion('design-elvia')">
+            <div class="e-accordion__title">Design in Elvia</div>
+            <div class="e-accordion__icon">
+              <i class="e-icon e-icon--expand_circle-color"></i>
+              <i class="e-icon e-icon--expand_circle-filled-color"></i>
+            </div>
+          </div>
+          <div class="e-accordion__content">
+            <div>
+              In Elvia, designers help each other to create great experiences. You can find information about
+              <a class="e-link e-link--inline" [routerLink]="['/tools/design-process']">
+                Elvia’s design process
+              </a>
+              and some suggested methods on our pages about our design process, as well as important
+              <a class="e-link e-link--inline" [routerLink]="['/tools/accessibility']">accessibility</a>
+              pointers to help you make sure that you deliver solutions that are inclusive.
+            </div>
+
+            <div class="e-mt-24">
+              You are welcome to
+              <a class="e-link e-link--inline" [routerLink]="['/about/contact']">reach out</a>
+              to any of the designers in the design system team if you have questions or ideas about the
+              design or usage of the design system, or you can join our design recaps each week to get some
+              great input from the full design team.
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-section>
+</div>

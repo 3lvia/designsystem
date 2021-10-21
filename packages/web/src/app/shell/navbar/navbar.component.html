@@ -1,28 +1,28 @@
 <div class="wrapper">
-  <div class="navbar" id="side-navbar" [ngClass]="toggleMenu ? 'showMenu' : ''">
+  <div class="navbar" id="side-navbar">
     <ul class="navbar-list">
-      <li class="navbar-item" *ngFor="let navbarItem of filteredPages">
+      <li class="navbar-item" *ngFor="let navbarItem of navbarList; let i = index">
         <a
-          [routerLink]="[navbarItem.docUrl]"
-          routerLinkActive="active-route"
+          [routerLink]="['/' + this.subMenuRoute + '/' + navbarItem.docUrl]"
+          [ngClass]="{ 'active-route': activeNavbarItem === navbarItem }"
           (click)="markNewActiveNavbarItem(navbarItem)"
         >
           <div class="navbar-item-title">
             {{ navbarItem.title }}
           </div>
         </a>
-        <div class="anchors" *ngIf="navbarAnchors.length > 0">
+        <div class="anchors" *ngIf="visibleAnchors && visibleAnchors.length > 0">
           <div *ngIf="navbarItem === prevActiveNavbarItem">
-            <div class="link" *ngFor="let anchor of prevNavbarAnchors">
+            <div class="link" *ngFor="let anchor of prevVisibleAnchors">
               <a class="anchor" id="navbar-{{ anchor.title }}" href="javascript:void(0)">
                 {{ anchor.title }}
               </a>
             </div>
           </div>
           <div *ngIf="navbarItem === activeNavbarItem && navbarItem !== prevActiveNavbarItem">
-            <div class="link" *ngFor="let anchor of navbarAnchors">
+            <div class="link" *ngFor="let anchor of visibleAnchors">
               <a
-                (click)="scrollToElement(anchor)"
+                (click)="chooseAnchor(anchor.title)"
                 class="anchor"
                 [ngClass]="{ 'active-anchor': anchor === activeAnchor }"
                 id="navbar-{{ anchor.title }}"
@@ -33,8 +33,33 @@
             </div>
           </div>
         </div>
+        <div
+          *ngIf="navbarItem.isMainPage && !navbarList[i + 1].isMainPage"
+          style="height: 1px"
+          class="e-mt-16 e-ml-16 e-mr-16 e-bg-grey-10"
+        ></div>
       </li>
     </ul>
     <div class="bottom-blur"></div>
+  </div>
+
+  <div class="navbar-phone" [ngClass]="{ 'show-block': isLandingPage && !isComponentPage }">
+    <div
+      class="navbar-phone-box e-w-100"
+      style="border-bottom: 1px solid #e9e9e9"
+      *ngFor="let navbarItem of navbarList"
+    >
+      <a
+        class="e-link e-link--action e-w-100 e-py-24"
+        [routerLink]="['/' + this.subMenuRoute + '/' + navbarItem.docUrl]"
+        (click)="markNewActiveNavbarItem(navbarItem)"
+      >
+        <span class="e-link__title e-w-100">{{ navbarItem.title }}</span>
+        <span class="e-link__icon">
+          <i class="e-icon e-icon--arrow_right_circle-color"></i>
+          <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+        </span>
+      </a>
+    </div>
   </div>
 </div>

@@ -1,23 +1,23 @@
 <div class="ceg-side-filters">
-  <form
-    class="ceg-side-filter e-form_field e-w-100"
-    *ngFor="let prop of props; let i = index"
-  >
+  <form class="ceg-side-filter e-form_field e-w-100" *ngFor="let prop of props; let i = index">
     <!--Radios-->
     <div
       *ngIf="prop.cegFormType === 'radio'"
-      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+      [ngClass]="{
+        'ceg-filter-margin': i !== props.length - 1,
+        'ceg-hidden': prop.cegTypeDependency && prop.cegTypeDependency !== selectedType.toLowerCase()
+      }"
     >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
       <label
         *ngFor="let label of prop.cegOptions; let i = index"
         class="e-radio e-radio--sm"
-        for="{{ label }}-radio"
+        for="{{ label }}-radio-{{ desktop }}"
         (change)="updateRadioProp(prop, label)"
       >
         <input
           type="radio"
-          id="{{ label }}-radio"
+          id="{{ label }}-radio-{{ desktop }}"
           name="{{ prop.displayName }} radio"
           [checked]="label === prop.cegDefault"
         />
@@ -31,24 +31,15 @@
     <!--Toggle-->
     <div
       *ngIf="prop.cegFormType === 'toggle'"
-      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+      [ngClass]="{
+        'ceg-filter-margin': i !== props.length - 1,
+        'ceg-hidden': prop.cegTypeDependency && !typeDependencyExistsToggle(prop)
+      }"
     >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
-      <label
-        class="e-toggle"
-        (change)="updateToggleCheckboxProp(prop)"
-      >
-        <input
-          *ngIf="prop.cegDefault === 'true'"
-          class="e-toggle__input"
-          type="checkbox"
-          checked
-        />
-        <input
-          *ngIf="prop.cegDefault === 'false'"
-          class="e-toggle__input"
-          type="checkbox"
-        />
+      <label class="e-toggle" (change)="updateToggleCheckboxProp(prop, prop.cegOption)">
+        <input *ngIf="prop.cegDefault === 'true'" class="e-toggle__input" type="checkbox" checked />
+        <input *ngIf="prop.cegDefault === 'false'" class="e-toggle__input" type="checkbox" />
         <span class="e-toggle__slider"></span>
       </label>
     </div>
@@ -56,27 +47,35 @@
     <!--Checkbox-->
     <div
       *ngIf="prop.cegFormType === 'checkbox'"
-      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+      [ngClass]="{
+        'ceg-filter-margin': i !== props.length - 1,
+        'ceg-hidden': prop.cegTypeDependency && prop.cegTypeDependency !== selectedType.toLowerCase()
+      }"
     >
-      <div *ngFor="let checkboxProp of prop.modifiers; let i = index">
-        <label
-          class="e-form-field__label"
-          *ngIf="i === 0"
-        >{{ checkboxProp.cegDisplayGroup }}</label>
-        <div *ngIf="checkboxProp.cegDisplayGroup === 'Modifiers'">
-          <label
-            class="e-checkbox e-checkbox--sm"
-            for="{{ checkboxProp.displayName }}-checkbox"
-            (change)="updateToggleCheckboxProp(checkboxProp)"
+      <div
+        *ngFor="let checkbox of checkboxGroups | keyvalue; let k = index"
+        [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+      >
+        <label class="e-form-field__label">{{ checkbox.key }}</label>
+        <div [ngClass]="{ 'ceg-filter-margin': k !== checkboxesLength - 1 }">
+          <div
+            *ngFor="let checkbox of checkbox.value"
+            [ngClass]="{ 'ceg-hidden': checkbox.cegTypeDependency && !typeDependencyExists(checkbox) }"
           >
-            <input
-              type="checkbox"
-              id="{{ checkboxProp.displayName }}-checkbox"
-              name="{{ checkboxProp.displayName }} checkbox"
-            />
-            <span class="e-checkbox__mark"></span>
-            <span class="e-checkbox__label">{{ checkboxProp.displayName }}</span>
-          </label>
+            <label
+              class="e-checkbox e-checkbox--sm"
+              for="{{ checkbox.attribute }}-checkbox-{{ desktop }}"
+              (change)="updateToggleCheckboxProp(checkbox, checkbox.cegOption)"
+            >
+              <input
+                type="checkbox"
+                id="{{ checkbox.attribute }}-checkbox-{{ desktop }}"
+                name="{{ checkbox.attribute }} checkbox-{{ desktop }}"
+              />
+              <span class="e-checkbox__mark"></span>
+              <span class="e-checkbox__label">{{ checkbox.displayName }}</span>
+            </label>
+          </div>
         </div>
       </div>
     </div>
@@ -84,7 +83,10 @@
     <!--Counter-->
     <div
       *ngIf="prop.cegFormType === 'counter'"
-      [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
+      [ngClass]="{
+        'ceg-filter-margin': i !== props.length - 1,
+        'ceg-hidden': prop.cegTypeDependency && prop.cegTypeDependency !== selectedType.toLowerCase()
+      }"
     >
       <label class="e-form-field__label">{{ prop.displayName }}</label>
       <div class="counter">

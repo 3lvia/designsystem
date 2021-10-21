@@ -19,8 +19,14 @@
             </h1>
             <div class="e-text-lead e-mt-32">
               <div *ngIf="fontLoaded">
-                A scalable system of visual language, components and design assets so we can work together
-                towards an ultimate brand experience.
+                <span *ngIf="locale === 'en-GB'">
+                  A scalable system of visual language, components and design assets so we can work together
+                  towards an ultimate brand experience.
+                </span>
+                <span *ngIf="locale === 'nb-NO'">
+                  Et skalerbart system av visuelt språk, komponenter og designelementer så vi sammen kan jobbe
+                  mot den ultimate brand opplevelsen.
+                </span>
               </div>
               <div *ngIf="!fontLoaded" class="content-loader-text">
                 <span class="e-content-loader e-content-loader--text e-content-loader--inverted"></span>
@@ -32,7 +38,7 @@
                 ></span>
               </div>
             </div>
-            <a *ngIf="fontLoaded" class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
+            <a *ngIf="fontLoaded" class="e-btn e-btn--lg e-mt-48" [routerLink]="['/about/get-started']">
               <span class="e-btn__title">
                 <div>Get started</div>
               </span>
@@ -76,7 +82,7 @@
             A scalable system of visual language, components and design assets so we can work together towards
             an ultimate brand experience.
           </div>
-          <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
+          <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/about/get-started']">
             <span class="e-btn__title">Get started</span>
           </a>
         </div>
@@ -115,7 +121,7 @@
           <div class="e-mt-n48" style="padding-top: 0px" markdown [src]="'assets/elvis/CHANGELOG.md'"></div>
         </div>
         <div class="e-mt-48" style="display: flex; justify-content: center">
-          <a class="e-link e-link--action" [routerLink]="['/community/changelog']">
+          <a class="e-link e-link--action" [routerLink]="['/about/whats-new']">
             <span class="e-link__title">View changelog</span>
             <span class="e-link__icon">
               <i class="e-icon e-icon--arrow_right_circle-color"></i>

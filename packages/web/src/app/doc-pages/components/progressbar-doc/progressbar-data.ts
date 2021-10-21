@@ -17,7 +17,6 @@ export const progressbarData = {
       cegCounterMin: 0,
       cegStepValue: 10,
       cegCounterType: '%',
-      cegTypeDependency: 'Normal',
     },
     isIndeterminate: {
       isRequired: false,
@@ -28,7 +27,7 @@ export const progressbarData = {
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
-      cegDisplayGroup: 'Modifiers',
+      cegDisplayGroup: 'State',
     },
     isError: {
       isRequired: false,
@@ -39,7 +38,7 @@ export const progressbarData = {
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
-      cegDisplayGroup: 'Modifiers',
+      cegDisplayGroup: 'State',
     },
   },
   codeImportReact: `import { ProgressLinear } from '@elvia/elvis-progress-linear/react';`,
@@ -47,7 +46,10 @@ export const progressbarData = {
   codeReact: `<ProgressLinear
   value={20}
 ></ProgressLinear>`,
-  codeWebComponent: `<elvia-progress-linear
+  codeAngular: `<elvia-progress-linear
+  [value]="20"
+></elvia-progress-linear>`,
+  codeNativeHTML: `<elvia-progress-linear
   value="20"
 ></elvia-progress-linear>`,
 };

@@ -1,8 +1,8 @@
-@use "../variables/colors";
-@use "../variables/shadows";
-@use "../variables/typography";
-@use "../utilities/breakpoints";
-@use "../utilities/helpers";
+@use '../variables/colors';
+@use '../variables/shadows';
+@use '../variables/typography';
+@use '../utilities/breakpoints';
+@use '../utilities/helpers';
 
 $card-radius: 8px;
 $card-padding: 40px;
@@ -58,8 +58,8 @@ $card-actions-button-spacing: 25px;
     &.e-card__title--above {
       @include typography.typography('text-caps');
       position: absolute;
-      @include helpers.transform(translateY(-100%));
-      top: -8px;
+      // line height 17px from text-caps typography and 8px margin to get -25px to top attribute
+      top: -25px;
       left: 8px;
     }
   }

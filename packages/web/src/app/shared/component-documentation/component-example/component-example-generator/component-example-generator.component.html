@@ -1,45 +1,91 @@
-<div
-  class="ceg-container component-preview-animation"
-  [ngClass]="{ 'full-width': !hasCegAttributes }"
-  [ngClass]="hasPreview ? 'e-mt-64' : 'e-mt-40'"
->
-  <div
-    class="ceg-row-1 e-mb-16"
-    *ngIf="hasPreview"
-  >
-    <div
-      class="ceg-col-1"
-      #cegContent
-    >
-      <!--CEG code preview-->
+<div class="ceg-container component-preview-animation" [ngClass]="{ 'no-margin': inlineExample }">
+  <!--Top filters-->
+  <div *ngIf="(hasCegAttributes && hasTopFilters) || typesData" class="ceg-top-filters">
+    <div *ngIf="typeObject" class="ceg-dropdown">
+      <elvia-dropdown
+        [options]="typeOptions"
+        [defaultValue]="typeOptions[typeDefault]"
+        label="Type"
+        (valueOnChange)="updateSelectedType($event.detail.value)"
+      ></elvia-dropdown>
+    </div>
+    <div *ngIf="backgroundObject" class="ceg-dropdown">
+      <elvia-dropdown
+        [options]="bgOptions"
+        [defaultValue]="bgOptions[bgDefault]"
+        label="Background"
+        (valueOnChange)="updateSelectedBg($event.detail.value)"
+      ></elvia-dropdown>
+    </div>
+    <div *ngIf="typesData" class="ceg-dropdown">
+      <elvia-dropdown
+        [options]="typeOptions"
+        [defaultValue]="typeOptions[0]"
+        label="Type"
+        (valueOnChange)="updateSelectedTypeCustom($event.detail.value)"
+      ></elvia-dropdown>
+    </div>
+  </div>
+
+  <div class="ceg-row-1 e-mb-16" [ngStyle]="{ 'min-height.px': height }" *ngIf="hasPreview">
+    <!--Preview-->
+    <div class="ceg-col-1" [ngClass]="{ 'full-width': inlineExample }" #cegContent>
       <div
-        [ngClass]="!accordionCustom ? 'ceg-code-preview' : 'ceg-code-preview ceg-code-preview--accordion'"
+        class="ceg-code-preview"
+        [ngClass]="{
+          'ceg-code-preview--accordion': accordionCustom,
+          'e-bg-white': selectedBg === 'White',
+          'e-bg-grey-05': selectedBg === 'Light grey',
+          'e-bg-grey': selectedBg === 'Dark grey'
+        }"
         [style.overflowY]="overflowY"
       >
         <div
-          #cegFrame
+          [innerHTML]="dynamicCode"
           class="ceg-frame"
+          [ngClass]="{ 'aligned-top': alignedTop }"
           style="display: flex"
           [style.width.%]="width"
         ></div>
       </div>
     </div>
 
-    <!--CEG side filters-->
-    <div
-      class="ceg-col-2"
-      *ngIf="hasCegAttributes"
-    >
-      <app-ceg-filters [componentData]="componentData"></app-ceg-filters>
+    <!--Side filters-->
+    <div class="ceg-col-2 ceg-side-filters-desktop" *ngIf="!inlineExample && enableFilters">
+      <app-ceg-filters
+        [componentData]="componentData"
+        [props]="props"
+        [selectedType]="selectedType"
+      ></app-ceg-filters>
+    </div>
+    <div class="ceg-side-filters-mobile" *ngIf="props.length !== 0 && getDependentFilter() && enableFilters">
+      <elvia-popover [posX]="'left'" [posY]="'bottom'">
+        <button slot="trigger" class="e-btn e-btn--icon">
+          <span class="e-btn__icon">
+            <i class="e-icon e-icon--list" *ngIf="selectedBg !== 'Dark grey'"></i>
+            <i class="e-icon e-icon--list e-icon--inverted" *ngIf="selectedBg === 'Dark grey'"></i>
+          </span>
+        </button>
+        <div slot="content">
+          <div class="e-ml-n24 e-mr-40">
+            <app-ceg-filters
+              [componentData]="componentData"
+              [props]="props"
+              [selectedType]="selectedType"
+              [desktop]="false"
+            ></app-ceg-filters>
+          </div>
+        </div>
+      </elvia-popover>
     </div>
   </div>
 
-  <!--CEG code-->
-  <div [ngClass]="hasPreview ? 'ceg-row-2' : 'ceg-full-row'">
-    <app-component-example-accordion>
-      <ng-container ngProjectAs="accordionContent">
+  <!--Code-->
+  <div class="ceg-row-2" [ngClass]="{ 'full-width': inlineExample }">
+    <elvia-accordion openLabel="View code" closeLabel="Hide code" size="small" type="normal">
+      <div slot="content">
         <app-component-example-code [componentData]="componentData"></app-component-example-code>
-      </ng-container>
-    </app-component-example-accordion>
+      </div>
+    </elvia-accordion>
   </div>
 </div>

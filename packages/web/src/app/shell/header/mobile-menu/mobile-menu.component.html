@@ -1,6 +1,6 @@
 <div class="header">
   <div class="logo">
-    <a class="header-top_logo" (click)="navigateHome()">
+    <a class="header-top_logo" (click)="navigate('')">
       <img src="../../../../assets/logo/elvia_positive_1.svg" alt="Elvia Logo" />
     </a>
   </div>
@@ -15,54 +15,23 @@
 </div>
 
 <div class="content">
-  <div class="menu">
-    <div class="links e-pt-16 e-pb-24" (click)="navigateGetStarted()">
-      <span class="text">
-        Get started
-      </span>
-      <span class="links-icon">
-        <i class="e-icon e-icon--arrow_right-bold e-icon--xxs"></i>
-      </span>
+  <div class="menu" *ngIf="mainMenu">
+    <div class="menu-items" *ngFor="let menuItem of mainMenu.pages">
+      <div class="links e-pt-24 e-pb-24" (click)="navigate(menuItem.path)">
+        <span class="text">{{ menuItem.title }}</span>
+        <span class="links-icon">
+          <i class="e-icon e-icon--arrow_right-bold e-icon--xxs"></i>
+        </span>
+      </div>
+      <div class="divider"></div>
     </div>
-    <div class="divider"></div>
-    <div class="links e-py-24" (click)="navigateIdentity()">
-      <span class="text">
-        Identity
-      </span>
-      <span class="links-icon">
-        <i class="e-icon e-icon--arrow_right-bold e-icon--xxs"></i>
-      </span>
+    <div class="menu" *ngIf="devMode">
+      <div class="menu-items">
+        <div class="links e-pt-24 e-pb-24">
+          <a class="text" (click)="navigate('dev')">Dev</a>
+        </div>
+      </div>
     </div>
-    <div class="divider"></div>
-    <div class="links e-py-24" (click)="navigateComps()">
-      <span class="text">
-        Components
-      </span>
-      <span class="links-icon">
-        <i class="e-icon e-icon--arrow_right-bold e-icon--xxs"></i>
-      </span>
-    </div>
-    <div class="divider"></div>
-    <div class="links e-py-24" (click)="navigateTools()">
-      <span class="text">
-        Tools
-      </span>
-      <span class="links-icon">
-        <i class="e-icon e-icon--arrow_right-bold e-icon--xxs"></i>
-      </span>
-    </div>
-    <div class="divider"></div>
-    <div class="links e-py-24" (click)="navigateCommunity()">
-      <span class="text">
-        Community
-      </span>
-      <span class="links-icon">
-        <i class="e-icon e-icon--arrow_right-bold e-icon--xxs"></i>
-      </span>
-    </div>
-
-    <div class="divider"></div>
-
     <div class="version">v{{ version }}</div>
   </div>
 </div>

@@ -8,4 +8,4 @@ import { RouterModule } from '@angular/router';
   declarations: [MobileMenuComponent],
   exports: [MobileMenuComponent],
 })
-export class HeaderModule {}
+export class MobileHeaderModule {}

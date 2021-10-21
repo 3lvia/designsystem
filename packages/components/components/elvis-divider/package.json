@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-divider",
-  "version": "0.0.1-alpha",
+  "version": "1.0.6",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -9,8 +9,4 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "*",
-    "@material-ui/core": "^4.11.4",
-    "styled-components": "^5.2.3"
-  }
-}
+    "@elvia/elvis-component-wrapper": "^2.0.3", "styled-components": "^5.2.1" } }

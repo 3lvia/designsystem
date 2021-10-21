@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { LabelDocModule } from './label-doc/label-doc.module';
 import { ButtonDocModule } from './button-doc/button-doc.module';
 import { CardDocModule } from './card-doc/card-doc.module';
-import { ComponentsStartModule } from './components-start/components-start.module';
+import { CarouselDocModule } from './carousel-doc/carousel-doc.module';
 import { FormComponentsModule } from './forms/formComponents.module';
 import { LinkDocModule } from './link-doc/link-doc.module';
 import { ListDocModule } from './list-doc/list-doc.module';
@@ -23,19 +23,24 @@ import { AccordionDocModule } from './accordion-doc/accordion-doc.module';
 import { StepperDocModule } from './stepper-doc/stepper-doc.module';
 import { ContentLoaderDocModule } from './content-loader-doc/content-loader-doc.module';
 import { RadioFilterDocModule } from './radio-filter-doc/radio-filter-doc.module';
-import { ChipsModule } from './chips/chips.module';
+import { ChipDocModule } from './chip-doc/chip-doc.module';
 import { DividerDocModule } from './divider-doc/divider-doc.module';
 import { TabsDocModule } from './tabs-doc/tabs-doc.module';
+import { BreadcrumbDocModule } from './breadcrumb-doc/breadcrumb-doc.module';
+import { TimepickerDocModule } from './forms/timepicker-doc/timepicker-doc.module';
+import { BoxDocModule } from './box-doc/box-doc.module';
 
 @NgModule({
   imports: [
     AccordionDocModule,
     AlertMessagesModule,
     AutocompleteDocModule,
+    BoxDocModule,
     ButtonDocModule,
+    BreadcrumbDocModule,
     CardDocModule,
-    ChipsModule,
-    ComponentsStartModule,
+    CarouselDocModule,
+    ChipDocModule,
     ContentLoaderDocModule,
     DividerDocModule,
     DropdownDocModule,
@@ -54,6 +59,7 @@ import { TabsDocModule } from './tabs-doc/tabs-doc.module';
     StepperDocModule,
     TabsDocModule,
     TableDocModule,
+    TimepickerDocModule,
     TooltipDocModule,
     HeaderDocModule,
   ],

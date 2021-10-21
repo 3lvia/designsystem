@@ -41,32 +41,22 @@
     </div>
   </div>
 
-  <!-- TYPE -->
-
-  <app-component-section [sectionTitle]="'Type'">
+  <!-- IMPLEMENTATION -->
+  <app-component-section [sectionTitle]="'Implementation'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Internal'">
-        <ng-container ngProjectAs="sectionContent">
-          The internal header contains a general top menu and a side navigation section. The navigation bar on
-          the side contain app-specific tabs, while the top menu gathers general navigation, such as the app
-          switch and any global settings.
-          <app-component-example-v1
-            [codeHTML]="internalHeaderExample"
-            [showIframeScreens]="true"
-            [greyBg]="true"
-            [overwriteHeight]="500"
-            [overwriteHeightTablet]="640"
-            [overwriteHeightPhone]="640"
-            [showIframeDesktop]="true"
-          ></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
+      The internal header contains a general top menu and a side navigation section. The navigation bar on the
+      side contain app-specific tabs, while the top menu gathers general navigation, such as the app switch
+      and any global settings.
+      <app-component-example-v1
+        [codeHTML]="internalHeaderExample"
+        [showIframeScreens]="true"
+        [greyBg]="true"
+        [overwriteHeight]="500"
+        [overwriteHeightTablet]="640"
+        [overwriteHeightPhone]="640"
+        [showIframeDesktop]="true"
+      ></app-component-example-v1>
 
-  <!-- STATES -->
-  <app-component-section [sectionTitle]="'States - Internal'">
-    <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Top menu open'">
         <ng-container ngProjectAs="sectionContent">
           <app-component-example-v1
@@ -80,6 +70,7 @@
           ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
+
       <app-component-subsection [sectionTitle]="'Side menu open'">
         <ng-container ngProjectAs="sectionContent">
           <app-component-example-v1
@@ -93,6 +84,7 @@
           ></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
+
       <app-component-subsection [sectionTitle]="'Manually adding modifiers'">
         <ng-container ngProjectAs="sectionContent">
           To open a menu in the top-bar one or more of the following classes needs to be added.

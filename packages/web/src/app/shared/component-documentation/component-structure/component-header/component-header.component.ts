@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
-import { ItemStatus } from '../../../item-status.enum';
+import { DocPageStatus } from '../../../doc-page-status';
 import { NavbarAnchor } from '../../../navbarAnchor.interface';
 import { ScrollService } from 'src/app/core/services/scroll.service';
 import { Router } from '@angular/router';
@@ -17,7 +17,7 @@ export class ComponentHeaderComponent implements AfterViewInit {
   @Input() figmaOnly = false;
   @Output() selectedChange = new EventEmitter();
 
-  itemStatus = ItemStatus;
+  DocPageStatus = DocPageStatus;
   navbarAnchors: NavbarAnchor[] = [];
   activeAnchor: NavbarAnchor;
   currentRoute: string;
@@ -64,8 +64,11 @@ export class ComponentHeaderComponent implements AfterViewInit {
 
   getNewInnerHTML(): void {
     const element = this.content.nativeElement;
-    const newInner = this.decodeHTML(element.innerHTML);
-    element.innerHTML = '';
-    element.appendChild(this.createHTMLElement(newInner));
+    // Not necessary to replace content with decoded HTML if it does not contain any encoded HTML
+    if (element.innerHTML.indexOf('&lt;') > -1) {
+      const newInner = this.decodeHTML(element.innerHTML);
+      element.innerHTML = '';
+      element.appendChild(this.createHTMLElement(newInner));
+    }
   }
 }

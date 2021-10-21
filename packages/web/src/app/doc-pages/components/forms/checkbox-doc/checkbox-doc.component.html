@@ -38,13 +38,19 @@
 
       <app-component-subsection [sectionTitle]="'Nested'">
         <ng-container ngProjectAs="sectionContent">
-          This example is not interactable and logic for adding the indeterminate state should be applied as described below.
-          <app-component-example-v1 [codeHTML]="exampleNested" [interactable]="false"></app-component-example-v1>
+          This example is not interactable and logic for adding the indeterminate state should be applied as
+          described below.
+          <app-component-example-v1
+            [codeHTML]="exampleNested"
+            [interactable]="false"
+          ></app-component-example-v1>
 
           <app-component-subsubsection [sectionTitle]="'Indeterminate'">
             <ng-container ngProjectAs="sectionContent">
-              Use the indeterminate state, <span class="code-text">e-checkbox--indeterminate</span>, when you have sublist of checkboxes, where only some of them are
-              checked. This class has to be applied using logic.
+              Use the indeterminate state,
+              <span class="code-text">e-checkbox--indeterminate</span>
+              , when you have sublist of checkboxes, where only some of them are checked. This class has to be
+              applied using logic.
             </ng-container>
           </app-component-subsubsection>
         </ng-container>
@@ -55,14 +61,14 @@
   <!-- SIZE -->
   <app-component-section [sectionTitle]="'Size'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-example-v1 [codeHTML]="exampleSizes"></app-component-example-v1>
+      <app-component-example-v1 [interactable]="false" [codeHTML]="exampleSizes"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 
   <!-- STATES -->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-example-v1 [codeHTML]="exampleStates"></app-component-example-v1>
+      <app-component-example-v1 [interactable]="false" [codeHTML]="exampleStates"></app-component-example-v1>
     </ng-container>
   </app-component-section>
 

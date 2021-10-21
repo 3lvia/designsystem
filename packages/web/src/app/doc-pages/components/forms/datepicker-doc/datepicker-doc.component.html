@@ -1,0 +1,45 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Date picker</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--CEG-->
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
+
+  <!-- SIZE -->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      There are two different sizes of the date and time picker; normal and compact. Much like compact text
+      fields, the compact datepicker and timepicker is a version of the text field that’s primarily designed
+      for internal systems, and shouldn’t be mixed with the other input style.
+    </ng-container>
+  </app-component-section>
+
+  <!-- DATE RANGE -->
+  <app-component-section [sectionTitle]="'Date range'">
+    <ng-container ngProjectAs="sectionContent">
+      In the future there will be a date range picker component. For now combine 2 date picker components to
+      make the wanted result. The from-date should have a max-date equal to the chosen to-date while the
+      to-date should have a min-date equal to the chosen from-date.
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
+    </ng-container>
+  </app-component-section>
+
+  <!--PROPERTIES-->
+  <app-component-section [sectionTitle]="'Properties'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
+    </ng-container>
+  </app-component-section>
+</div>

@@ -1,0 +1,338 @@
+<!--HEADER-->
+<app-component-header [figmaUrl]="figmaUrl">
+  <ng-container ngProjectAs="headerTitle">Colors</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--PREVIEWS-->
+  <!--PRIMARY-->
+  <app-component-subsection [sectionTitle]="'Primary Colors'">
+    <ng-container ngProjectAs="sectionContent">
+      <div class="display-container">
+        <div class="display-card" *ngFor="let item of primaryColors" [ngClass]="item.lg ? 'primary' : ''">
+          <app-copy [message]="'e-bg-' + item.title">
+            <ng-container ngProjectAs="copyContent">
+              <div
+                [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]"
+                style="text-align: center; padding: 14px"
+                class="display-card-circle"
+              >
+                <div class="e-title-caps" *ngIf="item.title == 'white'">Elvia On</div>
+                <div class="e-title-caps" *ngIf="item.title == 'green'">Elvia Charge</div>
+                <div class="e-title-caps" *ngIf="item.title == 'black'">Elvia Off</div>
+                <div class="e-title-caps" *ngIf="item.title == 'grey'">Elvia Dark</div>
+              </div>
+            </ng-container>
+          </app-copy>
+          <div class="display-text-content">
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">Hex</div>
+              <div class="sub-content">{{ item.hex }}</div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">RGB</div>
+              <div class="sub-content">{{ item.rgba }}</div>
+            </div>
+            <div
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-title-caps e-text-black">wcag</div>
+              <div class="sub-content e-text-info">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-subsection>
+
+  <!--SIGNAL-->
+  <app-component-subsection [sectionTitle]="'Signal colors'">
+    <ng-container ngProjectAs="sectionContent">
+      <div class="display-container">
+        <div class="display-card" *ngFor="let item of signalColors">
+          <app-copy [message]="'e-bg-' + item.title">
+            <ng-container ngProjectAs="copyContent">
+              <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
+                <div class="e-title-caps">{{ item.title }}</div>
+              </div>
+            </ng-container>
+          </app-copy>
+          <div class="display-text-content">
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">Hex</div>
+              <div class="sub-content">{{ item.hex }}</div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">RGB</div>
+              <div class="sub-content">{{ item.rgba }}</div>
+            </div>
+            <div
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-title-caps e-text-black">wcag</div>
+              <div class="sub-content e-text-info">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-subsection>
+
+  <!--DATA-->
+  <app-component-subsection [sectionTitle]="'Data colors'">
+    <ng-container ngProjectAs="sectionContent">
+      <div class="display-container">
+        <div class="display-card" *ngFor="let item of dataColors">
+          <app-copy [message]="'e-bg-' + item.title">
+            <ng-container ngProjectAs="copyContent">
+              <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
+                <div class="e-title-caps" style="text-align: center; padding: 14px">
+                  {{ item.titleWithSpace }}
+                </div>
+              </div>
+            </ng-container>
+          </app-copy>
+          <div class="display-text-content">
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">Hex</div>
+              <div class="sub-content">{{ item.hex }}</div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">RGB</div>
+              <div class="sub-content">{{ item.rgba }}</div>
+            </div>
+            <div
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-title-caps e-text-black">wcag</div>
+              <div class="sub-content e-text-info">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-subsection>
+
+  <!--GREYS-->
+  <app-component-subsection [sectionTitle]="'Greys'">
+    <ng-container ngProjectAs="sectionContent">
+      <div class="display-container">
+        <div class="display-card" *ngFor="let item of greysColors">
+          <app-copy [message]="'e-bg-' + item.title">
+            <ng-container ngProjectAs="copyContent">
+              <div [ngClass]="[item.lg ? 'primary' : '', 'e-bg-' + item.title]" class="display-card-circle">
+                <div class="e-title-caps">{{ item.title }}</div>
+              </div>
+            </ng-container>
+          </app-copy>
+          <div class="display-text-content">
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">Hex</div>
+              <div class="sub-content">{{ item.hex }}</div>
+            </div>
+            <div class="display-card-sub-title e-text-info">
+              <div class="sub-title e-title-caps">RGB</div>
+              <div class="sub-content">{{ item.rgba }}</div>
+            </div>
+            <div
+              class="display-card-sub-title e-text-info"
+              style="
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+              "
+            >
+              <div class="sub-title e-title-caps e-text-black">wcag</div>
+              <div class="sub-content e-text-info">
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastWhite === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastWhite !== ''"></i>
+                  <span *ngIf="item.contrastWhite === ''">White</span>
+                  <span *ngIf="item.contrastWhite !== ''">White ({{ item.contrastWhite }})</span>
+                </div>
+                <div class="contrast-container">
+                  <i class="e-icon e-icon--remove_circle e-icon--xs" *ngIf="item.contrastBlack === ''"></i>
+                  <i class="e-icon e-icon--check_circle e-icon--xs" *ngIf="item.contrastBlack !== ''"></i>
+                  <span *ngIf="item.contrastBlack === ''">Black</span>
+                  <span *ngIf="item.contrastBlack !== ''">Black ({{ item.contrastBlack }})</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-subsection>
+
+  <!--USAGE-->
+  <app-component-section [sectionTitle]="'Usage'">
+    <ng-container ngProjectAs="sectionContent">
+      All colors should be used in solid 100%, with the exception of illustrations, graphs and labels. In
+      these cases, color shades can be used as long as the color isn’t the only visual indication of important
+      data.
+
+      <app-component-subsection [sectionTitle]="'Color weight'">
+        <ng-container ngProjectAs="sectionContent">
+          Elvia is mainly white and dark grey, with some black components and a touch of green in details such
+          as icons, illustration and active states.
+          <div>
+            <img style="width: calc(20% + 180px)" class="e-p-24" src="assets/color-doc/color-weight.svg" />
+          </div>
+
+          <app-component-subsubsection [sectionTitle]="'Green'">
+            <ng-container ngProjectAs="sectionContent">
+              Green shows that Elvia is ON, activated, fully charged and environmentally friendly. The green
+              colour should be used intentionally and should not be used on large surfaces as a background.
+              The green color are used to display when something is active/clickable on interactions. It’s
+              also used in illustration and icons to highlight the most important or just to get a touch of
+              the green light in between all the white and black.
+              <app-do-dont-text>
+                <ng-container ngProjectAs="do">
+                  <img src="assets/color-doc/a.svg" style="max-width: 100%" />
+                </ng-container>
+                <ng-container ngProjectAs="dont">
+                  <img src="assets/color-doc/b.svg" style="max-width: 100%" />
+                </ng-container>
+              </app-do-dont-text>
+            </ng-container>
+          </app-component-subsubsection>
+
+          <app-component-subsubsection [sectionTitle]="'White'">
+            <ng-container ngProjectAs="sectionContent">
+              White stands for light and energy. White is used as a background colour and as a text colour on
+              darker surfaces.
+            </ng-container>
+          </app-component-subsubsection>
+
+          <app-component-subsubsection [sectionTitle]="'Black'">
+            <ng-container ngProjectAs="sectionContent">
+              Black shows that Elvia is OFF. It’s the primary color for text and icons, but can also be used
+              to get a dark surface.
+            </ng-container>
+          </app-component-subsubsection>
+
+          <app-component-subsubsection [sectionTitle]="'Dark (grey)'">
+            <ng-container ngProjectAs="sectionContent">
+              Dark (grey) is the preferred dark background.
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Using Classes'">
+        <ng-container ngProjectAs="sectionContent">
+          All colors can be used through a set of classes. The
+          <code class="code-text">e-text</code>
+          sets the text-color of the element, while the
+          <code class="code-text">e-bg</code>
+          sets the background as well as the text.
+          <ul class="e-list">
+            <li><code class="code-text">e-bg-name</code></li>
+            <li><code class="code-text">e-text-name</code></li>
+          </ul>
+          <p>
+            All bg-classes sets the text-color to the contrast-color of the background. It is therefore not
+            necessary to use both the
+            <code class="code-text">bg</code>
+            and the
+            <code class="code-text">text</code>
+            class on the same element, exceptions can of course occur and then the
+            <code class="code-text">text</code>
+            class is available.
+          </p>
+          <p>
+            <app-do-dont [do]="true" [codeHTML]="doCode"></app-do-dont>
+            <app-do-dont [do]="false" [codeHTML]="dontCode"></app-do-dont>
+          </p>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Using CSS-variables'">
+        <ng-container ngProjectAs="sectionContent">
+          <p>
+            All colors can be used through their CSS-variable as well. To use the CSS-variables you need to
+            install the ponyfill css-vars-ponyfill. Read more about
+            <a class="e-link e-link-inline" [routerLink]="['/about/get-started/']" fragment="For-developers">
+              using CSS variables
+            </a>
+          </p>
+          <ul class="e-list">
+            <li><code class="code-text">var(--e-name)</code></li>
+          </ul>
+          <p>All CSS-variables can be used.</p>
+          <p>
+            <app-do-dont [do]="true" [codeCSS]="doCodeCSS"></app-do-dont>
+            <app-do-dont [do]="false" [codeCSS]="dontCodeCSS"></app-do-dont>
+          </p>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+</div>

@@ -25,18 +25,29 @@
     </div>
   </div>
 
-  <!--TYPE-->
-  <app-component-section [sectionTitle]="'Type'">
+  <!--OPTIONS-->
+  <app-component-section [sectionTitle]="'Options'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'2 options'">
+      <app-component-subsection [sectionTitle]="'Three controls'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
+          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--SIZE-->
+  <app-component-section [sectionTitle]="'Size'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Medium'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-example-v1 [codeHTML]="exampleMedium"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'3 options'">
+      <app-component-subsection [sectionTitle]="'Small'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
+          <app-component-example-v1 [codeHTML]="exampleSmall"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
     </ng-container>

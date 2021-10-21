@@ -37,9 +37,16 @@ const decideLabelPosition = (prop: string) => {
   if (prop === 'left') {
     return 'start';
   }
+
+  return 'flex-start';
 };
 
-const AccordionButtonArea = styled.div`
+type AccordionButtonArea = {
+  labelPosition: string;
+  type: string;
+};
+
+const AccordionButtonArea = styled.div<AccordionButtonArea>`
   display: inline-flex;
   justify-content: ${(props: { labelPosition: string }) => decideLabelPosition(props.labelPosition)};
   flex-direction: row;
@@ -60,7 +67,15 @@ const decideButtonFontSize = (prop: string) => {
   return '16px';
 };
 
-const AccordionButton = styled.button`
+type AccordionButton = {
+  size: string;
+  openLabel: string;
+  closeLabel: string;
+  isContentOpen: boolean;
+  onClick: any;
+};
+
+const AccordionButton = styled.button<AccordionButton>`
   border: none;
   background: transparent;
   display: flex;
@@ -100,7 +115,7 @@ const AccordionButton = styled.button`
   }
 `;
 
-const decideContentMarginTop = (contentOpen: boolean, type: string, size: string) => {
+const decideContentMarginTop = (contentOpen: boolean, type: string, size: string): string => {
   if (type === 'overflow') {
     return '0px';
   }
@@ -111,9 +126,10 @@ const decideContentMarginTop = (contentOpen: boolean, type: string, size: string
       return '16px';
     }
   }
+  return '0';
 };
 
-const decideContentMaxHeight = (contentOpen: boolean, type: string) => {
+const decideContentMaxHeight = (contentOpen: boolean, type: string): string => {
   if (type === 'normal') {
     if (contentOpen) {
       return '10000px';
@@ -128,8 +144,10 @@ const decideContentMaxHeight = (contentOpen: boolean, type: string) => {
       return 'calc(2em * 1.2)';
     }
   }
+
+  return 'none';
 };
-const decideContentOpacity = (contentOpen: boolean, type: string) => {
+const decideContentOpacity = (contentOpen: boolean, type: string): string => {
   if (contentOpen) {
     return '1';
   }
@@ -138,13 +156,13 @@ const decideContentOpacity = (contentOpen: boolean, type: string) => {
   }
   return '0';
 };
-const decideContentOverflowY = (contentOpen: boolean, type: string) => {
+const decideContentOverflowY = (contentOpen: boolean, type: string): string => {
   if (contentOpen && type === 'overflow') {
     return 'hidden';
   }
   return 'auto';
 };
-const decideContentTransition = (contentOpen: boolean, type: string) => {
+const decideContentTransition = (contentOpen: boolean, type: string): string => {
   if (type === 'overflow') {
     if (contentOpen) {
       return 'max-height 2s ease-in';
@@ -155,8 +173,14 @@ const decideContentTransition = (contentOpen: boolean, type: string) => {
   return 'all 0.3s ease-out';
 };
 
-const AccordionContent = styled.div`
-  display: flex;
+type AccordionContent = {
+  isContentOpen: boolean;
+  type: string;
+  size: string;
+};
+
+const AccordionContent = styled.div<AccordionContent>`
+  display: block;
   background: transparent;
   width: 100%;
   font-size: 16px;
@@ -196,11 +220,14 @@ const Accordion: FC<AccordionProps> = ({
   // Outline listener for focus only on tab keydown
   useEffect(() => {
     // Start outline listener
-    toolbox.outlineListener(accordionRef.current);
-
+    if (accordionRef && accordionRef.current) {
+      toolbox.outlineListener(accordionRef.current);
+    }
     return () => {
-      // Remove outline listener
-      toolbox.outlineListener(accordionRef.current, true);
+      // Remove outline listenes
+      if (accordionRef && accordionRef.current) {
+        toolbox.outlineListener(accordionRef.current, true);
+      }
     };
   }, []);
 
@@ -232,8 +259,8 @@ const Accordion: FC<AccordionProps> = ({
         <AccordionButtonArea labelPosition={labelPosition} type={type}>
           <AccordionButton
             isContentOpen={contentOpen}
-            openLabel={openLabel}
-            closeLabel={closeLabel}
+            openLabel={openLabel ? openLabel : ''}
+            closeLabel={closeLabel ? closeLabel : ''}
             size={size}
             onClick={() => setContentOpen((contentOpen) => !contentOpen)}
           >

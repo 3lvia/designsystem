@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-component-wrapper",
-  "version": "1.0.13",
+  "version": "2.1.2",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@elvia/elvis-toolbox": "*",
+    "@elvia/elvis-toolbox": "^1.2.0",
     "lodash.isequal": "^4.5.0",
     "react": "*",
     "react-dom": "*"

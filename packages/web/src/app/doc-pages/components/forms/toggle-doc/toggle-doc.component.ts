@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-toggle-doc',
@@ -16,74 +16,65 @@ export class ToggleDocComponent {
   exampleOverview = `<label class="e-toggle">
   <input class="e-toggle__input" type="checkbox">
   <span class="e-toggle__slider"></span>
-  
 </label>
 `;
 
   example1 = `<div>
-  <div class="e-text-label">Off</div>
+  <div class="e-title-caps e-mb-16">Off</div>
   <label class="e-toggle">
-    <input class="e-toggle__input" type="checkbox">
+    <input class="e-toggle__input" type="checkbox" />
     <span class="e-toggle__slider"></span>
-    
   </label>
 </div>
 <div class="e-mt-16">
-  <div class="e-text-label">On</div>
+  <div class="e-title-caps e-mb-16">On</div>
   <label class="e-toggle">
-    <input class="e-toggle__input" type="checkbox" checked>
+    <input class="e-toggle__input" type="checkbox" checked />
     <span class="e-toggle__slider"></span>
-    
   </label>
 </div>
 <div class="e-mt-16">
-  <div class="e-text-label">Disabled off</div>
+  <div class="e-title-caps e-mb-16">Disabled off</div>
   <label class="e-toggle e-toggle---disabled">
-    <input class="e-toggle__input" type="checkbox" disabled>
+    <input class="e-toggle__input" type="checkbox" disabled />
     <span class="e-toggle__slider"></span>
-    
   </label>
 </div>
 <div class="e-mt-16">
-  <div class="e-text-label">Disabled on</div>
+  <div class="e-title-caps e-mb-16">Disabled on</div>
   <label class="e-toggle e-toggle---disabled">
-    <input class="e-toggle__input" type="checkbox" checked disabled>
+    <input class="e-toggle__input" type="checkbox" checked disabled />
     <span class="e-toggle__slider"></span>
-    
   </label>
 </div>
 `;
 
   exampleInverted = `<div>
-  <div class="e-text-label e-text-white">Off</div>
+  <div class="e-text-caps e-mb-16 e-text-white">Off</div>
   <label class="e-toggle e-toggle--inverted">
     <input class="e-toggle__input" type="checkbox">
     <span class="e-toggle__slider"></span>
-    
   </label>
 </div>
 <div class="e-mt-16">
-  <div class="e-text-label e-text-white">On</div>
+  <div class="e-text-caps e-mb-16 e-text-white">On</div>
   <label class="e-toggle e-toggle--inverted">
     <input class="e-toggle__input" type="checkbox" checked>
     <span class="e-toggle__slider"></span>
-    
   </label>
 </div>
 <div class="e-mt-16">
-  <div class="e-text-label e-text-white">Disabled off</div>
+  <div class="e-text-caps e-mb-16 e-text-white">Disabled off</div>
   <label class="e-toggle e-toggle---disabled e-toggle--inverted">
     <input class="e-toggle__input" type="checkbox" disabled>
     <span class="e-toggle__slider"></span>
-    
   </label>
 </div>
 <div class="e-mt-16">
-  <div class="e-text-label e-text-white">Disabled on</div>
+  <div class="e-text-caps e-mb-16 e-text-white">Disabled on</div>
   <label class="e-toggle e-toggle---disabled e-toggle--inverted">
     <input class="e-toggle__input" type="checkbox" checked disabled>
     <span class="e-toggle__slider"></span>
-    
   </label>
 </div>
 `;

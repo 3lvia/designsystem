@@ -7,71 +7,50 @@
 </app-component-header>
 
 <!--BODY-->
-<div class="e-modal e-none" #modal1>
-  <div class="e-modal__content">
-    <div class="e-modal__title">Title</div>
-    <div class="e-modal__text">
-      Body text comes here and can go over several lines. It looks like this when it is two lines.
-    </div>
-    <div class="e-modal__actions">
-      <button class="e-btn e-btn--secondary e-btn--lg" (click)="closeModal('modal1')">
-        <span class="e-btn__title">Cancel</span>
-      </button>
-      <button class="e-btn e-btn--primary e-btn--lg" (click)="closeModal('modal1')">
-        <span class="e-btn__title">Primary action</span>
-      </button>
-    </div>
-  </div>
-</div>
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <button class="e-btn" (click)="openModal('modal1')">Modal</button>
-    <div class="e-w-100">
-      <app-component-example-v1
-        [showPreview]="false"
-        [codeHTML]="overviewExample"
-        [codeTS]="modalLiveCode"
-      ></app-component-example-v1>
-    </div>
-  </div>
+  <!--CEG-->
+  <app-component-example-generator
+    [componentData]="componentData"
+    [typesData]="typesData"
+  ></app-component-example-generator>
 
   <!--TYPE-->
   <app-component-section [sectionTitle]="'Type'">
     <ng-container ngProjectAs="sectionContent">
       <app-component-subsection [sectionTitle]="'Actions'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1
-            [codeHTML]="example1"
-            [showIframeScreens]="true"
-            [noTablet]="true"
-            [overwriteHeight]="400"
-            [showIframeDesktop]="true"
-          ></app-component-example-v1>
-        </ng-container>
+        <ng-container ngProjectAs="sectionContent">Default modal with two buttons.</ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Danger'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1
-            [codeHTML]="example2"
-            [showIframeScreens]="true"
-            [noTablet]="true"
-            [overwriteHeight]="400"
-            [showIframeDesktop]="true"
-          ></app-component-example-v1>
-        </ng-container>
+        <ng-container ngProjectAs="sectionContent">Used for destructive actions.</ng-container>
       </app-component-subsection>
 
       <app-component-subsection [sectionTitle]="'Info'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1
-            [codeHTML]="example3"
-            [showIframeScreens]="true"
-            [noTablet]="true"
-            [overwriteHeight]="400"
-            [showIframeDesktop]="true"
-          ></app-component-example-v1>
+          General information - user don’t need to take a desicion with only one button.
+        </ng-container>
+      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--OPTIONS-->
+  <app-component-section [sectionTitle]="'Options'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'With illustration'">
+        <ng-container ngProjectAs="sectionContent">
+          You can add an illustration or image to the modal. The size of the modal then changes to fixed
+          height and width (550 x 1090px). Illustration can be used with both Actions and Info modals.
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Multiple pages'">
+        <ng-container ngProjectAs="sectionContent">
+          If you need multiple pages in the modal
+          <a class="e-link e-link--inline" [routerLink]="['/components/carousel']">carousel</a>
+          are added to navigate. A close icon button is then added to make it easy to escape the modal.
+          <app-component-example-generator
+            [componentData]="modalMultipageCode"
+            [inlineExample]="true"
+          ></app-component-example-generator>
         </ng-container>
       </app-component-subsection>
     </ng-container>
@@ -81,26 +60,41 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="does" [whenNots]="donts"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Be clear'">
+    </ng-container>
+  </app-component-section>
+
+  <!--IMPLEMENTATION-->
+  <app-component-section [sectionTitle]="'Implementation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-subsection [sectionTitle]="'Actions'">
         <ng-container ngProjectAs="sectionContent">
-          Never use a language or word that the user does not understand. It should always be clear to the
-          user what the actions are all about. Use short texts, up to 250 characters in body text.
+          <app-component-subsubsection [sectionTitle]="'Closing'">
+            <ng-container ngProjectAs="sectionContent">
+              The modal requires implementation for closing. Use the callback prop 'onHide' to listen for
+              click outside modal or on close button and then set the 'isShowing' prop to false.
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Other actions'">
+            <ng-container ngProjectAs="sectionContent">
+              Actions has to be implemented for all other buttons added to the modal as well.
+            </ng-container>
+          </app-component-subsubsection>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Closing modal'">
-        <ng-container ngProjectAs="sectionContent">
-          The modal is by default always visible, to hide it apply the utility class e-none. The modal should
-          be hidden when clicking outside the dialog window, when clicking 'cancel' and when pressing the
-          'ESC' button.
-        </ng-container>
-      </app-component-subsection>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
   <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-modal'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-modal'"></app-component-properties>
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
 </div>

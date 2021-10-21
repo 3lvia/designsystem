@@ -8,5 +8,9 @@
   },
   "e-btn--icon.e-btn--danger": {
     "version": "7.8.0"
+  },
+  "e-fileupload---hover": {
+    "version": "7.9.3",
+    "replacedBy": "e-fileupload--dragover"
   }
 }

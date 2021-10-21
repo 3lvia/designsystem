@@ -1,4 +1,4 @@
-<div class="e-table-container">
+<div class="e-table-container desktop">
   <table class="e-table e-table--compact" *ngIf="componentProps">
     <thead>
       <tr>
@@ -18,6 +18,35 @@
         <td class="e-table__cell--multiline-small">{{ prop.description }}</td>
         <td class="table-code-text" *ngIf="prop.default">{{ prop.default }}</td>
         <td class="table-code-text" *ngIf="!prop.default">-</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="e-table-container mobile">
+  <table class="e-table-mobile e-table-mobile--compact">
+    <thead>
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">Prop</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let prop of componentProps">
+      <tr>
+        <th class="e-table-mobile__cell" scope="col">{{ prop.attribute }}</th>
+        <th class="e-table-mobile__cell" scope="col"></th>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Type</th>
+        <td class="e-table-mobile__cell">{{ prop.type }}</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Description</th>
+        <td class="e-table-mobile__cell">{{ prop.description }}</td>
+      </tr>
+      <tr>
+        <th class="e-table-mobile__cell" scope="row">Default</th>
+        <td class="e-table-mobile__cell" *ngIf="prop.default">{{ prop.default }}</td>
+        <td class="e-table-mobile__cell" *ngIf="!prop.default">-</td>
       </tr>
     </tbody>
   </table>

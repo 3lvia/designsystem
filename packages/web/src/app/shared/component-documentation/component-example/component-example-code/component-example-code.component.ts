@@ -15,20 +15,24 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
-  @Input() codeWebComponent = '';
+  @Input() codeAngular = '';
   @Input() codeReact = '';
   @Input() codeInverted = '';
   @Input() isInverted = false;
   @Input() isJS = false;
   @Input() doDontComp = false;
+  codeNative = '';
   copyMessage = '';
   activeTab = 0;
   activeLanguage = '';
   activeCode = '';
   highlightedCode = '';
+  nativeScriptCode = '';
+  startOfScript = '';
+  endOfScript = '';
   myCode = '';
   codepen = '';
-  codeWebComponentSub: Subscription;
+  codeAngularSub: Subscription;
   codeReactSub: Subscription;
   tabs = [];
 
@@ -37,14 +41,13 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     private copyService: CopyToClipboardService,
     private versionService: VersionService,
     private codeService: ExampleCodeService,
-  ) { }
+  ) {}
 
-
-  getTabIndex(str: string) {
+  getTabIndex(str: string): void {
     this.tabs.indexOf(str);
   }
 
-  changedTab(index) {
+  changeTab(index: number): void {
     this.activeTab = index;
     const selectedTab = this.tabs[index];
 
@@ -57,16 +60,28 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
       this.activeCode = this.codeTS;
     }
     if (selectedTab === 'CSS') {
-      this.activeLanguage = 'scss'
+      this.activeLanguage = 'scss';
       this.activeCode = this.codeCSS;
     }
     if (selectedTab === 'Angular') {
-      this.activeLanguage = 'html'
-      this.activeCode = this.codeWebComponent;
+      this.activeLanguage = 'html';
+      this.activeCode = this.codeAngular;
     }
     if (selectedTab === 'React') {
       this.activeLanguage = 'jsx';
       this.activeCode = this.codeReact;
+    }
+    if (selectedTab === 'Native') {
+      this.activeLanguage = 'html';
+      this.activeCode = this.codeNative;
+      if (this.componentData && this.componentData.codeNativeScript) {
+        this.startOfScript = `<script>`;
+        this.startOfScript = this.highlightService.highlight(this.startOfScript, 'html');
+        this.endOfScript = `</script>`;
+        this.endOfScript = this.highlightService.highlight(this.endOfScript, 'html');
+        this.nativeScriptCode = this.componentData.codeNativeScript;
+        this.nativeScriptCode = this.highlightService.highlight(this.nativeScriptCode, 'js');
+      }
     }
     if (this.isInverted) {
       this.activeCode = this.codeInverted;
@@ -78,34 +93,32 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     }
   }
 
-  updateTabs() {
+  updateTabs(): void {
     this.tabs = this.getTabs();
-    this.changedTab(this.activeTab);
+    this.changeTab(this.activeTab);
   }
 
-  getTabs() {
+  getTabs(): any[] {
     const tabs = [];
 
-    if (this.codeWebComponent !== '') {
+    if (this.codeAngular !== '') {
       tabs.push('Angular');
     }
-
     if (this.codeReact !== '') {
       tabs.push('React');
     }
-
+    if (this.codeNative !== '') {
+      tabs.push('Native');
+    }
     if (this.codeTS !== '') {
       tabs.push('Typescript');
     }
-
     if (this.isJS && this.codeTS != '') {
       tabs.push('Javascript');
     }
-
     if (this.codeHTML !== '') {
       tabs.push('HTML');
     }
-
     if (this.codeCSS !== '') {
       tabs.push('CSS');
     }
@@ -114,16 +127,22 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     if (this.componentData) {
-      this.codeWebComponent = this.componentData.codeWebComponent;
+      this.codeAngular = this.componentData.codeAngular;
       this.codeReact = this.componentData.codeReact;
+      this.codeNative = this.componentData.codeNativeHTML;
     }
-    this.codeWebComponentSub = this.codeService.listenCodeWebComponent().subscribe((newCode: string) => {
-      this.codeWebComponent = newCode;
+    this.codeAngularSub = this.codeService.listenCodeAngular().subscribe((newCode: string) => {
+      this.codeAngular = newCode;
       this.highlightCode();
       this.updateTabs();
     });
     this.codeReactSub = this.codeService.listenCodeReact().subscribe((newCode: string) => {
       this.codeReact = newCode;
+      this.highlightCode();
+      this.updateTabs();
+    });
+    this.codeReactSub = this.codeService.listenCodeNative().subscribe((newCode: string) => {
+      this.codeNative = newCode;
       this.highlightCode();
       this.updateTabs();
     });
@@ -144,8 +163,8 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     if (changes.codeCSS) {
       this.codeCSS = changes.codeCSS.currentValue;
     }
-    if (changes.codeWebComponent) {
-      this.codeWebComponent = changes.codeWebComponent.currentValue;
+    if (changes.codeAngular) {
+      this.codeAngular = changes.codeAngular.currentValue;
     }
     if (changes.codeReact) {
       this.codeReact = changes.codeReact.currentValue;
@@ -154,12 +173,18 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   }
 
   ngOnDestroy(): void {
-    this.codeWebComponentSub.unsubscribe();
-    this.codeReactSub.unsubscribe();
+    if (this.codeAngularSub) {
+      this.codeAngularSub.unsubscribe();
+    }
+    if (this.codeReactSub) {
+      this.codeReactSub.unsubscribe();
+    }
   }
 
   highlightCode(): void {
-    this.highlightedCode = this.highlightService.highlight(this.activeCode, this.activeLanguage);
+    if (this.activeCode && this.activeLanguage) {
+      this.highlightedCode = this.highlightService.highlight(this.activeCode, this.activeLanguage);
+    }
   }
 
   copyCode(): void {

@@ -9,11 +9,17 @@
     ],
     "nohoist": [
       "**/bootstrap",
-      "**/@elvia/elvis-assets-icons"
+      "**/babel-loader",
+      "**/webpack",
+      "**/webpack-dev-server",
+      "**/@elvia/elvis-assets-icons",
+      "**/@elvia/elvis-dropdown",
+      "**/@elvia/elvis-divider",
+      "**/@elvia/elvis-breadcrumb"
     ]
   },
   "scripts": {
-    "build:web": "yarn && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build && cd ../web && yarn run build:production",
+    "build:web": "yarn && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build && cd ../web && yarn run contentful && yarn run build:production && cd ../components/frameworks/react-ssr && yarn run production",
     "prettier-elvis": "yarn prettier --write 'packages/elvis/**/*.js'",
     "prettier-doc": "yarn prettier --write 'packages/web/src/**/*.ts'",
     "prettier-comp": "yarn prettier --write 'packages/components/**/*.{js,ts,tsx}'",
@@ -37,14 +43,13 @@
       "yarn run eslint",
       "git add"
     ],
-    "packages/components/**/*.+(js|ts|tsx)": [
+    "packages/components/components/**/*.+(js|ts|tsx)": [
       "yarn run prettier-comp",
       "yarn run eslint",
       "git add"
     ]
   },
   "resolutions": {
-    "**/optimist/minimist": "0.2.1",
     "**/react-dev-utils/immer": "^8.0.1"
   },
   "dependencies": {
@@ -53,14 +58,16 @@
     "prettier": "^2.0.5"
   },
   "devDependencies": {
+    "@percy/script": "^1.1.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "codelyzer": "^5.2.2",
     "eslint": "^7.17.0",
     "express": "^4.17.1",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.7",
-    "@percy/script": "^1.1.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.2"
+    "typescript": "~4.0.2",
+    "@vue/cli-service": "4.5.13",
+    "@vue/cli-plugin-eslint": "~4.5.0"
   }
 }
