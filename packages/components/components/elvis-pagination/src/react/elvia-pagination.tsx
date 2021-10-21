@@ -122,9 +122,12 @@ const Pagination: FC<PaginationProps> = ({
     const PaginatorNumber = (NumberInArray: number, indexNumber: number) => {
       return [
         <StyledPaginator.PaginatorNumber
-          selected={activeNumber(NumberInArray)}
+          isFirst={false}
+          isLast={false}
           key={indexNumber}
+          noShow={false}
           onClick={() => setSelectedNumber(NumberInArray)}
+          selected={activeNumber(NumberInArray)}
         >
           {NumberInArray}
         </StyledPaginator.PaginatorNumber>,
@@ -249,10 +252,12 @@ const Pagination: FC<PaginationProps> = ({
     const getFirstNumber = () => {
       return (
         <StyledPaginator.PaginatorNumber
-          selected={activeNumber(1)}
           isFirst={true}
+          isLast={false}
           key={'firstPaginationNumber'}
+          noShow={false}
           onClick={() => setSelectedNumber(1)}
+          selected={activeNumber(1)}
         >
           {1}
         </StyledPaginator.PaginatorNumber>
@@ -299,9 +304,12 @@ const Pagination: FC<PaginationProps> = ({
 
       return [
         <StyledPaginator.PaginatorNumber
+          isFirst={false}
+          isLast={false}
           key={'noShowCenterumbers'}
           noShow={true}
-        ></StyledPaginator.PaginatorNumber>,
+          selected={false}
+        >{0}</StyledPaginator.PaginatorNumber>,
       ];
     };
     const getLastDots = () => {
@@ -323,10 +331,12 @@ const Pagination: FC<PaginationProps> = ({
     const getLastNumber = () => {
       return (
         <StyledPaginator.PaginatorNumber
-          selected={activeNumber(selectionNumbers.length)}
+          isFirst={false}
           isLast={true}
           key={'lastPaginationNumber'}
+          noShow={false}
           onClick={() => setSelectedNumber(selectionNumbers.length)}
+          selected={activeNumber(selectionNumbers.length)}
         >
           {selectionNumbers.length}
         </StyledPaginator.PaginatorNumber>

@@ -284,6 +284,6 @@ module.exports = [
     reactName: 'Pagination',
     slotItems: false,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
 ];

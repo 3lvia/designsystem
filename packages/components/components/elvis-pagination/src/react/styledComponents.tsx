@@ -10,7 +10,11 @@ const ElviaColors = {
   grey70: '#676767',
 };
 
-export const Pagination = styled.div`
+type PaginationTypes = {
+  isRightAligned: boolean;
+}
+
+export const Pagination = styled.div<PaginationTypes>`
   display: flex;
   align-items: center;
   justify-content: ${(props: { isRightAligned: boolean }) => (props.isRightAligned ? 'flex-end' : 'start')};
@@ -46,7 +50,11 @@ export const InfoDropdown = styled.div`
   width: 72px;
   margin: 0 8px;
 `;
-export const InfoAmount = styled.div`
+
+type InfoAmountTypes = {
+  isMobile: boolean;
+}
+export const InfoAmount = styled.div<InfoAmountTypes>`
   font-family: 'Red Hat Text';
   font-size: 14px;
   font-style: normal;
@@ -62,7 +70,11 @@ export const SelectorArea = styled.div`
   user-select: none;
 `;
 
-export const SelectorArrowBtn = styled.button`
+type SelectorArrowBtnTypes = {
+  visible: boolean;
+}
+
+export const SelectorArrowBtn = styled.button<SelectorArrowBtnTypes>`
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -112,7 +124,17 @@ export const PaginatorNumbersArea = styled.div`
   user-select: none;
 `;
 
-export const PaginatorNumber = styled.button`
+type PaginatorNumberTypes = {
+  noShow: boolean;
+  selected: boolean;
+  isFirst: boolean;
+  isLast: boolean;
+  onClick?: any;
+  key: number | string;
+  children: number;
+}
+
+export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
   font-family: Red Hat Text;
   font-size: 13px;
   font-style: normal;
@@ -145,7 +167,12 @@ export const PaginatorNumber = styled.button`
     transform: scale(0.95);
   }
 `;
-export const PaginatorDots = styled.div`
+
+type PaginatorDotsTypes = {
+  noDots: boolean;
+}
+
+export const PaginatorDots = styled.div<PaginatorDotsTypes>`
   font-family: Red Hat Text;
   font-size: 13px;
   font-style: normal;
