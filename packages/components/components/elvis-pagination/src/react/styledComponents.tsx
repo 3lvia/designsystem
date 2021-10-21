@@ -131,7 +131,7 @@ type PaginatorNumberTypes = {
   isLast: boolean;
   onClick?: any;
   key: number | string;
-  children: number;
+  children?: number;
 }
 
 export const PaginatorNumber = styled.button<PaginatorNumberTypes>`

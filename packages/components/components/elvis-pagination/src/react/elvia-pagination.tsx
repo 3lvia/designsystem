@@ -309,7 +309,7 @@ const Pagination: FC<PaginationProps> = ({
           key={'noShowCenterumbers'}
           noShow={true}
           selected={false}
-        >{0}</StyledPaginator.PaginatorNumber>,
+        ></StyledPaginator.PaginatorNumber>,
       ];
     };
     const getLastDots = () => {
