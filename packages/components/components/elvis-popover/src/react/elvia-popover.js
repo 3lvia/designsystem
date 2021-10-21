@@ -9,7 +9,6 @@ it('renders the correct text when no enthusiasm level is given', () => {
   //expect(hello.find('.greeting').text()).toEqual('Hello Daniel!');
 });
 
-
 /*it('renders the correct text with an explicit enthusiasm of 1', () => {
   const hello = enzyme.shallow(<Hello name="Daniel" enthusiasmLevel={1}/>);
   expect(hello.find('.greeting').text()).toEqual('Hello Daniel!');

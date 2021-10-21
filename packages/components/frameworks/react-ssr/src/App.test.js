@@ -11,6 +11,6 @@ enzyme.configure({ adapter: new Adapter() });
 //   render(<App />);
 // });
 
-it("should render my component", () => {
+it('should render my component', () => {
   const wrapper = enzyme.shallow(<Accordion />);
 });

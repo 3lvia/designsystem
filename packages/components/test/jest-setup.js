@@ -3,7 +3,7 @@ import enzyme from 'enzyme';
 enzyme.configure({ adapter: new Adapter() });
 
 const config = {
-    verbose: true,
+  verbose: true,
 };
 
 module.exports = config;
