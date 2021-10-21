@@ -6,8 +6,14 @@
 
 @mixin first-col {
   width: 80%;
+  &.full-width {
+    width: 100%;
+  }
   @include breakpoint-up(Mobile) {
     width: 70%;
+    &.full-width {
+      width: 100%;
+    }
   }
 }
 @mixin second-col {
@@ -25,6 +31,13 @@
   flex-direction: column;
   width: 100%;
   margin-top: 72px;
+  &.no-margin {
+    margin-top: 0px;
+  }
+  &.full-width .ceg-row-2,
+  &.full-width .ceg-col-1 {
+    width: 100% !important;
+  }
 
   .ceg-top-filters {
     display: flex;
@@ -37,7 +50,6 @@
       width: 100%;
     }
     .ceg-dropdown {
-      // width: 100%;
       width: 50%;
       &:not(:last-of-type) {
         margin-right: 16px;
@@ -84,11 +96,6 @@
     @include breakpoint-up(Mobile) {
       width: 100%;
     }
-  }
-
-  &.full-width .ceg-row-2,
-  &.full-width .ceg-col-1 {
-    width: 100% !important;
   }
 
   .ceg-code-preview {

@@ -1,10 +1,6 @@
-<div
-  class="ceg-container component-preview-animation"
-  [ngClass]="{ 'full-width': !hasCegAttributes }"
-  [ngClass]="hasPreview ? 'e-mt-64' : 'e-mt-40'"
->
+<div class="ceg-container component-preview-animation" [ngClass]="{ 'no-margin': inlineExample }">
   <!--Top filters-->
-  <div *ngIf="hasCegAttributes && hasTopFilters" class="ceg-top-filters">
+  <div *ngIf="(hasCegAttributes && hasTopFilters) || typesData" class="ceg-top-filters">
     <div *ngIf="typeObject" class="ceg-dropdown">
       <elvia-dropdown
         [options]="typeOptions"
@@ -21,11 +17,19 @@
         (valueOnChange)="updateSelectedBg($event.detail.value)"
       ></elvia-dropdown>
     </div>
+    <div *ngIf="typesData" class="ceg-dropdown">
+      <elvia-dropdown
+        [options]="typeOptions"
+        [defaultValue]="typeOptions[0]"
+        label="Type"
+        (valueOnChange)="updateSelectedTypeCustom($event.detail.value)"
+      ></elvia-dropdown>
+    </div>
   </div>
 
   <div class="ceg-row-1 e-mb-16" [ngStyle]="{ 'min-height.px': height }" *ngIf="hasPreview">
     <!--Preview-->
-    <div class="ceg-col-1" #cegContent>
+    <div class="ceg-col-1" [ngClass]="{ 'full-width': inlineExample }" #cegContent>
       <div
         class="ceg-code-preview"
         [ngClass]="{
@@ -47,14 +51,14 @@
     </div>
 
     <!--Side filters-->
-    <div class="ceg-col-2 ceg-side-filters-desktop">
+    <div class="ceg-col-2 ceg-side-filters-desktop" *ngIf="!inlineExample && enableFilters">
       <app-ceg-filters
         [componentData]="componentData"
         [props]="props"
         [selectedType]="selectedType"
       ></app-ceg-filters>
     </div>
-    <div class="ceg-side-filters-mobile" *ngIf="props.length !== 0 && getDependentFilter()">
+    <div class="ceg-side-filters-mobile" *ngIf="props.length !== 0 && getDependentFilter() && enableFilters">
       <elvia-popover [posX]="'left'" [posY]="'bottom'">
         <button slot="trigger" class="e-btn e-btn--icon">
           <span class="e-btn__icon">
@@ -77,7 +81,7 @@
   </div>
 
   <!--Code-->
-  <div class="ceg-row-2">
+  <div class="ceg-row-2" [ngClass]="{ 'full-width': inlineExample }">
     <elvia-accordion openLabel="View code" closeLabel="Hide code" size="small" type="normal">
       <div slot="content">
         <app-component-example-code [componentData]="componentData"></app-component-example-code>

@@ -1,49 +1,48 @@
-import { RefObject, useEffect } from 'react';
+import { RefObject } from 'react';
 
-export const useFocusTrap = (focusTrapContainer: RefObject<HTMLElement>): void => {
-  let focusableItems: NodeListOf<HTMLElement>;
+export const useFocusTrap = (
+  focusTrapContainer: RefObject<HTMLElement>,
+  removeEventListener?: boolean,
+): void => {
+  if (!focusTrapContainer.current) {
+    return;
+  }
+  const focusableItems = focusTrapContainer.current.querySelectorAll(
+    'a[href], button, textarea, input[type="text"],' + 'input[type="radio"], input[type="checkbox"], select',
+  );
+  const firstItem = focusableItems.item(0);
+  const lastItem = focusableItems.item(focusableItems.length - 1);
 
-  useEffect(() => {
-    if (!focusTrapContainer.current) {
-      return;
+  const handleFirstItemTab = (e: KeyboardEvent) => {
+    if (e.key === 'Tab' && e.shiftKey) {
+      if (lastItem) {
+        (lastItem as HTMLElement).focus();
+      }
+      e.preventDefault();
     }
-    focusableItems = focusTrapContainer.current.querySelectorAll(
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), video',
-    );
-    const firstItem = focusableItems.item(0);
-    const lastItem = focusableItems.item(focusableItems.length - 1);
+  };
+  const handleLastItemTab = (e: KeyboardEvent) => {
+    if (e.key === 'Tab' && !e.shiftKey) {
+      if (firstItem) {
+        (firstItem as HTMLElement).focus();
+      }
+      e.preventDefault();
+    }
+  };
+  if (firstItem) {
+    (firstItem as HTMLElement).focus();
+    firstItem.addEventListener('keydown', handleFirstItemTab);
+  }
+  if (lastItem) {
+    lastItem.addEventListener('keydown', handleLastItemTab);
+  }
 
-    const handleFirstItemTab = (e: KeyboardEvent) => {
-      if (e.key === 'Tab' && e.shiftKey) {
-        if (lastItem) {
-          lastItem.focus();
-        }
-        e.preventDefault();
-      }
-    };
-    const handleLastItemTab = (e: KeyboardEvent) => {
-      if (e.key === 'Tab' && !e.shiftKey) {
-        if (firstItem) {
-          firstItem.focus();
-        }
-        e.preventDefault();
-      }
-    };
+  if (removeEventListener) {
     if (firstItem) {
-      firstItem.focus();
-      firstItem.addEventListener('keydown', handleFirstItemTab);
+      firstItem.removeEventListener('keydown', handleFirstItemTab);
     }
     if (lastItem) {
-      lastItem.addEventListener('keydown', handleLastItemTab);
+      lastItem.removeEventListener('keydown', handleLastItemTab);
     }
-
-    return () => {
-      if (firstItem) {
-        firstItem.removeEventListener('keydown', handleFirstItemTab);
-      }
-      if (lastItem) {
-        lastItem.removeEventListener('keydown', handleLastItemTab);
-      }
-    };
-  }, []);
+  }
 };

@@ -9,6 +9,7 @@ export interface ModalProps {
   isShowing: boolean;
   title?: string;
   content: HTMLElement;
+  type?: boolean;
   illustration?: HTMLElement;
   primaryButton?: HTMLElement;
   secondaryButton?: HTMLElement;
@@ -54,7 +55,6 @@ export const ModalComponent: FC<ModalProps> = ({
   useClickOutside(modalWrapperRef, () => isShowing && handleOnHide());
   useKeyPress('Escape', handleOnHide);
   hasLockBodyScroll && useLockBodyScroll(isShowing);
-  useFocusTrap(modalWrapperRef);
 
   useEffect(() => {
     const originalFocusedElement = document.activeElement as HTMLElement;
@@ -70,6 +70,7 @@ export const ModalComponent: FC<ModalProps> = ({
     }
 
     if (!webcomponent) {
+      useFocusTrap(modalWrapperRef);
       return;
     }
 
@@ -92,6 +93,12 @@ export const ModalComponent: FC<ModalProps> = ({
       modalSecondaryBtn.current.innerHTML = '';
       modalSecondaryBtn.current.appendChild(webcomponent.getSlot('secondaryButton'));
     }
+
+    useFocusTrap(modalWrapperRef);
+
+    return () => {
+      useFocusTrap(modalWrapperRef, true);
+    };
   }, [isShowing]);
 
   return (
@@ -101,9 +108,12 @@ export const ModalComponent: FC<ModalProps> = ({
         {!illustration && hasIllustration && (
           <StyledModal.Illustration ref={modalIllustration}></StyledModal.Illustration>
         )}
-
         {hasCloseBtn && (
-          <StyledModal.CloseButton onClick={() => handleOnHide()} aria-label="Lukk modal">
+          <StyledModal.CloseButton
+            hasIllustration={hasIllustration}
+            onClick={() => handleOnHide()}
+            aria-label="Lukk modal"
+          >
             <i className="ewc-icon"></i>
           </StyledModal.CloseButton>
         )}
@@ -116,16 +126,12 @@ export const ModalComponent: FC<ModalProps> = ({
 
           {(hasPrimaryButton || hasSecondaryButton) && (
             <StyledModal.Actions>
-              {secondaryButton ? (
-                <>{secondaryButton}</>
-              ) : (
-                <div tabIndex={0} className="webComponentBtn" ref={modalSecondaryBtn}></div>
+              {secondaryButton && <>{secondaryButton}</>}
+              {webcomponent && hasSecondaryButton && (
+                <div className="webComponentBtn" ref={modalSecondaryBtn}></div>
               )}
-              {primaryButton ? (
-                <>{primaryButton}</>
-              ) : (
-                <div tabIndex={0} className="webComponentBtn" ref={modalPrimaryBtn}></div>
-              )}
+              {primaryButton && <>{primaryButton}</>}
+              {webcomponent && <div className="webComponentBtn" ref={modalPrimaryBtn}></div>}
             </StyledModal.Actions>
           )}
         </StyledModal.Content>

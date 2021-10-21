@@ -48,7 +48,6 @@ import { CMSPageComponent } from './doc-pages/cms/cms-page/cms-page.component';
 import { BoxDocComponent } from './doc-pages/components/box-doc/box-doc.component';
 import { ChangelogComponent } from './doc-pages/other-pages/changelog/changelog.component';
 import { ColorDocComponent } from './doc-pages/other-pages/color-doc/color-doc.component';
-import { AccessibilityDocComponent } from './doc-pages/other-pages/accessibility-doc/accessibility-doc.component';
 import { IconDocComponent } from './doc-pages/other-pages/icon-doc/icon-doc.component';
 import { LayoutDocComponent } from './doc-pages/other-pages/layout-doc/layout-doc.component';
 import { LogoDocComponent } from './doc-pages/other-pages/logo-doc/logo-doc.component';
@@ -136,10 +135,6 @@ const routes: Routes = [
         path: 'tools',
         component: CMSPageComponent,
         children: [
-          {
-            path: 'accessibility',
-            component: AccessibilityDocComponent,
-          },
           {
             path: 'utility-classes',
             component: UtilitiesDocComponent,

@@ -1,7 +1,7 @@
 <div class="wrapper">
   <div class="navbar" id="side-navbar">
     <ul class="navbar-list">
-      <li class="navbar-item" *ngFor="let navbarItem of navbarList">
+      <li class="navbar-item" *ngFor="let navbarItem of navbarList; let i = index">
         <a
           [routerLink]="['/' + this.subMenuRoute + '/' + navbarItem.docUrl]"
           [ngClass]="{ 'active-route': activeNavbarItem === navbarItem }"
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div
-          *ngIf="navbarItem.isMainPage"
+          *ngIf="navbarItem.isMainPage && !navbarList[i + 1].isMainPage"
           style="height: 1px"
           class="e-mt-16 e-ml-16 e-mr-16 e-bg-grey-10"
         ></div>
