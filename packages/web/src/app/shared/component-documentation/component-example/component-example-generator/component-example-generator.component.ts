@@ -19,6 +19,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() inlineExample = false;
   @Input() accordionCustom = false;
   @Input() overflowY;
+  @Input() overflowX;
   @Input() alignedTop = false;
   @Input() height = '340';
   enableFilters = true;
@@ -45,7 +46,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   bgList = [];
   dynamicCode;
 
-  constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) {}
+  constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.codeAngular = this.componentData.codeAngular;

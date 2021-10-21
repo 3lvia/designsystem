@@ -79,14 +79,16 @@ export const paginationData = {
   [items]="156" 
   (valueOnChange)="handleOnChange(event.detail.value)">
 </elvia-pagination>`,
-  codeNativeHTML: `<elvia-pagination id="example-elvia-pagination">
-</elvia-pagination>`,
+  codeNativeHTML: `<elvia-pagination
+  id="example-elvia-pagination"
+  ></elvia-pagination>`,
 
-  codeNativeScript: `  const tabs = document.getElementById('example-elvia-pagination');
-  const items = 156;
-  tabs.setProps({items: items})
-  tabs.addEventListener('valueOnChange', (event) => {
-    console.log('Current selection range of paginator is : ', event.detail.value)
-  });
-`,
+  codeNativeScript: `
+  const pagination = document.getElementById('example-elvia-pagination');
+    const items = 156;
+    pagination.setProps({'items': items})
+    pagination.addEventListener('valueOnChange', (event) => {
+      console.log('Current selection range of paginator is : ', event.detail.value)
+    });
+  `,
 };

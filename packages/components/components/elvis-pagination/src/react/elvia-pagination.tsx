@@ -67,6 +67,16 @@ const Pagination: FC<PaginationProps> = ({
   }, [selectedNumber, currentDisplayAmount]);
 
   useEffect(() => {
+    onDropdownChangeHandler(currentDisplayAmount);
+  }, [items]);
+
+  useEffect(() => {
+    setCurrentDisplayAmount(paginatorDropdownOptions[0]);
+  }, [paginatorDropdownOptions]);
+
+
+
+  useEffect(() => {
     setWindowWidth(window.innerWidth);
   }, []);
 
@@ -358,6 +368,7 @@ const Pagination: FC<PaginationProps> = ({
       });
       visibleNumbers.push(lastDots, lastNumbers);
     }
+
     return <StyledPaginator.PaginatorNumbersArea>{visibleNumbers}</StyledPaginator.PaginatorNumbersArea>;
   };
 
