@@ -230,7 +230,7 @@ module.exports = [
     slotItems: true,
     reactName: 'Box',
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-modal',
