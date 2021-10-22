@@ -270,9 +270,9 @@ module.exports = [
     elementName: 'elvia-pagination',
     attributes: [
       { name: 'value', type: 'object', propType: 'object' },
-      { name: 'items', type: 'number', propType: 'number' },
+      { name: 'numberOfElements', type: 'number', propType: 'number' },
       { name: 'dropdownMenuPos', type: 'string', propType: 'string' },
-      { name: 'paginatorDropdownOptions', type: 'object', propType: 'object' },
+      { name: 'dropdownItems', type: 'object', propType: 'object' },
       { name: 'labelDisplaying', type: 'string', propType: 'string' },
       { name: 'label', type: 'string', propType: 'string' },
       { name: 'labelOf', type: 'string', propType: 'string' },

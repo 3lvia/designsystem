@@ -14,10 +14,10 @@ export interface SelectionNumber {
 
 export interface PaginationProps {
   value: SelectionNumber;
-  items: number;
+  numberOfElements: number;
   dropdownMenuPos: string;
   isRightAligned?: boolean;
-  paginatorDropdownOptions: Array<DropdownOption>;
+  dropdownItems: Array<DropdownOption>;
   labelDisplaying: string;
   label: string;
   labelOf: string;
@@ -46,17 +46,17 @@ export const paginationOptions = [
 
 const Pagination: FC<PaginationProps> = ({
   value = { start: undefined, end: undefined },
-  items = 0,
+  numberOfElements = 0,
   isRightAligned = false,
   dropdownMenuPos = 'bottom',
-  paginatorDropdownOptions = paginationOptions,
+  dropdownItems = paginationOptions,
   label = 'elementer',
   labelDisplaying = 'Viser',
   labelOf = 'av',
   valueOnChange,
   webcomponent,
 }) => {
-  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(paginatorDropdownOptions[0]);
+  const [currentDisplayAmount, setCurrentDisplayAmount] = useState(dropdownItems[0]);
   const [showPaginationMenu, setShowPaginationMenu] = useState(true);
   const [currentValue, setCurrentValue] = useState(value);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -68,11 +68,11 @@ const Pagination: FC<PaginationProps> = ({
 
   useEffect(() => {
     onDropdownChangeHandler(currentDisplayAmount);
-  }, [items]);
+  }, [numberOfElements]);
 
   useEffect(() => {
-    setCurrentDisplayAmount(paginatorDropdownOptions[0]);
-  }, [paginatorDropdownOptions]);
+    setCurrentDisplayAmount(dropdownItems[0]);
+  }, [dropdownItems]);
 
 
 
@@ -91,7 +91,7 @@ const Pagination: FC<PaginationProps> = ({
   });
 
   // calculate amount of selection numbers, based on total pages
-  let selectorAmount = Math.ceil(items / parseInt(currentDisplayAmount.value));
+  let selectorAmount = Math.ceil(numberOfElements / parseInt(currentDisplayAmount.value));
   if (isNaN(parseInt(currentDisplayAmount.value))) {
     selectorAmount = 0;
     setShowPaginationMenu(false);
@@ -373,7 +373,7 @@ const Pagination: FC<PaginationProps> = ({
   };
 
   const onDropdownChangeHandler = (selectionRange: DropdownOption) => {
-    if (isNaN(parseInt(selectionRange.value)) || items === 0) {
+    if (isNaN(parseInt(selectionRange.value)) || numberOfElements === 0) {
       setShowPaginationMenu(false);
       return;
     }
@@ -399,7 +399,7 @@ const Pagination: FC<PaginationProps> = ({
     let endRange;
     endRange = startRange + parseInt(currentDisplayAmount.value) - 1;
     if (value === selectionNumbers.length) {
-      endRange = items;
+      endRange = numberOfElements;
     }
 
     const newValue = { start: startRange, end: endRange };
@@ -439,14 +439,14 @@ const Pagination: FC<PaginationProps> = ({
           <Dropdown
             isCompact
             placeholder=""
-            options={paginatorDropdownOptions}
+            options={dropdownItems}
             menuPosition={dropdownMenuPos}
             defaultValue={currentDisplayAmount}
             valueOnChange={(event: any) => onDropdownChangeHandler(event)}
           ></Dropdown>
         </StyledPaginator.InfoDropdown>
         <StyledPaginator.InfoAmount isMobile={windowWidth < 768}>
-          {labelOf} {items} {label}
+          {labelOf} {numberOfElements} {label}
         </StyledPaginator.InfoAmount>
       </StyledPaginator.InfoContainer>
       <StyledPaginator.SelectorArea>

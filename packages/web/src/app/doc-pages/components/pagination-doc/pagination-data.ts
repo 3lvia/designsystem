@@ -10,7 +10,7 @@ export const paginationData = {
       displayName: 'value',
       default: '{ start: undefined, end: undefined }',
     },
-    items: {
+    numberOfElements: {
       isRequired: true,
       type: 'number',
       description: 'Total amount of rows/objects in a table that is display',
@@ -28,8 +28,8 @@ export const paginationData = {
       description: 'Align the paginator to the right',
       default: false,
     },
-    paginatorDropdownOptions: {
-      isRequired: true,
+    dropdownItems: {
+      isRequired: false,
       type: 'object',
       description:
         'Options available in the pagination dropdown menu, set as array of objects with keys of :  {value: string, label: string}',
@@ -54,13 +54,13 @@ export const paginationData = {
     labelOf: {
       isRequired: false,
       type: 'string',
-      description: 'Label between dropdown menu and amount of items being showed',
+      description: 'Label between dropdown menu and amount of elements being showed',
       default: 'av',
     },
     label: {
       isRequired: false,
       type: 'string',
-      description: 'Label for describing what kind of data is displayed, eg. rows, items.',
+      description: 'Label for describing what kind of data is displayed, eg. rows, elements.',
       default: 'elementer',
     },
     valueOnChange: {
@@ -72,11 +72,11 @@ export const paginationData = {
   package: 'npm install @elvia/elvis-pagination',
   codeImportReact: `import { Pagination } from '@elvia/elvis-pagination/react';`,
   codeImportWebComponent: `import '@elvia/elvis-pagination';`,
-  codeReact: `<Pagination items={156}
+  codeReact: `<Pagination numberOfElements={156}
   valueOnChange={(event) => handleOnChange(event)} >
 </Pagination>`,
   codeAngular: `<elvia-pagination
-  [items]="156" 
+  [numberOfElements]="156"
   (valueOnChange)="handleOnChange(event.detail.value)">
 </elvia-pagination>`,
   codeNativeHTML: `<elvia-pagination
@@ -85,8 +85,8 @@ export const paginationData = {
 
   codeNativeScript: `
   const pagination = document.getElementById('example-elvia-pagination');
-    const items = 156;
-    pagination.setProps({'items': items})
+    const numberOfElements = 156;
+    pagination.setProps({'numberOfElements': numberOfElements})
     pagination.addEventListener('valueOnChange', (event) => {
       console.log('Current selection range of paginator is : ', event.detail.value)
     });
