@@ -216,7 +216,7 @@ module.exports = [
     elementStyle: `min-width: 163px;`,
     reactName: 'Dropdown',
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-box',
@@ -264,5 +264,26 @@ module.exports = [
     slotItems: false,
     useWrapper: false,
     reactTypescriptDeclaration: false,
+  },
+  {
+    name: 'elvis-pagination',
+    elementName: 'elvia-pagination',
+    attributes: [
+      { name: 'value', type: 'object', propType: 'object' },
+      { name: 'numberOfElements', type: 'number', propType: 'number' },
+      { name: 'dropdownMenuPos', type: 'string', propType: 'string' },
+      { name: 'dropdownItems', type: 'object', propType: 'object' },
+      { name: 'labelDisplaying', type: 'string', propType: 'string' },
+      { name: 'label', type: 'string', propType: 'string' },
+      { name: 'labelOf', type: 'string', propType: 'string' },
+    ],
+    elementStyle: `display:flex; width: 100%; min-width: 325px`,
+    conditionalElementStyle: {
+      isRightAligned: `justify-content: flex-end;`,
+    },
+    reactName: 'Pagination',
+    slotItems: false,
+    useWrapper: false,
+    reactTypescriptDeclaration: true,
   },
 ];

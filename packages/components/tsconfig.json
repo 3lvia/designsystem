@@ -2,8 +2,14 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": true,
-      "outDir": "./dist/",
+    "outDir": "./dist/",
     "jsx": "react",
-    "resolveJsonModule": false,  // Our users might not support this
+    "resolveJsonModule": false, // Our users might not support this
+    "plugins": [
+      {
+        "transform": "typescript-plugin-styled-components",
+        "type": "config"
+      }
+    ]
   }
 }

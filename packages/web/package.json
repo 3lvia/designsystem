@@ -34,6 +34,7 @@
     "@elvia/elvis-breadcrumb": "*",
     "@elvia/elvis-dropdown": "*",
     "@elvia/elvis-modal": "*",
+    "@elvia/elvis-pagination": "*",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-box": "*",
     "@elvia/elvis-progress-linear": "*",
