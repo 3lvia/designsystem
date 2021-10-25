@@ -1,5 +1,11 @@
 # Elvia Carousel Changelog
 
+## 1.0.2 (25.10.21)
+
+### Patch
+
+- Added type declaration for Carousel(react only)
+
 ## 1.0.1 (11.10.21)
 
 ### New features

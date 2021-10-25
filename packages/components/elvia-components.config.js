@@ -77,7 +77,7 @@ module.exports = [
     reactName: 'Carousel',
     slotItems: true,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-chip',
