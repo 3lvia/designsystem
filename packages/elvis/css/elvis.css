@@ -5308,18 +5308,14 @@ input:focus {
   text-align: left;
   box-sizing: border-box;
 }
-.e-list.e-list--icons .e-list:not(.e-list--numbers) li,
-.e-list.e-list--icons .e-list:not(.e-list--icons) li, .e-list.e-list--numbers .e-list:not(.e-list--numbers) li,
-.e-list.e-list--numbers .e-list:not(.e-list--icons) li, .e-list li {
+.e-list li {
   list-style: none;
   position: relative;
   line-height: 32px;
   padding-left: 24px;
   margin: 0.5rem 0;
 }
-.e-list.e-list--icons .e-list:not(.e-list--numbers) li::before,
-.e-list.e-list--icons .e-list:not(.e-list--icons) li::before, .e-list.e-list--numbers .e-list:not(.e-list--numbers) li::before,
-.e-list.e-list--numbers .e-list:not(.e-list--icons) li::before, .e-list li::before {
+.e-list li::before {
   content: "";
   position: absolute;
   left: 0;
@@ -5374,6 +5370,7 @@ input:focus {
   margin-right: 8px;
   margin-left: -48px;
 }
+
 .e-modal {
   display: flex;
   justify-content: center;

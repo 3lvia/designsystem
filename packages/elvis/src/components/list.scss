@@ -1,6 +1,6 @@
-@use '../variables/colors.scss';
-@use '../utilities/spacing.scss';
-@use '../utilities/breakpoints';
+@use "../variables/colors.scss";
+@use "../utilities/spacing.scss";
+@use "../utilities/breakpoints";
 
 $list-border-size: 20px;
 $list-dot-size: 8px;
@@ -17,7 +17,7 @@ $list-border-radius: 50%;
   text-align: left;
   box-sizing: border-box;
 
-  %li-element {
+  li {
     list-style: none;
     position: relative;
     line-height: 32px;
@@ -36,10 +36,6 @@ $list-border-radius: 50%;
       background-color: colors.color('elvia-charge');
       border-radius: $list-border-radius;
     }
-  }
-
-  li {
-    @extend %li-element;
   }
 
   &.e-list--numbers {
@@ -64,11 +60,6 @@ $list-border-radius: 50%;
         border: 2px solid colors.color('elvia-charge');
         border-radius: $list-border-radius;
       }
-    }
-
-    .e-list:not(.e-list--numbers) li,
-    .e-list:not(.e-list--icons) li {
-      @extend %li-element;
     }
   }
 
@@ -97,11 +88,6 @@ $list-border-radius: 50%;
       position: absolute;
       margin-right: 8px;
       margin-left: -48px;
-    }
-
-    .e-list:not(.e-list--numbers) li,
-    .e-list:not(.e-list--icons) li {
-      @extend %li-element;
     }
   }
 }
