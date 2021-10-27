@@ -1,5 +1,11 @@
 # Elvia Chip Changelog
 
+## 1.0.4 (27.10.21)
+
+### New features
+
+- Explicitly set text color in in chip to fix bug in iOS 15.
+
 ## 1.0.3 (03.09.21)
 
 ### New features
