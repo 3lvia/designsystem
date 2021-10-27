@@ -6,6 +6,32 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.13.1
+      </span>
+      <br>
+      <span>
+        October 21, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/list#Overview">Lists</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Lists inside lists will get the correct elvis style.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.13.0
       </span>
       <br>

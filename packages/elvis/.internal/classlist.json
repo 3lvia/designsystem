@@ -720,9 +720,9 @@
 		"e-my-n112": {},
 		"e-list": {
 			"modifier": {
+				"e-list--icons": {},
 				"e-list--numbers": {},
-				"e-list--strong": {},
-				"e-list--icons": {}
+				"e-list--strong": {}
 			},
 			"element": {
 				"e-list__icon": {}
@@ -1616,9 +1616,9 @@
 		"e-mx-n112": {},
 		"e-my-n112": {},
 		"e-list": {},
+		"e-list--icons": {},
 		"e-list--numbers": {},
 		"e-list--strong": {},
-		"e-list--icons": {},
 		"e-list__icon": {},
 		"e-modal": {},
 		"e-modal__content": {},
