@@ -7,15 +7,6 @@ $hover-blue: #0064fa;
 $icon-btn-width: 24px;
 $tabs-height: 44px;
 
-%fade {
-  content: '';
-  position: absolute;
-  top: 0;
-  height: 40px;
-  width: 26px;
-  z-index: 1;
-  transition: all linear 0.3s;
-}
 
 %underline {
   content: '';
@@ -76,11 +67,11 @@ $tabs-height: 44px;
     }
 
     &.ewc-tabs__arrow--left {
-      left: 0px;
       padding: 16px 28px 16px 8px;
     }
+
     &.ewc-tabs__arrow--right {
-      right: 0px;
+      right: 24px;
       padding: 16px 8px 16px 28px;
     }
 
@@ -95,6 +86,9 @@ $tabs-height: 44px;
     }
   }
 
+  $black-fade: black 50px;
+  $transparent-left-fade: transparent 15px;
+
   &__items {
     position: relative;
     display: flex;
@@ -104,33 +98,23 @@ $tabs-height: 44px;
     user-select: none;
     height: $tabs-height;
 
-    &::before {
-      @extend %fade;
-      left: 0;
-      background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2));
+    &.right-arrow-fade {
+      -webkit-mask: linear-gradient(to left, transparent 0%, $black-fade);
+      mask: linear-gradient(to left, transparent 0%, $black-fade);
     }
-    &::after {
-      @extend %fade;
-      right: 0;
-      background-image: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.2));
+
+    &.left-arrow-fade {
+      -webkit-mask: linear-gradient(to right, $transparent-left-fade, $black-fade);
+      mask: linear-gradient(to right,  $transparent-left-fade, $black-fade);
+    }
+    
+    &.both-arrows-fade {
+      -webkit-mask: linear-gradient(to right,  $transparent-left-fade, $black-fade, black 90%, transparent 100%);
+      mask: linear-gradient(to right,  $transparent-left-fade, $black-fade, black 90%, transparent 100%);
     }
 
     &.ewc-tabs--scrolling {
       width: calc(100% - (2 * #{$icon-btn-width}));
-      left: $icon-btn-width;
-    }
-
-    &.ewc-tabs--hide-fade-left {
-      &::before {
-        background-image: none;
-        z-index: -1;
-      }
-    }
-    &.ewc-tabs--hide-fade-right {
-      &::after {
-        background-image: none;
-        z-index: -1;
-      }
     }
   }
 
