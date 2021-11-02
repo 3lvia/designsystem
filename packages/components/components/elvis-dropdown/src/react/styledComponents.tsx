@@ -43,7 +43,13 @@ export const DropdownLabel = styled.label`
   text-align: left;
 `;
 
-export const DropdownIndicatorIcon = styled.i`
+type DropdownIndicatorIcon = {
+  isDisabled: boolean;
+  isCompact: boolean;
+  menuIsOpen: boolean;
+};
+
+export const DropdownIndicatorIcon = styled.i<DropdownIndicatorIcon>`
   background-image: ${(props: { isDisabled: boolean }) =>
     !props.isDisabled
       ? `url("data:image/svg+xml,%3csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M.389 5.869a1.328 1.328 0 011.878 0L12 15.6l9.733-9.732a1.328 1.328 0 011.878 1.878L13.443 17.915h-.001a2.04 2.04 0 01-2.885 0L.39 7.747a1.328 1.328 0 010-1.878z' fill='black'/%3e%3c/svg%3e")`
@@ -156,9 +162,15 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
   transform-origin: left bottom;
 }`;
   }
+  return '';
 };
 
-export const DropdownCheckboxMark = styled.span`
+type DropdownCheckboxMark = {
+  isCompact: boolean;
+  isSelected: boolean;
+};
+
+export const DropdownCheckboxMark = styled.span<DropdownCheckboxMark>`
   box-sizing: border-box;
   min-width: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};
   min-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};

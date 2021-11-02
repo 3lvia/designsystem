@@ -1,5 +1,11 @@
 # Elvia Dropdown
 
+## 1.0.8 (28.09.21)
+
+### Patches
+
+Added type declaration support for dropdown komponent
+
 ## 1.0.7 (28.09.21)
 
 ### Bug fixes

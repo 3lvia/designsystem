@@ -48,6 +48,7 @@ export const ChipTitle = styled.div`
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;
+  color: ${colors.elviaOff};
 
   &.dot {
     ::before {

@@ -8,6 +8,42 @@
 
 <!--BODY-->
 <div class="page-body">
+  <h2>Paginator</h2>
+
+  <elvia-pagination
+    items="156"
+    [value]="defaultPaginatioValue"
+    (valueOnChange)="defaultPaginatioValue = $event.detail.value"
+    [isRightAligned]="true"
+    dropdownMenuPos="top"
+  ></elvia-pagination>
+  <h2>Testing Accordion no hover modifier</h2>
+
+  <h3>Single accordions</h3>
+  <div class="e-accordion e-accordion--single">
+    <div class="e-accordion__item">
+      <div class="e-accordion__title e-accordion__title--no-icon-hover">Closed Accordion</div>
+      <div class="e-accordion__icon">
+        <i class="e-icon e-icon--expand_circle-color"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      </div>
+      <div class="e-accordion__content">Hidden information</div>
+    </div>
+  </div>
+  <div class="e-accordion e-accordion--single e-mt-40">
+    <div class="e-accordion__item e-accordion__item--open">
+      <div class="e-accordion__title">Open Accordion</div>
+      <div class="e-accordion__icon">
+        <i class="e-icon e-icon--expand_circle-color"></i>
+        <i class="e-icon e-icon--expand_circle-filled-color"></i>
+      </div>
+      <div class="e-accordion__content">
+        The new AMS meters give you the opportunity to monitor your own consumption, analyze your own
+        consumption pattern and get help for smarter power use.
+      </div>
+    </div>
+  </div>
+
   <h2>Breadcrumbs</h2>
   <elvia-breadcrumb [breadcrumbs]="breadcrumbsTest"></elvia-breadcrumb>
 
@@ -230,6 +266,9 @@
 
     <h2>dropdown</h2>
     <div style="width: 250px">
+      <div class="e-my-24">
+        <button (click)="consoleLogDropdownValue()">Console log dropdown value</button>
+      </div>
       <elvia-dropdown
         [isMulti]="true"
         [isCompact]="false"
