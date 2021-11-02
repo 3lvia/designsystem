@@ -84,16 +84,19 @@ export class CMSTransformService {
   }
 
   private getList(content) {
-    const liRegex = /(?<=<li>)(.*?)(?=<\/li>)/g;
-    const imgRegex = /(?<=<img)(.*?)(?=\/>)/g;
+    const liRegex = /(?:<li>)(.*?)(?=<\/li>)/g;
+    const imgRegex = /(?:<img)(.*?)(?=\/>)/g;
+    if (!content.match(liRegex)) {
+      console.error('List: Formatting of lists content is not correct, make sure there are no line breaks.');
+    }
     let liStrings = [...content.match(liRegex)];
     const bulletIcons = liStrings.map((i) => {
-      const str =
-        '<img style="position: absolute; margin-right: 8px; margin-left: -48px;"' + i.match(imgRegex);
+      const imageUrl = i.match(imgRegex) && i.match(imgRegex)[0].replace('<img', '');
+      const str = '<img style="position: absolute; margin-right: 8px; margin-left: -48px;"' + imageUrl + '/>';
       return str.replace('class="cms-img', '');
     });
     liStrings = liStrings.map((li) => {
-      return li.replace(imgRegex, '').replace('<img/>', '');
+      return li.replace(imgRegex, '').replace('<img/>', '').replace('<li>/>', '<li>');
     });
     if (bulletIcons[0].includes('src=')) {
       let returnString = `<ol class="e-list e-list--icons">`;
