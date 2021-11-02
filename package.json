@@ -25,12 +25,13 @@
     "prettier-comp": "yarn prettier --write 'packages/components/**/*.{js,ts,tsx}'",
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint-all": "yarn run prettier-elvis && yarn run prettier-doc && yarn run prettier-comp && yarn run eslint",
-    "percy": "cd packages/elvis; yarn run percy"
+    "percy": "cd packages/elvis; yarn run percy",
+    "component-tests": "cd packages/components; yarn test && echo SUCCESS"
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged && ./scripts/pre-commit.sh",
-      "pre-push": "./scripts/pre-push.sh"
+      "pre-push": "component-tests && ./scripts/pre-push.sh"
     }
   },
   "lint-staged": {
