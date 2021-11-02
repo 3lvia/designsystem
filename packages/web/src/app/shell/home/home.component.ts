@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   date = new Date();
   christmasMonth = 11;
   christmas = false;
+  halloweenMonth = 9;
+  halloween = false;
   locale: string;
 
   constructor(localizationService: LocalizationService) {
@@ -30,10 +32,27 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.findEndOfRow();
-    this.christmas = this.date.getMonth() === this.christmasMonth ? true : false;
+    this.holiday();
     (document as any).fonts.ready.then(() => {
       this.fontLoaded = true;
     });
+  }
+
+
+  holiday = (): void => {
+    // halloween 
+    if (
+      this.date.getMonth() === this.halloweenMonth &&
+      this.date.getUTCDate() >= 25) {
+      this.halloween = true;
+    }
+    // christmas 
+    if (
+      this.date.getMonth() === this.christmasMonth
+    ) {
+      this.christmas = true;
+    }
+
   }
 
   findEndOfRow(): void {

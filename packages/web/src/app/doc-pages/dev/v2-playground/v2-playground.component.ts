@@ -85,6 +85,7 @@ export class v2PlaygroundComponent implements OnInit {
 
   dropdownValue = undefined;
 
+  dropdownMenuTop = true;
   defOptions = [
     {
       value: '1',
@@ -110,6 +111,8 @@ export class v2PlaygroundComponent implements OnInit {
       label: 'Option 3',
     },
   ];
+
+  defaultPaginatioValue = { start: 1, end: 10 };
 
   breadcrumbsTest = [
     {

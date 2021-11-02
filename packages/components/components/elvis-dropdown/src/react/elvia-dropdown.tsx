@@ -35,6 +35,8 @@ const ElviaValueContainer = ({ ...props }) => {
   if (optionsCount >= 2) {
     selectedOptions[0] = `${optionsCount} valgte`;
   }
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   return <components.ValueContainer {...props}>{selectedOptions}</components.ValueContainer>;
 };
 
@@ -241,6 +243,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   // Custom components for Elvia dropdown
   const ElviaDropdownIndicator = ({ ...props }) => {
     return (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       <components.DropdownIndicator {...props}>
         <StyledDropdown.DropdownIndicatorIcon
           isDisabled={isDisabled}
@@ -253,9 +257,13 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const ElviaOption = ({ ...props }) => {
     if (!isMulti) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       return <components.Option {...props}>{props.children}</components.Option>;
     }
     return (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       <components.Option {...props}>
         <StyledDropdown.DropdownCheckbox>
           <StyledDropdown.DropdownCheckboxMark
@@ -292,10 +300,14 @@ const Dropdown: React.FC<DropdownProps> = ({
   // handle focus on dropdown, running on first render only (on mount)
   useEffect(() => {
     // Start outline listener
-    toolbox.outlineListener(dropdownRef.current);
+    if (dropdownRef && dropdownRef.current) {
+      toolbox.outlineListener(dropdownRef.current);
+    }
     return () => {
       // Remove outline listener
-      toolbox.outlineListener(dropdownRef.current, true);
+      if (dropdownRef && dropdownRef.current) {
+        toolbox.outlineListener(dropdownRef.current, true);
+      }
     };
   }, []);
 
@@ -359,6 +371,8 @@ const Dropdown: React.FC<DropdownProps> = ({
         options={options}
         placeholder={placeholder}
         value={currentVal}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
         styles={customElviaStyles}
       ></Select>
 

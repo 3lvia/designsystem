@@ -11,6 +11,7 @@ import { Chip } from '@elvia/elvis-chip/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
+import { Pagination } from '@elvia/elvis-pagination/react';
 import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
@@ -241,6 +242,12 @@ function App() {
   return (
     <div className="App">
       <h1>React preview</h1>
+      <h2>Pagination!</h2>
+      <Pagination
+        items={156}
+        valueOnChange={(event) => console.log(event)}
+        dropdownMenuPos="top"
+      ></Pagination>
       <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
