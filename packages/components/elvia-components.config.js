@@ -273,6 +273,7 @@ module.exports = [
       { name: 'numberOfElements', type: 'number', propType: 'number' },
       { name: 'dropdownMenuPos', type: 'string', propType: 'string' },
       { name: 'dropdownItems', type: 'object', propType: 'object' },
+      { name: 'isRightAligned', type: 'boolean', propType: 'boolean' },
       { name: 'labelDisplaying', type: 'string', propType: 'string' },
       { name: 'label', type: 'string', propType: 'string' },
       { name: 'labelOf', type: 'string', propType: 'string' },
