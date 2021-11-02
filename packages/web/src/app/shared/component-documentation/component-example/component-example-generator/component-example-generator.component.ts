@@ -46,7 +46,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   bgList = [];
   dynamicCode;
 
-  constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) { }
+  constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
     this.codeAngular = this.componentData.codeAngular;

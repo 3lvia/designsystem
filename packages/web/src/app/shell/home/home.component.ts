@@ -38,22 +38,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
-
   holiday = (): void => {
-    // halloween 
-    if (
-      this.date.getMonth() === this.halloweenMonth &&
-      this.date.getUTCDate() >= 25) {
+    // halloween
+    if (this.date.getMonth() === this.halloweenMonth && this.date.getUTCDate() >= 25) {
       this.halloween = true;
     }
-    // christmas 
-    if (
-      this.date.getMonth() === this.christmasMonth
-    ) {
+    // christmas
+    if (this.date.getMonth() === this.christmasMonth) {
       this.christmas = true;
     }
-
-  }
+  };
 
   findEndOfRow(): void {
     const rows = document.getElementsByTagName('tr');

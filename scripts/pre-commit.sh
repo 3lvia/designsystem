@@ -12,3 +12,5 @@ if [[ $files != "0" ]]; then
     git ls-files -m | grep "packages/elvis"
     exit 1
 fi
+cd packages/components
+yarn run build

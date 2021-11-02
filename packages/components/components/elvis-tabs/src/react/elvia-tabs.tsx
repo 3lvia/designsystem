@@ -108,7 +108,7 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
     ['ewc-tabs__arrow--hide']: isOnRightEnd,
     ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
   });
-  const itemsClasses = classNames('ewc-tabs__items',{
+  const itemsClasses = classNames('ewc-tabs__items', {
     ['right-arrow-fade']: !isOnRightEnd,
     ['left-arrow-fade']: !isOnLeftEnd,
     ['both-arrows-fade']: !isOnLeftEnd && !isOnRightEnd,
@@ -140,7 +140,7 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
           ></i>
         )}
       </div>
-      
+
       <div className={itemsClasses}>
         <div className="ewc-tabs__items-scroll" ref={itemsRef} role="tablist">
           {items &&

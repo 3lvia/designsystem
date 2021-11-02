@@ -33,4 +33,4 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-documentatio
   declarations: [PaginationDocComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class PaginationDocModule { }
+export class PaginationDocModule {}
