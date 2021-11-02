@@ -1,5 +1,11 @@
 # Elvia Date picker Changelog
 
+## 1.0.4 (03.11.21)
+
+### New features
+
+TypeScript declarations for React
+
 ## 1.0.2 (08.06.21)
 
 ### Bug fixes

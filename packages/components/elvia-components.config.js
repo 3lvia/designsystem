@@ -162,7 +162,7 @@ module.exports = [
     },
     useWrapper: false,
     slotItems: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-testing',
