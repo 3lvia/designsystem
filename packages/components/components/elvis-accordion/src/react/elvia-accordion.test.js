@@ -31,7 +31,7 @@ describe('Elvis Accordion', () => {
   });
 
   it('should not show content', function (done) {
-    expect(wrapper.find('div').at(2).getDOMNode()).toHaveStyle('opacity: 1');
+    expect(wrapper.find('div').at(2).getDOMNode()).toHaveStyle('opacity: 0');
     done();
   });
 
