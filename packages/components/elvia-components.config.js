@@ -249,7 +249,7 @@ module.exports = [
     reactName: 'Modal',
     slotItems: true,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-radio-filter',
