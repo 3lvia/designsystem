@@ -1,8 +1,8 @@
 # Elvia Breadcrumbs
 
-## 1.0.2 (12.08.21)
+## 1.1.0 (3.11.21)
 
-### Patch
+### Feature
 
 - Added type declaration for breadcrumb(for react)
 
