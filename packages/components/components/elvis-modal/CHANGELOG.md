@@ -4,7 +4,7 @@
 
 ### New features
 
-- Added type declaration for breadcrumb(for react)
+- Added type declaration (for react)
 
 ## 1.0.1 (19.10.21)
 
