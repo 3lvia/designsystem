@@ -125,7 +125,7 @@ module.exports = [
     useWrapper: true,
     elementStyle: `display: block;`,
     slotItems: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-progress-linear',
