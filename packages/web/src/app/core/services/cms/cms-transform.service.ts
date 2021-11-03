@@ -58,6 +58,9 @@ export class CMSTransformService {
     if (type === 'landingPage') {
       return this.getLandingPage(data, locale);
     }
+    if (type === 'landingPageWithCards') {
+      return this.getLandingPageWithCards(data, locale, subMenu);
+    }
     if (type === 'centeredContent') {
       return this.getCenteredContent(data, locale);
     }
@@ -189,5 +192,37 @@ export class CMSTransformService {
           ${data.fields.description ? data.fields.description[locale] : ''}
         </div>
       </div>`;
+  }
+
+  private getLandingPageWithCards(data, locale, subMenu) {
+    const cardList = [...data.fields.overviewCard[locale]];
+    let returnString = '';
+    cardList.forEach((card) => {
+      let fullPath = '';
+      if (card.fields.pageUrl) {
+        const subPath = card.fields.pageUrl[locale].fields.path[locale];
+        fullPath = this.getFullPath(subPath, subMenu);
+      } else {
+        console.error('Link: Missing either page reference or url.');
+      }
+      const iconUrl = 'https:' + card.fields.pageIcon[locale].fields.file[locale].url;
+      const cardTitle = card.fields.title[locale];
+      returnString += `<div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <a class="e-link e-link--card" href="${fullPath}">
+          <div class="e-link__content">
+            <div class="e-link__icon">
+              <img src="${iconUrl}"></img>
+            </div>
+            <div class="e-link__title">${cardTitle}</div>
+          </div>
+        </a>
+      </div>`;
+    });
+    return (
+      `<div class="e-grid" style="margin-top: 20px;"><div class="row components-overview-cards components-overview-cards-animation e-grid-gutters-ext e-grid-gutters-vertical">
+      ` +
+      returnString +
+      '</div></div>'
+    );
   }
 }
