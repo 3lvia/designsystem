@@ -15,18 +15,18 @@
     "@elvia/elvis-assets-icons": "*"
   },
   "devDependencies": {
-    "doiuse": "^4.4.0",
-    "fibers": "^4.0.3",
-    "gulp": "^4.0.2",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-postcss": "^8.0.0",
-    "gulp-rename": "^2.0.0",
-    "mini-svg-data-uri": "^1.1.3",
-    "postcss-css-variables": "^0.14.0",
-    "resolve": "^1.20.0",
-    "sass": "^1.33.0",
-    "yargs-parser": ">=13.1.2",
+    "doiuse": "4.4.1",
+    "fibers": "4.0.3",
+    "gulp": "4.0.2",
+    "gulp-clean-css": "4.3.0",
+    "gulp-imagemin": "7.1.0",
+    "gulp-postcss": "8.0.0",
+    "gulp-rename": "2.0.0",
+    "mini-svg-data-uri": "1.4.3",
+    "postcss-css-variables": "0.14.0",
+    "resolve": "1.20.0",
+    "sass": "1.43.4",
+    "yargs-parser": "20.2.9",
     "bootstrap": "4.5.3"
   }
 }

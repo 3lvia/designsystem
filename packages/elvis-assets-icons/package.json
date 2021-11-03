@@ -11,8 +11,8 @@
     "watch": "gulp watch"
   },
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-svgo": "^2.1.1",
-    "sharp": "^0.26.2"
+    "gulp": "4.0.2",
+    "gulp-svgo": "2.2.1",
+    "sharp": "0.26.3"
   }
 }
