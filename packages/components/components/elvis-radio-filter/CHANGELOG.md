@@ -2,13 +2,13 @@
 
 ## 1.1.0 (03.11.21)
 
-### Add value prop to Option
+### New features
 
 - Added type declaration (for react)
 
 ## 1.0.2 (24.09.21)
 
-### Add value prop to Option
+### Bug fix
 
 - Updated aria-label if not supplied.
 
