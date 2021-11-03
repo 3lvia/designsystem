@@ -1,6 +1,6 @@
 # Elvia Modal Changelog
 
-## 1.0.2 (03.11.21)
+## 1.1.0 (03.11.21)
 
 ### New features
 
