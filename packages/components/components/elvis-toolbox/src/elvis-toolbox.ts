@@ -1,10 +1,10 @@
 import { throttle } from 'lodash';
 
-const customThrottle = (func: () => void, limit: number, options: { trailing: boolean }): any => {
+const customThrottle = (func: () => void, limit: number, options?: { trailing: boolean }): any => {
   return throttle(func, limit, options);
 };
 
-const outlineListener = (element: HTMLElement, destroy?: boolean): void => {
+const outlineListener = (element: HTMLElement | null, destroy?: boolean): void => {
   if (!element) {
     return;
   }

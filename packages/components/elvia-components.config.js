@@ -108,7 +108,7 @@ module.exports = [
     elementStyle: `display: grid; overflow: hidden;`,
     slotItems: false,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-popover',
