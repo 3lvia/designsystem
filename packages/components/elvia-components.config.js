@@ -94,7 +94,7 @@ module.exports = [
     reactName: 'Chip',
     slotItems: false,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-tabs',
