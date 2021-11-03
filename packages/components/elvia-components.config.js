@@ -139,7 +139,7 @@ module.exports = [
     elementStyle: `width: 100%;`,
     slotItems: false,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-datepicker',
