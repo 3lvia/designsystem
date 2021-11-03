@@ -4,7 +4,7 @@
 
 ### New features
 
-TypeScript declarations for React
+- Added type declaration (for react)
 
 ## 1.0.2 (08.06.21)
 
