@@ -263,7 +263,7 @@ module.exports = [
     reactName: 'RadioFilter',
     slotItems: false,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-pagination',
