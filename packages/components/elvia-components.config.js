@@ -62,7 +62,7 @@ module.exports = [
     reactName: 'Breadcrumb',
     useWrapper: false,
     slotItems: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-carousel',
