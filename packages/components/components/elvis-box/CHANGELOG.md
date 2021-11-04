@@ -4,7 +4,7 @@
 
 ### Feature
 
-- Added type declaration for box component
+- Added type declaration (for react)
 
 ## 1.0.0 (07.10.21)
 
