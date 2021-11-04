@@ -78,8 +78,8 @@ export class CMSService {
       figmaUrl: figmaUrl,
       content: content,
       isMainPage: isMainPage,
-      docUrl: data.fields.path[locale],
-      fullPath: subMenuRoute + data.fields.path[locale],
+      docUrl: data.fields.path && data.fields.path[locale],
+      fullPath: data.fields.path && subMenuRoute + data.fields.path[locale],
     };
   }
 
