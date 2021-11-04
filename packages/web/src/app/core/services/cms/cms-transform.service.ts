@@ -18,7 +18,8 @@ export class CMSTransformService {
       [BLOCKS.HEADING_3]: (node, next) => `<h3 class="e-title-sm">${next(node.content)}</h3>`,
       [BLOCKS.HEADING_6]: (node, next) => `<p class="e-text-lg">${next(node.content)}</p>`,
       [BLOCKS.PARAGRAPH]: (node, next) => `<p>${next(node.content)}</p>`,
-      [BLOCKS.UL_LIST]: (node, next) => `<ul class="e-list">${next(node.content)}</ul>`,
+      [BLOCKS.UL_LIST]: (node, next) => `${this.getList(next(node.content))}`,
+      [BLOCKS.OL_LIST]: (node, next) => `<ul class="e-list e-list--numbers">${next(node.content)}</ul>`,
       [INLINES.HYPERLINK]: (node, next) =>
         `<a class="e-link e-link--inline" href="${node.data.uri}">${next(node.content)}</a>`,
       [BLOCKS.EMBEDDED_ASSET]: (node) =>
@@ -83,6 +84,34 @@ export class CMSTransformService {
       <div class="cms-centered-content">
         ${documentToHtmlString(data.fields.content[locale], this.options)}
       </div>`;
+  }
+
+  private getList(content) {
+    const liRegex = /(?:<li>)(.*?)(?=<\/li>)/g;
+    const imgRegex = /(?:<img)(.*?)(?=\/>)/g;
+    if (!content.match(liRegex)) {
+      console.error('List: Formatting of lists content is not correct, make sure there are no line breaks.');
+    }
+    let liStrings = [...content.match(liRegex)];
+    const bulletIcons = liStrings.map((i) => {
+      const imageUrl = i.match(imgRegex) && i.match(imgRegex)[0].replace('<img', '');
+      const str = '<img style="position: absolute; margin-right: 8px; margin-left: -48px;"' + imageUrl + '/>';
+      return str.replace('class="cms-img', '');
+    });
+    liStrings = liStrings.map((li) => {
+      return li.replace(imgRegex, '').replace('<img/>', '').replace('<li>/>', '<li>');
+    });
+    if (bulletIcons[0].includes('src=')) {
+      let returnString = `<ol class="e-list e-list--icons">`;
+      for (let liIndex = 0; liIndex <= liStrings.length - 1; liIndex++) {
+        returnString += `<li><span class="e-list__icon">${bulletIcons[liIndex]}</span>`;
+        returnString += `<span>${liStrings[liIndex]}</span></li>`;
+      }
+      returnString = returnString + `</ol>`;
+      return returnString;
+    } else {
+      return `<ul class="e-list">${content}</ul>`;
+    }
   }
 
   private getLink(data, locale, subMenu) {
