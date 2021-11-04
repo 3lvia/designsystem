@@ -13,6 +13,6 @@
     "@elvia/elvis-toolbox": "^1.2.0",
     "@elvia/elvis-dropdown": "^1.0.5",
     "classnames": "^2.2.6",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.3.3"
   }
 }
