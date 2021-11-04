@@ -23,32 +23,45 @@ const setBackgroundColor = (color: ColorType, isSelected: boolean, type: string)
   }
 };
 
-export const ChipComponent = styled.button`
+type ChipComponent = {
+  color: ColorType;
+  isSelected: boolean;
+  chipType: string;
+  disabled: boolean;
+};
+
+export const ChipComponent = styled.button<ChipComponent>`
   display: flex;
   flex-direction: row;
   align-items: center;
   background: none;
   border: none;
-  background-color: ${(props: { color: ColorType; isSelected: boolean; type: string }) =>
-    setBackgroundColor(props.color, props.isSelected, props.type)};
+  background-color: ${(props: { color: ColorType; isSelected: boolean; chipType: string }) =>
+    setBackgroundColor(props.color, props.isSelected, props.chipType)};
   cursor: ${(props: { disabled: boolean }) => (props.disabled ? 'not-allowed' : 'pointer')};
   font-size: 14px;
   line-height: 16px;
   padding: calc(8px - 1px) calc(16px - 1px);
   border-radius: 24px;
   &:hover:not(:disabled) {
-    background-color: ${(props: { type: string }) =>
-      props.type === 'removable' ? colors.elviaCharge : 'transparent'};
+    background-color: ${(props: { chipType: string }) =>
+      props.chipType === 'removable' ? colors.elviaCharge : 'transparent'};
   }
 `;
 
-export const ChipTitle = styled.div`
+type ChipTitle = {
+  disabled: boolean;
+  color: ColorType;
+};
+
+export const ChipTitle = styled.div<ChipTitle>`
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;
   color: ${colors.elviaOff};
+  opacity: ${(props: { disabled: boolean }) => (props.disabled ? '0.3' : '1')};
 
   &.dot {
     ::before {
