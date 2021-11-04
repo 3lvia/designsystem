@@ -58,7 +58,7 @@ const BoxTitle = styled.div`
 
 type BoxContentType = {
   hasBorder: boolean;
-}
+};
 
 const BoxContent = styled.div<BoxContentType>`
   position: relative;

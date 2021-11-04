@@ -32,7 +32,7 @@ type EWCBreadcrumbLinkTypes = {
   isClickable: boolean;
   href: any;
   key: number | undefined;
-}
+};
 
 export const EWCBreadcrumbLink = styled.a<EWCBreadcrumbLinkTypes>`
   position: relative;
