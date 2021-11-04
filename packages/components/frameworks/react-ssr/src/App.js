@@ -241,6 +241,7 @@ function App() {
 
   return (
     <div className="App">
+      <Accordion labelPosition="center" openLabel="open" closeLabel="close" content="TextContent"></Accordion>
       <h1>React preview</h1>
       <h2>Pagination!</h2>
       <Pagination
@@ -513,21 +514,7 @@ function App() {
       </div>
       <h3>Custom Accordion content</h3>
       <div style={{ marginTop: '24px', marginBottom: '24px' }}>
-        <Accordion
-          type="normal"
-          position="center"
-          content={
-            <div>
-              <div style={{ color: 'white' }}>Hello!</div>
-              <div style={{ color: 'green' }}>Is</div>
-              <div style={{ color: 'black' }}>It</div>
-              <div style={{ color: 'purple' }}>Me</div>
-              <div style={{ color: 'yellow' }}>You´re</div>
-              <div style={{ color: 'blue' }}>Looking</div>
-              <div style={{ color: 'red' }}>For</div>
-            </div>
-          }
-        ></Accordion>
+        <Accordion type="normal" position="center" content={<div>Hello</div>}></Accordion>
       </div>
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>

@@ -1,5 +1,11 @@
 # Elvia Popover Changelog
 
+## 4.2.0 (03.11.21)
+
+### New features
+
+- Added type declaration (for react)
+
 ## 4.1.3 (16.09.21)
 
 ### Bug fixes

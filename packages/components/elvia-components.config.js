@@ -62,7 +62,7 @@ module.exports = [
     reactName: 'Breadcrumb',
     useWrapper: false,
     slotItems: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-carousel',
@@ -94,7 +94,7 @@ module.exports = [
     reactName: 'Chip',
     slotItems: false,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-tabs',
@@ -108,7 +108,7 @@ module.exports = [
     elementStyle: `display: grid; overflow: hidden;`,
     slotItems: false,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-popover',
@@ -125,7 +125,7 @@ module.exports = [
     useWrapper: true,
     elementStyle: `display: block;`,
     slotItems: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-progress-linear',
@@ -139,7 +139,7 @@ module.exports = [
     elementStyle: `width: 100%;`,
     slotItems: false,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-datepicker',
@@ -162,7 +162,7 @@ module.exports = [
     },
     useWrapper: false,
     slotItems: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-testing',
@@ -230,7 +230,7 @@ module.exports = [
     slotItems: true,
     reactName: 'Box',
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-modal',
@@ -249,7 +249,7 @@ module.exports = [
     reactName: 'Modal',
     slotItems: true,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-radio-filter',
@@ -263,7 +263,7 @@ module.exports = [
     reactName: 'RadioFilter',
     slotItems: false,
     useWrapper: false,
-    reactTypescriptDeclaration: false,
+    reactTypescriptDeclaration: true,
   },
   {
     name: 'elvis-pagination',
@@ -273,6 +273,7 @@ module.exports = [
       { name: 'numberOfElements', type: 'number', propType: 'number' },
       { name: 'dropdownMenuPos', type: 'string', propType: 'string' },
       { name: 'dropdownItems', type: 'object', propType: 'object' },
+      { name: 'isRightAligned', type: 'boolean', propType: 'boolean' },
       { name: 'labelDisplaying', type: 'string', propType: 'string' },
       { name: 'label', type: 'string', propType: 'string' },
       { name: 'labelOf', type: 'string', propType: 'string' },

@@ -55,7 +55,12 @@ const BoxTitle = styled.div`
     margin: 0;
   }
 `;
-const BoxContent = styled.div`
+
+type BoxContentType = {
+  hasBorder: boolean;
+};
+
+const BoxContent = styled.div<BoxContentType>`
   position: relative;
   display: block;
   width: 100%;
@@ -96,13 +101,13 @@ const Box: FC<BoxProps> = ({ content, title, isColored = false, hasBorder = fals
       {title && <BoxTitle>{title}</BoxTitle>}
       {!title && <BoxTitle ref={boxTitle}></BoxTitle>}
       {content && (
-        <BoxContent hasBorder={hasBorder} isColored={isColored}>
+        <BoxContent hasBorder={hasBorder}>
           {isColored && <BoxColoredLine></BoxColoredLine>}
           {content}
         </BoxContent>
       )}
       {!content && (
-        <BoxContent hasBorder={hasBorder} isColored={isColored}>
+        <BoxContent hasBorder={hasBorder}>
           {isColored && <BoxColoredLine></BoxColoredLine>}
           <div ref={boxContent}></div>
         </BoxContent>

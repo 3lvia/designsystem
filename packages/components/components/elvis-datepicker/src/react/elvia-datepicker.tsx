@@ -97,11 +97,15 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   const addOutlineFix = (ref: HTMLDivElement | null) => {
-    toolbox.outlineListener(ref);
+    if (ref) {
+      toolbox.outlineListener(ref);
+    }
   };
 
   const removeOutlineFix = (ref: HTMLDivElement | null) => {
-    toolbox.outlineListener(ref, true);
+    if (ref) {
+      toolbox.outlineListener(ref, true);
+    }
   };
 
   const onFocus = () => {

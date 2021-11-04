@@ -28,7 +28,13 @@ export const EWCBreadcrumbDesktopWrapper = styled.span`
   align-items: center;
 `;
 
-export const EWCBreadcrumbLink = styled.a`
+type EWCBreadcrumbLinkTypes = {
+  isClickable: boolean;
+  href: any;
+  key: number | undefined;
+};
+
+export const EWCBreadcrumbLink = styled.a<EWCBreadcrumbLinkTypes>`
   position: relative;
   box-sizing: border-box;
   font-family: 'Red Hat Text', Verdana, sans-serif;

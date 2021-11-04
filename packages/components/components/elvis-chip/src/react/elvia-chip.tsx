@@ -27,7 +27,7 @@ export const Chip: FC<BaseChipProps> = ({
   ariaLabel,
   color = 'green',
   disabled = false,
-  selected,
+  selected = false,
   type = 'removable',
   value,
   onDelete,
@@ -74,7 +74,7 @@ export const Chip: FC<BaseChipProps> = ({
       disabled={disabled}
       onMouseEnter={setHover(true)}
       onMouseLeave={setHover(false)}
-      type={type}
+      chipType={type}
       isSelected={isSelected}
     >
       {type === 'choice' && (
@@ -89,6 +89,7 @@ export const Chip: FC<BaseChipProps> = ({
       )}
       <ChipTitle
         color={color}
+        disabled={disabled}
         className={classnames({
           ['dot']: type === 'legend',
           ['showDot']: type === 'legend' && (isHovering || isSelected),

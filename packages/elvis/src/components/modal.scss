@@ -1,7 +1,7 @@
 @use '../variables/colors';
-@use "../variables/typography";
-@use "../utilities/breakpoints";
-@use "../utilities/helpers";
+@use '../variables/typography';
+@use '../utilities/breakpoints';
+@use '../utilities/helpers';
 
 $modal-border-radius: 8px;
 $modal-max-width: 704px;

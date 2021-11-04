@@ -1,6 +1,15 @@
-# Elvia Checkbox Changelog
+# Elvia Tabs Changelog
 
-## 1.0.0 (13.11.20)
+## 1.1.0 (03.11.21)
+
+### New features
+
+- Added type declaration (for react)
+
+## 1.0.4 (27.10.21)
+
+- Add a general fade
+- Remove margin when scroll is used
 
 ### Breaking changes
 

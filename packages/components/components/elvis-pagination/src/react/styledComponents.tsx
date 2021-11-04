@@ -12,7 +12,7 @@ const ElviaColors = {
 
 type PaginationTypes = {
   isRightAligned: boolean;
-}
+};
 
 export const Pagination = styled.div<PaginationTypes>`
   display: flex;
@@ -53,7 +53,7 @@ export const InfoDropdown = styled.div`
 
 type InfoAmountTypes = {
   isMobile: boolean;
-}
+};
 export const InfoAmount = styled.div<InfoAmountTypes>`
   font-family: 'Red Hat Text';
   font-size: 14px;
@@ -72,7 +72,7 @@ export const SelectorArea = styled.div`
 
 type SelectorArrowBtnTypes = {
   visible: boolean;
-}
+};
 
 export const SelectorArrowBtn = styled.button<SelectorArrowBtnTypes>`
   box-sizing: border-box;
@@ -132,7 +132,7 @@ type PaginatorNumberTypes = {
   onClick?: any;
   key: number | string;
   children?: number;
-}
+};
 
 export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
   font-family: Red Hat Text;
@@ -170,7 +170,7 @@ export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
 
 type PaginatorDotsTypes = {
   noDots: boolean;
-}
+};
 
 export const PaginatorDots = styled.div<PaginatorDotsTypes>`
   font-family: Red Hat Text;

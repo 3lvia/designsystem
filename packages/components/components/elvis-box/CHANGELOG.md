@@ -1,5 +1,11 @@
 # Elvia Box Changelog
 
+## 1.1.0 (03.11.21)
+
+### Feature
+
+- Added type declaration (for react)
+
 ## 1.0.0 (07.10.21)
 
 ### New features

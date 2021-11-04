@@ -47,7 +47,7 @@ type DropdownIndicatorIcon = {
   isDisabled: boolean;
   isCompact: boolean;
   menuIsOpen: boolean;
-}
+};
 
 export const DropdownIndicatorIcon = styled.i<DropdownIndicatorIcon>`
   background-image: ${(props: { isDisabled: boolean }) =>
@@ -162,13 +162,13 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
   transform-origin: left bottom;
 }`;
   }
-  return ''
+  return '';
 };
 
 type DropdownCheckboxMark = {
   isCompact: boolean;
   isSelected: boolean;
-}
+};
 
 export const DropdownCheckboxMark = styled.span<DropdownCheckboxMark>`
   box-sizing: border-box;

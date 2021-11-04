@@ -74,8 +74,6 @@ const Pagination: FC<PaginationProps> = ({
     setCurrentDisplayAmount(dropdownItems[0]);
   }, [dropdownItems]);
 
-
-
   useEffect(() => {
     setWindowWidth(window.innerWidth);
   }, []);

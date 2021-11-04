@@ -1,17 +1,19 @@
 const gulp = require('gulp');
-var header = require('gulp-header');
+const header = require('gulp-header');
 const babel = require('gulp-babel');
 const tap = require('gulp-tap');
 const sass = require('sass');
 const del = require('del');
 const mergeStream = require('merge-stream');
 const path = require('path');
-let components = require('../elvia-components.config');
 const rename = require("gulp-rename");
 const fs = require('fs');
 const typescript = require('gulp-typescript')
 const validate = require('./validateConfig.js');
 const filter = require('gulp-filter');
+let components = require('../elvia-components.config');
+const util = require('util');
+const exec = util.promisify(require('child_process').exec);
 
 
 const WARNING = `/* 
@@ -172,6 +174,10 @@ function buildToolboxComponentToJS() {
 
 }
 
+async function runTests() {
+    return await exec('yarn run test');
+}
+
 // TODO: Find a way to do cleanup that does not trigger rebuild
 function cleanup() {
     return del(['../components/**/dist/**/*'], { force: true });
@@ -182,12 +188,15 @@ gulp.task('cleanup', gulp.series(cleanup, function (done) { done(); }));
 gulp.task(
     'default',
     gulp.series(
-        validate.validateElviaComponentsConfig,
         buildToolboxComponentToJS,
         TSX_to_JS,
         reactTypescriptDeclarations,
         buildWebComponentsMagically,
         buildElviaComponentToJS,
+        runTests,
+        gulp.parallel(
+            validate.validateElviaComponentsConfig,
+        ),
         function (done) {
             done();
             console.log('Successfully built Elvia Components!');
