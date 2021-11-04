@@ -1,9 +1,17 @@
 @import '../shared-sizes.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
+.components-overview-cards {
+  @include breakpoint-up(Tablet) {
+    display: none;
+  }
+}
 
 .overview-margin-title-bottom {
   margin-top: 0px;
   margin-bottom: 20px;
+  @include breakpoint-up(Tablet) {
+    margin-bottom: 40px;
+  }
 }
 @include breakpoint-up(Mobile) {
   .overview-margin-title-bottom {
