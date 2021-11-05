@@ -12,7 +12,8 @@
     "percy": "node testing/server.js & percy exec -- node testing/snapshots.js"
   },
   "dependencies": {
-    "@elvia/elvis-assets-icons": "*"
+    "@elvia/elvis-assets-icons": "*",
+    "bootstrap": "4.5.3"
   },
   "devDependencies": {
     "doiuse": "^4.4.0",
@@ -26,7 +27,6 @@
     "postcss-css-variables": "^0.14.0",
     "resolve": "^1.20.0",
     "sass": "^1.33.0",
-    "yargs-parser": ">=13.1.2",
-    "bootstrap": "4.5.3"
+    "yargs-parser": ">=13.1.2"
   }
 }
