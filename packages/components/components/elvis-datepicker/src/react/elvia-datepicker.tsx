@@ -63,6 +63,11 @@ export const Datepicker: FC<DatepickerProps> = ({
       MuiButtonBase: {
         disableRipple: true,
       },
+      MuiPopover: {
+        style: {
+          zIndex: 99999,
+        },
+      },
     },
   });
 
