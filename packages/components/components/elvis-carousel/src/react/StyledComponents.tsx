@@ -41,7 +41,7 @@ export const CarouselContainer = styled.div`
   }
   .exit-animation {
     animation: ${(props: { slideDirection: string }) =>
-    props.slideDirection === 'left' ? 'exitLeft' : 'exitRight'}
+        props.slideDirection === 'left' ? 'exitLeft' : 'exitRight'}
       500ms ease-in;
   }
   .enter-animation {
@@ -80,7 +80,7 @@ type CarouselElementTypes = {
   onTouchStart: any;
   onTouchMove: any;
   onTouchEnd: any;
-}
+};
 
 export const CarouselElement = styled.div<CarouselElementTypes>`
   display: flex;
@@ -140,7 +140,7 @@ export const Dot = styled.button`
   @media (max-width: 767px) {
     border: 1px solid
       ${(props: { isSelected: boolean }) =>
-    props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOff};
+        props.isSelected ? ElviaColors.elviaCharge : ElviaColors.elviaOff};
     height: ${(props: { isSelected: boolean }) => (props.isSelected ? '13px' : '12px')};
     width: ${(props: { isSelected: boolean }) => (props.isSelected ? '13px' : '12px')};
   }
