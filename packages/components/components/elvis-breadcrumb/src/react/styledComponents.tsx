@@ -48,10 +48,14 @@ export const EWCBreadcrumbLink = styled.a<EWCBreadcrumbLinkTypes>`
   color: ${ElviaColors.elviaGrey70};
   pointer: ${(props: { isClickable: boolean }) => (props.isClickable ? 'cursor' : 'pointer')};
   pointer-events: ${(props: { isClickable: boolean }) => (props.isClickable ? 'auto' : 'none')};
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
   &::before {
     content: '';
     position: absolute;
-    top: 100%;
+    bottom: 0;
     width: 0;
     height: 2px;
     border-radius: 25px;

@@ -1,5 +1,11 @@
 # Elvia Breadcrumbs
 
+## 1.1.1 (4.11.21)
+
+### Fix
+
+- Fix truncation for breadcrumbs if title is too long.
+
 ## 1.1.0 (3.11.21)
 
 ### Feature
