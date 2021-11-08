@@ -1,22 +1,20 @@
 <!--PAGES FROM CMS-->
 <div *ngIf="isCmsPage">
-  <div *ngIf="landingPage" class="page-body tablet-size">
-    <div class="wrapper">
-      <div class="second-wrapper">
-        <div *ngIf="showContentLoader">
-          <div>
-            <div class="e-content-loader e-content-loader--text e-w-25" style="height: 40px"></div>
-          </div>
-          <div class="e-mt-64">
-            <div class="e-content-loader e-w-100" style="height: 500px"></div>
-          </div>
-        </div>
-        <h1 class="e-title-md">
-          {{ cmsContent.title ? cmsContent.title : '' }}
-        </h1>
-        <div class="content" *ngIf="cmsContent.content" [innerHTML]="contentHTML"></div>
+  <div *ngIf="landingPage">
+    <div *ngIf="showContentLoader">
+      <div>
+        <div class="e-content-loader e-content-loader--text e-w-25" style="height: 40px"></div>
+      </div>
+      <div class="e-mt-64">
+        <div class="e-content-loader e-w-100" style="height: 500px"></div>
       </div>
     </div>
+    <div class="overview-page-title-container">
+      <h1 class="e-title-md e-mt-n8 overview-page-title-size">
+        {{ cmsContent.title ? cmsContent.title : '' }}
+      </h1>
+    </div>
+    <div class="content" *ngIf="cmsContent.content" [innerHTML]="contentHTML"></div>
   </div>
 
   <div *ngIf="!landingPage">

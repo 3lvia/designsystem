@@ -4,6 +4,27 @@
 @import '@elvia/elvis/src/utilities/colors.scss';
 @import '../../shared/shared-sizes.scss';
 
+.overview-content {
+  margin-left: calc(13% + 72px);
+  @include breakpoint-up(MinDesktop) {
+    margin-left: calc(13% + 72px + 32px);
+    width: calc(100% - 18% - 108px);
+  }
+  @include breakpoint-up(Tablet) {
+    margin: 0 auto;
+    width: calc(100% - 108px);
+  }
+}
+.not-landing-page {
+  margin-left: 72px;
+  @include breakpoint-up(MinDesktop) {
+    margin-left: calc(13% + 72px);
+  }
+  @include breakpoint-up(Tablet) {
+    margin: 0 auto;
+    width: calc(100% - 108px);
+  }
+}
 .feedback-link {
   display: flex;
   justify-content: flex-end;
@@ -91,18 +112,6 @@
     }
     &.homePage {
       display: block;
-    }
-  }
-  .page-content {
-    display: block;
-    max-width: 67rem;
-    @include breakpoint-up(MinDesktop) {
-      width: calc(100% - 240px);
-      margin-left: 240px;
-    }
-    @include breakpoint-up(Tablet) {
-      margin: 0 auto;
-      width: calc(100% - 48px - 48px);
     }
   }
   .landing-page {
