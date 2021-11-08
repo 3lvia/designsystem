@@ -8,6 +8,24 @@
 
 <!--BODY-->
 <div class="page-body">
+  <button (click)="isModalShowing1 = !isModalShowing1">Hello</button>
+  <elvia-modal
+    (onHide)="isModalShowing1 = !isModalShowing1"
+    [isShowing]="isModalShowing1"
+    [title]="'Redigere bidragsytere'"
+    [disableClose]="datepickerOpen"
+  >
+    <div slot="content">
+      <div class="date-container">
+        <elvia-datepicker [isCompact]="true" (onOpen)="onOpen()" (onClose)="onClose()"></elvia-datepicker>
+      </div>
+    </div>
+    <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing1 = false">
+      Avbryt
+    </button>
+    <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Lagre</button>
+  </elvia-modal>
+
   <h2>Paginator</h2>
 
   <elvia-pagination

@@ -83,6 +83,16 @@ const datepickerData = {
       description: 'Makes date after this date disabled.',
       displayName: 'Max date',
     },
+    onOpen: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Callback for every time the datepicker is being opened.',
+    },
+    onClose: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Callback for every time the modal is being closed.',
+    },
   },
   package: 'npm install @elvia/elvis-datepicker',
   codeImportReact: `import { Datepicker } from '@elvia/elvis-datepicker/react';`,
