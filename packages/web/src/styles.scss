@@ -95,18 +95,18 @@ p {
     justify-content: center;
     width: 100%;
   }
-  .overview-page-title-size {
-    @include breakpoint-up(Tablet) {
-      display: flex;
-      width: 100%;
-      padding: 0px;
-      max-width: 522px;
-      margin-left: -8px;
-      margin-bottom: 20px;
-    }
-    @media (max-width: 414px) {
-      padding-left: 24px;
-    }
+}
+.overview-page-title-size {
+  @include breakpoint-up(Tablet) {
+    display: flex;
+    width: 100%;
+    padding: 0px;
+    max-width: 522px;
+    margin-left: -8px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 414px) {
+    padding-left: 24px;
   }
 }
 
