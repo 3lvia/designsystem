@@ -1,8 +1,14 @@
 # Elvia Date picker Changelog
 
-## 1.1.1 (05.11.21)
+## 1.2.0 (08.11.21)
 
 ### New features
+
+- Added callback functions for both onOpen and onClose of datepicker
+
+## 1.1.1 (05.11.21)
+
+### Bug fixes
 
 - Datepicker now has highest possible z-index so that it always lays on top of other components.
 

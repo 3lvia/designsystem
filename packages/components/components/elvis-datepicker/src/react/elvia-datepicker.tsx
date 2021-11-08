@@ -23,6 +23,8 @@ export interface DatepickerProps {
   minDate?: Date;
   maxDate?: Date;
   valueOnChange?: (value: Date | null) => void;
+  onOpen?: () => void;
+  onClose?: () => void;
   webcomponent?: any;
 }
 
@@ -37,6 +39,8 @@ export const Datepicker: FC<DatepickerProps> = ({
   minDate,
   maxDate,
   valueOnChange,
+  onOpen,
+  onClose,
   webcomponent,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
@@ -118,9 +122,22 @@ export const Datepicker: FC<DatepickerProps> = ({
     updateCaretPositionOnFocus();
   };
 
-  const onOpen = () => {
+  const handleOpenDatepicker = () => {
     updateFocusState();
     updateInputWithSelectedDate();
+    if (!webcomponent && onOpen) {
+      onOpen();
+    } else if (webcomponent) {
+      webcomponent.triggerEvent('onOpen');
+    }
+  };
+
+  const handleCloseDatepicker = () => {
+    if (!webcomponent && onClose) {
+      onClose();
+    } else if (webcomponent) {
+      webcomponent.triggerEvent('onClose');
+    }
   };
 
   const validateDate = (date: Date | null) => {
@@ -317,7 +334,8 @@ export const Datepicker: FC<DatepickerProps> = ({
             maxDate={maxDate}
             onChange={handleDateChange}
             onFocus={onFocus}
-            onOpen={onOpen}
+            onOpen={handleOpenDatepicker}
+            onClose={handleCloseDatepicker}
             keyboardIcon={getCalIcon()}
             leftArrowIcon={getArrowIcon(true)}
             rightArrowIcon={getArrowIcon(false)}
