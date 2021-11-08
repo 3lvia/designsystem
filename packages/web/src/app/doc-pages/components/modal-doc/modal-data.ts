@@ -55,6 +55,13 @@ const modalData = {
       description: 'Locks the body of your page so that you cant scroll while the modal is open.',
       default: 'true',
     },
+    disableClose: {
+      isRequired: false,
+      type: 'boolean',
+      description:
+        'Disables closing of modal, should only be used in special cases where closing the modal was not intended.',
+      default: 'false',
+    },
     onHide: {
       isRequired: true,
       type: '() => void',

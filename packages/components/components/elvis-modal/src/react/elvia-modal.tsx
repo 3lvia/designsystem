@@ -16,6 +16,7 @@ export interface ModalProps {
   className?: string;
   hasCloseBtn?: boolean;
   hasLockBodyScroll?: boolean;
+  disableClose?: boolean;
   onHide: () => void;
   webcomponent?: any;
 }
@@ -30,6 +31,7 @@ export const ModalComponent: FC<ModalProps> = ({
   className,
   hasCloseBtn = false,
   hasLockBodyScroll = true,
+  disableClose = false,
   onHide,
   webcomponent,
 }) => {
@@ -44,6 +46,9 @@ export const ModalComponent: FC<ModalProps> = ({
   const hasSecondaryButton = !!secondaryButton || (webcomponent && !!webcomponent.getSlot('secondaryButton'));
 
   const handleOnHide = () => {
+    if (disableClose) {
+      return;
+    }
     if (!webcomponent) {
       onHide();
     } else if (webcomponent) {

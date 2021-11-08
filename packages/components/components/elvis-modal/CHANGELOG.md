@@ -1,5 +1,12 @@
 # Elvia Modal Changelog
 
+## 1.2.0 (05.11.21)
+
+### New features
+
+- Added prop for disabling closing of modal, should only be used in special cases where closing the modal was
+  not intended.
+
 ## 1.1.0 (03.11.21)
 
 ### New features

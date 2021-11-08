@@ -245,6 +245,7 @@ module.exports = [
       { name: 'className', type: 'string', propType: 'string' },
       { name: 'hasCloseBtn', type: 'boolean', propType: 'boolean' },
       { name: 'hasLockBodyScroll', type: 'boolean', propType: 'boolean' },
+      { name: 'disableClose', type: 'boolean', propType: 'boolean' },
     ],
     reactName: 'Modal',
     slotItems: true,
