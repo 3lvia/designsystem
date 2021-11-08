@@ -188,15 +188,13 @@ gulp.task('cleanup', gulp.series(cleanup, function (done) { done(); }));
 gulp.task(
     'default',
     gulp.series(
+        validate.validateElviaComponentsConfig,
         buildToolboxComponentToJS,
         TSX_to_JS,
         reactTypescriptDeclarations,
         buildWebComponentsMagically,
         buildElviaComponentToJS,
         runTests,
-        gulp.parallel(
-            validate.validateElviaComponentsConfig,
-        ),
         function (done) {
             done();
             console.log('Successfully built Elvia Components!');
