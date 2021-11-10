@@ -6,6 +6,32 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.13.2
+      </span>
+      <br>
+      <span>
+        November 10, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/checkbox#Overview">Checkbox</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Fixed small checkbox-mark misalignment.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.13.1
       </span>
       <br>
