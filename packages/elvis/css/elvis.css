@@ -7064,8 +7064,8 @@ input:focus {
 .e-checkbox.e-checkbox---checked .e-checkbox__mark::before, .e-checkbox.e-checkbox---disabled-checked .e-checkbox__mark::before, .e-checkbox input:checked ~ .e-checkbox__mark::before {
   content: "";
   position: absolute;
-  top: 55%;
-  left: -9%;
+  top: 12px;
+  left: -2px;
   height: 30%;
   width: 2px;
   background-color: #000;
@@ -7086,8 +7086,8 @@ input:focus {
 .e-checkbox.e-checkbox---checked .e-checkbox__mark::after, .e-checkbox.e-checkbox---disabled-checked .e-checkbox__mark::after, .e-checkbox input:checked ~ .e-checkbox__mark::after {
   content: "";
   position: absolute;
-  bottom: 15%;
-  left: -4%;
+  bottom: 3px;
+  left: -1px;
   height: 2px;
   width: 0%;
   background-color: #000;
