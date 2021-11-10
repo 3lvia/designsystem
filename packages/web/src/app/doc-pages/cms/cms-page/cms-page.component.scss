@@ -1,29 +1,6 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 @import '../../../shared/overview-page/overview-page.component.scss';
 
-.tablet-size {
-  width: unset;
-  max-width: 65rem;
-  @include breakpoint-up(Tablet) {
-    width: 100%;
-  }
-  .wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    .second-wrapper {
-      width: 100%;
-      @include breakpoint-up(Tablet) {
-        max-width: 522px;
-      }
-
-      h1 {
-        margin: 0;
-      }
-    }
-  }
-}
-
 .cms-img {
   max-width: 100%;
   display: block;

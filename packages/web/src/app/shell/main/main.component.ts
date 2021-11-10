@@ -10,7 +10,7 @@ import { ScrollService } from 'src/app/core/services/scroll.service';
 export class MainComponent {
   bgClass = '';
   isLandingPage = false;
-  homePage = false;
+  isHomePage = false;
 
   constructor(
     private router: Router,
@@ -30,9 +30,9 @@ export class MainComponent {
           this.bgClass = '';
         }
         if (eventUrl === '/' || eventUrl === '/home') {
-          this.homePage = true;
+          this.isHomePage = true;
         } else {
-          this.homePage = false;
+          this.isHomePage = false;
         }
         if (eventUrl.split('/')[2]) {
           this.isLandingPage = false;

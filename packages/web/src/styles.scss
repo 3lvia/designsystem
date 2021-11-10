@@ -75,7 +75,6 @@ p {
 }
 
 .page-body {
-  margin-left: 10%;
   width: 90%;
   min-width: 20rem;
   max-width: 55rem;
@@ -87,6 +86,27 @@ p {
   }
   @include breakpoint-up(MinDesktop) {
     margin: 0 auto;
+  }
+}
+
+.overview-page-title-container {
+  @include breakpoint-up(Tablet) {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+.overview-page-title-size {
+  @include breakpoint-up(Tablet) {
+    display: flex;
+    width: 100%;
+    padding: 0px;
+    max-width: 522px;
+    margin-left: -8px;
+    margin-bottom: 20px;
+  }
+  @media (max-width: 414px) {
+    padding-left: 24px;
   }
 }
 
