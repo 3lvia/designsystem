@@ -1,5 +1,11 @@
 # Elvia Accordion Changelog
 
+## 2.0.2 (06.09.21)
+
+### Bug fix
+
+- Defined color for accordion button, and set background to transparent to fix error on IOS15.
+
 ## 2.0.0 (06.09.21)
 
 ### Breaking changes
