@@ -1,17 +1,17 @@
 <app-header></app-header>
 <div class="main-content" style="overflow: hidden" [ngClass]="bgClass">
-  <div [ngClass]="{ 'e-grid': !homePage }">
-    <div [ngClass]="{ row: !homePage, 'row-reverse': isLandingPage }">
-      <div class="main-navbar" [ngClass]="{ hide: homePage }">
+  <div [ngClass]="{ 'e-grid': !isHomePage }">
+    <div [ngClass]="{ row: !isHomePage, 'row-reverse': isLandingPage }">
+      <div class="main-navbar" [ngClass]="{ hide: isHomePage }">
         <app-navbar></app-navbar>
       </div>
-      <div [ngClass]="{ 'feedback-link desktop': !homePage }" *ngIf="!isLandingPage">
+      <div [ngClass]="{ 'feedback-link desktop': !isHomePage }" *ngIf="!isLandingPage">
         <div class="link" (click)="scrollToFeedback()">
           <img src="./../../../assets/feedback/smiley.svg" alt="Feedback emoji" />
           <span class="e-ml-8 feedback-text">Give feedback</span>
         </div>
       </div>
-      <div class="page-body overview-content" [ngClass]="{ 'not-landing-page': !isLandingPage }">
+      <div [ngClass]="{ 'page-body overview-content': !isHomePage, 'not-landing-page': !isLandingPage }">
         <div class="feedback-link" *ngIf="!isLandingPage">
           <div class="link" (click)="scrollToFeedback()">
             <img src="./../../../assets/feedback/smiley.svg" alt="Feedback emoji" />
