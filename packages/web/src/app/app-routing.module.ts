@@ -143,7 +143,7 @@ const routes: Routes = [
       },
       // Components section
       {
-        path: Pages.ComponentsStart,
+        path: 'components',
         component: CMSPageComponent,
         children: [
           {
