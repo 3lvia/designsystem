@@ -1,7 +1,8 @@
 @import '../shared-sizes.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
-.components-overview-cards {
+.components-overview-cards,
+.overview-action-link {
   @include breakpoint-up(Tablet) {
     display: none;
   }
