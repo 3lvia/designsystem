@@ -8,8 +8,8 @@ export const exampleContents = {
         description: 'For å åpne HAN-porten kan du logge inn på Min side og bestille dette.',
       },
       'eng-GBR': {
-        title: 'HAN-gate',
-        description: 'To open the HAN-gate, you can log in to My page and order this.',
+        title: 'HAN-port',
+        description: 'To open the HAN-port, you can log in to My page and order this.',
       },
     },
     sm: {
@@ -89,7 +89,7 @@ export const exampleContents = {
   words: {
     random: {
       'nob-NOR': ['Elbil', 'AMS-måler', 'HAN-port', 'Strømbrudd', 'Faktura oversikt'],
-      'eng-GBR': ['Electric car', 'AMS-meter', 'HAN-gate', 'Power outage', 'Invoice overview'],
+      'eng-GBR': ['Electric car', 'AMS-meter', 'HAN-port', 'Power outage', 'Invoice overview'],
     },
     categories: {
       'nob-NOR': ['Skjema', 'Artikkel', 'Rapport'],

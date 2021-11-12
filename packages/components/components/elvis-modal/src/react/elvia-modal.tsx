@@ -46,6 +46,9 @@ export const ModalComponent: FC<ModalProps> = ({
   const hasSecondaryButton = !!secondaryButton || (webcomponent && !!webcomponent.getSlot('secondaryButton'));
 
   const handleOnHide = () => {
+    if (!isShowing) {
+      return;
+    }
     if (disableClose) {
       return;
     }

@@ -156,7 +156,7 @@ module.exports = [
       { name: 'customError', type: 'string', propType: 'string' },
     ],
     reactName: 'Datepicker',
-    elementStyle: 'display: block; max-width: 383px;',
+    elementStyle: 'display: block; max-width: 448px;',
     conditionalElementStyle: {
       isFullWidth: `width: 100%`,
     },

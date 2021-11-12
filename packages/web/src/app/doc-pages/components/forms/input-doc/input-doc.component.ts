@@ -25,9 +25,9 @@ export class InputDocComponent {
   ];
 
   overviewExample = `<div class="e-form-field">
-  <label class="e-form-field__label" for="normal">Input field </label>
+  <label class="e-form-field__label" for="normal">Text field</label>
   <div class="e-input">
-    <input id="normal" type="text" placeholder="Placeholder text">
+    <input id="normal" type="text" placeholder="Placeholder text" />
   </div>
 </div>
 `;

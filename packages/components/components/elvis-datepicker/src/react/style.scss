@@ -7,6 +7,7 @@ $green: #29d305;
 $red: #ee0701;
 $red-hat-text: 'Red Hat Text', Verdana, sans-serif;
 $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
+$datepicker-max-width: 448px;
 
 .ewc-no-outline {
   * {
@@ -31,7 +32,7 @@ $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
 .ewc-datepicker {
   position: relative;
   width: 163px;
-  max-width: 382px;
+  max-width: $datepicker-max-width;
 
   // Removing mui label and helpertext
   .MuiFormLabel-root,
@@ -80,7 +81,7 @@ $red-hat-display: 'Red Hat Display', Verdana, sans-serif;
   .MuiInputBase-root {
     height: 48px;
     width: 163px;
-    max-width: 382px;
+    max-width: $datepicker-max-width;
     border-radius: 4px;
     border: 1px solid black;
 
