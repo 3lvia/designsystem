@@ -45,6 +45,8 @@ export class SearchDocComponent {
   overviewExampleTS = `@ViewChild('exampleSearch') exampleSearch: ElementRef;
 @ViewChild('exampleInput') exampleInput: ElementRef;
 
+isExampleInput = false;
+
 onInput(input: string): void {
   if (input.length > 0) {
     this.exampleSearch.nativeElement.classList.add('e-search--searched');

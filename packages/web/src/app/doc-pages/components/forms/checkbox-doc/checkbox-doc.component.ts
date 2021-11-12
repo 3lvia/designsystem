@@ -12,11 +12,18 @@ export class CheckboxDocComponent {
   does = ['When user can select multiple options from a list.', 'Toggle a single option on or off.'];
   donts = ['If the user only can select one option from a list - use radio buttons.'];
 
-  exampleOverview = `<label class="e-checkbox" for="elvis-checkbox">
-  <input type="checkbox" id="elvis-checkbox">
-  <span class="e-checkbox__mark"></span>
-  <span class="e-checkbox__label">Standard</span>
-</label>
+  exampleOverview = `<div class="e-text-body" style="display: flex; flex-direction: column; justify-content: flex-start">
+  <label class="e-checkbox" for="elvis-checkbox">
+    <input type="checkbox" id="elvis-checkbox" />
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Checkbox option 1</span>
+  </label>
+  <label class="e-checkbox" for="elvis-checkbox2">
+    <input type="checkbox" id="elvis-checkbox2" />
+    <span class="e-checkbox__mark"></span>
+    <span class="e-checkbox__label">Checkbox option 2</span>
+  </label>
+</div>
 `;
 
   exampleStandard = `<label class="e-checkbox" for="elvis-checkbox-standard">
