@@ -14,6 +14,6 @@
     "@types/react-select": "4.0.2",
     "lodash.uniqueid": "4.0.1",
     "react-select": "4.2.1",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.3.3"
   }
 }
