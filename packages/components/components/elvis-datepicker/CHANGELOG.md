@@ -1,5 +1,11 @@
 # Elvia Date picker Changelog
 
+## 1.2.2 (11.11.21)
+
+### Bug fix
+
+- Changed max width to match other input elements
+
 ## 1.2.0 (08.11.21)
 
 ### New features
