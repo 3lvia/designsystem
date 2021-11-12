@@ -6,7 +6,6 @@ import { Location } from '@angular/common';
 import { combineLatest, fromEvent, Subscription } from 'rxjs';
 import { Locale, LocalizationService } from 'src/app/core/services/localization.service';
 import { CMSService } from 'src/app/core/services/cms/cms.service';
-import { componentsDocPages } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-navbar',
@@ -29,7 +28,6 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   navbarList: any[];
   activeNavbarItem: any;
   prevActiveNavbarItem: any;
-  componentsNavbar = componentsDocPages;
   subMenuRoute: string;
   oldSubMenuRoute: string;
   clickedNavbarItem;
@@ -151,32 +149,17 @@ export class NavbarComponent implements OnDestroy, OnInit, AfterContentInit {
   async updateNavbarList(locale: Locale): Promise<any> {
     const routeWithoutAnchor = this.router.url.split('#')[0];
     this.navbarList = [];
-    if (routeWithoutAnchor.split('/')[1] === 'components') {
-      this.navbarList = this.componentsNavbar.filter((page) => {
-        return page.status !== 'Coming' && page.status !== 'Ignore';
-      });
-      this.navbarList.forEach((navbarItem) => {
-        if (navbarItem.docUrl === routeWithoutAnchor.split('/')[2]) {
-          this.markNewActiveNavbarItem(navbarItem);
-          setTimeout(() => {
-            this.setNewActiveNavbarItem();
-            this.updateAnchorList();
-          }, 200);
+    const content = await this.cmsService.getSubMenuList(locale);
+    content.forEach((element) => {
+      this.navbarList.push(element);
+      if (element.docUrl === routeWithoutAnchor.split('/')[2]) {
+        this.markNewActiveNavbarItem(element);
+        if (!this.isCmsPage) {
+          this.setNewActiveNavbarItem();
+          this.updateAnchorList();
         }
-      });
-    } else {
-      const content = await this.cmsService.getSubMenuList(locale);
-      content.forEach((element) => {
-        this.navbarList.push(element);
-        if (element.docUrl === routeWithoutAnchor.split('/')[2]) {
-          this.markNewActiveNavbarItem(element);
-          if (!this.isCmsPage) {
-            this.setNewActiveNavbarItem();
-            this.updateAnchorList();
-          }
-        }
-      });
-    }
+      }
+    });
   }
 
   setNewActiveNavbarItem(): void {
