@@ -8,8 +8,8 @@ export const exampleValues = {
         description: '',
       },
       'eng-GBR': {
-        title: 'HAN-gate',
-        description: 'To open the HAN-gate, you can log in to My page and order this.',
+        title: 'HAN-port',
+        description: 'To open the HAN-port, you can log in to My page and order this.',
       },
     },
     xs2: {
@@ -39,7 +39,7 @@ export const exampleValues = {
     lg: {
       title: 'Do you want to use solutions for smart homes?',
       description:
-        'If you want to use solutions for a smart home, you must first open the HAN-gate on the AMS meter, the new automatic electricity meters. This port allows you to connect to communication solutions and smart homes, while also gaining access to information about your consumption. We at Elvia can open the HAN-gate for you or you can order access by logging in to My page.',
+        'If you want to use solutions for a smart home, you must first open the HAN-port on the AMS meter, the new automatic electricity meters. This port allows you to connect to communication solutions and smart homes, while also gaining access to information about your consumption. We at Elvia can open the HAN-port for you or you can order access by logging in to My page.',
     },
     lg2: {
       title: 'Watch out for dangerous conditions at home',
