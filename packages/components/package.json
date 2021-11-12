@@ -55,7 +55,7 @@
     "@babel/plugin-transform-react-jsx": "^7.16.0",
     "@babel/preset-typescript": "^7.16.0",
     "ajv": "^8.6.2",
-    "babel-plugin-styled-components": "^1.13.2",
+    "babel-plugin-styled-components": "^1.13.3",
     "gulp-typescript": "^6.0.0-alpha.1",
     "jsdom-global": "^3.0.2"
   }
