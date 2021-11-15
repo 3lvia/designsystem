@@ -68,6 +68,9 @@ export class CMSTransformService {
     if (type === 'internalLink') {
       return this.getLink(data, locale, subMenu);
     }
+    if (type === 'image') {
+      return this.getImage(data, locale);
+    }
     return documentToHtmlString(data.fields.content, this.options);
   }
 
@@ -151,6 +154,38 @@ export class CMSTransformService {
             : ''
         }
       </a>`;
+  }
+
+  private getImage(data, locale) {
+    const srcUrl = 'https:' + data.fields.image[locale].fields.file[locale].url;
+    return `<div class="cms-image" 
+      ${`style=' 
+        ${
+          data.fields.inlineText
+            ? 'display: block'
+            : `display: inline-block; width: ${data.fields.size[locale]}`
+        } 
+      '`}
+    >
+      <img
+        ${`class=' 
+          ${data.fields.inline[locale] === true ? 'cms-image-inline' : ''} 
+          align-${data.fields.alignment[locale]}
+          ${data.fields.size[locale] === 'original' ? 'original-margin' : ''} 
+        '`}
+        ${`style=' 
+          ${data.fields.inlineText ? `display: inline; width: ${data.fields.size[locale]}` : 'width: 100%'} 
+        '`}
+        src="${srcUrl}"
+      />
+      ${
+        data.fields.inline[locale] === true && data.fields.inlineText
+          ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
+          : ''
+      }
+      <div style="clear: ${data.fields.alignment[locale]}"></div>
+    </div>
+    `;
   }
 
   private getFullPath(subPath, subMenu) {
