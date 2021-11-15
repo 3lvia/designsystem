@@ -27,6 +27,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeNativeSub: Subscription;
+  codeVueSub: Subscription;
   hasCegAttributes = false;
   props = [];
   modifiers = [];
@@ -40,6 +41,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   codeReact;
   codeNative;
   codeAngular;
+  codeVue;
   hasTopFilters = false;
   typeDefault;
   bgDefault;
@@ -49,9 +51,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    this.codeAngular = this.componentData.codeAngular;
-    this.codeReact = this.componentData.codeReact;
-    this.codeNative = this.componentData.codeNativeHTML;
+    this.codeAngular = this.componentData.codeAngular ? this.componentData.codeAngular : '';
+    this.codeReact = this.componentData.codeReact ? this.componentData.codeReact : '';
+    this.codeVue = this.componentData.codeVue ? this.componentData.codeVue : '';
+    this.codeNative = this.componentData.codeNativeHTML ? this.componentData.codeNativeHTML : '';
     if (this.inlineExample) {
       return;
     }
@@ -60,6 +63,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     });
     this.codeReactSub = this.cegService.listenCodeReact().subscribe((code: string) => {
       this.codeReact = code;
+    });
+    this.codeVueSub = this.cegService.listenCodeVue().subscribe((code: string) => {
+      this.codeVue = code;
     });
     this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code: string) => {
       this.codeNative = code;
@@ -98,6 +104,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
     if (this.codeReactSub) {
       this.codeReactSub.unsubscribe();
+    }
+    if (this.codeVueSub) {
+      this.codeVueSub.unsubscribe();
     }
     if (this.codeNativeSub) {
       this.codeNativeSub.unsubscribe();
@@ -185,6 +194,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   updateProps(): void {
     this.cegService.updateCodeReact(this.codeReact);
     this.cegService.updateCodeAngular(this.codeAngular);
+    this.cegService.updateCodeVue(this.codeVue);
     this.cegService.updateCodeNative(this.codeNative);
   }
 
@@ -202,6 +212,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.selectedType = selected.label;
         this.codeReact = element.codeReact;
         this.codeAngular = element.codeAngular;
+        this.codeVue = element.codeVue;
         this.codeNative = element.codeNativeHTML;
       }
     });
@@ -225,49 +236,41 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     });
   }
 
-  updateSelected(attribute: string, newValue: string, cegType: string): void {
-    if (this.codeAngular.includes(attribute)) {
+  updateSelected(attr: string, newValue: string, cegType: string): void {
+    const elementNameR = this.componentData.elementNameR;
+    const elementNameW = this.componentData.elementNameW;
+    if (this.codeAngular.includes(attr)) {
       // Replaces old value for prop
-      this.codeReact = this.cegService.replaceOldProp(this.codeReact, attribute, newValue, 'react', cegType);
-      this.codeAngular = this.cegService.replaceOldProp(
-        this.codeAngular,
-        attribute,
-        newValue,
-        'angular',
-        cegType,
-      );
-      this.codeNative = this.cegService.replaceOldProp(
-        this.codeNative,
-        attribute,
-        newValue,
-        'native',
-        cegType,
-      );
+      this.codeReact = this.cegService.replaceOldProp(this.codeReact, attr, newValue, 'react', cegType);
+      this.codeAngular = this.cegService.replaceOldProp(this.codeAngular, attr, newValue, 'angular', cegType);
+      this.codeVue = this.cegService.replaceOldProp(this.codeVue, attr, newValue, 'vue', cegType);
+      this.codeNative = this.cegService.replaceOldProp(this.codeNative, attr, newValue, 'native', cegType);
     } else {
       // Adds new prop to code
       this.codeReact = this.cegService.addNewProp(
         this.codeReact,
-        attribute,
+        attr,
         newValue,
         'react',
         cegType,
-        this.componentData.elementNameR,
+        elementNameR,
       );
       this.codeAngular = this.cegService.addNewProp(
         this.codeAngular,
-        attribute,
+        attr,
         newValue,
         'angular',
         cegType,
-        this.componentData.elementNameW,
+        elementNameW,
       );
+      this.codeVue = this.cegService.addNewProp(this.codeVue, attr, newValue, 'vue', cegType, elementNameW);
       this.codeNative = this.cegService.addNewProp(
         this.codeNative,
-        attribute,
+        attr,
         newValue,
         'native',
         cegType,
-        this.componentData.elementNameW,
+        elementNameW,
       );
     }
     this.updateProps();

@@ -84,6 +84,21 @@ const accordionData = {
   </div>
 </elvia-accordion>
 `,
+  codeVue:
+    `<elvia-accordion
+  type="normal"
+  openLabel="Show"
+  closeLabel="Hide"
+  labelPosition="center"
+  size="medium"
+>
+  <div slot="content">
+    ` +
+    exampleContents.texts.lg['eng-GBR'].description +
+    `
+  </div>
+</elvia-accordion>
+`,
   codeNativeHTML:
     `<elvia-accordion
   type="normal"

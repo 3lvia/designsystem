@@ -14,10 +14,12 @@ export class CegFiltersComponent implements OnInit {
   @Input() desktop = true;
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
+  codeVueSub: Subscription;
   codeNativeSub: Subscription;
   counterNumber: number;
   codeReact;
   codeAngular;
+  codeVue;
   codeNative;
   checkboxesLength = 0;
   checkboxes = [];
@@ -38,6 +40,9 @@ export class CegFiltersComponent implements OnInit {
     this.codeReactSub = this.cegService.listenCodeReact().subscribe((code: string) => {
       this.codeReact = code;
     });
+    this.codeVueSub = this.cegService.listenCodeVue().subscribe((code: string) => {
+      this.codeVue = code;
+    });
     this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code: string) => {
       this.codeNative = code;
     });
@@ -50,6 +55,9 @@ export class CegFiltersComponent implements OnInit {
     }
     if (this.codeReactSub) {
       this.codeReactSub.unsubscribe();
+    }
+    if (this.codeVue) {
+      this.codeVueSub.unsubscribe();
     }
     if (this.codeNativeSub) {
       this.codeNativeSub.unsubscribe();
@@ -144,6 +152,7 @@ export class CegFiltersComponent implements OnInit {
   updateNewCode(): void {
     this.cegService.updateCodeReact(this.codeReact);
     this.cegService.updateCodeAngular(this.codeAngular);
+    this.cegService.updateCodeVue(this.codeVue);
     this.cegService.updateCodeNative(this.codeNative);
   }
 
@@ -152,18 +161,21 @@ export class CegFiltersComponent implements OnInit {
     const elNameW = this.componentData.elementNameW;
     this.codeReact = this.cegService.addNewProp(this.codeReact, attr, newValue, 'react', type, elNameR);
     this.codeAngular = this.cegService.addNewProp(this.codeAngular, attr, newValue, 'angular', type, elNameW);
+    this.codeVue = this.cegService.addNewProp(this.codeVue, attr, newValue, 'vue', type, elNameW);
     this.codeNative = this.cegService.addNewProp(this.codeNative, attr, newValue, 'native', type, elNameW);
   }
 
   replaceOldProps(attr: string, newValue: string, type: string): void {
     this.codeReact = this.cegService.replaceOldProp(this.codeReact, attr, newValue, 'react', type);
     this.codeAngular = this.cegService.replaceOldProp(this.codeAngular, attr, newValue, 'angular', type);
+    this.codeVue = this.cegService.replaceOldProp(this.codeVue, attr, newValue, 'vue', type);
     this.codeNative = this.cegService.replaceOldProp(this.codeNative, attr, newValue, 'native', type);
   }
 
   removeProps(attr: string): void {
     this.codeReact = this.cegService.removeProp(this.codeReact, attr);
     this.codeAngular = this.cegService.removeProp(this.codeAngular, attr);
+    this.codeVue = this.cegService.removeProp(this.codeVue, attr);
     this.codeNative = this.cegService.removeProp(this.codeNative, attr);
   }
 
@@ -189,6 +201,7 @@ export class CegFiltersComponent implements OnInit {
       'angular',
       elNameW,
     );
+    this.codeVue = this.cegService.addNewSlotAndProp(this.codeVue, attr, newValue, 'vue', elNameW);
     this.codeNative = this.cegService.addNewSlotAndProp(this.codeNative, attr, newValue, 'native', elNameW);
   }
 
@@ -203,6 +216,7 @@ export class CegFiltersComponent implements OnInit {
       'angular',
       elNameW,
     );
+    this.codeVue = this.cegService.removeSlotAndProp(this.codeVue, attr, oldValue, 'vue', elNameW);
     this.codeNative = this.cegService.removeSlotAndProp(this.codeNative, attr, oldValue, 'native', elNameW);
   }
 
