@@ -38,21 +38,8 @@ const modalInfoCode = {
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
 </elvia-modal>
 `,
-  codeNativeScript: `  const modal = document.getElementById('example-elvia-modal');
-  const button = document.getElementById('example-modal-button;
-  let isModalShowing = false;
-
-  modal.setProps({isShowing: isModalShowing });
-  modal.setProps({title: "Title of content" });
-  modal.addEventListener('onHide', () => {
-    modal.setProps({isShowing: !isModalShowing });
-    isModalShowing = !isModalShowing;
-  });
-  button.addEventListener("click", () => {
-    modal.setProps({isShowing: !isModalShowing });
-    isModalShowing = !isModalShowing;
-  });
-`,
+  codeNativeScript: ``,
+// all scripts for the examples are in modal-data.ts
 };
 
 export { modalInfoCode };
