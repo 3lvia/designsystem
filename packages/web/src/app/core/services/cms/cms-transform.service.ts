@@ -169,7 +169,7 @@ export class CMSTransformService {
     >
       <img
         ${`class=' 
-          ${data.fields.inline[locale] === true ? 'cms-image-inline' : ''} 
+          ${data.fields.inlineText ? 'cms-image-inline' : ''} 
           align-${data.fields.alignment[locale]}
           ${data.fields.size[locale] === 'original' ? 'original-margin' : ''} 
         '`}
@@ -179,7 +179,7 @@ export class CMSTransformService {
         src="${srcUrl}"
       />
       ${
-        data.fields.inline[locale] === true && data.fields.inlineText
+        data.fields.inlineText && data.fields.inlineText
           ? `${documentToHtmlString(data.fields.inlineText[locale], this.options)}`
           : ''
       }
