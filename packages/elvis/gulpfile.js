@@ -24,7 +24,13 @@ gulp.task(
 // Run gulp watch
 gulp.task('watch', function () {
   gulp.watch(
-    ['./src/**/*.scss', './src/templates/**.*', './icons/svg/src/*.svg', './src/config/**.*'],
+    [
+      './src/**/*.scss',
+      '!./src/variables/typography.scss',
+      './src/templates/**.*',
+      './src/config/**.*',
+      '!./src/config/icons.config.js',
+    ],
     gulp.series('default'),
   );
 });
