@@ -3,11 +3,13 @@ import * as StyledDivider from './styledComponents';
 
 export type DividerType = 'simple' | 'title' | 'curved';
 export type DividerTypography = 'medium' | 'caps';
+export type DividerOrientation = 'horizontal' | 'vertical';
 export interface DividerProps {
   type?: DividerType;
   title?: string | HTMLElement;
   typography?: DividerTypography;
   isInverted?: boolean;
+  orientation?: DividerOrientation;
   webcomponent: any;
 }
 
@@ -16,6 +18,7 @@ export const Divider: React.FC<DividerProps> = ({
   typography = 'medium',
   title = '',
   isInverted = false,
+  orientation = 'horizontal',
   webcomponent,
 }) => {
   const dividerTitleRef = useRef<HTMLDivElement>(null);
@@ -33,7 +36,7 @@ export const Divider: React.FC<DividerProps> = ({
   });
 
   return (
-    <StyledDivider.DividerArea type={type} isInverted={isInverted}>
+    <StyledDivider.DividerArea type={type} isInverted={isInverted} orientation={orientation}>
       {title === '' && type === 'title' && (
         <StyledDivider.DividerTitle
           typography={typography}

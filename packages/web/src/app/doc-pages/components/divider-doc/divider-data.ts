@@ -45,6 +45,18 @@ export const dividerData = {
       cegFormType: 'background',
       cegOptions: ['White', 'Dark grey'],
     },
+    orientation: {
+      isRequired: false,
+      type: '"horizontal" | "vertical"',
+      description: 'Change the orientation of the divider.',
+      default: '"horizontal"',
+      displayName: 'Orientation',
+      cegDefault: 'horizontal',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['horizontal', 'vertical'],
+      cegTypeDependency: 'simple',
+    }
   },
   codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,
   codeImportWebComponent: `import '@elvia/elvis-divider';`,

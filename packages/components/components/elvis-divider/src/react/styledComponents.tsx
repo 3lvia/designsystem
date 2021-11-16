@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { DividerType, DividerTypography } from './elvia-divider';
+import { DividerType, DividerTypography, DividerOrientation } from './elvia-divider';
 
 const ElviaColors = {
   elviaOn: '#ffffff',
@@ -25,16 +25,28 @@ const decideBorderColor = (isInverted: boolean, type: string) => {
   }
 };
 
+const decideBorderOrientation = (type: string, orientation: string) => {
+  if (type === 'simple' && orientation === 'vertical') {
+    return 'border-left';
+  }
+  return 'border-bottom';
+};
+
 type DividerArea = {
   type: DividerType;
   isInverted: boolean;
+  orientation: DividerOrientation;
 };
 
 export const DividerArea = styled.div<DividerArea>`
   display: block;
   margin: 0;
-  width: 100%;
-  border-bottom: ${(props: { type: string }) => (props.type === 'curved' ? 'none' : '1px solid')};
+  width: ${(props: {type: string; orientation: string}) => 
+    ((props.type === 'simple' && props.orientation === 'vertical') ? 'none' : '100%')};
+  height: ${(props: {type: string; orientation: string}) => 
+    ((props.type === 'simple' && props.orientation === 'vertical') ? '100%' : 'none')};
+  ${(props: {type: string; orientation: string}) => (decideBorderOrientation(props.type, props.orientation))}: 
+    ${(props: { type: string }) => (props.type === 'curved' ? 'none' : '1px solid')};
   border-color: ${(props: { isInverted: boolean; type: string }) =>
     decideBorderColor(props.isInverted, props.type)};
   text-align: left;
