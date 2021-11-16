@@ -56,7 +56,7 @@ export const dividerData = {
       cegFormType: 'radio',
       cegOptions: ['horizontal', 'vertical'],
       cegTypeDependency: 'simple',
-    }
+    },
   },
   codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,
   codeImportWebComponent: `import '@elvia/elvis-divider';`,
