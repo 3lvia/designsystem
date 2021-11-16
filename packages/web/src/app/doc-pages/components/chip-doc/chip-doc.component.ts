@@ -8,8 +8,8 @@ import { chipData } from './chip-data';
   styleUrls: ['./chip-doc.component.scss'],
 })
 export class ChipDocComponent {
-  figmaUrl = getComponent('chips').figmaUrl;
-  description = getComponent('chips').description;
+  figmaUrl = getComponent('chip').figmaUrl;
+  description = getComponent('chip').description;
   does = chipData.does;
   donts = chipData.donts;
   componentData = chipData;

@@ -157,9 +157,9 @@ module.exports = [
     ],
     reactName: 'Datepicker',
     elementStyle: 'display: block; max-width: 448px;',
-    conditionalElementStyle: {
-      isFullWidth: `width: 100%`,
-    },
+    conditionalElementStyle: [
+      { name: 'isFullWidth', value: 'true', style: `width: 100%` },
+    ],
     useWrapper: false,
     slotItems: false,
     reactTypescriptDeclaration: true,
@@ -173,10 +173,10 @@ module.exports = [
     ],
     reactName: 'TestingComponent',
     elementStyle: `width: 50%; display: grid;`,
-    conditionalElementStyle: {
-      isFullWidth: `width: 100%`,
-      isBlock: `display: block`,
-    },
+    conditionalElementStyle: [
+      { name: 'isFullWidth', value: 'true', style: `width: 100%` },
+      { name: 'isBlock', value: 'true', style: `display: block` },
+    ],
     slotItems: false,
     useWrapper: false,
     reactTypescriptDeclaration: false,
@@ -193,7 +193,11 @@ module.exports = [
     ],
     slotItems: true,
     reactName: 'Divider',
-    elementStyle: `width: 100%; height:100%;`,
+    conditionalElementStyle: [
+      { name: 'orientation', value: 'horizontal', style: `width: 100%;` },
+      { name: 'orientation', value: undefined, style: `width: 100%;` },
+      { name: 'orientation', value: 'vertical', style: `height: 100%` }
+    ],
     useWrapper: false,
     reactTypescriptDeclaration: true,
   },
@@ -281,9 +285,9 @@ module.exports = [
       { name: 'labelOf', type: 'string', propType: 'string' },
     ],
     elementStyle: `display:flex; width: 100%; min-width: 325px`,
-    conditionalElementStyle: {
-      isRightAligned: `justify-content: flex-end;`,
-    },
+    conditionalElementStyle: [
+      { name: 'isRightAligned', value: 'true', style: `justify-content: flex-end;` },
+    ],
     reactName: 'Pagination',
     slotItems: false,
     useWrapper: false,

@@ -42,9 +42,13 @@ export const DividerArea = styled.div<DividerArea>`
   display: block;
   margin: 0;
   width: ${(props: { type: DividerType; orientation: DividerOrientation }) =>
-    props.type === 'simple' && props.orientation === 'vertical' ? 'none' : '100%'};
+    props.type === 'simple' && props.orientation === 'vertical' ? '1px' : '100%'};
   height: ${(props: { type: DividerType; orientation: DividerOrientation }) =>
-    props.type === 'simple' && props.orientation === 'vertical' ? '100%' : 'none'};
+    props.type === 'simple' && props.orientation === 'vertical'
+      ? '100%'
+      : props.type === 'title'
+      ? 'unset'
+      : '1px'};
   ${(props: { type: DividerType; orientation: DividerOrientation }) =>
     decideBorderOrientation(props.type, props.orientation)}: ${(props: { type: DividerType }) =>
     props.type === 'curved' ? 'none' : '1px solid'};

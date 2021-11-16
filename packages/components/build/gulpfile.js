@@ -205,7 +205,7 @@ gulp.task(
 
 gulp.task('watch', function () {
     gulp.watch(
-        ['../components/*/src/**/*', '../elvia-components.config.js'], { ignoreInitial: false },
+        ['../components/*/src/**/*', '../elvia-components.config.js', './validateConfig.js'], { ignoreInitial: false },
         gulp.series('default'),
     );
 });

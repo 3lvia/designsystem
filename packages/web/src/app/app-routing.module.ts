@@ -187,7 +187,7 @@ const routes: Routes = [
             component: CarouselDocComponent,
           },
           {
-            path: Pages.Chips,
+            path: Pages.Chip,
             component: ChipDocComponent,
           },
           {

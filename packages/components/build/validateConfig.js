@@ -39,7 +39,7 @@ async function validateElviaComponentsConfig() {
                 slotItems: { type: "boolean" },
                 elementStyle: { type: "string" },
                 conditionalElementStyle: {
-                    type: "object",
+                    type: "array",
                     propertyNames: {
                         pattern: "^[A-Za-z_][A-Za-z0-9_]*$"
                     }

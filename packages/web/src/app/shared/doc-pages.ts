@@ -140,8 +140,8 @@ export const componentsDocPages: DocPage[] = [
     // tslint:disable-next-line: max-line-length
     description:
       'Chips are interactive elements that represent an input. These are triggered by the user and can easily be removed by clicking on them. These are often used when you are going to filter content.',
-    docUrl: Pages.Chips,
-    absolutePath: '/components/' + Pages.Chips,
+    docUrl: Pages.Chip,
+    absolutePath: '/components/' + Pages.Chip,
     status: DocPageStatus.New,
     imageUrl: 'assets/doc-page-icons/component-icons/Chip.svg',
     figmaUrl: 'https://www.figma.com/file/B898GK3p5YqOj4cMBztM37/Labels-and-chips?node-id=136%3A1258',
