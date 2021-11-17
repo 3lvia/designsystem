@@ -34,6 +34,7 @@ export class CegFiltersComponent implements OnInit {
     this.codeReact = this.componentData.codeReact;
     this.codeAngular = this.componentData.codeAngular;
     this.codeNative = this.componentData.codeNativeHTML;
+    this.codeVue = this.componentData.codeVue ? this.componentData.codeVue : '';
     this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code: string) => {
       this.codeAngular = code;
     });
