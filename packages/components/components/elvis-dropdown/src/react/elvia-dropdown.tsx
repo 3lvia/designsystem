@@ -3,13 +3,7 @@ import Select, { components } from 'react-select';
 import toolbox from '@elvia/elvis-toolbox';
 import * as StyledDropdown from './styledComponents';
 import uniqueId from 'lodash.uniqueid';
-
-export type DropdownMenuPosition = 'top' | 'bottom' | 'auto';
-export interface DropdownOption {
-  value: string;
-  label: string;
-}
-7;
+import { DropdownMenuPosition, DropdownOption } from './elvia-dropdown.types';
 
 export interface DropdownProps {
   defaultValue?: DropdownOption | Array<DropdownOption> | undefined;

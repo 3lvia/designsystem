@@ -1,5 +1,11 @@
 # Elvia Accordion Changelog
 
+## 2.0.3 (17.11.21)
+
+### Bug fix
+
+- Improved type safety.
+
 ## 2.0.2 (06.09.21)
 
 ### Bug fix

@@ -1,16 +1,7 @@
 import React, { FC, useState, useEffect } from 'react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
 import * as StyledPaginator from './styledComponents';
-
-export interface DropdownOption {
-  value: string;
-  label: string;
-}
-
-export interface SelectionNumber {
-  start: number;
-  end: number;
-}
+import { DropdownOption, SelectionNumber } from './elvia-pagination.types';
 
 export interface PaginationProps {
   value: SelectionNumber;

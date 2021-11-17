@@ -1,5 +1,11 @@
 # Elvia Pagination Changelog
 
+## 1.0.3 (17.11.21)
+
+### Bug fix
+
+- Improved type safety.
+
 ## 1.0.2 (1.11.21)
 
 ### Bug fix

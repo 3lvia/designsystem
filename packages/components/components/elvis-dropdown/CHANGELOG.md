@@ -1,5 +1,11 @@
 # Elvia Dropdown
 
+## 1.0.9 (17.11.21)
+
+### Bug fix
+
+- Improved type safety.
+
 ## 1.0.8 (28.09.21)
 
 ### Patches
