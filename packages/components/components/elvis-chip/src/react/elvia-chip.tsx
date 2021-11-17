@@ -1,15 +1,8 @@
 import React, { FC, useState, useEffect } from 'react';
 import { CheckmarkIcon, ChipComponent, CloseIcon, ChipTitle } from './styledComponents';
+import { ChipType, ColorType, onChangeValue } from './elvia-chip.types';
 
 import classnames from 'classnames';
-
-export type ChipType = 'removable' | 'legend' | 'choice';
-export type ColorType = 'blue' | 'green' | 'orange' | 'purple' | 'red' | 'violet';
-
-export interface onChangeValue {
-  value: string;
-  isSelected: boolean;
-}
 
 export interface BaseChipProps {
   ariaLabel?: string;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ColorType } from './elvia-chip';
+import { ColorType } from './elvia-chip.types';
 
 export const colors = {
   elviaCharge: '#29d305',
