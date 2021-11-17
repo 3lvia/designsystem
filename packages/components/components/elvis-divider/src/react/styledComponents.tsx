@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { DividerType, DividerTypography, DividerOrientation } from './elvia-divider';
+import { DividerType, DividerTypography, DividerOrientation } from './elvia-divider.types';
 
 const ElviaColors = {
   elviaOn: '#ffffff',

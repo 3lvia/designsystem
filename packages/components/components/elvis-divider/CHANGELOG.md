@@ -1,5 +1,11 @@
 # Elvia Divider Changelog
 
+## 1.1.0 (17.11.21)
+
+### New feature
+
+Added vertical divider
+
 ## 1.0.5 (07.10.21)
 
 Updated inverted divider color from grey-80 to grey-90.

@@ -1,5 +1,11 @@
 # Elvia Date picker Changelog
 
+## 1.2.3 (17.11.21)
+
+### Bug fix
+
+- Reformated config file
+
 ## 1.2.2 (11.11.21)
 
 ### Bug fix

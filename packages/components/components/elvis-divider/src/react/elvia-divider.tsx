@@ -1,9 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as StyledDivider from './styledComponents';
+import { DividerType, DividerTypography, DividerOrientation } from './elvia-divider.types';
 
-export type DividerType = 'simple' | 'title' | 'curved';
-export type DividerTypography = 'medium' | 'caps';
-export type DividerOrientation = 'horizontal' | 'vertical';
 export interface DividerProps {
   type?: DividerType;
   title?: string | HTMLElement;
