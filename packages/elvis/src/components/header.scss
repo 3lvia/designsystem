@@ -2,8 +2,8 @@
 @use '../variables/shadows';
 @use '../variables/typography';
 @use '../utilities/breakpoints';
-@use "../utilities/icons";
-@use "../utilities/helpers";
+@use '../utilities/icons';
+@use '../utilities/helpers';
 
 $header-height: 64px;
 $header-img-size: 40px;
@@ -12,10 +12,10 @@ $sidebar-width: 64px;
 $sidebar-open-width: 227px;
 
 // Z-INDEX
-$header-z-index: 99;
-$app-menu-open-z-index: 100;
-$area-menu-open-z-index: 100;
-$top-bar-mobile-z-index: 101;
+$header-z-index: 109;
+$app-menu-open-z-index: 110;
+$area-menu-open-z-index: 110;
+$top-bar-mobile-z-index: 111;
 $top-bar-underlay-mobile-z-index: -1;
 $sidebar-mobile-z-index: -2;
 

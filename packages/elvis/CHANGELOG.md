@@ -6,6 +6,32 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.13.3
+      </span>
+      <br>
+      <span>
+        November 17, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/header#Overview">Header</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Increased header z-index.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.13.2
       </span>
       <br>
