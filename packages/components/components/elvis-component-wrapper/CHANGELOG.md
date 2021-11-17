@@ -4,7 +4,7 @@
 
 ### Bug fix
 
-- Improved conditional elements sype function
+- Improved conditional elements type function
 
 ## 2.1.2 (07.09.21)
 
