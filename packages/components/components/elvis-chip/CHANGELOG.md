@@ -1,5 +1,11 @@
 # Elvia Chip Changelog
 
+## 1.1.1 (17.11.21)
+
+### Bug fix
+
+- Improved type safety.
+
 ## 1.1.0 (03.11.21)
 
 ### New features
