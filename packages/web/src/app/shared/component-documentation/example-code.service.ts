@@ -7,6 +7,7 @@ import { Observable, Subject } from 'rxjs';
 export class ExampleCodeService {
   private subjectCodeReact = new Subject<any>();
   private subjectCodeAngular = new Subject<any>();
+  private subjectCodeVue = new Subject<any>();
   private subjectCodeNative = new Subject<any>();
 
   listenCodeReact(): Observable<any> {
@@ -15,6 +16,10 @@ export class ExampleCodeService {
 
   listenCodeAngular(): Observable<any> {
     return this.subjectCodeAngular.asObservable();
+  }
+
+  listenCodeVue(): Observable<any> {
+    return this.subjectCodeVue.asObservable();
   }
 
   listenCodeNative(): Observable<any> {
@@ -29,6 +34,10 @@ export class ExampleCodeService {
     this.subjectCodeAngular.next(newCode);
   }
 
+  updateCodeVue(newCode: string): void {
+    this.subjectCodeVue.next(newCode);
+  }
+
   updateCodeNative(newCode: string): void {
     this.subjectCodeNative.next(newCode);
   }
@@ -41,7 +50,13 @@ export class ExampleCodeService {
     if (type === 'html') {
       return new RegExp('  ' + attribute + '={.*', 'gi');
     } else {
-      return new RegExp('  [\\[]?' + attribute + '[\\]]?=("|{).*', 'gi');
+      /* Matches either:
+        - [attribute]="..."
+        - attribute={...}
+        - attribute="..."
+        - :attribute="..."
+      */
+      return new RegExp('  [\\[|:]?' + attribute + ']?=("|{).*', 'gi');
     }
   }
   getOldSlotRegex(elementName: string, attribute: string, content: string): RegExp {
@@ -72,9 +87,9 @@ export class ExampleCodeService {
       return '  ' + attribute + '="' + newValue + '"';
     }
     // TODO: Finne ut hva slags Vue syntax gir mening og legge inn støtte her
-    // else if (language === 'vue') {
-    //   return '  ' + prop + '={"' + newVal + '"}';
-    // }
+    else if (language === 'vue') {
+      return '  ' + attribute + '="' + newVal + '"';
+    }
   }
 
   getNewString(
@@ -99,9 +114,12 @@ export class ExampleCodeService {
       return '<' + elementName + '\n  ' + prop + '="' + newValue + '"';
     }
     // TODO: Finne ut hva slags Vue syntax gir mening og legge inn støtte her
-    // else if (language === 'vue') {
-    //   return '  ' + prop + '={"' + newVal + '"}';
-    // }
+    else if (language === 'vue') {
+      if (propType !== 'string') {
+        prop = ':' + prop;
+      }
+      return '<' + elementName + '\n  ' + prop + '="' + newVal + '"';
+    }
   }
 
   getNewSlotString(elementName: string, attribute: string, newContent: string): string {

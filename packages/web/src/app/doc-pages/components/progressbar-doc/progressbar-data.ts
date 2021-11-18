@@ -49,6 +49,9 @@ export const progressbarData = {
   codeAngular: `<elvia-progress-linear
   [value]="20"
 ></elvia-progress-linear>`,
+  codeVue: `<elvia-progress-linear
+  :value="20"
+></elvia-progress-linear>`,
   codeNativeHTML: `<elvia-progress-linear
   value="20"
 ></elvia-progress-linear>`,
