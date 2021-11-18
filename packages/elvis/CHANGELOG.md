@@ -6,6 +6,34 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.13.4
+      </span>
+      <br>
+      <span>
+        November 18, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/popover#Overview">Popover</a>,
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/tooltip#Overview">Tooltip</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/autocomplete#Overview">Autocomplete</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Updated several z-index values to be more consistent.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.13.3
       </span>
       <br>

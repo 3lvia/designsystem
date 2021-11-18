@@ -18,7 +18,7 @@ $autocomplete-padding-item-compact: 6px 10px;
   border: 1px solid colors.color('grey-10');
   border-radius: 4px;
   box-shadow: shadows.$e-shadow-6;
-  z-index: 1;
+  z-index: 100;
   text-align: left;
 
   &__item {
@@ -27,7 +27,7 @@ $autocomplete-padding-item-compact: 6px 10px;
     box-sizing: border-box;
     width: 100%;
     padding: $autocomplete-padding-item;
-    z-index: 1;
+    z-index: 100;
     @include typography.typography('text-description');
 
     @include helpers.hover() {
