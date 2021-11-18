@@ -17,7 +17,6 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="http://design.elvia.io/components/popover#Overview">Popover</a>,
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/tooltip#Overview">Tooltip</a> &
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/autocomplete#Overview">Autocomplete</a>
           </div>
