@@ -62,22 +62,14 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   protected addConditionalStyle(): void {
     const conditionalElementStyle = this.webComponent.getComponentData().conditionalElementStyle;
-    const attributes = this.webComponent.getComponentData().attributes;
     this.style.cssText = this.webComponent.getComponentData().elementStyle;
 
     if (!conditionalElementStyle) {
       return;
     }
-    attributes.forEach((attribute: any) => {
-      if (
-        this.getProps()[attribute.name.toLowerCase()] === 'true' ||
-        this.getProps()[attribute.name.toLowerCase()] === true
-      ) {
-        Object.keys(conditionalElementStyle).forEach((obj) => {
-          if (obj.toLowerCase() === attribute.name.toLowerCase()) {
-            this.style.cssText += conditionalElementStyle[obj];
-          }
-        });
+    conditionalElementStyle.forEach((el: any) => {
+      if (this.getProps()[el.name.toLowerCase()] === el.value) {
+        this.style.cssText += el.style;
       }
     });
   }

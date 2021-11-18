@@ -14,7 +14,7 @@ export enum Pages {
   Box = 'box',
   Card = 'card',
   Carousel = 'carousel',
-  Chips = 'chips',
+  Chip = 'chip',
   Checkbox = 'checkbox',
   ContentLoader = 'content-loader',
   Divider = 'divider',
