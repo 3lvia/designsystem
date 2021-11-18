@@ -2876,7 +2876,7 @@ input:focus {
   top: 0;
   width: 100%;
   box-sizing: border-box;
-  z-index: 99;
+  z-index: 109;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -2951,7 +2951,7 @@ input:focus {
   margin-top: 10px;
   padding: 16px;
   padding-bottom: 24px;
-  z-index: 100;
+  z-index: 110;
 }
 .e-header__top-bar-desktop__app .e-header__top-bar-desktop__app-menu-item {
   display: flex;
@@ -3021,7 +3021,7 @@ input:focus {
   background: #fff;
   width: 156px;
   margin-top: 10px;
-  z-index: 100;
+  z-index: 110;
 }
 .e-header__top-bar-desktop__area .e-header__top-bar-desktop__area-menu-item {
   display: flex;
@@ -3308,7 +3308,7 @@ input:focus {
   }
   .e-header.e-header--open .e-header__top-bar {
     position: relative;
-    z-index: 101;
+    z-index: 111;
     display: flex;
     justify-content: center;
   }
