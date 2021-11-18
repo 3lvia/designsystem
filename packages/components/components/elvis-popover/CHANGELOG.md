@@ -1,5 +1,11 @@
 # Elvia Popover Changelog
 
+## 4.2.1 (18.11.21)
+
+### Bug fix
+
+- Changed z-index
+
 ## 4.2.0 (03.11.21)
 
 ### New features
