@@ -53,7 +53,7 @@ describe('Elvis Box with no border & color', () => {
     );
   });
 
-  it('should have a div with elvia green background color"', function (done) {
+  it('should not have a div with elvia green background color"', function (done) {
     expect(wrapper.find('div').at(2).find('div').at(1).getDOMNode()).not.toHaveStyle('background: #29d305');
     done();
   });
