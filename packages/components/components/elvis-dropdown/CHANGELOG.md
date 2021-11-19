@@ -1,5 +1,11 @@
 # Elvia Dropdown
 
+## 1.0.9 (19.11.21)
+
+### Bug fix
+
+- Now using elvis-colors pack for colors.
+
 ## 1.0.8 (28.09.21)
 
 ### Patches

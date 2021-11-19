@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import * as ElviaColors from '@elvia/elvis-colors';
 
-const ElviaColors = {
-  elviaCharge: '#29d305',
-  elviaOn: '#ffffff',
-  elviaOff: '#000000',
-  elviaGrey70: '#676767',
+const colors = {
+  elviaCharge: ElviaColors.default['primary-colors']['green'].color,
+  elviaOn: ElviaColors.default['primary-colors']['white'].color,
+  elviaOff: ElviaColors.default['primary-colors']['black'].color,
+  elviaGrey70: ElviaColors.default['grey-colors']['grey-70'].color,
 };
 
 export const EWCBreadcrumbWrapper = styled.div`
@@ -16,11 +17,11 @@ export const EWCBreadcrumbWrapper = styled.div`
   max-height: 22px;
   a:last-child {
     font-weight: 500;
-    color: ${ElviaColors.elviaOff};
+    color: ${colors.elviaOff};
   }
   i:last-child {
     font-weight: 500;
-    color: ${ElviaColors.elviaOff};
+    color: ${colors.elviaOff};
   }
 `;
 export const EWCBreadcrumbDesktopWrapper = styled.span`
@@ -45,7 +46,7 @@ export const EWCBreadcrumbLink = styled.a<EWCBreadcrumbLinkTypes>`
   letter-spacing: 0.2px;
   text-align: left;
   text-decoration: none;
-  color: ${ElviaColors.elviaGrey70};
+  color: ${colors.elviaGrey70};
   pointer: ${(props: { isClickable: boolean }) => (props.isClickable ? 'cursor' : 'pointer')};
   pointer-events: ${(props: { isClickable: boolean }) => (props.isClickable ? 'auto' : 'none')};
   text-overflow: ellipsis;
@@ -59,7 +60,7 @@ export const EWCBreadcrumbLink = styled.a<EWCBreadcrumbLinkTypes>`
     width: 0;
     height: 2px;
     border-radius: 25px;
-    background: ${ElviaColors.elviaCharge};
+    background: ${colors.elviaCharge};
     opacity: 1;
     transition: all 0.3s ease-in-out;
     visibility: hidden;

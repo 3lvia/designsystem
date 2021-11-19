@@ -1,13 +1,14 @@
 import styled from 'styled-components';
+import * as ElviaColors from '@elvia/elvis-colors';
 
-const ElviaColors = {
-  elviaOn: '#ffffff',
-  elviaOff: '#000000',
-  elviaCharge: '#29d305',
-  grey10: '#e9e9e9',
-  grey20: '#d3d3d3',
-  grey80: '#515151',
-  grey70: '#676767',
+const colors = {
+  elviaCharge: ElviaColors.default['primary-colors']['green'].color,
+  elviaOn: ElviaColors.default['primary-colors']['white'].color,
+  elviaOff: ElviaColors.default['primary-colors']['black'].color,
+  grey10: ElviaColors.default['grey-colors']['grey-10'].color,
+  grey20: ElviaColors.default['grey-colors']['grey-20'].color,
+  grey80: ElviaColors.default['grey-colors']['grey-80'].color,
+  grey70: ElviaColors.default['grey-colors']['grey-70'].color,
 };
 
 type PaginationTypes = {
@@ -89,7 +90,7 @@ export const SelectorArrowBtn = styled.button<SelectorArrowBtnTypes>`
 
   @media (hover: hover) {
     &:hover {
-      border: 1px solid ${ElviaColors.elviaCharge};
+      border: 1px solid ${colors.elviaCharge};
     }
   }
 
@@ -159,7 +160,7 @@ export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
 
   @media (hover: hover) {
     &:hover {
-      border: 1px solid ${ElviaColors.elviaCharge};
+      border: 1px solid ${colors.elviaCharge};
     }
   }
 

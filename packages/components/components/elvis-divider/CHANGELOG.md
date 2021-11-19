@@ -1,5 +1,11 @@
 # Elvia Divider Changelog
 
+## 1.1.1 (19.11.21)
+
+### Bug fix
+
+- Now using elvis-colors pack for colors.
+
 ## 1.1.0 (17.11.21)
 
 ### New feature

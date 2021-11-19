@@ -1,5 +1,11 @@
 # Elvia Breadcrumbs
 
+## 1.1.2 (19.11.21)
+
+### Bug fix
+
+- Now using elvis-colors pack for colors.
+
 ## 1.1.1 (4.11.21)
 
 ### Fix

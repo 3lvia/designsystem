@@ -1,5 +1,6 @@
 import React, { FC, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import * as ElviaColors from '@elvia/elvis-colors';
 
 export interface BoxProps {
   content: string | HTMLElement;
@@ -9,11 +10,11 @@ export interface BoxProps {
   webcomponent: any;
 }
 
-const ElviaColors = {
-  elviaCharge: '#29d305',
-  elviaOn: '#ffffff',
-  elviaOff: '#000000',
-  grey10: '#E9E9E9',
+const colors = {
+  elviaCharge: ElviaColors.default['primary-colors']['green'].color,
+  elviaOn: ElviaColors.default['primary-colors']['white'].color,
+  elviaOff: ElviaColors.default['primary-colors']['black'].color,
+  grey10: ElviaColors.default['grey-colors']['grey-10'].color,
 };
 
 const BoxArea = styled.div`
@@ -30,7 +31,7 @@ const BoxColoredLine = styled.div`
   height: 4px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background: ${ElviaColors.elviaCharge};
+  background: ${colors.elviaCharge};
 `;
 const BoxTitle = styled.div`
   font-family: 'Red Hat Text';
@@ -66,8 +67,8 @@ const BoxContent = styled.div<BoxContentType>`
   width: 100%;
   box-sizing: border-box;
   border-radius: 5px;
-  border: ${(props: { hasBorder: boolean }) => props.hasBorder === true && `1px solid ${ElviaColors.grey10}`};
-  background: ${ElviaColors.elviaOn};
+  border: ${(props: { hasBorder: boolean }) => props.hasBorder === true && `1px solid ${colors.grey10}`};
+  background: ${colors.elviaOn};
   text-align: left;
   color: black;
   padding: 40px;

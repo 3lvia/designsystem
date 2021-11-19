@@ -1,5 +1,11 @@
 # Elvia Chip Changelog
 
+## 1.1.2 (19.11.21)
+
+### Bug fix
+
+- Now using elvis-colors pack for colors.
+
 ## 1.1.1 (17.11.21)
 
 ### Bug fix
