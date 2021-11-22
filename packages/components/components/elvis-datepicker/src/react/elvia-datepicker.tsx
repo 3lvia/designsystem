@@ -95,7 +95,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     setSelectedDate(date);
 
     // Updating when date valid
-    if (isValid(date)) {
+    if (isValid(date) || date === null) {
       if (!webcomponent && valueOnChange) {
         valueOnChange(date);
       } else if (webcomponent) {
@@ -144,7 +144,9 @@ export const Datepicker: FC<DatepickerProps> = ({
     if (customError) {
       return;
     }
-    if (!isValid(date)) {
+    if (date === null && !isRequired) {
+      setCurrErrorMessage('');
+    } else if (!isValid(date)) {
       if (date === null && isRequired) {
         setCurrErrorMessage('Velg en dato');
       } else if (date !== null) {
