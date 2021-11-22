@@ -1,4 +1,4 @@
-# Elvia Accordion Changelog
+# Elvia Component Wrapper Changelog
 
 ## 2.1.5 (22.11.21)
 
