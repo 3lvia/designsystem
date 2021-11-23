@@ -1,10 +1,17 @@
 # Elvia Modal Changelog
 
+## 1.3.0 (23.11.21)
+
+### Bug fix
+
+- Added optional prop that can overwrite the max-width of the modal.
+
 ## 1.2.2 (12.11.21)
 
 ### Bug fix
 
 - Fixed escape keypress opening modal.
+
 ## 1.2.0 (05.11.21)
 
 ### New features

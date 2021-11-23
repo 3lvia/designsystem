@@ -67,6 +67,12 @@ const modalData = {
       type: '() => void',
       description: 'Callback for every time the modal is being closed.',
     },
+    maxWidth: {
+      isRequired: false,
+      type: 'string | undefined',
+      description: 'Overwrite the max width of the modal.',
+      default: 'undefined',
+    },
   },
   package: 'npm install @elvia/elvis-modal',
   codeImportReact: `import { Modal } from '@elvia/elvis-modal/react';`,
