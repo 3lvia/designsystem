@@ -2,7 +2,7 @@
 
 ## 1.3.0 (23.11.21)
 
-### Bug fix
+### New feature
 
 - Added optional prop that can overwrite the max-width of the modal.
 
