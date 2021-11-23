@@ -184,9 +184,9 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
-    title: 'Drag&Drop',
+    title: 'Drag & drop',
     // tslint:disable-next-line: max-line-length
-    description: `Drag&drop is typically used in <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a> to show content area.`,
+    description: `Drag & drop is typically used in <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a> to show content area.`,
     docUrl: Pages.DragAndDrop,
     absolutePath: '/components/' + Pages.DragAndDrop,
     status: DocPageStatus.New,
