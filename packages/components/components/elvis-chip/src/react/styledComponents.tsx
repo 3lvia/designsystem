@@ -5,8 +5,6 @@ import * as ElviaTypography from '@elvia/elvis-typography';
 
 export const colors = {
   elviaCharge: ElviaColors.default['primary-colors']['green'].color,
-  elviaOn: ElviaColors.default['primary-colors']['white'].color,
-  elviaOff: ElviaColors.default['primary-colors']['black'].color,
   blue: ElviaColors.default['data-colors']['blue-berry'].color,
   green: ElviaColors.default['data-colors']['green-apple'].color,
   orange: ElviaColors.default['data-colors']['orange-mango'].color,
@@ -15,8 +13,8 @@ export const colors = {
   violet: ElviaColors.default['data-colors']['violet-grape'].color,
 };
 
-export const typography = {
-  titleMd: ElviaTypography.default['title-md'],
+const typography = {
+  textLabel: ElviaTypography.default['text-label'],
 };
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
@@ -61,12 +59,11 @@ type ChipTitle = {
 };
 
 export const ChipTitle = styled.div<ChipTitle>`
-  font-family: 'Red Hat Display', Verdana, sans-serif;
-  font-weight: 500;
+  font-family: ${typography.textLabel.fontFamily};
+  font-weight: ${typography.textLabel.fontWeight};
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;
-  color: ${colors.elviaOff};
   opacity: ${(props: { disabled: boolean }) => (props.disabled ? '0.3' : '1')};
 
   &.dot {

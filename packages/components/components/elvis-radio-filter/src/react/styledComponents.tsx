@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import * as ElviaColors from '@elvia/elvis-colors';
 import * as ElviaTypography from '@elvia/elvis-typography';
 
-export const colors = {
+const colors = {
   elviaCharge: ElviaColors.default['primary-colors']['green'].color,
   elviaOff: ElviaColors.default['primary-colors']['black'].color,
   outline: ElviaColors.default['internal-colors']['focus-outline'].color,
 };
 
-export const typography = {
+const typography = {
   textLabel: ElviaTypography.default['text-label'],
 };
 

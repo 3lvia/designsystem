@@ -4,12 +4,11 @@ import * as ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: ElviaColors.default['primary-colors']['green'].color,
-  elviaOn: ElviaColors.default['primary-colors']['white'].color,
-  elviaOff: ElviaColors.default['primary-colors']['black'].color,
+  elviaBlack: ElviaColors.default['primary-colors']['black'].color,
   elviaGrey70: ElviaColors.default['grey-colors']['grey-70'].color,
 };
 
-export const typography = {
+const typography = {
   textSm: ElviaTypography.default['text-sm'],
 };
 
@@ -22,11 +21,11 @@ export const EWCBreadcrumbWrapper = styled.div`
   max-height: 22px;
   a:last-child {
     font-weight: 500;
-    color: ${colors.elviaOff};
+    color: ${colors.elviaBlack};
   }
   i:last-child {
     font-weight: 500;
-    color: ${colors.elviaOff};
+    color: ${colors.elviaBlack};
   }
 `;
 export const EWCBreadcrumbDesktopWrapper = styled.span`

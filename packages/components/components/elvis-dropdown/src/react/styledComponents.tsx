@@ -6,10 +6,9 @@ const colors = {
   elviaCharge: ElviaColors.default['primary-colors']['green'].color,
   elviaOn: ElviaColors.default['primary-colors']['white'].color,
   elviaOff: ElviaColors.default['primary-colors']['black'].color,
-  elviaGrey30: ElviaColors.default['grey-colors']['grey-30'].color,
 };
 
-export const typography = {
+const typography = {
   textMdStrong: ElviaTypography.default['text-md-strong'],
   textMd: ElviaTypography.default['text-md'],
   textSm: ElviaTypography.default['text-sm'],
@@ -47,7 +46,6 @@ export const DropdownLabel = styled.label`
   line-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '10px' : '23px')};
   letter-spacing: unset;
   text-transform: unset;
-  color: ${colors.elviaOff};
   text-align: left;
 `;
 

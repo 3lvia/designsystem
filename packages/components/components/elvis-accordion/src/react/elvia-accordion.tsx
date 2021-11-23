@@ -1,7 +1,6 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
 import styled from 'styled-components';
-import * as ElviaColors from '@elvia/elvis-colors';
 import * as ElviaTypography from '@elvia/elvis-typography';
 
 export type AccordionLabelPosition = 'left' | 'center' | 'right';
@@ -17,13 +16,7 @@ export interface AccordionProps {
   type: AccordionType;
 }
 
-const colors = {
-  green: ElviaColors.default['primary-colors']['green'].color,
-  white: ElviaColors.default['primary-colors']['white'].color,
-  black: ElviaColors.default['primary-colors']['black'].color,
-};
-
-export const typography = {
+const typography = {
   textLabel: ElviaTypography.default['text-label'],
 };
 
@@ -87,13 +80,11 @@ const AccordionButton = styled.button<AccordionButton>`
   background: transparent;
   display: flex;
   padding: 0;
-  font-family: ${typography.textLabel.fontFamily};
-  font-weight: ${typography.textLabel.fontWeight};
+  ${typography.textLabel}
   font-size: ${(props: { size: AccordionSize }) => decideButtonFontSize(props.size)};
   line-height: ${(props: { size: AccordionSize }) => (props.size === 'small' ? '16px' : '24px')};
   text-align: left;
   cursor: pointer;
-  color: ${colors.black};
 
   &:hover {
     i {

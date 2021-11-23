@@ -4,7 +4,7 @@
 
 ### Bug fix
 
-- Now using elvis-colors pack for colors.
+- Now using elvis-colors package for colors.
 
 ## 1.1.1 (17.11.21)
 

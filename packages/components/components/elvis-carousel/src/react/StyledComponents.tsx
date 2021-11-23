@@ -6,10 +6,9 @@ const colors = {
   elviaCharge: ElviaColors.default['primary-colors']['green'].color,
   elviaOn: ElviaColors.default['primary-colors']['white'].color,
   elviaOff: ElviaColors.default['primary-colors']['black'].color,
-  elviaBlue: ElviaColors.default['internal-colors']['focus-outline'].color,
 };
 
-export const typography = {
+const typography = {
   textMd: ElviaTypography.default['text-md'],
 };
 
@@ -94,12 +93,10 @@ export const CarouselElement = styled.div<CarouselElementTypes>`
   flex-direction: column;
 
   ${typography.textMd}
-  color: ${colors.elviaOff};
   padding-bottom: '10px';
   * {
     margin: 0px;
     ${typography.textMd}
-    color: ${colors.elviaOff};
   }
 `;
 
