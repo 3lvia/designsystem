@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { ColorType } from './elvia-chip.types';
 import * as ElviaColors from '@elvia/elvis-colors';
+import * as ElviaTypography from '@elvia/elvis-typography';
 
 export const colors = {
   elviaCharge: ElviaColors.default['primary-colors']['green'].color,
@@ -12,6 +13,10 @@ export const colors = {
   purple: ElviaColors.default['data-colors']['purple-plum'].color,
   red: ElviaColors.default['data-colors']['red-tomato'].color,
   violet: ElviaColors.default['data-colors']['violet-grape'].color,
+};
+
+export const typography = {
+  titleMd: ElviaTypography.default['title-md'],
 };
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;

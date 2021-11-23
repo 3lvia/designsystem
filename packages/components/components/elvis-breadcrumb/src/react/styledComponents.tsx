@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 import * as ElviaColors from '@elvia/elvis-colors';
+import * as ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: ElviaColors.default['primary-colors']['green'].color,
   elviaOn: ElviaColors.default['primary-colors']['white'].color,
   elviaOff: ElviaColors.default['primary-colors']['black'].color,
   elviaGrey70: ElviaColors.default['grey-colors']['grey-70'].color,
+};
+
+export const typography = {
+  textSm: ElviaTypography.default['text-sm'],
 };
 
 export const EWCBreadcrumbWrapper = styled.div`
@@ -36,13 +41,10 @@ type EWCBreadcrumbLinkTypes = {
 };
 
 export const EWCBreadcrumbLink = styled.a<EWCBreadcrumbLinkTypes>`
+  ${typography.textSm}
   position: relative;
   box-sizing: border-box;
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 14px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
   letter-spacing: 0.2px;
   text-align: left;
   text-decoration: none;

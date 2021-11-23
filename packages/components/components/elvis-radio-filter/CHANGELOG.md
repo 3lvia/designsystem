@@ -1,5 +1,11 @@
 # Elvia Radio Filter Changelog
 
+## 1.1.1 (23.11.21)
+
+### Bug fix
+
+- Now using elvis-typography pack for typography.
+
 ## 1.1.0 (03.11.21)
 
 ### New features

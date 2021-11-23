@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import * as ElviaColors from '@elvia/elvis-colors';
+import * as ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: ElviaColors.default['primary-colors']['green'].color,
@@ -9,6 +10,10 @@ const colors = {
   grey20: ElviaColors.default['grey-colors']['grey-20'].color,
   grey80: ElviaColors.default['grey-colors']['grey-80'].color,
   grey70: ElviaColors.default['grey-colors']['grey-70'].color,
+};
+
+export const typography = {
+  textSm: ElviaTypography.default['text-sm'],
 };
 
 type PaginationTypes = {
@@ -39,11 +44,8 @@ export const InfoContainer = styled.div`
 `;
 
 export const InfoText = styled.div`
-  font-family: 'Red Hat Text';
-  font-size: 14px;
+  ${typography.textSm}
   font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
   letter-spacing: 0.2px;
   text-align: left;
 `;
@@ -56,11 +58,8 @@ type InfoAmountTypes = {
   isMobile: boolean;
 };
 export const InfoAmount = styled.div<InfoAmountTypes>`
-  font-family: 'Red Hat Text';
-  font-size: 14px;
+  ${typography.textSm}
   font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
   text-align: left;
   white-space: nowrap;
   margin-right: ${(props: { isMobile: boolean }) => (props.isMobile ? '0px' : '24px')};
@@ -136,10 +135,10 @@ type PaginatorNumberTypes = {
 };
 
 export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
-  font-family: Red Hat Text;
+  font-family: ${typography.textSm.fontFamily};
   font-size: 13px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${typography.textSm.fontWeight}
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
@@ -174,10 +173,10 @@ type PaginatorDotsTypes = {
 };
 
 export const PaginatorDots = styled.div<PaginatorDotsTypes>`
-  font-family: Red Hat Text;
+  font-family: ${typography.textSm.fontFamily};
   font-size: 13px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${typography.textSm.fontWeight}
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;

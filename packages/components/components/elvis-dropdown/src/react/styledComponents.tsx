@@ -1,11 +1,18 @@
 import styled from 'styled-components';
 import * as ElviaColors from '@elvia/elvis-colors';
+import * as ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: ElviaColors.default['primary-colors']['green'].color,
   elviaOn: ElviaColors.default['primary-colors']['white'].color,
   elviaOff: ElviaColors.default['primary-colors']['black'].color,
   elviaGrey30: ElviaColors.default['grey-colors']['grey-30'].color,
+};
+
+export const typography = {
+  textMdStrong: ElviaTypography.default['text-md-strong'],
+  textMd: ElviaTypography.default['text-md'],
+  textSm: ElviaTypography.default['text-sm'],
 };
 
 export const DropdownWrapper = styled.span`
@@ -34,8 +41,8 @@ export const DropdownLabel = styled.label`
   display: flex;
   margin-bottom: 4px;
   font-size: ${(props: { isCompact: boolean }) => (props.isCompact ? '10px' : '16px')};
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-weight: 500;
+  font-family: ${typography.textMdStrong.fontFamily};
+  font-weight: ${typography.textMdStrong.fontWeight};
   font-style: unset;
   line-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '10px' : '23px')};
   letter-spacing: unset;
@@ -81,11 +88,8 @@ export const ErrorMessageIcon = styled.i`
   display: inline-block;
 `;
 export const ErrorMessageText = styled.span`
-  font-family: 'Red Hat Text', Verdana;
-  font-size: 14px;
+  ${typography.textSm}
   font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
   letter-spacing: 0px;
   text-align: left;
   margin-left: 8px;
@@ -186,8 +190,8 @@ export const DropdownCheckboxMark = styled.span<DropdownCheckboxMark>`
 `;
 
 export const DropdownCheckboxLabel = styled.span`
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-weight: 400;
+  font-family: ${typography.textMd.fontFamily};
+  font-weight: ${typography.textMd.fontWeight};
   font-style: normal;
   font-size: ${(props: { isCompact: boolean }) => (props.isCompact ? '14px' : '16px')};
   margin-left: 8px;

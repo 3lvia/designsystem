@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 import * as ElviaColors from '@elvia/elvis-colors';
+import * as ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: ElviaColors.default['primary-colors']['green'].color,
   elviaOn: ElviaColors.default['primary-colors']['white'].color,
   elviaOff: ElviaColors.default['primary-colors']['black'].color,
   elviaBlue: ElviaColors.default['internal-colors']['focus-outline'].color,
+};
+
+export const typography = {
+  textMd: ElviaTypography.default['text-md'],
 };
 
 const mobileMax = '767px';
@@ -88,23 +93,13 @@ export const CarouselElement = styled.div<CarouselElementTypes>`
   align-items: center;
   flex-direction: column;
 
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  line-height: '28px';
-  font-size: '16px';
+  ${typography.textMd}
   color: ${colors.elviaOff};
-  text-transform: 'unset';
-  letter-spacing: 'unset';
   padding-bottom: '10px';
-  font-style: unset;
   * {
     margin: 0px;
-    font-family: 'Red Hat Text', Verdana, sans-serif;
-    line-height: '28px';
-    font-size: '16px';
+    ${typography.textMd}
     color: ${colors.elviaOff};
-    text-transform: 'unset';
-    letter-spacing: 'unset';
-    font-style: unset;
   }
 `;
 

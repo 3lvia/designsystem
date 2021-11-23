@@ -1785,6 +1785,11 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.5.tgz#9283c9ce5b289a3c4f61c12757469e59377f81f3"
   integrity sha512-6nFkfkmSeV/rqSaS4oWHgmpnYw194f6hmWF5is6b0J1naJZoiD0NTc9AiUwPHvWsowkjuHErCZT1wa0jg+BLIA==
 
+"@elvia/elvis-colors@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@elvia/elvis-colors/-/elvis-colors-1.0.1.tgz#6b617265e3d7fb9de82125df24afec2472e1dbc6"
+  integrity sha512-kAzpzY0b8ztDtiVstTw2HtWH7xmal+EXzHFogoVtyMYlbFfCQwnNuVn2W3PKxRxNQY3S+5PweAXK83FId+VRJQ==
+
 "@elvia/elvis-component-wrapper@2.1.2":
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/@elvia/elvis-component-wrapper/-/elvis-component-wrapper-2.1.2.tgz#569cc8e353c612e630b811b0e913828db03d1529"
