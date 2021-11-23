@@ -70,8 +70,7 @@ const modalData = {
     maxWidth: {
       isRequired: false,
       type: 'string | undefined',
-      description: 'Overwrite the max width of the modal.',
-      default: 'undefined',
+      description: 'Overwrite the max width of the modal (e.g. "100px", "90%").',
     },
   },
   package: 'npm install @elvia/elvis-modal',
