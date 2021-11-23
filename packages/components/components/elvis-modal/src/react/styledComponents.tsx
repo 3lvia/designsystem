@@ -68,7 +68,7 @@ export const Wrapper = styled.div<WrapperType>`
   height: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '550px' : 'auto')};
   width: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '1090px' : 'auto')};
   max-width: ${(props: { hasIllustration: boolean; maxWidth?: string }) =>
-    props.hasIllustration ? '1090px' : props.maxWidth ? props.maxWidth : modalMaxWidth};
+    props.maxWidth ? props.maxWidth : props.hasIllustration ? '1090px' : modalMaxWidth};
   border-radius: ${modalBorderRadius};
   overflow: hidden;
   background: ${colors.elviaOn};
