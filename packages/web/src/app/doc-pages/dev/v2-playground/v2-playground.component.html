@@ -1,17 +1,5 @@
 <!--BODY-->
 <div style="max-width: 70%">
-  <div style="display: flex; gap: 24px">
-    <elvia-dropdown
-      [isMulti]="true"
-      [isCompact]="false"
-      [isDisabled]="false"
-      label="Test"
-      [defaultValue]="defOptions"
-      [options]="exampleOptions"
-      (valueOnChange)="dropdownValue = $event.detail.value"
-    ></elvia-dropdown>
-  </div>
-
   <button (click)="isModalShowing1 = !isModalShowing1">Hello</button>
   <elvia-modal
     (onHide)="isModalShowing1 = !isModalShowing1"
