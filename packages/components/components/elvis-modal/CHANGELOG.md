@@ -1,5 +1,11 @@
 # Elvia Modal Changelog
 
+## 1.3.1 (24.11.21)
+
+### Bug fix
+
+- Fix to enable new prop maxWidth for webcomponents.
+
 ## 1.3.0 (23.11.21)
 
 ### New feature
