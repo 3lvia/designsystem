@@ -1,10 +1,10 @@
 # Elvia Date picker Changelog
 
-## 1.2.4 (22.11.21)
+## 2.0.0 (24.11.21)
 
-### Bug fix
+### New feature
 
-- Now sending event when no date is selected
+- Now sending events when no date, or invalid date, is selected
 
 ## 1.2.3 (17.11.21)
 

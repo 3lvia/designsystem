@@ -94,14 +94,12 @@ export const Datepicker: FC<DatepickerProps> = ({
     validateDate(date);
     setSelectedDate(date);
 
-    // Updating when date valid
-    if (isValid(date) || date === null) {
-      if (!webcomponent && valueOnChange) {
-        valueOnChange(date);
-      } else if (webcomponent) {
-        // True -> Prevents rerender
-        webcomponent.setProps({ value: date }, true);
-      }
+    // Updating for any changes in the state of the date field
+    if (!webcomponent && valueOnChange) {
+      valueOnChange(date);
+    } else if (webcomponent) {
+      // True -> Prevents rerender
+      webcomponent.setProps({ value: date }, true);
     }
   };
 
