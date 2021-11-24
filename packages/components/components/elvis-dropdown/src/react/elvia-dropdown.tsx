@@ -50,7 +50,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
   options,
-  placeholder = 'Placeholder',
+  placeholder = '',
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   value,
   valueOnChange,
@@ -101,7 +101,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const customElviaStyles = {
     container: (provided: any) => ({
       ...provided,
-      maxWidth: '400px',
+      maxWidth: '448px',
     }),
 
     control: () => ({

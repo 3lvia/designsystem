@@ -1,13 +1,17 @@
-<!--HEADER-->
-<app-component-header>
-  <ng-container ngProjectAs="headerTitle">v2 - Playground</ng-container>
-  <ng-container ngProjectAs="headerDescription">
-    {{ description }}
-  </ng-container>
-</app-component-header>
-
 <!--BODY-->
-<div class="page-body">
+<div style="max-width: 70%">
+  <div style="display: flex; gap: 24px">
+    <elvia-dropdown
+      [isMulti]="true"
+      [isCompact]="false"
+      [isDisabled]="false"
+      label="Test"
+      [defaultValue]="defOptions"
+      [options]="exampleOptions"
+      (valueOnChange)="dropdownValue = $event.detail.value"
+    ></elvia-dropdown>
+  </div>
+
   <button (click)="isModalShowing1 = !isModalShowing1">Hello</button>
   <elvia-modal
     (onHide)="isModalShowing1 = !isModalShowing1"
@@ -255,9 +259,9 @@
     <div style="margin-top: 16px; background: #262626; padding: 8px">
       <elvia-divider type="curved" [isInverted]="true"></elvia-divider>
     </div>
-    <div style="margin-top: 16px; padding: 8px;">
+    <div style="margin-top: 16px; padding: 8px">
       <h3>Vertical divider</h3>
-      <div style="height: 100px;">
+      <div style="height: 100px">
         <elvia-divider type="simple" orientation="vertical"></elvia-divider>
       </div>
     </div>
