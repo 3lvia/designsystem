@@ -157,9 +157,7 @@ module.exports = [
     ],
     reactName: 'Datepicker',
     elementStyle: 'display: block; max-width: 448px;',
-    conditionalElementStyle: [
-      { name: 'isFullWidth', value: 'true', style: `width: 100%` },
-    ],
+    conditionalElementStyle: [{ name: 'isFullWidth', value: 'true', style: `width: 100%` }],
     useWrapper: false,
     slotItems: false,
     reactTypescriptDeclaration: true,
@@ -196,7 +194,7 @@ module.exports = [
     conditionalElementStyle: [
       { name: 'orientation', value: 'horizontal', style: `width: 100%;` },
       { name: 'orientation', value: undefined, style: `width: 100%;` },
-      { name: 'orientation', value: 'vertical', style: `height: 100%` }
+      { name: 'orientation', value: 'vertical', style: `height: 100%` },
     ],
     useWrapper: false,
     reactTypescriptDeclaration: true,
@@ -251,6 +249,7 @@ module.exports = [
       { name: 'hasCloseBtn', type: 'boolean', propType: 'boolean' },
       { name: 'hasLockBodyScroll', type: 'boolean', propType: 'boolean' },
       { name: 'disableClose', type: 'boolean', propType: 'boolean' },
+      { name: 'maxWidth', type: 'string', propType: 'string' },
     ],
     reactName: 'Modal',
     slotItems: true,
@@ -285,9 +284,7 @@ module.exports = [
       { name: 'labelOf', type: 'string', propType: 'string' },
     ],
     elementStyle: `display:flex; width: 100%; min-width: 325px`,
-    conditionalElementStyle: [
-      { name: 'isRightAligned', value: 'true', style: `justify-content: flex-end;` },
-    ],
+    conditionalElementStyle: [{ name: 'isRightAligned', value: 'true', style: `justify-content: flex-end;` }],
     reactName: 'Pagination',
     slotItems: false,
     useWrapper: false,
