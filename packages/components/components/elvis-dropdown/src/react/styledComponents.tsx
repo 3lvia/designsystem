@@ -1,17 +1,17 @@
 import styled from 'styled-components';
-import * as ElviaColors from '@elvia/elvis-colors';
-import * as ElviaTypography from '@elvia/elvis-typography';
+import ElviaColors from '@elvia/elvis-colors';
+import ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
-  elviaCharge: ElviaColors.default['primary-colors']['green'].color,
-  elviaOn: ElviaColors.default['primary-colors']['white'].color,
-  elviaOff: ElviaColors.default['primary-colors']['black'].color,
+  elviaCharge: ElviaColors['primary-colors']['green'].color,
+  elviaOn: ElviaColors['primary-colors']['white'].color,
+  elviaOff: ElviaColors['primary-colors']['black'].color,
 };
 
 const typography = {
-  textMdStrong: ElviaTypography.default['text-md-strong'],
-  textMd: ElviaTypography.default['text-md'],
-  textSm: ElviaTypography.default['text-sm'],
+  textMdStrong: ElviaTypography['text-md-strong'],
+  textMd: ElviaTypography['text-md'],
+  textSm: ElviaTypography['text-sm'],
 };
 
 export const DropdownWrapper = styled.span`

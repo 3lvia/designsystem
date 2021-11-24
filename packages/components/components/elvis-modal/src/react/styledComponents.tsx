@@ -1,15 +1,15 @@
 import styled, { keyframes } from 'styled-components';
-import * as ElviaColors from '@elvia/elvis-colors';
-import * as ElviaTypography from '@elvia/elvis-typography';
+import ElviaColors from '@elvia/elvis-colors';
+import ElviaTypography from '@elvia/elvis-typography';
 
 export const colors = {
-  elviaOn: ElviaColors.default['primary-colors']['white'].color,
-  elviaOff: ElviaColors.default['primary-colors']['black'].color,
-  grey: ElviaColors.default['primary-colors']['grey'].color,
+  elviaOn: ElviaColors['primary-colors']['white'].color,
+  elviaOff: ElviaColors['primary-colors']['black'].color,
+  grey: ElviaColors['primary-colors']['grey'].color,
 };
 export const typography = {
-  titleMd: ElviaTypography.default['title-md'],
-  textLg: ElviaTypography.default['text-lg'],
+  titleMd: ElviaTypography['title-md'],
+  textLg: ElviaTypography['text-lg'],
 };
 
 const mobileMax = '767px';

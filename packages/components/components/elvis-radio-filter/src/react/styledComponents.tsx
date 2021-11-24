@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import * as ElviaColors from '@elvia/elvis-colors';
-import * as ElviaTypography from '@elvia/elvis-typography';
+import ElviaColors from '@elvia/elvis-colors';
+import ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
-  elviaCharge: ElviaColors.default['primary-colors']['green'].color,
-  elviaOff: ElviaColors.default['primary-colors']['black'].color,
-  outline: ElviaColors.default['internal-colors']['focus-outline'].color,
+  elviaCharge: ElviaColors['primary-colors']['green'].color,
+  elviaOff: ElviaColors['primary-colors']['black'].color,
+  outline: ElviaColors['internal-colors']['focus-outline'].color,
 };
 
 const typography = {
-  textLabel: ElviaTypography.default['text-label'],
+  textLabel: ElviaTypography['text-label'],
 };
 
 export const RadioFilterGroup = styled.div`

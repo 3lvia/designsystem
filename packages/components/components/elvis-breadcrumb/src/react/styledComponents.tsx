@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-import * as ElviaColors from '@elvia/elvis-colors';
-import * as ElviaTypography from '@elvia/elvis-typography';
+import ElviaColors from '@elvia/elvis-colors';
+import ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
-  elviaCharge: ElviaColors.default['primary-colors']['green'].color,
-  elviaBlack: ElviaColors.default['primary-colors']['black'].color,
-  elviaGrey70: ElviaColors.default['grey-colors']['grey-70'].color,
+  elviaCharge: ElviaColors['primary-colors']['green'].color,
+  elviaBlack: ElviaColors['primary-colors']['black'].color,
+  elviaGrey70: ElviaColors['grey-colors']['grey-70'].color,
 };
 
 const typography = {
-  textSm: ElviaTypography.default['text-sm'],
+  textSm: ElviaTypography['text-sm'],
 };
 
 export const EWCBreadcrumbWrapper = styled.div`

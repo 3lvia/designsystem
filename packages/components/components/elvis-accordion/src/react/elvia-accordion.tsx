@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
 import styled from 'styled-components';
-import * as ElviaTypography from '@elvia/elvis-typography';
+import ElviaTypography from '@elvia/elvis-typography';
 
 export type AccordionLabelPosition = 'left' | 'center' | 'right';
 export type AccordionSize = 'small' | 'medium' | 'large';
@@ -17,7 +17,7 @@ export interface AccordionProps {
 }
 
 const typography = {
-  textLabel: ElviaTypography.default['text-label'],
+  textLabel: ElviaTypography['text-label'],
 };
 
 const AccordionArea = styled.div`

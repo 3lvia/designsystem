@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import * as ElviaColors from '@elvia/elvis-colors';
+import ElviaColors from '@elvia/elvis-colors';
 
 export interface BoxProps {
   content: string | HTMLElement;
@@ -11,10 +11,10 @@ export interface BoxProps {
 }
 
 const colors = {
-  elviaCharge: ElviaColors.default['primary-colors']['green'].color,
-  elviaOn: ElviaColors.default['primary-colors']['white'].color,
-  elviaOff: ElviaColors.default['primary-colors']['black'].color,
-  grey10: ElviaColors.default['grey-colors']['grey-10'].color,
+  elviaCharge: ElviaColors['primary-colors']['green'].color,
+  elviaOn: ElviaColors['primary-colors']['white'].color,
+  elviaOff: ElviaColors['primary-colors']['black'].color,
+  grey10: ElviaColors['grey-colors']['grey-10'].color,
 };
 
 const BoxArea = styled.div`

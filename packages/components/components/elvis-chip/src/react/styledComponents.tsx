@@ -1,20 +1,20 @@
 import styled from 'styled-components';
 import { ColorType } from './elvia-chip.types';
-import * as ElviaColors from '@elvia/elvis-colors';
-import * as ElviaTypography from '@elvia/elvis-typography';
+import ElviaColors from '@elvia/elvis-colors';
+import ElviaTypography from '@elvia/elvis-typography';
 
 export const colors = {
-  elviaCharge: ElviaColors.default['primary-colors']['green'].color,
-  blue: ElviaColors.default['data-colors']['blue-berry'].color,
-  green: ElviaColors.default['data-colors']['green-apple'].color,
-  orange: ElviaColors.default['data-colors']['orange-mango'].color,
-  purple: ElviaColors.default['data-colors']['purple-plum'].color,
-  red: ElviaColors.default['data-colors']['red-tomato'].color,
-  violet: ElviaColors.default['data-colors']['violet-grape'].color,
+  elviaCharge: ElviaColors['primary-colors']['green'].color,
+  blue: ElviaColors['data-colors']['blue-berry'].color,
+  green: ElviaColors['data-colors']['green-apple'].color,
+  orange: ElviaColors['data-colors']['orange-mango'].color,
+  purple: ElviaColors['data-colors']['purple-plum'].color,
+  red: ElviaColors['data-colors']['red-tomato'].color,
+  violet: ElviaColors['data-colors']['violet-grape'].color,
 };
 
 const typography = {
-  textLabel: ElviaTypography.default['text-label'],
+  textLabel: ElviaTypography['text-label'],
 };
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
