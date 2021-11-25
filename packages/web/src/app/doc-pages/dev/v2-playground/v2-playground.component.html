@@ -1,5 +1,13 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">v2 - Playground</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
 <!--BODY-->
-<div style="max-width: 70%">
+<div class="page-body">
   <button (click)="isModalShowing1 = !isModalShowing1">Hello</button>
   <elvia-modal
     (onHide)="isModalShowing1 = !isModalShowing1"
