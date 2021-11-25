@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { ColorType } from './elvia-chip.types';
 import ElviaColors from '@elvia/elvis-colors';
-import ElviaTypography from '@elvia/elvis-typography';
 
 export const colors = {
   elviaCharge: ElviaColors['primary-colors']['green'].color,
@@ -11,10 +10,6 @@ export const colors = {
   purple: ElviaColors['data-colors']['purple-plum'].color,
   red: ElviaColors['data-colors']['red-tomato'].color,
   violet: ElviaColors['data-colors']['violet-grape'].color,
-};
-
-const typography = {
-  textLabel: ElviaTypography['text-label'],
 };
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
@@ -59,8 +54,8 @@ type ChipTitle = {
 };
 
 export const ChipTitle = styled.div<ChipTitle>`
-  font-family: ${typography.textLabel.fontFamily};
-  font-weight: ${typography.textLabel.fontWeight};
+  font-family: 'Red Hat Display', verdana, sans-serif;
+  font-weight: 500;
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;

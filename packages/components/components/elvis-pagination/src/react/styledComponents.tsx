@@ -133,10 +133,8 @@ type PaginatorNumberTypes = {
 };
 
 export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
-  font-family: ${typography.textSm.fontFamily};
-  font-size: 13px;
+  ${typography.textSm.fontFamily};
   font-style: normal;
-  font-weight: ${typography.textSm.fontWeight}
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
@@ -174,7 +172,7 @@ export const PaginatorDots = styled.div<PaginatorDotsTypes>`
   font-family: ${typography.textSm.fontFamily};
   font-size: 13px;
   font-style: normal;
-  font-weight: ${typography.textSm.fontWeight}
+  font-weight: ${typography.textSm.fontWeight};
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;

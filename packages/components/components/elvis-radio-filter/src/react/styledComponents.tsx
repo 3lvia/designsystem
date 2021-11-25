@@ -1,15 +1,10 @@
 import styled from 'styled-components';
 import ElviaColors from '@elvia/elvis-colors';
-import ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: ElviaColors['primary-colors']['green'].color,
   elviaOff: ElviaColors['primary-colors']['black'].color,
   outline: ElviaColors['internal-colors']['focus-outline'].color,
-};
-
-const typography = {
-  textLabel: ElviaTypography['text-label'],
 };
 
 export const RadioFilterGroup = styled.div`
@@ -44,6 +39,9 @@ export const RadioFilterInput = styled.input`
 `;
 
 export const RadioFilterTitle = styled.span`
-  ${typography.textLabel}
+  font-family: 'Red Hat Display', verdana, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
   line-height: 22px;
 `;

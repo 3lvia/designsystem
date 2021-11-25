@@ -11,7 +11,6 @@
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^2.0.3",
     "styled-components": "^5.3.3",
-    "@elvia/elvis-colors": "1.0.1",
-    "@elvia/elvis-typography": "^1.1.0"
+    "@elvia/elvis-colors": "1.0.1"
   }
 }
