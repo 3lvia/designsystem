@@ -17,6 +17,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   @Input() codeCSS = '';
   @Input() codeAngular = '';
   @Input() codeReact = '';
+  @Input() codeVue = '';
   @Input() codeInverted = '';
   @Input() isInverted = false;
   @Input() isJS = false;
@@ -34,6 +35,8 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   codepen = '';
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
+  codeVueSub: Subscription;
+  codeNativeSub: Subscription;
   tabs = [];
 
   constructor(
@@ -71,6 +74,10 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
       this.activeLanguage = 'jsx';
       this.activeCode = this.codeReact;
     }
+    if (selectedTab === 'Vue') {
+      this.activeLanguage = 'html';
+      this.activeCode = this.codeVue;
+    }
     if (selectedTab === 'Native') {
       this.activeLanguage = 'html';
       this.activeCode = this.codeNative;
@@ -107,6 +114,9 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
     if (this.codeReact !== '') {
       tabs.push('React');
     }
+    if (this.codeVue !== '') {
+      tabs.push('Vue');
+    }
     if (this.codeNative !== '') {
       tabs.push('Native');
     }
@@ -130,6 +140,7 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
       this.codeAngular = this.componentData.codeAngular;
       this.codeReact = this.componentData.codeReact;
       this.codeNative = this.componentData.codeNativeHTML;
+      this.codeVue = this.componentData.codeVue;
     }
     this.codeAngularSub = this.codeService.listenCodeAngular().subscribe((newCode: string) => {
       this.codeAngular = newCode;
@@ -141,7 +152,12 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
       this.highlightCode();
       this.updateTabs();
     });
-    this.codeReactSub = this.codeService.listenCodeNative().subscribe((newCode: string) => {
+    this.codeVueSub = this.codeService.listenCodeVue().subscribe((newCode: string) => {
+      this.codeVue = newCode;
+      this.highlightCode();
+      this.updateTabs();
+    });
+    this.codeNativeSub = this.codeService.listenCodeNative().subscribe((newCode: string) => {
       this.codeNative = newCode;
       this.highlightCode();
       this.updateTabs();

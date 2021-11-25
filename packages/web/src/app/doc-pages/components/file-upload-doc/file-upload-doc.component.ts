@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/doc-pages';
   styleUrls: ['./file-upload-doc.component.scss'],
 })
 export class FileUploadDocComponent {
-  figmaUrl = getComponent('fileUpload').figmaUrl;
-  description = getComponent('fileUpload').description;
+  figmaUrl = getComponent('file-upload').figmaUrl;
+  description = getComponent('file-upload').description;
 
   example1 = `<div class="e-fileupload" style="width:380px">
   <div class="e-fileupload__icon">

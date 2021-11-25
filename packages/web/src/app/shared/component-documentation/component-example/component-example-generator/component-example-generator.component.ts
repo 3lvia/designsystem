@@ -25,10 +25,12 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
+  codeVueSub: Subscription;
   codeNativeSub: Subscription;
   codeReact;
-  codeNative;
   codeAngular;
+  codeVue;
+  codeNative;
   dynamicCode;
 
   enableFilters = true;
@@ -49,9 +51,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    this.codeAngular = this.componentData.codeAngular;
-    this.codeReact = this.componentData.codeReact;
-    this.codeNative = this.componentData.codeNativeHTML;
+    this.codeAngular = this.componentData.codeAngular ? this.componentData.codeAngular : '';
+    this.codeReact = this.componentData.codeReact ? this.componentData.codeReact : '';
+    this.codeVue = this.componentData.codeVue ? this.componentData.codeVue : '';
+    this.codeNative = this.componentData.codeNativeHTML ? this.componentData.codeNativeHTML : '';
     if (this.inlineExample) {
       return;
     }
@@ -60,6 +63,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     });
     this.codeReactSub = this.cegService.listenCodeReact().subscribe((code: string) => {
       this.codeReact = code;
+    });
+    this.codeVueSub = this.cegService.listenCodeVue().subscribe((code: string) => {
+      this.codeVue = code;
     });
     this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code: string) => {
       this.codeNative = code;
@@ -88,6 +94,9 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
     if (this.codeReactSub) {
       this.codeReactSub.unsubscribe();
+    }
+    if (this.codeVueSub) {
+      this.codeVueSub.unsubscribe();
     }
     if (this.codeNativeSub) {
       this.codeNativeSub.unsubscribe();
@@ -252,6 +261,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   updateProps(): void {
     this.cegService.updateCodeReact(this.codeReact);
     this.cegService.updateCodeAngular(this.codeAngular);
+    this.cegService.updateCodeVue(this.codeVue);
     this.cegService.updateCodeNative(this.codeNative);
   }
 
@@ -267,6 +277,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.selectedType = selected.label;
         this.codeReact = element.codeReact;
         this.codeAngular = element.codeAngular;
+        this.codeVue = element.codeVue;
         this.codeNative = element.codeNativeHTML;
       }
     });
@@ -305,6 +316,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         cegType,
         elNameW,
       );
+      this.codeVue = this.cegService.addNewProp(this.codeVue, attr, newValue, 'vue', cegType, elNameW);
       this.codeNative = this.cegService.addNewProp(
         this.codeNative,
         attr,

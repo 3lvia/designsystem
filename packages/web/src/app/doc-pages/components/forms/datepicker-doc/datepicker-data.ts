@@ -12,7 +12,8 @@ const datepickerData = {
     valueOnChange: {
       isRequired: false,
       type: '(value: Date) => CustomEvent',
-      description: 'Gets called every time the value is changed.',
+      description:
+        'Gets called every time the value is changed. Returns null if input field is empty, or Invalid Date if input is not a valid date.',
     },
     label: {
       isRequired: false,

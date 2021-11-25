@@ -33,7 +33,7 @@ $green: #29d305;
   }
 
   &__backdrop {
-    z-index: 99;
+    z-index: 100;
     position: fixed;
     left: 0px;
     top: 0px;
@@ -43,7 +43,7 @@ $green: #29d305;
 
   &__fixed-content-area {
     position: fixed;
-    z-index: 99;
+    z-index: 100;
 
     .ewc-popover__contentContainer {
       height: 100%;

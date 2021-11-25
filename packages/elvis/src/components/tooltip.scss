@@ -1,5 +1,5 @@
-@use "../variables/colors";
-@use "../utilities/helpers";
+@use '../variables/colors';
+@use '../utilities/helpers';
 
 $tooltip-border-width: 7px;
 $tooltip-border-style: $tooltip-border-width solid;
@@ -132,6 +132,6 @@ $tooltip-padding: 8px 10px;
 
   100% {
     opacity: 1;
-    z-index: 90;
+    z-index: 100;
   }
 }

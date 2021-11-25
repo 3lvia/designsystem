@@ -181,7 +181,7 @@ export class ElvisComponentWrapper extends HTMLElement {
 
   // Dispatches event and data for 'OnChange' events
   private onChangeEvent(propName: string) {
-    if (this._data[propName.toLowerCase()] === null || this._data[propName.toLowerCase()] === undefined) {
+    if (this._data[propName.toLowerCase()] === undefined) {
       this.logWarnMessage(
         'onChangeEvent',
         ': Cannot dispatch OnChange event because no data was found with prop-name: ' + propName + '.',

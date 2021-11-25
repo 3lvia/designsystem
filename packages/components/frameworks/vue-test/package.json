@@ -3,20 +3,38 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "start": "vue-cli-service serve",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "@elvia/elvis": "*",
+    "@elvia/elvis-accordion": "*",
+    "@elvia/elvis-box": "*",
+    "@elvia/elvis-breadcrumb": "*",
+    "@elvia/elvis-carousel": "*",
+    "@elvia/elvis-chip": "*",
+    "@elvia/elvis-datepicker": "*",
+    "@elvia/elvis-divider": "*",
+    "@elvia/elvis-dropdown": "*",
+    "@elvia/elvis-modal": "*",
+    "@elvia/elvis-pagination": "*",
+    "@elvia/elvis-popover": "*",
+    "@elvia/elvis-progress-linear": "*",
+    "@elvia/elvis-radio-filter": "*",
+    "@elvia/elvis-tabs": "*",
+    "@elvia/elvis-testing": "*"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^7.0.0"
+    "eslint-plugin-vue": "^7.0.0",
+    "vue-loader": "15.9.8"
   },
   "eslintConfig": {
     "root": true,
