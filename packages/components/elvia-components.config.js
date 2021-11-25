@@ -216,7 +216,7 @@ module.exports = [
       { name: 'value', type: 'object', propType: 'object' },
     ],
     slotItems: false,
-    elementStyle: 'max-width: 448px; width: 100%;',
+    elementStyle: 'max-width: 448px; width: 100%; display: block;',
     reactName: 'Dropdown',
     useWrapper: false,
     reactTypescriptDeclaration: true,
