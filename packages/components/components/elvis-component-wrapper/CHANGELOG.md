@@ -12,12 +12,6 @@
 
 - Improved conditional elements type function
 
-## 2.1.4 (17.11.21)
-
-### Bug fix
-
-- Improved conditinal element stype function
-
 ## 2.1.2 (07.09.21)
 
 ### Bug fix
