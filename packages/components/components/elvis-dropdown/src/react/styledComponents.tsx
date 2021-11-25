@@ -4,8 +4,8 @@ import ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: ElviaColors['primary-colors']['green'].color,
-  elviaOn: ElviaColors['primary-colors']['white'].color,
-  elviaOff: ElviaColors['primary-colors']['black'].color,
+  elviaWhite: ElviaColors['primary-colors']['white'].color,
+  elviaBlack: ElviaColors['primary-colors']['black'].color,
 };
 
 const typography = {
@@ -34,7 +34,7 @@ export const DropdownLabel = styled.label`
   position: ${(props: { isCompact: boolean }) => props.isCompact && 'absolute'};
   top:${(props: { isCompact: boolean }) => props.isCompact && '-5px'};
   left:${(props: { isCompact: boolean }) => props.isCompact && '8px'};
-  background:${(props: { isCompact: boolean }) => props.isCompact && colors.elviaOn};
+  background:${(props: { isCompact: boolean }) => props.isCompact && colors.elviaWhite};
   padding${(props: { isCompact: boolean }) => props.isCompact && '0 3px'};
   z-index: ${(props: { isCompact: boolean }) => props.isCompact && '1'};
   display: flex;
@@ -46,6 +46,7 @@ export const DropdownLabel = styled.label`
   line-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '10px' : '23px')};
   letter-spacing: unset;
   text-transform: unset;
+  color: ${colors.elviaBlack};
   text-align: left;
 `;
 
@@ -119,7 +120,7 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
   left: -45%;
   height: 39%;
   width: 2px;
-  background-color: #000;
+  background-color: ${colors.elviaBlack};
   border-radius: 15px;
   transform: translateX(10px) rotate(-45deg);
   transform-origin: [left bottom];
@@ -131,7 +132,7 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
     left: -45%;
     height: 2px;
     width: 80%;
-    background-color: #000;
+    background-color: ${colors.elviaBlack};
     border-radius: 15px;
     transform: translateX(10px) rotate(-55deg);
     transform-origin: [left bottom];
@@ -147,7 +148,7 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
   left: -9%;
   height: 30%;
   width: 2px;
-  background-color: #000;
+  background-color: ${colors.elviaBlack};
   border-radius: 15px;
   transform: translateX(8px) rotate(-45deg);
   transform-origin: (left bottom);
@@ -159,7 +160,7 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
   left: -4%;
   height: 2px;
   width: 83%;
-  background-color: #000;
+  background-color: ${colors.elviaBlack};
   border-radius: 15px;
   transform: translateX(10px) rotate(-55deg);
   transform-origin: left bottom;
@@ -180,7 +181,7 @@ export const DropdownCheckboxMark = styled.span<DropdownCheckboxMark>`
   max-width: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};
   max-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};
   border-radius: 3px;
-  border: 1px solid ${colors.elviaOff};
+  border: 1px solid ${colors.elviaBlack};
   background: #fff;
   position: relative;
   ${(props: { isCompact: boolean; isSelected: boolean }) =>

@@ -4,6 +4,7 @@ import ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
   elviaCharge: ElviaColors['primary-colors']['green'].color,
+  elviaBlack: ElviaColors['primary-colors']['black'].color,
   grey10: ElviaColors['grey-colors']['grey-10'].color,
   grey20: ElviaColors['grey-colors']['grey-20'].color,
   grey80: ElviaColors['grey-colors']['grey-80'].color,
@@ -133,8 +134,10 @@ type PaginatorNumberTypes = {
 };
 
 export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
-  ${typography.textSm.fontFamily};
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-size: 13px;
   font-style: normal;
+  font-weight: 400;
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
@@ -143,7 +146,7 @@ export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
   justify-content: center;
   align-items: center;
   background: transparent;
-  border: ${(props: { selected: boolean }) => (props.selected ? '1px solid #000000' : 'none')};
+  border: ${(props: { selected: boolean }) => (props.selected ? `1px solid ${colors.elviaBlack}` : 'none')};
   border-radius: 50%;
   width: 36px;
   height: 36px;

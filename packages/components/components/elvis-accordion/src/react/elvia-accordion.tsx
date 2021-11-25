@@ -80,7 +80,7 @@ const AccordionButton = styled.button<AccordionButton>`
   background: transparent;
   display: flex;
   padding: 0;
-  font-family: 'Red Hat Display' Verdana, sans-serif;
+  font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
   font-size: ${(props: { size: AccordionSize }) => decideButtonFontSize(props.size)};
   line-height: ${(props: { size: AccordionSize }) => (props.size === 'small' ? '16px' : '24px')};
