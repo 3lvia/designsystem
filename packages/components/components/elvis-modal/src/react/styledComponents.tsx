@@ -55,14 +55,20 @@ export const Modal = styled.div`
   animation: ${fadeIn} 300ms ease-in;
 `;
 
-export const Wrapper = styled.div`
+type WrapperType = {
+  hasIllustration: boolean;
+  maxWidth?: string;
+};
+
+export const Wrapper = styled.div<WrapperType>`
   position: relative;
   display: flex;
   flex-direction: ${(props: { hasIllustration: boolean }) =>
     props.hasIllustration ? 'row-reverse' : 'column'};
   height: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '550px' : 'auto')};
   width: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '1090px' : 'auto')};
-  max-width: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '1090px' : modalMaxWidth)};
+  max-width: ${(props: { hasIllustration: boolean; maxWidth?: string }) =>
+    props.maxWidth ? props.maxWidth : props.hasIllustration ? '1090px' : modalMaxWidth};
   border-radius: ${modalBorderRadius};
   overflow: hidden;
   background: ${colors.elviaOn};

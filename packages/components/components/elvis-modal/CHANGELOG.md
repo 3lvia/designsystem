@@ -1,10 +1,16 @@
 # Elvia Modal Changelog
 
-## 1.2.3 (25.11.21)
+## 1.3.1 (24.11.21)
 
 ### Bug fix
 
-- Simplified color and typography imports.
+- Fix to enable new prop maxWidth for webcomponents.
+
+## 1.3.0 (23.11.21)
+
+### New feature
+
+- Added optional prop that can overwrite the max-width of the modal.
 
 ## 1.2.2 (12.11.21)
 

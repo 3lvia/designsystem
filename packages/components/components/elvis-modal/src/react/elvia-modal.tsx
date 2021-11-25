@@ -17,6 +17,7 @@ export interface ModalProps {
   hasCloseBtn?: boolean;
   hasLockBodyScroll?: boolean;
   disableClose?: boolean;
+  maxWidth?: string;
   onHide: () => void;
   webcomponent?: any;
 }
@@ -32,6 +33,7 @@ export const ModalComponent: FC<ModalProps> = ({
   hasCloseBtn = false,
   hasLockBodyScroll = true,
   disableClose = false,
+  maxWidth,
   onHide,
   webcomponent,
 }) => {
@@ -111,7 +113,12 @@ export const ModalComponent: FC<ModalProps> = ({
 
   return (
     <StyledModal.Modal aria-modal tabIndex={-1} role="dialog" aria-label={title} isShowing={isShowing}>
-      <StyledModal.Wrapper ref={modalWrapperRef} hasIllustration={hasIllustration} className={className}>
+      <StyledModal.Wrapper
+        ref={modalWrapperRef}
+        hasIllustration={hasIllustration}
+        className={className}
+        maxWidth={maxWidth}
+      >
         {illustration && <StyledModal.Illustration>{illustration}</StyledModal.Illustration>}
         {!illustration && hasIllustration && (
           <StyledModal.Illustration ref={modalIllustration}></StyledModal.Illustration>
