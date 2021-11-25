@@ -1,20 +1,20 @@
 <div class="ceg-container component-preview-animation" [ngClass]="{ 'no-margin': inlineExample }">
   <!--Top filters-->
-  <div *ngIf="(hasCegAttributes && hasTopFilters) || typesData" class="ceg-top-filters">
-    <div *ngIf="typeObject" class="ceg-dropdown">
+  <div *ngIf="typeOptions.length !== 0 || bgOptions.length !== 0 || typesData" class="ceg-top-filters">
+    <div *ngIf="typeOptions.length !== 0 && !typesData" class="ceg-dropdown">
       <elvia-dropdown
         [options]="typeOptions"
-        [defaultValue]="typeOptions[typeDefault]"
+        [defaultValue]="typeOptions[defaultType]"
         label="Type"
-        (valueOnChange)="updateSelectedType($event.detail.value)"
+        (valueOnChange)="updateFormStates('type', $event); updateSelectedType($event.detail.value)"
       ></elvia-dropdown>
     </div>
-    <div *ngIf="backgroundObject" class="ceg-dropdown">
+    <div *ngIf="bgOptions.length !== 0" class="ceg-dropdown">
       <elvia-dropdown
         [options]="bgOptions"
-        [defaultValue]="bgOptions[bgDefault]"
+        [defaultValue]="bgOptions[defaultBg]"
         label="Background"
-        (valueOnChange)="updateSelectedBg($event.detail.value)"
+        (valueOnChange)="updateFormStates(bgObj.propName, $event); updateSelectedBg($event.detail.value)"
       ></elvia-dropdown>
     </div>
     <div *ngIf="typesData" class="ceg-dropdown">
@@ -22,7 +22,7 @@
         [options]="typeOptions"
         [defaultValue]="typeOptions[0]"
         label="Type"
-        (valueOnChange)="updateSelectedTypeCustom($event.detail.value)"
+        (valueOnChange)="updateFormStates('type', $event); updateSelectedTypeCustom($event.detail.value)"
       ></elvia-dropdown>
     </div>
   </div>
@@ -55,11 +55,15 @@
     <div class="ceg-col-2 ceg-side-filters-desktop" *ngIf="!inlineExample && enableFilters">
       <app-ceg-filters
         [componentData]="componentData"
-        [props]="props"
-        [selectedType]="selectedType"
+        [formGroupList]="formGroupList"
+        [topFilterFormStates]="topFilterFormStates"
+        (hasVisibleFilters)="hasSideFilters = $event"
       ></app-ceg-filters>
     </div>
-    <div class="ceg-side-filters-mobile" *ngIf="props.length !== 0 && getDependentFilter() && enableFilters">
+    <div
+      class="ceg-side-filters-mobile"
+      *ngIf="formGroupList.length !== 0 && hasSideFilters && enableFilters"
+    >
       <elvia-popover [posX]="'left'" [posY]="'bottom'">
         <button slot="trigger" class="e-btn e-btn--icon">
           <span class="e-btn__icon">
@@ -71,9 +75,10 @@
           <div class="e-ml-n24 e-mr-40">
             <app-ceg-filters
               [componentData]="componentData"
-              [props]="props"
-              [selectedType]="selectedType"
+              [formGroupList]="formGroupList"
               [desktop]="false"
+              [topFilterFormStates]="topFilterFormStates"
+              (hasVisibleFilters)="hasSideFilters = $event"
             ></app-ceg-filters>
           </div>
         </div>

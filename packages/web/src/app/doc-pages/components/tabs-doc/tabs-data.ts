@@ -9,7 +9,7 @@ export const tabsData = {
       isRequired: true,
       type: 'string[]',
       description: 'Items getting converted to tabs.',
-      displayName: 'Tabs',
+      cegDisplayName: 'Tabs',
     },
     value: {
       isRequired: false,

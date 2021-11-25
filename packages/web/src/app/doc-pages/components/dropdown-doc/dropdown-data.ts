@@ -8,7 +8,7 @@ export const dropdownData = {
       type: 'object',
       description:
         'Set a defualt value to the dropdown. Has same key value pairs as an option object: {value: string, label: string}',
-      displayName: 'defaultValue',
+      cegDisplayName: 'defaultValue',
       default: 'undefined',
     },
     errorMessage: {
@@ -22,7 +22,7 @@ export const dropdownData = {
       type: 'boolean',
       description: 'Set the dropdown to a smaller elvia compact style',
       default: 'false',
-      displayName: 'Compact',
+      cegDisplayName: 'Compact',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
@@ -33,7 +33,7 @@ export const dropdownData = {
       type: 'boolean',
       description: 'Set dropdown to a disabled state',
       default: 'false',
-      displayName: 'Disabled',
+      cegDisplayName: 'Disabled',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
@@ -44,7 +44,7 @@ export const dropdownData = {
       type: 'boolean',
       description: 'Set the dropdown to accept multiple values',
       default: 'false',
-      displayName: 'Multiselect',
+      cegDisplayName: 'Multiselect',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
@@ -72,7 +72,7 @@ export const dropdownData = {
       type: 'Array<object>',
       description:
         'Options available in the dropdown menu, set as array of objects with keys of :  {value: string, label: string} ',
-      displayName: 'Options',
+      cegDisplayName: 'Options',
     },
     placeholder: {
       isRequired: false,
