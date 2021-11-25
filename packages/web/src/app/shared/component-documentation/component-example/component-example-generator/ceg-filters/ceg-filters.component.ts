@@ -9,8 +9,9 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../../example-code.service';
-import { CegFormGroup, CegFormGroupOption } from '../ceg.interface';
+import { CegFormGroup, CegFormGroupOption, FormState } from '../ceg.interface';
 import { debounce } from 'lodash';
+import { VisibleFieldsPipe } from './ceg-filters-visibility.pipe';
 
 @Component({
   selector: 'app-ceg-filters',
@@ -35,7 +36,7 @@ export class CegFiltersComponent implements OnInit {
   counterNumber: number;
   emptyLineRegex = /^\s*[\r\n]/gm;
 
-  formStates = {};
+  formStates: FormState = {};
 
   constructor(private cegService: ExampleCodeService, private cd: ChangeDetectorRef) {}
 
@@ -84,6 +85,9 @@ export class CegFiltersComponent implements OnInit {
         ...this.formStates,
         ...changes.topFilterFormStates.currentValue,
       };
+      Object.keys(changes.topFilterFormStates.currentValue).forEach((elementKey) => {
+        this.removeNonVisibleProp(elementKey);
+      });
     }
   }
 
@@ -104,9 +108,9 @@ export class CegFiltersComponent implements OnInit {
     });
   }
 
-  onInputValueChange(key: string, event: Event): void {
+  onInputValueChange(formField: CegFormGroup | CegFormGroupOption, event: Event): void {
     const value = (event.target as HTMLInputElement).checked;
-    this.updateFormStates(key, value);
+    this.updateFormStates(formField.propName, value);
   }
 
   updateFormStates(key: string, value: string | number | boolean): void {
@@ -115,26 +119,54 @@ export class CegFiltersComponent implements OnInit {
       [key]: value.toString().toLowerCase(),
     };
     this.checkIfHasVisibleFilters();
+    this.removeNonVisibleProp(key);
   }
 
-  checkIfVisible(formGroup: CegFormGroup): boolean {
-    let visibility = false;
-    if (!formGroup.dependency) {
-      visibility = true;
+  checkIfVisible(formField: CegFormGroup | CegFormGroupOption): boolean {
+    const visibleFieldPipe = new VisibleFieldsPipe();
+    return visibleFieldPipe.transform(formField, this.formStates);
+  }
+
+  removeNonVisibleProp(propName: string): void {
+    const dependentElement = this.getDependentElement(propName);
+    if (!dependentElement) {
       return;
     }
-    if (typeof formGroup.dependency.value === 'object') {
-      visibility = formGroup.dependency.value.some((element) => {
-        return this.formStates[formGroup.dependency.name] === (element === 'true' || element.toLowerCase());
+    const visibility = this.checkIfVisible(dependentElement);
+    if (!visibility && this.codeAngular.includes(dependentElement.propName)) {
+      this.removeProps(dependentElement.propName);
+      this.updateNewCode();
+    }
+  }
+
+  getDependentElement(propName: string): CegFormGroup | CegFormGroupOption {
+    let dependentElement;
+    this.formGroupList.forEach((element) => {
+      if (element.dependency && element.dependency.name === propName) {
+        dependentElement = element;
+      } else {
+        if (element.formGroupOptions) {
+          element.formGroupOptions.forEach((element) => {
+            if (element.dependency && element.dependency.name == propName) {
+              dependentElement = element;
+            }
+          });
+        }
+      }
+    });
+    return dependentElement;
+  }
+
+  getDependencyState(formField: CegFormGroup | CegFormGroupOption): boolean {
+    let visibility = false;
+    if (typeof formField.dependency.value === 'object') {
+      visibility = formField.dependency.value.some((element) => {
+        return this.formStates[formField.dependency.name].toString() === element.toString().toLowerCase();
       });
     } else {
       visibility =
-        this.formStates[formGroup.dependency.name].toString() ===
-        (formGroup.dependency.value.toString() || formGroup.dependency.value.toLowerCase());
-    }
-    if (!visibility && this.codeAngular.includes(formGroup.propName)) {
-      this.removeProps(formGroup.propName);
-      this.updateNewCode();
+        this.formStates[formField.dependency.name].toString() ===
+        formField.dependency.value.toString().toLowerCase();
     }
     return visibility;
   }
@@ -156,10 +188,7 @@ export class CegFiltersComponent implements OnInit {
 
   // CEG code-view updates
   updateNewCode(): void {
-    this.cegService.updateCodeReact(this.codeReact);
-    this.cegService.updateCodeAngular(this.codeAngular);
-    this.cegService.updateCodeVue(this.codeVue);
-    this.cegService.updateCodeNative(this.codeNative);
+    this.cegService.updateAllCode(this.codeReact, this.codeAngular, this.codeVue, this.codeNative);
   }
 
   addNewProps(attr: string, newValue: string, type: string): void {

@@ -23,3 +23,7 @@ export interface CegFormDependency {
   name: string;
   value: string | string[];
 }
+
+export interface FormState {
+  [key: string]: string;
+}

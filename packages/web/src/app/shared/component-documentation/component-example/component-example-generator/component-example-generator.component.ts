@@ -277,7 +277,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.selectedType = selected.label;
         this.codeReact = element.codeReact;
         this.codeAngular = element.codeAngular;
-        this.codeVue = element.codeVue;
+        this.codeVue = element.codeVue ? element.codeVue : '';
         this.codeNative = element.codeNativeHTML;
       }
     });

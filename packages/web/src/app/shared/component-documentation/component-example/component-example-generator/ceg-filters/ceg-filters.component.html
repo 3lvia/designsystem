@@ -2,7 +2,7 @@
   <form class="ceg-side-filter e-form_field e-w-100" *ngFor="let formGroup of formGroupList; let i = index">
     <!--Radios-->
     <div
-      *ngIf="formGroup.type === 'radio' && checkIfVisible(formGroup)"
+      *ngIf="formGroup.type === 'radio' && (formGroup | visibleFields: formStates)"
       [ngClass]="{
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
@@ -12,14 +12,16 @@
         *ngFor="let formField of formGroup.formGroupOptions; let i = index"
         class="e-radio e-radio--sm"
         for="{{ formGroup.label }}-{{ formField.name }}-{{ desktop }}"
-        (change)="updateRadioProp(formGroup.propName, formField.name, formGroup.type)"
+        (change)="
+          onInputValueChange(formGroup, $event);
+          updateRadioProp(formGroup.propName, formField.name, formGroup.type)
+        "
       >
         <input
           type="radio"
           id="{{ formGroup.label }}-{{ formField.name }}-{{ desktop }}"
           name="{{ formGroup.label }}"
           [checked]="formField.defaultValue"
-          (change)="onInputValueChange(formGroup.propName, $event)"
         />
         <span class="e-radio__mark"></span>
         <span class="e-radio__label">
@@ -30,27 +32,28 @@
 
     <!--Toggle-->
     <div
-      *ngIf="formGroup.type === 'toggle' && checkIfVisible(formGroup)"
+      *ngIf="formGroup.type === 'toggle' && (formGroup | visibleFields: formStates)"
       [ngClass]="{
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
     >
       <label class="e-form-field__label">{{ formGroup.label }}</label>
-      <label class="e-toggle" (change)="updateToggleCheckboxProp(formGroup)">
+      <label
+        class="e-toggle"
+        (change)="onInputValueChange(formGroup, $event); updateToggleCheckboxProp(formGroup)"
+      >
         <input
           *ngIf="formGroup.defaultValue === 'true'"
           class="e-toggle__input"
           type="checkbox"
           checked
           id="{{ formGroup.propName }}-{{ desktop }}"
-          (change)="onInputValueChange(formGroup.propName, $event)"
         />
         <input
           *ngIf="formGroup.defaultValue === 'false'"
           class="e-toggle__input"
           type="checkbox"
           id="{{ formGroup.propName }}-{{ desktop }}"
-          (change)="onInputValueChange(formGroup.propName, $event)"
         />
         <span class="e-toggle__slider"></span>
       </label>
@@ -68,7 +71,8 @@
         <label
           class="e-checkbox e-checkbox--sm"
           for="{{ formField.propName }}-{{ desktop }}"
-          (change)="updateToggleCheckboxProp(formGroup, formField)"
+          (change)="onInputValueChange(formField, $event); updateToggleCheckboxProp(formGroup, formField)"
+          *ngIf="formField | visibleFields: formStates"
         >
           <input
             *ngIf="formField.defaultValue"
@@ -76,14 +80,12 @@
             id="{{ formField.propName }}-{{ desktop }}"
             name="{{ formGroup.label }}"
             checked
-            (change)="onInputValueChange(formField.propName, $event)"
           />
           <input
             *ngIf="!formField.defaultValue"
             type="checkbox"
             id="{{ formField.propName }}-{{ desktop }}"
             name="{{ formGroup.label }}"
-            (change)="onInputValueChange(formField.propName, $event)"
           />
           <span class="e-checkbox__mark"></span>
           <span class="e-checkbox__label">{{ formField.name }}</span>

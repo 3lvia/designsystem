@@ -195,4 +195,11 @@ export class ExampleCodeService {
         .replace(this.getEmptyLineRegex(), '');
     }
   }
+
+  updateAllCode(codeReact: string, codeAngular: string, codeVue: string, codeNative: string): void {
+    this.updateCodeReact(codeReact);
+    this.updateCodeAngular(codeAngular);
+    this.updateCodeVue(codeVue);
+    this.updateCodeNative(codeNative);
+  }
 }
