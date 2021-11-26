@@ -39,7 +39,7 @@ export const DropdownLabel = styled.label`
   z-index: ${(props: { isCompact: boolean }) => props.isCompact && '1'};
   display: flex;
   margin-bottom: 4px;
-  ${typography.textMd.fontFamily};
+  font-family: 'Red Hat Text', Verdana, sans-serif;
   font-weight: 500;
   font-size: ${(props: { isCompact: boolean }) => (props.isCompact ? '10px' : '16px')};
   line-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '10px' : '23px')};
@@ -186,7 +186,7 @@ export const DropdownCheckboxMark = styled.span<DropdownCheckboxMark>`
 `;
 
 export const DropdownCheckboxLabel = styled.span`
-  ${typography.textMd.fontFamily};
+  font-family: 'Red Hat Text', Verdana, sans-serif;
   font-style: normal;
   font-size: ${(props: { isCompact: boolean }) => (props.isCompact ? '14px' : '16px')};
   margin-left: 8px;

@@ -172,10 +172,10 @@ type PaginatorDotsTypes = {
 };
 
 export const PaginatorDots = styled.div<PaginatorDotsTypes>`
-  font-family: ${typography.textSm.fontFamily};
+  font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 13px;
   font-style: normal;
-  font-weight: ${typography.textSm.fontWeight};
+  font-weight: 400;
   line-height: 21px;
   letter-spacing: 0.2px;
   text-align: center;
