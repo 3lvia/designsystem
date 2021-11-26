@@ -1,10 +1,11 @@
 # Elvia Box Changelog
 
-## 1.1.4 (19.11.21)
+## 1.1.4 (26.11.21)
 
 ### Bug fix
 
-- Now using elvis-colors pack for colors.
+- Now using elvis-colors package for colors.
+- Now using elvis-typography package for typography.
 
 ## 1.1.0 (03.11.21)
 

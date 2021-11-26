@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import ElviaColors from '@elvia/elvis-colors';
-
+import ElviaTypography from '@elvia/elvis-typography';
 export interface BoxProps {
   content: string | HTMLElement;
   title?: string;
@@ -15,6 +15,10 @@ const colors = {
   elviaOn: ElviaColors['primary-colors']['white'].color,
   elviaOff: ElviaColors['primary-colors']['black'].color,
   grey10: ElviaColors['grey-colors']['grey-10'].color,
+};
+
+const typography = {
+  titleCaps: ElviaTypography['title-caps'],
 };
 
 const BoxArea = styled.div`
@@ -34,24 +38,15 @@ const BoxColoredLine = styled.div`
   background: ${colors.elviaCharge};
 `;
 const BoxTitle = styled.div`
-  font-family: 'Red Hat Text';
+  ${typography.titleCaps}
   font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
   color: black;
   margin: 0px;
   margin-left: 8px;
   margin-bottom: 8px;
   * {
-    font-family: 'Red Hat Text';
+    ${typography.titleCaps}
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.8px;
     text-transform: uppercase;
     margin: 0;
   }
