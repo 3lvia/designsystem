@@ -12,8 +12,8 @@ export interface BoxProps {
 
 const colors = {
   elviaCharge: ElviaColors['primary-colors']['green'].color,
-  elviaOn: ElviaColors['primary-colors']['white'].color,
-  elviaOff: ElviaColors['primary-colors']['black'].color,
+  elviaWhite: ElviaColors['primary-colors']['white'].color,
+  elviaBlack: ElviaColors['primary-colors']['black'].color,
   grey10: ElviaColors['grey-colors']['grey-10'].color,
 };
 
@@ -40,7 +40,7 @@ const BoxColoredLine = styled.div`
 const BoxTitle = styled.div`
   ${typography.titleCaps}
   font-style: normal;
-  color: black;
+  color: ${colors.elviaBlack};
   margin: 0px;
   margin-left: 8px;
   margin-bottom: 8px;
@@ -63,9 +63,9 @@ const BoxContent = styled.div<BoxContentType>`
   box-sizing: border-box;
   border-radius: 5px;
   border: ${(props: { hasBorder: boolean }) => props.hasBorder === true && `1px solid ${colors.grey10}`};
-  background: ${colors.elviaOn};
+  background: ${colors.elviaWhite};
   text-align: left;
-  color: black;
+  color: ${colors.elviaBlack};
   padding: 40px;
   @media (max-width: 767px) {
     padding: 24px;

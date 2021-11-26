@@ -4,6 +4,7 @@ import ElviaColors from '@elvia/elvis-colors';
 
 export const colors = {
   elviaCharge: ElviaColors['primary-colors']['green'].color,
+  elviaBlack: ElviaColors['primary-colors']['black'].color,
   blue: ElviaColors['data-colors']['blue-berry'].color,
   green: ElviaColors['data-colors']['green-apple'].color,
   orange: ElviaColors['data-colors']['orange-mango'].color,
@@ -60,7 +61,7 @@ export const ChipTitle = styled.div<ChipTitle>`
   letter-spacing: 'unset';
   font-style: unset;
   opacity: ${(props: { disabled: boolean }) => (props.disabled ? '0.3' : '1')};
-  color: black;
+  color: ${colors.elviaBlack};
 
   &.dot {
     ::before {

@@ -4,7 +4,7 @@
 
 ### Bug fix
 
-- Now using elvis-typography package for typography.
+- Now using elvis-colors package for colors.
 
 ## 1.1.0 (03.11.21)
 

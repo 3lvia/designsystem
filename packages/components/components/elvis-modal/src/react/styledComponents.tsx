@@ -3,6 +3,7 @@ import ElviaColors from '@elvia/elvis-colors';
 import ElviaTypography from '@elvia/elvis-typography';
 
 export const colors = {
+  elviaGreen: ElviaColors['primary-colors']['green'].color,
   elviaOn: ElviaColors['primary-colors']['white'].color,
   elviaOff: ElviaColors['primary-colors']['black'].color,
   grey: ElviaColors['primary-colors']['grey'].color,
@@ -231,8 +232,8 @@ export const CloseButton = styled.button`
   }
 
   :hover {
-    background-color: #29d305;
-    border-color: #29d305;
+    background-color: ${ElviaColors.elviaGreen};
+    border-color: ${ElviaColors.elviaGreen};
 
     .ewc-icon {
       filter: ${(props: { hasIllustration: boolean }) => props.hasIllustration && 'invert(1)'};

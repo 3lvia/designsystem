@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { DividerType, DividerTypography, DividerOrientation } from './elvia-divider.types';
-import * as ElviaColors from '@elvia/elvis-colors';
+import ElviaColors from '@elvia/elvis-colors';
 
 const colors = {
-  elviaOn: ElviaColors.default['primary-colors']['white'].color,
-  elviaOff: ElviaColors.default['primary-colors']['black'].color,
-  grey10: ElviaColors.default['grey-colors']['grey-10'].color,
-  grey20: ElviaColors.default['grey-colors']['grey-20'].color,
-  grey90: ElviaColors.default['grey-colors']['grey-90'].color,
+  elviaOn: ElviaColors['primary-colors']['white'].color,
+  elviaOff: ElviaColors['primary-colors']['black'].color,
+  grey10: ElviaColors['grey-colors']['grey-10'].color,
+  grey20: ElviaColors['grey-colors']['grey-20'].color,
+  grey90: ElviaColors['grey-colors']['grey-90'].color,
 };
 
 const decideBorderColor = (isInverted: boolean, type: DividerType) => {
