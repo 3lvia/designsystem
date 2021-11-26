@@ -54,12 +54,13 @@ type ChipTitle = {
 };
 
 export const ChipTitle = styled.div<ChipTitle>`
-  font-family: 'Red Hat Display', verdana, sans-serif;
+  font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;
   opacity: ${(props: { disabled: boolean }) => (props.disabled ? '0.3' : '1')};
+  color: black;
 
   &.dot {
     ::before {
