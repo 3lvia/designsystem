@@ -128,33 +128,35 @@ export class CegFiltersComponent implements OnInit {
   }
 
   removeNonVisibleProp(propName: string): void {
-    const dependentElement = this.getDependentElement(propName);
-    if (!dependentElement) {
+    const dependentElements = this.getDependentElements(propName);
+    if (!dependentElements || !this.codeAngular) {
       return;
     }
-    const visibility = this.checkIfVisible(dependentElement);
-    if (!visibility && this.codeAngular.includes(dependentElement.propName)) {
-      this.removeProps(dependentElement.propName);
-      this.updateNewCode();
-    }
+    dependentElements.forEach((element) => {
+      const visibility = this.checkIfVisible(element);
+      if (!visibility && this.codeAngular.includes(element.propName)) {
+        this.removeProps(element.propName);
+        this.updateNewCode();
+      }
+    });
   }
 
-  getDependentElement(propName: string): CegFormGroup | CegFormGroupOption {
-    let dependentElement;
-    this.formGroupList.forEach((element) => {
+  getDependentElements(propName: string): CegFormGroup[] | CegFormGroupOption[] {
+    const dependentElements = [];
+    this.formGroupList.filter((element) => {
       if (element.dependency && element.dependency.name === propName) {
-        dependentElement = element;
+        dependentElements.push(element);
       } else {
         if (element.formGroupOptions) {
           element.formGroupOptions.forEach((element) => {
             if (element.dependency && element.dependency.name == propName) {
-              dependentElement = element;
+              dependentElements.push(element);
             }
           });
         }
       }
     });
-    return dependentElement;
+    return dependentElements;
   }
 
   getDependencyState(formField: CegFormGroup | CegFormGroupOption): boolean {
