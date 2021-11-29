@@ -1,4 +1,10 @@
-# Elvia Accordion Changelog
+# Elvia Component Wrapper Changelog
+
+## 2.1.5 (22.11.21)
+
+### Bug fix
+
+- Now allowing props to have value null
 
 ## 2.1.4 (17.11.21)
 

@@ -94,14 +94,12 @@ export const Datepicker: FC<DatepickerProps> = ({
     validateDate(date);
     setSelectedDate(date);
 
-    // Updating when date valid
-    if (isValid(date)) {
-      if (!webcomponent && valueOnChange) {
-        valueOnChange(date);
-      } else if (webcomponent) {
-        // True -> Prevents rerender
-        webcomponent.setProps({ value: date }, true);
-      }
+    // Updating for any changes in the state of the date field
+    if (!webcomponent && valueOnChange) {
+      valueOnChange(date);
+    } else if (webcomponent) {
+      // True -> Prevents rerender
+      webcomponent.setProps({ value: date }, true);
     }
   };
 
@@ -144,7 +142,9 @@ export const Datepicker: FC<DatepickerProps> = ({
     if (customError) {
       return;
     }
-    if (!isValid(date)) {
+    if (date === null && !isRequired) {
+      setCurrErrorMessage('');
+    } else if (!isValid(date)) {
       if (date === null && isRequired) {
         setCurrErrorMessage('Velg en dato');
       } else if (date !== null) {
