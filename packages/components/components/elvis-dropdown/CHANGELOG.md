@@ -1,8 +1,8 @@
 # Elvia Dropdown
 
-## 2.1.0 (29.11.21)
+## 2.0.1 (29.11.21)
 
-### New feature
+### Patches
 
 - Now using elvis-colors package for colors.
 - Now using elvis-typography package for typography.
