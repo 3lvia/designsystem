@@ -1,5 +1,11 @@
 # Elvia Pagination Changelog
 
+## 1.0.4 (29.11.21)
+
+### Patch
+
+Pagination build with new wrapper version
+
 ## 1.0.3 (17.11.21)
 
 ### Bug fix
