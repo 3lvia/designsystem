@@ -50,7 +50,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
   options,
-  placeholder = 'Placeholder',
+  placeholder = '',
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   value,
   valueOnChange,
@@ -101,7 +101,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const customElviaStyles = {
     container: (provided: any) => ({
       ...provided,
-      maxWidth: '400px',
+      maxWidth: '448px',
     }),
 
     control: () => ({
@@ -111,8 +111,8 @@ const Dropdown: React.FC<DropdownProps> = ({
       backgroundColor: '#FFFFFF',
       borderRadius: '4px',
       border: decideControlBorder(isDisabled, isError),
-      maxHeight: isCompact ? '33px' : '48px',
-      minHeight: isCompact ? '33px' : '48px',
+      maxHeight: isCompact ? '34px' : '48px',
+      minHeight: isCompact ? '34px' : '48px',
       minWidth: '72px',
       marginBottom: '0px',
       padding: !isError ? '1px' : '0px',

@@ -12,6 +12,8 @@ export const DropdownWrapper = styled.span`
   position: relative;
   text-align: left;
   box-sizing: border-box;
+  width: 100%;
+  max-width: 448px;
   cursor: ${(props: { isDisabled: boolean }) => (props.isDisabled ? 'not-allowed' : 'pointer')};
   &:focus-within {
     .ewc-dropdown__control {
