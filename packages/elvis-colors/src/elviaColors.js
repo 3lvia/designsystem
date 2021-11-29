@@ -126,25 +126,6 @@ const colors = {
 };
 
 export default colors;
-// const getColorObject = (colorName) => {
-//   let returnColor = undefined;
-//   const colorCategory = Object.keys(colors).find((colorCategoryKey) => {
-//     const colorCategory = colors[colorCategoryKey];
-//     returnColor = Object.keys(colorCategory).find((colorKey) => {
-//       if (colorName === colorKey) {
-//         return true;
-//       } else if (colorCategory[colorKey]['alt-labels']) {
-//         return colorCategory[colorKey]['alt-labels'].find((key) => key === colorName);
-//       }
-//       return colorName === colorKey;
-//     });
-//     return returnColor;
-//   });
-//   if (!colors[colorCategory][returnColor]) {
-//     console.error(`Cannot get color ${colorName} from elvis-colors.`);
-//   }
-//   return colors[colorCategory][returnColor];
-// };
 
 const getColorObject = (colorName) => {
   // Iterate through every color category in colors
