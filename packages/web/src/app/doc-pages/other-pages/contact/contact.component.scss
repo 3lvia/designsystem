@@ -16,17 +16,20 @@
         margin-bottom: 72px;
       }
     }
+    &.trygve {
+      margin-top: -270px;
+    }
     &.viljar {
-      margin-top: -170px;
+      margin-top: -80px;
     }
     &.martin {
-      margin-top: -170px;
+      margin-top: -230px;
     }
     &.hilde {
       margin-top: -100px;
     }
+    &.trygve,
     &.viljar,
-    &.fride,
     &.martin,
     &.hilde {
       @media (max-width: 1300px) {
@@ -98,13 +101,13 @@
     }
 
     &.viljar {
-      right: 3%;
+      right: 7%;
       @media (max-width: 1300px) {
         right: 0px;
       }
     }
     &.fride {
-      right: 5%;
+      right: -6%;
       @include breakpoint-up(Mobile) {
         left: 0px;
       }
