@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import ElviaColors from '@elvia/elvis-colors';
+import { getColor } from '@elvia/elvis-colors';
 import ElviaTypography from '@elvia/elvis-typography';
 
 const colors = {
-  elviaCharge: ElviaColors['primary-colors']['green'].color,
-  elviaWhite: ElviaColors['primary-colors']['white'].color,
-  elviaBlack: ElviaColors['primary-colors']['black'].color,
+  elviaCharge: getColor('elvia-charge'),
+  elviaWhite: getColor('white'),
+  elviaBlack: getColor('black'),
 };
 
 const typography = {

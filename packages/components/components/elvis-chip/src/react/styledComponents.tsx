@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import { ColorType } from './elvia-chip.types';
-import ElviaColors from '@elvia/elvis-colors';
+import { getColor } from '@elvia/elvis-colors';
 
 export const colors = {
-  elviaCharge: ElviaColors['primary-colors']['green'].color,
-  elviaBlack: ElviaColors['primary-colors']['black'].color,
-  blue: ElviaColors['data-colors']['blue-berry'].color,
-  green: ElviaColors['data-colors']['green-apple'].color,
-  orange: ElviaColors['data-colors']['orange-mango'].color,
-  purple: ElviaColors['data-colors']['purple-plum'].color,
-  red: ElviaColors['data-colors']['red-tomato'].color,
-  violet: ElviaColors['data-colors']['violet-grape'].color,
+  elviaCharge: getColor('elvia-charge'),
+  elviaBlack: getColor('black'),
+  blue: getColor('blue-berry'),
+  green: getColor('green-apple'),
+  orange: getColor('orange-mango'),
+  purple: getColor('purple-plum'),
+  red: getColor('red-tomato'),
+  violet: getColor('violet-grape'),
 };
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;

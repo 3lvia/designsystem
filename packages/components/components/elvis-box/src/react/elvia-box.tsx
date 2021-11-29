@@ -1,7 +1,8 @@
 import React, { FC, useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import ElviaColors from '@elvia/elvis-colors';
+import { getColor } from '@elvia/elvis-colors';
 import ElviaTypography from '@elvia/elvis-typography';
+
 export interface BoxProps {
   content: string | HTMLElement;
   title?: string;
@@ -11,10 +12,10 @@ export interface BoxProps {
 }
 
 const colors = {
-  elviaCharge: ElviaColors['primary-colors']['green'].color,
-  elviaWhite: ElviaColors['primary-colors']['white'].color,
-  elviaBlack: ElviaColors['primary-colors']['black'].color,
-  grey10: ElviaColors['grey-colors']['grey-10'].color,
+  elviaCharge: getColor('green'),
+  elviaWhite: getColor('white'),
+  elviaBlack: getColor('black'),
+  grey10: getColor('grey-10'),
 };
 
 const typography = {

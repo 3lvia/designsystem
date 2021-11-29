@@ -1,25 +1,25 @@
 import styled from 'styled-components';
 import { DividerType, DividerTypography, DividerOrientation } from './elvia-divider.types';
-import ElviaColors from '@elvia/elvis-colors';
+import { getColor } from '@elvia/elvis-colors';
 
 const colors = {
-  elviaOn: ElviaColors['primary-colors']['white'].color,
-  elviaOff: ElviaColors['primary-colors']['black'].color,
-  grey10: ElviaColors['grey-colors']['grey-10'].color,
-  grey20: ElviaColors['grey-colors']['grey-20'].color,
-  grey90: ElviaColors['grey-colors']['grey-90'].color,
+  elviaWhite: getColor('white'),
+  elviaBlack: getColor('black'),
+  grey10: getColor('grey-10'),
+  grey20: getColor('grey-20'),
+  grey90: getColor('grey-90'),
 };
 
 const decideBorderColor = (isInverted: boolean, type: DividerType) => {
   if (!isInverted) {
     if (type === 'title') {
-      return colors.elviaOff;
+      return colors.elviaBlack;
     } else {
       return colors.grey10;
     }
   } else {
     if (type === 'title') {
-      return colors.elviaOn;
+      return colors.elviaWhite;
     } else {
       return colors.grey90;
     }
@@ -89,7 +89,7 @@ export const DividerTitle = styled.div<DividerTitle>`
     props.typography === 'medium' ? '28px' : '17px'};
   font-size: ${(props: { typography: DividerTypography }) =>
     props.typography === 'medium' ? '30px' : '14px'};
-  color: ${(props: { isInverted: boolean }) => (props.isInverted ? colors.elviaOn : colors.elviaOff)};
+  color: ${(props: { isInverted: boolean }) => (props.isInverted ? colors.elviaWhite : colors.elviaBlack)};
   text-transform: ${(props: { typography: DividerTypography }) =>
     props.typography === 'medium' ? 'unset' : 'uppercase'};
   letter-spacing: ${(props: { typography: DividerTypography }) =>
@@ -105,7 +105,7 @@ export const DividerTitle = styled.div<DividerTitle>`
       props.typography === 'medium' ? '28px' : '17px'};
     font-size: ${(props: { typography: DividerTypography }) =>
       props.typography === 'medium' ? '30px' : '14px'};
-    color: ${(props: { isInverted: boolean }) => (props.isInverted ? colors.elviaOn : colors.elviaOff)};
+    color: ${(props: { isInverted: boolean }) => (props.isInverted ? colors.elviaWhite : colors.elviaBlack)};
     text-transform: ${(props: { typography: DividerTypography }) =>
       props.typography === 'medium' ? 'unset' : 'uppercase'};
     letter-spacing: ${(props: { typography: DividerTypography }) =>

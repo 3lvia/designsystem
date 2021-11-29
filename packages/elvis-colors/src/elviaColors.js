@@ -1,4 +1,4 @@
-export default {
+const colors = {
   'primary-colors': {
     white: {
       color: '#fff',
@@ -21,12 +21,6 @@ export default {
     },
   },
   'signal-colors': {
-    green: {
-      color: '#29d305',
-      rgb: 'rgb(41, 211, 5)',
-      contrastText: '#000',
-      'alt-labels': ['elvia-charge'],
-    },
     yellow: {
       color: '#ffff00',
       rgb: 'rgb(255, 255, 0',
@@ -129,4 +123,56 @@ export default {
       color: '#0064fa',
     },
   },
+};
+
+export default colors;
+// const getColorObject = (colorName) => {
+//   let returnColor = undefined;
+//   const colorCategory = Object.keys(colors).find((colorCategoryKey) => {
+//     const colorCategory = colors[colorCategoryKey];
+//     returnColor = Object.keys(colorCategory).find((colorKey) => {
+//       if (colorName === colorKey) {
+//         return true;
+//       } else if (colorCategory[colorKey]['alt-labels']) {
+//         return colorCategory[colorKey]['alt-labels'].find((key) => key === colorName);
+//       }
+//       return colorName === colorKey;
+//     });
+//     return returnColor;
+//   });
+//   if (!colors[colorCategory][returnColor]) {
+//     console.error(`Cannot get color ${colorName} from elvis-colors.`);
+//   }
+//   return colors[colorCategory][returnColor];
+// };
+
+const getColorObject = (colorName) => {
+  // Iterate through every color category in colors
+  for (const category in colors) {
+    // Then iterate through every color in a category
+    for (const colorLabel in colors[category]) {
+      // If the requested color is found, return its hex value
+      if (colorLabel === colorName) {
+        return colors[category][colorLabel];
+        // If not, check if a given color has any alt-labels
+      } else if (colors[category][colorLabel]['alt-labels']) {
+        // Iterate through alt-labels
+        for (const altLabel in colors[category][colorLabel]['alt-labels']) {
+          // If an alt-label corresponds to the requested color, return the color's hex value
+          if (colors[category][colorLabel]['alt-labels'][altLabel] === colorName) {
+            return colors[category][colorLabel];
+          }
+        }
+      }
+    }
+  }
+  console.error(`Cannot get color ${colorName} from elvis-colors.`);
+};
+
+export const getColor = (colorName) => {
+  return getColorObject(colorName).color;
+};
+
+export const getContrastText = (colorName) => {
+  return getColorObject(colorName).contrastText;
 };

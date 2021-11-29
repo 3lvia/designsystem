@@ -1,7 +1,7 @@
 # Elvia Colors Changelog
 
-## 1.0.2 (19.11.21)
+## 1.1.0 (29.11.21)
 
-### Bug fix
+### New feature
 
-- Fixed formating.
+- Added new helper functions to get color hex value and contrast text from color label or alt-text.

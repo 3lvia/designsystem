@@ -1,12 +1,12 @@
 import styled, { keyframes } from 'styled-components';
-import ElviaColors from '@elvia/elvis-colors';
+import { getColor } from '@elvia/elvis-colors';
 import ElviaTypography from '@elvia/elvis-typography';
 
 export const colors = {
-  elviaGreen: ElviaColors['primary-colors']['green'].color,
-  elviaOn: ElviaColors['primary-colors']['white'].color,
-  elviaOff: ElviaColors['primary-colors']['black'].color,
-  grey: ElviaColors['primary-colors']['grey'].color,
+  elviaGreen: getColor('green'),
+  elviaOn: getColor('white'),
+  elviaOff: getColor('black'),
+  grey: getColor('grey'),
 };
 export const typography = {
   titleMd: ElviaTypography['title-md'],
@@ -232,8 +232,8 @@ export const CloseButton = styled.button`
   }
 
   :hover {
-    background-color: ${ElviaColors.elviaGreen};
-    border-color: ${ElviaColors.elviaGreen};
+    background-color: ${colors.elviaGreen};
+    border-color: ${colors.elviaGreen};
 
     .ewc-icon {
       filter: ${(props: { hasIllustration: boolean }) => props.hasIllustration && 'invert(1)'};

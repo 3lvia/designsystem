@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
 import styled from 'styled-components';
-import ElviaColors from '@elvia/elvis-colors';
+import { getColor } from '@elvia/elvis-colors';
 
 export type AccordionLabelPosition = 'left' | 'center' | 'right';
 export type AccordionSize = 'small' | 'medium' | 'large';
@@ -17,7 +17,7 @@ export interface AccordionProps {
 }
 
 const colors = {
-  elviaBlack: ElviaColors['primary-colors']['black'].color,
+  elviaBlack: getColor('black'),
 };
 
 const AccordionArea = styled.div`
