@@ -3,12 +3,12 @@ const colors = {
     white: {
       color: '#fff',
       contrastText: '#000',
-      'alt-labels': ['elvis-on', 'font-color-light'],
+      'alt-labels': ['elvis-on', 'elvia-on', 'font-color-light'],
     },
     black: {
       color: '#000',
       contrastText: '#fff',
-      'alt-labels': ['elvis-off', 'font-color'],
+      'alt-labels': ['elvis-off', 'elvia-off', 'font-color'],
     },
     grey: {
       color: '#262626',
@@ -132,14 +132,14 @@ const getColorObject = (colorName) => {
   for (const category in colors) {
     // Then iterate through every color in a category
     for (const colorLabel in colors[category]) {
-      // If the requested color is found, return its hex value
+      // If the requested color is found, return the color object
       if (colorLabel === colorName) {
         return colors[category][colorLabel];
         // If not, check if a given color has any alt-labels
       } else if (colors[category][colorLabel]['alt-labels']) {
         // Iterate through alt-labels
         for (const altLabel in colors[category][colorLabel]['alt-labels']) {
-          // If an alt-label corresponds to the requested color, return the color's hex value
+          // If an alt-label corresponds to the requested color, return the color object
           if (colors[category][colorLabel]['alt-labels'][altLabel] === colorName) {
             return colors[category][colorLabel];
           }

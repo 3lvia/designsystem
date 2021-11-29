@@ -12,7 +12,7 @@ export interface BoxProps {
 }
 
 const colors = {
-  elviaCharge: getColor('green'),
+  elviaCharge: getColor('elvia-charge'),
   elviaWhite: getColor('white'),
   elviaBlack: getColor('black'),
   grey10: getColor('grey-10'),

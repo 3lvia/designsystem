@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import ElviaColors from '@elvia/elvis-colors';
+import { getColor } from '@elvia/elvis-colors';
 
 const colors = {
-  elviaCharge: ElviaColors['primary-colors']['green'].color,
-  elviaBlack: ElviaColors['primary-colors']['black'].color,
-  outline: ElviaColors['internal-colors']['focus-outline'].color,
+  elviaCharge: getColor('elvia-charge'),
+  elviaBlack: getColor('black'),
+  outline: getColor('focus-outline'),
 };
 
 export const RadioFilterGroup = styled.div`
