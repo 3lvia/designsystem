@@ -1,4 +1,4 @@
-@import "@elvia/elvis/src/utilities/breakpoints.scss";
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .page-body {
   margin-top: 104px;
@@ -16,11 +16,8 @@
         margin-bottom: 72px;
       }
     }
-    &.patricia {
+    &.viljar {
       margin-top: -170px;
-    }
-    &.fride {
-      margin-top: -100px;
     }
     &.martin {
       margin-top: -170px;
@@ -28,7 +25,7 @@
     &.hilde {
       margin-top: -100px;
     }
-    &.patricia,
+    &.viljar,
     &.fride,
     &.martin,
     &.hilde {
@@ -87,17 +84,28 @@
       margin-top: 32px;
       text-align: center;
       z-index: 1;
+      .profile-links {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .profile-figma-image {
+          margin-right: 8px;
+          img {
+            height: 24px;
+          }
+        }
+      }
     }
 
-    &.patricia {
+    &.viljar {
       right: 3%;
       @media (max-width: 1300px) {
         right: 0px;
       }
     }
     &.fride {
-      left: 8%;
-      @media (max-width: 1300px) {
+      right: 5%;
+      @include breakpoint-up(Mobile) {
         left: 0px;
       }
     }
