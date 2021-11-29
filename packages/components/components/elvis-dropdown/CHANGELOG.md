@@ -1,12 +1,16 @@
 # Elvia Dropdown
 
-## 1.0.9 (24.11.21)
+## 2.0.0 (29.11.21)
+
+### Breaking changes
+
+- Fix so that width of the dropdown field is 100% up to max-width always, to be consistent with other
+  input-components. Can possibly break alignment where it is used.
 
 ### Patches
 
 - Placeholder now has no defined default value
 - Max-width updated to 448px, to match other input-components max-width
-- Fix so that width of the dropdown field is 100% up to max-width always
 
 ## 1.0.8 (28.09.21)
 
