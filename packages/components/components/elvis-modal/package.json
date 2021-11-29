@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@elvia/elvis-component-wrapper": "^2.1.4",
-    "@elvia/elvis-colors": "^1.0.2",
+    "@elvia/elvis-colors": "^1.1.0",
     "@elvia/elvis-typography": "^1.1.0",
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
