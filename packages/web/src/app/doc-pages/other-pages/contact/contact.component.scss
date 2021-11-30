@@ -1,4 +1,4 @@
-@import "@elvia/elvis/src/utilities/breakpoints.scss";
+@import '@elvia/elvis/src/utilities/breakpoints.scss';
 
 .page-body {
   margin-top: 104px;
@@ -16,20 +16,20 @@
         margin-bottom: 72px;
       }
     }
-    &.patricia {
-      margin-top: -170px;
+    &.trygve {
+      margin-top: -270px;
     }
-    &.fride {
-      margin-top: -100px;
+    &.viljar {
+      margin-top: -80px;
     }
     &.martin {
-      margin-top: -170px;
+      margin-top: -230px;
     }
     &.hilde {
       margin-top: -100px;
     }
-    &.patricia,
-    &.fride,
+    &.trygve,
+    &.viljar,
     &.martin,
     &.hilde {
       @media (max-width: 1300px) {
@@ -87,17 +87,22 @@
       margin-top: 32px;
       text-align: center;
       z-index: 1;
+      .profile-slack-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
 
-    &.patricia {
-      right: 3%;
+    &.viljar {
+      right: 7%;
       @media (max-width: 1300px) {
         right: 0px;
       }
     }
     &.fride {
-      left: 8%;
-      @media (max-width: 1300px) {
+      right: -6%;
+      @include breakpoint-up(Mobile) {
         left: 0px;
       }
     }

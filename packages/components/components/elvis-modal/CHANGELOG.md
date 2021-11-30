@@ -1,5 +1,17 @@
 # Elvia Modal Changelog
 
+## 1.3.3 (30.11.21)
+
+### Patch
+
+- Now using new version of elvis-colors.
+
+## 1.3.2 (30.11.21)
+
+### Patches
+
+- Web component wrapper fix
+
 ## 1.3.1 (24.11.21)
 
 ### Bug fix
