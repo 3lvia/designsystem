@@ -87,16 +87,10 @@
       margin-top: 32px;
       text-align: center;
       z-index: 1;
-      .profile-links {
+      .profile-slack-button {
         display: flex;
         justify-content: center;
         align-items: center;
-        .profile-figma-image {
-          margin-right: 8px;
-          img {
-            height: 24px;
-          }
-        }
       }
     }
 
