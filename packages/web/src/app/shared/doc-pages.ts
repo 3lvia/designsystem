@@ -510,10 +510,6 @@ export const docPagesNotFromCMS: DocPage[] = [
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-      </a> or use our
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
-        <span class="e-link__title">request form</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
       </a>`,
     docUrl: Pages.Contact,
     absolutePath: '/about/' + Pages.Contact,

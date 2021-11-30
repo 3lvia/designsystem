@@ -1,11 +1,15 @@
 # Elvia Carousel Changelog
 
-## 1.0.3 (23.11.21)
+## 1.0.4 (30.11.21)
 
-### Bug fix
+### Patch
 
 - Now using elvis-colors package for colors.
 - Now using elvis-typography package for typography.
+
+## 1.0.3 (30.11.21)
+
+- Web component wrapper fix
 
 ## 1.0.2 (25.10.21)
 
