@@ -1,11 +1,17 @@
 # Elvia Pagination Changelog
 
-## 1.0.4 (23.11.21)
+## 1.0.5 (30.11.21)
 
 ### Bug fix
 
 - Now using elvis-colors package for colors.
 - Now using elvis-typography package for typography.
+
+## 1.0.4 (29.11.21)
+
+### Patch
+
+Pagination build with new wrapper version
 
 ## 1.0.3 (17.11.21)
 
