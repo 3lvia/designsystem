@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "^2.0.3",
+    "@elvia/elvis-component-wrapper": "^2.1.5",
     "@elvia/elvis-toolbox": "^1.2.0",
     "@elvia/elvis-dropdown": "^2.0.0",
     "@elvia/elvis-colors": "^1.1.0",
