@@ -1,5 +1,9 @@
 # Elvia Breadcrumbs
 
+## 1.1.2 (30.11.21)
+
+- Web component wrapper fix
+
 ## 1.1.1 (4.11.21)
 
 ### Fix

@@ -1,5 +1,9 @@
 # Elvia Divider Changelog
 
+## 1.1.1 (30.11.21)
+
+- Web component wrapper fix
+
 ## 1.1.0 (17.11.21)
 
 ### New feature

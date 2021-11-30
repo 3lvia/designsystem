@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-accordion",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "",
   "main": "web_component.js",
   "scripts": {
@@ -9,7 +9,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "^2.0.0",
+    "@elvia/elvis-component-wrapper": "^2.1.6",
     "@elvia/elvis-toolbox": "^1.2.0",
     "styled-components": "^5.3.3"
   }

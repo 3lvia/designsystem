@@ -1,5 +1,9 @@
 # Elvia Dropdown
 
+## 2.0.1 (30.11.21)
+
+- Web component wrapper fix
+
 ## 2.0.0 (29.11.21)
 
 ### Breaking changes

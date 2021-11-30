@@ -1,5 +1,9 @@
 # Elvia Carousel Changelog
 
+## 1.0.3 (30.11.21)
+
+- Web component wrapper fix
+
 ## 1.0.2 (25.10.21)
 
 ### Patch
