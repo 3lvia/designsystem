@@ -7,7 +7,12 @@
 </app-component-header>
 
 <!--BODY-->
-<div class="page-body">
+<div style="padding: 8px">
+  <elvia-card [label]="'label1'" [description]="'description'">content</elvia-card>
+  <elvia-card [label]="'label2'" [description]="'description'">content</elvia-card>
+  <elvia-card [label]="'label3'" [description]="'description'">content</elvia-card>
+</div>
+<!-- <div class="page-body">
   <button (click)="isModalShowing1 = !isModalShowing1">Hello</button>
   <elvia-modal
     (onHide)="isModalShowing1 = !isModalShowing1"
@@ -474,3 +479,4 @@
     </div>
   </div>
 </div>
+ -->

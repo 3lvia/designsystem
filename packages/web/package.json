@@ -29,6 +29,7 @@
     "@elvia/elvis": "*",
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-carousel": "*",
+    "@elvia/elvis-card": "*",
     "@elvia/elvis-chip": "*",
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-breadcrumb": "*",

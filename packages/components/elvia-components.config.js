@@ -236,6 +236,20 @@ module.exports = [
     reactTypescriptDeclaration: true,
   },
   {
+    name: 'elvis-card',
+    elementName: 'elvia-card',
+    attributes: [
+      { name: 'label', type: 'string', propType: 'string' },
+      { name: 'description', type: 'string', propType: 'string' },
+      { name: 'content', type: 'string', propType: 'string | HTMLElement' },
+    ],
+    reactName: 'Card',
+    useWrapper: false,
+    slotItems: true,
+    elementStyle: `width: 100%;`,
+    reactTypescriptDeclaration: true,
+  },
+  {
     name: 'elvis-modal',
     elementName: 'elvia-modal',
     attributes: [
