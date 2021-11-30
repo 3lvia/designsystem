@@ -1,3 +1,5 @@
+import kebabCase from 'lodash.kebabcase';
+
 const colors = {
   'primary-colors': {
     white: {
@@ -133,14 +135,14 @@ const getColorObject = (colorName) => {
     // Then iterate through every color in a category
     for (const colorLabel in colors[category]) {
       // If the requested color is found, return the color object
-      if (colorLabel === colorName) {
+      if (colorLabel === kebabCase(colorName)) {
         return colors[category][colorLabel];
         // If not, check if a given color has any alt-labels
       } else if (colors[category][colorLabel]['alt-labels']) {
         // Iterate through alt-labels
         for (const altLabel in colors[category][colorLabel]['alt-labels']) {
           // If an alt-label corresponds to the requested color, return the color object
-          if (colors[category][colorLabel]['alt-labels'][altLabel] === colorName) {
+          if (colors[category][colorLabel]['alt-labels'][altLabel] === kebabCase(colorName)) {
             return colors[category][colorLabel];
           }
         }
