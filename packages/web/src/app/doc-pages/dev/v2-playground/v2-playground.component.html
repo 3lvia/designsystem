@@ -8,9 +8,11 @@
 
 <!--BODY-->
 <div style="padding: 8px">
-  <elvia-card [label]="'label1'" [description]="'description'">content</elvia-card>
-  <elvia-card [label]="'label2'" [description]="'description'">content</elvia-card>
-  <elvia-card [label]="'label3'" [description]="'description'">content</elvia-card>
+  <elvia-card [label]="'label1'" [description]="'description1'">content1</elvia-card>
+  <elvia-card [label]="'label2'" [description]="'description2'" [borderColor]="'green'">content2</elvia-card>
+  <elvia-card [label]="'label3'" [description]="'description3'" [borderColor]="'red'" [cardShape]="'circle'">
+    content3
+  </elvia-card>
 </div>
 <!-- <div class="page-body">
   <button (click)="isModalShowing1 = !isModalShowing1">Hello</button>

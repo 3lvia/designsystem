@@ -1,37 +1,67 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import ElviaTypography from '@elvia/elvis-typography';
+
+type CardType = 'simple' | 'detail';
+type CardShape = 'square' | 'circle';
+type BorderColor = 'green' | 'blue-berry' | 'red' | 'orange';
 
 export interface CardProps {
   label?: string;
   description?: string;
   content: string | HTMLElement;
+  borderColor?: BorderColor;
+  cardType: CardType;
+  cardShape: CardShape;
   webcomponent: any;
 }
 
-// const colors = {
-//   elviaBlack: '#000',
-//   elviaWhite: '#fff',
-//   elviaCharge: '#29d305',
-//   elviaBlue: '#006DDB',
-// };
+// TODO: Update to use elvis-colors
+const colors = {
+  elviaBlack: '#000',
+  elviaWhite: '#fff',
+  elviaCharge: '#29d305',
+  green: '#29d305',
+  elviaBlue: '#006DDB',
+  red: '#EE0701',
+  'blue-berry': '',
+  orange: '',
+};
 
 const typography = {
   textMd: ElviaTypography['text-md'],
+  textMdStrong: ElviaTypography['text-md-strong'],
+  textSm: ElviaTypography['text-sm'],
+  textSmStrong: ElviaTypography['text-sm-strong'],
+  textMicro: ElviaTypography['text-micro'],
 };
 
-const CardArea = styled.div`
+type CardAreaProps = {
+  cardShape: CardShape;
+  cardType: CardType;
+};
+
+const CardArea = styled.div<CardAreaProps>`
   position: relative;
-  display: block;
+  display: flex;
+  padding: 24px 16px;
+  box-sizing: border-box;
+
   width: 152px;
   height: 128px;
+
   ${typography.textMd}
   color: blue;
   text-align: center;
-  border: 1px solid #e9e9e9;
+  border: ${(props: { cardShape: CardShape }) => (props.cardShape === 'square' ? '1px solid #e9e9e9' : '')};
+  border-radius: ${(props: { cardShape: CardShape }) => (props.cardShape === 'square' ? '8px' : '50%')};
+  :hover {
+    border: 2px solid #29d305;
+  }
 `;
 
 const CardLabel = styled.div`
+  text-align: center;
   color: red;
 `;
 
@@ -43,31 +73,36 @@ const CardContent = styled.div`
   color: yellow;
 `;
 
-const Card: FC<CardProps> = ({ label, description, content, webcomponent }) => {
-  const cardContent = useRef<HTMLDivElement>(null);
-  const cardTitle = useRef<HTMLDivElement>(null);
+type CardColoredLineProps = {
+  borderColor?: BorderColor;
+};
 
-  useEffect(() => {
-    if (!webcomponent) {
-      return;
-    }
-    // Get slotted items from web component
-    if (cardContent.current && webcomponent.getSlot('description')) {
-      cardContent.current.innerHTML = '';
-      cardContent.current.appendChild(webcomponent.getSlot('description'));
-    }
+const CardColoredLine = styled.div<CardColoredLineProps>`
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 4px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: ${(props: { borderColor?: BorderColor }) =>
+    props.borderColor ? colors[props.borderColor] : ''};
+`;
 
-    if (cardTitle.current && webcomponent.getSlot('label')) {
-      cardTitle.current.innerHTML = '';
-      cardTitle.current.appendChild(webcomponent.getSlot('label'));
-    }
-  }, [webcomponent]);
-
+const Card: FC<CardProps> = ({
+  label,
+  description,
+  content,
+  borderColor,
+  cardType = 'simple',
+  cardShape = 'square',
+}) => {
   return (
-    <CardArea>
+    <CardArea cardType={cardType} cardShape={cardShape}>
       {content && <CardContent>{content}</CardContent>}
       {label && <CardLabel>{label}</CardLabel>}
       {description && <CardDescription>{description}</CardDescription>}
+      <CardColoredLine borderColor={borderColor}></CardColoredLine>
     </CardArea>
   );
 };
