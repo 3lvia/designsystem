@@ -1,5 +1,11 @@
 # Elvia Accordion Changelog
 
+## 2.0.5 (30.11.21)
+
+### Patch
+
+- Now using elvis-colors package for colors.
+
 ## 2.0.4 (30.11.21)
 
 - Web component wrapper fix
@@ -7,6 +13,7 @@
 ### Bug fix
 
 - Improved type safety.
+
 
 ## 2.0.3 (17.11.21)
 

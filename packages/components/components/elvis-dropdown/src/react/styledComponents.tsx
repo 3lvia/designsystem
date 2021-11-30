@@ -1,10 +1,17 @@
 import styled from 'styled-components';
+import { getColor } from '@elvia/elvis-colors';
+import ElviaTypography from '@elvia/elvis-typography';
 
-const ElviaColors = {
-  elviaCharge: '#29d305',
-  elviaOn: '#ffffff',
-  elviaOff: '#000000',
-  elviagrey30: '#BDBDBD',
+const colors = {
+  elviaCharge: getColor('elvia-charge'),
+  elviaWhite: getColor('white'),
+  elviaBlack: getColor('black'),
+};
+
+const typography = {
+  textMdStrong: ElviaTypography['text-md-strong'],
+  textMd: ElviaTypography['text-md'],
+  textSm: ElviaTypography['text-sm'],
 };
 
 export const DropdownWrapper = styled.span`
@@ -17,7 +24,7 @@ export const DropdownWrapper = styled.span`
   cursor: ${(props: { isDisabled: boolean }) => (props.isDisabled ? 'not-allowed' : 'pointer')};
   &:focus-within {
     .ewc-dropdown__control {
-      border: 2px solid ${ElviaColors.elviaCharge};
+      border: 2px solid ${colors.elviaCharge};
       padding: 0px;
       outline: 2px solid #0064fa;
       outline-offset: 2px;
@@ -29,19 +36,16 @@ export const DropdownLabel = styled.label`
   position: ${(props: { isCompact: boolean }) => props.isCompact && 'absolute'};
   top:${(props: { isCompact: boolean }) => props.isCompact && '-5px'};
   left:${(props: { isCompact: boolean }) => props.isCompact && '8px'};
-  background:${(props: { isCompact: boolean }) => props.isCompact && ElviaColors.elviaOn};
+  background:${(props: { isCompact: boolean }) => props.isCompact && colors.elviaWhite};
   padding${(props: { isCompact: boolean }) => props.isCompact && '0 3px'};
   z-index: ${(props: { isCompact: boolean }) => props.isCompact && '1'};
   display: flex;
   margin-bottom: 4px;
-  font-size: ${(props: { isCompact: boolean }) => (props.isCompact ? '10px' : '16px')};
   font-family: 'Red Hat Text', Verdana, sans-serif;
   font-weight: 500;
-  font-style: unset;
+  font-size: ${(props: { isCompact: boolean }) => (props.isCompact ? '10px' : '16px')};
   line-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '10px' : '23px')};
-  letter-spacing: unset;
-  text-transform: unset;
-  color: ${ElviaColors.elviaOff};
+  color: ${colors.elviaBlack};
   text-align: left;
 `;
 
@@ -82,11 +86,8 @@ export const ErrorMessageIcon = styled.i`
   display: inline-block;
 `;
 export const ErrorMessageText = styled.span`
-  font-family: 'Red Hat Text', Verdana;
-  font-size: 14px;
+  ${typography.textSm}
   font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
   letter-spacing: 0px;
   text-align: left;
   margin-left: 8px;
@@ -110,7 +111,7 @@ export const DropdownCheckbox = styled.label`
 const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed: boolean) => {
   if (isCompact && isSelecteed) {
     return `
-  background-color: ${ElviaColors.elviaCharge};
+  background-color: ${colors.elviaCharge};
   &::before {
   content: '';
   position: absolute;
@@ -118,7 +119,7 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
   left: -45%;
   height: 39%;
   width: 2px;
-  background-color: #000;
+  background-color: ${colors.elviaBlack};
   border-radius: 15px;
   transform: translateX(10px) rotate(-45deg);
   transform-origin: [left bottom];
@@ -130,7 +131,7 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
     left: -45%;
     height: 2px;
     width: 80%;
-    background-color: #000;
+    background-color: ${colors.elviaBlack};
     border-radius: 15px;
     transform: translateX(10px) rotate(-55deg);
     transform-origin: [left bottom];
@@ -138,7 +139,7 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
   }
   if (!isCompact && isSelecteed) {
     return `
-  background-color: ${ElviaColors.elviaCharge};
+  background-color: ${colors.elviaCharge};
 &::before {
   content: '';
   position: absolute;
@@ -146,7 +147,7 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
   left: -9%;
   height: 30%;
   width: 2px;
-  background-color: #000;
+  background-color: ${colors.elviaBlack};
   border-radius: 15px;
   transform: translateX(8px) rotate(-45deg);
   transform-origin: (left bottom);
@@ -158,7 +159,7 @@ const decideCheckMarkCompactAndSelectedStyle = (isCompact: boolean, isSelecteed:
   left: -4%;
   height: 2px;
   width: 83%;
-  background-color: #000;
+  background-color: ${colors.elviaBlack};
   border-radius: 15px;
   transform: translateX(10px) rotate(-55deg);
   transform-origin: left bottom;
@@ -179,7 +180,7 @@ export const DropdownCheckboxMark = styled.span<DropdownCheckboxMark>`
   max-width: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};
   max-height: ${(props: { isCompact: boolean }) => (props.isCompact ? '16px' : '24px')};
   border-radius: 3px;
-  border: 1px solid ${ElviaColors.elviaOff};
+  border: 1px solid ${colors.elviaBlack};
   background: #fff;
   position: relative;
   ${(props: { isCompact: boolean; isSelected: boolean }) =>
@@ -188,7 +189,6 @@ export const DropdownCheckboxMark = styled.span<DropdownCheckboxMark>`
 
 export const DropdownCheckboxLabel = styled.span`
   font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-weight: 400;
   font-style: normal;
   font-size: ${(props: { isCompact: boolean }) => (props.isCompact ? '14px' : '16px')};
   margin-left: 8px;

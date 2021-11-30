@@ -1,13 +1,18 @@
 import styled from 'styled-components';
+import { getColor } from '@elvia/elvis-colors';
+import ElviaTypography from '@elvia/elvis-typography';
 
-const ElviaColors = {
-  elviaOn: '#ffffff',
-  elviaOff: '#000000',
-  elviaCharge: '#29d305',
-  grey10: '#e9e9e9',
-  grey20: '#d3d3d3',
-  grey80: '#515151',
-  grey70: '#676767',
+const colors = {
+  elviaCharge: getColor('elvia-charge'),
+  elviaBlack: getColor('black'),
+  grey10: getColor('grey-10'),
+  grey20: getColor('grey-20'),
+  grey70: getColor('grey-70'),
+  grey80: getColor('grey-80'),
+};
+
+const typography = {
+  textSm: ElviaTypography['text-sm'],
 };
 
 type PaginationTypes = {
@@ -38,11 +43,8 @@ export const InfoContainer = styled.div`
 `;
 
 export const InfoText = styled.div`
-  font-family: 'Red Hat Text';
-  font-size: 14px;
+  ${typography.textSm}
   font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
   letter-spacing: 0.2px;
   text-align: left;
 `;
@@ -55,11 +57,8 @@ type InfoAmountTypes = {
   isMobile: boolean;
 };
 export const InfoAmount = styled.div<InfoAmountTypes>`
-  font-family: 'Red Hat Text';
-  font-size: 14px;
+  ${typography.textSm}
   font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
   text-align: left;
   white-space: nowrap;
   margin-right: ${(props: { isMobile: boolean }) => (props.isMobile ? '0px' : '24px')};
@@ -89,7 +88,7 @@ export const SelectorArrowBtn = styled.button<SelectorArrowBtnTypes>`
 
   @media (hover: hover) {
     &:hover {
-      border: 1px solid ${ElviaColors.elviaCharge};
+      border: 1px solid ${colors.elviaCharge};
     }
   }
 
@@ -135,7 +134,7 @@ type PaginatorNumberTypes = {
 };
 
 export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
-  font-family: Red Hat Text;
+  font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
@@ -147,7 +146,7 @@ export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
   justify-content: center;
   align-items: center;
   background: transparent;
-  border: ${(props: { selected: boolean }) => (props.selected ? '1px solid #000000' : 'none')};
+  border: ${(props: { selected: boolean }) => (props.selected ? `1px solid ${colors.elviaBlack}` : 'none')};
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -159,7 +158,7 @@ export const PaginatorNumber = styled.button<PaginatorNumberTypes>`
 
   @media (hover: hover) {
     &:hover {
-      border: 1px solid ${ElviaColors.elviaCharge};
+      border: 1px solid ${colors.elviaCharge};
     }
   }
 
@@ -173,7 +172,7 @@ type PaginatorDotsTypes = {
 };
 
 export const PaginatorDots = styled.div<PaginatorDotsTypes>`
-  font-family: Red Hat Text;
+  font-family: 'Red Hat Text', Verdana, sans-serif;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;

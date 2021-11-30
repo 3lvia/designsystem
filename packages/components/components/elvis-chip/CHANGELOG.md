@@ -1,5 +1,11 @@
 # Elvia Chip Changelog
 
+## 1.1.3 (30.11.21)
+
+### Patch
+
+- Now using elvis-colors package for colors.
+
 ## 1.1.2 (30.11.21)
 
 - Web component wrapper fix
