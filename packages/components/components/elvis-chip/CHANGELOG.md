@@ -1,5 +1,9 @@
 # Elvia Chip Changelog
 
+## 1.1.2 (30.11.21)
+
+- Web component wrapper fix
+
 ## 1.1.1 (17.11.21)
 
 ### Bug fix
