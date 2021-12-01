@@ -1,5 +1,12 @@
 # Elvia Breadcrumbs
 
+## 1.1.3 (30.11.21)
+
+### Patch
+
+- Now using elvis-colors package for colors.
+- Now using elvis-typography package for typography.
+
 ## 1.1.2 (30.11.21)
 
 - Web component wrapper fix
