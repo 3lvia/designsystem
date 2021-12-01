@@ -1,4 +1,4 @@
-import { Accordion } from '@elvia/elvis-accordion/react';
+import Accordion from './elvia-accordion.tsx';
 import React from 'react';
 import { mount } from 'enzyme';
 
