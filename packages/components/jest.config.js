@@ -1,6 +1,9 @@
-module.exports = {
-  setupFilesAfterEnv: ['<rootDir>/test/jest-setup.js'],
+const config = {
+  verbose: true,
+  setupFilesAfterEnv: ['<rootDir>/setupTests.js'],
   moduleNameMapper: {
-    '\\.(css|scss)$': '<rootDir>/test/jest-setup.js',
+    '\\.(css|scss)$': '<rootDir>/setupTests.js',
   },
 };
+
+module.exports = config;

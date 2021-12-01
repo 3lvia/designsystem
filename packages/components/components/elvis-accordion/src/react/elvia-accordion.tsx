@@ -74,6 +74,7 @@ type AccordionButton = {
   closeLabel: string;
   isContentOpen: boolean;
   onClick: any;
+  dataTestId: string;
 };
 
 const AccordionButton = styled.button<AccordionButton>`
@@ -180,6 +181,7 @@ type AccordionContent = {
   isContentOpen: boolean;
   type: AccordionType;
   size: AccordionSize;
+  dataTestId: string;
 };
 
 const AccordionContent = styled.div<AccordionContent>`
@@ -254,7 +256,12 @@ const Accordion: FC<AccordionProps> = ({
     <span ref={accordionRef}>
       <AccordionArea aria-expanded={contentOpen}>
         {type === 'overflow' ? (
-          <AccordionContent isContentOpen={contentOpen} type={type} size={size}>
+          <AccordionContent
+            isContentOpen={contentOpen}
+            type={type}
+            size={size}
+            dataTestId="accordion-content-overflow"
+          >
             {content && <div>{content}</div>}
             {!content && <div ref={accordionText} />}
           </AccordionContent>
@@ -266,13 +273,19 @@ const Accordion: FC<AccordionProps> = ({
             closeLabel={closeLabel ? closeLabel : ''}
             size={size}
             onClick={() => setContentOpen((contentOpen) => !contentOpen)}
+            dataTestId="accordion-button-label"
           >
             {!contentOpen ? openLabel : closeLabel}
             <i></i>
           </AccordionButton>
         </AccordionButtonArea>
         {type === 'normal' ? (
-          <AccordionContent isContentOpen={contentOpen} type={type} size={size}>
+          <AccordionContent
+            dataTestId="accordion-content-normal"
+            isContentOpen={contentOpen}
+            type={type}
+            size={size}
+          >
             {content && <div>{content}</div>}
             {!content && <div ref={accordionText} />}
           </AccordionContent>
