@@ -242,3 +242,79 @@ $maxIconContainerMobile: 450px;
     }
   }
 }
+
+// "CEG" classes for icon component example
+
+@mixin first-col {
+  width: 80%;
+  @include breakpoint-up(Mobile) {
+    width: 70%;
+  }
+}
+@mixin second-col {
+  width: 20%;
+  @include breakpoint-up(Mobile) {
+    width: 30%;
+  }
+}
+
+.ceg-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 72px;
+
+  .iconAutocomplete {
+    width: 250px;
+    margin-bottom: 16px;
+  }
+
+  .ceg-row-1 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 340px;
+    .ceg-col-1 {
+      @include first-col;
+    }
+    .ceg-col-2 {
+      @include second-col;
+    }
+  }
+
+  .ceg-code-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    max-width: 788px;
+    padding: 40px;
+    border: 1px solid var(--e-grey-10);
+    border-radius: 8px;
+
+    @include breakpoint-up(Mobile) {
+      padding: 24px;
+    }
+  }
+}
+
+.ceg-side-filters {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 24px;
+  text-transform: capitalize;
+  user-select: none;
+
+  .counter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .counter__number {
+      width: 40px;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

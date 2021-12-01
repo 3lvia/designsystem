@@ -191,7 +191,13 @@ module.exports = [
   {
     name: 'elvis-icon',
     elementName: 'elvia-icon',
-    attributes: [],
+    attributes: [
+      { name: 'iconName', type: 'string' },
+      { name: 'iconColor', type: 'string' },
+      { name: 'iconSize', type: 'string' },
+      { name: 'customSize', type: 'number' },
+      { name: 'iconDisplay', type: 'string' },
+    ],
     reactName: 'ElvisIcon',
     slotItems: false,
   },

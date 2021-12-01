@@ -31,6 +31,7 @@
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-breadcrumb": "*",
     "@elvia/elvis-dropdown": "*",
+    "@elvia/elvis-icon": "*",
     "@elvia/elvis-modal": "0.0.1-beta.12",
     "@elvia/elvis-popover": "*",
     "@elvia/elvis-box": "0.0.1-beta.3",

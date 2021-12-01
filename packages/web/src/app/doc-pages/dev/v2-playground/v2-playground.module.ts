@@ -20,6 +20,7 @@ import '@elvia/elvis-divider';
 import '@elvia/elvis-carousel';
 import '@elvia/elvis-box';
 import '@elvia/elvis-modal';
+import '@elvia/elvis-icon';
 
 @NgModule({
   imports: [
@@ -34,4 +35,4 @@ import '@elvia/elvis-modal';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [v2PlaygroundComponent],
 })
-export class v2PlaygroundModule {}
+export class v2PlaygroundModule { }

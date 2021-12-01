@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IconDocComponent } from './icon-doc.component';
+import '@elvia/elvis-icon';
 import { ComponentExampleV1Module } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
@@ -28,6 +29,7 @@ import { RouterModule } from '@angular/router';
     CopyModule,
     RouterModule,
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [IconDocComponent, IconSearchPipe],
 })
-export class IconDocModule {}
+export class IconDocModule { }

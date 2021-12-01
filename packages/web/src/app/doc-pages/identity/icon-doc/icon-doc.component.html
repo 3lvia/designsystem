@@ -348,7 +348,105 @@
         </ng-container>
       </app-component-subsection>
 
-      <app-component-subsection [sectionTitle]="'Method 2: Using JS Module / SVGs'">
+      <app-component-subsection [sectionTitle]="'Method 2: Elvis-icon component'">
+        <ng-container ngProjectAs="sectionContent">
+          <a href="https://www.npmjs.com/package/@elvia/elvis-icon" class="e-link">Elvis-icon npm package</a>
+          <p class="e-mb-0">
+            Icons are also accessible through our own icon component, as a web component or react component.
+          </p>
+
+          <div>naming</div>
+
+          <div>example</div>
+          <div class="ceg-container">
+            <!-- <div>
+              <input type="text" [value]="currentIcon" />
+            </div> -->
+            <div class="e-my-48" class="iconAutocomplete">
+              <div class="e-form-field">
+                <label class="e-form-field__label" for="ChooseIcon">Icons</label>
+                <div class="e-input">
+                  <input
+                    [value]="currentIcon"
+                    #searchTerm
+                    (keyup)="onSearch(searchTerm.value)"
+                    (click)="onInputClick()"
+                    id="ChooseIcon"
+                  />
+                  <button class="e-btn e-btn--icon">
+                    <span class="e-btn__icon">
+                      <!-- <i class="e-icon e-icon--view_on"></i> -->
+                      <elvia-icon iconName="viewOn"></elvia-icon>
+                    </span>
+                  </button>
+                  <div class="e-autocomplete" *ngIf="showResults" id="iconOptions">
+                    <span
+                      class="e-autocomplete__item"
+                      *ngFor="let icon of results"
+                      (click)="SelectIcon(icon)"
+                    >
+                      {{ icon }}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ceg-row-1">
+              <div class="ceg-col-1">
+                <div class="ceg-code-preview">
+                  <elvia-icon [iconName]="currentIcon" iconColor="red"></elvia-icon>
+                </div>
+              </div>
+              <div class="ceg-col-2">
+                <div class="ceg-side-filters">
+                  <div class="ceg-side-filter e-form_field e-w-100">
+                    <label class="e-form-field__label">Elvis Icons</label>
+
+                    <div class="counter">
+                      testing
+                      <!-- <button class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-8">
+                        <span class="e-btn__icon">
+                          <i class="e-icon e-icon--subtract_circle"></i>
+                          <i class="e-icon e-icon e-icon--subtract_circle-filled-color"></i>
+                        </span>
+                      </button>
+                      <span class="counter__number e-text-md ng-star-inserted">testing</span>
+                      <button class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8">
+                        <span class="e-btn__icon">
+                          <i class="e-icon e-icon--add_circle"></i>
+                          <i class="e-icon e-icon e-icon--add_circle-filled-color"></i>
+                        </span>
+                      </button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="e-mt-16">
+            <app-component-example-code [codeTS]="importCodeTS"></app-component-example-code>
+          </div>
+          <p>
+            To get the icon you can use the following:
+            <code class="code-text">addCircle.getIcon()</code>
+          </p>
+          <p>
+            If you want a inverted icon use the following:
+            <code class="code-text">addCircle.getIcon('inverted')</code>
+          </p>
+          <p>
+            If you want a color:
+            <code class="code-text">addCircle.getIcon('white')</code>
+          </p>
+          <p>
+            Or set the color yourself with a hex:
+            <code class="code-text">addCircle.getIcon('#bdbdbd')</code>
+          </p>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Method 3: Using JS Module / SVGs'">
         <ng-container ngProjectAs="sectionContent">
           <a href="https://www.npmjs.com/package/@elvia/elvis-assets-icons" class="e-link">
             Elvis-assets-icons npm package

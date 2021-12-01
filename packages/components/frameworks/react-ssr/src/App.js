@@ -178,9 +178,9 @@ function App() {
     <div className="App">
       <h1>React preview</h1>
       <h2>Elvia ICONS</h2>
-      <ElvisIcon iconName="addCircle" iconColor="green" fontSize={16} iconSize="xxl"></ElvisIcon>
-      <ElvisIcon iconName="addCircle" iconColor="red"></ElvisIcon>
       <ElvisIcon iconName="addCircle"></ElvisIcon>
+      {/* <ElvisIcon iconName="addCircle" iconColor="red"></ElvisIcon>
+      <ElvisIcon iconName="addCircle"></ElvisIcon> */}
 
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
