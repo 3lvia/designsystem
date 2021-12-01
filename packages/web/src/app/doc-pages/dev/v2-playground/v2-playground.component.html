@@ -9,9 +9,32 @@
 <!--BODY-->
 <div style="padding: 8px">
   <elvia-card [label]="'label1'" [description]="'description1'">content1</elvia-card>
-  <elvia-card [label]="'label2'" [description]="'description2'" [borderColor]="'green'">content2</elvia-card>
-  <elvia-card [label]="'label3'" [description]="'description3'" [borderColor]="'red'" [cardShape]="'circle'">
+  <elvia-card [label]="'label2'" [description]="'description2'" [borderColor]="'red'">content2</elvia-card>
+  <br />
+  <elvia-card
+    [label]="'label3'"
+    [description]="'description3'"
+    [borderColor]="'orange'"
+    [cardType]="'detail'"
+  >
     content3
+  </elvia-card>
+  <br />
+  <elvia-card
+    [label]="'label4'"
+    [description]="'description4'"
+    [borderColor]="'green'"
+    [cardShape]="'circle'"
+  >
+    content4
+  </elvia-card>
+  <elvia-card
+    [label]="'label5'"
+    [description]="'description5'"
+    [borderColor]="'blue-berry'"
+    [cardShape]="'circle'"
+  >
+    content5
   </elvia-card>
 </div>
 <!-- <div class="page-body">
