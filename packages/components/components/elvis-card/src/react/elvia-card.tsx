@@ -75,10 +75,11 @@ const CardArea = styled.div<CardAreaProps>`
 
   border-radius: ${(props: { cardShape: CardShape }) => (props.cardShape === 'square' ? '8px' : '50%')};
   border: ${(props: { cardShape: CardShape; isInverted: boolean }) =>
-    props.cardShape === 'square' && !props.isInverted ? '1px solid #e9e9e9' : ''};
+    props.cardShape === 'square' && !props.isInverted ? '1px solid #e9e9e9' : '1 px solid transparent'};
   &:hover {
     border: 2px solid ${colors.elviaCharge};
-    padding: 23px 15px;
+    padding: ${(props: { cardType: CardType; isInverted: boolean }) =>
+      props.cardType === 'detail' && !props.isInverted ? '23px 15px' : '22px 14px'};
   }
 `;
 

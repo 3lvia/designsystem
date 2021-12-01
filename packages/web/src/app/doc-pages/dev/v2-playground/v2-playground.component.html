@@ -7,7 +7,7 @@
 </app-component-header>
 
 <!--BODY-->
-<div style="padding: 8px; display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%">
+<div style="padding: 8px; display: flex; flex-wrap: wrap; justify-content: space-between">
   <elvia-card [label]="'Label1'" [description]="'description1'" [icon]="'918'"></elvia-card>
   <elvia-card [label]="'Label2'" [borderColor]="'red'">
     <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
@@ -55,7 +55,9 @@
     [cardShape]="'circle'"
   ></elvia-card>
 </div>
-<div style="padding: 8px; display: flex; flex-wrap: wrap; background: #f4f4f4">
+<div
+  style="padding: 8px; display: flex; flex-wrap: wrap; justify-content: space-between; background: #f4f4f4"
+>
   <elvia-card [label]="'Label1'" [description]="'description1'" [icon]="'1'" [isInverted]="true"></elvia-card>
   <elvia-card
     [label]="'Label2'"
@@ -80,20 +82,21 @@
   ></elvia-card>
   <elvia-card
     [label]="'Label5'"
-    [description]="'description5'"
+    [description]="
+      'Cras dolor leo, sagittis a bibendum id, hendrerit eget elit. Proin pellentesque libero non dapibus sagittis. 
+      Pellentesque fringilla risus sit amet metus fermentum, et consequat nulla placerat. '
+    "
     [borderColor]="'orange'"
     [cardType]="'detail'"
     [cardShape]="'circle'"
     [isInverted]="true"
   ></elvia-card>
-  <elvia-card
-    [label]="'Label6'"
-    [description]="'description6'"
-    [borderColor]="'red'"
-    [cardType]="'detail'"
-    [cardShape]="'circle'"
-    [isInverted]="true"
-  ></elvia-card>
+  <elvia-card [label]="'Label6'" [cardType]="'detail'" [isInverted]="true" [borderColor]="'green'">
+    <div slot="description">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tortor mattis odio pretium viverra sed
+      dapibus lectus. Nullam sit amet urna sit amet ligula bibendum gravida.
+    </div>
+  </elvia-card>
   <elvia-card
     [label]="'Label7'"
     [description]="'description7'"
