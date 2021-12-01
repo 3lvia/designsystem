@@ -1,7 +1,7 @@
 <div class="highlight-container" [ngClass]="{ 'do-dont-comp': doDontComp }">
   <div class="top-menu">
     <elvia-tabs
-      (valueOnChange)="changedTab($event.detail.value)"
+      (valueOnChange)="changeTab($event.detail.value)"
       [isInverted]="true"
       [value]="activeTab"
       [items]="tabs"
@@ -20,10 +20,24 @@
     </div>
   </div>
 
-  <pre
-    *ngIf="highlightedCode"
-    class="higlighted-code"
-  ><code [innerHtml]="highlightedCode" class="active-code"></code></pre>
+  <div class="code-container">
+    <pre *ngIf="highlightedCode"><code [innerHtml]="highlightedCode" class="active-code"></code>
+    </pre>
+    <div *ngIf="tabs[activeTab] === 'Native'">
+      <pre
+        *ngIf="startOfScript"
+        class="script-tag"
+      ><code [innerHtml]="startOfScript" class="active-code"></code>
+      </pre>
+      <pre
+        *ngIf="nativeScriptCode"
+        style="margin-bottom: -30px"
+      ><code [innerHtml]="nativeScriptCode" class="active-code"></code>
+      </pre>
+      <pre *ngIf="endOfScript" class="script-tag"><code [innerHtml]="endOfScript" class="active-code"></code>
+      </pre>
+    </div>
+  </div>
 
   <!--Codepen-->
   <div class="codepen-link" *ngIf="this.codeHTML !== ''">

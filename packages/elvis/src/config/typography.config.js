@@ -239,6 +239,19 @@ module.exports = [
     ],
   },
   {
+    name: 'text-micro-light',
+    properties: [
+      { key: 'family', value: 'Red Hat Text' },
+      { key: 'size', value: '11px' },
+      { key: 'weight', value: '400' },
+      { key: 'height', value: '14px' },
+      { key: 'letter-spacing', value: '0.2px' },
+      { key: 'style', value: 'unset' },
+      { key: 'transform', value: 'unset' },
+      { key: 'color', value: '#515151' },
+    ],
+  },
+  {
     name: 'text-quote',
     properties: [
       { key: 'family', value: 'Red Hat Text' },

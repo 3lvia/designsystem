@@ -8,6 +8,34 @@
 
 <!--BODY-->
 <div class="page-body">
+  <button (click)="isModalShowing1 = !isModalShowing1">Hello</button>
+  <elvia-modal
+    (onHide)="isModalShowing1 = !isModalShowing1"
+    [isShowing]="isModalShowing1"
+    [title]="'Redigere bidragsytere'"
+    [disableClose]="datepickerOpen"
+  >
+    <div slot="content">
+      <div class="date-container">
+        <elvia-datepicker [isCompact]="true" (onOpen)="onOpen()" (onClose)="onClose()"></elvia-datepicker>
+      </div>
+    </div>
+    <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg" (click)="isModalShowing1 = false">
+      Avbryt
+    </button>
+    <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Lagre</button>
+  </elvia-modal>
+
+  <h2>Paginator</h2>
+
+  <elvia-pagination
+    items="156"
+    [value]="defaultPaginatioValue"
+    (valueOnChange)="defaultPaginatioValue = $event.detail.value"
+    [isRightAligned]="true"
+    dropdownMenuPos="top"
+  ></elvia-pagination>
+
   <h2>Breadcrumbs</h2>
   <elvia-breadcrumb [breadcrumbs]="breadcrumbsTest"></elvia-breadcrumb>
 
@@ -15,15 +43,100 @@
   <div style="padding: 8px">
     <elvia-carousel
       [elements]="elements"
-      (valueOnChange)="carouselValue = $event.detail.value"
-    ></elvia-carousel>
-    <h3>Carousel component with hidden arrows</h3>
-    <elvia-carousel
-      [elements]="elements"
       [hideArrows]="true"
       (valueOnChange)="carouselValue = $event.detail.value"
     ></elvia-carousel>
     <h3>Carousel without content</h3>
+    <elvia-carousel [elements]="5" (valueOnChange)="carouselValue = $event.detail.value"></elvia-carousel>
+    <elvia-carousel>
+      <div slot="title-1">
+        <h3 class="e-title-sm">title 1</h3>
+      </div>
+      <div slot="element-1">
+        <img
+          alt="Carousel example image"
+          src="../../../../assets/carousel/el1.jpeg"
+          style="width: 100%; min-width: 278px; border-radius: 8px"
+        />
+      </div>
+      <div slot="title-2">
+        <h3 class="e-title-sm">title 2</h3>
+      </div>
+      <div slot="element-2">
+        <img
+          alt="Carousel example image"
+          src="../../../../assets/carousel/el2.jpeg"
+          style="width: 100%; min-width: 278px; border-radius: 8px"
+        />
+      </div>
+      <div slot="title-3">
+        <h3 class="e-title-sm">title 3</h3>
+      </div>
+      <div slot="element-3">
+        <img
+          alt="Carousel example image"
+          src="../../../../assets/carousel/el3.jpeg"
+          style="width: 100%; min-width: 278px; border-radius: 8px"
+        />
+      </div>
+    </elvia-carousel>
+
+    <h3>Deletable chips</h3>
+    <div style="display: flex; flex-direction: row">
+      <div *ngFor="let chip of deletableChipsList">
+        <elvia-chip
+          [value]="chip.value"
+          [color]="chip.color"
+          [ariaLabel]="'Fjern filtrering for ' + chip.value"
+          [disabled]="chip.disabled"
+          (onDelete)="handleOnDelete($event.detail.value)"
+        ></elvia-chip>
+      </div>
+    </div>
+    Value deleted: {{ deleteValue }}
+
+    <h3>Clickable chips</h3>
+    <div style="display: flex; flex-direction: row">
+      <elvia-chip
+        [value]="2021"
+        color="orange"
+        type="legend"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2022"
+        [selected]="true"
+        type="legend"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2023"
+        [selected]="true"
+        type="choice"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+      <elvia-chip
+        [value]="2024"
+        [selected]="true"
+        type="legend"
+        color="violet"
+        disabled="true"
+        (valueOnChange)="handleOnChange($event.detail.value)"
+      ></elvia-chip>
+    </div>
+    Selected values:
+    <span *ngFor="let key of filteredKeys">
+      <span *ngIf="filteredValues[key]">{{ key }},</span>
+    </span>
+
+    <h2>Box</h2>
+    <div style="padding: 8px">
+      <elvia-box [hasBorder]="true">
+        <h2 slot="title">Title</h2>
+        <div slot="content">Webcomponentent content for the box component</div>
+      </elvia-box>
+    </div>
+
     <elvia-carousel [elements]="5" (valueOnChange)="carouselValue = $event.detail.value"></elvia-carousel>
     {{ carouselValue }}
 
@@ -142,9 +255,18 @@
     <div style="margin-top: 16px; background: #262626; padding: 8px">
       <elvia-divider type="curved" [isInverted]="true"></elvia-divider>
     </div>
+    <div style="margin-top: 16px; padding: 8px">
+      <h3>Vertical divider</h3>
+      <div style="height: 100px">
+        <elvia-divider type="simple" orientation="vertical"></elvia-divider>
+      </div>
+    </div>
 
     <h2>dropdown</h2>
     <div style="width: 250px">
+      <div class="e-my-24">
+        <button (click)="consoleLogDropdownValue()">Console log dropdown value</button>
+      </div>
       <elvia-dropdown
         [isMulti]="true"
         [isCompact]="false"
@@ -164,7 +286,7 @@
       <elvia-accordion
         content="any text of your choice"
         openLabel="Show"
-        closedLabel="Hide"
+        closeLabel="Hide"
         size="medium"
         type="normal"
       ></elvia-accordion>

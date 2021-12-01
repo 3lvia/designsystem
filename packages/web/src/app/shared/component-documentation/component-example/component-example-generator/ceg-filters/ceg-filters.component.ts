@@ -11,11 +11,16 @@ export class CegFiltersComponent implements OnInit {
   @Input() componentData;
   @Input() props;
   @Input() selectedType;
-  codeWebComponentSub: Subscription;
+  @Input() desktop = true;
+  codeAngularSub: Subscription;
   codeReactSub: Subscription;
+  codeVueSub: Subscription;
+  codeNativeSub: Subscription;
   counterNumber: number;
   codeReact;
-  codeWebComponent;
+  codeAngular;
+  codeVue;
+  codeNative;
   checkboxesLength = 0;
   checkboxes = [];
   checkboxGroups = [];
@@ -27,19 +32,37 @@ export class CegFiltersComponent implements OnInit {
 
   ngOnInit(): void {
     this.codeReact = this.componentData.codeReact;
-    this.codeWebComponent = this.componentData.codeWebComponent;
-    this.codeWebComponentSub = this.cegService.listenCodeWebComponent().subscribe((code: string) => {
-      this.codeWebComponent = code;
+    this.codeAngular = this.componentData.codeAngular;
+    this.codeNative = this.componentData.codeNativeHTML;
+    this.codeVue = this.componentData.codeVue ? this.componentData.codeVue : '';
+    this.codeAngularSub = this.cegService.listenCodeAngular().subscribe((code: string) => {
+      this.codeAngular = code;
     });
     this.codeReactSub = this.cegService.listenCodeReact().subscribe((code: string) => {
       this.codeReact = code;
+    });
+    this.codeVueSub = this.cegService.listenCodeVue().subscribe((code: string) => {
+      this.codeVue = code;
+    });
+    this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code: string) => {
+      this.codeNative = code;
     });
     this.initializeComponentProps();
   }
 
   ngOnDestroy(): void {
-    this.codeWebComponentSub.unsubscribe();
-    this.codeReactSub.unsubscribe();
+    if (this.codeAngularSub) {
+      this.codeAngularSub.unsubscribe();
+    }
+    if (this.codeReactSub) {
+      this.codeReactSub.unsubscribe();
+    }
+    if (this.codeVue) {
+      this.codeVueSub.unsubscribe();
+    }
+    if (this.codeNativeSub) {
+      this.codeNativeSub.unsubscribe();
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -52,6 +75,9 @@ export class CegFiltersComponent implements OnInit {
   }
 
   initializeComponentProps(): void {
+    if (!this.componentData.attributes) {
+      return;
+    }
     Object.keys(this.componentData.attributes).forEach((attribute) => {
       Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
         if (value === 'cegFormType' && this.componentData.attributes[attribute].cegFormType === 'checkbox') {
@@ -70,7 +96,7 @@ export class CegFiltersComponent implements OnInit {
     }
   }
 
-  sortCheckboxArrays(checkboxGroups: any): [] {
+  sortCheckboxArrays(checkboxGroups: any[]): [] {
     const checkboxArrays = checkboxGroups.reduce((obj, value) => {
       const key = `${value.cegDisplayGroup}`;
       if (obj[key] == null) {
@@ -82,76 +108,139 @@ export class CegFiltersComponent implements OnInit {
     return checkboxArrays;
   }
 
-  updateProps(): void {
+  typeDependencyExistsToggle(prop: Record<string, any>): boolean {
+    if (!prop.cegTypeDependency || !this.selectedType) {
+      return;
+    }
+    if (typeof prop.cegTypeDependency === 'string') {
+      return prop.cegTypeDependency.toLowerCase() === this.selectedType.toLowerCase();
+    } else {
+      return prop.cegTypeDependency.find((element) => {
+        return element.toLowerCase() === this.selectedType.toLowerCase();
+      });
+    }
+  }
+
+  typeDependencyExists(prop: Record<string, any>): boolean {
+    const dependencyCheckbox = <HTMLInputElement>(
+      document.getElementById(prop.cegTypeDependency + '-checkbox-' + this.desktop)
+    );
+    const checkboxThatHasDependency = <HTMLInputElement>(
+      document.getElementById(prop.attribute + '-checkbox-' + this.desktop)
+    );
+    if (!checkboxThatHasDependency) {
+      return;
+    }
+    if (
+      (prop.cegTypeDependencyValue === 'false' &&
+        checkboxThatHasDependency.checked &&
+        dependencyCheckbox.checked) ||
+      (prop.cegTypeDependencyValue === 'true' &&
+        checkboxThatHasDependency.checked &&
+        !dependencyCheckbox.checked) ||
+      (!prop.cegTypeDependencyValue && checkboxThatHasDependency.checked && !dependencyCheckbox.checked)
+    ) {
+      checkboxThatHasDependency.checked = false;
+      this.updateToggleCheckboxProp(prop, 'false');
+    }
+    return (
+      (prop.cegTypeDependencyValue === 'false' && !dependencyCheckbox.checked) ||
+      (prop.cegTypeDependencyValue === 'true' && dependencyCheckbox.checked) ||
+      (!prop.cegTypeDependencyValue && dependencyCheckbox.checked)
+    );
+  }
+
+  updateNewCode(): void {
     this.cegService.updateCodeReact(this.codeReact);
-    this.cegService.updateCodeWebComponent(this.codeWebComponent);
+    this.cegService.updateCodeAngular(this.codeAngular);
+    this.cegService.updateCodeVue(this.codeVue);
+    this.cegService.updateCodeNative(this.codeNative);
   }
 
-  updateRadioProp(prop: any, newValue: string): void {
-    if (this.codeWebComponent.includes(prop.attribute)) {
-      // Replaces old value for prop
-      this.codeReact = this.codeReact.replace(
-        this.cegService.getPropRegex(prop.attribute),
-        this.cegService.getReplaceValueString(prop.attribute, newValue, true, prop.cegType),
-      );
-      this.codeWebComponent = this.codeWebComponent.replace(
-        this.cegService.getPropRegex(prop.attribute),
-        this.cegService.getReplaceValueString(prop.attribute, newValue, false, prop.cegType),
-      );
+  addNewProps(attr: string, newValue: string, type: string): void {
+    const elNameR = this.componentData.elementNameR;
+    const elNameW = this.componentData.elementNameW;
+    this.codeReact = this.cegService.addNewProp(this.codeReact, attr, newValue, 'react', type, elNameR);
+    this.codeAngular = this.cegService.addNewProp(this.codeAngular, attr, newValue, 'angular', type, elNameW);
+    this.codeVue = this.cegService.addNewProp(this.codeVue, attr, newValue, 'vue', type, elNameW);
+    this.codeNative = this.cegService.addNewProp(this.codeNative, attr, newValue, 'native', type, elNameW);
+  }
+
+  replaceOldProps(attr: string, newValue: string, type: string): void {
+    this.codeReact = this.cegService.replaceOldProp(this.codeReact, attr, newValue, 'react', type);
+    this.codeAngular = this.cegService.replaceOldProp(this.codeAngular, attr, newValue, 'angular', type);
+    this.codeVue = this.cegService.replaceOldProp(this.codeVue, attr, newValue, 'vue', type);
+    this.codeNative = this.cegService.replaceOldProp(this.codeNative, attr, newValue, 'native', type);
+  }
+
+  removeProps(attr: string): void {
+    this.codeReact = this.cegService.removeProp(this.codeReact, attr);
+    this.codeAngular = this.cegService.removeProp(this.codeAngular, attr);
+    this.codeVue = this.cegService.removeProp(this.codeVue, attr);
+    this.codeNative = this.cegService.removeProp(this.codeNative, attr);
+  }
+
+  updateRadioProp(prop: Record<string, any>, newValue: string): void {
+    const attr = prop.attribute;
+    const type = prop.cegType;
+    if (this.codeAngular.includes(prop.attribute)) {
+      this.replaceOldProps(attr, newValue, type);
     } else {
-      // Adds new prop to code
-      const newLineRegexW = this.cegService.getNewLineRegex(this.componentData.elementNameW);
-      const newStringW = this.cegService.getNewPropStringW(
-        this.componentData.elementNameW,
-        prop.attribute,
-        newValue,
-      );
-      this.codeWebComponent = this.codeWebComponent.replace(newLineRegexW, newStringW);
-
-      const newLineRegexR = this.cegService.getNewLineRegex(this.componentData.elementNameR);
-      const newStringR = this.cegService.getNewPropStringR(
-        this.componentData.elementNameR,
-        prop.attribute,
-        newValue,
-        prop.cegType,
-      );
-      this.codeReact = this.codeReact.replace(newLineRegexR, newStringR);
+      this.addNewProps(attr, newValue, type);
     }
-    this.updateProps();
+    this.updateNewCode();
   }
 
-  updateToggleCheckboxProp(prop: any): void {
-    if (this.codeWebComponent.includes(prop.attribute)) {
-      // Removes old prop and line in code
-      this.codeReact = this.codeReact
-        .replace(this.cegService.getPropRegex(prop.attribute), '')
-        .replace(this.emptyLineRegex, '');
-      this.codeWebComponent = this.codeWebComponent
-        .replace(this.cegService.getPropRegex(prop.attribute), '')
-        .replace(this.emptyLineRegex, '');
+  addSlotAndProp(attr: string, newValue: string): void {
+    const elNameR = this.componentData.elementNameR;
+    const elNameW = this.componentData.elementNameW;
+    this.codeReact = this.cegService.addNewSlotAndProp(this.codeReact, attr, newValue, 'react', elNameR);
+    this.codeAngular = this.cegService.addNewSlotAndProp(
+      this.codeAngular,
+      attr,
+      newValue,
+      'angular',
+      elNameW,
+    );
+    this.codeVue = this.cegService.addNewSlotAndProp(this.codeVue, attr, newValue, 'vue', elNameW);
+    this.codeNative = this.cegService.addNewSlotAndProp(this.codeNative, attr, newValue, 'native', elNameW);
+  }
+
+  removeSlotAndProp(attr: string, oldValue: string): void {
+    const elNameR = this.componentData.elementNameR;
+    const elNameW = this.componentData.elementNameW;
+    this.codeReact = this.cegService.removeSlotAndProp(this.codeReact, attr, oldValue, 'react', elNameR);
+    this.codeAngular = this.cegService.removeSlotAndProp(
+      this.codeAngular,
+      attr,
+      oldValue,
+      'angular',
+      elNameW,
+    );
+    this.codeVue = this.cegService.removeSlotAndProp(this.codeVue, attr, oldValue, 'vue', elNameW);
+    this.codeNative = this.cegService.removeSlotAndProp(this.codeNative, attr, oldValue, 'native', elNameW);
+  }
+
+  updateToggleCheckboxProp(prop: Record<string, any>, newValue: string): void {
+    const attr = prop.attribute;
+    const type = prop.cegType;
+    if (prop.cegContent) {
+      if (this.codeAngular.includes(attr)) {
+        this.removeSlotAndProp(attr, prop.cegContent);
+      } else {
+        this.addSlotAndProp(attr, prop.cegContent);
+      }
     } else {
-      // Adds new prop in code
-      const newLineRegexW = this.cegService.getNewLineRegex(this.componentData.elementNameW);
-      const newStringW = this.cegService.getNewPropStringW(
-        this.componentData.elementNameW,
-        prop.attribute,
-        prop.cegOption,
-      );
-      this.codeWebComponent = this.codeWebComponent.replace(newLineRegexW, newStringW);
-
-      const newLineRegexR = this.cegService.getNewLineRegex(this.componentData.elementNameR);
-      const newStringR = this.cegService.getNewPropStringR(
-        this.componentData.elementNameR,
-        prop.attribute,
-        prop.cegOption,
-        prop.cegType,
-      );
-      this.codeReact = this.codeReact.replace(newLineRegexR, newStringR);
+      if (this.codeAngular.includes(attr)) {
+        this.removeProps(attr);
+      } else {
+        this.addNewProps(attr, newValue, type);
+      }
     }
-    this.updateProps();
+    this.updateNewCode();
   }
 
-  isAcceptedCounterValue(prop: any, newValue: number): boolean {
+  isAcceptedCounterValue(prop: Record<string, any>, newValue: number): boolean {
     return (
       this.counterNumber !== undefined &&
       (this.counterNumber + newValue > prop.cegCounterMax ||
@@ -159,7 +248,9 @@ export class CegFiltersComponent implements OnInit {
     );
   }
 
-  updateCounterProp(prop: any, newValue: number): void {
+  updateCounterProp(prop: Record<string, any>, newValue: number): void {
+    const attr = prop.attribute;
+    const type = prop.cegType;
     if (this.isAcceptedCounterValue(prop, newValue)) {
       return;
     } else if (this.counterNumber === undefined) {
@@ -168,27 +259,10 @@ export class CegFiltersComponent implements OnInit {
       this.counterNumber += newValue;
     }
 
-    if (this.codeWebComponent.includes(prop.attribute)) {
+    if (this.codeAngular.includes(attr)) {
       // Replaces old value for prop
-      this.codeReact = this.codeReact.replace(
-        this.cegService.getPropRegex(prop.attribute),
-        this.cegService.getReplaceValueString(
-          prop.attribute,
-          this.counterNumber.toString(),
-          true,
-          prop.cegType,
-        ),
-      );
-      this.codeWebComponent = this.codeWebComponent.replace(
-        this.cegService.getPropRegex(prop.attribute),
-        this.cegService.getReplaceValueString(
-          prop.attribute,
-          this.counterNumber.toString(),
-          false,
-          prop.cegType,
-        ),
-      );
+      this.replaceOldProps(attr, '' + this.counterNumber, type);
     }
-    this.updateProps();
+    this.updateNewCode();
   }
 }

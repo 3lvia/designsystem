@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-draganddrop-doc',
@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./draganddrop-doc.component.scss'],
 })
 export class DraganddropDocComponent {
-  figmaUrl = getComponent('draganddrop').figmaUrl;
-  description = getComponent('draganddrop').description;
+  figmaUrl = getComponent('drag-and-drop').figmaUrl;
+  description = getComponent('drag-and-drop').description;
 
   example1 = `<div class="e-dragdrop" style="width:300px; height:150px"></div>
 `;

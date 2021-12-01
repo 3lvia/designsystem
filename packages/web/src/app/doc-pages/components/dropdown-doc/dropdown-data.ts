@@ -22,18 +22,33 @@ export const dropdownData = {
       type: 'boolean',
       description: 'Set the dropdown to a smaller elvia compact style',
       default: 'false',
+      displayName: 'Compact',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Size',
     },
     isDisabled: {
       isRequired: false,
       type: 'boolean',
       description: 'Set dropdown to a disabled state',
       default: 'false',
+      displayName: 'Disabled',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'State',
     },
     isMulti: {
       isRequired: false,
       type: 'boolean',
       description: 'Set the dropdown to accept multiple values',
       default: 'false',
+      displayName: 'Multiselect',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'true',
+      cegDisplayGroup: 'Options',
     },
     label: {
       isRequired: false,
@@ -63,39 +78,55 @@ export const dropdownData = {
       isRequired: false,
       type: 'string',
       description: 'Placeholder value for the dropdown menu',
-      default: `'Placeholder'`,
     },
     valueOnChange: {
       isRequired: false,
-      type: 'function',
+      type: '(options: Array<object>) => CustomEvent',
       description: `Gets called every time an option(s) is selected and return an array of selected objects`,
     },
   },
   package: 'npm install @elvia/elvis-dropdown',
   codeImportReact: `import { Dropdown } from '@elvia/elvis-dropdown/react';`,
   codeImportWebComponent: `import '@elvia/elvis-dropdown';`,
-  codeReact: `<Dropdown options={options} label="Label" valueOnchange={setSelectedOption}></Dropdown>`,
-  codeWebComponent: `<elvia-dropdown
-  [options]='exampleOptions'
-  label="Label"
-  (valueOnChange)="selectedOptions = $event.detail.value"
+  codeReact: `<Dropdown 
+  options={[
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' }
+  ]} 
+  label={"Label"}
+  placeholder={"Placeholder"}
+  valueOnChange={(event) => updateSelectedList(event)}
+></Dropdown>
+`,
+  codeAngular: `<elvia-dropdown
+  [options]="[
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' }
+  ]"
+  [label]="'Label'"
+  [placeholder]="'Placeholder'"
+  (valueOnChange)="updateSelectedList($event.detail.value)"
 ></elvia-dropdown>
-<!-- in TS -->
-selectedOptions = [];
-exampleOptions = [
-  {
-    value: '1',
-    label: 'Option 1',
-  },
-  {
-    value: '2',
-    label: 'Option 2',
-  },
-  {
-    value: '3',
-    label: 'Option 3',
-  },
-];`,
+`,
+  codeNativeHTML: `<elvia-dropdown
+  id="example-elvia-dropdown"
+></elvia-dropdown>
+`,
+  codeNativeScript: `  const dropdown = document.getElementById('example-elvia-dropdown');
+  const options = [
+    { value: "1", label: "Option 1" },
+    { value: "2", label: "Option 2" },
+    { value: "3", label: "Option 3" }
+  ];
+  dropdown.setProps({label: 'Label' });
+  dropdown.setProps({placeholder: 'Placeholder' });
+  dropdown.setProps({options: options});
+  dropdown.addEventListener('valueOnChange', (event) => {
+    console.log('Do what you want with selected elements: ', event.detail.value);
+  });
+`,
   does: [
     'Use sparingly: use dropdowns only when the user have 5-15 options and you have limited space to display it all open.',
   ],

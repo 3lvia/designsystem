@@ -6,17 +6,9 @@ import { NavbarAnchor } from 'src/app/shared/navbarAnchor.interface';
   providedIn: 'root',
 })
 export class ScrollService {
-  private subjectScroll = new Subject<any>();
   private subjectAnchorScrollTo = new Subject<any>();
   private subjectAnchorAtPositions = new Subject<any>();
   private subjectAnchorsNew = new Subject<any>();
-
-  listenNewScrollPosition(): Observable<any> {
-    return this.subjectScroll.asObservable();
-  }
-  newScrollPosition(): void {
-    this.subjectScroll.next();
-  }
 
   listenAnchorToScrollTo(): Observable<any> {
     return this.subjectAnchorScrollTo.asObservable();
@@ -67,13 +59,13 @@ export class ScrollService {
     return elementTitles;
   }
 
-  getNavbarAnchors(anchors: NavbarAnchor[]): NavbarAnchor[] {
+  getVisibleAnchors(): NavbarAnchor[] {
     const elements = this.getPageAnchors();
     const elementTitles = this.getPageAnchorTitles();
 
     if (elements && elementTitles) {
       const firstItem = elements.item(0) as HTMLElement;
-      anchors = [{ title: 'Overview', top: 0, height: firstItem.offsetTop }];
+      const anchors = [{ title: 'Overview', top: 0, height: firstItem.offsetTop }];
       for (let i = 0; i < elements.length; i++) {
         const item = elements.item(i) as HTMLElement;
         const elementTitle = elementTitles.item(i) as HTMLElement;
@@ -82,7 +74,7 @@ export class ScrollService {
         const fullHeight = item.offsetHeight;
         const newElement = {
           title: innerText,
-          top: fromTop,
+          top: fromTop - 60, // TODO: 60 is just a temp fix because sometimes the scroll goes past the anchor title
           height: fullHeight,
         };
         anchors.push(newElement);

@@ -35,6 +35,8 @@ const ElviaValueContainer = ({ ...props }) => {
   if (optionsCount >= 2) {
     selectedOptions[0] = `${optionsCount} valgte`;
   }
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  //@ts-ignore
   return <components.ValueContainer {...props}>{selectedOptions}</components.ValueContainer>;
 };
 
@@ -48,7 +50,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   menuPosition = 'auto',
   noOptionsMessage = 'Ingen tilgjengelige valg',
   options,
-  placeholder = 'Placeholder',
+  placeholder = '',
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   value,
   valueOnChange,
@@ -99,7 +101,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   const customElviaStyles = {
     container: (provided: any) => ({
       ...provided,
-      maxWidth: '400px',
+      maxWidth: '448px',
     }),
 
     control: () => ({
@@ -109,8 +111,8 @@ const Dropdown: React.FC<DropdownProps> = ({
       backgroundColor: '#FFFFFF',
       borderRadius: '4px',
       border: decideControlBorder(isDisabled, isError),
-      maxHeight: isCompact ? '33px' : '48px',
-      minHeight: isCompact ? '33px' : '48px',
+      maxHeight: isCompact ? '34px' : '48px',
+      minHeight: isCompact ? '34px' : '48px',
       minWidth: '72px',
       marginBottom: '0px',
       padding: !isError ? '1px' : '0px',
@@ -210,7 +212,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       overflowX: 'hidden',
       textOverflow: 'ellipsis',
       whiteSpace: 'nowrap',
-      maxWidth: 'calc(100% - 20px)',
+      maxWidth: 'calc(100% - 12px)',
     }),
 
     singleValue: (provided: any) => ({
@@ -222,7 +224,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       lineHeight: '22px',
       color: '#000',
       margin: '0px',
-      maxWidth: 'calc(100% - 20px)',
+      maxWidth: 'calc(100% - 12px)',
     }),
 
     valueContainer: (provided: any) => ({
@@ -241,6 +243,8 @@ const Dropdown: React.FC<DropdownProps> = ({
   // Custom components for Elvia dropdown
   const ElviaDropdownIndicator = ({ ...props }) => {
     return (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       <components.DropdownIndicator {...props}>
         <StyledDropdown.DropdownIndicatorIcon
           isDisabled={isDisabled}
@@ -253,9 +257,13 @@ const Dropdown: React.FC<DropdownProps> = ({
 
   const ElviaOption = ({ ...props }) => {
     if (!isMulti) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       return <components.Option {...props}>{props.children}</components.Option>;
     }
     return (
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //@ts-ignore
       <components.Option {...props}>
         <StyledDropdown.DropdownCheckbox>
           <StyledDropdown.DropdownCheckboxMark
@@ -292,10 +300,14 @@ const Dropdown: React.FC<DropdownProps> = ({
   // handle focus on dropdown, running on first render only (on mount)
   useEffect(() => {
     // Start outline listener
-    toolbox.outlineListener(dropdownRef.current);
+    if (dropdownRef && dropdownRef.current) {
+      toolbox.outlineListener(dropdownRef.current);
+    }
     return () => {
       // Remove outline listener
-      toolbox.outlineListener(dropdownRef.current, true);
+      if (dropdownRef && dropdownRef.current) {
+        toolbox.outlineListener(dropdownRef.current, true);
+      }
     };
   }, []);
 
@@ -359,6 +371,8 @@ const Dropdown: React.FC<DropdownProps> = ({
         options={options}
         placeholder={placeholder}
         value={currentVal}
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        //@ts-ignore
         styles={customElviaStyles}
       ></Select>
 

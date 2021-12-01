@@ -23,6 +23,8 @@ export interface DatepickerProps {
   minDate?: Date;
   maxDate?: Date;
   valueOnChange?: (value: Date | null) => void;
+  onOpen?: () => void;
+  onClose?: () => void;
   webcomponent?: any;
 }
 
@@ -37,6 +39,8 @@ export const Datepicker: FC<DatepickerProps> = ({
   minDate,
   maxDate,
   valueOnChange,
+  onOpen,
+  onClose,
   webcomponent,
 }) => {
   const [selectedDate, setSelectedDate] = useState(value);
@@ -63,6 +67,11 @@ export const Datepicker: FC<DatepickerProps> = ({
       MuiButtonBase: {
         disableRipple: true,
       },
+      MuiPopover: {
+        style: {
+          zIndex: 99999,
+        },
+      },
     },
   });
 
@@ -85,23 +94,25 @@ export const Datepicker: FC<DatepickerProps> = ({
     validateDate(date);
     setSelectedDate(date);
 
-    // Updating when date valid
-    if (isValid(date)) {
-      if (!webcomponent && valueOnChange) {
-        valueOnChange(date);
-      } else if (webcomponent) {
-        // True -> Prevents rerender
-        webcomponent.setProps({ value: date }, true);
-      }
+    // Updating for any changes in the state of the date field
+    if (!webcomponent && valueOnChange) {
+      valueOnChange(date);
+    } else if (webcomponent) {
+      // True -> Prevents rerender
+      webcomponent.setProps({ value: date }, true);
     }
   };
 
   const addOutlineFix = (ref: HTMLDivElement | null) => {
-    toolbox.outlineListener(ref);
+    if (ref) {
+      toolbox.outlineListener(ref);
+    }
   };
 
   const removeOutlineFix = (ref: HTMLDivElement | null) => {
-    toolbox.outlineListener(ref, true);
+    if (ref) {
+      toolbox.outlineListener(ref, true);
+    }
   };
 
   const onFocus = () => {
@@ -109,16 +120,31 @@ export const Datepicker: FC<DatepickerProps> = ({
     updateCaretPositionOnFocus();
   };
 
-  const onOpen = () => {
+  const handleOpenDatepicker = () => {
     updateFocusState();
     updateInputWithSelectedDate();
+    if (!webcomponent && onOpen) {
+      onOpen();
+    } else if (webcomponent) {
+      webcomponent.triggerEvent('onOpen');
+    }
+  };
+
+  const handleCloseDatepicker = () => {
+    if (!webcomponent && onClose) {
+      onClose();
+    } else if (webcomponent) {
+      webcomponent.triggerEvent('onClose');
+    }
   };
 
   const validateDate = (date: Date | null) => {
     if (customError) {
       return;
     }
-    if (!isValid(date)) {
+    if (date === null && !isRequired) {
+      setCurrErrorMessage('');
+    } else if (!isValid(date)) {
       if (date === null && isRequired) {
         setCurrErrorMessage('Velg en dato');
       } else if (date !== null) {
@@ -308,7 +334,8 @@ export const Datepicker: FC<DatepickerProps> = ({
             maxDate={maxDate}
             onChange={handleDateChange}
             onFocus={onFocus}
-            onOpen={onOpen}
+            onOpen={handleOpenDatepicker}
+            onClose={handleCloseDatepicker}
             keyboardIcon={getCalIcon()}
             leftArrowIcon={getArrowIcon(true)}
             rightArrowIcon={getArrowIcon(false)}

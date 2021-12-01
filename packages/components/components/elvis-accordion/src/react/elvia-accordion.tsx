@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef, useState } from 'react';
 import toolbox from '@elvia/elvis-toolbox';
 import styled from 'styled-components';
+import { getColor } from '@elvia/elvis-colors';
 
 export type AccordionLabelPosition = 'left' | 'center' | 'right';
 export type AccordionSize = 'small' | 'medium' | 'large';
@@ -15,10 +16,8 @@ export interface AccordionProps {
   type: AccordionType;
 }
 
-const ElviaColors = {
-  elviaCharge: '#29d305',
-  elviaOn: '#ffffff',
-  elviaOff: '#000000',
+const colors = {
+  elviaBlack: getColor('black'),
 };
 
 const AccordionArea = styled.div`
@@ -27,7 +26,7 @@ const AccordionArea = styled.div`
   flex-direction: column;
 `;
 
-const decideLabelPosition = (prop: string) => {
+const decideLabelPosition = (prop: AccordionLabelPosition) => {
   if (prop === 'center') {
     return 'center';
   }
@@ -37,17 +36,25 @@ const decideLabelPosition = (prop: string) => {
   if (prop === 'left') {
     return 'start';
   }
+
+  return 'flex-start';
 };
 
-const AccordionButtonArea = styled.div`
+export type AccordionButtonArea = {
+  labelPosition: AccordionLabelPosition;
+  type: AccordionType;
+};
+
+const AccordionButtonArea = styled.div<AccordionButtonArea>`
   display: inline-flex;
-  justify-content: ${(props: { labelPosition: string }) => decideLabelPosition(props.labelPosition)};
+  justify-content: ${(props: { labelPosition: AccordionLabelPosition }) =>
+    decideLabelPosition(props.labelPosition)};
   flex-direction: row;
   width: 100%;
   margin-top: ${(props: { type: string }) => (props.type !== 'overflow' ? '0' : '16px')};
 `;
 
-const decideButtonFontSize = (prop: string) => {
+const decideButtonFontSize = (prop: AccordionSize) => {
   if (prop === 'small') {
     return '14px';
   }
@@ -60,17 +67,27 @@ const decideButtonFontSize = (prop: string) => {
   return '16px';
 };
 
-const AccordionButton = styled.button`
+type AccordionButton = {
+  size: AccordionSize;
+  openLabel: string;
+  closeLabel: string;
+  isContentOpen: boolean;
+  onClick: any;
+};
+
+const AccordionButton = styled.button<AccordionButton>`
   border: none;
   background: transparent;
   display: flex;
   padding: 0;
   font-family: 'Red Hat Display', Verdana, sans-serif;
   font-weight: 500;
-  font-size: ${(props: { size: string }) => decideButtonFontSize(props.size)};
-  line-height: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
+  font-size: ${(props: { size: AccordionSize }) => decideButtonFontSize(props.size)};
+  line-height: ${(props: { size: AccordionSize }) => (props.size === 'small' ? '16px' : '24px')};
   text-align: left;
   cursor: pointer;
+  color: ${colors.elviaBlack};
+
   &:hover {
     i {
       background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12 24C5.383 24 0 18.617 0 12S5.383 0 12 0s12 5.383 12 12-5.383 12-12 12z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.813 15.393a1.149 1.149 0 01-1.626 0L6.95 11.157A.853.853 0 118.157 9.95L12 13.793l3.843-3.843a.853.853 0 011.207 1.207l-4.237 4.236z' fill='black'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.813 15.393a1.149 1.149 0 01-1.626 0L6.95 11.157A.853.853 0 118.157 9.95L12 13.793l3.843-3.843a.853.853 0 011.207 1.207l-4.237 4.236z' fill='black'/%3e%3c/svg%3e");
@@ -90,17 +107,17 @@ const AccordionButton = styled.button`
     background-position: center;
     background-repeat: no-repeat;
     background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 24 24' aria-hidden='true' width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12 24C5.383 24 0 18.617 0 12S5.383 0 12 0s12 5.383 12 12-5.383 12-12 12zm0-22.5C6.21 1.5 1.5 6.21 1.5 12S6.21 22.5 12 22.5 22.5 17.79 22.5 12 17.79 1.5 12 1.5z' fill='%2329D305'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M12.813 15.393a1.149 1.149 0 01-1.626 0L6.95 11.157A.853.853 0 118.157 9.95L12 13.793l3.843-3.843a.853.853 0 011.207 1.207l-4.237 4.236z' fill='black'/%3e%3c/svg%3e");
-    background-color: ${ElviaColors.elviaOn};
+    background-color: transparent;
     display: inline-block;
-    height: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
-    width: ${(props: { size: string }) => (props.size === 'small' ? '16px' : '24px')};
+    height: ${(props: { size: AccordionSize }) => (props.size === 'small' ? '16px' : '24px')};
+    width: ${(props: { size: AccordionSize }) => (props.size === 'small' ? '16px' : '24px')};
     transition: transform 300ms;
     transform: ${(props: { isContentOpen: boolean }) =>
     (props.isContentOpen && ' rotate(180deg)') || (props.isContentOpen === false && ' rotate(0deg)')};
   }
 `;
 
-const decideContentMarginTop = (contentOpen: boolean, type: string, size: string) => {
+const decideContentMarginTop = (contentOpen: boolean, type: AccordionType, size: AccordionSize): string => {
   if (type === 'overflow') {
     return '0px';
   }
@@ -111,9 +128,10 @@ const decideContentMarginTop = (contentOpen: boolean, type: string, size: string
       return '16px';
     }
   }
+  return '0';
 };
 
-const decideContentMaxHeight = (contentOpen: boolean, type: string) => {
+const decideContentMaxHeight = (contentOpen: boolean, type: AccordionType): string => {
   if (type === 'normal') {
     if (contentOpen) {
       return '10000px';
@@ -128,8 +146,10 @@ const decideContentMaxHeight = (contentOpen: boolean, type: string) => {
       return 'calc(2em * 1.2)';
     }
   }
+
+  return 'none';
 };
-const decideContentOpacity = (contentOpen: boolean, type: string) => {
+const decideContentOpacity = (contentOpen: boolean, type: AccordionType): string => {
   if (contentOpen) {
     return '1';
   }
@@ -138,13 +158,13 @@ const decideContentOpacity = (contentOpen: boolean, type: string) => {
   }
   return '0';
 };
-const decideContentOverflowY = (contentOpen: boolean, type: string) => {
+const decideContentOverflowY = (contentOpen: boolean, type: AccordionType): string => {
   if (contentOpen && type === 'overflow') {
     return 'hidden';
   }
   return 'auto';
 };
-const decideContentTransition = (contentOpen: boolean, type: string) => {
+const decideContentTransition = (contentOpen: boolean, type: AccordionType): string => {
   if (type === 'overflow') {
     if (contentOpen) {
       return 'max-height 2s ease-in';
@@ -155,23 +175,29 @@ const decideContentTransition = (contentOpen: boolean, type: string) => {
   return 'all 0.3s ease-out';
 };
 
-const AccordionContent = styled.div`
-  display: flex;
+type AccordionContent = {
+  isContentOpen: boolean;
+  type: AccordionType;
+  size: AccordionSize;
+};
+
+const AccordionContent = styled.div<AccordionContent>`
+  display: block;
   background: transparent;
   width: 100%;
   font-size: 16px;
   line-height: inherit;
-  margin-top: ${(props: { isContentOpen: boolean; type: string; size: string }) =>
+  margin-top: ${(props: { isContentOpen: boolean; type: AccordionType; size: AccordionSize }) =>
     decideContentMarginTop(props.isContentOpen, props.type, props.size)};
   pointer-events: ${(props: { isContentOpen: boolean }) => (props.isContentOpen ? 'auto' : 'none')};
   height: auto;
-  max-height: ${(props: { isContentOpen: boolean; type: string }) =>
+  max-height: ${(props: { isContentOpen: boolean; type: AccordionType }) =>
     decideContentMaxHeight(props.isContentOpen, props.type)};
-  opacity: ${(props: { isContentOpen: boolean; type: string }) =>
+  opacity: ${(props: { isContentOpen: boolean; type: AccordionType }) =>
     decideContentOpacity(props.isContentOpen, props.type)};
-  overflow-y: ${(props: { isContentOpen: boolean; type: string }) =>
+  overflow-y: ${(props: { isContentOpen: boolean; type: AccordionType }) =>
     decideContentOverflowY(props.isContentOpen, props.type)};
-  transition: ${(props: { isContentOpen: boolean; type: string }) =>
+  transition: ${(props: { isContentOpen: boolean; type: AccordionType }) =>
     decideContentTransition(props.isContentOpen, props.type)};
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -196,11 +222,14 @@ const Accordion: FC<AccordionProps> = ({
   // Outline listener for focus only on tab keydown
   useEffect(() => {
     // Start outline listener
-    toolbox.outlineListener(accordionRef.current);
-
+    if (accordionRef && accordionRef.current) {
+      toolbox.outlineListener(accordionRef.current);
+    }
     return () => {
-      // Remove outline listener
-      toolbox.outlineListener(accordionRef.current, true);
+      // Remove outline listenes
+      if (accordionRef && accordionRef.current) {
+        toolbox.outlineListener(accordionRef.current, true);
+      }
     };
   }, []);
 
@@ -232,8 +261,8 @@ const Accordion: FC<AccordionProps> = ({
         <AccordionButtonArea labelPosition={labelPosition} type={type}>
           <AccordionButton
             isContentOpen={contentOpen}
-            openLabel={openLabel}
-            closeLabel={closeLabel}
+            openLabel={openLabel ? openLabel : ''}
+            closeLabel={closeLabel ? closeLabel : ''}
             size={size}
             onClick={() => setContentOpen((contentOpen) => !contentOpen)}
           >

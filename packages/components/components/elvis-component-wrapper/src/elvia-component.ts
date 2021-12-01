@@ -12,6 +12,7 @@ export class ElvisComponentWrapper extends HTMLElement {
   protected throttleRenderReactDOM;
   private mountPoint!: HTMLSpanElement;
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   constructor(webComponent: any, reactComponent: any, cssStyle: string) {
     super();
     this._data = {};
@@ -34,6 +35,10 @@ export class ElvisComponentWrapper extends HTMLElement {
     return this._slots[str];
   }
 
+  getAllSlots(): any {
+    return this._slots;
+  }
+
   connectedCallback(): void {
     // Slot items
     if (this.webComponent.getComponentData().slotItems === true) {
@@ -48,6 +53,10 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   attributeChangedCallback(): void {
+    // Slot items
+    if (this.webComponent.getComponentData().slotItems === true) {
+      this.storeAllSlots();
+    }
     this.throttleRenderReactDOM();
   }
 
@@ -55,22 +64,29 @@ export class ElvisComponentWrapper extends HTMLElement {
     const conditionalElementStyle = this.webComponent.getComponentData().conditionalElementStyle;
     const attributes = this.webComponent.getComponentData().attributes;
     this.style.cssText = this.webComponent.getComponentData().elementStyle;
-
     if (!conditionalElementStyle) {
       return;
     }
-    attributes.forEach((attribute: any) => {
-      if (
-        this.getProps()[attribute.name.toLowerCase()] === 'true' ||
-        this.getProps()[attribute.name.toLowerCase()] === true
-      ) {
-        Object.keys(conditionalElementStyle).forEach((obj) => {
-          if (obj.toLowerCase() === attribute.name.toLowerCase()) {
-            this.style.cssText += conditionalElementStyle[obj];
+    if (conditionalElementStyle.constructor.name === 'Array') {
+      conditionalElementStyle.forEach((el: any) => {
+        if (this.getProps()[el.name.toLowerCase()] === el.value) {
+          this.style.cssText += el.style;
+        }
+      });
+    } else {
+      attributes.forEach((attribute: any) => {
+        if (
+          this.getProps()[attribute.name.toLowerCase()] === 'true' ||
+          this.getProps()[attribute.name.toLowerCase()] === true
+        ) {
+          for (const obj in conditionalElementStyle) {
+            if (obj.toLowerCase() === attribute.name.toLowerCase()) {
+              this.style.cssText += conditionalElementStyle[obj];
+            }
           }
-        });
-      }
-    });
+        }
+      });
+    }
   }
 
   protected attachStyle(): void {
@@ -83,6 +99,7 @@ export class ElvisComponentWrapper extends HTMLElement {
     this.appendChild(styleTag);
   }
 
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   protected setProps(newProps: any, preventRerender?: boolean): void {
     Object.keys(newProps).forEach((key) => {
       if (!isEqual(this._data[key], newProps[key])) {
@@ -97,8 +114,15 @@ export class ElvisComponentWrapper extends HTMLElement {
     }
   }
 
-  protected triggerEvent(callbackName: string): void {
-    this.onEvent(callbackName);
+  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+  protected triggerEvent(callbackName: string, newProps?: any): void {
+    if (newProps) {
+      Object.keys(newProps).forEach((key) => {
+        this.onEvent(callbackName, key);
+      });
+    } else {
+      this.onEvent(callbackName);
+    }
   }
 
   protected createReactData(): Record<string, any> {
@@ -160,18 +184,19 @@ export class ElvisComponentWrapper extends HTMLElement {
   }
 
   // Dispatches event for any type of event
-  private onEvent(callbackName: string) {
+  private onEvent(callbackName: string, propName?: string) {
     this.dispatchEvent(
       new CustomEvent(callbackName, {
         bubbles: false,
         composed: true,
+        detail: { value: propName ? this._data[propName.toLowerCase()] : null },
       }),
     );
   }
 
   // Dispatches event and data for 'OnChange' events
   private onChangeEvent(propName: string) {
-    if (this._data[propName.toLowerCase()] === null || this._data[propName.toLowerCase()] === undefined) {
+    if (this._data[propName.toLowerCase()] === undefined) {
       this.logWarnMessage(
         'onChangeEvent',
         ': Cannot dispatch OnChange event because no data was found with prop-name: ' + propName + '.',
@@ -234,6 +259,8 @@ export class ElvisComponentWrapper extends HTMLElement {
       const val = this.getAttribute(attr.name.toLowerCase());
       if (val !== null && (dataAttr === null || typeof dataAttr === 'undefined')) {
         this._data[attr.name.toLowerCase()] = this.convertString(val, attr.type, attr.name);
+      } else if (attr.type !== 'string' && typeof dataAttr === 'string') {
+        this._data[attr.name.toLowerCase()] = this.convertString(dataAttr, attr.type, attr.name);
       }
     });
   }

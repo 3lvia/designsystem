@@ -1,5 +1,7 @@
 import React, { FC, useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import { getColor } from '@elvia/elvis-colors';
+import ElviaTypography from '@elvia/elvis-typography';
 
 export interface BoxProps {
   content: string | HTMLElement;
@@ -9,11 +11,15 @@ export interface BoxProps {
   webcomponent: any;
 }
 
-const ElviaColors = {
-  elviaCharge: '#29d305',
-  elviaOn: '#ffffff',
-  elviaOff: '#000000',
-  grey10: '#E9E9E9',
+const colors = {
+  elviaCharge: getColor('elvia-charge'),
+  elviaWhite: getColor('white'),
+  elviaBlack: getColor('black'),
+  grey10: getColor('grey-10'),
+};
+
+const typography = {
+  titleCaps: ElviaTypography['title-caps'],
 };
 
 const BoxArea = styled.div`
@@ -30,40 +36,37 @@ const BoxColoredLine = styled.div`
   height: 4px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  background: ${ElviaColors.elviaCharge};
+  background: ${colors.elviaCharge};
 `;
 const BoxTitle = styled.div`
-  font-family: 'Red Hat Text';
+  ${typography.titleCaps}
   font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.8px;
-  text-transform: uppercase;
-  color: black;
+  color: ${colors.elviaBlack};
   margin: 0px;
+  margin-left: 8px;
   margin-bottom: 8px;
   * {
-    font-family: 'Red Hat Text';
+    ${typography.titleCaps}
     font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    letter-spacing: 0.8px;
     text-transform: uppercase;
     margin: 0;
   }
 `;
-const BoxContent = styled.div`
+
+type BoxContentType = {
+  hasBorder: boolean;
+};
+
+const BoxContent = styled.div<BoxContentType>`
   position: relative;
   display: block;
   width: 100%;
   box-sizing: border-box;
   border-radius: 5px;
-  border: ${(props: { hasBorder: boolean }) => props.hasBorder === true && `1px solid ${ElviaColors.grey10}`};
-  background: ${ElviaColors.elviaOn};
+  border: ${(props: { hasBorder: boolean }) => props.hasBorder === true && `1px solid ${colors.grey10}`};
+  background: ${colors.elviaWhite};
   text-align: left;
-  color: black;
+  color: ${colors.elviaBlack};
   padding: 40px;
   @media (max-width: 767px) {
     padding: 24px;
@@ -95,13 +98,13 @@ const Box: FC<BoxProps> = ({ content, title, isColored = false, hasBorder = fals
       {title && <BoxTitle>{title}</BoxTitle>}
       {!title && <BoxTitle ref={boxTitle}></BoxTitle>}
       {content && (
-        <BoxContent hasBorder={hasBorder} isColored={isColored}>
+        <BoxContent hasBorder={hasBorder}>
           {isColored && <BoxColoredLine></BoxColoredLine>}
           {content}
         </BoxContent>
       )}
       {!content && (
-        <BoxContent hasBorder={hasBorder} isColored={isColored}>
+        <BoxContent hasBorder={hasBorder}>
           {isColored && <BoxColoredLine></BoxColoredLine>}
           <div ref={boxContent}></div>
         </BoxContent>

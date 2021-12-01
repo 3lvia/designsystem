@@ -1,6 +1,6 @@
 export default {
   'title-lg': {
-    fontFamily: 'Red Hat Display',
+    fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '44px',
     fontSizeMobile: '32px',
     fontWeight: '900',
@@ -13,7 +13,7 @@ export default {
   },
 
   'title-md': {
-    fontFamily: 'Red Hat Display',
+    fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '30px',
     fontSizeMobile: '24px',
     fontWeight: '700',
@@ -26,7 +26,7 @@ export default {
   },
 
   'title-sm': {
-    fontFamily: 'Red Hat Display',
+    fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '24px',
     fontSizeMobile: '20px',
     fontWeight: '700',
@@ -39,7 +39,7 @@ export default {
   },
 
   'title-xs': {
-    fontFamily: 'Red Hat Display',
+    fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '18px',
     fontWeight: '700',
     lineHeight: '22px',
@@ -50,7 +50,7 @@ export default {
   },
 
   'title-caps': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '14px',
     fontWeight: '500',
     lineHeight: '17px',
@@ -61,7 +61,7 @@ export default {
   },
 
   'text-lead': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '24px',
     fontSizeMobile: '22px',
     fontWeight: '400',
@@ -74,7 +74,7 @@ export default {
   },
 
   'text-lg': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '20px',
     fontSizeMobile: '18px',
     fontWeight: '400',
@@ -87,7 +87,7 @@ export default {
   },
 
   'text-lg-strong': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '20px',
     fontSizeMobile: '18px',
     fontWeight: '500',
@@ -100,7 +100,7 @@ export default {
   },
 
   'text-lg-light': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '20px',
     fontSizeMobile: '18px',
     fontWeight: '400',
@@ -113,7 +113,7 @@ export default {
   },
 
   'text-md': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '400',
     lineHeight: '28px',
@@ -123,7 +123,7 @@ export default {
     color: 'inherit',
   },
   'text-md-strong': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '500',
     lineHeight: '28px',
@@ -133,7 +133,7 @@ export default {
     color: 'inherit',
   },
   'text-md-light': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '400',
     lineHeight: '28px',
@@ -144,7 +144,7 @@ export default {
   },
 
   'text-sm': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '14px',
     fontWeight: '400',
     lineHeight: '22px',
@@ -154,7 +154,7 @@ export default {
     color: 'inherit',
   },
   'text-sm-strong': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '14px',
     fontWeight: '500',
     lineHeight: '22px',
@@ -164,7 +164,7 @@ export default {
     color: 'inherit',
   },
   'text-sm-light': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '14px',
     fontWeight: '400',
     lineHeight: '22px',
@@ -175,7 +175,7 @@ export default {
   },
 
   'text-micro': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '11px',
     fontWeight: '400',
     lineHeight: '14px',
@@ -186,7 +186,7 @@ export default {
   },
 
   'text-micro-strong': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '11px',
     fontWeight: '500',
     lineHeight: '14px',
@@ -196,8 +196,19 @@ export default {
     color: 'inherit',
   },
 
+  'text-micro-light': {
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
+    fontSize: '11px',
+    fontWeight: '400',
+    lineHeight: '14px',
+    letterSpacing: '0.2px',
+    fontStyle: 'unset',
+    textTransform: 'unset',
+    color: '#515151',
+  },
+
   'text-quote': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '26px',
     fontSizeMobile: '20px',
     fontWeight: '400',
@@ -210,7 +221,7 @@ export default {
   },
 
   'text-img': {
-    fontFamily: 'Red Hat Text',
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
     fontSize: '18px',
     fontSizeMobile: '16px',
     fontWeight: '400',
@@ -225,7 +236,7 @@ export default {
 
   'text-label': {
     deprecated: '1.0.0',
-    fontFamily: 'Red Hat Display',
+    fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '500',
     lineHeight: '23px',
@@ -236,7 +247,7 @@ export default {
   },
   'text-option': {
     deprecated: '1.0.0',
-    fontFamily: 'Red Hat Display',
+    fontFamily: '"Red Hat Display", Verdana, sans-serif',
     fontSize: '16px',
     fontWeight: '400',
     lineHeight: '22px',

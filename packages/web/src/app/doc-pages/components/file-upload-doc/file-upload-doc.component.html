@@ -37,17 +37,43 @@
   <!--STATUS-->
   <app-component-section [sectionTitle]="'States'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Before hover'">
+      <app-component-subsection [sectionTitle]="'Before dragover'">
         <ng-container ngProjectAs="sectionContent">
           <app-component-example-v1 [codeHTML]="example1"></app-component-example-v1>
         </ng-container>
       </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'When hovering'">
+      <app-component-subsection [sectionTitle]="'On dragover'">
         <ng-container ngProjectAs="sectionContent">
           Use the class modifier
-          <span class="code-text">e-fileupload---hover</span>
+          <span class="code-text">e-fileupload--dragover</span>
           on dragging over.
           <app-component-example-v1 [codeHTML]="example2"></app-component-example-v1>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Uploading'" [figmaOnly]="true">
+        <ng-container ngProjectAs="sectionContent">
+          <div width="100%" style="width: 100; overflow-x: auto">
+            <iframe
+              style="border: 1px solid rgba(0, 0, 0, 0.1)"
+              width="500"
+              height="450"
+              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F0hCktnFvRvSHVDntaaOSEu%2FInputs%3Fnode-id%3D5162%253A36588"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Uploaded'" [figmaOnly]="true">
+        <ng-container ngProjectAs="sectionContent">
+          <div width="100%" style="width: 100; overflow-x: auto">
+            <iframe
+              style="border: 1px solid rgba(0, 0, 0, 0.1)"
+              width="500"
+              height="450"
+              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2F0hCktnFvRvSHVDntaaOSEu%2FInputs%3Fnode-id%3D5166%253A36672"
+              allowfullscreen
+            ></iframe>
+          </div>
         </ng-container>
       </app-component-subsection>
     </ng-container>

@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-input-doc',
@@ -25,9 +25,9 @@ export class InputDocComponent {
   ];
 
   overviewExample = `<div class="e-form-field">
-  <label class="e-form-field__label" for="normal">Input field </label>
+  <label class="e-form-field__label" for="normal">Text field</label>
   <div class="e-input">
-    <input id="normal" type="text" placeholder="Placeholder text">
+    <input id="normal" type="text" placeholder="Placeholder text" />
   </div>
 </div>
 `;
@@ -42,8 +42,8 @@ export class InputDocComponent {
 </div>
 `;
 
-  exampleCompactInputNoLabel = `<div style="width: 240px;">
-  <div class="e-input e-input--compact">
+  exampleInputNoLabel = `<div style="width: 240px;">
+  <div class="e-input">
     <input id="compact" type="text" placeholder="Placeholder text">
   </div>
 </div>
@@ -68,9 +68,8 @@ export class InputDocComponent {
     </div>
   </div>
 </div>
-`;
 
-  example3 = `<div class="e-inlined-field">
+<div class="e-inlined-field e-mt-24">
   <div class="e-form-field e-form-field--medium">
     <label class="e-form-field__label" for="zip">Zip code</label>
     <div class="e-input">

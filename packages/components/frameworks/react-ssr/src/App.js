@@ -1,26 +1,43 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import { Popover } from '@elvia/elvis-popover/react';
 import { Accordion } from '@elvia/elvis-accordion/react';
-// import { Checkbox } from '@elvia/elvis-checkbox/react';
 import { Tabs } from '@elvia/elvis-tabs/react';
 import { ProgressLinear } from '@elvia/elvis-progress-linear/react';
 import { TestingComponent } from '@elvia/elvis-testing/react';
 import { Breadcrumb } from '@elvia/elvis-breadcrumb/react';
 import { Carousel } from '@elvia/elvis-carousel/react';
+import { Chip } from '@elvia/elvis-chip/react';
 import { Datepicker } from '@elvia/elvis-datepicker/react';
 import { Divider } from '@elvia/elvis-divider/react';
 import { Dropdown } from '@elvia/elvis-dropdown/react';
+import { Pagination } from '@elvia/elvis-pagination/react';
 import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
 import { ElvisIcon } from '@elvia/elvis-icon/react';
+import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 
 function App() {
-  // Old checkbox states
-  // const [trackedState, setTrackedState] = useState(true);
-  // const ref = useRef();
-  //////////////////////
+  const deletableChipsList = [
+    { value: 2022 },
+    { value: 2024, color: 'blue' },
+    { value: 2025, color: 'purple', disabled: true },
+  ];
+
+  const clickableChips = [
+    { value: 2022, color: 'green' },
+    { value: 2023, color: 'red' },
+    { value: 2024, color: 'blue', selected: true },
+    { value: 2025, color: 'purple' },
+    { value: 2026, color: 'violet', selected: true, disabled: true },
+  ];
+
+  const [chipSelected, setChipSelected] = useState(false);
+
   const [selectedState, setSelectedState] = useState(2);
+  const [chipsValues, setChipsValues] = useState([2018, 2019, 2020, 2021]);
+  const [deletableChips, setDeletableChips] = useState(deletableChipsList);
+  const [chipValue, setChipValue] = useState([]);
   const items = ['Statistikk', 'Siste kall', 'HAN-port', 'Feilkategorisering'];
   const dateCurr = new Date();
   const [isModalShowing, setIsModalShowingState] = useState(false);
@@ -174,14 +191,70 @@ function App() {
     },
   ];
 
+  const handleOnDelete1 = (event) => {
+    const values = [...chipsValues];
+    setChipsValues(values.filter((value) => value !== event));
+  };
+
+  const handleOnDelete2 = (event) => {
+    const values = [...deletableChips];
+    setDeletableChips(values.filter((data) => data.value !== event));
+  };
+
+  const [filteredValues, setFilteredValues] = useState({
+    2022: false,
+    2023: false,
+    2024: true,
+    2025: false,
+    2026: true,
+  });
+
+  const handleOnValueChange = (event) => {
+    setFilteredValues((prevState) => ({
+      ...prevState,
+      [event.value]: event.isSelected,
+    }));
+  };
+
+  const radioFilterOptions = [
+    {
+      label: 'All',
+      value: 'all',
+    },
+    {
+      label: 'Read',
+      value: 'read',
+    },
+    {
+      label: 'Unread',
+      value: 'unread',
+    },
+    {
+      label: 'Consumption',
+      value: 'consumption',
+    },
+    {
+      label: 'Production',
+      value: 'production',
+    },
+  ];
+  const [selectedRadioFilter, setSelectedRadioFilter] = useState('read');
+
   return (
     <div className="App">
+      <Accordion labelPosition="center" openLabel="open" closeLabel="close" content="TextContent"></Accordion>
       <h1>React preview</h1>
       <h2>Elvia ICONS</h2>
       <ElvisIcon iconName="addCircle"></ElvisIcon>
       {/* <ElvisIcon iconName="addCircle" iconColor="red"></ElvisIcon>
       <ElvisIcon iconName="addCircle"></ElvisIcon> */}
-
+      <h2>Pagination!</h2>
+      <Pagination
+        items={156}
+        valueOnChange={(event) => console.log(event)}
+        dropdownMenuPos="top"
+      ></Pagination>
+      <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
       <h2>Breadcrumbs</h2>
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <h2>Box</h2>
@@ -285,6 +358,77 @@ function App() {
           </>
         }
       ></Modal>
+      <div>
+        <button
+          onClick={() => {
+            setChipsValues((values) => [...values, `20${Math.floor(Math.random() * 30) + 1}`]);
+          }}
+        >
+          Add chip
+        </button>
+      </div>
+      <div>
+        <h1>Radio filter</h1>
+        <RadioFilter
+          items={radioFilterOptions}
+          ariaLabel={`${selectedRadioFilter} filtrering valgt`}
+          valueOnChange={(selected) => {
+            setSelectedRadioFilter(selected);
+          }}
+          value={selectedRadioFilter}
+          name={'radioFilterTest'}
+        ></RadioFilter>
+      </div>
+      <div>
+        <h1>Test av chip</h1>
+        <button onClick={() => setChipSelected(!chipSelected)}>TEST</button>
+        <Chip
+          type="legend"
+          valueOnChange={(e) => {
+            setChipSelected(!chipSelected);
+          }}
+          selected={chipSelected}
+          value="Test"
+        ></Chip>
+        <hr></hr>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        {chipsValues.map((value) => (
+          <Chip value={value} onDelete={handleOnDelete1}></Chip>
+        ))}
+      </div>
+      Deletable Chips
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        {deletableChips.map((data) => (
+          <Chip
+            value={data.value}
+            color={data.color}
+            disabled={data.disabled}
+            ariaLabel={`Fjern filtreringen for ${data.value}`}
+            onDelete={handleOnDelete2}
+          ></Chip>
+        ))}
+      </div>
+      Clickable Chips
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+        {clickableChips.map((data) => (
+          <Chip
+            value={data.value}
+            color={data.color}
+            selected={data.selected}
+            disabled={data.disabled}
+            type="legend"
+            valueOnChange={handleOnValueChange}
+          ></Chip>
+        ))}
+      </div>
+      Filters to apply: {`${Object.keys(filteredValues).filter((chip) => filteredValues[chip])}`}
+      <div style={{ margin: '40px 0' }}>
+        <h2>Clickable chip initally checkmark</h2>
+        <Chip value="Clickable3" type="choice" selected valueOnChange={setChipValue}></Chip>
+      </div>
+      <div>{'Selected chip: '}</div>
+      <div>{chipValue.isSelected ? chipValue.value : ''}</div>
       <h2>Dropdown</h2>
       <button onClick={consoleDropdownVal}>Console dropdown value</button>
       <div style={{ marginTop: '24px' }}>
@@ -375,21 +519,7 @@ function App() {
       </div>
       <h3>Custom Accordion content</h3>
       <div style={{ marginTop: '24px', marginBottom: '24px' }}>
-        <Accordion
-          type="normal"
-          position="center"
-          content={
-            <div>
-              <div style={{ color: 'white' }}>Hello!</div>
-              <div style={{ color: 'green' }}>Is</div>
-              <div style={{ color: 'black' }}>It</div>
-              <div style={{ color: 'purple' }}>Me</div>
-              <div style={{ color: 'yellow' }}>You´re</div>
-              <div style={{ color: 'blue' }}>Looking</div>
-              <div style={{ color: 'red' }}>For</div>
-            </div>
-          }
-        ></Accordion>
+        <Accordion type="normal" position="center" content={<div>Hello</div>}></Accordion>
       </div>
       <h2>Tabs</h2>
       <div style={{ marginTop: '16px', display: 'flex', justifyContent: 'center' }}>
@@ -397,20 +527,6 @@ function App() {
         <div>{selectedState.toString()}</div>
       </div>
       <hr style={{ margin: '40px 0' }} />
-      {/*       <h2>Checkbox</h2>
-      <div style={{ marginTop: '16px' }}>
-        <Checkbox
-          ref={ref}
-          checked={trackedState}
-          label="Normal checkbox"
-          name="Nametest"
-          id="CheckboxTestID"
-          size="normal"
-          changeHandler={setTrackedState}
-        ></Checkbox>
-        <Checkbox label="Small checkbox" name="Nametest" id="CheckboxTestID" size="small"></Checkbox>
-      </div>
- */}
       <hr style={{ margin: '40px 0' }} />
       <h2>Popover</h2>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end' }}>

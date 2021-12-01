@@ -1,60 +1,51 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import * as StyledDivider from './styledComponents';
+import { DividerType, DividerTypography, DividerOrientation } from './elvia-divider.types';
 
-export type DividerType = 'simple' | 'title' | 'curved';
-export type DividerTypography = 'medium' | 'caps';
 export interface DividerProps {
   type?: DividerType;
   title?: string | HTMLElement;
   typography?: DividerTypography;
   isInverted?: boolean;
+  orientation?: DividerOrientation;
+  webcomponent: any;
 }
 
 export const Divider: React.FC<DividerProps> = ({
   type = 'simple',
   typography = 'medium',
-  title = 'Title',
+  title = '',
   isInverted = false,
+  orientation = 'horizontal',
+  webcomponent,
 }) => {
-  const [hasSlot, setHasSlot] = useState(false);
-  const dividerRef = useRef<HTMLDivElement>(null);
   const dividerTitleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // Web component - Placing slots at the right place
-    if (
-      !dividerRef.current ||
-      !dividerRef.current.parentElement ||
-      !dividerRef.current.parentElement.parentElement
-    ) {
+    if (!webcomponent) {
       return;
     }
-    dividerRef.current.parentElement.parentElement.querySelectorAll('[slot]').forEach((element: any) => {
-      if (element.slot !== 'title') {
-        return;
-      }
-      setHasSlot(true);
-      if (dividerTitleRef.current) {
-        dividerTitleRef.current.innerHTML = '';
-        dividerTitleRef.current.appendChild(element);
-      }
-    });
+    // Get slotted items from web component
+    if (dividerTitleRef.current && webcomponent.getSlot('title')) {
+      dividerTitleRef.current.innerHTML = '';
+      dividerTitleRef.current.appendChild(webcomponent.getSlot('title'));
+    }
   });
 
   return (
-    <StyledDivider.DividerArea type={type} isInverted={isInverted} ref={dividerRef}>
-      {hasSlot}
-      {!hasSlot && type === 'title' && (
-        <StyledDivider.DividerTitle typography={typography} isInverted={isInverted}>
-          {title}
-        </StyledDivider.DividerTitle>
-      )}
-      {hasSlot && type === 'title' && (
+    <StyledDivider.DividerArea type={type} isInverted={isInverted} orientation={orientation}>
+      {title === '' && type === 'title' && (
         <StyledDivider.DividerTitle
           typography={typography}
           isInverted={isInverted}
           ref={dividerTitleRef}
         ></StyledDivider.DividerTitle>
+      )}
+      {title !== '' && type === 'title' && (
+        <StyledDivider.DividerTitle typography={typography} isInverted={isInverted}>
+          {title}
+        </StyledDivider.DividerTitle>
       )}
     </StyledDivider.DividerArea>
   );

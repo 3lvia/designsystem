@@ -1,0 +1,583 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">Utility Classes</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <!--TABLE OF CLASSES-->
+  <app-component-subsection>
+    <ng-container ngProjectAs="sectionContent">
+      <div class="utilityContainer">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
+          <a class="e-link e-link--lg" [routerLink]="['/brand/color']" fragment="Implementation">Colors</a>
+        </div>
+        <div class="e-text-description" style="width: 100%">
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-bg-name'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-bg-name</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">
+              Sets the background to an available color in elvis. Also sets text to contrast color of
+              background-color.
+            </span>
+            <span class="cssContent">background-color: #colorname</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-text-name'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-text-name</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Sets the text to an available color in elvis</span>
+            <span class="cssContent">color: #colorname</span>
+          </div>
+        </div>
+      </div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
+
+      <div class="utilityContainer">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
+          <a class="e-link e-link--lg" [routerLink]="['/brand/shadow']" fragment="Usage">Shadow</a>
+        </div>
+        <div class="e-text-description" style="width: 100%">
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-shadow-none'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-shadow-none</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Removes box-shadow on element.</span>
+            <span class="cssContent">box-shadow: none</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-shadow-3'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-shadow-3</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Set a soft box-shadow on element.</span>
+            <span class="cssContent">box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.03)</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-shadow-6'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-shadow-6</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Set a medium box-shadow on element.</span>
+            <span class="cssContent">box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.06)</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-shadow-8'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-shadow-8</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Set a hard box-shadow on element.</span>
+            <span class="cssContent">box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.08)</span>
+          </div>
+        </div>
+      </div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
+      <div class="utilityContainer">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
+          <a class="e-link e-link--lg" [routerLink]="['/brand/layout']" fragment="Spacing">Spacing</a>
+        </div>
+        <div class="e-text-description" style="width: 100%">
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-p-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-p-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">
+              Set padding in all directions, from 0-72 following 8px multiplication.
+            </span>
+            <span class="cssContent">padding: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-pl-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-pl-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Set padding left, from 0-72 following 8px multiplication.</span>
+            <span class="cssContent">padding-left: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-pr-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-pr-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Set padding right, from 0-72 following 8px multiplication.</span>
+            <span class="cssContent">padding-right: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-pt-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-pt-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Set padding top, from 0-72 following 8px multiplication.</span>
+            <span class="cssContent">padding-top: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-pb-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-pb-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Set padding bottom, from 0-72 following 8px multiplication.</span>
+            <span class="cssContent">padding-bottom: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-px-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-px-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">
+              Set padding left and right, from 0-72 following 8px multiplication.
+            </span>
+            <span class="cssContent">padding-left: number; padding-right: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-py-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-py-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">
+              Set padding top and bottom, from 0-72 following 8px multiplication.
+            </span>
+            <span class="cssContent">padding-top: number; padding-bottom: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-m-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-m-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">
+              Set margin in all directions, from 0-72 following 8px multiplication.
+            </span>
+            <span class="cssContent">margin: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-ml-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-ml-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Set margin left, from 0-72 following 8px multiplication.</span>
+            <span class="cssContent">margin-left: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-mr-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-mr-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Set margin right, from 0-72 following 8px multiplication.</span>
+            <span class="cssContent">margin-right: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-mt-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-mt-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Set margin top, from 0-72 following 8px multiplication.</span>
+            <span class="cssContent">margin-top: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-mb-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-mb-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Set margin bottom, from 0-72 following 8px multiplication.</span>
+            <span class="cssContent">margin-bottom: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-mx-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-mx-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">
+              Set margin left and right, from 0-72 following 8px multiplication.
+            </span>
+            <span class="cssContent">margin-left: number; margin-right: number</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-my-number'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-my-number</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">
+              Set margin top and bottom, from 0-72 following 8px multiplication.
+            </span>
+            <span class="cssContent">margin-top: number; margin-bottom: number</span>
+          </div>
+        </div>
+      </div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
+      <div class="utilityContainer">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
+          <a class="e-link e-link--lg" [routerLink]="['/brand/typography']" fragment="Usage">Typography</a>
+        </div>
+        <div class="e-text-description" style="width: 100%">
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-title-lg'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-title-lg</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Sets attributes like font-size, line-height and font-weight.</span>
+            <span class="cssContent">font-size, line-height and font-weight</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-title-md'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-title-md</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Sets attributes like font-size, line-height and font-weight.</span>
+            <span class="cssContent">font-size, line-height and font-weight</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-title-sm'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-title-sm</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Sets attributes like font-size, line-height and font-weight.</span>
+            <span class="cssContent">font-size, line-height and font-weight</span>
+          </div>
+        </div>
+      </div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
+      <div class="utilityContainer">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">
+          <a class="e-link e-link--lg" [routerLink]="['/tools/accessibility']" fragment="Keyboard">Focus</a>
+        </div>
+        <div class="e-text-description" style="width: 100%">
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-outline'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-outline</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Adds outline to elements.</span>
+            <span class="cssContent">
+              <div>outline: 2px solid $focus-color;</div>
+              <div>outline-offset: 2px;</div>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
+      <div class="utilityContainer">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">Display</div>
+        <div class="e-text-description" style="width: 100%">
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-none'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-none</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Remove elements from the DOM.</span>
+            <span class="cssContent">display: none</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-none-xl'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-none-xl</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Display none on element displayed MaxDesktop breakpoints.</span>
+            <span class="cssContent">display: none</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-none-lg'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-none-lg</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Display none on element displayed MinDesktop breakpoints.</span>
+            <span class="cssContent">display: none</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-none-md'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-none-md</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Display none on element displayed Tablet breakpoints.</span>
+            <span class="cssContent">display: none</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-none-sm'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-none-sm</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Display none on element displayed Mobile breakpoints.</span>
+            <span class="cssContent">display: none</span>
+          </div>
+        </div>
+      </div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
+      <div class="utilityContainer">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">Visibility</div>
+        <div class="e-text-description" style="width: 100%">
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-invisible'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-invisible</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Hide elements in DOM.</span>
+            <span class="cssContent">visibility: hidden</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-invisible-xl'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-invisible-xl</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Hide elements displayed MaxDesktop breakpoints.</span>
+            <span class="cssContent">visibility: hidden</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-invisible-lg'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-invisible-lg</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Hide elements displayed MinDesktop breakpoints.</span>
+            <span class="cssContent">visibility: hidden</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-invisible-md'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-invisible-md</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Hide elements displayed Tablet breakpoints.</span>
+            <span class="cssContent">visibility: hidden</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-invisible-sm'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-invisible-sm</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Hide elements displayed Mobile breakpoints.</span>
+            <span class="cssContent">visibility: hidden</span>
+          </div>
+        </div>
+      </div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
+      <div class="utilityContainer">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">Text</div>
+        <div class="e-text-description" style="width: 100%">
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-capitalize'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-capitalize</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Transforms the first character of each word to uppercase.</span>
+            <span class="cssContent">text-transform: capitalize</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-lowercase'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-lowercase</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Transforms all characters to lowercase.</span>
+            <span class="cssContent">text-transform: lowercase</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-uppercase'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-uppercase</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Transforms all characters to uppercase.</span>
+            <span class="cssContent">text-transform: uppercase</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-text-left'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-text-left</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Aligns text to the left</span>
+            <span class="cssContent">text-align: left</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-text-center'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-text-center</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Aligns text to the center</span>
+            <span class="cssContent">text-align: center</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-text-right'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-text-right</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Aligns text to the right</span>
+            <span class="cssContent">text-align: right</span>
+          </div>
+        </div>
+      </div>
+      <div class="e-bg-grey-10 e-my-48" style="width: 100%; height: 1px"></div>
+
+      <div class="utilityContainer">
+        <div class="rowTitle e-title-xs elvis-anchor elvis-anchor-title">Width</div>
+        <div class="e-text-description" style="width: 100%">
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-w-100'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-w-100</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Gives element 100% width.</span>
+            <span class="cssContent">width: 100%</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-w-75'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-w-75</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Gives element 75% width.</span>
+            <span class="cssContent">width: 75%</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-w-50'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-w-50</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Gives element 50% width.</span>
+            <span class="cssContent">width: 50%</span>
+          </div>
+          <div class="tableRow">
+            <span class="class">
+              <app-copy [message]="'e-w-25'">
+                <ng-container ngProjectAs="copyContent">
+                  <code class="code-text">e-w-25</code>
+                </ng-container>
+              </app-copy>
+            </span>
+            <span class="description">Gives element 25% width.</span>
+            <span class="cssContent">width: 25%</span>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-subsection>
+</div>

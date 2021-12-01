@@ -1,12 +1,27 @@
 <!-- Components overview page -->
 <div class="e-grid">
-  <div class="row components-overview-title">
-    <div class="col">
-      <h2 class="e-title-md overview-margin-title-bottom">{{ overviewTitle }}</h2>
+  <div class="row">
+    <div class="col overview-page-title-container">
+      <h2 class="e-title-md e-mt-n8 overview-page-title-size">
+        {{ overviewTitle }}
+      </h2>
+    </div>
+    <div class="overview-action-link e-mr-24">
+      <a class="e-link e-link--action e-link--sm" [routerLink]="['/components/which-component']">
+        <span class="e-link__title">Which component should I use?</span>
+        <span class="e-link__icon">
+          <i class="e-icon e-icon--arrow_right_circle-color"></i>
+          <i class="e-icon e-icon--arrow_right_circle-filled-color"></i>
+        </span>
+      </a>
     </div>
   </div>
   <div
-    class="row components-overview-cards components-overview-cards-animation e-grid-gutters-ext e-grid-gutters-vertical"
+    class="
+      row
+      components-overview-cards components-overview-cards-animation
+      e-grid-gutters-ext e-grid-gutters-vertical
+    "
   >
     <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4" *ngFor="let page of filteredPages">
       <a class="e-link e-link--card" *ngIf="page.absolutePath" [routerLink]="[page.absolutePath]">

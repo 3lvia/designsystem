@@ -50,7 +50,6 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
     updateArrowVisibility();
   });
 
-  // Is necessary since the web component does not send all props at once
   useEffect(() => {
     setCurrValue(value);
   }, [value]);
@@ -110,8 +109,9 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
     ['ewc-tabs__arrow--remove']: isOnRightEnd && isOnLeftEnd,
   });
   const itemsClasses = classNames('ewc-tabs__items', {
-    ['ewc-tabs--hide-fade-right']: isOnRightEnd,
-    ['ewc-tabs--hide-fade-left']: isOnLeftEnd,
+    ['right-arrow-fade']: !isOnRightEnd,
+    ['left-arrow-fade']: !isOnLeftEnd,
+    ['both-arrows-fade']: !isOnLeftEnd && !isOnRightEnd,
     ['ewc-tabs--scrolling']: !isOnLeftEnd || !isOnRightEnd,
   });
 

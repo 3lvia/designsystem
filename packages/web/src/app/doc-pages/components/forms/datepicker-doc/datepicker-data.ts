@@ -11,8 +11,9 @@ const datepickerData = {
     },
     valueOnChange: {
       isRequired: false,
-      type: '(value: Date) => void',
-      description: 'Gets called every time the value is changed.',
+      type: '(value: Date) => CustomEvent',
+      description:
+        'Gets called every time the value is changed. Returns null if input field is empty, or Invalid Date if input is not a valid date.',
     },
     label: {
       isRequired: false,
@@ -83,14 +84,37 @@ const datepickerData = {
       description: 'Makes date after this date disabled.',
       displayName: 'Max date',
     },
+    onOpen: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Callback for every time the datepicker is being opened.',
+    },
+    onClose: {
+      isRequired: false,
+      type: '() => void',
+      description: 'Callback for every time the modal is being closed.',
+    },
   },
   package: 'npm install @elvia/elvis-datepicker',
   codeImportReact: `import { Datepicker } from '@elvia/elvis-datepicker/react';`,
   codeImportWebComponent: `import '@elvia/elvis-datepicker';`,
   codeReact: `<Datepicker
-></Datepicker>`,
-  codeWebComponent: `<elvia-datepicker
-></elvia-datepicker>`,
+  valueOnChange={(event) => handleOnChange(event)}
+></Datepicker>
+`,
+  codeAngular: `<elvia-datepicker
+  (valueOnChange)="handleOnChange(event.detail.value)"
+></elvia-datepicker>
+`,
+  codeNativeHTML: `<elvia-datepicker
+  id="example-elvia-datepicker"
+></elvia-datepicker>
+`,
+  codeNativeScript: `  const datepicker = document.getElementById('example-elvia-datepicker');
+  datepicker.addEventListener('valueOnChange', (event) => {
+    console.log('Do what you want with date: ', event.detail.value)
+  });
+`,
 };
 
 export { datepickerData };

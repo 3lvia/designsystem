@@ -1,23 +1,15 @@
 {
+  "extends": "../../tsconfig.json",
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "downlevelIteration": true,
-    "experimentalDecorators": true,
-    "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true,
     "module": "es2020",
-    "moduleResolution": "node",
-    "importHelpers": true,
-    // the default configuration
-    "target": "es2015",
-    // for IE
-    "target": "es5",
-    "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "dom"]
+    "outDir": "./dist/out-tsc",
+
+    "noImplicitReturns": false, // TODO: Remove line -> fix errors
+    "noImplicitThis": false,    // TODO: Remove line -> fix errors
+    "noImplicitAny": false,     // TODO: Remove line -> fix errors
+    "strictNullChecks": false,  // TODO: Remove line -> fix errors
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

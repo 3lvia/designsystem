@@ -1,55 +1,29 @@
 export enum Pages {
-  // Index
-  Index = '',
-
   // Home
+  Index = '',
   Home = 'home',
-
-  // Get Started
-  GetStartedStart = 'get-started',
-  TheDesignSystem = 'the-design-system',
-  // Children
-  OverviewGetStarted = 'overview-get-started',
-  NewProject = 'new-project',
-  GetStartedDesigners = 'get-started-designers',
-
-  // Identity Pages
-  IdentityStart = 'identity',
-  // Children
-  OverviewIdentity = 'overview-identity',
-  Border = 'border',
-  Color = 'color',
-  Icon = 'icon',
-  ToneOfVoice = 'tone-of-voice',
-  Typography = 'typography',
-  Shadow = 'shadow',
-  Spacing = 'spacing',
-  Grid = 'grid',
-  Logo = 'logo',
-  TheConcept = 'the-concept',
 
   // Component Pages
   ComponentsStart = 'components',
-  // Children
   OverviewComp = 'overview-comp',
   Accordion = 'accordion',
-  Alert = 'alert-messages',
+  Alert = 'alert',
   Autocomplete = 'autocomplete',
   Button = 'button',
   Breadcrumb = 'breadcrumb',
   Box = 'box',
   Card = 'card',
   Carousel = 'carousel',
-  Chips = 'chips',
+  Chip = 'chip',
   Checkbox = 'checkbox',
   ContentLoader = 'content-loader',
   Divider = 'divider',
   Dropdown = 'dropdown',
   Toggle = 'toggle',
-  Timepicker = 'timepicker',
+  Timepicker = 'time-picker',
   Datepicker = 'datepicker',
-  DragAndDrop = 'draganddrop',
-  FileUpload = 'fileUpload',
+  DragAndDrop = 'drag-and-drop',
+  FileUpload = 'file-upload',
   RadioFilter = 'radio-filter',
   Header = 'header',
   Input = 'input',
@@ -70,20 +44,25 @@ export enum Pages {
   Tabs = 'tabs',
   Tooltip = 'tooltip',
 
-  // Tools Pages
-  ToolsStart = 'tools',
-  // Children
-  OverviewTools = 'overview-tools',
+  // Pages not from CMS
+  TheDesignSystem = 'the-design-system',
+  NewProject = 'new-project',
+  GetStartedDesigners = 'get-started-designers',
+  Border = 'border',
+  Color = 'color',
+  Icon = 'icon',
+  ToneOfVoice = 'tone-of-voice',
+  Typography = 'typography',
+  Shadow = 'shadow',
+  Spacing = 'spacing',
+  Grid = 'grid',
+  Logo = 'logo',
+  TheConcept = 'the-concept',
   Accessibility = 'accessibility',
   DesignProcess = 'design-process',
   UserFeedback = 'user-feedback',
   Utilities = 'utilities',
   Patterns = 'patterns',
-
-  // Community Pages
-  CommunityStart = 'community',
-  // Children
-  OverviewCommunity = 'overview-community',
   Contact = 'contact',
   Contribute = 'contribute',
   Faq = 'faq',

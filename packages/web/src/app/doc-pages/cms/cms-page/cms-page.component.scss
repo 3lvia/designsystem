@@ -1,16 +1,17 @@
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
+@import '../../../shared/overview-page/overview-page.component.scss';
 
 .cms-img {
-  max-width:100%;
-  display:block;
-  margin-left:auto;
-  margin-right:auto;
+  max-width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cms-hr {
-  height:1px;
-  border:none;
-  border-top:1px solid black;
+  height: 1px;
+  border: none;
+  border-top: 1px solid black;
 }
 
 .brand {
@@ -29,6 +30,9 @@
   }
 }
 
+.cms-centered-content {
+  text-align: center;
+}
 
 .cms-section {
   margin-top: 104px;
@@ -82,5 +86,101 @@
     &.anchor-copied .icons .normal-img {
       display: none;
     }
+  }
+}
+
+.cms-subsubsection {
+  margin-left: 72px;
+  @include breakpoint-up(Tablet) {
+    margin-left: 0;
+  }
+  @include breakpoint-up(Mobile) {
+    margin-top: 48px;
+  }
+}
+
+.cms-section,
+.cms-subsection,
+.cms-subsubsection {
+  p {
+    margin: 0px;
+  }
+  p + p {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  li p {
+    & + p {
+      margin: 0px;
+    }
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+}
+
+.cms-landing-page {
+  text-align: center;
+  &__img {
+    width: 100%;
+    max-width: 650px;
+  }
+  &__description {
+    text-align: center;
+    @include breakpoint-up(Tablet) {
+      display: none;
+    }
+  }
+}
+
+.subpages-content-loader {
+  @include breakpoint-up(Tablet) {
+    margin: 0 40px;
+    margin-top: -24px;
+  }
+}
+
+.cms-image {
+  .cms-image-inline {
+    display: inline-flex;
+    vertical-align: middle;
+    margin-bottom: 8px;
+    &.align-left {
+      padding-right: 32px;
+      &.original-margin {
+        padding: 0px;
+        margin-right: 32px;
+      }
+    }
+    &.align-right {
+      padding-left: 32px;
+      &.original-margin {
+        padding: 0px;
+        margin-left: 32px;
+      }
+    }
+    &.align-center {
+      padding-left: 32px;
+      padding-right: 32px;
+      &.original-margin {
+        padding: 0px;
+        margin: 0 32px;
+      }
+    }
+  }
+  .align-left {
+    float: left;
+  }
+  .align-right {
+    float: right;
+  }
+  .align-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cms-image-inline + p {
+    display: inline;
+    vertical-align: middle;
   }
 }

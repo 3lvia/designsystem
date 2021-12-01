@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 @Component({
   selector: 'app-alert-messages',
   templateUrl: './alert-messages.component.html',
@@ -8,8 +8,8 @@ import { getComponent } from 'src/app/shared/e-items';
 export class AlertMessagesComponent {
   @ViewChild('alertAccordionExample') alertAccordionExample: ElementRef;
 
-  figmaUrl = getComponent('alert-messages').figmaUrl;
-  description = getComponent('alert-messages').description;
+  figmaUrl = getComponent('alert').figmaUrl;
+  description = getComponent('alert').description;
 
   doesAlertDefault = [
     'Message related to the content of the page.',

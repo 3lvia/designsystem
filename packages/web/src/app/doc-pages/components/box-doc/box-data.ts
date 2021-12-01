@@ -1,3 +1,5 @@
+import { exampleContents } from 'src/app/shared/example-contents';
+
 const boxData = {
   name: 'elvis-box',
   elementNameW: 'elvia-box',
@@ -5,20 +7,19 @@ const boxData = {
   attributes: {
     content: {
       isRequired: true,
-      type: 'HTMLElement',
-      description: 'Text, images, tables or any other content (slot in angular)',
+      type: 'string | HTMLElement',
+      description: 'Text, images, tables or any other content (slot in webcomponent)',
     },
     title: {
       isRequired: false,
-      type: `HTMLElement`,
-      description: `Title for the box (slot in angular)`,
+      type: `string | HTMLElement`,
+      description: `Title for the box (slot in webcomponent)`,
     },
     hasBorder: {
       isRequired: false,
       type: 'boolean',
       description: 'If the box is on a white background this prop should be used.',
       default: 'false',
-      displayName: 'White',
       cegDefault: 1,
       cegType: 'boolean',
       cegFormType: 'background',
@@ -41,23 +42,32 @@ const boxData = {
   codeImportReact: `import { Box } from '@elvia/elvis-box/react';`,
   codeImportWebComponent: `import '@elvia/elvis-box';`,
   codeReact: `<Box
-  title={<h1>Title of box</h1>}
-  content={<div>Content of box</div>}
+  title={<h1>Customer relations</h1>}
+  content={<div>
+    <elvia-tabs [items]="['AMS-meter', 'Electric car', 'HAN-port']"></elvia-tabs>
+    <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
+  </div>}
 ></Box>`,
-  codeWebComponent: `<elvia-box 
+  codeAngular: `<elvia-box 
 >
   <h1 slot="title">
-    Title of box
+    Customer relations
   </h1>
   <div slot="content">
-    Content of box
+    <elvia-tabs [items]="['AMS-meter', 'Electric car', 'HAN-port']"></elvia-tabs>
+    <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
   </div>
 </elvia-box>`,
-
-  // codeWebComponent: `<elvia-box [hasBorder]="true" [isColored]="true">
-  //       <h2 slot="title">Title</h2>
-  //       <div slot="content">Webcomponentent content for the box component</div>
-  //     </elvia-box>`
+  codeNativeHTML: `<elvia-box 
+>
+  <h1 slot="title">
+    Customer relations
+  </h1>
+  <div slot="content">
+    <elvia-tabs items='["AMS-meter", "Electric car", "HAN-port"]'></elvia-tabs>
+    <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
+  </div>
+</elvia-box>`,
 };
 
 export { boxData };

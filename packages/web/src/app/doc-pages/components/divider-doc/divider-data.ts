@@ -19,7 +19,7 @@ export const dividerData = {
       isRequired: false,
       type: 'HTMLElement',
       description:
-        'Title displayed together with a divider. Send in as slot in Angular and HTMLElement in React.',
+        'Title displayed together with a divider. Send in as slot in webcomponent and HTMLElement in React.',
       default: '"Title"',
       displayName: 'Title',
     },
@@ -45,14 +45,31 @@ export const dividerData = {
       cegFormType: 'background',
       cegOptions: ['White', 'Dark grey'],
     },
+    orientation: {
+      isRequired: false,
+      type: '"horizontal" | "vertical"',
+      description: 'Change the orientation of the divider.',
+      default: '"horizontal"',
+      displayName: 'Orientation',
+      cegDefault: 'horizontal',
+      cegType: 'string',
+      cegFormType: 'radio',
+      cegOptions: ['horizontal', 'vertical'],
+      cegTypeDependency: 'simple',
+    },
   },
   codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,
   codeImportWebComponent: `import '@elvia/elvis-divider';`,
   codeReact: `<Divider
   title={<h2>Title</h2>}
 ></Divider>`,
-  codeWebComponent: `<elvia-divider
+  codeAngular: `<elvia-divider
 >
   <h2 slot="title">Title</h2>
 </elvia-divider>`,
+  codeNativeHTML: `<elvia-divider
+>
+  <h2 slot="title">Title</h2>
+</elvia-divider>
+`,
 };

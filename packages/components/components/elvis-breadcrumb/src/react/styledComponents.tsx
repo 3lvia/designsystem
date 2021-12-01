@@ -1,10 +1,15 @@
 import styled from 'styled-components';
+import { getColor } from '@elvia/elvis-colors';
+import ElviaTypography from '@elvia/elvis-typography';
 
-const ElviaColors = {
-  elviaCharge: '#29d305',
-  elviaOn: '#ffffff',
-  elviaOff: '#000000',
-  elviaGrey70: '#676767',
+const colors = {
+  elviaCharge: getColor('elvia-charge'),
+  elviaBlack: getColor('black'),
+  elviaGrey70: getColor('grey-70'),
+};
+
+const typography = {
+  textSm: ElviaTypography['text-sm'],
 };
 
 export const EWCBreadcrumbWrapper = styled.div`
@@ -16,11 +21,11 @@ export const EWCBreadcrumbWrapper = styled.div`
   max-height: 22px;
   a:last-child {
     font-weight: 500;
-    color: ${ElviaColors.elviaOff};
+    color: ${colors.elviaBlack};
   }
   i:last-child {
     font-weight: 500;
-    color: ${ElviaColors.elviaOff};
+    color: ${colors.elviaBlack};
   }
 `;
 export const EWCBreadcrumbDesktopWrapper = styled.span`
@@ -28,28 +33,35 @@ export const EWCBreadcrumbDesktopWrapper = styled.span`
   align-items: center;
 `;
 
-export const EWCBreadcrumbLink = styled.a`
+type EWCBreadcrumbLinkTypes = {
+  isClickable: boolean;
+  href: any;
+  key: number | undefined;
+};
+
+export const EWCBreadcrumbLink = styled.a<EWCBreadcrumbLinkTypes>`
+  ${typography.textSm}
   position: relative;
   box-sizing: border-box;
-  font-family: 'Red Hat Text', Verdana, sans-serif;
-  font-size: 14px;
   font-style: normal;
-  font-weight: 400;
-  line-height: 22px;
   letter-spacing: 0.2px;
   text-align: left;
   text-decoration: none;
-  color: ${ElviaColors.elviaGrey70};
+  color: ${colors.elviaGrey70};
   pointer: ${(props: { isClickable: boolean }) => (props.isClickable ? 'cursor' : 'pointer')};
   pointer-events: ${(props: { isClickable: boolean }) => (props.isClickable ? 'auto' : 'none')};
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
   &::before {
     content: '';
     position: absolute;
-    top: 100%;
+    bottom: 0;
     width: 0;
     height: 2px;
     border-radius: 25px;
-    background: ${ElviaColors.elviaCharge};
+    background: ${colors.elviaCharge};
     opacity: 1;
     transition: all 0.3s ease-in-out;
     visibility: hidden;

@@ -17,10 +17,10 @@
           </div>
         </h1>
         <div *ngIf="componentStatus != ''">
-          <span class="e-label e-label--green-apple" *ngIf="componentStatus === itemStatus.New">
+          <span class="e-label e-label--green-apple" *ngIf="componentStatus === DocPageStatus.New">
             {{ componentStatus }}
           </span>
-          <span class="e-label e-label--red-tomato" *ngIf="componentStatus === itemStatus.Coming">
+          <span class="e-label e-label--red-tomato" *ngIf="componentStatus === DocPageStatus.Coming">
             {{ componentStatus }}
           </span>
         </div>

@@ -38,7 +38,7 @@
                 ></span>
               </div>
             </div>
-            <a *ngIf="fontLoaded" class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
+            <a *ngIf="fontLoaded" class="e-btn e-btn--lg e-mt-48" [routerLink]="['/about/get-started']">
               <span class="e-btn__title">
                 <div>Get started</div>
               </span>
@@ -54,8 +54,12 @@
 
         <div class="col-lg-6">
           <div class="image-div home-image-animation">
-            <img *ngIf="christmas" src="assets/ChristmasIllustration.svg" />
-            <img *ngIf="!christmas" src="assets/HomeIllustration.png" />
+            <img
+              *ngIf="christmas && !halloween"
+              src="assets/holidayIllustrations/ChristmasIllustration.svg"
+            />
+            <img *ngIf="halloween && !christmas" src="assets/holidayIllustrations/Halloween.png" />
+            <img *ngIf="!christmas && !halloween" src="assets/HomeIllustration.png" />
           </div>
         </div>
       </div>
@@ -63,8 +67,9 @@
       <div class="home-top-mobile">
         <div class="col-md-12">
           <div class="image-div home-image-animation">
-            <img *ngIf="christmas" src="assets/ChristmasIllustration.svg" />
-            <img *ngIf="!christmas" src="assets/HomeIllustration.png" />
+            <img *ngIf="christmas" src="assets/holidayIllustrations/ChristmasIllustration.svg" />
+            <img *ngIf="halloween && !christmas" src="assets/holidayIllustrations/Halloween.png" />
+            <img *ngIf="!christmas && !halloween" src="assets/HomeIllustration.png" />
           </div>
         </div>
       </div>
@@ -82,7 +87,7 @@
             A scalable system of visual language, components and design assets so we can work together towards
             an ultimate brand experience.
           </div>
-          <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/get-started']">
+          <a class="e-btn e-btn--lg e-mt-48" [routerLink]="['/about/get-started']">
             <span class="e-btn__title">Get started</span>
           </a>
         </div>
@@ -121,7 +126,7 @@
           <div class="e-mt-n48" style="padding-top: 0px" markdown [src]="'assets/elvis/CHANGELOG.md'"></div>
         </div>
         <div class="e-mt-48" style="display: flex; justify-content: center">
-          <a class="e-link e-link--action" [routerLink]="['/community/changelog']">
+          <a class="e-link e-link--action" [routerLink]="['/about/whats-new']">
             <span class="e-link__title">View changelog</span>
             <span class="e-link__icon">
               <i class="e-icon e-icon--arrow_right_circle-color"></i>

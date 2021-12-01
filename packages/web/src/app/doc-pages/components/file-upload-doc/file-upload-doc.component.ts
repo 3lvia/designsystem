@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-file-upload-doc',
@@ -7,8 +7,8 @@ import { getComponent } from 'src/app/shared/e-items';
   styleUrls: ['./file-upload-doc.component.scss'],
 })
 export class FileUploadDocComponent {
-  figmaUrl = getComponent('fileUpload').figmaUrl;
-  description = getComponent('fileUpload').description;
+  figmaUrl = getComponent('file-upload').figmaUrl;
+  description = getComponent('file-upload').description;
 
   example1 = `<div class="e-fileupload" style="width:380px">
   <div class="e-fileupload__icon">
@@ -24,7 +24,7 @@ export class FileUploadDocComponent {
 </div>
 `;
 
-  example2 = `<div class="e-fileupload e-fileupload---hover" style="width:380px">
+  example2 = `<div class="e-fileupload e-fileupload--dragover" style="width:380px">
   <div class="e-fileupload__icon">
     <i class="e-icon e-icon--image_add-color"></i>
   </div>
@@ -50,7 +50,7 @@ export class FileUploadDocComponent {
     selector: '[appDnd]'
 })
 export class DndDirective {
-    @HostBinding('class.e-fileupload---hover') fileOver: boolean;
+    @HostBinding('class.e-fileupload--dragover') fileOver: boolean;
     @Output() fileDropped = new EventEmitter<any>();
 
     // Dragover listener

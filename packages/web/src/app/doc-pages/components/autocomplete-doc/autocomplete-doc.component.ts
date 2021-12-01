@@ -1,5 +1,5 @@
 import { Component, HostListener } from '@angular/core';
-import { getComponent } from 'src/app/shared/e-items';
+import { getComponent } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-autocomplete-doc',

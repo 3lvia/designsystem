@@ -22,7 +22,11 @@
 						"e-accordion__item--open": {}
 					}
 				},
-				"e-accordion__title": {},
+				"e-accordion__title": {
+					"modifier": {
+						"e-accordion__title--no-icon-hover": {}
+					}
+				},
 				"e-accordion__icon": {},
 				"e-accordion__content": {},
 				"e-accordion__label": {},
@@ -716,9 +720,9 @@
 		"e-my-n112": {},
 		"e-list": {
 			"modifier": {
+				"e-list--icons": {},
 				"e-list--numbers": {},
-				"e-list--strong": {},
-				"e-list--icons": {}
+				"e-list--strong": {}
 			},
 			"element": {
 				"e-list__icon": {}
@@ -916,6 +920,9 @@
 			},
 			"psuedo": {
 				"e-fileupload---hover": {}
+			},
+			"modifier": {
+				"e-fileupload--dragover": {}
 			}
 		},
 		"e-position-picker": {
@@ -955,6 +962,9 @@
 			},
 			"element": {
 				"e-segmented-controls__title": {}
+			},
+			"modifier": {
+				"e-segmented-controls--sm": {}
 			}
 		},
 		"e-border-none": {},
@@ -993,6 +1003,7 @@
 		"e-text-sm-light": {},
 		"e-text-micro": {},
 		"e-text-micro-strong": {},
+		"e-text-micro-light": {},
 		"e-text-quote": {},
 		"e-text-img": {},
 		"e-text-label": {},
@@ -1034,6 +1045,7 @@
 		"e-accordion": {},
 		"e-accordion__item": {},
 		"e-accordion__title": {},
+		"e-accordion__title--no-icon-hover": {},
 		"e-accordion__icon": {},
 		"e-accordion__content": {},
 		"e-accordion__item--open": {},
@@ -1604,9 +1616,9 @@
 		"e-mx-n112": {},
 		"e-my-n112": {},
 		"e-list": {},
+		"e-list--icons": {},
 		"e-list--numbers": {},
 		"e-list--strong": {},
-		"e-list--icons": {},
 		"e-list__icon": {},
 		"e-modal": {},
 		"e-modal__content": {},
@@ -1726,6 +1738,7 @@
 		"e-fileupload__description": {},
 		"e-fileupload__input": {},
 		"e-fileupload---hover": {},
+		"e-fileupload--dragover": {},
 		"e-position-picker": {},
 		"e-position-picker__icon": {},
 		"e-position-picker__description": {},
@@ -1747,6 +1760,7 @@
 		"e-segmented-controls": {},
 		"e-segmented-controls---focus": {},
 		"e-segmented-controls__title": {},
+		"e-segmented-controls--sm": {},
 		"e-border-none": {},
 		"e-border": {},
 		"e-border-t": {},
@@ -1783,6 +1797,7 @@
 		"e-text-sm-light": {},
 		"e-text-micro": {},
 		"e-text-micro-strong": {},
+		"e-text-micro-light": {},
 		"e-text-quote": {},
 		"e-text-img": {},
 		"e-text-label": {},

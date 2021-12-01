@@ -10,6 +10,7 @@ type PossibleEvent = {
 }[HandledEventsType];
 type Handler = (event: PossibleEvent) => void;
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export function useClickOutside(ref: React.RefObject<HTMLElement>, handler: Handler | null) {
   useEffect(() => {
     if (!handler) {

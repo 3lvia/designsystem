@@ -11,8 +11,8 @@ interface BreadcrumbProps {
 }
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
-  const [childrenLength, setChildrenLength] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(undefined);
+  const [childrenLength, setChildrenLength] = useState<number>(0);
+  const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     setChildrenLength(breadcrumbs.length);
@@ -41,7 +41,11 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
     return (
       <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
         <StyledBreadcrumb.EWCBreadcrumbIconLeft />
-        <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumbs[childrenLength - 2].url} isClickable={true}>
+        <StyledBreadcrumb.EWCBreadcrumbLink
+          key={undefined}
+          href={breadcrumbs[childrenLength - 2].url}
+          isClickable={true}
+        >
           {breadcrumbs[childrenLength - 2].title}
         </StyledBreadcrumb.EWCBreadcrumbLink>
       </StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
@@ -52,14 +56,14 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
     const desktopBreadcrumbs = breadcrumbs.map((breadcrumb, index) => {
       if (index == childrenLength - 1) {
         return (
-          <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumb.url} key={index}>
+          <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumb.url} key={index} isClickable={false}>
             {breadcrumb.title}
           </StyledBreadcrumb.EWCBreadcrumbLink>
         );
       }
       return (
         <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper key={index}>
-          <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumb.url} isClickable={true}>
+          <StyledBreadcrumb.EWCBreadcrumbLink key={undefined} href={breadcrumb.url} isClickable={true}>
             {breadcrumb.title}
           </StyledBreadcrumb.EWCBreadcrumbLink>
           <StyledBreadcrumb.EWCBreadcrumbIconRight />
@@ -69,8 +73,12 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
 
     return desktopBreadcrumbs;
   };
-
-  const breadcrumb = windowWidth < 768 ? MobileBreadcrumb() : DesktopBreadcrumb();
+  let breadcrumb;
+  if (windowWidth !== undefined) {
+    breadcrumb = windowWidth < 768 ? MobileBreadcrumb() : DesktopBreadcrumb();
+  } else {
+    breadcrumb = DesktopBreadcrumb();
+  }
   return <StyledBreadcrumb.EWCBreadcrumbWrapper>{breadcrumb}</StyledBreadcrumb.EWCBreadcrumbWrapper>;
 };
 

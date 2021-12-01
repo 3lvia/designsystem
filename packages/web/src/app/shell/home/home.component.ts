@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalizationService, Locale } from 'src/app/core/services/localization.service';
-import { eHomes } from 'src/app/shared/e-items';
+import { homeMenu } from 'src/app/shared/doc-pages';
 
 @Component({
   selector: 'app-home',
@@ -9,11 +9,13 @@ import { eHomes } from 'src/app/shared/e-items';
 })
 export class HomeComponent implements OnInit {
   overviewTitle = 'Elvia design system';
-  pages = eHomes;
+  pages = homeMenu;
   fontLoaded = false;
   date = new Date();
   christmasMonth = 11;
   christmas = false;
+  halloweenMonth = 9;
+  halloween = false;
   locale: string;
 
   constructor(localizationService: LocalizationService) {
@@ -30,11 +32,22 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.findEndOfRow();
-    this.christmas = this.date.getMonth() === this.christmasMonth ? true : false;
+    this.holiday();
     (document as any).fonts.ready.then(() => {
       this.fontLoaded = true;
     });
   }
+
+  holiday = (): void => {
+    // halloween
+    if (this.date.getMonth() === this.halloweenMonth && this.date.getUTCDate() >= 25) {
+      this.halloween = true;
+    }
+    // christmas
+    if (this.date.getMonth() === this.christmasMonth) {
+      this.christmas = true;
+    }
+  };
 
   findEndOfRow(): void {
     const rows = document.getElementsByTagName('tr');

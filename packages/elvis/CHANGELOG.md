@@ -6,6 +6,346 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.13.4
+      </span>
+      <br>
+      <span>
+        November 18, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/tooltip#Overview">Tooltip</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/autocomplete#Overview">Autocomplete</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Updated several z-index values to be more consistent.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.13.3
+      </span>
+      <br>
+      <span>
+        November 17, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/header#Overview">Header</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Increased header z-index.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.13.2
+      </span>
+      <br>
+      <span>
+        November 10, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/checkbox#Overview">Checkbox</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Fixed small checkbox-mark misalignment.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.13.1
+      </span>
+      <br>
+      <span>
+        October 21, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/list#Overview">Lists</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Lists inside lists will get the correct elvis style.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.13.0
+      </span>
+      <br>
+      <span>
+        October 18, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/brand/icons#Overview">icons</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              New icon 'season' and one updated icon.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.12.0
+      </span>
+      <br>
+      <span>
+        October 8, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/radiobutton#Overview">Radiobutton</a>,
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/segmented-control#Overview">Segmented Control</a>,
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/fileUpload#Overview">file Upload</a>,
+            <a class="e-link e-link--inline" href="http://design.elvia.io/brand/typography#Overview">Typography</a> &
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/position-picker#Overview">Position Picker</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Radiobutton error state added.
+            </li>
+            <li>
+              Small version of Segmented control added.
+            </li>
+            <li>
+              Documentation for using file upload with more examples.
+            </li>
+            <li>
+              Text micro light typography added.
+            </li>
+            <li>
+              The position-picker states 'normal' and 'picked' have been updated to be more user friendly and text color has been updated.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.11.2
+      </span>
+      <br>
+      <span>
+        October 7, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/search#Overview">Search</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Search paddings updated so that close button is not in the way.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.11.1
+      </span>
+      <br>
+      <span>
+        September 21, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/content-loader#Overview">Content loader</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Bug fix for text content-loader so that height can be set directly on content-loader element.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.11.0
+      </span>
+      <br>
+      <span>
+        September 9, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/brand/icons#Overview">Icons</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              New icons added and electricity icons updated.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.10.0
+      </span>
+      <br>
+      <span>
+        August 30, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Feature</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Accordion</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Now possible to disable hover on icons when hovering accordion title, by using the new modifier <span class="code-text">e-accordion__title--no-icon-hover</span>.
+            </li>
+          </ul>
+        </div>
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Modal</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Adjustment of z-index so it is now possible to use a datepicker inside a modal content area.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.9.4
+      </span>
+      <br>
+      <span>
+        August 25, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/accordion#Overview">Accordion</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Now possible to use a single accordion inside a group accordion content area. 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
+        7.9.3
+      </span>
+      <br>
+      <span>
+        August 13, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="http://design.elvia.io/components/fileUpload#Overview">File Upload</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Deprecated pseudoclass "e-fileupload---hover", now using new modifier "e-fileupload--dragover". 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.9.1
       </span>
       <br>
@@ -43,7 +383,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icon</a>
           </div>
           <ul class="e-list">
             <li>
@@ -55,7 +395,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a> 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icon</a> 
         </div>
         <ul class="e-list">
           <li>
@@ -107,8 +447,8 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
           <div>Component: 
-            <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a> &
-              <a class="e-link e-link--inline" href="https://design.elvia.io/identity/color#Overview">Color</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/content-loader#Overview">Content loader</a>,
+              <a class="e-link e-link--inline" href="https://design.elvia.io/brand/color#Overview">Color</a> &
             <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Button</a> 
           </div>
           <ul class="e-list">
@@ -127,7 +467,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a> &
+          <a class="e-link e-link--inline" href="https://design.elvia.io/components/table#Overview">Table</a>,
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/button#Overview">Button</a> &
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>
@@ -160,7 +500,7 @@
     <td class="changelog-content">
       <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icon</a>
         </div>
         <ul class="e-list">
           <li>
@@ -224,7 +564,7 @@
     </td>
     <td class="changelog-content">
       <div class="changelog-section">
-        <div class="changelog-section-title">🐝 Bug Fixes / Patches</div>
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/accordion#Overview">Accordion</a>
         </div>
@@ -271,7 +611,7 @@
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a> &
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icon</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icon</a>
         </div>
         External links and icons have been replaced with New tab links and icons. After discussions and research about External link VS New tab link, it is now clear that we only need one of them, which can stand for both uses.
         <ul class="e-list">
@@ -330,7 +670,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography#Overview">Typography</a>
         </div>
         Using <span class="code-text">b</span> and <span class="code-text">strong</span> elements inside our text-classes (not title classes), will now give <span class="code-text">font-weight: 500</span>, to make it easier to use bold versions of our typography in all types of applications. Example:
         <div class="e-text-sm">
@@ -390,7 +730,7 @@
         <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Components: 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>,
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/typography#Overview">Typography</a> & 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography#Overview">Typography</a> & 
           <a class="e-link e-link--inline" href="https://design.elvia.io/components/search#Overview">Search</a>
         </div>
         <ul class="e-list">
@@ -469,7 +809,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icons#Overview">Icons</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icons#Overview">Icons</a>
         </div>
         Icons have been updated, some have been deprecated and new icons have been added.
         <div class="changelog-divider"></div>
@@ -533,7 +873,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/Typography#Overview">Typography</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/Typography#Overview">Typography</a>
         </div>
         Strong and light versions of body text have been added, as well as on special text called 'micro'. 
       <div class="changelog-divider"></div>
@@ -579,7 +919,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icons</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icons</a>
         </div>
         <div>
           New icon structure, enabling elvis to deprecate and rename old icons. Use of deprecated icons will also be warned in console with reference to in which version of elvis the icon was deprecated, and what new icon should be used instead. 
@@ -878,7 +1218,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/utilities">Utility classes</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/utilities">Utility classes</a>
         </div>
         New utility classes have been added.
       </div>
@@ -900,7 +1240,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid#Overview">Grid</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/grid#Overview">Grid</a>
         </div>
         If you are using the grid-classes some might have to be updated to work as usual. The classes that have changed / been added:
         <ul class="e-list">
@@ -916,7 +1256,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">💥 New Features</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/grid#Overview">Grid</a>
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/grid#Overview">Grid</a>
         </div>
         New classes have been added for the internal-systems as well as classes for vertical gutters.
       </div>
@@ -981,7 +1321,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline" href="https://design.elvia.io/identity/icon#Overview">Icons</a> 
+          <a class="e-link e-link--inline" href="https://design.elvia.io/brand/icon#Overview">Icons</a> 
         </div>
         Major renaming of icons. All icons now follow the correct and desired naming scheme for a maintainable library. Icon names have changed, so some references should be expected to now be broken
       </div>
@@ -1003,7 +1343,7 @@
       <div class="changelog-section">
         <div class="changelog-section-title">✂️ Breaking Changes</div>
         <div>Component: 
-          <a class="e-link e-link--inline"  href="https://design.elvia.io/identity/icon#Overview">Icons</a> 
+          <a class="e-link e-link--inline"  href="https://design.elvia.io/brand/icon#Overview">Icons</a> 
         </div>
         In this update icons are injected as background-images again on the 'i' tags with <span class="code-text changelog-code">e-icon</span> classes. We do not think this will have a large impact on how to use icons.
       </div>

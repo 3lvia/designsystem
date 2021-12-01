@@ -1,6 +1,6 @@
 {
   "name": "@elvia/elvis-carousel",
-  "version": "0.0.1-beta.6",
+  "version": "1.0.4",
   "description": "",
   "license": "MIT",
   "author": "",
@@ -9,11 +9,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "^2.0.3",
-    "react-transition-group": "^4.4.2",
-    "styled-components": "^5.2.3"
-  },
-  "devDependencies": {
-    "@types/react-transition-group": "^4.4.1"
+    "@elvia/elvis-component-wrapper": "^2.1.6",
+    "@elvia/elvis-colors": "^1.1.0",
+    "@elvia/elvis-typography": "^1.1.0",
+    "styled-components": "^5.3.3"
   }
 }

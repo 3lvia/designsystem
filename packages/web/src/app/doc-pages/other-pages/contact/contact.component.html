@@ -1,0 +1,174 @@
+<!--HEADER-->
+<app-component-header>
+  <ng-container ngProjectAs="headerTitle">Contact</ng-container>
+  <ng-container ngProjectAs="headerDescription">
+    {{ description }}
+  </ng-container>
+</app-component-header>
+
+<!--BODY-->
+<div class="page-body">
+  <app-component-subsection>
+    <ng-container ngProjectAs="sectionContent">
+      <div class="contact-profile-container">
+        <div class="contact-profile fride">
+          <div style="position: relative">
+            <div class="profile-emoji">🐡</div>
+            <div
+              class="e-content-loader e-content-loader--circle profile-image-loader"
+              *ngIf="!loadedImgFri"
+            ></div>
+            <img
+              class="profile-image"
+              src="./../../../../assets/contact/Fride.jpg"
+              (load)="hideContentLoader($event, 'fri')"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="e-title-caps">Developer & Team leader</div>
+            <div class="e-title-sm e-mt-8">Fride Skarseth</div>
+            <div class="e-text-description" style="margin-top: 4px; margin-bottom: 16px">
+              fride.skarseth@elvia.no
+            </div>
+            <div class="profile-slack-button">
+              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U01BLN1QTHD">
+                <span class="e-btn__icon">
+                  <img src="./../../../../assets/contact/figma-icon.svg" />
+                </span>
+                <span class="e-btn__title">Slack Fride</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-profile-container trygve">
+        <div class="contact-profile">
+          <div style="position: relative">
+            <div class="profile-emoji">🐌</div>
+            <div
+              class="e-content-loader e-content-loader--circle profile-image-loader"
+              *ngIf="!loadedImgMic"
+            ></div>
+            <img
+              class="profile-image"
+              src="./../../../../assets/contact/Trygve.png"
+              (load)="hideContentLoader($event, 'mic')"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="e-title-caps">Developer</div>
+            <div class="e-title-sm e-mt-8">Trygve Scheline Urdahl</div>
+            <div class="e-text-description" style="margin-top: 4px; margin-bottom: 16px">
+              trygve.scheline.urdahl@elvia.no
+            </div>
+            <div class="profile-slack-button">
+              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U02M1T23PJM">
+                <span class="e-btn__icon">
+                  <img src="./../../../../assets/contact/figma-icon.svg" />
+                </span>
+                <span class="e-btn__title">Slack Trygve</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-profile-container viljar">
+        <div class="contact-profile viljar">
+          <div class="profile-emoji right">🦄</div>
+          <div
+            class="e-content-loader e-content-loader--circle profile-image-loader"
+            *ngIf="!loadedImgPat"
+          ></div>
+          <div>
+            <img
+              class="profile-image"
+              src="./../../../../assets/contact/Viljar.png"
+              (load)="hideContentLoader($event, 'pat')"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="e-title-caps">Designer</div>
+            <div class="e-title-sm e-mt-8">Viljar Tornøe</div>
+            <div class="e-text-description" style="margin-top: 4px; margin-bottom: 16px">
+              viljar.tornoe@elvia.no
+            </div>
+            <div class="profile-slack-button">
+              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U02HB13D551">
+                <span class="e-btn__icon">
+                  <img src="./../../../../assets/contact/figma-icon.svg" />
+                </span>
+                <span class="e-btn__title">Slack Viljar</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-profile-container hilde">
+        <div class="contact-profile hilde">
+          <div style="position: relative">
+            <div class="profile-emoji right">🙊</div>
+            <div
+              class="e-content-loader e-content-loader--circle profile-image-loader"
+              *ngIf="!loadedImgHil"
+            ></div>
+            <img
+              class="profile-image"
+              src="./../../../../assets/contact/Hilde.jpg"
+              (load)="hideContentLoader($event, 'hil')"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="e-title-caps">Designer</div>
+            <div class="e-title-sm e-mt-8">Hilde Iren Breivik</div>
+            <div class="e-text-description" style="margin-top: 4px; margin-bottom: 16px">
+              hilde.iren.breivik@elvia.no
+            </div>
+            <div class="profile-slack-button">
+              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U01A2FKJYCQ">
+                <span class="e-btn__icon">
+                  <img src="./../../../../assets/contact/figma-icon.svg" />
+                </span>
+                <span class="e-btn__title">Slack Hilde</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-profile-container martin">
+        <div class="contact-profile martin">
+          <div style="position: relative">
+            <div class="profile-emoji right">🦩</div>
+            <div
+              class="e-content-loader e-content-loader--circle profile-image-loader"
+              *ngIf="!loadedImgMar"
+            ></div>
+            <img
+              class="profile-image"
+              src="./../../../../assets/contact/Martin.svg"
+              (load)="hideContentLoader($event, 'mar')"
+            />
+          </div>
+          <div class="profile-info">
+            <div class="e-title-caps">Developer</div>
+            <div class="e-title-sm e-mt-8">Martin Arentsen Espeland</div>
+            <div class="e-text-description" style="margin-top: 4px; margin-bottom: 16px">
+              martin.arentsen.espeland@elvia.no
+            </div>
+            <div class="profile-slack-button">
+              <a class="e-btn e-btn--tertiary" href="slack://user?team=TU3R0B42K&id=U01CE89DQ9Z">
+                <span class="e-btn__icon">
+                  <img src="./../../../../assets/contact/figma-icon.svg" />
+                </span>
+                <span class="e-btn__title">Slack Martin</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </app-component-subsection>
+</div>

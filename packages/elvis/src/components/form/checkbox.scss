@@ -229,8 +229,8 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
     &::before {
       content: '';
       position: absolute;
-      top: 55%;
-      left: -9%;
+      top: 12px;
+      left: -2px;
       height: 30%;
       width: 2px;
       background-color: colors.color('elvia-off');
@@ -246,8 +246,8 @@ $checkbox-mark-border: 1px solid colors.color('elvia-off');
     &::after {
       content: '';
       position: absolute;
-      bottom: 15%;
-      left: -4%;
+      bottom: 3px;
+      left: -1px;
       height: 2px;
       width: 0%;
       background-color: colors.color('elvia-off');

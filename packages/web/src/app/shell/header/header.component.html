@@ -15,6 +15,13 @@
     ></div>
   </div>
 
+  <div>
+    <div
+      *ngIf="menuContentLoader"
+      class="content-loader-header-titles e-content-loader e-content-loader--inverted e-ml-48 e-mt-16"
+      style="width: 500px; height: 32px"
+    ></div>
+  </div>
   <div class="tabs" *ngIf="mainMenu">
     <a
       *ngFor="let menuItem of mainMenu.pages"
@@ -34,6 +41,9 @@
     >
       Dev
     </a>
+    <a class="tabs-links tabs-links-dev" target="_blank" *ngIf="devMode" href="/react-preview" role="tab">
+      React
+    </a>
   </div>
 
   <div class="external-links">
@@ -46,7 +56,7 @@
 
     <span class="vertical-line e-mr-24"></span>
 
-    <a class="version tabs-links e-ml-0" [routerLink]="['/community/changelog']" role="tab">v{{ version }}</a>
+    <a class="version tabs-links e-ml-0" [routerLink]="['/about/whats-new']" role="tab">v{{ version }}</a>
   </div>
   <div class="mobile-menu">
     <div class="tabs-links elvis-search e-mr-24" (click)="openSearchMenu()">

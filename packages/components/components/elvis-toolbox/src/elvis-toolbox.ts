@@ -1,10 +1,10 @@
-import * as lodashThrottle from 'lodash.throttle';
+import { throttle } from 'lodash';
 
-const throttle = (func: () => void, limit: number, options: { trailing: boolean }): void => {
-  return lodashThrottle(func, limit, options);
+const customThrottle = (func: () => void, limit: number, options?: { trailing: boolean }): any => {
+  return throttle(func, limit, options);
 };
 
-const outlineListener = (element: HTMLElement, destroy?: boolean): void => {
+const outlineListener = (element: HTMLElement | null, destroy?: boolean): void => {
   if (!element) {
     return;
   }
@@ -37,4 +37,4 @@ const outlineListener = (element: HTMLElement, destroy?: boolean): void => {
   element.addEventListener('mousedown', removeOutline, false);
 };
 
-export default { throttle: throttle, outlineListener: outlineListener };
+export default { throttle: customThrottle, outlineListener: outlineListener };

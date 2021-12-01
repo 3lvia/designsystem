@@ -1,6 +1,6 @@
-@use "../../utilities/icons";
-@use "../../variables/colors";
-@use "../../variables/typography";
+@use '../../utilities/icons';
+@use '../../variables/colors';
+@use '../../variables/typography';
 @use '../../utilities/helpers';
 
 .e-fileupload {
@@ -78,7 +78,8 @@
     }
   }
 
-  &---hover {
+  &---hover,
+  &--dragover {
     border-color: colors.color('elvia-charge');
   }
 }

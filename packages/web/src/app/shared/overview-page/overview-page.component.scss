@@ -1,25 +1,14 @@
 @import '../shared-sizes.scss';
 @import '@elvia/elvis/src/utilities/breakpoints.scss';
 
-.overview-margin-title-bottom {
-  margin-top: 0px;
-  margin-bottom: 20px;
-}
-@include breakpoint-up(Mobile) {
-  .overview-margin-title-bottom {
-    margin-bottom: 24px;
+.components-overview-cards,
+.overview-action-link {
+  @include breakpoint-up(Tablet) {
+    display: none;
   }
 }
 
-@media (min-width: 1600px) {
-  .col-xl-2dot4 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 16.66%;
-    flex: 0 0 16.66%;
-    max-width: 16.66%;
-  }
-}
-@media (max-width: 1650px) {
+@media (min-width: 1650px) {
   .col-xl-2dot4 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 20%;
