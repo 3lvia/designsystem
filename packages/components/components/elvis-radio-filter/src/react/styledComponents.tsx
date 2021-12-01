@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import * as ElviaColors from '@elvia/elvis-colors';
+import { getColor } from '@elvia/elvis-colors';
 
-export const colors = {
-  elviaCharge: ElviaColors.default['primary-colors']['green'].color,
-  elviaOff: ElviaColors.default['primary-colors']['black'].color,
-  outline: ElviaColors.default['internal-colors']['focus-outline'].color,
+const colors = {
+  elviaCharge: getColor('elvia-charge'),
+  elviaBlack: getColor('black'),
+  outline: getColor('focus-outline'),
 };
 
 export const RadioFilterGroup = styled.div`
@@ -18,12 +18,12 @@ export const RadioFilterLabel = styled.label`
   border-radius: 32px;
   padding: 4px 12px;
   border: ${(props: { isSelected: boolean }) =>
-    `1px solid ${props.isSelected ? colors.elviaOff : 'transparent'}`};
+    `1px solid ${props.isSelected ? colors.elviaBlack : 'transparent'}`};
   cursor: pointer;
 
   &:hover:not(:disabled) {
     border: ${(props: { isSelected: boolean }) =>
-      `1px solid ${props.isSelected ? colors.elviaOff : colors.elviaCharge}`};
+      `1px solid ${props.isSelected ? colors.elviaBlack : colors.elviaCharge}`};
   }
   &:focus-within {
     outline: 2px solid ${colors.outline};
@@ -39,11 +39,9 @@ export const RadioFilterInput = styled.input`
 `;
 
 export const RadioFilterTitle = styled.span`
-  font-family: 'Red Hat Display', Verdana, sans-serif;
+  font-family: 'Red Hat Display', verdana, sans-serif;
+  font-style: normal;
   font-weight: 500;
-  text-transform: 'unset';
-  letter-spacing: 'unset';
-  font-style: unset;
   font-size: 16px;
   line-height: 22px;
 `;

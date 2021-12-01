@@ -1,5 +1,16 @@
 # Elvia Box Changelog
 
+## 1.1.5 (30.11.21)
+
+### Patch
+
+- Now using elvis-colors package for colors.
+- Now using elvis-typography package for typography.
+
+## 1.1.4 (30.11.21)
+
+- Web component wrapper fix
+
 ## 1.1.0 (03.11.21)
 
 ### Feature

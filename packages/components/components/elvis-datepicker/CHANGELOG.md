@@ -1,5 +1,15 @@
 # Elvia Date picker Changelog
 
+## 2.0.1 (30.11.21)
+
+- Web component wrapper fix
+
+## 2.0.0 (24.11.21)
+
+### New feature
+
+- Now sending events when no date, or invalid date, is selected
+
 ## 1.2.3 (17.11.21)
 
 ### Bug fix

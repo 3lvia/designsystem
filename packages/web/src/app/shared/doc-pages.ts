@@ -184,9 +184,9 @@ export const componentsDocPages: DocPage[] = [
     type: 'Component',
   },
   {
-    title: 'Drag&Drop',
+    title: 'Drag & drop',
     // tslint:disable-next-line: max-line-length
-    description: `Drag&drop is typically used in <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a> to show content area.`,
+    description: `Drag & drop is typically used in <a onclick="event.stopPropagation();" class="e-link e-link--inline" href="/components/${Pages.FileUpload}">File Upload</a> to show content area.`,
     docUrl: Pages.DragAndDrop,
     absolutePath: '/components/' + Pages.DragAndDrop,
     status: DocPageStatus.New,
@@ -509,10 +509,6 @@ export const docPagesNotFromCMS: DocPage[] = [
     description: `We at team ATOM will be happy to help you with anything. So don’t hesitate to contact us for any further information or questions. You can also find us on slack at
       <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" >
         <span class="e-link__title">#designsystemet</span>
-        <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
-      </a> or use our
-      <a onclick="event.stopPropagation();" class="e-link e-link--inline e-link--new-tab" target="_blank" href="https://forms.office.com/r/xJaMyF9Bxf" >
-        <span class="e-link__title">request form</span>
         <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
       </a>`,
     docUrl: Pages.Contact,
