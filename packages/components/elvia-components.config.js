@@ -241,10 +241,11 @@ module.exports = [
     attributes: [
       { name: 'label', type: 'string', propType: 'string' },
       { name: 'description', type: 'string', propType: 'string' },
-      { name: 'content', type: 'string', propType: 'string | HTMLElement' },
+      { name: 'icon', type: 'string', propType: 'string | HTMLElement' },
       { name: 'borderColor', type: 'string', propType: 'string | undefined' },
       { name: 'cardType', type: 'string', propType: 'string' },
       { name: 'cardShape', type: 'string', propType: 'string' },
+      { name: 'isInverted', type: 'boolean', propType: 'boolean' },
     ],
     reactName: 'Card',
     useWrapper: false,
