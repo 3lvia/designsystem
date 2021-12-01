@@ -26,7 +26,8 @@
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint-all": "yarn run prettier-elvis && yarn run prettier-doc && yarn run prettier-comp && yarn run eslint",
     "percy": "cd packages/elvis; yarn run percy",
-    "component-tests": "cd packages/components; yarn test && echo SUCCESS"
+    "component-tests": "cd packages/components; yarn test && echo SUCCESS",
+    "test:staged": "cd packages/components; jest --bail --findRelatedTests"
   },
   "husky": {
     "hooks": {
@@ -47,6 +48,7 @@
     "packages/components/components/**/*.+(js|ts|tsx)": [
       "yarn run prettier-comp",
       "yarn run eslint",
+      "yarn test:staged",
       "git add"
     ]
   },
