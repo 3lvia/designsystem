@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 import { ColorType } from './elvia-chip.types';
+import { getColor } from '@elvia/elvis-colors';
 
 export const colors = {
-  elviaCharge: '#29d305',
-  elviaOn: '#ffffff',
-  elviaOff: '#000000',
-  blue: '#006ddb',
-  green: '#21ac04',
-  orange: '#db6d00',
-  purple: '#b66dff',
-  red: '#b90202',
-  violet: '#490192',
+  elviaCharge: getColor('elvia-charge'),
+  elviaBlack: getColor('black'),
+  blue: getColor('blue-berry'),
+  green: getColor('green-apple'),
+  orange: getColor('orange-mango'),
+  purple: getColor('purple-plum'),
+  red: getColor('red-tomato'),
+  violet: getColor('violet-grape'),
 };
 
 const setOpacity = (color: string, opacity: number): string => `${color}${opacity}`;
@@ -60,8 +60,8 @@ export const ChipTitle = styled.div<ChipTitle>`
   text-transform: 'unset';
   letter-spacing: 'unset';
   font-style: unset;
-  color: ${colors.elviaOff};
   opacity: ${(props: { disabled: boolean }) => (props.disabled ? '0.3' : '1')};
+  color: ${colors.elviaBlack};
 
   &.dot {
     ::before {

@@ -1,5 +1,9 @@
 # Elvia Tabs Changelog
 
+## 1.1.3 (30.11.21)
+
+- Web component wrapper fix
+
 ## 1.1.0 (03.11.21)
 
 ### New features

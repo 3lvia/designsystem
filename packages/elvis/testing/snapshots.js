@@ -10,7 +10,7 @@ PercyScript.run(async (page, percySnapshot) => {
   await page.goto('http://localhost:3333/components/accordion.html');
   await percySnapshot('Accordion', { widths: breakpoints });
   //Alerts
-  await page.goto('http://localhost:3333/components/alerts.html');
+  await page.goto('http://localhost:3333/components/alert.html');
   await percySnapshot('Alerts', { widths: breakpoints });
   //Autcomplete
   await page.goto('http://localhost:3333/components/autocomplete.html');
@@ -32,7 +32,7 @@ PercyScript.run(async (page, percySnapshot) => {
   await page.goto('http://localhost:3333/components/datepicker.html');
   await percySnapshot('Date/Time-picker', { widths: breakpoints });
   //Drag&Drop
-  await page.goto('http://localhost:3333/components/dragAndDrop.html');
+  await page.goto('http://localhost:3333/components/drag-and-drop.html');
   await percySnapshot('Drag&Drop', { widths: breakpoints });
   //File-Upload
   await page.goto('http://localhost:3333/components/file-upload.html');

@@ -1,5 +1,15 @@
 # Elvia Radio Filter Changelog
 
+## 1.1.2 (30.11.21)
+
+### Bug fix
+
+- Now using elvis-colors package for colors.
+
+## 1.1.1 (30.11.21)
+
+- Web component wrapper fix
+
 ## 1.1.0 (03.11.21)
 
 ### New features

@@ -78,7 +78,6 @@ export const dropdownData = {
       isRequired: false,
       type: 'string',
       description: 'Placeholder value for the dropdown menu',
-      default: `'Placeholder'`,
     },
     valueOnChange: {
       isRequired: false,
@@ -96,6 +95,7 @@ export const dropdownData = {
     { value: '3', label: 'Option 3' }
   ]} 
   label={"Label"}
+  placeholder={"Placeholder"}
   valueOnChange={(event) => updateSelectedList(event)}
 ></Dropdown>
 `,
@@ -106,6 +106,7 @@ export const dropdownData = {
     { value: '3', label: 'Option 3' }
   ]"
   [label]="'Label'"
+  [placeholder]="'Placeholder'"
   (valueOnChange)="updateSelectedList($event.detail.value)"
 ></elvia-dropdown>
 `,
@@ -120,6 +121,7 @@ export const dropdownData = {
     { value: "3", label: "Option 3" }
   ];
   dropdown.setProps({label: 'Label' });
+  dropdown.setProps({placeholder: 'Placeholder' });
   dropdown.setProps({options: options});
   dropdown.addEventListener('valueOnChange', (event) => {
     console.log('Do what you want with selected elements: ', event.detail.value);

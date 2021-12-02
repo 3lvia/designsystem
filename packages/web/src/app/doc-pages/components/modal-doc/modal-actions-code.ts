@@ -52,7 +52,7 @@ const modalActionsCode = {
 </elvia-modal>
 `,
   codeNativeScript: ``,
-// all scripts for the examples are in modal-data.ts
+  // all scripts for the examples are in modal-data.ts
 };
 
 export { modalActionsCode };

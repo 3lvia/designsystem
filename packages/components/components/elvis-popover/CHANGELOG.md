@@ -1,5 +1,9 @@
 # Elvia Popover Changelog
 
+## 4.2.2 (30.11.21)
+
+- Web component wrapper fix
+
 ## 4.2.1 (18.11.21)
 
 ### Bug fix

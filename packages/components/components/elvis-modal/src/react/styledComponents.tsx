@@ -1,15 +1,16 @@
 import styled, { keyframes } from 'styled-components';
-import * as ElviaColors from '@elvia/elvis-colors';
-import * as ElviaTypography from '@elvia/elvis-typography';
+import { getColor } from '@elvia/elvis-colors';
+import ElviaTypography from '@elvia/elvis-typography';
 
 export const colors = {
-  elviaOn: ElviaColors.default['primary-colors']['white'].color,
-  elviaOff: ElviaColors.default['primary-colors']['black'].color,
-  grey: ElviaColors.default['primary-colors']['grey'].color,
+  elviaCharge: getColor('elvia-charge'),
+  elviaOn: getColor('white'),
+  elviaOff: getColor('black'),
+  grey: getColor('grey'),
 };
 export const typography = {
-  titleMd: ElviaTypography.default['title-md'],
-  textLg: ElviaTypography.default['text-lg'],
+  titleMd: ElviaTypography['title-md'],
+  textLg: ElviaTypography['text-lg'],
 };
 
 const mobileMax = '767px';
@@ -55,14 +56,20 @@ export const Modal = styled.div`
   animation: ${fadeIn} 300ms ease-in;
 `;
 
-export const Wrapper = styled.div`
+type WrapperType = {
+  hasIllustration: boolean;
+  maxWidth?: string;
+};
+
+export const Wrapper = styled.div<WrapperType>`
   position: relative;
   display: flex;
   flex-direction: ${(props: { hasIllustration: boolean }) =>
     props.hasIllustration ? 'row-reverse' : 'column'};
   height: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '550px' : 'auto')};
   width: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '1090px' : 'auto')};
-  max-width: ${(props: { hasIllustration: boolean }) => (props.hasIllustration ? '1090px' : modalMaxWidth)};
+  max-width: ${(props: { hasIllustration: boolean; maxWidth?: string }) =>
+    props.maxWidth ? props.maxWidth : props.hasIllustration ? '1090px' : modalMaxWidth};
   border-radius: ${modalBorderRadius};
   overflow: hidden;
   background: ${colors.elviaOn};
@@ -225,8 +232,8 @@ export const CloseButton = styled.button`
   }
 
   :hover {
-    background-color: #29d305;
-    border-color: #29d305;
+    background-color: ${colors.elviaCharge};
+    border-color: ${colors.elviaCharge};
 
     .ewc-icon {
       filter: ${(props: { hasIllustration: boolean }) => props.hasIllustration && 'invert(1)'};

@@ -1,5 +1,28 @@
 # Elvia Dropdown
 
+## 2.0.2 (30.11.21)
+
+### Patches
+
+- Now using elvis-colors package for colors.
+- Now using elvis-typography package for typography.
+
+## 2.0.1 (30.11.21)
+
+- Web component wrapper fix
+
+## 2.0.0 (29.11.21)
+
+### Breaking changes
+
+- Fix so that width of the dropdown field is 100% up to max-width always, to be consistent with other
+  input-components. Can possibly break alignment where it is used.
+
+### Patches
+
+- Placeholder now has no defined default value
+- Max-width updated to 448px, to match other input-components max-width
+
 ## 1.0.8 (28.09.21)
 
 ### Patches
