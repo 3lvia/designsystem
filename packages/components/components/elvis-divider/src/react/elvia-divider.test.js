@@ -2,7 +2,6 @@ import Divider from './elvia-divider.tsx';
 import React from 'react';
 import { mount } from 'enzyme';
 import { getColor } from '@elvia/elvis-colors';
-import cons from 'consolidate';
 
 const colors = {
   elviaWhite: getColor('white'),
