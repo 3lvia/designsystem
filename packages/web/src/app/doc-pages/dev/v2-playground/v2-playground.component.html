@@ -8,7 +8,9 @@
 
 <!--BODY-->
 <div style="padding: 8px; display: flex; flex-wrap: wrap; justify-content: space-between">
-  <elvia-card [label]="'Label1'" [description]="'description1'" [icon]="'918'"></elvia-card>
+  <elvia-card [label]="'Label1'" [description]="'description1'">
+    <div slot="icon" style="white-space: normal">918</div>
+  </elvia-card>
   <elvia-card [label]="'Label2'" [borderColor]="'red'">
     <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
   </elvia-card>

@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect } from 'react';
+import React, { FC, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import ElviaTypography from '@elvia/elvis-typography';
 import { getColor } from '@elvia/elvis-colors';
@@ -91,6 +91,7 @@ const CardLabel = styled.div<CardLabelProps>`
   ${(props: { cardShape: CardShape }) =>
     props.cardShape === 'square' ? typography.textSmStrong : typography.textMdStrong};
   text-align: center;
+  white-space: nowrap;
   color: ${colors.elviaBlack};
 `;
 
@@ -109,6 +110,7 @@ const CardDescription = styled.div<CardDescriptionProps>`
 const CardIcon = styled.div`
   ${typography.titleLg}
   text-align: center;
+  white-space: nowrap;
   color: ${colors.elviaBlack};
 `;
 
@@ -126,6 +128,9 @@ const CardColoredLine = styled.div<CardColoredLineProps>`
       props.borderColor ? colors[props.borderColor] : 'transparent'};
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  ${CardArea}:hover & {
+    display: none;
+  }
 `;
 
 const Card: FC<CardProps> = ({
@@ -138,7 +143,6 @@ const Card: FC<CardProps> = ({
   isInverted,
   webcomponent,
 }) => {
-  const [isHovering, setIsHovering] = useState(false);
   if (cardType === 'detail') cardShape = 'square';
 
   const cardIcon = useRef<HTMLDivElement>(null);
@@ -164,8 +168,9 @@ const Card: FC<CardProps> = ({
       cardType={cardType}
       cardShape={cardShape}
       isInverted={isInverted}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
+      onClick={() => {
+        console.log('clicked');
+      }}
     >
       {icon && <CardIcon>{icon}</CardIcon>}
       {!icon && (
@@ -184,7 +189,7 @@ const Card: FC<CardProps> = ({
           <div ref={cardDescription}></div>
         </CardDescription>
       )}
-      {!isHovering && cardShape === 'square' && <CardColoredLine borderColor={borderColor}></CardColoredLine>}
+      {cardShape === 'square' && <CardColoredLine borderColor={borderColor}></CardColoredLine>}
     </CardArea>
   );
 };
