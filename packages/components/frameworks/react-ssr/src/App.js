@@ -245,10 +245,17 @@ function App() {
       <Accordion labelPosition="center" openLabel="open" closeLabel="close" content="TextContent"></Accordion>
       <h1>React preview</h1>
       <h2>Elvia ICONS</h2>
-      <ElvisIcon iconName="addCircle"></ElvisIcon>
+      <div className="testingIconSizes">
+        <ElvisIcon iconName="folderCreate" customSize="1em"></ElvisIcon>
+        <ElvisIcon iconName="folderCreate" customSize="1em"></ElvisIcon>
+        <ElvisIcon iconName="folderCreate" customSize="1em" iconDisplay="block"></ElvisIcon>
+        <ElvisIcon iconName="folderCreate" customSize="1em"></ElvisIcon>
+        <ElvisIcon iconName="folderCreate" customSize="1em"></ElvisIcon>
+        <ElvisIcon iconName="folderCreate" customSize="1em" iconDisplay="block"></ElvisIcon>
+      </div>
       {/* <ElvisIcon iconName="addCircle" iconColor="red"></ElvisIcon>
       <ElvisIcon iconName="addCircle"></ElvisIcon> */}
-      <h2>Pagination!</h2>
+      {/* <h2>Pagination!</h2>
       <Pagination
         items={156}
         valueOnChange={(event) => console.log(event)}
@@ -640,7 +647,7 @@ function App() {
       <h2>Progressbar Error</h2>
       <div>
         <ProgressLinear isError></ProgressLinear>
-      </div>
+      </div> */}
     </div>
   );
 }
