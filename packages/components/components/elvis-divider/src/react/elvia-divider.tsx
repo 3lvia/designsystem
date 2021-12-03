@@ -34,7 +34,12 @@ export const Divider: React.FC<DividerProps> = ({
   });
 
   return (
-    <StyledDivider.DividerArea type={type} isInverted={isInverted} orientation={orientation}>
+    <StyledDivider.DividerArea
+      type={type}
+      isInverted={isInverted}
+      orientation={orientation}
+      data-testid="divider-area"
+    >
       {title === '' && type === 'title' && (
         <StyledDivider.DividerTitle
           typography={typography}
@@ -43,7 +48,11 @@ export const Divider: React.FC<DividerProps> = ({
         ></StyledDivider.DividerTitle>
       )}
       {title !== '' && type === 'title' && (
-        <StyledDivider.DividerTitle typography={typography} isInverted={isInverted}>
+        <StyledDivider.DividerTitle
+          typography={typography}
+          isInverted={isInverted}
+          data-testid="divider-title"
+        >
           {title}
         </StyledDivider.DividerTitle>
       )}
