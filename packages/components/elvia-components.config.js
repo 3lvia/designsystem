@@ -246,6 +246,7 @@ module.exports = [
       { name: 'cardType', type: 'string', propType: 'string' },
       { name: 'cardShape', type: 'string', propType: 'string' },
       { name: 'isInverted', type: 'boolean', propType: 'boolean' },
+      { name: 'width', type: 'string', propType: 'string' },
     ],
     reactName: 'Card',
     useWrapper: false,

@@ -8,10 +8,10 @@
 
 <!--BODY-->
 <div style="padding: 8px; display: flex; flex-wrap: wrap">
-  <elvia-card [label]="'Label1'" [description]="'description1'">
+  <elvia-card [label]="'Label1'" [description]="'description1'" [width]="'152px'">
     <div slot="icon">113</div>
   </elvia-card>
-  <elvia-card [label]="'Label2'" [borderColor]="'red'">
+  <elvia-card [label]="'Label2'" [borderColor]="'red'" [width]="'152px'">
     <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
   </elvia-card>
   <elvia-card
@@ -19,14 +19,16 @@
     [description]="'description3'"
     [icon]="'3'"
     [borderColor]="'green'"
+    [width]="'152px'"
   ></elvia-card>
   <elvia-card
     [label]="'Label4'"
     [description]="'description4'"
     [icon]="'4'"
     [borderColor]="'blue-berry'"
+    [width]="'152px'"
   ></elvia-card>
-  <elvia-card [label]="'Label5'" [borderColor]="'orange'" [cardType]="'detail'" [cardShape]="'circle'">
+  <elvia-card [label]="'Label5'" [borderColor]="'orange'" [cardType]="'detail'" [width]="'299px'">
     <div slot="description">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tortor mattis odio pretium viverra sed
       dapibus lectus. Nullam sit amet urna sit amet ligula bibendum gravida.
@@ -41,25 +43,22 @@
     [borderColor]="'red'"
     [cardType]="'detail'"
     [cardShape]="'circle'"
+    [width]="'299px'"
   ></elvia-card>
   <elvia-card
     [label]="'Label7'"
     [description]="'description7'"
     [borderColor]="'green'"
     [cardShape]="'circle'"
+    [width]="'158px'"
   >
     <i slot="icon" class="e-icon e-icon--renewable_energy-color e-icon--md"></i>
   </elvia-card>
-  <elvia-card
-    [label]="'Label8'"
-    [description]="'description8'"
-    [borderColor]="'blue-berry'"
-    [cardShape]="'circle'"
-  ></elvia-card>
+  <elvia-card [label]="'Label8'" [borderColor]="'blue-berry'" [cardShape]="'circle'" [width]="'134px'">
+    <i slot="icon" class="e-icon e-icon--renewable_energy-color e-icon--md"></i>
+  </elvia-card>
 </div>
-<div
-  style="padding: 8px; display: flex; flex-wrap: wrap; justify-content: space-between; background: #f4f4f4"
->
+<div style="padding: 8px; display: flex; flex-wrap: wrap; background: #f4f4f4">
   <elvia-card [label]="'Label1'" [description]="'description1'" [icon]="'1'" [isInverted]="true"></elvia-card>
   <elvia-card [label]="'Label2'" [icon]="'2'" [isInverted]="true" [borderColor]="'red'"></elvia-card>
   <elvia-card

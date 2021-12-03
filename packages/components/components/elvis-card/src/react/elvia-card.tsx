@@ -7,6 +7,10 @@ type CardType = 'simple' | 'detail';
 type CardShape = 'square' | 'circle';
 type BorderColor = 'green' | 'blue-berry' | 'red' | 'orange';
 
+const simpleSquareAspectRatio = 100 * (128 / 152);
+const simpleCircleAspectRatio = 100 * (100 / 100);
+const detailAspectRatio = 100 * (144 / 299);
+
 export interface CardProps {
   label?: string;
   description?: string;
@@ -44,16 +48,15 @@ const decideCardSize = (cardType: CardType, cardShape: CardShape, width: string)
   if (cardType === 'simple' && cardShape === 'square') {
     return `
       width: ${width};
-      padding-top: 84.21%;`;
+      padding-top: ${simpleSquareAspectRatio}%;`;
   } else if (cardType === 'simple' && cardShape === 'circle') {
     return `
       width: ${width};
-      padding-top: 100%;`;
+      padding-top: ${simpleCircleAspectRatio}%;`;
   } else {
     return `
       width: ${width};
-      width: 299px;
-      padding-top: 48.16%;`;
+      padding-top: ${detailAspectRatio}%;`;
   }
 };
 
@@ -89,10 +92,10 @@ const CardArea = styled.div<CardAreaProps>`
     padding: 0;
     padding-top: ${(props: { cardType: CardType; cardShape: CardShape }) =>
       props.cardType === 'simple' && props.cardShape === 'square'
-        ? 'calc(84.21% - 1px)'
+        ? `calc(${simpleSquareAspectRatio}% - 1px)`
         : props.cardType === 'simple' && props.cardShape === 'circle'
-        ? 'calc(100% - 1px)'
-        : 'calc(48.16% - 1px)'};
+        ? `calc(${simpleCircleAspectRatio}% - 1px)`
+        : `calc(${detailAspectRatio}% - 1px)`};
   }
 `;
 
@@ -205,6 +208,7 @@ const Card: FC<CardProps> = ({
       }}
     >
       <CardContent>
+        {cardShape === 'square' && <CardColoredLine borderColor={borderColor}></CardColoredLine>}
         {icon && <CardIcon>{icon}</CardIcon>}
         {!icon && (
           <CardIcon>
@@ -222,7 +226,6 @@ const Card: FC<CardProps> = ({
             <div ref={cardDescription}></div>
           </CardDescription>
         )}
-        {cardShape === 'square' && <CardColoredLine borderColor={borderColor}></CardColoredLine>}
       </CardContent>
     </CardArea>
   );
