@@ -21,7 +21,7 @@ describe('Elvis Box', () => {
       wrapper = mount(<Box title="Hello Box"></Box>);
       boxtitle = wrapper.find({ 'data-testid': 'box-title' }).at(0);
     });
-    it('should ha title containing "Hello Box"', function (done) {
+    it('should have title containing "Hello Box"', function (done) {
       expect(boxtitle.text()).toBe('Hello Box');
       done();
     });
