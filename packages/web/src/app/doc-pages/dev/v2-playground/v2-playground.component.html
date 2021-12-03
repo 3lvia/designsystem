@@ -7,9 +7,9 @@
 </app-component-header>
 
 <!--BODY-->
-<div style="padding: 8px; display: flex; flex-wrap: wrap; justify-content: space-between">
+<div style="padding: 8px; display: flex; flex-wrap: wrap">
   <elvia-card [label]="'Label1'" [description]="'description1'">
-    <div slot="icon" style="white-space: normal">918</div>
+    <div slot="icon">113</div>
   </elvia-card>
   <elvia-card [label]="'Label2'" [borderColor]="'red'">
     <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
@@ -61,13 +61,7 @@
   style="padding: 8px; display: flex; flex-wrap: wrap; justify-content: space-between; background: #f4f4f4"
 >
   <elvia-card [label]="'Label1'" [description]="'description1'" [icon]="'1'" [isInverted]="true"></elvia-card>
-  <elvia-card
-    [label]="'Label2'"
-    [description]="'description2'"
-    [icon]="'2'"
-    [isInverted]="true"
-    [borderColor]="'red'"
-  ></elvia-card>
+  <elvia-card [label]="'Label2'" [icon]="'2'" [isInverted]="true" [borderColor]="'red'"></elvia-card>
   <elvia-card
     [label]="'Label3'"
     [description]="'description3'"
