@@ -7,7 +7,7 @@ export const paginationData = {
       isRequired: false,
       type: 'object',
       description: 'Value range of currently selected pagination, {start: number, end: number}',
-      displayName: 'value',
+      cegDisplayName: 'value',
       default: '{ start: undefined, end: undefined }',
     },
     numberOfElements: {

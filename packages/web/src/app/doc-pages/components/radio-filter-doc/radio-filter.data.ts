@@ -8,19 +8,19 @@ const radioFilterData = {
       type: 'Array<object>',
       description:
         'Options available in the radio-filter component, set as array of objects with keys of :  {label: string, value: string} ',
-      displayName: 'Items',
+      cegDisplayName: 'Items',
     },
     value: {
       isRequired: true,
       type: 'string',
       description: 'Value of selected filter.',
-      displayName: 'Name',
+      cegDisplayName: 'Name',
     },
     name: {
       isRequired: true,
       type: 'string',
       description: 'Name of inputs',
-      displayName: 'Name',
+      cegDisplayName: 'Name',
     },
     ariaLabel: {
       isRequired: false,

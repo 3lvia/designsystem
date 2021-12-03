@@ -31,7 +31,7 @@ const boxData = {
       description:
         'Green line on top of box. The box with a colored line should be used if you want the box to take more attention, but not use multiple boxes with colored lines on the same page.',
       default: 'false',
-      displayName: 'Colored',
+      cegDisplayName: 'Colored',
       cegType: 'boolean',
       cegFormType: 'toggle',
       cegDefault: 'false',
