@@ -262,11 +262,14 @@ $maxIconContainerMobile: 450px;
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-top: 72px;
 
-  .iconAutocomplete {
-    width: 250px;
-    margin-bottom: 16px;
+  .cegTopFilter {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    @include breakpoint-up(Mobile) {
+      width: 70%;
+    }
   }
 
   .ceg-row-1 {

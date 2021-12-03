@@ -1,5 +1,5 @@
 # Elvia Icon Changelog
 
-## 0.0.0 (16.08.21)
+## 1.0.0 (03.12.21)
 
 First version of the icon component.

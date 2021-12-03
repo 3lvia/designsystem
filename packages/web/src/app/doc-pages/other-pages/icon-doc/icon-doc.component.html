@@ -293,6 +293,22 @@
       </div>
       <app-component-subsection [sectionTitle]="'Methods'">
         <ng-container ngProjectAs="sectionContent">
+          <app-component-subsection [sectionTitle]="'Method 2: Elvis-icon component'">
+            <ng-container ngProjectAs="sectionContent">
+              <a href="https://www.npmjs.com/package/@elvia/elvis-icon" class="e-link">
+                Elvis-icon npm package
+              </a>
+              <p class="e-mb-0">
+                Icons are also accessible through our own icon component, as a web component or react
+                component.
+              </p>
+              <app-component-example-generator
+                [componentData]="componentData"
+                delayInnerHtml="true"
+              ></app-component-example-generator>
+            </ng-container>
+          </app-component-subsection>
+
           <app-component-subsubsection [sectionTitle]="'Method 1: Easiest'">
             <ng-container ngProjectAs="sectionContent">
               <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>

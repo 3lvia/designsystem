@@ -3,7 +3,9 @@ import { Icon } from 'src/app/shared/icon.interface';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
-import * as ElvisIcons from "@elvia/elvis-assets-icons"
+import * as ElvisIcons from '@elvia/elvis-assets-icons';
+import { accordionData } from './icon.data';
+import { exampleContents } from 'src/app/shared/example-contents';
 
 @Component({
   selector: 'app-icon-doc',
@@ -14,8 +16,10 @@ export class IconDocComponent implements OnInit {
   @ViewChild('accordionIconsDesktop') accordionIconsDesktop: ElementRef;
   @ViewChild('accordionIconsMobile') accordionIconsMobile: ElementRef;
   @ViewChild('icons') icons: ElementRef;
-
   @Output() clickOutside: EventEmitter<any> = new EventEmitter();
+
+  componentData = accordionData;
+  examples = exampleContents;
 
   visibleIcons = [];
   allIcons = [];
@@ -28,7 +32,6 @@ export class IconDocComponent implements OnInit {
   selected = 'all';
   latestIcon = '';
   copied = false;
-
 
   example = `<i class="e-icon e-icon--move_truck-color e-icon--xxs e-mr-40"></i>
 <i class="e-icon e-icon--move_truck-color e-icon--xs e-mr-40"></i>
@@ -69,12 +72,15 @@ export class IconDocComponent implements OnInit {
 
   term = '';
   IconClassList: Icon[] = [];
-  allELvisIcons = Object.keys(ElvisIcons)
-  currentIcon = this.allELvisIcons[0]
+  allELvisIcons = Object.keys(ElvisIcons);
+  currentIcon = this.allELvisIcons[0];
+  currentIconColor = '';
   results = this.allELvisIcons;
   showResults = false;
 
-  constructor(private copyService: CopyToClipboardService) { }
+  IconCode = '<div> <elvia-icon iconName="${this.currentIcon}"></elvia-icon></div>';
+
+  constructor(private copyService: CopyToClipboardService) {}
 
   @HostListener('document:click', ['$event', '$event.target'])
   // for autocomplete options when click on outside of options or input area
@@ -88,8 +94,6 @@ export class IconDocComponent implements OnInit {
       this.showResults = false;
     }
   }
-
-
 
   onSearch(searchTerm: string): void {
     this.results = this.allELvisIcons.filter((icon) =>
@@ -118,8 +122,6 @@ export class IconDocComponent implements OnInit {
     }
   }
 
-
-
   onClick(event: MouseEvent, targetElement: HTMLElement): void {
     const alert = document.getElementById(this.latestIcon);
     const iconContainer = document.getElementById(this.latestIcon + '_container');
@@ -135,18 +137,19 @@ export class IconDocComponent implements OnInit {
 
   // convert string to words
   toWords(input: string): Array<string> {
-    const regex = /[A-Z\xC0-\xD6\xD8-\xDE]?[a-z\xDF-\xF6\xF8-\xFF]+|[A-Z\xC0-\xD6\xD8-\xDE]+(?![a-z\xDF-\xF6\xF8-\xFF])|\d+/g;
+    const regex =
+      /[A-Z\xC0-\xD6\xD8-\xDE]?[a-z\xDF-\xF6\xF8-\xFF]+|[A-Z\xC0-\xD6\xD8-\xDE]+(?![a-z\xDF-\xF6\xF8-\xFF])|\d+/g;
     return input.match(regex);
   }
 
   // convert the input array to camel case
   toCamelCase(inputArray: Array<string>): string {
-    let result = "";
+    let result = '';
     for (let i = 0, len = inputArray.length; i < len; i++) {
       const currentStr = inputArray[i];
       let tempStr = currentStr.toLowerCase();
       if (i != 0) {
-        // convert first letter to upper case (the word is in lowercase) 
+        // convert first letter to upper case (the word is in lowercase)
         tempStr = tempStr.substr(0, 1).toUpperCase() + tempStr.substr(1);
       }
       result += tempStr;
@@ -157,7 +160,6 @@ export class IconDocComponent implements OnInit {
   toCamelCaseString(input: string): string {
     const words = this.toWords(input);
     return this.toCamelCase(words);
-
   }
 
   ngOnInit(): void {

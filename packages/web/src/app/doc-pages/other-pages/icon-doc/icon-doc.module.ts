@@ -13,6 +13,7 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { RouterModule } from '@angular/router';
+import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 
 @NgModule({
   imports: [
@@ -28,8 +29,9 @@ import { RouterModule } from '@angular/router';
     ComponentSubsubsectionModule,
     CopyModule,
     RouterModule,
+    ComponentExampleGeneratorModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [IconDocComponent, IconSearchPipe],
 })
-export class IconDocModule { }
+export class IconDocModule {}
