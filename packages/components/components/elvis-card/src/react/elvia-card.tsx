@@ -7,6 +7,7 @@ type CardType = 'simple' | 'detail';
 type CardShape = 'square' | 'circle';
 type BorderColor = 'green' | 'blue-berry' | 'red' | 'orange';
 
+// 100 * (height / width) of desired aspect ratio
 const simpleSquareAspectRatio = 100 * (128 / 152);
 const simpleCircleAspectRatio = 100 * (100 / 100);
 const detailAspectRatio = 100 * (144 / 299);
@@ -134,8 +135,8 @@ type CardDescriptionProps = {
 };
 
 const CardDescription = styled.div<CardDescriptionProps>`
-  ${(props: { cardShape: CardShape }) =>
-    props.cardShape === 'square' ? typography.textMicro : typography.textSm};
+  ${(props: { cardShape: CardShape; cardType: CardType }) =>
+    props.cardShape === 'square' && props.cardType === 'simple' ? typography.textMicro : typography.textSm};
   text-align: ${(props: { cardType: CardType }) => (props.cardType === 'simple' ? 'center' : 'left')};
   color: ${colors.elviaBlack};
 `;
@@ -198,15 +199,7 @@ const Card: FC<CardProps> = ({
   }, [webcomponent]);
 
   return (
-    <CardArea
-      cardType={cardType}
-      cardShape={cardShape}
-      isInverted={isInverted}
-      width={width}
-      onClick={() => {
-        console.log('clicked');
-      }}
-    >
+    <CardArea cardType={cardType} cardShape={cardShape} isInverted={isInverted} width={width}>
       <CardContent>
         {cardShape === 'square' && <CardColoredLine borderColor={borderColor}></CardColoredLine>}
         {icon && <CardIcon>{icon}</CardIcon>}
