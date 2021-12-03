@@ -95,16 +95,16 @@ const Box: FC<BoxProps> = ({ content, title, isColored = false, hasBorder = fals
 
   return (
     <BoxArea>
-      {title && <BoxTitle>{title}</BoxTitle>}
+      {title && <BoxTitle data-testid="box-title">{title}</BoxTitle>}
       {!title && <BoxTitle ref={boxTitle}></BoxTitle>}
       {content && (
-        <BoxContent hasBorder={hasBorder}>
-          {isColored && <BoxColoredLine></BoxColoredLine>}
+        <BoxContent hasBorder={hasBorder} data-testid="box-content">
+          {isColored && <BoxColoredLine data-testid="box-colored-line"></BoxColoredLine>}
           {content}
         </BoxContent>
       )}
       {!content && (
-        <BoxContent hasBorder={hasBorder}>
+        <BoxContent hasBorder={hasBorder} data-testid="box-no-content">
           {isColored && <BoxColoredLine></BoxColoredLine>}
           <div ref={boxContent}></div>
         </BoxContent>
