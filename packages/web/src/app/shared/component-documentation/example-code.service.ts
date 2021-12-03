@@ -88,7 +88,10 @@ export class ExampleCodeService {
     }
     // TODO: Finne ut hva slags Vue syntax gir mening og legge inn støtte her
     else if (language === 'vue') {
-      return '  ' + attribute + '="' + newVal + '"';
+      if (propType === 'string') {
+        newVal = "'" + newVal + "'";
+      }
+      return '  :' + attribute + '="' + newVal + '"';
     }
   }
 
@@ -115,10 +118,10 @@ export class ExampleCodeService {
     }
     // TODO: Finne ut hva slags Vue syntax gir mening og legge inn støtte her
     else if (language === 'vue') {
-      if (propType !== 'string') {
-        prop = ':' + prop;
+      if (propType === 'string') {
+        newVal = "'" + newVal + "'";
       }
-      return '<' + elementName + '\n  ' + prop + '="' + newVal + '"';
+      return '<' + elementName + '\n  :' + prop + '="' + newVal + '"';
     }
   }
 

@@ -79,6 +79,10 @@ export const paginationData = {
   [numberOfElements]="156"
   (valueOnChange)="handleOnChange(event.detail.value)">
 </elvia-pagination>`,
+  codeVue: `<elvia-pagination
+  :numberOfElements="156"
+  @value-on-change="handleOnChange(event.detail.value)">
+</elvia-pagination>`,
   codeNativeHTML: `<elvia-pagination
   id="example-elvia-pagination"
   ></elvia-pagination>`,

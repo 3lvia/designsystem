@@ -106,6 +106,10 @@ const datepickerData = {
   (valueOnChange)="handleOnChange(event.detail.value)"
 ></elvia-datepicker>
 `,
+  codeVue: `<elvia-datepicker
+  @value-on-change="handleOnChange(event.detail.value)"
+></elvia-datepicker>
+`,
   codeNativeHTML: `<elvia-datepicker
   id="example-elvia-datepicker"
 ></elvia-datepicker>
