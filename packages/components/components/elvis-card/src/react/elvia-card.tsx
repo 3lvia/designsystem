@@ -12,6 +12,9 @@ const simpleSquareAspectRatio = 100 * (128 / 152);
 const simpleCircleAspectRatio = 100 * (100 / 100);
 const detailAspectRatio = 100 * (144 / 299);
 
+const minWidth = 112;
+const maxWidth = 400;
+
 export interface CardProps {
   label?: string;
   description?: string;
@@ -49,15 +52,15 @@ const decideCardSize = (cardType: CardType, cardShape: CardShape, width: string)
   if (cardType === 'simple' && cardShape === 'square') {
     return `
       width: ${width};
-      padding-top: ${simpleSquareAspectRatio}%;`;
+      padding-top: min(${simpleSquareAspectRatio}%, ${(maxWidth * simpleSquareAspectRatio) / 100}px);`;
   } else if (cardType === 'simple' && cardShape === 'circle') {
     return `
       width: ${width};
-      padding-top: ${simpleCircleAspectRatio}%;`;
+      padding-top: min(${simpleCircleAspectRatio}%, ${(maxWidth * simpleCircleAspectRatio) / 100}px);`;
   } else {
     return `
       width: ${width};
-      padding-top: ${detailAspectRatio}%;`;
+      padding-top: min(${detailAspectRatio}%, ${(maxWidth * detailAspectRatio) / 100}px);`;
   }
 };
 
@@ -75,8 +78,8 @@ const CardArea = styled.div<CardAreaProps>`
   overflow: hidden;
   box-sizing: border-box;
 
-  min-width: 112px;
-  max-width: 400px;
+  min-width: ${minWidth}px;
+  max-width: ${maxWidth}px;
   padding: 1px;
   ${(props: { cardType: CardType; cardShape: CardShape; width: string }) =>
     decideCardSize(props.cardType, props.cardShape, props.width)}
@@ -93,10 +96,10 @@ const CardArea = styled.div<CardAreaProps>`
     padding: 0;
     padding-top: ${(props: { cardType: CardType; cardShape: CardShape }) =>
       props.cardType === 'simple' && props.cardShape === 'square'
-        ? `calc(${simpleSquareAspectRatio}% - 1px)`
+        ? `calc(min(${simpleSquareAspectRatio}%, ${(maxWidth * simpleSquareAspectRatio) / 100}px) - 1px)`
         : props.cardType === 'simple' && props.cardShape === 'circle'
-        ? `calc(${simpleCircleAspectRatio}% - 1px)`
-        : `calc(${detailAspectRatio}% - 1px)`};
+        ? `calc(min(${simpleCircleAspectRatio}%, ${(maxWidth * simpleCircleAspectRatio) / 100}px) - 1px)`
+        : `calc(min(${detailAspectRatio}%, ${(maxWidth * detailAspectRatio) / 100}px) - 1px)`};
   }
 `;
 
