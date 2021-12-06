@@ -51,28 +51,32 @@ const typography = {
   textMicro: ElviaTypography['text-micro'],
 };
 
-const decideCardSize = (
-  type: CardType,
-  shape: CardShape,
-  width: string,
-  minWidth: number,
-  maxWidth: number,
-) => {
+const decideCardSize = (type: CardType, shape: CardShape, minWidth: number, maxWidth: number) => {
   if (type === 'simple' && shape === 'square') {
     return `
-      width: ${width};
       min-height: ${minWidth * (simpleSquareAspectRatio / 100)}px;
       padding-top: min(${simpleSquareAspectRatio}%, ${(maxWidth * simpleSquareAspectRatio) / 100}px);`;
   } else if (type === 'simple' && shape === 'circle') {
     return `
-      width: ${width};
       min-height: ${minWidth * (simpleCircleAspectRatio / 100)}px;
       padding-top: min(${simpleCircleAspectRatio}%, ${(maxWidth * simpleCircleAspectRatio) / 100}px);`;
   } else {
     return `
-      width: ${width};
       min-height: ${minWidth * (detailAspectRatio / 100)}px;
       padding-top: min(${detailAspectRatio}%, ${(maxWidth * detailAspectRatio) / 100}px);`;
+  }
+};
+
+const decideCardSizeHover = (type: CardType, shape: CardShape, maxWidth: number) => {
+  if (type === 'simple' && shape === 'square') {
+    return `
+      calc(min(${simpleSquareAspectRatio}%, ${(maxWidth * simpleSquareAspectRatio) / 100}px) - 1px);`;
+  } else if (type === 'simple' && shape === 'circle') {
+    return `
+      calc(min(${simpleCircleAspectRatio}%, ${(maxWidth * simpleCircleAspectRatio) / 100}px) - 1px);`;
+  } else {
+    return `
+      calc(min(${detailAspectRatio}%, ${(maxWidth * detailAspectRatio) / 100}px) - 1px);`;
   }
 };
 
@@ -95,8 +99,10 @@ const CardArea = styled.div<CardAreaProps>`
   min-width: ${(props: { minWidth: number }) => props.minWidth}px;
   max-width: ${(props: { maxWidth: number }) => props.maxWidth}px;
   padding: 1px;
-  ${(props: { type: CardType; shape: CardShape; width: string; minWidth: number; maxWidth: number }) =>
-    decideCardSize(props.type, props.shape, props.width, props.minWidth, props.maxWidth)}
+  width: ${(props: { width: string }) => props.width};
+  ${(props: { type: CardType; shape: CardShape; minWidth: number; maxWidth: number }) =>
+    decideCardSize(props.type, props.shape, props.minWidth, props.maxWidth)}
+
   border-radius: ${(props: { shape: CardShape }) => (props.shape === 'square' ? '8px' : '50%')};
   border: ${(props: { shape: CardShape; isInverted: boolean }) =>
     props.shape === 'square' && !props.isInverted
@@ -109,15 +115,7 @@ const CardArea = styled.div<CardAreaProps>`
     border: 2px solid ${colors.elviaCharge};
     padding: 0;
     padding-top: ${(props: { type: CardType; shape: CardShape; maxWidth: number }) =>
-      props.type === 'simple' && props.shape === 'square'
-        ? `calc(min(${simpleSquareAspectRatio}%, ${
-            (props.maxWidth * simpleSquareAspectRatio) / 100
-          }px) - 1px)`
-        : props.type === 'simple' && props.shape === 'circle'
-        ? `calc(min(${simpleCircleAspectRatio}%, ${
-            (props.maxWidth * simpleCircleAspectRatio) / 100
-          }px) - 1px)`
-        : `calc(min(${detailAspectRatio}%, ${(props.maxWidth * detailAspectRatio) / 100}px) - 1px)`};
+      decideCardSizeHover(props.type, props.shape, props.maxWidth)};
   }
 `;
 
@@ -282,7 +280,7 @@ const Card: FC<CardProps> = ({
         )}
         {type === 'detail' && (
           <CardDetailHoverArrow data-testid="card-detail-hover-arrow">
-            <i className="e-icon e-icon--arrow_long_right-bold e-icon--lg"></i>
+            <i className="e-icon e-icon--arrow_long_right-bold e-icon--md"></i>
           </CardDetailHoverArrow>
         )}
       </CardContent>
