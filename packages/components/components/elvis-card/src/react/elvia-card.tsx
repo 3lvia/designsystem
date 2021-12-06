@@ -5,7 +5,7 @@ import { getColor } from '@elvia/elvis-colors';
 
 type CardType = 'simple' | 'detail';
 type CardShape = 'square' | 'circle';
-type BorderColor = 'green' | 'blueBerry' | 'red' | 'orange';
+type BorderColor = 'green' | 'blue-berry' | 'blueBerry' | 'red' | 'orange';
 
 // 100 * (height / width) of desired aspect ratio
 const simpleSquareAspectRatio = 100 * (128 / 152);
@@ -36,6 +36,7 @@ const colors = {
   elviaGrey10: getColor('grey-10'),
   elviaGrey05: getColor('grey-05'),
   green: getColor('green'),
+  'blue-berry': getColor('blue-berry'),
   blueBerry: getColor('blue-berry'),
   red: getColor('red'),
   orange: getColor('orange'),

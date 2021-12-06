@@ -240,7 +240,7 @@ module.exports = [
     elementName: 'elvia-card',
     attributes: [
       { name: 'label', type: 'string', propType: 'string' },
-      { name: 'description', type: 'string', propType: 'string' },
+      { name: 'description', type: 'string', propType: 'string | undefined' },
       { name: 'icon', type: 'string', propType: 'string | HTMLElement' },
       { name: 'borderColor', type: 'string', propType: 'string | undefined' },
       { name: 'type', type: 'string', propType: 'string' },
