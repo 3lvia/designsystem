@@ -171,6 +171,19 @@ const CardColoredLine = styled.div<CardColoredLineProps>`
   }
 `;
 
+const CardDetailHoverArrow = styled.div`
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  width: 40px;
+  height: 40px;
+  background: ${colors.elviaWhite};
+  display: none;
+  ${CardArea}:hover & {
+    display: block;
+  }
+`;
+
 const Card: FC<CardProps> = ({
   label,
   description,
@@ -244,6 +257,11 @@ const Card: FC<CardProps> = ({
           <CardDescription cardShape={cardShape} cardType={cardType} data-testid="card-description">
             <div ref={cardDescription}></div>
           </CardDescription>
+        )}
+        {cardType === 'detail' && (
+          <CardDetailHoverArrow data-testid="card-detail-hover-arrow">
+            <i className="e-icon e-icon--arrow_long_right-bold e-icon--lg"></i>
+          </CardDetailHoverArrow>
         )}
       </CardContent>
     </CardArea>
