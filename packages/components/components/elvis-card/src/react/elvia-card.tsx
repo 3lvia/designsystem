@@ -52,14 +52,17 @@ const decideCardSize = (cardType: CardType, cardShape: CardShape, width: string)
   if (cardType === 'simple' && cardShape === 'square') {
     return `
       width: ${width};
+      min-height: ${minWidth * (simpleSquareAspectRatio / 100)}px;
       padding-top: min(${simpleSquareAspectRatio}%, ${(maxWidth * simpleSquareAspectRatio) / 100}px);`;
   } else if (cardType === 'simple' && cardShape === 'circle') {
     return `
       width: ${width};
+      min-height: ${minWidth * (simpleCircleAspectRatio / 100)}px;
       padding-top: min(${simpleCircleAspectRatio}%, ${(maxWidth * simpleCircleAspectRatio) / 100}px);`;
   } else {
     return `
       width: ${width};
+      min-height: ${minWidth * (detailAspectRatio / 100)}px;
       padding-top: min(${detailAspectRatio}%, ${(maxWidth * detailAspectRatio) / 100}px);`;
   }
 };
