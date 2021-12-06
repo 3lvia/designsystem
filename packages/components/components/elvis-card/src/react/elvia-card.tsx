@@ -70,13 +70,17 @@ const decideCardSize = (type: CardType, shape: CardShape, minWidth: number, maxW
 const decideCardSizeHover = (type: CardType, shape: CardShape, maxWidth: number) => {
   if (type === 'simple' && shape === 'square') {
     return `
-      calc(min(${simpleSquareAspectRatio}%, ${(maxWidth * simpleSquareAspectRatio) / 100}px) - 1px);`;
+      padding-top: calc(min(${simpleSquareAspectRatio}%, ${
+      (maxWidth * simpleSquareAspectRatio) / 100
+    }px) - 1px);`;
   } else if (type === 'simple' && shape === 'circle') {
     return `
-      calc(min(${simpleCircleAspectRatio}%, ${(maxWidth * simpleCircleAspectRatio) / 100}px) - 1px);`;
+      padding-top: calc(min(${simpleCircleAspectRatio}%, ${
+      (maxWidth * simpleCircleAspectRatio) / 100
+    }px) - 1px);`;
   } else {
     return `
-      calc(min(${detailAspectRatio}%, ${(maxWidth * detailAspectRatio) / 100}px) - 1px);`;
+      padding-top: calc(min(${detailAspectRatio}%, ${(maxWidth * detailAspectRatio) / 100}px) - 1px);`;
   }
 };
 
@@ -114,7 +118,7 @@ const CardArea = styled.div<CardAreaProps>`
   &:hover {
     border: 2px solid ${colors.elviaCharge};
     padding: 0;
-    padding-top: ${(props: { type: CardType; shape: CardShape; maxWidth: number }) =>
+    ${(props: { type: CardType; shape: CardShape; maxWidth: number }) =>
       decideCardSizeHover(props.type, props.shape, props.maxWidth)};
   }
 `;
