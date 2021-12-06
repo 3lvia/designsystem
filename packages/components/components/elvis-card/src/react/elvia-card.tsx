@@ -18,7 +18,7 @@ const globalMaxWidth = 400;
 export interface CardProps {
   label?: string;
   description?: string;
-  icon?: string | HTMLElement;
+  icon?: string;
   borderColor?: BorderColor;
   type: CardType;
   shape: CardShape;
