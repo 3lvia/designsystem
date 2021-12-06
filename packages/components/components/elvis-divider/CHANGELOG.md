@@ -1,5 +1,11 @@
 # Elvia Divider Changelog
 
+## 1.1.3 (03.12.21)
+
+### Patch
+
+- Added unit tests for divider
+
 ## 1.1.2 (30.11.21)
 
 ### Patch

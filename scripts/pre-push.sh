@@ -1,6 +1,5 @@
 #!/bin/bash
-cd packages/components
-yarn test 
+cd packages/components 
 echo SUCCESS
 echo 'Elvis - Building project before pushing...'
 cd ../..

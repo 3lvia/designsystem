@@ -1,133 +1,145 @@
 <div class="ceg-side-filters">
-  <form class="ceg-side-filter e-form_field e-w-100" *ngFor="let prop of props; let i = index">
+  <form class="ceg-side-filter e-form_field e-w-100" *ngFor="let formGroup of formGroupList; let i = index">
     <!--Radios-->
     <div
-      *ngIf="prop.cegFormType === 'radio'"
+      *ngIf="formGroup.type === 'radio' && (formGroup | visibleFields: formStates)"
       [ngClass]="{
-        'ceg-filter-margin': i !== props.length - 1,
-        'ceg-hidden': prop.cegTypeDependency && prop.cegTypeDependency !== selectedType.toLowerCase()
+        'ceg-filter-margin': i !== formGroupList.length - 1
       }"
     >
-      <label class="e-form-field__label">{{ prop.displayName }}</label>
+      <label class="e-form-field__label">{{ formGroup.label }}</label>
       <label
-        *ngFor="let label of prop.cegOptions; let i = index"
+        *ngFor="let formField of formGroup.formGroupOptions; let i = index"
         class="e-radio e-radio--sm"
-        for="{{ label }}-radio-{{ desktop }}"
-        (change)="updateRadioProp(prop, label)"
+        for="{{ formGroup.label }}-{{ formField.name }}-{{ desktop }}"
+        (change)="
+          onInputValueChange(formGroup, $event);
+          updateRadioProp(formGroup.propName, formField.name, formGroup.type)
+        "
       >
         <input
           type="radio"
-          id="{{ label }}-radio-{{ desktop }}"
-          name="{{ prop.displayName }} radio"
-          [checked]="label === prop.cegDefault"
+          id="{{ formGroup.label }}-{{ formField.name }}-{{ desktop }}"
+          name="{{ formGroup.label }}"
+          [checked]="formField.defaultValue"
         />
         <span class="e-radio__mark"></span>
         <span class="e-radio__label">
-          {{ label }}
+          {{ formField.name }}
         </span>
       </label>
     </div>
 
     <!--Toggle-->
     <div
-      *ngIf="prop.cegFormType === 'toggle'"
+      *ngIf="formGroup.type === 'toggle' && (formGroup | visibleFields: formStates)"
       [ngClass]="{
-        'ceg-filter-margin': i !== props.length - 1,
-        'ceg-hidden': prop.cegTypeDependency && !typeDependencyExistsToggle(prop)
+        'ceg-filter-margin': i !== formGroupList.length - 1
       }"
     >
-      <label class="e-form-field__label">{{ prop.displayName }}</label>
-      <label class="e-toggle" (change)="updateToggleCheckboxProp(prop, prop.cegOption)">
-        <input *ngIf="prop.cegDefault === 'true'" class="e-toggle__input" type="checkbox" checked />
-        <input *ngIf="prop.cegDefault === 'false'" class="e-toggle__input" type="checkbox" />
+      <label class="e-form-field__label">{{ formGroup.label }}</label>
+      <label
+        class="e-toggle"
+        (change)="onInputValueChange(formGroup, $event); updateToggleCheckboxProp(formGroup)"
+      >
+        <input
+          *ngIf="formGroup.defaultValue === 'true'"
+          class="e-toggle__input"
+          type="checkbox"
+          checked
+          id="{{ formGroup.propName }}-{{ desktop }}"
+        />
+        <input
+          *ngIf="formGroup.defaultValue === 'false'"
+          class="e-toggle__input"
+          type="checkbox"
+          id="{{ formGroup.propName }}-{{ desktop }}"
+        />
         <span class="e-toggle__slider"></span>
       </label>
     </div>
 
     <!--Checkbox-->
     <div
-      *ngIf="prop.cegFormType === 'checkbox'"
+      *ngIf="formGroup.type === 'checkbox'"
       [ngClass]="{
-        'ceg-filter-margin': i !== props.length - 1,
-        'ceg-hidden': prop.cegTypeDependency && prop.cegTypeDependency !== selectedType.toLowerCase()
+        'ceg-filter-margin': i !== formGroupList.length - 1
       }"
     >
-      <div
-        *ngFor="let checkbox of checkboxGroups | keyvalue; let k = index"
-        [ngClass]="{ 'ceg-filter-margin': i !== props.length - 1 }"
-      >
-        <label class="e-form-field__label">{{ checkbox.key }}</label>
-        <div [ngClass]="{ 'ceg-filter-margin': k !== checkboxesLength - 1 }">
-          <div
-            *ngFor="let checkbox of checkbox.value"
-            [ngClass]="{ 'ceg-hidden': checkbox.cegTypeDependency && !typeDependencyExists(checkbox) }"
-          >
-            <label
-              class="e-checkbox e-checkbox--sm"
-              for="{{ checkbox.attribute }}-checkbox-{{ desktop }}"
-              (change)="updateToggleCheckboxProp(checkbox, checkbox.cegOption)"
-            >
-              <input
-                type="checkbox"
-                id="{{ checkbox.attribute }}-checkbox-{{ desktop }}"
-                name="{{ checkbox.attribute }} checkbox-{{ desktop }}"
-              />
-              <span class="e-checkbox__mark"></span>
-              <span class="e-checkbox__label">{{ checkbox.displayName }}</span>
-            </label>
-          </div>
-        </div>
+      <label class="e-form-field__label">{{ formGroup.label }}</label>
+      <div *ngFor="let formField of formGroup.formGroupOptions">
+        <label
+          class="e-checkbox e-checkbox--sm"
+          for="{{ formField.propName }}-{{ desktop }}"
+          (change)="onInputValueChange(formField, $event); updateToggleCheckboxProp(formGroup, formField)"
+          *ngIf="formField | visibleFields: formStates"
+        >
+          <input
+            *ngIf="formField.defaultValue"
+            type="checkbox"
+            id="{{ formField.propName }}-{{ desktop }}"
+            name="{{ formGroup.label }}"
+            checked
+          />
+          <input
+            *ngIf="!formField.defaultValue"
+            type="checkbox"
+            id="{{ formField.propName }}-{{ desktop }}"
+            name="{{ formGroup.label }}"
+          />
+          <span class="e-checkbox__mark"></span>
+          <span class="e-checkbox__label">{{ formField.name }}</span>
+        </label>
       </div>
     </div>
 
     <!--Counter-->
     <div
-      *ngIf="prop.cegFormType === 'counter'"
+      *ngIf="formGroup.type === 'counter'"
       [ngClass]="{
-        'ceg-filter-margin': i !== props.length - 1,
-        'ceg-hidden': prop.cegTypeDependency && prop.cegTypeDependency !== selectedType.toLowerCase()
+        'ceg-filter-margin': i !== formGroupList.length - 1
       }"
     >
-      <label class="e-form-field__label">{{ prop.displayName }}</label>
+      <label class="e-form-field__label">{{ formGroup.label }}</label>
       <div class="counter">
         <button
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-mr-8"
-          [disabled]="counterNumber === prop.cegCounterMin"
-          (click)="updateCounterProp(prop, -prop.cegStepValue)"
+          [disabled]="counterNumber === formGroup.counterMin"
+          (click)="updateCounterProp(formGroup, -formGroup.counterStepValue)"
           type="button"
         >
           <span class="e-btn__icon">
             <i
               class="e-icon e-icon--subtract_circle"
-              [ngClass]="{ 'e-icon--color-disabled': counterNumber === prop.cegCounterMin }"
+              [ngClass]="{ 'e-icon--color-disabled': counterNumber === formGroup.counterMin }"
             ></i>
             <i class="e-icon e-icon e-icon--subtract_circle-filled-color"></i>
           </span>
         </button>
         <span
           class="counter__number e-text-md"
-          [ngClass]="{ small: prop.cegCounterMax < 10 }"
+          [ngClass]="{ small: formGroup.counterMax < 10 }"
           *ngIf="counterNumber !== undefined"
         >
-          {{ counterNumber }}{{ prop.cegCounterType }}
+          {{ counterNumber }}{{ formGroup.counterType }}
         </span>
         <span
           class="counter__number e-text-md"
-          [ngClass]="{ small: prop.cegCounterMax < 10 }"
+          [ngClass]="{ small: formGroup.counterMax < 10 }"
           *ngIf="counterNumber === undefined"
         >
-          {{ prop.cegDefault }}{{ prop.cegCounterType }}
+          {{ formGroup.defaultValue }}{{ formGroup.counterType }}
         </span>
         <button
           class="e-btn e-btn--icon e-btn--circled e-btn--sm e-ml-8"
-          [disabled]="counterNumber === prop.cegCounterMax"
-          (click)="updateCounterProp(prop, prop.cegStepValue)"
+          [disabled]="counterNumber === formGroup.counterMax"
+          (click)="updateCounterProp(formGroup, formGroup.counterStepValue)"
           type="button"
         >
           <span class="e-btn__icon">
             <i
               class="e-icon e-icon--add_circle"
-              [ngClass]="{ 'e-icon--color-disabled': counterNumber === prop.cegCounterMax }"
+              [ngClass]="{ 'e-icon--color-disabled': counterNumber === formGroup.counterMax }"
             ></i>
             <i class="e-icon e-icon e-icon--add_circle-filled-color"></i>
           </span>

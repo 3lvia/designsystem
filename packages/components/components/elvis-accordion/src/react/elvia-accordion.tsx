@@ -96,11 +96,11 @@ const AccordionButton = styled.button<AccordionButton>`
 
   i {
     margin-left: ${(props: { openLabel: string; closeLabel: string }) => {
-    if (props.openLabel !== undefined || props.closeLabel !== undefined) {
-      return '8px;';
-    }
-    return '0px;';
-  }};
+      if (props.openLabel !== undefined || props.closeLabel !== undefined) {
+        return '8px;';
+      }
+      return '0px;';
+    }};
     border: none;
     border-radius: 50%;
     background-size: contain;
@@ -113,7 +113,7 @@ const AccordionButton = styled.button<AccordionButton>`
     width: ${(props: { size: AccordionSize }) => (props.size === 'small' ? '16px' : '24px')};
     transition: transform 300ms;
     transform: ${(props: { isContentOpen: boolean }) =>
-    (props.isContentOpen && ' rotate(180deg)') || (props.isContentOpen === false && ' rotate(0deg)')};
+      (props.isContentOpen && ' rotate(180deg)') || (props.isContentOpen === false && ' rotate(0deg)')};
   }
 `;
 
@@ -253,7 +253,12 @@ const Accordion: FC<AccordionProps> = ({
     <span ref={accordionRef}>
       <AccordionArea aria-expanded={contentOpen}>
         {type === 'overflow' ? (
-          <AccordionContent isContentOpen={contentOpen} type={type} size={size}>
+          <AccordionContent
+            isContentOpen={contentOpen}
+            type={type}
+            size={size}
+            data-testid="accordion-content-overflow"
+          >
             {content && <div>{content}</div>}
             {!content && <div ref={accordionText} />}
           </AccordionContent>
@@ -265,13 +270,19 @@ const Accordion: FC<AccordionProps> = ({
             closeLabel={closeLabel ? closeLabel : ''}
             size={size}
             onClick={() => setContentOpen((contentOpen) => !contentOpen)}
+            data-testid="accordion-button-label"
           >
             {!contentOpen ? openLabel : closeLabel}
             <i></i>
           </AccordionButton>
         </AccordionButtonArea>
         {type === 'normal' ? (
-          <AccordionContent isContentOpen={contentOpen} type={type} size={size}>
+          <AccordionContent
+            isContentOpen={contentOpen}
+            type={type}
+            size={size}
+            data-testid="accordion-content-normal"
+          >
             {content && <div>{content}</div>}
             {!content && <div ref={accordionText} />}
           </AccordionContent>

@@ -107,14 +107,13 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
 
   getTabs(): any[] {
     const tabs = [];
-
     if (this.codeAngular !== '') {
       tabs.push('Angular');
     }
     if (this.codeReact !== '') {
       tabs.push('React');
     }
-    if (this.codeVue !== '') {
+    if (this.codeVue !== '' && this.codeVue !== undefined) {
       tabs.push('Vue');
     }
     if (this.codeNative !== '') {
