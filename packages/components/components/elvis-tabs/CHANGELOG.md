@@ -1,5 +1,9 @@
 # Elvia Tabs Changelog
 
+## 1.1.4 (06.12.21)
+
+- Added unit tests for tabs
+
 ## 1.1.3 (30.11.21)
 
 - Web component wrapper fix
