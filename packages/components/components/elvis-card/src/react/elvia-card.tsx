@@ -220,8 +220,6 @@ const Card: FC<CardProps> = ({
   maxWidth = maxWidth ? Math.min(maxWidth, globalMaxWidth) : globalMaxWidth;
 
   const cardIcon = useRef<HTMLDivElement>(null);
-  const cardDescription = useRef<HTMLDivElement>(null);
-  const cardLabel = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!webcomponent) {
@@ -231,14 +229,6 @@ const Card: FC<CardProps> = ({
     if (cardIcon.current && webcomponent.getSlot('icon')) {
       cardIcon.current.innerHTML = '';
       cardIcon.current.appendChild(webcomponent.getSlot('icon'));
-    }
-    if (cardDescription.current && webcomponent.getSlot('description')) {
-      cardDescription.current.innerHTML = '';
-      cardDescription.current.appendChild(webcomponent.getSlot('description'));
-    }
-    if (cardLabel.current && webcomponent.getSlot('label')) {
-      cardLabel.current.innerHTML = '';
-      cardLabel.current.appendChild(webcomponent.getSlot('label'));
     }
   }, [webcomponent]);
 
@@ -267,19 +257,9 @@ const Card: FC<CardProps> = ({
             {label}
           </CardLabel>
         )}
-        {!label && (
-          <CardLabel shape={shape} data-testid="card-label">
-            <div ref={cardLabel}></div>
-          </CardLabel>
-        )}
         {description && (
           <CardDescription shape={shape} type={type} data-testid="card-description">
             {description}
-          </CardDescription>
-        )}
-        {!description && (
-          <CardDescription shape={shape} type={type} data-testid="card-description">
-            <div ref={cardDescription}></div>
           </CardDescription>
         )}
         {type === 'detail' && (
