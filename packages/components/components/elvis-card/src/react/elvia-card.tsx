@@ -5,25 +5,27 @@ import { getColor } from '@elvia/elvis-colors';
 
 type CardType = 'simple' | 'detail';
 type CardShape = 'square' | 'circle';
-type BorderColor = 'green' | 'blue-berry' | 'red' | 'orange';
+type BorderColor = 'green' | 'blueBerry' | 'red' | 'orange';
 
 // 100 * (height / width) of desired aspect ratio
 const simpleSquareAspectRatio = 100 * (128 / 152);
 const simpleCircleAspectRatio = 100 * (100 / 100);
 const detailAspectRatio = 100 * (144 / 299);
 
-const minWidth = 112;
-const maxWidth = 400;
+const globalMinWidth = 112;
+const globalMaxWidth = 400;
 
 export interface CardProps {
   label?: string;
   description?: string;
-  icon: string | HTMLElement;
+  icon?: string | HTMLElement;
   borderColor?: BorderColor;
-  cardType: CardType;
-  cardShape: CardShape;
+  type: CardType;
+  shape: CardShape;
   isInverted: boolean;
   width: string;
+  minWidth?: number;
+  maxWidth?: number;
   webcomponent: any;
 }
 
@@ -34,7 +36,7 @@ const colors = {
   elviaGrey10: getColor('grey-10'),
   elviaGrey05: getColor('grey-05'),
   green: getColor('green'),
-  'blue-berry': getColor('blue-berry'),
+  blueBerry: getColor('blue-berry'),
   red: getColor('red'),
   orange: getColor('orange'),
 };
@@ -48,13 +50,19 @@ const typography = {
   textMicro: ElviaTypography['text-micro'],
 };
 
-const decideCardSize = (cardType: CardType, cardShape: CardShape, width: string) => {
-  if (cardType === 'simple' && cardShape === 'square') {
+const decideCardSize = (
+  type: CardType,
+  shape: CardShape,
+  width: string,
+  minWidth: number,
+  maxWidth: number,
+) => {
+  if (type === 'simple' && shape === 'square') {
     return `
       width: ${width};
       min-height: ${minWidth * (simpleSquareAspectRatio / 100)}px;
       padding-top: min(${simpleSquareAspectRatio}%, ${(maxWidth * simpleSquareAspectRatio) / 100}px);`;
-  } else if (cardType === 'simple' && cardShape === 'circle') {
+  } else if (type === 'simple' && shape === 'circle') {
     return `
       width: ${width};
       min-height: ${minWidth * (simpleCircleAspectRatio / 100)}px;
@@ -68,10 +76,12 @@ const decideCardSize = (cardType: CardType, cardShape: CardShape, width: string)
 };
 
 type CardAreaProps = {
-  cardShape: CardShape;
-  cardType: CardType;
+  shape: CardShape;
+  type: CardType;
   isInverted: boolean;
   width: string;
+  minWidth: number;
+  maxWidth: number;
 };
 
 const CardArea = styled.div<CardAreaProps>`
@@ -81,28 +91,32 @@ const CardArea = styled.div<CardAreaProps>`
   overflow: hidden;
   box-sizing: border-box;
 
-  min-width: ${minWidth}px;
-  max-width: ${maxWidth}px;
+  min-width: ${(props: { minWidth: number }) => props.minWidth}px;
+  max-width: ${(props: { maxWidth: number }) => props.maxWidth}px;
   padding: 1px;
-  ${(props: { cardType: CardType; cardShape: CardShape; width: string }) =>
-    decideCardSize(props.cardType, props.cardShape, props.width)}
-  border-radius: ${(props: { cardShape: CardShape }) => (props.cardShape === 'square' ? '8px' : '50%')};
-  border: ${(props: { cardShape: CardShape; isInverted: boolean }) =>
-    props.cardShape === 'square' && !props.isInverted
+  ${(props: { type: CardType; shape: CardShape; width: string; minWidth: number; maxWidth: number }) =>
+    decideCardSize(props.type, props.shape, props.width, props.minWidth, props.maxWidth)}
+  border-radius: ${(props: { shape: CardShape }) => (props.shape === 'square' ? '8px' : '50%')};
+  border: ${(props: { shape: CardShape; isInverted: boolean }) =>
+    props.shape === 'square' && !props.isInverted
       ? `1px solid ${colors.elviaGrey10}`
-      : props.cardShape === 'square' && props.isInverted
+      : props.shape === 'square' && props.isInverted
       ? `1px solid ${colors.elviaGrey05}`
       : '1px solid transparent'};
 
   &:hover {
     border: 2px solid ${colors.elviaCharge};
     padding: 0;
-    padding-top: ${(props: { cardType: CardType; cardShape: CardShape }) =>
-      props.cardType === 'simple' && props.cardShape === 'square'
-        ? `calc(min(${simpleSquareAspectRatio}%, ${(maxWidth * simpleSquareAspectRatio) / 100}px) - 1px)`
-        : props.cardType === 'simple' && props.cardShape === 'circle'
-        ? `calc(min(${simpleCircleAspectRatio}%, ${(maxWidth * simpleCircleAspectRatio) / 100}px) - 1px)`
-        : `calc(min(${detailAspectRatio}%, ${(maxWidth * detailAspectRatio) / 100}px) - 1px)`};
+    padding-top: ${(props: { type: CardType; shape: CardShape; maxWidth: number }) =>
+      props.type === 'simple' && props.shape === 'square'
+        ? `calc(min(${simpleSquareAspectRatio}%, ${
+            (props.maxWidth * simpleSquareAspectRatio) / 100
+          }px) - 1px)`
+        : props.type === 'simple' && props.shape === 'circle'
+        ? `calc(min(${simpleCircleAspectRatio}%, ${
+            (props.maxWidth * simpleCircleAspectRatio) / 100
+          }px) - 1px)`
+        : `calc(min(${detailAspectRatio}%, ${(props.maxWidth * detailAspectRatio) / 100}px) - 1px)`};
   }
 `;
 
@@ -122,26 +136,26 @@ const CardContent = styled.div`
 `;
 
 type CardLabelProps = {
-  cardShape: CardShape;
+  shape: CardShape;
 };
 
 const CardLabel = styled.div<CardLabelProps>`
-  ${(props: { cardShape: CardShape }) =>
-    props.cardShape === 'square' ? typography.textSmStrong : typography.textMdStrong};
+  ${(props: { shape: CardShape }) =>
+    props.shape === 'square' ? typography.textSmStrong : typography.textMdStrong};
   text-align: center;
   white-space: nowrap;
   color: ${colors.elviaBlack};
 `;
 
 type CardDescriptionProps = {
-  cardShape: CardShape;
-  cardType: CardType;
+  shape: CardShape;
+  type: CardType;
 };
 
 const CardDescription = styled.div<CardDescriptionProps>`
-  ${(props: { cardShape: CardShape; cardType: CardType }) =>
-    props.cardShape === 'square' && props.cardType === 'simple' ? typography.textMicro : typography.textSm};
-  text-align: ${(props: { cardType: CardType }) => (props.cardType === 'simple' ? 'center' : 'left')};
+  ${(props: { shape: CardShape; type: CardType }) =>
+    props.shape === 'square' && props.type === 'simple' ? typography.textMicro : typography.textSm};
+  text-align: ${(props: { type: CardType }) => (props.type === 'simple' ? 'center' : 'left')};
   color: ${colors.elviaBlack};
 `;
 
@@ -189,13 +203,18 @@ const Card: FC<CardProps> = ({
   description,
   icon,
   borderColor,
-  cardType = 'simple',
-  cardShape = 'square',
+  type = 'simple',
+  shape = 'square',
   isInverted,
   width = '100%',
+  minWidth,
+  maxWidth,
   webcomponent,
 }) => {
-  if (cardType === 'detail') cardShape = 'square';
+  if (type === 'detail') shape = 'square';
+
+  minWidth = minWidth ? Math.max(minWidth, globalMinWidth) : globalMinWidth;
+  maxWidth = maxWidth ? Math.min(maxWidth, globalMaxWidth) : globalMaxWidth;
 
   const cardIcon = useRef<HTMLDivElement>(null);
   const cardDescription = useRef<HTMLDivElement>(null);
@@ -222,16 +241,18 @@ const Card: FC<CardProps> = ({
 
   return (
     <CardArea
-      cardType={cardType}
-      cardShape={cardShape}
+      type={type}
+      shape={shape}
       isInverted={isInverted}
       width={width}
+      minWidth={minWidth}
+      maxWidth={maxWidth}
       data-testid="card-area"
     >
+      {shape === 'square' && (
+        <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
+      )}
       <CardContent data-testid="card-content">
-        {cardShape === 'square' && (
-          <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
-        )}
         {icon && <CardIcon data-testid="card-icon">{icon}</CardIcon>}
         {!icon && (
           <CardIcon data-testid="card-icon">
@@ -239,26 +260,26 @@ const Card: FC<CardProps> = ({
           </CardIcon>
         )}
         {label && (
-          <CardLabel cardShape={cardShape} data-testid="card-label">
+          <CardLabel shape={shape} data-testid="card-label">
             {label}
           </CardLabel>
         )}
         {!label && (
-          <CardLabel cardShape={cardShape} data-testid="card-label">
+          <CardLabel shape={shape} data-testid="card-label">
             <div ref={cardLabel}></div>
           </CardLabel>
         )}
         {description && (
-          <CardDescription cardShape={cardShape} cardType={cardType} data-testid="card-description">
+          <CardDescription shape={shape} type={type} data-testid="card-description">
             {description}
           </CardDescription>
         )}
         {!description && (
-          <CardDescription cardShape={cardShape} cardType={cardType} data-testid="card-description">
+          <CardDescription shape={shape} type={type} data-testid="card-description">
             <div ref={cardDescription}></div>
           </CardDescription>
         )}
-        {cardType === 'detail' && (
+        {type === 'detail' && (
           <CardDetailHoverArrow data-testid="card-detail-hover-arrow">
             <i className="e-icon e-icon--arrow_long_right-bold e-icon--lg"></i>
           </CardDetailHoverArrow>

@@ -11,9 +11,11 @@
 <div class="e-grid">
   <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
     <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-      <elvia-card [label]="'Label1'" [description]="'description1'">
-        <div slot="icon">918</div>
-      </elvia-card>
+      <a [routerLink]="['/components/card']">
+        <elvia-card [label]="'Label1'" [description]="'description1'">
+          <div slot="icon">918</div>
+        </elvia-card>
+      </a>
     </div>
     <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
       <elvia-card [label]="'Label2'" [borderColor]="'red'">
@@ -95,18 +97,21 @@
 <div class="e-grid">
   <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
-      <elvia-card
-        [label]="'Label5'"
-        [description]="
-          'Cras dolor leo, sagittis a bibendum id, hendrerit eget elit. Proin pellentesque libero non dapibus sagittis. 
+      <a [routerLink]="['/components/card']">
+        <elvia-card
+          [label]="'Label5'"
+          [description]="
+            'Cras dolor leo, sagittis a bibendum id, hendrerit eget elit. Proin pellentesque libero non dapibus sagittis. 
       Pellentesque fringilla risus sit amet. '
-        "
-        [borderColor]="'orange'"
-        [cardType]="'detail'"
-      ></elvia-card>
+          "
+          [borderColor]="'orange'"
+          [type]="'detail'"
+          [minWidth]="272"
+        ></elvia-card>
+      </a>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
-      <elvia-card [label]="'Label6'" [borderColor]="'orange'" [cardType]="'detail'">
+      <elvia-card [label]="'Label6'" [borderColor]="'orange'" [type]="'detail'" [minWidth]="272">
         <div slot="description">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tortor mattis odio pretium viverra
           sed dapibus lectus.
@@ -114,7 +119,7 @@
       </elvia-card>
     </div>
     <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
-      <elvia-card [label]="'Label8'" [borderColor]="'orange'" [cardType]="'detail'">
+      <elvia-card [label]="'Label8'" [borderColor]="'orange'" [type]="'detail'" [minWidth]="272">
         <div slot="description">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tortor mattis odio pretium viverra
           sed dapibus lectus.
@@ -129,7 +134,8 @@
       Pellentesque fringilla risus sit amet. '
         "
         [borderColor]="'orange'"
-        [cardType]="'detail'"
+        [type]="'detail'"
+        [minWidth]="272"
       ></elvia-card>
     </div>
   </div>
@@ -139,42 +145,42 @@
 <div class="e-grid">
   <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
-      <elvia-card [label]="'Label'" [cardShape]="'circle'" [description]="'Circle'">
+      <elvia-card [label]="'Label'" [shape]="'circle'" [description]="'Circle'">
         <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
       </elvia-card>
     </div>
     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
-      <elvia-card [label]="'Label'" [cardShape]="'circle'" [description]="'Circle'">
+      <elvia-card [label]="'Label'" [shape]="'circle'" [description]="'Circle'">
         <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
       </elvia-card>
     </div>
     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
-      <elvia-card [label]="'Label'" [cardShape]="'circle'" [description]="'Circle'">
+      <elvia-card [label]="'Label'" [shape]="'circle'" [description]="'Circle'">
         <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
       </elvia-card>
     </div>
     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
-      <elvia-card [label]="'Label'" [cardShape]="'circle'" [description]="'Circle'">
+      <elvia-card [label]="'Label'" [shape]="'circle'" [description]="'Circle'">
         <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
       </elvia-card>
     </div>
     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
-      <elvia-card [label]="'Label'" [cardShape]="'circle'" [description]="'Circle'">
+      <elvia-card [label]="'Label'" [shape]="'circle'" [description]="'Circle'">
         <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
       </elvia-card>
     </div>
     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
-      <elvia-card [label]="'Label'" [cardShape]="'circle'" [description]="'Circle'">
+      <elvia-card [label]="'Label'" [shape]="'circle'" [description]="'Circle'">
         <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
       </elvia-card>
     </div>
     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
-      <elvia-card [label]="'Label'" [cardShape]="'circle'" [description]="'Circle'">
+      <elvia-card [label]="'Label'" [shape]="'circle'" [description]="'Circle'">
         <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
       </elvia-card>
     </div>
     <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
-      <elvia-card [label]="'Label'" [cardShape]="'circle'" [description]="'Circle'">
+      <elvia-card [label]="'Label'" [shape]="'circle'" [description]="'Circle'">
         <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
       </elvia-card>
     </div>
@@ -207,10 +213,10 @@
       Pellentesque fringilla risus sit amet. '
     "
     [borderColor]="'orange'"
-    [cardType]="'detail'"
+    [type]="'detail'"
     [width]="'299px'"
   ></elvia-card>
-  <elvia-card [label]="'Label6'" [cardType]="'detail'" [borderColor]="'green'" [width]="'299px'">
+  <elvia-card [label]="'Label6'" [type]="'detail'" [borderColor]="'green'" [width]="'299px'">
     <div slot="description">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tortor mattis odio pretium viverra sed
       dapibus lectus.
@@ -220,7 +226,7 @@
     [label]="'Label7'"
     [description]="'description7'"
     [borderColor]="'green'"
-    [cardShape]="'circle'"
+    [shape]="'circle'"
     [width]="'158px'"
   >
     <i slot="icon" class="e-icon e-icon--renewable_energy-color e-icon--md"></i>
@@ -229,7 +235,7 @@
     [label]="'Label8'"
     [description]="'description8'"
     [borderColor]="'blue-berry'"
-    [cardShape]="'circle'"
+    [shape]="'circle'"
     [width]="'134px'"
   ></elvia-card>
 </div>
@@ -264,11 +270,11 @@
       Pellentesque fringilla risus sit amet. '
     "
     [borderColor]="'orange'"
-    [cardType]="'detail'"
-    [cardShape]="'circle'"
+    [type]="'detail'"
+    [shape]="'circle'"
     [isInverted]="true"
   ></elvia-card>
-  <elvia-card [label]="'Label6'" [cardType]="'detail'" [isInverted]="true" [borderColor]="'green'">
+  <elvia-card [label]="'Label6'" [type]="'detail'" [isInverted]="true" [borderColor]="'green'">
     <div slot="description">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tortor mattis odio pretium viverra sed
       dapibus lectus.
@@ -278,7 +284,7 @@
     [label]="'Label7'"
     [description]="'description7'"
     [borderColor]="'green'"
-    [cardShape]="'circle'"
+    [shape]="'circle'"
     [isInverted]="true"
   >
     <i slot="icon" class="e-icon e-icon--renewable_energy-color e-icon--md"></i>
@@ -287,7 +293,7 @@
     [label]="'Label8'"
     [description]="'description8'"
     [borderColor]="'blue-berry'"
-    [cardShape]="'circle'"
+    [shape]="'circle'"
     [isInverted]="true"
   ></elvia-card>
 </div>
