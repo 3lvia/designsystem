@@ -106,8 +106,6 @@ const CardArea = styled.div<CardAreaProps>`
   }
 `;
 
-// type CardContentProps = {};
-
 const CardContent = styled.div`
   position: absolute;
   display: flex;
@@ -188,6 +186,7 @@ const Card: FC<CardProps> = ({
 
   const cardIcon = useRef<HTMLDivElement>(null);
   const cardDescription = useRef<HTMLDivElement>(null);
+  const cardLabel = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!webcomponent) {
@@ -202,26 +201,47 @@ const Card: FC<CardProps> = ({
       cardDescription.current.innerHTML = '';
       cardDescription.current.appendChild(webcomponent.getSlot('description'));
     }
+    if (cardLabel.current && webcomponent.getSlot('label')) {
+      cardLabel.current.innerHTML = '';
+      cardLabel.current.appendChild(webcomponent.getSlot('label'));
+    }
   }, [webcomponent]);
 
   return (
-    <CardArea cardType={cardType} cardShape={cardShape} isInverted={isInverted} width={width}>
-      <CardContent>
-        {cardShape === 'square' && <CardColoredLine borderColor={borderColor}></CardColoredLine>}
-        {icon && <CardIcon>{icon}</CardIcon>}
+    <CardArea
+      cardType={cardType}
+      cardShape={cardShape}
+      isInverted={isInverted}
+      width={width}
+      data-testid="card-area"
+    >
+      <CardContent data-testid="card-content">
+        {cardShape === 'square' && (
+          <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
+        )}
+        {icon && <CardIcon data-testid="card-icon">{icon}</CardIcon>}
         {!icon && (
-          <CardIcon>
+          <CardIcon data-testid="card-icon">
             <div ref={cardIcon}></div>
           </CardIcon>
         )}
-        {label && <CardLabel cardShape={cardShape}>{label}</CardLabel>}
+        {label && (
+          <CardLabel cardShape={cardShape} data-testid="card-label">
+            {label}
+          </CardLabel>
+        )}
+        {!label && (
+          <CardLabel cardShape={cardShape} data-testid="card-label">
+            <div ref={cardLabel}></div>
+          </CardLabel>
+        )}
         {description && (
-          <CardDescription cardShape={cardShape} cardType={cardType}>
+          <CardDescription cardShape={cardShape} cardType={cardType} data-testid="card-description">
             {description}
           </CardDescription>
         )}
         {!description && (
-          <CardDescription cardShape={cardShape} cardType={cardType}>
+          <CardDescription cardShape={cardShape} cardType={cardType} data-testid="card-description">
             <div ref={cardDescription}></div>
           </CardDescription>
         )}
