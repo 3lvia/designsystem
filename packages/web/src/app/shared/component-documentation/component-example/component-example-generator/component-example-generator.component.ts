@@ -280,8 +280,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     this.selectedType = selected.label;
     let newValue;
     if (!icon || icon === undefined) {
-      this.updateSelected('type', newValue, 'type');
       newValue = selected.label.toLowerCase();
+      this.updateSelected('type', newValue, 'type');
     } else {
       newValue = selected.label;
       this.updateSelected('iconName', newValue, 'iconName');

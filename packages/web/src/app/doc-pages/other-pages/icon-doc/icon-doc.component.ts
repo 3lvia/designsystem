@@ -4,7 +4,7 @@ import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
 import * as ElvisIcons from '@elvia/elvis-assets-icons';
-import { accordionData } from './icon.data';
+import { elvisIconData } from './icon.data';
 import { exampleContents } from 'src/app/shared/example-contents';
 
 @Component({
@@ -18,7 +18,7 @@ export class IconDocComponent implements OnInit {
   @ViewChild('icons') icons: ElementRef;
   @Output() clickOutside: EventEmitter<any> = new EventEmitter();
 
-  componentData = accordionData;
+  componentData = elvisIconData;
   examples = exampleContents;
 
   visibleIcons = [];

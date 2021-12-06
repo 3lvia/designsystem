@@ -1,4 +1,4 @@
-const accordionData = {
+const elvisIconData = {
   name: 'elvia-icon',
   elementNameW: 'elvia-icon',
   elementNameR: 'ElvisIcon',
@@ -13,11 +13,20 @@ const accordionData = {
     //   cegFormType: 'type',
     //   cegOptions: ['addCircle', 'box', 'flag', 'homeColor', 'power', 'smartCity'],
     // },
+    // isRequired: false,
+    // type: '“normal” | “overflow”',
+    // description: 'Variants of accordion',
+    // default: '"normal"',
+    // cegDisplayName: 'Types',
+    // cegDefault: 0,
+    // cegType: 'string',
+    // cegFormType: 'type',
+    // cegOptions: ['normal', 'overflow'],
 
     iconName: {
-      isRequired: false,
-      type: '"addCircle" | box',
-      description: 'Variants of accordion',
+      isRequired: true,
+      type: '"addCircle" | "box"',
+      description: 'Available icons from eliva/elvis-assets-icons package',
       default: '"addCircle"',
       cegDisplayName: 'IconNames',
       cegDefault: 0,
@@ -77,4 +86,4 @@ const accordionData = {
 `,
 };
 
-export { accordionData };
+export { elvisIconData };
