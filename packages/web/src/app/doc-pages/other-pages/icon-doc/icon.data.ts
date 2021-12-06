@@ -3,26 +3,39 @@ const accordionData = {
   elementNameW: 'elvia-icon',
   elementNameR: 'ElvisIcon',
   attributes: {
+    // iconName: {
+    //   isRequired: true,
+    //   type: '"addCircle" | "box" | "flag" | "homeColor" | "power" | "smartCity"',
+    //   description: '',
+    //   default: '"addCircle"',
+    //   displayName: 'IconName',
+    //   cegType: 'string',
+    //   cegFormType: 'type',
+    //   cegOptions: ['addCircle', 'box', 'flag', 'homeColor', 'power', 'smartCity'],
+    // },
+
     iconName: {
-      isRequired: true,
-      type: '"addCircle" | "box" | "flag" | "homeColor" | "power" | "smartCity"',
-      description: '',
+      isRequired: false,
+      type: '"addCircle" | box',
+      description: 'Variants of accordion',
       default: '"addCircle"',
-      displayName: 'IconName',
+      cegDisplayName: 'IconNames',
+      cegDefault: 0,
       cegType: 'string',
-      cegFormType: 'type',
-      cegOptions: ['addCircle', 'box', 'flag', 'homeColor', 'power', 'smartCity'],
+      cegFormType: 'iconName',
+      cegOptions: ['addCircle', 'box'],
     },
-    iconColor: {
-      isRequired: true,
-      type: '"addCircle" | "box" | "flag" | "homeColor" | "power" | "smartCity"',
-      description: '',
-      default: '"addCircle"',
-      displayName: 'IconName',
-      cegType: 'string',
-      cegFormType: 'type',
-      cegOptions: ['addCircle', 'box', 'flag', 'homeColor', 'power', 'smartCity'],
-    },
+
+    // iconColor: {
+    //   isRequired: true,
+    //   type: '"addCircle" | "box" | "flag" | "homeColor" | "power" | "smartCity"',
+    //   description: '',
+    //   default: '"addCircle"',
+    //   displayName: 'IconName',
+    //   cegType: 'string',
+    //   cegFormType: 'type',
+    //   cegOptions: ['addCircle', 'box', 'flag', 'homeColor', 'power', 'smartCity'],
+    // },
     iconSize: {
       isRequired: false,
       type: `string`,
@@ -48,21 +61,19 @@ const accordionData = {
   iconName={"addCircle"}
 ></ElvisIcon>
 `,
-  codeAngular: `<elvia-accordion
+  codeAngular: `<elvia-icon
   [iconName]="'addCircle'"
 >
 
-</elvia-accordion>
+</elvia-icon>
 `,
   codeNativeHTML: `<elvia-icon
-   iconName="addCircle"
+  iconName="addCircle"
   id="example-elvia-icon"
 >
-</elvia-accordion>
+</elvia-icon>
 `,
   codeNativeScript: `  const elvisIcon = document.getElementById('example-elvia-icon');
-//   elvisIcon.setProps({openLabel: 'Show' });
-//   elvisIcon.setProps({closeLabel: 'Hide'});
 `,
 };
 

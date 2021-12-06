@@ -38,6 +38,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   formGroupList = [];
   allCheckboxes = [];
 
+  isIconDropdown = false;
   typeOptions = [];
   selectedType;
   defaultType;
@@ -202,6 +203,16 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           this.typeOptions.push(newType);
         });
         this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault]);
+      } else if (formType === 'iconName') {
+        this.isIconDropdown = true;
+        this.selectedType = prop.cegOptions[0];
+        this.defaultType = prop.cegDefault;
+        prop.cegOptions.forEach((option) => {
+          const newType = { value: option, label: option };
+          this.typeOptions.push(newType);
+        });
+
+        this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault]);
       } else if (formType === 'background') {
         this.bgObj = {
           propName: propKey,
@@ -265,10 +276,16 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     this.cegService.updateCodeNative(this.codeNative);
   }
 
-  updateSelectedType(selected: { value: any; label: any }): void {
+  updateSelectedType(selected: { value: any; label: any }, icon?: boolean): void {
     this.selectedType = selected.label;
-    const newValue = selected.label.toLowerCase();
-    this.updateSelected('type', newValue, 'type');
+    let newValue;
+    if (!icon || icon === undefined) {
+      this.updateSelected('type', newValue, 'type');
+      newValue = selected.label.toLowerCase();
+    } else {
+      newValue = selected.label;
+      this.updateSelected('iconName', newValue, 'iconName');
+    }
   }
 
   updateSelectedTypeCustom(selected: { value: any; label: any }): void {

@@ -1,6 +1,7 @@
 export interface CegFormGroup {
   label: string;
   type: string;
+  iconName?: string;
   defaultValue?: string | number;
   propValue?: string;
   propName?: string;
