@@ -89,11 +89,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
   } else {
     breadcrumb = DesktopBreadcrumb();
   }
-  return (
-    <StyledBreadcrumb.EWCBreadcrumbWrapper data-testid="breadcrumb-wrapper">
-      {breadcrumb}
-    </StyledBreadcrumb.EWCBreadcrumbWrapper>
-  );
+  return <StyledBreadcrumb.EWCBreadcrumbWrapper>{breadcrumb}</StyledBreadcrumb.EWCBreadcrumbWrapper>;
 };
 
 export default Breadcrumb;
