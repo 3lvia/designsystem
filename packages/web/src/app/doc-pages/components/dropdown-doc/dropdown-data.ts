@@ -110,6 +110,17 @@ export const dropdownData = {
   (valueOnChange)="updateSelectedList($event.detail.value)"
 ></elvia-dropdown>
 `,
+  codeVue: `<elvia-dropdown
+  :options="[
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' }
+  ]"
+  :label="'Label'"
+  :placeholder="'Placeholder'"
+  @value-on-change="updateSelectedList($event.detail.value)"
+></elvia-dropdown>
+`,
   codeNativeHTML: `<elvia-dropdown
   id="example-elvia-dropdown"
 ></elvia-dropdown>

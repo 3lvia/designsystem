@@ -62,6 +62,18 @@ const radioFilterData = {
   (valueOnChange)="updateSelectedFilter($event.detail.value)"
 ></elvia-radio-filter>
 `,
+  codeVue: `<elvia-radio-filter 
+  :items="[
+    { label: 'All', value: 'all'},
+    { label: 'Read', value: 'read'},
+    { label: 'Unread', value: 'unread'},
+  ]"
+  :value="'read'"
+  :name="'readRadioFilters'"
+  :ariaLabel="'{value} filtrering valgt'"
+  @value-on-change="updateSelectedFilter($event.detail.value)"
+></elvia-radio-filter>
+`,
   codeNativeHTML: `<elvia-radio-filter 
   id="example-elvia-radio-filter"
 ></elvia-radio-filter>

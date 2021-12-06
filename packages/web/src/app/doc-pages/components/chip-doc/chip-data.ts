@@ -83,6 +83,14 @@ export const chipData = {
 >
 </elvia-chip>
   `,
+  codeVue: `<elvia-chip 
+  :value="2022" 
+  :selected="true"
+  :ariaLabel="'Fjern filtrering for 2022'" 
+  @on-delete="handleOnDelete($event.detail.value)"
+>
+</elvia-chip>
+  `,
   codeNativeHTML: `<elvia-chip 
   id="example-elvia-chip"
   selected="true"

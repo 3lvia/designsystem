@@ -60,6 +60,18 @@ export const tabsData = {
     `']" 
   (valueOnChange)="handleOnChange(event.detail.value)"
 ></elvia-tabs>`,
+  codeVue:
+    `<elvia-tabs 
+  :value="0"
+  :items="['` +
+    exampleContents.words.random['eng-GBR'][0] +
+    `', '` +
+    exampleContents.words.random['eng-GBR'][1] +
+    `', '` +
+    exampleContents.words.random['eng-GBR'][2] +
+    `']" 
+  @value-on-change="handleOnChange(event.detail.value)"
+></elvia-tabs>`,
   codeNativeHTML: `<elvia-tabs 
   id="example-elvia-tabs"
 ></elvia-tabs>
