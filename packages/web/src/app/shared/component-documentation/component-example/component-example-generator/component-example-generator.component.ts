@@ -2,6 +2,7 @@ import { AfterContentInit, Component, Input, OnDestroy, OnInit, ViewChild } from
 import { DomSanitizer } from '@angular/platform-browser';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../example-code.service';
+import * as ElvisIcons from '@elvia/elvis-assets-icons';
 
 @Component({
   selector: 'app-component-example-generator',
@@ -39,6 +40,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   allCheckboxes = [];
 
   isIconDropdown = false;
+  iconsOptions = [];
+  selectedIcon;
+  defaultIcon;
+
   typeOptions = [];
   selectedType;
   defaultType;
@@ -205,14 +210,12 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault]);
       } else if (formType === 'iconName') {
         this.isIconDropdown = true;
-        this.selectedType = prop.cegOptions[0];
-        this.defaultType = prop.cegDefault;
-        prop.cegOptions.forEach((option) => {
-          const newType = { value: option, label: option };
-          this.typeOptions.push(newType);
-        });
-
-        this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault]);
+        this.selectedIcon = this.iconsOptions[0];
+        this.defaultIcon = { value: 'addCircle', label: 'addCircle' };
+        for (const icon in ElvisIcons) {
+          this.iconsOptions.push({ value: icon, label: icon });
+        }
+        this.addToFormStates(propKey, this.iconsOptions[0].value);
       } else if (formType === 'background') {
         this.bgObj = {
           propName: propKey,

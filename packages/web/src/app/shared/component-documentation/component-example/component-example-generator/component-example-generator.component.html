@@ -13,10 +13,10 @@
       ></elvia-dropdown>
     </div>
 
-    <div *ngIf="typeOptions.length !== 0 && !typesData && isIconDropdown" class="ceg-dropdown">
+    <div *ngIf="iconsOptions.length !== 0 && !typesData && isIconDropdown" class="ceg-dropdown">
       <elvia-dropdown
-        [options]="typeOptions"
-        [defaultValue]="typeOptions[defaultType]"
+        [options]="iconsOptions"
+        [defaultValue]="defaultIcon"
         label="IconName"
         (valueOnChange)="updateFormStates('iconName', $event); updateSelectedType($event.detail.value, true)"
       ></elvia-dropdown>

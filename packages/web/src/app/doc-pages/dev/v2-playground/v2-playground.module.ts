@@ -38,4 +38,4 @@ import '@elvia/elvis-radio-filter';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [v2PlaygroundComponent],
 })
-export class v2PlaygroundModule { }
+export class v2PlaygroundModule {}
