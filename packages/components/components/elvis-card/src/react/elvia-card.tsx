@@ -17,7 +17,7 @@ const globalMinWidth = 112;
 const globalMaxWidth = 400;
 
 export interface CardProps {
-  icon: string;
+  icon?: string;
   title: string;
   description?: string;
   borderColor?: BorderColor;
@@ -217,8 +217,6 @@ const CardDetailHoverArrow = styled.div`
   position: absolute;
   right: 16px;
   bottom: 16px;
-  width: 40px;
-  height: 40px;
   background: ${colors.elviaWhite};
   display: none;
   ${CardArea}:hover & {
@@ -302,7 +300,7 @@ const Card: FC<CardProps> = ({
         )}
         {type === 'detail' && (
           <CardDetailHoverArrow data-testid="card-detail-hover-arrow">
-            <i className="e-icon e-icon--arrow_long_right-bold e-icon--md"></i>
+            <i className="e-icon e-icon--arrow_long_right-bold e-icon--sm"></i>
           </CardDetailHoverArrow>
         )}
         {type === 'detail' && label && (

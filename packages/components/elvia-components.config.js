@@ -239,7 +239,7 @@ module.exports = [
     name: 'elvis-card',
     elementName: 'elvia-card',
     attributes: [
-      { name: 'icon', type: 'string', propType: 'string' },
+      { name: 'icon', type: 'string', propType: 'string | undefined' },
       { name: 'title', type: 'string', propType: 'string' },
       { name: 'description', type: 'string', propType: 'string | undefined' },
       { name: 'borderColor', type: 'string', propType: 'string | undefined' },
