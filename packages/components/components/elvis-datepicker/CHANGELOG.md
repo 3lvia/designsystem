@@ -2,7 +2,7 @@
 
 ## 2.0.2 (08.12.21)
 
-- Added unit tests for box
+- Added unit tests for datepicker
 
 ## 2.0.1 (30.11.21)
 
