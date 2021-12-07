@@ -1,3 +1,8 @@
 #!/bin/bash
-echo 'Building project'
-node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --source-map=false --progress=false
+cd packages/components
+echo 'Components - Building components...'
+yarn build
+cd ../..
+cd packages/web 
+echo 'Components - Building web...'
+yarn build
