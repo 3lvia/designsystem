@@ -249,7 +249,6 @@ module.exports = [
       { name: 'width', type: 'string', propType: 'string' },
       { name: 'minWidth', type: 'number', propType: 'number | undefined' },
       { name: 'maxWidth', type: 'number', propType: 'number | undefined' },
-      { name: 'isLocked', type: 'boolean', propType: 'boolean' },
       { name: 'label', type: 'string', propType: 'string | undefined' },
     ],
     reactName: 'Card',

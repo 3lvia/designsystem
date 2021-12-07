@@ -165,8 +165,8 @@ const CardTitle = styled.div<CardTitleProps>`
   ${(props: { shape: CardShape }) =>
     props.shape === 'square' ? typography.textSmStrong : typography.textMdStrong};
   text-align: ${(props: { type: CardType }) => (props.type === 'simple' ? 'center' : 'left')};
-  white-space: nowrap;
   color: ${colors.elviaBlack};
+  white-space: nowrap;
 `;
 
 type CardDescriptionProps = {
@@ -184,8 +184,8 @@ const CardDescription = styled.div<CardDescriptionProps>`
 const CardIcon = styled.div`
   ${typography.titleLg}
   text-align: center;
-  white-space: nowrap;
   color: ${colors.elviaBlack};
+  white-space: nowrap;
 `;
 
 type CardColoredLineProps = {
@@ -209,8 +209,6 @@ const CardColoredLine = styled.div<CardColoredLineProps>`
 
 const CardLabel = styled.div`
   margin-top: 16px;
-  ${CardArea}:hover & {
-  }
 `;
 
 const CardDetailHoverArrow = styled.div`
@@ -245,7 +243,6 @@ const Card: FC<CardProps> = ({
   width = '100%',
   minWidth,
   maxWidth,
-  isLocked = false,
   label,
   webcomponent,
 }) => {
@@ -255,6 +252,7 @@ const Card: FC<CardProps> = ({
   maxWidth = maxWidth ? Math.min(maxWidth, globalMaxWidth) : globalMaxWidth;
 
   const cardIcon = useRef<HTMLDivElement>(null);
+  const cardMarker = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!webcomponent) {
@@ -264,6 +262,10 @@ const Card: FC<CardProps> = ({
     if (cardIcon.current && webcomponent.getSlot('icon')) {
       cardIcon.current.innerHTML = '';
       cardIcon.current.appendChild(webcomponent.getSlot('icon'));
+    }
+    if (cardMarker.current && webcomponent.getSlot('marker')) {
+      cardMarker.current.innerHTML = '';
+      cardMarker.current.appendChild(webcomponent.getSlot('marker'));
     }
   }, [webcomponent]);
 
@@ -308,11 +310,9 @@ const Card: FC<CardProps> = ({
             <label className="e-label">{label}</label>
           </CardLabel>
         )}
-        {isLocked && (
-          <CardLockIcon data-testid="card-lock-icon">
-            <i className="e-icon e-icon--lock e-icon--xs"></i>
-          </CardLockIcon>
-        )}
+        <CardLockIcon data-testid="card-marker">
+          <div ref={cardMarker}></div>
+        </CardLockIcon>
       </CardContent>
     </CardArea>
   );
