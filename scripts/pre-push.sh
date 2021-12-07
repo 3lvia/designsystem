@@ -4,5 +4,5 @@ echo 'Components - Building components...'
 yarn build
 cd ../..
 cd packages/web 
-echo 'Components - Building web...'
+echo 'Web - Building web...'
 yarn build
