@@ -253,7 +253,12 @@ const Accordion: FC<AccordionProps> = ({
     <span ref={accordionRef}>
       <AccordionArea aria-expanded={contentOpen}>
         {type === 'overflow' ? (
-          <AccordionContent isContentOpen={contentOpen} type={type} size={size}>
+          <AccordionContent
+            isContentOpen={contentOpen}
+            type={type}
+            size={size}
+            data-testid="accordion-content-overflow"
+          >
             {content && <div>{content}</div>}
             {!content && <div ref={accordionText} />}
           </AccordionContent>
@@ -265,13 +270,19 @@ const Accordion: FC<AccordionProps> = ({
             closeLabel={closeLabel ? closeLabel : ''}
             size={size}
             onClick={() => setContentOpen((contentOpen) => !contentOpen)}
+            data-testid="accordion-button-label"
           >
             {!contentOpen ? openLabel : closeLabel}
             <i></i>
           </AccordionButton>
         </AccordionButtonArea>
         {type === 'normal' ? (
-          <AccordionContent isContentOpen={contentOpen} type={type} size={size}>
+          <AccordionContent
+            isContentOpen={contentOpen}
+            type={type}
+            size={size}
+            data-testid="accordion-content-normal"
+          >
             {content && <div>{content}</div>}
             {!content && <div ref={accordionText} />}
           </AccordionContent>

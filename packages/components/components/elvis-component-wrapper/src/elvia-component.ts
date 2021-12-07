@@ -183,8 +183,8 @@ export class ElvisComponentWrapper extends HTMLElement {
     );
   }
 
-  // Dispatches event for any type of event
-  private onEvent(callbackName: string, propName?: string) {
+  // Dispatches event
+  private dispatchNewEvent(callbackName: string, propName?: string) {
     this.dispatchEvent(
       new CustomEvent(callbackName, {
         bubbles: false,
@@ -194,7 +194,14 @@ export class ElvisComponentWrapper extends HTMLElement {
     );
   }
 
-  // Dispatches event and data for 'OnChange' events
+  // Any type of event
+  private onEvent(callbackName: string, propName?: string) {
+    const kebabCaseCallbackName = callbackName.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+    this.dispatchNewEvent(callbackName, propName);
+    this.dispatchNewEvent(kebabCaseCallbackName, propName);
+  }
+
+  // 'OnChange' events
   private onChangeEvent(propName: string) {
     if (this._data[propName.toLowerCase()] === undefined) {
       this.logWarnMessage(
@@ -203,13 +210,10 @@ export class ElvisComponentWrapper extends HTMLElement {
       );
       return;
     }
-    this.dispatchEvent(
-      new CustomEvent(propName + 'OnChange', {
-        bubbles: false,
-        composed: true,
-        detail: { value: this._data[propName.toLowerCase()] },
-      }),
-    );
+    const callbackName = propName + 'OnChange';
+    const kebabCaseCallbackName = callbackName.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+    this.dispatchNewEvent(callbackName, propName);
+    this.dispatchNewEvent(kebabCaseCallbackName, propName);
   }
 
   private storeAllSlots(): void {

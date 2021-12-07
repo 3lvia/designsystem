@@ -1,5 +1,11 @@
 # Elvia Box Changelog
 
+## 1.1.6 (03.12.21)
+
+### Patch
+
+- Added unit tests for box
+
 ## 1.1.5 (30.11.21)
 
 ### Patch

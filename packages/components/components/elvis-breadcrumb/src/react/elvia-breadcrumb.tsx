@@ -56,14 +56,24 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
     const desktopBreadcrumbs = breadcrumbs.map((breadcrumb, index) => {
       if (index == childrenLength - 1) {
         return (
-          <StyledBreadcrumb.EWCBreadcrumbLink href={breadcrumb.url} key={index} isClickable={false}>
+          <StyledBreadcrumb.EWCBreadcrumbLink
+            href={breadcrumb.url}
+            key={index}
+            isClickable={false}
+            data-testid="breadcrumb-desktop-last-link"
+          >
             {breadcrumb.title}
           </StyledBreadcrumb.EWCBreadcrumbLink>
         );
       }
       return (
         <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper key={index}>
-          <StyledBreadcrumb.EWCBreadcrumbLink key={undefined} href={breadcrumb.url} isClickable={true}>
+          <StyledBreadcrumb.EWCBreadcrumbLink
+            key={undefined}
+            href={breadcrumb.url}
+            isClickable={true}
+            data-testid="breadcrumb-desktop-multiple-links"
+          >
             {breadcrumb.title}
           </StyledBreadcrumb.EWCBreadcrumbLink>
           <StyledBreadcrumb.EWCBreadcrumbIconRight />

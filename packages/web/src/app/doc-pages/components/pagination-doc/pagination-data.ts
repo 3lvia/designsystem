@@ -7,7 +7,7 @@ export const paginationData = {
       isRequired: false,
       type: 'object',
       description: 'Value range of currently selected pagination, {start: number, end: number}',
-      displayName: 'value',
+      cegDisplayName: 'value',
       default: '{ start: undefined, end: undefined }',
     },
     numberOfElements: {
@@ -78,6 +78,10 @@ export const paginationData = {
   codeAngular: `<elvia-pagination
   [numberOfElements]="156"
   (valueOnChange)="handleOnChange(event.detail.value)">
+</elvia-pagination>`,
+  codeVue: `<elvia-pagination
+  :numberOfElements="156"
+  @value-on-change="handleOnChange(event.detail.value)">
 </elvia-pagination>`,
   codeNativeHTML: `<elvia-pagination
   id="example-elvia-pagination"

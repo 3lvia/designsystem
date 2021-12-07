@@ -22,31 +22,31 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   @Input() overflowX;
   @Input() alignedTop = false;
   @Input() height = '340';
-  enableFilters = true;
-  typeHasFilter = false;
+
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
-  codeNativeSub: Subscription;
   codeVueSub: Subscription;
-  hasCegAttributes = false;
-  props = [];
-  modifiers = [];
-  typeObject;
-  backgroundObject;
-  hasCheckboxes = false;
-  typeOptions = [];
-  bgOptions = [];
-  selectedBg;
-  selectedType;
+  codeNativeSub: Subscription;
   codeReact;
-  codeNative;
   codeAngular;
   codeVue;
-  hasTopFilters = false;
-  typeDefault;
-  bgDefault;
-  bgList = [];
+  codeNative;
   dynamicCode;
+
+  enableFilters = true;
+  hasSideFilters = true;
+  formGroupList = [];
+  allCheckboxes = [];
+
+  typeOptions = [];
+  selectedType;
+  defaultType;
+  bgOptions = [];
+  bgObj;
+  selectedBg;
+  defaultBg;
+
+  topFilterFormStates = {};
 
   constructor(private cegService: ExampleCodeService, private domSanitizer: DomSanitizer) {}
 
@@ -72,7 +72,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       this.updateCegFrame(code);
     });
 
-    this.initializeComponentProps();
+    this.initializeSideFilterFormGroups();
+    this.initializeTopFilters();
   }
 
   ngAfterContentInit(): void {
@@ -84,17 +85,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       if (this.componentData.codeNativeScript) {
         setTimeout(() => eval(this.componentData.codeNativeScript), 200);
       }
-      if (!this.componentData.attributes) {
-        return;
-      }
-      Object.keys(this.componentData.attributes).forEach((attribute) => {
-        Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
-          if (value === 'cegFormType') {
-            this.hasCegAttributes = true;
-            return;
-          }
-        });
-      });
     }, 200);
   }
 
@@ -113,75 +103,151 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
-  initializeComponentProps(): void {
-    if (!this.componentData.attributes) {
-      return;
-    }
-    Object.keys(this.componentData.attributes).forEach((attribute) => {
-      Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
-        if (value === 'cegFormType') {
-          const newObject = {
-            attribute,
-            ...this.componentData.attributes[attribute],
+  initializeSideFilterFormGroups(): void {
+    const props = this.componentData.attributes;
+    Object.keys(props).forEach((propKey) => {
+      const prop = props[propKey];
+      const formType = prop.cegFormType;
+      if (formType === 'radio') {
+        const formGroupOptions = [];
+        let formOption;
+        prop.cegOptions.forEach((option) => {
+          formOption = {
+            name: option,
+            defaultValue: prop.cegDefault === option,
           };
-          if (this.componentData.attributes[attribute].cegFormType === 'checkbox') {
-            this.hasCheckboxes = true;
-            this.modifiers.push(newObject);
-          } else if (this.componentData.attributes[attribute].cegFormType === 'type') {
-            this.typeObject = newObject;
-            this.selectedType = newObject.cegOptions[0];
-            this.hasTopFilters = true;
-            this.typeDefault = this.componentData.attributes[attribute].cegDefault;
-          } else if (this.componentData.attributes[attribute].cegFormType === 'background') {
-            this.backgroundObject = newObject;
-            this.bgDefault = newObject.cegDefault;
-            this.selectedBg = newObject.cegDefault;
-            this.hasTopFilters = true;
-          } else {
-            this.props.push(newObject);
-          }
-        }
-      });
-      if (
-        this.bgList.filter((object) => object === this.backgroundObject).length < 1 &&
-        this.backgroundObject
-      ) {
-        this.bgList.push(this.backgroundObject);
+          formGroupOptions.push(formOption);
+        });
+        const formGroupObject = {
+          label: prop.cegDisplayName,
+          type: formType,
+          formGroupOptions,
+          propName: propKey,
+          dependency: prop.cegDependency,
+          defaultValue: prop.cegDefault,
+        };
+        this.formGroupList.push(formGroupObject);
+      } else if (formType === 'checkbox') {
+        const checkboxObject = {
+          propName: propKey,
+          ...prop,
+        };
+        this.allCheckboxes.push(checkboxObject);
+      } else if (formType === 'toggle') {
+        const formGroupObject = {
+          label: prop.cegDisplayName,
+          type: formType,
+          defaultValue: prop.cegDefault,
+          propValue: prop.cegOption,
+          propName: propKey,
+          propSlot: prop.cegSlot,
+          dependency: prop.cegDependency,
+        };
+        this.formGroupList.push(formGroupObject);
+      } else if (formType === 'counter') {
+        const formGroupObject = {
+          label: prop.cegDisplayName,
+          type: formType,
+          defaultValue: prop.cegDefault,
+          propValue: prop.cegPropValue,
+          propName: propKey,
+          propSlot: prop.cegSlot,
+          counterMax: prop.cegCounterMax,
+          counterMin: prop.cegCounterMin,
+          counterStepValue: prop.cegStepValue,
+          counterType: prop.cegCounterType,
+          dependency: prop.cegDependency,
+        };
+        this.formGroupList.push(formGroupObject);
       }
     });
-    if (this.hasCheckboxes) {
-      const modifiersObject = {
-        cegFormType: 'checkbox',
-        modifiers: this.modifiers,
+    this.initializeCheckboxFormGroups();
+  }
+
+  initializeCheckboxFormGroups(): void {
+    const checkboxGroups = this.sortCheckboxesByGroup(this.allCheckboxes);
+    Object.keys(checkboxGroups).forEach((checkboxGroupKey) => {
+      const formGroupOptions = [];
+      checkboxGroups[checkboxGroupKey].forEach((checkbox) => {
+        const formOption = {
+          name: checkbox.cegDisplayName,
+          defaultValue: false,
+          propName: checkbox.propName,
+          propValue: checkbox.cegOption,
+          dependency: checkbox.cegDependency,
+          type: 'checkbox',
+        };
+        formGroupOptions.push(formOption);
+      });
+      const checkboxFormGroupObject = {
+        label: checkboxGroupKey,
+        type: 'checkbox',
+        formGroupOptions,
       };
-      this.props.push(modifiersObject);
-    }
-    if (this.typeObject) {
-      let i = 0;
-      this.typeObject.cegOptions.forEach((option) => {
-        const label = option.charAt(0).toUpperCase() + option.slice(1);
-        const newType = { value: i, label: label };
-        this.typeOptions.push(newType);
-        i++;
-      });
-    }
+      this.formGroupList.push(checkboxFormGroupObject);
+    });
+  }
+
+  initializeTopFilters(): void {
+    const props = this.componentData.attributes;
+    Object.keys(props).forEach((propKey) => {
+      const prop = props[propKey];
+      const formType = prop.cegFormType;
+      if (formType === 'type') {
+        this.selectedType = prop.cegOptions[0];
+        this.defaultType = prop.cegDefault;
+        prop.cegOptions.forEach((option, index) => {
+          const label = option.charAt(0).toUpperCase() + option.slice(1);
+          const newType = { value: index, label: label };
+          this.typeOptions.push(newType);
+        });
+        this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault]);
+      } else if (formType === 'background') {
+        this.bgObj = {
+          propName: propKey,
+          ...prop,
+        };
+        this.selectedBg = prop.cegDefault;
+        this.defaultBg = prop.cegDefault;
+        this.bgObj.cegOptions.forEach((option, index) => {
+          const type = { value: index, label: option };
+          this.bgOptions.push(type);
+        });
+        this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault]);
+      }
+    });
+
     if (this.typesData) {
-      let i = 0;
-      this.typesData.forEach((option) => {
+      this.typesData.forEach((option, index) => {
         const label = option.type.charAt(0).toUpperCase() + option.type.slice(1);
-        const newType = { value: i, label: label };
+        const newType = { value: index, label: label };
         this.typeOptions.push(newType);
-        i++;
       });
     }
-    if (this.backgroundObject) {
-      let i = 0;
-      this.backgroundObject.cegOptions.forEach((option) => {
-        const type = { value: i, label: option };
-        this.bgOptions.push(type);
-        i++;
-      });
-    }
+  }
+
+  sortCheckboxesByGroup(checkboxGroups: any[]): [] {
+    const checkboxArrays = checkboxGroups.reduce((obj, value) => {
+      const key = `${value.cegDisplayGroup}`;
+      if (obj[key] == null) {
+        obj[key] = [];
+      }
+      obj[key].push(value);
+      return obj;
+    }, {});
+    return checkboxArrays;
+  }
+
+  updateFormStates(propName: string, event: CustomEvent): void {
+    const value = event.detail.value.label;
+    this.addToFormStates(propName, value);
+  }
+
+  addToFormStates(key: string, value: string | number | boolean): void {
+    this.topFilterFormStates = {
+      ...this.topFilterFormStates,
+      [key]: value.toString().toLowerCase(),
+    };
   }
 
   updateCegFrame(code: string): void {
@@ -191,6 +257,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     }
   }
 
+  // CEG code-view updates
   updateProps(): void {
     this.cegService.updateCodeReact(this.codeReact);
     this.cegService.updateCodeAngular(this.codeAngular);
@@ -200,10 +267,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   updateSelectedType(selected: { value: any; label: any }): void {
     this.selectedType = selected.label;
-    const attribute = this.typeObject.attribute;
     const newValue = selected.label.toLowerCase();
-    const cegType = this.typeObject.cegType;
-    this.updateSelected(attribute, newValue, cegType);
+    this.updateSelected('type', newValue, 'type');
   }
 
   updateSelectedTypeCustom(selected: { value: any; label: any }): void {
@@ -212,7 +277,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         this.selectedType = selected.label;
         this.codeReact = element.codeReact;
         this.codeAngular = element.codeAngular;
-        this.codeVue = element.codeVue;
+        this.codeVue = element.codeVue ? element.codeVue : '';
         this.codeNative = element.codeNativeHTML;
       }
     });
@@ -227,76 +292,40 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
 
   updateSelectedBg(selected: { value: any; label: any }): void {
     this.selectedBg = selected.label;
-    this.bgList.forEach((bg) => {
-      if (bg.cegOptions[bg.cegDefault] === selected.label) {
-        this.updateSelected(bg.attribute, bg.default, 'boolean');
-      } else {
-        this.updateSelected(bg.attribute, '' + (bg.default == 'false'), 'boolean');
-      }
-    });
+    if (this.bgObj.cegOptions[this.bgObj.cegDefault] === selected.label) {
+      this.updateSelected(this.bgObj.propName, this.bgObj.default, 'boolean');
+    } else {
+      this.updateSelected(this.bgObj.propName, '' + (this.bgObj.default == 'false'), 'boolean');
+    }
   }
 
   updateSelected(attr: string, newValue: string, cegType: string): void {
-    const elementNameR = this.componentData.elementNameR;
-    const elementNameW = this.componentData.elementNameW;
+    const elNameR = this.componentData.elementNameR;
+    const elNameW = this.componentData.elementNameW;
     if (this.codeAngular.includes(attr)) {
-      // Replaces old value for prop
       this.codeReact = this.cegService.replaceOldProp(this.codeReact, attr, newValue, 'react', cegType);
       this.codeAngular = this.cegService.replaceOldProp(this.codeAngular, attr, newValue, 'angular', cegType);
-      this.codeVue = this.cegService.replaceOldProp(this.codeVue, attr, newValue, 'vue', cegType);
       this.codeNative = this.cegService.replaceOldProp(this.codeNative, attr, newValue, 'native', cegType);
     } else {
-      // Adds new prop to code
-      this.codeReact = this.cegService.addNewProp(
-        this.codeReact,
-        attr,
-        newValue,
-        'react',
-        cegType,
-        elementNameR,
-      );
+      this.codeReact = this.cegService.addNewProp(this.codeReact, attr, newValue, 'react', cegType, elNameR);
       this.codeAngular = this.cegService.addNewProp(
         this.codeAngular,
         attr,
         newValue,
         'angular',
         cegType,
-        elementNameW,
+        elNameW,
       );
-      this.codeVue = this.cegService.addNewProp(this.codeVue, attr, newValue, 'vue', cegType, elementNameW);
+      this.codeVue = this.cegService.addNewProp(this.codeVue, attr, newValue, 'vue', cegType, elNameW);
       this.codeNative = this.cegService.addNewProp(
         this.codeNative,
         attr,
         newValue,
         'native',
         cegType,
-        elementNameW,
+        elNameW,
       );
     }
     this.updateProps();
-  }
-
-  getDependentFilter(): boolean {
-    const hasDependenFilter = this.props.find((prop) => {
-      return prop.cegTypeDependency;
-    });
-    if (!this.selectedType || !hasDependenFilter) {
-      return true;
-    }
-    return this.props.find((prop) => {
-      if (typeof prop.cegTypeDependency === 'string') {
-        return (
-          prop.cegTypeDependency && this.selectedType.toLowerCase() === prop.cegTypeDependency.toLowerCase()
-        );
-      } else {
-        prop.cegTypeDependency.forEach((dep) => {
-          return (
-            prop.cegTypeDependency &&
-            prop.cegTypeDependency &&
-            this.selectedType.toLowerCase() === dep.toLowerCase()
-          );
-        });
-      }
-    });
   }
 }

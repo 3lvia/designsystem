@@ -15,8 +15,8 @@
 
     <h3>Box</h3>
     <elvia-box :hasBorder="true">
-      <template slot="title">Title</template>
-      <template v-slot:content>Webcomponentent content for the box component</template>
+      <div slot="title">Title</div>
+      <div slot="content">Webcomponentent content for the box component</div>
     </elvia-box>
 
     <h3>Breadcrumb</h3>
@@ -26,7 +26,7 @@
     <elvia-carousel
       :elements="elements"
       :hideArrows="true"
-      @valueOnChange="carouselValue = $event.detail.value"
+      @value-on-change="carouselValue = $event.detail.value"
     ></elvia-carousel>
 
     <h3>Chip</h3>
@@ -36,7 +36,7 @@
         :color="chip.color"
         :ariaLabel="'Fjern filtrering for ' + chip.value"
         :disabled="chip.disabled"
-        @onDelete="handleOnDelete"
+        @on-delete="handleOnDelete($event)"
       ></elvia-chip>
     </div>
 
@@ -44,7 +44,7 @@
     <elvia-datepicker
       :isCompact="true"
       label="Fra dato"
-      @valueOnChange="onFromDateChange"
+      @value-on-change="onFromDateChange($event)"
     ></elvia-datepicker>
 
     <h3>Divider</h3>
@@ -54,13 +54,14 @@
     <elvia-dropdown :defaultValue="defaultOption" :options="elviaOptions"></elvia-dropdown>
     
     <h3>Modal</h3>
-    <button @click="isModalShowing1 = !isModalShowing1">Hello</button>
+    <button class="e-btn" @click="isModalShowing1 = !isModalShowing1">Hello</button>
     <elvia-modal
       :isShowing="isModalShowing1"
       :title="'Redigere bidragsytere'"
-      @onHide="isModalShowing1 = !isModalShowing1"
+      :hasCloseBtn="true"
+      @on-hide="isModalShowing1 = !isModalShowing1"
     >
-      <div :v-slot="content">
+      <div slot="content">
         <div class="date-container">
           <elvia-datepicker :isCompact="true"></elvia-datepicker>
         </div>
@@ -81,10 +82,10 @@
 
     <h3>Popover</h3>
      <elvia-popover header="BankID" posX="right">
-      <template v-slot:trigger><button class="e-btn">Right top</button></template>
-      <template v-slot:content>
+      <div slot="trigger"><button class="e-btn">Right top</button></div>
+      <div slot="content">
         Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
-      </template>
+      </div>
     </elvia-popover>
 
     <h3>Progressbar</h3>
@@ -104,7 +105,7 @@
       :value="'read'"
       :name="'readRadioFilters'"
       :ariaLabel="'{value} filtrering valgt'"
-      @valueOnChange="updateSelectedFilter($event.detail.value)"
+      @value-on-change="updateSelectedFilter($event)"
     ></elvia-radio-filter>
 
     <h3>Tabs</h3>
@@ -112,9 +113,8 @@
       :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
       :value="1"
       :isInverted="false"
-      @valueOnChange="value = $event.detail.value"
+      @callback-name="value = $event.detail.value"
     ></elvia-tabs>
-    
   </div>
 </template>
 
@@ -166,7 +166,6 @@ export default {
         { value: 2022, color: 'green' },
         { value: 2023, color: 'red' },
         { value: 2024, color: 'blue' },
-        { value: 2025, color: 'purple', disabled: true },
       ],
       elements: [
         {
@@ -188,12 +187,13 @@ export default {
   },
   methods: {
     onFromDateChange: (event) => {
-      console.log('hello')
+      console.log('hello: ', event)
     },
     handleOnDelete: (event) => {
-      console.log(event);
-      const values = [...this.deletableChipsList];
-      deletableChipsList = values.filter((value) => value.value !== event);
+      console.log(event.detail.value);
+    },
+    updateSelectedFilter: (event) => {
+      console.log(event.detail.value);
     }
   }
 };

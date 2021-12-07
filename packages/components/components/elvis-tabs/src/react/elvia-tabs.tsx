@@ -116,7 +116,7 @@ const Tabs: FC<TabsProps> = ({ items, value = 0, isInverted, valueOnChange, webc
   });
 
   return (
-    <div className={tabsClasses} ref={tabsRef}>
+    <div className={tabsClasses} ref={tabsRef} data-testid="tabs-container">
       <div
         className={arrowLeftClasses}
         onClick={() => {

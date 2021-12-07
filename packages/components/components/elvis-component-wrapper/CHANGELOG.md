@@ -1,5 +1,11 @@
 # Elvia Component Wrapper Changelog
 
+## 2.1.7 (22.11.21)
+
+### Bug fix
+
+- Support for kebab-case events that will work in Vue 3
+
 ## 2.1.6 (22.11.21)
 
 ### Bug fix
