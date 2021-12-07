@@ -2,7 +2,7 @@ import Tabs from './elvia-tabs.tsx';
 import React from 'react';
 import { mount } from 'enzyme';
 
-describe('Elvis Accordion', () => {
+describe('Elvis Tabs', () => {
   let wrapper;
   let items = ['Oranges', 'Apples', 'Pears'];
   let tabsElements;
