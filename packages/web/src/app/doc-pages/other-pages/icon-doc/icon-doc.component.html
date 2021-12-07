@@ -285,7 +285,7 @@
     <ng-container ngProjectAs="sectionContent">
       <div>
         All Elvia icons are available through the @elvia/elvis package or CDN, but we also offer all elvia
-        icons as a seperate npm package
+        icons as a seperate npm package and as web/React component.
         <a class="e-link e-link--inline" href="https://www.npmjs.com/package/@elvia/elvis-assets-icons">
           @elvia/elvis-asseets-icons
         </a>
@@ -293,22 +293,6 @@
       </div>
       <app-component-subsection [sectionTitle]="'Methods'">
         <ng-container ngProjectAs="sectionContent">
-          <app-component-subsection [sectionTitle]="'Method 2: Elvis-icon component'">
-            <ng-container ngProjectAs="sectionContent">
-              <a href="https://www.npmjs.com/package/@elvia/elvis-icon" class="e-link">
-                Elvis-icon npm package
-              </a>
-              <p class="e-mb-0">
-                Icons are also accessible through our own icon component, as a web component or react
-                component.
-              </p>
-              <app-component-example-generator
-                [componentData]="componentData"
-                delayInnerHtml="true"
-              ></app-component-example-generator>
-            </ng-container>
-          </app-component-subsection>
-
           <app-component-subsubsection [sectionTitle]="'Method 1: Easiest'">
             <ng-container ngProjectAs="sectionContent">
               <a href="https://www.npmjs.com/package/@elvia/elvis" class="e-link">Elvis npm package</a>
@@ -316,11 +300,17 @@
                 Download the npm package and use Elvis.js from inside the npm package like this:
               </p>
               <p class="e-m-0 e-mt-16">
-                <app-component-example-code [codeHTML]="scriptCodeHTML"></app-component-example-code>
+                <app-component-example-code
+                  [noSubscriptions]="noSubs"
+                  [codeHTML]="scriptCodeHTML"
+                ></app-component-example-code>
               </p>
               <p class="e-mb-0">The icons can then be used like this:</p>
               <p class="e-m-0 e-mt-16">
-                <app-component-example-code [codeHTML]="iconExample"></app-component-example-code>
+                <app-component-example-code
+                  [noSubscriptions]="noSubs"
+                  [codeHTML]="iconExample"
+                ></app-component-example-code>
               </p>
               <p>
                 <strong>How it works:</strong>
@@ -331,7 +321,39 @@
             </ng-container>
           </app-component-subsubsection>
 
-          <app-component-subsubsection [sectionTitle]="'Method 2: Using JS Module / SVGs'">
+          <app-component-subsection [sectionTitle]="'Method 2: Elvis-icon component'">
+            <ng-container ngProjectAs="sectionContent">
+              <a href="https://www.npmjs.com/package/@elvia/elvis-icon" class="e-link">
+                Elvis-icon npm package
+              </a>
+              <p class="e-mb-0">
+                Icons are also accessible through our own icon component, as a custom element or react
+                component.
+              </p>
+              <app-component-example-generator
+                [componentData]="componentData"
+                delayInnerHtml="true"
+              ></app-component-example-generator>
+
+              <!--INSTALLATION-->
+              <app-component-section [sectionTitle]="'Installation'">
+                <ng-container ngProjectAs="sectionContent">
+                  <app-component-installation [componentData]="componentData"></app-component-installation>
+                </ng-container>
+              </app-component-section>
+
+              <!--PROPERTIES-->
+              <app-component-section [sectionTitle]="'Properties'">
+                <ng-container ngProjectAs="sectionContent">
+                  <app-component-properties-table
+                    [componentData]="componentData"
+                  ></app-component-properties-table>
+                </ng-container>
+              </app-component-section>
+            </ng-container>
+          </app-component-subsection>
+
+          <app-component-subsubsection [sectionTitle]="'Method 3: Using JS Module / SVGs'">
             <ng-container ngProjectAs="sectionContent">
               <a href="https://www.npmjs.com/package/@elvia/elvis-assets-icons" class="e-link">
                 Elvis-assets-icons npm package
@@ -341,7 +363,10 @@
                 within a JS module. Import the required icon individually where you need them:
               </div>
               <div class="e-mt-16">
-                <app-component-example-code [codeTS]="importCodeTS"></app-component-example-code>
+                <app-component-example-code
+                  [noSubscriptions]="noSubs"
+                  [codeTS]="importCodeTS"
+                ></app-component-example-code>
               </div>
               <ul class="e-list e-mt-16">
                 <li>

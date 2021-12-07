@@ -3,64 +3,40 @@ const elvisIconData = {
   elementNameW: 'elvia-icon',
   elementNameR: 'ElvisIcon',
   attributes: {
-    // iconName: {
-    //   isRequired: true,
-    //   type: '"addCircle" | "box" | "flag" | "homeColor" | "power" | "smartCity"',
-    //   description: '',
-    //   default: '"addCircle"',
-    //   displayName: 'IconName',
-    //   cegType: 'string',
-    //   cegFormType: 'type',
-    //   cegOptions: ['addCircle', 'box', 'flag', 'homeColor', 'power', 'smartCity'],
-    // },
-    // isRequired: false,
-    // type: '“normal” | “overflow”',
-    // description: 'Variants of accordion',
-    // default: '"normal"',
-    // cegDisplayName: 'Types',
-    // cegDefault: 0,
-    // cegType: 'string',
-    // cegFormType: 'type',
-    // cegOptions: ['normal', 'overflow'],
-
     iconName: {
       isRequired: true,
-      type: '"addCircle" | "box"',
-      description: 'Available icons from eliva/elvis-assets-icons package',
-      default: '"addCircle"',
+      type: 'string',
+      description: 'Available icons from eliva/elvis-assets-icons package, in camelCase',
+      default: '""',
       cegDisplayName: 'IconNames',
       cegDefault: 0,
       cegType: 'string',
       cegFormType: 'iconName',
       cegOptions: ['addCircle', 'box'],
     },
-
-    // iconColor: {
-    //   isRequired: true,
-    //   type: '"addCircle" | "box" | "flag" | "homeColor" | "power" | "smartCity"',
-    //   description: '',
-    //   default: '"addCircle"',
-    //   displayName: 'IconName',
-    //   cegType: 'string',
-    //   cegFormType: 'type',
-    //   cegOptions: ['addCircle', 'box', 'flag', 'homeColor', 'power', 'smartCity'],
-    // },
+    iconColor: {
+      isRequired: false,
+      type: 'string',
+      description: 'Color of icon, can be any color value like string, hex or rgba',
+      default: '',
+    },
     iconSize: {
       isRequired: false,
-      type: `string`,
-      description: `Size of icon`,
+      type: `"xxs" ... =>  "xxl"`,
+      description: `Standard size of icon, follows same sizing guide as css classes, e.g "xs" = 16px, "sm" = 24px `,
+      default: '"sm"',
     },
     iconDisplay: {
       isRequired: false,
-      type: `string`,
-      description: `Define display property of icon element to inline or block`,
+      type: `"inline" | "block"`,
+      description: `Define display property of icon element to be inline or block`,
+      default: '"inline"',
     },
     customSize: {
       isRequired: false,
-      description: 'Give the icon any valid size',
+      type: 'string',
+      description: 'Give the icon any valid css size property like 15px, 1em, 1.25rem',
       default: '',
-      displayName: 'position',
-      cegType: 'string',
     },
   },
   package: 'npm install @elvia/elvis-icon',
@@ -73,7 +49,6 @@ const elvisIconData = {
   codeAngular: `<elvia-icon
   [iconName]="'addCircle'"
 >
-
 </elvia-icon>
 `,
   codeNativeHTML: `<elvia-icon
@@ -82,7 +57,7 @@ const elvisIconData = {
 >
 </elvia-icon>
 `,
-  codeNativeScript: `  const elvisIcon = document.getElementById('example-elvia-icon');
+  codeNativeScript: `const elvisIcon = document.getElementById('example-elvia-icon');
 `,
 };
 

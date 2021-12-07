@@ -20,6 +20,7 @@ export class IconDocComponent implements OnInit {
 
   componentData = elvisIconData;
   examples = exampleContents;
+  noSubs = true;
 
   visibleIcons = [];
   allIcons = [];
