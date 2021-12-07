@@ -1,5 +1,9 @@
 # Elvia Date picker Changelog
 
+## 2.0.2 (08.12.21)
+
+- Added unit tests for box
+
 ## 2.0.1 (30.11.21)
 
 - Web component wrapper fix
