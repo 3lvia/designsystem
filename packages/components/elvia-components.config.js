@@ -297,7 +297,7 @@ module.exports = [
       { name: 'iconName', type: 'string', propType: 'string' },
       { name: 'iconColor', type: 'string', propType: 'string' },
       { name: 'iconSize', type: 'string', propType: 'string' },
-      { name: 'customSize', type: 'number', propType: 'number' },
+      { name: 'customSize', type: 'string', propType: 'string' },
       { name: 'iconDisplay', type: 'string', propType: 'string' },
     ],
     reactName: 'ElvisIcon',

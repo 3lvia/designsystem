@@ -3,9 +3,7 @@ import { Icon } from 'src/app/shared/icon.interface';
 import { getDocPagesNotFromCMS } from 'src/app/shared/doc-pages';
 import * as icons from '@elvia/elvis-assets-icons/config/icons.config.js';
 import { CopyToClipboardService } from 'src/app/core/services/copy-to-clipboard.service';
-import * as ElvisIcons from '@elvia/elvis-assets-icons';
 import { elvisIconData } from './icon.data';
-import { exampleContents } from 'src/app/shared/example-contents';
 
 @Component({
   selector: 'app-icon-doc',
@@ -19,7 +17,6 @@ export class IconDocComponent implements OnInit {
   @Output() clickOutside: EventEmitter<any> = new EventEmitter();
 
   componentData = elvisIconData;
-  examples = exampleContents;
   noSubs = true;
 
   visibleIcons = [];
@@ -73,56 +70,10 @@ export class IconDocComponent implements OnInit {
 
   term = '';
   IconClassList: Icon[] = [];
-  allELvisIcons = Object.keys(ElvisIcons);
-  currentIcon = this.allELvisIcons[0];
-  currentIconColor = '';
-  results = this.allELvisIcons;
-  showResults = false;
-
-  IconCode = '<div> <elvia-icon iconName="${this.currentIcon}"></elvia-icon></div>';
 
   constructor(private copyService: CopyToClipboardService) {}
 
   @HostListener('document:click', ['$event', '$event.target'])
-  // for autocomplete options when click on outside of options or input area
-  @HostListener('click', ['$event'])
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  onClickIconComp(event: any): void {
-    if (
-      event.target.id !== 'ChooseIcon' ||
-      (event.target.id !== 'iconOptions' && this.results.length === 0)
-    ) {
-      this.showResults = false;
-    }
-  }
-
-  onSearch(searchTerm: string): void {
-    this.results = this.allELvisIcons.filter((icon) =>
-      icon.toLocaleLowerCase().includes(searchTerm.toLocaleLowerCase()),
-    );
-
-    if (searchTerm.length === 0) {
-      this.showResults = false;
-    } else if (this.results.length === 0) {
-      this.showResults = false;
-    } else {
-      this.showResults = true;
-    }
-  }
-  // choose countrey from autocomplete options
-  SelectIcon(value: string): void {
-    this.currentIcon = value;
-    this.showResults = false;
-  }
-  // opens autocomplete options on click
-  onInputClick(): void {
-    if (this.results.length === 0) {
-      this.showResults = false;
-    } else {
-      this.showResults = true;
-    }
-  }
-
   onClick(event: MouseEvent, targetElement: HTMLElement): void {
     const alert = document.getElementById(this.latestIcon);
     const iconContainer = document.getElementById(this.latestIcon + '_container');
@@ -134,33 +85,6 @@ export class IconDocComponent implements OnInit {
     if (!alertClick && !iconContainerClick) {
       this.closeLastAlert(this.latestIcon);
     }
-  }
-
-  // convert string to words
-  toWords(input: string): Array<string> {
-    const regex =
-      /[A-Z\xC0-\xD6\xD8-\xDE]?[a-z\xDF-\xF6\xF8-\xFF]+|[A-Z\xC0-\xD6\xD8-\xDE]+(?![a-z\xDF-\xF6\xF8-\xFF])|\d+/g;
-    return input.match(regex);
-  }
-
-  // convert the input array to camel case
-  toCamelCase(inputArray: Array<string>): string {
-    let result = '';
-    for (let i = 0, len = inputArray.length; i < len; i++) {
-      const currentStr = inputArray[i];
-      let tempStr = currentStr.toLowerCase();
-      if (i != 0) {
-        // convert first letter to upper case (the word is in lowercase)
-        tempStr = tempStr.substr(0, 1).toUpperCase() + tempStr.substr(1);
-      }
-      result += tempStr;
-    }
-    return result;
-  }
-
-  toCamelCaseString(input: string): string {
-    const words = this.toWords(input);
-    return this.toCamelCase(words);
   }
 
   ngOnInit(): void {

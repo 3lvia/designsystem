@@ -2,7 +2,6 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IconDocComponent } from './icon-doc.component';
-import '@elvia/elvis-icon';
 import { ComponentExampleV1Module } from 'src/app/shared/component-documentation/component-example/component-example-v1/component-example-v1.module';
 import { ComponentHeaderModule } from 'src/app/shared/component-documentation/component-structure/component-header/component-header.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
@@ -13,10 +12,10 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { RouterModule } from '@angular/router';
+import '@elvia/elvis-icon';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
-import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 
 @NgModule({
   imports: [
@@ -35,7 +34,6 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     ComponentExampleGeneratorModule,
     ComponentPropertiesTableModule,
     ComponentInstallationModule,
-    WhenToUseModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   declarations: [IconDocComponent, IconSearchPipe],
