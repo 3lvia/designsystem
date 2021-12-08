@@ -222,7 +222,7 @@ const CardDetailHoverArrow = styled.div`
   }
 `;
 
-const CardLockIcon = styled.div`
+const CardMarker = styled.div`
   position: absolute;
   right: 18px;
   top: 16px;
@@ -310,9 +310,9 @@ const Card: FC<CardProps> = ({
             <label className="e-label">{label}</label>
           </CardLabel>
         )}
-        <CardLockIcon data-testid="card-marker">
+        <CardMarker data-testid="card-marker">
           <div ref={cardMarker}></div>
-        </CardLockIcon>
+        </CardMarker>
       </CardContent>
     </CardArea>
   );
