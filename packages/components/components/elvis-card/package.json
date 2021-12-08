@@ -9,10 +9,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "@elvia/elvis-component-wrapper": "^2.1.5",
+    "@elvia/elvis-component-wrapper": "^2.1.6",
     "@elvia/elvis-colors": "^1.1.0",
     "@elvia/elvis-typography": "^1.1.1",
-    "@elvia/elvis": "^7.13.4",
+    "@elvia/elvis-assets-icons": "^1.3.0",
     "styled-components": "^5.3.3"
   }
 }

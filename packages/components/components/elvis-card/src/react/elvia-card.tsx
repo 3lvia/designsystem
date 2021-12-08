@@ -2,6 +2,7 @@ import React, { FC, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import ElviaTypography from '@elvia/elvis-typography';
 import { getColor } from '@elvia/elvis-colors';
+import { arrowLongRight } from '@elvia/elvis-assets-icons';
 
 type CardType = 'simple' | 'detail';
 type CardShape = 'square' | 'circle';
@@ -302,7 +303,7 @@ const Card: FC<CardProps> = ({
         )}
         {type === 'detail' && (
           <CardDetailHoverArrow data-testid="card-detail-hover-arrow">
-            <i className="e-icon e-icon--arrow_long_right-bold e-icon--sm"></i>
+            <i dangerouslySetInnerHTML={{ __html: arrowLongRight.getIcon(colors.elviaBlack) }}></i>
           </CardDetailHoverArrow>
         )}
         {type === 'detail' && label && (
