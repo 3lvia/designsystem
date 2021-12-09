@@ -45,6 +45,7 @@ const typography = {
   textMdStrong: ElviaTypography['text-md-strong'],
   textSm: ElviaTypography['text-sm'],
   textSmStrong: ElviaTypography['text-sm-strong'],
+  titleSm: ElviaTypography['title-sm'],
   textMicro: ElviaTypography['text-micro'],
 };
 
@@ -104,8 +105,13 @@ type CardTitleProps = {
 };
 
 const CardTitle = styled.div<CardTitleProps>`
-  ${(props: { shape: CardShape }) =>
-    props.shape === 'square' ? typography.textSmStrong : typography.textMdStrong};
+  ${(props: { shape: CardShape; type: CardType }) =>
+    props.shape === 'square'
+      ? props.type === 'simple'
+        ? typography.textSmStrong
+        : typography.titleSm
+      : typography.textMdStrong};
+  ${(props: { type: CardType }) => props.type === 'detail' && 'padding-bottom: 8px;'}
   text-align: ${(props: { type: CardType }) => (props.type === 'simple' ? 'center' : 'left')};
   color: ${colors.elviaBlack};
   display: -webkit-box;
@@ -233,10 +239,10 @@ const Card: FC<CardProps> = ({
       label={label}
       data-testid="card-area"
     >
+      {shape === 'square' && type === 'simple' && (
+        <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
+      )}
       <CardContent shape={shape} data-testid="card-content">
-        {shape === 'square' && (
-          <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
-        )}
         {icon && <CardIcon data-testid="card-icon">{icon}</CardIcon>}
         {!icon && (
           <CardIcon data-testid="card-icon">
