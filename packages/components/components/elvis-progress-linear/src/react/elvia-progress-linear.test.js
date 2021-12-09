@@ -1,11 +1,6 @@
 import ProgressLinear from './elvia-progress-linear.tsx';
 import React from 'react';
 import { mount } from 'enzyme';
-import { getColor } from '@elvia/elvis-colors';
-
-const colors = {
-  red: getColor('red'),
-};
 
 describe('Elvis Divider', () => {
   let wrapper;
