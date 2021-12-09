@@ -182,10 +182,10 @@ const CardDetailHoverArrow = styled.div`
 
 const CardMarker = styled.div`
   position: absolute;
-  right: 18px;
+  right: 16px;
   top: 16px;
   ${CardArea}:hover & {
-    right: 17px;
+    right: 15px;
     top: 15px;
   }
 `;
