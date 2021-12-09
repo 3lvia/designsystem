@@ -1,6 +1,12 @@
 import Chip from './elvia-chip.tsx';
 import React from 'react';
 import { mount } from 'enzyme';
+import { getColor } from '@elvia/elvis-colors';
+
+const colors = {
+  green: getColor('green-apple'),
+  blue: getColor('blue-berry'),
+};
 
 describe('Elvis Chip', () => {
   let wrapper;
@@ -9,7 +15,7 @@ describe('Elvis Chip', () => {
 
   describe('Default', () => {
     beforeEach(() => {
-      wrapper = mount(<Chip value="chip value" onDelete={console.log('delete')}></Chip>);
+      wrapper = mount(<Chip value="chip value"></Chip>);
       chipLabel = wrapper.find({ 'data-testid': 'chip-label' }).at(0);
     });
     afterEach(() => {
@@ -17,6 +23,10 @@ describe('Elvis Chip', () => {
     });
 
     it('should have label "chip value"', function (done) {
+      expect(chipLabel.text()).toBe('chip value');
+      done();
+    });
+    it('should have default type Removable"', function (done) {
       expect(chipLabel.text()).toBe('chip value');
       done();
     });
@@ -37,7 +47,7 @@ describe('Elvis Chip', () => {
     });
     it('should be selectable', function (done) {
       chipButton.simulate('click');
-      expect(chipButton.getDOMNode()).toHaveStyle('background-color: #21ac0440;');
+      expect(chipButton.getDOMNode()).toHaveStyle(`background-color: ${colors.green}40;`);
       done();
     });
     it('should be unselectable', function (done) {
@@ -58,7 +68,7 @@ describe('Elvis Chip', () => {
     });
 
     it('should be selected', function (done) {
-      expect(chipButton.getDOMNode()).toHaveStyle('background-color: #21ac0440;');
+      const color = expect(chipButton.getDOMNode()).toHaveStyle(`background-color: ${colors.green}40;`);
       done();
     });
   });
@@ -78,7 +88,7 @@ describe('Elvis Chip', () => {
     });
     it('should be selectable', function (done) {
       chipButton.simulate('click');
-      expect(chipButton.getDOMNode()).toHaveStyle('background-color: #21ac0440;');
+      expect(chipButton.getDOMNode()).toHaveStyle(`background-color: ${colors.green}40;`);
       done();
     });
     it('should be unselectable', function (done) {
@@ -99,7 +109,7 @@ describe('Elvis Chip', () => {
     });
 
     it('should be selected', function (done) {
-      expect(chipButton.getDOMNode()).toHaveStyle('background-color: #21ac0440;');
+      expect(chipButton.getDOMNode()).toHaveStyle(`background-color: ${colors.green}40;`);
       done();
     });
   });
@@ -114,22 +124,23 @@ describe('Elvis Chip', () => {
     });
 
     it('should have color blue', function (done) {
-      expect(chipButton.getDOMNode()).toHaveStyle('background-color: #006ddb40;');
+      expect(chipButton.getDOMNode()).toHaveStyle(`background-color: ${colors.blue}40;`);
       done();
     });
   });
 
   describe('Disabled', () => {
     beforeEach(() => {
-      wrapper = mount(<Chip value="chip value" color="purple" disabled></Chip>);
+      wrapper = mount(<Chip value="chip value" disabled></Chip>);
       chipButton = wrapper.find({ 'data-testid': 'chip-button' }).at(0);
+      chipLabel = wrapper.find({ 'data-testid': 'chip-label' }).at(0);
     });
     afterEach(() => {
       wrapper.unmount();
     });
 
-    it('should be disabled', function (done) {
-      expect(chipButton.getDOMNode()).toHaveStyle('background-color: #b66dff40');
+    it('should have text with opacity 0.3', function (done) {
+      expect(chipLabel.getDOMNode()).toHaveStyle(`opacity: 0.3;`);
       done();
     });
   });
