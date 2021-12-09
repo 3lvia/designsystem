@@ -264,20 +264,20 @@ const Card: FC<CardProps> = ({
             {description}
           </CardDescription>
         )}
-        {type === 'detail' && (
-          <CardDetailHoverArrow data-testid="card-detail-hover-arrow">
-            <i dangerouslySetInnerHTML={{ __html: arrowLongRight.getIcon(colors.elviaBlack) }}></i>
-          </CardDetailHoverArrow>
-        )}
         {type === 'detail' && label && (
           <CardLabel data-testid="card-detail-label">
             <label className="e-label">{label}</label>
           </CardLabel>
         )}
-        <CardMarker data-testid="card-marker">
-          <div ref={cardMarker}></div>
-        </CardMarker>
       </CardContent>
+      {type === 'detail' && (
+        <CardDetailHoverArrow data-testid="card-detail-hover-arrow">
+          <i dangerouslySetInnerHTML={{ __html: arrowLongRight.getIcon(colors.elviaBlack) }}></i>
+        </CardDetailHoverArrow>
+      )}
+      <CardMarker data-testid="card-marker">
+        <div ref={cardMarker}></div>
+      </CardMarker>
     </CardArea>
   );
 };
