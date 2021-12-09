@@ -96,7 +96,7 @@
     </div>
   </div>
 
-  <elvia-divider type="title" title="Card in grid, detail"></elvia-divider>
+  <elvia-divider type="title" title="Card in grid, detail, max 5 description lines"></elvia-divider>
   <div class="e-grid">
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
@@ -161,7 +161,10 @@
     </div>
   </div>
 
-  <elvia-divider type="title" title="Card in grid, detail with label"></elvia-divider>
+  <elvia-divider
+    type="title"
+    title="Card in grid, detail with label, max 4 description lines"
+  ></elvia-divider>
   <div class="e-grid">
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
@@ -176,6 +179,7 @@
             [type]="'detail'"
             [minWidth]="272"
             [label]="'Label'"
+            [maxDescriptionLines]="4"
           >
             <i slot="marker" class="e-icon e-icon--lock e-icon--xs"></i>
           </elvia-card>
@@ -192,6 +196,7 @@
           [type]="'detail'"
           [minWidth]="272"
           [label]="'Longer label'"
+          [maxDescriptionLines]="4"
         >
           <i slot="marker" class="e-icon e-icon--unlock e-icon--xs"></i>
         </elvia-card>
@@ -207,6 +212,7 @@
           [type]="'detail'"
           [minWidth]="272"
           [label]="'A very long label'"
+          [maxDescriptionLines]="4"
         >
           <i slot="marker" class="e-icon e-icon--call e-icon--xs"></i>
         </elvia-card>
@@ -222,6 +228,7 @@
           [type]="'detail'"
           [minWidth]="272"
           [label]="'Label'"
+          [maxDescriptionLines]="4"
         ></elvia-card>
       </div>
     </div>

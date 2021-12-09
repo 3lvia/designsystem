@@ -22,7 +22,7 @@ export interface CardProps {
   width: string;
   minWidth?: number;
   maxWidth?: number;
-  isLocked: boolean;
+  maxDescriptionLines: number;
   label?: string;
   webcomponent: any;
 }
@@ -88,11 +88,6 @@ const CardArea = styled.div<CardAreaProps>`
   }
 `;
 
-// ${(props: { shape: CardShape; maxWidth: number }) =>
-//     props.shape === 'circle' && `padding: 1px; padding-bottom: min(100%, ${props.maxWidth}px);`}
-// ${(props: { shape: CardShape; maxWidth: number }) =>
-// props.shape === 'circle' && `padding: 0; padding-bottom: calc(min(100%, ${props.maxWidth}px) - 1px);`}
-
 type CardContentProps = {
   shape: CardShape;
 };
@@ -102,14 +97,6 @@ const CardContent = styled.div<CardContentProps>`
   flex-direction: column;
   justify-content: ${(props: { shape: CardShape }) => (props.shape === 'circle' ? 'center' : 'start')};
 `;
-
-// ${(props: { shape: CardShape }) =>
-// props.shape === 'circle' &&
-// `position: absolute;
-// top: 0;
-// right: 0;
-// left: 0;
-// bottom: 0; `}
 
 type CardTitleProps = {
   shape: CardShape;
@@ -131,6 +118,7 @@ const CardTitle = styled.div<CardTitleProps>`
 type CardDescriptionProps = {
   shape: CardShape;
   type: CardType;
+  maxDescriptionLines: number;
 };
 
 const CardDescription = styled.div<CardDescriptionProps>`
@@ -140,8 +128,8 @@ const CardDescription = styled.div<CardDescriptionProps>`
   color: ${colors.elviaBlack};
   display: -webkit-box;
   overflow: hidden;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
+  -webkit-line-clamp: ${(props: { maxDescriptionLines: number }) => props.maxDescriptionLines};
+  line-clamp: ${(props: { maxDescriptionLines: number }) => props.maxDescriptionLines};
   -webkit-box-orient: vertical;
 `;
 
@@ -207,6 +195,7 @@ const Card: FC<CardProps> = ({
   width = '100%',
   minWidth,
   maxWidth,
+  maxDescriptionLines = 5,
   label,
   webcomponent,
 }) => {
@@ -260,7 +249,12 @@ const Card: FC<CardProps> = ({
           </CardTitle>
         )}
         {description && (
-          <CardDescription shape={shape} type={type} data-testid="card-description">
+          <CardDescription
+            shape={shape}
+            type={type}
+            maxDescriptionLines={maxDescriptionLines}
+            data-testid="card-description"
+          >
             {description}
           </CardDescription>
         )}

@@ -249,6 +249,7 @@ module.exports = [
       { name: 'width', type: 'string', propType: 'string' },
       { name: 'minWidth', type: 'number', propType: 'number | undefined' },
       { name: 'maxWidth', type: 'number', propType: 'number | undefined' },
+      { name: 'maxDescriptionLines', type: 'number', propType: 'number' },
       { name: 'label', type: 'string', propType: 'string | undefined' },
     ],
     reactName: 'Card',
