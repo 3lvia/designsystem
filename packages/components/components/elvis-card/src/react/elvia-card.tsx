@@ -8,12 +8,6 @@ type CardType = 'simple' | 'detail';
 type CardShape = 'square' | 'circle';
 type BorderColor = 'green' | 'blue-berry' | 'blueBerry' | 'red' | 'orange';
 
-// 100 * (height / width) of desired aspect ratio
-const simpleSquareAspectRatio = 100 * (128 / 152);
-const simpleCircleAspectRatio = 100 * (100 / 100);
-const detailAspectRatio = 100 * (144 / 299);
-const detailLabelAspectRatio = 100 * (184 / 299);
-
 const globalMinWidth = 112;
 const globalMaxWidth = 400;
 
@@ -54,54 +48,6 @@ const typography = {
   textMicro: ElviaTypography['text-micro'],
 };
 
-const decideCardSize = (
-  type: CardType,
-  shape: CardShape,
-  minWidth: number,
-  maxWidth: number,
-  label?: string,
-) => {
-  if (type === 'simple' && shape === 'square') {
-    return `
-      min-height: ${minWidth * (simpleSquareAspectRatio / 100)}px;
-      padding-top: min(${simpleSquareAspectRatio}%, ${(maxWidth * simpleSquareAspectRatio) / 100}px);`;
-  } else if (type === 'simple' && shape === 'circle') {
-    return `
-      min-height: ${minWidth * (simpleCircleAspectRatio / 100)}px;
-      padding-top: min(${simpleCircleAspectRatio}%, ${(maxWidth * simpleCircleAspectRatio) / 100}px);`;
-  } else if (type === 'detail' && label) {
-    return `
-      min-height: ${minWidth * (detailLabelAspectRatio / 100)}px;
-      padding-top: min(${detailLabelAspectRatio}%, ${(maxWidth * detailLabelAspectRatio) / 100}px);`;
-  } else {
-    return `
-      min-height: ${minWidth * (detailAspectRatio / 100)}px;
-      padding-top: min(${detailAspectRatio}%, ${(maxWidth * detailAspectRatio) / 100}px);`;
-  }
-};
-
-const decideCardSizeHover = (type: CardType, shape: CardShape, maxWidth: number, label?: string) => {
-  if (type === 'simple' && shape === 'square') {
-    return `
-      padding-top: calc(min(${simpleSquareAspectRatio}%, ${
-      (maxWidth * simpleSquareAspectRatio) / 100
-    }px) - 1px);`;
-  } else if (type === 'simple' && shape === 'circle') {
-    return `
-      padding-top: calc(min(${simpleCircleAspectRatio}%, ${
-      (maxWidth * simpleCircleAspectRatio) / 100
-    }px) - 1px);`;
-  } else if (type === 'detail' && label) {
-    return `
-      padding-top: calc(min(${detailLabelAspectRatio}%, ${
-      (maxWidth * detailLabelAspectRatio) / 100
-    }px) - 1px);`;
-  } else {
-    return `
-      padding-top: calc(min(${detailAspectRatio}%, ${(maxWidth * detailAspectRatio) / 100}px) - 1px);`;
-  }
-};
-
 type CardAreaProps = {
   shape: CardShape;
   type: CardType;
@@ -114,17 +60,19 @@ type CardAreaProps = {
 
 const CardArea = styled.div<CardAreaProps>`
   position: relative;
-  display: inline-flex;
+  display: flex;
+  flex: 1;
   background: ${colors.elviaWhite};
   overflow: hidden;
   box-sizing: border-box;
+  justify-content: center;
 
   min-width: ${(props: { minWidth: number }) => props.minWidth}px;
   max-width: ${(props: { maxWidth: number }) => props.maxWidth}px;
-  padding: 1px;
+  padding: 24px;
   width: ${(props: { width: string }) => props.width};
-  ${(props: { type: CardType; shape: CardShape; minWidth: number; maxWidth: number; label?: string }) =>
-    decideCardSize(props.type, props.shape, props.minWidth, props.maxWidth, props.label)}
+  height: 100%;
+  ${(props: { shape: CardShape }) => props.shape === 'circle' && 'aspect-ratio: 1/1;'}
 
   border-radius: ${(props: { shape: CardShape }) => (props.shape === 'square' ? '8px' : '50%')};
   border: ${(props: { shape: CardShape; isInverted: boolean }) =>
@@ -136,26 +84,32 @@ const CardArea = styled.div<CardAreaProps>`
 
   &:hover {
     border: 2px solid ${colors.elviaCharge};
-    padding: 0;
-    ${(props: { type: CardType; shape: CardShape; maxWidth: number; label?: string }) =>
-      decideCardSizeHover(props.type, props.shape, props.maxWidth, props.label)};
+    padding: 23px;
   }
 `;
 
-const CardContent = styled.div`
-  position: absolute;
+// ${(props: { shape: CardShape; maxWidth: number }) =>
+//     props.shape === 'circle' && `padding: 1px; padding-bottom: min(100%, ${props.maxWidth}px);`}
+// ${(props: { shape: CardShape; maxWidth: number }) =>
+// props.shape === 'circle' && `padding: 0; padding-bottom: calc(min(100%, ${props.maxWidth}px) - 1px);`}
+
+type CardContentProps = {
+  shape: CardShape;
+};
+
+const CardContent = styled.div<CardContentProps>`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  padding: 24px 24px;
-  ${CardArea}:hover & {
-    padding: 23px 23px;
-  }
+  justify-content: ${(props: { shape: CardShape }) => (props.shape === 'circle' ? 'center' : 'start')};
 `;
+
+// ${(props: { shape: CardShape }) =>
+// props.shape === 'circle' &&
+// `position: absolute;
+// top: 0;
+// right: 0;
+// left: 0;
+// bottom: 0; `}
 
 type CardTitleProps = {
   shape: CardShape;
@@ -167,7 +121,11 @@ const CardTitle = styled.div<CardTitleProps>`
     props.shape === 'square' ? typography.textSmStrong : typography.textMdStrong};
   text-align: ${(props: { type: CardType }) => (props.type === 'simple' ? 'center' : 'left')};
   color: ${colors.elviaBlack};
-  white-space: nowrap;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
 `;
 
 type CardDescriptionProps = {
@@ -180,6 +138,11 @@ const CardDescription = styled.div<CardDescriptionProps>`
     props.shape === 'square' && props.type === 'simple' ? typography.textMicro : typography.textSm};
   text-align: ${(props: { type: CardType }) => (props.type === 'simple' ? 'center' : 'left')};
   color: ${colors.elviaBlack};
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
 `;
 
 const CardIcon = styled.div`
@@ -281,10 +244,10 @@ const Card: FC<CardProps> = ({
       label={label}
       data-testid="card-area"
     >
-      {shape === 'square' && (
-        <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
-      )}
-      <CardContent data-testid="card-content">
+      <CardContent shape={shape} data-testid="card-content">
+        {shape === 'square' && (
+          <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
+        )}
         {icon && <CardIcon data-testid="card-icon">{icon}</CardIcon>}
         {!icon && (
           <CardIcon data-testid="card-icon">
