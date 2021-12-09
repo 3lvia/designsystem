@@ -43,7 +43,7 @@
       </div>
       <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
         <elvia-card [title]="'Title1'" [description]="'description1'">
-          <div slot="icon">918</div>
+          <div slot="icon">91</div>
         </elvia-card>
       </div>
       <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
@@ -69,7 +69,7 @@
       </div>
       <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
         <elvia-card [title]="'Title1'" [description]="'description1'">
-          <div slot="icon">918</div>
+          <div slot="icon">ABC</div>
         </elvia-card>
       </div>
       <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
@@ -97,6 +97,7 @@
   </div>
 
   <elvia-divider type="title" title="Card in grid, detail, max 5 description lines"></elvia-divider>
+  <p>Disse kortene har fått satt min-width til 272px manuelt.</p>
   <div class="e-grid">
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
@@ -165,6 +166,10 @@
     type="title"
     title="Card in grid, detail with label, max 4 description lines"
   ></elvia-divider>
+  <p>
+    Disse kortene har ikke noen min-width satt, så de defaulter til 112px (men blir ikke så små på grunn av
+    grid).
+  </p>
   <div class="e-grid">
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
@@ -177,7 +182,6 @@
             "
             [borderColor]="'orange'"
             [type]="'detail'"
-            [minWidth]="272"
             [label]="'Label'"
             [maxDescriptionLines]="4"
           >
@@ -194,7 +198,6 @@
           "
           [borderColor]="'green'"
           [type]="'detail'"
-          [minWidth]="272"
           [label]="'Longer label'"
           [maxDescriptionLines]="4"
         >
@@ -210,7 +213,6 @@
           "
           [borderColor]="'blueBerry'"
           [type]="'detail'"
-          [minWidth]="272"
           [label]="'A very long label'"
           [maxDescriptionLines]="4"
         >
@@ -226,7 +228,6 @@
           "
           [borderColor]="'red'"
           [type]="'detail'"
-          [minWidth]="272"
           [label]="'Label'"
           [maxDescriptionLines]="4"
         ></elvia-card>
@@ -235,6 +236,10 @@
   </div>
 
   <elvia-divider type="title" title="Card in grid, circle"></elvia-divider>
+  <p>
+    Her er min-width på kortene ikke satt, altså defaulter de til 112px som er litt for lite i denne
+    situasjonen, som igjen gjør at title og description clipper ut når kortet blir for lite. Brukerfeil (?)
+  </p>
   <div class="e-grid">
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       <div class="col-sm-6 col-md-4 col-lg-3 col-xl-2dot4">
@@ -269,7 +274,8 @@
       </div>
     </div>
   </div>
-
+  <elvia-divider type="title"></elvia-divider>
+  <div style="padding-bottom: 16px"></div>
   <button (click)="isModalShowing1 = !isModalShowing1">Hello</button>
   <elvia-modal
     (onHide)="isModalShowing1 = !isModalShowing1"
