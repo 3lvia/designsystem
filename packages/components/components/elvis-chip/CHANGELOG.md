@@ -1,5 +1,11 @@
 # Elvia Chip Changelog
 
+## 1.1.3 (09.12.21)
+
+### Patch
+
+- Added unit tests for chip
+
 ## 1.1.3 (30.11.21)
 
 ### Patch
