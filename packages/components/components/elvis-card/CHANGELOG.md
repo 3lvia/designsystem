@@ -1,7 +1,7 @@
 # Elvia Card Changelog
 
-## 0.0.1 (30.11.21)
+## 1.0.0 (10.12.21)
 
 ### New feature
 
-- Initial
+- Card component released
