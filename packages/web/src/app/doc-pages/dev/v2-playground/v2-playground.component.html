@@ -162,6 +162,169 @@
     </div>
   </div>
 
+  <elvia-divider type="title" title="Card in grid, inverted"></elvia-divider>
+  <div class="e-grid" style="background-color: #f4f4f4; padding: 8px; margin: 8px 0">
+    <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <a [routerLink]="['/components/card']">
+          <elvia-card [title]="'Title1'" [description]="'description1'" [isInverted]="true">
+            <div slot="icon">918</div>
+            <i slot="marker" class="e-icon e-icon--lock e-icon--xs"></i>
+          </elvia-card>
+        </a>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <elvia-card [title]="'Title2'" [borderColor]="'red'" [isInverted]="true">
+          <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
+          <i slot="marker" class="e-icon e-icon--unlock e-icon--xs"></i>
+        </elvia-card>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <elvia-card
+          [title]="'Title3'"
+          [description]="'description3'"
+          [icon]="'3'"
+          [borderColor]="'green'"
+          [isInverted]="true"
+        ></elvia-card>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <elvia-card
+          [title]="'Title4'"
+          [description]="'description4'"
+          [icon]="'4'"
+          [borderColor]="'blue-berry'"
+          [isInverted]="true"
+        ></elvia-card>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <elvia-card [title]="'Title1'" [description]="'description1'" [isInverted]="true">
+          <div slot="icon">91</div>
+        </elvia-card>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <elvia-card [title]="'Title2'" [borderColor]="'red'" [isInverted]="true">
+          <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
+        </elvia-card>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <elvia-card
+          [title]="'Title3'"
+          [description]="'description3'"
+          [icon]="'3'"
+          [borderColor]="'green'"
+          [isInverted]="true"
+        ></elvia-card>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <elvia-card
+          [title]="'Title4'"
+          [description]="'description4'"
+          [icon]="'4'"
+          [borderColor]="'blue-berry'"
+          [isInverted]="true"
+        ></elvia-card>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <elvia-card [title]="'Title1'" [description]="'description1'">
+          <div slot="icon">ABC</div>
+        </elvia-card>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <elvia-card [title]="'Title2'" [borderColor]="'red'" [isInverted]="true">
+          <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
+        </elvia-card>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <elvia-card
+          [title]="'Title3'"
+          [description]="'description3'"
+          [icon]="'3'"
+          [borderColor]="'green'"
+          [isInverted]="true"
+        ></elvia-card>
+      </div>
+      <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+        <elvia-card
+          [title]="'Title4'"
+          [description]="'description4'"
+          [icon]="'4'"
+          [borderColor]="'blue-berry'"
+          [isInverted]="true"
+        ></elvia-card>
+      </div>
+    </div>
+  </div>
+
+  <elvia-divider type="title" title="Card in grid, detail, max 5 description lines, inverted"></elvia-divider>
+  <div class="e-grid" style="background-color: #f4f4f4; padding: 8px; margin: 8px 0">
+    <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+        <a [routerLink]="['/components/card']">
+          <elvia-card
+            [title]="'Title5'"
+            [description]="
+              'Nullam et ipsum viverra, varius urna at, tincidunt nibh. Nunc luctus lobortis lacus eu sollicitudin. 
+              Aliquam erat volutpat. Maecenas augue libero, faucibus eget mi in, efficitur tincidunt est. Morbi ac
+               pharetra arcu. Aenean nunc nisl, volutpat in lacinia et, finibus et eros. Nunc eu orci id erat tristique
+                suscipit eget ut tortor. Aliquam urna ipsum, tempor ut purus in, suscipit feugiat nisl. Nam lobortis
+                 vulputate tempus. Phasellus mi nisi, ullamcorper nec ultricies sit amet, tempor et lorem '
+            "
+            [borderColor]="'orange'"
+            [type]="'detail'"
+            [minWidth]="272"
+            [isInverted]="true"
+          >
+            <i slot="marker" class="e-icon e-icon--lock e-icon--xs"></i>
+          </elvia-card>
+        </a>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+        <elvia-card
+          [title]="'Title6'"
+          [description]="
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tortor mattis odio pretium viverra
+        sed dapibus lectus.'
+          "
+          [borderColor]="'green'"
+          [type]="'detail'"
+          [minWidth]="272"
+          [isInverted]="true"
+        >
+          <i slot="marker" class="e-icon e-icon--unlock e-icon--xs"></i>
+        </elvia-card>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+        <elvia-card
+          [title]="'Title8'"
+          [description]="
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et tortor mattis odio pretium viverra
+    sed dapibus lectus.'
+          "
+          [borderColor]="'blueBerry'"
+          [type]="'detail'"
+          [minWidth]="272"
+          [isInverted]="true"
+        >
+          <i slot="marker" class="e-icon e-icon--clock e-icon--xs"></i>
+        </elvia-card>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4">
+        <elvia-card
+          [title]="'Title7'"
+          [description]="
+            'Cras dolor leo, sagittis a bibendum id, hendrerit eget elit. Proin pellentesque libero non dapibus sagittis. 
+        Pellentesque fringilla risus sit amet. '
+          "
+          [borderColor]="'red'"
+          [type]="'detail'"
+          [minWidth]="272"
+          [isInverted]="true"
+        ></elvia-card>
+      </div>
+    </div>
+  </div>
+
   <elvia-divider
     type="title"
     title="Card in grid, detail with label, max 4 description lines"
