@@ -173,6 +173,10 @@ const CardDetailHoverArrow = styled.div`
   position: absolute;
   right: 16px;
   bottom: 16px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border-radius: 50%;
   background: ${colors.elviaWhite};
   display: none;
   ${CardArea}:hover & {
