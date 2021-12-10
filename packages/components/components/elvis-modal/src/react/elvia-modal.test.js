@@ -2,7 +2,7 @@ import Modal from './elvia-modal.tsx';
 import React from 'react';
 import { mount } from 'enzyme';
 
-describe('Elvis Divider', () => {
+describe('Elvis Modal', () => {
   let wrapper;
   let modalWrapper;
   let modalPrimaryBtn;
