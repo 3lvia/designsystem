@@ -7,6 +7,9 @@ import { ComponentPropertiesModule } from 'src/app/shared/component-documentatio
 import { ComponentSectionModule } from 'src/app/shared/component-documentation/component-structure/component-section/component-section.module';
 import { ComponentSubsectionModule } from 'src/app/shared/component-documentation/component-structure/component-subsection/component-subsection.module';
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
+import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
+import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
+import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
 
 @NgModule({
   imports: [
@@ -17,6 +20,9 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
     ComponentSectionModule,
     ComponentSubsectionModule,
     WhenToUseModule,
+    ComponentInstallationModule,
+    ComponentExampleGeneratorModule,
+    ComponentPropertiesTableModule,
   ],
   declarations: [CardDocComponent],
 })

@@ -161,7 +161,7 @@ export const CardDetailHoverArrow = styled.div`
   }
 `;
 
-export const CardMarker = styled.div`
+export const CardCornerIcon = styled.div`
   position: absolute;
   right: 16px;
   top: 16px;

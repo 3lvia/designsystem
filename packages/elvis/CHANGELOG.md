@@ -6,6 +6,32 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.13.5
+      </span>
+      <br>
+      <span>
+        December 10, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/card#Overview">Card</a> &
+          </div>
+          <ul class="e-list">
+            <li>
+              Deprecated e-card, replaced with card component.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.13.4
       </span>
       <br>

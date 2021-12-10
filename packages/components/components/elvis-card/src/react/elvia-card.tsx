@@ -11,14 +11,14 @@ import {
   CardColoredLine,
   CardLabel,
   CardDetailHoverArrow,
-  CardMarker,
+  CardCornerIcon,
 } from './styledComponents';
 
 const globalMinWidth = 112;
 const globalMaxWidth = 400;
 
 export interface CardProps {
-  icon?: string;
+  icon: string | HTMLElement;
   header: string;
   description?: string;
   borderColor?: BorderColor;
@@ -30,6 +30,7 @@ export interface CardProps {
   maxWidth?: number;
   maxDescriptionLines: number;
   label?: string;
+  cornerIcon?: string | HTMLElement;
   webcomponent: any;
 }
 
@@ -50,15 +51,17 @@ const Card: FC<CardProps> = ({
   maxWidth,
   maxDescriptionLines = 5,
   label,
+  cornerIcon,
   webcomponent,
 }) => {
   if (type === 'detail') shape = 'square';
+  if (type === 'simple') maxDescriptionLines = 1;
 
   minWidth = minWidth ? Math.max(minWidth, globalMinWidth) : globalMinWidth;
   maxWidth = maxWidth ? Math.min(maxWidth, globalMaxWidth) : globalMaxWidth;
 
   const cardIcon = useRef<HTMLDivElement>(null);
-  const cardMarker = useRef<HTMLDivElement>(null);
+  const cardCornerIcon = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!webcomponent) {
@@ -69,9 +72,9 @@ const Card: FC<CardProps> = ({
       cardIcon.current.innerHTML = '';
       cardIcon.current.appendChild(webcomponent.getSlot('icon'));
     }
-    if (cardMarker.current && webcomponent.getSlot('marker')) {
-      cardMarker.current.innerHTML = '';
-      cardMarker.current.appendChild(webcomponent.getSlot('marker'));
+    if (cardCornerIcon.current && webcomponent.getSlot('cornerIcon')) {
+      cardCornerIcon.current.innerHTML = '';
+      cardCornerIcon.current.appendChild(webcomponent.getSlot('cornerIcon'));
     }
   }, [webcomponent]);
 
@@ -90,8 +93,8 @@ const Card: FC<CardProps> = ({
         <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
       )}
       <CardContent shape={shape} data-testid="card-content">
-        {icon && <CardIcon data-testid="card-icon">{icon}</CardIcon>}
-        {!icon && (
+        {icon && type === 'simple' && <CardIcon data-testid="card-icon">{icon}</CardIcon>}
+        {!icon && type === 'simple' && (
           <CardIcon data-testid="card-icon">
             <div ref={cardIcon}></div>
           </CardIcon>
@@ -122,9 +125,12 @@ const Card: FC<CardProps> = ({
           <i dangerouslySetInnerHTML={{ __html: arrowLongRight.getIcon(colors.elviaBlack) }}></i>
         </CardDetailHoverArrow>
       )}
-      <CardMarker data-testid="card-marker">
-        <div ref={cardMarker}></div>
-      </CardMarker>
+      {cornerIcon && <CardCornerIcon data-testid="card-corner-icon">{cornerIcon}</CardCornerIcon>}
+      {!cornerIcon && (
+        <CardCornerIcon data-testid="card-corner-icon">
+          <div ref={cardCornerIcon}></div>
+        </CardCornerIcon>
+      )}
     </CardArea>
   );
 };

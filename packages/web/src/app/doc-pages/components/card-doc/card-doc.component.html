@@ -8,79 +8,26 @@
 
 <!--BODY-->
 <div class="page-body">
-  <!--TEMPORARY WAY TO SHOW LIVE EXAMPLES BEFORE CODE-GENERATOR-->
-  <div class="e-my-48" class="component-preview-temp component-preview-animation">
-    <div class="e-card e-card--on-white e-card--text-only">
-      <div class="e-card__title">{{ examples.texts.md2['eng-GBR'].title }}</div>
-      <div class="e-card__content">{{ examples.texts.md2['eng-GBR'].description }}</div>
-    </div>
-    <div class="e-w-100">
-      <app-component-example-v1 [showPreview]="false" [codeHTML]="exampleOverview"></app-component-example-v1>
-    </div>
-  </div>
+  <app-component-example-generator [componentData]="componentData"></app-component-example-generator>
 
-  <!-- TYPE -->
-  <app-component-section [sectionTitle]="'Type'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Simple card'">
-        <ng-container ngProjectAs="sectionContent">
-          Simple cards containing information with or without actions.
-          <app-component-example-v1
-            [codeHTML]="example1"
-            [showIframeScreens]="true"
-          ></app-component-example-v1>
-          <app-when-to-use
-            [whens]="['Grouping content', 'To separate information from the rest of the page.']"
-          ></app-when-to-use>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Titles above'">
-        <ng-container ngProjectAs="sectionContent">
-          Cards can also have titles outside of the card.
-          <app-component-example-v1
-            [codeHTML]="example3"
-            [showIframeScreens]="true"
-          ></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!--SHADOW-->
-  <app-component-section [sectionTitle]="'Shadow'">
-    <ng-container ngProjectAs="sectionContent">
-      <app-component-subsection [sectionTitle]="'Soft'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleShadowSoft"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Medium'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleShadowMedium"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-
-      <app-component-subsection [sectionTitle]="'Hard'">
-        <ng-container ngProjectAs="sectionContent">
-          <app-component-example-v1 [codeHTML]="exampleShadowHard"></app-component-example-v1>
-        </ng-container>
-      </app-component-subsection>
-    </ng-container>
-  </app-component-section>
-
-  <!-- USAGE -->
+  <!--USAGE-->
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
-      <app-when-to-use [whenNots]="donts"></app-when-to-use>
+      <app-when-to-use [whens]="doesCard" [whenNots]="dontsCard"></app-when-to-use>
+    </ng-container>
+  </app-component-section>
+
+  <!--INSTALLATION-->
+  <app-component-section [sectionTitle]="'Installation'">
+    <ng-container ngProjectAs="sectionContent">
+      <app-component-installation [componentData]="componentData"></app-component-installation>
     </ng-container>
   </app-component-section>
 
   <!--PROPERTIES-->
-  <app-component-section [sectionTitle]="'Properties'" [propertiesClass]="'e-card'">
+  <app-component-section [sectionTitle]="'Properties'">
     <ng-container ngProjectAs="sectionContent">
-      <app-component-properties [componentName]="'e-card'"></app-component-properties>
+      <app-component-properties-table [componentData]="componentData"></app-component-properties-table>
     </ng-container>
   </app-component-section>
 </div>

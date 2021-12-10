@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getComponent } from 'src/app/shared/doc-pages';
 import { exampleContents } from 'src/app/shared/example-contents';
+import { cardData } from './card-data';
 
 @Component({
   selector: 'app-card-doc',
@@ -9,126 +10,15 @@ import { exampleContents } from 'src/app/shared/example-contents';
 })
 export class CardDocComponent {
   examples = exampleContents;
+  componentData = cardData;
   figmaUrl = getComponent('card').figmaUrl;
   description = getComponent('card').description;
-  donts = [
-    "Don't redirect cards to external sites - use links instead.",
-    'Do not combine "title outside card" and "title inside card" on the same front.',
+  doesCard = [
+    'When you want a more visual representation of content than a list view.',
+    'When users need to browse through options.',
   ];
-
-  exampleOverview =
-    `<div class="e-card e-card--on-white e-card--text-only">
-  <div class="e-card__title">
-    ` +
-    exampleContents.texts.md2['eng-GBR'].title +
-    `
-  </div>
-  <div class="e-card__content">
-    ` +
-    exampleContents.texts.md2['eng-GBR'].description +
-    `
-  </div>
-</div>
-`;
-
-  example1 =
-    `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card e-card--text-only">
-    <div class="e-card__title">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].title +
-    `
-    </div>
-    <div class="e-card__content">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].description +
-    `
-    </div>
-  </div>
-</div>
-`;
-
-  example2 =
-    `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card e-card--on-white e-card--text-only">
-    <div class="e-card__title">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].title +
-    `
-    </div>
-    <div class="e-card__content">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].description +
-    `
-    </div>
-  </div>
-</div>`;
-
-  example3 =
-    `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card e-card--text-only e-mt-48">
-    <div class="e-card__title e-card__title--above">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].title +
-    `
-    </div>
-    <div class="e-card__content">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].description +
-    `
-    </div>
-  </div>
-</div>
-  `;
-
-  exampleShadowSoft =
-    `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card e-card--text-only e-card--shadow-soft e-mt-48">
-    <div class="e-card__title e-card__title--above">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].title +
-    `
-    </div>
-    <div class="e-card__content">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].description +
-    `
-    </div>
-  </div>
-</div>
-`;
-
-  exampleShadowMedium =
-    `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card e-card--text-only e-card--shadow-medium e-mt-48">
-    <div class="e-card__title e-card__title--above">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].title +
-    `
-    </div>
-    <div class="e-card__content">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].description +
-    `
-    </div>
-  </div>
-</div>
-`;
-
-  exampleShadowHard =
-    `<div style="max-width:600px;" class="e-m-24">
-  <div class="e-card e-card--text-only e-card--shadow-hard e-mt-48">
-    <div class="e-card__title e-card__title--above">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].title +
-    `
-    </div>
-    <div class="e-card__content">
-      ` +
-    exampleContents.texts.md2['eng-GBR'].description +
-    `
-    </div>
-  </div>
-</div>
-`;
+  dontsCard = [
+    'If the text is more describable than the icon, consider using Action link group instead.',
+    'Do not use different type of card  on the same page. The same goes for the description version, use description on all or none.',
+  ];
 }

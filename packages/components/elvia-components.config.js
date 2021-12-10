@@ -239,7 +239,7 @@ module.exports = [
     name: 'elvis-card',
     elementName: 'elvia-card',
     attributes: [
-      { name: 'icon', type: 'string', propType: 'string | undefined' },
+      { name: 'icon', type: 'string', propType: 'string | HTMLElement' },
       { name: 'header', type: 'string', propType: 'string' },
       { name: 'description', type: 'string', propType: 'string | undefined' },
       { name: 'borderColor', type: 'string', propType: 'string | undefined' },
@@ -251,6 +251,7 @@ module.exports = [
       { name: 'maxWidth', type: 'number', propType: 'number | undefined' },
       { name: 'maxDescriptionLines', type: 'number', propType: 'number' },
       { name: 'label', type: 'string', propType: 'string | undefined' },
+      { name: 'cornerIcon', type: 'string', propType: 'string | HTMLElement | undefined' },
     ],
     reactName: 'Card',
     useWrapper: false,
