@@ -86,6 +86,7 @@ const CardArea = styled.div<CardAreaProps>`
   &:hover {
     border: 2px solid ${colors.elviaCharge};
     padding: 23px;
+    cursor: pointer;
   }
 `;
 
