@@ -70,7 +70,7 @@ const CardArea = styled.div<CardAreaProps>`
 
   min-width: ${(props: { minWidth: number }) => props.minWidth}px;
   max-width: ${(props: { maxWidth: number }) => props.maxWidth}px;
-  padding: 24px;
+  padding: ${(props: { shape: CardShape }) => (props.shape === 'square' ? '24px' : '0')};
   width: ${(props: { width: string }) => props.width};
   height: 100%;
   ${(props: { shape: CardShape }) => props.shape === 'circle' && 'aspect-ratio: 1/1;'}
@@ -85,7 +85,7 @@ const CardArea = styled.div<CardAreaProps>`
 
   &:hover {
     border: 2px solid ${colors.elviaCharge};
-    padding: 23px;
+    padding: ${(props: { shape: CardShape }) => (props.shape === 'square' ? '23px' : '0')};
     cursor: pointer;
   }
 `;
