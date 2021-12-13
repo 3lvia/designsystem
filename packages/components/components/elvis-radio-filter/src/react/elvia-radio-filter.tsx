@@ -33,7 +33,7 @@ export const RadioFilter: FC<BaseRadioFilterProps> = ({
   };
 
   return (
-    <styledRadioFilter.RadioFilterGroup role="radiogroup">
+    <styledRadioFilter.RadioFilterGroup role="radiogroup" data-testid="radio-filter-group">
       {items &&
         items.map(({ label, value: optionsValue }) => (
           <styledRadioFilter.RadioFilterLabel key={optionsValue} isSelected={optionsValue === value}>

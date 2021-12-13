@@ -8,7 +8,7 @@ export interface ProgressbarProps {
   isError: boolean;
 }
 
-const ProgressLinear: React.FC<ProgressbarProps> = ({ value, isIndeterminate, isError }) => {
+const ProgressLinear: React.FC<ProgressbarProps> = ({ value = 0, isIndeterminate, isError }) => {
   const classes = classnames({
     ['ewc-progress-linear--range']: !isIndeterminate && !isError,
     ['ewc-progress-linear--indeterminate']: isIndeterminate && !isError,
@@ -17,7 +17,7 @@ const ProgressLinear: React.FC<ProgressbarProps> = ({ value, isIndeterminate, is
 
   return (
     <div className="ewc-progress-linear">
-      <div className={classes} style={{ width: `${value}%` }}></div>
+      <div className={classes} style={{ width: `${value}%` }} data-testid="progress-linear"></div>
     </div>
   );
 };

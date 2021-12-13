@@ -9,7 +9,6 @@ export interface ModalProps {
   isShowing: boolean;
   title?: string;
   content: HTMLElement;
-  type?: boolean;
   illustration?: HTMLElement;
   primaryButton?: HTMLElement;
   secondaryButton?: HTMLElement;
@@ -54,7 +53,7 @@ export const ModalComponent: FC<ModalProps> = ({
     if (disableClose) {
       return;
     }
-    if (!webcomponent) {
+    if (!webcomponent && onHide) {
       onHide();
     } else if (webcomponent) {
       webcomponent.setProps({ isShowing: false }, true);
@@ -112,14 +111,23 @@ export const ModalComponent: FC<ModalProps> = ({
   }, [isShowing]);
 
   return (
-    <StyledModal.Modal aria-modal tabIndex={-1} role="dialog" aria-label={title} isShowing={isShowing}>
+    <StyledModal.Modal
+      aria-modal
+      tabIndex={-1}
+      role="dialog"
+      aria-label={title}
+      isShowing={isShowing}
+      data-testid="modal-wrapper"
+    >
       <StyledModal.Wrapper
         ref={modalWrapperRef}
         hasIllustration={hasIllustration}
         className={className}
         maxWidth={maxWidth}
       >
-        {illustration && <StyledModal.Illustration>{illustration}</StyledModal.Illustration>}
+        {illustration && (
+          <StyledModal.Illustration data-testid="modal-illustration">{illustration}</StyledModal.Illustration>
+        )}
         {!illustration && hasIllustration && (
           <StyledModal.Illustration ref={modalIllustration}></StyledModal.Illustration>
         )}
@@ -128,24 +136,37 @@ export const ModalComponent: FC<ModalProps> = ({
             hasIllustration={hasIllustration}
             onClick={() => handleOnHide()}
             aria-label="Lukk modal"
+            data-testid="modal-close-btn"
           >
             <i className="ewc-icon"></i>
           </StyledModal.CloseButton>
         )}
 
         <StyledModal.Content hasIllustration={hasIllustration}>
-          {title && <StyledModal.Title hasIllustration={hasIllustration}>{title}</StyledModal.Title>}
+          {title && (
+            <StyledModal.Title hasIllustration={hasIllustration} data-testid="modal-title">
+              {title}
+            </StyledModal.Title>
+          )}
 
-          {content && <StyledModal.Text>{content}</StyledModal.Text>}
+          {content && <StyledModal.Text data-testid="modal-content">{content}</StyledModal.Text>}
           {!content && <StyledModal.Text ref={modalText}></StyledModal.Text>}
 
           {(hasPrimaryButton || hasSecondaryButton) && (
             <StyledModal.Actions>
-              {secondaryButton && <>{secondaryButton}</>}
+              {secondaryButton && (
+                <>
+                  <div data-testid="modal-secondary-btn">{secondaryButton}</div>
+                </>
+              )}
               {webcomponent && hasSecondaryButton && (
                 <div className="webComponentBtn" ref={modalSecondaryBtn}></div>
               )}
-              {primaryButton && <>{primaryButton}</>}
+              {primaryButton && (
+                <>
+                  <div data-testid="modal-primary-btn">{primaryButton}</div>
+                </>
+              )}
               {webcomponent && <div className="webComponentBtn" ref={modalPrimaryBtn}></div>}
             </StyledModal.Actions>
           )}

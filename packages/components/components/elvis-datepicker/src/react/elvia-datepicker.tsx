@@ -312,9 +312,9 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   return (
-    <div className={datePickerClasses} ref={datepickerRef}>
+    <div className={datePickerClasses} ref={datepickerRef} data-testid="datepicker-wrapper">
       {label !== '' && (
-        <label className="ewc-datepicker__label" aria-label={label}>
+        <label className="ewc-datepicker__label" aria-label={label} data-testid="datepicker-label">
           {label}
         </label>
       )}
