@@ -20,6 +20,7 @@ const globalMaxWidth = 400;
 
 export interface CardProps {
   icon: string | HTMLElement;
+  iconHover?: string | HTMLElement;
   header: string;
   description?: string;
   borderColor?: BorderColor;
@@ -41,6 +42,7 @@ const colors = {
 
 const Card: FC<CardProps> = ({
   icon,
+  iconHover,
   header,
   description,
   borderColor,
@@ -62,6 +64,7 @@ const Card: FC<CardProps> = ({
   maxWidth = maxWidth ? Math.min(maxWidth, globalMaxWidth) : globalMaxWidth;
 
   const cardIcon = useRef<HTMLDivElement>(null);
+  const cardIconHover = useRef<HTMLDivElement>(null);
   const cardCornerIcon = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -72,6 +75,10 @@ const Card: FC<CardProps> = ({
     if (cardIcon.current && webcomponent.getSlot('icon')) {
       cardIcon.current.innerHTML = '';
       cardIcon.current.appendChild(webcomponent.getSlot('icon'));
+    }
+    if (cardIconHover.current && webcomponent.getSlot('iconHover')) {
+      cardIconHover.current.innerHTML = '';
+      cardIconHover.current.appendChild(webcomponent.getSlot('iconHover'));
     }
     if (cardCornerIcon.current && webcomponent.getSlot('cornerIcon')) {
       cardCornerIcon.current.innerHTML = '';

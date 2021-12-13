@@ -93,7 +93,7 @@ const cardData = {
     },
     cornerIcon: {
       isRequired: false,
-      type: 'string',
+      type: 'string | HTMLElement',
       description: 'Icon on upper right corner of card (use slot in webcomponent)',
     },
   },
