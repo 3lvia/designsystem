@@ -10,6 +10,7 @@ import {
   CardIcon,
   CardColoredLine,
   CardLabel,
+  CardLabelContainer,
   CardDetailHoverArrow,
   CardCornerIcon,
 } from './styledComponents';
@@ -115,9 +116,9 @@ const Card: FC<CardProps> = ({
           </CardDescription>
         )}
         {type === 'detail' && label && (
-          <CardLabel data-testid="card-detail-label">
-            <label className="e-label">{label}</label>
-          </CardLabel>
+          <CardLabelContainer data-testid="card-detail-label">
+            <CardLabel>{label}</CardLabel>
+          </CardLabelContainer>
         )}
       </CardContent>
       {type === 'detail' && (

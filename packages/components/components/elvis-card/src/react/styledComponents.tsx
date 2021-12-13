@@ -142,7 +142,24 @@ export const CardColoredLine = styled.div<CardColoredLineProps>`
   }
 `;
 
-export const CardLabel = styled.div`
+export const CardLabel = styled.label`
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: ${colors.elviaGrey10};
+  font-family: 'Red Hat Text', 'Verdana, sans-serif';
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: ${colors.elviaBlack};
+  white-space: nowrap;
+`;
+
+export const CardLabelContainer = styled.div`
   margin-top: 16px;
 `;
 

@@ -5,6 +5,11 @@ const cardData = {
   elementNameW: 'elvia-card',
   elementNameR: 'Card',
   attributes: {
+    icon: {
+      isRequired: true,
+      type: 'string | HTMLElement',
+      description: 'Text or icon (use slot in webcomponent if not just text)',
+    },
     type: {
       isRequired: false,
       type: 'simple | detail',
@@ -27,11 +32,6 @@ const cardData = {
       cegFormType: 'radio',
       cegOptions: ['square', 'circle'],
     },
-    icon: {
-      isRequired: true,
-      type: 'string | HTMLElement',
-      description: 'Text or icon (use slot in webcomponent if not just text)',
-    },
     header: {
       isRequired: false,
       type: 'string',
@@ -45,7 +45,7 @@ const cardData = {
     borderColor: {
       isRequired: false,
       type: 'green | blue-berry | red | orange',
-      description: '',
+      description: 'Color on top of the card',
       cegDisplayName: 'Border color',
       cegDefault: ' ',
       cegType: 'string',
