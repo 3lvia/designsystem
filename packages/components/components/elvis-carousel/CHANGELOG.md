@@ -1,5 +1,11 @@
 # Elvia Carousel Changelog
 
+## 1.0.5 (14.12.21)
+
+### Patch
+
+- Added unit tests for carousel
+
 ## 1.0.4 (30.11.21)
 
 ### Patch
