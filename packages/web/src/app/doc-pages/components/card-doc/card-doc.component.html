@@ -14,6 +14,21 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="doesCard" [whenNots]="dontsCard"></app-when-to-use>
+      <app-component-subsection [sectionTitle]="'Options'">
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-subsubsection [sectionTitle]="'Description'">
+            <ng-container ngProjectAs="sectionContent">
+              You can add a description together with the header. Keep it short!
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Colored line'">
+            <ng-container ngProjectAs="sectionContent">
+              The colored line can be used to categorize or to visualize a status. Do not use only one colored
+              line on all cards or use without a purpose!
+            </ng-container>
+          </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
     </ng-container>
   </app-component-section>
 

@@ -19,6 +19,6 @@ export class CardDocComponent {
   ];
   dontsCard = [
     'If the text is more describable than the icon, consider using Action link group instead.',
-    'Do not use different type of card  on the same page. The same goes for the description version, use description on all or none.',
+    'Do not use different types of cards on the same page. The same goes for the description version, use description on all or none.',
   ];
 }

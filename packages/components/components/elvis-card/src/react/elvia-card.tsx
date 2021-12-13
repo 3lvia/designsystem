@@ -40,9 +40,9 @@ const colors = {
 };
 
 const Card: FC<CardProps> = ({
+  icon,
   header,
   description,
-  icon,
   borderColor,
   type = 'simple',
   shape = 'square',

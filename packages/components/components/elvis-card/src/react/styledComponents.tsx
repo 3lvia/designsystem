@@ -121,6 +121,11 @@ export const CardIcon = styled.div`
   text-align: center;
   color: ${colors.elviaBlack};
   white-space: nowrap;
+
+  transition: transform 0.3s ease-in-out;
+  ${CardArea}:hover & {
+    transform: scale(1.2);
+  }
 `;
 
 type CardColoredLineProps = {
