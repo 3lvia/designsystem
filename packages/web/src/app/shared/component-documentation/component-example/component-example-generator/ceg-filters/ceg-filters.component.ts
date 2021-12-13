@@ -98,7 +98,7 @@ export class CegFiltersComponent implements OnInit {
       ...this.topFilterFormStates,
     };
     this.formGroupList.forEach((element) => {
-      if (element.type === 'checkbox') {
+      if (element.formType === 'checkbox') {
         element.formGroupOptions.forEach((element) => {
           this.updateFormStates(element.propName, element.defaultValue);
         });

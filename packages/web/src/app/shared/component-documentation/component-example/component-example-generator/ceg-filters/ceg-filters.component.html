@@ -2,7 +2,7 @@
   <form class="ceg-side-filter e-form_field e-w-100" *ngFor="let formGroup of formGroupList; let i = index">
     <!--Radios-->
     <div
-      *ngIf="formGroup.type === 'radio' && (formGroup | visibleFields: formStates)"
+      *ngIf="formGroup.formType === 'radio' && (formGroup | visibleFields: formStates)"
       [ngClass]="{
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
@@ -32,7 +32,7 @@
 
     <!--Toggle-->
     <div
-      *ngIf="formGroup.type === 'toggle' && (formGroup | visibleFields: formStates)"
+      *ngIf="formGroup.formType === 'toggle' && (formGroup | visibleFields: formStates)"
       [ngClass]="{
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
@@ -61,7 +61,7 @@
 
     <!--Checkbox-->
     <div
-      *ngIf="formGroup.type === 'checkbox'"
+      *ngIf="formGroup.formType === 'checkbox'"
       [ngClass]="{
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
@@ -95,7 +95,7 @@
 
     <!--Counter-->
     <div
-      *ngIf="formGroup.type === 'counter'"
+      *ngIf="formGroup.formType === 'counter'"
       [ngClass]="{
         'ceg-filter-margin': i !== formGroupList.length - 1
       }"
