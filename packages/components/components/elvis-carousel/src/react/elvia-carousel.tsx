@@ -215,7 +215,11 @@ export const Carousel: FC<BaseCarouselProps> = ({
         </ListOfDots>
 
         {showOnboardingCheckmark ? (
-          <CheckButton aria-label={'Fullfør og lukk.'} onClick={() => onHide && onHide()}>
+          <CheckButton
+            aria-label={'Fullfør og lukk.'}
+            onClick={() => onHide && onHide()}
+            data-testid="carousel-onboarding-checkmark"
+          >
             <i />
           </CheckButton>
         ) : (
