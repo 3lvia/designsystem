@@ -12,5 +12,9 @@
   "e-fileupload---hover": {
     "version": "7.9.3",
     "replacedBy": "e-fileupload--dragover"
+  },
+  "e-card": {
+    "version": "7.13.5",
+    "replacedBy": "card component"
   }
 }
