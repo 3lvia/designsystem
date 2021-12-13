@@ -9,7 +9,7 @@ export const tabsData = {
       isRequired: true,
       type: 'string[]',
       description: 'Items getting converted to tabs.',
-      displayName: 'Tabs',
+      cegDisplayName: 'Tabs',
     },
     value: {
       isRequired: false,
@@ -59,6 +59,18 @@ export const tabsData = {
     exampleContents.words.random['eng-GBR'][2] +
     `']" 
   (valueOnChange)="handleOnChange(event.detail.value)"
+></elvia-tabs>`,
+  codeVue:
+    `<elvia-tabs 
+  :value="0"
+  :items="['` +
+    exampleContents.words.random['eng-GBR'][0] +
+    `', '` +
+    exampleContents.words.random['eng-GBR'][1] +
+    `', '` +
+    exampleContents.words.random['eng-GBR'][2] +
+    `']" 
+  @value-on-change="handleOnChange(event.detail.value)"
 ></elvia-tabs>`,
   codeNativeHTML: `<elvia-tabs 
   id="example-elvia-tabs"

@@ -1,5 +1,11 @@
 # Elvia Popover Changelog
 
+## 4.2.3 (10.12.21)
+
+### Patch
+
+- Added unit tests for popover
+
 ## 4.2.2 (30.11.21)
 
 - Web component wrapper fix

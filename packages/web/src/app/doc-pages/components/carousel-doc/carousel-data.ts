@@ -10,7 +10,7 @@ export const carouselData = {
       type: 'CarouselElement[] | number | slot',
       description:
         'A collection of related items that should be displayed in a carousel. If not React, send the elements in by slots. Name the slots "element-1", "title-1", "element-2", "title-2" and so on.',
-      displayName: 'No content',
+      cegDisplayName: 'No content',
     },
     hideArrows: {
       isRequired: false,
@@ -18,10 +18,9 @@ export const carouselData = {
       description:
         'Decides if looping through the elements should be possible, hides the arrows at the if not.',
       default: 'false',
-      displayName: 'Loop',
+      cegDisplayName: 'Dont loop',
       cegType: 'boolean',
       cegFormType: 'checkbox',
-      cegDefault: 'true',
       cegOption: 'true',
       cegDisplayGroup: 'Options',
     },
@@ -31,13 +30,12 @@ export const carouselData = {
       description:
         'Whether a checkmark button should be used for the last element. Is used in an onboarding situation and requires hideArrows to also be sent in',
       default: 'false',
-      displayName: 'Confirm button',
+      cegDisplayName: 'Confirm button',
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegDisplayGroup: 'Options',
-      cegTypeDependency: 'hideArrows',
-      cegTypeDependencyValue: 'true',
+      cegDependency: { name: 'hideArrows', value: 'true' },
     },
     onHide: {
       isRequired: false,

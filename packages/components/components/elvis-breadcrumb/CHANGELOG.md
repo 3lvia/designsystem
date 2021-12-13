@@ -1,5 +1,11 @@
 # Elvia Breadcrumbs
 
+## 1.1.4 (06.12.21)
+
+### Patch
+
+- Added unit tests for breadcrumb
+
 ## 1.1.3 (30.11.21)
 
 ### Patch

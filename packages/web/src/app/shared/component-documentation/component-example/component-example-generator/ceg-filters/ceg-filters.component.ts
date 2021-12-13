@@ -1,6 +1,17 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnInit,
+  Output,
+  SimpleChanges,
+  EventEmitter,
+} from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ExampleCodeService } from '../../../example-code.service';
+import { CegFormGroup, CegFormGroupOption, FormState } from '../ceg.interface';
+import { debounce } from 'lodash';
+import { VisibleFieldsPipe } from './ceg-filters-visibility.pipe';
 
 @Component({
   selector: 'app-ceg-filters',
@@ -9,26 +20,25 @@ import { ExampleCodeService } from '../../../example-code.service';
 })
 export class CegFiltersComponent implements OnInit {
   @Input() componentData;
-  @Input() props;
-  @Input() selectedType;
+  @Input() formGroupList;
   @Input() desktop = true;
+  @Input() topFilterFormStates = {};
+  @Output() hasVisibleFilters = new EventEmitter();
   codeAngularSub: Subscription;
   codeReactSub: Subscription;
   codeVueSub: Subscription;
   codeNativeSub: Subscription;
-  counterNumber: number;
   codeReact;
   codeAngular;
   codeVue;
   codeNative;
-  checkboxesLength = 0;
-  checkboxes = [];
-  checkboxGroups = [];
-  hasCheckboxes = false;
-  emptyLineRegex = /^\s*[\r\n]/gm;
-  objectKeys = Object.keys;
 
-  constructor(private cegService: ExampleCodeService) {}
+  counterNumber: number;
+  emptyLineRegex = /^\s*[\r\n]/gm;
+
+  formStates: FormState = {};
+
+  constructor(private cegService: ExampleCodeService, private cd: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.codeReact = this.componentData.codeReact;
@@ -47,7 +57,8 @@ export class CegFiltersComponent implements OnInit {
     this.codeNativeSub = this.cegService.listenCodeNative().subscribe((code: string) => {
       this.codeNative = code;
     });
-    this.initializeComponentProps();
+
+    this.initializeFormStates();
   }
 
   ngOnDestroy(): void {
@@ -66,95 +77,120 @@ export class CegFiltersComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.selectedType) {
-      this.selectedType = changes.selectedType.currentValue;
+    if (changes.formGroupList) {
+      this.formGroupList = changes.formGroupList.currentValue;
     }
-    if (changes.props) {
-      this.props = changes.props.currentValue;
-    }
-  }
-
-  initializeComponentProps(): void {
-    if (!this.componentData.attributes) {
-      return;
-    }
-    Object.keys(this.componentData.attributes).forEach((attribute) => {
-      Object.keys(this.componentData.attributes[attribute]).forEach((value) => {
-        if (value === 'cegFormType' && this.componentData.attributes[attribute].cegFormType === 'checkbox') {
-          const newObject = {
-            attribute,
-            ...this.componentData.attributes[attribute],
-          };
-          this.hasCheckboxes = true;
-          this.checkboxes.push(newObject);
-        }
+    if (changes.topFilterFormStates) {
+      this.formStates = {
+        ...this.formStates,
+        ...changes.topFilterFormStates.currentValue,
+      };
+      Object.keys(changes.topFilterFormStates.currentValue).forEach((elementKey) => {
+        this.removeNonVisibleProp(elementKey);
       });
-    });
-    if (this.hasCheckboxes) {
-      this.checkboxGroups = this.sortCheckboxArrays(this.checkboxes);
-      this.checkboxesLength = Object.keys(this.checkboxGroups).length;
     }
   }
 
-  sortCheckboxArrays(checkboxGroups: any[]): [] {
-    const checkboxArrays = checkboxGroups.reduce((obj, value) => {
-      const key = `${value.cegDisplayGroup}`;
-      if (obj[key] == null) {
-        obj[key] = [];
+  // Dependencies
+  initializeFormStates(): void {
+    this.formStates = {
+      ...this.formStates,
+      ...this.topFilterFormStates,
+    };
+    this.formGroupList.forEach((element) => {
+      if (element.formType === 'checkbox') {
+        element.formGroupOptions.forEach((element) => {
+          this.updateFormStates(element.propName, element.defaultValue);
+        });
+      } else {
+        this.updateFormStates(element.propName, element.defaultValue);
       }
-      obj[key].push(value);
-      return obj;
-    }, {});
-    return checkboxArrays;
+    });
   }
 
-  typeDependencyExistsToggle(prop: Record<string, any>): boolean {
-    if (!prop.cegTypeDependency || !this.selectedType) {
+  onInputValueChange(formField: CegFormGroup | CegFormGroupOption, event: Event): void {
+    const value = (event.target as HTMLInputElement).checked;
+    this.updateFormStates(formField.propName, value);
+  }
+
+  updateFormStates(key: string, value: string | number | boolean): void {
+    this.formStates = {
+      ...this.formStates,
+      [key]: value.toString().toLowerCase(),
+    };
+    this.checkIfHasVisibleFilters();
+    this.removeNonVisibleProp(key);
+  }
+
+  checkIfVisible(formField: CegFormGroup | CegFormGroupOption): boolean {
+    const visibleFieldPipe = new VisibleFieldsPipe();
+    return visibleFieldPipe.transform(formField, this.formStates);
+  }
+
+  removeNonVisibleProp(propName: string): void {
+    const dependentElements = this.getDependentElements(propName);
+    if (!dependentElements || !this.codeAngular) {
       return;
     }
-    if (typeof prop.cegTypeDependency === 'string') {
-      return prop.cegTypeDependency.toLowerCase() === this.selectedType.toLowerCase();
-    } else {
-      return prop.cegTypeDependency.find((element) => {
-        return element.toLowerCase() === this.selectedType.toLowerCase();
+    dependentElements.forEach((element) => {
+      const visibility = this.checkIfVisible(element);
+      if (!visibility && this.codeAngular.includes(element.propName)) {
+        this.removeProps(element.propName);
+        this.updateNewCode();
+      }
+    });
+  }
+
+  getDependentElements(propName: string): CegFormGroup[] | CegFormGroupOption[] {
+    const dependentElements = [];
+    this.formGroupList.filter((element) => {
+      if (element.dependency && element.dependency.name === propName) {
+        dependentElements.push(element);
+      } else {
+        if (element.formGroupOptions) {
+          element.formGroupOptions.forEach((element) => {
+            if (element.dependency && element.dependency.name == propName) {
+              dependentElements.push(element);
+            }
+          });
+        }
+      }
+    });
+    return dependentElements;
+  }
+
+  getDependencyState(formField: CegFormGroup | CegFormGroupOption): boolean {
+    let visibility = false;
+    if (typeof formField.dependency.value === 'object') {
+      visibility = formField.dependency.value.some((element) => {
+        return this.formStates[formField.dependency.name].toString() === element.toString().toLowerCase();
       });
+    } else {
+      visibility =
+        this.formStates[formField.dependency.name].toString() ===
+        formField.dependency.value.toString().toLowerCase();
     }
+    return visibility;
   }
 
-  typeDependencyExists(prop: Record<string, any>): boolean {
-    const dependencyCheckbox = <HTMLInputElement>(
-      document.getElementById(prop.cegTypeDependency + '-checkbox-' + this.desktop)
-    );
-    const checkboxThatHasDependency = <HTMLInputElement>(
-      document.getElementById(prop.attribute + '-checkbox-' + this.desktop)
-    );
-    if (!checkboxThatHasDependency) {
-      return;
-    }
-    if (
-      (prop.cegTypeDependencyValue === 'false' &&
-        checkboxThatHasDependency.checked &&
-        dependencyCheckbox.checked) ||
-      (prop.cegTypeDependencyValue === 'true' &&
-        checkboxThatHasDependency.checked &&
-        !dependencyCheckbox.checked) ||
-      (!prop.cegTypeDependencyValue && checkboxThatHasDependency.checked && !dependencyCheckbox.checked)
-    ) {
-      checkboxThatHasDependency.checked = false;
-      this.updateToggleCheckboxProp(prop, 'false');
-    }
-    return (
-      (prop.cegTypeDependencyValue === 'false' && !dependencyCheckbox.checked) ||
-      (prop.cegTypeDependencyValue === 'true' && dependencyCheckbox.checked) ||
-      (!prop.cegTypeDependencyValue && dependencyCheckbox.checked)
-    );
+  checkIfHasVisibleFilters(): void {
+    debounce((): void => {
+      let currHasVisibleFilters = true;
+      if (this.formGroupList.length === 0) {
+        currHasVisibleFilters = true;
+      }
+      if (this.formGroupList.some((formGroup) => this.checkIfVisible(formGroup))) {
+        currHasVisibleFilters = true;
+      } else {
+        currHasVisibleFilters = false;
+      }
+      this.hasVisibleFilters.emit(currHasVisibleFilters);
+    }, 100)();
   }
 
+  // CEG code-view updates
   updateNewCode(): void {
-    this.cegService.updateCodeReact(this.codeReact);
-    this.cegService.updateCodeAngular(this.codeAngular);
-    this.cegService.updateCodeVue(this.codeVue);
-    this.cegService.updateCodeNative(this.codeNative);
+    this.cegService.updateAllCode(this.codeReact, this.codeAngular, this.codeVue, this.codeNative);
   }
 
   addNewProps(attr: string, newValue: string, type: string): void {
@@ -180,10 +216,26 @@ export class CegFiltersComponent implements OnInit {
     this.codeNative = this.cegService.removeProp(this.codeNative, attr);
   }
 
-  updateRadioProp(prop: Record<string, any>, newValue: string): void {
-    const attr = prop.attribute;
-    const type = prop.cegType;
-    if (this.codeAngular.includes(prop.attribute)) {
+  addSlotAndProp(attr: string, value: string): void {
+    const elNameR = this.componentData.elementNameR;
+    const elNameW = this.componentData.elementNameW;
+    this.codeReact = this.cegService.addNewSlotAndProp(this.codeReact, attr, value, 'react', elNameR);
+    this.codeAngular = this.cegService.addNewSlotAndProp(this.codeAngular, attr, value, 'angular', elNameW);
+    this.codeVue = this.cegService.addNewSlotAndProp(this.codeVue, attr, value, 'vue', elNameW);
+    this.codeNative = this.cegService.addNewSlotAndProp(this.codeNative, attr, value, 'native', elNameW);
+  }
+
+  removeSlotAndProp(attr: string, value: string): void {
+    const elNameR = this.componentData.elementNameR;
+    const elNameW = this.componentData.elementNameW;
+    this.codeReact = this.cegService.removeSlotAndProp(this.codeReact, attr, value, 'react', elNameR);
+    this.codeAngular = this.cegService.removeSlotAndProp(this.codeAngular, attr, value, 'angular', elNameW);
+    this.codeVue = this.cegService.removeSlotAndProp(this.codeVue, attr, value, 'vue', elNameW);
+    this.codeNative = this.cegService.removeSlotAndProp(this.codeNative, attr, value, 'native', elNameW);
+  }
+
+  updateRadioProp(attr: string, newValue: string, type: string): void {
+    if (this.codeAngular.includes(attr)) {
       this.replaceOldProps(attr, newValue, type);
     } else {
       this.addNewProps(attr, newValue, type);
@@ -191,77 +243,46 @@ export class CegFiltersComponent implements OnInit {
     this.updateNewCode();
   }
 
-  addSlotAndProp(attr: string, newValue: string): void {
-    const elNameR = this.componentData.elementNameR;
-    const elNameW = this.componentData.elementNameW;
-    this.codeReact = this.cegService.addNewSlotAndProp(this.codeReact, attr, newValue, 'react', elNameR);
-    this.codeAngular = this.cegService.addNewSlotAndProp(
-      this.codeAngular,
-      attr,
-      newValue,
-      'angular',
-      elNameW,
-    );
-    this.codeVue = this.cegService.addNewSlotAndProp(this.codeVue, attr, newValue, 'vue', elNameW);
-    this.codeNative = this.cegService.addNewSlotAndProp(this.codeNative, attr, newValue, 'native', elNameW);
-  }
-
-  removeSlotAndProp(attr: string, oldValue: string): void {
-    const elNameR = this.componentData.elementNameR;
-    const elNameW = this.componentData.elementNameW;
-    this.codeReact = this.cegService.removeSlotAndProp(this.codeReact, attr, oldValue, 'react', elNameR);
-    this.codeAngular = this.cegService.removeSlotAndProp(
-      this.codeAngular,
-      attr,
-      oldValue,
-      'angular',
-      elNameW,
-    );
-    this.codeVue = this.cegService.removeSlotAndProp(this.codeVue, attr, oldValue, 'vue', elNameW);
-    this.codeNative = this.cegService.removeSlotAndProp(this.codeNative, attr, oldValue, 'native', elNameW);
-  }
-
-  updateToggleCheckboxProp(prop: Record<string, any>, newValue: string): void {
-    const attr = prop.attribute;
-    const type = prop.cegType;
-    if (prop.cegContent) {
+  updateToggleCheckboxProp(formGroup: CegFormGroup, formGroupOption?: CegFormGroupOption): void {
+    const attr = formGroupOption ? formGroupOption.propName : formGroup.propName;
+    const newValue = formGroupOption ? formGroupOption.propValue : formGroup.propValue;
+    const slot = formGroup.propSlot;
+    if (slot !== undefined) {
       if (this.codeAngular.includes(attr)) {
-        this.removeSlotAndProp(attr, prop.cegContent);
+        this.removeSlotAndProp(attr, slot);
       } else {
-        this.addSlotAndProp(attr, prop.cegContent);
+        this.addSlotAndProp(attr, slot);
       }
     } else {
       if (this.codeAngular.includes(attr)) {
         this.removeProps(attr);
       } else {
-        this.addNewProps(attr, newValue, type);
+        this.addNewProps(attr, newValue + '', formGroup.type);
       }
     }
     this.updateNewCode();
   }
 
-  isAcceptedCounterValue(prop: Record<string, any>, newValue: number): boolean {
+  isNotAcceptedCounterValue(formGroup: CegFormGroup, stepValue: number): boolean {
     return (
       this.counterNumber !== undefined &&
-      (this.counterNumber + newValue > prop.cegCounterMax ||
-        this.counterNumber + newValue < prop.cegCounterMin)
+      (this.counterNumber + stepValue > formGroup.counterMax ||
+        this.counterNumber + stepValue < formGroup.counterMin)
     );
   }
 
-  updateCounterProp(prop: Record<string, any>, newValue: number): void {
-    const attr = prop.attribute;
-    const type = prop.cegType;
-    if (this.isAcceptedCounterValue(prop, newValue)) {
+  updateCounterProp(formGroup: CegFormGroup, stepValue: number): void {
+    const attr = formGroup.propName;
+    if (this.isNotAcceptedCounterValue(formGroup, stepValue)) {
       return;
     } else if (this.counterNumber === undefined) {
-      this.counterNumber = prop.cegDefault + newValue;
+      this.counterNumber = +formGroup.defaultValue + stepValue;
     } else {
-      this.counterNumber += newValue;
+      this.counterNumber += stepValue;
     }
 
     if (this.codeAngular.includes(attr)) {
-      // Replaces old value for prop
-      this.replaceOldProps(attr, '' + this.counterNumber, type);
+      this.replaceOldProps(attr, '' + this.counterNumber, formGroup.type);
     }
     this.updateNewCode();
   }

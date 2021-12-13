@@ -8,19 +8,19 @@ const radioFilterData = {
       type: 'Array<object>',
       description:
         'Options available in the radio-filter component, set as array of objects with keys of :  {label: string, value: string} ',
-      displayName: 'Items',
+      cegDisplayName: 'Items',
     },
     value: {
       isRequired: true,
       type: 'string',
       description: 'Value of selected filter.',
-      displayName: 'Name',
+      cegDisplayName: 'Name',
     },
     name: {
       isRequired: true,
       type: 'string',
       description: 'Name of inputs',
-      displayName: 'Name',
+      cegDisplayName: 'Name',
     },
     ariaLabel: {
       isRequired: false,
@@ -60,6 +60,18 @@ const radioFilterData = {
   [name]="'readRadioFilters'"
   [ariaLabel]="'{value} filtrering valgt'"
   (valueOnChange)="updateSelectedFilter($event.detail.value)"
+></elvia-radio-filter>
+`,
+  codeVue: `<elvia-radio-filter 
+  :items="[
+    { label: 'All', value: 'all'},
+    { label: 'Read', value: 'read'},
+    { label: 'Unread', value: 'unread'},
+  ]"
+  :value="'read'"
+  :name="'readRadioFilters'"
+  :ariaLabel="'{value} filtrering valgt'"
+  @value-on-change="updateSelectedFilter($event.detail.value)"
 ></elvia-radio-filter>
 `,
   codeNativeHTML: `<elvia-radio-filter 
