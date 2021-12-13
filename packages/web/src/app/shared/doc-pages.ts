@@ -115,7 +115,7 @@ export const componentsDocPages: DocPage[] = [
     title: 'Card',
     // tslint:disable-next-line: max-line-length
     description:
-      'A card is a flexible container that groups various elements of information and actions. They should be easy to scan, read and get things done.',
+      'A card presents a single topic in a collection you can choose from. The card is clickable, and the layout can vary if you have a description, image, or label.',
     docUrl: Pages.Card,
     absolutePath: '/components/' + Pages.Card,
     status: DocPageStatus.Done,
