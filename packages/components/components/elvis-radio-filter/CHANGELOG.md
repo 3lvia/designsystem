@@ -1,6 +1,6 @@
 # Elvia Radio Filter Changelog
 
-## 1.1.3 (09.12.21)
+## 1.1.3 (13.12.21)
 
 - Added unit tests for radio-filter
 
