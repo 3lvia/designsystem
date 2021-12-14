@@ -20,6 +20,7 @@
     "@elvia/elvis-datepicker": "*",
     "@elvia/elvis-divider": "*",
     "@elvia/elvis-dropdown": "*",
+    "@elvia/elvis-icon": "*",
     "@elvia/elvis-modal": "*",
     "@elvia/elvis-pagination": "*",
     "@elvia/elvis-popover": "*",

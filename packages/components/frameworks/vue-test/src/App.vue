@@ -52,7 +52,11 @@
 
     <h3>Dropdown</h3>
     <elvia-dropdown :defaultValue="defaultOption" :options="elviaOptions"></elvia-dropdown>
-    
+
+    <h3>Icon</h3>
+    <elvia-icon :name="'addCircle'" :color="'green'" :customSize="'5rem'"></elvia-icon>
+    <elvia-icon :name="'sortingBold'" :color="'red'" :customSize="'5rem'"></elvia-icon>
+
     <h3>Modal</h3>
     <button class="e-btn" @click="isModalShowing1 = !isModalShowing1">Hello</button>
     <elvia-modal
@@ -67,21 +71,16 @@
         </div>
       </div>
       <div slot="secondaryButton">
-        <button class="e-btn e-btn--secondary e-btn--lg" @click="isModalShowing1 = false">
-          Avbryt
-        </button>
+        <button class="e-btn e-btn--secondary e-btn--lg" @click="isModalShowing1 = false">Avbryt</button>
       </div>
       <div slot="primaryButton"><button class="e-btn e-btn--primary e-btn--lg">Lagre</button></div>
     </elvia-modal>
 
     <h3>Pagination</h3>
-     <elvia-pagination
-      items="156"
-      :value="defaultPaginatioValue"
-    ></elvia-pagination>
+    <elvia-pagination items="156" :value="defaultPaginatioValue"></elvia-pagination>
 
     <h3>Popover</h3>
-     <elvia-popover header="BankID" posX="right">
+    <elvia-popover header="BankID" posX="right">
       <div slot="trigger"><button class="e-btn">Right top</button></div>
       <div slot="content">
         Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
@@ -89,18 +88,14 @@
     </elvia-popover>
 
     <h3>Progressbar</h3>
-    <elvia-progress-linear
-      :value="50"
-      :isIndeterminate="false"
-      :isError="false"
-    ></elvia-progress-linear>
+    <elvia-progress-linear :value="50" :isIndeterminate="false" :isError="false"></elvia-progress-linear>
 
     <h3>Radio Filter</h3>
-    <elvia-radio-filter 
+    <elvia-radio-filter
       :items="[
-        { label: 'All', value: 'all'},
-        { label: 'Read', value: 'read'},
-        { label: 'Unread', value: 'unread'},
+        { label: 'All', value: 'all' },
+        { label: 'Read', value: 'read' },
+        { label: 'Unread', value: 'unread' },
       ]"
       :value="'read'"
       :name="'readRadioFilters'"
@@ -127,6 +122,7 @@ import '@elvia/elvis-chip';
 import '@elvia/elvis-datepicker';
 import '@elvia/elvis-divider';
 import '@elvia/elvis-dropdown';
+import '@elvia/elvis-icon';
 import '@elvia/elvis-modal';
 import '@elvia/elvis-pagination';
 import '@elvia/elvis-popover';
@@ -160,7 +156,7 @@ export default {
         {
           url: 'https://www.elvia.no/nettleie/elvias-leveringsplikt',
           title: 'Elvias leveringsplikt',
-        }
+        },
       ],
       deletableChipsList: [
         { value: 2022, color: 'green' },
@@ -182,20 +178,20 @@ export default {
         {
           element: this.carouselParagraph,
         },
-      ]
+      ],
     };
   },
   methods: {
     onFromDateChange: (event) => {
-      console.log('hello: ', event)
+      console.log('hello: ', event);
     },
     handleOnDelete: (event) => {
       console.log(event.detail.value);
     },
     updateSelectedFilter: (event) => {
       console.log(event.detail.value);
-    }
-  }
+    },
+  },
 };
 </script>
 
