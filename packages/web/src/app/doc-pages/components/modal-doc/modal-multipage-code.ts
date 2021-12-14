@@ -34,6 +34,21 @@ const modalMultipageCode = {
     <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>
   </div>
 </elvia-modal>`,
+  codeVue: `<button @click="isModalShowing = true" class="e-btn">Åpne modal</button>
+<elvia-modal
+  @on-hide="isModalShowing = !isModalShowing"
+  :isShowing="isModalShowing"
+  :title="'Title of content'"
+  :hasCloseBtn="true"
+>
+  <div slot="content" style="display: flex; flex-direction: column; justify-content: space-between; height: 100%">
+    <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+    <elvia-carousel elements="4"></elvia-carousel>
+  </div>
+  <div slot="illustration">
+    <img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>
+  </div>
+</elvia-modal>`,
   codeNativeHTML: `<button id="example-modal-button-multipage" class="e-btn">Åpne modal</button>
 <elvia-modal
   id="example-elvia-modal-multipage"

@@ -1,6 +1,24 @@
 <template>
   <h1>Vue 3 Preview</h1>
 
+  <button @click="isModalShowing = true" class="e-btn">Åpne modal</button>
+<elvia-modal
+  @on-hide="isModalShowing = !isModalShowing"
+  :isShowing="isModalShowing"
+  :title="'Title of content'"
+>
+  <div slot="content">
+    <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+  </div>
+  <button slot="secondaryButton" class="e-btn e-btn--secondary e-btn--lg" @click="isModalShowing = false">
+    Cancel
+  </button>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+  <div slot="illustration">
+ill
+  </div>
+</elvia-modal>
+
   <div class="components-examples">
     <div class="example-wrapper">
       <h3>Accordion</h3>
@@ -100,7 +118,7 @@
     
     <div class="example-wrapper">
       <h3>Modal</h3>
-      <button class="e-btn" @click="isModalShowing1 = !isModalShowing1">Hello</button>
+      <!-- <button class="e-btn" @click="isModalShowing1 = !isModalShowing1">Hello</button>
       <elvia-modal
         :isShowing="isModalShowing1"
         :title="'Redigere bidragsytere'"
@@ -118,7 +136,7 @@
           </button>
         </div>
         <div slot="primaryButton"><button class="e-btn e-btn--primary e-btn--lg">Lagre</button></div>
-      </elvia-modal>
+      </elvia-modal> -->
     </div>
 
     <div class="example-wrapper">
@@ -182,6 +200,7 @@ export default {
   data: function () {
     return {
       isModalShowing1: false,
+      isModalShowing: false,
       defaultPaginatioValue: { start: 1, end: 10 },
       defaultOption: { value: '675', label: 'Mast - Råte' },
       elviaOptions: [
