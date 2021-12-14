@@ -3,34 +3,28 @@ const elvisIconData = {
   elementNameW: 'elvia-icon',
   elementNameR: 'ElvisIcon',
   attributes: {
-    iconName: {
+    name: {
       isRequired: true,
       type: 'string',
       description: 'Available icons from eliva/elvis-assets-icons package, in camelCase',
       default: '""',
-      cegDisplayName: 'IconNames',
+      cegDisplayName: 'name',
       cegDefault: 0,
       cegType: 'string',
       cegFormType: 'iconName',
       cegOptions: ['addCircle', 'box'],
     },
-    iconColor: {
+    color: {
       isRequired: false,
       type: 'string',
       description: 'Color of icon, can be any color value like string, hex or rgba',
       default: '',
     },
-    iconSize: {
+    size: {
       isRequired: false,
       type: `"xxs" ... =>  "xxl"`,
       description: `Standard size of icon, follows same sizing guide as css classes, e.g "xs" = 16px, "sm" = 24px `,
       default: '"sm"',
-    },
-    iconDisplay: {
-      isRequired: false,
-      type: `"inline" | "block"`,
-      description: `Define display property of icon element to be inline or block`,
-      default: '"inline"',
     },
     customSize: {
       isRequired: false,
@@ -40,19 +34,19 @@ const elvisIconData = {
     },
   },
   package: 'npm install @elvia/elvis-icon',
-  codeImportReact: `import { ElvisIcon } from '@elvia/elvis-icon/react';`,
+  codeImportReact: `import { Icon } from '@elvia/elvis-icon/react';`,
   codeImportWebComponent: `import '@elvia/elvis-icon';`,
-  codeReact: `<ElvisIcon
-  iconName={"addCircle"}
-></ElvisIcon>
+  codeReact: `<Icon
+  name={"addCircle"}
+></Icon>
 `,
   codeAngular: `<elvia-icon
-  [iconName]="'addCircle'"
+  [name]="'addCircle'"
 >
 </elvia-icon>
 `,
   codeNativeHTML: `<elvia-icon
-  iconName="addCircle"
+  name="addCircle"
   id="example-elvia-icon"
 >
 </elvia-icon>

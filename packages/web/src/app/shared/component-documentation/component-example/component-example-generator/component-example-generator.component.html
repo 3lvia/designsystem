@@ -18,7 +18,7 @@
         [options]="iconsOptions"
         [defaultValue]="defaultIcon"
         label="IconName"
-        (valueOnChange)="updateFormStates('iconName', $event); updateSelectedType($event.detail.value, true)"
+        (valueOnChange)="updateFormStates('name', $event); updateSelectedType($event.detail.value, true)"
       ></elvia-dropdown>
     </div>
     <div *ngIf="bgOptions.length !== 0" class="ceg-dropdown">

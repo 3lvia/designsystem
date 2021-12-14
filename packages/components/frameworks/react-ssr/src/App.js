@@ -14,7 +14,7 @@ import { Dropdown } from '@elvia/elvis-dropdown/react';
 import { Pagination } from '@elvia/elvis-pagination/react';
 import { Box } from '@elvia/elvis-box/react';
 import { Modal } from '@elvia/elvis-modal/react';
-import { ElvisIcon } from '@elvia/elvis-icon/react';
+import { Icon } from '@elvia/elvis-icon/react';
 import { RadioFilter } from '@elvia/elvis-radio-filter/react';
 
 function App() {
@@ -246,10 +246,10 @@ function App() {
       <h1>React preview</h1>
       <h2>Elvia ICONS</h2>
       <div className="testingIconSizes">
-        <ElvisIcon iconName="folderCreate" customSize="1em"></ElvisIcon>
+        <Icon name="folderCreate" customSize="2em"></Icon>
       </div>
-      <ElvisIcon iconName="addCircle" iconColor="red"></ElvisIcon>
-      <ElvisIcon iconName="addCircle"></ElvisIcon>
+      <Icon name="addCircle" iconColor="red"></Icon>
+      <Icon name="addCircle"></Icon>
       <h2>Pagination!</h2>
       <Pagination
         items={156}

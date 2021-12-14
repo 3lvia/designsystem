@@ -2,22 +2,14 @@ import React from 'react';
 import * as elvisIcons from '@elvia/elvis-assets-icons';
 
 export type IconSizes = 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
-export type iconDisplay = 'inline' | 'block';
 
 interface IconProps {
-  iconName: string;
-  iconColor?: string;
-  iconSize?: IconSizes;
+  name: string;
+  color?: string;
+  size?: IconSizes;
   customSize?: string;
-  iconDisplay: iconDisplay;
 }
-export const ElvisIcon: React.FC<IconProps> = ({
-  iconName = '',
-  iconColor,
-  iconSize,
-  customSize,
-  iconDisplay = 'inline',
-}) => {
+export const Icon: React.FC<IconProps> = ({ name = '', color, size, customSize }) => {
   const getIcon = (icon: string, color?: string): string => {
     let newIcon = undefined;
 
@@ -81,26 +73,17 @@ export const ElvisIcon: React.FC<IconProps> = ({
     return NewIcon;
   };
 
-  let displayIcon = getIcon(iconName, iconColor);
+  let displayIcon = getIcon(name, color);
 
-  if (displayIcon && iconSize && !customSize) {
-    displayIcon = getIconSize(displayIcon, iconSize);
-  } else if (displayIcon && !iconSize && customSize) {
+  if (displayIcon && size && !customSize) {
+    displayIcon = getIconSize(displayIcon, size);
+  } else if (displayIcon && !size && customSize) {
     displayIcon = getIconSize(displayIcon, undefined, customSize);
   } else {
     displayIcon = getIconSize(displayIcon, 'sm');
   }
 
-  return (
-    <i
-      style={{
-        display: iconDisplay,
-      }}
-      dangerouslySetInnerHTML={{ __html: displayIcon }}
-      aria-hidden="true"
-      role="img"
-    />
-  );
+  return <i dangerouslySetInnerHTML={{ __html: displayIcon }} aria-hidden="true" role="img" />;
 };
 
-export default ElvisIcon;
+export default Icon;

@@ -287,7 +287,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       this.updateSelected('type', newValue, 'type');
     } else {
       newValue = selected.label;
-      this.updateSelected('iconName', newValue, 'iconName');
+      this.updateSelected('name', newValue, 'name');
     }
   }
 
