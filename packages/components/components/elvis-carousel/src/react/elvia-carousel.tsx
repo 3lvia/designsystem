@@ -64,27 +64,22 @@ export const Carousel: FC<BaseCarouselProps> = ({
   };
 
   useEffect(() => {
+    setIndex(index);
+  });
+
+  useEffect(() => {
     if (!webcomponent) {
       return;
     }
     // Get slotted items from web component
     const slots = webcomponent.getAllSlots();
-    const slotElements = Object.keys(slots).filter((el) => {
-      return el.includes('element-');
-    });
-    if (slotElements.length === 0) {
-      return;
-    }
-    const newElements = mapSlottedItems(slots, slotElements);
-    if (newElements.length !== 0) {
+    const slotElements = Object.keys(slots).filter((el) => el.includes('element-'));
+    if (slotElements.length !== 0) {
+      const newElements = mapSlottedItems(slots, slotElements);
       setLengthOfElements(newElements.length);
+      setCarouselElements(newElements);
     }
-    setCarouselElements(newElements);
   }, [webcomponent]);
-
-  useEffect(() => {
-    setIndex(index);
-  }, [index]);
 
   useEffect(() => {
     if (elements !== undefined) {
@@ -170,7 +165,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
       {typeof carouselElements === 'object' && (
         <CarouselElementContainer className={classNameContainer}>
           {typeof carouselElements[index].title === 'string' && (
-            <CarouselTitle>
+            <CarouselTitle data-testid="carousel-element-title">
               <h2 className="e-title-sm">{carouselElements[index].title}</h2>
             </CarouselTitle>
           )}
@@ -186,6 +181,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
             onTouchStart={(e: TouchEvent) => handleMouseDown(e)}
             onTouchMove={(e: TouchEvent) => handleMouseMove(e)}
             onTouchEnd={() => setIsDown(false)}
+            data-testid="carousel-element"
           >
             {carouselElements[index].element}
           </CarouselElement>
@@ -197,10 +193,11 @@ export const Carousel: FC<BaseCarouselProps> = ({
           aria-hidden={hideLeftArrow}
           hidden={hideLeftArrow}
           onClick={() => handleButtonClick(index, 'left')}
+          data-testid="carousel-left-arrow"
         >
           <i />
         </LeftCarouselButton>
-        <ListOfDots>
+        <ListOfDots data-testid="carousel-list-of-dots">
           {Array.from(Array(lengthOfElements), (e, listIndex: number) => (
             <Dot
               key={listIndex}
@@ -218,7 +215,11 @@ export const Carousel: FC<BaseCarouselProps> = ({
         </ListOfDots>
 
         {showOnboardingCheckmark ? (
-          <CheckButton aria-label={'Fullfør og lukk.'} onClick={() => onHide && onHide()}>
+          <CheckButton
+            aria-label={'Fullfør og lukk.'}
+            onClick={() => onHide && onHide()}
+            data-testid="carousel-onboarding-checkmark"
+          >
             <i />
           </CheckButton>
         ) : (
@@ -227,6 +228,7 @@ export const Carousel: FC<BaseCarouselProps> = ({
             aria-hidden={hideRightArrow}
             hidden={hideRightArrow}
             onClick={() => handleButtonClick(index, 'right')}
+            data-testid="carousel-right-arrow"
           >
             <i />
           </RightCarouselButton>
