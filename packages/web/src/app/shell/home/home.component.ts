@@ -46,6 +46,7 @@ export class HomeComponent implements OnInit {
     // christmas
     if (this.date.getMonth() === this.christmasMonth) {
       this.christmas = true;
+      this.overviewTitle = 'Merry christmas'
     }
   };
 
