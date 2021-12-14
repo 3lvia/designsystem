@@ -11,6 +11,7 @@ import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { ComponentInstallationModule } from 'src/app/shared/component-documentation/component-installation/component-installation.module';
 import { ComponentExampleGeneratorModule } from 'src/app/shared/component-documentation/component-example/component-example-generator/component-example-generator.module';
 import { ComponentPropertiesTableModule } from 'src/app/shared/component-documentation/component-properties-table/component-properties-table.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { ComponentPropertiesTableModule } from 'src/app/shared/component-documen
     ComponentInstallationModule,
     ComponentExampleGeneratorModule,
     ComponentPropertiesTableModule,
+    RouterModule,
   ],
   declarations: [CardDocComponent],
 })

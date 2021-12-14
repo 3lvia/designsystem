@@ -17,6 +17,9 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="doesCard" [whenNots]="dontsCard"></app-when-to-use>
+      <app-component-subsection [sectionTitle]="'Type'">
+        <ng-container ngProjectAs="sectionContent"></ng-container>
+      </app-component-subsection>
       <app-component-subsection [sectionTitle]="'Options'">
         <ng-container ngProjectAs="sectionContent">
           <app-component-subsubsection [sectionTitle]="'Description'">
@@ -42,6 +45,18 @@
               smaller than 112px wide and not larger than 400px wide.
             </ng-container>
           </app-component-subsubsection>
+        </ng-container>
+      </app-component-subsection>
+
+      <app-component-subsection [sectionTitle]="'Implementation'">
+        <ng-container ngProjectAs="sectionContent">
+          To implement the card component as a link it must be wrapped in a link or an anchor tag. To avoid
+          hard refreshes of the webpage the links should use a router (e.g. Angular RouterModule or React
+          Router).
+          <app-component-example-generator
+            [componentData]="cardLinkCode"
+            [inlineExample]="true"
+          ></app-component-example-generator>
         </ng-container>
       </app-component-subsection>
     </ng-container>
