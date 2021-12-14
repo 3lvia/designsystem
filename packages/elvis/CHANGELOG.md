@@ -6,6 +6,36 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.13.5
+      </span>
+      <br>
+      <span>
+        December 14, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">🐝 Bug Fixes</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/card#Overview">Card</a> &
+            <a class="e-link e-link--inline" href="https://design.elvia.io/components/link#Overview">Link</a>
+          </div>
+          <ul class="e-list">
+            <li>
+              Deprecated e-card and e-link--card, replaced with card component.  
+            </li>
+            <li>
+              Deprecated e-link--jumbo, replaced with  <a class="e-link e-link--inline" href="https://design.elvia.io/patterns/groups#Examples">action group pattern</a>.  
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.13.4
       </span>
       <br>

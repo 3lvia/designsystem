@@ -11,6 +11,7 @@ import { ComponentSubsubsectionModule } from 'src/app/shared/component-documenta
 import { WhenToUseModule } from 'src/app/shared/when-to-use/when-to-use.module';
 import { DoDontTextModule } from 'src/app/shared/do-dont-text/do-dont-text.module';
 import { CopyModule } from 'src/app/shared/copy/copy.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { CopyModule } from 'src/app/shared/copy/copy.module';
     WhenToUseModule,
     DoDontTextModule,
     CopyModule,
+    RouterModule,
   ],
   declarations: [LinkDocComponent],
 })
