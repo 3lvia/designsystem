@@ -1,6 +1,14 @@
 # Elvia Modal Changelog
 
+## 1.3.5 (14.12.21)
+
+### Patch
+
+- Fix for slotting
+
 ## 1.3.4 (10.12.21)
+
+### Patch
 
 - Added unit tests for modal
 
