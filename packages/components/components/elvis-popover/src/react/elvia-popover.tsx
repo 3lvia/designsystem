@@ -332,9 +332,13 @@ const Popover: FC<PopoverProps> = ({
 
   return (
     <div ref={popoverRef}>
-      <div ref={popoverClasscontainerRef} className={popoverClasses}>
+      <div ref={popoverClasscontainerRef} className={popoverClasses} data-testid="popover-container">
         <div className="ewc-popover__trigger" ref={popoverTriggerRef}>
-          {trigger && <div onClick={togglePopover}>{trigger}</div>}
+          {trigger && (
+            <div onClick={togglePopover} data-testid="popover-trigger">
+              {trigger}
+            </div>
+          )}
           {!trigger && <div onClick={togglePopover} ref={popoverSlotTriggerRef}></div>}
         </div>
         <div className="ewc-popover__backdrop" ref={popoverBackdropRef}></div>
@@ -347,6 +351,7 @@ const Popover: FC<PopoverProps> = ({
                   <button
                     className="ewc-btn ewc-btn--icon ewc-btn--sm"
                     onClick={() => setPopoverVisibility(false)}
+                    data-testid="popover-close-btn"
                   >
                     <span className="ewc-btn__icon">
                       <i
@@ -360,8 +365,16 @@ const Popover: FC<PopoverProps> = ({
                   </button>
                 </div>
               )}
-              {header && <div className="ewc-popover__header">{header}</div>}
-              {content && <div className="ewc-popover__text">{content}</div>}
+              {header && (
+                <div className="ewc-popover__header" data-testid="popover-header">
+                  {header}
+                </div>
+              )}
+              {content && (
+                <div className="ewc-popover__text" data-testid="popover-text">
+                  {content}
+                </div>
+              )}
               {!content && <div className="ewc-popover__text" ref={popoverText} />}
             </div>
           </div>

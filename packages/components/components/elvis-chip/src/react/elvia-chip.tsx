@@ -69,6 +69,7 @@ export const Chip: FC<BaseChipProps> = ({
       onMouseLeave={setHover(false)}
       chipType={type}
       isSelected={isSelected}
+      data-testid="chip-button"
     >
       {type === 'choice' && (
         <CheckmarkIcon
@@ -88,6 +89,7 @@ export const Chip: FC<BaseChipProps> = ({
           ['showDot']: type === 'legend' && (isHovering || isSelected),
           ['disabledDot']: disabled,
         })}
+        data-testid="chip-label"
       >
         {value}
       </ChipTitle>

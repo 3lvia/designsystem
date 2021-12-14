@@ -1,5 +1,9 @@
 # Elvia Progress-linear Changelog
 
+## 1.1.2 (09.12.21)
+
+- Added unit tests for progress-linear
+
 ## 1.1.1 (30.11.21)
 
 - Web component wrapper fix

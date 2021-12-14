@@ -126,7 +126,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         });
         const formGroupObject = {
           label: prop.cegDisplayName,
-          type: formType,
+          formType: formType,
+          type: prop.cegType,
           formGroupOptions,
           propName: propKey,
           dependency: prop.cegDependency,
@@ -142,7 +143,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       } else if (formType === 'toggle') {
         const formGroupObject = {
           label: prop.cegDisplayName,
-          type: formType,
+          formType: formType,
+          type: prop.cegType,
           defaultValue: prop.cegDefault,
           propValue: prop.cegOption,
           propName: propKey,
@@ -153,7 +155,8 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       } else if (formType === 'counter') {
         const formGroupObject = {
           label: prop.cegDisplayName,
-          type: formType,
+          formType: formType,
+          type: prop.cegType,
           defaultValue: prop.cegDefault,
           propValue: prop.cegPropValue,
           propName: propKey,
@@ -181,13 +184,14 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
           propName: checkbox.propName,
           propValue: checkbox.cegOption,
           dependency: checkbox.cegDependency,
-          type: 'checkbox',
+          type: checkbox.cegType,
+          formType: 'checkbox',
         };
         formGroupOptions.push(formOption);
       });
       const checkboxFormGroupObject = {
         label: checkboxGroupKey,
-        type: 'checkbox',
+        formType: 'checkbox',
         formGroupOptions,
       };
       this.formGroupList.push(checkboxFormGroupObject);
@@ -284,10 +288,10 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     let newValue;
     if (!icon || icon === undefined) {
       newValue = selected.label.toLowerCase();
-      this.updateSelected('type', newValue, 'type');
+      this.updateSelected('type', newValue, 'string');
     } else {
       newValue = selected.label;
-      this.updateSelected('name', newValue, 'name');
+      this.updateSelected('name', newValue, 'string');
     }
   }
 

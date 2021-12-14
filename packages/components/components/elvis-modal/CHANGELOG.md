@@ -1,5 +1,9 @@
 # Elvia Modal Changelog
 
+## 1.3.4 (10.12.21)
+
+- Added unit tests for modal
+
 ## 1.3.3 (30.11.21)
 
 ### Patch
