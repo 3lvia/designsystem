@@ -31,6 +31,7 @@ const cardData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['square', 'circle'],
+      cegDependency: { name: 'type', value: 'simple' },
     },
     header: {
       isRequired: false,
@@ -51,6 +52,7 @@ const cardData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: [' ', 'green', 'blue-berry', 'red', 'orange'],
+      cegDependency: { name: 'type', value: 'simple' },
     },
     isInverted: {
       isRequired: false,
@@ -95,6 +97,13 @@ const cardData = {
       isRequired: false,
       type: 'string | HTMLElement',
       description: 'Icon on upper right corner of card (use slot in webcomponent)',
+      cegDisplayName: 'Corner Icon',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: 'false',
+      cegOption: 'true',
+      cegSlot: '<i class="e-icon e-icon--lock e-icon--xs"></i>',
+      cegDependency: { name: 'shape', value: ['square'] },
     },
   },
   package: 'npm install @elvia/elvis-card',
@@ -133,9 +142,7 @@ const cardData = {
     exampleContents.texts.lg['eng-GBR'].description +
     `"
   id="example-elvia-card"
-  
 >
-  <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs"></i>
 </elvia-card>
 `,
   codeNativeScript: `  const card = document.getElementById('example-elvia-card');
