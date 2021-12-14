@@ -295,13 +295,13 @@ module.exports = [
     elementName: 'elvia-icon',
     attributes: [
       { name: 'name', type: 'string', propType: 'string' },
-      { name: 'color', type: 'string', propType: 'string' },
+      { name: 'color', type: 'string', propType: 'string | undefined' },
       { name: 'size', type: 'string', propType: 'string' },
-      { name: 'customSize', type: 'string', propType: 'string' },
+      { name: 'customSize', type: 'string', propType: 'string | undefined' },
     ],
     reactName: 'Icon',
     slotItems: false,
-    useWrapper: false,
+    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
 ];
