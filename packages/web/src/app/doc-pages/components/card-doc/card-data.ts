@@ -54,15 +54,15 @@ const cardData = {
       cegOptions: [' ', 'green', 'blue-berry', 'red', 'orange'],
       cegDependency: { name: 'type', value: 'simple' },
     },
-    isInverted: {
+    hasBorder: {
       isRequired: false,
       type: 'boolean',
-      description: 'If the card is on a dark grey background this prop should be used',
-      default: 'false',
-      cegDefault: 0,
+      description: 'If the card is on a light grey background this prop should be set to false',
+      default: 'true',
+      cegDefault: 1,
       cegType: 'boolean',
       cegFormType: 'background',
-      cegOptions: ['White', 'Dark grey'],
+      cegOptions: ['White', 'Light grey'],
     },
     width: {
       isRequired: false,
@@ -111,7 +111,7 @@ const cardData = {
   codeImportWebComponent: `import '@elvia/elvis-card';`,
   codeReact:
     `<Card 
-  icon={"13"}
+  icon={<i class="e-icon e-icon--information_circle e-icon--md"></i>}
   header={"` +
     exampleContents.texts.lg['eng-GBR'].title +
     `"}
@@ -122,7 +122,6 @@ const cardData = {
 `,
   codeAngular:
     `<elvia-card
-  [icon]='"13"'
   [header]='"` +
     exampleContents.texts.lg['eng-GBR'].title +
     `"'
@@ -130,19 +129,20 @@ const cardData = {
     exampleContents.texts.lg['eng-GBR'].description +
     `"'
 >
+  <i slot="icon" class="e-icon e-icon--information_circle e-icon--md"></i>
 </elvia-card>
 `,
   codeNativeHTML:
-    `<elvia-card  
-  icon="13"
+    `<elvia-card
   header="` +
-    exampleContents.texts.lg['eng-GBR'].title +
+    exampleContents.texts.md['eng-GBR'].title +
     `"
   description="` +
-    exampleContents.texts.lg['eng-GBR'].description +
+    exampleContents.texts.md['eng-GBR'].description +
     `"
   id="example-elvia-card"
 >
+  <i slot="icon" class="e-icon e-icon--information_circle e-icon--md"></i>
 </elvia-card>
 `,
   codeNativeScript: `  const card = document.getElementById('example-elvia-card');

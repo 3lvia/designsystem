@@ -26,7 +26,7 @@ export interface CardProps {
   borderColor?: BorderColor;
   type: CardType;
   shape: CardShape;
-  isInverted: boolean;
+  hasBorder: boolean;
   width: string;
   minWidth?: number;
   maxWidth?: number;
@@ -48,7 +48,7 @@ const Card: FC<CardProps> = ({
   borderColor,
   type = 'simple',
   shape = 'square',
-  isInverted,
+  hasBorder = true,
   width = '100%',
   minWidth,
   maxWidth,
@@ -90,7 +90,7 @@ const Card: FC<CardProps> = ({
     <CardArea
       type={type}
       shape={shape}
-      isInverted={isInverted}
+      hasBorder={hasBorder}
       width={width}
       minWidth={minWidth}
       maxWidth={maxWidth}

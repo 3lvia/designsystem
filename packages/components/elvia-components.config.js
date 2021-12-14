@@ -246,7 +246,7 @@ module.exports = [
       { name: 'borderColor', type: 'string', propType: 'string | undefined' },
       { name: 'type', type: 'string', propType: 'string' },
       { name: 'shape', type: 'string', propType: 'string' },
-      { name: 'isInverted', type: 'boolean', propType: 'boolean' },
+      { name: 'hasBorder', type: 'boolean', propType: 'boolean' },
       { name: 'width', type: 'string', propType: 'string' },
       { name: 'minWidth', type: 'number', propType: 'number | undefined' },
       { name: 'maxWidth', type: 'number', propType: 'number | undefined' },

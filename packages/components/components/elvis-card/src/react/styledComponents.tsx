@@ -28,7 +28,7 @@ const typography = {
 type CardAreaProps = {
   shape: CardShape;
   type: CardType;
-  isInverted: boolean;
+  hasBorder: boolean;
   width: string;
   minWidth: number;
   maxWidth: number;
@@ -39,7 +39,8 @@ export const CardArea = styled.div<CardAreaProps>`
   position: relative;
   display: flex;
   flex: 1;
-  background: ${colors.elviaWhite};
+  background: ${(props: { shape: CardShape }) =>
+    props.shape === 'circle' ? 'transparent' : colors.elviaWhite};
   overflow: hidden;
   box-sizing: border-box;
   justify-content: center;
@@ -52,10 +53,10 @@ export const CardArea = styled.div<CardAreaProps>`
   ${(props: { shape: CardShape }) => props.shape === 'circle' && 'aspect-ratio: 1/1;'}
 
   border-radius: ${(props: { shape: CardShape }) => (props.shape === 'square' ? '8px' : '50%')};
-  border: ${(props: { shape: CardShape; isInverted: boolean }) =>
-    props.shape === 'square' && !props.isInverted
+  border: ${(props: { shape: CardShape; hasBorder: boolean }) =>
+    props.shape === 'square' && props.hasBorder
       ? `1px solid ${colors.elviaGrey10}`
-      : props.shape === 'square' && props.isInverted
+      : props.shape === 'square' && !props.hasBorder
       ? `1px solid ${colors.elviaGrey05}`
       : '1px solid transparent'};
 
@@ -74,6 +75,8 @@ export const CardContent = styled.div<CardContentProps>`
   display: flex;
   flex-direction: column;
   justify-content: ${(props: { shape: CardShape }) => (props.shape === 'circle' ? 'center' : 'start')};
+  padding-left: ${(props: { shape: CardShape }) => (props.shape === 'circle' ? '24px' : 0)};
+  padding-right: ${(props: { shape: CardShape }) => (props.shape === 'circle' ? '24px' : 0)};
 `;
 
 type CardHeaderProps = {
@@ -93,8 +96,8 @@ export const CardHeader = styled.div<CardHeaderProps>`
   color: ${colors.elviaBlack};
   display: -webkit-box;
   overflow: hidden;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
+  -webkit-line-clamp: ${(props: { type: CardType }) => (props.type === 'simple' ? 1 : 2)};
+  line-clamp: ${(props: { type: CardType }) => (props.type === 'simple' ? 1 : 2)};
   -webkit-box-orient: vertical;
 `;
 
