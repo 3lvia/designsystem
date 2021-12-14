@@ -215,9 +215,11 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       } else if (formType === 'iconName') {
         this.isIconDropdown = true;
         this.selectedIcon = this.iconsOptions[0];
-        this.defaultIcon = { value: 'addCircle', label: 'addCircle' };
+        this.defaultIcon = { value: 'addCircle', label: 'Add Circle' };
         for (const icon in ElvisIcons) {
-          this.iconsOptions.push({ value: icon, label: icon });
+          const labelName = icon.replace(/([A-Z])/g, ' $1');
+          const finalLabel = labelName.charAt(0).toUpperCase() + labelName.slice(1);
+          this.iconsOptions.push({ value: icon, label: finalLabel });
         }
         this.addToFormStates(propKey, this.iconsOptions[0].value);
       } else if (formType === 'background') {
@@ -290,7 +292,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
       newValue = selected.label.toLowerCase();
       this.updateSelected('type', newValue, 'string');
     } else {
-      newValue = selected.label;
+      newValue = selected.value;
       this.updateSelected('name', newValue, 'string');
     }
   }

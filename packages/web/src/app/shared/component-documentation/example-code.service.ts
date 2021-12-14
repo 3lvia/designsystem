@@ -82,7 +82,7 @@ export class ExampleCodeService {
       if (propType === 'string') {
         newVal = '"' + newVal + '"';
       }
-      return '  ' + attribute + '={"' + newVal + '"}';
+      return '  ' + attribute + '={' + newVal + '}';
     } else if (language === 'native') {
       return '  ' + attribute + '="' + newValue + '"';
     }

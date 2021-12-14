@@ -6,7 +6,7 @@ const elvisIconData = {
     name: {
       isRequired: true,
       type: 'string',
-      description: 'Available icons from eliva/elvis-assets-icons package, in camelCase',
+      description: 'Available icons from elvia/elvis-assets-icons package, in camelCase',
       default: '""',
       cegDisplayName: 'name',
       cegDefault: 0,
@@ -25,6 +25,7 @@ const elvisIconData = {
       type: `"xxs" ... =>  "xxl"`,
       description: `Standard size of icon, follows same sizing guide as css classes, e.g "xs" = 16px, "sm" = 24px `,
       default: '"sm"',
+      propertyTableMultiline: true,
     },
     customSize: {
       isRequired: false,

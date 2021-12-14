@@ -9,9 +9,10 @@ interface IconProps {
   size?: IconSizes;
   customSize?: string;
 }
-export const Icon: React.FC<IconProps> = ({ name = '', color, size, customSize }) => {
-  const getIcon = (icon: string, color?: string): string => {
+export const Icon: React.FC<IconProps> = ({ name, color, size = 'sm', customSize }) => {
+  const getIcon = (icon: string, size: IconSizes, color?: string, customSize?: string): string => {
     let newIcon = undefined;
+    let definedSize;
 
     // search and get requested icon in elvis/asses-icons
     for (const elviaIcon in elvisIcons) {
@@ -27,63 +28,46 @@ export const Icon: React.FC<IconProps> = ({ name = '', color, size, customSize }
       console.error('No icon found with the name ' + icon);
       return `No icon found with name ${icon}`;
     }
-    return newIcon;
-  };
 
-  const getIconSize = (icon: string, iconSize?: IconSizes, customSize?: string): string => {
-    let NewIcon = undefined;
-    let definedSize;
-
-    if (iconSize !== undefined) {
-      switch (iconSize) {
-        case 'xxs':
-          definedSize = '8px';
-          break;
-        case 'xs':
-          definedSize = '16px';
-          break;
-        case 'sm':
-          definedSize = '24px';
-          break;
-        case 'md':
-          definedSize = '32px';
-          break;
-        case 'lg':
-          definedSize = '40px';
-          break;
-        case 'xl':
-          definedSize = '48px';
-          break;
-        case 'xxl':
-          definedSize = '56px';
-          break;
-        default:
-          definedSize = '24px';
-          break;
-      }
+    // find correct size according to size prop
+    switch (size) {
+      case 'xxs':
+        definedSize = '8px';
+        break;
+      case 'xs':
+        definedSize = '16px';
+        break;
+      case 'sm':
+        definedSize = '24px';
+        break;
+      case 'md':
+        definedSize = '32px';
+        break;
+      case 'lg':
+        definedSize = '40px';
+        break;
+      case 'xl':
+        definedSize = '48px';
+        break;
+      case 'xxl':
+        definedSize = '56px';
+        break;
     }
 
+    // override size with customSize if it is defined
     if (customSize !== undefined) {
       definedSize = customSize;
     }
     // regex to find width and height properties in svg string from elvis/assets-icons
     const wReg = /width="([^"]*)"/;
     const hReg = /height="([^"]*)"/;
-    NewIcon = icon.replace(wReg, `width="${definedSize}"`).replace(hReg, `height="${definedSize}"`);
-    return NewIcon;
+    newIcon = newIcon.replace(wReg, `width="${definedSize}"`).replace(hReg, `height="${definedSize}"`);
+    return newIcon;
   };
 
-  let displayIcon = getIcon(name, color);
+  const displayIcon = getIcon(name, size, color, customSize);
 
-  if (displayIcon && size && !customSize) {
-    displayIcon = getIconSize(displayIcon, size);
-  } else if (displayIcon && !size && customSize) {
-    displayIcon = getIconSize(displayIcon, undefined, customSize);
-  } else {
-    displayIcon = getIconSize(displayIcon, 'sm');
-  }
-
-  return <i dangerouslySetInnerHTML={{ __html: displayIcon }} aria-hidden="true" role="img" />;
+  return <i dangerouslySetInnerHTML={{ __html: displayIcon }} aria-hidden="true" />;
 };
 
 export default Icon;
