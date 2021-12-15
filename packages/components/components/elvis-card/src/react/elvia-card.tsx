@@ -157,8 +157,10 @@ const Card: FC<CardProps> = ({
           ></i>
         </CardDetailHoverArrow>
       )}
-      {cornerIcon && <CardCornerIcon data-testid="card-corner-icon">{cornerIcon}</CardCornerIcon>}
-      {!cornerIcon && (
+      {type === 'detail' && cornerIcon && (
+        <CardCornerIcon data-testid="card-corner-icon">{cornerIcon}</CardCornerIcon>
+      )}
+      {type === 'detail' && !cornerIcon && (
         <CardCornerIcon data-testid="card-corner-icon">
           <div ref={cardCornerIcon}></div>
         </CardCornerIcon>
