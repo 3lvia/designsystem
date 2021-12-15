@@ -233,7 +233,6 @@ module.exports = [
     ],
     reactName: 'Box',
     useWrapper: true,
-    elementStyle: `display: block;`,
     slotItems: true,
     reactTypescriptDeclaration: true,
   },
