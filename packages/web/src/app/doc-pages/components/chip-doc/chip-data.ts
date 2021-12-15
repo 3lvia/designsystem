@@ -71,7 +71,7 @@ export const chipData = {
   value={2022} 
   selected={true}
   ariaLabel={"Fjern filtrering for 2022"}
-  onDelete={handleOnDelete($event.detail.value)}
+  onDelete={(event) => handleOnDelete(event)}
 >
 </Chip>
 `,
