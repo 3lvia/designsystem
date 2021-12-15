@@ -52,7 +52,7 @@ const cardData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: [' ', 'green', 'blue-berry', 'red', 'orange'],
-      cegDependency: { name: 'type', value: 'simple' },
+      cegDependency: { name: 'shape', value: 'square' },
     },
     hasBorder: {
       isRequired: false,
@@ -92,6 +92,18 @@ const cardData = {
       isRequired: false,
       type: 'string',
       description: 'Label on bottom of card, only available on detail card',
+    },
+    iconHover: {
+      isRequired: false,
+      type: 'string | HTMLElement',
+      description: 'Text or icon to swap icon for on hover (use slot in webcomponent if not just text)',
+      cegDisplayName: 'Hover Icon',
+      cegType: 'boolean',
+      cegFormType: 'toggle',
+      cegDefault: 'false',
+      cegOption: 'true',
+      cegSlot: '<i class="e-icon e-icon--information_circle-filled-color e-icon--md"></i>',
+      cegDependency: { name: 'type', value: ['simple'] },
     },
     cornerIcon: {
       isRequired: false,
