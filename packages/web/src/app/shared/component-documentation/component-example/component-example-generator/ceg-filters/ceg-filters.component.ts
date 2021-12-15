@@ -108,8 +108,15 @@ export class CegFiltersComponent implements OnInit {
     });
   }
 
-  onInputValueChange(formField: CegFormGroup | CegFormGroupOption, event: Event): void {
-    const value = (event.target as HTMLInputElement).checked;
+  onInputValueChange(
+    formField: CegFormGroup | CegFormGroupOption,
+    event?: Event,
+    formFieldName?: string,
+  ): void {
+    let value = formFieldName;
+    if (!formFieldName) {
+      value = (event.target as HTMLInputElement).checked.toString();
+    }
     this.updateFormStates(formField.propName, value);
   }
 
