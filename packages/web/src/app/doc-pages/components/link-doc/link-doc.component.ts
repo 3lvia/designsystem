@@ -12,15 +12,6 @@ export class LinkDocComponent {
   doExample = `<a class="e-link e-link--lg" href="https://design.elvia.io/components/link#Overview">Se vårt strømsbruddskart</a>`;
   dontExample = `<a class="e-link e-link--lg" href="https://design.elvia.io/components/link#Overview">Klikk her</a>`;
 
-  doesExample6 = [
-    'Use jumbo links for a group of links on the same level, to gather and provide an overview.',
-  ];
-  dontsExample6 = [
-    'Do not use jumbo links for groups with less than three links.',
-    'Do not mix links that aren’t naturally grouped together in the jumbo link section.',
-    // tslint:disable-next-line:max-line-length
-    'Do not mix icon jumbo link with jumbo links without icons - in that case, all jumbo links in the section should be showed without icon.',
-  ];
   // tslint:disable-next-line:max-line-length
   dontsExample8 = [
     'On actions that could have disabled state. Links do not have an disabled state, and the e-btn disabled style will not be applied on links with disabled html syntax.',
@@ -76,27 +67,6 @@ export class LinkDocComponent {
     <i class="e-icon e-icon--arrow_left_circle-filled-color"></i>
   </span>  
   <span class="e-link__title">Back link</span>
-</a>
-`;
-
-  example6 = `<a class="e-link e-link--jumbo e-mb-40" href="https://design.elvia.io/components/link#Overview">
-  <span class="e-link__title">Jumbo link</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--arrow_long_right-bold e-icon--xs"></i></span>
-</a>
-<a class="e-link e-link--jumbo" href="https://design.elvia.io/components/link#Overview">
-  <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
-  <span class="e-link__title">Jumbo link with icon</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--arrow_long_right-bold e-icon--xs"></i></span>
-</a>
-`;
-  example6NewTab = `<a class="e-link e-link--jumbo e-mb-40" href="https://design.elvia.io/components/link#Overview">
-  <span class="e-link__title">New tab jumbo link</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold e-icon--xs"></i></span>
-</a>
-<a class="e-link e-link--jumbo" href="https://design.elvia.io/components/link#Overview">
-  <span class="e-link__icon"><i class="e-icon e-icon--powerline e-icon--xl"></i></span>
-  <span class="e-link__title">New tab jumbo link with icon</span>
-  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold e-icon--xs"></i></span>
 </a>
 `;
 

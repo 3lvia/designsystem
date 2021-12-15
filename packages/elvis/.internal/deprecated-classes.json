@@ -13,8 +13,16 @@
     "version": "7.9.3",
     "replacedBy": "e-fileupload--dragover"
   },
+  "e-link--jumbo": {
+    "version": "7.13.5",
+    "replacedBy": "Action group pattern"
+  },
+  "e-link--card": {
+    "version": "7.13.5",
+    "replacedBy": "Card component"
+  },
   "e-card": {
     "version": "7.13.5",
-    "replacedBy": "card component"
+    "replacedBy": "Card component"
   }
 }

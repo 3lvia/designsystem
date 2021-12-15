@@ -78,8 +78,12 @@
     }
   }
 
-  &---hover,
   &--dragover {
+    border-color: colors.color('elvia-charge');
+  }
+
+  // DEPRECATED
+  &---hover {
     border-color: colors.color('elvia-charge');
   }
 }
