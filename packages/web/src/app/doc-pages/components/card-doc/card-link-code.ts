@@ -15,7 +15,7 @@ const cardLinkCode = {
         <i slot="icon" class="e-icon e-icon--home e-icon--sm"></i>
     </elvia-card>
 </a>`,
-  codeNativeHTML: `<a href="/home" [routerLink]="['/home']">
+  codeNativeHTML: `<a [routerLink]="['/components/card#Usage']">
     <elvia-card 
         header="Home"
     >

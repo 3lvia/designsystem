@@ -13,14 +13,15 @@
     <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
       <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
         <a [routerLink]="['/components/card']">
-          <elvia-card [header]="'Title1'" [description]="'description1'">
-            <div slot="icon">918</div>
+          <elvia-card [header]="'Header'" [description]="'Hover me!'">
+            <div slot="icon">91</div>
+            <div slot="iconHover">92</div>
             <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs"></i>
           </elvia-card>
         </a>
       </div>
       <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
-        <elvia-card [header]="'Title2'" [borderColor]="'red'">
+        <elvia-card [header]="'Hover!'" [borderColor]="'red'">
           <i slot="icon" class="e-icon e-icon--search-bold e-icon--md"></i>
           <i slot="iconHover" class="e-icon e-icon--search-bold-color e-icon--md"></i>
           <i slot="cornerIcon" class="e-icon e-icon--unlock e-icon--xs"></i>

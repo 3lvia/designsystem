@@ -1,4 +1,4 @@
-import React, { FC, useRef, useEffect } from 'react';
+import React, { FC, useRef, useEffect, useState } from 'react';
 import { getColor } from '@elvia/elvis-colors';
 import { arrowLongRight } from '@elvia/elvis-assets-icons';
 import { CardType, CardShape, BorderColor } from './elvia-card.types';
@@ -64,8 +64,11 @@ const Card: FC<CardProps> = ({
   maxWidth = maxWidth ? Math.min(maxWidth, globalMaxWidth) : globalMaxWidth;
 
   const cardIcon = useRef<HTMLDivElement>(null);
+  const currentCardIcon = cardIcon;
   const cardIconHover = useRef<HTMLDivElement>(null);
   const cardCornerIcon = useRef<HTMLDivElement>(null);
+
+  const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     if (!webcomponent) {
@@ -86,6 +89,20 @@ const Card: FC<CardProps> = ({
     }
   }, [webcomponent]);
 
+  // Change icon on hover if iconHover slot is used
+  useEffect(() => {
+    if (!webcomponent) {
+      return;
+    }
+    if (isHovering && currentCardIcon.current && webcomponent.getSlot('iconHover')) {
+      currentCardIcon.current.innerHTML = '';
+      currentCardIcon.current.appendChild(webcomponent.getSlot('iconHover'));
+    } else if (!isHovering && currentCardIcon.current && webcomponent.getSlot('icon')) {
+      currentCardIcon.current.innerHTML = '';
+      currentCardIcon.current.appendChild(webcomponent.getSlot('icon'));
+    }
+  }, [isHovering, webcomponent]);
+
   return (
     <CardArea
       type={type}
@@ -96,15 +113,19 @@ const Card: FC<CardProps> = ({
       maxWidth={maxWidth}
       label={label}
       data-testid="card-area"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
     >
       {shape === 'square' && type === 'simple' && (
         <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
       )}
       <CardContent shape={shape} data-testid="card-content">
-        {icon && type === 'simple' && <CardIcon data-testid="card-icon">{icon}</CardIcon>}
+        {icon && type === 'simple' && (
+          <CardIcon data-testid="card-icon">{isHovering && iconHover ? iconHover : icon}</CardIcon>
+        )}
         {!icon && type === 'simple' && (
           <CardIcon data-testid="card-icon">
-            <div ref={cardIcon}></div>
+            <div ref={currentCardIcon}></div>
           </CardIcon>
         )}
         {header && (
@@ -130,7 +151,10 @@ const Card: FC<CardProps> = ({
       </CardContent>
       {type === 'detail' && (
         <CardDetailHoverArrow data-testid="card-detail-hover-arrow">
-          <i dangerouslySetInnerHTML={{ __html: arrowLongRight.getIcon(colors.elviaBlack) }}></i>
+          <i
+            dangerouslySetInnerHTML={{ __html: arrowLongRight.getIcon(colors.elviaBlack) }}
+            aria-hidden="true"
+          ></i>
         </CardDetailHoverArrow>
       )}
       {cornerIcon && <CardCornerIcon data-testid="card-corner-icon">{cornerIcon}</CardCornerIcon>}

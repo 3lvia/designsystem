@@ -59,7 +59,7 @@ const cardData = {
       type: 'boolean',
       description: 'If the card is on a light grey background this prop should be set to false',
       default: 'true',
-      cegDefault: 1,
+      cegDefault: 0,
       cegType: 'boolean',
       cegFormType: 'background',
       cegOptions: ['White', 'Light grey'],
