@@ -235,7 +235,9 @@ export class CegFiltersComponent implements OnInit {
   }
 
   updateRadioProp(attr: string, newValue: string, type: string): void {
-    if (this.codeAngular.includes(attr)) {
+    if (newValue === 'none') {
+      this.removeProps(attr);
+    } else if (this.codeAngular.includes(attr)) {
       this.replaceOldProps(attr, newValue, type);
     } else {
       this.addNewProps(attr, newValue, type);
