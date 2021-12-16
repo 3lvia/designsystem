@@ -1,6 +1,6 @@
 # Elvia Divider Changelog
 
-## 1.1.4 (14.12.21)
+## 1.1.5 (16.12.21)
 
 ### Patch
 

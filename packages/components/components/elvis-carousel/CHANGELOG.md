@@ -1,6 +1,6 @@
 # Elvia Carousel Changelog
 
-## 1.0.6 (14.12.21)
+## 1.0.7 (16.12.21)
 
 ### Patch
 
