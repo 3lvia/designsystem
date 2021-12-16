@@ -52,7 +52,7 @@ const cardData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['none', 'green', 'blue-berry', 'red', 'orange'],
-      cegDependency: { name: 'shape', value: 'square' },
+      cegDependency: { name: 'type', value: 'simple' },
     },
     hasBorder: {
       isRequired: false,

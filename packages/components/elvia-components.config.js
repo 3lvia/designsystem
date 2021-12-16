@@ -255,7 +255,7 @@ module.exports = [
       { name: 'cornerIcon', type: 'string', propType: 'string | HTMLElement | undefined' },
     ],
     reactName: 'Card',
-    useWrapper: false,
+    useWrapper: true,
     slotItems: true,
     reactTypescriptDeclaration: true,
   },
