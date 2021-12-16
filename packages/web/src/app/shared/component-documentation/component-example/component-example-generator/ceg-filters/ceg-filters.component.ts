@@ -108,8 +108,15 @@ export class CegFiltersComponent implements OnInit {
     });
   }
 
-  onInputValueChange(formField: CegFormGroup | CegFormGroupOption, event: Event): void {
-    const value = (event.target as HTMLInputElement).checked;
+  onInputValueChange(
+    formField: CegFormGroup | CegFormGroupOption,
+    event?: Event,
+    formFieldName?: string,
+  ): void {
+    let value = formFieldName;
+    if (!formFieldName) {
+      value = (event.target as HTMLInputElement).checked.toString();
+    }
     this.updateFormStates(formField.propName, value);
   }
 
@@ -235,7 +242,9 @@ export class CegFiltersComponent implements OnInit {
   }
 
   updateRadioProp(attr: string, newValue: string, type: string): void {
-    if (this.codeAngular.includes(attr)) {
+    if (newValue === 'none') {
+      this.removeProps(attr);
+    } else if (this.codeAngular.includes(attr)) {
       this.replaceOldProps(attr, newValue, type);
     } else {
       this.addNewProps(attr, newValue, type);
