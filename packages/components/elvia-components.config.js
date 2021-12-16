@@ -23,8 +23,9 @@ reactName: string - The name of the component in React
 elementStyle: string - Styling for the DOM element (web component HTMLElement) itself
 
 useWrapper: boolean - If the React element should be injected into a wrapper instead of directly into the element.
-In most cases this should be false, however sometimes we want the React component to be wrapped inside a separate
-div to prevent overwriting other content within the web component. In those cases useWrapper is useful.
+In most cases this should be true, however sometimes we want to have more control over the styling of the custom element itself. 
+In those cases removing that wrapper is useful. NB! The wrapper can not be removed if the component is using slots, because the 
+slots will then not work in Vue.
 
 wrapperStyle: string - Styling for the React wrapper (the div wrapper inside the web component, when using 'useWrapper'
 - This requires useWrapper to be true.
@@ -76,7 +77,7 @@ module.exports = [
     ],
     reactName: 'Carousel',
     slotItems: true,
-    useWrapper: false,
+    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -196,7 +197,7 @@ module.exports = [
       { name: 'orientation', value: undefined, style: `width: 100%;` },
       { name: 'orientation', value: 'vertical', style: `height: 100%` },
     ],
-    useWrapper: false,
+    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -230,9 +231,9 @@ module.exports = [
       { name: 'hasBorder', type: 'boolean', propType: 'boolean' },
       { name: 'isColored', type: 'boolean', propType: 'boolean' },
     ],
-    slotItems: true,
     reactName: 'Box',
-    useWrapper: false,
+    useWrapper: true,
+    slotItems: true,
     reactTypescriptDeclaration: true,
   },
   {
@@ -277,7 +278,7 @@ module.exports = [
     ],
     reactName: 'Modal',
     slotItems: true,
-    useWrapper: false,
+    useWrapper: true,
     reactTypescriptDeclaration: true,
   },
   {
