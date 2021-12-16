@@ -15,20 +15,38 @@
   <app-component-section [sectionTitle]="'Usage'">
     <ng-container ngProjectAs="sectionContent">
       <app-when-to-use [whens]="doesCard" [whenNots]="dontsCard"></app-when-to-use>
-      <app-component-subsection [sectionTitle]="'Type'">
-        <ng-container ngProjectAs="sectionContent"></ng-container>
-      </app-component-subsection>
-      <app-component-subsection [sectionTitle]="'Options'">
+      <app-component-subsubsection [sectionTitle]="'Dynamic size'">
         <ng-container ngProjectAs="sectionContent">
+          The size of the card link should be dynamic and responsive, but the card link should not be smaller
+          than 112px wide and not larger than 400px wide.
+        </ng-container>
+      </app-component-subsubsection>
+      <app-component-subsection [sectionTitle]="'Simple card'">
+        <ng-container ngProjectAs="sectionContent">????</ng-container>
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-subsubsection [sectionTitle]="'Square vs circle'">
+            <ng-container ngProjectAs="sectionContent">
+              It is mostly the visual that is the difference between them. The circle is less eye-catching
+              with transparent background and a circle upon hover. The square has a border and background with
+              a square hover. Also, the square has more options like border with color, and number instead of
+              icon.
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Visual item'">
+            <ng-container ngProjectAs="sectionContent">
+              Select between an icon or a number as a visual item. A number is used if you need a counter.
+            </ng-container>
+          </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Description'">
             <ng-container ngProjectAs="sectionContent">
-              You can add a description together with the header. Keep it short!
+              You can add a description together with the label. Usually only one word so keep it short! If
+              you need a longer description use detail card instead.
             </ng-container>
           </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Colored line'">
             <ng-container ngProjectAs="sectionContent">
               The colored line can be used to categorize or to visualize a status. Do not use only one colored
-              line on all cards or use without a purpose!
+              on all cards or without a purpose. Multiple cards with colored line can feel cluttered.
             </ng-container>
           </app-component-subsubsection>
           <app-component-subsubsection [sectionTitle]="'Hover'">
@@ -37,10 +55,22 @@
               effect by switching a black icon with a two-colored icon.
             </ng-container>
           </app-component-subsubsection>
-          <app-component-subsubsection [sectionTitle]="'Dynamic size'">
+        </ng-container>
+      </app-component-subsection>
+      <app-component-subsection [sectionTitle]="'Detail card'">
+        <ng-container ngProjectAs="sectionContent">
+          Use detail card when you need to give more information about the link.
+        </ng-container>
+        <ng-container ngProjectAs="sectionContent">
+          <app-component-subsubsection [sectionTitle]="'Label'">
             <ng-container ngProjectAs="sectionContent">
-              The size of the card link should be dynamic and responsive, but the card link should not be
-              smaller than 112px wide and not larger than 400px wide.
+              If you need to categorize the cards you can add a label.
+            </ng-container>
+          </app-component-subsubsection>
+          <app-component-subsubsection [sectionTitle]="'Corner icon'">
+            <ng-container ngProjectAs="sectionContent">
+              You can add a corner icon if you need to add special information to some of the cards. For
+              example: if some of the card links are locked and require access.
             </ng-container>
           </app-component-subsubsection>
         </ng-container>

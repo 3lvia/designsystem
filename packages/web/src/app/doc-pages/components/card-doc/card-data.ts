@@ -102,7 +102,7 @@ const cardData = {
       cegFormType: 'toggle',
       cegDefault: 'false',
       cegOption: 'true',
-      cegSlot: '<i class="e-icon e-icon--information_circle-filled-color e-icon--md"></i>',
+      cegSlot: '<i class="e-icon e-icon--information_circle-color e-icon--md"></i>',
       cegDependency: { name: 'type', value: 'simple' },
     },
     cornerIcon: {
@@ -125,25 +125,36 @@ const cardData = {
     `<Card 
   icon={<i class="e-icon e-icon--information_circle e-icon--md"></i>}
   header={"` +
-    exampleContents.texts.lg['eng-GBR'].title +
+    exampleContents.texts.md['eng-GBR'].title +
     `"}
   description={"` +
-    exampleContents.texts.lg['eng-GBR'].description +
+    exampleContents.texts.md['eng-GBR'].description +
     `"}
 ></Card>
 `,
   codeAngular:
     `<elvia-card
   [header]='"` +
-    exampleContents.texts.lg['eng-GBR'].title +
+    exampleContents.texts.md['eng-GBR'].title +
     `"'
   [description]='"` +
-    exampleContents.texts.lg['eng-GBR'].description +
+    exampleContents.texts.md['eng-GBR'].description +
     `"'
 >
   <i slot="icon" class="e-icon e-icon--information_circle e-icon--md"></i>
 </elvia-card>
 `,
+  codeVue:
+    `<elvia-card 
+  :header="` +
+    exampleContents.texts.md['eng-GBR'].title +
+    `" 
+  :description="` +
+    exampleContents.texts.md['eng-GBR'].description +
+    `"
+>
+  <i slot="icon" class="e-icon e-icon--information_circle e-icon--md"></i>
+</elvia-card>`,
   codeNativeHTML:
     `<elvia-card
   header="` +
