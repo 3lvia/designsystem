@@ -112,6 +112,25 @@ const popoverData = {
   </button>
 </elvia-popover>
 `,
+  codeVue:
+    `<elvia-popover 
+  :header="'` +
+    exampleContents.texts.md['eng-GBR'].title +
+    `'"
+  :content="'` +
+    exampleContents.texts.md['eng-GBR'].description +
+    `'"
+  :posY="'top'"
+  @is-showing-on-change="showingChanges($event.detail.value)"
+>
+  <button slot="trigger" class="e-btn e-btn--icon e-btn--circled">
+    <span class="e-btn__icon">
+      <i class="e-icon e-icon--information_circle"></i>
+      <i class="e-icon e-icon e-icon--information_circle-filled-color"></i>
+    </span>
+  </button>
+</elvia-popover>
+`,
   codeNativeHTML:
     `<elvia-popover 
   id="example-elvia-popover"

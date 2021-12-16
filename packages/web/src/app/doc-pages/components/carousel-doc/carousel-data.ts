@@ -126,6 +126,39 @@ export const carouselData = {
     />
   </div>
 </elvia-carousel>`,
+  codeVue: `<elvia-carousel
+>
+  <div slot="title-1">
+    <h3 class="e-title-sm">${exampleContents.texts.xs['eng-GBR'].title}</h3>
+  </div>
+  <div slot="element-1">
+    <img 
+      alt="Carousel example image" 
+      src="../../../../assets/carousel/el1.jpeg"
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
+    />
+  </div>
+  <div slot="title-2">
+    <h3 class="e-title-sm">${exampleContents.texts.sm['eng-GBR'].title}</h3>
+  </div>
+  <div slot="element-2">
+    <img 
+      alt="Carousel example image" 
+      src="../../../../assets/carousel/el2.jpeg"
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
+    />
+  </div>
+  <div slot="title-3">
+    <h3 class="e-title-sm">${exampleContents.texts.md['eng-GBR'].title}</h3>
+  </div>
+  <div slot="element-3">
+    <img 
+      alt="Carousel example image" 
+      src="../../../../assets/carousel/el3.jpeg"
+      style="width: 100%; min-width: 278px; border-radius: 8px;" 
+    />
+  </div>
+</elvia-carousel>`,
   codeNativeHTML: `<elvia-carousel
 >
   <div slot="title-1">

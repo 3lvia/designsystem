@@ -28,6 +28,17 @@ const modalInfoCode = {
   </div>
   <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
 </elvia-modal>`,
+  codeVue: `<button @click="isModalShowing = true" class="e-btn">Åpne modal</button>
+<elvia-modal
+  @on-hide="isModalShowing = !isModalShowing"
+  :isShowing="isModalShowing"
+  :title="'Title of content'"
+>
+  <div slot="content">
+    <div>Body text comes here and can go over several lines. It looks like this when it is two lines.</div>
+  </div>
+  <button slot="primaryButton" class="e-btn e-btn--primary e-btn--lg">Primary action</button>
+</elvia-modal>`,
   codeNativeHTML: `<button id="example-modal-button" class="e-btn">Åpne modal</button>
 <elvia-modal
   id="example-elvia-modal"

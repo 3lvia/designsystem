@@ -182,6 +182,7 @@ export default {
   data: function () {
     return {
       isModalShowing1: false,
+      isModalShowing: false,
       defaultPaginatioValue: { start: 1, end: 10 },
       defaultOption: { value: '675', label: 'Mast - Råte' },
       elviaOptions: [
