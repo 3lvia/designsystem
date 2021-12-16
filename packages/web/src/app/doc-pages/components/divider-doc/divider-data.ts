@@ -45,18 +45,6 @@ export const dividerData = {
       cegFormType: 'background',
       cegOptions: ['White', 'Dark grey'],
     },
-    illustration: {
-      isRequired: false,
-      type: 'HTMLElement',
-      description: 'Illustration/image to be shown in the modal (slot in webcomponent)',
-      cegDisplayName: 'Illustration',
-      cegType: 'boolean',
-      cegFormType: 'toggle',
-      cegDefault: 'false',
-      cegOption: 'true',
-      cegSlot: '<img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>',
-      cegDependency: [{ name: 'type', value: 'simple' }],
-    },
     orientation: {
       isRequired: false,
       type: '"horizontal" | "vertical"',
