@@ -97,12 +97,12 @@ const cardData = {
       isRequired: false,
       type: 'string | HTMLElement',
       description: 'Text or icon to swap icon for on hover (use slot in webcomponent if not just text)',
-      cegDisplayName: 'Hover Icon',
+      cegDisplayName: 'Two-colored icon on hover',
       cegType: 'boolean',
       cegFormType: 'toggle',
       cegDefault: 'false',
       cegOption: 'true',
-      cegSlot: '<i class="e-icon e-icon--information_circle-color e-icon--md"></i>',
+      cegSlot: '<i class="e-icon e-icon--electricity_safety-color e-icon--md"></i>',
       cegDependency: { name: 'type', value: 'simple' },
     },
     cornerIcon: {
@@ -123,7 +123,7 @@ const cardData = {
   codeImportWebComponent: `import '@elvia/elvis-card';`,
   codeReact:
     `<Card 
-  icon={<i class="e-icon e-icon--information_circle e-icon--md"></i>}
+  icon={<i class="e-icon e-icon--electricity_safety e-icon--md"></i>}
   header={"` +
     exampleContents.texts.md['eng-GBR'].title +
     `"}
@@ -141,7 +141,7 @@ const cardData = {
     exampleContents.texts.md['eng-GBR'].description +
     `'"
 >
-  <i slot="icon" class="e-icon e-icon--information_circle e-icon--md"></i>
+  <i slot="icon" class="e-icon e-icon--electricity_safety e-icon--md"></i>
 </elvia-card>
 `,
   codeVue:
@@ -153,7 +153,7 @@ const cardData = {
     exampleContents.texts.md['eng-GBR'].description +
     `'"
 >
-  <i slot="icon" class="e-icon e-icon--information_circle e-icon--md"></i>
+  <i slot="icon" class="e-icon e-icon--electricity_safety e-icon--md"></i>
 </elvia-card>`,
   codeNativeHTML:
     `<elvia-card
@@ -165,7 +165,7 @@ const cardData = {
     `"
   id="example-elvia-card"
 >
-  <i slot="icon" class="e-icon e-icon--information_circle e-icon--md"></i>
+  <i slot="icon" class="e-icon e-icon--electricity_safety e-icon--md"></i>
 </elvia-card>
 `,
   codeNativeScript: `  const card = document.getElementById('example-elvia-card');
