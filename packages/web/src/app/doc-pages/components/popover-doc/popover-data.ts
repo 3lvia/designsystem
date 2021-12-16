@@ -57,6 +57,10 @@ const popoverData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['top', 'bottom'],
+      cegDependency: [
+        { name: 'posX', value: 'center' },
+        { name: 'hasCloseBtn', value: 'true' },
+      ],
     },
     posX: {
       isRequired: false,

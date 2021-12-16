@@ -143,6 +143,7 @@ export class CegFiltersComponent implements OnInit {
       const visibility = this.checkIfVisible(element);
       if (!visibility && this.codeAngular.includes(element.propName)) {
         this.removeProps(element.propName);
+        this.removeSlotAndProp(element.propName, element.propSlot);
         this.updateNewCode();
       }
     });
@@ -151,32 +152,37 @@ export class CegFiltersComponent implements OnInit {
   getDependentElements(propName: string): CegFormGroup[] | CegFormGroupOption[] {
     const dependentElements = [];
     this.formGroupList.filter((element) => {
-      if (element.dependency && element.dependency.name === propName) {
-        dependentElements.push(element);
-      } else {
-        if (element.formGroupOptions) {
+      if (!element.dependency) {
+        return;
+      }
+      element.dependency.filter((dependency) => {
+        if (dependency && dependency.name === propName) {
+          dependentElements.push(element);
+        } else if (element.formGroupOptions) {
           element.formGroupOptions.forEach((element) => {
-            if (element.dependency && element.dependency.name == propName) {
+            if (element.name && element.name == propName) {
               dependentElements.push(element);
             }
           });
         }
-      }
+      });
     });
     return dependentElements;
   }
 
   getDependencyState(formField: CegFormGroup | CegFormGroupOption): boolean {
-    let visibility = false;
-    if (typeof formField.dependency.value === 'object') {
-      visibility = formField.dependency.value.some((element) => {
-        return this.formStates[formField.dependency.name].toString() === element.toString().toLowerCase();
-      });
-    } else {
-      visibility =
-        this.formStates[formField.dependency.name].toString() ===
-        formField.dependency.value.toString().toLowerCase();
-    }
+    const visibility = formField.dependency.every((dependency) => {
+      let visibility = false;
+      if (typeof dependency.value === 'object') {
+        visibility = dependency.value.some((element) => {
+          return this.formStates[dependency.name].toString() === element.toString().toLowerCase();
+        });
+      } else {
+        visibility =
+          this.formStates[dependency.name].toString() === dependency.value.toString().toLowerCase();
+      }
+      return visibility;
+    });
     return visibility;
   }
 
