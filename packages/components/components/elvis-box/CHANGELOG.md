@@ -1,5 +1,11 @@
 # Elvia Box Changelog
 
+## 1.1.7 (14.12.21)
+
+### Patch
+
+- Fix for slotting
+
 ## 1.1.6 (03.12.21)
 
 ### Patch

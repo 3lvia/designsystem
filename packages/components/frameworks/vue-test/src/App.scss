@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap');
+
+#app {
+  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #000;
+  margin-top: 24px;
+  font-family: 'Red Hat Text';
+}
+.components-examples {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Red Hat Display';
+  margin: 40px 0px 48px;
+}
+h3 {
+  font-family: 'Red Hat Display';
+  font-size: 24px;
+  margin-bottom: 32px;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+.example-wrapper {
+  border-top: 1px solid #29d305;
+  padding: 32px 32px 72px;
+}

@@ -9,8 +9,6 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^3.0.0",
     "@elvia/elvis": "*",
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-box": "*",
@@ -26,7 +24,10 @@
     "@elvia/elvis-progress-linear": "*",
     "@elvia/elvis-radio-filter": "*",
     "@elvia/elvis-tabs": "*",
-    "@elvia/elvis-testing": "*"
+    "@elvia/elvis-testing": "*",
+    "ansi-html-community": "^0.0.8",
+    "core-js": "^3.6.5",
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
@@ -47,8 +48,7 @@
     ],
     "parserOptions": {
       "parser": "babel-eslint"
-    },
-    "rules": {}
+    }
   },
   "browserslist": [
     "> 1%",
