@@ -296,7 +296,7 @@ module.exports = [
     attributes: [
       { name: 'name', type: 'string', propType: 'string' },
       { name: 'color', type: 'string', propType: 'string | undefined' },
-      { name: 'size', type: 'string', propType: 'string' },
+      { name: 'size', type: 'string', propType: 'string | undefined' },
       { name: 'customSize', type: 'string', propType: 'string | undefined' },
     ],
     reactName: 'Icon',

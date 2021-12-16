@@ -246,9 +246,9 @@ function App() {
       <h1>React preview</h1>
       <h2>Elvia ICONS</h2>
       <div className="testingIconSizes">
-        <Icon name="folderCreate" customSize="2em"></Icon>
+        <Icon name="folderCreate" customSize="37px"></Icon>
       </div>
-      <Icon name="addCircle" iconColor="red"></Icon>
+      <Icon name="addCircle" color="red"></Icon>
       <Icon name="addCircle"></Icon>
       <h2>Pagination!</h2>
       <Pagination

@@ -39,7 +39,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
   formGroupList = [];
   allCheckboxes = [];
 
-  isIconDropdown = false;
   iconsOptions = [];
   selectedIcon;
   defaultIcon;
@@ -213,7 +212,6 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
         });
         this.addToFormStates(propKey, prop.cegOptions[prop.cegDefault]);
       } else if (formType === 'iconName') {
-        this.isIconDropdown = true;
         this.selectedIcon = this.iconsOptions[0];
         this.defaultIcon = { value: 'addCircle', label: 'Add Circle' };
         for (const icon in ElvisIcons) {
