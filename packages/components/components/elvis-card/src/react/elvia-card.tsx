@@ -144,8 +144,8 @@ const Card: FC<CardProps> = ({
           </CardDescription>
         )}
         {type === 'detail' && label && (
-          <CardLabelContainer data-testid="card-detail-label">
-            <CardLabel>{label}</CardLabel>
+          <CardLabelContainer data-testid="card-detail-label-container">
+            <CardLabel data-testid="card-detail-label">{label}</CardLabel>
           </CardLabelContainer>
         )}
       </CardContent>
