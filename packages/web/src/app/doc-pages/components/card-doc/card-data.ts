@@ -134,24 +134,24 @@ const cardData = {
 `,
   codeAngular:
     `<elvia-card
-  [header]='"` +
+  [header]="'` +
     exampleContents.texts.md['eng-GBR'].title +
-    `"'
-  [description]='"` +
+    `'"
+  [description]="'` +
     exampleContents.texts.md['eng-GBR'].description +
-    `"'
+    `'"
 >
   <i slot="icon" class="e-icon e-icon--information_circle e-icon--md"></i>
 </elvia-card>
 `,
   codeVue:
     `<elvia-card 
-  :header="` +
+  :header="'` +
     exampleContents.texts.md['eng-GBR'].title +
-    `" 
-  :description="` +
+    `'" 
+  :description="'` +
     exampleContents.texts.md['eng-GBR'].description +
-    `"
+    `'"
 >
   <i slot="icon" class="e-icon e-icon--information_circle e-icon--md"></i>
 </elvia-card>`,

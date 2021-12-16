@@ -120,7 +120,7 @@ export const componentsDocPages: DocPage[] = [
     absolutePath: '/components/' + Pages.Card,
     status: DocPageStatus.Done,
     imageUrl: 'assets/doc-page-icons/component-icons/Card.svg',
-    figmaUrl: 'https://www.figma.com/file/BGZQp24T3is2F2YbN8mIYO/Cards?node-id=2%3A9',
+    figmaUrl: 'https://www.figma.com/file/w0gte3tPfAypBQpdynPMcU/Card?node-id=1%3A8',
     type: 'Component',
   },
   {
