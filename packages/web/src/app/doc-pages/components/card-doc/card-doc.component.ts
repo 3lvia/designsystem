@@ -3,6 +3,8 @@ import { getComponent } from 'src/app/shared/doc-pages';
 import { exampleContents } from 'src/app/shared/example-contents';
 import { cardData } from './card-data';
 import { cardLinkCode } from './card-link-code';
+import { cardSimpleCode } from './card-simple-code';
+import { cardDetailCode } from './card-detail-code';
 
 @Component({
   selector: 'app-card-doc',
@@ -13,6 +15,9 @@ export class CardDocComponent {
   examples = exampleContents;
   componentData = cardData;
   cardLinkCode = cardLinkCode;
+  cardSimpleCode = cardSimpleCode;
+  cardDetailCode = cardDetailCode;
+  typesData = [cardSimpleCode, cardDetailCode];
   figmaUrl = getComponent('card').figmaUrl;
   description = getComponent('card').description;
   doesCard = [

@@ -1,5 +1,3 @@
-import { exampleContents } from 'src/app/shared/example-contents';
-
 const cardData = {
   name: 'elvis-card',
   elementNameW: 'elvia-card',
@@ -9,17 +7,6 @@ const cardData = {
       isRequired: true,
       type: 'string | HTMLElement',
       description: 'Text or icon (use slot in webcomponent if not just text)',
-    },
-    type: {
-      isRequired: false,
-      type: 'simple | detail',
-      description: 'Variants of card',
-      default: 'simple',
-      cegDisplayName: 'Types',
-      cegDefault: 0,
-      cegType: 'string',
-      cegFormType: 'type',
-      cegOptions: ['simple', 'detail'],
     },
     shape: {
       isRequired: false,
@@ -73,8 +60,8 @@ const cardData = {
     minWidth: {
       isRequired: false,
       type: 'number',
-      default: '112',
-      description: 'Minimum width of card in px, cannot be less than 112',
+      default: '112 | 250',
+      description: 'Minimum width of card in px, cannot be less than 112 (or 250 for detail type card)',
     },
     maxWidth: {
       isRequired: false,
@@ -121,55 +108,6 @@ const cardData = {
   package: 'npm install @elvia/elvis-card',
   codeImportReact: `import { Card } from '@elvia/elvis-card/react';`,
   codeImportWebComponent: `import '@elvia/elvis-card';`,
-  codeReact:
-    `<Card 
-  icon={<i class="e-icon e-icon--electricity_safety e-icon--md"></i>}
-  header={"` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `"}
-  description={"` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `"}
-></Card>
-`,
-  codeAngular:
-    `<elvia-card
-  [header]="'` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `'"
-  [description]="'` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `'"
->
-  <i slot="icon" class="e-icon e-icon--electricity_safety e-icon--md"></i>
-</elvia-card>
-`,
-  codeVue:
-    `<elvia-card 
-  :header="'` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `'" 
-  :description="'` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `'"
->
-  <i slot="icon" class="e-icon e-icon--electricity_safety e-icon--md"></i>
-</elvia-card>`,
-  codeNativeHTML:
-    `<elvia-card
-  header="` +
-    exampleContents.texts.md['eng-GBR'].title +
-    `"
-  description="` +
-    exampleContents.texts.md['eng-GBR'].description +
-    `"
-  id="example-elvia-card"
->
-  <i slot="icon" class="e-icon e-icon--electricity_safety e-icon--md"></i>
-</elvia-card>
-`,
-  codeNativeScript: `  const card = document.getElementById('example-elvia-card');
-`,
 };
 
 export { cardData };
