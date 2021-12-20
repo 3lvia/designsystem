@@ -15,7 +15,8 @@ import {
   CardCornerIcon,
 } from './styledComponents';
 
-const globalMinWidth = 112;
+const globalMinWidthSimple = 112;
+const globalMinWidthDetail = 250;
 const globalMaxWidth = 400;
 
 export interface CardProps {
@@ -60,7 +61,11 @@ const Card: FC<CardProps> = ({
   if (type === 'detail') shape = 'square';
   if (type === 'simple') maxDescriptionLines = 1;
 
-  minWidth = minWidth ? Math.max(minWidth, globalMinWidth) : globalMinWidth;
+  if (type === 'simple') {
+    minWidth = minWidth ? Math.max(minWidth, globalMinWidthSimple) : globalMinWidthSimple;
+  } else {
+    minWidth = minWidth ? Math.max(minWidth, globalMinWidthDetail) : globalMinWidthDetail;
+  }
   maxWidth = maxWidth ? Math.min(maxWidth, globalMaxWidth) : globalMaxWidth;
 
   const cardIcon = useRef<HTMLDivElement>(null);
