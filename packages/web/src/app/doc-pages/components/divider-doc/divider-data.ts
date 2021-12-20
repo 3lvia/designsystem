@@ -33,7 +33,7 @@ export const dividerData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['medium', 'caps'],
-      cegDependency: { name: 'type', value: 'title' },
+      cegDependency: [{ name: 'type', value: 'title' }],
     },
     isInverted: {
       isRequired: false,
@@ -55,7 +55,7 @@ export const dividerData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['horizontal', 'vertical'],
-      cegDependency: { name: 'type', value: 'simple' },
+      cegDependency: [{ name: 'type', value: 'simple' }],
     },
   },
   codeImportReact: `import { Divider } from '@elvia/elvis-divider/react';`,

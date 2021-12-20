@@ -10,14 +10,14 @@ export interface CegFormGroup {
   counterMin?: number;
   counterStepValue?: number;
   counterType?: string;
-  dependency?: CegFormDependency;
+  dependency?: CegFormDependency[];
 }
 export interface CegFormGroupOption {
   name: string;
   defaultValue: string;
   propValue?: string;
   propName?: string;
-  dependency?: CegFormDependency;
+  dependency?: CegFormDependency[];
 }
 export interface CegFormDependency {
   name: string;
