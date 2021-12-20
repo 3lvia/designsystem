@@ -18,7 +18,7 @@ const cardData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['square', 'circle'],
-      cegDependency: { name: 'type', value: 'simple' },
+      cegDependency: [{ name: 'type', value: 'simple' }],
     },
     header: {
       isRequired: false,
@@ -39,7 +39,10 @@ const cardData = {
       cegType: 'string',
       cegFormType: 'radio',
       cegOptions: ['none', 'green', 'blue-berry', 'red', 'orange'],
-      cegDependency: { name: 'type', value: 'simple' },
+      cegDependency: [
+        { name: 'type', value: 'simple' },
+        { name: 'shape', value: 'square' },
+      ],
     },
     hasBorder: {
       isRequired: false,
@@ -90,7 +93,7 @@ const cardData = {
       cegDefault: 'false',
       cegOption: 'true',
       cegSlot: '<i class="e-icon e-icon--electricity_safety-color e-icon--md"></i>',
-      cegDependency: { name: 'type', value: 'simple' },
+      cegDependency: [{ name: 'type', value: 'simple' }],
     },
     cornerIcon: {
       isRequired: false,
@@ -102,7 +105,7 @@ const cardData = {
       cegDefault: 'false',
       cegOption: 'true',
       cegSlot: '<i class="e-icon e-icon--lock e-icon--xs"></i>',
-      cegDependency: { name: 'type', value: 'detail' },
+      cegDependency: [{ name: 'type', value: 'detail' }],
     },
   },
   package: 'npm install @elvia/elvis-card',
