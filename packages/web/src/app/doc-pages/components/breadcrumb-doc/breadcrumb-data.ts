@@ -27,6 +27,13 @@ const breadcrumbData = {
     { url: 'https://design.elvia.io/components/breadcrumb', title: 'Breadcrumbs' }
   ]"
 ></elvia-breadcrumb>`,
+  codeVue: `<elvia-breadcrumb
+  :breadcrumbs="[
+    { url: 'https://design.elvia.io/', title: 'Home' },
+    { url: 'https://design.elvia.io/components', title: 'Components' },
+    { url: 'https://design.elvia.io/components/breadcrumb', title: 'Breadcrumbs' }
+  ]"
+></elvia-breadcrumb>`,
   codeNativeHTML: `<elvia-breadcrumb id="example-elvia-breadcrumb">
 </elvia-breadcrumb>`,
   codeNativeScript: ` const breadcrumb = document.getElementById('example-elvia-breadcrumb');

@@ -67,6 +67,10 @@ export const dividerData = {
 >
   <h2 slot="title">Title</h2>
 </elvia-divider>`,
+  codeVue: `<elvia-divider
+>
+  <h2 slot="title">Title</h2>
+</elvia-divider>`,
   codeNativeHTML: `<elvia-divider
 >
   <h2 slot="title">Title</h2>
