@@ -37,7 +37,7 @@ type CardAreaProps = {
 
 export const CardArea = styled.div<CardAreaProps>`
   position: relative;
-  display: flex;
+  display: inline-flex;
   flex: 1;
   background: ${(props: { shape: CardShape }) =>
     props.shape === 'circle' ? 'transparent' : colors.elviaWhite};
@@ -127,6 +127,9 @@ export const CardIcon = styled.div`
 
   transition: transform 0.3s ease-in-out;
   ${CardArea}:hover & {
+    -o-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
 `;
