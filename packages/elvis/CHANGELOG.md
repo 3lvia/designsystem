@@ -6,6 +6,32 @@
   <tr class="changelog-row">
     <td class="e-w-25 changelog-date">
       <span class="e-title-sm">
+        7.14.0
+      </span>
+      <br>
+      <span>
+        December 21, 2021
+      </span>
+    </td>
+    <td class="changelog-content">
+      <div class="changelog-section">
+        <div class="changelog-section-title">💥 New Features</div>
+          <div>Component: 
+            <a class="e-link e-link--inline" href="https://design.elvia.io/brand/typography#Overview">Typography</a> 
+          </div>
+          <ul class="e-list">
+            <li>
+              Added typography text-lead-strong. 
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-divider"></div>
+    </td>
+  </tr>
+  <tr class="changelog-row">
+    <td class="e-w-25 changelog-date">
+      <span class="e-title-sm">
         7.13.5
       </span>
       <br>

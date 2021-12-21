@@ -87,6 +87,21 @@ module.exports = [
     ],
   },
   {
+    name: 'text-lead-strong',
+    properties: [
+      { key: 'family', value: 'Red Hat Text' },
+      { key: 'size', value: '24px' },
+      { key: 'size-m', value: '22px' },
+      { key: 'weight', value: '500' },
+      { key: 'height', value: '39px' },
+      { key: 'height-m', value: '36px' },
+      { key: 'letter-spacing', value: 'unset' },
+      { key: 'style', value: 'unset' },
+      { key: 'transform', value: 'unset' },
+      { key: 'color', value: 'inherit' },
+    ],
+  },
+  {
     name: 'text-lg',
     altLabels: ['text-body'],
     properties: [

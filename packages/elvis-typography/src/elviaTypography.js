@@ -72,6 +72,18 @@ export default {
     textTransform: 'unset',
     color: 'inherit',
   },
+  'text-lead-strong': {
+    fontFamily: '"Red Hat Text", Verdana, sans-serif',
+    fontSize: '24px',
+    fontSizeMobile: '22px',
+    fontWeight: '500',
+    lineHeight: '39px',
+    lineHeightMobile: '36px',
+    letterSpacing: 'unset',
+    fontStyle: 'unset',
+    textTransform: 'unset',
+    color: 'inherit',
+  },
 
   'text-lg': {
     fontFamily: '"Red Hat Text", Verdana, sans-serif',

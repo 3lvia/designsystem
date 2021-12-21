@@ -94,8 +94,19 @@
   text-transform: unset;
   color: inherit;
 }
+.e-text-lead-strong {
+  font-family: 'Red Hat Text', Verdana, sans-serif;
+  font-size: 24px;
+  line-height: 39px;
+  font-weight: 500;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: inherit;
+}
 @media (max-width: 767px) {
-  .e-text-lead {
+  .e-text-lead,
+  .e-text-lead-strong {
     font-size: 22px;
     line-height: 36px;
   }

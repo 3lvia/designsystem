@@ -12598,6 +12598,28 @@ THE SOFTWARE.
   font-weight: 500;
 }
 
+.e-text-lead-strong {
+  font-family: Red Hat Text, Verdana, sans-serif;
+  font-size: 24px;
+  line-height: 39px;
+  font-weight: 500;
+  font-style: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: inherit;
+}
+@media (max-width: 767px) {
+  .e-text-lead-strong {
+    font-size: 22px;
+    line-height: 36px;
+  }
+}
+
+.e-text-lead-strong b,
+.e-text-lead-strong strong {
+  font-weight: 500;
+}
+
 .e-text-body {
   font-family: Red Hat Text, Verdana, sans-serif;
   font-size: 20px;
