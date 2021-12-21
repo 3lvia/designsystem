@@ -24,7 +24,7 @@ const modalData = {
       cegDefault: 'false',
       cegOption: 'true',
       cegSlot: '<img alt="modal-illustration" src="./../../../../assets/modal/Empty state.png"/>',
-      cegDependency: { name: 'type', value: ['actions', 'info'] },
+      cegDependency: [{ name: 'type', value: ['actions', 'info'] }],
     },
     primaryButton: {
       isRequired: false,

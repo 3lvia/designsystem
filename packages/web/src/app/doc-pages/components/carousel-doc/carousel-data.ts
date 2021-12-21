@@ -35,7 +35,7 @@ export const carouselData = {
       cegFormType: 'checkbox',
       cegOption: 'true',
       cegDisplayGroup: 'Options',
-      cegDependency: { name: 'hideArrows', value: 'true' },
+      cegDependency: [{ name: 'hideArrows', value: 'true' }],
     },
     onHide: {
       isRequired: false,
