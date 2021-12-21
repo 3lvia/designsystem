@@ -567,7 +567,13 @@ export const docPagesNotFromCMS: DocPage[] = [
   {
     title: 'Icons',
     // tslint:disable-next-line: max-line-length
-    description: `In our icon library, you’ll find all available icons in the design system as well as defined sizes for them. Missing a specific icon? Reach out to us.`,
+    description: `In our icon library, you’ll find all available icons in the design system, 
+    as well guides on how to use them. Missing a specific icon? Let us know on our slack channal 
+  <a class="e-link e-link--new-tab e-mr-8" href="https://elvia-group.slack.com/archives/C01C1DU9X1Q" target="_blank">
+  <span class="e-link__title">#designsystemet</span>
+  <span class="e-link__icon"><i class="e-icon e-icon--new_tab-bold"></i></span>
+</a>
+   and we’ll look into adding it to the library.`,
     docUrl: Pages.Icon,
     absolutePath: '/brand/' + Pages.Icon,
     status: DocPageStatus.Done,

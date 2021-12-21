@@ -31,13 +31,14 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   @Input() noPaddingX = false;
   @Input() noPaddingDesk = false;
   @Input() interactable = true;
+  @Input() isInverted = false;
 
   code = '';
   showTabs = true;
   screenTabOpen = 'desktop';
   codepen = '';
   displayCode = '';
-  isInverted = false;
+
   showIframe = false;
   desktopScreenWidth: boolean;
   activeTab = 0;
@@ -46,6 +47,7 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.updateVisibleTabs();
     this.code = this.codeTS !== '' ? this.codeTS : this.codeHTML !== '' ? this.codeHTML : this.codeCSS;
+
     this.displayCode = this.code;
 
     if (!this.showIframeScreens) {
@@ -65,20 +67,15 @@ export class ComponentExampleV1Component implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.updateDefaultFrame();
-    if (this.codeInverted !== '' && this.showPreview) {
-      const elements = document.querySelectorAll('.e-toggle__input');
-      for (let i = 0; i < elements.length; i++) {
-        const item = elements.item(i) as HTMLInputElement;
-        setTimeout(() => {
-          item.checked = false;
-        });
-      }
-    }
   }
 
   updateDefaultFrame(): void {
     if (this.defaultFrame) {
-      this.defaultFrame.nativeElement.innerHTML = this.code;
+      if (!this.isInverted) {
+        this.defaultFrame.nativeElement.innerHTML = this.code;
+      } else {
+        this.defaultFrame.nativeElement.innerHTML = this.codeInverted;
+      }
     }
   }
 
