@@ -47,7 +47,7 @@ export const CardArea = styled.div<CardAreaProps>`
 
   min-width: ${(props: { minWidth: number }) => props.minWidth}px;
   max-width: ${(props: { maxWidth: number }) => props.maxWidth}px;
-  padding: ${(props: { shape: CardShape }) => (props.shape === 'square' ? '24px' : '0')};
+  padding: ${(props: { shape: CardShape }) => (props.shape === 'square' ? '24px' : '1px')};
   width: ${(props: { width: string }) => props.width};
   height: 100%;
   ${(props: { shape: CardShape }) => props.shape === 'circle' && 'aspect-ratio: 1/1;'}
@@ -126,9 +126,8 @@ export const CardIcon = styled.div`
   white-space: nowrap;
 
   transition: transform 0.3s ease-in-out;
+  -webkit-transition: transform 0.3s ease-in-out;
   ${CardArea}:hover & {
-    -o-transform: scale(1.1);
-    -ms-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
   }
