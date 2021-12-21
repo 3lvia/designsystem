@@ -1,5 +1,11 @@
 # Elvia Component Wrapper Changelog
 
+## 2.1.9 (21.12.21)
+
+### Bug fix
+
+- Conditional element style fix
+
 ## 2.1.8 (16.12.21)
 
 ### Bug fix

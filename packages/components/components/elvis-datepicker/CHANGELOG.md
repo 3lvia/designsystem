@@ -1,5 +1,9 @@
 # Elvia Date picker Changelog
 
+## 2.0.3 (21.12.21)
+
+- Fullwidth prop fix
+
 ## 2.0.2 (08.12.21)
 
 - Added unit tests for datepicker

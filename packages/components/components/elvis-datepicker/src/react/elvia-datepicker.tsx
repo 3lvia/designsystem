@@ -2,7 +2,7 @@ import React, { FC, useState, useRef, useEffect } from 'react';
 import './style.scss';
 import classnames from 'classnames';
 import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/pickers';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createTheme, ThemeProvider } from '@material-ui/core/styles';
 import toolbox from '@elvia/elvis-toolbox';
 import DateFnsUtils from '@date-io/date-fns';
 import nbLocale from 'date-fns/locale/nb';
@@ -62,7 +62,7 @@ export const Datepicker: FC<DatepickerProps> = ({
     ['ewc-datepicker--unselected']: value === null,
     ['ewc-datepicker--full-width']: isFullWidth,
   });
-  const materialTheme = createMuiTheme({
+  const materialTheme = createTheme({
     props: {
       MuiButtonBase: {
         disableRipple: true,
