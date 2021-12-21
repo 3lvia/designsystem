@@ -1,5 +1,11 @@
 # Elvia Carousel Changelog
 
+## 1.0.7 (16.12.21)
+
+### Patch
+
+- Fix for slotting
+
 ## 1.0.5 (14.12.21)
 
 ### Patch

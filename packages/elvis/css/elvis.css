@@ -7504,7 +7504,10 @@ input:focus {
   width: 24px;
   height: 24px;
 }
-.e-fileupload---hover, .e-fileupload--dragover {
+.e-fileupload--dragover {
+  border-color: #29d305;
+}
+.e-fileupload---hover {
   border-color: #29d305;
 }
 

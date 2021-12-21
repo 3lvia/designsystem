@@ -58,6 +58,16 @@ const boxData = {
     <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
   </div>
 </elvia-box>`,
+  codeVue: `<elvia-box 
+>
+  <h1 slot="title">
+    Customer relations
+  </h1>
+  <div slot="content">
+    <elvia-tabs :items="['AMS-meter', 'Electric car', 'HAN-port']"></elvia-tabs>
+    <div class="e-mt-16">${exampleContents.texts.sm['eng-GBR'].description}</div>
+  </div>
+</elvia-box>`,
   codeNativeHTML: `<elvia-box 
 >
   <h1 slot="title">

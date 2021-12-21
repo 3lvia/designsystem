@@ -51,6 +51,11 @@ const elvisIconData = {
 >
 </elvia-icon>
 `,
+  codeVue: `<elvia-icon
+  :name="'addCircle'"
+>
+</elvia-icon>
+`,
   codeNativeScript: `const elvisIcon = document.getElementById('example-elvia-icon');
 `,
 };

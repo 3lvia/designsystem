@@ -13,7 +13,7 @@
         class="e-radio e-radio--sm"
         for="{{ formGroup.label }}-{{ formField.name }}-{{ desktop }}"
         (change)="
-          onInputValueChange(formGroup, $event);
+          onInputValueChange(formGroup, undefined, formField.name);
           updateRadioProp(formGroup.propName, formField.name, formGroup.type)
         "
       >
@@ -40,7 +40,7 @@
       <label class="e-form-field__label">{{ formGroup.label }}</label>
       <label
         class="e-toggle"
-        (change)="onInputValueChange(formGroup, $event); updateToggleCheckboxProp(formGroup)"
+        (change)="onInputValueChange(formGroup, $event, undefined); updateToggleCheckboxProp(formGroup)"
       >
         <input
           *ngIf="formGroup.defaultValue === 'true'"
@@ -71,7 +71,9 @@
         <label
           class="e-checkbox e-checkbox--sm"
           for="{{ formField.propName }}-{{ desktop }}"
-          (change)="onInputValueChange(formField, $event); updateToggleCheckboxProp(formGroup, formField)"
+          (change)="
+            onInputValueChange(formField, $event, undefined); updateToggleCheckboxProp(formGroup, formField)
+          "
           *ngIf="formField | visibleFields: formStates"
         >
           <input

@@ -1,5 +1,11 @@
 # Elvia Component Wrapper Changelog
 
+## 2.1.8 (16.12.21)
+
+### Bug fix
+
+- New config for some components to support slotting
+
 ## 2.1.7 (22.11.21)
 
 ### Bug fix

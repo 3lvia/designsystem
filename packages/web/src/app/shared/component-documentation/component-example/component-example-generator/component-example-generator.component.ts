@@ -329,6 +329,7 @@ export class ComponentExampleGeneratorComponent implements OnInit, AfterContentI
     if (this.codeAngular.includes(attr)) {
       this.codeReact = this.cegService.replaceOldProp(this.codeReact, attr, newValue, 'react', cegType);
       this.codeAngular = this.cegService.replaceOldProp(this.codeAngular, attr, newValue, 'angular', cegType);
+      this.codeVue = this.cegService.replaceOldProp(this.codeVue, attr, newValue, 'vue', cegType);
       this.codeNative = this.cegService.replaceOldProp(this.codeNative, attr, newValue, 'native', cegType);
     } else {
       this.codeReact = this.cegService.addNewProp(this.codeReact, attr, newValue, 'react', cegType, elNameR);

@@ -2,139 +2,157 @@
   <h1>Vue 3 Preview</h1>
 
   <div class="components-examples">
-    <div class="previewDivider"></div>
-
-    <h3>Accordion</h3>
-    <elvia-accordion
-      content="any text of your choice"
-      openLabel="Show"
-      closeLabel="Hide"
-      size="medium"
-      type="normal"
-    ></elvia-accordion>
-
-    <h3>Box</h3>
-    <elvia-box :hasBorder="true">
-      <div slot="title">Title</div>
-      <div slot="content">Webcomponentent content for the box component</div>
-    </elvia-box>
-
-    <h3>Breadcrumb</h3>
-    <elvia-breadcrumb :breadcrumbs="breadcrumbsTest"></elvia-breadcrumb>
-
-    <h3>Carousel</h3>
-    <elvia-carousel
-      :elements="elements"
-      :hideArrows="true"
-      @value-on-change="carouselValue = $event.detail.value"
-    ></elvia-carousel>
-
-    <h3>Chip</h3>
-    <div v-for="chip in deletableChipsList" :key="chip.value">
-      <elvia-chip
-        :value="chip.value"
-        :color="chip.color"
-        :ariaLabel="'Fjern filtrering for ' + chip.value"
-        :disabled="chip.disabled"
-        @on-delete="handleOnDelete($event)"
-      ></elvia-chip>
+    <div class="example-wrapper">
+      <h3>Accordion</h3>
+      <elvia-accordion openLabel="Show" closeLabel="Hide" size="medium" type="normal">
+        <div slot="content">Webcomponentent content for the Accordion component</div>
+      </elvia-accordion>
     </div>
 
-    <h3>Datepicker</h3>
-    <elvia-datepicker
-      :isCompact="true"
-      label="Fra dato"
-      @value-on-change="onFromDateChange($event)"
-    ></elvia-datepicker>
+    <div class="example-wrapper">
+      <h3>Box</h3>
+      <elvia-box :hasBorder="true">
+        <div slot="title">Title</div>
+        <div slot="content">Webcomponentent content for the Box component</div>
+      </elvia-box>
+    </div>
 
-    <h3>Divider</h3>
-    <elvia-divider></elvia-divider>
+    <div class="example-wrapper">
+      <h3>Breadcrumb</h3>
+      <elvia-breadcrumb :breadcrumbs="breadcrumbsTest"></elvia-breadcrumb>
+    </div>
 
-    <h3>Dropdown</h3>
-    <elvia-dropdown :defaultValue="defaultOption" :options="elviaOptions"></elvia-dropdown>
-
-    <h3>Icon</h3>
-    <elvia-icon :name="'addCircle'" :color="'green'" :customSize="'5rem'"></elvia-icon>
-    <elvia-icon :name="'sortingBold'" :color="'red'" :customSize="'5rem'"></elvia-icon>
-
-    <h3>Modal</h3>
-    <button class="e-btn" @click="isModalShowing1 = !isModalShowing1">Hello</button>
-    <elvia-modal
-      :isShowing="isModalShowing1"
-      :title="'Redigere bidragsytere'"
-      :hasCloseBtn="true"
-      @on-hide="isModalShowing1 = !isModalShowing1"
-    >
-      <div slot="content">
-        <div class="date-container">
-          <elvia-datepicker :isCompact="true"></elvia-datepicker>
+    <div class="example-wrapper">
+      <h3>Carousel</h3>
+      <elvia-carousel :hideArrows="true" @value-on-change="carouselValue = $event.detail.value">
+        <div slot="title-1">
+          <h4 class="e-title-sm">HAN-port</h4>
         </div>
+        <div slot="element-1">hello</div>
+        <div slot="title-2">
+          <h4 class="e-title-sm">AMS-meter</h4>
+        </div>
+        <div slot="element-2">halla</div>
+        <div slot="title-3">
+          <h4 class="e-title-sm">YOYOYO</h4>
+        </div>
+        <div slot="element-3">hei</div>
+      </elvia-carousel>
+    </div>
+
+    <div class="example-wrapper">
+      <h3>Chip</h3>
+      <div v-for="chip in deletableChipsList" :key="chip.value">
+        <elvia-chip
+          :value="chip.value"
+          :color="chip.color"
+          :ariaLabel="'Fjern filtrering for ' + chip.value"
+          :disabled="chip.disabled"
+          @on-delete="handleOnDelete($event)"
+        ></elvia-chip>
       </div>
-      <div slot="secondaryButton">
-        <button class="e-btn e-btn--secondary e-btn--lg" @click="isModalShowing1 = false">Avbryt</button>
-      </div>
-      <div slot="primaryButton"><button class="e-btn e-btn--primary e-btn--lg">Lagre</button></div>
-    </elvia-modal>
+    </div>
 
-    <h3>Pagination</h3>
-    <elvia-pagination items="156" :value="defaultPaginatioValue"></elvia-pagination>
+    <div class="example-wrapper">
+      <h3>Datepicker</h3>
+      <elvia-datepicker
+        :isCompact="true"
+        label="Fra dato"
+        @value-on-change="onFromDateChange($event)"
+      ></elvia-datepicker>
+    </div>
 
-    <h3>Popover</h3>
-    <elvia-popover header="BankID" posX="right">
-      <div slot="trigger"><button class="e-btn">Right top</button></div>
-      <div slot="content">
-        Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
-      </div>
-    </elvia-popover>
+    <div class="example-wrapper">
+      <h3>Divider</h3>
+      <elvia-divider></elvia-divider>
+      <elvia-divider :isInverted="false" :type="'title'">
+        <h2 slot="title">Title</h2>
+      </elvia-divider>
+      <elvia-divider :orientation="'vertical'" :isInverted="false">
+        <h2 slot="title">Title</h2>
+      </elvia-divider>
+    </div>
 
-    <h3>Progressbar</h3>
-    <elvia-progress-linear :value="50" :isIndeterminate="false" :isError="false"></elvia-progress-linear>
+    <div class="example-wrapper">
+      <h3>Dropdown</h3>
+      <elvia-dropdown :defaultValue="defaultOption" :options="elviaOptions"></elvia-dropdown>
+    </div>
 
-    <h3>Radio Filter</h3>
-    <elvia-radio-filter
-      :items="[
-        { label: 'All', value: 'all' },
-        { label: 'Read', value: 'read' },
-        { label: 'Unread', value: 'unread' },
-      ]"
-      :value="'read'"
-      :name="'readRadioFilters'"
-      :ariaLabel="'{value} filtrering valgt'"
-      @value-on-change="updateSelectedFilter($event)"
-    ></elvia-radio-filter>
+    <div class="example-wrapper">
+      <h3>Modal</h3>
+      <button class="e-btn" @click="isModalShowing1 = !isModalShowing1">Hello</button>
+      <elvia-modal
+        :isShowing="isModalShowing1"
+        :title="'Redigere bidragsytere'"
+        :hasCloseBtn="true"
+        @on-hide="isModalShowing1 = !isModalShowing1"
+      >
+        <div slot="content">
+          <div class="date-container">
+            <elvia-datepicker :isCompact="true"></elvia-datepicker>
+          </div>
+        </div>
+        <div slot="secondaryButton">
+          <button class="e-btn e-btn--secondary e-btn--lg" @click="isModalShowing1 = false">Avbryt</button>
+        </div>
+        <div slot="primaryButton"><button class="e-btn e-btn--primary e-btn--lg">Lagre</button></div>
+      </elvia-modal>
+    </div>
 
-    <h3>Tabs</h3>
-    <elvia-tabs
-      :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
-      :value="1"
-      :isInverted="false"
-      @callback-name="value = $event.detail.value"
-    ></elvia-tabs>
+    <div class="example-wrapper">
+      <h3>Pagination</h3>
+      <elvia-pagination items="156" :value="defaultPaginatioValue"></elvia-pagination>
+    </div>
+
+    <div class="example-wrapper">
+      <h3>Popover</h3>
+      <elvia-popover header="BankID" posX="right">
+        <div slot="trigger"><button class="e-btn">Right top</button></div>
+        <div slot="content">
+          Alle privatkunder må bruke BankID første gang. Alle privatkunder må bruke BankID første gang.
+        </div>
+      </elvia-popover>
+    </div>
+
+    <div class="example-wrapper">
+      <h3>Progressbar</h3>
+      <elvia-progress-linear :value="50" :isIndeterminate="false" :isError="false"></elvia-progress-linear>
+    </div>
+
+    <div class="example-wrapper">
+      <h3>Radio Filter</h3>
+      <elvia-radio-filter
+        :items="[
+          { label: 'All', value: 'all' },
+          { label: 'Read', value: 'read' },
+          { label: 'Unread', value: 'unread' },
+        ]"
+        :value="'read'"
+        :name="'readRadioFilters'"
+        :ariaLabel="'{value} filtrering valgt'"
+        @value-on-change="updateSelectedFilter($event)"
+      ></elvia-radio-filter>
+    </div>
+
+    <div class="example-wrapper">
+      <h3>Tabs</h3>
+      <elvia-tabs
+        :items="['Epler', 'Appelsin', 'Bananer', 'Druer', 'Kiwi']"
+        :value="1"
+        :isInverted="false"
+        @callback-name="value = $event.detail.value"
+      ></elvia-tabs>
+    </div>
   </div>
 </template>
 
 <script>
-import '@elvia/elvis-accordion';
-import '@elvia/elvis-box';
-import '@elvia/elvis-breadcrumb';
-import '@elvia/elvis-carousel';
-import '@elvia/elvis-chip';
-import '@elvia/elvis-datepicker';
-import '@elvia/elvis-divider';
-import '@elvia/elvis-dropdown';
-import '@elvia/elvis-icon';
-import '@elvia/elvis-modal';
-import '@elvia/elvis-pagination';
-import '@elvia/elvis-popover';
-import '@elvia/elvis-progress-linear';
-import '@elvia/elvis-radio-filter';
-import '@elvia/elvis-tabs';
-
 export default {
   name: 'App',
   data: function () {
     return {
       isModalShowing1: false,
+      isModalShowing: false,
       defaultPaginatioValue: { start: 1, end: 10 },
       defaultOption: { value: '675', label: 'Mast - Råte' },
       elviaOptions: [
@@ -194,49 +212,6 @@ export default {
   },
 };
 </script>
-
-<style>
-@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,400i,500,700,900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Red+Hat+Text:400,400i,500&display=swap');
-
-#app {
-  /* font-family: Avenir, Helvetica, Arial, sans-serif; */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #000;
-  margin-top: 24px;
-  font-family: 'Red Hat Text';
-}
-
-.previewDivider {
-  height: 4px;
-  background: #29d305;
-  margin-bottom: 16px;
-}
-.components-examples {
-  max-width: 700px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-h1 {
-  text-align: center;
-  font-family: 'Red Hat Display';
-}
-h3 {
-  font-size: 24px;
-  margin: 48px 0 12px;
-  font-family: 'Red Hat Display';
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+<style scoped>
+@import './App.scss';
 </style>

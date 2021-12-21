@@ -1,5 +1,11 @@
 # Elvia Divider Changelog
 
+## 1.1.5 (16.12.21)
+
+### Patch
+
+- Fix for slotting
+
 ## 1.1.3 (03.12.21)
 
 ### Patch

@@ -102,7 +102,10 @@
   <div class="ceg-row-2" [ngClass]="{ 'full-width': inlineExample }">
     <elvia-accordion openLabel="View code" closeLabel="Hide code" size="small" type="normal">
       <div slot="content">
-        <app-component-example-code [componentData]="componentData"></app-component-example-code>
+        <app-component-example-code
+          [componentData]="componentData"
+          [inlineExample]="inlineExample"
+        ></app-component-example-code>
       </div>
     </elvia-accordion>
   </div>

@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class ComponentExampleCodeComponent implements OnInit, OnChanges {
   @Input() componentData;
+  @Input() inlineExample;
   @Input() codeTS = '';
   @Input() codeHTML = '';
   @Input() codeCSS = '';
@@ -144,6 +145,11 @@ export class ComponentExampleCodeComponent implements OnInit, OnChanges {
       this.codeReact = this.componentData.codeReact;
       this.codeNative = this.componentData.codeNativeHTML;
       this.codeVue = this.componentData.codeVue;
+    }
+    if (this.inlineExample) {
+      this.updateTabs();
+      this.setCodePenValue();
+      return;
     }
     this.codeAngularSub = this.codeService.listenCodeAngular().subscribe((newCode: string) => {
       this.codeAngular = newCode;

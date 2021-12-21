@@ -1,9 +1,9 @@
-@use "../variables/colors";
-@use "../variables/typography";
-@use "../utilities/breakpoints";
-@use "../utilities/outline";
-@use "../utilities/icons";
-@use "../utilities/helpers";
+@use '../variables/colors';
+@use '../variables/typography';
+@use '../utilities/breakpoints';
+@use '../utilities/outline';
+@use '../utilities/icons';
+@use '../utilities/helpers';
 
 $link-lg-font-size: 18px;
 $link-md-font-size: 16px;
@@ -96,7 +96,7 @@ $grey-ten: colors.color('grey-10');
     line-height: 100%;
   }
 
-  // External is deprecated. External -> New tab
+  // DEPRECATED
   &.e-link--external,
   &.e-link--new-tab {
     .e-link__icon {
@@ -184,6 +184,7 @@ $grey-ten: colors.color('grey-10');
     }
   }
 
+  // DEPRECATED
   &.e-link--jumbo {
     @include typography.typography('title-xs');
     display: inline-flex;
@@ -254,6 +255,7 @@ $grey-ten: colors.color('grey-10');
     }
   }
 
+  // DEPRECATED
   &.e-link--card {
     width: unset;
     display: inline-flex;
