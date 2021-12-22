@@ -7,11 +7,9 @@ describe('Elvis Card', () => {
   let wrapper;
   let cardArea;
   let cardColoredLine;
-  let cardContent;
   let cardIcon;
   let cardHeader;
   let cardDescription;
-  let cardLabelContainer;
   let cardLabel;
   let cardHoverArrow;
   let cardCornerIcon;
@@ -52,6 +50,11 @@ describe('Elvis Card', () => {
 
     it('should have shape square', function (done) {
       expect(cardArea.at(0).getDOMNode()).toHaveStyle(`border-radius: 8px`);
+      done();
+    });
+
+    it('should have border', function (done) {
+      expect(cardArea.at(0).getDOMNode()).toHaveStyle(`border: 1px solid ${getColor('grey-10')}`);
       done();
     });
 
@@ -178,12 +181,8 @@ describe('Elvis Card', () => {
       expect(cardIcon.at(0).text()).toBe('IconHover');
       done();
     });
-
-    it('should have default minWidth', function (done) {
-      expect(cardArea.at(0).getDOMNode()).toHaveStyle(`min-width: 112px`);
-      done();
-    });
   });
+
   describe('Type = simple square, no border', () => {
     beforeEach(() => {
       wrapper = mount(<Card icon={'Icon'} hasBorder={false}></Card>);
@@ -271,7 +270,7 @@ describe('Elvis Card', () => {
       wrapper.unmount();
     });
 
-    it('should have no icon', function (done) {
+    it('should not have icon', function (done) {
       expect(cardIcon.length).toEqual(0);
       done();
     });
@@ -307,7 +306,7 @@ describe('Elvis Card', () => {
       done();
     });
 
-    it('should have max 5 lines of description text', function (done) {
+    it('should have default lines of description text', function (done) {
       expect(cardDescription.at(0).getDOMNode()).toHaveStyle(`line-clamp: 5;`);
       done();
     });
