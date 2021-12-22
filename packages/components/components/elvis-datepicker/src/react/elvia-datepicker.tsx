@@ -258,10 +258,14 @@ export const Datepicker: FC<DatepickerProps> = ({
 
     return (
       <div className="ewc-datepicker__toolbar">
-        <div className="ewc-datepicker__toolbar-today">
-          <span className="ewc-capitalize">{format(date, 'EEEE', { locale: nbLocale })}&#32;</span>
-          {format(date, 'd. MMMM', { locale: nbLocale })}
-        </div>
+        {shouldHaveSelected ? (
+          <div className="ewc-datepicker__toolbar-today">
+            <span className="ewc-capitalize">{format(date, 'EEEE', { locale: nbLocale })}&#32;</span>
+            {format(date, 'd. MMMM', { locale: nbLocale })}
+          </div>
+        ) : (
+          <div />
+        )}
         <button
           aria-label="Åpne år-velger"
           className="ewc-datepicker__toolbar-dropdown"

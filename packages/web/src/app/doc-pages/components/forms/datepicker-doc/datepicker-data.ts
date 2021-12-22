@@ -63,7 +63,7 @@ const datepickerData = {
       cegType: 'boolean',
       cegFormType: 'checkbox',
       cegOption: 'true',
-      cegDisplayGroup: 'State',
+      cegDisplayGroup: 'Options',
     },
     hasSelectDateOnOpen: {
       isRequired: false,
@@ -72,6 +72,7 @@ const datepickerData = {
       default: 'true',
       cegDisplayName: 'No selected on open',
       cegType: 'boolean',
+      cegDefault: true,
       cegFormType: 'checkbox',
       cegOption: 'false',
       cegDisplayGroup: 'Options',
