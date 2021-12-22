@@ -1,4 +1,5 @@
 #!/bin/bash
+# TODO: Build components only when changed
 cd packages/components
 echo 'Components - Building components...'
 yarn build
