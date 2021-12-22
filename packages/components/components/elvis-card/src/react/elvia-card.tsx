@@ -11,7 +11,7 @@ import {
   CardColoredLine,
   CardLabel,
   CardLabelContainer,
-  CardDetailHoverArrow,
+  CardHoverArrow,
   CardCornerIcon,
 } from './styledComponents';
 
@@ -149,18 +149,18 @@ const Card: FC<CardProps> = ({
           </CardDescription>
         )}
         {type === 'detail' && label && (
-          <CardLabelContainer data-testid="card-detail-label-container">
-            <CardLabel data-testid="card-detail-label">{label}</CardLabel>
+          <CardLabelContainer data-testid="card-label-container">
+            <CardLabel data-testid="card-label">{label}</CardLabel>
           </CardLabelContainer>
         )}
       </CardContent>
       {type === 'detail' && (
-        <CardDetailHoverArrow data-testid="card-detail-hover-arrow">
+        <CardHoverArrow data-testid="card-detail-hover-arrow">
           <i
             dangerouslySetInnerHTML={{ __html: arrowLongRight.getIcon(colors.elviaBlack) }}
             aria-hidden="true"
           ></i>
-        </CardDetailHoverArrow>
+        </CardHoverArrow>
       )}
       {type === 'detail' && cornerIcon && (
         <CardCornerIcon data-testid="card-corner-icon">{cornerIcon}</CardCornerIcon>

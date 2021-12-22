@@ -173,7 +173,7 @@ export const CardLabelContainer = styled.div`
   margin-top: 16px;
 `;
 
-export const CardDetailHoverArrow = styled.div`
+export const CardHoverArrow = styled.div`
   position: absolute;
   right: 16px;
   bottom: 16px;
