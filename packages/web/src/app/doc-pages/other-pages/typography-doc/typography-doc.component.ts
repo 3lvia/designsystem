@@ -33,7 +33,6 @@ export class TypographyDocComponent implements OnInit {
 `;
   exampleText = `<p>
   <span class="e-text-lead e-mr-16">Text Lead</span>
-  <span class="e-text-lead-strong e-mr-16">Text Lead Strong</span>
 </p>
 <p>
   <span class="e-text-lg e-mr-16">Text Large</span>
