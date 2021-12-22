@@ -70,7 +70,7 @@ const datepickerData = {
       type: 'boolean',
       description: 'Sets the current date to selected when opening the datepicker.',
       default: 'true',
-      cegDisplayName: 'No selected on open',
+      cegDisplayName: 'Select today on open',
       cegType: 'boolean',
       cegDefault: true,
       cegFormType: 'checkbox',
