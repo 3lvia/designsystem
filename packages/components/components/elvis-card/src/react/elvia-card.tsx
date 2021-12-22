@@ -121,7 +121,7 @@ const Card: FC<CardProps> = ({
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      {shape === 'square' && type === 'simple' && (
+      {shape === 'square' && type === 'simple' && borderColor && (
         <CardColoredLine borderColor={borderColor} data-testid="card-colored-line"></CardColoredLine>
       )}
       <CardContent shape={shape} data-testid="card-content">
