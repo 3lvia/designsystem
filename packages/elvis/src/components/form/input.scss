@@ -1,10 +1,10 @@
-@use "../../variables/colors";
-@use "../../variables/animation";
-@use "../../variables/shared-sizes";
-@use "../../variables/typography";
-@use "../../utilities/outline";
-@use "../../utilities/helpers";
-@use "../../utilities/icons";
+@use '../../variables/colors';
+@use '../../variables/animation';
+@use '../../variables/shared-sizes';
+@use '../../variables/typography';
+@use '../../utilities/outline';
+@use '../../utilities/helpers';
+@use '../../utilities/icons';
 
 $form-input-padding: 12px 16px;
 $form-input-padding-active: 11px 15px;
@@ -13,8 +13,8 @@ $form-input-padding-with-icon-active: 11px 43px 11px 15px;
 $form-input-border-radius: shared-sizes.$border-radius;
 $form-input-border: 1px solid colors.color('grey');
 
-$form-input-padding-compact: 5px 10px;
-$form-input-padding-compact-active: 4px 9px;
+$form-input-padding-compact: 4px 10px;
+$form-input-padding-compact-active: 3px 9px;
 
 .e-input {
   max-width: 448px;
