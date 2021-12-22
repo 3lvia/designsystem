@@ -65,6 +65,17 @@ const datepickerData = {
       cegOption: 'true',
       cegDisplayGroup: 'State',
     },
+    hasSelectDateOnOpen: {
+      isRequired: false,
+      type: 'boolean',
+      description: 'Sets the current date to selected when opening the datepicker.',
+      default: 'true',
+      cegDisplayName: 'No selected on open',
+      cegType: 'boolean',
+      cegFormType: 'checkbox',
+      cegOption: 'false',
+      cegDisplayGroup: 'Options',
+    },
     customError: {
       isRequired: false,
       type: 'string',

@@ -154,6 +154,7 @@ module.exports = [
       { name: 'isDisabled', type: 'boolean', propType: 'boolean' },
       { name: 'isFullWidth', type: 'boolean', propType: 'boolean' },
       { name: 'isRequired', type: 'boolean', propType: 'boolean' },
+      { name: 'hasSelectDateOnOpen', type: 'boolean', propType: 'boolean' },
       { name: 'customError', type: 'string', propType: 'string' },
     ],
     reactName: 'Datepicker',

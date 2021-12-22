@@ -19,6 +19,7 @@ export interface DatepickerProps {
   isDisabled?: boolean;
   isFullWidth?: boolean;
   isRequired?: boolean;
+  hasSelectDateOnOpen?: boolean;
   customError?: string;
   minDate?: Date;
   maxDate?: Date;
@@ -35,6 +36,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   isDisabled = false,
   isFullWidth = false,
   isRequired = false,
+  hasSelectDateOnOpen = true,
   customError,
   minDate,
   maxDate,
@@ -47,6 +49,7 @@ export const Datepicker: FC<DatepickerProps> = ({
   const [currErrorMessage, setCurrErrorMessage] = useState('');
   const [hasHadFocus, setHasHadFocus] = useState(false);
   const [hasFocus, setHasFocus] = useState(false);
+  const [shouldHaveSelected, setShouldHaveSelected] = useState(true);
   const datepickerRef = useRef<HTMLDivElement>(null);
   const datepickerPopoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -201,8 +204,13 @@ export const Datepicker: FC<DatepickerProps> = ({
   };
 
   const updateInputWithSelectedDate = () => {
-    if (selectedDate === null) {
+    if (selectedDate === null && hasSelectDateOnOpen) {
       handleDateChange(new Date());
+      setShouldHaveSelected(true);
+    } else if ((selectedDate === null && !hasSelectDateOnOpen) || !isValid(selectedDate)) {
+      setShouldHaveSelected(false);
+    } else if (selectedDate !== null) {
+      setShouldHaveSelected(true);
     }
   };
 
@@ -275,8 +283,9 @@ export const Datepicker: FC<DatepickerProps> = ({
     const today = new Date();
     const dayDate = new Date(day);
     const selDate = new Date(selected);
+
     const dayClasses = classnames('ewc-datepicker__day', {
-      ['ewc-datepicker__day-selected']: isSameDay(dayDate, selDate),
+      ['ewc-datepicker__day-selected']: isSameDay(dayDate, selDate) && shouldHaveSelected,
       ['ewc-datepicker__day-current']: isSameDay(dayDate, today),
       ['ewc-datepicker__day-disabled']: dayComponent.props.disabled,
     });
