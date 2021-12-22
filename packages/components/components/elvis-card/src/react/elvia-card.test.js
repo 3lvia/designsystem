@@ -3,7 +3,6 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { getColor } from '@elvia/elvis-colors';
 
-// TODO: Clean up unused wrapper.find() in each describe
 describe('Elvis Card', () => {
   let wrapper;
   let cardArea;
@@ -33,7 +32,6 @@ describe('Elvis Card', () => {
       );
       cardArea = wrapper.find({ 'data-testid': 'card-area' });
       cardColoredLine = wrapper.find({ 'data-testid': 'card-colored-line' });
-      cardContent = wrapper.find({ 'data-testid': 'card-content' });
       cardIcon = wrapper.find({ 'data-testid': 'card-icon' });
       cardHeader = wrapper.find({ 'data-testid': 'card-header' });
       cardDescription = wrapper.find({ 'data-testid': 'card-description' });
@@ -181,10 +179,6 @@ describe('Elvis Card', () => {
       );
       cardArea = wrapper.find({ 'data-testid': 'card-area' });
       cardColoredLine = wrapper.find({ 'data-testid': 'card-colored-line' });
-      cardIcon = wrapper.find({ 'data-testid': 'card-icon' });
-      cardHeader = wrapper.find({ 'data-testid': 'card-header' });
-      cardDescription = wrapper.find({ 'data-testid': 'card-description' });
-      cardLabelContainer = wrapper.find({ 'data-testid': 'card-label-container' });
       cardHoverArrow = wrapper.find({ 'data-testid': 'card-detail-hover-arrow' });
       cardCornerIcon = wrapper.find({ 'data-testid': 'card-corner-icon' });
     });
@@ -226,12 +220,8 @@ describe('Elvis Card', () => {
         ></Card>,
       );
       cardArea = wrapper.find({ 'data-testid': 'card-area' });
-      cardColoredLine = wrapper.find({ 'data-testid': 'card-colored-line' });
-      cardContent = wrapper.find({ 'data-testid': 'card-content' });
       cardIcon = wrapper.find({ 'data-testid': 'card-icon' });
-      cardHeader = wrapper.find({ 'data-testid': 'card-header' });
       cardDescription = wrapper.find({ 'data-testid': 'card-description' });
-      cardLabelContainer = wrapper.find({ 'data-testid': 'card-label-container' });
       cardLabel = wrapper.find({ 'data-testid': 'card-label' });
       cardHoverArrow = wrapper.find({ 'data-testid': 'card-detail-hover-arrow' });
       cardCornerIcon = wrapper.find({ 'data-testid': 'card-corner-icon' });
@@ -288,15 +278,7 @@ describe('Elvis Card', () => {
       wrapper = mount(
         <Card type={'detail'} label={'Label'} description={'Description'} maxDescriptionLines={3}></Card>,
       );
-      cardArea = wrapper.find({ 'data-testid': 'card-area' });
-      cardColoredLine = wrapper.find({ 'data-testid': 'card-colored-line' });
-      cardContent = wrapper.find({ 'data-testid': 'card-content' });
-      cardIcon = wrapper.find({ 'data-testid': 'card-icon' });
-      cardHeader = wrapper.find({ 'data-testid': 'card-header' });
       cardDescription = wrapper.find({ 'data-testid': 'card-description' });
-      cardLabelContainer = wrapper.find({ 'data-testid': 'card-label-container' });
-      cardLabel = wrapper.find({ 'data-testid': 'card-label' });
-      cardHoverArrow = wrapper.find({ 'data-testid': 'card-detail-hover-arrow' });
       cardCornerIcon = wrapper.find({ 'data-testid': 'card-corner-icon' });
     });
 
