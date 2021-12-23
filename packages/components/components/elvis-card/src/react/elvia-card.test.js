@@ -179,6 +179,8 @@ describe('Elvis Card', () => {
       expect(cardIcon.at(0).text()).toBe('Icon');
       wrapper.simulate('mouseenter');
       expect(cardIcon.at(0).text()).toBe('IconHover');
+      wrapper.simulate('mouseleave');
+      expect(cardIcon.at(0).text()).toBe('Icon');
       done();
     });
   });
