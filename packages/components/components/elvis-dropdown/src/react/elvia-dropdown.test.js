@@ -10,10 +10,23 @@ describe('Elvis Dropdown', () => {
 
   describe('Default', () => {
     beforeEach(() => {
-      wrapper = mount(<Dropdown></Dropdown>);
+      wrapper = mount(
+        <Dropdown
+          label={'Label'}
+          options={[
+            { value: '1', label: 'Option 1' },
+            { value: '2', label: 'Option 2' },
+            { value: '3', label: 'Option 3' },
+          ]}
+        ></Dropdown>,
+      );
       dropdownWrapper = wrapper.find({ 'data-testid': 'wrapper' });
       dropdownLabel = wrapper.find({ 'data-testid': 'label' });
       dropdownError = wrapper.find({ 'data-testid': 'error' });
+    });
+    it('should have label', function (done) {
+      expect(dropdownLabel.at(0).text()).toBe('Label');
+      done();
     });
     it('should not be disabled', function (done) {
       expect(dropdownWrapper.at(0).getDOMNode()).toHaveStyle('cursor: pointer');
