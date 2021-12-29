@@ -61,8 +61,8 @@ module.exports = [
     elementName: 'elvia-breadcrumb',
     attributes: [{ name: 'breadcrumbs', type: 'object', propType: 'object' }],
     reactName: 'Breadcrumb',
-    useWrapper: false,
-    slotItems: false,
+    useWrapper: true,
+    slotItems: true,
     reactTypescriptDeclaration: true,
   },
   {

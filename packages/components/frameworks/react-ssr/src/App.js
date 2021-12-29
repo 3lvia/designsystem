@@ -251,6 +251,13 @@ function App() {
       ></Pagination>
       <Carousel elements={elements} valueOnChange={setSelectedState}></Carousel>
       <h2>Breadcrumbs</h2>
+      <Breadcrumb
+        breadcrumbs={[
+          <a href="https://elvia.no">Elvia.no</a>,
+          <a href="https://www.elvia.no/nettleie">Nettleie</a>,
+          <a href="https://www.elvia.no/nettleie/elvias-leveringsplikt">Elvias leveringsplikt</a>,
+        ]}
+      ></Breadcrumb>
       <Breadcrumb breadcrumbs={breadcrumbs} />
       <h2>Box</h2>
       <Box

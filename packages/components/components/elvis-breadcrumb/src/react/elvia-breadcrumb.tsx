@@ -7,10 +7,11 @@ interface BreadcrumbLink {
 }
 
 interface BreadcrumbProps {
-  breadcrumbs: BreadcrumbLink[];
+  breadcrumbs: BreadcrumbLink[] | JSX.Element[];
+  webcomponent: any;
 }
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [], webcomponent }) => {
   const [childrenLength, setChildrenLength] = useState<number>(0);
   const [windowWidth, setWindowWidth] = useState<number | undefined>(undefined);
 
@@ -33,6 +34,34 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
     };
   });
 
+  useEffect(() => {
+    if (!webcomponent) {
+      return;
+    }
+    // Get slotted items from web component
+    const slots = webcomponent.getAllSlots();
+
+    const slotElements = Object.keys(slots).filter((el) => el.includes('breadcrumb-'));
+    if (slotElements.length !== 0) {
+      const newElements = mapSlottedItems(slots, slotElements);
+      // breadcrumbs = newElements;
+      breadcrumbs = newElements;
+      setChildrenLength(newElements.length);
+    }
+  }, [webcomponent]);
+
+  const mapSlottedItems = (slots: Record<string, any>, slotElements: string | any[]) => {
+    const newElements: JSX.Element[] = [];
+    for (let i = 1; i < slotElements.length + 1; i++) {
+      const title = Object.keys(slots).find((el) => {
+        return el === 'breadcrumb-' + i;
+      });
+      title && newElements.push(slots[title]);
+    }
+    return newElements;
+  };
+
+  console.log(breadcrumbs);
   if (childrenLength === 0) {
     return null;
   }
@@ -41,13 +70,24 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
     return (
       <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
         <StyledBreadcrumb.EWCBreadcrumbIconLeft />
-        <StyledBreadcrumb.EWCBreadcrumbLink
-          key={undefined}
-          href={breadcrumbs[childrenLength - 2].url}
-          isClickable={true}
-        >
-          {breadcrumbs[childrenLength - 2].title}
-        </StyledBreadcrumb.EWCBreadcrumbLink>
+        {'title' in breadcrumbs[childrenLength - 2] ? (
+          <StyledBreadcrumb.EWCBreadcrumbLink
+            key={undefined}
+            // "as any" to avoid type narrowing problem, ts2339
+            href={(breadcrumbs[childrenLength - 2] as any).url}
+            isClickable={true}
+          >
+            {(breadcrumbs[childrenLength - 2] as any).title}
+          </StyledBreadcrumb.EWCBreadcrumbLink>
+        ) : (
+          <StyledBreadcrumb.EWCBreadcrumbLink
+            {...(breadcrumbs[childrenLength - 2] as any).props}
+            key={undefined}
+            isClickable={true}
+          >
+            {(breadcrumbs[childrenLength - 2] as any).props.children}
+          </StyledBreadcrumb.EWCBreadcrumbLink>
+        )}
       </StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
     );
   };
@@ -56,26 +96,51 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ breadcrumbs = [] }) => {
     const desktopBreadcrumbs = breadcrumbs.map((breadcrumb, index) => {
       if (index == childrenLength - 1) {
         return (
-          <StyledBreadcrumb.EWCBreadcrumbLink
-            href={breadcrumb.url}
-            key={index}
-            isClickable={false}
-            data-testid="breadcrumb-desktop-last-link"
-          >
-            {breadcrumb.title}
-          </StyledBreadcrumb.EWCBreadcrumbLink>
+          <>
+            {'title' in breadcrumb ? (
+              <StyledBreadcrumb.EWCBreadcrumbLink
+                href={breadcrumb.url}
+                key={index}
+                isClickable={false}
+                data-testid="breadcrumb-desktop-last-link"
+              >
+                {breadcrumb.title}
+              </StyledBreadcrumb.EWCBreadcrumbLink>
+            ) : (
+              <StyledBreadcrumb.EWCBreadcrumbLink
+                {...breadcrumb.props}
+                key={index}
+                isClickable={false}
+                data-testid="breadcrumb-desktop-last-link"
+              >
+                {breadcrumb.props.children}
+              </StyledBreadcrumb.EWCBreadcrumbLink>
+            )}
+          </>
         );
       }
       return (
         <StyledBreadcrumb.EWCBreadcrumbDesktopWrapper key={index}>
-          <StyledBreadcrumb.EWCBreadcrumbLink
-            key={undefined}
-            href={breadcrumb.url}
-            isClickable={true}
-            data-testid="breadcrumb-desktop-multiple-links"
-          >
-            {breadcrumb.title}
-          </StyledBreadcrumb.EWCBreadcrumbLink>
+          {'title' in breadcrumb ? (
+            <StyledBreadcrumb.EWCBreadcrumbLink
+              key={undefined}
+              href={breadcrumb.url}
+              isClickable={true}
+              data-testid="breadcrumb-desktop-multiple-links"
+            >
+              {breadcrumb.title}
+            </StyledBreadcrumb.EWCBreadcrumbLink>
+          ) : (
+            <StyledBreadcrumb.EWCBreadcrumbLink
+              as={breadcrumb.type}
+              key={undefined}
+              isClickable={true}
+              {...breadcrumb.props}
+              data-testid="breadcrumb-desktop-multiple-links"
+            >
+              {breadcrumb.props.children}
+            </StyledBreadcrumb.EWCBreadcrumbLink>
+          )}
           <StyledBreadcrumb.EWCBreadcrumbIconRight />
         </StyledBreadcrumb.EWCBreadcrumbDesktopWrapper>
       );
