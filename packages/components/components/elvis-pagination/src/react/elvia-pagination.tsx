@@ -430,9 +430,9 @@ const Pagination: FC<PaginationProps> = ({
   }, [value]);
 
   return (
-    <StyledPaginator.Pagination isRightAligned={isRightAligned}>
+    <StyledPaginator.Pagination isRightAligned={isRightAligned} data-testid="pagination">
       <StyledPaginator.InfoContainer>
-        <StyledPaginator.InfoText>{labelDisplaying}</StyledPaginator.InfoText>
+        <StyledPaginator.InfoText data-testid="info-text">{labelDisplaying}</StyledPaginator.InfoText>
         <StyledPaginator.InfoDropdown>
           <Dropdown
             isCompact
@@ -441,18 +441,27 @@ const Pagination: FC<PaginationProps> = ({
             menuPosition={dropdownMenuPos}
             defaultValue={currentDisplayAmount}
             valueOnChange={(event: any) => onDropdownChangeHandler(event)}
+            data-testid="dropdown"
           ></Dropdown>
         </StyledPaginator.InfoDropdown>
-        <StyledPaginator.InfoAmount isMobile={windowWidth < 768}>
+        <StyledPaginator.InfoAmount isMobile={windowWidth < 768} data-testid="info-amount">
           {labelOf} {numberOfElements} {label}
         </StyledPaginator.InfoAmount>
       </StyledPaginator.InfoContainer>
       <StyledPaginator.SelectorArea>
-        <StyledPaginator.SelectorArrowBtn visible={isLeftArrow()} onClick={updateSelectedPageLeft}>
+        <StyledPaginator.SelectorArrowBtn
+          visible={isLeftArrow()}
+          onClick={updateSelectedPageLeft}
+          data-testid="selector-arrow-btn-left"
+        >
           <StyledPaginator.SelectorArrowLeft />
         </StyledPaginator.SelectorArrowBtn>
-        {showPaginationMenu ? <Paginators /> : null}
-        <StyledPaginator.SelectorArrowBtn visible={isRightArrow()} onClick={updateSelectedPageRight}>
+        {showPaginationMenu ? <Paginators data-testid="paginators" /> : null}
+        <StyledPaginator.SelectorArrowBtn
+          visible={isRightArrow()}
+          onClick={updateSelectedPageRight}
+          data-testid="selector-arrow-btn-right"
+        >
           <StyledPaginator.SelectorRighArrow />
         </StyledPaginator.SelectorArrowBtn>
       </StyledPaginator.SelectorArea>
