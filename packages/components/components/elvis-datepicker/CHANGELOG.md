@@ -1,5 +1,10 @@
 # Elvia Date picker Changelog
 
+## 2.1.0 (22.12.21)
+
+- Fullwidth prop fix
+- New prop: hasSelectDateOnOpen
+
 ## 2.0.2 (08.12.21)
 
 - Added unit tests for datepicker
