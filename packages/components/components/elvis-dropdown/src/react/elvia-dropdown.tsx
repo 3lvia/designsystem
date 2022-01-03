@@ -342,8 +342,13 @@ const Dropdown: React.FC<DropdownProps> = ({
   }, [errorMessage]);
 
   return (
-    <StyledDropdown.DropdownWrapper isDisabled={isDisabled} ref={dropdownRef}>
-      <StyledDropdown.DropdownLabel aria-label={label} isCompact={isCompact} htmlFor={selectId}>
+    <StyledDropdown.DropdownWrapper isDisabled={isDisabled} ref={dropdownRef} data-testid="wrapper">
+      <StyledDropdown.DropdownLabel
+        aria-label={label}
+        isCompact={isCompact}
+        htmlFor={selectId}
+        data-testid="label"
+      >
         {label}
       </StyledDropdown.DropdownLabel>
       <Select
@@ -376,7 +381,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         styles={customElviaStyles}
       ></Select>
 
-      {isError ? <ElviaError errorMessage={errorMessage}></ElviaError> : null}
+      {isError ? <ElviaError errorMessage={errorMessage} data-testid="error"></ElviaError> : null}
     </StyledDropdown.DropdownWrapper>
   );
 };
