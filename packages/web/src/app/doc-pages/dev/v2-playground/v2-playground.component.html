@@ -8,6 +8,8 @@
 
 <!--BODY-->
 <div class="page-body">
+  <elvia-divider type="title"></elvia-divider>
+  <div style="padding-bottom: 16px"></div>
   <button (click)="isModalShowing1 = !isModalShowing1">Hello</button>
   <elvia-modal
     (onHide)="isModalShowing1 = !isModalShowing1"
@@ -128,6 +130,84 @@
     <span *ngFor="let key of filteredKeys">
       <span *ngIf="filteredValues[key]">{{ key }},</span>
     </span>
+    <div style="padding-bottom: 16px"></div>
+    <h2>Card</h2>
+    <div class="e-grid">
+      <div class="row e-grid-gutters-ext e-grid-gutters-vertical">
+        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+          <a [routerLink]="['/components/card']">
+            <elvia-card [header]="'Header'" [description]="'Hover me!'">
+              <div slot="icon">91</div>
+              <div slot="iconHover">92</div>
+              <i slot="cornerIcon" class="e-icon e-icon--lock e-icon--xs"></i>
+            </elvia-card>
+          </a>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+          <a [routerLink]="['/components/card']">
+            <elvia-card [header]="'Hover!'" [borderColor]="'red'">
+              <i slot="icon" class="e-icon e-icon--search-bold e-icon--md"></i>
+              <i slot="iconHover" class="e-icon e-icon--search-bold-color e-icon--md"></i>
+              <i slot="cornerIcon" class="e-icon e-icon--unlock e-icon--xs"></i>
+            </elvia-card>
+          </a>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+          <a [routerLink]="['/components/card']">
+            <elvia-card
+              [header]="'Title3'"
+              [description]="'description3'"
+              [icon]="'3'"
+              [borderColor]="'green'"
+            ></elvia-card>
+          </a>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+          <a [routerLink]="['/components/card']">
+            <elvia-card
+              [header]="'Title4'"
+              [description]="'description4'"
+              [icon]="'4'"
+              [borderColor]="'blue-berry'"
+            ></elvia-card>
+          </a>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+          <a [routerLink]="['/components/card']">
+            <elvia-card [header]="'Title1'" [description]="'description1'">
+              <div slot="icon">91</div>
+            </elvia-card>
+          </a>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+          <a [routerLink]="['/components/card']">
+            <elvia-card [header]="'Title2'" [borderColor]="'red'">
+              <i slot="icon" class="e-icon e-icon--search-bold-color e-icon--md"></i>
+            </elvia-card>
+          </a>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+          <a [routerLink]="['/components/card']">
+            <elvia-card
+              [header]="'Title3'"
+              [description]="'description3'"
+              [icon]="'3'"
+              [borderColor]="'green'"
+            ></elvia-card>
+          </a>
+        </div>
+        <div class="col-sm-4 col-md-3 col-lg-3 col-xl-2dot4">
+          <a [routerLink]="['/components/card']">
+            <elvia-card
+              [header]="'Title4'"
+              [description]="'description4'"
+              [icon]="'ABC'"
+              [borderColor]="'blue-berry'"
+            ></elvia-card>
+          </a>
+        </div>
+      </div>
+    </div>
 
     <h2>Box</h2>
     <div style="padding: 8px">

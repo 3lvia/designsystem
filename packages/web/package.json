@@ -28,6 +28,7 @@
     "@contentful/rich-text-types": "^14.1.2",
     "@elvia/elvis": "*",
     "@elvia/elvis-accordion": "*",
+    "@elvia/elvis-card": "*",
     "@elvia/elvis-assets-icons": "*",
     "@elvia/elvis-box": "*",
     "@elvia/elvis-breadcrumb": "*",

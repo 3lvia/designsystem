@@ -20,9 +20,9 @@
   },
   "scripts": {
     "build:web": "yarn && cd packages/elvis-assets-icons && yarn run build && cd ../components && yarn run build && cd ../web && yarn run contentful && yarn run build:production && cd ../components/frameworks/react-ssr && yarn run production",
-    "prettier-elvis": "yarn prettier --write 'packages/elvis/**/*.js'",
-    "prettier-doc": "yarn prettier --write 'packages/web/src/**/*.ts'",
-    "prettier-comp": "yarn prettier --write 'packages/components/**/*.{js,ts,tsx}'",
+    "prettier-elvis": "yarn prettier --write \"packages/elvis/**/*.js\"",
+    "prettier-doc": "yarn prettier --write \"packages/web/src/**/*.ts\"",
+    "prettier-comp": "yarn prettier --write \"packages/components/**/*.{js,ts,tsx}\"",
     "eslint": "./node_modules/.bin/eslint --fix \"./**/*.{js,ts,tsx}\"",
     "lint-all": "yarn run prettier-elvis && yarn run prettier-doc && yarn run prettier-comp && yarn run eslint",
     "percy": "cd packages/elvis; yarn run percy",
