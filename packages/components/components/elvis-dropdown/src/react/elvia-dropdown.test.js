@@ -37,7 +37,7 @@ describe('Elvis Dropdown', () => {
       expect(dropdownLabel.at(0).getDOMNode()).toHaveStyle(`font-size: 16px; line-height: 23px`);
       done();
     });
-    it('should not be error', function (done) {
+    it('should not have error message', function (done) {
       expect(dropdownError.length).toEqual(0);
       done();
     });
@@ -60,7 +60,7 @@ describe('Elvis Dropdown', () => {
       );
       done();
     });
-    it('should not be error', function (done) {
+    it('should not have error message', function (done) {
       expect(dropdownError.length).toEqual(0);
       done();
     });
@@ -71,7 +71,7 @@ describe('Elvis Dropdown', () => {
       wrapper = mount(<Dropdown errorMessage="Error"></Dropdown>);
       dropdownError = wrapper.find({ 'data-testid': 'error' });
     });
-    it('should be error', function (done) {
+    it('should have error message', function (done) {
       expect(dropdownError.at(0).text()).toBe('Error');
       done();
     });
