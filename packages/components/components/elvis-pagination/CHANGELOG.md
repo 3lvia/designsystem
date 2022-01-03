@@ -1,6 +1,6 @@
 # Elvia Pagination Changelog
 
-## 1.0.7 (23.12.21)
+## 1.0.7 (03.01.22)
 
 ### Patches
 
