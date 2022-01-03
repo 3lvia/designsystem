@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/preset-env": "^7.16.4",
-    "@babel/preset-react": "^7.16.0",
-    "@babel/register": "^7.16.0",
+    "@babel/preset-env": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/register": "^7.16.7",
     "@elvia/elvis-accordion": "*",
     "@elvia/elvis-breadcrumb": "*",
     "@elvia/elvis-carousel": "*",
