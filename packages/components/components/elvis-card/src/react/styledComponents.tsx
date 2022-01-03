@@ -91,7 +91,7 @@ export const CardHeader = styled.div<CardHeaderProps>`
         ? typography.textSmStrong
         : typography.titleSm
       : typography.textMdStrong};
-  ${(props: { type: CardType }) => props.type === 'detail' && 'padding-bottom: 8px;'}
+  ${(props: { type: CardType }) => props.type === 'detail' && 'margin-bottom: 8px;'}
   text-align: ${(props: { type: CardType }) => (props.type === 'simple' ? 'center' : 'left')};
   color: ${colors.elviaBlack};
   display: -webkit-box;
