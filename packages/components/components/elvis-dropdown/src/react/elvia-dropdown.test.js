@@ -55,8 +55,9 @@ describe('Elvis Dropdown', () => {
       done();
     });
     it('should be compact', function (done) {
-      expect(dropdownLabel.at(0).getDOMNode()).toHaveStyle(`position: absolute; top: -5px; left: 8px;`);
-      expect(dropdownLabel.at(0).getDOMNode()).toHaveStyle(`font-size: 10px; line-height: 10px`);
+      expect(dropdownLabel.at(0).getDOMNode()).toHaveStyle(
+        `position: absolute; top: -5px; left: 8px; font-size: 10px; line-height: 10px`,
+      );
       done();
     });
     it('should not be error', function (done) {
