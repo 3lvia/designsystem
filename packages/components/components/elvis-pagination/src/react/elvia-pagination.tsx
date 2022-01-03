@@ -456,7 +456,7 @@ const Pagination: FC<PaginationProps> = ({
         >
           <StyledPaginator.SelectorArrowLeft />
         </StyledPaginator.SelectorArrowBtn>
-        {showPaginationMenu ? <Paginators /> : null}
+        {showPaginationMenu ? <Paginators data-testid="paginators" /> : null}
         <StyledPaginator.SelectorArrowBtn
           visible={isRightArrow()}
           onClick={updateSelectedPageRight}

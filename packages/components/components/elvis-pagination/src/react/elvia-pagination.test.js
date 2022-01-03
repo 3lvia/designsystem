@@ -1,15 +1,11 @@
 import Pagination from './elvia-pagination.tsx';
 import React from 'react';
 import { mount } from 'enzyme';
-import { getColor } from '@elvia/elvis-colors';
-
-const colors = {
-  green: getColor('green'),
-};
 
 describe('Elvis Pagination', () => {
   let wrapper;
   let paginator;
+  let paginatorNumbers;
   let infoText;
   let infoAmount;
   let selectorArrowLeft;
@@ -60,6 +56,7 @@ describe('Elvis Pagination', () => {
         ></Pagination>,
       );
       paginator = wrapper.find({ 'data-testid': 'pagination' });
+      paginatorNumbers = wrapper.find({ 'data-testid': 'paginators' });
       infoText = wrapper.find({ 'data-testid': 'info-text' });
       infoAmount = wrapper.find({ 'data-testid': 'info-amount' });
       selectorArrowLeft = wrapper.find({ 'data-testid': 'selector-arrow-btn-left' });
@@ -92,10 +89,11 @@ describe('Elvis Pagination', () => {
       expect(selectorArrowLeft.at(0).getDOMNode()).toHaveStyle(`visibility: visible`);
       done();
     });
-    it('should have hidden right arrow after clicking right arrow', function (done) {
-      for (let i = 0; i < 9; i++) {
-        selectorArrowRight.at(0).simulate('click');
-      }
+    it('should have hidden right arrow after clicking last paginator number', function (done) {
+      paginatorNumbers
+        .at(0)
+        .findWhere((node) => node.key() === 'lastPaginationNumber')
+        .simulate('click');
       expect(selectorArrowRight.at(0).getDOMNode()).toHaveStyle(`visibility: hidden`);
       done();
     });
